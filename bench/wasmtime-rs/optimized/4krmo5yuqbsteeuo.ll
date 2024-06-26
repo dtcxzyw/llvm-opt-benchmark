@@ -500,15 +500,10 @@ define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { i64, i32 } @_ZN14cap_primitives4time11system_time10SystemTime11checked_add17hd8cbaf1bc39df21fE.llvm.10561276912860805957(ptr noalias noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define hidden noundef { i64, i32 } @_ZN14cap_primitives4time11system_time10SystemTime11checked_add17hd8cbaf1bc39df21fE.llvm.10561276912860805957(ptr noalias noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = tail call { i64, i32 } @_ZN3std4time10SystemTime11checked_add17h8a1038a61aacc903E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i32 noundef %2)
-  %5 = extractvalue { i64, i32 } %4, 1
-  %6 = icmp eq i32 %5, 1000000000
-  %7 = extractvalue { i64, i32 } %4, 0
-  %spec.select = select i1 %6, i64 undef, i64 %7
-  %8 = insertvalue { i64, i32 } poison, i64 %spec.select, 0
-  %9 = insertvalue { i64, i32 } %8, i32 %5, 1
-  ret { i64, i32 } %9
+  %.fr = freeze { i64, i32 } %4
+  ret { i64, i32 } %.fr
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -2956,7 +2951,8 @@ _ZN4core4time8Duration3new17h2b271a0fd6558ad7E.llvm.10561276912860805957.exit: ;
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %14, align 8
   %15 = call { i64, i32 } @_ZN3std4time10SystemTime11checked_add17h8a1038a61aacc903E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, i64 noundef %11, i32 noundef %13)
-  %16 = extractvalue { i64, i32 } %15, 1
+  %.fr.i = freeze { i64, i32 } %15
+  %16 = extractvalue { i64, i32 } %.fr.i, 1
   %17 = icmp eq i32 %16, 1000000000
   br i1 %17, label %21, label %22
 
@@ -2976,7 +2972,7 @@ _ZN4core4time8Duration3new17h2b271a0fd6558ad7E.llvm.10561276912860805957.exit: ;
   unreachable
 
 22:                                               ; preds = %_ZN4core4time8Duration3new17h2b271a0fd6558ad7E.llvm.10561276912860805957.exit
-  %23 = extractvalue { i64, i32 } %15, 0
+  %23 = extractvalue { i64, i32 } %.fr.i, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   store i64 %23, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 8

@@ -118,13 +118,12 @@ define hidden { i32, i16 } @_ZN6parser7grammar11expressions4expr17hf459c0cb9d860
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i16, ptr %4, align 4, !range !16, !noundef !4
-  %6 = icmp eq i16 %5, 273
-  %7 = load i32, ptr %3, align 4
-  %.sroa.0.0 = select i1 %6, i32 undef, i32 %7
+  %6 = load i32, ptr %3, align 4
+  %.sroa.0.0 = freeze i32 %6
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  %8 = insertvalue { i32, i16 } poison, i32 %.sroa.0.0, 0
-  %9 = insertvalue { i32, i16 } %8, i16 %5, 1
-  ret { i32, i16 } %9
+  %7 = insertvalue { i32, i16 } poison, i32 %.sroa.0.0, 0
+  %8 = insertvalue { i32, i16 } %7, i16 %5, 1
+  ret { i32, i16 } %8
 }
 
 ; Function Attrs: nonlazybind uwtable

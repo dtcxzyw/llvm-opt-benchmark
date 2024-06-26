@@ -1478,7 +1478,7 @@ define internal fastcc void @"_ZN17meilisearch_types8settings17Settings$LT$T$GT$
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 248
   %12 = load i64, ptr %11, align 8
-  %.sroa.6.0 = select i1 %8, i64 %10, i64 undef
+  %.sroa.6.0 = freeze i64 %10
   %.sink22.i = zext i1 %8 to i64
   %.sink.i = select i1 %8, i64 %12, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2)
@@ -1582,7 +1582,7 @@ define hidden void @"_ZN17meilisearch_types8settings17Settings$LT$T$GT$12hide_se
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 248
   %12 = load i64, ptr %11, align 8
-  %.sroa.6.0 = select i1 %8, i64 %10, i64 undef
+  %.sroa.6.0 = freeze i64 %10
   %.sink22.i = zext i1 %8 to i64
   %.sink.i = select i1 %8, i64 %12, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2)
@@ -2137,7 +2137,7 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
   %22 = load i64, ptr %21, align 8, !noalias !287
   %23 = getelementptr inbounds i8, ptr %14, i64 16
   %24 = load i64, ptr %23, align 8, !noalias !287
-  %.sroa.4140.0.i = select i1 %20, i64 %22, i64 undef
+  %.sroa.4140.0.i = freeze i64 %22
   %.sink22.i.i = zext i1 %20 to i64
   %.sink.i.i = select i1 %20, i64 %24, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13), !noalias !287
@@ -3087,7 +3087,7 @@ common.resume:                                    ; preds = %324, %115, %86, %90
   %102 = getelementptr inbounds i8, ptr %0, i64 56
   %103 = load i64, ptr %102, align 8, !alias.scope !486, !noalias !489
   %.sroa.0.sroa.0.0.i = zext i1 %99 to i64
-  %.sroa.0.sroa.5.sroa.6.0.i = select i1 %99, i64 %101, i64 undef
+  %.sroa.0.sroa.5.sroa.6.0.i = freeze i64 %101
   %.sroa.5.0.i = select i1 %99, i64 %103, i64 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !491
   %104 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17heee2209a1bfc2aa6E, align 8, !range !20, !noalias !495, !noundef !4
@@ -3715,7 +3715,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.exit.i.i.i
   %311 = getelementptr inbounds i8, ptr %0, i64 328
   %312 = load i64, ptr %311, align 8, !alias.scope !565, !noalias !568
   %.sroa.0.sroa.0.0.i63 = zext i1 %308 to i64
-  %.sroa.0.sroa.5.sroa.6.0.i64 = select i1 %308, i64 %310, i64 undef
+  %.sroa.0.sroa.5.sroa.6.0.i64 = freeze i64 %310
   %.sroa.5.0.i65 = select i1 %308, i64 %312, i64 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !570
   %313 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17heee2209a1bfc2aa6E, align 8, !range !20, !noalias !574, !noundef !4
@@ -3855,7 +3855,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.exit.i.i.i
   %352 = load i64, ptr %351, align 8
   %.sroa.02.sroa.6.0 = zext i1 %348 to i64
   %.sroa.5.0 = select i1 %348, i64 %352, i64 0
-  %.sroa.02.sroa.5.sroa.6.0 = select i1 %348, i64 %350, i64 undef
+  %.sroa.02.sroa.5.sroa.6.0 = freeze i64 %350
   store i64 %.sroa.02.sroa.6.0, ptr %17, align 8
   %.sroa.02.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
   store ptr null, ptr %.sroa.02.sroa.5.0..sroa_idx, align 8

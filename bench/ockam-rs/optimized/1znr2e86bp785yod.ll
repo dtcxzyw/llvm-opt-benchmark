@@ -328,12 +328,9 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hdd271c4a9d8ebc0b
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden i40 @"_ZN4core6result19Result$LT$T$C$E$GT$3map17he70cefae645983f5E.llvm.9114549357374491183"(i40 %0) unnamed_addr #2 {
-  %trunc = trunc i40 %0 to i1
-  %sum.shift = and i40 %0, -65536
-  %.sroa.5.0.insert.ext = select i1 %trunc, i40 0, i40 %sum.shift
-  %2 = and i40 %0, 65281
-  %.sroa.03.0.insert.insert = or disjoint i40 %.sroa.5.0.insert.ext, %2
+define hidden noundef i40 @"_ZN4core6result19Result$LT$T$C$E$GT$3map17he70cefae645983f5E.llvm.9114549357374491183"(i40 %0) unnamed_addr #2 {
+  %.fr = freeze i40 %0
+  %.sroa.03.0.insert.insert = and i40 %.fr, -255
   ret i40 %.sroa.03.0.insert.insert
 }
 
@@ -634,37 +631,38 @@ define noundef nonnull align 1 dereferenceable(4) ptr @"_ZN71_$LT$ockam_multiadd
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str17h87ecdcc5527600a0E"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = tail call i40 @"_ZN4core3net6parser85_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$core..net..ip_addr..Ipv4Addr$GT$8from_str17hd014e4729a619195E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  %.fr.i = freeze i40 %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %.sroa.42.0.extract.shift.i = lshr i40 %4, 8
+  %.sroa.42.0.extract.shift.i = lshr i40 %.fr.i, 8
   %.sroa.42.0.extract.trunc.i = trunc i40 %.sroa.42.0.extract.shift.i to i8
-  %trunc.i4 = trunc i40 %4 to i1
-  br i1 %trunc.i4, label %9, label %5
+  %trunc.i = trunc i40 %.fr.i to i1
+  br i1 %trunc.i, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = lshr i40 %4, 16
-  %7 = trunc nuw i40 %6 to i24
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %.sroa.42.0.extract.trunc.i, ptr %8, align 1, !alias.scope !64
+  %.sroa.5.0.extract.shift.i = lshr i40 %.fr.i, 16
+  %.sroa.5.0.extract.trunc.i = trunc nuw i40 %.sroa.5.0.extract.shift.i to i24
+  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %.sroa.42.0.extract.trunc.i, ptr %6, align 1, !alias.scope !64
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 2
-  store i24 %7, ptr %.sroa.24.0..sroa_idx.i, align 2, !alias.scope !64
+  store i24 %.sroa.5.0.extract.trunc.i, ptr %.sroa.24.0..sroa_idx.i, align 2, !alias.scope !64
   store i8 8, ptr %0, align 8, !alias.scope !64
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb26d43449a02b856E.llvm.9114549357374491183.exit"
 
-9:                                                ; preds = %3
-  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !67
-  %11 = tail call noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef 1, i64 noundef 1) #20, !noalias !67
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i"
+7:                                                ; preds = %3
+  %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !67
+  %9 = tail call noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef 1, i64 noundef 1) #20, !noalias !67
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i"
 
-13:                                               ; preds = %9
+11:                                               ; preds = %7
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h047bf044e422c00fE(i64 noundef 1, i64 noundef 1) #17, !noalias !67
   unreachable
 
-"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i": ; preds = %9
-  store i8 %.sroa.42.0.extract.trunc.i, ptr %11, align 1, !noalias !67
+"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i": ; preds = %7
+  store i8 %.sroa.42.0.extract.trunc.i, ptr %9, align 1, !noalias !67
   store i8 7, ptr %0, align 8, !alias.scope !64
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %11, ptr %.sroa.45.0..sroa_idx.i, align 8, !alias.scope !64
+  store ptr %9, ptr %.sroa.45.0..sroa_idx.i, align 8, !alias.scope !64
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @anon.3459e9c811a6d28c77b5d7b0f168ab32.9.llvm.9114549357374491183, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !64
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb26d43449a02b856E.llvm.9114549357374491183.exit"

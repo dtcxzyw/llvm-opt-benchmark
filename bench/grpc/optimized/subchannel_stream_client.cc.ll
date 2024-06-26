@@ -2819,26 +2819,27 @@ entry:
   %recv_trailing_metadata_ = getelementptr inbounds i8, ptr %arg, i64 2952
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %arg, i64 2954
   %0 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
-  %and2.i.i.i.i.i = and i16 %0, 64
-  %cmp.i.i.not.i.i.not.i = icmp eq i16 %and2.i.i.i.i.i, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arg, i64 2972
   %1 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %retval.0.i = select i1 %cmp.i.i.not.i.i.not.i, i32 2, i32 %1
+  %retval.sroa.0.0.i = freeze i32 %1
+  %2 = and i16 %0, 64
+  %tobool.i.i.not = icmp eq i16 %2, 0
+  %retval.0.i = select i1 %tobool.i.i.not, i32 2, i32 %retval.sroa.0.0.i
   store i32 %retval.0.i, ptr %status, align 4
-  %2 = load i64, ptr %error, align 8
-  %cmp.i = icmp eq i64 %2, 0
+  %3 = load i64, ptr %error, align 8
+  %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  store i64 %2, ptr %agg.tmp5, align 8
-  %and.i.i.i = and i64 %2, 1
+  store i64 %3, ptr %agg.tmp5, align 8
+  %and.i.i.i = and i64 %3, 1
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.i.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %sub.i.i.i = add nsw i64 %2, -1
-  %3 = inttoptr i64 %sub.i.i.i to ptr
-  %4 = atomicrmw add ptr %3, i32 1 monotonic, align 4
+  %sub.i.i.i = add nsw i64 %3, -1
+  %4 = inttoptr i64 %sub.i.i.i to ptr
+  %5 = atomicrmw add ptr %4, i32 1 monotonic, align 4
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i, %if.then
@@ -2846,76 +2847,76 @@ invoke.cont:                                      ; preds = %if.then.i.i, %if.th
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont
-  %5 = load i64, ptr %agg.tmp5, align 8
-  %and.i.i.i13 = and i64 %5, 1
+  %6 = load i64, ptr %agg.tmp5, align 8
+  %and.i.i.i13 = and i64 %6, 1
   %cmp.i.i.i14 = icmp eq i64 %and.i.i.i13, 0
   br i1 %cmp.i.i.i14, label %if.end, label %if.then.i.i15
 
 if.then.i.i15:                                    ; preds = %invoke.cont10
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %5)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %6)
           to label %if.end unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i15
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #21
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #21
   unreachable
 
 lpad:                                             ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp5) #20
   br label %eh.resume
 
 if.end:                                           ; preds = %if.then.i.i15, %invoke.cont10, %entry
   %subchannel_stream_client_ = getelementptr inbounds i8, ptr %arg, i64 8
-  %9 = load ptr, ptr %subchannel_stream_client_, align 8
-  %tracer_ = getelementptr inbounds i8, ptr %9, i64 32
-  %10 = load ptr, ptr %tracer_, align 8
-  %cmp.not = icmp eq ptr %10, null
+  %10 = load ptr, ptr %subchannel_stream_client_, align 8
+  %tracer_ = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = load ptr, ptr %tracer_, align 8
+  %cmp.not = icmp eq ptr %11, null
   br i1 %cmp.not, label %if.end18, label %if.then12
 
 if.then12:                                        ; preds = %if.end
-  %11 = load i32, ptr %status, align 4
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 424, i32 noundef 1, ptr noundef nonnull @.str.25, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull %arg, i32 noundef %11)
+  %12 = load i32, ptr %status, align 4
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 424, i32 noundef 1, ptr noundef nonnull @.str.25, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %arg, i32 noundef %12)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then12, %if.end
   call void @_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE5ClearEv(ptr noundef nonnull align 8 dereferenceable(568) %recv_trailing_metadata_)
-  %12 = load ptr, ptr %subchannel_stream_client_, align 8
-  %mu_ = getelementptr inbounds i8, ptr %12, i64 56
-  call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
   %13 = load ptr, ptr %subchannel_stream_client_, align 8
-  %event_handler_ = getelementptr inbounds i8, ptr %13, i64 64
-  %14 = load ptr, ptr %event_handler_, align 8
-  %cmp.i.i.not = icmp eq ptr %14, null
+  %mu_ = getelementptr inbounds i8, ptr %13, i64 56
+  call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
+  %14 = load ptr, ptr %subchannel_stream_client_, align 8
+  %event_handler_ = getelementptr inbounds i8, ptr %14, i64 64
+  %15 = load ptr, ptr %event_handler_, align 8
+  %cmp.i.i.not = icmp eq ptr %15, null
   br i1 %cmp.i.i.not, label %if.end37, label %if.then27
 
 if.then27:                                        ; preds = %if.end18
-  %15 = load i32, ptr %status, align 4
-  %vtable = load ptr, ptr %14, align 8
+  %16 = load i32, ptr %status, align 4
+  %vtable = load ptr, ptr %15, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
-  %16 = load ptr, ptr %vfn, align 8
-  invoke void %16(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %13, i32 noundef %15)
+  %17 = load ptr, ptr %vfn, align 8
+  invoke void %17(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %14, i32 noundef %16)
           to label %if.end37 unwind label %lpad23
 
 lpad23:                                           ; preds = %if.end37, %if.then27
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %eh.resume unwind label %terminate.lpad.i16
 
 terminate.lpad.i16:                               ; preds = %lpad23
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #21
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #21
   unreachable
 
 if.end37:                                         ; preds = %if.then27, %if.end18
-  %20 = load i32, ptr %status, align 4
-  %cmp38 = icmp ne i32 %20, 12
+  %21 = load i32, ptr %status, align 4
+  %cmp38 = icmp ne i32 %21, 12
   invoke void @_ZN9grpc_core22SubchannelStreamClient9CallState15CallEndedLockedEb(ptr noundef nonnull align 8 dereferenceable(3648) %arg, i1 noundef zeroext %cmp38)
           to label %invoke.cont39 unwind label %lpad23
 
@@ -2924,17 +2925,17 @@ invoke.cont39:                                    ; preds = %if.end37
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit18 unwind label %terminate.lpad.i17
 
 terminate.lpad.i17:                               ; preds = %invoke.cont39
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #21
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #21
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit18:      ; preds = %invoke.cont39
   ret void
 
 eh.resume:                                        ; preds = %lpad23, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad ], [ %17, %lpad23 ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad ], [ %18, %lpad23 ]
   resume { ptr, i32 } %.pn
 }
 

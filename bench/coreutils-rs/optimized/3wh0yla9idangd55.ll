@@ -5144,6 +5144,7 @@ _ZN5uu_dd11BlockWriter12write_blocks17h4e5fbb1dd7bac5a6E.exit: ; preds = %398, %
 
 401:                                              ; preds = %_ZN5uu_dd11BlockWriter12write_blocks17h4e5fbb1dd7bac5a6E.exit
   %.sroa.0258.0.copyload = load i128, ptr %220, align 16
+  %.sroa.0258.0.copyload.fr = freeze i128 %.sroa.0258.0.copyload
   %.sroa.4259.0.copyload = load i64, ptr %.sroa.4259.0..sroa_idx, align 16
   %.sroa.5260.0.copyload = load i64, ptr %.sroa.5260.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %29)
@@ -5187,18 +5188,18 @@ _ZN5uu_dd11BlockWriter12write_blocks17h4e5fbb1dd7bac5a6E.exit: ; preds = %398, %
 
 411:                                              ; preds = %405
   %412 = icmp ugt i128 %.065, 9223372036854775807
-  %413 = trunc nuw nsw i128 %.065 to i64
+  %413 = trunc i128 %.065 to i64
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %412, label %.invoke830, label %414
 
 414:                                              ; preds = %411
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  %415 = icmp ugt i128 %.sroa.0258.0.copyload, 9223372036854775807
+  %415 = icmp ugt i128 %.sroa.0258.0.copyload.fr, 9223372036854775807
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %415, label %.invoke830, label %416
 
 416:                                              ; preds = %414
-  %417 = trunc nuw nsw i128 %.sroa.0258.0.copyload to i64
+  %417 = trunc nuw i128 %.sroa.0258.0.copyload.fr to i64
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %418 = load i64, ptr %30, align 8, !range !38, !alias.scope !644, !noundef !5
   %419 = icmp eq i64 %418, -9223372036854775808
@@ -5207,7 +5208,7 @@ _ZN5uu_dd11BlockWriter12write_blocks17h4e5fbb1dd7bac5a6E.exit: ; preds = %398, %
           to label %420 unwind label %.body130.thread273.loopexit.split-lp.loopexit.split-lp.loopexit
 
 420:                                              ; preds = %405, %416
-  %421 = add i128 %.sroa.0258.0.copyload, %.065
+  %421 = add i128 %.sroa.0258.0.copyload.fr, %.065
   %422 = add i64 %.sroa.0.0, %390
   %423 = add i64 %.sroa.14.sroa.0.3289.ph, %.sroa.11.0
   %.sroa.8.24.extract.trunc = trunc i64 %.sroa.14.sroa.7.3293.ph to i32
@@ -5215,7 +5216,7 @@ _ZN5uu_dd11BlockWriter12write_blocks17h4e5fbb1dd7bac5a6E.exit: ; preds = %398, %
   %425 = add i64 %.sroa.14.sroa.6.3291.ph, %.sroa.16.0
   %426 = add i64 %.sroa.4259.0.copyload, %.sroa.10207.0
   %427 = add i64 %.sroa.5260.0.copyload, %.sroa.13.0
-  %428 = add i128 %.sroa.0258.0.copyload, %.sroa.0204.0
+  %428 = add i128 %.sroa.0258.0.copyload.fr, %.sroa.0204.0
   call void @llvm.experimental.noalias.scope.decl(metadata !647)
   %429 = load ptr, ptr %35, align 8, !alias.scope !647, !nonnull !5, !noundef !5
   %430 = getelementptr inbounds i8, ptr %429, i64 16

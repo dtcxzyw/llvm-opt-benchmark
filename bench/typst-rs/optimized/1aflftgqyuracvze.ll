@@ -2393,26 +2393,26 @@ define hidden void @_ZN9typst_pdf4font11write_fonts17h3e40f422e10bb97dE(ptr noal
   %78 = load i64, ptr %77, align 8, !alias.scope !462, !noundef !12
   %79 = getelementptr inbounds ptr, ptr %76, i64 %78
   %80 = icmp eq i64 %78, 0
-  %.sink696.sroa.gep = getelementptr inbounds i8, ptr %39, i64 8
-  %.sink696.sroa.gep703 = getelementptr inbounds i8, ptr %40, i64 8
-  %.sink696.sroa.gep704 = getelementptr inbounds i8, ptr %41, i64 8
-  %.sink696.sroa.gep705 = getelementptr inbounds i8, ptr %42, i64 8
-  %.sink696.sroa.gep706 = getelementptr inbounds i8, ptr %43, i64 8
-  %.sink696.sroa.gep708 = getelementptr inbounds i8, ptr %39, i64 32
-  %.sink696.sroa.gep709 = getelementptr inbounds i8, ptr %40, i64 32
-  %.sink696.sroa.gep710 = getelementptr inbounds i8, ptr %41, i64 32
-  %.sink696.sroa.gep711 = getelementptr inbounds i8, ptr %42, i64 32
-  %.sink696.sroa.gep712 = getelementptr inbounds i8, ptr %43, i64 32
-  %.sink696.sroa.gep714 = getelementptr inbounds i8, ptr %39, i64 16
-  %.sink696.sroa.gep715 = getelementptr inbounds i8, ptr %40, i64 16
-  %.sink696.sroa.gep716 = getelementptr inbounds i8, ptr %41, i64 16
-  %.sink696.sroa.gep717 = getelementptr inbounds i8, ptr %42, i64 16
-  %.sink696.sroa.gep718 = getelementptr inbounds i8, ptr %43, i64 16
-  %.sink696.sroa.gep720 = getelementptr inbounds i8, ptr %39, i64 24
-  %.sink696.sroa.gep721 = getelementptr inbounds i8, ptr %40, i64 24
-  %.sink696.sroa.gep722 = getelementptr inbounds i8, ptr %41, i64 24
-  %.sink696.sroa.gep723 = getelementptr inbounds i8, ptr %42, i64 24
-  %.sink696.sroa.gep724 = getelementptr inbounds i8, ptr %43, i64 24
+  %.sink695.sroa.gep = getelementptr inbounds i8, ptr %39, i64 8
+  %.sink695.sroa.gep702 = getelementptr inbounds i8, ptr %40, i64 8
+  %.sink695.sroa.gep703 = getelementptr inbounds i8, ptr %41, i64 8
+  %.sink695.sroa.gep704 = getelementptr inbounds i8, ptr %42, i64 8
+  %.sink695.sroa.gep705 = getelementptr inbounds i8, ptr %43, i64 8
+  %.sink695.sroa.gep707 = getelementptr inbounds i8, ptr %39, i64 32
+  %.sink695.sroa.gep708 = getelementptr inbounds i8, ptr %40, i64 32
+  %.sink695.sroa.gep709 = getelementptr inbounds i8, ptr %41, i64 32
+  %.sink695.sroa.gep710 = getelementptr inbounds i8, ptr %42, i64 32
+  %.sink695.sroa.gep711 = getelementptr inbounds i8, ptr %43, i64 32
+  %.sink695.sroa.gep713 = getelementptr inbounds i8, ptr %39, i64 16
+  %.sink695.sroa.gep714 = getelementptr inbounds i8, ptr %40, i64 16
+  %.sink695.sroa.gep715 = getelementptr inbounds i8, ptr %41, i64 16
+  %.sink695.sroa.gep716 = getelementptr inbounds i8, ptr %42, i64 16
+  %.sink695.sroa.gep717 = getelementptr inbounds i8, ptr %43, i64 16
+  %.sink695.sroa.gep719 = getelementptr inbounds i8, ptr %39, i64 24
+  %.sink695.sroa.gep720 = getelementptr inbounds i8, ptr %40, i64 24
+  %.sink695.sroa.gep721 = getelementptr inbounds i8, ptr %41, i64 24
+  %.sink695.sroa.gep722 = getelementptr inbounds i8, ptr %42, i64 24
+  %.sink695.sroa.gep723 = getelementptr inbounds i8, ptr %43, i64 24
   br i1 %80, label %._crit_edge675, label %.lr.ph674
 
 .lr.ph674:                                        ; preds = %1
@@ -2579,16 +2579,16 @@ define hidden void @_ZN9typst_pdf4font11write_fonts17h3e40f422e10bb97dE(ptr noal
   br label %.invoke
 
 .invoke:                                          ; preds = %169, %166, %163, %160, %157
-  %.sink696.sroa.phi = phi ptr [ %.sink696.sroa.gep, %169 ], [ %.sink696.sroa.gep703, %166 ], [ %.sink696.sroa.gep704, %163 ], [ %.sink696.sroa.gep705, %160 ], [ %.sink696.sroa.gep706, %157 ]
-  %.sink696.sroa.phi707 = phi ptr [ %.sink696.sroa.gep708, %169 ], [ %.sink696.sroa.gep709, %166 ], [ %.sink696.sroa.gep710, %163 ], [ %.sink696.sroa.gep711, %160 ], [ %.sink696.sroa.gep712, %157 ]
-  %.sink696.sroa.phi713 = phi ptr [ %.sink696.sroa.gep714, %169 ], [ %.sink696.sroa.gep715, %166 ], [ %.sink696.sroa.gep716, %163 ], [ %.sink696.sroa.gep717, %160 ], [ %.sink696.sroa.gep718, %157 ]
-  %.sink696.sroa.phi719 = phi ptr [ %.sink696.sroa.gep720, %169 ], [ %.sink696.sroa.gep721, %166 ], [ %.sink696.sroa.gep722, %163 ], [ %.sink696.sroa.gep723, %160 ], [ %.sink696.sroa.gep724, %157 ]
-  %.sink696 = phi ptr [ %39, %169 ], [ %40, %166 ], [ %41, %163 ], [ %42, %160 ], [ %43, %157 ]
-  store i64 1, ptr %.sink696.sroa.phi, align 8
-  store ptr null, ptr %.sink696.sroa.phi707, align 8
-  store ptr @anon.1d2698ec7d846f5132c773229768a489.8, ptr %.sink696.sroa.phi713, align 8
-  store i64 0, ptr %.sink696.sroa.phi719, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink696, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1d2698ec7d846f5132c773229768a489.105) #29
+  %.sink695.sroa.phi = phi ptr [ %.sink695.sroa.gep, %169 ], [ %.sink695.sroa.gep702, %166 ], [ %.sink695.sroa.gep703, %163 ], [ %.sink695.sroa.gep704, %160 ], [ %.sink695.sroa.gep705, %157 ]
+  %.sink695.sroa.phi706 = phi ptr [ %.sink695.sroa.gep707, %169 ], [ %.sink695.sroa.gep708, %166 ], [ %.sink695.sroa.gep709, %163 ], [ %.sink695.sroa.gep710, %160 ], [ %.sink695.sroa.gep711, %157 ]
+  %.sink695.sroa.phi712 = phi ptr [ %.sink695.sroa.gep713, %169 ], [ %.sink695.sroa.gep714, %166 ], [ %.sink695.sroa.gep715, %163 ], [ %.sink695.sroa.gep716, %160 ], [ %.sink695.sroa.gep717, %157 ]
+  %.sink695.sroa.phi718 = phi ptr [ %.sink695.sroa.gep719, %169 ], [ %.sink695.sroa.gep720, %166 ], [ %.sink695.sroa.gep721, %163 ], [ %.sink695.sroa.gep722, %160 ], [ %.sink695.sroa.gep723, %157 ]
+  %.sink695 = phi ptr [ %39, %169 ], [ %40, %166 ], [ %41, %163 ], [ %42, %160 ], [ %43, %157 ]
+  store i64 1, ptr %.sink695.sroa.phi, align 8
+  store ptr null, ptr %.sink695.sroa.phi706, align 8
+  store ptr @anon.1d2698ec7d846f5132c773229768a489.8, ptr %.sink695.sroa.phi712, align 8
+  store i64 0, ptr %.sink695.sroa.phi718, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink695, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1d2698ec7d846f5132c773229768a489.105) #29
           to label %.cont unwind label %.loopexit.split-lp596
 
 .cont:                                            ; preds = %.invoke
@@ -3445,7 +3445,8 @@ select.unfold:                                    ; preds = %.noexc219, %174
   %.sink24.i.i = phi i64 [ %389, %387 ], [ %397, %395 ]
   %401 = getelementptr inbounds i8, ptr %.sroa.06.0.copyload.i, i64 %.sink24.i.i
   %.val.i.i.i.i.i.i.i.i.i = load i16, ptr %401, align 1, !noalias !587
-  %402 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i.i.i.i.i.i)
+  %.fr.i.i.i.i.i.i.i.i = freeze i16 %.val.i.i.i.i.i.i.i.i.i
+  %402 = call i16 @llvm.bswap.i16(i16 %.fr.i.i.i.i.i.i.i.i)
   %403 = uitofp i16 %402 to float
   %404 = load ptr, ptr %354, align 8, !alias.scope !584, !noundef !12
   %.not.i = icmp eq ptr %404, null
@@ -3481,26 +3482,28 @@ select.unfold:                                    ; preds = %.noexc219, %174
   %415 = load i64, ptr %112, align 8, !alias.scope !591, !noalias !595, !noundef !12
   %416 = zext i32 %413 to i64
   %417 = icmp ult i64 %415, %416
-  %418 = sub nuw i64 %415, %416
+  %418 = sub i64 %415, %416
   %419 = getelementptr inbounds i8, ptr %414, i64 %416
   %420 = icmp ult i64 %418, 2
-  %or.cond.i.i = select i1 %417, i1 true, i1 %420
+  %or.cond.i.i = or i1 %417, %420
   br i1 %or.cond.i.i, label %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.thread.i, label %421
 
 421:                                              ; preds = %412
   %.val.i.i.i.i.i.i = load i16, ptr %419, align 1, !alias.scope !597, !noalias !604
-  %422 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i.i.i)
+  %.fr.i.i.i.i.i = freeze i16 %.val.i.i.i.i.i.i
+  %422 = call i16 @llvm.bswap.i16(i16 %.fr.i.i.i.i.i)
   %423 = icmp ult i64 %418, 4
   br i1 %423, label %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.thread.i, label %424
 
 424:                                              ; preds = %421
   %425 = getelementptr inbounds i8, ptr %419, i64 2
   %.val.i.i.i59.i.i.i = load i16, ptr %425, align 1, !alias.scope !605, !noalias !604
-  %426 = icmp eq i16 %.val.i.i.i59.i.i.i, 0
+  %.fr.i.i57.i.i.i = freeze i16 %.val.i.i.i59.i.i.i
+  %426 = icmp eq i16 %.fr.i.i57.i.i.i, 0
   br i1 %426, label %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.thread.i, label %427
 
 427:                                              ; preds = %424
-  %428 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i59.i.i.i)
+  %428 = call i16 @llvm.bswap.i16(i16 %.fr.i.i57.i.i.i)
   %.not.i.i.i253 = icmp ugt i16 %428, %.sroa.33.0.i247479
   %429 = add i16 %428, -1
   %spec.select.i.i.i = select i1 %.not.i.i.i253, i16 %.sroa.33.0.i247479, i16 %429
@@ -4001,7 +4004,8 @@ _ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit278: ; preds = %.noexc276
 641:                                              ; preds = %638
   %642 = getelementptr inbounds i8, ptr %.val, i64 4
   %.val.i.i.i.i.i = load i16, ptr %642, align 1, !alias.scope !664
-  %643 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i.i)
+  %.fr.i.i.i.i = freeze i16 %.val.i.i.i.i.i
+  %643 = call i16 @llvm.bswap.i16(i16 %.fr.i.i.i.i)
   br label %_ZN10ttf_parser6tables3os26Weight9to_number17h4f10f20e7e584a0aE.exit
 
 _ZN10ttf_parser6tables3os26Weight9to_number17h4f10f20e7e584a0aE.exit: ; preds = %641, %634, %638
@@ -4255,11 +4259,12 @@ _ZN10ttf_parser6tables4cmap8Subtable10is_unicode17h7be9306f3d972e5eE.exit.i: ; p
 
 .lr.ph.preheader.preheader:                       ; preds = %.preheader
   %714 = load i64, ptr %703, align 8, !alias.scope !676, !noalias !738
+  %.sroa.03.sroa.3.sroa.4.0.i = freeze i64 %714
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.preheader, %750
   %.sroa.18428.0669 = phi i64 [ %715, %750 ], [ %712, %.lr.ph.preheader.preheader ]
-  %.sroa.12.0668 = phi i64 [ %.sroa.5434.0.copyload, %750 ], [ %714, %.lr.ph.preheader.preheader ]
+  %.sroa.12.0668 = phi i64 [ %.sroa.5434.0.copyload, %750 ], [ %.sroa.03.sroa.3.sroa.4.0.i, %.lr.ph.preheader.preheader ]
   %.sroa.10418.0667 = phi ptr [ %.sroa.4433.0.copyload, %750 ], [ %702, %.lr.ph.preheader.preheader ]
   %.sroa.5415.0666 = phi ptr [ %.sroa.0432.0.copyload, %750 ], [ null, %.lr.ph.preheader.preheader ]
   %715 = add i64 %.sroa.18428.0669, -1
@@ -4937,12 +4942,12 @@ _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i: ; preds = %.noe
   %.0.i254 = phi float [ %463, %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.thread.i ], [ %403, %400 ]
   %908 = fcmp ult float %.0.i254, 0xC1E0000000000000
   %909 = fcmp uge float %.0.i254, 0x41E0000000000000
-  %or.cond.not.not.i.i.not570 = or i1 %908, %909
   %910 = call i32 @llvm.fptosi.sat.i32.f32(float %.0.i254)
   %or.cond1.i.i = icmp ugt i32 %910, 65535
-  %911 = trunc nuw i32 %910 to i16
-  %.not567 = or i1 %or.cond.not.not.i.i.not570, %or.cond1.i.i
-  %cond.fr560 = freeze i1 %.not567
+  %911 = trunc i32 %910 to i16
+  %.not570 = or i1 %909, %or.cond1.i.i
+  %narrow.i.i.not = or i1 %908, %.not570
+  %cond.fr560 = freeze i1 %narrow.i.i.not
   br i1 %cond.fr560, label %.thread562, label %912
 
 .thread562:                                       ; preds = %392, %395, %381, %907

@@ -1499,23 +1499,18 @@ switch.lookup:
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i32, i32 } @"_ZN81_$LT$text_size..size..TextSize$u20$as$u20$core..convert..TryFrom$LT$usize$GT$$GT$8try_from17ha1c8b6c82649711cE.llvm.9361837495247771283"(i64 noundef %0) unnamed_addr #2 {
   %2 = icmp ugt i64 %0, 4294967295
-  %3 = trunc nuw i64 %0 to i32
-  %.sroa.5.0 = select i1 %2, i32 undef, i32 %3
+  %3 = trunc i64 %0 to i32
   %spec.select = zext i1 %2 to i32
   %4 = insertvalue { i32, i32 } poison, i32 %spec.select, 0
-  %5 = insertvalue { i32, i32 } %4, i32 %.sroa.5.0, 1
+  %5 = insertvalue { i32, i32 } %4, i32 %3, 1
   ret { i32, i32 } %5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, ptr } @"_ZN88_$LT$rowan..api..Preorder$LT$L$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea108dabd1cc6441E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 {
+define hidden noundef { i64, ptr } @"_ZN88_$LT$rowan..api..Preorder$LT$L$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea108dabd1cc6441E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 {
   %2 = tail call { i64, ptr } @"_ZN82_$LT$rowan..cursor..Preorder$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f246160015d372fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
-  %3 = extractvalue { i64, ptr } %2, 0
-  %4 = icmp eq i64 %3, 2
-  %5 = extractvalue { i64, ptr } %2, 1
-  %spec.select = select i1 %4, ptr undef, ptr %5
-  %6 = insertvalue { i64, ptr } %2, ptr %spec.select, 1
-  ret { i64, ptr } %6
+  %.fr = freeze { i64, ptr } %2
+  ret { i64, ptr } %.fr
 }
 
 ; Function Attrs: nonlazybind uwtable

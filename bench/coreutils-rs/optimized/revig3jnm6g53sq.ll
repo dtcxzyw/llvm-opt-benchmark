@@ -197,7 +197,7 @@ define hidden void @"_ZN6chrono6offset20LocalResult$LT$T$GT$8and_then17ha2f1672f
   switch i32 %10, label %default.unreachable42 [
     i32 0, label %11
     i32 1, label %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit20"
-    i32 2, label %26
+    i32 2, label %25
   ]
 
 default.unreachable42:                            ; preds = %3
@@ -213,11 +213,11 @@ default.unreachable42:                            ; preds = %3
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8), !noalias !18
   %14 = load i32, ptr %9, align 4, !alias.scope !21, !noundef !4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit.thread", label %24
+  br i1 %15, label %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit.thread", label %23
 
 "_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit.thread": ; preds = %11
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9), !noalias !18
-  br label %26
+  br label %25
 
 "_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit20": ; preds = %3
   %16 = getelementptr inbounds i8, ptr %1, i64 4
@@ -232,6 +232,7 @@ default.unreachable42:                            ; preds = %3
   %20 = load i32, ptr %7, align 4, !alias.scope !28, !noundef !4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 4
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sroa.5.0 = freeze i64 %.sroa.5.0.copyload
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !25
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !32
@@ -244,46 +245,46 @@ default.unreachable42:                            ; preds = %3
 
 "_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22.thread": ; preds = %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit20"
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !32
-  br label %26
+  br label %25
 
 "_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22": ; preds = %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit20"
-  %23 = icmp eq i32 %20, 0
   %.sroa.534.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
   %.sroa.534.0.copyload = load i64, ptr %.sroa.534.0..sroa_idx, align 4, !alias.scope !39
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !32
-  br i1 %23, label %26, label %27
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %25, label %26
 
-24:                                               ; preds = %11
+23:                                               ; preds = %11
   %.sroa.625.0..sroa_idx26 = getelementptr inbounds i8, ptr %9, i64 4
   %.sroa.625.0.copyload27 = load i64, ptr %.sroa.625.0..sroa_idx26, align 4, !alias.scope !40
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9), !noalias !18
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %14, ptr %25, align 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %14, ptr %24, align 4
   %.sroa.230.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.625.0.copyload27, ptr %.sroa.230.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %13, ptr %.sroa.3.0..sroa_idx, align 4
-  br label %26
+  br label %25
 
-26:                                               ; preds = %24, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit.thread", %3, %27, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22", %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22.thread"
-  %storemerge.sink = phi i32 [ 1, %27 ], [ 2, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22" ], [ 2, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22.thread" ], [ %10, %3 ], [ 0, %24 ], [ 2, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit.thread" ]
+25:                                               ; preds = %23, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit.thread", %3, %26, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22", %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22.thread"
+  %storemerge.sink = phi i32 [ 1, %26 ], [ 2, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22" ], [ 2, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22.thread" ], [ %10, %3 ], [ 0, %23 ], [ 2, %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit.thread" ]
   store i32 %storemerge.sink, ptr %0, align 4
   ret void
 
-27:                                               ; preds = %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22"
-  %28 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %20, ptr %28, align 4
+26:                                               ; preds = %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22"
+  %27 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %20, ptr %27, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.5.0.copyload, ptr %.sroa.2.0..sroa_idx, align 4
+  store i64 %.sroa.5.0, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %17, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %21, ptr %29, align 4
+  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %21, ptr %28, align 4
   %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.534.0.copyload, ptr %.sroa.212.0..sroa_idx, align 4
   %.sroa.212.sroa.2.0..sroa.212.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %19, ptr %.sroa.212.sroa.2.0..sroa.212.0..sroa_idx.sroa_idx, align 4
-  br label %26
+  br label %25
 }
 
 ; Function Attrs: nonlazybind uwtable

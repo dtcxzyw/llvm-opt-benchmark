@@ -591,8 +591,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %80 = load <2 x ptr>, ptr %79, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21)
-  %.not = icmp eq i64 %77, 0
-  br i1 %.not, label %118, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit"
+  %.not122 = icmp eq i64 %77, 0
+  br i1 %.not122, label %118, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit"
 
 .critedge68:                                      ; preds = %66, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit, %63, %42
   %81 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1
@@ -646,8 +646,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %108 = load <2 x ptr>, ptr %107, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
-  %.not122 = icmp eq i64 %105, 0
-  br i1 %.not122, label %110, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit87"
+  %.not123 = icmp eq i64 %105, 0
+  br i1 %.not123, label %110, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit87"
 
 109:                                              ; preds = %.critedge70, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit87"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
@@ -800,35 +800,39 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17hd5d117a6e752bb26E.llvm.7256458021634512439"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], ptr, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %24)
   %148 = getelementptr inbounds i8, ptr %4, i64 8
   %149 = load ptr, ptr %148, align 8, !noalias !62, !noundef !5
-  %150 = icmp eq ptr %149, null
   %.sroa.34.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.34.0.copyload.i = load ptr, ptr %.sroa.34.0..sroa_idx.i, align 8, !noalias !62, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !62
-  br i1 %150, label %152, label %151
+  %.not = icmp eq ptr %149, null
+  br i1 %.not, label %152, label %150
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hdda585673e378738E.exit": ; preds = %156, %152, %.loopexit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %146
 
-151:                                              ; preds = %147
-  call fastcc void @"_ZN4core3ptr154drop_in_place$LT$alloc..boxed..Box$LT$ockam_executor..executor..Node$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$$GT$17h1d0c30cd4b8838e1E"(ptr %149, ptr %.sroa.34.0.copyload.i)
+150:                                              ; preds = %147
+  %.sroa.3.0.i = freeze ptr %.sroa.34.0.copyload.i
+  %151 = icmp ne ptr %.sroa.3.0.i, null
+  call void @llvm.assume(i1 %151)
+  call fastcc void @"_ZN4core3ptr154drop_in_place$LT$alloc..boxed..Box$LT$ockam_executor..executor..Node$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$$GT$17h1d0c30cd4b8838e1E"(ptr %149, ptr %.sroa.3.0.i)
   br label %152
 
-152:                                              ; preds = %147, %151
+152:                                              ; preds = %147, %150
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !66
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17hbd43833713ccd1a8E.llvm.7256458021634512439"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], ptr, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %24)
   %153 = getelementptr inbounds i8, ptr %3, i64 8
   %154 = load ptr, ptr %153, align 8, !noalias !66, !noundef !5
-  %155 = icmp eq ptr %154, null
   %.sroa.34.0..sroa_idx.i88 = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.34.0.copyload.i89 = load ptr, ptr %.sroa.34.0..sroa_idx.i88, align 8, !noalias !66
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !66
+  %155 = icmp eq ptr %154, null
   br i1 %155, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hdda585673e378738E.exit", label %156
 
 156:                                              ; preds = %152
+  %.sroa.3.0.i90 = freeze ptr %.sroa.34.0.copyload.i89
   %157 = getelementptr inbounds i8, ptr %154, i64 24
   %158 = load ptr, ptr %157, align 8, !nonnull !5, !noundef !5
-  call void %158(ptr noundef %.sroa.34.0.copyload.i89)
+  call void %158(ptr noundef %.sroa.3.0.i90)
   br label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hdda585673e378738E.exit"
 }
 

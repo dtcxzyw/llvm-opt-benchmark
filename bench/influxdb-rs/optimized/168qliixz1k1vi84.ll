@@ -6676,7 +6676,7 @@ define internal { ptr, ptr } @"_ZN68_$LT$parquet..errors..ParquetError$u20$as$u2
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !9
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !align !25
-  %.sroa.3.0 = select i1 %3, ptr %7, ptr undef
+  %.sroa.3.0 = freeze ptr %7
   %.sroa.0.0 = select i1 %3, ptr %5, ptr null
   %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %.sroa.3.0, 1
@@ -6691,7 +6691,7 @@ define internal { ptr, ptr } @"_ZN70_$LT$arrow_schema..error..ArrowError$u20$as$
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !9
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !align !25
-  %.sroa.3.0 = select i1 %3, ptr %7, ptr undef
+  %.sroa.3.0 = freeze ptr %7
   %.sroa.0.0 = select i1 %3, ptr %5, ptr null
   %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %.sroa.3.0, 1
@@ -7542,13 +7542,12 @@ define noundef nonnull ptr @_ZN16influxdb3_server17CommonServerState15metric_reg
 define { ptr, i64 } @_ZN16influxdb3_server17CommonServerState12bearer_token17hcb642429ad5aae3cE(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !alias.scope !1279, !noundef !4
-  %4 = icmp eq ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
-  %..val2.i = load i64, ptr %5, align 8, !alias.scope !1279
-  %.sroa.3.0.i = select i1 %4, i64 undef, i64 %..val2.i
-  %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
-  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.3.0.i, 1
-  ret { ptr, i64 } %7
+  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %..val2.i = load i64, ptr %4, align 8, !alias.scope !1279
+  %.sroa.3.0.i = freeze i64 %..val2.i
+  %5 = insertvalue { ptr, i64 } poison, ptr %3, 0
+  %6 = insertvalue { ptr, i64 } %5, i64 %.sroa.3.0.i, 1
+  ret { ptr, i64 } %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

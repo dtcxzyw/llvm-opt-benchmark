@@ -11329,27 +11329,17 @@ _ZN5tokio4time7instant7Instant3now17h415dd92ef415a1a0E.exit: ; preds = %5, %7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, i32 } @_ZN5tokio4time7instant7Instant11checked_add17h62767d0ae016270bE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define noundef { i64, i32 } @_ZN5tokio4time7instant7Instant11checked_add17h62767d0ae016270bE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call { i64, i32 } @_ZN3std4time7Instant11checked_add17ha96372c8a906cdcdE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i32 noundef %2)
-  %.fca.1.extract = extractvalue { i64, i32 } %4, 1
-  %5 = icmp eq i32 %.fca.1.extract, 1000000000
-  %6 = extractvalue { i64, i32 } %4, 0
-  %spec.select = select i1 %5, i64 undef, i64 %6
-  %7 = insertvalue { i64, i32 } poison, i64 %spec.select, 0
-  %8 = insertvalue { i64, i32 } %7, i32 %.fca.1.extract, 1
-  ret { i64, i32 } %8
+  %.fr = freeze { i64, i32 } %4
+  ret { i64, i32 } %.fr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, i32 } @_ZN5tokio4time7instant7Instant11checked_sub17hcd6273e764654675E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define noundef { i64, i32 } @_ZN5tokio4time7instant7Instant11checked_sub17hcd6273e764654675E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call { i64, i32 } @_ZN3std4time7Instant11checked_sub17h44ca271bf4990138E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i32 noundef %2)
-  %.fca.1.extract = extractvalue { i64, i32 } %4, 1
-  %5 = icmp eq i32 %.fca.1.extract, 1000000000
-  %6 = extractvalue { i64, i32 } %4, 0
-  %spec.select = select i1 %5, i64 undef, i64 %6
-  %7 = insertvalue { i64, i32 } poison, i64 %spec.select, 0
-  %8 = insertvalue { i64, i32 } %7, i32 %.fca.1.extract, 1
-  ret { i64, i32 } %8
+  %.fr = freeze { i64, i32 } %4
+  ret { i64, i32 } %.fr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

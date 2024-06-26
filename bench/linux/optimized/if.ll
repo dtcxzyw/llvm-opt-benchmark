@@ -373,9 +373,10 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   %40 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 %37, ptr %40, align 4
   %41 = or i64 %32, %39
-  %42 = and i64 %41, 4294967295
+  %.fr23 = freeze i64 %41
+  %42 = and i64 %.fr23, 4294967295
   %43 = icmp eq i64 %42, 0
-  %44 = shl i64 %41, 32
+  %44 = shl i64 %.fr23, 32
   %45 = ashr exact i64 %44, 32
   br i1 %43, label %85, label %324
 
@@ -422,9 +423,10 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   %79 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 %76, ptr %79, align 8
   %80 = or i64 %71, %78
-  %81 = and i64 %80, 4294967295
+  %.fr22 = freeze i64 %80
+  %81 = and i64 %.fr22, 4294967295
   %82 = icmp eq i64 %81, 0
-  %83 = shl i64 %80, 32
+  %83 = shl i64 %.fr22, 32
   %84 = ashr exact i64 %83, 32
   br i1 %82, label %85, label %324
 
@@ -469,14 +471,14 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
 98:                                               ; preds = %86
   %99 = load i32, ptr @num_var_ranges, align 4
   %100 = icmp slt i32 %99, 0
-  br i1 %100, label %.thread23, label %101, !prof !18
+  br i1 %100, label %.thread25, label %101, !prof !18
 
 101:                                              ; preds = %98
   %102 = zext nneg i32 %99 to i64
   %103 = shl nuw nsw i64 %102, 2
   %104 = call noalias align 8 ptr @__kmalloc(i64 noundef %103, i32 noundef 3520) #13
   %105 = icmp eq ptr %104, null
-  br i1 %105, label %.thread23, label %106
+  br i1 %105, label %.thread25, label %106
 
 106:                                              ; preds = %101
   %107 = load ptr, ptr %93, align 8
@@ -489,14 +491,14 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   %111 = or i64 %87, %90
   %112 = and i64 %111, 4095
   %113 = icmp eq i64 %112, 0
-  br i1 %113, label %114, label %.thread23
+  br i1 %113, label %114, label %.thread25
 
 114:                                              ; preds = %109
   %115 = lshr exact i64 %87, 12
   %116 = lshr exact i64 %90, 12
   %117 = call i32 @mtrr_add_page(i64 noundef %115, i64 noundef %116, i32 noundef %92, i1 noundef zeroext true) #12
   %118 = icmp sgt i32 %117, -1
-  br i1 %118, label %119, label %.thread23
+  br i1 %118, label %119, label %.thread25
 
 119:                                              ; preds = %114
   %120 = zext nneg i32 %117 to i64
@@ -528,7 +530,7 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   %141 = or i64 %133, %136
   %142 = and i64 %141, 4095
   %143 = icmp eq i64 %142, 0
-  br i1 %143, label %144, label %.thread23
+  br i1 %143, label %144, label %.thread25
 
 144:                                              ; preds = %132
   %145 = lshr exact i64 %133, 12
@@ -544,7 +546,7 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   %153 = getelementptr i32, ptr %140, i64 %152
   %154 = load i32, ptr %153, align 4
   %155 = icmp eq i32 %154, 0
-  br i1 %155, label %.thread23, label %156
+  br i1 %155, label %.thread25, label %156
 
 156:                                              ; preds = %151
   %157 = add i32 %154, -1
@@ -586,7 +588,7 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   %182 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 0, ptr %182, align 8
   store i64 0, ptr %8, align 8
-  br label %.thread25
+  br label %.thread27
 
 183:                                              ; preds = %169
   %184 = shl i64 %173, 12
@@ -599,7 +601,7 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   %189 = zext i8 %188 to i32
   %190 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 %189, ptr %190, align 8
-  br label %.thread25
+  br label %.thread27
 
 191:                                              ; preds = %85, %85
   %192 = load i64, ptr %7, align 8
@@ -618,14 +620,14 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
 203:                                              ; preds = %191
   %204 = load i32, ptr @num_var_ranges, align 4
   %205 = icmp slt i32 %204, 0
-  br i1 %205, label %.thread23, label %206, !prof !18
+  br i1 %205, label %.thread25, label %206, !prof !18
 
 206:                                              ; preds = %203
   %207 = zext nneg i32 %204 to i64
   %208 = shl nuw nsw i64 %207, 2
   %209 = call noalias align 8 ptr @__kmalloc(i64 noundef %208, i32 noundef 3520) #13
   %210 = icmp eq ptr %209, null
-  br i1 %210, label %.thread23, label %211
+  br i1 %210, label %.thread25, label %211
 
 211:                                              ; preds = %206
   %212 = load ptr, ptr %198, align 8
@@ -637,7 +639,7 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   %215 = phi ptr [ %209, %211 ], [ %201, %191 ]
   %216 = call i32 @mtrr_add_page(i64 noundef %192, i64 noundef %195, i32 noundef %197, i1 noundef zeroext true) #12
   %217 = icmp sgt i32 %216, -1
-  br i1 %217, label %218, label %.thread23
+  br i1 %217, label %218, label %.thread25
 
 218:                                              ; preds = %214
   %219 = zext nneg i32 %216 to i64
@@ -677,7 +679,7 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   %246 = getelementptr i32, ptr %239, i64 %245
   %247 = load i32, ptr %246, align 4
   %248 = icmp eq i32 %247, 0
-  br i1 %248, label %.thread23, label %249
+  br i1 %248, label %.thread25, label %249
 
 249:                                              ; preds = %244
   %250 = add i32 %247, -1
@@ -714,7 +716,7 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   %270 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 0, ptr %270, align 8
   store i64 0, ptr %8, align 8
-  br label %.thread25
+  br label %.thread27
 
 271:                                              ; preds = %262
   %272 = load i64, ptr %5, align 8
@@ -726,19 +728,19 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   %276 = zext i8 %275 to i32
   %277 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 %276, ptr %277, align 8
-  br label %.thread25
+  br label %.thread27
 
 278:                                              ; preds = %251, %249, %231, %223, %218, %158, %156, %144, %124, %119
   %279 = phi i32 [ %256, %251 ], [ %230, %223 ], [ %163, %158 ], [ %131, %124 ], [ %117, %119 ], [ %147, %156 ], [ %147, %144 ], [ %216, %218 ], [ %240, %249 ], [ %240, %231 ]
   %280 = icmp eq i32 %279, 0
-  br i1 %280, label %.thread25, label %.thread23
+  br i1 %280, label %.thread27, label %.thread25
 
-.thread23:                                        ; preds = %203, %98, %244, %214, %206, %151, %132, %114, %109, %101, %278
+.thread25:                                        ; preds = %203, %98, %244, %214, %206, %151, %132, %114, %109, %101, %278
   %281 = phi i32 [ %279, %278 ], [ -22, %244 ], [ %216, %214 ], [ -12, %206 ], [ -22, %151 ], [ -22, %132 ], [ %117, %114 ], [ -22, %109 ], [ -12, %101 ], [ -12, %98 ], [ -12, %203 ]
   %282 = sext i32 %281 to i64
   br label %324
 
-.thread25:                                        ; preds = %183, %180, %271, %268, %278
+.thread27:                                        ; preds = %183, %180, %271, %268, %278
   switch i32 %1, label %324 [
     i32 -1072149245, label %283
     i32 -1072149240, label %283
@@ -746,13 +748,13 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
     i32 -1072673528, label %287
   ]
 
-283:                                              ; preds = %.thread25, %.thread25
+283:                                              ; preds = %.thread27, %.thread27
   %284 = call i64 @_copy_to_user(ptr noundef %9, ptr noundef nonnull %8, i64 noundef 24) #12
   %285 = icmp eq i64 %284, 0
   %286 = select i1 %285, i64 0, i64 -14
   br label %324
 
-287:                                              ; preds = %.thread25, %.thread25
+287:                                              ; preds = %.thread27, %.thread27
   %288 = load i64, ptr %8, align 8
   %289 = trunc i64 %288 to i32
   %290 = getelementptr inbounds i8, ptr %9, i64 4
@@ -795,8 +797,8 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
   %323 = ashr exact i64 %322, 32
   br label %324
 
-324:                                              ; preds = %3, %287, %283, %.thread25, %.thread23, %257, %164, %85, %46, %16, %13, %10
-  %325 = phi i64 [ %282, %.thread23 ], [ %84, %46 ], [ %45, %16 ], [ -14, %10 ], [ -14, %13 ], [ -25, %85 ], [ -22, %164 ], [ -22, %257 ], [ 0, %.thread25 ], [ %323, %287 ], [ %286, %283 ], [ -25, %3 ]
+324:                                              ; preds = %3, %287, %283, %.thread27, %.thread25, %257, %164, %85, %46, %16, %13, %10
+  %325 = phi i64 [ %282, %.thread25 ], [ %84, %46 ], [ %45, %16 ], [ -14, %10 ], [ -14, %13 ], [ -25, %85 ], [ -22, %164 ], [ -22, %257 ], [ 0, %.thread27 ], [ %323, %287 ], [ %286, %283 ], [ -25, %3 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12

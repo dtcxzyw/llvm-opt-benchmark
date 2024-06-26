@@ -107,7 +107,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   %4 = load ptr, ptr %3, align 8, !nonnull !9, !align !10, !noundef !9
   %5 = load ptr, ptr %4, align 8, !noundef !9
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %21
+  br i1 %.not, label %6, label %20
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 72
@@ -126,25 +126,26 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   %trunc.i.i.i.i = trunc nuw i64 %15 to i1
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i.i.i.i = load ptr, ptr %16, align 8, !alias.scope !47, !noalias !56
-  %.not.i.i.i.i = icmp ne ptr %.val.i.i.i.i, null
-  %.sroa.056.0.not.i.i.i.i = select i1 %trunc.i.i.i.i, i1 %.not.i.i.i.i, i1 false
+  %.not.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
+  %not.trunc.i.i.i.i = xor i1 %trunc.i.i.i.i, true
+  %.sroa.056.0.not.i.i.i.i = select i1 %not.trunc.i.i.i.i, i1 true, i1 %.not.i.i.i.i
   %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i.i.i.i, i64 %.sroa.8.0.i.i.i.i)
-  %18 = extractvalue { i64, i1 } %17, 0
-  %19 = extractvalue { i64, i1 } %17, 1
-  %.sroa.5.0.i = select i1 %.sroa.056.0.not.i.i.i.i, i64 undef, i64 %18
-  %20 = select i1 %.sroa.056.0.not.i.i.i.i, i1 true, i1 %19
-  %narrow.i = xor i1 %20, true
+  %.fr.i = freeze { i64, i1 } %17
+  %18 = extractvalue { i64, i1 } %.fr.i, 0
+  %19 = extractvalue { i64, i1 } %.fr.i, 1
+  %not..i.i.i.i = xor i1 %19, true
+  %narrow.i = and i1 %.sroa.056.0.not.i.i.i.i, %not..i.i.i.i
   %.45.sink.i.i.i.i = zext i1 %narrow.i to i64
-  br label %21
+  br label %20
 
-21:                                               ; preds = %2, %6
+20:                                               ; preds = %2, %6
   %.sink1 = phi i64 [ %.45.sink.i.i.i.i, %6 ], [ 1, %2 ]
-  %.sink = phi i64 [ %.sroa.5.0.i, %6 ], [ 0, %2 ]
+  %.sink = phi i64 [ %18, %6 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink, ptr %23, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %22, align 8
   ret void
 }
 
@@ -321,20 +322,21 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I
   %trunc.i.i.i = trunc nuw i64 %10 to i1
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i.i.i = load ptr, ptr %11, align 8, !alias.scope !98, !noalias !105
-  %.not.i.i.i = icmp ne ptr %.val.i.i.i, null
-  %.sroa.056.0.not.i.i.i = select i1 %trunc.i.i.i, i1 %.not.i.i.i, i1 false
+  %.not.i.i.i = icmp eq ptr %.val.i.i.i, null
+  %not.trunc.i.i.i = xor i1 %trunc.i.i.i, true
+  %.sroa.056.0.not.i.i.i = select i1 %not.trunc.i.i.i, i1 true, i1 %.not.i.i.i
   %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i.i.i, i64 %.sroa.8.0.i.i.i)
-  %13 = extractvalue { i64, i1 } %12, 0
-  %14 = extractvalue { i64, i1 } %12, 1
-  %.sroa.5.0 = select i1 %.sroa.056.0.not.i.i.i, i64 undef, i64 %13
-  %15 = select i1 %.sroa.056.0.not.i.i.i, i1 true, i1 %14
-  %narrow = xor i1 %15, true
+  %.fr = freeze { i64, i1 } %12
+  %13 = extractvalue { i64, i1 } %.fr, 0
+  %14 = extractvalue { i64, i1 } %.fr, 1
+  %not..i.i.i = xor i1 %14, true
+  %narrow = and i1 %.sroa.056.0.not.i.i.i, %not..i.i.i
   %.45.sink.i.i.i = zext i1 %narrow to i64
   store i64 0, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.45.sink.i.i.i, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.5.0, ptr %17, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.45.sink.i.i.i, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %13, ptr %16, align 8
   ret void
 }
 

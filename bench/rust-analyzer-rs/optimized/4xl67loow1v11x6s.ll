@@ -1752,26 +1752,21 @@ define hidden { i64, ptr } @_ZN6object4read4coff7section12SectionTable15section_
   %bcmp.i.i.i.i.fr.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i.i
   %19 = icmp eq i32 %bcmp.i.i.i.i.fr.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !272
-  br i1 %19, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3354a24afffa91d6E.exit.loopexit, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0a2ab5a8ce225c92E.exit.i"
+  br i1 %19, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3354a24afffa91d6E.exit, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0a2ab5a8ce225c92E.exit.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0a2ab5a8ce225c92E.exit.i": ; preds = %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h77379663aff575f1E.exit.i.i.i", %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h77379663aff575f1E.exit.thread.i.i.i"
   %20 = add nuw nsw i64 %.sroa.7.0, 1
   %21 = icmp eq ptr %16, %10
-  br i1 %21, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3354a24afffa91d6E.exit.loopexit, label %14
+  br i1 %21, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3354a24afffa91d6E.exit, label %14
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h3354a24afffa91d6E.exit.loopexit: ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0a2ab5a8ce225c92E.exit.i", %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h77379663aff575f1E.exit.i.i.i"
-  %.sroa.3.0.i.ph = phi ptr [ null, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0a2ab5a8ce225c92E.exit.i" ], [ %15, %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h77379663aff575f1E.exit.i.i.i" ]
-  %22 = add nuw i64 %.sroa.7.0, 1
-  br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3354a24afffa91d6E.exit
-
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h3354a24afffa91d6E.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3354a24afffa91d6E.exit.loopexit, %4
-  %.sroa.3.0.i = phi ptr [ null, %4 ], [ %.sroa.3.0.i.ph, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3354a24afffa91d6E.exit.loopexit ]
-  %.sroa.0.0.i = phi i64 [ undef, %4 ], [ %22, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3354a24afffa91d6E.exit.loopexit ]
-  %23 = icmp eq ptr %.sroa.3.0.i, null
-  %.sroa.0.0 = select i1 %23, i64 undef, i64 %.sroa.0.0.i
-  %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %25 = insertvalue { i64, ptr } %24, ptr %.sroa.3.0.i, 1
-  ret { i64, ptr } %25
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h3354a24afffa91d6E.exit: ; preds = %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h77379663aff575f1E.exit.i.i.i", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0a2ab5a8ce225c92E.exit.i", %4
+  %.sroa.3.0.i = phi ptr [ null, %4 ], [ %15, %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h77379663aff575f1E.exit.i.i.i" ], [ null, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0a2ab5a8ce225c92E.exit.i" ]
+  %.sroa.0.0.i = phi i64 [ undef, %4 ], [ %.sroa.7.0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0a2ab5a8ce225c92E.exit.i" ], [ %.sroa.7.0, %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h77379663aff575f1E.exit.i.i.i" ]
+  %.sroa.0.0.i.fr = freeze i64 %.sroa.0.0.i
+  %22 = add i64 %.sroa.0.0.i.fr, 1
+  %23 = insertvalue { i64, ptr } poison, i64 %22, 0
+  %24 = insertvalue { i64, ptr } %23, ptr %.sroa.3.0.i, 1
+  ret { i64, ptr } %24
 }
 
 ; Function Attrs: nonlazybind uwtable

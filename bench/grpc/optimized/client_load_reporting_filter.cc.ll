@@ -2805,23 +2805,24 @@ if.then.i.i:                                      ; preds = %if.then.i
   %fn_.val.i = load ptr, ptr %fn_.i, align 8, !noalias !47
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 4
   %11 = load i16, ptr %arrayidx.i.i.i.i.i.i.i, align 2, !noalias !62
-  %and2.i.i.i.i.i.i.i = and i16 %11, 2
   %elements_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i8, ptr %elements_.i.i.i.i.i.i, align 1, !noalias !62
-  %tobool.i.i.i.i5.i = icmp ne i16 %and2.i.i.i.i.i.i.i, 0
-  %cmp.i11.i.i = icmp eq i8 %12, 0
-  %13 = select i1 %tobool.i.i.i.i5.i, i1 %cmp.i11.i.i, i1 false
-  %14 = load i8, ptr %fn_.val.i, align 1, !noalias !62
-  %tobool.i.i = trunc i8 %14 to i1
-  invoke void @_ZN9grpc_core17GrpcLbClientStats15AddCallFinishedEbb(ptr noundef nonnull align 8 dereferenceable(64) %fn_.val4.i, i1 noundef zeroext %13, i1 noundef zeroext %tobool.i.i)
+  %retval.sroa.0.0.i.i.i = freeze i8 %12
+  %13 = and i16 %11, 2
+  %tobool.i.i.i.i5.i = icmp ne i16 %13, 0
+  %cmp.i1.i.i = icmp eq i8 %retval.sroa.0.0.i.i.i, 0
+  %14 = and i1 %tobool.i.i.i.i5.i, %cmp.i1.i.i
+  %15 = load i8, ptr %fn_.val.i, align 1, !noalias !62
+  %tobool.i.i = trunc i8 %15 to i1
+  invoke void @_ZN9grpc_core17GrpcLbClientStats15AddCallFinishedEbb(ptr noundef nonnull align 8 dereferenceable(64) %fn_.val4.i, i1 noundef zeroext %14, i1 noundef zeroext %tobool.i.i)
           to label %if.then.i2 unwind label %lpad2.i, !noalias !47
 
 lpad2.i:                                          ; preds = %if.then.i.i
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i) #23, !noalias !47
   call void @_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %r.i) #23, !noalias !47
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %16
 
 "_ZN9grpc_core14promise_detail3MapINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEZNS_25ClientLoadReportingFilter15MakeCallPromiseENS_8CallArgsESt8functionIFS8_SA_EEE3$_1EclEv.exit": ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i), !noalias !47
@@ -2834,10 +2835,10 @@ if.then.i2:                                       ; preds = %if.then.i, %if.then
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %r.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   store i8 1, ptr %agg.result, align 8, !alias.scope !65
-  %16 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i8 %6, ptr %16, align 8, !alias.scope !65
-  %17 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i64 %7, ptr %17, align 8, !alias.scope !65
+  %17 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i8 %6, ptr %17, align 8, !alias.scope !65
+  %18 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store i64 %7, ptr %18, align 8, !alias.scope !65
   br label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit
 
 _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit: ; preds = %"_ZN9grpc_core14promise_detail3MapINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEZNS_25ClientLoadReportingFilter15MakeCallPromiseENS_8CallArgsESt8functionIFS8_SA_EEE3$_1EclEv.exit", %if.then.i2

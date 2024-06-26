@@ -5841,9 +5841,10 @@ define hidden void @_ZN6diesel2pg10connection6result8PgResult3new17hb391f335f3cd
   %75 = load ptr, ptr %74, align 8, !nonnull !4, !align !166
   %76 = getelementptr inbounds i8, ptr %4, i64 16
   %77 = load i64, ptr %76, align 8
+  %.sroa.4.1.i = freeze i64 %77
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %.not.i = icmp ne i64 %77, 5
-  %or.cond.not = select i1 %trunc.i88, i1 true, i1 %.not.i
+  %.not.i = icmp ne i64 %.sroa.4.1.i, 5
+  %or.cond.not = or i1 %.not.i, %trunc.i88
   br i1 %or.cond.not, label %.thread154, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7aba974cc3962800E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7aba974cc3962800E.exit": ; preds = %.noexc90
@@ -6136,6 +6137,10 @@ define { ptr, i64 } @"_ZN111_$LT$diesel..pg..connection..result..PgErrorInformat
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br i1 %trunc.i, label %select.unfold, label %_ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit
 
+_ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit: ; preds = %7
+  %.sroa.4.1.i = freeze i64 %14
+  br label %23
+
 select.unfold:                                    ; preds = %7, %1
   %15 = tail call noundef ptr @PQresultErrorMessage(ptr noundef nonnull %4), !noalias !1247
   %16 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15), !noalias !1247
@@ -6151,14 +6156,14 @@ select.unfold:                                    ; preds = %7, %1
   %.sroa.3.0.i.i = select i1 %trunc.i.i, i64 0, i64 %22
   %.sroa.0.0.i.i = select i1 %trunc.i.i, ptr @anon.4ecf52d27cf3a2b5cf5817e9e2e41738.9.llvm.2648289344551647319, ptr %20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !1247
-  br label %_ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit
+  br label %23
 
-_ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit: ; preds = %7, %select.unfold
-  %.sroa.3.0.i.i.pn = phi i64 [ %.sroa.3.0.i.i, %select.unfold ], [ %14, %7 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i.i, %select.unfold ], [ %12, %7 ]
-  %23 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %24 = insertvalue { ptr, i64 } %23, i64 %.sroa.3.0.i.i.pn, 1
-  ret { ptr, i64 } %24
+23:                                               ; preds = %_ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit, %select.unfold
+  %.sroa.3.0.i.i.pn = phi i64 [ %.sroa.3.0.i.i, %select.unfold ], [ %.sroa.4.1.i, %_ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i.i, %select.unfold ], [ %12, %_ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit ]
+  %24 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %25 = insertvalue { ptr, i64 } %24, i64 %.sroa.3.0.i.i.pn, 1
+  ret { ptr, i64 } %25
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6181,7 +6186,7 @@ define { ptr, i64 } @"_ZN111_$LT$diesel..pg..connection..result..PgErrorInformat
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8
   %.sroa.0.1.i = select i1 %trunc.i, ptr null, ptr %11
-  %.sroa.4.1.i = select i1 %trunc.i, i64 undef, i64 %13
+  %.sroa.4.1.i = freeze i64 %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %_ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit
 
@@ -6213,7 +6218,7 @@ define { ptr, i64 } @"_ZN111_$LT$diesel..pg..connection..result..PgErrorInformat
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8
   %.sroa.0.1.i = select i1 %trunc.i, ptr null, ptr %11
-  %.sroa.4.1.i = select i1 %trunc.i, i64 undef, i64 %13
+  %.sroa.4.1.i = freeze i64 %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %_ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit
 
@@ -6245,7 +6250,7 @@ define { ptr, i64 } @"_ZN111_$LT$diesel..pg..connection..result..PgErrorInformat
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8
   %.sroa.0.1.i = select i1 %trunc.i, ptr null, ptr %11
-  %.sroa.4.1.i = select i1 %trunc.i, i64 undef, i64 %13
+  %.sroa.4.1.i = freeze i64 %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %_ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit
 
@@ -6277,7 +6282,7 @@ define { ptr, i64 } @"_ZN111_$LT$diesel..pg..connection..result..PgErrorInformat
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8
   %.sroa.0.1.i = select i1 %trunc.i, ptr null, ptr %11
-  %.sroa.4.1.i = select i1 %trunc.i, i64 undef, i64 %13
+  %.sroa.4.1.i = freeze i64 %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %_ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit
 
@@ -6309,7 +6314,7 @@ define { ptr, i64 } @"_ZN111_$LT$diesel..pg..connection..result..PgErrorInformat
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8
   %.sroa.0.1.i = select i1 %trunc.i, ptr null, ptr %11
-  %.sroa.4.1.i = select i1 %trunc.i, i64 undef, i64 %13
+  %.sroa.4.1.i = freeze i64 %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %_ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit
 
@@ -6344,7 +6349,8 @@ define { i32, i32 } @"_ZN111_$LT$diesel..pg..connection..result..PgErrorInformat
   br i1 %trunc.i, label %_ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit.thread, label %14
 
 14:                                               ; preds = %6
-  %15 = tail call i64 @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$i32$GT$8from_str17hd51b303bfc56444eE"(ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %13)
+  %.sroa.4.1.i = freeze i64 %13
+  %15 = tail call i64 @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$i32$GT$8from_str17hd51b303bfc56444eE"(ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %.sroa.4.1.i)
   %.sroa.510.0.extract.shift = lshr i64 %15, 32
   %.sroa.510.0.extract.trunc = trunc nuw i64 %.sroa.510.0.extract.shift to i32
   %trunc = trunc i64 %15 to i32
@@ -6464,12 +6470,12 @@ define { i64, i64 } @"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$a
           to label %_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit unwind label %46
 
 _ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit: ; preds = %.noexc
-  %.fca.0.extract.i = extractvalue { i32, i32 } %21, 0
-  %.fca.1.extract.i = extractvalue { i32, i32 } %21, 1
+  %.fr.i = freeze { i32, i32 } %21
+  %.fca.0.extract.i = extractvalue { i32, i32 } %.fr.i, 0
+  %.fca.1.extract.i = extractvalue { i32, i32 } %.fr.i, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1284
   %switch.i = icmp ne i32 %.fca.0.extract.i, 0
   %22 = sext i32 %.fca.1.extract.i to i64
-  %.sroa.3.0.i = select i1 %switch.i, i64 %22, i64 undef
   %.sroa.0.0.i13 = zext i1 %switch.i to i64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !1284
   %.pre = load i64, ptr %7, align 8, !noalias !1290
@@ -6526,7 +6532,7 @@ _ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d732
 .loopexit:                                        ; preds = %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i", %24, %43, %_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit
   %45 = phi i64 [ %23, %_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit ], [ 0, %43 ], [ 0, %24 ], [ 0, %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i" ]
   %.sroa.0.0.i15.pn = phi i64 [ %.sroa.0.0.i13, %_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit ], [ 1, %43 ], [ 0, %24 ], [ 0, %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i" ]
-  %.013.i.pn = phi i64 [ %.sroa.3.0.i, %_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit ], [ %.014.i, %43 ], [ 0, %24 ], [ %41, %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i" ]
+  %.013.i.pn = phi i64 [ %22, %_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit ], [ %.014.i, %43 ], [ 0, %24 ], [ %41, %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i" ]
   %.pn21 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i15.pn, 0
   %.pn = insertvalue { i64, i64 } %.pn21, i64 %.013.i.pn, 1
   store i64 %45, ptr %7, align 8, !noalias !1290
@@ -6599,7 +6605,7 @@ define { ptr, i64 } @"_ZN122_$LT$diesel..sqlite..connection..row..SqliteField$u2
   %39 = load ptr, ptr %38, align 8, !alias.scope !1316, !nonnull !4
   %40 = getelementptr inbounds i8, ptr %35, i64 16
   %41 = load i64, ptr %40, align 8, !alias.scope !1316
-  %.sroa.3.0.i = select i1 %37, i64 undef, i64 %41
+  %.sroa.3.0.i = freeze i64 %41
   %.sroa.0.0.i9 = select i1 %37, ptr null, ptr %39
   br label %.thread
 }

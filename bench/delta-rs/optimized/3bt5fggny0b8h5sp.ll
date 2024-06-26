@@ -312,12 +312,13 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h6488ea98ac4683
   %41 = load ptr, ptr %40, align 8, !nonnull !5, !align !62
   %42 = getelementptr inbounds i8, ptr %14, i64 16
   %43 = load i64, ptr %42, align 8
+  %.sroa.7.0 = freeze i64 %43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br i1 %trunc, label %46, label %44
 
 44:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
-  %45 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf05f3e17eadd0011E"(i64 noundef %43, i1 noundef zeroext false)
+  %45 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf05f3e17eadd0011E"(i64 noundef %.sroa.7.0, i1 noundef zeroext false)
           to label %48 unwind label %36
 
 46:                                               ; preds = %38
@@ -337,12 +338,12 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h6488ea98ac4683
   %50 = extractvalue { i64, ptr } %45, 1
   %51 = icmp ne ptr %50, null
   tail call void @llvm.assume(i1 %51)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 1 %41, i64 %43, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 1 %41, i64 %.sroa.7.0, i1 false)
   store i64 %49, ptr %25, align 8
   %.sroa.470.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %50, ptr %.sroa.470.0..sroa_idx, align 8
   %.sroa.571.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 16
-  store i64 %43, ptr %.sroa.571.0..sroa_idx, align 8
+  store i64 %.sroa.7.0, ptr %.sroa.571.0..sroa_idx, align 8
   %.val116 = load ptr, ptr %34, align 8, !nonnull !5, !noundef !5
   %.val117 = load i64, ptr %35, align 8, !noundef !5
   %52 = invoke noundef zeroext i1 @_ZN3std4path4Path6is_dir17h8f2800c096ff84c6E(ptr noalias noundef nonnull readonly align 1 %.val116, i64 noundef %.val117)
@@ -1100,10 +1101,11 @@ define hidden void @_ZN8fs_extra3dir4copy17h5dc58873d959efecE(ptr noalias nocapt
   br i1 %117, label %144, label %138
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %110
+  %.sroa.7.0 = freeze i64 %115
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %101)
   store ptr %113, ptr %101, align 8
   %118 = getelementptr inbounds i8, ptr %101, i64 8
-  store i64 %115, ptr %118, align 8
+  store i64 %.sroa.7.0, ptr %118, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %100)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %99)
   store ptr %101, ptr %99, align 8
@@ -1224,10 +1226,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %110
   br i1 %.not.i156, label %165, label %.lr.ph.i
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit161: ; preds = %138
+  %.sroa.75.0 = freeze i64 %143
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %94)
   store ptr %141, ptr %94, align 8
   %147 = getelementptr inbounds i8, ptr %94, i64 8
-  store i64 %143, ptr %147, align 8
+  store i64 %.sroa.75.0, ptr %147, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %93)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %92)
   store ptr %94, ptr %92, align 8
@@ -1455,12 +1458,13 @@ _ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit: ; preds = %381, %199, %195
   %216 = load ptr, ptr %215, align 8, !noalias !306, !nonnull !5, !align !62
   %217 = getelementptr inbounds i8, ptr %39, i64 16
   %218 = load i64, ptr %217, align 8, !noalias !306
+  %.sroa.7.0.i.i = freeze i64 %218
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39), !noalias !306
   br i1 %trunc.i.i, label %221, label %219
 
 219:                                              ; preds = %213
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50), !noalias !306
-  %220 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf05f3e17eadd0011E"(i64 noundef %218, i1 noundef zeroext false)
+  %220 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf05f3e17eadd0011E"(i64 noundef %.sroa.7.0.i.i, i1 noundef zeroext false)
           to label %223 unwind label %211, !noalias !313
 
 221:                                              ; preds = %213
@@ -1480,12 +1484,12 @@ _ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit: ; preds = %381, %199, %195
   %225 = extractvalue { i64, ptr } %220, 1
   %226 = icmp ne ptr %225, null
   call void @llvm.assume(i1 %226)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %225, ptr nonnull align 1 %216, i64 %218, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %225, ptr nonnull align 1 %216, i64 %.sroa.7.0.i.i, i1 false)
   store i64 %224, ptr %50, align 8, !noalias !306
   %.sroa.470.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %50, i64 8
   store ptr %225, ptr %.sroa.470.0..sroa_idx.i.i, align 8, !noalias !306
   %.sroa.571.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %50, i64 16
-  store i64 %218, ptr %.sroa.571.0..sroa_idx.i.i, align 8, !noalias !306
+  store i64 %.sroa.7.0.i.i, ptr %.sroa.571.0..sroa_idx.i.i, align 8, !noalias !306
   %227 = invoke noundef zeroext i1 @_ZN3std4path4Path6is_dir17h8f2800c096ff84c6E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
           to label %228 unwind label %375, !noalias !313
 

@@ -864,21 +864,21 @@ _ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit: ; preds = %31, %2
   %96 = load ptr, ptr %95, align 8, !nonnull !4, !align !14
   %97 = getelementptr inbounds i8, ptr %12, i64 16
   %98 = load i64, ptr %97, align 8
-  %.sroa.6.0 = select i1 %trunc, i64 undef, i64 %98
+  %.sroa.6.0 = freeze i64 %98
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br i1 %trunc, label %111, label %99
 
 99:                                               ; preds = %93
-  %100 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4f56f1cd31108130E"(i64 noundef %98, i1 noundef zeroext false)
+  %100 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4f56f1cd31108130E"(i64 noundef %.sroa.6.0, i1 noundef zeroext false)
           to label %.noexc unwind label %91
 
 .noexc:                                           ; preds = %99
   %101 = extractvalue { i64, ptr } %100, 1
   %102 = icmp ne ptr %101, null
   tail call void @llvm.assume(i1 %102)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr nonnull readonly align 1 %96, i64 %98, i1 false)
-  %103 = getelementptr inbounds i8, ptr %101, i64 %98
-  %104 = icmp eq i64 %98, 0
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr nonnull readonly align 1 %96, i64 %.sroa.6.0, i1 false)
+  %103 = getelementptr inbounds i8, ptr %101, i64 %.sroa.6.0
+  %104 = icmp eq i64 %.sroa.6.0, 0
   br i1 %104, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc, %.lr.ph.i.i
@@ -1278,21 +1278,21 @@ _ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit: ; preds = %31, %2
   %96 = load ptr, ptr %95, align 8, !nonnull !4, !align !14
   %97 = getelementptr inbounds i8, ptr %12, i64 16
   %98 = load i64, ptr %97, align 8
-  %.sroa.6.0 = select i1 %trunc, i64 undef, i64 %98
+  %.sroa.6.0 = freeze i64 %98
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br i1 %trunc, label %111, label %99
 
 99:                                               ; preds = %93
-  %100 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4f56f1cd31108130E"(i64 noundef %98, i1 noundef zeroext false)
+  %100 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4f56f1cd31108130E"(i64 noundef %.sroa.6.0, i1 noundef zeroext false)
           to label %.noexc unwind label %91
 
 .noexc:                                           ; preds = %99
   %101 = extractvalue { i64, ptr } %100, 1
   %102 = icmp ne ptr %101, null
   tail call void @llvm.assume(i1 %102)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr nonnull readonly align 1 %96, i64 %98, i1 false)
-  %103 = getelementptr inbounds i8, ptr %101, i64 %98
-  %104 = icmp eq i64 %98, 0
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr nonnull readonly align 1 %96, i64 %.sroa.6.0, i1 false)
+  %103 = getelementptr inbounds i8, ptr %101, i64 %.sroa.6.0
+  %104 = icmp eq i64 %.sroa.6.0, 0
   br i1 %104, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc, %.lr.ph.i.i

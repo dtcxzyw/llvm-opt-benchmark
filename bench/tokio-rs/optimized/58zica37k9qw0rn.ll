@@ -2780,16 +2780,15 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h1c
   %34 = bitcast <16 x i1> %33 to i16
   %.not.not.i15.i.i = icmp ne i16 %34, 0
   %35 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %34, i1 true)
-  %36 = zext nneg i16 %35 to i64
-  %.sroa.6.0.i.i.i = select i1 %.not.not.i15.i.i, i64 %36, i64 undef
-  %37 = add i64 %.sroa.6.0.i.i.i, %.sroa.0.025.i.i
+  %.fr.i.i.i = freeze i16 %35
+  %36 = zext i16 %.fr.i.i.i to i64
+  %37 = add i64 %.sroa.0.025.i.i, %36
   %38 = and i64 %37, %.val4.i
-  %.sroa.3.0.i.i.i = select i1 %.not.not.i15.i.i, i64 %38, i64 undef
   %.sroa.0.0.i16.i.i = zext i1 %.not.not.i15.i.i to i64
   br label %39
 
 39:                                               ; preds = %32, %22
-  %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %32 ], [ %.sroa.6.0.i.i, %22 ]
+  %.sroa.6.1.i.i = phi i64 [ %38, %32 ], [ %.sroa.6.0.i.i, %22 ]
   %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i16.i.i, %32 ], [ 1, %22 ]
   %40 = icmp eq <16 x i8> %.0.copyload.i32.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %41 = bitcast <16 x i1> %40 to i16
@@ -3430,7 +3429,8 @@ _ZN4core3ptr19swap_nonoverlapping17h7b7ad467c2005fe0E.exit: ; preds = %_ZN4core3
   %.sroa.0.0.lcssa.i = phi i64 [ %45, %43 ], [ %52, %.lr.ph.i21 ]
   %.lcssa.i = phi i16 [ %49, %43 ], [ %55, %.lr.ph.i21 ]
   %56 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
-  %57 = zext nneg i16 %56 to i64
+  %.fr.i.i = freeze i16 %56
+  %57 = zext i16 %.fr.i.i to i64
   %58 = add i64 %.sroa.0.0.lcssa.i, %57
   %59 = and i64 %58, %44
   %60 = getelementptr inbounds i8, ptr %46, i64 %59
@@ -3786,7 +3786,8 @@ define hidden noundef i64 @_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h
   %.sroa.0.0.lcssa = phi i64 [ %5, %2 ], [ %12, %.lr.ph ]
   %.lcssa = phi i16 [ %9, %2 ], [ %15, %.lr.ph ]
   %16 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa, i1 true)
-  %17 = zext nneg i16 %16 to i64
+  %.fr.i = freeze i16 %16
+  %17 = zext i16 %.fr.i to i64
   %18 = add i64 %.sroa.0.0.lcssa, %17
   %19 = and i64 %18, %4
   %20 = getelementptr inbounds i8, ptr %6, i64 %19
@@ -3839,7 +3840,8 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
   %.sroa.0.0.lcssa.i = phi i64 [ %5, %2 ], [ %12, %.lr.ph.i ]
   %.lcssa.i = phi i16 [ %9, %2 ], [ %15, %.lr.ph.i ]
   %16 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
-  %17 = zext nneg i16 %16 to i64
+  %.fr.i.i = freeze i16 %16
+  %17 = zext i16 %.fr.i.i to i64
   %18 = add i64 %.sroa.0.0.lcssa.i, %17
   %19 = and i64 %18, %4
   %20 = getelementptr inbounds i8, ptr %6, i64 %19
@@ -4246,7 +4248,8 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14in
   %.sroa.0.0.lcssa.i.i = phi i64 [ %6, %3 ], [ %13, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %10, %3 ], [ %16, %.lr.ph.i.i ]
   %17 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %18 = zext nneg i16 %17 to i64
+  %.fr.i.i.i = freeze i16 %17
+  %18 = zext i16 %.fr.i.i.i to i64
   %19 = add i64 %.sroa.0.0.lcssa.i.i, %18
   %20 = and i64 %19, %5
   %21 = getelementptr inbounds i8, ptr %7, i64 %20
@@ -4565,7 +4568,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.sroa.0.0.lcssa.i.i = phi i64 [ %85, %._crit_edge ], [ %108, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %88, %._crit_edge ], [ %111, %.lr.ph.i.i ]
   %112 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %113 = zext nneg i16 %112 to i64
+  %.fr.i.i.i = freeze i16 %112
+  %113 = zext i16 %.fr.i.i.i to i64
   %114 = add i64 %.sroa.0.0.lcssa.i.i, %113
   %115 = and i64 %114, %55
   %116 = getelementptr inbounds i8, ptr %59, i64 %115
@@ -4853,7 +4857,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.sroa.0.0.lcssa.i.i = phi i64 [ %90, %._crit_edge ], [ %116, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %93, %._crit_edge ], [ %119, %.lr.ph.i.i ]
   %120 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %121 = zext nneg i16 %120 to i64
+  %.fr.i.i.i = freeze i16 %120
+  %121 = zext i16 %.fr.i.i.i to i64
   %122 = add i64 %.sroa.0.0.lcssa.i.i, %121
   %123 = and i64 %122, %60
   %124 = getelementptr inbounds i8, ptr %64, i64 %123

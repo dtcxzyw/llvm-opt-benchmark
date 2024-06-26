@@ -232,7 +232,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %13 = getelementptr i8, ptr %12, i64 8
   %.val22.i = load i64, ptr %13, align 8
   %14 = icmp eq i32 %.val.i, 2
-  %.sroa.3.0.i.i.i.i = select i1 %14, i64 %.val22.i, i64 undef
+  %.sroa.3.0.i.i.i.i = freeze i64 %.val22.i
   %.0.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %.018.i, i64 %.sroa.3.0.i.i.i.i)
   %.0.i.i.i = select i1 %14, i64 %.0.sroa.speculated.i.i.i.i.i, i64 %.018.i
   %15 = add nuw i64 %.017.i, 1
@@ -1715,10 +1715,11 @@ define hidden { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
 11:                                               ; preds = %8
   %12 = getelementptr i8, ptr %6, i64 8
   %.val11.i = load i64, ptr %12, align 8, !alias.scope !734, !noalias !728
+  %.sroa.3.0.i.i.i.i.i = freeze i64 %.val11.i
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf533afb2bca44bfdE.llvm.16538095213602398362.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hf533afb2bca44bfdE.llvm.16538095213602398362.exit: ; preds = %5, %11
-  %.sroa.3.0.i = phi i64 [ %.val11.i, %11 ], [ undef, %5 ]
+  %.sroa.3.0.i = phi i64 [ %.sroa.3.0.i.i.i.i.i, %11 ], [ undef, %5 ]
   %.sroa.0.0.i = phi i64 [ 1, %11 ], [ 0, %5 ]
   %13 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %14 = insertvalue { i64, i64 } %13, i64 %.sroa.3.0.i, 1
@@ -6814,10 +6815,11 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf5
 12:                                               ; preds = %9
   %13 = getelementptr i8, ptr %7, i64 8
   %.val11 = load i64, ptr %13, align 8, !alias.scope !3066
+  %.sroa.3.0.i.i.i.i = freeze i64 %.val11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %12
-  %.sroa.3.0 = phi i64 [ %.val11, %12 ], [ undef, %6 ]
+  %.sroa.3.0 = phi i64 [ %.sroa.3.0.i.i.i.i, %12 ], [ undef, %6 ]
   %.sroa.0.0 = phi i64 [ 1, %12 ], [ 0, %6 ]
   %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, i64 } %14, i64 %.sroa.3.0, 1
@@ -9260,7 +9262,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %13 = getelementptr i8, ptr %12, i64 8
   %.val22 = load i64, ptr %13, align 8
   %14 = icmp eq i32 %.val, 2
-  %.sroa.3.0.i.i.i = select i1 %14, i64 %.val22, i64 undef
+  %.sroa.3.0.i.i.i = freeze i64 %.val22
   %.0.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %.018, i64 %.sroa.3.0.i.i.i)
   %.0.i.i = select i1 %14, i64 %.0.sroa.speculated.i.i.i.i, i64 %.018
   %15 = add nuw i64 %.017, 1

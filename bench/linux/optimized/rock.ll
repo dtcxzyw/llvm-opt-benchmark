@@ -1193,7 +1193,7 @@ define internal noundef range(i32 -5, 1) i32 @rock_ridge_symlink_read_folio(ptr 
   %30 = trunc i64 %19 to i32
   %31 = tail call ptr @__bread_gfp(ptr noundef %29, i64 noundef %27, i32 noundef %30, i32 noundef 8) #10
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %.thread16, label %33
+  br i1 %32, label %.thread17, label %33
 
 33:                                               ; preds = %24
   %34 = getelementptr i8, ptr %6, i64 -40
@@ -1205,7 +1205,7 @@ define internal noundef range(i32 -5, 1) i32 @rock_ridge_symlink_read_folio(ptr 
   %40 = zext i8 %39 to i64
   %41 = add i64 %35, %40
   %42 = icmp ugt i64 %41, %19
-  br i1 %42, label %.thread17, label %43
+  br i1 %42, label %.thread18, label %43
 
 43:                                               ; preds = %33
   %44 = getelementptr inbounds i8, ptr %38, i64 32
@@ -1267,7 +1267,7 @@ define internal noundef range(i32 -5, 1) i32 @rock_ridge_symlink_read_folio(ptr 
   %84 = getelementptr inbounds i8, ptr %83, i64 2
   %85 = load i8, ptr %84, align 1
   %86 = icmp ult i8 %85, 3
-  br i1 %86, label %.thread15, label %87
+  br i1 %86, label %.thread16, label %87
 
 87:                                               ; preds = %.preheader
   %88 = load i16, ptr %83, align 1
@@ -1328,7 +1328,7 @@ rock_check_overflow.exit:                         ; preds = %100
   %103 = zext i16 %88 to i32
   %104 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #11
   %105 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %103, i32 noundef %101, i32 noundef %81) #11
-  br label %.thread15
+  br label %.thread16
 
 106:                                              ; preds = %100
   %107 = zext i8 %85 to i64
@@ -1338,7 +1338,7 @@ rock_check_overflow.exit:                         ; preds = %100
   %110 = sub nsw i32 %81, %109
   store i32 %110, ptr %48, align 8
   %111 = icmp slt i32 %110, 0
-  br i1 %111, label %.thread15, label %112
+  br i1 %111, label %.thread16, label %112
 
 112:                                              ; preds = %106
   switch i16 %88, label %thread-pre-split [
@@ -1353,19 +1353,19 @@ rock_check_overflow.exit:                         ; preds = %100
   %115 = load i8, ptr %114, align 1
   %116 = and i8 %115, 4
   %117 = icmp eq i8 %116, 0
-  br i1 %117, label %.thread15, label %thread-pre-split
+  br i1 %117, label %.thread16, label %thread-pre-split
 
 118:                                              ; preds = %112
   %119 = getelementptr inbounds i8, ptr %83, i64 4
   %120 = load i8, ptr %119, align 1
   %121 = icmp eq i8 %120, -66
-  br i1 %121, label %122, label %.thread15
+  br i1 %121, label %122, label %.thread16
 
 122:                                              ; preds = %118
   %123 = getelementptr i8, ptr %83, i64 5
   %124 = load i8, ptr %123, align 1
   %125 = icmp eq i8 %124, -17
-  br i1 %125, label %126, label %.thread15
+  br i1 %125, label %126, label %.thread16
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds i8, ptr %83, i64 6
@@ -1381,7 +1381,7 @@ rock_check_overflow.exit:                         ; preds = %100
 134:                                              ; preds = %112
   %135 = getelementptr inbounds i8, ptr %83, i64 4
   %136 = icmp ugt i8 %85, 6
-  br i1 %136, label %137, label %.thread13
+  br i1 %136, label %137, label %.thread14
 
 137:                                              ; preds = %134
   %138 = add nsw i32 %109, -5
@@ -1408,7 +1408,7 @@ rock_check_overflow.exit:                         ; preds = %100
   %150 = ptrtoint ptr %143 to i64
   %151 = sub i64 %76, %150
   %152 = icmp slt i64 %151, %149
-  br i1 %152, label %.thread15, label %153
+  br i1 %152, label %.thread16, label %153
 
 153:                                              ; preds = %146
   %154 = getelementptr inbounds i8, ptr %141, i64 2
@@ -1420,7 +1420,7 @@ rock_check_overflow.exit:                         ; preds = %100
 
 158:                                              ; preds = %140
   %159 = icmp ult ptr %143, %75
-  br i1 %159, label %160, label %.thread15
+  br i1 %159, label %160, label %.thread16
 
 160:                                              ; preds = %158
   %161 = getelementptr i8, ptr %143, i64 1
@@ -1431,7 +1431,7 @@ rock_check_overflow.exit:                         ; preds = %100
   %163 = ptrtoint ptr %143 to i64
   %164 = sub i64 %76, %163
   %165 = icmp slt i64 %164, 2
-  br i1 %165, label %.thread15, label %166
+  br i1 %165, label %.thread16, label %166
 
 166:                                              ; preds = %162
   %167 = getelementptr i8, ptr %143, i64 1
@@ -1442,7 +1442,7 @@ rock_check_overflow.exit:                         ; preds = %100
 
 169:                                              ; preds = %140
   %170 = icmp ult ptr %143, %75
-  br i1 %170, label %.thread, label %.thread15
+  br i1 %170, label %.thread, label %.thread16
 
 171:                                              ; preds = %140
   %172 = zext i8 %144 to i32
@@ -1468,28 +1468,28 @@ rock_check_overflow.exit:                         ; preds = %100
   %186 = add nsw i32 %142, -2
   %187 = sub i32 %186, %185
   %188 = icmp slt i32 %187, 2
-  br i1 %188, label %.thread13, label %209
+  br i1 %188, label %.thread14, label %209
 
 189:                                              ; preds = %174
   %190 = load i8, ptr %135, align 1
   %191 = and i8 %190, 1
   %192 = icmp eq i8 %191, 0
-  br i1 %192, label %.thread13, label %193
+  br i1 %192, label %.thread14, label %193
 
 193:                                              ; preds = %189
   %194 = load i8, ptr %141, align 1
   %195 = and i8 %194, 1
   %196 = icmp eq i8 %195, 0
-  br i1 %196, label %197, label %.thread13
+  br i1 %196, label %197, label %.thread14
 
 197:                                              ; preds = %193
   %198 = icmp ult ptr %175, %75
-  br i1 %198, label %199, label %.thread15
+  br i1 %198, label %199, label %.thread16
 
 199:                                              ; preds = %197
   %200 = getelementptr i8, ptr %175, i64 1
   store i8 47, ptr %175, align 1
-  br label %.thread13
+  br label %.thread14
 
 201:                                              ; preds = %174
   %202 = load i8, ptr %141, align 1
@@ -1499,7 +1499,7 @@ rock_check_overflow.exit:                         ; preds = %100
 
 205:                                              ; preds = %201
   %206 = icmp ult ptr %175, %75
-  br i1 %206, label %207, label %.thread15
+  br i1 %206, label %207, label %.thread16
 
 207:                                              ; preds = %205
   %208 = getelementptr i8, ptr %175, i64 1
@@ -1508,19 +1508,19 @@ rock_check_overflow.exit:                         ; preds = %100
 
 209:                                              ; preds = %.thread, %207, %201
   %210 = phi i32 [ %180, %207 ], [ %180, %201 ], [ %187, %.thread ]
-  %.pn18.in = phi i8 [ %177, %207 ], [ %177, %201 ], [ %184, %.thread ]
+  %.pn19.in = phi i8 [ %177, %207 ], [ %177, %201 ], [ %184, %.thread ]
   %211 = phi ptr [ %208, %207 ], [ %175, %201 ], [ %182, %.thread ]
-  %.pn18 = zext i8 %.pn18.in to i64
-  %.pn = getelementptr i8, ptr %141, i64 %.pn18
+  %.pn19 = zext i8 %.pn19.in to i64
+  %.pn = getelementptr i8, ptr %141, i64 %.pn19
   %212 = getelementptr i8, ptr %.pn, i64 2
   br label %140
 
-.thread13:                                        ; preds = %.thread, %199, %193, %189, %134
+.thread14:                                        ; preds = %.thread, %199, %193, %189, %134
   %213 = phi ptr [ %175, %193 ], [ %200, %199 ], [ %175, %189 ], [ %82, %134 ], [ %182, %.thread ]
   %214 = icmp eq ptr %213, null
-  br i1 %214, label %.thread15, label %.thread13.thread-pre-split_crit_edge
+  br i1 %214, label %.thread16, label %.thread14.thread-pre-split_crit_edge
 
-.thread13.thread-pre-split_crit_edge:             ; preds = %.thread13
+.thread14.thread-pre-split_crit_edge:             ; preds = %.thread14
   %.pr.pre = load i32, ptr %48, align 8
   br label %thread-pre-split
 
@@ -1536,9 +1536,9 @@ rock_check_overflow.exit:                         ; preds = %100
   store i32 %221, ptr %74, align 4
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %215, %126, %113, %.thread13.thread-pre-split_crit_edge, %112
-  %222 = phi i32 [ %110, %112 ], [ %110, %126 ], [ %110, %113 ], [ %.pr.pre, %.thread13.thread-pre-split_crit_edge ], [ %110, %215 ]
-  %223 = phi ptr [ %82, %112 ], [ %82, %126 ], [ %82, %113 ], [ %213, %.thread13.thread-pre-split_crit_edge ], [ %82, %215 ]
+thread-pre-split:                                 ; preds = %215, %126, %113, %.thread14.thread-pre-split_crit_edge, %112
+  %222 = phi i32 [ %110, %112 ], [ %110, %126 ], [ %110, %113 ], [ %.pr.pre, %.thread14.thread-pre-split_crit_edge ], [ %110, %215 ]
+  %223 = phi ptr [ %82, %112 ], [ %82, %126 ], [ %82, %113 ], [ %213, %.thread14.thread-pre-split_crit_edge ], [ %82, %215 ]
   %224 = icmp sgt i32 %222, 2
   br i1 %224, label %.preheader, label %.loopexit, !llvm.loop !12
 
@@ -1561,24 +1561,24 @@ thread-pre-split:                                 ; preds = %215, %126, %113, %.
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1, i32 8, ptr elementtype(i8) %1) #10, !srcloc !14
   br label %264
 
-.thread15:                                        ; preds = %197, %.thread13, %122, %118, %113, %106, %.preheader, %146, %158, %162, %169, %205, %rock_check_overflow.exit
+.thread16:                                        ; preds = %197, %.thread14, %122, %118, %113, %106, %.preheader, %146, %158, %162, %169, %205, %rock_check_overflow.exit
   %233 = load ptr, ptr %3, align 8
   tail call void @kfree(ptr noundef %233) #10
   br label %236
 
-.thread16:                                        ; preds = %24
+.thread17:                                        ; preds = %24
   %234 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15) #11
   br label %237
 
-.thread17:                                        ; preds = %33
+.thread18:                                        ; preds = %33
   %235 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16) #11
   br label %236
 
-236:                                              ; preds = %228, %.thread15, %.thread17
+236:                                              ; preds = %228, %.thread16, %.thread18
   tail call void @__brelse(ptr noundef nonnull %31) #10
   br label %237
 
-237:                                              ; preds = %.thread16, %236, %2
+237:                                              ; preds = %.thread17, %236, %2
   %238 = getelementptr inbounds i8, ptr %1, i64 8
   %239 = load volatile i64, ptr %238, align 8
   %240 = and i64 %239, 1
@@ -1608,9 +1608,10 @@ thread-pre-split:                                 ; preds = %215, %126, %113, %.
 253:                                              ; preds = %249
   %254 = getelementptr i8, ptr %1, i64 72
   %255 = load volatile i64, ptr %254, align 8
-  %256 = and i64 %255, 1
+  %.fr13 = freeze i64 %255
+  %256 = and i64 %.fr13, 1
   %257 = icmp eq i64 %256, 0
-  %258 = add nsw i64 %255, -1
+  %258 = add i64 %.fr13, -1
   %259 = inttoptr i64 %258 to ptr
   br i1 %257, label %260, label %261
 

@@ -12730,6 +12730,7 @@ _ZN7bincode9byteorder13WriteBytesExt9write_u6417hc0ebe959ff8370b2E.llvm.12642593
 define internal fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h3157cfa0ffc3e174E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef %1, i64 %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %switch.not = icmp eq i64 %1, 0
+  %.sroa.6.0 = freeze i64 %2
   br i1 %switch.not, label %.critedge, label %"_ZN4core3ptr46drop_in_place$LT$bincode..error..ErrorKind$GT$17h11094c47a4b1a9abE.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$bincode..error..ErrorKind$GT$17h11094c47a4b1a9abE.exit": ; preds = %3
@@ -12756,7 +12757,7 @@ _ZN7bincode9byteorder13WriteBytesExt9write_u6417hc0ebe959ff8370b2E.llvm.12642593
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !8310, !noalias !8317, !nonnull !11, !noundef !11
   %18 = getelementptr inbounds i8, ptr %17, i64 %15
-  store i64 %2, ptr %18, align 1, !noalias !8307
+  store i64 %.sroa.6.0, ptr %18, align 1, !noalias !8307
   %19 = load i64, ptr %6, align 8, !alias.scope !8310, !noalias !8317, !noundef !11
   %20 = add i64 %19, 8
   store i64 %20, ptr %6, align 8, !alias.scope !8310, !noalias !8317
@@ -12765,6 +12766,10 @@ _ZN7bincode9byteorder13WriteBytesExt9write_u6417hc0ebe959ff8370b2E.llvm.12642593
 .critedge:                                        ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store i64 -9223372036854775801, ptr %4, align 8
+  %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %.sroa.6.0, ptr %.sroa.215.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   %21 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !8323
   %22 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #32, !noalias !8323
   %23 = icmp eq ptr %22, null
@@ -12809,6 +12814,7 @@ _ZN7bincode9byteorder13WriteBytesExt9write_u6417hc0ebe959ff8370b2E.llvm.12642593
 define internal fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef %1, i64 %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %switch.not = icmp eq i64 %1, 0
+  %.sroa.6.0 = freeze i64 %2
   br i1 %switch.not, label %.critedge, label %"_ZN4core3ptr46drop_in_place$LT$bincode..error..ErrorKind$GT$17h11094c47a4b1a9abE.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$bincode..error..ErrorKind$GT$17h11094c47a4b1a9abE.exit": ; preds = %3
@@ -12835,7 +12841,7 @@ _ZN7bincode9byteorder13WriteBytesExt9write_u6417hc0ebe959ff8370b2E.llvm.12642593
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !8335, !noalias !8342, !nonnull !11, !noundef !11
   %18 = getelementptr inbounds i8, ptr %17, i64 %15
-  store i64 %2, ptr %18, align 1, !noalias !8332
+  store i64 %.sroa.6.0, ptr %18, align 1, !noalias !8332
   %19 = load i64, ptr %6, align 8, !alias.scope !8335, !noalias !8342, !noundef !11
   %20 = add i64 %19, 8
   store i64 %20, ptr %6, align 8, !alias.scope !8335, !noalias !8342
@@ -12844,6 +12850,10 @@ _ZN7bincode9byteorder13WriteBytesExt9write_u6417hc0ebe959ff8370b2E.llvm.12642593
 .critedge:                                        ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store i64 -9223372036854775801, ptr %4, align 8
+  %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %.sroa.6.0, ptr %.sroa.215.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   %21 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !8348
   %22 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #32, !noalias !8348
   %23 = icmp eq ptr %22, null

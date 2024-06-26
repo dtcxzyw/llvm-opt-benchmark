@@ -354,8 +354,9 @@ _ZN10rayon_core8registry14XorShift64Star10next_usize17h02dd5453cc53fabeE.exit.i.
   store i64 %14, ptr %.sroa.420.0..sroa_idx.i.i, align 8, !noalias !53
   store ptr %6, ptr %.sroa.521.0..sroa_idx.i.i, align 8, !noalias !53
   %28 = call { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd2e10c01780893abE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4), !noalias !54
+  %.fr.i.i = freeze { ptr, ptr } %28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !49
-  %.fca.0.extract.i.i = extractvalue { ptr, ptr } %28, 0
+  %.fca.0.extract.i.i = extractvalue { ptr, ptr } %.fr.i.i, 0
   %29 = icmp eq ptr %.fca.0.extract.i.i, null
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   br i1 %29, label %30, label %33
@@ -366,8 +367,7 @@ _ZN10rayon_core8registry14XorShift64Star10next_usize17h02dd5453cc53fabeE.exit.i.
   br i1 %32, label %34, label %33
 
 33:                                               ; preds = %30, %_ZN10rayon_core8registry14XorShift64Star10next_usize17h02dd5453cc53fabeE.exit.i.i
-  %.fca.1.extract.le.i.i = extractvalue { ptr, ptr } %28, 1
-  %.sroa.7.1.le.i.i = select i1 %29, ptr undef, ptr %.fca.1.extract.le.i.i
+  %.fca.1.extract.le.i.i = extractvalue { ptr, ptr } %.fr.i.i, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %"_ZN10rayon_core8registry12WorkerThread9find_work28_$u7b$$u7b$closure$u7d$$u7d$17h5362d4db944ab804E.exit"
 
@@ -376,7 +376,7 @@ _ZN10rayon_core8registry14XorShift64Star10next_usize17h02dd5453cc53fabeE.exit.i.
   br label %_ZN10rayon_core8registry14XorShift64Star10next_usize17h02dd5453cc53fabeE.exit.i.i
 
 "_ZN10rayon_core8registry12WorkerThread9find_work28_$u7b$$u7b$closure$u7d$$u7d$17h5362d4db944ab804E.exit": ; preds = %33, %8, %3
-  %.sroa.33.0 = phi ptr [ %1, %3 ], [ %.sroa.7.1.le.i.i, %33 ], [ undef, %8 ]
+  %.sroa.33.0 = phi ptr [ %1, %3 ], [ %.fca.1.extract.le.i.i, %33 ], [ undef, %8 ]
   %.sroa.02.0 = phi ptr [ %0, %3 ], [ %.fca.0.extract.i.i, %33 ], [ null, %8 ]
   %35 = insertvalue { ptr, ptr } poison, ptr %.sroa.02.0, 0
   %36 = insertvalue { ptr, ptr } %35, ptr %.sroa.33.0, 1
@@ -721,7 +721,7 @@ define { ptr, i64 } @_ZN10rayon_core8registry13ThreadBuilder4name17hc59d7afa5836
   %..val.i = load ptr, ptr %5, align 8, !alias.scope !68, !nonnull !4
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %..val2.i = load i64, ptr %6, align 8, !alias.scope !68
-  %.sroa.3.0.i = select i1 %4, i64 undef, i64 %..val2.i
+  %.sroa.3.0.i = freeze i64 %..val2.i
   %.sroa.0.0.i = select i1 %4, ptr null, ptr %..val.i
   %7 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
   %8 = insertvalue { ptr, i64 } %7, i64 %.sroa.3.0.i, 1
@@ -785,6 +785,7 @@ define noundef ptr @"_ZN88_$LT$rayon_core..registry..DefaultSpawn$u20$as$u20$ray
   %..val.i.i = load ptr, ptr %13, align 8, !alias.scope !71, !nonnull !4
   %14 = getelementptr inbounds i8, ptr %1, i64 32
   %..val2.i.i = load i64, ptr %14, align 8, !alias.scope !71
+  %.sroa.3.0.i.i = freeze i64 %..val2.i.i
   br i1 %12, label %.noexc, label %15
 
 15:                                               ; preds = %2
@@ -794,7 +795,7 @@ define noundef ptr @"_ZN88_$LT$rayon_core..registry..DefaultSpawn$u20$as$u20$ray
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
   store i64 -9223372036854775808, ptr %.sroa.9.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %16 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h8543860bf608efa8E"(i64 noundef %..val2.i.i, i1 noundef zeroext false)
+  %16 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h8543860bf608efa8E"(i64 noundef %.sroa.3.0.i.i, i1 noundef zeroext false)
           to label %19 unwind label %24
 
 17:                                               ; preds = %19
@@ -807,12 +808,12 @@ define noundef ptr @"_ZN88_$LT$rayon_core..registry..DefaultSpawn$u20$as$u20$ray
   %21 = extractvalue { i64, ptr } %16, 1
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %..val.i.i, i64 %..val2.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %..val.i.i, i64 %.sroa.3.0.i.i, i1 false)
   store i64 %20, ptr %7, align 8
   %.sroa.442.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %21, ptr %.sroa.442.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
-  store i64 %..val2.i.i, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.3.0.i.i, ptr %.sroa.5.0..sroa_idx, align 8
   invoke void @_ZN3std6thread7Builder4name17h0b1660a8f8419cdbE(ptr noalias nocapture noundef nonnull sret({ { i64, i64 }, { i64, [2 x i64] } }) align 8 dereferenceable(40) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7)
           to label %23 unwind label %17
 
@@ -2128,8 +2129,9 @@ _ZN10rayon_core8registry14XorShift64Star10next_usize17h02dd5453cc53fabeE.exit.i.
   store i64 %23, ptr %.sroa.420.0..sroa_idx.i.i.i, align 8, !noalias !250
   store ptr %5, ptr %.sroa.521.0..sroa_idx.i.i.i, align 8, !noalias !250
   %37 = call { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd2e10c01780893abE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3), !noalias !251
+  %.fr.i.i.i = freeze { ptr, ptr } %37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !246
-  %.fca.0.extract.i.i.i = extractvalue { ptr, ptr } %37, 0
+  %.fca.0.extract.i.i.i = extractvalue { ptr, ptr } %.fr.i.i.i, 0
   %38 = icmp eq ptr %.fca.0.extract.i.i.i, null
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   br i1 %38, label %39, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h22937a7ae9e84337E.llvm.14976363794789945401.exit"
@@ -2145,7 +2147,7 @@ _ZN10rayon_core8registry14XorShift64Star10next_usize17h02dd5453cc53fabeE.exit.i.
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h22937a7ae9e84337E.llvm.14976363794789945401.exit.thread11"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h22937a7ae9e84337E.llvm.14976363794789945401.exit": ; preds = %_ZN10rayon_core8registry14XorShift64Star10next_usize17h02dd5453cc53fabeE.exit.i.i.i
-  %.fca.1.extract.le.i.i.i = extractvalue { ptr, ptr } %37, 1
+  %.fca.1.extract.le.i.i.i = extractvalue { ptr, ptr } %.fr.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4641df10c98eb782E.llvm.14976363794789945401.exit"
 

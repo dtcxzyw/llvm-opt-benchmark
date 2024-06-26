@@ -1842,17 +1842,17 @@ define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F
   %29 = icmp ne i64 %24, 0
   %or.cond.i = and i1 %28, %29
   %30 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %26)
-  %31 = extractvalue { i64, i1 } %30, 1
-  %32 = extractvalue { i64, i1 } %30, 0
+  %.fr.i = freeze { i64, i1 } %30
+  %31 = extractvalue { i64, i1 } %.fr.i, 1
+  %32 = extractvalue { i64, i1 } %.fr.i, 0
   %not..i = xor i1 %31, true
-  %narrow.i = select i1 %or.cond.i, i1 %not..i, i1 false
+  %narrow.i = and i1 %or.cond.i, %not..i
   %.sroa.04.0.i = zext i1 %narrow.i to i64
-  %.sroa.4.0.i = select i1 %or.cond.i, i64 %32, i64 undef
   store i64 %27, ptr %0, align 8, !alias.scope !419, !noalias !422
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.04.0.i, ptr %33, align 8, !alias.scope !419, !noalias !422
   %34 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.i, ptr %34, align 8, !alias.scope !419, !noalias !422
+  store i64 %32, ptr %34, align 8, !alias.scope !419, !noalias !422
   br label %"_ZN108_$LT$futures_util..stream..stream..chain..Chain$LT$St1$C$St2$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hec73a472024ab318E.exit"
 
 35:                                               ; preds = %2
@@ -20584,8 +20584,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %29 = load i16, ptr %28, align 8, !range !2402, !alias.scope !3466, !noalias !3469, !noundef !12
   %30 = getelementptr inbounds i8, ptr %2, i64 26
   %31 = load i16, ptr %30, align 2, !alias.scope !3466, !noalias !3469
-  %trunc.i = trunc nuw i16 %29 to i1
-  %.sroa.54.0.i = select i1 %trunc.i, i16 %31, i16 undef
+  %.sroa.54.0.i = freeze i16 %31
   store i64 %.sroa.0.0.i, ptr %12, align 8
   %.sroa.57.0..sroa_idx8 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.57.0..sroa_idx8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false)
@@ -20677,8 +20676,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %29 = load i16, ptr %28, align 8, !range !2402, !alias.scope !3478, !noalias !3481, !noundef !12
   %30 = getelementptr inbounds i8, ptr %2, i64 26
   %31 = load i16, ptr %30, align 2, !alias.scope !3478, !noalias !3481
-  %trunc.i = trunc nuw i16 %29 to i1
-  %.sroa.54.0.i = select i1 %trunc.i, i16 %31, i16 undef
+  %.sroa.54.0.i = freeze i16 %31
   store i64 %.sroa.0.0.i, ptr %12, align 8
   %.sroa.57.0..sroa_idx8 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.57.0..sroa_idx8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false)
@@ -20770,8 +20768,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %29 = load i16, ptr %28, align 8, !range !2402, !alias.scope !3490, !noalias !3493, !noundef !12
   %30 = getelementptr inbounds i8, ptr %2, i64 26
   %31 = load i16, ptr %30, align 2, !alias.scope !3490, !noalias !3493
-  %trunc.i = trunc nuw i16 %29 to i1
-  %.sroa.54.0.i = select i1 %trunc.i, i16 %31, i16 undef
+  %.sroa.54.0.i = freeze i16 %31
   store i64 %.sroa.0.0.i, ptr %12, align 8
   %.sroa.57.0..sroa_idx8 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.57.0..sroa_idx8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false)
@@ -20863,8 +20860,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %29 = load i16, ptr %28, align 8, !range !2402, !alias.scope !3502, !noalias !3505, !noundef !12
   %30 = getelementptr inbounds i8, ptr %2, i64 26
   %31 = load i16, ptr %30, align 2, !alias.scope !3502, !noalias !3505
-  %trunc.i = trunc nuw i16 %29 to i1
-  %.sroa.54.0.i = select i1 %trunc.i, i16 %31, i16 undef
+  %.sroa.54.0.i = freeze i16 %31
   store i64 %.sroa.0.0.i, ptr %12, align 8
   %.sroa.57.0..sroa_idx8 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.57.0..sroa_idx8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false)
@@ -39615,7 +39611,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm
 
 _ZN12arrow_buffer6buffer7mutable13MutableBuffer4push17h1a47e06269fa4aabE.llvm.18016462908235130027.exit: ; preds = %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm.18016462908235130027.exit, %50
   %54 = phi i64 [ %48, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm.18016462908235130027.exit ], [ %.pre.i, %50 ]
-  %55 = trunc nuw nsw i64 %32 to i32
+  %55 = trunc nuw i64 %32 to i32
   %56 = getelementptr inbounds i8, ptr %0, i64 56
   %57 = load ptr, ptr %56, align 8, !alias.scope !6884, !nonnull !12, !noundef !12
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
@@ -39949,7 +39945,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm
 
 _ZN12arrow_buffer6buffer7mutable13MutableBuffer4push17h1a47e06269fa4aabE.llvm.18016462908235130027.exit: ; preds = %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm.18016462908235130027.exit, %50
   %54 = phi i64 [ %48, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm.18016462908235130027.exit ], [ %.pre.i, %50 ]
-  %55 = trunc nuw nsw i64 %32 to i32
+  %55 = trunc nuw i64 %32 to i32
   %56 = getelementptr inbounds i8, ptr %0, i64 56
   %57 = load ptr, ptr %56, align 8, !alias.scope !6935, !nonnull !12, !noundef !12
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
@@ -40084,7 +40080,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
 68:                                               ; preds = %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i, %64
   %69 = phi i64 [ %.pre11, %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i ], [ %26, %64 ]
   %70 = icmp ult i64 %69, 2147483648
-  %71 = trunc nuw nsw i64 %69 to i32
+  %71 = trunc i64 %69 to i32
   br i1 %70, label %73, label %72
 
 72:                                               ; preds = %68
@@ -40736,7 +40732,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
 68:                                               ; preds = %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i, %64
   %69 = phi i64 [ %.pre11, %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i ], [ %26, %64 ]
   %70 = icmp ult i64 %69, 2147483648
-  %71 = trunc nuw nsw i64 %69 to i32
+  %71 = trunc i64 %69 to i32
   br i1 %70, label %73, label %72
 
 72:                                               ; preds = %68
@@ -41671,7 +41667,7 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %29)
   %78 = load i64, ptr %62, align 8, !noundef !12
   %79 = icmp ult i64 %78, 2147483648
-  %80 = trunc nuw nsw i64 %78 to i32
+  %80 = trunc i64 %78 to i32
   br i1 %79, label %82, label %81
 
 81:                                               ; preds = %77
@@ -42257,7 +42253,7 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %29)
   %78 = load i64, ptr %62, align 8, !noundef !12
   %79 = icmp ult i64 %78, 2147483648
-  %80 = trunc nuw nsw i64 %78 to i32
+  %80 = trunc i64 %78 to i32
   br i1 %79, label %82, label %81
 
 81:                                               ; preds = %77
@@ -120748,11 +120744,10 @@ define hidden noundef i16 @"_ZN61_$LT$i16$u20$as$u20$arrow_buffer..native..Arrow
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i32, i32 } @"_ZN61_$LT$i32$u20$as$u20$arrow_buffer..native..ArrowNativeType$GT$10from_usize17hec7efbfa34f8d481E.llvm.18016462908235130027"(i64 noundef %0) unnamed_addr #10 {
   %2 = icmp ult i64 %0, 2147483648
-  %3 = trunc nuw nsw i64 %0 to i32
-  %.sroa.5.0 = select i1 %2, i32 %3, i32 undef
+  %3 = trunc i64 %0 to i32
   %spec.select = zext i1 %2 to i32
   %4 = insertvalue { i32, i32 } poison, i32 %spec.select, 0
-  %5 = insertvalue { i32, i32 } %4, i32 %.sroa.5.0, 1
+  %5 = insertvalue { i32, i32 } %4, i32 %3, 1
   ret { i32, i32 } %5
 }
 
@@ -125955,10 +125950,9 @@ define hidden void @"_ZN73_$LT$thrift..protocol..TFieldIdentifier$u20$as$u20$cor
   %9 = load i8, ptr %8, align 4, !range !3411, !noundef !12
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8, !range !2402, !noundef !12
-  %trunc = trunc nuw i16 %11 to i1
   %12 = getelementptr inbounds i8, ptr %1, i64 26
   %13 = load i16, ptr %12, align 2
-  %.sroa.54.0 = select i1 %trunc, i16 %13, i16 undef
+  %.sroa.54.0 = freeze i16 %13
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
@@ -141528,7 +141522,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm
 
 "_ZN11arrow_array7builder21generic_bytes_builder27GenericByteBuilder$LT$T$GT$12append_value17h56f010082dad8eedE.exit.i.i": ; preds = %.noexc6.i.i, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm.18016462908235130027.exit3.i.i.i
   %270 = phi i64 [ %264, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm.18016462908235130027.exit3.i.i.i ], [ %.pre.i.i.i.i, %.noexc6.i.i ]
-  %271 = trunc nuw nsw i64 %251 to i32
+  %271 = trunc nuw i64 %251 to i32
   %272 = load ptr, ptr %186, align 8, !alias.scope !25000, !noalias !24980, !nonnull !12, !noundef !12
   %273 = getelementptr inbounds i8, ptr %272, i64 %270
   store i32 %271, ptr %273, align 1, !noalias !24980
@@ -141925,7 +141919,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm
 
 "_ZN11arrow_array7builder21generic_bytes_builder27GenericByteBuilder$LT$T$GT$12append_value17hf15da704187580c8E.exit.i.i": ; preds = %.noexc6.i.i174, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm.18016462908235130027.exit3.i.i.i164
   %425 = phi i64 [ %419, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm.18016462908235130027.exit3.i.i.i164 ], [ %.pre.i.i.i.i175, %.noexc6.i.i174 ]
-  %426 = trunc nuw nsw i64 %406 to i32
+  %426 = trunc nuw i64 %406 to i32
   %427 = load ptr, ptr %341, align 8, !alias.scope !25081, !noalias !25061, !nonnull !12, !noundef !12
   %428 = getelementptr inbounds i8, ptr %427, i64 %425
   store i32 %426, ptr %428, align 1, !noalias !25061

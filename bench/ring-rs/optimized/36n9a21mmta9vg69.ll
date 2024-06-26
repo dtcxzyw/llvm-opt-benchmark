@@ -496,7 +496,7 @@ define { ptr, i64 } @_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369ad
 
 51:                                               ; preds = %23
   %52 = getelementptr inbounds i8, ptr %8, i64 %24
-  %53 = sub nuw i64 %26, %24
+  %53 = sub i64 %26, %24
   store i64 %26, ptr %3, align 8, !alias.scope !56, !noalias !31
   %54 = add i8 %1, -1
   %55 = icmp ult i8 %54, -93
@@ -659,7 +659,7 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72: ; preds = %39
 
 69:                                               ; preds = %30
   %70 = getelementptr inbounds i8, ptr %8, i64 %31
-  %71 = sub nuw i64 %33, %31
+  %71 = sub i64 %33, %31
   store i64 %33, ptr %3, align 8, !alias.scope !74
   store i8 %11, ptr %0, align 8
   %.sroa.438.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -780,7 +780,8 @@ define { ptr, i64 } @_ZN4ring2io3der19nonnegative_integer17h72e0271b2fa3d71cE(pt
 
 50:                                               ; preds = %22
   %51 = getelementptr inbounds i8, ptr %7, i64 %23
-  %52 = sub nuw i64 %25, %23
+  %52 = sub i64 %25, %23
+  %.fca.1.extract. = freeze i64 %52
   store i64 %25, ptr %2, align 8, !alias.scope !111, !noalias !87
   %.not.i = icmp eq i8 %10, 2
   br i1 %.not.i, label %53, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread
@@ -788,7 +789,7 @@ define { ptr, i64 } @_ZN4ring2io3der19nonnegative_integer17h72e0271b2fa3d71cE(pt
 53:                                               ; preds = %50
   %.not = icmp eq i64 %25, %23
   %54 = getelementptr inbounds i8, ptr %51, i64 1
-  %55 = add i64 %52, -1
+  %55 = add i64 %.fca.1.extract., -1
   br i1 %.not, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread, label %56
 
 56:                                               ; preds = %53
@@ -802,19 +803,17 @@ define { ptr, i64 } @_ZN4ring2io3der19nonnegative_integer17h72e0271b2fa3d71cE(pt
 
 60:                                               ; preds = %56
   %61 = icmp sgt i8 %57, -1
-  %.fca.1.extract. = select i1 %61, i64 %52, i64 undef
   %..fca.0.extract. = select i1 %61, ptr %51, ptr null
   br label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread
 
 62:                                               ; preds = %59
   %63 = load i8, ptr %54, align 1, !noundef !33
   %.not44 = icmp sgt i8 %63, -1
-  %..sroa.624.sroa.4.0 = select i1 %.not44, i64 undef, i64 %55
   %..sroa.624.sroa.0.045 = select i1 %.not44, ptr null, ptr %54
   br label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread
 
 _ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread: ; preds = %22, %41, %37, %29, %30, %28, %21, %13, %6, %1, %50, %60, %62, %59, %53
-  %.sroa.8.2 = phi i64 [ undef, %53 ], [ %.fca.1.extract., %60 ], [ 1, %59 ], [ %..sroa.624.sroa.4.0, %62 ], [ undef, %50 ], [ undef, %1 ], [ undef, %6 ], [ undef, %13 ], [ undef, %21 ], [ undef, %28 ], [ undef, %30 ], [ undef, %29 ], [ undef, %37 ], [ undef, %41 ], [ undef, %22 ]
+  %.sroa.8.2 = phi i64 [ undef, %53 ], [ %.fca.1.extract., %60 ], [ 1, %59 ], [ %55, %62 ], [ undef, %50 ], [ undef, %1 ], [ undef, %6 ], [ undef, %13 ], [ undef, %21 ], [ undef, %28 ], [ undef, %30 ], [ undef, %29 ], [ undef, %37 ], [ undef, %41 ], [ undef, %22 ]
   %.sroa.0.2 = phi ptr [ null, %53 ], [ %..fca.0.extract., %60 ], [ %51, %59 ], [ %..sroa.624.sroa.0.045, %62 ], [ null, %50 ], [ null, %1 ], [ null, %6 ], [ null, %13 ], [ null, %21 ], [ null, %28 ], [ null, %30 ], [ null, %29 ], [ null, %37 ], [ null, %41 ], [ null, %22 ]
   %64 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.2, 0
   %65 = insertvalue { ptr, i64 } %64, i64 %.sroa.8.2, 1
@@ -1453,7 +1452,7 @@ define noundef zeroext i1 @"_ZN85_$LT$ring..rsa..padding..pkcs1..PKCS1$u20$as$u2
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd8b1fea51af52a81E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.6801758991666044160.exit"
   %24 = load ptr, ptr %2, align 8, !alias.scope !239, !nonnull !33, !align !34, !noundef !33
-  %25 = sub nuw i64 %20, %17
+  %25 = sub i64 %20, %17
   store i64 %20, ptr %16, align 8, !alias.scope !239
   %.not.i = icmp eq i64 %25, %11
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit.thread"
@@ -1886,7 +1885,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
 48:                                               ; preds = %39
   %49 = load ptr, ptr %2, align 8, !nonnull !33, !align !34, !noundef !33
   %50 = getelementptr inbounds i8, ptr %49, i64 %41
-  %51 = sub nuw i64 %44, %41
+  %51 = sub i64 %44, %41
   store i64 %44, ptr %42, align 8, !alias.scope !305
   %52 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %44, i64 %.val)
   %53 = extractvalue { i64, i1 } %52, 0
@@ -1897,7 +1896,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
 
 56:                                               ; preds = %48
   %57 = getelementptr inbounds i8, ptr %49, i64 %44
-  %58 = sub nuw i64 %53, %44
+  %58 = sub i64 %53, %44
   store i64 %53, ptr %42, align 8, !alias.scope !311
   tail call void @llvm.experimental.noalias.scope.decl(metadata !314)
   %.not130 = icmp ult i64 %53, %40

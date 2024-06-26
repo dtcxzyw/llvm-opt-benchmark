@@ -4780,8 +4780,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %30 = load i16, ptr %29, align 8, !range !1253, !alias.scope !1260, !noalias !1263, !noundef !4
   %31 = getelementptr inbounds i8, ptr %2, i64 26
   %32 = load i16, ptr %31, align 2, !alias.scope !1260, !noalias !1263
-  %trunc.i = trunc nuw i16 %30 to i1
-  %.sroa.54.0.i = select i1 %trunc.i, i16 %32, i16 undef
+  %.sroa.54.0.i = freeze i16 %32
   store ptr %.sroa.0.0.i, ptr %12, align 8
   %.sroa.58.0..sroa_idx9 = getelementptr inbounds i8, ptr %1, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.0..sroa_idx9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false)
@@ -4873,8 +4872,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %30 = load i16, ptr %29, align 8, !range !1253, !alias.scope !1272, !noalias !1275, !noundef !4
   %31 = getelementptr inbounds i8, ptr %2, i64 26
   %32 = load i16, ptr %31, align 2, !alias.scope !1272, !noalias !1275
-  %trunc.i = trunc nuw i16 %30 to i1
-  %.sroa.54.0.i = select i1 %trunc.i, i16 %32, i16 undef
+  %.sroa.54.0.i = freeze i16 %32
   store ptr %.sroa.0.0.i, ptr %12, align 8
   %.sroa.58.0..sroa_idx9 = getelementptr inbounds i8, ptr %1, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.0..sroa_idx9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false)
@@ -9619,10 +9617,9 @@ define hidden void @"_ZN73_$LT$thrift..protocol..TFieldIdentifier$u20$as$u20$cor
   %9 = load i8, ptr %8, align 4, !range !1228, !noundef !4
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8, !range !1253, !noundef !4
-  %trunc = trunc nuw i16 %11 to i1
   %12 = getelementptr inbounds i8, ptr %1, i64 26
   %13 = load i16, ptr %12, align 2
-  %.sroa.54.0 = select i1 %trunc, i16 %13, i16 undef
+  %.sroa.54.0 = freeze i16 %13
   store ptr %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)

@@ -8905,10 +8905,11 @@ if.then.i:                                        ; preds = %entry
   %9 = load i16, ptr %arrayidx.i.i.i.i.i.i.i, align 2, !noalias !442
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.cast.i, i64 11
   %10 = load i8, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !442
+  %.fr.i.i.i = freeze i8 %10
   %11 = and i16 %9, 16384
-  %.not.not.i.i = icmp ne i16 %11, 0
-  %12 = trunc i8 %10 to i1
-  %retval.0.i.i.i = select i1 %.not.not.i.i, i1 %12, i1 false
+  %.not.i.i = icmp ne i16 %11, 0
+  %12 = trunc i8 %.fr.i.i.i to i1
+  %retval.0.i.i.i = and i1 %.not.i.i, %12
   br i1 %retval.0.i.i.i, label %if.then.i.i, label %if.then.i2
 
 if.then.i.i:                                      ; preds = %if.then.i

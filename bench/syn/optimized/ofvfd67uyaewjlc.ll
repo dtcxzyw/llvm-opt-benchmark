@@ -8390,8 +8390,7 @@ define void @"_ZN3syn3gen5clone90_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
 
 30:                                               ; preds = %2, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha85a8e3f8572ccccE.llvm.14145919710250835280.exit"
   %.0.i = phi ptr [ null, %2 ], [ %18, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha85a8e3f8572ccccE.llvm.14145919710250835280.exit" ]
-  %trunc = trunc nuw i32 %7 to i1
-  %.sroa.5.0 = select i1 %trunc, i64 %.sroa.0.0.copyload.i, i64 undef
+  %.sroa.5.0 = freeze i64 %.sroa.0.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !1184
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1167
   %31 = getelementptr inbounds i8, ptr %1, i64 48
@@ -8480,10 +8479,9 @@ define void @"_ZN3syn3gen5clone70_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1199)
   %28 = getelementptr inbounds i8, ptr %1, i64 240
   %29 = load i32, ptr %28, align 8, !range !235, !alias.scope !1199, !noalias !1202, !noundef !9
-  %trunc.i = trunc nuw i32 %29 to i1
   %30 = getelementptr inbounds i8, ptr %1, i64 244
   %.sroa.0.0.copyload.i.i = load i64, ptr %30, align 4
-  %.sroa.5.0.i = select i1 %trunc.i, i64 %.sroa.0.0.copyload.i.i, i64 undef
+  %.sroa.5.0.i = freeze i64 %.sroa.0.0.copyload.i.i
   %31 = getelementptr inbounds i8, ptr %1, i64 252
   %.sroa.0.0.copyload.i9.i = load i32, ptr %31, align 4, !alias.scope !1204, !noalias !1202
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1207
@@ -8698,10 +8696,9 @@ define void @"_ZN3syn3gen5clone69_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1243)
   %28 = getelementptr inbounds i8, ptr %1, i64 296
   %29 = load i32, ptr %28, align 8, !range !235, !alias.scope !1243, !noalias !1246, !noundef !9
-  %trunc.i = trunc nuw i32 %29 to i1
   %30 = getelementptr inbounds i8, ptr %1, i64 300
   %.sroa.0.0.copyload.i.i = load i64, ptr %30, align 4
-  %.sroa.5.0.i = select i1 %trunc.i, i64 %.sroa.0.0.copyload.i.i, i64 undef
+  %.sroa.5.0.i = freeze i64 %.sroa.0.0.copyload.i.i
   %31 = getelementptr inbounds i8, ptr %1, i64 308
   %.sroa.0.0.copyload.i9.i = load i32, ptr %31, align 4, !alias.scope !1248, !noalias !1246
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1251
@@ -8916,10 +8913,9 @@ define void @"_ZN3syn3gen5clone70_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1287)
   %28 = getelementptr inbounds i8, ptr %1, i64 96
   %29 = load i32, ptr %28, align 8, !range !235, !alias.scope !1287, !noalias !1290, !noundef !9
-  %trunc.i = trunc nuw i32 %29 to i1
   %30 = getelementptr inbounds i8, ptr %1, i64 100
   %.sroa.0.0.copyload.i.i = load i64, ptr %30, align 4
-  %.sroa.5.0.i = select i1 %trunc.i, i64 %.sroa.0.0.copyload.i.i, i64 undef
+  %.sroa.5.0.i = freeze i64 %.sroa.0.0.copyload.i.i
   %31 = getelementptr inbounds i8, ptr %1, i64 108
   %.sroa.0.0.copyload.i9.i = load i32, ptr %31, align 4, !alias.scope !1292, !noalias !1290
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1295
@@ -9287,10 +9283,9 @@ define void @"_ZN3syn3gen5clone64_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
   %3 = alloca { { { i64, ptr }, i64 }, ptr }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8, !range !235, !noundef !9
-  %trunc = trunc nuw i32 %5 to i1
   %6 = getelementptr inbounds i8, ptr %1, i64 36
   %.sroa.0.0.copyload.i = load i64, ptr %6, align 4
-  %.sroa.5.0 = select i1 %trunc, i64 %.sroa.0.0.copyload.i, i64 undef
+  %.sroa.5.0 = freeze i64 %.sroa.0.0.copyload.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h452cb9efa7372bf8E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 }, ptr }) align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -9497,10 +9492,9 @@ define void @"_ZN3syn3gen5clone65_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !9
   %14 = load i32, ptr %1, align 8, !range !235, !noundef !9
-  %trunc = trunc nuw i32 %14 to i1
   %15 = getelementptr inbounds i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
-  %.sroa.5.0 = select i1 %trunc, i32 %16, i32 undef
+  %.sroa.5.0 = freeze i32 %16
   %17 = getelementptr inbounds i8, ptr %1, i64 28
   %.sroa.0.0.copyload.i7 = load i32, ptr %17, align 4, !alias.scope !1383
   %18 = getelementptr inbounds i8, ptr %0, i64 24

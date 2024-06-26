@@ -1224,7 +1224,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %..val.i.i = load ptr, ptr %24, align 8, !alias.scope !326, !noalias !323, !nonnull !4
   %25 = getelementptr inbounds i8, ptr %.sroa.5.0.copyload, i64 16
   %..val2.i.i = load i64, ptr %25, align 8, !alias.scope !326, !noalias !323
-  %.sroa.3.0.i.i = select i1 %23, i64 undef, i64 %..val2.i.i
+  %.sroa.3.0.i.i = freeze i64 %..val2.i.i
   %.sroa.0.0.i.i = select i1 %23, ptr null, ptr %..val.i.i
   %26 = invoke { i64, ptr } @_ZN18tree_sitter_loader6Loader21load_language_at_path17h2b41c046ff6517aaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %.sroa.4.0.copyload, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef 1, ptr noalias noundef readonly align 8 %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i)
           to label %29 unwind label %27, !noalias !323
@@ -1399,6 +1399,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %..val.i.i = load ptr, ptr %37, align 8, !alias.scope !351, !noalias !348, !nonnull !4
   %38 = getelementptr inbounds i8, ptr %34, i64 16
   %..val2.i.i = load i64, ptr %38, align 8, !alias.scope !351, !noalias !348
+  %.sroa.3.0.i.i = freeze i64 %..val2.i.i
   br label %49
 
 39:                                               ; preds = %31
@@ -1409,7 +1410,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %..val.i141.i = load ptr, ptr %43, align 8, !alias.scope !354, !noalias !348, !nonnull !4
   %44 = getelementptr inbounds i8, ptr %32, i64 112
   %..val2.i142.i = load i64, ptr %44, align 8, !alias.scope !354, !noalias !348
-  %.sroa.3.0.i143.i = select i1 %42, i64 undef, i64 %..val2.i142.i
+  %.sroa.3.0.i143.i = freeze i64 %..val2.i142.i
   %.sroa.0.0.i144.i = select i1 %42, ptr null, ptr %..val.i141.i
   br label %49
 
@@ -1427,8 +1428,8 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
 
 49:                                               ; preds = %39, %36
   %..val.i.pn.i = phi ptr [ %..val.i.i, %36 ], [ %.sroa.0.0.i144.i, %39 ]
-  %..val2.i.pn.i = phi i64 [ %..val2.i.i, %36 ], [ %.sroa.3.0.i143.i, %39 ]
-  invoke void @_ZN18tree_sitter_loader21LanguageConfiguration12read_queries17h5ab537859472cacaE(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 %32, ptr noalias noundef readonly align 8 %..val.i.pn.i, i64 %..val2.i.pn.i, ptr noalias noundef nonnull readonly align 1 @anon.5797861c9b37489455df470e033f6d21.38, i64 noundef 14)
+  %.sroa.3.0.i.pn.i = phi i64 [ %.sroa.3.0.i.i, %36 ], [ %.sroa.3.0.i143.i, %39 ]
+  invoke void @_ZN18tree_sitter_loader21LanguageConfiguration12read_queries17h5ab537859472cacaE(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 %32, ptr noalias noundef readonly align 8 %..val.i.pn.i, i64 %.sroa.3.0.i.pn.i, ptr noalias noundef nonnull readonly align 1 @anon.5797861c9b37489455df470e033f6d21.38, i64 noundef 14)
           to label %50 unwind label %47, !noalias !348
 
 50:                                               ; preds = %49
@@ -1467,6 +1468,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %..val.i145.i = load ptr, ptr %60, align 8, !alias.scope !357, !noalias !348, !nonnull !4
   %61 = getelementptr inbounds i8, ptr %57, i64 16
   %..val2.i146.i = load i64, ptr %61, align 8, !alias.scope !357, !noalias !348
+  %.sroa.3.0.i147.i = freeze i64 %..val2.i146.i
   br label %71
 
 62:                                               ; preds = %55
@@ -1477,7 +1479,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %..val.i149.i = load ptr, ptr %66, align 8, !alias.scope !360, !noalias !348, !nonnull !4
   %67 = getelementptr inbounds i8, ptr %32, i64 136
   %..val2.i150.i = load i64, ptr %67, align 8, !alias.scope !360, !noalias !348
-  %.sroa.3.0.i151.i = select i1 %65, i64 undef, i64 %..val2.i150.i
+  %.sroa.3.0.i151.i = freeze i64 %..val2.i150.i
   %.sroa.0.0.i152.i = select i1 %65, ptr null, ptr %..val.i149.i
   br label %71
 
@@ -1495,8 +1497,8 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
 
 71:                                               ; preds = %62, %59
   %..val.i145.pn.i = phi ptr [ %..val.i145.i, %59 ], [ %.sroa.0.0.i152.i, %62 ]
-  %..val2.i146.pn.i = phi i64 [ %..val2.i146.i, %59 ], [ %.sroa.3.0.i151.i, %62 ]
-  invoke void @_ZN18tree_sitter_loader21LanguageConfiguration12read_queries17h5ab537859472cacaE(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 %32, ptr noalias noundef readonly align 8 %..val.i145.pn.i, i64 %..val2.i146.pn.i, ptr noalias noundef nonnull readonly align 1 @anon.5797861c9b37489455df470e033f6d21.39, i64 noundef 14)
+  %.sroa.3.0.i147.pn.i = phi i64 [ %.sroa.3.0.i147.i, %59 ], [ %.sroa.3.0.i151.i, %62 ]
+  invoke void @_ZN18tree_sitter_loader21LanguageConfiguration12read_queries17h5ab537859472cacaE(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 %32, ptr noalias noundef readonly align 8 %..val.i145.pn.i, i64 %.sroa.3.0.i147.pn.i, ptr noalias noundef nonnull readonly align 1 @anon.5797861c9b37489455df470e033f6d21.39, i64 noundef 14)
           to label %72 unwind label %69, !noalias !348
 
 72:                                               ; preds = %71
@@ -1535,6 +1537,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %..val.i153.i = load ptr, ptr %83, align 8, !alias.scope !363, !noalias !348, !nonnull !4
   %84 = getelementptr inbounds i8, ptr %79, i64 16
   %..val2.i154.i = load i64, ptr %84, align 8, !alias.scope !363, !noalias !348
+  %.sroa.3.0.i155.i = freeze i64 %..val2.i154.i
   br label %94
 
 85:                                               ; preds = %77
@@ -1545,7 +1548,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %..val.i157.i = load ptr, ptr %89, align 8, !alias.scope !366, !noalias !348, !nonnull !4
   %90 = getelementptr inbounds i8, ptr %32, i64 160
   %..val2.i158.i = load i64, ptr %90, align 8, !alias.scope !366, !noalias !348
-  %.sroa.3.0.i159.i = select i1 %88, i64 undef, i64 %..val2.i158.i
+  %.sroa.3.0.i159.i = freeze i64 %..val2.i158.i
   %.sroa.0.0.i160.i = select i1 %88, ptr null, ptr %..val.i157.i
   br label %94
 
@@ -1563,8 +1566,8 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
 
 94:                                               ; preds = %85, %82
   %..val.i153.pn.i = phi ptr [ %..val.i153.i, %82 ], [ %.sroa.0.0.i160.i, %85 ]
-  %..val2.i154.pn.i = phi i64 [ %..val2.i154.i, %82 ], [ %.sroa.3.0.i159.i, %85 ]
-  invoke void @_ZN18tree_sitter_loader21LanguageConfiguration12read_queries17h5ab537859472cacaE(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 %32, ptr noalias noundef readonly align 8 %..val.i153.pn.i, i64 %..val2.i154.pn.i, ptr noalias noundef nonnull readonly align 1 @anon.5797861c9b37489455df470e033f6d21.40, i64 noundef 10)
+  %.sroa.3.0.i155.pn.i = phi i64 [ %.sroa.3.0.i155.i, %82 ], [ %.sroa.3.0.i159.i, %85 ]
+  invoke void @_ZN18tree_sitter_loader21LanguageConfiguration12read_queries17h5ab537859472cacaE(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 %32, ptr noalias noundef readonly align 8 %..val.i153.pn.i, i64 %.sroa.3.0.i155.pn.i, ptr noalias noundef nonnull readonly align 1 @anon.5797861c9b37489455df470e033f6d21.40, i64 noundef 10)
           to label %95 unwind label %92, !noalias !348
 
 95:                                               ; preds = %94
@@ -2369,7 +2372,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %..val.i.i = load ptr, ptr %29, align 8, !alias.scope !474, !noalias !471, !nonnull !4
   %30 = getelementptr inbounds i8, ptr %1, i64 184
   %..val2.i.i = load i64, ptr %30, align 8, !alias.scope !474, !noalias !471
-  %.sroa.3.0.i.i = select i1 %28, i64 undef, i64 %..val2.i.i
+  %.sroa.3.0.i.i = freeze i64 %..val2.i.i
   %.sroa.0.0.i.i = select i1 %28, ptr null, ptr %..val.i.i
   invoke void @_ZN18tree_sitter_loader21LanguageConfiguration12read_queries17h5ab537859472cacaE(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 %1, ptr noalias noundef readonly align 8 %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i, ptr noalias noundef nonnull readonly align 1 @anon.5797861c9b37489455df470e033f6d21.43, i64 noundef 8)
           to label %35 unwind label %33, !noalias !471
@@ -2432,7 +2435,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %..val.i44.i = load ptr, ptr %50, align 8, !alias.scope !477, !noalias !471, !nonnull !4
   %51 = getelementptr inbounds i8, ptr %46, i64 160
   %..val2.i45.i = load i64, ptr %51, align 8, !alias.scope !477, !noalias !471
-  %.sroa.3.0.i46.i = select i1 %49, i64 undef, i64 %..val2.i45.i
+  %.sroa.3.0.i46.i = freeze i64 %..val2.i45.i
   %.sroa.0.0.i47.i = select i1 %49, ptr null, ptr %..val.i44.i
   invoke void @_ZN18tree_sitter_loader21LanguageConfiguration12read_queries17h5ab537859472cacaE(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 %46, ptr noalias noundef readonly align 8 %.sroa.0.0.i47.i, i64 %.sroa.3.0.i46.i, ptr noalias noundef nonnull readonly align 1 @anon.5797861c9b37489455df470e033f6d21.40, i64 noundef 10)
           to label %52 unwind label %43, !noalias !471

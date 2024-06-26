@@ -4783,50 +4783,52 @@ define hidden void @_ZN3std9panicking3try17h60474185198cc57dE(ptr noalias nocapt
   %7 = load i32, ptr %6, align 4, !noalias !462, !noundef !5
   %8 = load i32, ptr %.sroa.0.sroa.5.0.copyload, align 4, !range !466, !noalias !462, !noundef !5
   invoke void @_ZN14ide_completion11completions17h065513fd8174fe40E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %.sroa.0.sroa.6.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4, i32 noundef %5, i32 noundef %7, i32 noundef %8)
-          to label %.noexc unwind label %15
+          to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %2
   %9 = load i64, ptr %3, align 8, !range !146, !noalias !467, !noundef !5
-  %10 = icmp eq i64 %9, -9223372036854775808
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = load <2 x ptr>, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %12 = insertelement <2 x i1> poison, i1 %10, i64 0
-  %13 = shufflevector <2 x i1> %12, <2 x i1> poison, <2 x i32> zeroinitializer
-  %14 = select <2 x i1> %13, <2 x ptr> undef, <2 x ptr> %11
+  %.sroa.5.i.sroa.0.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8
+  %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.5.i.sroa.4.0.copyload = load ptr, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8
+  %.sroa.5.i.sroa.0.0 = freeze ptr %.sroa.5.i.sroa.0.0.copyload
+  %.sroa.5.i.sroa.4.0 = freeze ptr %.sroa.5.i.sroa.4.0.copyload
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !458
   store i64 %9, ptr %0, align 8
-  store <2 x ptr> %14, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %28
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.5.i.sroa.0.0, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.5.i.sroa.4.0, ptr %.sroa.5.0..sroa_idx, align 8
+  br label %23
 
-15:                                               ; preds = %2
-  %16 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  %18 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %17)
-          to label %21 unwind label %19
+  %12 = extractvalue { ptr, i32 } %11, 0
+  %13 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %12)
+          to label %16 unwind label %14
 
-19:                                               ; preds = %15
-  %20 = landingpad { ptr, i32 }
+14:                                               ; preds = %10
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking19panic_cannot_unwind17hb9fd422cdcdfc93eE() #39
   unreachable
 
-21:                                               ; preds = %15
-  %22 = extractvalue { ptr, ptr } %18, 0
-  %23 = extractvalue { ptr, ptr } %18, 1
-  %24 = icmp ne ptr %22, null
-  tail call void @llvm.assume(i1 %24)
-  %25 = icmp ne ptr %23, null
-  tail call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %22, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %23, ptr %27, align 8
+16:                                               ; preds = %10
+  %17 = extractvalue { ptr, ptr } %13, 0
+  %18 = extractvalue { ptr, ptr } %13, 1
+  %19 = icmp ne ptr %17, null
+  tail call void @llvm.assume(i1 %19)
+  %20 = icmp ne ptr %18, null
+  tail call void @llvm.assume(i1 %20)
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %17, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %18, ptr %22, align 8
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %28
+  br label %23
 
-28:                                               ; preds = %21, %.noexc
+23:                                               ; preds = %16, %.noexc
   ret void
 }
 
@@ -10238,10 +10240,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit104.i.i.i: ; preds = %431
   %452 = icmp eq i64 %451, -9223372036854775808
   %453 = getelementptr inbounds i8, ptr %412, i64 40
   %..val2.i.i.i.i = load i64, ptr %453, align 8, !noalias !1096
+  %.sroa.3.0.i107.i.i.i = freeze i64 %..val2.i.i.i.i
   %454 = getelementptr inbounds i8, ptr %412, i64 32
   %..val.i.i.i.i = load ptr, ptr %454, align 8, !noalias !1096, !nonnull !5
   %storemerge132.i.i.i = select i1 %452, ptr @anon.aa0da036f567afe71c1993f543159716.235, ptr %..val.i.i.i.i
-  %storemerge.i.i.i = select i1 %452, i64 3, i64 %..val2.i.i.i.i
+  %storemerge.i.i.i = select i1 %452, i64 3, i64 %.sroa.3.0.i107.i.i.i
   store ptr %storemerge132.i.i.i, ptr %23, align 8, !noalias !1096
   store i64 %storemerge.i.i.i, ptr %359, align 8, !noalias !1096
   store ptr %23, ptr %24, align 8, !noalias !1096

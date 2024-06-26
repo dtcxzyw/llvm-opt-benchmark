@@ -477,12 +477,13 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h38f6a991289cb4
   %41 = load ptr, ptr %40, align 8, !nonnull !5, !align !97
   %42 = getelementptr inbounds i8, ptr %14, i64 16
   %43 = load i64, ptr %42, align 8
+  %.sroa.7.0 = freeze i64 %43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br i1 %trunc, label %46, label %44
 
 44:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
-  %45 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hdcf5e58cd876587fE"(i64 noundef %43, i1 noundef zeroext false)
+  %45 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hdcf5e58cd876587fE"(i64 noundef %.sroa.7.0, i1 noundef zeroext false)
           to label %48 unwind label %36
 
 46:                                               ; preds = %38
@@ -502,12 +503,12 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h38f6a991289cb4
   %50 = extractvalue { i64, ptr } %45, 1
   %51 = icmp ne ptr %50, null
   tail call void @llvm.assume(i1 %51)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 1 %41, i64 %43, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 1 %41, i64 %.sroa.7.0, i1 false)
   store i64 %49, ptr %25, align 8
   %.sroa.470.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %50, ptr %.sroa.470.0..sroa_idx, align 8
   %.sroa.571.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 16
-  store i64 %43, ptr %.sroa.571.0..sroa_idx, align 8
+  store i64 %.sroa.7.0, ptr %.sroa.571.0..sroa_idx, align 8
   %.val116 = load ptr, ptr %34, align 8, !nonnull !5, !noundef !5
   %.val117 = load i64, ptr %35, align 8, !noundef !5
   %52 = invoke noundef zeroext i1 @_ZN3std4path4Path6is_dir17h8f2800c096ff84c6E(ptr noalias noundef nonnull readonly align 1 %.val116, i64 noundef %.val117)
@@ -1180,12 +1181,13 @@ define internal fastcc void @_ZN8fs_extra3dir16get_dir_content217h5a8b06470fd5fb
   %39 = load ptr, ptr %38, align 8, !noalias !249, !nonnull !5, !align !97
   %40 = getelementptr inbounds i8, ptr %12, i64 16
   %41 = load i64, ptr %40, align 8, !noalias !249
+  %.sroa.7.0.i = freeze i64 %41
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !249
   br i1 %trunc.i, label %44, label %42
 
 42:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23), !noalias !249
-  %43 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hdcf5e58cd876587fE"(i64 noundef %41, i1 noundef zeroext false)
+  %43 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hdcf5e58cd876587fE"(i64 noundef %.sroa.7.0.i, i1 noundef zeroext false)
           to label %46 unwind label %34, !noalias !246
 
 44:                                               ; preds = %36
@@ -1205,12 +1207,12 @@ define internal fastcc void @_ZN8fs_extra3dir16get_dir_content217h5a8b06470fd5fb
   %48 = extractvalue { i64, ptr } %43, 1
   %49 = icmp ne ptr %48, null
   tail call void @llvm.assume(i1 %49)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %39, i64 %41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %39, i64 %.sroa.7.0.i, i1 false)
   store i64 %47, ptr %23, align 8, !noalias !249
   %.sroa.470.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %48, ptr %.sroa.470.0..sroa_idx.i, align 8, !noalias !249
   %.sroa.571.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 16
-  store i64 %41, ptr %.sroa.571.0..sroa_idx.i, align 8, !noalias !249
+  store i64 %.sroa.7.0.i, ptr %.sroa.571.0..sroa_idx.i, align 8, !noalias !249
   %50 = invoke noundef zeroext i1 @_ZN3std4path4Path6is_dir17h8f2800c096ff84c6E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
           to label %51 unwind label %205, !noalias !246
 
@@ -1939,10 +1941,11 @@ define hidden void @_ZN8fs_extra3dir22move_dir_with_progress17he09cb7d4539a1f35E
           to label %147 unwind label %.loopexit.split-lp567
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %119
+  %.sroa.7.0 = freeze i64 %124
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %92)
   store ptr %122, ptr %92, align 8
   %127 = getelementptr inbounds i8, ptr %92, i64 8
-  store i64 %124, ptr %127, align 8
+  store i64 %.sroa.7.0, ptr %127, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %91)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %90)
   store ptr %92, ptr %90, align 8
@@ -2067,10 +2070,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %119
           to label %176 unwind label %.loopexit.split-lp567
 
 157:                                              ; preds = %150
+  %.sroa.75.0 = freeze i64 %155
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %84)
   store ptr %153, ptr %84, align 8
   %158 = getelementptr inbounds i8, ptr %84, i64 8
-  store i64 %155, ptr %158, align 8
+  store i64 %.sroa.75.0, ptr %158, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %83)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %82)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %81)
@@ -2703,11 +2707,12 @@ _ZN3std4path7PathBuf4push17h81a38fc39ce9f2beE.exit332: ; preds = %332
   %trunc241 = trunc nuw i64 %334 to i1
   %335 = load ptr, ptr %280, align 8, !nonnull !5, !align !97
   %336 = load i64, ptr %281, align 8
+  %.sroa.745.0 = freeze i64 %336
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
   br i1 %trunc241, label %339, label %337
 
 337:                                              ; preds = %333
-  %338 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hdcf5e58cd876587fE"(i64 noundef %336, i1 noundef zeroext false)
+  %338 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hdcf5e58cd876587fE"(i64 noundef %.sroa.745.0, i1 noundef zeroext false)
           to label %340 unwind label %.loopexit546
 
 339:                                              ; preds = %333
@@ -2722,7 +2727,7 @@ _ZN3std4path7PathBuf4push17h81a38fc39ce9f2beE.exit332: ; preds = %332
   %342 = extractvalue { i64, ptr } %338, 1
   %343 = icmp ne ptr %342, null
   call void @llvm.assume(i1 %343)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %342, ptr nonnull align 1 %335, i64 %336, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %342, ptr nonnull align 1 %335, i64 %.sroa.745.0, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !526
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17habe40f0d5c9900f0E.llvm.13937331920422269825"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64)
           to label %.noexc334 unwind label %350
@@ -2747,14 +2752,14 @@ _ZN3std4path7PathBuf4push17h81a38fc39ce9f2beE.exit332: ; preds = %332
           cleanup
   store i64 %341, ptr %64, align 8
   store ptr %342, ptr %.sroa.031.sroa.4.0..sroa_idx, align 8
-  store i64 %336, ptr %.sroa.031.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.745.0, ptr %.sroa.031.sroa.5.0..sroa_idx, align 8
   br label %.thread492
 
 352:                                              ; preds = %348, %345, %.noexc334
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !526
   store i64 %341, ptr %64, align 8
   store ptr %342, ptr %.sroa.031.sroa.4.0..sroa_idx, align 8
-  store i64 %336, ptr %.sroa.031.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.745.0, ptr %.sroa.031.sroa.5.0..sroa_idx, align 8
   store i64 0, ptr %263, align 8
   %353 = load ptr, ptr %.sroa.8410.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   %354 = load i64, ptr %273, align 8, !noundef !5
@@ -4460,10 +4465,11 @@ define hidden void @_ZN8fs_extra3dir8move_dir17hdc4ce4f871b26efeE(ptr noalias no
           to label %131 unwind label %.loopexit.split-lp449
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %103
+  %.sroa.7.0 = freeze i64 %108
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %77)
   store ptr %106, ptr %77, align 8
   %111 = getelementptr inbounds i8, ptr %77, i64 8
-  store i64 %108, ptr %111, align 8
+  store i64 %.sroa.7.0, ptr %111, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %76)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %75)
   store ptr %77, ptr %75, align 8
@@ -4588,10 +4594,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %103
           to label %160 unwind label %.loopexit.split-lp449
 
 141:                                              ; preds = %134
+  %.sroa.75.0 = freeze i64 %139
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69)
   store ptr %137, ptr %69, align 8
   %142 = getelementptr inbounds i8, ptr %69, i64 8
-  store i64 %139, ptr %142, align 8
+  store i64 %.sroa.75.0, ptr %142, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %68)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %67)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66)

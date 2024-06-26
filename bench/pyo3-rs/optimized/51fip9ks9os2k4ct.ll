@@ -144,17 +144,17 @@ define void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$
   %30 = getelementptr inbounds i8, ptr %3, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %23, i64 %31)
-  %33 = extractvalue { i64, i1 } %32, 1
-  %34 = extractvalue { i64, i1 } %32, 0
+  %.fr = freeze { i64, i1 } %32
+  %33 = extractvalue { i64, i1 } %.fr, 1
+  %34 = extractvalue { i64, i1 } %.fr, 0
   %not. = xor i1 %33, true
-  %narrow = select i1 %or.cond, i1 %not., i1 false
+  %narrow = and i1 %or.cond, %not.
   %.sroa.04.0 = zext i1 %narrow to i64
-  %.sroa.4.0 = select i1 %or.cond, i64 %34, i64 undef
   store i64 %27, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.04.0, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0, ptr %36, align 8
+  store i64 %34, ptr %36, align 8
   br label %16
 }
 

@@ -2579,9 +2579,10 @@ define dso_local void @md_rdev_clear(ptr noundef %0) #0 align 16 {
 22:                                               ; preds = %18
   %23 = getelementptr i8, ptr %3, i64 72
   %24 = load volatile i64, ptr %23, align 8
-  %25 = and i64 %24, 1
+  %.fr2 = freeze i64 %24
+  %25 = and i64 %.fr2, 1
   %26 = icmp eq i64 %25, 0
-  %27 = add nsw i64 %24, -1
+  %27 = add i64 %.fr2, -1
   %28 = inttoptr i64 %27 to ptr
   br i1 %26, label %29, label %30
 
@@ -2648,9 +2649,10 @@ define dso_local void @md_rdev_clear(ptr noundef %0) #0 align 16 {
 62:                                               ; preds = %58
   %63 = getelementptr i8, ptr %43, i64 72
   %64 = load volatile i64, ptr %63, align 8
-  %65 = and i64 %64, 1
+  %.fr3 = freeze i64 %64
+  %65 = and i64 %.fr3, 1
   %66 = icmp eq i64 %65, 0
-  %67 = add nsw i64 %64, -1
+  %67 = add i64 %.fr3, -1
   %68 = inttoptr i64 %67 to ptr
   br i1 %66, label %69, label %70
 
@@ -12589,9 +12591,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_rdev(ptr noundef %0, 
 24:                                               ; preds = %20
   %25 = getelementptr i8, ptr %5, i64 72
   %26 = load volatile i64, ptr %25, align 8
-  %27 = and i64 %26, 1
+  %.fr4 = freeze i64 %26
+  %27 = and i64 %.fr4, 1
   %28 = icmp eq i64 %27, 0
-  %29 = add nsw i64 %26, -1
+  %29 = add i64 %.fr4, -1
   %30 = inttoptr i64 %29 to ptr
   br i1 %28, label %31, label %32
 
@@ -12654,9 +12657,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_rdev(ptr noundef %0, 
 67:                                               ; preds = %63
   %68 = getelementptr i8, ptr %48, i64 72
   %69 = load volatile i64, ptr %68, align 8
-  %70 = and i64 %69, 1
+  %.fr6 = freeze i64 %69
+  %70 = and i64 %.fr6, 1
   %71 = icmp eq i64 %70, 0
-  %72 = add nsw i64 %69, -1
+  %72 = add i64 %.fr6, -1
   %73 = inttoptr i64 %72 to ptr
   br i1 %71, label %74, label %75
 
@@ -12771,9 +12775,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_rdev(ptr noundef %0, 
 138:                                              ; preds = %134
   %139 = getelementptr i8, ptr %4, i64 72
   %140 = load volatile i64, ptr %139, align 8
-  %141 = and i64 %140, 1
+  %.fr5 = freeze i64 %140
+  %141 = and i64 %.fr5, 1
   %142 = icmp eq i64 %141, 0
-  %143 = add nsw i64 %140, -1
+  %143 = add i64 %.fr5, -1
   %144 = inttoptr i64 %143 to ptr
   br i1 %142, label %145, label %146
 
@@ -12831,9 +12836,9 @@ define dso_local void @md_autostart_arrays(i32 noundef %0) local_unnamed_addr #0
   tail call void @mutex_lock(ptr noundef nonnull @detected_devices_mutex) #31
   %6 = load volatile ptr, ptr @all_detected_devices, align 8
   %7 = icmp eq ptr %6, @all_detected_devices
-  br i1 %7, label %.loopexit24, label %.preheader23
+  br i1 %7, label %.loopexit26, label %.preheader25
 
-.preheader23:                                     ; preds = %1, %24
+.preheader25:                                     ; preds = %1, %24
   %8 = phi ptr [ %25, %24 ], [ %6, %1 ]
   %9 = phi i32 [ %10, %24 ], [ 0, %1 ]
   %10 = add nuw nsw i32 %9, 1
@@ -12854,19 +12859,19 @@ define dso_local void @md_autostart_arrays(i32 noundef %0) local_unnamed_addr #0
   %18 = icmp ugt ptr %17, inttoptr (i64 -4096 to ptr)
   br i1 %18, label %24, label %19
 
-19:                                               ; preds = %.preheader23
+19:                                               ; preds = %.preheader25
   %20 = getelementptr inbounds i8, ptr %17, i64 192
   %21 = load volatile i64, ptr %20, align 8
   %22 = and i64 %21, 1
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %29, label %24
 
-24:                                               ; preds = %29, %19, %.preheader23
+24:                                               ; preds = %29, %19, %.preheader25
   %25 = load volatile ptr, ptr @all_detected_devices, align 8
   %26 = icmp ne ptr %25, @all_detected_devices
   %27 = icmp ne i32 %10, 2147483647
   %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %.preheader23, label %.loopexit24, !llvm.loop !151
+  br i1 %28, label %.preheader25, label %.loopexit26, !llvm.loop !151
 
 29:                                               ; preds = %19
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %20, i32 16, ptr elementtype(i8) %20) #31, !srcloc !9
@@ -12879,14 +12884,14 @@ define dso_local void @md_autostart_arrays(i32 noundef %0) local_unnamed_addr #0
   store volatile ptr %17, ptr @pending_raid_disks, align 8
   br label %24
 
-.loopexit24:                                      ; preds = %24, %1
+.loopexit26:                                      ; preds = %24, %1
   tail call void @mutex_unlock(ptr noundef nonnull @detected_devices_mutex) #31
   %33 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.247) #32
   %34 = load volatile ptr, ptr @pending_raid_disks, align 8
   %35 = icmp eq ptr %34, @pending_raid_disks
-  br i1 %35, label %.loopexit22, label %36
+  br i1 %35, label %.loopexit24, label %36
 
-36:                                               ; preds = %.loopexit24
+36:                                               ; preds = %.loopexit26
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = icmp eq i32 %0, 0
   br label %39
@@ -12955,12 +12960,12 @@ define dso_local void @md_autostart_arrays(i32 noundef %0) local_unnamed_addr #0
   %75 = getelementptr inbounds i8, ptr %40, i64 48
   %76 = load ptr, ptr %75, align 8
   %77 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.248, ptr noundef %76, i32 noundef %70) #32
-  br label %.loopexit21
+  br label %.loopexit23
 
 78:                                               ; preds = %69
   %79 = call ptr @md_alloc(i32 noundef %71, ptr noundef null)
   %80 = icmp ugt ptr %79, inttoptr (i64 -4096 to ptr)
-  br i1 %80, label %.loopexit21, label %81
+  br i1 %80, label %.loopexit23, label %81
 
 81:                                               ; preds = %78
   %82 = call i32 @mddev_suspend(ptr noundef %79, i1 noundef zeroext true)
@@ -13022,9 +13027,9 @@ define dso_local void @md_autostart_arrays(i32 noundef %0) local_unnamed_addr #0
   store i32 1, ptr %118, align 8
   %119 = load ptr, ptr %4, align 8
   %120 = icmp eq ptr %119, %4
-  br i1 %120, label %.loopexit20, label %.preheader19
+  br i1 %120, label %.loopexit22, label %.preheader21
 
-.preheader19:                                     ; preds = %117, %226
+.preheader21:                                     ; preds = %117, %226
   %121 = phi ptr [ %122, %226 ], [ %119, %117 ]
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %121, i64 8
@@ -13038,7 +13043,7 @@ define dso_local void @md_autostart_arrays(i32 noundef %0) local_unnamed_addr #0
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %226, label %128
 
-128:                                              ; preds = %.preheader19
+128:                                              ; preds = %.preheader21
   %129 = getelementptr inbounds i8, ptr %121, i64 64
   %130 = load ptr, ptr %129, align 8
   %131 = icmp eq ptr %130, null
@@ -13075,9 +13080,10 @@ define dso_local void @md_autostart_arrays(i32 noundef %0) local_unnamed_addr #0
 149:                                              ; preds = %145
   %150 = getelementptr i8, ptr %130, i64 72
   %151 = load volatile i64, ptr %150, align 8
-  %152 = and i64 %151, 1
+  %.fr2.i = freeze i64 %151
+  %152 = and i64 %.fr2.i, 1
   %153 = icmp eq i64 %152, 0
-  %154 = add nsw i64 %151, -1
+  %154 = add i64 %.fr2.i, -1
   %155 = inttoptr i64 %154 to ptr
   br i1 %153, label %156, label %157
 
@@ -13144,9 +13150,10 @@ define dso_local void @md_autostart_arrays(i32 noundef %0) local_unnamed_addr #0
 189:                                              ; preds = %185
   %190 = getelementptr i8, ptr %170, i64 72
   %191 = load volatile i64, ptr %190, align 8
-  %192 = and i64 %191, 1
+  %.fr3.i = freeze i64 %191
+  %192 = and i64 %.fr3.i, 1
   %193 = icmp eq i64 %192, 0
-  %194 = add nsw i64 %191, -1
+  %194 = add i64 %.fr3.i, -1
   %195 = inttoptr i64 %194 to ptr
   br i1 %193, label %196, label %197
 
@@ -13212,42 +13219,42 @@ export_rdev.exit:                                 ; preds = %md_rdev_clear.exit,
   call void @kobject_put(ptr noundef %225) #31
   br label %226
 
-226:                                              ; preds = %export_rdev.exit, %.preheader19
+226:                                              ; preds = %export_rdev.exit, %.preheader21
   %227 = icmp eq ptr %122, %4
-  br i1 %227, label %.loopexit20, label %.preheader19, !llvm.loop !153
+  br i1 %227, label %.loopexit22, label %.preheader21, !llvm.loop !153
 
-.loopexit20:                                      ; preds = %226, %117
+.loopexit22:                                      ; preds = %226, %117
   %228 = load volatile ptr, ptr %105, align 8
   %229 = icmp eq ptr %228, %105
   br i1 %229, label %246, label %230
 
-230:                                              ; preds = %.loopexit20
+230:                                              ; preds = %.loopexit22
   %231 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.252) #32
   %232 = load ptr, ptr %105, align 8
   %233 = icmp eq ptr %232, %105
-  br i1 %233, label %.loopexit18, label %.preheader17
+  br i1 %233, label %.loopexit20, label %.preheader19
 
-.preheader17:                                     ; preds = %230, %.preheader17
-  %234 = phi ptr [ %238, %.preheader17 ], [ %232, %230 ]
+.preheader19:                                     ; preds = %230, %.preheader19
+  %234 = phi ptr [ %238, %.preheader19 ], [ %232, %230 ]
   %235 = getelementptr inbounds i8, ptr %234, i64 48
   %236 = load ptr, ptr %235, align 8
   %237 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.253, ptr noundef %236) #32
   %238 = load ptr, ptr %234, align 8
   %239 = icmp eq ptr %238, %105
-  br i1 %239, label %.loopexit18, label %.preheader17, !llvm.loop !154
+  br i1 %239, label %.loopexit20, label %.preheader19, !llvm.loop !154
 
-.loopexit18:                                      ; preds = %.preheader17, %230
+.loopexit20:                                      ; preds = %.preheader19, %230
   %240 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.254) #32
   %241 = call i32 @do_md_run(ptr noundef %79)
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %246, label %243
 
-243:                                              ; preds = %.loopexit18
+243:                                              ; preds = %.loopexit20
   %244 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.255, i32 noundef %241) #32
   %245 = call fastcc i32 @do_md_stop(ptr noundef %79, i32 noundef 0, ptr noundef null), !range !102
   br label %246
 
-246:                                              ; preds = %243, %.loopexit18, %.loopexit20
+246:                                              ; preds = %243, %.loopexit20, %.loopexit22
   call void @mddev_unlock(ptr noundef %79)
   %247 = getelementptr inbounds i8, ptr %79, i64 64
   call void @mutex_lock(ptr noundef %247) #31
@@ -13369,9 +13376,10 @@ __mddev_resume.exit:                              ; preds = %246, %280
 309:                                              ; preds = %305
   %310 = getelementptr i8, ptr %290, i64 72
   %311 = load volatile i64, ptr %310, align 8
-  %312 = and i64 %311, 1
+  %.fr2.i17 = freeze i64 %311
+  %312 = and i64 %.fr2.i17, 1
   %313 = icmp eq i64 %312, 0
-  %314 = add nsw i64 %311, -1
+  %314 = add i64 %.fr2.i17, -1
   %315 = inttoptr i64 %314 to ptr
   br i1 %313, label %316, label %317
 
@@ -13405,7 +13413,7 @@ __mddev_resume.exit:                              ; preds = %246, %280
   %329 = getelementptr inbounds i8, ptr %284, i64 72
   %330 = load ptr, ptr %329, align 8
   %331 = icmp eq ptr %330, null
-  br i1 %331, label %md_rdev_clear.exit16, label %332
+  br i1 %331, label %md_rdev_clear.exit18, label %332
 
 332:                                              ; preds = %328
   %333 = getelementptr inbounds i8, ptr %330, i64 8
@@ -13438,9 +13446,10 @@ __mddev_resume.exit:                              ; preds = %246, %280
 349:                                              ; preds = %345
   %350 = getelementptr i8, ptr %330, i64 72
   %351 = load volatile i64, ptr %350, align 8
-  %352 = and i64 %351, 1
+  %.fr3.i16 = freeze i64 %351
+  %352 = and i64 %.fr3.i16, 1
   %353 = icmp eq i64 %352, 0
-  %354 = add nsw i64 %351, -1
+  %354 = add i64 %.fr3.i16, -1
   %355 = inttoptr i64 %354 to ptr
   br i1 %353, label %356, label %357
 
@@ -13462,9 +13471,9 @@ __mddev_resume.exit:                              ; preds = %246, %280
 
 364:                                              ; preds = %363, %357
   store ptr null, ptr %329, align 8
-  br label %md_rdev_clear.exit16
+  br label %md_rdev_clear.exit18
 
-md_rdev_clear.exit16:                             ; preds = %328, %364
+md_rdev_clear.exit18:                             ; preds = %328, %364
   %365 = getelementptr inbounds i8, ptr %284, i64 304
   call void @badblocks_exit(ptr noundef %365) #31
   %366 = getelementptr inbounds i8, ptr %284, i64 192
@@ -13473,7 +13482,7 @@ md_rdev_clear.exit16:                             ; preds = %328, %364
   %369 = icmp eq i64 %368, 0
   br i1 %369, label %export_rdev.exit15, label %370
 
-370:                                              ; preds = %md_rdev_clear.exit16
+370:                                              ; preds = %md_rdev_clear.exit18
   %371 = getelementptr inbounds i8, ptr %284, i64 48
   %372 = load ptr, ptr %371, align 8
   %373 = getelementptr inbounds i8, ptr %372, i64 52
@@ -13496,7 +13505,7 @@ md_rdev_clear.exit16:                             ; preds = %328, %364
   call void @mutex_unlock(ptr noundef nonnull @detected_devices_mutex) #31
   br label %export_rdev.exit15
 
-export_rdev.exit15:                               ; preds = %md_rdev_clear.exit16, %370, %378
+export_rdev.exit15:                               ; preds = %md_rdev_clear.exit18, %370, %378
   %382 = getelementptr inbounds i8, ptr %284, i64 56
   %383 = load ptr, ptr %382, align 8
   call void @bdev_release(ptr noundef %383) #31
@@ -13553,13 +13562,13 @@ export_rdev.exit15:                               ; preds = %md_rdev_clear.exit1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #31
   %413 = load volatile ptr, ptr @pending_raid_disks, align 8
   %414 = icmp eq ptr %413, @pending_raid_disks
-  br i1 %414, label %.loopexit22, label %39
+  br i1 %414, label %.loopexit24, label %39
 
-.loopexit21:                                      ; preds = %78, %74
+.loopexit23:                                      ; preds = %78, %74
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #31
-  br label %.loopexit22
+  br label %.loopexit24
 
-.loopexit22:                                      ; preds = %412, %.loopexit21, %.loopexit24
+.loopexit24:                                      ; preds = %412, %.loopexit23, %.loopexit26
   %415 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.251) #32
   ret void
 }

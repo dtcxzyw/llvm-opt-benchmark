@@ -207,7 +207,8 @@ define internal fastcc noundef nonnull align 8 dereferenceable(184) ptr @"_ZN3st
   %.sroa.0.0.lcssa.i.i.i.i = phi i64 [ %34, %29 ], [ %41, %.lr.ph.i.i.i.i ]
   %.lcssa.i.i.i.i = phi i16 [ %38, %29 ], [ %44, %.lr.ph.i.i.i.i ]
   %45 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i.i, i1 true)
-  %46 = zext nneg i16 %45 to i64
+  %.fr.i.i.i.i.i = freeze i16 %45
+  %46 = zext i16 %.fr.i.i.i.i.i to i64
   %47 = add i64 %.sroa.0.0.lcssa.i.i.i.i, %46
   %48 = and i64 %47, %33
   %49 = getelementptr inbounds i8, ptr %35, i64 %48
@@ -5203,7 +5204,8 @@ _ZN4core3ptr19swap_nonoverlapping17h3d0cc73e095b1d1eE.exit: ; preds = %_ZN4core3
   %.sroa.0.0.lcssa.i = phi i64 [ %45, %43 ], [ %52, %.lr.ph.i21 ]
   %.lcssa.i = phi i16 [ %49, %43 ], [ %55, %.lr.ph.i21 ]
   %56 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
-  %57 = zext nneg i16 %56 to i64
+  %.fr.i.i = freeze i16 %56
+  %57 = zext i16 %.fr.i.i to i64
   %58 = add i64 %.sroa.0.0.lcssa.i, %57
   %59 = and i64 %58, %44
   %60 = getelementptr inbounds i8, ptr %46, i64 %59
@@ -5551,7 +5553,8 @@ define hidden noundef i64 @_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h
   %.sroa.0.0.lcssa = phi i64 [ %5, %2 ], [ %12, %.lr.ph ]
   %.lcssa = phi i16 [ %9, %2 ], [ %15, %.lr.ph ]
   %16 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa, i1 true)
-  %17 = zext nneg i16 %16 to i64
+  %.fr.i = freeze i16 %16
+  %17 = zext i16 %.fr.i to i64
   %18 = add i64 %.sroa.0.0.lcssa, %17
   %19 = and i64 %18, %4
   %20 = getelementptr inbounds i8, ptr %6, i64 %19
@@ -5604,7 +5607,8 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
   %.sroa.0.0.lcssa.i = phi i64 [ %5, %2 ], [ %12, %.lr.ph.i ]
   %.lcssa.i = phi i16 [ %9, %2 ], [ %15, %.lr.ph.i ]
   %16 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
-  %17 = zext nneg i16 %16 to i64
+  %.fr.i.i = freeze i16 %16
+  %17 = zext i16 %.fr.i.i to i64
   %18 = add i64 %.sroa.0.0.lcssa.i, %17
   %19 = and i64 %18, %4
   %20 = getelementptr inbounds i8, ptr %6, i64 %19
@@ -5950,7 +5954,8 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14in
   %.sroa.0.0.lcssa.i.i = phi i64 [ %6, %3 ], [ %13, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %10, %3 ], [ %16, %.lr.ph.i.i ]
   %17 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %18 = zext nneg i16 %17 to i64
+  %.fr.i.i.i = freeze i16 %17
+  %18 = zext i16 %.fr.i.i.i to i64
   %19 = add i64 %.sroa.0.0.lcssa.i.i, %18
   %20 = and i64 %19, %5
   %21 = getelementptr inbounds i8, ptr %7, i64 %20
@@ -6030,7 +6035,8 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14in
   %.sroa.0.0.lcssa.i.i = phi i64 [ %6, %3 ], [ %13, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %10, %3 ], [ %16, %.lr.ph.i.i ]
   %17 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %18 = zext nneg i16 %17 to i64
+  %.fr.i.i.i = freeze i16 %17
+  %18 = zext i16 %.fr.i.i.i to i64
   %19 = add i64 %.sroa.0.0.lcssa.i.i, %18
   %20 = and i64 %19, %5
   %21 = getelementptr inbounds i8, ptr %7, i64 %20
@@ -6366,7 +6372,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.sroa.0.0.lcssa.i.i = phi i64 [ %121, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h03e0133b7fde5851E.exit" ], [ %127, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %124, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h03e0133b7fde5851E.exit" ], [ %130, %.lr.ph.i.i ]
   %131 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %132 = zext nneg i16 %131 to i64
+  %.fr.i.i.i = freeze i16 %131
+  %132 = zext i16 %.fr.i.i.i to i64
   %133 = add i64 %.sroa.0.0.lcssa.i.i, %132
   %134 = and i64 %133, %62
   %135 = getelementptr inbounds i8, ptr %66, i64 %134
@@ -6749,7 +6756,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.sroa.0.0.lcssa.i.i = phi i64 [ %131, %128 ], [ %137, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %134, %128 ], [ %140, %.lr.ph.i.i ]
   %141 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %142 = zext nneg i16 %141 to i64
+  %.fr.i.i.i = freeze i16 %141
+  %142 = zext i16 %.fr.i.i.i to i64
   %143 = add i64 %.sroa.0.0.lcssa.i.i, %142
   %144 = and i64 %143, %61
   %145 = getelementptr inbounds i8, ptr %65, i64 %144
@@ -7136,7 +7144,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.sroa.0.0.lcssa.i.i = phi i64 [ %136, %133 ], [ %142, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %139, %133 ], [ %145, %.lr.ph.i.i ]
   %146 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %147 = zext nneg i16 %146 to i64
+  %.fr.i.i.i = freeze i16 %146
+  %147 = zext i16 %.fr.i.i.i to i64
   %148 = add i64 %.sroa.0.0.lcssa.i.i, %147
   %149 = and i64 %148, %63
   %150 = getelementptr inbounds i8, ptr %67, i64 %149
@@ -13325,7 +13334,8 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
   %.sroa.0.0.lcssa.i.i.i.i.i.i = phi i64 [ %183, %178 ], [ %190, %.lr.ph.i.i.i.i.i.i ]
   %.lcssa.i.i.i.i.i.i = phi i16 [ %187, %178 ], [ %193, %.lr.ph.i.i.i.i.i.i ]
   %194 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i.i.i.i, i1 true)
-  %195 = zext nneg i16 %194 to i64
+  %.fr.i.i.i.i.i.i.i = freeze i16 %194
+  %195 = zext i16 %.fr.i.i.i.i.i.i.i to i64
   %196 = add i64 %.sroa.0.0.lcssa.i.i.i.i.i.i, %195
   %197 = and i64 %196, %182
   %198 = getelementptr inbounds i8, ptr %184, i64 %197
@@ -15272,16 +15282,15 @@ _ZN6rustls6webpki6verify18verify_server_name17h91830234d06d54c4E.exit.i: ; preds
   %190 = bitcast <16 x i1> %189 to i16
   %.not.not.i15.i.i.i = icmp ne i16 %190, 0
   %191 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %190, i1 true)
-  %192 = zext nneg i16 %191 to i64
-  %.sroa.6.0.i.i.i.i = select i1 %.not.not.i15.i.i.i, i64 %192, i64 undef
-  %193 = add i64 %.sroa.6.0.i.i.i.i, %.sroa.0.025.i.i.i
+  %.fr.i.i.i.i = freeze i16 %191
+  %192 = zext i16 %.fr.i.i.i.i to i64
+  %193 = add i64 %.sroa.0.025.i.i.i, %192
   %194 = and i64 %193, %.val4.i.i
-  %.sroa.3.0.i.i.i.i = select i1 %.not.not.i15.i.i.i, i64 %194, i64 undef
   %.sroa.0.0.i16.i.i.i = zext i1 %.not.not.i15.i.i.i to i64
   br label %195
 
 195:                                              ; preds = %188, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h8de4020b8ff96b15E.exit._crit_edge.i.i.i"
-  %.sroa.6.1.i.i.i = phi i64 [ %.sroa.3.0.i.i.i.i, %188 ], [ %.sroa.6.0.i.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h8de4020b8ff96b15E.exit._crit_edge.i.i.i" ]
+  %.sroa.6.1.i.i.i = phi i64 [ %194, %188 ], [ %.sroa.6.0.i.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h8de4020b8ff96b15E.exit._crit_edge.i.i.i" ]
   %.sroa.01.1.i.i.i = phi i64 [ %.sroa.0.0.i16.i.i.i, %188 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h8de4020b8ff96b15E.exit._crit_edge.i.i.i" ]
   %196 = icmp eq <16 x i8> %.0.copyload.i32.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %197 = bitcast <16 x i1> %196 to i16

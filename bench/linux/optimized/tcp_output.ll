@@ -1458,9 +1458,10 @@ define internal fastcc noundef i32 @__pskb_trim_head(ptr nocapture noundef %0, i
 50:                                               ; preds = %46
   %51 = getelementptr i8, ptr %33, i64 72
   %52 = load volatile i64, ptr %51, align 8
-  %53 = and i64 %52, 1
+  %.fr3 = freeze i64 %52
+  %53 = and i64 %.fr3, 1
   %54 = icmp eq i64 %53, 0
-  %55 = add nsw i64 %52, -1
+  %55 = add i64 %.fr3, -1
   %56 = inttoptr i64 %55 to ptr
   br i1 %54, label %57, label %58
 
@@ -7272,27 +7273,27 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
 
 161:                                              ; preds = %145, %141, %138
   tail call void @__rcu_read_unlock() #18
-  %.pre31.pre = load i64, ptr %131, align 8
+  %.pre32.pre = load i64, ptr %131, align 8
   br label %162
 
 162:                                              ; preds = %161, %128
-  %.pre31 = phi i64 [ %.pre31.pre, %161 ], [ %132, %128 ]
+  %.pre32 = phi i64 [ %.pre32.pre, %161 ], [ %132, %128 ]
   %163 = getelementptr inbounds i8, ptr %0, i64 1668
   %164 = load i32, ptr %163, align 4
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %171
 
 166:                                              ; preds = %162
-  %167 = and i64 %.pre31, -4
+  %167 = and i64 %.pre32, -4
   %168 = inttoptr i64 %167 to ptr
   %169 = getelementptr i8, ptr %168, i64 8
   %170 = load i32, ptr %169, align 4
   store i32 %170, ptr %163, align 4
-  %.pre30 = load i64, ptr %131, align 8
+  %.pre31 = load i64, ptr %131, align 8
   br label %171
 
 171:                                              ; preds = %166, %162
-  %172 = phi i64 [ %.pre30, %166 ], [ %.pre31, %162 ]
+  %172 = phi i64 [ %.pre31, %166 ], [ %.pre32, %162 ]
   %173 = and i64 %172, -4
   %174 = inttoptr i64 %173 to ptr
   %175 = getelementptr i8, ptr %174, i64 28
@@ -7321,12 +7322,12 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
   %192 = load i8, ptr %191, align 8
   %193 = and i8 %192, 32
   %194 = icmp eq i8 %193, 0
-  br i1 %194, label %._crit_edge32, label %195
+  br i1 %194, label %._crit_edge33, label %195
 
-._crit_edge32:                                    ; preds = %183
-  %.phi.trans.insert33 = getelementptr inbounds i8, ptr %0, i64 1438
-  %.pre34 = load i8, ptr %.phi.trans.insert33, align 2
-  %.pre38 = zext i8 %.pre34 to i64
+._crit_edge33:                                    ; preds = %183
+  %.phi.trans.insert34 = getelementptr inbounds i8, ptr %0, i64 1438
+  %.pre35 = load i8, ptr %.phi.trans.insert34, align 2
+  %.pre39 = zext i8 %.pre35 to i64
   br label %214
 
 195:                                              ; preds = %183
@@ -7353,8 +7354,8 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
   store i32 %213, ptr %163, align 4
   br label %214
 
-214:                                              ; preds = %._crit_edge32, %208, %195
-  %.pre-phi = phi i64 [ %.pre38, %._crit_edge32 ], [ %202, %208 ], [ %202, %195 ]
+214:                                              ; preds = %._crit_edge33, %208, %195
+  %.pre-phi = phi i64 [ %.pre39, %._crit_edge33 ], [ %202, %208 ], [ %202, %195 ]
   %215 = load volatile i8, ptr %2, align 2
   %216 = load i64, ptr %131, align 8
   %217 = and i64 %216, -4
@@ -7497,12 +7498,12 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
   %313 = trunc i64 %312 to i32
   %314 = getelementptr inbounds i8, ptr %0, i64 1444
   store i32 %313, ptr %314, align 4
-  %.phi.trans.insert35 = getelementptr inbounds i8, ptr %0, i64 1656
-  %.pre36 = load i32, ptr %.phi.trans.insert35, align 8
+  %.phi.trans.insert36 = getelementptr inbounds i8, ptr %0, i64 1656
+  %.pre37 = load i32, ptr %.phi.trans.insert36, align 8
   br label %315
 
 315:                                              ; preds = %311, %309
-  %316 = phi i32 [ %.pre36, %311 ], [ 0, %309 ]
+  %316 = phi i32 [ %.pre37, %311 ], [ 0, %309 ]
   %317 = getelementptr inbounds i8, ptr %0, i64 1656
   %318 = getelementptr inbounds i8, ptr %0, i64 1744
   store i32 %316, ptr %318, align 16
@@ -7626,9 +7627,9 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
 400:                                              ; preds = %394
   %401 = load volatile ptr, ptr %11, align 8
   %402 = icmp eq ptr %401, null
-  br i1 %402, label %.critedge.thread22, label %.critedge
+  br i1 %402, label %.critedge.thread23, label %.critedge
 
-.critedge.thread22:                               ; preds = %400
+.critedge.thread23:                               ; preds = %400
   %403 = getelementptr inbounds i8, ptr %0, i64 1648
   store i8 0, ptr %403, align 16
   br label %446
@@ -7646,10 +7647,10 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
   %409 = getelementptr i8, ptr %408, i64 44
   %410 = load i32, ptr %409, align 4
   %411 = and i32 %410, 1
-  %.not23 = icmp eq i32 %411, 0
+  %.not24 = icmp eq i32 %411, 0
   %412 = getelementptr inbounds i8, ptr %0, i64 1648
   store i8 0, ptr %412, align 16
-  br i1 %.not23, label %446, label %413
+  br i1 %.not24, label %446, label %413
 
 413:                                              ; preds = %.critedge.thread, %.critedge
   %414 = phi ptr [ %404, %.critedge.thread ], [ %412, %.critedge ]
@@ -7696,7 +7697,7 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
   store i8 %445, ptr %443, align 1
   br label %446
 
-446:                                              ; preds = %.critedge.thread22, %436, %432, %423, %413, %.critedge
+446:                                              ; preds = %.critedge.thread23, %436, %432, %423, %413, %.critedge
   %447 = getelementptr inbounds i8, ptr %0, i64 352
   tail call void @tcp_rbtree_insert(ptr noundef %447, ptr noundef nonnull %330) #18
   %448 = getelementptr inbounds i8, ptr %0, i64 2240
@@ -7779,14 +7780,14 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
 
 507:                                              ; preds = %475
   %508 = load i32, ptr %57, align 4
-  %reass.sub28 = sub i32 %508, %479
-  %509 = add i32 %reass.sub28, -20
+  %reass.sub29 = sub i32 %508, %479
+  %509 = add i32 %reass.sub29, -20
   %510 = tail call i32 @llvm.smin.i32(i32 %509, i32 %482)
   %511 = sub i32 %510, %485
   %512 = load volatile i32, ptr %488, align 4
   %513 = tail call i32 @llvm.smax.i32(i32 %511, i32 %512)
-  %reass.sub29 = sub i32 %513, %492
-  %514 = add i32 %reass.sub29, 20
+  %reass.sub30 = sub i32 %513, %492
+  %514 = add i32 %reass.sub30, 20
   %515 = tail call i32 @llvm.smin.i32(i32 %504, i32 %514)
   br label %516
 
@@ -7908,9 +7909,10 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
 599:                                              ; preds = %595
   %600 = getelementptr i8, ptr %572, i64 72
   %601 = load volatile i64, ptr %600, align 8
-  %602 = and i64 %601, 1
+  %.fr22 = freeze i64 %601
+  %602 = and i64 %.fr22, 1
   %603 = icmp eq i64 %602, 0
-  %604 = add nsw i64 %601, -1
+  %604 = add i64 %.fr22, -1
   %605 = inttoptr i64 %604 to ptr
   br i1 %603, label %606, label %607
 
@@ -10322,18 +10324,18 @@ define internal fastcc noundef i32 @tcp_clone_payload(ptr noundef %0, ptr nocapt
   %27 = getelementptr inbounds i8, ptr %0, i64 360
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %27
-  br i1 %29, label %.thread13, label %.lr.ph.preheader
+  br i1 %29, label %.thread14, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %26
   %30 = getelementptr inbounds i8, ptr %9, i64 48
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit14
-  %31 = phi ptr [ %111, %.loopexit14 ], [ %28, %.lr.ph.preheader ]
-  %32 = phi ptr [ %110, %.loopexit14 ], [ null, %.lr.ph.preheader ]
-  %33 = phi ptr [ %109, %.loopexit14 ], [ %30, %.lr.ph.preheader ]
-  %34 = phi i32 [ %108, %.loopexit14 ], [ 0, %.lr.ph.preheader ]
-  %35 = phi i32 [ %107, %.loopexit14 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit15
+  %31 = phi ptr [ %111, %.loopexit15 ], [ %28, %.lr.ph.preheader ]
+  %32 = phi ptr [ %110, %.loopexit15 ], [ null, %.lr.ph.preheader ]
+  %33 = phi ptr [ %109, %.loopexit15 ], [ %30, %.lr.ph.preheader ]
+  %34 = phi i32 [ %108, %.loopexit15 ], [ 0, %.lr.ph.preheader ]
+  %35 = phi i32 [ %107, %.loopexit15 ], [ 0, %.lr.ph.preheader ]
   %36 = getelementptr inbounds i8, ptr %31, i64 192
   %37 = getelementptr inbounds i8, ptr %31, i64 188
   %38 = getelementptr inbounds i8, ptr %31, i64 112
@@ -10351,7 +10353,7 @@ define internal fastcc noundef i32 @tcp_clone_payload(ptr noundef %0, ptr nocapt
   %48 = getelementptr inbounds i8, ptr %47, i64 2
   %49 = load i8, ptr %48, align 2
   %50 = icmp eq i8 %49, 0
-  br i1 %50, label %.loopexit14, label %51
+  br i1 %50, label %.loopexit15, label %51
 
 51:                                               ; preds = %43
   %52 = getelementptr inbounds i8, ptr %47, i64 48
@@ -10365,7 +10367,7 @@ define internal fastcc noundef i32 @tcp_clone_payload(ptr noundef %0, ptr nocapt
   %58 = phi i32 [ %94, %93 ], [ %34, %51 ]
   %59 = phi i32 [ %66, %93 ], [ %35, %51 ]
   %60 = icmp slt i32 %59, %2
-  br i1 %60, label %61, label %.thread13
+  br i1 %60, label %61, label %.thread14
 
 61:                                               ; preds = %53
   %62 = getelementptr inbounds i8, ptr %57, i64 8
@@ -10429,30 +10431,30 @@ define internal fastcc noundef i32 @tcp_clone_payload(ptr noundef %0, ptr nocapt
   %104 = load i8, ptr %103, align 2
   %105 = zext i8 %104 to i32
   %106 = icmp ult i32 %97, %105
-  br i1 %106, label %53, label %.loopexit14, !llvm.loop !139
+  br i1 %106, label %53, label %.loopexit15, !llvm.loop !139
 
-.loopexit14:                                      ; preds = %93, %43
+.loopexit15:                                      ; preds = %93, %43
   %107 = phi i32 [ %35, %43 ], [ %66, %93 ]
   %108 = phi i32 [ %34, %43 ], [ %94, %93 ]
   %109 = phi ptr [ %33, %43 ], [ %95, %93 ]
   %110 = phi ptr [ %32, %43 ], [ %96, %93 ]
   %111 = load ptr, ptr %31, align 8
   %112 = icmp eq ptr %111, %27
-  br i1 %112, label %.thread13, label %.lr.ph
+  br i1 %112, label %.thread14, label %.lr.ph
 
-.thread13:                                        ; preds = %.loopexit14, %53, %26
-  %113 = phi i32 [ 0, %26 ], [ %59, %53 ], [ %107, %.loopexit14 ]
-  %114 = phi i32 [ 0, %26 ], [ %58, %53 ], [ %108, %.loopexit14 ]
+.thread14:                                        ; preds = %.loopexit15, %53, %26
+  %113 = phi i32 [ 0, %26 ], [ %59, %53 ], [ %107, %.loopexit15 ]
+  %114 = phi i32 [ 0, %26 ], [ %58, %53 ], [ %108, %.loopexit15 ]
   %115 = icmp eq i32 %113, %2
   br i1 %115, label %117, label %116, !prof !27
 
-116:                                              ; preds = %.thread13
+116:                                              ; preds = %.thread14
   tail call void asm sideeffect "1137: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1137b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1137) #18, !srcloc !140
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2394, i32 2307, i64 12) #18, !srcloc !141
   tail call void asm sideeffect "1138: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1138b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1138) #18, !srcloc !142
   br label %117
 
-117:                                              ; preds = %116, %.thread13
+117:                                              ; preds = %116, %.thread14
   %118 = icmp sgt i32 %114, 0
   br i1 %118, label %119, label %.loopexit
 
@@ -10499,9 +10501,10 @@ define internal fastcc noundef i32 @tcp_clone_payload(ptr noundef %0, ptr nocapt
 146:                                              ; preds = %142
   %147 = getelementptr i8, ptr %129, i64 72
   %148 = load volatile i64, ptr %147, align 8
-  %149 = and i64 %148, 1
+  %.fr9 = freeze i64 %148
+  %149 = and i64 %.fr9, 1
   %150 = icmp eq i64 %149, 0
-  %151 = add nsw i64 %148, -1
+  %151 = add i64 %.fr9, -1
   %152 = inttoptr i64 %151 to ptr
   br i1 %150, label %153, label %154
 

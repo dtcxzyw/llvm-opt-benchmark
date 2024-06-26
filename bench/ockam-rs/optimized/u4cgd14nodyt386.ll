@@ -2602,7 +2602,7 @@ define hidden void @"_ZN107_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
   %.not.i = icmp ne ptr %13, null
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
-  %.sroa.7.042 = select i1 %.not.i, i64 %15, i64 undef
+  %.sroa.7.042 = freeze i64 %15
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %10, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
@@ -2721,7 +2721,7 @@ define hidden void @"_ZN107_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
   %.not.i = icmp ne ptr %13, null
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
-  %.sroa.11.0 = select i1 %.not.i, i64 %15, i64 undef
+  %.sroa.11.0 = freeze i64 %15
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %10, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
@@ -2866,7 +2866,7 @@ define hidden void @"_ZN107_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
   %.not.i = icmp ne ptr %13, null
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
-  %.sroa.11.0 = select i1 %.not.i, i64 %15, i64 undef
+  %.sroa.11.0 = freeze i64 %15
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %10, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
@@ -3011,7 +3011,7 @@ define hidden void @"_ZN107_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
   %.not.i = icmp ne ptr %13, null
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
-  %.sroa.11.0 = select i1 %.not.i, i64 %15, i64 undef
+  %.sroa.11.0 = freeze i64 %15
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %10, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
@@ -3150,7 +3150,7 @@ define hidden void @"_ZN107_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
   %.not.i = icmp ne ptr %13, null
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
-  %.sroa.11.0 = select i1 %.not.i, i64 %15, i64 undef
+  %.sroa.11.0 = freeze i64 %15
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %10, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
@@ -3289,7 +3289,7 @@ define hidden void @"_ZN107_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
   %.not.i = icmp ne ptr %13, null
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
-  %.sroa.7.042 = select i1 %.not.i, i64 %15, i64 undef
+  %.sroa.7.042 = freeze i64 %15
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %10, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
@@ -7325,7 +7325,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %10 = load i64, ptr %9, align 8, !alias.scope !1367, !noalias !1377
   %11 = getelementptr inbounds i8, ptr %7, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !1367, !noalias !1377
-  %.sroa.6.0.i = select i1 %.not.i.i, i64 %10, i64 undef
+  %.sroa.6.0.i = freeze i64 %10
   %.sink22.i.i = zext i1 %.not.i.i to i64
   %.sink.i.i = select i1 %.not.i.i, i64 %12, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !1378
@@ -9086,7 +9086,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17hbe78c30b24f5e2b
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load i64, ptr %6, align 8
-  %.sroa.6.0 = select i1 %.not.i.i, i64 %5, i64 undef
+  %.sroa.6.0 = freeze i64 %5
   %.sink22.i.i = zext i1 %.not.i.i to i64
   %.sink.i.i = select i1 %.not.i.i, i64 %7, i64 0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1784)
@@ -13934,7 +13934,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
-  %.sroa.6.0 = select i1 %.not.i, i64 %4, i64 undef
+  %.sroa.6.0 = freeze i64 %4
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %6, i64 0
   store i64 %.sink22.i, ptr %0, align 8
@@ -13966,7 +13966,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
-  %.sroa.6.0 = select i1 %.not.i, i64 %4, i64 undef
+  %.sroa.6.0 = freeze i64 %4
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %6, i64 0
   store i64 %.sink22.i, ptr %0, align 8
@@ -13998,7 +13998,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
-  %.sroa.6.0 = select i1 %.not.i, i64 %4, i64 undef
+  %.sroa.6.0 = freeze i64 %4
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %6, i64 0
   store i64 %.sink22.i, ptr %0, align 8
@@ -17366,7 +17366,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
-  %.sroa.6.0 = select i1 %.not.i, i64 %4, i64 undef
+  %.sroa.6.0 = freeze i64 %4
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %6, i64 0
   store i64 %.sink22.i, ptr %0, align 8
@@ -17398,7 +17398,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
-  %.sroa.6.0 = select i1 %.not.i, i64 %4, i64 undef
+  %.sroa.6.0 = freeze i64 %4
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %6, i64 0
   store i64 %.sink22.i, ptr %0, align 8
@@ -65198,7 +65198,7 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$alloc..collections..btree..map..BTr
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
-  %.sroa.6.0 = select i1 %.not.i, i64 %8, i64 undef
+  %.sroa.6.0 = freeze i64 %8
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %10, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4), !noalias !14027
@@ -65264,7 +65264,7 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$alloc..collections..btree..map..BTr
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
-  %.sroa.6.0 = select i1 %.not.i, i64 %8, i64 undef
+  %.sroa.6.0 = freeze i64 %8
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %10, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4), !noalias !14038
@@ -69678,7 +69678,7 @@ define hidden noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTr
   %.not.i = icmp ne ptr %9, null
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
-  %.sroa.6.0 = select i1 %.not.i, i64 %11, i64 undef
+  %.sroa.6.0 = freeze i64 %11
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %5, i64 0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14632)
@@ -69688,7 +69688,7 @@ define hidden noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTr
   %.not.i.i.i = icmp ne ptr %12, null
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8, !alias.scope !14637, !noalias !14647
-  %.sroa.6.0.i = select i1 %.not.i.i.i, i64 %14, i64 undef
+  %.sroa.6.0.i = freeze i64 %14
   %.sink22.i.i.i = zext i1 %.not.i.i.i to i64
   %.sink.i.i.i = select i1 %.not.i.i.i, i64 %5, i64 0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14648)

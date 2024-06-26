@@ -397,11 +397,10 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17hd5d117a6e752bb26E.llvm.7256458021634512439.exit": ; preds = %.lr.ph.i.i, %2, %.loopexit.i
   %.sroa.3.05 = phi ptr [ %.sroa.3.0.copyload, %.loopexit.i ], [ null, %2 ], [ null, %.lr.ph.i.i ]
   %.sroa.6.0 = phi ptr [ %.sroa.6.0.copyload, %.loopexit.i ], [ undef, %2 ], [ undef, %.lr.ph.i.i ]
-  %20 = icmp eq ptr %.sroa.3.05, null
-  %.sroa.3.0 = select i1 %20, ptr undef, ptr %.sroa.6.0
-  %21 = insertvalue { ptr, ptr } poison, ptr %.sroa.3.05, 0
-  %22 = insertvalue { ptr, ptr } %21, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %22
+  %.sroa.3.0 = freeze ptr %.sroa.6.0
+  %20 = insertvalue { ptr, ptr } poison, ptr %.sroa.3.05, 0
+  %21 = insertvalue { ptr, ptr } %20, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %21
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -475,11 +474,10 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17hbd43833713ccd1a8E.llvm.7256458021634512439.exit": ; preds = %.lr.ph.i.i, %2, %.loopexit.i
   %.sroa.3.05 = phi ptr [ %.sroa.3.0.copyload, %.loopexit.i ], [ null, %2 ], [ null, %.lr.ph.i.i ]
   %.sroa.6.0 = phi ptr [ %.sroa.6.0.copyload, %.loopexit.i ], [ undef, %2 ], [ undef, %.lr.ph.i.i ]
-  %20 = icmp eq ptr %.sroa.3.05, null
-  %.sroa.3.0 = select i1 %20, ptr undef, ptr %.sroa.6.0
-  %21 = insertvalue { ptr, ptr } poison, ptr %.sroa.3.05, 0
-  %22 = insertvalue { ptr, ptr } %21, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %22
+  %.sroa.3.0 = freeze ptr %.sroa.6.0
+  %20 = insertvalue { ptr, ptr } poison, ptr %.sroa.3.05, 0
+  %21 = insertvalue { ptr, ptr } %20, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %21
 }
 
 ; Function Attrs: nonlazybind uwtable

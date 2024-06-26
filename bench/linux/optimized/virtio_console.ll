@@ -313,9 +313,10 @@ define internal fastcc void @free_buf(ptr noundef %0) unnamed_addr #4 align 16 {
 27:                                               ; preds = %23
   %28 = getelementptr i8, ptr %9, i64 72
   %29 = load volatile i64, ptr %28, align 8
-  %30 = and i64 %29, 1
+  %.fr1 = freeze i64 %29
+  %30 = and i64 %.fr1, 1
   %31 = icmp eq i64 %30, 0
-  %32 = add nsw i64 %29, -1
+  %32 = add i64 %.fr1, -1
   %33 = inttoptr i64 %32 to ptr
   br i1 %31, label %34, label %35
 
@@ -1558,9 +1559,10 @@ define internal fastcc i32 @fill_queue(ptr noundef %0, ptr noundef %1) unnamed_a
 58:                                               ; preds = %54
   %59 = getelementptr i8, ptr %40, i64 72
   %60 = load volatile i64, ptr %59, align 8
-  %61 = and i64 %60, 1
+  %.fr1.i = freeze i64 %60
+  %61 = and i64 %.fr1.i, 1
   %62 = icmp eq i64 %61, 0
-  %63 = add nsw i64 %60, -1
+  %63 = add i64 %.fr1.i, -1
   %64 = inttoptr i64 %63 to ptr
   br i1 %62, label %65, label %66
 
@@ -4178,9 +4180,10 @@ define internal i32 @pipe_to_sg(ptr noundef %0, ptr noundef %1, ptr nocapture no
 36:                                               ; preds = %32
   %37 = getelementptr i8, ptr %19, i64 72
   %38 = load volatile i64, ptr %37, align 8
-  %39 = and i64 %38, 1
+  %.fr2 = freeze i64 %38
+  %39 = and i64 %.fr2, 1
   %40 = icmp eq i64 %39, 0
-  %41 = add nsw i64 %38, -1
+  %41 = add i64 %.fr2, -1
   %42 = inttoptr i64 %41 to ptr
   br i1 %40, label %43, label %44
 
@@ -4442,26 +4445,26 @@ define internal fastcc void @remove_vqs(ptr nocapture noundef readonly %0) unnam
   %5 = getelementptr inbounds i8, ptr %4, i64 768
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %5
-  br i1 %7, label %.loopexit12, label %.preheader11
+  br i1 %7, label %.loopexit13, label %.preheader12
 
-.preheader11:                                     ; preds = %1, %.loopexit
+.preheader12:                                     ; preds = %1, %.loopexit
   %8 = phi ptr [ %118, %.loopexit ], [ %6, %1 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #17
   store i32 0, ptr %2, align 4, !annotation !13
   %9 = call ptr @virtqueue_get_buf(ptr noundef %8, ptr noundef nonnull %2) #17
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.loopexit10, label %.preheader9
+  br i1 %10, label %.loopexit11, label %.preheader10
 
-.preheader9:                                      ; preds = %.preheader11, %free_buf.exit
-  %11 = phi ptr [ %61, %free_buf.exit ], [ %9, %.preheader11 ]
+.preheader10:                                     ; preds = %.preheader12, %free_buf.exit
+  %11 = phi ptr [ %61, %free_buf.exit ], [ %9, %.preheader12 ]
   %12 = getelementptr inbounds i8, ptr %11, i64 72
   %13 = getelementptr inbounds i8, ptr %11, i64 64
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.loopexit.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader9, %52
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %.preheader9 ]
+.preheader.i:                                     ; preds = %.preheader10, %52
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %.preheader10 ]
   %16 = getelementptr [0 x %struct.scatterlist], ptr %12, i64 0, i64 %indvars.iv.i
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, -4
@@ -4499,9 +4502,10 @@ define internal fastcc void @remove_vqs(ptr nocapture noundef readonly %0) unnam
 37:                                               ; preds = %33
   %38 = getelementptr i8, ptr %19, i64 72
   %39 = load volatile i64, ptr %38, align 8
-  %40 = and i64 %39, 1
+  %.fr1.i = freeze i64 %39
+  %40 = and i64 %.fr1.i, 1
   %41 = icmp eq i64 %40, 0
-  %42 = add nsw i64 %39, -1
+  %42 = add i64 %.fr1.i, -1
   %43 = inttoptr i64 %42 to ptr
   br i1 %41, label %44, label %45
 
@@ -4528,7 +4532,7 @@ define internal fastcc void @remove_vqs(ptr nocapture noundef readonly %0) unnam
   %55 = icmp ult i64 %indvars.iv.next.i, %54
   br i1 %55, label %.preheader.i, label %.loopexit.i, !llvm.loop !12
 
-.loopexit.i:                                      ; preds = %52, %.preheader.i, %.preheader9
+.loopexit.i:                                      ; preds = %52, %.preheader.i, %.preheader10
   %56 = getelementptr inbounds i8, ptr %11, i64 40
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
@@ -4543,16 +4547,16 @@ free_buf.exit:                                    ; preds = %.loopexit.i, %59
   call void @kfree(ptr noundef nonnull %11) #17
   %61 = call ptr @virtqueue_get_buf(ptr noundef %8, ptr noundef nonnull %2) #17
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.loopexit10, label %.preheader9, !llvm.loop !31
+  br i1 %62, label %.loopexit11, label %.preheader10, !llvm.loop !31
 
-.loopexit10:                                      ; preds = %free_buf.exit, %.preheader11
+.loopexit11:                                      ; preds = %free_buf.exit, %.preheader12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   %63 = call ptr @virtqueue_detach_unused_buf(ptr noundef %8) #17
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit10, %free_buf.exit8
-  %65 = phi ptr [ %115, %free_buf.exit8 ], [ %63, %.loopexit10 ]
+.preheader:                                       ; preds = %.loopexit11, %free_buf.exit9
+  %65 = phi ptr [ %115, %free_buf.exit9 ], [ %63, %.loopexit11 ]
   %66 = getelementptr inbounds i8, ptr %65, i64 72
   %67 = getelementptr inbounds i8, ptr %65, i64 64
   %68 = load i32, ptr %67, align 8
@@ -4598,9 +4602,10 @@ free_buf.exit:                                    ; preds = %.loopexit.i, %59
 91:                                               ; preds = %87
   %92 = getelementptr i8, ptr %73, i64 72
   %93 = load volatile i64, ptr %92, align 8
-  %94 = and i64 %93, 1
+  %.fr1.i8 = freeze i64 %93
+  %94 = and i64 %.fr1.i8, 1
   %95 = icmp eq i64 %94, 0
-  %96 = add nsw i64 %93, -1
+  %96 = add i64 %.fr1.i8, -1
   %97 = inttoptr i64 %96 to ptr
   br i1 %95, label %98, label %99
 
@@ -4631,28 +4636,28 @@ free_buf.exit:                                    ; preds = %.loopexit.i, %59
   %110 = getelementptr inbounds i8, ptr %65, i64 40
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
-  br i1 %112, label %113, label %free_buf.exit8
+  br i1 %112, label %113, label %free_buf.exit9
 
 113:                                              ; preds = %.loopexit.i7
   %114 = load ptr, ptr %65, align 8
   call void @kfree(ptr noundef %114) #17
-  br label %free_buf.exit8
+  br label %free_buf.exit9
 
-free_buf.exit8:                                   ; preds = %.loopexit.i7, %113
+free_buf.exit9:                                   ; preds = %.loopexit.i7, %113
   call void @kfree(ptr noundef nonnull %65) #17
   %115 = call ptr @virtqueue_detach_unused_buf(ptr noundef %8) #17
   %116 = icmp eq ptr %115, null
   br i1 %116, label %.loopexit, label %.preheader, !llvm.loop !59
 
-.loopexit:                                        ; preds = %free_buf.exit8, %.loopexit10
+.loopexit:                                        ; preds = %free_buf.exit9, %.loopexit11
   %117 = call i32 @__SCT__cond_resched() #17
   %118 = load ptr, ptr %8, align 8
   %119 = load ptr, ptr %3, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 768
   %121 = icmp eq ptr %118, %120
-  br i1 %121, label %.loopexit12, label %.preheader11, !llvm.loop !60
+  br i1 %121, label %.loopexit13, label %.preheader12, !llvm.loop !60
 
-.loopexit12:                                      ; preds = %.loopexit, %1
+.loopexit13:                                      ; preds = %.loopexit, %1
   %122 = phi ptr [ %4, %1 ], [ %119, %.loopexit ]
   %123 = getelementptr inbounds i8, ptr %122, i64 752
   %124 = load ptr, ptr %123, align 8

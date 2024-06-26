@@ -92,7 +92,7 @@ define { i1, i8 } @_ZN13grep_searcher8searcher15BinaryDetection9quit_byte17h9d6d
   %3 = icmp eq i8 %2, 1
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
-  %.sroa.3.0 = select i1 %3, i8 %5, i8 undef
+  %.sroa.3.0 = freeze i8 %5
   %6 = insertvalue { i1, i8 } poison, i1 %3, 0
   %7 = insertvalue { i1, i8 } %6, i8 %.sroa.3.0, 1
   ret { i1, i8 } %7
@@ -104,7 +104,7 @@ define { i1, i8 } @_ZN13grep_searcher8searcher15BinaryDetection12convert_byte17h
   %3 = icmp eq i8 %2, 2
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
-  %.sroa.3.0 = select i1 %3, i8 %5, i8 undef
+  %.sroa.3.0 = freeze i8 %5
   %6 = insertvalue { i1, i8 } poison, i1 %3, 0
   %7 = insertvalue { i1, i8 } %6, i8 %.sroa.3.0, 1
   ret { i1, i8 } %7
@@ -399,6 +399,7 @@ define void @_ZN13grep_searcher8searcher15SearcherBuilder5build17hcf078266012f3a
   %9 = load i64, ptr %1, align 8, !range !60, !noalias !5, !noundef !5
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !noalias !5
+  %.sroa.5.0.i = freeze i64 %11
   %12 = load <8 x i8>, ptr %4, align 8, !noalias !5
   %13 = getelementptr inbounds i8, ptr %1, i64 48
   %14 = load i8, ptr %13, align 8, !range !21, !alias.scope !55, !noalias !58, !noundef !5
@@ -419,51 +420,48 @@ define void @_ZN13grep_searcher8searcher15SearcherBuilder5build17hcf078266012f3a
   store ptr %23, ptr %.sroa.013.sroa.4.0..sroa_idx, align 8
   %.sroa.013.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   store i64 8192, ptr %.sroa.013.sroa.5.0..sroa_idx, align 8
-  %.not.i.not = icmp eq i64 %9, 0
-  %25 = icmp ult i64 %11, 65537
-  %.06.i = select i1 %25, i64 %11, i64 65536
-  %.sroa.6.0.i = select i1 %.not.i.not, i64 65536, i64 %.06.i
-  %26 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17ha43889fc6207b940E"(i64 noundef %.sroa.6.0.i, i1 noundef zeroext true)
-          to label %29 unwind label %27
+  %.not.i = icmp ne i64 %9, 0
+  %25 = icmp ult i64 %.sroa.5.0.i, 65537
+  %26 = and i1 %.not.i, %25
+  %.sroa.6.0.i = select i1 %26, i64 %.sroa.5.0.i, i64 65536
+  %27 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17ha43889fc6207b940E"(i64 noundef %.sroa.6.0.i, i1 noundef zeroext true)
+          to label %30 unwind label %28
 
-27:                                               ; preds = %2
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %2
+  %29 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hb776f477337cf7d8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #17
-          to label %45 unwind label %43
+          to label %46 unwind label %44
 
-29:                                               ; preds = %2
-  %30 = bitcast <8 x i8> %12 to <64 x i1>
-  %trunc.i23 = extractelement <64 x i1> %30, i64 0
-  %31 = extractelement <8 x i8> %12, i64 1
-  %32 = zext i8 %31 to i64
-  %33 = shl nuw nsw i64 %32, 16
-  %.sroa.9.26.insert.shift.i = select i1 %trunc.i23, i64 655360, i64 %33
-  %34 = extractelement <8 x i8> %12, i64 2
-  %.sroa.9.24.insert.ext.i = zext nneg i8 %34 to i64
+30:                                               ; preds = %2
+  %31 = bitcast <8 x i8> %12 to <64 x i1>
+  %trunc.i = extractelement <64 x i1> %31, i64 0
+  %32 = extractelement <8 x i8> %12, i64 1
+  %33 = zext i8 %32 to i64
+  %34 = shl nuw nsw i64 %33, 16
+  %.sroa.9.26.insert.shift.i = select i1 %trunc.i, i64 655360, i64 %34
+  %35 = extractelement <8 x i8> %12, i64 2
+  %.sroa.9.24.insert.ext.i = zext nneg i8 %35 to i64
   %.sroa.9.24.insert.insert11.i = or disjoint i64 %.sroa.9.26.insert.shift.i, %.sroa.9.24.insert.ext.i
-  %35 = extractelement <8 x i8> %12, i64 3
-  %.sroa.9.25.insert.ext.i = zext i8 %35 to i64
+  %36 = extractelement <8 x i8> %12, i64 3
+  %.sroa.9.25.insert.ext.i = zext i8 %36 to i64
   %.sroa.9.25.insert.shift.i = shl nuw nsw i64 %.sroa.9.25.insert.ext.i, 8
   %.sroa.9.25.insert.insert.i = or disjoint i64 %.sroa.9.25.insert.shift.i, %.sroa.9.24.insert.insert11.i
-  %36 = add i64 %11, -65536
-  %.05.i = select i1 %25, i64 0, i64 %36
-  %.sroa.5.0.i22 = select i1 %.not.i.not, i64 undef, i64 %.05.i
-  %37 = bitcast <8 x i8> %12 to <64 x i1>
-  %38 = extractelement <64 x i1> %37, i64 40
-  %spec.select35 = select i1 %38, i64 0, i64 %8
-  %spec.select = select i1 %38, i64 0, i64 %6
-  %trunc.i = trunc nuw i64 %9 to i1
-  %.sroa.5.0.i = select i1 %trunc.i, i64 %11, i64 undef
-  %39 = extractvalue { i64, ptr } %26, 1
-  %.sink1.i.i.i = extractvalue { i64, ptr } %26, 0
+  %37 = add i64 %.sroa.5.0.i, -65536
+  %.05.i = select i1 %25, i64 0, i64 %37
+  %38 = bitcast <8 x i8> %12 to <64 x i1>
+  %39 = extractelement <64 x i1> %38, i64 40
+  %spec.select34 = select i1 %39, i64 0, i64 %8
+  %spec.select = select i1 %39, i64 0, i64 %6
+  %40 = extractvalue { i64, ptr } %27, 1
+  %.sink1.i.i.i = extractvalue { i64, ptr } %27, 0
   store i64 %9, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %spec.select, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %spec.select35, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %spec.select34, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %16, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
@@ -474,8 +472,8 @@ define void @_ZN13grep_searcher8searcher15SearcherBuilder5build17hcf078266012f3a
   store i8 %18, ptr %.sroa.18.0..sroa_idx, align 1
   %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 50
   store i8 %20, ptr %.sroa.19.0..sroa_idx, align 2
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %16, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %16, ptr %41, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   store i8 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.54.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 65
@@ -484,14 +482,14 @@ define void @_ZN13grep_searcher8searcher15SearcherBuilder5build17hcf078266012f3a
   store i8 %18, ptr %.sroa.6.0..sroa_idx, align 2
   %.sroa.75.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 67
   store i8 %18, ptr %.sroa.75.0..sroa_idx, align 1
-  %41 = getelementptr inbounds i8, ptr %0, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %42 = getelementptr inbounds i8, ptr %0, i64 104
-  store i64 0, ptr %42, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  %43 = getelementptr inbounds i8, ptr %0, i64 104
+  store i64 0, ptr %43, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 112
   store i64 %9, ptr %.sroa.47.0..sroa_idx, align 8
   %.sroa.47.sroa.4.0..sroa.47.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 120
-  store i64 %.sroa.5.0.i22, ptr %.sroa.47.sroa.4.0..sroa.47.0..sroa_idx.sroa_idx, align 8
+  store i64 %.05.i, ptr %.sroa.47.sroa.4.0..sroa.47.0..sroa_idx.sroa_idx, align 8
   %.sroa.47.sroa.5.0..sroa.47.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 128
   store i64 %.sroa.6.0.i, ptr %.sroa.47.sroa.5.0..sroa.47.0..sroa_idx.sroa_idx, align 8
   %.sroa.47.sroa.6.0..sroa.47.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 136
@@ -501,7 +499,7 @@ define void @_ZN13grep_searcher8searcher15SearcherBuilder5build17hcf078266012f3a
   %.sroa.47.sroa.9.0..sroa.47.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %.sink1.i.i.i, ptr %.sroa.47.sroa.9.0..sroa.47.0..sroa_idx.sroa_idx, align 8
   %.sroa.47.sroa.10.0..sroa.47.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 168
-  store ptr %39, ptr %.sroa.47.sroa.10.0..sroa.47.0..sroa_idx.sroa_idx, align 8
+  store ptr %40, ptr %.sroa.47.sroa.10.0..sroa.47.0..sroa_idx.sroa_idx, align 8
   %.sroa.47.sroa.11.0..sroa.47.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 176
   store i64 %.sroa.6.0.i, ptr %.sroa.47.sroa.11.0..sroa.47.0..sroa_idx.sroa_idx, align 8
   %.sroa.47.sroa.12.0..sroa.47.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 184
@@ -513,14 +511,14 @@ define void @_ZN13grep_searcher8searcher15SearcherBuilder5build17hcf078266012f3a
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 
-43:                                               ; preds = %27
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %28
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #18
   unreachable
 
-45:                                               ; preds = %27
-  resume { ptr, i32 } %28
+46:                                               ; preds = %28
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

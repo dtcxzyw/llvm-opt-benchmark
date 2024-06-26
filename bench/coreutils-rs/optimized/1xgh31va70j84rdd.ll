@@ -1912,6 +1912,7 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !168
   %12 = getelementptr inbounds i8, ptr %3, i64 16
   %13 = load i64, ptr %12, align 8
+  %.sroa.7.0 = freeze i64 %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br i1 %trunc, label %14, label %15
 
@@ -1922,7 +1923,7 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   br label %17
 
 15:                                               ; preds = %2
-  %.not.i.i = icmp eq i64 %13, 0
+  %.not.i.i = icmp eq i64 %.sroa.7.0, 0
   br i1 %.not.i.i, label %.thread, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i": ; preds = %15
@@ -1938,9 +1939,9 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   ret void
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit121": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i"
-  %.pn177 = add i64 %13, -1
+  %.pn177 = add i64 %.sroa.7.0, -1
   %.sroa.027.0 = getelementptr inbounds i8, ptr %11, i64 1
-  %18 = getelementptr i8, ptr %11, i64 %13
+  %18 = getelementptr i8, ptr %11, i64 %.sroa.7.0
   br label %19
 
 19:                                               ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hf22d089977539b83E.exit.i.i", %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit121"
@@ -1951,7 +1952,7 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   br i1 %23, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h27b429eb5955bd84E.exit", label %24
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %21, i64 1
+  %25 = getelementptr i8, ptr %21, i64 1
   %26 = load i8, ptr %21, align 1, !alias.scope !219, !noalias !222, !noundef !4
   %27 = icmp sgt i8 %26, -1
   br i1 %27, label %38, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a659e0ee6351131E.exit13.i.i.i.i.i"
@@ -1961,7 +1962,7 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   %29 = zext nneg i8 %28 to i32
   %30 = icmp ne ptr %25, %18
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds i8, ptr %21, i64 2
+  %31 = getelementptr i8, ptr %21, i64 2
   %32 = load i8, ptr %25, align 1, !alias.scope !219, !noalias !222, !noundef !4
   %33 = shl nuw nsw i32 %29, 6
   %34 = and i8 %32, 63
@@ -1977,7 +1978,7 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a659e0ee6351131E.exit15.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a659e0ee6351131E.exit13.i.i.i.i.i"
   %40 = icmp ne ptr %31, %18
   tail call void @llvm.assume(i1 %40)
-  %41 = getelementptr inbounds i8, ptr %21, i64 3
+  %41 = getelementptr i8, ptr %21, i64 3
   %42 = load i8, ptr %31, align 1, !alias.scope !219, !noalias !222, !noundef !4
   %43 = shl nuw nsw i32 %35, 6
   %44 = and i8 %42, 63
@@ -1991,7 +1992,7 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
 50:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a659e0ee6351131E.exit15.i.i.i.i.i"
   %51 = icmp ne ptr %41, %18
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds i8, ptr %21, i64 4
+  %52 = getelementptr i8, ptr %21, i64 4
   %53 = load i8, ptr %41, align 1, !alias.scope !219, !noalias !222, !noundef !4
   %54 = shl nuw nsw i32 %29, 18
   %55 = and i32 %54, 1835008

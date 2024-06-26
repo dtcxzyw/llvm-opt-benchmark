@@ -22439,7 +22439,7 @@ _ZN3std9panicking3try17h3676e3e47f355027E.exit.i: ; preds = %"_ZN115_$LT$core..p
   %22 = icmp eq ptr %.sroa.03.0.copyload6.i.i, inttoptr (i64 2 to ptr)
   %23 = ptrtoint ptr %.sroa.03.0.copyload6.i.i to i64
   %spec.select = select i1 %22, i64 4, i64 %23
-  %spec.select16 = select i1 %22, i64 undef, i64 %.sroa.10.i.sroa.5.0.copyload6.i
+  %spec.select16 = freeze i64 %.sroa.10.i.sroa.5.0.copyload6.i
   br label %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h031c498143664c23E.exit"
 
 24:                                               ; preds = %.body, %25
@@ -24308,6 +24308,10 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h8c6f6499200176a5E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %3, ptr noundef nonnull align 128 %8, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17h369c108632f28e81E.exit.thread.i unwind label %11, !noalias !4455
 
+_ZN3std9panicking3try17h369c108632f28e81E.exit.thread.i: ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h0240f0d10ec7167dE.exit.i.i.i"
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3), !noalias !4455
+  br label %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h53578cb02e19dc57E.exit"
+
 11:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h0240f0d10ec7167dE.exit.i.i.i", %10
   %12 = landingpad { ptr, i32 }
           cleanup
@@ -24322,13 +24326,10 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   tail call void @_ZN4core9panicking19panic_cannot_unwind17h2ca896690bb64712E() #35, !noalias !4455
   unreachable
 
-_ZN3std9panicking3try17h369c108632f28e81E.exit.thread.i: ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h0240f0d10ec7167dE.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3), !noalias !4455
-  br label %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h53578cb02e19dc57E.exit"
-
 17:                                               ; preds = %11
-  %18 = extractvalue { ptr, ptr } %14, 0
-  %19 = extractvalue { ptr, ptr } %14, 1
+  %.fr.i = freeze { ptr, ptr } %14
+  %18 = extractvalue { ptr, ptr } %.fr.i, 0
+  %19 = extractvalue { ptr, ptr } %.fr.i, 1
   %20 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %19, null
@@ -26257,6 +26258,10 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h40de1982929e9316E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %4, ptr noundef nonnull align 128 %8, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17h28ac03748abee0efE.exit.thread.i unwind label %11, !noalias !4717
 
+_ZN3std9panicking3try17h28ac03748abee0efE.exit.thread.i: ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb072808b3f894139E.exit.i.i.i"
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4), !noalias !4717
+  br label %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h225ea281025f1f75E.exit"
+
 11:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb072808b3f894139E.exit.i.i.i", %10
   %12 = landingpad { ptr, i32 }
           cleanup
@@ -26271,13 +26276,10 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   tail call void @_ZN4core9panicking19panic_cannot_unwind17h2ca896690bb64712E() #35, !noalias !4717
   unreachable
 
-_ZN3std9panicking3try17h28ac03748abee0efE.exit.thread.i: ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb072808b3f894139E.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4), !noalias !4717
-  br label %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h225ea281025f1f75E.exit"
-
 17:                                               ; preds = %11
-  %18 = extractvalue { ptr, ptr } %14, 0
-  %19 = extractvalue { ptr, ptr } %14, 1
+  %.fr.i = freeze { ptr, ptr } %14
+  %18 = extractvalue { ptr, ptr } %.fr.i, 0
+  %19 = extractvalue { ptr, ptr } %.fr.i, 1
   %20 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %19, null
@@ -28532,6 +28534,10 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h8c6f6499200176a5E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %4, ptr noundef nonnull align 128 %8, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17ha2240e930c410932E.exit.thread.i unwind label %11, !noalias !5031
 
+_ZN3std9panicking3try17ha2240e930c410932E.exit.thread.i: ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hf51fdce8e0d046bbE.exit.i.i.i"
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4), !noalias !5031
+  br label %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h6f95ea10a1694f82E.exit"
+
 11:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hf51fdce8e0d046bbE.exit.i.i.i", %10
   %12 = landingpad { ptr, i32 }
           cleanup
@@ -28546,13 +28552,10 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   tail call void @_ZN4core9panicking19panic_cannot_unwind17h2ca896690bb64712E() #35, !noalias !5031
   unreachable
 
-_ZN3std9panicking3try17ha2240e930c410932E.exit.thread.i: ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hf51fdce8e0d046bbE.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4), !noalias !5031
-  br label %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h6f95ea10a1694f82E.exit"
-
 17:                                               ; preds = %11
-  %18 = extractvalue { ptr, ptr } %14, 0
-  %19 = extractvalue { ptr, ptr } %14, 1
+  %.fr.i = freeze { ptr, ptr } %14
+  %18 = extractvalue { ptr, ptr } %.fr.i, 0
+  %19 = extractvalue { ptr, ptr } %.fr.i, 1
   %20 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %19, null
@@ -29011,6 +29014,10 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   invoke void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h40de1982929e9316E.llvm.1299376021755125212"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(88) %3, ptr noundef nonnull align 128 %8, i1 noundef zeroext true)
           to label %_ZN3std9panicking3try17hdc1e1ee12930ac22E.exit.thread.i unwind label %11, !noalias !5096
 
+_ZN3std9panicking3try17hdc1e1ee12930ac22E.exit.thread.i: ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h8f0083b41e1c2059E.exit.i.i.i"
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3), !noalias !5096
+  br label %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h06479e66eda368c2E.exit"
+
 11:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h8f0083b41e1c2059E.exit.i.i.i", %10
   %12 = landingpad { ptr, i32 }
           cleanup
@@ -29025,13 +29032,10 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   tail call void @_ZN4core9panicking19panic_cannot_unwind17h2ca896690bb64712E() #35, !noalias !5096
   unreachable
 
-_ZN3std9panicking3try17hdc1e1ee12930ac22E.exit.thread.i: ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h8f0083b41e1c2059E.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3), !noalias !5096
-  br label %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17h06479e66eda368c2E.exit"
-
 17:                                               ; preds = %11
-  %18 = extractvalue { ptr, ptr } %14, 0
-  %19 = extractvalue { ptr, ptr } %14, 1
+  %.fr.i = freeze { ptr, ptr } %14
+  %18 = extractvalue { ptr, ptr } %.fr.i, 0
+  %19 = extractvalue { ptr, ptr } %.fr.i, 1
   %20 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne ptr %19, null
@@ -29215,7 +29219,7 @@ _ZN3std9panicking3try17hfd045d6762af79c4E.exit.i: ; preds = %"_ZN115_$LT$core..p
   %23 = icmp eq ptr %.sroa.03.0.copyload6.i.i, inttoptr (i64 2 to ptr)
   %24 = ptrtoint ptr %.sroa.03.0.copyload6.i.i to i64
   %spec.select = select i1 %23, i64 4, i64 %24
-  %spec.select20 = select i1 %23, i64 undef, i64 %.sroa.10.i.sroa.5.0.copyload6.i
+  %spec.select20 = freeze i64 %.sroa.10.i.sroa.5.0.copyload6.i
   br label %"_ZN10rayon_core3job18JobResult$LT$T$GT$4call17hbbc36f75dfe812baE.exit"
 
 .body8:                                           ; preds = %79, %84, %25, %.body

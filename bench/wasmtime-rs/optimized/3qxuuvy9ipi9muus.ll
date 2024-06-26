@@ -26804,9 +26804,8 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17hbb3d99338f4916beE.llvm.332086760
   %switch109 = icmp eq i64 %18, 2
   %19 = lshr i64 %17, 32
   %20 = trunc nuw i64 %19 to i32
-  %.sroa.7.0 = select i1 %switch109, i32 %20, i32 undef
-  %.sroa.0.0 = zext i1 %switch109 to i32
-  %21 = tail call noundef i8 @_ZN13wasmtime_wasi4host10filesystem17from_raw_os_error17h83cd4c2a359a51f0E(i32 noundef %.sroa.0.0, i32 %.sroa.7.0), !range !4448
+  %switch = zext i1 %switch109 to i32
+  %21 = tail call noundef i8 @_ZN13wasmtime_wasi4host10filesystem17from_raw_os_error17h83cd4c2a359a51f0E(i32 noundef %switch, i32 %20), !range !4448
   %22 = icmp eq i8 %21, 37
   br i1 %22, label %23, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread
 
@@ -27130,7 +27129,6 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17hbb3d99338f4916beE.llvm.332086760
   %switch4.i = icmp eq i64 %9, 2
   %10 = lshr i64 %8, 32
   %11 = trunc nuw i64 %10 to i32
-  %.sroa.7.0.i = select i1 %switch4.i, i32 %11, i32 undef
   br label %19
 
 12:                                               ; preds = %.noexc
@@ -27157,7 +27155,7 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17hbb3d99338f4916beE.llvm.332086760
           to label %common.resume unwind label %30
 
 19:                                               ; preds = %16, %_ZN3std2io5error14repr_bitpacked11decode_repr17hbb3d99338f4916beE.llvm.3320867604257097217.exit.i
-  %.sroa.7.1.i = phi i32 [ %.sroa.7.0.i, %_ZN3std2io5error14repr_bitpacked11decode_repr17hbb3d99338f4916beE.llvm.3320867604257097217.exit.i ], [ %.0.i, %16 ]
+  %.sroa.7.1.i = phi i32 [ %11, %_ZN3std2io5error14repr_bitpacked11decode_repr17hbb3d99338f4916beE.llvm.3320867604257097217.exit.i ], [ %.0.i, %16 ]
   %.sroa.0.1.in.i = phi i1 [ %switch4.i, %_ZN3std2io5error14repr_bitpacked11decode_repr17hbb3d99338f4916beE.llvm.3320867604257097217.exit.i ], [ %or.cond.i, %16 ]
   %.sroa.0.1.i = zext i1 %.sroa.0.1.in.i to i32
   %20 = invoke noundef i8 @_ZN13wasmtime_wasi4host10filesystem17from_raw_os_error17h83cd4c2a359a51f0E(i32 noundef %.sroa.0.1.i, i32 %.sroa.7.1.i)

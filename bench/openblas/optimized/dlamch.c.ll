@@ -162,7 +162,7 @@ define double @dlamch_(ptr noundef %0) local_unnamed_addr #0 {
 
 79:                                               ; preds = %76
   %80 = load double, ptr @dlamch_.eps, align 8, !tbaa !7
-  br label %126
+  br label %125
 
 81:                                               ; preds = %76
   %82 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.1) #7
@@ -171,7 +171,7 @@ define double @dlamch_(ptr noundef %0) local_unnamed_addr #0 {
 
 84:                                               ; preds = %81
   %85 = load double, ptr @dlamch_.sfmin, align 8, !tbaa !7
-  br label %126
+  br label %125
 
 86:                                               ; preds = %81
   %87 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.2) #7
@@ -180,7 +180,7 @@ define double @dlamch_(ptr noundef %0) local_unnamed_addr #0 {
 
 89:                                               ; preds = %86
   %90 = load double, ptr @dlamch_.base, align 8, !tbaa !7
-  br label %126
+  br label %125
 
 91:                                               ; preds = %86
   %92 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.3) #7
@@ -189,7 +189,7 @@ define double @dlamch_(ptr noundef %0) local_unnamed_addr #0 {
 
 94:                                               ; preds = %91
   %95 = load double, ptr @dlamch_.prec, align 8, !tbaa !7
-  br label %126
+  br label %125
 
 96:                                               ; preds = %91
   %97 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.4) #7
@@ -198,7 +198,7 @@ define double @dlamch_(ptr noundef %0) local_unnamed_addr #0 {
 
 99:                                               ; preds = %96
   %100 = load double, ptr @dlamch_.t, align 8, !tbaa !7
-  br label %126
+  br label %125
 
 101:                                              ; preds = %96
   %102 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.5) #7
@@ -207,7 +207,7 @@ define double @dlamch_(ptr noundef %0) local_unnamed_addr #0 {
 
 104:                                              ; preds = %101
   %105 = load double, ptr @dlamch_.rnd, align 8, !tbaa !7
-  br label %126
+  br label %125
 
 106:                                              ; preds = %101
   %107 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.6) #7
@@ -216,7 +216,7 @@ define double @dlamch_(ptr noundef %0) local_unnamed_addr #0 {
 
 109:                                              ; preds = %106
   %110 = load double, ptr @dlamch_.emin, align 8, !tbaa !7
-  br label %126
+  br label %125
 
 111:                                              ; preds = %106
   %112 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.7) #7
@@ -225,7 +225,7 @@ define double @dlamch_(ptr noundef %0) local_unnamed_addr #0 {
 
 114:                                              ; preds = %111
   %115 = load double, ptr @dlamch_.rmin, align 8, !tbaa !7
-  br label %126
+  br label %125
 
 116:                                              ; preds = %111
   %117 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.8) #7
@@ -234,24 +234,23 @@ define double @dlamch_(ptr noundef %0) local_unnamed_addr #0 {
 
 119:                                              ; preds = %116
   %120 = load double, ptr @dlamch_.emax, align 8, !tbaa !7
-  br label %126
+  br label %125
 
 121:                                              ; preds = %116
   %122 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.9) #7
-  %123 = icmp eq i32 %122, 0
-  %124 = load double, ptr @dlamch_.rmax, align 8
-  %125 = select i1 %123, double undef, double %124
-  br label %126
+  %123 = load double, ptr @dlamch_.rmax, align 8
+  %124 = freeze double %123
+  br label %125
 
-126:                                              ; preds = %121, %119, %114, %109, %104, %99, %94, %89, %84, %79
-  %127 = phi double [ %80, %79 ], [ %85, %84 ], [ %90, %89 ], [ %95, %94 ], [ %100, %99 ], [ %105, %104 ], [ %110, %109 ], [ %115, %114 ], [ %120, %119 ], [ %125, %121 ]
+125:                                              ; preds = %121, %119, %114, %109, %104, %99, %94, %89, %84, %79
+  %126 = phi double [ %80, %79 ], [ %85, %84 ], [ %90, %89 ], [ %95, %94 ], [ %100, %99 ], [ %105, %104 ], [ %110, %109 ], [ %115, %114 ], [ %120, %119 ], [ %124, %121 ]
   store i1 true, ptr @dlamch_.first, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
-  ret double %127
+  ret double %126
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

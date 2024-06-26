@@ -2242,6 +2242,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hba0a0c4fb0911f70E.exit: ; 
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %21, i64 16
   %103 = load ptr, ptr %102, align 8
+  %.fr138 = freeze ptr %103
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   br i1 %99, label %147, label %104
 
@@ -2250,12 +2251,12 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hba0a0c4fb0911f70E.exit: ; 
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %101, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 16
-  store ptr %103, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %.fr138, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
-  %105 = ptrtoint ptr %103 to i64
+  %105 = ptrtoint ptr %.fr138 to i64
   invoke fastcc void @_ZN11uu_realpath28canonicalize_relative_option17h72dfbe2c08b7466dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %17, i8 noundef %2, i8 noundef %3)
           to label %109 unwind label %107
 
@@ -2277,6 +2278,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hba0a0c4fb0911f70E.exit: ; 
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %18, i64 16
   %115 = load ptr, ptr %114, align 8
+  %.fr = freeze ptr %115
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   br i1 %111, label %116, label %121
 
@@ -2284,7 +2286,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hba0a0c4fb0911f70E.exit: ; 
   %117 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %113, ptr %117, align 8
   %118 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %115, ptr %118, align 8
+  store ptr %.fr, ptr %118, align 8
   store i64 -9223372036854775807, ptr %0, align 8
   br label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7fbdfdef2aca020bE.exit"
 
@@ -2299,7 +2301,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hba0a0c4fb0911f70E.exit: ; 
   %.sroa.422.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %113, ptr %.sroa.422.0..sroa_idx, align 8
   %.sroa.523.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 16
-  store ptr %115, ptr %.sroa.523.0..sroa_idx, align 8
+  store ptr %.fr, ptr %.sroa.523.0..sroa_idx, align 8
   %122 = icmp eq i64 %110, -9223372036854775808
   %.sroa.0.0.i = select i1 %122, ptr null, ptr %113
   %123 = icmp eq i64 %98, -9223372036854775808
@@ -2321,9 +2323,8 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hba0a0c4fb0911f70E.exit: ; 
   br label %144
 
 126:                                              ; preds = %121
-  %..val2.i.cast = ptrtoint ptr %115 to i64
-  %.sroa.3.0.i = select i1 %122, i64 undef, i64 %..val2.i.cast
-  %127 = invoke noundef zeroext i1 @_ZN3std4path4Path12_starts_with17h7927dcae5848385cE(ptr noalias noundef nonnull readonly align 1 %101, i64 noundef %105, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i)
+  %..val2.i.cast = ptrtoint ptr %.fr to i64
+  %127 = invoke noundef zeroext i1 @_ZN3std4path4Path12_starts_with17h7927dcae5848385cE(ptr noalias noundef nonnull readonly align 1 %101, i64 noundef %105, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %..val2.i.cast)
           to label %_ZN3std4path4Path11starts_with17h5491bb8ddbc81f59E.exit unwind label %119
 
 _ZN3std4path4Path11starts_with17h5491bb8ddbc81f59E.exit: ; preds = %126
@@ -2405,7 +2406,7 @@ _ZN3std4path4Path11starts_with17h5491bb8ddbc81f59E.exit: ; preds = %126
   %148 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %101, ptr %148, align 8
   %149 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %103, ptr %149, align 8
+  store ptr %.fr138, ptr %149, align 8
   store i64 -9223372036854775807, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !742)

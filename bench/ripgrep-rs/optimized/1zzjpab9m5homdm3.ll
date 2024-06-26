@@ -2816,10 +2816,11 @@ _ZN3std2fs8metadata17h8626d1dcd7183501E.exit:
   %9 = load ptr, ptr %8, align 8
   %.sroa.71.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
   %.sroa.71.0.copyload = load i64, ptr %.sroa.71.0..sroa_idx, align 8
+  %.sroa.71.0 = freeze i64 %.sroa.71.0.copyload
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %2), !noalias !414
   %10 = icmp eq i64 %7, 2
   %11 = ptrtoint ptr %9 to i64
-  %.sroa.0.sroa.2.0.copyload.sink.i = select i1 %10, i64 %11, i64 %.sroa.71.0.copyload
+  %.sroa.0.sroa.2.0.copyload.sink.i = select i1 %10, i64 %11, i64 %.sroa.71.0
   %storemerge.i = zext i1 %10 to i64
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.sroa.2.0.copyload.sink.i, ptr %12, align 8, !alias.scope !424, !noalias !427
@@ -2838,10 +2839,11 @@ _ZN3std2fs8metadata17h8626d1dcd7183501E.exit:
   %6 = load ptr, ptr %5, align 8
   %.sroa.72.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
   %.sroa.72.0.copyload = load i64, ptr %.sroa.72.0..sroa_idx, align 8
+  %.sroa.72.0 = freeze i64 %.sroa.72.0.copyload
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3), !noalias !429
   %7 = icmp eq i64 %4, 2
   %8 = ptrtoint ptr %6 to i64
-  %.sroa.0.sroa.2.0.copyload.sink.i = select i1 %7, i64 %8, i64 %.sroa.72.0.copyload
+  %.sroa.0.sroa.2.0.copyload.sink.i = select i1 %7, i64 %8, i64 %.sroa.72.0
   %storemerge.i = zext i1 %7 to i64
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.sroa.2.0.copyload.sink.i, ptr %9, align 8, !alias.scope !439, !noalias !442
@@ -4053,8 +4055,9 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noca
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 24
   %16 = load i64, ptr %15, align 8
+  %.sroa.3.0.i = freeze i64 %16
   %trunc.i = trunc nuw i64 %12 to i1
-  %17 = inttoptr i64 %16 to ptr
+  %17 = inttoptr i64 %.sroa.3.0.i to ptr
   br i1 %trunc.i, label %20, label %18
 
 .thread44:                                        ; preds = %26, %48
@@ -4098,7 +4101,7 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noca
   %.sroa.4.0.i58 = load i64, ptr %.sroa.4.0.i58.in, align 8, !alias.scope !558, !noundef !4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  invoke void @_ZN3std4path4Path11to_path_buf17h244d289ac0030e02E(ptr noalias nocapture noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %16)
+  invoke void @_ZN3std4path4Path11to_path_buf17h244d289ac0030e02E(ptr noalias nocapture noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %.sroa.3.0.i)
           to label %27 unwind label %.thread44
 
 27:                                               ; preds = %26

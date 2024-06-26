@@ -33970,7 +33970,7 @@ define hidden { ptr, i64 } @"_ZN15rustfmt_nightly7comment21light_rewrite_comment
   %6 = phi i64 [ %47, %70 ], [ 0, %3 ]
   %7 = phi ptr [ %.sink19.i.i.i, %70 ], [ %1, %3 ]
   %.pn.i.i = ptrtoint ptr %7 to i64
-  %8 = getelementptr inbounds i8, ptr %7, i64 1
+  %8 = getelementptr i8, ptr %7, i64 1
   %9 = load i8, ptr %7, align 1, !alias.scope !7140, !noalias !7143, !noundef !5
   %10 = icmp sgt i8 %9, -1
   br i1 %10, label %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit13.i.i.i.i.i"
@@ -33980,7 +33980,7 @@ define hidden { ptr, i64 } @"_ZN15rustfmt_nightly7comment21light_rewrite_comment
   %12 = zext nneg i8 %11 to i32
   %13 = icmp ne ptr %8, %4
   tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds i8, ptr %7, i64 2
+  %14 = getelementptr i8, ptr %7, i64 2
   %15 = load i8, ptr %8, align 1, !alias.scope !7140, !noalias !7143, !noundef !5
   %16 = shl nuw nsw i32 %12, 6
   %17 = and i8 %15, 63
@@ -33996,7 +33996,7 @@ define hidden { ptr, i64 } @"_ZN15rustfmt_nightly7comment21light_rewrite_comment
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit13.i.i.i.i.i"
   %23 = icmp ne ptr %14, %4
   tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds i8, ptr %7, i64 3
+  %24 = getelementptr i8, ptr %7, i64 3
   %25 = load i8, ptr %14, align 1, !alias.scope !7140, !noalias !7143, !noundef !5
   %26 = shl nuw nsw i32 %18, 6
   %27 = and i8 %25, 63
@@ -34010,7 +34010,7 @@ define hidden { ptr, i64 } @"_ZN15rustfmt_nightly7comment21light_rewrite_comment
 33:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i.i.i.i.i"
   %34 = icmp ne ptr %24, %4
   tail call void @llvm.assume(i1 %34)
-  %35 = getelementptr inbounds i8, ptr %7, i64 4
+  %35 = getelementptr i8, ptr %7, i64 4
   %36 = load i8, ptr %24, align 1, !alias.scope !7140, !noalias !7143, !noundef !5
   %37 = shl nuw nsw i32 %12, 18
   %38 = and i32 %37, 1835008
@@ -39099,32 +39099,32 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly6string18is_valid
   br i1 %71, label %_ZN15rustfmt_nightly6string14is_punctuation17hc174282a8109cb7dE.exit, label %73
 
 73:                                               ; preds = %.critedge.thread.i
-  %74 = sub nuw i64 %57, %70
+  %74 = sub i64 %57, %70
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8142)
-  %.not.i17.i = icmp eq i64 %74, 2
-  br i1 %.not.i17.i, label %.preheader.i19.i, label %_ZN15rustfmt_nightly6string14is_punctuation17hc174282a8109cb7dE.exit
+  %.not.i16.i = icmp eq i64 %74, 2
+  br i1 %.not.i16.i, label %.preheader.i18.i, label %_ZN15rustfmt_nightly6string14is_punctuation17hc174282a8109cb7dE.exit
 
-.preheader.i19.i:                                 ; preds = %73, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h78a09fc20fe204f8E.exit.i.i23.i"
-  %75 = phi i64 [ %79, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h78a09fc20fe204f8E.exit.i.i23.i" ], [ 0, %73 ]
-  %exitcond.not.i20.i.not = icmp ne i64 %75, 2
-  br i1 %exitcond.not.i20.i.not, label %76, label %_ZN15rustfmt_nightly6string14is_punctuation17hc174282a8109cb7dE.exit
+.preheader.i18.i:                                 ; preds = %73, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h78a09fc20fe204f8E.exit.i.i22.i"
+  %75 = phi i64 [ %79, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h78a09fc20fe204f8E.exit.i.i22.i" ], [ 0, %73 ]
+  %exitcond.not.i19.i.not = icmp ne i64 %75, 2
+  br i1 %exitcond.not.i19.i.not, label %76, label %_ZN15rustfmt_nightly6string14is_punctuation17hc174282a8109cb7dE.exit
 
-76:                                               ; preds = %.preheader.i19.i
+76:                                               ; preds = %.preheader.i18.i
   %77 = getelementptr inbounds { ptr, i64 }, ptr %72, i64 %75
   %78 = getelementptr i8, ptr %77, i64 8
-  %.fca.0.extract.val6.i.i21.i = load i64, ptr %78, align 8, !alias.scope !8145, !noalias !8148, !noundef !5
-  %.not.i.i.i.i.i.i.i22.i = icmp eq i64 %.fca.0.extract.val6.i.i21.i, 1
-  br i1 %.not.i.i.i.i.i.i.i22.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h78a09fc20fe204f8E.exit.i.i23.i", label %_ZN15rustfmt_nightly6string14is_punctuation17hc174282a8109cb7dE.exit
+  %.fca.0.extract.val6.i.i20.i = load i64, ptr %78, align 8, !alias.scope !8145, !noalias !8148, !noundef !5
+  %.not.i.i.i.i.i.i.i21.i = icmp eq i64 %.fca.0.extract.val6.i.i20.i, 1
+  br i1 %.not.i.i.i.i.i.i.i21.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h78a09fc20fe204f8E.exit.i.i22.i", label %_ZN15rustfmt_nightly6string14is_punctuation17hc174282a8109cb7dE.exit
 
-"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h78a09fc20fe204f8E.exit.i.i23.i": ; preds = %76
+"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h78a09fc20fe204f8E.exit.i.i22.i": ; preds = %76
   %79 = add nuw nsw i64 %75, 1
-  %.fca.0.extract.val.i.i24.i = load ptr, ptr %77, align 8, !alias.scope !8152, !noalias !8153, !nonnull !5, !noundef !5
-  %lhsc.i25.i = load i8, ptr %.fca.0.extract.val.i.i24.i, align 1, !noalias !8152
-  %.not.i.i26.i = icmp eq i8 %lhsc.i25.i, 58
-  br i1 %.not.i.i26.i, label %.preheader.i19.i, label %_ZN15rustfmt_nightly6string14is_punctuation17hc174282a8109cb7dE.exit
+  %.fca.0.extract.val.i.i23.i = load ptr, ptr %77, align 8, !alias.scope !8152, !noalias !8153, !nonnull !5, !noundef !5
+  %lhsc.i24.i = load i8, ptr %.fca.0.extract.val.i.i23.i, align 1, !noalias !8152
+  %.not.i.i25.i = icmp eq i8 %lhsc.i24.i, 58
+  br i1 %.not.i.i25.i, label %.preheader.i18.i, label %_ZN15rustfmt_nightly6string14is_punctuation17hc174282a8109cb7dE.exit
 
-_ZN15rustfmt_nightly6string14is_punctuation17hc174282a8109cb7dE.exit: ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e64b9fa6bfbf5d7E.exit.thread.i.i", %.preheader.i.i, %76, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h78a09fc20fe204f8E.exit.i.i23.i", %.preheader.i19.i, %.critedge.thread.i, %.critedge.i, %73, %5
-  %.0 = phi i1 [ true, %5 ], [ true, %73 ], [ true, %.critedge.i ], [ true, %.critedge.thread.i ], [ %exitcond.not.i20.i.not, %.preheader.i19.i ], [ %exitcond.not.i20.i.not, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h78a09fc20fe204f8E.exit.i.i23.i" ], [ %exitcond.not.i20.i.not, %76 ], [ false, %.preheader.i.i ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e64b9fa6bfbf5d7E.exit.thread.i.i" ]
+_ZN15rustfmt_nightly6string14is_punctuation17hc174282a8109cb7dE.exit: ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e64b9fa6bfbf5d7E.exit.thread.i.i", %.preheader.i.i, %76, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h78a09fc20fe204f8E.exit.i.i22.i", %.preheader.i18.i, %.critedge.thread.i, %.critedge.i, %73, %5
+  %.0 = phi i1 [ true, %5 ], [ true, %73 ], [ true, %.critedge.i ], [ true, %.critedge.thread.i ], [ %exitcond.not.i19.i.not, %.preheader.i18.i ], [ %exitcond.not.i19.i.not, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h78a09fc20fe204f8E.exit.i.i22.i" ], [ %exitcond.not.i19.i.not, %76 ], [ false, %.preheader.i.i ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e64b9fa6bfbf5d7E.exit.thread.i.i" ]
   ret i1 %.0
 }
 

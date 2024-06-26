@@ -5883,10 +5883,9 @@ define hidden void @"_ZN92_$LT$http..header..map..Drain$LT$T$GT$$u20$as$u20$core
   call fastcc void @_ZN4http6header3map18remove_extra_value17hf38cbd07c8c171f8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %3, ptr noundef %9, i64 noundef %11, ptr noalias noundef align 8 dereferenceable(24) %13, i64 noundef %7)
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !range !349, !noundef !21
-  %trunc = trunc nuw i64 %15 to i1
   %16 = getelementptr inbounds i8, ptr %3, i64 24
   %17 = load i64, ptr %16, align 8
-  %storemerge = select i1 %trunc, i64 %17, i64 undef
+  %storemerge = freeze i64 %17
   store i64 %15, ptr %1, align 8
   store i64 %storemerge, ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %3, i64 32

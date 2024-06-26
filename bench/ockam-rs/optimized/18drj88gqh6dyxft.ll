@@ -1244,11 +1244,12 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   %28 = and i64 %.01557.i.i10.i.i, 63
   %29 = shl i64 %27, %28
   %30 = or i64 %29, %.01656.i.i11.i.i
-  %31 = icmp ult i64 %30, 4294967296
+  %.fr.i.i.i = freeze i64 %30
+  %31 = icmp ult i64 %.fr.i.i.i, 4294967296
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %26
-  %33 = trunc nuw i64 %30 to i32
+  %33 = trunc nuw i64 %.fr.i.i.i to i32
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !300
   switch i32 %33, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h9fb2fc48aebbfd61E.exit" [
     i32 0, label %39
@@ -1265,7 +1266,7 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h9fb2fc48aebbfd61E.exit": ; preds = %32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !306
   %37 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %30, ptr %37, align 8, !noalias !306
+  store i64 %.fr.i.i.i, ptr %37, align 8, !noalias !306
   store i8 1, ptr %4, align 8, !noalias !306
   %38 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17h12e5ddaf89f417f9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.de05196e861459032a255d939f01b64a.35), !noalias !309
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !306
@@ -8832,7 +8833,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   %26 = and i64 %.01557.i72, 63
   %27 = shl i64 %25, %26
   %28 = or i64 %27, %.01656.i73
-  %29 = icmp ult i64 %28, 4294967296
+  %.fr = freeze i64 %28
+  %29 = icmp ult i64 %.fr, 4294967296
   br i1 %29, label %32, label %33
 
 30:                                               ; preds = %11, %.lr.ph.i._crit_edge
@@ -8843,7 +8845,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %36
 
 32:                                               ; preds = %24
-  call void @"_ZN177_$LT$ockam_core..error..code.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..code..Kind$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h5380522f47d22593E.llvm.5011910573033027287"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, i64 noundef %28)
+  call void @"_ZN177_$LT$ockam_core..error..code.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..code..Kind$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h5380522f47d22593E.llvm.5011910573033027287"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, i64 noundef %.fr)
   br label %36
 
 33:                                               ; preds = %24
@@ -8915,7 +8917,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   %27 = and i64 %.01557.i72, 63
   %28 = shl i64 %26, %27
   %29 = or i64 %28, %.01656.i73
-  %30 = icmp ult i64 %29, 4294967296
+  %.fr = freeze i64 %29
+  %30 = icmp ult i64 %.fr, 4294967296
   br i1 %30, label %33, label %67
 
 31:                                               ; preds = %12, %.lr.ph.i._crit_edge
@@ -8925,7 +8928,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %_ZN5serde2de7Visitor9visit_u3217hdceea0f3e1c335e7E.exit
 
 33:                                               ; preds = %25
-  %34 = trunc nuw i64 %29 to i32
+  %34 = trunc nuw i64 %.fr to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !1629)
   call void @llvm.experimental.noalias.scope.decl(metadata !1632)
   switch i32 %34, label %35 [
@@ -8948,7 +8951,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 35:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1635
   %36 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %29, ptr %36, align 8, !noalias !1635
+  store i64 %.fr, ptr %36, align 8, !noalias !1635
   store i8 1, ptr %3, align 8, !noalias !1635
   %37 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17h12e5ddaf89f417f9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.6ef817cd37b006bb16a8f72d5181dd92.89.llvm.5011910573033027287, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6ef817cd37b006bb16a8f72d5181dd92.87.llvm.5011910573033027287), !noalias !1635
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1635
@@ -9096,7 +9099,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   %27 = and i64 %.01557.i72, 63
   %28 = shl i64 %26, %27
   %29 = or i64 %28, %.01656.i73
-  %30 = icmp ult i64 %29, 4294967296
+  %.fr = freeze i64 %29
+  %30 = icmp ult i64 %.fr, 4294967296
   br i1 %30, label %33, label %43
 
 31:                                               ; preds = %12, %.lr.ph.i._crit_edge
@@ -9106,7 +9110,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %_ZN5serde2de7Visitor9visit_u3217h88894540d453541dE.exit
 
 33:                                               ; preds = %25
-  %34 = trunc nuw i64 %29 to i32
+  %34 = trunc nuw i64 %.fr to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !1660)
   call void @llvm.experimental.noalias.scope.decl(metadata !1663)
   switch i32 %34, label %35 [
@@ -9117,7 +9121,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 35:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1666
   %36 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %29, ptr %36, align 8, !noalias !1666
+  store i64 %.fr, ptr %36, align 8, !noalias !1666
   store i8 1, ptr %3, align 8, !noalias !1666
   %37 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17h12e5ddaf89f417f9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.dca09acf75e01e7f0ad49eeb7d45b0c4.50.llvm.17750508912526769443, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dca09acf75e01e7f0ad49eeb7d45b0c4.51.llvm.17750508912526769443), !noalias !1666
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1666
@@ -9886,7 +9890,8 @@ define hidden void @"_ZN210_$LT$ockam_transport_websocket..router.._..$LT$impl$u
   %35 = and i64 %.01557.i.i10.i.i.i.i, 63
   %36 = shl i64 %34, %35
   %37 = or i64 %36, %.01656.i.i11.i.i.i.i
-  %38 = icmp ult i64 %37, 4294967296
+  %.fr.i.i.i.i.i = freeze i64 %37
+  %38 = icmp ult i64 %.fr.i.i.i.i.i, 4294967296
   br i1 %38, label %40, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h28778975b7f2f7bdE.exit.i.i.i.i.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h28778975b7f2f7bdE.exit.i.i.i.i.i": ; preds = %33
@@ -9894,13 +9899,13 @@ define hidden void @"_ZN210_$LT$ockam_transport_websocket..router.._..$LT$impl$u
   br label %136
 
 40:                                               ; preds = %33
-  %41 = icmp eq i64 %37, 0
+  %41 = icmp eq i64 %.fr.i.i.i.i.i, 0
   br i1 %41, label %45, label %42
 
 42:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !1884
   %43 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %37, ptr %43, align 8, !noalias !1884
+  store i64 %.fr.i.i.i.i.i, ptr %43, align 8, !noalias !1884
   store i8 1, ptr %11, align 8, !noalias !1884
   %44 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17h12e5ddaf89f417f9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 @anon.de05196e861459032a255d939f01b64a.98, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.de05196e861459032a255d939f01b64a.22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1884
@@ -10297,7 +10302,8 @@ define hidden { i64, ptr } @"_ZN211_$LT$ockam_transport_websocket..router.._..$L
   %27 = and i64 %.01557.i.i10.i.i.i.i, 63
   %28 = shl i64 %26, %27
   %29 = or i64 %28, %.01656.i.i11.i.i.i.i
-  %30 = icmp ult i64 %29, 4294967296
+  %.fr.i.i.i.i.i = freeze i64 %29
+  %30 = icmp ult i64 %.fr.i.i.i.i.i, 4294967296
   br i1 %30, label %32, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05da141e9cb3323E.exit.i.i.i.i.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05da141e9cb3323E.exit.i.i.i.i.i": ; preds = %25
@@ -10305,13 +10311,13 @@ define hidden { i64, ptr } @"_ZN211_$LT$ockam_transport_websocket..router.._..$L
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8b1e503171b65a78E.exit"
 
 32:                                               ; preds = %25
-  %33 = icmp eq i64 %29, 0
+  %33 = icmp eq i64 %.fr.i.i.i.i.i, 0
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2042
   %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %29, ptr %35, align 8, !noalias !2042
+  store i64 %.fr.i.i.i.i.i, ptr %35, align 8, !noalias !2042
   store i8 1, ptr %3, align 8, !noalias !2042
   %36 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17h12e5ddaf89f417f9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.de05196e861459032a255d939f01b64a.98, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.de05196e861459032a255d939f01b64a.22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2042

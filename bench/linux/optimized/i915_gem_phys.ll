@@ -110,9 +110,10 @@ define dso_local void @i915_gem_object_put_pages_phys(ptr noundef %0, ptr nounde
 59:                                               ; preds = %55
   %60 = getelementptr i8, ptr %28, i64 72
   %61 = load volatile i64, ptr %60, align 8
-  %62 = and i64 %61, 1
+  %.fr2 = freeze i64 %61
+  %62 = and i64 %.fr2, 1
   %63 = icmp eq i64 %62, 0
-  %64 = add nsw i64 %61, -1
+  %64 = add i64 %.fr2, -1
   %65 = inttoptr i64 %64 to ptr
   br i1 %63, label %66, label %67
 
@@ -455,7 +456,7 @@ define internal fastcc noundef i32 @i915_gem_object_shmem_to_phys(ptr noundef %0
   store i32 %51, ptr %52, align 8
   %53 = load i64, ptr %10, align 8
   %54 = icmp ult i64 %53, 4096
-  br i1 %54, label %.loopexit6, label %55
+  br i1 %54, label %.loopexit7, label %55
 
 55:                                               ; preds = %44
   %56 = getelementptr inbounds i8, ptr %7, i64 64
@@ -509,9 +510,10 @@ define internal fastcc noundef i32 @i915_gem_object_shmem_to_phys(ptr noundef %0
 87:                                               ; preds = %83
   %88 = getelementptr i8, ptr %62, i64 72
   %89 = load volatile i64, ptr %88, align 8
-  %90 = and i64 %89, 1
+  %.fr5 = freeze i64 %89
+  %90 = and i64 %.fr5, 1
   %91 = icmp eq i64 %90, 0
-  %92 = add nsw i64 %89, -1
+  %92 = add i64 %.fr5, -1
   %93 = inttoptr i64 %92 to ptr
   br i1 %91, label %94, label %95
 
@@ -538,7 +540,7 @@ define internal fastcc noundef i32 @i915_gem_object_shmem_to_phys(ptr noundef %0
   %106 = load i64, ptr %10, align 8
   %107 = lshr i64 %106, 12
   %108 = icmp ugt i64 %107, %105
-  br i1 %108, label %57, label %.loopexit6, !llvm.loop !19
+  br i1 %108, label %57, label %.loopexit7, !llvm.loop !19
 
 .loopexit:                                        ; preds = %57, %31
   call void @kfree(ptr noundef nonnull %29) #6
@@ -558,7 +560,7 @@ define internal fastcc noundef i32 @i915_gem_object_shmem_to_phys(ptr noundef %0
   call void @dma_free_attrs(ptr noundef %112, i64 noundef %118, ptr noundef nonnull %25, i64 noundef %119, i64 noundef 0) #6
   br label %131
 
-.loopexit6:                                       ; preds = %102, %44
+.loopexit7:                                       ; preds = %102, %44
   %120 = getelementptr inbounds i8, ptr %9, i64 9304
   %121 = load ptr, ptr %120, align 8
   call void @intel_gt_chipset_flush(ptr noundef %121) #6
@@ -575,11 +577,11 @@ define internal fastcc noundef i32 @i915_gem_object_shmem_to_phys(ptr noundef %0
   %128 = or i1 %126, %127
   br i1 %128, label %130, label %129
 
-129:                                              ; preds = %.loopexit6
+129:                                              ; preds = %.loopexit7
   call void @i915_gem_object_put_pages_shmem(ptr noundef %0, ptr noundef nonnull %3) #6
   br label %130
 
-130:                                              ; preds = %129, %.loopexit6
+130:                                              ; preds = %129, %.loopexit7
   call void @i915_gem_object_release_memory_region(ptr noundef %0) #6
   br label %136
 

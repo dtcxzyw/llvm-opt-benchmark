@@ -115,10 +115,10 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   br label %50
 
 50:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h98add3440341a129E.exit49.i.i27", %52, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h219158ef9730bbe0E.exit", %13
-  %.sink39 = phi i64 [ 16, %"_ZN4core6option15Option$LT$T$GT$6map_or17h98add3440341a129E.exit49.i.i27" ], [ 16, %52 ], [ 8, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h219158ef9730bbe0E.exit" ], [ 16, %13 ]
-  %.sroa.6.0.sink = phi i64 [ %.sroa.6.0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h98add3440341a129E.exit49.i.i27" ], [ %.val, %52 ], [ %.sink.i.i, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h219158ef9730bbe0E.exit" ], [ 0, %13 ]
-  %51 = getelementptr inbounds i8, ptr %0, i64 %.sink39
-  store i64 %.sroa.6.0.sink, ptr %51, align 8
+  %.sink40 = phi i64 [ 16, %"_ZN4core6option15Option$LT$T$GT$6map_or17h98add3440341a129E.exit49.i.i27" ], [ 16, %52 ], [ 8, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h219158ef9730bbe0E.exit" ], [ 16, %13 ]
+  %.sink = phi i64 [ %90, %"_ZN4core6option15Option$LT$T$GT$6map_or17h98add3440341a129E.exit49.i.i27" ], [ %.val, %52 ], [ %.sink.i.i, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h219158ef9730bbe0E.exit" ], [ 0, %13 ]
+  %51 = getelementptr inbounds i8, ptr %0, i64 %.sink40
+  store i64 %.sink, ptr %51, align 8
   ret void
 
 52:                                               ; preds = %11
@@ -192,23 +192,21 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %82 = and i1 %65, %76
   %or.cond5.i.i30 = and i1 %82, %.sroa.055.0.i.i29
   %83 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %64, i64 %75)
-  %84 = extractvalue { i64, i1 } %83, 0
-  %85 = extractvalue { i64, i1 } %83, 1
-  %not..i.i32 = xor i1 %85, true
-  %.sroa.637.0 = select i1 %or.cond5.i.i30, i64 %84, i64 undef
-  %narrow = select i1 %or.cond5.i.i30, i1 %not..i.i32, i1 false
+  %.fr = freeze { i64, i1 } %83
+  %84 = extractvalue { i64, i1 } %.fr, 0
+  %85 = extractvalue { i64, i1 } %.fr, 1
   %86 = tail call i64 @llvm.uadd.sat.i64(i64 %66, i64 %77)
   %87 = tail call i64 @llvm.uadd.sat.i64(i64 %.val, i64 %86)
-  %88 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.val, i64 %.sroa.637.0)
+  %88 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.val, i64 %84)
   %89 = extractvalue { i64, i1 } %88, 1
   %90 = extractvalue { i64, i1 } %88, 0
-  %not. = xor i1 %89, true
-  %narrow38 = select i1 %narrow, i1 %not., i1 false
+  %91 = or i1 %85, %89
+  %92 = xor i1 %91, true
+  %narrow38 = and i1 %or.cond5.i.i30, %92
   %.sroa.04.0 = zext i1 %narrow38 to i64
-  %.sroa.6.0 = select i1 %narrow, i64 %90, i64 undef
   store i64 %87, ptr %0, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.04.0, ptr %91, align 8
+  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.04.0, ptr %93, align 8
   br label %50
 }
 
@@ -406,27 +404,27 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %88 = and i1 %71, %82
   %or.cond5.i.i26 = and i1 %88, %.sroa.055.0.i.i25
   %89 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %70, i64 %81)
-  %90 = extractvalue { i64, i1 } %89, 0
-  %91 = extractvalue { i64, i1 } %89, 1
+  %.fr = freeze { i64, i1 } %89
+  %90 = extractvalue { i64, i1 } %.fr, 0
+  %91 = extractvalue { i64, i1 } %.fr, 1
   %not..i.i28 = xor i1 %91, true
-  %.sroa.6.031 = select i1 %or.cond5.i.i26, i64 %90, i64 undef
-  %narrow = select i1 %or.cond5.i.i26, i1 %not..i.i28, i1 false
+  %narrow = and i1 %or.cond5.i.i26, %not..i.i28
   %92 = tail call i64 @llvm.uadd.sat.i64(i64 %72, i64 %83)
   %93 = tail call i64 @llvm.uadd.sat.i64(i64 %56, i64 %92)
   %94 = icmp ne i64 %58, 0
   %or.cond = and i1 %94, %narrow
-  %95 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %60, i64 %.sroa.6.031)
+  %.fr34 = freeze i64 %60
+  %95 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr34, i64 %90)
   %96 = extractvalue { i64, i1 } %95, 1
   %97 = extractvalue { i64, i1 } %95, 0
   %not. = xor i1 %96, true
-  %narrow32 = select i1 %or.cond, i1 %not., i1 false
+  %narrow32 = and i1 %or.cond, %not.
   %.sroa.04.0 = zext i1 %narrow32 to i64
-  %.sroa.6.0 = select i1 %or.cond, i64 %97, i64 undef
   store i64 %93, ptr %0, align 8
   %98 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.04.0, ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.6.0, ptr %99, align 8
+  store i64 %97, ptr %99, align 8
   br label %53
 }
 
@@ -465,10 +463,10 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   br label %18
 
 18:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h98add3440341a129E.exit49.i.i27", %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h219158ef9730bbe0E.exit", %15, %13
-  %.sink40 = phi i64 [ 16, %"_ZN4core6option15Option$LT$T$GT$6map_or17h98add3440341a129E.exit49.i.i27" ], [ 8, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h219158ef9730bbe0E.exit" ], [ 16, %15 ], [ 16, %13 ]
-  %.sroa.6.0.sink = phi i64 [ %.sroa.6.0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h98add3440341a129E.exit49.i.i27" ], [ %.sink.i.i, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h219158ef9730bbe0E.exit" ], [ %.val13, %15 ], [ 0, %13 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 %.sink40
-  store i64 %.sroa.6.0.sink, ptr %19, align 8
+  %.sink41 = phi i64 [ 16, %"_ZN4core6option15Option$LT$T$GT$6map_or17h98add3440341a129E.exit49.i.i27" ], [ 8, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h219158ef9730bbe0E.exit" ], [ 16, %15 ], [ 16, %13 ]
+  %.sink = phi i64 [ %90, %"_ZN4core6option15Option$LT$T$GT$6map_or17h98add3440341a129E.exit49.i.i27" ], [ %.sink.i.i, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h219158ef9730bbe0E.exit" ], [ %.val13, %15 ], [ 0, %13 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 %.sink41
+  store i64 %.sink, ptr %19, align 8
   ret void
 
 20:                                               ; preds = %11
@@ -618,25 +616,23 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %81 = and i1 %64, %75
   %or.cond5.i.i30 = and i1 %81, %.sroa.055.0.i.i29
   %82 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %63, i64 %74)
-  %83 = extractvalue { i64, i1 } %82, 0
-  %84 = extractvalue { i64, i1 } %82, 1
-  %not..i.i32 = xor i1 %84, true
-  %.sroa.6.038 = select i1 %or.cond5.i.i30, i64 %83, i64 undef
-  %narrow = select i1 %or.cond5.i.i30, i1 %not..i.i32, i1 false
+  %.fr = freeze { i64, i1 } %82
+  %83 = extractvalue { i64, i1 } %.fr, 0
+  %84 = extractvalue { i64, i1 } %.fr, 1
   %85 = tail call i64 @llvm.uadd.sat.i64(i64 %65, i64 %76)
   %86 = getelementptr inbounds i8, ptr %1, i64 64
   %.val = load i64, ptr %86, align 8, !noundef !5
   %87 = tail call i64 @llvm.uadd.sat.i64(i64 %85, i64 %.val)
-  %88 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.6.038, i64 %.val)
+  %88 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %83, i64 %.val)
   %89 = extractvalue { i64, i1 } %88, 1
   %90 = extractvalue { i64, i1 } %88, 0
-  %not. = xor i1 %89, true
-  %narrow39 = select i1 %narrow, i1 %not., i1 false
+  %91 = or i1 %84, %89
+  %92 = xor i1 %91, true
+  %narrow39 = and i1 %or.cond5.i.i30, %92
   %.sroa.04.0 = zext i1 %narrow39 to i64
-  %.sroa.6.0 = select i1 %narrow, i64 %90, i64 undef
   store i64 %87, ptr %0, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.04.0, ptr %91, align 8
+  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.04.0, ptr %93, align 8
   br label %18
 }
 

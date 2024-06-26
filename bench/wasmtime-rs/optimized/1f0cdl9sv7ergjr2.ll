@@ -3091,12 +3091,11 @@ define { ptr, ptr } @_ZN16wasmtime_runtime8instance9allocator8StorePtr3new17hedb
 define { ptr, ptr } @_ZN16wasmtime_runtime8instance9allocator8StorePtr6as_raw17h26d883dc000931d3E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !14
-  %4 = icmp eq ptr %3, null
-  %5 = load ptr, ptr %0, align 8
-  %.sroa.0.0 = select i1 %4, ptr undef, ptr %5
-  %6 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %7 = insertvalue { ptr, ptr } %6, ptr %3, 1
-  ret { ptr, ptr } %7
+  %4 = load ptr, ptr %0, align 8
+  %.sroa.0.0 = freeze ptr %4
+  %5 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %6 = insertvalue { ptr, ptr } %5, ptr %3, 1
+  ret { ptr, ptr } %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -4185,21 +4184,21 @@ define void @_ZN16wasmtime_runtime5table5Table11new_dynamic17hde728991a247dd48E(
   %15 = load i32, ptr %14, align 4
   call void %.val(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 %2, i32 noundef 0, i32 noundef %12, i32 noundef %13, i32 %15), !noalias !635
   %16 = load i8, ptr %9, align 8, !range !543, !noalias !635, !noundef !14
-  %trunc.i = trunc nuw i8 %16 to i1
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = load ptr, ptr %17, align 8, !noalias !635, !nonnull !14
   %19 = getelementptr inbounds i8, ptr %9, i64 1
   %20 = load i8, ptr %19, align 1, !range !543, !noalias !635
-  %21 = trunc nuw i8 %20 to i1
+  %.fr.i = freeze i8 %20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !635
-  %brmerge.i = select i1 %trunc.i, i1 true, i1 %21
+  %brmerge1.i = or i8 %.fr.i, %16
+  %brmerge.i = trunc i8 %brmerge1.i to i1
   br i1 %brmerge.i, label %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit, label %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit.thread
 
 _ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit.thread: ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !635
   store ptr %11, ptr %7, align 8, !noalias !635
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h4b9fb787c4dcbeb9E", ptr %22, align 8, !noalias !635
+  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h4b9fb787c4dcbeb9E", ptr %21, align 8, !noalias !635
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !638
   store ptr @anon.764a2583fb810618b3ddee9b3a33c6c4.151, ptr %6, align 8, !noalias !649
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
@@ -4213,13 +4212,17 @@ _ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit.thread: ; p
   call void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6), !noalias !650
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !638
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !635
-  %23 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17he21d583fd4e270a6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %8)
+  %22 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17he21d583fd4e270a6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %30
 
 _ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit: ; preds = %4
+  %trunc.i = trunc nuw i8 %16 to i1
+  %.sroa.91.0.i = freeze ptr %18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br i1 %trunc.i, label %30, label %24
+  %23 = icmp ne ptr %.sroa.91.0.i, null
+  %.not24 = and i1 %23, %trunc.i
+  br i1 %.not24, label %30, label %24
 
 24:                                               ; preds = %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit
   %25 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4233,7 +4236,7 @@ _ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit: ; preds = 
   br i1 %switch.not.i.not, label %32, label %43
 
 30:                                               ; preds = %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit.thread, %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit
-  %.0.i23 = phi ptr [ %23, %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit.thread ], [ %18, %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit ]
+  %.0.i23 = phi ptr [ %22, %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit.thread ], [ %.sroa.91.0.i, %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit ]
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.0.i23, ptr %31, align 8
   store i64 3, ptr %0, align 8
@@ -4327,21 +4330,21 @@ define void @_ZN16wasmtime_runtime5table5Table10new_static17haed9d76bd97157d7E(p
   %28 = load i32, ptr %27, align 4
   call void %.val(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %14, ptr noundef nonnull align 1 %4, i32 noundef 0, i32 noundef %25, i32 noundef %26, i32 %28), !noalias !654
   %29 = load i8, ptr %14, align 8, !range !543, !noalias !654, !noundef !14
-  %trunc.i = trunc nuw i8 %29 to i1
   %30 = getelementptr inbounds i8, ptr %14, i64 8
   %31 = load ptr, ptr %30, align 8, !noalias !654, !nonnull !14
   %32 = getelementptr inbounds i8, ptr %14, i64 1
   %33 = load i8, ptr %32, align 1, !range !543, !noalias !654
-  %34 = trunc nuw i8 %33 to i1
+  %.fr.i = freeze i8 %33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !654
-  %brmerge.i = select i1 %trunc.i, i1 true, i1 %34
+  %brmerge1.i = or i8 %.fr.i, %29
+  %brmerge.i = trunc i8 %brmerge1.i to i1
   br i1 %brmerge.i, label %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit, label %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit.thread
 
 _ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit.thread: ; preds = %6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !654
   store ptr %24, ptr %12, align 8, !noalias !654
-  %35 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h4b9fb787c4dcbeb9E", ptr %35, align 8, !noalias !654
+  %34 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h4b9fb787c4dcbeb9E", ptr %34, align 8, !noalias !654
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !657
   store ptr @anon.764a2583fb810618b3ddee9b3a33c6c4.151, ptr %11, align 8, !noalias !668
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 8
@@ -4355,13 +4358,17 @@ _ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit.thread: ; p
   call void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11), !noalias !669
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !657
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !654
-  %36 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17he21d583fd4e270a6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %35 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17he21d583fd4e270a6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %43
 
 _ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit: ; preds = %6
+  %trunc.i = trunc nuw i8 %29 to i1
+  %.sroa.91.0.i = freeze ptr %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  br i1 %trunc.i, label %43, label %37
+  %36 = icmp ne ptr %.sroa.91.0.i, null
+  %.not101 = and i1 %36, %trunc.i
+  br i1 %.not101, label %43, label %37
 
 37:                                               ; preds = %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit
   %switch.i = icmp eq i32 %26, 0
@@ -4377,7 +4384,7 @@ _ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit: ; preds = 
   br i1 %switch.not.i.not, label %45, label %58
 
 43:                                               ; preds = %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit.thread, %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit
-  %.0.i82 = phi ptr [ %36, %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit.thread ], [ %31, %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit ]
+  %.0.i82 = phi ptr [ %35, %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit.thread ], [ %.sroa.91.0.i, %_ZN16wasmtime_runtime5table5Table9limit_new17h2f720cb5ab0410baE.exit ]
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.0.i82, ptr %44, align 8
   store i64 3, ptr %0, align 8
@@ -5548,11 +5555,10 @@ _ZN16wasmtime_runtime5table13TaggedFuncRef18into_table_element17h74f05622b04b937
   %39 = and i64 %38, 1
   %40 = sub nsw i64 0, %39
   %41 = getelementptr i8, ptr %36, i64 %40
-  %.sroa.425.0 = select i1 %37, ptr undef, ptr %41
   %storemerge.i = select i1 %37, i32 2, i32 0
   store i32 %storemerge.i, ptr %0, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.425.0, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %41, ptr %.sroa.425.0..sroa_idx, align 8
   br label %42
 
 42:                                               ; preds = %43, %"_ZN16wasmtime_runtime5table5Table3get28_$u7b$$u7b$closure$u7d$$u7d$17h9438fbae5cfbf4b1E.exit", %34, %_ZN16wasmtime_runtime5table13TaggedFuncRef18into_table_element17h74f05622b04b9371E.exit
@@ -7148,7 +7154,7 @@ define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjm
 
 _ZN3std9panicking3try17hcb26972087040166E.exit.thread: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !981
-  br label %10
+  br label %11
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
@@ -7157,11 +7163,14 @@ _ZN3std9panicking3try17hcb26972087040166E.exit.thread: ; preds = %2
   call void @_ZN3std9panicking3try8do_catch17h8bc030c40c29729eE.llvm.7073302902749960574(ptr nonnull %3, ptr %7)
   %8 = load ptr, ptr %3, align 8, !noalias !981, !nonnull !14, !align !88
   %9 = load ptr, ptr %4, align 8, !noalias !981, !nonnull !14, !align !89
+  %.sroa.3.0.i = freeze ptr %9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !981
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h8d4b2c802650d3d9E(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
-  br label %10
+  %10 = icmp ne ptr %.sroa.3.0.i, null
+  call void @llvm.assume(i1 %10)
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h8d4b2c802650d3d9E(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.3.0.i)
+  br label %11
 
-10:                                               ; preds = %_ZN3std9panicking3try17hcb26972087040166E.exit.thread, %5
+11:                                               ; preds = %_ZN3std9panicking3try17hcb26972087040166E.exit.thread, %5
   ret void
 }
 
@@ -7415,7 +7424,7 @@ define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjm
 
 _ZN3std9panicking3try17h56501593b280241fE.exit.thread: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1024
-  br label %10
+  br label %11
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
@@ -7424,11 +7433,14 @@ _ZN3std9panicking3try17h56501593b280241fE.exit.thread: ; preds = %2
   call void @_ZN3std9panicking3try8do_catch17h85267a23e1b737f9E.llvm.7073302902749960574(ptr nonnull %3, ptr %7)
   %8 = load ptr, ptr %3, align 8, !noalias !1024, !nonnull !14, !align !88
   %9 = load ptr, ptr %4, align 8, !noalias !1024, !nonnull !14, !align !89
+  %.sroa.3.0.i = freeze ptr %9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1024
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17heb7759a64765e57eE(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
-  br label %10
+  %10 = icmp ne ptr %.sroa.3.0.i, null
+  call void @llvm.assume(i1 %10)
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17heb7759a64765e57eE(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.3.0.i)
+  br label %11
 
-10:                                               ; preds = %_ZN3std9panicking3try17h56501593b280241fE.exit.thread, %5
+11:                                               ; preds = %_ZN3std9panicking3try17h56501593b280241fE.exit.thread, %5
   ret void
 }
 
@@ -7988,7 +8000,7 @@ define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjm
 
 _ZN3std9panicking3try17h74c377b3c92fb5fcE.exit.thread: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !1113
-  br label %9
+  br label %10
 
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
@@ -7998,11 +8010,14 @@ _ZN3std9panicking3try17h74c377b3c92fb5fcE.exit.thread: ; preds = %1
   %6 = load ptr, ptr %2, align 8, !noalias !1113, !nonnull !14, !align !88
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !1113, !nonnull !14, !align !89
+  %.sroa.3.0.i = freeze ptr %8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !1113
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17hfa284e509c6186beE(ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
-  br label %9
+  %9 = icmp ne ptr %.sroa.3.0.i, null
+  call void @llvm.assume(i1 %9)
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17hfa284e509c6186beE(ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.3.0.i)
+  br label %10
 
-9:                                                ; preds = %_ZN3std9panicking3try17h74c377b3c92fb5fcE.exit.thread, %3
+10:                                               ; preds = %_ZN3std9panicking3try17h74c377b3c92fb5fcE.exit.thread, %3
   ret void
 }
 
@@ -8288,7 +8303,7 @@ define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjm
 
 _ZN3std9panicking3try17h8563375ba853f38dE.exit.thread: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1166
-  br label %10
+  br label %11
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
@@ -8297,11 +8312,14 @@ _ZN3std9panicking3try17h8563375ba853f38dE.exit.thread: ; preds = %2
   call void @_ZN3std9panicking3try8do_catch17h0020f792b6d0a0bcE.llvm.7073302902749960574(ptr nonnull %3, ptr %7)
   %8 = load ptr, ptr %3, align 8, !noalias !1166, !nonnull !14, !align !88
   %9 = load ptr, ptr %4, align 8, !noalias !1166, !nonnull !14, !align !89
+  %.sroa.3.0.i = freeze ptr %9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1166
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h0ac7195a30d86c97E(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
-  br label %10
+  %10 = icmp ne ptr %.sroa.3.0.i, null
+  call void @llvm.assume(i1 %10)
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h0ac7195a30d86c97E(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.3.0.i)
+  br label %11
 
-10:                                               ; preds = %_ZN3std9panicking3try17h8563375ba853f38dE.exit.thread, %5
+11:                                               ; preds = %_ZN3std9panicking3try17h8563375ba853f38dE.exit.thread, %5
   ret void
 }
 

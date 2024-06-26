@@ -8092,16 +8092,15 @@ define hidden { i64, i64 } @_ZN6diesel6sqlite10connection4stmt12StatementUse21in
   br i1 %switch.not.not.i, label %10, label %.split.loop.exit15.i
 
 .split.loop.exit15.i:                             ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h64cde729fdda2d24E.exit.i"
-  %26 = trunc nsw i64 %indvars.iv.i to i32
+  %26 = trunc i64 %indvars.iv.i to i32
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h96668452fd8632deE.llvm.3868854263495710559.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h96668452fd8632deE.llvm.3868854263495710559.exit: ; preds = %10, %.split.loop.exit15.i
   %.lcssa.i = phi i32 [ %26, %.split.loop.exit15.i ], [ %smax.i, %10 ]
   %27 = sext i32 %.lcssa.i to i64
-  %.sroa.3.0 = select i1 %exitcond.not.i.not, i64 %27, i64 undef
   %.sroa.0.0 = zext i1 %exitcond.not.i.not to i64
   %28 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %29 = insertvalue { i64, i64 } %28, i64 %.sroa.3.0, 1
+  %29 = insertvalue { i64, i64 } %28, i64 %27, 1
   ret { i64, i64 } %29
 }
 

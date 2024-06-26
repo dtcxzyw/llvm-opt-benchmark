@@ -1184,23 +1184,24 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %.sroa.01.0.i.i.i = phi i64 [ 0, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h3160bd85c0be7094E.exit.i.i" ], [ %.sroa.01.1.i.i.i, %208 ]
   %.sroa.0.021.i.i.i = and i64 %.pn.i.i.i, %.val4.i.i
   %180 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.0.021.i.i.i
-  %.0.copyload.i25.i.i.i = load <16 x i8>, ptr %180, align 1, !noalias !165
-  %181 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, %.15.vec.insert.i.i.i.i
+  %.0.copyload.i29.i.i.i = load <16 x i8>, ptr %180, align 1, !noalias !165
+  %181 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, %.15.vec.insert.i.i.i.i
   %182 = bitcast <16 x i1> %181 to i16
-  %.not.i.not.i12.i.i = icmp eq i16 %182, 0
-  br i1 %.not.i.not.i12.i.i, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i", label %.lr.ph.i.i
+  %.not.i.i12.i.i = icmp eq i16 %182, 0
+  br i1 %.not.i.i12.i.i, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7487148cdce3eebfE.exit._crit_edge.i.i", label %.lr.ph.i.i
 
-"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i": ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i", %179
+"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7487148cdce3eebfE.exit._crit_edge.i.i": ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7487148cdce3eebfE.exit.backedge.i.i", %179
   %.not.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i, 1
   br i1 %.not.i.i.i, label %197, label %201
 
-.lr.ph.i.i:                                       ; preds = %179, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i"
-  %.022.i13.i.i = phi i16 [ %186, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i" ], [ %182, %179 ]
-  %183 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i13.i.i, i1 true)
-  %184 = zext nneg i16 %183 to i64
-  %185 = add i16 %.022.i13.i.i, -1
-  %186 = and i16 %185, %.022.i13.i.i
-  %187 = add i64 %.sroa.0.021.i.i.i, %184
+.lr.ph.i.i:                                       ; preds = %179, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7487148cdce3eebfE.exit.backedge.i.i"
+  %.022.i13.i.i = phi i16 [ %184, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7487148cdce3eebfE.exit.backedge.i.i" ], [ %182, %179 ]
+  %183 = add i16 %.022.i13.i.i, -1
+  %184 = and i16 %183, %.022.i13.i.i
+  %185 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i13.i.i, i1 true)
+  %.fr.i.i.i.i.i = freeze i16 %185
+  %186 = zext i16 %.fr.i.i.i.i.i to i64
+  %187 = add i64 %.sroa.0.021.i.i.i, %186
   %188 = and i64 %187, %.val4.i.i
   %189 = sub nsw i64 0, %188
   %190 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { { ptr, ptr } }, {}, {} } } } }, ptr %.val.i.i, i64 %189
@@ -1210,37 +1211,36 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %191 = getelementptr inbounds i8, ptr %190, i64 -88
   %192 = load i64, ptr %191, align 8, !alias.scope !177, !noalias !178, !noundef !4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.val9.i, %192
-  br i1 %.not.i.i.i.i.i.i.i.i, label %193, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %193, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7487148cdce3eebfE.exit.backedge.i.i"
 
 193:                                              ; preds = %.lr.ph.i.i
   %194 = getelementptr inbounds i8, ptr %190, i64 -96
   %195 = load ptr, ptr %194, align 8, !alias.scope !177, !noalias !178, !nonnull !4, !noundef !4
   %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val8.i, ptr nonnull readonly %195, i64 %.val9.i), !alias.scope !184, !noalias !188
   %196 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
-  br i1 %196, label %240, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i"
+  br i1 %196, label %240, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7487148cdce3eebfE.exit.backedge.i.i"
 
-"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i": ; preds = %193, %.lr.ph.i.i
-  %.not.i.not.i.i.i = icmp eq i16 %186, 0
-  br i1 %.not.i.not.i.i.i, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i", label %.lr.ph.i.i
+"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7487148cdce3eebfE.exit.backedge.i.i": ; preds = %193, %.lr.ph.i.i
+  %.not.i.i.i.i = icmp eq i16 %184, 0
+  br i1 %.not.i.i.i.i, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7487148cdce3eebfE.exit._crit_edge.i.i", label %.lr.ph.i.i
 
-197:                                              ; preds = %201, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i"
-  %.sroa.6.1.i.i.i = phi i64 [ %.sroa.3.0.i.i.i.i, %201 ], [ %.sroa.6.0.i.i.i, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i" ]
-  %.sroa.01.1.i.i.i = phi i64 [ %.sroa.0.0.i13.i.i.i, %201 ], [ 1, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i" ]
-  %198 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+197:                                              ; preds = %201, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7487148cdce3eebfE.exit._crit_edge.i.i"
+  %.sroa.6.1.i.i.i = phi i64 [ %207, %201 ], [ %.sroa.6.0.i.i.i, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7487148cdce3eebfE.exit._crit_edge.i.i" ]
+  %.sroa.01.1.i.i.i = phi i64 [ %.sroa.0.0.i13.i.i.i, %201 ], [ 1, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7487148cdce3eebfE.exit._crit_edge.i.i" ]
+  %198 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %199 = bitcast <16 x i1> %198 to i16
   %200 = icmp eq i16 %199, 0
   br i1 %200, label %208, label %211
 
-201:                                              ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i"
-  %202 = icmp slt <16 x i8> %.0.copyload.i25.i.i.i, zeroinitializer
+201:                                              ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7487148cdce3eebfE.exit._crit_edge.i.i"
+  %202 = icmp slt <16 x i8> %.0.copyload.i29.i.i.i, zeroinitializer
   %203 = bitcast <16 x i1> %202 to i16
   %.not.i11.i.i.i = icmp ne i16 %203, 0
   %204 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %203, i1 true)
-  %205 = zext nneg i16 %204 to i64
-  %.sroa.3.0.i.i12.i.i.i = select i1 %.not.i11.i.i.i, i64 %205, i64 undef
-  %206 = add i64 %.sroa.3.0.i.i12.i.i.i, %.sroa.0.021.i.i.i
+  %.fr.i.i12.i.i.i = freeze i16 %204
+  %205 = zext i16 %.fr.i.i12.i.i.i to i64
+  %206 = add i64 %.sroa.0.021.i.i.i, %205
   %207 = and i64 %206, %.val4.i.i
-  %.sroa.3.0.i.i.i.i = select i1 %.not.i11.i.i.i, i64 %207, i64 undef
   %.sroa.0.0.i13.i.i.i = zext i1 %.not.i11.i.i.i to i64
   br label %197
 
@@ -1263,7 +1263,8 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %219 = bitcast <16 x i1> %218 to i16
   %220 = icmp ne i16 %219, 0
   %221 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %219, i1 true)
-  %222 = zext nneg i16 %221 to i64
+  %.fr.i.i14.i.i.i = freeze i16 %221
+  %222 = zext i16 %.fr.i.i14.i.i.i to i64
   tail call void @llvm.assume(i1 %220)
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.val.i.i, i64 %222
   %.pre23.i = load i8, ptr %.phi.trans.insert.i, align 1, !noalias !192
@@ -1672,23 +1673,24 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %.sroa.01.0.i.i.i = phi i64 [ 0, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17hcab02864e5ddeb7fE.exit.i.i" ], [ %.sroa.01.1.i.i.i, %208 ]
   %.sroa.0.021.i.i.i = and i64 %.pn.i.i.i, %.val4.i.i
   %180 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.0.021.i.i.i
-  %.0.copyload.i25.i.i.i = load <16 x i8>, ptr %180, align 1, !noalias !286
-  %181 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, %.15.vec.insert.i.i.i.i
+  %.0.copyload.i29.i.i.i = load <16 x i8>, ptr %180, align 1, !noalias !286
+  %181 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, %.15.vec.insert.i.i.i.i
   %182 = bitcast <16 x i1> %181 to i16
-  %.not.i.not.i12.i.i = icmp eq i16 %182, 0
-  br i1 %.not.i.not.i12.i.i, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i", label %.lr.ph.i.i
+  %.not.i.i12.i.i = icmp eq i16 %182, 0
+  br i1 %.not.i.i12.i.i, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h00d2742a7032b550E.exit._crit_edge.i.i", label %.lr.ph.i.i
 
-"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i": ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i", %179
+"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h00d2742a7032b550E.exit._crit_edge.i.i": ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h00d2742a7032b550E.exit.backedge.i.i", %179
   %.not.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i, 1
   br i1 %.not.i.i.i, label %197, label %201
 
-.lr.ph.i.i:                                       ; preds = %179, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i"
-  %.022.i13.i.i = phi i16 [ %186, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i" ], [ %182, %179 ]
-  %183 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i13.i.i, i1 true)
-  %184 = zext nneg i16 %183 to i64
-  %185 = add i16 %.022.i13.i.i, -1
-  %186 = and i16 %185, %.022.i13.i.i
-  %187 = add i64 %.sroa.0.021.i.i.i, %184
+.lr.ph.i.i:                                       ; preds = %179, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h00d2742a7032b550E.exit.backedge.i.i"
+  %.022.i13.i.i = phi i16 [ %184, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h00d2742a7032b550E.exit.backedge.i.i" ], [ %182, %179 ]
+  %183 = add i16 %.022.i13.i.i, -1
+  %184 = and i16 %183, %.022.i13.i.i
+  %185 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i13.i.i, i1 true)
+  %.fr.i.i.i.i.i = freeze i16 %185
+  %186 = zext i16 %.fr.i.i.i.i.i to i64
+  %187 = add i64 %.sroa.0.021.i.i.i, %186
   %188 = and i64 %187, %.val4.i.i
   %189 = sub nsw i64 0, %188
   %190 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { { ptr, ptr } }, {}, {} } } } }, ptr %.val.i.i, i64 %189
@@ -1698,37 +1700,36 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %191 = getelementptr inbounds i8, ptr %190, i64 -88
   %192 = load i64, ptr %191, align 8, !alias.scope !298, !noalias !299, !noundef !4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.val9.i, %192
-  br i1 %.not.i.i.i.i.i.i.i.i, label %193, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %193, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h00d2742a7032b550E.exit.backedge.i.i"
 
 193:                                              ; preds = %.lr.ph.i.i
   %194 = getelementptr inbounds i8, ptr %190, i64 -96
   %195 = load ptr, ptr %194, align 8, !alias.scope !298, !noalias !299, !nonnull !4, !noundef !4
   %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val8.i, ptr nonnull readonly %195, i64 %.val9.i), !alias.scope !305, !noalias !309
   %196 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
-  br i1 %196, label %240, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i"
+  br i1 %196, label %240, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h00d2742a7032b550E.exit.backedge.i.i"
 
-"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i": ; preds = %193, %.lr.ph.i.i
-  %.not.i.not.i.i.i = icmp eq i16 %186, 0
-  br i1 %.not.i.not.i.i.i, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i", label %.lr.ph.i.i
+"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h00d2742a7032b550E.exit.backedge.i.i": ; preds = %193, %.lr.ph.i.i
+  %.not.i.i.i.i = icmp eq i16 %184, 0
+  br i1 %.not.i.i.i.i, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h00d2742a7032b550E.exit._crit_edge.i.i", label %.lr.ph.i.i
 
-197:                                              ; preds = %201, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i"
-  %.sroa.6.1.i.i.i = phi i64 [ %.sroa.3.0.i.i.i.i, %201 ], [ %.sroa.6.0.i.i.i, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i" ]
-  %.sroa.01.1.i.i.i = phi i64 [ %.sroa.0.0.i13.i.i.i, %201 ], [ 1, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i" ]
-  %198 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+197:                                              ; preds = %201, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h00d2742a7032b550E.exit._crit_edge.i.i"
+  %.sroa.6.1.i.i.i = phi i64 [ %207, %201 ], [ %.sroa.6.0.i.i.i, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h00d2742a7032b550E.exit._crit_edge.i.i" ]
+  %.sroa.01.1.i.i.i = phi i64 [ %.sroa.0.0.i13.i.i.i, %201 ], [ 1, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h00d2742a7032b550E.exit._crit_edge.i.i" ]
+  %198 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %199 = bitcast <16 x i1> %198 to i16
   %200 = icmp eq i16 %199, 0
   br i1 %200, label %208, label %211
 
-201:                                              ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i"
-  %202 = icmp slt <16 x i8> %.0.copyload.i25.i.i.i, zeroinitializer
+201:                                              ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h00d2742a7032b550E.exit._crit_edge.i.i"
+  %202 = icmp slt <16 x i8> %.0.copyload.i29.i.i.i, zeroinitializer
   %203 = bitcast <16 x i1> %202 to i16
   %.not.i11.i.i.i = icmp ne i16 %203, 0
   %204 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %203, i1 true)
-  %205 = zext nneg i16 %204 to i64
-  %.sroa.3.0.i.i12.i.i.i = select i1 %.not.i11.i.i.i, i64 %205, i64 undef
-  %206 = add i64 %.sroa.3.0.i.i12.i.i.i, %.sroa.0.021.i.i.i
+  %.fr.i.i12.i.i.i = freeze i16 %204
+  %205 = zext i16 %.fr.i.i12.i.i.i to i64
+  %206 = add i64 %.sroa.0.021.i.i.i, %205
   %207 = and i64 %206, %.val4.i.i
-  %.sroa.3.0.i.i.i.i = select i1 %.not.i11.i.i.i, i64 %207, i64 undef
   %.sroa.0.0.i13.i.i.i = zext i1 %.not.i11.i.i.i to i64
   br label %197
 
@@ -1751,7 +1752,8 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %219 = bitcast <16 x i1> %218 to i16
   %220 = icmp ne i16 %219, 0
   %221 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %219, i1 true)
-  %222 = zext nneg i16 %221 to i64
+  %.fr.i.i14.i.i.i = freeze i16 %221
+  %222 = zext i16 %.fr.i.i14.i.i.i to i64
   tail call void @llvm.assume(i1 %220)
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.val.i.i, i64 %222
   %.pre23.i = load i8, ptr %.phi.trans.insert.i, align 1, !noalias !313

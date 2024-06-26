@@ -1464,6 +1464,7 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   %26 = getelementptr inbounds i8, ptr %24, i64 32
   %27 = getelementptr inbounds i8, ptr %19, i64 4
   %.promoted23.i = load i32, ptr %27, align 4, !alias.scope !511, !noalias !503
+  %..promoted23.i = freeze i32 %.promoted23.i
   br i1 %22, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %18
@@ -1472,7 +1473,7 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   br i1 %.not.us26.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hdcb4ce98e4bab909E.exit.thread26, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hdcb4ce98e4bab909E.exit
 
 .split.i:                                         ; preds = %18, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h6b1d88e37724cfb2E.exit.i"
-  %28 = phi i32 [ %48, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h6b1d88e37724cfb2E.exit.i" ], [ %.promoted23.i, %18 ]
+  %28 = phi i32 [ %48, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h6b1d88e37724cfb2E.exit.i" ], [ %..promoted23.i, %18 ]
   %29 = phi i32 [ %49, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h6b1d88e37724cfb2E.exit.i" ], [ %.promoted22.i, %18 ]
   %30 = phi i32 [ 1114112, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h6b1d88e37724cfb2E.exit.i" ], [ %15, %18 ]
   store i32 1114112, ptr %0, align 8, !alias.scope !508, !noalias !506
@@ -1552,16 +1553,14 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hdcb4ce98e4bab909E.exit: ; preds = %.split.us.i
   call void @llvm.experimental.noalias.scope.decl(metadata !514)
-  %51 = icmp eq i32 %.promoted22.i, 1114112
-  %spec.select = select i1 %51, i32 undef, i32 %.promoted23.i
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hdcb4ce98e4bab909E.exit.thread26
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hdcb4ce98e4bab909E.exit.thread26: ; preds = %.split.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h6b1d88e37724cfb2E.exit.i", %_ZN4core4iter6traits8iterator8Iterator8try_fold17hdcb4ce98e4bab909E.exit, %.split.us.i, %14, %17
-  %.sroa.4.0 = phi i32 [ %.fca.1.extract, %17 ], [ undef, %14 ], [ undef, %.split.us.i ], [ %spec.select, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hdcb4ce98e4bab909E.exit ], [ %28, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h6b1d88e37724cfb2E.exit.i" ], [ %28, %.split.i ]
+  %.sroa.4.0 = phi i32 [ %.fca.1.extract, %17 ], [ undef, %14 ], [ undef, %.split.us.i ], [ %..promoted23.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hdcb4ce98e4bab909E.exit ], [ %28, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h6b1d88e37724cfb2E.exit.i" ], [ %28, %.split.i ]
   %.sroa.0.0 = phi i32 [ %.fca.0.extract9, %17 ], [ 1114112, %14 ], [ 1114112, %.split.us.i ], [ %.promoted22.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hdcb4ce98e4bab909E.exit ], [ 1114112, %.split.i ], [ %.sroa.0.0.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h6b1d88e37724cfb2E.exit.i" ]
-  %52 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
-  %53 = insertvalue { i32, i32 } %52, i32 %.sroa.4.0, 1
-  ret { i32, i32 } %53
+  %51 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
+  %52 = insertvalue { i32, i32 } %51, i32 %.sroa.4.0, 1
+  ret { i32, i32 } %52
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2503,6 +2502,7 @@ define hidden { i64, i8 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterM
 19:                                               ; preds = %13
   %20 = icmp eq i8 %17, 1
   %21 = load i64, ptr %15, align 8, !alias.scope !804, !noalias !811
+  %spec.select1.i.i.i.i.i = freeze i64 %21
   br i1 %20, label %_ZN4core4iter6traits8iterator8Iterator8find_map17h6b1a7a82eefa8d64E.llvm.10393017446704266758.exit, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i.i"
 
 22:                                               ; preds = %13
@@ -2520,13 +2520,13 @@ define hidden { i64, i8 } @"_ZN115_$LT$core..iter..adapters..filter_map..FilterM
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i.i": ; preds = %26, %19
   %.sroa.4.0.i.i.i.i.i = phi i8 [ %28, %26 ], [ 5, %19 ]
-  %.sroa.0.0.i.i.i.i.i = phi i64 [ %27, %26 ], [ undef, %19 ]
+  %.sroa.0.0.i.i.i.i.i = phi i64 [ %27, %26 ], [ %spec.select1.i.i.i.i.i, %19 ]
   %29 = icmp eq i8 %.sroa.4.0.i.i.i.i.i, 5
   br i1 %29, label %10, label %_ZN4core4iter6traits8iterator8Iterator8find_map17h6b1a7a82eefa8d64E.llvm.10393017446704266758.exit
 
 _ZN4core4iter6traits8iterator8Iterator8find_map17h6b1a7a82eefa8d64E.llvm.10393017446704266758.exit: ; preds = %10, %19, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i.i", %24
   %.sroa.3.0.i.i = phi i8 [ 3, %24 ], [ 1, %19 ], [ 5, %10 ], [ %.sroa.4.0.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i.i" ]
-  %.sroa.0.0.i.i = phi i64 [ %25, %24 ], [ %21, %19 ], [ undef, %10 ], [ %.sroa.0.0.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i.i" ]
+  %.sroa.0.0.i.i = phi i64 [ %25, %24 ], [ %spec.select1.i.i.i.i.i, %19 ], [ undef, %10 ], [ %.sroa.0.0.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i.i" ]
   %30 = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.i.i, 0
   %31 = insertvalue { i64, i8 } %30, i8 %.sroa.3.0.i.i, 1
   ret { i64, i8 } %31
@@ -11595,6 +11595,7 @@ define hidden { i64, i8 } @_ZN4core4iter6traits8iterator8Iterator8find_map17h6b1
 19:                                               ; preds = %13
   %20 = icmp eq i8 %17, 1
   %21 = load i64, ptr %15, align 8, !alias.scope !3149, !noalias !3156
+  %spec.select1.i.i.i.i = freeze i64 %21
   br i1 %20, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd90bb5f05a4113e5E.llvm.10393017446704266758.exit, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i"
 
 22:                                               ; preds = %13
@@ -11612,13 +11613,13 @@ define hidden { i64, i8 } @_ZN4core4iter6traits8iterator8Iterator8find_map17h6b1
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i": ; preds = %26, %19
   %.sroa.4.0.i.i.i.i = phi i8 [ %28, %26 ], [ 5, %19 ]
-  %.sroa.0.0.i.i.i.i = phi i64 [ %27, %26 ], [ undef, %19 ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ %27, %26 ], [ %spec.select1.i.i.i.i, %19 ]
   %29 = icmp eq i8 %.sroa.4.0.i.i.i.i, 5
   br i1 %29, label %10, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd90bb5f05a4113e5E.llvm.10393017446704266758.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hd90bb5f05a4113e5E.llvm.10393017446704266758.exit: ; preds = %10, %19, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i", %24
   %.sroa.3.0.i = phi i8 [ 3, %24 ], [ %.sroa.4.0.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i" ], [ 5, %10 ], [ 1, %19 ]
-  %.sroa.0.0.i = phi i64 [ %25, %24 ], [ %.sroa.0.0.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i" ], [ undef, %10 ], [ %21, %19 ]
+  %.sroa.0.0.i = phi i64 [ %25, %24 ], [ %.sroa.0.0.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i" ], [ undef, %10 ], [ %spec.select1.i.i.i.i, %19 ]
   %30 = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.i, 0
   %31 = insertvalue { i64, i8 } %30, i8 %.sroa.3.0.i, 1
   ret { i64, i8 } %31
@@ -12217,6 +12218,7 @@ define hidden { i64, i8 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd90
 19:                                               ; preds = %13
   %20 = icmp eq i8 %17, 1
   %21 = load i64, ptr %15, align 8, !alias.scope !3407, !noalias !3414
+  %spec.select1.i.i.i = freeze i64 %21
   br i1 %20, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.thread", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit"
 
 22:                                               ; preds = %13
@@ -12234,13 +12236,13 @@ define hidden { i64, i8 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd90
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit": ; preds = %19, %26
   %.sroa.4.0.i.i.i = phi i8 [ %28, %26 ], [ 5, %19 ]
-  %.sroa.0.0.i.i.i = phi i64 [ %27, %26 ], [ undef, %19 ]
+  %.sroa.0.0.i.i.i = phi i64 [ %27, %26 ], [ %spec.select1.i.i.i, %19 ]
   %29 = icmp eq i8 %.sroa.4.0.i.i.i, 5
   br i1 %29, label %10, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.thread"
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.thread": ; preds = %19, %10, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit", %24
   %.sroa.3.0 = phi i8 [ 3, %24 ], [ 1, %19 ], [ 5, %10 ], [ %.sroa.4.0.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit" ]
-  %.sroa.0.0 = phi i64 [ %25, %24 ], [ %21, %19 ], [ undef, %10 ], [ %.sroa.0.0.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit" ]
+  %.sroa.0.0 = phi i64 [ %25, %24 ], [ %spec.select1.i.i.i, %19 ], [ undef, %10 ], [ %.sroa.0.0.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit" ]
   %30 = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
   %31 = insertvalue { i64, i8 } %30, i8 %.sroa.3.0, 1
   ret { i64, i8 } %31
@@ -27916,6 +27918,7 @@ define hidden void @"_ZN152_$LT$tree_sitter_cli..generate..rules..TokenSet$u20$a
 18:                                               ; preds = %12
   %19 = icmp eq i8 %16, 1
   %20 = load i64, ptr %14, align 8, !alias.scope !5462, !noalias !5469
+  %spec.select1.i.i.i.i.i.i = freeze i64 %20
   br i1 %19, label %.loopexit, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i.i.i"
 
 21:                                               ; preds = %12
@@ -27936,7 +27939,7 @@ define hidden void @"_ZN152_$LT$tree_sitter_cli..generate..rules..TokenSet$u20$a
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i.i.i": ; preds = %25, %18
   %.sroa.4.0.i.i.i.i.i.i = phi i8 [ %27, %25 ], [ 5, %18 ]
-  %.sroa.0.0.i.i.i.i.i.i = phi i64 [ %26, %25 ], [ undef, %18 ]
+  %.sroa.0.0.i.i.i.i.i.i = phi i64 [ %26, %25 ], [ %spec.select1.i.i.i.i.i.i, %18 ]
   %28 = icmp eq i8 %.sroa.4.0.i.i.i.i.i.i, 5
   br i1 %28, label %.backedge, label %.loopexit
 
@@ -27965,7 +27968,7 @@ define hidden void @"_ZN152_$LT$tree_sitter_cli..generate..rules..TokenSet$u20$a
 
 .loopexit:                                        ; preds = %18, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i.i.i", %23
   %.sroa.3.0.i.i.i.ph = phi i8 [ 3, %23 ], [ %.sroa.4.0.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i.i.i" ], [ 1, %18 ]
-  %.sroa.0.0.i.i.i.ph = phi i64 [ %24, %23 ], [ %.sroa.0.0.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i.i.i" ], [ %20, %18 ]
+  %.sroa.0.0.i.i.i.ph = phi i64 [ %24, %23 ], [ %.sroa.0.0.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he67d2e95240cbb9dE.exit.i.i.i" ], [ %spec.select1.i.i.i.i.i.i, %18 ]
   invoke void @_ZN15tree_sitter_cli8generate5rules8TokenSet6insert17hd5ca867a7dd68ffaE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %.sroa.0.0.i.i.i.ph, i8 noundef %.sroa.3.0.i.i.i.ph)
           to label %.backedge unwind label %.loopexit.split-lp
 

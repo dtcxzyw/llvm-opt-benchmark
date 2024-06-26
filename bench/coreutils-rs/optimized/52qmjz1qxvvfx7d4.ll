@@ -46,11 +46,12 @@ _ZN5alloc5alloc6Global10alloc_impl17h2ed9ec6b59053c3cE.exit: ; preds = %7, %9
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17he61eb963c30aedfdE"(ptr nocapture readnone align 1 %0, ptr %1, i64 %2, i64 %3, i64 %4, i64 %5) unnamed_addr #0 {
+  %spec.select.i = freeze i64 %5
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %6
-  %9 = icmp eq i64 %5, 0
+  %9 = icmp eq i64 %spec.select.i, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %8
@@ -65,7 +66,7 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
   %16 = add i64 %4, -1
   %17 = icmp sgt i64 %16, -1
   tail call void @llvm.assume(i1 %17)
-  %18 = tail call ptr @__rust_alloc(i64 %5, i64 %4) #7
+  %18 = tail call ptr @__rust_alloc(i64 %spec.select.i, i64 %4) #7
   br label %_ZN5alloc5alloc6Global9grow_impl17hb979fd2c564419c5E.exit
 
 19:                                               ; preds = %6
@@ -79,7 +80,7 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %19
-  %26 = icmp eq i64 %5, 0
+  %26 = icmp eq i64 %spec.select.i, 0
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
@@ -88,7 +89,7 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
 
 29:                                               ; preds = %25
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %31 = tail call ptr @__rust_alloc(i64 %5, i64 %4) #7
+  %31 = tail call ptr @__rust_alloc(i64 %spec.select.i, i64 %4) #7
   br label %_ZN5alloc5alloc6Global10alloc_impl17h2ed9ec6b59053c3cE.exit46.i
 
 _ZN5alloc5alloc6Global10alloc_impl17h2ed9ec6b59053c3cE.exit46.i: ; preds = %29, %27
@@ -97,11 +98,9 @@ _ZN5alloc5alloc6Global10alloc_impl17h2ed9ec6b59053c3cE.exit46.i: ; preds = %29, 
   br i1 %.not.i, label %_ZN5alloc5alloc6Global9grow_impl17hb979fd2c564419c5E.exit, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h51355e9f0f7efdd3E.exit.i"
 
 32:                                               ; preds = %19
-  %33 = icmp uge i64 %5, %3
+  %33 = icmp uge i64 %spec.select.i, %3
   tail call void @llvm.assume(i1 %33)
-  %34 = tail call ptr @__rust_realloc(ptr %1, i64 %3, i64 %2, i64 %5) #7
-  %35 = icmp eq ptr %34, null
-  %spec.select.i = select i1 %35, i64 undef, i64 %5
+  %34 = tail call ptr @__rust_realloc(ptr %1, i64 %3, i64 %2, i64 %spec.select.i) #7
   br label %_ZN5alloc5alloc6Global9grow_impl17hb979fd2c564419c5E.exit
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h51355e9f0f7efdd3E.exit.i": ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h2ed9ec6b59053c3cE.exit46.i
@@ -110,11 +109,10 @@ _ZN5alloc5alloc6Global10alloc_impl17h2ed9ec6b59053c3cE.exit46.i: ; preds = %29, 
   br label %_ZN5alloc5alloc6Global9grow_impl17hb979fd2c564419c5E.exit
 
 _ZN5alloc5alloc6Global9grow_impl17hb979fd2c564419c5E.exit: ; preds = %10, %14, %_ZN5alloc5alloc6Global10alloc_impl17h2ed9ec6b59053c3cE.exit46.i, %32, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h51355e9f0f7efdd3E.exit.i"
-  %.sroa.6.0.i = phi i64 [ %5, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h51355e9f0f7efdd3E.exit.i" ], [ undef, %_ZN5alloc5alloc6Global10alloc_impl17h2ed9ec6b59053c3cE.exit46.i ], [ %spec.select.i, %32 ], [ 0, %10 ], [ %5, %14 ]
   %.sroa.012.0.i = phi ptr [ %.sroa.05.0.i45.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h51355e9f0f7efdd3E.exit.i" ], [ null, %_ZN5alloc5alloc6Global10alloc_impl17h2ed9ec6b59053c3cE.exit46.i ], [ %34, %32 ], [ %13, %10 ], [ %18, %14 ]
-  %36 = insertvalue { ptr, i64 } poison, ptr %.sroa.012.0.i, 0
-  %37 = insertvalue { ptr, i64 } %36, i64 %.sroa.6.0.i, 1
-  ret { ptr, i64 } %37
+  %35 = insertvalue { ptr, i64 } poison, ptr %.sroa.012.0.i, 0
+  %36 = insertvalue { ptr, i64 } %35, i64 %spec.select.i, 1
+  ret { ptr, i64 } %36
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable

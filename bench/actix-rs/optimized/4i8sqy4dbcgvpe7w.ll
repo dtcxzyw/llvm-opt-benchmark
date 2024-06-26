@@ -12491,10 +12491,11 @@ default.unreachable:                              ; preds = %17
   br label %.body
 
 35:                                               ; preds = %27
-  %36 = extractvalue { i64, i32 } %30, 1
+  %.fr = freeze { i64, i32 } %30
+  %36 = extractvalue { i64, i32 } %.fr, 1
   %37 = icmp eq i32 %36, 1000000000
   %..i = select i1 %37, i8 3, i8 1
-  %38 = extractvalue { i64, i32 } %30, 0
+  %38 = extractvalue { i64, i32 } %.fr, 0
   store i8 %..i, ptr %28, align 8, !noalias !2528
   br i1 %37, label %39, label %40
 

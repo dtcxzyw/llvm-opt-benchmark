@@ -6281,31 +6281,34 @@ _ZN3std9panicking3try17h8563375ba853f38dE.exit.thread.i: ; preds = %2
   call void @_ZN3std9panicking3try8do_catch17h0020f792b6d0a0bcE.llvm.7073302902749960574(ptr nonnull %4, ptr %10)
   %11 = load ptr, ptr %4, align 8, !noalias !748, !nonnull !4, !align !87
   %12 = load ptr, ptr %7, align 8, !noalias !748, !nonnull !4, !align !44
+  %.sroa.3.0.i.i = freeze ptr %12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !748
+  %13 = icmp ne ptr %.sroa.3.0.i.i, null
+  call void @llvm.assume(i1 %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !755
   store ptr %11, ptr %3, align 8, !noalias !756
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %12, ptr %13, align 8, !noalias !756
-  %14 = invoke noundef ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw3get17ha8eda36ee789e732E()
-          to label %_ZN16wasmtime_runtime12traphandlers3tls4with17h0ac7195a30d86c97E.exit.i unwind label %16
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %.sroa.3.0.i.i, ptr %14, align 8, !noalias !756
+  %15 = invoke noundef ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw3get17ha8eda36ee789e732E()
+          to label %_ZN16wasmtime_runtime12traphandlers3tls4with17h0ac7195a30d86c97E.exit.i unwind label %17
 
-15:                                               ; preds = %16
-  resume { ptr, i32 } %17
+16:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-16:                                               ; preds = %8
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %8
+  %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr196drop_in_place$LT$wasmtime_runtime..traphandlers..catch_unwind_and_longjmp$LT$$LP$$RP$$C$wasmtime_runtime..libcalls..raw..elem_drop..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he18f279e134aa5ebE.llvm.15879439192596696759"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #24
-          to label %15 unwind label %18
+          to label %16 unwind label %19
 
-18:                                               ; preds = %16
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %17
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
 _ZN16wasmtime_runtime12traphandlers3tls4with17h0ac7195a30d86c97E.exit.i: ; preds = %8
-  call void @"_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp28_$u7b$$u7b$closure$u7d$$u7d$17he62b9be66b21c9dfE.llvm.15879439192596696759"(ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, ptr noundef align 8 %14)
+  call void @"_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp28_$u7b$$u7b$closure$u7d$$u7d$17he62b9be66b21c9dfE.llvm.15879439192596696759"(ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.3.0.i.i, ptr noundef align 8 %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !755
   br label %_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17hf9b44192154e61f8E.exit
 
@@ -6662,31 +6665,34 @@ _ZN3std9panicking3try17hcb26972087040166E.exit.thread.i: ; preds = %2
   call void @_ZN3std9panicking3try8do_catch17h8bc030c40c29729eE.llvm.7073302902749960574(ptr nonnull %4, ptr %10)
   %11 = load ptr, ptr %4, align 8, !noalias !817, !nonnull !4, !align !87
   %12 = load ptr, ptr %7, align 8, !noalias !817, !nonnull !4, !align !44
+  %.sroa.3.0.i.i = freeze ptr %12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !817
+  %13 = icmp ne ptr %.sroa.3.0.i.i, null
+  call void @llvm.assume(i1 %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !824
   store ptr %11, ptr %3, align 8, !noalias !825
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %12, ptr %13, align 8, !noalias !825
-  %14 = invoke noundef ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw3get17ha8eda36ee789e732E()
-          to label %_ZN16wasmtime_runtime12traphandlers3tls4with17h8d4b2c802650d3d9E.exit.i unwind label %16
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %.sroa.3.0.i.i, ptr %14, align 8, !noalias !825
+  %15 = invoke noundef ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw3get17ha8eda36ee789e732E()
+          to label %_ZN16wasmtime_runtime12traphandlers3tls4with17h8d4b2c802650d3d9E.exit.i unwind label %17
 
-15:                                               ; preds = %16
-  resume { ptr, i32 } %17
+16:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-16:                                               ; preds = %8
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %8
+  %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr196drop_in_place$LT$wasmtime_runtime..traphandlers..catch_unwind_and_longjmp$LT$$LP$$RP$$C$wasmtime_runtime..libcalls..raw..data_drop..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha149c49b3b6e7c5dE.llvm.15879439192596696759"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #24
-          to label %15 unwind label %18
+          to label %16 unwind label %19
 
-18:                                               ; preds = %16
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %17
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
 _ZN16wasmtime_runtime12traphandlers3tls4with17h8d4b2c802650d3d9E.exit.i: ; preds = %8
-  call void @"_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp28_$u7b$$u7b$closure$u7d$$u7d$17hb79e1e877bc18140E.llvm.15879439192596696759"(ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, ptr noundef align 8 %14)
+  call void @"_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp28_$u7b$$u7b$closure$u7d$$u7d$17hb79e1e877bc18140E.llvm.15879439192596696759"(ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.3.0.i.i, ptr noundef align 8 %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !824
   br label %_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17h173f6aeb23814aeeE.exit
 
@@ -7327,31 +7333,34 @@ _ZN3std9panicking3try17h56501593b280241fE.exit.thread.i: ; preds = %2
   call void @_ZN3std9panicking3try8do_catch17h85267a23e1b737f9E.llvm.7073302902749960574(ptr nonnull %4, ptr %10)
   %11 = load ptr, ptr %4, align 8, !noalias !936, !nonnull !4, !align !87
   %12 = load ptr, ptr %7, align 8, !noalias !936, !nonnull !4, !align !44
+  %.sroa.3.0.i.i = freeze ptr %12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !936
+  %13 = icmp ne ptr %.sroa.3.0.i.i, null
+  call void @llvm.assume(i1 %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !943
   store ptr %11, ptr %3, align 8, !noalias !944
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %12, ptr %13, align 8, !noalias !944
-  %14 = invoke noundef ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw3get17ha8eda36ee789e732E()
-          to label %_ZN16wasmtime_runtime12traphandlers3tls4with17heb7759a64765e57eE.exit.i unwind label %16
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %.sroa.3.0.i.i, ptr %14, align 8, !noalias !944
+  %15 = invoke noundef ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw3get17ha8eda36ee789e732E()
+          to label %_ZN16wasmtime_runtime12traphandlers3tls4with17heb7759a64765e57eE.exit.i unwind label %17
 
-15:                                               ; preds = %16
-  resume { ptr, i32 } %17
+16:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-16:                                               ; preds = %8
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %8
+  %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr198drop_in_place$LT$wasmtime_runtime..traphandlers..catch_unwind_and_longjmp$LT$$LP$$RP$$C$wasmtime_runtime..libcalls..raw..drop_gc_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcf5f5d43c784a66bE.llvm.15879439192596696759"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #24
-          to label %15 unwind label %18
+          to label %16 unwind label %19
 
-18:                                               ; preds = %16
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %17
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
 _ZN16wasmtime_runtime12traphandlers3tls4with17heb7759a64765e57eE.exit.i: ; preds = %8
-  call void @"_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp28_$u7b$$u7b$closure$u7d$$u7d$17h5a7c78fd2326946dE.llvm.15879439192596696759"(ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, ptr noundef align 8 %14)
+  call void @"_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp28_$u7b$$u7b$closure$u7d$$u7d$17h5a7c78fd2326946dE.llvm.15879439192596696759"(ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.3.0.i.i, ptr noundef align 8 %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !943
   br label %_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17h3fd783c632c2a911E.exit
 
@@ -7447,31 +7456,34 @@ _ZN3std9panicking3try17h74c377b3c92fb5fcE.exit.thread.i: ; preds = %3
   call void @_ZN3std9panicking3try8do_catch17he1d8de35b44d71a1E.llvm.7073302902749960574(ptr nonnull %5, ptr %11)
   %12 = load ptr, ptr %5, align 8, !noalias !961, !nonnull !4, !align !87
   %13 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !961, !nonnull !4, !align !44
+  %.sroa.3.0.i.i = freeze ptr %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !961
+  %14 = icmp ne ptr %.sroa.3.0.i.i, null
+  call void @llvm.assume(i1 %14)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !966
   store ptr %12, ptr %4, align 8, !noalias !967
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %13, ptr %14, align 8, !noalias !967
-  %15 = invoke noundef ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw3get17ha8eda36ee789e732E()
-          to label %_ZN16wasmtime_runtime12traphandlers3tls4with17hfa284e509c6186beE.exit.i unwind label %17, !noalias !966
+  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.sroa.3.0.i.i, ptr %15, align 8, !noalias !967
+  %16 = invoke noundef ptr @_ZN16wasmtime_runtime12traphandlers3tls3raw3get17ha8eda36ee789e732E()
+          to label %_ZN16wasmtime_runtime12traphandlers3tls4with17hfa284e509c6186beE.exit.i unwind label %18, !noalias !966
 
-16:                                               ; preds = %17
-  resume { ptr, i32 } %18
+17:                                               ; preds = %18
+  resume { ptr, i32 } %19
 
-17:                                               ; preds = %9
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %9
+  %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr204drop_in_place$LT$wasmtime_runtime..traphandlers..catch_unwind_and_longjmp$LT$$LP$$RP$$C$wasmtime_runtime..libcalls..raw..gc_ref_global_set..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2d84883e63dc97abE.llvm.15879439192596696759"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #24
-          to label %16 unwind label %19, !noalias !966
+          to label %17 unwind label %20, !noalias !966
 
-19:                                               ; preds = %17
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %18
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23, !noalias !966
   unreachable
 
 _ZN16wasmtime_runtime12traphandlers3tls4with17hfa284e509c6186beE.exit.i: ; preds = %9
-  call void @"_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp28_$u7b$$u7b$closure$u7d$$u7d$17h7fcdeef1490a5bceE.llvm.15879439192596696759"(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noundef align 8 %15), !noalias !966
+  call void @"_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp28_$u7b$$u7b$closure$u7d$$u7d$17h7fcdeef1490a5bceE.llvm.15879439192596696759"(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.3.0.i.i, ptr noundef align 8 %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !966
   br label %_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17hcb62c12fe7e02c02E.exit
 

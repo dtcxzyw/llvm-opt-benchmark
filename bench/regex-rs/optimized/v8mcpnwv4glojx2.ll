@@ -1892,33 +1892,33 @@ define void @_ZN12regex_syntax5error5Spans6notate17h6d47d4101bfb07e7E(ptr noalia
 
 .lr.ph.split.split.i.i.i.i.i.i:                   ; preds = %47, %70
   %52 = phi i64 [ %67, %70 ], [ %48, %47 ]
-  %.sroa.7.157.i.i.i.i.i.i = sub nuw i64 %21, %52
-  %.sroa.0.058.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %52
-  %53 = icmp ult i64 %.sroa.7.157.i.i.i.i.i.i, 16
+  %.sroa.7.153.i.i.i.i.i.i = sub i64 %21, %52
+  %.sroa.0.054.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %52
+  %53 = icmp ult i64 %.sroa.7.153.i.i.i.i.i.i, 16
   br i1 %53, label %56, label %54
 
 54:                                               ; preds = %.lr.ph.split.split.i.i.i.i.i.i
-  %55 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h3504444bb25b5daaE(i8 noundef 10, ptr noalias noundef nonnull readonly align 1 %.sroa.0.058.i.i.i.i.i.i, i64 noundef %.sroa.7.157.i.i.i.i.i.i)
+  %55 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h3504444bb25b5daaE(i8 noundef 10, ptr noalias noundef nonnull readonly align 1 %.sroa.0.054.i.i.i.i.i.i, i64 noundef %.sroa.7.153.i.i.i.i.i.i)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
 
 56:                                               ; preds = %.lr.ph.split.split.i.i.i.i.i.i
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %.sroa.7.157.i.i.i.i.i.i, 0
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %21, %52
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %56, %60
   %.05.i.i.i.i.i.i.i = phi i64 [ %61, %60 ], [ 0, %56 ]
-  %57 = getelementptr inbounds [0 x i8], ptr %.sroa.0.058.i.i.i.i.i.i, i64 0, i64 %.05.i.i.i.i.i.i.i
+  %57 = getelementptr inbounds [0 x i8], ptr %.sroa.0.054.i.i.i.i.i.i, i64 0, i64 %.05.i.i.i.i.i.i.i
   %58 = load i8, ptr %57, align 1, !alias.scope !241, !noalias !244, !noundef !4
   %59 = icmp eq i8 %58, 10
   br i1 %59, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i.i.i.i, label %60
 
 60:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %61 = add nuw nsw i64 %.05.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %61, %.sroa.7.157.i.i.i.i.i.i
+  %61 = add nuw i64 %.05.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %61, %.sroa.7.153.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i.i.i.i: ; preds = %60, %.lr.ph.i.i.i.i.i.i.i, %56
-  %.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 0, %56 ], [ %.sroa.7.157.i.i.i.i.i.i, %60 ], [ %.05.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 0, %56 ], [ %.sroa.7.153.i.i.i.i.i.i, %60 ], [ %.05.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %.sroa.0.0.i32.i.i.i.i.i.i = phi i64 [ 0, %56 ], [ 0, %60 ], [ 1, %.lr.ph.i.i.i.i.i.i.i ]
   %62 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i32.i.i.i.i.i.i, 0
   %63 = insertvalue { i64, i64 } %62, i64 %.0.lcssa.i.i.i.i.i.i.i, 1
@@ -3978,9 +3978,8 @@ define noundef zeroext i1 @_ZN12regex_syntax17is_word_character17h6e5cf7cc6f41bd
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %0, ptr %2, align 4
   %3 = icmp ugt i32 %0, 255
-  %4 = trunc nuw i32 %0 to i8
-  %.sroa.5.0.i.i.i = select i1 %3, i8 undef, i8 %4
-  %5 = tail call noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903"(i1 noundef zeroext %3, i8 %.sroa.5.0.i.i.i, i1 noundef zeroext false)
+  %4 = trunc i32 %0 to i8
+  %5 = tail call noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903"(i1 noundef zeroext %3, i8 %4, i1 noundef zeroext false)
   br i1 %5, label %_ZN12regex_syntax21try_is_word_character17he6593f9dbf0a5fb1E.exit, label %6
 
 6:                                                ; preds = %1
@@ -4001,9 +4000,8 @@ define noundef range(i8 0, 3) i8 @_ZN12regex_syntax21try_is_word_character17he65
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %0, ptr %2, align 4
   %3 = icmp ugt i32 %0, 255
-  %4 = trunc nuw i32 %0 to i8
-  %.sroa.5.0.i.i = select i1 %3, i8 undef, i8 %4
-  %5 = tail call noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903"(i1 noundef zeroext %3, i8 %.sroa.5.0.i.i, i1 noundef zeroext false)
+  %4 = trunc i32 %0 to i8
+  %5 = tail call noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903"(i1 noundef zeroext %3, i8 %4, i1 noundef zeroext false)
   br i1 %5, label %_ZN12regex_syntax7unicode17is_word_character17hf1b8e93ffe17fc03E.exit, label %6
 
 6:                                                ; preds = %1

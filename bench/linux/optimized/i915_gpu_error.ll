@@ -3136,13 +3136,13 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %49 = load ptr, ptr %13, align 8
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %.thread66, label %52
+  br i1 %51, label %.thread67, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds i8, ptr %50, i64 24
   %54 = load i32, ptr %53, align 8, !noalias !59
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.thread66, label %56
+  br i1 %55, label %.thread67, label %56
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds i8, ptr %50, i64 8
@@ -3188,7 +3188,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   tail call void %86(ptr noundef %7, i64 noundef %9, i64 noundef 4096) #15
   tail call void @mutex_unlock(ptr noundef %64) #15
   %87 = icmp eq i32 %85, 0
-  br i1 %87, label %88, label %.thread66
+  br i1 %87, label %88, label %.thread67
 
 88:                                               ; preds = %79
   %89 = add i32 %73, 4096
@@ -3199,7 +3199,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %92 = load i64, ptr %71, align 8
   %93 = and i64 %92, 2
   %94 = icmp eq i64 %93, 0
-  br i1 %94, label %95, label %.thread68
+  br i1 %94, label %95, label %.thread69
 
 95:                                               ; preds = %91
   %96 = getelementptr i8, ptr %71, i64 32
@@ -3216,13 +3216,13 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
 103:                                              ; preds = %100, %95
   %104 = phi ptr [ %102, %100 ], [ %96, %95 ]
   %105 = icmp eq ptr %104, null
-  br i1 %105, label %.thread68, label %106
+  br i1 %105, label %.thread69, label %106
 
 106:                                              ; preds = %103
   %107 = getelementptr inbounds i8, ptr %104, i64 24
   %108 = load i32, ptr %107, align 8, !noalias !64
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %.thread68, label %110
+  br i1 %109, label %.thread69, label %110
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds i8, ptr %104, i64 8
@@ -3254,13 +3254,13 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %131 = load ptr, ptr %13, align 8
   %132 = load ptr, ptr %131, align 8
   %133 = icmp eq ptr %132, null
-  br i1 %133, label %.thread66, label %134
+  br i1 %133, label %.thread67, label %134
 
 134:                                              ; preds = %128
   %135 = getelementptr inbounds i8, ptr %132, i64 24
   %136 = load i32, ptr %135, align 8, !noalias !68
   %137 = icmp eq i32 %136, 0
-  br i1 %137, label %.thread66, label %138
+  br i1 %137, label %.thread67, label %138
 
 138:                                              ; preds = %134
   %139 = getelementptr inbounds i8, ptr %132, i64 8
@@ -3277,7 +3277,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %150 = add i64 %149, 4096
   %151 = load i64, ptr %144, align 8
   %152 = icmp ugt i64 %150, %151
-  br i1 %152, label %.thread66, label %.lr.ph.preheader
+  br i1 %152, label %.thread67, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %138
   %153 = add i32 %140, %136
@@ -3293,7 +3293,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %160 = getelementptr i8, ptr %159, i64 %154
   %161 = tail call fastcc i32 @compress_page(ptr noundef nonnull %2, ptr noundef %160, ptr noundef nonnull %20, i1 noundef zeroext true)
   %162 = icmp eq i32 %161, 0
-  br i1 %162, label %163, label %.thread66
+  br i1 %162, label %163, label %.thread67
 
 163:                                              ; preds = %.lr.ph
   %164 = add i32 %156, 4096
@@ -3304,7 +3304,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %167 = load i64, ptr %158, align 8
   %168 = and i64 %167, 2
   %169 = icmp eq i64 %168, 0
-  br i1 %169, label %170, label %.thread68
+  br i1 %169, label %170, label %.thread69
 
 170:                                              ; preds = %166
   %171 = getelementptr i8, ptr %158, i64 32
@@ -3321,13 +3321,13 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
 178:                                              ; preds = %175, %170
   %179 = phi ptr [ %177, %175 ], [ %171, %170 ]
   %180 = icmp eq ptr %179, null
-  br i1 %180, label %.thread68, label %181
+  br i1 %180, label %.thread69, label %181
 
 181:                                              ; preds = %178
   %182 = getelementptr inbounds i8, ptr %179, i64 24
   %183 = load i32, ptr %182, align 8, !noalias !71
   %184 = icmp eq i32 %183, 0
-  br i1 %184, label %.thread68, label %185
+  br i1 %184, label %.thread69, label %185
 
 185:                                              ; preds = %181
   %186 = getelementptr inbounds i8, ptr %179, i64 8
@@ -3349,14 +3349,14 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %200 = add i64 %199, 4096
   %201 = load i64, ptr %144, align 8
   %202 = icmp ugt i64 %200, %201
-  br i1 %202, label %.thread66, label %.lr.ph, !llvm.loop !74
+  br i1 %202, label %.thread67, label %.lr.ph, !llvm.loop !74
 
 203:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   %204 = load ptr, ptr %13, align 8
   %205 = load ptr, ptr %204, align 8
   %206 = icmp eq ptr %205, null
-  br i1 %206, label %.thread70, label %207
+  br i1 %206, label %.thread71, label %207
 
 207:                                              ; preds = %203
   %208 = load i64, ptr %205, align 8, !noalias !75
@@ -3364,7 +3364,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %210 = load i64, ptr @vmemmap_base, align 8
   %211 = icmp eq i64 %209, %210
   %cond.fr = freeze i1 %211
-  br i1 %cond.fr, label %.thread70, label %212
+  br i1 %cond.fr, label %.thread71, label %212
 
 212:                                              ; preds = %207
   %213 = inttoptr i64 %210 to ptr
@@ -3379,7 +3379,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %222 = load i32, ptr %221, align 4, !noalias !75
   store ptr %220, ptr %5, align 8
   %223 = icmp eq ptr %220, null
-  br i1 %223, label %.thread70, label %.preheader.preheader
+  br i1 %223, label %.thread71, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %212
   %224 = add i32 %222, %217
@@ -3403,7 +3403,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %238 = call fastcc i32 @compress_page(ptr noundef nonnull %2, ptr noundef %237, ptr noundef nonnull %20, i1 noundef zeroext false)
   call void @drm_clflush_pages(ptr noundef nonnull %5, i64 noundef 1) #15
   %239 = icmp eq i32 %238, 0
-  br i1 %239, label %240, label %.thread70
+  br i1 %239, label %240, label %.thread71
 
 240:                                              ; preds = %.preheader
   %241 = add i32 %228, 4096
@@ -3414,7 +3414,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %244 = load i64, ptr %226, align 8
   %245 = and i64 %244, 2
   %246 = icmp eq i64 %245, 0
-  br i1 %246, label %247, label %.loopexit78
+  br i1 %246, label %247, label %.loopexit79
 
 247:                                              ; preds = %243
   %248 = getelementptr i8, ptr %226, i64 32
@@ -3431,7 +3431,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
 255:                                              ; preds = %252, %247
   %256 = phi ptr [ %254, %252 ], [ %248, %247 ]
   %257 = icmp eq ptr %256, null
-  br i1 %257, label %.loopexit78, label %258
+  br i1 %257, label %.loopexit79, label %258
 
 258:                                              ; preds = %255
   %259 = getelementptr inbounds i8, ptr %256, i64 8
@@ -3453,7 +3453,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %273 = phi ptr [ %226, %240 ], [ %256, %258 ]
   %.fr = freeze i64 %272
   %274 = icmp eq i64 %.fr, 0
-  br i1 %274, label %.loopexit78, label %275
+  br i1 %274, label %.loopexit79, label %275
 
 275:                                              ; preds = %269
   %276 = load i64, ptr @vmemmap_base, align 8
@@ -3464,25 +3464,25 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %281 = getelementptr %struct.page, ptr %278, i64 %280
   store ptr %281, ptr %5, align 8
   %282 = icmp eq ptr %281, null
-  br i1 %282, label %.loopexit78, label %.preheader, !llvm.loop !81
+  br i1 %282, label %.loopexit79, label %.preheader, !llvm.loop !81
 
-.thread70:                                        ; preds = %.preheader, %207, %203, %212
+.thread71:                                        ; preds = %.preheader, %207, %203, %212
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  br label %.thread66
+  br label %.thread67
 
-.loopexit78:                                      ; preds = %275, %269, %243, %255
+.loopexit79:                                      ; preds = %275, %269, %243, %255
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  br label %.thread68
+  br label %.thread69
 
-.thread68:                                        ; preds = %91, %103, %106, %166, %178, %181, %.loopexit78
+.thread69:                                        ; preds = %91, %103, %106, %166, %178, %181, %.loopexit79
   %283 = getelementptr inbounds i8, ptr %2, i64 8
   %284 = getelementptr inbounds i8, ptr %2, i64 152
   %285 = getelementptr inbounds i8, ptr %2, i64 160
   br label %286
 
-286:                                              ; preds = %324, %.thread68
+286:                                              ; preds = %324, %.thread69
   %287 = call i32 @zlib_deflate(ptr noundef %23, i32 noundef 5) #15
-  switch i32 %287, label %.thread66 [
+  switch i32 %287, label %.thread67 [
     i32 0, label %288
     i32 1, label %325
   ]
@@ -3490,12 +3490,12 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
 288:                                              ; preds = %286
   %289 = call ptr @folio_alloc(i32 noundef 26624, i32 noundef 0) #15
   %290 = icmp eq ptr %289, null
-  br i1 %290, label %291, label %.thread72
+  br i1 %290, label %291, label %.thread73
 
 291:                                              ; preds = %288
   %292 = load i8, ptr %2, align 8
   %293 = icmp eq i8 %292, 0
-  br i1 %293, label %.loopexit77.thread, label %294
+  br i1 %293, label %.loopexit78.thread, label %294
 
 294:                                              ; preds = %291
   %295 = add i8 %292, -1
@@ -3504,9 +3504,9 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %297 = getelementptr [15 x ptr], ptr %283, i64 0, i64 %296
   %298 = load ptr, ptr %297, align 8
   %299 = icmp eq ptr %298, null
-  br i1 %299, label %.loopexit77.thread, label %.thread72
+  br i1 %299, label %.loopexit78.thread, label %.thread73
 
-.thread72:                                        ; preds = %288, %294
+.thread73:                                        ; preds = %288, %294
   %300 = phi ptr [ %298, %294 ], [ %289, %288 ]
   %301 = load i64, ptr @vmemmap_base, align 8
   %302 = ptrtoint ptr %300 to i64
@@ -3515,13 +3515,13 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %305 = load i64, ptr @page_offset_base, align 8
   %306 = add i64 %304, %305
   %307 = icmp eq i64 %306, 0
-  br i1 %307, label %.loopexit77.thread, label %308
+  br i1 %307, label %.loopexit78.thread, label %308
 
-.loopexit77.thread:                               ; preds = %291, %294, %.thread72
+.loopexit78.thread:                               ; preds = %291, %294, %.thread73
   store ptr inttoptr (i64 -12 to ptr), ptr %284, align 8
-  br label %.thread66
+  br label %.thread67
 
-308:                                              ; preds = %.thread72
+308:                                              ; preds = %.thread73
   %309 = inttoptr i64 %306 to ptr
   %310 = inttoptr i64 %301 to ptr
   %311 = add i64 %306, 2147483648
@@ -3540,12 +3540,12 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   store volatile ptr %318, ptr %319, align 8
   store ptr %309, ptr %284, align 8
   %321 = icmp ugt ptr %309, inttoptr (i64 -4096 to ptr)
-  br i1 %321, label %.loopexit77, label %324
+  br i1 %321, label %.loopexit78, label %324
 
-.loopexit77:                                      ; preds = %308
+.loopexit78:                                      ; preds = %308
   %322 = and i64 %306, 4294967295
   %323 = icmp eq i64 %322, 0
-  br i1 %323, label %397, label %.thread66
+  br i1 %323, label %397, label %.thread67
 
 324:                                              ; preds = %308
   store i64 4096, ptr %285, align 8
@@ -3560,12 +3560,12 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   store i32 %329, ptr %43, align 4
   br label %397
 
-.thread66:                                        ; preds = %79, %.lr.ph, %191, %286, %.loopexit77.thread, %138, %128, %134, %48, %52, %.thread70, %.loopexit77
+.thread67:                                        ; preds = %79, %.lr.ph, %191, %286, %.loopexit78.thread, %138, %128, %134, %48, %52, %.thread71, %.loopexit78
   %330 = load ptr, ptr %31, align 8
   %331 = icmp eq ptr %330, %30
   br i1 %331, label %.loopexit, label %332
 
-332:                                              ; preds = %.thread66
+332:                                              ; preds = %.thread67
   %333 = getelementptr inbounds i8, ptr %2, i64 8
   br label %334
 
@@ -3626,9 +3626,10 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
 373:                                              ; preds = %369
   %374 = getelementptr i8, ptr %356, i64 72
   %375 = load volatile i64, ptr %374, align 8
-  %376 = and i64 %375, 1
+  %.fr40 = freeze i64 %375
+  %376 = and i64 %.fr40, 1
   %377 = icmp eq i64 %376, 0
-  %378 = add nsw i64 %375, -1
+  %378 = add i64 %.fr40, -1
   %379 = inttoptr i64 %378 to ptr
   br i1 %377, label %380, label %381
 
@@ -3665,12 +3666,12 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   %396 = icmp eq ptr %338, %30
   br i1 %396, label %.loopexit, label %334, !llvm.loop !85
 
-.loopexit:                                        ; preds = %395, %.thread66
+.loopexit:                                        ; preds = %395, %.thread67
   call void @kfree(ptr noundef nonnull %20) #15
   br label %397
 
-397:                                              ; preds = %.loopexit, %325, %.loopexit77
-  %398 = phi ptr [ null, %.loopexit ], [ %20, %.loopexit77 ], [ %20, %325 ]
+397:                                              ; preds = %.loopexit, %325, %.loopexit78
+  %398 = phi ptr [ null, %.loopexit ], [ %20, %.loopexit78 ], [ %20, %325 ]
   %399 = call i32 @zlib_deflateEnd(ptr noundef %23) #15
   br label %400
 
@@ -4529,9 +4530,10 @@ define dso_local void @i915_vma_capture_finish(ptr nocapture readnone %0, ptr no
 39:                                               ; preds = %35
   %40 = getelementptr i8, ptr %22, i64 72
   %41 = load volatile i64, ptr %40, align 8
-  %42 = and i64 %41, 1
+  %.fr3 = freeze i64 %41
+  %42 = and i64 %.fr3, 1
   %43 = icmp eq i64 %42, 0
-  %44 = add nsw i64 %41, -1
+  %44 = add i64 %.fr3, -1
   %45 = inttoptr i64 %44 to ptr
   br i1 %43, label %46, label %47
 

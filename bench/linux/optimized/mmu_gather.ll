@@ -32,7 +32,7 @@ define dso_local void @tlb_flush_rmaps(ptr noundef %0, ptr noundef %1) local_unn
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.loopexit3, label %12
+  br i1 %11, label %.loopexit5, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %0, i64 64
@@ -80,9 +80,10 @@ define dso_local void @tlb_flush_rmaps(ptr noundef %0, ptr noundef %1) local_unn
 40:                                               ; preds = %36
   %41 = getelementptr i8, ptr %25, i64 72
   %42 = load volatile i64, ptr %41, align 8
-  %43 = and i64 %42, 1
+  %.fr3 = freeze i64 %42
+  %43 = and i64 %.fr3, 1
   %44 = icmp eq i64 %43, 0
-  %45 = add nsw i64 %42, -1
+  %45 = add i64 %.fr3, -1
   br i1 %44, label %46, label %47
 
 46:                                               ; preds = %40, %36, %33
@@ -99,15 +100,15 @@ define dso_local void @tlb_flush_rmaps(ptr noundef %0, ptr noundef %1) local_unn
   %51 = phi i32 [ %.pre, %47 ], [ %15, %14 ]
   %52 = add nuw i32 %16, 1
   %53 = icmp ult i32 %52, %51
-  br i1 %53, label %14, label %.loopexit3, !llvm.loop !7
+  br i1 %53, label %14, label %.loopexit5, !llvm.loop !7
 
-.loopexit3:                                       ; preds = %50, %7
+.loopexit5:                                       ; preds = %50, %7
   %54 = getelementptr inbounds i8, ptr %0, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, %8
   br i1 %56, label %.loopexit, label %57
 
-57:                                               ; preds = %.loopexit3
+57:                                               ; preds = %.loopexit5
   %58 = getelementptr inbounds i8, ptr %55, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %59, 0
@@ -159,9 +160,10 @@ define dso_local void @tlb_flush_rmaps(ptr noundef %0, ptr noundef %1) local_unn
 89:                                               ; preds = %85
   %90 = getelementptr i8, ptr %74, i64 72
   %91 = load volatile i64, ptr %90, align 8
-  %92 = and i64 %91, 1
+  %.fr4 = freeze i64 %91
+  %92 = and i64 %.fr4, 1
   %93 = icmp eq i64 %92, 0
-  %94 = add nsw i64 %91, -1
+  %94 = add i64 %.fr4, -1
   br i1 %93, label %95, label %96
 
 95:                                               ; preds = %89, %85, %82
@@ -171,16 +173,16 @@ define dso_local void @tlb_flush_rmaps(ptr noundef %0, ptr noundef %1) local_unn
   %97 = phi i64 [ %80, %79 ], [ %94, %89 ], [ %73, %95 ], [ %73, %81 ]
   %98 = inttoptr i64 %97 to ptr
   tail call void @folio_remove_rmap_ptes(ptr noundef %98, ptr noundef %74, i32 noundef 1, ptr noundef %1) #5
-  %.pre4 = load i32, ptr %58, align 8
+  %.pre6 = load i32, ptr %58, align 8
   br label %99
 
 99:                                               ; preds = %96, %63
-  %100 = phi i32 [ %.pre4, %96 ], [ %64, %63 ]
+  %100 = phi i32 [ %.pre6, %96 ], [ %64, %63 ]
   %101 = add nuw i32 %65, 1
   %102 = icmp ult i32 %101, %100
   br i1 %102, label %63, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %99, %57, %.loopexit3
+.loopexit:                                        ; preds = %99, %57, %.loopexit5
   %103 = load i16, ptr %3, align 8
   %104 = and i16 %103, -9
   store i16 %104, ptr %3, align 8

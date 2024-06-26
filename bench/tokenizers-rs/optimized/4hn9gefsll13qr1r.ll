@@ -753,13 +753,13 @@ define hidden void @"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u
   %7 = load i64, ptr %1, align 8, !range !255, !noundef !14
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
+  %spec.select12.i = freeze i64 %3
   %switch.i = icmp eq i64 %7, 0
   br i1 %switch.i, label %10, label %11
 
 10:                                               ; preds = %4
   %switch8.i = icmp ne i64 %2, 0
   %spec.select.i = zext i1 %switch8.i to i64
-  %spec.select12.i = select i1 %switch8.i, i64 %3, i64 undef
   br label %"_ZN5rayon4iter16ParallelIterator11reduce_with10opt_reduce28_$u7b$$u7b$closure$u7d$$u7d$17ha414691bec296b44E.llvm.14172520758739148588.exit"
 
 11:                                               ; preds = %4
@@ -767,7 +767,7 @@ define hidden void @"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u
   br i1 %switch10.i, label %"_ZN5rayon4iter16ParallelIterator11reduce_with10opt_reduce28_$u7b$$u7b$closure$u7d$$u7d$17ha414691bec296b44E.llvm.14172520758739148588.exit", label %12
 
 12:                                               ; preds = %11
-  %13 = tail call noundef i64 @_ZN4core3cmp6max_by17h791dab76a2f35e5dE.llvm.838311727041459786(i64 noundef %9, i64 noundef %3)
+  %13 = tail call noundef i64 @_ZN4core3cmp6max_by17h791dab76a2f35e5dE.llvm.838311727041459786(i64 noundef %9, i64 noundef %spec.select12.i)
   br label %"_ZN5rayon4iter16ParallelIterator11reduce_with10opt_reduce28_$u7b$$u7b$closure$u7d$$u7d$17ha414691bec296b44E.llvm.14172520758739148588.exit"
 
 "_ZN5rayon4iter16ParallelIterator11reduce_with10opt_reduce28_$u7b$$u7b$closure$u7d$$u7d$17ha414691bec296b44E.llvm.14172520758739148588.exit": ; preds = %10, %11, %12
@@ -895,27 +895,24 @@ define hidden { i64, i64 } @"_ZN106_$LT$rayon..iter..fold..FoldFolder$LT$C$C$ID$
   %5 = load i64, ptr %4, align 8
   %6 = icmp ne ptr %.sroa.5.0.copyload, null
   tail call void @llvm.assume(i1 %6)
+  %spec.select12.i.i = freeze i64 %5
   %switch.i.i = icmp eq i64 %.sroa.01.0.copyload, 0
-  %switch8.i.i.not = icmp eq i64 %3, 0
-  br i1 %switch.i.i, label %7, label %8
+  br i1 %switch.i.i, label %"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit", label %7
 
 7:                                                ; preds = %1
-  %spec.select12.i.i = select i1 %switch8.i.i.not, i64 undef, i64 %5
+  %switch10.i.i = icmp eq i64 %3, 0
+  br i1 %switch10.i.i, label %"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit", label %8
+
+8:                                                ; preds = %7
+  %9 = tail call noundef i64 @_ZN4core3cmp6max_by17h791dab76a2f35e5dE.llvm.838311727041459786(i64 noundef %.sroa.42.0.copyload, i64 noundef %spec.select12.i.i), !noalias !279
   br label %"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit"
 
-8:                                                ; preds = %1
-  br i1 %switch8.i.i.not, label %"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit", label %9
-
-9:                                                ; preds = %8
-  %10 = tail call noundef i64 @_ZN4core3cmp6max_by17h791dab76a2f35e5dE.llvm.838311727041459786(i64 noundef %.sroa.42.0.copyload, i64 noundef %5), !noalias !279
-  br label %"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit"
-
-"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit": ; preds = %7, %8, %9
-  %.sroa.05.0.i.i = phi i64 [ 1, %9 ], [ 1, %8 ], [ %3, %7 ]
-  %.sroa.4.0.i.i = phi i64 [ %10, %9 ], [ %.sroa.42.0.copyload, %8 ], [ %spec.select12.i.i, %7 ]
-  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.05.0.i.i, 0
-  %12 = insertvalue { i64, i64 } %11, i64 %.sroa.4.0.i.i, 1
-  ret { i64, i64 } %12
+"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit": ; preds = %1, %7, %8
+  %.sroa.05.0.i.i = phi i64 [ 1, %8 ], [ 1, %7 ], [ %3, %1 ]
+  %.sroa.4.0.i.i = phi i64 [ %9, %8 ], [ %.sroa.42.0.copyload, %7 ], [ %spec.select12.i.i, %1 ]
+  %10 = insertvalue { i64, i64 } poison, i64 %.sroa.05.0.i.i, 0
+  %11 = insertvalue { i64, i64 } %10, i64 %.sroa.4.0.i.i, 1
+  ret { i64, i64 } %11
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1030,13 +1027,13 @@ define hidden void @"_ZN109_$LT$rayon..iter..reduce..ReduceConsumer$LT$R$C$ID$GT
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN109_$LT$rayon..iter..reduce..ReduceConsumer$LT$R$C$ID$GT$$u20$as$u20$rayon..iter..plumbing..Reducer$LT$T$GT$$GT$6reduce17h461c1fff6e246bc7E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, i64 %3, i64 noundef %4, i64 %5) unnamed_addr #3 {
+  %spec.select12.i = freeze i64 %5
   %switch.i = icmp eq i64 %2, 0
   br i1 %switch.i, label %7, label %8
 
 7:                                                ; preds = %6
   %switch8.i = icmp ne i64 %4, 0
   %spec.select.i = zext i1 %switch8.i to i64
-  %spec.select12.i = select i1 %switch8.i, i64 %5, i64 undef
   br label %"_ZN5rayon4iter16ParallelIterator11reduce_with10opt_reduce28_$u7b$$u7b$closure$u7d$$u7d$17ha414691bec296b44E.llvm.14172520758739148588.exit"
 
 8:                                                ; preds = %6
@@ -1044,7 +1041,7 @@ define hidden { i64, i64 } @"_ZN109_$LT$rayon..iter..reduce..ReduceConsumer$LT$R
   br i1 %switch10.i, label %"_ZN5rayon4iter16ParallelIterator11reduce_with10opt_reduce28_$u7b$$u7b$closure$u7d$$u7d$17ha414691bec296b44E.llvm.14172520758739148588.exit", label %9
 
 9:                                                ; preds = %8
-  %10 = tail call noundef i64 @_ZN4core3cmp6max_by17h791dab76a2f35e5dE.llvm.838311727041459786(i64 noundef %3, i64 noundef %5)
+  %10 = tail call noundef i64 @_ZN4core3cmp6max_by17h791dab76a2f35e5dE.llvm.838311727041459786(i64 noundef %3, i64 noundef %spec.select12.i)
   br label %"_ZN5rayon4iter16ParallelIterator11reduce_with10opt_reduce28_$u7b$$u7b$closure$u7d$$u7d$17ha414691bec296b44E.llvm.14172520758739148588.exit"
 
 "_ZN5rayon4iter16ParallelIterator11reduce_with10opt_reduce28_$u7b$$u7b$closure$u7d$$u7d$17ha414691bec296b44E.llvm.14172520758739148588.exit": ; preds = %7, %8, %9
@@ -5824,13 +5821,13 @@ define hidden { i64, ptr } @_ZN5alloc7raw_vec14handle_reserve17h2d131f4fccf45d0b
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN5rayon4iter16ParallelIterator11reduce_with10opt_reduce28_$u7b$$u7b$closure$u7d$$u7d$17ha414691bec296b44E.llvm.14172520758739148588"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, i64 noundef %1, i64 %2, i64 noundef %3, i64 %4) unnamed_addr #0 {
+  %spec.select12 = freeze i64 %4
   %switch = icmp eq i64 %1, 0
   br i1 %switch, label %6, label %7
 
 6:                                                ; preds = %5
   %switch8 = icmp ne i64 %3, 0
   %spec.select = zext i1 %switch8 to i64
-  %spec.select12 = select i1 %switch8, i64 %4, i64 undef
   br label %8
 
 7:                                                ; preds = %5
@@ -5845,7 +5842,7 @@ define hidden { i64, i64 } @"_ZN5rayon4iter16ParallelIterator11reduce_with10opt_
   ret { i64, i64 } %10
 
 11:                                               ; preds = %7
-  %12 = tail call noundef i64 @_ZN4core3cmp6max_by17h791dab76a2f35e5dE.llvm.838311727041459786(i64 noundef %2, i64 noundef %4)
+  %12 = tail call noundef i64 @_ZN4core3cmp6max_by17h791dab76a2f35e5dE.llvm.838311727041459786(i64 noundef %2, i64 noundef %spec.select12)
   br label %8
 }
 
@@ -15597,12 +15594,11 @@ _ZN4core4iter6traits8iterator8Iterator4fold17he4a62856bd3da84cE.exit.thread: ; p
   %111 = phi i8 [ %106, %103 ], [ %109, %.noexc30 ]
   %cond.i.i.i = icmp eq i8 %111, 10
   %112 = load i64, ptr %.sroa.55.0..sroa_idx, align 8, !range !255, !alias.scope !3394, !noalias !3395
-  %trunc.i6.i.i = trunc nuw i64 %112 to i1
   %113 = load i64, ptr %33, align 8, !alias.scope !3394, !noalias !3395
-  %114 = add i64 %113, 1
-  %.sroa.5.0.i.i.i = select i1 %trunc.i6.i.i, i64 %114, i64 undef
+  %.fr.i.i.i = freeze i64 %113
+  %114 = add i64 %.fr.i.i.i, 1
   %storemerge168.i.i.i = select i1 %cond.i.i.i, i64 %112, i64 1
-  %storemerge.i.i.i = select i1 %cond.i.i.i, i64 %.sroa.5.0.i.i.i, i64 0
+  %storemerge.i.i.i = select i1 %cond.i.i.i, i64 %114, i64 0
   store i64 %storemerge168.i.i.i, ptr %.sroa.55.0..sroa_idx, align 8, !alias.scope !3394, !noalias !3395
   store i64 %storemerge.i.i.i, ptr %33, align 8, !alias.scope !3394, !noalias !3395
   %115 = icmp ne ptr %.sroa.0.1.i.i.i, null
@@ -16317,8 +16313,8 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor15handle_regional17h70cfe695ae
   br i1 %42, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h83cf5c9df38271d1E.llvm.14172520758739148588.exit.thread.i.i.i", label %393
 
 393:                                              ; preds = %392
-  %.not.i.i7.i.i = icmp ult i64 %41, %391
-  br i1 %.not.i.i7.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h83cf5c9df38271d1E.llvm.14172520758739148588.exit.i.i.i", label %394
+  %.not.i.i6.i.i = icmp ult i64 %41, %391
+  br i1 %.not.i.i6.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h83cf5c9df38271d1E.llvm.14172520758739148588.exit.i.i.i", label %394
 
 394:                                              ; preds = %393
   %395 = icmp eq i64 %41, %391

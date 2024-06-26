@@ -638,23 +638,24 @@ entry:
 if.end:                                           ; preds = %entry
   %vtable_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %vtable_.i.i, align 8
-  %cmp.not.i.not = icmp eq ptr %1, @_ZN9grpc_core11ChannelArgs5Value11int_vtable_E
+  %cmp.not.i = icmp eq ptr %1, @_ZN9grpc_core11ChannelArgs5Value11int_vtable_E
   %2 = load ptr, ptr %call.i, align 8
-  %3 = ptrtoint ptr %2 to i64
-  %4 = trunc i64 %3 to i32
-  br i1 %cmp.not.i.not, label %if.end12, label %if.then6
+  %.fr2.i = freeze ptr %2
+  %3 = ptrtoint ptr %.fr2.i to i64
+  %i.sroa.0.0.extract.trunc = trunc i64 %3 to i32
+  br i1 %cmp.not.i, label %if.end12, label %if.then6
 
 if.then6:                                         ; preds = %if.end
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   %call.i6 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %name.coerce0, ptr %name.coerce1) #28
-  %5 = extractvalue { i64, ptr } %call.i6, 0
-  %6 = extractvalue { i64, ptr } %call.i6, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %5, ptr %6) #28
-  %7 = load i64, ptr %agg.tmp.i, align 8
-  %8 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  %9 = load ptr, ptr %8, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 %7, ptr %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
+  %4 = extractvalue { i64, ptr } %call.i6, 0
+  %5 = extractvalue { i64, ptr } %call.i6, 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %4, ptr %5) #28
+  %6 = load i64, ptr %agg.tmp.i, align 8
+  %7 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %8 = load ptr, ptr %7, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 %6, ptr %8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then6
@@ -669,18 +670,18 @@ invoke.cont10:                                    ; preds = %invoke.cont
   br label %return
 
 lpad:                                             ; preds = %if.then6
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad9:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   br label %eh.resume
 
 if.end12:                                         ; preds = %if.end
-  switch i32 %4, label %sw.default [
+  switch i32 %i.sroa.0.0.extract.trunc, label %sw.default [
     i32 0, label %return
     i32 1, label %sw.bb15
   ]
@@ -692,19 +693,19 @@ sw.default:                                       ; preds = %if.end12
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i11)
   %call.i15 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %name.coerce0, ptr %name.coerce1) #28
-  %12 = extractvalue { i64, ptr } %call.i15, 0
-  %13 = extractvalue { i64, ptr } %call.i15, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i11, i64 %12, ptr %13) #28
-  %14 = load i64, ptr %agg.tmp.i11, align 8
-  %15 = getelementptr inbounds i8, ptr %agg.tmp.i11, i64 8
-  %16 = load ptr, ptr %15, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, i64 %14, ptr %16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  %11 = extractvalue { i64, ptr } %call.i15, 0
+  %12 = extractvalue { i64, ptr } %call.i15, 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i11, i64 %11, ptr %12) #28
+  %13 = load i64, ptr %agg.tmp.i11, align 8
+  %14 = getelementptr inbounds i8, ptr %agg.tmp.i11, i64 8
+  %15 = load ptr, ptr %14, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, i64 %13, ptr %15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %sw.default
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i11)
   %call21 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #28
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.3, i32 noundef 277, i32 noundef 2, ptr noundef nonnull @.str.5, ptr noundef %call21, i32 noundef %4)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.3, i32 noundef 277, i32 noundef 2, ptr noundef nonnull @.str.5, ptr noundef %call21, i32 noundef %i.sroa.0.0.extract.trunc)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont20
@@ -713,12 +714,12 @@ invoke.cont24:                                    ; preds = %invoke.cont20
   br label %return
 
 lpad19:                                           ; preds = %sw.default
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad23:                                           ; preds = %invoke.cont20
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #28
   br label %eh.resume
@@ -731,7 +732,7 @@ return:                                           ; preds = %if.end12, %entry, %
 
 eh.resume:                                        ; preds = %lpad19, %lpad23, %lpad, %lpad9
   %ref.tmp18.sink = phi ptr [ %ref.tmp7, %lpad9 ], [ %ref.tmp7, %lpad ], [ %ref.tmp18, %lpad23 ], [ %ref.tmp18, %lpad19 ]
-  %.pn3.pn = phi { ptr, i32 } [ %11, %lpad9 ], [ %10, %lpad ], [ %18, %lpad23 ], [ %17, %lpad19 ]
+  %.pn3.pn = phi { ptr, i32 } [ %10, %lpad9 ], [ %9, %lpad ], [ %17, %lpad23 ], [ %16, %lpad19 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.sink) #28
   resume { ptr, i32 } %.pn3.pn
 }
@@ -1792,14 +1793,15 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i = icmp eq ptr %1, @_ZN9grpc_core11ChannelArgs5Value11int_vtable_E
   %2 = load ptr, ptr %call.i, align 8
-  %3 = ptrtoint ptr %2 to i64
-  %4 = and i64 %3, 4294967295
-  %5 = or disjoint i64 %4, 4294967296
-  %retval.sroa.0.0.insert.insert.i = select i1 %cmp.not.i, i64 %5, i64 0
+  %.fr2.i = freeze ptr %2
+  %3 = ptrtoint ptr %.fr2.i to i64
+  %4 = select i1 %cmp.not.i, i64 4294967296, i64 0
+  %5 = and i64 %3, 4294967295
+  %6 = or disjoint i64 %5, %4
   br label %return
 
 return:                                           ; preds = %entry, %if.end
-  %retval.sroa.0.0.insert.insert = phi i64 [ %retval.sroa.0.0.insert.insert.i, %if.end ], [ 0, %entry ]
+  %retval.sroa.0.0.insert.insert = phi i64 [ %6, %if.end ], [ 0, %entry ]
   ret i64 %retval.sroa.0.0.insert.insert
 }
 
@@ -1819,14 +1821,15 @@ entry:
 _ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %entry
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %1 = load ptr, ptr %vtable_.i.i.i, align 8
-  %cmp.not.i.i.not = icmp eq ptr %1, @_ZN9grpc_core11ChannelArgs5Value11int_vtable_E
+  %cmp.not.i.i = icmp eq ptr %1, @_ZN9grpc_core11ChannelArgs5Value11int_vtable_E
   %2 = load ptr, ptr %call.i.i, align 8
-  %3 = ptrtoint ptr %2 to i64
-  br i1 %cmp.not.i.i.not, label %if.end, label %return
+  %.fr2.i.i = freeze ptr %2
+  %3 = ptrtoint ptr %.fr2.i.i to i64
+  br i1 %cmp.not.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %4 = trunc i64 %3 to i32
-  switch i32 %4, label %if.end16 [
+  %ms.sroa.0.0.extract.trunc = trunc i64 %3 to i32
+  switch i32 %ms.sroa.0.0.extract.trunc, label %if.end16 [
     i32 2147483647, label %return
     i32 -2147483648, label %return.fold.split
   ]

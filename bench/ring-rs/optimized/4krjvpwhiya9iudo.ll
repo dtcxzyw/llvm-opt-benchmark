@@ -237,20 +237,28 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h25aa886a24fa966cE(ptr n
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden { ptr, ptr } @_ZN9untrusted5input5Input8read_all17h3b5501a55f45cdacE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = icmp ult i64 %3, 64
-  %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !12
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
-  %7 = icmp eq i64 %3, 64
-  %.sroa.01.0. = select i1 %7, ptr %5, ptr null
-  %.sroa.6.0.i12 = select i1 %4, ptr undef, ptr %6
-  %.sroa.0.1 = select i1 %4, ptr null, ptr %.sroa.01.0.
-  %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %9 = insertvalue { ptr, ptr } %8, ptr %.sroa.6.0.i12, 1
-  ret { ptr, ptr } %9
+  br i1 %4, label %10, label %5
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %0, align 8, !nonnull !4, !align !12, !noundef !4
+  %7 = getelementptr i8, ptr %6, i64 32
+  %8 = icmp ne ptr %7, null
+  tail call void @llvm.assume(i1 %8)
+  %9 = icmp eq i64 %3, 64
+  %.sroa.01.0. = select i1 %9, ptr %6, ptr null
+  br label %10
+
+10:                                               ; preds = %1, %5
+  %.sroa.6.0.i12 = phi ptr [ %7, %5 ], [ undef, %1 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.01.0., %5 ], [ null, %1 ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %.sroa.6.0.i12, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1603,7 +1611,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

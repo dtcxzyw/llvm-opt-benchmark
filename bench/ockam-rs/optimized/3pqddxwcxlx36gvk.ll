@@ -2691,11 +2691,12 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %36
 58:                                               ; preds = %52
   %59 = getelementptr inbounds i8, ptr %16, i64 40
   %..val2.i.i.i.i = load i64, ptr %59, align 8, !alias.scope !388, !noalias !393
+  %.sroa.3.0.i.i.i.i = freeze i64 %..val2.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !394
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !394
   store ptr %54, ptr %14, align 8, !noalias !395
   %60 = getelementptr inbounds i8, ptr %14, i64 8
-  store i64 %..val2.i.i.i.i, ptr %60, align 8, !noalias !395
+  store i64 %.sroa.3.0.i.i.i.i, ptr %60, align 8, !noalias !395
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !395
   store ptr %14, ptr %13, align 8, !noalias !395
   %61 = getelementptr inbounds i8, ptr %13, i64 8
@@ -3332,13 +3333,12 @@ define void @_ZN10ockam_core3api5Error10with_cause17hdf14e016551c340dE(ptr noali
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN10ockam_core3api5Error4path17h2965b8abe07c1c74E(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #10 {
   %2 = load ptr, ptr %0, align 8, !alias.scope !524, !noundef !7
-  %3 = icmp eq ptr %2, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %..val2.i = load i64, ptr %4, align 8, !alias.scope !524
-  %.sroa.3.0.i = select i1 %3, i64 undef, i64 %..val2.i
-  %5 = insertvalue { ptr, i64 } poison, ptr %2, 0
-  %6 = insertvalue { ptr, i64 } %5, i64 %.sroa.3.0.i, 1
-  ret { ptr, i64 } %6
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %..val2.i = load i64, ptr %3, align 8, !alias.scope !524
+  %.sroa.3.0.i = freeze i64 %..val2.i
+  %4 = insertvalue { ptr, i64 } poison, ptr %2, 0
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i, 1
+  ret { ptr, i64 } %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -3352,13 +3352,12 @@ define noundef range(i8 0, 6) i8 @_ZN10ockam_core3api5Error6method17h8f9debd8d50
 define { ptr, i64 } @_ZN10ockam_core3api5Error7message17h4f3609b1d7eb85b3E(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !527, !noundef !7
-  %4 = icmp eq ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
-  %..val2.i = load i64, ptr %5, align 8, !alias.scope !527
-  %.sroa.3.0.i = select i1 %4, i64 undef, i64 %..val2.i
-  %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
-  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.3.0.i, 1
-  ret { ptr, i64 } %7
+  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %..val2.i = load i64, ptr %4, align 8, !alias.scope !527
+  %.sroa.3.0.i = freeze i64 %..val2.i
+  %5 = insertvalue { ptr, i64 } poison, ptr %3, 0
+  %6 = insertvalue { ptr, i64 } %5, i64 %.sroa.3.0.i, 1
+  ret { ptr, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable

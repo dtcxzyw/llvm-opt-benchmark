@@ -1778,13 +1778,12 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hca5d2f3cbda480e1E(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !321, !noundef !148
-  %4 = icmp eq ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !alias.scope !321, !nonnull !148, !align !149
-  %.sroa.3.0.i = select i1 %4, ptr undef, ptr %6
-  %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
-  %8 = insertvalue { ptr, ptr } %7, ptr %.sroa.3.0.i, 1
-  ret { ptr, ptr } %8
+  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = load ptr, ptr %4, align 8, !alias.scope !321, !nonnull !148, !align !149
+  %.sroa.3.0.i = freeze ptr %5
+  %6 = insertvalue { ptr, ptr } poison, ptr %3, 0
+  %7 = insertvalue { ptr, ptr } %6, ptr %.sroa.3.0.i, 1
+  ret { ptr, ptr } %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -2018,7 +2017,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 576460752303423487
-  %6 = shl nuw nsw i64 %0, 4
+  %6 = shl i64 %0, 4
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -2038,8 +2037,8 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   br label %12
 
 12:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.llvm.8694052628166008924.exit"
-  %.pn22 = phi ptr [ %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit" ], [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.llvm.8694052628166008924.exit" ]
-  %13 = icmp eq ptr %.pn22, null
+  %.sroa.05.0.i.i18.pn = phi ptr [ %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit" ], [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.llvm.8694052628166008924.exit" ]
+  %13 = icmp eq ptr %.sroa.05.0.i.i18.pn, null
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %12
@@ -2047,7 +2046,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   unreachable
 
 15:                                               ; preds = %12, %2
-  %.sroa.3.0 = phi ptr [ inttoptr (i64 8 to ptr), %2 ], [ %.pn22, %12 ]
+  %.sroa.3.0 = phi ptr [ inttoptr (i64 8 to ptr), %2 ], [ %.sroa.05.0.i.i18.pn, %12 ]
   %16 = insertvalue { i64, ptr } poison, i64 %0, 0
   %17 = insertvalue { i64, ptr } %16, ptr %.sroa.3.0, 1
   ret { i64, ptr } %17
@@ -2124,7 +2123,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i26.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 288230376151711743
-  %10 = shl nuw nsw i64 %.0.sroa.speculated.i26.i, 5
+  %10 = shl i64 %.0.sroa.speculated.i26.i, 5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val25.i = load ptr, ptr %11, align 8, !alias.scope !349
   %12 = icmp eq i64 %7, 0

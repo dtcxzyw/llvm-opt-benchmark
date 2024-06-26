@@ -289,12 +289,11 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
   %5 = icmp ugt i64 %0, %1
   %6 = icmp ugt i64 %1, %3
   %or.cond = or i1 %5, %6
-  %7 = sub nuw i64 %1, %0
+  %7 = sub i64 %1, %0
   %8 = getelementptr inbounds i8, ptr %2, i64 %0
-  %.sroa.3.0 = select i1 %or.cond, i64 undef, i64 %7
   %.sroa.0.0 = select i1 %or.cond, ptr null, ptr %8
   %9 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %10 = insertvalue { ptr, i64 } %9, i64 %.sroa.3.0, 1
+  %10 = insertvalue { ptr, i64 } %9, i64 %7, 1
   ret { ptr, i64 } %10
 }
 
@@ -303,24 +302,22 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
   %5 = icmp ugt i64 %0, %1
   %6 = icmp ugt i64 %1, %3
   %or.cond = or i1 %5, %6
-  %7 = sub nuw i64 %1, %0
+  %7 = sub i64 %1, %0
   %8 = getelementptr inbounds i8, ptr %2, i64 %0
-  %.sroa.3.0 = select i1 %or.cond, i64 undef, i64 %7
   %.sroa.0.0 = select i1 %or.cond, ptr null, ptr %8
   %9 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %10 = insertvalue { ptr, i64 } %9, i64 %.sroa.3.0, 1
+  %10 = insertvalue { ptr, i64 } %9, i64 %7, 1
   ret { ptr, i64 } %10
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$7get_mut17h611366ced5f9fec4E.llvm.13848472603100435571"(i64 noundef %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = icmp ugt i64 %0, %2
-  %5 = sub nuw i64 %2, %0
+  %5 = sub i64 %2, %0
   %6 = getelementptr inbounds i8, ptr %1, i64 %0
-  %.sroa.3.0.i = select i1 %4, i64 undef, i64 %5
   %.sroa.0.0.i = select i1 %4, ptr null, ptr %6
   %7 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %8 = insertvalue { ptr, i64 } %7, i64 %.sroa.3.0.i, 1
+  %8 = insertvalue { ptr, i64 } %7, i64 %5, 1
   ret { ptr, i64 } %8
 }
 
@@ -2871,7 +2868,7 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h47758503050b25a1E.e
   %60 = getelementptr inbounds i8, ptr %7, i64 8
   %61 = load ptr, ptr %60, align 8, !alias.scope !551, !noalias !552, !nonnull !4, !noundef !4
   %62 = getelementptr inbounds i8, ptr %61, i64 %52
-  %63 = sub nuw i64 %30, %52
+  %63 = sub i64 %30, %52
   call void @_ZN6rustls4msgs8deframer12payload_size17h70f2d6c0453971cbE(ptr noalias nocapture noundef nonnull sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 1 %62, i64 noundef %63)
   %64 = load i8, ptr %10, align 8, !range !45, !noundef !4
   %65 = icmp eq i8 %64, 20
@@ -2989,7 +2986,7 @@ define hidden void @_ZN6rustls4msgs8deframer15MessageDeframer9append_hs17hb1c271
   %28 = load ptr, ptr %7, align 8, !noalias !4, !nonnull !4, !align !20, !noundef !4
   %29 = getelementptr inbounds i8, ptr %28, i64 %21
   %30 = getelementptr inbounds i8, ptr %29, i64 %4
-  %31 = sub nuw i64 %5, %4
+  %31 = sub i64 %5, %4
   call void @_ZN6rustls4msgs8deframer12payload_size17h70f2d6c0453971cbE(ptr noalias nocapture noundef nonnull sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 1 %30, i64 noundef %31), !noalias !586
   %32 = load i8, ptr %10, align 8, !range !45, !noundef !4
   %33 = icmp eq i8 %32, 20
@@ -3132,7 +3129,7 @@ define hidden void @_ZN6rustls4msgs8deframer15MessageDeframer9append_hs17hb1c271
 
 _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.exit: ; preds = %"_ZN108_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17h0d41c1807873496aE.exit.i"
   %86 = getelementptr inbounds i8, ptr %59, i64 %82
-  %87 = sub nuw i64 %64, %82
+  %87 = sub i64 %64, %82
   call void @_ZN6rustls4msgs8deframer12payload_size17h70f2d6c0453971cbE(ptr noalias nocapture noundef nonnull sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 %86, i64 noundef %87)
   %88 = load i8, ptr %11, align 8, !range !45, !noundef !4
   %89 = icmp eq i8 %88, 20
@@ -3240,7 +3237,7 @@ define hidden { ptr, i64 } @_ZN6rustls4msgs8deframer20FilledDeframerBuffer14fill
   %17 = getelementptr inbounds i8, ptr %16, i64 %9
   %18 = getelementptr inbounds i8, ptr %17, i64 %1
   %19 = insertvalue { ptr, i64 } poison, ptr %18, 0
-  %20 = sub nuw i64 %12, %1
+  %20 = sub i64 %12, %1
   %21 = insertvalue { ptr, i64 } %19, i64 %20, 1
   ret { ptr, i64 } %21
 }
@@ -3278,7 +3275,7 @@ define hidden { ptr, i64 } @_ZN6rustls4msgs8deframer20FilledDeframerBuffer10fill
   %19 = getelementptr inbounds i8, ptr %18, i64 %10
   %20 = getelementptr inbounds i8, ptr %19, i64 %1
   %21 = insertvalue { ptr, i64 } poison, ptr %20, 0
-  %22 = sub nuw i64 %2, %1
+  %22 = sub i64 %2, %1
   %23 = insertvalue { ptr, i64 } %21, i64 %22, 1
   ret { ptr, i64 } %23
 }
@@ -4635,7 +4632,7 @@ define hidden { ptr, i64 } @"_ZN6rustls4msgs7persist18Retrieved$LT$T$GT$3map17hc
   %.0.i.i = select i1 %.not, ptr %3, ptr null
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load i64, ptr %4, align 8
-  %.sroa.3.0 = select i1 %.not, i64 %5, i64 undef
+  %.sroa.3.0 = freeze i64 %5
   %6 = insertvalue { ptr, i64 } poison, ptr %.0.i.i, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %7
@@ -20882,7 +20879,7 @@ define { ptr, i64 } @_ZN6rustls6server11server_conn10connection16ServerConnectio
   %..val = load ptr, ptr %5, align 8, !nonnull !4
   %6 = getelementptr inbounds i8, ptr %0, i64 952
   %..val2 = load i64, ptr %6, align 8
-  %.sroa.3.0 = select i1 %4, i64 undef, i64 %..val2
+  %.sroa.3.0 = freeze i64 %..val2
   %.sroa.0.0 = select i1 %4, ptr null, ptr %..val
   %7 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %8 = insertvalue { ptr, i64 } %7, i64 %.sroa.3.0, 1

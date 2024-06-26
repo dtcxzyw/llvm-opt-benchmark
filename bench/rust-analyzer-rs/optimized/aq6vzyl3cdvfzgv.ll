@@ -5601,15 +5601,16 @@ define hidden void @"_ZN3hir11term_search7tactics7trivial28_$u7b$$u7b$closure$u7
 .critedge:                                        ; preds = %35
   %45 = getelementptr inbounds i8, ptr %11, i64 16
   %46 = load i64, ptr %45, align 8
+  %.sroa.6.0 = freeze i64 %46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   store ptr %44, ptr %12, align 8
   %47 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 %46, ptr %47, align 8
-  %.idx = mul nsw i64 %46, 104
+  store i64 %.sroa.6.0, ptr %47, align 8
+  %.idx = mul nsw i64 %.sroa.6.0, 104
   %48 = getelementptr i8, ptr %44, i64 %.idx
   %.ptr80 = getelementptr i8, ptr %48, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !689)
-  %.not.i = icmp eq i64 %46, 0
+  %.not.i = icmp eq i64 %.sroa.6.0, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h45416f9e04f446f3E.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge
@@ -12640,8 +12641,8 @@ define hidden void @"_ZN9itertools11lazy_buffer19LazyBuffer$LT$I$GT$9size_hint17
   %9 = load ptr, ptr %8, align 8, !nonnull !4
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
-  %12 = sub nuw i64 %10, %11
-  %13 = lshr exact i64 %12, 4
+  %12 = sub i64 %10, %11
+  %13 = lshr i64 %12, 4
   %.sroa.8.0 = select i1 %5, i64 0, i64 %13
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !4
@@ -12787,19 +12788,19 @@ define hidden void @_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm
   %trunc = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 %2)
+  %.fr8 = freeze i64 %8
+  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.fr8, i64 %2)
   %10 = extractvalue { i64, i1 } %9, 1
   %11 = extractvalue { i64, i1 } %9, 0
   %not. = xor i1 %10, true
-  %narrow = select i1 %trunc, i1 %not., i1 false
+  %narrow = and i1 %trunc, %not.
   %.sroa.0.0 = zext i1 %narrow to i64
-  %.sroa.6.0 = select i1 %trunc, i64 %11, i64 undef
   %12 = tail call i64 @llvm.uadd.sat.i64(i64 %4, i64 %2)
   store i64 %12, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.6.0, ptr %14, align 8
+  store i64 %11, ptr %14, align 8
   ret void
 }
 

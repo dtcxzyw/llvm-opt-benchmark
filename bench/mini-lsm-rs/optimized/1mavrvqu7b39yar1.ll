@@ -350,7 +350,7 @@ define hidden { i64, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %5, 0
   %switch.i.not.i = icmp eq i64 %.fca.0.extract.i.i, 0
   %6 = load i64, ptr %1, align 8, !alias.scope !59, !noalias !56
-  %.sroa.3.0.i = select i1 %switch.i.not.i, i64 %6, i64 undef
+  %.sroa.3.0.i = freeze i64 %6
   %.sroa.0.0.i = zext i1 %switch.i.not.i to i64
   %7 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %8 = insertvalue { i64, i64 } %7, i64 %.sroa.3.0.i, 1
@@ -380,7 +380,7 @@ define hidden { i64, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %5, 0
   %switch.i.not.i = icmp eq i64 %.fca.0.extract.i.i, 0
   %6 = load i64, ptr %1, align 8, !alias.scope !70, !noalias !67
-  %.sroa.3.0.i = select i1 %switch.i.not.i, i64 %6, i64 undef
+  %.sroa.3.0.i = freeze i64 %6
   %.sroa.0.0.i = zext i1 %switch.i.not.i to i64
   %7 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %8 = insertvalue { i64, i64 } %7, i64 %.sroa.3.0.i, 1
@@ -408,7 +408,7 @@ define hidden { i64, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %5, 0
   %switch.i.not.i = icmp eq i64 %.fca.0.extract.i.i, 0
   %6 = load i64, ptr %1, align 8, !alias.scope !80, !noalias !77
-  %.sroa.3.0.i = select i1 %switch.i.not.i, i64 %6, i64 undef
+  %.sroa.3.0.i = freeze i64 %6
   %.sroa.0.0.i = zext i1 %switch.i.not.i to i64
   %7 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %8 = insertvalue { i64, i64 } %7, i64 %.sroa.3.0.i, 1
@@ -4161,18 +4161,18 @@ define hidden { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$
   %21 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 } }, ptr %.val3.i.i, i64 %20
   %22 = add i64 %3, -1
   store i64 %22, ptr %2, align 8, !alias.scope !965
+  %23 = freeze ptr %21
   br label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h073a5ec995f3dc36E.llvm.11246187030462519964.exit"
 
 "_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h073a5ec995f3dc36E.llvm.11246187030462519964.exit": ; preds = %1, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hb70b977d1130b76cE.llvm.11246187030462519964.exit.i"
-  %.0.i = phi ptr [ %21, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hb70b977d1130b76cE.llvm.11246187030462519964.exit.i" ], [ null, %1 ]
-  %23 = icmp eq ptr %.0.i, null
-  %24 = getelementptr inbounds i8, ptr %.0.i, i64 -72
-  %25 = getelementptr inbounds i8, ptr %.0.i, i64 -48
-  %.sroa.3.0 = select i1 %23, ptr undef, ptr %25
-  %.sroa.0.0 = select i1 %23, ptr null, ptr %24
-  %26 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %27 = insertvalue { ptr, ptr } %26, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %27
+  %.0.i = phi ptr [ %23, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hb70b977d1130b76cE.llvm.11246187030462519964.exit.i" ], [ null, %1 ]
+  %24 = icmp eq ptr %.0.i, null
+  %25 = getelementptr inbounds i8, ptr %.0.i, i64 -72
+  %26 = getelementptr i8, ptr %.0.i, i64 -48
+  %.sroa.0.0 = select i1 %24, ptr null, ptr %25
+  %27 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %28 = insertvalue { ptr, ptr } %27, ptr %26, 1
+  ret { ptr, ptr } %28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -5465,16 +5465,15 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %61 = bitcast <16 x i1> %60 to i16
   %.not.not.i15.i.i = icmp ne i16 %61, 0
   %62 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %61, i1 true)
-  %63 = zext nneg i16 %62 to i64
-  %.sroa.6.0.i.i.i = select i1 %.not.not.i15.i.i, i64 %63, i64 undef
-  %64 = add i64 %.sroa.6.0.i.i.i, %.sroa.0.037.i.i
+  %.fr.i.i.i = freeze i16 %62
+  %63 = zext i16 %.fr.i.i.i to i64
+  %64 = add i64 %.sroa.0.037.i.i, %63
   %65 = and i64 %64, %41
-  %.sroa.3.0.i.i.i = select i1 %.not.not.i15.i.i, i64 %65, i64 undef
   %.sroa.0.0.i16.i.i = zext i1 %.not.not.i15.i.i to i64
   br label %66
 
 66:                                               ; preds = %59, %49
-  %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %59 ], [ %.sroa.6.0.i.i, %49 ]
+  %.sroa.6.1.i.i = phi i64 [ %65, %59 ], [ %.sroa.6.0.i.i, %49 ]
   %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i16.i.i, %59 ], [ 1, %49 ]
   %67 = icmp eq <16 x i8> %.0.copyload.i44.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %68 = bitcast <16 x i1> %67 to i16
@@ -5655,16 +5654,15 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %61 = bitcast <16 x i1> %60 to i16
   %.not.not.i15.i.i = icmp ne i16 %61, 0
   %62 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %61, i1 true)
-  %63 = zext nneg i16 %62 to i64
-  %.sroa.6.0.i.i.i = select i1 %.not.not.i15.i.i, i64 %63, i64 undef
-  %64 = add i64 %.sroa.6.0.i.i.i, %.sroa.0.037.i.i
+  %.fr.i.i.i = freeze i16 %62
+  %63 = zext i16 %.fr.i.i.i to i64
+  %64 = add i64 %.sroa.0.037.i.i, %63
   %65 = and i64 %64, %41
-  %.sroa.3.0.i.i.i = select i1 %.not.not.i15.i.i, i64 %65, i64 undef
   %.sroa.0.0.i16.i.i = zext i1 %.not.not.i15.i.i to i64
   br label %66
 
 66:                                               ; preds = %59, %49
-  %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %59 ], [ %.sroa.6.0.i.i, %49 ]
+  %.sroa.6.1.i.i = phi i64 [ %65, %59 ], [ %.sroa.6.0.i.i, %49 ]
   %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i16.i.i, %59 ], [ 1, %49 ]
   %67 = icmp eq <16 x i8> %.0.copyload.i44.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %68 = bitcast <16 x i1> %67 to i16
@@ -5858,16 +5856,15 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %64 = bitcast <16 x i1> %63 to i16
   %.not.not.i15.i.i = icmp ne i16 %64, 0
   %65 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %64, i1 true)
-  %66 = zext nneg i16 %65 to i64
-  %.sroa.6.0.i.i.i = select i1 %.not.not.i15.i.i, i64 %66, i64 undef
-  %67 = add i64 %.sroa.6.0.i.i.i, %.sroa.0.037.i.i
+  %.fr.i.i.i = freeze i16 %65
+  %66 = zext i16 %.fr.i.i.i to i64
+  %67 = add i64 %.sroa.0.037.i.i, %66
   %68 = and i64 %67, %44
-  %.sroa.3.0.i.i.i = select i1 %.not.not.i15.i.i, i64 %68, i64 undef
   %.sroa.0.0.i16.i.i = zext i1 %.not.not.i15.i.i to i64
   br label %69
 
 69:                                               ; preds = %62, %52
-  %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %62 ], [ %.sroa.6.0.i.i, %52 ]
+  %.sroa.6.1.i.i = phi i64 [ %68, %62 ], [ %.sroa.6.0.i.i, %52 ]
   %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i16.i.i, %62 ], [ 1, %52 ]
   %70 = icmp eq <16 x i8> %.0.copyload.i44.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %71 = bitcast <16 x i1> %70 to i16
@@ -6078,16 +6075,15 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3ma
   %62 = bitcast <16 x i1> %61 to i16
   %.not.not.i15.i.i = icmp ne i16 %62, 0
   %63 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %62, i1 true)
-  %64 = zext nneg i16 %63 to i64
-  %.sroa.6.0.i.i.i = select i1 %.not.not.i15.i.i, i64 %64, i64 undef
-  %65 = add i64 %.sroa.6.0.i.i.i, %.sroa.0.037.i.i
+  %.fr.i.i.i = freeze i16 %63
+  %64 = zext i16 %.fr.i.i.i to i64
+  %65 = add i64 %.sroa.0.037.i.i, %64
   %66 = and i64 %65, %42
-  %.sroa.3.0.i.i.i = select i1 %.not.not.i15.i.i, i64 %66, i64 undef
   %.sroa.0.0.i16.i.i = zext i1 %.not.not.i15.i.i to i64
   br label %67
 
 67:                                               ; preds = %60, %50
-  %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %60 ], [ %.sroa.6.0.i.i, %50 ]
+  %.sroa.6.1.i.i = phi i64 [ %66, %60 ], [ %.sroa.6.0.i.i, %50 ]
   %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i16.i.i, %60 ], [ 1, %50 ]
   %68 = icmp eq <16 x i8> %.0.copyload.i44.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %69 = bitcast <16 x i1> %68 to i16
@@ -6751,8 +6747,10 @@ _ZN4core3ptr19swap_nonoverlapping17h8521c7822bb455f8E.exit: ; preds = %_ZN4core3
   %.sroa.0.0.lcssa.i = phi i64 [ %44, %43 ], [ %50, %.lr.ph.i23 ]
   %.lcssa.i = phi i16 [ %47, %43 ], [ %53, %.lr.ph.i23 ]
   %54 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
-  %55 = zext nneg i16 %54 to i64
-  %56 = add i64 %.sroa.0.0.lcssa.i, %55
+  %.fr.i.i = freeze i16 %54
+  %55 = zext i16 %.fr.i.i to i64
+  %.sroa.0.0.lcssa.i.fr = freeze i64 %.sroa.0.0.lcssa.i
+  %56 = add i64 %.sroa.0.0.lcssa.i.fr, %55
   %57 = and i64 %56, %.val19
   %58 = getelementptr inbounds i8, ptr %.val, i64 %57
   %59 = load i8, ptr %58, align 1, !noundef !16
@@ -7233,16 +7231,15 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   %29 = bitcast <16 x i1> %28 to i16
   %.not.not.i15 = icmp ne i16 %29, 0
   %30 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %29, i1 true)
-  %31 = zext nneg i16 %30 to i64
-  %.sroa.6.0.i = select i1 %.not.not.i15, i64 %31, i64 undef
-  %32 = add i64 %.sroa.6.0.i, %.sroa.0.037
+  %.fr.i = freeze i16 %30
+  %31 = zext i16 %.fr.i to i64
+  %32 = add i64 %.sroa.0.037, %31
   %33 = and i64 %32, %8
-  %.sroa.3.0.i = select i1 %.not.not.i15, i64 %33, i64 undef
   %.sroa.0.0.i16 = zext i1 %.not.not.i15 to i64
   br label %34
 
 34:                                               ; preds = %17, %27
-  %.sroa.6.1 = phi i64 [ %.sroa.3.0.i, %27 ], [ %.sroa.6.0, %17 ]
+  %.sroa.6.1 = phi i64 [ %33, %27 ], [ %.sroa.6.0, %17 ]
   %.sroa.01.1 = phi i64 [ %.sroa.0.0.i16, %27 ], [ 1, %17 ]
   %35 = icmp eq <16 x i8> %.0.copyload.i44, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %36 = bitcast <16 x i1> %35 to i16
@@ -8651,8 +8648,10 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.sroa.0.0.lcssa.i.i = phi i64 [ %140, %137 ], [ %146, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %143, %137 ], [ %149, %.lr.ph.i.i ]
   %150 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %151 = zext nneg i16 %150 to i64
-  %152 = add i64 %.sroa.0.0.lcssa.i.i, %151
+  %.fr.i.i.i = freeze i16 %150
+  %151 = zext i16 %.fr.i.i.i to i64
+  %.sroa.0.0.lcssa.i.i.fr = freeze i64 %.sroa.0.0.lcssa.i.i
+  %152 = add i64 %.sroa.0.0.lcssa.i.i.fr, %151
   %153 = and i64 %152, %.sroa.617.0..sroa_idx.i.i.val3
   %154 = getelementptr inbounds i8, ptr %70, i64 %153
   %155 = load i8, ptr %154, align 1, !noundef !16
@@ -9030,8 +9029,10 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.sroa.0.0.lcssa.i.i = phi i64 [ %130, %127 ], [ %136, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %133, %127 ], [ %139, %.lr.ph.i.i ]
   %140 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %141 = zext nneg i16 %140 to i64
-  %142 = add i64 %.sroa.0.0.lcssa.i.i, %141
+  %.fr.i.i.i = freeze i16 %140
+  %141 = zext i16 %.fr.i.i.i to i64
+  %.sroa.0.0.lcssa.i.i.fr = freeze i64 %.sroa.0.0.lcssa.i.i
+  %142 = add i64 %.sroa.0.0.lcssa.i.i.fr, %141
   %143 = and i64 %142, %.sroa.617.0..sroa_idx.i.i.val3
   %144 = getelementptr inbounds i8, ptr %65, i64 %143
   %145 = load i8, ptr %144, align 1, !noundef !16
@@ -9408,8 +9409,10 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.sroa.0.0.lcssa.i.i = phi i64 [ %129, %126 ], [ %135, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %132, %126 ], [ %138, %.lr.ph.i.i ]
   %139 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %140 = zext nneg i16 %139 to i64
-  %141 = add i64 %.sroa.0.0.lcssa.i.i, %140
+  %.fr.i.i.i = freeze i16 %139
+  %140 = zext i16 %.fr.i.i.i to i64
+  %.sroa.0.0.lcssa.i.i.fr = freeze i64 %.sroa.0.0.lcssa.i.i
+  %141 = add i64 %.sroa.0.0.lcssa.i.i.fr, %140
   %142 = and i64 %141, %.sroa.617.0..sroa_idx.i.i.val3
   %143 = getelementptr inbounds i8, ptr %64, i64 %142
   %144 = load i8, ptr %143, align 1, !noundef !16
@@ -9802,8 +9805,10 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.sroa.0.0.lcssa.i.i = phi i64 [ %142, %139 ], [ %148, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %145, %139 ], [ %151, %.lr.ph.i.i ]
   %152 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %153 = zext nneg i16 %152 to i64
-  %154 = add i64 %.sroa.0.0.lcssa.i.i, %153
+  %.fr.i.i.i = freeze i16 %152
+  %153 = zext i16 %.fr.i.i.i to i64
+  %.sroa.0.0.lcssa.i.i.fr = freeze i64 %.sroa.0.0.lcssa.i.i
+  %154 = add i64 %.sroa.0.0.lcssa.i.i.fr, %153
   %155 = and i64 %154, %.sroa.617.0..sroa_idx.i.i.val3
   %156 = getelementptr inbounds i8, ptr %72, i64 %155
   %157 = load i8, ptr %156, align 1, !noundef !16
@@ -10306,16 +10311,15 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_inse
   %36 = bitcast <16 x i1> %35 to i16
   %.not.not.i15.i = icmp ne i16 %36, 0
   %37 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %36, i1 true)
-  %38 = zext nneg i16 %37 to i64
-  %.sroa.6.0.i.i = select i1 %.not.not.i15.i, i64 %38, i64 undef
-  %39 = add i64 %.sroa.6.0.i.i, %.sroa.0.037.i
+  %.fr.i.i = freeze i16 %37
+  %38 = zext i16 %.fr.i.i to i64
+  %39 = add i64 %.sroa.0.037.i, %38
   %40 = and i64 %39, %15
-  %.sroa.3.0.i.i = select i1 %.not.not.i15.i, i64 %40, i64 undef
   %.sroa.0.0.i16.i = zext i1 %.not.not.i15.i to i64
   br label %41
 
 41:                                               ; preds = %34, %24
-  %.sroa.6.1.i = phi i64 [ %.sroa.3.0.i.i, %34 ], [ %.sroa.6.0.i, %24 ]
+  %.sroa.6.1.i = phi i64 [ %40, %34 ], [ %.sroa.6.0.i, %24 ]
   %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i16.i, %34 ], [ 1, %24 ]
   %42 = icmp eq <16 x i8> %.0.copyload.i44.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %43 = bitcast <16 x i1> %42 to i16
@@ -10429,16 +10433,15 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_inse
   %36 = bitcast <16 x i1> %35 to i16
   %.not.not.i15.i = icmp ne i16 %36, 0
   %37 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %36, i1 true)
-  %38 = zext nneg i16 %37 to i64
-  %.sroa.6.0.i.i = select i1 %.not.not.i15.i, i64 %38, i64 undef
-  %39 = add i64 %.sroa.6.0.i.i, %.sroa.0.037.i
+  %.fr.i.i = freeze i16 %37
+  %38 = zext i16 %.fr.i.i to i64
+  %39 = add i64 %.sroa.0.037.i, %38
   %40 = and i64 %39, %15
-  %.sroa.3.0.i.i = select i1 %.not.not.i15.i, i64 %40, i64 undef
   %.sroa.0.0.i16.i = zext i1 %.not.not.i15.i to i64
   br label %41
 
 41:                                               ; preds = %34, %24
-  %.sroa.6.1.i = phi i64 [ %.sroa.3.0.i.i, %34 ], [ %.sroa.6.0.i, %24 ]
+  %.sroa.6.1.i = phi i64 [ %40, %34 ], [ %.sroa.6.0.i, %24 ]
   %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i16.i, %34 ], [ 1, %24 ]
   %42 = icmp eq <16 x i8> %.0.copyload.i44.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %43 = bitcast <16 x i1> %42 to i16
@@ -11237,7 +11240,7 @@ define hidden { i64, i64 } @"_ZN13mini_lsm_mvcc7compact7leveled27LeveledCompacti
   %.fca.0.extract.i = extractvalue { i64, i64 } %4, 0
   %switch.i.not = icmp eq i64 %.fca.0.extract.i, 0
   %5 = load i64, ptr %1, align 8
-  %.sroa.3.0 = select i1 %switch.i.not, i64 %5, i64 undef
+  %.sroa.3.0 = freeze i64 %5
   %.sroa.0.0 = zext i1 %switch.i.not to i64
   %6 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %7 = insertvalue { i64, i64 } %6, i64 %.sroa.3.0, 1
@@ -11251,7 +11254,7 @@ define hidden { i64, i64 } @"_ZN13mini_lsm_mvcc7compact7leveled27LeveledCompacti
   %.fca.0.extract.i = extractvalue { i64, i64 } %4, 0
   %switch.i.not = icmp eq i64 %.fca.0.extract.i, 0
   %5 = load i64, ptr %1, align 8
-  %.sroa.3.0 = select i1 %switch.i.not, i64 %5, i64 undef
+  %.sroa.3.0 = freeze i64 %5
   %.sroa.0.0 = zext i1 %switch.i.not to i64
   %6 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %7 = insertvalue { i64, i64 } %6, i64 %.sroa.3.0, 1
@@ -11265,7 +11268,7 @@ define hidden { i64, i64 } @"_ZN13mini_lsm_mvcc7compact7leveled27LeveledCompacti
   %.fca.0.extract.i = extractvalue { i64, i64 } %4, 0
   %switch.i.not = icmp eq i64 %.fca.0.extract.i, 0
   %5 = load i64, ptr %1, align 8
-  %.sroa.3.0 = select i1 %switch.i.not, i64 %5, i64 undef
+  %.sroa.3.0 = freeze i64 %5
   %.sroa.0.0 = zext i1 %switch.i.not to i64
   %6 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %7 = insertvalue { i64, i64 } %6, i64 %.sroa.3.0, 1

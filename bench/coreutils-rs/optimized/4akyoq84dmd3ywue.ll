@@ -2280,7 +2280,8 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
 .loopexit377:                                     ; preds = %_ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thread.i.i.i.i, %181
   %.ph = phi i64 [ %156, %181 ], [ %76, %_ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thread.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %28), !noalias !353
-  %202 = add i64 %.ph, 3
+  %.sroa.3.0.i.i = freeze i64 %.ph
+  %202 = add i64 %.sroa.3.0.i.i, 3
   %203 = icmp eq i64 %202, 0
   br i1 %203, label %210, label %.thread302
 
@@ -2822,7 +2823,7 @@ _ZN3std4path4Path4join17heee76c98e9934e10E.exit:  ; preds = %302
 395:                                              ; preds = %390, %406
   %.sroa.0133.0 = phi i64 [ %407, %406 ], [ 0, %390 ]
   %.sroa.4134.0 = phi ptr [ %408, %406 ], [ inttoptr (i64 1 to ptr), %390 ]
-  %.sroa.7.0 = phi i64 [ %401, %406 ], [ 0, %390 ]
+  %.sroa.7.0 = phi i64 [ %.sroa.626.0, %406 ], [ 0, %390 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0132, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
   br label %410
@@ -2834,6 +2835,7 @@ _ZN3std4path4Path4join17heee76c98e9934e10E.exit:  ; preds = %302
   %399 = load ptr, ptr %398, align 8, !nonnull !5, !align !369
   %400 = getelementptr inbounds i8, ptr %29, i64 16
   %401 = load i64, ptr %400, align 8
+  %.sroa.626.0 = freeze i64 %401
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   br i1 %trunc158, label %402, label %403
 
@@ -2842,7 +2844,7 @@ _ZN3std4path4Path4join17heee76c98e9934e10E.exit:  ; preds = %302
           to label %405 unwind label %388
 
 403:                                              ; preds = %396
-  %404 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h8253e1f9ee3826a9E"(i64 noundef %401, i1 noundef zeroext false)
+  %404 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h8253e1f9ee3826a9E"(i64 noundef %.sroa.626.0, i1 noundef zeroext false)
           to label %406 unwind label %388
 
 405:                                              ; preds = %402
@@ -2853,7 +2855,7 @@ _ZN3std4path4Path4join17heee76c98e9934e10E.exit:  ; preds = %302
   %408 = extractvalue { i64, ptr } %404, 1
   %409 = icmp ne ptr %408, null
   call void @llvm.assume(i1 %409)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %408, ptr nonnull align 1 %399, i64 %401, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %408, ptr nonnull align 1 %399, i64 %.sroa.626.0, i1 false)
   br label %395
 
 410:                                              ; preds = %395, %364
@@ -6417,7 +6419,8 @@ _ZN9uu_mktemp13make_temp_dir17hbe13209deb4b1355E.exit: ; preds = %_ZN3std2fs15se
   unreachable
 
 360:                                              ; preds = %353
-  invoke void @_ZN3std4path4Path5_join17h9500bce508c32853E(ptr noalias nocapture noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 dereferenceable(24) %59, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %356, i64 noundef %358)
+  %.sroa.6.0 = freeze i64 %358
+  invoke void @_ZN3std4path4Path5_join17h9500bce508c32853E(ptr noalias nocapture noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 dereferenceable(24) %59, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %356, i64 noundef %.sroa.6.0)
           to label %_ZN3std4path4Path4join17heee76c98e9934e10E.exit unwind label %346
 
 _ZN3std4path4Path4join17heee76c98e9934e10E.exit:  ; preds = %360

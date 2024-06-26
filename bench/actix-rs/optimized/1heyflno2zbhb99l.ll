@@ -9366,7 +9366,7 @@ define { i64, i32 } @_ZN10actix_http10keep_alive9KeepAlive8duration17ha1e47f9823
   %.not = icmp eq i32 %4, 1000000000
   %5 = load i64, ptr %0, align 8
   %.sroa.3.0 = select i1 %.not, i32 1000000000, i32 %3
-  %.sroa.0.0 = select i1 %.not, i64 undef, i64 %5
+  %.sroa.0.0 = freeze i64 %5
   %6 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %7 = insertvalue { i64, i32 } %6, i32 %.sroa.3.0, 1
   ret { i64, i32 } %7

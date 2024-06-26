@@ -122,12 +122,11 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
   %5 = icmp ugt i64 %0, %1
   %6 = icmp ugt i64 %1, %3
   %or.cond = or i1 %5, %6
-  %7 = sub nuw i64 %1, %0
+  %7 = sub i64 %1, %0
   %8 = getelementptr inbounds i8, ptr %2, i64 %0
-  %.sroa.3.0 = select i1 %or.cond, i64 undef, i64 %7
   %.sroa.0.0 = select i1 %or.cond, ptr null, ptr %8
   %9 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %10 = insertvalue { ptr, i64 } %9, i64 %.sroa.3.0, 1
+  %10 = insertvalue { ptr, i64 } %9, i64 %7, 1
   ret { ptr, i64 } %10
 }
 
@@ -9511,7 +9510,7 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$alloc..collections..btree..map..BTr
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
-  %.sroa.6.0 = select i1 %.not.i, i64 %8, i64 undef
+  %.sroa.6.0 = freeze i64 %8
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %10, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4), !noalias !1354

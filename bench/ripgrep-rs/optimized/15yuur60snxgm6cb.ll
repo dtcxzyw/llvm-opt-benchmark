@@ -3579,7 +3579,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %56
 
 333:                                              ; preds = %334, %327
   %.sroa.015.0 = phi i64 [ 0, %327 ], [ 1, %334 ]
-  %.sroa.416.0 = phi i64 [ undef, %327 ], [ %.sroa.71.0.copyload.i, %334 ]
+  %.sroa.416.0 = phi i64 [ undef, %327 ], [ %.sroa.71.0.i, %334 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
@@ -3590,6 +3590,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %56
   %335 = load i64, ptr %7, align 8, !range !99, !alias.scope !684, !noalias !688, !noundef !4
   %336 = load ptr, ptr %82, align 8, !noalias !689
   %.sroa.71.0.copyload.i = load i64, ptr %.sroa.71.0..sroa_idx.i, align 8, !noalias !689
+  %.sroa.71.0.i = freeze i64 %.sroa.71.0.copyload.i
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %7), !noalias !680
   %.not = icmp eq i64 %335, 2
   br i1 %.not, label %337, label %333
@@ -4104,7 +4105,11 @@ default.unreachable:                              ; preds = %517, %_ZN6ignore4wa
   %.sroa.72.0.copyload.i.i = load i64, ptr %.sroa.72.0..sroa_idx.i.i, align 8, !noalias !772
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %45), !noalias !757
   %119 = icmp eq i64 %116, 2
-  br i1 %119, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h72c98139db87b3fbE.exit.i", label %122
+  br i1 %119, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h72c98139db87b3fbE.exit.i", label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h72c98139db87b3fbE.exit.thread.i"
+
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h72c98139db87b3fbE.exit.thread.i": ; preds = %.noexc48
+  %.sroa.72.0.i.i = freeze i64 %.sroa.72.0.copyload.i.i
+  br label %122
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h72c98139db87b3fbE.exit.i": ; preds = %.noexc48
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %44), !noalias !773
@@ -4126,8 +4131,8 @@ default.unreachable:                              ; preds = %517, %_ZN6ignore4wa
   %121 = icmp eq i64 %.sroa.014.0.copyload.i, 9
   br i1 %121, label %122, label %124
 
-122:                                              ; preds = %.noexc49, %.noexc48
-  %.sroa.515.019.ph.i = phi i64 [ %.sroa.515.0.copyload.i, %.noexc49 ], [ %.sroa.72.0.copyload.i.i, %.noexc48 ]
+122:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h72c98139db87b3fbE.exit.thread.i", %.noexc49
+  %.sroa.515.019.ph.i = phi i64 [ %.sroa.515.0.copyload.i, %.noexc49 ], [ %.sroa.72.0.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h72c98139db87b3fbE.exit.thread.i" ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.8.i)
   %123 = icmp eq i64 %.sroa.515.019.ph.i, %104
   br label %133

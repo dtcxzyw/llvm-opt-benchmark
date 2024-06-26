@@ -96,7 +96,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
   %31 = tail call i32 @filemap_write_and_wait_range(ptr noundef %8, i64 noundef %10, i64 noundef %30) #11
   %32 = sext i32 %31 to i64
   %33 = icmp slt i32 %31, 0
-  br i1 %33, label %.thread42, label %._crit_edge
+  br i1 %33, label %.thread43, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %29
   %.pre = load i64, ptr %11, align 8
@@ -110,7 +110,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
 
 38:                                               ; preds = %34
   %39 = ptrtoint ptr %36 to i64
-  br label %.thread42
+  br label %.thread43
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -151,7 +151,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
 
 65:                                               ; preds = %59
   %66 = sext i32 %63 to i64
-  br label %.thread38
+  br label %.thread39
 
 67:                                               ; preds = %59
   %68 = and i64 %60, 1048575
@@ -160,7 +160,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
   %71 = tail call i64 @llvm.umin.i64(i64 %69, i64 %70)
   %72 = tail call i64 @fault_in_iov_iter_readable(ptr noundef %1, i64 noundef %71) #11
   %73 = icmp eq i64 %72, %71
-  br i1 %73, label %.thread38, label %74, !prof !7
+  br i1 %73, label %.thread39, label %74, !prof !7
 
 74:                                               ; preds = %67
   %75 = lshr i64 %60, 12
@@ -171,7 +171,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
 
 79:                                               ; preds = %74
   %80 = ptrtoint ptr %77 to i64
-  br label %.thread38
+  br label %.thread39
 
 81:                                               ; preds = %74
   %82 = load volatile i64, ptr %77, align 8
@@ -208,7 +208,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
 .thread:                                          ; preds = %89, %101
   %105 = icmp eq i64 %62, 0
   %106 = select i1 %105, i64 -512, i64 -4
-  br label %select.unfold31
+  br label %select.unfold32
 
 107:                                              ; preds = %101
   %108 = and i8 %61, 1
@@ -251,9 +251,10 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
 134:                                              ; preds = %130
   %135 = getelementptr i8, ptr %77, i64 72
   %136 = load volatile i64, ptr %135, align 8
-  %137 = and i64 %136, 1
+  %.fr25 = freeze i64 %136
+  %137 = and i64 %.fr25, 1
   %138 = icmp eq i64 %137, 0
-  %139 = add nsw i64 %136, -1
+  %139 = add i64 %.fr25, -1
   %140 = inttoptr i64 %139 to ptr
   br i1 %138, label %141, label %142
 
@@ -312,7 +313,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
 
 176:                                              ; preds = %172
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
-  br label %.thread26
+  br label %.thread27
 
 177:                                              ; preds = %172
   %178 = load i64, ptr %51, align 8
@@ -324,7 +325,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
   %182 = or i1 %109, %181
   %183 = icmp ult i64 %95, %91
   %184 = or i1 %182, %183
-  br i1 %184, label %185, label %.thread26
+  br i1 %184, label %185, label %.thread27
 
 185:                                              ; preds = %180
   %186 = load i32, ptr %52, align 4
@@ -350,7 +351,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
   %200 = add i32 %199, %197
   %201 = zext i32 %200 to i64
   %202 = icmp eq i64 %93, %201
-  br i1 %202, label %.thread26, label %251
+  br i1 %202, label %.thread27, label %251
 
 203:                                              ; preds = %189, %185
   %204 = icmp eq ptr %117, null
@@ -360,7 +361,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
   %206 = tail call i32 @netfs_prefetch_for_write(ptr noundef %4, ptr noundef %77, i64 noundef %93, i64 noundef %95) #11
   %207 = sext i32 %206 to i64
   %208 = icmp slt i32 %206, 0
-  br i1 %208, label %select.unfold31, label %.thread26
+  br i1 %208, label %select.unfold32, label %.thread27
 
 209:                                              ; preds = %177
   %210 = load i64, ptr @vmemmap_base, align 8
@@ -422,17 +423,17 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
   %245 = phi i64 [ %243, %241 ], [ 1, %236 ]
   %246 = icmp ugt i64 %245, %237
   %247 = add nuw nsw i64 %237, 1
-  br i1 %246, label %236, label %.thread26, !llvm.loop !14
+  br i1 %246, label %236, label %.thread27, !llvm.loop !14
 
 248:                                              ; preds = %193
   %249 = icmp eq ptr %159, null
-  br i1 %249, label %.thread26, label %250, !prof !9
+  br i1 %249, label %.thread27, label %250, !prof !9
 
 250:                                              ; preds = %248
   tail call void asm sideeffect "680: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 680b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 680) #11, !srcloc !17
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 264, i32 2305, i64 12) #11, !srcloc !18
   tail call void asm sideeffect "681: nop\0A\09.pushsection .discard.instr_end\0A\09.long 681b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 681) #11, !srcloc !19
-  br label %select.unfold31
+  br label %select.unfold32
 
 251:                                              ; preds = %169, %195, %203
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_netfs_folio, i64 8), i32 2) #11
@@ -510,19 +511,19 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
   %294 = tail call i32 @filemap_write_and_wait_range(ptr noundef %8, i64 noundef %275, i64 noundef %287) #11
   %295 = sext i32 %294 to i64
   %296 = icmp slt i32 %294, 0
-  br i1 %296, label %select.unfold31, label %551
+  br i1 %296, label %select.unfold32, label %551
 
-.thread26:                                        ; preds = %244, %195, %180, %176, %248, %205
+.thread27:                                        ; preds = %244, %195, %180, %176, %248, %205
   %297 = phi i32 [ 1, %205 ], [ 4, %248 ], [ 2, %180 ], [ 0, %176 ], [ 5, %195 ], [ 3, %244 ]
   %298 = phi i64 [ %207, %205 ], [ -5, %248 ], [ -14, %180 ], [ -14, %176 ], [ -14, %195 ], [ -14, %244 ]
   %299 = load volatile i32, ptr %53, align 4
   %300 = tail call i64 @copy_page_from_iter_atomic(ptr noundef %77, i64 noundef %93, i64 noundef %95, ptr noundef %1) #11
   %301 = icmp eq i64 %300, 0
-  br i1 %301, label %select.unfold31, label %302
+  br i1 %301, label %select.unfold32, label %302
 
-302:                                              ; preds = %.thread26
+302:                                              ; preds = %.thread27
   %303 = trunc nuw nsw i32 %297 to i8
-  switch i32 %297, label %default.unreachable106 [
+  switch i32 %297, label %default.unreachable107 [
     i32 0, label %304
     i32 1, label %304
     i32 3, label %320
@@ -765,7 +766,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
 
 428:                                              ; preds = %424
   tail call void @iov_iter_revert(ptr noundef %1, i64 noundef %300) #11
-  br label %select.unfold31
+  br label %select.unfold32
 
 429:                                              ; preds = %424
   br i1 %54, label %439, label %430
@@ -861,7 +862,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @kfree(ptr noundef %456) #11
   br label %483
 
-default.unreachable106:                           ; preds = %302
+default.unreachable107:                           ; preds = %302
   unreachable
 
 483:                                              ; preds = %482, %449, %439, %423, %402, %382, %317, %305, %304
@@ -996,44 +997,44 @@ default.unreachable106:                           ; preds = %302
   %555 = phi i64 [ %543, %549 ], [ %62, %293 ]
   %556 = load i64, ptr %11, align 8
   %557 = icmp eq i64 %556, 0
-  br i1 %557, label %.thread38, label %59, !llvm.loop !33
+  br i1 %557, label %.thread39, label %59, !llvm.loop !33
 
-.thread38:                                        ; preds = %67, %551, %79, %65, %573, %select.unfold31
-  %558 = phi i64 [ %.ph33, %select.unfold31 ], [ %.ph33, %573 ], [ %80, %79 ], [ %66, %65 ], [ -14, %67 ], [ %554, %551 ]
-  %559 = phi i64 [ %62, %select.unfold31 ], [ %62, %573 ], [ %62, %79 ], [ %62, %65 ], [ %62, %67 ], [ %555, %551 ]
+.thread39:                                        ; preds = %67, %551, %79, %65, %573, %select.unfold32
+  %558 = phi i64 [ %.ph34, %select.unfold32 ], [ %.ph34, %573 ], [ %80, %79 ], [ %66, %65 ], [ -14, %67 ], [ %554, %551 ]
+  %559 = phi i64 [ %62, %select.unfold32 ], [ %62, %573 ], [ %62, %79 ], [ %62, %65 ], [ %62, %67 ], [ %555, %551 ]
   %.fr = freeze i64 %559
   br i1 %57, label %564, label %560, !prof !34
 
-560:                                              ; preds = %.thread38
+560:                                              ; preds = %.thread39
   %561 = tail call i32 @netfs_end_writethrough(ptr noundef nonnull %49, ptr noundef %0) #11
   %562 = sext i32 %561 to i64
   %563 = icmp eq i32 %561, -529
-  br i1 %563, label %.thread42, label %564
+  br i1 %563, label %.thread43, label %564
 
-564:                                              ; preds = %560, %.thread38
-  %565 = phi i64 [ %562, %560 ], [ %558, %.thread38 ]
+564:                                              ; preds = %560, %.thread39
+  %565 = phi i64 [ %562, %560 ], [ %558, %.thread39 ]
   %566 = load i64, ptr %9, align 8
   %567 = add i64 %566, %.fr
   store i64 %567, ptr %9, align 8
   %568 = icmp eq i64 %.fr, 0
   %spec.select = select i1 %568, i64 %565, i64 %.fr
-  br label %.thread42
+  br label %.thread43
 
-select.unfold31:                                  ; preds = %293, %205, %.thread26, %.thread, %428, %250
-  %.ph33 = phi i64 [ -5, %250 ], [ -12, %428 ], [ %106, %.thread ], [ %295, %293 ], [ %207, %205 ], [ -14, %.thread26 ]
+select.unfold32:                                  ; preds = %293, %205, %.thread27, %.thread, %428, %250
+  %.ph34 = phi i64 [ -5, %250 ], [ -12, %428 ], [ %106, %.thread ], [ %295, %293 ], [ %207, %205 ], [ -14, %.thread27 ]
   tail call void @folio_unlock(ptr noundef %77) #11
   %569 = getelementptr inbounds i8, ptr %77, i64 52
   %570 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %569, ptr elementtype(i32) %569) #11, !srcloc !27
   %571 = icmp ult i8 %570, 2
   tail call void @llvm.assume(i1 %571)
   %572 = icmp eq i8 %570, 0
-  br i1 %572, label %.thread38, label %573
+  br i1 %572, label %.thread39, label %573
 
-573:                                              ; preds = %select.unfold31
+573:                                              ; preds = %select.unfold32
   tail call void @__folio_put(ptr noundef %77) #11
-  br label %.thread38
+  br label %.thread39
 
-.thread42:                                        ; preds = %29, %38, %564, %560
+.thread43:                                        ; preds = %29, %38, %564, %560
   %574 = phi i64 [ -529, %560 ], [ %spec.select, %564 ], [ %39, %38 ], [ %32, %29 ]
   ret i64 %574
 }
@@ -1669,9 +1670,10 @@ define dso_local range(i32 1, 1025) i32 @netfs_page_mkwrite(ptr nocapture nounde
 20:                                               ; preds = %16
   %21 = getelementptr i8, ptr %4, i64 72
   %22 = load volatile i64, ptr %21, align 8
-  %23 = and i64 %22, 1
+  %.fr5 = freeze i64 %22
+  %23 = and i64 %.fr5, 1
   %24 = icmp eq i64 %23, 0
-  %25 = add nsw i64 %22, -1
+  %25 = add i64 %.fr5, -1
   %26 = inttoptr i64 %25 to ptr
   br i1 %24, label %27, label %28
 

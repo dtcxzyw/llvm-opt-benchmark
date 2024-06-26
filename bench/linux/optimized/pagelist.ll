@@ -1262,9 +1262,10 @@ nfs_page_create.exit:                             ; preds = %34, %38
 68:                                               ; preds = %64
   %69 = getelementptr i8, ptr %1, i64 72
   %70 = load volatile i64, ptr %69, align 8
-  %71 = and i64 %70, 1
+  %.fr3 = freeze i64 %70
+  %71 = and i64 %.fr3, 1
   %72 = icmp eq i64 %71, 0
-  %73 = add nsw i64 %70, -1
+  %73 = add i64 %.fr3, -1
   %74 = inttoptr i64 %73 to ptr
   br i1 %72, label %75, label %76
 
@@ -1658,7 +1659,7 @@ define dso_local void @nfs_free_request(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %35, label %49, label %41
 
 41:                                               ; preds = %32
-  br i1 %40, label %.thread3, label %42
+  br i1 %40, label %.thread4, label %42
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds i8, ptr %37, i64 52
@@ -1675,10 +1676,10 @@ define dso_local void @nfs_free_request(ptr noundef %0) local_unnamed_addr #0 al
 48:                                               ; preds = %47, %42
   store ptr null, ptr %36, align 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %7, i32 -5, ptr elementtype(i8) %7) #11, !srcloc !15
-  br label %.thread3
+  br label %.thread4
 
 49:                                               ; preds = %32
-  br i1 %40, label %.thread3, label %50
+  br i1 %40, label %.thread4, label %50
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds i8, ptr %37, i64 8
@@ -1711,9 +1712,10 @@ define dso_local void @nfs_free_request(ptr noundef %0) local_unnamed_addr #0 al
 67:                                               ; preds = %63
   %68 = getelementptr i8, ptr %37, i64 72
   %69 = load volatile i64, ptr %68, align 8
-  %70 = and i64 %69, 1
+  %.fr3 = freeze i64 %69
+  %70 = and i64 %.fr3, 1
   %71 = icmp eq i64 %70, 0
-  %72 = add nsw i64 %69, -1
+  %72 = add i64 %.fr3, -1
   %73 = inttoptr i64 %72 to ptr
   br i1 %71, label %74, label %75
 
@@ -1735,13 +1737,13 @@ define dso_local void @nfs_free_request(ptr noundef %0) local_unnamed_addr #0 al
 
 82:                                               ; preds = %81, %75
   store ptr null, ptr %36, align 8
-  br label %.thread3
+  br label %.thread4
 
-.thread3:                                         ; preds = %41, %82, %49, %48
+.thread4:                                         ; preds = %41, %82, %49, %48
   %83 = icmp eq ptr %39, null
   br i1 %83, label %107, label %84
 
-84:                                               ; preds = %.thread3
+84:                                               ; preds = %.thread4
   %85 = getelementptr inbounds i8, ptr %39, i64 40
   %86 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %85, ptr elementtype(i32) %85) #11, !srcloc !63
   %87 = icmp ult i8 %86, 2
@@ -1777,7 +1779,7 @@ define dso_local void @nfs_free_request(ptr noundef %0) local_unnamed_addr #0 al
   store ptr null, ptr %38, align 8
   br label %107
 
-107:                                              ; preds = %106, %.thread3
+107:                                              ; preds = %106, %.thread4
   %108 = load ptr, ptr @nfs_page_cachep, align 8
   tail call void @kmem_cache_free(ptr noundef %108, ptr noundef %0) #11
   ret void
@@ -2787,9 +2789,10 @@ nfs_page_create.exit:                             ; preds = %50, %54
 90:                                               ; preds = %86
   %91 = getelementptr i8, ptr %23, i64 72
   %92 = load volatile i64, ptr %91, align 8
-  %93 = and i64 %92, 1
+  %.fr8 = freeze i64 %92
+  %93 = and i64 %.fr8, 1
   %94 = icmp eq i64 %93, 0
-  %95 = add nsw i64 %92, -1
+  %95 = add i64 %.fr8, -1
   %96 = inttoptr i64 %95 to ptr
   br i1 %94, label %97, label %98
 
@@ -2851,11 +2854,11 @@ nfs_page_create.exit:                             ; preds = %50, %54
   tail call void asm sideeffect "1971: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1971b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1971) #11, !srcloc !80
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 418, i32 2307, i64 12) #11, !srcloc !81
   tail call void asm sideeffect "1972: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1972b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1972) #11, !srcloc !82
-  %.pre11 = load ptr, ptr %123, align 8
+  %.pre13 = load ptr, ptr %123, align 8
   br label %127
 
 127:                                              ; preds = %126, %121
-  %128 = phi ptr [ %.pre11, %126 ], [ %124, %121 ]
+  %128 = phi ptr [ %.pre13, %126 ], [ %124, %121 ]
   %129 = getelementptr inbounds i8, ptr %128, i64 56
   %130 = load volatile i64, ptr %129, align 8
   %131 = and i64 %130, 64
@@ -2866,11 +2869,11 @@ nfs_page_create.exit:                             ; preds = %50, %54
   tail call void asm sideeffect "1973: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1973b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1973) #11, !srcloc !83
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 419, i32 2307, i64 12) #11, !srcloc !84
   tail call void asm sideeffect "1974: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1974b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1974) #11, !srcloc !85
-  %.pre12 = load ptr, ptr %123, align 8
+  %.pre14 = load ptr, ptr %123, align 8
   br label %134
 
 134:                                              ; preds = %133, %127
-  %135 = phi ptr [ %.pre12, %133 ], [ %128, %127 ]
+  %135 = phi ptr [ %.pre14, %133 ], [ %128, %127 ]
   %136 = getelementptr inbounds i8, ptr %43, i64 80
   store ptr %135, ptr %136, align 8
   %137 = load ptr, ptr %110, align 8
@@ -2906,28 +2909,28 @@ nfs_page_create.exit:                             ; preds = %50, %54
   %156 = load volatile i64, ptr %111, align 8
   %157 = and i64 %156, 4
   %158 = icmp eq i64 %157, 0
-  %.phi.trans.insert13 = getelementptr inbounds i8, ptr %43, i64 16
-  %.pre14 = load ptr, ptr %.phi.trans.insert13, align 8
-  br i1 %158, label %.thread8, label %159
+  %.phi.trans.insert15 = getelementptr inbounds i8, ptr %43, i64 16
+  %.pre16 = load ptr, ptr %.phi.trans.insert15, align 8
+  br i1 %158, label %.thread10, label %159
 
 159:                                              ; preds = %155
-  %160 = icmp eq ptr %.pre14, null
-  br i1 %160, label %.thread8, label %200
+  %160 = icmp eq ptr %.pre16, null
+  br i1 %160, label %.thread10, label %200
 
-.thread8:                                         ; preds = %155, %159
-  %161 = phi ptr [ null, %159 ], [ %.pre14, %155 ]
+.thread10:                                        ; preds = %155, %159
+  %161 = phi ptr [ null, %159 ], [ %.pre16, %155 ]
   %162 = getelementptr inbounds i8, ptr %161, i64 8
   %163 = load volatile i64, ptr %162, align 8
   %164 = and i64 %163, 1
   %165 = icmp eq i64 %164, 0
   br i1 %165, label %169, label %166, !prof !13
 
-166:                                              ; preds = %.thread8
+166:                                              ; preds = %.thread10
   %167 = add nsw i64 %163, -1
   %168 = inttoptr i64 %167 to ptr
   br label %186
 
-169:                                              ; preds = %.thread8
+169:                                              ; preds = %.thread10
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #11
           to label %186 [label %170], !srcloc !6
 
@@ -2946,9 +2949,10 @@ nfs_page_create.exit:                             ; preds = %50, %54
 178:                                              ; preds = %174
   %179 = getelementptr i8, ptr %161, i64 72
   %180 = load volatile i64, ptr %179, align 8
-  %181 = and i64 %180, 1
+  %.fr9 = freeze i64 %180
+  %181 = and i64 %.fr9, 1
   %182 = icmp eq i64 %181, 0
-  %183 = add nsw i64 %180, -1
+  %183 = add i64 %.fr9, -1
   %184 = inttoptr i64 %183 to ptr
   br i1 %182, label %185, label %186
 
@@ -2978,23 +2982,23 @@ nfs_page_create.exit:                             ; preds = %50, %54
   br label %213
 
 200:                                              ; preds = %159
-  %201 = load volatile i64, ptr %.pre14, align 8
+  %201 = load volatile i64, ptr %.pre16, align 8
   %202 = and i64 %201, 524288
   %203 = icmp eq i64 %202, 0
   br i1 %203, label %210, label %204
 
 204:                                              ; preds = %200
-  %205 = load volatile i64, ptr %.pre14, align 8
+  %205 = load volatile i64, ptr %.pre16, align 8
   %206 = and i64 %205, 4096
   %207 = icmp eq i64 %206, 0
   br i1 %207, label %210, label %208, !prof !13
 
 208:                                              ; preds = %204
-  %209 = tail call ptr @swapcache_mapping(ptr noundef nonnull %.pre14) #11
+  %209 = tail call ptr @swapcache_mapping(ptr noundef nonnull %.pre16) #11
   br label %213
 
 210:                                              ; preds = %204, %200
-  %211 = getelementptr inbounds i8, ptr %.pre14, i64 24
+  %211 = getelementptr inbounds i8, ptr %.pre16, i64 24
   %212 = load ptr, ptr %211, align 8
   br label %213
 

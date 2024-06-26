@@ -197,10 +197,11 @@ define hidden void @_ZN8fs_extra4file23move_file_with_progress17hf3d7a87ea747a66
   br i1 %84, label %113, label %107
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %77
+  %.sroa.7.0.i = freeze i64 %82
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62), !noalias !63
   store ptr %80, ptr %62, align 8, !noalias !63
   %85 = getelementptr inbounds i8, ptr %62, i64 8
-  store i64 %82, ptr %85, align 8, !noalias !63
+  store i64 %.sroa.7.0.i, ptr %85, align 8, !noalias !63
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %61), !noalias !63
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60), !noalias !63
   store ptr %62, ptr %60, align 8, !noalias !63
@@ -302,10 +303,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %77
   br i1 %116, label %148, label %137
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit129.i: ; preds = %107
+  %.sroa.75.0.i = freeze i64 %112
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55), !noalias !63
   store ptr %110, ptr %55, align 8, !noalias !63
   %117 = getelementptr inbounds i8, ptr %55, i64 8
-  store i64 %112, ptr %117, align 8, !noalias !63
+  store i64 %.sroa.75.0.i, ptr %117, align 8, !noalias !63
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %54), !noalias !63
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53), !noalias !63
   store ptr %55, ptr %53, align 8, !noalias !63
@@ -451,10 +453,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit129.i: ; preds = %107
   br i1 %trunc82.i, label %148, label %161
 
 161:                                              ; preds = %155
+  %.sroa.710.0.i = freeze i64 %160
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48), !noalias !63
   store ptr %158, ptr %48, align 8, !noalias !63
   %162 = getelementptr inbounds i8, ptr %48, i64 8
-  store i64 %160, ptr %162, align 8, !noalias !63
+  store i64 %.sroa.710.0.i, ptr %162, align 8, !noalias !63
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %47), !noalias !63
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %46), !noalias !63
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45), !noalias !63
@@ -556,7 +559,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit129.i: ; preds = %107
   %197 = load ptr, ptr %196, align 8, !noalias !63
   %.sroa.659.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 80
   %.sroa.659.0.copyload.i = load i64, ptr %.sroa.659.0..sroa_idx.i, align 8, !noalias !63
-  %.sroa.9.sroa.5.0.i = select i1 %195, i64 undef, i64 %.sroa.659.0.copyload.i
+  %.sroa.9.sroa.5.0.i = freeze i64 %.sroa.659.0.copyload.i
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %39), !noalias !63
   br i1 %195, label %203, label %198
 
@@ -1165,10 +1168,11 @@ define hidden void @_ZN8fs_extra4file9move_file17h663d04e3bd6ddc77E(ptr noalias 
   br i1 %65, label %94, label %88
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %58
+  %.sroa.7.0.i = freeze i64 %63
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42), !noalias !345
   store ptr %61, ptr %42, align 8, !noalias !345
   %66 = getelementptr inbounds i8, ptr %42, i64 8
-  store i64 %63, ptr %66, align 8, !noalias !345
+  store i64 %.sroa.7.0.i, ptr %66, align 8, !noalias !345
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41), !noalias !345
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40), !noalias !345
   store ptr %42, ptr %40, align 8, !noalias !345
@@ -1272,10 +1276,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %58
   br i1 %95, label %._crit_edge.i, label %116
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit54.i: ; preds = %88
+  %.sroa.75.0.i = freeze i64 %93
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35), !noalias !345
   store ptr %91, ptr %35, align 8, !noalias !345
   %96 = getelementptr inbounds i8, ptr %35, i64 8
-  store i64 %93, ptr %96, align 8, !noalias !345
+  store i64 %.sroa.75.0.i, ptr %96, align 8, !noalias !345
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34), !noalias !345
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33), !noalias !345
   store ptr %35, ptr %33, align 8, !noalias !345
@@ -1406,10 +1411,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit54.i: ; preds = %88
   br i1 %trunc32.i, label %._crit_edge.i, label %135
 
 135:                                              ; preds = %129
+  %.sroa.710.0.i = freeze i64 %134
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !345
   store ptr %132, ptr %28, align 8, !noalias !345
   %136 = getelementptr inbounds i8, ptr %28, i64 8
-  store i64 %134, ptr %136, align 8, !noalias !345
+  store i64 %.sroa.710.0.i, ptr %136, align 8, !noalias !345
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27), !noalias !345
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %26), !noalias !345
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !345

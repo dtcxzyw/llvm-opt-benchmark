@@ -1444,9 +1444,9 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly %0, ptr nound
   %39 = zext i8 %38 to i32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread11
-  %40 = phi i64 [ %51, %.thread11 ], [ %4, %.lr.ph.preheader ]
-  %41 = phi i32 [ %250, %.thread11 ], [ %39, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread13
+  %40 = phi i64 [ %51, %.thread13 ], [ %4, %.lr.ph.preheader ]
+  %41 = phi i32 [ %250, %.thread13 ], [ %39, %.lr.ph.preheader ]
   %42 = load i64, ptr %22, align 8
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %.loopexit, label %44
@@ -1457,13 +1457,13 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly %0, ptr nound
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   store i64 0, ptr %7, align 8, !annotation !16
   %45 = icmp eq i32 %41, 17
-  br i1 %45, label %.thread14, label %46
+  br i1 %45, label %.thread16, label %46
 
 46:                                               ; preds = %44
   %47 = sub i32 17, %41
   %48 = call i64 @iov_iter_get_pages2(ptr noundef %3, ptr noundef nonnull %6, i64 noundef %40, i32 noundef %47, ptr noundef nonnull %7) #9
   %49 = icmp slt i64 %48, 0
-  br i1 %49, label %.thread14, label %50
+  br i1 %49, label %.thread16, label %50
 
 50:                                               ; preds = %46
   %51 = sub i64 %40, %48
@@ -1567,9 +1567,10 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly %0, ptr nound
 113:                                              ; preds = %109
   %114 = getelementptr i8, ptr %97, i64 72
   %115 = load volatile i64, ptr %114, align 8
-  %116 = and i64 %115, 1
+  %.fr11 = freeze i64 %115
+  %116 = and i64 %.fr11, 1
   %117 = icmp eq i64 %116, 0
-  %118 = add nsw i64 %115, -1
+  %118 = add i64 %.fr11, -1
   %119 = inttoptr i64 %118 to ptr
   br i1 %117, label %120, label %121
 
@@ -1599,33 +1600,33 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly %0, ptr nound
 135:                                              ; preds = %130, %124
   %136 = phi i32 [ %134, %130 ], [ 0, %124 ]
   %137 = icmp eq i64 %48, 0
-  br i1 %137, label %.thread11, label %.preheader.preheader
+  br i1 %137, label %.thread13, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %135
   %.pre = load i64, ptr %7, align 8
   br label %.preheader.outer
 
-.preheader.outer:                                 ; preds = %.thread22, %.preheader.preheader
-  %.ph = phi i64 [ 0, %.thread22 ], [ %.pre, %.preheader.preheader ]
-  %.ph24 = phi i32 [ %231, %.thread22 ], [ %41, %.preheader.preheader ]
-  %.ph25 = phi i64 [ %204, %.thread22 ], [ %48, %.preheader.preheader ]
-  %.ph26 = phi i32 [ %205, %.thread22 ], [ 0, %.preheader.preheader ]
-  %.ph27 = phi i32 [ %195, %.thread22 ], [ %136, %.preheader.preheader ]
-  %.ph28 = phi ptr [ %146, %.thread22 ], [ null, %.preheader.preheader ]
-  %.ph29 = phi ptr [ %194, %.thread22 ], [ %126, %.preheader.preheader ]
-  %138 = icmp eq i32 %.ph24, 0
-  %139 = add i32 %.ph24, -1
+.preheader.outer:                                 ; preds = %.thread24, %.preheader.preheader
+  %.ph = phi i64 [ 0, %.thread24 ], [ %.pre, %.preheader.preheader ]
+  %.ph26 = phi i32 [ %231, %.thread24 ], [ %41, %.preheader.preheader ]
+  %.ph27 = phi i64 [ %204, %.thread24 ], [ %48, %.preheader.preheader ]
+  %.ph28 = phi i32 [ %205, %.thread24 ], [ 0, %.preheader.preheader ]
+  %.ph29 = phi i32 [ %195, %.thread24 ], [ %136, %.preheader.preheader ]
+  %.ph30 = phi ptr [ %146, %.thread24 ], [ null, %.preheader.preheader ]
+  %.ph31 = phi ptr [ %194, %.thread24 ], [ %126, %.preheader.preheader ]
+  %138 = icmp eq i32 %.ph26, 0
+  %139 = add i32 %.ph26, -1
   %140 = sext i32 %139 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.outer, %226
   %141 = phi i64 [ 0, %226 ], [ %.ph, %.preheader.outer ]
-  %142 = phi i64 [ %204, %226 ], [ %.ph25, %.preheader.outer ]
-  %143 = phi i32 [ %205, %226 ], [ %.ph26, %.preheader.outer ]
-  %144 = phi i32 [ %195, %226 ], [ %.ph27, %.preheader.outer ]
+  %142 = phi i64 [ %204, %226 ], [ %.ph27, %.preheader.outer ]
+  %143 = phi i32 [ %205, %226 ], [ %.ph28, %.preheader.outer ]
+  %144 = phi i32 [ %195, %226 ], [ %.ph29, %.preheader.outer ]
   %145 = phi i32 [ %228, %226 ], [ 0, %.preheader.outer ]
-  %146 = phi ptr [ %194, %226 ], [ %.ph28, %.preheader.outer ]
-  %147 = phi ptr [ %194, %226 ], [ %.ph29, %.preheader.outer ]
+  %146 = phi ptr [ %194, %226 ], [ %.ph30, %.preheader.outer ]
+  %147 = phi ptr [ %194, %226 ], [ %.ph31, %.preheader.outer ]
   %148 = trunc i64 %142 to i32
   %149 = trunc i64 %141 to i32
   %150 = sub i32 4096, %149
@@ -1671,9 +1672,10 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly %0, ptr nound
 177:                                              ; preds = %173
   %178 = getelementptr i8, ptr %154, i64 72
   %179 = load volatile i64, ptr %178, align 8
-  %180 = and i64 %179, 1
+  %.fr12 = freeze i64 %179
+  %180 = and i64 %.fr12, 1
   %181 = icmp eq i64 %180, 0
-  %182 = add nsw i64 %179, -1
+  %182 = add nsw i64 %.fr12, -1
   %spec.select = select i1 %181, i64 %155, i64 %182
   br label %._crit_edge
 
@@ -1731,13 +1733,13 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly %0, ptr nound
 
 .thread:                                          ; preds = %206, %215, %193
   %223 = icmp eq i32 %145, 0
-  br i1 %223, label %.thread22, label %224
+  br i1 %223, label %.thread24, label %224
 
 224:                                              ; preds = %.thread
   %225 = getelementptr inbounds i8, ptr %146, i64 52
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %225, i32 %145, ptr elementtype(i32) %225) #9, !srcloc !49
-  %.pre20 = load i64, ptr %7, align 8
-  br label %.thread22
+  %.pre22 = load i64, ptr %7, align 8
+  br label %.thread24
 
 226:                                              ; preds = %215
   %227 = add i32 %219, %151
@@ -1747,54 +1749,54 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly %0, ptr nound
   %229 = icmp eq i64 %204, 0
   br i1 %229, label %246, label %.preheader, !llvm.loop !50
 
-.thread22:                                        ; preds = %.thread, %224
-  %230 = phi i64 [ %.pre20, %224 ], [ %202, %.thread ]
-  %231 = add i32 %.ph24, 1
+.thread24:                                        ; preds = %.thread, %224
+  %230 = phi i64 [ %.pre22, %224 ], [ %202, %.thread ]
+  %231 = add i32 %.ph26, 1
   %232 = trunc i64 %230 to i32
   %233 = load ptr, ptr %20, align 8
   %234 = load i32, ptr %21, align 4
   %235 = zext i32 %234 to i64
   %236 = getelementptr i8, ptr %233, i64 %235
   %237 = getelementptr inbounds i8, ptr %236, i64 48
-  %238 = sext i32 %.ph24 to i64
+  %238 = sext i32 %.ph26 to i64
   %239 = getelementptr [17 x %struct.bio_vec], ptr %237, i64 0, i64 %238
   store ptr %194, ptr %239, align 8
   %240 = getelementptr inbounds i8, ptr %239, i64 12
   store i32 %232, ptr %240, align 4
   %241 = getelementptr inbounds i8, ptr %239, i64 8
   store i32 %151, ptr %241, align 8
-  %242 = trunc i32 %.ph24 to i8
+  %242 = trunc i32 %.ph26 to i8
   %243 = add i8 %242, 1
   %244 = getelementptr inbounds i8, ptr %236, i64 2
   store i8 %243, ptr %244, align 2
   store i64 0, ptr %7, align 8
   %245 = icmp eq i64 %204, 0
-  br i1 %245, label %.thread11, label %.preheader.outer, !llvm.loop !50
+  br i1 %245, label %.thread13, label %.preheader.outer, !llvm.loop !50
 
 246:                                              ; preds = %226
   %247 = icmp eq i32 %228, 0
-  br i1 %247, label %.thread11, label %248
+  br i1 %247, label %.thread13, label %248
 
 248:                                              ; preds = %246
   %249 = getelementptr inbounds i8, ptr %194, i64 52
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %249, i32 %228, ptr elementtype(i32) %249) #9, !srcloc !49
-  br label %.thread11
+  br label %.thread13
 
-.thread14:                                        ; preds = %44, %46
-  %.ph13 = phi i32 [ -14, %46 ], [ -90, %44 ]
+.thread16:                                        ; preds = %44, %46
+  %.ph15 = phi i32 [ -14, %46 ], [ -90, %44 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %6) #9
   br label %.loopexit
 
-.thread11:                                        ; preds = %.thread22, %135, %248, %246
-  %250 = phi i32 [ %.ph24, %248 ], [ %.ph24, %246 ], [ %41, %135 ], [ %231, %.thread22 ]
+.thread13:                                        ; preds = %.thread24, %135, %248, %246
+  %250 = phi i32 [ %.ph26, %248 ], [ %.ph26, %246 ], [ %41, %135 ], [ %231, %.thread24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %6) #9
   %251 = icmp eq i64 %51, 0
   br i1 %251, label %.loopexit, label %.lr.ph, !llvm.loop !51
 
-.loopexit:                                        ; preds = %.thread11, %.lr.ph, %19, %.thread14, %17
-  %252 = phi i32 [ %18, %17 ], [ %.ph13, %.thread14 ], [ 0, %19 ], [ 0, %.lr.ph ], [ 0, %.thread11 ]
+.loopexit:                                        ; preds = %.thread13, %.lr.ph, %19, %.thread16, %17
+  %252 = phi i32 [ %18, %17 ], [ %.ph15, %.thread16 ], [ 0, %19 ], [ 0, %.lr.ph ], [ 0, %.thread13 ]
   ret i32 %252
 }
 

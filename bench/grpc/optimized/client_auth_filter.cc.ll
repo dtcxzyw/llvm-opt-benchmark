@@ -3634,6 +3634,8 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %sw.bb.i.i.i.i.i
   %9 = load i8, ptr %8, align 8, !noalias !74
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i, i64 24
   %10 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !74
+  %.fr.i.i.i.i.i = freeze i64 %10
+  %result.sroa.6.0.ph.i.i.i.i.i = freeze i8 %9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !74
   %11 = load ptr, ptr %0, align 16, !noalias !74
   %destroy.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
@@ -3649,13 +3651,13 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEvEEEEvPT_.exit.cont.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %7, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb13.i.thread.i.i.i.i, label %cleanup.thread.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %7, 0
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb13.i.thread.i.i.i.i, label %cleanup.thread.i.i.i.i.i
 
 sw.bb13.i.thread.i.i.i.i:                         ; preds = %_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEvEEEEvPT_.exit.cont.i.i.i.i.i
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %9, ptr %15, align 1, !noalias !74
-  store i64 %10, ptr %arg.i.i.i.i.i.i.i, align 8, !noalias !74
+  store i8 %result.sroa.6.0.ph.i.i.i.i.i, ptr %15, align 1, !noalias !74
+  store i64 %.fr.i.i.i.i.i, ptr %arg.i.i.i.i.i.i.i, align 8, !noalias !74
   store i64 0, ptr %0, align 8, !noalias !74
   store i8 1, ptr %state.i.i.i.i.i, align 16, !noalias !74
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i23.i.i.i.i.i), !noalias !74
@@ -3770,8 +3772,8 @@ common.resume.i.i:                                ; preds = %lpad.i.i.i.i.i.i.i.
   resume { ptr, i32 } %.pn.i.i.i.i.i.i.i.i
 
 "_ZN9grpc_core14promise_detail7CurriedIZNS_16ClientAuthFilter20GetCallCredsMetadataENS_8CallArgsEE3$_0N4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEclEv.exit.thread.i.i.i.i.i.i": ; preds = %"sw.bb13.i._ZN9grpc_core14promise_detail7CurriedIZNS_16ClientAuthFilter20GetCallCredsMetadataENS_8CallArgsEE3$_0N4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEclEv.exit.thread.i.i_crit_edge.i.i.i.i", %sw.bb13.i.thread.i.i.i.i
-  %27 = phi i64 [ %.pre3.i.i.i.i, %"sw.bb13.i._ZN9grpc_core14promise_detail7CurriedIZNS_16ClientAuthFilter20GetCallCredsMetadataENS_8CallArgsEE3$_0N4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEclEv.exit.thread.i.i_crit_edge.i.i.i.i" ], [ %10, %sw.bb13.i.thread.i.i.i.i ]
-  %28 = phi i8 [ %.pre.i.i.i.i, %"sw.bb13.i._ZN9grpc_core14promise_detail7CurriedIZNS_16ClientAuthFilter20GetCallCredsMetadataENS_8CallArgsEE3$_0N4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEclEv.exit.thread.i.i_crit_edge.i.i.i.i" ], [ %9, %sw.bb13.i.thread.i.i.i.i ]
+  %27 = phi i64 [ %.pre3.i.i.i.i, %"sw.bb13.i._ZN9grpc_core14promise_detail7CurriedIZNS_16ClientAuthFilter20GetCallCredsMetadataENS_8CallArgsEE3$_0N4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEclEv.exit.thread.i.i_crit_edge.i.i.i.i" ], [ %.fr.i.i.i.i.i, %sw.bb13.i.thread.i.i.i.i ]
+  %28 = phi i8 [ %.pre.i.i.i.i, %"sw.bb13.i._ZN9grpc_core14promise_detail7CurriedIZNS_16ClientAuthFilter20GetCallCredsMetadataENS_8CallArgsEE3$_0N4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEclEv.exit.thread.i.i_crit_edge.i.i.i.i" ], [ %result.sroa.6.0.ph.i.i.i.i.i, %sw.bb13.i.thread.i.i.i.i ]
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i31.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i31.i.i.i.i.i, align 8, !noalias !90
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !87

@@ -34,7 +34,7 @@ define hidden { ptr, i64 } @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pa
   %5 = tail call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h32b63db9d7f00a5bE"(ptr align 1 %2, i64 %3, ptr align 1 %0, i64 %1)
   %6 = getelementptr inbounds i8, ptr %2, i64 %1
   %7 = sub i64 %3, %1
-  %.sroa.3.0 = select i1 %5, i64 %7, i64 undef
+  %.sroa.3.0 = freeze i64 %7
   %.sroa.0.0 = select i1 %5, ptr %6, ptr null
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
@@ -45,7 +45,7 @@ define hidden { ptr, i64 } @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pa
 define hidden { ptr, i64 } @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h2438c75ba06ae5b2E"(ptr align 1 %0, i64 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
   %5 = tail call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h2eadc34054e0195cE"(ptr align 1 %2, i64 %3, ptr align 1 %0, i64 %1)
   %6 = sub i64 %3, %1
-  %.sroa.3.0 = select i1 %5, i64 %6, i64 undef
+  %.sroa.3.0 = freeze i64 %6
   %.sroa.0.0 = select i1 %5, ptr %2, ptr null
   %7 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %8 = insertvalue { ptr, i64 } %7, i64 %.sroa.3.0, 1

@@ -5277,9 +5277,10 @@ _ZN3std4path4Path4join17hce8bfe6a33f98d11E.exit.i: ; preds = %812
   br i1 %trunc67.i, label %861, label %860
 
 860:                                              ; preds = %856
+  %.sroa.6.0.i = freeze i64 %859
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40), !noalias !720
   store ptr %858, ptr %40, align 8, !noalias !720
-  store i64 %859, ptr %245, align 8, !noalias !720
+  store i64 %.sroa.6.0.i, ptr %245, align 8, !noalias !720
   br label %873
 
 861:                                              ; preds = %872, %856
@@ -12551,7 +12552,7 @@ define hidden void @_ZN4just8justfile8Justfile14suggest_recipe17h319894f8a2fed79
   %14 = getelementptr inbounds i8, ptr %1, i64 368
   %15 = load i64, ptr %14, align 8, !alias.scope !2485, !noalias !2488
   %.sroa.0.sroa.0.0.i = zext i1 %.not.i to i64
-  %.sroa.0.sroa.5.sroa.6.0.i = select i1 %.not.i, i64 %13, i64 undef
+  %.sroa.0.sroa.5.sroa.6.0.i = freeze i64 %13
   %.sroa.5.0.i = select i1 %.not.i, i64 %15, i64 0
   %16 = getelementptr inbounds i8, ptr %1, i64 272
   %17 = load ptr, ptr %16, align 8, !alias.scope !2490, !noalias !2493, !noundef !13
@@ -12560,7 +12561,7 @@ define hidden void @_ZN4just8justfile8Justfile14suggest_recipe17h319894f8a2fed79
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 288
   %21 = load i64, ptr %20, align 8
-  %.sroa.6.0 = select i1 %.not.i9, i64 %19, i64 undef
+  %.sroa.6.0 = freeze i64 %19
   %.sink21.i = zext i1 %.not.i9 to i64
   %.sink.i = select i1 %.not.i9, i64 %21, i64 0
   store i64 %.sroa.0.sroa.0.0.i, ptr %8, align 8
@@ -12714,7 +12715,7 @@ define internal fastcc void @_ZN4just8justfile8Justfile16suggest_variable17he6e9
   %15 = getelementptr inbounds i8, ptr %1, i64 312
   %16 = load i64, ptr %15, align 8, !alias.scope !2521, !noalias !2524
   %.sroa.0.sroa.0.0.i = zext i1 %.not.i to i64
-  %.sroa.0.sroa.5.sroa.6.0.i = select i1 %.not.i, i64 %14, i64 undef
+  %.sroa.0.sroa.5.sroa.6.0.i = freeze i64 %14
   %.sroa.5.0.i = select i1 %.not.i, i64 %16, i64 0
   store i64 %.sroa.0.sroa.0.0.i, ptr %9, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
@@ -12861,7 +12862,7 @@ define internal fastcc void @_ZN4just8justfile8Justfile5scope17h0dd3c11a5718b1d9
   %24 = getelementptr inbounds i8, ptr %5, i64 16
   %25 = load i64, ptr %24, align 8
   %.sroa.0.sroa.6.0 = zext i1 %.not to i64
-  %.sroa.0.sroa.5.sroa.6.0 = select i1 %.not, i64 %23, i64 undef
+  %.sroa.0.sroa.5.sroa.6.0 = freeze i64 %23
   %.sroa.5.0 = select i1 %.not, i64 %25, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15)
   store i64 %.sroa.0.sroa.6.0, ptr %15, align 8
@@ -13234,7 +13235,7 @@ define hidden void @_ZN4just8justfile8Justfile3run17hc6cf5faa11da3031E(ptr noali
   %88 = load i64, ptr %87, align 8
   %.sroa.5134.0 = select i1 %.not, i64 %88, i64 0
   %.sroa.0133.sroa.6.0 = zext i1 %.not to i64
-  %.sroa.0133.sroa.5.sroa.6.0 = select i1 %.not, i64 %86, i64 undef
+  %.sroa.0133.sroa.5.sroa.6.0 = freeze i64 %86
   store i64 %.sroa.0133.sroa.6.0, ptr %82, align 8
   %.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %82, i64 8
   store ptr null, ptr %.sroa.0.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -13981,7 +13982,7 @@ _ZN3std7process7Command4args17h0bb325bd8bdf6af7E.exit: ; preds = %.noexc393, %20
   %297 = getelementptr inbounds i8, ptr %78, i64 24
   %298 = load i64, ptr %297, align 8, !alias.scope !2690, !noalias !2695
   %.sroa.0.sroa.0.0.i.i = zext i1 %.not.i.i to i64
-  %.sroa.0.sroa.5.sroa.6.0.i.i = select i1 %.not.i.i, i64 %296, i64 undef
+  %.sroa.0.sroa.5.sroa.6.0.i.i = freeze i64 %296
   %.sroa.5.0.i.i = select i1 %.not.i.i, i64 %298, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %63)
   store i64 %.sroa.0.sroa.0.0.i.i, ptr %63, align 8
@@ -14019,7 +14020,7 @@ _ZN3std7process7Command4args17h0bb325bd8bdf6af7E.exit: ; preds = %.noexc393, %20
   %306 = load i64, ptr %295, align 8, !alias.scope !2698, !noalias !2703
   %307 = load i64, ptr %297, align 8, !alias.scope !2698, !noalias !2703
   %.sroa.0.sroa.0.0.i.i415 = zext i1 %.not.i.i414 to i64
-  %.sroa.0.sroa.5.sroa.6.0.i.i416 = select i1 %.not.i.i414, i64 %306, i64 undef
+  %.sroa.0.sroa.5.sroa.6.0.i.i416 = freeze i64 %306
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %62)
   store i64 %.sroa.0.sroa.0.0.i.i415, ptr %62, align 8
   %.sroa.2492.0..sroa_idx = getelementptr inbounds i8, ptr %62, i64 8
@@ -17246,7 +17247,7 @@ define hidden void @_ZN4just8justfile8Justfile14public_recipes17hd56bfce942f695b
   %12 = getelementptr inbounds i8, ptr %1, i64 368
   %13 = load i64, ptr %12, align 8, !alias.scope !3197, !noalias !3200
   %.sroa.0.sroa.0.0.i = zext i1 %.not.i to i64
-  %.sroa.0.sroa.5.sroa.6.0.i = select i1 %.not.i, i64 %11, i64 undef
+  %.sroa.0.sroa.5.sroa.6.0.i = freeze i64 %11
   %.sroa.5.0.i = select i1 %.not.i, i64 %13, i64 0
   store i64 %.sroa.0.sroa.0.0.i, ptr %6, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
@@ -17347,7 +17348,7 @@ define noundef zeroext i1 @"_ZN78_$LT$just..justfile..Justfile$u20$as$u20$just..
   %.not.i = icmp ne ptr %37, null
   %38 = getelementptr inbounds i8, ptr %0, i64 304
   %39 = load i64, ptr %38, align 8
-  %.sroa.7.0 = select i1 %.not.i, i64 %39, i64 undef
+  %.sroa.7.0 = freeze i64 %39
   %.sink21.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %31, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %25)
@@ -17399,7 +17400,7 @@ define noundef zeroext i1 @"_ZN78_$LT$just..justfile..Justfile$u20$as$u20$just..
   %59 = getelementptr inbounds i8, ptr %0, i64 280
   %60 = load i64, ptr %59, align 8, !alias.scope !3215, !noalias !3218
   %.sroa.0.sroa.0.0.i = zext i1 %.not.i60 to i64
-  %.sroa.0.sroa.5.sroa.6.0.i = select i1 %.not.i60, i64 %60, i64 undef
+  %.sroa.0.sroa.5.sroa.6.0.i = freeze i64 %60
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %19)
   store i64 %.sroa.0.sroa.0.0.i, ptr %19, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
@@ -17496,7 +17497,7 @@ common.resume:                                    ; preds = %116, %86
   %91 = getelementptr inbounds i8, ptr %0, i64 360
   %92 = load i64, ptr %91, align 8, !alias.scope !3231, !noalias !3234
   %.sroa.0.sroa.0.0.i62 = zext i1 %.not.i61 to i64
-  %.sroa.0.sroa.5.sroa.6.0.i63 = select i1 %.not.i61, i64 %92, i64 undef
+  %.sroa.0.sroa.5.sroa.6.0.i63 = freeze i64 %92
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14)
   store i64 %.sroa.0.sroa.0.0.i62, ptr %14, align 8
   %.sroa.282.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8

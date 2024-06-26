@@ -1158,6 +1158,7 @@ _ZN3std4path4Path4join17h84cb66cb90994f4fE.exit.i: ; preds = %262
   %278 = load ptr, ptr %277, align 8, !noalias !191, !nonnull !5, !align !222
   %279 = getelementptr inbounds i8, ptr %71, i64 16
   %280 = load i64, ptr %279, align 8, !noalias !191
+  %.sroa.6.0.i = freeze i64 %280
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %71), !noalias !191
   br i1 %trunc.i165, label %281, label %282
 
@@ -1166,14 +1167,14 @@ _ZN3std4path4Path4join17h84cb66cb90994f4fE.exit.i: ; preds = %262
           to label %283 unwind label %266, !noalias !201
 
 282:                                              ; preds = %275
-  %.not.i44.i = icmp ult i64 %280, 2
+  %.not.i44.i = icmp ult i64 %.sroa.6.0.i, 2
   br i1 %.not.i44.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17he3802cdb281fd9efE.exit.thread.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17he3802cdb281fd9efE.exit.i"
 
 283:                                              ; preds = %281
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17he3802cdb281fd9efE.exit.i": ; preds = %282
-  %284 = getelementptr i8, ptr %278, i64 %280
+  %284 = getelementptr i8, ptr %278, i64 %.sroa.6.0.i
   %285 = getelementptr i8, ptr %284, i64 -2
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) @anon.da44b60bac08044e6b21de30a705dee3.12, ptr noundef nonnull readonly dereferenceable(2) %285, i64 2), !alias.scope !223, !noalias !201
   %286 = icmp eq i32 %bcmp.i.i.i, 0
@@ -1759,8 +1760,9 @@ _ZN3std4path4Path4join17hfe4f79f45298948eE.exit:  ; preds = %425
 
 478:                                              ; preds = %472
   %..val2.i.i = load i64, ptr %342, align 8, !alias.scope !280, !noalias !269
+  %.sroa.3.0.i.i = freeze i64 %..val2.i.i
   %..val.i.i = load ptr, ptr %.sroa.7275.0..sroa_idx, align 8, !alias.scope !280, !noalias !269, !nonnull !5
-  %479 = invoke { ptr, i64 } @_ZN3std4path4Path13_strip_prefix17h9bd2bfa29ca3ec2eE(ptr noalias noundef nonnull readonly align 1 %473, i64 noundef %474, ptr noalias noundef nonnull readonly align 1 %..val.i.i, i64 noundef %..val2.i.i)
+  %479 = invoke { ptr, i64 } @_ZN3std4path4Path13_strip_prefix17h9bd2bfa29ca3ec2eE(ptr noalias noundef nonnull readonly align 1 %473, i64 noundef %474, ptr noalias noundef nonnull readonly align 1 %..val.i.i, i64 noundef %.sroa.3.0.i.i)
           to label %.noexc48.i unwind label %.loopexit378, !noalias !267
 
 .noexc48.i:                                       ; preds = %478

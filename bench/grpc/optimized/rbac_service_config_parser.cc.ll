@@ -6882,31 +6882,31 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   %7 = load i64, ptr %_M_node_count.i.i.i, align 8
   %cmp14.not = icmp ugt i64 %7, %5
   %8 = load i32, ptr %result, align 4
-  %9 = zext i32 %8 to i64
-  %10 = select i1 %cmp14.not, i64 0, i64 4294967296
-  %11 = select i1 %cmp14.not, i64 0, i64 %9
+  %spec.select11 = freeze i32 %8
+  %9 = select i1 %cmp14.not, i64 0, i64 4294967296
+  %10 = zext i32 %spec.select11 to i64
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont12, %invoke.cont6
-  %retval.sroa.2.0 = phi i64 [ 0, %invoke.cont6 ], [ %10, %invoke.cont12 ]
-  %retval.sroa.0.0 = phi i64 [ 0, %invoke.cont6 ], [ %11, %invoke.cont12 ]
-  %12 = load ptr, ptr %error_field, align 8
-  %cmp.not.i = icmp eq ptr %12, null
+  %retval.sroa.2.0 = phi i64 [ 0, %invoke.cont6 ], [ %9, %invoke.cont12 ]
+  %retval.sroa.0.0 = phi i64 [ 0, %invoke.cont6 ], [ %10, %invoke.cont12 ]
+  %11 = load ptr, ptr %error_field, align 8
+  %cmp.not.i = icmp eq ptr %11, null
   br i1 %cmp.not.i, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %11)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #23
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #23
   unreachable
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %cleanup, %if.then.i
-  %retval.sroa.0.0.insert.insert = or i64 %retval.sroa.0.0, %retval.sroa.2.0
+  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.0.0, %retval.sroa.2.0
   ret i64 %retval.sroa.0.0.insert.insert
 
 eh.resume:                                        ; preds = %lpad5, %lpad
@@ -6972,31 +6972,31 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   %7 = load i64, ptr %_M_node_count.i.i.i, align 8
   %cmp14.not = icmp ugt i64 %7, %5
   %result.val = load i8, ptr %result, align 1
-  %8 = zext i8 %result.val to i16
-  %9 = select i1 %cmp14.not, i16 0, i16 256
-  %10 = select i1 %cmp14.not, i16 0, i16 %8
+  %spec.select11 = freeze i8 %result.val
+  %8 = select i1 %cmp14.not, i16 0, i16 256
+  %9 = zext i8 %spec.select11 to i16
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont12, %invoke.cont6
-  %retval.sroa.2.0 = phi i16 [ 0, %invoke.cont6 ], [ %9, %invoke.cont12 ]
-  %retval.sroa.0.0 = phi i16 [ 0, %invoke.cont6 ], [ %10, %invoke.cont12 ]
-  %11 = load ptr, ptr %error_field, align 8
-  %cmp.not.i = icmp eq ptr %11, null
+  %retval.sroa.2.0 = phi i16 [ 0, %invoke.cont6 ], [ %8, %invoke.cont12 ]
+  %retval.sroa.0.0 = phi i16 [ 0, %invoke.cont6 ], [ %9, %invoke.cont12 ]
+  %10 = load ptr, ptr %error_field, align 8
+  %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %10)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #23
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #23
   unreachable
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %cleanup, %if.then.i
-  %retval.sroa.0.0.insert.insert = or i16 %retval.sroa.0.0, %retval.sroa.2.0
+  %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.0.0, %retval.sroa.2.0
   ret i16 %retval.sroa.0.0.insert.insert
 
 eh.resume:                                        ; preds = %lpad5, %lpad
@@ -13377,31 +13377,31 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   %7 = load i64, ptr %_M_node_count.i.i.i, align 8
   %cmp14.not = icmp ugt i64 %7, %5
   %8 = load i32, ptr %result, align 4
-  %9 = zext i32 %8 to i64
-  %10 = select i1 %cmp14.not, i64 0, i64 4294967296
-  %11 = select i1 %cmp14.not, i64 0, i64 %9
+  %spec.select11 = freeze i32 %8
+  %9 = select i1 %cmp14.not, i64 0, i64 4294967296
+  %10 = zext i32 %spec.select11 to i64
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont12, %invoke.cont6
-  %retval.sroa.2.0 = phi i64 [ 0, %invoke.cont6 ], [ %10, %invoke.cont12 ]
-  %retval.sroa.0.0 = phi i64 [ 0, %invoke.cont6 ], [ %11, %invoke.cont12 ]
-  %12 = load ptr, ptr %error_field, align 8
-  %cmp.not.i = icmp eq ptr %12, null
+  %retval.sroa.2.0 = phi i64 [ 0, %invoke.cont6 ], [ %9, %invoke.cont12 ]
+  %retval.sroa.0.0 = phi i64 [ 0, %invoke.cont6 ], [ %10, %invoke.cont12 ]
+  %11 = load ptr, ptr %error_field, align 8
+  %cmp.not.i = icmp eq ptr %11, null
   br i1 %cmp.not.i, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %11)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #23
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #23
   unreachable
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %cleanup, %if.then.i
-  %retval.sroa.0.0.insert.insert = or i64 %retval.sroa.0.0, %retval.sroa.2.0
+  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.0.0, %retval.sroa.2.0
   ret i64 %retval.sroa.0.0.insert.insert
 
 eh.resume:                                        ; preds = %lpad5, %lpad

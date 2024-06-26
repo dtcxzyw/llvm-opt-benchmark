@@ -1568,7 +1568,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
   %13 = zext i32 %12 to i64
   %14 = icmp ule i64 %13, %2
   %15 = select i1 %11, i1 true, i1 %14
-  br i1 %15, label %16, label %.thread22
+  br i1 %15, label %16, label %.thread23
 
 16:                                               ; preds = %5
   %17 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #21, !srcloc !24
@@ -1578,7 +1578,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
   %21 = getelementptr inbounds i8, ptr %18, i64 2432
   %22 = load ptr, ptr %21, align 64
   %23 = icmp ult i64 %4, 8
-  br i1 %23, label %24, label %.thread22
+  br i1 %23, label %24, label %.thread23
 
 24:                                               ; preds = %16
   store i64 0, ptr %8, align 8, !annotation !20
@@ -1588,9 +1588,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
 26:                                               ; preds = %24
   %27 = and i64 %4, 3
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %.thread23, label %.thread22
+  br i1 %28, label %.thread24, label %.thread23
 
-.thread23:                                        ; preds = %26
+.thread24:                                        ; preds = %26
   %29 = getelementptr inbounds i8, ptr %18, i64 2056
   tail call void @_raw_spin_lock(ptr noundef %29) #19
   %30 = getelementptr inbounds i8, ptr %18, i64 2248
@@ -1652,21 +1652,21 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
 
 53:                                               ; preds = %49
   %54 = call ptr %51(ptr noundef nonnull %41, i64 noundef %3, ptr noundef nonnull %7) #19
-  br label %.thread16
+  br label %.thread17
 
 55:                                               ; preds = %49, %45
   %56 = getelementptr inbounds i8, ptr %41, i64 160
   %57 = load ptr, ptr %56, align 8
-  br label %.thread16
+  br label %.thread17
 
 58:                                               ; preds = %43, %44
   tail call void @up_read(ptr noundef %37) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
-  br label %.thread22
+  br label %.thread23
 
 59:                                               ; preds = %32
   %60 = icmp eq i64 %3, 0
-  br i1 %60, label %61, label %.thread22
+  br i1 %60, label %61, label %.thread23
 
 61:                                               ; preds = %59
   %62 = icmp eq ptr %22, null
@@ -1674,7 +1674,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
   %64 = icmp eq i64 %4, 0
   br i1 %64, label %125, label %113
 
-.thread16:                                        ; preds = %53, %55
+.thread17:                                        ; preds = %53, %55
   %.ph = phi ptr [ %57, %55 ], [ %54, %53 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   %65 = icmp eq ptr %.ph, null
@@ -1683,7 +1683,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
   %68 = icmp eq i64 %67, 0
   br i1 %68, label %125, label %69
 
-69:                                               ; preds = %.thread16
+69:                                               ; preds = %.thread17
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %66, ptr nonnull elementtype(i32) %66) #19, !srcloc !27
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #19
           to label %71 [label %70], !srcloc !14
@@ -1736,9 +1736,10 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
 96:                                               ; preds = %92
   %97 = getelementptr i8, ptr %76, i64 72
   %98 = load volatile i64, ptr %97, align 8
-  %99 = and i64 %98, 1
+  %.fr16 = freeze i64 %98
+  %99 = and i64 %.fr16, 1
   %100 = icmp eq i64 %99, 0
-  %101 = add nsw i64 %98, -1
+  %101 = add i64 %.fr16, -1
   %102 = inttoptr i64 %101 to ptr
   br i1 %100, label %103, label %104
 
@@ -1752,13 +1753,13 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
   %108 = icmp ult i8 %107, 2
   call void @llvm.assume(i1 %108)
   %109 = icmp eq i8 %107, 0
-  br i1 %109, label %.thread19, label %110
+  br i1 %109, label %.thread20, label %110
 
 110:                                              ; preds = %104
   call void @__folio_put(ptr noundef %105) #19
-  br label %.thread19
+  br label %.thread20
 
-.thread19:                                        ; preds = %104, %110
+.thread20:                                        ; preds = %104, %110
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
   br label %140
 
@@ -1785,9 +1786,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
   %124 = tail call fastcc i32 @__next_node_in(i32 noundef %122, ptr noundef %123)
   br label %140
 
-125:                                              ; preds = %.thread16, %61
-  %126 = phi ptr [ %66, %.thread16 ], [ %63, %61 ]
-  %127 = phi ptr [ %41, %.thread16 ], [ null, %61 ]
+125:                                              ; preds = %.thread17, %61
+  %126 = phi ptr [ %66, %.thread17 ], [ %63, %61 ]
+  %127 = phi ptr [ %41, %.thread17 ], [ null, %61 ]
   %128 = icmp eq ptr %126, @default_policy
   br i1 %128, label %133, label %129
 
@@ -1806,11 +1807,11 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
   %139 = or i32 %134, %138
   br label %140
 
-140:                                              ; preds = %.thread19, %133, %119, %111
-  %141 = phi ptr [ %126, %133 ], [ %63, %119 ], [ %66, %111 ], [ %66, %.thread19 ]
-  %142 = phi i32 [ %139, %133 ], [ %124, %119 ], [ 0, %111 ], [ %79, %.thread19 ]
-  %143 = phi ptr [ %127, %133 ], [ null, %119 ], [ null, %111 ], [ null, %.thread19 ]
-  %144 = phi ptr [ null, %133 ], [ null, %119 ], [ %66, %111 ], [ %66, %.thread19 ]
+140:                                              ; preds = %.thread20, %133, %119, %111
+  %141 = phi ptr [ %126, %133 ], [ %63, %119 ], [ %66, %111 ], [ %66, %.thread20 ]
+  %142 = phi i32 [ %139, %133 ], [ %124, %119 ], [ 0, %111 ], [ %79, %.thread20 ]
+  %143 = phi ptr [ %127, %133 ], [ null, %119 ], [ null, %111 ], [ null, %.thread20 ]
+  %144 = phi ptr [ null, %133 ], [ null, %119 ], [ %66, %111 ], [ %66, %.thread20 ]
   %145 = getelementptr inbounds i8, ptr %141, i64 6
   %146 = load i16, ptr %145, align 2
   %147 = icmp ult i16 %146, 8192
@@ -1914,10 +1915,10 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
 
 192:                                              ; preds = %190, %186, %184
   %193 = icmp eq i32 %165, 0
-  br i1 %193, label %194, label %.thread22
+  br i1 %193, label %194, label %.thread23
 
-194:                                              ; preds = %.thread23, %192
-  %195 = phi i32 [ 0, %.thread23 ], [ %164, %192 ]
+194:                                              ; preds = %.thread24, %192
+  %195 = phi i32 [ 0, %.thread24 ], [ %164, %192 ]
   %196 = icmp eq i64 %0, 0
   br i1 %196, label %207, label %197
 
@@ -1932,10 +1933,10 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
   %204 = icmp ne i64 %203, 0
   %205 = or i1 %11, %204
   %206 = select i1 %204, i32 -14, i32 0
-  br i1 %205, label %.thread22, label %208
+  br i1 %205, label %.thread23, label %208
 
 207:                                              ; preds = %194
-  br i1 %11, label %.thread22, label %208
+  br i1 %11, label %.thread23, label %208
 
 208:                                              ; preds = %207, %197
   %209 = add i64 %2, 62
@@ -1959,7 +1960,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
 
 226:                                              ; preds = %208
   %227 = icmp ugt i64 %211, 4096
-  br i1 %227, label %.thread22, label %228
+  br i1 %227, label %.thread23, label %228
 
 228:                                              ; preds = %226
   %229 = getelementptr i8, ptr %10, i64 %224
@@ -1984,7 +1985,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
 241:                                              ; preds = %236, %228
   %242 = phi i64 [ %239, %236 ], [ %230, %228 ]
   %243 = icmp eq i64 %242, 0
-  br i1 %243, label %244, label %.thread22
+  br i1 %243, label %244, label %.thread23
 
 244:                                              ; preds = %241
   %245 = load i32, ptr @nr_node_ids, align 4
@@ -1999,7 +2000,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
 250:                                              ; preds = %247
   %251 = call i64 @compat_put_bitmap(ptr noundef %10, ptr noundef nonnull %8, i64 noundef %248) #19
   %252 = trunc i64 %251 to i32
-  br label %.thread22
+  br label %.thread23
 
 253:                                              ; preds = %247
   %254 = icmp ult i64 %249, 9
@@ -2007,15 +2008,15 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
 
 255:                                              ; preds = %253
   call void @__copy_overflow(i32 noundef 8, i64 noundef %249) #19
-  br label %.thread22
+  br label %.thread23
 
 256:                                              ; preds = %253
   %257 = call i64 @_copy_to_user(ptr noundef %10, ptr noundef nonnull %8, i64 noundef %249) #19
   %258 = icmp eq i64 %257, 0
   %259 = select i1 %258, i32 0, i32 -14
-  br label %.thread22
+  br label %.thread23
 
-.thread22:                                        ; preds = %16, %26, %58, %59, %256, %255, %250, %241, %226, %207, %197, %192, %5
+.thread23:                                        ; preds = %16, %26, %58, %59, %256, %255, %250, %241, %226, %207, %197, %192, %5
   %260 = phi i32 [ -22, %5 ], [ %165, %192 ], [ %206, %197 ], [ 0, %207 ], [ %252, %250 ], [ -22, %226 ], [ -14, %241 ], [ %259, %256 ], [ -14, %255 ], [ -22, %16 ], [ -22, %26 ], [ -14, %58 ], [ -22, %59 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
   %261 = sext i32 %260 to i64
@@ -5598,7 +5599,7 @@ define internal range(i32 -5, 1) i32 @queue_folios_pte_range(ptr noundef %0, i64
   br i1 %18, label %..loopexit_crit_edge, label %19
 
 ..loopexit_crit_edge:                             ; preds = %17
-  %.pre7 = and i64 %12, 7
+  %.pre8 = and i64 %12, 7
   br label %.loopexit
 
 19:                                               ; preds = %17
@@ -5794,9 +5795,10 @@ define internal range(i32 -5, 1) i32 @queue_folios_pte_range(ptr noundef %0, i64
 142:                                              ; preds = %138
   %143 = getelementptr i8, ptr %51, i64 72
   %144 = load volatile i64, ptr %143, align 8
-  %145 = and i64 %144, 1
+  %.fr7 = freeze i64 %144
+  %145 = and i64 %.fr7, 1
   %146 = icmp eq i64 %145, 0
-  %147 = add nsw i64 %144, -1
+  %147 = add i64 %.fr7, -1
   %148 = inttoptr i64 %147 to ptr
   br i1 %146, label %149, label %150
 
@@ -5872,7 +5874,7 @@ define internal range(i32 -5, 1) i32 @queue_folios_pte_range(ptr noundef %0, i64
   br label %33, !llvm.loop !75
 
 .loopexit:                                        ; preds = %188, %182, %..loopexit_crit_edge
-  %.pre-phi = phi i64 [ %.pre7, %..loopexit_crit_edge ], [ %29, %182 ], [ %29, %188 ]
+  %.pre-phi = phi i64 [ %.pre8, %..loopexit_crit_edge ], [ %29, %182 ], [ %29, %188 ]
   %194 = load ptr, ptr %6, align 8
   call void @_raw_spin_unlock(ptr noundef %194) #19
   call void @__rcu_read_unlock() #19
@@ -5991,9 +5993,10 @@ define internal range(i32 -5, 1) i32 @queue_folios_hugetlb(ptr noundef %0, i64 %
 75:                                               ; preds = %71
   %76 = getelementptr i8, ptr %58, i64 72
   %77 = load volatile i64, ptr %76, align 8
-  %78 = and i64 %77, 1
+  %.fr1 = freeze i64 %77
+  %78 = and i64 %.fr1, 1
   %79 = icmp eq i64 %78, 0
-  %80 = add nsw i64 %77, -1
+  %80 = add i64 %.fr1, -1
   %81 = inttoptr i64 %80 to ptr
   br i1 %79, label %82, label %83
 
@@ -6127,9 +6130,10 @@ define internal range(i32 -5, 1) i32 @queue_folios_hugetlb(ptr noundef %0, i64 %
 167:                                              ; preds = %163
   %168 = getelementptr i8, ptr %84, i64 72
   %169 = load volatile i64, ptr %168, align 8
-  %170 = and i64 %169, 1
+  %.fr2 = freeze i64 %169
+  %170 = and i64 %.fr2, 1
   %171 = icmp eq i64 %170, 0
-  %172 = add nsw i64 %169, -1
+  %172 = add i64 %.fr2, -1
   %173 = inttoptr i64 %172 to ptr
   br i1 %171, label %174, label %175
 
@@ -6192,9 +6196,10 @@ define internal range(i32 -5, 1) i32 @queue_folios_hugetlb(ptr noundef %0, i64 %
 213:                                              ; preds = %209
   %214 = getelementptr i8, ptr %196, i64 72
   %215 = load volatile i64, ptr %214, align 8
-  %216 = and i64 %215, 1
+  %.fr3 = freeze i64 %215
+  %216 = and i64 %.fr3, 1
   %217 = icmp eq i64 %216, 0
-  %218 = add nsw i64 %215, -1
+  %218 = add i64 %.fr3, -1
   %219 = inttoptr i64 %218 to ptr
   br i1 %217, label %220, label %221
 

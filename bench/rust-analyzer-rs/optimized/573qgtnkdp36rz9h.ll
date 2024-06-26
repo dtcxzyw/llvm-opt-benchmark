@@ -1142,8 +1142,9 @@ define { i32, i32 } @_ZN3vfs3Vfs7file_id17h0b6c396968d10fa1E(ptr noalias noundef
   %7 = load i64, ptr %3, align 8, !alias.scope !297, !noalias !294, !noundef !20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !294
   %8 = call { i64, i64 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12get_index_of17h4986bb8d417055baE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
-  %9 = extractvalue { i64, i64 } %8, 0
-  %10 = extractvalue { i64, i64 } %8, 1
+  %.fr16 = freeze { i64, i64 } %8
+  %9 = extractvalue { i64, i64 } %.fr16, 0
+  %10 = extractvalue { i64, i64 } %.fr16, 1
   %11 = trunc i64 %10 to i32
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %"_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit", label %15
@@ -1155,32 +1156,32 @@ _ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit: ; preds = %2
   br i1 %14, label %15, label %"_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit"
 
 15:                                               ; preds = %6, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit
-  %16 = phi i32 [ %11, %6 ], [ 0, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ]
-  %.val110.in = getelementptr inbounds i8, ptr %0, i64 72
-  %.val110 = load i64, ptr %.val110.in, align 8
-  %17 = zext i32 %16 to i64
-  %18 = icmp ugt i64 %.val110, %17
-  br i1 %18, label %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i", label %19, !prof !300
+  %.sroa.3.0.i13 = phi i32 [ %11, %6 ], [ 0, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ]
+  %.val115.in = getelementptr inbounds i8, ptr %0, i64 72
+  %.val115 = load i64, ptr %.val115.in, align 8
+  %16 = zext i32 %.sroa.3.0.i13 to i64
+  %17 = icmp ugt i64 %.val115, %16
+  br i1 %17, label %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i", label %18, !prof !300
 
-19:                                               ; preds = %15
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %.val110, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7855ef78f73ea6488ff6900a1ea4815f.33.llvm.12041220681261970885) #23, !noalias !301
+18:                                               ; preds = %15
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %16, i64 noundef %.val115, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7855ef78f73ea6488ff6900a1ea4815f.33.llvm.12041220681261970885) #23, !noalias !301
   unreachable
 
 "_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i": ; preds = %15
-  %.val9.in = getelementptr inbounds i8, ptr %0, i64 64
-  %.val9 = load ptr, ptr %.val9.in, align 8, !nonnull !20, !noundef !20
-  %20 = getelementptr inbounds [0 x i8], ptr %.val9, i64 0, i64 %17
-  %21 = load i8, ptr %20, align 1, !range !304, !noalias !301, !noundef !20
-  %switch.i.i = icmp ult i8 %21, 2
+  %.val14.in = getelementptr inbounds i8, ptr %0, i64 64
+  %.val14 = load ptr, ptr %.val14.in, align 8, !nonnull !20, !noundef !20
+  %19 = getelementptr inbounds [0 x i8], ptr %.val14, i64 0, i64 %16
+  %20 = load i8, ptr %19, align 1, !range !304, !noalias !301, !noundef !20
+  %switch.i.i = icmp ult i8 %20, 2
   %spec.select.i = zext i1 %switch.i.i to i32
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit": ; preds = %2, %6, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i"
-  %22 = phi i32 [ 0, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ], [ %16, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i" ], [ %11, %6 ], [ undef, %2 ]
+  %.sroa.3.0.i8 = phi i32 [ 0, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ], [ %.sroa.3.0.i13, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i" ], [ %11, %6 ], [ 0, %2 ]
   %.sroa.02.0.i = phi i32 [ 0, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ], [ %spec.select.i, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i" ], [ 0, %6 ], [ 0, %2 ]
-  %23 = insertvalue { i32, i32 } poison, i32 %.sroa.02.0.i, 0
-  %24 = insertvalue { i32, i32 } %23, i32 %22, 1
-  ret { i32, i32 } %24
+  %21 = insertvalue { i32, i32 } poison, i32 %.sroa.02.0.i, 0
+  %22 = insertvalue { i32, i32 } %21, i32 %.sroa.3.0.i8, 1
+  ret { i32, i32 } %22
 }
 
 ; Function Attrs: nonlazybind uwtable

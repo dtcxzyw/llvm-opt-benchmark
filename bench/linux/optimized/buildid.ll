@@ -95,12 +95,12 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr nocapture nou
   %45 = zext nneg i16 %37 to i64
   br label %46
 
-46:                                               ; preds = %.thread11, %42
-  %47 = phi i64 [ 0, %42 ], [ %105, %.thread11 ]
+46:                                               ; preds = %.thread12, %42
+  %47 = phi i64 [ 0, %42 ], [ %105, %.thread12 ]
   %48 = getelementptr %struct.elf32_phdr, ptr %40, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 4
-  br i1 %50, label %51, label %.thread11
+  br i1 %50, label %51, label %.thread12
 
 51:                                               ; preds = %46
   %52 = getelementptr inbounds i8, ptr %48, i64 4
@@ -108,7 +108,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr nocapture nou
   %54 = zext i32 %53 to i64
   %55 = getelementptr i8, ptr %24, i64 %54
   %56 = icmp ult ptr %55, %24
-  br i1 %56, label %.thread11, label %57
+  br i1 %56, label %.thread12, label %57
 
 57:                                               ; preds = %51
   %58 = getelementptr inbounds i8, ptr %48, i64 16
@@ -118,22 +118,22 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr nocapture nou
   %62 = icmp ult ptr %61, %55
   %63 = icmp ugt ptr %61, %43
   %64 = or i1 %62, %63
-  br i1 %64, label %.thread11, label %.preheader
+  br i1 %64, label %.thread12, label %.preheader
 
 .preheader:                                       ; preds = %57, %93
   %65 = phi i32 [ %104, %93 ], [ 0, %57 ]
   %66 = zext i32 %65 to i64
   %67 = add nuw nsw i64 %66, 12
   %68 = icmp ult i64 %67, %60
-  br i1 %68, label %69, label %.thread11
+  br i1 %68, label %69, label %.thread12
 
 69:                                               ; preds = %.preheader
   %70 = getelementptr i8, ptr %55, i64 %66
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, 3
-  %.pre29 = load i32, ptr %70, align 4
-  %74 = icmp eq i32 %.pre29, 4
+  %.pre30 = load i32, ptr %70, align 4
+  %74 = icmp eq i32 %.pre30, 4
   %or.cond = select i1 %73, i1 %74, i1 false
   br i1 %or.cond, label %75, label %93
 
@@ -164,7 +164,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr nocapture nou
   br i1 %44, label %.thread, label %.thread.sink.split
 
 93:                                               ; preds = %79, %75, %69
-  %94 = add i32 %.pre29, 3
+  %94 = add i32 %.pre30, 3
   %95 = and i32 %94, -4
   %96 = getelementptr inbounds i8, ptr %70, i64 4
   %97 = load i32, ptr %96, align 4
@@ -175,9 +175,9 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr nocapture nou
   %102 = add i32 %101, %99
   %103 = icmp ugt i32 %102, %65
   %104 = tail call i32 @llvm.umax.i32(i32 %102, i32 %65)
-  br i1 %103, label %.preheader, label %.thread11
+  br i1 %103, label %.preheader, label %.thread12
 
-.thread11:                                        ; preds = %93, %.preheader, %57, %51, %46
+.thread12:                                        ; preds = %93, %.preheader, %57, %51, %46
   %105 = add nuw nsw i64 %47, 1
   %106 = icmp ult i64 %105, %45
   br i1 %106, label %46, label %.thread, !llvm.loop !10
@@ -199,19 +199,19 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr nocapture nou
   %117 = zext nneg i16 %109 to i64
   br label %118
 
-118:                                              ; preds = %.thread15, %114
-  %119 = phi i64 [ 0, %114 ], [ %176, %.thread15 ]
+118:                                              ; preds = %.thread16, %114
+  %119 = phi i64 [ 0, %114 ], [ %176, %.thread16 ]
   %120 = getelementptr %struct.elf64_phdr, ptr %112, i64 %119
   %121 = load i32, ptr %120, align 8
   %122 = icmp eq i32 %121, 4
-  br i1 %122, label %123, label %.thread15
+  br i1 %122, label %123, label %.thread16
 
 123:                                              ; preds = %118
   %124 = getelementptr inbounds i8, ptr %120, i64 8
   %125 = load i64, ptr %124, align 8
   %126 = getelementptr i8, ptr %24, i64 %125
   %127 = icmp ult ptr %126, %24
-  br i1 %127, label %.thread15, label %128
+  br i1 %127, label %.thread16, label %128
 
 128:                                              ; preds = %123
   %129 = getelementptr inbounds i8, ptr %120, i64 32
@@ -221,24 +221,24 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr nocapture nou
   %133 = icmp ult ptr %132, %126
   %134 = icmp ugt ptr %132, %115
   %135 = or i1 %133, %134
-  br i1 %135, label %.thread15, label %.preheader16
+  br i1 %135, label %.thread16, label %.preheader17
 
-.preheader16:                                     ; preds = %128, %164
+.preheader17:                                     ; preds = %128, %164
   %136 = phi i32 [ %175, %164 ], [ 0, %128 ]
   %137 = zext i32 %136 to i64
   %138 = add nuw nsw i64 %137, 12
   %139 = icmp ult i64 %138, %131
-  br i1 %139, label %140, label %.thread15
+  br i1 %139, label %140, label %.thread16
 
-140:                                              ; preds = %.preheader16
+140:                                              ; preds = %.preheader17
   %141 = getelementptr i8, ptr %126, i64 %137
   %142 = getelementptr inbounds i8, ptr %141, i64 8
   %143 = load i32, ptr %142, align 4
   %144 = icmp eq i32 %143, 3
   %.pre = load i32, ptr %141, align 4
   %145 = icmp eq i32 %.pre, 4
-  %or.cond38 = select i1 %144, i1 %145, i1 false
-  br i1 %or.cond38, label %146, label %164
+  %or.cond39 = select i1 %144, i1 %145, i1 false
+  br i1 %or.cond39, label %146, label %164
 
 146:                                              ; preds = %140
   %147 = getelementptr i8, ptr %141, i64 12
@@ -278,21 +278,21 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr nocapture nou
   %173 = add i32 %172, %170
   %174 = icmp ugt i32 %173, %136
   %175 = tail call i32 @llvm.umax.i32(i32 %173, i32 %136)
-  br i1 %174, label %.preheader16, label %.thread15
+  br i1 %174, label %.preheader17, label %.thread16
 
-.thread15:                                        ; preds = %164, %.preheader16, %128, %123, %118
+.thread16:                                        ; preds = %164, %.preheader17, %128, %123, %118
   %176 = add nuw nsw i64 %119, 1
   %177 = icmp ult i64 %176, %117
   br i1 %177, label %118, label %.thread, !llvm.loop !13
 
 .thread.sink.split:                               ; preds = %155, %84
-  %.sink39 = phi ptr [ %85, %84 ], [ %156, %155 ]
-  %178 = load i32, ptr %.sink39, align 4
+  %.sink40 = phi ptr [ %85, %84 ], [ %156, %155 ]
+  %178 = load i32, ptr %.sink40, align 4
   store i32 %178, ptr %2, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.thread15, %.thread11, %.thread.sink.split, %155, %84, %111, %107, %39, %35, %32, %27, %12
-  %179 = phi i32 [ -22, %12 ], [ -22, %27 ], [ -22, %32 ], [ -22, %35 ], [ -22, %39 ], [ -22, %107 ], [ -22, %111 ], [ 0, %84 ], [ 0, %155 ], [ 0, %.thread.sink.split ], [ -22, %.thread11 ], [ -22, %.thread15 ]
+.thread:                                          ; preds = %.thread16, %.thread12, %.thread.sink.split, %155, %84, %111, %107, %39, %35, %32, %27, %12
+  %179 = phi i32 [ -22, %12 ], [ -22, %27 ], [ -22, %32 ], [ -22, %35 ], [ -22, %39 ], [ -22, %107 ], [ -22, %111 ], [ 0, %84 ], [ 0, %155 ], [ 0, %.thread.sink.split ], [ -22, %.thread12 ], [ -22, %.thread16 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !14
   %180 = load i32, ptr %15, align 4
   %181 = add i32 %180, -1
@@ -340,9 +340,10 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr nocapture nou
 204:                                              ; preds = %200
   %205 = getelementptr i8, ptr %10, i64 72
   %206 = load volatile i64, ptr %205, align 8
-  %207 = and i64 %206, 1
+  %.fr11 = freeze i64 %206
+  %207 = and i64 %.fr11, 1
   %208 = icmp eq i64 %207, 0
-  %209 = add nsw i64 %206, -1
+  %209 = add i64 %.fr11, -1
   %210 = inttoptr i64 %209 to ptr
   br i1 %208, label %211, label %212
 

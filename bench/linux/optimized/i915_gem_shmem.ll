@@ -121,9 +121,10 @@ define dso_local void @shmem_sg_free_table(ptr noundef %0, ptr noundef %1, i1 no
 52:                                               ; preds = %48
   %53 = getelementptr i8, ptr %31, i64 72
   %54 = load volatile i64, ptr %53, align 8
-  %55 = and i64 %54, 1
+  %.fr10 = freeze i64 %54
+  %55 = and i64 %.fr10, 1
   %56 = icmp eq i64 %55, 0
-  %57 = add nsw i64 %54, -1
+  %57 = add i64 %.fr10, -1
   %58 = inttoptr i64 %57 to ptr
   br i1 %56, label %59, label %60
 
@@ -230,8 +231,8 @@ define dso_local void @shmem_sg_free_table(ptr noundef %0, ptr noundef %1, i1 no
   br i1 %122, label %.loopexit, label %30, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.thread
-  %.pre10 = load i8, ptr %5, align 8
-  %123 = icmp eq i8 %.pre10, 0
+  %.pre11 = load i8, ptr %5, align 8
+  %123 = icmp eq i8 %.pre11, 0
   br i1 %123, label %.loopexit.thread, label %124
 
 124:                                              ; preds = %.loopexit
@@ -577,9 +578,10 @@ define dso_local void @__shmem_writeback(i64 noundef %0, ptr noundef %1) local_u
 42:                                               ; preds = %38
   %43 = getelementptr i8, ptr %13, i64 72
   %44 = load volatile i64, ptr %43, align 8
-  %45 = and i64 %44, 1
+  %.fr2 = freeze i64 %44
+  %45 = and i64 %.fr2, 1
   %46 = icmp eq i64 %45, 0
-  %47 = add nsw i64 %44, -1
+  %47 = add i64 %.fr2, -1
   %48 = inttoptr i64 %47 to ptr
   br i1 %46, label %49, label %50
 
@@ -643,9 +645,10 @@ define dso_local void @__shmem_writeback(i64 noundef %0, ptr noundef %1) local_u
 83:                                               ; preds = %79
   %84 = getelementptr i8, ptr %13, i64 72
   %85 = load volatile i64, ptr %84, align 8
-  %86 = and i64 %85, 1
+  %.fr3 = freeze i64 %85
+  %86 = and i64 %.fr3, 1
   %87 = icmp eq i64 %86, 0
-  %88 = add nsw i64 %85, -1
+  %88 = add i64 %.fr3, -1
   %89 = inttoptr i64 %88 to ptr
   br i1 %87, label %90, label %91
 
@@ -693,9 +696,10 @@ define dso_local void @__shmem_writeback(i64 noundef %0, ptr noundef %1) local_u
 115:                                              ; preds = %111
   %116 = getelementptr i8, ptr %13, i64 72
   %117 = load volatile i64, ptr %116, align 8
-  %118 = and i64 %117, 1
+  %.fr4 = freeze i64 %117
+  %118 = and i64 %.fr4, 1
   %119 = icmp eq i64 %118, 0
-  %120 = add nsw i64 %117, -1
+  %120 = add i64 %.fr4, -1
   %121 = inttoptr i64 %120 to ptr
   br i1 %119, label %122, label %123
 
@@ -744,9 +748,10 @@ define dso_local void @__shmem_writeback(i64 noundef %0, ptr noundef %1) local_u
 147:                                              ; preds = %143
   %148 = getelementptr i8, ptr %13, i64 72
   %149 = load volatile i64, ptr %148, align 8
-  %150 = and i64 %149, 1
+  %.fr5 = freeze i64 %149
+  %150 = and i64 %.fr5, 1
   %151 = icmp eq i64 %150, 0
-  %152 = add nsw i64 %149, -1
+  %152 = add i64 %.fr5, -1
   %153 = inttoptr i64 %152 to ptr
   br i1 %151, label %154, label %155
 
@@ -804,9 +809,10 @@ define dso_local void @__shmem_writeback(i64 noundef %0, ptr noundef %1) local_u
 182:                                              ; preds = %178
   %183 = getelementptr i8, ptr %13, i64 72
   %184 = load volatile i64, ptr %183, align 8
-  %185 = and i64 %184, 1
+  %.fr6 = freeze i64 %184
+  %185 = and i64 %.fr6, 1
   %186 = icmp eq i64 %185, 0
-  %187 = add nsw i64 %184, -1
+  %187 = add i64 %.fr6, -1
   %188 = inttoptr i64 %187 to ptr
   br i1 %186, label %189, label %190
 
@@ -1036,7 +1042,7 @@ define internal i32 @shmem_get_pages(ptr noundef %0) #0 align 16 {
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %14 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 11456, i64 noundef 16) #13
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit13, label %16
+  br i1 %15, label %.loopexit14, label %16
 
 16:                                               ; preds = %1
   %17 = tail call i64 @llvm.umin.i64(i64 %12, i64 4294967295)
@@ -1051,7 +1057,7 @@ define internal i32 @shmem_get_pages(ptr noundef %0) #0 align 16 {
   %24 = load i64, ptr %20, align 8
   %25 = tail call i32 @shmem_sg_alloc_table(ptr noundef %3, ptr noundef nonnull %22, i64 noundef %24, ptr noundef %5, ptr noundef %9, i32 noundef %23)
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %.loopexit12
+  br i1 %26, label %27, label %.loopexit13
 
 27:                                               ; preds = %21
   %28 = tail call i32 @i915_gem_gtt_prepare_pages(ptr noundef %0, ptr noundef nonnull %22) #12
@@ -1127,9 +1133,10 @@ define internal i32 @shmem_get_pages(ptr noundef %0) #0 align 16 {
 74:                                               ; preds = %70
   %75 = getelementptr i8, ptr %53, i64 72
   %76 = load volatile i64, ptr %75, align 8
-  %77 = and i64 %76, 1
+  %.fr12 = freeze i64 %76
+  %77 = and i64 %.fr12, 1
   %78 = icmp eq i64 %77, 0
-  %79 = add nsw i64 %76, -1
+  %79 = add i64 %.fr12, -1
   %80 = inttoptr i64 %79 to ptr
   br i1 %78, label %81, label %82
 
@@ -1212,7 +1219,7 @@ define internal i32 @shmem_get_pages(ptr noundef %0) #0 align 16 {
   %131 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %132 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %131, i32 noundef 11456, i64 noundef 16) #13
   %133 = icmp eq ptr %132, null
-  br i1 %133, label %.loopexit13, label %21
+  br i1 %133, label %.loopexit14, label %21
 
 134:                                              ; preds = %30
   %135 = load ptr, ptr %10, align 8
@@ -1220,7 +1227,7 @@ define internal i32 @shmem_get_pages(ptr noundef %0) #0 align 16 {
   %137 = lshr i64 %136, 12
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %135, ptr noundef nonnull @.str.3, i64 noundef %137) #14
   tail call void @shmem_sg_free_table(ptr noundef nonnull %22, ptr noundef %9, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %.loopexit12
+  br label %.loopexit13
 
 138:                                              ; preds = %27
   %139 = tail call zeroext i1 @i915_gem_object_needs_bit17_swizzle(ptr noundef %0) #12
@@ -1243,17 +1250,17 @@ define internal i32 @shmem_get_pages(ptr noundef %0) #0 align 16 {
 
 147:                                              ; preds = %143, %141
   tail call void @__i915_gem_object_set_pages(ptr noundef %0, ptr noundef nonnull %22) #12
-  br label %.loopexit13
+  br label %.loopexit14
 
-.loopexit12:                                      ; preds = %21, %134
+.loopexit13:                                      ; preds = %21, %134
   %148 = phi i32 [ %28, %134 ], [ %25, %21 ]
   %149 = icmp eq i32 %148, -28
   %150 = select i1 %149, i32 -12, i32 %148
   tail call void @kfree(ptr noundef nonnull %22) #12
-  br label %.loopexit13
+  br label %.loopexit14
 
-.loopexit13:                                      ; preds = %.loopexit, %.loopexit12, %147, %1
-  %151 = phi i32 [ %150, %.loopexit12 ], [ 0, %147 ], [ -12, %1 ], [ -12, %.loopexit ]
+.loopexit14:                                      ; preds = %.loopexit, %.loopexit13, %147, %1
+  %151 = phi i32 [ %150, %.loopexit13 ], [ 0, %147 ], [ -12, %1 ], [ -12, %.loopexit ]
   ret i32 %151
 }
 

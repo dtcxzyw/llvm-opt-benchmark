@@ -885,23 +885,21 @@ define void @_ZN15actix_multipart6server9Multipart8boundary17h4a7f5a09292cb55eE(
   %27 = xor i64 %26, -9223372036854775808
   %28 = icmp ult i64 %27, 3
   %29 = select i1 %28, i64 %27, i64 1
-  %switch.i.i = icmp eq i64 %29, 1
   %30 = getelementptr inbounds i8, ptr %11, i64 48
   %31 = getelementptr inbounds i8, ptr %11, i64 24
   %32 = load ptr, ptr %31, align 8, !alias.scope !217, !noalias !218, !nonnull !4
+  %.sroa.5.0.i.i = freeze ptr %32
   %33 = getelementptr inbounds i8, ptr %11, i64 32
   %34 = load i64, ptr %33, align 8, !alias.scope !217, !noalias !218
-  %35 = getelementptr inbounds { { i64, i64 }, { i64, i64 } }, ptr %32, i64 %34
-  %.sroa.42.0.i.i = select i1 %switch.i.i, ptr %30, ptr undef
-  %.sroa.5.0.i.i = select i1 %switch.i.i, ptr %32, ptr undef
-  %.sroa.6.0.i.i = select i1 %switch.i.i, ptr %35, ptr undef
+  %.fr.i.i = freeze i64 %34
+  %35 = getelementptr { { i64, i64 }, { i64, i64 } }, ptr %.sroa.5.0.i.i, i64 %.fr.i.i
   store i64 %29, ptr %5, align 8, !alias.scope !211, !noalias !219
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %.sroa.42.0.i.i, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !211, !noalias !219
+  store ptr %30, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !211, !noalias !219
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %.sroa.5.0.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !211, !noalias !219
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %.sroa.6.0.i.i, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !211, !noalias !219
+  store ptr %35, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !211, !noalias !219
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !220
   invoke void @"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c743eb7055390c3E.llvm.1214063349730439972"(ptr noalias nocapture noundef nonnull sret({ [16 x i8], i8, [31 x i8] }) align 8 dereferenceable(48) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc unwind label %.loopexit.split-lp

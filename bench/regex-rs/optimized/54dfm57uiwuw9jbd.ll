@@ -1997,13 +1997,12 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %24, ptr nonnull readonly align 4 %17, i64 %26, i1 false)
   %27 = getelementptr inbounds i8, ptr %.sroa.013.031, i64 24
   %28 = load i8, ptr %27, align 8, !range !352, !alias.scope !353, !noalias !354, !noundef !11
-  %trunc.i = trunc nuw i8 %28 to i1
   %29 = getelementptr inbounds i8, ptr %.sroa.013.031, i64 25
   %30 = load i8, ptr %29, align 1, !alias.scope !353, !noalias !354
   %31 = getelementptr inbounds i8, ptr %.sroa.013.031, i64 26
   %32 = load i8, ptr %31, align 1, !alias.scope !353, !noalias !354
-  %.sroa.6.0.i = select i1 %trunc.i, i8 %32, i8 undef
-  %.sroa.5.0.i = select i1 %trunc.i, i8 %30, i8 undef
+  %.sroa.6.0.i = freeze i8 %32
+  %.sroa.5.0.i = freeze i8 %30
   %33 = getelementptr inbounds [0 x { [4 x i64] }], ptr %7, i64 0, i64 %.sroa.7.030
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.07.sroa.9)
   store i64 %23, ptr %33, align 8
@@ -4911,13 +4910,12 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %27, ptr nonnull readonly align 4 %20, i64 %29, i1 false)
   %30 = getelementptr inbounds i8, ptr %.sroa.013.031.i, i64 24
   %31 = load i8, ptr %30, align 8, !range !352, !alias.scope !822, !noalias !823, !noundef !11
-  %trunc.i.i = trunc nuw i8 %31 to i1
   %32 = getelementptr inbounds i8, ptr %.sroa.013.031.i, i64 25
   %33 = load i8, ptr %32, align 1, !alias.scope !822, !noalias !823
   %34 = getelementptr inbounds i8, ptr %.sroa.013.031.i, i64 26
   %35 = load i8, ptr %34, align 1, !alias.scope !822, !noalias !823
-  %.sroa.6.0.i.i = select i1 %trunc.i.i, i8 %35, i8 undef
-  %.sroa.5.0.i.i = select i1 %trunc.i.i, i8 %33, i8 undef
+  %.sroa.6.0.i.i = freeze i8 %35
+  %.sroa.5.0.i.i = freeze i8 %33
   %36 = getelementptr inbounds [0 x { [4 x i64] }], ptr %10, i64 0, i64 %.sroa.7.030.i
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.07.sroa.9.i)
   store i64 %26, ptr %36, align 8

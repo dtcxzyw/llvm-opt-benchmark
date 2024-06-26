@@ -740,16 +740,15 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17ha9
   %39 = bitcast <16 x i1> %38 to i16
   %.not.not.i15.i.i = icmp ne i16 %39, 0
   %40 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %39, i1 true)
-  %41 = zext nneg i16 %40 to i64
-  %.sroa.6.0.i.i.i = select i1 %.not.not.i15.i.i, i64 %41, i64 undef
-  %42 = add i64 %.sroa.6.0.i.i.i, %.sroa.0.025.i.i
+  %.fr.i.i.i = freeze i16 %40
+  %41 = zext i16 %.fr.i.i.i to i64
+  %42 = add i64 %.sroa.0.025.i.i, %41
   %43 = and i64 %42, %.val4.i
-  %.sroa.3.0.i.i.i = select i1 %.not.not.i15.i.i, i64 %43, i64 undef
   %.sroa.0.0.i16.i.i = zext i1 %.not.not.i15.i.i to i64
   br label %44
 
 44:                                               ; preds = %37, %24
-  %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %37 ], [ %.sroa.6.0.i.i, %24 ]
+  %.sroa.6.1.i.i = phi i64 [ %43, %37 ], [ %.sroa.6.0.i.i, %24 ]
   %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i16.i.i, %37 ], [ 1, %24 ]
   %45 = icmp eq <16 x i8> %.0.copyload.i32.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %46 = bitcast <16 x i1> %45 to i16

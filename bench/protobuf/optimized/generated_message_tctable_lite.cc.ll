@@ -12926,7 +12926,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %cmp.i44 = icmp eq i64 %4, %5
   %last_serial_arena.i = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load ptr, ptr %last_serial_arena.i, align 16
-  %serial_arena.i.0 = select i1 %cmp.i44, ptr %6, ptr undef
+  %serial_arena.i.0 = freeze ptr %6
   br i1 %cmp.i44, label %land.rhs.i, label %do.body37.i.preheader
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
@@ -12958,8 +12958,8 @@ do.body37.i.preheader:                            ; preds = %land.lhs.true.i, %i
   br label %do.body37.i
 
 do.body.i.preheader:                              ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase15PrepareForParseEv.exit
-  %string_block_unused_.i = getelementptr inbounds i8, ptr %6, i64 40
-  %string_block_.i = getelementptr inbounds i8, ptr %6, i64 32
+  %string_block_unused_.i = getelementptr inbounds i8, ptr %serial_arena.i.0, i64 40
+  %string_block_.i = getelementptr inbounds i8, ptr %serial_arena.i.0, i64 32
   %capacity_proxy_.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 12
   %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   br label %do.body.i
@@ -13202,7 +13202,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %cmp.i44 = icmp eq i64 %3, %4
   %last_serial_arena.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %last_serial_arena.i, align 16
-  %serial_arena.i.0 = select i1 %cmp.i44, ptr %5, ptr undef
+  %serial_arena.i.0 = freeze ptr %5
   br i1 %cmp.i44, label %land.rhs.i, label %do.body37.i.preheader
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
@@ -13234,8 +13234,8 @@ do.body37.i.preheader:                            ; preds = %land.lhs.true.i, %i
   br label %do.body37.i
 
 do.body.i.preheader:                              ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase15PrepareForParseEv.exit
-  %string_block_unused_.i = getelementptr inbounds i8, ptr %5, i64 40
-  %string_block_.i = getelementptr inbounds i8, ptr %5, i64 32
+  %string_block_unused_.i = getelementptr inbounds i8, ptr %serial_arena.i.0, i64 40
+  %string_block_.i = getelementptr inbounds i8, ptr %serial_arena.i.0, i64 32
   %capacity_proxy_.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 12
   %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   br label %do.body.i
@@ -13478,7 +13478,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %cmp.i44 = icmp eq i64 %4, %5
   %last_serial_arena.i = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load ptr, ptr %last_serial_arena.i, align 16
-  %serial_arena.i.0 = select i1 %cmp.i44, ptr %6, ptr undef
+  %serial_arena.i.0 = freeze ptr %6
   br i1 %cmp.i44, label %land.rhs.i, label %do.body37.i.preheader
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
@@ -13510,8 +13510,8 @@ do.body37.i.preheader:                            ; preds = %land.lhs.true.i, %i
   br label %do.body37.i
 
 do.body.i.preheader:                              ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase15PrepareForParseEv.exit
-  %string_block_unused_.i = getelementptr inbounds i8, ptr %6, i64 40
-  %string_block_.i = getelementptr inbounds i8, ptr %6, i64 32
+  %string_block_unused_.i = getelementptr inbounds i8, ptr %serial_arena.i.0, i64 40
+  %string_block_.i = getelementptr inbounds i8, ptr %serial_arena.i.0, i64 32
   %capacity_proxy_.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 12
   %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   br label %do.body.i
@@ -13754,7 +13754,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %cmp.i44 = icmp eq i64 %3, %4
   %last_serial_arena.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %last_serial_arena.i, align 16
-  %serial_arena.i.0 = select i1 %cmp.i44, ptr %5, ptr undef
+  %serial_arena.i.0 = freeze ptr %5
   br i1 %cmp.i44, label %land.rhs.i, label %do.body37.i.preheader
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
@@ -13786,8 +13786,8 @@ do.body37.i.preheader:                            ; preds = %land.lhs.true.i, %i
   br label %do.body37.i
 
 do.body.i.preheader:                              ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase15PrepareForParseEv.exit
-  %string_block_unused_.i = getelementptr inbounds i8, ptr %5, i64 40
-  %string_block_.i = getelementptr inbounds i8, ptr %5, i64 32
+  %string_block_unused_.i = getelementptr inbounds i8, ptr %serial_arena.i.0, i64 40
+  %string_block_.i = getelementptr inbounds i8, ptr %serial_arena.i.0, i64 32
   %capacity_proxy_.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 12
   %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   br label %do.body.i
@@ -14030,7 +14030,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %cmp.i44 = icmp eq i64 %4, %5
   %last_serial_arena.i = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load ptr, ptr %last_serial_arena.i, align 16
-  %serial_arena.i.0 = select i1 %cmp.i44, ptr %6, ptr undef
+  %serial_arena.i.0 = freeze ptr %6
   br i1 %cmp.i44, label %land.rhs.i, label %if.else.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
@@ -14059,8 +14059,8 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase15PrepareForParseEv.exit: ; pr
   br i1 %cmp.i, label %do.body.i.preheader, label %if.else.i
 
 do.body.i.preheader:                              ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase15PrepareForParseEv.exit
-  %string_block_unused_.i = getelementptr inbounds i8, ptr %6, i64 40
-  %string_block_.i = getelementptr inbounds i8, ptr %6, i64 32
+  %string_block_unused_.i = getelementptr inbounds i8, ptr %serial_arena.i.0, i64 40
+  %string_block_.i = getelementptr inbounds i8, ptr %serial_arena.i.0, i64 32
   %capacity_proxy_.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 12
   %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   br label %do.body.i
@@ -14361,7 +14361,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %cmp.i44 = icmp eq i64 %3, %4
   %last_serial_arena.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %last_serial_arena.i, align 16
-  %serial_arena.i.0 = select i1 %cmp.i44, ptr %5, ptr undef
+  %serial_arena.i.0 = freeze ptr %5
   br i1 %cmp.i44, label %land.rhs.i, label %if.else.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
@@ -14390,8 +14390,8 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase15PrepareForParseEv.exit: ; pr
   br i1 %cmp.i, label %do.body.i.preheader, label %if.else.i
 
 do.body.i.preheader:                              ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase15PrepareForParseEv.exit
-  %string_block_unused_.i = getelementptr inbounds i8, ptr %5, i64 40
-  %string_block_.i = getelementptr inbounds i8, ptr %5, i64 32
+  %string_block_unused_.i = getelementptr inbounds i8, ptr %serial_arena.i.0, i64 40
+  %string_block_.i = getelementptr inbounds i8, ptr %serial_arena.i.0, i64 32
   %capacity_proxy_.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 12
   %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   br label %do.body.i
@@ -25892,7 +25892,7 @@ land.lhs.true:                                    ; preds = %sw.bb
   %cmp.i117 = icmp eq i64 %6, %7
   %last_serial_arena.i = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load ptr, ptr %last_serial_arena.i, align 16
-  %serial_arena.0 = select i1 %cmp.i117, ptr %8, ptr undef
+  %serial_arena.0 = freeze ptr %8
   br i1 %cmp.i117, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %land.lhs.true
@@ -25921,8 +25921,8 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase15PrepareForParseEv.exit: ; pr
   br i1 %cmp.i90, label %do.body.preheader, label %if.else
 
 do.body.preheader:                                ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase15PrepareForParseEv.exit
-  %string_block_unused_.i = getelementptr inbounds i8, ptr %8, i64 40
-  %string_block_.i = getelementptr inbounds i8, ptr %8, i64 32
+  %string_block_unused_.i = getelementptr inbounds i8, ptr %serial_arena.0, i64 40
+  %string_block_.i = getelementptr inbounds i8, ptr %serial_arena.0, i64 32
   %capacity_proxy_.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 12
   %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %cmp.i115 = icmp eq i16 %2, 1024
@@ -34081,7 +34081,7 @@ land.lhs.true:                                    ; preds = %_ZN6google8protobuf
   %cmp.i117 = icmp eq i64 %24, %25
   %last_serial_arena.i = getelementptr inbounds i8, ptr %23, i64 16
   %26 = load ptr, ptr %last_serial_arena.i, align 16
-  %serial_arena.0 = select i1 %cmp.i117, ptr %26, ptr undef
+  %serial_arena.0 = freeze ptr %26
   br i1 %cmp.i117, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %land.lhs.true
@@ -34110,8 +34110,8 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase15PrepareForParseEv.exit: ; pr
   br i1 %cmp.i100, label %do.body.preheader, label %if.else
 
 do.body.preheader:                                ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase15PrepareForParseEv.exit
-  %string_block_unused_.i = getelementptr inbounds i8, ptr %26, i64 40
-  %string_block_.i = getelementptr inbounds i8, ptr %26, i64 32
+  %string_block_unused_.i = getelementptr inbounds i8, ptr %serial_arena.0, i64 40
+  %string_block_.i = getelementptr inbounds i8, ptr %serial_arena.0, i64 32
   %capacity_proxy_.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 12
   %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %cmp.i128 = icmp eq i16 %2, 1024

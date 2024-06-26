@@ -84,9 +84,10 @@ define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 al
 20:                                               ; preds = %16
   %21 = getelementptr i8, ptr %0, i64 72
   %22 = load volatile i64, ptr %21, align 8
-  %23 = and i64 %22, 1
+  %.fr1 = freeze i64 %22
+  %23 = and i64 %.fr1, 1
   %24 = icmp eq i64 %23, 0
-  %25 = add nsw i64 %22, -1
+  %25 = add i64 %.fr1, -1
   %26 = inttoptr i64 %25 to ptr
   br i1 %24, label %27, label %28
 
@@ -151,9 +152,10 @@ define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 al
 62:                                               ; preds = %58
   %63 = getelementptr i8, ptr %0, i64 72
   %64 = load volatile i64, ptr %63, align 8
-  %65 = and i64 %64, 1
+  %.fr2 = freeze i64 %64
+  %65 = and i64 %.fr2, 1
   %66 = icmp eq i64 %65, 0
-  %67 = add nsw i64 %64, -1
+  %67 = add i64 %.fr2, -1
   %68 = inttoptr i64 %67 to ptr
   br i1 %66, label %69, label %70
 
@@ -217,9 +219,10 @@ define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 al
 101:                                              ; preds = %97
   %102 = getelementptr i8, ptr %0, i64 72
   %103 = load volatile i64, ptr %102, align 8
-  %104 = and i64 %103, 1
+  %.fr3 = freeze i64 %103
+  %104 = and i64 %.fr3, 1
   %105 = icmp eq i64 %104, 0
-  %106 = add nsw i64 %103, -1
+  %106 = add i64 %.fr3, -1
   %107 = inttoptr i64 %106 to ptr
   br i1 %105, label %108, label %109
 
@@ -243,93 +246,93 @@ define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 al
   %121 = load volatile i64, ptr %0, align 8
   %122 = and i64 %121, 64
   %123 = icmp eq i64 %122, 0
-  br i1 %123, label %.thread3, label %124
+  br i1 %123, label %.thread12, label %124
 
 124:                                              ; preds = %112
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #7
-          to label %.thread5 [label %125], !srcloc !7
+          to label %.thread14 [label %125], !srcloc !7
 
 125:                                              ; preds = %124
   %126 = ptrtoint ptr %0 to i64
   %127 = and i64 %126, 4095
   %128 = icmp eq i64 %127, 0
-  br i1 %128, label %129, label %.thread5
+  br i1 %128, label %129, label %.thread14
 
 129:                                              ; preds = %125
   %130 = load volatile i64, ptr %0, align 8
   %131 = and i64 %130, 64
   %132 = icmp eq i64 %131, 0
-  br i1 %132, label %.thread5, label %133
+  br i1 %132, label %.thread14, label %133
 
 133:                                              ; preds = %129
   %134 = getelementptr i8, ptr %0, i64 72
   %135 = load volatile i64, ptr %134, align 8
-  %.fr20 = freeze i64 %135
-  %136 = and i64 %.fr20, 1
+  %.fr4 = freeze i64 %135
+  %136 = and i64 %.fr4, 1
   %137 = icmp eq i64 %136, 0
-  br i1 %137, label %.thread5, label %139
+  br i1 %137, label %.thread14, label %139
 
-.thread5:                                         ; preds = %124, %133, %129, %125
+.thread14:                                        ; preds = %124, %133, %129, %125
   %138 = or disjoint i64 %120, 32768
   br label %143
 
 139:                                              ; preds = %133
-  %140 = add nsw i64 %.fr20, -1
+  %140 = add nsw i64 %.fr4, -1
   %141 = inttoptr i64 %140 to ptr
   %.not = icmp eq ptr %141, %0
   %142 = or disjoint i64 %120, 32768
-  br i1 %.not, label %143, label %.thread3
+  br i1 %.not, label %143, label %.thread12
 
-.thread3:                                         ; preds = %112, %139
+.thread12:                                        ; preds = %112, %139
   br label %143
 
-143:                                              ; preds = %.thread5, %139, %.thread3
-  %144 = phi i64 [ %120, %.thread3 ], [ %142, %139 ], [ %138, %.thread5 ]
+143:                                              ; preds = %.thread14, %139, %.thread12
+  %144 = phi i64 [ %120, %.thread12 ], [ %142, %139 ], [ %138, %.thread14 ]
   %145 = load volatile i64, ptr %5, align 8
   %146 = and i64 %145, 1
   %147 = icmp eq i64 %146, 0
-  br i1 %147, label %149, label %.thread8
+  br i1 %147, label %149, label %.thread17
 
-.thread8:                                         ; preds = %143
+.thread17:                                        ; preds = %143
   %148 = or disjoint i64 %144, 65536
   br label %167
 
 149:                                              ; preds = %143
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #7
-          to label %.thread11 [label %150], !srcloc !7
+          to label %.thread20 [label %150], !srcloc !7
 
 150:                                              ; preds = %149
   %151 = ptrtoint ptr %0 to i64
   %152 = and i64 %151, 4095
   %153 = icmp eq i64 %152, 0
-  br i1 %153, label %154, label %.thread11
+  br i1 %153, label %154, label %.thread20
 
 154:                                              ; preds = %150
   %155 = load volatile i64, ptr %0, align 8
   %156 = and i64 %155, 64
   %157 = icmp eq i64 %156, 0
-  br i1 %157, label %.thread11, label %158
+  br i1 %157, label %.thread20, label %158
 
 158:                                              ; preds = %154
   %159 = getelementptr i8, ptr %0, i64 72
   %160 = load volatile i64, ptr %159, align 8
-  %.fr24 = freeze i64 %160
-  %161 = and i64 %.fr24, 1
+  %.fr5 = freeze i64 %160
+  %161 = and i64 %.fr5, 1
   %162 = icmp eq i64 %161, 0
-  br i1 %162, label %.thread11, label %163
+  br i1 %162, label %.thread20, label %163
 
 163:                                              ; preds = %158
-  %164 = add nsw i64 %.fr24, -1
+  %164 = add nsw i64 %.fr5, -1
   %165 = inttoptr i64 %164 to ptr
-  %.not21 = icmp eq ptr %165, %0
+  %.not27 = icmp eq ptr %165, %0
   %166 = or disjoint i64 %144, 65536
-  br i1 %.not21, label %.thread11, label %167
+  br i1 %.not27, label %.thread20, label %167
 
-.thread11:                                        ; preds = %150, %154, %158, %149, %163
+.thread20:                                        ; preds = %150, %154, %158, %149, %163
   br label %167
 
-167:                                              ; preds = %.thread8, %163, %.thread11
-  %168 = phi i64 [ %144, %.thread11 ], [ %166, %163 ], [ %148, %.thread8 ]
+167:                                              ; preds = %.thread17, %163, %.thread20
+  %168 = phi i64 [ %144, %.thread20 ], [ %166, %163 ], [ %148, %.thread17 ]
   %169 = tail call i32 @PageHuge(ptr noundef nonnull %0) #7
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %173, label %171
@@ -391,9 +394,10 @@ define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 al
 206:                                              ; preds = %202
   %207 = getelementptr i8, ptr %0, i64 72
   %208 = load volatile i64, ptr %207, align 8
-  %209 = and i64 %208, 1
+  %.fr6 = freeze i64 %208
+  %209 = and i64 %.fr6, 1
   %210 = icmp eq i64 %209, 0
-  %211 = add nsw i64 %208, -1
+  %211 = add i64 %.fr6, -1
   %212 = inttoptr i64 %211 to ptr
   br i1 %210, label %213, label %214
 
@@ -463,30 +467,31 @@ define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 al
 
 258:                                              ; preds = %249
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #7
-          to label %.thread14 [label %259], !srcloc !7
+          to label %.thread23 [label %259], !srcloc !7
 
 259:                                              ; preds = %258
   %260 = ptrtoint ptr %0 to i64
   %261 = and i64 %260, 4095
   %262 = icmp eq i64 %261, 0
-  br i1 %262, label %263, label %.thread14
+  br i1 %262, label %263, label %.thread23
 
 263:                                              ; preds = %259
   %264 = load volatile i64, ptr %0, align 8
   %265 = and i64 %264, 64
   %266 = icmp eq i64 %265, 0
-  br i1 %266, label %.thread14, label %267
+  br i1 %266, label %.thread23, label %267
 
 267:                                              ; preds = %263
   %268 = getelementptr i8, ptr %0, i64 72
   %269 = load volatile i64, ptr %268, align 8
-  %270 = and i64 %269, 1
+  %.fr7 = freeze i64 %269
+  %270 = and i64 %.fr7, 1
   %271 = icmp eq i64 %270, 0
-  %272 = add nsw i64 %269, -1
+  %272 = add i64 %.fr7, -1
   %273 = inttoptr i64 %272 to ptr
   %274 = icmp eq ptr %273, %0
-  %or.cond = select i1 %271, i1 true, i1 %274
-  br i1 %or.cond, label %.thread14, label %275
+  %or.cond = or i1 %271, %274
+  br i1 %or.cond, label %.thread23, label %275
 
 275:                                              ; preds = %267, %249
   %276 = load volatile i64, ptr %5, align 8
@@ -518,9 +523,10 @@ define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 al
 291:                                              ; preds = %287
   %292 = getelementptr i8, ptr %0, i64 72
   %293 = load volatile i64, ptr %292, align 8
-  %294 = and i64 %293, 1
+  %.fr8 = freeze i64 %293
+  %294 = and i64 %.fr8, 1
   %295 = icmp eq i64 %294, 0
-  %296 = add nsw i64 %293, -1
+  %296 = add i64 %.fr8, -1
   %297 = inttoptr i64 %296 to ptr
   br i1 %295, label %298, label %299
 
@@ -534,9 +540,9 @@ define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 al
   %303 = icmp eq i64 %302, 0
   %304 = or i64 %251, 128
   %305 = select i1 %303, i64 %254, i64 %304
-  br label %.thread14
+  br label %.thread23
 
-.thread14:                                        ; preds = %259, %263, %267, %258, %299
+.thread23:                                        ; preds = %259, %263, %267, %258, %299
   %306 = phi i64 [ %305, %299 ], [ %254, %258 ], [ %254, %267 ], [ %254, %263 ], [ %254, %259 ]
   %307 = lshr i64 %4, 9
   %308 = and i64 %307, 2
@@ -556,12 +562,12 @@ define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 al
   %322 = icmp eq i64 %321, 0
   br i1 %322, label %326, label %323, !prof !6
 
-323:                                              ; preds = %.thread14
+323:                                              ; preds = %.thread23
   %324 = add nsw i64 %320, -1
   %325 = inttoptr i64 %324 to ptr
   br label %343
 
-326:                                              ; preds = %.thread14
+326:                                              ; preds = %.thread23
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #7
           to label %343 [label %327], !srcloc !7
 
@@ -580,9 +586,10 @@ define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 al
 335:                                              ; preds = %331
   %336 = getelementptr i8, ptr %0, i64 72
   %337 = load volatile i64, ptr %336, align 8
-  %338 = and i64 %337, 1
+  %.fr9 = freeze i64 %337
+  %338 = and i64 %.fr9, 1
   %339 = icmp eq i64 %338, 0
-  %340 = add nsw i64 %337, -1
+  %340 = add i64 %.fr9, -1
   %341 = inttoptr i64 %340 to ptr
   br i1 %339, label %342, label %343
 
@@ -594,17 +601,17 @@ define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 al
   %345 = load volatile i64, ptr %344, align 8
   %346 = and i64 %345, 524288
   %347 = icmp eq i64 %346, 0
-  br i1 %347, label %.thread16, label %348
+  br i1 %347, label %.thread25, label %348
 
 348:                                              ; preds = %343
   %349 = load volatile i64, ptr %344, align 8
-  %.fr26 = freeze i64 %349
-  %350 = shl i64 %.fr26, 1
+  %.fr29 = freeze i64 %349
+  %350 = shl i64 %.fr29, 1
   %351 = and i64 %350, 8192
   %spec.select = or i64 %351, %319
-  br label %.thread16
+  br label %.thread25
 
-.thread16:                                        ; preds = %348, %343
+.thread25:                                        ; preds = %348, %343
   %352 = phi i64 [ %319, %343 ], [ %spec.select, %348 ]
   %353 = lshr i64 %4, 5
   %354 = and i64 %353, 16384
@@ -630,8 +637,8 @@ define dso_local i64 @stable_page_flags(ptr noundef %0) local_unnamed_addr #0 al
   %374 = or i64 %373, %352
   br label %375
 
-375:                                              ; preds = %.thread16, %1
-  %376 = phi i64 [ %374, %.thread16 ], [ 1048576, %1 ]
+375:                                              ; preds = %.thread25, %1
+  %376 = phi i64 [ %374, %.thread25 ], [ 1048576, %1 ]
   ret i64 %376
 }
 
@@ -830,9 +837,10 @@ define internal i64 @kpagecount_read(ptr nocapture readnone %0, ptr noundef %1, 
 108:                                              ; preds = %104
   %109 = getelementptr i8, ptr %89, i64 72
   %110 = load volatile i64, ptr %109, align 8
-  %111 = and i64 %110, 1
+  %.fr14 = freeze i64 %110
+  %111 = and i64 %.fr14, 1
   %112 = icmp eq i64 %111, 0
-  %113 = add nsw i64 %110, -1
+  %113 = add i64 %.fr14, -1
   %114 = inttoptr i64 %113 to ptr
   br i1 %112, label %115, label %116
 
@@ -901,9 +909,10 @@ define internal i64 @kpagecount_read(ptr nocapture readnone %0, ptr noundef %1, 
 154:                                              ; preds = %150
   %155 = getelementptr i8, ptr %89, i64 72
   %156 = load volatile i64, ptr %155, align 8
-  %157 = and i64 %156, 1
+  %.fr15 = freeze i64 %156
+  %157 = and i64 %.fr15, 1
   %158 = icmp eq i64 %157, 0
-  %159 = add nsw i64 %156, -1
+  %159 = add i64 %.fr15, -1
   %160 = inttoptr i64 %159 to ptr
   br i1 %158, label %161, label %162
 
@@ -972,12 +981,12 @@ define internal i64 @kpagecount_read(ptr nocapture readnone %0, ptr noundef %1, 
 
 .sink.split:                                      ; preds = %189, %.loopexit
   %.sink = phi i64 [ %199, %.loopexit ], [ %194, %189 ]
-  %.ph22 = phi i64 [ %198, %.loopexit ], [ -14, %189 ]
+  %.ph24 = phi i64 [ %198, %.loopexit ], [ -14, %189 ]
   store i64 %.sink, ptr %3, align 8
   br label %200
 
 200:                                              ; preds = %.sink.split, %10, %4
-  %201 = phi i64 [ -22, %4 ], [ 0, %10 ], [ %.ph22, %.sink.split ]
+  %201 = phi i64 [ -22, %4 ], [ 0, %10 ], [ %.ph24, %.sink.split ]
   ret i64 %201
 }
 

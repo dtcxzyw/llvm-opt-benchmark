@@ -922,14 +922,14 @@ define internal void @hugetlb_cgroup_css_offline(ptr noundef %0) #0 align 16 {
   %.pre = load i32, ptr @hugetlb_max_hstate, align 4
   br label %4
 
-4:                                                ; preds = %.loopexit9, %1
-  %5 = phi i32 [ %80, %.loopexit9 ], [ %.pre, %1 ]
+4:                                                ; preds = %.loopexit10, %1
+  %5 = phi i32 [ %80, %.loopexit10 ], [ %.pre, %1 ]
   %6 = sext i32 %5 to i64
   %7 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %6
   %8 = icmp ugt ptr %7, @hstates
-  br i1 %8, label %.preheader10, label %.loopexit11
+  br i1 %8, label %.preheader11, label %.loopexit12
 
-.preheader10:                                     ; preds = %4, %.loopexit
+.preheader11:                                     ; preds = %4, %.loopexit
   %9 = phi ptr [ %74, %.loopexit ], [ @hstates, %4 ]
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @hugetlb_lock) #9
   %10 = getelementptr inbounds i8, ptr %9, i64 104
@@ -937,7 +937,7 @@ define internal void @hugetlb_cgroup_css_offline(ptr noundef %0) #0 align 16 {
   %12 = icmp eq ptr %11, %10
   br i1 %12, label %.loopexit, label %13
 
-13:                                               ; preds = %.preheader10
+13:                                               ; preds = %.preheader11
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %14, ptrtoint (ptr @hstates to i64)
   %16 = sdiv exact i64 %15, 6088
@@ -979,9 +979,10 @@ define internal void @hugetlb_cgroup_css_offline(ptr noundef %0) #0 align 16 {
 39:                                               ; preds = %35
   %40 = getelementptr i8, ptr %21, i64 64
   %41 = load volatile i64, ptr %40, align 8
-  %42 = and i64 %41, 1
+  %.fr9 = freeze i64 %41
+  %42 = and i64 %.fr9, 1
   %43 = icmp eq i64 %42, 0
-  %44 = add nsw i64 %41, -1
+  %44 = add i64 %.fr9, -1
   %45 = inttoptr i64 %44 to ptr
   br i1 %43, label %46, label %47
 
@@ -1032,16 +1033,16 @@ define internal void @hugetlb_cgroup_css_offline(ptr noundef %0) #0 align 16 {
   %73 = icmp eq ptr %72, %10
   br i1 %73, label %.loopexit, label %20, !llvm.loop !28
 
-.loopexit:                                        ; preds = %71, %.preheader10
+.loopexit:                                        ; preds = %71, %.preheader11
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @hugetlb_lock) #9
   %74 = getelementptr i8, ptr %9, i64 6088
   %75 = load i32, ptr @hugetlb_max_hstate, align 4
   %76 = sext i32 %75 to i64
   %77 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %76
   %78 = icmp ult ptr %74, %77
-  br i1 %78, label %.preheader10, label %.loopexit11, !llvm.loop !29
+  br i1 %78, label %.preheader11, label %.loopexit12, !llvm.loop !29
 
-.loopexit11:                                      ; preds = %.loopexit, %4
+.loopexit12:                                      ; preds = %.loopexit, %4
   %79 = tail call i32 @__SCT__cond_resched() #9
   %80 = load i32, ptr @hugetlb_max_hstate, align 4
   %81 = sext i32 %80 to i64
@@ -1049,10 +1050,10 @@ define internal void @hugetlb_cgroup_css_offline(ptr noundef %0) #0 align 16 {
   %83 = icmp ugt ptr %82, @hstates
   br i1 %83, label %84, label %.critedge
 
-84:                                               ; preds = %.loopexit11
+84:                                               ; preds = %.loopexit12
   %85 = load volatile i64, ptr %3, align 8
   %86 = icmp eq i64 %85, 0
-  br i1 %86, label %.preheader, label %.loopexit9
+  br i1 %86, label %.preheader, label %.loopexit10
 
 .preheader:                                       ; preds = %84, %90
   %87 = phi ptr [ %88, %90 ], [ @hstates, %84 ]
@@ -1069,12 +1070,12 @@ define internal void @hugetlb_cgroup_css_offline(ptr noundef %0) #0 align 16 {
   %96 = getelementptr [2 x %struct.page_counter], ptr %3, i64 0, i64 %95
   %97 = load volatile i64, ptr %96, align 8
   %98 = icmp eq i64 %97, 0
-  br i1 %98, label %.preheader, label %.loopexit9, !llvm.loop !30
+  br i1 %98, label %.preheader, label %.loopexit10, !llvm.loop !30
 
-.loopexit9:                                       ; preds = %90, %84
+.loopexit10:                                      ; preds = %90, %84
   br label %4, !llvm.loop !31
 
-.critedge:                                        ; preds = %.loopexit11, %.preheader
+.critedge:                                        ; preds = %.loopexit12, %.preheader
   ret void
 }
 

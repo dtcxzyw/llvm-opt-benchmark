@@ -14,17 +14,15 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
   %6 = sub i128 %4, %2
   %.0.i.i.i = select i1 %5, i128 %6, i128 0
   %7 = icmp ult i128 %.0.i.i.i, 18446744073709551616
-  %8 = trunc nuw i128 %.0.i.i.i to i64
-  %.sroa.5.0.i.i = select i1 %7, i64 %8, i64 undef
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.5.0.i.i, i64 1)
+  %8 = trunc i128 %.0.i.i.i to i64
+  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 1)
   %10 = extractvalue { i64, i1 } %9, 0
   %11 = extractvalue { i64, i1 } %9, 1
   %not. = xor i1 %11, true
-  %.sroa.5.1 = select i1 %7, i64 %10, i64 undef
-  %narrow = select i1 %7, i1 %not., i1 false
+  %narrow = and i1 %7, %not.
   %.sroa.0.1 = zext i1 %narrow to i64
   %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %13 = insertvalue { i64, i64 } %12, i64 %.sroa.5.1, 1
+  %13 = insertvalue { i64, i64 } %12, i64 %10, 1
   ret { i64, i64 } %13
 }
 
@@ -151,17 +149,15 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
   %4 = load i128, ptr %3, align 8, !alias.scope !85, !noundef !11
   %.0.i.i.i = tail call noundef i128 @llvm.usub.sat.i128(i128 %4, i128 %2)
   %5 = icmp ult i128 %.0.i.i.i, 18446744073709551616
-  %6 = trunc nuw i128 %.0.i.i.i to i64
-  %.sroa.5.0.i.i = select i1 %5, i64 %6, i64 undef
-  %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.5.0.i.i, i64 1)
+  %6 = trunc i128 %.0.i.i.i to i64
+  %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %6, i64 1)
   %8 = extractvalue { i64, i1 } %7, 0
   %9 = extractvalue { i64, i1 } %7, 1
   %not. = xor i1 %9, true
-  %.sroa.5.1 = select i1 %5, i64 %8, i64 undef
-  %narrow = select i1 %5, i1 %not., i1 false
+  %narrow = and i1 %5, %not.
   %.sroa.0.1 = zext i1 %narrow to i64
   %10 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %11 = insertvalue { i64, i64 } %10, i64 %.sroa.5.1, 1
+  %11 = insertvalue { i64, i64 } %10, i64 %8, 1
   ret { i64, i64 } %11
 }
 
@@ -252,11 +248,10 @@ define hidden { i64, i64 } @"_ZN77_$LT$rayon..range..Iter$LT$T$GT$$u20$as$u20$ra
   %4 = load i128, ptr %3, align 8, !alias.scope !148, !noundef !11
   %.0.i.i = tail call noundef i128 @llvm.usub.sat.i128(i128 %4, i128 %2)
   %5 = icmp ult i128 %.0.i.i, 18446744073709551616
-  %6 = trunc nuw i128 %.0.i.i to i64
-  %.sroa.5.0.i = select i1 %5, i64 %6, i64 undef
+  %6 = trunc i128 %.0.i.i to i64
   %spec.select.i = zext i1 %5 to i64
   %7 = insertvalue { i64, i64 } poison, i64 %spec.select.i, 0
-  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.5.0.i, 1
+  %8 = insertvalue { i64, i64 } %7, i64 %6, 1
   ret { i64, i64 } %8
 }
 
@@ -342,11 +337,10 @@ define hidden { i64, i64 } @"_ZN77_$LT$rayon..range..Iter$LT$T$GT$$u20$as$u20$ra
   %6 = sub i128 %4, %2
   %.0.i.i = select i1 %5, i128 %6, i128 0
   %7 = icmp ult i128 %.0.i.i, 18446744073709551616
-  %8 = trunc nuw i128 %.0.i.i to i64
-  %.sroa.5.0.i = select i1 %7, i64 %8, i64 undef
+  %8 = trunc i128 %.0.i.i to i64
   %spec.select.i = zext i1 %7 to i64
   %9 = insertvalue { i64, i64 } poison, i64 %spec.select.i, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.5.0.i, 1
+  %10 = insertvalue { i64, i64 } %9, i64 %8, 1
   ret { i64, i64 } %10
 }
 

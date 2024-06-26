@@ -2942,7 +2942,7 @@ define dso_local void @release_pages(ptr nocapture readonly %0, i32 noundef %1) 
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %3, ptr %4, align 8
   %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %6, label %.thread8
+  br i1 %5, label %6, label %.thread9
 
 6:                                                ; preds = %2
   %7 = zext nneg i32 %1 to i64
@@ -2950,15 +2950,15 @@ define dso_local void @release_pages(ptr nocapture readonly %0, i32 noundef %1) 
 
 .outer:                                           ; preds = %.loopexit, %6
   %.ph = phi i64 [ %162, %.loopexit ], [ 0, %6 ]
-  %.ph14 = phi i32 [ %161, %.loopexit ], [ 0, %6 ]
-  %.ph15 = phi ptr [ %160, %.loopexit ], [ null, %6 ]
-  %.ph16 = phi i64 [ %159, %.loopexit ], [ 0, %6 ]
+  %.ph15 = phi i32 [ %161, %.loopexit ], [ 0, %6 ]
+  %.ph16 = phi ptr [ %160, %.loopexit ], [ null, %6 ]
+  %.ph17 = phi i64 [ %159, %.loopexit ], [ 0, %6 ]
   br label %8
 
-8:                                                ; preds = %.outer, %.thread12
-  %9 = phi i64 [ %164, %.thread12 ], [ %.ph, %.outer ]
-  %10 = phi i32 [ %49, %.thread12 ], [ %.ph14, %.outer ]
-  %11 = phi ptr [ null, %.thread12 ], [ %.ph15, %.outer ]
+8:                                                ; preds = %.outer, %.thread13
+  %9 = phi i64 [ %164, %.thread13 ], [ %.ph, %.outer ]
+  %10 = phi i32 [ %49, %.thread13 ], [ %.ph15, %.outer ]
+  %11 = phi ptr [ null, %.thread13 ], [ %.ph16, %.outer ]
   %12 = getelementptr ptr, ptr %0, i64 %9
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -2992,9 +2992,10 @@ define dso_local void @release_pages(ptr nocapture readonly %0, i32 noundef %1) 
 31:                                               ; preds = %27
   %32 = getelementptr i8, ptr %16, i64 72
   %33 = load volatile i64, ptr %32, align 8
-  %34 = and i64 %33, 1
+  %.fr7 = freeze i64 %33
+  %34 = and i64 %.fr7, 1
   %35 = icmp eq i64 %34, 0
-  %36 = add nsw i64 %33, -1
+  %36 = add i64 %.fr7, -1
   br i1 %35, label %37, label %38
 
 37:                                               ; preds = %31, %27, %24
@@ -3013,7 +3014,7 @@ define dso_local void @release_pages(ptr nocapture readonly %0, i32 noundef %1) 
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %11, i64 80
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %46, i64 noundef %.ph16) #12
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %46, i64 noundef %.ph17) #12
   br label %47
 
 47:                                               ; preds = %45, %42, %38
@@ -3038,7 +3039,7 @@ define dso_local void @release_pages(ptr nocapture readonly %0, i32 noundef %1) 
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds i8, ptr %48, i64 80
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %61, i64 noundef %.ph16) #12
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %61, i64 noundef %.ph17) #12
   br label %62
 
 62:                                               ; preds = %60, %58
@@ -3052,11 +3053,11 @@ define dso_local void @release_pages(ptr nocapture readonly %0, i32 noundef %1) 
   %68 = load volatile i64, ptr %67, align 8
   %69 = and i64 %68, 256
   %70 = icmp eq i64 %69, 0
-  br i1 %70, label %71, label %.thread12
+  br i1 %70, label %71, label %.thread13
 
 71:                                               ; preds = %66, %62
   call fastcc void @__page_cache_release(ptr noundef %40)
-  br label %.thread12
+  br label %.thread13
 
 72:                                               ; preds = %54
   %73 = load volatile i64, ptr %40, align 8
@@ -3078,7 +3079,7 @@ define dso_local void @release_pages(ptr nocapture readonly %0, i32 noundef %1) 
 
 84:                                               ; preds = %78
   %85 = getelementptr inbounds i8, ptr %48, i64 80
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %85, i64 noundef %.ph16) #12
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %85, i64 noundef %.ph17) #12
   %.pre = load i64, ptr %40, align 16
   br label %86
 
@@ -3093,7 +3094,7 @@ define dso_local void @release_pages(ptr nocapture readonly %0, i32 noundef %1) 
   br label %94
 
 94:                                               ; preds = %86, %78
-  %95 = phi i64 [ %93, %86 ], [ %.ph16, %78 ]
+  %95 = phi i64 [ %93, %86 ], [ %.ph17, %78 ]
   %96 = phi ptr [ %91, %86 ], [ %48, %78 ]
   %97 = icmp eq ptr %48, %96
   %98 = select i1 %97, i32 %49, i32 0
@@ -3122,18 +3123,18 @@ define dso_local void @release_pages(ptr nocapture readonly %0, i32 noundef %1) 
   store volatile ptr %116, ptr %115, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %113, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %114, align 8
-  %.pre11 = load i64, ptr %40, align 16
+  %.pre12 = load i64, ptr %40, align 16
   br label %.thread
 
 .thread:                                          ; preds = %94, %102
-  %118 = phi i64 [ %.pre11, %102 ], [ %99, %94 ]
+  %118 = phi i64 [ %.pre12, %102 ], [ %99, %94 ]
   %119 = phi i32 [ %112, %102 ], [ 4, %94 ]
   %120 = lshr i64 %118, 56
   %121 = and i64 %120, 3
   %122 = load volatile i64, ptr %40, align 8
   %123 = and i64 %122, 64
   %124 = icmp eq i64 %123, 0
-  br i1 %124, label %.thread7, label %125
+  br i1 %124, label %.thread8, label %125
 
 125:                                              ; preds = %.thread
   %126 = getelementptr inbounds i8, ptr %40, i64 100
@@ -3141,15 +3142,15 @@ define dso_local void @release_pages(ptr nocapture readonly %0, i32 noundef %1) 
   %128 = zext i32 %127 to i64
   %129 = sub nsw i64 0, %128
   %130 = icmp ult i32 %127, -2147483647
-  br i1 %130, label %.thread7, label %131, !prof !23
+  br i1 %130, label %.thread8, label %131, !prof !23
 
 131:                                              ; preds = %125
   call void asm sideeffect "409: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 409b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 409) #12, !srcloc !24
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 45, i32 2307, i64 12) #12, !srcloc !25
   call void asm sideeffect "410: nop\0A\09.pushsection .discard.instr_end\0A\09.long 410b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 410) #12, !srcloc !26
-  br label %.thread7
+  br label %.thread8
 
-.thread7:                                         ; preds = %.thread, %131, %125
+.thread8:                                         ; preds = %.thread, %131, %125
   %132 = phi i64 [ %129, %131 ], [ %129, %125 ], [ -1, %.thread ]
   %133 = getelementptr i8, ptr %96, i64 -13440
   %134 = shl i64 %132, 32
@@ -3164,19 +3165,19 @@ define dso_local void @release_pages(ptr nocapture readonly %0, i32 noundef %1) 
   %140 = icmp eq i64 %139, 0
   br i1 %140, label %145, label %141
 
-141:                                              ; preds = %.thread7
+141:                                              ; preds = %.thread8
   %142 = load volatile i64, ptr %40, align 8
   %143 = and i64 %142, 1048576
   %144 = icmp eq i64 %143, 0
   br i1 %144, label %145, label %146
 
-145:                                              ; preds = %141, %.thread7
+145:                                              ; preds = %141, %.thread8
   call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %40, i64 8) #12, !srcloc !104
   call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %40, i64 20) #12, !srcloc !104
   br label %146
 
 146:                                              ; preds = %145, %141, %72
-  %147 = phi i64 [ %.ph16, %72 ], [ %95, %141 ], [ %95, %145 ]
+  %147 = phi i64 [ %.ph17, %72 ], [ %95, %141 ], [ %95, %145 ]
   %148 = phi ptr [ %48, %72 ], [ %96, %141 ], [ %96, %145 ]
   %149 = phi i32 [ %49, %72 ], [ %98, %141 ], [ %98, %145 ]
   %150 = load volatile i64, ptr %40, align 8
@@ -3202,29 +3203,29 @@ define dso_local void @release_pages(ptr nocapture readonly %0, i32 noundef %1) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %47, %154
-  %159 = phi i64 [ %147, %154 ], [ %.ph16, %47 ]
+  %159 = phi i64 [ %147, %154 ], [ %.ph17, %47 ]
   %160 = phi ptr [ %148, %154 ], [ %48, %47 ]
   %161 = phi i32 [ %149, %154 ], [ %49, %47 ]
   %162 = add nuw nsw i64 %9, 1
   %163 = icmp eq i64 %162, %7
   br i1 %163, label %166, label %.outer, !llvm.loop !106
 
-.thread12:                                        ; preds = %66, %71
+.thread13:                                        ; preds = %66, %71
   call void @destroy_large_folio(ptr noundef %40) #12
   %164 = add nuw nsw i64 %9, 1
   %165 = icmp eq i64 %164, %7
-  br i1 %165, label %.thread8, label %8, !llvm.loop !106
+  br i1 %165, label %.thread9, label %8, !llvm.loop !106
 
 166:                                              ; preds = %.loopexit
   %167 = icmp eq ptr %160, null
-  br i1 %167, label %.thread8, label %168
+  br i1 %167, label %.thread9, label %168
 
 168:                                              ; preds = %166
   %169 = getelementptr inbounds i8, ptr %160, i64 80
   call void @_raw_spin_unlock_irqrestore(ptr noundef %169, i64 noundef %159) #12
-  br label %.thread8
+  br label %.thread9
 
-.thread8:                                         ; preds = %.thread12, %2, %168, %166
+.thread9:                                         ; preds = %.thread13, %2, %168, %166
   call void @free_unref_page_list(ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
   ret void

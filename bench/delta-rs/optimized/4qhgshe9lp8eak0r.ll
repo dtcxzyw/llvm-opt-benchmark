@@ -317,13 +317,12 @@ define internal noundef zeroext i1 @"_ZN106_$LT$aws_smithy_runtime_api..client..
 define internal { ptr, ptr } @"_ZN108_$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$u20$as$u20$core..error..Error$GT$6source17h9da4dffd23e79891E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !noundef !5
-  %4 = icmp eq ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !nonnull !5, !align !6
-  %.sroa.3.0 = select i1 %4, ptr undef, ptr %6
-  %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
-  %8 = insertvalue { ptr, ptr } %7, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %8
+  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !6
+  %.sroa.3.0 = freeze ptr %5
+  %6 = insertvalue { ptr, ptr } poison, ptr %3, 0
+  %7 = insertvalue { ptr, ptr } %6, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

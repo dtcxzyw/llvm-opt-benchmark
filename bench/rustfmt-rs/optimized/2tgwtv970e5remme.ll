@@ -5385,8 +5385,8 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   %.promoted = load i64, ptr %8, align 8
   %9 = icmp ugt i64 %7, %.promoted
   %10 = icmp ugt i64 %.promoted, %5
-  %or.cond.i43 = or i1 %9, %10
-  br i1 %or.cond.i43, label %.loopexit, label %.lr.ph
+  %or.cond.i42 = or i1 %9, %10
+  br i1 %or.cond.i42, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %11 = getelementptr inbounds i8, ptr %3, i64 %7
@@ -5401,7 +5401,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %31
   %19 = phi i64 [ %25, %31 ], [ %.promoted, %.lr.ph ]
-  %20 = sub nuw i64 %19, %7
+  %20 = sub i64 %19, %7
   %21 = load i8, ptr %16, align 1, !noundef !10
   %22 = tail call { i64, i64 } @_ZN4core5slice6memchr7memrchr17h7ae39b71d8f05cb1E(i8 noundef %21, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %20)
   %.fca.0.extract5.us = extractvalue { i64, i64 } %22, 0
@@ -5420,7 +5420,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   %29 = icmp ugt i64 %27, %28
   %30 = icmp ugt i64 %28, %5
   %or.cond.i27.us = or i1 %29, %30
-  br i1 %or.cond.i27.us, label %31, label %.split46.us
+  br i1 %or.cond.i27.us, label %31, label %.split45.us
 
 31:                                               ; preds = %26, %24
   store i64 %25, ptr %8, align 8
@@ -5431,7 +5431,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %41
   %34 = phi i64 [ %40, %41 ], [ %.promoted, %.lr.ph ]
-  %35 = sub nuw i64 %34, %7
+  %35 = sub i64 %34, %7
   %36 = load i8, ptr %16, align 1, !noundef !10
   %37 = tail call { i64, i64 } @_ZN4core5slice6memchr7memrchr17h7ae39b71d8f05cb1E(i8 noundef %36, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %35)
   %.fca.0.extract5 = extractvalue { i64, i64 } %37, 0
@@ -5469,7 +5469,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   %50 = icmp eq i32 %bcmp.i, 0
   br i1 %50, label %51, label %41
 
-.split46.us:                                      ; preds = %26
+.split45.us:                                      ; preds = %26
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9d3fb36314948c78E(i64 noundef %14, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.435283188f88f97391414eebf75b8265.107) #26, !noalias !632
   unreachable
 
@@ -6250,9 +6250,10 @@ default.unreachable:                              ; preds = %200, %4
   br i1 %switch.not.not.i.i.i, label %_ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit.i.i, label %109
 
 109:                                              ; preds = %.noexc64
+  %.sroa.3.0.i.i.i.i = freeze i64 %108
   %110 = add i64 %91, 1
   %111 = add i64 %110, %87
-  %112 = add i64 %111, %108
+  %112 = add i64 %111, %.sroa.3.0.i.i.i.i
   %113 = call i64 @llvm.usub.sat.i64(i64 %62, i64 %112)
   br label %_ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit.i.i
 
@@ -26146,9 +26147,10 @@ define hidden void @_ZN15rustfmt_nightly8overflow7Context3new17h12401c0f0c9f883e
   br i1 %switch.not.not.i, label %_ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit, label %33
 
 33:                                               ; preds = %15
+  %.sroa.3.0.i.i = freeze i64 %32
   %34 = add i64 %.sroa.416.0.copyload, 1
   %35 = add i64 %34, %.sroa.0.0.copyload
-  %36 = add i64 %35, %32
+  %36 = add i64 %35, %.sroa.3.0.i.i
   %37 = call i64 @llvm.usub.sat.i64(i64 %5, i64 %36)
   br label %_ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit
 
@@ -26330,9 +26332,10 @@ define hidden void @_ZN15rustfmt_nightly8overflow7Context3new17h59a3d916a4e8479c
   br i1 %switch.not.not.i, label %_ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit, label %33
 
 33:                                               ; preds = %15
+  %.sroa.3.0.i.i = freeze i64 %32
   %34 = add i64 %.sroa.416.0.copyload, 1
   %35 = add i64 %34, %.sroa.0.0.copyload
-  %36 = add i64 %35, %32
+  %36 = add i64 %35, %.sroa.3.0.i.i
   %37 = call i64 @llvm.usub.sat.i64(i64 %5, i64 %36)
   br label %_ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit
 
@@ -26514,9 +26517,10 @@ define hidden void @_ZN15rustfmt_nightly8overflow7Context3new17h65b5eb783806e460
   br i1 %switch.not.not.i, label %_ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit, label %33
 
 33:                                               ; preds = %15
+  %.sroa.3.0.i.i = freeze i64 %32
   %34 = add i64 %.sroa.416.0.copyload, 1
   %35 = add i64 %34, %.sroa.0.0.copyload
-  %36 = add i64 %35, %32
+  %36 = add i64 %35, %.sroa.3.0.i.i
   %37 = call i64 @llvm.usub.sat.i64(i64 %5, i64 %36)
   br label %_ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit
 
@@ -26698,9 +26702,10 @@ define hidden void @_ZN15rustfmt_nightly8overflow7Context3new17hb86df16c2813a41c
   br i1 %switch.not.not.i, label %_ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit, label %33
 
 33:                                               ; preds = %15
+  %.sroa.3.0.i.i = freeze i64 %32
   %34 = add i64 %.sroa.416.0.copyload, 1
   %35 = add i64 %34, %.sroa.0.0.copyload
-  %36 = add i64 %35, %32
+  %36 = add i64 %35, %.sroa.3.0.i.i
   %37 = call i64 @llvm.usub.sat.i64(i64 %5, i64 %36)
   br label %_ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit
 
@@ -26882,9 +26887,10 @@ define hidden void @_ZN15rustfmt_nightly8overflow7Context3new17hc09ca18c0a53d422
   br i1 %switch.not.not.i, label %_ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit, label %33
 
 33:                                               ; preds = %15
+  %.sroa.3.0.i.i = freeze i64 %32
   %34 = add i64 %.sroa.416.0.copyload, 1
   %35 = add i64 %34, %.sroa.0.0.copyload
-  %36 = add i64 %35, %32
+  %36 = add i64 %35, %.sroa.3.0.i.i
   %37 = call i64 @llvm.usub.sat.i64(i64 %5, i64 %36)
   br label %_ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit
 
@@ -27066,9 +27072,10 @@ define hidden void @_ZN15rustfmt_nightly8overflow7Context3new17he9a199edb6ce5513
   br i1 %switch.not.not.i, label %_ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit, label %33
 
 33:                                               ; preds = %15
+  %.sroa.3.0.i.i = freeze i64 %32
   %34 = add i64 %.sroa.416.0.copyload, 1
   %35 = add i64 %34, %.sroa.0.0.copyload
-  %36 = add i64 %35, %32
+  %36 = add i64 %35, %.sroa.3.0.i.i
   %37 = call i64 @llvm.usub.sat.i64(i64 %5, i64 %36)
   br label %_ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit
 

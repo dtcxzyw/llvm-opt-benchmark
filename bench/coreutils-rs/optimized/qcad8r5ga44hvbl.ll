@@ -315,7 +315,7 @@ define internal void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u2
   %.sroa.0.0.i.i.i.i = load ptr, ptr %11, align 8, !alias.scope !76, !noalias !77, !nonnull !16
   %.sroa.5.0.in.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.5.0.i.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i.i, align 8, !alias.scope !76, !noalias !77
-  %.sroa.6.0.i.i = select i1 %10, i64 undef, i64 %.sroa.5.0.i.i.i.i
+  %.sroa.6.0.i.i = freeze i64 %.sroa.5.0.i.i.i.i
   %.sroa.4.0.i.i = select i1 %10, ptr %13, ptr %.sroa.0.0.i.i.i.i
   %.sink.i.i.i = select i1 %10, i64 -9223372036854775807, i64 -9223372036854775808
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -1118,7 +1118,7 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   %.sroa.0.0.i.i.i.i.i = load ptr, ptr %14, align 8, !alias.scope !286, !noalias !287, !nonnull !16
   %.sroa.5.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.5.0.i.i.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i.i.i, align 8, !alias.scope !286, !noalias !287
-  %.sroa.6.0.i.i.i = select i1 %13, i64 undef, i64 %.sroa.5.0.i.i.i.i.i
+  %.sroa.6.0.i.i.i = freeze i64 %.sroa.5.0.i.i.i.i.i
   %.sroa.4.0.i.i.i = select i1 %13, ptr %16, ptr %.sroa.0.0.i.i.i.i.i
   %.sink.i.i.i.i = select i1 %13, i64 -9223372036854775807, i64 -9223372036854775808
   store ptr %.sroa.4.0.i.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !272, !noalias !274
@@ -1354,7 +1354,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h6de4189a57b0e
   %.sroa.0.0.i.i.i.i.i.i = load ptr, ptr %14, align 8, !alias.scope !359, !noalias !360, !nonnull !16
   %.sroa.5.0.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %.sroa.5.0.i.i.i.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i.i.i.i, align 8, !alias.scope !359, !noalias !360
-  %.sroa.6.0.i.i.i.i = select i1 %13, i64 undef, i64 %.sroa.5.0.i.i.i.i.i.i
+  %.sroa.6.0.i.i.i.i = freeze i64 %.sroa.5.0.i.i.i.i.i.i
   %.sroa.4.0.i.i.i.i = select i1 %13, ptr %16, ptr %.sroa.0.0.i.i.i.i.i.i
   %.sink.i.i.i.i.i = select i1 %13, i64 -9223372036854775807, i64 -9223372036854775808
   store ptr %.sroa.4.0.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !340, !noalias !361
@@ -1390,7 +1390,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17he05f444171c47f3bE.exit.thre
   %.sroa.0.0.i.i.i.i.i = load ptr, ptr %25, align 8, !alias.scope !374, !noalias !375, !nonnull !16
   %.sroa.5.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
   %.sroa.5.0.i.i.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i.i.i, align 8, !alias.scope !374, !noalias !375
-  %.sroa.6.0.i.i.i = select i1 %24, i64 undef, i64 %.sroa.5.0.i.i.i.i.i
+  %.sroa.6.0.i.i.i = freeze i64 %.sroa.5.0.i.i.i.i.i
   %.sroa.4.0.i.i.i = select i1 %24, ptr %27, ptr %.sroa.0.0.i.i.i.i.i
   %.sink.i.i.i.i = select i1 %24, i64 -9223372036854775807, i64 -9223372036854775808
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -5376,7 +5376,7 @@ _ZN5uu_wc9TotalWhen20is_total_row_visible17h54db5cfaf9827f0bE.exit.thread215: ; 
   %trunc.i130 = trunc nuw i64 %379 to i1
   %380 = load ptr, ptr %228, align 8, !noalias !1408, !nonnull !16, !align !1323
   %381 = load i64, ptr %229, align 8, !noalias !1408
-  %.sroa.7.0.i = select i1 %trunc.i130, i64 undef, i64 %381
+  %.sroa.7.0.i = freeze i64 %381
   %.sroa.06.0.i = select i1 %trunc.i130, ptr null, ptr %380
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1408
   br i1 %trunc.i130, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i", label %384
@@ -5387,11 +5387,11 @@ _ZN5uu_wc9TotalWhen20is_total_row_visible17h54db5cfaf9827f0bE.exit.thread215: ; 
   br i1 %trunc12.i, label %396, label %395
 
 384:                                              ; preds = %.noexc133
-  %385 = icmp ult i64 %381, 16
+  %385 = icmp ult i64 %.sroa.7.0.i, 16
   br i1 %385, label %386, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.i"
 
 386:                                              ; preds = %384
-  %.not.i.i.i = icmp eq i64 %381, 0
+  %.not.i.i.i = icmp eq i64 %.sroa.7.0.i, 0
   br i1 %.not.i.i.i, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %386, %390
@@ -5407,7 +5407,7 @@ _ZN5uu_wc9TotalWhen20is_total_row_visible17h54db5cfaf9827f0bE.exit.thread215: ; 
   br i1 %exitcond.not.i.i.i, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread.i", label %.lr.ph.i.i.i
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.i": ; preds = %384
-  %392 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 10, ptr noalias noundef nonnull readonly align 1 %380, i64 noundef %381)
+  %392 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 10, ptr noalias noundef nonnull readonly align 1 %380, i64 noundef %.sroa.7.0.i)
           to label %.noexc134 unwind label %.loopexit.split-lp243
 
 .noexc134:                                        ; preds = %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.i"
@@ -5428,7 +5428,7 @@ _ZN5uu_wc9TotalWhen20is_total_row_visible17h54db5cfaf9827f0bE.exit.thread215: ; 
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread.i"
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread.i": ; preds = %390, %.noexc135, %.noexc134, %386
-  %.sroa.6.0.i = phi i64 [ %.sroa.6.0.copyload.i, %.noexc135 ], [ %381, %.noexc134 ], [ 0, %386 ], [ %.sroa.7.0.i, %390 ]
+  %.sroa.6.0.i = phi i64 [ %.sroa.6.0.copyload.i, %.noexc135 ], [ %.sroa.7.0.i, %.noexc134 ], [ 0, %386 ], [ %.sroa.7.0.i, %390 ]
   %.sroa.5.0.i = phi ptr [ %.sroa.5.0.copyload.i, %.noexc135 ], [ %380, %.noexc134 ], [ %380, %386 ], [ %380, %390 ]
   %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %.noexc135 ], [ -9223372036854775808, %.noexc134 ], [ -9223372036854775808, %386 ], [ -9223372036854775808, %390 ]
   store i64 %.sroa.0.0.i, ptr %35, align 8, !alias.scope !1403, !noalias !1406
@@ -5459,7 +5459,7 @@ _ZN5uu_wc9TotalWhen20is_total_row_visible17h54db5cfaf9827f0bE.exit.thread215: ; 
   %.sroa.0.0.i.i137 = phi ptr [ %.sroa.5.0.i, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread.i" ], [ @anon.028f4f501a1d8d09ad1762241ec60bf9.57.llvm.17465748012521390411, %395 ], [ %.sroa.0.0.i.i137.pre, %396 ]
   %400 = phi i64 [ %.sroa.0.0.i, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread.i" ], [ -9223372036854775808, %395 ], [ -9223372036854775807, %396 ]
   %401 = icmp eq i64 %400, -9223372036854775807
-  %.sroa.3.0.i = select i1 %401, i64 undef, i64 %.sroa.5.0.i.i139
+  %.sroa.3.0.i = freeze i64 %.sroa.5.0.i.i139
   %.sroa.0.0.i140 = select i1 %401, ptr null, ptr %.sroa.0.0.i.i137
   %402 = invoke fastcc noundef ptr @_ZN5uu_wc11print_stats17ha16bc49428a6943fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %44, ptr noalias noundef readonly align 1 %.sroa.0.0.i140, i64 %.sroa.3.0.i, i64 noundef %.066184)
           to label %403 unwind label %397
@@ -5471,7 +5471,7 @@ _ZN5uu_wc9TotalWhen20is_total_row_visible17h54db5cfaf9827f0bE.exit.thread215: ; 
 404:                                              ; preds = %403
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   %spec.select = select i1 %401, ptr @anon.028f4f501a1d8d09ad1762241ec60bf9.99, ptr %.sroa.0.0.i.i137
-  %spec.select326 = select i1 %401, i64 7, i64 %.sroa.5.0.i.i139
+  %spec.select326 = select i1 %401, i64 7, i64 %.sroa.3.0.i
   store ptr %spec.select, ptr %34, align 8
   store i64 %spec.select326, ptr %230, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)

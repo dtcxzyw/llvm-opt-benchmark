@@ -443,8 +443,9 @@ entry:
 
 _ZN6hermes2vm19_setOwnValueEncoderILNS0_8CellKindE35EE6encodeERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry
   %call5.i = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %value.coerce) #10
-  %1 = extractvalue { i32, i64 } %call5.i, 0
-  %2 = extractvalue { i32, i64 } %call5.i, 1
+  %call5.fr.i = freeze { i32, i64 } %call5.i
+  %1 = extractvalue { i32, i64 } %call5.fr.i, 0
+  %2 = extractvalue { i32, i64 } %call5.fr.i, 1
   %cmp.i.i.not = icmp eq i32 %1, 0
   br i1 %cmp.i.i.not, label %return, label %if.end
 
@@ -1288,8 +1289,9 @@ entry:
 
 _ZN6hermes2vm19_setOwnValueEncoderILNS0_8CellKindE36EE6encodeERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry
   %call5.i = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %value.coerce) #10
-  %1 = extractvalue { i32, i64 } %call5.i, 0
-  %2 = extractvalue { i32, i64 } %call5.i, 1
+  %call5.fr.i = freeze { i32, i64 } %call5.i
+  %1 = extractvalue { i32, i64 } %call5.fr.i, 0
+  %2 = extractvalue { i32, i64 } %call5.fr.i, 1
   %cmp.i.i.not = icmp eq i32 %1, 0
   br i1 %cmp.i.i.not, label %return, label %if.end
 
@@ -1888,8 +1890,9 @@ entry:
 
 _ZN6hermes2vm19_setOwnValueEncoderILNS0_8CellKindE37EE6encodeERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry
   %call5.i = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %value.coerce) #10
-  %1 = extractvalue { i32, i64 } %call5.i, 0
-  %2 = extractvalue { i32, i64 } %call5.i, 1
+  %call5.fr.i = freeze { i32, i64 } %call5.i
+  %1 = extractvalue { i32, i64 } %call5.fr.i, 0
+  %2 = extractvalue { i32, i64 } %call5.fr.i, 1
   %cmp.i.i.not = icmp eq i32 %1, 0
   br i1 %cmp.i.i.not, label %return, label %if.end
 
@@ -2486,8 +2489,9 @@ entry:
 
 _ZN6hermes2vm19_setOwnValueEncoderILNS0_8CellKindE38EE6encodeERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry
   %call5.i = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %value.coerce) #10
-  %1 = extractvalue { i32, i64 } %call5.i, 0
-  %2 = extractvalue { i32, i64 } %call5.i, 1
+  %call5.fr.i = freeze { i32, i64 } %call5.i
+  %1 = extractvalue { i32, i64 } %call5.fr.i, 0
+  %2 = extractvalue { i32, i64 } %call5.fr.i, 1
   %cmp.i.i.not = icmp eq i32 %1, 0
   br i1 %cmp.i.i.not, label %return, label %if.end
 
@@ -3086,8 +3090,9 @@ entry:
 
 _ZN6hermes2vm19_setOwnValueEncoderILNS0_8CellKindE39EE6encodeERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry
   %call5.i = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %value.coerce) #10
-  %1 = extractvalue { i32, i64 } %call5.i, 0
-  %2 = extractvalue { i32, i64 } %call5.i, 1
+  %call5.fr.i = freeze { i32, i64 } %call5.i
+  %1 = extractvalue { i32, i64 } %call5.fr.i, 0
+  %2 = extractvalue { i32, i64 } %call5.fr.i, 1
   %cmp.i.i.not = icmp eq i32 %1, 0
   br i1 %cmp.i.i.not, label %return, label %if.end
 
@@ -3644,8 +3649,9 @@ entry:
 
 _ZN6hermes2vm19_setOwnValueEncoderILNS0_8CellKindE40EE6encodeERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry
   %call5.i = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %value.coerce) #10
-  %1 = extractvalue { i32, i64 } %call5.i, 0
-  %2 = extractvalue { i32, i64 } %call5.i, 1
+  %call5.fr.i = freeze { i32, i64 } %call5.i
+  %1 = extractvalue { i32, i64 } %call5.fr.i, 0
+  %2 = extractvalue { i32, i64 } %call5.fr.i, 1
   %cmp.i.i.not = icmp eq i32 %1, 0
   br i1 %cmp.i.i.not, label %return, label %if.end
 
@@ -4244,8 +4250,9 @@ entry:
 
 _ZN6hermes2vm19_setOwnValueEncoderILNS0_8CellKindE41EE6encodeERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry
   %call5.i = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %value.coerce) #10
-  %1 = extractvalue { i32, i64 } %call5.i, 0
-  %2 = extractvalue { i32, i64 } %call5.i, 1
+  %call5.fr.i = freeze { i32, i64 } %call5.i
+  %1 = extractvalue { i32, i64 } %call5.fr.i, 0
+  %2 = extractvalue { i32, i64 } %call5.fr.i, 1
   %cmp.i.i.not = icmp eq i32 %1, 0
   br i1 %cmp.i.i.not, label %return, label %if.end
 
@@ -4844,8 +4851,9 @@ entry:
 
 _ZN6hermes2vm19_setOwnValueEncoderILNS0_8CellKindE42EE6encodeERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry
   %call5.i = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %value.coerce) #10
-  %1 = extractvalue { i32, i64 } %call5.i, 0
-  %2 = extractvalue { i32, i64 } %call5.i, 1
+  %call5.fr.i = freeze { i32, i64 } %call5.i
+  %1 = extractvalue { i32, i64 } %call5.fr.i, 0
+  %2 = extractvalue { i32, i64 } %call5.fr.i, 1
   %cmp.i.i.not = icmp eq i32 %1, 0
   br i1 %cmp.i.i.not, label %return, label %if.end
 
@@ -5403,8 +5411,9 @@ entry:
 
 _ZN6hermes2vm19_setOwnValueEncoderILNS0_8CellKindE43EE6encodeERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry
   %call5.i = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %value.coerce) #10
-  %1 = extractvalue { i32, i64 } %call5.i, 0
-  %2 = extractvalue { i32, i64 } %call5.i, 1
+  %call5.fr.i = freeze { i32, i64 } %call5.i
+  %1 = extractvalue { i32, i64 } %call5.fr.i, 0
+  %2 = extractvalue { i32, i64 } %call5.fr.i, 1
   %cmp.i.i.not = icmp eq i32 %1, 0
   br i1 %cmp.i.i.not, label %return, label %if.end
 

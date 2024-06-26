@@ -1032,13 +1032,12 @@ define hidden noundef align 8 ptr @_ZN4core5error19request_by_type_tag17hb0aaa1f
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, ptr } @"_ZN4core6option15Option$LT$T$GT$8as_deref17h742dacbd8ee0c1e5E.llvm.5424185675891088685"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !5
-  %3 = icmp eq ptr %2, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !30
-  %.sroa.3.0 = select i1 %3, ptr undef, ptr %5
-  %6 = insertvalue { ptr, ptr } poison, ptr %2, 0
-  %7 = insertvalue { ptr, ptr } %6, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %7
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !30
+  %.sroa.3.0 = freeze ptr %4
+  %5 = insertvalue { ptr, ptr } poison, ptr %2, 0
+  %6 = insertvalue { ptr, ptr } %5, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2811,17 +2810,20 @@ _ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exi
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %19, ptr %20, align 8
   store ptr null, ptr %0, align 8
-  br label %25
+  br label %26
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !315, !nonnull !5, !align !30
+  %.sroa.3.0.i = freeze ptr %23
+  %24 = icmp ne ptr %.sroa.3.0.i, null
+  tail call void @llvm.assume(i1 %24)
   store ptr %6, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %23, ptr %24, align 8
-  br label %25
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.3.0.i, ptr %25, align 8
+  br label %26
 
-25:                                               ; preds = %21, %_ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exit
+26:                                               ; preds = %21, %_ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exit
   ret void
 }
 

@@ -3121,7 +3121,7 @@ define hidden { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$8as_deref17h6576210
   %5 = load ptr, ptr %4, align 8, !nonnull !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
-  %.sroa.3.0 = select i1 %3, i64 undef, i64 %7
+  %.sroa.3.0 = freeze i64 %7
   %.sroa.0.0 = select i1 %3, ptr null, ptr %5
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
@@ -4360,8 +4360,10 @@ _ZN4core3ptr19swap_nonoverlapping17hc9f504d38b9e24d0E.exit: ; preds = %.preheade
   %.sroa.0.0.lcssa.i = phi i64 [ %43, %42 ], [ %49, %.lr.ph.i21 ]
   %.lcssa.i = phi i16 [ %46, %42 ], [ %52, %.lr.ph.i21 ]
   %53 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
-  %54 = zext nneg i16 %53 to i64
-  %55 = add i64 %.sroa.0.0.lcssa.i, %54
+  %.fr.i.i = freeze i16 %53
+  %54 = zext i16 %.fr.i.i to i64
+  %.sroa.0.0.lcssa.i.fr = freeze i64 %.sroa.0.0.lcssa.i
+  %55 = add i64 %.sroa.0.0.lcssa.i.fr, %54
   %56 = and i64 %55, %.val17
   %57 = getelementptr inbounds i8, ptr %.val, i64 %56
   %58 = load i8, ptr %57, align 1, !noundef !5
@@ -5236,8 +5238,10 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.sroa.0.0.lcssa.i.i = phi i64 [ %146, %143 ], [ %152, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %149, %143 ], [ %155, %.lr.ph.i.i ]
   %156 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %157 = zext nneg i16 %156 to i64
-  %158 = add i64 %.sroa.0.0.lcssa.i.i, %157
+  %.fr.i.i.i = freeze i16 %156
+  %157 = zext i16 %.fr.i.i.i to i64
+  %.sroa.0.0.lcssa.i.i.fr = freeze i64 %.sroa.0.0.lcssa.i.i
+  %158 = add i64 %.sroa.0.0.lcssa.i.i.fr, %157
   %159 = and i64 %158, %.sroa.617.0..sroa_idx.i.i.val3
   %160 = getelementptr inbounds i8, ptr %71, i64 %159
   %161 = load i8, ptr %160, align 1, !noundef !5
@@ -5639,8 +5643,10 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.sroa.0.0.lcssa.i.i = phi i64 [ %146, %143 ], [ %152, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i16 [ %149, %143 ], [ %155, %.lr.ph.i.i ]
   %156 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %157 = zext nneg i16 %156 to i64
-  %158 = add i64 %.sroa.0.0.lcssa.i.i, %157
+  %.fr.i.i.i = freeze i16 %156
+  %157 = zext i16 %.fr.i.i.i to i64
+  %.sroa.0.0.lcssa.i.i.fr = freeze i64 %.sroa.0.0.lcssa.i.i
+  %158 = add i64 %.sroa.0.0.lcssa.i.i.fr, %157
   %159 = and i64 %158, %.sroa.617.0..sroa_idx.i.i.val3
   %160 = getelementptr inbounds i8, ptr %71, i64 %159
   %161 = load i8, ptr %160, align 1, !noundef !5
@@ -6612,11 +6618,12 @@ define hidden void @_ZN14regex_automata4util9prefilter9Prefilter16from_hirs_pref
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %7, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !935
+  %.sroa.3.0.i = freeze i64 %18
   %19 = getelementptr inbounds i8, ptr %7, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !935, !nonnull !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !938)
   call void @llvm.lifetime.start.p0(i64 544, ptr nonnull %6), !noalias !941
-  invoke void @_ZN14regex_automata4util9prefilter6Choice3new17h3730f9c7ceca43fdE(ptr noalias nocapture noundef nonnull sret({ i64, [67 x i64] }) align 32 dereferenceable(544) %6, i1 noundef zeroext %1, ptr noalias noundef nonnull readonly align 8 %20, i64 noundef %18)
+  invoke void @_ZN14regex_automata4util9prefilter6Choice3new17h3730f9c7ceca43fdE(ptr noalias nocapture noundef nonnull sret({ i64, [67 x i64] }) align 32 dereferenceable(544) %6, i1 noundef zeroext %1, ptr noalias noundef nonnull readonly align 8 %20, i64 noundef %.sroa.3.0.i)
           to label %.noexc4 unwind label %10
 
 .noexc4:                                          ; preds = %16

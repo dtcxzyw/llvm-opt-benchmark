@@ -3802,7 +3802,7 @@ define hidden { i64, i32 } @_ZN17crossbeam_channel7channel4read17h72aa77d86cab90
     i64 1, label %18
     i64 2, label %44
     i64 3, label %48
-    i64 4, label %54
+    i64 4, label %53
     i64 5, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17h609e8f9f364208c7E.exit"
   ]
 
@@ -3889,27 +3889,25 @@ default.unreachable33:                            ; preds = %2
 48:                                               ; preds = %2
   %49 = getelementptr inbounds i8, ptr %1, i64 48
   %50 = load i32, ptr %49, align 8, !range !432, !noundef !5
-  %51 = icmp eq i32 %50, 1000000000
-  %52 = getelementptr inbounds i8, ptr %1, i64 40
-  %53 = load i64, ptr %52, align 8
-  %.sroa.0.032 = select i1 %51, i64 undef, i64 %53
+  %51 = getelementptr inbounds i8, ptr %1, i64 40
+  %52 = load i64, ptr %51, align 8
+  %.sroa.0.032 = freeze i64 %52
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17h609e8f9f364208c7E.exit"
 
-54:                                               ; preds = %2
-  %55 = getelementptr inbounds i8, ptr %1, i64 64
-  %56 = load i32, ptr %55, align 8, !range !432, !noundef !5
-  %57 = icmp eq i32 %56, 1000000000
-  %58 = getelementptr inbounds i8, ptr %1, i64 56
-  %59 = load i64, ptr %58, align 8
-  %.sroa.029.0 = select i1 %57, i64 undef, i64 %59
+53:                                               ; preds = %2
+  %54 = getelementptr inbounds i8, ptr %1, i64 64
+  %55 = load i32, ptr %54, align 8, !range !432, !noundef !5
+  %56 = getelementptr inbounds i8, ptr %1, i64 56
+  %57 = load i64, ptr %56, align 8
+  %.sroa.029.0 = freeze i64 %57
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17h609e8f9f364208c7E.exit"
 
-"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17h609e8f9f364208c7E.exit": ; preds = %40, %.sink.split.i, %18, %10, %5, %2, %54, %48, %44
-  %.sroa.6.0 = phi i32 [ %56, %54 ], [ %50, %48 ], [ %.fca.1.extract7, %44 ], [ 1000000000, %2 ], [ %13, %10 ], [ 1000000000, %5 ], [ 1000000000, %18 ], [ %37, %40 ], [ %37, %.sink.split.i ]
-  %.sroa.0.0 = phi i64 [ %.sroa.029.0, %54 ], [ %.sroa.0.032, %48 ], [ %.fca.0.extract5, %44 ], [ undef, %2 ], [ %11, %10 ], [ undef, %5 ], [ undef, %18 ], [ %35, %40 ], [ %35, %.sink.split.i ]
-  %60 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
-  %61 = insertvalue { i64, i32 } %60, i32 %.sroa.6.0, 1
-  ret { i64, i32 } %61
+"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17h609e8f9f364208c7E.exit": ; preds = %40, %.sink.split.i, %18, %10, %5, %2, %53, %48, %44
+  %.sroa.6.0 = phi i32 [ %55, %53 ], [ %50, %48 ], [ %.fca.1.extract7, %44 ], [ 1000000000, %2 ], [ %13, %10 ], [ 1000000000, %5 ], [ 1000000000, %18 ], [ %37, %40 ], [ %37, %.sink.split.i ]
+  %.sroa.0.0 = phi i64 [ %.sroa.029.0, %53 ], [ %.sroa.0.032, %48 ], [ %.fca.0.extract5, %44 ], [ undef, %2 ], [ %11, %10 ], [ undef, %5 ], [ undef, %18 ], [ %35, %40 ], [ %35, %.sink.split.i ]
+  %58 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
+  %59 = insertvalue { i64, i32 } %58, i32 %.sroa.6.0, 1
+  ret { i64, i32 } %59
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3921,7 +3919,7 @@ define hidden noundef zeroext i1 @_ZN17crossbeam_channel7channel4read17ha00083fe
     i64 1, label %14
     i64 2, label %36
     i64 3, label %40
-    i64 4, label %48
+    i64 4, label %44
     i64 5, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17h9939328133c4d83cE.exit"
   ]
 
@@ -3996,27 +3994,21 @@ default.unreachable12:                            ; preds = %2
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17h9939328133c4d83cE.exit"
 
 40:                                               ; preds = %2
-  %41 = getelementptr inbounds i8, ptr %1, i64 48
-  %42 = load i32, ptr %41, align 8, !range !432, !noundef !5
-  %43 = icmp eq i32 %42, 1000000000
-  %44 = getelementptr inbounds i8, ptr %1, i64 40
-  %45 = load i64, ptr %44, align 8
-  %46 = trunc i64 %45 to i1
-  %47 = select i1 %43, i1 undef, i1 %46
+  %41 = getelementptr inbounds i8, ptr %1, i64 40
+  %42 = load i64, ptr %41, align 8
+  %.sroa.0.0 = freeze i64 %42
+  %43 = trunc i64 %.sroa.0.0 to i1
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17h9939328133c4d83cE.exit"
 
-48:                                               ; preds = %2
-  %49 = getelementptr inbounds i8, ptr %1, i64 64
-  %50 = load i32, ptr %49, align 8, !range !432, !noundef !5
-  %51 = icmp eq i32 %50, 1000000000
-  %52 = getelementptr inbounds i8, ptr %1, i64 56
-  %53 = load i64, ptr %52, align 8
-  %54 = trunc i64 %53 to i1
-  %55 = select i1 %51, i1 undef, i1 %54
+44:                                               ; preds = %2
+  %45 = getelementptr inbounds i8, ptr %1, i64 56
+  %46 = load i64, ptr %45, align 8
+  %.sroa.09.0 = freeze i64 %46
+  %47 = trunc i64 %.sroa.09.0 to i1
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17h9939328133c4d83cE.exit"
 
-"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17h9939328133c4d83cE.exit": ; preds = %32, %.sink.split.i, %14, %10, %5, %2, %48, %40, %36
-  %.0.shrunk = phi i1 [ %55, %48 ], [ %47, %40 ], [ %39, %36 ], [ true, %2 ], [ true, %5 ], [ false, %10 ], [ true, %14 ], [ false, %.sink.split.i ], [ false, %32 ]
+"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17h9939328133c4d83cE.exit": ; preds = %32, %.sink.split.i, %14, %10, %5, %2, %44, %40, %36
+  %.0.shrunk = phi i1 [ %47, %44 ], [ %43, %40 ], [ %39, %36 ], [ true, %2 ], [ true, %5 ], [ false, %10 ], [ true, %14 ], [ false, %.sink.split.i ], [ false, %32 ]
   ret i1 %.0.shrunk
 }
 

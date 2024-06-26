@@ -737,7 +737,7 @@ _ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread.i.i.i: ;
   %.not.i.i.i = icmp ne ptr %184, null
   %185 = getelementptr inbounds i8, ptr %0, i64 16
   %186 = load i64, ptr %185, align 8, !alias.scope !71, !noalias !72
-  %.sroa.621.0.i.i = select i1 %.not.i.i.i, i64 %186, i64 undef
+  %.sroa.621.0.i.i = freeze i64 %186
   %.sink22.i.i.i = zext i1 %.not.i.i.i to i64
   %.sink.i17.i.i = select i1 %.not.i.i.i, i64 %174, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14), !noalias !115
@@ -1182,7 +1182,7 @@ _ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i.i.i: ;
   %.not.i.i.i5 = icmp ne ptr %369, null
   %370 = getelementptr inbounds i8, ptr %0, i64 16
   %371 = load i64, ptr %370, align 8, !alias.scope !147, !noalias !148
-  %.sroa.624.0.i.i = select i1 %.not.i.i.i5, i64 %371, i64 undef
+  %.sroa.624.0.i.i = freeze i64 %371
   %.sink22.i.i.i6 = zext i1 %.not.i.i.i5 to i64
   %.sink.i16.i.i = select i1 %.not.i.i.i5, i64 %360, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7), !noalias !188
@@ -1396,33 +1396,32 @@ define hidden { i64, i64 } @_ZN10serde_json5value11parse_index17h8e605e054c94b14
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit": ; preds = %2
   %rhsc = load i8, ptr %0, align 1
   %4 = icmp eq i8 %rhsc, 43
-  br i1 %4, label %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6"
+  br i1 %4, label %11, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit"
   %5 = icmp eq i8 %rhsc, 48
   %6 = icmp ne i64 %1, 1
   %or.cond.not = and i1 %6, %5
-  br i1 %or.cond.not, label %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6.thread"
+  br i1 %or.cond.not, label %11, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6.thread"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6.thread": ; preds = %2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h2792cf320b823c7dE"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
   %7 = load i8, ptr %3, align 8, !range !74, !noundef !5
-  %trunc = trunc nuw i8 %7 to i1
-  %switch = xor i1 %trunc, true
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load i64, ptr %8, align 8
-  %.sroa.4.0 = select i1 %trunc, i64 undef, i64 %9
-  %.sroa.0.0 = zext i1 %switch to i64
+  %8 = xor i8 %7, 1
+  %switch = zext nneg i8 %8 to i64
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load i64, ptr %9, align 8
+  %.sroa.4.0 = freeze i64 %10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %10
+  br label %11
 
-10:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6.thread"
+11:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6.thread"
   %.sroa.4.1 = phi i64 [ %.sroa.4.0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6.thread" ], [ undef, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6" ], [ undef, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit" ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6.thread" ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6" ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit" ]
-  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %12 = insertvalue { i64, i64 } %11, i64 %.sroa.4.1, 1
-  ret { i64, i64 } %12
+  %.sroa.0.1 = phi i64 [ %switch, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6.thread" ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit6" ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1a3e6aad74e5cc38E.exit" ]
+  %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %13 = insertvalue { i64, i64 } %12, i64 %.sroa.4.1, 1
+  ret { i64, i64 } %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -1490,7 +1489,7 @@ define { ptr, i64 } @_ZN10serde_json5value5Value6as_str17h79619b463a222ef9E(ptr 
   %5 = load ptr, ptr %4, align 8, !nonnull !5
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
-  %.sroa.3.0 = select i1 %3, i64 %7, i64 undef
+  %.sroa.3.0 = freeze i64 %7
   %.sroa.0.0 = select i1 %3, ptr %5, ptr null
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
@@ -1615,7 +1614,7 @@ define { i64, i64 } @_ZN10serde_json5value5Value6as_u6417ha16b8e6c20824c7bE(ptr 
   %or.cond = select i1 %3, i1 %switch, i1 false
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
-  %.sroa.4.0 = select i1 %or.cond, i64 %7, i64 undef
+  %.sroa.4.0 = freeze i64 %7
   %.sroa.0.0 = zext i1 %or.cond to i64
   %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %9 = insertvalue { i64, i64 } %8, i64 %.sroa.4.0, 1
@@ -2099,7 +2098,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   %9 = load ptr, ptr %8, align 8, !alias.scope !362, !noalias !365, !nonnull !5
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8, !alias.scope !362, !noalias !365
-  %.sroa.3.0.i.i = select i1 %7, i64 %11, i64 undef
+  %.sroa.3.0.i.i = freeze i64 %11
   %.sroa.0.0.i.i = select i1 %7, ptr %9, ptr null
   %12 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17hc2a685a8a65f992aE.llvm.15983814413174583861"(ptr noalias noundef readonly align 1 %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4), !noalias !357
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -2123,7 +2122,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq90_$LT$impl$u20$cor
   %11 = load ptr, ptr %10, align 8, !alias.scope !371, !noalias !374, !nonnull !5
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8, !alias.scope !371, !noalias !374
-  %.sroa.3.0.i.i = select i1 %9, i64 %13, i64 undef
+  %.sroa.3.0.i.i = freeze i64 %13
   %.sroa.0.0.i.i = select i1 %9, ptr %11, ptr null
   %14 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17hc2a685a8a65f992aE.llvm.15983814413174583861"(ptr noalias noundef readonly align 1 %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3), !noalias !366
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -2148,7 +2147,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq104_$LT$impl$u20$co
   %12 = load ptr, ptr %11, align 8, !alias.scope !380, !noalias !383, !nonnull !5
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8, !alias.scope !380, !noalias !383
-  %.sroa.3.0.i.i = select i1 %10, i64 %14, i64 undef
+  %.sroa.3.0.i.i = freeze i64 %14
   %.sroa.0.0.i.i = select i1 %10, ptr %12, ptr null
   %15 = call noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17hc2a685a8a65f992aE.llvm.15983814413174583861"(ptr noalias noundef readonly align 1 %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3), !noalias !375
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -2909,8 +2908,9 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq85_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %6, i1 %switch.i.i, i1 false
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !459
-  %11 = icmp eq i64 %10, %4
-  %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %11, i1 false
+  %.sroa.4.0.i.i = freeze i64 %10
+  %11 = icmp eq i64 %.sroa.4.0.i.i, %4
+  %.0.in.i.i = and i1 %or.cond.i.not.not.i, %11
   ret i1 %.0.in.i.i
 }
 
@@ -2927,8 +2927,9 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq89_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %7, i1 %switch.i.i, i1 false
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !464
-  %12 = icmp eq i64 %11, %5
-  %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %12, i1 false
+  %.sroa.4.0.i.i = freeze i64 %11
+  %12 = icmp eq i64 %.sroa.4.0.i.i, %5
+  %.0.in.i.i = and i1 %or.cond.i.not.not.i, %12
   ret i1 %.0.in.i.i
 }
 
@@ -2945,8 +2946,9 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq97_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %7, i1 %switch.i.i, i1 false
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !469
-  %12 = icmp eq i64 %11, %5
-  %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %12, i1 false
+  %.sroa.4.0.i.i = freeze i64 %11
+  %12 = icmp eq i64 %.sroa.4.0.i.i, %5
+  %.0.in.i.i = and i1 %or.cond.i.not.not.i, %12
   ret i1 %.0.in.i.i
 }
 
@@ -2962,8 +2964,9 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %6, i1 %switch.i.i, i1 false
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !474
-  %11 = icmp eq i64 %10, %4
-  %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %11, i1 false
+  %.sroa.4.0.i.i = freeze i64 %10
+  %11 = icmp eq i64 %.sroa.4.0.i.i, %4
+  %.0.in.i.i = and i1 %or.cond.i.not.not.i, %11
   ret i1 %.0.in.i.i
 }
 
@@ -2980,8 +2983,9 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq90_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %7, i1 %switch.i.i, i1 false
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !479
-  %12 = icmp eq i64 %11, %5
-  %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %12, i1 false
+  %.sroa.4.0.i.i = freeze i64 %11
+  %12 = icmp eq i64 %.sroa.4.0.i.i, %5
+  %.0.in.i.i = and i1 %or.cond.i.not.not.i, %12
   ret i1 %.0.in.i.i
 }
 
@@ -2998,8 +3002,9 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq98_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %7, i1 %switch.i.i, i1 false
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !484
-  %12 = icmp eq i64 %11, %5
-  %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %12, i1 false
+  %.sroa.4.0.i.i = freeze i64 %11
+  %12 = icmp eq i64 %.sroa.4.0.i.i, %5
+  %.0.in.i.i = and i1 %or.cond.i.not.not.i, %12
   ret i1 %.0.in.i.i
 }
 
@@ -3015,8 +3020,9 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %6, i1 %switch.i.i, i1 false
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !489
-  %11 = icmp eq i64 %10, %4
-  %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %11, i1 false
+  %.sroa.4.0.i.i = freeze i64 %10
+  %11 = icmp eq i64 %.sroa.4.0.i.i, %4
+  %.0.in.i.i = and i1 %or.cond.i.not.not.i, %11
   ret i1 %.0.in.i.i
 }
 
@@ -3033,8 +3039,9 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq90_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %7, i1 %switch.i.i, i1 false
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !494
-  %12 = icmp eq i64 %11, %5
-  %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %12, i1 false
+  %.sroa.4.0.i.i = freeze i64 %11
+  %12 = icmp eq i64 %.sroa.4.0.i.i, %5
+  %.0.in.i.i = and i1 %or.cond.i.not.not.i, %12
   ret i1 %.0.in.i.i
 }
 
@@ -3051,8 +3058,9 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq98_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %7, i1 %switch.i.i, i1 false
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !499
-  %12 = icmp eq i64 %11, %5
-  %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %12, i1 false
+  %.sroa.4.0.i.i = freeze i64 %11
+  %12 = icmp eq i64 %.sroa.4.0.i.i, %5
+  %.0.in.i.i = and i1 %or.cond.i.not.not.i, %12
   ret i1 %.0.in.i.i
 }
 
@@ -3067,8 +3075,9 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %5, i1 %switch.i.i, i1 false
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !504
-  %10 = icmp eq i64 %9, %3
-  %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %10, i1 false
+  %.sroa.4.0.i.i = freeze i64 %9
+  %10 = icmp eq i64 %.sroa.4.0.i.i, %3
+  %.0.in.i.i = and i1 %or.cond.i.not.not.i, %10
   ret i1 %.0.in.i.i
 }
 
@@ -3084,8 +3093,9 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq90_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %6, i1 %switch.i.i, i1 false
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !509
-  %11 = icmp eq i64 %10, %4
-  %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %11, i1 false
+  %.sroa.4.0.i.i = freeze i64 %10
+  %11 = icmp eq i64 %.sroa.4.0.i.i, %4
+  %.0.in.i.i = and i1 %or.cond.i.not.not.i, %11
   ret i1 %.0.in.i.i
 }
 
@@ -3101,8 +3111,9 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq98_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %6, i1 %switch.i.i, i1 false
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !514
-  %11 = icmp eq i64 %10, %4
-  %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %11, i1 false
+  %.sroa.4.0.i.i = freeze i64 %10
+  %11 = icmp eq i64 %.sroa.4.0.i.i, %4
+  %.0.in.i.i = and i1 %or.cond.i.not.not.i, %11
   ret i1 %.0.in.i.i
 }
 
@@ -3117,8 +3128,9 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq88_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %5, i1 %switch.i.i, i1 false
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !519
-  %10 = icmp eq i64 %9, %3
-  %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %10, i1 false
+  %.sroa.4.0.i.i = freeze i64 %9
+  %10 = icmp eq i64 %.sroa.4.0.i.i, %3
+  %.0.in.i.i = and i1 %or.cond.i.not.not.i, %10
   ret i1 %.0.in.i.i
 }
 
@@ -3134,8 +3146,9 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq92_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %6, i1 %switch.i.i, i1 false
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !524
-  %11 = icmp eq i64 %10, %4
-  %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %11, i1 false
+  %.sroa.4.0.i.i = freeze i64 %10
+  %11 = icmp eq i64 %.sroa.4.0.i.i, %4
+  %.0.in.i.i = and i1 %or.cond.i.not.not.i, %11
   ret i1 %.0.in.i.i
 }
 
@@ -3151,8 +3164,9 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq100_$LT$impl$u20$co
   %or.cond.i.not.not.i = select i1 %6, i1 %switch.i.i, i1 false
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !529
-  %11 = icmp eq i64 %10, %4
-  %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %11, i1 false
+  %.sroa.4.0.i.i = freeze i64 %10
+  %11 = icmp eq i64 %.sroa.4.0.i.i, %4
+  %.0.in.i.i = and i1 %or.cond.i.not.not.i, %11
   ret i1 %.0.in.i.i
 }
 

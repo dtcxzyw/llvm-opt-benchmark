@@ -4228,8 +4228,8 @@ define internal fastcc void @"_ZN80_$LT$milli..update..settings..Setting$LT$T$GT
   %23 = select i1 %21, i64 %22, i64 0
   switch i64 %23, label %24 [
     i64 0, label %25
-    i64 1, label %182
-    i64 2, label %183
+    i64 1, label %181
+    i64 2, label %182
   ]
 
 24:                                               ; preds = %2
@@ -4663,12 +4663,15 @@ define internal fastcc void @"_ZN80_$LT$milli..update..settings..Setting$LT$T$GT
 
 "_ZN81_$LT$milli..vector..settings..EmbeddingSettings$u20$as$u20$core..clone..Clone$GT$5clone17h7f1bb7bcf9d8477fE.exit": ; preds = %163, %172, %174
   %.sroa.06.0.i = phi i8 [ 3, %174 ], [ %173, %172 ], [ 2, %163 ]
-  %switch.i = icmp eq i64 %19, 0
-  %.sroa.6.0.i = select i1 %switch.i, i64 %73, i64 undef
+  %.sroa.6.0.i = freeze i64 %73
   %175 = getelementptr inbounds i8, ptr %1, i64 280
   %176 = load i32, ptr %175, align 8, !range !679, !alias.scope !650, !noalias !654, !noundef !4
-  %switch17.i = icmp eq i32 %176, 0
   %177 = getelementptr inbounds i8, ptr %1, i64 284
+  %178 = load float, ptr %177, align 4, !alias.scope !650, !noalias !654
+  %179 = getelementptr inbounds i8, ptr %1, i64 288
+  %180 = load float, ptr %179, align 8, !alias.scope !650, !noalias !654
+  %.sroa.7.0.i = freeze float %180
+  %.sroa.68.0.i = freeze float %178
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
@@ -4704,26 +4707,24 @@ define internal fastcc void @"_ZN80_$LT$milli..update..settings..Setting$LT$T$GT
   %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 280
   store i32 %176, ptr %.sroa.15.0..sroa_idx, align 8
   %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 284
-  %178 = load <2 x float>, ptr %177, align 4, !alias.scope !650, !noalias !654
-  %179 = insertelement <2 x i1> poison, i1 %switch17.i, i64 0
-  %180 = shufflevector <2 x i1> %179, <2 x i1> poison, <2 x i32> zeroinitializer
-  %181 = select <2 x i1> %180, <2 x float> %178, <2 x float> undef
-  store <2 x float> %181, ptr %.sroa.16.0..sroa_idx, align 4
+  store float %.sroa.68.0.i, ptr %.sroa.16.0..sroa_idx, align 4
+  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 288
+  store float %.sroa.7.0.i, ptr %.sroa.17.0..sroa_idx, align 8
   %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 292
   store i8 %.sroa.06.0.i, ptr %.sroa.18.0..sroa_idx, align 4
   %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 293
   store i8 %.sroa.0.0.i, ptr %.sroa.19.0..sroa_idx, align 1
-  br label %184
+  br label %183
+
+181:                                              ; preds = %2
+  store i64 3, ptr %0, align 8
+  br label %183
 
 182:                                              ; preds = %2
-  store i64 3, ptr %0, align 8
-  br label %184
-
-183:                                              ; preds = %2
   store i64 4, ptr %0, align 8
-  br label %184
+  br label %183
 
-184:                                              ; preds = %183, %182, %"_ZN81_$LT$milli..vector..settings..EmbeddingSettings$u20$as$u20$core..clone..Clone$GT$5clone17h7f1bb7bcf9d8477fE.exit"
+183:                                              ; preds = %182, %181, %"_ZN81_$LT$milli..vector..settings..EmbeddingSettings$u20$as$u20$core..clone..Clone$GT$5clone17h7f1bb7bcf9d8477fE.exit"
   ret void
 }
 

@@ -1803,26 +1803,26 @@ define dso_local ptr @acpi_get_next_subnode(ptr noundef %0, ptr noundef %1) #0 a
   %4 = icmp eq ptr %0, null
   %5 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %6 = or i1 %4, %5
-  br i1 %6, label %.thread29, label %7
+  br i1 %6, label %.thread30, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %.fr = freeze ptr %9
-  %10 = icmp eq ptr %.fr, @acpi_device_fwnode_ops
+  %.fr27 = freeze ptr %9
+  %10 = icmp eq ptr %.fr27, @acpi_device_fwnode_ops
   %11 = getelementptr i8, ptr %0, i64 -16
   %spec.select = select i1 %10, ptr %11, ptr null
   %12 = icmp eq ptr %1, null
   br i1 %12, label %25, label %15
 
-.thread29:                                        ; preds = %2
+.thread30:                                        ; preds = %2
   %13 = getelementptr i8, ptr %0, i64 -16
   %14 = icmp eq ptr %1, null
   br i1 %14, label %.thread21.thread, label %15
 
-15:                                               ; preds = %.thread29, %7
-  %16 = phi ptr [ null, %.thread29 ], [ %spec.select, %7 ]
-  %17 = phi ptr [ %13, %.thread29 ], [ %11, %7 ]
+15:                                               ; preds = %.thread30, %7
+  %16 = phi ptr [ null, %.thread30 ], [ %spec.select, %7 ]
+  %17 = phi ptr [ %13, %.thread30 ], [ %11, %7 ]
   %18 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
   br i1 %18, label %.thread21.thread, label %19
 
@@ -1836,7 +1836,7 @@ define dso_local ptr @acpi_get_next_subnode(ptr noundef %0, ptr noundef %1) #0 a
 
 25:                                               ; preds = %7
   %26 = icmp eq ptr %spec.select, null
-  br i1 %26, label %.thread18.thread31, label %.thread12
+  br i1 %26, label %.thread18.thread32, label %.thread12
 
 .thread12:                                        ; preds = %25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
@@ -1854,8 +1854,9 @@ define dso_local ptr @acpi_get_next_subnode(ptr noundef %0, ptr noundef %1) #0 a
   store ptr %31, ptr %3, align 8
   %32 = call i32 @acpi_dev_for_each_child(ptr noundef nonnull %29, ptr noundef nonnull @stop_on_next, ptr noundef nonnull %3) #15
   %33 = load ptr, ptr %3, align 8
-  %34 = icmp eq ptr %33, null
-  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  %.fr = freeze ptr %33
+  %34 = icmp eq ptr %.fr, null
+  %35 = getelementptr i8, ptr %.fr, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
   br i1 %34, label %.thread18, label %.thread21.thread
 
@@ -1869,9 +1870,9 @@ define dso_local ptr @acpi_get_next_subnode(ptr noundef %0, ptr noundef %1) #0 a
   %39 = phi ptr [ %17, %.thread17 ], [ %30, %.thread14 ]
   %40 = phi i1 [ false, %.thread17 ], [ true, %.thread14 ]
   %41 = phi ptr [ %1, %.thread17 ], [ null, %.thread14 ]
-  br i1 %6, label %.thread21.thread, label %.thread18.thread31
+  br i1 %6, label %.thread21.thread, label %.thread18.thread32
 
-.thread18.thread31:                               ; preds = %25, %.thread18
+.thread18.thread32:                               ; preds = %25, %.thread18
   %42 = phi ptr [ %41, %.thread18 ], [ null, %25 ]
   %43 = phi i1 [ %40, %.thread18 ], [ true, %25 ]
   %44 = phi ptr [ %39, %.thread18 ], [ %11, %25 ]
@@ -1884,11 +1885,11 @@ define dso_local ptr @acpi_get_next_subnode(ptr noundef %0, ptr noundef %1) #0 a
   %or.cond = or i1 %50, %49
   br i1 %or.cond, label %.thread21, label %51
 
-51:                                               ; preds = %.thread18.thread31
+51:                                               ; preds = %.thread18.thread32
   %52 = getelementptr i8, ptr %0, i64 544
   br label %56
 
-.thread21:                                        ; preds = %.thread18.thread31
+.thread21:                                        ; preds = %.thread18.thread32
   %53 = icmp eq ptr %48, null
   br i1 %53, label %.thread21.thread, label %54
 
@@ -1908,8 +1909,8 @@ define dso_local ptr @acpi_get_next_subnode(ptr noundef %0, ptr noundef %1) #0 a
 .thread23:                                        ; preds = %60
   %61 = getelementptr inbounds i8, ptr %42, i64 8
   %62 = load ptr, ptr %61, align 8
-  %.fr28 = freeze ptr %62
-  %63 = icmp eq ptr %.fr28, @acpi_data_fwnode_ops
+  %.fr29 = freeze ptr %62
+  %63 = icmp eq ptr %.fr29, @acpi_data_fwnode_ops
   %64 = getelementptr i8, ptr %42, i64 -16
   %spec.select26 = select i1 %63, ptr %64, ptr null
   %65 = getelementptr inbounds i8, ptr %spec.select26, i64 136
@@ -1922,8 +1923,8 @@ define dso_local ptr @acpi_get_next_subnode(ptr noundef %0, ptr noundef %1) #0 a
   %70 = getelementptr i8, ptr %69, i64 -120
   br label %.thread21.thread
 
-.thread21.thread:                                 ; preds = %15, %.thread29, %.thread18, %68, %.thread23, %56, %.thread21, %.thread17, %.thread14
-  %71 = phi ptr [ %35, %.thread14 ], [ %70, %68 ], [ null, %.thread21 ], [ null, %56 ], [ null, %.thread23 ], [ null, %.thread17 ], [ null, %.thread18 ], [ null, %.thread29 ], [ null, %15 ]
+.thread21.thread:                                 ; preds = %15, %.thread30, %.thread18, %68, %.thread23, %56, %.thread21, %.thread17, %.thread14
+  %71 = phi ptr [ %35, %.thread14 ], [ %70, %68 ], [ null, %.thread21 ], [ null, %56 ], [ null, %.thread23 ], [ null, %.thread17 ], [ null, %.thread18 ], [ null, %.thread30 ], [ null, %15 ]
   ret ptr %71
 }
 
@@ -2274,8 +2275,9 @@ define internal ptr @acpi_node_get_parent(ptr noundef readonly %0) #6 align 16 {
   %17 = icmp eq ptr %16, null
   %18 = getelementptr i8, ptr %16, i64 -616
   %19 = select i1 %17, ptr null, ptr %18
-  %20 = icmp eq ptr %19, null
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %.fr = freeze ptr %19
+  %20 = icmp eq ptr %.fr, null
+  %21 = getelementptr i8, ptr %.fr, i64 16
   br i1 %20, label %22, label %23
 
 22:                                               ; preds = %14, %12, %1
@@ -2625,8 +2627,9 @@ define internal ptr @acpi_fwnode_get_parent(ptr noundef readonly %0) #6 align 16
   %17 = icmp eq ptr %16, null
   %18 = getelementptr i8, ptr %16, i64 -616
   %19 = select i1 %17, ptr null, ptr %18
-  %20 = icmp eq ptr %19, null
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %.fr = freeze ptr %19
+  %20 = icmp eq ptr %.fr, null
+  %21 = getelementptr i8, ptr %.fr, i64 16
   br i1 %20, label %22, label %23
 
 22:                                               ; preds = %14, %12, %1

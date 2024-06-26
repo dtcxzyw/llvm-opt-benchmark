@@ -330,8 +330,9 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8a4d6c01cdd471bfE(ptr noalia
   unreachable
 
 _ZN3std9panicking3try8do_catch17h4be691b7f63457c1E.llvm.17470729325788562433.exit: ; preds = %5
-  %11 = extractvalue { ptr, ptr } %8, 0
-  %12 = extractvalue { ptr, ptr } %8, 1
+  %.fr = freeze { ptr, ptr } %8
+  %11 = extractvalue { ptr, ptr } %.fr, 0
+  %12 = extractvalue { ptr, ptr } %.fr, 1
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
   %14 = icmp ne ptr %12, null
@@ -339,12 +340,12 @@ _ZN3std9panicking3try8do_catch17h4be691b7f63457c1E.llvm.17470729325788562433.exi
   br label %__rust_try.llvm.17470729325788562433.exit
 
 __rust_try.llvm.17470729325788562433.exit:        ; preds = %2, %_ZN3std9panicking3try8do_catch17h4be691b7f63457c1E.llvm.17470729325788562433.exit
-  %15 = phi ptr [ %12, %_ZN3std9panicking3try8do_catch17h4be691b7f63457c1E.llvm.17470729325788562433.exit ], [ %1, %2 ]
+  %.sroa.3.0 = phi ptr [ %12, %_ZN3std9panicking3try8do_catch17h4be691b7f63457c1E.llvm.17470729325788562433.exit ], [ %1, %2 ]
   %.sroa.0.0 = phi ptr [ %11, %_ZN3std9panicking3try8do_catch17h4be691b7f63457c1E.llvm.17470729325788562433.exit ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %16 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %15, 1
-  ret { ptr, ptr } %17
+  %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %16 = insertvalue { ptr, ptr } %15, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %16
 }
 
 ; Function Attrs: nonlazybind uwtable

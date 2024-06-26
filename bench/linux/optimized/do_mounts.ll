@@ -233,18 +233,18 @@ define dso_local void @mount_root_generic(ptr noundef %0, ptr noundef %1, i32 no
   %26 = or i32 %2, 1
   br label %27
 
-27:                                               ; preds = %.loopexit5, %23
-  %28 = phi i32 [ %2, %23 ], [ %26, %.loopexit5 ]
-  br i1 %25, label %.preheader4, label %.loopexit5
+27:                                               ; preds = %.loopexit6, %23
+  %28 = phi i32 [ %2, %23 ], [ %26, %.loopexit6 ]
+  br i1 %25, label %.preheader5, label %.loopexit6
 
-.preheader4:                                      ; preds = %27, %59
+.preheader5:                                      ; preds = %27, %59
   %29 = phi ptr [ %63, %59 ], [ %12, %27 ]
   %30 = phi i32 [ %60, %59 ], [ 0, %27 ]
   %31 = load i8, ptr %29, align 1
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %59, label %33
 
-33:                                               ; preds = %.preheader4
+33:                                               ; preds = %.preheader5
   %34 = load ptr, ptr @root_mount_data, align 8
   %35 = call fastcc i32 @do_mount_root(ptr noundef %0, ptr noundef %29, i32 noundef %28, ptr noundef %34) #19
   switch i32 %35, label %36 [
@@ -268,44 +268,44 @@ define dso_local void @mount_root_generic(ptr noundef %0, ptr noundef %1, i32 no
 43:                                               ; preds = %41, %36
   %44 = phi i32 [ %42, %41 ], [ %24, %36 ]
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.loopexit3, label %46
+  br i1 %45, label %.loopexit4, label %46
 
 46:                                               ; preds = %43
   %47 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #17
   %48 = icmp sgt i32 %44, 0
-  br i1 %48, label %.preheader2, label %.loopexit3
+  br i1 %48, label %.preheader3, label %.loopexit4
 
-.preheader2:                                      ; preds = %46, %.preheader2
-  %49 = phi ptr [ %55, %.preheader2 ], [ %12, %46 ]
-  %50 = phi i32 [ %52, %.preheader2 ], [ 0, %46 ]
+.preheader3:                                      ; preds = %46, %.preheader3
+  %49 = phi ptr [ %55, %.preheader3 ], [ %12, %46 ]
+  %50 = phi i32 [ %52, %.preheader3 ], [ 0, %46 ]
   %51 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef %49) #17
   %52 = add nuw nsw i32 %50, 1
   %53 = call i64 @strlen(ptr noundef %49) #18
   %54 = add i64 %53, 1
   %55 = getelementptr i8, ptr %49, i64 %54
   %56 = icmp eq i32 %52, %44
-  br i1 %56, label %.loopexit3, label %.preheader2, !llvm.loop !6
+  br i1 %56, label %.loopexit4, label %.preheader3, !llvm.loop !6
 
-.loopexit3:                                       ; preds = %.preheader2, %46, %43
-  %57 = phi ptr [ @.str.3, %43 ], [ @.str.6, %46 ], [ @.str.6, %.preheader2 ]
+.loopexit4:                                       ; preds = %.preheader3, %46, %43
+  %57 = phi ptr [ @.str.3, %43 ], [ @.str.6, %46 ], [ @.str.6, %.preheader3 ]
   %58 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %57) #17
   call void (ptr, ...) @panic(ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #20
   unreachable
 
-59:                                               ; preds = %33, %33, %.preheader4
+59:                                               ; preds = %33, %33, %.preheader5
   %60 = add nuw nsw i32 %30, 1
   %61 = call i64 @strlen(ptr noundef %29) #18
   %62 = add i64 %61, 1
   %63 = getelementptr i8, ptr %29, i64 %62
   %64 = icmp eq i32 %60, %24
-  br i1 %64, label %.loopexit5, label %.preheader4, !llvm.loop !9
+  br i1 %64, label %.loopexit6, label %.preheader5, !llvm.loop !9
 
-.loopexit5:                                       ; preds = %59, %27
+.loopexit6:                                       ; preds = %59, %27
   %65 = and i32 %28, 1
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %27, label %67
 
-67:                                               ; preds = %.loopexit5
+67:                                               ; preds = %.loopexit6
   %68 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8) #17
   call void @printk_all_partitions() #18
   %69 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9) #17
@@ -357,9 +357,10 @@ define dso_local void @mount_root_generic(ptr noundef %0, ptr noundef %1, i32 no
 95:                                               ; preds = %91
   %96 = getelementptr i8, ptr %5, i64 72
   %97 = load volatile i64, ptr %96, align 8
-  %98 = and i64 %97, 1
+  %.fr2 = freeze i64 %97
+  %98 = and i64 %.fr2, 1
   %99 = icmp eq i64 %98, 0
-  %100 = add nsw i64 %97, -1
+  %100 = add i64 %.fr2, -1
   %101 = inttoptr i64 %100 to ptr
   br i1 %99, label %102, label %103
 
@@ -518,9 +519,10 @@ define internal fastcc i32 @do_mount_root(ptr noundef %0, ptr noundef %1, i32 no
 66:                                               ; preds = %62
   %67 = getelementptr i8, ptr %19, i64 72
   %68 = load volatile i64, ptr %67, align 8
-  %69 = and i64 %68, 1
+  %.fr3 = freeze i64 %68
+  %69 = and i64 %.fr3, 1
   %70 = icmp eq i64 %69, 0
-  %71 = add nsw i64 %68, -1
+  %71 = add i64 %.fr3, -1
   %72 = inttoptr i64 %71 to ptr
   br i1 %70, label %73, label %74
 

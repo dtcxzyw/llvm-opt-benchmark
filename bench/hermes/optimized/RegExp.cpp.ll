@@ -1241,11 +1241,11 @@ if.then4:                                         ; preds = %if.then
   %12 = load i32, ptr %length, align 4
   %conv12 = zext i32 %12 to i64
   %call15 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive5sliceERNS0_7RuntimeENS0_6HandleIS1_EEmm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %regExpLastInput, i64 noundef %conv, i64 noundef %conv12) #13
-  %13 = extractvalue { i32, i64 } %call15, 0
-  %14 = extractvalue { i32, i64 } %call15, 1
+  %call15.fr = freeze { i32, i64 } %call15
+  %13 = extractvalue { i32, i64 } %call15.fr, 0
+  %14 = extractvalue { i32, i64 } %call15.fr, 1
   %cmp.i = icmp ne i32 %13, 0
   %spec.select = zext i1 %cmp.i to i32
-  %spec.select10 = select i1 %cmp.i, i64 %14, i64 undef
   br label %cleanup
 
 if.end23:                                         ; preds = %land.lhs.true, %if.then, %_ZN6hermes2vm5vmisaINS0_15StringPrimitiveEEEbNS0_11HermesValueE.exit, %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EEC2ERKS6_.exit
@@ -1257,7 +1257,7 @@ if.end23:                                         ; preds = %land.lhs.true, %if.
 
 cleanup:                                          ; preds = %if.then4, %if.end23
   %retval.sroa.0.0 = phi i32 [ 1, %if.end23 ], [ %spec.select, %if.then4 ]
-  %retval.sroa.4.0 = phi i64 [ %or.i.i.i, %if.end23 ], [ %spec.select10, %if.then4 ]
+  %retval.sroa.4.0 = phi i64 [ %or.i.i.i, %if.end23 ], [ %14, %if.then4 ]
   %16 = load ptr, ptr %match, align 8
   %cmp.i.i.i = icmp eq ptr %16, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit, label %if.then.i.i
@@ -1334,11 +1334,11 @@ if.then:                                          ; preds = %_ZN6hermes2vm5vmisa
   %8 = load i32, ptr %7, align 4
   %conv = zext i32 %8 to i64
   %call11 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive5sliceERNS0_7RuntimeENS0_6HandleIS1_EEmm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %regExpLastInput, i64 noundef 0, i64 noundef %conv) #13
-  %9 = extractvalue { i32, i64 } %call11, 0
-  %10 = extractvalue { i32, i64 } %call11, 1
+  %call11.fr = freeze { i32, i64 } %call11
+  %9 = extractvalue { i32, i64 } %call11.fr, 0
+  %10 = extractvalue { i32, i64 } %call11.fr, 1
   %cmp.i = icmp ne i32 %9, 0
   %spec.select = zext i1 %cmp.i to i32
-  %spec.select7 = select i1 %cmp.i, i64 %10, i64 undef
   br label %cleanup
 
 if.end18:                                         ; preds = %entry, %land.lhs.true, %_ZN6hermes2vm5vmisaINS0_15StringPrimitiveEEEbNS0_11HermesValueE.exit
@@ -1350,7 +1350,7 @@ if.end18:                                         ; preds = %entry, %land.lhs.tr
 
 cleanup:                                          ; preds = %if.then, %if.end18
   %retval.sroa.0.0 = phi i32 [ 1, %if.end18 ], [ %spec.select, %if.then ]
-  %retval.sroa.4.0 = phi i64 [ %or.i.i.i, %if.end18 ], [ %spec.select7, %if.then ]
+  %retval.sroa.4.0 = phi i64 [ %or.i.i.i, %if.end18 ], [ %10, %if.then ]
   %12 = load ptr, ptr %match, align 8
   %cmp.i.i.i = icmp eq ptr %12, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit, label %if.then.i.i
@@ -1439,11 +1439,11 @@ if.then13:                                        ; preds = %if.then
   %sub = sub nsw i32 %and.i, %add
   %conv24 = zext i32 %sub to i64
   %call27 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive5sliceERNS0_7RuntimeENS0_6HandleIS1_EEmm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %regExpLastInput, i64 noundef %conv, i64 noundef %conv24) #13
-  %11 = extractvalue { i32, i64 } %call27, 0
-  %12 = extractvalue { i32, i64 } %call27, 1
+  %call27.fr = freeze { i32, i64 } %call27
+  %11 = extractvalue { i32, i64 } %call27.fr, 0
+  %12 = extractvalue { i32, i64 } %call27.fr, 1
   %cmp.i = icmp ne i32 %11, 0
   %spec.select = zext i1 %cmp.i to i32
-  %spec.select13 = select i1 %cmp.i, i64 %12, i64 undef
   br label %cleanup
 
 if.end35:                                         ; preds = %entry, %land.lhs.true, %if.then, %_ZN6hermes2vm5vmisaINS0_15StringPrimitiveEEEbNS0_11HermesValueE.exit
@@ -1455,7 +1455,7 @@ if.end35:                                         ; preds = %entry, %land.lhs.tr
 
 cleanup:                                          ; preds = %if.then13, %if.end35
   %retval.sroa.0.0 = phi i32 [ 1, %if.end35 ], [ %spec.select, %if.then13 ]
-  %retval.sroa.4.0 = phi i64 [ %or.i.i.i, %if.end35 ], [ %spec.select13, %if.then13 ]
+  %retval.sroa.4.0 = phi i64 [ %or.i.i.i, %if.end35 ], [ %12, %if.then13 ]
   %14 = load ptr, ptr %match, align 8
   %cmp.i.i.i = icmp eq ptr %14, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit, label %if.then.i.i
@@ -1564,11 +1564,11 @@ if.then:                                          ; preds = %_ZN6hermes2vm5vmisa
   %9 = load i32, ptr %length, align 4
   %conv11 = zext i32 %9 to i64
   %call14 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive5sliceERNS0_7RuntimeENS0_6HandleIS1_EEmm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %regExpLastInput, i64 noundef %conv, i64 noundef %conv11) #13
-  %10 = extractvalue { i32, i64 } %call14, 0
-  %11 = extractvalue { i32, i64 } %call14, 1
+  %call14.fr = freeze { i32, i64 } %call14
+  %10 = extractvalue { i32, i64 } %call14.fr, 0
+  %11 = extractvalue { i32, i64 } %call14.fr, 1
   %cmp.i = icmp ne i32 %10, 0
   %spec.select = zext i1 %cmp.i to i32
-  %spec.select7 = select i1 %cmp.i, i64 %11, i64 undef
   br label %cleanup
 
 if.end21:                                         ; preds = %entry, %land.lhs.true, %_ZN6hermes2vm5vmisaINS0_15StringPrimitiveEEEbNS0_11HermesValueE.exit
@@ -1580,7 +1580,7 @@ if.end21:                                         ; preds = %entry, %land.lhs.tr
 
 cleanup:                                          ; preds = %if.then, %if.end21
   %retval.sroa.0.0 = phi i32 [ 1, %if.end21 ], [ %spec.select, %if.then ]
-  %retval.sroa.4.0 = phi i64 [ %or.i.i.i, %if.end21 ], [ %spec.select7, %if.then ]
+  %retval.sroa.4.0 = phi i64 [ %or.i.i.i, %if.end21 ], [ %11, %if.then ]
   %13 = load ptr, ptr %match, align 8
   %cmp.i.i.i = icmp eq ptr %13, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit, label %if.then.i.i
@@ -1675,11 +1675,11 @@ if.then8:                                         ; preds = %if.then
   %9 = load i32, ptr %length, align 4
   %conv12 = zext i32 %9 to i64
   %call15 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive5sliceERNS0_7RuntimeENS0_6HandleIS1_EEmm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %regExpLastInput, i64 noundef %conv, i64 noundef %conv12) #13
-  %10 = extractvalue { i32, i64 } %call15, 0
-  %11 = extractvalue { i32, i64 } %call15, 1
+  %call15.fr = freeze { i32, i64 } %call15
+  %10 = extractvalue { i32, i64 } %call15.fr, 0
+  %11 = extractvalue { i32, i64 } %call15.fr, 1
   %cmp.i = icmp ne i32 %10, 0
   %spec.select = zext i1 %cmp.i to i32
-  %spec.select10 = select i1 %cmp.i, i64 %11, i64 undef
   br label %cleanup
 
 if.end23:                                         ; preds = %entry, %land.lhs.true, %if.then, %_ZN6hermes2vm5vmisaINS0_15StringPrimitiveEEEbNS0_11HermesValueE.exit, %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EEC2ERKS6_.exit
@@ -1691,7 +1691,7 @@ if.end23:                                         ; preds = %entry, %land.lhs.tr
 
 cleanup:                                          ; preds = %if.then8, %if.end23
   %retval.sroa.0.0 = phi i32 [ 1, %if.end23 ], [ %spec.select, %if.then8 ]
-  %retval.sroa.4.0 = phi i64 [ %or.i.i.i, %if.end23 ], [ %spec.select10, %if.then8 ]
+  %retval.sroa.4.0 = phi i64 [ %or.i.i.i, %if.end23 ], [ %11, %if.then8 ]
   %13 = load ptr, ptr %match, align 8
   %cmp.i.i.i = icmp eq ptr %13, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit, label %if.then.i.i

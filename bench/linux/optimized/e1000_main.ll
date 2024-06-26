@@ -8516,14 +8516,14 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %27 = load i8, ptr %26, align 4
   %28 = and i8 %27, 1
   %29 = icmp eq i8 %28, 0
-  br i1 %29, label %.thread22, label %.lr.ph.preheader
+  br i1 %29, label %.thread26, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
   %30 = load i32, ptr %2, align 4
   %31 = icmp slt i32 %30, %3
-  br i1 %31, label %.lr.ph81, label %.thread22
+  br i1 %31, label %.lr.ph85, label %.thread26
 
-.lr.ph81:                                         ; preds = %.lr.ph.preheader
+.lr.ph85:                                         ; preds = %.lr.ph.preheader
   %32 = load ptr, ptr %14, align 8
   %33 = getelementptr %struct.e1000_rx_buffer, ptr %32, i64 %12
   br label %36
@@ -8531,17 +8531,17 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
 .lr.ph:                                           ; preds = %470
   %34 = load i32, ptr %2, align 4
   %35 = icmp slt i32 %34, %3
-  br i1 %35, label %36, label %.thread22
+  br i1 %35, label %36, label %.thread26
 
-36:                                               ; preds = %.lr.ph81, %.lr.ph
-  %37 = phi i32 [ %30, %.lr.ph81 ], [ %34, %.lr.ph ]
-  %38 = phi i32 [ 0, %.lr.ph81 ], [ %471, %.lr.ph ]
-  %39 = phi i32 [ 0, %.lr.ph81 ], [ %465, %.lr.ph ]
-  %40 = phi i32 [ 0, %.lr.ph81 ], [ %466, %.lr.ph ]
-  %41 = phi i32 [ %10, %.lr.ph81 ], [ %50, %.lr.ph ]
-  %42 = phi ptr [ %33, %.lr.ph81 ], [ %55, %.lr.ph ]
-  %43 = phi ptr [ %13, %.lr.ph81 ], [ %53, %.lr.ph ]
-  %44 = phi ptr [ %26, %.lr.ph81 ], [ %472, %.lr.ph ]
+36:                                               ; preds = %.lr.ph85, %.lr.ph
+  %37 = phi i32 [ %30, %.lr.ph85 ], [ %34, %.lr.ph ]
+  %38 = phi i32 [ 0, %.lr.ph85 ], [ %471, %.lr.ph ]
+  %39 = phi i32 [ 0, %.lr.ph85 ], [ %465, %.lr.ph ]
+  %40 = phi i32 [ 0, %.lr.ph85 ], [ %466, %.lr.ph ]
+  %41 = phi i32 [ %10, %.lr.ph85 ], [ %50, %.lr.ph ]
+  %42 = phi ptr [ %33, %.lr.ph85 ], [ %55, %.lr.ph ]
+  %43 = phi ptr [ %13, %.lr.ph85 ], [ %53, %.lr.ph ]
+  %44 = phi ptr [ %26, %.lr.ph85 ], [ %472, %.lr.ph ]
   %45 = add nsw i32 %37, 1
   store i32 %45, ptr %2, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !102
@@ -8615,7 +8615,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %94 = tail call ptr @napi_get_frags(ptr noundef %20) #16
   store ptr %94, ptr %19, align 8
   %95 = icmp eq ptr %94, null
-  br i1 %95, label %.thread22, label %96
+  br i1 %95, label %.thread26, label %96
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %42, align 8
@@ -8661,9 +8661,10 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
 123:                                              ; preds = %119
   %124 = getelementptr i8, ptr %97, i64 72
   %125 = load volatile i64, ptr %124, align 8
-  %126 = and i64 %125, 1
+  %.fr14 = freeze i64 %125
+  %126 = and i64 %.fr14, 1
   %127 = icmp eq i64 %126, 0
-  %128 = add nsw i64 %125, -1
+  %128 = add i64 %.fr14, -1
   %129 = inttoptr i64 %128 to ptr
   br i1 %127, label %130, label %131
 
@@ -8734,9 +8735,10 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
 173:                                              ; preds = %169
   %174 = getelementptr i8, ptr %151, i64 72
   %175 = load volatile i64, ptr %174, align 8
-  %176 = and i64 %175, 1
+  %.fr13 = freeze i64 %175
+  %176 = and i64 %.fr13, 1
   %177 = icmp eq i64 %176, 0
-  %178 = add nsw i64 %175, -1
+  %178 = add i64 %.fr13, -1
   %179 = inttoptr i64 %178 to ptr
   br i1 %177, label %180, label %181
 
@@ -8843,9 +8845,10 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
 246:                                              ; preds = %242
   %247 = getelementptr i8, ptr %224, i64 72
   %248 = load volatile i64, ptr %247, align 8
-  %249 = and i64 %248, 1
+  %.fr11 = freeze i64 %248
+  %249 = and i64 %.fr11, 1
   %250 = icmp eq i64 %249, 0
-  %251 = add nsw i64 %248, -1
+  %251 = add i64 %.fr11, -1
   %252 = inttoptr i64 %251 to ptr
   br i1 %250, label %253, label %254
 
@@ -8894,7 +8897,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %282 = select i1 %280, i32 %281, i32 %.ph, !prof !57
   %283 = tail call ptr @__napi_alloc_skb(ptr noundef %20, i32 noundef %282, i32 noundef 2080) #16
   %284 = icmp eq ptr %283, null
-  br i1 %284, label %.thread22.sink.split, label %285, !prof !44
+  br i1 %284, label %.thread26.sink.split, label %285, !prof !44
 
 285:                                              ; preds = %277
   %286 = getelementptr inbounds i8, ptr %283, i64 192
@@ -8972,7 +8975,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
 338:                                              ; preds = %273
   %339 = tail call ptr @napi_get_frags(ptr noundef %20) #16
   %340 = icmp eq ptr %339, null
-  br i1 %340, label %.thread22.sink.split, label %341
+  br i1 %340, label %.thread26.sink.split, label %341
 
 341:                                              ; preds = %338
   %342 = getelementptr inbounds i8, ptr %339, i64 192
@@ -9017,9 +9020,10 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
 367:                                              ; preds = %363
   %368 = getelementptr i8, ptr %274, i64 72
   %369 = load volatile i64, ptr %368, align 8
-  %370 = and i64 %369, 1
+  %.fr12 = freeze i64 %369
+  %370 = and i64 %.fr12, 1
   %371 = icmp eq i64 %370, 0
-  %372 = add nsw i64 %369, -1
+  %372 = add i64 %.fr12, -1
   %373 = inttoptr i64 %372 to ptr
   br i1 %371, label %374, label %375
 
@@ -9033,16 +9037,16 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %379 = ptrtoint ptr %378 to i64
   %380 = and i64 %379, 2
   %381 = icmp eq i64 %380, 0
-  br i1 %381, label %.thread16, label %382
+  br i1 %381, label %.thread20, label %382
 
 382:                                              ; preds = %375
   %383 = getelementptr inbounds i8, ptr %339, i64 126
   %384 = load i8, ptr %383, align 2
   %385 = or i8 %384, 64
   store i8 %385, ptr %383, align 2
-  br label %.thread16
+  br label %.thread20
 
-.thread16:                                        ; preds = %375, %382
+.thread20:                                        ; preds = %375, %382
   %386 = load ptr, ptr %342, align 8
   %387 = load i32, ptr %344, align 4
   %388 = zext i32 %387 to i64
@@ -9055,19 +9059,19 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %392 = tail call i32 @napi_gro_receive(ptr noundef %20, ptr noundef nonnull %283) #16
   br label %464
 
-393:                                              ; preds = %.thread16, %265
-  %.sink73 = phi ptr [ %339, %.thread16 ], [ %272, %265 ]
+393:                                              ; preds = %.thread20, %265
+  %.sink77 = phi ptr [ %339, %.thread20 ], [ %272, %265 ]
   store ptr null, ptr %42, align 8
   %394 = and i32 %.ph, 65535
-  %395 = getelementptr inbounds i8, ptr %.sink73, i64 112
+  %395 = getelementptr inbounds i8, ptr %.sink77, i64 112
   %396 = load i32, ptr %395, align 8
   %397 = add i32 %396, %394
   store i32 %397, ptr %395, align 8
-  %398 = getelementptr inbounds i8, ptr %.sink73, i64 116
+  %398 = getelementptr inbounds i8, ptr %.sink77, i64 116
   %399 = load i32, ptr %398, align 4
   %400 = add i32 %399, %394
   store i32 %400, ptr %398, align 4
-  %401 = getelementptr inbounds i8, ptr %.sink73, i64 208
+  %401 = getelementptr inbounds i8, ptr %.sink77, i64 208
   %402 = load i32, ptr %401, align 8
   %403 = add i32 %402, 4096
   store i32 %403, ptr %401, align 8
@@ -9090,7 +9094,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   br i1 %415, label %425, label %416
 
 416:                                              ; preds = %413
-  %417 = getelementptr inbounds i8, ptr %.sink73, i64 128
+  %417 = getelementptr inbounds i8, ptr %.sink77, i64 128
   %418 = load i8, ptr %417, align 8
   %419 = and i8 %418, -97
   %420 = or disjoint i8 %419, 32
@@ -9102,13 +9106,13 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %423 = load i64, ptr %422, align 8
   %424 = add i64 %423, 1
   store i64 %424, ptr %422, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.sink73, i64 112
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.sink77, i64 112
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %425
 
 425:                                              ; preds = %421, %413, %393
   %426 = phi i32 [ %.pre, %421 ], [ %397, %413 ], [ %397, %393 ]
-  %427 = getelementptr inbounds i8, ptr %.sink73, i64 112
+  %427 = getelementptr inbounds i8, ptr %.sink77, i64 112
   %428 = add i32 %426, -4
   %429 = add i32 %428, %39
   %430 = load i64, ptr %18, align 8
@@ -9119,26 +9123,26 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   br i1 %434, label %435, label %452, !prof !105
 
 435:                                              ; preds = %425
-  %436 = getelementptr inbounds i8, ptr %.sink73, i64 116
+  %436 = getelementptr inbounds i8, ptr %.sink77, i64 116
   %437 = load i32, ptr %436, align 4
   %438 = icmp eq i32 %437, 0
   br i1 %438, label %441, label %439
 
 439:                                              ; preds = %435
-  %440 = tail call i32 @___pskb_trim(ptr noundef %.sink73, i32 noundef %428) #16
+  %440 = tail call i32 @___pskb_trim(ptr noundef %.sink77, i32 noundef %428) #16
   br label %452
 
 441:                                              ; preds = %435
   store i32 %428, ptr %427, align 8
-  %442 = getelementptr inbounds i8, ptr %.sink73, i64 200
+  %442 = getelementptr inbounds i8, ptr %.sink77, i64 200
   %443 = load ptr, ptr %442, align 8
-  %444 = getelementptr inbounds i8, ptr %.sink73, i64 192
+  %444 = getelementptr inbounds i8, ptr %.sink77, i64 192
   %445 = load ptr, ptr %444, align 8
   %446 = ptrtoint ptr %443 to i64
   %447 = ptrtoint ptr %445 to i64
   %448 = sub i64 %446, %447
   %449 = trunc i64 %448 to i32
-  %450 = getelementptr inbounds i8, ptr %.sink73, i64 184
+  %450 = getelementptr inbounds i8, ptr %.sink77, i64 184
   %451 = add i32 %428, %449
   store i32 %451, ptr %450, align 8
   br label %452
@@ -9153,9 +9157,9 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %457 = getelementptr inbounds i8, ptr %43, i64 14
   %458 = load i16, ptr %457, align 2
   %459 = and i16 %458, 4095
-  %460 = getelementptr inbounds i8, ptr %.sink73, i64 152
+  %460 = getelementptr inbounds i8, ptr %.sink77, i64 152
   store i16 129, ptr %460, align 8
-  %461 = getelementptr inbounds i8, ptr %.sink73, i64 154
+  %461 = getelementptr inbounds i8, ptr %.sink77, i64 154
   store i16 %459, ptr %461, align 2
   br label %462
 
@@ -9181,19 +9185,19 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %473 = load i8, ptr %472, align 4
   %474 = and i8 %473, 1
   %475 = icmp eq i8 %474, 0
-  br i1 %475, label %.thread22, label %.lr.ph
+  br i1 %475, label %.thread26, label %.lr.ph
 
-.thread22.sink.split:                             ; preds = %338, %277
+.thread26.sink.split:                             ; preds = %338, %277
   %476 = load i32, ptr %24, align 8
   %477 = add i32 %476, 1
   store i32 %477, ptr %24, align 8
-  br label %.thread22
+  br label %.thread26
 
-.thread22:                                        ; preds = %93, %.lr.ph, %470, %.thread22.sink.split, %.lr.ph.preheader, %4
-  %478 = phi i32 [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ %39, %.thread22.sink.split ], [ %465, %470 ], [ %465, %.lr.ph ], [ %39, %93 ]
-  %479 = phi i32 [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ %40, %.thread22.sink.split ], [ %466, %470 ], [ %466, %.lr.ph ], [ %40, %93 ]
-  %480 = phi i1 [ false, %4 ], [ %31, %.lr.ph.preheader ], [ true, %.thread22.sink.split ], [ %31, %470 ], [ %31, %.lr.ph ], [ %31, %93 ]
-  %481 = phi i32 [ %10, %4 ], [ %10, %.lr.ph.preheader ], [ %50, %.thread22.sink.split ], [ %50, %470 ], [ %50, %.lr.ph ], [ %50, %93 ]
+.thread26:                                        ; preds = %93, %.lr.ph, %470, %.thread26.sink.split, %.lr.ph.preheader, %4
+  %478 = phi i32 [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ %39, %.thread26.sink.split ], [ %465, %470 ], [ %465, %.lr.ph ], [ %39, %93 ]
+  %479 = phi i32 [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ %40, %.thread26.sink.split ], [ %466, %470 ], [ %466, %.lr.ph ], [ %40, %93 ]
+  %480 = phi i1 [ false, %4 ], [ %31, %.lr.ph.preheader ], [ true, %.thread26.sink.split ], [ %31, %470 ], [ %31, %.lr.ph ], [ %31, %93 ]
+  %481 = phi i32 [ %10, %4 ], [ %10, %.lr.ph.preheader ], [ %50, %.thread26.sink.split ], [ %50, %470 ], [ %50, %.lr.ph ], [ %50, %93 ]
   store i32 %481, ptr %9, align 4
   %482 = load volatile i32, ptr %9, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !106
@@ -9202,12 +9206,12 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %485 = icmp ugt i32 %482, %484
   br i1 %485, label %488, label %486
 
-486:                                              ; preds = %.thread22
+486:                                              ; preds = %.thread26
   %487 = load i32, ptr %15, align 4
   br label %488
 
-488:                                              ; preds = %486, %.thread22
-  %489 = phi i32 [ %487, %486 ], [ 0, %.thread22 ]
+488:                                              ; preds = %486, %.thread26
+  %489 = phi i32 [ %487, %486 ], [ 0, %.thread26 ]
   %490 = xor i32 %484, -1
   %491 = add i32 %482, %490
   %492 = add i32 %491, %489
@@ -9247,7 +9251,7 @@ define internal void @e1000_alloc_jumbo_rx_buffers(ptr nocapture noundef %0, ptr
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = icmp eq i32 %2, 0
-  br i1 %7, label %.loopexit4, label %8
+  br i1 %7, label %.loopexit5, label %8
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %6, align 8
@@ -9322,9 +9326,10 @@ define internal void @e1000_alloc_jumbo_rx_buffers(ptr nocapture noundef %0, ptr
 55:                                               ; preds = %51
   %56 = getelementptr i8, ptr %38, i64 72
   %57 = load volatile i64, ptr %56, align 8
-  %58 = and i64 %57, 1
+  %.fr4 = freeze i64 %57
+  %58 = and i64 %.fr4, 1
   %59 = icmp eq i64 %58, 0
-  %60 = add nsw i64 %57, -1
+  %60 = add i64 %.fr4, -1
   %61 = inttoptr i64 %60 to ptr
   br i1 %59, label %62, label %63
 
@@ -9368,22 +9373,22 @@ define internal void @e1000_alloc_jumbo_rx_buffers(ptr nocapture noundef %0, ptr
   %83 = zext i32 %81 to i64
   %84 = getelementptr %struct.e1000_rx_buffer, ptr %82, i64 %83
   %85 = icmp eq i32 %21, 0
-  br i1 %85, label %.loopexit4, label %17, !llvm.loop !108
+  br i1 %85, label %.loopexit5, label %17, !llvm.loop !108
 
 .loopexit:                                        ; preds = %24, %70
   %86 = getelementptr inbounds i8, ptr %0, i64 1112
   %87 = load i32, ptr %86, align 8
   %88 = add i32 %87, 1
   store i32 %88, ptr %86, align 8
-  br label %.loopexit4
+  br label %.loopexit5
 
-.loopexit4:                                       ; preds = %80, %.loopexit, %3
+.loopexit5:                                       ; preds = %80, %.loopexit, %3
   %89 = phi i32 [ %5, %3 ], [ %19, %.loopexit ], [ %81, %80 ]
   %90 = load i32, ptr %4, align 8
   %91 = icmp eq i32 %90, %89
   br i1 %91, label %106, label %92, !prof !44
 
-92:                                               ; preds = %.loopexit4
+92:                                               ; preds = %.loopexit5
   store i32 %89, ptr %4, align 8
   %93 = icmp eq i32 %89, 0
   br i1 %93, label %94, label %97, !prof !44
@@ -9406,7 +9411,7 @@ define internal void @e1000_alloc_jumbo_rx_buffers(ptr nocapture noundef %0, ptr
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %99, ptr elementtype(i32) %105) #16, !srcloc !6
   br label %106
 
-106:                                              ; preds = %97, %.loopexit4
+106:                                              ; preds = %97, %.loopexit5
   ret void
 }
 
@@ -11151,9 +11156,10 @@ define internal fastcc void @e1000_clean_rx_ring(ptr nocapture noundef %0, ptr n
 59:                                               ; preds = %55
   %60 = getelementptr i8, ptr %40, i64 72
   %61 = load volatile i64, ptr %60, align 8
-  %62 = and i64 %61, 1
+  %.fr6 = freeze i64 %61
+  %62 = and i64 %.fr6, 1
   %63 = icmp eq i64 %62, 0
-  %64 = add nsw i64 %61, -1
+  %64 = add i64 %.fr6, -1
   %65 = inttoptr i64 %64 to ptr
   br i1 %63, label %66, label %67
 

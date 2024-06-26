@@ -40,7 +40,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact1
 
 7:                                                ; preds = %3
   %8 = icmp ugt i64 %5, 576460752303423487
-  %9 = shl nuw nsw i64 %5, 4
+  %9 = shl i64 %5, 4
   %.val = load i64, ptr %0, align 8, !noundef !4
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %10, align 8
@@ -63,7 +63,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact1
   br label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit
 
 17:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit"
-  %18 = icmp eq i64 %5, 0
+  %18 = icmp eq i64 %9, 0
   br i1 %18, label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread46, label %19
 
 19:                                               ; preds = %17
@@ -85,7 +85,7 @@ _ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread46: ; preds = %17,
   br label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread
 
 _ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit, %3, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread46
-  %.sroa.4.0 = phi i64 [ undef, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread46 ], [ %5, %3 ], [ %9, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit.thread" ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread46 ], [ %5, %3 ], [ %9, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit ], [ %9, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit.thread" ], [ %9, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit" ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread46 ], [ 0, %3 ], [ %22, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit" ]
   %23 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %24 = insertvalue { i64, i64 } %23, i64 %.sroa.4.0, 1
@@ -99,7 +99,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
 
 4:                                                ; preds = %2
   %5 = icmp ugt i64 %0, 576460752303423487
-  %6 = shl nuw nsw i64 %0, 4
+  %6 = shl i64 %0, 4
   br i1 %5, label %8, label %7
 
 7:                                                ; preds = %4
@@ -119,8 +119,8 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   br label %12
 
 12:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h299f5501efc68404E.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hbab35f6282c065eaE.exit"
-  %.pn28 = phi ptr [ %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h299f5501efc68404E.exit" ], [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hbab35f6282c065eaE.exit" ]
-  %13 = icmp eq ptr %.pn28, null
+  %.sroa.05.0.i.i24.pn = phi ptr [ %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h299f5501efc68404E.exit" ], [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hbab35f6282c065eaE.exit" ]
+  %13 = icmp eq ptr %.sroa.05.0.i.i24.pn, null
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %12
@@ -128,7 +128,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   unreachable
 
 15:                                               ; preds = %12, %2
-  %.sroa.3.0 = phi ptr [ inttoptr (i64 8 to ptr), %2 ], [ %.pn28, %12 ]
+  %.sroa.3.0 = phi ptr [ inttoptr (i64 8 to ptr), %2 ], [ %.sroa.05.0.i.i24.pn, %12 ]
   %16 = insertvalue { i64, ptr } poison, i64 %0, 0
   %17 = insertvalue { i64, ptr } %16, ptr %.sroa.3.0, 1
   ret { i64, ptr } %17
@@ -147,7 +147,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 1152921504606846975
-  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29, 3
+  %11 = shl i64 %.0.sroa.speculated.i29, 3
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -186,7 +186,7 @@ _ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit: ; preds = %15, %19
   br label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread
 
 _ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc7b72290492b4555E.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc7b72290492b4555E.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit, %3, %23
-  %.sroa.4.0 = phi i64 [ undef, %23 ], [ %5, %3 ], [ %11, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc7b72290492b4555E.exit.thread" ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc7b72290492b4555E.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %23 ], [ %5, %3 ], [ %11, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit ], [ %11, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc7b72290492b4555E.exit.thread" ], [ %11, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc7b72290492b4555E.exit" ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %23 ], [ 0, %3 ], [ %22, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc7b72290492b4555E.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc7b72290492b4555E.exit" ]
   %24 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %25 = insertvalue { i64, i64 } %24, i64 %.sroa.4.0, 1
@@ -206,7 +206,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %5)
   %.0.sroa.speculated.i29 = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i, 230584300921369395
-  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29, 40
+  %11 = mul i64 %.0.sroa.speculated.i29, 40
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28 = load ptr, ptr %12, align 8
   %13 = icmp eq i64 %8, 0
@@ -222,34 +222,39 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
 
 15:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit.thread"
   %16 = mul nuw i64 %8, 40
-  %17 = icmp ule i64 %8, %.0.sroa.speculated.i29
+  %17 = icmp ule i64 %16, %11
   tail call void @llvm.assume(i1 %17)
   %18 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val28, i64 noundef %16, i64 noundef 8, i64 noundef %11) #15, !noalias !13
   br label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit
 
 19:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit"
-  %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !13
-  %21 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #15, !noalias !13
+  %20 = icmp eq i64 %11, 0
+  br i1 %20, label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread47, label %21
+
+21:                                               ; preds = %19
+  %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !13
+  %23 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #15, !noalias !13
   br label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit
 
-_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit: ; preds = %15, %19
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %18, %15 ], [ %21, %19 ]
+_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit: ; preds = %15, %21
+  %.sroa.012.2.i.i.pn.i = phi ptr [ %18, %15 ], [ %23, %21 ]
   %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
   %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
-  %22 = ptrtoint ptr %.sink1.i.i to i64
-  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread, label %23
+  %24 = ptrtoint ptr %.sink1.i.i to i64
+  br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread, label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread47
 
-23:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %12, align 8
+_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread47: ; preds = %19, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit
+  %.sink1.i.i51 = phi ptr [ %.sroa.012.2.i.i.pn.i, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit ], [ inttoptr (i64 8 to ptr), %19 ]
+  store ptr %.sink1.i.i51, ptr %12, align 8
   store i64 %.0.sroa.speculated.i29, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread
 
-_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit, %3, %23
-  %.sroa.4.0 = phi i64 [ undef, %23 ], [ %5, %3 ], [ %11, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit.thread" ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit" ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %23 ], [ 0, %3 ], [ %22, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit" ]
-  %24 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %25 = insertvalue { i64, i64 } %24, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %25
+_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit.thread", %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit, %3, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread47
+  %.sroa.4.0 = phi i64 [ undef, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread47 ], [ %5, %3 ], [ %11, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit ], [ %11, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit.thread" ], [ %11, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit" ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.thread47 ], [ 0, %3 ], [ %24, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit" ]
+  %25 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %26 = insertvalue { i64, i64 } %25, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %26
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -266,7 +271,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 1152921504606846975
-  %10 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 3
+  %10 = shl i64 %.0.sroa.speculated.i29.i, 3
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !17
   %12 = icmp eq i64 %7, 0
@@ -325,7 +330,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %8, i64 %6)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %9 = icmp ugt i64 %.0.sroa.speculated.i.i, 384307168202282325
-  %10 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 24
+  %10 = mul i64 %.0.sroa.speculated.i29.i, 24
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %11, align 8, !alias.scope !24
   %12 = icmp eq i64 %7, 0
@@ -341,23 +346,28 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
 
 14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hab1e130878f674dbE.exit.thread.i"
   %15 = mul nuw i64 %7, 24
-  %16 = icmp ule i64 %7, %.0.sroa.speculated.i29.i
+  %16 = icmp ule i64 %15, %10
   tail call void @llvm.assume(i1 %16)
   %17 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val28.i, i64 noundef %15, i64 noundef 8, i64 noundef %10) #15, !noalias !27
   br label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i
 
 18:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hab1e130878f674dbE.exit.i"
-  %19 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !27
-  %20 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %10, i64 noundef 8) #15, !noalias !27
+  %19 = icmp eq i64 %10, 0
+  br i1 %19, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h67b008025af909b2E.exit.thread3", label %20
+
+20:                                               ; preds = %18
+  %21 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !27
+  %22 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %10, i64 noundef 8) #15, !noalias !27
   br label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i
 
-_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i: ; preds = %18, %14
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %17, %14 ], [ %20, %18 ]
+_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i: ; preds = %20, %14
+  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %17, %14 ], [ %22, %20 ]
   %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h67b008025af909b2E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h67b008025af909b2E.exit.thread3"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h67b008025af909b2E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %11, align 8, !alias.scope !24
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h67b008025af909b2E.exit.thread3": ; preds = %18, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i
+  %.sink1.i.i51.i = phi ptr [ %.sroa.012.2.i.i.pn.i.i, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i ], [ inttoptr (i64 8 to ptr), %18 ]
+  store ptr %.sink1.i.i51.i, ptr %11, align 8, !alias.scope !24
   store i64 %.0.sroa.speculated.i29.i, ptr %0, align 8, !alias.scope !24
   ret void
 
@@ -392,7 +402,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve
 
 13:                                               ; preds = %9
   %14 = icmp ugt i64 %11, 576460752303423487
-  %15 = shl nuw nsw i64 %11, 4
+  %15 = shl i64 %11, 4
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %16, align 8, !alias.scope !31
   %17 = icmp eq i64 %4, 0
@@ -414,7 +424,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve
   br label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i
 
 23:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit.i"
-  %24 = icmp eq i64 %11, 0
+  %24 = icmp eq i64 %15, 0
   br i1 %24, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17heba766ee73d434efE.llvm.13073156767421070163.exit", label %25
 
 25:                                               ; preds = %23
@@ -437,7 +447,7 @@ _ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i: ; preds = %25, %19
   br label %7
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17heba766ee73d434efE.llvm.13073156767421070163.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit.thread.i", %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i, %9, %7
-  %.sroa.3.0 = phi i64 [ undef, %7 ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit.i" ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit.thread.i" ], [ %15, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i ], [ %11, %9 ]
+  %.sroa.3.0 = phi i64 [ undef, %7 ], [ %15, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit.i" ], [ %15, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit.thread.i" ], [ %15, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i ], [ %11, %9 ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %7 ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit.i" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h69007db3a43b7361E.exit.thread.i" ], [ %28, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i ], [ 0, %9 ]
   %29 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %30 = insertvalue { i64, i64 } %29, i64 %.sroa.3.0, 1
@@ -458,7 +468,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 1152921504606846975
-  %11 = shl nuw nsw i64 %.0.sroa.speculated.i29.i, 3
+  %11 = shl i64 %.0.sroa.speculated.i29.i, 3
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !38
   %13 = icmp eq i64 %8, 0
@@ -517,7 +527,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %9, i64 %7)
   %.0.sroa.speculated.i29.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i.i, i64 4)
   %10 = icmp ugt i64 %.0.sroa.speculated.i.i, 230584300921369395
-  %11 = mul nuw nsw i64 %.0.sroa.speculated.i29.i, 40
+  %11 = mul i64 %.0.sroa.speculated.i29.i, 40
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %.val28.i = load ptr, ptr %12, align 8, !alias.scope !45
   %13 = icmp eq i64 %8, 0
@@ -533,23 +543,28 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
 
 15:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit.thread.i"
   %16 = mul nuw i64 %8, 40
-  %17 = icmp ule i64 %8, %.0.sroa.speculated.i29.i
+  %17 = icmp ule i64 %16, %11
   tail call void @llvm.assume(i1 %17)
   %18 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %.val28.i, i64 noundef %16, i64 noundef 8, i64 noundef %11) #15, !noalias !48
   br label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i
 
 19:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h722619b632301a80E.exit.i"
-  %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !48
-  %21 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #15, !noalias !48
+  %20 = icmp eq i64 %11, 0
+  br i1 %20, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc22517810e61e451E.llvm.13073156767421070163.exit.thread3", label %21
+
+21:                                               ; preds = %19
+  %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !48
+  %23 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #15, !noalias !48
   br label %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i
 
-_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i: ; preds = %19, %15
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %18, %15 ], [ %21, %19 ]
+_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i: ; preds = %21, %15
+  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %18, %15 ], [ %23, %21 ]
   %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc22517810e61e451E.llvm.13073156767421070163.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc22517810e61e451E.llvm.13073156767421070163.exit.thread3"
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc22517810e61e451E.llvm.13073156767421070163.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %12, align 8, !alias.scope !45
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc22517810e61e451E.llvm.13073156767421070163.exit.thread3": ; preds = %19, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i
+  %.sink1.i.i51.i = phi ptr [ %.sroa.012.2.i.i.pn.i.i, %_ZN5alloc7raw_vec11finish_grow17hf0ed08a9b05b1c78E.exit.i ], [ inttoptr (i64 8 to ptr), %19 ]
+  store ptr %.sink1.i.i51.i, ptr %12, align 8, !alias.scope !45
   store i64 %.0.sroa.speculated.i29.i, ptr %0, align 8, !alias.scope !45
   ret void
 

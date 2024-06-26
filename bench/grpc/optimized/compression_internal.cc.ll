@@ -743,26 +743,27 @@ entry:
 if.end:                                           ; preds = %entry
   %vtable_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
-  %cmp.not.i.not = icmp eq ptr %0, @_ZN9grpc_core11ChannelArgs5Value11int_vtable_E
+  %cmp.not.i = icmp eq ptr %0, @_ZN9grpc_core11ChannelArgs5Value11int_vtable_E
   %1 = load ptr, ptr %call, align 8
-  %2 = ptrtoint ptr %1 to i64
-  %3 = trunc i64 %2 to i32
-  br i1 %cmp.not.i.not, label %return, label %if.end7
+  %.fr2.i = freeze ptr %1
+  %2 = ptrtoint ptr %.fr2.i to i64
+  %ival.sroa.0.0.extract.trunc = trunc i64 %2 to i32
+  br i1 %cmp.not.i, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
   %cmp.not.i5 = icmp eq ptr %0, @_ZN9grpc_core11ChannelArgs5Value14string_vtable_E
   br i1 %cmp.not.i5, label %_ZNK9grpc_core11ChannelArgs5Value11GetIfStringEv.exit, label %return
 
 _ZNK9grpc_core11ChannelArgs5Value11GetIfStringEv.exit: ; preds = %if.end7
-  %4 = atomicrmw add ptr %1, i64 1 monotonic, align 8, !noalias !25
-  %cmp.i.not = icmp eq ptr %1, null
+  %3 = atomicrmw add ptr %.fr2.i, i64 1 monotonic, align 8, !noalias !25
+  %cmp.i.not = icmp eq ptr %.fr2.i, null
   br i1 %cmp.i.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %_ZNK9grpc_core11ChannelArgs5Value11GetIfStringEv.exit
-  %payload_.i = getelementptr inbounds i8, ptr %1, i64 16
-  %length.i = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = load i64, ptr %length.i, align 8
-  switch i64 %5, label %if.else13.i [
+  %payload_.i = getelementptr inbounds i8, ptr %.fr2.i, i64 16
+  %length.i = getelementptr inbounds i8, ptr %.fr2.i, i64 8
+  %4 = load i64, ptr %length.i, align 8
+  switch i64 %4, label %if.else13.i [
     i64 8, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
     i64 7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8.i
     i64 4, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i19.i
@@ -789,23 +790,23 @@ if.else13.i:                                      ; preds = %_ZNSt11char_traitsI
 if.then.i:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i19.i, %if.else13.i
   %retval.sroa.0.0.i = phi i32 [ 0, %if.else13.i ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8.i ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i19.i ]
   %retval.sroa.4.0.i = phi i8 [ 0, %if.else13.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i19.i ]
-  %6 = atomicrmw sub ptr %1, i64 1 acq_rel, align 8
-  %cmp.i.i.i9 = icmp eq i64 %6, 1
+  %5 = atomicrmw sub ptr %.fr2.i, i64 1 acq_rel, align 8
+  %cmp.i.i.i9 = icmp eq i64 %5, 1
   br i1 %cmp.i.i.i9, label %if.then.i.i, label %return
 
 if.then.i.i:                                      ; preds = %if.then.i
-  invoke void @_ZN9grpc_core16RefCountedString7DestroyEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @_ZN9grpc_core16RefCountedString7DestroyEv(ptr noundef nonnull align 8 dereferenceable(16) %.fr2.i)
           to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #24
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #24
   unreachable
 
 return:                                           ; preds = %if.end7, %_ZNK9grpc_core11ChannelArgs5Value11GetIfStringEv.exit, %if.then.i.i, %if.then.i, %if.end, %entry
-  %retval.sroa.0.1 = phi i32 [ undef, %entry ], [ %3, %if.end ], [ %retval.sroa.0.0.i, %if.then.i ], [ %retval.sroa.0.0.i, %if.then.i.i ], [ undef, %_ZNK9grpc_core11ChannelArgs5Value11GetIfStringEv.exit ], [ undef, %if.end7 ]
+  %retval.sroa.0.1 = phi i32 [ undef, %entry ], [ %ival.sroa.0.0.extract.trunc, %if.end ], [ %retval.sroa.0.0.i, %if.then.i ], [ %retval.sroa.0.0.i, %if.then.i.i ], [ undef, %_ZNK9grpc_core11ChannelArgs5Value11GetIfStringEv.exit ], [ undef, %if.end7 ]
   %retval.sroa.3.1 = phi i8 [ 0, %entry ], [ 1, %if.end ], [ %retval.sroa.4.0.i, %if.then.i ], [ %retval.sroa.4.0.i, %if.then.i.i ], [ 0, %_ZNK9grpc_core11ChannelArgs5Value11GetIfStringEv.exit ], [ 0, %if.end7 ]
   %retval.sroa.3.0.insert.ext = zext nneg i8 %retval.sroa.3.1 to i64
   %retval.sroa.3.0.insert.shift = shl nuw nsw i64 %retval.sroa.3.0.insert.ext, 32

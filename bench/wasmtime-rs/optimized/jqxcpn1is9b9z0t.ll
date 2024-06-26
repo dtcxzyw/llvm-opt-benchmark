@@ -582,7 +582,6 @@ define internal void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$
   %4 = icmp eq ptr %3, null
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8, !alias.scope !147, !noalias !154, !noundef !4
-  %.not = icmp eq ptr %6, null
   br i1 %4, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb2a5b38b68f4495aE.exit", label %7
 
 7:                                                ; preds = %2
@@ -592,25 +591,22 @@ define internal void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$
   %.val9.i.i.i = load ptr, ptr %9, align 8, !alias.scope !147, !noalias !154, !nonnull !4, !noundef !4
   %10 = ptrtoint ptr %.val9.i.i.i to i64
   %11 = ptrtoint ptr %.val8.i.i.i to i64
-  %12 = sub nuw i64 %10, %11
-  %13 = udiv exact i64 %12, 40
-  %spec.select4 = select i1 %.not, i64 %13, i64 undef
+  %12 = sub i64 %10, %11
+  %13 = udiv i64 %12, 40
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb2a5b38b68f4495aE.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb2a5b38b68f4495aE.exit": ; preds = %2, %7
-  %.sroa.0.0 = phi i64 [ %13, %7 ], [ 0, %2 ]
-  %.sroa.10.0 = phi i64 [ %spec.select4, %7 ], [ 0, %2 ]
+  %.sroa.10.0 = phi i64 [ %13, %7 ], [ 0, %2 ]
+  %.not = icmp eq ptr %6, null
   %14 = getelementptr inbounds i8, ptr %1, i64 56
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.10.0, i64 %15)
   %.sroa.01.0 = zext i1 %.not to i64
-  %.sroa.5.0 = select i1 %.not, i64 %16, i64 undef
-  %17 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.0.0, i64 %15)
-  store i64 %17, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.01.0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.5.0, ptr %19, align 8
+  store i64 %16, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.01.0, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %16, ptr %18, align 8
   ret void
 }
 

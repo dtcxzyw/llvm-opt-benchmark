@@ -936,13 +936,12 @@ define hidden void @_ZN6diesel2pg15metadata_lookup11lookup_type17h51636844cfc394
   %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8, !range !72, !alias.scope !169, !noundef !10
   %13 = icmp eq i64 %12, -9223372036854775807
-  %.sroa.0.0.in.i.i.i53 = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.5.0.in.i.i.i55 = getelementptr inbounds i8, ptr %1, i64 16
   br i1 %13, label %27, label %14
 
 14:                                               ; preds = %3
   %.sroa.5.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %.sroa.5.0.i.i = load i64, ptr %.sroa.5.0.in.i.i, align 8, !alias.scope !169
+  %.sroa.3.0.i = freeze i64 %.sroa.5.0.i.i
   %.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !169, !nonnull !10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
@@ -953,9 +952,11 @@ define hidden void @_ZN6diesel2pg15metadata_lookup11lookup_type17h51636844cfc394
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @"_ZN102_$LT$diesel..pg..metadata_lookup..pg_namespace..table$u20$as$u20$diesel..query_source..QuerySource$GT$11from_clause17h0c6d280d04557fddE"(ptr noalias noundef nonnull readonly align 1 %4)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
-  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i53, align 8, !alias.scope !172, !nonnull !10, !noundef !10
-  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i55, align 8, !alias.scope !172, !noundef !10
-  %15 = call { ptr, i64 } @"_ZN6diesel10type_impls10primitives13foreign_impls1_101_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$str$GT$13as_expression17hc574a1644fe75e0cE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.5.0.i.i)
+  %.sroa.0.0.in.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !alias.scope !172, !nonnull !10, !noundef !10
+  %.sroa.5.0.in.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.5.0.i.i.i = load i64, ptr %.sroa.5.0.in.i.i.i, align 8, !alias.scope !172, !noundef !10
+  %15 = call { ptr, i64 } @"_ZN6diesel10type_impls10primitives13foreign_impls1_101_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$str$GT$13as_expression17hc574a1644fe75e0cE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i)
   %16 = extractvalue { ptr, i64 } %15, 0
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
@@ -996,7 +997,9 @@ define hidden void @_ZN6diesel2pg15metadata_lookup11lookup_type17h51636844cfc394
   tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
+  %.sroa.0.0.in.i.i.i53 = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.0.i.i.i54 = load ptr, ptr %.sroa.0.0.in.i.i.i53, align 8, !alias.scope !196, !noalias !201, !nonnull !10, !noundef !10
+  %.sroa.5.0.in.i.i.i55 = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.5.0.i.i.i56 = load i64, ptr %.sroa.5.0.in.i.i.i55, align 8, !alias.scope !196, !noalias !201, !noundef !10
   store i64 %29, ptr %7, align 8, !alias.scope !201, !noalias !194
   %.sroa.063.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
@@ -1177,7 +1180,8 @@ define internal fastcc void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromSt
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !alias.scope !228, !noalias !227, !noundef !10
   %11 = tail call { i64, i64 } @"_ZN89_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hf04f0fa525faa18aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, i64 noundef %10), !noalias !225
-  %.fca.0.extract.i.i = extractvalue { i64, i64 } %11, 0
+  %.fr.i.i = freeze { i64, i64 } %11
+  %.fca.0.extract.i.i = extractvalue { i64, i64 } %.fr.i.i, 0
   %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
   br i1 %switch.i.i, label %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit.thread.i", label %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit.i"
 
@@ -1186,7 +1190,7 @@ define internal fastcc void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromSt
   br label %39
 
 "_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit.i": ; preds = %2
-  %.fca.1.extract.i.i = extractvalue { i64, i64 } %11, 1
+  %.fca.1.extract.i.i = extractvalue { i64, i64 } %.fr.i.i, 1
   store i64 %.fca.1.extract.i.i, ptr %4, align 8, !noalias !225
   %12 = call noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17hf7bf13d67743fd75E.llvm.768955472827859366(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !227
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !225

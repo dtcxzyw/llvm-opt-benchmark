@@ -8308,9 +8308,10 @@ define dso_local void @io_mem_free(ptr noundef %0) local_unnamed_addr #1 align 1
 32:                                               ; preds = %28
   %33 = getelementptr i8, ptr %15, i64 72
   %34 = load volatile i64, ptr %33, align 8
-  %35 = and i64 %34, 1
+  %.fr1 = freeze i64 %34
+  %35 = and i64 %.fr1, 1
   %36 = icmp eq i64 %35, 0
-  %37 = add nsw i64 %34, -1
+  %37 = add i64 %.fr1, -1
   %38 = inttoptr i64 %37 to ptr
   br i1 %36, label %39, label %40
 
@@ -13271,9 +13272,10 @@ define internal fastcc ptr @io_uring_validate_mmap_request(ptr %.200.val, i64 no
 55:                                               ; preds = %51
   %56 = getelementptr i8, ptr %38, i64 72
   %57 = load volatile i64, ptr %56, align 8
-  %58 = and i64 %57, 1
+  %.fr1 = freeze i64 %57
+  %58 = and i64 %.fr1, 1
   %59 = icmp eq i64 %58, 0
-  %60 = add nsw i64 %57, -1
+  %60 = add i64 %.fr1, -1
   %61 = inttoptr i64 %60 to ptr
   br i1 %59, label %62, label %63
 
@@ -14153,9 +14155,10 @@ define internal fastcc void @io_rings_free(ptr nocapture noundef %0) unnamed_add
 38:                                               ; preds = %34
   %39 = getelementptr i8, ptr %21, i64 72
   %40 = load volatile i64, ptr %39, align 8
-  %41 = and i64 %40, 1
+  %.fr8 = freeze i64 %40
+  %41 = and i64 %.fr8, 1
   %42 = icmp eq i64 %41, 0
-  %43 = add nsw i64 %40, -1
+  %43 = add i64 %.fr8, -1
   %44 = inttoptr i64 %43 to ptr
   br i1 %42, label %45, label %46
 
@@ -14224,9 +14227,10 @@ define internal fastcc void @io_rings_free(ptr nocapture noundef %0) unnamed_add
 86:                                               ; preds = %82
   %87 = getelementptr i8, ptr %69, i64 72
   %88 = load volatile i64, ptr %87, align 8
-  %89 = and i64 %88, 1
+  %.fr9 = freeze i64 %88
+  %89 = and i64 %.fr9, 1
   %90 = icmp eq i64 %89, 0
-  %91 = add nsw i64 %88, -1
+  %91 = add i64 %.fr9, -1
   %92 = inttoptr i64 %91 to ptr
   br i1 %90, label %93, label %94
 
@@ -14261,7 +14265,7 @@ define internal fastcc void @io_rings_free(ptr nocapture noundef %0) unnamed_add
 
 108:                                              ; preds = %102
   %109 = icmp eq i16 %105, 0
-  br i1 %109, label %.loopexit8, label %110
+  br i1 %109, label %.loopexit10, label %110
 
 110:                                              ; preds = %108
   %111 = zext i16 %105 to i64
@@ -14274,14 +14278,14 @@ define internal fastcc void @io_rings_free(ptr nocapture noundef %0) unnamed_add
   tail call void @unpin_user_page(ptr noundef %115) #23
   %116 = add nuw nsw i64 %113, 1
   %117 = icmp eq i64 %116, %111
-  br i1 %117, label %.loopexit8, label %112, !llvm.loop !233
+  br i1 %117, label %.loopexit10, label %112, !llvm.loop !233
 
-.loopexit8:                                       ; preds = %112, %108
+.loopexit10:                                      ; preds = %112, %108
   tail call void @kvfree(ptr noundef nonnull %106) #23
   store ptr null, ptr %103, align 8
   br label %118
 
-118:                                              ; preds = %.loopexit8, %102
+118:                                              ; preds = %.loopexit10, %102
   store i16 0, ptr %104, align 8
   %119 = getelementptr inbounds i8, ptr %0, i64 1480
   %120 = getelementptr inbounds i8, ptr %0, i64 1466

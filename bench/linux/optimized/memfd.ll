@@ -478,11 +478,11 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   tail call void @_raw_spin_lock_irq(ptr noundef %4) #9
   %9 = call ptr @xas_find(ptr noundef nonnull %2, i64 noundef -1) #9
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.loopexit21, label %.preheader
+  br i1 %10, label %.loopexit25, label %.preheader
 
-.preheader:                                       ; preds = %1, %.loopexit20
-  %11 = phi ptr [ %128, %.loopexit20 ], [ %9, %1 ]
-  %12 = phi i32 [ %91, %.loopexit20 ], [ 0, %1 ]
+.preheader:                                       ; preds = %1, %.loopexit24
+  %11 = phi ptr [ %128, %.loopexit24 ], [ %9, %1 ]
+  %12 = phi i32 [ %91, %.loopexit24 ], [ 0, %1 ]
   %13 = ptrtoint ptr %11 to i64
   %14 = and i64 %13, 1
   %15 = icmp eq i64 %14, 0
@@ -518,9 +518,10 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
 32:                                               ; preds = %28
   %33 = getelementptr i8, ptr %11, i64 72
   %34 = load volatile i64, ptr %33, align 8
-  %35 = and i64 %34, 1
+  %.fr16 = freeze i64 %34
+  %35 = and i64 %.fr16, 1
   %36 = icmp eq i64 %35, 0
-  %37 = add nsw i64 %34, -1
+  %37 = add i64 %.fr16, -1
   %38 = inttoptr i64 %37 to ptr
   br i1 %36, label %39, label %40
 
@@ -576,9 +577,10 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
 69:                                               ; preds = %65
   %70 = getelementptr i8, ptr %11, i64 72
   %71 = load volatile i64, ptr %70, align 8
-  %72 = and i64 %71, 1
+  %.fr17 = freeze i64 %71
+  %72 = and i64 %.fr17, 1
   %73 = icmp eq i64 %72, 0
-  %74 = add nsw i64 %71, -1
+  %74 = add nsw i64 %.fr17, -1
   %spec.select = select i1 %73, i64 %13, i64 %74
   br label %._crit_edge
 
@@ -620,12 +622,12 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %95 = icmp ne i64 %94, 0
   %96 = icmp eq ptr %92, null
   %97 = or i1 %96, %95
-  br i1 %97, label %.loopexit19, label %98, !prof !7
+  br i1 %97, label %.loopexit23, label %98, !prof !7
 
 98:                                               ; preds = %90
   %99 = load i8, ptr %92, align 8
   %100 = icmp eq i8 %99, 0
-  br i1 %100, label %101, label %.loopexit19, !prof !18
+  br i1 %100, label %101, label %.loopexit23, !prof !18
 
 101:                                              ; preds = %98
   %102 = load i8, ptr %6, align 2
@@ -633,7 +635,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %104 = load i64, ptr %5, align 8
   %105 = and i64 %104, 63
   %106 = icmp eq i64 %105, %103
-  br i1 %106, label %107, label %.loopexit19, !prof !18
+  br i1 %106, label %107, label %.loopexit23, !prof !18
 
 107:                                              ; preds = %101
   %108 = getelementptr inbounds i8, ptr %92, i64 40
@@ -645,7 +647,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %112 = icmp eq i64 %111, -1
   %113 = icmp eq i8 %110, 63
   %114 = select i1 %112, i1 true, i1 %113
-  br i1 %114, label %.loopexit19, label %115, !prof !20
+  br i1 %114, label %.loopexit23, label %115, !prof !20
 
 115:                                              ; preds = %109
   %116 = zext i8 %110 to i64
@@ -655,7 +657,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %120 = ptrtoint ptr %119 to i64
   %121 = and i64 %120, 3
   %122 = icmp eq i64 %121, 2
-  br i1 %122, label %.loopexit19, label %123, !prof !7
+  br i1 %122, label %.loopexit23, label %123, !prof !7
 
 123:                                              ; preds = %115
   %124 = add i8 %110, 1
@@ -663,31 +665,31 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %125 = add nuw i64 %111, 1
   store i64 %125, ptr %5, align 8
   %126 = icmp eq ptr %119, null
-  br i1 %126, label %109, label %.loopexit20, !llvm.loop !21
+  br i1 %126, label %109, label %.loopexit24, !llvm.loop !21
 
-.loopexit19:                                      ; preds = %115, %109, %101, %98, %90
+.loopexit23:                                      ; preds = %115, %109, %101, %98, %90
   %127 = call ptr @xas_find(ptr noundef nonnull %2, i64 noundef -1) #9
-  br label %.loopexit20
+  br label %.loopexit24
 
-.loopexit20:                                      ; preds = %123, %.loopexit19
-  %128 = phi ptr [ %127, %.loopexit19 ], [ %119, %123 ]
+.loopexit24:                                      ; preds = %123, %.loopexit23
+  %128 = phi ptr [ %127, %.loopexit23 ], [ %119, %123 ]
   %129 = icmp eq ptr %128, null
-  br i1 %129, label %.loopexit21, label %.preheader, !llvm.loop !22
+  br i1 %129, label %.loopexit25, label %.preheader, !llvm.loop !22
 
-.loopexit21:                                      ; preds = %.loopexit20, %1
+.loopexit25:                                      ; preds = %.loopexit24, %1
   %130 = load ptr, ptr %2, align 8
   call void @_raw_spin_unlock_irq(ptr noundef %130) #9
   br label %131
 
-131:                                              ; preds = %.loopexit, %.loopexit21
-  %132 = phi i32 [ 0, %.loopexit21 ], [ %284, %.loopexit ]
-  %133 = phi i32 [ 0, %.loopexit21 ], [ %282, %.loopexit ]
+131:                                              ; preds = %.loopexit, %.loopexit25
+  %132 = phi i32 [ 0, %.loopexit25 ], [ %284, %.loopexit ]
+  %133 = phi i32 [ 0, %.loopexit25 ], [ %282, %.loopexit ]
   %134 = load ptr, ptr %2, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 4
   %136 = load i32, ptr %135, align 4
   %137 = and i32 %136, 268435456
   %.not = icmp eq i32 %137, 0
-  br i1 %.not, label %.thread18, label %138
+  br i1 %.not, label %.thread22, label %138
 
 138:                                              ; preds = %131
   %139 = icmp eq i32 %132, 0
@@ -759,9 +761,10 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
 178:                                              ; preds = %174
   %179 = getelementptr i8, ptr %156, i64 72
   %180 = load volatile i64, ptr %179, align 8
-  %181 = and i64 %180, 1
+  %.fr18 = freeze i64 %180
+  %181 = and i64 %.fr18, 1
   %182 = icmp eq i64 %181, 0
-  %183 = add nsw i64 %180, -1
+  %183 = add i64 %.fr18, -1
   %184 = inttoptr i64 %183 to ptr
   br i1 %182, label %185, label %186
 
@@ -797,40 +800,41 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
 
 205:                                              ; preds = %201
   %206 = add nsw i64 %202, -1
-  br label %._crit_edge24
+  br label %._crit_edge28
 
 207:                                              ; preds = %201
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #9
-          to label %._crit_edge24 [label %208], !srcloc !19
+          to label %._crit_edge28 [label %208], !srcloc !19
 
 208:                                              ; preds = %207
   %209 = and i64 %159, 4094
   %210 = icmp eq i64 %209, 0
-  br i1 %210, label %211, label %._crit_edge24
+  br i1 %210, label %211, label %._crit_edge28
 
 211:                                              ; preds = %208
   %212 = load volatile i64, ptr %156, align 8
   %213 = and i64 %212, 64
   %214 = icmp eq i64 %213, 0
-  br i1 %214, label %._crit_edge24, label %215
+  br i1 %214, label %._crit_edge28, label %215
 
 215:                                              ; preds = %211
   %216 = getelementptr i8, ptr %156, i64 72
   %217 = load volatile i64, ptr %216, align 8
-  %218 = and i64 %217, 1
+  %.fr19 = freeze i64 %217
+  %218 = and i64 %.fr19, 1
   %219 = icmp eq i64 %218, 0
-  %220 = add nsw i64 %217, -1
-  %spec.select28 = select i1 %219, i64 %159, i64 %220
-  br label %._crit_edge24
+  %220 = add nsw i64 %.fr19, -1
+  %spec.select32 = select i1 %219, i64 %159, i64 %220
+  br label %._crit_edge28
 
-._crit_edge24:                                    ; preds = %215, %207, %211, %208, %205
-  %221 = phi i64 [ %206, %205 ], [ %159, %207 ], [ %159, %211 ], [ %159, %208 ], [ %spec.select28, %215 ]
+._crit_edge28:                                    ; preds = %215, %207, %211, %208, %205
+  %221 = phi i64 [ %206, %205 ], [ %159, %207 ], [ %159, %211 ], [ %159, %208 ], [ %spec.select32, %215 ]
   %222 = inttoptr i64 %221 to ptr
   %223 = call i32 @folio_total_mapcount(ptr noundef %222) #9
   br label %224
 
-224:                                              ; preds = %197, %._crit_edge24
-  %225 = phi i32 [ %200, %197 ], [ %223, %._crit_edge24 ]
+224:                                              ; preds = %197, %._crit_edge28
+  %225 = phi i32 [ %200, %197 ], [ %223, %._crit_edge28 ]
   %226 = sub i32 %189, %225
   %227 = icmp eq i32 %226, 1
   %228 = select i1 %154, i32 -16, i32 %158
@@ -876,7 +880,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
 251:                                              ; preds = %248
   %252 = load i8, ptr %6, align 2
   %253 = icmp ult i8 %252, 63
-  br i1 %253, label %254, label %.thread17
+  br i1 %253, label %254, label %.thread21
 
 254:                                              ; preds = %251
   %255 = getelementptr i8, ptr %242, i64 568
@@ -885,9 +889,9 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %258 = shl nsw i64 -2, %256
   %259 = and i64 %257, %258
   %260 = icmp eq i64 %259, 0
-  br i1 %260, label %.thread17, label %264
+  br i1 %260, label %.thread21, label %264
 
-.thread17:                                        ; preds = %251, %254
+.thread21:                                        ; preds = %251, %254
   store i8 64, ptr %6, align 2
   %261 = load i64, ptr %5, align 8
   %262 = and i64 %261, -64
@@ -914,7 +918,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %276 = icmp eq ptr %275, null
   br i1 %276, label %277, label %279
 
-277:                                              ; preds = %.thread17, %272, %264, %248, %240
+277:                                              ; preds = %.thread21, %272, %264, %248, %240
   %278 = call ptr @xas_find_marked(ptr noundef nonnull %2, i64 noundef -1, i32 noundef 2) #9
   br label %279
 
@@ -929,9 +933,9 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   call void @_raw_spin_unlock_irq(ptr noundef %283) #9
   %284 = add nuw nsw i32 %149, 1
   %285 = icmp slt i32 %149, 4
-  br i1 %285, label %131, label %.thread18, !llvm.loop !25
+  br i1 %285, label %131, label %.thread22, !llvm.loop !25
 
-.thread18:                                        ; preds = %131, %.loopexit
+.thread22:                                        ; preds = %131, %.loopexit
   %286 = phi i32 [ %282, %.loopexit ], [ %133, %131 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #9
   ret i32 %286

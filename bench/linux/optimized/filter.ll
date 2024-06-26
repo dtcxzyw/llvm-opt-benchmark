@@ -4681,9 +4681,10 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pull_data(i64 noundef %0
 113:                                              ; preds = %109
   %114 = getelementptr i8, ptr %97, i64 72
   %115 = load volatile i64, ptr %114, align 8
-  %116 = and i64 %115, 1
+  %.fr11 = freeze i64 %115
+  %116 = and i64 %.fr11, 1
   %117 = icmp eq i64 %116, 0
-  %118 = add nsw i64 %115, -1
+  %118 = add i64 %.fr11, -1
   %119 = inttoptr i64 %118 to ptr
   br i1 %117, label %120, label %121
 
@@ -4863,11 +4864,11 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %13 = icmp eq i64 %3, 0
-  br i1 %13, label %14, label %.loopexit15, !prof !9
+  br i1 %13, label %14, label %.loopexit17, !prof !9
 
 14:                                               ; preds = %5
   %15 = icmp eq i32 %12, 0
-  br i1 %15, label %.loopexit15, label %16, !prof !14
+  br i1 %15, label %.loopexit17, label %16, !prof !14
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %10, align 8
@@ -4893,7 +4894,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   %33 = select i1 %32, i32 0, i32 %31
   %34 = load i32, ptr %19, align 8
   %35 = icmp eq i32 %33, %34
-  br i1 %35, label %.loopexit15, label %20, !llvm.loop !67
+  br i1 %35, label %.loopexit17, label %20, !llvm.loop !67
 
 36:                                               ; preds = %20
   %37 = load i32, ptr %19, align 8
@@ -4926,7 +4927,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   %55 = add i32 %54, 1
   %56 = tail call ptr @alloc_pages(i32 noundef 272416, i32 noundef %55) #34
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.loopexit15, label %58, !prof !14
+  br i1 %57, label %.loopexit17, label %58, !prof !14
 
 58:                                               ; preds = %48
   %59 = icmp eq i32 %49, 0
@@ -5010,9 +5011,10 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
 114:                                              ; preds = %110
   %115 = getelementptr i8, ptr %98, i64 72
   %116 = load volatile i64, ptr %115, align 8
-  %117 = and i64 %116, 1
+  %.fr11 = freeze i64 %116
+  %117 = and i64 %.fr11, 1
   %118 = icmp eq i64 %117, 0
-  %119 = add nsw i64 %116, -1
+  %119 = add i64 %.fr11, -1
   %120 = inttoptr i64 %119 to ptr
   br i1 %118, label %121, label %122
 
@@ -5034,7 +5036,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
 
 129:                                              ; preds = %58
   %130 = icmp eq i32 %24, %11
-  %.pre25 = load i32, ptr %19, align 8
+  %.pre27 = load i32, ptr %19, align 8
   br i1 %130, label %149, label %131
 
 131:                                              ; preds = %129
@@ -5055,7 +5057,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   %144 = select i1 %143, i32 0, i32 %142
   %145 = and i64 %134, -3
   store i64 %145, ptr %133, align 8
-  %146 = add i32 %.pre25, 1
+  %146 = add i32 %.pre27, 1
   %147 = icmp eq i32 %146, 18
   %148 = select i1 %147, i32 0, i32 %146
   store i32 %148, ptr %19, align 8
@@ -5063,17 +5065,17 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   br label %149
 
 149:                                              ; preds = %131, %129
-  %150 = phi i32 [ %148, %131 ], [ %.pre25, %129 ]
+  %150 = phi i32 [ %148, %131 ], [ %.pre27, %129 ]
   %.pre-phi = phi i64 [ %.pre, %131 ], [ %25, %129 ]
   %.ph = phi i64 [ %145, %131 ], [ 0, %129 ]
-  %.ph11 = phi i32 [ %141, %131 ], [ 0, %129 ]
-  %.ph12 = phi i32 [ %140, %131 ], [ 0, %129 ]
-  %.ph13 = phi i32 [ %144, %131 ], [ %21, %129 ]
+  %.ph13 = phi i32 [ %141, %131 ], [ 0, %129 ]
+  %.ph14 = phi i32 [ %140, %131 ], [ 0, %129 ]
+  %.ph15 = phi i32 [ %144, %131 ], [ %21, %129 ]
   %151 = getelementptr [19 x %struct.scatterlist], ptr %18, i64 0, i64 %.pre-phi
   %152 = load i64, ptr %151, align 8
   %153 = getelementptr inbounds i8, ptr %151, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef align 8 dereferenceable(24) %153, i64 24, i1 false)
-  %154 = add i32 %.ph13, 1
+  %154 = add i32 %.ph15, 1
   %155 = icmp eq i32 %154, 18
   %156 = select i1 %155, i32 0, i32 %154
   %157 = and i64 %152, -3
@@ -5086,7 +5088,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   %163 = load i64, ptr %162, align 8
   %164 = getelementptr inbounds i8, ptr %162, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef align 8 dereferenceable(24) %164, i64 24, i1 false)
-  %165 = icmp eq i32 %.ph12, 0
+  %165 = icmp eq i32 %.ph14, 0
   br i1 %165, label %166, label %.thread
 
 166:                                              ; preds = %149
@@ -5150,9 +5152,9 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   br i1 %204, label %.loopexit, label %.preheader.split, !llvm.loop !68
 
 .loopexit:                                        ; preds = %.preheader.split, %.preheader.split.us, %.thread, %122, %128, %166
-  %205 = phi i32 [ %.ph13, %166 ], [ %21, %122 ], [ %21, %128 ], [ %.ph13, %.thread ], [ %.ph13, %.preheader.split.us ], [ %.ph13, %.preheader.split ]
-  %206 = phi i32 [ %.ph12, %166 ], [ 0, %122 ], [ 0, %128 ], [ %.ph12, %.thread ], [ 0, %.preheader.split.us ], [ %.ph12, %.preheader.split ]
-  %207 = phi i32 [ %.ph11, %166 ], [ 0, %122 ], [ 0, %128 ], [ %.ph11, %.thread ], [ %.ph11, %.preheader.split.us ], [ %.ph11, %.preheader.split ]
+  %205 = phi i32 [ %.ph15, %166 ], [ %21, %122 ], [ %21, %128 ], [ %.ph15, %.thread ], [ %.ph15, %.preheader.split.us ], [ %.ph15, %.preheader.split ]
+  %206 = phi i32 [ %.ph14, %166 ], [ 0, %122 ], [ 0, %128 ], [ %.ph14, %.thread ], [ 0, %.preheader.split.us ], [ %.ph14, %.preheader.split ]
+  %207 = phi i32 [ %.ph13, %166 ], [ 0, %122 ], [ 0, %128 ], [ %.ph13, %.thread ], [ %.ph13, %.preheader.split.us ], [ %.ph13, %.preheader.split ]
   %208 = phi i64 [ %.ph, %166 ], [ 0, %122 ], [ 0, %128 ], [ %.ph, %.thread ], [ %.ph, %.preheader.split.us ], [ %.ph, %.preheader.split ]
   %209 = getelementptr inbounds i8, ptr %10, i64 688
   %210 = load ptr, ptr %209, align 8
@@ -5233,9 +5235,10 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
 256:                                              ; preds = %252
   %257 = getelementptr i8, ptr %240, i64 72
   %258 = load volatile i64, ptr %257, align 8
-  %259 = and i64 %258, 1
+  %.fr12 = freeze i64 %258
+  %259 = and i64 %.fr12, 1
   %260 = icmp eq i64 %259, 0
-  %261 = add nsw i64 %258, -1
+  %261 = add i64 %.fr12, -1
   %262 = inttoptr i64 %261 to ptr
   br i1 %260, label %263, label %264
 
@@ -5298,7 +5301,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
 299:                                              ; preds = %292
   %300 = getelementptr inbounds i8, ptr %10, i64 640
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %300, i8 0, i64 16, i1 false)
-  br label %.loopexit15
+  br label %.loopexit17
 
 301:                                              ; preds = %292
   %302 = sext i32 %276 to i64
@@ -5323,9 +5326,9 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   %320 = getelementptr i8, ptr %315, i64 %319
   %321 = getelementptr inbounds i8, ptr %10, i64 648
   store ptr %320, ptr %321, align 8
-  br label %.loopexit15
+  br label %.loopexit17
 
-.loopexit15:                                      ; preds = %30, %301, %299, %48, %14, %5
+.loopexit17:                                      ; preds = %30, %301, %299, %48, %14, %5
   %322 = phi i64 [ -22, %5 ], [ 0, %14 ], [ -12, %48 ], [ 0, %299 ], [ 0, %301 ], [ -22, %30 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
@@ -5343,7 +5346,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   %10 = trunc i64 %2 to i32
   %11 = add i32 %10, %9
   %12 = icmp eq i64 %3, 0
-  br i1 %12, label %13, label %.loopexit23, !prof !9
+  br i1 %12, label %13, label %.loopexit25, !prof !9
 
 13:                                               ; preds = %5
   %14 = load i32, ptr %8, align 8
@@ -5369,13 +5372,13 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   %30 = select i1 %29, i32 0, i32 %28
   %31 = load i32, ptr %16, align 8
   %32 = icmp eq i32 %30, %31
-  br i1 %32, label %.loopexit23, label %17, !llvm.loop !71
+  br i1 %32, label %.loopexit25, label %17, !llvm.loop !71
 
 33:                                               ; preds = %17
   %34 = getelementptr inbounds i8, ptr %8, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = icmp ult i32 %11, %35
-  br i1 %36, label %37, label %.loopexit23
+  br i1 %36, label %37, label %.loopexit25
 
 37:                                               ; preds = %33
   %38 = load i32, ptr %16, align 8
@@ -5384,7 +5387,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   %41 = add i32 %40, 18
   %42 = select i1 %39, i32 %41, i32 %40
   %43 = icmp eq i32 %21, %9
-  br i1 %43, label %.thread17, label %44
+  br i1 %43, label %.thread19, label %44
 
 44:                                               ; preds = %37
   %45 = getelementptr [19 x %struct.scatterlist], ptr %15, i64 0, i64 %22
@@ -5420,10 +5423,10 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   %66 = getelementptr [19 x %struct.scatterlist], ptr %15, i64 0, i64 %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef align 8 dereferenceable(32) %66, i64 32, i1 false)
   %67 = icmp eq i32 %64, %59
-  br i1 %67, label %.loopexit, label %.preheader22
+  br i1 %67, label %.loopexit, label %.preheader24
 
-.preheader22:                                     ; preds = %56, %.preheader22
-  %68 = phi i32 [ %73, %.preheader22 ], [ %64, %56 ]
+.preheader24:                                     ; preds = %56, %.preheader24
+  %68 = phi i32 [ %73, %.preheader24 ], [ %64, %56 ]
   %69 = sext i32 %68 to i64
   %70 = getelementptr [19 x %struct.scatterlist], ptr %15, i64 0, i64 %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
@@ -5436,9 +5439,9 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef align 8 dereferenceable(32) %75, i64 32, i1 false)
   %76 = load i32, ptr %16, align 8
   %77 = icmp eq i32 %73, %76
-  br i1 %77, label %.loopexit, label %.preheader22, !llvm.loop !72
+  br i1 %77, label %.loopexit, label %.preheader24, !llvm.loop !72
 
-.loopexit:                                        ; preds = %.preheader22, %56
+.loopexit:                                        ; preds = %.preheader24, %56
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %78 = load i64, ptr %45, align 8
@@ -5473,9 +5476,10 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
 96:                                               ; preds = %92
   %97 = getelementptr i8, ptr %80, i64 72
   %98 = load volatile i64, ptr %97, align 8
-  %99 = and i64 %98, 1
+  %.fr17 = freeze i64 %98
+  %99 = and i64 %.fr17, 1
   %100 = icmp eq i64 %99, 0
-  %101 = add nsw i64 %98, -1
+  %101 = add i64 %.fr17, -1
   %102 = inttoptr i64 %101 to ptr
   br i1 %100, label %103, label %104
 
@@ -5499,7 +5503,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   store i32 %111, ptr %115, align 8
   %116 = getelementptr inbounds i8, ptr %61, i64 12
   store i32 %48, ptr %116, align 4
-  br label %.thread17.thread
+  br label %.thread19.thread
 
 117:                                              ; preds = %54
   %118 = sext i32 %47 to i64
@@ -5509,7 +5513,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   %122 = add i32 %121, 1
   %123 = tail call ptr @alloc_pages(i32 noundef 272416, i32 noundef %122) #34
   %124 = icmp eq ptr %123, null
-  br i1 %124, label %.loopexit23, label %125, !prof !14
+  br i1 %124, label %.loopexit25, label %125, !prof !14
 
 125:                                              ; preds = %117
   store i32 %9, ptr %46, align 4
@@ -5587,9 +5591,10 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
 175:                                              ; preds = %171
   %176 = getelementptr i8, ptr %128, i64 72
   %177 = load volatile i64, ptr %176, align 8
-  %178 = and i64 %177, 1
+  %.fr18 = freeze i64 %177
+  %178 = and i64 %.fr18, 1
   %179 = icmp eq i64 %178, 0
-  %180 = add nsw i64 %177, -1
+  %180 = add i64 %.fr18, -1
   %181 = inttoptr i64 %180 to ptr
   br i1 %179, label %182, label %183
 
@@ -5603,34 +5608,34 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   %187 = icmp ult i8 %186, 2
   tail call void @llvm.assume(i1 %187)
   %188 = icmp eq i8 %186, 0
-  br i1 %188, label %.thread17.thread, label %189
+  br i1 %188, label %.thread19.thread, label %189
 
 189:                                              ; preds = %183
   tail call void @__folio_put(ptr noundef %184) #34
-  br label %.thread17.thread
+  br label %.thread19.thread
 
 190:                                              ; preds = %44
   %191 = sub i32 %10, %52
   store i32 %9, ptr %46, align 4
-  br label %.thread17
+  br label %.thread19
 
-.thread17:                                        ; preds = %190, %37
+.thread19:                                        ; preds = %190, %37
   %192 = phi i32 [ %18, %37 ], [ %51, %190 ]
   %193 = phi i32 [ %10, %37 ], [ %191, %190 ]
   %194 = icmp eq i32 %193, 0
-  br i1 %194, label %.thread17.thread, label %.preheader21
+  br i1 %194, label %.thread19.thread, label %.preheader23
 
-.preheader21:                                     ; preds = %.thread17, %217
-  %195 = phi i32 [ %218, %217 ], [ %193, %.thread17 ]
-  %196 = phi i32 [ %224, %217 ], [ %192, %.thread17 ]
+.preheader23:                                     ; preds = %.thread19, %217
+  %195 = phi i32 [ %218, %217 ], [ %193, %.thread19 ]
+  %196 = phi i32 [ %224, %217 ], [ %192, %.thread19 ]
   %197 = sext i32 %196 to i64
   %198 = getelementptr [19 x %struct.scatterlist], ptr %15, i64 0, i64 %197
   %199 = getelementptr inbounds i8, ptr %198, i64 12
   %200 = load i32, ptr %199, align 4
   %201 = icmp ult i32 %195, %200
-  br i1 %201, label %.thread18, label %.preheader
+  br i1 %201, label %.thread20, label %.preheader
 
-.thread18:                                        ; preds = %.preheader21
+.thread20:                                        ; preds = %.preheader23
   %202 = getelementptr inbounds i8, ptr %198, i64 12
   %203 = sub i32 %200, %195
   store i32 %203, ptr %202, align 4
@@ -5638,10 +5643,10 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   %205 = load i32, ptr %204, align 8
   %206 = add i32 %205, %195
   store i32 %206, ptr %204, align 8
-  br label %.thread17.thread
+  br label %.thread19.thread
 
-.preheader:                                       ; preds = %.preheader21, %.preheader
-  %207 = phi i32 [ %210, %.preheader ], [ %196, %.preheader21 ]
+.preheader:                                       ; preds = %.preheader23, %.preheader
+  %207 = phi i32 [ %210, %.preheader ], [ %196, %.preheader23 ]
   %208 = add i32 %207, 1
   %209 = icmp eq i32 %208, 18
   %210 = select i1 %209, i32 0, i32 %208
@@ -5664,9 +5669,9 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   %223 = icmp eq i32 %222, 18
   %224 = select i1 %223, i32 0, i32 %222
   %225 = icmp eq i32 %218, 0
-  br i1 %225, label %.thread17.thread, label %.preheader21, !llvm.loop !74
+  br i1 %225, label %.thread19.thread, label %.preheader23, !llvm.loop !74
 
-.thread17.thread:                                 ; preds = %217, %104, %183, %189, %.thread18, %.thread17
+.thread19.thread:                                 ; preds = %217, %104, %183, %189, %.thread20, %.thread19
   %226 = getelementptr inbounds i8, ptr %8, i64 688
   %227 = load ptr, ptr %226, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 40
@@ -5676,7 +5681,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   %232 = icmp eq ptr %231, null
   br i1 %232, label %256, label %233
 
-233:                                              ; preds = %.thread17.thread
+233:                                              ; preds = %.thread19.thread
   %234 = getelementptr inbounds i8, ptr %227, i64 264
   %235 = load i32, ptr %234, align 8
   %236 = add i32 %235, %10
@@ -5711,7 +5716,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   tail call void @__sk_mem_reclaim(ptr noundef %227, i32 noundef %253) #34
   br label %256
 
-256:                                              ; preds = %255, %251, %233, %.thread17.thread
+256:                                              ; preds = %255, %251, %233, %.thread19.thread
   %257 = load i32, ptr %34, align 4
   %258 = sub i32 %257, %10
   store i32 %258, ptr %34, align 4
@@ -5752,7 +5757,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
 282:                                              ; preds = %274
   %283 = getelementptr inbounds i8, ptr %8, i64 640
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %283, i8 0, i64 16, i1 false)
-  br label %.loopexit23
+  br label %.loopexit25
 
 284:                                              ; preds = %274
   %285 = sext i32 %259 to i64
@@ -5777,9 +5782,9 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   %303 = getelementptr i8, ptr %298, i64 %302
   %304 = getelementptr inbounds i8, ptr %8, i64 648
   store ptr %303, ptr %304, align 8
-  br label %.loopexit23
+  br label %.loopexit25
 
-.loopexit23:                                      ; preds = %27, %117, %284, %282, %33, %5
+.loopexit25:                                      ; preds = %27, %117, %284, %282, %33, %5
   %305 = phi i64 [ -22, %5 ], [ -22, %33 ], [ 0, %282 ], [ 0, %284 ], [ -12, %117 ], [ -22, %27 ]
   ret i64 %305
 }

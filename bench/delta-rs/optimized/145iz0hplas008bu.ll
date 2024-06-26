@@ -1402,24 +1402,21 @@ define internal fastcc void @_ZN15deltalake_mount4file23MountFileStorageBackend1
   %23 = getelementptr inbounds i8, ptr %.8.val, i64 80
   %24 = getelementptr inbounds i8, ptr %.8.val, i64 56
   %25 = load i16, ptr %24, align 8, !range !192, !alias.scope !190, !noalias !187, !noundef !4
-  %trunc.i = trunc nuw i16 %25 to i1
   %26 = getelementptr inbounds i8, ptr %.8.val, i64 58
   %27 = load i16, ptr %26, align 2, !alias.scope !190, !noalias !187
-  %.sroa.5.0.i = select i1 %trunc.i, i16 %27, i16 undef
+  %.sroa.5.0.i = freeze i16 %27
   %28 = getelementptr inbounds i8, ptr %.8.val, i64 76
   %29 = load i32, ptr %28, align 4, !alias.scope !190, !noalias !187, !noundef !4
   %30 = getelementptr inbounds i8, ptr %.8.val, i64 40
   %31 = load i32, ptr %30, align 8, !range !193, !alias.scope !190, !noalias !187, !noundef !4
-  %trunc5.i = trunc nuw i32 %31 to i1
   %32 = getelementptr inbounds i8, ptr %.8.val, i64 44
   %33 = load i32, ptr %32, align 4, !alias.scope !190, !noalias !187
-  %.sroa.52.0.i = select i1 %trunc5.i, i32 %33, i32 undef
+  %.sroa.52.0.i = freeze i32 %33
   %34 = getelementptr inbounds i8, ptr %.8.val, i64 48
   %35 = load i32, ptr %34, align 8, !range !193, !alias.scope !190, !noalias !187, !noundef !4
-  %trunc6.i = trunc nuw i32 %35 to i1
   %36 = getelementptr inbounds i8, ptr %.8.val, i64 52
   %37 = load i32, ptr %36, align 4, !alias.scope !190, !noalias !187
-  %.sroa.54.0.i = select i1 %trunc6.i, i32 %37, i32 undef
+  %.sroa.54.0.i = freeze i32 %37
   %38 = getelementptr inbounds i8, ptr %19, i64 44
   %39 = load <4 x i32>, ptr %22, align 4, !alias.scope !190, !noalias !187
   store <4 x i32> %39, ptr %38, align 4, !alias.scope !187, !noalias !190
@@ -1670,6 +1667,7 @@ _ZN3url3Url5slice17h50b9758d4a7b0274E.llvm.7144237729116928069.exit.i: ; preds =
   %119 = load ptr, ptr %118, align 8, !nonnull !4, !align !226
   %120 = getelementptr inbounds i8, ptr %13, i64 16
   %121 = load i64, ptr %120, align 8
+  %.sroa.6.0 = freeze i64 %121
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br i1 %trunc, label %122, label %123
 
@@ -1678,7 +1676,7 @@ _ZN3url3Url5slice17h50b9758d4a7b0274E.llvm.7144237729116928069.exit.i: ; preds =
           to label %125 unwind label %114
 
 123:                                              ; preds = %116
-  %124 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h50d5b0bd40ea7d50E"(i64 noundef %121, i1 noundef zeroext false)
+  %124 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h50d5b0bd40ea7d50E"(i64 noundef %.sroa.6.0, i1 noundef zeroext false)
           to label %126 unwind label %114
 
 125:                                              ; preds = %122
@@ -1689,12 +1687,12 @@ _ZN3url3Url5slice17h50b9758d4a7b0274E.llvm.7144237729116928069.exit.i: ; preds =
   %128 = extractvalue { i64, ptr } %124, 1
   %129 = icmp ne ptr %128, null
   call void @llvm.assume(i1 %129)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %128, ptr nonnull align 1 %119, i64 %121, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %128, ptr nonnull align 1 %119, i64 %.sroa.6.0, i1 false)
   store i64 %127, ptr %0, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %128, ptr %.sroa.49.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %121, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.6.0, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !239
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h33b0236f13d33854E.llvm.16543861533300112609"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19)
           to label %.noexc26 unwind label %138

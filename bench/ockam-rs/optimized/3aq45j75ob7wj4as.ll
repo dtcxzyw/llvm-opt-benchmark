@@ -4253,6 +4253,7 @@ default.unreachable10:                            ; preds = %1
 38:                                               ; preds = %35, %28
   %.sroa.7.sroa.4.0.i = phi ptr [ undef, %35 ], [ %.sroa.7.sroa.4.6.copyload.i, %28 ]
   %.sroa.012.1.insert.insert.i = phi i64 [ %37, %35 ], [ 1, %28 ]
+  %.sroa.3.0.i21.i = freeze ptr %.sroa.7.sroa.4.0.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !766
   %39 = inttoptr i64 %.sroa.012.1.insert.insert.i to ptr
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 32
@@ -4261,7 +4262,7 @@ default.unreachable10:                            ; preds = %1
   %40 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %39, ptr %40, align 8, !noalias !774
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr %.sroa.7.sroa.4.0.i, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !774
+  store ptr %.sroa.3.0.i21.i, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !774
   %41 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1000000000, ptr %41, align 8, !noalias !767
   call void @llvm.lifetime.start.p0(i64 1384, ptr nonnull %.sroa.0.i.i.i.i.i.i)
@@ -4308,6 +4309,12 @@ default.unreachable10:                            ; preds = %1
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h63f535eb5dc19d39E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %.thread.i unwind label %52, !noalias !783
 
+.thread.i:                                        ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h27c72ba580c55c01E.exit.i.i.i"
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !775
+  call void @llvm.lifetime.end.p0(i64 1384, ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 1384, ptr nonnull %3), !noalias !767
+  br label %79
+
 52:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h27c72ba580c55c01E.exit.i.i.i"
   %53 = landingpad { ptr, i32 }
           catch ptr null
@@ -4325,15 +4332,10 @@ default.unreachable10:                            ; preds = %1
   call void @_ZN4core9panicking19panic_cannot_unwind17h4e1a7daf8e600394E() #19, !noalias !783
   unreachable
 
-.thread.i:                                        ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h27c72ba580c55c01E.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !775
-  call void @llvm.lifetime.end.p0(i64 1384, ptr nonnull %.sroa.0.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 1384, ptr nonnull %3), !noalias !767
-  br label %79
-
 58:                                               ; preds = %.body.i11.i
-  %59 = extractvalue { ptr, ptr } %55, 0
-  %60 = extractvalue { ptr, ptr } %55, 1
+  %.fr.i = freeze { ptr, ptr } %55
+  %59 = extractvalue { ptr, ptr } %.fr.i, 0
+  %60 = extractvalue { ptr, ptr } %.fr.i, 1
   %61 = icmp ne ptr %59, null
   call void @llvm.assume(i1 %61)
   %62 = icmp ne ptr %60, null
@@ -4488,6 +4490,7 @@ default.unreachable14:                            ; preds = %1
 37:                                               ; preds = %30, %29
   %.sroa.6.sroa.0.0.i = phi ptr [ undef, %29 ], [ %.sroa.6.sroa.0.0.copyload.i, %30 ]
   %.sroa.03.0.i = phi ptr [ null, %29 ], [ inttoptr (i64 1 to ptr), %30 ]
+  %.sroa.3.0.i17.i = freeze ptr %.sroa.6.sroa.0.0.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !803
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.lifetime.start.p0(i64 1112, ptr nonnull %6), !noalias !804
@@ -4495,10 +4498,14 @@ default.unreachable14:                            ; preds = %1
   %38 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %.sroa.03.0.i, ptr %38, align 8, !noalias !811
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %.sroa.6.sroa.0.0.i, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !811
+  store ptr %.sroa.3.0.i17.i, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !811
   store i64 2, ptr %6, align 8, !noalias !804
   invoke void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17hea0e1c879f280284E"(ptr noundef nonnull align 8 %19, ptr noalias nocapture noundef nonnull align 8 dereferenceable(1112) %6)
           to label %.thread.i unwind label %39, !noalias !812
+
+.thread.i:                                        ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 1112, ptr nonnull %6), !noalias !804
+  br label %81
 
 39:                                               ; preds = %37
   %40 = landingpad { ptr, i32 }
@@ -4513,13 +4520,10 @@ default.unreachable14:                            ; preds = %1
   call void @_ZN4core9panicking19panic_cannot_unwind17h4e1a7daf8e600394E() #19, !noalias !812
   unreachable
 
-.thread.i:                                        ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 1112, ptr nonnull %6), !noalias !804
-  br label %81
-
 45:                                               ; preds = %39
-  %46 = extractvalue { ptr, ptr } %42, 0
-  %47 = extractvalue { ptr, ptr } %42, 1
+  %.fr.i = freeze { ptr, ptr } %42
+  %46 = extractvalue { ptr, ptr } %.fr.i, 0
+  %47 = extractvalue { ptr, ptr } %.fr.i, 1
   %48 = icmp ne ptr %46, null
   call void @llvm.assume(i1 %48)
   %49 = icmp ne ptr %47, null
@@ -4764,6 +4768,7 @@ default.unreachable10:                            ; preds = %1
 38:                                               ; preds = %35, %28
   %.sroa.7.sroa.4.0.i = phi ptr [ undef, %35 ], [ %.sroa.7.sroa.4.6.copyload.i, %28 ]
   %.sroa.012.1.insert.insert.i = phi i64 [ %37, %35 ], [ 1, %28 ]
+  %.sroa.3.0.i21.i = freeze ptr %.sroa.7.sroa.4.0.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !838
   %39 = inttoptr i64 %.sroa.012.1.insert.insert.i to ptr
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 32
@@ -4772,7 +4777,7 @@ default.unreachable10:                            ; preds = %1
   %40 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %39, ptr %40, align 8, !noalias !846
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr %.sroa.7.sroa.4.0.i, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !846
+  store ptr %.sroa.3.0.i21.i, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !846
   %41 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1000000000, ptr %41, align 8, !noalias !839
   call void @llvm.lifetime.start.p0(i64 1384, ptr nonnull %.sroa.0.i.i.i.i.i.i)
@@ -4819,6 +4824,12 @@ default.unreachable10:                            ; preds = %1
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h63f535eb5dc19d39E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %.thread.i unwind label %52, !noalias !855
 
+.thread.i:                                        ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha98bb3f824968db2E.exit.i.i.i"
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !847
+  call void @llvm.lifetime.end.p0(i64 1384, ptr nonnull %.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 1384, ptr nonnull %3), !noalias !839
+  br label %79
+
 52:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha98bb3f824968db2E.exit.i.i.i"
   %53 = landingpad { ptr, i32 }
           catch ptr null
@@ -4836,15 +4847,10 @@ default.unreachable10:                            ; preds = %1
   call void @_ZN4core9panicking19panic_cannot_unwind17h4e1a7daf8e600394E() #19, !noalias !855
   unreachable
 
-.thread.i:                                        ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17ha98bb3f824968db2E.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !847
-  call void @llvm.lifetime.end.p0(i64 1384, ptr nonnull %.sroa.0.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 1384, ptr nonnull %3), !noalias !839
-  br label %79
-
 58:                                               ; preds = %.body.i11.i
-  %59 = extractvalue { ptr, ptr } %55, 0
-  %60 = extractvalue { ptr, ptr } %55, 1
+  %.fr.i = freeze { ptr, ptr } %55
+  %59 = extractvalue { ptr, ptr } %.fr.i, 0
+  %60 = extractvalue { ptr, ptr } %.fr.i, 1
   %61 = icmp ne ptr %59, null
   call void @llvm.assume(i1 %61)
   %62 = icmp ne ptr %60, null
@@ -4999,6 +5005,7 @@ default.unreachable14:                            ; preds = %1
 37:                                               ; preds = %30, %29
   %.sroa.6.sroa.0.0.i = phi ptr [ undef, %29 ], [ %.sroa.6.sroa.0.0.copyload.i, %30 ]
   %.sroa.03.0.i = phi ptr [ null, %29 ], [ inttoptr (i64 1 to ptr), %30 ]
+  %.sroa.3.0.i17.i = freeze ptr %.sroa.6.sroa.0.0.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !875
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.lifetime.start.p0(i64 1112, ptr nonnull %6), !noalias !876
@@ -5006,10 +5013,14 @@ default.unreachable14:                            ; preds = %1
   %38 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %.sroa.03.0.i, ptr %38, align 8, !noalias !883
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %.sroa.6.sroa.0.0.i, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !883
+  store ptr %.sroa.3.0.i17.i, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !883
   store i64 2, ptr %6, align 8, !noalias !876
   invoke void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17ha4670ec9f67191e4E"(ptr noundef nonnull align 8 %19, ptr noalias nocapture noundef nonnull align 8 dereferenceable(1112) %6)
           to label %.thread.i unwind label %39, !noalias !884
+
+.thread.i:                                        ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 1112, ptr nonnull %6), !noalias !876
+  br label %81
 
 39:                                               ; preds = %37
   %40 = landingpad { ptr, i32 }
@@ -5024,13 +5035,10 @@ default.unreachable14:                            ; preds = %1
   call void @_ZN4core9panicking19panic_cannot_unwind17h4e1a7daf8e600394E() #19, !noalias !884
   unreachable
 
-.thread.i:                                        ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 1112, ptr nonnull %6), !noalias !876
-  br label %81
-
 45:                                               ; preds = %39
-  %46 = extractvalue { ptr, ptr } %42, 0
-  %47 = extractvalue { ptr, ptr } %42, 1
+  %.fr.i = freeze { ptr, ptr } %42
+  %46 = extractvalue { ptr, ptr } %.fr.i, 0
+  %47 = extractvalue { ptr, ptr } %.fr.i, 1
   %48 = icmp ne ptr %46, null
   call void @llvm.assume(i1 %48)
   %49 = icmp ne ptr %47, null

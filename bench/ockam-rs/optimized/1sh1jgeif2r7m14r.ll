@@ -980,13 +980,12 @@ _ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.loopexit: ; preds 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, ptr } @"_ZN4core6option15Option$LT$T$GT$8as_deref17h1f9ed8f66a2c9c04E.llvm.14247421389134134460"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #10 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  %3 = icmp eq ptr %2, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !10
-  %.sroa.3.0 = select i1 %3, ptr undef, ptr %5
-  %6 = insertvalue { ptr, ptr } poison, ptr %2, 0
-  %7 = insertvalue { ptr, ptr } %6, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %7
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !10
+  %.sroa.3.0 = freeze ptr %4
+  %5 = insertvalue { ptr, ptr } poison, ptr %2, 0
+  %6 = insertvalue { ptr, ptr } %5, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1492,7 +1491,7 @@ _ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread8: ; preds = %.l
   %33 = load ptr, ptr %32, align 8, !nonnull !4, !align !20
   %34 = getelementptr inbounds i8, ptr %4, i64 16
   %35 = load i64, ptr %34, align 8
-  %.sroa.4.0 = select i1 %trunc, i64 undef, i64 %35
+  %.sroa.4.0 = freeze i64 %35
   %.sroa.0.0 = select i1 %trunc, ptr null, ptr %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread
@@ -2171,47 +2170,47 @@ define noundef zeroext i1 @"_ZN10ockam_core5error5inner10formatting82_$LT$impl$u
   %130 = icmp ugt i64 %129, %.val5.i.i.i
   %.promoted.i.i.i.i = load i64, ptr %.sroa.027.sroa.5.0..sroa_idx, align 8, !alias.scope !331, !noalias !332
   %131 = icmp ugt i64 %.promoted.i.i.i.i, %129
-  %or.cond.i49.i.i.i.i = or i1 %130, %131
-  br i1 %or.cond.i49.i.i.i.i, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h94aa5258204f722fE.exit.i.i.i", label %.lr.ph.i.i.i.i
+  %or.cond.i48.i.i.i.i = or i1 %130, %131
+  br i1 %or.cond.i48.i.i.i.i, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h94aa5258204f722fE.exit.i.i.i", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph
   %132 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.promoted.i.i.i.i
-  %133 = sub nuw i64 %129, %.promoted.i.i.i.i
+  %133 = sub i64 %129, %.promoted.i.i.i.i
   %134 = load i64, ptr %.sroa.027.sroa.7.0..sroa_idx, align 8, !alias.scope !331, !noalias !332, !noundef !4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %134
   %135 = icmp ugt i64 %134, 4
   br i1 %135, label %.lr.ph.split.us.split.i.i.i.i, label %.lr.ph.split.split.i.i.i.i
 
 .lr.ph.split.us.split.i.i.i.i:                    ; preds = %.lr.ph.i.i.i.i, %155
-  %.sroa.0.057.us.i.i.i.i = phi ptr [ %158, %155 ], [ %132, %.lr.ph.i.i.i.i ]
-  %.sroa.7.156.us.i.i.i.i = phi i64 [ %157, %155 ], [ %133, %.lr.ph.i.i.i.i ]
+  %.sroa.0.053.us.i.i.i.i = phi ptr [ %158, %155 ], [ %132, %.lr.ph.i.i.i.i ]
+  %.sroa.7.152.us.i.i.i.i = phi i64 [ %157, %155 ], [ %133, %.lr.ph.i.i.i.i ]
   %136 = phi i64 [ %153, %155 ], [ %.promoted.i.i.i.i, %.lr.ph.i.i.i.i ]
   %137 = load i8, ptr %gep, align 1, !alias.scope !331, !noalias !332, !noundef !4
-  %138 = icmp ult i64 %.sroa.7.156.us.i.i.i.i, 16
+  %138 = icmp ult i64 %.sroa.7.152.us.i.i.i.i, 16
   br i1 %138, label %141, label %139
 
 139:                                              ; preds = %.lr.ph.split.us.split.i.i.i.i
-  %140 = call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h2a3d1b8621f1abf7E(i8 noundef %137, ptr noalias noundef nonnull readonly align 1 %.sroa.0.057.us.i.i.i.i, i64 noundef %.sroa.7.156.us.i.i.i.i), !noalias !334
+  %140 = call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h2a3d1b8621f1abf7E(i8 noundef %137, ptr noalias noundef nonnull readonly align 1 %.sroa.0.053.us.i.i.i.i, i64 noundef %.sroa.7.152.us.i.i.i.i), !noalias !334
   br label %149
 
 141:                                              ; preds = %.lr.ph.split.us.split.i.i.i.i
-  %.not.i.us.i.i.i.i = icmp eq i64 %.sroa.7.156.us.i.i.i.i, 0
+  %.not.i.us.i.i.i.i = icmp eq i64 %129, %136
   br i1 %.not.i.us.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.us.i.i.i.i, label %.lr.ph.i.us.i.i.i.i
 
 .lr.ph.i.us.i.i.i.i:                              ; preds = %141, %145
   %.05.i.us.i.i.i.i = phi i64 [ %146, %145 ], [ 0, %141 ]
-  %142 = getelementptr inbounds [0 x i8], ptr %.sroa.0.057.us.i.i.i.i, i64 0, i64 %.05.i.us.i.i.i.i
+  %142 = getelementptr inbounds [0 x i8], ptr %.sroa.0.053.us.i.i.i.i, i64 0, i64 %.05.i.us.i.i.i.i
   %143 = load i8, ptr %142, align 1, !alias.scope !335, !noalias !334, !noundef !4
   %144 = icmp eq i8 %143, %137
   br i1 %144, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.us.i.i.i.i, label %145
 
 145:                                              ; preds = %.lr.ph.i.us.i.i.i.i
-  %146 = add nuw nsw i64 %.05.i.us.i.i.i.i, 1
-  %exitcond.not.i.us.i.i.i.i = icmp eq i64 %146, %.sroa.7.156.us.i.i.i.i
+  %146 = add nuw i64 %.05.i.us.i.i.i.i, 1
+  %exitcond.not.i.us.i.i.i.i = icmp eq i64 %146, %.sroa.7.152.us.i.i.i.i
   br i1 %exitcond.not.i.us.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.us.i.i.i.i, label %.lr.ph.i.us.i.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.us.i.i.i.i: ; preds = %145, %.lr.ph.i.us.i.i.i.i, %141
-  %.0.lcssa.i.us.i.i.i.i = phi i64 [ 0, %141 ], [ %.sroa.7.156.us.i.i.i.i, %145 ], [ %.05.i.us.i.i.i.i, %.lr.ph.i.us.i.i.i.i ]
+  %.0.lcssa.i.us.i.i.i.i = phi i64 [ 0, %141 ], [ %.sroa.7.152.us.i.i.i.i, %145 ], [ %.05.i.us.i.i.i.i, %.lr.ph.i.us.i.i.i.i ]
   %.sroa.0.0.i31.us.i.i.i.i = phi i64 [ 0, %141 ], [ 0, %145 ], [ 1, %.lr.ph.i.us.i.i.i.i ]
   %147 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i31.us.i.i.i.i, 0
   %148 = insertvalue { i64, i64 } %147, i64 %.0.lcssa.i.us.i.i.i.i, 1
@@ -2230,45 +2229,45 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.us.i.i.i.i: ; preds
   store i64 %153, ptr %.sroa.027.sroa.5.0..sroa_idx, align 8, !alias.scope !331, !noalias !332
   %.not.us.i.i.i.i = icmp ult i64 %153, %134
   %154 = icmp ugt i64 %153, %.val5.i.i.i
-  %or.cond99.i.i.i.i = or i1 %.not.us.i.i.i.i, %154
-  br i1 %or.cond99.i.i.i.i, label %155, label %.split59.us.i.i.i.i
+  %or.cond88.i.i.i.i = or i1 %.not.us.i.i.i.i, %154
+  br i1 %or.cond88.i.i.i.i, label %155, label %.split55.us.i.i.i.i
 
 155:                                              ; preds = %151
   %156 = icmp ugt i64 %153, %129
-  %157 = sub nuw i64 %129, %153
+  %157 = sub i64 %129, %153
   %158 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %153
   br i1 %156, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h94aa5258204f722fE.exit.i.i.i", label %.lr.ph.split.us.split.i.i.i.i
 
 .lr.ph.split.split.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i, %178
-  %.sroa.0.057.i.i.i.i = phi ptr [ %181, %178 ], [ %132, %.lr.ph.i.i.i.i ]
-  %.sroa.7.156.i.i.i.i = phi i64 [ %180, %178 ], [ %133, %.lr.ph.i.i.i.i ]
+  %.sroa.0.053.i.i.i.i = phi ptr [ %181, %178 ], [ %132, %.lr.ph.i.i.i.i ]
+  %.sroa.7.152.i.i.i.i = phi i64 [ %180, %178 ], [ %133, %.lr.ph.i.i.i.i ]
   %159 = phi i64 [ %176, %178 ], [ %.promoted.i.i.i.i, %.lr.ph.i.i.i.i ]
   %160 = load i8, ptr %gep, align 1, !alias.scope !331, !noalias !332, !noundef !4
-  %161 = icmp ult i64 %.sroa.7.156.i.i.i.i, 16
+  %161 = icmp ult i64 %.sroa.7.152.i.i.i.i, 16
   br i1 %161, label %164, label %162
 
 162:                                              ; preds = %.lr.ph.split.split.i.i.i.i
-  %163 = call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h2a3d1b8621f1abf7E(i8 noundef %160, ptr noalias noundef nonnull readonly align 1 %.sroa.0.057.i.i.i.i, i64 noundef %.sroa.7.156.i.i.i.i), !noalias !334
+  %163 = call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h2a3d1b8621f1abf7E(i8 noundef %160, ptr noalias noundef nonnull readonly align 1 %.sroa.0.053.i.i.i.i, i64 noundef %.sroa.7.152.i.i.i.i), !noalias !334
   br label %172
 
 164:                                              ; preds = %.lr.ph.split.split.i.i.i.i
-  %.not.i.i.i.i.i = icmp eq i64 %.sroa.7.156.i.i.i.i, 0
+  %.not.i.i.i.i.i = icmp eq i64 %129, %159
   br i1 %.not.i.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %164, %168
   %.05.i.i.i.i.i = phi i64 [ %169, %168 ], [ 0, %164 ]
-  %165 = getelementptr inbounds [0 x i8], ptr %.sroa.0.057.i.i.i.i, i64 0, i64 %.05.i.i.i.i.i
+  %165 = getelementptr inbounds [0 x i8], ptr %.sroa.0.053.i.i.i.i, i64 0, i64 %.05.i.i.i.i.i
   %166 = load i8, ptr %165, align 1, !alias.scope !335, !noalias !334, !noundef !4
   %167 = icmp eq i8 %166, %160
   br i1 %167, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i.i.i, label %168
 
 168:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %169 = add nuw nsw i64 %.05.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %169, %.sroa.7.156.i.i.i.i
+  %169 = add nuw i64 %.05.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %169, %.sroa.7.152.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i.i.i: ; preds = %168, %.lr.ph.i.i.i.i.i, %164
-  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %164 ], [ %.sroa.7.156.i.i.i.i, %168 ], [ %.05.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %164 ], [ %.sroa.7.152.i.i.i.i, %168 ], [ %.05.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.sroa.0.0.i31.i.i.i.i = phi i64 [ 0, %164 ], [ 0, %168 ], [ 1, %.lr.ph.i.i.i.i.i ]
   %170 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i31.i.i.i.i, 0
   %171 = insertvalue { i64, i64 } %170, i64 %.0.lcssa.i.i.i.i.i, 1
@@ -2296,7 +2295,7 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i.i.i: ; preds = 
 
 178:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h778d244e98dfbca8E.exit.i.i.i.i", %174
   %179 = icmp ugt i64 %176, %129
-  %180 = sub nuw i64 %129, %176
+  %180 = sub i64 %129, %176
   %181 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %176
   br i1 %179, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h94aa5258204f722fE.exit.i.i.i", label %.lr.ph.split.split.i.i.i.i
 
@@ -2307,7 +2306,7 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i.i.i: ; preds = 
   %184 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %184, label %188, label %178
 
-.split59.us.i.i.i.i:                              ; preds = %151
+.split55.us.i.i.i.i:                              ; preds = %151
   call void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %134, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.49e9a0265e54857feb382c85f62d0083.16) #31, !noalias !342
   unreachable
 
@@ -2824,13 +2823,12 @@ common.resume:                                    ; preds = %18, %30
 define hidden { ptr, ptr } @_ZN10ockam_core5error5inner9ErrorData5cause17h5624536ae96cecaaE(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !alias.scope !418, !noundef !4
-  %4 = icmp eq ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !alias.scope !418, !nonnull !4, !align !10
-  %.sroa.3.0.i = select i1 %4, ptr undef, ptr %6
-  %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
-  %8 = insertvalue { ptr, ptr } %7, ptr %.sroa.3.0.i, 1
-  ret { ptr, ptr } %8
+  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = load ptr, ptr %4, align 8, !alias.scope !418, !nonnull !4, !align !10
+  %.sroa.3.0.i = freeze ptr %5
+  %6 = insertvalue { ptr, ptr } poison, ptr %3, 0
+  %7 = insertvalue { ptr, ptr } %6, ptr %.sroa.3.0.i, 1
+  ret { ptr, ptr } %7
 }
 
 ; Function Attrs: nonlazybind uwtable

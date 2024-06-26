@@ -829,7 +829,7 @@ define dso_local ptr @drm_gem_get_pages(ptr nocapture noundef readonly %0) #0 al
   tail call void asm sideeffect "478: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 478b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 478) #11, !srcloc !29
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 545, i32 2305, i64 12) #11, !srcloc !30
   tail call void asm sideeffect "479: nop\0A\09.pushsection .discard.instr_end\0A\09.long 479b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 479) #11, !srcloc !31
-  br label %.loopexit10
+  br label %.loopexit11
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %4, i64 216
@@ -853,22 +853,22 @@ define dso_local ptr @drm_gem_get_pages(ptr nocapture noundef readonly %0) #0 al
   %18 = shl nuw nsw i64 %17, 3
   %19 = tail call noalias ptr @kvmalloc_node(i64 noundef %18, i32 noundef 3264, i32 noundef -1) #13
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit10, label %21
+  br i1 %20, label %.loopexit11, label %21
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds i8, ptr %9, i64 112
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22, i32 8, ptr elementtype(i8) %22) #11, !srcloc !35
   %23 = getelementptr inbounds i8, ptr %9, i64 64
   %.not = icmp ult i64 %16, 4096
-  br i1 %.not, label %.loopexit10, label %.lr.ph.preheader
+  br i1 %.not, label %.loopexit11, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, i8 0, i64 128, i1 false), !annotation !36
-  %.pre22 = load i32, ptr %23, align 8
+  %.pre23 = load i32, ptr %23, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %70
-  %24 = phi i32 [ %61, %70 ], [ %.pre22, %.lr.ph.preheader ]
+  %24 = phi i32 [ %61, %70 ], [ %.pre23, %.lr.ph.preheader ]
   %25 = phi i64 [ %60, %70 ], [ 0, %.lr.ph.preheader ]
   %26 = tail call ptr @shmem_read_folio_gfp(ptr noundef %9, i64 noundef %25, i32 noundef %24) #11
   %27 = icmp ugt ptr %26, inttoptr (i64 -4096 to ptr)
@@ -942,7 +942,7 @@ define dso_local ptr @drm_gem_get_pages(ptr nocapture noundef readonly %0) #0 al
 
 70:                                               ; preds = %64, %.loopexit
   %71 = icmp slt i64 %60, %17
-  br i1 %71, label %.lr.ph, label %.loopexit10
+  br i1 %71, label %.lr.ph, label %.loopexit11
 
 72:                                               ; preds = %.lr.ph
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22, i32 -9, ptr elementtype(i8) %22) #11, !srcloc !42
@@ -950,7 +950,7 @@ define dso_local ptr @drm_gem_get_pages(ptr nocapture noundef readonly %0) #0 al
   %73 = getelementptr inbounds i8, ptr %2, i64 1
   store i8 0, ptr %73, align 1
   %74 = icmp sgt i64 %25, 0
-  br i1 %74, label %75, label %.thread9
+  br i1 %74, label %75, label %.thread10
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds i8, ptr %2, i64 8
@@ -989,9 +989,10 @@ define dso_local ptr @drm_gem_get_pages(ptr nocapture noundef readonly %0) #0 al
 96:                                               ; preds = %92
   %97 = getelementptr i8, ptr %80, i64 72
   %98 = load volatile i64, ptr %97, align 8
-  %99 = and i64 %98, 1
+  %.fr9 = freeze i64 %98
+  %99 = and i64 %.fr9, 1
   %100 = icmp eq i64 %99, 0
-  %101 = add nsw i64 %98, -1
+  %101 = add i64 %.fr9, -1
   %102 = inttoptr i64 %101 to ptr
   br i1 %100, label %103, label %104
 
@@ -1042,20 +1043,20 @@ define dso_local ptr @drm_gem_get_pages(ptr nocapture noundef readonly %0) #0 al
 129:                                              ; preds = %125
   %.pr = load i8, ptr %2, align 8
   %130 = icmp eq i8 %.pr, 0
-  br i1 %130, label %.thread9, label %131
+  br i1 %130, label %.thread10, label %131
 
 131:                                              ; preds = %129
   call void @check_move_unevictable_folios(ptr noundef nonnull %2) #11
   call void @__folio_batch_release(ptr noundef nonnull %2) #11
   %132 = call i32 @__SCT__cond_resched() #11
-  br label %.thread9
+  br label %.thread10
 
-.thread9:                                         ; preds = %72, %131, %129
+.thread10:                                        ; preds = %72, %131, %129
   call void @kvfree(ptr noundef nonnull %19) #11
-  br label %.loopexit10
+  br label %.loopexit11
 
-.loopexit10:                                      ; preds = %70, %21, %.thread9, %15, %6
-  %133 = phi ptr [ inttoptr (i64 -22 to ptr), %6 ], [ %26, %.thread9 ], [ inttoptr (i64 -12 to ptr), %15 ], [ %19, %21 ], [ %19, %70 ]
+.loopexit11:                                      ; preds = %70, %21, %.thread10, %15, %6
+  %133 = phi ptr [ inttoptr (i64 -22 to ptr), %6 ], [ %26, %.thread10 ], [ inttoptr (i64 -12 to ptr), %15 ], [ %19, %21 ], [ %19, %70 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #11
   ret ptr %133
 }
@@ -1147,9 +1148,10 @@ define dso_local void @drm_gem_put_pages(ptr nocapture noundef readonly %0, ptr 
 48:                                               ; preds = %44
   %49 = getelementptr i8, ptr %30, i64 72
   %50 = load volatile i64, ptr %49, align 8
-  %51 = and i64 %50, 1
+  %.fr3 = freeze i64 %50
+  %51 = and i64 %.fr3, 1
   %52 = icmp eq i64 %51, 0
-  %53 = add nsw i64 %50, -1
+  %53 = add i64 %.fr3, -1
   %54 = inttoptr i64 %53 to ptr
   br i1 %52, label %55, label %56
 

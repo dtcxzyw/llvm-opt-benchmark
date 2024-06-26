@@ -87,9 +87,10 @@ define dso_local ptr @page_mapping(ptr noundef %0) #0 align 16 {
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %0, i64 72
   %20 = load volatile i64, ptr %19, align 8
-  %21 = and i64 %20, 1
+  %.fr1 = freeze i64 %20
+  %21 = and i64 %.fr1, 1
   %22 = icmp eq i64 %21, 0
-  %23 = add nsw i64 %20, -1
+  %23 = add i64 %.fr1, -1
   %24 = inttoptr i64 %23 to ptr
   br i1 %22, label %25, label %26
 
@@ -137,9 +138,10 @@ define dso_local void @unlock_page(ptr noundef %0) #0 align 16 {
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %0, i64 72
   %20 = load volatile i64, ptr %19, align 8
-  %21 = and i64 %20, 1
+  %.fr1 = freeze i64 %20
+  %21 = and i64 %.fr1, 1
   %22 = icmp eq i64 %21, 0
-  %23 = add nsw i64 %20, -1
+  %23 = add i64 %.fr1, -1
   %24 = inttoptr i64 %23 to ptr
   br i1 %22, label %25, label %26
 
@@ -187,9 +189,10 @@ define dso_local void @end_page_writeback(ptr noundef %0) #0 align 16 {
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %0, i64 72
   %20 = load volatile i64, ptr %19, align 8
-  %21 = and i64 %20, 1
+  %.fr1 = freeze i64 %20
+  %21 = and i64 %.fr1, 1
   %22 = icmp eq i64 %21, 0
-  %23 = add nsw i64 %20, -1
+  %23 = add i64 %.fr1, -1
   %24 = inttoptr i64 %23 to ptr
   br i1 %22, label %25, label %26
 
@@ -237,9 +240,10 @@ define dso_local void @wait_on_page_writeback(ptr noundef %0) #0 align 16 {
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %0, i64 72
   %20 = load volatile i64, ptr %19, align 8
-  %21 = and i64 %20, 1
+  %.fr1 = freeze i64 %20
+  %21 = and i64 %.fr1, 1
   %22 = icmp eq i64 %21, 0
-  %23 = add nsw i64 %20, -1
+  %23 = add i64 %.fr1, -1
   %24 = inttoptr i64 %23 to ptr
   br i1 %22, label %25, label %26
 
@@ -287,9 +291,10 @@ define dso_local void @wait_for_stable_page(ptr noundef %0) #0 align 16 {
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %0, i64 72
   %20 = load volatile i64, ptr %19, align 8
-  %21 = and i64 %20, 1
+  %.fr1 = freeze i64 %20
+  %21 = and i64 %.fr1, 1
   %22 = icmp eq i64 %21, 0
-  %23 = add nsw i64 %20, -1
+  %23 = add i64 %.fr1, -1
   %24 = inttoptr i64 %23 to ptr
   br i1 %22, label %25, label %26
 
@@ -337,9 +342,10 @@ define dso_local void @mark_page_accessed(ptr noundef %0) #0 align 16 {
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %0, i64 72
   %20 = load volatile i64, ptr %19, align 8
-  %21 = and i64 %20, 1
+  %.fr1 = freeze i64 %20
+  %21 = and i64 %.fr1, 1
   %22 = icmp eq i64 %21, 0
-  %23 = add nsw i64 %20, -1
+  %23 = add i64 %.fr1, -1
   %24 = inttoptr i64 %23 to ptr
   br i1 %22, label %25, label %26
 
@@ -387,9 +393,10 @@ define dso_local void @set_page_writeback(ptr noundef %0) #0 align 16 {
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %0, i64 72
   %20 = load volatile i64, ptr %19, align 8
-  %21 = and i64 %20, 1
+  %.fr1 = freeze i64 %20
+  %21 = and i64 %.fr1, 1
   %22 = icmp eq i64 %21, 0
-  %23 = add nsw i64 %20, -1
+  %23 = add i64 %.fr1, -1
   %24 = inttoptr i64 %23 to ptr
   br i1 %22, label %25, label %26
 
@@ -437,9 +444,10 @@ define dso_local zeroext i1 @set_page_dirty(ptr noundef %0) #0 align 16 {
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %0, i64 72
   %20 = load volatile i64, ptr %19, align 8
-  %21 = and i64 %20, 1
+  %.fr1 = freeze i64 %20
+  %21 = and i64 %.fr1, 1
   %22 = icmp eq i64 %21, 0
-  %23 = add nsw i64 %20, -1
+  %23 = add i64 %.fr1, -1
   %24 = inttoptr i64 %23 to ptr
   br i1 %22, label %25, label %26
 
@@ -487,9 +495,10 @@ define dso_local range(i32 0, 2) i32 @__set_page_dirty_nobuffers(ptr noundef %0)
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %0, i64 72
   %20 = load volatile i64, ptr %19, align 8
-  %21 = and i64 %20, 1
+  %.fr1 = freeze i64 %20
+  %21 = and i64 %.fr1, 1
   %22 = icmp eq i64 %21, 0
-  %23 = add nsw i64 %20, -1
+  %23 = add i64 %.fr1, -1
   %24 = inttoptr i64 %23 to ptr
   br i1 %22, label %25, label %26
 
@@ -528,9 +537,10 @@ define dso_local range(i32 0, 2) i32 @__set_page_dirty_nobuffers(ptr noundef %0)
 44:                                               ; preds = %40
   %45 = getelementptr i8, ptr %0, i64 72
   %46 = load volatile i64, ptr %45, align 8
-  %47 = and i64 %46, 1
+  %.fr2 = freeze i64 %46
+  %47 = and i64 %.fr2, 1
   %48 = icmp eq i64 %47, 0
-  %49 = add nsw i64 %46, -1
+  %49 = add i64 %.fr2, -1
   %50 = inttoptr i64 %49 to ptr
   br i1 %48, label %51, label %52
 
@@ -579,9 +589,10 @@ define dso_local zeroext i1 @clear_page_dirty_for_io(ptr noundef %0) #0 align 16
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %0, i64 72
   %20 = load volatile i64, ptr %19, align 8
-  %21 = and i64 %20, 1
+  %.fr1 = freeze i64 %20
+  %21 = and i64 %.fr1, 1
   %22 = icmp eq i64 %21, 0
-  %23 = add nsw i64 %20, -1
+  %23 = add i64 %.fr1, -1
   %24 = inttoptr i64 %23 to ptr
   br i1 %22, label %25, label %26
 
@@ -629,9 +640,10 @@ define dso_local zeroext i1 @redirty_page_for_writepage(ptr noundef %0, ptr noun
 19:                                               ; preds = %15
   %20 = getelementptr i8, ptr %1, i64 72
   %21 = load volatile i64, ptr %20, align 8
-  %22 = and i64 %21, 1
+  %.fr1 = freeze i64 %21
+  %22 = and i64 %.fr1, 1
   %23 = icmp eq i64 %22, 0
-  %24 = add nsw i64 %21, -1
+  %24 = add i64 %.fr1, -1
   %25 = inttoptr i64 %24 to ptr
   br i1 %23, label %26, label %27
 
@@ -679,9 +691,10 @@ define dso_local i32 @add_to_page_cache_lru(ptr noundef %0, ptr noundef %1, i64 
 21:                                               ; preds = %17
   %22 = getelementptr i8, ptr %0, i64 72
   %23 = load volatile i64, ptr %22, align 8
-  %24 = and i64 %23, 1
+  %.fr1 = freeze i64 %23
+  %24 = and i64 %.fr1, 1
   %25 = icmp eq i64 %24, 0
-  %26 = add nsw i64 %23, -1
+  %26 = add i64 %.fr1, -1
   %27 = inttoptr i64 %26 to ptr
   br i1 %25, label %28, label %29
 
@@ -789,12 +802,13 @@ define dso_local zeroext i1 @isolate_lru_page(ptr noundef %0) local_unnamed_addr
 15:                                               ; preds = %11
   %16 = getelementptr i8, ptr %0, i64 72
   %17 = load volatile i64, ptr %16, align 8
-  %18 = and i64 %17, 1
+  %.fr1 = freeze i64 %17
+  %18 = and i64 %.fr1, 1
   %19 = icmp eq i64 %18, 0
-  %20 = add nsw i64 %17, -1
+  %20 = add i64 %.fr1, -1
   %21 = inttoptr i64 %20 to ptr
   %22 = icmp eq ptr %21, %0
-  %or.cond = select i1 %19, i1 true, i1 %22
+  %or.cond = or i1 %19, %22
   br i1 %or.cond, label %.thread, label %23
 
 23:                                               ; preds = %15, %1
@@ -861,9 +875,10 @@ define dso_local void @putback_lru_page(ptr noundef %0) local_unnamed_addr #0 al
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %0, i64 72
   %20 = load volatile i64, ptr %19, align 8
-  %21 = and i64 %20, 1
+  %.fr1 = freeze i64 %20
+  %21 = and i64 %.fr1, 1
   %22 = icmp eq i64 %21, 0
-  %23 = add nsw i64 %20, -1
+  %23 = add i64 %.fr1, -1
   %24 = inttoptr i64 %23 to ptr
   br i1 %22, label %25, label %26
 

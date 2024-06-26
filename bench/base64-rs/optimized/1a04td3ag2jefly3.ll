@@ -160,12 +160,12 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
 .split81:                                         ; preds = %.critedge, %69
   %.0.lcssa = phi i64 [ %6, %69 ], [ %83, %.critedge ]
   %.not91 = icmp ne i64 %.075.lcssa, 0
-  %74 = add i64 %.074.lcssa, %3
+  %.074.lcssa.fr = freeze i64 %.074.lcssa
+  %74 = add i64 %.074.lcssa.fr, %3
   %.sroa.0137.0 = zext i1 %.not91 to i64
-  %.sroa.5138.0 = select i1 %.not91, i64 %74, i64 undef
   store i64 %.sroa.0137.0, ptr %0, align 8
   %.sroa.5138.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.5138.0, ptr %.sroa.5138.0..sroa_idx, align 8
+  store i64 %74, ptr %.sroa.5138.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.0.lcssa, ptr %.sroa.7.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)

@@ -812,7 +812,8 @@ define hidden void @_ZN6uu_env14split_iterator13SplitIterator15state_delimiter17
   unreachable
 
 123:                                              ; preds = %118
-  store i8 %121, ptr %9, align 1, !noalias !217
+  %.sroa.3.0.i.i = freeze i8 %121
+  store i8 %.sroa.3.0.i.i, ptr %9, align 1, !noalias !217
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !217
   %124 = load ptr, ptr %50, align 8, !alias.scope !214, !noalias !201, !nonnull !5, !align !221, !noundef !5
   %125 = load i64, ptr %51, align 8, !alias.scope !214, !noalias !201, !noundef !5

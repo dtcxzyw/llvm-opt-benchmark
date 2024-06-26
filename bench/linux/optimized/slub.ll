@@ -3356,9 +3356,10 @@ define dso_local void @kmem_cache_free(ptr noundef %0, ptr noundef %1) #0 align 
 57:                                               ; preds = %53
   %58 = getelementptr i8, ptr %40, i64 72
   %59 = load volatile i64, ptr %58, align 8
-  %60 = and i64 %59, 1
+  %.fr3 = freeze i64 %59
+  %60 = and i64 %.fr3, 1
   %61 = icmp eq i64 %60, 0
-  %62 = add nsw i64 %59, -1
+  %62 = add i64 %.fr3, -1
   %63 = inttoptr i64 %62 to ptr
   br i1 %61, label %64, label %65
 
@@ -3460,14 +3461,14 @@ define dso_local void @kmem_cache_free(ptr noundef %0, ptr noundef %1) #0 align 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc ptr @cache_from_obj(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #8 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @slub_debug_enabled, i32 2) #25
-          to label %.thread3 [label %3], !srcloc !6
+          to label %.thread4 [label %3], !srcloc !6
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 256
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.thread3, label %8
+  br i1 %7, label %.thread4, label %8
 
 8:                                                ; preds = %3
   %9 = load i64, ptr @vmemmap_base, align 8
@@ -3512,9 +3513,10 @@ define internal fastcc ptr @cache_from_obj(ptr noundef readonly %0, ptr noundef 
 37:                                               ; preds = %33
   %38 = getelementptr i8, ptr %20, i64 72
   %39 = load volatile i64, ptr %38, align 8
-  %40 = and i64 %39, 1
+  %.fr3 = freeze i64 %39
+  %40 = and i64 %.fr3, 1
   %41 = icmp eq i64 %40, 0
-  %42 = add nsw i64 %39, -1
+  %42 = add i64 %.fr3, -1
   %43 = inttoptr i64 %42 to ptr
   br i1 %41, label %44, label %45
 
@@ -3540,10 +3542,10 @@ define internal fastcc ptr @cache_from_obj(ptr noundef readonly %0, ptr noundef 
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 4328, i32 2313, i64 12) #25, !srcloc !48
   tail call void asm sideeffect "631: nop\0A\09.pushsection .discard.instr_end\0A\09.long 631b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 631) #25, !srcloc !49
   tail call void asm sideeffect "632: nop\0A\09.pushsection .discard.instr_end\0A\09.long 632b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 632) #25, !srcloc !50
-  br label %.thread3
+  br label %.thread4
 
 54:                                               ; preds = %45
-  br i1 %51, label %55, label %.thread3
+  br i1 %51, label %55, label %.thread4
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds i8, ptr %50, i64 8
@@ -3551,7 +3553,7 @@ define internal fastcc ptr @cache_from_obj(ptr noundef readonly %0, ptr noundef 
   %58 = icmp ne ptr %57, null
   %59 = icmp ne ptr %57, %0
   %60 = and i1 %58, %59
-  br i1 %60, label %61, label %.thread3, !prof !51
+  br i1 %60, label %61, label %.thread4, !prof !51
 
 61:                                               ; preds = %55
   tail call void asm sideeffect "633: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 633b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 633) #25, !srcloc !52
@@ -3565,9 +3567,9 @@ define internal fastcc ptr @cache_from_obj(ptr noundef readonly %0, ptr noundef 
   tail call void asm sideeffect "635: nop\0A\09.pushsection .discard.instr_end\0A\09.long 635b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 635) #25, !srcloc !55
   tail call void asm sideeffect "636: nop\0A\09.pushsection .discard.instr_end\0A\09.long 636b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 636) #25, !srcloc !56
   tail call void @print_tracking(ptr noundef nonnull %57, ptr noundef %1)
-  br label %.thread3
+  br label %.thread4
 
-.thread3:                                         ; preds = %.thread, %54, %61, %55, %3, %2
+.thread4:                                         ; preds = %.thread, %54, %61, %55, %3, %2
   %66 = phi ptr [ %0, %3 ], [ %57, %55 ], [ %57, %61 ], [ %0, %2 ], [ null, %54 ], [ null, %.thread ]
   ret ptr %66
 }
@@ -3662,9 +3664,10 @@ define dso_local void @kfree(ptr noundef %0) #0 align 16 {
 55:                                               ; preds = %51
   %56 = getelementptr i8, ptr %38, i64 72
   %57 = load volatile i64, ptr %56, align 8
-  %58 = and i64 %57, 1
+  %.fr3 = freeze i64 %57
+  %58 = and i64 %.fr3, 1
   %59 = icmp eq i64 %58, 0
-  %60 = add nsw i64 %57, -1
+  %60 = add i64 %.fr3, -1
   %61 = inttoptr i64 %60 to ptr
   br i1 %59, label %62, label %63
 
@@ -4049,9 +4052,10 @@ define internal fastcc i32 @build_detached_freelist(ptr noundef %0, i64 noundef 
 36:                                               ; preds = %32
   %37 = getelementptr i8, ptr %19, i64 72
   %38 = load volatile i64, ptr %37, align 8
-  %39 = and i64 %38, 1
+  %.fr5 = freeze i64 %38
+  %39 = and i64 %.fr5, 1
   %40 = icmp eq i64 %39, 0
-  %41 = add nsw i64 %38, -1
+  %41 = add i64 %.fr5, -1
   %42 = inttoptr i64 %41 to ptr
   br i1 %40, label %43, label %44
 
@@ -4159,9 +4163,10 @@ define internal fastcc i32 @build_detached_freelist(ptr noundef %0, i64 noundef 
 107:                                              ; preds = %103
   %108 = getelementptr i8, ptr %90, i64 72
   %109 = load volatile i64, ptr %108, align 8
-  %110 = and i64 %109, 1
+  %.fr6 = freeze i64 %109
+  %110 = and i64 %.fr6, 1
   %111 = icmp eq i64 %110, 0
-  %112 = add nsw i64 %109, -1
+  %112 = add i64 %.fr6, -1
   %113 = inttoptr i64 %112 to ptr
   br i1 %111, label %114, label %115
 
@@ -4475,9 +4480,10 @@ define dso_local i32 @kmem_cache_alloc_bulk(ptr noundef %0, i32 noundef %1, i64 
 157:                                              ; preds = %153
   %158 = getelementptr i8, ptr %140, i64 72
   %159 = load volatile i64, ptr %158, align 8
-  %160 = and i64 %159, 1
+  %.fr5.i = freeze i64 %159
+  %160 = and i64 %.fr5.i, 1
   %161 = icmp eq i64 %160, 0
-  %162 = add nsw i64 %159, -1
+  %162 = add i64 %.fr5.i, -1
   %163 = inttoptr i64 %162 to ptr
   br i1 %161, label %164, label %165
 
@@ -4535,9 +4541,10 @@ define dso_local i32 @kmem_cache_alloc_bulk(ptr noundef %0, i32 noundef %1, i64 
 197:                                              ; preds = %193
   %198 = getelementptr i8, ptr %180, i64 72
   %199 = load volatile i64, ptr %198, align 8
-  %200 = and i64 %199, 1
+  %.fr3.i = freeze i64 %199
+  %200 = and i64 %.fr3.i, 1
   %201 = icmp eq i64 %200, 0
-  %202 = add nsw i64 %199, -1
+  %202 = add i64 %.fr3.i, -1
   %203 = inttoptr i64 %202 to ptr
   br i1 %201, label %204, label %205
 
@@ -4656,9 +4663,10 @@ cache_from_obj.exit:                              ; preds = %221, %215, %214, %.
 269:                                              ; preds = %265
   %270 = getelementptr i8, ptr %252, i64 72
   %271 = load volatile i64, ptr %270, align 8
-  %272 = and i64 %271, 1
+  %.fr6.i = freeze i64 %271
+  %272 = and i64 %.fr6.i, 1
   %273 = icmp eq i64 %272, 0
-  %274 = add nsw i64 %271, -1
+  %274 = add i64 %.fr6.i, -1
   %275 = inttoptr i64 %274 to ptr
   br i1 %273, label %276, label %277
 

@@ -5022,7 +5022,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$
 
 45:                                               ; preds = %49, %35
   %.sroa.05.1.i.i = phi i64 [ %.sroa.0.0.i12.i.i, %49 ], [ 1, %35 ]
-  %.sroa.4.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %49 ], [ %.sroa.4.0.i.i, %35 ]
+  %.sroa.4.1.i.i = phi i64 [ %55, %49 ], [ %.sroa.4.0.i.i, %35 ]
   %46 = icmp eq <16 x i8> %.0.copyload.i28.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %47 = bitcast <16 x i1> %46 to i16
   %48 = icmp eq i16 %47, 0
@@ -5033,11 +5033,10 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$
   %51 = bitcast <16 x i1> %50 to i16
   %.not.not.i11.i.i = icmp ne i16 %51, 0
   %52 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %51, i1 true)
-  %53 = zext nneg i16 %52 to i64
-  %.sroa.4.0.i.i.i = select i1 %.not.not.i11.i.i, i64 %53, i64 undef
-  %54 = add i64 %.sroa.4.0.i.i.i, %.sroa.0.021.i.i
+  %.fr.i.i.i = freeze i16 %52
+  %53 = zext i16 %.fr.i.i.i to i64
+  %54 = add i64 %.sroa.0.021.i.i, %53
   %55 = and i64 %54, %.val4.i
-  %.sroa.3.0.i.i.i = select i1 %.not.not.i11.i.i, i64 %55, i64 undef
   %.sroa.0.0.i12.i.i = zext i1 %.not.not.i11.i.i to i64
   br label %45
 
@@ -6921,7 +6920,7 @@ define void @"_ZN10ockam_node7context10transports55_$LT$impl$u20$ockam_node..con
 
 97:                                               ; preds = %101, %85
   %.sroa.05.1.i.i.i = phi i64 [ %.sroa.0.0.i12.i.i.i, %101 ], [ 1, %85 ]
-  %.sroa.4.1.i.i.i = phi i64 [ %.sroa.3.0.i.i.i.i, %101 ], [ %.sroa.4.0.i.i.i, %85 ]
+  %.sroa.4.1.i.i.i = phi i64 [ %107, %101 ], [ %.sroa.4.0.i.i.i, %85 ]
   %98 = icmp eq <16 x i8> %.0.copyload.i28.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %99 = bitcast <16 x i1> %98 to i16
   %100 = icmp eq i16 %99, 0
@@ -6932,11 +6931,10 @@ define void @"_ZN10ockam_node7context10transports55_$LT$impl$u20$ockam_node..con
   %103 = bitcast <16 x i1> %102 to i16
   %.not.not.i11.i.i.i = icmp ne i16 %103, 0
   %104 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %103, i1 true)
-  %105 = zext nneg i16 %104 to i64
-  %.sroa.4.0.i.i.i.i = select i1 %.not.not.i11.i.i.i, i64 %105, i64 undef
-  %106 = add i64 %.sroa.4.0.i.i.i.i, %.sroa.0.021.i.i.i
+  %.fr.i.i.i.i = freeze i16 %104
+  %105 = zext i16 %.fr.i.i.i.i to i64
+  %106 = add i64 %.sroa.0.021.i.i.i, %105
   %107 = and i64 %106, %.val4.i.i
-  %.sroa.3.0.i.i.i.i = select i1 %.not.not.i11.i.i.i, i64 %107, i64 undef
   %.sroa.0.0.i12.i.i.i = zext i1 %.not.not.i11.i.i.i to i64
   br label %97
 
@@ -9641,7 +9639,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hd0af3617c5d1d734E.exit: ; preds = 
   %56 = load i64, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %1, i64 72
   %58 = load i64, ptr %57, align 8
-  %.sroa.6.0 = select i1 %.not.i8, i64 %56, i64 undef
+  %.sroa.6.0 = freeze i64 %56
   %.sink22.i12 = zext i1 %.not.i8 to i64
   %.sink.i13 = select i1 %.not.i8, i64 %58, i64 0
   store i64 %.sink22.i12, ptr %11, align 8

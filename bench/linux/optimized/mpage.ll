@@ -1396,9 +1396,10 @@ define internal void @mpage_read_end_io(ptr noundef %0) #0 align 16 {
 35:                                               ; preds = %31
   %36 = getelementptr i8, ptr %19, i64 72
   %37 = load volatile i64, ptr %36, align 8
-  %38 = and i64 %37, 1
+  %.fr2 = freeze i64 %37
+  %38 = and i64 %.fr2, 1
   %39 = icmp eq i64 %38, 0
-  %40 = add nsw i64 %37, -1
+  %40 = add i64 %.fr2, -1
   %41 = inttoptr i64 %40 to ptr
   br i1 %39, label %42, label %43
 
@@ -1621,9 +1622,10 @@ define internal fastcc void @bio_next_folio(ptr nocapture noundef %0, ptr nocapt
 70:                                               ; preds = %66
   %71 = getelementptr i8, ptr %54, i64 72
   %72 = load volatile i64, ptr %71, align 8
-  %73 = and i64 %72, 1
+  %.fr1 = freeze i64 %72
+  %73 = and i64 %.fr1, 1
   %74 = icmp eq i64 %73, 0
-  %75 = add nsw i64 %72, -1
+  %75 = add i64 %.fr1, -1
   %76 = inttoptr i64 %75 to ptr
   br i1 %74, label %77, label %78
 
@@ -1725,7 +1727,7 @@ define internal void @mpage_write_end_io(ptr noundef %0) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = tail call i32 @blk_status_to_errno(i8 noundef zeroext %5) #7
-  %.fr4 = freeze i32 %6
+  %.fr5 = freeze i32 %6
   %7 = getelementptr inbounds i8, ptr %0, i64 20
   %8 = load i16, ptr %7, align 4
   %9 = and i16 %8, 2
@@ -1777,9 +1779,10 @@ define internal void @mpage_write_end_io(ptr noundef %0) #0 align 16 {
 35:                                               ; preds = %31
   %36 = getelementptr i8, ptr %19, i64 72
   %37 = load volatile i64, ptr %36, align 8
-  %38 = and i64 %37, 1
+  %.fr4 = freeze i64 %37
+  %38 = and i64 %.fr4, 1
   %39 = icmp eq i64 %38, 0
-  %40 = add nsw i64 %37, -1
+  %40 = add i64 %.fr4, -1
   %41 = inttoptr i64 %40 to ptr
   br i1 %39, label %42, label %43
 
@@ -1852,7 +1855,7 @@ define internal void @mpage_write_end_io(ptr noundef %0) #0 align 16 {
   br i1 %87, label %.loopexit, label %88
 
 88:                                               ; preds = %82
-  switch i32 %.fr4, label %.split.split [
+  switch i32 %.fr5, label %.split.split [
     i32 0, label %.split.us
     i32 -28, label %.split.split.us
   ]
@@ -1898,7 +1901,7 @@ define internal void @mpage_write_end_io(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %108, i32 4, ptr elementtype(i8) %108) #7, !srcloc !21
   %109 = getelementptr inbounds i8, ptr %107, i64 24
   %110 = load ptr, ptr %109, align 8
-  tail call void @__filemap_set_wb_err(ptr noundef %110, i32 noundef %.fr4) #7
+  tail call void @__filemap_set_wb_err(ptr noundef %110, i32 noundef %.fr5) #7
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
   br i1 %112, label %118, label %113
@@ -1907,7 +1910,7 @@ define internal void @mpage_write_end_io(ptr noundef %0) #0 align 16 {
   %114 = getelementptr inbounds i8, ptr %111, i64 40
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 1052
-  %117 = tail call i32 @errseq_set(ptr noundef %116, i32 noundef %.fr4) #7
+  %117 = tail call i32 @errseq_set(ptr noundef %116, i32 noundef %.fr5) #7
   br label %118
 
 118:                                              ; preds = %113, %.split.split

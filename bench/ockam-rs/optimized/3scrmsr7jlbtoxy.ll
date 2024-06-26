@@ -702,6 +702,9 @@ define internal fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h0b32bf1043c36e8aE(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [132 x i64] }, align 8
+  %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8
+  %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.01.sroa.4.0.copyload = load ptr, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
   call void @llvm.lifetime.start.p0(i64 1064, ptr nonnull %2), !noalias !57
@@ -709,44 +712,46 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h0b32bf1043c36e8aE(ptr noalia
   %.sroa.01.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.01.sroa.6.0.copyload = load ptr, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8, !nonnull !26, !noundef !26
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %4, ptr %3, align 8
+  store ptr %.sroa.01.sroa.0.0.copyload, ptr %3, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %.sroa.01.sroa.4.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8
   store i64 2, ptr %2, align 8, !noalias !57
   invoke void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17haa8815c720e9f830E"(ptr noundef nonnull align 8 %.sroa.01.sroa.6.0.copyload, ptr noalias nocapture noundef nonnull align 8 dereferenceable(1064) %2)
-          to label %16 unwind label %5
+          to label %_ZN3std9panicking3try7do_call17h050c02617465108eE.llvm.3418942333016926031.exit unwind label %4
 
-5:                                                ; preds = %1
-  %6 = landingpad { ptr, i32 }
+_ZN3std9panicking3try7do_call17h050c02617465108eE.llvm.3418942333016926031.exit: ; preds = %1
+  call void @llvm.lifetime.end.p0(i64 1064, ptr nonnull %2), !noalias !57
+  br label %__rust_try.llvm.3418942333016926031.exit
+
+4:                                                ; preds = %1
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %7)
-          to label %11 unwind label %9
+  %6 = extractvalue { ptr, i32 } %5, 0
+  %7 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %6)
+          to label %_ZN3std9panicking3try8do_catch17h18d8f634eeb40f54E.llvm.3418942333016926031.exit unwind label %8
 
-9:                                                ; preds = %5
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %4
+  %9 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking19panic_cannot_unwind17h4e1a7daf8e600394E() #30
   unreachable
 
-11:                                               ; preds = %5
-  %12 = extractvalue { ptr, ptr } %8, 0
-  %13 = extractvalue { ptr, ptr } %8, 1
-  %14 = icmp ne ptr %12, null
-  tail call void @llvm.assume(i1 %14)
-  %15 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %15)
-  br label %17
+_ZN3std9panicking3try8do_catch17h18d8f634eeb40f54E.llvm.3418942333016926031.exit: ; preds = %4
+  %10 = extractvalue { ptr, ptr } %7, 0
+  %11 = extractvalue { ptr, ptr } %7, 1
+  %12 = icmp ne ptr %10, null
+  tail call void @llvm.assume(i1 %12)
+  %13 = icmp ne ptr %11, null
+  tail call void @llvm.assume(i1 %13)
+  br label %__rust_try.llvm.3418942333016926031.exit
 
-16:                                               ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 1064, ptr nonnull %2), !noalias !57
-  br label %17
-
-17:                                               ; preds = %11, %16
-  %18 = phi ptr [ undef, %16 ], [ %13, %11 ]
-  %19 = phi ptr [ null, %16 ], [ %12, %11 ]
-  %20 = insertvalue { ptr, ptr } poison, ptr %19, 0
-  %21 = insertvalue { ptr, ptr } %20, ptr %18, 1
-  ret { ptr, ptr } %21
+__rust_try.llvm.3418942333016926031.exit:         ; preds = %_ZN3std9panicking3try7do_call17h050c02617465108eE.llvm.3418942333016926031.exit, %_ZN3std9panicking3try8do_catch17h18d8f634eeb40f54E.llvm.3418942333016926031.exit
+  %.sroa.6.0 = phi ptr [ %.sroa.01.sroa.4.0.copyload, %_ZN3std9panicking3try7do_call17h050c02617465108eE.llvm.3418942333016926031.exit ], [ %11, %_ZN3std9panicking3try8do_catch17h18d8f634eeb40f54E.llvm.3418942333016926031.exit ]
+  %.sroa.0.0 = phi ptr [ null, %_ZN3std9panicking3try7do_call17h050c02617465108eE.llvm.3418942333016926031.exit ], [ %10, %_ZN3std9panicking3try8do_catch17h18d8f634eeb40f54E.llvm.3418942333016926031.exit ]
+  %.sroa.3.0 = freeze ptr %.sroa.6.0
+  %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %15 = insertvalue { ptr, ptr } %14, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %15
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -1136,6 +1141,9 @@ __rust_try.llvm.3418942333016926031.exit:         ; preds = %5
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17hb79a941785c734d1E(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [132 x i64] }, align 8
+  %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8
+  %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.01.sroa.4.0.copyload = load ptr, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
   call void @llvm.lifetime.start.p0(i64 1064, ptr nonnull %2), !noalias !131
@@ -1143,44 +1151,46 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb79a941785c734d1E(ptr noalia
   %.sroa.01.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.01.sroa.6.0.copyload = load ptr, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8, !nonnull !26, !noundef !26
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %4, ptr %3, align 8
+  store ptr %.sroa.01.sroa.0.0.copyload, ptr %3, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %.sroa.01.sroa.4.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8
   store i64 2, ptr %2, align 8, !noalias !131
   invoke void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17hc0a042bd5b4c03b8E"(ptr noundef nonnull align 8 %.sroa.01.sroa.6.0.copyload, ptr noalias nocapture noundef nonnull align 8 dereferenceable(1064) %2)
-          to label %16 unwind label %5
+          to label %_ZN3std9panicking3try7do_call17h8530b436ea18096dE.llvm.3418942333016926031.exit unwind label %4
 
-5:                                                ; preds = %1
-  %6 = landingpad { ptr, i32 }
+_ZN3std9panicking3try7do_call17h8530b436ea18096dE.llvm.3418942333016926031.exit: ; preds = %1
+  call void @llvm.lifetime.end.p0(i64 1064, ptr nonnull %2), !noalias !131
+  br label %__rust_try.llvm.3418942333016926031.exit
+
+4:                                                ; preds = %1
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %7)
-          to label %11 unwind label %9
+  %6 = extractvalue { ptr, i32 } %5, 0
+  %7 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %6)
+          to label %_ZN3std9panicking3try8do_catch17h16926a930d7cc9cbE.llvm.3418942333016926031.exit unwind label %8
 
-9:                                                ; preds = %5
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %4
+  %9 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking19panic_cannot_unwind17h4e1a7daf8e600394E() #30
   unreachable
 
-11:                                               ; preds = %5
-  %12 = extractvalue { ptr, ptr } %8, 0
-  %13 = extractvalue { ptr, ptr } %8, 1
-  %14 = icmp ne ptr %12, null
-  tail call void @llvm.assume(i1 %14)
-  %15 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %15)
-  br label %17
+_ZN3std9panicking3try8do_catch17h16926a930d7cc9cbE.llvm.3418942333016926031.exit: ; preds = %4
+  %10 = extractvalue { ptr, ptr } %7, 0
+  %11 = extractvalue { ptr, ptr } %7, 1
+  %12 = icmp ne ptr %10, null
+  tail call void @llvm.assume(i1 %12)
+  %13 = icmp ne ptr %11, null
+  tail call void @llvm.assume(i1 %13)
+  br label %__rust_try.llvm.3418942333016926031.exit
 
-16:                                               ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 1064, ptr nonnull %2), !noalias !131
-  br label %17
-
-17:                                               ; preds = %11, %16
-  %18 = phi ptr [ undef, %16 ], [ %13, %11 ]
-  %19 = phi ptr [ null, %16 ], [ %12, %11 ]
-  %20 = insertvalue { ptr, ptr } poison, ptr %19, 0
-  %21 = insertvalue { ptr, ptr } %20, ptr %18, 1
-  ret { ptr, ptr } %21
+__rust_try.llvm.3418942333016926031.exit:         ; preds = %_ZN3std9panicking3try7do_call17h8530b436ea18096dE.llvm.3418942333016926031.exit, %_ZN3std9panicking3try8do_catch17h16926a930d7cc9cbE.llvm.3418942333016926031.exit
+  %.sroa.6.0 = phi ptr [ %.sroa.01.sroa.4.0.copyload, %_ZN3std9panicking3try7do_call17h8530b436ea18096dE.llvm.3418942333016926031.exit ], [ %11, %_ZN3std9panicking3try8do_catch17h16926a930d7cc9cbE.llvm.3418942333016926031.exit ]
+  %.sroa.0.0 = phi ptr [ null, %_ZN3std9panicking3try7do_call17h8530b436ea18096dE.llvm.3418942333016926031.exit ], [ %10, %_ZN3std9panicking3try8do_catch17h16926a930d7cc9cbE.llvm.3418942333016926031.exit ]
+  %.sroa.3.0 = freeze ptr %.sroa.6.0
+  %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %15 = insertvalue { ptr, ptr } %14, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %15
 }
 
 ; Function Attrs: nonlazybind uwtable

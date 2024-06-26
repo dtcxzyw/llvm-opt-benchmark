@@ -832,9 +832,10 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
 21:                                               ; preds = %17
   %22 = getelementptr i8, ptr %1, i64 72
   %23 = load volatile i64, ptr %22, align 8
-  %24 = and i64 %23, 1
+  %.fr9 = freeze i64 %23
+  %24 = and i64 %.fr9, 1
   %25 = icmp eq i64 %24, 0
-  %26 = add nsw i64 %23, -1
+  %26 = add i64 %.fr9, -1
   %27 = inttoptr i64 %26 to ptr
   br i1 %25, label %28, label %29
 
@@ -937,7 +938,7 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   %87 = load volatile i64, ptr %1, align 8
   %88 = and i64 %87, 16
   %89 = icmp eq i64 %88, 0
-  br i1 %89, label %.thread9, label %90
+  br i1 %89, label %.thread10, label %90
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds i8, ptr %1, i64 40
@@ -1077,7 +1078,7 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   store i32 %103, ptr %175, align 4
   br label %181
 
-.thread9:                                         ; preds = %86
+.thread10:                                        ; preds = %86
   %176 = getelementptr inbounds i8, ptr %56, i64 120
   %177 = getelementptr inbounds i8, ptr %4, i64 8
   %178 = load i64, ptr %62, align 8
@@ -1104,8 +1105,8 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   tail call void @__folio_put(ptr noundef nonnull %120) #9
   br label %192
 
-192:                                              ; preds = %.thread9, %191, %181
-  %193 = phi i32 [ %180, %.thread9 ], [ %186, %191 ], [ %186, %181 ]
+192:                                              ; preds = %.thread10, %191, %181
+  %193 = phi i32 [ %180, %.thread10 ], [ %186, %191 ], [ %186, %181 ]
   tail call void @netfs_put_request(ptr noundef %56, i1 noundef zeroext false, i8 noundef signext 6) #9
   %194 = tail call i32 @llvm.smin.i32(i32 %193, i32 0)
   br label %198
@@ -1276,7 +1277,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   %94 = icmp ne i64 %83, 0
   %95 = icmp ugt i64 %93, %66
   %96 = select i1 %94, i1 true, i1 %95
-  br i1 %96, label %97, label %.loopexit14
+  br i1 %96, label %97, label %.loopexit15
 
 97:                                               ; preds = %91
   %98 = sub i64 %3, %83
@@ -1382,7 +1383,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   %162 = phi i64 [ %160, %158 ], [ 1, %153 ]
   %163 = icmp ugt i64 %162, %154
   %164 = add nuw nsw i64 %154, 1
-  br i1 %163, label %153, label %.loopexit14, !llvm.loop !50
+  br i1 %163, label %153, label %.loopexit15, !llvm.loop !50
 
 165:                                              ; preds = %100
   %166 = getelementptr inbounds i8, ptr %60, i64 8
@@ -1415,9 +1416,10 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
 182:                                              ; preds = %178
   %183 = getelementptr i8, ptr %60, i64 72
   %184 = load volatile i64, ptr %183, align 8
-  %185 = and i64 %184, 1
+  %.fr14 = freeze i64 %184
+  %185 = and i64 %.fr14, 1
   %186 = icmp eq i64 %185, 0
-  %187 = add nsw i64 %184, -1
+  %187 = add i64 %.fr14, -1
   %188 = inttoptr i64 %187 to ptr
   br i1 %186, label %189, label %190
 
@@ -1623,9 +1625,9 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   %304 = load ptr, ptr %8, align 8
   %305 = call i32 @folio_wait_private_2_killable(ptr noundef %304) #9
   %306 = icmp slt i32 %305, 0
-  br i1 %306, label %308, label %.loopexit14
+  br i1 %306, label %308, label %.loopexit15
 
-.loopexit14:                                      ; preds = %161, %303, %91
+.loopexit15:                                      ; preds = %161, %303, %91
   %307 = load ptr, ptr %8, align 8
   store ptr %307, ptr %5, align 8
   br label %319
@@ -1650,8 +1652,8 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   call void @__folio_put(ptr noundef %313) #9
   br label %319
 
-319:                                              ; preds = %318, %312, %308, %.loopexit14, %24
-  %320 = phi i32 [ %26, %24 ], [ 0, %.loopexit14 ], [ %309, %308 ], [ %309, %312 ], [ %309, %318 ]
+319:                                              ; preds = %318, %312, %308, %.loopexit15, %24
+  %320 = phi i32 [ %26, %24 ], [ 0, %.loopexit15 ], [ %309, %308 ], [ %309, %312 ], [ %309, %318 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   ret i32 %320

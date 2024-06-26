@@ -13128,8 +13128,7 @@ define void @"_ZN3syn3gen5clone74_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
 
 44:                                               ; preds = %34, %51
   %.sroa.03.0 = phi i64 [ %.sroa.03.0.copyload4, %51 ], [ 39, %34 ]
-  %trunc = trunc nuw i32 %36 to i1
-  %.sroa.5.0 = select i1 %trunc, i32 %.sroa.0.0.copyload.i12, i32 undef
+  %.sroa.5.0 = freeze i32 %.sroa.0.0.copyload.i12
   %45 = getelementptr inbounds i8, ptr %0, i64 408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %46 = getelementptr inbounds i8, ptr %0, i64 472
@@ -13296,10 +13295,8 @@ common.resume:                                    ; preds = %29, %18
 34:                                               ; preds = %"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17had19d7bec3d33aa8E.exit", %38
   %.sroa.55.sroa.4.0 = phi i32 [ undef, %"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17had19d7bec3d33aa8E.exit" ], [ %33, %38 ]
   %.sroa.03.0 = phi i64 [ -9223372036854775808, %"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17had19d7bec3d33aa8E.exit" ], [ %.sroa.0.0.copyload, %38 ]
-  %trunc11 = trunc nuw i32 %24 to i1
-  %.sroa.52.0 = select i1 %trunc11, i32 %.sroa.0.0.copyload.i14, i32 undef
-  %trunc = trunc nuw i32 %7 to i1
-  %.sroa.5.0 = select i1 %trunc, i32 %.sroa.0.0.copyload.i, i32 undef
+  %.sroa.52.0 = freeze i32 %.sroa.0.0.copyload.i14
+  %.sroa.5.0 = freeze i32 %.sroa.0.0.copyload.i
   %35 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %7, ptr %35, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 76
@@ -13427,8 +13424,7 @@ define void @"_ZN3syn3gen5clone77_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
           to label %24 unwind label %40
 
 36:                                               ; preds = %27
-  %trunc = trunc nuw i32 %31 to i1
-  %.sroa.5.0 = select i1 %trunc, i32 %.sroa.0.0.copyload.i, i32 undef
+  %.sroa.5.0 = freeze i32 %.sroa.0.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %37 = getelementptr inbounds i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
@@ -13801,8 +13797,7 @@ common.resume:                                    ; preds = %54, %.body, %28
 
 55:                                               ; preds = %44, %.noexc
   %.0.i.i4 = phi ptr [ null, %.noexc ], [ %45, %44 ]
-  %trunc.i = trunc nuw i32 %35 to i1
-  %.sroa.5.0.i = select i1 %trunc.i, i64 %.sroa.0.0.copyload.i.i3, i64 undef
+  %.sroa.5.0.i = freeze i64 %.sroa.0.0.copyload.i.i3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !2338
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2346
   %56 = getelementptr inbounds i8, ptr %0, i64 96
@@ -14029,10 +14024,8 @@ define void @"_ZN3syn3gen5clone73_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
 
 64:                                               ; preds = %54, %70
   %.sroa.03.0 = phi i64 [ %.sroa.03.0.copyload4, %70 ], [ 17, %54 ]
-  %trunc11 = trunc nuw i32 %57 to i1
-  %.sroa.52.0 = select i1 %trunc11, i32 %.sroa.0.0.copyload.i17, i32 undef
-  %trunc = trunc nuw i32 %31 to i1
-  %.sroa.5.0 = select i1 %trunc, i32 %.sroa.0.0.copyload.i, i32 undef
+  %.sroa.52.0 = freeze i32 %.sroa.0.0.copyload.i17
+  %.sroa.5.0 = freeze i32 %.sroa.0.0.copyload.i
   %65 = getelementptr inbounds i8, ptr %0, i64 232
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %66 = getelementptr inbounds i8, ptr %0, i64 288

@@ -746,7 +746,7 @@ define hidden void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$15finish_int
   %31 = load i64, ptr %30, align 8, !alias.scope !119, !noalias !122
   %32 = getelementptr inbounds i8, ptr %1, i64 32
   %33 = load i64, ptr %32, align 8, !alias.scope !119, !noalias !122
-  %.sroa.6159.0.i = select i1 %.not.i.i, i64 %31, i64 undef
+  %.sroa.6159.0.i = freeze i64 %31
   %.sink22.i.i = zext i1 %.not.i.i to i64
   %.sink.i.i = select i1 %.not.i.i, i64 %33, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %27), !noalias !124
@@ -6684,7 +6684,7 @@ common.resume:                                    ; preds = %1695, %.thread242.i
   %436 = add i64 %435, 1
   store i64 %436, ptr %.sroa.519.sroa.5.0..sroa.519.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !895, !noalias !886
   %437 = icmp ugt i64 %418, 4294967295
-  %438 = trunc nuw i64 %418 to i32
+  %438 = trunc i64 %418 to i32
   br i1 %437, label %.thread96.i.i, label %439
 
 439:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i"
@@ -7535,7 +7535,7 @@ common.resume:                                    ; preds = %1695, %.thread242.i
   %698 = add i64 %697, 1
   store i64 %698, ptr %.sroa.519.sroa.5.0..sroa.519.0..sroa_idx.sroa_idx.i331, align 8, !alias.scope !994, !noalias !985
   %699 = icmp ugt i64 %680, 4294967295
-  %700 = trunc nuw i64 %680 to i32
+  %700 = trunc i64 %680 to i32
   br i1 %699, label %.thread96.i.i367, label %701
 
 701:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i373"
@@ -8386,7 +8386,7 @@ common.resume:                                    ; preds = %1695, %.thread242.i
   %960 = add i64 %959, 1
   store i64 %960, ptr %.sroa.519.sroa.5.0..sroa.519.0..sroa_idx.sroa_idx.i575, align 8, !alias.scope !1093, !noalias !1084
   %961 = icmp ugt i64 %942, 4294967295
-  %962 = trunc nuw i64 %942 to i32
+  %962 = trunc i64 %942 to i32
   br i1 %961, label %.thread96.i.i611, label %963
 
 963:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i617"
@@ -9300,7 +9300,7 @@ common.resume:                                    ; preds = %1695, %.thread242.i
   %1240 = add i64 %1239, 1
   store i64 %1240, ptr %.sroa.519.sroa.5.0..sroa.519.0..sroa_idx.sroa_idx.i833, align 8, !alias.scope !1232, !noalias !1223
   %1241 = icmp ugt i64 %1222, 4294967295
-  %1242 = trunc nuw i64 %1222 to i32
+  %1242 = trunc i64 %1222 to i32
   br i1 %1241, label %.thread96.i.i869, label %1243
 
 1243:                                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i875"
@@ -10187,7 +10187,7 @@ common.resume:                                    ; preds = %1695, %.thread242.i
   %1509 = add i64 %1508, 1
   store i64 %1509, ptr %.sroa.519.sroa.5.0..sroa.519.0..sroa_idx.sroa_idx.i1077, align 8, !alias.scope !1337, !noalias !1328
   %1510 = icmp ugt i64 %1491, 4294967295
-  %1511 = trunc nuw i64 %1491 to i32
+  %1511 = trunc i64 %1491 to i32
   br i1 %1510, label %.thread96.i.i1113, label %1512
 
 1512:                                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i1119"
@@ -11070,7 +11070,7 @@ common.resume:                                    ; preds = %1695, %.thread242.i
   %1777 = add i64 %1776, 1
   store i64 %1777, ptr %.sroa.519.sroa.5.0..sroa.519.0..sroa_idx.sroa_idx.i1321, align 8, !alias.scope !1441, !noalias !1432
   %1778 = icmp ugt i64 %1759, 4294967295
-  %1779 = trunc nuw i64 %1759 to i32
+  %1779 = trunc i64 %1759 to i32
   br i1 %1778, label %.thread96.i.i1357, label %1780
 
 1780:                                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i1363"
@@ -19494,7 +19494,8 @@ select.unfold:                                    ; preds = %"_ZN105_$LT$image..
 
 "_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h142294cbbdeaf610E.exit": ; preds = %.noexc15
   %47 = fptoui float %44 to i16
-  store i16 %47, ptr %.sroa.429.040, align 2, !alias.scope !2853, !noalias !2856
+  %.sroa.3.0.i.i.i.i = freeze i16 %47
+  store i16 %.sroa.3.0.i.i.i.i, ptr %.sroa.429.040, align 2, !alias.scope !2853, !noalias !2856
   %48 = icmp eq i64 %35, 0
   br i1 %48, label %select.unfold, label %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i"
 
@@ -20239,7 +20240,8 @@ select.unfold:                                    ; preds = %"_ZN106_$LT$image..
 
 "_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h83b941d56bd54d5fE.exit": ; preds = %.noexc16
   %52 = fptoui float %49 to i16
-  store i16 %52, ptr %.sroa.430.041, align 2, !alias.scope !2973, !noalias !2976
+  %.sroa.3.0.i.i.i.i = freeze i16 %52
+  store i16 %.sroa.3.0.i.i.i.i, ptr %.sroa.430.041, align 2, !alias.scope !2973, !noalias !2976
   %53 = getelementptr inbounds i8, ptr %.sroa.430.041, i64 2
   store i16 -1, ptr %53, align 2, !alias.scope !2973, !noalias !2976
   %54 = icmp eq i64 %40, 0
@@ -20719,7 +20721,8 @@ select.unfold:                                    ; preds = %"_ZN106_$LT$image..
 
 "_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hde184d17c93bff7aE.exit": ; preds = %.noexc15
   %44 = fptoui float %41 to i8
-  store i8 %44, ptr %.sroa.429.040, align 1, !alias.scope !3053, !noalias !3056
+  %.sroa.3.0.i.i.i.i = freeze i8 %44
+  store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.429.040, align 1, !alias.scope !3053, !noalias !3056
   %45 = icmp eq i64 %32, 0
   br i1 %45, label %select.unfold, label %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i"
 
@@ -21875,7 +21878,8 @@ select.unfold:                                    ; preds = %"_ZN106_$LT$image..
 
 "_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17heb91d8c71f73da13E.exit": ; preds = %.noexc15
   %45 = fptoui float %42 to i16
-  store i16 %45, ptr %.sroa.429.040, align 2, !alias.scope !3248, !noalias !3251
+  %.sroa.3.0.i.i.i.i = freeze i16 %45
+  store i16 %.sroa.3.0.i.i.i.i, ptr %.sroa.429.040, align 2, !alias.scope !3248, !noalias !3251
   %46 = icmp eq i64 %33, 0
   br i1 %46, label %select.unfold, label %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b4e75c72afa10f1E.exit.i"
 
@@ -22796,7 +22800,8 @@ select.unfold:                                    ; preds = %"_ZN105_$LT$image..
 
 "_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h9aac05f45694367aE.exit": ; preds = %.noexc15
   %46 = fptoui float %43 to i8
-  store i8 %46, ptr %.sroa.429.040, align 1, !alias.scope !3403, !noalias !3406
+  %.sroa.3.0.i.i.i.i = freeze i8 %46
+  store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.429.040, align 1, !alias.scope !3403, !noalias !3406
   %47 = icmp eq i64 %34, 0
   br i1 %47, label %select.unfold, label %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.llvm.1814251078191383949.exit.i"
 
@@ -26673,7 +26678,8 @@ select.unfold:                                    ; preds = %"_ZN106_$LT$image..
 
 "_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h6afa8bbb4633132aE.exit": ; preds = %.noexc16
   %51 = fptoui float %48 to i8
-  store i8 %51, ptr %.sroa.430.041, align 1, !alias.scope !4033, !noalias !4036
+  %.sroa.3.0.i.i.i.i = freeze i8 %51
+  store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.430.041, align 1, !alias.scope !4033, !noalias !4036
   %52 = getelementptr inbounds i8, ptr %.sroa.430.041, i64 1
   store i8 -1, ptr %52, align 1, !alias.scope !4033, !noalias !4036
   %53 = icmp eq i64 %39, 0

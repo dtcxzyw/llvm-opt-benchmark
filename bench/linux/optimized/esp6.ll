@@ -482,9 +482,10 @@ define internal fastcc void @get_page(ptr noundef %0) unnamed_addr #3 align 16 {
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %0, i64 72
   %20 = load volatile i64, ptr %19, align 8
-  %21 = and i64 %20, 1
+  %.fr1 = freeze i64 %20
+  %21 = and i64 %.fr1, 1
   %22 = icmp eq i64 %21, 0
-  %23 = add nsw i64 %20, -1
+  %23 = add i64 %.fr1, -1
   %24 = inttoptr i64 %23 to ptr
   br i1 %22, label %25, label %26
 
@@ -544,9 +545,10 @@ define internal fastcc void @__skb_fill_page_desc(ptr nocapture noundef %0, i32 
 33:                                               ; preds = %29
   %34 = getelementptr i8, ptr %2, i64 72
   %35 = load volatile i64, ptr %34, align 8
-  %36 = and i64 %35, 1
+  %.fr1 = freeze i64 %35
+  %36 = and i64 %.fr1, 1
   %37 = icmp eq i64 %36, 0
-  %38 = add nsw i64 %35, -1
+  %38 = add i64 %.fr1, -1
   %39 = inttoptr i64 %38 to ptr
   br i1 %37, label %40, label %41
 
@@ -788,7 +790,7 @@ define dso_local i32 @esp6_output_tail(ptr noundef %0, ptr noundef %1, ptr nocap
   %151 = add i32 %148, %150
   %152 = tail call i32 @skb_to_sgvec(ptr noundef %1, ptr noundef %77, i32 noundef %146, i32 noundef %151) #13
   %153 = icmp slt i32 %152, 0
-  br i1 %153, label %.thread9, label %154, !prof !13
+  br i1 %153, label %.thread11, label %154, !prof !13
 
 154:                                              ; preds = %136
   %155 = load i8, ptr %78, align 1, !range !14, !noundef !15
@@ -808,7 +810,7 @@ define dso_local i32 @esp6_output_tail(ptr noundef %0, ptr noundef %1, ptr nocap
 
 165:                                              ; preds = %157
   tail call void @_raw_spin_unlock_bh(ptr noundef %163) #13
-  br label %.thread9
+  br label %.thread11
 
 166:                                              ; preds = %157
   %167 = getelementptr inbounds i8, ptr %1, i64 192
@@ -850,9 +852,10 @@ define dso_local i32 @esp6_output_tail(ptr noundef %0, ptr noundef %1, ptr nocap
 191:                                              ; preds = %187
   %192 = getelementptr i8, ptr %174, i64 72
   %193 = load volatile i64, ptr %192, align 8
-  %194 = and i64 %193, 1
+  %.fr8 = freeze i64 %193
+  %194 = and i64 %.fr8, 1
   %195 = icmp eq i64 %194, 0
-  %196 = add nsw i64 %193, -1
+  %196 = add i64 %.fr8, -1
   %197 = inttoptr i64 %196 to ptr
   br i1 %195, label %198, label %199
 
@@ -905,9 +908,10 @@ define dso_local i32 @esp6_output_tail(ptr noundef %0, ptr noundef %1, ptr nocap
 227:                                              ; preds = %223
   %228 = getelementptr i8, ptr %174, i64 72
   %229 = load volatile i64, ptr %228, align 8
-  %230 = and i64 %229, 1
+  %.fr9 = freeze i64 %229
+  %230 = and i64 %.fr9, 1
   %231 = icmp eq i64 %230, 0
-  %232 = add nsw i64 %229, -1
+  %232 = add i64 %.fr9, -1
   %233 = inttoptr i64 %232 to ptr
   br i1 %231, label %234, label %235
 
@@ -952,7 +956,7 @@ define dso_local i32 @esp6_output_tail(ptr noundef %0, ptr noundef %1, ptr nocap
   %262 = add i32 %261, %150
   %263 = tail call i32 @skb_to_sgvec(ptr noundef %1, ptr noundef %86, i32 noundef %260, i32 noundef %262) #13
   %264 = icmp slt i32 %263, 0
-  br i1 %264, label %.thread9, label %265, !prof !13
+  br i1 %264, label %.thread11, label %265, !prof !13
 
 265:                                              ; preds = %246, %154
   %266 = load i8, ptr %4, align 1
@@ -1082,36 +1086,36 @@ define dso_local i32 @esp6_output_tail(ptr noundef %0, ptr noundef %1, ptr nocap
 
 359:                                              ; preds = %356
   %.val = load i8, ptr %4, align 1
-  %.val8 = load ptr, ptr %11, align 8
-  tail call fastcc void @esp_ssg_unref(i8 %.val, ptr %.val8, ptr noundef nonnull %40)
+  %.val10 = load ptr, ptr %11, align 8
+  tail call fastcc void @esp_ssg_unref(i8 %.val, ptr %.val10, ptr noundef nonnull %40)
   br label %360
 
 360:                                              ; preds = %359, %356
   %361 = icmp eq i32 %357, 0
-  br i1 %361, label %362, label %.thread9
+  br i1 %361, label %362, label %.thread11
 
 362:                                              ; preds = %360
   %363 = getelementptr inbounds i8, ptr %0, i64 384
   %364 = load ptr, ptr %363, align 8
   %365 = icmp eq ptr %364, null
-  br i1 %365, label %.thread9, label %366
+  br i1 %365, label %.thread11, label %366
 
 366:                                              ; preds = %362
   %367 = load i16, ptr %364, align 4
   %368 = icmp eq i16 %367, 7
-  br i1 %368, label %369, label %.thread9
+  br i1 %368, label %369, label %.thread11
 
 369:                                              ; preds = %366
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #13
-  br label %.thread9
+  br label %.thread11
 
-.thread9:                                         ; preds = %246, %165, %369, %366, %362, %360, %136
+.thread11:                                        ; preds = %246, %165, %369, %366, %362, %360, %136
   %370 = phi i32 [ %152, %136 ], [ %357, %360 ], [ -95, %369 ], [ 0, %366 ], [ 0, %362 ], [ %152, %165 ], [ %263, %246 ]
   tail call void @kfree(ptr noundef nonnull %40) #13
   br label %371
 
-371:                                              ; preds = %.thread9, %265, %30
-  %372 = phi i32 [ %370, %.thread9 ], [ %288, %265 ], [ -12, %30 ]
+371:                                              ; preds = %.thread11, %265, %30
+  %372 = phi i32 [ %370, %.thread11 ], [ %288, %265 ], [ -12, %30 ]
   ret i32 %372
 }
 
@@ -1431,9 +1435,10 @@ define internal fastcc void @esp_ssg_unref(i8 %.225.val, ptr %.736.val, ptr noun
 59:                                               ; preds = %55
   %60 = getelementptr i8, ptr %43, i64 72
   %61 = load volatile i64, ptr %60, align 8
-  %62 = and i64 %61, 1
+  %.fr3 = freeze i64 %61
+  %62 = and i64 %.fr3, 1
   %63 = icmp eq i64 %62, 0
-  %64 = add nsw i64 %61, -1
+  %64 = add i64 %.fr3, -1
   %65 = inttoptr i64 %64 to ptr
   br i1 %63, label %66, label %67
 

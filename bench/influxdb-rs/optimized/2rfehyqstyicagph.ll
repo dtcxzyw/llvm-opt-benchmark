@@ -354,16 +354,15 @@ define hidden { i8, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %6, ptr %7, align 8, !noalias !28
   %8 = call { i8, i8 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h12820251cad19d26E.llvm.3198005069098508149(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3), !noalias !37
+  %.fr.i = freeze { i8, i8 } %8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !28
-  %.fca.0.extract1.i = extractvalue { i8, i8 } %8, 0
-  %9 = icmp eq i8 %.fca.0.extract1.i, 2
-  %.fca.1.extract2.i = extractvalue { i8, i8 } %8, 1
-  %10 = and i8 %.fca.0.extract1.i, 1
-  %.sroa.3.0.i = select i1 %9, i8 undef, i8 %.fca.1.extract2.i
-  %11 = insertvalue { i8, i8 } poison, i8 %10, 0
-  %12 = insertvalue { i8, i8 } %11, i8 %.sroa.3.0.i, 1
+  %.fca.0.extract1.i = extractvalue { i8, i8 } %.fr.i, 0
+  %.fca.1.extract2.i = extractvalue { i8, i8 } %.fr.i, 1
+  %9 = and i8 %.fca.0.extract1.i, 1
+  %10 = insertvalue { i8, i8 } poison, i8 %9, 0
+  %11 = insertvalue { i8, i8 } %10, i8 %.fca.1.extract2.i, 1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  ret { i8, i8 } %12
+  ret { i8, i8 } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -457,15 +456,14 @@ define hidden { i8, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %6, ptr %7, align 8, !noalias !71
   %8 = call { i8, i8 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h12820251cad19d26E.llvm.3198005069098508149(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3), !noalias !80
+  %.fr = freeze { i8, i8 } %8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !71
-  %.fca.0.extract1 = extractvalue { i8, i8 } %8, 0
-  %9 = icmp eq i8 %.fca.0.extract1, 2
-  %.fca.1.extract2 = extractvalue { i8, i8 } %8, 1
-  %10 = and i8 %.fca.0.extract1, 1
-  %.sroa.3.0 = select i1 %9, i8 undef, i8 %.fca.1.extract2
-  %11 = insertvalue { i8, i8 } poison, i8 %10, 0
-  %12 = insertvalue { i8, i8 } %11, i8 %.sroa.3.0, 1
-  ret { i8, i8 } %12
+  %.fca.0.extract1 = extractvalue { i8, i8 } %.fr, 0
+  %.fca.1.extract2 = extractvalue { i8, i8 } %.fr, 1
+  %9 = and i8 %.fca.0.extract1, 1
+  %10 = insertvalue { i8, i8 } poison, i8 %9, 0
+  %11 = insertvalue { i8, i8 } %10, i8 %.fca.1.extract2, 1
+  ret { i8, i8 } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2019,8 +2017,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %30 = load i16, ptr %29, align 8, !range !666, !alias.scope !673, !noalias !676, !noundef !9
   %31 = getelementptr inbounds i8, ptr %2, i64 26
   %32 = load i16, ptr %31, align 2, !alias.scope !673, !noalias !676
-  %trunc.i = trunc nuw i16 %30 to i1
-  %.sroa.54.0.i = select i1 %trunc.i, i16 %32, i16 undef
+  %.sroa.54.0.i = freeze i16 %32
   store ptr %.sroa.0.0.i, ptr %12, align 8
   %.sroa.58.0..sroa_idx9 = getelementptr inbounds i8, ptr %1, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.0..sroa_idx9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false)
@@ -2112,8 +2109,7 @@ define hidden void @"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtoco
   %30 = load i16, ptr %29, align 8, !range !666, !alias.scope !685, !noalias !688, !noundef !9
   %31 = getelementptr inbounds i8, ptr %2, i64 26
   %32 = load i16, ptr %31, align 2, !alias.scope !685, !noalias !688
-  %trunc.i = trunc nuw i16 %30 to i1
-  %.sroa.54.0.i = select i1 %trunc.i, i16 %32, i16 undef
+  %.sroa.54.0.i = freeze i16 %32
   store ptr %.sroa.0.0.i, ptr %12, align 8
   %.sroa.58.0..sroa_idx9 = getelementptr inbounds i8, ptr %1, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.0..sroa_idx9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false)
@@ -5859,7 +5855,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h780dbd4412bd504dE(ptr n
   %5 = load ptr, ptr %4, align 8, !alias.scope !1762, !nonnull !9, !align !1765
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !alias.scope !1762, !nonnull !9, !align !27
-  %.sroa.3.0.i = select i1 %3, ptr %7, ptr undef
+  %.sroa.3.0.i = freeze ptr %7
   %.sroa.0.0.i = select i1 %3, ptr %5, ptr null
   %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %.sroa.3.0.i, 1
@@ -7062,7 +7058,7 @@ define internal { ptr, ptr } @"_ZN68_$LT$parquet..errors..ParquetError$u20$as$u2
   %5 = load ptr, ptr %4, align 8, !nonnull !9, !align !1765
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !nonnull !9, !align !27
-  %.sroa.3.0 = select i1 %3, ptr %7, ptr undef
+  %.sroa.3.0 = freeze ptr %7
   %.sroa.0.0 = select i1 %3, ptr %5, ptr null
   %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %.sroa.3.0, 1
@@ -8072,7 +8068,7 @@ define hidden { ptr, ptr } @"_ZN70_$LT$arrow_schema..error..ArrowError$u20$as$u2
   %5 = load ptr, ptr %4, align 8, !nonnull !9, !align !1765
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !nonnull !9, !align !27
-  %.sroa.3.0 = select i1 %3, ptr %7, ptr undef
+  %.sroa.3.0 = freeze ptr %7
   %.sroa.0.0 = select i1 %3, ptr %5, ptr null
   %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %.sroa.3.0, 1
@@ -8103,10 +8099,9 @@ define hidden void @"_ZN73_$LT$thrift..protocol..TFieldIdentifier$u20$as$u20$cor
   %9 = load i8, ptr %8, align 4, !range !641, !noundef !9
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8, !range !666, !noundef !9
-  %trunc = trunc nuw i16 %11 to i1
   %12 = getelementptr inbounds i8, ptr %1, i64 26
   %13 = load i16, ptr %12, align 2
-  %.sroa.54.0 = select i1 %trunc, i16 %13, i16 undef
+  %.sroa.54.0 = freeze i16 %13
   store ptr %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)

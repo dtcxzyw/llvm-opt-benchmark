@@ -133,7 +133,7 @@ define dso_local ptr @shmem_pin_map(ptr nocapture noundef readonly %0) local_unn
 
 13:                                               ; preds = %9
   %14 = icmp ult i64 %6, 4096
-  br i1 %14, label %.loopexit7, label %15
+  br i1 %14, label %.loopexit8, label %15
 
 15:                                               ; preds = %13
   %16 = tail call i64 @llvm.umax.i64(i64 %7, i64 1)
@@ -146,35 +146,35 @@ define dso_local ptr @shmem_pin_map(ptr nocapture noundef readonly %0) local_unn
   %21 = getelementptr ptr, ptr %11, i64 %18
   store ptr %20, ptr %21, align 8
   %22 = icmp ugt ptr %20, inttoptr (i64 -4096 to ptr)
-  br i1 %22, label %.loopexit6, label %23
+  br i1 %22, label %.loopexit7, label %23
 
 23:                                               ; preds = %17
   %24 = add nuw nsw i64 %18, 1
   %25 = icmp eq i64 %24, %16
-  br i1 %25, label %.loopexit7, label %17, !llvm.loop !8
+  br i1 %25, label %.loopexit8, label %17, !llvm.loop !8
 
-.loopexit7:                                       ; preds = %23, %13
+.loopexit8:                                       ; preds = %23, %13
   %26 = phi i64 [ 0, %13 ], [ %16, %23 ]
   %27 = trunc i64 %7 to i32
   %28 = load i64, ptr @__default_kernel_pte_mask, align 8
   %29 = and i64 %28, -9223372036854775453
   %30 = tail call ptr @vmap(ptr noundef nonnull %11, i32 noundef %27, i64 noundef 512, i64 %29) #6
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.loopexit6, label %32
+  br i1 %31, label %.loopexit7, label %32
 
-32:                                               ; preds = %.loopexit7
+32:                                               ; preds = %.loopexit8
   %33 = load ptr, ptr %2, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 112
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 8, ptr elementtype(i8) %34) #6, !srcloc !11
   br label %.thread
 
-.loopexit6:                                       ; preds = %17, %.loopexit7
-  %35 = phi i64 [ %26, %.loopexit7 ], [ %18, %17 ]
+.loopexit7:                                       ; preds = %17, %.loopexit8
+  %35 = phi i64 [ %26, %.loopexit8 ], [ %18, %17 ]
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit6, %72
-  %37 = phi i64 [ %38, %72 ], [ %35, %.loopexit6 ]
+.preheader:                                       ; preds = %.loopexit7, %72
+  %37 = phi i64 [ %38, %72 ], [ %35, %.loopexit7 ]
   %38 = add nsw i64 %37, -1
   %39 = getelementptr ptr, ptr %11, i64 %38
   %40 = load ptr, ptr %39, align 8
@@ -208,9 +208,10 @@ define dso_local ptr @shmem_pin_map(ptr nocapture noundef readonly %0) local_unn
 57:                                               ; preds = %53
   %58 = getelementptr i8, ptr %40, i64 72
   %59 = load volatile i64, ptr %58, align 8
-  %60 = and i64 %59, 1
+  %.fr6 = freeze i64 %59
+  %60 = and i64 %.fr6, 1
   %61 = icmp eq i64 %60, 0
-  %62 = add nsw i64 %59, -1
+  %62 = add i64 %.fr6, -1
   %63 = inttoptr i64 %62 to ptr
   br i1 %61, label %64, label %65
 
@@ -234,7 +235,7 @@ define dso_local ptr @shmem_pin_map(ptr nocapture noundef readonly %0) local_unn
   %73 = icmp eq i64 %38, 0
   br i1 %73, label %.loopexit, label %.preheader, !llvm.loop !15
 
-.loopexit:                                        ; preds = %72, %.loopexit6
+.loopexit:                                        ; preds = %72, %.loopexit7
   tail call void @kvfree(ptr noundef nonnull %11) #6
   br label %.thread
 
@@ -356,9 +357,10 @@ define dso_local i32 @shmem_read_to_iosys_map(ptr nocapture noundef readonly %0,
 61:                                               ; preds = %57
   %62 = getelementptr i8, ptr %23, i64 72
   %63 = load volatile i64, ptr %62, align 8
-  %64 = and i64 %63, 1
+  %.fr3 = freeze i64 %63
+  %64 = and i64 %.fr3, 1
   %65 = icmp eq i64 %64, 0
-  %66 = add nsw i64 %63, -1
+  %66 = add i64 %.fr3, -1
   %67 = inttoptr i64 %66 to ptr
   br i1 %65, label %68, label %69
 
@@ -479,9 +481,10 @@ define internal fastcc i32 @__shmem_rw(ptr nocapture noundef readonly %0, i64 no
 57:                                               ; preds = %53
   %58 = getelementptr i8, ptr %24, i64 72
   %59 = load volatile i64, ptr %58, align 8
-  %60 = and i64 %59, 1
+  %.fr3 = freeze i64 %59
+  %60 = and i64 %.fr3, 1
   %61 = icmp eq i64 %60, 0
-  %62 = add nsw i64 %59, -1
+  %62 = add i64 %.fr3, -1
   %63 = inttoptr i64 %62 to ptr
   br i1 %61, label %64, label %65
 

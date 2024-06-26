@@ -200,9 +200,10 @@ define dso_local noundef zeroext i1 @generic_pipe_buf_try_steal(ptr nocapture re
 20:                                               ; preds = %16
   %21 = getelementptr i8, ptr %3, i64 72
   %22 = load volatile i64, ptr %21, align 8
-  %23 = and i64 %22, 1
+  %.fr1 = freeze i64 %22
+  %23 = and i64 %.fr1, 1
   %24 = icmp eq i64 %23, 0
-  %25 = add nsw i64 %22, -1
+  %25 = add i64 %.fr1, -1
   %26 = inttoptr i64 %25 to ptr
   br i1 %24, label %27, label %28
 
@@ -247,9 +248,10 @@ define dso_local noundef zeroext i1 @generic_pipe_buf_try_steal(ptr nocapture re
 50:                                               ; preds = %46
   %51 = getelementptr i8, ptr %3, i64 72
   %52 = load volatile i64, ptr %51, align 8
-  %53 = and i64 %52, 1
+  %.fr2 = freeze i64 %52
+  %53 = and i64 %.fr2, 1
   %54 = icmp eq i64 %53, 0
-  %55 = add nsw i64 %52, -1
+  %55 = add i64 %.fr2, -1
   %56 = inttoptr i64 %55 to ptr
   br i1 %54, label %57, label %58
 
@@ -311,9 +313,10 @@ define dso_local noundef zeroext i1 @generic_pipe_buf_get(ptr nocapture readnone
 20:                                               ; preds = %16
   %21 = getelementptr i8, ptr %3, i64 72
   %22 = load volatile i64, ptr %21, align 8
-  %23 = and i64 %22, 1
+  %.fr1 = freeze i64 %22
+  %23 = and i64 %.fr1, 1
   %24 = icmp eq i64 %23, 0
-  %25 = add nsw i64 %22, -1
+  %25 = add i64 %.fr1, -1
   %26 = inttoptr i64 %25 to ptr
   br i1 %24, label %27, label %28
 
@@ -374,9 +377,10 @@ define dso_local void @generic_pipe_buf_release(ptr nocapture readnone %0, ptr n
 20:                                               ; preds = %16
   %21 = getelementptr i8, ptr %3, i64 72
   %22 = load volatile i64, ptr %21, align 8
-  %23 = and i64 %22, 1
+  %.fr1 = freeze i64 %22
+  %23 = and i64 %.fr1, 1
   %24 = icmp eq i64 %23, 0
-  %25 = add nsw i64 %22, -1
+  %25 = add i64 %.fr1, -1
   %26 = inttoptr i64 %25 to ptr
   br i1 %24, label %27, label %28
 
@@ -2833,9 +2837,10 @@ define internal void @anon_pipe_buf_release(ptr nocapture noundef %0, ptr nocapt
 20:                                               ; preds = %16
   %21 = getelementptr i8, ptr %3, i64 72
   %22 = load volatile i64, ptr %21, align 8
-  %23 = and i64 %22, 1
+  %.fr1 = freeze i64 %22
+  %23 = and i64 %.fr1, 1
   %24 = icmp eq i64 %23, 0
-  %25 = add nsw i64 %22, -1
+  %25 = add i64 %.fr1, -1
   %26 = inttoptr i64 %25 to ptr
   br i1 %24, label %27, label %28
 
@@ -2889,9 +2894,10 @@ define internal void @anon_pipe_buf_release(ptr nocapture noundef %0, ptr nocapt
 54:                                               ; preds = %50
   %55 = getelementptr i8, ptr %3, i64 72
   %56 = load volatile i64, ptr %55, align 8
-  %57 = and i64 %56, 1
+  %.fr2 = freeze i64 %56
+  %57 = and i64 %.fr2, 1
   %58 = icmp eq i64 %57, 0
-  %59 = add nsw i64 %56, -1
+  %59 = add i64 %.fr2, -1
   %60 = inttoptr i64 %59 to ptr
   br i1 %58, label %61, label %62
 
@@ -2948,9 +2954,10 @@ define internal noundef zeroext i1 @anon_pipe_buf_try_steal(ptr nocapture readno
 20:                                               ; preds = %16
   %21 = getelementptr i8, ptr %3, i64 72
   %22 = load volatile i64, ptr %21, align 8
-  %23 = and i64 %22, 1
+  %.fr1 = freeze i64 %22
+  %23 = and i64 %.fr1, 1
   %24 = icmp eq i64 %23, 0
-  %25 = add nsw i64 %22, -1
+  %25 = add i64 %.fr1, -1
   %26 = inttoptr i64 %25 to ptr
   br i1 %24, label %27, label %28
 
@@ -2994,9 +3001,10 @@ define internal noundef zeroext i1 @anon_pipe_buf_try_steal(ptr nocapture readno
 49:                                               ; preds = %45
   %50 = getelementptr i8, ptr %3, i64 72
   %51 = load volatile i64, ptr %50, align 8
-  %52 = and i64 %51, 1
+  %.fr2 = freeze i64 %51
+  %52 = and i64 %.fr2, 1
   %53 = icmp eq i64 %52, 0
-  %54 = add nsw i64 %51, -1
+  %54 = add i64 %.fr2, -1
   %55 = inttoptr i64 %54 to ptr
   br i1 %53, label %56, label %57
 

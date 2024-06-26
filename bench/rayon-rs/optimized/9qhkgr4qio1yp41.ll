@@ -24,10 +24,9 @@ define hidden { i64, i64 } @"_ZN46_$LT$i8$u20$as$u20$core..iter..range..Step$GT$
   %5 = sext i8 %4 to i64
   %6 = sext i8 %3 to i64
   %7 = sub nsw i64 %5, %6
-  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
   %.sroa.0.0 = zext i1 %.not to i64
   %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  %9 = insertvalue { i64, i64 } %8, i64 %7, 1
   ret { i64, i64 } %9
 }
 
@@ -52,10 +51,9 @@ define hidden { i64, i64 } @"_ZN47_$LT$i16$u20$as$u20$core..iter..range..Step$GT
   %5 = sext i16 %4 to i64
   %6 = sext i16 %3 to i64
   %7 = sub nsw i64 %5, %6
-  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
   %.sroa.0.0 = zext i1 %.not to i64
   %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  %9 = insertvalue { i64, i64 } %8, i64 %7, 1
   ret { i64, i64 } %9
 }
 
@@ -67,10 +65,9 @@ define hidden { i64, i64 } @"_ZN47_$LT$i32$u20$as$u20$core..iter..range..Step$GT
   %5 = sext i32 %4 to i64
   %6 = sext i32 %3 to i64
   %7 = sub nsw i64 %5, %6
-  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
   %.sroa.0.0 = zext i1 %.not to i64
   %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  %9 = insertvalue { i64, i64 } %8, i64 %7, 1
   ret { i64, i64 } %9
 }
 
@@ -1075,11 +1072,10 @@ define { i64, i64 } @"_ZN5rayon5range70_$LT$impl$u20$rayon..range..private..Rang
   %4 = load i128, ptr %3, align 8, !alias.scope !167, !noundef !4
   %.0.i = tail call noundef i128 @llvm.usub.sat.i128(i128 %4, i128 %2)
   %5 = icmp ult i128 %.0.i, 18446744073709551616
-  %6 = trunc nuw i128 %.0.i to i64
-  %.sroa.5.0 = select i1 %5, i64 %6, i64 undef
+  %6 = trunc i128 %.0.i to i64
   %spec.select = zext i1 %5 to i64
   %7 = insertvalue { i64, i64 } poison, i64 %spec.select, 0
-  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.5.0, 1
+  %8 = insertvalue { i64, i64 } %7, i64 %6, 1
   ret { i64, i64 } %8
 }
 
@@ -1121,11 +1117,10 @@ define { i64, i64 } @"_ZN5rayon5range70_$LT$impl$u20$rayon..range..private..Rang
   %6 = sub i128 %4, %2
   %.0.i = select i1 %5, i128 %6, i128 0
   %7 = icmp ult i128 %.0.i, 18446744073709551616
-  %8 = trunc nuw i128 %.0.i to i64
-  %.sroa.5.0 = select i1 %7, i64 %8, i64 undef
+  %8 = trunc i128 %.0.i to i64
   %spec.select = zext i1 %7 to i64
   %9 = insertvalue { i64, i64 } poison, i64 %spec.select, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.5.0, 1
+  %10 = insertvalue { i64, i64 } %9, i64 %8, 1
   ret { i64, i64 } %10
 }
 

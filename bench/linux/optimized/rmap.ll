@@ -1853,9 +1853,10 @@ define dso_local i64 @page_address_in_vma(ptr noundef %0, ptr nocapture noundef 
 19:                                               ; preds = %15
   %20 = getelementptr i8, ptr %0, i64 72
   %21 = load volatile i64, ptr %20, align 8
-  %22 = and i64 %21, 1
+  %.fr7 = freeze i64 %21
+  %22 = and i64 %.fr7, 1
   %23 = icmp eq i64 %22, 0
-  %24 = add nsw i64 %21, -1
+  %24 = add i64 %.fr7, -1
   %25 = inttoptr i64 %24 to ptr
   br i1 %23, label %26, label %27
 
@@ -3415,7 +3416,7 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
 
 46:                                               ; preds = %44
   %47 = add i64 %2, 4096
-  br label %._crit_edge48
+  br label %._crit_edge50
 
 48:                                               ; preds = %44
   %49 = add i64 %31, %28
@@ -3428,13 +3429,13 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %56 = icmp ult i64 %55, %50
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  br i1 %56, label %._crit_edge48, label %57
+  br i1 %56, label %._crit_edge50, label %57
 
 57:                                               ; preds = %48
   %spec.select = tail call i64 @llvm.umin.i64(i64 %55, i64 %.pre)
-  br label %._crit_edge48
+  br label %._crit_edge50
 
-._crit_edge48:                                    ; preds = %57, %48, %46
+._crit_edge50:                                    ; preds = %57, %48, %46
   %58 = phi i64 [ %47, %46 ], [ %.pre, %48 ], [ %spec.select, %57 ]
   %59 = getelementptr inbounds i8, ptr %11, i64 16
   %60 = getelementptr inbounds i8, ptr %11, i64 28
@@ -3450,7 +3451,7 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %72, label %66
 
-66:                                               ; preds = %._crit_edge48
+66:                                               ; preds = %._crit_edge50
   %67 = getelementptr i8, ptr %0, i64 64
   %68 = load volatile i64, ptr %67, align 8
   %69 = and i64 %68, 256
@@ -3461,7 +3462,7 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   call void @adjust_range_if_pmd_sharing_possible(ptr noundef %1, ptr noundef %61, ptr noundef %59) #17
   br label %72
 
-72:                                               ; preds = %71, %66, %._crit_edge48
+72:                                               ; preds = %71, %66, %._crit_edge50
   %73 = call i32 @__SCT__might_resched() #17
   %74 = load ptr, ptr %11, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 1160
@@ -3646,10 +3647,10 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %197 = call i32 @huge_pmd_unshare(ptr noundef %13, ptr noundef %1, i64 noundef %160, ptr noundef %182) #17
   %198 = icmp eq i32 %197, 0
   call void @hugetlb_vma_unlock_write(ptr noundef %1) #17
-  br i1 %198, label %._crit_edge49, label %199
+  br i1 %198, label %._crit_edge51, label %199
 
-._crit_edge49:                                    ; preds = %196
-  %.pre50 = load ptr, ptr %35, align 8
+._crit_edge51:                                    ; preds = %196
+  %.pre52 = load ptr, ptr %35, align 8
   br label %234
 
 199:                                              ; preds = %196
@@ -3704,8 +3705,8 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   call void @_raw_spin_unlock(ptr noundef nonnull %231) #17
   br label %.thread
 
-234:                                              ; preds = %._crit_edge49, %178
-  %235 = phi ptr [ %.pre50, %._crit_edge49 ], [ %145, %178 ]
+234:                                              ; preds = %._crit_edge51, %178
+  %235 = phi ptr [ %.pre52, %._crit_edge51 ], [ %145, %178 ]
   %236 = call i64 @ptep_clear_flush(ptr noundef %1, i64 noundef %160, ptr noundef %235) #17
   br label %308
 
@@ -3722,14 +3723,14 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %241 = phi i64 [ 0, %238 ], [ %255, %249 ]
   %242 = and i64 %241, 4294967295
   %243 = icmp ugt i64 %242, 63
-  br i1 %243, label %.thread20, label %244, !prof !10
+  br i1 %243, label %.thread22, label %244, !prof !10
 
 244:                                              ; preds = %240
   %245 = load i64, ptr %93, align 8
   %246 = shl nsw i64 -1, %242
   %247 = and i64 %245, %246
   %248 = icmp eq i64 %247, 0
-  br i1 %248, label %.thread20, label %249
+  br i1 %248, label %.thread22, label %249
 
 249:                                              ; preds = %244
   %250 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %247) #18, !srcloc !74
@@ -3738,9 +3739,9 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %253 = icmp eq i32 %239, %251
   %254 = and i1 %252, %253
   %255 = add i64 %250, 1
-  br i1 %254, label %240, label %.thread20, !llvm.loop !75
+  br i1 %254, label %240, label %.thread22, !llvm.loop !75
 
-.thread20:                                        ; preds = %244, %240, %249
+.thread22:                                        ; preds = %244, %240, %249
   %256 = phi i32 [ %251, %249 ], [ 64, %240 ], [ 64, %244 ]
   %257 = load i32, ptr @nr_cpu_ids, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !76
@@ -3750,19 +3751,19 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %260 = icmp eq i8 %258, 0
   br i1 %260, label %264, label %261, !prof !9
 
-261:                                              ; preds = %.thread20
+261:                                              ; preds = %.thread22
   %262 = call i64 @llvm.read_register.i64(metadata !0)
   %263 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %262) #17, !srcloc !78
   call void @llvm.write_register.i64(metadata !0, i64 %263)
   br label %264
 
-264:                                              ; preds = %261, %.thread20
+264:                                              ; preds = %261, %.thread22
   %265 = icmp ugt i32 %257, %256
-  %.pre51 = load ptr, ptr %35, align 8
+  %.pre53 = load ptr, ptr %35, align 8
   br i1 %265, label %266, label %305
 
 266:                                              ; preds = %264
-  %267 = call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %.pre51, i64 0, ptr elementtype(i64) %.pre51) #17, !srcloc !79
+  %267 = call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %.pre53, i64 0, ptr elementtype(i64) %.pre53) #17, !srcloc !79
   %268 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !35
   %269 = inttoptr i64 %268 to ptr
   %270 = and i64 %267, 288230376151711808
@@ -3803,7 +3804,7 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %291 = load volatile i32, ptr %97, align 4
   %292 = and i32 %291, 16384
   %293 = icmp eq i32 %292, 0
-  br i1 %293, label %._crit_edge36, label %.lr.ph
+  br i1 %293, label %._crit_edge38, label %.lr.ph
 
 .lr.ph:                                           ; preds = %289, %299
   %294 = phi i32 [ %300, %299 ], [ %291, %289 ]
@@ -3812,33 +3813,33 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %297 = icmp ult i8 %296, 2
   call void @llvm.assume(i1 %297)
   %298 = icmp eq i8 %296, 0
-  br i1 %298, label %299, label %.thread21, !prof !10
+  br i1 %298, label %299, label %.thread23, !prof !10
 
 299:                                              ; preds = %.lr.ph
   %300 = extractvalue { i8, i32 } %295, 1
   %301 = and i32 %300, 16384
   %302 = icmp eq i32 %301, 0
-  br i1 %302, label %._crit_edge36, label %.lr.ph
+  br i1 %302, label %._crit_edge38, label %.lr.ph
 
-._crit_edge36:                                    ; preds = %299, %289
+._crit_edge38:                                    ; preds = %299, %289
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %97, ptr elementtype(i32) %97) #17, !srcloc !28
-  br label %.thread21
+  br label %.thread23
 
-.thread21:                                        ; preds = %.lr.ph, %._crit_edge36
+.thread23:                                        ; preds = %.lr.ph, %._crit_edge38
   br i1 %271, label %308, label %303
 
-303:                                              ; preds = %.thread21
+303:                                              ; preds = %.thread23
   %304 = getelementptr inbounds i8, ptr %269, i64 2513
   store i8 1, ptr %304, align 1
   br label %308
 
 305:                                              ; preds = %264, %237
-  %306 = phi ptr [ %.pre51, %264 ], [ %145, %237 ]
+  %306 = phi ptr [ %.pre53, %264 ], [ %145, %237 ]
   %307 = call i64 @ptep_clear_flush(ptr noundef %1, i64 noundef %160, ptr noundef %306) #17
   br label %308
 
-308:                                              ; preds = %234, %305, %303, %.thread21, %277, %274
-  %309 = phi i64 [ %236, %234 ], [ %307, %305 ], [ %267, %274 ], [ %267, %277 ], [ %267, %.thread21 ], [ %267, %303 ]
+308:                                              ; preds = %234, %305, %303, %.thread23, %277, %274
+  %309 = phi i64 [ %236, %234 ], [ %307, %305 ], [ %267, %274 ], [ %267, %277 ], [ %267, %.thread23 ], [ %267, %303 ]
   %310 = and i64 %309, 288230376151711808
   %311 = icmp eq i64 %310, 0
   br i1 %311, label %314, label %312
@@ -3901,9 +3902,10 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
 347:                                              ; preds = %343
   %348 = getelementptr i8, ptr %159, i64 72
   %349 = load volatile i64, ptr %348, align 8
-  %350 = and i64 %349, 1
+  %.fr17 = freeze i64 %349
+  %350 = and i64 %.fr17, 1
   %351 = icmp eq i64 %350, 0
-  %352 = add nsw i64 %349, -1
+  %352 = add i64 %.fr17, -1
   %353 = inttoptr i64 %352 to ptr
   br i1 %351, label %354, label %355
 
@@ -4192,9 +4194,10 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
 
 499:                                              ; preds = %495
   %500 = load volatile i64, ptr %113, align 8
-  %501 = and i64 %500, 1
+  %.fr18 = freeze i64 %500
+  %501 = and i64 %.fr18, 1
   %502 = icmp eq i64 %501, 0
-  %503 = add nsw i64 %500, -1
+  %503 = add i64 %.fr18, -1
   %504 = inttoptr i64 %503 to ptr
   br i1 %502, label %505, label %506
 
@@ -4236,7 +4239,7 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %527 = icmp ult i8 %526, 2
   call void @llvm.assume(i1 %527)
   %.not = icmp eq i8 %526, 0
-  br i1 %.not, label %.critedge18, label %528
+  br i1 %.not, label %.critedge20, label %528
 
 528:                                              ; preds = %524
   %529 = load volatile i64, ptr %0, align 8
@@ -4248,14 +4251,14 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %533 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %116, i32 -1, ptr elementtype(i32) %116) #17, !srcloc !51
   %534 = add i32 %533, -1
   %535 = icmp slt i32 %534, 8388608
-  br i1 %535, label %..critedge_crit_edge, label %.critedge18
+  br i1 %535, label %..critedge_crit_edge, label %.critedge20
 
 ..critedge_crit_edge:                             ; preds = %532
-  %.pre52 = load i64, ptr %0, align 16
+  %.pre54 = load i64, ptr %0, align 16
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %528
-  %536 = phi i64 [ %.pre52, %..critedge_crit_edge ], [ %529, %528 ]
+  %536 = phi i64 [ %.pre54, %..critedge_crit_edge ], [ %529, %528 ]
   %537 = load ptr, ptr %88, align 8
   %538 = ptrtoint ptr %537 to i64
   %539 = and i64 %538, 1
@@ -4266,19 +4269,19 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %544 = load ptr, ptr %543, align 8
   call void @__mod_node_page_state(ptr noundef %544, i32 noundef %541, i64 noundef -1) #17
   %545 = load volatile i64, ptr %0, align 8
-  br label %.critedge18
+  br label %.critedge20
 
-.critedge18:                                      ; preds = %524, %.critedge, %532
+.critedge20:                                      ; preds = %524, %.critedge, %532
   %546 = load i64, ptr %87, align 8
   %547 = and i64 %546, 8192
   %548 = icmp eq i64 %547, 0
   br i1 %548, label %550, label %549, !prof !9
 
-549:                                              ; preds = %.critedge18
+549:                                              ; preds = %.critedge20
   call void @munlock_folio(ptr noundef %0) #17
   br label %550
 
-550:                                              ; preds = %549, %.critedge18, %523
+550:                                              ; preds = %549, %.critedge20, %523
   %551 = load i64, ptr %87, align 8
   %552 = and i64 %551, 8192
   %553 = icmp eq i64 %552, 0

@@ -345,10 +345,11 @@ define noundef zeroext i1 @_ZN8clap_lex9ParsedArg18is_negative_number17he6231e86
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8, !noalias !41
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !41
-  %.sroa.6.0 = select i1 %trunc.i, i64 undef, i64 %10
+  %.sroa.6.0.i = freeze i64 %10
+  %.sroa.6.0.sink.i = select i1 %trunc.i, i64 %5, i64 %.sroa.6.0.i
   %.sroa.0.0 = select i1 %trunc.i, ptr null, ptr %8
-  %.not.i.i.i = icmp eq i64 %.sroa.6.0, 0
-  %or.cond = select i1 %trunc.i, i1 true, i1 %.not.i.i.i
+  %.not.i.i.i = icmp eq i64 %.sroa.6.0.sink.i, 0
+  %or.cond = or i1 %.not.i.i.i, %trunc.i
   br i1 %or.cond, label %"_ZN8clap_lex9ParsedArg18is_negative_number28_$u7b$$u7b$closure$u7d$$u7d$17h413729e608f85e83E.exit", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd16f7bb69e6397e5E.exit.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd16f7bb69e6397e5E.exit.i.i": ; preds = %1
@@ -358,8 +359,8 @@ define noundef zeroext i1 @_ZN8clap_lex9ParsedArg18is_negative_number17he6231e86
   br i1 %11, label %12, label %"_ZN8clap_lex9ParsedArg18is_negative_number28_$u7b$$u7b$closure$u7d$$u7d$17h413729e608f85e83E.exit"
 
 12:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd16f7bb69e6397e5E.exit.i.i"
-  %13 = getelementptr i8, ptr %.sroa.0.0, i64 %.sroa.6.0
-  %14 = icmp eq i64 %.sroa.6.0, 1
+  %13 = getelementptr i8, ptr %.sroa.0.0, i64 %.sroa.6.0.sink.i
+  %14 = icmp eq i64 %.sroa.6.0.sink.i, 1
   br i1 %14, label %._crit_edge.i.i, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %12
@@ -373,7 +374,7 @@ define noundef zeroext i1 @_ZN8clap_lex9ParsedArg18is_negative_number17he6231e86
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %12
   %.sroa.8.0.lcssa.i.i = phi i64 [ undef, %12 ], [ %.sroa.8.1.i.i, %._crit_edge.loopexit.i.i ]
   %.sroa.0.0.lcssa.i.i = phi i1 [ true, %12 ], [ %16, %._crit_edge.loopexit.i.i ]
-  %17 = add i64 %.sroa.6.0, -2
+  %17 = add i64 %.sroa.6.0.sink.i, -2
   %18 = icmp ne i64 %.sroa.8.0.lcssa.i.i, %17
   %.0.i.i = select i1 %.sroa.0.0.lcssa.i.i, i1 true, i1 %18
   br label %"_ZN8clap_lex9ParsedArg18is_negative_number28_$u7b$$u7b$closure$u7d$$u7d$17h413729e608f85e83E.exit"
@@ -492,8 +493,9 @@ define void @_ZN8clap_lex9ParsedArg7to_long17hdc1aac1c7ed190f0E(ptr noalias noca
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !align !31
   %28 = getelementptr inbounds i8, ptr %3, i64 16
   %29 = load i64, ptr %28, align 8
+  %.sroa.6.0 = freeze i64 %29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %.sroa.59.0 = select i1 %trunc, i64 %.sroa.513.0, i64 %29
+  %.sroa.59.0 = select i1 %trunc, i64 %.sroa.513.0, i64 %.sroa.6.0
   %.sroa.3.0 = select i1 %trunc, ptr %.fca.0.extract, ptr %27
   store i64 %25, ptr %0, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -693,12 +695,13 @@ define void @_ZN8clap_lex9ParsedArg8to_value17h5a17c2ac1d44678eE(ptr noalias noc
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %.sink2 = select i1 %trunc, ptr %4, ptr %9
-  %.sink = select i1 %trunc, i64 %6, i64 %11
+  %.sroa.6.0 = freeze i64 %11
+  %.sink = select i1 %trunc, ptr %4, ptr %9
+  %.sroa.6.0.sink = select i1 %trunc, i64 %6, i64 %.sroa.6.0
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink2, ptr %12, align 8
+  store ptr %.sink, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink, ptr %13, align 8
+  store i64 %.sroa.6.0.sink, ptr %13, align 8
   store i64 %7, ptr %0, align 8
   ret void
 }

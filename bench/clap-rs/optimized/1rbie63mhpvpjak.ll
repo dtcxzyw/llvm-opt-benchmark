@@ -5408,7 +5408,7 @@ define void @"_ZN106_$LT$clap_builder..error..format..RichFormatter$u20$as$u20$c
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %749, %_ZN12clap_builder5error6format21write_dynamic_context17h87a10de77816625dE.exit, %764, %775, %787, %805, %812, %830, %.loopexit, %889, %2, %161, %.noexc, %164, %166, %168, %170, %.noexc55, %173, %.noexc57, %176, %.noexc59, %.noexc60, %180, %.noexc62, %.noexc63, %184, %.noexc65, %187, %189, %204, %220, %248, %.noexc71, %253, %274, %295, %319, %353, %369, %409, %465, %515, %517, %.critedge.i, %.noexc83, %543, %.noexc85, %578, %596, %602, %610, %611, %629, %660, %690, %.noexc98, %.noexc99, %728, %743, %763, %774, %786, %799, %811, %824, %842, %899, %912
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %749, %_ZN12clap_builder5error6format21write_dynamic_context17h87a10de77816625dE.exit, %764, %775, %787, %805, %812, %830, %.loopexit, %889, %2, %161, %.noexc, %164, %166, %168, %170, %.noexc55, %173, %.noexc57, %176, %.noexc59, %.noexc60, %180, %.noexc62, %.noexc63, %184, %.noexc65, %187, %189, %204, %220, %248, %.noexc71, %253, %274, %295, %319, %352, %369, %409, %465, %515, %517, %.critedge.i, %.noexc83, %543, %.noexc85, %578, %596, %602, %610, %611, %629, %660, %690, %.noexc98, %.noexc99, %728, %743, %763, %774, %786, %799, %811, %824, %842, %899, %912
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -6039,16 +6039,19 @@ default.unreachable:                              ; preds = %565, %158
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %48), !noalias !934
   %350 = getelementptr inbounds i8, ptr %141, i64 80
   %351 = load ptr, ptr %350, align 8, !alias.scope !973, !noalias !931, !noundef !4
-  %352 = icmp eq ptr %351, null
-  br i1 %352, label %362, label %353
+  %.not389.i = icmp eq ptr %351, null
+  br i1 %.not389.i, label %362, label %352
 
-353:                                              ; preds = %.noexc76
-  %354 = getelementptr inbounds i8, ptr %141, i64 88
-  %..val2.i.i = load ptr, ptr %354, align 8, !alias.scope !973, !noalias !931, !nonnull !4, !align !224
+352:                                              ; preds = %.noexc76
+  %353 = getelementptr inbounds i8, ptr %141, i64 88
+  %..val2.i.i = load ptr, ptr %353, align 8, !alias.scope !973, !noalias !931, !nonnull !4, !align !224
+  %.sroa.3.0.i.i = freeze ptr %..val2.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43), !noalias !934
+  %354 = icmp ne ptr %.sroa.3.0.i.i, null
+  call void @llvm.assume(i1 %354)
   store ptr %351, ptr %43, align 8, !noalias !934
   %355 = getelementptr inbounds i8, ptr %43, i64 8
-  store ptr %..val2.i.i, ptr %355, align 8, !noalias !934
+  store ptr %.sroa.3.0.i.i, ptr %355, align 8, !noalias !934
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %42), !noalias !934
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41), !noalias !934
   store ptr %43, ptr %41, align 8, !noalias !934
@@ -6066,7 +6069,7 @@ default.unreachable:                              ; preds = %565, %158
   %361 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %140, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.85f68effae4436bb4f25a144403dc49c.47, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %42)
           to label %.noexc77 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc77:                                         ; preds = %353
+.noexc77:                                         ; preds = %352
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %42), !noalias !934
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41), !noalias !934
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43), !noalias !934

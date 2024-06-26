@@ -1917,11 +1917,12 @@ if.end:                                           ; preds = %land.rhs, %land.lhs
   %4 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incoming_metadata, i64 32
   %5 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %retval.sroa.0.0.i = freeze i32 %5
   %6 = and i16 %4, 8
-  %.not.not = icmp eq i16 %6, 0
-  %7 = zext i32 %5 to i64
+  %tobool.i.i11.not = icmp eq i16 %6, 0
+  %7 = zext i32 %retval.sroa.0.0.i to i64
   %retval.sroa.0.sroa.2.0.insert.ext = shl i64 %max_recv_message_length.sroa.0.0, 32
-  %retval.sroa.0.sroa.0.0.insert.ext = select i1 %.not.not, i64 0, i64 %7
+  %retval.sroa.0.sroa.0.0.insert.ext = select i1 %tobool.i.i11.not, i64 0, i64 %7
   %retval.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.0.sroa.0.0.insert.ext, %retval.sroa.0.sroa.2.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.sroa.0.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %max_recv_message_length.sroa.4.0, 1
@@ -2110,11 +2111,12 @@ _ZN9grpc_core18ChannelCompression22HandleIncomingMetadataERK19grpc_metadata_batc
   %4 = load i16, ptr %arrayidx.i.i.i.i.i.i, align 2
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %md, i64 32
   %5 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %retval.sroa.0.0.i.i = freeze i32 %5
   %6 = and i16 %4, 8
-  %.not.not.i = icmp eq i16 %6, 0
-  %7 = zext i32 %5 to i64
+  %tobool.i.i11.not.i = icmp eq i16 %6, 0
+  %7 = zext i32 %retval.sroa.0.0.i.i to i64
   %retval.sroa.0.sroa.2.0.insert.ext.i = shl i64 %max_recv_message_length.sroa.0.0.i, 32
-  %retval.sroa.0.sroa.0.0.insert.ext.i = select i1 %.not.not.i, i64 0, i64 %7
+  %retval.sroa.0.sroa.0.0.insert.ext.i = select i1 %tobool.i.i11.not.i, i64 0, i64 %7
   %retval.sroa.0.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.0.sroa.0.0.insert.ext.i, %retval.sroa.0.sroa.2.0.insert.ext.i
   %decompress_args_ = getelementptr inbounds i8, ptr %this, i64 4
   store i64 %retval.sroa.0.sroa.0.0.insert.insert.i, ptr %decompress_args_, align 4
@@ -2225,11 +2227,12 @@ _ZN9grpc_core18ChannelCompression22HandleIncomingMetadataERK19grpc_metadata_batc
   %4 = load i16, ptr %arrayidx.i.i.i.i.i.i, align 2
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %md, i64 32
   %5 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %retval.sroa.0.0.i.i = freeze i32 %5
   %6 = and i16 %4, 8
-  %.not.not.i = icmp eq i16 %6, 0
-  %7 = zext i32 %5 to i64
+  %tobool.i.i11.not.i = icmp eq i16 %6, 0
+  %7 = zext i32 %retval.sroa.0.0.i.i to i64
   %retval.sroa.0.sroa.2.0.insert.ext.i = shl i64 %max_recv_message_length.sroa.0.0.i, 32
-  %retval.sroa.0.sroa.0.0.insert.ext.i = select i1 %.not.not.i, i64 0, i64 %7
+  %retval.sroa.0.sroa.0.0.insert.ext.i = select i1 %tobool.i.i11.not.i, i64 0, i64 %7
   %retval.sroa.0.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.0.sroa.0.0.insert.ext.i, %retval.sroa.0.sroa.2.0.insert.ext.i
   store i64 %retval.sroa.0.sroa.0.0.insert.insert.i, ptr %this, align 4
   %ref.tmp.sroa.2.0.decompress_args_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
@@ -4441,11 +4444,12 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
   %9 = load i16, ptr %arrayidx.i.i.i.i.i.i.i.i, align 2, !noalias !64
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.cast, i64 32
   %10 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !64
+  %retval.sroa.0.0.i.i.i.i = freeze i32 %10
   %11 = and i16 %9, 8
-  %.not.not.i.i.i = icmp eq i16 %11, 0
-  %12 = zext i32 %10 to i64
+  %tobool.i.i11.not.i.i.i = icmp eq i16 %11, 0
+  %12 = zext i32 %retval.sroa.0.0.i.i.i.i to i64
   %retval.sroa.0.sroa.2.0.insert.ext.i.i.i = shl i64 %max_recv_message_length.sroa.0.0.i.i.i, 32
-  %retval.sroa.0.sroa.0.0.insert.ext.i.i.i = select i1 %.not.not.i.i.i, i64 0, i64 %12
+  %retval.sroa.0.sroa.0.0.insert.ext.i.i.i = select i1 %tobool.i.i11.not.i.i.i, i64 0, i64 %12
   %retval.sroa.0.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %retval.sroa.0.sroa.0.0.insert.ext.i.i.i, %retval.sroa.0.sroa.2.0.insert.ext.i.i.i
   %decompress_args_.i.i = getelementptr inbounds i8, ptr %3, i64 4
   store i64 %retval.sroa.0.sroa.0.0.insert.insert.i.i.i, ptr %decompress_args_.i.i, align 4, !noalias !64
@@ -6738,11 +6742,12 @@ _ZN9grpc_core23ServerCompressionFilter4Call23OnClientInitialMetadataER19grpc_met
   %6 = load i16, ptr %arrayidx.i.i.i.i.i.i.i, align 2
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
+  %retval.sroa.0.0.i.i.i = freeze i32 %7
   %8 = and i16 %6, 8
-  %.not.not.i.i = icmp eq i16 %8, 0
-  %9 = zext i32 %7 to i64
+  %tobool.i.i11.not.i.i = icmp eq i16 %8, 0
+  %9 = zext i32 %retval.sroa.0.0.i.i.i to i64
   %retval.sroa.0.sroa.2.0.insert.ext.i.i = shl i64 %max_recv_message_length.sroa.0.0.i.i, 32
-  %retval.sroa.0.sroa.0.0.insert.ext.i.i = select i1 %.not.not.i.i, i64 0, i64 %9
+  %retval.sroa.0.sroa.0.0.insert.ext.i.i = select i1 %tobool.i.i11.not.i.i, i64 0, i64 %9
   %retval.sroa.0.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.sroa.0.sroa.0.0.insert.ext.i.i, %retval.sroa.0.sroa.2.0.insert.ext.i.i
   store i64 %retval.sroa.0.sroa.0.0.insert.insert.i.i, ptr %call_data, align 4
   %ref.tmp.sroa.2.0.decompress_args_.sroa_idx.i = getelementptr inbounds i8, ptr %call_data, i64 8
@@ -8170,11 +8175,12 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
   %10 = load i16, ptr %arrayidx.i.i.i.i.i.i.i.i, align 2, !noalias !268
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.cast, i64 32
   %11 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !268
+  %retval.sroa.0.0.i.i.i.i = freeze i32 %11
   %12 = and i16 %10, 8
-  %.not.not.i.i.i = icmp eq i16 %12, 0
-  %13 = zext i32 %11 to i64
+  %tobool.i.i11.not.i.i.i = icmp eq i16 %12, 0
+  %13 = zext i32 %retval.sroa.0.0.i.i.i.i to i64
   %retval.sroa.0.sroa.2.0.insert.ext.i.i.i = shl i64 %max_recv_message_length.sroa.0.0.i.i.i, 32
-  %retval.sroa.0.sroa.0.0.insert.ext.i.i.i = select i1 %.not.not.i.i.i, i64 0, i64 %13
+  %retval.sroa.0.sroa.0.0.insert.ext.i.i.i = select i1 %tobool.i.i11.not.i.i.i, i64 0, i64 %13
   %retval.sroa.0.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %retval.sroa.0.sroa.0.0.insert.ext.i.i.i, %retval.sroa.0.sroa.2.0.insert.ext.i.i.i
   %decompress_args_.i.i = getelementptr inbounds i8, ptr %3, i64 4
   store i64 %retval.sroa.0.sroa.0.0.insert.insert.i.i.i, ptr %decompress_args_.i.i, align 4, !noalias !268
@@ -9741,11 +9747,12 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
   %10 = load i16, ptr %arrayidx.i.i.i.i.i.i.i.i, align 2, !noalias !326
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.cast, i64 32
   %11 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !326
+  %retval.sroa.0.0.i.i.i.i = freeze i32 %11
   %12 = and i16 %10, 8
-  %.not.not.i.i.i = icmp eq i16 %12, 0
-  %13 = zext i32 %11 to i64
+  %tobool.i.i11.not.i.i.i = icmp eq i16 %12, 0
+  %13 = zext i32 %retval.sroa.0.0.i.i.i.i to i64
   %retval.sroa.0.sroa.2.0.insert.ext.i.i.i = shl i64 %max_recv_message_length.sroa.0.0.i.i.i, 32
-  %retval.sroa.0.sroa.0.0.insert.ext.i.i.i = select i1 %.not.not.i.i.i, i64 0, i64 %13
+  %retval.sroa.0.sroa.0.0.insert.ext.i.i.i = select i1 %tobool.i.i11.not.i.i.i, i64 0, i64 %13
   %retval.sroa.0.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %retval.sroa.0.sroa.0.0.insert.ext.i.i.i, %retval.sroa.0.sroa.2.0.insert.ext.i.i.i
   store i64 %retval.sroa.0.sroa.0.0.insert.insert.i.i.i, ptr %3, align 4, !noalias !326
   %ref.tmp.sroa.2.0.decompress_args_.sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8

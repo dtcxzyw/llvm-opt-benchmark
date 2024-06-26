@@ -401,8 +401,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 31:                                               ; preds = %"_ZN89_$LT$ockam_identity..models..change_history..ChangeData$u20$as$u20$core..clone..Clone$GT$5clone17hf674a3f0a23338a1E.exit.i", %30
   %.sroa.01.0.i = phi i8 [ 1, %30 ], [ 0, %"_ZN89_$LT$ockam_identity..models..change_history..ChangeData$u20$as$u20$core..clone..Clone$GT$5clone17hf674a3f0a23338a1E.exit.i" ]
-  %trunc.i.i = trunc nuw i8 %16 to i1
-  %.sroa.5.sroa.0.0.i.i = select i1 %trunc.i.i, <32 x i8> %18, <32 x i8> undef
+  %.sroa.5.sroa.0.0.i.i = freeze <32 x i8> %18
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %.sroa.07.sroa.8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %.sroa.07.sroa.8, ptr noundef nonnull align 1 dereferenceable(33) %.sroa.52.sroa.5.i.i, i64 33, i1 false)
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %.sroa.07.sroa.15)
@@ -858,8 +857,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
 
 33:                                               ; preds = %32, %"_ZN89_$LT$ockam_identity..models..change_history..ChangeData$u20$as$u20$core..clone..Clone$GT$5clone17hf674a3f0a23338a1E.exit.i.i"
   %.sroa.01.0.i.i = phi i8 [ 1, %32 ], [ 0, %"_ZN89_$LT$ockam_identity..models..change_history..ChangeData$u20$as$u20$core..clone..Clone$GT$5clone17hf674a3f0a23338a1E.exit.i.i" ]
-  %trunc.i.i.i = trunc nuw i8 %18 to i1
-  %.sroa.5.sroa.0.0.i.i.i = select i1 %trunc.i.i.i, <32 x i8> %20, <32 x i8> undef
+  %.sroa.5.sroa.0.0.i.i.i = freeze <32 x i8> %20
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %.sroa.07.sroa.8.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %.sroa.07.sroa.8.i, ptr noundef nonnull align 1 dereferenceable(33) %.sroa.52.sroa.5.i.i.i, i64 33, i1 false), !noalias !87
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %.sroa.07.sroa.15.i)

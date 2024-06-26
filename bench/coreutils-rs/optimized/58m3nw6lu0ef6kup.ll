@@ -266,9 +266,10 @@ common.resume:                                    ; preds = %.thread96, %154, %8
   unreachable
 
 72:                                               ; preds = %6
+  %.sroa.6.0 = freeze i64 %57
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51)
-  call void @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$i64$GT$8from_str17h4c73c187d2c0e8f5E"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %51, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %57)
+  call void @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$i64$GT$8from_str17h4c73c187d2c0e8f5E"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %51, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %.sroa.6.0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %73 = load i8, ptr %51, align 8, !range !54, !alias.scope !51, !noalias !55, !noundef !42
   %trunc.i = trunc nuw i8 %73 to i1
@@ -1465,9 +1466,10 @@ common.resume:                                    ; preds = %.thread96, %154, %8
   unreachable
 
 72:                                               ; preds = %6
+  %.sroa.6.0 = freeze i64 %57
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51)
-  call void @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u64$GT$8from_str17h7509471f3f4642f9E"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %51, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %57)
+  call void @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u64$GT$8from_str17h7509471f3f4642f9E"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %51, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %.sroa.6.0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
   %73 = load i8, ptr %51, align 8, !range !54, !alias.scope !267, !noalias !270, !noundef !42
   %trunc.i = trunc nuw i8 %73 to i1
@@ -4282,6 +4284,7 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
   %18 = load ptr, ptr %17, align 8, !nonnull !42, !align !43
   %19 = getelementptr inbounds i8, ptr %14, i64 16
   %20 = load i64, ptr %19, align 8
+  %.sroa.6.0 = freeze i64 %20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br i1 %trunc, label %21, label %35
 
@@ -4337,7 +4340,7 @@ common.resume:                                    ; preds = %50, %.thread38.i.i,
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   %36 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %36)
-  call void %.0.val(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %15, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20)
+  call void %.0.val(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %15, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %.sroa.6.0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !758)
   %37 = load i8, ptr %15, align 8, !range !54, !alias.scope !758, !noalias !761, !noundef !42
   %trunc.i = trunc nuw i8 %37 to i1
@@ -4426,7 +4429,7 @@ common.resume:                                    ; preds = %50, %.thread38.i.i,
   %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx7.sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 16
   store i64 %.sroa.3.sroa.3.0.i.i, ptr %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx7.sroa_idx.i.i, align 8, !noalias !772
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !772
-  %63 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h20342716a71d72a6E"(i64 noundef %20, i1 noundef zeroext false)
+  %63 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h20342716a71d72a6E"(i64 noundef %.sroa.6.0, i1 noundef zeroext false)
           to label %65 unwind label %.thread28.i.i, !noalias !772
 
 .thread28.i.i:                                    ; preds = %62
@@ -4439,12 +4442,12 @@ common.resume:                                    ; preds = %50, %.thread38.i.i,
   %67 = extractvalue { i64, ptr } %63, 1
   %68 = icmp ne ptr %67, null
   call void @llvm.assume(i1 %68)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull align 1 %18, i64 %20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull align 1 %18, i64 %.sroa.6.0, i1 false)
   store i64 %66, ptr %9, align 8, !noalias !772
   %.sroa.416.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %67, ptr %.sroa.416.0..sroa_idx.i.i, align 8, !noalias !772
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 16
-  store i64 %20, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !772
+  store i64 %.sroa.6.0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !772
   %69 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.4582006294696591057(ptr noalias noundef nonnull readonly align 1 @anon.e4aa567d217119c105a2d7cbe9e9ac40.3.llvm.4582006294696591057, i64 noundef 1, i64 noundef 1, i1 noundef zeroext false)
           to label %.noexc.i.i unwind label %73, !noalias !772
 

@@ -52,6 +52,7 @@ define hidden noundef i64 @_ZN12sharded_slab3tid12Registration8register17h01062c
   %trunc = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !6
+  %.sroa.01.0 = freeze ptr %7
   %8 = getelementptr inbounds i8, ptr %2, i64 16
   %9 = load i8, ptr %8, align 8, !range !7
   %10 = trunc nuw i8 %9 to i1
@@ -80,32 +81,32 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.i.
   br i1 %17, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.thread.i.i.i.i, label %20
 
 _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.thread.i.i.i.i: ; preds = %20, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.i.i.i.i, %13, %12
-  %18 = atomicrmw xchg ptr %7, i32 0 release, align 4, !noalias !8
+  %18 = atomicrmw xchg ptr %.sroa.01.0, i32 0 release, align 4, !noalias !8
   %19 = icmp eq i32 %18, 2
   br i1 %19, label %"_ZN4core3ptr109drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$17hfb11d6be91f3c6a8E.llvm.1214941078669613289.exit.sink.split.i", label %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit"
 
 20:                                               ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.i.i.i.i
-  %21 = getelementptr inbounds i8, ptr %7, i64 4
+  %21 = getelementptr inbounds i8, ptr %.sroa.01.0, i64 4
   tail call void @_ZN4core4sync6atomic12atomic_store17h1194e9737459f33dE.llvm.1799741712541865863(ptr noundef nonnull %21, i8 noundef 1, i8 noundef 0), !noalias !8
   br label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.thread.i.i.i.i
 
 "_ZN4core3ptr109drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$17hfb11d6be91f3c6a8E.llvm.1214941078669613289.exit.sink.split.i": ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.thread.i.i.i.i
-  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4wake17h05e1bfcdf63536d8E(ptr noundef nonnull align 4 %7), !noalias !17
+  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4wake17h05e1bfcdf63536d8E(ptr noundef nonnull align 4 %.sroa.01.0), !noalias !17
   br label %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit"
 
 22:                                               ; preds = %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit.thread", %"_ZN4core3ptr266drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$$GT$$GT$17h2edce10172fdfc33E.llvm.1214941078669613289.exit"
-  %23 = getelementptr inbounds i8, ptr %7, i64 32
+  %23 = getelementptr inbounds i8, ptr %.sroa.01.0, i64 32
   %24 = load i64, ptr %23, align 8, !noundef !5
   %25 = icmp ult i64 %24, 2
   br i1 %25, label %38, label %26
 
 26:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %27 = getelementptr inbounds i8, ptr %7, i64 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 24
+  %27 = getelementptr inbounds i8, ptr %.sroa.01.0, i64 8
+  %28 = getelementptr inbounds i8, ptr %.sroa.01.0, i64 24
   %29 = load i64, ptr %28, align 8, !alias.scope !18, !noundef !5
   %30 = add i64 %29, 1
-  %31 = getelementptr inbounds i8, ptr %7, i64 16
+  %31 = getelementptr inbounds i8, ptr %.sroa.01.0, i64 16
   %32 = load i64, ptr %31, align 8, !alias.scope !18, !noundef !5
   %.not.i.i = icmp ult i64 %30, %32
   %33 = select i1 %.not.i.i, i64 0, i64 %32
@@ -133,17 +134,17 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.i.
   br i1 %43, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12, label %46
 
 _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12: ; preds = %46, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.i.i.i11, %39, %38
-  %44 = atomicrmw xchg ptr %7, i32 0 release, align 4, !noalias !21
+  %44 = atomicrmw xchg ptr %.sroa.01.0, i32 0 release, align 4, !noalias !21
   %45 = icmp eq i32 %44, 2
   br i1 %45, label %48, label %49
 
 46:                                               ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.i.i.i11
-  %47 = getelementptr inbounds i8, ptr %7, i64 4
-  store atomic i8 1, ptr %47 monotonic, align 4, !noalias !21
+  %47 = getelementptr inbounds i8, ptr %.sroa.01.0, i64 4
+  store atomic i8 1, ptr %47 monotonic, align 1, !noalias !21
   br label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12
 
 48:                                               ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12
-  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4wake17h05e1bfcdf63536d8E(ptr noundef nonnull align 4 %7), !noalias !21
+  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4wake17h05e1bfcdf63536d8E(ptr noundef nonnull align 4 %.sroa.01.0), !noalias !21
   br label %49
 
 49:                                               ; preds = %48, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1214941078669613289.exit.thread.i.i.i12
