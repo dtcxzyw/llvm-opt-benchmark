@@ -120,8 +120,8 @@ invoke.cont4:                                     ; preds = %if.else.i23, %if.th
   %y.i31 = getelementptr inbounds i8, ptr %5, i64 20
   %7 = load i32, ptr %y.i31, align 4
   %conv.i32 = zext i32 %7 to i64
-  %mul.i33 = mul nuw nsw i64 %conv.i32, 87
-  %8 = getelementptr float, ptr %6, i64 %mul.i33
+  %.idx = mul nuw nsw i64 %conv.i32, 348
+  %8 = getelementptr i8, ptr %6, i64 %.idx
   %arrayidx.i34 = getelementptr i8, ptr %8, i64 444
   store float 0x4005AE1480000000, ptr %arrayidx.i34, align 4
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer) #16

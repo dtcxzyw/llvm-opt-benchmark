@@ -1323,8 +1323,8 @@ for.body26:                                       ; preds = %if.then21, %for.inc
 
 if.then31:                                        ; preds = %for.body26
   %conv29 = zext i16 %7 to i64
-  %shl = shl nuw nsw i64 %conv29, 2
-  %add.ptr33 = getelementptr inbounds i16, ptr %add.ptr3, i64 %shl
+  %add.ptr33.idx = shl nuw nsw i64 %conv29, 3
+  %add.ptr33 = getelementptr inbounds i8, ptr %add.ptr3, i64 %add.ptr33.idx
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.then31

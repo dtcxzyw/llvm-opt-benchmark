@@ -8673,8 +8673,8 @@ for.body93.us.us:                                 ; preds = %if.then.us.us, %for
   %indvars.iv112 = phi i64 [ 0, %if.then.us.us ], [ %indvars.iv.next113, %for.body93.us.us ]
   %arrayidx95.us.us = getelementptr inbounds [4 x float], ptr %r, i64 0, i64 %indvars.iv112
   %23 = load float, ptr %arrayidx95.us.us, align 4
-  %24 = shl nsw i64 %indvars.iv112, 4
-  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %24
+  %.idx = shl nsw i64 %indvars.iv112, 6
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.idx
   store float %23, ptr %gep, align 4
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count117
@@ -8701,35 +8701,35 @@ for.body.us:                                      ; preds = %invoke.cont.split.u
 
 if.then.us:                                       ; preds = %for.body.us
   %arrayidx.us = getelementptr inbounds [16 x float], ptr %options, i64 0, i64 %indvars.iv109
-  %25 = load float, ptr %arrayidx.us, align 4
-  store float %25, ptr %sblur.i, align 8
+  %24 = load float, ptr %arrayidx.us, align 4
+  store float %24, ptr %sblur.i, align 8
   %arrayidx17.us = getelementptr inbounds [16 x float], ptr %tblur, i64 0, i64 %indvars.iv109
-  %26 = load float, ptr %arrayidx17.us, align 4
-  store float %26, ptr %tblur.i, align 4
+  %25 = load float, ptr %arrayidx17.us, align 4
+  store float %25, ptr %tblur.i, align 4
   %arrayidx20.us = getelementptr inbounds [16 x float], ptr %swidth, i64 0, i64 %indvars.iv109
-  %27 = load float, ptr %arrayidx20.us, align 4
-  store float %27, ptr %swidth.i, align 8
+  %26 = load float, ptr %arrayidx20.us, align 4
+  store float %26, ptr %swidth.i, align 8
   %arrayidx23.us = getelementptr inbounds [16 x float], ptr %twidth, i64 0, i64 %indvars.iv109
-  %28 = load float, ptr %arrayidx23.us, align 4
-  store float %28, ptr %twidth.i, align 4
+  %27 = load float, ptr %arrayidx23.us, align 4
+  store float %27, ptr %twidth.i, align 4
   %arrayidx26.us = getelementptr inbounds [16 x float], ptr %rnd, i64 0, i64 %indvars.iv109
-  %29 = load float, ptr %arrayidx26.us, align 4
-  store float %29, ptr %0, align 4
+  %28 = load float, ptr %arrayidx26.us, align 4
+  store float %28, ptr %0, align 4
   %arrayidx70.us = getelementptr inbounds float, ptr %s, i64 %indvars.iv109
-  %30 = load float, ptr %arrayidx70.us, align 4
+  %29 = load float, ptr %arrayidx70.us, align 4
   %arrayidx72.us = getelementptr inbounds float, ptr %t, i64 %indvars.iv109
-  %31 = load float, ptr %arrayidx72.us, align 4
+  %30 = load float, ptr %arrayidx72.us, align 4
   %arrayidx74.us = getelementptr inbounds float, ptr %dsdx, i64 %indvars.iv109
-  %32 = load float, ptr %arrayidx74.us, align 4
+  %31 = load float, ptr %arrayidx74.us, align 4
   %arrayidx76.us = getelementptr inbounds float, ptr %dtdx, i64 %indvars.iv109
-  %33 = load float, ptr %arrayidx76.us, align 4
+  %32 = load float, ptr %arrayidx76.us, align 4
   %arrayidx78.us = getelementptr inbounds float, ptr %dsdy, i64 %indvars.iv109
-  %34 = load float, ptr %arrayidx78.us, align 4
+  %33 = load float, ptr %arrayidx78.us, align 4
   %arrayidx80.us = getelementptr inbounds float, ptr %dtdy, i64 %indvars.iv109
-  %35 = load float, ptr %arrayidx80.us, align 4
-  %call83.us = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl7textureEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_10TextureOptEffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %opt, float noundef %30, float noundef %31, float noundef %32, float noundef %33, float noundef %34, float noundef %35, i32 noundef %nchannels, ptr noundef nonnull %r, ptr noundef null, ptr noundef null)
-  %36 = and i8 %ok.072.us, 1
-  %tobool8865.us = icmp ne i8 %36, 0
+  %34 = load float, ptr %arrayidx80.us, align 4
+  %call83.us = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl7textureEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_10TextureOptEffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %opt, float noundef %29, float noundef %30, float noundef %31, float noundef %32, float noundef %33, float noundef %34, i32 noundef %nchannels, ptr noundef nonnull %r, ptr noundef null, ptr noundef null)
+  %35 = and i8 %ok.072.us, 1
+  %tobool8865.us = icmp ne i8 %35, 0
   %tobool88.us = select i1 %call83.us, i1 %tobool8865.us, i1 false
   %frombool89.us = zext i1 %tobool88.us to i8
   br label %for.inc104.us
@@ -8758,54 +8758,54 @@ for.body.us76:                                    ; preds = %for.body.us76.prehe
 
 if.then.us82:                                     ; preds = %for.body.us76
   %arrayidx.us84 = getelementptr inbounds [16 x float], ptr %options, i64 0, i64 %indvars.iv106
-  %37 = load float, ptr %arrayidx.us84, align 4
-  store float %37, ptr %sblur.i, align 8
+  %36 = load float, ptr %arrayidx.us84, align 4
+  store float %36, ptr %sblur.i, align 8
   %arrayidx17.us85 = getelementptr inbounds [16 x float], ptr %tblur, i64 0, i64 %indvars.iv106
-  %38 = load float, ptr %arrayidx17.us85, align 4
-  store float %38, ptr %tblur.i, align 4
+  %37 = load float, ptr %arrayidx17.us85, align 4
+  store float %37, ptr %tblur.i, align 4
   %arrayidx20.us86 = getelementptr inbounds [16 x float], ptr %swidth, i64 0, i64 %indvars.iv106
-  %39 = load float, ptr %arrayidx20.us86, align 4
-  store float %39, ptr %swidth.i, align 8
+  %38 = load float, ptr %arrayidx20.us86, align 4
+  store float %38, ptr %swidth.i, align 8
   %arrayidx23.us87 = getelementptr inbounds [16 x float], ptr %twidth, i64 0, i64 %indvars.iv106
-  %40 = load float, ptr %arrayidx23.us87, align 4
-  store float %40, ptr %twidth.i, align 4
+  %39 = load float, ptr %arrayidx23.us87, align 4
+  store float %39, ptr %twidth.i, align 4
   %arrayidx26.us88 = getelementptr inbounds [16 x float], ptr %rnd, i64 0, i64 %indvars.iv106
-  %41 = load float, ptr %arrayidx26.us88, align 4
-  store float %41, ptr %0, align 4
+  %40 = load float, ptr %arrayidx26.us88, align 4
+  store float %40, ptr %0, align 4
   %arrayidx30.us = getelementptr inbounds float, ptr %s, i64 %indvars.iv106
-  %42 = load float, ptr %arrayidx30.us, align 4
+  %41 = load float, ptr %arrayidx30.us, align 4
   %arrayidx32.us = getelementptr inbounds float, ptr %t, i64 %indvars.iv106
-  %43 = load float, ptr %arrayidx32.us, align 4
+  %42 = load float, ptr %arrayidx32.us, align 4
   %arrayidx34.us = getelementptr inbounds float, ptr %dsdx, i64 %indvars.iv106
-  %44 = load float, ptr %arrayidx34.us, align 4
+  %43 = load float, ptr %arrayidx34.us, align 4
   %arrayidx36.us = getelementptr inbounds float, ptr %dtdx, i64 %indvars.iv106
-  %45 = load float, ptr %arrayidx36.us, align 4
+  %44 = load float, ptr %arrayidx36.us, align 4
   %arrayidx38.us = getelementptr inbounds float, ptr %dsdy, i64 %indvars.iv106
-  %46 = load float, ptr %arrayidx38.us, align 4
+  %45 = load float, ptr %arrayidx38.us, align 4
   %arrayidx40.us = getelementptr inbounds float, ptr %dtdy, i64 %indvars.iv106
-  %47 = load float, ptr %arrayidx40.us, align 4
-  %call44.us = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl7textureEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_10TextureOptEffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %opt, float noundef %42, float noundef %43, float noundef %44, float noundef %45, float noundef %46, float noundef %47, i32 noundef %nchannels, ptr noundef nonnull %r, ptr noundef nonnull %drds, ptr noundef nonnull %drdt)
-  %48 = and i8 %ok.072.us79, 1
-  %tobool4866.us = icmp ne i8 %48, 0
+  %46 = load float, ptr %arrayidx40.us, align 4
+  %call44.us = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl7textureEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_10TextureOptEffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %opt, float noundef %41, float noundef %42, float noundef %43, float noundef %44, float noundef %45, float noundef %46, i32 noundef %nchannels, ptr noundef nonnull %r, ptr noundef nonnull %drds, ptr noundef nonnull %drdt)
+  %47 = and i8 %ok.072.us79, 1
+  %tobool4866.us = icmp ne i8 %47, 0
   %tobool48.us = select i1 %call44.us, i1 %tobool4866.us, i1 false
   br label %for.body52.us
 
 for.body52.us:                                    ; preds = %if.then.us82, %for.body52.us
   %indvars.iv100 = phi i64 [ 0, %if.then.us82 ], [ %indvars.iv.next101, %for.body52.us ]
   %arrayidx54.us = getelementptr inbounds [4 x float], ptr %r, i64 0, i64 %indvars.iv100
-  %49 = load float, ptr %arrayidx54.us, align 4
-  %50 = shl nsw i64 %indvars.iv100, 4
-  %51 = add nuw nsw i64 %50, %indvars.iv106
-  %arrayidx56.us = getelementptr inbounds float, ptr %result, i64 %51
-  store float %49, ptr %arrayidx56.us, align 4
+  %48 = load float, ptr %arrayidx54.us, align 4
+  %49 = shl nsw i64 %indvars.iv100, 4
+  %50 = add nuw nsw i64 %49, %indvars.iv106
+  %arrayidx56.us = getelementptr inbounds float, ptr %result, i64 %50
+  store float %48, ptr %arrayidx56.us, align 4
   %arrayidx58.us = getelementptr inbounds [4 x float], ptr %drds, i64 0, i64 %indvars.iv100
-  %52 = load float, ptr %arrayidx58.us, align 4
-  %arrayidx62.us = getelementptr inbounds float, ptr %dresultds, i64 %51
-  store float %52, ptr %arrayidx62.us, align 4
+  %51 = load float, ptr %arrayidx58.us, align 4
+  %arrayidx62.us = getelementptr inbounds float, ptr %dresultds, i64 %50
+  store float %51, ptr %arrayidx62.us, align 4
   %arrayidx64.us = getelementptr inbounds [4 x float], ptr %drdt, i64 0, i64 %indvars.iv100
-  %53 = load float, ptr %arrayidx64.us, align 4
-  %arrayidx68.us = getelementptr inbounds float, ptr %dresultdt, i64 %51
-  store float %53, ptr %arrayidx68.us, align 4
+  %52 = load float, ptr %arrayidx64.us, align 4
+  %arrayidx68.us = getelementptr inbounds float, ptr %dresultdt, i64 %50
+  store float %52, ptr %arrayidx68.us, align 4
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count
   br i1 %exitcond105.not, label %for.inc104.us89.loopexit, label %for.body52.us, !llvm.loop !110
@@ -8831,35 +8831,35 @@ for.body:                                         ; preds = %invoke.cont.split, 
 
 if.then:                                          ; preds = %for.body
   %arrayidx = getelementptr inbounds [16 x float], ptr %options, i64 0, i64 %indvars.iv
-  %54 = load float, ptr %arrayidx, align 4
-  store float %54, ptr %sblur.i, align 8
+  %53 = load float, ptr %arrayidx, align 4
+  store float %53, ptr %sblur.i, align 8
   %arrayidx17 = getelementptr inbounds [16 x float], ptr %tblur, i64 0, i64 %indvars.iv
-  %55 = load float, ptr %arrayidx17, align 4
-  store float %55, ptr %tblur.i, align 4
+  %54 = load float, ptr %arrayidx17, align 4
+  store float %54, ptr %tblur.i, align 4
   %arrayidx20 = getelementptr inbounds [16 x float], ptr %swidth, i64 0, i64 %indvars.iv
-  %56 = load float, ptr %arrayidx20, align 4
-  store float %56, ptr %swidth.i, align 8
+  %55 = load float, ptr %arrayidx20, align 4
+  store float %55, ptr %swidth.i, align 8
   %arrayidx23 = getelementptr inbounds [16 x float], ptr %twidth, i64 0, i64 %indvars.iv
-  %57 = load float, ptr %arrayidx23, align 4
-  store float %57, ptr %twidth.i, align 4
+  %56 = load float, ptr %arrayidx23, align 4
+  store float %56, ptr %twidth.i, align 4
   %arrayidx26 = getelementptr inbounds [16 x float], ptr %rnd, i64 0, i64 %indvars.iv
-  %58 = load float, ptr %arrayidx26, align 4
-  store float %58, ptr %0, align 4
+  %57 = load float, ptr %arrayidx26, align 4
+  store float %57, ptr %0, align 4
   %arrayidx30 = getelementptr inbounds float, ptr %s, i64 %indvars.iv
-  %59 = load float, ptr %arrayidx30, align 4
+  %58 = load float, ptr %arrayidx30, align 4
   %arrayidx32 = getelementptr inbounds float, ptr %t, i64 %indvars.iv
-  %60 = load float, ptr %arrayidx32, align 4
+  %59 = load float, ptr %arrayidx32, align 4
   %arrayidx34 = getelementptr inbounds float, ptr %dsdx, i64 %indvars.iv
-  %61 = load float, ptr %arrayidx34, align 4
+  %60 = load float, ptr %arrayidx34, align 4
   %arrayidx36 = getelementptr inbounds float, ptr %dtdx, i64 %indvars.iv
-  %62 = load float, ptr %arrayidx36, align 4
+  %61 = load float, ptr %arrayidx36, align 4
   %arrayidx38 = getelementptr inbounds float, ptr %dsdy, i64 %indvars.iv
-  %63 = load float, ptr %arrayidx38, align 4
+  %62 = load float, ptr %arrayidx38, align 4
   %arrayidx40 = getelementptr inbounds float, ptr %dtdy, i64 %indvars.iv
-  %64 = load float, ptr %arrayidx40, align 4
-  %call44 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl7textureEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_10TextureOptEffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %opt, float noundef %59, float noundef %60, float noundef %61, float noundef %62, float noundef %63, float noundef %64, i32 noundef %nchannels, ptr noundef nonnull %r, ptr noundef nonnull %drds, ptr noundef nonnull %drdt)
-  %65 = and i8 %ok.072, 1
-  %tobool4866 = icmp ne i8 %65, 0
+  %63 = load float, ptr %arrayidx40, align 4
+  %call44 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl7textureEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_10TextureOptEffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %opt, float noundef %58, float noundef %59, float noundef %60, float noundef %61, float noundef %62, float noundef %63, i32 noundef %nchannels, ptr noundef nonnull %r, ptr noundef nonnull %drds, ptr noundef nonnull %drdt)
+  %64 = and i8 %ok.072, 1
+  %tobool4866 = icmp ne i8 %64, 0
   %tobool48 = select i1 %call44, i1 %tobool4866, i1 false
   %frombool49 = zext i1 %tobool48 to i8
   br label %for.inc104

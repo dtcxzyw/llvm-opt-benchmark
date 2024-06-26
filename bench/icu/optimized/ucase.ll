@@ -175,8 +175,8 @@ if.then64:                                        ; preds = %do.body
   br label %do.end
 
 if.else73:                                        ; preds = %do.body
-  %mul = shl nuw nsw i64 %idx.ext70, 1
-  %add.ptr80 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
+  %add.ptr80.idx = shl nuw nsw i64 %idx.ext70, 2
+  %add.ptr80 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr80.idx
   %incdec.ptr81 = getelementptr inbounds i8, ptr %add.ptr80, i64 2
   %10 = load i16, ptr %add.ptr80, align 2
   %conv82 = zext i16 %10 to i32
@@ -329,8 +329,8 @@ if.then64:                                        ; preds = %do.body
   br label %do.end
 
 if.else73:                                        ; preds = %do.body
-  %mul = shl nuw nsw i64 %idx.ext70, 1
-  %add.ptr80 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
+  %add.ptr80.idx = shl nuw nsw i64 %idx.ext70, 2
+  %add.ptr80 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr80.idx
   %incdec.ptr81 = getelementptr inbounds i8, ptr %add.ptr80, i64 2
   %10 = load i16, ptr %add.ptr80, align 2
   %conv82 = zext i16 %10 to i32
@@ -371,8 +371,8 @@ if.then103:                                       ; preds = %do.body99
   br label %return
 
 if.else112:                                       ; preds = %do.body99
-  %mul118 = shl nuw nsw i64 %idx.ext109, 1
-  %add.ptr120 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul118
+  %add.ptr120.idx = shl nuw nsw i64 %idx.ext109, 2
+  %add.ptr120 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr120.idx
   %incdec.ptr121 = getelementptr inbounds i8, ptr %add.ptr120, i64 2
   %15 = load i16, ptr %add.ptr120, align 2
   %conv122 = zext i16 %15 to i32
@@ -491,8 +491,8 @@ if.then64:                                        ; preds = %do.body
   br label %do.end
 
 if.else73:                                        ; preds = %do.body
-  %mul = shl nuw nsw i64 %idx.ext70, 1
-  %add.ptr80 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
+  %add.ptr80.idx = shl nuw nsw i64 %idx.ext70, 2
+  %add.ptr80 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr80.idx
   %incdec.ptr81 = getelementptr inbounds i8, ptr %add.ptr80, i64 2
   %10 = load i16, ptr %add.ptr80, align 2
   %conv82 = zext i16 %10 to i32
@@ -541,8 +541,8 @@ if.then111:                                       ; preds = %do.body107
   br label %return
 
 if.else122:                                       ; preds = %do.body107
-  %mul130 = shl nuw nsw i64 %idx.ext119, 1
-  %add.ptr132 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul130
+  %add.ptr132.idx = shl nuw nsw i64 %idx.ext119, 2
+  %add.ptr132 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr132.idx
   %incdec.ptr133 = getelementptr inbounds i8, ptr %add.ptr132, i64 2
   %15 = load i16, ptr %add.ptr132, align 2
   %conv134 = zext i16 %15 to i32
@@ -727,8 +727,8 @@ if.then88:                                        ; preds = %for.body
   %arrayidx108 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom107
   %20 = load i8, ptr %arrayidx108, align 1
   %conv109 = zext i8 %20 to i64
-  %mul = shl nuw nsw i64 %conv109, 1
-  %add.ptr111 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
+  %add.ptr111.idx = shl nuw nsw i64 %conv109, 2
+  %add.ptr111 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr111.idx
   %incdec.ptr112 = getelementptr inbounds i8, ptr %add.ptr111, i64 2
   %21 = load i16, ptr %add.ptr111, align 2
   %conv113 = zext i16 %21 to i32
@@ -766,8 +766,8 @@ if.then129:                                       ; preds = %if.then123
   br label %do.end153
 
 if.else138:                                       ; preds = %if.then123
-  %mul144 = shl nuw nsw i64 %idx.ext135, 1
-  %add.ptr146 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul144
+  %add.ptr146.idx = shl nuw nsw i64 %idx.ext135, 2
+  %add.ptr146 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr146.idx
   %incdec.ptr147 = getelementptr inbounds i8, ptr %add.ptr146, i64 2
   %27 = load i16, ptr %add.ptr146, align 2
   %conv148 = zext i16 %27 to i32
@@ -801,8 +801,8 @@ if.then169:                                       ; preds = %if.end165
   %32 = load i8, ptr %arrayidx178, align 1
   %idx.ext180 = zext i8 %32 to i64
   %add.ptr181 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idx.ext180
-  %mul189 = shl nuw nsw i64 %idx.ext180, 1
-  %add.ptr191 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul189
+  %add.ptr191.idx = shl nuw nsw i64 %idx.ext180, 2
+  %add.ptr191 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr191.idx
   %incdec.ptr192 = getelementptr inbounds i8, ptr %add.ptr191, i64 2
   %pe.0 = select i1 %cmp91, ptr %add.ptr181, ptr %incdec.ptr192
   %closureLength.0.in = load i16, ptr %pe.0, align 2
@@ -825,8 +825,8 @@ if.then206:                                       ; preds = %if.end202
   %34 = load i8, ptr %arrayidx215, align 1
   %idx.ext217 = zext i8 %34 to i64
   %add.ptr218 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idx.ext217
-  %mul226 = shl nuw nsw i64 %idx.ext217, 1
-  %add.ptr228 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul226
+  %add.ptr228.idx = shl nuw nsw i64 %idx.ext217, 2
+  %add.ptr228 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr228.idx
   %incdec.ptr229 = getelementptr inbounds i8, ptr %add.ptr228, i64 2
   %pe.1 = select i1 %cmp91, ptr %add.ptr218, ptr %incdec.ptr229
   %fullLength.0.in = load i16, ptr %pe.1, align 2
@@ -1063,8 +1063,8 @@ if.then87:                                        ; preds = %for.body
   %arrayidx107 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom106
   %18 = load i8, ptr %arrayidx107, align 1
   %conv108 = zext i8 %18 to i64
-  %mul = shl nuw nsw i64 %conv108, 1
-  %add.ptr110 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
+  %add.ptr110.idx = shl nuw nsw i64 %conv108, 2
+  %add.ptr110 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr110.idx
   %incdec.ptr111 = getelementptr inbounds i8, ptr %add.ptr110, i64 2
   %19 = load i16, ptr %add.ptr110, align 2
   %conv112 = zext i16 %19 to i32
@@ -1102,8 +1102,8 @@ if.then128:                                       ; preds = %if.then122
   br label %do.end152
 
 if.else137:                                       ; preds = %if.then122
-  %mul143 = shl nuw nsw i64 %idx.ext134, 1
-  %add.ptr145 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul143
+  %add.ptr145.idx = shl nuw nsw i64 %idx.ext134, 2
+  %add.ptr145 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr145.idx
   %incdec.ptr146 = getelementptr inbounds i8, ptr %add.ptr145, i64 2
   %25 = load i16, ptr %add.ptr145, align 2
   %conv147 = zext i16 %25 to i32
@@ -1150,8 +1150,8 @@ if.end202:                                        ; preds = %if.then169
   br i1 %or.cond105, label %if.end253, label %if.then212
 
 if.end202.thread:                                 ; preds = %if.then169
-  %mul189 = shl nuw nsw i64 %idx.ext180, 1
-  %add.ptr191 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul189
+  %add.ptr191.idx = shl nuw nsw i64 %idx.ext180, 2
+  %add.ptr191 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr191.idx
   %incdec.ptr192 = getelementptr inbounds i8, ptr %add.ptr191, i64 2
   %closureLength.0.in119 = load i16, ptr %incdec.ptr192, align 2
   %32 = and i16 %closureLength.0.in119, 15
@@ -1177,8 +1177,8 @@ if.else221:                                       ; preds = %if.end202.thread
   %arrayidx225 = getelementptr inbounds [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %idxprom224
   %34 = load i8, ptr %arrayidx225, align 1
   %conv226 = zext i8 %34 to i64
-  %mul227 = shl nuw nsw i64 %conv226, 1
-  %add.ptr229 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul227
+  %add.ptr229.idx = shl nuw nsw i64 %conv226, 2
+  %add.ptr229 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr229.idx
   %incdec.ptr230 = getelementptr inbounds i8, ptr %add.ptr229, i64 2
   br label %if.end253.thread129
 
@@ -2642,8 +2642,8 @@ do.body:                                          ; preds = %if.else117
   %31 = load i8, ptr %arrayidx129, align 1
   %idx.ext131 = zext i8 %31 to i64
   %add.ptr132 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idx.ext131
-  %mul = shl nuw nsw i64 %idx.ext131, 1
-  %add.ptr141 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
+  %add.ptr141.idx = shl nuw nsw i64 %idx.ext131, 2
+  %add.ptr141 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr141.idx
   %incdec.ptr142 = getelementptr inbounds i8, ptr %add.ptr141, i64 2
   %pe.0 = select i1 %cmp124, ptr %add.ptr132, ptr %incdec.ptr142
   %full.0.in = load i16, ptr %pe.0, align 2
@@ -2682,8 +2682,8 @@ if.then166:                                       ; preds = %do.body162
   br label %do.end190
 
 if.else175:                                       ; preds = %do.body162
-  %mul181 = shl nuw nsw i64 %idx.ext172, 1
-  %add.ptr183 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul181
+  %add.ptr183.idx = shl nuw nsw i64 %idx.ext172, 2
+  %add.ptr183 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr183.idx
   %incdec.ptr184 = getelementptr inbounds i8, ptr %add.ptr183, i64 2
   %35 = load i16, ptr %add.ptr183, align 2
   %conv185 = zext i16 %35 to i32
@@ -3040,8 +3040,8 @@ do.body:                                          ; preds = %if.else89
   %16 = load i8, ptr %arrayidx101, align 1
   %idx.ext103 = zext i8 %16 to i64
   %add.ptr104 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idx.ext103
-  %mul = shl nuw nsw i64 %idx.ext103, 1
-  %add.ptr113 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
+  %add.ptr113.idx = shl nuw nsw i64 %idx.ext103, 2
+  %add.ptr113 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr113.idx
   %incdec.ptr114 = getelementptr inbounds i8, ptr %add.ptr113, i64 2
   %pe.0 = select i1 %cmp96, ptr %add.ptr104, ptr %incdec.ptr114
   %full.0.in = load i16, ptr %pe.0, align 2
@@ -3095,8 +3095,8 @@ if.then155:                                       ; preds = %do.body151
   br label %do.end179
 
 if.else164:                                       ; preds = %do.body151
-  %mul170 = shl nuw nsw i64 %idx.ext161, 1
-  %add.ptr172 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul170
+  %add.ptr172.idx = shl nuw nsw i64 %idx.ext161, 2
+  %add.ptr172 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr172.idx
   %incdec.ptr173 = getelementptr inbounds i8, ptr %add.ptr172, i64 2
   %19 = load i16, ptr %add.ptr172, align 2
   %conv174 = zext i16 %19 to i32
@@ -3151,8 +3151,8 @@ if.then207:                                       ; preds = %do.body203
   br label %if.end236
 
 if.else218:                                       ; preds = %do.body203
-  %mul226 = shl nuw nsw i64 %idx.ext215, 1
-  %add.ptr228 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul226
+  %add.ptr228.idx = shl nuw nsw i64 %idx.ext215, 2
+  %add.ptr228 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr228.idx
   %incdec.ptr229 = getelementptr inbounds i8, ptr %add.ptr228, i64 2
   %24 = load i16, ptr %add.ptr228, align 2
   %conv230 = zext i16 %24 to i32
@@ -3317,8 +3317,8 @@ if.then93:                                        ; preds = %do.body
   br label %do.end
 
 if.else102:                                       ; preds = %do.body
-  %mul = shl nuw nsw i64 %idx.ext99, 1
-  %add.ptr109 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
+  %add.ptr109.idx = shl nuw nsw i64 %idx.ext99, 2
+  %add.ptr109 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr109.idx
   %incdec.ptr110 = getelementptr inbounds i8, ptr %add.ptr109, i64 2
   %10 = load i16, ptr %add.ptr109, align 2
   %conv111 = zext i16 %10 to i32
@@ -3367,8 +3367,8 @@ if.then140:                                       ; preds = %do.body136
   br label %return
 
 if.else151:                                       ; preds = %do.body136
-  %mul159 = shl nuw nsw i64 %idx.ext148, 1
-  %add.ptr161 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul159
+  %add.ptr161.idx = shl nuw nsw i64 %idx.ext148, 2
+  %add.ptr161 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr161.idx
   %incdec.ptr162 = getelementptr inbounds i8, ptr %add.ptr161, i64 2
   %15 = load i16, ptr %add.ptr161, align 2
   %conv163 = zext i16 %15 to i32
@@ -3505,8 +3505,8 @@ do.body:                                          ; preds = %if.else77
   %8 = load i8, ptr %arrayidx89, align 1
   %idx.ext91 = zext i8 %8 to i64
   %add.ptr92 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idx.ext91
-  %mul = shl nuw nsw i64 %idx.ext91, 1
-  %add.ptr101 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul
+  %add.ptr101.idx = shl nuw nsw i64 %idx.ext91, 2
+  %add.ptr101 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr101.idx
   %incdec.ptr102 = getelementptr inbounds i8, ptr %add.ptr101, i64 2
   %pe.0 = select i1 %cmp84, ptr %add.ptr92, ptr %incdec.ptr102
   %full.0.in = load i16, ptr %pe.0, align 2
@@ -3558,8 +3558,8 @@ if.then134:                                       ; preds = %do.body130
   br label %do.end158
 
 if.else143:                                       ; preds = %do.body130
-  %mul149 = shl nuw nsw i64 %idx.ext140, 1
-  %add.ptr151 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul149
+  %add.ptr151.idx = shl nuw nsw i64 %idx.ext140, 2
+  %add.ptr151 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr151.idx
   %incdec.ptr152 = getelementptr inbounds i8, ptr %add.ptr151, i64 2
   %11 = load i16, ptr %add.ptr151, align 2
   %conv153 = zext i16 %11 to i32
@@ -3612,8 +3612,8 @@ if.then185:                                       ; preds = %do.body181
   br label %if.end214
 
 if.else196:                                       ; preds = %do.body181
-  %mul204 = shl nuw nsw i64 %idx.ext193, 1
-  %add.ptr206 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %mul204
+  %add.ptr206.idx = shl nuw nsw i64 %idx.ext193, 2
+  %add.ptr206 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %add.ptr206.idx
   %incdec.ptr207 = getelementptr inbounds i8, ptr %add.ptr206, i64 2
   %16 = load i16, ptr %add.ptr206, align 2
   %conv208 = zext i16 %16 to i32

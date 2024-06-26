@@ -7417,7 +7417,7 @@ _ZN19brotli_decompressor6decode12DecodeSymbol17h3607ad250f015206E.exit: ; preds 
 
 140:                                              ; preds = %139, %109, %6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %166
+  br label %165
 
 141:                                              ; preds = %130
   %142 = load i16, ptr %131, align 2, !noalias !831, !noundef !12
@@ -7434,42 +7434,42 @@ _ZN19brotli_decompressor6decode12DecodeSymbol17h3607ad250f015206E.exit: ; preds 
 
 148:                                              ; preds = %100, %141
   %149 = phi i32 [ %101, %100 ], [ %.pre57, %141 ]
-  %150 = shl nuw nsw i64 %9, 1
-  %151 = getelementptr inbounds i8, ptr %1, i64 32
-  %152 = getelementptr inbounds i32, ptr %151, i64 %150
-  switch i32 %149, label %162 [
-    i32 1, label %153
-    i32 0, label %164
+  %150 = getelementptr inbounds i8, ptr %1, i64 32
+  %.idx = shl nuw nsw i64 %9, 3
+  %151 = getelementptr inbounds i8, ptr %150, i64 %.idx
+  switch i32 %149, label %161 [
+    i32 1, label %152
+    i32 0, label %163
   ]
 
-153:                                              ; preds = %148
-  %154 = getelementptr inbounds i8, ptr %152, i64 4
-  %155 = load i32, ptr %154, align 4, !noundef !12
-  %156 = add i32 %155, 1
-  br label %157
+152:                                              ; preds = %148
+  %153 = getelementptr inbounds i8, ptr %151, i64 4
+  %154 = load i32, ptr %153, align 4, !noundef !12
+  %155 = add i32 %154, 1
+  br label %156
 
-157:                                              ; preds = %162, %164, %153
-  %158 = phi i32 [ %163, %162 ], [ %165, %164 ], [ %156, %153 ]
-  %.not = icmp ult i32 %158, %12
-  %159 = select i1 %.not, i32 0, i32 %12
-  %spec.select = sub i32 %158, %159
-  %160 = getelementptr inbounds i8, ptr %152, i64 4
-  %161 = load i32, ptr %160, align 4, !noundef !12
-  store i32 %161, ptr %152, align 8
-  store i32 %spec.select, ptr %160, align 4
+156:                                              ; preds = %161, %163, %152
+  %157 = phi i32 [ %162, %161 ], [ %164, %163 ], [ %155, %152 ]
+  %.not = icmp ult i32 %157, %12
+  %158 = select i1 %.not, i32 0, i32 %12
+  %spec.select = sub i32 %157, %158
+  %159 = getelementptr inbounds i8, ptr %151, i64 4
+  %160 = load i32, ptr %159, align 4, !noundef !12
+  store i32 %160, ptr %151, align 8
+  store i32 %spec.select, ptr %159, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %166
+  br label %165
 
-162:                                              ; preds = %148
-  %163 = add i32 %149, -2
-  br label %157
+161:                                              ; preds = %148
+  %162 = add i32 %149, -2
+  br label %156
 
-164:                                              ; preds = %148
-  %165 = load i32, ptr %152, align 8, !noundef !12
-  br label %157
+163:                                              ; preds = %148
+  %164 = load i32, ptr %151, align 8, !noundef !12
+  br label %156
 
-166:                                              ; preds = %157, %140
-  %.2 = phi i1 [ false, %140 ], [ true, %157 ]
+165:                                              ; preds = %156, %140
+  %.2 = phi i1 [ false, %140 ], [ true, %156 ]
   ret i1 %.2
 }
 

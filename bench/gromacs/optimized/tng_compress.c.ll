@@ -3641,7 +3641,7 @@ define internal fastcc i32 @tng_compress_uncompress_pos_gen(ptr noundef %0, ptr 
 readbufferfix.exit:                               ; preds = %7
   %14 = and i64 %12, 4294967295
   %.not = icmp eq i64 %14, 1346850388
-  br i1 %.not, label %15, label %240
+  br i1 %.not, label %15, label %239
 
 15:                                               ; preds = %readbufferfix.exit
   %16 = getelementptr inbounds i8, ptr %0, i64 4
@@ -3842,7 +3842,7 @@ readbufferfix.exit301:                            ; preds = %89
   %100 = tail call i32 @Ptngc_unpack_array(ptr noundef %97, ptr noundef nonnull %98, ptr noundef %87, i32 noundef %99, i32 noundef %50, i32 noundef %59, i32 noundef %32) #13
   tail call void @Ptngc_coder_deinit(ptr noundef %97) #13
   %.not212 = icmp eq i32 %100, 0
-  br i1 %.not212, label %101, label %240
+  br i1 %.not212, label %101, label %239
 
 101:                                              ; preds = %readbufferfix.exit301
   switch i32 %50, label %unquantize.exit [
@@ -4038,12 +4038,12 @@ unquantize_intra_differences.exit:                ; preds = %.preheader.i.prehea
 
 177:                                              ; preds = %177, %.lr.ph.us.i
   %indvars.iv.i323 = phi i64 [ 1, %.lr.ph.us.i ], [ %indvars.iv.next.i324, %177 ]
-  %.017.us.i = phi i32 [ %176, %.lr.ph.us.i ], [ %180, %177 ]
-  %178 = mul nuw nsw i64 %indvars.iv.i323, 3
-  %gep.i = getelementptr inbounds i32, ptr %175, i64 %178
-  %179 = load i32, ptr %gep.i, align 4
-  %180 = add nsw i32 %179, %.017.us.i
-  store i32 %180, ptr %gep.i, align 4
+  %.017.us.i = phi i32 [ %176, %.lr.ph.us.i ], [ %179, %177 ]
+  %.idx.i = mul i64 %indvars.iv.i323, 12
+  %gep.i = getelementptr i8, ptr %175, i64 %.idx.i
+  %178 = load i32, ptr %gep.i, align 4
+  %179 = add nsw i32 %178, %.017.us.i
+  store i32 %179, ptr %gep.i, align 4
   %indvars.iv.next.i324 = add nuw nsw i64 %indvars.iv.i323, 1
   %exitcond.not.i325 = icmp eq i64 %indvars.iv.next.i324, %wide.trip.count.i
   br i1 %exitcond.not.i325, label %._crit_edge.us.i326, label %177, !llvm.loop !35
@@ -4054,140 +4054,140 @@ unquantize_intra_differences.exit:                ; preds = %.preheader.i.prehea
   br i1 %exitcond26.not.i, label %unquantize.exit, label %.lr.ph.us.i, !llvm.loop !36
 
 unquantize.exit:                                  ; preds = %._crit_edge.us.i326, %109, %126, %unquantize_intra_differences.exit, %119, %103, %101, %135, %136
-  %181 = icmp sgt i32 %41, 1
-  br i1 %181, label %182, label %240
+  %180 = icmp sgt i32 %41, 1
+  br i1 %180, label %181, label %239
 
-182:                                              ; preds = %unquantize.exit
-  %183 = tail call ptr @Ptngc_coder_init() #13
-  %184 = shl i64 %94, 32
-  %sext219 = add i64 %184, 188978561024
-  %185 = ashr exact i64 %sext219, 32
-  %186 = getelementptr inbounds i8, ptr %0, i64 %185
-  %187 = sext i32 %99 to i64
-  %188 = getelementptr inbounds i32, ptr %87, i64 %187
-  %189 = add nsw i32 %41, -1
-  %190 = mul i32 %99, %189
-  %191 = tail call i32 @Ptngc_unpack_array(ptr noundef %183, ptr noundef %186, ptr noundef %188, i32 noundef %190, i32 noundef %68, i32 noundef %96, i32 noundef %32) #13
-  tail call void @Ptngc_coder_deinit(ptr noundef %183) #13
-  %.not220 = icmp eq i32 %191, 0
-  br i1 %.not220, label %192, label %240
+181:                                              ; preds = %unquantize.exit
+  %182 = tail call ptr @Ptngc_coder_init() #13
+  %183 = shl i64 %94, 32
+  %sext219 = add i64 %183, 188978561024
+  %184 = ashr exact i64 %sext219, 32
+  %185 = getelementptr inbounds i8, ptr %0, i64 %184
+  %186 = sext i32 %99 to i64
+  %187 = getelementptr inbounds i32, ptr %87, i64 %186
+  %188 = add nsw i32 %41, -1
+  %189 = mul i32 %99, %188
+  %190 = tail call i32 @Ptngc_unpack_array(ptr noundef %182, ptr noundef %185, ptr noundef %187, i32 noundef %189, i32 noundef %68, i32 noundef %96, i32 noundef %32) #13
+  tail call void @Ptngc_coder_deinit(ptr noundef %182) #13
+  %.not220 = icmp eq i32 %190, 0
+  br i1 %.not220, label %191, label %239
 
-192:                                              ; preds = %182
-  switch i32 %68, label %240 [
-    i32 8, label %193
-    i32 2, label %193
-    i32 1, label %193
-    i32 10, label %206
-    i32 7, label %206
-    i32 5, label %206
-    i32 9, label %224
-    i32 3, label %224
+191:                                              ; preds = %181
+  switch i32 %68, label %239 [
+    i32 8, label %192
+    i32 2, label %192
+    i32 1, label %192
+    i32 10, label %205
+    i32 7, label %205
+    i32 5, label %205
+    i32 9, label %223
+    i32 3, label %223
   ]
 
-193:                                              ; preds = %192, %192, %192
+192:                                              ; preds = %191, %191, %191
   %.not227 = icmp eq ptr %1, null
-  br i1 %.not227, label %198, label %194
+  br i1 %.not227, label %197, label %193
 
-194:                                              ; preds = %193
-  %195 = load i64, ptr %4, align 8
-  %196 = load i64, ptr %5, align 8
-  %197 = tail call double @Ptngc_i32x2_to_d(i64 noundef %195, i64 noundef %196) #13
-  tail call fastcc void @unquantize_inter_differences(ptr noundef nonnull %1, i32 noundef %32, i32 noundef %41, double noundef %197, ptr noundef %87)
-  br label %240
+193:                                              ; preds = %192
+  %194 = load i64, ptr %4, align 8
+  %195 = load i64, ptr %5, align 8
+  %196 = tail call double @Ptngc_i32x2_to_d(i64 noundef %194, i64 noundef %195) #13
+  tail call fastcc void @unquantize_inter_differences(ptr noundef nonnull %1, i32 noundef %32, i32 noundef %41, double noundef %196, ptr noundef %87)
+  br label %239
 
-198:                                              ; preds = %193
+197:                                              ; preds = %192
   %.not228 = icmp eq ptr %2, null
-  br i1 %.not228, label %204, label %199
+  br i1 %.not228, label %203, label %198
 
-199:                                              ; preds = %198
-  %200 = load i64, ptr %4, align 8
-  %201 = load i64, ptr %5, align 8
-  %202 = tail call double @Ptngc_i32x2_to_d(i64 noundef %200, i64 noundef %201) #13
-  %203 = fptrunc double %202 to float
-  tail call fastcc void @unquantize_inter_differences_float(ptr noundef nonnull %2, i32 noundef %32, i32 noundef %41, float noundef %203, ptr noundef %87)
-  br label %240
+198:                                              ; preds = %197
+  %199 = load i64, ptr %4, align 8
+  %200 = load i64, ptr %5, align 8
+  %201 = tail call double @Ptngc_i32x2_to_d(i64 noundef %199, i64 noundef %200) #13
+  %202 = fptrunc double %201 to float
+  tail call fastcc void @unquantize_inter_differences_float(ptr noundef nonnull %2, i32 noundef %32, i32 noundef %41, float noundef %202, ptr noundef %87)
+  br label %239
 
-204:                                              ; preds = %198
+203:                                              ; preds = %197
   %.not229 = icmp eq ptr %3, null
-  br i1 %.not229, label %240, label %205
+  br i1 %.not229, label %239, label %204
 
-205:                                              ; preds = %204
+204:                                              ; preds = %203
   tail call fastcc void @unquantize_inter_differences_int(ptr noundef nonnull %3, i32 noundef %32, i32 noundef %41, ptr noundef %87)
-  br label %240
+  br label %239
 
-206:                                              ; preds = %192, %192, %192
+205:                                              ; preds = %191, %191, %191
   %.not224 = icmp eq ptr %1, null
-  br i1 %.not224, label %212, label %207
+  br i1 %.not224, label %211, label %206
 
-207:                                              ; preds = %206
-  %208 = getelementptr inbounds double, ptr %1, i64 %187
-  %209 = load i64, ptr %4, align 8
-  %210 = load i64, ptr %5, align 8
-  %211 = tail call double @Ptngc_i32x2_to_d(i64 noundef %209, i64 noundef %210) #13
-  tail call fastcc void @unquantize(ptr noundef nonnull %208, i32 noundef %32, i32 noundef %189, double noundef %211, ptr noundef %188)
-  br label %240
+206:                                              ; preds = %205
+  %207 = getelementptr inbounds double, ptr %1, i64 %186
+  %208 = load i64, ptr %4, align 8
+  %209 = load i64, ptr %5, align 8
+  %210 = tail call double @Ptngc_i32x2_to_d(i64 noundef %208, i64 noundef %209) #13
+  tail call fastcc void @unquantize(ptr noundef nonnull %207, i32 noundef %32, i32 noundef %188, double noundef %210, ptr noundef %187)
+  br label %239
 
-212:                                              ; preds = %206
+211:                                              ; preds = %205
   %.not225 = icmp eq ptr %2, null
-  br i1 %.not225, label %219, label %213
+  br i1 %.not225, label %218, label %212
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds float, ptr %2, i64 %187
-  %215 = load i64, ptr %4, align 8
-  %216 = load i64, ptr %5, align 8
-  %217 = tail call double @Ptngc_i32x2_to_d(i64 noundef %215, i64 noundef %216) #13
-  %218 = fptrunc double %217 to float
-  tail call fastcc void @unquantize_float(ptr noundef nonnull %214, i32 noundef %32, i32 noundef %189, float noundef %218, ptr noundef %188)
-  br label %240
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds float, ptr %2, i64 %186
+  %214 = load i64, ptr %4, align 8
+  %215 = load i64, ptr %5, align 8
+  %216 = tail call double @Ptngc_i32x2_to_d(i64 noundef %214, i64 noundef %215) #13
+  %217 = fptrunc double %216 to float
+  tail call fastcc void @unquantize_float(ptr noundef nonnull %213, i32 noundef %32, i32 noundef %188, float noundef %217, ptr noundef %187)
+  br label %239
 
-219:                                              ; preds = %212
+218:                                              ; preds = %211
   %.not226 = icmp eq ptr %3, null
-  br i1 %.not226, label %240, label %220
+  br i1 %.not226, label %239, label %219
 
-220:                                              ; preds = %219
-  %221 = getelementptr inbounds i32, ptr %3, i64 %187
-  %222 = sext i32 %190 to i64
-  %223 = shl nsw i64 %222, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %221, ptr align 4 %188, i64 %223, i1 false)
-  br label %240
+219:                                              ; preds = %218
+  %220 = getelementptr inbounds i32, ptr %3, i64 %186
+  %221 = sext i32 %189 to i64
+  %222 = shl nsw i64 %221, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %220, ptr align 4 %187, i64 %222, i1 false)
+  br label %239
 
-224:                                              ; preds = %192, %192
+223:                                              ; preds = %191, %191
   %.not221 = icmp eq ptr %1, null
-  br i1 %.not221, label %230, label %225
+  br i1 %.not221, label %229, label %224
 
-225:                                              ; preds = %224
-  %226 = getelementptr inbounds double, ptr %1, i64 %187
-  %227 = load i64, ptr %4, align 8
-  %228 = load i64, ptr %5, align 8
-  %229 = tail call double @Ptngc_i32x2_to_d(i64 noundef %227, i64 noundef %228) #13
-  tail call fastcc void @unquantize_intra_differences(ptr noundef nonnull %226, i32 noundef %32, i32 noundef %189, double noundef %229, ptr noundef %188)
-  br label %240
+224:                                              ; preds = %223
+  %225 = getelementptr inbounds double, ptr %1, i64 %186
+  %226 = load i64, ptr %4, align 8
+  %227 = load i64, ptr %5, align 8
+  %228 = tail call double @Ptngc_i32x2_to_d(i64 noundef %226, i64 noundef %227) #13
+  tail call fastcc void @unquantize_intra_differences(ptr noundef nonnull %225, i32 noundef %32, i32 noundef %188, double noundef %228, ptr noundef %187)
+  br label %239
 
-230:                                              ; preds = %224
+229:                                              ; preds = %223
   %.not222 = icmp eq ptr %2, null
-  br i1 %.not222, label %237, label %231
+  br i1 %.not222, label %236, label %230
 
-231:                                              ; preds = %230
-  %232 = getelementptr inbounds float, ptr %2, i64 %187
-  %233 = load i64, ptr %4, align 8
-  %234 = load i64, ptr %5, align 8
-  %235 = tail call double @Ptngc_i32x2_to_d(i64 noundef %233, i64 noundef %234) #13
-  %236 = fptrunc double %235 to float
-  tail call fastcc void @unquantize_intra_differences_float(ptr noundef nonnull %232, i32 noundef %32, i32 noundef %189, float noundef %236, ptr noundef %188)
-  br label %240
+230:                                              ; preds = %229
+  %231 = getelementptr inbounds float, ptr %2, i64 %186
+  %232 = load i64, ptr %4, align 8
+  %233 = load i64, ptr %5, align 8
+  %234 = tail call double @Ptngc_i32x2_to_d(i64 noundef %232, i64 noundef %233) #13
+  %235 = fptrunc double %234 to float
+  tail call fastcc void @unquantize_intra_differences_float(ptr noundef nonnull %231, i32 noundef %32, i32 noundef %188, float noundef %235, ptr noundef %187)
+  br label %239
 
-237:                                              ; preds = %230
+236:                                              ; preds = %229
   %.not223 = icmp eq ptr %3, null
-  br i1 %.not223, label %240, label %238
+  br i1 %.not223, label %239, label %237
 
-238:                                              ; preds = %237
-  %239 = getelementptr inbounds i32, ptr %3, i64 %187
-  tail call fastcc void @unquantize_intra_differences_int(ptr noundef nonnull %239, i32 noundef %32, i32 noundef %189, ptr noundef %188)
-  br label %240
+237:                                              ; preds = %236
+  %238 = getelementptr inbounds i32, ptr %3, i64 %186
+  tail call fastcc void @unquantize_intra_differences_int(ptr noundef nonnull %238, i32 noundef %32, i32 noundef %188, ptr noundef %187)
+  br label %239
 
-240:                                              ; preds = %192, %readbufferfix.exit, %unquantize.exit, %213, %220, %219, %207, %225, %237, %238, %231, %194, %204, %205, %199, %182, %readbufferfix.exit301
-  %.0193 = phi ptr [ %87, %readbufferfix.exit301 ], [ %87, %182 ], [ %87, %194 ], [ %87, %199 ], [ %87, %205 ], [ %87, %204 ], [ %87, %207 ], [ %87, %213 ], [ %87, %220 ], [ %87, %219 ], [ %87, %225 ], [ %87, %231 ], [ %87, %238 ], [ %87, %237 ], [ %87, %unquantize.exit ], [ null, %readbufferfix.exit ], [ %87, %192 ]
-  %.0 = phi i32 [ %100, %readbufferfix.exit301 ], [ %191, %182 ], [ 0, %194 ], [ 0, %199 ], [ 0, %205 ], [ 0, %204 ], [ 0, %207 ], [ 0, %213 ], [ 0, %220 ], [ 0, %219 ], [ 0, %225 ], [ 0, %231 ], [ 0, %238 ], [ 0, %237 ], [ 0, %unquantize.exit ], [ 1, %readbufferfix.exit ], [ 0, %192 ]
+239:                                              ; preds = %191, %readbufferfix.exit, %unquantize.exit, %212, %219, %218, %206, %224, %236, %237, %230, %193, %203, %204, %198, %181, %readbufferfix.exit301
+  %.0193 = phi ptr [ %87, %readbufferfix.exit301 ], [ %87, %181 ], [ %87, %193 ], [ %87, %198 ], [ %87, %204 ], [ %87, %203 ], [ %87, %206 ], [ %87, %212 ], [ %87, %219 ], [ %87, %218 ], [ %87, %224 ], [ %87, %230 ], [ %87, %237 ], [ %87, %236 ], [ %87, %unquantize.exit ], [ null, %readbufferfix.exit ], [ %87, %191 ]
+  %.0 = phi i32 [ %100, %readbufferfix.exit301 ], [ %190, %181 ], [ 0, %193 ], [ 0, %198 ], [ 0, %204 ], [ 0, %203 ], [ 0, %206 ], [ 0, %212 ], [ 0, %219 ], [ 0, %218 ], [ 0, %224 ], [ 0, %230 ], [ 0, %237 ], [ 0, %236 ], [ 0, %unquantize.exit ], [ 1, %readbufferfix.exit ], [ 0, %191 ]
   tail call void @free(ptr noundef %.0193) #13
   ret i32 %.0
 }

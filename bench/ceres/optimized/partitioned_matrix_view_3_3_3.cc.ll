@@ -4560,7 +4560,7 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi3ELi3E
   br label %29
 
 .preheader:                                       ; preds = %._crit_edge, %..preheader_crit_edge
-  %.pre-phi = phi i64 [ %.pre142, %..preheader_crit_edge ], [ %196, %._crit_edge ]
+  %.pre-phi = phi i64 [ %.pre142, %..preheader_crit_edge ], [ %195, %._crit_edge ]
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %18 = getelementptr inbounds i8, ptr %5, i64 32
   %19 = load ptr, ptr %18, align 8
@@ -4576,10 +4576,10 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi3ELi3E
   %26 = getelementptr inbounds i8, ptr %0, i64 148
   %27 = getelementptr inbounds i8, ptr %6, i64 24
   %28 = getelementptr inbounds i8, ptr %1, i64 32
-  br label %198
+  br label %197
 
 29:                                               ; preds = %.lr.ph123, %._crit_edge
-  %30 = phi i32 [ %11, %.lr.ph123 ], [ %195, %._crit_edge ]
+  %30 = phi i32 [ %11, %.lr.ph123 ], [ %194, %._crit_edge ]
   %indvars.iv134 = phi i64 [ 0, %.lr.ph123 ], [ %indvars.iv.next135, %._crit_edge ]
   %31 = load ptr, ptr %13, align 8
   %32 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %31, i64 %indvars.iv134, i32 1
@@ -4594,7 +4594,7 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi3ELi3E
 
 .lr.ph:                                           ; preds = %29, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %29 ]
-  %40 = phi ptr [ %189, %.lr.ph ], [ %35, %29 ]
+  %40 = phi ptr [ %188, %.lr.ph ], [ %35, %29 ]
   %41 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %40, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
@@ -4708,108 +4708,108 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi3ELi3E
   %146 = load double, ptr %134, align 8
   %147 = fadd double %146, %145
   store double %147, ptr %134, align 8
-  %148 = shl nsw i64 %62, 1
-  %149 = getelementptr double, ptr %61, i64 %148
-  %150 = load double, ptr %93, align 8
-  %151 = load double, ptr %58, align 8
-  %152 = fmul double %150, %151
-  %153 = load double, ptr %98, align 8
-  %154 = load double, ptr %65, align 8
-  %155 = fmul double %153, %154
-  %156 = load double, ptr %102, align 8
-  %157 = load double, ptr %68, align 8
-  %158 = fmul double %156, %157
-  %159 = fadd double %155, %158
-  %160 = fadd double %152, %159
-  %161 = load double, ptr %149, align 8
-  %162 = fadd double %161, %160
-  store double %162, ptr %149, align 8
-  %163 = getelementptr double, ptr %75, i64 %148
-  %164 = load double, ptr %93, align 8
-  %165 = load double, ptr %76, align 8
-  %166 = fmul double %164, %165
-  %167 = load double, ptr %98, align 8
-  %168 = load double, ptr %81, align 8
-  %169 = fmul double %167, %168
-  %170 = load double, ptr %102, align 8
-  %171 = load double, ptr %85, align 8
-  %172 = fmul double %170, %171
-  %173 = fadd double %169, %172
-  %174 = fadd double %166, %173
-  %175 = load double, ptr %163, align 8
-  %176 = fadd double %175, %174
-  store double %176, ptr %163, align 8
-  %177 = getelementptr double, ptr %92, i64 %148
-  %178 = load double, ptr %93, align 8
-  %179 = fmul double %178, %178
-  %180 = load double, ptr %98, align 8
-  %181 = fmul double %180, %180
-  %182 = load double, ptr %102, align 8
-  %183 = fmul double %182, %182
-  %184 = fadd double %181, %183
-  %185 = fadd double %179, %184
-  %186 = load double, ptr %177, align 8
-  %187 = fadd double %186, %185
-  store double %187, ptr %177, align 8
+  %.idx.i.i = shl nsw i64 %62, 4
+  %148 = getelementptr i8, ptr %61, i64 %.idx.i.i
+  %149 = load double, ptr %93, align 8
+  %150 = load double, ptr %58, align 8
+  %151 = fmul double %149, %150
+  %152 = load double, ptr %98, align 8
+  %153 = load double, ptr %65, align 8
+  %154 = fmul double %152, %153
+  %155 = load double, ptr %102, align 8
+  %156 = load double, ptr %68, align 8
+  %157 = fmul double %155, %156
+  %158 = fadd double %154, %157
+  %159 = fadd double %151, %158
+  %160 = load double, ptr %148, align 8
+  %161 = fadd double %160, %159
+  store double %161, ptr %148, align 8
+  %162 = getelementptr i8, ptr %75, i64 %.idx.i.i
+  %163 = load double, ptr %93, align 8
+  %164 = load double, ptr %76, align 8
+  %165 = fmul double %163, %164
+  %166 = load double, ptr %98, align 8
+  %167 = load double, ptr %81, align 8
+  %168 = fmul double %166, %167
+  %169 = load double, ptr %102, align 8
+  %170 = load double, ptr %85, align 8
+  %171 = fmul double %169, %170
+  %172 = fadd double %168, %171
+  %173 = fadd double %165, %172
+  %174 = load double, ptr %162, align 8
+  %175 = fadd double %174, %173
+  store double %175, ptr %162, align 8
+  %176 = getelementptr i8, ptr %92, i64 %.idx.i.i
+  %177 = load double, ptr %93, align 8
+  %178 = fmul double %177, %177
+  %179 = load double, ptr %98, align 8
+  %180 = fmul double %179, %179
+  %181 = load double, ptr %102, align 8
+  %182 = fmul double %181, %181
+  %183 = fadd double %180, %182
+  %184 = fadd double %178, %183
+  %185 = load double, ptr %176, align 8
+  %186 = fadd double %185, %184
+  store double %186, ptr %176, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %188 = load ptr, ptr %33, align 8
-  %189 = load ptr, ptr %32, align 8
+  %187 = load ptr, ptr %33, align 8
+  %188 = load ptr, ptr %32, align 8
+  %189 = ptrtoint ptr %187 to i64
   %190 = ptrtoint ptr %188 to i64
-  %191 = ptrtoint ptr %189 to i64
-  %192 = sub i64 %190, %191
-  %193 = ashr exact i64 %192, 3
-  %194 = icmp ugt i64 %193, %indvars.iv.next
-  br i1 %194, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !45
+  %191 = sub i64 %189, %190
+  %192 = ashr exact i64 %191, 3
+  %193 = icmp ugt i64 %192, %indvars.iv.next
+  br i1 %193, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !45
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %10, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %29
-  %195 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %30, %29 ]
+  %194 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %30, %29 ]
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %196 = sext i32 %195 to i64
-  %197 = icmp slt i64 %indvars.iv.next135, %196
-  br i1 %197, label %29, label %.preheader, !llvm.loop !46
+  %195 = sext i32 %194 to i64
+  %196 = icmp slt i64 %indvars.iv.next135, %195
+  br i1 %196, label %29, label %.preheader, !llvm.loop !46
 
-198:                                              ; preds = %.lr.ph130, %._crit_edge128
-  %199 = phi ptr [ %20, %.lr.ph130 ], [ %228, %._crit_edge128 ]
-  %200 = phi ptr [ %19, %.lr.ph130 ], [ %229, %._crit_edge128 ]
+197:                                              ; preds = %.lr.ph130, %._crit_edge128
+  %198 = phi ptr [ %20, %.lr.ph130 ], [ %227, %._crit_edge128 ]
+  %199 = phi ptr [ %19, %.lr.ph130 ], [ %228, %._crit_edge128 ]
   %indvars.iv137 = phi i64 [ %.pre-phi, %.lr.ph130 ], [ %indvars.iv.next138, %._crit_edge128 ]
-  %201 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %199, i64 %indvars.iv137
-  %202 = load i32, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %201, i64 8
-  %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %201, i64 16
-  %206 = load ptr, ptr %205, align 8
-  %.not124 = icmp eq ptr %204, %206
+  %200 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %198, i64 %indvars.iv137
+  %201 = load i32, ptr %200, align 8
+  %202 = getelementptr inbounds i8, ptr %200, i64 8
+  %203 = load ptr, ptr %202, align 8
+  %204 = getelementptr inbounds i8, ptr %200, i64 16
+  %205 = load ptr, ptr %204, align 8
+  %.not124 = icmp eq ptr %203, %205
   br i1 %.not124, label %._crit_edge128, label %.lr.ph127
 
-.lr.ph127:                                        ; preds = %198, %.lr.ph127
-  %.sroa.065.0125 = phi ptr [ %227, %.lr.ph127 ], [ %204, %198 ]
-  %207 = load i32, ptr %.sroa.065.0125, align 4
-  %208 = sext i32 %207 to i64
-  %209 = load ptr, ptr %5, align 8
-  %210 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %209, i64 %208
-  %211 = load i32, ptr %210, align 4
-  %212 = load i32, ptr %26, align 4
-  %213 = sub nsw i32 %207, %212
-  %214 = sext i32 %213 to i64
-  %215 = load ptr, ptr %27, align 8
-  %216 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %215, i64 %214, i32 1
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 4
-  %219 = load i32, ptr %218, align 4
-  %220 = getelementptr inbounds i8, ptr %.sroa.065.0125, i64 4
-  %221 = load i32, ptr %220, align 4
-  %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds double, ptr %9, i64 %222
-  %224 = load ptr, ptr %28, align 8
-  %225 = sext i32 %219 to i64
-  %226 = getelementptr inbounds double, ptr %224, i64 %225
-  tail call void @_ZN5ceres8internal34MatrixTransposeMatrixMultiplyNaiveILin1ELin1ELin1ELin1ELi1EEEvPKdiiS3_iiPdiiii(ptr noundef %223, i32 noundef %202, i32 noundef %211, ptr noundef %223, i32 noundef %202, i32 noundef %211, ptr noundef %226, i32 noundef 0, i32 noundef 0, i32 noundef %211, i32 noundef %211)
-  %227 = getelementptr inbounds i8, ptr %.sroa.065.0125, i64 8
-  %.not = icmp eq ptr %227, %206
+.lr.ph127:                                        ; preds = %197, %.lr.ph127
+  %.sroa.065.0125 = phi ptr [ %226, %.lr.ph127 ], [ %203, %197 ]
+  %206 = load i32, ptr %.sroa.065.0125, align 4
+  %207 = sext i32 %206 to i64
+  %208 = load ptr, ptr %5, align 8
+  %209 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %208, i64 %207
+  %210 = load i32, ptr %209, align 4
+  %211 = load i32, ptr %26, align 4
+  %212 = sub nsw i32 %206, %211
+  %213 = sext i32 %212 to i64
+  %214 = load ptr, ptr %27, align 8
+  %215 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %214, i64 %213, i32 1
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds i8, ptr %216, i64 4
+  %218 = load i32, ptr %217, align 4
+  %219 = getelementptr inbounds i8, ptr %.sroa.065.0125, i64 4
+  %220 = load i32, ptr %219, align 4
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds double, ptr %9, i64 %221
+  %223 = load ptr, ptr %28, align 8
+  %224 = sext i32 %218 to i64
+  %225 = getelementptr inbounds double, ptr %223, i64 %224
+  tail call void @_ZN5ceres8internal34MatrixTransposeMatrixMultiplyNaiveILin1ELin1ELin1ELin1ELi1EEEvPKdiiS3_iiPdiiii(ptr noundef %222, i32 noundef %201, i32 noundef %210, ptr noundef %222, i32 noundef %201, i32 noundef %210, ptr noundef %225, i32 noundef 0, i32 noundef 0, i32 noundef %210, i32 noundef %210)
+  %226 = getelementptr inbounds i8, ptr %.sroa.065.0125, i64 8
+  %.not = icmp eq ptr %226, %205
   br i1 %.not, label %._crit_edge128.loopexit, label %.lr.ph127
 
 ._crit_edge128.loopexit:                          ; preds = %.lr.ph127
@@ -4817,16 +4817,16 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi3ELi3E
   %.pre141 = load ptr, ptr %17, align 8
   br label %._crit_edge128
 
-._crit_edge128:                                   ; preds = %._crit_edge128.loopexit, %198
-  %228 = phi ptr [ %.pre141, %._crit_edge128.loopexit ], [ %199, %198 ]
-  %229 = phi ptr [ %.pre140, %._crit_edge128.loopexit ], [ %200, %198 ]
+._crit_edge128:                                   ; preds = %._crit_edge128.loopexit, %197
+  %227 = phi ptr [ %.pre141, %._crit_edge128.loopexit ], [ %198, %197 ]
+  %228 = phi ptr [ %.pre140, %._crit_edge128.loopexit ], [ %199, %197 ]
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %230 = ptrtoint ptr %229 to i64
-  %231 = ptrtoint ptr %228 to i64
-  %232 = sub i64 %230, %231
-  %233 = sdiv exact i64 %232, 40
-  %234 = icmp ugt i64 %233, %indvars.iv.next138
-  br i1 %234, label %198, label %._crit_edge131, !llvm.loop !47
+  %229 = ptrtoint ptr %228 to i64
+  %230 = ptrtoint ptr %227 to i64
+  %231 = sub i64 %229, %230
+  %232 = sdiv exact i64 %231, 40
+  %233 = icmp ugt i64 %232, %indvars.iv.next138
+  br i1 %233, label %197, label %._crit_edge131, !llvm.loop !47
 
 ._crit_edge131:                                   ; preds = %._crit_edge128, %.preheader
   ret void
@@ -17799,93 +17799,93 @@ define linkonce_odr hidden void @_ZN5Eigen8internal55copy_using_evaluator_Defaul
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %32, i64 16
   %35 = load i64, ptr %34, align 8
-  %36 = shl nsw i64 %35, 1
-  %37 = getelementptr double, ptr %33, i64 %36
-  %38 = load ptr, ptr %8, align 8
-  %39 = load ptr, ptr %38, align 8, !noalias !130
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
-  %41 = getelementptr inbounds i8, ptr %38, i64 16
-  %42 = load ptr, ptr %41, align 8, !noalias !133
-  %43 = load double, ptr %40, align 8
-  %44 = load double, ptr %42, align 8
-  %45 = fmul double %43, %44
-  %46 = getelementptr i8, ptr %39, i64 40
-  %47 = load double, ptr %46, align 8
-  %48 = getelementptr i8, ptr %42, i64 24
-  %49 = load double, ptr %48, align 8
-  %50 = fmul double %47, %49
-  %51 = getelementptr i8, ptr %39, i64 64
-  %52 = load double, ptr %51, align 8
-  %53 = getelementptr i8, ptr %42, i64 48
-  %54 = load double, ptr %53, align 8
-  %55 = fmul double %52, %54
-  %56 = fadd double %50, %55
-  %57 = fadd double %45, %56
-  %58 = load double, ptr %37, align 8
-  %59 = fadd double %58, %57
-  store double %59, ptr %37, align 8
-  %60 = load ptr, ptr %0, align 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %60, i64 16
-  %63 = load i64, ptr %62, align 8
-  %64 = shl nsw i64 %63, 1
-  %65 = getelementptr i8, ptr %61, i64 8
-  %66 = getelementptr double, ptr %65, i64 %64
-  %67 = load ptr, ptr %8, align 8
-  %68 = load ptr, ptr %67, align 8, !noalias !136
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
-  %70 = getelementptr inbounds i8, ptr %67, i64 16
-  %71 = load ptr, ptr %70, align 8, !noalias !139
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
-  %73 = load double, ptr %69, align 8
-  %74 = load double, ptr %72, align 8
-  %75 = fmul double %73, %74
-  %76 = getelementptr i8, ptr %68, i64 40
+  %.idx.i = shl i64 %35, 4
+  %36 = getelementptr i8, ptr %33, i64 %.idx.i
+  %37 = load ptr, ptr %8, align 8
+  %38 = load ptr, ptr %37, align 8, !noalias !130
+  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %40 = getelementptr inbounds i8, ptr %37, i64 16
+  %41 = load ptr, ptr %40, align 8, !noalias !133
+  %42 = load double, ptr %39, align 8
+  %43 = load double, ptr %41, align 8
+  %44 = fmul double %42, %43
+  %45 = getelementptr i8, ptr %38, i64 40
+  %46 = load double, ptr %45, align 8
+  %47 = getelementptr i8, ptr %41, i64 24
+  %48 = load double, ptr %47, align 8
+  %49 = fmul double %46, %48
+  %50 = getelementptr i8, ptr %38, i64 64
+  %51 = load double, ptr %50, align 8
+  %52 = getelementptr i8, ptr %41, i64 48
+  %53 = load double, ptr %52, align 8
+  %54 = fmul double %51, %53
+  %55 = fadd double %49, %54
+  %56 = fadd double %44, %55
+  %57 = load double, ptr %36, align 8
+  %58 = fadd double %57, %56
+  store double %58, ptr %36, align 8
+  %59 = load ptr, ptr %0, align 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %59, i64 16
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr i8, ptr %60, i64 8
+  %.idx.i.i = shl i64 %62, 4
+  %64 = getelementptr i8, ptr %63, i64 %.idx.i.i
+  %65 = load ptr, ptr %8, align 8
+  %66 = load ptr, ptr %65, align 8, !noalias !136
+  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %68 = getelementptr inbounds i8, ptr %65, i64 16
+  %69 = load ptr, ptr %68, align 8, !noalias !139
+  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = load double, ptr %67, align 8
+  %72 = load double, ptr %70, align 8
+  %73 = fmul double %71, %72
+  %74 = getelementptr i8, ptr %66, i64 40
+  %75 = load double, ptr %74, align 8
+  %76 = getelementptr i8, ptr %69, i64 32
   %77 = load double, ptr %76, align 8
-  %78 = getelementptr i8, ptr %71, i64 32
-  %79 = load double, ptr %78, align 8
-  %80 = fmul double %77, %79
-  %81 = getelementptr i8, ptr %68, i64 64
+  %78 = fmul double %75, %77
+  %79 = getelementptr i8, ptr %66, i64 64
+  %80 = load double, ptr %79, align 8
+  %81 = getelementptr i8, ptr %69, i64 56
   %82 = load double, ptr %81, align 8
-  %83 = getelementptr i8, ptr %71, i64 56
-  %84 = load double, ptr %83, align 8
-  %85 = fmul double %82, %84
-  %86 = fadd double %80, %85
-  %87 = fadd double %75, %86
-  %88 = load double, ptr %66, align 8
-  %89 = fadd double %88, %87
-  store double %89, ptr %66, align 8
-  %90 = load ptr, ptr %0, align 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %90, i64 16
-  %93 = load i64, ptr %92, align 8
-  %94 = shl nsw i64 %93, 1
-  %95 = getelementptr i8, ptr %91, i64 16
-  %96 = getelementptr double, ptr %95, i64 %94
-  %97 = load ptr, ptr %8, align 8
-  %98 = load ptr, ptr %97, align 8, !noalias !142
+  %83 = fmul double %80, %82
+  %84 = fadd double %78, %83
+  %85 = fadd double %73, %84
+  %86 = load double, ptr %64, align 8
+  %87 = fadd double %86, %85
+  store double %87, ptr %64, align 8
+  %88 = load ptr, ptr %0, align 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %88, i64 16
+  %91 = load i64, ptr %90, align 8
+  %92 = getelementptr i8, ptr %89, i64 16
+  %.idx.i.i.i = shl i64 %91, 4
+  %93 = getelementptr i8, ptr %92, i64 %.idx.i.i.i
+  %94 = load ptr, ptr %8, align 8
+  %95 = load ptr, ptr %94, align 8, !noalias !142
+  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  %97 = getelementptr inbounds i8, ptr %94, i64 16
+  %98 = load ptr, ptr %97, align 8, !noalias !145
   %99 = getelementptr inbounds i8, ptr %98, i64 16
-  %100 = getelementptr inbounds i8, ptr %97, i64 16
-  %101 = load ptr, ptr %100, align 8, !noalias !145
-  %102 = getelementptr inbounds i8, ptr %101, i64 16
-  %103 = load double, ptr %99, align 8
-  %104 = load double, ptr %102, align 8
-  %105 = fmul double %103, %104
-  %106 = getelementptr i8, ptr %98, i64 40
-  %107 = load double, ptr %106, align 8
-  %108 = getelementptr i8, ptr %101, i64 40
+  %100 = load double, ptr %96, align 8
+  %101 = load double, ptr %99, align 8
+  %102 = fmul double %100, %101
+  %103 = getelementptr i8, ptr %95, i64 40
+  %104 = load double, ptr %103, align 8
+  %105 = getelementptr i8, ptr %98, i64 40
+  %106 = load double, ptr %105, align 8
+  %107 = fmul double %104, %106
+  %108 = getelementptr i8, ptr %95, i64 64
   %109 = load double, ptr %108, align 8
-  %110 = fmul double %107, %109
-  %111 = getelementptr i8, ptr %98, i64 64
-  %112 = load double, ptr %111, align 8
-  %113 = getelementptr i8, ptr %101, i64 64
-  %114 = load double, ptr %113, align 8
-  %115 = fmul double %112, %114
-  %116 = fadd double %110, %115
-  %117 = fadd double %105, %116
-  %118 = load double, ptr %96, align 8
-  %119 = fadd double %118, %117
-  store double %119, ptr %96, align 8
+  %110 = getelementptr i8, ptr %98, i64 64
+  %111 = load double, ptr %110, align 8
+  %112 = fmul double %109, %111
+  %113 = fadd double %107, %112
+  %114 = fadd double %102, %113
+  %115 = load double, ptr %93, align 8
+  %116 = fadd double %115, %114
+  store double %116, ptr %93, align 8
   ret void
 }
 
@@ -18545,7 +18545,7 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNKS0_21Par
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %.not = icmp slt i32 %8, %10
-  br i1 %.not, label %11, label %272
+  br i1 %.not, label %11, label %271
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %5, align 8
@@ -18677,7 +18677,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE
   br label %73
 
 73:                                               ; preds = %.lr.ph, %_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit
-  %74 = phi i32 [ %71, %.lr.ph ], [ %269, %_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit ]
+  %74 = phi i32 [ %71, %.lr.ph ], [ %268, %_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit ]
   %.034103 = phi i32 [ 0, %.lr.ph ], [ %75, %_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit ]
   %75 = add nuw nsw i32 %.034103, 1
   %76 = mul i32 %74, %67
@@ -18788,169 +18788,169 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6Stride
   %137 = getelementptr double, ptr %97, i64 %104
   %138 = getelementptr double, ptr %135, i64 %104
   %139 = getelementptr double, ptr %136, i64 %104
-  %140 = shl nsw i64 %104, 1
-  %141 = getelementptr double, ptr %97, i64 %140
-  %142 = getelementptr double, ptr %135, i64 %140
-  %143 = getelementptr double, ptr %136, i64 %140
+  %.idx.i.i = shl nsw i64 %104, 4
+  %140 = getelementptr i8, ptr %97, i64 %.idx.i.i
+  %141 = getelementptr i8, ptr %135, i64 %.idx.i.i
+  %142 = getelementptr i8, ptr %136, i64 %.idx.i.i
   br label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %.lr.ph.i40.preheader, %.lr.ph.i40
-  %.sroa.020.025.i = phi ptr [ %265, %.lr.ph.i40 ], [ %132, %.lr.ph.i40.preheader ]
-  %144 = load ptr, ptr %83, align 8
-  %145 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 4
-  %146 = load i32, ptr %145, align 4
-  %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds double, ptr %144, i64 %147
-  %149 = load double, ptr %148, align 8
-  %150 = fmul double %149, %149
-  %151 = getelementptr i8, ptr %148, i64 24
-  %152 = load double, ptr %151, align 8
-  %153 = fmul double %152, %152
-  %154 = getelementptr i8, ptr %148, i64 48
-  %155 = load double, ptr %154, align 8
-  %156 = fmul double %155, %155
-  %157 = fadd double %153, %156
-  %158 = fadd double %150, %157
-  %159 = load double, ptr %97, align 8
-  %160 = fadd double %159, %158
-  store double %160, ptr %97, align 8
-  %161 = getelementptr inbounds i8, ptr %148, i64 8
-  %162 = load double, ptr %148, align 8
-  %163 = load double, ptr %161, align 8
-  %164 = fmul double %162, %163
-  %165 = load double, ptr %151, align 8
-  %166 = getelementptr i8, ptr %148, i64 32
-  %167 = load double, ptr %166, align 8
-  %168 = fmul double %165, %167
-  %169 = load double, ptr %154, align 8
-  %170 = getelementptr i8, ptr %148, i64 56
-  %171 = load double, ptr %170, align 8
-  %172 = fmul double %169, %171
-  %173 = fadd double %168, %172
-  %174 = fadd double %164, %173
-  %175 = load double, ptr %135, align 8
-  %176 = fadd double %175, %174
-  store double %176, ptr %135, align 8
-  %177 = getelementptr inbounds i8, ptr %148, i64 16
-  %178 = load double, ptr %148, align 8
-  %179 = load double, ptr %177, align 8
-  %180 = fmul double %178, %179
-  %181 = load double, ptr %151, align 8
-  %182 = getelementptr i8, ptr %148, i64 40
-  %183 = load double, ptr %182, align 8
-  %184 = fmul double %181, %183
-  %185 = load double, ptr %154, align 8
-  %186 = getelementptr i8, ptr %148, i64 64
-  %187 = load double, ptr %186, align 8
-  %188 = fmul double %185, %187
-  %189 = fadd double %184, %188
-  %190 = fadd double %180, %189
-  %191 = load double, ptr %136, align 8
-  %192 = fadd double %191, %190
-  store double %192, ptr %136, align 8
-  %193 = load double, ptr %161, align 8
-  %194 = load double, ptr %148, align 8
-  %195 = fmul double %193, %194
-  %196 = load double, ptr %166, align 8
-  %197 = load double, ptr %151, align 8
-  %198 = fmul double %196, %197
-  %199 = load double, ptr %170, align 8
-  %200 = load double, ptr %154, align 8
-  %201 = fmul double %199, %200
-  %202 = fadd double %198, %201
-  %203 = fadd double %195, %202
-  %204 = load double, ptr %137, align 8
-  %205 = fadd double %204, %203
-  store double %205, ptr %137, align 8
-  %206 = load double, ptr %161, align 8
-  %207 = fmul double %206, %206
-  %208 = load double, ptr %166, align 8
-  %209 = fmul double %208, %208
-  %210 = load double, ptr %170, align 8
-  %211 = fmul double %210, %210
-  %212 = fadd double %209, %211
-  %213 = fadd double %207, %212
-  %214 = load double, ptr %138, align 8
-  %215 = fadd double %214, %213
-  store double %215, ptr %138, align 8
-  %216 = load double, ptr %161, align 8
-  %217 = load double, ptr %177, align 8
-  %218 = fmul double %216, %217
-  %219 = load double, ptr %166, align 8
-  %220 = load double, ptr %182, align 8
-  %221 = fmul double %219, %220
-  %222 = load double, ptr %170, align 8
-  %223 = load double, ptr %186, align 8
-  %224 = fmul double %222, %223
-  %225 = fadd double %221, %224
-  %226 = fadd double %218, %225
-  %227 = load double, ptr %139, align 8
-  %228 = fadd double %227, %226
-  store double %228, ptr %139, align 8
-  %229 = load double, ptr %177, align 8
-  %230 = load double, ptr %148, align 8
-  %231 = fmul double %229, %230
-  %232 = load double, ptr %182, align 8
-  %233 = load double, ptr %151, align 8
-  %234 = fmul double %232, %233
-  %235 = load double, ptr %186, align 8
-  %236 = load double, ptr %154, align 8
-  %237 = fmul double %235, %236
-  %238 = fadd double %234, %237
-  %239 = fadd double %231, %238
-  %240 = load double, ptr %141, align 8
-  %241 = fadd double %240, %239
-  store double %241, ptr %141, align 8
-  %242 = load double, ptr %177, align 8
-  %243 = load double, ptr %161, align 8
-  %244 = fmul double %242, %243
-  %245 = load double, ptr %182, align 8
-  %246 = load double, ptr %166, align 8
-  %247 = fmul double %245, %246
-  %248 = load double, ptr %186, align 8
-  %249 = load double, ptr %170, align 8
-  %250 = fmul double %248, %249
-  %251 = fadd double %247, %250
-  %252 = fadd double %244, %251
-  %253 = load double, ptr %142, align 8
-  %254 = fadd double %253, %252
-  store double %254, ptr %142, align 8
-  %255 = load double, ptr %177, align 8
-  %256 = fmul double %255, %255
-  %257 = load double, ptr %182, align 8
-  %258 = fmul double %257, %257
-  %259 = load double, ptr %186, align 8
-  %260 = fmul double %259, %259
-  %261 = fadd double %258, %260
-  %262 = fadd double %256, %261
-  %263 = load double, ptr %143, align 8
-  %264 = fadd double %263, %262
-  store double %264, ptr %143, align 8
-  %265 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 8
-  %.not.i41 = icmp eq ptr %265, %134
+  %.sroa.020.025.i = phi ptr [ %264, %.lr.ph.i40 ], [ %132, %.lr.ph.i40.preheader ]
+  %143 = load ptr, ptr %83, align 8
+  %144 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 4
+  %145 = load i32, ptr %144, align 4
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds double, ptr %143, i64 %146
+  %148 = load double, ptr %147, align 8
+  %149 = fmul double %148, %148
+  %150 = getelementptr i8, ptr %147, i64 24
+  %151 = load double, ptr %150, align 8
+  %152 = fmul double %151, %151
+  %153 = getelementptr i8, ptr %147, i64 48
+  %154 = load double, ptr %153, align 8
+  %155 = fmul double %154, %154
+  %156 = fadd double %152, %155
+  %157 = fadd double %149, %156
+  %158 = load double, ptr %97, align 8
+  %159 = fadd double %158, %157
+  store double %159, ptr %97, align 8
+  %160 = getelementptr inbounds i8, ptr %147, i64 8
+  %161 = load double, ptr %147, align 8
+  %162 = load double, ptr %160, align 8
+  %163 = fmul double %161, %162
+  %164 = load double, ptr %150, align 8
+  %165 = getelementptr i8, ptr %147, i64 32
+  %166 = load double, ptr %165, align 8
+  %167 = fmul double %164, %166
+  %168 = load double, ptr %153, align 8
+  %169 = getelementptr i8, ptr %147, i64 56
+  %170 = load double, ptr %169, align 8
+  %171 = fmul double %168, %170
+  %172 = fadd double %167, %171
+  %173 = fadd double %163, %172
+  %174 = load double, ptr %135, align 8
+  %175 = fadd double %174, %173
+  store double %175, ptr %135, align 8
+  %176 = getelementptr inbounds i8, ptr %147, i64 16
+  %177 = load double, ptr %147, align 8
+  %178 = load double, ptr %176, align 8
+  %179 = fmul double %177, %178
+  %180 = load double, ptr %150, align 8
+  %181 = getelementptr i8, ptr %147, i64 40
+  %182 = load double, ptr %181, align 8
+  %183 = fmul double %180, %182
+  %184 = load double, ptr %153, align 8
+  %185 = getelementptr i8, ptr %147, i64 64
+  %186 = load double, ptr %185, align 8
+  %187 = fmul double %184, %186
+  %188 = fadd double %183, %187
+  %189 = fadd double %179, %188
+  %190 = load double, ptr %136, align 8
+  %191 = fadd double %190, %189
+  store double %191, ptr %136, align 8
+  %192 = load double, ptr %160, align 8
+  %193 = load double, ptr %147, align 8
+  %194 = fmul double %192, %193
+  %195 = load double, ptr %165, align 8
+  %196 = load double, ptr %150, align 8
+  %197 = fmul double %195, %196
+  %198 = load double, ptr %169, align 8
+  %199 = load double, ptr %153, align 8
+  %200 = fmul double %198, %199
+  %201 = fadd double %197, %200
+  %202 = fadd double %194, %201
+  %203 = load double, ptr %137, align 8
+  %204 = fadd double %203, %202
+  store double %204, ptr %137, align 8
+  %205 = load double, ptr %160, align 8
+  %206 = fmul double %205, %205
+  %207 = load double, ptr %165, align 8
+  %208 = fmul double %207, %207
+  %209 = load double, ptr %169, align 8
+  %210 = fmul double %209, %209
+  %211 = fadd double %208, %210
+  %212 = fadd double %206, %211
+  %213 = load double, ptr %138, align 8
+  %214 = fadd double %213, %212
+  store double %214, ptr %138, align 8
+  %215 = load double, ptr %160, align 8
+  %216 = load double, ptr %176, align 8
+  %217 = fmul double %215, %216
+  %218 = load double, ptr %165, align 8
+  %219 = load double, ptr %181, align 8
+  %220 = fmul double %218, %219
+  %221 = load double, ptr %169, align 8
+  %222 = load double, ptr %185, align 8
+  %223 = fmul double %221, %222
+  %224 = fadd double %220, %223
+  %225 = fadd double %217, %224
+  %226 = load double, ptr %139, align 8
+  %227 = fadd double %226, %225
+  store double %227, ptr %139, align 8
+  %228 = load double, ptr %176, align 8
+  %229 = load double, ptr %147, align 8
+  %230 = fmul double %228, %229
+  %231 = load double, ptr %181, align 8
+  %232 = load double, ptr %150, align 8
+  %233 = fmul double %231, %232
+  %234 = load double, ptr %185, align 8
+  %235 = load double, ptr %153, align 8
+  %236 = fmul double %234, %235
+  %237 = fadd double %233, %236
+  %238 = fadd double %230, %237
+  %239 = load double, ptr %140, align 8
+  %240 = fadd double %239, %238
+  store double %240, ptr %140, align 8
+  %241 = load double, ptr %176, align 8
+  %242 = load double, ptr %160, align 8
+  %243 = fmul double %241, %242
+  %244 = load double, ptr %181, align 8
+  %245 = load double, ptr %165, align 8
+  %246 = fmul double %244, %245
+  %247 = load double, ptr %185, align 8
+  %248 = load double, ptr %169, align 8
+  %249 = fmul double %247, %248
+  %250 = fadd double %246, %249
+  %251 = fadd double %243, %250
+  %252 = load double, ptr %141, align 8
+  %253 = fadd double %252, %251
+  store double %253, ptr %141, align 8
+  %254 = load double, ptr %176, align 8
+  %255 = fmul double %254, %254
+  %256 = load double, ptr %181, align 8
+  %257 = fmul double %256, %256
+  %258 = load double, ptr %185, align 8
+  %259 = fmul double %258, %258
+  %260 = fadd double %257, %259
+  %261 = fadd double %255, %260
+  %262 = load double, ptr %142, align 8
+  %263 = fadd double %262, %261
+  store double %263, ptr %142, align 8
+  %264 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 8
+  %.not.i41 = icmp eq ptr %264, %134
   br i1 %.not.i41, label %_ZZNK5ceres8internal21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEENKUliE_clEi.exit, label %.lr.ph.i40
 
 _ZZNK5ceres8internal21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEENKUliE_clEi.exit: ; preds = %.lr.ph.i40, %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %266 = trunc nsw i64 %indvars.iv.next to i32
-  %.not.i = icmp eq i32 %82, %266
+  %265 = trunc nsw i64 %indvars.iv.next to i32
+  %.not.i = icmp eq i32 %82, %265
   br i1 %.not.i, label %_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit, label %.lr.ph.i, !llvm.loop !148
 
 _ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit: ; preds = %_ZZNK5ceres8internal21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEENKUliE_clEi.exit, %73
-  %267 = load ptr, ptr %5, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 20
-  %269 = atomicrmw add ptr %268, i32 1 seq_cst, align 4
-  %.not36 = icmp slt i32 %269, %14
+  %266 = load ptr, ptr %5, align 8
+  %267 = getelementptr inbounds i8, ptr %266, i64 20
+  %268 = atomicrmw add ptr %267, i32 1 seq_cst, align 4
+  %.not36 = icmp slt i32 %268, %14
   br i1 %.not36, label %73, label %._crit_edge, !llvm.loop !152
 
 ._crit_edge:                                      ; preds = %_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit, %_ZZZN5ceres8internal14ParallelInvokeIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit
   %.034.lcssa = phi i32 [ 0, %_ZZZN5ceres8internal14ParallelInvokeIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRS9_E_clISC_EEDaSB_ENUlvE_D2Ev.exit ], [ %75, %_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit ]
-  %270 = load ptr, ptr %5, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 32
-  call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %271, i32 noundef %.034.lcssa)
-  br label %272
+  %269 = load ptr, ptr %5, align 8
+  %270 = getelementptr inbounds i8, ptr %269, i64 32
+  call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %270, i32 noundef %.034.lcssa)
+  br label %271
 
-272:                                              ; preds = %2, %._crit_edge
+271:                                              ; preds = %2, %._crit_edge
   ret void
 }
 
@@ -19154,7 +19154,7 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNKS0_21Par
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %.not = icmp slt i32 %8, %10
-  br i1 %.not, label %11, label %314
+  br i1 %.not, label %11, label %313
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %5, align 8
@@ -19376,7 +19376,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE
   br label %115
 
 115:                                              ; preds = %.lr.ph, %_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit
-  %116 = phi i32 [ %113, %.lr.ph ], [ %311, %_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit ]
+  %116 = phi i32 [ %113, %.lr.ph ], [ %310, %_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit ]
   %.034104 = phi i32 [ 0, %.lr.ph ], [ %117, %_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit ]
   %117 = add nuw nsw i32 %.034104, 1
   %118 = mul i32 %116, %109
@@ -19487,169 +19487,169 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6Stride
   %179 = getelementptr double, ptr %139, i64 %146
   %180 = getelementptr double, ptr %177, i64 %146
   %181 = getelementptr double, ptr %178, i64 %146
-  %182 = shl nsw i64 %146, 1
-  %183 = getelementptr double, ptr %139, i64 %182
-  %184 = getelementptr double, ptr %177, i64 %182
-  %185 = getelementptr double, ptr %178, i64 %182
+  %.idx.i.i = shl nsw i64 %146, 4
+  %182 = getelementptr i8, ptr %139, i64 %.idx.i.i
+  %183 = getelementptr i8, ptr %177, i64 %.idx.i.i
+  %184 = getelementptr i8, ptr %178, i64 %.idx.i.i
   br label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %.lr.ph.i41.preheader, %.lr.ph.i41
-  %.sroa.020.025.i = phi ptr [ %307, %.lr.ph.i41 ], [ %174, %.lr.ph.i41.preheader ]
-  %186 = load ptr, ptr %125, align 8
-  %187 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 4
-  %188 = load i32, ptr %187, align 4
-  %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds double, ptr %186, i64 %189
-  %191 = load double, ptr %190, align 8
-  %192 = fmul double %191, %191
-  %193 = getelementptr i8, ptr %190, i64 24
-  %194 = load double, ptr %193, align 8
-  %195 = fmul double %194, %194
-  %196 = getelementptr i8, ptr %190, i64 48
-  %197 = load double, ptr %196, align 8
-  %198 = fmul double %197, %197
-  %199 = fadd double %195, %198
-  %200 = fadd double %192, %199
-  %201 = load double, ptr %139, align 8
-  %202 = fadd double %201, %200
-  store double %202, ptr %139, align 8
-  %203 = getelementptr inbounds i8, ptr %190, i64 8
-  %204 = load double, ptr %190, align 8
-  %205 = load double, ptr %203, align 8
-  %206 = fmul double %204, %205
-  %207 = load double, ptr %193, align 8
-  %208 = getelementptr i8, ptr %190, i64 32
-  %209 = load double, ptr %208, align 8
-  %210 = fmul double %207, %209
-  %211 = load double, ptr %196, align 8
-  %212 = getelementptr i8, ptr %190, i64 56
-  %213 = load double, ptr %212, align 8
-  %214 = fmul double %211, %213
-  %215 = fadd double %210, %214
-  %216 = fadd double %206, %215
-  %217 = load double, ptr %177, align 8
-  %218 = fadd double %217, %216
-  store double %218, ptr %177, align 8
-  %219 = getelementptr inbounds i8, ptr %190, i64 16
-  %220 = load double, ptr %190, align 8
-  %221 = load double, ptr %219, align 8
-  %222 = fmul double %220, %221
-  %223 = load double, ptr %193, align 8
-  %224 = getelementptr i8, ptr %190, i64 40
-  %225 = load double, ptr %224, align 8
-  %226 = fmul double %223, %225
-  %227 = load double, ptr %196, align 8
-  %228 = getelementptr i8, ptr %190, i64 64
-  %229 = load double, ptr %228, align 8
-  %230 = fmul double %227, %229
-  %231 = fadd double %226, %230
-  %232 = fadd double %222, %231
-  %233 = load double, ptr %178, align 8
-  %234 = fadd double %233, %232
-  store double %234, ptr %178, align 8
-  %235 = load double, ptr %203, align 8
-  %236 = load double, ptr %190, align 8
-  %237 = fmul double %235, %236
-  %238 = load double, ptr %208, align 8
-  %239 = load double, ptr %193, align 8
-  %240 = fmul double %238, %239
-  %241 = load double, ptr %212, align 8
-  %242 = load double, ptr %196, align 8
-  %243 = fmul double %241, %242
-  %244 = fadd double %240, %243
-  %245 = fadd double %237, %244
-  %246 = load double, ptr %179, align 8
-  %247 = fadd double %246, %245
-  store double %247, ptr %179, align 8
-  %248 = load double, ptr %203, align 8
-  %249 = fmul double %248, %248
-  %250 = load double, ptr %208, align 8
-  %251 = fmul double %250, %250
-  %252 = load double, ptr %212, align 8
-  %253 = fmul double %252, %252
-  %254 = fadd double %251, %253
-  %255 = fadd double %249, %254
-  %256 = load double, ptr %180, align 8
-  %257 = fadd double %256, %255
-  store double %257, ptr %180, align 8
-  %258 = load double, ptr %203, align 8
-  %259 = load double, ptr %219, align 8
-  %260 = fmul double %258, %259
-  %261 = load double, ptr %208, align 8
-  %262 = load double, ptr %224, align 8
-  %263 = fmul double %261, %262
-  %264 = load double, ptr %212, align 8
-  %265 = load double, ptr %228, align 8
-  %266 = fmul double %264, %265
-  %267 = fadd double %263, %266
-  %268 = fadd double %260, %267
-  %269 = load double, ptr %181, align 8
-  %270 = fadd double %269, %268
-  store double %270, ptr %181, align 8
-  %271 = load double, ptr %219, align 8
-  %272 = load double, ptr %190, align 8
-  %273 = fmul double %271, %272
-  %274 = load double, ptr %224, align 8
-  %275 = load double, ptr %193, align 8
-  %276 = fmul double %274, %275
-  %277 = load double, ptr %228, align 8
-  %278 = load double, ptr %196, align 8
-  %279 = fmul double %277, %278
-  %280 = fadd double %276, %279
-  %281 = fadd double %273, %280
-  %282 = load double, ptr %183, align 8
-  %283 = fadd double %282, %281
-  store double %283, ptr %183, align 8
-  %284 = load double, ptr %219, align 8
-  %285 = load double, ptr %203, align 8
-  %286 = fmul double %284, %285
-  %287 = load double, ptr %224, align 8
-  %288 = load double, ptr %208, align 8
-  %289 = fmul double %287, %288
-  %290 = load double, ptr %228, align 8
-  %291 = load double, ptr %212, align 8
-  %292 = fmul double %290, %291
-  %293 = fadd double %289, %292
-  %294 = fadd double %286, %293
-  %295 = load double, ptr %184, align 8
-  %296 = fadd double %295, %294
-  store double %296, ptr %184, align 8
-  %297 = load double, ptr %219, align 8
-  %298 = fmul double %297, %297
-  %299 = load double, ptr %224, align 8
-  %300 = fmul double %299, %299
-  %301 = load double, ptr %228, align 8
-  %302 = fmul double %301, %301
-  %303 = fadd double %300, %302
-  %304 = fadd double %298, %303
-  %305 = load double, ptr %185, align 8
-  %306 = fadd double %305, %304
-  store double %306, ptr %185, align 8
-  %307 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 8
-  %.not.i42 = icmp eq ptr %307, %176
+  %.sroa.020.025.i = phi ptr [ %306, %.lr.ph.i41 ], [ %174, %.lr.ph.i41.preheader ]
+  %185 = load ptr, ptr %125, align 8
+  %186 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 4
+  %187 = load i32, ptr %186, align 4
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds double, ptr %185, i64 %188
+  %190 = load double, ptr %189, align 8
+  %191 = fmul double %190, %190
+  %192 = getelementptr i8, ptr %189, i64 24
+  %193 = load double, ptr %192, align 8
+  %194 = fmul double %193, %193
+  %195 = getelementptr i8, ptr %189, i64 48
+  %196 = load double, ptr %195, align 8
+  %197 = fmul double %196, %196
+  %198 = fadd double %194, %197
+  %199 = fadd double %191, %198
+  %200 = load double, ptr %139, align 8
+  %201 = fadd double %200, %199
+  store double %201, ptr %139, align 8
+  %202 = getelementptr inbounds i8, ptr %189, i64 8
+  %203 = load double, ptr %189, align 8
+  %204 = load double, ptr %202, align 8
+  %205 = fmul double %203, %204
+  %206 = load double, ptr %192, align 8
+  %207 = getelementptr i8, ptr %189, i64 32
+  %208 = load double, ptr %207, align 8
+  %209 = fmul double %206, %208
+  %210 = load double, ptr %195, align 8
+  %211 = getelementptr i8, ptr %189, i64 56
+  %212 = load double, ptr %211, align 8
+  %213 = fmul double %210, %212
+  %214 = fadd double %209, %213
+  %215 = fadd double %205, %214
+  %216 = load double, ptr %177, align 8
+  %217 = fadd double %216, %215
+  store double %217, ptr %177, align 8
+  %218 = getelementptr inbounds i8, ptr %189, i64 16
+  %219 = load double, ptr %189, align 8
+  %220 = load double, ptr %218, align 8
+  %221 = fmul double %219, %220
+  %222 = load double, ptr %192, align 8
+  %223 = getelementptr i8, ptr %189, i64 40
+  %224 = load double, ptr %223, align 8
+  %225 = fmul double %222, %224
+  %226 = load double, ptr %195, align 8
+  %227 = getelementptr i8, ptr %189, i64 64
+  %228 = load double, ptr %227, align 8
+  %229 = fmul double %226, %228
+  %230 = fadd double %225, %229
+  %231 = fadd double %221, %230
+  %232 = load double, ptr %178, align 8
+  %233 = fadd double %232, %231
+  store double %233, ptr %178, align 8
+  %234 = load double, ptr %202, align 8
+  %235 = load double, ptr %189, align 8
+  %236 = fmul double %234, %235
+  %237 = load double, ptr %207, align 8
+  %238 = load double, ptr %192, align 8
+  %239 = fmul double %237, %238
+  %240 = load double, ptr %211, align 8
+  %241 = load double, ptr %195, align 8
+  %242 = fmul double %240, %241
+  %243 = fadd double %239, %242
+  %244 = fadd double %236, %243
+  %245 = load double, ptr %179, align 8
+  %246 = fadd double %245, %244
+  store double %246, ptr %179, align 8
+  %247 = load double, ptr %202, align 8
+  %248 = fmul double %247, %247
+  %249 = load double, ptr %207, align 8
+  %250 = fmul double %249, %249
+  %251 = load double, ptr %211, align 8
+  %252 = fmul double %251, %251
+  %253 = fadd double %250, %252
+  %254 = fadd double %248, %253
+  %255 = load double, ptr %180, align 8
+  %256 = fadd double %255, %254
+  store double %256, ptr %180, align 8
+  %257 = load double, ptr %202, align 8
+  %258 = load double, ptr %218, align 8
+  %259 = fmul double %257, %258
+  %260 = load double, ptr %207, align 8
+  %261 = load double, ptr %223, align 8
+  %262 = fmul double %260, %261
+  %263 = load double, ptr %211, align 8
+  %264 = load double, ptr %227, align 8
+  %265 = fmul double %263, %264
+  %266 = fadd double %262, %265
+  %267 = fadd double %259, %266
+  %268 = load double, ptr %181, align 8
+  %269 = fadd double %268, %267
+  store double %269, ptr %181, align 8
+  %270 = load double, ptr %218, align 8
+  %271 = load double, ptr %189, align 8
+  %272 = fmul double %270, %271
+  %273 = load double, ptr %223, align 8
+  %274 = load double, ptr %192, align 8
+  %275 = fmul double %273, %274
+  %276 = load double, ptr %227, align 8
+  %277 = load double, ptr %195, align 8
+  %278 = fmul double %276, %277
+  %279 = fadd double %275, %278
+  %280 = fadd double %272, %279
+  %281 = load double, ptr %182, align 8
+  %282 = fadd double %281, %280
+  store double %282, ptr %182, align 8
+  %283 = load double, ptr %218, align 8
+  %284 = load double, ptr %202, align 8
+  %285 = fmul double %283, %284
+  %286 = load double, ptr %223, align 8
+  %287 = load double, ptr %207, align 8
+  %288 = fmul double %286, %287
+  %289 = load double, ptr %227, align 8
+  %290 = load double, ptr %211, align 8
+  %291 = fmul double %289, %290
+  %292 = fadd double %288, %291
+  %293 = fadd double %285, %292
+  %294 = load double, ptr %183, align 8
+  %295 = fadd double %294, %293
+  store double %295, ptr %183, align 8
+  %296 = load double, ptr %218, align 8
+  %297 = fmul double %296, %296
+  %298 = load double, ptr %223, align 8
+  %299 = fmul double %298, %298
+  %300 = load double, ptr %227, align 8
+  %301 = fmul double %300, %300
+  %302 = fadd double %299, %301
+  %303 = fadd double %297, %302
+  %304 = load double, ptr %184, align 8
+  %305 = fadd double %304, %303
+  store double %305, ptr %184, align 8
+  %306 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 8
+  %.not.i42 = icmp eq ptr %306, %176
   br i1 %.not.i42, label %_ZZNK5ceres8internal21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEENKUliE_clEi.exit, label %.lr.ph.i41
 
 _ZZNK5ceres8internal21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEENKUliE_clEi.exit: ; preds = %.lr.ph.i41, %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %308 = trunc nsw i64 %indvars.iv.next to i32
-  %.not.i = icmp eq i32 %124, %308
+  %307 = trunc nsw i64 %indvars.iv.next to i32
+  %.not.i = icmp eq i32 %124, %307
   br i1 %.not.i, label %_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit, label %.lr.ph.i, !llvm.loop !148
 
 _ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit: ; preds = %_ZZNK5ceres8internal21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEENKUliE_clEi.exit, %115
-  %309 = load ptr, ptr %5, align 8
-  %310 = getelementptr inbounds i8, ptr %309, i64 20
-  %311 = atomicrmw add ptr %310, i32 1 seq_cst, align 4
-  %.not36 = icmp slt i32 %311, %14
+  %308 = load ptr, ptr %5, align 8
+  %309 = getelementptr inbounds i8, ptr %308, i64 20
+  %310 = atomicrmw add ptr %309, i32 1 seq_cst, align 4
+  %.not36 = icmp slt i32 %310, %14
   br i1 %.not36, label %115, label %._crit_edge, !llvm.loop !153
 
 ._crit_edge:                                      ; preds = %_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit, %_ZZZN5ceres8internal14ParallelInvokeIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit
   %.034.lcssa = phi i32 [ 0, %_ZZZN5ceres8internal14ParallelInvokeIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRS9_E_clIKSC_EEDaSB_ENUlvE_D2Ev.exit ], [ %117, %_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEviSt5tupleIJiiEEOT_.exit ]
-  %312 = load ptr, ptr %5, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 32
-  call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %313, i32 noundef %.034.lcssa)
-  br label %314
+  %311 = load ptr, ptr %5, align 8
+  %312 = getelementptr inbounds i8, ptr %311, i64 32
+  call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %312, i32 noundef %.034.lcssa)
+  br label %313
 
-314:                                              ; preds = %2, %._crit_edge
+313:                                              ; preds = %2, %._crit_edge
   ret void
 }
 
@@ -20309,7 +20309,7 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_11Para
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %.not = icmp slt i32 %8, %10
-  br i1 %.not, label %11, label %282
+  br i1 %.not, label %11, label %281
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %5, align 8
@@ -20441,7 +20441,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   br label %73
 
 73:                                               ; preds = %.lr.ph, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit
-  %74 = phi i32 [ %71, %.lr.ph ], [ %279, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit ]
+  %74 = phi i32 [ %71, %.lr.ph ], [ %278, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit ]
   %.034102 = phi i32 [ 0, %.lr.ph ], [ %75, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit ]
   %75 = add nuw nsw i32 %.034102, 1
   %76 = mul nsw i32 %74, %67
@@ -20562,169 +20562,169 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6Stride
   %147 = getelementptr double, ptr %107, i64 %114
   %148 = getelementptr double, ptr %145, i64 %114
   %149 = getelementptr double, ptr %146, i64 %114
-  %150 = shl nsw i64 %114, 1
-  %151 = getelementptr double, ptr %107, i64 %150
-  %152 = getelementptr double, ptr %145, i64 %150
-  %153 = getelementptr double, ptr %146, i64 %150
+  %.idx.i.i = shl nsw i64 %114, 4
+  %150 = getelementptr i8, ptr %107, i64 %.idx.i.i
+  %151 = getelementptr i8, ptr %145, i64 %.idx.i.i
+  %152 = getelementptr i8, ptr %146, i64 %.idx.i.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.sroa.020.025.i = phi ptr [ %275, %.lr.ph.i ], [ %142, %.lr.ph.i.preheader ]
-  %154 = load ptr, ptr %93, align 8
-  %155 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 4
-  %156 = load i32, ptr %155, align 4
-  %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds double, ptr %154, i64 %157
-  %159 = load double, ptr %158, align 8
-  %160 = fmul double %159, %159
-  %161 = getelementptr i8, ptr %158, i64 24
-  %162 = load double, ptr %161, align 8
-  %163 = fmul double %162, %162
-  %164 = getelementptr i8, ptr %158, i64 48
-  %165 = load double, ptr %164, align 8
-  %166 = fmul double %165, %165
-  %167 = fadd double %163, %166
-  %168 = fadd double %160, %167
-  %169 = load double, ptr %107, align 8
-  %170 = fadd double %169, %168
-  store double %170, ptr %107, align 8
-  %171 = getelementptr inbounds i8, ptr %158, i64 8
-  %172 = load double, ptr %158, align 8
-  %173 = load double, ptr %171, align 8
-  %174 = fmul double %172, %173
-  %175 = load double, ptr %161, align 8
-  %176 = getelementptr i8, ptr %158, i64 32
-  %177 = load double, ptr %176, align 8
-  %178 = fmul double %175, %177
-  %179 = load double, ptr %164, align 8
-  %180 = getelementptr i8, ptr %158, i64 56
-  %181 = load double, ptr %180, align 8
-  %182 = fmul double %179, %181
-  %183 = fadd double %178, %182
-  %184 = fadd double %174, %183
-  %185 = load double, ptr %145, align 8
-  %186 = fadd double %185, %184
-  store double %186, ptr %145, align 8
-  %187 = getelementptr inbounds i8, ptr %158, i64 16
-  %188 = load double, ptr %158, align 8
-  %189 = load double, ptr %187, align 8
-  %190 = fmul double %188, %189
-  %191 = load double, ptr %161, align 8
-  %192 = getelementptr i8, ptr %158, i64 40
-  %193 = load double, ptr %192, align 8
-  %194 = fmul double %191, %193
-  %195 = load double, ptr %164, align 8
-  %196 = getelementptr i8, ptr %158, i64 64
-  %197 = load double, ptr %196, align 8
-  %198 = fmul double %195, %197
-  %199 = fadd double %194, %198
-  %200 = fadd double %190, %199
-  %201 = load double, ptr %146, align 8
-  %202 = fadd double %201, %200
-  store double %202, ptr %146, align 8
-  %203 = load double, ptr %171, align 8
-  %204 = load double, ptr %158, align 8
-  %205 = fmul double %203, %204
-  %206 = load double, ptr %176, align 8
-  %207 = load double, ptr %161, align 8
-  %208 = fmul double %206, %207
-  %209 = load double, ptr %180, align 8
-  %210 = load double, ptr %164, align 8
-  %211 = fmul double %209, %210
-  %212 = fadd double %208, %211
-  %213 = fadd double %205, %212
-  %214 = load double, ptr %147, align 8
-  %215 = fadd double %214, %213
-  store double %215, ptr %147, align 8
-  %216 = load double, ptr %171, align 8
-  %217 = fmul double %216, %216
-  %218 = load double, ptr %176, align 8
-  %219 = fmul double %218, %218
-  %220 = load double, ptr %180, align 8
-  %221 = fmul double %220, %220
-  %222 = fadd double %219, %221
-  %223 = fadd double %217, %222
-  %224 = load double, ptr %148, align 8
-  %225 = fadd double %224, %223
-  store double %225, ptr %148, align 8
-  %226 = load double, ptr %171, align 8
-  %227 = load double, ptr %187, align 8
-  %228 = fmul double %226, %227
-  %229 = load double, ptr %176, align 8
-  %230 = load double, ptr %192, align 8
-  %231 = fmul double %229, %230
-  %232 = load double, ptr %180, align 8
-  %233 = load double, ptr %196, align 8
-  %234 = fmul double %232, %233
-  %235 = fadd double %231, %234
-  %236 = fadd double %228, %235
-  %237 = load double, ptr %149, align 8
-  %238 = fadd double %237, %236
-  store double %238, ptr %149, align 8
-  %239 = load double, ptr %187, align 8
-  %240 = load double, ptr %158, align 8
-  %241 = fmul double %239, %240
-  %242 = load double, ptr %192, align 8
-  %243 = load double, ptr %161, align 8
-  %244 = fmul double %242, %243
-  %245 = load double, ptr %196, align 8
-  %246 = load double, ptr %164, align 8
-  %247 = fmul double %245, %246
-  %248 = fadd double %244, %247
-  %249 = fadd double %241, %248
-  %250 = load double, ptr %151, align 8
-  %251 = fadd double %250, %249
-  store double %251, ptr %151, align 8
-  %252 = load double, ptr %187, align 8
-  %253 = load double, ptr %171, align 8
-  %254 = fmul double %252, %253
-  %255 = load double, ptr %192, align 8
-  %256 = load double, ptr %176, align 8
-  %257 = fmul double %255, %256
-  %258 = load double, ptr %196, align 8
-  %259 = load double, ptr %180, align 8
-  %260 = fmul double %258, %259
-  %261 = fadd double %257, %260
-  %262 = fadd double %254, %261
-  %263 = load double, ptr %152, align 8
-  %264 = fadd double %263, %262
-  store double %264, ptr %152, align 8
-  %265 = load double, ptr %187, align 8
-  %266 = fmul double %265, %265
-  %267 = load double, ptr %192, align 8
-  %268 = fmul double %267, %267
-  %269 = load double, ptr %196, align 8
-  %270 = fmul double %269, %269
-  %271 = fadd double %268, %270
-  %272 = fadd double %266, %271
-  %273 = load double, ptr %153, align 8
-  %274 = fadd double %273, %272
-  store double %274, ptr %153, align 8
-  %275 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 8
-  %.not.i = icmp eq ptr %275, %144
+  %.sroa.020.025.i = phi ptr [ %274, %.lr.ph.i ], [ %142, %.lr.ph.i.preheader ]
+  %153 = load ptr, ptr %93, align 8
+  %154 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 4
+  %155 = load i32, ptr %154, align 4
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr inbounds double, ptr %153, i64 %156
+  %158 = load double, ptr %157, align 8
+  %159 = fmul double %158, %158
+  %160 = getelementptr i8, ptr %157, i64 24
+  %161 = load double, ptr %160, align 8
+  %162 = fmul double %161, %161
+  %163 = getelementptr i8, ptr %157, i64 48
+  %164 = load double, ptr %163, align 8
+  %165 = fmul double %164, %164
+  %166 = fadd double %162, %165
+  %167 = fadd double %159, %166
+  %168 = load double, ptr %107, align 8
+  %169 = fadd double %168, %167
+  store double %169, ptr %107, align 8
+  %170 = getelementptr inbounds i8, ptr %157, i64 8
+  %171 = load double, ptr %157, align 8
+  %172 = load double, ptr %170, align 8
+  %173 = fmul double %171, %172
+  %174 = load double, ptr %160, align 8
+  %175 = getelementptr i8, ptr %157, i64 32
+  %176 = load double, ptr %175, align 8
+  %177 = fmul double %174, %176
+  %178 = load double, ptr %163, align 8
+  %179 = getelementptr i8, ptr %157, i64 56
+  %180 = load double, ptr %179, align 8
+  %181 = fmul double %178, %180
+  %182 = fadd double %177, %181
+  %183 = fadd double %173, %182
+  %184 = load double, ptr %145, align 8
+  %185 = fadd double %184, %183
+  store double %185, ptr %145, align 8
+  %186 = getelementptr inbounds i8, ptr %157, i64 16
+  %187 = load double, ptr %157, align 8
+  %188 = load double, ptr %186, align 8
+  %189 = fmul double %187, %188
+  %190 = load double, ptr %160, align 8
+  %191 = getelementptr i8, ptr %157, i64 40
+  %192 = load double, ptr %191, align 8
+  %193 = fmul double %190, %192
+  %194 = load double, ptr %163, align 8
+  %195 = getelementptr i8, ptr %157, i64 64
+  %196 = load double, ptr %195, align 8
+  %197 = fmul double %194, %196
+  %198 = fadd double %193, %197
+  %199 = fadd double %189, %198
+  %200 = load double, ptr %146, align 8
+  %201 = fadd double %200, %199
+  store double %201, ptr %146, align 8
+  %202 = load double, ptr %170, align 8
+  %203 = load double, ptr %157, align 8
+  %204 = fmul double %202, %203
+  %205 = load double, ptr %175, align 8
+  %206 = load double, ptr %160, align 8
+  %207 = fmul double %205, %206
+  %208 = load double, ptr %179, align 8
+  %209 = load double, ptr %163, align 8
+  %210 = fmul double %208, %209
+  %211 = fadd double %207, %210
+  %212 = fadd double %204, %211
+  %213 = load double, ptr %147, align 8
+  %214 = fadd double %213, %212
+  store double %214, ptr %147, align 8
+  %215 = load double, ptr %170, align 8
+  %216 = fmul double %215, %215
+  %217 = load double, ptr %175, align 8
+  %218 = fmul double %217, %217
+  %219 = load double, ptr %179, align 8
+  %220 = fmul double %219, %219
+  %221 = fadd double %218, %220
+  %222 = fadd double %216, %221
+  %223 = load double, ptr %148, align 8
+  %224 = fadd double %223, %222
+  store double %224, ptr %148, align 8
+  %225 = load double, ptr %170, align 8
+  %226 = load double, ptr %186, align 8
+  %227 = fmul double %225, %226
+  %228 = load double, ptr %175, align 8
+  %229 = load double, ptr %191, align 8
+  %230 = fmul double %228, %229
+  %231 = load double, ptr %179, align 8
+  %232 = load double, ptr %195, align 8
+  %233 = fmul double %231, %232
+  %234 = fadd double %230, %233
+  %235 = fadd double %227, %234
+  %236 = load double, ptr %149, align 8
+  %237 = fadd double %236, %235
+  store double %237, ptr %149, align 8
+  %238 = load double, ptr %186, align 8
+  %239 = load double, ptr %157, align 8
+  %240 = fmul double %238, %239
+  %241 = load double, ptr %191, align 8
+  %242 = load double, ptr %160, align 8
+  %243 = fmul double %241, %242
+  %244 = load double, ptr %195, align 8
+  %245 = load double, ptr %163, align 8
+  %246 = fmul double %244, %245
+  %247 = fadd double %243, %246
+  %248 = fadd double %240, %247
+  %249 = load double, ptr %150, align 8
+  %250 = fadd double %249, %248
+  store double %250, ptr %150, align 8
+  %251 = load double, ptr %186, align 8
+  %252 = load double, ptr %170, align 8
+  %253 = fmul double %251, %252
+  %254 = load double, ptr %191, align 8
+  %255 = load double, ptr %175, align 8
+  %256 = fmul double %254, %255
+  %257 = load double, ptr %195, align 8
+  %258 = load double, ptr %179, align 8
+  %259 = fmul double %257, %258
+  %260 = fadd double %256, %259
+  %261 = fadd double %253, %260
+  %262 = load double, ptr %151, align 8
+  %263 = fadd double %262, %261
+  store double %263, ptr %151, align 8
+  %264 = load double, ptr %186, align 8
+  %265 = fmul double %264, %264
+  %266 = load double, ptr %191, align 8
+  %267 = fmul double %266, %266
+  %268 = load double, ptr %195, align 8
+  %269 = fmul double %268, %268
+  %270 = fadd double %267, %269
+  %271 = fadd double %265, %270
+  %272 = load double, ptr %152, align 8
+  %273 = fadd double %272, %271
+  store double %273, ptr %152, align 8
+  %274 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 8
+  %.not.i = icmp eq ptr %274, %144
   br i1 %.not.i, label %_ZZNK5ceres8internal21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEENKUliE_clEi.exit, label %.lr.ph.i
 
 _ZZNK5ceres8internal21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEENKUliE_clEi.exit: ; preds = %.lr.ph.i, %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %276 = trunc nsw i64 %indvars.iv.next to i32
-  %.not.i.i.i.i40 = icmp eq i32 %92, %276
+  %275 = trunc nsw i64 %indvars.iv.next to i32
+  %.not.i.i.i.i40 = icmp eq i32 %92, %275
   br i1 %.not.i.i.i.i40, label %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !148
 
 _ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit: ; preds = %_ZZNK5ceres8internal21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEENKUliE_clEi.exit, %73
-  %277 = load ptr, ptr %5, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 20
-  %279 = atomicrmw add ptr %278, i32 1 seq_cst, align 4
-  %.not36 = icmp slt i32 %279, %14
+  %276 = load ptr, ptr %5, align 8
+  %277 = getelementptr inbounds i8, ptr %276, i64 20
+  %278 = atomicrmw add ptr %277, i32 1 seq_cst, align 4
+  %.not36 = icmp slt i32 %278, %14
   br i1 %.not36, label %73, label %._crit_edge, !llvm.loop !157
 
 ._crit_edge:                                      ; preds = %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit
   %.034.lcssa = phi i32 [ 0, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSB_iENKUlRSA_E_clISL_EEDaSK_ENUlvE_D2Ev.exit ], [ %75, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit ]
-  %280 = load ptr, ptr %5, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 32
-  call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %281, i32 noundef %.034.lcssa)
-  br label %282
+  %279 = load ptr, ptr %5, align 8
+  %280 = getelementptr inbounds i8, ptr %279, i64 32
+  call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %280, i32 noundef %.034.lcssa)
+  br label %281
 
-282:                                              ; preds = %2, %._crit_edge
+281:                                              ; preds = %2, %._crit_edge
   ret void
 }
 
@@ -20928,7 +20928,7 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_11Para
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %.not = icmp slt i32 %8, %10
-  br i1 %.not, label %11, label %324
+  br i1 %.not, label %11, label %323
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %5, align 8
@@ -21150,7 +21150,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   br label %115
 
 115:                                              ; preds = %.lr.ph, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit
-  %116 = phi i32 [ %113, %.lr.ph ], [ %321, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit ]
+  %116 = phi i32 [ %113, %.lr.ph ], [ %320, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit ]
   %.034103 = phi i32 [ 0, %.lr.ph ], [ %117, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit ]
   %117 = add nuw nsw i32 %.034103, 1
   %118 = mul nsw i32 %116, %109
@@ -21271,169 +21271,169 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6Stride
   %189 = getelementptr double, ptr %149, i64 %156
   %190 = getelementptr double, ptr %187, i64 %156
   %191 = getelementptr double, ptr %188, i64 %156
-  %192 = shl nsw i64 %156, 1
-  %193 = getelementptr double, ptr %149, i64 %192
-  %194 = getelementptr double, ptr %187, i64 %192
-  %195 = getelementptr double, ptr %188, i64 %192
+  %.idx.i.i = shl nsw i64 %156, 4
+  %192 = getelementptr i8, ptr %149, i64 %.idx.i.i
+  %193 = getelementptr i8, ptr %187, i64 %.idx.i.i
+  %194 = getelementptr i8, ptr %188, i64 %.idx.i.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.sroa.020.025.i = phi ptr [ %317, %.lr.ph.i ], [ %184, %.lr.ph.i.preheader ]
-  %196 = load ptr, ptr %135, align 8
-  %197 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 4
-  %198 = load i32, ptr %197, align 4
-  %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds double, ptr %196, i64 %199
-  %201 = load double, ptr %200, align 8
-  %202 = fmul double %201, %201
-  %203 = getelementptr i8, ptr %200, i64 24
-  %204 = load double, ptr %203, align 8
-  %205 = fmul double %204, %204
-  %206 = getelementptr i8, ptr %200, i64 48
-  %207 = load double, ptr %206, align 8
-  %208 = fmul double %207, %207
-  %209 = fadd double %205, %208
-  %210 = fadd double %202, %209
-  %211 = load double, ptr %149, align 8
-  %212 = fadd double %211, %210
-  store double %212, ptr %149, align 8
-  %213 = getelementptr inbounds i8, ptr %200, i64 8
-  %214 = load double, ptr %200, align 8
-  %215 = load double, ptr %213, align 8
-  %216 = fmul double %214, %215
-  %217 = load double, ptr %203, align 8
-  %218 = getelementptr i8, ptr %200, i64 32
-  %219 = load double, ptr %218, align 8
-  %220 = fmul double %217, %219
-  %221 = load double, ptr %206, align 8
-  %222 = getelementptr i8, ptr %200, i64 56
-  %223 = load double, ptr %222, align 8
-  %224 = fmul double %221, %223
-  %225 = fadd double %220, %224
-  %226 = fadd double %216, %225
-  %227 = load double, ptr %187, align 8
-  %228 = fadd double %227, %226
-  store double %228, ptr %187, align 8
-  %229 = getelementptr inbounds i8, ptr %200, i64 16
-  %230 = load double, ptr %200, align 8
-  %231 = load double, ptr %229, align 8
-  %232 = fmul double %230, %231
-  %233 = load double, ptr %203, align 8
-  %234 = getelementptr i8, ptr %200, i64 40
-  %235 = load double, ptr %234, align 8
-  %236 = fmul double %233, %235
-  %237 = load double, ptr %206, align 8
-  %238 = getelementptr i8, ptr %200, i64 64
-  %239 = load double, ptr %238, align 8
-  %240 = fmul double %237, %239
-  %241 = fadd double %236, %240
-  %242 = fadd double %232, %241
-  %243 = load double, ptr %188, align 8
-  %244 = fadd double %243, %242
-  store double %244, ptr %188, align 8
-  %245 = load double, ptr %213, align 8
-  %246 = load double, ptr %200, align 8
-  %247 = fmul double %245, %246
-  %248 = load double, ptr %218, align 8
-  %249 = load double, ptr %203, align 8
-  %250 = fmul double %248, %249
-  %251 = load double, ptr %222, align 8
-  %252 = load double, ptr %206, align 8
-  %253 = fmul double %251, %252
-  %254 = fadd double %250, %253
-  %255 = fadd double %247, %254
-  %256 = load double, ptr %189, align 8
-  %257 = fadd double %256, %255
-  store double %257, ptr %189, align 8
-  %258 = load double, ptr %213, align 8
-  %259 = fmul double %258, %258
-  %260 = load double, ptr %218, align 8
-  %261 = fmul double %260, %260
-  %262 = load double, ptr %222, align 8
-  %263 = fmul double %262, %262
-  %264 = fadd double %261, %263
-  %265 = fadd double %259, %264
-  %266 = load double, ptr %190, align 8
-  %267 = fadd double %266, %265
-  store double %267, ptr %190, align 8
-  %268 = load double, ptr %213, align 8
-  %269 = load double, ptr %229, align 8
-  %270 = fmul double %268, %269
-  %271 = load double, ptr %218, align 8
-  %272 = load double, ptr %234, align 8
-  %273 = fmul double %271, %272
-  %274 = load double, ptr %222, align 8
-  %275 = load double, ptr %238, align 8
-  %276 = fmul double %274, %275
-  %277 = fadd double %273, %276
-  %278 = fadd double %270, %277
-  %279 = load double, ptr %191, align 8
-  %280 = fadd double %279, %278
-  store double %280, ptr %191, align 8
-  %281 = load double, ptr %229, align 8
-  %282 = load double, ptr %200, align 8
-  %283 = fmul double %281, %282
-  %284 = load double, ptr %234, align 8
-  %285 = load double, ptr %203, align 8
-  %286 = fmul double %284, %285
-  %287 = load double, ptr %238, align 8
-  %288 = load double, ptr %206, align 8
-  %289 = fmul double %287, %288
-  %290 = fadd double %286, %289
-  %291 = fadd double %283, %290
-  %292 = load double, ptr %193, align 8
-  %293 = fadd double %292, %291
-  store double %293, ptr %193, align 8
-  %294 = load double, ptr %229, align 8
-  %295 = load double, ptr %213, align 8
-  %296 = fmul double %294, %295
-  %297 = load double, ptr %234, align 8
-  %298 = load double, ptr %218, align 8
-  %299 = fmul double %297, %298
-  %300 = load double, ptr %238, align 8
-  %301 = load double, ptr %222, align 8
-  %302 = fmul double %300, %301
-  %303 = fadd double %299, %302
-  %304 = fadd double %296, %303
-  %305 = load double, ptr %194, align 8
-  %306 = fadd double %305, %304
-  store double %306, ptr %194, align 8
-  %307 = load double, ptr %229, align 8
-  %308 = fmul double %307, %307
-  %309 = load double, ptr %234, align 8
-  %310 = fmul double %309, %309
-  %311 = load double, ptr %238, align 8
-  %312 = fmul double %311, %311
-  %313 = fadd double %310, %312
-  %314 = fadd double %308, %313
-  %315 = load double, ptr %195, align 8
-  %316 = fadd double %315, %314
-  store double %316, ptr %195, align 8
-  %317 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 8
-  %.not.i = icmp eq ptr %317, %186
+  %.sroa.020.025.i = phi ptr [ %316, %.lr.ph.i ], [ %184, %.lr.ph.i.preheader ]
+  %195 = load ptr, ptr %135, align 8
+  %196 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 4
+  %197 = load i32, ptr %196, align 4
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr inbounds double, ptr %195, i64 %198
+  %200 = load double, ptr %199, align 8
+  %201 = fmul double %200, %200
+  %202 = getelementptr i8, ptr %199, i64 24
+  %203 = load double, ptr %202, align 8
+  %204 = fmul double %203, %203
+  %205 = getelementptr i8, ptr %199, i64 48
+  %206 = load double, ptr %205, align 8
+  %207 = fmul double %206, %206
+  %208 = fadd double %204, %207
+  %209 = fadd double %201, %208
+  %210 = load double, ptr %149, align 8
+  %211 = fadd double %210, %209
+  store double %211, ptr %149, align 8
+  %212 = getelementptr inbounds i8, ptr %199, i64 8
+  %213 = load double, ptr %199, align 8
+  %214 = load double, ptr %212, align 8
+  %215 = fmul double %213, %214
+  %216 = load double, ptr %202, align 8
+  %217 = getelementptr i8, ptr %199, i64 32
+  %218 = load double, ptr %217, align 8
+  %219 = fmul double %216, %218
+  %220 = load double, ptr %205, align 8
+  %221 = getelementptr i8, ptr %199, i64 56
+  %222 = load double, ptr %221, align 8
+  %223 = fmul double %220, %222
+  %224 = fadd double %219, %223
+  %225 = fadd double %215, %224
+  %226 = load double, ptr %187, align 8
+  %227 = fadd double %226, %225
+  store double %227, ptr %187, align 8
+  %228 = getelementptr inbounds i8, ptr %199, i64 16
+  %229 = load double, ptr %199, align 8
+  %230 = load double, ptr %228, align 8
+  %231 = fmul double %229, %230
+  %232 = load double, ptr %202, align 8
+  %233 = getelementptr i8, ptr %199, i64 40
+  %234 = load double, ptr %233, align 8
+  %235 = fmul double %232, %234
+  %236 = load double, ptr %205, align 8
+  %237 = getelementptr i8, ptr %199, i64 64
+  %238 = load double, ptr %237, align 8
+  %239 = fmul double %236, %238
+  %240 = fadd double %235, %239
+  %241 = fadd double %231, %240
+  %242 = load double, ptr %188, align 8
+  %243 = fadd double %242, %241
+  store double %243, ptr %188, align 8
+  %244 = load double, ptr %212, align 8
+  %245 = load double, ptr %199, align 8
+  %246 = fmul double %244, %245
+  %247 = load double, ptr %217, align 8
+  %248 = load double, ptr %202, align 8
+  %249 = fmul double %247, %248
+  %250 = load double, ptr %221, align 8
+  %251 = load double, ptr %205, align 8
+  %252 = fmul double %250, %251
+  %253 = fadd double %249, %252
+  %254 = fadd double %246, %253
+  %255 = load double, ptr %189, align 8
+  %256 = fadd double %255, %254
+  store double %256, ptr %189, align 8
+  %257 = load double, ptr %212, align 8
+  %258 = fmul double %257, %257
+  %259 = load double, ptr %217, align 8
+  %260 = fmul double %259, %259
+  %261 = load double, ptr %221, align 8
+  %262 = fmul double %261, %261
+  %263 = fadd double %260, %262
+  %264 = fadd double %258, %263
+  %265 = load double, ptr %190, align 8
+  %266 = fadd double %265, %264
+  store double %266, ptr %190, align 8
+  %267 = load double, ptr %212, align 8
+  %268 = load double, ptr %228, align 8
+  %269 = fmul double %267, %268
+  %270 = load double, ptr %217, align 8
+  %271 = load double, ptr %233, align 8
+  %272 = fmul double %270, %271
+  %273 = load double, ptr %221, align 8
+  %274 = load double, ptr %237, align 8
+  %275 = fmul double %273, %274
+  %276 = fadd double %272, %275
+  %277 = fadd double %269, %276
+  %278 = load double, ptr %191, align 8
+  %279 = fadd double %278, %277
+  store double %279, ptr %191, align 8
+  %280 = load double, ptr %228, align 8
+  %281 = load double, ptr %199, align 8
+  %282 = fmul double %280, %281
+  %283 = load double, ptr %233, align 8
+  %284 = load double, ptr %202, align 8
+  %285 = fmul double %283, %284
+  %286 = load double, ptr %237, align 8
+  %287 = load double, ptr %205, align 8
+  %288 = fmul double %286, %287
+  %289 = fadd double %285, %288
+  %290 = fadd double %282, %289
+  %291 = load double, ptr %192, align 8
+  %292 = fadd double %291, %290
+  store double %292, ptr %192, align 8
+  %293 = load double, ptr %228, align 8
+  %294 = load double, ptr %212, align 8
+  %295 = fmul double %293, %294
+  %296 = load double, ptr %233, align 8
+  %297 = load double, ptr %217, align 8
+  %298 = fmul double %296, %297
+  %299 = load double, ptr %237, align 8
+  %300 = load double, ptr %221, align 8
+  %301 = fmul double %299, %300
+  %302 = fadd double %298, %301
+  %303 = fadd double %295, %302
+  %304 = load double, ptr %193, align 8
+  %305 = fadd double %304, %303
+  store double %305, ptr %193, align 8
+  %306 = load double, ptr %228, align 8
+  %307 = fmul double %306, %306
+  %308 = load double, ptr %233, align 8
+  %309 = fmul double %308, %308
+  %310 = load double, ptr %237, align 8
+  %311 = fmul double %310, %310
+  %312 = fadd double %309, %311
+  %313 = fadd double %307, %312
+  %314 = load double, ptr %194, align 8
+  %315 = fadd double %314, %313
+  store double %315, ptr %194, align 8
+  %316 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 8
+  %.not.i = icmp eq ptr %316, %186
   br i1 %.not.i, label %_ZZNK5ceres8internal21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEENKUliE_clEi.exit, label %.lr.ph.i
 
 _ZZNK5ceres8internal21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEENKUliE_clEi.exit: ; preds = %.lr.ph.i, %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %318 = trunc nsw i64 %indvars.iv.next to i32
-  %.not.i.i.i.i41 = icmp eq i32 %134, %318
+  %317 = trunc nsw i64 %indvars.iv.next to i32
+  %.not.i.i.i.i41 = icmp eq i32 %134, %317
   br i1 %.not.i.i.i.i41, label %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !148
 
 _ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit: ; preds = %_ZZNK5ceres8internal21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEENKUliE_clEi.exit, %115
-  %319 = load ptr, ptr %5, align 8
-  %320 = getelementptr inbounds i8, ptr %319, i64 20
-  %321 = atomicrmw add ptr %320, i32 1 seq_cst, align 4
-  %.not36 = icmp slt i32 %321, %14
+  %318 = load ptr, ptr %5, align 8
+  %319 = getelementptr inbounds i8, ptr %318, i64 20
+  %320 = atomicrmw add ptr %319, i32 1 seq_cst, align 4
+  %.not36 = icmp slt i32 %320, %14
   br i1 %.not36, label %115, label %._crit_edge, !llvm.loop !158
 
 ._crit_edge:                                      ; preds = %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit
   %.034.lcssa = phi i32 [ 0, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEvS9_iiiSB_iENKUlRSA_E_clIKSL_EEDaSK_ENUlvE_D2Ev.exit ], [ %117, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_11ParallelForIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE35UpdateBlockDiagonalEtEMultiThreadedEPNS0_17BlockSparseMatrixEEUliE_EEvPNS0_11ContextImplEiiiOT_RKSt6vectorIiSaIiEEEUliSt5tupleIJiiEEE_EEviSI_SB_.exit ]
-  %322 = load ptr, ptr %5, align 8
-  %323 = getelementptr inbounds i8, ptr %322, i64 32
-  call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %323, i32 noundef %.034.lcssa)
-  br label %324
+  %321 = load ptr, ptr %5, align 8
+  %322 = getelementptr inbounds i8, ptr %321, i64 32
+  call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %322, i32 noundef %.034.lcssa)
+  br label %323
 
-324:                                              ; preds = %2, %._crit_edge
+323:                                              ; preds = %2, %._crit_edge
   ret void
 }
 

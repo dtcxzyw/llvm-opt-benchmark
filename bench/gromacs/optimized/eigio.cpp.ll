@@ -517,7 +517,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %24, %27
   %45 = xor i64 %indvars.iv95, -1
   %46 = add nsw i64 %41, %45
   %47 = mul nsw i64 %46, %41
-  %invariant.gep103 = getelementptr float, ptr %2, i64 %47
+  %invariant.gep104 = getelementptr float, ptr %2, i64 %47
   br label %.preheader.us.us
 
 48:                                               ; preds = %49
@@ -527,7 +527,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %24, %27
 
 49:                                               ; preds = %.preheader.us.us, %49
   %indvars.iv86 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next87, %49 ]
-  %50 = getelementptr float, ptr %gep104, i64 %indvars.iv86
+  %50 = getelementptr float, ptr %gep105, i64 %indvars.iv86
   %51 = load float, ptr %50, align 4
   %52 = getelementptr inbounds [3 x float], ptr %18, i64 %indvars.iv90, i64 %indvars.iv86
   store float %51, ptr %52, align 4
@@ -537,84 +537,84 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %24, %27
 
 .preheader.us.us:                                 ; preds = %.preheader.lr.ph.us.us, %48
   %indvars.iv90 = phi i64 [ 0, %.preheader.lr.ph.us.us ], [ %indvars.iv.next91, %48 ]
-  %53 = mul nuw nsw i64 %indvars.iv90, 3
-  %gep104 = getelementptr float, ptr %invariant.gep103, i64 %53
+  %.idx100 = mul i64 %indvars.iv90, 12
+  %gep105 = getelementptr i8, ptr %invariant.gep104, i64 %.idx100
   br label %49
 
 ._crit_edge.us.us:                                ; preds = %48
-  %54 = add nsw i64 %indvars.iv95, %42
-  %55 = getelementptr inbounds float, ptr %11, i64 %46
-  %56 = load float, ptr %55, align 4
-  call void @_Z19gmx_trr_write_frameP8t_fileiolffPA3_KfiS3_S3_S3_(ptr noundef %23, i64 noundef %54, float noundef %56, float noundef 0.000000e+00, ptr noundef nonnull %14, i32 noundef %1, ptr noundef nonnull %18, ptr noundef null, ptr noundef null)
+  %53 = add nsw i64 %indvars.iv95, %42
+  %54 = getelementptr inbounds float, ptr %11, i64 %46
+  %55 = load float, ptr %54, align 4
+  call void @_Z19gmx_trr_write_frameP8t_fileiolffPA3_KfiS3_S3_S3_(ptr noundef %23, i64 noundef %53, float noundef %55, float noundef 0.000000e+00, ptr noundef nonnull %14, i32 noundef %1, ptr noundef nonnull %18, ptr noundef null, ptr noundef null)
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
   br i1 %exitcond99.not, label %._crit_edge58, label %.preheader.lr.ph.us.us, !llvm.loop !11
 
 .preheader.lr.ph.us:                              ; preds = %.preheader.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv80 = phi i64 [ 0, %.preheader.lr.ph.us.preheader ], [ %indvars.iv.next81, %._crit_edge.us ]
-  %57 = trunc i64 %indvars.iv80 to i32
-  %58 = mul i32 %16, %57
-  %59 = zext i32 %58 to i64
-  %invariant.gep = getelementptr inbounds float, ptr %2, i64 %59
+  %56 = trunc i64 %indvars.iv80 to i32
+  %57 = mul i32 %16, %56
+  %58 = zext i32 %57 to i64
+  %invariant.gep = getelementptr float, ptr %2, i64 %58
   br label %.preheader.us
 
-60:                                               ; preds = %61
+59:                                               ; preds = %60
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
   br i1 %exitcond79.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !9
 
-61:                                               ; preds = %.preheader.us, %61
-  %indvars.iv71 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next72, %61 ]
-  %62 = getelementptr inbounds float, ptr %gep, i64 %indvars.iv71
-  %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds [3 x float], ptr %18, i64 %indvars.iv75, i64 %indvars.iv71
-  store float %63, ptr %64, align 4
+60:                                               ; preds = %.preheader.us, %60
+  %indvars.iv71 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next72, %60 ]
+  %61 = getelementptr inbounds float, ptr %gep, i64 %indvars.iv71
+  %62 = load float, ptr %61, align 4
+  %63 = getelementptr inbounds [3 x float], ptr %18, i64 %indvars.iv75, i64 %indvars.iv71
+  store float %62, ptr %63, align 4
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 3
-  br i1 %exitcond74.not, label %60, label %61, !llvm.loop !10
+  br i1 %exitcond74.not, label %59, label %60, !llvm.loop !10
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph.us, %60
-  %indvars.iv75 = phi i64 [ 0, %.preheader.lr.ph.us ], [ %indvars.iv.next76, %60 ]
-  %65 = mul nuw nsw i64 %indvars.iv75, 3
-  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %65
-  br label %61
+.preheader.us:                                    ; preds = %.preheader.lr.ph.us, %59
+  %indvars.iv75 = phi i64 [ 0, %.preheader.lr.ph.us ], [ %indvars.iv.next76, %59 ]
+  %.idx = mul i64 %indvars.iv75, 12
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  br label %60
 
-._crit_edge.us:                                   ; preds = %60
-  %66 = add nsw i64 %indvars.iv80, %38
-  %67 = getelementptr inbounds float, ptr %11, i64 %indvars.iv80
-  %68 = load float, ptr %67, align 4
-  call void @_Z19gmx_trr_write_frameP8t_fileiolffPA3_KfiS3_S3_S3_(ptr noundef %23, i64 noundef %66, float noundef %68, float noundef 0.000000e+00, ptr noundef nonnull %14, i32 noundef %1, ptr noundef nonnull %18, ptr noundef null, ptr noundef null)
+._crit_edge.us:                                   ; preds = %59
+  %64 = add nsw i64 %indvars.iv80, %38
+  %65 = getelementptr inbounds float, ptr %11, i64 %indvars.iv80
+  %66 = load float, ptr %65, align 4
+  call void @_Z19gmx_trr_write_frameP8t_fileiolffPA3_KfiS3_S3_S3_(ptr noundef %23, i64 noundef %64, float noundef %66, float noundef 0.000000e+00, ptr noundef nonnull %14, i32 noundef %1, ptr noundef nonnull %18, ptr noundef null, ptr noundef null)
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
   br i1 %exitcond84.not, label %._crit_edge58, label %.preheader.lr.ph.us, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %69 = sext i32 %4 to i64
-  %70 = add i32 %5, 1
-  %71 = sub i32 %70, %4
-  %wide.trip.count68 = zext i32 %71 to i64
+  %67 = sext i32 %4 to i64
+  %68 = add i32 %5, 1
+  %69 = sub i32 %68, %4
+  %wide.trip.count68 = zext i32 %69 to i64
   br i1 %3, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %72 = trunc i64 %indvars.iv65 to i32
-  %73 = xor i32 %72, -1
-  %74 = add i32 %16, %73
-  %75 = add nsw i64 %indvars.iv65, %69
-  %76 = sext i32 %74 to i64
-  %77 = getelementptr inbounds float, ptr %11, i64 %76
-  %78 = load float, ptr %77, align 4
-  call void @_Z19gmx_trr_write_frameP8t_fileiolffPA3_KfiS3_S3_S3_(ptr noundef %23, i64 noundef %75, float noundef %78, float noundef 0.000000e+00, ptr noundef nonnull %14, i32 noundef %1, ptr noundef %18, ptr noundef null, ptr noundef null)
+  %70 = trunc i64 %indvars.iv65 to i32
+  %71 = xor i32 %70, -1
+  %72 = add i32 %16, %71
+  %73 = add nsw i64 %indvars.iv65, %67
+  %74 = sext i32 %72 to i64
+  %75 = getelementptr inbounds float, ptr %11, i64 %74
+  %76 = load float, ptr %75, align 4
+  call void @_Z19gmx_trr_write_frameP8t_fileiolffPA3_KfiS3_S3_S3_(ptr noundef %23, i64 noundef %73, float noundef %76, float noundef 0.000000e+00, ptr noundef nonnull %14, i32 noundef %1, ptr noundef %18, ptr noundef null, ptr noundef null)
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
   br i1 %exitcond69.not, label %._crit_edge58, label %.lr.ph.split.split.us, !llvm.loop !11
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
-  %79 = add nsw i64 %indvars.iv, %69
-  %80 = getelementptr inbounds float, ptr %11, i64 %indvars.iv
-  %81 = load float, ptr %80, align 4
-  call void @_Z19gmx_trr_write_frameP8t_fileiolffPA3_KfiS3_S3_S3_(ptr noundef %23, i64 noundef %79, float noundef %81, float noundef 0.000000e+00, ptr noundef nonnull %14, i32 noundef %1, ptr noundef %18, ptr noundef null, ptr noundef null)
+  %77 = add nsw i64 %indvars.iv, %67
+  %78 = getelementptr inbounds float, ptr %11, i64 %indvars.iv
+  %79 = load float, ptr %78, align 4
+  call void @_Z19gmx_trr_write_frameP8t_fileiolffPA3_KfiS3_S3_S3_(ptr noundef %23, i64 noundef %77, float noundef %79, float noundef 0.000000e+00, ptr noundef nonnull %14, i32 noundef %1, ptr noundef %18, ptr noundef null, ptr noundef null)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count68
   br i1 %exitcond.not, label %._crit_edge58, label %.lr.ph.split.split, !llvm.loop !11

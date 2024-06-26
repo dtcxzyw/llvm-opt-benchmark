@@ -976,19 +976,19 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   store i32 0, ptr %5, align 4
   %91 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 0, ptr %91, align 4
-  br label %194
+  br label %193
 
 92:                                               ; preds = %.critedge
   store i32 1, ptr %5, align 4
   %93 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 0, ptr %93, align 4
-  br label %194
+  br label %193
 
 94:                                               ; preds = %.critedge
   store i32 0, ptr %5, align 4
   %95 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 1, ptr %95, align 4
-  br label %194
+  br label %193
 
 96:                                               ; preds = %.critedge
   %97 = getelementptr i8, ptr %3, i64 8
@@ -1000,7 +1000,7 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   %100 = load i32, ptr %99, align 4
   %101 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %100, ptr %101, align 4
-  br label %194
+  br label %193
 
 102:                                              ; preds = %.critedge
   %103 = getelementptr i8, ptr %3, i64 8
@@ -1012,7 +1012,7 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   %107 = load i32, ptr %106, align 4
   %108 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %107, ptr %108, align 4
-  br label %194
+  br label %193
 
 109:                                              ; preds = %.critedge
   %110 = getelementptr i8, ptr %3, i64 8
@@ -1029,7 +1029,7 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   %119 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %116, i32 noundef %118) #18
   %120 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %119, ptr %120, align 4
-  br label %194
+  br label %193
 
 121:                                              ; preds = %.critedge
   %122 = getelementptr i8, ptr %3, i64 8
@@ -1080,7 +1080,7 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   %157 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %156, i32 noundef %146, i32 noundef %150) #18
   %158 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %157, ptr %158, align 4
-  br label %194
+  br label %193
 
 159:                                              ; preds = %.critedge
   %160 = add nsw i32 %89, -13
@@ -1094,19 +1094,19 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   %.val = load i32, ptr %7, align 4
   %164 = sdiv i32 %.val, 2
   tail call void @Gia_ManDualAndN(ptr noundef %0, ptr noundef %.val116, i32 noundef %164, ptr noundef %5)
-  br i1 %162, label %165, label %194
+  br i1 %162, label %165, label %193
 
 165:                                              ; preds = %161
   %166 = load i32, ptr %5, align 4
   %167 = xor i32 %166, 1
   store i32 %167, ptr %5, align 4
-  br label %194
+  br label %193
 
 168:                                              ; preds = %159
   %169 = icmp eq i8 %88, 15
   %170 = add nsw i32 %89, -15
   %or.cond3 = icmp ult i32 %170, 2
-  br i1 %or.cond3, label %171, label %185
+  br i1 %or.cond3, label %171, label %184
 
 171:                                              ; preds = %168
   %172 = getelementptr i8, ptr %3, i64 8
@@ -1118,49 +1118,49 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph123:                                        ; preds = %171, %.lr.ph123
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.lr.ph123 ], [ 0, %171 ]
-  %175 = shl nuw nsw i64 %indvars.iv126, 1
-  %176 = getelementptr inbounds i32, ptr %.val117, i64 %175
-  %177 = load i32, ptr %176, align 4
-  %178 = xor i32 %177, 1
-  store i32 %178, ptr %176, align 4
+  %.idx = shl nsw i64 %indvars.iv126, 3
+  %175 = getelementptr inbounds i8, ptr %.val117, i64 %.idx
+  %176 = load i32, ptr %175, align 4
+  %177 = xor i32 %176, 1
+  store i32 %177, ptr %175, align 4
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %.val94 = load i32, ptr %7, align 4
-  %179 = sdiv i32 %.val94, 2
-  %180 = sext i32 %179 to i64
-  %181 = icmp slt i64 %indvars.iv.next127, %180
-  br i1 %181, label %.lr.ph123, label %._crit_edge, !llvm.loop !15
+  %178 = sdiv i32 %.val94, 2
+  %179 = sext i32 %178 to i64
+  %180 = icmp slt i64 %indvars.iv.next127, %179
+  br i1 %180, label %.lr.ph123, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph123, %171
-  %.lcssa = phi i32 [ %173, %171 ], [ %179, %.lr.ph123 ]
+  %.lcssa = phi i32 [ %173, %171 ], [ %178, %.lr.ph123 ]
   tail call void @Gia_ManDualAndN(ptr noundef %0, ptr noundef %.val117, i32 noundef %.lcssa, ptr noundef %5)
-  br i1 %169, label %182, label %194
+  br i1 %169, label %181, label %193
 
-182:                                              ; preds = %._crit_edge
-  %183 = load i32, ptr %5, align 4
-  %184 = xor i32 %183, 1
-  store i32 %184, ptr %5, align 4
-  br label %194
+181:                                              ; preds = %._crit_edge
+  %182 = load i32, ptr %5, align 4
+  %183 = xor i32 %182, 1
+  store i32 %183, ptr %5, align 4
+  br label %193
 
-185:                                              ; preds = %168
-  %186 = add nsw i32 %89, -17
-  %or.cond5 = icmp ult i32 %186, 2
-  br i1 %or.cond5, label %187, label %194
+184:                                              ; preds = %168
+  %185 = add nsw i32 %89, -17
+  %or.cond5 = icmp ult i32 %185, 2
+  br i1 %or.cond5, label %186, label %193
 
-187:                                              ; preds = %185
-  %188 = icmp eq i8 %88, 18
-  %189 = getelementptr i8, ptr %3, i64 8
-  %.val118 = load ptr, ptr %189, align 8
-  %190 = getelementptr inbounds i8, ptr %.val118, i64 8
-  tail call void @Gia_ManDualXor2(ptr noundef %0, ptr noundef %.val118, ptr noundef nonnull %190, ptr noundef %5)
-  br i1 %188, label %191, label %194
+186:                                              ; preds = %184
+  %187 = icmp eq i8 %88, 18
+  %188 = getelementptr i8, ptr %3, i64 8
+  %.val118 = load ptr, ptr %188, align 8
+  %189 = getelementptr inbounds i8, ptr %.val118, i64 8
+  tail call void @Gia_ManDualXor2(ptr noundef %0, ptr noundef %.val118, ptr noundef nonnull %189, ptr noundef %5)
+  br i1 %187, label %190, label %193
 
-191:                                              ; preds = %187
-  %192 = load i32, ptr %5, align 4
-  %193 = xor i32 %192, 1
-  store i32 %193, ptr %5, align 4
-  br label %194
+190:                                              ; preds = %186
+  %191 = load i32, ptr %5, align 4
+  %192 = xor i32 %191, 1
+  store i32 %192, ptr %5, align 4
+  br label %193
 
-194:                                              ; preds = %187, %191, %185, %._crit_edge, %182, %161, %165, %121, %109, %102, %96, %94, %92, %90
+193:                                              ; preds = %186, %190, %184, %._crit_edge, %181, %161, %165, %121, %109, %102, %96, %94, %92, %90
   ret void
 }
 

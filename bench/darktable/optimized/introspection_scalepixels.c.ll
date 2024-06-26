@@ -108,9 +108,9 @@ define noundef i32 @distort_transform(ptr noundef %0, ptr noundef %1, ptr nocapt
   %22 = icmp ult i64 %12, 31
   br i1 %22, label %.preheader, label %23
 
-.preheader:                                       ; preds = %63, %33, %23, %14
-  %.ph = phi i64 [ %64, %63 ], [ 0, %14 ], [ 0, %23 ], [ 0, %33 ]
-  br label %66
+.preheader:                                       ; preds = %62, %33, %23, %14
+  %.ph = phi i64 [ %63, %62 ], [ 0, %14 ], [ 0, %23 ], [ 0, %33 ]
+  br label %65
 
 23:                                               ; preds = %14
   %24 = getelementptr i8, ptr %2, i64 4
@@ -141,50 +141,50 @@ define noundef i32 @distort_transform(ptr noundef %0, ptr noundef %1, ptr nocapt
   br label %45
 
 45:                                               ; preds = %45, %43
-  %46 = phi i64 [ 0, %43 ], [ %61, %45 ]
-  %47 = shl i64 %46, 1
-  %48 = load float, ptr %17, align 4, !tbaa !28, !alias.scope !30
-  %49 = insertelement <8 x float> poison, float %48, i64 0
-  %50 = shufflevector <8 x float> %49, <8 x float> poison, <8 x i32> zeroinitializer
-  %51 = getelementptr inbounds float, ptr %2, i64 %47
-  %52 = load <16 x float>, ptr %51, align 4, !tbaa !33
-  %53 = shufflevector <16 x float> %52, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %54 = shufflevector <16 x float> %52, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %55 = fdiv reassoc nsz arcp contract afn <8 x float> %53, %50
-  %56 = load float, ptr %18, align 4, !tbaa !34, !alias.scope !30
-  %57 = insertelement <8 x float> poison, float %56, i64 0
-  %58 = shufflevector <8 x float> %57, <8 x float> poison, <8 x i32> zeroinitializer
-  %59 = fdiv reassoc nsz arcp contract afn <8 x float> %54, %58
-  %60 = shufflevector <8 x float> %55, <8 x float> %59, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %60, ptr %51, align 4, !tbaa !33
-  %61 = add nuw i64 %46, 8
-  %62 = icmp eq i64 %61, %44
-  br i1 %62, label %63, label %45, !llvm.loop !35
+  %46 = phi i64 [ 0, %43 ], [ %60, %45 ]
+  %47 = load float, ptr %17, align 4, !tbaa !28, !alias.scope !30
+  %48 = insertelement <8 x float> poison, float %47, i64 0
+  %49 = shufflevector <8 x float> %48, <8 x float> poison, <8 x i32> zeroinitializer
+  %.idx = shl i64 %46, 3
+  %50 = getelementptr inbounds i8, ptr %2, i64 %.idx
+  %51 = load <16 x float>, ptr %50, align 4, !tbaa !33
+  %52 = shufflevector <16 x float> %51, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
+  %53 = shufflevector <16 x float> %51, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
+  %54 = fdiv reassoc nsz arcp contract afn <8 x float> %52, %49
+  %55 = load float, ptr %18, align 4, !tbaa !34, !alias.scope !30
+  %56 = insertelement <8 x float> poison, float %55, i64 0
+  %57 = shufflevector <8 x float> %56, <8 x float> poison, <8 x i32> zeroinitializer
+  %58 = fdiv reassoc nsz arcp contract afn <8 x float> %53, %57
+  %59 = shufflevector <8 x float> %54, <8 x float> %58, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x float> %59, ptr %50, align 4, !tbaa !33
+  %60 = add nuw i64 %46, 8
+  %61 = icmp eq i64 %60, %44
+  br i1 %61, label %62, label %45, !llvm.loop !35
 
-63:                                               ; preds = %45
-  %64 = shl nuw nsw i64 %44, 1
-  %65 = icmp eq i64 %21, %44
-  br i1 %65, label %.loopexit, label %.preheader
+62:                                               ; preds = %45
+  %63 = shl nuw nsw i64 %44, 1
+  %64 = icmp eq i64 %21, %44
+  br i1 %64, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %66, %63, %4
+.loopexit:                                        ; preds = %65, %62, %4
   ret i32 1
 
-66:                                               ; preds = %.preheader, %66
-  %67 = phi i64 [ %77, %66 ], [ %.ph, %.preheader ]
-  %68 = load float, ptr %17, align 4, !tbaa !28
-  %69 = getelementptr inbounds float, ptr %2, i64 %67
-  %70 = load float, ptr %69, align 4, !tbaa !33
-  %71 = fdiv reassoc nsz arcp contract afn float %70, %68
-  store float %71, ptr %69, align 4, !tbaa !33
-  %72 = load float, ptr %18, align 4, !tbaa !34
-  %73 = or disjoint i64 %67, 1
-  %74 = getelementptr inbounds float, ptr %2, i64 %73
-  %75 = load float, ptr %74, align 4, !tbaa !33
-  %76 = fdiv reassoc nsz arcp contract afn float %75, %72
-  store float %76, ptr %74, align 4, !tbaa !33
-  %77 = add nuw i64 %67, 2
-  %78 = icmp ult i64 %77, %12
-  br i1 %78, label %66, label %.loopexit, !llvm.loop !38
+65:                                               ; preds = %.preheader, %65
+  %66 = phi i64 [ %76, %65 ], [ %.ph, %.preheader ]
+  %67 = load float, ptr %17, align 4, !tbaa !28
+  %68 = getelementptr inbounds float, ptr %2, i64 %66
+  %69 = load float, ptr %68, align 4, !tbaa !33
+  %70 = fdiv reassoc nsz arcp contract afn float %69, %67
+  store float %70, ptr %68, align 4, !tbaa !33
+  %71 = load float, ptr %18, align 4, !tbaa !34
+  %72 = or disjoint i64 %66, 1
+  %73 = getelementptr inbounds float, ptr %2, i64 %72
+  %74 = load float, ptr %73, align 4, !tbaa !33
+  %75 = fdiv reassoc nsz arcp contract afn float %74, %71
+  store float %75, ptr %73, align 4, !tbaa !33
+  %76 = add nuw i64 %66, 2
+  %77 = icmp ult i64 %76, %12
+  br i1 %77, label %65, label %.loopexit, !llvm.loop !38
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

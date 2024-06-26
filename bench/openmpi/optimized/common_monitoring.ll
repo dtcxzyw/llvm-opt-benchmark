@@ -1137,31 +1137,31 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
   %14 = load volatile i64, ptr %8, align 8
   %15 = trunc nuw nsw i64 %indvars.iv89 to i32
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.44, i32 noundef %1, i32 noundef %15, i64 noundef %13, i64 noundef %14) #19
-  %17 = mul nuw nsw i64 %indvars.iv89, 66
-  br label %18
+  %.idx = mul i64 %indvars.iv89, 528
+  br label %17
 
-18:                                               ; preds = %10, %18
-  %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %18 ]
-  %19 = load ptr, ptr @size_histogram, align 8
-  %20 = getelementptr inbounds i64, ptr %19, i64 %indvars.iv
-  %21 = getelementptr inbounds i64, ptr %20, i64 %17
-  %22 = load volatile i64, ptr %21, align 8
+17:                                               ; preds = %10, %17
+  %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %17 ]
+  %18 = load ptr, ptr @size_histogram, align 8
+  %19 = getelementptr inbounds i64, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds i8, ptr %19, i64 %.idx
+  %21 = load volatile i64, ptr %20, align 8
   %.not71 = icmp eq i64 %indvars.iv, 65
-  %23 = select i1 %.not71, ptr @.str.47, ptr @.str.46
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef %22, ptr noundef nonnull %23) #19
+  %22 = select i1 %.not71, ptr @.str.47, ptr @.str.46
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef %21, ptr noundef nonnull %22) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 66
-  br i1 %exitcond.not, label %.loopexit74, label %18, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit74, label %17, !llvm.loop !17
 
-.loopexit74:                                      ; preds = %18, %.lr.ph
+.loopexit74:                                      ; preds = %17, %.lr.ph
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count
   br i1 %exitcond92.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit74
-  %25 = load i32, ptr @mca_common_monitoring_current_state, align 4
-  %26 = icmp sgt i32 %25, 1
-  %or.cond = and i1 %26, %5
+  %24 = load i32, ptr @mca_common_monitoring_current_state, align 4
+  %25 = icmp sgt i32 %24, 1
+  %or.cond = and i1 %25, %5
   br i1 %or.cond, label %.lr.ph79.preheader, label %.loopexit73
 
 .lr.ph79.preheader:                               ; preds = %._crit_edge
@@ -1170,104 +1170,104 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
 
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.loopexit
   %indvars.iv97 = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next98, %.loopexit ]
-  %27 = load ptr, ptr @filtered_pml_count, align 8
-  %28 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv97
-  %29 = load volatile i64, ptr %28, align 8
-  %.not68 = icmp eq i64 %29, 0
-  br i1 %.not68, label %.loopexit, label %30
+  %26 = load ptr, ptr @filtered_pml_count, align 8
+  %27 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv97
+  %28 = load volatile i64, ptr %27, align 8
+  %.not68 = icmp eq i64 %28, 0
+  br i1 %.not68, label %.loopexit, label %29
 
-30:                                               ; preds = %.lr.ph79
-  %31 = load ptr, ptr @filtered_pml_data, align 8
-  %32 = getelementptr inbounds i64, ptr %31, i64 %indvars.iv97
-  %33 = load volatile i64, ptr %32, align 8
-  %34 = load volatile i64, ptr %28, align 8
-  %35 = load ptr, ptr @pml_count, align 8
-  %36 = getelementptr inbounds i64, ptr %35, i64 %indvars.iv97
-  %37 = load volatile i64, ptr %36, align 8
-  %38 = icmp eq i64 %37, 0
-  %39 = select i1 %38, ptr @.str.49, ptr @.str.47
-  %40 = trunc nuw nsw i64 %indvars.iv97 to i32
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.48, i32 noundef %1, i32 noundef %40, i64 noundef %33, i64 noundef %34, ptr noundef nonnull %39) #19
-  %42 = load ptr, ptr @pml_count, align 8
-  %43 = getelementptr inbounds i64, ptr %42, i64 %indvars.iv97
-  %44 = load volatile i64, ptr %43, align 8
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %.preheader, label %.loopexit
+29:                                               ; preds = %.lr.ph79
+  %30 = load ptr, ptr @filtered_pml_data, align 8
+  %31 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv97
+  %32 = load volatile i64, ptr %31, align 8
+  %33 = load volatile i64, ptr %27, align 8
+  %34 = load ptr, ptr @pml_count, align 8
+  %35 = getelementptr inbounds i64, ptr %34, i64 %indvars.iv97
+  %36 = load volatile i64, ptr %35, align 8
+  %37 = icmp eq i64 %36, 0
+  %38 = select i1 %37, ptr @.str.49, ptr @.str.47
+  %39 = trunc nuw nsw i64 %indvars.iv97 to i32
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.48, i32 noundef %1, i32 noundef %39, i64 noundef %32, i64 noundef %33, ptr noundef nonnull %38) #19
+  %41 = load ptr, ptr @pml_count, align 8
+  %42 = getelementptr inbounds i64, ptr %41, i64 %indvars.iv97
+  %43 = load volatile i64, ptr %42, align 8
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %30
-  %46 = mul nuw nsw i64 %indvars.iv97, 66
-  br label %47
+.preheader:                                       ; preds = %29
+  %.idx113 = mul i64 %indvars.iv97, 528
+  br label %45
 
-47:                                               ; preds = %.preheader, %47
-  %indvars.iv93 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next94, %47 ]
-  %48 = load ptr, ptr @size_histogram, align 8
-  %49 = getelementptr inbounds i64, ptr %48, i64 %indvars.iv93
-  %50 = getelementptr inbounds i64, ptr %49, i64 %46
-  %51 = load volatile i64, ptr %50, align 8
+45:                                               ; preds = %.preheader, %45
+  %indvars.iv93 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next94, %45 ]
+  %46 = load ptr, ptr @size_histogram, align 8
+  %47 = getelementptr inbounds i64, ptr %46, i64 %indvars.iv93
+  %48 = getelementptr inbounds i8, ptr %47, i64 %.idx113
+  %49 = load volatile i64, ptr %48, align 8
   %.not69 = icmp eq i64 %indvars.iv93, 65
-  %52 = select i1 %.not69, ptr @.str.47, ptr @.str.46
-  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef %51, ptr noundef nonnull %52) #19
+  %50 = select i1 %.not69, ptr @.str.47, ptr @.str.46
+  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef %49, ptr noundef nonnull %50) #19
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, 66
-  br i1 %exitcond96.not, label %.loopexit, label %47, !llvm.loop !19
+  br i1 %exitcond96.not, label %.loopexit, label %45, !llvm.loop !19
 
-.loopexit:                                        ; preds = %47, %.lr.ph79, %30
+.loopexit:                                        ; preds = %45, %.lr.ph79, %29
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
   br i1 %exitcond101.not, label %.loopexit73, label %.lr.ph79, !llvm.loop !20
 
 .loopexit73:                                      ; preds = %.loopexit, %._crit_edge
-  %54 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 6, i64 1, ptr %0)
+  %52 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 6, i64 1, ptr %0)
   br i1 %5, label %.lr.ph82.preheader, label %._crit_edge83.thread
 
 .lr.ph82.preheader:                               ; preds = %.loopexit73
   %wide.trip.count105 = zext nneg i32 %2 to i64
   br label %.lr.ph82
 
-.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %76
-  %indvars.iv102 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next103, %76 ]
-  %55 = load ptr, ptr @osc_count_s, align 8
-  %56 = getelementptr inbounds i64, ptr %55, i64 %indvars.iv102
-  %57 = load volatile i64, ptr %56, align 8
-  %.not66 = icmp eq i64 %57, 0
-  br i1 %.not66, label %65, label %58
+.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %74
+  %indvars.iv102 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next103, %74 ]
+  %53 = load ptr, ptr @osc_count_s, align 8
+  %54 = getelementptr inbounds i64, ptr %53, i64 %indvars.iv102
+  %55 = load volatile i64, ptr %54, align 8
+  %.not66 = icmp eq i64 %55, 0
+  br i1 %.not66, label %63, label %56
 
-58:                                               ; preds = %.lr.ph82
-  %59 = load ptr, ptr @osc_data_s, align 8
-  %60 = getelementptr inbounds i64, ptr %59, i64 %indvars.iv102
-  %61 = load volatile i64, ptr %60, align 8
-  %62 = load volatile i64, ptr %56, align 8
-  %63 = trunc nuw nsw i64 %indvars.iv102 to i32
-  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1, i32 noundef %63, i64 noundef %61, i64 noundef %62) #19
-  br label %65
+56:                                               ; preds = %.lr.ph82
+  %57 = load ptr, ptr @osc_data_s, align 8
+  %58 = getelementptr inbounds i64, ptr %57, i64 %indvars.iv102
+  %59 = load volatile i64, ptr %58, align 8
+  %60 = load volatile i64, ptr %54, align 8
+  %61 = trunc nuw nsw i64 %indvars.iv102 to i32
+  %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1, i32 noundef %61, i64 noundef %59, i64 noundef %60) #19
+  br label %63
 
-65:                                               ; preds = %58, %.lr.ph82
-  %66 = load ptr, ptr @osc_count_r, align 8
-  %67 = getelementptr inbounds i64, ptr %66, i64 %indvars.iv102
-  %68 = load volatile i64, ptr %67, align 8
-  %.not67 = icmp eq i64 %68, 0
-  br i1 %.not67, label %76, label %69
+63:                                               ; preds = %56, %.lr.ph82
+  %64 = load ptr, ptr @osc_count_r, align 8
+  %65 = getelementptr inbounds i64, ptr %64, i64 %indvars.iv102
+  %66 = load volatile i64, ptr %65, align 8
+  %.not67 = icmp eq i64 %66, 0
+  br i1 %.not67, label %74, label %67
 
-69:                                               ; preds = %65
-  %70 = load ptr, ptr @osc_data_r, align 8
-  %71 = getelementptr inbounds i64, ptr %70, i64 %indvars.iv102
-  %72 = load volatile i64, ptr %71, align 8
-  %73 = load volatile i64, ptr %67, align 8
-  %74 = trunc nuw nsw i64 %indvars.iv102 to i32
-  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, i32 noundef %1, i32 noundef %74, i64 noundef %72, i64 noundef %73) #19
-  br label %76
+67:                                               ; preds = %63
+  %68 = load ptr, ptr @osc_data_r, align 8
+  %69 = getelementptr inbounds i64, ptr %68, i64 %indvars.iv102
+  %70 = load volatile i64, ptr %69, align 8
+  %71 = load volatile i64, ptr %65, align 8
+  %72 = trunc nuw nsw i64 %indvars.iv102 to i32
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, i32 noundef %1, i32 noundef %72, i64 noundef %70, i64 noundef %71) #19
+  br label %74
 
-76:                                               ; preds = %65, %69
+74:                                               ; preds = %63, %67
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
   br i1 %exitcond106.not, label %._crit_edge83, label %.lr.ph82, !llvm.loop !21
 
 ._crit_edge83.thread:                             ; preds = %.loopexit73.thread, %.loopexit73
-  %77 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 14, i64 1, ptr %0)
+  %75 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 14, i64 1, ptr %0)
   br label %._crit_edge87
 
-._crit_edge83:                                    ; preds = %76
-  %78 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 14, i64 1, ptr %0)
+._crit_edge83:                                    ; preds = %74
+  %76 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 14, i64 1, ptr %0)
   br i1 %5, label %.lr.ph86.preheader, label %._crit_edge87
 
 .lr.ph86.preheader:                               ; preds = %._crit_edge83
@@ -1275,31 +1275,31 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
   %.pre112 = load ptr, ptr @coll_count, align 8
   br label %.lr.ph86
 
-.lr.ph86:                                         ; preds = %.lr.ph86.preheader, %89
-  %79 = phi ptr [ %.pre112, %.lr.ph86.preheader ], [ %90, %89 ]
-  %indvars.iv107 = phi i64 [ 0, %.lr.ph86.preheader ], [ %indvars.iv.next108, %89 ]
-  %80 = getelementptr inbounds i64, ptr %79, i64 %indvars.iv107
-  %81 = load volatile i64, ptr %80, align 8
-  %.not65 = icmp eq i64 %81, 0
-  br i1 %.not65, label %89, label %82
+.lr.ph86:                                         ; preds = %.lr.ph86.preheader, %87
+  %77 = phi ptr [ %.pre112, %.lr.ph86.preheader ], [ %88, %87 ]
+  %indvars.iv107 = phi i64 [ 0, %.lr.ph86.preheader ], [ %indvars.iv.next108, %87 ]
+  %78 = getelementptr inbounds i64, ptr %77, i64 %indvars.iv107
+  %79 = load volatile i64, ptr %78, align 8
+  %.not65 = icmp eq i64 %79, 0
+  br i1 %.not65, label %87, label %80
 
-82:                                               ; preds = %.lr.ph86
-  %83 = load ptr, ptr @coll_data, align 8
-  %84 = getelementptr inbounds i64, ptr %83, i64 %indvars.iv107
-  %85 = load volatile i64, ptr %84, align 8
-  %86 = load volatile i64, ptr %80, align 8
-  %87 = trunc nuw nsw i64 %indvars.iv107 to i32
-  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %1, i32 noundef %87, i64 noundef %85, i64 noundef %86) #19
+80:                                               ; preds = %.lr.ph86
+  %81 = load ptr, ptr @coll_data, align 8
+  %82 = getelementptr inbounds i64, ptr %81, i64 %indvars.iv107
+  %83 = load volatile i64, ptr %82, align 8
+  %84 = load volatile i64, ptr %78, align 8
+  %85 = trunc nuw nsw i64 %indvars.iv107 to i32
+  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %1, i32 noundef %85, i64 noundef %83, i64 noundef %84) #19
   %.pre = load ptr, ptr @coll_count, align 8
-  br label %89
+  br label %87
 
-89:                                               ; preds = %.lr.ph86, %82
-  %90 = phi ptr [ %79, %.lr.ph86 ], [ %.pre, %82 ]
+87:                                               ; preds = %.lr.ph86, %80
+  %88 = phi ptr [ %77, %.lr.ph86 ], [ %.pre, %80 ]
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
   br i1 %exitcond111.not, label %._crit_edge87, label %.lr.ph86, !llvm.loop !22
 
-._crit_edge87:                                    ; preds = %89, %._crit_edge83.thread, %._crit_edge83
+._crit_edge87:                                    ; preds = %87, %._crit_edge83.thread, %._crit_edge83
   tail call void @mca_common_monitoring_coll_flush_all(ptr noundef %0) #19
   ret void
 }

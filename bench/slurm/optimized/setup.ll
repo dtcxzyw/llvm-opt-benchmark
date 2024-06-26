@@ -529,14 +529,14 @@ define i32 @pmi2_setup_stepd(ptr nocapture noundef readonly %0, ptr noundef %1) 
 .lr.ph.i28:                                       ; preds = %226, %.lr.ph.i28
   %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %.lr.ph.i28 ], [ 0, %226 ]
   %234 = load ptr, ptr @task_socks, align 8
-  %235 = shl nuw nsw i64 %indvars.iv.i29, 1
-  %236 = getelementptr inbounds i32, ptr %234, i64 %235
-  %237 = call i32 @socketpair(i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef %236) #13
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i29, 3
+  %235 = getelementptr inbounds i8, ptr %234, i64 %.idx.i
+  %236 = call i32 @socketpair(i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef %235) #13
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
-  %238 = load i32, ptr %227, align 8
-  %239 = zext i32 %238 to i64
-  %240 = icmp ult i64 %indvars.iv.next.i30, %239
-  br i1 %240, label %.lr.ph.i28, label %.loopexit43, !llvm.loop !9
+  %237 = load i32, ptr %227, align 8
+  %238 = zext i32 %237 to i64
+  %239 = icmp ult i64 %indvars.iv.next.i30, %238
+  br i1 %239, label %.lr.ph.i28, label %.loopexit43, !llvm.loop !9
 
 _setup_stepd_sockets.exit.thread:                 ; preds = %180, %196, %209, %216, %223
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %4)
@@ -548,53 +548,53 @@ _setup_stepd_sockets.exit.thread:                 ; preds = %180, %196, %209, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store i32 1, ptr @kvs_seq, align 4
-  %241 = call i32 @temp_kvs_init() #13
-  %.not.i32 = icmp eq i32 %241, 0
-  br i1 %.not.i32, label %242, label %_setup_stepd_kvs.exit.thread
+  %240 = call i32 @temp_kvs_init() #13
+  %.not.i32 = icmp eq i32 %240, 0
+  br i1 %.not.i32, label %241, label %_setup_stepd_kvs.exit.thread
 
-242:                                              ; preds = %.loopexit43
-  %243 = call i32 @kvs_init() #13
-  %.not23.i = icmp eq i32 %243, 0
-  br i1 %.not23.i, label %244, label %_setup_stepd_kvs.exit.thread
+241:                                              ; preds = %.loopexit43
+  %242 = call i32 @kvs_init() #13
+  %.not23.i = icmp eq i32 %242, 0
+  br i1 %.not23.i, label %243, label %_setup_stepd_kvs.exit.thread
 
-244:                                              ; preds = %242
-  %245 = load ptr, ptr %1, align 8
-  %246 = call ptr @slurm_getenvp(ptr noundef %245, ptr noundef nonnull @.str.36) #13
-  %.not24.i = icmp eq ptr %246, null
-  br i1 %.not24.i, label %.loopexit, label %247
+243:                                              ; preds = %241
+  %244 = load ptr, ptr %1, align 8
+  %245 = call ptr @slurm_getenvp(ptr noundef %244, ptr noundef nonnull @.str.36) #13
+  %.not24.i = icmp eq ptr %245, null
+  br i1 %.not24.i, label %.loopexit, label %246
 
-247:                                              ; preds = %244
-  %248 = call i32 @atoi(ptr nocapture noundef nonnull %246) #14
-  %249 = icmp sgt i32 %248, 0
-  br i1 %249, label %.lr.ph.i34, label %.loopexit
+246:                                              ; preds = %243
+  %247 = call i32 @atoi(ptr nocapture noundef nonnull %245) #14
+  %248 = icmp sgt i32 %247, 0
+  br i1 %248, label %.lr.ph.i34, label %.loopexit
 
-.lr.ph.i34:                                       ; preds = %247, %.lr.ph.i34
-  %.01925.i = phi i32 [ %257, %.lr.ph.i34 ], [ 0, %247 ]
-  %250 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.37, i32 noundef %.01925.i) #13
-  %251 = load ptr, ptr %1, align 8
-  %252 = call ptr @slurm_getenvp(ptr noundef %251, ptr noundef nonnull %3) #13
-  %253 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.38, i32 noundef %.01925.i) #13
-  %254 = load ptr, ptr %1, align 8
-  %255 = call ptr @slurm_getenvp(ptr noundef %254, ptr noundef nonnull %3) #13
-  %256 = call i32 @kvs_put(ptr noundef %252, ptr noundef %255) #13
-  %257 = add nuw nsw i32 %.01925.i, 1
-  %exitcond.not.i = icmp eq i32 %257, %248
+.lr.ph.i34:                                       ; preds = %246, %.lr.ph.i34
+  %.01925.i = phi i32 [ %256, %.lr.ph.i34 ], [ 0, %246 ]
+  %249 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.37, i32 noundef %.01925.i) #13
+  %250 = load ptr, ptr %1, align 8
+  %251 = call ptr @slurm_getenvp(ptr noundef %250, ptr noundef nonnull %3) #13
+  %252 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.38, i32 noundef %.01925.i) #13
+  %253 = load ptr, ptr %1, align 8
+  %254 = call ptr @slurm_getenvp(ptr noundef %253, ptr noundef nonnull %3) #13
+  %255 = call i32 @kvs_put(ptr noundef %251, ptr noundef %254) #13
+  %256 = add nuw nsw i32 %.01925.i, 1
+  %exitcond.not.i = icmp eq i32 %256, %247
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i34, !llvm.loop !10
 
-_setup_stepd_kvs.exit.thread:                     ; preds = %.loopexit43, %242
-  %.0.i33.ph = phi i32 [ %243, %242 ], [ %241, %.loopexit43 ]
+_setup_stepd_kvs.exit.thread:                     ; preds = %.loopexit43, %241
+  %.0.i33.ph = phi i32 [ %242, %241 ], [ %240, %.loopexit43 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %_setup_stepd_job_info.exit
 
-.loopexit:                                        ; preds = %.lr.ph.i34, %247, %244
-  %258 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 56), align 8
-  %259 = call i32 @kvs_put(ptr noundef nonnull @.str.39, ptr noundef %258) #13
+.loopexit:                                        ; preds = %.lr.ph.i34, %246, %243
+  %257 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 56), align 8
+  %258 = call i32 @kvs_put(ptr noundef nonnull @.str.39, ptr noundef %257) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %260 = call i32 @pmix_ring_init(ptr noundef nonnull @job_info, ptr noundef nonnull %1) #13
+  %259 = call i32 @pmix_ring_init(ptr noundef nonnull @job_info, ptr noundef nonnull %1) #13
   br label %_setup_stepd_job_info.exit
 
 _setup_stepd_job_info.exit:                       ; preds = %158, %163, %_setup_stepd_kvs.exit.thread, %_setup_stepd_sockets.exit.thread, %104, %97, %.loopexit
-  %.0 = phi i32 [ %260, %.loopexit ], [ -1, %97 ], [ -1, %104 ], [ -1, %_setup_stepd_sockets.exit.thread ], [ %.0.i33.ph, %_setup_stepd_kvs.exit.thread ], [ -1, %163 ], [ -1, %158 ]
+  %.0 = phi i32 [ %259, %.loopexit ], [ -1, %97 ], [ -1, %104 ], [ -1, %_setup_stepd_sockets.exit.thread ], [ %.0.i33.ph, %_setup_stepd_kvs.exit.thread ], [ -1, %163 ], [ -1, %158 ]
   ret i32 %.0
 }
 

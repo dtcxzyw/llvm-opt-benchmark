@@ -2514,8 +2514,8 @@ define void @_Z26diagonalize_orires_tensorsP12t_oriresdata(ptr noundef %0) local
   %22 = getelementptr inbounds i8, ptr %0, i64 352
   br label %23
 
-23:                                               ; preds = %.lr.ph98, %162
-  %indvars.iv130 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next131, %162 ]
+23:                                               ; preds = %.lr.ph98, %161
+  %indvars.iv130 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next131, %161 ]
   %24 = load ptr, ptr %8, align 8
   %25 = getelementptr inbounds [3 x [3 x float]], ptr %24, i64 %indvars.iv130
   %26 = load float, ptr %7, align 4
@@ -2705,42 +2705,42 @@ define void @_Z26diagonalize_orires_tensorsP12t_oriresdata(ptr noundef %0) local
   %exitcond121.not = icmp eq i64 %indvars.iv.next119, 3
   br i1 %exitcond121.not, label %.preheader86, label %140, !llvm.loop !29
 
-.preheader:                                       ; preds = %.preheader86, %161
-  %indvars.iv126 = phi i64 [ 0, %.preheader86 ], [ %indvars.iv.next127, %161 ]
+.preheader:                                       ; preds = %.preheader86, %160
+  %indvars.iv126 = phi i64 [ 0, %.preheader86 ], [ %indvars.iv.next127, %160 ]
   %150 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %indvars.iv126
   %151 = load i32, ptr %150, align 4
   %152 = sext i32 %151 to i64
   %invariant.gep = getelementptr [3 x double], ptr %20, i64 0, i64 %152
-  %153 = mul nuw nsw i64 %indvars.iv126, 3
-  br label %154
+  %.idx = mul i64 %indvars.iv126, 12
+  br label %153
 
-154:                                              ; preds = %.preheader, %154
-  %indvars.iv122 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next123, %154 ]
+153:                                              ; preds = %.preheader, %153
+  %indvars.iv122 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next123, %153 ]
   %gep = getelementptr [3 x %"class.gmx::BasicVector"], ptr %invariant.gep, i64 0, i64 %indvars.iv122
-  %155 = load double, ptr %gep, align 8
-  %156 = fptrunc double %155 to float
-  %157 = load ptr, ptr %22, align 8
-  %158 = getelementptr inbounds float, ptr %157, i64 %139
-  %159 = getelementptr inbounds float, ptr %158, i64 %153
-  %160 = getelementptr inbounds float, ptr %159, i64 %indvars.iv122
-  store float %156, ptr %160, align 4
+  %154 = load double, ptr %gep, align 8
+  %155 = fptrunc double %154 to float
+  %156 = load ptr, ptr %22, align 8
+  %157 = getelementptr inbounds float, ptr %156, i64 %139
+  %158 = getelementptr inbounds i8, ptr %157, i64 %.idx
+  %159 = getelementptr inbounds float, ptr %158, i64 %indvars.iv122
+  store float %155, ptr %159, align 4
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 3
-  br i1 %exitcond125.not, label %161, label %154, !llvm.loop !30
+  br i1 %exitcond125.not, label %160, label %153, !llvm.loop !30
 
-161:                                              ; preds = %154
+160:                                              ; preds = %153
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, 3
-  br i1 %exitcond129.not, label %162, label %.preheader, !llvm.loop !31
+  br i1 %exitcond129.not, label %161, label %.preheader, !llvm.loop !31
 
-162:                                              ; preds = %161
+161:                                              ; preds = %160
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %163 = load i32, ptr %4, align 4
-  %164 = sext i32 %163 to i64
-  %165 = icmp slt i64 %indvars.iv.next131, %164
-  br i1 %165, label %23, label %._crit_edge, !llvm.loop !32
+  %162 = load i32, ptr %4, align 4
+  %163 = sext i32 %162 to i64
+  %164 = icmp slt i64 %indvars.iv.next131, %163
+  br i1 %164, label %23, label %._crit_edge, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %162, %1
+._crit_edge:                                      ; preds = %161, %1
   ret void
 }
 
@@ -2758,53 +2758,53 @@ define void @_Z16print_orires_logP8_IO_FILEP12t_oriresdata(ptr nocapture noundef
   %6 = getelementptr inbounds i8, ptr %1, i64 352
   br label %7
 
-7:                                                ; preds = %.lr.ph, %35
-  %indvars.iv30 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next31, %35 ]
+7:                                                ; preds = %.lr.ph, %34
+  %indvars.iv30 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next31, %34 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = mul nuw nsw i64 %indvars.iv30, 12
-  %10 = getelementptr inbounds float, ptr %8, i64 %9
+  %.idx = mul i64 %indvars.iv30, 48
+  %9 = getelementptr inbounds i8, ptr %8, i64 %.idx
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %11 = trunc nuw nsw i64 %indvars.iv.next31 to i32
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %11) #23
-  %13 = load float, ptr %10, align 4
-  %14 = fpext float %13 to double
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.28, double noundef %14) #23
-  %invariant.gep = getelementptr inbounds i8, ptr %10, i64 12
-  br label %16
+  %10 = trunc nuw nsw i64 %indvars.iv.next31 to i32
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %10) #23
+  %12 = load float, ptr %9, align 4
+  %13 = fpext float %12 to double
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.28, double noundef %13) #23
+  %invariant.gep = getelementptr inbounds i8, ptr %9, i64 12
+  br label %15
 
-16:                                               ; preds = %7, %16
-  %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %16 ]
-  %17 = load float, ptr %10, align 4
-  %18 = fcmp une float %17, 0.000000e+00
-  %19 = getelementptr inbounds float, ptr %10, i64 %indvars.iv
-  %20 = load float, ptr %19, align 4
-  %21 = fdiv float %20, %17
-  %22 = select i1 %18, float %21, float %20
-  %23 = fpext float %22 to double
-  %24 = mul nuw nsw i64 %indvars.iv, 3
-  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %24
-  %25 = load float, ptr %gep, align 4
-  %26 = fpext float %25 to double
-  %27 = getelementptr inbounds float, ptr %10, i64 %24
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
-  %29 = load float, ptr %28, align 4
-  %30 = fpext float %29 to double
-  %31 = getelementptr inbounds i8, ptr %27, i64 20
-  %32 = load float, ptr %31, align 4
-  %33 = fpext float %32 to double
-  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.29, double noundef %23, double noundef %26, double noundef %30, double noundef %33) #23
+15:                                               ; preds = %7, %15
+  %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %15 ]
+  %16 = load float, ptr %9, align 4
+  %17 = fcmp une float %16, 0.000000e+00
+  %18 = getelementptr inbounds float, ptr %9, i64 %indvars.iv
+  %19 = load float, ptr %18, align 4
+  %20 = fdiv float %19, %16
+  %21 = select i1 %17, float %20, float %19
+  %22 = fpext float %21 to double
+  %23 = mul nuw nsw i64 %indvars.iv, 3
+  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %23
+  %24 = load float, ptr %gep, align 4
+  %25 = fpext float %24 to double
+  %26 = getelementptr inbounds float, ptr %9, i64 %23
+  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %28 = load float, ptr %27, align 4
+  %29 = fpext float %28 to double
+  %30 = getelementptr inbounds i8, ptr %26, i64 20
+  %31 = load float, ptr %30, align 4
+  %32 = fpext float %31 to double
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.29, double noundef %22, double noundef %25, double noundef %29, double noundef %32) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %35, label %16, !llvm.loop !33
+  br i1 %exitcond.not, label %34, label %15, !llvm.loop !33
 
-35:                                               ; preds = %16
+34:                                               ; preds = %15
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
-  %36 = load i32, ptr %3, align 4
-  %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next31, %37
-  br i1 %38, label %7, label %._crit_edge, !llvm.loop !34
+  %35 = load i32, ptr %3, align 4
+  %36 = sext i32 %35 to i64
+  %37 = icmp slt i64 %indvars.iv.next31, %36
+  br i1 %37, label %7, label %._crit_edge, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %35, %2
+._crit_edge:                                      ; preds = %34, %2
   ret void
 }
 
@@ -4013,33 +4013,33 @@ define void @_ZN12t_oriresdata13updateHistoryEv(ptr noundef nonnull align 8 dere
   %13 = getelementptr inbounds i8, ptr %0, i64 128
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %23
-  %indvars.iv12 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next13, %23 ]
-  %14 = mul nuw nsw i64 %indvars.iv12, 5
-  br label %15
+.preheader:                                       ; preds = %.preheader.lr.ph, %22
+  %indvars.iv12 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next13, %22 ]
+  %.idx = mul i64 %indvars.iv12, 20
+  br label %14
 
-15:                                               ; preds = %.preheader, %15
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %15 ]
-  %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds [5 x float], ptr %16, i64 %indvars.iv12, i64 %indvars.iv
-  %18 = load float, ptr %17, align 4
-  %19 = load i64, ptr %13, align 8
-  %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds float, ptr %20, i64 %indvars.iv
-  %22 = getelementptr inbounds float, ptr %21, i64 %14
-  store float %18, ptr %22, align 4
+14:                                               ; preds = %.preheader, %14
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
+  %15 = load ptr, ptr %12, align 8
+  %16 = getelementptr inbounds [5 x float], ptr %15, i64 %indvars.iv12, i64 %indvars.iv
+  %17 = load float, ptr %16, align 4
+  %18 = load i64, ptr %13, align 8
+  %19 = inttoptr i64 %18 to ptr
+  %20 = getelementptr inbounds float, ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds i8, ptr %20, i64 %.idx
+  store float %17, ptr %21, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %23, label %15, !llvm.loop !55
+  br i1 %exitcond.not, label %22, label %14, !llvm.loop !55
 
-23:                                               ; preds = %15
+22:                                               ; preds = %14
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
-  %24 = load i32, ptr %9, align 8
-  %25 = sext i32 %24 to i64
-  %26 = icmp slt i64 %indvars.iv.next13, %25
-  br i1 %26, label %.preheader, label %.loopexit, !llvm.loop !56
+  %23 = load i32, ptr %9, align 8
+  %24 = sext i32 %23 to i64
+  %25 = icmp slt i64 %indvars.iv.next13, %24
+  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !56
 
-.loopexit:                                        ; preds = %23, %5, %1
+.loopexit:                                        ; preds = %22, %5, %1
   ret void
 }
 

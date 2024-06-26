@@ -391,14 +391,14 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
 
 116:                                              ; preds = %114, %105, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3IfEE.exit.i
   %.sroa.06.0.i.i = phi <2 x float> [ %.sroa.0.0.i.i.i, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3IfEE.exit.i ], [ %111, %105 ], [ %115, %114 ]
-  %117 = shl nuw nsw i64 %indvars.iv, 1
-  %118 = getelementptr inbounds double, ptr %1, i64 %117
-  %119 = load <2 x float>, ptr %60, align 4
-  %120 = fdiv <2 x float> %.sroa.06.0.i.i, %119
-  %121 = load <2 x float>, ptr %61, align 4
-  %122 = fadd <2 x float> %120, %121
-  %123 = fpext <2 x float> %122 to <2 x double>
-  store <2 x double> %123, ptr %118, align 8
+  %.idx = shl nsw i64 %indvars.iv, 4
+  %117 = getelementptr inbounds i8, ptr %1, i64 %.idx
+  %118 = load <2 x float>, ptr %60, align 4
+  %119 = fdiv <2 x float> %.sroa.06.0.i.i, %118
+  %120 = load <2 x float>, ptr %61, align 4
+  %121 = fadd <2 x float> %119, %120
+  %122 = fpext <2 x float> %121 to <2 x double>
+  store <2 x double> %122, ptr %117, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3IfEE.exit.i, !llvm.loop !6
@@ -658,14 +658,14 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
 
 _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit: ; preds = %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3IfEE.exit.i, %62, %71
   %.sroa.06.0.i.i = phi <2 x float> [ %.sroa.0.0.i.i.i, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3IfEE.exit.i ], [ %72, %71 ], [ %68, %62 ]
-  %73 = shl nuw nsw i64 %indvars.iv, 1
-  %74 = getelementptr inbounds double, ptr %1, i64 %73
-  %75 = load <2 x float>, ptr %17, align 4
-  %76 = fdiv <2 x float> %.sroa.06.0.i.i, %75
-  %77 = load <2 x float>, ptr %18, align 4
-  %78 = fadd <2 x float> %76, %77
-  %79 = fpext <2 x float> %78 to <2 x double>
-  store <2 x double> %79, ptr %74, align 8
+  %.idx = shl nsw i64 %indvars.iv, 4
+  %73 = getelementptr inbounds i8, ptr %1, i64 %.idx
+  %74 = load <2 x float>, ptr %17, align 4
+  %75 = fdiv <2 x float> %.sroa.06.0.i.i, %74
+  %76 = load <2 x float>, ptr %18, align 4
+  %77 = fadd <2 x float> %75, %76
+  %78 = fpext <2 x float> %77 to <2 x double>
+  store <2 x double> %78, ptr %73, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3IfEE.exit.i, !llvm.loop !8

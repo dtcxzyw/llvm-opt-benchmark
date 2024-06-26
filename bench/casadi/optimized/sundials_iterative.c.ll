@@ -519,75 +519,75 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr nocapture nounde
   br label %.lr.ph56
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %9 = phi double [ %.pre, %.lr.ph.preheader ], [ %26, %.lr.ph ]
+  %9 = phi double [ %.pre, %.lr.ph.preheader ], [ %25, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = shl nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds double, ptr %2, i64 %10
-  %12 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
+  %.idx = shl nsw i64 %indvars.iv, 4
+  %10 = getelementptr inbounds i8, ptr %2, i64 %.idx
+  %11 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.next
-  %14 = load double, ptr %13, align 8
-  %15 = load <2 x double>, ptr %11, align 8
-  %16 = extractelement <2 x double> %15, i64 1
-  %17 = fneg double %16
-  %18 = insertelement <2 x double> poison, double %14, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %21 = insertelement <2 x double> %20, double %17, i64 0
-  %22 = fmul <2 x double> %19, %21
-  %23 = insertelement <2 x double> poison, double %9, i64 0
-  %24 = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> zeroinitializer
-  %25 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %24, <2 x double> %22)
-  store <2 x double> %25, ptr %12, align 8
+  %12 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.next
+  %13 = load double, ptr %12, align 8
+  %14 = load <2 x double>, ptr %10, align 8
+  %15 = extractelement <2 x double> %14, i64 1
+  %16 = fneg double %15
+  %17 = insertelement <2 x double> poison, double %13, i64 0
+  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
+  %19 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %20 = insertelement <2 x double> %19, double %16, i64 0
+  %21 = fmul <2 x double> %18, %20
+  %22 = insertelement <2 x double> poison, double %9, i64 0
+  %23 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> zeroinitializer
+  %24 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %14, <2 x double> %23, <2 x double> %21)
+  store <2 x double> %24, ptr %11, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %26 = extractelement <2 x double> %25, i64 1
+  %25 = extractelement <2 x double> %24, i64 1
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph52
   %indvars.iv.next68 = add nsw i64 %indvars.iv67, -1
-  br i1 %36, label %.lr.ph56, label %._crit_edge, !llvm.loop !15
+  br i1 %35, label %.lr.ph56, label %._crit_edge, !llvm.loop !15
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.loopexit
   %indvars.iv69 = phi i64 [ %8, %.lr.ph56.preheader ], [ %indvars.iv.next70, %.loopexit ]
   %indvars.iv67 = phi i64 [ %7, %.lr.ph56.preheader ], [ %indvars.iv.next68, %.loopexit ]
   %indvars.iv.next70 = add nsw i64 %indvars.iv69, -1
-  %27 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next70
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds double, ptr %28, i64 %indvars.iv.next70
-  %30 = load double, ptr %29, align 8
-  %31 = fcmp oeq double %30, 0.000000e+00
-  br i1 %31, label %._crit_edge.loopexit.split.loop.exit75, label %32
+  %26 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next70
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds double, ptr %27, i64 %indvars.iv.next70
+  %29 = load double, ptr %28, align 8
+  %30 = fcmp oeq double %29, 0.000000e+00
+  br i1 %30, label %._crit_edge.loopexit.split.loop.exit75, label %31
 
-32:                                               ; preds = %.lr.ph56
-  %33 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.next70
-  %34 = load double, ptr %33, align 8
-  %35 = fdiv double %34, %30
-  store double %35, ptr %33, align 8
-  %36 = icmp ugt i64 %indvars.iv69, 1
-  br i1 %36, label %.lr.ph52, label %._crit_edge
+31:                                               ; preds = %.lr.ph56
+  %32 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.next70
+  %33 = load double, ptr %32, align 8
+  %34 = fdiv double %33, %29
+  store double %34, ptr %32, align 8
+  %35 = icmp ugt i64 %indvars.iv69, 1
+  br i1 %35, label %.lr.ph52, label %._crit_edge
 
-.lr.ph52:                                         ; preds = %32, %.lr.ph52
-  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.lr.ph52 ], [ 0, %32 ]
-  %37 = load double, ptr %33, align 8
-  %38 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv60
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds double, ptr %39, i64 %indvars.iv.next70
-  %41 = load double, ptr %40, align 8
-  %42 = getelementptr inbounds double, ptr %3, i64 %indvars.iv60
-  %43 = load double, ptr %42, align 8
-  %44 = fneg double %37
-  %45 = tail call double @llvm.fmuladd.f64(double %44, double %41, double %43)
-  store double %45, ptr %42, align 8
+.lr.ph52:                                         ; preds = %31, %.lr.ph52
+  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.lr.ph52 ], [ 0, %31 ]
+  %36 = load double, ptr %32, align 8
+  %37 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv60
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds double, ptr %38, i64 %indvars.iv.next70
+  %40 = load double, ptr %39, align 8
+  %41 = getelementptr inbounds double, ptr %3, i64 %indvars.iv60
+  %42 = load double, ptr %41, align 8
+  %43 = fneg double %36
+  %44 = tail call double @llvm.fmuladd.f64(double %43, double %40, double %42)
+  store double %44, ptr %41, align 8
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next61, %indvars.iv67
   br i1 %exitcond66.not, label %.loopexit, label %.lr.ph52, !llvm.loop !16
 
 ._crit_edge.loopexit.split.loop.exit75:           ; preds = %.lr.ph56
-  %46 = trunc nuw nsw i64 %indvars.iv69 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv69 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %32, %.loopexit, %._crit_edge.loopexit.split.loop.exit75, %4, %.preheader
-  %.0 = phi i32 [ 0, %.preheader ], [ 0, %4 ], [ %46, %._crit_edge.loopexit.split.loop.exit75 ], [ 0, %.loopexit ], [ 0, %32 ]
+._crit_edge:                                      ; preds = %31, %.loopexit, %._crit_edge.loopexit.split.loop.exit75, %4, %.preheader
+  %.0 = phi i32 [ 0, %.preheader ], [ 0, %4 ], [ %45, %._crit_edge.loopexit.split.loop.exit75 ], [ 0, %.loopexit ], [ 0, %31 ]
   ret i32 %.0
 }
 

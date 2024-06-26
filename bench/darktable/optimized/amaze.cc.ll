@@ -151,13 +151,13 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %144 = sub i32 0, %9
   br label %145
 
-145:                                              ; preds = %5742, %75
-  %indvars.iv422 = phi i32 [ %indvars.iv.next423, %5742 ], [ %144, %75 ]
-  %indvars.iv415 = phi i32 [ %indvars.iv.next416, %5742 ], [ %143, %75 ]
-  %146 = phi i64 [ %5747, %5742 ], [ 0, %75 ]
-  %147 = phi i64 [ %5743, %5742 ], [ %90, %75 ]
-  %148 = phi i32 [ %5745, %5742 ], [ %80, %75 ]
-  %149 = phi <8 x i32> [ %5746, %5742 ], [ %86, %75 ]
+145:                                              ; preds = %5741, %75
+  %indvars.iv422 = phi i32 [ %indvars.iv.next423, %5741 ], [ %144, %75 ]
+  %indvars.iv415 = phi i32 [ %indvars.iv.next416, %5741 ], [ %143, %75 ]
+  %146 = phi i64 [ %5746, %5741 ], [ 0, %75 ]
+  %147 = phi i64 [ %5742, %5741 ], [ %90, %75 ]
+  %148 = phi i32 [ %5744, %5741 ], [ %80, %75 ]
+  %149 = phi <8 x i32> [ %5745, %5741 ], [ %86, %75 ]
   %indvars426 = trunc i64 %146 to i32
   %smin421 = tail call i32 @llvm.smin.i32(i32 %148, i32 %63)
   %150 = add i32 %smin421, %indvars.iv422
@@ -376,14 +376,14 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %307 = add i32 %227, -128
   %308 = add i32 %226, 128
   %309 = add nuw nsw i64 %224, 1
-  br i1 %304, label %223, label %5742, !llvm.loop !28
+  br i1 %304, label %223, label %5741, !llvm.loop !28
 
-310:                                              ; preds = %5731, %.loopexit
-  %311 = phi i64 [ 16, %5731 ], [ %313, %.loopexit ]
+310:                                              ; preds = %5730, %.loopexit
+  %311 = phi i64 [ 16, %5730 ], [ %313, %.loopexit ]
   %312 = add nsw i64 %311, %147
-  br i1 %5733, label %5673, label %.loopexit
+  br i1 %5732, label %5673, label %.loopexit
 
-.loopexit:                                        ; preds = %341, %5730, %310
+.loopexit:                                        ; preds = %341, %5729, %310
   %313 = add nuw nsw i64 %311, 1
   %exitcond425.not = icmp eq i64 %313, %smax424
   br i1 %exitcond425.not, label %.loopexit349, label %310, !llvm.loop !30
@@ -391,7 +391,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 314:                                              ; preds = %.preheader494, %341
   %315 = phi i64 [ %342, %341 ], [ %.ph, %.preheader494 ]
   %316 = add nsw i64 %315, %225
-  %317 = icmp slt i64 %316, %5676
+  %317 = icmp slt i64 %316, %5675
   br i1 %317, label %318, label %341
 
 318:                                              ; preds = %314
@@ -401,7 +401,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %321, label %322, label %341
 
 322:                                              ; preds = %318
-  %323 = getelementptr float, ptr %5678, i64 %315
+  %323 = getelementptr float, ptr %5677, i64 %315
   %324 = load float, ptr %323, align 4, !tbaa !27
   %325 = tail call float @llvm.fabs.f32(float %324)
   %326 = fcmp oeq float %325, 0x7FF0000000000000
@@ -423,7 +423,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 335:                                              ; preds = %332, %330, %327
   %336 = phi float [ %334, %332 ], [ 0.000000e+00, %330 ], [ %329, %327 ]
-  %337 = add nsw i64 %316, %5677
+  %337 = add nsw i64 %316, %5676
   %338 = shl nsw i64 %337, 2
   %339 = or disjoint i64 %338, 1
   %340 = getelementptr inbounds float, ptr %2, i64 %339
@@ -432,7 +432,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 341:                                              ; preds = %335, %318, %314
   %342 = add nuw nsw i64 %315, 1
-  %343 = icmp slt i64 %342, %5734
+  %343 = icmp slt i64 %342, %5733
   br i1 %343, label %314, label %.loopexit, !llvm.loop !31
 
 344:                                              ; preds = %5667, %681
@@ -883,7 +883,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %682 = add nuw nsw i32 %346, 1
   %683 = add i32 %345, 160
   %684 = icmp eq i32 %682, %160
-  br i1 %684, label %5731, label %344, !llvm.loop !34
+  br i1 %684, label %5730, label %344, !llvm.loop !34
 
 685:                                              ; preds = %5662, %836
   %686 = phi i64 [ %249, %5662 ], [ %838, %836 ]
@@ -7123,102 +7123,102 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   br label %344
 
 5673:                                             ; preds = %310
-  %5674 = mul nuw nsw i64 %311, 160
-  %5675 = load i32, ptr %73, align 4, !tbaa !13
-  %5676 = sext i32 %5675 to i64
-  %5677 = mul i64 %312, %5676
-  %5678 = getelementptr float, ptr %36, i64 %5674
-  br i1 %5736, label %.preheader494, label %5679
+  %5674 = load i32, ptr %73, align 4, !tbaa !13
+  %5675 = sext i32 %5674 to i64
+  %5676 = mul i64 %312, %5675
+  %.idx = mul nuw nsw i64 %311, 640
+  %5677 = getelementptr i8, ptr %36, i64 %.idx
+  br i1 %5735, label %.preheader494, label %5678
 
-.preheader494:                                    ; preds = %5730, %5679, %5673
-  %.ph = phi i64 [ %5738, %5730 ], [ 16, %5673 ], [ 16, %5679 ]
+.preheader494:                                    ; preds = %5729, %5678, %5673
+  %.ph = phi i64 [ %5737, %5729 ], [ 16, %5673 ], [ 16, %5678 ]
   br label %314
 
-5679:                                             ; preds = %5673
-  %5680 = add i64 %245, %5677
-  %5681 = shl i64 %5680, 4
-  %5682 = getelementptr i8, ptr %93, i64 %5681
-  %5683 = getelementptr i8, ptr %5735, i64 %5681
-  %5684 = icmp ult ptr %5682, %96
-  %5685 = icmp ult ptr %74, %5683
-  %5686 = and i1 %5684, %5685
-  %5687 = icmp ult ptr %5682, %248
-  %5688 = icmp ult ptr %97, %5683
-  %5689 = and i1 %5687, %5688
-  %5690 = or i1 %5686, %5689
-  br i1 %5690, label %.preheader494, label %5691
+5678:                                             ; preds = %5673
+  %5679 = add i64 %245, %5676
+  %5680 = shl i64 %5679, 4
+  %5681 = getelementptr i8, ptr %93, i64 %5680
+  %5682 = getelementptr i8, ptr %5734, i64 %5680
+  %5683 = icmp ult ptr %5681, %96
+  %5684 = icmp ult ptr %74, %5682
+  %5685 = and i1 %5683, %5684
+  %5686 = icmp ult ptr %5681, %248
+  %5687 = icmp ult ptr %97, %5682
+  %5688 = and i1 %5686, %5687
+  %5689 = or i1 %5685, %5688
+  br i1 %5689, label %.preheader494, label %5690
 
-5691:                                             ; preds = %5679
-  %5692 = insertelement <8 x i64> poison, i64 %5676, i64 0
-  %5693 = shufflevector <8 x i64> %5692, <8 x i64> poison, <8 x i32> zeroinitializer
-  %5694 = insertelement <8 x i64> poison, i64 %312, i64 0
-  %5695 = shufflevector <8 x i64> %5694, <8 x i64> poison, <8 x i32> zeroinitializer
-  %5696 = insertelement <8 x i64> poison, i64 %5677, i64 0
-  %5697 = shufflevector <8 x i64> %5696, <8 x i64> poison, <8 x i32> zeroinitializer
-  %5698 = getelementptr i8, ptr %5678, i64 64
-  br label %5699
+5690:                                             ; preds = %5678
+  %5691 = insertelement <8 x i64> poison, i64 %5675, i64 0
+  %5692 = shufflevector <8 x i64> %5691, <8 x i64> poison, <8 x i32> zeroinitializer
+  %5693 = insertelement <8 x i64> poison, i64 %312, i64 0
+  %5694 = shufflevector <8 x i64> %5693, <8 x i64> poison, <8 x i32> zeroinitializer
+  %5695 = insertelement <8 x i64> poison, i64 %5676, i64 0
+  %5696 = shufflevector <8 x i64> %5695, <8 x i64> poison, <8 x i32> zeroinitializer
+  %5697 = getelementptr i8, ptr %5677, i64 64
+  br label %5698
 
-5699:                                             ; preds = %5699, %5691
-  %5700 = phi i64 [ 0, %5691 ], [ %5727, %5699 ]
-  %5701 = phi <8 x i64> [ <i64 16, i64 17, i64 18, i64 19, i64 20, i64 21, i64 22, i64 23>, %5691 ], [ %5728, %5699 ]
-  %5702 = add nsw <8 x i64> %5701, %5740
-  %5703 = icmp slt <8 x i64> %5702, %5693
-  %5704 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %142, i32 4, <8 x i1> %5703, <8 x i32> poison), !tbaa !14, !alias.scope !154
-  %5705 = sext <8 x i32> %5704 to <8 x i64>
-  %5706 = icmp slt <8 x i64> %5695, %5705
-  %5707 = select <8 x i1> %5703, <8 x i1> %5706, <8 x i1> zeroinitializer
-  %5708 = getelementptr float, ptr %5698, i64 %5700
-  %5709 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr %5708, i32 4, <8 x i1> %5707, <8 x float> poison), !tbaa !27, !alias.scope !157
-  %5710 = tail call <8 x float> @llvm.fabs.v8f32(<8 x float> %5709)
-  %5711 = fcmp oeq <8 x float> %5710, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
-  %5712 = xor <8 x i1> %5711, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
-  %5713 = select <8 x i1> %5707, <8 x i1> %5712, <8 x i1> zeroinitializer
-  %5714 = fcmp uno <8 x float> %5709, zeroinitializer
-  %5715 = select <8 x i1> %5714, <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, <8 x float> %5709
-  %5716 = select <8 x i1> %5707, <8 x i1> %5711, <8 x i1> zeroinitializer
-  %5717 = fcmp reassoc nsz arcp contract afn olt <8 x float> %5709, zeroinitializer
-  %5718 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %5709, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %5719 = select <8 x i1> %5718, <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, <8 x float> %5709
-  %5720 = select <8 x i1> %5716, <8 x i1> %5717, <8 x i1> zeroinitializer
-  %5721 = select <8 x i1> %5720, <8 x float> zeroinitializer, <8 x float> %5719
-  %5722 = select <8 x i1> %5713, <8 x float> %5715, <8 x float> %5721
-  %5723 = add nsw <8 x i64> %5702, %5697
-  %5724 = shl nsw <8 x i64> %5723, <i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2>
-  %5725 = or disjoint <8 x i64> %5724, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
-  %5726 = getelementptr inbounds float, ptr %2, <8 x i64> %5725
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %5722, <8 x ptr> %5726, i32 4, <8 x i1> %5707), !tbaa !27, !alias.scope !159, !noalias !161
-  %5727 = add nuw i64 %5700, 8
-  %5728 = add <8 x i64> %5701, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
-  %5729 = icmp eq i64 %5727, %5737
-  br i1 %5729, label %5730, label %5699, !llvm.loop !162
+5698:                                             ; preds = %5698, %5690
+  %5699 = phi i64 [ 0, %5690 ], [ %5726, %5698 ]
+  %5700 = phi <8 x i64> [ <i64 16, i64 17, i64 18, i64 19, i64 20, i64 21, i64 22, i64 23>, %5690 ], [ %5727, %5698 ]
+  %5701 = add nsw <8 x i64> %5700, %5739
+  %5702 = icmp slt <8 x i64> %5701, %5692
+  %5703 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %142, i32 4, <8 x i1> %5702, <8 x i32> poison), !tbaa !14, !alias.scope !154
+  %5704 = sext <8 x i32> %5703 to <8 x i64>
+  %5705 = icmp slt <8 x i64> %5694, %5704
+  %5706 = select <8 x i1> %5702, <8 x i1> %5705, <8 x i1> zeroinitializer
+  %5707 = getelementptr float, ptr %5697, i64 %5699
+  %5708 = tail call <8 x float> @llvm.masked.load.v8f32.p0(ptr %5707, i32 4, <8 x i1> %5706, <8 x float> poison), !tbaa !27, !alias.scope !157
+  %5709 = tail call <8 x float> @llvm.fabs.v8f32(<8 x float> %5708)
+  %5710 = fcmp oeq <8 x float> %5709, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %5711 = xor <8 x i1> %5710, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %5712 = select <8 x i1> %5706, <8 x i1> %5711, <8 x i1> zeroinitializer
+  %5713 = fcmp uno <8 x float> %5708, zeroinitializer
+  %5714 = select <8 x i1> %5713, <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, <8 x float> %5708
+  %5715 = select <8 x i1> %5706, <8 x i1> %5710, <8 x i1> zeroinitializer
+  %5716 = fcmp reassoc nsz arcp contract afn olt <8 x float> %5708, zeroinitializer
+  %5717 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %5708, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %5718 = select <8 x i1> %5717, <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, <8 x float> %5708
+  %5719 = select <8 x i1> %5715, <8 x i1> %5716, <8 x i1> zeroinitializer
+  %5720 = select <8 x i1> %5719, <8 x float> zeroinitializer, <8 x float> %5718
+  %5721 = select <8 x i1> %5712, <8 x float> %5714, <8 x float> %5720
+  %5722 = add nsw <8 x i64> %5701, %5696
+  %5723 = shl nsw <8 x i64> %5722, <i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2>
+  %5724 = or disjoint <8 x i64> %5723, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %5725 = getelementptr inbounds float, ptr %2, <8 x i64> %5724
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %5721, <8 x ptr> %5725, i32 4, <8 x i1> %5706), !tbaa !27, !alias.scope !159, !noalias !161
+  %5726 = add nuw i64 %5699, 8
+  %5727 = add <8 x i64> %5700, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %5728 = icmp eq i64 %5726, %5736
+  br i1 %5728, label %5729, label %5698, !llvm.loop !162
 
-5730:                                             ; preds = %5699
-  br i1 %5741, label %.loopexit, label %.preheader494
+5729:                                             ; preds = %5698
+  br i1 %5740, label %.loopexit, label %.preheader494
 
-5731:                                             ; preds = %681
-  %5732 = add nsw i32 %254, -16
-  %5733 = icmp sgt i32 %254, 32
-  %5734 = sext i32 %5732 to i64
-  %5735 = getelementptr i8, ptr %95, i64 %246
-  %5736 = icmp ult i64 %243, 8
-  %5737 = and i64 %243, -8
-  %5738 = add nuw nsw i64 %5737, 16
-  %5739 = insertelement <8 x i64> poison, i64 %225, i64 0
-  %5740 = shufflevector <8 x i64> %5739, <8 x i64> poison, <8 x i32> zeroinitializer
-  %5741 = icmp eq i64 %243, %5737
+5730:                                             ; preds = %681
+  %5731 = add nsw i32 %254, -16
+  %5732 = icmp sgt i32 %254, 32
+  %5733 = sext i32 %5731 to i64
+  %5734 = getelementptr i8, ptr %95, i64 %246
+  %5735 = icmp ult i64 %243, 8
+  %5736 = and i64 %243, -8
+  %5737 = add nuw nsw i64 %5736, 16
+  %5738 = insertelement <8 x i64> poison, i64 %225, i64 0
+  %5739 = shufflevector <8 x i64> %5738, <8 x i64> poison, <8 x i32> zeroinitializer
+  %5740 = icmp eq i64 %243, %5736
   br label %310
 
-5742:                                             ; preds = %.loopexit349
-  %5743 = add nsw i64 %147, 128
-  %5744 = icmp slt i64 %5743, %91
-  %5745 = add i32 %148, 128
-  %5746 = add <8 x i32> %149, <i32 -128, i32 -128, i32 -128, i32 -128, i32 -128, i32 -128, i32 -128, i32 -128>
-  %5747 = add nuw nsw i64 %146, 1
+5741:                                             ; preds = %.loopexit349
+  %5742 = add nsw i64 %147, 128
+  %5743 = icmp slt i64 %5742, %91
+  %5744 = add i32 %148, 128
+  %5745 = add <8 x i32> %149, <i32 -128, i32 -128, i32 -128, i32 -128, i32 -128, i32 -128, i32 -128, i32 -128>
+  %5746 = add nuw nsw i64 %146, 1
   %indvars.iv.next416 = add i32 %indvars.iv415, -128
   %indvars.iv.next423 = add i32 %indvars.iv422, -128
-  br i1 %5744, label %145, label %.loopexit369, !llvm.loop !163
+  br i1 %5743, label %145, label %.loopexit369, !llvm.loop !163
 
-.loopexit369:                                     ; preds = %5742, %59, %6
+.loopexit369:                                     ; preds = %5741, %59, %6
   tail call void @free(ptr noundef %32) #10
   ret void
 }

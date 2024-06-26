@@ -31128,7 +31128,7 @@ do.body64.preheader.lr.ph:                        ; preds = %if.end58
   br label %do.body64.preheader
 
 do.body64.preheader:                              ; preds = %do.body64.preheader.lr.ph, %for.inc183
-  %config_iter.2155 = phi ptr [ %config_list, %do.body64.preheader.lr.ph ], [ %56, %for.inc183 ]
+  %config_iter.2155 = phi ptr [ %config_list, %do.body64.preheader.lr.ph ], [ %55, %for.inc183 ]
   %char_n.0154 = phi i32 [ 0, %do.body64.preheader.lr.ph ], [ %char_n.2.lcssa, %for.inc183 ]
   %rect_n.0153 = phi i32 [ 0, %do.body64.preheader.lr.ph ], [ %add127, %for.inc183 ]
   %range_n.0152 = phi i32 [ 0, %do.body64.preheader.lr.ph ], [ %add89, %for.inc183 ]
@@ -31139,7 +31139,7 @@ do.body64.preheader:                              ; preds = %do.body64.preheader
 
 do.body64:                                        ; preds = %do.body64.preheader, %do.cond178
   %indvars.iv166 = phi i64 [ %21, %do.body64.preheader ], [ %indvars.iv.next167, %do.cond178 ]
-  %it.2 = phi ptr [ %config_iter.2155, %do.body64.preheader ], [ %54, %do.cond178 ]
+  %it.2 = phi ptr [ %config_iter.2155, %do.body64.preheader ], [ %53, %do.cond178 ]
   %range_n.1 = phi i32 [ %range_n.0152, %do.body64.preheader ], [ %add89, %do.cond178 ]
   %rect_n.1 = phi i32 [ %rect_n.0153, %do.body64.preheader ], [ %add127, %do.cond178 ]
   %char_n.1 = phi i32 [ %char_n.0154, %do.body64.preheader ], [ %char_n.2.lcssa, %do.cond178 ]
@@ -31192,63 +31192,63 @@ for.body93.lr.ph:                                 ; preds = %for.end85
   br label %for.body93
 
 for.body93:                                       ; preds = %for.body93.lr.ph, %for.body93
-  %29 = phi ptr [ %add.ptr86, %for.body93.lr.ph ], [ %39, %for.body93 ]
+  %29 = phi ptr [ %add.ptr86, %for.body93.lr.ph ], [ %38, %for.body93 ]
   %indvars.iv157 = phi i64 [ 0, %for.body93.lr.ph ], [ %indvars.iv.next158, %for.body93 ]
   %char_n.2146 = phi i32 [ %char_n.1, %for.body93.lr.ph ], [ %add120, %for.body93 ]
   %30 = load ptr, ptr %range70, align 8
-  %31 = shl nuw nsw i64 %indvars.iv157, 1
-  %arrayidx96 = getelementptr inbounds i32, ptr %30, i64 %31
-  %32 = load float, ptr %size, align 8
+  %arrayidx96.idx = shl nsw i64 %indvars.iv157, 3
+  %arrayidx96 = getelementptr inbounds i8, ptr %30, i64 %arrayidx96.idx
+  %31 = load float, ptr %size, align 8
   %arrayidx99 = getelementptr inbounds %struct.stbtt_pack_range, ptr %29, i64 %indvars.iv157
-  store float %32, ptr %arrayidx99, align 8
-  %33 = load i32, ptr %arrayidx96, align 4
-  %34 = load ptr, ptr %ranges87, align 8
-  %first_unicode_codepoint_in_range = getelementptr inbounds %struct.stbtt_pack_range, ptr %34, i64 %indvars.iv157, i32 1
-  store i32 %33, ptr %first_unicode_codepoint_in_range, align 4
+  store float %31, ptr %arrayidx99, align 8
+  %32 = load i32, ptr %arrayidx96, align 4
+  %33 = load ptr, ptr %ranges87, align 8
+  %first_unicode_codepoint_in_range = getelementptr inbounds %struct.stbtt_pack_range, ptr %33, i64 %indvars.iv157, i32 1
+  store i32 %32, ptr %first_unicode_codepoint_in_range, align 4
   %arrayidx104 = getelementptr inbounds i8, ptr %arrayidx96, i64 4
-  %35 = load i32, ptr %arrayidx104, align 4
-  %sub106 = add i32 %35, 1
-  %add107 = sub i32 %sub106, %33
-  %36 = load ptr, ptr %ranges87, align 8
-  %num_chars = getelementptr inbounds %struct.stbtt_pack_range, ptr %36, i64 %indvars.iv157, i32 3
+  %34 = load i32, ptr %arrayidx104, align 4
+  %sub106 = add i32 %34, 1
+  %add107 = sub i32 %sub106, %32
+  %35 = load ptr, ptr %ranges87, align 8
+  %num_chars = getelementptr inbounds %struct.stbtt_pack_range, ptr %35, i64 %indvars.iv157, i32 3
   store i32 %add107, ptr %num_chars, align 8
-  %37 = load ptr, ptr %packed_chars, align 8
+  %36 = load ptr, ptr %packed_chars, align 8
   %idx.ext111 = sext i32 %char_n.2146 to i64
-  %add.ptr112 = getelementptr inbounds %struct.stbtt_packedchar, ptr %37, i64 %idx.ext111
-  %38 = load ptr, ptr %ranges87, align 8
-  %chardata_for_range = getelementptr inbounds %struct.stbtt_pack_range, ptr %38, i64 %indvars.iv157, i32 4
+  %add.ptr112 = getelementptr inbounds %struct.stbtt_packedchar, ptr %36, i64 %idx.ext111
+  %37 = load ptr, ptr %ranges87, align 8
+  %chardata_for_range = getelementptr inbounds %struct.stbtt_pack_range, ptr %37, i64 %indvars.iv157, i32 4
   store ptr %add.ptr112, ptr %chardata_for_range, align 8
-  %39 = load ptr, ptr %ranges87, align 8
-  %num_chars119 = getelementptr inbounds %struct.stbtt_pack_range, ptr %39, i64 %indvars.iv157, i32 3
-  %40 = load i32, ptr %num_chars119, align 8
-  %add120 = add nsw i32 %40, %char_n.2146
+  %38 = load ptr, ptr %ranges87, align 8
+  %num_chars119 = getelementptr inbounds %struct.stbtt_pack_range, ptr %38, i64 %indvars.iv157, i32 3
+  %39 = load i32, ptr %num_chars119, align 8
+  %add120 = add nsw i32 %39, %char_n.2146
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
   br i1 %exitcond.not, label %for.end123, label %for.body93, !llvm.loop !165
 
 for.end123:                                       ; preds = %for.body93, %for.end85
   %char_n.2.lcssa = phi i32 [ %char_n.1, %for.end85 ], [ %add120, %for.body93 ]
-  %41 = load ptr, ptr %rects, align 8
+  %40 = load ptr, ptr %rects, align 8
   %idx.ext124 = sext i32 %rect_n.1 to i64
-  %add.ptr125 = getelementptr inbounds %struct.stbrp_rect, ptr %41, i64 %idx.ext124
+  %add.ptr125 = getelementptr inbounds %struct.stbrp_rect, ptr %40, i64 %idx.ext124
   %rects126 = getelementptr inbounds i8, ptr %arrayidx69, i64 160
   store ptr %add.ptr125, ptr %rects126, align 8
   %add127 = add nsw i32 %glyph_count.0.lcssa, %rect_n.1
   %oversample_h = getelementptr inbounds i8, ptr %it.2, i64 28
-  %42 = load i8, ptr %oversample_h, align 4
+  %41 = load i8, ptr %oversample_h, align 4
   %oversample_v = getelementptr inbounds i8, ptr %it.2, i64 27
-  %43 = load i8, ptr %oversample_v, align 1
-  %conv130 = zext i8 %43 to i32
-  %cmp.i = icmp ult i8 %42, 9
+  %42 = load i8, ptr %oversample_v, align 1
+  %conv130 = zext i8 %42 to i32
+  %cmp.i = icmp ult i8 %41, 9
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.end123
-  %conv129 = zext nneg i8 %42 to i32
+  %conv129 = zext nneg i8 %41 to i32
   store i32 %conv129, ptr %h_oversample1.i119, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.end123
-  %cmp2.i = icmp ult i8 %43, 9
+  %cmp2.i = icmp ult i8 %42, 9
   br i1 %cmp2.i, label %if.then3.i, label %stbtt_PackSetOversampling.exit
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -31256,13 +31256,13 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %stbtt_PackSetOversampling.exit
 
 stbtt_PackSetOversampling.exit:                   ; preds = %if.end.i, %if.then3.i
-  %44 = load ptr, ptr %ranges87, align 8
-  %45 = load i32, ptr %range_count88, align 8
-  %46 = load ptr, ptr %rects126, align 8
-  %call136 = call i32 @stbtt_PackFontRangesGatherRects(ptr noundef nonnull %spc, ptr noundef nonnull %arrayidx69, ptr noundef %44, i32 noundef %45, ptr noundef %46)
-  %47 = load ptr, ptr %pack_info138, align 8
-  %48 = load ptr, ptr %rects126, align 8
-  %call140 = call i32 @stbrp_pack_rects(ptr noundef %47, ptr noundef %48, i32 noundef %call136)
+  %43 = load ptr, ptr %ranges87, align 8
+  %44 = load i32, ptr %range_count88, align 8
+  %45 = load ptr, ptr %rects126, align 8
+  %call136 = call i32 @stbtt_PackFontRangesGatherRects(ptr noundef nonnull %spc, ptr noundef nonnull %arrayidx69, ptr noundef %43, i32 noundef %44, ptr noundef %45)
+  %46 = load ptr, ptr %pack_info138, align 8
+  %47 = load ptr, ptr %rects126, align 8
+  %call140 = call i32 @stbrp_pack_rects(ptr noundef %46, ptr noundef %47, i32 noundef %call136)
   %cmp142148 = icmp sgt i32 %call136, 0
   br i1 %cmp142148, label %for.body144.preheader, label %do.cond178
 
@@ -31272,21 +31272,21 @@ for.body144.preheader:                            ; preds = %stbtt_PackSetOversa
 
 for.body144:                                      ; preds = %for.body144.preheader, %for.inc175
   %indvars.iv161 = phi i64 [ 0, %for.body144.preheader ], [ %indvars.iv.next162, %for.inc175 ]
-  %49 = load ptr, ptr %rects126, align 8
-  %arrayidx147 = getelementptr inbounds %struct.stbrp_rect, ptr %49, i64 %indvars.iv161
+  %48 = load ptr, ptr %rects126, align 8
+  %arrayidx147 = getelementptr inbounds %struct.stbrp_rect, ptr %48, i64 %indvars.iv161
   %was_packed = getelementptr inbounds i8, ptr %arrayidx147, i64 20
-  %50 = load i32, ptr %was_packed, align 4
-  %tobool148.not = icmp eq i32 %50, 0
+  %49 = load i32, ptr %was_packed, align 4
+  %tobool148.not = icmp eq i32 %49, 0
   br i1 %tobool148.not, label %for.inc175, label %if.then149
 
 if.then149:                                       ; preds = %for.body144
-  %51 = load i32, ptr %height, align 4
+  %50 = load i32, ptr %height, align 4
   %y153 = getelementptr inbounds i8, ptr %arrayidx147, i64 16
-  %52 = load i32, ptr %y153, align 4
+  %51 = load i32, ptr %y153, align 4
   %h157 = getelementptr inbounds i8, ptr %arrayidx147, i64 8
-  %53 = load i32, ptr %h157, align 4
-  %add158 = add nsw i32 %53, %52
-  %add158. = call i32 @llvm.smax.i32(i32 %51, i32 %add158)
+  %52 = load i32, ptr %h157, align 4
+  %add158 = add nsw i32 %52, %51
+  %add158. = call i32 @llvm.smax.i32(i32 %50, i32 %add158)
   store i32 %add158., ptr %height, align 4
   br label %for.inc175
 
@@ -31297,21 +31297,21 @@ for.inc175:                                       ; preds = %for.body144, %if.th
 
 do.cond178:                                       ; preds = %for.inc175, %stbtt_PackSetOversampling.exit
   %n179 = getelementptr inbounds i8, ptr %it.2, i64 72
-  %54 = load ptr, ptr %n179, align 8
-  %cmp180.not = icmp eq ptr %54, %config_iter.2155
+  %53 = load ptr, ptr %n179, align 8
+  %cmp180.not = icmp eq ptr %53, %config_iter.2155
   br i1 %cmp180.not, label %for.inc183, label %do.body64, !llvm.loop !167
 
 for.inc183:                                       ; preds = %do.cond178
-  %55 = trunc nsw i64 %indvars.iv.next167 to i32
-  %56 = load ptr, ptr %config_iter.2155, align 8
-  %cmp60 = icmp slt i32 %55, %count
-  %tobool62 = icmp ne ptr %56, null
-  %57 = select i1 %cmp60, i1 %tobool62, i1 false
-  br i1 %57, label %do.body64.preheader, label %for.end185, !llvm.loop !168
+  %54 = trunc nsw i64 %indvars.iv.next167 to i32
+  %55 = load ptr, ptr %config_iter.2155, align 8
+  %cmp60 = icmp slt i32 %54, %count
+  %tobool62 = icmp ne ptr %55, null
+  %56 = select i1 %cmp60, i1 %tobool62, i1 false
+  br i1 %56, label %do.body64.preheader, label %for.end185, !llvm.loop !168
 
 for.end185:                                       ; preds = %for.inc183, %if.end58
-  %58 = load i32, ptr %height, align 4
-  %dec.i = add i32 %58, -1
+  %57 = load i32, ptr %height, align 4
+  %dec.i = add i32 %57, -1
   %shr.i = lshr i32 %dec.i, 1
   %or.i = or i32 %shr.i, %dec.i
   %shr1.i = lshr i32 %or.i, 2
@@ -31324,8 +31324,8 @@ for.end185:                                       ; preds = %for.inc183, %if.end
   %or8.i = or i32 %shr7.i, %or6.i
   %inc.i = add i32 %or8.i, 1
   store i32 %inc.i, ptr %height, align 4
-  %59 = load i32, ptr %width, align 4
-  %conv187 = sext i32 %59 to i64
+  %58 = load i32, ptr %width, align 4
+  %conv187 = sext i32 %58 to i64
   %conv188 = sext i32 %inc.i to i64
   %mul189 = mul nsw i64 %conv188, %conv187
   store i64 %mul189, ptr %image_memory, align 8

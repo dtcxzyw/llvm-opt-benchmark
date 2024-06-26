@@ -4645,19 +4645,19 @@ for.cond.preheader:                               ; preds = %invoke.cont3
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
-  %3 = mul nuw nsw i64 %indvars.iv, 3
-  %4 = load ptr, ptr %m_data.i.i2.i, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %4, i64 %3
-  %5 = load i32, ptr %arrayidx.i, align 4
+  %3 = load ptr, ptr %m_data.i.i2.i, align 8
+  %arrayidx.i.idx = mul i64 %indvars.iv, 12
+  %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %arrayidx.i.idx
+  %4 = load i32, ptr %arrayidx.i, align 4
   %arrayidx.i41 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  %6 = load i32, ptr %arrayidx.i41, align 4
+  %5 = load i32, ptr %arrayidx.i41, align 4
   %arrayidx.i44 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %7 = load i32, ptr %arrayidx.i44, align 4
-  %cmp23 = icmp slt i32 %5, %6
+  %6 = load i32, ptr %arrayidx.i44, align 4
+  %cmp23 = icmp slt i32 %4, %5
   br i1 %cmp23, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  invoke void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %5, i32 noundef %6, ptr noundef null, i1 noundef zeroext false)
+  invoke void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %4, i32 noundef %5, ptr noundef null, i1 noundef zeroext false)
           to label %if.end unwind label %lpad1.loopexit
 
 lpad1.loopexit:                                   ; preds = %if.then, %if.then30, %if.then38, %if.end42
@@ -4671,43 +4671,43 @@ lpad1.loopexit.split-lp:                          ; preds = %invoke.cont, %for.e
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont3
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %call.i37)
           to label %ehcleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad5
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #23
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #23
   unreachable
 
 if.end:                                           ; preds = %if.then, %for.body
-  %cmp29 = icmp slt i32 %6, %7
+  %cmp29 = icmp slt i32 %5, %6
   br i1 %cmp29, label %if.then30, label %if.end34
 
 if.then30:                                        ; preds = %if.end
-  invoke void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %6, i32 noundef %7, ptr noundef null, i1 noundef zeroext false)
+  invoke void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %5, i32 noundef %6, ptr noundef null, i1 noundef zeroext false)
           to label %if.end34 unwind label %lpad1.loopexit
 
 if.end34:                                         ; preds = %if.then30, %if.end
-  %cmp37 = icmp slt i32 %7, %5
+  %cmp37 = icmp slt i32 %6, %4
   br i1 %cmp37, label %if.then38, label %if.end42
 
 if.then38:                                        ; preds = %if.end34
-  invoke void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %7, i32 noundef %5, ptr noundef null, i1 noundef zeroext false)
+  invoke void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %6, i32 noundef %4, ptr noundef null, i1 noundef zeroext false)
           to label %if.end42 unwind label %lpad1.loopexit
 
 if.end42:                                         ; preds = %if.then38, %if.end34
-  invoke void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef null)
+  invoke void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064) %call.i37, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef null)
           to label %for.inc unwind label %lpad1.loopexit
 
 for.inc:                                          ; preds = %if.end42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = load i32, ptr %mNumFaces.i, align 8
-  %12 = sext i32 %11 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %12
+  %10 = load i32, ptr %mNumFaces.i, align 8
+  %11 = sext i32 %10 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %11
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !42
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
@@ -4722,24 +4722,24 @@ if.then49:                                        ; preds = %invoke.cont47
           to label %if.end51 unwind label %lpad1.loopexit.split-lp
 
 if.end51:                                         ; preds = %if.then49, %invoke.cont47
-  %13 = load ptr, ptr %m_data.i.i2.i34, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %13, null
+  %12 = load ptr, ptr %m_data.i.i2.i34, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i, label %_ZN20btAlignedObjectArrayIiED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end51
-  %14 = load i8, ptr %m_ownsMemory.i.i1.i33, align 8
-  %tobool2.i.i.i.i = trunc i8 %14 to i1
+  %13 = load i8, ptr %m_ownsMemory.i.i1.i33, align 8
+  %tobool2.i.i.i.i = trunc i8 %13 to i1
   br i1 %tobool2.i.i.i.i, label %if.then3.i.i.i.i, label %_ZN20btAlignedObjectArrayIiED2Ev.exit.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %13)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %12)
           to label %_ZN20btAlignedObjectArrayIiED2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #23
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #23
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit.i:          ; preds = %if.then3.i.i.i.i, %if.then.i.i.i.i, %if.end51
@@ -4747,24 +4747,24 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit.i:          ; preds = %if.then3.i.i.i.i, %
   store ptr null, ptr %m_data.i.i2.i34, align 8
   store i32 0, ptr %m_size.i.i3.i35, align 4
   store i32 0, ptr %m_capacity.i.i4.i36, align 8
-  %17 = load ptr, ptr %m_data.i.i.i30, align 8
-  %tobool.not.i.i.i2.i = icmp eq ptr %17, null
+  %16 = load ptr, ptr %m_data.i.i.i30, align 8
+  %tobool.not.i.i.i2.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i2.i, label %_ZN11HullLibraryD2Ev.exit, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit.i
-  %18 = load i8, ptr %m_ownsMemory.i.i.i29, align 8
-  %tobool2.i.i.i5.i = trunc i8 %18 to i1
+  %17 = load i8, ptr %m_ownsMemory.i.i.i29, align 8
+  %tobool2.i.i.i5.i = trunc i8 %17 to i1
   br i1 %tobool2.i.i.i5.i, label %if.then3.i.i.i9.i, label %_ZN11HullLibraryD2Ev.exit
 
 if.then3.i.i.i9.i:                                ; preds = %if.then.i.i.i3.i
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %17)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %16)
           to label %_ZN11HullLibraryD2Ev.exit unwind label %terminate.lpad.i10.i
 
 terminate.lpad.i10.i:                             ; preds = %if.then3.i.i.i9.i
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #23
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #23
   unreachable
 
 _ZN11HullLibraryD2Ev.exit:                        ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit.i, %if.then.i.i.i3.i, %if.then3.i.i.i9.i
@@ -4772,24 +4772,24 @@ _ZN11HullLibraryD2Ev.exit:                        ; preds = %_ZN20btAlignedObjec
   store ptr null, ptr %m_data.i.i.i30, align 8
   store i32 0, ptr %m_size.i.i.i31, align 4
   store i32 0, ptr %m_capacity.i.i.i32, align 8
-  %21 = load ptr, ptr %m_data.i.i2.i, align 8
-  %tobool.not.i.i.i.i46 = icmp eq ptr %21, null
+  %20 = load ptr, ptr %m_data.i.i2.i, align 8
+  %tobool.not.i.i.i.i46 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i.i46, label %_ZN20btAlignedObjectArrayIjED2Ev.exit.i, label %if.then.i.i.i.i47
 
 if.then.i.i.i.i47:                                ; preds = %_ZN11HullLibraryD2Ev.exit
-  %22 = load i8, ptr %m_ownsMemory.i.i1.i, align 8
-  %tobool2.i.i.i.i49 = trunc i8 %22 to i1
+  %21 = load i8, ptr %m_ownsMemory.i.i1.i, align 8
+  %tobool2.i.i.i.i49 = trunc i8 %21 to i1
   br i1 %tobool2.i.i.i.i49, label %if.then3.i.i.i.i63, label %_ZN20btAlignedObjectArrayIjED2Ev.exit.i
 
 if.then3.i.i.i.i63:                               ; preds = %if.then.i.i.i.i47
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %21)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %20)
           to label %_ZN20btAlignedObjectArrayIjED2Ev.exit.i unwind label %terminate.lpad.i.i64
 
 terminate.lpad.i.i64:                             ; preds = %if.then3.i.i.i.i63
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #23
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #23
   unreachable
 
 _ZN20btAlignedObjectArrayIjED2Ev.exit.i:          ; preds = %if.then3.i.i.i.i63, %if.then.i.i.i.i47, %_ZN11HullLibraryD2Ev.exit
@@ -4797,31 +4797,31 @@ _ZN20btAlignedObjectArrayIjED2Ev.exit.i:          ; preds = %if.then3.i.i.i.i63,
   store ptr null, ptr %m_data.i.i2.i, align 8
   store i32 0, ptr %m_size.i.i3.i, align 4
   store i32 0, ptr %m_capacity.i.i4.i, align 8
-  %25 = load ptr, ptr %m_data.i.i.i, align 8
-  %tobool.not.i.i.i2.i54 = icmp eq ptr %25, null
+  %24 = load ptr, ptr %m_data.i.i.i, align 8
+  %tobool.not.i.i.i2.i54 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i2.i54, label %_ZN10HullResultD2Ev.exit, label %if.then.i.i.i3.i55
 
 if.then.i.i.i3.i55:                               ; preds = %_ZN20btAlignedObjectArrayIjED2Ev.exit.i
-  %26 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %tobool2.i.i.i5.i57 = trunc i8 %26 to i1
+  %25 = load i8, ptr %m_ownsMemory.i.i.i, align 8
+  %tobool2.i.i.i5.i57 = trunc i8 %25 to i1
   br i1 %tobool2.i.i.i5.i57, label %if.then3.i.i.i9.i61, label %_ZN10HullResultD2Ev.exit
 
 if.then3.i.i.i9.i61:                              ; preds = %if.then.i.i.i3.i55
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %25)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %24)
           to label %_ZN10HullResultD2Ev.exit unwind label %terminate.lpad.i10.i62
 
 terminate.lpad.i10.i62:                           ; preds = %if.then3.i.i.i9.i61
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #23
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #23
   unreachable
 
 _ZN10HullResultD2Ev.exit:                         ; preds = %_ZN20btAlignedObjectArrayIjED2Ev.exit.i, %if.then.i.i.i3.i55, %if.then3.i.i.i9.i61
   ret ptr %call.i37
 
 ehcleanup:                                        ; preds = %lpad1.loopexit, %lpad1.loopexit.split-lp, %lpad5
-  %.pn = phi { ptr, i32 } [ %8, %lpad5 ], [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit.split-lp, %lpad1.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad5 ], [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit.split-lp, %lpad1.loopexit.split-lp ]
   call void @_ZN11HullLibraryD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %hlib) #22
   call void @_ZN10HullResultD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %hres) #22
   resume { ptr, i32 } %.pn

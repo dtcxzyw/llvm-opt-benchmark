@@ -1306,7 +1306,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %285 = getelementptr inbounds i8, ptr %24, i64 12
   store float 0.000000e+00, ptr %285, align 4, !tbaa !72, !noalias !88
   %286 = icmp eq i64 %238, 0
-  br i1 %286, label %.loopexit82, label %287
+  br i1 %286, label %.loopexit84, label %287
 
 287:                                              ; preds = %240
   %288 = insertelement <4 x float> poison, float %249, i64 0
@@ -1360,13 +1360,13 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #19, !noalias !88
   %328 = add nuw i64 %297, 1
   %329 = icmp eq i64 %328, %238
-  br i1 %329, label %.loopexit82, label %296
+  br i1 %329, label %.loopexit84, label %296
 
-.loopexit82:                                      ; preds = %296, %240
+.loopexit84:                                      ; preds = %296, %240
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #19, !noalias !88
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #19, !noalias !88
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #19, !noalias !88
-  br label %.loopexit85
+  br label %.loopexit87
 
 330:                                              ; preds = %239
   %331 = getelementptr inbounds i8, ptr %225, i64 786496
@@ -1414,7 +1414,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %357 = getelementptr inbounds i8, ptr %19, i64 12
   store float 0.000000e+00, ptr %357, align 4, !tbaa !72, !noalias !98
   %358 = icmp eq i64 %238, 0
-  br i1 %358, label %.loopexit81, label %359
+  br i1 %358, label %.loopexit83, label %359
 
 359:                                              ; preds = %330
   %360 = getelementptr inbounds i8, ptr %20, i64 8
@@ -1445,13 +1445,13 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #19, !noalias !98
   %375 = add nuw i64 %364, 1
   %376 = icmp eq i64 %375, %238
-  br i1 %376, label %.loopexit81, label %363
+  br i1 %376, label %.loopexit83, label %363
 
-.loopexit81:                                      ; preds = %363, %330
+.loopexit83:                                      ; preds = %363, %330
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #19, !noalias !98
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #19, !noalias !98
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #19, !noalias !98
-  br label %.loopexit85
+  br label %.loopexit87
 
 377:                                              ; preds = %217
   %378 = getelementptr i8, ptr %5, i64 8
@@ -1519,7 +1519,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %440 = sext i32 %379 to i64
   %441 = mul nsw i64 %439, %440
   %442 = icmp eq i64 %441, 0
-  br i1 %442, label %.loopexit85, label %443
+  br i1 %442, label %.loopexit87, label %443
 
 443:                                              ; preds = %377
   %444 = getelementptr inbounds i8, ptr %223, i64 48
@@ -1998,7 +1998,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store <4 x float> %812, ptr %564, align 16, !tbaa !31
   %813 = add nuw nsw i64 %457, 1
   %814 = icmp eq i64 %813, %441
-  br i1 %814, label %.loopexit85, label %456
+  br i1 %814, label %.loopexit87, label %456
 
 815:                                              ; preds = %224
   br i1 %235, label %1005, label %816
@@ -2067,7 +2067,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %861 = getelementptr inbounds i8, ptr %14, i64 12
   store float 0.000000e+00, ptr %861, align 4, !tbaa !72, !noalias !107
   %862 = icmp eq i64 %238, 0
-  br i1 %862, label %.loopexit84, label %863
+  br i1 %862, label %.loopexit86, label %863
 
 863:                                              ; preds = %816
   %864 = getelementptr inbounds i8, ptr %225, i64 48
@@ -2248,13 +2248,13 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #19, !noalias !107
   %1003 = add nuw i64 %889, 1
   %1004 = icmp eq i64 %1003, %238
-  br i1 %1004, label %.loopexit84, label %888
+  br i1 %1004, label %.loopexit86, label %888
 
-.loopexit84:                                      ; preds = %978, %816
+.loopexit86:                                      ; preds = %978, %816
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #19, !noalias !107
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #19, !noalias !107
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #19, !noalias !107
-  br label %.loopexit85
+  br label %.loopexit87
 
 1005:                                             ; preds = %815
   %1006 = getelementptr inbounds i8, ptr %225, i64 786496
@@ -2302,7 +2302,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1032 = getelementptr inbounds i8, ptr %9, i64 12
   store float 0.000000e+00, ptr %1032, align 4, !tbaa !72, !noalias !117
   %1033 = icmp eq i64 %238, 0
-  br i1 %1033, label %.loopexit83, label %1034
+  br i1 %1033, label %.loopexit85, label %1034
 
 1034:                                             ; preds = %1005
   %1035 = getelementptr inbounds i8, ptr %10, i64 4
@@ -2468,20 +2468,20 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #19, !noalias !117
   %1152 = add nuw i64 %1058, 1
   %1153 = icmp eq i64 %1152, %238
-  br i1 %1153, label %.loopexit83, label %1057
+  br i1 %1153, label %.loopexit85, label %1057
 
-.loopexit83:                                      ; preds = %1149, %1005
+.loopexit85:                                      ; preds = %1149, %1005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #19, !noalias !117
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #19, !noalias !117
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #19, !noalias !117
-  br label %.loopexit85
+  br label %.loopexit87
 
-.loopexit85:                                      ; preds = %805, %.loopexit83, %.loopexit84, %377, %.loopexit81, %.loopexit82
+.loopexit87:                                      ; preds = %805, %.loopexit85, %.loopexit86, %377, %.loopexit83, %.loopexit84
   tail call void @llvm.x86.sse.sfence()
   br label %.loopexit
 
 1154:                                             ; preds = %207
-  br i1 %75, label %1155, label %1312
+  br i1 %75, label %1155, label %1311
 
 1155:                                             ; preds = %1154
   %1156 = getelementptr i8, ptr %5, i64 8
@@ -2529,21 +2529,21 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1194 = select i1 %1180, i1 true, i1 %1185
   br label %1195
 
-1195:                                             ; preds = %.loopexit59, %1171
-  %1196 = phi i64 [ 0, %1171 ], [ %1268, %.loopexit59 ]
+1195:                                             ; preds = %.loopexit61, %1171
+  %1196 = phi i64 [ 0, %1171 ], [ %1267, %.loopexit61 ]
   %1197 = shl nuw nsw i64 %1196, 2
   %1198 = mul i64 %1197, %1161
   %1199 = getelementptr inbounds float, ptr %2, i64 %1198
   %1200 = getelementptr inbounds float, ptr %3, i64 %1198
-  br i1 %1194, label %.loopexit63.preheader, label %.preheader62
+  br i1 %1194, label %.loopexit65.preheader, label %.preheader64
 
-.loopexit63.preheader:                            ; preds = %.preheader62, %1195
-  %.ph = phi i64 [ 0, %1195 ], [ %1189, %.preheader62 ]
-  br label %.loopexit63
+.loopexit65.preheader:                            ; preds = %.preheader64, %1195
+  %.ph = phi i64 [ 0, %1195 ], [ %1189, %.preheader64 ]
+  br label %.loopexit65
 
-.preheader62:                                     ; preds = %1195, %.preheader62
-  %1201 = phi i64 [ %1227, %.preheader62 ], [ 0, %1195 ]
-  %1202 = phi <8 x i64> [ %1228, %.preheader62 ], [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %1195 ]
+.preheader64:                                     ; preds = %1195, %.preheader64
+  %1201 = phi i64 [ %1227, %.preheader64 ], [ 0, %1195 ]
+  %1202 = phi <8 x i64> [ %1228, %.preheader64 ], [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %1195 ]
   %1203 = shl nsw <8 x i64> %1202, <i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2>
   %1204 = extractelement <8 x i64> %1203, i64 0
   %1205 = getelementptr inbounds float, ptr %1199, i64 %1204
@@ -2576,15 +2576,15 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1227 = add nuw i64 %1201, 8
   %1228 = add <8 x i64> %1202, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
   %1229 = icmp eq i64 %1227, %1189
-  br i1 %1229, label %.loopexit63.preheader, label %.preheader62, !llvm.loop !126
+  br i1 %1229, label %.loopexit65.preheader, label %.preheader64, !llvm.loop !126
 
-1230:                                             ; preds = %1299
+1230:                                             ; preds = %1298
   %1231 = load ptr, ptr %1167, align 32, !tbaa !127
   tail call void @cmsDoTransform(ptr noundef %1231, ptr noundef nonnull %1200, ptr noundef nonnull %1200, i32 noundef %1160) #19
-  br i1 %1191, label %.loopexit61, label %.preheader60
+  br i1 %1191, label %.loopexit63, label %.preheader62
 
-.preheader60:                                     ; preds = %1230, %.preheader60
-  %1232 = phi i64 [ %1253, %.preheader60 ], [ 0, %1230 ]
+.preheader62:                                     ; preds = %1230, %.preheader62
+  %1232 = phi i64 [ %1253, %.preheader62 ], [ 0, %1230 ]
   %1233 = shl nsw i64 %1232, 2
   %1234 = getelementptr inbounds float, ptr %1200, i64 %1233
   %1235 = load <4 x float>, ptr %1234, align 16, !tbaa !31
@@ -2611,469 +2611,469 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store <4 x float> %1252, ptr %1249, align 16, !tbaa !31
   %1253 = add nuw nsw i64 %1232, 4
   %1254 = icmp eq i64 %1253, %1192
-  br i1 %1254, label %.loopexit61, label %.preheader60
+  br i1 %1254, label %.loopexit63, label %.preheader62
 
-.loopexit61:                                      ; preds = %.preheader60, %1230
-  %1255 = phi i64 [ 0, %1230 ], [ %1192, %.preheader60 ]
-  br i1 %1193, label %.loopexit59, label %.preheader58
+.loopexit63:                                      ; preds = %.preheader62, %1230
+  %1255 = phi i64 [ 0, %1230 ], [ %1192, %.preheader62 ]
+  br i1 %1193, label %.loopexit61, label %.preheader60
 
-.preheader58:                                     ; preds = %.loopexit61, %.preheader58
-  %1256 = phi i64 [ %1263, %.preheader58 ], [ %1255, %.loopexit61 ]
-  %1257 = phi i64 [ %1264, %.preheader58 ], [ 0, %.loopexit61 ]
-  %1258 = shl nsw i64 %1256, 2
-  %1259 = getelementptr inbounds float, ptr %1200, i64 %1258
-  %1260 = load <4 x float>, ptr %1259, align 16, !tbaa !31
-  %1261 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1260, <4 x float> zeroinitializer)
-  %1262 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1261, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  store <4 x float> %1262, ptr %1259, align 16, !tbaa !31
-  %1263 = add nuw nsw i64 %1256, 1
-  %1264 = add nuw nsw i64 %1257, 1
-  %1265 = icmp eq i64 %1264, %1190
-  br i1 %1265, label %.loopexit59, label %.preheader58, !llvm.loop !128
+.preheader60:                                     ; preds = %.loopexit63, %.preheader60
+  %1256 = phi i64 [ %1262, %.preheader60 ], [ %1255, %.loopexit63 ]
+  %1257 = phi i64 [ %1263, %.preheader60 ], [ 0, %.loopexit63 ]
+  %.idx58 = shl nsw i64 %1256, 4
+  %1258 = getelementptr inbounds i8, ptr %1200, i64 %.idx58
+  %1259 = load <4 x float>, ptr %1258, align 16, !tbaa !31
+  %1260 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1259, <4 x float> zeroinitializer)
+  %1261 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1260, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  store <4 x float> %1261, ptr %1258, align 16, !tbaa !31
+  %1262 = add nuw nsw i64 %1256, 1
+  %1263 = add nuw nsw i64 %1257, 1
+  %1264 = icmp eq i64 %1263, %1190
+  br i1 %1264, label %.loopexit61, label %.preheader60, !llvm.loop !128
 
-.loopexit59:                                      ; preds = %.preheader58, %1299, %.loopexit61
-  %1266 = phi ptr [ %1169, %1299 ], [ %1168, %.loopexit61 ], [ %1168, %.preheader58 ]
-  %1267 = load ptr, ptr %1266, align 8, !tbaa !49
-  tail call void @cmsDoTransform(ptr noundef %1267, ptr noundef nonnull %1200, ptr noundef nonnull %1200, i32 noundef %1160) #19
-  %1268 = add nuw nsw i64 %1196, 1
-  %1269 = icmp eq i64 %1268, %1170
-  br i1 %1269, label %.loopexit, label %1195
+.loopexit61:                                      ; preds = %.preheader60, %1298, %.loopexit63
+  %1265 = phi ptr [ %1169, %1298 ], [ %1168, %.loopexit63 ], [ %1168, %.preheader60 ]
+  %1266 = load ptr, ptr %1265, align 8, !tbaa !49
+  tail call void @cmsDoTransform(ptr noundef %1266, ptr noundef nonnull %1200, ptr noundef nonnull %1200, i32 noundef %1160) #19
+  %1267 = add nuw nsw i64 %1196, 1
+  %1268 = icmp eq i64 %1267, %1170
+  br i1 %1268, label %.loopexit, label %1195
 
-.loopexit63:                                      ; preds = %.loopexit63.preheader, %1296
-  %1270 = phi i64 [ %1297, %1296 ], [ %.ph, %.loopexit63.preheader ]
-  %1271 = shl nsw i64 %1270, 2
-  %1272 = getelementptr inbounds float, ptr %1199, i64 %1271
-  %1273 = getelementptr inbounds float, ptr %1200, i64 %1271
-  %1274 = load float, ptr %1272, align 4, !tbaa !72
-  store float %1274, ptr %1273, align 4, !tbaa !72
-  %1275 = getelementptr inbounds i8, ptr %1272, i64 4
-  %1276 = load float, ptr %1275, align 4, !tbaa !72
-  %1277 = getelementptr inbounds i8, ptr %1273, i64 4
-  store float %1276, ptr %1277, align 4, !tbaa !72
-  %1278 = getelementptr inbounds i8, ptr %1272, i64 8
-  %1279 = load float, ptr %1278, align 4, !tbaa !72
-  %1280 = getelementptr inbounds i8, ptr %1273, i64 8
-  store float %1279, ptr %1280, align 4, !tbaa !72
-  %1281 = fadd reassoc nsz arcp contract afn float %1276, %1274
-  %1282 = fadd reassoc nsz arcp contract afn float %1281, %1279
-  %1283 = fcmp reassoc nsz arcp contract afn ogt float %1282, 0.000000e+00
-  br i1 %1283, label %1284, label %1296
+.loopexit65:                                      ; preds = %.loopexit65.preheader, %1295
+  %1269 = phi i64 [ %1296, %1295 ], [ %.ph, %.loopexit65.preheader ]
+  %1270 = shl nsw i64 %1269, 2
+  %1271 = getelementptr inbounds float, ptr %1199, i64 %1270
+  %1272 = getelementptr inbounds float, ptr %1200, i64 %1270
+  %1273 = load float, ptr %1271, align 4, !tbaa !72
+  store float %1273, ptr %1272, align 4, !tbaa !72
+  %1274 = getelementptr inbounds i8, ptr %1271, i64 4
+  %1275 = load float, ptr %1274, align 4, !tbaa !72
+  %1276 = getelementptr inbounds i8, ptr %1272, i64 4
+  store float %1275, ptr %1276, align 4, !tbaa !72
+  %1277 = getelementptr inbounds i8, ptr %1271, i64 8
+  %1278 = load float, ptr %1277, align 4, !tbaa !72
+  %1279 = getelementptr inbounds i8, ptr %1272, i64 8
+  store float %1278, ptr %1279, align 4, !tbaa !72
+  %1280 = fadd reassoc nsz arcp contract afn float %1275, %1273
+  %1281 = fadd reassoc nsz arcp contract afn float %1280, %1278
+  %1282 = fcmp reassoc nsz arcp contract afn ogt float %1281, 0.000000e+00
+  br i1 %1282, label %1283, label %1295
 
-1284:                                             ; preds = %.loopexit63
-  %1285 = fdiv reassoc nsz arcp contract afn float %1279, %1282
-  %1286 = fcmp reassoc nsz arcp contract afn ogt float %1285, 5.000000e-01
-  br i1 %1286, label %1287, label %1296
+1283:                                             ; preds = %.loopexit65
+  %1284 = fdiv reassoc nsz arcp contract afn float %1278, %1281
+  %1285 = fcmp reassoc nsz arcp contract afn ogt float %1284, 5.000000e-01
+  br i1 %1285, label %1286, label %1295
 
-1287:                                             ; preds = %1284
-  %1288 = fmul reassoc nsz arcp contract afn float %1285, 2.000000e+00
-  %1289 = fadd reassoc nsz arcp contract afn float %1288, -1.000000e+00
-  %1290 = fmul reassoc nsz arcp contract afn float %1282, 2.000000e+00
-  %1291 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1290, float 1.000000e+00)
-  %1292 = fmul reassoc nsz arcp contract afn float %1291, 0x3FBC28F5C0000000
-  %1293 = fmul reassoc nsz arcp contract afn float %1292, %1289
-  %1294 = fadd reassoc nsz arcp contract afn float %1293, %1276
-  store float %1294, ptr %1277, align 4, !tbaa !72
-  %1295 = fsub reassoc nsz arcp contract afn float %1279, %1293
-  store float %1295, ptr %1280, align 4, !tbaa !72
-  br label %1296
+1286:                                             ; preds = %1283
+  %1287 = fmul reassoc nsz arcp contract afn float %1284, 2.000000e+00
+  %1288 = fadd reassoc nsz arcp contract afn float %1287, -1.000000e+00
+  %1289 = fmul reassoc nsz arcp contract afn float %1281, 2.000000e+00
+  %1290 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1289, float 1.000000e+00)
+  %1291 = fmul reassoc nsz arcp contract afn float %1290, 0x3FBC28F5C0000000
+  %1292 = fmul reassoc nsz arcp contract afn float %1291, %1288
+  %1293 = fadd reassoc nsz arcp contract afn float %1292, %1275
+  store float %1293, ptr %1276, align 4, !tbaa !72
+  %1294 = fsub reassoc nsz arcp contract afn float %1278, %1292
+  store float %1294, ptr %1279, align 4, !tbaa !72
+  br label %1295
 
-1296:                                             ; preds = %1287, %1284, %.loopexit63
-  %1297 = add nuw nsw i64 %1270, 1
-  %1298 = icmp eq i64 %1297, %1172
-  br i1 %1298, label %1299, label %.loopexit63, !llvm.loop !130
+1295:                                             ; preds = %1286, %1283, %.loopexit65
+  %1296 = add nuw nsw i64 %1269, 1
+  %1297 = icmp eq i64 %1296, %1172
+  br i1 %1297, label %1298, label %.loopexit65, !llvm.loop !130
 
-1299:                                             ; preds = %1296
-  %1300 = load ptr, ptr %1166, align 16, !tbaa !82
-  %1301 = icmp eq ptr %1300, null
-  br i1 %1301, label %.loopexit59, label %1230
+1298:                                             ; preds = %1295
+  %1299 = load ptr, ptr %1166, align 16, !tbaa !82
+  %1300 = icmp eq ptr %1299, null
+  br i1 %1300, label %.loopexit61, label %1230
 
-.preheader:                                       ; preds = %1163, %1307
-  %1302 = phi i64 [ %1310, %1307 ], [ 0, %1163 ]
-  %1303 = load ptr, ptr %1166, align 16, !tbaa !82
-  %1304 = icmp eq ptr %1303, null
-  br i1 %1304, label %1307, label %1305
+.preheader:                                       ; preds = %1163, %1306
+  %1301 = phi i64 [ %1309, %1306 ], [ 0, %1163 ]
+  %1302 = load ptr, ptr %1166, align 16, !tbaa !82
+  %1303 = icmp eq ptr %1302, null
+  br i1 %1303, label %1306, label %1304
 
-1305:                                             ; preds = %.preheader
-  %1306 = load ptr, ptr %1167, align 32, !tbaa !127
-  tail call void @cmsDoTransform(ptr noundef %1306, ptr noundef %3, ptr noundef %3, i32 noundef 0) #19
-  br label %1307
+1304:                                             ; preds = %.preheader
+  %1305 = load ptr, ptr %1167, align 32, !tbaa !127
+  tail call void @cmsDoTransform(ptr noundef %1305, ptr noundef %3, ptr noundef %3, i32 noundef 0) #19
+  br label %1306
 
-1307:                                             ; preds = %1305, %.preheader
-  %1308 = phi ptr [ %1168, %1305 ], [ %1169, %.preheader ]
-  %1309 = load ptr, ptr %1308, align 8, !tbaa !49
-  tail call void @cmsDoTransform(ptr noundef %1309, ptr noundef %3, ptr noundef %3, i32 noundef 0) #19
-  %1310 = add nuw nsw i64 %1302, 1
-  %1311 = icmp eq i64 %1310, %1170
-  br i1 %1311, label %.loopexit, label %.preheader
+1306:                                             ; preds = %1304, %.preheader
+  %1307 = phi ptr [ %1168, %1304 ], [ %1169, %.preheader ]
+  %1308 = load ptr, ptr %1307, align 8, !tbaa !49
+  tail call void @cmsDoTransform(ptr noundef %1308, ptr noundef %3, ptr noundef %3, i32 noundef 0) #19
+  %1309 = add nuw nsw i64 %1301, 1
+  %1310 = icmp eq i64 %1309, %1170
+  br i1 %1310, label %.loopexit, label %.preheader
 
-1312:                                             ; preds = %1154
-  %1313 = load ptr, ptr %63, align 16, !tbaa !6
-  %1314 = getelementptr i8, ptr %5, i64 8
-  %1315 = load i32, ptr %1314, align 4, !tbaa !76
-  %1316 = getelementptr i8, ptr %5, i64 12
-  %1317 = load i32, ptr %1316, align 4, !tbaa !75
-  %1318 = freeze i32 %1315
+1311:                                             ; preds = %1154
+  %1312 = load ptr, ptr %63, align 16, !tbaa !6
+  %1313 = getelementptr i8, ptr %5, i64 8
+  %1314 = load i32, ptr %1313, align 4, !tbaa !76
+  %1315 = getelementptr i8, ptr %5, i64 12
+  %1316 = load i32, ptr %1315, align 4, !tbaa !75
+  %1317 = freeze i32 %1314
+  %1318 = sext i32 %1316 to i64
   %1319 = sext i32 %1317 to i64
-  %1320 = sext i32 %1318 to i64
-  %1321 = shl nsw i64 %1320, 2
-  %1322 = shl nsw i64 %1320, 4
-  %1323 = add nsw i64 %1322, 63
-  %1324 = and i64 %1323, -64
-  %1325 = tail call ptr @dt_alloc_aligned(i64 noundef %1324) #19
-  call void @llvm.assume(i1 true) [ "align"(ptr %1325, i64 64) ]
-  %1326 = icmp eq i32 %1317, 0
-  br i1 %1326, label %.loopexit66, label %1327
+  %1320 = shl nsw i64 %1319, 2
+  %1321 = shl nsw i64 %1319, 4
+  %1322 = add nsw i64 %1321, 63
+  %1323 = and i64 %1322, -64
+  %1324 = tail call ptr @dt_alloc_aligned(i64 noundef %1323) #19
+  call void @llvm.assume(i1 true) [ "align"(ptr %1324, i64 64) ]
+  %1325 = icmp eq i32 %1316, 0
+  br i1 %1325, label %.loopexit68, label %1326
 
-1327:                                             ; preds = %1312
-  %1328 = fcmp reassoc nsz arcp contract afn une <2 x float> %61, <float 1.000000e+00, float 1.000000e+00>
-  %1329 = extractelement <2 x i1> %1328, i64 0
-  %1330 = extractelement <2 x i1> %1328, i64 1
-  %1331 = select i1 %1329, i1 true, i1 %1330
-  %1332 = extractelement <2 x float> %62, i64 0
-  %1333 = fcmp reassoc nsz arcp contract afn une float %1332, 1.000000e+00
-  %1334 = select i1 %1331, i1 true, i1 %1333
-  call void @llvm.assume(i1 true) [ "align"(ptr %1325, i64 64) ]
-  %1335 = getelementptr inbounds i8, ptr %1313, i64 16
-  %1336 = getelementptr inbounds i8, ptr %1313, i64 32
-  %1337 = icmp eq i32 %1318, 0
-  %1338 = getelementptr inbounds i8, ptr %1313, i64 40
-  %1339 = getelementptr inbounds i8, ptr %1313, i64 24
-  br i1 %1334, label %1340, label %1496
+1326:                                             ; preds = %1311
+  %1327 = fcmp reassoc nsz arcp contract afn une <2 x float> %61, <float 1.000000e+00, float 1.000000e+00>
+  %1328 = extractelement <2 x i1> %1327, i64 0
+  %1329 = extractelement <2 x i1> %1327, i64 1
+  %1330 = select i1 %1328, i1 true, i1 %1329
+  %1331 = extractelement <2 x float> %62, i64 0
+  %1332 = fcmp reassoc nsz arcp contract afn une float %1331, 1.000000e+00
+  %1333 = select i1 %1330, i1 true, i1 %1332
+  call void @llvm.assume(i1 true) [ "align"(ptr %1324, i64 64) ]
+  %1334 = getelementptr inbounds i8, ptr %1312, i64 16
+  %1335 = getelementptr inbounds i8, ptr %1312, i64 32
+  %1336 = icmp eq i32 %1317, 0
+  %1337 = getelementptr inbounds i8, ptr %1312, i64 40
+  %1338 = getelementptr inbounds i8, ptr %1312, i64 24
+  br i1 %1333, label %1339, label %1494
 
-1340:                                             ; preds = %1327
-  br i1 %1337, label %.preheader65, label %1341
+1339:                                             ; preds = %1326
+  br i1 %1336, label %.preheader67, label %1340
 
-1341:                                             ; preds = %1340
-  %1342 = zext i32 %1318 to i64
-  %1343 = tail call i64 @llvm.umax.i64(i64 %1321, i64 4)
-  %1344 = add i64 %1343, -1
-  %1345 = lshr i64 %1344, 2
-  %1346 = getelementptr i8, ptr %1325, i64 8
-  %1347 = getelementptr i8, ptr %1325, i64 12
-  %1348 = getelementptr i8, ptr %1325, i64 4
-  %1349 = shl i64 %1343, 2
-  %1350 = add i64 %1349, -4
-  %1351 = and i64 %1350, -16
-  %1352 = getelementptr i8, ptr %1325, i64 %1351
-  %1353 = getelementptr i8, ptr %1352, i64 16
-  %1354 = add nsw i64 %1319, 1152921504606846975
-  %1355 = mul i64 %1322, %1354
-  %1356 = getelementptr i8, ptr %2, i64 %1355
-  %1357 = getelementptr i8, ptr %1356, i64 %1351
-  %1358 = getelementptr i8, ptr %1357, i64 16
-  %1359 = add nuw nsw i64 %1345, 1
-  %1360 = icmp ult i64 %1321, 77
-  %1361 = shl i64 %1345, 4
-  %1362 = getelementptr i8, ptr %1346, i64 %1361
-  %1363 = icmp ult ptr %1362, %1346
-  %1364 = icmp ugt i64 %1344, 4611686018427387903
-  %1365 = getelementptr i8, ptr %1347, i64 %1361
-  %1366 = icmp ult ptr %1365, %1347
-  %1367 = or i1 %1364, %1366
-  %1368 = getelementptr i8, ptr %1348, i64 %1361
-  %1369 = icmp ult ptr %1368, %1348
-  %1370 = getelementptr i8, ptr %1325, i64 %1361
-  %1371 = icmp ult ptr %1370, %1325
-  %1372 = or i1 %1363, %1367
-  %1373 = or i1 %1369, %1372
-  %1374 = or i1 %1371, %1373
-  %1375 = icmp ult ptr %1325, %1358
-  %1376 = icmp ugt ptr %1353, %2
-  %1377 = and i1 %1375, %1376
-  %1378 = icmp slt i32 %1318, 0
-  %1379 = or i1 %1378, %1377
-  %1380 = and i64 %1359, 9223372036854775804
-  %1381 = shl nuw i64 %1380, 2
-  %1382 = shufflevector <2 x float> %61, <2 x float> poison, <4 x i32> zeroinitializer
-  %1383 = shufflevector <2 x float> %61, <2 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %1384 = shufflevector <2 x float> %62, <2 x float> poison, <4 x i32> zeroinitializer
-  %1385 = shufflevector <2 x float> %62, <2 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %1386 = icmp eq i64 %1359, %1380
-  %1387 = extractelement <2 x float> %61, i64 0
-  %1388 = extractelement <2 x float> %61, i64 1
-  %1389 = extractelement <2 x float> %62, i64 1
-  %1390 = and i64 %1342, 3
-  %1391 = icmp ult i32 %1318, 4
-  %1392 = and i64 %1342, 4294967292
-  %1393 = icmp eq i64 %1390, 0
-  %1394 = select i1 %1360, i1 true, i1 %1374
-  %1395 = select i1 %1394, i1 true, i1 %1379
-  br label %1396
+1340:                                             ; preds = %1339
+  %1341 = zext i32 %1317 to i64
+  %1342 = tail call i64 @llvm.umax.i64(i64 %1320, i64 4)
+  %1343 = add i64 %1342, -1
+  %1344 = lshr i64 %1343, 2
+  %1345 = getelementptr i8, ptr %1324, i64 8
+  %1346 = getelementptr i8, ptr %1324, i64 12
+  %1347 = getelementptr i8, ptr %1324, i64 4
+  %1348 = shl i64 %1342, 2
+  %1349 = add i64 %1348, -4
+  %1350 = and i64 %1349, -16
+  %1351 = getelementptr i8, ptr %1324, i64 %1350
+  %1352 = getelementptr i8, ptr %1351, i64 16
+  %1353 = add nsw i64 %1318, 1152921504606846975
+  %1354 = mul i64 %1321, %1353
+  %1355 = getelementptr i8, ptr %2, i64 %1354
+  %1356 = getelementptr i8, ptr %1355, i64 %1350
+  %1357 = getelementptr i8, ptr %1356, i64 16
+  %1358 = add nuw nsw i64 %1344, 1
+  %1359 = icmp ult i64 %1320, 77
+  %1360 = shl i64 %1344, 4
+  %1361 = getelementptr i8, ptr %1345, i64 %1360
+  %1362 = icmp ult ptr %1361, %1345
+  %1363 = icmp ugt i64 %1343, 4611686018427387903
+  %1364 = getelementptr i8, ptr %1346, i64 %1360
+  %1365 = icmp ult ptr %1364, %1346
+  %1366 = or i1 %1363, %1365
+  %1367 = getelementptr i8, ptr %1347, i64 %1360
+  %1368 = icmp ult ptr %1367, %1347
+  %1369 = getelementptr i8, ptr %1324, i64 %1360
+  %1370 = icmp ult ptr %1369, %1324
+  %1371 = or i1 %1362, %1366
+  %1372 = or i1 %1368, %1371
+  %1373 = or i1 %1370, %1372
+  %1374 = icmp ult ptr %1324, %1357
+  %1375 = icmp ugt ptr %1352, %2
+  %1376 = and i1 %1374, %1375
+  %1377 = icmp slt i32 %1317, 0
+  %1378 = or i1 %1377, %1376
+  %1379 = and i64 %1358, 9223372036854775804
+  %1380 = shl nuw i64 %1379, 2
+  %1381 = shufflevector <2 x float> %61, <2 x float> poison, <4 x i32> zeroinitializer
+  %1382 = shufflevector <2 x float> %61, <2 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %1383 = shufflevector <2 x float> %62, <2 x float> poison, <4 x i32> zeroinitializer
+  %1384 = shufflevector <2 x float> %62, <2 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %1385 = icmp eq i64 %1358, %1379
+  %1386 = extractelement <2 x float> %61, i64 0
+  %1387 = extractelement <2 x float> %61, i64 1
+  %1388 = extractelement <2 x float> %62, i64 1
+  %1389 = and i64 %1341, 3
+  %1390 = icmp ult i32 %1317, 4
+  %1391 = and i64 %1341, 4294967292
+  %1392 = icmp eq i64 %1389, 0
+  %1393 = select i1 %1359, i1 true, i1 %1373
+  %1394 = select i1 %1393, i1 true, i1 %1378
+  br label %1395
 
-1396:                                             ; preds = %1459, %1341
-  %1397 = phi i64 [ %1460, %1459 ], [ 0, %1341 ]
-  %1398 = shl i64 %1397, 2
-  %1399 = mul i64 %1398, %1320
-  %1400 = getelementptr inbounds float, ptr %2, i64 %1399
-  br i1 %1395, label %.preheader107, label %.preheader72
+1395:                                             ; preds = %1457, %1340
+  %1396 = phi i64 [ %1458, %1457 ], [ 0, %1340 ]
+  %1397 = shl i64 %1396, 2
+  %1398 = mul i64 %1397, %1319
+  %1399 = getelementptr inbounds float, ptr %2, i64 %1398
+  br i1 %1394, label %.preheader109, label %.preheader74
 
-.preheader107:                                    ; preds = %1419, %1396
-  %.ph108 = phi i64 [ %1381, %1419 ], [ 0, %1396 ]
-  br label %1462
+.preheader109:                                    ; preds = %1418, %1395
+  %.ph110 = phi i64 [ %1380, %1418 ], [ 0, %1395 ]
+  br label %1460
 
-.preheader72:                                     ; preds = %1396, %.preheader72
-  %1401 = phi i64 [ %1417, %.preheader72 ], [ 0, %1396 ]
-  %1402 = shl i64 %1401, 2
-  %1403 = getelementptr inbounds float, ptr %1325, i64 %1402
-  %1404 = getelementptr inbounds float, ptr %1400, i64 %1402
-  %1405 = load <16 x float>, ptr %1404, align 4, !tbaa !72
-  %1406 = shufflevector <16 x float> %1405, <16 x float> poison, <4 x i32> <i32 0, i32 4, i32 8, i32 12>
-  %1407 = shufflevector <16 x float> %1405, <16 x float> poison, <4 x i32> <i32 1, i32 5, i32 9, i32 13>
-  %1408 = shufflevector <16 x float> %1405, <16 x float> poison, <4 x i32> <i32 2, i32 6, i32 10, i32 14>
-  %1409 = shufflevector <16 x float> %1405, <16 x float> poison, <4 x i32> <i32 3, i32 7, i32 11, i32 15>
+.preheader74:                                     ; preds = %1395, %.preheader74
+  %1400 = phi i64 [ %1416, %.preheader74 ], [ 0, %1395 ]
+  %1401 = shl i64 %1400, 2
+  %1402 = getelementptr inbounds float, ptr %1324, i64 %1401
+  %1403 = getelementptr inbounds float, ptr %1399, i64 %1401
+  %1404 = load <16 x float>, ptr %1403, align 4, !tbaa !72
+  %1405 = shufflevector <16 x float> %1404, <16 x float> poison, <4 x i32> <i32 0, i32 4, i32 8, i32 12>
+  %1406 = shufflevector <16 x float> %1404, <16 x float> poison, <4 x i32> <i32 1, i32 5, i32 9, i32 13>
+  %1407 = shufflevector <16 x float> %1404, <16 x float> poison, <4 x i32> <i32 2, i32 6, i32 10, i32 14>
+  %1408 = shufflevector <16 x float> %1404, <16 x float> poison, <4 x i32> <i32 3, i32 7, i32 11, i32 15>
+  %1409 = fmul reassoc nsz arcp contract afn <4 x float> %1405, %1381
   %1410 = fmul reassoc nsz arcp contract afn <4 x float> %1406, %1382
   %1411 = fmul reassoc nsz arcp contract afn <4 x float> %1407, %1383
   %1412 = fmul reassoc nsz arcp contract afn <4 x float> %1408, %1384
-  %1413 = fmul reassoc nsz arcp contract afn <4 x float> %1409, %1385
-  %1414 = shufflevector <4 x float> %1410, <4 x float> %1411, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %1415 = shufflevector <4 x float> %1412, <4 x float> %1413, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %1416 = shufflevector <8 x float> %1414, <8 x float> %1415, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
-  store <16 x float> %1416, ptr %1403, align 64, !tbaa !72
-  %1417 = add nuw i64 %1401, 4
-  %1418 = icmp eq i64 %1417, %1380
-  br i1 %1418, label %1419, label %.preheader72, !llvm.loop !131
+  %1413 = shufflevector <4 x float> %1409, <4 x float> %1410, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %1414 = shufflevector <4 x float> %1411, <4 x float> %1412, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %1415 = shufflevector <8 x float> %1413, <8 x float> %1414, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
+  store <16 x float> %1415, ptr %1402, align 64, !tbaa !72
+  %1416 = add nuw i64 %1400, 4
+  %1417 = icmp eq i64 %1416, %1379
+  br i1 %1417, label %1418, label %.preheader74, !llvm.loop !131
 
-1419:                                             ; preds = %.preheader72
-  br i1 %1386, label %.loopexit71, label %.preheader107
+1418:                                             ; preds = %.preheader74
+  br i1 %1385, label %.loopexit73, label %.preheader109
 
-1420:                                             ; preds = %.loopexit71
-  %1421 = load ptr, ptr %1336, align 32, !tbaa !127
-  tail call void @cmsDoTransform(ptr noundef %1421, ptr noundef nonnull %1325, ptr noundef %1482, i32 noundef %1318) #19
-  br i1 %1391, label %.loopexit70, label %.preheader69
+1419:                                             ; preds = %.loopexit73
+  %1420 = load ptr, ptr %1335, align 32, !tbaa !127
+  tail call void @cmsDoTransform(ptr noundef %1420, ptr noundef nonnull %1324, ptr noundef %1480, i32 noundef %1317) #19
+  br i1 %1390, label %.loopexit72, label %.preheader71
 
-.loopexit70:                                      ; preds = %.preheader69, %1420
-  %1422 = phi i64 [ 0, %1420 ], [ %1392, %.preheader69 ]
-  br i1 %1393, label %.loopexit68, label %.preheader67
+.loopexit72:                                      ; preds = %.preheader71, %1419
+  %1421 = phi i64 [ 0, %1419 ], [ %1391, %.preheader71 ]
+  br i1 %1392, label %.loopexit70, label %.preheader69
 
-.preheader67:                                     ; preds = %.loopexit70, %.preheader67
-  %1423 = phi i64 [ %1430, %.preheader67 ], [ %1422, %.loopexit70 ]
-  %1424 = phi i64 [ %1431, %.preheader67 ], [ 0, %.loopexit70 ]
-  %1425 = shl nsw i64 %1423, 2
-  %1426 = getelementptr inbounds float, ptr %1482, i64 %1425
-  %1427 = load <4 x float>, ptr %1426, align 16, !tbaa !31
-  %1428 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1427, <4 x float> zeroinitializer)
-  %1429 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1428, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  store <4 x float> %1429, ptr %1426, align 16, !tbaa !31
-  %1430 = add nuw nsw i64 %1423, 1
-  %1431 = add nuw nsw i64 %1424, 1
-  %1432 = icmp eq i64 %1431, %1390
-  br i1 %1432, label %.loopexit68, label %.preheader67, !llvm.loop !132
+.preheader69:                                     ; preds = %.loopexit72, %.preheader69
+  %1422 = phi i64 [ %1428, %.preheader69 ], [ %1421, %.loopexit72 ]
+  %1423 = phi i64 [ %1429, %.preheader69 ], [ 0, %.loopexit72 ]
+  %.idx57 = shl nsw i64 %1422, 4
+  %1424 = getelementptr inbounds i8, ptr %1480, i64 %.idx57
+  %1425 = load <4 x float>, ptr %1424, align 16, !tbaa !31
+  %1426 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1425, <4 x float> zeroinitializer)
+  %1427 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1426, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  store <4 x float> %1427, ptr %1424, align 16, !tbaa !31
+  %1428 = add nuw nsw i64 %1422, 1
+  %1429 = add nuw nsw i64 %1423, 1
+  %1430 = icmp eq i64 %1429, %1389
+  br i1 %1430, label %.loopexit70, label %.preheader69, !llvm.loop !132
 
-.loopexit68:                                      ; preds = %.preheader67, %.loopexit70
-  %1433 = load ptr, ptr %1338, align 8, !tbaa !133
-  tail call void @cmsDoTransform(ptr noundef %1433, ptr noundef nonnull %1482, ptr noundef nonnull %1482, i32 noundef %1318) #19
-  br label %1459
+.loopexit70:                                      ; preds = %.preheader69, %.loopexit72
+  %1431 = load ptr, ptr %1337, align 8, !tbaa !133
+  tail call void @cmsDoTransform(ptr noundef %1431, ptr noundef nonnull %1480, ptr noundef nonnull %1480, i32 noundef %1317) #19
+  br label %1457
 
-.preheader69:                                     ; preds = %1420, %.preheader69
-  %1434 = phi i64 [ %1455, %.preheader69 ], [ 0, %1420 ]
-  %1435 = shl nsw i64 %1434, 2
-  %1436 = getelementptr inbounds float, ptr %1482, i64 %1435
-  %1437 = load <4 x float>, ptr %1436, align 16, !tbaa !31
-  %1438 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1437, <4 x float> zeroinitializer)
-  %1439 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1438, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  store <4 x float> %1439, ptr %1436, align 16, !tbaa !31
-  %1440 = or disjoint i64 %1435, 4
-  %1441 = getelementptr inbounds float, ptr %1482, i64 %1440
-  %1442 = load <4 x float>, ptr %1441, align 16, !tbaa !31
-  %1443 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1442, <4 x float> zeroinitializer)
-  %1444 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1443, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  store <4 x float> %1444, ptr %1441, align 16, !tbaa !31
-  %1445 = or disjoint i64 %1435, 8
-  %1446 = getelementptr inbounds float, ptr %1482, i64 %1445
-  %1447 = load <4 x float>, ptr %1446, align 16, !tbaa !31
-  %1448 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1447, <4 x float> zeroinitializer)
-  %1449 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1448, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  store <4 x float> %1449, ptr %1446, align 16, !tbaa !31
-  %1450 = or disjoint i64 %1435, 12
-  %1451 = getelementptr inbounds float, ptr %1482, i64 %1450
-  %1452 = load <4 x float>, ptr %1451, align 16, !tbaa !31
-  %1453 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1452, <4 x float> zeroinitializer)
-  %1454 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1453, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  store <4 x float> %1454, ptr %1451, align 16, !tbaa !31
-  %1455 = add nuw nsw i64 %1434, 4
-  %1456 = icmp eq i64 %1455, %1392
-  br i1 %1456, label %.loopexit70, label %.preheader69
+.preheader71:                                     ; preds = %1419, %.preheader71
+  %1432 = phi i64 [ %1453, %.preheader71 ], [ 0, %1419 ]
+  %1433 = shl nsw i64 %1432, 2
+  %1434 = getelementptr inbounds float, ptr %1480, i64 %1433
+  %1435 = load <4 x float>, ptr %1434, align 16, !tbaa !31
+  %1436 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1435, <4 x float> zeroinitializer)
+  %1437 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1436, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  store <4 x float> %1437, ptr %1434, align 16, !tbaa !31
+  %1438 = or disjoint i64 %1433, 4
+  %1439 = getelementptr inbounds float, ptr %1480, i64 %1438
+  %1440 = load <4 x float>, ptr %1439, align 16, !tbaa !31
+  %1441 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1440, <4 x float> zeroinitializer)
+  %1442 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1441, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  store <4 x float> %1442, ptr %1439, align 16, !tbaa !31
+  %1443 = or disjoint i64 %1433, 8
+  %1444 = getelementptr inbounds float, ptr %1480, i64 %1443
+  %1445 = load <4 x float>, ptr %1444, align 16, !tbaa !31
+  %1446 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1445, <4 x float> zeroinitializer)
+  %1447 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1446, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  store <4 x float> %1447, ptr %1444, align 16, !tbaa !31
+  %1448 = or disjoint i64 %1433, 12
+  %1449 = getelementptr inbounds float, ptr %1480, i64 %1448
+  %1450 = load <4 x float>, ptr %1449, align 16, !tbaa !31
+  %1451 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1450, <4 x float> zeroinitializer)
+  %1452 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1451, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  store <4 x float> %1452, ptr %1449, align 16, !tbaa !31
+  %1453 = add nuw nsw i64 %1432, 4
+  %1454 = icmp eq i64 %1453, %1391
+  br i1 %1454, label %.loopexit72, label %.preheader71
 
-1457:                                             ; preds = %.loopexit71
-  %1458 = load ptr, ptr %1339, align 8, !tbaa !134
-  tail call void @cmsDoTransform(ptr noundef %1458, ptr noundef nonnull %1325, ptr noundef %1482, i32 noundef %1318) #19
-  br label %1459
+1455:                                             ; preds = %.loopexit73
+  %1456 = load ptr, ptr %1338, align 8, !tbaa !134
+  tail call void @cmsDoTransform(ptr noundef %1456, ptr noundef nonnull %1324, ptr noundef %1480, i32 noundef %1317) #19
+  br label %1457
 
-1459:                                             ; preds = %1457, %.loopexit68
-  %1460 = add nuw i64 %1397, 1
-  %1461 = icmp eq i64 %1460, %1319
-  br i1 %1461, label %.loopexit66, label %1396
+1457:                                             ; preds = %1455, %.loopexit70
+  %1458 = add nuw i64 %1396, 1
+  %1459 = icmp eq i64 %1458, %1318
+  br i1 %1459, label %.loopexit68, label %1395
 
-1462:                                             ; preds = %.preheader107, %1462
-  %1463 = phi i64 [ %1480, %1462 ], [ %.ph108, %.preheader107 ]
-  %1464 = getelementptr inbounds float, ptr %1325, i64 %1463
-  %1465 = getelementptr inbounds float, ptr %1400, i64 %1463
-  %1466 = load float, ptr %1465, align 4, !tbaa !72
-  %1467 = fmul reassoc nsz arcp contract afn float %1466, %1387
-  store float %1467, ptr %1464, align 16, !tbaa !72
-  %1468 = getelementptr inbounds i8, ptr %1465, i64 4
-  %1469 = load float, ptr %1468, align 4, !tbaa !72
-  %1470 = fmul reassoc nsz arcp contract afn float %1469, %1388
-  %1471 = getelementptr inbounds i8, ptr %1464, i64 4
-  store float %1470, ptr %1471, align 4, !tbaa !72
-  %1472 = getelementptr inbounds i8, ptr %1465, i64 8
-  %1473 = load float, ptr %1472, align 4, !tbaa !72
-  %1474 = fmul reassoc nsz arcp contract afn float %1473, %1332
-  %1475 = getelementptr inbounds i8, ptr %1464, i64 8
-  store float %1474, ptr %1475, align 8, !tbaa !72
-  %1476 = getelementptr inbounds i8, ptr %1465, i64 12
-  %1477 = load float, ptr %1476, align 4, !tbaa !72
-  %1478 = fmul reassoc nsz arcp contract afn float %1477, %1389
-  %1479 = getelementptr inbounds i8, ptr %1464, i64 12
-  store float %1478, ptr %1479, align 4, !tbaa !72
-  %1480 = add nuw i64 %1463, 4
-  %1481 = icmp ult i64 %1480, %1321
-  br i1 %1481, label %1462, label %.loopexit71, !llvm.loop !135
+1460:                                             ; preds = %.preheader109, %1460
+  %1461 = phi i64 [ %1478, %1460 ], [ %.ph110, %.preheader109 ]
+  %1462 = getelementptr inbounds float, ptr %1324, i64 %1461
+  %1463 = getelementptr inbounds float, ptr %1399, i64 %1461
+  %1464 = load float, ptr %1463, align 4, !tbaa !72
+  %1465 = fmul reassoc nsz arcp contract afn float %1464, %1386
+  store float %1465, ptr %1462, align 16, !tbaa !72
+  %1466 = getelementptr inbounds i8, ptr %1463, i64 4
+  %1467 = load float, ptr %1466, align 4, !tbaa !72
+  %1468 = fmul reassoc nsz arcp contract afn float %1467, %1387
+  %1469 = getelementptr inbounds i8, ptr %1462, i64 4
+  store float %1468, ptr %1469, align 4, !tbaa !72
+  %1470 = getelementptr inbounds i8, ptr %1463, i64 8
+  %1471 = load float, ptr %1470, align 4, !tbaa !72
+  %1472 = fmul reassoc nsz arcp contract afn float %1471, %1331
+  %1473 = getelementptr inbounds i8, ptr %1462, i64 8
+  store float %1472, ptr %1473, align 8, !tbaa !72
+  %1474 = getelementptr inbounds i8, ptr %1463, i64 12
+  %1475 = load float, ptr %1474, align 4, !tbaa !72
+  %1476 = fmul reassoc nsz arcp contract afn float %1475, %1388
+  %1477 = getelementptr inbounds i8, ptr %1462, i64 12
+  store float %1476, ptr %1477, align 4, !tbaa !72
+  %1478 = add nuw i64 %1461, 4
+  %1479 = icmp ult i64 %1478, %1320
+  br i1 %1479, label %1460, label %.loopexit73, !llvm.loop !135
 
-.loopexit71:                                      ; preds = %1462, %1419
-  %1482 = getelementptr inbounds float, ptr %3, i64 %1399
-  %1483 = load ptr, ptr %1335, align 16, !tbaa !82
-  %1484 = icmp eq ptr %1483, null
-  br i1 %1484, label %1457, label %1420
+.loopexit73:                                      ; preds = %1460, %1418
+  %1480 = getelementptr inbounds float, ptr %3, i64 %1398
+  %1481 = load ptr, ptr %1334, align 16, !tbaa !82
+  %1482 = icmp eq ptr %1481, null
+  br i1 %1482, label %1455, label %1419
 
-.preheader65:                                     ; preds = %1340, %1490
-  %1485 = phi i64 [ %1494, %1490 ], [ 0, %1340 ]
-  %1486 = load ptr, ptr %1335, align 16, !tbaa !82
-  %1487 = icmp eq ptr %1486, null
-  br i1 %1487, label %1490, label %1488
+.preheader67:                                     ; preds = %1339, %1488
+  %1483 = phi i64 [ %1492, %1488 ], [ 0, %1339 ]
+  %1484 = load ptr, ptr %1334, align 16, !tbaa !82
+  %1485 = icmp eq ptr %1484, null
+  br i1 %1485, label %1488, label %1486
 
-1488:                                             ; preds = %.preheader65
-  %1489 = load ptr, ptr %1336, align 32, !tbaa !127
-  tail call void @cmsDoTransform(ptr noundef %1489, ptr noundef %1325, ptr noundef %3, i32 noundef 0) #19
-  br label %1490
+1486:                                             ; preds = %.preheader67
+  %1487 = load ptr, ptr %1335, align 32, !tbaa !127
+  tail call void @cmsDoTransform(ptr noundef %1487, ptr noundef %1324, ptr noundef %3, i32 noundef 0) #19
+  br label %1488
 
-1490:                                             ; preds = %1488, %.preheader65
-  %1491 = phi ptr [ %1338, %1488 ], [ %1339, %.preheader65 ]
-  %1492 = phi ptr [ %3, %1488 ], [ %1325, %.preheader65 ]
-  %1493 = load ptr, ptr %1491, align 8, !tbaa !49
-  tail call void @cmsDoTransform(ptr noundef %1493, ptr noundef %1492, ptr noundef %3, i32 noundef 0) #19
-  %1494 = add nuw i64 %1485, 1
-  %1495 = icmp eq i64 %1494, %1319
-  br i1 %1495, label %.loopexit66, label %.preheader65
+1488:                                             ; preds = %1486, %.preheader67
+  %1489 = phi ptr [ %1337, %1486 ], [ %1338, %.preheader67 ]
+  %1490 = phi ptr [ %3, %1486 ], [ %1324, %.preheader67 ]
+  %1491 = load ptr, ptr %1489, align 8, !tbaa !49
+  tail call void @cmsDoTransform(ptr noundef %1491, ptr noundef %1490, ptr noundef %3, i32 noundef 0) #19
+  %1492 = add nuw i64 %1483, 1
+  %1493 = icmp eq i64 %1492, %1318
+  br i1 %1493, label %.loopexit68, label %.preheader67
 
-1496:                                             ; preds = %1327
-  br i1 %1337, label %.preheader74, label %1497
+1494:                                             ; preds = %1326
+  br i1 %1336, label %.preheader76, label %1495
 
-1497:                                             ; preds = %1496
-  %1498 = zext i32 %1318 to i64
-  %1499 = and i64 %1498, 3
-  %1500 = icmp ult i32 %1318, 4
-  %1501 = and i64 %1498, 4294967292
-  %1502 = icmp eq i64 %1499, 0
-  br label %1503
+1495:                                             ; preds = %1494
+  %1496 = zext i32 %1317 to i64
+  %1497 = and i64 %1496, 3
+  %1498 = icmp ult i32 %1317, 4
+  %1499 = and i64 %1496, 4294967292
+  %1500 = icmp eq i64 %1497, 0
+  br label %1501
 
-1503:                                             ; preds = %1538, %1497
-  %1504 = phi i64 [ %1539, %1538 ], [ 0, %1497 ]
-  %1505 = shl i64 %1504, 2
-  %1506 = mul i64 %1505, %1320
-  %1507 = getelementptr inbounds float, ptr %2, i64 %1506
-  %1508 = getelementptr inbounds float, ptr %3, i64 %1506
-  %1509 = load ptr, ptr %1335, align 16, !tbaa !82
-  %1510 = icmp eq ptr %1509, null
-  br i1 %1510, label %1536, label %1511
+1501:                                             ; preds = %1536, %1495
+  %1502 = phi i64 [ %1537, %1536 ], [ 0, %1495 ]
+  %1503 = shl i64 %1502, 2
+  %1504 = mul i64 %1503, %1319
+  %1505 = getelementptr inbounds float, ptr %2, i64 %1504
+  %1506 = getelementptr inbounds float, ptr %3, i64 %1504
+  %1507 = load ptr, ptr %1334, align 16, !tbaa !82
+  %1508 = icmp eq ptr %1507, null
+  br i1 %1508, label %1534, label %1509
 
-1511:                                             ; preds = %1503
-  %1512 = load ptr, ptr %1336, align 32, !tbaa !127
-  tail call void @cmsDoTransform(ptr noundef %1512, ptr noundef %1507, ptr noundef %1508, i32 noundef %1318) #19
+1509:                                             ; preds = %1501
+  %1510 = load ptr, ptr %1335, align 32, !tbaa !127
+  tail call void @cmsDoTransform(ptr noundef %1510, ptr noundef %1505, ptr noundef %1506, i32 noundef %1317) #19
+  br i1 %1498, label %.loopexit81, label %.preheader80
+
+.preheader80:                                     ; preds = %1509, %.preheader80
+  %1511 = phi i64 [ %1532, %.preheader80 ], [ 0, %1509 ]
+  %1512 = shl nsw i64 %1511, 2
+  %1513 = getelementptr inbounds float, ptr %1506, i64 %1512
+  %1514 = load <4 x float>, ptr %1513, align 16, !tbaa !31
+  %1515 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1514, <4 x float> zeroinitializer)
+  %1516 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1515, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  store <4 x float> %1516, ptr %1513, align 16, !tbaa !31
+  %1517 = or disjoint i64 %1512, 4
+  %1518 = getelementptr inbounds float, ptr %1506, i64 %1517
+  %1519 = load <4 x float>, ptr %1518, align 16, !tbaa !31
+  %1520 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1519, <4 x float> zeroinitializer)
+  %1521 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1520, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  store <4 x float> %1521, ptr %1518, align 16, !tbaa !31
+  %1522 = or disjoint i64 %1512, 8
+  %1523 = getelementptr inbounds float, ptr %1506, i64 %1522
+  %1524 = load <4 x float>, ptr %1523, align 16, !tbaa !31
+  %1525 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1524, <4 x float> zeroinitializer)
+  %1526 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1525, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  store <4 x float> %1526, ptr %1523, align 16, !tbaa !31
+  %1527 = or disjoint i64 %1512, 12
+  %1528 = getelementptr inbounds float, ptr %1506, i64 %1527
+  %1529 = load <4 x float>, ptr %1528, align 16, !tbaa !31
+  %1530 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1529, <4 x float> zeroinitializer)
+  %1531 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1530, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  store <4 x float> %1531, ptr %1528, align 16, !tbaa !31
+  %1532 = add nuw nsw i64 %1511, 4
+  %1533 = icmp eq i64 %1532, %1499
+  br i1 %1533, label %.loopexit81, label %.preheader80
+
+1534:                                             ; preds = %1501
+  %1535 = load ptr, ptr %1338, align 8, !tbaa !134
+  tail call void @cmsDoTransform(ptr noundef %1535, ptr noundef %1505, ptr noundef %1506, i32 noundef %1317) #19
+  br label %1536
+
+1536:                                             ; preds = %.loopexit79, %1534
+  %1537 = add nuw i64 %1502, 1
+  %1538 = icmp eq i64 %1537, %1318
+  br i1 %1538, label %.loopexit68, label %1501
+
+.loopexit81:                                      ; preds = %.preheader80, %1509
+  %1539 = phi i64 [ 0, %1509 ], [ %1499, %.preheader80 ]
   br i1 %1500, label %.loopexit79, label %.preheader78
 
-.preheader78:                                     ; preds = %1511, %.preheader78
-  %1513 = phi i64 [ %1534, %.preheader78 ], [ 0, %1511 ]
-  %1514 = shl nsw i64 %1513, 2
-  %1515 = getelementptr inbounds float, ptr %1508, i64 %1514
-  %1516 = load <4 x float>, ptr %1515, align 16, !tbaa !31
-  %1517 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1516, <4 x float> zeroinitializer)
-  %1518 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1517, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  store <4 x float> %1518, ptr %1515, align 16, !tbaa !31
-  %1519 = or disjoint i64 %1514, 4
-  %1520 = getelementptr inbounds float, ptr %1508, i64 %1519
-  %1521 = load <4 x float>, ptr %1520, align 16, !tbaa !31
-  %1522 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1521, <4 x float> zeroinitializer)
-  %1523 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1522, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  store <4 x float> %1523, ptr %1520, align 16, !tbaa !31
-  %1524 = or disjoint i64 %1514, 8
-  %1525 = getelementptr inbounds float, ptr %1508, i64 %1524
-  %1526 = load <4 x float>, ptr %1525, align 16, !tbaa !31
-  %1527 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1526, <4 x float> zeroinitializer)
-  %1528 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1527, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  store <4 x float> %1528, ptr %1525, align 16, !tbaa !31
-  %1529 = or disjoint i64 %1514, 12
-  %1530 = getelementptr inbounds float, ptr %1508, i64 %1529
-  %1531 = load <4 x float>, ptr %1530, align 16, !tbaa !31
-  %1532 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1531, <4 x float> zeroinitializer)
-  %1533 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1532, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  store <4 x float> %1533, ptr %1530, align 16, !tbaa !31
-  %1534 = add nuw nsw i64 %1513, 4
-  %1535 = icmp eq i64 %1534, %1501
-  br i1 %1535, label %.loopexit79, label %.preheader78
+.preheader78:                                     ; preds = %.loopexit81, %.preheader78
+  %1540 = phi i64 [ %1546, %.preheader78 ], [ %1539, %.loopexit81 ]
+  %1541 = phi i64 [ %1547, %.preheader78 ], [ 0, %.loopexit81 ]
+  %.idx = shl nsw i64 %1540, 4
+  %1542 = getelementptr inbounds i8, ptr %1506, i64 %.idx
+  %1543 = load <4 x float>, ptr %1542, align 16, !tbaa !31
+  %1544 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1543, <4 x float> zeroinitializer)
+  %1545 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1544, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  store <4 x float> %1545, ptr %1542, align 16, !tbaa !31
+  %1546 = add nuw nsw i64 %1540, 1
+  %1547 = add nuw nsw i64 %1541, 1
+  %1548 = icmp eq i64 %1547, %1497
+  br i1 %1548, label %.loopexit79, label %.preheader78, !llvm.loop !136
 
-1536:                                             ; preds = %1503
-  %1537 = load ptr, ptr %1339, align 8, !tbaa !134
-  tail call void @cmsDoTransform(ptr noundef %1537, ptr noundef %1507, ptr noundef %1508, i32 noundef %1318) #19
-  br label %1538
+.loopexit79:                                      ; preds = %.preheader78, %.loopexit81
+  %1549 = load ptr, ptr %1337, align 8, !tbaa !133
+  tail call void @cmsDoTransform(ptr noundef %1549, ptr noundef nonnull %1506, ptr noundef nonnull %1506, i32 noundef %1317) #19
+  br label %1536
 
-1538:                                             ; preds = %.loopexit77, %1536
-  %1539 = add nuw i64 %1504, 1
-  %1540 = icmp eq i64 %1539, %1319
-  br i1 %1540, label %.loopexit66, label %1503
+.preheader76:                                     ; preds = %1494, %1559
+  %1550 = phi i64 [ %1563, %1559 ], [ 0, %1494 ]
+  %1551 = shl i64 %1550, 2
+  %1552 = mul nuw nsw i64 %1551, %1319
+  %1553 = getelementptr inbounds float, ptr %2, i64 %1552
+  %1554 = getelementptr inbounds float, ptr %3, i64 %1552
+  %1555 = load ptr, ptr %1334, align 16, !tbaa !82
+  %1556 = icmp eq ptr %1555, null
+  br i1 %1556, label %1559, label %1557
 
-.loopexit79:                                      ; preds = %.preheader78, %1511
-  %1541 = phi i64 [ 0, %1511 ], [ %1501, %.preheader78 ]
-  br i1 %1502, label %.loopexit77, label %.preheader76
+1557:                                             ; preds = %.preheader76
+  %1558 = load ptr, ptr %1335, align 32, !tbaa !127
+  tail call void @cmsDoTransform(ptr noundef %1558, ptr noundef %1553, ptr noundef %1554, i32 noundef 0) #19
+  br label %1559
 
-.preheader76:                                     ; preds = %.loopexit79, %.preheader76
-  %1542 = phi i64 [ %1549, %.preheader76 ], [ %1541, %.loopexit79 ]
-  %1543 = phi i64 [ %1550, %.preheader76 ], [ 0, %.loopexit79 ]
-  %1544 = shl nsw i64 %1542, 2
-  %1545 = getelementptr inbounds float, ptr %1508, i64 %1544
-  %1546 = load <4 x float>, ptr %1545, align 16, !tbaa !31
-  %1547 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1546, <4 x float> zeroinitializer)
-  %1548 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1547, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  store <4 x float> %1548, ptr %1545, align 16, !tbaa !31
-  %1549 = add nuw nsw i64 %1542, 1
-  %1550 = add nuw nsw i64 %1543, 1
-  %1551 = icmp eq i64 %1550, %1499
-  br i1 %1551, label %.loopexit77, label %.preheader76, !llvm.loop !136
+1559:                                             ; preds = %1557, %.preheader76
+  %1560 = phi ptr [ %1337, %1557 ], [ %1338, %.preheader76 ]
+  %1561 = phi ptr [ %1554, %1557 ], [ %1553, %.preheader76 ]
+  %1562 = load ptr, ptr %1560, align 8, !tbaa !49
+  tail call void @cmsDoTransform(ptr noundef %1562, ptr noundef %1561, ptr noundef %1554, i32 noundef 0) #19
+  %1563 = add nuw i64 %1550, 1
+  %1564 = icmp eq i64 %1563, %1318
+  br i1 %1564, label %.loopexit68, label %.preheader76
 
-.loopexit77:                                      ; preds = %.preheader76, %.loopexit79
-  %1552 = load ptr, ptr %1338, align 8, !tbaa !133
-  tail call void @cmsDoTransform(ptr noundef %1552, ptr noundef nonnull %1508, ptr noundef nonnull %1508, i32 noundef %1318) #19
-  br label %1538
-
-.preheader74:                                     ; preds = %1496, %1562
-  %1553 = phi i64 [ %1566, %1562 ], [ 0, %1496 ]
-  %1554 = shl i64 %1553, 2
-  %1555 = mul nuw nsw i64 %1554, %1320
-  %1556 = getelementptr inbounds float, ptr %2, i64 %1555
-  %1557 = getelementptr inbounds float, ptr %3, i64 %1555
-  %1558 = load ptr, ptr %1335, align 16, !tbaa !82
-  %1559 = icmp eq ptr %1558, null
-  br i1 %1559, label %1562, label %1560
-
-1560:                                             ; preds = %.preheader74
-  %1561 = load ptr, ptr %1336, align 32, !tbaa !127
-  tail call void @cmsDoTransform(ptr noundef %1561, ptr noundef %1556, ptr noundef %1557, i32 noundef 0) #19
-  br label %1562
-
-1562:                                             ; preds = %1560, %.preheader74
-  %1563 = phi ptr [ %1338, %1560 ], [ %1339, %.preheader74 ]
-  %1564 = phi ptr [ %1557, %1560 ], [ %1556, %.preheader74 ]
-  %1565 = load ptr, ptr %1563, align 8, !tbaa !49
-  tail call void @cmsDoTransform(ptr noundef %1565, ptr noundef %1564, ptr noundef %1557, i32 noundef 0) #19
-  %1566 = add nuw i64 %1553, 1
-  %1567 = icmp eq i64 %1566, %1319
-  br i1 %1567, label %.loopexit66, label %.preheader74
-
-.loopexit66:                                      ; preds = %1538, %1562, %1459, %1490, %1312
-  tail call void @free(ptr noundef %1325) #19
+.loopexit68:                                      ; preds = %1536, %1559, %1457, %1488, %1311
+  tail call void @free(ptr noundef %1324) #19
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit59, %1307, %176, %.loopexit66, %1155, %.loopexit85, %196, %167, %97, %6
+.loopexit:                                        ; preds = %.loopexit61, %1306, %176, %.loopexit68, %1155, %.loopexit87, %196, %167, %97, %6
   ret void
 }
 

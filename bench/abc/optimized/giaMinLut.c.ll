@@ -2774,48 +2774,48 @@ Vec_WrdZoneExtract.exit:                          ; preds = %._crit_edge.us.i, %
 .preheader.us.i29:                                ; preds = %._crit_edge.us.i33, %.preheader.us.preheader.i
   %indvars.iv27.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next28.i, %._crit_edge.us.i33 ]
   %54 = mul nuw nsw i64 %indvars.iv27.i, %24
-  %55 = mul nuw nsw i64 %indvars.iv27.i, 200
+  %.idx = mul nuw nsw i64 %indvars.iv27.i, 1600
   %gep = getelementptr i64, ptr %invariant.gep, i64 %54
-  br label %56
+  br label %55
 
-56:                                               ; preds = %56, %.preheader.us.i29
-  %indvars.iv.i30 = phi i64 [ 0, %.preheader.us.i29 ], [ %indvars.iv.next.i31, %56 ]
+55:                                               ; preds = %55, %.preheader.us.i29
+  %indvars.iv.i30 = phi i64 [ 0, %.preheader.us.i29 ], [ %indvars.iv.next.i31, %55 ]
   %.val20.us.i = load ptr, ptr %53, align 8
-  %57 = getelementptr i64, ptr %.val20.us.i, i64 %indvars.iv.i30
-  %58 = getelementptr i64, ptr %57, i64 %55
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr i64, ptr %gep, i64 %indvars.iv.i30
-  store i64 %59, ptr %60, align 8
+  %56 = getelementptr i64, ptr %.val20.us.i, i64 %indvars.iv.i30
+  %57 = getelementptr i8, ptr %56, i64 %.idx
+  %58 = load i64, ptr %57, align 8
+  %59 = getelementptr i64, ptr %gep, i64 %indvars.iv.i30
+  store i64 %58, ptr %59, align 8
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, %wide.trip.count.i28
-  br i1 %exitcond.not.i32, label %._crit_edge.us.i33, label %56, !llvm.loop !26
+  br i1 %exitcond.not.i32, label %._crit_edge.us.i33, label %55, !llvm.loop !26
 
-._crit_edge.us.i33:                               ; preds = %56
+._crit_edge.us.i33:                               ; preds = %55
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count30.i
   br i1 %exitcond31.not.i, label %Vec_WrdZoneInsert.exit, label %.preheader.us.i29, !llvm.loop !27
 
 Vec_WrdZoneInsert.exit:                           ; preds = %._crit_edge.us.i33, %Vec_WrdZoneExtract.exit, %.preheader.lr.ph.i
-  %61 = load ptr, ptr %40, align 8
-  %.not.i = icmp eq ptr %61, null
-  br i1 %.not.i, label %Vec_WrdFree.exit, label %62
+  %60 = load ptr, ptr %40, align 8
+  %.not.i = icmp eq ptr %60, null
+  br i1 %.not.i, label %Vec_WrdFree.exit, label %61
 
-62:                                               ; preds = %Vec_WrdZoneInsert.exit
-  tail call void @free(ptr noundef nonnull %61) #26
+61:                                               ; preds = %Vec_WrdZoneInsert.exit
+  tail call void @free(ptr noundef nonnull %60) #26
   br label %Vec_WrdFree.exit
 
-Vec_WrdFree.exit:                                 ; preds = %Vec_WrdZoneInsert.exit, %62
+Vec_WrdFree.exit:                                 ; preds = %Vec_WrdZoneInsert.exit, %61
   tail call void @free(ptr noundef nonnull %33) #26
-  %63 = getelementptr inbounds i8, ptr %52, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %.not.i34 = icmp eq ptr %64, null
-  br i1 %.not.i34, label %Vec_WrdFree.exit35, label %65
+  %62 = getelementptr inbounds i8, ptr %52, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %.not.i34 = icmp eq ptr %63, null
+  br i1 %.not.i34, label %Vec_WrdFree.exit35, label %64
 
-65:                                               ; preds = %Vec_WrdFree.exit
-  tail call void @free(ptr noundef nonnull %64) #26
+64:                                               ; preds = %Vec_WrdFree.exit
+  tail call void @free(ptr noundef nonnull %63) #26
   br label %Vec_WrdFree.exit35
 
-Vec_WrdFree.exit35:                               ; preds = %Vec_WrdFree.exit, %65
+Vec_WrdFree.exit35:                               ; preds = %Vec_WrdFree.exit, %64
   tail call void @free(ptr noundef nonnull %52) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

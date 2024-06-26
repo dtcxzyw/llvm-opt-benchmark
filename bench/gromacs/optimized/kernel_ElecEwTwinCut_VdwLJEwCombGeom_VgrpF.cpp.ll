@@ -391,7 +391,7 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE12initIClusterILi4EEEvi.exit: ; preds = %124
 .preheader2687:                                   ; preds = %284
   %271 = sext i32 %150 to i64
   %272 = getelementptr inbounds float, ptr %12, i64 %271
-  %273 = getelementptr inbounds float, ptr %272, i64 0
+  %273 = getelementptr inbounds i8, ptr %272, i64 0
   %.val.i = load float, ptr %273, align 1
   %274 = getelementptr i8, ptr %273, i64 4
   %.val2.i = load float, ptr %274, align 1
@@ -399,7 +399,7 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE12initIClusterILi4EEEvi.exit: ; preds = %124
   %276 = insertelement <4 x float> poison, float %.val2.i, i64 0
   %277 = shufflevector <4 x float> %275, <4 x float> %276, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   store <8 x float> %277, ptr %.sroa.03332, align 32
-  %278 = getelementptr inbounds float, ptr %272, i64 2
+  %278 = getelementptr inbounds i8, ptr %272, i64 8
   %.val.i.c = load float, ptr %278, align 1
   %279 = getelementptr i8, ptr %278, i64 4
   %.val2.i.c = load float, ptr %279, align 1

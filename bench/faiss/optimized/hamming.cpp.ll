@@ -859,7 +859,7 @@ define void @_ZN5faiss8hammingsEPKhS1_mmmPi(ptr noalias nocapture noundef readon
 
 20:                                               ; preds = %16
   invoke void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
-          to label %119 unwind label %21
+          to label %113 unwind label %21
 
 21:                                               ; preds = %20, %14, %10
   %22 = landingpad { ptr, i32 }
@@ -880,11 +880,11 @@ define void @_ZN5faiss8hammingsEPKhS1_mmmPi(ptr noalias nocapture noundef readon
 26:                                               ; preds = %6
   %27 = add i64 %4, -8
   %28 = lshr exact i64 %27, 3
-  switch i64 %28, label %99 [
+  switch i64 %28, label %93 [
     i64 0, label %29
     i64 1, label %43
-    i64 3, label %61
-    i64 7, label %78
+    i64 3, label %59
+    i64 7, label %74
   ]
 
 29:                                               ; preds = %26
@@ -927,187 +927,187 @@ define void @_ZN5faiss8hammingsEPKhS1_mmmPi(ptr noalias nocapture noundef readon
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %.not.i32 = icmp eq i64 %2, 0
-  %.not21.i33 = icmp eq i64 %3, 0
-  %or.cond.i34 = or i1 %.not.i32, %.not21.i33
-  br i1 %or.cond.i34, label %_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit, label %.lr.ph.us.i35
+  %.not22.i = icmp eq i64 %3, 0
+  %or.cond.i33 = or i1 %.not.i32, %.not22.i
+  br i1 %or.cond.i33, label %_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit, label %.lr.ph.us.i34
 
-.lr.ph.us.i35:                                    ; preds = %43, %._crit_edge.us.i39
-  %.017.us.i36 = phi i64 [ %60, %._crit_edge.us.i39 ], [ 0, %43 ]
-  %44 = shl i64 %.017.us.i36, 1
-  %45 = getelementptr inbounds i64, ptr %0, i64 %44
-  %46 = mul i64 %.017.us.i36, %3
-  %47 = getelementptr inbounds i32, ptr %5, i64 %46
-  %48 = load <2 x i64>, ptr %45, align 8, !alias.scope !37, !noalias !44
-  br label %49
+.lr.ph.us.i34:                                    ; preds = %43, %._crit_edge.us.i36
+  %.018.us.i = phi i64 [ %58, %._crit_edge.us.i36 ], [ 0, %43 ]
+  %.idx.us.i = shl i64 %.018.us.i, 4
+  %44 = getelementptr inbounds i8, ptr %0, i64 %.idx.us.i
+  %45 = mul i64 %.018.us.i, %3
+  %46 = getelementptr inbounds i32, ptr %5, i64 %45
+  %47 = load <2 x i64>, ptr %44, align 8, !alias.scope !37, !noalias !44
+  br label %48
 
-49:                                               ; preds = %49, %.lr.ph.us.i35
-  %.01516.us.i37 = phi i64 [ 0, %.lr.ph.us.i35 ], [ %59, %49 ]
-  %50 = shl i64 %.01516.us.i37, 1
-  %51 = getelementptr inbounds i64, ptr %1, i64 %50
-  %52 = load <2 x i64>, ptr %51, align 8, !alias.scope !40, !noalias !45
-  %53 = xor <2 x i64> %52, %48
-  %54 = tail call range(i64 0, 65) <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %53)
-  %55 = trunc nuw nsw <2 x i64> %54 to <2 x i32>
-  %shift = shufflevector <2 x i32> %55, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %56 = add nuw nsw <2 x i32> %shift, %55
-  %57 = extractelement <2 x i32> %56, i64 0
-  %58 = getelementptr inbounds i32, ptr %47, i64 %.01516.us.i37
-  store i32 %57, ptr %58, align 4, !alias.scope !42, !noalias !46
-  %59 = add nuw i64 %.01516.us.i37, 1
-  %exitcond.not.i38 = icmp eq i64 %59, %3
-  br i1 %exitcond.not.i38, label %._crit_edge.us.i39, label %49, !llvm.loop !47
+48:                                               ; preds = %48, %.lr.ph.us.i34
+  %.01517.us.i = phi i64 [ 0, %.lr.ph.us.i34 ], [ %57, %48 ]
+  %.idx16.us.i = shl i64 %.01517.us.i, 4
+  %49 = getelementptr inbounds i8, ptr %1, i64 %.idx16.us.i
+  %50 = load <2 x i64>, ptr %49, align 8, !alias.scope !40, !noalias !45
+  %51 = xor <2 x i64> %50, %47
+  %52 = tail call range(i64 0, 65) <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %51)
+  %53 = trunc nuw nsw <2 x i64> %52 to <2 x i32>
+  %shift = shufflevector <2 x i32> %53, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
+  %54 = add nuw nsw <2 x i32> %shift, %53
+  %55 = extractelement <2 x i32> %54, i64 0
+  %56 = getelementptr inbounds i32, ptr %46, i64 %.01517.us.i
+  store i32 %55, ptr %56, align 4, !alias.scope !42, !noalias !46
+  %57 = add nuw i64 %.01517.us.i, 1
+  %exitcond.not.i35 = icmp eq i64 %57, %3
+  br i1 %exitcond.not.i35, label %._crit_edge.us.i36, label %48, !llvm.loop !47
 
-._crit_edge.us.i39:                               ; preds = %49
-  %60 = add nuw i64 %.017.us.i36, 1
-  %exitcond23.not.i40 = icmp eq i64 %60, %2
-  br i1 %exitcond23.not.i40, label %_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit, label %.lr.ph.us.i35, !llvm.loop !48
+._crit_edge.us.i36:                               ; preds = %48
+  %58 = add nuw i64 %.018.us.i, 1
+  %exitcond24.not.i = icmp eq i64 %58, %2
+  br i1 %exitcond24.not.i, label %_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit, label %.lr.ph.us.i34, !llvm.loop !48
 
-61:                                               ; preds = %26
+59:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  %.not.i41 = icmp eq i64 %2, 0
-  %.not21.i42 = icmp eq i64 %3, 0
-  %or.cond.i43 = or i1 %.not.i41, %.not21.i42
-  br i1 %or.cond.i43, label %_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit, label %.lr.ph.us.i44
+  %.not.i37 = icmp eq i64 %2, 0
+  %.not22.i38 = icmp eq i64 %3, 0
+  %or.cond.i39 = or i1 %.not.i37, %.not22.i38
+  br i1 %or.cond.i39, label %_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit, label %.lr.ph.us.i40
 
-.lr.ph.us.i44:                                    ; preds = %61, %._crit_edge.us.i48
-  %.017.us.i45 = phi i64 [ %77, %._crit_edge.us.i48 ], [ 0, %61 ]
-  %62 = shl i64 %.017.us.i45, 2
-  %63 = getelementptr inbounds i64, ptr %0, i64 %62
-  %64 = mul i64 %.017.us.i45, %3
-  %65 = getelementptr inbounds i32, ptr %5, i64 %64
-  %66 = load <4 x i64>, ptr %63, align 8, !alias.scope !49, !noalias !56
-  br label %67
+.lr.ph.us.i40:                                    ; preds = %59, %._crit_edge.us.i46
+  %.018.us.i41 = phi i64 [ %73, %._crit_edge.us.i46 ], [ 0, %59 ]
+  %.idx.us.i42 = shl i64 %.018.us.i41, 5
+  %60 = getelementptr inbounds i8, ptr %0, i64 %.idx.us.i42
+  %61 = mul i64 %.018.us.i41, %3
+  %62 = getelementptr inbounds i32, ptr %5, i64 %61
+  %63 = load <4 x i64>, ptr %60, align 8, !alias.scope !49, !noalias !56
+  br label %64
 
-67:                                               ; preds = %67, %.lr.ph.us.i44
-  %.01516.us.i46 = phi i64 [ 0, %.lr.ph.us.i44 ], [ %76, %67 ]
-  %68 = shl i64 %.01516.us.i46, 2
-  %69 = getelementptr inbounds i64, ptr %1, i64 %68
-  %70 = load <4 x i64>, ptr %69, align 8, !alias.scope !52, !noalias !57
-  %71 = xor <4 x i64> %70, %66
-  %72 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %71)
-  %73 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %72)
-  %74 = trunc i64 %73 to i32
-  %75 = getelementptr inbounds i32, ptr %65, i64 %.01516.us.i46
-  store i32 %74, ptr %75, align 4, !alias.scope !54, !noalias !58
-  %76 = add nuw i64 %.01516.us.i46, 1
-  %exitcond.not.i47 = icmp eq i64 %76, %3
-  br i1 %exitcond.not.i47, label %._crit_edge.us.i48, label %67, !llvm.loop !59
+64:                                               ; preds = %64, %.lr.ph.us.i40
+  %.01517.us.i43 = phi i64 [ 0, %.lr.ph.us.i40 ], [ %72, %64 ]
+  %.idx16.us.i44 = shl i64 %.01517.us.i43, 5
+  %65 = getelementptr inbounds i8, ptr %1, i64 %.idx16.us.i44
+  %66 = load <4 x i64>, ptr %65, align 8, !alias.scope !52, !noalias !57
+  %67 = xor <4 x i64> %66, %63
+  %68 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %67)
+  %69 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %68)
+  %70 = trunc i64 %69 to i32
+  %71 = getelementptr inbounds i32, ptr %62, i64 %.01517.us.i43
+  store i32 %70, ptr %71, align 4, !alias.scope !54, !noalias !58
+  %72 = add nuw i64 %.01517.us.i43, 1
+  %exitcond.not.i45 = icmp eq i64 %72, %3
+  br i1 %exitcond.not.i45, label %._crit_edge.us.i46, label %64, !llvm.loop !59
 
-._crit_edge.us.i48:                               ; preds = %67
-  %77 = add nuw i64 %.017.us.i45, 1
-  %exitcond23.not.i49 = icmp eq i64 %77, %2
-  br i1 %exitcond23.not.i49, label %_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit, label %.lr.ph.us.i44, !llvm.loop !60
+._crit_edge.us.i46:                               ; preds = %64
+  %73 = add nuw i64 %.018.us.i41, 1
+  %exitcond24.not.i47 = icmp eq i64 %73, %2
+  br i1 %exitcond24.not.i47, label %_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit, label %.lr.ph.us.i40, !llvm.loop !60
 
-78:                                               ; preds = %26
+74:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  %.not.i50 = icmp eq i64 %2, 0
-  %.not21.i51 = icmp eq i64 %3, 0
-  %or.cond.i52 = or i1 %.not.i50, %.not21.i51
-  br i1 %or.cond.i52, label %_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit, label %.lr.ph.us.i53
+  %.not.i48 = icmp eq i64 %2, 0
+  %.not22.i49 = icmp eq i64 %3, 0
+  %or.cond.i50 = or i1 %.not.i48, %.not22.i49
+  br i1 %or.cond.i50, label %_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit, label %.lr.ph.us.i51
 
-.lr.ph.us.i53:                                    ; preds = %78, %._crit_edge.us.i57
-  %.017.us.i54 = phi i64 [ %98, %._crit_edge.us.i57 ], [ 0, %78 ]
-  %79 = shl i64 %.017.us.i54, 3
-  %80 = getelementptr inbounds i64, ptr %0, i64 %79
-  %81 = mul i64 %.017.us.i54, %3
-  %82 = getelementptr inbounds i32, ptr %5, i64 %81
-  br label %83
+.lr.ph.us.i51:                                    ; preds = %74, %._crit_edge.us.i57
+  %.018.us.i52 = phi i64 [ %92, %._crit_edge.us.i57 ], [ 0, %74 ]
+  %.idx.us.i53 = shl i64 %.018.us.i52, 6
+  %75 = getelementptr inbounds i8, ptr %0, i64 %.idx.us.i53
+  %76 = mul i64 %.018.us.i52, %3
+  %77 = getelementptr inbounds i32, ptr %5, i64 %76
+  br label %78
 
-83:                                               ; preds = %_ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i, %.lr.ph.us.i53
-  %.01516.us.i55 = phi i64 [ 0, %.lr.ph.us.i53 ], [ %97, %_ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i ]
-  %84 = shl i64 %.01516.us.i55, 3
-  %85 = getelementptr inbounds i64, ptr %1, i64 %84
-  br label %86
+78:                                               ; preds = %_ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i, %.lr.ph.us.i51
+  %.01517.us.i54 = phi i64 [ 0, %.lr.ph.us.i51 ], [ %91, %_ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i ]
+  %.idx16.us.i55 = shl i64 %.01517.us.i54, 6
+  %79 = getelementptr inbounds i8, ptr %1, i64 %.idx16.us.i55
+  br label %80
 
-86:                                               ; preds = %86, %83
-  %.09.i.us.i = phi i32 [ 0, %83 ], [ %94, %86 ]
-  %.078.i.us.i = phi i64 [ 0, %83 ], [ %95, %86 ]
-  %87 = getelementptr inbounds i64, ptr %80, i64 %.078.i.us.i
-  %88 = load i64, ptr %87, align 8, !alias.scope !61, !noalias !68
-  %89 = getelementptr inbounds i64, ptr %85, i64 %.078.i.us.i
-  %90 = load i64, ptr %89, align 8, !alias.scope !64, !noalias !69
-  %91 = xor i64 %90, %88
-  %92 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %91)
-  %93 = trunc nuw nsw i64 %92 to i32
-  %94 = add nuw nsw i32 %.09.i.us.i, %93
-  %95 = add nuw nsw i64 %.078.i.us.i, 1
-  %exitcond.not.i.us.i = icmp eq i64 %95, 8
-  br i1 %exitcond.not.i.us.i, label %_ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i, label %86, !llvm.loop !70
+80:                                               ; preds = %80, %78
+  %.09.i.us.i = phi i32 [ 0, %78 ], [ %88, %80 ]
+  %.078.i.us.i = phi i64 [ 0, %78 ], [ %89, %80 ]
+  %81 = getelementptr inbounds i64, ptr %75, i64 %.078.i.us.i
+  %82 = load i64, ptr %81, align 8, !alias.scope !61, !noalias !68
+  %83 = getelementptr inbounds i64, ptr %79, i64 %.078.i.us.i
+  %84 = load i64, ptr %83, align 8, !alias.scope !64, !noalias !69
+  %85 = xor i64 %84, %82
+  %86 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %85)
+  %87 = trunc nuw nsw i64 %86 to i32
+  %88 = add nuw nsw i32 %.09.i.us.i, %87
+  %89 = add nuw nsw i64 %.078.i.us.i, 1
+  %exitcond.not.i.us.i = icmp eq i64 %89, 8
+  br i1 %exitcond.not.i.us.i, label %_ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i, label %80, !llvm.loop !70
 
-_ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i:      ; preds = %86
-  %96 = getelementptr inbounds i32, ptr %82, i64 %.01516.us.i55
-  store i32 %94, ptr %96, align 4, !alias.scope !66, !noalias !71
-  %97 = add nuw i64 %.01516.us.i55, 1
-  %exitcond.not.i56 = icmp eq i64 %97, %3
-  br i1 %exitcond.not.i56, label %._crit_edge.us.i57, label %83, !llvm.loop !72
+_ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i:      ; preds = %80
+  %90 = getelementptr inbounds i32, ptr %77, i64 %.01517.us.i54
+  store i32 %88, ptr %90, align 4, !alias.scope !66, !noalias !71
+  %91 = add nuw i64 %.01517.us.i54, 1
+  %exitcond.not.i56 = icmp eq i64 %91, %3
+  br i1 %exitcond.not.i56, label %._crit_edge.us.i57, label %78, !llvm.loop !72
 
 ._crit_edge.us.i57:                               ; preds = %_ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i
-  %98 = add nuw i64 %.017.us.i54, 1
-  %exitcond23.not.i58 = icmp eq i64 %98, %2
-  br i1 %exitcond23.not.i58, label %_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit, label %.lr.ph.us.i53, !llvm.loop !73
+  %92 = add nuw i64 %.018.us.i52, 1
+  %exitcond24.not.i58 = icmp eq i64 %92, %2
+  br i1 %exitcond24.not.i58, label %_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit, label %.lr.ph.us.i51, !llvm.loop !73
 
-99:                                               ; preds = %26
-  %100 = shl i64 %4, 3
+93:                                               ; preds = %26
+  %94 = shl i64 %4, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  %101 = mul i64 %100, %2
-  %102 = mul i64 %100, %3
-  %.not.i59 = icmp eq i64 %101, 0
-  %.not28.i = icmp eq i64 %102, 0
+  %95 = mul i64 %94, %2
+  %96 = mul i64 %94, %3
+  %.not.i59 = icmp eq i64 %95, 0
+  %.not28.i = icmp eq i64 %96, 0
   %or.cond.i60 = or i1 %.not.i59, %.not28.i
   br i1 %or.cond.i60, label %_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit, label %.lr.ph23.split.us.i
 
-.lr.ph23.split.us.i:                              ; preds = %99
-  %.not.i.i = icmp ne i64 %100, 0
+.lr.ph23.split.us.i:                              ; preds = %93
+  %.not.i.i = icmp ne i64 %94, 0
   tail call void @llvm.assume(i1 %.not.i.i)
   br label %.lr.ph.us.i61
 
 .lr.ph.us.i61:                                    ; preds = %.lr.ph23.split.us.i, %._crit_edge.split.us26.i
-  %.01921.us.i = phi i64 [ %117, %._crit_edge.split.us26.i ], [ 0, %.lr.ph23.split.us.i ]
-  %103 = getelementptr inbounds i64, ptr %0, i64 %.01921.us.i
+  %.01921.us.i = phi i64 [ %111, %._crit_edge.split.us26.i ], [ 0, %.lr.ph23.split.us.i ]
+  %97 = getelementptr inbounds i64, ptr %0, i64 %.01921.us.i
   br label %.lr.ph.i.preheader.us.i
 
 .lr.ph.i.preheader.us.i:                          ; preds = %_ZN5faiss7hammingEPKmS1_m.exit.loopexit.us.i, %.lr.ph.us.i61
-  %.020.us25.i = phi i64 [ 0, %.lr.ph.us.i61 ], [ %115, %_ZN5faiss7hammingEPKmS1_m.exit.loopexit.us.i ]
-  %104 = getelementptr inbounds i64, ptr %1, i64 %.020.us25.i
+  %.020.us25.i = phi i64 [ 0, %.lr.ph.us.i61 ], [ %109, %_ZN5faiss7hammingEPKmS1_m.exit.loopexit.us.i ]
+  %98 = getelementptr inbounds i64, ptr %1, i64 %.020.us25.i
   br label %.lr.ph.i.us.i
 
 .lr.ph.i.us.i:                                    ; preds = %.lr.ph.i.us.i, %.lr.ph.i.preheader.us.i
-  %.010.i.us.i = phi i64 [ %113, %.lr.ph.i.us.i ], [ 0, %.lr.ph.i.preheader.us.i ]
-  %.089.i.us.i = phi i32 [ %112, %.lr.ph.i.us.i ], [ 0, %.lr.ph.i.preheader.us.i ]
-  %105 = getelementptr inbounds i64, ptr %103, i64 %.010.i.us.i
-  %106 = load i64, ptr %105, align 8, !alias.scope !74, !noalias !81
-  %107 = getelementptr inbounds i64, ptr %104, i64 %.010.i.us.i
-  %108 = load i64, ptr %107, align 8, !alias.scope !77, !noalias !82
-  %109 = xor i64 %108, %106
-  %110 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %109)
-  %111 = trunc nuw nsw i64 %110 to i32
-  %112 = add nuw nsw i32 %.089.i.us.i, %111
-  %113 = add nuw i64 %.010.i.us.i, 1
-  %exitcond.not.i.us.i62 = icmp eq i64 %113, %100
+  %.010.i.us.i = phi i64 [ %107, %.lr.ph.i.us.i ], [ 0, %.lr.ph.i.preheader.us.i ]
+  %.089.i.us.i = phi i32 [ %106, %.lr.ph.i.us.i ], [ 0, %.lr.ph.i.preheader.us.i ]
+  %99 = getelementptr inbounds i64, ptr %97, i64 %.010.i.us.i
+  %100 = load i64, ptr %99, align 8, !alias.scope !74, !noalias !81
+  %101 = getelementptr inbounds i64, ptr %98, i64 %.010.i.us.i
+  %102 = load i64, ptr %101, align 8, !alias.scope !77, !noalias !82
+  %103 = xor i64 %102, %100
+  %104 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %103)
+  %105 = trunc nuw nsw i64 %104 to i32
+  %106 = add nuw nsw i32 %.089.i.us.i, %105
+  %107 = add nuw i64 %.010.i.us.i, 1
+  %exitcond.not.i.us.i62 = icmp eq i64 %107, %94
   br i1 %exitcond.not.i.us.i62, label %_ZN5faiss7hammingEPKmS1_m.exit.loopexit.us.i, label %.lr.ph.i.us.i, !llvm.loop !5
 
 _ZN5faiss7hammingEPKmS1_m.exit.loopexit.us.i:     ; preds = %.lr.ph.i.us.i
-  %114 = getelementptr inbounds i32, ptr %5, i64 %.020.us25.i
-  store i32 %112, ptr %114, align 4, !alias.scope !79, !noalias !83
-  %115 = add i64 %.020.us25.i, %100
-  %116 = icmp ult i64 %115, %102
-  br i1 %116, label %.lr.ph.i.preheader.us.i, label %._crit_edge.split.us26.i, !llvm.loop !7
+  %108 = getelementptr inbounds i32, ptr %5, i64 %.020.us25.i
+  store i32 %106, ptr %108, align 4, !alias.scope !79, !noalias !83
+  %109 = add i64 %.020.us25.i, %94
+  %110 = icmp ult i64 %109, %96
+  br i1 %110, label %.lr.ph.i.preheader.us.i, label %._crit_edge.split.us26.i, !llvm.loop !7
 
 ._crit_edge.split.us26.i:                         ; preds = %_ZN5faiss7hammingEPKmS1_m.exit.loopexit.us.i
-  %117 = add i64 %.01921.us.i, %100
-  %118 = icmp ult i64 %117, %101
-  br i1 %118, label %.lr.ph.us.i61, label %_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit, !llvm.loop !8
+  %111 = add i64 %.01921.us.i, %94
+  %112 = icmp ult i64 %111, %95
+  br i1 %112, label %.lr.ph.us.i61, label %_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit, !llvm.loop !8
 
-_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit:       ; preds = %._crit_edge.us.i57, %._crit_edge.us.i48, %._crit_edge.us.i39, %._crit_edge.us.i, %._crit_edge.split.us26.i, %99, %78, %61, %43, %29
+_ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit:       ; preds = %._crit_edge.us.i57, %._crit_edge.us.i46, %._crit_edge.us.i36, %._crit_edge.us.i, %._crit_edge.split.us26.i, %93, %74, %59, %43, %29
   ret void
 
-119:                                              ; preds = %20
+113:                                              ; preds = %20
   unreachable
 }
 

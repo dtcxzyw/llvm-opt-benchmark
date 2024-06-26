@@ -5568,15 +5568,15 @@ define void @Extra_BitMatrixTransposeTest() local_unnamed_addr #13 {
 
 6:                                                ; preds = %0
   %7 = load i64, ptr %3, align 8
-  %.neg36 = mul i64 %7, -1000000
+  %.neg37 = mul i64 %7, -1000000
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %.neg = sdiv i64 %9, -1000
-  %.neg37 = add i64 %.neg, %.neg36
+  %.neg38 = add i64 %.neg, %.neg37
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %0, %6
-  %.0.i.neg = phi i64 [ %.neg37, %6 ], [ 1, %0 ]
+  %.0.i.neg = phi i64 [ %.neg38, %6 ], [ 1, %0 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %calloc.i.i = call dereferenceable_or_null(10240000) ptr @calloc(i64 1, i64 10240000)
   br label %10
@@ -5651,16 +5651,16 @@ Extra_Transpose64p.exit.us.i:                     ; preds = %37
 42:                                               ; preds = %.preheader.us.i, %42
   %indvars.iv31.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next32.i, %42 ]
   %indvars.iv.i23 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i24, %42 ]
-  %43 = add nsw i64 %50, %indvars.iv.i23
-  %44 = mul nuw nsw i64 %43, 200
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %44
-  %45 = getelementptr inbounds [64 x ptr], ptr %2, i64 0, i64 %indvars.iv31.i
-  store ptr %gep, ptr %45, align 8
-  %46 = add nsw i64 %14, %indvars.iv.i23
-  %47 = mul nuw nsw i64 %46, 100
-  %gep39 = getelementptr i64, ptr %invariant.gep38, i64 %47
-  %48 = load i64, ptr %gep39, align 8
-  store i64 %48, ptr %gep, align 8
+  %43 = add nsw i64 %48, %indvars.iv.i23
+  %.idx = mul nuw nsw i64 %43, 1600
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %44 = getelementptr inbounds [64 x ptr], ptr %2, i64 0, i64 %indvars.iv31.i
+  store ptr %gep, ptr %44, align 8
+  %45 = add nsw i64 %14, %indvars.iv.i23
+  %.idx36 = mul nuw nsw i64 %45, 800
+  %gep40 = getelementptr i8, ptr %invariant.gep39, i64 %.idx36
+  %46 = load i64, ptr %gep40, align 8
+  store i64 %46, ptr %gep, align 8
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %indvars.iv.next.i24 = add nsw i64 %indvars.iv.i23, -1
   %exitcond.not.i25 = icmp eq i64 %indvars.iv.next32.i, 64
@@ -5668,9 +5668,9 @@ Extra_Transpose64p.exit.us.i:                     ; preds = %37
 
 .preheader.us.i:                                  ; preds = %Extra_Transpose64p.exit.us.i, %.preheader24.us.i
   %indvars.iv37.i = phi i64 [ 0, %.preheader24.us.i ], [ %indvars.iv.next38.i, %Extra_Transpose64p.exit.us.i ]
-  %49 = shl nsw i64 %indvars.iv37.i, 6
-  %50 = or disjoint i64 %49, 63
-  %invariant.gep38 = getelementptr i64, ptr %calloc.i.i, i64 %indvars.iv37.i
+  %47 = shl nsw i64 %indvars.iv37.i, 6
+  %48 = or disjoint i64 %47, 63
+  %invariant.gep39 = getelementptr i64, ptr %calloc.i.i, i64 %indvars.iv37.i
   br label %42
 
 ._crit_edge.us.i:                                 ; preds = %Extra_Transpose64p.exit.us.i
@@ -5682,93 +5682,93 @@ Extra_Transpose64p.exit.us.i:                     ; preds = %37
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2)
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %72, %.lr.ph.i.i
-  %indvars.iv21.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next22.i, %72 ]
-  %51 = mul nuw nsw i64 %indvars.iv21.i, 100
-  %52 = trunc nuw nsw i64 %indvars.iv21.i to i32
-  %53 = and i32 %52, 31
-  %54 = shl nuw i32 1, %53
-  %55 = lshr i64 %indvars.iv21.i, 5
-  %56 = and i64 %55, 134217727
-  %57 = getelementptr inbounds i64, ptr %calloc.i.i, i64 %51
-  %invariant.gep40 = getelementptr inbounds i32, ptr %calloc.i22, i64 %56
-  br label %58
+.preheader.i:                                     ; preds = %68, %.lr.ph.i.i
+  %indvars.iv21.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next22.i, %68 ]
+  %49 = trunc nuw nsw i64 %indvars.iv21.i to i32
+  %50 = and i32 %49, 31
+  %51 = shl nuw i32 1, %50
+  %52 = lshr i64 %indvars.iv21.i, 5
+  %53 = and i64 %52, 134217727
+  %.idx.i = mul nuw nsw i64 %indvars.iv21.i, 800
+  %54 = getelementptr inbounds i8, ptr %calloc.i.i, i64 %.idx.i
+  %invariant.gep41 = getelementptr inbounds i32, ptr %calloc.i22, i64 %53
+  br label %55
 
-58:                                               ; preds = %71, %.preheader.i
-  %indvars.iv.i26 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i27, %71 ]
-  %59 = trunc nuw nsw i64 %indvars.iv.i26 to i32
-  %60 = lshr i64 %indvars.iv.i26, 5
-  %61 = and i64 %60, 134217727
-  %62 = getelementptr inbounds i32, ptr %57, i64 %61
-  %63 = load i32, ptr %62, align 4
-  %64 = and i32 %59, 31
-  %65 = shl nuw i32 1, %64
-  %66 = and i32 %65, %63
-  %.not.i = icmp eq i32 %66, 0
-  br i1 %.not.i, label %71, label %67
+55:                                               ; preds = %67, %.preheader.i
+  %indvars.iv.i26 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i27, %67 ]
+  %56 = trunc nuw nsw i64 %indvars.iv.i26 to i32
+  %57 = lshr i64 %indvars.iv.i26, 5
+  %58 = and i64 %57, 134217727
+  %59 = getelementptr inbounds i32, ptr %54, i64 %58
+  %60 = load i32, ptr %59, align 4
+  %61 = and i32 %56, 31
+  %62 = shl nuw i32 1, %61
+  %63 = and i32 %62, %60
+  %.not.i = icmp eq i32 %63, 0
+  br i1 %.not.i, label %67, label %64
 
-67:                                               ; preds = %58
-  %68 = mul nuw nsw i64 %indvars.iv.i26, 200
-  %gep41 = getelementptr inbounds i64, ptr %invariant.gep40, i64 %68
-  %69 = load i32, ptr %gep41, align 4
-  %70 = or i32 %69, %54
-  store i32 %70, ptr %gep41, align 4
-  br label %71
+64:                                               ; preds = %55
+  %.idx25.i = mul nuw nsw i64 %indvars.iv.i26, 1600
+  %gep42 = getelementptr inbounds i8, ptr %invariant.gep41, i64 %.idx25.i
+  %65 = load i32, ptr %gep42, align 4
+  %66 = or i32 %65, %51
+  store i32 %66, ptr %gep42, align 4
+  br label %67
 
-71:                                               ; preds = %67, %58
+67:                                               ; preds = %64, %55
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, 6400
-  br i1 %exitcond.not.i28, label %72, label %58, !llvm.loop !103
+  br i1 %exitcond.not.i28, label %68, label %55, !llvm.loop !103
 
-72:                                               ; preds = %71
+68:                                               ; preds = %67
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next22.i, 12800
   br i1 %exitcond24.not.i, label %Extra_BitMatrixTransposeSimple.exit, label %.preheader.i, !llvm.loop !104
 
-Extra_BitMatrixTransposeSimple.exit:              ; preds = %72
+Extra_BitMatrixTransposeSimple.exit:              ; preds = %68
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(10240000) %calloc.i, ptr noundef nonnull dereferenceable(10240000) %calloc.i22, i64 10240000)
   %.not = icmp eq i32 %bcmp, 0
   %str.5.str.6 = select i1 %.not, ptr @str.5, ptr @str.6
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %str.5.str.6)
   call void @free(ptr noundef nonnull %calloc.i.i) #32
   %.not.i30 = icmp eq ptr %calloc.i, null
-  br i1 %.not.i30, label %Vec_WrdFree.exit31, label %73
+  br i1 %.not.i30, label %Vec_WrdFree.exit31, label %69
 
-73:                                               ; preds = %Extra_BitMatrixTransposeSimple.exit
+69:                                               ; preds = %Extra_BitMatrixTransposeSimple.exit
   call void @free(ptr noundef nonnull %calloc.i) #32
   br label %Vec_WrdFree.exit31
 
-Vec_WrdFree.exit31:                               ; preds = %Extra_BitMatrixTransposeSimple.exit, %73
+Vec_WrdFree.exit31:                               ; preds = %Extra_BitMatrixTransposeSimple.exit, %69
   %.not.i32 = icmp eq ptr %calloc.i22, null
-  br i1 %.not.i32, label %Vec_WrdFree.exit33, label %74
+  br i1 %.not.i32, label %Vec_WrdFree.exit33, label %70
 
-74:                                               ; preds = %Vec_WrdFree.exit31
+70:                                               ; preds = %Vec_WrdFree.exit31
   call void @free(ptr noundef nonnull %calloc.i22) #32
   br label %Vec_WrdFree.exit33
 
-Vec_WrdFree.exit33:                               ; preds = %Vec_WrdFree.exit31, %74
+Vec_WrdFree.exit33:                               ; preds = %Vec_WrdFree.exit31, %70
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
-  %75 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #32
-  %76 = icmp slt i32 %75, 0
-  br i1 %76, label %Abc_Clock.exit35, label %77
+  %71 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #32
+  %72 = icmp slt i32 %71, 0
+  br i1 %72, label %Abc_Clock.exit35, label %73
 
-77:                                               ; preds = %Vec_WrdFree.exit33
-  %78 = load i64, ptr %1, align 8
-  %79 = mul nsw i64 %78, 1000000
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
-  %81 = load i64, ptr %80, align 8
-  %82 = sdiv i64 %81, 1000
-  %83 = add nsw i64 %82, %79
+73:                                               ; preds = %Vec_WrdFree.exit33
+  %74 = load i64, ptr %1, align 8
+  %75 = mul nsw i64 %74, 1000000
+  %76 = getelementptr inbounds i8, ptr %1, i64 8
+  %77 = load i64, ptr %76, align 8
+  %78 = sdiv i64 %77, 1000
+  %79 = add nsw i64 %78, %75
   br label %Abc_Clock.exit35
 
-Abc_Clock.exit35:                                 ; preds = %Vec_WrdFree.exit33, %77
-  %.0.i34 = phi i64 [ %83, %77 ], [ -1, %Vec_WrdFree.exit33 ]
+Abc_Clock.exit35:                                 ; preds = %Vec_WrdFree.exit33, %73
+  %.0.i34 = phi i64 [ %79, %73 ], [ -1, %Vec_WrdFree.exit33 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
-  %84 = add i64 %.0.i34, %.0.i.neg
+  %80 = add i64 %.0.i34, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.19)
-  %85 = sitofp i64 %84 to double
-  %86 = fdiv double %85, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.24, double noundef %86)
+  %81 = sitofp i64 %80 to double
+  %82 = fdiv double %81, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.24, double noundef %82)
   ret void
 }
 

@@ -71,184 +71,184 @@ define dso_local void @gf128mul_lle(ptr nocapture noundef %0, ptr nocapture noun
   br label %8
 
 8:                                                ; preds = %8, %2
-  %9 = phi i64 [ 0, %2 ], [ %27, %8 ]
-  %10 = shl nuw nsw i64 %9, 1
-  %11 = getelementptr %struct.be128, ptr %7, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 32
-  %13 = load i64, ptr %11, align 32
-  %14 = call i64 @llvm.bswap.i64(i64 %13)
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = call i64 @llvm.bswap.i64(i64 %16)
-  %18 = and i64 %17, 1
-  %19 = icmp eq i64 %18, 0
-  %20 = select i1 %19, i64 0, i64 -2233785415175766016
-  %21 = call i64 @llvm.fshl.i64(i64 %14, i64 %17, i64 63)
-  %22 = call i64 @llvm.bswap.i64(i64 %21)
-  %23 = getelementptr i8, ptr %11, i64 40
-  store i64 %22, ptr %23, align 8
-  %24 = lshr i64 %14, 1
-  %25 = xor i64 %20, %24
-  %26 = call i64 @llvm.bswap.i64(i64 %25)
-  store i64 %26, ptr %12, align 32
-  %27 = add nuw nsw i64 %9, 1
-  %28 = icmp eq i64 %27, 7
-  br i1 %28, label %29, label %8, !llvm.loop !5
+  %9 = phi i64 [ 0, %2 ], [ %26, %8 ]
+  %.idx = shl i64 %9, 5
+  %10 = getelementptr i8, ptr %7, i64 %.idx
+  %11 = getelementptr i8, ptr %10, i64 32
+  %12 = load i64, ptr %10, align 32
+  %13 = call i64 @llvm.bswap.i64(i64 %12)
+  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = load i64, ptr %14, align 8
+  %16 = call i64 @llvm.bswap.i64(i64 %15)
+  %17 = and i64 %16, 1
+  %18 = icmp eq i64 %17, 0
+  %19 = select i1 %18, i64 0, i64 -2233785415175766016
+  %20 = call i64 @llvm.fshl.i64(i64 %13, i64 %16, i64 63)
+  %21 = call i64 @llvm.bswap.i64(i64 %20)
+  %22 = getelementptr i8, ptr %10, i64 40
+  store i64 %21, ptr %22, align 8
+  %23 = lshr i64 %13, 1
+  %24 = xor i64 %19, %23
+  %25 = call i64 @llvm.bswap.i64(i64 %24)
+  store i64 %25, ptr %11, align 32
+  %26 = add nuw nsw i64 %9, 1
+  %27 = icmp eq i64 %26, 7
+  br i1 %27, label %28, label %8, !llvm.loop !5
 
-29:                                               ; preds = %8
+28:                                               ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %31
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %30
 
-31:                                               ; preds = %117, %29
-  %32 = phi i64 [ %118, %117 ], [ 0, %29 ]
-  %33 = phi i64 [ %146, %117 ], [ 0, %29 ]
-  %34 = phi i64 [ %156, %117 ], [ 0, %29 ]
-  %35 = sub nuw nsw i64 15, %32
-  %36 = getelementptr i8, ptr %1, i64 %35
-  %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i32
-  %39 = icmp sgt i8 %37, -1
-  %40 = zext i1 %39 to i64
-  %41 = getelementptr %struct.be128, ptr %7, i64 %40
-  %42 = load i64, ptr %41, align 16
-  %43 = xor i64 %42, %34
-  store i64 %43, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
-  %45 = load i64, ptr %44, align 8
-  %46 = xor i64 %45, %33
-  store i64 %46, ptr %30, align 8
-  %47 = shl i32 %38, 25
-  %48 = ashr i32 %47, 31
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr %struct.be128, ptr %7, i64 %49
-  %51 = getelementptr i8, ptr %50, i64 48
-  %52 = load i64, ptr %51, align 16
-  %53 = xor i64 %52, %43
-  store i64 %53, ptr %0, align 8
-  %54 = getelementptr i8, ptr %50, i64 56
-  %55 = load i64, ptr %54, align 8
-  %56 = xor i64 %55, %46
-  store i64 %56, ptr %30, align 8
-  %57 = shl i32 %38, 26
-  %58 = ashr i32 %57, 31
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr %struct.be128, ptr %7, i64 %59
-  %61 = getelementptr i8, ptr %60, i64 80
-  %62 = load i64, ptr %61, align 16
-  %63 = xor i64 %62, %53
-  store i64 %63, ptr %0, align 8
-  %64 = getelementptr i8, ptr %60, i64 88
-  %65 = load i64, ptr %64, align 8
-  %66 = xor i64 %65, %56
-  store i64 %66, ptr %30, align 8
-  %67 = shl i32 %38, 27
-  %68 = ashr i32 %67, 31
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr %struct.be128, ptr %7, i64 %69
-  %71 = getelementptr i8, ptr %70, i64 112
-  %72 = load i64, ptr %71, align 16
-  %73 = xor i64 %72, %63
-  store i64 %73, ptr %0, align 8
-  %74 = getelementptr i8, ptr %70, i64 120
-  %75 = load i64, ptr %74, align 8
-  %76 = xor i64 %75, %66
-  store i64 %76, ptr %30, align 8
-  %77 = shl i32 %38, 28
-  %78 = ashr i32 %77, 31
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr %struct.be128, ptr %7, i64 %79
-  %81 = getelementptr i8, ptr %80, i64 144
-  %82 = load i64, ptr %81, align 16
-  %83 = xor i64 %82, %73
-  store i64 %83, ptr %0, align 8
-  %84 = getelementptr i8, ptr %80, i64 152
-  %85 = load i64, ptr %84, align 8
-  %86 = xor i64 %85, %76
-  store i64 %86, ptr %30, align 8
-  %87 = shl i32 %38, 29
-  %88 = ashr i32 %87, 31
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr %struct.be128, ptr %7, i64 %89
-  %91 = getelementptr i8, ptr %90, i64 176
-  %92 = load i64, ptr %91, align 16
-  %93 = xor i64 %92, %83
-  store i64 %93, ptr %0, align 8
-  %94 = getelementptr i8, ptr %90, i64 184
-  %95 = load i64, ptr %94, align 8
-  %96 = xor i64 %95, %86
-  store i64 %96, ptr %30, align 8
-  %97 = shl i32 %38, 30
-  %98 = ashr i32 %97, 31
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr %struct.be128, ptr %7, i64 %99
-  %101 = getelementptr i8, ptr %100, i64 208
-  %102 = load i64, ptr %101, align 16
-  %103 = xor i64 %102, %93
-  store i64 %103, ptr %0, align 8
-  %104 = getelementptr i8, ptr %100, i64 216
-  %105 = load i64, ptr %104, align 8
-  %106 = xor i64 %105, %96
-  store i64 %106, ptr %30, align 8
-  %107 = and i32 %38, 1
-  %108 = xor i32 %107, 15
-  %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr %struct.be128, ptr %7, i64 %109
-  %111 = load i64, ptr %110, align 16
-  %112 = xor i64 %111, %103
-  store i64 %112, ptr %0, align 8
-  %113 = getelementptr inbounds i8, ptr %110, i64 8
-  %114 = load i64, ptr %113, align 8
-  %115 = xor i64 %114, %106
-  store i64 %115, ptr %30, align 8
-  %116 = icmp eq i64 %32, 15
-  br i1 %116, label %157, label %117
+30:                                               ; preds = %116, %28
+  %31 = phi i64 [ %117, %116 ], [ 0, %28 ]
+  %32 = phi i64 [ %145, %116 ], [ 0, %28 ]
+  %33 = phi i64 [ %155, %116 ], [ 0, %28 ]
+  %34 = sub nuw nsw i64 15, %31
+  %35 = getelementptr i8, ptr %1, i64 %34
+  %36 = load i8, ptr %35, align 1
+  %37 = zext i8 %36 to i32
+  %38 = icmp sgt i8 %36, -1
+  %39 = zext i1 %38 to i64
+  %40 = getelementptr %struct.be128, ptr %7, i64 %39
+  %41 = load i64, ptr %40, align 16
+  %42 = xor i64 %41, %33
+  store i64 %42, ptr %0, align 8
+  %43 = getelementptr inbounds i8, ptr %40, i64 8
+  %44 = load i64, ptr %43, align 8
+  %45 = xor i64 %44, %32
+  store i64 %45, ptr %29, align 8
+  %46 = shl i32 %37, 25
+  %47 = ashr i32 %46, 31
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr %struct.be128, ptr %7, i64 %48
+  %50 = getelementptr i8, ptr %49, i64 48
+  %51 = load i64, ptr %50, align 16
+  %52 = xor i64 %51, %42
+  store i64 %52, ptr %0, align 8
+  %53 = getelementptr i8, ptr %49, i64 56
+  %54 = load i64, ptr %53, align 8
+  %55 = xor i64 %54, %45
+  store i64 %55, ptr %29, align 8
+  %56 = shl i32 %37, 26
+  %57 = ashr i32 %56, 31
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr %struct.be128, ptr %7, i64 %58
+  %60 = getelementptr i8, ptr %59, i64 80
+  %61 = load i64, ptr %60, align 16
+  %62 = xor i64 %61, %52
+  store i64 %62, ptr %0, align 8
+  %63 = getelementptr i8, ptr %59, i64 88
+  %64 = load i64, ptr %63, align 8
+  %65 = xor i64 %64, %55
+  store i64 %65, ptr %29, align 8
+  %66 = shl i32 %37, 27
+  %67 = ashr i32 %66, 31
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr %struct.be128, ptr %7, i64 %68
+  %70 = getelementptr i8, ptr %69, i64 112
+  %71 = load i64, ptr %70, align 16
+  %72 = xor i64 %71, %62
+  store i64 %72, ptr %0, align 8
+  %73 = getelementptr i8, ptr %69, i64 120
+  %74 = load i64, ptr %73, align 8
+  %75 = xor i64 %74, %65
+  store i64 %75, ptr %29, align 8
+  %76 = shl i32 %37, 28
+  %77 = ashr i32 %76, 31
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr %struct.be128, ptr %7, i64 %78
+  %80 = getelementptr i8, ptr %79, i64 144
+  %81 = load i64, ptr %80, align 16
+  %82 = xor i64 %81, %72
+  store i64 %82, ptr %0, align 8
+  %83 = getelementptr i8, ptr %79, i64 152
+  %84 = load i64, ptr %83, align 8
+  %85 = xor i64 %84, %75
+  store i64 %85, ptr %29, align 8
+  %86 = shl i32 %37, 29
+  %87 = ashr i32 %86, 31
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr %struct.be128, ptr %7, i64 %88
+  %90 = getelementptr i8, ptr %89, i64 176
+  %91 = load i64, ptr %90, align 16
+  %92 = xor i64 %91, %82
+  store i64 %92, ptr %0, align 8
+  %93 = getelementptr i8, ptr %89, i64 184
+  %94 = load i64, ptr %93, align 8
+  %95 = xor i64 %94, %85
+  store i64 %95, ptr %29, align 8
+  %96 = shl i32 %37, 30
+  %97 = ashr i32 %96, 31
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr %struct.be128, ptr %7, i64 %98
+  %100 = getelementptr i8, ptr %99, i64 208
+  %101 = load i64, ptr %100, align 16
+  %102 = xor i64 %101, %92
+  store i64 %102, ptr %0, align 8
+  %103 = getelementptr i8, ptr %99, i64 216
+  %104 = load i64, ptr %103, align 8
+  %105 = xor i64 %104, %95
+  store i64 %105, ptr %29, align 8
+  %106 = and i32 %37, 1
+  %107 = xor i32 %106, 15
+  %108 = zext nneg i32 %107 to i64
+  %109 = getelementptr %struct.be128, ptr %7, i64 %108
+  %110 = load i64, ptr %109, align 16
+  %111 = xor i64 %110, %102
+  store i64 %111, ptr %0, align 8
+  %112 = getelementptr inbounds i8, ptr %109, i64 8
+  %113 = load i64, ptr %112, align 8
+  %114 = xor i64 %113, %105
+  store i64 %114, ptr %29, align 8
+  %115 = icmp eq i64 %31, 15
+  br i1 %115, label %156, label %116
 
-117:                                              ; preds = %31
-  %118 = add nuw nsw i64 %32, 1
-  %119 = call i64 @llvm.bswap.i64(i64 %112)
-  %120 = call i64 @llvm.bswap.i64(i64 %115)
-  %121 = and i64 %120, 128
-  %122 = icmp eq i64 %121, 0
-  %123 = select i1 %122, i64 0, i64 -2233785415175766016
-  %124 = and i64 %120, 64
-  %125 = icmp eq i64 %124, 0
-  %126 = select i1 %125, i64 0, i64 8106479329266892800
-  %127 = and i64 %120, 32
-  %128 = icmp eq i64 %127, 0
-  %129 = select i1 %128, i64 0, i64 4053239664633446400
-  %130 = and i64 %120, 16
-  %131 = icmp eq i64 %130, 0
-  %132 = select i1 %131, i64 0, i64 2026619832316723200
-  %133 = and i64 %120, 8
-  %134 = icmp eq i64 %133, 0
-  %135 = select i1 %134, i64 0, i64 1013309916158361600
-  %136 = and i64 %120, 4
-  %137 = icmp eq i64 %136, 0
-  %138 = select i1 %137, i64 0, i64 506654958079180800
-  %139 = and i64 %120, 2
-  %140 = icmp eq i64 %139, 0
-  %141 = select i1 %140, i64 0, i64 253327479039590400
-  %142 = and i64 %120, 1
-  %143 = icmp eq i64 %142, 0
-  %144 = select i1 %143, i64 0, i64 126663739519795200
-  %145 = call i64 @llvm.fshl.i64(i64 %119, i64 %120, i64 56)
-  %146 = call i64 @llvm.bswap.i64(i64 %145)
-  store i64 %146, ptr %30, align 8
-  %147 = lshr i64 %119, 8
-  %148 = xor i64 %126, %147
-  %149 = xor i64 %148, %123
-  %150 = xor i64 %149, %129
-  %151 = xor i64 %150, %132
-  %152 = xor i64 %151, %135
-  %153 = xor i64 %152, %138
-  %154 = xor i64 %153, %141
-  %155 = xor i64 %154, %144
-  %156 = call i64 @llvm.bswap.i64(i64 %155)
-  store i64 %156, ptr %0, align 8
-  br label %31
+116:                                              ; preds = %30
+  %117 = add nuw nsw i64 %31, 1
+  %118 = call i64 @llvm.bswap.i64(i64 %111)
+  %119 = call i64 @llvm.bswap.i64(i64 %114)
+  %120 = and i64 %119, 128
+  %121 = icmp eq i64 %120, 0
+  %122 = select i1 %121, i64 0, i64 -2233785415175766016
+  %123 = and i64 %119, 64
+  %124 = icmp eq i64 %123, 0
+  %125 = select i1 %124, i64 0, i64 8106479329266892800
+  %126 = and i64 %119, 32
+  %127 = icmp eq i64 %126, 0
+  %128 = select i1 %127, i64 0, i64 4053239664633446400
+  %129 = and i64 %119, 16
+  %130 = icmp eq i64 %129, 0
+  %131 = select i1 %130, i64 0, i64 2026619832316723200
+  %132 = and i64 %119, 8
+  %133 = icmp eq i64 %132, 0
+  %134 = select i1 %133, i64 0, i64 1013309916158361600
+  %135 = and i64 %119, 4
+  %136 = icmp eq i64 %135, 0
+  %137 = select i1 %136, i64 0, i64 506654958079180800
+  %138 = and i64 %119, 2
+  %139 = icmp eq i64 %138, 0
+  %140 = select i1 %139, i64 0, i64 253327479039590400
+  %141 = and i64 %119, 1
+  %142 = icmp eq i64 %141, 0
+  %143 = select i1 %142, i64 0, i64 126663739519795200
+  %144 = call i64 @llvm.fshl.i64(i64 %118, i64 %119, i64 56)
+  %145 = call i64 @llvm.bswap.i64(i64 %144)
+  store i64 %145, ptr %29, align 8
+  %146 = lshr i64 %118, 8
+  %147 = xor i64 %125, %146
+  %148 = xor i64 %147, %122
+  %149 = xor i64 %148, %128
+  %150 = xor i64 %149, %131
+  %151 = xor i64 %150, %134
+  %152 = xor i64 %151, %137
+  %153 = xor i64 %152, %140
+  %154 = xor i64 %153, %143
+  %155 = call i64 @llvm.bswap.i64(i64 %154)
+  store i64 %155, ptr %0, align 8
+  br label %30
 
-157:                                              ; preds = %31
+156:                                              ; preds = %30
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %3) #11
   ret void
 }

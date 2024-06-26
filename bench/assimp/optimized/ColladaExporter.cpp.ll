@@ -10831,8 +10831,8 @@ for.cond100.preheader:                            ; preds = %invoke.cont44
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %a.072 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %mul48 = mul i64 %a.072, 3
-  %arrayidx = getelementptr inbounds float, ptr %pData, i64 %mul48
+  %arrayidx.idx = mul i64 %a.072, 12
+  %arrayidx = getelementptr inbounds i8, ptr %pData, i64 %arrayidx.idx
   %3 = load float, ptr %arrayidx, align 4
   %call50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, float noundef %3)
           to label %invoke.cont49 unwind label %lpad8.loopexit.split-lp.loopexit

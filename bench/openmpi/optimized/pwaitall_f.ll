@@ -30,7 +30,7 @@ define void @ompi_waitall_f(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 7:                                                ; preds = %4
   store i32 0, ptr %3, align 4
-  br label %57
+  br label %56
 
 8:                                                ; preds = %4
   %9 = sext i32 %5 to i64
@@ -42,11 +42,11 @@ define void @ompi_waitall_f(ptr nocapture noundef readonly %0, ptr nocapture nou
 13:                                               ; preds = %8
   %14 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 39, ptr noundef nonnull @FUNC_NAME) #5
   %.not43 = icmp eq ptr %3, null
-  br i1 %.not43, label %57, label %15
+  br i1 %.not43, label %56, label %15
 
 15:                                               ; preds = %13
   store i32 %14, ptr %3, align 4
-  br label %57
+  br label %56
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds ptr, ptr %11, i64 %9
@@ -103,8 +103,8 @@ define void @ompi_waitall_f(ptr nocapture noundef readonly %0, ptr nocapture nou
   %40 = icmp slt i64 %indvars.iv.next55, %39
   br i1 %40, label %.lr.ph47.split.us, label %.loopexit, !llvm.loop !6
 
-.lr.ph47.split:                                   ; preds = %.lr.ph47, %53
-  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %53 ], [ 0, %.lr.ph47 ]
+.lr.ph47.split:                                   ; preds = %.lr.ph47, %52
+  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %52 ], [ 0, %.lr.ph47 ]
   %41 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv51
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 104
@@ -113,27 +113,27 @@ define void @ompi_waitall_f(ptr nocapture noundef readonly %0, ptr nocapture nou
   store i32 %44, ptr %45, align 4
   %46 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv51
   %47 = icmp eq ptr %46, @mpi_fortran_status_ignore_
-  br i1 %47, label %53, label %48
+  br i1 %47, label %52, label %48
 
 48:                                               ; preds = %.lr.ph47.split
   %49 = getelementptr inbounds %struct.ompi_status_public_t, ptr %17, i64 %indvars.iv51
-  %50 = mul nuw nsw i64 %indvars.iv51, 6
-  %51 = getelementptr inbounds i32, ptr %2, i64 %50
-  %52 = tail call i32 @PMPI_Status_c2f(ptr noundef nonnull %49, ptr noundef %51) #5
-  br label %53
+  %.idx = mul nuw nsw i64 %indvars.iv51, 24
+  %50 = getelementptr inbounds i8, ptr %2, i64 %.idx
+  %51 = tail call i32 @PMPI_Status_c2f(ptr noundef nonnull %49, ptr noundef %50) #5
+  br label %52
 
-53:                                               ; preds = %.lr.ph47.split, %48
+52:                                               ; preds = %.lr.ph47.split, %48
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %54 = load i32, ptr %0, align 4
-  %55 = sext i32 %54 to i64
-  %56 = icmp slt i64 %indvars.iv.next52, %55
-  br i1 %56, label %.lr.ph47.split, label %.loopexit, !llvm.loop !6
+  %53 = load i32, ptr %0, align 4
+  %54 = sext i32 %53 to i64
+  %55 = icmp slt i64 %indvars.iv.next52, %54
+  br i1 %55, label %.lr.ph47.split, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %53, %.lr.ph47.split.us, %.preheader, %28
+.loopexit:                                        ; preds = %52, %.lr.ph47.split.us, %.preheader, %28
   tail call void @free(ptr noundef nonnull %11) #5
-  br label %57
+  br label %56
 
-57:                                               ; preds = %13, %15, %.loopexit, %7
+56:                                               ; preds = %13, %15, %.loopexit, %7
   ret void
 }
 

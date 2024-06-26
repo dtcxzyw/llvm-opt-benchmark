@@ -159,7 +159,7 @@ define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr nound
   br i1 %.not27, label %._crit_edge.thread, label %12
 
 12:                                               ; preds = %7
-  br i1 %3, label %13, label %50
+  br i1 %3, label %13, label %49
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %11, i64 128
@@ -183,81 +183,81 @@ define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %.031 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.1, %24 ]
   %.02130 = phi i32 [ -1, %.lr.ph ], [ %.122, %24 ]
-  %25 = mul nuw nsw i64 %indvars.iv, 3
-  %26 = getelementptr inbounds float, ptr %14, i64 %25
-  %27 = load float, ptr %26, align 4
-  %28 = fsub float %27, %19
-  %29 = getelementptr inbounds i8, ptr %26, i64 4
-  %30 = load float, ptr %29, align 4
-  %31 = fsub float %30, %21
-  %32 = getelementptr inbounds i8, ptr %26, i64 8
-  %33 = load float, ptr %32, align 4
-  %34 = fsub float %33, %23
-  %35 = fmul float %31, %31
-  %36 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %35)
-  %37 = tail call noundef float @llvm.fmuladd.f32(float %34, float %34, float %36)
-  %38 = fcmp olt float %37, %.031
-  %39 = trunc nuw nsw i64 %indvars.iv to i32
-  %40 = lshr i32 %39, 1
-  %.122 = select i1 %38, i32 %40, i32 %.02130
-  %.1 = select i1 %38, float %37, float %.031
+  %.idx = mul i64 %indvars.iv, 12
+  %25 = getelementptr inbounds i8, ptr %14, i64 %.idx
+  %26 = load float, ptr %25, align 4
+  %27 = fsub float %26, %19
+  %28 = getelementptr inbounds i8, ptr %25, i64 4
+  %29 = load float, ptr %28, align 4
+  %30 = fsub float %29, %21
+  %31 = getelementptr inbounds i8, ptr %25, i64 8
+  %32 = load float, ptr %31, align 4
+  %33 = fsub float %32, %23
+  %34 = fmul float %30, %30
+  %35 = tail call float @llvm.fmuladd.f32(float %27, float %27, float %34)
+  %36 = tail call noundef float @llvm.fmuladd.f32(float %33, float %33, float %35)
+  %37 = fcmp olt float %36, %.031
+  %38 = trunc nuw nsw i64 %indvars.iv to i32
+  %39 = lshr i32 %38, 1
+  %.122 = select i1 %37, i32 %39, i32 %.02130
+  %.1 = select i1 %37, float %36, float %.031
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %24
   %.not28 = icmp eq i32 %.122, -1
-  br i1 %.not28, label %._crit_edge.thread, label %41
+  br i1 %.not28, label %._crit_edge.thread, label %40
 
-41:                                               ; preds = %._crit_edge
-  %42 = tail call float @sqrtf(float noundef %.1) #11
-  %43 = load ptr, ptr %5, align 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 144
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call noundef float %46(ptr noundef nonnull align 8 dereferenceable(200) %43)
-  %48 = fcmp olt float %42, %47
-  br i1 %48, label %49, label %._crit_edge.thread
+40:                                               ; preds = %._crit_edge
+  %41 = tail call float @sqrtf(float noundef %.1) #11
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 144
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call noundef float %45(ptr noundef nonnull align 8 dereferenceable(200) %42)
+  %47 = fcmp olt float %41, %46
+  br i1 %47, label %48, label %._crit_edge.thread
 
-49:                                               ; preds = %41
+48:                                               ; preds = %40
   tail call void @_ZN9InputGeom23deleteOffMeshConnectionEi(ptr noundef nonnull align 8 dereferenceable(50312) %11, i32 noundef %.122)
   br label %._crit_edge.thread
 
-50:                                               ; preds = %12
-  %51 = getelementptr inbounds i8, ptr %0, i64 28
-  %52 = load i8, ptr %51, align 4
-  %53 = trunc i8 %52 to i1
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
-  br i1 %53, label %63, label %55
+49:                                               ; preds = %12
+  %50 = getelementptr inbounds i8, ptr %0, i64 28
+  %51 = load i8, ptr %50, align 4
+  %52 = trunc i8 %51 to i1
+  %53 = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %52, label %62, label %54
 
-55:                                               ; preds = %50
-  %56 = load float, ptr %2, align 4
-  store float %56, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %2, i64 4
-  %58 = load float, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 20
-  store float %58, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
-  %61 = load float, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %0, i64 24
-  store float %61, ptr %62, align 8
-  store i8 1, ptr %51, align 4
+54:                                               ; preds = %49
+  %55 = load float, ptr %2, align 4
+  store float %55, ptr %53, align 8
+  %56 = getelementptr inbounds i8, ptr %2, i64 4
+  %57 = load float, ptr %56, align 4
+  %58 = getelementptr inbounds i8, ptr %0, i64 20
+  store float %57, ptr %58, align 4
+  %59 = getelementptr inbounds i8, ptr %2, i64 8
+  %60 = load float, ptr %59, align 4
+  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  store float %60, ptr %61, align 8
+  store i8 1, ptr %50, align 4
   br label %._crit_edge.thread
 
-63:                                               ; preds = %50
-  %64 = load ptr, ptr %5, align 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 144
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call noundef float %67(ptr noundef nonnull align 8 dereferenceable(200) %64)
-  %69 = getelementptr inbounds i8, ptr %0, i64 29
-  %70 = load i8, ptr %69, align 1
-  %71 = and i8 %70, 1
-  tail call void @_ZN9InputGeom20addOffMeshConnectionEPKfS1_fhht(ptr noundef nonnull align 8 dereferenceable(50312) %11, ptr noundef nonnull %54, ptr noundef %2, float noundef %68, i8 noundef zeroext %71, i8 noundef zeroext 5, i16 noundef zeroext 8)
-  store i8 0, ptr %51, align 4
+62:                                               ; preds = %49
+  %63 = load ptr, ptr %5, align 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 144
+  %66 = load ptr, ptr %65, align 8
+  %67 = tail call noundef float %66(ptr noundef nonnull align 8 dereferenceable(200) %63)
+  %68 = getelementptr inbounds i8, ptr %0, i64 29
+  %69 = load i8, ptr %68, align 1
+  %70 = and i8 %69, 1
+  tail call void @_ZN9InputGeom20addOffMeshConnectionEPKfS1_fhht(ptr noundef nonnull align 8 dereferenceable(50312) %11, ptr noundef nonnull %53, ptr noundef %2, float noundef %67, i8 noundef zeroext %70, i8 noundef zeroext 5, i16 noundef zeroext 8)
+  store i8 0, ptr %50, align 4
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %13, %55, %63, %._crit_edge, %41, %49, %7, %4
+._crit_edge.thread:                               ; preds = %13, %54, %62, %._crit_edge, %40, %48, %7, %4
   ret void
 }
 

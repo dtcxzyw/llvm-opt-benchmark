@@ -6652,19 +6652,19 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv136 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next137, %for.cond ]
   %13 = load ptr, ptr %argv, align 8
-  %14 = shl nuw nsw i64 %indvars.iv136, 1
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
-  %arrayidx80 = getelementptr inbounds ptr, ptr %15, i64 %12
-  %16 = load ptr, ptr %arrayidx80, align 8
+  %.idx = shl nsw i64 %indvars.iv136, 4
+  %14 = getelementptr inbounds i8, ptr %13, i64 %.idx
+  %arrayidx80 = getelementptr inbounds ptr, ptr %14, i64 %12
+  %15 = load ptr, ptr %arrayidx80, align 8
   %arrayidx82 = getelementptr inbounds double, ptr %call74, i64 %indvars.iv136
-  %call83 = tail call i32 @getDoubleFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %16, ptr noundef %arrayidx82, ptr noundef null) #19
+  %call83 = tail call i32 @getDoubleFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %15, ptr noundef %arrayidx82, ptr noundef null) #19
   %cmp84.not = icmp eq i32 %call83, 0
   br i1 %cmp84.not, label %for.cond, label %cleanup
 
 for.end:                                          ; preds = %for.cond, %if.end72
   %db = getelementptr inbounds i8, ptr %c, i64 32
-  %17 = load ptr, ptr %db, align 8
-  %call89 = tail call ptr @lookupKeyWrite(ptr noundef %17, ptr noundef %1) #19
+  %16 = load ptr, ptr %db, align 8
+  %call89 = tail call ptr @lookupKeyWrite(ptr noundef %16, ptr noundef %1) #19
   %call90 = tail call i32 @checkType(ptr noundef nonnull %c, ptr noundef %call89, i32 noundef 3) #19
   %tobool91.not = icmp eq i32 %call90, 0
   br i1 %tobool91.not, label %if.end93, label %cleanup
@@ -6677,25 +6677,25 @@ if.then96:                                        ; preds = %if.end93
   br i1 %cmp37.not, label %if.end99, label %reply_to_client.thread
 
 if.end99:                                         ; preds = %if.then96
-  %18 = load ptr, ptr %argv, align 8
-  %19 = zext nneg i32 %scoreidx.0.lcssa to i64
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
-  %arrayidx104 = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load ptr, ptr %arrayidx104, align 8
-  %ptr105 = getelementptr inbounds i8, ptr %21, i64 8
-  %22 = load ptr, ptr %ptr105, align 8
-  %call106 = tail call fastcc i64 @sdslen(ptr noundef %22)
+  %17 = load ptr, ptr %argv, align 8
+  %18 = zext nneg i32 %scoreidx.0.lcssa to i64
+  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %arrayidx104 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load ptr, ptr %arrayidx104, align 8
+  %ptr105 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = load ptr, ptr %ptr105, align 8
+  %call106 = tail call fastcc i64 @sdslen(ptr noundef %21)
   %call107 = tail call ptr @zsetTypeCreate(i64 noundef %conv73, i64 noundef %call106)
-  %23 = load ptr, ptr %db, align 8
-  tail call void @dbAdd(ptr noundef %23, ptr noundef %1, ptr noundef %call107) #19
+  %22 = load ptr, ptr %db, align 8
+  tail call void @dbAdd(ptr noundef %22, ptr noundef %1, ptr noundef %call107) #19
   br label %if.end111
 
 if.else109:                                       ; preds = %if.end93
   %bf.load.i = load i32, ptr %call89, align 8
-  %24 = and i32 %bf.load.i, 240
-  %cmp.i = icmp eq i32 %24, 176
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5024), align 8
-  %cmp1.i = icmp ult i64 %25, %conv73
+  %23 = and i32 %bf.load.i, 240
+  %cmp.i = icmp eq i32 %23, 176
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5024), align 8
+  %cmp1.i = icmp ult i64 %24, %conv73
   %or.cond.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %if.end111
 
@@ -6705,11 +6705,11 @@ if.then.i:                                        ; preds = %if.else109
 
 if.end111:                                        ; preds = %if.then.i, %if.else109, %if.end99
   %zobj.0 = phi ptr [ %call107, %if.end99 ], [ %call89, %if.else109 ], [ %call89, %if.then.i ]
-  br i1 %cmp75122, label %for.body115.lr.ph, label %reply_to_client.thread150
+  br i1 %cmp75122, label %for.body115.lr.ph, label %reply_to_client.thread151
 
 for.body115.lr.ph:                                ; preds = %if.end111
   %add119 = add nuw nsw i32 %scoreidx.0.lcssa, 1
-  %26 = zext i32 %add119 to i64
+  %25 = zext i32 %add119 to i64
   %wide.trip.count148 = zext nneg i32 %div to i64
   br label %for.body115
 
@@ -6719,16 +6719,16 @@ for.body115:                                      ; preds = %for.body115.lr.ph, 
   %updated.0126 = phi i32 [ 0, %for.body115.lr.ph ], [ %updated.1, %if.end129 ]
   %added.0125 = phi i32 [ 0, %for.body115.lr.ph ], [ %spec.select, %if.end129 ]
   %arrayidx117 = getelementptr inbounds double, ptr %call74, i64 %indvars.iv143
-  %27 = load double, ptr %arrayidx117, align 8
+  %26 = load double, ptr %arrayidx117, align 8
   store i32 0, ptr %retflags, align 4
-  %28 = load ptr, ptr %argv, align 8
-  %29 = shl nuw nsw i64 %indvars.iv143, 1
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
-  %arrayidx123 = getelementptr inbounds ptr, ptr %30, i64 %26
-  %31 = load ptr, ptr %arrayidx123, align 8
-  %ptr124 = getelementptr inbounds i8, ptr %31, i64 8
-  %32 = load ptr, ptr %ptr124, align 8
-  %call125 = call i32 @zsetAdd(ptr noundef %zobj.0, double noundef %27, ptr noundef %32, i32 noundef %flags.addr.0.lcssa, ptr noundef nonnull %retflags, ptr noundef nonnull %newscore)
+  %27 = load ptr, ptr %argv, align 8
+  %.idx150 = shl nsw i64 %indvars.iv143, 4
+  %28 = getelementptr inbounds i8, ptr %27, i64 %.idx150
+  %arrayidx123 = getelementptr inbounds ptr, ptr %28, i64 %25
+  %29 = load ptr, ptr %arrayidx123, align 8
+  %ptr124 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = load ptr, ptr %ptr124, align 8
+  %call125 = call i32 @zsetAdd(ptr noundef %zobj.0, double noundef %26, ptr noundef %30, i32 noundef %flags.addr.0.lcssa, ptr noundef nonnull %retflags, ptr noundef nonnull %newscore)
   %cmp126 = icmp eq i32 %call125, 0
   br i1 %cmp126, label %if.then128, label %if.end129
 
@@ -6737,52 +6737,52 @@ if.then128:                                       ; preds = %for.body115
   br label %cleanup
 
 if.end129:                                        ; preds = %for.body115
-  %33 = load i32, ptr %retflags, align 4
-  %and130 = lshr i32 %33, 2
-  %34 = and i32 %and130, 1
-  %spec.select = add i32 %34, %added.0125
-  %and135 = lshr i32 %33, 3
-  %35 = and i32 %and135, 1
-  %updated.1 = add i32 %35, %updated.0126
-  %and140 = and i32 %33, 1
-  %36 = xor i32 %and140, 1
-  %processed.1 = add i32 %36, %processed.0127
+  %31 = load i32, ptr %retflags, align 4
+  %and130 = lshr i32 %31, 2
+  %32 = and i32 %and130, 1
+  %spec.select = add i32 %32, %added.0125
+  %and135 = lshr i32 %31, 3
+  %33 = and i32 %and135, 1
+  %updated.1 = add i32 %33, %updated.0126
+  %and140 = and i32 %31, 1
+  %34 = xor i32 %and140, 1
+  %processed.1 = add i32 %34, %processed.0127
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count148
   br i1 %exitcond149.not, label %reply_to_client, label %for.body115, !llvm.loop !59
 
 reply_to_client:                                  ; preds = %if.end129
-  %37 = load double, ptr %newscore, align 8
+  %35 = load double, ptr %newscore, align 8
   %add148 = add nsw i32 %updated.1, %spec.select
   %conv149 = sext i32 %add148 to i64
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
-  %add150 = add nsw i64 %38, %conv149
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %add150 = add nsw i64 %36, %conv149
   store i64 %add150, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   br i1 %cmp32, label %if.then152, label %if.else157
 
-reply_to_client.thread150:                        ; preds = %if.end111
+reply_to_client.thread151:                        ; preds = %if.end111
   br i1 %cmp32, label %if.else155, label %if.else157
 
 reply_to_client.thread:                           ; preds = %if.then96
   br i1 %cmp32, label %if.else155, label %if.else157
 
 if.then152:                                       ; preds = %reply_to_client
-  %39 = icmp eq i32 %processed.1, 0
-  br i1 %39, label %if.else155, label %if.then154
+  %37 = icmp eq i32 %processed.1, 0
+  br i1 %37, label %if.else155, label %if.then154
 
 if.then154:                                       ; preds = %if.then152
-  call void @addReplyDouble(ptr noundef nonnull %c, double noundef %37) #19
+  call void @addReplyDouble(ptr noundef nonnull %c, double noundef %35) #19
   br label %cleanup
 
-if.else155:                                       ; preds = %reply_to_client.thread150, %reply_to_client.thread, %if.then152
-  %added.295106 = phi i32 [ %spec.select, %if.then152 ], [ 0, %reply_to_client.thread ], [ 0, %reply_to_client.thread150 ]
-  %updated.297105 = phi i32 [ %updated.1, %if.then152 ], [ 0, %reply_to_client.thread ], [ 0, %reply_to_client.thread150 ]
+if.else155:                                       ; preds = %reply_to_client.thread151, %reply_to_client.thread, %if.then152
+  %added.295106 = phi i32 [ %spec.select, %if.then152 ], [ 0, %reply_to_client.thread ], [ 0, %reply_to_client.thread151 ]
+  %updated.297105 = phi i32 [ %updated.1, %if.then152 ], [ 0, %reply_to_client.thread ], [ 0, %reply_to_client.thread151 ]
   call void @addReplyNull(ptr noundef nonnull %c) #19
   br label %cleanup
 
-if.else157:                                       ; preds = %reply_to_client.thread150, %reply_to_client.thread, %reply_to_client
-  %updated.298 = phi i32 [ 0, %reply_to_client.thread ], [ %updated.1, %reply_to_client ], [ 0, %reply_to_client.thread150 ]
-  %added.296 = phi i32 [ 0, %reply_to_client.thread ], [ %spec.select, %reply_to_client ], [ 0, %reply_to_client.thread150 ]
+if.else157:                                       ; preds = %reply_to_client.thread151, %reply_to_client.thread, %reply_to_client
+  %updated.298 = phi i32 [ 0, %reply_to_client.thread ], [ %updated.1, %reply_to_client ], [ 0, %reply_to_client.thread151 ]
+  %added.296 = phi i32 [ 0, %reply_to_client.thread ], [ %spec.select, %reply_to_client ], [ 0, %reply_to_client.thread151 ]
   %tobool158.not = icmp eq i32 %ch.0.lcssa, 0
   %add159 = select i1 %tobool158.not, i32 0, i32 %updated.298
   %cond = add nsw i32 %added.296, %add159
@@ -6801,13 +6801,13 @@ cleanup:                                          ; preds = %for.body, %if.else1
 
 if.then165:                                       ; preds = %cleanup
   %db166 = getelementptr inbounds i8, ptr %c, i64 32
-  %40 = load ptr, ptr %db166, align 8
-  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %40, ptr noundef %1) #19
+  %38 = load ptr, ptr %db166, align 8
+  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %38, ptr noundef %1) #19
   %cond168 = select i1 %cmp32, ptr @.str.27, ptr @.str.28
-  %41 = load ptr, ptr %db166, align 8
-  %id = getelementptr inbounds i8, ptr %41, i64 48
-  %42 = load i32, ptr %id, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %cond168, ptr noundef %1, i32 noundef %42) #19
+  %39 = load ptr, ptr %db166, align 8
+  %id = getelementptr inbounds i8, ptr %39, i64 48
+  %40 = load i32, ptr %id, align 8
+  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %cond168, ptr noundef %1, i32 noundef %40) #19
   br label %if.end170
 
 if.end170:                                        ; preds = %cleanup, %if.then165, %if.then71, %if.then65, %if.then52, %if.then48

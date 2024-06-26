@@ -1401,31 +1401,31 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKdd
   ]
 
 .preheader126.preheader:                          ; preds = %3
-  %invariant.gep187 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = load double, ptr %invariant.gep187, align 8
+  %invariant.gep192 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = load double, ptr %invariant.gep192, align 8
   store double %4, ptr %.sroa.0, align 16
-  %gep186.c = getelementptr inbounds i8, ptr %0, i64 48
+  %gep191.c = getelementptr inbounds i8, ptr %0, i64 48
   br label %.thread111.sink.split
 
 .preheader120.preheader:                          ; preds = %3
-  %invariant.gep193 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load double, ptr %invariant.gep193, align 8
+  %invariant.gep198 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = load double, ptr %invariant.gep198, align 8
   store double %5, ptr %.sroa.0, align 16
-  %gep192.c = getelementptr inbounds i8, ptr %0, i64 48
+  %gep197.c = getelementptr inbounds i8, ptr %0, i64 48
   br label %.thread111.sink.split
 
 .preheader:                                       ; preds = %3
-  %invariant.gep197 = getelementptr inbounds double, ptr %0, i64 0
-  %6 = load double, ptr %invariant.gep197, align 8
+  %invariant.gep202 = getelementptr inbounds i8, ptr %0, i64 0
+  %6 = load double, ptr %invariant.gep202, align 8
   store double %6, ptr %.sroa.0, align 16
-  %gep198.c = getelementptr inbounds i8, ptr %invariant.gep197, i64 32
-  %7 = load double, ptr %gep198.c, align 8
+  %gep203.c = getelementptr inbounds i8, ptr %invariant.gep202, i64 32
+  %7 = load double, ptr %gep203.c, align 8
   store double %7, ptr %.sroa.7, align 8
-  %invariant.gep197.c = getelementptr inbounds double, ptr %0, i64 2
-  %8 = load double, ptr %invariant.gep197.c, align 8
+  %invariant.gep202.c = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = load double, ptr %invariant.gep202.c, align 8
   store double %8, ptr %.sroa.11, align 16
-  %gep198.c.c = getelementptr inbounds i8, ptr %invariant.gep197.c, i64 32
-  %9 = load double, ptr %gep198.c.c, align 8
+  %gep203.c.c = getelementptr inbounds i8, ptr %invariant.gep202.c, i64 32
+  %9 = load double, ptr %gep203.c.c, align 8
   store double %9, ptr %.sroa.15, align 8
   br label %.thread111
 
@@ -1449,26 +1449,26 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKdd
 .preheader117:                                    ; preds = %3
   %20 = load double, ptr %0, align 8
   store double %20, ptr %.sroa.0, align 16
-  %gep196.c = getelementptr inbounds i8, ptr %0, i64 32
+  %gep201.c = getelementptr inbounds i8, ptr %0, i64 32
   br label %.thread111.sink.split
 
 .preheader123:                                    ; preds = %3
   %21 = load double, ptr %0, align 8
   store double %21, ptr %.sroa.0, align 16
-  %gep188.c = getelementptr inbounds i8, ptr %0, i64 16
+  %gep193.c = getelementptr inbounds i8, ptr %0, i64 16
   br label %.thread111.sink.split
 
 .thread111.sink.split:                            ; preds = %.preheader117, %.preheader120.preheader, %.preheader123, %.preheader126.preheader
-  %gep186.c.sink = phi ptr [ %gep186.c, %.preheader126.preheader ], [ %gep188.c, %.preheader123 ], [ %gep192.c, %.preheader120.preheader ], [ %gep196.c, %.preheader117 ]
-  %invariant.gep187.sink = phi ptr [ %invariant.gep187, %.preheader126.preheader ], [ %0, %.preheader123 ], [ %invariant.gep193, %.preheader120.preheader ], [ %0, %.preheader117 ]
-  %.sink = phi i64 [ 2, %.preheader126.preheader ], [ 2, %.preheader123 ], [ 4, %.preheader120.preheader ], [ 4, %.preheader117 ]
-  %22 = load double, ptr %gep186.c.sink, align 8
+  %gep191.c.sink = phi ptr [ %gep191.c, %.preheader126.preheader ], [ %gep193.c, %.preheader123 ], [ %gep197.c, %.preheader120.preheader ], [ %gep201.c, %.preheader117 ]
+  %invariant.gep192.sink = phi ptr [ %invariant.gep192, %.preheader126.preheader ], [ %0, %.preheader123 ], [ %invariant.gep198, %.preheader120.preheader ], [ %0, %.preheader117 ]
+  %.sink = phi i64 [ 16, %.preheader126.preheader ], [ 16, %.preheader123 ], [ 32, %.preheader120.preheader ], [ 32, %.preheader117 ]
+  %22 = load double, ptr %gep191.c.sink, align 8
   store double %22, ptr %.sroa.7, align 8
-  %gep.c = getelementptr inbounds i8, ptr %invariant.gep187.sink, i64 8
+  %gep.c = getelementptr inbounds i8, ptr %invariant.gep192.sink, i64 8
   %23 = load double, ptr %gep.c, align 8
   store double %23, ptr %.sroa.11, align 16
-  %gep186.c.c = getelementptr inbounds double, ptr %gep.c, i64 %.sink
-  %24 = load double, ptr %gep186.c.c, align 8
+  %gep191.c.c = getelementptr inbounds i8, ptr %gep.c, i64 %.sink
+  %24 = load double, ptr %gep191.c.c, align 8
   store double %24, ptr %.sroa.15, align 8
   br label %.thread111
 
@@ -1977,19 +1977,19 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKff
   ]
 
 .preheader126.preheader:                          ; preds = %3
-  %invariant.gep187 = getelementptr inbounds i8, ptr %0, i64 16
-  %gep = getelementptr inbounds float, ptr %invariant.gep187, i64 0
+  %invariant.gep192 = getelementptr inbounds i8, ptr %0, i64 16
+  %gep = getelementptr inbounds float, ptr %invariant.gep192, i64 0
   %4 = load float, ptr %gep, align 4
-  %gep186.c = getelementptr inbounds i8, ptr %gep, i64 8
-  %5 = load float, ptr %gep186.c, align 4
+  %gep191.c = getelementptr inbounds i8, ptr %gep, i64 8
+  %5 = load float, ptr %gep191.c, align 4
   %6 = insertelement <2 x float> poison, float %4, i64 0
   %7 = insertelement <2 x float> %6, float %5, i64 1
   %8 = fpext <2 x float> %7 to <2 x double>
   store <2 x double> %8, ptr %.sroa.0, align 16
-  %gep.c = getelementptr inbounds float, ptr %invariant.gep187, i64 1
+  %gep.c = getelementptr inbounds float, ptr %invariant.gep192, i64 1
   %9 = load float, ptr %gep.c, align 4
-  %gep186.c.c = getelementptr inbounds i8, ptr %gep.c, i64 8
-  %10 = load float, ptr %gep186.c.c, align 4
+  %gep191.c.c = getelementptr inbounds i8, ptr %gep.c, i64 8
+  %10 = load float, ptr %gep191.c.c, align 4
   %11 = insertelement <2 x float> poison, float %9, i64 0
   %12 = insertelement <2 x float> %11, float %10, i64 1
   %13 = fpext <2 x float> %12 to <2 x double>
@@ -1997,19 +1997,19 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKff
   br label %.thread111
 
 .preheader120.preheader:                          ; preds = %3
-  %invariant.gep193 = getelementptr inbounds i8, ptr %0, i64 8
-  %gep194 = getelementptr inbounds float, ptr %invariant.gep193, i64 0
-  %14 = load float, ptr %gep194, align 4
-  %gep192.c = getelementptr inbounds i8, ptr %gep194, i64 16
-  %15 = load float, ptr %gep192.c, align 4
+  %invariant.gep198 = getelementptr inbounds i8, ptr %0, i64 8
+  %gep199 = getelementptr inbounds float, ptr %invariant.gep198, i64 0
+  %14 = load float, ptr %gep199, align 4
+  %gep197.c = getelementptr inbounds i8, ptr %gep199, i64 16
+  %15 = load float, ptr %gep197.c, align 4
   %16 = insertelement <2 x float> poison, float %14, i64 0
   %17 = insertelement <2 x float> %16, float %15, i64 1
   %18 = fpext <2 x float> %17 to <2 x double>
   store <2 x double> %18, ptr %.sroa.0, align 16
-  %gep194.c = getelementptr inbounds float, ptr %invariant.gep193, i64 1
-  %19 = load float, ptr %gep194.c, align 4
-  %gep192.c.c = getelementptr inbounds i8, ptr %gep194.c, i64 16
-  %20 = load float, ptr %gep192.c.c, align 4
+  %gep199.c = getelementptr inbounds float, ptr %invariant.gep198, i64 1
+  %19 = load float, ptr %gep199.c, align 4
+  %gep197.c.c = getelementptr inbounds i8, ptr %gep199.c, i64 16
+  %20 = load float, ptr %gep197.c.c, align 4
   %21 = insertelement <2 x float> poison, float %19, i64 0
   %22 = insertelement <2 x float> %21, float %20, i64 1
   %23 = fpext <2 x float> %22 to <2 x double>
@@ -2017,18 +2017,18 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKff
   br label %.thread111
 
 .preheader:                                       ; preds = %3
-  %invariant.gep197 = getelementptr inbounds float, ptr %0, i64 0
-  %24 = load float, ptr %invariant.gep197, align 4
-  %gep198.c = getelementptr inbounds i8, ptr %invariant.gep197, i64 16
-  %25 = load float, ptr %gep198.c, align 4
+  %invariant.gep202 = getelementptr inbounds i8, ptr %0, i64 0
+  %24 = load float, ptr %invariant.gep202, align 4
+  %gep203.c = getelementptr inbounds i8, ptr %invariant.gep202, i64 16
+  %25 = load float, ptr %gep203.c, align 4
   %26 = insertelement <2 x float> poison, float %24, i64 0
   %27 = insertelement <2 x float> %26, float %25, i64 1
   %28 = fpext <2 x float> %27 to <2 x double>
   store <2 x double> %28, ptr %.sroa.0, align 16
-  %invariant.gep197.c = getelementptr inbounds float, ptr %0, i64 2
-  %29 = load float, ptr %invariant.gep197.c, align 4
-  %gep198.c.c = getelementptr inbounds i8, ptr %invariant.gep197.c, i64 16
-  %30 = load float, ptr %gep198.c.c, align 4
+  %invariant.gep202.c = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = load float, ptr %invariant.gep202.c, align 4
+  %gep203.c.c = getelementptr inbounds i8, ptr %invariant.gep202.c, i64 16
+  %30 = load float, ptr %gep203.c.c, align 4
   %31 = insertelement <2 x float> poison, float %29, i64 0
   %32 = insertelement <2 x float> %31, float %30, i64 1
   %33 = fpext <2 x float> %32 to <2 x double>
@@ -2057,18 +2057,18 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKff
   br label %.thread111
 
 .preheader117:                                    ; preds = %3
-  %invariant.gep195 = getelementptr inbounds float, ptr %0, i64 0
-  %50 = load float, ptr %invariant.gep195, align 4
-  %gep196.c = getelementptr inbounds i8, ptr %invariant.gep195, i64 16
-  %51 = load float, ptr %gep196.c, align 4
+  %invariant.gep200 = getelementptr inbounds float, ptr %0, i64 0
+  %50 = load float, ptr %invariant.gep200, align 4
+  %gep201.c = getelementptr inbounds i8, ptr %invariant.gep200, i64 16
+  %51 = load float, ptr %gep201.c, align 4
   %52 = insertelement <2 x float> poison, float %50, i64 0
   %53 = insertelement <2 x float> %52, float %51, i64 1
   %54 = fpext <2 x float> %53 to <2 x double>
   store <2 x double> %54, ptr %.sroa.0, align 16
-  %invariant.gep195.c = getelementptr inbounds float, ptr %0, i64 1
-  %55 = load float, ptr %invariant.gep195.c, align 4
-  %gep196.c.c = getelementptr inbounds i8, ptr %invariant.gep195.c, i64 16
-  %56 = load float, ptr %gep196.c.c, align 4
+  %invariant.gep200.c = getelementptr inbounds float, ptr %0, i64 1
+  %55 = load float, ptr %invariant.gep200.c, align 4
+  %gep201.c.c = getelementptr inbounds i8, ptr %invariant.gep200.c, i64 16
+  %56 = load float, ptr %gep201.c.c, align 4
   %57 = insertelement <2 x float> poison, float %55, i64 0
   %58 = insertelement <2 x float> %57, float %56, i64 1
   %59 = fpext <2 x float> %58 to <2 x double>
@@ -2078,16 +2078,16 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKff
 .preheader123:                                    ; preds = %3
   %invariant.gep = getelementptr inbounds float, ptr %0, i64 0
   %60 = load float, ptr %invariant.gep, align 4
-  %gep188.c = getelementptr inbounds i8, ptr %invariant.gep, i64 8
-  %61 = load float, ptr %gep188.c, align 4
+  %gep193.c = getelementptr inbounds i8, ptr %invariant.gep, i64 8
+  %61 = load float, ptr %gep193.c, align 4
   %62 = insertelement <2 x float> poison, float %60, i64 0
   %63 = insertelement <2 x float> %62, float %61, i64 1
   %64 = fpext <2 x float> %63 to <2 x double>
   store <2 x double> %64, ptr %.sroa.0, align 16
   %invariant.gep.c = getelementptr inbounds float, ptr %0, i64 1
   %65 = load float, ptr %invariant.gep.c, align 4
-  %gep188.c.c = getelementptr inbounds i8, ptr %invariant.gep.c, i64 8
-  %66 = load float, ptr %gep188.c.c, align 4
+  %gep193.c.c = getelementptr inbounds i8, ptr %invariant.gep.c, i64 8
+  %66 = load float, ptr %gep193.c.c, align 4
   %67 = insertelement <2 x float> poison, float %65, i64 0
   %68 = insertelement <2 x float> %67, float %66, i64 1
   %69 = fpext <2 x float> %68 to <2 x double>
@@ -2108,8 +2108,8 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKff
   %74 = fcmp olt double %.sroa.8.8..sroa.8.24., %70
   %75 = or disjoint i8 %.1, 4
   %.2 = select i1 %74, i8 %75, i8 %.1
-  %.sroa.0.8..sroa_idx223 = getelementptr inbounds i8, ptr %.sroa.0, i64 8
-  %.sroa.0.8..sroa.0.8. = load double, ptr %.sroa.0.8..sroa_idx223, align 8
+  %.sroa.0.8..sroa_idx228 = getelementptr inbounds i8, ptr %.sroa.0, i64 8
+  %.sroa.0.8..sroa.0.8. = load double, ptr %.sroa.0.8..sroa_idx228, align 8
   %76 = fcmp olt double %.sroa.0.8..sroa.0.8., %70
   %77 = or disjoint i8 %.2, 8
   %.3 = select i1 %76, i8 %77, i8 %.2

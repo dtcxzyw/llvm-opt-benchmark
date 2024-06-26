@@ -1958,8 +1958,8 @@ for.body109.us:                                   ; preds = %for.body109.us.preh
   %indvars.iv139 = phi i64 [ 0, %for.body109.us.preheader ], [ %indvars.iv.next140, %for.body109.us ]
   %arrayidx111.us = getelementptr inbounds float, ptr %cond, i64 %indvars.iv139
   %28 = load float, ptr %arrayidx111.us, align 4
-  %29 = shl nsw i64 %indvars.iv139, 4
-  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %29
+  %.idx = shl nsw i64 %indvars.iv139, 6
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.idx
   store float %28, ptr %gep, align 4
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count144
@@ -1982,49 +1982,49 @@ for.body:                                         ; preds = %cond.end, %for.inc1
 
 if.then:                                          ; preds = %for.body
   %arrayidx = getelementptr inbounds [16 x float], ptr %options, i64 0, i64 %indvars.iv134
-  %30 = load float, ptr %arrayidx, align 4
-  store float %30, ptr %sblur.i, align 8
+  %29 = load float, ptr %arrayidx, align 4
+  store float %29, ptr %sblur.i, align 8
   %arrayidx26 = getelementptr inbounds [16 x float], ptr %tblur, i64 0, i64 %indvars.iv134
-  %31 = load float, ptr %arrayidx26, align 4
-  store float %31, ptr %tblur.i, align 4
+  %30 = load float, ptr %arrayidx26, align 4
+  store float %30, ptr %tblur.i, align 4
   %arrayidx29 = getelementptr inbounds [16 x float], ptr %swidth, i64 0, i64 %indvars.iv134
-  %32 = load float, ptr %arrayidx29, align 4
-  store float %32, ptr %swidth.i, align 8
+  %31 = load float, ptr %arrayidx29, align 4
+  store float %31, ptr %swidth.i, align 8
   %arrayidx32 = getelementptr inbounds [16 x float], ptr %twidth, i64 0, i64 %indvars.iv134
-  %33 = load float, ptr %arrayidx32, align 4
-  store float %33, ptr %twidth.i, align 4
+  %32 = load float, ptr %arrayidx32, align 4
+  store float %32, ptr %twidth.i, align 4
   %arrayidx35 = getelementptr inbounds [16 x float], ptr %rnd, i64 0, i64 %indvars.iv134
-  %34 = load float, ptr %arrayidx35, align 4
-  store float %34, ptr %0, align 4
+  %33 = load float, ptr %arrayidx35, align 4
+  store float %33, ptr %0, align 4
   %arrayidx37 = getelementptr inbounds float, ptr %R, i64 %indvars.iv134
-  %35 = load float, ptr %arrayidx37, align 4
-  %36 = or disjoint i64 %indvars.iv134, 16
-  %arrayidx39 = getelementptr inbounds float, ptr %R, i64 %36
-  %37 = load float, ptr %arrayidx39, align 4
-  %38 = or disjoint i64 %indvars.iv134, 32
-  %arrayidx42 = getelementptr inbounds float, ptr %R, i64 %38
-  %39 = load float, ptr %arrayidx42, align 4
+  %34 = load float, ptr %arrayidx37, align 4
+  %35 = or disjoint i64 %indvars.iv134, 16
+  %arrayidx39 = getelementptr inbounds float, ptr %R, i64 %35
+  %36 = load float, ptr %arrayidx39, align 4
+  %37 = or disjoint i64 %indvars.iv134, 32
+  %arrayidx42 = getelementptr inbounds float, ptr %R, i64 %37
+  %38 = load float, ptr %arrayidx42, align 4
   %arrayidx45 = getelementptr inbounds float, ptr %dRdx, i64 %indvars.iv134
-  %40 = load float, ptr %arrayidx45, align 4
-  %arrayidx48 = getelementptr inbounds float, ptr %dRdx, i64 %36
-  %41 = load float, ptr %arrayidx48, align 4
-  %arrayidx51 = getelementptr inbounds float, ptr %dRdx, i64 %38
-  %42 = load float, ptr %arrayidx51, align 4
+  %39 = load float, ptr %arrayidx45, align 4
+  %arrayidx48 = getelementptr inbounds float, ptr %dRdx, i64 %35
+  %40 = load float, ptr %arrayidx48, align 4
+  %arrayidx51 = getelementptr inbounds float, ptr %dRdx, i64 %37
+  %41 = load float, ptr %arrayidx51, align 4
   %arrayidx54 = getelementptr inbounds float, ptr %dRdy, i64 %indvars.iv134
-  %43 = load float, ptr %arrayidx54, align 4
-  %arrayidx57 = getelementptr inbounds float, ptr %dRdy, i64 %36
-  %44 = load float, ptr %arrayidx57, align 4
-  %arrayidx60 = getelementptr inbounds float, ptr %dRdy, i64 %38
-  %45 = load float, ptr %arrayidx60, align 4
-  %agg.tmp.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %35, i64 0
-  %agg.tmp.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp.sroa.0.0.vec.insert, float %37, i64 1
-  %agg.tmp64.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %40, i64 0
-  %agg.tmp64.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp64.sroa.0.0.vec.insert, float %41, i64 1
-  %agg.tmp65.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %43, i64 0
-  %agg.tmp65.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp65.sroa.0.0.vec.insert, float %44, i64 1
-  %call67 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl11environmentEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_10TextureOptENS_9Vec3ParamIfEESA_SA_iPfSB_SB_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %opt, <2 x float> %agg.tmp.sroa.0.4.vec.insert, float %39, <2 x float> %agg.tmp64.sroa.0.4.vec.insert, float %42, <2 x float> %agg.tmp65.sroa.0.4.vec.insert, float %45, i32 noundef %nchannels, ptr noundef %cond, ptr noundef %add.ptr, ptr noundef %add.ptr21)
-  %46 = and i8 %ok.0129, 1
-  %tobool7273 = icmp ne i8 %46, 0
+  %42 = load float, ptr %arrayidx54, align 4
+  %arrayidx57 = getelementptr inbounds float, ptr %dRdy, i64 %35
+  %43 = load float, ptr %arrayidx57, align 4
+  %arrayidx60 = getelementptr inbounds float, ptr %dRdy, i64 %37
+  %44 = load float, ptr %arrayidx60, align 4
+  %agg.tmp.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %34, i64 0
+  %agg.tmp.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp.sroa.0.0.vec.insert, float %36, i64 1
+  %agg.tmp64.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %39, i64 0
+  %agg.tmp64.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp64.sroa.0.0.vec.insert, float %40, i64 1
+  %agg.tmp65.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %42, i64 0
+  %agg.tmp65.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp65.sroa.0.0.vec.insert, float %43, i64 1
+  %call67 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl11environmentEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_10TextureOptENS_9Vec3ParamIfEESA_SA_iPfSB_SB_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %opt, <2 x float> %agg.tmp.sroa.0.4.vec.insert, float %38, <2 x float> %agg.tmp64.sroa.0.4.vec.insert, float %41, <2 x float> %agg.tmp65.sroa.0.4.vec.insert, float %44, i32 noundef %nchannels, ptr noundef %cond, ptr noundef %add.ptr, ptr noundef %add.ptr21)
+  %45 = and i8 %ok.0129, 1
+  %tobool7273 = icmp ne i8 %45, 0
   %tobool72 = select i1 %call67, i1 %tobool7273, i1 false
   %frombool73 = zext i1 %tobool72 to i8
   br i1 %cmp75116, label %for.body76, label %for.inc120
@@ -2032,19 +2032,19 @@ if.then:                                          ; preds = %for.body
 for.body76:                                       ; preds = %if.then, %for.body76
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body76 ], [ 0, %if.then ]
   %arrayidx78 = getelementptr inbounds float, ptr %cond, i64 %indvars.iv
-  %47 = load float, ptr %arrayidx78, align 4
-  %48 = shl nsw i64 %indvars.iv, 4
-  %49 = add nuw nsw i64 %48, %indvars.iv134
-  %arrayidx82 = getelementptr inbounds float, ptr %result, i64 %49
-  store float %47, ptr %arrayidx82, align 4
+  %46 = load float, ptr %arrayidx78, align 4
+  %47 = shl nsw i64 %indvars.iv, 4
+  %48 = add nuw nsw i64 %47, %indvars.iv134
+  %arrayidx82 = getelementptr inbounds float, ptr %result, i64 %48
+  store float %46, ptr %arrayidx82, align 4
   %arrayidx84 = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv
-  %50 = load float, ptr %arrayidx84, align 4
-  %arrayidx88 = getelementptr inbounds float, ptr %dresultds, i64 %49
-  store float %50, ptr %arrayidx88, align 4
+  %49 = load float, ptr %arrayidx84, align 4
+  %arrayidx88 = getelementptr inbounds float, ptr %dresultds, i64 %48
+  store float %49, ptr %arrayidx88, align 4
   %arrayidx90 = getelementptr inbounds float, ptr %add.ptr21, i64 %indvars.iv
-  %51 = load float, ptr %arrayidx90, align 4
-  %arrayidx94 = getelementptr inbounds float, ptr %dresultdt, i64 %49
-  store float %51, ptr %arrayidx94, align 4
+  %50 = load float, ptr %arrayidx90, align 4
+  %arrayidx94 = getelementptr inbounds float, ptr %dresultdt, i64 %48
+  store float %50, ptr %arrayidx94, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count144
   br i1 %exitcond.not, label %for.inc120, label %for.body76, !llvm.loop !30

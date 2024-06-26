@@ -561,41 +561,40 @@ XXH3_hashLong_internal_loop.exit.i.i.i:           ; preds = %for.body.i52.i.i.i.
 
 for.body.i3.i.i.i:                                ; preds = %for.body.i3.i.i.i, %XXH3_hashLong_internal_loop.exit.i.i.i
   %i.02.i.i.i.i = phi i64 [ 0, %XXH3_hashLong_internal_loop.exit.i.i.i ], [ %inc.i6.i.i.i, %for.body.i3.i.i.i ]
-  %result64.01.i.i.i.i = phi i64 [ %mul.i.i5.i, %XXH3_hashLong_internal_loop.exit.i.i.i ], [ %add.i.i.i8.i, %for.body.i3.i.i.i ]
-  %mul.i.i.i6.i = shl nuw nsw i64 %i.02.i.i.i.i, 1
-  %add.ptr.i4.i.i.i = getelementptr inbounds i64, ptr %acc.i.i.i, i64 %mul.i.i.i6.i
-  %mul1.i.i.i.i = shl nuw nsw i64 %i.02.i.i.i.i, 4
-  %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @XXH3_kSecret, i64 11), i64 %mul1.i.i.i.i
+  %result64.01.i.i.i.i = phi i64 [ %mul.i.i5.i, %XXH3_hashLong_internal_loop.exit.i.i.i ], [ %add.i.i.i7.i, %for.body.i3.i.i.i ]
+  %add.ptr.idx.i.i.i.i = shl nuw nsw i64 %i.02.i.i.i.i, 4
+  %add.ptr.i4.i.i.i = getelementptr inbounds i8, ptr %acc.i.i.i, i64 %add.ptr.idx.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @XXH3_kSecret, i64 11), i64 %add.ptr.idx.i.i.i.i
   %add.ptr.val.i.i.i.i = load i64, ptr %add.ptr.i4.i.i.i, align 16, !alias.scope !90, !noalias !24
   %59 = getelementptr i8, ptr %add.ptr.i4.i.i.i, i64 8
   %add.ptr.val5.i.i.i.i = load i64, ptr %59, align 8, !alias.scope !90, !noalias !24
   %add.ptr2.val.i.i.i.i = load i64, ptr %add.ptr2.i.i.i.i, align 1, !noalias !93
   %60 = getelementptr i8, ptr %add.ptr2.i.i.i.i, i64 8
   %add.ptr2.val6.i.i.i.i = load i64, ptr %60, align 1, !noalias !93
-  %xor.i.i.i.i7.i = xor i64 %add.ptr2.val.i.i.i.i, %add.ptr.val.i.i.i.i
+  %xor.i.i.i.i6.i = xor i64 %add.ptr2.val.i.i.i.i, %add.ptr.val.i.i.i.i
   %xor3.i.i.i.i.i = xor i64 %add.ptr2.val6.i.i.i.i, %add.ptr.val5.i.i.i.i
-  %conv.i.i.i.i.i.i.i = zext i64 %xor.i.i.i.i7.i to i128
+  %conv.i.i.i.i.i.i.i = zext i64 %xor.i.i.i.i6.i to i128
   %conv1.i.i.i.i.i.i.i = zext i64 %xor3.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i = mul nuw i128 %conv1.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
   %shr.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i, 64
   %xor1.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i
   %xor.i.i.i5.i.i.i = trunc i128 %xor1.i.i.i.i.i.i to i64
-  %add.i.i.i8.i = add i64 %result64.01.i.i.i.i, %xor.i.i.i5.i.i.i
+  %add.i.i.i7.i = add i64 %result64.01.i.i.i.i, %xor.i.i.i5.i.i.i
   %inc.i6.i.i.i = add nuw nsw i64 %i.02.i.i.i.i, 1
   %exitcond.not.i7.i.i.i = icmp eq i64 %inc.i6.i.i.i, 4
   br i1 %exitcond.not.i7.i.i.i, label %XXH3_hashLong_64b_default.exit.i, label %for.body.i3.i.i.i, !llvm.loop !94
 
 XXH3_hashLong_64b_default.exit.i:                 ; preds = %for.body.i3.i.i.i
-  %shr.i.i.i.i.i9.i = lshr i64 %add.i.i.i8.i, 37
-  %xor.i.i7.i.i.i.i = xor i64 %shr.i.i.i.i.i9.i, %add.i.i.i8.i
+  %shr.i.i.i.i.i8.i = lshr i64 %add.i.i.i7.i, 37
+  %xor.i.i7.i.i.i.i = xor i64 %shr.i.i.i.i.i8.i, %add.i.i.i7.i
   %mul.i.i9.i.i.i = mul i64 %xor.i.i7.i.i.i.i, 1609587791953885689
-  %shr.i4.i.i.i.i10.i = lshr i64 %mul.i.i9.i.i.i, 32
-  %xor.i5.i.i.i.i11.i = xor i64 %shr.i4.i.i.i.i10.i, %mul.i.i9.i.i.i
+  %shr.i4.i.i.i.i9.i = lshr i64 %mul.i.i9.i.i.i, 32
+  %xor.i5.i.i.i.i10.i = xor i64 %shr.i4.i.i.i.i9.i, %mul.i.i9.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %acc.i.i.i), !noalias !18
   br label %XXH_INLINE_XXH3_64bits.exit
 
 XXH_INLINE_XXH3_64bits.exit:                      ; preds = %if.then.i.i.i, %if.then6.i.i.i, %if.end8.i.i.i, %if.then10.i.i.i, %XXH3_len_17to128_64b.exit.i.i, %XXH3_len_129to240_64b.exit.i.i, %XXH3_hashLong_64b_default.exit.i
-  %retval.0.i.i = phi i64 [ %xor.i5.i.i.i.i, %XXH3_len_17to128_64b.exit.i.i ], [ %xor.i5.i48.i.i.i, %XXH3_len_129to240_64b.exit.i.i ], [ %xor.i5.i.i.i.i11.i, %XXH3_hashLong_64b_default.exit.i ], [ %xor.i5.i.i.i.i.i, %if.then.i.i.i ], [ %xor.i.i.i21.i.i.i, %if.then6.i.i.i ], [ %xor5.i.i.i.i.i, %if.then10.i.i.i ], [ 3244421341483603138, %if.end8.i.i.i ]
+  %retval.0.i.i = phi i64 [ %xor.i5.i.i.i.i, %XXH3_len_17to128_64b.exit.i.i ], [ %xor.i5.i48.i.i.i, %XXH3_len_129to240_64b.exit.i.i ], [ %xor.i5.i.i.i.i10.i, %XXH3_hashLong_64b_default.exit.i ], [ %xor.i5.i.i.i.i.i, %if.then.i.i.i ], [ %xor.i.i.i21.i.i.i, %if.then6.i.i.i ], [ %xor5.i.i.i.i.i, %if.then10.i.i.i ], [ 3244421341483603138, %if.end8.i.i.i ]
   %conv = trunc i64 %retval.0.i.i to i32
   ret i32 %conv
 }

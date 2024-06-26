@@ -366,7 +366,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
 .preheader2782:                                   ; preds = %237
   %224 = sext i32 %127 to i64
   %225 = getelementptr inbounds float, ptr %12, i64 %224
-  %226 = getelementptr inbounds float, ptr %225, i64 0
+  %226 = getelementptr inbounds i8, ptr %225, i64 0
   %.val.i = load float, ptr %226, align 1
   %227 = getelementptr i8, ptr %226, i64 4
   %.val2.i = load float, ptr %227, align 1
@@ -374,7 +374,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %229 = insertelement <4 x float> poison, float %.val2.i, i64 0
   %230 = shufflevector <4 x float> %228, <4 x float> %229, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   store <8 x float> %230, ptr %.sroa.03446, align 32
-  %231 = getelementptr inbounds float, ptr %225, i64 2
+  %231 = getelementptr inbounds i8, ptr %225, i64 8
   %.val.i.c = load float, ptr %231, align 1
   %232 = getelementptr i8, ptr %231, i64 4
   %.val2.i.c = load float, ptr %232, align 1

@@ -1400,9 +1400,9 @@ for.body92:                                       ; preds = %for.cond90.preheade
   %4 = icmp ne i64 %rem95170, 0
   %spec.select = xor i1 %cmp93, %4
   %5 = load ptr, ptr %pcData.i88, align 8
-  %6 = shl nuw nsw i64 %indvars.iv, 3
-  %7 = getelementptr inbounds %struct.aiTexel, ptr %5, i64 %6
-  %arrayidx104 = getelementptr inbounds %struct.aiTexel, ptr %7, i64 %indvars.iv159
+  %.idx = shl nsw i64 %indvars.iv, 5
+  %6 = getelementptr inbounds i8, ptr %5, i64 %.idx
+  %arrayidx104 = getelementptr inbounds %struct.aiTexel, ptr %6, i64 %indvars.iv159
   %conv107 = sext i1 %spec.select to i8
   %g = getelementptr inbounds i8, ptr %arrayidx104, i64 1
   store i8 %conv107, ptr %g, align 1
@@ -1429,103 +1429,103 @@ if.else111:                                       ; preds = %_ZNSt10unique_ptrI9
           to label %invoke.cont117 unwind label %lpad
 
 invoke.cont117:                                   ; preds = %if.else111
-  %8 = load i32, ptr %iSkip, align 4
-  %idx.ext118 = zext i32 %8 to i64
+  %7 = load i32, ptr %iSkip, align 4
+  %idx.ext118 = zext i32 %7 to i64
   %add.ptr119 = getelementptr inbounds i8, ptr %szCurrent, i64 %idx.ext118
   br label %if.then126
 
 if.then126:                                       ; preds = %for.inc108, %invoke.cont117, %invoke.cont37
-  %9 = phi ptr [ %call19, %invoke.cont37 ], [ %call73, %invoke.cont117 ], [ %call73, %for.inc108 ]
+  %8 = phi ptr [ %call19, %invoke.cont37 ], [ %call73, %invoke.cont117 ], [ %call73, %for.inc108 ]
   %szCurrent.addr.0 = phi ptr [ %add.ptr, %invoke.cont37 ], [ %add.ptr119, %invoke.cont117 ], [ %szCurrent, %for.inc108 ]
-  %mHeight.i = getelementptr inbounds i8, ptr %9, i64 4
-  %10 = load i32, ptr %mHeight.i, align 4
-  %tobool.not.i = icmp eq i32 %10, 0
+  %mHeight.i = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = load i32, ptr %mHeight.i, align 4
+  %tobool.not.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i, label %invoke.cont128, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then126
-  %11 = load i32, ptr %9, align 8
-  %tobool2.not.i = icmp eq i32 %11, 0
+  %10 = load i32, ptr %8, align 8
+  %tobool2.not.i = icmp eq i32 %10, 0
   br i1 %tobool2.not.i, label %invoke.cont128, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %mul.i = mul i32 %11, %10
-  %pcData.i98 = getelementptr inbounds i8, ptr %9, i64 24
-  %12 = load ptr, ptr %pcData.i98, align 8
+  %mul.i = mul i32 %10, %9
+  %pcData.i98 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = load ptr, ptr %pcData.i98, align 8
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.aiTexel, ptr %12, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.aiTexel, ptr %11, i64 %idxprom.i
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %_ZNK7aiTexelneERKS_.exit.i, %if.end.i
-  %.pn.i = phi ptr [ %12, %if.end.i ], [ %pcTexel.0.i, %_ZNK7aiTexelneERKS_.exit.i ]
+  %.pn.i = phi ptr [ %11, %if.end.i ], [ %pcTexel.0.i, %_ZNK7aiTexelneERKS_.exit.i ]
   %pcTexel.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 4
   %cmp.not.not.i = icmp eq ptr %pcTexel.0.i, %arrayidx.i
   br i1 %cmp.not.not.i, label %if.then11.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %13 = load i8, ptr %pcTexel.0.i, align 1
-  %14 = load i8, ptr %.pn.i, align 1
-  %cmp.not.i.i = icmp eq i8 %13, %14
+  %12 = load i8, ptr %pcTexel.0.i, align 1
+  %13 = load i8, ptr %.pn.i, align 1
+  %cmp.not.i.i = icmp eq i8 %12, %13
   br i1 %cmp.not.i.i, label %lor.lhs.false.i.i, label %invoke.cont128
 
 lor.lhs.false.i.i:                                ; preds = %while.body.i
   %r.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 6
-  %15 = load i8, ptr %r.i.i, align 1
+  %14 = load i8, ptr %r.i.i, align 1
   %r5.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 2
-  %16 = load i8, ptr %r5.i.i, align 1
-  %cmp7.not.i.i = icmp eq i8 %15, %16
+  %15 = load i8, ptr %r5.i.i, align 1
+  %cmp7.not.i.i = icmp eq i8 %14, %15
   br i1 %cmp7.not.i.i, label %lor.lhs.false8.i.i, label %invoke.cont128
 
 lor.lhs.false8.i.i:                               ; preds = %lor.lhs.false.i.i
   %g.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 5
-  %17 = load i8, ptr %g.i.i, align 1
+  %16 = load i8, ptr %g.i.i, align 1
   %g10.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
-  %18 = load i8, ptr %g10.i.i, align 1
-  %cmp12.not.i.i = icmp eq i8 %17, %18
+  %17 = load i8, ptr %g10.i.i, align 1
+  %cmp12.not.i.i = icmp eq i8 %16, %17
   br i1 %cmp12.not.i.i, label %_ZNK7aiTexelneERKS_.exit.i, label %invoke.cont128
 
 _ZNK7aiTexelneERKS_.exit.i:                       ; preds = %lor.lhs.false8.i.i
   %a.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 7
-  %19 = load i8, ptr %a.i.i, align 1
+  %18 = load i8, ptr %a.i.i, align 1
   %a14.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 3
-  %20 = load i8, ptr %a14.i.i, align 1
-  %cmp16.i.not.i = icmp eq i8 %19, %20
+  %19 = load i8, ptr %a14.i.i, align 1
+  %cmp16.i.not.i = icmp eq i8 %18, %19
   br i1 %cmp16.i.not.i, label %while.cond.i, label %invoke.cont128, !llvm.loop !4
 
 if.then11.i:                                      ; preds = %while.cond.i
-  %g.i = getelementptr inbounds i8, ptr %12, i64 1
-  %21 = load <2 x i8>, ptr %g.i, align 1
-  %22 = uitofp <2 x i8> %21 to <2 x float>
-  %23 = fdiv <2 x float> %22, <float 2.550000e+02, float 2.550000e+02>
-  %24 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %25 = load i8, ptr %12, align 1
-  %a.i = getelementptr inbounds i8, ptr %12, i64 3
-  %26 = load i8, ptr %a.i, align 1
-  %27 = insertelement <2 x i8> poison, i8 %25, i64 0
-  %28 = insertelement <2 x i8> %27, i8 %26, i64 1
-  %29 = uitofp <2 x i8> %28 to <2 x float>
-  %30 = fdiv <2 x float> %29, <float 2.550000e+02, float 2.550000e+02>
+  %g.i = getelementptr inbounds i8, ptr %11, i64 1
+  %20 = load <2 x i8>, ptr %g.i, align 1
+  %21 = uitofp <2 x i8> %20 to <2 x float>
+  %22 = fdiv <2 x float> %21, <float 2.550000e+02, float 2.550000e+02>
+  %23 = shufflevector <2 x float> %22, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %24 = load i8, ptr %11, align 1
+  %a.i = getelementptr inbounds i8, ptr %11, i64 3
+  %25 = load i8, ptr %a.i, align 1
+  %26 = insertelement <2 x i8> poison, i8 %24, i64 0
+  %27 = insertelement <2 x i8> %26, i8 %25, i64 1
+  %28 = uitofp <2 x i8> %27 to <2 x float>
+  %29 = fdiv <2 x float> %28, <float 2.550000e+02, float 2.550000e+02>
   br label %invoke.cont128
 
 invoke.cont128:                                   ; preds = %_ZNK7aiTexelneERKS_.exit.i, %lor.lhs.false8.i.i, %lor.lhs.false.i.i, %while.body.i, %if.then11.i, %lor.lhs.false.i, %if.then126
-  %retval.sroa.5.0.i = phi <2 x float> [ zeroinitializer, %if.then126 ], [ zeroinitializer, %lor.lhs.false.i ], [ %30, %if.then11.i ], [ zeroinitializer, %while.body.i ], [ zeroinitializer, %lor.lhs.false.i.i ], [ zeroinitializer, %lor.lhs.false8.i.i ], [ zeroinitializer, %_ZNK7aiTexelneERKS_.exit.i ]
-  %retval.sroa.0.0.i = phi <2 x float> [ <float 0x7FF8000000000000, float 0.000000e+00>, %if.then126 ], [ <float 0x7FF8000000000000, float 0.000000e+00>, %lor.lhs.false.i ], [ %24, %if.then11.i ], [ <float 0x7FF8000000000000, float 0.000000e+00>, %while.body.i ], [ <float 0x7FF8000000000000, float 0.000000e+00>, %lor.lhs.false.i.i ], [ <float 0x7FF8000000000000, float 0.000000e+00>, %lor.lhs.false8.i.i ], [ <float 0x7FF8000000000000, float 0.000000e+00>, %_ZNK7aiTexelneERKS_.exit.i ]
+  %retval.sroa.5.0.i = phi <2 x float> [ zeroinitializer, %if.then126 ], [ zeroinitializer, %lor.lhs.false.i ], [ %29, %if.then11.i ], [ zeroinitializer, %while.body.i ], [ zeroinitializer, %lor.lhs.false.i.i ], [ zeroinitializer, %lor.lhs.false8.i.i ], [ zeroinitializer, %_ZNK7aiTexelneERKS_.exit.i ]
+  %retval.sroa.0.0.i = phi <2 x float> [ <float 0x7FF8000000000000, float 0.000000e+00>, %if.then126 ], [ <float 0x7FF8000000000000, float 0.000000e+00>, %lor.lhs.false.i ], [ %23, %if.then11.i ], [ <float 0x7FF8000000000000, float 0.000000e+00>, %while.body.i ], [ <float 0x7FF8000000000000, float 0.000000e+00>, %lor.lhs.false.i.i ], [ <float 0x7FF8000000000000, float 0.000000e+00>, %lor.lhs.false8.i.i ], [ <float 0x7FF8000000000000, float 0.000000e+00>, %_ZNK7aiTexelneERKS_.exit.i ]
   store <2 x float> %retval.sroa.0.0.i, ptr %clrTexture, align 8
   %ref.tmp.sroa.2.0.clrTexture.sroa_idx = getelementptr inbounds i8, ptr %clrTexture, i64 8
   store <2 x float> %retval.sroa.5.0.i, ptr %ref.tmp.sroa.2.0.clrTexture.sroa_idx, align 8
   %bc = bitcast <2 x float> %retval.sroa.0.0.i to <2 x i32>
-  %31 = extractelement <2 x i32> %bc, i64 0
+  %30 = extractelement <2 x i32> %bc, i64 0
   br label %if.end134
 
 if.else130:                                       ; preds = %if.end55, %lor.lhs.false66, %if.then3
   %szCurrent.addr.0.ph = phi ptr [ %szCurrent, %if.then3 ], [ %szCurrent, %lor.lhs.false66 ], [ %add.ptr61, %if.end55 ]
-  %32 = getelementptr inbounds i8, ptr %clrTexture, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, i8 0, i64 12, i1 false)
+  %31 = getelementptr inbounds i8, ptr %clrTexture, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, i8 0, i64 12, i1 false)
   store float 0x7FF8000000000000, ptr %clrTexture, align 8
   br label %if.end134
 
 if.end134:                                        ; preds = %if.else130, %invoke.cont128
   %szCurrent.addr.0173 = phi ptr [ %szCurrent.addr.0.ph, %if.else130 ], [ %szCurrent.addr.0, %invoke.cont128 ]
-  %33 = phi i32 [ 2143289344, %if.else130 ], [ %31, %invoke.cont128 ]
+  %32 = phi i32 [ 2143289344, %if.else130 ], [ %30, %invoke.cont128 ]
   %and135 = and i32 %iType, 16
   %tobool136.not = icmp eq i32 %and135, 0
   br i1 %tobool136.not, label %invoke.cont246, label %if.then137
@@ -1539,30 +1539,30 @@ invoke.cont149:                                   ; preds = %if.then137
   store <2 x float> zeroinitializer, ptr %clrTemp, align 8
   %b.i = getelementptr inbounds i8, ptr %clrTemp, i64 8
   store float 0.000000e+00, ptr %b.i, align 8
-  %34 = load <2 x float>, ptr %szCurrent.addr.0173, align 1
-  store <2 x float> %34, ptr %clrTemp, align 8
+  %33 = load <2 x float>, ptr %szCurrent.addr.0173, align 1
+  store <2 x float> %33, ptr %clrTemp, align 8
   %b146 = getelementptr inbounds i8, ptr %szCurrent.addr.0173, i64 8
-  %35 = load float, ptr %b146, align 1
-  store float %35, ptr %b.i, align 8
-  %36 = load float, ptr %clrTexture, align 8
-  %37 = bitcast float %36 to i32
-  %38 = and i32 %37, 2139095040
-  %cmp.i.i = icmp ne i32 %38, 2139095040
-  %bf.clear2.i.i = and i32 %37, 8388607
+  %34 = load float, ptr %b146, align 1
+  store float %34, ptr %b.i, align 8
+  %35 = load float, ptr %clrTexture, align 8
+  %36 = bitcast float %35 to i32
+  %37 = and i32 %36, 2139095040
+  %cmp.i.i = icmp ne i32 %37, 2139095040
+  %bf.clear2.i.i = and i32 %36, 8388607
   %tobool.i.i = icmp eq i32 %bf.clear2.i.i, 0
   %.not.i = or i1 %cmp.i.i, %tobool.i.i
   br i1 %.not.i, label %if.then151, label %if.end161
 
 if.then151:                                       ; preds = %invoke.cont149
   %g155 = getelementptr inbounds i8, ptr %clrTexture, i64 4
-  %39 = load float, ptr %g155, align 4
-  %40 = insertelement <2 x float> poison, float %36, i64 0
-  %41 = insertelement <2 x float> %40, float %39, i64 1
-  %42 = fmul <2 x float> %34, %41
-  store <2 x float> %42, ptr %clrTemp, align 8
+  %38 = load float, ptr %g155, align 4
+  %39 = insertelement <2 x float> poison, float %35, i64 0
+  %40 = insertelement <2 x float> %39, float %38, i64 1
+  %41 = fmul <2 x float> %33, %40
+  store <2 x float> %41, ptr %clrTemp, align 8
   %b158 = getelementptr inbounds i8, ptr %clrTexture, i64 8
-  %43 = load float, ptr %b158, align 8
-  %mul160 = fmul float %35, %43
+  %42 = load float, ptr %b158, align 8
+  %mul160 = fmul float %34, %42
   store float %mul160, ptr %b.i, align 8
   br label %if.end161
 
@@ -1572,23 +1572,23 @@ if.end161:                                        ; preds = %if.then151, %invoke
 
 invoke.cont173:                                   ; preds = %if.end161
   %Specular = getelementptr inbounds i8, ptr %szCurrent.addr.0173, i64 32
-  %44 = load <2 x float>, ptr %Specular, align 1
-  store <2 x float> %44, ptr %clrTemp, align 8
+  %43 = load <2 x float>, ptr %Specular, align 1
+  store <2 x float> %43, ptr %clrTemp, align 8
   %b170 = getelementptr inbounds i8, ptr %szCurrent.addr.0173, i64 40
-  %45 = load float, ptr %b170, align 1
-  store float %45, ptr %b.i, align 8
+  %44 = load float, ptr %b170, align 1
+  store float %44, ptr %b.i, align 8
   br i1 %.not.i, label %if.then175, label %if.end185
 
 if.then175:                                       ; preds = %invoke.cont173
   %g179 = getelementptr inbounds i8, ptr %clrTexture, i64 4
-  %46 = load float, ptr %g179, align 4
-  %47 = insertelement <2 x float> poison, float %36, i64 0
-  %48 = insertelement <2 x float> %47, float %46, i64 1
-  %49 = fmul <2 x float> %44, %48
-  store <2 x float> %49, ptr %clrTemp, align 8
+  %45 = load float, ptr %g179, align 4
+  %46 = insertelement <2 x float> poison, float %35, i64 0
+  %47 = insertelement <2 x float> %46, float %45, i64 1
+  %48 = fmul <2 x float> %43, %47
+  store <2 x float> %48, ptr %clrTemp, align 8
   %b182 = getelementptr inbounds i8, ptr %clrTexture, i64 8
-  %50 = load float, ptr %b182, align 8
-  %mul184 = fmul float %45, %50
+  %49 = load float, ptr %b182, align 8
+  %mul184 = fmul float %44, %49
   store float %mul184, ptr %b.i, align 8
   br label %if.end185
 
@@ -1598,23 +1598,23 @@ if.end185:                                        ; preds = %if.then175, %invoke
 
 invoke.cont197:                                   ; preds = %if.end185
   %Ambient = getelementptr inbounds i8, ptr %szCurrent.addr.0173, i64 16
-  %51 = load <2 x float>, ptr %Ambient, align 1
-  store <2 x float> %51, ptr %clrTemp, align 8
+  %50 = load <2 x float>, ptr %Ambient, align 1
+  store <2 x float> %50, ptr %clrTemp, align 8
   %b194 = getelementptr inbounds i8, ptr %szCurrent.addr.0173, i64 24
-  %52 = load float, ptr %b194, align 1
-  store float %52, ptr %b.i, align 8
+  %51 = load float, ptr %b194, align 1
+  store float %51, ptr %b.i, align 8
   br i1 %.not.i, label %if.then199, label %if.end209
 
 if.then199:                                       ; preds = %invoke.cont197
   %g203 = getelementptr inbounds i8, ptr %clrTexture, i64 4
-  %53 = load float, ptr %g203, align 4
-  %54 = insertelement <2 x float> poison, float %36, i64 0
-  %55 = insertelement <2 x float> %54, float %53, i64 1
-  %56 = fmul <2 x float> %51, %55
-  store <2 x float> %56, ptr %clrTemp, align 8
+  %52 = load float, ptr %g203, align 4
+  %53 = insertelement <2 x float> poison, float %35, i64 0
+  %54 = insertelement <2 x float> %53, float %52, i64 1
+  %55 = fmul <2 x float> %50, %54
+  store <2 x float> %55, ptr %clrTemp, align 8
   %b206 = getelementptr inbounds i8, ptr %clrTexture, i64 8
-  %57 = load float, ptr %b206, align 8
-  %mul208 = fmul float %52, %57
+  %56 = load float, ptr %b206, align 8
+  %mul208 = fmul float %51, %56
   store float %mul208, ptr %b.i, align 8
   br label %if.end209
 
@@ -1624,24 +1624,24 @@ if.end209:                                        ; preds = %if.then199, %invoke
 
 invoke.cont210:                                   ; preds = %if.end209
   %Emissive = getelementptr inbounds i8, ptr %szCurrent.addr.0173, i64 48
-  %58 = load <2 x float>, ptr %Emissive, align 1
-  store <2 x float> %58, ptr %clrTemp, align 8
+  %57 = load <2 x float>, ptr %Emissive, align 1
+  store <2 x float> %57, ptr %clrTemp, align 8
   %b218 = getelementptr inbounds i8, ptr %szCurrent.addr.0173, i64 56
-  %59 = load float, ptr %b218, align 1
-  store float %59, ptr %b.i, align 8
+  %58 = load float, ptr %b218, align 1
+  store float %58, ptr %b.i, align 8
   %call.i113 = invoke noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMatOut, ptr noundef nonnull %clrTemp, i32 noundef 12, ptr noundef nonnull @.str.13, i32 noundef 0, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont226 unwind label %lpad
 
 invoke.cont226:                                   ; preds = %invoke.cont210
   %a223 = getelementptr inbounds i8, ptr %szCurrent.addr.0173, i64 28
-  %60 = load float, ptr %a223, align 1
-  store float %60, ptr %clrTemp, align 8
+  %59 = load float, ptr %a223, align 1
+  store float %59, ptr %clrTemp, align 8
   br i1 %.not.i, label %if.then228, label %if.end232
 
 if.then228:                                       ; preds = %invoke.cont226
   %a229 = getelementptr inbounds i8, ptr %clrTexture, i64 12
-  %61 = load float, ptr %a229, align 4
-  %mul231 = fmul float %60, %61
+  %60 = load float, ptr %a229, align 4
+  %mul231 = fmul float %59, %60
   store float %mul231, ptr %clrTemp, align 8
   br label %if.end232
 
@@ -1652,13 +1652,13 @@ if.end232:                                        ; preds = %if.then228, %invoke
 invoke.cont234:                                   ; preds = %if.end232
   store i32 2, ptr %iShadingMode, align 4
   %Power = getelementptr inbounds i8, ptr %szCurrent.addr.0173, i64 64
-  %62 = load float, ptr %Power, align 1
-  %cmp236 = fcmp une float %62, 0.000000e+00
+  %61 = load float, ptr %Power, align 1
+  %cmp236 = fcmp une float %61, 0.000000e+00
   br i1 %cmp236, label %if.then237, label %if.end241
 
 if.then237:                                       ; preds = %invoke.cont234
   store i32 3, ptr %iShadingMode, align 4
-  store float %62, ptr %power, align 4
+  store float %61, ptr %power, align 4
   %call.i120 = invoke noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMatOut, ptr noundef nonnull %power, i32 noundef 4, ptr noundef nonnull @.str.15, i32 noundef 0, i32 noundef 0, i32 noundef 1)
           to label %if.end241 unwind label %lpad
 
@@ -1667,9 +1667,9 @@ if.end241:                                        ; preds = %if.then237, %invoke
           to label %invoke.cont256 unwind label %lpad
 
 invoke.cont246:                                   ; preds = %if.end134
-  %63 = and i32 %33, 2139095040
-  %cmp.i.i124 = icmp ne i32 %63, 2139095040
-  %bf.clear2.i.i125 = and i32 %33, 8388607
+  %62 = and i32 %32, 2139095040
+  %cmp.i.i124 = icmp ne i32 %62, 2139095040
+  %bf.clear2.i.i125 = and i32 %32, 8388607
   %tobool.i.i126 = icmp eq i32 %bf.clear2.i.i125, 0
   %.not.i127 = or i1 %cmp.i.i124, %tobool.i.i126
   br i1 %.not.i127, label %if.then248, label %invoke.cont256
@@ -1690,7 +1690,7 @@ invoke.cont249.invoke.cont256_crit_edge:          ; preds = %invoke.cont249
 
 invoke.cont256:                                   ; preds = %invoke.cont249.invoke.cont256_crit_edge, %invoke.cont246, %if.end241
   %bf.clear2.i.i132.pre-phi = phi i32 [ %.pre168, %invoke.cont249.invoke.cont256_crit_edge ], [ %bf.clear2.i.i125, %invoke.cont246 ], [ %bf.clear2.i.i, %if.end241 ]
-  %.pre-phi = phi i32 [ %.pre167, %invoke.cont249.invoke.cont256_crit_edge ], [ 2139095040, %invoke.cont246 ], [ %38, %if.end241 ]
+  %.pre-phi = phi i32 [ %.pre167, %invoke.cont249.invoke.cont256_crit_edge ], [ 2139095040, %invoke.cont246 ], [ %37, %if.end241 ]
   %szCurrent.addr.1 = phi ptr [ %szCurrent.addr.0173, %invoke.cont249.invoke.cont256_crit_edge ], [ %szCurrent.addr.0173, %invoke.cont246 ], [ %add.ptr138, %if.end241 ]
   %cmp.i.i131 = icmp ne i32 %.pre-phi, 2139095040
   %tobool.i.i133 = icmp eq i32 %bf.clear2.i.i132.pre-phi, 0
@@ -1698,23 +1698,23 @@ invoke.cont256:                                   ; preds = %invoke.cont249.invo
   br i1 %.not.i134, label %if.then258, label %if.end259
 
 if.then258:                                       ; preds = %invoke.cont256
-  %64 = load ptr, ptr %pcNew, align 8
+  %63 = load ptr, ptr %pcNew, align 8
   store ptr null, ptr %pcNew, align 8
-  %tobool.not.i.i135 = icmp eq ptr %64, null
+  %tobool.not.i.i135 = icmp eq ptr %63, null
   br i1 %tobool.not.i.i135, label %if.end259, label %delete.notnull.i.i.i136
 
 delete.notnull.i.i.i136:                          ; preds = %if.then258
-  %pcData.i.i.i.i137 = getelementptr inbounds i8, ptr %64, i64 24
-  %65 = load ptr, ptr %pcData.i.i.i.i137, align 8
-  %isnull.i.i.i.i138 = icmp eq ptr %65, null
+  %pcData.i.i.i.i137 = getelementptr inbounds i8, ptr %63, i64 24
+  %64 = load ptr, ptr %pcData.i.i.i.i137, align 8
+  %isnull.i.i.i.i138 = icmp eq ptr %64, null
   br i1 %isnull.i.i.i.i138, label %_ZNKSt14default_deleteI9aiTextureEclEPS0_.exit.i.i140, label %delete.notnull.i.i.i.i139
 
 delete.notnull.i.i.i.i139:                        ; preds = %delete.notnull.i.i.i136
-  call void @_ZdaPv(ptr noundef nonnull %65) #18
+  call void @_ZdaPv(ptr noundef nonnull %64) #18
   br label %_ZNKSt14default_deleteI9aiTextureEclEPS0_.exit.i.i140
 
 _ZNKSt14default_deleteI9aiTextureEclEPS0_.exit.i.i140: ; preds = %delete.notnull.i.i.i.i139, %delete.notnull.i.i.i136
-  call void @_ZdlPv(ptr noundef nonnull %64) #18
+  call void @_ZdlPv(ptr noundef nonnull %63) #18
   br label %if.end259
 
 if.end259:                                        ; preds = %_ZNKSt14default_deleteI9aiTextureEclEPS0_.exit.i.i140, %if.then258, %invoke.cont256
@@ -1727,8 +1727,8 @@ if.then262:                                       ; preds = %if.end259
           to label %invoke.cont263 unwind label %lpad
 
 invoke.cont263:                                   ; preds = %if.then262
-  %66 = load i32, ptr %szCurrent.addr.1, align 4
-  %conv264 = sext i32 %66 to i64
+  %65 = load i32, ptr %szCurrent.addr.1, align 4
+  %conv264 = sext i32 %65 to i64
   %add266 = add nsw i64 %conv264, 4
   %add.ptr267 = getelementptr inbounds i8, ptr %szCurrent.addr.1, i64 %add266
   invoke void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(158) %this, ptr noundef nonnull %add.ptr267)
@@ -1736,20 +1736,20 @@ invoke.cont263:                                   ; preds = %if.then262
 
 if.end269:                                        ; preds = %invoke.cont263, %if.end259
   %szCurrent.addr.2 = phi ptr [ %add.ptr267, %invoke.cont263 ], [ %szCurrent.addr.1, %if.end259 ]
-  %67 = load ptr, ptr %pcNew, align 8
-  %cmp.i142.not = icmp eq ptr %67, null
+  %66 = load ptr, ptr %pcNew, align 8
+  %cmp.i142.not = icmp eq ptr %66, null
   br i1 %cmp.i142.not, label %if.end340, label %land.lhs.true271
 
 land.lhs.true271:                                 ; preds = %if.end269
   %pScene = getelementptr inbounds i8, ptr %this, i64 136
-  %68 = load ptr, ptr %pScene, align 8
-  %mNumTextures = getelementptr inbounds i8, ptr %68, i64 64
-  %69 = load i32, ptr %mNumTextures, align 8
-  %cmp272 = icmp ult i32 %69, 1000
+  %67 = load ptr, ptr %pScene, align 8
+  %mNumTextures = getelementptr inbounds i8, ptr %67, i64 64
+  %68 = load i32, ptr %mNumTextures, align 8
+  %cmp272 = icmp ult i32 %68, 1000
   br i1 %cmp272, label %if.then273, label %if.end340
 
 if.then273:                                       ; preds = %land.lhs.true271
-  %call277 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %current, i64 noundef 5, ptr noundef nonnull @.str.17, i32 noundef %69) #16
+  %call277 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %current, i64 noundef 5, ptr noundef nonnull @.str.17, i32 noundef %68) #16
   %data.i143 = getelementptr inbounds i8, ptr %szFile278, i64 4
   store i8 0, ptr %data.i143, align 4
   %call281 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %current) #20
@@ -1761,10 +1761,10 @@ if.then273:                                       ; preds = %land.lhs.true271
           to label %invoke.cont288 unwind label %lpad
 
 invoke.cont288:                                   ; preds = %if.then273
-  %70 = load ptr, ptr %pScene, align 8
-  %mNumTextures291 = getelementptr inbounds i8, ptr %70, i64 64
-  %71 = load i32, ptr %mNumTextures291, align 8
-  %tobool292.not = icmp eq i32 %71, 0
+  %69 = load ptr, ptr %pScene, align 8
+  %mNumTextures291 = getelementptr inbounds i8, ptr %69, i64 64
+  %70 = load i32, ptr %mNumTextures291, align 8
+  %tobool292.not = icmp eq i32 %70, 0
   br i1 %tobool292.not, label %if.then293, label %if.else303
 
 if.then293:                                       ; preds = %invoke.cont288
@@ -1773,72 +1773,72 @@ if.then293:                                       ; preds = %invoke.cont288
           to label %invoke.cont296 unwind label %lpad
 
 invoke.cont296:                                   ; preds = %if.then293
-  %72 = load ptr, ptr %pScene, align 8
-  %mTextures = getelementptr inbounds i8, ptr %72, i64 72
+  %71 = load ptr, ptr %pScene, align 8
+  %mTextures = getelementptr inbounds i8, ptr %71, i64 72
   store ptr %call297, ptr %mTextures, align 8
   store ptr null, ptr %pcNew, align 8
-  %73 = load ptr, ptr %pScene, align 8
-  %mTextures301 = getelementptr inbounds i8, ptr %73, i64 72
-  %74 = load ptr, ptr %mTextures301, align 8
-  store ptr %67, ptr %74, align 8
+  %72 = load ptr, ptr %pScene, align 8
+  %mTextures301 = getelementptr inbounds i8, ptr %72, i64 72
+  %73 = load ptr, ptr %mTextures301, align 8
+  store ptr %66, ptr %73, align 8
   br label %if.end340
 
 if.else303:                                       ; preds = %invoke.cont288
-  %mTextures306 = getelementptr inbounds i8, ptr %70, i64 72
-  %75 = load ptr, ptr %mTextures306, align 8
-  %add309 = add i32 %71, 1
+  %mTextures306 = getelementptr inbounds i8, ptr %69, i64 72
+  %74 = load ptr, ptr %mTextures306, align 8
+  %add309 = add i32 %70, 1
   %conv310 = zext i32 %add309 to i64
-  %76 = shl nuw nsw i64 %conv310, 3
-  %call312 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %76) #17
+  %75 = shl nuw nsw i64 %conv310, 3
+  %call312 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %75) #17
           to label %invoke.cont311 unwind label %lpad
 
 invoke.cont311:                                   ; preds = %if.else303
   store ptr %call312, ptr %mTextures306, align 8
-  %77 = load ptr, ptr %pScene, align 8
-  %mNumTextures317150 = getelementptr inbounds i8, ptr %77, i64 64
-  %78 = load i32, ptr %mNumTextures317150, align 8
-  %cmp318151.not = icmp eq i32 %78, 0
+  %76 = load ptr, ptr %pScene, align 8
+  %mNumTextures317150 = getelementptr inbounds i8, ptr %76, i64 64
+  %77 = load i32, ptr %mNumTextures317150, align 8
+  %cmp318151.not = icmp eq i32 %77, 0
   br i1 %cmp318151.not, label %for.end328, label %for.body319
 
 for.body319:                                      ; preds = %invoke.cont311, %for.body319
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %for.body319 ], [ 0, %invoke.cont311 ]
-  %79 = phi ptr [ %82, %for.body319 ], [ %77, %invoke.cont311 ]
-  %arrayidx321 = getelementptr inbounds ptr, ptr %75, i64 %indvars.iv163
-  %80 = load ptr, ptr %arrayidx321, align 8
-  %mTextures323 = getelementptr inbounds i8, ptr %79, i64 72
-  %81 = load ptr, ptr %mTextures323, align 8
-  %arrayidx325 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv163
-  store ptr %80, ptr %arrayidx325, align 8
+  %78 = phi ptr [ %81, %for.body319 ], [ %76, %invoke.cont311 ]
+  %arrayidx321 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv163
+  %79 = load ptr, ptr %arrayidx321, align 8
+  %mTextures323 = getelementptr inbounds i8, ptr %78, i64 72
+  %80 = load ptr, ptr %mTextures323, align 8
+  %arrayidx325 = getelementptr inbounds ptr, ptr %80, i64 %indvars.iv163
+  store ptr %79, ptr %arrayidx325, align 8
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %82 = load ptr, ptr %pScene, align 8
-  %mNumTextures317 = getelementptr inbounds i8, ptr %82, i64 64
-  %83 = load i32, ptr %mNumTextures317, align 8
-  %84 = zext i32 %83 to i64
-  %cmp318 = icmp ult i64 %indvars.iv.next164, %84
+  %81 = load ptr, ptr %pScene, align 8
+  %mNumTextures317 = getelementptr inbounds i8, ptr %81, i64 64
+  %82 = load i32, ptr %mNumTextures317, align 8
+  %83 = zext i32 %82 to i64
+  %cmp318 = icmp ult i64 %indvars.iv.next164, %83
   br i1 %cmp318, label %for.body319, label %for.end328.loopexit, !llvm.loop !17
 
 for.end328.loopexit:                              ; preds = %for.body319
-  %85 = zext i32 %83 to i64
+  %84 = zext i32 %82 to i64
   br label %for.end328
 
 for.end328:                                       ; preds = %invoke.cont311, %for.end328.loopexit
-  %.lcssa147 = phi ptr [ %82, %for.end328.loopexit ], [ %77, %invoke.cont311 ]
-  %.lcssa = phi i64 [ %85, %for.end328.loopexit ], [ 0, %invoke.cont311 ]
+  %.lcssa147 = phi ptr [ %81, %for.end328.loopexit ], [ %76, %invoke.cont311 ]
+  %.lcssa = phi i64 [ %84, %for.end328.loopexit ], [ 0, %invoke.cont311 ]
   store ptr null, ptr %pcNew, align 8
   %mTextures331 = getelementptr inbounds i8, ptr %.lcssa147, i64 72
-  %86 = load ptr, ptr %mTextures331, align 8
-  %arrayidx335 = getelementptr inbounds ptr, ptr %86, i64 %.lcssa
-  store ptr %67, ptr %arrayidx335, align 8
-  %87 = load ptr, ptr %pScene, align 8
-  %mNumTextures337 = getelementptr inbounds i8, ptr %87, i64 64
-  %88 = load i32, ptr %mNumTextures337, align 8
-  %inc338 = add i32 %88, 1
+  %85 = load ptr, ptr %mTextures331, align 8
+  %arrayidx335 = getelementptr inbounds ptr, ptr %85, i64 %.lcssa
+  store ptr %66, ptr %arrayidx335, align 8
+  %86 = load ptr, ptr %pScene, align 8
+  %mNumTextures337 = getelementptr inbounds i8, ptr %86, i64 64
+  %87 = load i32, ptr %mNumTextures337, align 8
+  %inc338 = add i32 %87, 1
   store i32 %inc338, ptr %mNumTextures337, align 8
-  %isnull = icmp eq ptr %75, null
+  %isnull = icmp eq ptr %74, null
   br i1 %isnull, label %if.end340, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.end328
-  call void @_ZdaPv(ptr noundef nonnull %75) #18
+  call void @_ZdaPv(ptr noundef nonnull %74) #18
   br label %if.end340
 
 if.end340:                                        ; preds = %invoke.cont296, %delete.notnull, %for.end328, %land.lhs.true271, %if.end269
@@ -1853,12 +1853,12 @@ cleanup:                                          ; preds = %if.end340
 
 delete.notnull.i.i:                               ; preds = %cleanup
   %pcData.i.i.i = getelementptr inbounds i8, ptr %.pr.pre, i64 24
-  %89 = load ptr, ptr %pcData.i.i.i, align 8
-  %isnull.i.i.i = icmp eq ptr %89, null
+  %88 = load ptr, ptr %pcData.i.i.i, align 8
+  %isnull.i.i.i = icmp eq ptr %88, null
   br i1 %isnull.i.i.i, label %_ZNKSt14default_deleteI9aiTextureEclEPS0_.exit.i, label %delete.notnull.i.i.i144
 
 delete.notnull.i.i.i144:                          ; preds = %delete.notnull.i.i
-  call void @_ZdaPv(ptr noundef nonnull %89) #18
+  call void @_ZdaPv(ptr noundef nonnull %88) #18
   br label %_ZNKSt14default_deleteI9aiTextureEclEPS0_.exit.i
 
 _ZNKSt14default_deleteI9aiTextureEclEPS0_.exit.i: ; preds = %delete.notnull.i.i.i144, %delete.notnull.i.i

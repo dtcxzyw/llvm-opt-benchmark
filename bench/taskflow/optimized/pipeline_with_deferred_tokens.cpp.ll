@@ -18610,7 +18610,6 @@ _ZNSt5stackINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5rati
   %tobool.i.i.i53 = icmp ne ptr %23, null
   %conv.neg.i.i.i54 = sext i1 %tobool.i.i.i53 to i64
   %sub.i.i.i55 = add nsw i64 %sub.ptr.div.i.i.i52, %conv.neg.i.i.i54
-  %mul.i.i.i56 = shl nsw i64 %sub.i.i.i55, 6
   %25 = load ptr, ptr %_M_finish.i.i45, align 8
   %_M_first.i.i.i57 = getelementptr inbounds i8, ptr %add.ptr.i44, i64 56
   %26 = load ptr, ptr %_M_first.i.i.i57, align 8
@@ -18626,7 +18625,8 @@ _ZNSt5stackINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5rati
   %sub.ptr.sub10.i.i.i66 = sub i64 %sub.ptr.lhs.cast8.i.i.i64, %sub.ptr.rhs.cast9.i.i.i65
   %sub.ptr.div11.i.i.i67 = ashr exact i64 %sub.ptr.sub10.i.i.i66, 3
   %29 = load ptr, ptr %add.ptr.i43, align 8
-  %30 = getelementptr %"class.std::vector.388", ptr %29, i64 %mul.i.i.i56
+  %.idx = mul i64 %sub.i.i.i55, 1536
+  %30 = getelementptr i8, ptr %29, i64 %.idx
   %31 = getelementptr %"class.std::vector.388", ptr %30, i64 %sub.ptr.div6.i.i.i61
   %add.ptr.i69 = getelementptr %"class.std::vector.388", ptr %31, i64 %sub.ptr.div11.i.i.i67
   %_name.i = getelementptr inbounds i8, ptr %tv.coerce, i64 8

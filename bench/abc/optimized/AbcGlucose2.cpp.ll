@@ -3505,20 +3505,21 @@ _ZL12Vec_IntStarti.exit:                          ; preds = %_ZL12Vec_IntAlloci.
   ]
 
 30:                                               ; preds = %28
-  %31 = shl nuw nsw i64 %indvars.iv, 1
+  %.idx = shl nsw i64 %indvars.iv, 3
+  %31 = getelementptr inbounds i8, ptr %.val46, i64 %.idx
   br label %.sink.split
 
 32:                                               ; preds = %28
   %33 = shl nuw nsw i64 %indvars.iv, 1
   %34 = or disjoint i64 %33, 1
+  %35 = getelementptr inbounds i32, ptr %.val46, i64 %34
   br label %.sink.split
 
 .sink.split:                                      ; preds = %32, %30
-  %.sink69 = phi i64 [ %31, %30 ], [ %34, %32 ]
-  %35 = getelementptr inbounds i32, ptr %.val46, i64 %.sink69
-  %36 = load i32, ptr %35, align 4
+  %.sink = phi ptr [ %31, %30 ], [ %35, %32 ]
+  %36 = load i32, ptr %.sink, align 4
   %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %35, align 4
+  store i32 %37, ptr %.sink, align 4
   br label %38
 
 38:                                               ; preds = %.sink.split, %28

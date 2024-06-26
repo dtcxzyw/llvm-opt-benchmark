@@ -2212,8 +2212,8 @@ if.then23:                                        ; preds = %if.end20
   %mul25 = select i1 %cmp, i64 786432, i64 3072
   %call.i90 = call noalias noundef ptr @malloc(i64 noundef %mul25) #30
   %arrayidx29 = getelementptr inbounds float, ptr %call.i90, i64 %cond
-  %mul30 = shl nuw nsw i64 %cond, 1
-  %arrayidx31 = getelementptr inbounds float, ptr %call.i90, i64 %mul30
+  %arrayidx31.idx = shl nuw nsw i64 %cond, 3
+  %arrayidx31 = getelementptr inbounds i8, ptr %call.i90, i64 %arrayidx31.idx
   call fastcc void @_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE(ptr noundef %call.i90, i64 noundef %cond, i64 noundef 0, ptr noundef nonnull %info_png, i32 noundef %use_icc.0, ptr noundef nonnull %icc)
   call fastcc void @_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE(ptr noundef nonnull %arrayidx29, i64 noundef %cond, i64 noundef 1, ptr noundef nonnull %info_png, i32 noundef %use_icc.0, ptr noundef nonnull %icc)
   call fastcc void @_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE(ptr noundef nonnull %arrayidx31, i64 noundef %cond, i64 noundef 2, ptr noundef nonnull %info_png, i32 noundef %use_icc.0, ptr noundef nonnull %icc)
@@ -4203,8 +4203,8 @@ if.then21:                                        ; preds = %if.end15
 for.cond23.preheader:                             ; preds = %if.then21, %for.inc58
   %i.082 = phi i64 [ %inc59, %for.inc58 ], [ 0, %if.then21 ]
   %mul26 = shl nuw nsw i64 %i.082, 3
-  %mul28 = shl nuw nsw i64 %i.082, 2
-  %invariant.gep = getelementptr inbounds float, ptr %call.i, i64 %mul28
+  %arrayidx.idx = shl nsw i64 %i.082, 4
+  %invariant.gep = getelementptr inbounds i8, ptr %call.i, i64 %arrayidx.idx
   br label %for.body25
 
 for.body25:                                       ; preds = %for.cond23.preheader, %for.body25
@@ -4554,8 +4554,8 @@ for.cond1.preheader.lr.ph:                        ; preds = %for.cond.preheader
 
 for.cond1.preheader:                              ; preds = %for.cond1.preheader.lr.ph, %for.inc9
   %i.051 = phi i64 [ 0, %for.cond1.preheader.lr.ph ], [ %inc10, %for.inc9 ]
-  %mul4 = shl nuw nsw i64 %i.051, 2
-  %invariant.gep = getelementptr inbounds float, ptr %im, i64 %mul4
+  %arrayidx5.idx = shl nsw i64 %i.051, 4
+  %invariant.gep = getelementptr inbounds i8, ptr %im, i64 %arrayidx5.idx
   br label %for.body3
 
 for.body3:                                        ; preds = %for.cond1.preheader, %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
@@ -4806,8 +4806,8 @@ if.then16:                                        ; preds = %if.then14
 
 for.cond22.preheader:                             ; preds = %if.then16, %for.inc40
   %i.154 = phi i64 [ %inc41, %for.inc40 ], [ 0, %if.then16 ]
-  %mul25 = shl nuw nsw i64 %i.154, 2
-  %invariant.gep71 = getelementptr inbounds float, ptr %im, i64 %mul25
+  %arrayidx27.idx = shl nsw i64 %i.154, 4
+  %invariant.gep71 = getelementptr inbounds i8, ptr %im, i64 %arrayidx27.idx
   br label %for.body24
 
 for.body24:                                       ; preds = %for.cond22.preheader, %for.inc37
@@ -4838,8 +4838,8 @@ if.else44:                                        ; preds = %land.lhs.true, %if.
 
 for.cond48.preheader:                             ; preds = %if.else44, %for.inc61
   %i.257 = phi i64 [ %inc62, %for.inc61 ], [ 0, %if.else44 ]
-  %mul51 = shl nuw nsw i64 %i.257, 2
-  %invariant.gep73 = getelementptr inbounds float, ptr %im, i64 %mul51
+  %arrayidx53.idx = shl nsw i64 %i.257, 4
+  %invariant.gep73 = getelementptr inbounds i8, ptr %im, i64 %arrayidx53.idx
   br label %for.body50
 
 for.body50:                                       ; preds = %for.cond48.preheader, %cond.end
@@ -7756,8 +7756,8 @@ if.end7.i:                                        ; preds = %if.end.i
   %shr2.i.i = lshr i32 %conv.i.i, %sh_prom.i.i
   %and3.i.i = and i32 %shr2.i.i, 1
   %conv4.i.i = zext nneg i32 %and3.i.i to i64
-  %mul.i.i = shl nuw i64 %treepos.0.i, 1
-  %6 = getelementptr i64, ptr %4, i64 %mul.i.i
+  %.idx.i.i = shl i64 %treepos.0.i, 4
+  %6 = getelementptr i8, ptr %4, i64 %.idx.i.i
   %add.ptr.i.i.i = getelementptr i64, ptr %6, i64 %conv4.i.i
   %7 = load i64, ptr %add.ptr.i.i.i, align 8
   %cmp4.i.i = icmp ult i64 %7, %div8.i.i
@@ -8378,8 +8378,8 @@ if.end7.i280:                                     ; preds = %if.end.i268
   %shr2.i.i283 = lshr i32 %conv.i.i281, %sh_prom.i.i282
   %and3.i.i284 = and i32 %shr2.i.i283, 1
   %conv4.i.i285 = zext nneg i32 %and3.i.i284 to i64
-  %mul.i.i286 = shl nuw i64 %treepos.0.i262, 1
-  %67 = getelementptr i64, ptr %65, i64 %mul.i.i286
+  %.idx.i.i286 = shl i64 %treepos.0.i262, 4
+  %67 = getelementptr i8, ptr %65, i64 %.idx.i.i286
   %add.ptr.i.i.i287 = getelementptr i64, ptr %67, i64 %conv4.i.i285
   %68 = load i64, ptr %add.ptr.i.i.i287, align 8
   %cmp4.i.i288 = icmp ult i64 %68, %div8.i.i275
@@ -9367,8 +9367,8 @@ if.end7.i:                                        ; preds = %if.end.i
   %shr2.i.i173 = lshr i32 %conv.i.i171, %sh_prom.i.i172
   %and3.i.i174 = and i32 %shr2.i.i173, 1
   %conv4.i.i175 = zext nneg i32 %and3.i.i174 to i64
-  %mul.i.i = shl nuw i64 %treepos.0.i, 1
-  %38 = getelementptr i64, ptr %36, i64 %mul.i.i
+  %.idx.i.i = shl i64 %treepos.0.i, 4
+  %38 = getelementptr i8, ptr %36, i64 %.idx.i.i
   %add.ptr.i.i.i176 = getelementptr i64, ptr %38, i64 %conv4.i.i175
   %39 = load i64, ptr %add.ptr.i.i.i176, align 8
   %cmp4.i.i = icmp ult i64 %39, %div8.i.i

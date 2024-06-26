@@ -158,93 +158,94 @@ _ZN7meshoptL12dispatchSimdIaEEvPFvPT_mES2_mm.exit: ; preds = %_ZN7meshoptL19deco
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tail.i)
-  br i1 %cmp48.not.i.i, label %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit51, label %for.body.i13
+  br i1 %cmp48.not.i.i, label %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit50, label %for.body.i11
 
-for.body.i13:                                     ; preds = %if.else, %for.body.i13
-  %i.055.i14 = phi i64 [ %add65.i49, %for.body.i13 ], [ 0, %if.else ]
-  %mul.i15 = shl i64 %i.055.i14, 2
-  %arrayidx.i16 = getelementptr inbounds i16, ptr %buffer, i64 %mul.i15
-  %53 = load <4 x float>, ptr %arrayidx.i16, align 1
-  %mul3.i17 = or disjoint i64 %mul.i15, 8
-  %arrayidx4.i18 = getelementptr inbounds i16, ptr %buffer, i64 %mul3.i17
-  %54 = load <4 x float>, ptr %arrayidx4.i18, align 1
-  %shufp.i19 = shufflevector <4 x float> %53, <4 x float> %54, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
-  %55 = bitcast <4 x float> %shufp.i19 to <4 x i32>
+for.body.i11:                                     ; preds = %if.else, %for.body.i11
+  %i.055.i12 = phi i64 [ %add65.i48, %for.body.i11 ], [ 0, %if.else ]
+  %arrayidx.idx.i13 = shl i64 %i.055.i12, 3
+  %arrayidx.i14 = getelementptr inbounds i8, ptr %buffer, i64 %arrayidx.idx.i13
+  %53 = load <4 x float>, ptr %arrayidx.i14, align 1
+  %add2.i15 = shl i64 %i.055.i12, 2
+  %mul3.i16 = or disjoint i64 %add2.i15, 8
+  %arrayidx4.i17 = getelementptr inbounds i16, ptr %buffer, i64 %mul3.i16
+  %54 = load <4 x float>, ptr %arrayidx4.i17, align 1
+  %shufp.i18 = shufflevector <4 x float> %53, <4 x float> %54, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
+  %55 = bitcast <4 x float> %shufp.i18 to <4 x i32>
   %56 = shl <4 x i32> %55, <i32 16, i32 16, i32 16, i32 16>
   %57 = ashr exact <4 x i32> %56, <i32 16, i32 16, i32 16, i32 16>
   %58 = ashr <4 x i32> %55, <i32 16, i32 16, i32 16, i32 16>
-  %shufp10.i20 = shufflevector <4 x float> %53, <4 x float> %54, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
-  %conv.i82.i21 = sitofp <4 x i32> %57 to <4 x float>
-  %conv.i80.i22 = sitofp <4 x i32> %58 to <4 x float>
-  %59 = bitcast <4 x float> %shufp10.i20 to <4 x i32>
+  %shufp10.i19 = shufflevector <4 x float> %53, <4 x float> %54, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
+  %conv.i82.i20 = sitofp <4 x i32> %57 to <4 x float>
+  %conv.i80.i21 = sitofp <4 x i32> %58 to <4 x float>
+  %59 = bitcast <4 x float> %shufp10.i19 to <4 x i32>
   %60 = and <4 x i32> %59, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %conv.i.i23 = uitofp nneg <4 x i32> %60 to <4 x float>
-  %61 = bitcast <4 x float> %conv.i82.i21 to <4 x i32>
-  %62 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %conv.i82.i21)
-  %63 = bitcast <4 x float> %conv.i80.i22 to <4 x i32>
-  %64 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %conv.i80.i22)
-  %add.i97.i24 = fadd <4 x float> %64, %62
-  %sub.i.i25 = fsub <4 x float> %conv.i.i23, %add.i97.i24
-  %65 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %sub.i.i25, <4 x float> zeroinitializer)
-  %and.i117.i26 = and <4 x i32> %61, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %conv.i.i22 = uitofp nneg <4 x i32> %60 to <4 x float>
+  %61 = bitcast <4 x float> %conv.i82.i20 to <4 x i32>
+  %62 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %conv.i82.i20)
+  %63 = bitcast <4 x float> %conv.i80.i21 to <4 x i32>
+  %64 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %conv.i80.i21)
+  %add.i97.i23 = fadd <4 x float> %64, %62
+  %sub.i.i24 = fsub <4 x float> %conv.i.i22, %add.i97.i23
+  %65 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %sub.i.i24, <4 x float> zeroinitializer)
+  %and.i117.i25 = and <4 x i32> %61, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
   %66 = bitcast <4 x float> %65 to <4 x i32>
-  %xor.i111.i27 = xor <4 x i32> %and.i117.i26, %66
-  %67 = bitcast <4 x i32> %xor.i111.i27 to <4 x float>
-  %add.i94.i28 = fadd <4 x float> %conv.i82.i21, %67
-  %and.i114.i29 = and <4 x i32> %63, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %xor.i.i30 = xor <4 x i32> %and.i114.i29, %66
-  %68 = bitcast <4 x i32> %xor.i.i30 to <4 x float>
-  %add.i91.i31 = fadd <4 x float> %conv.i80.i22, %68
-  %mul.i134.i32 = fmul <4 x float> %add.i94.i28, %add.i94.i28
-  %mul.i131.i33 = fmul <4 x float> %add.i91.i31, %add.i91.i31
-  %mul.i128.i34 = fmul <4 x float> %sub.i.i25, %sub.i.i25
-  %add.i88.i35 = fadd <4 x float> %mul.i128.i34, %mul.i131.i33
-  %add.i.i36 = fadd <4 x float> %mul.i134.i32, %add.i88.i35
-  %69 = tail call noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %add.i.i36)
-  %div.i.i37 = fdiv <4 x float> <float 3.276700e+04, float 3.276700e+04, float 3.276700e+04, float 3.276700e+04>, %69
-  %mul.i125.i38 = fmul <4 x float> %add.i94.i28, %div.i.i37
-  %70 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %mul.i125.i38)
+  %xor.i111.i26 = xor <4 x i32> %and.i117.i25, %66
+  %67 = bitcast <4 x i32> %xor.i111.i26 to <4 x float>
+  %add.i94.i27 = fadd <4 x float> %conv.i82.i20, %67
+  %and.i114.i28 = and <4 x i32> %63, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %xor.i.i29 = xor <4 x i32> %and.i114.i28, %66
+  %68 = bitcast <4 x i32> %xor.i.i29 to <4 x float>
+  %add.i91.i30 = fadd <4 x float> %conv.i80.i21, %68
+  %mul.i134.i31 = fmul <4 x float> %add.i94.i27, %add.i94.i27
+  %mul.i131.i32 = fmul <4 x float> %add.i91.i30, %add.i91.i30
+  %mul.i128.i33 = fmul <4 x float> %sub.i.i24, %sub.i.i24
+  %add.i88.i34 = fadd <4 x float> %mul.i128.i33, %mul.i131.i32
+  %add.i.i35 = fadd <4 x float> %mul.i134.i31, %add.i88.i34
+  %69 = tail call noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %add.i.i35)
+  %div.i.i36 = fdiv <4 x float> <float 3.276700e+04, float 3.276700e+04, float 3.276700e+04, float 3.276700e+04>, %69
+  %mul.i125.i37 = fmul <4 x float> %add.i94.i27, %div.i.i36
+  %70 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %mul.i125.i37)
   %71 = bitcast <4 x i32> %70 to <2 x i64>
-  %mul.i122.i39 = fmul <4 x float> %add.i91.i31, %div.i.i37
-  %72 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %mul.i122.i39)
-  %mul.i.i40 = fmul <4 x float> %sub.i.i25, %div.i.i37
-  %73 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %mul.i.i40)
-  %and.i149.i41 = and <2 x i64> %71, <i64 281470681808895, i64 281470681808895>
+  %mul.i122.i38 = fmul <4 x float> %add.i91.i30, %div.i.i36
+  %72 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %mul.i122.i38)
+  %mul.i.i39 = fmul <4 x float> %sub.i.i24, %div.i.i36
+  %73 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %mul.i.i39)
+  %and.i149.i40 = and <2 x i64> %71, <i64 281470681808895, i64 281470681808895>
   %74 = shl <4 x i32> %73, <i32 16, i32 16, i32 16, i32 16>
   %75 = bitcast <4 x i32> %74 to <2 x i64>
-  %or.i164.i42 = or disjoint <2 x i64> %and.i149.i41, %75
-  %76 = bitcast <2 x i64> %or.i164.i42 to <8 x i16>
+  %or.i164.i41 = or disjoint <2 x i64> %and.i149.i40, %75
+  %76 = bitcast <2 x i64> %or.i164.i41 to <8 x i16>
   %77 = bitcast <4 x i32> %72 to <8 x i16>
   %78 = and <8 x i16> %77, <i16 -1, i16 0, i16 -1, i16 0, i16 -1, i16 0, i16 -1, i16 0>
-  %shuffle.i.i43 = shufflevector <8 x i16> %76, <8 x i16> %78, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %79 = bitcast <8 x i16> %shuffle.i.i43 to <2 x i64>
-  %shuffle.i204.i44 = shufflevector <8 x i16> %76, <8 x i16> %78, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %80 = bitcast <8 x i16> %shuffle.i204.i44 to <2 x i64>
+  %shuffle.i.i42 = shufflevector <8 x i16> %76, <8 x i16> %78, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %79 = bitcast <8 x i16> %shuffle.i.i42 to <2 x i64>
+  %shuffle.i204.i43 = shufflevector <8 x i16> %76, <8 x i16> %78, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %80 = bitcast <8 x i16> %shuffle.i204.i43 to <2 x i64>
   %81 = bitcast <4 x float> %53 to <2 x i64>
-  %and.i143.i45 = and <2 x i64> %81, <i64 -281474976710656, i64 -281474976710656>
-  %or.i161.i46 = or disjoint <2 x i64> %and.i143.i45, %79
+  %and.i143.i44 = and <2 x i64> %81, <i64 -281474976710656, i64 -281474976710656>
+  %or.i161.i45 = or disjoint <2 x i64> %and.i143.i44, %79
   %82 = bitcast <4 x float> %54 to <2 x i64>
-  %and.i140.i47 = and <2 x i64> %82, <i64 -281474976710656, i64 -281474976710656>
-  %or.i.i48 = or disjoint <2 x i64> %and.i140.i47, %80
-  store <2 x i64> %or.i161.i46, ptr %arrayidx.i16, align 1
-  store <2 x i64> %or.i.i48, ptr %arrayidx4.i18, align 1
-  %add65.i49 = add nuw i64 %i.055.i14, 4
-  %cmp.i50 = icmp ult i64 %add65.i49, %and.i
-  br i1 %cmp.i50, label %for.body.i13, label %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit51, !llvm.loop !7
+  %and.i140.i46 = and <2 x i64> %82, <i64 -281474976710656, i64 -281474976710656>
+  %or.i.i47 = or disjoint <2 x i64> %and.i140.i46, %80
+  store <2 x i64> %or.i161.i45, ptr %arrayidx.i14, align 1
+  store <2 x i64> %or.i.i47, ptr %arrayidx4.i17, align 1
+  %add65.i48 = add nuw i64 %i.055.i12, 4
+  %cmp.i49 = icmp ult i64 %add65.i48, %and.i
+  br i1 %cmp.i49, label %for.body.i11, label %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit50, !llvm.loop !7
 
-_ZN7meshoptL19decodeFilterOctSimdEPsm.exit51:     ; preds = %for.body.i13, %if.else
+_ZN7meshoptL19decodeFilterOctSimdEPsm.exit50:     ; preds = %for.body.i11, %if.else
   %cmp.not.i4 = icmp eq i64 %and.i, %count
   br i1 %cmp.not.i4, label %_ZN7meshoptL12dispatchSimdIsEEvPFvPT_mES2_mm.exit, label %if.then.i5
 
-if.then.i5:                                       ; preds = %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit51
+if.then.i5:                                       ; preds = %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit50
   %sub.i6 = and i64 %count, 3
   %mul1.i = shl nuw nsw i64 %sub.i6, 3
-  %mul2.i7 = shl i64 %and.i, 2
-  %add.ptr.i8 = getelementptr inbounds i16, ptr %buffer, i64 %mul2.i7
+  %add.ptr.idx.i = shl i64 %and.i, 3
+  %add.ptr.i7 = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx.i
   %83 = sub nuw nsw i64 32, %mul1.i
   %84 = getelementptr i8, ptr %tail.i, i64 %mul1.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %84, i8 0, i64 %83, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tail.i, ptr align 2 %add.ptr.i8, i64 %mul1.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tail.i, ptr align 2 %add.ptr.i7, i64 %mul1.i, i1 false)
   %cmp54.not.i = icmp eq i64 %sub.i6, 0
   br i1 %cmp54.not.i, label %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit, label %for.body.i.preheader
 
@@ -283,16 +284,16 @@ for.body.i.preheader:                             ; preds = %if.then.i5
   %mul.i131.i = fmul <4 x float> %add.i91.i, %add.i91.i
   %mul.i128.i = fmul <4 x float> %sub.i.i, %sub.i.i
   %add.i88.i = fadd <4 x float> %mul.i128.i, %mul.i131.i
-  %add.i.i10 = fadd <4 x float> %mul.i134.i, %add.i88.i
-  %101 = tail call noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %add.i.i10)
+  %add.i.i8 = fadd <4 x float> %mul.i134.i, %add.i88.i
+  %101 = tail call noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %add.i.i8)
   %div.i.i = fdiv <4 x float> <float 3.276700e+04, float 3.276700e+04, float 3.276700e+04, float 3.276700e+04>, %101
   %mul.i125.i = fmul <4 x float> %add.i94.i, %div.i.i
   %102 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %mul.i125.i)
   %103 = bitcast <4 x i32> %102 to <2 x i64>
   %mul.i122.i = fmul <4 x float> %add.i91.i, %div.i.i
   %104 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %mul.i122.i)
-  %mul.i.i11 = fmul <4 x float> %sub.i.i, %div.i.i
-  %105 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %mul.i.i11)
+  %mul.i.i9 = fmul <4 x float> %sub.i.i, %div.i.i
+  %105 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %mul.i.i9)
   %and.i149.i = and <2 x i64> %103, <i64 281470681808895, i64 281470681808895>
   %106 = shl <4 x i32> %105, <i32 16, i32 16, i32 16, i32 16>
   %107 = bitcast <4 x i32> %106 to <2 x i64>
@@ -315,10 +316,10 @@ for.body.i.preheader:                             ; preds = %if.then.i5
   br label %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit
 
 _ZN7meshoptL19decodeFilterOctSimdEPsm.exit:       ; preds = %for.body.i.preheader, %if.then.i5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr.i8, ptr nonnull align 16 %tail.i, i64 %mul1.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr.i7, ptr nonnull align 16 %tail.i, i64 %mul1.i, i1 false)
   br label %_ZN7meshoptL12dispatchSimdIsEEvPFvPT_mES2_mm.exit
 
-_ZN7meshoptL12dispatchSimdIsEEvPFvPT_mES2_mm.exit: ; preds = %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit51, %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit
+_ZN7meshoptL12dispatchSimdIsEEvPFvPT_mES2_mm.exit: ; preds = %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit50, %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tail.i)
   br label %if.end
 
@@ -434,8 +435,8 @@ _ZN7meshoptL20decodeFilterQuatSimdEPsm.exit55:    ; preds = %for.body.i2, %entry
 if.then.i:                                        ; preds = %_ZN7meshoptL20decodeFilterQuatSimdEPsm.exit55
   %sub.i = and i64 %count, 3
   %mul1.i = shl nuw nsw i64 %sub.i, 3
-  %mul2.i = shl i64 %and.i, 2
-  %add.ptr.i = getelementptr inbounds i16, ptr %buffer, i64 %mul2.i
+  %add.ptr.idx.i = shl i64 %and.i, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx.i
   %35 = sub nuw nsw i64 32, %mul1.i
   %36 = getelementptr i8, ptr %tail.i, i64 %mul1.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %36, i8 0, i64 %35, i1 false)

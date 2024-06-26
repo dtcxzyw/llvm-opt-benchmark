@@ -227,7 +227,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   %5 = load ptr, ptr @pmi2_handle, align 8
   tail call void @slurm_eio_new_initial_obj(ptr noundef %5, ptr noundef %4) #10
   %6 = tail call zeroext i1 @in_stepd() #10
-  br i1 %6, label %.preheader, label %25
+  br i1 %6, label %.preheader, label %24
 
 .preheader:                                       ; preds = %1
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
@@ -237,82 +237,82 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %8 = load ptr, ptr @task_socks, align 8
-  %9 = shl nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds i32, ptr %8, i64 %9
-  %11 = load i32, ptr %10, align 4
-  %12 = inttoptr i64 %indvars.iv to ptr
-  %13 = tail call ptr @slurm_eio_obj_create(i32 noundef %11, ptr noundef nonnull @task_ops, ptr noundef %12) #10
-  %14 = load ptr, ptr @pmi2_handle, align 8
-  tail call void @slurm_eio_new_initial_obj(ptr noundef %14, ptr noundef %13) #10
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %9 = getelementptr inbounds i8, ptr %8, i64 %.idx
+  %10 = load i32, ptr %9, align 4
+  %11 = inttoptr i64 %indvars.iv to ptr
+  %12 = tail call ptr @slurm_eio_obj_create(i32 noundef %10, ptr noundef nonnull @task_ops, ptr noundef %11) #10
+  %13 = load ptr, ptr @pmi2_handle, align 8
+  tail call void @slurm_eio_new_initial_obj(ptr noundef %13, ptr noundef %12) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
-  %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
+  %15 = zext i32 %14 to i64
+  %16 = icmp ult i64 %indvars.iv.next, %15
+  br i1 %16, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %18 = zext i32 %15 to i64
-  %19 = shl nuw nsw i64 %18, 2
+  %17 = zext i32 %14 to i64
+  %18 = shl nuw nsw i64 %17, 2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit
-  %.lcssa = phi i64 [ %19, %._crit_edge.loopexit ], [ 0, %.preheader ]
-  %20 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %.lcssa, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 313, ptr noundef nonnull @__func__._agent) #10
-  store ptr %20, ptr @initialized, align 8
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
-  %22 = zext i32 %21 to i64
-  %23 = shl nuw nsw i64 %22, 2
-  %24 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %23, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 314, ptr noundef nonnull @__func__._agent) #10
-  store ptr %24, ptr @finalized, align 8
-  br label %25
+  %.lcssa = phi i64 [ %18, %._crit_edge.loopexit ], [ 0, %.preheader ]
+  %19 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %.lcssa, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 313, ptr noundef nonnull @__func__._agent) #10
+  store ptr %19, ptr @initialized, align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
+  %21 = zext i32 %20 to i64
+  %22 = shl nuw nsw i64 %21, 2
+  %23 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %22, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 314, ptr noundef nonnull @__func__._agent) #10
+  store ptr %23, ptr @finalized, align 8
+  br label %24
 
-25:                                               ; preds = %1, %._crit_edge
-  %26 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @agent_mutex) #10
-  %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %29, label %27
+24:                                               ; preds = %1, %._crit_edge
+  %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @agent_mutex) #10
+  %.not = icmp eq i32 %25, 0
+  br i1 %.not, label %28, label %26
 
-27:                                               ; preds = %25
-  %28 = tail call ptr @__errno_location() #11
-  store i32 %26, ptr %28, align 4
+26:                                               ; preds = %24
+  %27 = tail call ptr @__errno_location() #11
+  store i32 %25, ptr %27, align 4
   tail call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 317, ptr noundef nonnull @__func__._agent) #12
   unreachable
 
-29:                                               ; preds = %25
-  %30 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @agent_running_cond) #10
-  %.not15 = icmp eq i32 %30, 0
-  br i1 %.not15, label %34, label %31
+28:                                               ; preds = %24
+  %29 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @agent_running_cond) #10
+  %.not15 = icmp eq i32 %29, 0
+  br i1 %.not15, label %33, label %30
 
-31:                                               ; preds = %29
-  %32 = tail call ptr @__errno_location() #11
-  store i32 %30, ptr %32, align 4
-  %33 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 318, ptr noundef nonnull @__func__._agent) #10
-  br label %34
+30:                                               ; preds = %28
+  %31 = tail call ptr @__errno_location() #11
+  store i32 %29, ptr %31, align 4
+  %32 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 318, ptr noundef nonnull @__func__._agent) #10
+  br label %33
 
-34:                                               ; preds = %31, %29
-  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @agent_mutex) #10
-  %.not16 = icmp eq i32 %35, 0
-  br i1 %.not16, label %38, label %36
+33:                                               ; preds = %30, %28
+  %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @agent_mutex) #10
+  %.not16 = icmp eq i32 %34, 0
+  br i1 %.not16, label %37, label %35
 
-36:                                               ; preds = %34
-  %37 = tail call ptr @__errno_location() #11
-  store i32 %35, ptr %37, align 4
+35:                                               ; preds = %33
+  %36 = tail call ptr @__errno_location() #11
+  store i32 %34, ptr %36, align 4
   tail call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 319, ptr noundef nonnull @__func__._agent) #12
   unreachable
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr @pmi2_handle, align 8
-  %40 = tail call i32 @slurm_eio_handle_mainloop(ptr noundef %39) #10
-  %41 = tail call i32 @slurm_get_log_level() #10
-  %42 = icmp sgt i32 %41, 4
-  br i1 %42, label %43, label %44
+37:                                               ; preds = %33
+  %38 = load ptr, ptr @pmi2_handle, align 8
+  %39 = tail call i32 @slurm_eio_handle_mainloop(ptr noundef %38) #10
+  %40 = tail call i32 @slurm_get_log_level() #10
+  %41 = icmp sgt i32 %40, 4
+  br i1 %41, label %42, label %43
 
-43:                                               ; preds = %38
+42:                                               ; preds = %37
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.12, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._agent) #10
-  br label %44
+  br label %43
 
-44:                                               ; preds = %43, %38
-  %45 = load ptr, ptr @pmi2_handle, align 8
-  tail call void @slurm_eio_handle_destroy(ptr noundef %45) #10
+43:                                               ; preds = %42, %37
+  %44 = load ptr, ptr @pmi2_handle, align 8
+  tail call void @slurm_eio_handle_destroy(ptr noundef %44) #10
   ret ptr null
 }
 

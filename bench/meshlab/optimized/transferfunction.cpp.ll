@@ -445,7 +445,7 @@ define void @_ZN9TfChannel9removeKeyEi(ptr nocapture noundef nonnull align 8 der
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp sgt i32 %1, -1
-  br i1 %5, label %6, label %34
+  br i1 %5, label %6, label %33
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -456,49 +456,49 @@ define void @_ZN9TfChannel9removeKeyEi(ptr nocapture noundef nonnull align 8 der
   %12 = lshr exact i64 %11, 3
   %13 = trunc i64 %12 to i32
   %14 = icmp sgt i32 %13, %1
-  br i1 %14, label %15, label %34
+  br i1 %14, label %15, label %33
 
 15:                                               ; preds = %6
   %16 = zext nneg i32 %1 to i64
-  %17 = shl nuw nsw i64 %16, 3
-  %18 = getelementptr inbounds ptr, ptr %4, i64 %17
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %22, label %21
+  %.idx = shl nuw nsw i64 %16, 6
+  %17 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %21, label %20
 
-21:                                               ; preds = %15
-  tail call void @_ZdlPv(ptr noundef nonnull %19) #23
+20:                                               ; preds = %15
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #23
   %.pre = load ptr, ptr %3, align 8
   %.pre7 = load ptr, ptr %7, align 8
   %.pre8 = ptrtoint ptr %.pre to i64
-  br label %22
+  br label %21
 
-22:                                               ; preds = %21, %15
-  %.pre-phi = phi i64 [ %.pre8, %21 ], [ %10, %15 ]
-  %23 = phi ptr [ %.pre7, %21 ], [ %8, %15 ]
-  %24 = phi ptr [ %.pre, %21 ], [ %4, %15 ]
-  %25 = ptrtoint ptr %18 to i64
-  %26 = sub i64 %25, %.pre-phi
-  %27 = getelementptr inbounds i8, ptr %24, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %.not.i.i = icmp eq ptr %28, %23
+21:                                               ; preds = %20, %15
+  %.pre-phi = phi i64 [ %.pre8, %20 ], [ %10, %15 ]
+  %22 = phi ptr [ %.pre7, %20 ], [ %8, %15 ]
+  %23 = phi ptr [ %.pre, %20 ], [ %4, %15 ]
+  %24 = ptrtoint ptr %17 to i64
+  %25 = sub i64 %24, %.pre-phi
+  %26 = getelementptr inbounds i8, ptr %23, i64 %25
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %.not.i.i = icmp eq ptr %27, %22
   br i1 %.not.i.i, label %_ZNSt6vectorIP6TF_KEYSaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP6TF_KEYSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP6TF_KEYSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i: ; preds = %22
-  %29 = ptrtoint ptr %23 to i64
-  %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %27, ptr nonnull align 8 %28, i64 %31, i1 false)
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP6TF_KEYSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i: ; preds = %21
+  %28 = ptrtoint ptr %22 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %26, ptr nonnull align 8 %27, i64 %30, i1 false)
   %.pre.i.i = load ptr, ptr %7, align 8
   br label %_ZNSt6vectorIP6TF_KEYSaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit
 
-_ZNSt6vectorIP6TF_KEYSaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit: ; preds = %22, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP6TF_KEYSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i
-  %32 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP6TF_KEYSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i ], [ %23, %22 ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 -8
-  store ptr %33, ptr %7, align 8
-  br label %34
+_ZNSt6vectorIP6TF_KEYSaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit: ; preds = %21, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP6TF_KEYSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i
+  %31 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP6TF_KEYSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i ], [ %22, %21 ]
+  %32 = getelementptr inbounds i8, ptr %31, i64 -8
+  store ptr %32, ptr %7, align 8
+  br label %33
 
-34:                                               ; preds = %_ZNSt6vectorIP6TF_KEYSaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit, %6, %2
+33:                                               ; preds = %_ZNSt6vectorIP6TF_KEYSaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.exit, %6, %2
   ret void
 }
 

@@ -31152,8 +31152,8 @@ if.end24:                                         ; preds = %if.end
   %sub36 = sub i64 %lb, %div147
   tail call void @_mpd_baseaddto(ptr noundef %add.ptr28, ptr noundef %add.ptr35, i64 noundef %sub36) #27
   %add.ptr37 = getelementptr i64, ptr %c, i64 %div147
-  %mul41 = shl i64 %add27, 1
-  %add.ptr42 = getelementptr i64, ptr %w, i64 %mul41
+  %add.ptr42.idx = shl i64 %add27, 4
+  %add.ptr42 = getelementptr i8, ptr %w, i64 %add.ptr42.idx
   tail call fastcc void @_karatsuba_rec(ptr noundef %add.ptr37, ptr noundef %w, ptr noundef %add.ptr28, ptr noundef %add.ptr42, i64 noundef %add27, i64 noundef %add27)
   %add47 = shl i64 %sub26, 1
   %8 = shl i64 %la, 1
@@ -31290,8 +31290,8 @@ if.end43:                                         ; preds = %if.end6
   %sub56 = sub i64 %lb, %div156
   tail call void @_mpd_baseaddto(ptr noundef %add.ptr48, ptr noundef %add.ptr55, i64 noundef %sub56) #27
   %add.ptr57 = getelementptr i64, ptr %c, i64 %div156
-  %mul61 = shl i64 %add47, 1
-  %add.ptr62 = getelementptr i64, ptr %w, i64 %mul61
+  %add.ptr62.idx = shl i64 %add47, 4
+  %add.ptr62 = getelementptr i8, ptr %w, i64 %add.ptr62.idx
   %call65 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef %add.ptr57, ptr noundef %w, ptr noundef %add.ptr48, ptr noundef %add.ptr62, i64 noundef %add47, i64 noundef %add47)
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %return, label %if.end68

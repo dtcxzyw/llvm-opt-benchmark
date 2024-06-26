@@ -4508,7 +4508,7 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi2ELi4E
   br label %29
 
 .preheader:                                       ; preds = %._crit_edge, %..preheader_crit_edge
-  %.pre-phi = phi i64 [ %.pre98, %..preheader_crit_edge ], [ %160, %._crit_edge ]
+  %.pre-phi = phi i64 [ %.pre98, %..preheader_crit_edge ], [ %159, %._crit_edge ]
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %18 = getelementptr inbounds i8, ptr %5, i64 32
   %19 = load ptr, ptr %18, align 8
@@ -4524,10 +4524,10 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi2ELi4E
   %26 = getelementptr inbounds i8, ptr %0, i64 148
   %27 = getelementptr inbounds i8, ptr %6, i64 24
   %28 = getelementptr inbounds i8, ptr %1, i64 32
-  br label %162
+  br label %161
 
 29:                                               ; preds = %.lr.ph79, %._crit_edge
-  %30 = phi i32 [ %11, %.lr.ph79 ], [ %159, %._crit_edge ]
+  %30 = phi i32 [ %11, %.lr.ph79 ], [ %158, %._crit_edge ]
   %indvars.iv90 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next91, %._crit_edge ]
   %31 = load ptr, ptr %13, align 8
   %32 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %31, i64 %indvars.iv90, i32 1
@@ -4542,7 +4542,7 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi2ELi4E
 
 .lr.ph:                                           ; preds = %29, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %29 ]
-  %40 = phi ptr [ %153, %.lr.ph ], [ %35, %29 ]
+  %40 = phi ptr [ %152, %.lr.ph ], [ %35, %29 ]
   %41 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %40, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
@@ -4631,97 +4631,97 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi2ELi4E
   %121 = load double, ptr %113, align 8
   %122 = fadd double %121, %120
   store double %122, ptr %113, align 8
-  %123 = shl nsw i64 %62, 1
-  %124 = getelementptr double, ptr %61, i64 %123
-  %125 = load double, ptr %84, align 8
-  %126 = load double, ptr %58, align 8
-  %127 = fmul double %125, %126
-  %128 = load double, ptr %89, align 8
-  %129 = load double, ptr %65, align 8
-  %130 = fmul double %128, %129
-  %131 = fadd double %127, %130
-  %132 = load double, ptr %124, align 8
-  %133 = fadd double %132, %131
-  store double %133, ptr %124, align 8
-  %134 = getelementptr double, ptr %71, i64 %123
-  %135 = load double, ptr %84, align 8
-  %136 = load double, ptr %72, align 8
-  %137 = fmul double %135, %136
-  %138 = load double, ptr %89, align 8
-  %139 = load double, ptr %77, align 8
-  %140 = fmul double %138, %139
-  %141 = fadd double %137, %140
-  %142 = load double, ptr %134, align 8
-  %143 = fadd double %142, %141
-  store double %143, ptr %134, align 8
-  %144 = getelementptr double, ptr %83, i64 %123
-  %145 = load double, ptr %84, align 8
-  %146 = fmul double %145, %145
-  %147 = load double, ptr %89, align 8
-  %148 = fmul double %147, %147
-  %149 = fadd double %146, %148
-  %150 = load double, ptr %144, align 8
-  %151 = fadd double %150, %149
-  store double %151, ptr %144, align 8
+  %.idx.i.i.i.i = shl nsw i64 %62, 4
+  %123 = getelementptr i8, ptr %61, i64 %.idx.i.i.i.i
+  %124 = load double, ptr %84, align 8
+  %125 = load double, ptr %58, align 8
+  %126 = fmul double %124, %125
+  %127 = load double, ptr %89, align 8
+  %128 = load double, ptr %65, align 8
+  %129 = fmul double %127, %128
+  %130 = fadd double %126, %129
+  %131 = load double, ptr %123, align 8
+  %132 = fadd double %131, %130
+  store double %132, ptr %123, align 8
+  %133 = getelementptr i8, ptr %71, i64 %.idx.i.i.i.i
+  %134 = load double, ptr %84, align 8
+  %135 = load double, ptr %72, align 8
+  %136 = fmul double %134, %135
+  %137 = load double, ptr %89, align 8
+  %138 = load double, ptr %77, align 8
+  %139 = fmul double %137, %138
+  %140 = fadd double %136, %139
+  %141 = load double, ptr %133, align 8
+  %142 = fadd double %141, %140
+  store double %142, ptr %133, align 8
+  %143 = getelementptr i8, ptr %83, i64 %.idx.i.i.i.i
+  %144 = load double, ptr %84, align 8
+  %145 = fmul double %144, %144
+  %146 = load double, ptr %89, align 8
+  %147 = fmul double %146, %146
+  %148 = fadd double %145, %147
+  %149 = load double, ptr %143, align 8
+  %150 = fadd double %149, %148
+  store double %150, ptr %143, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %152 = load ptr, ptr %33, align 8
-  %153 = load ptr, ptr %32, align 8
+  %151 = load ptr, ptr %33, align 8
+  %152 = load ptr, ptr %32, align 8
+  %153 = ptrtoint ptr %151 to i64
   %154 = ptrtoint ptr %152 to i64
-  %155 = ptrtoint ptr %153 to i64
-  %156 = sub i64 %154, %155
-  %157 = ashr exact i64 %156, 3
-  %158 = icmp ugt i64 %157, %indvars.iv.next
-  br i1 %158, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !45
+  %155 = sub i64 %153, %154
+  %156 = ashr exact i64 %155, 3
+  %157 = icmp ugt i64 %156, %indvars.iv.next
+  br i1 %157, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !45
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %10, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %29
-  %159 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %30, %29 ]
+  %158 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %30, %29 ]
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %160 = sext i32 %159 to i64
-  %161 = icmp slt i64 %indvars.iv.next91, %160
-  br i1 %161, label %29, label %.preheader, !llvm.loop !46
+  %159 = sext i32 %158 to i64
+  %160 = icmp slt i64 %indvars.iv.next91, %159
+  br i1 %160, label %29, label %.preheader, !llvm.loop !46
 
-162:                                              ; preds = %.lr.ph86, %._crit_edge84
-  %163 = phi ptr [ %20, %.lr.ph86 ], [ %192, %._crit_edge84 ]
-  %164 = phi ptr [ %19, %.lr.ph86 ], [ %193, %._crit_edge84 ]
+161:                                              ; preds = %.lr.ph86, %._crit_edge84
+  %162 = phi ptr [ %20, %.lr.ph86 ], [ %191, %._crit_edge84 ]
+  %163 = phi ptr [ %19, %.lr.ph86 ], [ %192, %._crit_edge84 ]
   %indvars.iv93 = phi i64 [ %.pre-phi, %.lr.ph86 ], [ %indvars.iv.next94, %._crit_edge84 ]
-  %165 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %163, i64 %indvars.iv93
-  %166 = load i32, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %165, i64 8
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %165, i64 16
-  %170 = load ptr, ptr %169, align 8
-  %.not80 = icmp eq ptr %168, %170
+  %164 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %162, i64 %indvars.iv93
+  %165 = load i32, ptr %164, align 8
+  %166 = getelementptr inbounds i8, ptr %164, i64 8
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds i8, ptr %164, i64 16
+  %169 = load ptr, ptr %168, align 8
+  %.not80 = icmp eq ptr %167, %169
   br i1 %.not80, label %._crit_edge84, label %.lr.ph83
 
-.lr.ph83:                                         ; preds = %162, %.lr.ph83
-  %.sroa.065.081 = phi ptr [ %191, %.lr.ph83 ], [ %168, %162 ]
-  %171 = load i32, ptr %.sroa.065.081, align 4
-  %172 = sext i32 %171 to i64
-  %173 = load ptr, ptr %5, align 8
-  %174 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %173, i64 %172
-  %175 = load i32, ptr %174, align 4
-  %176 = load i32, ptr %26, align 4
-  %177 = sub nsw i32 %171, %176
-  %178 = sext i32 %177 to i64
-  %179 = load ptr, ptr %27, align 8
-  %180 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %179, i64 %178, i32 1
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 4
-  %183 = load i32, ptr %182, align 4
-  %184 = getelementptr inbounds i8, ptr %.sroa.065.081, i64 4
-  %185 = load i32, ptr %184, align 4
-  %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds double, ptr %9, i64 %186
-  %188 = load ptr, ptr %28, align 8
-  %189 = sext i32 %183 to i64
-  %190 = getelementptr inbounds double, ptr %188, i64 %189
-  tail call void @_ZN5ceres8internal34MatrixTransposeMatrixMultiplyNaiveILin1ELin1ELin1ELin1ELi1EEEvPKdiiS3_iiPdiiii(ptr noundef %187, i32 noundef %166, i32 noundef %175, ptr noundef %187, i32 noundef %166, i32 noundef %175, ptr noundef %190, i32 noundef 0, i32 noundef 0, i32 noundef %175, i32 noundef %175)
-  %191 = getelementptr inbounds i8, ptr %.sroa.065.081, i64 8
-  %.not = icmp eq ptr %191, %170
+.lr.ph83:                                         ; preds = %161, %.lr.ph83
+  %.sroa.065.081 = phi ptr [ %190, %.lr.ph83 ], [ %167, %161 ]
+  %170 = load i32, ptr %.sroa.065.081, align 4
+  %171 = sext i32 %170 to i64
+  %172 = load ptr, ptr %5, align 8
+  %173 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %172, i64 %171
+  %174 = load i32, ptr %173, align 4
+  %175 = load i32, ptr %26, align 4
+  %176 = sub nsw i32 %170, %175
+  %177 = sext i32 %176 to i64
+  %178 = load ptr, ptr %27, align 8
+  %179 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %178, i64 %177, i32 1
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds i8, ptr %180, i64 4
+  %182 = load i32, ptr %181, align 4
+  %183 = getelementptr inbounds i8, ptr %.sroa.065.081, i64 4
+  %184 = load i32, ptr %183, align 4
+  %185 = sext i32 %184 to i64
+  %186 = getelementptr inbounds double, ptr %9, i64 %185
+  %187 = load ptr, ptr %28, align 8
+  %188 = sext i32 %182 to i64
+  %189 = getelementptr inbounds double, ptr %187, i64 %188
+  tail call void @_ZN5ceres8internal34MatrixTransposeMatrixMultiplyNaiveILin1ELin1ELin1ELin1ELi1EEEvPKdiiS3_iiPdiiii(ptr noundef %186, i32 noundef %165, i32 noundef %174, ptr noundef %186, i32 noundef %165, i32 noundef %174, ptr noundef %189, i32 noundef 0, i32 noundef 0, i32 noundef %174, i32 noundef %174)
+  %190 = getelementptr inbounds i8, ptr %.sroa.065.081, i64 8
+  %.not = icmp eq ptr %190, %169
   br i1 %.not, label %._crit_edge84.loopexit, label %.lr.ph83
 
 ._crit_edge84.loopexit:                           ; preds = %.lr.ph83
@@ -4729,16 +4729,16 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi2ELi4E
   %.pre97 = load ptr, ptr %17, align 8
   br label %._crit_edge84
 
-._crit_edge84:                                    ; preds = %._crit_edge84.loopexit, %162
-  %192 = phi ptr [ %.pre97, %._crit_edge84.loopexit ], [ %163, %162 ]
-  %193 = phi ptr [ %.pre96, %._crit_edge84.loopexit ], [ %164, %162 ]
+._crit_edge84:                                    ; preds = %._crit_edge84.loopexit, %161
+  %191 = phi ptr [ %.pre97, %._crit_edge84.loopexit ], [ %162, %161 ]
+  %192 = phi ptr [ %.pre96, %._crit_edge84.loopexit ], [ %163, %161 ]
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %194 = ptrtoint ptr %193 to i64
-  %195 = ptrtoint ptr %192 to i64
-  %196 = sub i64 %194, %195
-  %197 = sdiv exact i64 %196, 40
-  %198 = icmp ugt i64 %197, %indvars.iv.next94
-  br i1 %198, label %162, label %._crit_edge87, !llvm.loop !47
+  %193 = ptrtoint ptr %192 to i64
+  %194 = ptrtoint ptr %191 to i64
+  %195 = sub i64 %193, %194
+  %196 = sdiv exact i64 %195, 40
+  %197 = icmp ugt i64 %196, %indvars.iv.next94
+  br i1 %197, label %161, label %._crit_edge87, !llvm.loop !47
 
 ._crit_edge87:                                    ; preds = %._crit_edge84, %.preheader
   ret void
@@ -22293,42 +22293,42 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26call_dense_assignment_loopI
   %73 = load double, ptr %65, align 8
   %74 = fadd double %73, %72
   store double %74, ptr %65, align 8
-  %75 = shl nsw i64 %7, 1
-  %76 = getelementptr double, ptr %5, i64 %75
-  %77 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 16
-  %78 = load double, ptr %77, align 8
-  %79 = load double, ptr %.sroa.1135.16.copyload, align 8
-  %80 = fmul double %78, %79
-  %81 = getelementptr i8, ptr %.sroa.0.0.copyload, i64 40
-  %82 = load double, ptr %81, align 8
-  %83 = load double, ptr %13, align 8
-  %84 = fmul double %82, %83
-  %85 = fadd double %80, %84
-  %86 = load double, ptr %76, align 8
-  %87 = fadd double %86, %85
-  store double %87, ptr %76, align 8
-  %88 = getelementptr double, ptr %19, i64 %75
-  %89 = load double, ptr %77, align 8
-  %90 = load double, ptr %20, align 8
-  %91 = fmul double %89, %90
-  %92 = load double, ptr %81, align 8
-  %93 = load double, ptr %25, align 8
-  %94 = fmul double %92, %93
-  %95 = fadd double %91, %94
-  %96 = load double, ptr %88, align 8
-  %97 = fadd double %96, %95
-  store double %97, ptr %88, align 8
-  %98 = getelementptr double, ptr %31, i64 %75
-  %99 = load double, ptr %77, align 8
-  %100 = load double, ptr %32, align 8
-  %101 = fmul double %99, %100
-  %102 = load double, ptr %81, align 8
-  %103 = load double, ptr %37, align 8
-  %104 = fmul double %102, %103
-  %105 = fadd double %101, %104
-  %106 = load double, ptr %98, align 8
-  %107 = fadd double %106, %105
-  store double %107, ptr %98, align 8
+  %.idx.i.i.i = shl i64 %7, 4
+  %75 = getelementptr i8, ptr %5, i64 %.idx.i.i.i
+  %76 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 16
+  %77 = load double, ptr %76, align 8
+  %78 = load double, ptr %.sroa.1135.16.copyload, align 8
+  %79 = fmul double %77, %78
+  %80 = getelementptr i8, ptr %.sroa.0.0.copyload, i64 40
+  %81 = load double, ptr %80, align 8
+  %82 = load double, ptr %13, align 8
+  %83 = fmul double %81, %82
+  %84 = fadd double %79, %83
+  %85 = load double, ptr %75, align 8
+  %86 = fadd double %85, %84
+  store double %86, ptr %75, align 8
+  %87 = getelementptr i8, ptr %19, i64 %.idx.i.i.i
+  %88 = load double, ptr %76, align 8
+  %89 = load double, ptr %20, align 8
+  %90 = fmul double %88, %89
+  %91 = load double, ptr %80, align 8
+  %92 = load double, ptr %25, align 8
+  %93 = fmul double %91, %92
+  %94 = fadd double %90, %93
+  %95 = load double, ptr %87, align 8
+  %96 = fadd double %95, %94
+  store double %96, ptr %87, align 8
+  %97 = getelementptr i8, ptr %31, i64 %.idx.i.i.i
+  %98 = load double, ptr %76, align 8
+  %99 = load double, ptr %32, align 8
+  %100 = fmul double %98, %99
+  %101 = load double, ptr %80, align 8
+  %102 = load double, ptr %37, align 8
+  %103 = fmul double %101, %102
+  %104 = fadd double %100, %103
+  %105 = load double, ptr %97, align 8
+  %106 = fadd double %105, %104
+  store double %106, ptr %97, align 8
   ret void
 }
 

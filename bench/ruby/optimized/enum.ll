@@ -4331,55 +4331,55 @@ RB_FLOAT_TYPE_P.exit30.thread48:                  ; preds = %56, %RB_FLOAT_TYPE_
   %71 = getelementptr inbounds i8, ptr %6, i64 32
   %72 = load i8, ptr %71, align 8
   %73 = zext i8 %72 to i64
-  %74 = shl nuw nsw i64 %73, 1
-  %75 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %25) #14
-  %76 = getelementptr i64, ptr %75, i64 %74
-  store i64 %.0.i26, ptr %76, align 8
-  %77 = and i64 %.0.i26, 7
-  %78 = icmp ne i64 %77, 0
-  %79 = icmp eq i64 %.0.i26, 0
-  %80 = or i1 %79, %78
-  br i1 %80, label %RARRAY_ASET.exit, label %81
+  %74 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %25) #14
+  %.idx = shl nuw nsw i64 %73, 4
+  %75 = getelementptr i8, ptr %74, i64 %.idx
+  store i64 %.0.i26, ptr %75, align 8
+  %76 = and i64 %.0.i26, 7
+  %77 = icmp ne i64 %76, 0
+  %78 = icmp eq i64 %.0.i26, 0
+  %79 = or i1 %78, %77
+  br i1 %79, label %RARRAY_ASET.exit, label %80
 
-81:                                               ; preds = %70
+80:                                               ; preds = %70
   tail call void @rb_gc_writebarrier(i64 noundef %25, i64 noundef %.0.i26) #14
   br label %RARRAY_ASET.exit
 
-RARRAY_ASET.exit:                                 ; preds = %70, %81
+RARRAY_ASET.exit:                                 ; preds = %70, %80
   tail call void @rb_ary_ptr_use_end(i64 noundef %25) #14
-  %82 = load i64, ptr %24, align 8
-  %83 = load i8, ptr %71, align 8
-  %84 = zext i8 %83 to i64
-  %85 = shl nuw nsw i64 %84, 1
-  %86 = or disjoint i64 %85, 1
-  %87 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %82) #14
-  %88 = getelementptr i64, ptr %87, i64 %86
-  store i64 %.0.i34, ptr %88, align 8
-  %89 = and i64 %.0.i34, 7
-  %90 = icmp ne i64 %89, 0
-  %91 = icmp eq i64 %.0.i34, 0
-  %92 = or i1 %91, %90
-  br i1 %92, label %RARRAY_ASET.exit31, label %93
+  %81 = load i64, ptr %24, align 8
+  %82 = load i8, ptr %71, align 8
+  %83 = zext i8 %82 to i64
+  %84 = shl nuw nsw i64 %83, 1
+  %85 = or disjoint i64 %84, 1
+  %86 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %81) #14
+  %87 = getelementptr i64, ptr %86, i64 %85
+  store i64 %.0.i34, ptr %87, align 8
+  %88 = and i64 %.0.i34, 7
+  %89 = icmp ne i64 %88, 0
+  %90 = icmp eq i64 %.0.i34, 0
+  %91 = or i1 %90, %89
+  br i1 %91, label %RARRAY_ASET.exit31, label %92
 
-93:                                               ; preds = %RARRAY_ASET.exit
-  tail call void @rb_gc_writebarrier(i64 noundef %82, i64 noundef %.0.i34) #14
+92:                                               ; preds = %RARRAY_ASET.exit
+  tail call void @rb_gc_writebarrier(i64 noundef %81, i64 noundef %.0.i34) #14
   br label %RARRAY_ASET.exit31
 
-RARRAY_ASET.exit31:                               ; preds = %RARRAY_ASET.exit, %93
-  tail call void @rb_ary_ptr_use_end(i64 noundef %82) #14
-  %94 = load i8, ptr %71, align 8
-  %95 = add i8 %94, 1
-  store i8 %95, ptr %71, align 8
-  %96 = icmp eq i8 %95, 16
-  br i1 %96, label %97, label %100
+RARRAY_ASET.exit31:                               ; preds = %RARRAY_ASET.exit, %92
+  tail call void @rb_ary_ptr_use_end(i64 noundef %81) #14
+  %93 = load i8, ptr %71, align 8
+  %94 = add i8 %93, 1
+  store i8 %94, ptr %71, align 8
+  %95 = icmp eq i8 %94, 16
+  br i1 %95, label %96, label %99
 
-97:                                               ; preds = %RARRAY_ASET.exit31
-  %98 = load i64, ptr %24, align 8
-  %99 = tail call i64 @rb_ary_concat(i64 noundef %8, i64 noundef %98) #14
+96:                                               ; preds = %RARRAY_ASET.exit31
+  %97 = load i64, ptr %24, align 8
+  %98 = tail call i64 @rb_ary_concat(i64 noundef %8, i64 noundef %97) #14
   store i8 0, ptr %71, align 8
-  br label %100
+  br label %99
 
-100:                                              ; preds = %97, %RARRAY_ASET.exit31
+99:                                               ; preds = %96, %RARRAY_ASET.exit31
   ret i64 4
 }
 

@@ -392,67 +392,67 @@ define noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr noundef %2
   %86 = load ptr, ptr %85, align 8
   tail call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %81, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 0, ptr noundef nonnull @.str.9, i32 noundef %82, ptr noundef nonnull @.str.10, ptr noundef %84, ptr noundef nonnull @.str.11, ptr noundef %86) #8
   %87 = load ptr, ptr @task_socks, align 8
-  %88 = shl nuw nsw i64 %indvars.iv121, 1
-  %89 = getelementptr inbounds i32, ptr %87, i64 %88
-  %90 = load i32, ptr %89, align 4
-  %91 = tail call i32 @client_resp_send(ptr noundef %81, i32 noundef %90) #8
+  %.idx = shl nsw i64 %indvars.iv121, 3
+  %88 = getelementptr inbounds i8, ptr %87, i64 %.idx
+  %89 = load i32, ptr %88, align 4
+  %90 = tail call i32 @client_resp_send(ptr noundef %81, i32 noundef %89) #8
   tail call void @client_resp_free(ptr noundef %81) #8
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %92 = load i32, ptr @pmix_app_children, align 4
-  %93 = sext i32 %92 to i64
-  %94 = icmp slt i64 %indvars.iv.next122, %93
-  br i1 %94, label %.lr.ph108, label %._crit_edge, !llvm.loop !13
+  %91 = load i32, ptr @pmix_app_children, align 4
+  %92 = sext i32 %91 to i64
+  %93 = icmp slt i64 %indvars.iv.next122, %92
+  br i1 %93, label %.lr.ph108, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph108, %.preheader
   call void @slurm_xfree(ptr noundef nonnull %4) #8
-  %95 = load i32, ptr @pmix_ring_children, align 4
-  %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.lr.ph111, label %._crit_edge112
+  %94 = load i32, ptr @pmix_ring_children, align 4
+  %95 = icmp sgt i32 %94, 0
+  br i1 %95, label %.lr.ph111, label %._crit_edge112
 
-.lr.ph111:                                        ; preds = %._crit_edge, %106
-  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %106 ], [ 0, %._crit_edge ]
-  %97 = load ptr, ptr @pmix_ring_msgs, align 8
-  %98 = getelementptr inbounds %struct.pmix_ring_msg, ptr %97, i64 %indvars.iv124
-  store i32 0, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
-  %100 = load ptr, ptr %99, align 8
-  %.not = icmp eq ptr %100, null
-  br i1 %.not, label %102, label %101
+.lr.ph111:                                        ; preds = %._crit_edge, %105
+  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %105 ], [ 0, %._crit_edge ]
+  %96 = load ptr, ptr @pmix_ring_msgs, align 8
+  %97 = getelementptr inbounds %struct.pmix_ring_msg, ptr %96, i64 %indvars.iv124
+  store i32 0, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 8
+  %99 = load ptr, ptr %98, align 8
+  %.not = icmp eq ptr %99, null
+  br i1 %.not, label %101, label %100
 
-101:                                              ; preds = %.lr.ph111
-  call void @slurm_xfree(ptr noundef nonnull %99) #8
-  store ptr null, ptr %99, align 8
-  br label %102
+100:                                              ; preds = %.lr.ph111
+  call void @slurm_xfree(ptr noundef nonnull %98) #8
+  store ptr null, ptr %98, align 8
+  br label %101
 
-102:                                              ; preds = %101, %.lr.ph111
-  %103 = getelementptr inbounds i8, ptr %98, i64 16
-  %104 = load ptr, ptr %103, align 8
-  %.not87 = icmp eq ptr %104, null
-  br i1 %.not87, label %106, label %105
+101:                                              ; preds = %100, %.lr.ph111
+  %102 = getelementptr inbounds i8, ptr %97, i64 16
+  %103 = load ptr, ptr %102, align 8
+  %.not87 = icmp eq ptr %103, null
+  br i1 %.not87, label %105, label %104
 
-105:                                              ; preds = %102
-  call void @slurm_xfree(ptr noundef nonnull %103) #8
-  store ptr null, ptr %103, align 8
-  br label %106
+104:                                              ; preds = %101
+  call void @slurm_xfree(ptr noundef nonnull %102) #8
+  store ptr null, ptr %102, align 8
+  br label %105
 
-106:                                              ; preds = %102, %105
+105:                                              ; preds = %101, %104
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %107 = load i32, ptr @pmix_ring_children, align 4
-  %108 = sext i32 %107 to i64
-  %109 = icmp slt i64 %indvars.iv.next125, %108
-  br i1 %109, label %.lr.ph111, label %._crit_edge112, !llvm.loop !14
+  %106 = load i32, ptr @pmix_ring_children, align 4
+  %107 = sext i32 %106 to i64
+  %108 = icmp slt i64 %indvars.iv.next125, %107
+  br i1 %108, label %.lr.ph111, label %._crit_edge112, !llvm.loop !14
 
-._crit_edge112:                                   ; preds = %106, %._crit_edge
+._crit_edge112:                                   ; preds = %105, %._crit_edge
   store i32 0, ptr @pmix_ring_count, align 4
-  %110 = call i32 @slurm_get_log_level() #8
-  %111 = icmp sgt i32 %110, 6
-  br i1 %111, label %112, label %113
+  %109 = call i32 @slurm_get_log_level() #8
+  %110 = icmp sgt i32 %109, 6
+  br i1 %110, label %111, label %112
 
-112:                                              ; preds = %._crit_edge112
+111:                                              ; preds = %._crit_edge112
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.pmix_ring_out) #8
-  br label %113
+  br label %112
 
-113:                                              ; preds = %112, %._crit_edge112
+112:                                              ; preds = %111, %._crit_edge112
   ret i32 0
 }
 

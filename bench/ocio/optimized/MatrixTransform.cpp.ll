@@ -782,8 +782,8 @@ if.end35.us:                                      ; preds = %for.body.us
   %5 = load double, ptr %arrayidx41.us, align 8
   %sub42.us = fsub double %4, %5
   %div.us = fdiv double %sub42.us, %sub.us
-  %6 = mul nuw nsw i64 %indvars.iv78, 5
-  %arrayidx44.us = getelementptr inbounds double, ptr %m44, i64 %6
+  %arrayidx44.us.idx = mul i64 %indvars.iv78, 40
+  %arrayidx44.us = getelementptr inbounds i8, ptr %m44, i64 %arrayidx44.us.idx
   store double %div.us, ptr %arrayidx44.us, align 8
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, 4
@@ -797,24 +797,24 @@ if.then15.split.us:                               ; preds = %for.body.us, %for.b
 for.body.us42:                                    ; preds = %for.body.us42.preheader, %if.end35.us49
   %indvars.iv74 = phi i64 [ 0, %for.body.us42.preheader ], [ %indvars.iv.next75, %if.end35.us49 ]
   %arrayidx.us45 = getelementptr inbounds double, ptr %oldmax4, i64 %indvars.iv74
-  %7 = load double, ptr %arrayidx.us45, align 8
+  %6 = load double, ptr %arrayidx.us45, align 8
   %arrayidx14.us46 = getelementptr inbounds double, ptr %oldmin4, i64 %indvars.iv74
-  %8 = load double, ptr %arrayidx14.us46, align 8
-  %sub.us47 = fsub double %7, %8
+  %7 = load double, ptr %arrayidx14.us46, align 8
+  %sub.us47 = fsub double %6, %7
   %call.us48 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIdEEbT_(double noundef %sub.us47)
   br i1 %call.us48, label %if.then15, label %if.end35.us49
 
 if.end35.us49:                                    ; preds = %for.body.us42
   %arrayidx49.us = getelementptr inbounds double, ptr %newmin4, i64 %indvars.iv74
-  %9 = load double, ptr %arrayidx49.us, align 8
-  %10 = load double, ptr %arrayidx.us45, align 8
+  %8 = load double, ptr %arrayidx49.us, align 8
+  %9 = load double, ptr %arrayidx.us45, align 8
   %arrayidx54.us = getelementptr inbounds double, ptr %newmax4, i64 %indvars.iv74
-  %11 = load double, ptr %arrayidx54.us, align 8
-  %12 = load double, ptr %arrayidx14.us46, align 8
-  %13 = fneg double %11
-  %neg.us = fmul double %12, %13
-  %14 = tail call double @llvm.fmuladd.f64(double %9, double %10, double %neg.us)
-  %div58.us = fdiv double %14, %sub.us47
+  %10 = load double, ptr %arrayidx54.us, align 8
+  %11 = load double, ptr %arrayidx14.us46, align 8
+  %12 = fneg double %10
+  %neg.us = fmul double %11, %12
+  %13 = tail call double @llvm.fmuladd.f64(double %8, double %9, double %neg.us)
+  %div58.us = fdiv double %13, %sub.us47
   %arrayidx60.us = getelementptr inbounds double, ptr %offset4, i64 %indvars.iv74
   store double %div58.us, ptr %arrayidx60.us, align 8
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
@@ -824,10 +824,10 @@ if.end35.us49:                                    ; preds = %for.body.us42
 for.body:                                         ; preds = %for.body.preheader, %if.end35
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end35 ]
   %arrayidx = getelementptr inbounds double, ptr %oldmax4, i64 %indvars.iv
-  %15 = load double, ptr %arrayidx, align 8
+  %14 = load double, ptr %arrayidx, align 8
   %arrayidx14 = getelementptr inbounds double, ptr %oldmin4, i64 %indvars.iv
-  %16 = load double, ptr %arrayidx14, align 8
-  %sub = fsub double %15, %16
+  %15 = load double, ptr %arrayidx14, align 8
+  %sub = fsub double %14, %15
   %call = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIdEEbT_(double noundef %sub)
   br i1 %call, label %if.then15, label %if.end35
 
@@ -844,8 +844,8 @@ invoke.cont:                                      ; preds = %if.then15
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont
-  %17 = load double, ptr %.us-phi, align 8
-  %call22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %os, double noundef %17)
+  %16 = load double, ptr %.us-phi, align 8
+  %call22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %os, double noundef %16)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont17
@@ -871,7 +871,7 @@ invoke.cont30:                                    ; preds = %invoke.cont27
           to label %invoke.cont33 unwind label %ehcleanup.thread37
 
 ehcleanup.thread37:                               ; preds = %invoke.cont30
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
   br label %cleanup.action
@@ -881,49 +881,49 @@ invoke.cont33:                                    ; preds = %invoke.cont30
           to label %unreachable unwind label %ehcleanup
 
 lpad:                                             ; preds = %invoke.cont25, %invoke.cont23, %invoke.cont21, %invoke.cont17, %invoke.cont, %if.then15
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup34
 
 ehcleanup.thread:                                 ; preds = %invoke.cont27
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %invoke.cont33
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
   br label %ehcleanup34
 
 cleanup.action:                                   ; preds = %ehcleanup.thread37, %ehcleanup.thread
-  %.pn36 = phi { ptr, i32 } [ %20, %ehcleanup.thread ], [ %18, %ehcleanup.thread37 ]
+  %.pn36 = phi { ptr, i32 } [ %19, %ehcleanup.thread ], [ %17, %ehcleanup.thread37 ]
   call void @__cxa_free_exception(ptr %exception) #22
   br label %ehcleanup34
 
 ehcleanup34:                                      ; preds = %ehcleanup, %cleanup.action, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn36, %cleanup.action ], [ %21, %ehcleanup ], [ %19, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn36, %cleanup.action ], [ %20, %ehcleanup ], [ %18, %lpad ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os) #22
   resume { ptr, i32 } %.pn.pn
 
 if.end35:                                         ; preds = %for.body
   %arrayidx39 = getelementptr inbounds double, ptr %newmax4, i64 %indvars.iv
-  %22 = load double, ptr %arrayidx39, align 8
+  %21 = load double, ptr %arrayidx39, align 8
   %arrayidx41 = getelementptr inbounds double, ptr %newmin4, i64 %indvars.iv
-  %23 = load double, ptr %arrayidx41, align 8
-  %sub42 = fsub double %22, %23
+  %22 = load double, ptr %arrayidx41, align 8
+  %sub42 = fsub double %21, %22
   %div = fdiv double %sub42, %sub
-  %24 = mul nuw nsw i64 %indvars.iv, 5
-  %arrayidx44 = getelementptr inbounds double, ptr %m44, i64 %24
+  %arrayidx44.idx = mul i64 %indvars.iv, 40
+  %arrayidx44 = getelementptr inbounds i8, ptr %m44, i64 %arrayidx44.idx
   store double %div, ptr %arrayidx44, align 8
-  %25 = load double, ptr %arrayidx41, align 8
-  %26 = load double, ptr %arrayidx, align 8
-  %27 = load double, ptr %arrayidx39, align 8
-  %28 = load double, ptr %arrayidx14, align 8
-  %29 = fneg double %27
-  %neg = fmul double %28, %29
-  %30 = tail call double @llvm.fmuladd.f64(double %25, double %26, double %neg)
-  %div58 = fdiv double %30, %sub
+  %23 = load double, ptr %arrayidx41, align 8
+  %24 = load double, ptr %arrayidx, align 8
+  %25 = load double, ptr %arrayidx39, align 8
+  %26 = load double, ptr %arrayidx14, align 8
+  %27 = fneg double %25
+  %neg = fmul double %26, %27
+  %28 = tail call double @llvm.fmuladd.f64(double %23, double %24, double %neg)
+  %div58 = fdiv double %28, %sub
   %arrayidx60 = getelementptr inbounds double, ptr %offset4, i64 %indvars.iv
   store double %div58, ptr %arrayidx60, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

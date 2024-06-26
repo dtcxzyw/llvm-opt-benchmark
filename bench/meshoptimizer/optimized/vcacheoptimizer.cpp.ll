@@ -498,8 +498,8 @@ for.cond58.preheader:                             ; preds = %for.body21, %for.co
 
 for.body21:                                       ; preds = %for.cond19.preheader, %for.body21
   %i18.062 = phi i64 [ %inc55, %for.body21 ], [ 0, %for.cond19.preheader ]
-  %mul22 = mul nuw i64 %i18.062, 3
-  %arrayidx24 = getelementptr inbounds i32, ptr %indices, i64 %mul22
+  %arrayidx24.idx = mul i64 %i18.062, 12
+  %arrayidx24 = getelementptr inbounds i8, ptr %indices, i64 %arrayidx24.idx
   %13 = load i32, ptr %arrayidx24, align 4
   %arrayidx27 = getelementptr i8, ptr %arrayidx24, i64 4
   %14 = load i32, ptr %arrayidx27, align 4

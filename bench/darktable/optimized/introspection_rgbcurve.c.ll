@@ -7649,61 +7649,61 @@ define internal fastcc void @dt_draw_histogram_8_zoomed(ptr noundef %0, ptr noca
   %12 = icmp eq i32 %6, 0
   %13 = sext i32 %2 to i64
   %14 = getelementptr i32, ptr %1, i64 %13
-  br i1 %12, label %.preheader, label %.preheader1
+  br i1 %12, label %.preheader, label %.preheader2
 
 .preheader:                                       ; preds = %7, %.preheader
-  %15 = phi i64 [ %32, %.preheader ], [ 0, %7 ]
-  %16 = shl nuw nsw i64 %15, 2
-  %17 = getelementptr i32, ptr %14, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !6
-  %19 = uitofp i32 %18 to float
-  %20 = fsub reassoc nsz arcp contract afn float %19, %5
-  %21 = fmul reassoc nsz arcp contract afn float %20, %3
-  %22 = fcmp reassoc nsz arcp contract afn olt float %21, 0.000000e+00
-  %23 = select reassoc nsz arcp contract afn i1 %22, float 0.000000e+00, float %21
-  %24 = trunc i64 %15 to i32
-  %25 = sitofp i32 %24 to float
-  %26 = fsub reassoc nsz arcp contract afn float %25, %4
-  %27 = fmul reassoc nsz arcp contract afn float %26, %3
-  %28 = fpext float %27 to double
-  %29 = fadd reassoc nsz arcp contract afn float %23, 1.000000e+00
-  %30 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %29)
-  %31 = fpext float %30 to double
-  tail call void @cairo_line_to(ptr noundef %0, double noundef %28, double noundef %31) #24
-  %32 = add nuw nsw i64 %15, 1
-  %33 = icmp eq i64 %32, 256
-  br i1 %33, label %.loopexit, label %.preheader
+  %15 = phi i64 [ %31, %.preheader ], [ 0, %7 ]
+  %.idx1 = shl i64 %15, 4
+  %16 = getelementptr i8, ptr %14, i64 %.idx1
+  %17 = load i32, ptr %16, align 4, !tbaa !6
+  %18 = uitofp i32 %17 to float
+  %19 = fsub reassoc nsz arcp contract afn float %18, %5
+  %20 = fmul reassoc nsz arcp contract afn float %19, %3
+  %21 = fcmp reassoc nsz arcp contract afn olt float %20, 0.000000e+00
+  %22 = select reassoc nsz arcp contract afn i1 %21, float 0.000000e+00, float %20
+  %23 = trunc i64 %15 to i32
+  %24 = sitofp i32 %23 to float
+  %25 = fsub reassoc nsz arcp contract afn float %24, %4
+  %26 = fmul reassoc nsz arcp contract afn float %25, %3
+  %27 = fpext float %26 to double
+  %28 = fadd reassoc nsz arcp contract afn float %22, 1.000000e+00
+  %29 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %28)
+  %30 = fpext float %29 to double
+  tail call void @cairo_line_to(ptr noundef %0, double noundef %27, double noundef %30) #24
+  %31 = add nuw nsw i64 %15, 1
+  %32 = icmp eq i64 %31, 256
+  br i1 %32, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader1, %.preheader
-  %34 = fsub reassoc nsz arcp contract afn float 2.550000e+02, %4
-  %35 = fpext float %34 to double
-  %36 = fmul reassoc nsz arcp contract afn float %10, %3
-  %37 = fpext float %36 to double
-  tail call void @cairo_line_to(ptr noundef %0, double noundef %35, double noundef %37) #24
+.loopexit:                                        ; preds = %.preheader2, %.preheader
+  %33 = fsub reassoc nsz arcp contract afn float 2.550000e+02, %4
+  %34 = fpext float %33 to double
+  %35 = fmul reassoc nsz arcp contract afn float %10, %3
+  %36 = fpext float %35 to double
+  tail call void @cairo_line_to(ptr noundef %0, double noundef %34, double noundef %36) #24
   tail call void @cairo_close_path(ptr noundef %0) #24
   tail call void @cairo_fill(ptr noundef %0) #24
   ret void
 
-.preheader1:                                      ; preds = %7, %.preheader1
-  %38 = phi i64 [ %53, %.preheader1 ], [ 0, %7 ]
-  %39 = shl nuw nsw i64 %38, 2
-  %40 = getelementptr i32, ptr %14, i64 %39
-  %41 = load i32, ptr %40, align 4, !tbaa !6
-  %42 = uitofp i32 %41 to float
-  %43 = fsub reassoc nsz arcp contract afn float %42, %5
-  %44 = fmul reassoc nsz arcp contract afn float %43, %3
-  %45 = fcmp reassoc nsz arcp contract afn olt float %44, 0.000000e+00
-  %46 = select reassoc nsz arcp contract afn i1 %45, float 0.000000e+00, float %44
-  %47 = trunc i64 %38 to i32
-  %48 = sitofp i32 %47 to float
-  %49 = fsub reassoc nsz arcp contract afn float %48, %4
-  %50 = fmul reassoc nsz arcp contract afn float %49, %3
-  %51 = fpext float %50 to double
-  %52 = fpext float %46 to double
-  tail call void @cairo_line_to(ptr noundef %0, double noundef %51, double noundef %52) #24
-  %53 = add nuw nsw i64 %38, 1
-  %54 = icmp eq i64 %53, 256
-  br i1 %54, label %.loopexit, label %.preheader1
+.preheader2:                                      ; preds = %7, %.preheader2
+  %37 = phi i64 [ %51, %.preheader2 ], [ 0, %7 ]
+  %.idx = shl i64 %37, 4
+  %38 = getelementptr i8, ptr %14, i64 %.idx
+  %39 = load i32, ptr %38, align 4, !tbaa !6
+  %40 = uitofp i32 %39 to float
+  %41 = fsub reassoc nsz arcp contract afn float %40, %5
+  %42 = fmul reassoc nsz arcp contract afn float %41, %3
+  %43 = fcmp reassoc nsz arcp contract afn olt float %42, 0.000000e+00
+  %44 = select reassoc nsz arcp contract afn i1 %43, float 0.000000e+00, float %42
+  %45 = trunc i64 %37 to i32
+  %46 = sitofp i32 %45 to float
+  %47 = fsub reassoc nsz arcp contract afn float %46, %4
+  %48 = fmul reassoc nsz arcp contract afn float %47, %3
+  %49 = fpext float %48 to double
+  %50 = fpext float %44 to double
+  tail call void @cairo_line_to(ptr noundef %0, double noundef %49, double noundef %50) #24
+  %51 = add nuw nsw i64 %37, 1
+  %52 = icmp eq i64 %51, 256
+  br i1 %52, label %.loopexit, label %.preheader2
 }
 
 declare void @cairo_pop_group_to_source(ptr noundef) local_unnamed_addr #3

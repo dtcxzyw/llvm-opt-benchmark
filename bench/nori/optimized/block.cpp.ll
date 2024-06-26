@@ -529,19 +529,19 @@ define hidden void @_ZN4nori10ImageBlock10fromBitmapERKNS_6BitmapE(ptr nocapture
   %33 = mul nsw i64 %32, %indvars.iv25
   %34 = getelementptr %"struct.nori::Color3f", ptr %31, i64 %33
   %35 = getelementptr %"struct.nori::Color3f", ptr %34, i64 %indvars.iv
-  br label %.lr.ph51.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %.lr.ph53.i.i.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph51.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.lr.ph51.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph
-  %.050.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %39, %.lr.ph51.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph ]
-  %36 = getelementptr float, ptr %30, i64 %.050.i.i.i.i.i.i.i.i.i.i.i.i
-  %37 = getelementptr float, ptr %35, i64 %.050.i.i.i.i.i.i.i.i.i.i.i.i
+.lr.ph53.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.lr.ph53.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph
+  %.052.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %39, %.lr.ph53.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph ]
+  %36 = getelementptr float, ptr %30, i64 %.052.i.i.i.i.i.i.i.i.i.i.i.i
+  %37 = getelementptr float, ptr %35, i64 %.052.i.i.i.i.i.i.i.i.i.i.i.i
   %38 = load float, ptr %37, align 4, !noalias !13
   store float %38, ptr %36, align 4, !noalias !13
-  %39 = add nuw nsw i64 %.050.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %39 = add nuw nsw i64 %.052.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %39, 3
-  br i1 %exitcond.not.i.i, label %40, label %.lr.ph51.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %40, label %.lr.ph53.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !16
 
-40:                                               ; preds = %.lr.ph51.i.i.i.i.i.i.i.i.i.i.i.i
+40:                                               ; preds = %.lr.ph53.i.i.i.i.i.i.i.i.i.i.i.i
   %41 = getelementptr i8, ptr %30, i64 12
   store float 1.000000e+00, ptr %41, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

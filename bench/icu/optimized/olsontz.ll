@@ -1529,39 +1529,39 @@ cond.true.i147:                                   ; preds = %if.end118, %_ZNK6ic
   %arrayidx.i141 = getelementptr inbounds i8, ptr %19, i64 %idxprom.i140
   %58 = load i8, ptr %arrayidx.i141, align 1
   %conv2.i142 = zext i8 %58 to i64
-  %59 = shl nuw nsw i64 %conv2.i142, 1
-  %arrayidx5.i137158 = getelementptr inbounds i32, ptr %20, i64 %59
-  %60 = load i32, ptr %arrayidx5.i137158, align 4
-  %mul124159 = mul nsw i32 %60, 1000
+  %arrayidx5.i137158.idx = shl nuw nsw i64 %conv2.i142, 3
+  %arrayidx5.i137158 = getelementptr inbounds i8, ptr %20, i64 %arrayidx5.i137158.idx
+  %59 = load i32, ptr %arrayidx5.i137158, align 4
+  %mul124159 = mul nsw i32 %59, 1000
   store i32 %mul124159, ptr %rawoff, align 4
-  %61 = load ptr, ptr %typeMapData.i, align 8
-  %arrayidx.i150 = getelementptr inbounds i8, ptr %61, i64 %idxprom.i140
-  %62 = load i8, ptr %arrayidx.i150, align 1
-  %conv2.i151 = zext i8 %62 to i64
-  %63 = shl nuw nsw i64 %conv2.i151, 1
-  %64 = or disjoint i64 %63, 1
+  %60 = load ptr, ptr %typeMapData.i, align 8
+  %arrayidx.i150 = getelementptr inbounds i8, ptr %60, i64 %idxprom.i140
+  %61 = load i8, ptr %arrayidx.i150, align 1
+  %conv2.i151 = zext i8 %61 to i64
+  %62 = shl nuw nsw i64 %conv2.i151, 1
+  %63 = or disjoint i64 %62, 1
   br label %_ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit152
 
 _ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit152: ; preds = %_ZNK6icu_7513OlsonTimeZone11rawOffsetAtEs.exit, %cond.true.i147
-  %cond.i144 = phi i64 [ %64, %cond.true.i147 ], [ 1, %_ZNK6icu_7513OlsonTimeZone11rawOffsetAtEs.exit ]
-  %65 = load ptr, ptr %typeOffsets.i99, align 8
-  %arrayidx6.i146 = getelementptr inbounds i32, ptr %65, i64 %cond.i144
+  %cond.i144 = phi i64 [ %63, %cond.true.i147 ], [ 1, %_ZNK6icu_7513OlsonTimeZone11rawOffsetAtEs.exit ]
+  %64 = load ptr, ptr %typeOffsets.i99, align 8
+  %arrayidx6.i146 = getelementptr inbounds i32, ptr %64, i64 %cond.i144
   br label %if.end133
 
 if.else128:                                       ; preds = %entry
   %typeOffsets.i153 = getelementptr inbounds i8, ptr %this, i64 112
-  %66 = load ptr, ptr %typeOffsets.i153, align 8
-  %67 = load i32, ptr %66, align 4
-  %mul130 = mul nsw i32 %67, 1000
+  %65 = load ptr, ptr %typeOffsets.i153, align 8
+  %66 = load i32, ptr %65, align 4
+  %mul130 = mul nsw i32 %66, 1000
   store i32 %mul130, ptr %rawoff, align 4
-  %68 = load ptr, ptr %typeOffsets.i153, align 8
-  %arrayidx.i155 = getelementptr inbounds i8, ptr %68, i64 4
+  %67 = load ptr, ptr %typeOffsets.i153, align 8
+  %arrayidx.i155 = getelementptr inbounds i8, ptr %67, i64 4
   br label %if.end133
 
 if.end133:                                        ; preds = %if.then6, %_ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit152, %if.else128
   %arrayidx.i.sink = phi ptr [ %arrayidx.i, %if.then6 ], [ %arrayidx6.i146, %_ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit152 ], [ %arrayidx.i155, %if.else128 ]
-  %69 = load i32, ptr %arrayidx.i.sink, align 4
-  %mul9 = mul nsw i32 %69, 1000
+  %68 = load i32, ptr %arrayidx.i.sink, align 4
+  %mul9 = mul nsw i32 %68, 1000
   store i32 %mul9, ptr %dstoff, align 4
   ret void
 }

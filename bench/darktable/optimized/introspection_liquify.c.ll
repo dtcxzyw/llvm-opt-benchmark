@@ -1170,7 +1170,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_distort_xtransform(ptr noca
   %53 = extractelement <2 x i1> %52, i64 0
   %54 = extractelement <2 x i1> %52, i64 1
   %55 = select i1 %53, i1 %54, i1 false
-  br i1 %55, label %85, label %229
+  br i1 %55, label %85, label %228
 
 56:                                               ; preds = %56, %16
   %57 = phi i64 [ 0, %16 ], [ %82, %56 ]
@@ -1217,7 +1217,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_distort_xtransform(ptr noca
   call fastcc void @_build_global_distortion_map(ptr noundef %0, ptr %88, ptr %90, float noundef %10, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef %4, ptr noundef nonnull %8)
   %91 = load ptr, ptr %8, align 8, !tbaa !84
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %228, label %93
+  br i1 %92, label %227, label %93
 
 93:                                               ; preds = %85
   %94 = load i32, ptr %44, align 8, !tbaa !30
@@ -1331,69 +1331,69 @@ define internal fastcc noundef range(i32 0, 2) i32 @_distort_xtransform(ptr noca
   %188 = fdiv reassoc nsz arcp contract afn <2 x float> <float 1.000000e+00, float 1.000000e+00>, %187
   br label %189
 
-.loopexit:                                        ; preds = %225, %182, %93
+.loopexit:                                        ; preds = %224, %182, %93
   call void @free(ptr noundef %91) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #29
-  br label %229
+  br label %228
 
-189:                                              ; preds = %225, %184
-  %190 = phi i64 [ %226, %225 ], [ %185, %184 ]
-  %191 = shl i64 %190, 1
-  %192 = getelementptr inbounds float, ptr %2, i64 %191
-  %193 = load <2 x float>, ptr %192, align 4, !tbaa !11
-  %194 = fmul reassoc nsz arcp contract afn <2 x float> %193, %187
-  %195 = extractelement <2 x float> %194, i64 0
-  %196 = fpext float %195 to double
-  %197 = fadd reassoc nsz arcp contract afn double %196, -5.000000e-01
-  %198 = fptosi double %197 to i32
-  %199 = sub nsw i32 %198, %102
-  %200 = extractelement <2 x float> %194, i64 1
-  %201 = fpext float %200 to double
-  %202 = fadd reassoc nsz arcp contract afn double %201, -5.000000e-01
-  %203 = fptosi double %202 to i32
-  %204 = sub nsw i32 %203, %100
-  %205 = mul nsw i32 %204, %94
-  %206 = add nsw i32 %205, %199
-  %207 = fcmp reassoc nsz arcp contract afn uge float %195, %104
-  %208 = fcmp reassoc nsz arcp contract afn ult <2 x float> %194, %105
-  %209 = extractelement <2 x i1> %208, i64 0
-  %210 = select i1 %209, i1 true, i1 %207
-  %211 = extractelement <2 x i1> %208, i64 1
-  %212 = select i1 %210, i1 true, i1 %211
-  br i1 %212, label %225, label %213
+189:                                              ; preds = %224, %184
+  %190 = phi i64 [ %225, %224 ], [ %185, %184 ]
+  %.idx = shl i64 %190, 3
+  %191 = getelementptr inbounds i8, ptr %2, i64 %.idx
+  %192 = load <2 x float>, ptr %191, align 4, !tbaa !11
+  %193 = fmul reassoc nsz arcp contract afn <2 x float> %192, %187
+  %194 = extractelement <2 x float> %193, i64 0
+  %195 = fpext float %194 to double
+  %196 = fadd reassoc nsz arcp contract afn double %195, -5.000000e-01
+  %197 = fptosi double %196 to i32
+  %198 = sub nsw i32 %197, %102
+  %199 = extractelement <2 x float> %193, i64 1
+  %200 = fpext float %199 to double
+  %201 = fadd reassoc nsz arcp contract afn double %200, -5.000000e-01
+  %202 = fptosi double %201 to i32
+  %203 = sub nsw i32 %202, %100
+  %204 = mul nsw i32 %203, %94
+  %205 = add nsw i32 %204, %198
+  %206 = fcmp reassoc nsz arcp contract afn uge float %194, %104
+  %207 = fcmp reassoc nsz arcp contract afn ult <2 x float> %193, %105
+  %208 = extractelement <2 x i1> %207, i64 0
+  %209 = select i1 %208, i1 true, i1 %206
+  %210 = extractelement <2 x i1> %207, i64 1
+  %211 = select i1 %209, i1 true, i1 %210
+  br i1 %211, label %224, label %212
 
-213:                                              ; preds = %189
-  %214 = fcmp reassoc nsz arcp contract afn olt float %200, %106
-  %215 = icmp sgt i32 %206, -1
-  %216 = select i1 %214, i1 %215, i1 false
-  %217 = icmp slt i32 %206, %96
-  %218 = select i1 %216, i1 %217, i1 false
-  br i1 %218, label %219, label %225
+212:                                              ; preds = %189
+  %213 = fcmp reassoc nsz arcp contract afn olt float %199, %106
+  %214 = icmp sgt i32 %205, -1
+  %215 = select i1 %213, i1 %214, i1 false
+  %216 = icmp slt i32 %205, %96
+  %217 = select i1 %215, i1 %216, i1 false
+  br i1 %217, label %218, label %224
 
-219:                                              ; preds = %213
-  %220 = zext nneg i32 %206 to i64
-  %221 = getelementptr inbounds { float, float }, ptr %91, i64 %220
-  %222 = load <2 x float>, ptr %221, align 4
-  %223 = fmul reassoc nsz arcp contract afn <2 x float> %222, %188
-  %224 = fadd reassoc nsz arcp contract afn <2 x float> %223, %193
-  store <2 x float> %224, ptr %192, align 4, !tbaa !11
-  br label %225
+218:                                              ; preds = %212
+  %219 = zext nneg i32 %205 to i64
+  %220 = getelementptr inbounds { float, float }, ptr %91, i64 %219
+  %221 = load <2 x float>, ptr %220, align 4
+  %222 = fmul reassoc nsz arcp contract afn <2 x float> %221, %188
+  %223 = fadd reassoc nsz arcp contract afn <2 x float> %222, %192
+  store <2 x float> %223, ptr %191, align 4, !tbaa !11
+  br label %224
 
-225:                                              ; preds = %219, %213, %189
-  %226 = add nuw i64 %190, 1
-  %227 = icmp eq i64 %226, %3
-  br i1 %227, label %.loopexit, label %189, !llvm.loop !88
+224:                                              ; preds = %218, %212, %189
+  %225 = add nuw i64 %190, 1
+  %226 = icmp eq i64 %225, %3
+  br i1 %226, label %.loopexit, label %189, !llvm.loop !88
 
-228:                                              ; preds = %85
+227:                                              ; preds = %85
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #29
-  br label %229
+  br label %228
 
-229:                                              ; preds = %228, %.loopexit, %41
-  %230 = phi i32 [ 0, %228 ], [ 1, %.loopexit ], [ 1, %41 ]
+228:                                              ; preds = %227, %.loopexit, %41
+  %229 = phi i32 [ 0, %227 ], [ 1, %.loopexit ], [ 1, %41 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
-  ret i32 %230
+  ret i32 %229
 }
 
 ; Function Attrs: nounwind uwtable

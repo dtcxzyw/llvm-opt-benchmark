@@ -937,7 +937,7 @@ _ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EE5resetEPS1_
   %50 = load ptr, ptr %.sroa.060.1, align 8
   %51 = load ptr, ptr %50, align 8
   invoke void %51(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.060.1, i64 noundef %1, ptr noundef %2)
-          to label %52 unwind label %125
+          to label %52 unwind label %124
 
 52:                                               ; preds = %_ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EE5resetEPS1_.exit
   %53 = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #22
@@ -976,7 +976,7 @@ _ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EE5resetEPS1_
 
 73:                                               ; preds = %69
   invoke void @__cxa_throw(ptr nonnull %72, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #20
-          to label %129 unwind label %76
+          to label %128 unwind label %76
 
 74:                                               ; preds = %52
   %75 = landingpad { ptr, i32 }
@@ -1002,120 +1002,120 @@ _ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EE5resetEPS1_
 81:                                               ; preds = %54
   %82 = getelementptr inbounds i8, ptr %0, i64 264
   %83 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %55)
-          to label %84 unwind label %95
+          to label %84 unwind label %94
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %82, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %84, %97
-  %.03187 = phi i64 [ 0, %84 ], [ %98, %97 ]
+.preheader:                                       ; preds = %84, %96
+  %.03187 = phi i64 [ 0, %84 ], [ %97, %96 ]
   %86 = or disjoint i64 %.03187, 16
   %87 = getelementptr inbounds float, ptr %85, i64 %86
-  %88 = shl nuw nsw i64 %.03187, 4
-  %invariant.gep = getelementptr inbounds float, ptr %53, i64 %88
-  br label %89
+  %.idx = shl nsw i64 %.03187, 6
+  %invariant.gep = getelementptr inbounds i8, ptr %53, i64 %.idx
+  br label %88
 
-89:                                               ; preds = %.preheader, %89
-  %.03086 = phi i64 [ 0, %.preheader ], [ %94, %89 ]
-  %90 = getelementptr inbounds float, ptr %85, i64 %.03086
-  %91 = load float, ptr %90, align 4
-  %92 = load float, ptr %87, align 4
-  %93 = fadd float %91, %92
+88:                                               ; preds = %.preheader, %88
+  %.03086 = phi i64 [ 0, %.preheader ], [ %93, %88 ]
+  %89 = getelementptr inbounds float, ptr %85, i64 %.03086
+  %90 = load float, ptr %89, align 4
+  %91 = load float, ptr %87, align 4
+  %92 = fadd float %90, %91
   %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %.03086
-  store float %93, ptr %gep, align 4
-  %94 = add nuw nsw i64 %.03086, 1
-  %exitcond88.not = icmp eq i64 %94, 16
-  br i1 %exitcond88.not, label %97, label %89, !llvm.loop !9
+  store float %92, ptr %gep, align 4
+  %93 = add nuw nsw i64 %.03086, 1
+  %exitcond88.not = icmp eq i64 %93, 16
+  br i1 %exitcond88.not, label %96, label %88, !llvm.loop !9
 
-95:                                               ; preds = %101, %99, %81
-  %96 = landingpad { ptr, i32 }
+94:                                               ; preds = %100, %98, %81
+  %95 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit53
 
-97:                                               ; preds = %89
-  %98 = add nuw nsw i64 %.03187, 1
-  %exitcond89.not = icmp eq i64 %98, 16
-  br i1 %exitcond89.not, label %99, label %.preheader, !llvm.loop !10
+96:                                               ; preds = %88
+  %97 = add nuw nsw i64 %.03187, 1
+  %exitcond89.not = icmp eq i64 %97, 16
+  br i1 %exitcond89.not, label %98, label %.preheader, !llvm.loop !10
 
-99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %0, i64 136
-  invoke void @_ZN5faiss11IndexFlat1D5resetEv(ptr noundef nonnull align 8 dereferenceable(128) %100)
-          to label %101 unwind label %95
+98:                                               ; preds = %96
+  %99 = getelementptr inbounds i8, ptr %0, i64 136
+  invoke void @_ZN5faiss11IndexFlat1D5resetEv(ptr noundef nonnull align 8 dereferenceable(128) %99)
+          to label %100 unwind label %94
 
-101:                                              ; preds = %99
-  invoke void @_ZN5faiss11IndexFlat1D3addElPKf(ptr noundef nonnull align 8 dereferenceable(128) %100, i64 noundef 256, ptr noundef nonnull %53)
-          to label %102 unwind label %95
+100:                                              ; preds = %98
+  invoke void @_ZN5faiss11IndexFlat1D3addElPKf(ptr noundef nonnull align 8 dereferenceable(128) %99, i64 noundef 256, ptr noundef nonnull %53)
+          to label %101 unwind label %94
 
-102:                                              ; preds = %101
-  %103 = getelementptr inbounds i8, ptr %0, i64 152
-  %104 = load i64, ptr %103, align 8
-  %105 = icmp eq i64 %104, 256
-  br i1 %105, label %_ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EED2Ev.exit, label %106
+101:                                              ; preds = %100
+  %102 = getelementptr inbounds i8, ptr %0, i64 152
+  %103 = load i64, ptr %102, align 8
+  %104 = icmp eq i64 %103, 256
+  br i1 %104, label %_ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EED2Ev.exit, label %105
 
-106:                                              ; preds = %102
+105:                                              ; preds = %101
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
-  %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #15
-  %108 = add nsw i32 %107, 1
-  %109 = sext i32 %108 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %109)
-          to label %110 unwind label %117
+  %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #15
+  %107 = add nsw i32 %106, 1
+  %108 = sext i32 %107 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %108)
+          to label %109 unwind label %116
 
-110:                                              ; preds = %106
-  %111 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0)
-          to label %112 unwind label %117
+109:                                              ; preds = %105
+  %110 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0)
+          to label %111 unwind label %116
 
-112:                                              ; preds = %110
-  %113 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
-  %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %111, i64 noundef %113, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #15
-  %115 = call ptr @__cxa_allocate_exception(i64 40) #15
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %115, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss17AdditiveQuantizer10train_normEmPKf, ptr noundef nonnull @.str.3, i32 noundef 151)
-          to label %116 unwind label %119
+111:                                              ; preds = %109
+  %112 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
+  %113 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %110, i64 noundef %112, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #15
+  %114 = call ptr @__cxa_allocate_exception(i64 40) #15
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %114, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss17AdditiveQuantizer10train_normEmPKf, ptr noundef nonnull @.str.3, i32 noundef 151)
+          to label %115 unwind label %118
 
-116:                                              ; preds = %112
-  invoke void @__cxa_throw(ptr nonnull %115, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #20
-          to label %129 unwind label %117
+115:                                              ; preds = %111
+  invoke void @__cxa_throw(ptr nonnull %114, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #20
+          to label %128 unwind label %116
 
-117:                                              ; preds = %116, %110, %106
-  %118 = landingpad { ptr, i32 }
+116:                                              ; preds = %115, %109, %105
+  %117 = landingpad { ptr, i32 }
           cleanup
-  br label %121
+  br label %120
 
-119:                                              ; preds = %112
-  %120 = landingpad { ptr, i32 }
+118:                                              ; preds = %111
+  %119 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %115) #15
-  br label %121
+  call void @__cxa_free_exception(ptr %114) #15
+  br label %120
 
-121:                                              ; preds = %119, %117
-  %.pn43 = phi { ptr, i32 } [ %118, %117 ], [ %120, %119 ]
+120:                                              ; preds = %118, %116
+  %.pn43 = phi { ptr, i32 } [ %117, %116 ], [ %119, %118 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit53
 
-_ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EED2Ev.exit: ; preds = %102
+_ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EED2Ev.exit: ; preds = %101
   tail call void @_ZdlPv(ptr noundef nonnull %53) #23
-  %122 = load ptr, ptr %.sroa.060.1, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 32
-  %124 = load ptr, ptr %123, align 8
-  tail call void %124(ptr noundef nonnull align 8 dereferenceable(308) %.sroa.060.1) #15
+  %121 = load ptr, ptr %.sroa.060.1, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 32
+  %123 = load ptr, ptr %122, align 8
+  tail call void %123(ptr noundef nonnull align 8 dereferenceable(308) %.sroa.060.1) #15
   br label %_ZN5faiss12Clustering1DD2Ev.exit
 
-_ZNSt6vectorIfSaIfEED2Ev.exit53:                  ; preds = %121, %95, %80
-  %.pn43.pn = phi { ptr, i32 } [ %.pn43, %121 ], [ %96, %95 ], [ %.pn, %80 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit53:                  ; preds = %120, %94, %80
+  %.pn43.pn = phi { ptr, i32 } [ %.pn43, %120 ], [ %95, %94 ], [ %.pn, %80 ]
   call void @_ZdlPv(ptr noundef nonnull %53) #23
   br label %_ZNKSt14default_deleteIN5faiss17AdditiveQuantizerEEclEPS1_.exit.i55
 
-125:                                              ; preds = %_ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EE5resetEPS1_.exit
+124:                                              ; preds = %_ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EE5resetEPS1_.exit
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNKSt14default_deleteIN5faiss17AdditiveQuantizerEEclEPS1_.exit.i55
 
-_ZNKSt14default_deleteIN5faiss17AdditiveQuantizerEEclEPS1_.exit.i55: ; preds = %74, %_ZNSt6vectorIfSaIfEED2Ev.exit53, %125
-  %.pn43.pn.pn78 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %125 ], [ %75, %74 ], [ %.pn43.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit53 ]
-  %126 = load ptr, ptr %.sroa.060.1, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 32
-  %128 = load ptr, ptr %127, align 8
-  call void %128(ptr noundef nonnull align 8 dereferenceable(308) %.sroa.060.1) #15
+_ZNKSt14default_deleteIN5faiss17AdditiveQuantizerEEclEPS1_.exit.i55: ; preds = %74, %_ZNSt6vectorIfSaIfEED2Ev.exit53, %124
+  %.pn43.pn.pn78 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %124 ], [ %75, %74 ], [ %.pn43.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit53 ]
+  %125 = load ptr, ptr %.sroa.060.1, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 32
+  %127 = load ptr, ptr %126, align 8
+  call void %127(ptr noundef nonnull align 8 dereferenceable(308) %.sroa.060.1) #15
   br label %_ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EED2Ev.exit56
 
 _ZN5faiss12Clustering1DD2Ev.exit:                 ; preds = %._crit_edge, %39, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i.i, %_ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EED2Ev.exit
@@ -1125,7 +1125,7 @@ _ZNSt10unique_ptrIN5faiss17AdditiveQuantizerESt14default_deleteIS1_EED2Ev.exit56
   %.pn47 = phi { ptr, i32 } [ %41, %40 ], [ %.pn43.pn.pn78, %_ZNKSt14default_deleteIN5faiss17AdditiveQuantizerEEclEPS1_.exit.i55 ], [ %49, %48 ], [ %45, %44 ]
   resume { ptr, i32 } %.pn47
 
-129:                                              ; preds = %116, %73
+128:                                              ; preds = %115, %73
   unreachable
 }
 

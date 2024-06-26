@@ -2577,21 +2577,21 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %1 = shl nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr i32, ptr %0, i64 %1
-  %2 = load i32, ptr %arrayidx, align 4
-  %3 = zext i32 %2 to i64
-  %cmp9.not = icmp eq i64 %indvars.iv, %3
+  %arrayidx.idx = shl nuw nsw i64 %indvars.iv, 3
+  %arrayidx = getelementptr i8, ptr %0, i64 %arrayidx.idx
+  %1 = load i32, ptr %arrayidx, align 4
+  %2 = zext i32 %1 to i64
+  %cmp9.not = icmp eq i64 %indvars.iv, %2
   br i1 %cmp9.not, label %for.cond, label %return.sink.split
 
 for.end:                                          ; preds = %for.cond
   %arrayidx10 = getelementptr inbounds i8, ptr %data, i64 32
   store ptr %arrayidx10, ptr %view, align 8
-  %4 = load ptr, ptr %strides4, align 8
-  store i64 -8, ptr %4, align 8
-  %5 = load i64, ptr %len, align 8
-  %call17 = call i32 @PyBuffer_FromContiguous(ptr noundef nonnull %view, ptr noundef nonnull %init, i64 noundef %5, i8 noundef signext 67) #15
-  %6 = load ptr, ptr %view, align 8
+  %3 = load ptr, ptr %strides4, align 8
+  store i64 -8, ptr %3, align 8
+  %4 = load i64, ptr %len, align 8
+  %call17 = call i32 @PyBuffer_FromContiguous(ptr noundef nonnull %view, ptr noundef nonnull %init, i64 noundef %4, i8 noundef signext 67) #15
+  %5 = load ptr, ptr %view, align 8
   br label %for.body21
 
 for.cond19:                                       ; preds = %for.body21
@@ -2601,16 +2601,16 @@ for.cond19:                                       ; preds = %for.body21
 
 for.body21:                                       ; preds = %for.end, %for.cond19
   %indvars.iv16 = phi i64 [ 0, %for.end ], [ %indvars.iv.next17, %for.cond19 ]
-  %.neg = mul nsw i64 %indvars.iv16, -2
-  %add.ptr = getelementptr i32, ptr %6, i64 %.neg
-  %7 = load i32, ptr %add.ptr, align 4
-  %8 = zext i32 %7 to i64
-  %cmp23.not = icmp eq i64 %indvars.iv16, %8
+  %add.ptr.idx = mul nsw i64 %indvars.iv16, -8
+  %add.ptr = getelementptr i8, ptr %5, i64 %add.ptr.idx
+  %6 = load i32, ptr %add.ptr, align 4
+  %7 = zext i32 %6 to i64
+  %cmp23.not = icmp eq i64 %indvars.iv16, %7
   br i1 %cmp23.not, label %for.cond19, label %return.sink.split
 
 return.sink.split:                                ; preds = %for.body, %for.body21
-  %9 = load ptr, ptr @TestError, align 8
-  call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.230) #15
+  %8 = load ptr, ptr @TestError, align 8
+  call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.230) #15
   br label %return
 
 return:                                           ; preds = %for.cond19, %return.sink.split

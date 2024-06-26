@@ -2553,8 +2553,8 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   store ptr %38, ptr %_M_first.i.i141, align 8, !tbaa !29, !alias.scope !138
   %add.ptr.i.i.i153 = getelementptr inbounds i8, ptr %38, i64 480
   store ptr %add.ptr.i.i.i153, ptr %_M_last.i.i143, align 8, !tbaa !30, !alias.scope !138
-  %mul.neg.i.i = mul i64 %cond.i.i, -10
-  %39 = getelementptr %"struct.ProfilerGraph::Piece", ptr %38, i64 %mul.neg.i.i
+  %.idx = mul i64 %cond.i.i, -480
+  %39 = getelementptr i8, ptr %38, i64 %.idx
   %add.ptr15.i.i = getelementptr %"struct.ProfilerGraph::Piece", ptr %39, i64 %add.i.i151
   br label %_ZStplRKSt15_Deque_iteratorIN13ProfilerGraph5PieceERS1_PS1_El.exit
 
@@ -2716,8 +2716,8 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   store ptr %14, ptr %_M_first, align 8, !tbaa !29
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %14, i64 480
   store ptr %add.ptr.i.i.i, ptr %_M_last.i.i.i, align 8, !tbaa !30
-  %mul.neg.i.i = mul i64 %cond.i.i, -10
-  %15 = getelementptr %"struct.ProfilerGraph::Piece", ptr %14, i64 %mul.neg.i.i
+  %.idx = mul i64 %cond.i.i, -480
+  %15 = getelementptr i8, ptr %14, i64 %.idx
   %add.ptr15.i.i = getelementptr %"struct.ProfilerGraph::Piece", ptr %15, i64 %add.i.i
   br label %_ZNSt15_Deque_iteratorIN13ProfilerGraph5PieceERS1_PS1_EmIEl.exit
 
@@ -2878,8 +2878,8 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
   store ptr %12, ptr %_M_first.i, align 8, !tbaa !29
   %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 480
   store ptr %add.ptr.i.i, ptr %_M_last, align 8, !tbaa !30
-  %mul.neg.i = mul i64 %cond.i, -10
-  %13 = getelementptr %"struct.ProfilerGraph::Piece", ptr %12, i64 %mul.neg.i
+  %.idx = mul i64 %cond.i, -480
+  %13 = getelementptr i8, ptr %12, i64 %.idx
   %add.ptr15.i = getelementptr %"struct.ProfilerGraph::Piece", ptr %13, i64 %add.i
   br label %_ZNSt15_Deque_iteratorIN13ProfilerGraph5PieceERS1_PS1_EpLEl.exit
 

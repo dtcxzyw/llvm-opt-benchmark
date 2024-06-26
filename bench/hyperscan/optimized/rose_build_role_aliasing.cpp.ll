@@ -963,8 +963,8 @@ cond.end.i.i.i.i.i.i:                             ; preds = %cond.false.i.i.i.i.
   %cond.i.i.i.i.i.i = phi i64 [ %div25.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %sub10.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i ]
   %add.ptr11.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %29, i64 %cond.i.i.i.i.i.i
   %35 = load ptr, ptr %add.ptr11.i.i.i.i.i.i, align 8, !noalias !14
-  %mul.neg.i.i.i.i.i.i = mul nsw i64 %cond.i.i.i.i.i.i, -5
-  %36 = getelementptr %"struct.ue2::rose_literal_info", ptr %35, i64 %mul.neg.i.i.i.i.i.i
+  %.idx.i.i = mul i64 %cond.i.i.i.i.i.i, -440
+  %36 = getelementptr i8, ptr %35, i64 %.idx.i.i
   %add.ptr15.i.i.i.i.i.i = getelementptr %"struct.ue2::rose_literal_info", ptr %36, i64 %add.i.i.i.i.i.i
   br label %call3.i.noexc.i
 
@@ -9207,8 +9207,8 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi i64 [ %div25.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
   %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %162, i64 %cond.i.i.i.i
   %163 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !328
-  %mul.neg.i.i.i.i = mul nsw i64 %cond.i.i.i.i, -5
-  %164 = getelementptr %"struct.ue2::rose_literal_info", ptr %163, i64 %mul.neg.i.i.i.i
+  %.idx = mul i64 %cond.i.i.i.i, -440
+  %164 = getelementptr i8, ptr %163, i64 %.idx
   %add.ptr15.i.i.i.i = getelementptr %"struct.ue2::rose_literal_info", ptr %164, i64 %add.i.i.i.i
   br label %_ZNSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit
 
@@ -27186,8 +27186,8 @@ cond.end.i.i.i.i.i:                               ; preds = %cond.false.i.i.i.i.
   %cond.i.i.i.i.i = phi i64 [ %div25.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %sub10.i.i.i.i.i, %cond.false.i.i.i.i.i ]
   %add.ptr11.i.i.i.i.i = getelementptr inbounds ptr, ptr %25, i64 %cond.i.i.i.i.i
   %26 = load ptr, ptr %add.ptr11.i.i.i.i.i, align 8, !noalias !770
-  %mul.neg.i.i.i.i.i = mul nsw i64 %cond.i.i.i.i.i, -5
-  %27 = getelementptr %"struct.ue2::rose_literal_info", ptr %26, i64 %mul.neg.i.i.i.i.i
+  %.idx = mul i64 %cond.i.i.i.i.i, -440
+  %27 = getelementptr i8, ptr %26, i64 %.idx
   %add.ptr15.i.i.i.i.i = getelementptr %"struct.ue2::rose_literal_info", ptr %27, i64 %add.i.i.i.i.i
   br label %_ZNSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit.i
 

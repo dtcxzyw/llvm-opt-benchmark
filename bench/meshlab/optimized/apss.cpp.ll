@@ -493,38 +493,38 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread:           ; preds = %8, %13, %_ZNK3vcg6P
   %37 = fptrunc double %36 to float
   br label %.preheader
 
-.preheader:                                       ; preds = %33, %47
-  %indvars.iv21 = phi i64 [ 0, %33 ], [ %indvars.iv.next22, %47 ]
-  %38 = mul nuw nsw i64 %indvars.iv21, 3
-  %39 = getelementptr inbounds float, ptr %0, i64 %38
-  %40 = getelementptr inbounds float, ptr %39, i64 %indvars.iv21
-  br label %41
+.preheader:                                       ; preds = %33, %46
+  %indvars.iv21 = phi i64 [ 0, %33 ], [ %indvars.iv.next22, %46 ]
+  %.idx = mul i64 %indvars.iv21, 12
+  %38 = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %39 = getelementptr inbounds float, ptr %38, i64 %indvars.iv21
+  br label %40
 
-41:                                               ; preds = %.preheader, %46
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %46 ]
-  %42 = icmp eq i64 %indvars.iv21, %indvars.iv
-  br i1 %42, label %43, label %44
+40:                                               ; preds = %.preheader, %45
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %45 ]
+  %41 = icmp eq i64 %indvars.iv21, %indvars.iv
+  br i1 %41, label %42, label %43
 
-43:                                               ; preds = %41
-  store float %37, ptr %40, align 4
-  br label %46
+42:                                               ; preds = %40
+  store float %37, ptr %39, align 4
+  br label %45
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds float, ptr %39, i64 %indvars.iv
-  store float 0.000000e+00, ptr %45, align 4
-  br label %46
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds float, ptr %38, i64 %indvars.iv
+  store float 0.000000e+00, ptr %44, align 4
+  br label %45
 
-46:                                               ; preds = %43, %44
+45:                                               ; preds = %42, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %47, label %41, !llvm.loop !11
+  br i1 %exitcond.not, label %46, label %40, !llvm.loop !11
 
-47:                                               ; preds = %46
+46:                                               ; preds = %45
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 3
   br i1 %exitcond24.not, label %.loopexit, label %.preheader, !llvm.loop !13
 
-.loopexit:                                        ; preds = %47, %25, %26, %31
+.loopexit:                                        ; preds = %46, %25, %26, %31
   ret void
 }
 
@@ -3269,8 +3269,8 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls4APSSI6CMeshOE10mlsHessianERKN3v
   %75 = getelementptr inbounds i8, ptr %1, i64 8
   br label %76
 
-76:                                               ; preds = %3, %452
-  %indvars.iv357 = phi i64 [ 0, %3 ], [ %indvars.iv.next358, %452 ]
+76:                                               ; preds = %3, %451
+  %indvars.iv357 = phi i64 [ 0, %3 ], [ %indvars.iv.next358, %451 ]
   %77 = getelementptr inbounds [3 x %"class.vcg::Point3.31"], ptr %45, i64 0, i64 %indvars.iv357
   %78 = getelementptr inbounds [3 x %"class.vcg::Point3.31"], ptr %46, i64 0, i64 %indvars.iv357
   %79 = getelementptr inbounds [3 x double], ptr %47, i64 0, i64 %indvars.iv357
@@ -3697,19 +3697,19 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %168
   %448 = fmul double %447, 2.000000e+00
   %449 = call double @llvm.fmuladd.f64(double %448, double %327, double %445)
   %450 = fptrunc double %449 to float
-  %451 = mul nuw nsw i64 %indvars.iv, 3
-  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %451
+  %gep.idx = mul i64 %indvars.iv, 12
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %gep.idx
   store float %450, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond356.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond356.not, label %452, label %.preheader, !llvm.loop !65
+  br i1 %exitcond356.not, label %451, label %.preheader, !llvm.loop !65
 
-452:                                              ; preds = %._crit_edge
+451:                                              ; preds = %._crit_edge
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond360.not = icmp eq i64 %indvars.iv.next358, 3
-  br i1 %exitcond360.not, label %453, label %76, !llvm.loop !66
+  br i1 %exitcond360.not, label %452, label %76, !llvm.loop !66
 
-453:                                              ; preds = %452
+452:                                              ; preds = %451
   ret i1 true
 }
 

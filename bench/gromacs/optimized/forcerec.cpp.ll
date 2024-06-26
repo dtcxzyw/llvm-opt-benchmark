@@ -925,9 +925,9 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
   %.045.us.us.us = phi float [ %36, %39 ], [ %36, %43 ], [ %36, %47 ], [ %72, %48 ]
   %74 = fmul float %.045.us.us.us, 6.000000e+00
   %75 = add nuw nsw i64 %indvars.iv74, %26
-  %76 = shl nuw nsw i64 %75, 1
-  %77 = getelementptr inbounds float, ptr %16, i64 %76
-  store float %74, ptr %77, align 4
+  %.idx84 = shl nsw i64 %75, 3
+  %76 = getelementptr inbounds i8, ptr %16, i64 %.idx84
+  store float %74, ptr %76, align 4
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %22
   br i1 %exitcond78.not, label %._crit_edge.split.us.us.us, label %27, !llvm.loop !15
@@ -938,49 +938,49 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
   br i1 %exitcond83.not, label %._crit_edge60, label %.preheader.us.us, !llvm.loop !16
 
 .split.us.split.us.split.us:                      ; preds = %44, %40, %27
-  %78 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %93
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %91
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.split.us63
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %._crit_edge.split.us63 ], [ 0, %.preheader.lr.ph ]
-  %79 = mul nuw nsw i64 %indvars.iv69, %21
-  %80 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %79
-  %81 = mul nuw nsw i64 %indvars.iv69, %22
-  br label %82
+  %78 = mul nuw nsw i64 %indvars.iv69, %21
+  %79 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %78
+  %80 = mul nuw nsw i64 %indvars.iv69, %22
+  br label %81
 
-82:                                               ; preds = %.preheader.us, %82
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %82 ]
-  %83 = load float, ptr %80, align 4
-  %84 = mul nuw nsw i64 %indvars.iv, %21
-  %85 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %84
-  %86 = load float, ptr %85, align 4
-  %87 = fmul float %83, %86
-  %88 = tail call noundef float @sqrtf(float noundef %87) #26
-  %89 = fmul float %88, 6.000000e+00
-  %90 = add nuw nsw i64 %indvars.iv, %81
-  %91 = shl nuw nsw i64 %90, 1
-  %92 = getelementptr inbounds float, ptr %16, i64 %91
-  store float %89, ptr %92, align 4
+81:                                               ; preds = %.preheader.us, %81
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %81 ]
+  %82 = load float, ptr %79, align 4
+  %83 = mul nuw nsw i64 %indvars.iv, %21
+  %84 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %83
+  %85 = load float, ptr %84, align 4
+  %86 = fmul float %82, %85
+  %87 = tail call noundef float @sqrtf(float noundef %86) #26
+  %88 = fmul float %87, 6.000000e+00
+  %89 = add nuw nsw i64 %indvars.iv, %80
+  %.idx = shl nsw i64 %89, 3
+  %90 = getelementptr inbounds i8, ptr %16, i64 %.idx
+  store float %88, ptr %90, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %22
-  br i1 %exitcond.not, label %._crit_edge.split.us63, label %82, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.split.us63, label %81, !llvm.loop !15
 
-._crit_edge.split.us63:                           ; preds = %82
+._crit_edge.split.us63:                           ; preds = %81
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %22
   br i1 %exitcond73.not, label %._crit_edge60, label %.preheader.us, !llvm.loop !16
 
-93:                                               ; preds = %.split.us.split.us.split.us
+91:                                               ; preds = %.split.us.split.us.split.us
   tail call void @_ZdlPv(ptr noundef nonnull %16) #28
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 ._crit_edge60:                                    ; preds = %._crit_edge.split.us63, %._crit_edge.split.us.us.us, %.loopexit
   ret void
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %93, %.split.us.split.us.split.us
-  resume { ptr, i32 } %78
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %91, %.split.us.split.us.split.us
+  resume { ptr, i32 } %77
 }
 
 declare noundef zeroext i1 @_Z11gmx_numzerod(double noundef) local_unnamed_addr #4

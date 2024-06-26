@@ -258,7 +258,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %93 = icmp eq i64 %91, %56
   br i1 %93, label %.loopexit10.loopexit, label %61, !llvm.loop !38
 
-.loopexit9:                                       ; preds = %193, %6
+.loopexit9:                                       ; preds = %192, %6
   %94 = getelementptr inbounds i8, ptr %1, i64 104
   %95 = load float, ptr %94, align 8, !tbaa !41
   %96 = getelementptr inbounds i8, ptr %4, i64 16
@@ -325,130 +325,130 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   br label %138
 
 138:                                              ; preds = %138, %131
-  %139 = phi i64 [ 0, %131 ], [ %172, %138 ]
-  %140 = phi <8 x i64> [ <i64 0, i64 4, i64 8, i64 12, i64 16, i64 20, i64 24, i64 28>, %131 ], [ %173, %138 ]
-  %141 = shl i64 %139, 2
-  %142 = getelementptr inbounds float, ptr %2, i64 %141
-  %143 = load <32 x float>, ptr %142, align 4, !tbaa !15
-  %144 = shufflevector <32 x float> %143, <32 x float> poison, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>
-  %145 = fmul reassoc nsz arcp contract afn <8 x float> %144, <float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000>
-  %146 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %145, zeroinitializer
-  %147 = fcmp reassoc nsz arcp contract afn olt <8 x float> %145, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %148 = select <8 x i1> %147, <8 x float> %145, <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %149 = select <8 x i1> %146, <8 x float> %148, <8 x float> zeroinitializer
-  %150 = fcmp reassoc nsz arcp contract afn uge <8 x float> %149, <float 0x3FE3333340000000, float 0x3FE3333340000000, float 0x3FE3333340000000, float 0x3FE3333340000000, float 0x3FE3333340000000, float 0x3FE3333340000000, float 0x3FE3333340000000, float 0x3FE3333340000000>
-  %151 = fmul reassoc nsz arcp contract afn <8 x float> %149, <float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000>
-  %152 = fsub reassoc nsz arcp contract afn <8 x float> <float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000>, %151
-  %153 = fmul reassoc nsz arcp contract afn <8 x float> %152, %152
-  %154 = fmul reassoc nsz arcp contract afn <8 x float> %152, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
-  %155 = fsub reassoc nsz arcp contract afn <8 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>, %154
-  %156 = fmul reassoc nsz arcp contract afn <8 x float> %153, %155
-  %157 = fmul reassoc nsz arcp contract afn <8 x float> %149, <float 0x3FFAAAAAA0000000, float 0x3FFAAAAAA0000000, float 0x3FFAAAAAA0000000, float 0x3FFAAAAAA0000000, float 0x3FFAAAAAA0000000, float 0x3FFAAAAAA0000000, float 0x3FFAAAAAA0000000, float 0x3FFAAAAAA0000000>
-  %158 = fadd reassoc nsz arcp contract afn <8 x float> %157, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
-  %159 = fmul reassoc nsz arcp contract afn <8 x float> %158, %158
-  %160 = fsub reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %159
-  %161 = select <8 x i1> %150, <8 x float> %156, <8 x float> %160
-  %162 = fsub reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %161
-  %163 = fmul reassoc nsz arcp contract afn <8 x float> %162, %137
-  %164 = fadd reassoc nsz arcp contract afn <8 x float> %163, %161
-  %165 = fsub reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %164
-  %166 = getelementptr inbounds float, ptr %3, <8 x i64> %140
-  %167 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %166, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !15, !alias.scope !44, !noalias !47
-  %168 = fmul reassoc nsz arcp contract afn <8 x float> %167, <float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000>
-  %169 = fmul reassoc nsz arcp contract afn <8 x float> %168, %164
-  %170 = fadd reassoc nsz arcp contract afn <8 x float> %165, %169
-  %171 = fmul reassoc nsz arcp contract afn <8 x float> %170, %144
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %171, <8 x ptr> %166, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !15, !alias.scope !44, !noalias !47
-  %172 = add nuw i64 %139, 8
-  %173 = add <8 x i64> %140, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
-  %174 = icmp eq i64 %172, %135
-  br i1 %174, label %.loopexit8.loopexit, label %138, !llvm.loop !49
+  %139 = phi i64 [ 0, %131 ], [ %171, %138 ]
+  %140 = phi <8 x i64> [ <i64 0, i64 4, i64 8, i64 12, i64 16, i64 20, i64 24, i64 28>, %131 ], [ %172, %138 ]
+  %.idx = shl i64 %139, 4
+  %141 = getelementptr inbounds i8, ptr %2, i64 %.idx
+  %142 = load <32 x float>, ptr %141, align 4, !tbaa !15
+  %143 = shufflevector <32 x float> %142, <32 x float> poison, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>
+  %144 = fmul reassoc nsz arcp contract afn <8 x float> %143, <float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000>
+  %145 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %144, zeroinitializer
+  %146 = fcmp reassoc nsz arcp contract afn olt <8 x float> %144, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %147 = select <8 x i1> %146, <8 x float> %144, <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %148 = select <8 x i1> %145, <8 x float> %147, <8 x float> zeroinitializer
+  %149 = fcmp reassoc nsz arcp contract afn uge <8 x float> %148, <float 0x3FE3333340000000, float 0x3FE3333340000000, float 0x3FE3333340000000, float 0x3FE3333340000000, float 0x3FE3333340000000, float 0x3FE3333340000000, float 0x3FE3333340000000, float 0x3FE3333340000000>
+  %150 = fmul reassoc nsz arcp contract afn <8 x float> %148, <float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000>
+  %151 = fsub reassoc nsz arcp contract afn <8 x float> <float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000, float 0x4004000020000000>, %150
+  %152 = fmul reassoc nsz arcp contract afn <8 x float> %151, %151
+  %153 = fmul reassoc nsz arcp contract afn <8 x float> %151, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
+  %154 = fsub reassoc nsz arcp contract afn <8 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>, %153
+  %155 = fmul reassoc nsz arcp contract afn <8 x float> %152, %154
+  %156 = fmul reassoc nsz arcp contract afn <8 x float> %148, <float 0x3FFAAAAAA0000000, float 0x3FFAAAAAA0000000, float 0x3FFAAAAAA0000000, float 0x3FFAAAAAA0000000, float 0x3FFAAAAAA0000000, float 0x3FFAAAAAA0000000, float 0x3FFAAAAAA0000000, float 0x3FFAAAAAA0000000>
+  %157 = fadd reassoc nsz arcp contract afn <8 x float> %156, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
+  %158 = fmul reassoc nsz arcp contract afn <8 x float> %157, %157
+  %159 = fsub reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %158
+  %160 = select <8 x i1> %149, <8 x float> %155, <8 x float> %159
+  %161 = fsub reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %160
+  %162 = fmul reassoc nsz arcp contract afn <8 x float> %161, %137
+  %163 = fadd reassoc nsz arcp contract afn <8 x float> %162, %160
+  %164 = fsub reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %163
+  %165 = getelementptr inbounds float, ptr %3, <8 x i64> %140
+  %166 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %165, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !15, !alias.scope !44, !noalias !47
+  %167 = fmul reassoc nsz arcp contract afn <8 x float> %166, <float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000, float 0x3F847AE140000000>
+  %168 = fmul reassoc nsz arcp contract afn <8 x float> %167, %163
+  %169 = fadd reassoc nsz arcp contract afn <8 x float> %164, %168
+  %170 = fmul reassoc nsz arcp contract afn <8 x float> %169, %143
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %170, <8 x ptr> %165, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !15, !alias.scope !44, !noalias !47
+  %171 = add nuw i64 %139, 8
+  %172 = add <8 x i64> %140, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
+  %173 = icmp eq i64 %171, %135
+  br i1 %173, label %.loopexit8.loopexit, label %138, !llvm.loop !49
 
-.loopexit10:                                      ; preds = %.loopexit10.preheader, %193
-  %175 = phi i64 [ %200, %193 ], [ %.ph11, %.loopexit10.preheader ]
-  %176 = or disjoint i64 %175, 1
-  %177 = getelementptr inbounds float, ptr %2, i64 %176
-  %178 = load <2 x float>, ptr %177, align 4, !tbaa !15
-  %179 = fsub reassoc nsz arcp contract afn <2 x float> %178, %15
-  %180 = fmul reassoc nsz arcp contract afn <2 x float> %179, %179
-  %181 = shufflevector <2 x float> %180, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %182 = fadd reassoc nsz arcp contract afn <2 x float> %181, %180
-  %183 = extractelement <2 x float> %182, i64 0
-  %184 = fmul reassoc nsz arcp contract afn float %183, 0x3F00000000000000
-  %185 = fmul reassoc nsz arcp contract afn float %184, %27
-  %186 = fcmp reassoc nsz arcp contract afn ogt float %185, 0.000000e+00
-  br i1 %186, label %187, label %193
+.loopexit10:                                      ; preds = %.loopexit10.preheader, %192
+  %174 = phi i64 [ %199, %192 ], [ %.ph11, %.loopexit10.preheader ]
+  %175 = or disjoint i64 %174, 1
+  %176 = getelementptr inbounds float, ptr %2, i64 %175
+  %177 = load <2 x float>, ptr %176, align 4, !tbaa !15
+  %178 = fsub reassoc nsz arcp contract afn <2 x float> %177, %15
+  %179 = fmul reassoc nsz arcp contract afn <2 x float> %178, %178
+  %180 = shufflevector <2 x float> %179, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %181 = fadd reassoc nsz arcp contract afn <2 x float> %180, %179
+  %182 = extractelement <2 x float> %181, i64 0
+  %183 = fmul reassoc nsz arcp contract afn float %182, 0x3F00000000000000
+  %184 = fmul reassoc nsz arcp contract afn float %183, %27
+  %185 = fcmp reassoc nsz arcp contract afn ogt float %184, 0.000000e+00
+  br i1 %185, label %186, label %192
 
-187:                                              ; preds = %.loopexit10
-  %188 = fcmp reassoc nsz arcp contract afn olt float %185, 1.000000e+00
-  br i1 %188, label %189, label %193
+186:                                              ; preds = %.loopexit10
+  %187 = fcmp reassoc nsz arcp contract afn olt float %184, 1.000000e+00
+  br i1 %187, label %188, label %192
 
-189:                                              ; preds = %187
-  %190 = fmul reassoc nsz arcp contract afn float %185, 1.140130e+07
-  %191 = fsub reassoc nsz arcp contract afn float 0x41CFC00000000000, %190
-  %192 = fptosi float %191 to i32
-  br label %193
+188:                                              ; preds = %186
+  %189 = fmul reassoc nsz arcp contract afn float %184, 1.140130e+07
+  %190 = fsub reassoc nsz arcp contract afn float 0x41CFC00000000000, %189
+  %191 = fptosi float %190 to i32
+  br label %192
 
-193:                                              ; preds = %189, %187, %.loopexit10
-  %194 = phi i32 [ %192, %189 ], [ 1053951936, %187 ], [ 1065353216, %.loopexit10 ]
-  %195 = tail call i32 @llvm.smax.i32(i32 %194, i32 0)
-  %196 = bitcast i32 %195 to float
-  %197 = fmul reassoc nsz arcp contract afn float %196, 1.000000e+02
+192:                                              ; preds = %188, %186, %.loopexit10
+  %193 = phi i32 [ %191, %188 ], [ 1053951936, %186 ], [ 1065353216, %.loopexit10 ]
+  %194 = tail call i32 @llvm.smax.i32(i32 %193, i32 0)
+  %195 = bitcast i32 %194 to float
+  %196 = fmul reassoc nsz arcp contract afn float %195, 1.000000e+02
+  %197 = getelementptr inbounds float, ptr %3, i64 %174
+  store float %196, ptr %197, align 4, !tbaa !15
   %198 = getelementptr inbounds float, ptr %3, i64 %175
-  store float %197, ptr %198, align 4, !tbaa !15
-  %199 = getelementptr inbounds float, ptr %3, i64 %176
-  store <2 x float> zeroinitializer, ptr %199, align 4, !tbaa !15
-  %200 = add nuw nsw i64 %175, 4
-  %201 = icmp ugt i64 %17, %200
-  br i1 %201, label %.loopexit10, label %.loopexit9, !llvm.loop !50
+  store <2 x float> zeroinitializer, ptr %198, align 4, !tbaa !15
+  %199 = add nuw nsw i64 %174, 4
+  %200 = icmp ugt i64 %17, %199
+  br i1 %200, label %.loopexit10, label %.loopexit9, !llvm.loop !50
 
-.loopexit:                                        ; preds = %223, %.loopexit9
+.loopexit:                                        ; preds = %222, %.loopexit9
   ret void
 
-.loopexit8:                                       ; preds = %.loopexit8.preheader, %223
-  %202 = phi i64 [ %235, %223 ], [ %.ph, %.loopexit8.preheader ]
-  %203 = getelementptr inbounds float, ptr %2, i64 %202
-  %204 = load float, ptr %203, align 4, !tbaa !15
-  %205 = fmul reassoc nsz arcp contract afn float %204, 0x3F847AE140000000
-  %206 = fcmp reassoc nsz arcp contract afn ogt float %205, 0.000000e+00
-  %207 = fcmp reassoc nsz arcp contract afn olt float %205, 1.000000e+00
-  %208 = select reassoc nsz arcp contract afn i1 %207, float %205, float 1.000000e+00
-  %209 = select reassoc nsz arcp contract afn i1 %206, float %208, float 0.000000e+00
-  %210 = fcmp reassoc nsz arcp contract afn olt float %209, 0x3FE3333340000000
-  br i1 %210, label %211, label %216
+.loopexit8:                                       ; preds = %.loopexit8.preheader, %222
+  %201 = phi i64 [ %234, %222 ], [ %.ph, %.loopexit8.preheader ]
+  %202 = getelementptr inbounds float, ptr %2, i64 %201
+  %203 = load float, ptr %202, align 4, !tbaa !15
+  %204 = fmul reassoc nsz arcp contract afn float %203, 0x3F847AE140000000
+  %205 = fcmp reassoc nsz arcp contract afn ogt float %204, 0.000000e+00
+  %206 = fcmp reassoc nsz arcp contract afn olt float %204, 1.000000e+00
+  %207 = select reassoc nsz arcp contract afn i1 %206, float %204, float 1.000000e+00
+  %208 = select reassoc nsz arcp contract afn i1 %205, float %207, float 0.000000e+00
+  %209 = fcmp reassoc nsz arcp contract afn olt float %208, 0x3FE3333340000000
+  br i1 %209, label %210, label %215
 
-211:                                              ; preds = %.loopexit8
-  %212 = fmul reassoc nsz arcp contract afn float %209, 0x3FFAAAAAA0000000
-  %213 = fadd reassoc nsz arcp contract afn float %212, -1.000000e+00
-  %214 = fmul reassoc nsz arcp contract afn float %213, %213
-  %215 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %214
-  br label %223
+210:                                              ; preds = %.loopexit8
+  %211 = fmul reassoc nsz arcp contract afn float %208, 0x3FFAAAAAA0000000
+  %212 = fadd reassoc nsz arcp contract afn float %211, -1.000000e+00
+  %213 = fmul reassoc nsz arcp contract afn float %212, %212
+  %214 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %213
+  br label %222
 
-216:                                              ; preds = %.loopexit8
-  %217 = fmul reassoc nsz arcp contract afn float %209, 0x4004000020000000
-  %218 = fsub reassoc nsz arcp contract afn float 0x4004000020000000, %217
-  %219 = fmul reassoc nsz arcp contract afn float %218, %218
-  %220 = fmul reassoc nsz arcp contract afn float %218, 2.000000e+00
-  %221 = fsub reassoc nsz arcp contract afn float 3.000000e+00, %220
-  %222 = fmul reassoc nsz arcp contract afn float %219, %221
-  br label %223
+215:                                              ; preds = %.loopexit8
+  %216 = fmul reassoc nsz arcp contract afn float %208, 0x4004000020000000
+  %217 = fsub reassoc nsz arcp contract afn float 0x4004000020000000, %216
+  %218 = fmul reassoc nsz arcp contract afn float %217, %217
+  %219 = fmul reassoc nsz arcp contract afn float %217, 2.000000e+00
+  %220 = fsub reassoc nsz arcp contract afn float 3.000000e+00, %219
+  %221 = fmul reassoc nsz arcp contract afn float %218, %220
+  br label %222
 
-223:                                              ; preds = %216, %211
-  %224 = phi float [ %215, %211 ], [ %222, %216 ]
-  %225 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %224
-  %226 = fmul reassoc nsz arcp contract afn float %225, %109
-  %227 = fadd reassoc nsz arcp contract afn float %226, %224
-  %228 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %227
-  %229 = getelementptr inbounds float, ptr %3, i64 %202
-  %230 = load float, ptr %229, align 4, !tbaa !15
-  %231 = fmul reassoc nsz arcp contract afn float %230, 0x3F847AE140000000
-  %232 = fmul reassoc nsz arcp contract afn float %231, %227
-  %233 = fadd reassoc nsz arcp contract afn float %228, %232
-  %234 = fmul reassoc nsz arcp contract afn float %233, %204
-  store float %234, ptr %229, align 4, !tbaa !15
-  %235 = add nuw nsw i64 %202, 4
-  %236 = icmp ugt i64 %17, %235
-  br i1 %236, label %.loopexit8, label %.loopexit, !llvm.loop !51
+222:                                              ; preds = %215, %210
+  %223 = phi float [ %214, %210 ], [ %221, %215 ]
+  %224 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %223
+  %225 = fmul reassoc nsz arcp contract afn float %224, %109
+  %226 = fadd reassoc nsz arcp contract afn float %225, %223
+  %227 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %226
+  %228 = getelementptr inbounds float, ptr %3, i64 %201
+  %229 = load float, ptr %228, align 4, !tbaa !15
+  %230 = fmul reassoc nsz arcp contract afn float %229, 0x3F847AE140000000
+  %231 = fmul reassoc nsz arcp contract afn float %230, %226
+  %232 = fadd reassoc nsz arcp contract afn float %227, %231
+  %233 = fmul reassoc nsz arcp contract afn float %232, %203
+  store float %233, ptr %228, align 4, !tbaa !15
+  %234 = add nuw nsw i64 %201, 4
+  %235 = icmp ugt i64 %17, %234
+  br i1 %235, label %.loopexit8, label %.loopexit, !llvm.loop !51
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

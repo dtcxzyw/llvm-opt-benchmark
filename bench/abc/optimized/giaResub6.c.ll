@@ -1282,70 +1282,70 @@ Res6_FindSupportSize.exit:                        ; preds = %2, %10
 
 16:                                               ; preds = %.lr.ph, %Res6_LitPrint.exit28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Res6_LitPrint.exit28 ]
-  %17 = shl nuw nsw i64 %indvars.iv, 1
   %.val21 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds i32, ptr %.val21, i64 %17
-  %19 = trunc i64 %indvars.iv to i32
-  %20 = add i32 %19, %1
-  %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %20)
-  %22 = load i32, ptr %18, align 4
-  %23 = icmp slt i32 %22, 2
-  br i1 %23, label %.sink.split.i, label %24
+  %.idx = shl nsw i64 %indvars.iv, 3
+  %17 = getelementptr inbounds i8, ptr %.val21, i64 %.idx
+  %18 = trunc i64 %indvars.iv to i32
+  %19 = add i32 %18, %1
+  %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %19)
+  %21 = load i32, ptr %17, align 4
+  %22 = icmp slt i32 %21, 2
+  br i1 %22, label %.sink.split.i, label %23
 
-24:                                               ; preds = %16
-  %25 = and i32 %22, 1
-  %.not.i.i22 = icmp eq i32 %25, 0
-  %26 = select i1 %.not.i.i22, i32 32, i32 126
-  %27 = lshr i32 %22, 1
-  %28 = icmp slt i32 %27, %1
-  %29 = add nuw nsw i32 %27, 96
-  %spec.select.i.i = select i1 %14, i32 %29, i32 100
-  %30 = select i1 %28, i32 %spec.select.i.i, i32 120
-  %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %26, i32 noundef %30)
-  %32 = icmp sge i32 %27, %1
-  %or.cond.i = or i1 %15, %32
+23:                                               ; preds = %16
+  %24 = and i32 %21, 1
+  %.not.i.i22 = icmp eq i32 %24, 0
+  %25 = select i1 %.not.i.i22, i32 32, i32 126
+  %26 = lshr i32 %21, 1
+  %27 = icmp slt i32 %26, %1
+  %28 = add nuw nsw i32 %26, 96
+  %spec.select.i.i = select i1 %14, i32 %28, i32 100
+  %29 = select i1 %27, i32 %spec.select.i.i, i32 120
+  %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %25, i32 noundef %29)
+  %31 = icmp sge i32 %26, %1
+  %or.cond.i = or i1 %15, %31
   br i1 %or.cond.i, label %.sink.split.i, label %Res6_LitPrint.exit
 
-.sink.split.i:                                    ; preds = %24, %16
-  %.sink.i = phi i32 [ %22, %16 ], [ %27, %24 ]
-  %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.sink.i)
+.sink.split.i:                                    ; preds = %23, %16
+  %.sink.i = phi i32 [ %21, %16 ], [ %26, %23 ]
+  %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.sink.i)
   br label %Res6_LitPrint.exit
 
-Res6_LitPrint.exit:                               ; preds = %24, %.sink.split.i
-  %34 = load i32, ptr %18, align 4
-  %35 = getelementptr inbounds i8, ptr %18, i64 4
-  %36 = load i32, ptr %35, align 4
-  %.not = icmp eq i32 %34, %36
-  br i1 %.not, label %Res6_LitPrint.exit28, label %37
+Res6_LitPrint.exit:                               ; preds = %23, %.sink.split.i
+  %33 = load i32, ptr %17, align 4
+  %34 = getelementptr inbounds i8, ptr %17, i64 4
+  %35 = load i32, ptr %34, align 4
+  %.not = icmp eq i32 %33, %35
+  br i1 %.not, label %Res6_LitPrint.exit28, label %36
 
-37:                                               ; preds = %Res6_LitPrint.exit
-  %38 = icmp slt i32 %34, %36
-  %39 = select i1 %38, i32 38, i32 94
-  %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %39)
-  %41 = load i32, ptr %35, align 4
-  %42 = icmp slt i32 %41, 2
-  br i1 %42, label %.sink.split.i26, label %43
+36:                                               ; preds = %Res6_LitPrint.exit
+  %37 = icmp slt i32 %33, %35
+  %38 = select i1 %37, i32 38, i32 94
+  %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %38)
+  %40 = load i32, ptr %34, align 4
+  %41 = icmp slt i32 %40, 2
+  br i1 %41, label %.sink.split.i26, label %42
 
-43:                                               ; preds = %37
-  %44 = and i32 %41, 1
-  %.not.i.i23 = icmp eq i32 %44, 0
-  %45 = select i1 %.not.i.i23, i32 32, i32 126
-  %46 = lshr i32 %41, 1
-  %47 = icmp slt i32 %46, %1
-  %48 = add nuw nsw i32 %46, 96
-  %spec.select.i.i24 = select i1 %14, i32 %48, i32 100
-  %49 = select i1 %47, i32 %spec.select.i.i24, i32 120
-  %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %45, i32 noundef %49)
-  %51 = icmp sge i32 %46, %1
-  %or.cond.i25 = or i1 %15, %51
+42:                                               ; preds = %36
+  %43 = and i32 %40, 1
+  %.not.i.i23 = icmp eq i32 %43, 0
+  %44 = select i1 %.not.i.i23, i32 32, i32 126
+  %45 = lshr i32 %40, 1
+  %46 = icmp slt i32 %45, %1
+  %47 = add nuw nsw i32 %45, 96
+  %spec.select.i.i24 = select i1 %14, i32 %47, i32 100
+  %48 = select i1 %46, i32 %spec.select.i.i24, i32 120
+  %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %44, i32 noundef %48)
+  %50 = icmp sge i32 %45, %1
+  %or.cond.i25 = or i1 %15, %50
   br i1 %or.cond.i25, label %.sink.split.i26, label %Res6_LitPrint.exit28
 
-.sink.split.i26:                                  ; preds = %43, %37
-  %.sink.i27 = phi i32 [ %41, %37 ], [ %46, %43 ]
-  %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.sink.i27)
+.sink.split.i26:                                  ; preds = %42, %36
+  %.sink.i27 = phi i32 [ %40, %36 ], [ %45, %42 ]
+  %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.sink.i27)
   br label %Res6_LitPrint.exit28
 
-Res6_LitPrint.exit28:                             ; preds = %.sink.split.i26, %43, %Res6_LitPrint.exit
+Res6_LitPrint.exit28:                             ; preds = %.sink.split.i26, %42, %Res6_LitPrint.exit
   %putchar = tail call i32 @putchar(i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

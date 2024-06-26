@@ -1297,8 +1297,8 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %__begin0.sroa.6.048.i = phi i64 [ %storemerge.i.i, %for.body.i.loopexit ], [ %__begin0.sroa.6.048.i.ph, %for.body.i.preheader ]
   %div.i.i.i363 = lshr i64 %__begin0.sroa.6.048.i, 1
   %rem.i.i.i = and i64 %__begin0.sroa.6.048.i, 1
-  %mul.i20.i = mul i64 %div.i.i.i363, 3
-  %41 = getelementptr i64, ptr %call5.i.i.i.i4.i.i.i15.i240, i64 %mul.i20.i
+  %.idx = mul i64 %div.i.i.i363, 24
+  %41 = getelementptr i8, ptr %call5.i.i.i.i4.i.i.i15.i240, i64 %.idx
   %add.ptr.i.i.i = getelementptr i64, ptr %41, i64 %rem.i.i.i
   store i64 1, ptr %add.ptr.i.i.i, align 8, !tbaa !17, !noalias !43
   br label %for.cond.i.i

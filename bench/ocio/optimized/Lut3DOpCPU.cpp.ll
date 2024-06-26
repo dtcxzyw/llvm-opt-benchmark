@@ -1703,8 +1703,8 @@ if.end.i:                                         ; preds = %for.inc55.i, %for.b
   %57 = load i64, ptr %arrayidx58.i, align 8
   %arrayidx63.i = getelementptr inbounds i64, ptr %new_vert_list, i64 %i31.0246.i
   %58 = load i64, ptr %arrayidx63.i, align 8
-  %mul64.i = mul i64 %58, 3
-  %59 = getelementptr float, ptr %51, i64 %mul64.i
+  %.idx.i = mul i64 %58, 12
+  %59 = getelementptr i8, ptr %51, i64 %.idx.i
   br label %for.body62.i
 
 for.cond76.preheader.i:                           ; preds = %for.body62.i

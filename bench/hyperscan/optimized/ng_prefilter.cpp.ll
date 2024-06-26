@@ -2220,8 +2220,8 @@ cond.end.i.i.i.i.i:                               ; preds = %cond.false.i.i.i.i.
   %cond.i.i.i.i.i = phi i64 [ %div9.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %sub10.i.i.i.i.i, %cond.false.i.i.i.i.i ]
   %add.ptr11.i.i.i.i.i = getelementptr inbounds ptr, ptr %226, i64 %cond.i.i.i.i.i
   %230 = load ptr, ptr %add.ptr11.i.i.i.i.i, align 8, !noalias !88
-  %mul.neg.i.i.i.i.i = mul i64 %cond.i.i.i.i.i, -3
-  %231 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %230, i64 %mul.neg.i.i.i.i.i
+  %.idx.i.i.i.i.i = mul i64 %cond.i.i.i.i.i, -408
+  %231 = getelementptr i8, ptr %230, i64 %.idx.i.i.i.i.i
   %add.ptr15.i.i.i.i.i = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %231, i64 %add.i.i.i.i.i
   br label %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit.i.i.i
 
@@ -2933,8 +2933,8 @@ cond.end.i.i.i.i.i57:                             ; preds = %cond.false.i.i.i.i.
   %cond.i.i.i.i.i58 = phi i64 [ %div9.i.i.i.i.i88, %cond.true.i.i.i.i.i87 ], [ %sub10.i.i.i.i.i56, %cond.false.i.i.i.i.i53 ]
   %add.ptr11.i.i.i.i.i59 = getelementptr inbounds ptr, ptr %331, i64 %cond.i.i.i.i.i58
   %337 = load ptr, ptr %add.ptr11.i.i.i.i.i59, align 8, !noalias !133
-  %mul.neg.i.i.i.i.i60 = mul nsw i64 %cond.i.i.i.i.i58, -3
-  %338 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %337, i64 %mul.neg.i.i.i.i.i60
+  %.idx.i.i.i.i.i60 = mul i64 %cond.i.i.i.i.i58, -408
+  %338 = getelementptr i8, ptr %337, i64 %.idx.i.i.i.i.i60
   %add.ptr15.i.i.i.i.i61 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %338, i64 %add.i.i.i.i12.i
   br label %_ZStmiRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit.i.i
 
@@ -6118,8 +6118,8 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   %cond.i.i = phi i64 [ %div9.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i
   %3 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !283
-  %mul.neg.i.i = mul i64 %cond.i.i, -3
-  %4 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %3, i64 %mul.neg.i.i
+  %.idx.i.i = mul i64 %cond.i.i, -408
+  %4 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %add.ptr15.i.i = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %4, i64 %add.i.i
   br label %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit
 
@@ -6152,8 +6152,8 @@ cond.end.i.i33:                                   ; preds = %cond.false.i.i29, %
   %cond.i.i34 = phi i64 [ %div9.i.i43, %cond.true.i.i42 ], [ %sub10.i.i32, %cond.false.i.i29 ]
   %add.ptr11.i.i35 = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i34
   %5 = load ptr, ptr %add.ptr11.i.i35, align 8, !noalias !286
-  %mul.neg.i.i37 = mul i64 %cond.i.i34, -3
-  %6 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %5, i64 %mul.neg.i.i37
+  %.idx.i.i37 = mul i64 %cond.i.i34, -408
+  %6 = getelementptr i8, ptr %5, i64 %.idx.i.i37
   %add.ptr15.i.i38 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %6, i64 %add.i.i27
   br label %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit46
 
@@ -6187,8 +6187,8 @@ cond.end.i.i63:                                   ; preds = %cond.false.i.i59, %
   %cond.i.i64 = phi i64 [ %div9.i.i73, %cond.true.i.i72 ], [ %sub10.i.i62, %cond.false.i.i59 ]
   %add.ptr11.i.i65 = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i64
   %7 = load ptr, ptr %add.ptr11.i.i65, align 8, !noalias !289
-  %mul.neg.i.i67 = mul i64 %cond.i.i64, -3
-  %8 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %7, i64 %mul.neg.i.i67
+  %.idx.i.i67 = mul i64 %cond.i.i64, -408
+  %8 = getelementptr i8, ptr %7, i64 %.idx.i.i67
   %add.ptr15.i.i68 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %8, i64 %add.i.i57
   br label %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit76
 
@@ -6220,8 +6220,8 @@ cond.end.i.i93:                                   ; preds = %cond.false.i.i89, %
   %cond.i.i94 = phi i64 [ %div9.i.i103, %cond.true.i.i102 ], [ %sub10.i.i92, %cond.false.i.i89 ]
   %add.ptr11.i.i95 = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i94
   %9 = load ptr, ptr %add.ptr11.i.i95, align 8, !noalias !292
-  %mul.neg.i.i97 = mul i64 %cond.i.i94, -3
-  %10 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %9, i64 %mul.neg.i.i97
+  %.idx.i.i97 = mul i64 %cond.i.i94, -408
+  %10 = getelementptr i8, ptr %9, i64 %.idx.i.i97
   %add.ptr15.i.i98 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %10, i64 %add.i.i87
   br label %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit106
 
@@ -6338,8 +6338,8 @@ cond.end.i.i123:                                  ; preds = %cond.false.i.i119, 
   %cond.i.i124 = phi i64 [ %div9.i.i133, %cond.true.i.i132 ], [ %sub10.i.i122, %cond.false.i.i119 ]
   %add.ptr11.i.i125 = getelementptr inbounds ptr, ptr %22, i64 %cond.i.i124
   %23 = load ptr, ptr %add.ptr11.i.i125, align 8, !noalias !296
-  %mul.neg.i.i127 = mul i64 %cond.i.i124, -3
-  %24 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %23, i64 %mul.neg.i.i127
+  %.idx.i.i127 = mul i64 %cond.i.i124, -408
+  %24 = getelementptr i8, ptr %23, i64 %.idx.i.i127
   %add.ptr15.i.i128 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %24, i64 %add.i.i117
   br label %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit136
 
@@ -6371,8 +6371,8 @@ cond.end.i.i153:                                  ; preds = %cond.false.i.i149, 
   %cond.i.i154 = phi i64 [ %div9.i.i163, %cond.true.i.i162 ], [ %sub10.i.i152, %cond.false.i.i149 ]
   %add.ptr11.i.i155 = getelementptr inbounds ptr, ptr %22, i64 %cond.i.i154
   %25 = load ptr, ptr %add.ptr11.i.i155, align 8, !noalias !299
-  %mul.neg.i.i157 = mul nsw i64 %cond.i.i154, -3
-  %26 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %25, i64 %mul.neg.i.i157
+  %.idx.i.i157 = mul i64 %cond.i.i154, -408
+  %26 = getelementptr i8, ptr %25, i64 %.idx.i.i157
   %add.ptr15.i.i158 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %26, i64 %add.i.i147
   br label %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit166
 
@@ -6565,8 +6565,8 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit: ; p
   %cond.i.i = phi i64 [ %div9.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i
   %3 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !302
-  %mul.neg.i.i = mul nsw i64 %cond.i.i, -3
-  %4 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %3, i64 %mul.neg.i.i
+  %.idx.i.i = mul i64 %cond.i.i, -408
+  %4 = getelementptr i8, ptr %3, i64 %.idx.i.i
   %add.ptr15.i.i = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %4, i64 %add.i.i
   %call2.i = tail call fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_119RegionInfoQueueCompclERKNS0_10RegionInfoES4_(ptr noundef nonnull readonly align 8 dereferenceable(129) %add.ptr15.i.i, ptr noundef nonnull readonly align 8 dereferenceable(129) %__value)
   br i1 %call2.i, label %while.body, label %while.end
@@ -6601,8 +6601,8 @@ cond.end.i.i23:                                   ; preds = %cond.false.i.i19, %
   %cond.i.i24 = phi i64 [ %div9.i.i33, %cond.true.i.i32 ], [ %sub10.i.i22, %cond.false.i.i19 ]
   %add.ptr11.i.i25 = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i24
   %5 = load ptr, ptr %add.ptr11.i.i25, align 8, !noalias !305
-  %mul.neg.i.i27 = mul nsw i64 %cond.i.i24, -3
-  %6 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %5, i64 %mul.neg.i.i27
+  %.idx.i.i27 = mul i64 %cond.i.i24, -408
+  %6 = getelementptr i8, ptr %5, i64 %.idx.i.i27
   %add.ptr15.i.i28 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %6, i64 %add.i.i
   br label %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit36
 
@@ -6634,8 +6634,8 @@ cond.end.i.i53:                                   ; preds = %cond.false.i.i49, %
   %cond.i.i54 = phi i64 [ %div9.i.i63, %cond.true.i.i62 ], [ %sub10.i.i52, %cond.false.i.i49 ]
   %add.ptr11.i.i55 = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i54
   %7 = load ptr, ptr %add.ptr11.i.i55, align 8, !noalias !308
-  %mul.neg.i.i57 = mul i64 %cond.i.i54, -3
-  %8 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %7, i64 %mul.neg.i.i57
+  %.idx.i.i57 = mul i64 %cond.i.i54, -408
+  %8 = getelementptr i8, ptr %7, i64 %.idx.i.i57
   %add.ptr15.i.i58 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %8, i64 %add.i.i47
   br label %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit66
 
@@ -6739,8 +6739,8 @@ cond.end.i.i83:                                   ; preds = %cond.false.i.i79, %
   %cond.i.i84 = phi i64 [ %div9.i.i93, %cond.true.i.i92 ], [ %sub10.i.i82, %cond.false.i.i79 ]
   %add.ptr11.i.i85 = getelementptr inbounds ptr, ptr %20, i64 %cond.i.i84
   %21 = load ptr, ptr %add.ptr11.i.i85, align 8, !noalias !312
-  %mul.neg.i.i87 = mul i64 %cond.i.i84, -3
-  %22 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %21, i64 %mul.neg.i.i87
+  %.idx.i.i87 = mul i64 %cond.i.i84, -408
+  %22 = getelementptr i8, ptr %21, i64 %.idx.i.i87
   %add.ptr15.i.i88 = getelementptr %"struct.ue2::(anonymous namespace)::RegionInfo", ptr %22, i64 %add.i.i77
   br label %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit96
 

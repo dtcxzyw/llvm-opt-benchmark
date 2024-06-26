@@ -9309,7 +9309,7 @@ define internal fastcc noundef ptr @_ZL14stbi__psd_loadP13stbi__contextPiS1_S1_i
 
 9:                                                ; preds = %7
   store ptr @.str.75, ptr @_ZL22stbi__g_failure_reason, align 8
-  br label %704
+  br label %703
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 184
@@ -9427,7 +9427,7 @@ _ZL13stbi__get16beP13stbi__context.exit:          ; preds = %42, %45, %_ZL19stbi
 
 70:                                               ; preds = %_ZL13stbi__get16beP13stbi__context.exit
   store ptr @.str.76, ptr @_ZL22stbi__g_failure_reason, align 8
-  br label %704
+  br label %703
 
 71:                                               ; preds = %_ZL13stbi__get16beP13stbi__context.exit
   %72 = getelementptr inbounds i8, ptr %0, i64 16
@@ -9570,7 +9570,7 @@ _ZL13stbi__get16beP13stbi__context.exit222:       ; preds = %115, %118, %_ZL19st
 
 142:                                              ; preds = %_ZL13stbi__get16beP13stbi__context.exit222
   store ptr @.str.77, ptr @_ZL22stbi__g_failure_reason, align 8
-  br label %704
+  br label %703
 
 143:                                              ; preds = %_ZL13stbi__get16beP13stbi__context.exit222
   %144 = tail call fastcc noundef i32 @_ZL13stbi__get32beP13stbi__context(ptr noundef nonnull %0)
@@ -9689,7 +9689,7 @@ _ZL13stbi__get16beP13stbi__context.exit234:       ; preds = %174, %177, %_ZL19st
 
 202:                                              ; preds = %_ZL13stbi__get16beP13stbi__context.exit234
   store ptr @.str.78, ptr @_ZL22stbi__g_failure_reason, align 8
-  br label %704
+  br label %703
 
 203:                                              ; preds = %_ZL13stbi__get16beP13stbi__context.exit234, %_ZL13stbi__get16beP13stbi__context.exit234
   %204 = icmp ult ptr %197, %196
@@ -9799,7 +9799,7 @@ _ZL13stbi__get16beP13stbi__context.exit246:       ; preds = %230, %233, %_ZL19st
 
 256:                                              ; preds = %_ZL13stbi__get16beP13stbi__context.exit246
   store ptr @.str.79, ptr @_ZL22stbi__g_failure_reason, align 8
-  br label %704
+  br label %703
 
 257:                                              ; preds = %_ZL13stbi__get16beP13stbi__context.exit246
   %258 = tail call fastcc noundef i32 @_ZL13stbi__get32beP13stbi__context(ptr noundef nonnull %0)
@@ -10050,7 +10050,7 @@ _ZL13stbi__get16beP13stbi__context.exit273:       ; preds = %358, %361, %_ZL19st
 
 385:                                              ; preds = %_ZL13stbi__get16beP13stbi__context.exit273
   store ptr @.str.80, ptr @_ZL22stbi__g_failure_reason, align 8
-  br label %704
+  br label %703
 
 386:                                              ; preds = %_ZL13stbi__get16beP13stbi__context.exit273
   %.not23.i = icmp ugt i32 %145, 536870911
@@ -10072,7 +10072,7 @@ _ZL21stbi__mul2sizes_validii.exit12.i:            ; preds = %388
 
 391:                                              ; preds = %_ZL21stbi__mul2sizes_validii.exit12.i, %386, %_ZL21stbi__mul2sizes_validii.exit.thread15.i
   store ptr @.str.28, ptr @_ZL22stbi__g_failure_reason, align 8
-  br label %704
+  br label %703
 
 _ZL21stbi__mad3sizes_validiiii.exit:              ; preds = %_ZL21stbi__mul2sizes_validii.exit12.i, %388
   %392 = icmp eq i32 %383, 0
@@ -10101,7 +10101,7 @@ _ZL21stbi__mad3sizes_validiiii.exit:              ; preds = %_ZL21stbi__mul2size
 
 403:                                              ; preds = %402
   store ptr @.str.29, ptr @_ZL22stbi__g_failure_reason, align 8
-  br label %704
+  br label %703
 
 404:                                              ; preds = %402
   %405 = mul i32 %145, %144
@@ -10356,7 +10356,7 @@ _ZL20stbi__psd_decode_rleP13stbi__contextPhi.exit.us: ; preds = %424, %.loopexit
 .split333.us:                                     ; preds = %453, %478
   tail call void @free(ptr noundef %.0183) #53
   store ptr @.str.81, ptr @_ZL22stbi__g_failure_reason, align 8
-  br label %704
+  br label %703
 
 508:                                              ; preds = %.preheader322, %.loopexit315
   %indvars.iv386 = phi i64 [ 0, %.preheader322 ], [ %indvars.iv.next387, %.loopexit315 ]
@@ -10721,125 +10721,125 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %617, %620, %_ZL19st
   %wide.trip.count397 = zext nneg i32 %405 to i64
   br label %.lr.ph362
 
-.lr.ph362:                                        ; preds = %.lr.ph362.preheader, %665
-  %indvars.iv394 = phi i64 [ 0, %.lr.ph362.preheader ], [ %indvars.iv.next395, %665 ]
-  %642 = shl nsw i64 %indvars.iv394, 2
-  %643 = getelementptr inbounds i16, ptr %.0183, i64 %642
-  %644 = getelementptr inbounds i8, ptr %643, i64 6
-  %645 = load i16, ptr %644, align 2
-  switch i16 %645, label %646 [
-    i16 0, label %665
-    i16 -1, label %665
+.lr.ph362:                                        ; preds = %.lr.ph362.preheader, %664
+  %indvars.iv394 = phi i64 [ 0, %.lr.ph362.preheader ], [ %indvars.iv.next395, %664 ]
+  %.idx = shl nsw i64 %indvars.iv394, 3
+  %642 = getelementptr inbounds i8, ptr %.0183, i64 %.idx
+  %643 = getelementptr inbounds i8, ptr %642, i64 6
+  %644 = load i16, ptr %643, align 2
+  switch i16 %644, label %645 [
+    i16 0, label %664
+    i16 -1, label %664
   ]
 
-646:                                              ; preds = %.lr.ph362
-  %647 = uitofp i16 %645 to float
-  %648 = fdiv float %647, 6.553500e+04
-  %649 = fdiv float 1.000000e+00, %648
-  %650 = fsub float 1.000000e+00, %649
-  %651 = fmul float %650, 6.553500e+04
-  %652 = load <2 x i16>, ptr %643, align 2
-  %653 = uitofp <2 x i16> %652 to <2 x float>
-  %654 = insertelement <2 x float> poison, float %649, i64 0
-  %655 = shufflevector <2 x float> %654, <2 x float> poison, <2 x i32> zeroinitializer
-  %656 = insertelement <2 x float> poison, float %651, i64 0
-  %657 = shufflevector <2 x float> %656, <2 x float> poison, <2 x i32> zeroinitializer
-  %658 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %653, <2 x float> %655, <2 x float> %657)
-  %659 = fptoui <2 x float> %658 to <2 x i16>
-  store <2 x i16> %659, ptr %643, align 2
-  %660 = getelementptr inbounds i8, ptr %643, i64 4
-  %661 = load i16, ptr %660, align 2
-  %662 = uitofp i16 %661 to float
-  %663 = tail call float @llvm.fmuladd.f32(float %662, float %649, float %651)
-  %664 = fptoui float %663 to i16
-  store i16 %664, ptr %660, align 2
-  br label %665
+645:                                              ; preds = %.lr.ph362
+  %646 = uitofp i16 %644 to float
+  %647 = fdiv float %646, 6.553500e+04
+  %648 = fdiv float 1.000000e+00, %647
+  %649 = fsub float 1.000000e+00, %648
+  %650 = fmul float %649, 6.553500e+04
+  %651 = load <2 x i16>, ptr %642, align 2
+  %652 = uitofp <2 x i16> %651 to <2 x float>
+  %653 = insertelement <2 x float> poison, float %648, i64 0
+  %654 = shufflevector <2 x float> %653, <2 x float> poison, <2 x i32> zeroinitializer
+  %655 = insertelement <2 x float> poison, float %650, i64 0
+  %656 = shufflevector <2 x float> %655, <2 x float> poison, <2 x i32> zeroinitializer
+  %657 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %652, <2 x float> %654, <2 x float> %656)
+  %658 = fptoui <2 x float> %657 to <2 x i16>
+  store <2 x i16> %658, ptr %642, align 2
+  %659 = getelementptr inbounds i8, ptr %642, i64 4
+  %660 = load i16, ptr %659, align 2
+  %661 = uitofp i16 %660 to float
+  %662 = tail call float @llvm.fmuladd.f32(float %661, float %648, float %650)
+  %663 = fptoui float %662 to i16
+  store i16 %663, ptr %659, align 2
+  br label %664
 
-665:                                              ; preds = %.lr.ph362, %.lr.ph362, %646
+664:                                              ; preds = %.lr.ph362, %.lr.ph362, %645
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
   %exitcond398.not = icmp eq i64 %indvars.iv.next395, %wide.trip.count397
   br i1 %exitcond398.not, label %.loopexit, label %.lr.ph362, !llvm.loop !79
 
-.lr.ph360:                                        ; preds = %.lr.ph360.preheader, %690
-  %indvars.iv390 = phi i64 [ 0, %.lr.ph360.preheader ], [ %indvars.iv.next391, %690 ]
-  %666 = shl nsw i64 %indvars.iv390, 2
-  %667 = getelementptr inbounds i8, ptr %.0183, i64 %666
-  %668 = getelementptr inbounds i8, ptr %667, i64 3
-  %669 = load i8, ptr %668, align 1
-  switch i8 %669, label %670 [
-    i8 0, label %690
-    i8 -1, label %690
+.lr.ph360:                                        ; preds = %.lr.ph360.preheader, %689
+  %indvars.iv390 = phi i64 [ 0, %.lr.ph360.preheader ], [ %indvars.iv.next391, %689 ]
+  %665 = shl nsw i64 %indvars.iv390, 2
+  %666 = getelementptr inbounds i8, ptr %.0183, i64 %665
+  %667 = getelementptr inbounds i8, ptr %666, i64 3
+  %668 = load i8, ptr %667, align 1
+  switch i8 %668, label %669 [
+    i8 0, label %689
+    i8 -1, label %689
   ]
 
-670:                                              ; preds = %.lr.ph360
-  %671 = uitofp i8 %669 to float
-  %672 = fdiv float %671, 2.550000e+02
-  %673 = fdiv float 1.000000e+00, %672
-  %674 = fsub float 1.000000e+00, %673
-  %675 = fmul float %674, 2.550000e+02
-  %676 = load i8, ptr %667, align 1
-  %677 = uitofp i8 %676 to float
-  %678 = tail call float @llvm.fmuladd.f32(float %677, float %673, float %675)
-  %679 = fptoui float %678 to i8
-  store i8 %679, ptr %667, align 1
-  %680 = getelementptr inbounds i8, ptr %667, i64 1
-  %681 = load i8, ptr %680, align 1
-  %682 = uitofp i8 %681 to float
-  %683 = tail call float @llvm.fmuladd.f32(float %682, float %673, float %675)
-  %684 = fptoui float %683 to i8
-  store i8 %684, ptr %680, align 1
-  %685 = getelementptr inbounds i8, ptr %667, i64 2
-  %686 = load i8, ptr %685, align 1
-  %687 = uitofp i8 %686 to float
-  %688 = tail call float @llvm.fmuladd.f32(float %687, float %673, float %675)
-  %689 = fptoui float %688 to i8
-  store i8 %689, ptr %685, align 1
-  br label %690
+669:                                              ; preds = %.lr.ph360
+  %670 = uitofp i8 %668 to float
+  %671 = fdiv float %670, 2.550000e+02
+  %672 = fdiv float 1.000000e+00, %671
+  %673 = fsub float 1.000000e+00, %672
+  %674 = fmul float %673, 2.550000e+02
+  %675 = load i8, ptr %666, align 1
+  %676 = uitofp i8 %675 to float
+  %677 = tail call float @llvm.fmuladd.f32(float %676, float %672, float %674)
+  %678 = fptoui float %677 to i8
+  store i8 %678, ptr %666, align 1
+  %679 = getelementptr inbounds i8, ptr %666, i64 1
+  %680 = load i8, ptr %679, align 1
+  %681 = uitofp i8 %680 to float
+  %682 = tail call float @llvm.fmuladd.f32(float %681, float %672, float %674)
+  %683 = fptoui float %682 to i8
+  store i8 %683, ptr %679, align 1
+  %684 = getelementptr inbounds i8, ptr %666, i64 2
+  %685 = load i8, ptr %684, align 1
+  %686 = uitofp i8 %685 to float
+  %687 = tail call float @llvm.fmuladd.f32(float %686, float %672, float %674)
+  %688 = fptoui float %687 to i8
+  store i8 %688, ptr %684, align 1
+  br label %689
 
-690:                                              ; preds = %.lr.ph360, %.lr.ph360, %670
+689:                                              ; preds = %.lr.ph360, %.lr.ph360, %669
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %exitcond393.not = icmp eq i64 %indvars.iv.next391, %wide.trip.count
   br i1 %exitcond393.not, label %.loopexit, label %.lr.ph360, !llvm.loop !80
 
-.loopexit:                                        ; preds = %690, %665, %.preheader313, %.preheader, %.loopexit323
-  %691 = and i32 %4, -5
-  %or.cond11.not = icmp eq i32 %691, 0
-  br i1 %or.cond11.not, label %701, label %692
+.loopexit:                                        ; preds = %689, %664, %.preheader313, %.preheader, %.loopexit323
+  %690 = and i32 %4, -5
+  %or.cond11.not = icmp eq i32 %690, 0
+  br i1 %or.cond11.not, label %700, label %691
 
-692:                                              ; preds = %.loopexit
-  %693 = load i32, ptr %5, align 4
-  %694 = icmp eq i32 %693, 16
-  br i1 %694, label %695, label %697
+691:                                              ; preds = %.loopexit
+  %692 = load i32, ptr %5, align 4
+  %693 = icmp eq i32 %692, 16
+  br i1 %693, label %694, label %696
 
-695:                                              ; preds = %692
-  %696 = tail call fastcc noundef ptr @_ZL22stbi__convert_format16Ptiijj(ptr noundef nonnull %.0183, i32 noundef 4, i32 noundef %4, i32 noundef %145, i32 noundef %144)
-  br label %699
+694:                                              ; preds = %691
+  %695 = tail call fastcc noundef ptr @_ZL22stbi__convert_format16Ptiijj(ptr noundef nonnull %.0183, i32 noundef 4, i32 noundef %4, i32 noundef %145, i32 noundef %144)
+  br label %698
 
-697:                                              ; preds = %692
-  %698 = tail call fastcc noundef ptr @_ZL20stbi__convert_formatPhiijj(ptr noundef nonnull %.0183, i32 noundef 4, i32 noundef %4, i32 noundef %145, i32 noundef %144)
-  br label %699
+696:                                              ; preds = %691
+  %697 = tail call fastcc noundef ptr @_ZL20stbi__convert_formatPhiijj(ptr noundef nonnull %.0183, i32 noundef 4, i32 noundef %4, i32 noundef %145, i32 noundef %144)
+  br label %698
 
-699:                                              ; preds = %697, %695
-  %.1184 = phi ptr [ %696, %695 ], [ %698, %697 ]
-  %700 = icmp eq ptr %.1184, null
-  br i1 %700, label %704, label %701
+698:                                              ; preds = %696, %694
+  %.1184 = phi ptr [ %695, %694 ], [ %697, %696 ]
+  %699 = icmp eq ptr %.1184, null
+  br i1 %699, label %703, label %700
 
-701:                                              ; preds = %699, %.loopexit
-  %.2185 = phi ptr [ %.1184, %699 ], [ %.0183, %.loopexit ]
+700:                                              ; preds = %698, %.loopexit
+  %.2185 = phi ptr [ %.1184, %698 ], [ %.0183, %.loopexit ]
   %.not206 = icmp eq ptr %3, null
-  br i1 %.not206, label %703, label %702
+  br i1 %.not206, label %702, label %701
 
-702:                                              ; preds = %701
+701:                                              ; preds = %700
   store i32 4, ptr %3, align 4
-  br label %703
+  br label %702
 
-703:                                              ; preds = %702, %701
+702:                                              ; preds = %701, %700
   store i32 %144, ptr %2, align 4
   store i32 %145, ptr %1, align 4
-  br label %704
+  br label %703
 
-704:                                              ; preds = %699, %703, %.split333.us, %403, %391, %385, %256, %202, %142, %70, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %70 ], [ null, %142 ], [ null, %202 ], [ null, %256 ], [ null, %385 ], [ null, %.split333.us ], [ %.2185, %703 ], [ null, %403 ], [ null, %391 ], [ null, %699 ]
+703:                                              ; preds = %698, %702, %.split333.us, %403, %391, %385, %256, %202, %142, %70, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %70 ], [ null, %142 ], [ null, %202 ], [ null, %256 ], [ null, %385 ], [ null, %.split333.us ], [ %.2185, %702 ], [ null, %403 ], [ null, %391 ], [ null, %698 ]
   ret ptr %.0
 }
 

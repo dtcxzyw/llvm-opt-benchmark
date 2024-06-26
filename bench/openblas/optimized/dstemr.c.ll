@@ -266,7 +266,7 @@ define void @dstemr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %165 = load i32, ptr %43, align 4, !tbaa !3
   %166 = sitofp i32 %165 to double
   store double %166, ptr %11, align 8, !tbaa !7
-  br label %570
+  br label %569
 
 167:                                              ; preds = %161
   %168 = load i32, ptr %13, align 4, !tbaa !3
@@ -288,17 +288,17 @@ define void @dstemr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %174 = sub nsw i32 0, %173
   store i32 %174, ptr %22, align 4, !tbaa !3
   %175 = call i32 @xerbla_(ptr noundef nonnull @.str.7, ptr noundef nonnull %22, i32 noundef 6) #5
-  br label %570
+  br label %569
 
 176:                                              ; preds = %171
   %177 = select i1 %67, i1 true, i1 %69
-  br i1 %177, label %570, label %178
+  br i1 %177, label %569, label %178
 
 178:                                              ; preds = %176
   store i32 0, ptr %9, align 4, !tbaa !3
   %179 = load i32, ptr %2, align 4, !tbaa !3
   switch i32 %179, label %306 [
-    i32 0, label %570
+    i32 0, label %569
     i32 1, label %180
     i32 2, label %199
   ]
@@ -333,14 +333,14 @@ define void @dstemr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 195:                                              ; preds = %193, %185
   %196 = icmp eq i32 %57, 0
-  br i1 %196, label %570, label %197
+  br i1 %196, label %569, label %197
 
 197:                                              ; preds = %195
   store double 1.000000e+00, ptr %11, align 8, !tbaa !7
   store i32 1, ptr %14, align 4, !tbaa !3
   %198 = getelementptr inbounds i8, ptr %14, i64 4
   store i32 1, ptr %198, align 4, !tbaa !3
-  br label %570
+  br label %569
 
 199:                                              ; preds = %178
   %200 = getelementptr inbounds i8, ptr %3, i64 8
@@ -682,7 +682,7 @@ thread-pre-split19:                               ; preds = %322
   %396 = call i32 @llvm.abs.i32(i32 %393, i1 true)
   %397 = add nuw nsw i32 %396, 10
   store i32 %397, ptr %20, align 4, !tbaa !3
-  br label %570
+  br label %569
 
 398:                                              ; preds = %377
   br i1 %70, label %399, label %405
@@ -697,7 +697,7 @@ thread-pre-split19:                               ; preds = %322
   %403 = call i32 @llvm.abs.i32(i32 %400, i1 true)
   %404 = add nuw nsw i32 %403, 20
   store i32 %404, ptr %20, align 4, !tbaa !3
-  br label %570
+  br label %569
 
 405:                                              ; preds = %398
   %406 = load i32, ptr %9, align 4, !tbaa !3
@@ -867,7 +867,7 @@ thread-pre-split19:                               ; preds = %322
 
 511:                                              ; preds = %508
   store i32 3, ptr %20, align 4, !tbaa !3
-  br label %570
+  br label %569
 
 512:                                              ; preds = %507
   %513 = load i32, ptr %9, align 4, !tbaa !3
@@ -883,9 +883,9 @@ thread-pre-split19:                               ; preds = %322
   br label %520
 
 520:                                              ; preds = %.thread26, %518
-  %521 = phi i32 [ %514, %518 ], [ %566, %.thread26 ]
+  %521 = phi i32 [ %514, %518 ], [ %565, %.thread26 ]
   %522 = phi i64 [ 1, %518 ], [ %527, %.thread26 ]
-  %523 = phi i64 [ 2, %518 ], [ %569, %.thread26 ]
+  %523 = phi i64 [ 2, %518 ], [ %568, %.thread26 ]
   %524 = getelementptr inbounds double, ptr %49, i64 %522
   %525 = load double, ptr %524, align 8, !tbaa !7
   %526 = load i32, ptr %9, align 4, !tbaa !3
@@ -933,35 +933,35 @@ thread-pre-split19:                               ; preds = %322
   %555 = getelementptr i32, ptr %54, i64 %554
   %556 = getelementptr i8, ptr %555, i64 -4
   %557 = load i32, ptr %556, align 4, !tbaa !3
-  %558 = shl nuw i64 %522, 1
-  %559 = shl i64 %522, 33
-  %560 = ashr exact i64 %559, 32
-  %561 = getelementptr i32, ptr %516, i64 %560
-  %562 = load i32, ptr %561, align 4, !tbaa !3
-  store i32 %562, ptr %556, align 4, !tbaa !3
-  store i32 %557, ptr %561, align 4, !tbaa !3
-  %563 = load i32, ptr %555, align 4, !tbaa !3
-  store i32 %563, ptr %24, align 4, !tbaa !3
-  %564 = getelementptr inbounds i32, ptr %54, i64 %558
-  %565 = load i32, ptr %564, align 4, !tbaa !3
-  store i32 %565, ptr %555, align 4, !tbaa !3
-  store i32 %563, ptr %564, align 4, !tbaa !3
+  %558 = shl i64 %522, 33
+  %559 = ashr exact i64 %558, 32
+  %560 = getelementptr i32, ptr %516, i64 %559
+  %561 = load i32, ptr %560, align 4, !tbaa !3
+  store i32 %561, ptr %556, align 4, !tbaa !3
+  store i32 %557, ptr %560, align 4, !tbaa !3
+  %562 = load i32, ptr %555, align 4, !tbaa !3
+  store i32 %562, ptr %24, align 4, !tbaa !3
+  %.idx = shl i64 %522, 3
+  %563 = getelementptr inbounds i8, ptr %54, i64 %.idx
+  %564 = load i32, ptr %563, align 4, !tbaa !3
+  store i32 %564, ptr %555, align 4, !tbaa !3
+  store i32 %562, ptr %563, align 4, !tbaa !3
   %.pre42 = load i32, ptr %22, align 4, !tbaa !3
   br label %.thread26
 
 .thread26:                                        ; preds = %520, %545, %543
-  %566 = phi i32 [ %521, %520 ], [ %.pre42, %545 ], [ %521, %543 ]
-  %567 = sext i32 %566 to i64
-  %568 = icmp slt i64 %522, %567
-  %569 = add nuw nsw i64 %523, 1
-  br i1 %568, label %520, label %.loopexit, !llvm.loop !15
+  %565 = phi i32 [ %521, %520 ], [ %.pre42, %545 ], [ %521, %543 ]
+  %566 = sext i32 %565 to i64
+  %567 = icmp slt i64 %522, %566
+  %568 = add nuw nsw i64 %523, 1
+  br i1 %567, label %520, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.thread26, %512, %508, %504
   store double %146, ptr %16, align 8, !tbaa !7
   store i32 %76, ptr %18, align 4, !tbaa !3
-  br label %570
+  br label %569
 
-570:                                              ; preds = %.thread44, %.loopexit, %511, %402, %395, %197, %195, %178, %176, %.thread17
+569:                                              ; preds = %.thread44, %.loopexit, %511, %402, %395, %197, %195, %178, %176, %.thread17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #5

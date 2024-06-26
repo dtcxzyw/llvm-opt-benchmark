@@ -266,63 +266,63 @@ define dso_local noundef i32 @acpi_ev_delete_gpe_handlers(ptr nocapture noundef 
   %8 = getelementptr inbounds i8, ptr %1, i64 40
   br label %9
 
-9:                                                ; preds = %34, %7
-  %10 = phi i64 [ 0, %7 ], [ %35, %34 ]
-  %11 = shl nuw nsw i64 %10, 3
-  br label %12
+9:                                                ; preds = %33, %7
+  %10 = phi i64 [ 0, %7 ], [ %34, %33 ]
+  %.idx = mul nuw nsw i64 %10, 192
+  br label %11
 
-12:                                               ; preds = %31, %9
-  %13 = phi i64 [ 0, %9 ], [ %32, %31 ]
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr %struct.acpi_gpe_event_info, ptr %14, i64 %11
-  %16 = getelementptr %struct.acpi_gpe_event_info, ptr %15, i64 %13
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
-  %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 7
-  switch i8 %19, label %31 [
-    i8 2, label %20
-    i8 4, label %20
-    i8 3, label %22
+11:                                               ; preds = %30, %9
+  %12 = phi i64 [ 0, %9 ], [ %31, %30 ]
+  %13 = load ptr, ptr %8, align 8
+  %14 = getelementptr i8, ptr %13, i64 %.idx
+  %15 = getelementptr %struct.acpi_gpe_event_info, ptr %14, i64 %12
+  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = load i8, ptr %16, align 8
+  %18 = and i8 %17, 7
+  switch i8 %18, label %30 [
+    i8 2, label %19
+    i8 4, label %19
+    i8 3, label %21
   ]
 
-20:                                               ; preds = %12, %12
-  %21 = load ptr, ptr %16, align 8
-  tail call void @kfree(ptr noundef %21) #5
+19:                                               ; preds = %11, %11
+  %20 = load ptr, ptr %15, align 8
+  tail call void @kfree(ptr noundef %20) #5
   br label %.loopexit
 
-22:                                               ; preds = %12
-  %23 = load ptr, ptr %16, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %.loopexit, label %.preheader
+21:                                               ; preds = %11
+  %22 = load ptr, ptr %15, align 8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %22, %.preheader
-  %25 = phi ptr [ %27, %.preheader ], [ %23, %22 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  tail call void @kfree(ptr noundef nonnull %25) #5
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !13
+.preheader:                                       ; preds = %21, %.preheader
+  %24 = phi ptr [ %26, %.preheader ], [ %22, %21 ]
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  tail call void @kfree(ptr noundef nonnull %24) #5
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !13
 
-.loopexit:                                        ; preds = %.preheader, %22, %20
-  store ptr null, ptr %16, align 8
-  %29 = load i8, ptr %17, align 8
-  %30 = and i8 %29, -8
-  store i8 %30, ptr %17, align 8
-  br label %31
+.loopexit:                                        ; preds = %.preheader, %21, %19
+  store ptr null, ptr %15, align 8
+  %28 = load i8, ptr %16, align 8
+  %29 = and i8 %28, -8
+  store i8 %29, ptr %16, align 8
+  br label %30
 
-31:                                               ; preds = %.loopexit, %12
-  %32 = add nuw nsw i64 %13, 1
-  %33 = icmp eq i64 %32, 8
-  br i1 %33, label %34, label %12, !llvm.loop !14
+30:                                               ; preds = %.loopexit, %11
+  %31 = add nuw nsw i64 %12, 1
+  %32 = icmp eq i64 %31, 8
+  br i1 %32, label %33, label %11, !llvm.loop !14
 
-34:                                               ; preds = %31
-  %35 = add nuw nsw i64 %10, 1
-  %36 = load i32, ptr %4, align 8
-  %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %35, %37
-  br i1 %38, label %9, label %.loopexit3, !llvm.loop !15
+33:                                               ; preds = %30
+  %34 = add nuw nsw i64 %10, 1
+  %35 = load i32, ptr %4, align 8
+  %36 = zext i32 %35 to i64
+  %37 = icmp ult i64 %34, %36
+  br i1 %37, label %9, label %.loopexit3, !llvm.loop !15
 
-.loopexit3:                                       ; preds = %34, %3
+.loopexit3:                                       ; preds = %33, %3
   ret i32 0
 }
 

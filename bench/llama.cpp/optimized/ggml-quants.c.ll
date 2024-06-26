@@ -1225,15 +1225,15 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx.i = getelementptr inbounds [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %idxprom.i
   %1 = load float, ptr %arrayidx.i, align 4
   %qs = getelementptr inbounds i8, ptr %arrayidx, i64 2
-  %2 = shl nsw i64 %indvars.iv14, 5
-  %invariant.gep = getelementptr inbounds float, ptr %y, i64 %2
+  %arrayidx12.idx = shl nsw i64 %indvars.iv14, 7
+  %invariant.gep = getelementptr inbounds i8, ptr %y, i64 %arrayidx12.idx
   br label %for.body4
 
 for.body4:                                        ; preds = %for.body, %for.body4
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.body4 ]
   %arrayidx8 = getelementptr inbounds [32 x i8], ptr %qs, i64 0, i64 %indvars.iv
-  %3 = load i8, ptr %arrayidx8, align 1
-  %conv9 = sitofp i8 %3 to float
+  %2 = load i8, ptr %arrayidx8, align 1
+  %conv9 = sitofp i8 %2 to float
   %mul = fmul float %1, %conv9
   %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %indvars.iv
   store float %mul, ptr %gep, align 4

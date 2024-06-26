@@ -8009,7 +8009,7 @@ _ZL23check_index_consistencyPK12gmx_domdec_tiPKc.exit: ; preds = %3476, %3477
 
 .preheader.i.i612:                                ; preds = %3492, %3480
   %indvars.iv13.i.i = phi i64 [ 0, %3480 ], [ %indvars.iv.next14.i.i, %3492 ]
-  %3485 = mul nuw nsw i64 %indvars.iv13.i.i, 3
+  %3485 = mul nuw nsw i64 %indvars.iv13.i.i, 12
   br label %3486
 
 3486:                                             ; preds = %3486, %.preheader.i.i612
@@ -8017,7 +8017,7 @@ _ZL23check_index_consistencyPK12gmx_domdec_tiPKc.exit: ; preds = %3476, %3477
   %3487 = getelementptr inbounds [3 x float], ptr %1173, i64 %indvars.iv13.i.i, i64 %indvars.iv.i.i613
   %3488 = load float, ptr %3487, align 4, !noalias !77
   %3489 = load ptr, ptr %3484, align 8, !alias.scope !77
-  %3490 = getelementptr float, ptr %3489, i64 %3485
+  %3490 = getelementptr i8, ptr %3489, i64 %3485
   %3491 = getelementptr float, ptr %3490, i64 %indvars.iv.i.i613
   store float %3488, ptr %3491, align 4
   %indvars.iv.next.i.i614 = add nuw nsw i64 %indvars.iv.i.i613, 1

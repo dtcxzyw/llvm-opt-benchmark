@@ -4608,8 +4608,8 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi i64 [ %div9.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
   %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %98, i64 %cond.i.i.i.i
   %103 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !56
-  %mul.neg.i.i.i.i = mul i64 %cond.i.i.i.i, -6
-  %104 = getelementptr %"struct.rocksdb::BlockBasedTableIterator::BlockHandleInfo", ptr %103, i64 %mul.neg.i.i.i.i
+  %.idx.i.i.i.i = mul i64 %cond.i.i.i.i, -480
+  %104 = getelementptr i8, ptr %103, i64 %.idx.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr %"struct.rocksdb::BlockBasedTableIterator::BlockHandleInfo", ptr %104, i64 %add.i.i.i.i
   br label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN7rocksdb23BlockBasedTableIterator15BlockHandleInfoERS3_PS3_EEplEl.exit
 

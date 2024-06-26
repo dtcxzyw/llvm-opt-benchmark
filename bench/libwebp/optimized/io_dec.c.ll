@@ -113,14 +113,14 @@ WebPIsAlphaMode.exit:                             ; preds = %switch.hole_check, 
   %24 = getelementptr inbounds i8, ptr %0, i64 136
   %25 = load i32, ptr %24, align 8
   %.not48 = icmp eq i32 %25, 0
-  br i1 %.not48, label %181, label %26
+  br i1 %.not48, label %179, label %26
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %3, align 8
   %28 = load i32, ptr %27, align 8
   %switch.tableidx74 = add i32 %28, -1
   %29 = icmp ult i32 %switch.tableidx74, 12
-  br i1 %6, label %102, label %30
+  br i1 %6, label %100, label %30
 
 30:                                               ; preds = %26
   br i1 %29, label %switch.hole_check70, label %31
@@ -203,207 +203,207 @@ WebPIsAlphaMode.exit.i:                           ; preds = %switch.hole_check70
   %81 = shl nsw i32 %34, 1
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i8, ptr %57, i64 %82
-  %84 = shl nsw i64 %45, 2
-  %85 = getelementptr inbounds i32, ptr %54, i64 %84
-  %86 = tail call i32 @WebPRescalerInit(ptr noundef %80, i32 noundef %40, i32 noundef %44, ptr noundef nonnull %83, i32 noundef %34, i32 noundef %36, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %85) #6
-  %.not82.i = icmp eq i32 %86, 0
-  br i1 %.not82.i, label %InitRGBRescaler.exit, label %87
+  %.idx.i = shl nsw i64 %45, 4
+  %84 = getelementptr inbounds i8, ptr %54, i64 %.idx.i
+  %85 = tail call i32 @WebPRescalerInit(ptr noundef %80, i32 noundef %40, i32 noundef %44, ptr noundef nonnull %83, i32 noundef %34, i32 noundef %36, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %84) #6
+  %.not82.i = icmp eq i32 %85, 0
+  br i1 %.not82.i, label %InitRGBRescaler.exit, label %86
 
-87:                                               ; preds = %79
+86:                                               ; preds = %79
   store ptr @EmitRescaledRGB, ptr %13, align 8
   tail call void @WebPInitYUV444Converters() #6
-  br i1 %.not.i, label %InitRGBRescaler.exit, label %88
+  br i1 %.not.i, label %InitRGBRescaler.exit, label %87
 
-88:                                               ; preds = %87
-  %89 = load ptr, ptr %70, align 8
-  %90 = load i32, ptr %37, align 4
-  %91 = load i32, ptr %41, align 8
-  %92 = mul nsw i32 %34, 3
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i8, ptr %57, i64 %93
-  %95 = mul nsw i64 %45, 6
-  %96 = getelementptr inbounds i32, ptr %54, i64 %95
-  %97 = tail call i32 @WebPRescalerInit(ptr noundef %89, i32 noundef %90, i32 noundef %91, ptr noundef nonnull %94, i32 noundef %34, i32 noundef %36, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %96) #6
-  %.not83.i = icmp eq i32 %97, 0
-  br i1 %.not83.i, label %InitRGBRescaler.exit, label %98
+87:                                               ; preds = %86
+  %88 = load ptr, ptr %70, align 8
+  %89 = load i32, ptr %37, align 4
+  %90 = load i32, ptr %41, align 8
+  %91 = mul nsw i32 %34, 3
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds i8, ptr %57, i64 %92
+  %.idx83.i = mul nsw i64 %45, 24
+  %94 = getelementptr inbounds i8, ptr %54, i64 %.idx83.i
+  %95 = tail call i32 @WebPRescalerInit(ptr noundef %88, i32 noundef %89, i32 noundef %90, ptr noundef nonnull %93, i32 noundef %34, i32 noundef %36, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %94) #6
+  %.not84.i = icmp eq i32 %95, 0
+  br i1 %.not84.i, label %InitRGBRescaler.exit, label %96
 
-98:                                               ; preds = %88
+96:                                               ; preds = %87
   store ptr @EmitRescaledAlphaRGB, ptr %14, align 8
-  %99 = load ptr, ptr %3, align 8
-  %100 = load i32, ptr %99, align 8
-  %switch.selectcmp.case1.i = icmp eq i32 %100, 5
-  %switch.selectcmp.case2.i = icmp eq i32 %100, 10
+  %97 = load ptr, ptr %3, align 8
+  %98 = load i32, ptr %97, align 8
+  %switch.selectcmp.case1.i = icmp eq i32 %98, 5
+  %switch.selectcmp.case2.i = icmp eq i32 %98, 10
   %switch.selectcmp.i = or i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
-  %101 = select i1 %switch.selectcmp.i, ptr @ExportAlphaRGBA4444, ptr @ExportAlpha
-  store ptr %101, ptr %15, align 8
+  %99 = select i1 %switch.selectcmp.i, ptr @ExportAlphaRGBA4444, ptr @ExportAlpha
+  store ptr %99, ptr %15, align 8
   tail call void @WebPInitAlphaProcessing() #6
   br label %InitRGBRescaler.exit
 
-102:                                              ; preds = %26
-  br i1 %29, label %switch.hole_check75, label %103
+100:                                              ; preds = %26
+  br i1 %29, label %switch.hole_check75, label %101
 
-103:                                              ; preds = %switch.hole_check75, %102
-  %104 = add i32 %28, -11
-  %narrow.i.i.i59 = icmp ult i32 %104, -4
+101:                                              ; preds = %switch.hole_check75, %100
+  %102 = add i32 %28, -11
+  %narrow.i.i.i59 = icmp ult i32 %102, -4
   br label %WebPIsAlphaMode.exit.i53
 
-switch.hole_check75:                              ; preds = %102
+switch.hole_check75:                              ; preds = %100
   %switch.maskindex76 = trunc nuw i32 %switch.tableidx74 to i16
   %switch.shifted77 = lshr i16 2077, %switch.maskindex76
   %switch.lobit78 = trunc i16 %switch.shifted77 to i1
-  br i1 %switch.lobit78, label %WebPIsAlphaMode.exit.i53, label %103
+  br i1 %switch.lobit78, label %WebPIsAlphaMode.exit.i53, label %101
 
-WebPIsAlphaMode.exit.i53:                         ; preds = %switch.hole_check75, %103
-  %.not.i54 = phi i1 [ %narrow.i.i.i59, %103 ], [ false, %switch.hole_check75 ]
-  %105 = getelementptr inbounds i8, ptr %0, i64 140
-  %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %0, i64 144
-  %108 = load i32, ptr %107, align 8
+WebPIsAlphaMode.exit.i53:                         ; preds = %switch.hole_check75, %101
+  %.not.i54 = phi i1 [ %narrow.i.i.i59, %101 ], [ false, %switch.hole_check75 ]
+  %103 = getelementptr inbounds i8, ptr %0, i64 140
+  %104 = load i32, ptr %103, align 4
+  %105 = getelementptr inbounds i8, ptr %0, i64 144
+  %106 = load i32, ptr %105, align 8
+  %107 = add nsw i32 %104, 1
+  %108 = ashr i32 %107, 1
   %109 = add nsw i32 %106, 1
   %110 = ashr i32 %109, 1
-  %111 = add nsw i32 %108, 1
-  %112 = ashr i32 %111, 1
-  %113 = getelementptr inbounds i8, ptr %0, i64 12
-  %114 = load i32, ptr %113, align 4
-  %115 = add nsw i32 %114, 1
-  %116 = ashr i32 %115, 1
-  %117 = getelementptr inbounds i8, ptr %0, i64 16
-  %118 = load i32, ptr %117, align 8
-  %119 = add nsw i32 %118, 1
-  %120 = ashr i32 %119, 1
-  %121 = sext i32 %106 to i64
-  %122 = shl nsw i64 %121, 1
-  %123 = and i32 %109, -2
-  %124 = sext i32 %123 to i64
-  %125 = shl nsw i64 %124, 1
-  %126 = add nsw i64 %125, %122
-  %127 = shl nsw i64 %126, 2
-  %128 = shl nsw i64 %121, 3
+  %111 = getelementptr inbounds i8, ptr %0, i64 12
+  %112 = load i32, ptr %111, align 4
+  %113 = add nsw i32 %112, 1
+  %114 = ashr i32 %113, 1
+  %115 = getelementptr inbounds i8, ptr %0, i64 16
+  %116 = load i32, ptr %115, align 8
+  %117 = add nsw i32 %116, 1
+  %118 = ashr i32 %117, 1
+  %119 = sext i32 %104 to i64
+  %120 = shl nsw i64 %119, 1
+  %121 = and i32 %107, -2
+  %122 = sext i32 %121 to i64
+  %123 = shl nsw i64 %122, 1
+  %124 = add nsw i64 %123, %120
+  %125 = shl nsw i64 %124, 2
+  %126 = shl nsw i64 %119, 3
   %spec.select67 = select i1 %.not.i54, i64 343, i64 447
-  %spec.select68 = select i1 %.not.i54, i64 0, i64 %128
-  %.076.i = add nsw i64 %127, %spec.select68
-  %129 = add nsw i64 %.076.i, %spec.select67
-  %130 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %129) #6
-  store ptr %130, ptr %12, align 8
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %InitRGBRescaler.exit, label %132
+  %spec.select68 = select i1 %.not.i54, i64 0, i64 %126
+  %.076.i = add nsw i64 %125, %spec.select68
+  %127 = add nsw i64 %.076.i, %spec.select67
+  %128 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %127) #6
+  store ptr %128, ptr %12, align 8
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %InitRGBRescaler.exit, label %130
 
-132:                                              ; preds = %WebPIsAlphaMode.exit.i53
-  %133 = getelementptr inbounds i8, ptr %27, i64 16
-  %134 = getelementptr inbounds i8, ptr %130, i64 %.076.i
-  %135 = ptrtoint ptr %134 to i64
-  %136 = add i64 %135, 31
-  %137 = and i64 %136, -32
-  %138 = inttoptr i64 %137 to ptr
-  %139 = getelementptr inbounds i8, ptr %3, i64 48
+130:                                              ; preds = %WebPIsAlphaMode.exit.i53
+  %131 = getelementptr inbounds i8, ptr %27, i64 16
+  %132 = getelementptr inbounds i8, ptr %128, i64 %.076.i
+  %133 = ptrtoint ptr %132 to i64
+  %134 = add i64 %133, 31
+  %135 = and i64 %134, -32
+  %136 = inttoptr i64 %135 to ptr
+  %137 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr %136, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %136, i64 104
+  %139 = getelementptr inbounds i8, ptr %3, i64 56
   store ptr %138, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %138, i64 104
-  %141 = getelementptr inbounds i8, ptr %3, i64 56
+  %140 = getelementptr inbounds i8, ptr %136, i64 208
+  %141 = getelementptr inbounds i8, ptr %3, i64 64
   store ptr %140, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %138, i64 208
-  %143 = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr %142, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %138, i64 312
-  %145 = select i1 %.not.i54, ptr null, ptr %144
-  %146 = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr %145, ptr %146, align 8
-  %147 = load i32, ptr %113, align 4
-  %148 = load i32, ptr %117, align 8
-  %149 = load ptr, ptr %133, align 8
-  %150 = getelementptr inbounds i8, ptr %27, i64 48
-  %151 = load i32, ptr %150, align 8
-  %152 = tail call i32 @WebPRescalerInit(ptr noundef %138, i32 noundef %147, i32 noundef %148, ptr noundef %149, i32 noundef %106, i32 noundef %108, i32 noundef %151, i32 noundef 1, ptr noundef nonnull %130) #6
-  %.not78.i = icmp eq i32 %152, 0
-  br i1 %.not78.i, label %InitRGBRescaler.exit, label %153
+  %142 = getelementptr inbounds i8, ptr %136, i64 312
+  %143 = select i1 %.not.i54, ptr null, ptr %142
+  %144 = getelementptr inbounds i8, ptr %3, i64 72
+  store ptr %143, ptr %144, align 8
+  %145 = load i32, ptr %111, align 4
+  %146 = load i32, ptr %115, align 8
+  %147 = load ptr, ptr %131, align 8
+  %148 = getelementptr inbounds i8, ptr %27, i64 48
+  %149 = load i32, ptr %148, align 8
+  %150 = tail call i32 @WebPRescalerInit(ptr noundef %136, i32 noundef %145, i32 noundef %146, ptr noundef %147, i32 noundef %104, i32 noundef %106, i32 noundef %149, i32 noundef 1, ptr noundef nonnull %128) #6
+  %.not78.i = icmp eq i32 %150, 0
+  br i1 %.not78.i, label %InitRGBRescaler.exit, label %151
 
-153:                                              ; preds = %132
-  %154 = load ptr, ptr %141, align 8
-  %155 = getelementptr inbounds i8, ptr %27, i64 24
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %27, i64 52
-  %158 = load i32, ptr %157, align 4
-  %159 = getelementptr inbounds i32, ptr %130, i64 %122
-  %160 = tail call i32 @WebPRescalerInit(ptr noundef %154, i32 noundef %116, i32 noundef %120, ptr noundef %156, i32 noundef %110, i32 noundef %112, i32 noundef %158, i32 noundef 1, ptr noundef nonnull %159) #6
-  %.not79.i = icmp eq i32 %160, 0
-  br i1 %.not79.i, label %InitRGBRescaler.exit, label %161
+151:                                              ; preds = %130
+  %152 = load ptr, ptr %139, align 8
+  %153 = getelementptr inbounds i8, ptr %27, i64 24
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds i8, ptr %27, i64 52
+  %156 = load i32, ptr %155, align 4
+  %157 = getelementptr inbounds i32, ptr %128, i64 %120
+  %158 = tail call i32 @WebPRescalerInit(ptr noundef %152, i32 noundef %114, i32 noundef %118, ptr noundef %154, i32 noundef %108, i32 noundef %110, i32 noundef %156, i32 noundef 1, ptr noundef nonnull %157) #6
+  %.not79.i = icmp eq i32 %158, 0
+  br i1 %.not79.i, label %InitRGBRescaler.exit, label %159
 
-161:                                              ; preds = %153
-  %162 = load ptr, ptr %143, align 8
-  %163 = getelementptr inbounds i8, ptr %27, i64 32
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %27, i64 56
-  %166 = load i32, ptr %165, align 8
-  %167 = getelementptr inbounds i32, ptr %159, i64 %124
-  %168 = tail call i32 @WebPRescalerInit(ptr noundef %162, i32 noundef %116, i32 noundef %120, ptr noundef %164, i32 noundef %110, i32 noundef %112, i32 noundef %166, i32 noundef 1, ptr noundef nonnull %167) #6
-  %.not80.i56 = icmp eq i32 %168, 0
-  br i1 %.not80.i56, label %InitRGBRescaler.exit, label %169
+159:                                              ; preds = %151
+  %160 = load ptr, ptr %141, align 8
+  %161 = getelementptr inbounds i8, ptr %27, i64 32
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds i8, ptr %27, i64 56
+  %164 = load i32, ptr %163, align 8
+  %165 = getelementptr inbounds i32, ptr %157, i64 %122
+  %166 = tail call i32 @WebPRescalerInit(ptr noundef %160, i32 noundef %114, i32 noundef %118, ptr noundef %162, i32 noundef %108, i32 noundef %110, i32 noundef %164, i32 noundef 1, ptr noundef nonnull %165) #6
+  %.not80.i56 = icmp eq i32 %166, 0
+  br i1 %.not80.i56, label %InitRGBRescaler.exit, label %167
 
-169:                                              ; preds = %161
+167:                                              ; preds = %159
   store ptr @EmitRescaledYUV, ptr %13, align 8
-  br i1 %.not.i54, label %InitRGBRescaler.exit, label %170
+  br i1 %.not.i54, label %InitRGBRescaler.exit, label %168
 
-170:                                              ; preds = %169
-  %171 = load ptr, ptr %146, align 8
-  %172 = load i32, ptr %113, align 4
-  %173 = load i32, ptr %117, align 8
-  %174 = getelementptr inbounds i8, ptr %27, i64 40
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %27, i64 60
-  %177 = load i32, ptr %176, align 4
-  %178 = getelementptr inbounds i32, ptr %159, i64 %125
-  %179 = tail call i32 @WebPRescalerInit(ptr noundef %171, i32 noundef %172, i32 noundef %173, ptr noundef %175, i32 noundef %106, i32 noundef %108, i32 noundef %177, i32 noundef 1, ptr noundef nonnull %178) #6
-  %.not81.i57 = icmp eq i32 %179, 0
-  br i1 %.not81.i57, label %InitRGBRescaler.exit, label %180
+168:                                              ; preds = %167
+  %169 = load ptr, ptr %144, align 8
+  %170 = load i32, ptr %111, align 4
+  %171 = load i32, ptr %115, align 8
+  %172 = getelementptr inbounds i8, ptr %27, i64 40
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds i8, ptr %27, i64 60
+  %175 = load i32, ptr %174, align 4
+  %176 = getelementptr inbounds i32, ptr %157, i64 %123
+  %177 = tail call i32 @WebPRescalerInit(ptr noundef %169, i32 noundef %170, i32 noundef %171, ptr noundef %173, i32 noundef %104, i32 noundef %106, i32 noundef %175, i32 noundef 1, ptr noundef nonnull %176) #6
+  %.not81.i57 = icmp eq i32 %177, 0
+  br i1 %.not81.i57, label %InitRGBRescaler.exit, label %178
 
-180:                                              ; preds = %170
+178:                                              ; preds = %168
   store ptr @EmitRescaledAlphaYUV, ptr %14, align 8
   tail call void @WebPInitAlphaProcessing() #6
   br label %InitRGBRescaler.exit
 
-181:                                              ; preds = %23
-  br i1 %6, label %.thread61, label %182
+179:                                              ; preds = %23
+  br i1 %6, label %.thread61, label %180
 
-182:                                              ; preds = %181
+180:                                              ; preds = %179
   tail call void @WebPInitSamplers() #6
   store ptr @EmitSampledRGB, ptr %13, align 8
-  %183 = getelementptr inbounds i8, ptr %0, i64 88
-  %184 = load i32, ptr %183, align 8
-  %.not50 = icmp eq i32 %184, 0
-  br i1 %.not50, label %204, label %185
+  %181 = getelementptr inbounds i8, ptr %0, i64 88
+  %182 = load i32, ptr %181, align 8
+  %.not50 = icmp eq i32 %182, 0
+  br i1 %.not50, label %202, label %183
 
-185:                                              ; preds = %182
-  %186 = getelementptr inbounds i8, ptr %0, i64 12
-  %187 = load i32, ptr %186, align 4
-  %188 = add nsw i32 %187, 1
-  %189 = and i32 %188, -2
-  %190 = add nsw i32 %189, %187
-  %191 = sext i32 %190 to i64
-  %192 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %191) #6
-  store ptr %192, ptr %12, align 8
-  %193 = icmp eq ptr %192, null
-  br i1 %193, label %InitRGBRescaler.exit, label %194
+183:                                              ; preds = %180
+  %184 = getelementptr inbounds i8, ptr %0, i64 12
+  %185 = load i32, ptr %184, align 4
+  %186 = add nsw i32 %185, 1
+  %187 = and i32 %186, -2
+  %188 = add nsw i32 %187, %185
+  %189 = sext i32 %188 to i64
+  %190 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %189) #6
+  store ptr %190, ptr %12, align 8
+  %191 = icmp eq ptr %190, null
+  br i1 %191, label %InitRGBRescaler.exit, label %192
 
-194:                                              ; preds = %185
-  %195 = ashr i32 %188, 1
-  %196 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %192, ptr %196, align 8
-  %197 = load i32, ptr %186, align 4
-  %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds i8, ptr %192, i64 %198
-  %200 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %199, ptr %200, align 8
-  %201 = sext i32 %195 to i64
-  %202 = getelementptr inbounds i8, ptr %199, i64 %201
-  %203 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr %202, ptr %203, align 8
+192:                                              ; preds = %183
+  %193 = ashr i32 %186, 1
+  %194 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %190, ptr %194, align 8
+  %195 = load i32, ptr %184, align 4
+  %196 = sext i32 %195 to i64
+  %197 = getelementptr inbounds i8, ptr %190, i64 %196
+  %198 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %197, ptr %198, align 8
+  %199 = sext i32 %193 to i64
+  %200 = getelementptr inbounds i8, ptr %197, i64 %199
+  %201 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %200, ptr %201, align 8
   store ptr @EmitFancyRGB, ptr %13, align 8
   tail call void @WebPInitUpsamplers() #6
-  br label %204
+  br label %202
 
-204:                                              ; preds = %182, %194
-  br i1 %.not, label %InitRGBRescaler.exit, label %205
+202:                                              ; preds = %180, %192
+  br i1 %.not, label %InitRGBRescaler.exit, label %203
 
-.thread61:                                        ; preds = %181
+.thread61:                                        ; preds = %179
   store ptr @EmitYUV, ptr %13, align 8
   br i1 %.not, label %InitRGBRescaler.exit, label %.thread62
 
@@ -411,17 +411,17 @@ WebPIsAlphaMode.exit.i53:                         ; preds = %switch.hole_check75
   store ptr @EmitAlphaYUV, ptr %14, align 8
   br label %InitRGBRescaler.exit
 
-205:                                              ; preds = %204
-  %206 = icmp eq i32 %5, 5
-  %207 = icmp eq i32 %5, 10
-  %or.cond = or i1 %206, %207
-  %208 = select i1 %or.cond, ptr @EmitAlphaRGBA4444, ptr @EmitAlphaRGB
-  store ptr %208, ptr %14, align 8
+203:                                              ; preds = %202
+  %204 = icmp eq i32 %5, 5
+  %205 = icmp eq i32 %5, 10
+  %or.cond = or i1 %204, %205
+  %206 = select i1 %or.cond, ptr @EmitAlphaRGBA4444, ptr @EmitAlphaRGB
+  store ptr %206, ptr %14, align 8
   tail call void @WebPInitAlphaProcessing() #6
   br label %InitRGBRescaler.exit
 
-InitRGBRescaler.exit:                             ; preds = %170, %132, %153, %161, %WebPIsAlphaMode.exit.i53, %88, %56, %74, %79, %WebPIsAlphaMode.exit.i, %205, %204, %180, %169, %98, %87, %.thread61, %.thread62, %185, %WebPIsAlphaMode.exit
-  %.0 = phi i32 [ 0, %WebPIsAlphaMode.exit ], [ 0, %185 ], [ 1, %.thread62 ], [ 1, %.thread61 ], [ 1, %87 ], [ 1, %98 ], [ 1, %169 ], [ 1, %180 ], [ 1, %204 ], [ 1, %205 ], [ 0, %WebPIsAlphaMode.exit.i ], [ 0, %79 ], [ 0, %74 ], [ 0, %56 ], [ 0, %88 ], [ 0, %WebPIsAlphaMode.exit.i53 ], [ 0, %161 ], [ 0, %153 ], [ 0, %132 ], [ 0, %170 ]
+InitRGBRescaler.exit:                             ; preds = %168, %130, %151, %159, %WebPIsAlphaMode.exit.i53, %87, %56, %74, %79, %WebPIsAlphaMode.exit.i, %203, %202, %178, %167, %96, %86, %.thread61, %.thread62, %183, %WebPIsAlphaMode.exit
+  %.0 = phi i32 [ 0, %WebPIsAlphaMode.exit ], [ 0, %183 ], [ 1, %.thread62 ], [ 1, %.thread61 ], [ 1, %86 ], [ 1, %96 ], [ 1, %167 ], [ 1, %178 ], [ 1, %202 ], [ 1, %203 ], [ 0, %WebPIsAlphaMode.exit.i ], [ 0, %79 ], [ 0, %74 ], [ 0, %56 ], [ 0, %87 ], [ 0, %WebPIsAlphaMode.exit.i53 ], [ 0, %159 ], [ 0, %151 ], [ 0, %130 ], [ 0, %168 ]
   ret i32 %.0
 }
 

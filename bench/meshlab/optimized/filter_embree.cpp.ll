@@ -6306,88 +6306,88 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit: ; preds = %89, %_ZN3vcg
   %100 = load ptr, ptr %3, align 8
   %101 = getelementptr inbounds %class.CVertexO, ptr %100, i64 %indvars.iv, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %102 = load float, ptr %101, align 4
-  %103 = mul nuw nsw i64 %indvars.iv, 3
-  %104 = getelementptr inbounds float, ptr %97, i64 %103
-  store float %102, ptr %104, align 4
-  %105 = load ptr, ptr %3, align 8
-  %106 = getelementptr inbounds %class.CVertexO, ptr %105, i64 %indvars.iv, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i64 1
-  %107 = load float, ptr %106, align 4
-  %108 = getelementptr inbounds i8, ptr %104, i64 4
-  store float %107, ptr %108, align 4
-  %109 = load ptr, ptr %3, align 8
-  %110 = getelementptr inbounds %class.CVertexO, ptr %109, i64 %indvars.iv, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i64 2
-  %111 = load float, ptr %110, align 4
-  %112 = getelementptr inbounds i8, ptr %104, i64 8
-  store float %111, ptr %112, align 4
+  %.idx = mul i64 %indvars.iv, 12
+  %103 = getelementptr inbounds i8, ptr %97, i64 %.idx
+  store float %102, ptr %103, align 4
+  %104 = load ptr, ptr %3, align 8
+  %105 = getelementptr inbounds %class.CVertexO, ptr %104, i64 %indvars.iv, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i64 1
+  %106 = load float, ptr %105, align 4
+  %107 = getelementptr inbounds i8, ptr %103, i64 4
+  store float %106, ptr %107, align 4
+  %108 = load ptr, ptr %3, align 8
+  %109 = getelementptr inbounds %class.CVertexO, ptr %108, i64 %indvars.iv, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i64 2
+  %110 = load float, ptr %109, align 4
+  %111 = getelementptr inbounds i8, ptr %103, i64 8
+  store float %110, ptr %111, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %113 = load i32, ptr %94, align 8
-  %114 = sext i32 %113 to i64
-  %115 = icmp slt i64 %indvars.iv.next, %114
-  br i1 %115, label %.lr.ph, label %._crit_edge, !llvm.loop !57
+  %112 = load i32, ptr %94, align 8
+  %113 = sext i32 %112 to i64
+  %114 = icmp slt i64 %indvars.iv.next, %113
+  br i1 %114, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit
-  %116 = load ptr, ptr %92, align 8
-  %117 = getelementptr inbounds i8, ptr %1, i64 584
-  %118 = load i32, ptr %117, align 8
-  %119 = sext i32 %118 to i64
-  %120 = tail call ptr @rtcSetNewGeometryBuffer(ptr noundef %116, i32 noundef 0, i32 noundef 0, i32 noundef 20483, i64 noundef 12, i64 noundef %119)
-  %121 = load i32, ptr %117, align 8
-  %122 = icmp sgt i32 %121, 0
-  br i1 %122, label %.lr.ph48, label %._crit_edge49
+  %115 = load ptr, ptr %92, align 8
+  %116 = getelementptr inbounds i8, ptr %1, i64 584
+  %117 = load i32, ptr %116, align 8
+  %118 = sext i32 %117 to i64
+  %119 = tail call ptr @rtcSetNewGeometryBuffer(ptr noundef %115, i32 noundef 0, i32 noundef 0, i32 noundef 20483, i64 noundef 12, i64 noundef %118)
+  %120 = load i32, ptr %116, align 8
+  %121 = icmp sgt i32 %120, 0
+  br i1 %121, label %.lr.ph48, label %._crit_edge49
 
 .lr.ph48:                                         ; preds = %._crit_edge, %.lr.ph48
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %.lr.ph48 ], [ 0, %._crit_edge ]
-  %123 = load ptr, ptr %79, align 8
-  %124 = getelementptr inbounds %class.CFaceO, ptr %123, i64 %indvars.iv51, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %125 = load ptr, ptr %124, align 8
-  %126 = load ptr, ptr %3, align 8
+  %122 = load ptr, ptr %79, align 8
+  %123 = getelementptr inbounds %class.CFaceO, ptr %122, i64 %indvars.iv51, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %124 = load ptr, ptr %123, align 8
+  %125 = load ptr, ptr %3, align 8
+  %126 = ptrtoint ptr %124 to i64
   %127 = ptrtoint ptr %125 to i64
-  %128 = ptrtoint ptr %126 to i64
-  %129 = sub i64 %127, %128
-  %130 = sdiv exact i64 %129, 48
-  %131 = trunc i64 %130 to i32
-  %132 = mul nuw nsw i64 %indvars.iv51, 3
-  %133 = getelementptr inbounds i32, ptr %120, i64 %132
-  store i32 %131, ptr %133, align 4
-  %134 = load ptr, ptr %79, align 8
-  %135 = getelementptr inbounds %class.CFaceO, ptr %134, i64 %indvars.iv51, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
-  %136 = load ptr, ptr %135, align 8
-  %137 = load ptr, ptr %3, align 8
-  %138 = ptrtoint ptr %136 to i64
-  %139 = ptrtoint ptr %137 to i64
-  %140 = sub i64 %138, %139
-  %141 = sdiv exact i64 %140, 48
-  %142 = trunc i64 %141 to i32
-  %143 = getelementptr inbounds i8, ptr %133, i64 4
-  store i32 %142, ptr %143, align 4
-  %144 = load ptr, ptr %79, align 8
-  %145 = getelementptr inbounds %class.CFaceO, ptr %144, i64 %indvars.iv51, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
-  %146 = load ptr, ptr %145, align 8
-  %147 = load ptr, ptr %3, align 8
-  %148 = ptrtoint ptr %146 to i64
-  %149 = ptrtoint ptr %147 to i64
-  %150 = sub i64 %148, %149
-  %151 = sdiv exact i64 %150, 48
-  %152 = trunc i64 %151 to i32
-  %153 = getelementptr inbounds i8, ptr %133, i64 8
-  store i32 %152, ptr %153, align 4
+  %128 = sub i64 %126, %127
+  %129 = sdiv exact i64 %128, 48
+  %130 = trunc i64 %129 to i32
+  %.idx54 = mul i64 %indvars.iv51, 12
+  %131 = getelementptr inbounds i8, ptr %119, i64 %.idx54
+  store i32 %130, ptr %131, align 4
+  %132 = load ptr, ptr %79, align 8
+  %133 = getelementptr inbounds %class.CFaceO, ptr %132, i64 %indvars.iv51, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
+  %134 = load ptr, ptr %133, align 8
+  %135 = load ptr, ptr %3, align 8
+  %136 = ptrtoint ptr %134 to i64
+  %137 = ptrtoint ptr %135 to i64
+  %138 = sub i64 %136, %137
+  %139 = sdiv exact i64 %138, 48
+  %140 = trunc i64 %139 to i32
+  %141 = getelementptr inbounds i8, ptr %131, i64 4
+  store i32 %140, ptr %141, align 4
+  %142 = load ptr, ptr %79, align 8
+  %143 = getelementptr inbounds %class.CFaceO, ptr %142, i64 %indvars.iv51, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
+  %144 = load ptr, ptr %143, align 8
+  %145 = load ptr, ptr %3, align 8
+  %146 = ptrtoint ptr %144 to i64
+  %147 = ptrtoint ptr %145 to i64
+  %148 = sub i64 %146, %147
+  %149 = sdiv exact i64 %148, 48
+  %150 = trunc i64 %149 to i32
+  %151 = getelementptr inbounds i8, ptr %131, i64 8
+  store i32 %150, ptr %151, align 4
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %154 = load i32, ptr %117, align 8
-  %155 = sext i32 %154 to i64
-  %156 = icmp slt i64 %indvars.iv.next52, %155
-  br i1 %156, label %.lr.ph48, label %._crit_edge49, !llvm.loop !58
+  %152 = load i32, ptr %116, align 8
+  %153 = sext i32 %152 to i64
+  %154 = icmp slt i64 %indvars.iv.next52, %153
+  br i1 %154, label %.lr.ph48, label %._crit_edge49, !llvm.loop !58
 
 ._crit_edge49:                                    ; preds = %.lr.ph48, %._crit_edge
-  %157 = load ptr, ptr %92, align 8
-  tail call void @rtcCommitGeometry(ptr noundef %157)
-  %158 = getelementptr inbounds i8, ptr %0, i64 8
-  %159 = load ptr, ptr %158, align 8
+  %155 = load ptr, ptr %92, align 8
+  tail call void @rtcCommitGeometry(ptr noundef %155)
+  %156 = getelementptr inbounds i8, ptr %0, i64 8
+  %157 = load ptr, ptr %156, align 8
+  %158 = load ptr, ptr %92, align 8
+  %159 = tail call i32 @rtcAttachGeometry(ptr noundef %157, ptr noundef %158)
   %160 = load ptr, ptr %92, align 8
-  %161 = tail call i32 @rtcAttachGeometry(ptr noundef %159, ptr noundef %160)
-  %162 = load ptr, ptr %92, align 8
-  tail call void @rtcReleaseGeometry(ptr noundef %162)
-  %163 = load ptr, ptr %158, align 8
-  tail call void @rtcCommitScene(ptr noundef %163)
+  tail call void @rtcReleaseGeometry(ptr noundef %160)
+  %161 = load ptr, ptr %156, align 8
+  tail call void @rtcCommitScene(ptr noundef %161)
   ret void
 }
 

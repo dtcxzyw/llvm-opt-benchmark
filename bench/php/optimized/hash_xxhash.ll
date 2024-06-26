@@ -991,7 +991,7 @@ define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture
   %11 = getelementptr inbounds i8, ptr %1, i64 528
   %12 = load i64, ptr %11, align 16
   %13 = icmp ugt i64 %12, 240
-  br i1 %13, label %14, label %105
+  br i1 %13, label %14, label %103
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -1099,61 +1099,60 @@ XXH3_digest_long.exit.i:                          ; preds = %63, %34
   br label %83
 
 83:                                               ; preds = %83, %XXH3_digest_long.exit.i
-  %.013.i.i = phi i64 [ 0, %XXH3_digest_long.exit.i ], [ %99, %83 ]
-  %.0812.i.i = phi i64 [ %82, %XXH3_digest_long.exit.i ], [ %98, %83 ]
-  %84 = shl nuw nsw i64 %.013.i.i, 1
-  %85 = getelementptr inbounds i64, ptr %5, i64 %84
-  %86 = shl nuw nsw i64 %.013.i.i, 4
-  %87 = getelementptr inbounds i8, ptr %81, i64 %86
-  %.val.i.i = load i64, ptr %85, align 16, !alias.scope !28, !noalias !31
-  %88 = getelementptr i8, ptr %85, i64 8
-  %.val9.i.i = load i64, ptr %88, align 8, !alias.scope !28, !noalias !31
-  %.val10.i.i = load i64, ptr %87, align 1, !alias.scope !31, !noalias !28
-  %89 = getelementptr i8, ptr %87, i64 8
-  %.val11.i.i = load i64, ptr %89, align 1, !alias.scope !31, !noalias !28
-  %90 = xor i64 %.val10.i.i, %.val.i.i
-  %91 = xor i64 %.val11.i.i, %.val9.i.i
-  %92 = zext i64 %90 to i128
-  %93 = zext i64 %91 to i128
-  %94 = mul nuw i128 %93, %92
-  %95 = lshr i128 %94, 64
-  %96 = xor i128 %95, %94
-  %97 = trunc i128 %96 to i64
-  %98 = add i64 %.0812.i.i, %97
-  %99 = add nuw nsw i64 %.013.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %99, 4
+  %.013.i.i = phi i64 [ 0, %XXH3_digest_long.exit.i ], [ %97, %83 ]
+  %.0812.i.i = phi i64 [ %82, %XXH3_digest_long.exit.i ], [ %96, %83 ]
+  %.idx.i.i = shl nuw nsw i64 %.013.i.i, 4
+  %84 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i
+  %85 = getelementptr inbounds i8, ptr %81, i64 %.idx.i.i
+  %.val.i.i = load i64, ptr %84, align 16, !alias.scope !28, !noalias !31
+  %86 = getelementptr i8, ptr %84, i64 8
+  %.val9.i.i = load i64, ptr %86, align 8, !alias.scope !28, !noalias !31
+  %.val10.i.i = load i64, ptr %85, align 1, !alias.scope !31, !noalias !28
+  %87 = getelementptr i8, ptr %85, i64 8
+  %.val11.i.i = load i64, ptr %87, align 1, !alias.scope !31, !noalias !28
+  %88 = xor i64 %.val10.i.i, %.val.i.i
+  %89 = xor i64 %.val11.i.i, %.val9.i.i
+  %90 = zext i64 %88 to i128
+  %91 = zext i64 %89 to i128
+  %92 = mul nuw i128 %91, %90
+  %93 = lshr i128 %92, 64
+  %94 = xor i128 %93, %92
+  %95 = trunc i128 %94 to i64
+  %96 = add i64 %.0812.i.i, %95
+  %97 = add nuw nsw i64 %.013.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %97, 4
   br i1 %exitcond.not.i.i, label %XXH3_mergeAccs.exit.i, label %83
 
 XXH3_mergeAccs.exit.i:                            ; preds = %83
-  %100 = lshr i64 %98, 37
-  %101 = xor i64 %100, %98
-  %102 = mul i64 %101, 1609587791953885689
-  %103 = lshr i64 %102, 32
-  %104 = xor i64 %103, %102
+  %98 = lshr i64 %96, 37
+  %99 = xor i64 %98, %96
+  %100 = mul i64 %99, 1609587791953885689
+  %101 = lshr i64 %100, 32
+  %102 = xor i64 %101, %100
   br label %XXH_INLINE_XXH3_64bits_digest.exit
 
-105:                                              ; preds = %2
-  %106 = getelementptr inbounds i8, ptr %1, i64 516
-  %107 = load i32, ptr %106, align 4
-  %.not.i = icmp eq i32 %107, 0
-  %108 = getelementptr inbounds i8, ptr %1, i64 256
-  br i1 %.not.i, label %113, label %109
+103:                                              ; preds = %2
+  %104 = getelementptr inbounds i8, ptr %1, i64 516
+  %105 = load i32, ptr %104, align 4
+  %.not.i = icmp eq i32 %105, 0
+  %106 = getelementptr inbounds i8, ptr %1, i64 256
+  br i1 %.not.i, label %111, label %107
 
-109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %1, i64 552
-  %111 = load i64, ptr %110, align 8
-  %112 = tail call fastcc i64 @XXH3_64bits_internal(ptr noundef nonnull readonly %108, i64 noundef %12, i64 noundef %111, ptr noundef nonnull @XXH3_kSecret)
+107:                                              ; preds = %103
+  %108 = getelementptr inbounds i8, ptr %1, i64 552
+  %109 = load i64, ptr %108, align 8
+  %110 = tail call fastcc i64 @XXH3_64bits_internal(ptr noundef nonnull readonly %106, i64 noundef %12, i64 noundef %109, ptr noundef nonnull @XXH3_kSecret)
   br label %XXH_INLINE_XXH3_64bits_digest.exit
 
-113:                                              ; preds = %105
-  %114 = tail call fastcc i64 @XXH3_64bits_internal(ptr noundef nonnull readonly %108, i64 noundef %12, i64 noundef 0, ptr noundef nonnull readonly %10)
+111:                                              ; preds = %103
+  %112 = tail call fastcc i64 @XXH3_64bits_internal(ptr noundef nonnull readonly %106, i64 noundef %12, i64 noundef 0, ptr noundef nonnull readonly %10)
   br label %XXH_INLINE_XXH3_64bits_digest.exit
 
-XXH_INLINE_XXH3_64bits_digest.exit:               ; preds = %XXH3_mergeAccs.exit.i, %109, %113
-  %.0.i = phi i64 [ %104, %XXH3_mergeAccs.exit.i ], [ %112, %109 ], [ %114, %113 ]
+XXH_INLINE_XXH3_64bits_digest.exit:               ; preds = %XXH3_mergeAccs.exit.i, %107, %111
+  %.0.i = phi i64 [ %102, %XXH3_mergeAccs.exit.i ], [ %110, %107 ], [ %112, %111 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %115 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.i)
-  store i64 %115, ptr %0, align 1
+  %113 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.i)
+  store i64 %113, ptr %0, align 1
   ret void
 }
 
@@ -1432,7 +1431,7 @@ define void @PHP_XXH3_128_Final(ptr nocapture noundef writeonly %0, ptr nocaptur
   %11 = getelementptr inbounds i8, ptr %1, i64 528
   %12 = load i64, ptr %11, align 16
   %13 = icmp ugt i64 %12, 240
-  br i1 %13, label %14, label %132
+  br i1 %13, label %14, label %128
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -1541,107 +1540,105 @@ XXH3_digest_long.exit.i:                          ; preds = %63, %34
   br label %84
 
 84:                                               ; preds = %84, %XXH3_digest_long.exit.i
-  %.013.i.i = phi i64 [ 0, %XXH3_digest_long.exit.i ], [ %100, %84 ]
-  %.0812.i.i = phi i64 [ %83, %XXH3_digest_long.exit.i ], [ %99, %84 ]
-  %85 = shl nuw nsw i64 %.013.i.i, 1
-  %86 = getelementptr inbounds i64, ptr %5, i64 %85
-  %87 = shl nuw nsw i64 %.013.i.i, 4
-  %88 = getelementptr inbounds i8, ptr %82, i64 %87
-  %.val.i.i = load i64, ptr %86, align 16, !alias.scope !56, !noalias !59
-  %89 = getelementptr i8, ptr %86, i64 8
-  %.val9.i.i = load i64, ptr %89, align 8, !alias.scope !56, !noalias !59
-  %.val10.i.i = load i64, ptr %88, align 1, !alias.scope !59, !noalias !56
-  %90 = getelementptr i8, ptr %88, i64 8
-  %.val11.i.i = load i64, ptr %90, align 1, !alias.scope !59, !noalias !56
-  %91 = xor i64 %.val10.i.i, %.val.i.i
-  %92 = xor i64 %.val11.i.i, %.val9.i.i
-  %93 = zext i64 %91 to i128
-  %94 = zext i64 %92 to i128
-  %95 = mul nuw i128 %94, %93
-  %96 = lshr i128 %95, 64
-  %97 = xor i128 %96, %95
-  %98 = trunc i128 %97 to i64
-  %99 = add i64 %.0812.i.i, %98
-  %100 = add nuw nsw i64 %.013.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %100, 4
+  %.013.i.i = phi i64 [ 0, %XXH3_digest_long.exit.i ], [ %98, %84 ]
+  %.0812.i.i = phi i64 [ %83, %XXH3_digest_long.exit.i ], [ %97, %84 ]
+  %.idx.i.i = shl nuw nsw i64 %.013.i.i, 4
+  %85 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i
+  %86 = getelementptr inbounds i8, ptr %82, i64 %.idx.i.i
+  %.val.i.i = load i64, ptr %85, align 16, !alias.scope !56, !noalias !59
+  %87 = getelementptr i8, ptr %85, i64 8
+  %.val9.i.i = load i64, ptr %87, align 8, !alias.scope !56, !noalias !59
+  %.val10.i.i = load i64, ptr %86, align 1, !alias.scope !59, !noalias !56
+  %88 = getelementptr i8, ptr %86, i64 8
+  %.val11.i.i = load i64, ptr %88, align 1, !alias.scope !59, !noalias !56
+  %89 = xor i64 %.val10.i.i, %.val.i.i
+  %90 = xor i64 %.val11.i.i, %.val9.i.i
+  %91 = zext i64 %89 to i128
+  %92 = zext i64 %90 to i128
+  %93 = mul nuw i128 %92, %91
+  %94 = lshr i128 %93, 64
+  %95 = xor i128 %94, %93
+  %96 = trunc i128 %95 to i64
+  %97 = add i64 %.0812.i.i, %96
+  %98 = add nuw nsw i64 %.013.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %98, 4
   br i1 %exitcond.not.i.i, label %XXH3_mergeAccs.exit.i, label %84
 
 XXH3_mergeAccs.exit.i:                            ; preds = %84
-  %101 = lshr i64 %99, 37
-  %102 = xor i64 %101, %99
-  %103 = mul i64 %102, 1609587791953885689
-  %104 = getelementptr inbounds i8, ptr %10, i64 %81
-  %105 = getelementptr inbounds i8, ptr %104, i64 -11
-  %106 = mul i64 %12, -4417276706812531889
-  %107 = xor i64 %106, -1
+  %99 = lshr i64 %97, 37
+  %100 = xor i64 %99, %97
+  %101 = mul i64 %100, 1609587791953885689
+  %102 = getelementptr inbounds i8, ptr %10, i64 %81
+  %103 = getelementptr inbounds i8, ptr %102, i64 -11
+  %104 = mul i64 %12, -4417276706812531889
+  %105 = xor i64 %104, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  br label %108
+  br label %106
 
-108:                                              ; preds = %108, %XXH3_mergeAccs.exit.i
-  %.013.i21.i = phi i64 [ 0, %XXH3_mergeAccs.exit.i ], [ %124, %108 ]
-  %.0812.i22.i = phi i64 [ %107, %XXH3_mergeAccs.exit.i ], [ %123, %108 ]
-  %109 = shl nuw nsw i64 %.013.i21.i, 1
-  %110 = getelementptr inbounds i64, ptr %5, i64 %109
-  %111 = shl nuw nsw i64 %.013.i21.i, 4
-  %112 = getelementptr inbounds i8, ptr %105, i64 %111
-  %.val.i23.i = load i64, ptr %110, align 16, !alias.scope !61, !noalias !64
-  %113 = getelementptr i8, ptr %110, i64 8
-  %.val9.i24.i = load i64, ptr %113, align 8, !alias.scope !61, !noalias !64
-  %.val10.i25.i = load i64, ptr %112, align 1, !alias.scope !64, !noalias !61
-  %114 = getelementptr i8, ptr %112, i64 8
-  %.val11.i26.i = load i64, ptr %114, align 1, !alias.scope !64, !noalias !61
-  %115 = xor i64 %.val10.i25.i, %.val.i23.i
-  %116 = xor i64 %.val11.i26.i, %.val9.i24.i
-  %117 = zext i64 %115 to i128
-  %118 = zext i64 %116 to i128
-  %119 = mul nuw i128 %118, %117
-  %120 = lshr i128 %119, 64
-  %121 = xor i128 %120, %119
-  %122 = trunc i128 %121 to i64
-  %123 = add i64 %.0812.i22.i, %122
-  %124 = add nuw nsw i64 %.013.i21.i, 1
-  %exitcond.not.i27.i = icmp eq i64 %124, 4
-  br i1 %exitcond.not.i27.i, label %XXH3_mergeAccs.exit28.i, label %108
+106:                                              ; preds = %106, %XXH3_mergeAccs.exit.i
+  %.013.i21.i = phi i64 [ 0, %XXH3_mergeAccs.exit.i ], [ %120, %106 ]
+  %.0812.i22.i = phi i64 [ %105, %XXH3_mergeAccs.exit.i ], [ %119, %106 ]
+  %.idx.i23.i = shl nuw nsw i64 %.013.i21.i, 4
+  %107 = getelementptr inbounds i8, ptr %5, i64 %.idx.i23.i
+  %108 = getelementptr inbounds i8, ptr %103, i64 %.idx.i23.i
+  %.val.i24.i = load i64, ptr %107, align 16, !alias.scope !61, !noalias !64
+  %109 = getelementptr i8, ptr %107, i64 8
+  %.val9.i25.i = load i64, ptr %109, align 8, !alias.scope !61, !noalias !64
+  %.val10.i26.i = load i64, ptr %108, align 1, !alias.scope !64, !noalias !61
+  %110 = getelementptr i8, ptr %108, i64 8
+  %.val11.i27.i = load i64, ptr %110, align 1, !alias.scope !64, !noalias !61
+  %111 = xor i64 %.val10.i26.i, %.val.i24.i
+  %112 = xor i64 %.val11.i27.i, %.val9.i25.i
+  %113 = zext i64 %111 to i128
+  %114 = zext i64 %112 to i128
+  %115 = mul nuw i128 %114, %113
+  %116 = lshr i128 %115, 64
+  %117 = xor i128 %116, %115
+  %118 = trunc i128 %117 to i64
+  %119 = add i64 %.0812.i22.i, %118
+  %120 = add nuw nsw i64 %.013.i21.i, 1
+  %exitcond.not.i28.i = icmp eq i64 %120, 4
+  br i1 %exitcond.not.i28.i, label %XXH3_mergeAccs.exit29.i, label %106
 
-XXH3_mergeAccs.exit28.i:                          ; preds = %108
-  %125 = lshr i64 %103, 32
-  %126 = xor i64 %125, %103
-  %127 = lshr i64 %123, 37
-  %128 = xor i64 %127, %123
-  %129 = mul i64 %128, 1609587791953885689
-  %130 = lshr i64 %129, 32
-  %131 = xor i64 %130, %129
+XXH3_mergeAccs.exit29.i:                          ; preds = %106
+  %121 = lshr i64 %101, 32
+  %122 = xor i64 %121, %101
+  %123 = lshr i64 %119, 37
+  %124 = xor i64 %123, %119
+  %125 = mul i64 %124, 1609587791953885689
+  %126 = lshr i64 %125, 32
+  %127 = xor i64 %126, %125
   br label %XXH_INLINE_XXH3_128bits_digest.exit
 
-132:                                              ; preds = %2
-  %133 = getelementptr inbounds i8, ptr %1, i64 552
-  %134 = load i64, ptr %133, align 8
-  %.not.i = icmp eq i64 %134, 0
-  %135 = getelementptr inbounds i8, ptr %1, i64 256
-  br i1 %.not.i, label %140, label %136
+128:                                              ; preds = %2
+  %129 = getelementptr inbounds i8, ptr %1, i64 552
+  %130 = load i64, ptr %129, align 8
+  %.not.i = icmp eq i64 %130, 0
+  %131 = getelementptr inbounds i8, ptr %1, i64 256
+  br i1 %.not.i, label %136, label %132
 
-136:                                              ; preds = %132
-  %137 = tail call fastcc { i64, i64 } @XXH3_128bits_internal(ptr noundef nonnull readonly %135, i64 noundef %12, i64 noundef %134, ptr noundef nonnull @XXH3_kSecret)
+132:                                              ; preds = %128
+  %133 = tail call fastcc { i64, i64 } @XXH3_128bits_internal(ptr noundef nonnull readonly %131, i64 noundef %12, i64 noundef %130, ptr noundef nonnull @XXH3_kSecret)
+  %134 = extractvalue { i64, i64 } %133, 0
+  %135 = extractvalue { i64, i64 } %133, 1
+  br label %XXH_INLINE_XXH3_128bits_digest.exit
+
+136:                                              ; preds = %128
+  %137 = tail call fastcc { i64, i64 } @XXH3_128bits_internal(ptr noundef nonnull readonly %131, i64 noundef %12, i64 noundef 0, ptr noundef nonnull readonly %10)
   %138 = extractvalue { i64, i64 } %137, 0
   %139 = extractvalue { i64, i64 } %137, 1
   br label %XXH_INLINE_XXH3_128bits_digest.exit
 
-140:                                              ; preds = %132
-  %141 = tail call fastcc { i64, i64 } @XXH3_128bits_internal(ptr noundef nonnull readonly %135, i64 noundef %12, i64 noundef 0, ptr noundef nonnull readonly %10)
-  %142 = extractvalue { i64, i64 } %141, 0
-  %143 = extractvalue { i64, i64 } %141, 1
-  br label %XXH_INLINE_XXH3_128bits_digest.exit
-
-XXH_INLINE_XXH3_128bits_digest.exit:              ; preds = %XXH3_mergeAccs.exit28.i, %136, %140
-  %.sroa.0.0.i = phi i64 [ %126, %XXH3_mergeAccs.exit28.i ], [ %138, %136 ], [ %142, %140 ]
-  %.sroa.4.0.i = phi i64 [ %131, %XXH3_mergeAccs.exit28.i ], [ %139, %136 ], [ %143, %140 ]
+XXH_INLINE_XXH3_128bits_digest.exit:              ; preds = %XXH3_mergeAccs.exit29.i, %132, %136
+  %.sroa.0.0.i = phi i64 [ %122, %XXH3_mergeAccs.exit29.i ], [ %134, %132 ], [ %138, %136 ]
+  %.sroa.4.0.i = phi i64 [ %127, %XXH3_mergeAccs.exit29.i ], [ %135, %132 ], [ %139, %136 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %144 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.4.0.i)
-  %145 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.0.0.i)
-  store i64 %144, ptr %0, align 1
-  %146 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %145, ptr %146, align 1
+  %140 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.4.0.i)
+  %141 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.0.0.i)
+  store i64 %140, ptr %0, align 1
+  %142 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %141, ptr %142, align 1
   ret void
 }
 

@@ -667,26 +667,25 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvPvPKvS4_EPFvS2_S4_E.exit.i.i.i: ; p
 
 for.body.i6.i.i.i:                                ; preds = %for.body.i6.i.i.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvPvPKvS4_EPFvS2_S4_E.exit.i.i.i
   %i.09.i.i.i.i = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvPvPKvS4_EPFvS2_S4_E.exit.i.i.i ], [ %inc.i9.i.i.i, %for.body.i6.i.i.i ]
-  %result64.08.i.i.i.i = phi i64 [ %mul.i.i4.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvPvPKvS4_EPFvS2_S4_E.exit.i.i.i ], [ %add.i.i.i12.i, %for.body.i6.i.i.i ]
-  %mul.i.i.i5.i = shl nuw nsw i64 %i.09.i.i.i.i, 1
-  %add.ptr.i7.i.i.i = getelementptr inbounds i64, ptr %acc.i.i.i, i64 %mul.i.i.i5.i
-  %mul1.i.i.i.i = shl nuw nsw i64 %i.09.i.i.i.i, 4
-  %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 11), i64 %mul1.i.i.i.i
+  %result64.08.i.i.i.i = phi i64 [ %mul.i.i4.i, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvPvPKvS4_EPFvS2_S4_E.exit.i.i.i ], [ %add.i.i.i11.i, %for.body.i6.i.i.i ]
+  %add.ptr.idx.i.i.i.i = shl nuw nsw i64 %i.09.i.i.i.i, 4
+  %add.ptr.i7.i.i.i = getelementptr inbounds i8, ptr %acc.i.i.i, i64 %add.ptr.idx.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 11), i64 %add.ptr.idx.i.i.i.i
   %add.ptr.val.i.i.i.i = load i64, ptr %add.ptr.i7.i.i.i, align 16
   %63 = getelementptr i8, ptr %add.ptr.i7.i.i.i, i64 8
   %add.ptr.val5.i.i.i.i = load i64, ptr %63, align 8
   %add.ptr2.val.i.i.i.i = load i64, ptr %add.ptr2.i.i.i.i, align 1
   %64 = getelementptr i8, ptr %add.ptr2.i.i.i.i, i64 8
   %add.ptr2.val6.i.i.i.i = load i64, ptr %64, align 1
-  %xor.i.i.i.i6.i = xor i64 %add.ptr2.val.i.i.i.i, %add.ptr.val.i.i.i.i
+  %xor.i.i.i.i5.i = xor i64 %add.ptr2.val.i.i.i.i, %add.ptr.val.i.i.i.i
   %xor3.i.i.i.i.i = xor i64 %add.ptr2.val6.i.i.i.i, %add.ptr.val5.i.i.i.i
-  %conv.i.i.i.i.i.i7.i = zext i64 %xor.i.i.i.i6.i to i128
-  %conv1.i.i.i.i.i.i8.i = zext i64 %xor3.i.i.i.i.i to i128
-  %mul.i.i.i.i.i.i9.i = mul nuw i128 %conv1.i.i.i.i.i.i8.i, %conv.i.i.i.i.i.i7.i
-  %shr.i.i.i.i.i.i10.i = lshr i128 %mul.i.i.i.i.i.i9.i, 64
-  %xor1.i.i.i.i.i11.i = xor i128 %shr.i.i.i.i.i.i10.i, %mul.i.i.i.i.i.i9.i
-  %xor.i.i.i8.i.i.i = trunc i128 %xor1.i.i.i.i.i11.i to i64
-  %add.i.i.i12.i = add i64 %result64.08.i.i.i.i, %xor.i.i.i8.i.i.i
+  %conv.i.i.i.i.i.i6.i = zext i64 %xor.i.i.i.i5.i to i128
+  %conv1.i.i.i.i.i.i7.i = zext i64 %xor3.i.i.i.i.i to i128
+  %mul.i.i.i.i.i.i8.i = mul nuw i128 %conv1.i.i.i.i.i.i7.i, %conv.i.i.i.i.i.i6.i
+  %shr.i.i.i.i.i.i9.i = lshr i128 %mul.i.i.i.i.i.i8.i, 64
+  %xor1.i.i.i.i.i10.i = xor i128 %shr.i.i.i.i.i.i9.i, %mul.i.i.i.i.i.i8.i
+  %xor.i.i.i8.i.i.i = trunc i128 %xor1.i.i.i.i.i10.i to i64
+  %add.i.i.i11.i = add i64 %result64.08.i.i.i.i, %xor.i.i.i8.i.i.i
   %inc.i9.i.i.i = add nuw nsw i64 %i.09.i.i.i.i, 1
   %exitcond.not.i10.i.i.i = icmp eq i64 %inc.i9.i.i.i, 4
   br i1 %exitcond.not.i10.i.i.i, label %_ZL14XXH3_mergeAccsPKmPKhm.exit.i.i.i, label %for.body.i6.i.i.i, !llvm.loop !11
@@ -697,48 +696,47 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit.i.i.i:            ; preds = %for.body.i6.i.i.i
   br label %for.body.i13.i.i.i
 
 for.body.i13.i.i.i:                               ; preds = %for.body.i13.i.i.i, %_ZL14XXH3_mergeAccsPKmPKhm.exit.i.i.i
-  %i.09.i14.i.i.i = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit.i.i.i ], [ %inc.i33.i.i.i, %for.body.i13.i.i.i ]
-  %result64.08.i15.i.i.i = phi i64 [ %not.i.i.i, %_ZL14XXH3_mergeAccsPKmPKhm.exit.i.i.i ], [ %add.i32.i.i.i, %for.body.i13.i.i.i ]
-  %mul.i16.i.i.i = shl nuw nsw i64 %i.09.i14.i.i.i, 1
-  %add.ptr.i17.i.i.i = getelementptr inbounds i64, ptr %acc.i.i.i, i64 %mul.i16.i.i.i
-  %mul1.i18.i.i.i = shl nuw nsw i64 %i.09.i14.i.i.i, 4
-  %add.ptr2.i19.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 117), i64 %mul1.i18.i.i.i
-  %add.ptr.val.i20.i.i.i = load i64, ptr %add.ptr.i17.i.i.i, align 16
+  %i.09.i14.i.i.i = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit.i.i.i ], [ %inc.i32.i.i.i, %for.body.i13.i.i.i ]
+  %result64.08.i15.i.i.i = phi i64 [ %not.i.i.i, %_ZL14XXH3_mergeAccsPKmPKhm.exit.i.i.i ], [ %add.i31.i.i.i, %for.body.i13.i.i.i ]
+  %add.ptr.idx.i16.i.i.i = shl nuw nsw i64 %i.09.i14.i.i.i, 4
+  %add.ptr.i17.i.i.i = getelementptr inbounds i8, ptr %acc.i.i.i, i64 %add.ptr.idx.i16.i.i.i
+  %add.ptr2.i18.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL12XXH3_kSecret, i64 117), i64 %add.ptr.idx.i16.i.i.i
+  %add.ptr.val.i19.i.i.i = load i64, ptr %add.ptr.i17.i.i.i, align 16
   %65 = getelementptr i8, ptr %add.ptr.i17.i.i.i, i64 8
-  %add.ptr.val5.i21.i.i.i = load i64, ptr %65, align 8
-  %add.ptr2.val.i22.i.i.i = load i64, ptr %add.ptr2.i19.i.i.i, align 1
-  %66 = getelementptr i8, ptr %add.ptr2.i19.i.i.i, i64 8
-  %add.ptr2.val6.i23.i.i.i = load i64, ptr %66, align 1
-  %xor.i.i24.i.i.i = xor i64 %add.ptr2.val.i22.i.i.i, %add.ptr.val.i20.i.i.i
-  %xor3.i.i25.i.i.i = xor i64 %add.ptr2.val6.i23.i.i.i, %add.ptr.val5.i21.i.i.i
-  %conv.i.i.i.i26.i.i.i = zext i64 %xor.i.i24.i.i.i to i128
-  %conv1.i.i.i.i27.i.i.i = zext i64 %xor3.i.i25.i.i.i to i128
-  %mul.i.i.i.i28.i.i.i = mul nuw i128 %conv1.i.i.i.i27.i.i.i, %conv.i.i.i.i26.i.i.i
-  %shr.i.i.i.i29.i.i.i = lshr i128 %mul.i.i.i.i28.i.i.i, 64
-  %xor1.i.i.i30.i.i.i = xor i128 %shr.i.i.i.i29.i.i.i, %mul.i.i.i.i28.i.i.i
-  %xor.i.i.i31.i.i13.i = trunc i128 %xor1.i.i.i30.i.i.i to i64
-  %add.i32.i.i.i = add i64 %result64.08.i15.i.i.i, %xor.i.i.i31.i.i13.i
-  %inc.i33.i.i.i = add nuw nsw i64 %i.09.i14.i.i.i, 1
-  %exitcond.not.i34.i.i.i = icmp eq i64 %inc.i33.i.i.i, 4
-  br i1 %exitcond.not.i34.i.i.i, label %_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m.exit.i, label %for.body.i13.i.i.i, !llvm.loop !11
+  %add.ptr.val5.i20.i.i.i = load i64, ptr %65, align 8
+  %add.ptr2.val.i21.i.i.i = load i64, ptr %add.ptr2.i18.i.i.i, align 1
+  %66 = getelementptr i8, ptr %add.ptr2.i18.i.i.i, i64 8
+  %add.ptr2.val6.i22.i.i.i = load i64, ptr %66, align 1
+  %xor.i.i23.i.i.i = xor i64 %add.ptr2.val.i21.i.i.i, %add.ptr.val.i19.i.i.i
+  %xor3.i.i24.i.i.i = xor i64 %add.ptr2.val6.i22.i.i.i, %add.ptr.val5.i20.i.i.i
+  %conv.i.i.i.i25.i.i.i = zext i64 %xor.i.i23.i.i.i to i128
+  %conv1.i.i.i.i26.i.i.i = zext i64 %xor3.i.i24.i.i.i to i128
+  %mul.i.i.i.i27.i.i.i = mul nuw i128 %conv1.i.i.i.i26.i.i.i, %conv.i.i.i.i25.i.i.i
+  %shr.i.i.i.i28.i.i.i = lshr i128 %mul.i.i.i.i27.i.i.i, 64
+  %xor1.i.i.i29.i.i.i = xor i128 %shr.i.i.i.i28.i.i.i, %mul.i.i.i.i27.i.i.i
+  %xor.i.i.i30.i.i.i = trunc i128 %xor1.i.i.i29.i.i.i to i64
+  %add.i31.i.i.i = add i64 %result64.08.i15.i.i.i, %xor.i.i.i30.i.i.i
+  %inc.i32.i.i.i = add nuw nsw i64 %i.09.i14.i.i.i, 1
+  %exitcond.not.i33.i.i.i = icmp eq i64 %inc.i32.i.i.i, 4
+  br i1 %exitcond.not.i33.i.i.i, label %_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m.exit.i, label %for.body.i13.i.i.i, !llvm.loop !11
 
 _ZL26XXH3_hashLong_128b_defaultPKvmmS0_m.exit.i:  ; preds = %for.body.i13.i.i.i
-  %shr.i.i.i.i.i14.i = lshr i64 %add.i.i.i12.i, 37
-  %xor.i.i7.i.i.i.i = xor i64 %shr.i.i.i.i.i14.i, %add.i.i.i12.i
+  %shr.i.i.i.i.i12.i = lshr i64 %add.i.i.i11.i, 37
+  %xor.i.i7.i.i.i.i = xor i64 %shr.i.i.i.i.i12.i, %add.i.i.i11.i
   %mul.i.i12.i.i.i = mul i64 %xor.i.i7.i.i.i.i, 1609587791953885689
-  %shr.i4.i.i.i.i15.i = lshr i64 %mul.i.i12.i.i.i, 32
-  %xor.i5.i.i.i.i16.i = xor i64 %shr.i4.i.i.i.i15.i, %mul.i.i12.i.i.i
-  %shr.i.i.i36.i.i.i = lshr i64 %add.i32.i.i.i, 37
-  %xor.i.i7.i37.i.i.i = xor i64 %shr.i.i.i36.i.i.i, %add.i32.i.i.i
-  %mul.i.i38.i.i.i = mul i64 %xor.i.i7.i37.i.i.i, 1609587791953885689
-  %shr.i4.i.i39.i.i.i = lshr i64 %mul.i.i38.i.i.i, 32
-  %xor.i5.i.i40.i.i.i = xor i64 %shr.i4.i.i39.i.i.i, %mul.i.i38.i.i.i
+  %shr.i4.i.i.i.i13.i = lshr i64 %mul.i.i12.i.i.i, 32
+  %xor.i5.i.i.i.i14.i = xor i64 %shr.i4.i.i.i.i13.i, %mul.i.i12.i.i.i
+  %shr.i.i.i35.i.i.i = lshr i64 %add.i31.i.i.i, 37
+  %xor.i.i7.i36.i.i.i = xor i64 %shr.i.i.i35.i.i.i, %add.i31.i.i.i
+  %mul.i.i37.i.i.i = mul i64 %xor.i.i7.i36.i.i.i, 1609587791953885689
+  %shr.i4.i.i38.i.i.i = lshr i64 %mul.i.i37.i.i.i, 32
+  %xor.i5.i.i39.i.i.i = xor i64 %shr.i4.i.i38.i.i.i, %mul.i.i37.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %acc.i.i.i)
   br label %_ZL23XXH_INLINE_XXH3_128bitsPKvm.exit
 
 _ZL23XXH_INLINE_XXH3_128bitsPKvm.exit:            ; preds = %if.then.i.i.i, %if.then2.i.i.i, %if.end4.i.i.i, %if.then5.i.i.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i, %_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m.exit.i
-  %retval.sroa.0.0.i.i.pn.i = phi i64 [ %xor.i5.i.i.i.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i ], [ %xor.i5.i106.i.i.i, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i ], [ %xor.i5.i.i.i.i16.i, %_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m.exit.i ], [ %xor.i5.i.i.i.i.i, %if.then.i.i.i ], [ %xor.i17.i.i.i.i, %if.then2.i.i.i ], [ %xor5.i.i.i.i.i, %if.then5.i.i.i ], [ 6918025063187695999, %if.end4.i.i.i ]
-  %retval.sroa.5.0.i.i.pn.i = phi i64 [ %sub45.i.i.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i ], [ %sub63.i.i.i, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i ], [ %xor.i5.i.i40.i.i.i, %_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m.exit.i ], [ %xor.i5.i32.i.i.i.i, %if.then.i.i.i ], [ %xor.i5.i.i33.i.i.i, %if.then2.i.i.i ], [ %xor5.i21.i.i.i.i, %if.then5.i.i.i ], [ -7374073936536430376, %if.end4.i.i.i ]
+  %retval.sroa.0.0.i.i.pn.i = phi i64 [ %xor.i5.i.i.i.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i ], [ %xor.i5.i106.i.i.i, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i ], [ %xor.i5.i.i.i.i14.i, %_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m.exit.i ], [ %xor.i5.i.i.i.i.i, %if.then.i.i.i ], [ %xor.i17.i.i.i.i, %if.then2.i.i.i ], [ %xor5.i.i.i.i.i, %if.then5.i.i.i ], [ 6918025063187695999, %if.end4.i.i.i ]
+  %retval.sroa.5.0.i.i.pn.i = phi i64 [ %sub45.i.i.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i ], [ %sub63.i.i.i, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i ], [ %xor.i5.i.i39.i.i.i, %_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m.exit.i ], [ %xor.i5.i32.i.i.i.i, %if.then.i.i.i ], [ %xor.i5.i.i33.i.i.i, %if.then2.i.i.i ], [ %xor5.i21.i.i.i.i, %if.then5.i.i.i ], [ -7374073936536430376, %if.end4.i.i.i ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %oss)
   %add.ptr = getelementptr inbounds i8, ptr %oss, i64 16
   %call1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @_ZSt3hexRSt8ios_base)

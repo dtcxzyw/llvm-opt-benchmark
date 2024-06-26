@@ -3556,35 +3556,35 @@ for.body219.preheader:                            ; preds = %for.cond215.prehead
 
 for.body219:                                      ; preds = %for.body219.preheader, %for.inc256
   %indvars.iv216 = phi i64 [ 0, %for.body219.preheader ], [ %indvars.iv.next217, %for.inc256 ]
-  %34 = shl nsw i64 %indvars.iv216, 2
-  %add.ptr222 = getelementptr inbounds i16, ptr %out.0, i64 %34
+  %add.ptr222.idx = shl nsw i64 %indvars.iv216, 3
+  %add.ptr222 = getelementptr inbounds i8, ptr %out.0, i64 %add.ptr222.idx
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr222, i64 6
-  %35 = load i16, ptr %arrayidx, align 2
-  switch i16 %35, label %if.then231 [
+  %34 = load i16, ptr %arrayidx, align 2
+  switch i16 %34, label %if.then231 [
     i16 0, label %for.inc256
     i16 -1, label %for.inc256
   ]
 
 if.then231:                                       ; preds = %for.body219
-  %conv234 = uitofp i16 %35 to float
+  %conv234 = uitofp i16 %34 to float
   %div = fdiv float %conv234, 6.553500e+04
   %div235 = fdiv float 1.000000e+00, %div
   %sub = fsub float 1.000000e+00, %div235
   %mul236 = fmul float %sub, 6.553500e+04
-  %36 = load <2 x i16>, ptr %add.ptr222, align 2
-  %37 = uitofp <2 x i16> %36 to <2 x float>
-  %38 = insertelement <2 x float> poison, float %div235, i64 0
-  %39 = shufflevector <2 x float> %38, <2 x float> poison, <2 x i32> zeroinitializer
-  %40 = insertelement <2 x float> poison, float %mul236, i64 0
-  %41 = shufflevector <2 x float> %40, <2 x float> poison, <2 x i32> zeroinitializer
-  %42 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %37, <2 x float> %39, <2 x float> %41)
-  %43 = fptoui <2 x float> %42 to <2 x i16>
-  store <2 x i16> %43, ptr %add.ptr222, align 2
+  %35 = load <2 x i16>, ptr %add.ptr222, align 2
+  %36 = uitofp <2 x i16> %35 to <2 x float>
+  %37 = insertelement <2 x float> poison, float %div235, i64 0
+  %38 = shufflevector <2 x float> %37, <2 x float> poison, <2 x i32> zeroinitializer
+  %39 = insertelement <2 x float> poison, float %mul236, i64 0
+  %40 = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> zeroinitializer
+  %41 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %36, <2 x float> %38, <2 x float> %40)
+  %42 = fptoui <2 x float> %41 to <2 x i16>
+  store <2 x i16> %42, ptr %add.ptr222, align 2
   %arrayidx249 = getelementptr inbounds i8, ptr %add.ptr222, i64 4
-  %44 = load i16, ptr %arrayidx249, align 2
-  %conv251 = uitofp i16 %44 to float
-  %45 = tail call float @llvm.fmuladd.f32(float %conv251, float %div235, float %mul236)
-  %conv253 = fptoui float %45 to i16
+  %43 = load i16, ptr %arrayidx249, align 2
+  %conv251 = uitofp i16 %43 to float
+  %44 = tail call float @llvm.fmuladd.f32(float %conv251, float %div235, float %mul236)
+  %conv253 = fptoui float %44 to i16
   store i16 %conv253, ptr %arrayidx249, align 2
   br label %for.inc256
 
@@ -3595,37 +3595,37 @@ for.inc256:                                       ; preds = %for.body219, %for.b
 
 for.body264:                                      ; preds = %for.body264.preheader, %for.inc308
   %indvars.iv211 = phi i64 [ 0, %for.body264.preheader ], [ %indvars.iv.next212, %for.inc308 ]
-  %46 = shl nsw i64 %indvars.iv211, 2
-  %add.ptr268 = getelementptr inbounds i8, ptr %out.0, i64 %46
+  %45 = shl nsw i64 %indvars.iv211, 2
+  %add.ptr268 = getelementptr inbounds i8, ptr %out.0, i64 %45
   %arrayidx269 = getelementptr inbounds i8, ptr %add.ptr268, i64 3
-  %47 = load i8, ptr %arrayidx269, align 1
-  switch i8 %47, label %if.then278 [
+  %46 = load i8, ptr %arrayidx269, align 1
+  switch i8 %46, label %if.then278 [
     i8 0, label %for.inc308
     i8 -1, label %for.inc308
   ]
 
 if.then278:                                       ; preds = %for.body264
-  %conv282 = uitofp i8 %47 to float
+  %conv282 = uitofp i8 %46 to float
   %div283 = fdiv float %conv282, 2.550000e+02
   %div285 = fdiv float 1.000000e+00, %div283
   %sub287 = fsub float 1.000000e+00, %div285
   %mul288 = fmul float %sub287, 2.550000e+02
-  %48 = load i8, ptr %add.ptr268, align 1
-  %conv291 = uitofp i8 %48 to float
-  %49 = tail call float @llvm.fmuladd.f32(float %conv291, float %div285, float %mul288)
-  %conv293 = fptoui float %49 to i8
+  %47 = load i8, ptr %add.ptr268, align 1
+  %conv291 = uitofp i8 %47 to float
+  %48 = tail call float @llvm.fmuladd.f32(float %conv291, float %div285, float %mul288)
+  %conv293 = fptoui float %48 to i8
   store i8 %conv293, ptr %add.ptr268, align 1
   %arrayidx295 = getelementptr inbounds i8, ptr %add.ptr268, i64 1
-  %50 = load i8, ptr %arrayidx295, align 1
-  %conv297 = uitofp i8 %50 to float
-  %51 = tail call float @llvm.fmuladd.f32(float %conv297, float %div285, float %mul288)
-  %conv299 = fptoui float %51 to i8
+  %49 = load i8, ptr %arrayidx295, align 1
+  %conv297 = uitofp i8 %49 to float
+  %50 = tail call float @llvm.fmuladd.f32(float %conv297, float %div285, float %mul288)
+  %conv299 = fptoui float %50 to i8
   store i8 %conv299, ptr %arrayidx295, align 1
   %arrayidx301 = getelementptr inbounds i8, ptr %add.ptr268, i64 2
-  %52 = load i8, ptr %arrayidx301, align 1
-  %conv303 = uitofp i8 %52 to float
-  %53 = tail call float @llvm.fmuladd.f32(float %conv303, float %div285, float %mul288)
-  %conv305 = fptoui float %53 to i8
+  %51 = load i8, ptr %arrayidx301, align 1
+  %conv303 = uitofp i8 %51 to float
+  %52 = tail call float @llvm.fmuladd.f32(float %conv303, float %div285, float %mul288)
+  %conv305 = fptoui float %52 to i8
   store i8 %conv305, ptr %arrayidx301, align 1
   br label %for.inc308
 
@@ -3635,13 +3635,13 @@ for.inc308:                                       ; preds = %for.body264, %for.b
   br i1 %exitcond215.not, label %if.end312, label %for.body264, !llvm.loop !26
 
 if.end312:                                        ; preds = %for.inc308, %for.inc256, %for.cond260.preheader, %for.cond215.preheader, %if.end207
-  %54 = and i32 %req_comp, -5
-  %or.cond5.not = icmp eq i32 %54, 0
+  %53 = and i32 %req_comp, -5
+  %or.cond5.not = icmp eq i32 %53, 0
   br i1 %or.cond5.not, label %if.end330, label %if.then317
 
 if.then317:                                       ; preds = %if.end312
-  %55 = load i32, ptr %ri, align 4
-  %cmp319 = icmp eq i32 %55, 16
+  %54 = load i32, ptr %ri, align 4
+  %cmp319 = icmp eq i32 %54, 16
   br i1 %cmp319, label %if.then321, label %if.else323
 
 if.then321:                                       ; preds = %if.then317

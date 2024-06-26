@@ -1451,8 +1451,8 @@ cond.end:                                         ; preds = %invoke.cont57.threa
   br i1 %exitcond145.not, label %for.end75, label %for.body40, !llvm.loop !26
 
 for.end75:                                        ; preds = %cond.end
-  %mul76 = shl i64 %i33.0134, 1
-  %add.ptr = getelementptr inbounds i32, ptr %destination, i64 %mul76
+  %add.ptr.idx = shl i64 %i33.0134, 3
+  %add.ptr = getelementptr inbounds i8, ptr %destination, i64 %add.ptr.idx
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %add.ptr, ptr noundef nonnull align 16 dereferenceable(24) %patch, i64 24, i1 false)
   %add78 = add i64 %i33.0134, 3
   %cmp35 = icmp ult i64 %add78, %index_count
@@ -1861,8 +1861,8 @@ invoke.cont47:                                    ; preds = %if.end4.i78, %_ZNK7
   br i1 %exitcond129.not, label %for.end71, label %for.body30, !llvm.loop !31
 
 for.end71:                                        ; preds = %invoke.cont47
-  %mul72 = shl i64 %i23.0118, 2
-  %add.ptr = getelementptr inbounds i32, ptr %destination, i64 %mul72
+  %add.ptr.idx = shl i64 %i23.0118, 4
+  %add.ptr = getelementptr inbounds i8, ptr %destination, i64 %add.ptr.idx
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %add.ptr, ptr noundef nonnull align 16 dereferenceable(48) %patch, i64 48, i1 false)
   %add74 = add i64 %i23.0118, 3
   %cmp25 = icmp ult i64 %add74, %index_count

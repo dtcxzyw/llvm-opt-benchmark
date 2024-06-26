@@ -2722,7 +2722,7 @@ define internal fastcc void @sqlite3VdbeDelete(ptr noundef %0) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %37, label %5
+  br i1 %.not.i, label %36, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 194
@@ -2732,295 +2732,295 @@ define internal fastcc void @sqlite3VdbeDelete(ptr noundef %0) unnamed_addr #0 {
 
 8:                                                ; preds = %5
   %9 = zext i16 %7 to i64
-  %10 = shl nuw nsw i64 %9, 1
-  %11 = getelementptr inbounds %struct.sqlite3_value, ptr %4, i64 %10
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 768
-  %15 = load ptr, ptr %14, align 8
-  %.not.i.i = icmp eq ptr %15, null
+  %.idx.i = mul nuw nsw i64 %9, 112
+  %10 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
+  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 768
+  %14 = load ptr, ptr %13, align 8
+  %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.preheader.i.i, label %.preheader29.i.i
 
 .preheader29.i.i:                                 ; preds = %8, %sqlite3DbFree.exit.i.i
-  %.0.i.i = phi ptr [ %22, %sqlite3DbFree.exit.i.i ], [ %4, %8 ]
-  %16 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
-  %17 = load i32, ptr %16, align 8
-  %.not27.i.i = icmp eq i32 %17, 0
-  br i1 %.not27.i.i, label %sqlite3DbFree.exit.i.i, label %18
+  %.0.i.i = phi ptr [ %21, %sqlite3DbFree.exit.i.i ], [ %4, %8 ]
+  %15 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  %16 = load i32, ptr %15, align 8
+  %.not27.i.i = icmp eq i32 %16, 0
+  br i1 %.not27.i.i, label %sqlite3DbFree.exit.i.i, label %17
 
-18:                                               ; preds = %.preheader29.i.i
-  %19 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
-  %20 = load ptr, ptr %19, align 8
-  %.not.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i, label %sqlite3DbFree.exit.i.i, label %21
+17:                                               ; preds = %.preheader29.i.i
+  %18 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
+  %19 = load ptr, ptr %18, align 8
+  %.not.i.i.i = icmp eq ptr %19, null
+  br i1 %.not.i.i.i, label %sqlite3DbFree.exit.i.i, label %20
 
-21:                                               ; preds = %18
-  tail call fastcc void @sqlite3DbFreeNN(ptr noundef %13, ptr noundef nonnull %20)
+20:                                               ; preds = %17
+  tail call fastcc void @sqlite3DbFreeNN(ptr noundef %12, ptr noundef nonnull %19)
   br label %sqlite3DbFree.exit.i.i
 
-sqlite3DbFree.exit.i.i:                           ; preds = %21, %18, %.preheader29.i.i
-  %22 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
-  %23 = icmp ult ptr %22, %11
-  br i1 %23, label %.preheader29.i.i, label %releaseMemArray.exit.i, !llvm.loop !18
+sqlite3DbFree.exit.i.i:                           ; preds = %20, %17, %.preheader29.i.i
+  %21 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
+  %22 = icmp ult ptr %21, %10
+  br i1 %22, label %.preheader29.i.i, label %releaseMemArray.exit.i, !llvm.loop !18
 
-.preheader.i.i:                                   ; preds = %8, %33
-  %.1.i.i = phi ptr [ %34, %33 ], [ %4, %8 ]
-  %24 = getelementptr inbounds i8, ptr %.1.i.i, i64 20
-  %25 = load i16, ptr %24, align 4
-  %26 = and i16 %25, -28672
-  %.not25.i.i = icmp eq i16 %26, 0
-  br i1 %.not25.i.i, label %27, label %sqlite3VdbeMemRelease.exit.i.i
+.preheader.i.i:                                   ; preds = %8, %32
+  %.1.i.i = phi ptr [ %33, %32 ], [ %4, %8 ]
+  %23 = getelementptr inbounds i8, ptr %.1.i.i, i64 20
+  %24 = load i16, ptr %23, align 4
+  %25 = and i16 %24, -28672
+  %.not25.i.i = icmp eq i16 %25, 0
+  br i1 %.not25.i.i, label %26, label %sqlite3VdbeMemRelease.exit.i.i
 
 sqlite3VdbeMemRelease.exit.i.i:                   ; preds = %.preheader.i.i
   tail call fastcc void @vdbeMemClear(ptr noundef nonnull %.1.i.i)
   br label %.sink.split.i.i
 
-27:                                               ; preds = %.preheader.i.i
-  %28 = getelementptr inbounds i8, ptr %.1.i.i, i64 32
-  %29 = load i32, ptr %28, align 8
-  %.not26.i.i = icmp eq i32 %29, 0
-  br i1 %.not26.i.i, label %33, label %30
+26:                                               ; preds = %.preheader.i.i
+  %27 = getelementptr inbounds i8, ptr %.1.i.i, i64 32
+  %28 = load i32, ptr %27, align 8
+  %.not26.i.i = icmp eq i32 %28, 0
+  br i1 %.not26.i.i, label %32, label %29
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.1.i.i, i64 40
-  %32 = load ptr, ptr %31, align 8
-  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %13, ptr noundef %32)
-  store i32 0, ptr %28, align 8
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %.1.i.i, i64 40
+  %31 = load ptr, ptr %30, align 8
+  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %12, ptr noundef %31)
+  store i32 0, ptr %27, align 8
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %30, %sqlite3VdbeMemRelease.exit.i.i
-  store i16 0, ptr %24, align 4
-  br label %33
+.sink.split.i.i:                                  ; preds = %29, %sqlite3VdbeMemRelease.exit.i.i
+  store i16 0, ptr %23, align 4
+  br label %32
 
-33:                                               ; preds = %.sink.split.i.i, %27
-  %34 = getelementptr inbounds i8, ptr %.1.i.i, i64 56
-  %35 = icmp ult ptr %34, %11
-  br i1 %35, label %.preheader.i.i, label %releaseMemArray.exit.i, !llvm.loop !19
+32:                                               ; preds = %.sink.split.i.i, %26
+  %33 = getelementptr inbounds i8, ptr %.1.i.i, i64 56
+  %34 = icmp ult ptr %33, %10
+  br i1 %34, label %.preheader.i.i, label %releaseMemArray.exit.i, !llvm.loop !19
 
-releaseMemArray.exit.i:                           ; preds = %sqlite3DbFree.exit.i.i, %33, %5
-  %36 = load ptr, ptr %3, align 8
-  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %2, ptr noundef %36)
-  br label %37
+releaseMemArray.exit.i:                           ; preds = %sqlite3DbFree.exit.i.i, %32, %5
+  %35 = load ptr, ptr %3, align 8
+  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %2, ptr noundef %35)
+  br label %36
 
-37:                                               ; preds = %releaseMemArray.exit.i, %1
-  %38 = getelementptr inbounds i8, ptr %0, i64 288
-  %39 = load ptr, ptr %38, align 8
-  %.not3362.i = icmp eq ptr %39, null
+36:                                               ; preds = %releaseMemArray.exit.i, %1
+  %37 = getelementptr inbounds i8, ptr %0, i64 288
+  %38 = load ptr, ptr %37, align 8
+  %.not3362.i = icmp eq ptr %38, null
   br i1 %.not3362.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %37, %sqlite3DbFree.exit.i
-  %.063.i = phi ptr [ %41, %sqlite3DbFree.exit.i ], [ %39, %37 ]
-  %40 = getelementptr inbounds i8, ptr %.063.i, i64 40
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %.063.i, align 8
-  %.not.i38.i = icmp eq ptr %42, null
-  br i1 %.not.i38.i, label %sqlite3DbFree.exit.i, label %43
+.lr.ph.i:                                         ; preds = %36, %sqlite3DbFree.exit.i
+  %.063.i = phi ptr [ %40, %sqlite3DbFree.exit.i ], [ %38, %36 ]
+  %39 = getelementptr inbounds i8, ptr %.063.i, i64 40
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %.063.i, align 8
+  %.not.i38.i = icmp eq ptr %41, null
+  br i1 %.not.i38.i, label %sqlite3DbFree.exit.i, label %42
 
-43:                                               ; preds = %.lr.ph.i
-  %44 = getelementptr inbounds i8, ptr %.063.i, i64 8
-  %45 = load i32, ptr %44, align 8
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr %struct.VdbeOp, ptr %42, i64 %46
-  br label %48
+42:                                               ; preds = %.lr.ph.i
+  %43 = getelementptr inbounds i8, ptr %.063.i, i64 8
+  %44 = load i32, ptr %43, align 8
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr %struct.VdbeOp, ptr %41, i64 %45
+  br label %47
 
-48:                                               ; preds = %56, %43
-  %.pn.i.i = phi ptr [ %47, %43 ], [ %.0.i39.i, %56 ]
+47:                                               ; preds = %55, %42
+  %.pn.i.i = phi ptr [ %46, %42 ], [ %.0.i39.i, %55 ]
   %.0.i39.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 -24
-  %49 = getelementptr inbounds i8, ptr %.pn.i.i, i64 -23
-  %50 = load i8, ptr %49, align 1
-  %51 = icmp slt i8 %50, -5
-  br i1 %51, label %52, label %56
+  %48 = getelementptr inbounds i8, ptr %.pn.i.i, i64 -23
+  %49 = load i8, ptr %48, align 1
+  %50 = icmp slt i8 %49, -5
+  br i1 %50, label %51, label %55
 
-52:                                               ; preds = %48
-  %53 = sext i8 %50 to i32
-  %54 = getelementptr inbounds i8, ptr %.pn.i.i, i64 -8
-  %55 = load ptr, ptr %54, align 8
-  tail call fastcc void @freeP4(ptr noundef %2, i32 noundef %53, ptr noundef %55)
-  br label %56
+51:                                               ; preds = %47
+  %52 = sext i8 %49 to i32
+  %53 = getelementptr inbounds i8, ptr %.pn.i.i, i64 -8
+  %54 = load ptr, ptr %53, align 8
+  tail call fastcc void @freeP4(ptr noundef %2, i32 noundef %52, ptr noundef %54)
+  br label %55
 
-56:                                               ; preds = %52, %48
-  %57 = icmp eq ptr %.0.i39.i, %42
-  br i1 %57, label %58, label %48
+55:                                               ; preds = %51, %47
+  %56 = icmp eq ptr %.0.i39.i, %41
+  br i1 %56, label %57, label %47
 
-58:                                               ; preds = %56
-  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %2, ptr noundef nonnull %42)
+57:                                               ; preds = %55
+  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %2, ptr noundef nonnull %41)
   br label %sqlite3DbFree.exit.i
 
-sqlite3DbFree.exit.i:                             ; preds = %58, %.lr.ph.i
+sqlite3DbFree.exit.i:                             ; preds = %57, %.lr.ph.i
   tail call fastcc void @sqlite3DbFreeNN(ptr noundef %2, ptr noundef nonnull %.063.i)
-  %.not33.i = icmp eq ptr %41, null
+  %.not33.i = icmp eq ptr %40, null
   br i1 %.not33.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
-._crit_edge.i:                                    ; preds = %sqlite3DbFree.exit.i, %37
-  %59 = getelementptr inbounds i8, ptr %0, i64 199
-  %60 = load i8, ptr %59, align 1
-  %.not34.i = icmp eq i8 %60, 0
-  br i1 %.not34.i, label %102, label %61
+._crit_edge.i:                                    ; preds = %sqlite3DbFree.exit.i, %36
+  %58 = getelementptr inbounds i8, ptr %0, i64 199
+  %59 = load i8, ptr %58, align 1
+  %.not34.i = icmp eq i8 %59, 0
+  br i1 %.not34.i, label %101, label %60
 
-61:                                               ; preds = %._crit_edge.i
-  %62 = getelementptr inbounds i8, ptr %0, i64 128
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
-  %65 = load i16, ptr %64, align 8
-  %66 = icmp ne ptr %63, null
-  %67 = icmp ne i16 %65, 0
-  %or.cond.i41.i = and i1 %66, %67
-  br i1 %or.cond.i41.i, label %68, label %releaseMemArray.exit54.i
+60:                                               ; preds = %._crit_edge.i
+  %61 = getelementptr inbounds i8, ptr %0, i64 128
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 32
+  %64 = load i16, ptr %63, align 8
+  %65 = icmp ne ptr %62, null
+  %66 = icmp ne i16 %64, 0
+  %or.cond.i41.i = and i1 %65, %66
+  br i1 %or.cond.i41.i, label %67, label %releaseMemArray.exit54.i
 
-68:                                               ; preds = %61
-  %69 = sext i16 %65 to i64
-  %70 = getelementptr inbounds %struct.sqlite3_value, ptr %63, i64 %69
-  %71 = getelementptr inbounds i8, ptr %63, i64 24
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 768
-  %74 = load ptr, ptr %73, align 8
-  %.not.i42.i = icmp eq ptr %74, null
+67:                                               ; preds = %60
+  %68 = sext i16 %64 to i64
+  %69 = getelementptr inbounds %struct.sqlite3_value, ptr %62, i64 %68
+  %70 = getelementptr inbounds i8, ptr %62, i64 24
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 768
+  %73 = load ptr, ptr %72, align 8
+  %.not.i42.i = icmp eq ptr %73, null
   br i1 %.not.i42.i, label %.preheader.i48.i, label %.preheader29.i43.i
 
-.preheader29.i43.i:                               ; preds = %68, %sqlite3DbFree.exit.i47.i
-  %.0.i44.i = phi ptr [ %81, %sqlite3DbFree.exit.i47.i ], [ %63, %68 ]
-  %75 = getelementptr inbounds i8, ptr %.0.i44.i, i64 32
-  %76 = load i32, ptr %75, align 8
-  %.not27.i45.i = icmp eq i32 %76, 0
-  br i1 %.not27.i45.i, label %sqlite3DbFree.exit.i47.i, label %77
+.preheader29.i43.i:                               ; preds = %67, %sqlite3DbFree.exit.i47.i
+  %.0.i44.i = phi ptr [ %80, %sqlite3DbFree.exit.i47.i ], [ %62, %67 ]
+  %74 = getelementptr inbounds i8, ptr %.0.i44.i, i64 32
+  %75 = load i32, ptr %74, align 8
+  %.not27.i45.i = icmp eq i32 %75, 0
+  br i1 %.not27.i45.i, label %sqlite3DbFree.exit.i47.i, label %76
 
-77:                                               ; preds = %.preheader29.i43.i
-  %78 = getelementptr inbounds i8, ptr %.0.i44.i, i64 40
-  %79 = load ptr, ptr %78, align 8
-  %.not.i.i46.i = icmp eq ptr %79, null
-  br i1 %.not.i.i46.i, label %sqlite3DbFree.exit.i47.i, label %80
+76:                                               ; preds = %.preheader29.i43.i
+  %77 = getelementptr inbounds i8, ptr %.0.i44.i, i64 40
+  %78 = load ptr, ptr %77, align 8
+  %.not.i.i46.i = icmp eq ptr %78, null
+  br i1 %.not.i.i46.i, label %sqlite3DbFree.exit.i47.i, label %79
 
-80:                                               ; preds = %77
-  tail call fastcc void @sqlite3DbFreeNN(ptr noundef %72, ptr noundef nonnull %79)
+79:                                               ; preds = %76
+  tail call fastcc void @sqlite3DbFreeNN(ptr noundef %71, ptr noundef nonnull %78)
   br label %sqlite3DbFree.exit.i47.i
 
-sqlite3DbFree.exit.i47.i:                         ; preds = %80, %77, %.preheader29.i43.i
-  %81 = getelementptr inbounds i8, ptr %.0.i44.i, i64 56
-  %82 = icmp ult ptr %81, %70
-  br i1 %82, label %.preheader29.i43.i, label %releaseMemArray.exit54.i, !llvm.loop !18
+sqlite3DbFree.exit.i47.i:                         ; preds = %79, %76, %.preheader29.i43.i
+  %80 = getelementptr inbounds i8, ptr %.0.i44.i, i64 56
+  %81 = icmp ult ptr %80, %69
+  br i1 %81, label %.preheader29.i43.i, label %releaseMemArray.exit54.i, !llvm.loop !18
 
-.preheader.i48.i:                                 ; preds = %68, %92
-  %.1.i49.i = phi ptr [ %93, %92 ], [ %63, %68 ]
-  %83 = getelementptr inbounds i8, ptr %.1.i49.i, i64 20
-  %84 = load i16, ptr %83, align 4
-  %85 = and i16 %84, -28672
-  %.not25.i50.i = icmp eq i16 %85, 0
-  br i1 %.not25.i50.i, label %86, label %sqlite3VdbeMemRelease.exit.i51.i
+.preheader.i48.i:                                 ; preds = %67, %91
+  %.1.i49.i = phi ptr [ %92, %91 ], [ %62, %67 ]
+  %82 = getelementptr inbounds i8, ptr %.1.i49.i, i64 20
+  %83 = load i16, ptr %82, align 4
+  %84 = and i16 %83, -28672
+  %.not25.i50.i = icmp eq i16 %84, 0
+  br i1 %.not25.i50.i, label %85, label %sqlite3VdbeMemRelease.exit.i51.i
 
 sqlite3VdbeMemRelease.exit.i51.i:                 ; preds = %.preheader.i48.i
   tail call fastcc void @vdbeMemClear(ptr noundef nonnull %.1.i49.i)
   br label %.sink.split.i52.i
 
-86:                                               ; preds = %.preheader.i48.i
-  %87 = getelementptr inbounds i8, ptr %.1.i49.i, i64 32
-  %88 = load i32, ptr %87, align 8
-  %.not26.i53.i = icmp eq i32 %88, 0
-  br i1 %.not26.i53.i, label %92, label %89
+85:                                               ; preds = %.preheader.i48.i
+  %86 = getelementptr inbounds i8, ptr %.1.i49.i, i64 32
+  %87 = load i32, ptr %86, align 8
+  %.not26.i53.i = icmp eq i32 %87, 0
+  br i1 %.not26.i53.i, label %91, label %88
 
-89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %.1.i49.i, i64 40
-  %91 = load ptr, ptr %90, align 8
-  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %72, ptr noundef %91)
-  store i32 0, ptr %87, align 8
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds i8, ptr %.1.i49.i, i64 40
+  %90 = load ptr, ptr %89, align 8
+  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %71, ptr noundef %90)
+  store i32 0, ptr %86, align 8
   br label %.sink.split.i52.i
 
-.sink.split.i52.i:                                ; preds = %89, %sqlite3VdbeMemRelease.exit.i51.i
-  store i16 0, ptr %83, align 4
-  br label %92
+.sink.split.i52.i:                                ; preds = %88, %sqlite3VdbeMemRelease.exit.i51.i
+  store i16 0, ptr %82, align 4
+  br label %91
 
-92:                                               ; preds = %.sink.split.i52.i, %86
-  %93 = getelementptr inbounds i8, ptr %.1.i49.i, i64 56
-  %94 = icmp ult ptr %93, %70
-  br i1 %94, label %.preheader.i48.i, label %releaseMemArray.exit54.i, !llvm.loop !19
+91:                                               ; preds = %.sink.split.i52.i, %85
+  %92 = getelementptr inbounds i8, ptr %.1.i49.i, i64 56
+  %93 = icmp ult ptr %92, %69
+  br i1 %93, label %.preheader.i48.i, label %releaseMemArray.exit54.i, !llvm.loop !19
 
-releaseMemArray.exit54.i:                         ; preds = %sqlite3DbFree.exit.i47.i, %92, %61
-  %95 = getelementptr inbounds i8, ptr %0, i64 176
-  %96 = load ptr, ptr %95, align 8
-  %.not35.i = icmp eq ptr %96, null
-  br i1 %.not35.i, label %98, label %97
+releaseMemArray.exit54.i:                         ; preds = %sqlite3DbFree.exit.i47.i, %91, %60
+  %94 = getelementptr inbounds i8, ptr %0, i64 176
+  %95 = load ptr, ptr %94, align 8
+  %.not35.i = icmp eq ptr %95, null
+  br i1 %.not35.i, label %97, label %96
 
-97:                                               ; preds = %releaseMemArray.exit54.i
-  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %2, ptr noundef nonnull %96)
-  br label %98
+96:                                               ; preds = %releaseMemArray.exit54.i
+  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %2, ptr noundef nonnull %95)
+  br label %97
 
-98:                                               ; preds = %97, %releaseMemArray.exit54.i
-  %99 = getelementptr inbounds i8, ptr %0, i64 256
-  %100 = load ptr, ptr %99, align 8
-  %.not36.i = icmp eq ptr %100, null
-  br i1 %.not36.i, label %102, label %101
+97:                                               ; preds = %96, %releaseMemArray.exit54.i
+  %98 = getelementptr inbounds i8, ptr %0, i64 256
+  %99 = load ptr, ptr %98, align 8
+  %.not36.i = icmp eq ptr %99, null
+  br i1 %.not36.i, label %101, label %100
 
-101:                                              ; preds = %98
-  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %2, ptr noundef nonnull %100)
-  br label %102
+100:                                              ; preds = %97
+  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %2, ptr noundef nonnull %99)
+  br label %101
 
-102:                                              ; preds = %101, %98, %._crit_edge.i
-  %103 = getelementptr inbounds i8, ptr %0, i64 136
-  %104 = load ptr, ptr %103, align 8
-  %.not.i55.i = icmp eq ptr %104, null
-  br i1 %.not.i55.i, label %vdbeFreeOpArray.exit58.i, label %105
+101:                                              ; preds = %100, %97, %._crit_edge.i
+  %102 = getelementptr inbounds i8, ptr %0, i64 136
+  %103 = load ptr, ptr %102, align 8
+  %.not.i55.i = icmp eq ptr %103, null
+  br i1 %.not.i55.i, label %vdbeFreeOpArray.exit58.i, label %104
 
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %0, i64 144
-  %107 = load i32, ptr %106, align 8
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr %struct.VdbeOp, ptr %104, i64 %108
-  br label %110
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds i8, ptr %0, i64 144
+  %106 = load i32, ptr %105, align 8
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr %struct.VdbeOp, ptr %103, i64 %107
+  br label %109
 
-110:                                              ; preds = %118, %105
-  %.pn.i56.i = phi ptr [ %109, %105 ], [ %.0.i57.i, %118 ]
+109:                                              ; preds = %117, %104
+  %.pn.i56.i = phi ptr [ %108, %104 ], [ %.0.i57.i, %117 ]
   %.0.i57.i = getelementptr inbounds i8, ptr %.pn.i56.i, i64 -24
-  %111 = getelementptr inbounds i8, ptr %.pn.i56.i, i64 -23
-  %112 = load i8, ptr %111, align 1
-  %113 = icmp slt i8 %112, -5
-  br i1 %113, label %114, label %118
+  %110 = getelementptr inbounds i8, ptr %.pn.i56.i, i64 -23
+  %111 = load i8, ptr %110, align 1
+  %112 = icmp slt i8 %111, -5
+  br i1 %112, label %113, label %117
 
-114:                                              ; preds = %110
-  %115 = sext i8 %112 to i32
-  %116 = getelementptr inbounds i8, ptr %.pn.i56.i, i64 -8
-  %117 = load ptr, ptr %116, align 8
-  tail call fastcc void @freeP4(ptr noundef %2, i32 noundef %115, ptr noundef %117)
-  br label %118
+113:                                              ; preds = %109
+  %114 = sext i8 %111 to i32
+  %115 = getelementptr inbounds i8, ptr %.pn.i56.i, i64 -8
+  %116 = load ptr, ptr %115, align 8
+  tail call fastcc void @freeP4(ptr noundef %2, i32 noundef %114, ptr noundef %116)
+  br label %117
 
-118:                                              ; preds = %114, %110
-  %119 = icmp eq ptr %.0.i57.i, %104
-  br i1 %119, label %120, label %110
+117:                                              ; preds = %113, %109
+  %118 = icmp eq ptr %.0.i57.i, %103
+  br i1 %118, label %119, label %109
 
-120:                                              ; preds = %118
-  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %2, ptr noundef nonnull %104)
+119:                                              ; preds = %117
+  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %2, ptr noundef nonnull %103)
   br label %vdbeFreeOpArray.exit58.i
 
-vdbeFreeOpArray.exit58.i:                         ; preds = %120, %102
-  %121 = getelementptr inbounds i8, ptr %0, i64 248
-  %122 = load ptr, ptr %121, align 8
-  %.not37.i = icmp eq ptr %122, null
-  br i1 %.not37.i, label %sqlite3VdbeClearObject.exit, label %123
+vdbeFreeOpArray.exit58.i:                         ; preds = %119, %101
+  %120 = getelementptr inbounds i8, ptr %0, i64 248
+  %121 = load ptr, ptr %120, align 8
+  %.not37.i = icmp eq ptr %121, null
+  br i1 %.not37.i, label %sqlite3VdbeClearObject.exit, label %122
 
-123:                                              ; preds = %vdbeFreeOpArray.exit58.i
-  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %2, ptr noundef nonnull %122)
+122:                                              ; preds = %vdbeFreeOpArray.exit58.i
+  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %2, ptr noundef nonnull %121)
   br label %sqlite3VdbeClearObject.exit
 
-sqlite3VdbeClearObject.exit:                      ; preds = %vdbeFreeOpArray.exit58.i, %123
-  %124 = getelementptr inbounds i8, ptr %2, i64 768
-  %125 = load ptr, ptr %124, align 8
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %127, label %135
+sqlite3VdbeClearObject.exit:                      ; preds = %vdbeFreeOpArray.exit58.i, %122
+  %123 = getelementptr inbounds i8, ptr %2, i64 768
+  %124 = load ptr, ptr %123, align 8
+  %125 = icmp eq ptr %124, null
+  br i1 %125, label %126, label %134
 
-127:                                              ; preds = %sqlite3VdbeClearObject.exit
-  %128 = getelementptr inbounds i8, ptr %0, i64 16
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %0, i64 8
-  %131 = load ptr, ptr %130, align 8
-  store ptr %129, ptr %131, align 8
-  %.not = icmp eq ptr %129, null
-  br i1 %.not, label %135, label %132
+126:                                              ; preds = %sqlite3VdbeClearObject.exit
+  %127 = getelementptr inbounds i8, ptr %0, i64 16
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %0, i64 8
+  %130 = load ptr, ptr %129, align 8
+  store ptr %128, ptr %130, align 8
+  %.not = icmp eq ptr %128, null
+  br i1 %.not, label %134, label %131
 
-132:                                              ; preds = %127
-  %133 = load ptr, ptr %130, align 8
-  %134 = getelementptr inbounds i8, ptr %129, i64 8
-  store ptr %133, ptr %134, align 8
-  br label %135
+131:                                              ; preds = %126
+  %132 = load ptr, ptr %129, align 8
+  %133 = getelementptr inbounds i8, ptr %128, i64 8
+  store ptr %132, ptr %133, align 8
+  br label %134
 
-135:                                              ; preds = %127, %132, %sqlite3VdbeClearObject.exit
+134:                                              ; preds = %126, %131, %sqlite3VdbeClearObject.exit
   tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef nonnull %2, ptr noundef nonnull %0)
   ret void
 }
@@ -261457,109 +261457,109 @@ define internal fastcc void @sqlite3VdbeSetNumCols(ptr nocapture noundef %0, i32
 
 9:                                                ; preds = %6
   %10 = zext i16 %5 to i64
-  %11 = shl nuw nsw i64 %10, 1
-  %12 = getelementptr inbounds %struct.sqlite3_value, ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 768
-  %16 = load ptr, ptr %15, align 8
-  %.not.i = icmp eq ptr %16, null
+  %.idx = mul nuw nsw i64 %10, 112
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx
+  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 768
+  %15 = load ptr, ptr %14, align 8
+  %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %.preheader.i, label %.preheader29.i
 
 .preheader29.i:                                   ; preds = %9, %sqlite3DbFree.exit.i
-  %.0.i = phi ptr [ %23, %sqlite3DbFree.exit.i ], [ %8, %9 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 32
-  %18 = load i32, ptr %17, align 8
-  %.not27.i = icmp eq i32 %18, 0
-  br i1 %.not27.i, label %sqlite3DbFree.exit.i, label %19
+  %.0.i = phi ptr [ %22, %sqlite3DbFree.exit.i ], [ %8, %9 ]
+  %16 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %17 = load i32, ptr %16, align 8
+  %.not27.i = icmp eq i32 %17, 0
+  br i1 %.not27.i, label %sqlite3DbFree.exit.i, label %18
 
-19:                                               ; preds = %.preheader29.i
-  %20 = getelementptr inbounds i8, ptr %.0.i, i64 40
-  %21 = load ptr, ptr %20, align 8
-  %.not.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i, label %sqlite3DbFree.exit.i, label %22
+18:                                               ; preds = %.preheader29.i
+  %19 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %.not.i.i = icmp eq ptr %20, null
+  br i1 %.not.i.i, label %sqlite3DbFree.exit.i, label %21
 
-22:                                               ; preds = %19
-  tail call fastcc void @sqlite3DbFreeNN(ptr noundef %14, ptr noundef nonnull %21)
+21:                                               ; preds = %18
+  tail call fastcc void @sqlite3DbFreeNN(ptr noundef %13, ptr noundef nonnull %20)
   br label %sqlite3DbFree.exit.i
 
-sqlite3DbFree.exit.i:                             ; preds = %22, %19, %.preheader29.i
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 56
-  %24 = icmp ult ptr %23, %12
-  br i1 %24, label %.preheader29.i, label %releaseMemArray.exit, !llvm.loop !18
+sqlite3DbFree.exit.i:                             ; preds = %21, %18, %.preheader29.i
+  %22 = getelementptr inbounds i8, ptr %.0.i, i64 56
+  %23 = icmp ult ptr %22, %11
+  br i1 %23, label %.preheader29.i, label %releaseMemArray.exit, !llvm.loop !18
 
-.preheader.i:                                     ; preds = %9, %34
-  %.1.i = phi ptr [ %35, %34 ], [ %8, %9 ]
-  %25 = getelementptr inbounds i8, ptr %.1.i, i64 20
-  %26 = load i16, ptr %25, align 4
-  %27 = and i16 %26, -28672
-  %.not25.i = icmp eq i16 %27, 0
-  br i1 %.not25.i, label %28, label %sqlite3VdbeMemRelease.exit.i
+.preheader.i:                                     ; preds = %9, %33
+  %.1.i = phi ptr [ %34, %33 ], [ %8, %9 ]
+  %24 = getelementptr inbounds i8, ptr %.1.i, i64 20
+  %25 = load i16, ptr %24, align 4
+  %26 = and i16 %25, -28672
+  %.not25.i = icmp eq i16 %26, 0
+  br i1 %.not25.i, label %27, label %sqlite3VdbeMemRelease.exit.i
 
 sqlite3VdbeMemRelease.exit.i:                     ; preds = %.preheader.i
   tail call fastcc void @vdbeMemClear(ptr noundef nonnull %.1.i)
   br label %.sink.split.i
 
-28:                                               ; preds = %.preheader.i
-  %29 = getelementptr inbounds i8, ptr %.1.i, i64 32
-  %30 = load i32, ptr %29, align 8
-  %.not26.i = icmp eq i32 %30, 0
-  br i1 %.not26.i, label %34, label %31
+27:                                               ; preds = %.preheader.i
+  %28 = getelementptr inbounds i8, ptr %.1.i, i64 32
+  %29 = load i32, ptr %28, align 8
+  %.not26.i = icmp eq i32 %29, 0
+  br i1 %.not26.i, label %33, label %30
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %.1.i, i64 40
-  %33 = load ptr, ptr %32, align 8
-  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %14, ptr noundef %33)
-  store i32 0, ptr %29, align 8
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds i8, ptr %.1.i, i64 40
+  %32 = load ptr, ptr %31, align 8
+  tail call fastcc void @sqlite3DbNNFreeNN(ptr noundef %13, ptr noundef %32)
+  store i32 0, ptr %28, align 8
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %31, %sqlite3VdbeMemRelease.exit.i
-  store i16 0, ptr %25, align 4
-  br label %34
+.sink.split.i:                                    ; preds = %30, %sqlite3VdbeMemRelease.exit.i
+  store i16 0, ptr %24, align 4
+  br label %33
 
-34:                                               ; preds = %.sink.split.i, %28
-  %35 = getelementptr inbounds i8, ptr %.1.i, i64 56
-  %36 = icmp ult ptr %35, %12
-  br i1 %36, label %.preheader.i, label %releaseMemArray.exit, !llvm.loop !19
+33:                                               ; preds = %.sink.split.i, %27
+  %34 = getelementptr inbounds i8, ptr %.1.i, i64 56
+  %35 = icmp ult ptr %34, %11
+  br i1 %35, label %.preheader.i, label %releaseMemArray.exit, !llvm.loop !19
 
-releaseMemArray.exit:                             ; preds = %sqlite3DbFree.exit.i, %34
+releaseMemArray.exit:                             ; preds = %sqlite3DbFree.exit.i, %33
   %.pr = load ptr, ptr %7, align 8
   %.not.i17 = icmp eq ptr %.pr, null
-  br i1 %.not.i17, label %sqlite3DbFree.exit, label %37
+  br i1 %.not.i17, label %sqlite3DbFree.exit, label %36
 
-37:                                               ; preds = %releaseMemArray.exit
+36:                                               ; preds = %releaseMemArray.exit
   tail call fastcc void @sqlite3DbFreeNN(ptr noundef %3, ptr noundef nonnull %.pr)
   br label %sqlite3DbFree.exit
 
-sqlite3DbFree.exit:                               ; preds = %6, %37, %releaseMemArray.exit, %2
-  %38 = shl nsw i32 %1, 1
-  %39 = trunc i32 %1 to i16
-  store i16 %39, ptr %4, align 2
-  %40 = getelementptr inbounds i8, ptr %0, i64 192
-  store i16 %39, ptr %40, align 8
-  %41 = sext i32 %38 to i64
-  %42 = mul nsw i64 %41, 56
-  %43 = tail call fastcc ptr @sqlite3DbMallocRawNN(ptr noundef %3, i64 noundef %42)
-  %44 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr %43, ptr %44, align 8
-  %45 = icmp ne ptr %43, null
-  %46 = icmp sgt i32 %1, 0
-  %or.cond = and i1 %46, %45
+sqlite3DbFree.exit:                               ; preds = %6, %36, %releaseMemArray.exit, %2
+  %37 = shl nsw i32 %1, 1
+  %38 = trunc i32 %1 to i16
+  store i16 %38, ptr %4, align 2
+  %39 = getelementptr inbounds i8, ptr %0, i64 192
+  store i16 %38, ptr %39, align 8
+  %40 = sext i32 %37 to i64
+  %41 = mul nsw i64 %40, 56
+  %42 = tail call fastcc ptr @sqlite3DbMallocRawNN(ptr noundef %3, i64 noundef %41)
+  %43 = getelementptr inbounds i8, ptr %0, i64 152
+  store ptr %42, ptr %43, align 8
+  %44 = icmp ne ptr %42, null
+  %45 = icmp sgt i32 %1, 0
+  %or.cond = and i1 %45, %44
   br i1 %or.cond, label %.preheader.i18, label %initMemArray.exit
 
 .preheader.i18:                                   ; preds = %sqlite3DbFree.exit, %.preheader.i18
-  %.07.i = phi i32 [ %51, %.preheader.i18 ], [ %38, %sqlite3DbFree.exit ]
-  %.0.i19 = phi ptr [ %50, %.preheader.i18 ], [ %43, %sqlite3DbFree.exit ]
-  %47 = getelementptr inbounds i8, ptr %.0.i19, i64 20
-  store i16 1, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %.0.i19, i64 24
-  store ptr %3, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %.0.i19, i64 32
-  store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %.0.i19, i64 56
-  %51 = add nsw i32 %.07.i, -1
-  %52 = icmp ugt i32 %.07.i, 1
-  br i1 %52, label %.preheader.i18, label %initMemArray.exit, !llvm.loop !149
+  %.07.i = phi i32 [ %50, %.preheader.i18 ], [ %37, %sqlite3DbFree.exit ]
+  %.0.i19 = phi ptr [ %49, %.preheader.i18 ], [ %42, %sqlite3DbFree.exit ]
+  %46 = getelementptr inbounds i8, ptr %.0.i19, i64 20
+  store i16 1, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %.0.i19, i64 24
+  store ptr %3, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %.0.i19, i64 32
+  store i32 0, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %.0.i19, i64 56
+  %50 = add nsw i32 %.07.i, -1
+  %51 = icmp ugt i32 %.07.i, 1
+  br i1 %51, label %.preheader.i18, label %initMemArray.exit, !llvm.loop !149
 
 initMemArray.exit:                                ; preds = %.preheader.i18, %sqlite3DbFree.exit
   ret void
@@ -264870,83 +264870,83 @@ sqlite3IsBinary.exit:                             ; preds = %10
 
 24:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %25 = shl nuw nsw i64 %indvars.iv, 1
-  %26 = getelementptr inbounds ptr, ptr %20, i64 %25
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 44
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp eq i32 %29, %22
-  br i1 %30, label %31, label %.critedge
+  %.idx = shl nsw i64 %indvars.iv, 4
+  %25 = getelementptr inbounds i8, ptr %20, i64 %.idx
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 44
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp eq i32 %28, %22
+  br i1 %29, label %30, label %.critedge
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %27, i64 48
-  %33 = load i16, ptr %32, align 8
-  %34 = load i16, ptr %23, align 8
-  %35 = icmp eq i16 %33, %34
-  br i1 %35, label %.loopexit, label %.critedge
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds i8, ptr %26, i64 48
+  %32 = load i16, ptr %31, align 8
+  %33 = load i16, ptr %23, align 8
+  %34 = icmp eq i16 %32, %33
+  br i1 %34, label %.loopexit, label %.critedge
 
-.critedge:                                        ; preds = %24, %31
+.critedge:                                        ; preds = %24, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge._crit_edge, label %24, !llvm.loop !1068
 
 .critedge._crit_edge:                             ; preds = %.critedge, %.critedge.preheader
-  %36 = tail call fastcc signext i8 @sqlite3ExprAffinity(ptr noundef nonnull %1)
-  %37 = icmp eq i8 %36, 65
-  br i1 %37, label %38, label %40
+  %35 = tail call fastcc signext i8 @sqlite3ExprAffinity(ptr noundef nonnull %1)
+  %36 = icmp eq i8 %35, 65
+  br i1 %36, label %37, label %39
 
-38:                                               ; preds = %.critedge._crit_edge
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %39, align 8
-  br label %40
+37:                                               ; preds = %.critedge._crit_edge
+  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %38, align 8
+  br label %39
 
-40:                                               ; preds = %38, %.critedge._crit_edge
-  %41 = add nsw i32 %17, 1
-  store i32 %41, ptr %16, align 8
-  %42 = load ptr, ptr %0, align 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
-  %45 = load ptr, ptr %44, align 8
-  %46 = shl nsw i32 %41, 1
-  %47 = sext i32 %46 to i64
-  %48 = shl nsw i64 %47, 3
-  %49 = tail call fastcc ptr @sqlite3DbRealloc(ptr noundef %43, ptr noundef %45, i64 noundef %48)
-  %.not.i = icmp ne ptr %49, null
-  %.not.i.i = icmp eq ptr %45, null
+39:                                               ; preds = %37, %.critedge._crit_edge
+  %40 = add nsw i32 %17, 1
+  store i32 %40, ptr %16, align 8
+  %41 = load ptr, ptr %0, align 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %45 = shl nsw i32 %40, 1
+  %46 = sext i32 %45 to i64
+  %47 = shl nsw i64 %46, 3
+  %48 = tail call fastcc ptr @sqlite3DbRealloc(ptr noundef %42, ptr noundef %44, i64 noundef %47)
+  %.not.i = icmp ne ptr %48, null
+  %.not.i.i = icmp eq ptr %44, null
   %or.cond.i = or i1 %.not.i.i, %.not.i
   br i1 %or.cond.i, label %sqlite3DbReallocOrFree.exit, label %sqlite3DbReallocOrFree.exit.thread
 
-sqlite3DbReallocOrFree.exit.thread:               ; preds = %40
-  tail call fastcc void @sqlite3DbFreeNN(ptr noundef %43, ptr noundef nonnull %45)
-  store ptr null, ptr %44, align 8
-  br label %51
+sqlite3DbReallocOrFree.exit.thread:               ; preds = %39
+  tail call fastcc void @sqlite3DbFreeNN(ptr noundef %42, ptr noundef nonnull %44)
+  store ptr null, ptr %43, align 8
+  br label %50
 
-sqlite3DbReallocOrFree.exit:                      ; preds = %40
-  store ptr %49, ptr %44, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %52
+sqlite3DbReallocOrFree.exit:                      ; preds = %39
+  store ptr %48, ptr %43, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %51
 
-51:                                               ; preds = %sqlite3DbReallocOrFree.exit.thread, %sqlite3DbReallocOrFree.exit
+50:                                               ; preds = %sqlite3DbReallocOrFree.exit.thread, %sqlite3DbReallocOrFree.exit
   store i32 0, ptr %16, align 8
   br label %.loopexit
 
-52:                                               ; preds = %sqlite3DbReallocOrFree.exit
-  %53 = load i32, ptr %16, align 8
-  %54 = shl nsw i32 %53, 1
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr ptr, ptr %49, i64 %55
-  %57 = getelementptr i8, ptr %56, i64 -16
-  store ptr %1, ptr %57, align 8
-  %58 = load ptr, ptr %44, align 8
-  %59 = load i32, ptr %16, align 8
-  %60 = shl nsw i32 %59, 1
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr ptr, ptr %58, i64 %61
-  %63 = getelementptr i8, ptr %62, i64 -8
-  store ptr %2, ptr %63, align 8
+51:                                               ; preds = %sqlite3DbReallocOrFree.exit
+  %52 = load i32, ptr %16, align 8
+  %53 = shl nsw i32 %52, 1
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr ptr, ptr %48, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 -16
+  store ptr %1, ptr %56, align 8
+  %57 = load ptr, ptr %43, align 8
+  %58 = load i32, ptr %16, align 8
+  %59 = shl nsw i32 %58, 1
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr ptr, ptr %57, i64 %60
+  %62 = getelementptr i8, ptr %61, i64 -8
+  store ptr %2, ptr %62, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %31, %sqlite3IsBinary.exit, %8, %4, %52, %51
+.loopexit:                                        ; preds = %30, %sqlite3IsBinary.exit, %8, %4, %51, %50
   ret void
 }
 

@@ -19,8 +19,8 @@ entry:
   br i1 %cmp443, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mul = shl nuw i64 %div, 1
-  %add.ptr1 = getelementptr i64, ptr %a, i64 %mul
+  %add.ptr1.idx = shl i64 %div, 4
+  %add.ptr1 = getelementptr i8, ptr %a, i64 %add.ptr1.idx
   %1 = getelementptr inbounds i8, ptr %w3table, i64 8
   %w3table.val = load i64, ptr %1, align 8
   %2 = getelementptr inbounds i8, ptr %w3table, i64 16
@@ -1352,8 +1352,8 @@ for.end26:                                        ; preds = %for.inc25
   br i1 %cmp32451, label %for.body33.lr.ph, label %return
 
 for.body33.lr.ph:                                 ; preds = %for.end26
-  %mul28 = shl nuw i64 %div, 1
-  %add.ptr29 = getelementptr i64, ptr %a, i64 %mul28
+  %add.ptr29.idx = shl i64 %div, 4
+  %add.ptr29 = getelementptr i8, ptr %a, i64 %add.ptr29.idx
   %4 = getelementptr inbounds i8, ptr %w3table, i64 8
   %w3table.val = load i64, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %w3table, i64 16

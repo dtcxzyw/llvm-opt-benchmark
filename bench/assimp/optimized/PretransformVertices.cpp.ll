@@ -2875,7 +2875,6 @@ if.else:                                          ; preds = %for.end24
   %mNumMaterials = getelementptr inbounds i8, ptr %pScene, i64 32
   %89 = load i32, ptr %mNumMaterials, align 8
   %conv = zext i32 %89 to i64
-  %shl = shl nuw nsw i64 %conv, 1
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %apcOutMeshes, i64 16
   %cmp3.i.not = icmp eq i32 %89, 0
   br i1 %cmp3.i.not, label %invoke.cont55, label %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i
@@ -2889,7 +2888,8 @@ _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %_ZN
   %_M_finish.i.i = getelementptr inbounds i8, ptr %apcOutMeshes, i64 8
   store ptr %call5.i.i.i.i202, ptr %apcOutMeshes, align 8
   store ptr %call5.i.i.i.i202, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i202, i64 %shl
+  %add.ptr21.i.idx = shl nuw nsw i64 %conv, 4
+  %add.ptr21.i = getelementptr inbounds i8, ptr %call5.i.i.i.i202, i64 %add.ptr21.i.idx
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont55
 

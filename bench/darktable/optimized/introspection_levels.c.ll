@@ -1467,7 +1467,7 @@ define internal noundef i32 @dt_iop_levels_area_draw(ptr nocapture readnone %0, 
   %157 = getelementptr inbounds i8, ptr %2, i64 672
   %158 = load i32, ptr %157, align 16, !tbaa !121
   %159 = icmp eq i32 %158, 0
-  br i1 %159, label %212, label %160
+  br i1 %159, label %210, label %160
 
 160:                                              ; preds = %156
   %161 = getelementptr inbounds i8, ptr %2, i64 608
@@ -1496,7 +1496,7 @@ define internal noundef i32 @dt_iop_levels_area_draw(ptr nocapture readnone %0, 
   %178 = icmp ne ptr %162, null
   %179 = fcmp reassoc nsz arcp contract afn ogt float %177, 0.000000e+00
   %180 = select i1 %178, i1 %179, i1 false
-  br i1 %180, label %181, label %212
+  br i1 %180, label %181, label %210
 
 181:                                              ; preds = %176
   call void @cairo_save(ptr noundef %41) #20
@@ -1511,46 +1511,46 @@ define internal noundef i32 @dt_iop_levels_area_draw(ptr nocapture readnone %0, 
   call void @cairo_scale(ptr noundef %41, double noundef %182, double noundef %189) #20
   call void @cairo_set_source_rgba(ptr noundef %41, double noundef 2.000000e-01, double noundef 2.000000e-01, double noundef 2.000000e-01, double noundef 5.000000e-01) #20
   call void @cairo_move_to(ptr noundef %41, double noundef 0.000000e+00, double noundef 0.000000e+00) #20
-  br i1 %166, label %.preheader, label %.preheader2
+  br i1 %166, label %.preheader, label %.preheader3
 
-.preheader2:                                      ; preds = %181, %.preheader2
-  %190 = phi i64 [ %197, %.preheader2 ], [ 0, %181 ]
+.preheader3:                                      ; preds = %181, %.preheader3
+  %190 = phi i64 [ %196, %.preheader3 ], [ 0, %181 ]
   %191 = trunc i64 %190 to i32
   %192 = sitofp i32 %191 to double
-  %193 = shl nuw nsw i64 %190, 2
-  %194 = getelementptr inbounds i32, ptr %162, i64 %193
-  %195 = load i32, ptr %194, align 4, !tbaa !16
-  %196 = uitofp i32 %195 to double
-  call void @cairo_line_to(ptr noundef %41, double noundef %192, double noundef %196) #20
-  %197 = add nuw nsw i64 %190, 1
-  %198 = icmp eq i64 %197, 256
-  br i1 %198, label %.loopexit, label %.preheader2
+  %.idx = shl nsw i64 %190, 4
+  %193 = getelementptr inbounds i8, ptr %162, i64 %.idx
+  %194 = load i32, ptr %193, align 4, !tbaa !16
+  %195 = uitofp i32 %194 to double
+  call void @cairo_line_to(ptr noundef %41, double noundef %192, double noundef %195) #20
+  %196 = add nuw nsw i64 %190, 1
+  %197 = icmp eq i64 %196, 256
+  br i1 %197, label %.loopexit, label %.preheader3
 
 .preheader:                                       ; preds = %181, %.preheader
-  %199 = phi i64 [ %210, %.preheader ], [ 0, %181 ]
-  %200 = trunc i64 %199 to i32
-  %201 = sitofp i32 %200 to double
-  %202 = shl nuw nsw i64 %199, 2
-  %203 = getelementptr inbounds i32, ptr %162, i64 %202
-  %204 = load i32, ptr %203, align 4, !tbaa !16
-  %205 = uitofp i32 %204 to double
-  %206 = fadd reassoc nsz arcp contract afn double %205, 1.000000e+00
-  %207 = fptrunc double %206 to float
-  %208 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %207)
-  %209 = fpext float %208 to double
-  call void @cairo_line_to(ptr noundef %41, double noundef %201, double noundef %209) #20
-  %210 = add nuw nsw i64 %199, 1
-  %211 = icmp eq i64 %210, 256
-  br i1 %211, label %.loopexit, label %.preheader
+  %198 = phi i64 [ %208, %.preheader ], [ 0, %181 ]
+  %199 = trunc i64 %198 to i32
+  %200 = sitofp i32 %199 to double
+  %.idx2 = shl nsw i64 %198, 4
+  %201 = getelementptr inbounds i8, ptr %162, i64 %.idx2
+  %202 = load i32, ptr %201, align 4, !tbaa !16
+  %203 = uitofp i32 %202 to double
+  %204 = fadd reassoc nsz arcp contract afn double %203, 1.000000e+00
+  %205 = fptrunc double %204 to float
+  %206 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %205)
+  %207 = fpext float %206 to double
+  call void @cairo_line_to(ptr noundef %41, double noundef %200, double noundef %207) #20
+  %208 = add nuw nsw i64 %198, 1
+  %209 = icmp eq i64 %208, 256
+  br i1 %209, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader2, %.preheader
+.loopexit:                                        ; preds = %.preheader3, %.preheader
   call void @cairo_line_to(ptr noundef %41, double noundef 2.550000e+02, double noundef 0.000000e+00) #20
   call void @cairo_close_path(ptr noundef %41) #20
   call void @cairo_fill(ptr noundef %41) #20
   call void @cairo_restore(ptr noundef %41) #20
-  br label %212
+  br label %210
 
-212:                                              ; preds = %.loopexit, %176, %156
+210:                                              ; preds = %.loopexit, %176, %156
   call void @cairo_destroy(ptr noundef %41) #20
   call void @cairo_set_source_surface(ptr noundef %1, ptr noundef %37, double noundef 0.000000e+00, double noundef 0.000000e+00) #20
   call void @cairo_paint(ptr noundef %1) #20

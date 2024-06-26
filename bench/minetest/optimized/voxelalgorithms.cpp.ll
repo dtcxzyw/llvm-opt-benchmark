@@ -5376,18 +5376,18 @@ for.cond35.preheader:                             ; preds = %for.inc81, %for.con
 
 for.cond41.preheader:                             ; preds = %for.inc77, %for.cond35.preheader
   %indvars.iv267 = phi i64 [ 0, %for.cond35.preheader ], [ %indvars.iv.next268, %for.inc77 ]
-  %mul.i = shl nsw i64 %indvars.iv267, 8
   %2 = trunc i64 %indvars.iv267 to i48
   %relpos.sroa.11.0.insert.shift = shl nuw i48 %2, 32
+  %.idx = shl i64 %indvars.iv267, 10
   br label %for.body45
 
 for.body45:                                       ; preds = %if.end69.1, %for.cond41.preheader
   %indvars.iv = phi i64 [ 0, %for.cond41.preheader ], [ %indvars.iv.next, %if.end69.1 ]
   %3 = load ptr, ptr %data.i, align 8, !tbaa !23
-  %mul3.i = shl nsw i64 %indvars.iv, 4
-  %4 = getelementptr %struct.MapNode, ptr %3, i64 %mul.i
+  %4 = getelementptr i8, ptr %3, i64 %.idx
   %5 = getelementptr %struct.MapNode, ptr %4, i64 %indvars.iv271
-  %arrayidx.i = getelementptr %struct.MapNode, ptr %5, i64 %mul3.i
+  %arrayidx.i.idx = shl i64 %indvars.iv, 6
+  %arrayidx.i = getelementptr i8, ptr %5, i64 %arrayidx.i.idx
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4, !tbaa.struct !62
   %node.sroa.4.0.extract.shift = lshr i32 %retval.sroa.0.0.copyload.i, 16
   %node.sroa.4.0.extract.trunc = trunc i32 %node.sroa.4.0.extract.shift to i8
@@ -7000,7 +7000,7 @@ entry:
 
 for.cond1.preheader:                              ; preds = %for.cond.cleanup4, %entry
   %indvars.iv83 = phi i64 [ 0, %entry ], [ %indvars.iv.next84, %for.cond.cleanup4 ]
-  %mul.i = shl nsw i64 %indvars.iv83, 8
+  %.idx = shl i64 %indvars.iv83, 10
   br label %for.body5
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup4
@@ -7028,10 +7028,10 @@ for.body12:                                       ; preds = %cleanup, %for.body5
   %indvars.iv = phi i64 [ 15, %for.body5 ], [ %indvars.iv.next, %cleanup ]
   %lig.077 = phi i8 [ %0, %for.body5 ], [ %lig.2, %cleanup ]
   %2 = load ptr, ptr %data.i, align 8, !tbaa !23
-  %mul3.i = shl nuw nsw i64 %indvars.iv, 4
-  %3 = getelementptr %struct.MapNode, ptr %2, i64 %mul.i
+  %3 = getelementptr i8, ptr %2, i64 %.idx
   %4 = getelementptr %struct.MapNode, ptr %3, i64 %indvars.iv80
-  %arrayidx.i = getelementptr %struct.MapNode, ptr %4, i64 %mul3.i
+  %arrayidx.i.idx = shl i64 %indvars.iv, 6
+  %arrayidx.i = getelementptr i8, ptr %4, i64 %arrayidx.i.idx
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4, !tbaa.struct !62
   %5 = and i32 %retval.sroa.0.0.copyload.i, 65535
   %cmp15 = icmp eq i32 %5, 127
@@ -7257,7 +7257,7 @@ invoke.cont22:                                    ; preds = %invoke.cont20
 
 for.cond1.preheader.i:                            ; preds = %for.cond.cleanup4.i, %invoke.cont22
   %indvars.iv83.i = phi i64 [ 0, %invoke.cont22 ], [ %indvars.iv.next84.i, %for.cond.cleanup4.i ]
-  %mul.i.i = shl nsw i64 %indvars.iv83.i, 8
+  %.idx = shl i64 %indvars.iv83.i, 10
   br label %for.body5.i
 
 for.cond.cleanup4.i:                              ; preds = %for.cond.cleanup11.i
@@ -7282,10 +7282,10 @@ for.body12.i:                                     ; preds = %cleanup.i, %for.bod
   %indvars.iv.i = phi i64 [ 15, %for.body5.i ], [ %indvars.iv.next.i, %cleanup.i ]
   %lig.077.i = phi i8 [ %14, %for.body5.i ], [ %lig.2.i, %cleanup.i ]
   %16 = load ptr, ptr %data.i.i, align 8, !tbaa !23
-  %mul3.i.i = shl nuw nsw i64 %indvars.iv.i, 4
-  %17 = getelementptr %struct.MapNode, ptr %16, i64 %mul.i.i
+  %17 = getelementptr i8, ptr %16, i64 %.idx
   %18 = getelementptr %struct.MapNode, ptr %17, i64 %indvars.iv80.i
-  %arrayidx.i.i = getelementptr %struct.MapNode, ptr %18, i64 %mul3.i.i
+  %arrayidx.i.i.idx = shl i64 %indvars.iv.i, 6
+  %arrayidx.i.i = getelementptr i8, ptr %18, i64 %arrayidx.i.i.idx
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i, align 4, !tbaa.struct !62
   %19 = and i32 %retval.sroa.0.0.copyload.i.i, 65535
   %cmp15.i = icmp eq i32 %19, 127

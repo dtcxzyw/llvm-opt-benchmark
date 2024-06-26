@@ -1864,29 +1864,29 @@ _str_replace.exit31:                              ; preds = %35, %29
 .lr.ph:                                           ; preds = %39, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %39 ]
   %41 = load ptr, ptr @task_socks, align 8
-  %42 = shl nuw nsw i64 %indvars.iv, 1
-  %43 = getelementptr inbounds i32, ptr %41, i64 %42
-  %44 = load i32, ptr %43, align 4
-  %45 = call i32 @client_resp_send(ptr noundef %5, i32 noundef %44)
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %42 = getelementptr inbounds i8, ptr %41, i64 %.idx
+  %43 = load i32, ptr %42, align 4
+  %44 = call i32 @client_resp_send(ptr noundef %5, i32 noundef %43)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
-  %47 = zext i32 %46 to i64
-  %48 = icmp ult i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 28), align 4
+  %46 = zext i32 %45 to i64
+  %47 = icmp ult i64 %indvars.iv.next, %46
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %39
-  %.0.lcssa = phi i32 [ %0, %39 ], [ %45, %.lr.ph ]
+  %.0.lcssa = phi i32 [ %0, %39 ], [ %44, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %5, ptr %3, align 8
   %.not.i32 = icmp eq ptr %5, null
-  br i1 %.not.i32, label %client_resp_free.exit, label %49
+  br i1 %.not.i32, label %client_resp_free.exit, label %48
 
-49:                                               ; preds = %._crit_edge
+48:                                               ; preds = %._crit_edge
   call void @slurm_xfree(ptr noundef nonnull %5) #11
   call void @slurm_xfree(ptr noundef nonnull %3) #11
   br label %client_resp_free.exit
 
-client_resp_free.exit:                            ; preds = %._crit_edge, %49
+client_resp_free.exit:                            ; preds = %._crit_edge, %48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret i32 %.0.lcssa
 }

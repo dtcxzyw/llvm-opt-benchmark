@@ -1086,7 +1086,7 @@ invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i3.i.i.i.
 
 for.cond5.preheader.i.i.i.i.i.i.i.i.i:            ; preds = %for.inc11.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
   %i.013.i.i.i.i.i.i.i.i.i = phi i64 [ %inc12.i.i.i.i.i.i.i.i.i, %for.inc11.i.i.i.i.i.i.i.i.i ], [ 0, %invoke.cont.i.i.i.i.i.i.i.i ]
-  %mul9.i.i.i.i.i.i.i.i.i = shl i64 %i.013.i.i.i.i.i.i.i.i.i, 2
+  %.idx.i.i.i.i.i.i.i = shl i64 %i.013.i.i.i.i.i.i.i.i.i, 5
   br label %for.body7.i.i.i.i.i.i.i.i.i
 
 for.body7.i.i.i.i.i.i.i.i.i:                      ; preds = %for.inc.i.i.i.i.i.i.i.i.i, %for.cond5.preheader.i.i.i.i.i.i.i.i.i
@@ -1096,7 +1096,7 @@ for.body7.i.i.i.i.i.i.i.i.i:                      ; preds = %for.inc.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body7.i.i.i.i.i.i.i.i.i
   %5 = load ptr, ptr %4, align 8, !noalias !8
-  %6 = getelementptr double, ptr %5, i64 %mul9.i.i.i.i.i.i.i.i.i
+  %6 = getelementptr i8, ptr %5, i64 %.idx.i.i.i.i.i.i.i
   %add.ptr.i.i5.i.i.i.i.i.i.i.i = getelementptr double, ptr %6, i64 %i.013.i.i.i.i.i.i.i.i.i
   store double 1.000000e+00, ptr %add.ptr.i.i5.i.i.i.i.i.i.i.i, align 8, !noalias !8
   br label %for.inc.i.i.i.i.i.i.i.i.i
@@ -1445,7 +1445,7 @@ invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i3.i.i.i.
 
 for.cond5.preheader.i.i.i.i.i.i.i.i.i:            ; preds = %for.inc11.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
   %i.013.i.i.i.i.i.i.i.i.i = phi i64 [ %inc12.i.i.i.i.i.i.i.i.i, %for.inc11.i.i.i.i.i.i.i.i.i ], [ 0, %invoke.cont.i.i.i.i.i.i.i.i ]
-  %mul9.i.i.i.i.i.i.i.i.i = shl i64 %i.013.i.i.i.i.i.i.i.i.i, 2
+  %.idx.i.i.i.i.i.i.i = shl i64 %i.013.i.i.i.i.i.i.i.i.i, 5
   br label %for.body7.i.i.i.i.i.i.i.i.i
 
 for.body7.i.i.i.i.i.i.i.i.i:                      ; preds = %for.inc.i.i.i.i.i.i.i.i.i, %for.cond5.preheader.i.i.i.i.i.i.i.i.i
@@ -1455,7 +1455,7 @@ for.body7.i.i.i.i.i.i.i.i.i:                      ; preds = %for.inc.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body7.i.i.i.i.i.i.i.i.i
   %4 = load ptr, ptr %3, align 8, !noalias !16
-  %5 = getelementptr double, ptr %4, i64 %mul9.i.i.i.i.i.i.i.i.i
+  %5 = getelementptr i8, ptr %4, i64 %.idx.i.i.i.i.i.i.i
   %add.ptr.i.i5.i.i.i.i.i.i.i.i = getelementptr double, ptr %5, i64 %i.013.i.i.i.i.i.i.i.i.i
   store double 1.000000e+00, ptr %add.ptr.i.i5.i.i.i.i.i.i.i.i, align 8, !noalias !16
   br label %for.inc.i.i.i.i.i.i.i.i.i
@@ -2179,7 +2179,7 @@ for.cond5.preheader.i.i.preheader:                ; preds = %_ZNKSt6vectorIdSaId
 
 for.cond5.preheader.i.i:                          ; preds = %for.cond5.preheader.i.i.preheader, %for.inc11.i.i
   %i.013.i.i = phi i64 [ %inc12.i.i, %for.inc11.i.i ], [ 0, %for.cond5.preheader.i.i.preheader ]
-  %mul9.i.i = shl i64 %i.013.i.i, 2
+  %.idx = shl i64 %i.013.i.i, 5
   br label %for.body7.i.i
 
 for.body7.i.i:                                    ; preds = %for.inc.i.i, %for.cond5.preheader.i.i
@@ -2189,7 +2189,7 @@ for.body7.i.i:                                    ; preds = %for.inc.i.i, %for.c
 
 if.then.i.i:                                      ; preds = %for.body7.i.i
   %1 = load ptr, ptr %0, align 8
-  %2 = getelementptr double, ptr %1, i64 %mul9.i.i
+  %2 = getelementptr i8, ptr %1, i64 %.idx
   %add.ptr.i.i5.i = getelementptr double, ptr %2, i64 %i.013.i.i
   store double 1.000000e+00, ptr %add.ptr.i.i5.i, align 8
   br label %for.inc.i.i
@@ -2324,7 +2324,7 @@ for.cond5.preheader.i.i.preheader:                ; preds = %_ZNKSt6vectorIdSaId
 
 for.cond5.preheader.i.i:                          ; preds = %for.cond5.preheader.i.i.preheader, %for.inc11.i.i
   %i.013.i.i = phi i64 [ %inc12.i.i, %for.inc11.i.i ], [ 0, %for.cond5.preheader.i.i.preheader ]
-  %mul9.i.i = shl i64 %i.013.i.i, 2
+  %.idx = shl i64 %i.013.i.i, 5
   br label %for.body7.i.i
 
 for.body7.i.i:                                    ; preds = %for.inc.i.i, %for.cond5.preheader.i.i
@@ -2334,7 +2334,7 @@ for.body7.i.i:                                    ; preds = %for.inc.i.i, %for.c
 
 if.then.i.i:                                      ; preds = %for.body7.i.i
   %1 = load ptr, ptr %0, align 8
-  %2 = getelementptr double, ptr %1, i64 %mul9.i.i
+  %2 = getelementptr i8, ptr %1, i64 %.idx
   %add.ptr.i.i5.i = getelementptr double, ptr %2, i64 %i.013.i.i
   store double 1.000000e+00, ptr %add.ptr.i.i5.i, align 8
   br label %for.inc.i.i
@@ -5156,7 +5156,7 @@ for.cond5.preheader.i.i.preheader.i.i.i.i:        ; preds = %.noexc
 
 for.cond5.preheader.i.i.i.i.i.i:                  ; preds = %for.inc11.i.i.i.i.i.i, %for.cond5.preheader.i.i.preheader.i.i.i.i
   %i.013.i.i.i.i.i.i = phi i64 [ %inc12.i.i.i.i.i.i, %for.inc11.i.i.i.i.i.i ], [ 0, %for.cond5.preheader.i.i.preheader.i.i.i.i ]
-  %mul9.i.i.i.i.i.i = shl i64 %i.013.i.i.i.i.i.i, 2
+  %.idx.i.i.i.i = shl i64 %i.013.i.i.i.i.i.i, 5
   br label %for.body7.i.i.i.i.i.i
 
 for.body7.i.i.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i.i, %for.cond5.preheader.i.i.i.i.i.i
@@ -5166,7 +5166,7 @@ for.body7.i.i.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body7.i.i.i.i.i.i
   %1 = load ptr, ptr %0, align 8
-  %2 = getelementptr double, ptr %1, i64 %mul9.i.i.i.i.i.i
+  %2 = getelementptr i8, ptr %1, i64 %.idx.i.i.i.i
   %add.ptr.i.i5.i.i.i.i.i = getelementptr double, ptr %2, i64 %i.013.i.i.i.i.i.i
   store double 1.000000e+00, ptr %add.ptr.i.i5.i.i.i.i.i, align 8
   br label %for.inc.i.i.i.i.i.i

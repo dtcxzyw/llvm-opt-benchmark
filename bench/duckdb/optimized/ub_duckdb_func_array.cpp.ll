@@ -10011,14 +10011,14 @@ cleanup.action66.i:                               ; preds = %ehcleanup61.i, %_ZN
   br label %ehcleanup84.i
 
 if.end68.i:                                       ; preds = %for.cond.i173.1.i, %if.end41.i
-  %mul2.i.i = mul i64 %i.0272.i, 3
   %arrayidx.i190.i = getelementptr inbounds double, ptr %2, i64 %mul.i
   %50 = load double, ptr %arrayidx.i190.i, align 8, !tbaa !111
   %arrayidx4.i.i = getelementptr i8, ptr %arrayidx.i190.i, i64 8
   %arrayidx8.i.i = getelementptr inbounds double, ptr %3, i64 %mul42.i
   %51 = load double, ptr %arrayidx8.i.i, align 8, !tbaa !111
   %arrayidx10.i.i = getelementptr i8, ptr %arrayidx8.i.i, i64 8
-  %arrayidx16.i.i = getelementptr inbounds double, ptr %4, i64 %mul2.i.i
+  %arrayidx16.i.i.idx = mul i64 %i.0272.i, 24
+  %arrayidx16.i.i = getelementptr inbounds i8, ptr %4, i64 %arrayidx16.i.i.idx
   %52 = load <2 x double>, ptr %arrayidx4.i.i, align 8, !tbaa !111
   %53 = load <2 x double>, ptr %arrayidx10.i.i, align 8, !tbaa !111
   %54 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -10673,14 +10673,14 @@ cleanup.action66.i:                               ; preds = %ehcleanup61.i, %_ZN
   br label %ehcleanup84.i
 
 if.end68.i:                                       ; preds = %for.cond.i173.1.i, %if.end41.i
-  %mul2.i.i = mul i64 %i.0272.i, 3
   %arrayidx.i190.i = getelementptr inbounds float, ptr %2, i64 %mul.i
   %50 = load float, ptr %arrayidx.i190.i, align 4, !tbaa !117
   %arrayidx4.i.i = getelementptr i8, ptr %arrayidx.i190.i, i64 4
   %arrayidx8.i.i = getelementptr inbounds float, ptr %3, i64 %mul42.i
   %51 = load float, ptr %arrayidx8.i.i, align 4, !tbaa !117
   %arrayidx10.i.i = getelementptr i8, ptr %arrayidx8.i.i, i64 4
-  %arrayidx16.i.i = getelementptr inbounds float, ptr %4, i64 %mul2.i.i
+  %arrayidx16.i.i.idx = mul i64 %i.0272.i, 12
+  %arrayidx16.i.i = getelementptr inbounds i8, ptr %4, i64 %arrayidx16.i.i.idx
   %52 = load <2 x float>, ptr %arrayidx4.i.i, align 4, !tbaa !117
   %53 = load <2 x float>, ptr %arrayidx10.i.i, align 4, !tbaa !117
   %54 = shufflevector <2 x float> %52, <2 x float> poison, <2 x i32> <i32 1, i32 poison>

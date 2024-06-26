@@ -44,105 +44,105 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %69
-  %indvars.iv98 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next99, %69 ]
-  %33 = mul nuw nsw i64 %indvars.iv98, 3
-  %34 = getelementptr inbounds i32, ptr %1, i64 %33
-  %35 = getelementptr inbounds %struct.BoundsItem, ptr %31, i64 %indvars.iv98
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
-  %37 = trunc nuw nsw i64 %indvars.iv98 to i32
-  store i32 %37, ptr %36, align 4
-  %38 = load i32, ptr %34, align 4
-  %39 = mul nsw i32 %38, 3
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds float, ptr %0, i64 %40
-  %42 = load float, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %35, i64 8
-  %44 = getelementptr i8, ptr %41, i64 8
-  %45 = load float, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %35, i64 12
-  %47 = getelementptr inbounds i8, ptr %35, i64 4
-  br label %48
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %68
+  %indvars.iv98 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next99, %68 ]
+  %.idx = mul i64 %indvars.iv98, 12
+  %33 = getelementptr inbounds i8, ptr %1, i64 %.idx
+  %34 = getelementptr inbounds %struct.BoundsItem, ptr %31, i64 %indvars.iv98
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = trunc nuw nsw i64 %indvars.iv98 to i32
+  store i32 %36, ptr %35, align 4
+  %37 = load i32, ptr %33, align 4
+  %38 = mul nsw i32 %37, 3
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds float, ptr %0, i64 %39
+  %41 = load float, ptr %40, align 4
+  %42 = getelementptr inbounds i8, ptr %34, i64 8
+  %43 = getelementptr i8, ptr %40, i64 8
+  %44 = load float, ptr %43, align 4
+  %45 = getelementptr inbounds i8, ptr %34, i64 12
+  %46 = getelementptr inbounds i8, ptr %34, i64 4
+  br label %47
 
-48:                                               ; preds = %.lr.ph, %48
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %49 = phi float [ %42, %.lr.ph ], [ %60, %48 ]
-  %50 = phi float [ %45, %.lr.ph ], [ %64, %48 ]
-  %51 = phi float [ %42, %.lr.ph ], [ %66, %48 ]
-  %52 = phi float [ %45, %.lr.ph ], [ %68, %48 ]
-  %53 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv
-  %54 = load i32, ptr %53, align 4
-  %55 = mul nsw i32 %54, 3
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds float, ptr %0, i64 %56
-  %58 = load float, ptr %57, align 4
-  %59 = fcmp olt float %58, %49
-  %60 = select i1 %59, float %58, float %49
-  %61 = getelementptr inbounds i8, ptr %57, i64 8
-  %62 = load float, ptr %61, align 4
-  %63 = fcmp olt float %62, %50
-  %64 = select i1 %63, float %62, float %50
-  %65 = fcmp ogt float %58, %51
-  %66 = select i1 %65, float %58, float %51
-  %67 = fcmp ogt float %62, %52
-  %68 = select i1 %67, float %62, float %52
+47:                                               ; preds = %.lr.ph, %47
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %47 ]
+  %48 = phi float [ %41, %.lr.ph ], [ %59, %47 ]
+  %49 = phi float [ %44, %.lr.ph ], [ %63, %47 ]
+  %50 = phi float [ %41, %.lr.ph ], [ %65, %47 ]
+  %51 = phi float [ %44, %.lr.ph ], [ %67, %47 ]
+  %52 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv
+  %53 = load i32, ptr %52, align 4
+  %54 = mul nsw i32 %53, 3
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds float, ptr %0, i64 %55
+  %57 = load float, ptr %56, align 4
+  %58 = fcmp olt float %57, %48
+  %59 = select i1 %58, float %57, float %48
+  %60 = getelementptr inbounds i8, ptr %56, i64 8
+  %61 = load float, ptr %60, align 4
+  %62 = fcmp olt float %61, %49
+  %63 = select i1 %62, float %61, float %49
+  %64 = fcmp ogt float %57, %50
+  %65 = select i1 %64, float %57, float %50
+  %66 = fcmp ogt float %61, %51
+  %67 = select i1 %66, float %61, float %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %69, label %48, !llvm.loop !5
+  br i1 %exitcond.not, label %68, label %47, !llvm.loop !5
 
-69:                                               ; preds = %48
-  store float %60, ptr %35, align 4
-  store float %64, ptr %47, align 4
-  store float %66, ptr %43, align 4
-  store float %68, ptr %46, align 4
+68:                                               ; preds = %47
+  store float %59, ptr %34, align 4
+  store float %63, ptr %46, align 4
+  store float %65, ptr %42, align 4
+  store float %67, ptr %45, align 4
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count
   br i1 %exitcond101.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %69, %5
+._crit_edge:                                      ; preds = %68, %5
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 4
   call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef nonnull %31, i32 noundef 0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %17, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull %23, ptr noundef %1)
   call void @_ZdaPv(ptr noundef nonnull %31) #9
-  %70 = load i32, ptr %7, align 4
-  %71 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %4, i64 28
-  store i32 0, ptr %72, align 4
-  %73 = icmp sgt i32 %70, 0
-  br i1 %73, label %.lr.ph92, label %._crit_edge93
+  %69 = load i32, ptr %7, align 4
+  %70 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 %69, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %4, i64 28
+  store i32 0, ptr %71, align 4
+  %72 = icmp sgt i32 %69, 0
+  br i1 %72, label %.lr.ph92, label %._crit_edge93
 
 .lr.ph92:                                         ; preds = %._crit_edge
-  %74 = load ptr, ptr %4, align 8
-  %wide.trip.count105 = zext nneg i32 %70 to i64
-  br label %75
+  %73 = load ptr, ptr %4, align 8
+  %wide.trip.count105 = zext nneg i32 %69 to i64
+  br label %74
 
-75:                                               ; preds = %.lr.ph92, %86
-  %76 = phi i32 [ 0, %.lr.ph92 ], [ %87, %86 ]
-  %indvars.iv102 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next103, %86 ]
-  %77 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %74, i64 %indvars.iv102
-  %78 = getelementptr inbounds i8, ptr %77, i64 16
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp sgt i32 %79, -1
-  br i1 %80, label %81, label %86
+74:                                               ; preds = %.lr.ph92, %85
+  %75 = phi i32 [ 0, %.lr.ph92 ], [ %86, %85 ]
+  %indvars.iv102 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next103, %85 ]
+  %76 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %73, i64 %indvars.iv102
+  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %78 = load i32, ptr %77, align 4
+  %79 = icmp sgt i32 %78, -1
+  br i1 %79, label %80, label %85
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds i8, ptr %77, i64 20
-  %83 = load i32, ptr %82, align 4
-  %84 = icmp sgt i32 %83, %76
-  br i1 %84, label %85, label %86
+80:                                               ; preds = %74
+  %81 = getelementptr inbounds i8, ptr %76, i64 20
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp sgt i32 %82, %75
+  br i1 %83, label %84, label %85
 
-85:                                               ; preds = %81
-  store i32 %83, ptr %72, align 4
-  br label %86
+84:                                               ; preds = %80
+  store i32 %82, ptr %71, align 4
+  br label %85
 
-86:                                               ; preds = %81, %85, %75
-  %87 = phi i32 [ %76, %81 ], [ %83, %85 ], [ %76, %75 ]
+85:                                               ; preds = %80, %84, %74
+  %86 = phi i32 [ %75, %80 ], [ %82, %84 ], [ %75, %74 ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge93, label %75, !llvm.loop !8
+  br i1 %exitcond106.not, label %._crit_edge93, label %74, !llvm.loop !8
 
-._crit_edge93:                                    ; preds = %86, %._crit_edge
+._crit_edge93:                                    ; preds = %85, %._crit_edge
   ret i1 true
 }
 

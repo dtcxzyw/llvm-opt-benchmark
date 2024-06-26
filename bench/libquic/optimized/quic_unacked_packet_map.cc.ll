@@ -675,8 +675,8 @@ cond.end.i.i.i.i.i:                               ; preds = %cond.false.i.i.i.i.
   %cond.i.i.i.i.i = phi i64 [ %div9.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %sub10.i.i.i.i.i, %cond.false.i.i.i.i.i ]
   %add.ptr11.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %cond.i.i.i.i.i
   %11 = load ptr, ptr %add.ptr11.i.i.i.i.i, align 8, !noalias !32
-  %mul.neg.i.i.i.i.i = mul i64 %cond.i.i.i.i.i, -6
-  %12 = getelementptr %"struct.net::TransmissionInfo", ptr %11, i64 %mul.neg.i.i.i.i.i
+  %.idx.i.i.i.i.i = mul i64 %cond.i.i.i.i.i, -480
+  %12 = getelementptr i8, ptr %11, i64 %.idx.i.i.i.i.i
   %add.ptr15.i.i.i.i.i = getelementptr %"struct.net::TransmissionInfo", ptr %12, i64 %add.i.i.i.i.i
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit
 
@@ -990,8 +990,8 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi i64 [ %div9.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
   %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %cond.i.i.i.i
   %4 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !36
-  %mul.neg.i.i.i.i = mul i64 %cond.i.i.i.i, -6
-  %5 = getelementptr %"struct.net::TransmissionInfo", ptr %4, i64 %mul.neg.i.i.i.i
+  %.idx.i.i.i.i = mul i64 %cond.i.i.i.i, -480
+  %5 = getelementptr i8, ptr %4, i64 %.idx.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr %"struct.net::TransmissionInfo", ptr %5, i64 %add.i.i.i.i
   br label %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
@@ -1058,8 +1058,8 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi i64 [ %div9.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
   %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %cond.i.i.i.i
   %6 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !39
-  %mul.neg.i.i.i.i = mul i64 %cond.i.i.i.i, -6
-  %7 = getelementptr %"struct.net::TransmissionInfo", ptr %6, i64 %mul.neg.i.i.i.i
+  %.idx.i.i.i.i = mul i64 %cond.i.i.i.i, -480
+  %7 = getelementptr i8, ptr %6, i64 %.idx.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr %"struct.net::TransmissionInfo", ptr %7, i64 %add.i.i.i.i
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
@@ -1153,8 +1153,8 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi i64 [ %div9.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
   %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %cond.i.i.i.i
   %4 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !43
-  %mul.neg.i.i.i.i = mul i64 %cond.i.i.i.i, -6
-  %5 = getelementptr %"struct.net::TransmissionInfo", ptr %4, i64 %mul.neg.i.i.i.i
+  %.idx.i.i.i.i = mul i64 %cond.i.i.i.i, -480
+  %5 = getelementptr i8, ptr %4, i64 %.idx.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr %"struct.net::TransmissionInfo", ptr %5, i64 %add.i.i.i.i
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
@@ -1204,8 +1204,8 @@ cond.end.i.i.i.i.i:                               ; preds = %cond.false.i.i.i.i.
   %cond.i.i.i.i.i = phi i64 [ %div9.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %sub10.i.i.i.i.i, %cond.false.i.i.i.i.i ]
   %add.ptr11.i.i.i.i.i = getelementptr inbounds ptr, ptr %11, i64 %cond.i.i.i.i.i
   %12 = load ptr, ptr %add.ptr11.i.i.i.i.i, align 8, !noalias !46
-  %mul.neg.i.i.i.i.i = mul i64 %cond.i.i.i.i.i, -6
-  %13 = getelementptr %"struct.net::TransmissionInfo", ptr %12, i64 %mul.neg.i.i.i.i.i
+  %.idx.i.i.i.i.i = mul i64 %cond.i.i.i.i.i, -480
+  %13 = getelementptr i8, ptr %12, i64 %.idx.i.i.i.i.i
   %add.ptr15.i.i.i.i.i = getelementptr %"struct.net::TransmissionInfo", ptr %13, i64 %add.i.i.i.i.i
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i
 
@@ -1359,8 +1359,8 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi i64 [ %div9.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
   %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %cond.i.i.i.i
   %8 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !49
-  %mul.neg.i.i.i.i = mul i64 %cond.i.i.i.i, -6
-  %9 = getelementptr %"struct.net::TransmissionInfo", ptr %8, i64 %mul.neg.i.i.i.i
+  %.idx.i.i.i.i = mul i64 %cond.i.i.i.i, -480
+  %9 = getelementptr i8, ptr %8, i64 %.idx.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr %"struct.net::TransmissionInfo", ptr %9, i64 %add.i.i.i.i
   br label %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
@@ -1487,8 +1487,8 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi i64 [ %div9.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
   %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %cond.i.i.i.i
   %4 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !53
-  %mul.neg.i.i.i.i = mul i64 %cond.i.i.i.i, -6
-  %5 = getelementptr %"struct.net::TransmissionInfo", ptr %4, i64 %mul.neg.i.i.i.i
+  %.idx.i.i.i.i = mul i64 %cond.i.i.i.i, -480
+  %5 = getelementptr i8, ptr %4, i64 %.idx.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr %"struct.net::TransmissionInfo", ptr %5, i64 %add.i.i.i.i
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
@@ -1625,8 +1625,8 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi i64 [ %div9.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
   %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %cond.i.i.i.i
   %4 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !56
-  %mul.neg.i.i.i.i = mul i64 %cond.i.i.i.i, -6
-  %5 = getelementptr %"struct.net::TransmissionInfo", ptr %4, i64 %mul.neg.i.i.i.i
+  %.idx.i.i.i.i = mul i64 %cond.i.i.i.i, -480
+  %5 = getelementptr i8, ptr %4, i64 %.idx.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr %"struct.net::TransmissionInfo", ptr %5, i64 %add.i.i.i.i
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
@@ -1714,8 +1714,8 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi i64 [ %div9.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
   %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %cond.i.i.i.i
   %4 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !59
-  %mul.neg.i.i.i.i = mul i64 %cond.i.i.i.i, -6
-  %5 = getelementptr %"struct.net::TransmissionInfo", ptr %4, i64 %mul.neg.i.i.i.i
+  %.idx.i.i.i.i = mul i64 %cond.i.i.i.i, -480
+  %5 = getelementptr i8, ptr %4, i64 %.idx.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr %"struct.net::TransmissionInfo", ptr %5, i64 %add.i.i.i.i
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
@@ -1862,8 +1862,8 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi i64 [ %div9.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
   %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %cond.i.i.i.i
   %4 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !69
-  %mul.neg.i.i.i.i = mul i64 %cond.i.i.i.i, -6
-  %5 = getelementptr %"struct.net::TransmissionInfo", ptr %4, i64 %mul.neg.i.i.i.i
+  %.idx.i.i.i.i = mul i64 %cond.i.i.i.i, -480
+  %5 = getelementptr i8, ptr %4, i64 %.idx.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr %"struct.net::TransmissionInfo", ptr %5, i64 %add.i.i.i.i
   br label %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
@@ -1914,8 +1914,8 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi i64 [ %div9.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
   %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %cond.i.i.i.i
   %4 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !72
-  %mul.neg.i.i.i.i = mul i64 %cond.i.i.i.i, -6
-  %5 = getelementptr %"struct.net::TransmissionInfo", ptr %4, i64 %mul.neg.i.i.i.i
+  %.idx.i.i.i.i = mul i64 %cond.i.i.i.i, -480
+  %5 = getelementptr i8, ptr %4, i64 %.idx.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr %"struct.net::TransmissionInfo", ptr %5, i64 %add.i.i.i.i
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 

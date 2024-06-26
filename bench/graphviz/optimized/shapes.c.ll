@@ -295,16 +295,16 @@ define void @round_corners(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 n
   tail call void @gvrender_beziercurve(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %4) #25
   call void @gvrender_beziercurve(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 7, i32 noundef 0) #25
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6)
-  br label %1993
+  br label %1991
 
 52:                                               ; preds = %5
   %53 = shl i64 %2, 2
   %54 = add i64 %53, 4
   %55 = tail call fastcc ptr @gv_calloc(i64 noundef %54, i64 noundef 16)
-  %.not2003 = icmp eq i64 %2, 0
-  br i1 %.not2003, label %._crit_edge, label %.lr.ph
+  %.not2004 = icmp eq i64 %2, 0
+  br i1 %.not2004, label %._crit_edge, label %.lr.ph
 
-.lr.ph1978:                                       ; preds = %.lr.ph
+.lr.ph1979:                                       ; preds = %.lr.ph
   %56 = and i32 %3, 2113929216
   %or.cond = icmp eq i32 %56, 67108864
   %57 = icmp eq i32 %8, 16777216
@@ -313,13 +313,13 @@ define void @round_corners(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 n
   br label %68
 
 .lr.ph:                                           ; preds = %52, %.lr.ph
-  %.019521975 = phi double [ %67, %.lr.ph ], [ 1.200000e+01, %52 ]
-  %.019541974 = phi i64 [ %60, %.lr.ph ], [ 0, %52 ]
-  %59 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %.019541974
+  %.019521976 = phi double [ %67, %.lr.ph ], [ 1.200000e+01, %52 ]
+  %.019541975 = phi i64 [ %60, %.lr.ph ], [ 0, %52 ]
+  %59 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %.019541975
   %.sroa.0117.0.copyload = load double, ptr %59, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 8
   %.sroa.9.0.copyload = load double, ptr %.sroa.9.0..sroa_idx, align 8
-  %60 = add nuw i64 %.019541974, 1
+  %60 = add nuw i64 %.019541975, 1
   %61 = icmp ult i64 %60, %2
   %.sroa.097.0.in.idx = select i1 %61, i64 %60, i64 0
   %.sroa.097.0.in = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %.sroa.097.0.in.idx
@@ -330,16 +330,16 @@ define void @round_corners(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 n
   %63 = fsub double %.sroa.10.0, %.sroa.9.0.copyload
   %64 = tail call double @hypot(double noundef %62, double noundef %63) #25
   %65 = fdiv double %64, 3.000000e+00
-  %66 = fcmp olt double %.019521975, %65
-  %67 = select i1 %66, double %.019521975, double %65
+  %66 = fcmp olt double %.019521976, %65
+  %67 = select i1 %66, double %.019521976, double %65
   %exitcond.not = icmp eq i64 %60, %2
-  br i1 %exitcond.not, label %.lr.ph1978, label %.lr.ph
+  br i1 %exitcond.not, label %.lr.ph1979, label %.lr.ph
 
-68:                                               ; preds = %.lr.ph1978, %109
-  %.019531977 = phi i64 [ 0, %.lr.ph1978 ], [ %70, %109 ]
-  %.019551976 = phi i64 [ 0, %.lr.ph1978 ], [ %.2, %109 ]
-  %69 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %.019531977
-  %70 = add nuw i64 %.019531977, 1
+68:                                               ; preds = %.lr.ph1979, %109
+  %.019531978 = phi i64 [ 0, %.lr.ph1979 ], [ %70, %109 ]
+  %.019551977 = phi i64 [ 0, %.lr.ph1979 ], [ %.2, %109 ]
+  %69 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %.019531978
+  %70 = add nuw i64 %.019531978, 1
   %71 = icmp ult i64 %70, %2
   %.sroa.097.1.in.idx = select i1 %71, i64 %70, i64 0
   %.sroa.097.1.in = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %.sroa.097.1.in.idx
@@ -365,20 +365,20 @@ define void @round_corners(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 n
 
 84:                                               ; preds = %81, %82, %79
   %.01956 = phi double [ %80, %79 ], [ %83, %82 ], [ %78, %81 ]
-  %85 = getelementptr inbounds %struct.pointf_s, ptr %55, i64 %.019551976
+  %85 = getelementptr inbounds %struct.pointf_s, ptr %55, i64 %.019551977
   %86 = fmul double %.01956, 5.000000e-01
   %87 = insertelement <2 x double> poison, double %86, i64 0
   %88 = shufflevector <2 x double> %87, <2 x double> poison, <2 x i32> zeroinitializer
   %89 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %88, <2 x double> %74, <2 x double> %72)
   %90 = select i1 %.not1967, <2 x double> %89, <2 x double> %72
   store <2 x double> %90, ptr %85, align 8
-  %91 = getelementptr %struct.pointf_s, ptr %55, i64 %.019551976
+  %91 = getelementptr %struct.pointf_s, ptr %55, i64 %.019551977
   %92 = getelementptr i8, ptr %91, i64 16
   %93 = insertelement <2 x double> poison, double %.01956, i64 0
   %94 = shufflevector <2 x double> %93, <2 x double> poison, <2 x i32> zeroinitializer
   %95 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %94, <2 x double> %74, <2 x double> %72)
   store <2 x double> %95, ptr %92, align 8
-  %96 = add i64 %.019551976, 3
+  %96 = add i64 %.019551977, 3
   %97 = getelementptr i8, ptr %91, i64 32
   %98 = fsub double 1.000000e+00, %.01956
   %99 = insertelement <2 x double> poison, double %98, i64 0
@@ -388,7 +388,7 @@ define void @round_corners(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 n
   br i1 %.not1967, label %102, label %109
 
 102:                                              ; preds = %84
-  %103 = add i64 %.019551976, 4
+  %103 = add i64 %.019551977, 4
   %104 = getelementptr inbounds %struct.pointf_s, ptr %55, i64 %96
   %105 = tail call double @llvm.fmuladd.f64(double %.01956, double -5.000000e-01, double 1.000000e+00)
   %106 = insertelement <2 x double> poison, double %105, i64 0
@@ -399,8 +399,8 @@ define void @round_corners(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 n
 
 109:                                              ; preds = %84, %102
   %.2 = phi i64 [ %103, %102 ], [ %96, %84 ]
-  %exitcond2008.not = icmp eq i64 %70, %2
-  br i1 %exitcond2008.not, label %._crit_edge, label %68
+  %exitcond2009.not = icmp eq i64 %70, %2
+  br i1 %exitcond2009.not, label %._crit_edge, label %68
 
 ._crit_edge:                                      ; preds = %109, %52
   %.01955.lcssa = phi i64 [ 0, %52 ], [ %.2, %109 ]
@@ -415,44 +415,44 @@ define void @round_corners(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 n
   switch i32 %.01957, label %.loopexit [
     i32 4, label %115
     i32 8, label %139
-    i32 16777216, label %147
-    i32 33554432, label %165
-    i32 50331648, label %184
-    i32 67108864, label %214
-    i32 83886080, label %233
-    i32 100663296, label %292
-    i32 117440512, label %375
-    i32 134217728, label %413
-    i32 150994944, label %487
-    i32 167772160, label %561
-    i32 184549376, label %626
-    i32 201326592, label %717
-    i32 218103808, label %793
-    i32 234881024, label %866
-    i32 251658240, label %1051
-    i32 268435456, label %1156
-    i32 285212672, label %1257
-    i32 301989888, label %1363
-    i32 318767104, label %1482
-    i32 335544320, label %1599
-    i32 352321536, label %1700
-    i32 369098752, label %1791
-    i32 385875968, label %1840
-    i32 402653184, label %1886
-    i32 419430400, label %1936
+    i32 16777216, label %146
+    i32 33554432, label %163
+    i32 50331648, label %182
+    i32 67108864, label %212
+    i32 83886080, label %231
+    i32 100663296, label %290
+    i32 117440512, label %373
+    i32 134217728, label %411
+    i32 150994944, label %485
+    i32 167772160, label %559
+    i32 184549376, label %624
+    i32 201326592, label %715
+    i32 218103808, label %791
+    i32 234881024, label %864
+    i32 251658240, label %1049
+    i32 268435456, label %1154
+    i32 285212672, label %1255
+    i32 301989888, label %1361
+    i32 318767104, label %1480
+    i32 335544320, label %1597
+    i32 352321536, label %1698
+    i32 369098752, label %1789
+    i32 385875968, label %1838
+    i32 402653184, label %1884
+    i32 419430400, label %1934
   ]
 
 115:                                              ; preds = %._crit_edge
   %116 = mul i64 %2, 6
   %117 = add i64 %116, 2
   %118 = tail call fastcc ptr @gv_calloc(i64 noundef %117, i64 noundef 16)
-  br i1 %.not2003, label %._crit_edge2001, label %.lr.ph2000
+  br i1 %.not2004, label %._crit_edge2002, label %.lr.ph2001
 
-.lr.ph2000:                                       ; preds = %115, %.lr.ph2000
-  %.019511998 = phi i64 [ %134, %.lr.ph2000 ], [ 0, %115 ]
-  %.31997 = phi i64 [ %130, %.lr.ph2000 ], [ 0, %115 ]
-  %119 = getelementptr inbounds %struct.pointf_s, ptr %118, i64 %.31997
-  %120 = shl i64 %.019511998, 2
+.lr.ph2001:                                       ; preds = %115, %.lr.ph2001
+  %.019511999 = phi i64 [ %134, %.lr.ph2001 ], [ 0, %115 ]
+  %.31998 = phi i64 [ %130, %.lr.ph2001 ], [ 0, %115 ]
+  %119 = getelementptr inbounds %struct.pointf_s, ptr %118, i64 %.31998
+  %120 = shl i64 %.019511999, 2
   %121 = getelementptr inbounds %struct.pointf_s, ptr %55, i64 %120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(16) %121, i64 16, i1 false)
   %122 = getelementptr i8, ptr %119, i64 16
@@ -467,17 +467,17 @@ define void @round_corners(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 n
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 8 dereferenceable(16) %128, i64 16, i1 false)
   %129 = getelementptr i8, ptr %119, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %129, ptr noundef nonnull align 8 dereferenceable(16) %128, i64 16, i1 false)
-  %130 = add i64 %.31997, 6
+  %130 = add i64 %.31998, 6
   %131 = getelementptr i8, ptr %119, i64 80
   %132 = or disjoint i64 %120, 3
   %133 = getelementptr inbounds %struct.pointf_s, ptr %55, i64 %132
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %131, ptr noundef nonnull align 8 dereferenceable(16) %133, i64 16, i1 false)
-  %134 = add nuw i64 %.019511998, 1
-  %exitcond2015.not = icmp eq i64 %134, %2
-  br i1 %exitcond2015.not, label %._crit_edge2001, label %.lr.ph2000
+  %134 = add nuw i64 %.019511999, 1
+  %exitcond2016.not = icmp eq i64 %134, %2
+  br i1 %exitcond2016.not, label %._crit_edge2002, label %.lr.ph2001
 
-._crit_edge2001:                                  ; preds = %.lr.ph2000, %115
-  %.3.lcssa = phi i64 [ 0, %115 ], [ %130, %.lr.ph2000 ]
+._crit_edge2002:                                  ; preds = %.lr.ph2001, %115
+  %.3.lcssa = phi i64 [ 0, %115 ], [ %130, %.lr.ph2001 ]
   %135 = or disjoint i64 %.3.lcssa, 1
   %136 = getelementptr inbounds %struct.pointf_s, ptr %118, i64 %.3.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef nonnull align 8 dereferenceable(16) %118, i64 16, i1 false)
@@ -490,2498 +490,2498 @@ define void @round_corners(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 n
 
 139:                                              ; preds = %._crit_edge
   tail call void @gvrender_polygon(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %4) #25
-  br i1 %.not2003, label %.loopexit, label %.lr.ph1996
+  br i1 %.not2004, label %.loopexit, label %.lr.ph1997
 
-.lr.ph1996:                                       ; preds = %139
+.lr.ph1997:                                       ; preds = %139
   %140 = getelementptr inbounds i8, ptr %7, i64 16
   br label %141
 
-141:                                              ; preds = %.lr.ph1996, %141
-  %.019501994 = phi i64 [ 0, %.lr.ph1996 ], [ %146, %141 ]
-  %142 = mul i64 %.019501994, 3
-  %143 = getelementptr %struct.pointf_s, ptr %55, i64 %142
-  %144 = getelementptr i8, ptr %143, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %144, i64 16, i1 false)
-  %145 = getelementptr i8, ptr %143, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %140, ptr noundef nonnull align 8 dereferenceable(16) %145, i64 16, i1 false)
+141:                                              ; preds = %.lr.ph1997, %141
+  %.019501995 = phi i64 [ 0, %.lr.ph1997 ], [ %145, %141 ]
+  %.idx1974 = mul i64 %.019501995, 48
+  %142 = getelementptr i8, ptr %55, i64 %.idx1974
+  %143 = getelementptr i8, ptr %142, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %143, i64 16, i1 false)
+  %144 = getelementptr i8, ptr %142, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %140, ptr noundef nonnull align 8 dereferenceable(16) %144, i64 16, i1 false)
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  %146 = add nuw i64 %.019501994, 1
-  %exitcond2014.not = icmp eq i64 %146, %2
-  br i1 %exitcond2014.not, label %.loopexit, label %141
+  %145 = add nuw i64 %.019501995, 1
+  %exitcond2015.not = icmp eq i64 %145, %2
+  br i1 %exitcond2015.not, label %.loopexit, label %141
 
-147:                                              ; preds = %._crit_edge
-  %148 = add i64 %2, 1
-  %149 = tail call fastcc ptr @gv_calloc(i64 noundef %148, i64 noundef 16)
-  %150 = icmp ugt i64 %2, 1
-  br i1 %150, label %.lr.ph1992.preheader, label %._crit_edge1993
+146:                                              ; preds = %._crit_edge
+  %147 = add i64 %2, 1
+  %148 = tail call fastcc ptr @gv_calloc(i64 noundef %147, i64 noundef 16)
+  %149 = icmp ugt i64 %2, 1
+  br i1 %149, label %.lr.ph1993.preheader, label %._crit_edge1994
 
-.lr.ph1992.preheader:                             ; preds = %147
-  %scevgep2012 = getelementptr i8, ptr %149, i64 16
-  %scevgep2013 = getelementptr i8, ptr %1, i64 16
-  %151 = shl i64 %2, 4
-  %152 = add i64 %151, -16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep2012, ptr align 8 %scevgep2013, i64 %152, i1 false)
-  br label %._crit_edge1993
+.lr.ph1993.preheader:                             ; preds = %146
+  %scevgep2013 = getelementptr i8, ptr %148, i64 16
+  %scevgep2014 = getelementptr i8, ptr %1, i64 16
+  %150 = shl i64 %2, 4
+  %151 = add i64 %150, -16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep2013, ptr align 8 %scevgep2014, i64 %151, i1 false)
+  br label %._crit_edge1994
 
-._crit_edge1993:                                  ; preds = %.lr.ph1992.preheader, %147
-  %153 = mul i64 %2, 3
-  %154 = getelementptr %struct.pointf_s, ptr %55, i64 %153
-  %155 = getelementptr i8, ptr %154, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef nonnull align 8 dereferenceable(16) %155, i64 16, i1 false)
-  %156 = getelementptr inbounds %struct.pointf_s, ptr %149, i64 %2
-  %157 = getelementptr i8, ptr %154, i64 -16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %156, ptr noundef nonnull align 8 dereferenceable(16) %157, i64 16, i1 false)
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef %149, i64 noundef %148, i32 noundef %4) #25
-  tail call void @free(ptr noundef %149) #25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %157, i64 16, i1 false)
-  %158 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(16) %155, i64 16, i1 false)
-  %159 = getelementptr inbounds i8, ptr %7, i64 32
-  %160 = load <2 x double>, ptr %158, align 16
-  %161 = load <2 x double>, ptr %7, align 16
-  %162 = load <2 x double>, ptr %154, align 8
-  %163 = fsub <2 x double> %161, %162
-  %164 = fadd <2 x double> %160, %163
-  store <2 x double> %164, ptr %159, align 16
-  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %158, i64 noundef 2) #25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %158, ptr noundef nonnull align 16 dereferenceable(16) %159, i64 16, i1 false)
-  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  br label %.loopexit
-
-165:                                              ; preds = %._crit_edge
-  %166 = add i64 %2, 2
-  %167 = tail call fastcc ptr @gv_calloc(i64 noundef %166, i64 noundef 16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %167, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %168 = getelementptr inbounds i8, ptr %167, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef nonnull align 8 dereferenceable(16) %114, i64 16, i1 false)
-  %169 = getelementptr inbounds i8, ptr %55, i64 48
-  %170 = getelementptr inbounds i8, ptr %55, i64 64
-  %171 = getelementptr inbounds i8, ptr %167, i64 32
-  %172 = load <2 x double>, ptr %114, align 8
-  %173 = load <2 x double>, ptr %169, align 8
-  %174 = load <2 x double>, ptr %170, align 8
-  %175 = fsub <2 x double> %173, %174
-  %176 = fdiv <2 x double> %175, <double 3.000000e+00, double 3.000000e+00>
-  %177 = fadd <2 x double> %172, %176
-  store <2 x double> %177, ptr %171, align 8
-  %178 = getelementptr inbounds i8, ptr %167, i64 48
-  %179 = fadd <2 x double> %173, %176
-  store <2 x double> %179, ptr %178, align 8
-  %180 = icmp ugt i64 %166, 4
-  br i1 %180, label %.lr.ph1988.preheader, label %._crit_edge1989
-
-.lr.ph1988.preheader:                             ; preds = %165
-  %scevgep2010 = getelementptr i8, ptr %167, i64 64
-  %scevgep2011 = getelementptr i8, ptr %1, i64 32
-  %181 = shl i64 %2, 4
-  %182 = add i64 %181, -32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep2010, ptr align 8 %scevgep2011, i64 %182, i1 false)
-  br label %._crit_edge1989
-
-._crit_edge1989:                                  ; preds = %.lr.ph1988.preheader, %165
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %167, i64 noundef %166, i32 noundef %4) #25
-  tail call void @free(ptr noundef nonnull %167) #25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %169, i64 16, i1 false)
-  %183 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %183, ptr noundef nonnull align 8 dereferenceable(16) %114, i64 16, i1 false)
+._crit_edge1994:                                  ; preds = %.lr.ph1993.preheader, %146
+  %.idx = mul i64 %2, 48
+  %152 = getelementptr i8, ptr %55, i64 %.idx
+  %153 = getelementptr i8, ptr %152, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(16) %153, i64 16, i1 false)
+  %154 = getelementptr inbounds %struct.pointf_s, ptr %148, i64 %2
+  %155 = getelementptr i8, ptr %152, i64 -16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %154, ptr noundef nonnull align 8 dereferenceable(16) %155, i64 16, i1 false)
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef %148, i64 noundef %147, i32 noundef %4) #25
+  tail call void @free(ptr noundef %148) #25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %155, i64 16, i1 false)
+  %156 = getelementptr inbounds i8, ptr %7, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %156, ptr noundef nonnull align 8 dereferenceable(16) %153, i64 16, i1 false)
+  %157 = getelementptr inbounds i8, ptr %7, i64 32
+  %158 = load <2 x double>, ptr %156, align 16
+  %159 = load <2 x double>, ptr %7, align 16
+  %160 = load <2 x double>, ptr %152, align 8
+  %161 = fsub <2 x double> %159, %160
+  %162 = fadd <2 x double> %158, %161
+  store <2 x double> %162, ptr %157, align 16
+  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %156, i64 noundef 2) #25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %156, ptr noundef nonnull align 16 dereferenceable(16) %157, i64 16, i1 false)
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
   br label %.loopexit
 
-184:                                              ; preds = %._crit_edge
-  %185 = add i64 %2, 3
-  %186 = tail call fastcc ptr @gv_calloc(i64 noundef %185, i64 noundef 16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %186, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %187 = load double, ptr %1, align 8
-  %188 = load double, ptr %112, align 8
-  %189 = fsub double %187, %188
-  %190 = fmul double %189, 2.500000e-01
-  %191 = fsub double %187, %190
-  %192 = getelementptr inbounds i8, ptr %186, i64 16
-  store double %191, ptr %192, align 8
-  %193 = getelementptr inbounds i8, ptr %1, i64 8
-  %194 = load double, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %55, i64 48
-  %196 = getelementptr inbounds i8, ptr %55, i64 72
-  %197 = load double, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %186, i64 24
-  %199 = tail call double @llvm.fmuladd.f64(double %189, double -2.000000e+00, double %187)
-  %200 = getelementptr inbounds i8, ptr %186, i64 32
-  store double %199, ptr %200, align 8
-  %201 = getelementptr inbounds i8, ptr %186, i64 40
-  %202 = tail call double @llvm.fmuladd.f64(double %189, double -2.250000e+00, double %187)
-  %203 = getelementptr inbounds i8, ptr %186, i64 48
-  store double %202, ptr %203, align 8
-  %204 = getelementptr inbounds i8, ptr %186, i64 56
-  %205 = getelementptr i8, ptr %186, i64 64
-  %206 = load <2 x double>, ptr %195, align 8
-  %207 = extractelement <2 x double> %206, i64 1
-  %208 = fsub double %207, %197
-  %209 = fdiv double %208, 3.000000e+00
-  %210 = fadd double %194, %209
-  store double %210, ptr %198, align 8
-  store double %210, ptr %201, align 8
-  store double %207, ptr %204, align 8
-  store <2 x double> %206, ptr %205, align 8
-  %211 = icmp ugt i64 %185, 4
-  br i1 %211, label %.lr.ph1982.preheader, label %._crit_edge1983
+163:                                              ; preds = %._crit_edge
+  %164 = add i64 %2, 2
+  %165 = tail call fastcc ptr @gv_calloc(i64 noundef %164, i64 noundef 16)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %165, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  %166 = getelementptr inbounds i8, ptr %165, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef nonnull align 8 dereferenceable(16) %114, i64 16, i1 false)
+  %167 = getelementptr inbounds i8, ptr %55, i64 48
+  %168 = getelementptr inbounds i8, ptr %55, i64 64
+  %169 = getelementptr inbounds i8, ptr %165, i64 32
+  %170 = load <2 x double>, ptr %114, align 8
+  %171 = load <2 x double>, ptr %167, align 8
+  %172 = load <2 x double>, ptr %168, align 8
+  %173 = fsub <2 x double> %171, %172
+  %174 = fdiv <2 x double> %173, <double 3.000000e+00, double 3.000000e+00>
+  %175 = fadd <2 x double> %170, %174
+  store <2 x double> %175, ptr %169, align 8
+  %176 = getelementptr inbounds i8, ptr %165, i64 48
+  %177 = fadd <2 x double> %171, %174
+  store <2 x double> %177, ptr %176, align 8
+  %178 = icmp ugt i64 %164, 4
+  br i1 %178, label %.lr.ph1989.preheader, label %._crit_edge1990
 
-.lr.ph1982.preheader:                             ; preds = %184
-  %scevgep2009 = getelementptr i8, ptr %1, i64 16
-  %212 = shl i64 %2, 4
-  %213 = add i64 %212, -16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %205, ptr align 8 %scevgep2009, i64 %213, i1 false)
-  br label %._crit_edge1983
+.lr.ph1989.preheader:                             ; preds = %163
+  %scevgep2011 = getelementptr i8, ptr %165, i64 64
+  %scevgep2012 = getelementptr i8, ptr %1, i64 32
+  %179 = shl i64 %2, 4
+  %180 = add i64 %179, -32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep2011, ptr align 8 %scevgep2012, i64 %180, i1 false)
+  br label %._crit_edge1990
 
-._crit_edge1983:                                  ; preds = %.lr.ph1982.preheader, %184
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %186, i64 noundef %185, i32 noundef %4) #25
-  tail call void @free(ptr noundef nonnull %186) #25
+._crit_edge1990:                                  ; preds = %.lr.ph1989.preheader, %163
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %165, i64 noundef %164, i32 noundef %4) #25
+  tail call void @free(ptr noundef nonnull %165) #25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %167, i64 16, i1 false)
+  %181 = getelementptr inbounds i8, ptr %7, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %181, ptr noundef nonnull align 8 dereferenceable(16) %114, i64 16, i1 false)
+  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
   br label %.loopexit
 
-214:                                              ; preds = %._crit_edge
-  %215 = add i64 %2, 2
-  %216 = tail call fastcc ptr @gv_calloc(i64 noundef %215, i64 noundef 16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %216, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %217 = getelementptr inbounds i8, ptr %216, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull align 8 dereferenceable(16) %114, i64 16, i1 false)
-  %218 = getelementptr inbounds i8, ptr %216, i64 32
-  %219 = getelementptr inbounds i8, ptr %55, i64 64
+182:                                              ; preds = %._crit_edge
+  %183 = add i64 %2, 3
+  %184 = tail call fastcc ptr @gv_calloc(i64 noundef %183, i64 noundef 16)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  %185 = load double, ptr %1, align 8
+  %186 = load double, ptr %112, align 8
+  %187 = fsub double %185, %186
+  %188 = fmul double %187, 2.500000e-01
+  %189 = fsub double %185, %188
+  %190 = getelementptr inbounds i8, ptr %184, i64 16
+  store double %189, ptr %190, align 8
+  %191 = getelementptr inbounds i8, ptr %1, i64 8
+  %192 = load double, ptr %191, align 8
+  %193 = getelementptr inbounds i8, ptr %55, i64 48
+  %194 = getelementptr inbounds i8, ptr %55, i64 72
+  %195 = load double, ptr %194, align 8
+  %196 = getelementptr inbounds i8, ptr %184, i64 24
+  %197 = tail call double @llvm.fmuladd.f64(double %187, double -2.000000e+00, double %185)
+  %198 = getelementptr inbounds i8, ptr %184, i64 32
+  store double %197, ptr %198, align 8
+  %199 = getelementptr inbounds i8, ptr %184, i64 40
+  %200 = tail call double @llvm.fmuladd.f64(double %187, double -2.250000e+00, double %185)
+  %201 = getelementptr inbounds i8, ptr %184, i64 48
+  store double %200, ptr %201, align 8
+  %202 = getelementptr inbounds i8, ptr %184, i64 56
+  %203 = getelementptr i8, ptr %184, i64 64
+  %204 = load <2 x double>, ptr %193, align 8
+  %205 = extractelement <2 x double> %204, i64 1
+  %206 = fsub double %205, %195
+  %207 = fdiv double %206, 3.000000e+00
+  %208 = fadd double %192, %207
+  store double %208, ptr %196, align 8
+  store double %208, ptr %199, align 8
+  store double %205, ptr %202, align 8
+  store <2 x double> %204, ptr %203, align 8
+  %209 = icmp ugt i64 %183, 4
+  br i1 %209, label %.lr.ph1983.preheader, label %._crit_edge1984
+
+.lr.ph1983.preheader:                             ; preds = %182
+  %scevgep2010 = getelementptr i8, ptr %1, i64 16
+  %210 = shl i64 %2, 4
+  %211 = add i64 %210, -16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %203, ptr align 8 %scevgep2010, i64 %211, i1 false)
+  br label %._crit_edge1984
+
+._crit_edge1984:                                  ; preds = %.lr.ph1983.preheader, %182
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %184, i64 noundef %183, i32 noundef %4) #25
+  tail call void @free(ptr noundef nonnull %184) #25
+  br label %.loopexit
+
+212:                                              ; preds = %._crit_edge
+  %213 = add i64 %2, 2
+  %214 = tail call fastcc ptr @gv_calloc(i64 noundef %213, i64 noundef 16)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %214, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  %215 = getelementptr inbounds i8, ptr %214, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %114, i64 16, i1 false)
+  %216 = getelementptr inbounds i8, ptr %214, i64 32
+  %217 = getelementptr inbounds i8, ptr %55, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %216, ptr noundef nonnull align 8 dereferenceable(16) %217, i64 16, i1 false)
+  %218 = getelementptr inbounds i8, ptr %214, i64 48
+  %219 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %218, ptr noundef nonnull align 8 dereferenceable(16) %219, i64 16, i1 false)
-  %220 = getelementptr inbounds i8, ptr %216, i64 48
-  %221 = getelementptr inbounds i8, ptr %1, i64 32
+  %220 = getelementptr inbounds i8, ptr %214, i64 64
+  %221 = getelementptr inbounds i8, ptr %55, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %220, ptr noundef nonnull align 8 dereferenceable(16) %221, i64 16, i1 false)
-  %222 = getelementptr inbounds i8, ptr %216, i64 64
-  %223 = getelementptr inbounds i8, ptr %55, i64 128
+  %222 = getelementptr inbounds i8, ptr %214, i64 80
+  %223 = getelementptr inbounds i8, ptr %55, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %222, ptr noundef nonnull align 8 dereferenceable(16) %223, i64 16, i1 false)
-  %224 = getelementptr inbounds i8, ptr %216, i64 80
-  %225 = getelementptr inbounds i8, ptr %55, i64 160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %224, ptr noundef nonnull align 8 dereferenceable(16) %225, i64 16, i1 false)
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef %216, i64 noundef %215, i32 noundef %4) #25
-  tail call void @free(ptr noundef %216) #25
-  %226 = getelementptr inbounds i8, ptr %55, i64 176
-  %227 = load <2 x double>, ptr %112, align 8
-  %228 = load <2 x double>, ptr %226, align 8
-  %229 = load <2 x double>, ptr %55, align 8
-  %230 = fsub <2 x double> %228, %229
-  %231 = fadd <2 x double> %227, %230
-  store <2 x double> %231, ptr %7, align 16
-  %232 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %232, ptr noundef nonnull align 8 dereferenceable(16) %219, i64 16, i1 false)
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef %214, i64 noundef %213, i32 noundef %4) #25
+  tail call void @free(ptr noundef %214) #25
+  %224 = getelementptr inbounds i8, ptr %55, i64 176
+  %225 = load <2 x double>, ptr %112, align 8
+  %226 = load <2 x double>, ptr %224, align 8
+  %227 = load <2 x double>, ptr %55, align 8
+  %228 = fsub <2 x double> %226, %227
+  %229 = fadd <2 x double> %225, %228
+  store <2 x double> %229, ptr %7, align 16
+  %230 = getelementptr inbounds i8, ptr %7, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %230, ptr noundef nonnull align 8 dereferenceable(16) %217, i64 16, i1 false)
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %232, ptr noundef nonnull align 8 dereferenceable(16) %223, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %230, ptr noundef nonnull align 8 dereferenceable(16) %221, i64 16, i1 false)
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %232, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %230, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
   br label %.loopexit
 
-233:                                              ; preds = %._crit_edge
-  %234 = add i64 %2, 8
-  %235 = tail call fastcc ptr @gv_calloc(i64 noundef %234, i64 noundef 16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %235, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %236 = getelementptr inbounds i8, ptr %235, i64 16
-  %237 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %236, ptr noundef nonnull align 8 dereferenceable(16) %237, i64 16, i1 false)
-  %238 = getelementptr inbounds i8, ptr %55, i64 48
-  %239 = getelementptr inbounds i8, ptr %55, i64 64
-  %240 = getelementptr inbounds i8, ptr %235, i64 32
-  %241 = load <2 x double>, ptr %238, align 8
-  %242 = load <2 x double>, ptr %239, align 8
-  %243 = fsub <2 x double> %242, %241
-  %244 = fadd <2 x double> %241, %243
-  store <2 x double> %244, ptr %240, align 8
-  %245 = getelementptr inbounds i8, ptr %235, i64 48
-  %246 = load <2 x double>, ptr %114, align 8
-  %247 = fsub <2 x double> %241, %246
-  %248 = fadd <2 x double> %244, %247
-  store <2 x double> %248, ptr %245, align 8
-  %249 = getelementptr inbounds i8, ptr %235, i64 64
-  %250 = fadd <2 x double> %243, %248
-  store <2 x double> %250, ptr %249, align 8
-  %251 = getelementptr inbounds i8, ptr %235, i64 80
-  %252 = fsub <2 x double> %244, %248
-  %253 = fadd <2 x double> %250, %252
-  store <2 x double> %253, ptr %251, align 8
-  %254 = getelementptr inbounds i8, ptr %55, i64 96
-  %255 = getelementptr inbounds i8, ptr %55, i64 80
-  %256 = getelementptr inbounds i8, ptr %235, i64 144
-  %257 = getelementptr inbounds i8, ptr %55, i64 112
-  %258 = getelementptr inbounds i8, ptr %235, i64 128
-  %259 = getelementptr inbounds i8, ptr %235, i64 112
-  %260 = getelementptr inbounds i8, ptr %235, i64 96
-  %261 = load <2 x double>, ptr %254, align 8
-  %262 = load <2 x double>, ptr %255, align 8
-  %263 = fsub <2 x double> %262, %261
-  %264 = fadd <2 x double> %261, %263
-  store <2 x double> %264, ptr %256, align 8
-  %265 = load <2 x double>, ptr %257, align 8
-  %266 = fsub <2 x double> %261, %265
-  %267 = fadd <2 x double> %264, %266
-  store <2 x double> %267, ptr %258, align 8
-  %268 = fadd <2 x double> %263, %267
-  store <2 x double> %268, ptr %259, align 8
-  %269 = fsub <2 x double> %264, %267
-  %270 = fadd <2 x double> %268, %269
-  store <2 x double> %270, ptr %260, align 8
-  %271 = getelementptr inbounds i8, ptr %235, i64 160
-  %272 = getelementptr inbounds i8, ptr %1, i64 32
+231:                                              ; preds = %._crit_edge
+  %232 = add i64 %2, 8
+  %233 = tail call fastcc ptr @gv_calloc(i64 noundef %232, i64 noundef 16)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %233, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  %234 = getelementptr inbounds i8, ptr %233, i64 16
+  %235 = getelementptr inbounds i8, ptr %1, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %234, ptr noundef nonnull align 8 dereferenceable(16) %235, i64 16, i1 false)
+  %236 = getelementptr inbounds i8, ptr %55, i64 48
+  %237 = getelementptr inbounds i8, ptr %55, i64 64
+  %238 = getelementptr inbounds i8, ptr %233, i64 32
+  %239 = load <2 x double>, ptr %236, align 8
+  %240 = load <2 x double>, ptr %237, align 8
+  %241 = fsub <2 x double> %240, %239
+  %242 = fadd <2 x double> %239, %241
+  store <2 x double> %242, ptr %238, align 8
+  %243 = getelementptr inbounds i8, ptr %233, i64 48
+  %244 = load <2 x double>, ptr %114, align 8
+  %245 = fsub <2 x double> %239, %244
+  %246 = fadd <2 x double> %242, %245
+  store <2 x double> %246, ptr %243, align 8
+  %247 = getelementptr inbounds i8, ptr %233, i64 64
+  %248 = fadd <2 x double> %241, %246
+  store <2 x double> %248, ptr %247, align 8
+  %249 = getelementptr inbounds i8, ptr %233, i64 80
+  %250 = fsub <2 x double> %242, %246
+  %251 = fadd <2 x double> %248, %250
+  store <2 x double> %251, ptr %249, align 8
+  %252 = getelementptr inbounds i8, ptr %55, i64 96
+  %253 = getelementptr inbounds i8, ptr %55, i64 80
+  %254 = getelementptr inbounds i8, ptr %233, i64 144
+  %255 = getelementptr inbounds i8, ptr %55, i64 112
+  %256 = getelementptr inbounds i8, ptr %233, i64 128
+  %257 = getelementptr inbounds i8, ptr %233, i64 112
+  %258 = getelementptr inbounds i8, ptr %233, i64 96
+  %259 = load <2 x double>, ptr %252, align 8
+  %260 = load <2 x double>, ptr %253, align 8
+  %261 = fsub <2 x double> %260, %259
+  %262 = fadd <2 x double> %259, %261
+  store <2 x double> %262, ptr %254, align 8
+  %263 = load <2 x double>, ptr %255, align 8
+  %264 = fsub <2 x double> %259, %263
+  %265 = fadd <2 x double> %262, %264
+  store <2 x double> %265, ptr %256, align 8
+  %266 = fadd <2 x double> %261, %265
+  store <2 x double> %266, ptr %257, align 8
+  %267 = fsub <2 x double> %262, %265
+  %268 = fadd <2 x double> %266, %267
+  store <2 x double> %268, ptr %258, align 8
+  %269 = getelementptr inbounds i8, ptr %233, i64 160
+  %270 = getelementptr inbounds i8, ptr %1, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %269, ptr noundef nonnull align 8 dereferenceable(16) %270, i64 16, i1 false)
+  %271 = getelementptr inbounds i8, ptr %233, i64 176
+  %272 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %271, ptr noundef nonnull align 8 dereferenceable(16) %272, i64 16, i1 false)
-  %273 = getelementptr inbounds i8, ptr %235, i64 176
-  %274 = getelementptr inbounds i8, ptr %1, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %273, ptr noundef nonnull align 8 dereferenceable(16) %274, i64 16, i1 false)
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef %235, i64 noundef %234, i32 noundef %4) #25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %240, i64 16, i1 false)
-  %275 = getelementptr inbounds i8, ptr %7, i64 16
-  %276 = load <2 x double>, ptr %240, align 8
-  %277 = load <2 x double>, ptr %245, align 8
-  %278 = fsub <2 x double> %277, %276
-  %279 = fsub <2 x double> %276, %278
-  store <2 x double> %279, ptr %275, align 16
-  %280 = getelementptr inbounds i8, ptr %7, i64 32
-  %281 = load <2 x double>, ptr %249, align 8
-  %282 = fsub <2 x double> %281, %277
-  %283 = fadd <2 x double> %279, %282
-  store <2 x double> %283, ptr %280, align 16
-  %284 = getelementptr inbounds i8, ptr %7, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %284, ptr noundef nonnull align 8 dereferenceable(16) %251, i64 16, i1 false)
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef %233, i64 noundef %232, i32 noundef %4) #25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %238, i64 16, i1 false)
+  %273 = getelementptr inbounds i8, ptr %7, i64 16
+  %274 = load <2 x double>, ptr %238, align 8
+  %275 = load <2 x double>, ptr %243, align 8
+  %276 = fsub <2 x double> %275, %274
+  %277 = fsub <2 x double> %274, %276
+  store <2 x double> %277, ptr %273, align 16
+  %278 = getelementptr inbounds i8, ptr %7, i64 32
+  %279 = load <2 x double>, ptr %247, align 8
+  %280 = fsub <2 x double> %279, %275
+  %281 = fadd <2 x double> %277, %280
+  store <2 x double> %281, ptr %278, align 16
+  %282 = getelementptr inbounds i8, ptr %7, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %282, ptr noundef nonnull align 8 dereferenceable(16) %249, i64 16, i1 false)
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4) #25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false)
-  %285 = load <2 x double>, ptr %260, align 8
-  %286 = load <2 x double>, ptr %259, align 8
-  %287 = fsub <2 x double> %286, %285
-  %288 = fsub <2 x double> %285, %287
-  store <2 x double> %288, ptr %275, align 16
-  %289 = load <2 x double>, ptr %258, align 8
-  %290 = fsub <2 x double> %289, %286
-  %291 = fadd <2 x double> %288, %290
-  store <2 x double> %291, ptr %280, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %284, ptr noundef nonnull align 8 dereferenceable(16) %256, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %258, i64 16, i1 false)
+  %283 = load <2 x double>, ptr %258, align 8
+  %284 = load <2 x double>, ptr %257, align 8
+  %285 = fsub <2 x double> %284, %283
+  %286 = fsub <2 x double> %283, %285
+  store <2 x double> %286, ptr %273, align 16
+  %287 = load <2 x double>, ptr %256, align 8
+  %288 = fsub <2 x double> %287, %284
+  %289 = fadd <2 x double> %286, %288
+  store <2 x double> %289, ptr %278, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %282, ptr noundef nonnull align 8 dereferenceable(16) %254, i64 16, i1 false)
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4) #25
-  call void @free(ptr noundef %235) #25
+  call void @free(ptr noundef %233) #25
   br label %.loopexit
 
-292:                                              ; preds = %._crit_edge
-  %293 = add i64 %2, 5
-  %294 = tail call fastcc ptr @gv_calloc(i64 noundef %293, i64 noundef 16)
-  %295 = getelementptr inbounds i8, ptr %1, i64 16
-  %296 = load double, ptr %295, align 8
-  %297 = load double, ptr %1, align 8
-  %298 = getelementptr inbounds i8, ptr %1, i64 40
+290:                                              ; preds = %._crit_edge
+  %291 = add i64 %2, 5
+  %292 = tail call fastcc ptr @gv_calloc(i64 noundef %291, i64 noundef 16)
+  %293 = getelementptr inbounds i8, ptr %1, i64 16
+  %294 = load double, ptr %293, align 8
+  %295 = load double, ptr %1, align 8
+  %296 = getelementptr inbounds i8, ptr %1, i64 40
+  %297 = load double, ptr %296, align 8
+  %298 = getelementptr inbounds i8, ptr %1, i64 24
   %299 = load double, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %1, i64 24
-  %301 = load double, ptr %300, align 8
-  %302 = getelementptr inbounds i8, ptr %55, i64 48
-  %303 = getelementptr inbounds i8, ptr %55, i64 56
+  %300 = getelementptr inbounds i8, ptr %55, i64 48
+  %301 = getelementptr inbounds i8, ptr %55, i64 56
+  %302 = load double, ptr %301, align 8
+  %303 = getelementptr inbounds i8, ptr %55, i64 72
   %304 = load double, ptr %303, align 8
-  %305 = getelementptr inbounds i8, ptr %55, i64 72
-  %306 = load double, ptr %305, align 8
-  %307 = fsub double %304, %306
-  %308 = fmul double %307, 3.000000e+00
-  %309 = insertelement <2 x double> poison, double %297, i64 0
-  %310 = insertelement <2 x double> %309, double %301, i64 1
-  %311 = insertelement <2 x double> poison, double %296, i64 0
-  %312 = insertelement <2 x double> %311, double %299, i64 1
-  %313 = fsub <2 x double> %310, %312
-  %314 = fmul <2 x double> %313, <double 5.000000e-01, double 5.000000e-01>
-  %315 = fadd <2 x double> %312, %314
-  %316 = insertelement <2 x double> %313, double %308, i64 1
-  %317 = fmul <2 x double> %316, <double 1.250000e-01, double 5.000000e-01>
-  %318 = fadd <2 x double> %317, %315
-  store <2 x double> %318, ptr %294, align 8
+  %305 = fsub double %302, %304
+  %306 = fmul double %305, 3.000000e+00
+  %307 = insertelement <2 x double> poison, double %295, i64 0
+  %308 = insertelement <2 x double> %307, double %299, i64 1
+  %309 = insertelement <2 x double> poison, double %294, i64 0
+  %310 = insertelement <2 x double> %309, double %297, i64 1
+  %311 = fsub <2 x double> %308, %310
+  %312 = fmul <2 x double> %311, <double 5.000000e-01, double 5.000000e-01>
+  %313 = fadd <2 x double> %310, %312
+  %314 = insertelement <2 x double> %311, double %306, i64 1
+  %315 = fmul <2 x double> %314, <double 1.250000e-01, double 5.000000e-01>
+  %316 = fadd <2 x double> %315, %313
+  store <2 x double> %316, ptr %292, align 8
+  %317 = extractelement <2 x double> %311, i64 0
+  %318 = fmul double %317, 2.500000e-01
   %319 = extractelement <2 x double> %313, i64 0
-  %320 = fmul double %319, 2.500000e-01
-  %321 = extractelement <2 x double> %315, i64 0
-  %322 = fsub double %321, %320
-  %323 = getelementptr inbounds i8, ptr %294, i64 16
-  store double %322, ptr %323, align 8
-  %324 = getelementptr inbounds i8, ptr %294, i64 24
-  %325 = extractelement <2 x double> %318, i64 1
-  store double %325, ptr %324, align 8
-  %326 = getelementptr inbounds i8, ptr %294, i64 32
-  store double %322, ptr %326, align 8
-  %327 = getelementptr inbounds i8, ptr %294, i64 40
-  %328 = extractelement <2 x double> %315, i64 1
-  store double %328, ptr %327, align 8
-  %329 = load double, ptr %114, align 8
-  %330 = load double, ptr %302, align 8
-  %331 = getelementptr inbounds i8, ptr %294, i64 48
-  %332 = getelementptr inbounds i8, ptr %294, i64 56
-  store double %328, ptr %332, align 8
-  %333 = getelementptr inbounds i8, ptr %294, i64 64
-  %334 = fadd double %328, %307
-  %335 = getelementptr inbounds i8, ptr %294, i64 72
-  store double %334, ptr %335, align 8
-  %336 = getelementptr inbounds i8, ptr %294, i64 80
-  %337 = extractelement <2 x double> %318, i64 0
-  store double %337, ptr %336, align 8
-  %338 = getelementptr inbounds i8, ptr %294, i64 88
-  store double %334, ptr %338, align 8
-  %339 = getelementptr inbounds i8, ptr %294, i64 96
-  store double %337, ptr %339, align 8
-  %340 = fmul double %307, 2.500000e-01
-  %341 = getelementptr inbounds i8, ptr %294, i64 104
-  %342 = getelementptr inbounds i8, ptr %294, i64 112
-  %343 = fmul double %307, 5.000000e-01
-  %344 = insertelement <2 x double> poison, double %329, i64 0
-  %345 = insertelement <2 x double> %344, double %334, i64 1
-  %346 = insertelement <2 x double> poison, double %330, i64 0
-  %347 = insertelement <2 x double> %346, double %340, i64 1
-  %348 = fsub <2 x double> %345, %347
-  %349 = extractelement <2 x double> %348, i64 0
-  %350 = fmul double %349, 5.000000e-01
-  %351 = fadd double %322, %350
-  store double %351, ptr %331, align 8
-  store double %351, ptr %333, align 8
-  %352 = extractelement <2 x double> %348, i64 1
-  store double %352, ptr %341, align 8
-  %353 = insertelement <2 x double> %318, double %343, i64 1
-  %354 = fadd <2 x double> %353, %348
-  store <2 x double> %354, ptr %342, align 8
-  %355 = getelementptr inbounds i8, ptr %294, i64 128
-  store double %337, ptr %355, align 8
-  %356 = fadd double %340, %325
-  %357 = getelementptr inbounds i8, ptr %294, i64 136
-  store double %356, ptr %357, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %294, i64 noundef %293, i32 noundef %4) #25
-  %358 = load double, ptr %295, align 8
-  store double %358, ptr %7, align 16
-  %359 = load double, ptr %298, align 8
-  %360 = load double, ptr %300, align 8
-  %361 = fsub double %360, %359
-  %362 = fmul double %361, 5.000000e-01
-  %363 = fadd double %359, %362
-  %364 = getelementptr inbounds i8, ptr %7, i64 8
-  store double %363, ptr %364, align 8
-  %365 = load double, ptr %1, align 8
-  %366 = getelementptr inbounds i8, ptr %7, i64 16
-  store double %365, ptr %366, align 16
-  %367 = getelementptr inbounds i8, ptr %1, i64 8
+  %320 = fsub double %319, %318
+  %321 = getelementptr inbounds i8, ptr %292, i64 16
+  store double %320, ptr %321, align 8
+  %322 = getelementptr inbounds i8, ptr %292, i64 24
+  %323 = extractelement <2 x double> %316, i64 1
+  store double %323, ptr %322, align 8
+  %324 = getelementptr inbounds i8, ptr %292, i64 32
+  store double %320, ptr %324, align 8
+  %325 = getelementptr inbounds i8, ptr %292, i64 40
+  %326 = extractelement <2 x double> %313, i64 1
+  store double %326, ptr %325, align 8
+  %327 = load double, ptr %114, align 8
+  %328 = load double, ptr %300, align 8
+  %329 = getelementptr inbounds i8, ptr %292, i64 48
+  %330 = getelementptr inbounds i8, ptr %292, i64 56
+  store double %326, ptr %330, align 8
+  %331 = getelementptr inbounds i8, ptr %292, i64 64
+  %332 = fadd double %326, %305
+  %333 = getelementptr inbounds i8, ptr %292, i64 72
+  store double %332, ptr %333, align 8
+  %334 = getelementptr inbounds i8, ptr %292, i64 80
+  %335 = extractelement <2 x double> %316, i64 0
+  store double %335, ptr %334, align 8
+  %336 = getelementptr inbounds i8, ptr %292, i64 88
+  store double %332, ptr %336, align 8
+  %337 = getelementptr inbounds i8, ptr %292, i64 96
+  store double %335, ptr %337, align 8
+  %338 = fmul double %305, 2.500000e-01
+  %339 = getelementptr inbounds i8, ptr %292, i64 104
+  %340 = getelementptr inbounds i8, ptr %292, i64 112
+  %341 = fmul double %305, 5.000000e-01
+  %342 = insertelement <2 x double> poison, double %327, i64 0
+  %343 = insertelement <2 x double> %342, double %332, i64 1
+  %344 = insertelement <2 x double> poison, double %328, i64 0
+  %345 = insertelement <2 x double> %344, double %338, i64 1
+  %346 = fsub <2 x double> %343, %345
+  %347 = extractelement <2 x double> %346, i64 0
+  %348 = fmul double %347, 5.000000e-01
+  %349 = fadd double %320, %348
+  store double %349, ptr %329, align 8
+  store double %349, ptr %331, align 8
+  %350 = extractelement <2 x double> %346, i64 1
+  store double %350, ptr %339, align 8
+  %351 = insertelement <2 x double> %316, double %341, i64 1
+  %352 = fadd <2 x double> %351, %346
+  store <2 x double> %352, ptr %340, align 8
+  %353 = getelementptr inbounds i8, ptr %292, i64 128
+  store double %335, ptr %353, align 8
+  %354 = fadd double %338, %323
+  %355 = getelementptr inbounds i8, ptr %292, i64 136
+  store double %354, ptr %355, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %292, i64 noundef %291, i32 noundef %4) #25
+  %356 = load double, ptr %293, align 8
+  store double %356, ptr %7, align 16
+  %357 = load double, ptr %296, align 8
+  %358 = load double, ptr %298, align 8
+  %359 = fsub double %358, %357
+  %360 = fmul double %359, 5.000000e-01
+  %361 = fadd double %357, %360
+  %362 = getelementptr inbounds i8, ptr %7, i64 8
+  store double %361, ptr %362, align 8
+  %363 = load double, ptr %1, align 8
+  %364 = getelementptr inbounds i8, ptr %7, i64 16
+  store double %363, ptr %364, align 16
+  %365 = getelementptr inbounds i8, ptr %1, i64 8
+  %366 = load double, ptr %365, align 8
+  %367 = getelementptr inbounds i8, ptr %1, i64 56
   %368 = load double, ptr %367, align 8
-  %369 = getelementptr inbounds i8, ptr %1, i64 56
-  %370 = load double, ptr %369, align 8
-  %371 = fsub double %368, %370
-  %372 = fmul double %371, 5.000000e-01
-  %373 = fadd double %359, %372
-  %374 = getelementptr inbounds i8, ptr %7, i64 24
-  store double %373, ptr %374, align 8
+  %369 = fsub double %366, %368
+  %370 = fmul double %369, 5.000000e-01
+  %371 = fadd double %357, %370
+  %372 = getelementptr inbounds i8, ptr %7, i64 24
+  store double %371, ptr %372, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @free(ptr noundef %294) #25
+  call void @free(ptr noundef %292) #25
   br label %.loopexit
 
-375:                                              ; preds = %._crit_edge
-  %376 = add i64 %2, 1
-  %377 = tail call fastcc ptr @gv_calloc(i64 noundef %376, i64 noundef 16)
-  %378 = load double, ptr %112, align 8
-  store double %378, ptr %377, align 8
-  %379 = getelementptr inbounds i8, ptr %55, i64 24
-  %380 = load double, ptr %379, align 8
-  %381 = getelementptr inbounds i8, ptr %55, i64 48
-  %382 = getelementptr inbounds i8, ptr %55, i64 56
+373:                                              ; preds = %._crit_edge
+  %374 = add i64 %2, 1
+  %375 = tail call fastcc ptr @gv_calloc(i64 noundef %374, i64 noundef 16)
+  %376 = load double, ptr %112, align 8
+  store double %376, ptr %375, align 8
+  %377 = getelementptr inbounds i8, ptr %55, i64 24
+  %378 = load double, ptr %377, align 8
+  %379 = getelementptr inbounds i8, ptr %55, i64 48
+  %380 = getelementptr inbounds i8, ptr %55, i64 56
+  %381 = load double, ptr %380, align 8
+  %382 = getelementptr inbounds i8, ptr %55, i64 72
   %383 = load double, ptr %382, align 8
-  %384 = getelementptr inbounds i8, ptr %55, i64 72
-  %385 = load double, ptr %384, align 8
-  %386 = fsub double %383, %385
-  %387 = fmul double %386, 5.000000e-01
-  %388 = fsub double %380, %387
-  %389 = getelementptr inbounds i8, ptr %377, i64 8
+  %384 = fsub double %381, %383
+  %385 = fmul double %384, 5.000000e-01
+  %386 = fsub double %378, %385
+  %387 = getelementptr inbounds i8, ptr %375, i64 8
+  store double %386, ptr %387, align 8
+  %388 = load double, ptr %379, align 8
+  %389 = getelementptr inbounds i8, ptr %375, i64 16
   store double %388, ptr %389, align 8
-  %390 = load double, ptr %381, align 8
-  %391 = getelementptr inbounds i8, ptr %377, i64 16
+  %390 = fsub double %381, %385
+  %391 = getelementptr inbounds i8, ptr %375, i64 24
   store double %390, ptr %391, align 8
-  %392 = fsub double %383, %387
-  %393 = getelementptr inbounds i8, ptr %377, i64 24
-  store double %392, ptr %393, align 8
-  %394 = getelementptr inbounds i8, ptr %1, i64 32
-  %395 = load double, ptr %394, align 8
-  %396 = getelementptr inbounds i8, ptr %377, i64 32
-  store double %395, ptr %396, align 8
-  %397 = getelementptr inbounds i8, ptr %1, i64 40
-  %398 = load double, ptr %397, align 8
-  %399 = fadd double %387, %398
-  %400 = getelementptr inbounds i8, ptr %377, i64 40
-  store double %399, ptr %400, align 8
-  %401 = getelementptr inbounds i8, ptr %377, i64 48
-  store double %378, ptr %401, align 8
-  %402 = getelementptr inbounds i8, ptr %377, i64 56
-  store double %399, ptr %402, align 8
-  %403 = getelementptr inbounds i8, ptr %1, i64 8
+  %392 = getelementptr inbounds i8, ptr %1, i64 32
+  %393 = load double, ptr %392, align 8
+  %394 = getelementptr inbounds i8, ptr %375, i64 32
+  store double %393, ptr %394, align 8
+  %395 = getelementptr inbounds i8, ptr %1, i64 40
+  %396 = load double, ptr %395, align 8
+  %397 = fadd double %385, %396
+  %398 = getelementptr inbounds i8, ptr %375, i64 40
+  store double %397, ptr %398, align 8
+  %399 = getelementptr inbounds i8, ptr %375, i64 48
+  store double %376, ptr %399, align 8
+  %400 = getelementptr inbounds i8, ptr %375, i64 56
+  store double %397, ptr %400, align 8
+  %401 = getelementptr inbounds i8, ptr %1, i64 8
+  %402 = load double, ptr %401, align 8
+  %403 = getelementptr inbounds i8, ptr %1, i64 56
   %404 = load double, ptr %403, align 8
-  %405 = getelementptr inbounds i8, ptr %1, i64 56
-  %406 = load double, ptr %405, align 8
-  %407 = fsub double %404, %406
-  %408 = fmul double %407, 5.000000e-01
-  %409 = fsub double %404, %408
-  %410 = getelementptr inbounds i8, ptr %377, i64 64
-  %411 = getelementptr inbounds i8, ptr %377, i64 72
-  store double %409, ptr %411, align 8
-  %412 = load double, ptr %1, align 8
-  store double %412, ptr %410, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %377, i64 noundef %376, i32 noundef %4) #25
-  tail call void @free(ptr noundef %377) #25
+  %405 = fsub double %402, %404
+  %406 = fmul double %405, 5.000000e-01
+  %407 = fsub double %402, %406
+  %408 = getelementptr inbounds i8, ptr %375, i64 64
+  %409 = getelementptr inbounds i8, ptr %375, i64 72
+  store double %407, ptr %409, align 8
+  %410 = load double, ptr %1, align 8
+  store double %410, ptr %408, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %375, i64 noundef %374, i32 noundef %4) #25
+  tail call void @free(ptr noundef %375) #25
   br label %.loopexit
 
-413:                                              ; preds = %._crit_edge
-  %414 = add i64 %2, 4
-  %415 = tail call fastcc ptr @gv_calloc(i64 noundef %414, i64 noundef 16)
-  %416 = getelementptr inbounds i8, ptr %1, i64 16
-  %417 = load double, ptr %416, align 8
-  %418 = load double, ptr %1, align 8
-  %419 = fsub double %418, %417
-  %420 = fmul double %419, 5.000000e-01
-  %421 = fadd double %417, %420
-  %422 = load double, ptr %114, align 8
-  %423 = getelementptr inbounds i8, ptr %55, i64 48
+411:                                              ; preds = %._crit_edge
+  %412 = add i64 %2, 4
+  %413 = tail call fastcc ptr @gv_calloc(i64 noundef %412, i64 noundef 16)
+  %414 = getelementptr inbounds i8, ptr %1, i64 16
+  %415 = load double, ptr %414, align 8
+  %416 = load double, ptr %1, align 8
+  %417 = fsub double %416, %415
+  %418 = fmul double %417, 5.000000e-01
+  %419 = fadd double %415, %418
+  %420 = load double, ptr %114, align 8
+  %421 = getelementptr inbounds i8, ptr %55, i64 48
+  %422 = load double, ptr %421, align 8
+  %423 = getelementptr inbounds i8, ptr %1, i64 40
   %424 = load double, ptr %423, align 8
-  %425 = getelementptr inbounds i8, ptr %1, i64 40
+  %425 = getelementptr inbounds i8, ptr %1, i64 24
   %426 = load double, ptr %425, align 8
-  %427 = getelementptr inbounds i8, ptr %1, i64 24
-  %428 = load double, ptr %427, align 8
+  %427 = insertelement <2 x double> poison, double %420, i64 0
+  %428 = insertelement <2 x double> %427, double %426, i64 1
   %429 = insertelement <2 x double> poison, double %422, i64 0
-  %430 = insertelement <2 x double> %429, double %428, i64 1
-  %431 = insertelement <2 x double> poison, double %424, i64 0
-  %432 = insertelement <2 x double> %431, double %426, i64 1
-  %433 = fsub <2 x double> %430, %432
-  %434 = fmul <2 x double> %433, <double 2.500000e-01, double 5.000000e-01>
-  %435 = insertelement <2 x double> %432, double %421, i64 0
-  %436 = fadd <2 x double> %435, %434
-  store <2 x double> %436, ptr %415, align 8
-  %437 = getelementptr inbounds i8, ptr %415, i64 16
-  %438 = shufflevector <2 x double> %436, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %439 = extractelement <2 x double> %436, i64 0
-  store double %439, ptr %437, align 8
-  %440 = getelementptr inbounds i8, ptr %55, i64 56
+  %430 = insertelement <2 x double> %429, double %424, i64 1
+  %431 = fsub <2 x double> %428, %430
+  %432 = fmul <2 x double> %431, <double 2.500000e-01, double 5.000000e-01>
+  %433 = insertelement <2 x double> %430, double %419, i64 0
+  %434 = fadd <2 x double> %433, %432
+  store <2 x double> %434, ptr %413, align 8
+  %435 = getelementptr inbounds i8, ptr %413, i64 16
+  %436 = shufflevector <2 x double> %434, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %437 = extractelement <2 x double> %434, i64 0
+  store double %437, ptr %435, align 8
+  %438 = getelementptr inbounds i8, ptr %55, i64 56
+  %439 = load double, ptr %438, align 8
+  %440 = getelementptr inbounds i8, ptr %55, i64 72
   %441 = load double, ptr %440, align 8
-  %442 = getelementptr inbounds i8, ptr %55, i64 72
-  %443 = load double, ptr %442, align 8
-  %444 = fsub double %441, %443
-  %445 = getelementptr inbounds i8, ptr %415, i64 24
-  %446 = extractelement <2 x double> %433, i64 0
-  %447 = shufflevector <2 x double> %433, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %448 = insertelement <2 x double> %447, double %444, i64 0
-  %449 = fmul <2 x double> %448, <double 5.000000e-01, double 5.000000e-01>
-  %450 = fadd <2 x double> %438, %449
-  store <2 x double> %450, ptr %445, align 8
-  %451 = getelementptr inbounds i8, ptr %415, i64 40
-  store <2 x double> %450, ptr %451, align 8
-  %452 = extractelement <2 x double> %450, i64 0
-  %453 = fadd <2 x double> %449, %450
-  %454 = extractelement <2 x double> %453, i64 0
-  %455 = getelementptr inbounds i8, ptr %415, i64 56
-  store double %454, ptr %455, align 8
-  %456 = fmul double %446, 3.000000e+00
-  %457 = fmul double %456, 2.500000e-01
-  %458 = fsub double %421, %457
-  %459 = getelementptr inbounds i8, ptr %415, i64 64
-  store double %458, ptr %459, align 8
-  %460 = getelementptr inbounds i8, ptr %415, i64 72
-  store double %454, ptr %460, align 8
-  %461 = getelementptr inbounds i8, ptr %415, i64 80
-  store double %458, ptr %461, align 8
-  %462 = getelementptr inbounds i8, ptr %415, i64 88
-  store double %452, ptr %462, align 8
-  %463 = extractelement <2 x double> %434, i64 0
-  %464 = fsub double %421, %463
-  %465 = getelementptr inbounds i8, ptr %415, i64 96
-  store double %464, ptr %465, align 8
-  %466 = getelementptr inbounds i8, ptr %415, i64 104
-  store double %452, ptr %466, align 8
-  %467 = getelementptr inbounds i8, ptr %415, i64 112
-  store double %464, ptr %467, align 8
-  %468 = getelementptr inbounds i8, ptr %415, i64 120
-  %469 = extractelement <2 x double> %436, i64 1
-  store double %469, ptr %468, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %415, i64 noundef %414, i32 noundef %4) #25
-  %470 = load double, ptr %416, align 8
-  store double %470, ptr %7, align 16
-  %471 = load double, ptr %425, align 8
-  %472 = load double, ptr %427, align 8
-  %473 = fsub double %472, %471
-  %474 = fmul double %473, 5.000000e-01
-  %475 = fadd double %471, %474
-  %476 = getelementptr inbounds i8, ptr %7, i64 8
-  store double %475, ptr %476, align 8
-  %477 = load double, ptr %1, align 8
-  %478 = getelementptr inbounds i8, ptr %7, i64 16
-  store double %477, ptr %478, align 16
-  %479 = getelementptr inbounds i8, ptr %1, i64 8
+  %442 = fsub double %439, %441
+  %443 = getelementptr inbounds i8, ptr %413, i64 24
+  %444 = extractelement <2 x double> %431, i64 0
+  %445 = shufflevector <2 x double> %431, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %446 = insertelement <2 x double> %445, double %442, i64 0
+  %447 = fmul <2 x double> %446, <double 5.000000e-01, double 5.000000e-01>
+  %448 = fadd <2 x double> %436, %447
+  store <2 x double> %448, ptr %443, align 8
+  %449 = getelementptr inbounds i8, ptr %413, i64 40
+  store <2 x double> %448, ptr %449, align 8
+  %450 = extractelement <2 x double> %448, i64 0
+  %451 = fadd <2 x double> %447, %448
+  %452 = extractelement <2 x double> %451, i64 0
+  %453 = getelementptr inbounds i8, ptr %413, i64 56
+  store double %452, ptr %453, align 8
+  %454 = fmul double %444, 3.000000e+00
+  %455 = fmul double %454, 2.500000e-01
+  %456 = fsub double %419, %455
+  %457 = getelementptr inbounds i8, ptr %413, i64 64
+  store double %456, ptr %457, align 8
+  %458 = getelementptr inbounds i8, ptr %413, i64 72
+  store double %452, ptr %458, align 8
+  %459 = getelementptr inbounds i8, ptr %413, i64 80
+  store double %456, ptr %459, align 8
+  %460 = getelementptr inbounds i8, ptr %413, i64 88
+  store double %450, ptr %460, align 8
+  %461 = extractelement <2 x double> %432, i64 0
+  %462 = fsub double %419, %461
+  %463 = getelementptr inbounds i8, ptr %413, i64 96
+  store double %462, ptr %463, align 8
+  %464 = getelementptr inbounds i8, ptr %413, i64 104
+  store double %450, ptr %464, align 8
+  %465 = getelementptr inbounds i8, ptr %413, i64 112
+  store double %462, ptr %465, align 8
+  %466 = getelementptr inbounds i8, ptr %413, i64 120
+  %467 = extractelement <2 x double> %434, i64 1
+  store double %467, ptr %466, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %413, i64 noundef %412, i32 noundef %4) #25
+  %468 = load double, ptr %414, align 8
+  store double %468, ptr %7, align 16
+  %469 = load double, ptr %423, align 8
+  %470 = load double, ptr %425, align 8
+  %471 = fsub double %470, %469
+  %472 = fmul double %471, 5.000000e-01
+  %473 = fadd double %469, %472
+  %474 = getelementptr inbounds i8, ptr %7, i64 8
+  store double %473, ptr %474, align 8
+  %475 = load double, ptr %1, align 8
+  %476 = getelementptr inbounds i8, ptr %7, i64 16
+  store double %475, ptr %476, align 16
+  %477 = getelementptr inbounds i8, ptr %1, i64 8
+  %478 = load double, ptr %477, align 8
+  %479 = getelementptr inbounds i8, ptr %1, i64 56
   %480 = load double, ptr %479, align 8
-  %481 = getelementptr inbounds i8, ptr %1, i64 56
-  %482 = load double, ptr %481, align 8
-  %483 = fsub double %480, %482
-  %484 = fmul double %483, 5.000000e-01
-  %485 = fadd double %471, %484
-  %486 = getelementptr inbounds i8, ptr %7, i64 24
-  store double %485, ptr %486, align 8
+  %481 = fsub double %478, %480
+  %482 = fmul double %481, 5.000000e-01
+  %483 = fadd double %469, %482
+  %484 = getelementptr inbounds i8, ptr %7, i64 24
+  store double %483, ptr %484, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @free(ptr noundef %415) #25
+  call void @free(ptr noundef %413) #25
   br label %.loopexit
 
-487:                                              ; preds = %._crit_edge
-  %488 = add i64 %2, 2
-  %489 = tail call fastcc ptr @gv_calloc(i64 noundef %488, i64 noundef 16)
-  %490 = getelementptr inbounds i8, ptr %1, i64 16
-  %491 = load double, ptr %490, align 8
-  %492 = load double, ptr %1, align 8
-  %493 = fsub double %492, %491
-  %494 = fmul double %493, 5.000000e-01
-  %495 = fadd double %491, %494
-  %496 = load double, ptr %114, align 8
-  %497 = getelementptr inbounds i8, ptr %55, i64 48
+485:                                              ; preds = %._crit_edge
+  %486 = add i64 %2, 2
+  %487 = tail call fastcc ptr @gv_calloc(i64 noundef %486, i64 noundef 16)
+  %488 = getelementptr inbounds i8, ptr %1, i64 16
+  %489 = load double, ptr %488, align 8
+  %490 = load double, ptr %1, align 8
+  %491 = fsub double %490, %489
+  %492 = fmul double %491, 5.000000e-01
+  %493 = fadd double %489, %492
+  %494 = load double, ptr %114, align 8
+  %495 = getelementptr inbounds i8, ptr %55, i64 48
+  %496 = load double, ptr %495, align 8
+  %497 = getelementptr inbounds i8, ptr %1, i64 40
   %498 = load double, ptr %497, align 8
-  %499 = getelementptr inbounds i8, ptr %1, i64 40
+  %499 = getelementptr inbounds i8, ptr %1, i64 24
   %500 = load double, ptr %499, align 8
-  %501 = getelementptr inbounds i8, ptr %1, i64 24
-  %502 = load double, ptr %501, align 8
-  %503 = fsub double %502, %500
-  %504 = insertelement <2 x double> poison, double %495, i64 0
-  %505 = insertelement <2 x double> %504, double %500, i64 1
-  %506 = getelementptr inbounds i8, ptr %489, i64 16
-  %507 = getelementptr inbounds i8, ptr %55, i64 56
+  %501 = fsub double %500, %498
+  %502 = insertelement <2 x double> poison, double %493, i64 0
+  %503 = insertelement <2 x double> %502, double %498, i64 1
+  %504 = getelementptr inbounds i8, ptr %487, i64 16
+  %505 = getelementptr inbounds i8, ptr %55, i64 56
+  %506 = load double, ptr %505, align 8
+  %507 = getelementptr inbounds i8, ptr %55, i64 72
   %508 = load double, ptr %507, align 8
-  %509 = getelementptr inbounds i8, ptr %55, i64 72
-  %510 = load double, ptr %509, align 8
-  %511 = getelementptr inbounds i8, ptr %489, i64 24
+  %509 = getelementptr inbounds i8, ptr %487, i64 24
+  %510 = insertelement <2 x double> poison, double %506, i64 0
+  %511 = insertelement <2 x double> %510, double %494, i64 1
   %512 = insertelement <2 x double> poison, double %508, i64 0
   %513 = insertelement <2 x double> %512, double %496, i64 1
-  %514 = insertelement <2 x double> poison, double %510, i64 0
-  %515 = insertelement <2 x double> %514, double %498, i64 1
-  %516 = fsub <2 x double> %513, %515
-  %517 = extractelement <2 x double> %516, i64 1
-  %518 = fmul double %517, 3.000000e+00
-  %519 = insertelement <2 x double> poison, double %518, i64 0
-  %520 = insertelement <2 x double> %519, double %503, i64 1
-  %521 = fmul <2 x double> %520, <double 2.500000e-01, double 5.000000e-01>
-  %522 = fadd <2 x double> %505, %521
-  store <2 x double> %522, ptr %489, align 8
-  %523 = extractelement <2 x double> %522, i64 0
-  store double %523, ptr %506, align 8
-  %524 = extractelement <2 x double> %522, i64 1
-  %525 = fmul <2 x double> %516, <double 2.500000e-01, double 2.500000e-01>
-  %526 = shufflevector <2 x double> %522, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %527 = insertelement <2 x double> %526, double %495, i64 1
-  %528 = fadd <2 x double> %527, %525
-  store <2 x double> %528, ptr %511, align 8
-  %529 = extractelement <2 x double> %516, i64 0
-  %530 = fmul double %529, 5.000000e-01
-  %531 = extractelement <2 x double> %528, i64 0
-  %532 = fadd double %530, %531
-  %533 = getelementptr inbounds i8, ptr %489, i64 40
-  store double %532, ptr %533, align 8
-  %534 = extractelement <2 x double> %525, i64 1
-  %535 = fsub double %495, %534
-  %536 = getelementptr inbounds i8, ptr %489, i64 48
-  store double %535, ptr %536, align 8
-  %537 = getelementptr inbounds i8, ptr %489, i64 56
-  store double %532, ptr %537, align 8
-  %538 = extractelement <2 x double> %521, i64 0
-  %539 = fsub double %495, %538
-  %540 = getelementptr inbounds i8, ptr %489, i64 64
-  store double %539, ptr %540, align 8
-  %541 = getelementptr inbounds i8, ptr %489, i64 72
-  store double %531, ptr %541, align 8
-  %542 = getelementptr inbounds i8, ptr %489, i64 80
-  store double %539, ptr %542, align 8
-  %543 = getelementptr inbounds i8, ptr %489, i64 88
-  store double %524, ptr %543, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %489, i64 noundef %488, i32 noundef %4) #25
-  %544 = load double, ptr %490, align 8
-  store double %544, ptr %7, align 16
-  %545 = load double, ptr %499, align 8
-  %546 = load double, ptr %501, align 8
-  %547 = fsub double %546, %545
-  %548 = fmul double %547, 5.000000e-01
-  %549 = fadd double %545, %548
-  %550 = getelementptr inbounds i8, ptr %7, i64 8
-  store double %549, ptr %550, align 8
-  %551 = load double, ptr %1, align 8
-  %552 = getelementptr inbounds i8, ptr %7, i64 16
-  store double %551, ptr %552, align 16
-  %553 = getelementptr inbounds i8, ptr %1, i64 8
+  %514 = fsub <2 x double> %511, %513
+  %515 = extractelement <2 x double> %514, i64 1
+  %516 = fmul double %515, 3.000000e+00
+  %517 = insertelement <2 x double> poison, double %516, i64 0
+  %518 = insertelement <2 x double> %517, double %501, i64 1
+  %519 = fmul <2 x double> %518, <double 2.500000e-01, double 5.000000e-01>
+  %520 = fadd <2 x double> %503, %519
+  store <2 x double> %520, ptr %487, align 8
+  %521 = extractelement <2 x double> %520, i64 0
+  store double %521, ptr %504, align 8
+  %522 = extractelement <2 x double> %520, i64 1
+  %523 = fmul <2 x double> %514, <double 2.500000e-01, double 2.500000e-01>
+  %524 = shufflevector <2 x double> %520, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %525 = insertelement <2 x double> %524, double %493, i64 1
+  %526 = fadd <2 x double> %525, %523
+  store <2 x double> %526, ptr %509, align 8
+  %527 = extractelement <2 x double> %514, i64 0
+  %528 = fmul double %527, 5.000000e-01
+  %529 = extractelement <2 x double> %526, i64 0
+  %530 = fadd double %528, %529
+  %531 = getelementptr inbounds i8, ptr %487, i64 40
+  store double %530, ptr %531, align 8
+  %532 = extractelement <2 x double> %523, i64 1
+  %533 = fsub double %493, %532
+  %534 = getelementptr inbounds i8, ptr %487, i64 48
+  store double %533, ptr %534, align 8
+  %535 = getelementptr inbounds i8, ptr %487, i64 56
+  store double %530, ptr %535, align 8
+  %536 = extractelement <2 x double> %519, i64 0
+  %537 = fsub double %493, %536
+  %538 = getelementptr inbounds i8, ptr %487, i64 64
+  store double %537, ptr %538, align 8
+  %539 = getelementptr inbounds i8, ptr %487, i64 72
+  store double %529, ptr %539, align 8
+  %540 = getelementptr inbounds i8, ptr %487, i64 80
+  store double %537, ptr %540, align 8
+  %541 = getelementptr inbounds i8, ptr %487, i64 88
+  store double %522, ptr %541, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %487, i64 noundef %486, i32 noundef %4) #25
+  %542 = load double, ptr %488, align 8
+  store double %542, ptr %7, align 16
+  %543 = load double, ptr %497, align 8
+  %544 = load double, ptr %499, align 8
+  %545 = fsub double %544, %543
+  %546 = fmul double %545, 5.000000e-01
+  %547 = fadd double %543, %546
+  %548 = getelementptr inbounds i8, ptr %7, i64 8
+  store double %547, ptr %548, align 8
+  %549 = load double, ptr %1, align 8
+  %550 = getelementptr inbounds i8, ptr %7, i64 16
+  store double %549, ptr %550, align 16
+  %551 = getelementptr inbounds i8, ptr %1, i64 8
+  %552 = load double, ptr %551, align 8
+  %553 = getelementptr inbounds i8, ptr %1, i64 56
   %554 = load double, ptr %553, align 8
-  %555 = getelementptr inbounds i8, ptr %1, i64 56
-  %556 = load double, ptr %555, align 8
-  %557 = fsub double %554, %556
-  %558 = fmul double %557, 5.000000e-01
-  %559 = fadd double %545, %558
-  %560 = getelementptr inbounds i8, ptr %7, i64 24
-  store double %559, ptr %560, align 8
+  %555 = fsub double %552, %554
+  %556 = fmul double %555, 5.000000e-01
+  %557 = fadd double %543, %556
+  %558 = getelementptr inbounds i8, ptr %7, i64 24
+  store double %557, ptr %558, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @free(ptr noundef %489) #25
+  call void @free(ptr noundef %487) #25
   br label %.loopexit
 
-561:                                              ; preds = %._crit_edge
-  %562 = add i64 %2, 1
-  %563 = tail call fastcc ptr @gv_calloc(i64 noundef %562, i64 noundef 16)
-  %564 = getelementptr inbounds i8, ptr %1, i64 16
-  %565 = load double, ptr %564, align 8
-  %566 = load double, ptr %1, align 8
-  %567 = load double, ptr %114, align 8
-  %568 = getelementptr inbounds i8, ptr %55, i64 48
-  %569 = load double, ptr %568, align 8
-  %570 = fsub double %567, %569
-  %571 = getelementptr inbounds i8, ptr %1, i64 40
+559:                                              ; preds = %._crit_edge
+  %560 = add i64 %2, 1
+  %561 = tail call fastcc ptr @gv_calloc(i64 noundef %560, i64 noundef 16)
+  %562 = getelementptr inbounds i8, ptr %1, i64 16
+  %563 = load double, ptr %562, align 8
+  %564 = load double, ptr %1, align 8
+  %565 = load double, ptr %114, align 8
+  %566 = getelementptr inbounds i8, ptr %55, i64 48
+  %567 = load double, ptr %566, align 8
+  %568 = fsub double %565, %567
+  %569 = getelementptr inbounds i8, ptr %1, i64 40
+  %570 = load double, ptr %569, align 8
+  %571 = getelementptr inbounds i8, ptr %1, i64 24
   %572 = load double, ptr %571, align 8
-  %573 = getelementptr inbounds i8, ptr %1, i64 24
+  %573 = getelementptr inbounds i8, ptr %55, i64 56
   %574 = load double, ptr %573, align 8
-  %575 = getelementptr inbounds i8, ptr %55, i64 56
+  %575 = getelementptr inbounds i8, ptr %55, i64 72
   %576 = load double, ptr %575, align 8
-  %577 = getelementptr inbounds i8, ptr %55, i64 72
-  %578 = load double, ptr %577, align 8
-  %579 = fsub double %576, %578
-  %580 = fmul double %579, 2.500000e-01
-  %581 = insertelement <2 x double> poison, double %566, i64 0
-  %582 = insertelement <2 x double> %581, double %574, i64 1
-  %583 = insertelement <2 x double> poison, double %565, i64 0
-  %584 = insertelement <2 x double> %583, double %572, i64 1
-  %585 = fsub <2 x double> %582, %584
-  %586 = fmul <2 x double> %585, <double 5.000000e-01, double 5.000000e-01>
-  %587 = fadd <2 x double> %584, %586
-  %588 = insertelement <2 x double> poison, double %570, i64 0
-  %589 = insertelement <2 x double> %588, double %580, i64 1
-  %590 = fadd <2 x double> %587, %589
-  store <2 x double> %590, ptr %563, align 8
-  %591 = extractelement <2 x double> %590, i64 0
-  %592 = fsub double %591, %570
-  %593 = getelementptr inbounds i8, ptr %563, i64 16
-  store double %592, ptr %593, align 8
-  %594 = extractelement <2 x double> %590, i64 1
-  %595 = fadd double %579, %594
-  %596 = getelementptr inbounds i8, ptr %563, i64 24
-  store double %595, ptr %596, align 8
-  %597 = getelementptr inbounds i8, ptr %563, i64 32
-  store double %592, ptr %597, align 8
-  %598 = fmul double %579, 5.000000e-01
-  %599 = fadd double %598, %594
-  %600 = getelementptr inbounds i8, ptr %563, i64 40
-  store double %599, ptr %600, align 8
+  %577 = fsub double %574, %576
+  %578 = fmul double %577, 2.500000e-01
+  %579 = insertelement <2 x double> poison, double %564, i64 0
+  %580 = insertelement <2 x double> %579, double %572, i64 1
+  %581 = insertelement <2 x double> poison, double %563, i64 0
+  %582 = insertelement <2 x double> %581, double %570, i64 1
+  %583 = fsub <2 x double> %580, %582
+  %584 = fmul <2 x double> %583, <double 5.000000e-01, double 5.000000e-01>
+  %585 = fadd <2 x double> %582, %584
+  %586 = insertelement <2 x double> poison, double %568, i64 0
+  %587 = insertelement <2 x double> %586, double %578, i64 1
+  %588 = fadd <2 x double> %585, %587
+  store <2 x double> %588, ptr %561, align 8
+  %589 = extractelement <2 x double> %588, i64 0
+  %590 = fsub double %589, %568
+  %591 = getelementptr inbounds i8, ptr %561, i64 16
+  store double %590, ptr %591, align 8
+  %592 = extractelement <2 x double> %588, i64 1
+  %593 = fadd double %577, %592
+  %594 = getelementptr inbounds i8, ptr %561, i64 24
+  store double %593, ptr %594, align 8
+  %595 = getelementptr inbounds i8, ptr %561, i64 32
+  store double %590, ptr %595, align 8
+  %596 = fmul double %577, 5.000000e-01
+  %597 = fadd double %596, %592
+  %598 = getelementptr inbounds i8, ptr %561, i64 40
+  store double %597, ptr %598, align 8
+  %599 = extractelement <2 x double> %583, i64 0
+  %600 = fmul double %599, 2.500000e-01
   %601 = extractelement <2 x double> %585, i64 0
-  %602 = fmul double %601, 2.500000e-01
-  %603 = extractelement <2 x double> %587, i64 0
-  %604 = fsub double %603, %602
-  %605 = getelementptr inbounds i8, ptr %563, i64 48
-  store double %604, ptr %605, align 8
-  %606 = getelementptr inbounds i8, ptr %563, i64 56
-  store double %599, ptr %606, align 8
-  %607 = getelementptr inbounds i8, ptr %563, i64 64
-  store double %604, ptr %607, align 8
-  %608 = getelementptr inbounds i8, ptr %563, i64 72
-  store double %594, ptr %608, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %563, i64 noundef %562, i32 noundef %4) #25
-  %609 = load double, ptr %564, align 8
-  store double %609, ptr %7, align 16
-  %610 = load double, ptr %571, align 8
-  %611 = load double, ptr %573, align 8
-  %612 = fsub double %611, %610
-  %613 = fmul double %612, 5.000000e-01
-  %614 = fadd double %610, %613
-  %615 = getelementptr inbounds i8, ptr %7, i64 8
-  store double %614, ptr %615, align 8
-  %616 = load double, ptr %1, align 8
-  %617 = getelementptr inbounds i8, ptr %7, i64 16
-  store double %616, ptr %617, align 16
-  %618 = getelementptr inbounds i8, ptr %1, i64 8
+  %602 = fsub double %601, %600
+  %603 = getelementptr inbounds i8, ptr %561, i64 48
+  store double %602, ptr %603, align 8
+  %604 = getelementptr inbounds i8, ptr %561, i64 56
+  store double %597, ptr %604, align 8
+  %605 = getelementptr inbounds i8, ptr %561, i64 64
+  store double %602, ptr %605, align 8
+  %606 = getelementptr inbounds i8, ptr %561, i64 72
+  store double %592, ptr %606, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %561, i64 noundef %560, i32 noundef %4) #25
+  %607 = load double, ptr %562, align 8
+  store double %607, ptr %7, align 16
+  %608 = load double, ptr %569, align 8
+  %609 = load double, ptr %571, align 8
+  %610 = fsub double %609, %608
+  %611 = fmul double %610, 5.000000e-01
+  %612 = fadd double %608, %611
+  %613 = getelementptr inbounds i8, ptr %7, i64 8
+  store double %612, ptr %613, align 8
+  %614 = load double, ptr %1, align 8
+  %615 = getelementptr inbounds i8, ptr %7, i64 16
+  store double %614, ptr %615, align 16
+  %616 = getelementptr inbounds i8, ptr %1, i64 8
+  %617 = load double, ptr %616, align 8
+  %618 = getelementptr inbounds i8, ptr %1, i64 56
   %619 = load double, ptr %618, align 8
-  %620 = getelementptr inbounds i8, ptr %1, i64 56
-  %621 = load double, ptr %620, align 8
-  %622 = fsub double %619, %621
-  %623 = fmul double %622, 5.000000e-01
-  %624 = fadd double %610, %623
-  %625 = getelementptr inbounds i8, ptr %7, i64 24
-  store double %624, ptr %625, align 8
+  %620 = fsub double %617, %619
+  %621 = fmul double %620, 5.000000e-01
+  %622 = fadd double %608, %621
+  %623 = getelementptr inbounds i8, ptr %7, i64 24
+  store double %622, ptr %623, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @free(ptr noundef %563) #25
+  call void @free(ptr noundef %561) #25
   br label %.loopexit
 
-626:                                              ; preds = %._crit_edge
-  %627 = add i64 %2, 4
-  %628 = tail call fastcc ptr @gv_calloc(i64 noundef %627, i64 noundef 16)
-  %629 = getelementptr inbounds i8, ptr %1, i64 16
-  %630 = load double, ptr %629, align 8
-  %631 = load double, ptr %1, align 8
-  %632 = load double, ptr %114, align 8
-  %633 = getelementptr inbounds i8, ptr %55, i64 48
+624:                                              ; preds = %._crit_edge
+  %625 = add i64 %2, 4
+  %626 = tail call fastcc ptr @gv_calloc(i64 noundef %625, i64 noundef 16)
+  %627 = getelementptr inbounds i8, ptr %1, i64 16
+  %628 = load double, ptr %627, align 8
+  %629 = load double, ptr %1, align 8
+  %630 = load double, ptr %114, align 8
+  %631 = getelementptr inbounds i8, ptr %55, i64 48
+  %632 = load double, ptr %631, align 8
+  %633 = getelementptr inbounds i8, ptr %1, i64 40
   %634 = load double, ptr %633, align 8
-  %635 = getelementptr inbounds i8, ptr %1, i64 40
+  %635 = getelementptr inbounds i8, ptr %1, i64 24
   %636 = load double, ptr %635, align 8
-  %637 = getelementptr inbounds i8, ptr %1, i64 24
+  %637 = getelementptr inbounds i8, ptr %55, i64 56
   %638 = load double, ptr %637, align 8
-  %639 = getelementptr inbounds i8, ptr %55, i64 56
+  %639 = getelementptr inbounds i8, ptr %55, i64 72
   %640 = load double, ptr %639, align 8
-  %641 = getelementptr inbounds i8, ptr %55, i64 72
-  %642 = load double, ptr %641, align 8
-  %643 = insertelement <2 x double> poison, double %631, i64 0
-  %644 = insertelement <2 x double> %643, double %638, i64 1
-  %645 = insertelement <2 x double> poison, double %630, i64 0
-  %646 = insertelement <2 x double> %645, double %636, i64 1
-  %647 = fsub <2 x double> %644, %646
-  %648 = extractelement <2 x double> %647, i64 0
-  %649 = fmul double %648, 5.000000e-01
-  %650 = fadd double %630, %649
-  %651 = fmul <2 x double> %647, <double 1.250000e-01, double 5.000000e-01>
-  %652 = insertelement <2 x double> %646, double %650, i64 0
-  %653 = fadd <2 x double> %652, %651
+  %641 = insertelement <2 x double> poison, double %629, i64 0
+  %642 = insertelement <2 x double> %641, double %636, i64 1
+  %643 = insertelement <2 x double> poison, double %628, i64 0
+  %644 = insertelement <2 x double> %643, double %634, i64 1
+  %645 = fsub <2 x double> %642, %644
+  %646 = extractelement <2 x double> %645, i64 0
+  %647 = fmul double %646, 5.000000e-01
+  %648 = fadd double %628, %647
+  %649 = fmul <2 x double> %645, <double 1.250000e-01, double 5.000000e-01>
+  %650 = insertelement <2 x double> %644, double %648, i64 0
+  %651 = fadd <2 x double> %650, %649
+  %652 = insertelement <2 x double> poison, double %630, i64 0
+  %653 = insertelement <2 x double> %652, double %638, i64 1
   %654 = insertelement <2 x double> poison, double %632, i64 0
   %655 = insertelement <2 x double> %654, double %640, i64 1
-  %656 = insertelement <2 x double> poison, double %634, i64 0
-  %657 = insertelement <2 x double> %656, double %642, i64 1
-  %658 = fsub <2 x double> %655, %657
-  %659 = fmul <2 x double> %658, <double 5.000000e-01, double 2.500000e-01>
-  %660 = fadd <2 x double> %653, %659
-  store <2 x double> %660, ptr %628, align 8
-  %661 = extractelement <2 x double> %651, i64 0
-  %662 = fsub double %650, %661
-  %663 = getelementptr inbounds i8, ptr %628, i64 16
-  store double %662, ptr %663, align 8
-  %664 = getelementptr inbounds i8, ptr %628, i64 24
-  %665 = extractelement <2 x double> %660, i64 1
-  store double %665, ptr %664, align 8
-  %666 = getelementptr inbounds i8, ptr %628, i64 32
-  store double %662, ptr %666, align 8
-  %667 = extractelement <2 x double> %658, i64 1
-  %668 = fmul double %667, 5.000000e-01
-  %669 = fadd double %668, %665
-  %670 = getelementptr inbounds i8, ptr %628, i64 40
-  store double %669, ptr %670, align 8
-  %671 = getelementptr inbounds i8, ptr %628, i64 48
-  %672 = getelementptr inbounds i8, ptr %628, i64 56
-  store double %669, ptr %672, align 8
-  %673 = getelementptr inbounds i8, ptr %628, i64 64
-  %674 = insertelement <2 x double> %653, double %662, i64 0
-  %675 = fsub <2 x double> %674, %659
-  %676 = extractelement <2 x double> %675, i64 0
-  store double %676, ptr %671, align 8
-  store <2 x double> %675, ptr %673, align 8
-  %677 = extractelement <2 x double> %660, i64 0
-  %678 = fsub <2 x double> %660, %659
-  %679 = extractelement <2 x double> %678, i64 0
-  %680 = getelementptr inbounds i8, ptr %628, i64 80
-  store double %679, ptr %680, align 8
-  %681 = getelementptr inbounds i8, ptr %628, i64 88
-  %682 = extractelement <2 x double> %675, i64 1
-  store double %682, ptr %681, align 8
-  %683 = getelementptr inbounds i8, ptr %628, i64 96
-  store double %679, ptr %683, align 8
-  %684 = fsub double %682, %668
-  %685 = getelementptr inbounds i8, ptr %628, i64 104
-  store double %684, ptr %685, align 8
-  %686 = getelementptr inbounds i8, ptr %628, i64 112
-  store double %677, ptr %686, align 8
-  %687 = getelementptr inbounds i8, ptr %628, i64 120
-  store double %684, ptr %687, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %628, i64 noundef %627, i32 noundef %4) #25
-  %688 = load double, ptr %629, align 8
-  store double %688, ptr %7, align 16
-  %689 = load double, ptr %635, align 8
-  %690 = load double, ptr %637, align 8
-  %691 = fsub double %690, %689
-  %692 = fmul double %691, 5.000000e-01
-  %693 = fadd double %689, %692
-  %694 = getelementptr inbounds i8, ptr %7, i64 8
-  store double %693, ptr %694, align 8
-  %695 = load double, ptr %673, align 8
-  %696 = getelementptr inbounds i8, ptr %7, i64 16
-  store double %695, ptr %696, align 16
-  %697 = getelementptr inbounds i8, ptr %1, i64 8
+  %656 = fsub <2 x double> %653, %655
+  %657 = fmul <2 x double> %656, <double 5.000000e-01, double 2.500000e-01>
+  %658 = fadd <2 x double> %651, %657
+  store <2 x double> %658, ptr %626, align 8
+  %659 = extractelement <2 x double> %649, i64 0
+  %660 = fsub double %648, %659
+  %661 = getelementptr inbounds i8, ptr %626, i64 16
+  store double %660, ptr %661, align 8
+  %662 = getelementptr inbounds i8, ptr %626, i64 24
+  %663 = extractelement <2 x double> %658, i64 1
+  store double %663, ptr %662, align 8
+  %664 = getelementptr inbounds i8, ptr %626, i64 32
+  store double %660, ptr %664, align 8
+  %665 = extractelement <2 x double> %656, i64 1
+  %666 = fmul double %665, 5.000000e-01
+  %667 = fadd double %666, %663
+  %668 = getelementptr inbounds i8, ptr %626, i64 40
+  store double %667, ptr %668, align 8
+  %669 = getelementptr inbounds i8, ptr %626, i64 48
+  %670 = getelementptr inbounds i8, ptr %626, i64 56
+  store double %667, ptr %670, align 8
+  %671 = getelementptr inbounds i8, ptr %626, i64 64
+  %672 = insertelement <2 x double> %651, double %660, i64 0
+  %673 = fsub <2 x double> %672, %657
+  %674 = extractelement <2 x double> %673, i64 0
+  store double %674, ptr %669, align 8
+  store <2 x double> %673, ptr %671, align 8
+  %675 = extractelement <2 x double> %658, i64 0
+  %676 = fsub <2 x double> %658, %657
+  %677 = extractelement <2 x double> %676, i64 0
+  %678 = getelementptr inbounds i8, ptr %626, i64 80
+  store double %677, ptr %678, align 8
+  %679 = getelementptr inbounds i8, ptr %626, i64 88
+  %680 = extractelement <2 x double> %673, i64 1
+  store double %680, ptr %679, align 8
+  %681 = getelementptr inbounds i8, ptr %626, i64 96
+  store double %677, ptr %681, align 8
+  %682 = fsub double %680, %666
+  %683 = getelementptr inbounds i8, ptr %626, i64 104
+  store double %682, ptr %683, align 8
+  %684 = getelementptr inbounds i8, ptr %626, i64 112
+  store double %675, ptr %684, align 8
+  %685 = getelementptr inbounds i8, ptr %626, i64 120
+  store double %682, ptr %685, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %626, i64 noundef %625, i32 noundef %4) #25
+  %686 = load double, ptr %627, align 8
+  store double %686, ptr %7, align 16
+  %687 = load double, ptr %633, align 8
+  %688 = load double, ptr %635, align 8
+  %689 = fsub double %688, %687
+  %690 = fmul double %689, 5.000000e-01
+  %691 = fadd double %687, %690
+  %692 = getelementptr inbounds i8, ptr %7, i64 8
+  store double %691, ptr %692, align 8
+  %693 = load double, ptr %671, align 8
+  %694 = getelementptr inbounds i8, ptr %7, i64 16
+  store double %693, ptr %694, align 16
+  %695 = getelementptr inbounds i8, ptr %1, i64 8
+  %696 = load double, ptr %695, align 8
+  %697 = getelementptr inbounds i8, ptr %1, i64 56
   %698 = load double, ptr %697, align 8
-  %699 = getelementptr inbounds i8, ptr %1, i64 56
-  %700 = load double, ptr %699, align 8
-  %701 = fsub double %698, %700
-  %702 = fmul double %701, 5.000000e-01
-  %703 = fadd double %689, %702
-  %704 = getelementptr inbounds i8, ptr %7, i64 24
-  store double %703, ptr %704, align 8
+  %699 = fsub double %696, %698
+  %700 = fmul double %699, 5.000000e-01
+  %701 = fadd double %687, %700
+  %702 = getelementptr inbounds i8, ptr %7, i64 24
+  store double %701, ptr %702, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  %705 = load double, ptr %686, align 8
-  store double %705, ptr %7, align 16
-  %706 = load double, ptr %635, align 8
-  %707 = load double, ptr %637, align 8
-  %708 = fsub double %707, %706
-  %709 = fmul double %708, 5.000000e-01
-  %710 = fadd double %706, %709
-  store double %710, ptr %694, align 8
-  %711 = load double, ptr %1, align 8
-  store double %711, ptr %696, align 16
-  %712 = load double, ptr %697, align 8
-  %713 = load double, ptr %699, align 8
-  %714 = fsub double %712, %713
-  %715 = fmul double %714, 5.000000e-01
-  %716 = fadd double %706, %715
-  store double %716, ptr %704, align 8
+  %703 = load double, ptr %684, align 8
+  store double %703, ptr %7, align 16
+  %704 = load double, ptr %633, align 8
+  %705 = load double, ptr %635, align 8
+  %706 = fsub double %705, %704
+  %707 = fmul double %706, 5.000000e-01
+  %708 = fadd double %704, %707
+  store double %708, ptr %692, align 8
+  %709 = load double, ptr %1, align 8
+  store double %709, ptr %694, align 16
+  %710 = load double, ptr %695, align 8
+  %711 = load double, ptr %697, align 8
+  %712 = fsub double %710, %711
+  %713 = fmul double %712, 5.000000e-01
+  %714 = fadd double %704, %713
+  store double %714, ptr %702, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @free(ptr noundef %628) #25
+  call void @free(ptr noundef %626) #25
   br label %.loopexit
 
-717:                                              ; preds = %._crit_edge
-  %718 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %719 = getelementptr inbounds i8, ptr %1, i64 16
+715:                                              ; preds = %._crit_edge
+  %716 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %717 = getelementptr inbounds i8, ptr %1, i64 16
+  %718 = load double, ptr %717, align 8
+  store double %718, ptr %716, align 8
+  %719 = getelementptr inbounds i8, ptr %1, i64 40
   %720 = load double, ptr %719, align 8
-  store double %720, ptr %718, align 8
-  %721 = getelementptr inbounds i8, ptr %1, i64 40
+  %721 = getelementptr inbounds i8, ptr %1, i64 24
   %722 = load double, ptr %721, align 8
-  %723 = getelementptr inbounds i8, ptr %1, i64 24
-  %724 = load double, ptr %723, align 8
-  %725 = fsub double %724, %722
-  %726 = fmul double %725, 5.000000e-01
-  %727 = fadd double %722, %726
-  %728 = getelementptr inbounds i8, ptr %55, i64 48
-  %729 = getelementptr inbounds i8, ptr %55, i64 56
+  %723 = fsub double %722, %720
+  %724 = fmul double %723, 5.000000e-01
+  %725 = fadd double %720, %724
+  %726 = getelementptr inbounds i8, ptr %55, i64 48
+  %727 = getelementptr inbounds i8, ptr %55, i64 56
+  %728 = load double, ptr %727, align 8
+  %729 = getelementptr inbounds i8, ptr %55, i64 72
   %730 = load double, ptr %729, align 8
-  %731 = getelementptr inbounds i8, ptr %55, i64 72
-  %732 = load double, ptr %731, align 8
-  %733 = fsub double %730, %732
-  %734 = fmul double %733, 1.250000e-01
-  %735 = fadd double %727, %734
-  %736 = getelementptr inbounds i8, ptr %718, i64 8
-  store double %735, ptr %736, align 8
-  %737 = load double, ptr %114, align 8
-  %738 = load double, ptr %728, align 8
-  %739 = fsub double %737, %738
-  %740 = tail call double @llvm.fmuladd.f64(double %739, double 2.000000e+00, double %720)
-  %741 = getelementptr inbounds i8, ptr %718, i64 16
-  store double %740, ptr %741, align 8
-  %742 = getelementptr inbounds i8, ptr %718, i64 24
-  store double %735, ptr %742, align 8
-  %743 = getelementptr inbounds i8, ptr %718, i64 32
-  store double %740, ptr %743, align 8
-  %744 = fmul double %733, 5.000000e-01
-  %745 = fadd double %744, %735
-  %746 = getelementptr inbounds i8, ptr %718, i64 40
-  store double %745, ptr %746, align 8
-  %747 = getelementptr inbounds i8, ptr %718, i64 48
-  store double %720, ptr %747, align 8
-  %748 = getelementptr inbounds i8, ptr %718, i64 56
-  store double %745, ptr %748, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %718, i64 noundef %2, i32 noundef %4) #25
-  tail call void @free(ptr noundef %718) #25
-  %749 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %750 = load double, ptr %719, align 8
-  %751 = load double, ptr %114, align 8
-  %752 = load double, ptr %728, align 8
-  %753 = fsub double %751, %752
-  %754 = fadd double %750, %753
-  store double %754, ptr %749, align 8
-  %755 = load double, ptr %721, align 8
-  %756 = load double, ptr %723, align 8
-  %757 = fsub double %756, %755
-  %758 = fmul double %757, 5.000000e-01
-  %759 = fadd double %755, %758
-  %760 = load double, ptr %729, align 8
-  %761 = load double, ptr %731, align 8
-  %762 = fsub double %760, %761
-  %763 = fmul double %762, 5.000000e+00
-  %764 = fmul double %763, 1.250000e-01
-  %765 = fsub double %759, %764
-  %766 = getelementptr inbounds i8, ptr %749, i64 8
+  %731 = fsub double %728, %730
+  %732 = fmul double %731, 1.250000e-01
+  %733 = fadd double %725, %732
+  %734 = getelementptr inbounds i8, ptr %716, i64 8
+  store double %733, ptr %734, align 8
+  %735 = load double, ptr %114, align 8
+  %736 = load double, ptr %726, align 8
+  %737 = fsub double %735, %736
+  %738 = tail call double @llvm.fmuladd.f64(double %737, double 2.000000e+00, double %718)
+  %739 = getelementptr inbounds i8, ptr %716, i64 16
+  store double %738, ptr %739, align 8
+  %740 = getelementptr inbounds i8, ptr %716, i64 24
+  store double %733, ptr %740, align 8
+  %741 = getelementptr inbounds i8, ptr %716, i64 32
+  store double %738, ptr %741, align 8
+  %742 = fmul double %731, 5.000000e-01
+  %743 = fadd double %742, %733
+  %744 = getelementptr inbounds i8, ptr %716, i64 40
+  store double %743, ptr %744, align 8
+  %745 = getelementptr inbounds i8, ptr %716, i64 48
+  store double %718, ptr %745, align 8
+  %746 = getelementptr inbounds i8, ptr %716, i64 56
+  store double %743, ptr %746, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %716, i64 noundef %2, i32 noundef %4) #25
+  tail call void @free(ptr noundef %716) #25
+  %747 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %748 = load double, ptr %717, align 8
+  %749 = load double, ptr %114, align 8
+  %750 = load double, ptr %726, align 8
+  %751 = fsub double %749, %750
+  %752 = fadd double %748, %751
+  store double %752, ptr %747, align 8
+  %753 = load double, ptr %719, align 8
+  %754 = load double, ptr %721, align 8
+  %755 = fsub double %754, %753
+  %756 = fmul double %755, 5.000000e-01
+  %757 = fadd double %753, %756
+  %758 = load double, ptr %727, align 8
+  %759 = load double, ptr %729, align 8
+  %760 = fsub double %758, %759
+  %761 = fmul double %760, 5.000000e+00
+  %762 = fmul double %761, 1.250000e-01
+  %763 = fsub double %757, %762
+  %764 = getelementptr inbounds i8, ptr %747, i64 8
+  store double %763, ptr %764, align 8
+  %765 = fadd double %751, %752
+  %766 = getelementptr inbounds i8, ptr %747, i64 16
   store double %765, ptr %766, align 8
-  %767 = fadd double %753, %754
-  %768 = getelementptr inbounds i8, ptr %749, i64 16
-  store double %767, ptr %768, align 8
-  %769 = getelementptr inbounds i8, ptr %749, i64 24
-  store double %765, ptr %769, align 8
-  %770 = getelementptr inbounds i8, ptr %749, i64 32
-  store double %767, ptr %770, align 8
-  %771 = fmul double %762, 5.000000e-01
-  %772 = fadd double %771, %765
-  %773 = getelementptr inbounds i8, ptr %749, i64 40
-  store double %772, ptr %773, align 8
-  %774 = getelementptr inbounds i8, ptr %749, i64 48
-  store double %754, ptr %774, align 8
-  %775 = getelementptr inbounds i8, ptr %749, i64 56
-  store double %772, ptr %775, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %749, i64 noundef %2, i32 noundef %4) #25
-  %776 = load double, ptr %768, align 8
-  store double %776, ptr %7, align 16
-  %777 = load double, ptr %721, align 8
-  %778 = load double, ptr %723, align 8
-  %779 = fsub double %778, %777
-  %780 = fmul double %779, 5.000000e-01
-  %781 = fadd double %777, %780
-  %782 = getelementptr inbounds i8, ptr %7, i64 8
-  store double %781, ptr %782, align 8
-  %783 = load double, ptr %1, align 8
-  %784 = getelementptr inbounds i8, ptr %7, i64 16
-  store double %783, ptr %784, align 16
-  %785 = getelementptr inbounds i8, ptr %1, i64 8
+  %767 = getelementptr inbounds i8, ptr %747, i64 24
+  store double %763, ptr %767, align 8
+  %768 = getelementptr inbounds i8, ptr %747, i64 32
+  store double %765, ptr %768, align 8
+  %769 = fmul double %760, 5.000000e-01
+  %770 = fadd double %769, %763
+  %771 = getelementptr inbounds i8, ptr %747, i64 40
+  store double %770, ptr %771, align 8
+  %772 = getelementptr inbounds i8, ptr %747, i64 48
+  store double %752, ptr %772, align 8
+  %773 = getelementptr inbounds i8, ptr %747, i64 56
+  store double %770, ptr %773, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %747, i64 noundef %2, i32 noundef %4) #25
+  %774 = load double, ptr %766, align 8
+  store double %774, ptr %7, align 16
+  %775 = load double, ptr %719, align 8
+  %776 = load double, ptr %721, align 8
+  %777 = fsub double %776, %775
+  %778 = fmul double %777, 5.000000e-01
+  %779 = fadd double %775, %778
+  %780 = getelementptr inbounds i8, ptr %7, i64 8
+  store double %779, ptr %780, align 8
+  %781 = load double, ptr %1, align 8
+  %782 = getelementptr inbounds i8, ptr %7, i64 16
+  store double %781, ptr %782, align 16
+  %783 = getelementptr inbounds i8, ptr %1, i64 8
+  %784 = load double, ptr %783, align 8
+  %785 = getelementptr inbounds i8, ptr %1, i64 56
   %786 = load double, ptr %785, align 8
-  %787 = getelementptr inbounds i8, ptr %1, i64 56
-  %788 = load double, ptr %787, align 8
-  %789 = fsub double %786, %788
-  %790 = fmul double %789, 5.000000e-01
-  %791 = fadd double %777, %790
-  %792 = getelementptr inbounds i8, ptr %7, i64 24
-  store double %791, ptr %792, align 8
+  %787 = fsub double %784, %786
+  %788 = fmul double %787, 5.000000e-01
+  %789 = fadd double %775, %788
+  %790 = getelementptr inbounds i8, ptr %7, i64 24
+  store double %789, ptr %790, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @free(ptr noundef %749) #25
+  call void @free(ptr noundef %747) #25
   br label %.loopexit
 
-793:                                              ; preds = %._crit_edge
-  %794 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %795 = load double, ptr %1, align 8
-  store double %795, ptr %794, align 8
-  %796 = getelementptr inbounds i8, ptr %1, i64 40
-  %797 = load double, ptr %796, align 8
-  %798 = getelementptr inbounds i8, ptr %1, i64 16
-  %799 = getelementptr inbounds i8, ptr %1, i64 24
-  %800 = load double, ptr %799, align 8
-  %801 = fsub double %800, %797
-  %802 = fmul double %801, 5.000000e-01
-  %803 = fadd double %797, %802
-  %804 = getelementptr inbounds i8, ptr %55, i64 48
-  %805 = getelementptr inbounds i8, ptr %55, i64 56
+791:                                              ; preds = %._crit_edge
+  %792 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %793 = load double, ptr %1, align 8
+  store double %793, ptr %792, align 8
+  %794 = getelementptr inbounds i8, ptr %1, i64 40
+  %795 = load double, ptr %794, align 8
+  %796 = getelementptr inbounds i8, ptr %1, i64 16
+  %797 = getelementptr inbounds i8, ptr %1, i64 24
+  %798 = load double, ptr %797, align 8
+  %799 = fsub double %798, %795
+  %800 = fmul double %799, 5.000000e-01
+  %801 = fadd double %795, %800
+  %802 = getelementptr inbounds i8, ptr %55, i64 48
+  %803 = getelementptr inbounds i8, ptr %55, i64 56
+  %804 = load double, ptr %803, align 8
+  %805 = getelementptr inbounds i8, ptr %55, i64 72
   %806 = load double, ptr %805, align 8
-  %807 = getelementptr inbounds i8, ptr %55, i64 72
-  %808 = load double, ptr %807, align 8
-  %809 = fsub double %806, %808
-  %810 = fmul double %809, 1.250000e-01
-  %811 = fadd double %803, %810
-  %812 = getelementptr inbounds i8, ptr %794, i64 8
-  store double %811, ptr %812, align 8
-  %813 = getelementptr inbounds i8, ptr %794, i64 16
-  store double %795, ptr %813, align 8
-  %814 = fmul double %809, 5.000000e-01
-  %815 = fadd double %814, %811
-  %816 = getelementptr inbounds i8, ptr %794, i64 24
+  %807 = fsub double %804, %806
+  %808 = fmul double %807, 1.250000e-01
+  %809 = fadd double %801, %808
+  %810 = getelementptr inbounds i8, ptr %792, i64 8
+  store double %809, ptr %810, align 8
+  %811 = getelementptr inbounds i8, ptr %792, i64 16
+  store double %793, ptr %811, align 8
+  %812 = fmul double %807, 5.000000e-01
+  %813 = fadd double %812, %809
+  %814 = getelementptr inbounds i8, ptr %792, i64 24
+  store double %813, ptr %814, align 8
+  %815 = tail call double @llvm.fmuladd.f64(double %807, double -2.000000e+00, double %793)
+  %816 = getelementptr inbounds i8, ptr %792, i64 32
   store double %815, ptr %816, align 8
-  %817 = tail call double @llvm.fmuladd.f64(double %809, double -2.000000e+00, double %795)
-  %818 = getelementptr inbounds i8, ptr %794, i64 32
-  store double %817, ptr %818, align 8
-  %819 = getelementptr inbounds i8, ptr %794, i64 40
-  store double %815, ptr %819, align 8
-  %820 = getelementptr inbounds i8, ptr %794, i64 48
-  store double %817, ptr %820, align 8
-  %821 = getelementptr inbounds i8, ptr %794, i64 56
-  store double %811, ptr %821, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %794, i64 noundef %2, i32 noundef %4) #25
-  tail call void @free(ptr noundef %794) #25
-  %822 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %823 = load double, ptr %1, align 8
-  %824 = load double, ptr %114, align 8
-  %825 = load double, ptr %804, align 8
-  %826 = fsub double %824, %825
-  %827 = fsub double %823, %826
-  store double %827, ptr %822, align 8
-  %828 = load double, ptr %796, align 8
-  %829 = load double, ptr %799, align 8
-  %830 = fsub double %829, %828
-  %831 = fmul double %830, 5.000000e-01
-  %832 = fadd double %828, %831
-  %833 = load double, ptr %805, align 8
-  %834 = load double, ptr %807, align 8
-  %835 = fsub double %833, %834
-  %836 = fmul double %835, 5.000000e+00
-  %837 = fmul double %836, 1.250000e-01
-  %838 = fsub double %832, %837
-  %839 = getelementptr inbounds i8, ptr %822, i64 8
-  store double %838, ptr %839, align 8
-  %840 = getelementptr inbounds i8, ptr %822, i64 16
-  store double %827, ptr %840, align 8
-  %841 = fmul double %835, 5.000000e-01
-  %842 = fadd double %841, %838
-  %843 = getelementptr inbounds i8, ptr %822, i64 24
+  %817 = getelementptr inbounds i8, ptr %792, i64 40
+  store double %813, ptr %817, align 8
+  %818 = getelementptr inbounds i8, ptr %792, i64 48
+  store double %815, ptr %818, align 8
+  %819 = getelementptr inbounds i8, ptr %792, i64 56
+  store double %809, ptr %819, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %792, i64 noundef %2, i32 noundef %4) #25
+  tail call void @free(ptr noundef %792) #25
+  %820 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %821 = load double, ptr %1, align 8
+  %822 = load double, ptr %114, align 8
+  %823 = load double, ptr %802, align 8
+  %824 = fsub double %822, %823
+  %825 = fsub double %821, %824
+  store double %825, ptr %820, align 8
+  %826 = load double, ptr %794, align 8
+  %827 = load double, ptr %797, align 8
+  %828 = fsub double %827, %826
+  %829 = fmul double %828, 5.000000e-01
+  %830 = fadd double %826, %829
+  %831 = load double, ptr %803, align 8
+  %832 = load double, ptr %805, align 8
+  %833 = fsub double %831, %832
+  %834 = fmul double %833, 5.000000e+00
+  %835 = fmul double %834, 1.250000e-01
+  %836 = fsub double %830, %835
+  %837 = getelementptr inbounds i8, ptr %820, i64 8
+  store double %836, ptr %837, align 8
+  %838 = getelementptr inbounds i8, ptr %820, i64 16
+  store double %825, ptr %838, align 8
+  %839 = fmul double %833, 5.000000e-01
+  %840 = fadd double %839, %836
+  %841 = getelementptr inbounds i8, ptr %820, i64 24
+  store double %840, ptr %841, align 8
+  %842 = fsub double %825, %833
+  %843 = getelementptr inbounds i8, ptr %820, i64 32
   store double %842, ptr %843, align 8
-  %844 = fsub double %827, %835
-  %845 = getelementptr inbounds i8, ptr %822, i64 32
-  store double %844, ptr %845, align 8
-  %846 = getelementptr inbounds i8, ptr %822, i64 40
-  store double %842, ptr %846, align 8
-  %847 = getelementptr inbounds i8, ptr %822, i64 48
-  store double %844, ptr %847, align 8
-  %848 = getelementptr inbounds i8, ptr %822, i64 56
-  store double %838, ptr %848, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %822, i64 noundef %2, i32 noundef %4) #25
-  %849 = load double, ptr %798, align 8
-  store double %849, ptr %7, align 16
-  %850 = load double, ptr %796, align 8
-  %851 = load double, ptr %799, align 8
-  %852 = fsub double %851, %850
-  %853 = fmul double %852, 5.000000e-01
-  %854 = fadd double %850, %853
-  %855 = getelementptr inbounds i8, ptr %7, i64 8
-  store double %854, ptr %855, align 8
-  %856 = load double, ptr %847, align 8
-  %857 = getelementptr inbounds i8, ptr %7, i64 16
-  store double %856, ptr %857, align 16
-  %858 = getelementptr inbounds i8, ptr %1, i64 8
+  %844 = getelementptr inbounds i8, ptr %820, i64 40
+  store double %840, ptr %844, align 8
+  %845 = getelementptr inbounds i8, ptr %820, i64 48
+  store double %842, ptr %845, align 8
+  %846 = getelementptr inbounds i8, ptr %820, i64 56
+  store double %836, ptr %846, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %820, i64 noundef %2, i32 noundef %4) #25
+  %847 = load double, ptr %796, align 8
+  store double %847, ptr %7, align 16
+  %848 = load double, ptr %794, align 8
+  %849 = load double, ptr %797, align 8
+  %850 = fsub double %849, %848
+  %851 = fmul double %850, 5.000000e-01
+  %852 = fadd double %848, %851
+  %853 = getelementptr inbounds i8, ptr %7, i64 8
+  store double %852, ptr %853, align 8
+  %854 = load double, ptr %845, align 8
+  %855 = getelementptr inbounds i8, ptr %7, i64 16
+  store double %854, ptr %855, align 16
+  %856 = getelementptr inbounds i8, ptr %1, i64 8
+  %857 = load double, ptr %856, align 8
+  %858 = getelementptr inbounds i8, ptr %1, i64 56
   %859 = load double, ptr %858, align 8
-  %860 = getelementptr inbounds i8, ptr %1, i64 56
-  %861 = load double, ptr %860, align 8
-  %862 = fsub double %859, %861
-  %863 = fmul double %862, 5.000000e-01
-  %864 = fadd double %850, %863
-  %865 = getelementptr inbounds i8, ptr %7, i64 24
-  store double %864, ptr %865, align 8
+  %860 = fsub double %857, %859
+  %861 = fmul double %860, 5.000000e-01
+  %862 = fadd double %848, %861
+  %863 = getelementptr inbounds i8, ptr %7, i64 24
+  store double %862, ptr %863, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @free(ptr noundef %822) #25
+  call void @free(ptr noundef %820) #25
   br label %.loopexit
 
-866:                                              ; preds = %._crit_edge
-  %867 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %868 = getelementptr inbounds i8, ptr %1, i64 16
-  %869 = load double, ptr %868, align 8
-  %870 = load double, ptr %1, align 8
-  %871 = load double, ptr %114, align 8
-  %872 = getelementptr inbounds i8, ptr %55, i64 48
-  %873 = load double, ptr %872, align 8
-  %874 = fsub double %871, %873
-  %875 = fmul double %874, 9.000000e+00
-  %876 = getelementptr inbounds i8, ptr %1, i64 40
+864:                                              ; preds = %._crit_edge
+  %865 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %866 = getelementptr inbounds i8, ptr %1, i64 16
+  %867 = load double, ptr %866, align 8
+  %868 = load double, ptr %1, align 8
+  %869 = load double, ptr %114, align 8
+  %870 = getelementptr inbounds i8, ptr %55, i64 48
+  %871 = load double, ptr %870, align 8
+  %872 = fsub double %869, %871
+  %873 = fmul double %872, 9.000000e+00
+  %874 = getelementptr inbounds i8, ptr %1, i64 40
+  %875 = load double, ptr %874, align 8
+  %876 = getelementptr inbounds i8, ptr %1, i64 24
   %877 = load double, ptr %876, align 8
-  %878 = getelementptr inbounds i8, ptr %1, i64 24
+  %878 = getelementptr inbounds i8, ptr %55, i64 56
   %879 = load double, ptr %878, align 8
-  %880 = getelementptr inbounds i8, ptr %55, i64 56
+  %880 = getelementptr inbounds i8, ptr %55, i64 72
   %881 = load double, ptr %880, align 8
-  %882 = getelementptr inbounds i8, ptr %55, i64 72
-  %883 = load double, ptr %882, align 8
-  %884 = fsub double %881, %883
-  %885 = insertelement <2 x double> poison, double %870, i64 0
-  %886 = insertelement <2 x double> %885, double %879, i64 1
-  %887 = insertelement <2 x double> poison, double %869, i64 0
-  %888 = insertelement <2 x double> %887, double %877, i64 1
-  %889 = fsub <2 x double> %886, %888
-  %890 = fmul <2 x double> %889, <double 5.000000e-01, double 5.000000e-01>
-  %891 = fadd <2 x double> %888, %890
-  %892 = insertelement <2 x double> poison, double %875, i64 0
-  %893 = insertelement <2 x double> %892, double %884, i64 1
-  %894 = fmul <2 x double> %893, <double 1.250000e-01, double 1.250000e-01>
-  %895 = fsub <2 x double> %891, %894
-  %896 = fadd <2 x double> %891, %894
-  %897 = shufflevector <2 x double> %895, <2 x double> %896, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %897, ptr %867, align 8
-  %898 = getelementptr inbounds i8, ptr %867, i64 16
-  %899 = getelementptr inbounds i8, ptr %867, i64 24
-  %900 = extractelement <2 x double> %896, i64 1
-  store double %900, ptr %899, align 8
-  %901 = getelementptr inbounds i8, ptr %867, i64 32
-  %902 = fmul double %884, 5.000000e-01
-  %903 = insertelement <2 x double> poison, double %874, i64 0
-  %904 = insertelement <2 x double> %903, double %902, i64 1
-  %905 = fadd <2 x double> %904, %897
-  %906 = extractelement <2 x double> %905, i64 0
-  store double %906, ptr %898, align 8
-  store <2 x double> %905, ptr %901, align 8
-  %907 = getelementptr inbounds i8, ptr %867, i64 48
-  %908 = shufflevector <2 x double> %897, <2 x double> %905, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %908, ptr %907, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %867, i64 noundef %2, i32 noundef %4) #25
-  tail call void @free(ptr noundef %867) #25
-  %909 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %910 = load double, ptr %868, align 8
-  %911 = load double, ptr %1, align 8
-  %912 = load double, ptr %114, align 8
-  %913 = load double, ptr %872, align 8
-  %914 = load double, ptr %876, align 8
-  %915 = load double, ptr %878, align 8
-  %916 = load double, ptr %880, align 8
-  %917 = load double, ptr %882, align 8
-  %918 = insertelement <2 x double> poison, double %911, i64 0
-  %919 = insertelement <2 x double> %918, double %915, i64 1
-  %920 = insertelement <2 x double> poison, double %910, i64 0
-  %921 = insertelement <2 x double> %920, double %914, i64 1
-  %922 = fsub <2 x double> %919, %921
-  %923 = fmul <2 x double> %922, <double 5.000000e-01, double 5.000000e-01>
-  %924 = fadd <2 x double> %921, %923
-  %925 = insertelement <2 x double> poison, double %912, i64 0
-  %926 = insertelement <2 x double> %925, double %916, i64 1
-  %927 = insertelement <2 x double> poison, double %913, i64 0
-  %928 = insertelement <2 x double> %927, double %917, i64 1
-  %929 = fsub <2 x double> %926, %928
-  %930 = fmul <2 x double> %929, <double 9.000000e+00, double 5.000000e+00>
-  %931 = fmul <2 x double> %930, <double 1.250000e-01, double 1.250000e-01>
-  %932 = fsub <2 x double> %924, %931
-  store <2 x double> %932, ptr %909, align 8
-  %933 = getelementptr inbounds i8, ptr %909, i64 16
-  %934 = getelementptr inbounds i8, ptr %909, i64 24
-  %935 = extractelement <2 x double> %932, i64 1
-  store double %935, ptr %934, align 8
-  %936 = getelementptr inbounds i8, ptr %909, i64 32
-  %937 = extractelement <2 x double> %929, i64 1
-  %938 = fmul double %937, 5.000000e-01
-  %939 = insertelement <2 x double> %929, double %938, i64 1
-  %940 = fadd <2 x double> %939, %932
-  %941 = extractelement <2 x double> %940, i64 0
-  store double %941, ptr %933, align 8
-  store <2 x double> %940, ptr %936, align 8
-  %942 = getelementptr inbounds i8, ptr %909, i64 48
-  %943 = shufflevector <2 x double> %932, <2 x double> %940, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %943, ptr %942, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %909, i64 noundef %2, i32 noundef %4) #25
-  tail call void @free(ptr noundef %909) #25
-  %944 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %945 = load double, ptr %868, align 8
-  %946 = load double, ptr %1, align 8
-  %947 = load double, ptr %114, align 8
-  %948 = load double, ptr %872, align 8
-  %949 = fsub double %947, %948
-  %950 = load double, ptr %876, align 8
-  %951 = load double, ptr %878, align 8
-  %952 = load double, ptr %880, align 8
-  %953 = load double, ptr %882, align 8
-  %954 = fsub double %952, %953
-  %955 = fmul double %954, 5.000000e+00
-  %956 = insertelement <2 x double> poison, double %946, i64 0
-  %957 = insertelement <2 x double> %956, double %951, i64 1
-  %958 = insertelement <2 x double> poison, double %945, i64 0
-  %959 = insertelement <2 x double> %958, double %950, i64 1
-  %960 = fsub <2 x double> %957, %959
-  %961 = fmul <2 x double> %960, <double 5.000000e-01, double 5.000000e-01>
-  %962 = fadd <2 x double> %959, %961
-  %963 = insertelement <2 x double> poison, double %949, i64 0
-  %964 = insertelement <2 x double> %963, double %955, i64 1
-  %965 = fmul <2 x double> %964, <double 1.250000e-01, double 1.250000e-01>
-  %966 = fadd <2 x double> %962, %965
-  %967 = fsub <2 x double> %962, %965
-  %968 = shufflevector <2 x double> %966, <2 x double> %967, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %968, ptr %944, align 8
-  %969 = getelementptr inbounds i8, ptr %944, i64 16
-  %970 = getelementptr inbounds i8, ptr %944, i64 24
-  %971 = extractelement <2 x double> %967, i64 1
-  store double %971, ptr %970, align 8
-  %972 = getelementptr inbounds i8, ptr %944, i64 32
-  %973 = fmul double %954, 5.000000e-01
-  %974 = insertelement <2 x double> %963, double %973, i64 1
-  %975 = fadd <2 x double> %974, %968
-  %976 = extractelement <2 x double> %975, i64 0
-  store double %976, ptr %969, align 8
-  store <2 x double> %975, ptr %972, align 8
-  %977 = getelementptr inbounds i8, ptr %944, i64 48
-  %978 = shufflevector <2 x double> %968, <2 x double> %975, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %978, ptr %977, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %944, i64 noundef %2, i32 noundef %4) #25
-  tail call void @free(ptr noundef %944) #25
-  %979 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %980 = load double, ptr %868, align 8
-  %981 = load double, ptr %1, align 8
-  %982 = load double, ptr %114, align 8
-  %983 = load double, ptr %872, align 8
-  %984 = load double, ptr %876, align 8
-  %985 = load double, ptr %878, align 8
-  %986 = load double, ptr %880, align 8
-  %987 = load double, ptr %882, align 8
-  %988 = insertelement <2 x double> poison, double %981, i64 0
-  %989 = insertelement <2 x double> %988, double %985, i64 1
-  %990 = insertelement <2 x double> poison, double %980, i64 0
-  %991 = insertelement <2 x double> %990, double %984, i64 1
-  %992 = fsub <2 x double> %989, %991
-  %993 = fmul <2 x double> %992, <double 5.000000e-01, double 5.000000e-01>
-  %994 = fadd <2 x double> %991, %993
-  %995 = insertelement <2 x double> poison, double %982, i64 0
-  %996 = insertelement <2 x double> %995, double %986, i64 1
-  %997 = insertelement <2 x double> poison, double %983, i64 0
-  %998 = insertelement <2 x double> %997, double %987, i64 1
-  %999 = fsub <2 x double> %996, %998
-  %1000 = fmul <2 x double> %999, <double 1.250000e-01, double 1.250000e-01>
-  %1001 = fadd <2 x double> %994, %1000
-  store <2 x double> %1001, ptr %979, align 8
-  %1002 = getelementptr inbounds i8, ptr %979, i64 16
-  %1003 = getelementptr inbounds i8, ptr %979, i64 24
-  %1004 = extractelement <2 x double> %1001, i64 1
-  store double %1004, ptr %1003, align 8
-  %1005 = getelementptr inbounds i8, ptr %979, i64 32
-  %1006 = extractelement <2 x double> %999, i64 1
-  %1007 = fmul double %1006, 5.000000e-01
-  %1008 = insertelement <2 x double> %999, double %1007, i64 1
-  %1009 = fadd <2 x double> %1008, %1001
-  %1010 = extractelement <2 x double> %1009, i64 0
-  store double %1010, ptr %1002, align 8
-  store <2 x double> %1009, ptr %1005, align 8
-  %1011 = getelementptr inbounds i8, ptr %979, i64 48
-  %1012 = shufflevector <2 x double> %1001, <2 x double> %1009, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %1012, ptr %1011, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %979, i64 noundef %2, i32 noundef %4) #25
-  %1013 = load double, ptr %1002, align 8
-  store double %1013, ptr %7, align 16
-  %1014 = load double, ptr %876, align 8
-  %1015 = load double, ptr %878, align 8
-  %1016 = fsub double %1015, %1014
-  %1017 = fmul double %1016, 5.000000e-01
-  %1018 = fadd double %1014, %1017
-  %1019 = getelementptr inbounds i8, ptr %7, i64 8
-  store double %1018, ptr %1019, align 8
-  %1020 = load double, ptr %1, align 8
-  %1021 = getelementptr inbounds i8, ptr %7, i64 16
-  store double %1020, ptr %1021, align 16
-  %1022 = getelementptr inbounds i8, ptr %1, i64 8
+  %882 = fsub double %879, %881
+  %883 = insertelement <2 x double> poison, double %868, i64 0
+  %884 = insertelement <2 x double> %883, double %877, i64 1
+  %885 = insertelement <2 x double> poison, double %867, i64 0
+  %886 = insertelement <2 x double> %885, double %875, i64 1
+  %887 = fsub <2 x double> %884, %886
+  %888 = fmul <2 x double> %887, <double 5.000000e-01, double 5.000000e-01>
+  %889 = fadd <2 x double> %886, %888
+  %890 = insertelement <2 x double> poison, double %873, i64 0
+  %891 = insertelement <2 x double> %890, double %882, i64 1
+  %892 = fmul <2 x double> %891, <double 1.250000e-01, double 1.250000e-01>
+  %893 = fsub <2 x double> %889, %892
+  %894 = fadd <2 x double> %889, %892
+  %895 = shufflevector <2 x double> %893, <2 x double> %894, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %895, ptr %865, align 8
+  %896 = getelementptr inbounds i8, ptr %865, i64 16
+  %897 = getelementptr inbounds i8, ptr %865, i64 24
+  %898 = extractelement <2 x double> %894, i64 1
+  store double %898, ptr %897, align 8
+  %899 = getelementptr inbounds i8, ptr %865, i64 32
+  %900 = fmul double %882, 5.000000e-01
+  %901 = insertelement <2 x double> poison, double %872, i64 0
+  %902 = insertelement <2 x double> %901, double %900, i64 1
+  %903 = fadd <2 x double> %902, %895
+  %904 = extractelement <2 x double> %903, i64 0
+  store double %904, ptr %896, align 8
+  store <2 x double> %903, ptr %899, align 8
+  %905 = getelementptr inbounds i8, ptr %865, i64 48
+  %906 = shufflevector <2 x double> %895, <2 x double> %903, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %906, ptr %905, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %865, i64 noundef %2, i32 noundef %4) #25
+  tail call void @free(ptr noundef %865) #25
+  %907 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %908 = load double, ptr %866, align 8
+  %909 = load double, ptr %1, align 8
+  %910 = load double, ptr %114, align 8
+  %911 = load double, ptr %870, align 8
+  %912 = load double, ptr %874, align 8
+  %913 = load double, ptr %876, align 8
+  %914 = load double, ptr %878, align 8
+  %915 = load double, ptr %880, align 8
+  %916 = insertelement <2 x double> poison, double %909, i64 0
+  %917 = insertelement <2 x double> %916, double %913, i64 1
+  %918 = insertelement <2 x double> poison, double %908, i64 0
+  %919 = insertelement <2 x double> %918, double %912, i64 1
+  %920 = fsub <2 x double> %917, %919
+  %921 = fmul <2 x double> %920, <double 5.000000e-01, double 5.000000e-01>
+  %922 = fadd <2 x double> %919, %921
+  %923 = insertelement <2 x double> poison, double %910, i64 0
+  %924 = insertelement <2 x double> %923, double %914, i64 1
+  %925 = insertelement <2 x double> poison, double %911, i64 0
+  %926 = insertelement <2 x double> %925, double %915, i64 1
+  %927 = fsub <2 x double> %924, %926
+  %928 = fmul <2 x double> %927, <double 9.000000e+00, double 5.000000e+00>
+  %929 = fmul <2 x double> %928, <double 1.250000e-01, double 1.250000e-01>
+  %930 = fsub <2 x double> %922, %929
+  store <2 x double> %930, ptr %907, align 8
+  %931 = getelementptr inbounds i8, ptr %907, i64 16
+  %932 = getelementptr inbounds i8, ptr %907, i64 24
+  %933 = extractelement <2 x double> %930, i64 1
+  store double %933, ptr %932, align 8
+  %934 = getelementptr inbounds i8, ptr %907, i64 32
+  %935 = extractelement <2 x double> %927, i64 1
+  %936 = fmul double %935, 5.000000e-01
+  %937 = insertelement <2 x double> %927, double %936, i64 1
+  %938 = fadd <2 x double> %937, %930
+  %939 = extractelement <2 x double> %938, i64 0
+  store double %939, ptr %931, align 8
+  store <2 x double> %938, ptr %934, align 8
+  %940 = getelementptr inbounds i8, ptr %907, i64 48
+  %941 = shufflevector <2 x double> %930, <2 x double> %938, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %941, ptr %940, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %907, i64 noundef %2, i32 noundef %4) #25
+  tail call void @free(ptr noundef %907) #25
+  %942 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %943 = load double, ptr %866, align 8
+  %944 = load double, ptr %1, align 8
+  %945 = load double, ptr %114, align 8
+  %946 = load double, ptr %870, align 8
+  %947 = fsub double %945, %946
+  %948 = load double, ptr %874, align 8
+  %949 = load double, ptr %876, align 8
+  %950 = load double, ptr %878, align 8
+  %951 = load double, ptr %880, align 8
+  %952 = fsub double %950, %951
+  %953 = fmul double %952, 5.000000e+00
+  %954 = insertelement <2 x double> poison, double %944, i64 0
+  %955 = insertelement <2 x double> %954, double %949, i64 1
+  %956 = insertelement <2 x double> poison, double %943, i64 0
+  %957 = insertelement <2 x double> %956, double %948, i64 1
+  %958 = fsub <2 x double> %955, %957
+  %959 = fmul <2 x double> %958, <double 5.000000e-01, double 5.000000e-01>
+  %960 = fadd <2 x double> %957, %959
+  %961 = insertelement <2 x double> poison, double %947, i64 0
+  %962 = insertelement <2 x double> %961, double %953, i64 1
+  %963 = fmul <2 x double> %962, <double 1.250000e-01, double 1.250000e-01>
+  %964 = fadd <2 x double> %960, %963
+  %965 = fsub <2 x double> %960, %963
+  %966 = shufflevector <2 x double> %964, <2 x double> %965, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %966, ptr %942, align 8
+  %967 = getelementptr inbounds i8, ptr %942, i64 16
+  %968 = getelementptr inbounds i8, ptr %942, i64 24
+  %969 = extractelement <2 x double> %965, i64 1
+  store double %969, ptr %968, align 8
+  %970 = getelementptr inbounds i8, ptr %942, i64 32
+  %971 = fmul double %952, 5.000000e-01
+  %972 = insertelement <2 x double> %961, double %971, i64 1
+  %973 = fadd <2 x double> %972, %966
+  %974 = extractelement <2 x double> %973, i64 0
+  store double %974, ptr %967, align 8
+  store <2 x double> %973, ptr %970, align 8
+  %975 = getelementptr inbounds i8, ptr %942, i64 48
+  %976 = shufflevector <2 x double> %966, <2 x double> %973, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %976, ptr %975, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %942, i64 noundef %2, i32 noundef %4) #25
+  tail call void @free(ptr noundef %942) #25
+  %977 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %978 = load double, ptr %866, align 8
+  %979 = load double, ptr %1, align 8
+  %980 = load double, ptr %114, align 8
+  %981 = load double, ptr %870, align 8
+  %982 = load double, ptr %874, align 8
+  %983 = load double, ptr %876, align 8
+  %984 = load double, ptr %878, align 8
+  %985 = load double, ptr %880, align 8
+  %986 = insertelement <2 x double> poison, double %979, i64 0
+  %987 = insertelement <2 x double> %986, double %983, i64 1
+  %988 = insertelement <2 x double> poison, double %978, i64 0
+  %989 = insertelement <2 x double> %988, double %982, i64 1
+  %990 = fsub <2 x double> %987, %989
+  %991 = fmul <2 x double> %990, <double 5.000000e-01, double 5.000000e-01>
+  %992 = fadd <2 x double> %989, %991
+  %993 = insertelement <2 x double> poison, double %980, i64 0
+  %994 = insertelement <2 x double> %993, double %984, i64 1
+  %995 = insertelement <2 x double> poison, double %981, i64 0
+  %996 = insertelement <2 x double> %995, double %985, i64 1
+  %997 = fsub <2 x double> %994, %996
+  %998 = fmul <2 x double> %997, <double 1.250000e-01, double 1.250000e-01>
+  %999 = fadd <2 x double> %992, %998
+  store <2 x double> %999, ptr %977, align 8
+  %1000 = getelementptr inbounds i8, ptr %977, i64 16
+  %1001 = getelementptr inbounds i8, ptr %977, i64 24
+  %1002 = extractelement <2 x double> %999, i64 1
+  store double %1002, ptr %1001, align 8
+  %1003 = getelementptr inbounds i8, ptr %977, i64 32
+  %1004 = extractelement <2 x double> %997, i64 1
+  %1005 = fmul double %1004, 5.000000e-01
+  %1006 = insertelement <2 x double> %997, double %1005, i64 1
+  %1007 = fadd <2 x double> %1006, %999
+  %1008 = extractelement <2 x double> %1007, i64 0
+  store double %1008, ptr %1000, align 8
+  store <2 x double> %1007, ptr %1003, align 8
+  %1009 = getelementptr inbounds i8, ptr %977, i64 48
+  %1010 = shufflevector <2 x double> %999, <2 x double> %1007, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %1010, ptr %1009, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %977, i64 noundef %2, i32 noundef %4) #25
+  %1011 = load double, ptr %1000, align 8
+  store double %1011, ptr %7, align 16
+  %1012 = load double, ptr %874, align 8
+  %1013 = load double, ptr %876, align 8
+  %1014 = fsub double %1013, %1012
+  %1015 = fmul double %1014, 5.000000e-01
+  %1016 = fadd double %1012, %1015
+  %1017 = getelementptr inbounds i8, ptr %7, i64 8
+  store double %1016, ptr %1017, align 8
+  %1018 = load double, ptr %1, align 8
+  %1019 = getelementptr inbounds i8, ptr %7, i64 16
+  store double %1018, ptr %1019, align 16
+  %1020 = getelementptr inbounds i8, ptr %1, i64 8
+  %1021 = load double, ptr %1020, align 8
+  %1022 = getelementptr inbounds i8, ptr %1, i64 56
   %1023 = load double, ptr %1022, align 8
-  %1024 = getelementptr inbounds i8, ptr %1, i64 56
-  %1025 = load double, ptr %1024, align 8
-  %1026 = fsub double %1023, %1025
-  %1027 = fmul double %1026, 5.000000e-01
-  %1028 = fadd double %1014, %1027
-  %1029 = getelementptr inbounds i8, ptr %7, i64 24
-  store double %1028, ptr %1029, align 8
+  %1024 = fsub double %1021, %1023
+  %1025 = fmul double %1024, 5.000000e-01
+  %1026 = fadd double %1012, %1025
+  %1027 = getelementptr inbounds i8, ptr %7, i64 24
+  store double %1026, ptr %1027, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  %1030 = load double, ptr %868, align 8
-  %1031 = load double, ptr %1, align 8
-  %1032 = fsub double %1031, %1030
-  %1033 = fmul double %1032, 5.000000e-01
-  %1034 = fadd double %1030, %1033
-  %1035 = load double, ptr %114, align 8
-  %1036 = load double, ptr %872, align 8
-  %1037 = fsub double %1035, %1036
-  %1038 = fmul double %1037, 9.000000e+00
-  %1039 = fmul double %1038, 1.250000e-01
-  %1040 = fsub double %1034, %1039
-  store double %1040, ptr %7, align 16
-  %1041 = load double, ptr %876, align 8
-  %1042 = load double, ptr %878, align 8
-  %1043 = fsub double %1042, %1041
-  %1044 = fmul double %1043, 5.000000e-01
-  %1045 = fadd double %1041, %1044
-  store double %1045, ptr %1019, align 8
-  store double %1030, ptr %1021, align 16
-  %1046 = load double, ptr %1022, align 8
-  %1047 = load double, ptr %1024, align 8
-  %1048 = fsub double %1046, %1047
-  %1049 = fmul double %1048, 5.000000e-01
-  %1050 = fadd double %1041, %1049
-  store double %1050, ptr %1029, align 8
+  %1028 = load double, ptr %866, align 8
+  %1029 = load double, ptr %1, align 8
+  %1030 = fsub double %1029, %1028
+  %1031 = fmul double %1030, 5.000000e-01
+  %1032 = fadd double %1028, %1031
+  %1033 = load double, ptr %114, align 8
+  %1034 = load double, ptr %870, align 8
+  %1035 = fsub double %1033, %1034
+  %1036 = fmul double %1035, 9.000000e+00
+  %1037 = fmul double %1036, 1.250000e-01
+  %1038 = fsub double %1032, %1037
+  store double %1038, ptr %7, align 16
+  %1039 = load double, ptr %874, align 8
+  %1040 = load double, ptr %876, align 8
+  %1041 = fsub double %1040, %1039
+  %1042 = fmul double %1041, 5.000000e-01
+  %1043 = fadd double %1039, %1042
+  store double %1043, ptr %1017, align 8
+  store double %1028, ptr %1019, align 16
+  %1044 = load double, ptr %1020, align 8
+  %1045 = load double, ptr %1022, align 8
+  %1046 = fsub double %1044, %1045
+  %1047 = fmul double %1046, 5.000000e-01
+  %1048 = fadd double %1039, %1047
+  store double %1048, ptr %1027, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @free(ptr noundef %979) #25
+  call void @free(ptr noundef %977) #25
   br label %.loopexit
 
-1051:                                             ; preds = %._crit_edge
-  %1052 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %1053 = getelementptr inbounds i8, ptr %1, i64 16
-  %1054 = load double, ptr %1053, align 8
-  %1055 = load double, ptr %1, align 8
-  %1056 = load double, ptr %114, align 8
-  %1057 = getelementptr inbounds i8, ptr %55, i64 48
-  %1058 = load double, ptr %1057, align 8
-  %1059 = fsub double %1056, %1058
-  %1060 = getelementptr inbounds i8, ptr %1, i64 40
+1049:                                             ; preds = %._crit_edge
+  %1050 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %1051 = getelementptr inbounds i8, ptr %1, i64 16
+  %1052 = load double, ptr %1051, align 8
+  %1053 = load double, ptr %1, align 8
+  %1054 = load double, ptr %114, align 8
+  %1055 = getelementptr inbounds i8, ptr %55, i64 48
+  %1056 = load double, ptr %1055, align 8
+  %1057 = fsub double %1054, %1056
+  %1058 = getelementptr inbounds i8, ptr %1, i64 40
+  %1059 = load double, ptr %1058, align 8
+  %1060 = getelementptr inbounds i8, ptr %1, i64 24
   %1061 = load double, ptr %1060, align 8
-  %1062 = getelementptr inbounds i8, ptr %1, i64 24
+  %1062 = getelementptr inbounds i8, ptr %55, i64 56
   %1063 = load double, ptr %1062, align 8
-  %1064 = getelementptr inbounds i8, ptr %55, i64 56
+  %1064 = getelementptr inbounds i8, ptr %55, i64 72
   %1065 = load double, ptr %1064, align 8
-  %1066 = getelementptr inbounds i8, ptr %55, i64 72
-  %1067 = load double, ptr %1066, align 8
-  %1068 = fsub double %1065, %1067
-  %1069 = fmul double %1068, 1.250000e-01
-  %1070 = insertelement <2 x double> poison, double %1055, i64 0
-  %1071 = insertelement <2 x double> %1070, double %1063, i64 1
-  %1072 = insertelement <2 x double> poison, double %1054, i64 0
-  %1073 = insertelement <2 x double> %1072, double %1061, i64 1
-  %1074 = fsub <2 x double> %1071, %1073
-  %1075 = fmul <2 x double> %1074, <double 5.000000e-01, double 5.000000e-01>
-  %1076 = fadd <2 x double> %1073, %1075
-  %1077 = insertelement <2 x double> poison, double %1059, i64 0
-  %1078 = insertelement <2 x double> %1077, double %1069, i64 1
-  %1079 = fsub <2 x double> %1076, %1078
-  %1080 = fadd <2 x double> %1076, %1078
-  %1081 = shufflevector <2 x double> %1079, <2 x double> %1080, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %1081, ptr %1052, align 8
-  %1082 = extractelement <2 x double> %1079, i64 0
-  %1083 = tail call double @llvm.fmuladd.f64(double %1059, double 2.000000e+00, double %1082)
-  %1084 = getelementptr inbounds i8, ptr %1052, i64 16
-  store double %1083, ptr %1084, align 8
-  %1085 = getelementptr inbounds i8, ptr %1052, i64 24
-  %1086 = extractelement <2 x double> %1080, i64 1
-  store double %1086, ptr %1085, align 8
-  %1087 = getelementptr inbounds i8, ptr %1052, i64 32
-  store double %1083, ptr %1087, align 8
-  %1088 = fmul double %1068, 5.000000e-01
-  %1089 = fadd double %1088, %1086
-  %1090 = getelementptr inbounds i8, ptr %1052, i64 40
-  store double %1089, ptr %1090, align 8
-  %1091 = getelementptr inbounds i8, ptr %1052, i64 48
-  store double %1082, ptr %1091, align 8
-  %1092 = getelementptr inbounds i8, ptr %1052, i64 56
-  store double %1089, ptr %1092, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1052, i64 noundef %2, i32 noundef %4) #25
-  tail call void @free(ptr noundef %1052) #25
-  %1093 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %1094 = load double, ptr %1053, align 8
-  %1095 = load double, ptr %1, align 8
-  %1096 = load double, ptr %114, align 8
-  %1097 = load double, ptr %1057, align 8
-  %1098 = fsub double %1096, %1097
-  %1099 = load double, ptr %1060, align 8
-  %1100 = load double, ptr %1062, align 8
-  %1101 = load double, ptr %1064, align 8
-  %1102 = load double, ptr %1066, align 8
-  %1103 = fsub double %1101, %1102
-  %1104 = fmul double %1103, 5.000000e+00
-  %1105 = fmul double %1104, 1.250000e-01
-  %1106 = insertelement <2 x double> poison, double %1095, i64 0
-  %1107 = insertelement <2 x double> %1106, double %1100, i64 1
-  %1108 = insertelement <2 x double> poison, double %1094, i64 0
-  %1109 = insertelement <2 x double> %1108, double %1099, i64 1
-  %1110 = fsub <2 x double> %1107, %1109
-  %1111 = fmul <2 x double> %1110, <double 5.000000e-01, double 5.000000e-01>
-  %1112 = fadd <2 x double> %1109, %1111
-  %1113 = insertelement <2 x double> poison, double %1098, i64 0
-  %1114 = insertelement <2 x double> %1113, double %1105, i64 1
-  %1115 = fsub <2 x double> %1112, %1114
-  store <2 x double> %1115, ptr %1093, align 8
-  %1116 = extractelement <2 x double> %1115, i64 0
-  %1117 = tail call double @llvm.fmuladd.f64(double %1098, double 2.000000e+00, double %1116)
-  %1118 = getelementptr inbounds i8, ptr %1093, i64 16
-  store double %1117, ptr %1118, align 8
-  %1119 = getelementptr inbounds i8, ptr %1093, i64 24
-  %1120 = extractelement <2 x double> %1115, i64 1
-  store double %1120, ptr %1119, align 8
-  %1121 = getelementptr inbounds i8, ptr %1093, i64 32
-  store double %1117, ptr %1121, align 8
-  %1122 = fmul double %1103, 5.000000e-01
-  %1123 = fadd double %1122, %1120
-  %1124 = getelementptr inbounds i8, ptr %1093, i64 40
-  store double %1123, ptr %1124, align 8
-  %1125 = getelementptr inbounds i8, ptr %1093, i64 48
-  store double %1116, ptr %1125, align 8
-  %1126 = getelementptr inbounds i8, ptr %1093, i64 56
-  store double %1123, ptr %1126, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1093, i64 noundef %2, i32 noundef %4) #25
-  %1127 = load double, ptr %1118, align 8
-  store double %1127, ptr %7, align 16
-  %1128 = load double, ptr %1060, align 8
-  %1129 = load double, ptr %1062, align 8
-  %1130 = fsub double %1129, %1128
-  %1131 = fmul double %1130, 5.000000e-01
-  %1132 = fadd double %1128, %1131
-  %1133 = getelementptr inbounds i8, ptr %7, i64 8
-  store double %1132, ptr %1133, align 8
-  %1134 = load double, ptr %1, align 8
-  %1135 = getelementptr inbounds i8, ptr %7, i64 16
-  store double %1134, ptr %1135, align 16
-  %1136 = getelementptr inbounds i8, ptr %1, i64 8
+  %1066 = fsub double %1063, %1065
+  %1067 = fmul double %1066, 1.250000e-01
+  %1068 = insertelement <2 x double> poison, double %1053, i64 0
+  %1069 = insertelement <2 x double> %1068, double %1061, i64 1
+  %1070 = insertelement <2 x double> poison, double %1052, i64 0
+  %1071 = insertelement <2 x double> %1070, double %1059, i64 1
+  %1072 = fsub <2 x double> %1069, %1071
+  %1073 = fmul <2 x double> %1072, <double 5.000000e-01, double 5.000000e-01>
+  %1074 = fadd <2 x double> %1071, %1073
+  %1075 = insertelement <2 x double> poison, double %1057, i64 0
+  %1076 = insertelement <2 x double> %1075, double %1067, i64 1
+  %1077 = fsub <2 x double> %1074, %1076
+  %1078 = fadd <2 x double> %1074, %1076
+  %1079 = shufflevector <2 x double> %1077, <2 x double> %1078, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %1079, ptr %1050, align 8
+  %1080 = extractelement <2 x double> %1077, i64 0
+  %1081 = tail call double @llvm.fmuladd.f64(double %1057, double 2.000000e+00, double %1080)
+  %1082 = getelementptr inbounds i8, ptr %1050, i64 16
+  store double %1081, ptr %1082, align 8
+  %1083 = getelementptr inbounds i8, ptr %1050, i64 24
+  %1084 = extractelement <2 x double> %1078, i64 1
+  store double %1084, ptr %1083, align 8
+  %1085 = getelementptr inbounds i8, ptr %1050, i64 32
+  store double %1081, ptr %1085, align 8
+  %1086 = fmul double %1066, 5.000000e-01
+  %1087 = fadd double %1086, %1084
+  %1088 = getelementptr inbounds i8, ptr %1050, i64 40
+  store double %1087, ptr %1088, align 8
+  %1089 = getelementptr inbounds i8, ptr %1050, i64 48
+  store double %1080, ptr %1089, align 8
+  %1090 = getelementptr inbounds i8, ptr %1050, i64 56
+  store double %1087, ptr %1090, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1050, i64 noundef %2, i32 noundef %4) #25
+  tail call void @free(ptr noundef %1050) #25
+  %1091 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %1092 = load double, ptr %1051, align 8
+  %1093 = load double, ptr %1, align 8
+  %1094 = load double, ptr %114, align 8
+  %1095 = load double, ptr %1055, align 8
+  %1096 = fsub double %1094, %1095
+  %1097 = load double, ptr %1058, align 8
+  %1098 = load double, ptr %1060, align 8
+  %1099 = load double, ptr %1062, align 8
+  %1100 = load double, ptr %1064, align 8
+  %1101 = fsub double %1099, %1100
+  %1102 = fmul double %1101, 5.000000e+00
+  %1103 = fmul double %1102, 1.250000e-01
+  %1104 = insertelement <2 x double> poison, double %1093, i64 0
+  %1105 = insertelement <2 x double> %1104, double %1098, i64 1
+  %1106 = insertelement <2 x double> poison, double %1092, i64 0
+  %1107 = insertelement <2 x double> %1106, double %1097, i64 1
+  %1108 = fsub <2 x double> %1105, %1107
+  %1109 = fmul <2 x double> %1108, <double 5.000000e-01, double 5.000000e-01>
+  %1110 = fadd <2 x double> %1107, %1109
+  %1111 = insertelement <2 x double> poison, double %1096, i64 0
+  %1112 = insertelement <2 x double> %1111, double %1103, i64 1
+  %1113 = fsub <2 x double> %1110, %1112
+  store <2 x double> %1113, ptr %1091, align 8
+  %1114 = extractelement <2 x double> %1113, i64 0
+  %1115 = tail call double @llvm.fmuladd.f64(double %1096, double 2.000000e+00, double %1114)
+  %1116 = getelementptr inbounds i8, ptr %1091, i64 16
+  store double %1115, ptr %1116, align 8
+  %1117 = getelementptr inbounds i8, ptr %1091, i64 24
+  %1118 = extractelement <2 x double> %1113, i64 1
+  store double %1118, ptr %1117, align 8
+  %1119 = getelementptr inbounds i8, ptr %1091, i64 32
+  store double %1115, ptr %1119, align 8
+  %1120 = fmul double %1101, 5.000000e-01
+  %1121 = fadd double %1120, %1118
+  %1122 = getelementptr inbounds i8, ptr %1091, i64 40
+  store double %1121, ptr %1122, align 8
+  %1123 = getelementptr inbounds i8, ptr %1091, i64 48
+  store double %1114, ptr %1123, align 8
+  %1124 = getelementptr inbounds i8, ptr %1091, i64 56
+  store double %1121, ptr %1124, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1091, i64 noundef %2, i32 noundef %4) #25
+  %1125 = load double, ptr %1116, align 8
+  store double %1125, ptr %7, align 16
+  %1126 = load double, ptr %1058, align 8
+  %1127 = load double, ptr %1060, align 8
+  %1128 = fsub double %1127, %1126
+  %1129 = fmul double %1128, 5.000000e-01
+  %1130 = fadd double %1126, %1129
+  %1131 = getelementptr inbounds i8, ptr %7, i64 8
+  store double %1130, ptr %1131, align 8
+  %1132 = load double, ptr %1, align 8
+  %1133 = getelementptr inbounds i8, ptr %7, i64 16
+  store double %1132, ptr %1133, align 16
+  %1134 = getelementptr inbounds i8, ptr %1, i64 8
+  %1135 = load double, ptr %1134, align 8
+  %1136 = getelementptr inbounds i8, ptr %1, i64 56
   %1137 = load double, ptr %1136, align 8
-  %1138 = getelementptr inbounds i8, ptr %1, i64 56
-  %1139 = load double, ptr %1138, align 8
-  %1140 = fsub double %1137, %1139
-  %1141 = fmul double %1140, 5.000000e-01
-  %1142 = fadd double %1128, %1141
-  %1143 = getelementptr inbounds i8, ptr %7, i64 24
-  store double %1142, ptr %1143, align 8
+  %1138 = fsub double %1135, %1137
+  %1139 = fmul double %1138, 5.000000e-01
+  %1140 = fadd double %1126, %1139
+  %1141 = getelementptr inbounds i8, ptr %7, i64 24
+  store double %1140, ptr %1141, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  %1144 = load double, ptr %1053, align 8
-  store double %1144, ptr %7, align 16
-  %1145 = load double, ptr %1060, align 8
-  %1146 = load double, ptr %1062, align 8
-  %1147 = fsub double %1146, %1145
-  %1148 = fmul double %1147, 5.000000e-01
-  %1149 = fadd double %1145, %1148
-  store double %1149, ptr %1133, align 8
-  %1150 = load double, ptr %1093, align 8
-  store double %1150, ptr %1135, align 16
-  %1151 = load double, ptr %1136, align 8
-  %1152 = load double, ptr %1138, align 8
-  %1153 = fsub double %1151, %1152
-  %1154 = fmul double %1153, 5.000000e-01
-  %1155 = fadd double %1145, %1154
-  store double %1155, ptr %1143, align 8
+  %1142 = load double, ptr %1051, align 8
+  store double %1142, ptr %7, align 16
+  %1143 = load double, ptr %1058, align 8
+  %1144 = load double, ptr %1060, align 8
+  %1145 = fsub double %1144, %1143
+  %1146 = fmul double %1145, 5.000000e-01
+  %1147 = fadd double %1143, %1146
+  store double %1147, ptr %1131, align 8
+  %1148 = load double, ptr %1091, align 8
+  store double %1148, ptr %1133, align 16
+  %1149 = load double, ptr %1134, align 8
+  %1150 = load double, ptr %1136, align 8
+  %1151 = fsub double %1149, %1150
+  %1152 = fmul double %1151, 5.000000e-01
+  %1153 = fadd double %1143, %1152
+  store double %1153, ptr %1141, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @free(ptr noundef %1093) #25
+  call void @free(ptr noundef %1091) #25
   br label %.loopexit
 
-1156:                                             ; preds = %._crit_edge
-  %1157 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %1158 = load double, ptr %1, align 8
-  store double %1158, ptr %1157, align 8
-  %1159 = getelementptr inbounds i8, ptr %55, i64 24
-  %1160 = load double, ptr %1159, align 8
-  %1161 = getelementptr inbounds i8, ptr %55, i64 48
-  %1162 = getelementptr inbounds i8, ptr %55, i64 56
+1154:                                             ; preds = %._crit_edge
+  %1155 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %1156 = load double, ptr %1, align 8
+  store double %1156, ptr %1155, align 8
+  %1157 = getelementptr inbounds i8, ptr %55, i64 24
+  %1158 = load double, ptr %1157, align 8
+  %1159 = getelementptr inbounds i8, ptr %55, i64 48
+  %1160 = getelementptr inbounds i8, ptr %55, i64 56
+  %1161 = load double, ptr %1160, align 8
+  %1162 = getelementptr inbounds i8, ptr %55, i64 72
   %1163 = load double, ptr %1162, align 8
-  %1164 = getelementptr inbounds i8, ptr %55, i64 72
-  %1165 = load double, ptr %1164, align 8
-  %1166 = fsub double %1163, %1165
-  %1167 = fmul double %1166, 5.000000e-01
-  %1168 = fsub double %1160, %1167
-  %1169 = getelementptr inbounds i8, ptr %1157, i64 8
+  %1164 = fsub double %1161, %1163
+  %1165 = fmul double %1164, 5.000000e-01
+  %1166 = fsub double %1158, %1165
+  %1167 = getelementptr inbounds i8, ptr %1155, i64 8
+  store double %1166, ptr %1167, align 8
+  %1168 = load double, ptr %1159, align 8
+  %1169 = getelementptr inbounds i8, ptr %1155, i64 16
   store double %1168, ptr %1169, align 8
-  %1170 = load double, ptr %1161, align 8
-  %1171 = getelementptr inbounds i8, ptr %1157, i64 16
+  %1170 = fsub double %1161, %1165
+  %1171 = getelementptr inbounds i8, ptr %1155, i64 24
   store double %1170, ptr %1171, align 8
-  %1172 = fsub double %1163, %1167
-  %1173 = getelementptr inbounds i8, ptr %1157, i64 24
-  store double %1172, ptr %1173, align 8
-  %1174 = getelementptr inbounds i8, ptr %1, i64 32
-  %1175 = load double, ptr %1174, align 8
-  %1176 = getelementptr inbounds i8, ptr %1157, i64 32
-  store double %1175, ptr %1176, align 8
-  %1177 = getelementptr inbounds i8, ptr %1, i64 40
-  %1178 = load double, ptr %1177, align 8
-  %1179 = fadd double %1167, %1178
-  %1180 = getelementptr inbounds i8, ptr %1157, i64 40
-  store double %1179, ptr %1180, align 8
-  %1181 = getelementptr inbounds i8, ptr %1157, i64 48
-  store double %1158, ptr %1181, align 8
-  %1182 = getelementptr inbounds i8, ptr %1157, i64 56
-  store double %1179, ptr %1182, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1157, i64 noundef %2, i32 noundef %4) #25
-  %1183 = getelementptr inbounds i8, ptr %1, i64 16
-  %1184 = load double, ptr %1183, align 8
-  %1185 = load double, ptr %114, align 8
-  %1186 = load double, ptr %1161, align 8
-  %1187 = load double, ptr %1177, align 8
-  %1188 = getelementptr inbounds i8, ptr %1, i64 24
-  %1189 = load double, ptr %1188, align 8
-  %1190 = fsub double %1189, %1187
-  %1191 = fmul double %1190, 5.000000e-01
-  %1192 = fadd double %1187, %1191
-  %1193 = load double, ptr %1162, align 8
-  %1194 = load double, ptr %1164, align 8
-  %1195 = getelementptr inbounds i8, ptr %7, i64 8
-  %1196 = insertelement <2 x double> poison, double %1185, i64 0
-  %1197 = insertelement <2 x double> %1196, double %1193, i64 1
-  %1198 = insertelement <2 x double> poison, double %1186, i64 0
-  %1199 = insertelement <2 x double> %1198, double %1194, i64 1
-  %1200 = fsub <2 x double> %1197, %1199
-  %1201 = fmul <2 x double> %1200, <double 2.500000e-01, double 1.250000e-01>
-  %1202 = insertelement <2 x double> poison, double %1184, i64 0
-  %1203 = insertelement <2 x double> %1202, double %1192, i64 1
-  %1204 = fadd <2 x double> %1203, %1201
-  store <2 x double> %1204, ptr %7, align 16
-  %1205 = fadd <2 x double> %1201, %1204
-  %1206 = extractelement <2 x double> %1205, i64 0
-  %1207 = getelementptr inbounds i8, ptr %7, i64 16
-  store double %1206, ptr %1207, align 16
-  %1208 = extractelement <2 x double> %1200, i64 1
-  %1209 = fmul double %1208, 2.500000e-01
-  %1210 = extractelement <2 x double> %1204, i64 1
-  %1211 = fsub double %1210, %1209
-  %1212 = getelementptr inbounds i8, ptr %7, i64 24
-  store double %1211, ptr %1212, align 8
+  %1172 = getelementptr inbounds i8, ptr %1, i64 32
+  %1173 = load double, ptr %1172, align 8
+  %1174 = getelementptr inbounds i8, ptr %1155, i64 32
+  store double %1173, ptr %1174, align 8
+  %1175 = getelementptr inbounds i8, ptr %1, i64 40
+  %1176 = load double, ptr %1175, align 8
+  %1177 = fadd double %1165, %1176
+  %1178 = getelementptr inbounds i8, ptr %1155, i64 40
+  store double %1177, ptr %1178, align 8
+  %1179 = getelementptr inbounds i8, ptr %1155, i64 48
+  store double %1156, ptr %1179, align 8
+  %1180 = getelementptr inbounds i8, ptr %1155, i64 56
+  store double %1177, ptr %1180, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1155, i64 noundef %2, i32 noundef %4) #25
+  %1181 = getelementptr inbounds i8, ptr %1, i64 16
+  %1182 = load double, ptr %1181, align 8
+  %1183 = load double, ptr %114, align 8
+  %1184 = load double, ptr %1159, align 8
+  %1185 = load double, ptr %1175, align 8
+  %1186 = getelementptr inbounds i8, ptr %1, i64 24
+  %1187 = load double, ptr %1186, align 8
+  %1188 = fsub double %1187, %1185
+  %1189 = fmul double %1188, 5.000000e-01
+  %1190 = fadd double %1185, %1189
+  %1191 = load double, ptr %1160, align 8
+  %1192 = load double, ptr %1162, align 8
+  %1193 = getelementptr inbounds i8, ptr %7, i64 8
+  %1194 = insertelement <2 x double> poison, double %1183, i64 0
+  %1195 = insertelement <2 x double> %1194, double %1191, i64 1
+  %1196 = insertelement <2 x double> poison, double %1184, i64 0
+  %1197 = insertelement <2 x double> %1196, double %1192, i64 1
+  %1198 = fsub <2 x double> %1195, %1197
+  %1199 = fmul <2 x double> %1198, <double 2.500000e-01, double 1.250000e-01>
+  %1200 = insertelement <2 x double> poison, double %1182, i64 0
+  %1201 = insertelement <2 x double> %1200, double %1190, i64 1
+  %1202 = fadd <2 x double> %1201, %1199
+  store <2 x double> %1202, ptr %7, align 16
+  %1203 = fadd <2 x double> %1199, %1202
+  %1204 = extractelement <2 x double> %1203, i64 0
+  %1205 = getelementptr inbounds i8, ptr %7, i64 16
+  store double %1204, ptr %1205, align 16
+  %1206 = extractelement <2 x double> %1198, i64 1
+  %1207 = fmul double %1206, 2.500000e-01
+  %1208 = extractelement <2 x double> %1202, i64 1
+  %1209 = fsub double %1208, %1207
+  %1210 = getelementptr inbounds i8, ptr %7, i64 24
+  store double %1209, ptr %1210, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  %1213 = load double, ptr %1183, align 8
-  %1214 = load double, ptr %114, align 8
-  %1215 = load double, ptr %1161, align 8
-  %1216 = load double, ptr %1177, align 8
-  %1217 = load double, ptr %1188, align 8
-  %1218 = load double, ptr %1162, align 8
-  %1219 = load double, ptr %1164, align 8
-  %1220 = fsub double %1218, %1219
-  %1221 = fmul double %1220, 1.250000e-01
-  %1222 = insertelement <2 x double> poison, double %1217, i64 0
-  %1223 = insertelement <2 x double> %1222, double %1214, i64 1
-  %1224 = insertelement <2 x double> poison, double %1216, i64 0
-  %1225 = insertelement <2 x double> %1224, double %1215, i64 1
-  %1226 = fsub <2 x double> %1223, %1225
-  %1227 = fmul <2 x double> %1226, <double 5.000000e-01, double 2.500000e-01>
-  %1228 = insertelement <2 x double> %1224, double %1213, i64 1
-  %1229 = fadd <2 x double> %1228, %1227
-  %1230 = extractelement <2 x double> %1229, i64 1
-  store double %1230, ptr %7, align 16
-  %1231 = insertelement <2 x double> %1227, double %1221, i64 0
-  %1232 = fsub <2 x double> %1229, %1231
-  %1233 = fadd <2 x double> %1229, %1231
-  %1234 = shufflevector <2 x double> %1232, <2 x double> %1233, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %1234, ptr %1195, align 8
-  %1235 = fmul double %1220, 2.500000e-01
-  %1236 = extractelement <2 x double> %1232, i64 0
-  %1237 = fadd double %1235, %1236
-  store double %1237, ptr %1212, align 8
+  %1211 = load double, ptr %1181, align 8
+  %1212 = load double, ptr %114, align 8
+  %1213 = load double, ptr %1159, align 8
+  %1214 = load double, ptr %1175, align 8
+  %1215 = load double, ptr %1186, align 8
+  %1216 = load double, ptr %1160, align 8
+  %1217 = load double, ptr %1162, align 8
+  %1218 = fsub double %1216, %1217
+  %1219 = fmul double %1218, 1.250000e-01
+  %1220 = insertelement <2 x double> poison, double %1215, i64 0
+  %1221 = insertelement <2 x double> %1220, double %1212, i64 1
+  %1222 = insertelement <2 x double> poison, double %1214, i64 0
+  %1223 = insertelement <2 x double> %1222, double %1213, i64 1
+  %1224 = fsub <2 x double> %1221, %1223
+  %1225 = fmul <2 x double> %1224, <double 5.000000e-01, double 2.500000e-01>
+  %1226 = insertelement <2 x double> %1222, double %1211, i64 1
+  %1227 = fadd <2 x double> %1226, %1225
+  %1228 = extractelement <2 x double> %1227, i64 1
+  store double %1228, ptr %7, align 16
+  %1229 = insertelement <2 x double> %1225, double %1219, i64 0
+  %1230 = fsub <2 x double> %1227, %1229
+  %1231 = fadd <2 x double> %1227, %1229
+  %1232 = shufflevector <2 x double> %1230, <2 x double> %1231, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %1232, ptr %1193, align 8
+  %1233 = fmul double %1218, 2.500000e-01
+  %1234 = extractelement <2 x double> %1230, i64 0
+  %1235 = fadd double %1233, %1234
+  store double %1235, ptr %1210, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  %1238 = load double, ptr %1183, align 8
-  %1239 = load double, ptr %114, align 8
-  %1240 = load double, ptr %1161, align 8
-  %1241 = fsub double %1239, %1240
-  %1242 = load double, ptr %1177, align 8
-  %1243 = load double, ptr %1162, align 8
-  %1244 = load double, ptr %1164, align 8
-  %1245 = fsub double %1243, %1244
-  %1246 = fmul double %1245, 3.000000e+00
-  %1247 = insertelement <2 x double> poison, double %1241, i64 0
-  %1248 = insertelement <2 x double> %1247, double %1246, i64 1
-  %1249 = fmul <2 x double> %1248, <double 2.500000e-01, double 2.500000e-01>
-  %1250 = insertelement <2 x double> poison, double %1238, i64 0
-  %1251 = insertelement <2 x double> %1250, double %1242, i64 1
-  %1252 = fadd <2 x double> %1251, %1249
-  store <2 x double> %1252, ptr %7, align 16
-  %1253 = load double, ptr %1, align 8
-  %1254 = extractelement <2 x double> %1249, i64 0
-  %1255 = fsub double %1253, %1254
-  store double %1255, ptr %1207, align 16
-  %1256 = extractelement <2 x double> %1252, i64 1
-  store double %1256, ptr %1212, align 8
+  %1236 = load double, ptr %1181, align 8
+  %1237 = load double, ptr %114, align 8
+  %1238 = load double, ptr %1159, align 8
+  %1239 = fsub double %1237, %1238
+  %1240 = load double, ptr %1175, align 8
+  %1241 = load double, ptr %1160, align 8
+  %1242 = load double, ptr %1162, align 8
+  %1243 = fsub double %1241, %1242
+  %1244 = fmul double %1243, 3.000000e+00
+  %1245 = insertelement <2 x double> poison, double %1239, i64 0
+  %1246 = insertelement <2 x double> %1245, double %1244, i64 1
+  %1247 = fmul <2 x double> %1246, <double 2.500000e-01, double 2.500000e-01>
+  %1248 = insertelement <2 x double> poison, double %1236, i64 0
+  %1249 = insertelement <2 x double> %1248, double %1240, i64 1
+  %1250 = fadd <2 x double> %1249, %1247
+  store <2 x double> %1250, ptr %7, align 16
+  %1251 = load double, ptr %1, align 8
+  %1252 = extractelement <2 x double> %1247, i64 0
+  %1253 = fsub double %1251, %1252
+  store double %1253, ptr %1205, align 16
+  %1254 = extractelement <2 x double> %1250, i64 1
+  store double %1254, ptr %1210, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @free(ptr noundef %1157) #25
+  call void @free(ptr noundef %1155) #25
   br label %.loopexit
 
-1257:                                             ; preds = %._crit_edge
-  %1258 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %1259 = getelementptr inbounds i8, ptr %1, i64 16
-  %1260 = load double, ptr %1259, align 8
-  %1261 = load double, ptr %1, align 8
-  %1262 = load double, ptr %114, align 8
-  %1263 = getelementptr inbounds i8, ptr %55, i64 48
-  %1264 = load double, ptr %1263, align 8
-  %1265 = fsub double %1262, %1264
-  %1266 = fmul double %1265, 5.000000e-01
-  %1267 = getelementptr inbounds i8, ptr %1, i64 40
+1255:                                             ; preds = %._crit_edge
+  %1256 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %1257 = getelementptr inbounds i8, ptr %1, i64 16
+  %1258 = load double, ptr %1257, align 8
+  %1259 = load double, ptr %1, align 8
+  %1260 = load double, ptr %114, align 8
+  %1261 = getelementptr inbounds i8, ptr %55, i64 48
+  %1262 = load double, ptr %1261, align 8
+  %1263 = fsub double %1260, %1262
+  %1264 = fmul double %1263, 5.000000e-01
+  %1265 = getelementptr inbounds i8, ptr %1, i64 40
+  %1266 = load double, ptr %1265, align 8
+  %1267 = getelementptr inbounds i8, ptr %1, i64 24
   %1268 = load double, ptr %1267, align 8
-  %1269 = getelementptr inbounds i8, ptr %1, i64 24
-  %1270 = load double, ptr %1269, align 8
-  %1271 = insertelement <2 x double> poison, double %1261, i64 0
-  %1272 = insertelement <2 x double> %1271, double %1270, i64 1
-  %1273 = insertelement <2 x double> poison, double %1260, i64 0
-  %1274 = insertelement <2 x double> %1273, double %1268, i64 1
-  %1275 = fsub <2 x double> %1272, %1274
-  %1276 = fmul <2 x double> %1275, <double 5.000000e-01, double 5.000000e-01>
-  %1277 = fadd <2 x double> %1274, %1276
-  %1278 = insertelement <2 x double> poison, double %1266, i64 0
-  %1279 = shufflevector <2 x double> %1278, <2 x double> poison, <2 x i32> zeroinitializer
-  %1280 = fadd <2 x double> %1277, %1279
-  store <2 x double> %1280, ptr %1258, align 8
-  %1281 = getelementptr inbounds i8, ptr %1258, i64 16
-  %1282 = extractelement <2 x double> %1280, i64 0
-  store double %1282, ptr %1281, align 8
-  %1283 = getelementptr inbounds i8, ptr %1258, i64 24
-  %1284 = fsub <2 x double> %1277, %1279
-  %1285 = shufflevector <2 x double> %1284, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %1285, ptr %1283, align 8
-  %1286 = getelementptr inbounds i8, ptr %1258, i64 40
-  store <2 x double> %1285, ptr %1286, align 8
-  %1287 = getelementptr inbounds i8, ptr %1258, i64 56
-  %1288 = extractelement <2 x double> %1280, i64 1
-  store double %1288, ptr %1287, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1258, i64 noundef %2, i32 noundef %4) #25
-  tail call void @free(ptr noundef %1258) #25
-  %1289 = load double, ptr %1259, align 8
-  %1290 = load double, ptr %1, align 8
-  %1291 = load double, ptr %114, align 8
-  %1292 = load double, ptr %1263, align 8
-  %1293 = fsub double %1291, %1292
-  %1294 = fmul double %1293, 3.000000e+00
-  %1295 = fmul double %1294, 2.500000e-01
-  %1296 = load double, ptr %1267, align 8
-  %1297 = load double, ptr %1269, align 8
-  %1298 = getelementptr inbounds i8, ptr %7, i64 8
-  %1299 = getelementptr inbounds i8, ptr %7, i64 16
-  %1300 = getelementptr inbounds i8, ptr %7, i64 24
-  %1301 = getelementptr inbounds i8, ptr %7, i64 32
-  %1302 = insertelement <2 x double> poison, double %1290, i64 0
-  %1303 = insertelement <2 x double> %1302, double %1297, i64 1
-  %1304 = insertelement <2 x double> poison, double %1289, i64 0
-  %1305 = insertelement <2 x double> %1304, double %1296, i64 1
-  %1306 = fsub <2 x double> %1303, %1305
-  %1307 = fmul <2 x double> %1306, <double 5.000000e-01, double 5.000000e-01>
-  %1308 = fadd <2 x double> %1305, %1307
-  %1309 = insertelement <2 x double> poison, double %1295, i64 0
-  %1310 = shufflevector <2 x double> %1309, <2 x double> poison, <2 x i32> zeroinitializer
-  %1311 = fadd <2 x double> %1308, %1310
-  store <2 x double> %1311, ptr %7, align 16
-  %1312 = fsub <2 x double> %1308, %1310
-  %1313 = shufflevector <2 x double> %1311, <2 x double> %1312, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %1313, ptr %1299, align 16
-  store <2 x double> %1312, ptr %1301, align 16
-  %1314 = getelementptr inbounds i8, ptr %7, i64 48
-  %1315 = shufflevector <2 x double> %1312, <2 x double> %1311, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %1315, ptr %1314, align 16
-  %1316 = getelementptr inbounds i8, ptr %7, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1316, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
+  %1269 = insertelement <2 x double> poison, double %1259, i64 0
+  %1270 = insertelement <2 x double> %1269, double %1268, i64 1
+  %1271 = insertelement <2 x double> poison, double %1258, i64 0
+  %1272 = insertelement <2 x double> %1271, double %1266, i64 1
+  %1273 = fsub <2 x double> %1270, %1272
+  %1274 = fmul <2 x double> %1273, <double 5.000000e-01, double 5.000000e-01>
+  %1275 = fadd <2 x double> %1272, %1274
+  %1276 = insertelement <2 x double> poison, double %1264, i64 0
+  %1277 = shufflevector <2 x double> %1276, <2 x double> poison, <2 x i32> zeroinitializer
+  %1278 = fadd <2 x double> %1275, %1277
+  store <2 x double> %1278, ptr %1256, align 8
+  %1279 = getelementptr inbounds i8, ptr %1256, i64 16
+  %1280 = extractelement <2 x double> %1278, i64 0
+  store double %1280, ptr %1279, align 8
+  %1281 = getelementptr inbounds i8, ptr %1256, i64 24
+  %1282 = fsub <2 x double> %1275, %1277
+  %1283 = shufflevector <2 x double> %1282, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x double> %1283, ptr %1281, align 8
+  %1284 = getelementptr inbounds i8, ptr %1256, i64 40
+  store <2 x double> %1283, ptr %1284, align 8
+  %1285 = getelementptr inbounds i8, ptr %1256, i64 56
+  %1286 = extractelement <2 x double> %1278, i64 1
+  store double %1286, ptr %1285, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1256, i64 noundef %2, i32 noundef %4) #25
+  tail call void @free(ptr noundef %1256) #25
+  %1287 = load double, ptr %1257, align 8
+  %1288 = load double, ptr %1, align 8
+  %1289 = load double, ptr %114, align 8
+  %1290 = load double, ptr %1261, align 8
+  %1291 = fsub double %1289, %1290
+  %1292 = fmul double %1291, 3.000000e+00
+  %1293 = fmul double %1292, 2.500000e-01
+  %1294 = load double, ptr %1265, align 8
+  %1295 = load double, ptr %1267, align 8
+  %1296 = getelementptr inbounds i8, ptr %7, i64 8
+  %1297 = getelementptr inbounds i8, ptr %7, i64 16
+  %1298 = getelementptr inbounds i8, ptr %7, i64 24
+  %1299 = getelementptr inbounds i8, ptr %7, i64 32
+  %1300 = insertelement <2 x double> poison, double %1288, i64 0
+  %1301 = insertelement <2 x double> %1300, double %1295, i64 1
+  %1302 = insertelement <2 x double> poison, double %1287, i64 0
+  %1303 = insertelement <2 x double> %1302, double %1294, i64 1
+  %1304 = fsub <2 x double> %1301, %1303
+  %1305 = fmul <2 x double> %1304, <double 5.000000e-01, double 5.000000e-01>
+  %1306 = fadd <2 x double> %1303, %1305
+  %1307 = insertelement <2 x double> poison, double %1293, i64 0
+  %1308 = shufflevector <2 x double> %1307, <2 x double> poison, <2 x i32> zeroinitializer
+  %1309 = fadd <2 x double> %1306, %1308
+  store <2 x double> %1309, ptr %7, align 16
+  %1310 = fsub <2 x double> %1306, %1308
+  %1311 = shufflevector <2 x double> %1309, <2 x double> %1310, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %1311, ptr %1297, align 16
+  store <2 x double> %1310, ptr %1299, align 16
+  %1312 = getelementptr inbounds i8, ptr %7, i64 48
+  %1313 = shufflevector <2 x double> %1310, <2 x double> %1309, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %1313, ptr %1312, align 16
+  %1314 = getelementptr inbounds i8, ptr %7, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1314, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 5) #25
-  %1317 = load double, ptr %1259, align 8
-  %1318 = load double, ptr %1, align 8
-  %1319 = fsub double %1318, %1317
-  %1320 = fmul double %1319, 5.000000e-01
-  %1321 = fadd double %1317, %1320
-  %1322 = load double, ptr %114, align 8
-  %1323 = load double, ptr %1263, align 8
-  %1324 = fsub double %1322, %1323
-  %1325 = fmul double %1324, 3.000000e+00
-  %1326 = load double, ptr %1267, align 8
-  %1327 = load double, ptr %1269, align 8
-  %1328 = fsub double %1327, %1326
-  %1329 = insertelement <2 x double> poison, double %1325, i64 0
-  %1330 = insertelement <2 x double> %1329, double %1328, i64 1
-  %1331 = fmul <2 x double> %1330, <double 2.500000e-01, double 5.000000e-01>
-  %1332 = insertelement <2 x double> poison, double %1321, i64 0
-  %1333 = insertelement <2 x double> %1332, double %1326, i64 1
-  %1334 = fadd <2 x double> %1333, %1331
-  store <2 x double> %1334, ptr %7, align 16
-  store double %1318, ptr %1299, align 16
-  %1335 = getelementptr inbounds i8, ptr %1, i64 8
+  %1315 = load double, ptr %1257, align 8
+  %1316 = load double, ptr %1, align 8
+  %1317 = fsub double %1316, %1315
+  %1318 = fmul double %1317, 5.000000e-01
+  %1319 = fadd double %1315, %1318
+  %1320 = load double, ptr %114, align 8
+  %1321 = load double, ptr %1261, align 8
+  %1322 = fsub double %1320, %1321
+  %1323 = fmul double %1322, 3.000000e+00
+  %1324 = load double, ptr %1265, align 8
+  %1325 = load double, ptr %1267, align 8
+  %1326 = fsub double %1325, %1324
+  %1327 = insertelement <2 x double> poison, double %1323, i64 0
+  %1328 = insertelement <2 x double> %1327, double %1326, i64 1
+  %1329 = fmul <2 x double> %1328, <double 2.500000e-01, double 5.000000e-01>
+  %1330 = insertelement <2 x double> poison, double %1319, i64 0
+  %1331 = insertelement <2 x double> %1330, double %1324, i64 1
+  %1332 = fadd <2 x double> %1331, %1329
+  store <2 x double> %1332, ptr %7, align 16
+  store double %1316, ptr %1297, align 16
+  %1333 = getelementptr inbounds i8, ptr %1, i64 8
+  %1334 = load double, ptr %1333, align 8
+  %1335 = getelementptr inbounds i8, ptr %1, i64 56
   %1336 = load double, ptr %1335, align 8
-  %1337 = getelementptr inbounds i8, ptr %1, i64 56
-  %1338 = load double, ptr %1337, align 8
-  %1339 = fsub double %1336, %1338
-  %1340 = fmul double %1339, 5.000000e-01
-  %1341 = fadd double %1326, %1340
-  store double %1341, ptr %1300, align 8
+  %1337 = fsub double %1334, %1336
+  %1338 = fmul double %1337, 5.000000e-01
+  %1339 = fadd double %1324, %1338
+  store double %1339, ptr %1298, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  %1342 = load double, ptr %1259, align 8
-  store double %1342, ptr %7, align 16
-  %1343 = load double, ptr %1267, align 8
-  %1344 = load double, ptr %1269, align 8
-  %1345 = fsub double %1344, %1343
-  %1346 = fmul double %1345, 5.000000e-01
-  %1347 = fadd double %1343, %1346
-  store double %1347, ptr %1298, align 8
-  %1348 = load double, ptr %1, align 8
-  %1349 = fsub double %1348, %1342
-  %1350 = fmul double %1349, 5.000000e-01
-  %1351 = fadd double %1342, %1350
-  %1352 = load double, ptr %114, align 8
-  %1353 = load double, ptr %1263, align 8
-  %1354 = fsub double %1352, %1353
-  %1355 = fmul double %1354, 3.000000e+00
-  %1356 = fmul double %1355, 2.500000e-01
-  %1357 = fsub double %1351, %1356
-  store double %1357, ptr %1299, align 16
-  %1358 = load double, ptr %1335, align 8
-  %1359 = load double, ptr %1337, align 8
-  %1360 = fsub double %1358, %1359
-  %1361 = fmul double %1360, 5.000000e-01
-  %1362 = fadd double %1343, %1361
-  store double %1362, ptr %1300, align 8
+  %1340 = load double, ptr %1257, align 8
+  store double %1340, ptr %7, align 16
+  %1341 = load double, ptr %1265, align 8
+  %1342 = load double, ptr %1267, align 8
+  %1343 = fsub double %1342, %1341
+  %1344 = fmul double %1343, 5.000000e-01
+  %1345 = fadd double %1341, %1344
+  store double %1345, ptr %1296, align 8
+  %1346 = load double, ptr %1, align 8
+  %1347 = fsub double %1346, %1340
+  %1348 = fmul double %1347, 5.000000e-01
+  %1349 = fadd double %1340, %1348
+  %1350 = load double, ptr %114, align 8
+  %1351 = load double, ptr %1261, align 8
+  %1352 = fsub double %1350, %1351
+  %1353 = fmul double %1352, 3.000000e+00
+  %1354 = fmul double %1353, 2.500000e-01
+  %1355 = fsub double %1349, %1354
+  store double %1355, ptr %1297, align 16
+  %1356 = load double, ptr %1333, align 8
+  %1357 = load double, ptr %1335, align 8
+  %1358 = fsub double %1356, %1357
+  %1359 = fmul double %1358, 5.000000e-01
+  %1360 = fadd double %1341, %1359
+  store double %1360, ptr %1298, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
   br label %.loopexit
 
-1363:                                             ; preds = %._crit_edge
-  %1364 = add i64 %2, 12
-  %1365 = tail call fastcc ptr @gv_calloc(i64 noundef %1364, i64 noundef 16)
-  %1366 = getelementptr inbounds i8, ptr %1, i64 16
-  %1367 = load double, ptr %1366, align 8
-  %1368 = load double, ptr %1, align 8
-  %1369 = load double, ptr %114, align 8
-  %1370 = getelementptr inbounds i8, ptr %55, i64 48
+1361:                                             ; preds = %._crit_edge
+  %1362 = add i64 %2, 12
+  %1363 = tail call fastcc ptr @gv_calloc(i64 noundef %1362, i64 noundef 16)
+  %1364 = getelementptr inbounds i8, ptr %1, i64 16
+  %1365 = load double, ptr %1364, align 8
+  %1366 = load double, ptr %1, align 8
+  %1367 = load double, ptr %114, align 8
+  %1368 = getelementptr inbounds i8, ptr %55, i64 48
+  %1369 = load double, ptr %1368, align 8
+  %1370 = getelementptr inbounds i8, ptr %1, i64 40
   %1371 = load double, ptr %1370, align 8
-  %1372 = getelementptr inbounds i8, ptr %1, i64 40
+  %1372 = getelementptr inbounds i8, ptr %1, i64 24
   %1373 = load double, ptr %1372, align 8
-  %1374 = getelementptr inbounds i8, ptr %1, i64 24
+  %1374 = getelementptr inbounds i8, ptr %55, i64 56
   %1375 = load double, ptr %1374, align 8
-  %1376 = getelementptr inbounds i8, ptr %55, i64 56
+  %1376 = getelementptr inbounds i8, ptr %55, i64 72
   %1377 = load double, ptr %1376, align 8
-  %1378 = getelementptr inbounds i8, ptr %55, i64 72
-  %1379 = load double, ptr %1378, align 8
-  %1380 = insertelement <2 x double> poison, double %1368, i64 0
-  %1381 = insertelement <2 x double> %1380, double %1375, i64 1
-  %1382 = insertelement <2 x double> poison, double %1367, i64 0
-  %1383 = insertelement <2 x double> %1382, double %1373, i64 1
-  %1384 = fsub <2 x double> %1381, %1383
-  %1385 = fmul <2 x double> %1384, <double 5.000000e-01, double 5.000000e-01>
-  %1386 = fadd <2 x double> %1383, %1385
+  %1378 = insertelement <2 x double> poison, double %1366, i64 0
+  %1379 = insertelement <2 x double> %1378, double %1373, i64 1
+  %1380 = insertelement <2 x double> poison, double %1365, i64 0
+  %1381 = insertelement <2 x double> %1380, double %1371, i64 1
+  %1382 = fsub <2 x double> %1379, %1381
+  %1383 = fmul <2 x double> %1382, <double 5.000000e-01, double 5.000000e-01>
+  %1384 = fadd <2 x double> %1381, %1383
+  %1385 = insertelement <2 x double> poison, double %1367, i64 0
+  %1386 = insertelement <2 x double> %1385, double %1375, i64 1
   %1387 = insertelement <2 x double> poison, double %1369, i64 0
   %1388 = insertelement <2 x double> %1387, double %1377, i64 1
-  %1389 = insertelement <2 x double> poison, double %1371, i64 0
-  %1390 = insertelement <2 x double> %1389, double %1379, i64 1
-  %1391 = fsub <2 x double> %1388, %1390
-  %1392 = fmul <2 x double> %1391, <double 2.500000e-01, double 5.000000e-01>
-  %1393 = fadd <2 x double> %1386, %1392
-  store <2 x double> %1393, ptr %1365, align 8
-  %1394 = getelementptr inbounds i8, ptr %1365, i64 16
-  %1395 = extractelement <2 x double> %1393, i64 0
-  store double %1395, ptr %1394, align 8
-  %1396 = getelementptr inbounds i8, ptr %1365, i64 24
-  %1397 = fmul <2 x double> %1391, <double 1.250000e-01, double 1.250000e-01>
-  %1398 = fadd <2 x double> %1393, %1397
-  %1399 = fsub <2 x double> %1393, %1397
-  %1400 = shufflevector <2 x double> %1398, <2 x double> %1399, <2 x i32> <i32 1, i32 2>
-  store <2 x double> %1400, ptr %1396, align 8
-  %1401 = extractelement <2 x double> %1397, i64 1
-  %1402 = extractelement <2 x double> %1398, i64 1
-  %1403 = fadd double %1401, %1402
-  %1404 = getelementptr inbounds i8, ptr %1365, i64 40
-  store double %1403, ptr %1404, align 8
-  %1405 = getelementptr inbounds i8, ptr %1365, i64 48
-  store double %1395, ptr %1405, align 8
-  %1406 = fadd double %1401, %1403
-  %1407 = getelementptr inbounds i8, ptr %1365, i64 56
-  store double %1406, ptr %1407, align 8
-  %1408 = getelementptr inbounds i8, ptr %1365, i64 64
-  store double %1395, ptr %1408, align 8
-  %1409 = fadd double %1401, %1406
-  %1410 = getelementptr inbounds i8, ptr %1365, i64 72
-  store double %1409, ptr %1410, align 8
-  %1411 = getelementptr inbounds i8, ptr %1365, i64 80
-  %1412 = extractelement <2 x double> %1399, i64 0
-  store double %1412, ptr %1411, align 8
-  %1413 = getelementptr inbounds i8, ptr %1365, i64 88
-  store double %1409, ptr %1413, align 8
-  %1414 = getelementptr inbounds i8, ptr %1365, i64 96
-  %1415 = extractelement <2 x double> %1386, i64 0
-  store double %1415, ptr %1414, align 8
-  %1416 = getelementptr inbounds i8, ptr %1365, i64 104
-  store double %1406, ptr %1416, align 8
-  %1417 = fsub <2 x double> %1386, %1397
-  %1418 = extractelement <2 x double> %1417, i64 0
-  %1419 = getelementptr inbounds i8, ptr %1365, i64 112
-  store double %1418, ptr %1419, align 8
-  %1420 = getelementptr inbounds i8, ptr %1365, i64 120
-  store double %1409, ptr %1420, align 8
-  %1421 = fsub <2 x double> %1417, %1397
-  %1422 = extractelement <2 x double> %1421, i64 0
-  %1423 = getelementptr inbounds i8, ptr %1365, i64 128
-  store double %1422, ptr %1423, align 8
-  %1424 = getelementptr inbounds i8, ptr %1365, i64 136
-  store double %1409, ptr %1424, align 8
-  %1425 = getelementptr inbounds i8, ptr %1365, i64 144
-  store double %1422, ptr %1425, align 8
-  %1426 = getelementptr inbounds i8, ptr %1365, i64 152
-  store double %1406, ptr %1426, align 8
-  %1427 = fadd <2 x double> %1397, %1421
-  %1428 = extractelement <2 x double> %1427, i64 0
-  %1429 = getelementptr inbounds i8, ptr %1365, i64 160
-  store double %1428, ptr %1429, align 8
-  %1430 = getelementptr inbounds i8, ptr %1365, i64 168
-  store double %1403, ptr %1430, align 8
-  %1431 = getelementptr inbounds i8, ptr %1365, i64 176
-  store double %1422, ptr %1431, align 8
-  %1432 = getelementptr inbounds i8, ptr %1365, i64 184
-  store double %1402, ptr %1432, align 8
-  %1433 = getelementptr inbounds i8, ptr %1365, i64 192
-  store double %1422, ptr %1433, align 8
-  %1434 = getelementptr inbounds i8, ptr %1365, i64 200
-  %1435 = extractelement <2 x double> %1393, i64 1
-  store double %1435, ptr %1434, align 8
-  %1436 = getelementptr inbounds i8, ptr %1365, i64 208
-  store double %1428, ptr %1436, align 8
-  %1437 = getelementptr inbounds i8, ptr %1365, i64 216
-  store double %1435, ptr %1437, align 8
-  %1438 = getelementptr inbounds i8, ptr %1365, i64 224
-  store double %1415, ptr %1438, align 8
-  %1439 = getelementptr inbounds i8, ptr %1365, i64 232
-  store <2 x double> %1400, ptr %1439, align 8
-  %1440 = getelementptr inbounds i8, ptr %1365, i64 248
-  store double %1435, ptr %1440, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1365, i64 noundef %1364, i32 noundef %4) #25
-  %1441 = load double, ptr %1438, align 8
-  store double %1441, ptr %7, align 16
-  %1442 = load double, ptr %1372, align 8
-  %1443 = load double, ptr %1374, align 8
-  %1444 = fsub double %1443, %1442
-  %1445 = fmul double %1444, 5.000000e-01
-  %1446 = fadd double %1442, %1445
-  %1447 = getelementptr inbounds i8, ptr %7, i64 8
-  store double %1446, ptr %1447, align 8
-  %1448 = getelementptr inbounds i8, ptr %7, i64 16
-  store double %1441, ptr %1448, align 16
-  %1449 = load double, ptr %1376, align 8
-  %1450 = load double, ptr %1378, align 8
-  %1451 = fsub double %1449, %1450
-  %1452 = fmul double %1451, 1.250000e-01
-  %1453 = fadd double %1446, %1452
-  %1454 = getelementptr inbounds i8, ptr %7, i64 24
-  store double %1453, ptr %1454, align 8
+  %1389 = fsub <2 x double> %1386, %1388
+  %1390 = fmul <2 x double> %1389, <double 2.500000e-01, double 5.000000e-01>
+  %1391 = fadd <2 x double> %1384, %1390
+  store <2 x double> %1391, ptr %1363, align 8
+  %1392 = getelementptr inbounds i8, ptr %1363, i64 16
+  %1393 = extractelement <2 x double> %1391, i64 0
+  store double %1393, ptr %1392, align 8
+  %1394 = getelementptr inbounds i8, ptr %1363, i64 24
+  %1395 = fmul <2 x double> %1389, <double 1.250000e-01, double 1.250000e-01>
+  %1396 = fadd <2 x double> %1391, %1395
+  %1397 = fsub <2 x double> %1391, %1395
+  %1398 = shufflevector <2 x double> %1396, <2 x double> %1397, <2 x i32> <i32 1, i32 2>
+  store <2 x double> %1398, ptr %1394, align 8
+  %1399 = extractelement <2 x double> %1395, i64 1
+  %1400 = extractelement <2 x double> %1396, i64 1
+  %1401 = fadd double %1399, %1400
+  %1402 = getelementptr inbounds i8, ptr %1363, i64 40
+  store double %1401, ptr %1402, align 8
+  %1403 = getelementptr inbounds i8, ptr %1363, i64 48
+  store double %1393, ptr %1403, align 8
+  %1404 = fadd double %1399, %1401
+  %1405 = getelementptr inbounds i8, ptr %1363, i64 56
+  store double %1404, ptr %1405, align 8
+  %1406 = getelementptr inbounds i8, ptr %1363, i64 64
+  store double %1393, ptr %1406, align 8
+  %1407 = fadd double %1399, %1404
+  %1408 = getelementptr inbounds i8, ptr %1363, i64 72
+  store double %1407, ptr %1408, align 8
+  %1409 = getelementptr inbounds i8, ptr %1363, i64 80
+  %1410 = extractelement <2 x double> %1397, i64 0
+  store double %1410, ptr %1409, align 8
+  %1411 = getelementptr inbounds i8, ptr %1363, i64 88
+  store double %1407, ptr %1411, align 8
+  %1412 = getelementptr inbounds i8, ptr %1363, i64 96
+  %1413 = extractelement <2 x double> %1384, i64 0
+  store double %1413, ptr %1412, align 8
+  %1414 = getelementptr inbounds i8, ptr %1363, i64 104
+  store double %1404, ptr %1414, align 8
+  %1415 = fsub <2 x double> %1384, %1395
+  %1416 = extractelement <2 x double> %1415, i64 0
+  %1417 = getelementptr inbounds i8, ptr %1363, i64 112
+  store double %1416, ptr %1417, align 8
+  %1418 = getelementptr inbounds i8, ptr %1363, i64 120
+  store double %1407, ptr %1418, align 8
+  %1419 = fsub <2 x double> %1415, %1395
+  %1420 = extractelement <2 x double> %1419, i64 0
+  %1421 = getelementptr inbounds i8, ptr %1363, i64 128
+  store double %1420, ptr %1421, align 8
+  %1422 = getelementptr inbounds i8, ptr %1363, i64 136
+  store double %1407, ptr %1422, align 8
+  %1423 = getelementptr inbounds i8, ptr %1363, i64 144
+  store double %1420, ptr %1423, align 8
+  %1424 = getelementptr inbounds i8, ptr %1363, i64 152
+  store double %1404, ptr %1424, align 8
+  %1425 = fadd <2 x double> %1395, %1419
+  %1426 = extractelement <2 x double> %1425, i64 0
+  %1427 = getelementptr inbounds i8, ptr %1363, i64 160
+  store double %1426, ptr %1427, align 8
+  %1428 = getelementptr inbounds i8, ptr %1363, i64 168
+  store double %1401, ptr %1428, align 8
+  %1429 = getelementptr inbounds i8, ptr %1363, i64 176
+  store double %1420, ptr %1429, align 8
+  %1430 = getelementptr inbounds i8, ptr %1363, i64 184
+  store double %1400, ptr %1430, align 8
+  %1431 = getelementptr inbounds i8, ptr %1363, i64 192
+  store double %1420, ptr %1431, align 8
+  %1432 = getelementptr inbounds i8, ptr %1363, i64 200
+  %1433 = extractelement <2 x double> %1391, i64 1
+  store double %1433, ptr %1432, align 8
+  %1434 = getelementptr inbounds i8, ptr %1363, i64 208
+  store double %1426, ptr %1434, align 8
+  %1435 = getelementptr inbounds i8, ptr %1363, i64 216
+  store double %1433, ptr %1435, align 8
+  %1436 = getelementptr inbounds i8, ptr %1363, i64 224
+  store double %1413, ptr %1436, align 8
+  %1437 = getelementptr inbounds i8, ptr %1363, i64 232
+  store <2 x double> %1398, ptr %1437, align 8
+  %1438 = getelementptr inbounds i8, ptr %1363, i64 248
+  store double %1433, ptr %1438, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1363, i64 noundef %1362, i32 noundef %4) #25
+  %1439 = load double, ptr %1436, align 8
+  store double %1439, ptr %7, align 16
+  %1440 = load double, ptr %1370, align 8
+  %1441 = load double, ptr %1372, align 8
+  %1442 = fsub double %1441, %1440
+  %1443 = fmul double %1442, 5.000000e-01
+  %1444 = fadd double %1440, %1443
+  %1445 = getelementptr inbounds i8, ptr %7, i64 8
+  store double %1444, ptr %1445, align 8
+  %1446 = getelementptr inbounds i8, ptr %7, i64 16
+  store double %1439, ptr %1446, align 16
+  %1447 = load double, ptr %1374, align 8
+  %1448 = load double, ptr %1376, align 8
+  %1449 = fsub double %1447, %1448
+  %1450 = fmul double %1449, 1.250000e-01
+  %1451 = fadd double %1444, %1450
+  %1452 = getelementptr inbounds i8, ptr %7, i64 24
+  store double %1451, ptr %1452, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  %1455 = load double, ptr %1438, align 8
-  store double %1455, ptr %7, align 16
-  %1456 = load double, ptr %1372, align 8
-  %1457 = load double, ptr %1374, align 8
-  %1458 = fsub double %1457, %1456
-  %1459 = fmul double %1458, 5.000000e-01
-  %1460 = fadd double %1456, %1459
-  %1461 = load double, ptr %1376, align 8
-  %1462 = load double, ptr %1378, align 8
-  %1463 = fsub double %1461, %1462
-  %1464 = fmul double %1463, 2.500000e-01
-  %1465 = fadd double %1460, %1464
-  store double %1465, ptr %1447, align 8
-  store double %1455, ptr %1448, align 16
-  %1466 = fmul double %1463, 1.250000e-01
-  %1467 = fadd double %1466, %1465
-  store double %1467, ptr %1454, align 8
+  %1453 = load double, ptr %1436, align 8
+  store double %1453, ptr %7, align 16
+  %1454 = load double, ptr %1370, align 8
+  %1455 = load double, ptr %1372, align 8
+  %1456 = fsub double %1455, %1454
+  %1457 = fmul double %1456, 5.000000e-01
+  %1458 = fadd double %1454, %1457
+  %1459 = load double, ptr %1374, align 8
+  %1460 = load double, ptr %1376, align 8
+  %1461 = fsub double %1459, %1460
+  %1462 = fmul double %1461, 2.500000e-01
+  %1463 = fadd double %1458, %1462
+  store double %1463, ptr %1445, align 8
+  store double %1453, ptr %1446, align 16
+  %1464 = fmul double %1461, 1.250000e-01
+  %1465 = fadd double %1464, %1463
+  store double %1465, ptr %1452, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  %1468 = load double, ptr %1366, align 8
-  store double %1468, ptr %7, align 16
-  %1469 = load double, ptr %1372, align 8
-  %1470 = load double, ptr %1374, align 8
-  %1471 = fsub double %1470, %1469
-  %1472 = fmul double %1471, 5.000000e-01
-  %1473 = fadd double %1469, %1472
-  store double %1473, ptr %1447, align 8
-  %1474 = load double, ptr %1, align 8
-  store double %1474, ptr %1448, align 16
-  %1475 = getelementptr inbounds i8, ptr %1, i64 8
+  %1466 = load double, ptr %1364, align 8
+  store double %1466, ptr %7, align 16
+  %1467 = load double, ptr %1370, align 8
+  %1468 = load double, ptr %1372, align 8
+  %1469 = fsub double %1468, %1467
+  %1470 = fmul double %1469, 5.000000e-01
+  %1471 = fadd double %1467, %1470
+  store double %1471, ptr %1445, align 8
+  %1472 = load double, ptr %1, align 8
+  store double %1472, ptr %1446, align 16
+  %1473 = getelementptr inbounds i8, ptr %1, i64 8
+  %1474 = load double, ptr %1473, align 8
+  %1475 = getelementptr inbounds i8, ptr %1, i64 56
   %1476 = load double, ptr %1475, align 8
-  %1477 = getelementptr inbounds i8, ptr %1, i64 56
-  %1478 = load double, ptr %1477, align 8
-  %1479 = fsub double %1476, %1478
-  %1480 = fmul double %1479, 5.000000e-01
-  %1481 = fadd double %1469, %1480
-  store double %1481, ptr %1454, align 8
+  %1477 = fsub double %1474, %1476
+  %1478 = fmul double %1477, 5.000000e-01
+  %1479 = fadd double %1467, %1478
+  store double %1479, ptr %1452, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @free(ptr noundef %1365) #25
+  call void @free(ptr noundef %1363) #25
   br label %.loopexit
 
-1482:                                             ; preds = %._crit_edge
-  %1483 = add i64 %2, 4
-  %1484 = tail call fastcc ptr @gv_calloc(i64 noundef %1483, i64 noundef 16)
-  %1485 = getelementptr inbounds i8, ptr %1, i64 16
-  %1486 = load double, ptr %1485, align 8
-  %1487 = load double, ptr %1, align 8
-  %1488 = load double, ptr %114, align 8
-  %1489 = getelementptr inbounds i8, ptr %55, i64 48
+1480:                                             ; preds = %._crit_edge
+  %1481 = add i64 %2, 4
+  %1482 = tail call fastcc ptr @gv_calloc(i64 noundef %1481, i64 noundef 16)
+  %1483 = getelementptr inbounds i8, ptr %1, i64 16
+  %1484 = load double, ptr %1483, align 8
+  %1485 = load double, ptr %1, align 8
+  %1486 = load double, ptr %114, align 8
+  %1487 = getelementptr inbounds i8, ptr %55, i64 48
+  %1488 = load double, ptr %1487, align 8
+  %1489 = getelementptr inbounds i8, ptr %1, i64 40
   %1490 = load double, ptr %1489, align 8
-  %1491 = getelementptr inbounds i8, ptr %1, i64 40
+  %1491 = getelementptr inbounds i8, ptr %1, i64 24
   %1492 = load double, ptr %1491, align 8
-  %1493 = getelementptr inbounds i8, ptr %1, i64 24
+  %1493 = getelementptr inbounds i8, ptr %55, i64 56
   %1494 = load double, ptr %1493, align 8
-  %1495 = getelementptr inbounds i8, ptr %55, i64 56
+  %1495 = getelementptr inbounds i8, ptr %55, i64 72
   %1496 = load double, ptr %1495, align 8
-  %1497 = getelementptr inbounds i8, ptr %55, i64 72
-  %1498 = load double, ptr %1497, align 8
-  %1499 = insertelement <2 x double> poison, double %1487, i64 0
-  %1500 = insertelement <2 x double> %1499, double %1494, i64 1
-  %1501 = insertelement <2 x double> poison, double %1486, i64 0
-  %1502 = insertelement <2 x double> %1501, double %1492, i64 1
-  %1503 = fsub <2 x double> %1500, %1502
-  %1504 = fmul <2 x double> %1503, <double 5.000000e-01, double 5.000000e-01>
-  %1505 = fadd <2 x double> %1502, %1504
+  %1497 = insertelement <2 x double> poison, double %1485, i64 0
+  %1498 = insertelement <2 x double> %1497, double %1492, i64 1
+  %1499 = insertelement <2 x double> poison, double %1484, i64 0
+  %1500 = insertelement <2 x double> %1499, double %1490, i64 1
+  %1501 = fsub <2 x double> %1498, %1500
+  %1502 = fmul <2 x double> %1501, <double 5.000000e-01, double 5.000000e-01>
+  %1503 = fadd <2 x double> %1500, %1502
+  %1504 = insertelement <2 x double> poison, double %1486, i64 0
+  %1505 = insertelement <2 x double> %1504, double %1494, i64 1
   %1506 = insertelement <2 x double> poison, double %1488, i64 0
   %1507 = insertelement <2 x double> %1506, double %1496, i64 1
-  %1508 = insertelement <2 x double> poison, double %1490, i64 0
-  %1509 = insertelement <2 x double> %1508, double %1498, i64 1
-  %1510 = fsub <2 x double> %1507, %1509
-  %1511 = fmul <2 x double> %1510, <double 1.250000e-01, double 5.000000e-01>
-  %1512 = fadd <2 x double> %1505, %1511
-  store <2 x double> %1512, ptr %1484, align 8
-  %1513 = extractelement <2 x double> %1511, i64 0
-  %1514 = getelementptr inbounds i8, ptr %1484, i64 16
-  %1515 = extractelement <2 x double> %1510, i64 1
-  %1516 = fmul double %1515, 1.250000e-01
-  %1517 = insertelement <2 x double> %1511, double %1516, i64 1
-  %1518 = fadd <2 x double> %1512, %1517
-  store <2 x double> %1518, ptr %1514, align 8
-  %1519 = getelementptr inbounds i8, ptr %1484, i64 32
-  %1520 = extractelement <2 x double> %1518, i64 0
-  store double %1520, ptr %1519, align 8
-  %1521 = fmul double %1515, 2.500000e-01
-  %1522 = extractelement <2 x double> %1518, i64 1
-  %1523 = fadd double %1522, %1521
-  %1524 = getelementptr inbounds i8, ptr %1484, i64 40
-  store double %1523, ptr %1524, align 8
-  %1525 = getelementptr inbounds i8, ptr %1484, i64 48
-  %1526 = extractelement <2 x double> %1512, i64 0
-  store double %1526, ptr %1525, align 8
-  %1527 = fadd double %1523, %1516
-  %1528 = getelementptr inbounds i8, ptr %1484, i64 56
-  store double %1527, ptr %1528, align 8
-  %1529 = extractelement <2 x double> %1510, i64 0
-  %1530 = fmul double %1529, 2.500000e-01
-  %1531 = fsub double %1526, %1530
-  %1532 = getelementptr inbounds i8, ptr %1484, i64 64
-  store double %1531, ptr %1532, align 8
-  %1533 = getelementptr inbounds i8, ptr %1484, i64 72
-  store double %1527, ptr %1533, align 8
-  %1534 = fsub double %1531, %1513
-  %1535 = getelementptr inbounds i8, ptr %1484, i64 80
-  store double %1534, ptr %1535, align 8
-  %1536 = getelementptr inbounds i8, ptr %1484, i64 88
-  store double %1523, ptr %1536, align 8
-  %1537 = getelementptr inbounds i8, ptr %1484, i64 96
-  store double %1534, ptr %1537, align 8
-  %1538 = getelementptr inbounds i8, ptr %1484, i64 104
-  store double %1522, ptr %1538, align 8
-  %1539 = getelementptr inbounds i8, ptr %1484, i64 112
-  store double %1531, ptr %1539, align 8
-  %1540 = getelementptr inbounds i8, ptr %1484, i64 120
-  %1541 = extractelement <2 x double> %1512, i64 1
-  store double %1541, ptr %1540, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1484, i64 noundef %1483, i32 noundef %4) #25
-  %1542 = load double, ptr %1485, align 8
-  %1543 = load double, ptr %1, align 8
-  %1544 = load double, ptr %1491, align 8
-  %1545 = load double, ptr %1493, align 8
-  %1546 = getelementptr inbounds i8, ptr %7, i64 8
-  %1547 = insertelement <2 x double> poison, double %1543, i64 0
-  %1548 = insertelement <2 x double> %1547, double %1545, i64 1
-  %1549 = insertelement <2 x double> poison, double %1542, i64 0
-  %1550 = insertelement <2 x double> %1549, double %1544, i64 1
-  %1551 = fsub <2 x double> %1548, %1550
-  %1552 = fmul <2 x double> %1551, <double 5.000000e-01, double 5.000000e-01>
-  %1553 = fadd <2 x double> %1550, %1552
-  store <2 x double> %1553, ptr %7, align 16
-  %1554 = getelementptr inbounds i8, ptr %7, i64 16
-  %1555 = extractelement <2 x double> %1553, i64 0
-  store double %1555, ptr %1554, align 16
-  %1556 = load double, ptr %1495, align 8
-  %1557 = load double, ptr %1497, align 8
-  %1558 = fsub double %1556, %1557
-  %1559 = fmul double %1558, 1.250000e-01
-  %1560 = extractelement <2 x double> %1553, i64 1
-  %1561 = fadd double %1560, %1559
-  %1562 = getelementptr inbounds i8, ptr %7, i64 24
-  store double %1561, ptr %1562, align 8
+  %1508 = fsub <2 x double> %1505, %1507
+  %1509 = fmul <2 x double> %1508, <double 1.250000e-01, double 5.000000e-01>
+  %1510 = fadd <2 x double> %1503, %1509
+  store <2 x double> %1510, ptr %1482, align 8
+  %1511 = extractelement <2 x double> %1509, i64 0
+  %1512 = getelementptr inbounds i8, ptr %1482, i64 16
+  %1513 = extractelement <2 x double> %1508, i64 1
+  %1514 = fmul double %1513, 1.250000e-01
+  %1515 = insertelement <2 x double> %1509, double %1514, i64 1
+  %1516 = fadd <2 x double> %1510, %1515
+  store <2 x double> %1516, ptr %1512, align 8
+  %1517 = getelementptr inbounds i8, ptr %1482, i64 32
+  %1518 = extractelement <2 x double> %1516, i64 0
+  store double %1518, ptr %1517, align 8
+  %1519 = fmul double %1513, 2.500000e-01
+  %1520 = extractelement <2 x double> %1516, i64 1
+  %1521 = fadd double %1520, %1519
+  %1522 = getelementptr inbounds i8, ptr %1482, i64 40
+  store double %1521, ptr %1522, align 8
+  %1523 = getelementptr inbounds i8, ptr %1482, i64 48
+  %1524 = extractelement <2 x double> %1510, i64 0
+  store double %1524, ptr %1523, align 8
+  %1525 = fadd double %1521, %1514
+  %1526 = getelementptr inbounds i8, ptr %1482, i64 56
+  store double %1525, ptr %1526, align 8
+  %1527 = extractelement <2 x double> %1508, i64 0
+  %1528 = fmul double %1527, 2.500000e-01
+  %1529 = fsub double %1524, %1528
+  %1530 = getelementptr inbounds i8, ptr %1482, i64 64
+  store double %1529, ptr %1530, align 8
+  %1531 = getelementptr inbounds i8, ptr %1482, i64 72
+  store double %1525, ptr %1531, align 8
+  %1532 = fsub double %1529, %1511
+  %1533 = getelementptr inbounds i8, ptr %1482, i64 80
+  store double %1532, ptr %1533, align 8
+  %1534 = getelementptr inbounds i8, ptr %1482, i64 88
+  store double %1521, ptr %1534, align 8
+  %1535 = getelementptr inbounds i8, ptr %1482, i64 96
+  store double %1532, ptr %1535, align 8
+  %1536 = getelementptr inbounds i8, ptr %1482, i64 104
+  store double %1520, ptr %1536, align 8
+  %1537 = getelementptr inbounds i8, ptr %1482, i64 112
+  store double %1529, ptr %1537, align 8
+  %1538 = getelementptr inbounds i8, ptr %1482, i64 120
+  %1539 = extractelement <2 x double> %1510, i64 1
+  store double %1539, ptr %1538, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1482, i64 noundef %1481, i32 noundef %4) #25
+  %1540 = load double, ptr %1483, align 8
+  %1541 = load double, ptr %1, align 8
+  %1542 = load double, ptr %1489, align 8
+  %1543 = load double, ptr %1491, align 8
+  %1544 = getelementptr inbounds i8, ptr %7, i64 8
+  %1545 = insertelement <2 x double> poison, double %1541, i64 0
+  %1546 = insertelement <2 x double> %1545, double %1543, i64 1
+  %1547 = insertelement <2 x double> poison, double %1540, i64 0
+  %1548 = insertelement <2 x double> %1547, double %1542, i64 1
+  %1549 = fsub <2 x double> %1546, %1548
+  %1550 = fmul <2 x double> %1549, <double 5.000000e-01, double 5.000000e-01>
+  %1551 = fadd <2 x double> %1548, %1550
+  store <2 x double> %1551, ptr %7, align 16
+  %1552 = getelementptr inbounds i8, ptr %7, i64 16
+  %1553 = extractelement <2 x double> %1551, i64 0
+  store double %1553, ptr %1552, align 16
+  %1554 = load double, ptr %1493, align 8
+  %1555 = load double, ptr %1495, align 8
+  %1556 = fsub double %1554, %1555
+  %1557 = fmul double %1556, 1.250000e-01
+  %1558 = extractelement <2 x double> %1551, i64 1
+  %1559 = fadd double %1558, %1557
+  %1560 = getelementptr inbounds i8, ptr %7, i64 24
+  store double %1559, ptr %1560, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  %1563 = load double, ptr %1485, align 8
-  %1564 = load double, ptr %1, align 8
-  %1565 = load double, ptr %1491, align 8
-  %1566 = load double, ptr %1493, align 8
-  %1567 = fsub double %1566, %1565
-  %1568 = fmul double %1567, 5.000000e-01
-  %1569 = fadd double %1565, %1568
-  %1570 = load double, ptr %1495, align 8
-  %1571 = load double, ptr %1497, align 8
-  %1572 = insertelement <2 x double> poison, double %1564, i64 0
-  %1573 = insertelement <2 x double> %1572, double %1570, i64 1
-  %1574 = insertelement <2 x double> poison, double %1563, i64 0
-  %1575 = insertelement <2 x double> %1574, double %1571, i64 1
-  %1576 = fsub <2 x double> %1573, %1575
-  %1577 = fmul <2 x double> %1576, <double 5.000000e-01, double 2.500000e-01>
-  %1578 = insertelement <2 x double> %1575, double %1569, i64 1
-  %1579 = fadd <2 x double> %1578, %1577
-  store <2 x double> %1579, ptr %7, align 16
-  %1580 = extractelement <2 x double> %1579, i64 0
-  store double %1580, ptr %1554, align 16
-  %1581 = extractelement <2 x double> %1576, i64 1
-  %1582 = fmul double %1581, 1.250000e-01
-  %1583 = extractelement <2 x double> %1579, i64 1
-  %1584 = fadd double %1583, %1582
-  store double %1584, ptr %1562, align 8
+  %1561 = load double, ptr %1483, align 8
+  %1562 = load double, ptr %1, align 8
+  %1563 = load double, ptr %1489, align 8
+  %1564 = load double, ptr %1491, align 8
+  %1565 = fsub double %1564, %1563
+  %1566 = fmul double %1565, 5.000000e-01
+  %1567 = fadd double %1563, %1566
+  %1568 = load double, ptr %1493, align 8
+  %1569 = load double, ptr %1495, align 8
+  %1570 = insertelement <2 x double> poison, double %1562, i64 0
+  %1571 = insertelement <2 x double> %1570, double %1568, i64 1
+  %1572 = insertelement <2 x double> poison, double %1561, i64 0
+  %1573 = insertelement <2 x double> %1572, double %1569, i64 1
+  %1574 = fsub <2 x double> %1571, %1573
+  %1575 = fmul <2 x double> %1574, <double 5.000000e-01, double 2.500000e-01>
+  %1576 = insertelement <2 x double> %1573, double %1567, i64 1
+  %1577 = fadd <2 x double> %1576, %1575
+  store <2 x double> %1577, ptr %7, align 16
+  %1578 = extractelement <2 x double> %1577, i64 0
+  store double %1578, ptr %1552, align 16
+  %1579 = extractelement <2 x double> %1574, i64 1
+  %1580 = fmul double %1579, 1.250000e-01
+  %1581 = extractelement <2 x double> %1577, i64 1
+  %1582 = fadd double %1581, %1580
+  store double %1582, ptr %1560, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  %1585 = load double, ptr %1485, align 8
-  store double %1585, ptr %7, align 16
-  %1586 = load double, ptr %1491, align 8
-  %1587 = load double, ptr %1493, align 8
-  %1588 = fsub double %1587, %1586
-  %1589 = fmul double %1588, 5.000000e-01
-  %1590 = fadd double %1586, %1589
-  store double %1590, ptr %1546, align 8
-  %1591 = load double, ptr %1, align 8
-  store double %1591, ptr %1554, align 16
-  %1592 = getelementptr inbounds i8, ptr %1, i64 8
+  %1583 = load double, ptr %1483, align 8
+  store double %1583, ptr %7, align 16
+  %1584 = load double, ptr %1489, align 8
+  %1585 = load double, ptr %1491, align 8
+  %1586 = fsub double %1585, %1584
+  %1587 = fmul double %1586, 5.000000e-01
+  %1588 = fadd double %1584, %1587
+  store double %1588, ptr %1544, align 8
+  %1589 = load double, ptr %1, align 8
+  store double %1589, ptr %1552, align 16
+  %1590 = getelementptr inbounds i8, ptr %1, i64 8
+  %1591 = load double, ptr %1590, align 8
+  %1592 = getelementptr inbounds i8, ptr %1, i64 56
   %1593 = load double, ptr %1592, align 8
-  %1594 = getelementptr inbounds i8, ptr %1, i64 56
-  %1595 = load double, ptr %1594, align 8
-  %1596 = fsub double %1593, %1595
-  %1597 = fmul double %1596, 5.000000e-01
-  %1598 = fadd double %1586, %1597
-  store double %1598, ptr %1562, align 8
+  %1594 = fsub double %1591, %1593
+  %1595 = fmul double %1594, 5.000000e-01
+  %1596 = fadd double %1584, %1595
+  store double %1596, ptr %1560, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @free(ptr noundef %1484) #25
+  call void @free(ptr noundef %1482) #25
   br label %.loopexit
 
-1599:                                             ; preds = %._crit_edge
-  %1600 = add i64 %2, 12
-  %1601 = tail call fastcc ptr @gv_calloc(i64 noundef %1600, i64 noundef 16)
-  %1602 = getelementptr inbounds i8, ptr %1, i64 16
-  %1603 = load double, ptr %1602, align 8
-  %1604 = load double, ptr %1, align 8
-  %1605 = load double, ptr %114, align 8
-  %1606 = getelementptr inbounds i8, ptr %55, i64 48
+1597:                                             ; preds = %._crit_edge
+  %1598 = add i64 %2, 12
+  %1599 = tail call fastcc ptr @gv_calloc(i64 noundef %1598, i64 noundef 16)
+  %1600 = getelementptr inbounds i8, ptr %1, i64 16
+  %1601 = load double, ptr %1600, align 8
+  %1602 = load double, ptr %1, align 8
+  %1603 = load double, ptr %114, align 8
+  %1604 = getelementptr inbounds i8, ptr %55, i64 48
+  %1605 = load double, ptr %1604, align 8
+  %1606 = getelementptr inbounds i8, ptr %1, i64 40
   %1607 = load double, ptr %1606, align 8
-  %1608 = getelementptr inbounds i8, ptr %1, i64 40
+  %1608 = getelementptr inbounds i8, ptr %1, i64 24
   %1609 = load double, ptr %1608, align 8
-  %1610 = getelementptr inbounds i8, ptr %1, i64 24
+  %1610 = getelementptr inbounds i8, ptr %55, i64 56
   %1611 = load double, ptr %1610, align 8
-  %1612 = getelementptr inbounds i8, ptr %55, i64 56
+  %1612 = getelementptr inbounds i8, ptr %55, i64 72
   %1613 = load double, ptr %1612, align 8
-  %1614 = getelementptr inbounds i8, ptr %55, i64 72
-  %1615 = load double, ptr %1614, align 8
-  %1616 = insertelement <2 x double> poison, double %1604, i64 0
-  %1617 = insertelement <2 x double> %1616, double %1611, i64 1
-  %1618 = insertelement <2 x double> poison, double %1603, i64 0
-  %1619 = insertelement <2 x double> %1618, double %1609, i64 1
-  %1620 = fsub <2 x double> %1617, %1619
-  %1621 = fmul <2 x double> %1620, <double 5.000000e-01, double 5.000000e-01>
-  %1622 = fadd <2 x double> %1619, %1621
+  %1614 = insertelement <2 x double> poison, double %1602, i64 0
+  %1615 = insertelement <2 x double> %1614, double %1609, i64 1
+  %1616 = insertelement <2 x double> poison, double %1601, i64 0
+  %1617 = insertelement <2 x double> %1616, double %1607, i64 1
+  %1618 = fsub <2 x double> %1615, %1617
+  %1619 = fmul <2 x double> %1618, <double 5.000000e-01, double 5.000000e-01>
+  %1620 = fadd <2 x double> %1617, %1619
+  %1621 = insertelement <2 x double> poison, double %1603, i64 0
+  %1622 = insertelement <2 x double> %1621, double %1611, i64 1
   %1623 = insertelement <2 x double> poison, double %1605, i64 0
   %1624 = insertelement <2 x double> %1623, double %1613, i64 1
-  %1625 = insertelement <2 x double> poison, double %1607, i64 0
-  %1626 = insertelement <2 x double> %1625, double %1615, i64 1
-  %1627 = fsub <2 x double> %1624, %1626
-  %1628 = fmul <2 x double> %1627, <double 2.500000e-01, double 5.000000e-01>
-  %1629 = fadd <2 x double> %1622, %1628
-  store <2 x double> %1629, ptr %1601, align 8
-  %1630 = getelementptr inbounds i8, ptr %1601, i64 16
-  %1631 = extractelement <2 x double> %1629, i64 0
-  store double %1631, ptr %1630, align 8
-  %1632 = getelementptr inbounds i8, ptr %1601, i64 24
-  %1633 = fmul <2 x double> %1627, <double 1.250000e-01, double 1.250000e-01>
-  %1634 = fadd <2 x double> %1629, %1633
-  %1635 = fsub <2 x double> %1629, %1633
-  %1636 = shufflevector <2 x double> %1634, <2 x double> %1635, <2 x i32> <i32 1, i32 2>
-  store <2 x double> %1636, ptr %1632, align 8
-  %1637 = extractelement <2 x double> %1633, i64 1
-  %1638 = extractelement <2 x double> %1634, i64 1
-  %1639 = fadd double %1638, %1637
-  %1640 = getelementptr inbounds i8, ptr %1601, i64 40
-  store double %1639, ptr %1640, align 8
-  %1641 = getelementptr inbounds i8, ptr %1601, i64 48
-  store double %1631, ptr %1641, align 8
-  %1642 = fadd double %1639, %1637
-  %1643 = getelementptr inbounds i8, ptr %1601, i64 56
-  store double %1642, ptr %1643, align 8
-  %1644 = getelementptr inbounds i8, ptr %1601, i64 64
-  store double %1631, ptr %1644, align 8
-  %1645 = fadd double %1642, %1637
-  %1646 = getelementptr inbounds i8, ptr %1601, i64 72
-  store double %1645, ptr %1646, align 8
-  %1647 = getelementptr inbounds i8, ptr %1601, i64 80
-  %1648 = extractelement <2 x double> %1635, i64 0
-  store double %1648, ptr %1647, align 8
-  %1649 = getelementptr inbounds i8, ptr %1601, i64 88
-  store double %1645, ptr %1649, align 8
-  %1650 = getelementptr inbounds i8, ptr %1601, i64 96
-  %1651 = extractelement <2 x double> %1622, i64 0
-  store double %1651, ptr %1650, align 8
-  %1652 = getelementptr inbounds i8, ptr %1601, i64 104
-  store double %1642, ptr %1652, align 8
-  %1653 = fsub <2 x double> %1622, %1633
-  %1654 = extractelement <2 x double> %1653, i64 0
-  %1655 = getelementptr inbounds i8, ptr %1601, i64 112
-  store double %1654, ptr %1655, align 8
-  %1656 = getelementptr inbounds i8, ptr %1601, i64 120
-  store double %1645, ptr %1656, align 8
-  %1657 = fsub <2 x double> %1653, %1633
-  %1658 = extractelement <2 x double> %1657, i64 0
-  %1659 = getelementptr inbounds i8, ptr %1601, i64 128
-  store double %1658, ptr %1659, align 8
-  %1660 = getelementptr inbounds i8, ptr %1601, i64 136
-  store double %1645, ptr %1660, align 8
-  %1661 = getelementptr inbounds i8, ptr %1601, i64 144
-  store double %1658, ptr %1661, align 8
-  %1662 = getelementptr inbounds i8, ptr %1601, i64 152
-  store double %1642, ptr %1662, align 8
-  %1663 = fadd <2 x double> %1657, %1633
-  %1664 = extractelement <2 x double> %1663, i64 0
-  %1665 = getelementptr inbounds i8, ptr %1601, i64 160
-  store double %1664, ptr %1665, align 8
-  %1666 = getelementptr inbounds i8, ptr %1601, i64 168
-  store double %1639, ptr %1666, align 8
-  %1667 = getelementptr inbounds i8, ptr %1601, i64 176
-  store double %1658, ptr %1667, align 8
-  %1668 = getelementptr inbounds i8, ptr %1601, i64 184
-  store double %1638, ptr %1668, align 8
-  %1669 = getelementptr inbounds i8, ptr %1601, i64 192
-  store double %1658, ptr %1669, align 8
-  %1670 = getelementptr inbounds i8, ptr %1601, i64 200
-  %1671 = extractelement <2 x double> %1629, i64 1
-  store double %1671, ptr %1670, align 8
-  %1672 = getelementptr inbounds i8, ptr %1601, i64 208
-  store double %1664, ptr %1672, align 8
-  %1673 = getelementptr inbounds i8, ptr %1601, i64 216
-  store double %1671, ptr %1673, align 8
-  %1674 = getelementptr inbounds i8, ptr %1601, i64 224
-  store double %1651, ptr %1674, align 8
-  %1675 = getelementptr inbounds i8, ptr %1601, i64 232
-  store <2 x double> %1636, ptr %1675, align 8
-  %1676 = getelementptr inbounds i8, ptr %1601, i64 248
-  store double %1671, ptr %1676, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1601, i64 noundef %1600, i32 noundef %4) #25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %1674, i64 16, i1 false)
-  %1677 = load double, ptr %7, align 16
-  %1678 = getelementptr inbounds i8, ptr %7, i64 16
-  store double %1677, ptr %1678, align 16
-  %1679 = load double, ptr %1608, align 8
-  %1680 = load double, ptr %1610, align 8
-  %1681 = fsub double %1680, %1679
-  %1682 = fmul double %1681, 5.000000e-01
-  %1683 = fadd double %1679, %1682
-  %1684 = getelementptr inbounds i8, ptr %7, i64 24
-  store double %1683, ptr %1684, align 8
+  %1625 = fsub <2 x double> %1622, %1624
+  %1626 = fmul <2 x double> %1625, <double 2.500000e-01, double 5.000000e-01>
+  %1627 = fadd <2 x double> %1620, %1626
+  store <2 x double> %1627, ptr %1599, align 8
+  %1628 = getelementptr inbounds i8, ptr %1599, i64 16
+  %1629 = extractelement <2 x double> %1627, i64 0
+  store double %1629, ptr %1628, align 8
+  %1630 = getelementptr inbounds i8, ptr %1599, i64 24
+  %1631 = fmul <2 x double> %1625, <double 1.250000e-01, double 1.250000e-01>
+  %1632 = fadd <2 x double> %1627, %1631
+  %1633 = fsub <2 x double> %1627, %1631
+  %1634 = shufflevector <2 x double> %1632, <2 x double> %1633, <2 x i32> <i32 1, i32 2>
+  store <2 x double> %1634, ptr %1630, align 8
+  %1635 = extractelement <2 x double> %1631, i64 1
+  %1636 = extractelement <2 x double> %1632, i64 1
+  %1637 = fadd double %1636, %1635
+  %1638 = getelementptr inbounds i8, ptr %1599, i64 40
+  store double %1637, ptr %1638, align 8
+  %1639 = getelementptr inbounds i8, ptr %1599, i64 48
+  store double %1629, ptr %1639, align 8
+  %1640 = fadd double %1637, %1635
+  %1641 = getelementptr inbounds i8, ptr %1599, i64 56
+  store double %1640, ptr %1641, align 8
+  %1642 = getelementptr inbounds i8, ptr %1599, i64 64
+  store double %1629, ptr %1642, align 8
+  %1643 = fadd double %1640, %1635
+  %1644 = getelementptr inbounds i8, ptr %1599, i64 72
+  store double %1643, ptr %1644, align 8
+  %1645 = getelementptr inbounds i8, ptr %1599, i64 80
+  %1646 = extractelement <2 x double> %1633, i64 0
+  store double %1646, ptr %1645, align 8
+  %1647 = getelementptr inbounds i8, ptr %1599, i64 88
+  store double %1643, ptr %1647, align 8
+  %1648 = getelementptr inbounds i8, ptr %1599, i64 96
+  %1649 = extractelement <2 x double> %1620, i64 0
+  store double %1649, ptr %1648, align 8
+  %1650 = getelementptr inbounds i8, ptr %1599, i64 104
+  store double %1640, ptr %1650, align 8
+  %1651 = fsub <2 x double> %1620, %1631
+  %1652 = extractelement <2 x double> %1651, i64 0
+  %1653 = getelementptr inbounds i8, ptr %1599, i64 112
+  store double %1652, ptr %1653, align 8
+  %1654 = getelementptr inbounds i8, ptr %1599, i64 120
+  store double %1643, ptr %1654, align 8
+  %1655 = fsub <2 x double> %1651, %1631
+  %1656 = extractelement <2 x double> %1655, i64 0
+  %1657 = getelementptr inbounds i8, ptr %1599, i64 128
+  store double %1656, ptr %1657, align 8
+  %1658 = getelementptr inbounds i8, ptr %1599, i64 136
+  store double %1643, ptr %1658, align 8
+  %1659 = getelementptr inbounds i8, ptr %1599, i64 144
+  store double %1656, ptr %1659, align 8
+  %1660 = getelementptr inbounds i8, ptr %1599, i64 152
+  store double %1640, ptr %1660, align 8
+  %1661 = fadd <2 x double> %1655, %1631
+  %1662 = extractelement <2 x double> %1661, i64 0
+  %1663 = getelementptr inbounds i8, ptr %1599, i64 160
+  store double %1662, ptr %1663, align 8
+  %1664 = getelementptr inbounds i8, ptr %1599, i64 168
+  store double %1637, ptr %1664, align 8
+  %1665 = getelementptr inbounds i8, ptr %1599, i64 176
+  store double %1656, ptr %1665, align 8
+  %1666 = getelementptr inbounds i8, ptr %1599, i64 184
+  store double %1636, ptr %1666, align 8
+  %1667 = getelementptr inbounds i8, ptr %1599, i64 192
+  store double %1656, ptr %1667, align 8
+  %1668 = getelementptr inbounds i8, ptr %1599, i64 200
+  %1669 = extractelement <2 x double> %1627, i64 1
+  store double %1669, ptr %1668, align 8
+  %1670 = getelementptr inbounds i8, ptr %1599, i64 208
+  store double %1662, ptr %1670, align 8
+  %1671 = getelementptr inbounds i8, ptr %1599, i64 216
+  store double %1669, ptr %1671, align 8
+  %1672 = getelementptr inbounds i8, ptr %1599, i64 224
+  store double %1649, ptr %1672, align 8
+  %1673 = getelementptr inbounds i8, ptr %1599, i64 232
+  store <2 x double> %1634, ptr %1673, align 8
+  %1674 = getelementptr inbounds i8, ptr %1599, i64 248
+  store double %1669, ptr %1674, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1599, i64 noundef %1598, i32 noundef %4) #25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %1672, i64 16, i1 false)
+  %1675 = load double, ptr %7, align 16
+  %1676 = getelementptr inbounds i8, ptr %7, i64 16
+  store double %1675, ptr %1676, align 16
+  %1677 = load double, ptr %1606, align 8
+  %1678 = load double, ptr %1608, align 8
+  %1679 = fsub double %1678, %1677
+  %1680 = fmul double %1679, 5.000000e-01
+  %1681 = fadd double %1677, %1680
+  %1682 = getelementptr inbounds i8, ptr %7, i64 24
+  store double %1681, ptr %1682, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  %1685 = load double, ptr %1602, align 8
-  store double %1685, ptr %7, align 16
-  %1686 = load double, ptr %1608, align 8
-  %1687 = load double, ptr %1610, align 8
-  %1688 = fsub double %1687, %1686
-  %1689 = fmul double %1688, 5.000000e-01
-  %1690 = fadd double %1686, %1689
-  %1691 = getelementptr inbounds i8, ptr %7, i64 8
-  store double %1690, ptr %1691, align 8
-  %1692 = load double, ptr %1, align 8
-  store double %1692, ptr %1678, align 16
-  %1693 = getelementptr inbounds i8, ptr %1, i64 8
+  %1683 = load double, ptr %1600, align 8
+  store double %1683, ptr %7, align 16
+  %1684 = load double, ptr %1606, align 8
+  %1685 = load double, ptr %1608, align 8
+  %1686 = fsub double %1685, %1684
+  %1687 = fmul double %1686, 5.000000e-01
+  %1688 = fadd double %1684, %1687
+  %1689 = getelementptr inbounds i8, ptr %7, i64 8
+  store double %1688, ptr %1689, align 8
+  %1690 = load double, ptr %1, align 8
+  store double %1690, ptr %1676, align 16
+  %1691 = getelementptr inbounds i8, ptr %1, i64 8
+  %1692 = load double, ptr %1691, align 8
+  %1693 = getelementptr inbounds i8, ptr %1, i64 56
   %1694 = load double, ptr %1693, align 8
-  %1695 = getelementptr inbounds i8, ptr %1, i64 56
-  %1696 = load double, ptr %1695, align 8
-  %1697 = fsub double %1694, %1696
-  %1698 = fmul double %1697, 5.000000e-01
-  %1699 = fadd double %1686, %1698
-  store double %1699, ptr %1684, align 8
+  %1695 = fsub double %1692, %1694
+  %1696 = fmul double %1695, 5.000000e-01
+  %1697 = fadd double %1684, %1696
+  store double %1697, ptr %1682, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @free(ptr noundef %1601) #25
+  call void @free(ptr noundef %1599) #25
   br label %.loopexit
 
-1700:                                             ; preds = %._crit_edge
-  %1701 = add i64 %2, 4
-  %1702 = tail call fastcc ptr @gv_calloc(i64 noundef %1701, i64 noundef 16)
-  %1703 = getelementptr inbounds i8, ptr %1, i64 16
-  %1704 = load double, ptr %1703, align 8
-  %1705 = load double, ptr %1, align 8
-  %1706 = load double, ptr %114, align 8
-  %1707 = getelementptr inbounds i8, ptr %55, i64 48
+1698:                                             ; preds = %._crit_edge
+  %1699 = add i64 %2, 4
+  %1700 = tail call fastcc ptr @gv_calloc(i64 noundef %1699, i64 noundef 16)
+  %1701 = getelementptr inbounds i8, ptr %1, i64 16
+  %1702 = load double, ptr %1701, align 8
+  %1703 = load double, ptr %1, align 8
+  %1704 = load double, ptr %114, align 8
+  %1705 = getelementptr inbounds i8, ptr %55, i64 48
+  %1706 = load double, ptr %1705, align 8
+  %1707 = getelementptr inbounds i8, ptr %1, i64 40
   %1708 = load double, ptr %1707, align 8
-  %1709 = getelementptr inbounds i8, ptr %1, i64 40
+  %1709 = getelementptr inbounds i8, ptr %1, i64 24
   %1710 = load double, ptr %1709, align 8
-  %1711 = getelementptr inbounds i8, ptr %1, i64 24
+  %1711 = getelementptr inbounds i8, ptr %55, i64 56
   %1712 = load double, ptr %1711, align 8
-  %1713 = getelementptr inbounds i8, ptr %55, i64 56
+  %1713 = getelementptr inbounds i8, ptr %55, i64 72
   %1714 = load double, ptr %1713, align 8
-  %1715 = getelementptr inbounds i8, ptr %55, i64 72
-  %1716 = load double, ptr %1715, align 8
-  %1717 = getelementptr inbounds i8, ptr %1702, i64 8
-  %1718 = insertelement <2 x double> poison, double %1705, i64 0
-  %1719 = insertelement <2 x double> %1718, double %1712, i64 1
-  %1720 = insertelement <2 x double> poison, double %1704, i64 0
-  %1721 = insertelement <2 x double> %1720, double %1710, i64 1
-  %1722 = fsub <2 x double> %1719, %1721
-  %1723 = fmul <2 x double> %1722, <double 5.000000e-01, double 5.000000e-01>
-  %1724 = fadd <2 x double> %1721, %1723
+  %1715 = getelementptr inbounds i8, ptr %1700, i64 8
+  %1716 = insertelement <2 x double> poison, double %1703, i64 0
+  %1717 = insertelement <2 x double> %1716, double %1710, i64 1
+  %1718 = insertelement <2 x double> poison, double %1702, i64 0
+  %1719 = insertelement <2 x double> %1718, double %1708, i64 1
+  %1720 = fsub <2 x double> %1717, %1719
+  %1721 = fmul <2 x double> %1720, <double 5.000000e-01, double 5.000000e-01>
+  %1722 = fadd <2 x double> %1719, %1721
+  %1723 = insertelement <2 x double> poison, double %1704, i64 0
+  %1724 = insertelement <2 x double> %1723, double %1712, i64 1
   %1725 = insertelement <2 x double> poison, double %1706, i64 0
   %1726 = insertelement <2 x double> %1725, double %1714, i64 1
-  %1727 = insertelement <2 x double> poison, double %1708, i64 0
-  %1728 = insertelement <2 x double> %1727, double %1716, i64 1
-  %1729 = fsub <2 x double> %1726, %1728
-  %1730 = fmul <2 x double> %1729, <double 1.250000e-01, double 5.000000e-01>
-  %1731 = fadd <2 x double> %1724, %1730
-  store <2 x double> %1731, ptr %1702, align 8
-  %1732 = extractelement <2 x double> %1730, i64 0
-  %1733 = getelementptr inbounds i8, ptr %1702, i64 16
-  %1734 = extractelement <2 x double> %1729, i64 1
-  %1735 = fmul double %1734, 1.250000e-01
-  %1736 = insertelement <2 x double> %1730, double %1735, i64 1
-  %1737 = fadd <2 x double> %1731, %1736
-  store <2 x double> %1737, ptr %1733, align 8
-  %1738 = getelementptr inbounds i8, ptr %1702, i64 32
-  %1739 = extractelement <2 x double> %1737, i64 0
-  store double %1739, ptr %1738, align 8
-  %1740 = fmul double %1734, 2.500000e-01
-  %1741 = extractelement <2 x double> %1737, i64 1
-  %1742 = fadd double %1741, %1740
-  %1743 = getelementptr inbounds i8, ptr %1702, i64 40
-  store double %1742, ptr %1743, align 8
-  %1744 = getelementptr inbounds i8, ptr %1702, i64 48
-  %1745 = extractelement <2 x double> %1731, i64 0
-  store double %1745, ptr %1744, align 8
-  %1746 = fadd double %1742, %1735
-  %1747 = getelementptr inbounds i8, ptr %1702, i64 56
-  store double %1746, ptr %1747, align 8
-  %1748 = extractelement <2 x double> %1729, i64 0
-  %1749 = fmul double %1748, 2.500000e-01
-  %1750 = fsub double %1745, %1749
-  %1751 = getelementptr inbounds i8, ptr %1702, i64 64
-  store double %1750, ptr %1751, align 8
-  %1752 = getelementptr inbounds i8, ptr %1702, i64 72
-  store double %1746, ptr %1752, align 8
-  %1753 = fsub double %1750, %1732
-  %1754 = getelementptr inbounds i8, ptr %1702, i64 80
-  store double %1753, ptr %1754, align 8
-  %1755 = getelementptr inbounds i8, ptr %1702, i64 88
-  store double %1742, ptr %1755, align 8
-  %1756 = getelementptr inbounds i8, ptr %1702, i64 96
-  store double %1753, ptr %1756, align 8
-  %1757 = getelementptr inbounds i8, ptr %1702, i64 104
-  store double %1741, ptr %1757, align 8
-  %1758 = getelementptr inbounds i8, ptr %1702, i64 112
-  store double %1750, ptr %1758, align 8
-  %1759 = getelementptr inbounds i8, ptr %1702, i64 120
-  %1760 = extractelement <2 x double> %1731, i64 1
-  store double %1760, ptr %1759, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1702, i64 noundef %1701, i32 noundef %4) #25
-  %1761 = load double, ptr %1703, align 8
-  %1762 = load double, ptr %1, align 8
-  %1763 = load double, ptr %1717, align 8
-  %1764 = getelementptr inbounds i8, ptr %7, i64 8
-  store double %1763, ptr %1764, align 8
-  %1765 = getelementptr inbounds i8, ptr %7, i64 16
-  %1766 = load double, ptr %1709, align 8
-  %1767 = load double, ptr %1711, align 8
-  %1768 = getelementptr inbounds i8, ptr %7, i64 24
-  %1769 = insertelement <2 x double> poison, double %1762, i64 0
-  %1770 = insertelement <2 x double> %1769, double %1767, i64 1
-  %1771 = insertelement <2 x double> poison, double %1761, i64 0
-  %1772 = insertelement <2 x double> %1771, double %1766, i64 1
-  %1773 = fsub <2 x double> %1770, %1772
-  %1774 = fmul <2 x double> %1773, <double 5.000000e-01, double 5.000000e-01>
-  %1775 = fadd <2 x double> %1772, %1774
-  %1776 = extractelement <2 x double> %1775, i64 0
-  store double %1776, ptr %7, align 16
-  store <2 x double> %1775, ptr %1765, align 16
+  %1727 = fsub <2 x double> %1724, %1726
+  %1728 = fmul <2 x double> %1727, <double 1.250000e-01, double 5.000000e-01>
+  %1729 = fadd <2 x double> %1722, %1728
+  store <2 x double> %1729, ptr %1700, align 8
+  %1730 = extractelement <2 x double> %1728, i64 0
+  %1731 = getelementptr inbounds i8, ptr %1700, i64 16
+  %1732 = extractelement <2 x double> %1727, i64 1
+  %1733 = fmul double %1732, 1.250000e-01
+  %1734 = insertelement <2 x double> %1728, double %1733, i64 1
+  %1735 = fadd <2 x double> %1729, %1734
+  store <2 x double> %1735, ptr %1731, align 8
+  %1736 = getelementptr inbounds i8, ptr %1700, i64 32
+  %1737 = extractelement <2 x double> %1735, i64 0
+  store double %1737, ptr %1736, align 8
+  %1738 = fmul double %1732, 2.500000e-01
+  %1739 = extractelement <2 x double> %1735, i64 1
+  %1740 = fadd double %1739, %1738
+  %1741 = getelementptr inbounds i8, ptr %1700, i64 40
+  store double %1740, ptr %1741, align 8
+  %1742 = getelementptr inbounds i8, ptr %1700, i64 48
+  %1743 = extractelement <2 x double> %1729, i64 0
+  store double %1743, ptr %1742, align 8
+  %1744 = fadd double %1740, %1733
+  %1745 = getelementptr inbounds i8, ptr %1700, i64 56
+  store double %1744, ptr %1745, align 8
+  %1746 = extractelement <2 x double> %1727, i64 0
+  %1747 = fmul double %1746, 2.500000e-01
+  %1748 = fsub double %1743, %1747
+  %1749 = getelementptr inbounds i8, ptr %1700, i64 64
+  store double %1748, ptr %1749, align 8
+  %1750 = getelementptr inbounds i8, ptr %1700, i64 72
+  store double %1744, ptr %1750, align 8
+  %1751 = fsub double %1748, %1730
+  %1752 = getelementptr inbounds i8, ptr %1700, i64 80
+  store double %1751, ptr %1752, align 8
+  %1753 = getelementptr inbounds i8, ptr %1700, i64 88
+  store double %1740, ptr %1753, align 8
+  %1754 = getelementptr inbounds i8, ptr %1700, i64 96
+  store double %1751, ptr %1754, align 8
+  %1755 = getelementptr inbounds i8, ptr %1700, i64 104
+  store double %1739, ptr %1755, align 8
+  %1756 = getelementptr inbounds i8, ptr %1700, i64 112
+  store double %1748, ptr %1756, align 8
+  %1757 = getelementptr inbounds i8, ptr %1700, i64 120
+  %1758 = extractelement <2 x double> %1729, i64 1
+  store double %1758, ptr %1757, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1700, i64 noundef %1699, i32 noundef %4) #25
+  %1759 = load double, ptr %1701, align 8
+  %1760 = load double, ptr %1, align 8
+  %1761 = load double, ptr %1715, align 8
+  %1762 = getelementptr inbounds i8, ptr %7, i64 8
+  store double %1761, ptr %1762, align 8
+  %1763 = getelementptr inbounds i8, ptr %7, i64 16
+  %1764 = load double, ptr %1707, align 8
+  %1765 = load double, ptr %1709, align 8
+  %1766 = getelementptr inbounds i8, ptr %7, i64 24
+  %1767 = insertelement <2 x double> poison, double %1760, i64 0
+  %1768 = insertelement <2 x double> %1767, double %1765, i64 1
+  %1769 = insertelement <2 x double> poison, double %1759, i64 0
+  %1770 = insertelement <2 x double> %1769, double %1764, i64 1
+  %1771 = fsub <2 x double> %1768, %1770
+  %1772 = fmul <2 x double> %1771, <double 5.000000e-01, double 5.000000e-01>
+  %1773 = fadd <2 x double> %1770, %1772
+  %1774 = extractelement <2 x double> %1773, i64 0
+  store double %1774, ptr %7, align 16
+  store <2 x double> %1773, ptr %1763, align 16
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  %1777 = load double, ptr %1703, align 8
-  store double %1777, ptr %7, align 16
-  %1778 = load double, ptr %1709, align 8
-  %1779 = load double, ptr %1711, align 8
-  %1780 = fsub double %1779, %1778
-  %1781 = fmul double %1780, 5.000000e-01
-  %1782 = fadd double %1778, %1781
-  store double %1782, ptr %1764, align 8
-  %1783 = load double, ptr %1, align 8
-  store double %1783, ptr %1765, align 16
-  %1784 = getelementptr inbounds i8, ptr %1, i64 8
+  %1775 = load double, ptr %1701, align 8
+  store double %1775, ptr %7, align 16
+  %1776 = load double, ptr %1707, align 8
+  %1777 = load double, ptr %1709, align 8
+  %1778 = fsub double %1777, %1776
+  %1779 = fmul double %1778, 5.000000e-01
+  %1780 = fadd double %1776, %1779
+  store double %1780, ptr %1762, align 8
+  %1781 = load double, ptr %1, align 8
+  store double %1781, ptr %1763, align 16
+  %1782 = getelementptr inbounds i8, ptr %1, i64 8
+  %1783 = load double, ptr %1782, align 8
+  %1784 = getelementptr inbounds i8, ptr %1, i64 56
   %1785 = load double, ptr %1784, align 8
-  %1786 = getelementptr inbounds i8, ptr %1, i64 56
-  %1787 = load double, ptr %1786, align 8
-  %1788 = fsub double %1785, %1787
-  %1789 = fmul double %1788, 5.000000e-01
-  %1790 = fadd double %1778, %1789
-  store double %1790, ptr %1768, align 8
+  %1786 = fsub double %1783, %1785
+  %1787 = fmul double %1786, 5.000000e-01
+  %1788 = fadd double %1776, %1787
+  store double %1788, ptr %1766, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2) #25
-  call void @free(ptr noundef %1702) #25
+  call void @free(ptr noundef %1700) #25
   br label %.loopexit
 
-1791:                                             ; preds = %._crit_edge
-  %1792 = add i64 %2, 5
-  %1793 = tail call fastcc ptr @gv_calloc(i64 noundef %1792, i64 noundef 16)
-  %1794 = load double, ptr %114, align 8
-  %1795 = getelementptr inbounds i8, ptr %55, i64 48
+1789:                                             ; preds = %._crit_edge
+  %1790 = add i64 %2, 5
+  %1791 = tail call fastcc ptr @gv_calloc(i64 noundef %1790, i64 noundef 16)
+  %1792 = load double, ptr %114, align 8
+  %1793 = getelementptr inbounds i8, ptr %55, i64 48
+  %1794 = load double, ptr %1793, align 8
+  %1795 = getelementptr inbounds i8, ptr %55, i64 56
   %1796 = load double, ptr %1795, align 8
-  %1797 = getelementptr inbounds i8, ptr %55, i64 56
+  %1797 = getelementptr inbounds i8, ptr %55, i64 72
   %1798 = load double, ptr %1797, align 8
-  %1799 = getelementptr inbounds i8, ptr %55, i64 72
-  %1800 = load double, ptr %1799, align 8
-  %1801 = load <2 x double>, ptr %112, align 8
+  %1799 = load <2 x double>, ptr %112, align 8
+  %1800 = insertelement <2 x double> poison, double %1792, i64 0
+  %1801 = insertelement <2 x double> %1800, double %1796, i64 1
   %1802 = insertelement <2 x double> poison, double %1794, i64 0
   %1803 = insertelement <2 x double> %1802, double %1798, i64 1
-  %1804 = insertelement <2 x double> poison, double %1796, i64 0
-  %1805 = insertelement <2 x double> %1804, double %1800, i64 1
-  %1806 = fsub <2 x double> %1803, %1805
-  %1807 = fmul <2 x double> %1806, <double 5.000000e-01, double 5.000000e-01>
-  %1808 = fsub <2 x double> %1801, %1807
-  store <2 x double> %1808, ptr %1793, align 8
-  %1809 = getelementptr inbounds i8, ptr %1793, i64 16
-  store double %1796, ptr %1809, align 8
-  %1810 = extractelement <2 x double> %1807, i64 1
-  %1811 = fsub double %1798, %1810
-  %1812 = getelementptr inbounds i8, ptr %1793, i64 24
-  store double %1811, ptr %1812, align 8
-  %1813 = getelementptr inbounds i8, ptr %1, i64 32
-  %1814 = getelementptr inbounds i8, ptr %1793, i64 32
-  %1815 = load <2 x double>, ptr %1813, align 8
-  store <2 x double> %1815, ptr %1814, align 8
-  %1816 = getelementptr inbounds i8, ptr %1793, i64 48
-  %1817 = getelementptr inbounds i8, ptr %1793, i64 56
-  %1818 = extractelement <2 x double> %1815, i64 1
-  store double %1818, ptr %1817, align 8
-  %1819 = getelementptr inbounds i8, ptr %1793, i64 64
-  %1820 = insertelement <2 x double> %1815, double %1794, i64 0
-  %1821 = fadd <2 x double> %1820, %1807
-  %1822 = extractelement <2 x double> %1821, i64 0
-  store double %1822, ptr %1816, align 8
-  store <2 x double> %1821, ptr %1819, align 8
-  %1823 = getelementptr inbounds i8, ptr %1793, i64 80
-  %1824 = extractelement <2 x double> %1808, i64 0
-  %1825 = shufflevector <2 x double> %1808, <2 x double> %1821, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %1825, ptr %1823, align 8
-  %1826 = getelementptr inbounds i8, ptr %1793, i64 96
-  store double %1824, ptr %1826, align 8
-  %1827 = getelementptr inbounds i8, ptr %1, i64 56
-  %1828 = load double, ptr %1827, align 8
-  %1829 = getelementptr inbounds i8, ptr %1793, i64 104
-  store double %1828, ptr %1829, align 8
-  %1830 = getelementptr inbounds i8, ptr %1, i64 8
-  %1831 = load double, ptr %1830, align 8
-  %1832 = fsub double %1831, %1828
-  %1833 = fmul double %1832, 5.000000e-01
-  %1834 = fsub double %1831, %1833
-  %1835 = getelementptr inbounds i8, ptr %1793, i64 112
-  %1836 = getelementptr inbounds i8, ptr %1793, i64 120
-  store double %1834, ptr %1836, align 8
-  %1837 = load double, ptr %1, align 8
-  store double %1837, ptr %1835, align 8
-  %1838 = getelementptr inbounds i8, ptr %1793, i64 128
-  %1839 = getelementptr inbounds i8, ptr %1793, i64 136
-  store double %1831, ptr %1839, align 8
-  store double %1824, ptr %1838, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1793, i64 noundef %1792, i32 noundef %4) #25
-  tail call void @free(ptr noundef %1793) #25
+  %1804 = fsub <2 x double> %1801, %1803
+  %1805 = fmul <2 x double> %1804, <double 5.000000e-01, double 5.000000e-01>
+  %1806 = fsub <2 x double> %1799, %1805
+  store <2 x double> %1806, ptr %1791, align 8
+  %1807 = getelementptr inbounds i8, ptr %1791, i64 16
+  store double %1794, ptr %1807, align 8
+  %1808 = extractelement <2 x double> %1805, i64 1
+  %1809 = fsub double %1796, %1808
+  %1810 = getelementptr inbounds i8, ptr %1791, i64 24
+  store double %1809, ptr %1810, align 8
+  %1811 = getelementptr inbounds i8, ptr %1, i64 32
+  %1812 = getelementptr inbounds i8, ptr %1791, i64 32
+  %1813 = load <2 x double>, ptr %1811, align 8
+  store <2 x double> %1813, ptr %1812, align 8
+  %1814 = getelementptr inbounds i8, ptr %1791, i64 48
+  %1815 = getelementptr inbounds i8, ptr %1791, i64 56
+  %1816 = extractelement <2 x double> %1813, i64 1
+  store double %1816, ptr %1815, align 8
+  %1817 = getelementptr inbounds i8, ptr %1791, i64 64
+  %1818 = insertelement <2 x double> %1813, double %1792, i64 0
+  %1819 = fadd <2 x double> %1818, %1805
+  %1820 = extractelement <2 x double> %1819, i64 0
+  store double %1820, ptr %1814, align 8
+  store <2 x double> %1819, ptr %1817, align 8
+  %1821 = getelementptr inbounds i8, ptr %1791, i64 80
+  %1822 = extractelement <2 x double> %1806, i64 0
+  %1823 = shufflevector <2 x double> %1806, <2 x double> %1819, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %1823, ptr %1821, align 8
+  %1824 = getelementptr inbounds i8, ptr %1791, i64 96
+  store double %1822, ptr %1824, align 8
+  %1825 = getelementptr inbounds i8, ptr %1, i64 56
+  %1826 = load double, ptr %1825, align 8
+  %1827 = getelementptr inbounds i8, ptr %1791, i64 104
+  store double %1826, ptr %1827, align 8
+  %1828 = getelementptr inbounds i8, ptr %1, i64 8
+  %1829 = load double, ptr %1828, align 8
+  %1830 = fsub double %1829, %1826
+  %1831 = fmul double %1830, 5.000000e-01
+  %1832 = fsub double %1829, %1831
+  %1833 = getelementptr inbounds i8, ptr %1791, i64 112
+  %1834 = getelementptr inbounds i8, ptr %1791, i64 120
+  store double %1832, ptr %1834, align 8
+  %1835 = load double, ptr %1, align 8
+  store double %1835, ptr %1833, align 8
+  %1836 = getelementptr inbounds i8, ptr %1791, i64 128
+  %1837 = getelementptr inbounds i8, ptr %1791, i64 136
+  store double %1829, ptr %1837, align 8
+  store double %1822, ptr %1836, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1791, i64 noundef %1790, i32 noundef %4) #25
+  tail call void @free(ptr noundef %1791) #25
   br label %.loopexit
 
-1840:                                             ; preds = %._crit_edge
-  %1841 = add i64 %2, 3
-  %1842 = tail call fastcc ptr @gv_calloc(i64 noundef %1841, i64 noundef 16)
-  %1843 = load double, ptr %114, align 8
-  %1844 = getelementptr inbounds i8, ptr %55, i64 48
+1838:                                             ; preds = %._crit_edge
+  %1839 = add i64 %2, 3
+  %1840 = tail call fastcc ptr @gv_calloc(i64 noundef %1839, i64 noundef 16)
+  %1841 = load double, ptr %114, align 8
+  %1842 = getelementptr inbounds i8, ptr %55, i64 48
+  %1843 = load double, ptr %1842, align 8
+  %1844 = getelementptr inbounds i8, ptr %55, i64 56
   %1845 = load double, ptr %1844, align 8
-  %1846 = getelementptr inbounds i8, ptr %55, i64 56
+  %1846 = getelementptr inbounds i8, ptr %55, i64 72
   %1847 = load double, ptr %1846, align 8
-  %1848 = getelementptr inbounds i8, ptr %55, i64 72
-  %1849 = load double, ptr %1848, align 8
-  %1850 = load <2 x double>, ptr %112, align 8
+  %1848 = load <2 x double>, ptr %112, align 8
+  %1849 = insertelement <2 x double> poison, double %1841, i64 0
+  %1850 = insertelement <2 x double> %1849, double %1845, i64 1
   %1851 = insertelement <2 x double> poison, double %1843, i64 0
   %1852 = insertelement <2 x double> %1851, double %1847, i64 1
-  %1853 = insertelement <2 x double> poison, double %1845, i64 0
-  %1854 = insertelement <2 x double> %1853, double %1849, i64 1
-  %1855 = fsub <2 x double> %1852, %1854
-  %1856 = fmul <2 x double> %1855, <double 5.000000e-01, double 5.000000e-01>
-  %1857 = fsub <2 x double> %1850, %1856
-  store <2 x double> %1857, ptr %1842, align 8
-  %1858 = getelementptr inbounds i8, ptr %1842, i64 16
-  store double %1845, ptr %1858, align 8
-  %1859 = extractelement <2 x double> %1856, i64 1
-  %1860 = fsub double %1847, %1859
-  %1861 = getelementptr inbounds i8, ptr %1842, i64 24
-  store double %1860, ptr %1861, align 8
-  %1862 = getelementptr inbounds i8, ptr %1, i64 32
-  %1863 = load double, ptr %1862, align 8
-  %1864 = getelementptr inbounds i8, ptr %1842, i64 32
-  store double %1863, ptr %1864, align 8
-  %1865 = getelementptr inbounds i8, ptr %1, i64 40
-  %1866 = load double, ptr %1865, align 8
-  %1867 = fadd double %1866, %1859
-  %1868 = getelementptr inbounds i8, ptr %1842, i64 40
-  store double %1867, ptr %1868, align 8
-  %1869 = getelementptr inbounds i8, ptr %1842, i64 48
-  %1870 = extractelement <2 x double> %1857, i64 0
-  store double %1870, ptr %1869, align 8
-  %1871 = getelementptr inbounds i8, ptr %1842, i64 56
-  store double %1867, ptr %1871, align 8
-  %1872 = getelementptr inbounds i8, ptr %1842, i64 64
-  store double %1870, ptr %1872, align 8
-  %1873 = getelementptr inbounds i8, ptr %1, i64 56
-  %1874 = load double, ptr %1873, align 8
-  %1875 = getelementptr inbounds i8, ptr %1842, i64 72
-  store double %1874, ptr %1875, align 8
-  %1876 = getelementptr inbounds i8, ptr %1, i64 8
-  %1877 = load double, ptr %1876, align 8
-  %1878 = fsub double %1877, %1874
-  %1879 = fmul double %1878, 5.000000e-01
-  %1880 = fsub double %1877, %1879
-  %1881 = getelementptr inbounds i8, ptr %1842, i64 80
-  %1882 = getelementptr inbounds i8, ptr %1842, i64 88
-  store double %1880, ptr %1882, align 8
-  %1883 = load double, ptr %1, align 8
-  store double %1883, ptr %1881, align 8
-  %1884 = getelementptr inbounds i8, ptr %1842, i64 96
-  %1885 = getelementptr inbounds i8, ptr %1842, i64 104
-  store double %1877, ptr %1885, align 8
-  store double %1870, ptr %1884, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1842, i64 noundef %1841, i32 noundef %4) #25
-  tail call void @free(ptr noundef %1842) #25
+  %1853 = fsub <2 x double> %1850, %1852
+  %1854 = fmul <2 x double> %1853, <double 5.000000e-01, double 5.000000e-01>
+  %1855 = fsub <2 x double> %1848, %1854
+  store <2 x double> %1855, ptr %1840, align 8
+  %1856 = getelementptr inbounds i8, ptr %1840, i64 16
+  store double %1843, ptr %1856, align 8
+  %1857 = extractelement <2 x double> %1854, i64 1
+  %1858 = fsub double %1845, %1857
+  %1859 = getelementptr inbounds i8, ptr %1840, i64 24
+  store double %1858, ptr %1859, align 8
+  %1860 = getelementptr inbounds i8, ptr %1, i64 32
+  %1861 = load double, ptr %1860, align 8
+  %1862 = getelementptr inbounds i8, ptr %1840, i64 32
+  store double %1861, ptr %1862, align 8
+  %1863 = getelementptr inbounds i8, ptr %1, i64 40
+  %1864 = load double, ptr %1863, align 8
+  %1865 = fadd double %1864, %1857
+  %1866 = getelementptr inbounds i8, ptr %1840, i64 40
+  store double %1865, ptr %1866, align 8
+  %1867 = getelementptr inbounds i8, ptr %1840, i64 48
+  %1868 = extractelement <2 x double> %1855, i64 0
+  store double %1868, ptr %1867, align 8
+  %1869 = getelementptr inbounds i8, ptr %1840, i64 56
+  store double %1865, ptr %1869, align 8
+  %1870 = getelementptr inbounds i8, ptr %1840, i64 64
+  store double %1868, ptr %1870, align 8
+  %1871 = getelementptr inbounds i8, ptr %1, i64 56
+  %1872 = load double, ptr %1871, align 8
+  %1873 = getelementptr inbounds i8, ptr %1840, i64 72
+  store double %1872, ptr %1873, align 8
+  %1874 = getelementptr inbounds i8, ptr %1, i64 8
+  %1875 = load double, ptr %1874, align 8
+  %1876 = fsub double %1875, %1872
+  %1877 = fmul double %1876, 5.000000e-01
+  %1878 = fsub double %1875, %1877
+  %1879 = getelementptr inbounds i8, ptr %1840, i64 80
+  %1880 = getelementptr inbounds i8, ptr %1840, i64 88
+  store double %1878, ptr %1880, align 8
+  %1881 = load double, ptr %1, align 8
+  store double %1881, ptr %1879, align 8
+  %1882 = getelementptr inbounds i8, ptr %1840, i64 96
+  %1883 = getelementptr inbounds i8, ptr %1840, i64 104
+  store double %1875, ptr %1883, align 8
+  store double %1868, ptr %1882, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1840, i64 noundef %1839, i32 noundef %4) #25
+  tail call void @free(ptr noundef %1840) #25
   br label %.loopexit
 
-1886:                                             ; preds = %._crit_edge
-  %1887 = add i64 %2, 3
-  %1888 = tail call fastcc ptr @gv_calloc(i64 noundef %1887, i64 noundef 16)
-  %1889 = load double, ptr %1, align 8
-  store double %1889, ptr %1888, align 8
-  %1890 = getelementptr inbounds i8, ptr %1, i64 8
-  %1891 = load double, ptr %1890, align 8
-  %1892 = getelementptr inbounds i8, ptr %55, i64 48
-  %1893 = getelementptr inbounds i8, ptr %55, i64 56
+1884:                                             ; preds = %._crit_edge
+  %1885 = add i64 %2, 3
+  %1886 = tail call fastcc ptr @gv_calloc(i64 noundef %1885, i64 noundef 16)
+  %1887 = load double, ptr %1, align 8
+  store double %1887, ptr %1886, align 8
+  %1888 = getelementptr inbounds i8, ptr %1, i64 8
+  %1889 = load double, ptr %1888, align 8
+  %1890 = getelementptr inbounds i8, ptr %55, i64 48
+  %1891 = getelementptr inbounds i8, ptr %55, i64 56
+  %1892 = load double, ptr %1891, align 8
+  %1893 = getelementptr inbounds i8, ptr %55, i64 72
   %1894 = load double, ptr %1893, align 8
-  %1895 = getelementptr inbounds i8, ptr %55, i64 72
-  %1896 = load double, ptr %1895, align 8
-  %1897 = getelementptr inbounds i8, ptr %1888, i64 8
-  %1898 = load double, ptr %114, align 8
-  %1899 = load double, ptr %1892, align 8
-  %1900 = getelementptr inbounds i8, ptr %1888, i64 16
-  %1901 = getelementptr inbounds i8, ptr %1888, i64 24
-  %1902 = getelementptr inbounds i8, ptr %1888, i64 32
-  %1903 = getelementptr inbounds i8, ptr %55, i64 40
-  %1904 = load double, ptr %1903, align 8
-  %1905 = getelementptr inbounds i8, ptr %1888, i64 40
-  store double %1904, ptr %1905, align 8
-  %1906 = getelementptr inbounds i8, ptr %1, i64 16
-  %1907 = load double, ptr %1906, align 8
-  %1908 = getelementptr inbounds i8, ptr %1888, i64 48
-  store double %1907, ptr %1908, align 8
-  %1909 = getelementptr inbounds i8, ptr %1, i64 24
+  %1895 = getelementptr inbounds i8, ptr %1886, i64 8
+  %1896 = load double, ptr %114, align 8
+  %1897 = load double, ptr %1890, align 8
+  %1898 = getelementptr inbounds i8, ptr %1886, i64 16
+  %1899 = getelementptr inbounds i8, ptr %1886, i64 24
+  %1900 = getelementptr inbounds i8, ptr %1886, i64 32
+  %1901 = getelementptr inbounds i8, ptr %55, i64 40
+  %1902 = load double, ptr %1901, align 8
+  %1903 = getelementptr inbounds i8, ptr %1886, i64 40
+  store double %1902, ptr %1903, align 8
+  %1904 = getelementptr inbounds i8, ptr %1, i64 16
+  %1905 = load double, ptr %1904, align 8
+  %1906 = getelementptr inbounds i8, ptr %1886, i64 48
+  store double %1905, ptr %1906, align 8
+  %1907 = getelementptr inbounds i8, ptr %1, i64 24
+  %1908 = load double, ptr %1907, align 8
+  %1909 = getelementptr inbounds i8, ptr %1, i64 40
   %1910 = load double, ptr %1909, align 8
-  %1911 = getelementptr inbounds i8, ptr %1, i64 40
-  %1912 = load double, ptr %1911, align 8
-  %1913 = fsub double %1910, %1912
-  %1914 = fmul double %1913, 5.000000e-01
-  %1915 = fsub double %1910, %1914
-  %1916 = getelementptr inbounds i8, ptr %1888, i64 56
-  store double %1915, ptr %1916, align 8
-  %1917 = getelementptr inbounds i8, ptr %1888, i64 64
-  %1918 = getelementptr inbounds i8, ptr %1888, i64 72
-  store double %1912, ptr %1918, align 8
-  %1919 = getelementptr inbounds i8, ptr %1888, i64 80
-  %1920 = insertelement <2 x double> poison, double %1898, i64 0
+  %1911 = fsub double %1908, %1910
+  %1912 = fmul double %1911, 5.000000e-01
+  %1913 = fsub double %1908, %1912
+  %1914 = getelementptr inbounds i8, ptr %1886, i64 56
+  store double %1913, ptr %1914, align 8
+  %1915 = getelementptr inbounds i8, ptr %1886, i64 64
+  %1916 = getelementptr inbounds i8, ptr %1886, i64 72
+  store double %1910, ptr %1916, align 8
+  %1917 = getelementptr inbounds i8, ptr %1886, i64 80
+  %1918 = insertelement <2 x double> poison, double %1896, i64 0
+  %1919 = insertelement <2 x double> %1918, double %1892, i64 1
+  %1920 = insertelement <2 x double> poison, double %1897, i64 0
   %1921 = insertelement <2 x double> %1920, double %1894, i64 1
-  %1922 = insertelement <2 x double> poison, double %1899, i64 0
-  %1923 = insertelement <2 x double> %1922, double %1896, i64 1
-  %1924 = fsub <2 x double> %1921, %1923
-  %1925 = fmul <2 x double> %1924, <double 5.000000e-01, double 5.000000e-01>
-  %1926 = extractelement <2 x double> %1925, i64 1
-  %1927 = fsub double %1891, %1926
-  store double %1927, ptr %1897, align 8
-  %1928 = insertelement <2 x double> %1920, double %1912, i64 1
-  %1929 = fadd <2 x double> %1928, %1925
-  %1930 = extractelement <2 x double> %1929, i64 0
-  store double %1930, ptr %1900, align 8
-  store double %1927, ptr %1901, align 8
-  store double %1930, ptr %1902, align 8
-  store double %1930, ptr %1917, align 8
-  store <2 x double> %1929, ptr %1919, align 8
-  %1931 = getelementptr inbounds i8, ptr %1, i64 56
-  %1932 = load double, ptr %1931, align 8
-  %1933 = fadd double %1932, %1926
-  %1934 = getelementptr inbounds i8, ptr %1888, i64 96
-  %1935 = getelementptr inbounds i8, ptr %1888, i64 104
-  store double %1933, ptr %1935, align 8
-  store double %1889, ptr %1934, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1888, i64 noundef %1887, i32 noundef %4) #25
-  tail call void @free(ptr noundef %1888) #25
+  %1922 = fsub <2 x double> %1919, %1921
+  %1923 = fmul <2 x double> %1922, <double 5.000000e-01, double 5.000000e-01>
+  %1924 = extractelement <2 x double> %1923, i64 1
+  %1925 = fsub double %1889, %1924
+  store double %1925, ptr %1895, align 8
+  %1926 = insertelement <2 x double> %1918, double %1910, i64 1
+  %1927 = fadd <2 x double> %1926, %1923
+  %1928 = extractelement <2 x double> %1927, i64 0
+  store double %1928, ptr %1898, align 8
+  store double %1925, ptr %1899, align 8
+  store double %1928, ptr %1900, align 8
+  store double %1928, ptr %1915, align 8
+  store <2 x double> %1927, ptr %1917, align 8
+  %1929 = getelementptr inbounds i8, ptr %1, i64 56
+  %1930 = load double, ptr %1929, align 8
+  %1931 = fadd double %1930, %1924
+  %1932 = getelementptr inbounds i8, ptr %1886, i64 96
+  %1933 = getelementptr inbounds i8, ptr %1886, i64 104
+  store double %1931, ptr %1933, align 8
+  store double %1887, ptr %1932, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1886, i64 noundef %1885, i32 noundef %4) #25
+  tail call void @free(ptr noundef %1886) #25
   br label %.loopexit
 
-1936:                                             ; preds = %._crit_edge
-  %1937 = add i64 %2, 5
-  %1938 = tail call fastcc ptr @gv_calloc(i64 noundef %1937, i64 noundef 16)
-  %1939 = load double, ptr %1, align 8
-  store double %1939, ptr %1938, align 8
-  %1940 = getelementptr inbounds i8, ptr %1, i64 8
-  %1941 = load double, ptr %1940, align 8
-  %1942 = getelementptr inbounds i8, ptr %55, i64 48
-  %1943 = getelementptr inbounds i8, ptr %55, i64 56
+1934:                                             ; preds = %._crit_edge
+  %1935 = add i64 %2, 5
+  %1936 = tail call fastcc ptr @gv_calloc(i64 noundef %1935, i64 noundef 16)
+  %1937 = load double, ptr %1, align 8
+  store double %1937, ptr %1936, align 8
+  %1938 = getelementptr inbounds i8, ptr %1, i64 8
+  %1939 = load double, ptr %1938, align 8
+  %1940 = getelementptr inbounds i8, ptr %55, i64 48
+  %1941 = getelementptr inbounds i8, ptr %55, i64 56
+  %1942 = load double, ptr %1941, align 8
+  %1943 = getelementptr inbounds i8, ptr %55, i64 72
   %1944 = load double, ptr %1943, align 8
-  %1945 = getelementptr inbounds i8, ptr %55, i64 72
-  %1946 = load double, ptr %1945, align 8
-  %1947 = getelementptr inbounds i8, ptr %1938, i64 8
-  %1948 = load double, ptr %114, align 8
-  %1949 = load double, ptr %1942, align 8
-  %1950 = getelementptr inbounds i8, ptr %1938, i64 16
-  %1951 = getelementptr inbounds i8, ptr %1938, i64 24
-  %1952 = getelementptr inbounds i8, ptr %1938, i64 32
-  %1953 = getelementptr inbounds i8, ptr %55, i64 40
-  %1954 = load double, ptr %1953, align 8
-  %1955 = getelementptr inbounds i8, ptr %1938, i64 40
-  store double %1954, ptr %1955, align 8
-  %1956 = getelementptr inbounds i8, ptr %1, i64 16
-  %1957 = load double, ptr %1956, align 8
-  %1958 = getelementptr inbounds i8, ptr %1938, i64 48
-  store double %1957, ptr %1958, align 8
-  %1959 = getelementptr inbounds i8, ptr %1, i64 24
+  %1945 = getelementptr inbounds i8, ptr %1936, i64 8
+  %1946 = load double, ptr %114, align 8
+  %1947 = load double, ptr %1940, align 8
+  %1948 = getelementptr inbounds i8, ptr %1936, i64 16
+  %1949 = getelementptr inbounds i8, ptr %1936, i64 24
+  %1950 = getelementptr inbounds i8, ptr %1936, i64 32
+  %1951 = getelementptr inbounds i8, ptr %55, i64 40
+  %1952 = load double, ptr %1951, align 8
+  %1953 = getelementptr inbounds i8, ptr %1936, i64 40
+  store double %1952, ptr %1953, align 8
+  %1954 = getelementptr inbounds i8, ptr %1, i64 16
+  %1955 = load double, ptr %1954, align 8
+  %1956 = getelementptr inbounds i8, ptr %1936, i64 48
+  store double %1955, ptr %1956, align 8
+  %1957 = getelementptr inbounds i8, ptr %1, i64 24
+  %1958 = load double, ptr %1957, align 8
+  %1959 = getelementptr inbounds i8, ptr %1, i64 40
   %1960 = load double, ptr %1959, align 8
-  %1961 = getelementptr inbounds i8, ptr %1, i64 40
-  %1962 = load double, ptr %1961, align 8
-  %1963 = fsub double %1960, %1962
-  %1964 = fmul double %1963, 5.000000e-01
-  %1965 = fsub double %1960, %1964
-  %1966 = getelementptr inbounds i8, ptr %1938, i64 56
-  store double %1965, ptr %1966, align 8
-  %1967 = getelementptr inbounds i8, ptr %1938, i64 64
-  %1968 = getelementptr inbounds i8, ptr %1938, i64 72
-  store double %1962, ptr %1968, align 8
-  %1969 = getelementptr inbounds i8, ptr %1938, i64 80
-  %1970 = insertelement <2 x double> poison, double %1948, i64 0
+  %1961 = fsub double %1958, %1960
+  %1962 = fmul double %1961, 5.000000e-01
+  %1963 = fsub double %1958, %1962
+  %1964 = getelementptr inbounds i8, ptr %1936, i64 56
+  store double %1963, ptr %1964, align 8
+  %1965 = getelementptr inbounds i8, ptr %1936, i64 64
+  %1966 = getelementptr inbounds i8, ptr %1936, i64 72
+  store double %1960, ptr %1966, align 8
+  %1967 = getelementptr inbounds i8, ptr %1936, i64 80
+  %1968 = insertelement <2 x double> poison, double %1946, i64 0
+  %1969 = insertelement <2 x double> %1968, double %1942, i64 1
+  %1970 = insertelement <2 x double> poison, double %1947, i64 0
   %1971 = insertelement <2 x double> %1970, double %1944, i64 1
-  %1972 = insertelement <2 x double> poison, double %1949, i64 0
-  %1973 = insertelement <2 x double> %1972, double %1946, i64 1
-  %1974 = fsub <2 x double> %1971, %1973
-  %1975 = fmul <2 x double> %1974, <double 5.000000e-01, double 5.000000e-01>
-  %1976 = extractelement <2 x double> %1975, i64 1
-  %1977 = fsub double %1941, %1976
-  store double %1977, ptr %1947, align 8
-  %1978 = insertelement <2 x double> %1970, double %1962, i64 1
-  %1979 = fadd <2 x double> %1978, %1975
-  %1980 = extractelement <2 x double> %1979, i64 0
-  store double %1980, ptr %1950, align 8
-  store double %1977, ptr %1951, align 8
-  store double %1980, ptr %1952, align 8
-  store double %1980, ptr %1967, align 8
-  store <2 x double> %1979, ptr %1969, align 8
-  %1981 = getelementptr inbounds i8, ptr %1, i64 48
-  %1982 = getelementptr inbounds i8, ptr %1938, i64 96
-  %1983 = getelementptr inbounds i8, ptr %1938, i64 104
-  %1984 = load double, ptr %112, align 8
-  %1985 = extractelement <2 x double> %1975, i64 0
-  %1986 = fsub double %1984, %1985
-  store double %1986, ptr %1982, align 8
-  %1987 = getelementptr inbounds i8, ptr %1938, i64 112
-  store double %1986, ptr %1987, align 8
-  %1988 = getelementptr inbounds i8, ptr %1938, i64 120
-  %1989 = getelementptr inbounds i8, ptr %1938, i64 128
-  %1990 = load <2 x double>, ptr %1981, align 8
-  %1991 = extractelement <2 x double> %1990, i64 1
-  %1992 = fadd double %1991, %1976
-  store double %1992, ptr %1983, align 8
-  store double %1991, ptr %1988, align 8
-  store <2 x double> %1990, ptr %1989, align 8
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1938, i64 noundef %1937, i32 noundef %4) #25
-  tail call void @free(ptr noundef %1938) #25
+  %1972 = fsub <2 x double> %1969, %1971
+  %1973 = fmul <2 x double> %1972, <double 5.000000e-01, double 5.000000e-01>
+  %1974 = extractelement <2 x double> %1973, i64 1
+  %1975 = fsub double %1939, %1974
+  store double %1975, ptr %1945, align 8
+  %1976 = insertelement <2 x double> %1968, double %1960, i64 1
+  %1977 = fadd <2 x double> %1976, %1973
+  %1978 = extractelement <2 x double> %1977, i64 0
+  store double %1978, ptr %1948, align 8
+  store double %1975, ptr %1949, align 8
+  store double %1978, ptr %1950, align 8
+  store double %1978, ptr %1965, align 8
+  store <2 x double> %1977, ptr %1967, align 8
+  %1979 = getelementptr inbounds i8, ptr %1, i64 48
+  %1980 = getelementptr inbounds i8, ptr %1936, i64 96
+  %1981 = getelementptr inbounds i8, ptr %1936, i64 104
+  %1982 = load double, ptr %112, align 8
+  %1983 = extractelement <2 x double> %1973, i64 0
+  %1984 = fsub double %1982, %1983
+  store double %1984, ptr %1980, align 8
+  %1985 = getelementptr inbounds i8, ptr %1936, i64 112
+  store double %1984, ptr %1985, align 8
+  %1986 = getelementptr inbounds i8, ptr %1936, i64 120
+  %1987 = getelementptr inbounds i8, ptr %1936, i64 128
+  %1988 = load <2 x double>, ptr %1979, align 8
+  %1989 = extractelement <2 x double> %1988, i64 1
+  %1990 = fadd double %1989, %1974
+  store double %1990, ptr %1981, align 8
+  store double %1989, ptr %1986, align 8
+  store <2 x double> %1988, ptr %1987, align 8
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1936, i64 noundef %1935, i32 noundef %4) #25
+  tail call void @free(ptr noundef %1936) #25
   br label %.loopexit
 
-.loopexit:                                        ; preds = %141, %139, %1936, %1886, %1840, %1791, %1700, %1599, %1482, %1363, %1257, %1156, %1051, %866, %793, %717, %626, %561, %487, %413, %375, %292, %233, %214, %._crit_edge1983, %._crit_edge1989, %._crit_edge1993, %._crit_edge2001, %._crit_edge
+.loopexit:                                        ; preds = %141, %139, %1934, %1884, %1838, %1789, %1698, %1597, %1480, %1361, %1255, %1154, %1049, %864, %791, %715, %624, %559, %485, %411, %373, %290, %231, %212, %._crit_edge1984, %._crit_edge1990, %._crit_edge1994, %._crit_edge2002, %._crit_edge
   call void @free(ptr noundef nonnull %55) #25
-  br label %1993
+  br label %1991
 
-1993:                                             ; preds = %.loopexit, %11
+1991:                                             ; preds = %.loopexit, %11
   ret void
 }
 

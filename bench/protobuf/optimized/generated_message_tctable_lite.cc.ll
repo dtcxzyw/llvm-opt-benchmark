@@ -662,8 +662,8 @@ if.end35:                                         ; preds = %if.then17
 
 if.end47:                                         ; preds = %if.end13
   %conv48 = zext i16 %7 to i64
-  %mul49 = shl nuw nsw i64 %conv48, 1
-  %add.ptr50 = getelementptr inbounds i16, ptr %incdec.ptr41, i64 %mul49
+  %add.ptr50.idx = shl nuw nsw i64 %conv48, 2
+  %add.ptr50 = getelementptr inbounds i8, ptr %incdec.ptr41, i64 %add.ptr50.idx
   %fstart.0.copyload = load i32, ptr %add.ptr50, align 2
   %cmp11 = icmp ugt i32 %fstart.0.copyload, %field_num
   br i1 %cmp11, label %return, label %if.end13, !llvm.loop !7
@@ -937,8 +937,8 @@ if.end35.i64:                                     ; preds = %if.then17.i
 
 if.end47.i:                                       ; preds = %if.end13.i
   %conv48.i = zext i16 %14 to i64
-  %mul49.i = shl nuw nsw i64 %conv48.i, 1
-  %add.ptr50.i = getelementptr inbounds i16, ptr %incdec.ptr41.i, i64 %mul49.i
+  %add.ptr50.idx.i = shl nuw nsw i64 %conv48.i, 2
+  %add.ptr50.i = getelementptr inbounds i8, ptr %incdec.ptr41.i, i64 %add.ptr50.idx.i
   %fstart.0.copyload.i = load i32, ptr %add.ptr50.i, align 2
   %cmp11.i = icmp ugt i32 %fstart.0.copyload.i, %shr.i
   br i1 %cmp11.i, label %if.then9.i, label %if.end13.i, !llvm.loop !7
@@ -1133,8 +1133,8 @@ if.end35.i74:                                     ; preds = %if.then17.i
 
 if.end47.i:                                       ; preds = %if.end13.i
   %conv48.i = zext i16 %15 to i64
-  %mul49.i = shl nuw nsw i64 %conv48.i, 1
-  %add.ptr50.i = getelementptr inbounds i16, ptr %incdec.ptr41.i, i64 %mul49.i
+  %add.ptr50.idx.i = shl nuw nsw i64 %conv48.i, 2
+  %add.ptr50.i = getelementptr inbounds i8, ptr %incdec.ptr41.i, i64 %add.ptr50.idx.i
   %fstart.0.copyload.i = load i32, ptr %add.ptr50.i, align 2
   %cmp11.i = icmp ugt i32 %fstart.0.copyload.i, %shr.i
   br i1 %cmp11.i, label %if.then11.i, label %if.end13.i, !llvm.loop !7
@@ -11839,8 +11839,8 @@ if.end35.i:                                       ; preds = %if.then17.i
 
 if.end47.i:                                       ; preds = %if.end13.i
   %conv48.i = zext i16 %6 to i64
-  %mul49.i = shl nuw nsw i64 %conv48.i, 1
-  %add.ptr50.i = getelementptr inbounds i16, ptr %incdec.ptr41.i, i64 %mul49.i
+  %add.ptr50.idx.i = shl nuw nsw i64 %conv48.i, 2
+  %add.ptr50.i = getelementptr inbounds i8, ptr %incdec.ptr41.i, i64 %add.ptr50.idx.i
   %fstart.0.copyload.i = load i32, ptr %add.ptr50.i, align 2
   %cmp11.i = icmp ugt i32 %fstart.0.copyload.i, %shr
   br i1 %cmp11.i, label %_ZN6google8protobuf8internal8TcParser14FindFieldEntryEPKNS1_16TcParseTableBaseEj.exit, label %if.end13.i, !llvm.loop !7
@@ -14761,8 +14761,8 @@ if.end35.i:                                       ; preds = %if.then17.i
 
 if.end47.i:                                       ; preds = %if.end13.i
   %conv48.i = zext i16 %9 to i64
-  %mul49.i = shl nuw nsw i64 %conv48.i, 1
-  %add.ptr50.i = getelementptr inbounds i16, ptr %incdec.ptr41.i, i64 %mul49.i
+  %add.ptr50.idx.i = shl nuw nsw i64 %conv48.i, 2
+  %add.ptr50.i = getelementptr inbounds i8, ptr %incdec.ptr41.i, i64 %add.ptr50.idx.i
   %fstart.0.copyload.i = load i32, ptr %add.ptr50.i, align 2
   %cmp11.i = icmp ugt i32 %fstart.0.copyload.i, %1
   br i1 %cmp11.i, label %_ZN6google8protobuf8internal8TcParser14FindFieldEntryEPKNS1_16TcParseTableBaseEj.exit, label %if.end13.i, !llvm.loop !7

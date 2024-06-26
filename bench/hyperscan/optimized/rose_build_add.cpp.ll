@@ -679,8 +679,8 @@ cond.end.i.i.i.i.i:                               ; preds = %cond.false.i.i.i.i.
   %cond.i.i.i.i.i = phi i64 [ %div9.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %sub10.i.i.i.i.i, %cond.false.i.i.i.i.i ]
   %add.ptr11.i.i.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %cond.i.i.i.i.i
   %7 = load ptr, ptr %add.ptr11.i.i.i.i.i, align 8, !noalias !5
-  %mul.neg.i.i.i.i.i = mul nsw i64 %cond.i.i.i.i.i, -5
-  %8 = getelementptr %"struct.ue2::rose_literal_info", ptr %7, i64 %mul.neg.i.i.i.i.i
+  %.idx.i.i.i.i.i = mul i64 %cond.i.i.i.i.i, -440
+  %8 = getelementptr i8, ptr %7, i64 %.idx.i.i.i.i.i
   %add.ptr15.i.i.i.i.i = getelementptr %"struct.ue2::rose_literal_info", ptr %8, i64 %add.i.i.i.i.i
   br label %_ZN3ue2L12createVertexEPNS_13RoseBuildImplEjjj.exit
 
@@ -6481,8 +6481,8 @@ cond.end.i.i.i.i.i.i.i:                           ; preds = %cond.false.i.i.i.i.
   %cond.i.i.i.i.i.i.i = phi i64 [ %div9.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i ], [ %sub10.i.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i.i ]
   %add.ptr11.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %319, i64 %cond.i.i.i.i.i.i.i
   %320 = load ptr, ptr %add.ptr11.i.i.i.i.i.i.i, align 8, !noalias !187
-  %mul.neg.i.i.i.i.i.i.i = mul nsw i64 %cond.i.i.i.i.i.i.i, -5
-  %321 = getelementptr %"struct.ue2::rose_literal_info", ptr %320, i64 %mul.neg.i.i.i.i.i.i.i
+  %.idx.i.i.i.i.i.i.i = mul i64 %cond.i.i.i.i.i.i.i, -440
+  %321 = getelementptr i8, ptr %320, i64 %.idx.i.i.i.i.i.i.i
   %add.ptr15.i.i.i.i.i.i.i = getelementptr %"struct.ue2::rose_literal_info", ptr %321, i64 %add.i.i.i.i.i69.i.i
   br label %_ZNSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit.i.i.i
 
@@ -7440,8 +7440,8 @@ cond.end.i.i.i.i.i.i:                             ; preds = %cond.false.i.i.i.i.
   %cond.i.i.i.i.i182.i = phi i64 [ %div9.i.i.i.i.i.i, %cond.true.i.i.i.i.i189.i ], [ %sub10.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i ]
   %add.ptr11.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %426, i64 %cond.i.i.i.i.i182.i
   %427 = load ptr, ptr %add.ptr11.i.i.i.i.i.i, align 8, !noalias !218
-  %mul.neg.i.i.i.i.i.i = mul nsw i64 %cond.i.i.i.i.i182.i, -5
-  %428 = getelementptr %"struct.ue2::rose_literal_info", ptr %427, i64 %mul.neg.i.i.i.i.i.i
+  %.idx.i.i.i.i.i.i = mul i64 %cond.i.i.i.i.i182.i, -440
+  %428 = getelementptr i8, ptr %427, i64 %.idx.i.i.i.i.i.i
   %add.ptr15.i.i.i.i.i.i = getelementptr %"struct.ue2::rose_literal_info", ptr %428, i64 %add.i.i.i.i.i181.i
   br label %_ZNSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit.i.i
 
@@ -7510,8 +7510,8 @@ cond.end.i.i.i.i.i314.i.i:                        ; preds = %cond.false.i.i.i.i.
   %cond.i.i.i.i.i315.i.i = phi i64 [ %div9.i.i.i.i.i329.i.i, %cond.true.i.i.i.i.i328.i.i ], [ %sub10.i.i.i.i.i313.i.i, %cond.false.i.i.i.i.i310.i.i ]
   %add.ptr11.i.i.i.i.i316.i.i = getelementptr inbounds ptr, ptr %435, i64 %cond.i.i.i.i.i315.i.i
   %436 = load ptr, ptr %add.ptr11.i.i.i.i.i316.i.i, align 8, !noalias !221
-  %mul.neg.i.i.i.i.i317.i.i = mul nsw i64 %cond.i.i.i.i.i315.i.i, -5
-  %437 = getelementptr %"struct.ue2::rose_literal_info", ptr %436, i64 %mul.neg.i.i.i.i.i317.i.i
+  %.idx.i.i.i.i.i317.i.i = mul i64 %cond.i.i.i.i.i315.i.i, -440
+  %437 = getelementptr i8, ptr %436, i64 %.idx.i.i.i.i.i317.i.i
   %add.ptr15.i.i.i.i.i318.i.i = getelementptr %"struct.ue2::rose_literal_info", ptr %437, i64 %add.i.i.i.i.i308.i.i
   br label %_ZNSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit.i319.i.i
 
@@ -7963,8 +7963,8 @@ cond.end.i.i.i.i.i.i402:                          ; preds = %cond.false.i.i.i.i.
   %cond.i.i.i.i.i.i403 = phi i64 [ %div9.i.i.i.i.i.i562, %cond.true.i.i.i.i.i.i561 ], [ %sub10.i.i.i.i.i.i401, %cond.false.i.i.i.i.i.i398 ]
   %add.ptr11.i.i.i.i.i.i404 = getelementptr inbounds ptr, ptr %483, i64 %cond.i.i.i.i.i.i403
   %484 = load ptr, ptr %add.ptr11.i.i.i.i.i.i404, align 8, !noalias !230
-  %mul.neg.i.i.i.i.i.i405 = mul nsw i64 %cond.i.i.i.i.i.i403, -5
-  %485 = getelementptr %"struct.ue2::rose_literal_info", ptr %484, i64 %mul.neg.i.i.i.i.i.i405
+  %.idx.i.i.i.i.i.i405 = mul i64 %cond.i.i.i.i.i.i403, -440
+  %485 = getelementptr i8, ptr %484, i64 %.idx.i.i.i.i.i.i405
   %add.ptr15.i.i.i.i.i.i406 = getelementptr %"struct.ue2::rose_literal_info", ptr %485, i64 %add.i.i.i.i.i.i397
   br label %_ZNSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit.i.i407
 
@@ -9244,8 +9244,8 @@ cond.end.i.i.i.i.i249.i:                          ; preds = %cond.false.i.i.i.i.
   %cond.i.i.i.i.i250.i = phi i64 [ %div9.i.i.i.i.i268.i, %cond.true.i.i.i.i.i267.i ], [ %sub10.i.i.i.i.i248.i, %cond.false.i.i.i.i.i245.i ]
   %add.ptr11.i.i.i.i.i251.i = getelementptr inbounds ptr, ptr %626, i64 %cond.i.i.i.i.i250.i
   %627 = load ptr, ptr %add.ptr11.i.i.i.i.i251.i, align 8, !noalias !274
-  %mul.neg.i.i.i.i.i252.i = mul nsw i64 %cond.i.i.i.i.i250.i, -5
-  %628 = getelementptr %"struct.ue2::rose_literal_info", ptr %627, i64 %mul.neg.i.i.i.i.i252.i
+  %.idx.i.i.i.i.i252.i = mul i64 %cond.i.i.i.i.i250.i, -440
+  %628 = getelementptr i8, ptr %627, i64 %.idx.i.i.i.i.i252.i
   %add.ptr15.i.i.i.i.i253.i = getelementptr %"struct.ue2::rose_literal_info", ptr %628, i64 %add.i.i.i.i.i244.i
   br label %_ZNSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit.i254.i
 
@@ -12169,8 +12169,8 @@ cond.end.i.i.i.i.i:                               ; preds = %cond.false.i.i.i.i.
   %cond.i.i.i.i.i = phi i64 [ %div9.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %sub10.i.i.i.i.i, %cond.false.i.i.i.i.i ]
   %add.ptr11.i.i.i.i.i = getelementptr inbounds ptr, ptr %22, i64 %cond.i.i.i.i.i
   %23 = load ptr, ptr %add.ptr11.i.i.i.i.i, align 8, !noalias !360
-  %mul.neg.i.i.i.i.i = mul nsw i64 %cond.i.i.i.i.i, -5
-  %24 = getelementptr %"struct.ue2::rose_literal_info", ptr %23, i64 %mul.neg.i.i.i.i.i
+  %.idx.i.i.i.i.i = mul i64 %cond.i.i.i.i.i, -440
+  %24 = getelementptr i8, ptr %23, i64 %.idx.i.i.i.i.i
   %add.ptr15.i.i.i.i.i = getelementptr %"struct.ue2::rose_literal_info", ptr %24, i64 %add.i.i.i.i.i
   br label %_ZNSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit.i
 
@@ -14503,8 +14503,8 @@ cond.end.i.i.i.i.i:                               ; preds = %cond.false.i.i.i.i.
   %cond.i.i.i.i.i = phi i64 [ %div9.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %sub10.i.i.i.i.i, %cond.false.i.i.i.i.i ]
   %add.ptr11.i.i.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %cond.i.i.i.i.i
   %7 = load ptr, ptr %add.ptr11.i.i.i.i.i, align 8, !noalias !421
-  %mul.neg.i.i.i.i.i = mul nsw i64 %cond.i.i.i.i.i, -5
-  %8 = getelementptr %"struct.ue2::rose_literal_info", ptr %7, i64 %mul.neg.i.i.i.i.i
+  %.idx.i.i.i.i.i = mul i64 %cond.i.i.i.i.i, -440
+  %8 = getelementptr i8, ptr %7, i64 %.idx.i.i.i.i.i
   %add.ptr15.i.i.i.i.i = getelementptr %"struct.ue2::rose_literal_info", ptr %8, i64 %add.i.i.i.i.i
   br label %_ZN3ue2L12createVertexEPNS_13RoseBuildImplEjjj.exit
 
@@ -24053,8 +24053,8 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %1, i64 %cond.i.i
   %7 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !651
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 440
-  %mul.neg.i.i = mul i64 %cond.i.i, -5
-  %8 = getelementptr %"struct.ue2::rose_literal_info", ptr %7, i64 %mul.neg.i.i
+  %.idx.i.i = mul i64 %cond.i.i, -440
+  %8 = getelementptr i8, ptr %7, i64 %.idx.i.i
   %add.ptr15.i.i = getelementptr %"struct.ue2::rose_literal_info", ptr %8, i64 %add.i.i13
   br label %_ZStplRKSt15_Deque_iteratorIN3ue217rose_literal_infoERS1_PS1_El.exit
 
@@ -24695,8 +24695,8 @@ cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %cond.i.i.i
   %6 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !663
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 440
-  %mul.neg.i.i.i = mul i64 %cond.i.i.i, -5
-  %7 = getelementptr %"struct.ue2::rose_literal_info", ptr %6, i64 %mul.neg.i.i.i
+  %.idx.i.i.i = mul i64 %cond.i.i.i, -440
+  %7 = getelementptr i8, ptr %6, i64 %.idx.i.i.i
   %add.ptr15.i.i.i = getelementptr %"struct.ue2::rose_literal_info", ptr %7, i64 %add.i.i.i
   br label %_ZNSt5dequeIN3ue217rose_literal_infoESaIS1_EE27_M_reserve_elements_at_backEm.exit
 

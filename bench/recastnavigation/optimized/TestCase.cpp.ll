@@ -926,35 +926,35 @@ define dso_local void @_ZN8TestCase12handleRenderEv(ptr nocapture noundef nonnul
 137:                                              ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %137 ]
   %138 = load ptr, ptr %136, align 8
-  %139 = mul nuw nsw i64 %indvars.iv, 3
-  %140 = getelementptr inbounds float, ptr %138, i64 %139
-  %141 = load float, ptr %140, align 4
-  %142 = getelementptr inbounds i8, ptr %140, i64 4
-  %143 = load float, ptr %142, align 4
-  %144 = fadd float %143, 0x3FD3333340000000
-  %145 = getelementptr inbounds i8, ptr %140, i64 8
-  %146 = load float, ptr %145, align 4
-  tail call void @glVertex3f(float noundef %141, float noundef %144, float noundef %146)
-  %147 = load ptr, ptr %136, align 8
+  %.idx = mul i64 %indvars.iv, 12
+  %139 = getelementptr inbounds i8, ptr %138, i64 %.idx
+  %140 = load float, ptr %139, align 4
+  %141 = getelementptr inbounds i8, ptr %139, i64 4
+  %142 = load float, ptr %141, align 4
+  %143 = fadd float %142, 0x3FD3333340000000
+  %144 = getelementptr inbounds i8, ptr %139, i64 8
+  %145 = load float, ptr %144, align 4
+  tail call void @glVertex3f(float noundef %140, float noundef %143, float noundef %145)
+  %146 = load ptr, ptr %136, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %148 = mul nuw nsw i64 %indvars.iv.next, 3
-  %149 = getelementptr inbounds float, ptr %147, i64 %148
+  %.idx99 = mul i64 %indvars.iv.next, 12
+  %147 = getelementptr inbounds i8, ptr %146, i64 %.idx99
+  %148 = load float, ptr %147, align 4
+  %149 = getelementptr inbounds i8, ptr %147, i64 4
   %150 = load float, ptr %149, align 4
-  %151 = getelementptr inbounds i8, ptr %149, i64 4
-  %152 = load float, ptr %151, align 4
-  %153 = fadd float %152, 0x3FD3333340000000
-  %154 = getelementptr inbounds i8, ptr %149, i64 8
-  %155 = load float, ptr %154, align 4
-  tail call void @glVertex3f(float noundef %150, float noundef %153, float noundef %155)
-  %156 = load i32, ptr %133, align 8
-  %157 = add nsw i32 %156, -1
-  %158 = sext i32 %157 to i64
-  %159 = icmp slt i64 %indvars.iv.next, %158
-  br i1 %159, label %137, label %._crit_edge, !llvm.loop !13
+  %151 = fadd float %150, 0x3FD3333340000000
+  %152 = getelementptr inbounds i8, ptr %147, i64 8
+  %153 = load float, ptr %152, align 4
+  tail call void @glVertex3f(float noundef %148, float noundef %151, float noundef %153)
+  %154 = load i32, ptr %133, align 8
+  %155 = add nsw i32 %154, -1
+  %156 = sext i32 %155 to i64
+  %157 = icmp slt i64 %indvars.iv.next, %156
+  br i1 %157, label %137, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %137, %132
-  %160 = getelementptr inbounds i8, ptr %.08794, i64 104
-  %.087 = load ptr, ptr %160, align 8
+  %158 = getelementptr inbounds i8, ptr %.08794, i64 104
+  %.087 = load ptr, ptr %158, align 8
   %.not = icmp eq ptr %.087, null
   br i1 %.not, label %._crit_edge97, label %.lr.ph96, !llvm.loop !14
 

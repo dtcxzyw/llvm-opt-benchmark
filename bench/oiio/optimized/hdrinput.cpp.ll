@@ -1759,8 +1759,8 @@ if.then11:                                        ; preds = %invoke.cont8
 
 for.body:                                         ; preds = %for.cond.preheader, %_ZN18OpenImageIO_v2_6_010rgbe2floatERfS0_S0_Ph.exit
   %i.024 = phi i64 [ %inc, %_ZN18OpenImageIO_v2_6_010rgbe2floatERfS0_S0_Ph.exit ], [ 0, %for.cond.preheader ]
-  %mul15 = mul i64 %i.024, 3
-  %arrayidx = getelementptr float, ptr %data, i64 %mul15
+  %arrayidx.idx = mul i64 %i.024, 12
+  %arrayidx = getelementptr i8, ptr %data, i64 %arrayidx.idx
   %arrayidx20 = getelementptr i8, ptr %arrayidx, i64 8
   %mul21 = shl i64 %i.024, 2
   %arrayidx22 = getelementptr inbounds i8, ptr %rgbe.0, i64 %mul21

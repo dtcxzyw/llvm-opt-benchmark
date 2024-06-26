@@ -5425,8 +5425,8 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor0EE
   %33 = zext nneg i32 %0 to i64
   br label %.preheader119
 
-.preheader119:                                    ; preds = %.preheader119.preheader, %104
-  %indvars.iv142 = phi i64 [ 0, %.preheader119.preheader ], [ %indvars.iv.next143, %104 ]
+.preheader119:                                    ; preds = %.preheader119.preheader, %103
+  %indvars.iv142 = phi i64 [ 0, %.preheader119.preheader ], [ %indvars.iv.next143, %103 ]
   %34 = trunc nuw nsw i64 %indvars.iv142 to i32
   br label %35
 
@@ -5532,55 +5532,55 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor0EE
 
 97:                                               ; preds = %68, %97
   %indvars.iv138 = phi i64 [ 1, %68 ], [ %indvars.iv.next139, %97 ]
-  %.sroa.0115.0126 = phi <8 x float> [ zeroinitializer, %68 ], [ %101, %97 ]
-  %.sroa.0113.0125 = phi <8 x float> [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %68 ], [ %102, %97 ]
-  %.sroa.0110.0124 = phi <8 x float> [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %68 ], [ %103, %97 ]
-  %98 = shl nuw nsw i64 %indvars.iv138, 3
-  %99 = getelementptr inbounds float, ptr %19, i64 %98
-  %.val = load <8 x float>, ptr %99, align 32
-  %100 = fmul <8 x float> %.sroa.0110.0124, %.val
-  %101 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %100, <8 x float> %.sroa.0113.0125, <8 x float> %.sroa.0115.0126)
-  %102 = fmul <8 x float> %.sroa.0113.0125, %96
-  %103 = fadd <8 x float> %.sroa.0110.0124, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %.sroa.0115.0126 = phi <8 x float> [ zeroinitializer, %68 ], [ %100, %97 ]
+  %.sroa.0113.0125 = phi <8 x float> [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %68 ], [ %101, %97 ]
+  %.sroa.0110.0124 = phi <8 x float> [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %68 ], [ %102, %97 ]
+  %.idx = shl nsw i64 %indvars.iv138, 5
+  %98 = getelementptr inbounds i8, ptr %19, i64 %.idx
+  %.val = load <8 x float>, ptr %98, align 32
+  %99 = fmul <8 x float> %.sroa.0110.0124, %.val
+  %100 = call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %99, <8 x float> %.sroa.0113.0125, <8 x float> %.sroa.0115.0126)
+  %101 = fmul <8 x float> %.sroa.0113.0125, %96
+  %102 = fadd <8 x float> %.sroa.0110.0124, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next139, 6
-  br i1 %exitcond141.not, label %104, label %97, !llvm.loop !48
+  br i1 %exitcond141.not, label %103, label %97, !llvm.loop !48
 
-104:                                              ; preds = %97
-  %105 = and <8 x i32> %75, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %106 = xor <8 x i32> %105, %93
-  %107 = bitcast <8 x i32> %106 to <8 x float>
-  %108 = fmul <8 x float> %101, %107
+103:                                              ; preds = %97
+  %104 = and <8 x i32> %75, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %105 = xor <8 x i32> %104, %93
+  %106 = bitcast <8 x i32> %105 to <8 x float>
+  %107 = fmul <8 x float> %100, %106
   %.sroa.029.0.copyload = load <8 x float>, ptr %29, align 32
-  %109 = fmul <8 x float> %108, %.sroa.029.0.copyload
+  %108 = fmul <8 x float> %107, %.sroa.029.0.copyload
   %.sroa.026.0.copyload = load <8 x float>, ptr %30, align 32
-  %110 = fmul <8 x float> %108, %.sroa.026.0.copyload
+  %109 = fmul <8 x float> %107, %.sroa.026.0.copyload
   %.sroa.023.0.copyload = load <8 x float>, ptr %23, align 32
-  %111 = fmul <8 x float> %109, %.sroa.023.0.copyload
-  store <8 x float> %111, ptr %23, align 32
+  %110 = fmul <8 x float> %108, %.sroa.023.0.copyload
+  store <8 x float> %110, ptr %23, align 32
   %.sroa.020.0.copyload = load <8 x float>, ptr %24, align 32
-  %112 = fmul <8 x float> %109, %.sroa.020.0.copyload
-  store <8 x float> %112, ptr %24, align 32
+  %111 = fmul <8 x float> %108, %.sroa.020.0.copyload
+  store <8 x float> %111, ptr %24, align 32
   %.sroa.017.0.copyload = load <8 x float>, ptr %25, align 32
-  %113 = fmul <8 x float> %109, %.sroa.017.0.copyload
-  store <8 x float> %113, ptr %25, align 32
+  %112 = fmul <8 x float> %108, %.sroa.017.0.copyload
+  store <8 x float> %112, ptr %25, align 32
   %.sroa.014.0.copyload = load <8 x float>, ptr %26, align 32
-  %114 = fmul <8 x float> %110, %.sroa.014.0.copyload
-  store <8 x float> %114, ptr %26, align 32
+  %113 = fmul <8 x float> %109, %.sroa.014.0.copyload
+  store <8 x float> %113, ptr %26, align 32
   %.sroa.011.0.copyload = load <8 x float>, ptr %27, align 32
-  %115 = fmul <8 x float> %110, %.sroa.011.0.copyload
-  store <8 x float> %115, ptr %27, align 32
+  %114 = fmul <8 x float> %109, %.sroa.011.0.copyload
+  store <8 x float> %114, ptr %27, align 32
   %.sroa.08.0.copyload = load <8 x float>, ptr %28, align 32
-  %116 = fmul <8 x float> %110, %.sroa.08.0.copyload
-  store <8 x float> %116, ptr %28, align 32
+  %115 = fmul <8 x float> %109, %.sroa.08.0.copyload
+  store <8 x float> %115, ptr %28, align 32
   %.sroa.07.0.copyload = load <8 x float>, ptr %20, align 32
   %.sroa.06.0.copyload = load <8 x float>, ptr %21, align 32
-  call x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, <8 x float> %.sroa.07.0.copyload, <8 x float> %.sroa.06.0.copyload, <8 x float> %111, <8 x float> %112, <8 x float> %113, <8 x float> %114, <8 x float> %115, <8 x float> %116, ptr noundef %4)
+  call x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, <8 x float> %.sroa.07.0.copyload, <8 x float> %.sroa.06.0.copyload, <8 x float> %110, <8 x float> %111, <8 x float> %112, <8 x float> %113, <8 x float> %114, <8 x float> %115, ptr noundef %4)
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 40
-  %117 = icmp ult i64 %indvars.iv.next143, %33
-  br i1 %117, label %.preheader119, label %._crit_edge, !llvm.loop !49
+  %116 = icmp ult i64 %indvars.iv.next143, %33
+  br i1 %116, label %.preheader119, label %._crit_edge, !llvm.loop !49
 
-._crit_edge:                                      ; preds = %104, %14
+._crit_edge:                                      ; preds = %103, %14
   ret float 0.000000e+00
 }
 

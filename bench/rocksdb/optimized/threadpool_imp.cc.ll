@@ -3514,8 +3514,8 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   store ptr %26, ptr %_M_first.i.i103, align 8, !alias.scope !71
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %26, i64 504
   store ptr %add.ptr.i.i.i, ptr %_M_last.i.i105, align 8, !alias.scope !71
-  %mul.neg.i.i = mul nsw i64 %cond.i.i, -7
-  %27 = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %26, i64 %mul.neg.i.i
+  %.idx.i.i = mul i64 %cond.i.i, -504
+  %27 = getelementptr i8, ptr %26, i64 %.idx.i.i
   %add.ptr15.i.i = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %27, i64 %add.i.i113
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_El.exit
 
@@ -3896,8 +3896,8 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   store ptr %20, ptr %_M_first, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %20, i64 504
   store ptr %add.ptr.i.i.i, ptr %_M_last.i.i.i, align 8
-  %mul.neg.i.i = mul i64 %cond.i.i, -7
-  %21 = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %20, i64 %mul.neg.i.i
+  %.idx.i.i = mul i64 %cond.i.i, -504
+  %21 = getelementptr i8, ptr %20, i64 %.idx.i.i
   %add.ptr15.i.i = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %21, i64 %add.i.i
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit
 
@@ -4166,8 +4166,8 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
   store ptr %18, ptr %_M_first.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %18, i64 504
   store ptr %add.ptr.i.i, ptr %_M_last, align 8
-  %mul.neg.i = mul i64 %cond.i, -7
-  %19 = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %18, i64 %mul.neg.i
+  %.idx.i = mul i64 %cond.i, -504
+  %19 = getelementptr i8, ptr %18, i64 %.idx.i
   %add.ptr15.i = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %19, i64 %add.i
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit
 

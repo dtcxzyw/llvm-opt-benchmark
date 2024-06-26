@@ -897,47 +897,47 @@ define internal fastcc void @get_fixed_ranges() unnamed_addr #1 align 16 {
 
 53:                                               ; preds = %52, %42
   %54 = trunc i64 %48 to i32
-  %55 = shl nuw nsw i64 %44, 1
-  %56 = getelementptr i32, ptr getelementptr inbounds (i8, ptr @mtrr_state, i64 4096), i64 %55
-  %57 = getelementptr i8, ptr %56, i64 8
-  store i32 %54, ptr %57, align 4
-  %58 = lshr i64 %51, 32
-  %59 = trunc nuw i64 %58 to i32
-  %60 = getelementptr i8, ptr %56, i64 12
-  store i32 %59, ptr %60, align 4
+  %.idx = shl nuw nsw i64 %44, 3
+  %55 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @mtrr_state, i64 4096), i64 %.idx
+  %56 = getelementptr i8, ptr %55, i64 8
+  store i32 %54, ptr %56, align 4
+  %57 = lshr i64 %51, 32
+  %58 = trunc nuw i64 %57 to i32
+  %59 = getelementptr i8, ptr %55, i64 12
+  store i32 %58, ptr %59, align 4
   br i1 %43, label %42, label %.preheader, !llvm.loop !27
 
-.preheader:                                       ; preds = %53, %70
-  %61 = phi i64 [ %78, %70 ], [ 0, %53 ]
-  %62 = trunc i64 %61 to i32
-  %63 = or i32 %62, 616
-  %64 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %63) #17, !srcloc !22
-  %65 = extractvalue { i64, i64 } %64, 0
-  %66 = extractvalue { i64, i64 } %64, 1
-  %67 = shl i64 %66, 32
-  %68 = or i64 %67, %65
+.preheader:                                       ; preds = %53, %69
+  %60 = phi i64 [ %76, %69 ], [ 0, %53 ]
+  %61 = trunc i64 %60 to i32
+  %62 = or i32 %61, 616
+  %63 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %62) #17, !srcloc !22
+  %64 = extractvalue { i64, i64 } %63, 0
+  %65 = extractvalue { i64, i64 } %63, 1
+  %66 = shl i64 %65, 32
+  %67 = or i64 %66, %64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #17
-          to label %70 [label %69], !srcloc !23
+          to label %69 [label %68], !srcloc !23
 
-69:                                               ; preds = %.preheader
-  tail call void @do_trace_read_msr(i32 noundef %63, i64 noundef %68, i32 noundef 0) #17
-  br label %70
+68:                                               ; preds = %.preheader
+  tail call void @do_trace_read_msr(i32 noundef %62, i64 noundef %67, i32 noundef 0) #17
+  br label %69
 
-70:                                               ; preds = %69, %.preheader
-  %71 = trunc i64 %65 to i32
-  %72 = shl nuw nsw i64 %61, 1
-  %73 = getelementptr i32, ptr getelementptr inbounds (i8, ptr @mtrr_state, i64 4096), i64 %72
-  %74 = getelementptr i8, ptr %73, i64 24
-  store i32 %71, ptr %74, align 4
-  %75 = lshr i64 %68, 32
-  %76 = trunc nuw i64 %75 to i32
-  %77 = getelementptr i8, ptr %73, i64 28
-  store i32 %76, ptr %77, align 4
-  %78 = add nuw nsw i64 %61, 1
-  %79 = icmp eq i64 %78, 8
-  br i1 %79, label %80, label %.preheader, !llvm.loop !28
+69:                                               ; preds = %68, %.preheader
+  %70 = trunc i64 %64 to i32
+  %.idx1 = shl i64 %60, 3
+  %71 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @mtrr_state, i64 4096), i64 %.idx1
+  %72 = getelementptr i8, ptr %71, i64 24
+  store i32 %70, ptr %72, align 4
+  %73 = lshr i64 %67, 32
+  %74 = trunc nuw i64 %73 to i32
+  %75 = getelementptr i8, ptr %71, i64 28
+  store i32 %74, ptr %75, align 4
+  %76 = add nuw nsw i64 %60, 1
+  %77 = icmp eq i64 %76, 8
+  br i1 %77, label %78, label %.preheader, !llvm.loop !28
 
-80:                                               ; preds = %70
+78:                                               ; preds = %69
   ret void
 }
 

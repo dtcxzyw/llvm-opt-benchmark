@@ -377,7 +377,7 @@ declare dso_local ptr @acpi_ns_get_attached_object(ptr noundef) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ev_gpe_detect(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %67, label %3
+  br i1 %2, label %66, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
@@ -388,8 +388,8 @@ define dso_local i32 @acpi_ev_gpe_detect(ptr noundef readonly %0) local_unnamed_
   br i1 %8, label %.loopexit5, label %.preheader
 
 .loopexit4:                                       ; preds = %.loopexit, %.preheader
-  %9 = phi i32 [ %16, %.preheader ], [ %59, %.loopexit ]
-  %10 = phi i64 [ %15, %.preheader ], [ %60, %.loopexit ]
+  %9 = phi i32 [ %16, %.preheader ], [ %58, %.loopexit ]
+  %10 = phi i64 [ %15, %.preheader ], [ %59, %.loopexit ]
   %11 = getelementptr inbounds i8, ptr %14, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
@@ -411,10 +411,10 @@ define dso_local i32 @acpi_ev_gpe_detect(ptr noundef readonly %0) local_unnamed_
   br label %24
 
 24:                                               ; preds = %.loopexit, %21
-  %25 = phi i32 [ %19, %21 ], [ %58, %.loopexit ]
-  %26 = phi i64 [ 0, %21 ], [ %61, %.loopexit ]
-  %27 = phi i64 [ %15, %21 ], [ %60, %.loopexit ]
-  %28 = phi i32 [ %16, %21 ], [ %59, %.loopexit ]
+  %25 = phi i32 [ %19, %21 ], [ %57, %.loopexit ]
+  %26 = phi i64 [ 0, %21 ], [ %60, %.loopexit ]
+  %27 = phi i64 [ %15, %21 ], [ %59, %.loopexit ]
+  %28 = phi i32 [ %16, %21 ], [ %58, %.loopexit ]
   %29 = load ptr, ptr %22, align 8
   %30 = getelementptr %struct.acpi_gpe_register_info, ptr %29, i64 %26
   %31 = getelementptr inbounds i8, ptr %30, i64 35
@@ -426,54 +426,54 @@ define dso_local i32 @acpi_ev_gpe_detect(ptr noundef readonly %0) local_unnamed_
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %24
-  %38 = shl nuw nsw i64 %26, 3
-  %39 = getelementptr inbounds i8, ptr %30, i64 32
-  br label %40
+  %38 = getelementptr inbounds i8, ptr %30, i64 32
+  %.idx = mul nuw nsw i64 %26, 192
+  br label %39
 
-40:                                               ; preds = %40, %37
-  %41 = phi i64 [ 0, %37 ], [ %56, %40 ]
-  %42 = phi i64 [ %27, %37 ], [ %55, %40 ]
-  %43 = phi i32 [ %28, %37 ], [ %53, %40 ]
-  %44 = load ptr, ptr %23, align 8
-  %45 = getelementptr %struct.acpi_gpe_event_info, ptr %44, i64 %38
-  %46 = getelementptr %struct.acpi_gpe_event_info, ptr %45, i64 %41
-  %47 = load i16, ptr %39, align 8
-  %48 = zext i16 %47 to i32
-  %49 = trunc i64 %41 to i32
-  %50 = add nuw nsw i32 %48, %49
-  %51 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  tail call void @acpi_os_release_lock(ptr noundef %51, i64 noundef %42) #5
-  %52 = tail call i32 @acpi_ev_detect_gpe(ptr noundef %17, ptr noundef %46, i32 noundef %50)
-  %53 = or i32 %52, %43
-  %54 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  %55 = tail call i64 @acpi_os_acquire_lock(ptr noundef %54) #5
-  %56 = add nuw nsw i64 %41, 1
-  %57 = icmp eq i64 %56, 8
-  br i1 %57, label %.loopexit.loopexit, label %40, !llvm.loop !9
+39:                                               ; preds = %39, %37
+  %40 = phi i64 [ 0, %37 ], [ %55, %39 ]
+  %41 = phi i64 [ %27, %37 ], [ %54, %39 ]
+  %42 = phi i32 [ %28, %37 ], [ %52, %39 ]
+  %43 = load ptr, ptr %23, align 8
+  %44 = getelementptr i8, ptr %43, i64 %.idx
+  %45 = getelementptr %struct.acpi_gpe_event_info, ptr %44, i64 %40
+  %46 = load i16, ptr %38, align 8
+  %47 = zext i16 %46 to i32
+  %48 = trunc i64 %40 to i32
+  %49 = add nuw nsw i32 %47, %48
+  %50 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  tail call void @acpi_os_release_lock(ptr noundef %50, i64 noundef %41) #5
+  %51 = tail call i32 @acpi_ev_detect_gpe(ptr noundef %17, ptr noundef %45, i32 noundef %49)
+  %52 = or i32 %51, %42
+  %53 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  %54 = tail call i64 @acpi_os_acquire_lock(ptr noundef %53) #5
+  %55 = add nuw nsw i64 %40, 1
+  %56 = icmp eq i64 %55, 8
+  br i1 %56, label %.loopexit.loopexit, label %39, !llvm.loop !9
 
-.loopexit.loopexit:                               ; preds = %40
+.loopexit.loopexit:                               ; preds = %39
   %.pre = load i32, ptr %18, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %24
-  %58 = phi i32 [ %25, %24 ], [ %.pre, %.loopexit.loopexit ]
-  %59 = phi i32 [ %28, %24 ], [ %53, %.loopexit.loopexit ]
-  %60 = phi i64 [ %27, %24 ], [ %55, %.loopexit.loopexit ]
-  %61 = add nuw nsw i64 %26, 1
-  %62 = zext i32 %58 to i64
-  %63 = icmp ult i64 %61, %62
-  br i1 %63, label %24, label %.loopexit4, !llvm.loop !10
+  %57 = phi i32 [ %25, %24 ], [ %.pre, %.loopexit.loopexit ]
+  %58 = phi i32 [ %28, %24 ], [ %52, %.loopexit.loopexit ]
+  %59 = phi i64 [ %27, %24 ], [ %54, %.loopexit.loopexit ]
+  %60 = add nuw nsw i64 %26, 1
+  %61 = zext i32 %57 to i64
+  %62 = icmp ult i64 %60, %61
+  br i1 %62, label %24, label %.loopexit4, !llvm.loop !10
 
 .loopexit5:                                       ; preds = %.loopexit4, %3
-  %64 = phi i32 [ 0, %3 ], [ %9, %.loopexit4 ]
-  %65 = phi i64 [ %5, %3 ], [ %10, %.loopexit4 ]
-  %66 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  tail call void @acpi_os_release_lock(ptr noundef %66, i64 noundef %65) #5
-  br label %67
+  %63 = phi i32 [ 0, %3 ], [ %9, %.loopexit4 ]
+  %64 = phi i64 [ %5, %3 ], [ %10, %.loopexit4 ]
+  %65 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  tail call void @acpi_os_release_lock(ptr noundef %65, i64 noundef %64) #5
+  br label %66
 
-67:                                               ; preds = %.loopexit5, %1
-  %68 = phi i32 [ %64, %.loopexit5 ], [ 0, %1 ]
-  ret i32 %68
+66:                                               ; preds = %.loopexit5, %1
+  %67 = phi i32 [ %63, %.loopexit5 ], [ 0, %1 ]
+  ret i32 %67
 }
 
 ; Function Attrs: null_pointer_is_valid

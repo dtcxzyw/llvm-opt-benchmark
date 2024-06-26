@@ -805,7 +805,7 @@ if.end125:                                        ; preds = %if.then116, %if.the
   br i1 %cmp134155.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end125, %if.end152
-  %58 = phi i16 [ %65, %if.end152 ], [ %57, %if.end125 ]
+  %58 = phi i16 [ %64, %if.end152 ], [ %57, %if.end125 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end152 ], [ 0, %if.end125 ]
   %chunk_start.0156 = phi i64 [ %chunk_start.1, %if.end152 ], [ %conv130, %if.end125 ]
   %59 = load ptr, ptr %0, align 8
@@ -819,23 +819,23 @@ while.body:                                       ; preds = %if.end125, %if.end1
 if.then142:                                       ; preds = %while.body
   %gen_insn_data143 = getelementptr inbounds i8, ptr %59, i64 30664
   %61 = load ptr, ptr %gen_insn_data143, align 8
-  %62 = shl nuw nsw i64 %indvars.iv, 1
-  %arrayidx146 = getelementptr i64, ptr %61, i64 %62
-  %63 = load i64, ptr %arrayidx146, align 8
-  %call147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call114, ptr noundef nonnull @.str.8, i64 noundef %63)
-  %64 = load ptr, ptr %tc, align 8
-  %add.ptr150 = getelementptr i8, ptr %64, i64 %chunk_start.0156
+  %arrayidx146.idx = shl nuw nsw i64 %indvars.iv, 4
+  %arrayidx146 = getelementptr i8, ptr %61, i64 %arrayidx146.idx
+  %62 = load i64, ptr %arrayidx146, align 8
+  %call147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call114, ptr noundef nonnull @.str.8, i64 noundef %62)
+  %63 = load ptr, ptr %tc, align 8
+  %add.ptr150 = getelementptr i8, ptr %63, i64 %chunk_start.0156
   %sub151 = sub nsw i64 %conv139, %chunk_start.0156
   call void @disas(ptr noundef nonnull %call114, ptr noundef %add.ptr150, i64 noundef %sub151) #13
   %.pre = load i16, ptr %icount.i.le, align 2
   br label %if.end152
 
 if.end152:                                        ; preds = %if.then142, %while.body
-  %65 = phi i16 [ %.pre, %if.then142 ], [ %58, %while.body ]
+  %64 = phi i16 [ %.pre, %if.then142 ], [ %58, %while.body ]
   %chunk_start.1 = phi i64 [ %conv139, %if.then142 ], [ %chunk_start.0156, %while.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %66 = zext i16 %65 to i64
-  %cmp134 = icmp ult i64 %indvars.iv.next, %66
+  %65 = zext i16 %64 to i64
+  %cmp134 = icmp ult i64 %indvars.iv.next, %65
   br i1 %cmp134, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end152, %if.end125
@@ -845,9 +845,9 @@ while.end:                                        ; preds = %if.end152, %if.end1
   br i1 %cmp154, label %if.then156, label %if.end163
 
 if.then156:                                       ; preds = %while.end
-  %67 = call i64 @fwrite(ptr nonnull @.str.9, i64 31, i64 1, ptr nonnull %call114)
-  %68 = load ptr, ptr %tc, align 8
-  %add.ptr160 = getelementptr i8, ptr %68, i64 %chunk_start.0.lcssa
+  %66 = call i64 @fwrite(ptr nonnull @.str.9, i64 31, i64 1, ptr nonnull %call114)
+  %67 = load ptr, ptr %tc, align 8
+  %add.ptr160 = getelementptr i8, ptr %67, i64 %chunk_start.0.lcssa
   %sub162 = sub nsw i64 %conv153, %chunk_start.0.lcssa
   call void @disas(ptr noundef nonnull %call114, ptr noundef %add.ptr160, i64 noundef %sub162) #13
   br label %if.end163
@@ -867,9 +867,9 @@ for.body:                                         ; preds = %if.then165, %for.bo
   %conv167160 = phi i64 [ %conv167, %for.body ], [ 0, %if.then165 ]
   %i.0159 = phi i32 [ %inc177, %for.body ], [ 0, %if.then165 ]
   %arrayidx173 = getelementptr i64, ptr %rx_data_gen_ptr.0, i64 %conv167160
-  %69 = ptrtoint ptr %arrayidx173 to i64
-  %70 = load i64, ptr %arrayidx173, align 8
-  %call176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call114, ptr noundef nonnull @.str.11, i64 noundef %69, i64 noundef %70)
+  %68 = ptrtoint ptr %arrayidx173 to i64
+  %69 = load i64, ptr %arrayidx173, align 8
+  %call176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call114, ptr noundef nonnull @.str.11, i64 noundef %68, i64 noundef %69)
   %inc177 = add i32 %i.0159, 1
   %conv167 = sext i32 %inc177 to i64
   %cmp170 = icmp ugt i64 %div169106, %conv167
@@ -881,11 +881,11 @@ if.end178:                                        ; preds = %for.body, %if.then1
   br label %while.end187
 
 while.end187:                                     ; preds = %if.end105, %land.lhs.true, %if.end178, %if.then113
-  %71 = load ptr, ptr %0, align 8
-  %code_gen_ptr188 = getelementptr inbounds i8, ptr %71, i64 152
-  %72 = ptrtoint ptr %3 to i64
+  %70 = load ptr, ptr %0, align 8
+  %code_gen_ptr188 = getelementptr inbounds i8, ptr %70, i64 152
+  %71 = ptrtoint ptr %3 to i64
   %conv190 = and i64 %sub.ptr.sub.i, 2147483647
-  %add = add i64 %72, 15
+  %add = add i64 %71, 15
   %add191 = add i64 %add, %idx.ext
   %sub193 = add i64 %add191, %conv190
   %and194 = and i64 %sub193, -16
@@ -895,8 +895,8 @@ while.end187:                                     ; preds = %if.end105, %land.lh
   %jmp_list_head = getelementptr inbounds i8, ptr %call9153, i64 128
   %jmp_reset_offset = getelementptr inbounds i8, ptr %call9153, i64 100
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %jmp_list_head, i8 0, i64 40, i1 false)
-  %73 = load i16, ptr %jmp_reset_offset, align 4
-  %cmp204.not = icmp eq i16 %73, -1
+  %72 = load i16, ptr %jmp_reset_offset, align 4
+  %cmp204.not = icmp eq i16 %72, -1
   br i1 %cmp204.not, label %if.end207, label %if.then206
 
 if.then206:                                       ; preds = %while.end187
@@ -905,8 +905,8 @@ if.then206:                                       ; preds = %while.end187
 
 if.end207:                                        ; preds = %if.then206, %while.end187
   %arrayidx209 = getelementptr i8, ptr %call9153, i64 102
-  %74 = load i16, ptr %arrayidx209, align 2
-  %cmp211.not = icmp eq i16 %74, -1
+  %73 = load i16, ptr %arrayidx209, align 2
+  %cmp211.not = icmp eq i16 %73, -1
   br i1 %cmp211.not, label %if.end214, label %if.then213
 
 if.then213:                                       ; preds = %if.end207
@@ -925,14 +925,14 @@ if.end219:                                        ; preds = %if.end214
   br i1 %cmp221.not, label %return, label %if.then229
 
 if.then229:                                       ; preds = %if.end219
-  %75 = load i32, ptr @qemu_icache_linesize, align 4
-  %conv230 = sext i32 %75 to i64
+  %74 = load i32, ptr @qemu_icache_linesize, align 4
+  %conv230 = sext i32 %74 to i64
   %sub232 = add nsw i64 %conv230, 167
   %sub234 = sub nsw i64 0, %conv230
   %and235 = and i64 %sub232, %sub234
-  %sub236 = sub i64 %72, %and235
-  %76 = load ptr, ptr %0, align 8
-  %code_gen_ptr243 = getelementptr inbounds i8, ptr %76, i64 152
+  %sub236 = sub i64 %71, %and235
+  %75 = load ptr, ptr %0, align 8
+  %code_gen_ptr243 = getelementptr inbounds i8, ptr %75, i64 152
   store atomic i64 %sub236, ptr %code_gen_ptr243 monotonic, align 8
   call void @tcg_tb_remove(ptr noundef nonnull %call9153) #13
   br label %return

@@ -536,30 +536,30 @@ entry:
 for.cond1.preheader:                              ; preds = %entry, %for.inc12
   %indvars.iv33 = phi i64 [ 0, %entry ], [ %indvars.iv.next34, %for.inc12 ]
   %cmp28 = phi i1 [ false, %entry ], [ %cmp, %for.inc12 ]
-  %0 = shl nuw nsw i64 %indvars.iv33, 2
-  %invariant.gep = getelementptr inbounds float, ptr %m44, i64 %0
+  %arrayidx.idx = shl nsw i64 %indvars.iv33, 4
+  %invariant.gep = getelementptr inbounds i8, ptr %m44, i64 %arrayidx.idx
   br label %for.body3
 
 for.body3:                                        ; preds = %for.cond1.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond1.preheader ], [ %indvars.iv.next, %for.inc ]
   %cmp4 = icmp eq i64 %indvars.iv, %indvars.iv33
   %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %indvars.iv
-  %1 = load float, ptr %gep, align 4
-  %2 = bitcast float %1 to i32
-  %3 = and i32 %2, 2139095040
-  %cmp3.i.i = icmp eq i32 %3, 2139095040
+  %0 = load float, ptr %gep, align 4
+  %1 = bitcast float %0 to i32
+  %2 = and i32 %1, 2139095040
+  %cmp3.i.i = icmp eq i32 %2, 2139095040
   br i1 %cmp4, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body3
   br i1 %cmp3.i.i, label %return, label %_ZN19OpenColorIO_v2_4dev18IsScalarEqualToOneIfEEbT_.exit
 
 _ZN19OpenColorIO_v2_4dev18IsScalarEqualToOneIfEEbT_.exit: ; preds = %if.then
-  %4 = tail call float @llvm.fabs.f32(float %1)
-  %5 = fneg float %4
-  %add.i27.i.i = bitcast float %5 to i32
-  %and.i28.i.i = bitcast float %4 to i32
+  %3 = tail call float @llvm.fabs.f32(float %0)
+  %4 = fneg float %3
+  %add.i27.i.i = bitcast float %4 to i32
+  %and.i28.i.i = bitcast float %3 to i32
   %sub.i29.i.i = sub nuw i32 -2147483648, %and.i28.i.i
-  %cmp3.i30.i.i = icmp slt i32 %2, 0
+  %cmp3.i30.i.i = icmp slt i32 %1, 0
   %cond.i31.i.i = select i1 %cmp3.i30.i.i, i32 %sub.i29.i.i, i32 %add.i27.i.i
   %cmp31.i.i = icmp ult i32 %cond.i31.i.i, -1082130432
   %sub.i.i = sub nuw i32 -1082130432, %cond.i31.i.i
@@ -572,12 +572,12 @@ if.else:                                          ; preds = %for.body3
   br i1 %cmp3.i.i, label %return, label %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit
 
 _ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %if.else
-  %6 = tail call float @llvm.fabs.f32(float %1)
-  %7 = fneg float %6
-  %add.i27.i.i11 = bitcast float %7 to i32
-  %and.i28.i.i12 = bitcast float %6 to i32
+  %5 = tail call float @llvm.fabs.f32(float %0)
+  %6 = fneg float %5
+  %add.i27.i.i11 = bitcast float %6 to i32
+  %and.i28.i.i12 = bitcast float %5 to i32
   %sub.i29.i.i13 = sub nuw i32 -2147483648, %and.i28.i.i12
-  %cmp3.i30.i.i14 = icmp slt i32 %2, 0
+  %cmp3.i30.i.i14 = icmp slt i32 %1, 0
   %cond.i31.i.i15 = select i1 %cmp3.i30.i.i14, i32 %sub.i29.i.i13, i32 %add.i27.i.i11
   %sub.i.i16 = sub nuw i32 -2147483648, %cond.i31.i.i15
   %sub32.i.i17 = xor i32 %cond.i31.i.i15, -2147483648
@@ -610,31 +610,31 @@ entry:
 for.cond1.preheader:                              ; preds = %entry, %for.inc12
   %indvars.iv34 = phi i64 [ 0, %entry ], [ %indvars.iv.next35, %for.inc12 ]
   %cmp29 = phi i1 [ false, %entry ], [ %cmp, %for.inc12 ]
-  %0 = shl nuw nsw i64 %indvars.iv34, 2
-  %invariant.gep = getelementptr inbounds double, ptr %m44, i64 %0
+  %arrayidx.idx = shl nsw i64 %indvars.iv34, 5
+  %invariant.gep = getelementptr inbounds i8, ptr %m44, i64 %arrayidx.idx
   br label %for.body3
 
 for.body3:                                        ; preds = %for.cond1.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond1.preheader ], [ %indvars.iv.next, %for.inc ]
   %cmp4 = icmp eq i64 %indvars.iv, %indvars.iv34
   %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv
-  %1 = load double, ptr %gep, align 8
-  %conv.i = fptrunc double %1 to float
-  %2 = bitcast float %conv.i to i32
-  %3 = and i32 %2, 2139095040
-  %cmp3.i.i = icmp eq i32 %3, 2139095040
+  %0 = load double, ptr %gep, align 8
+  %conv.i = fptrunc double %0 to float
+  %1 = bitcast float %conv.i to i32
+  %2 = and i32 %1, 2139095040
+  %cmp3.i.i = icmp eq i32 %2, 2139095040
   br i1 %cmp4, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body3
   br i1 %cmp3.i.i, label %return, label %_ZN19OpenColorIO_v2_4dev18IsScalarEqualToOneIdEEbT_.exit
 
 _ZN19OpenColorIO_v2_4dev18IsScalarEqualToOneIdEEbT_.exit: ; preds = %if.then
-  %4 = tail call float @llvm.fabs.f32(float %conv.i)
-  %5 = fneg float %4
-  %add.i27.i.i = bitcast float %5 to i32
-  %and.i28.i.i = bitcast float %4 to i32
+  %3 = tail call float @llvm.fabs.f32(float %conv.i)
+  %4 = fneg float %3
+  %add.i27.i.i = bitcast float %4 to i32
+  %and.i28.i.i = bitcast float %3 to i32
   %sub.i29.i.i = sub nuw i32 -2147483648, %and.i28.i.i
-  %cmp3.i30.i.i = icmp slt i32 %2, 0
+  %cmp3.i30.i.i = icmp slt i32 %1, 0
   %cond.i31.i.i = select i1 %cmp3.i30.i.i, i32 %sub.i29.i.i, i32 %add.i27.i.i
   %cmp31.i.i = icmp ult i32 %cond.i31.i.i, -1082130432
   %sub.i.i = sub i32 -1082130432, %cond.i31.i.i
@@ -647,12 +647,12 @@ if.else:                                          ; preds = %for.body3
   br i1 %cmp3.i.i, label %return, label %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIdEEbT_.exit
 
 _ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIdEEbT_.exit: ; preds = %if.else
-  %6 = tail call float @llvm.fabs.f32(float %conv.i)
-  %7 = fneg float %6
-  %add.i27.i.i12 = bitcast float %7 to i32
-  %and.i28.i.i13 = bitcast float %6 to i32
+  %5 = tail call float @llvm.fabs.f32(float %conv.i)
+  %6 = fneg float %5
+  %add.i27.i.i12 = bitcast float %6 to i32
+  %and.i28.i.i13 = bitcast float %5 to i32
   %sub.i29.i.i14 = sub nuw i32 -2147483648, %and.i28.i.i13
-  %cmp3.i30.i.i15 = icmp slt i32 %2, 0
+  %cmp3.i30.i.i15 = icmp slt i32 %1, 0
   %cond.i31.i.i16 = select i1 %cmp3.i30.i.i15, i32 %sub.i29.i.i14, i32 %add.i27.i.i12
   %sub.i.i17 = sub i32 -2147483648, %cond.i31.i.i16
   %sub32.i.i18 = xor i32 %cond.i31.i.i16, -2147483648

@@ -2841,216 +2841,216 @@ define internal fastcc range(i32 0, -65535) i32 @ReconstructUV(ptr noalias nocap
   %indvars.iv.i = phi i64 [ 0, %38 ], [ 1, %QuantizeSingle.exit51.i ]
   %50 = getelementptr inbounds [2 x [2 x i8]], ptr %37, i64 %41, i64 %indvars.iv.i
   %51 = getelementptr inbounds [2 x [2 x i8]], ptr %42, i64 0, i64 %indvars.iv.i
-  %52 = shl nuw nsw i64 %indvars.iv.i, 2
-  %53 = getelementptr inbounds [16 x i16], ptr %5, i64 %52
-  %54 = load i8, ptr %50, align 1, !noalias !150
-  %55 = sext i8 %54 to i16
-  %56 = mul nsw i16 %55, 7
-  %57 = load i8, ptr %51, align 1, !alias.scope !141, !noalias !148
-  %58 = sext i8 %57 to i16
-  %59 = shl nsw i16 %58, 3
-  %60 = add nsw i16 %59, %56
-  %61 = ashr i16 %60, 3
-  %62 = load i16, ptr %53, align 16, !noalias !150
-  %63 = add i16 %61, %62
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 7
+  %52 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
+  %53 = load i8, ptr %50, align 1, !noalias !150
+  %54 = sext i8 %53 to i16
+  %55 = mul nsw i16 %54, 7
+  %56 = load i8, ptr %51, align 1, !alias.scope !141, !noalias !148
+  %57 = sext i8 %56 to i16
+  %58 = shl nsw i16 %57, 3
+  %59 = add nsw i16 %58, %55
+  %60 = ashr i16 %59, 3
+  %61 = load i16, ptr %52, align 16, !noalias !150
+  %62 = add i16 %60, %61
   call void @llvm.experimental.noalias.scope.decl(metadata !151)
   call void @llvm.experimental.noalias.scope.decl(metadata !154)
-  %64 = icmp slt i16 %63, 0
-  %65 = call i16 @llvm.abs.i16(i16 %63, i1 false)
-  %spec.select.i.i = zext i16 %65 to i32
-  %66 = icmp slt i32 %44, %spec.select.i.i
-  br i1 %66, label %67, label %QuantizeSingle.exit.i
+  %63 = icmp slt i16 %62, 0
+  %64 = call i16 @llvm.abs.i16(i16 %62, i1 false)
+  %spec.select.i.i = zext i16 %64 to i32
+  %65 = icmp slt i32 %44, %spec.select.i.i
+  br i1 %65, label %66, label %QuantizeSingle.exit.i
 
-67:                                               ; preds = %48
-  %68 = load i16, ptr %46, align 4, !alias.scope !156, !noalias !157
-  %69 = zext i16 %68 to i32
-  %70 = load i32, ptr %47, align 4, !alias.scope !156, !noalias !157
-  %71 = mul nuw nsw i32 %69, %spec.select.i.i
-  %72 = add i32 %71, %70
-  %73 = lshr i32 %72, 17
-  %74 = load i16, ptr %39, align 4, !alias.scope !156, !noalias !157
-  %75 = zext i16 %74 to i32
-  %76 = mul nuw nsw i32 %73, %75
-  %77 = sub nsw i32 %spec.select.i.i, %76
-  %78 = sub nsw i32 0, %76
-  %79 = select i1 %64, i32 %78, i32 %76
-  %80 = trunc i32 %79 to i16
+66:                                               ; preds = %48
+  %67 = load i16, ptr %46, align 4, !alias.scope !156, !noalias !157
+  %68 = zext i16 %67 to i32
+  %69 = load i32, ptr %47, align 4, !alias.scope !156, !noalias !157
+  %70 = mul nuw nsw i32 %68, %spec.select.i.i
+  %71 = add i32 %70, %69
+  %72 = lshr i32 %71, 17
+  %73 = load i16, ptr %39, align 4, !alias.scope !156, !noalias !157
+  %74 = zext i16 %73 to i32
+  %75 = mul nuw nsw i32 %72, %74
+  %76 = sub nsw i32 %spec.select.i.i, %75
+  %77 = sub nsw i32 0, %75
+  %78 = select i1 %63, i32 %77, i32 %75
+  %79 = trunc i32 %78 to i16
   br label %QuantizeSingle.exit.i
 
-QuantizeSingle.exit.i:                            ; preds = %67, %48
-  %spec.select.sink26.i.i = phi i32 [ %77, %67 ], [ %spec.select.i.i, %48 ]
-  %.sink.i.i = phi i16 [ %80, %67 ], [ 0, %48 ]
-  %81 = sub nsw i32 0, %spec.select.sink26.i.i
-  %82 = select i1 %64, i32 %81, i32 %spec.select.sink26.i.i
-  store i16 %.sink.i.i, ptr %53, align 16, !alias.scope !151, !noalias !158
-  %.0.i.i = ashr i32 %82, 1
-  %83 = getelementptr inbounds i8, ptr %50, i64 1
-  %84 = load i8, ptr %83, align 1, !noalias !150
-  %85 = sext i8 %84 to i32
-  %86 = mul nsw i32 %85, 7
-  %87 = lshr i32 %86, 3
-  %88 = add nsw i32 %87, %.0.i.i
-  %89 = getelementptr inbounds i8, ptr %53, i64 32
-  %90 = load i16, ptr %89, align 16, !noalias !150
-  %91 = trunc i32 %88 to i16
-  %92 = add i16 %90, %91
+QuantizeSingle.exit.i:                            ; preds = %66, %48
+  %spec.select.sink26.i.i = phi i32 [ %76, %66 ], [ %spec.select.i.i, %48 ]
+  %.sink.i.i = phi i16 [ %79, %66 ], [ 0, %48 ]
+  %80 = sub nsw i32 0, %spec.select.sink26.i.i
+  %81 = select i1 %63, i32 %80, i32 %spec.select.sink26.i.i
+  store i16 %.sink.i.i, ptr %52, align 16, !alias.scope !151, !noalias !158
+  %.0.i.i = ashr i32 %81, 1
+  %82 = getelementptr inbounds i8, ptr %50, i64 1
+  %83 = load i8, ptr %82, align 1, !noalias !150
+  %84 = sext i8 %83 to i32
+  %85 = mul nsw i32 %84, 7
+  %86 = lshr i32 %85, 3
+  %87 = add nsw i32 %86, %.0.i.i
+  %88 = getelementptr inbounds i8, ptr %52, i64 32
+  %89 = load i16, ptr %88, align 16, !noalias !150
+  %90 = trunc i32 %87 to i16
+  %91 = add i16 %89, %90
   call void @llvm.experimental.noalias.scope.decl(metadata !159)
   call void @llvm.experimental.noalias.scope.decl(metadata !162)
-  %93 = icmp slt i16 %92, 0
-  %94 = call i16 @llvm.abs.i16(i16 %92, i1 false)
-  %spec.select.i37.i = zext i16 %94 to i32
-  %95 = icmp slt i32 %44, %spec.select.i37.i
-  br i1 %95, label %96, label %QuantizeSingle.exit41.i
+  %92 = icmp slt i16 %91, 0
+  %93 = call i16 @llvm.abs.i16(i16 %91, i1 false)
+  %spec.select.i37.i = zext i16 %93 to i32
+  %94 = icmp slt i32 %44, %spec.select.i37.i
+  br i1 %94, label %95, label %QuantizeSingle.exit41.i
 
-96:                                               ; preds = %QuantizeSingle.exit.i
-  %97 = load i16, ptr %46, align 4, !alias.scope !164, !noalias !165
-  %98 = zext i16 %97 to i32
-  %99 = load i32, ptr %47, align 4, !alias.scope !164, !noalias !165
-  %100 = mul nuw nsw i32 %98, %spec.select.i37.i
-  %101 = add i32 %100, %99
-  %102 = lshr i32 %101, 17
-  %103 = load i16, ptr %39, align 4, !alias.scope !164, !noalias !165
-  %104 = zext i16 %103 to i32
-  %105 = mul nuw nsw i32 %102, %104
-  %106 = sub nsw i32 %spec.select.i37.i, %105
-  %107 = sub nsw i32 0, %105
-  %108 = select i1 %93, i32 %107, i32 %105
-  %109 = trunc i32 %108 to i16
+95:                                               ; preds = %QuantizeSingle.exit.i
+  %96 = load i16, ptr %46, align 4, !alias.scope !164, !noalias !165
+  %97 = zext i16 %96 to i32
+  %98 = load i32, ptr %47, align 4, !alias.scope !164, !noalias !165
+  %99 = mul nuw nsw i32 %97, %spec.select.i37.i
+  %100 = add i32 %99, %98
+  %101 = lshr i32 %100, 17
+  %102 = load i16, ptr %39, align 4, !alias.scope !164, !noalias !165
+  %103 = zext i16 %102 to i32
+  %104 = mul nuw nsw i32 %101, %103
+  %105 = sub nsw i32 %spec.select.i37.i, %104
+  %106 = sub nsw i32 0, %104
+  %107 = select i1 %92, i32 %106, i32 %104
+  %108 = trunc i32 %107 to i16
   br label %QuantizeSingle.exit41.i
 
-QuantizeSingle.exit41.i:                          ; preds = %96, %QuantizeSingle.exit.i
-  %spec.select.sink26.i38.i = phi i32 [ %106, %96 ], [ %spec.select.i37.i, %QuantizeSingle.exit.i ]
-  %.sink.i39.i = phi i16 [ %109, %96 ], [ 0, %QuantizeSingle.exit.i ]
-  %110 = sub nsw i32 0, %spec.select.sink26.i38.i
-  %111 = select i1 %93, i32 %110, i32 %spec.select.sink26.i38.i
-  store i16 %.sink.i39.i, ptr %89, align 16, !alias.scope !159, !noalias !166
-  %.0.i40.i = ashr i32 %111, 1
-  %112 = mul nsw i32 %.0.i.i, 7
-  %113 = getelementptr inbounds i8, ptr %51, i64 1
-  %114 = load i8, ptr %113, align 1, !alias.scope !141, !noalias !148
-  %115 = sext i8 %114 to i32
-  %116 = lshr i32 %112, 3
-  %117 = add nsw i32 %116, %115
-  %118 = getelementptr inbounds i8, ptr %53, i64 64
-  %119 = load i16, ptr %118, align 16, !noalias !150
-  %120 = trunc i32 %117 to i16
-  %121 = add i16 %119, %120
+QuantizeSingle.exit41.i:                          ; preds = %95, %QuantizeSingle.exit.i
+  %spec.select.sink26.i38.i = phi i32 [ %105, %95 ], [ %spec.select.i37.i, %QuantizeSingle.exit.i ]
+  %.sink.i39.i = phi i16 [ %108, %95 ], [ 0, %QuantizeSingle.exit.i ]
+  %109 = sub nsw i32 0, %spec.select.sink26.i38.i
+  %110 = select i1 %92, i32 %109, i32 %spec.select.sink26.i38.i
+  store i16 %.sink.i39.i, ptr %88, align 16, !alias.scope !159, !noalias !166
+  %.0.i40.i = ashr i32 %110, 1
+  %111 = mul nsw i32 %.0.i.i, 7
+  %112 = getelementptr inbounds i8, ptr %51, i64 1
+  %113 = load i8, ptr %112, align 1, !alias.scope !141, !noalias !148
+  %114 = sext i8 %113 to i32
+  %115 = lshr i32 %111, 3
+  %116 = add nsw i32 %115, %114
+  %117 = getelementptr inbounds i8, ptr %52, i64 64
+  %118 = load i16, ptr %117, align 16, !noalias !150
+  %119 = trunc i32 %116 to i16
+  %120 = add i16 %118, %119
   call void @llvm.experimental.noalias.scope.decl(metadata !167)
   call void @llvm.experimental.noalias.scope.decl(metadata !170)
-  %122 = icmp slt i16 %121, 0
-  %123 = call i16 @llvm.abs.i16(i16 %121, i1 false)
-  %spec.select.i42.i = zext i16 %123 to i32
-  %124 = icmp slt i32 %44, %spec.select.i42.i
-  br i1 %124, label %125, label %QuantizeSingle.exit46.i
+  %121 = icmp slt i16 %120, 0
+  %122 = call i16 @llvm.abs.i16(i16 %120, i1 false)
+  %spec.select.i42.i = zext i16 %122 to i32
+  %123 = icmp slt i32 %44, %spec.select.i42.i
+  br i1 %123, label %124, label %QuantizeSingle.exit46.i
 
-125:                                              ; preds = %QuantizeSingle.exit41.i
-  %126 = load i16, ptr %46, align 4, !alias.scope !172, !noalias !173
-  %127 = zext i16 %126 to i32
-  %128 = load i32, ptr %47, align 4, !alias.scope !172, !noalias !173
-  %129 = mul nuw nsw i32 %127, %spec.select.i42.i
-  %130 = add i32 %129, %128
-  %131 = lshr i32 %130, 17
-  %132 = load i16, ptr %39, align 4, !alias.scope !172, !noalias !173
-  %133 = zext i16 %132 to i32
-  %134 = mul nuw nsw i32 %131, %133
-  %135 = sub nsw i32 %spec.select.i42.i, %134
-  %136 = sub nsw i32 0, %134
-  %137 = select i1 %122, i32 %136, i32 %134
-  %138 = trunc i32 %137 to i16
+124:                                              ; preds = %QuantizeSingle.exit41.i
+  %125 = load i16, ptr %46, align 4, !alias.scope !172, !noalias !173
+  %126 = zext i16 %125 to i32
+  %127 = load i32, ptr %47, align 4, !alias.scope !172, !noalias !173
+  %128 = mul nuw nsw i32 %126, %spec.select.i42.i
+  %129 = add i32 %128, %127
+  %130 = lshr i32 %129, 17
+  %131 = load i16, ptr %39, align 4, !alias.scope !172, !noalias !173
+  %132 = zext i16 %131 to i32
+  %133 = mul nuw nsw i32 %130, %132
+  %134 = sub nsw i32 %spec.select.i42.i, %133
+  %135 = sub nsw i32 0, %133
+  %136 = select i1 %121, i32 %135, i32 %133
+  %137 = trunc i32 %136 to i16
   br label %QuantizeSingle.exit46.i
 
-QuantizeSingle.exit46.i:                          ; preds = %125, %QuantizeSingle.exit41.i
-  %spec.select.sink26.i43.i = phi i32 [ %135, %125 ], [ %spec.select.i42.i, %QuantizeSingle.exit41.i ]
-  %.sink.i44.i = phi i16 [ %138, %125 ], [ 0, %QuantizeSingle.exit41.i ]
-  %139 = sub nsw i32 0, %spec.select.sink26.i43.i
-  %140 = select i1 %122, i32 %139, i32 %spec.select.sink26.i43.i
-  store i16 %.sink.i44.i, ptr %118, align 16, !alias.scope !167, !noalias !174
-  %.0.i45.i = ashr i32 %140, 1
-  %141 = mul nsw i32 %.0.i40.i, 7
-  %142 = lshr i32 %141, 3
-  %143 = add nsw i32 %.0.i45.i, %142
-  %144 = getelementptr inbounds i8, ptr %53, i64 96
-  %145 = load i16, ptr %144, align 16, !noalias !150
-  %146 = trunc i32 %143 to i16
-  %147 = add i16 %145, %146
+QuantizeSingle.exit46.i:                          ; preds = %124, %QuantizeSingle.exit41.i
+  %spec.select.sink26.i43.i = phi i32 [ %134, %124 ], [ %spec.select.i42.i, %QuantizeSingle.exit41.i ]
+  %.sink.i44.i = phi i16 [ %137, %124 ], [ 0, %QuantizeSingle.exit41.i ]
+  %138 = sub nsw i32 0, %spec.select.sink26.i43.i
+  %139 = select i1 %121, i32 %138, i32 %spec.select.sink26.i43.i
+  store i16 %.sink.i44.i, ptr %117, align 16, !alias.scope !167, !noalias !174
+  %.0.i45.i = ashr i32 %139, 1
+  %140 = mul nsw i32 %.0.i40.i, 7
+  %141 = lshr i32 %140, 3
+  %142 = add nsw i32 %.0.i45.i, %141
+  %143 = getelementptr inbounds i8, ptr %52, i64 96
+  %144 = load i16, ptr %143, align 16, !noalias !150
+  %145 = trunc i32 %142 to i16
+  %146 = add i16 %144, %145
   call void @llvm.experimental.noalias.scope.decl(metadata !175)
   call void @llvm.experimental.noalias.scope.decl(metadata !178)
-  %148 = icmp slt i16 %147, 0
-  %149 = call i16 @llvm.abs.i16(i16 %147, i1 false)
-  %spec.select.i47.i = zext i16 %149 to i32
-  %150 = icmp slt i32 %44, %spec.select.i47.i
-  br i1 %150, label %151, label %QuantizeSingle.exit51.i
+  %147 = icmp slt i16 %146, 0
+  %148 = call i16 @llvm.abs.i16(i16 %146, i1 false)
+  %spec.select.i47.i = zext i16 %148 to i32
+  %149 = icmp slt i32 %44, %spec.select.i47.i
+  br i1 %149, label %150, label %QuantizeSingle.exit51.i
 
-151:                                              ; preds = %QuantizeSingle.exit46.i
-  %152 = load i16, ptr %46, align 4, !alias.scope !180, !noalias !181
-  %153 = zext i16 %152 to i32
-  %154 = load i32, ptr %47, align 4, !alias.scope !180, !noalias !181
-  %155 = mul nuw nsw i32 %153, %spec.select.i47.i
-  %156 = add i32 %155, %154
-  %157 = lshr i32 %156, 17
-  %158 = load i16, ptr %39, align 4, !alias.scope !180, !noalias !181
-  %159 = zext i16 %158 to i32
-  %160 = mul nuw nsw i32 %157, %159
-  %161 = sub nsw i32 %spec.select.i47.i, %160
-  %162 = sub nsw i32 0, %160
-  %163 = select i1 %148, i32 %162, i32 %160
-  %164 = trunc i32 %163 to i16
+150:                                              ; preds = %QuantizeSingle.exit46.i
+  %151 = load i16, ptr %46, align 4, !alias.scope !180, !noalias !181
+  %152 = zext i16 %151 to i32
+  %153 = load i32, ptr %47, align 4, !alias.scope !180, !noalias !181
+  %154 = mul nuw nsw i32 %152, %spec.select.i47.i
+  %155 = add i32 %154, %153
+  %156 = lshr i32 %155, 17
+  %157 = load i16, ptr %39, align 4, !alias.scope !180, !noalias !181
+  %158 = zext i16 %157 to i32
+  %159 = mul nuw nsw i32 %156, %158
+  %160 = sub nsw i32 %spec.select.i47.i, %159
+  %161 = sub nsw i32 0, %159
+  %162 = select i1 %147, i32 %161, i32 %159
+  %163 = trunc i32 %162 to i16
   br label %QuantizeSingle.exit51.i
 
-QuantizeSingle.exit51.i:                          ; preds = %151, %QuantizeSingle.exit46.i
-  %spec.select.sink26.i48.i = phi i32 [ %161, %151 ], [ %spec.select.i47.i, %QuantizeSingle.exit46.i ]
-  %.sink.i49.i = phi i16 [ %164, %151 ], [ 0, %QuantizeSingle.exit46.i ]
-  %165 = sub nsw i32 0, %spec.select.sink26.i48.i
-  %166 = select i1 %148, i32 %165, i32 %spec.select.sink26.i48.i
-  store i16 %.sink.i49.i, ptr %144, align 16, !alias.scope !175, !noalias !182
-  %.0.i50.i = lshr i32 %166, 1
-  %167 = trunc i32 %.0.i40.i to i8
-  %168 = getelementptr inbounds [2 x [3 x i8]], ptr %45, i64 0, i64 %indvars.iv.i
-  store i8 %167, ptr %168, align 1, !alias.scope !146, !noalias !183
-  %169 = trunc i32 %.0.i45.i to i8
-  %170 = getelementptr inbounds i8, ptr %168, i64 1
-  store i8 %169, ptr %170, align 1, !alias.scope !146, !noalias !183
-  %171 = trunc i32 %.0.i50.i to i8
-  %172 = getelementptr inbounds i8, ptr %168, i64 2
-  store i8 %171, ptr %172, align 1, !alias.scope !146, !noalias !183
+QuantizeSingle.exit51.i:                          ; preds = %150, %QuantizeSingle.exit46.i
+  %spec.select.sink26.i48.i = phi i32 [ %160, %150 ], [ %spec.select.i47.i, %QuantizeSingle.exit46.i ]
+  %.sink.i49.i = phi i16 [ %163, %150 ], [ 0, %QuantizeSingle.exit46.i ]
+  %164 = sub nsw i32 0, %spec.select.sink26.i48.i
+  %165 = select i1 %147, i32 %164, i32 %spec.select.sink26.i48.i
+  store i16 %.sink.i49.i, ptr %143, align 16, !alias.scope !175, !noalias !182
+  %.0.i50.i = lshr i32 %165, 1
+  %166 = trunc i32 %.0.i40.i to i8
+  %167 = getelementptr inbounds [2 x [3 x i8]], ptr %45, i64 0, i64 %indvars.iv.i
+  store i8 %166, ptr %167, align 1, !alias.scope !146, !noalias !183
+  %168 = trunc i32 %.0.i45.i to i8
+  %169 = getelementptr inbounds i8, ptr %167, i64 1
+  store i8 %168, ptr %169, align 1, !alias.scope !146, !noalias !183
+  %170 = trunc i32 %.0.i50.i to i8
+  %171 = getelementptr inbounds i8, ptr %167, i64 2
+  store i8 %170, ptr %171, align 1, !alias.scope !146, !noalias !183
   br i1 %49, label %48, label %CorrectDCValues.exit, !llvm.loop !184
 
 CorrectDCValues.exit:                             ; preds = %QuantizeSingle.exit51.i, %33
-  %173 = getelementptr inbounds i8, ptr %1, i64 584
-  %174 = getelementptr inbounds i8, ptr %35, i64 448
-  br label %175
+  %172 = getelementptr inbounds i8, ptr %1, i64 584
+  %173 = getelementptr inbounds i8, ptr %35, i64 448
+  br label %174
 
-175:                                              ; preds = %CorrectDCValues.exit, %175
-  %indvars.iv38 = phi i64 [ 0, %CorrectDCValues.exit ], [ %indvars.iv.next39, %175 ]
-  %.03234 = phi i32 [ 0, %CorrectDCValues.exit ], [ %182, %175 ]
-  %176 = load ptr, ptr @VP8EncQuantize2Blocks, align 8
-  %177 = getelementptr inbounds [8 x [16 x i16]], ptr %5, i64 0, i64 %indvars.iv38
-  %178 = getelementptr inbounds [8 x [16 x i16]], ptr %173, i64 0, i64 %indvars.iv38
-  %179 = call i32 %176(ptr noundef nonnull %177, ptr noundef nonnull %178, ptr noundef nonnull %174) #11
-  %180 = trunc nuw nsw i64 %indvars.iv38 to i32
-  %181 = shl i32 %179, %180
-  %182 = or i32 %181, %.03234
+174:                                              ; preds = %CorrectDCValues.exit, %174
+  %indvars.iv38 = phi i64 [ 0, %CorrectDCValues.exit ], [ %indvars.iv.next39, %174 ]
+  %.03234 = phi i32 [ 0, %CorrectDCValues.exit ], [ %181, %174 ]
+  %175 = load ptr, ptr @VP8EncQuantize2Blocks, align 8
+  %176 = getelementptr inbounds [8 x [16 x i16]], ptr %5, i64 0, i64 %indvars.iv38
+  %177 = getelementptr inbounds [8 x [16 x i16]], ptr %172, i64 0, i64 %indvars.iv38
+  %178 = call i32 %175(ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %173) #11
+  %179 = trunc nuw nsw i64 %indvars.iv38 to i32
+  %180 = shl i32 %178, %179
+  %181 = or i32 %180, %.03234
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 2
-  %183 = icmp ult i64 %indvars.iv38, 6
-  br i1 %183, label %175, label %.preheader, !llvm.loop !185
+  %182 = icmp ult i64 %indvars.iv38, 6
+  br i1 %182, label %174, label %.preheader, !llvm.loop !185
 
-.preheader:                                       ; preds = %175, %.preheader
-  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.preheader ], [ 0, %175 ]
-  %184 = load ptr, ptr @VP8ITransform, align 8
-  %185 = getelementptr inbounds [8 x i16], ptr @VP8ScanUV, i64 0, i64 %indvars.iv41
-  %186 = load i16, ptr %185, align 4
-  %187 = zext i16 %186 to i64
-  %188 = getelementptr inbounds i8, ptr %14, i64 %187
-  %189 = getelementptr inbounds [8 x [16 x i16]], ptr %5, i64 0, i64 %indvars.iv41
-  %190 = getelementptr inbounds i8, ptr %2, i64 %187
-  call void %184(ptr noundef %188, ptr noundef nonnull %189, ptr noundef %190, i32 noundef 1) #11
+.preheader:                                       ; preds = %174, %.preheader
+  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.preheader ], [ 0, %174 ]
+  %183 = load ptr, ptr @VP8ITransform, align 8
+  %184 = getelementptr inbounds [8 x i16], ptr @VP8ScanUV, i64 0, i64 %indvars.iv41
+  %185 = load i16, ptr %184, align 4
+  %186 = zext i16 %185 to i64
+  %187 = getelementptr inbounds i8, ptr %14, i64 %186
+  %188 = getelementptr inbounds [8 x [16 x i16]], ptr %5, i64 0, i64 %indvars.iv41
+  %189 = getelementptr inbounds i8, ptr %2, i64 %186
+  call void %183(ptr noundef %187, ptr noundef nonnull %188, ptr noundef %189, i32 noundef 1) #11
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 2
-  %191 = icmp ult i64 %indvars.iv41, 6
-  br i1 %191, label %.preheader, label %192, !llvm.loop !186
+  %190 = icmp ult i64 %indvars.iv41, 6
+  br i1 %190, label %.preheader, label %191, !llvm.loop !186
 
-192:                                              ; preds = %.preheader
-  %193 = shl i32 %182, 16
-  ret i32 %193
+191:                                              ; preds = %.preheader
+  %192 = shl i32 %181, 16
+  ret i32 %192
 }
 
 declare i32 @VP8GetCostUV(ptr noundef, ptr noundef) local_unnamed_addr #3

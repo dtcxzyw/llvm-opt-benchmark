@@ -3244,15 +3244,15 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %m_numHandles = getelementptr inbounds i8, ptr %this, i64 60
   %5 = load i16, ptr %m_numHandles, align 4
-  %conv = zext i16 %5 to i64
   br label %for.body
 
 for.cond9.preheader:                              ; preds = %for.body
-  %mul = shl nuw nsw i64 %conv, 1
+  %conv = zext i16 %5 to i64
   %m_pEdges = getelementptr inbounds i8, ptr %this, i64 80
   %m_maxEdges14 = getelementptr inbounds i8, ptr %add.ptr.i, i64 58
   %m_handleSentinel = getelementptr inbounds i8, ptr %this, i64 10
   %m_minEdges = getelementptr inbounds i8, ptr %add.ptr.i, i64 52
+  %.idx = shl nuw nsw i64 %conv, 3
   %.pre = load i16, ptr %m_handleSentinel, align 2
   br label %for.body11
 
@@ -3386,7 +3386,7 @@ while.body.i41:                                   ; preds = %land.rhs.i39
   br i1 %tobool.not.i49, label %_ZN20btAxisSweep3InternalItE9sortMinUpEitP12btDispatcherb.exit, label %land.rhs.i39, !llvm.loop !31
 
 _ZN20btAxisSweep3InternalItE9sortMinUpEitP12btDispatcherb.exit: ; preds = %land.rhs.i39, %while.body.i41, %_ZN20btAxisSweep3InternalItE9sortMaxUpEitP12btDispatcherb.exit
-  %43 = getelementptr %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %9, i64 %mul
+  %43 = getelementptr i8, ptr %9, i64 %.idx
   %arrayidx27 = getelementptr i8, ptr %43, i64 -4
   %m_handle = getelementptr i8, ptr %43, i64 -2
   store i16 0, ptr %m_handle, align 2

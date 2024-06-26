@@ -28842,8 +28842,8 @@ _ZNK5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi0ElE9dimensionEm.exit21
 _ZN5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi0ElEclIJiiEEERdlDpT_.exit: ; preds = %35, %41, %45
   %48 = mul nuw nsw i64 %indvars.iv, 5
   %49 = add nuw nsw i64 %48, %indvars.iv29
-  %50 = mul nuw nsw i64 %49, 3
-  %gep = getelementptr double, ptr %invariant.gep, i64 %50
+  %50 = mul nuw nsw i64 %49, 24
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %50
   store double %38, ptr %gep, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %25, !llvm.loop !738
@@ -29181,8 +29181,8 @@ _ZNK5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi0ElE9dimensionEm.exit23
 _ZN5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi0ElEclIJiiEEERdlDpT_.exit: ; preds = %35, %38, %42
   %45 = mul nuw nsw i64 %indvars.iv, 5
   %46 = add nuw nsw i64 %45, %indvars.iv41
-  %47 = mul nuw nsw i64 %46, 3
-  %gep = getelementptr double, ptr %invariant.gep, i64 %47
+  %47 = mul nuw nsw i64 %46, 24
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %47
   %48 = load double, ptr %gep, align 8
   %49 = or disjoint i64 %indvars.iv, %24
   %50 = trunc nuw nsw i64 %49 to i32
@@ -55567,8 +55567,8 @@ _ZNK5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi1ElE9dimensionEm.exit19
   %24 = shl nuw nsw i64 %indvars.iv25, 1
   %25 = add nuw nsw i64 %24, %12
   %26 = add nuw nsw i64 %indvars.iv25, %13
-  %27 = shl nuw nsw i64 %26, 1
-  %28 = getelementptr double, ptr %0, i64 %27
+  %27 = shl nuw nsw i64 %26, 4
+  %28 = getelementptr i8, ptr %0, i64 %27
   br label %29
 
 29:                                               ; preds = %.preheader, %_ZN5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi1ElEclIJiiEEERdlDpT_.exit
@@ -55902,8 +55902,8 @@ _ZNK5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi1ElE9dimensionEm.exit21
 
 .preheader:                                       ; preds = %_ZNK5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi1ElE9dimensionEm.exit21
   %24 = add nuw nsw i64 %indvars.iv37, %12
-  %25 = shl nuw nsw i64 %24, 1
-  %26 = getelementptr double, ptr %0, i64 %25
+  %25 = shl nuw nsw i64 %24, 4
+  %26 = getelementptr i8, ptr %0, i64 %25
   %27 = shl nuw nsw i64 %indvars.iv37, 1
   %28 = add nuw nsw i64 %27, %13
   br label %29

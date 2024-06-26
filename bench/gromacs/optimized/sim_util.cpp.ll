@@ -614,7 +614,7 @@ _ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.exit.i: ; preds = %122, %_ZN
 
 .preheader.i.i.i:                                 ; preds = %179, %170
   %indvars.iv13.i.i.i = phi i64 [ 0, %170 ], [ %indvars.iv.next14.i.i.i, %179 ]
-  %172 = mul nuw nsw i64 %indvars.iv13.i.i.i, 3
+  %172 = mul nuw nsw i64 %indvars.iv13.i.i.i, 12
   br label %173
 
 173:                                              ; preds = %173, %.preheader.i.i.i
@@ -622,7 +622,7 @@ _ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.exit.i: ; preds = %122, %_ZN
   %174 = getelementptr inbounds [3 x float], ptr %13, i64 %indvars.iv13.i.i.i, i64 %indvars.iv.i.i.i
   %175 = load float, ptr %174, align 4, !noalias !8
   %176 = load ptr, ptr %171, align 8, !alias.scope !8
-  %177 = getelementptr float, ptr %176, i64 %172
+  %177 = getelementptr i8, ptr %176, i64 %172
   %178 = getelementptr float, ptr %177, i64 %indvars.iv.i.i.i
   store float %175, ptr %178, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1

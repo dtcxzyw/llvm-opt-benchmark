@@ -955,23 +955,23 @@ define internal i32 @ExtraCost_C(ptr nocapture noundef readonly %0, i32 noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.013 = phi i32 [ %7, %.lr.ph.preheader ], [ %19, %.lr.ph ]
-  %10 = shl nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds i32, ptr %0, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %11, i64 12
-  %15 = load i32, ptr %14, align 4
-  %16 = add i32 %15, %13
-  %17 = trunc nuw nsw i64 %indvars.iv to i32
-  %18 = mul i32 %16, %17
-  %19 = add i32 %18, %.013
+  %.013 = phi i32 [ %7, %.lr.ph.preheader ], [ %18, %.lr.ph ]
+  %.idx = shl nsw i64 %indvars.iv, 3
+  %10 = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr inbounds i8, ptr %10, i64 12
+  %14 = load i32, ptr %13, align 4
+  %15 = add i32 %14, %12
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
+  %17 = mul i32 %15, %16
+  %18 = add i32 %17, %.013
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi i32 [ %7, %2 ], [ %19, %.lr.ph ]
+  %.0.lcssa = phi i32 [ %7, %2 ], [ %18, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 

@@ -1537,7 +1537,7 @@ define internal fastcc void @Exp_Truth8(i32 noundef %0, i32 %.4.val, ptr nocaptu
   br label %.lr.ph
 
 .preheader3:                                      ; preds = %.loopexit5, %33
-  %.0109.lcssa = phi ptr [ null, %33 ], [ %77, %.loopexit5 ]
+  %.0109.lcssa = phi ptr [ null, %33 ], [ %76, %.loopexit5 ]
   %38 = and i32 %9, 1
   %.not121 = icmp eq i32 %38, 0
   br i1 %.not121, label %.preheader3.split.us, label %.preheader3.split
@@ -1600,73 +1600,73 @@ define internal fastcc void @Exp_Truth8(i32 noundef %0, i32 %.4.val, ptr nocaptu
 
 74:                                               ; preds = %69, %65
   %75 = phi ptr [ %68, %65 ], [ %73, %69 ]
-  %76 = shl nsw i64 %indvars.iv46, 2
-  %77 = getelementptr inbounds i64, ptr %36, i64 %76
-  %78 = icmp ne i32 %50, 0
-  %79 = icmp ne i32 %51, 0
-  %or.cond3 = select i1 %78, i1 %79, i1 false
-  br i1 %or.cond3, label %.preheader4, label %86
+  %.idx = shl nsw i64 %indvars.iv46, 5
+  %76 = getelementptr inbounds i8, ptr %36, i64 %.idx
+  %77 = icmp ne i32 %50, 0
+  %78 = icmp ne i32 %51, 0
+  %or.cond3 = select i1 %77, i1 %78, i1 false
+  br i1 %or.cond3, label %.preheader4, label %85
 
 .preheader4:                                      ; preds = %74, %.preheader4
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.preheader4 ], [ 0, %74 ]
-  %80 = getelementptr inbounds i64, ptr %63, i64 %indvars.iv42
-  %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv42
-  %83 = load i64, ptr %82, align 8
-  %.demorgan = or i64 %83, %81
-  %84 = xor i64 %.demorgan, -1
-  %85 = getelementptr inbounds i64, ptr %77, i64 %indvars.iv42
-  store i64 %84, ptr %85, align 8
+  %79 = getelementptr inbounds i64, ptr %63, i64 %indvars.iv42
+  %80 = load i64, ptr %79, align 8
+  %81 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv42
+  %82 = load i64, ptr %81, align 8
+  %.demorgan = or i64 %82, %80
+  %83 = xor i64 %.demorgan, -1
+  %84 = getelementptr inbounds i64, ptr %76, i64 %indvars.iv42
+  store i64 %83, ptr %84, align 8
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, 4
   br i1 %exitcond45.not, label %.loopexit5, label %.preheader4, !llvm.loop !20
 
-86:                                               ; preds = %74
-  %87 = icmp eq i32 %50, 0
-  %or.cond5 = select i1 %87, i1 true, i1 %79
-  br i1 %or.cond5, label %95, label %.preheader10
+85:                                               ; preds = %74
+  %86 = icmp eq i32 %50, 0
+  %or.cond5 = select i1 %86, i1 true, i1 %78
+  br i1 %or.cond5, label %94, label %.preheader10
 
-.preheader10:                                     ; preds = %86, %.preheader10
-  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.preheader10 ], [ 0, %86 ]
-  %88 = getelementptr inbounds i64, ptr %63, i64 %indvars.iv30
-  %89 = load i64, ptr %88, align 8
-  %90 = xor i64 %89, -1
-  %91 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv30
-  %92 = load i64, ptr %91, align 8
-  %93 = and i64 %92, %90
-  %94 = getelementptr inbounds i64, ptr %77, i64 %indvars.iv30
-  store i64 %93, ptr %94, align 8
+.preheader10:                                     ; preds = %85, %.preheader10
+  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.preheader10 ], [ 0, %85 ]
+  %87 = getelementptr inbounds i64, ptr %63, i64 %indvars.iv30
+  %88 = load i64, ptr %87, align 8
+  %89 = xor i64 %88, -1
+  %90 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv30
+  %91 = load i64, ptr %90, align 8
+  %92 = and i64 %91, %89
+  %93 = getelementptr inbounds i64, ptr %76, i64 %indvars.iv30
+  store i64 %92, ptr %93, align 8
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, 4
   br i1 %exitcond33.not, label %.loopexit5, label %.preheader10, !llvm.loop !21
 
-95:                                               ; preds = %86
-  %or.cond7 = select i1 %87, i1 %79, i1 false
+94:                                               ; preds = %85
+  %or.cond7 = select i1 %86, i1 %78, i1 false
   br i1 %or.cond7, label %.preheader6, label %.preheader8
 
-.preheader6:                                      ; preds = %95, %.preheader6
-  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %.preheader6 ], [ 0, %95 ]
-  %96 = getelementptr inbounds i64, ptr %63, i64 %indvars.iv38
-  %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv38
-  %99 = load i64, ptr %98, align 8
-  %100 = xor i64 %99, -1
-  %101 = and i64 %97, %100
-  %102 = getelementptr inbounds i64, ptr %77, i64 %indvars.iv38
-  store i64 %101, ptr %102, align 8
+.preheader6:                                      ; preds = %94, %.preheader6
+  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %.preheader6 ], [ 0, %94 ]
+  %95 = getelementptr inbounds i64, ptr %63, i64 %indvars.iv38
+  %96 = load i64, ptr %95, align 8
+  %97 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv38
+  %98 = load i64, ptr %97, align 8
+  %99 = xor i64 %98, -1
+  %100 = and i64 %96, %99
+  %101 = getelementptr inbounds i64, ptr %76, i64 %indvars.iv38
+  store i64 %100, ptr %101, align 8
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 4
   br i1 %exitcond41.not, label %.loopexit5, label %.preheader6, !llvm.loop !22
 
-.preheader8:                                      ; preds = %95, %.preheader8
-  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %.preheader8 ], [ 0, %95 ]
-  %103 = getelementptr inbounds i64, ptr %63, i64 %indvars.iv34
-  %104 = load i64, ptr %103, align 8
-  %105 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv34
-  %106 = load i64, ptr %105, align 8
-  %107 = and i64 %106, %104
-  %108 = getelementptr inbounds i64, ptr %77, i64 %indvars.iv34
-  store i64 %107, ptr %108, align 8
+.preheader8:                                      ; preds = %94, %.preheader8
+  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %.preheader8 ], [ 0, %94 ]
+  %102 = getelementptr inbounds i64, ptr %63, i64 %indvars.iv34
+  %103 = load i64, ptr %102, align 8
+  %104 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv34
+  %105 = load i64, ptr %104, align 8
+  %106 = and i64 %105, %103
+  %107 = getelementptr inbounds i64, ptr %76, i64 %indvars.iv34
+  store i64 %106, ptr %107, align 8
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, 4
   br i1 %exitcond37.not, label %.loopexit5, label %.preheader8, !llvm.loop !23
@@ -1678,24 +1678,24 @@ define internal fastcc void @Exp_Truth8(i32 noundef %0, i32 %.4.val, ptr nocaptu
 
 .preheader3.split:                                ; preds = %.preheader3, %.preheader3.split
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.preheader3.split ], [ 0, %.preheader3 ]
-  %109 = getelementptr inbounds i64, ptr %.0109.lcssa, i64 %indvars.iv50
-  %110 = load i64, ptr %109, align 8
-  %111 = xor i64 %110, -1
-  %112 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv50
-  store i64 %111, ptr %112, align 8
+  %108 = getelementptr inbounds i64, ptr %.0109.lcssa, i64 %indvars.iv50
+  %109 = load i64, ptr %108, align 8
+  %110 = xor i64 %109, -1
+  %111 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv50
+  store i64 %110, ptr %111, align 8
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 4
   br i1 %exitcond53.not, label %.split.us, label %.preheader3.split, !llvm.loop !19
 
 .split.us:                                        ; preds = %.preheader3.split, %.preheader3.split.us
   %.not = icmp eq ptr %36, null
-  br i1 %.not, label %.loopexit, label %113
+  br i1 %.not, label %.loopexit, label %112
 
-113:                                              ; preds = %.split.us
+112:                                              ; preds = %.split.us
   call void @free(ptr noundef nonnull %36) #24
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader1.split, %.preheader1.split.us, %26, %113, %.split.us
+.loopexit:                                        ; preds = %.preheader1.split, %.preheader1.split.us, %26, %112, %.split.us
   ret void
 }
 

@@ -752,19 +752,19 @@ _Z11do_per_stepll.exit:                           ; preds = %37
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %77, %50
-  %indvars.iv13.i = phi i64 [ 0, %50 ], [ %indvars.iv.next14.i, %77 ]
-  %67 = mul nuw nsw i64 %indvars.iv13.i, 3
+  %indvars.iv14.i = phi i64 [ 0, %50 ], [ %indvars.iv.next15.i, %77 ]
+  %67 = mul nuw nsw i64 %indvars.iv14.i, 12
   br label %68
 
 68:                                               ; preds = %68, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %68 ]
   %69 = load ptr, ptr %66, align 8, !noalias !5
-  %70 = getelementptr float, ptr %69, i64 %67
+  %70 = getelementptr i8, ptr %69, i64 %67
   %71 = getelementptr float, ptr %70, i64 %indvars.iv.i
   %72 = load float, ptr %71, align 4
   %73 = fmul float %64, %72
   %74 = load ptr, ptr %65, align 8, !alias.scope !5
-  %75 = getelementptr float, ptr %74, i64 %67
+  %75 = getelementptr i8, ptr %74, i64 %67
   %76 = getelementptr float, ptr %75, i64 %indvars.iv.i
   store float %73, ptr %76, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -772,9 +772,9 @@ _Z11do_per_stepll.exit:                           ; preds = %37
   br i1 %exitcond.not.i, label %77, label %68, !llvm.loop !8
 
 77:                                               ; preds = %68
-  %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
-  %exitcond17.not.i = icmp eq i64 %indvars.iv.next14.i, 3
-  br i1 %exitcond17.not.i, label %_ZN3gmxmlIfEENS_13MultiDimArrayISt5arrayIT_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEERKS8_S3_.exit, label %.preheader.i, !llvm.loop !10
+  %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
+  %exitcond18.not.i = icmp eq i64 %indvars.iv.next15.i, 3
+  br i1 %exitcond18.not.i, label %_ZN3gmxmlIfEENS_13MultiDimArrayISt5arrayIT_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEERKS8_S3_.exit, label %.preheader.i, !llvm.loop !10
 
 _ZN3gmxmlIfEENS_13MultiDimArrayISt5arrayIT_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEERKS8_S3_.exit: ; preds = %77
   %78 = load ptr, ptr %9, align 8
@@ -2126,19 +2126,19 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3gmx24ParrinelloRahmanBaro
   br label %.preheader.i.i.i.i.i
 
 .preheader.i.i.i.i.i:                             ; preds = %36, %1
-  %indvars.iv13.i.i.i.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next14.i.i.i.i.i, %36 ]
-  %26 = mul nuw nsw i64 %indvars.iv13.i.i.i.i.i, 3
+  %indvars.iv14.i.i.i.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next15.i.i.i.i.i, %36 ]
+  %26 = mul nuw nsw i64 %indvars.iv14.i.i.i.i.i, 12
   br label %27
 
 27:                                               ; preds = %27, %.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %27 ]
   %28 = load ptr, ptr %25, align 8, !noalias !23
-  %29 = getelementptr float, ptr %28, i64 %26
+  %29 = getelementptr i8, ptr %28, i64 %26
   %30 = getelementptr float, ptr %29, i64 %indvars.iv.i.i.i.i.i
   %31 = load float, ptr %30, align 4
   %32 = fmul float %23, %31
   %33 = load ptr, ptr %24, align 8, !alias.scope !23
-  %34 = getelementptr float, ptr %33, i64 %26
+  %34 = getelementptr i8, ptr %33, i64 %26
   %35 = getelementptr float, ptr %34, i64 %indvars.iv.i.i.i.i.i
   store float %32, ptr %35, align 4
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -2146,9 +2146,9 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3gmx24ParrinelloRahmanBaro
   br i1 %exitcond.not.i.i.i.i.i, label %36, label %27, !llvm.loop !8
 
 36:                                               ; preds = %27
-  %indvars.iv.next14.i.i.i.i.i = add nuw nsw i64 %indvars.iv13.i.i.i.i.i, 1
-  %exitcond17.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next14.i.i.i.i.i, 3
-  br i1 %exitcond17.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3gmx24ParrinelloRahmanBarostat12scheduleTaskEldRKSt8functionIFvS2_IFvvEEEEE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %.preheader.i.i.i.i.i, !llvm.loop !10
+  %indvars.iv.next15.i.i.i.i.i = add nuw nsw i64 %indvars.iv14.i.i.i.i.i, 1
+  %exitcond18.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next15.i.i.i.i.i, 3
+  br i1 %exitcond18.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3gmx24ParrinelloRahmanBarostat12scheduleTaskEldRKSt8functionIFvS2_IFvvEEEEE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %.preheader.i.i.i.i.i, !llvm.loop !10
 
 "_ZSt10__invoke_rIvRZN3gmx24ParrinelloRahmanBarostat12scheduleTaskEldRKSt8functionIFvS2_IFvvEEEEE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %36
   %37 = load ptr, ptr %19, align 8
@@ -2215,19 +2215,19 @@ define void @_ZN3gmx24ParrinelloRahmanBarostat29integrateBoxVelocityEquationsEl(
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %36, %2
-  %indvars.iv13.i = phi i64 [ 0, %2 ], [ %indvars.iv.next14.i, %36 ]
-  %26 = mul nuw nsw i64 %indvars.iv13.i, 3
+  %indvars.iv14.i = phi i64 [ 0, %2 ], [ %indvars.iv.next15.i, %36 ]
+  %26 = mul nuw nsw i64 %indvars.iv14.i, 12
   br label %27
 
 27:                                               ; preds = %27, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %27 ]
   %28 = load ptr, ptr %25, align 8, !noalias !26
-  %29 = getelementptr float, ptr %28, i64 %26
+  %29 = getelementptr i8, ptr %28, i64 %26
   %30 = getelementptr float, ptr %29, i64 %indvars.iv.i
   %31 = load float, ptr %30, align 4
   %32 = fmul float %23, %31
   %33 = load ptr, ptr %24, align 8, !alias.scope !26
-  %34 = getelementptr float, ptr %33, i64 %26
+  %34 = getelementptr i8, ptr %33, i64 %26
   %35 = getelementptr float, ptr %34, i64 %indvars.iv.i
   store float %32, ptr %35, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2235,9 +2235,9 @@ define void @_ZN3gmx24ParrinelloRahmanBarostat29integrateBoxVelocityEquationsEl(
   br i1 %exitcond.not.i, label %36, label %27, !llvm.loop !8
 
 36:                                               ; preds = %27
-  %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
-  %exitcond17.not.i = icmp eq i64 %indvars.iv.next14.i, 3
-  br i1 %exitcond17.not.i, label %_ZN3gmxmlIfEENS_13MultiDimArrayISt5arrayIT_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEERKS8_S3_.exit, label %.preheader.i, !llvm.loop !10
+  %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
+  %exitcond18.not.i = icmp eq i64 %indvars.iv.next15.i, 3
+  br i1 %exitcond18.not.i, label %_ZN3gmxmlIfEENS_13MultiDimArrayISt5arrayIT_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEERKS8_S3_.exit, label %.preheader.i, !llvm.loop !10
 
 _ZN3gmxmlIfEENS_13MultiDimArrayISt5arrayIT_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEERKS8_S3_.exit: ; preds = %36
   %37 = load ptr, ptr %19, align 8

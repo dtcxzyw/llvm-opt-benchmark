@@ -6265,7 +6265,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %m_colormap = getelementptr inbounds i8, ptr %this, i64 312
-  %mul30 = shl nsw i64 %conv5, 1
+  %.idx = shl nsw i64 %conv5, 2
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -6301,7 +6301,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %incdec.ptr28 = getelementptr inbounds i8, ptr %rgb.addr.020, i64 2
   store i8 %conv27, ptr %incdec.ptr, align 1
   %12 = load ptr, ptr %m_colormap, align 8
-  %13 = getelementptr i16, ptr %12, i64 %mul30
+  %13 = getelementptr i8, ptr %12, i64 %.idx
   %add.ptr.i16 = getelementptr i16, ptr %13, i64 %conv16
   %14 = load i16, ptr %add.ptr.i16, align 2
   %15 = udiv i16 %14, 257
@@ -6329,7 +6329,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %m_colormap = getelementptr inbounds i8, ptr %this, i64 312
-  %mul17 = shl nsw i64 %conv2, 1
+  %.idx = shl nsw i64 %conv2, 2
   %wide.trip.count = zext nneg i32 %n to i64
   br label %for.body
 
@@ -6355,7 +6355,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %incdec.ptr15 = getelementptr inbounds i8, ptr %rgb.addr.013, i64 2
   store i8 %conv14, ptr %incdec.ptr, align 1
   %9 = load ptr, ptr %m_colormap, align 8
-  %10 = getelementptr i16, ptr %9, i64 %mul17
+  %10 = getelementptr i8, ptr %9, i64 %.idx
   %add.ptr.i10 = getelementptr i16, ptr %10, i64 %conv4
   %11 = load i16, ptr %add.ptr.i10, align 2
   %12 = udiv i16 %11, 257
@@ -6991,7 +6991,7 @@ if.then140:                                       ; preds = %if.end136
 
 for.body.lr.ph.i:                                 ; preds = %if.then140
   %m_colormap.i = getelementptr inbounds i8, ptr %this, i64 312
-  %mul30.i = shl nuw nsw i64 %conv5.i, 1
+  %.idx.i = shl nuw nsw i64 %conv5.i, 2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -7027,7 +7027,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr28.i = getelementptr inbounds i8, ptr %rgb.addr.020.i, i64 2
   store i8 %conv27.i, ptr %incdec.ptr.i, align 1
   %66 = load ptr, ptr %m_colormap.i, align 8
-  %67 = getelementptr i16, ptr %66, i64 %mul30.i
+  %67 = getelementptr i8, ptr %66, i64 %.idx.i
   %add.ptr.i16.i = getelementptr i16, ptr %67, i64 %conv16.i
   %68 = load i16, ptr %add.ptr.i16.i, align 2
   %69 = udiv i16 %68, 257
@@ -9651,7 +9651,7 @@ if.then107:                                       ; preds = %if.end103
 
 for.body.lr.ph.i:                                 ; preds = %if.then107
   %m_colormap.i = getelementptr inbounds i8, ptr %this, i64 312
-  %mul30.i = shl nuw nsw i64 %conv5.i, 1
+  %.idx.i = shl nuw nsw i64 %conv5.i, 2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -9687,7 +9687,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %incdec.ptr28.i = getelementptr inbounds i8, ptr %rgb.addr.020.i, i64 2
   store i8 %conv27.i, ptr %incdec.ptr.i, align 1
   %40 = load ptr, ptr %m_colormap.i, align 8
-  %41 = getelementptr i16, ptr %40, i64 %mul30.i
+  %41 = getelementptr i8, ptr %40, i64 %.idx.i
   %add.ptr.i16.i = getelementptr i16, ptr %41, i64 %conv16.i
   %42 = load i16, ptr %add.ptr.i16.i, align 2
   %43 = udiv i16 %42, 257

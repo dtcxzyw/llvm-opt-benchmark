@@ -32225,7 +32225,7 @@ for.cond47.loopexit:                              ; preds = %for.body52
 
 for.cond50.preheader:                             ; preds = %for.cond50.preheader.lr.ph, %for.cond47.loopexit
   %i46.036 = phi i64 [ %i46.034, %for.cond50.preheader.lr.ph ], [ %i46.0, %for.cond47.loopexit ]
-  %mul = mul i64 %i46.036, 3
+  %.idx = mul i64 %i46.036, 12
   br label %for.body52
 
 for.body52:                                       ; preds = %for.cond50.preheader, %for.body52
@@ -32233,7 +32233,7 @@ for.body52:                                       ; preds = %for.cond50.preheade
   %11 = load ptr, ptr %m_data.i27, align 8
   %add.ptr.i28 = getelementptr inbounds float, ptr %11, i64 %i46.036
   %12 = load float, ptr %add.ptr.i28, align 4
-  %13 = getelementptr float, ptr %11, i64 %mul
+  %13 = getelementptr i8, ptr %11, i64 %.idx
   %add.ptr.i30 = getelementptr float, ptr %13, i64 %j.033
   store float %12, ptr %add.ptr.i30, align 4
   %inc58 = add nuw nsw i64 %j.033, 1
