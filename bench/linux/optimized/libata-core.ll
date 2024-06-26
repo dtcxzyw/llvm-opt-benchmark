@@ -6757,7 +6757,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_dev_read_id(ptr noundef %0, 
 
 60:                                               ; preds = %59, %58, %.split.us, %.split.us
   %storemerge8.us = phi i8 [ -95, %58 ], [ -20, %59 ], [ -20, %.split.us ], [ -20, %.split.us ]
-  %61 = phi i32 [ %51, %58 ], [ 1, %59 ], [ %51, %.split.us ], [ %51, %.split.us ]
+  %61 = phi i32 [ 3, %58 ], [ 1, %59 ], [ %51, %.split.us ], [ %51, %.split.us ]
   store i8 %storemerge8.us, ptr %15, align 1
   store i8 1, ptr %16, align 8
   store i64 70, ptr %7, align 8
@@ -6815,7 +6815,7 @@ select.unfold:                                    ; preds = %47, %select.unfold.
 
 88:                                               ; preds = %select.unfold, %select.unfold, %86, %87
   %storemerge8 = phi i8 [ -95, %87 ], [ -20, %86 ], [ -20, %select.unfold ], [ -20, %select.unfold ]
-  %89 = phi i32 [ %79, %87 ], [ 1, %86 ], [ %79, %select.unfold ], [ %79, %select.unfold ]
+  %89 = phi i32 [ 3, %87 ], [ 1, %86 ], [ %79, %select.unfold ], [ %79, %select.unfold ]
   store i8 %storemerge8, ptr %15, align 1
   store i8 1, ptr %16, align 8
   store i64 70, ptr %7, align 8

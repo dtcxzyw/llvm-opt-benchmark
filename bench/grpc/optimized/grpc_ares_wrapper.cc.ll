@@ -491,23 +491,33 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %11, %do.end.i
   %vtable.i.i = load ptr, ptr %12, align 8
   %13 = load ptr, ptr %vtable.i.i, align 8
   %call.i.i = tail call i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  switch i64 %call.i.i, label %if.end11.i.i.i [
+    i64 9223372036854775807, label %_ZL37calculate_next_ares_backup_poll_alarmP19grpc_ares_ev_driver.exit
+    i64 -9223372036854775808, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split.i
+  ]
+
+if.end11.i.i.i:                                   ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i
+  %or.cond.i = icmp sgt i64 %call.i.i, 9223372036854774807
+  %add.i.i.i.i = add nsw i64 %call.i.i, 1000
+  %spec.select.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %add.i.i.i.i
+  br label %_ZL37calculate_next_ares_backup_poll_alarmP19grpc_ares_ev_driver.exit
+
+_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split.i: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i
+  br label %_ZL37calculate_next_ares_backup_poll_alarmP19grpc_ares_ev_driver.exit
+
+_ZL37calculate_next_ares_backup_poll_alarmP19grpc_ares_ev_driver.exit: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i, %if.end11.i.i.i, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split.i
+  %retval.0.i.i.i = phi i64 [ %call.i.i, %_ZN9grpc_core9Timestamp3NowEv.exit.i ], [ -9223372036854775808, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split.i ], [ %spec.select.i, %if.end11.i.i.i ]
   %14 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i19 = trunc i8 %14 to i1
   br i1 %tobool.i.i.i.i19, label %if.then.i22, label %_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit24
 
-if.then.i22:                                      ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i
+if.then.i22:                                      ; preds = %_ZL37calculate_next_ares_backup_poll_alarmP19grpc_ares_ev_driver.exit
   %request.i23 = getelementptr inbounds i8, ptr %ev_driver, i64 40
   %15 = load ptr, ptr %request.i23, align 8
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.5, i32 noundef 193, i32 noundef 0, ptr noundef nonnull @.str.36, ptr noundef %15, ptr noundef nonnull %ev_driver)
   br label %_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit24
 
-_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit24: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i, %if.then.i22
-  %call.i.i.off = add i64 %call.i.i, -9223372036854775807
-  %switch = icmp ult i64 %call.i.i.off, 2
-  %or.cond.i = icmp sgt i64 %call.i.i, 9223372036854774807
-  %add.i.i.i.i = add nsw i64 %call.i.i, 1000
-  %spec.select.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %add.i.i.i.i
-  %retval.0.i.i.i = select i1 %switch, i64 %call.i.i, i64 %spec.select.i
+_ZL23grpc_ares_ev_driver_refP19grpc_ares_ev_driver.exit24: ; preds = %_ZL37calculate_next_ares_backup_poll_alarmP19grpc_ares_ev_driver.exit, %if.then.i22
   tail call void @gpr_ref(ptr noundef nonnull %refs.i)
   %on_ares_backup_poll_alarm_locked = getelementptr inbounds i8, ptr %ev_driver, i64 208
   %cb1.i25 = getelementptr inbounds i8, ptr %ev_driver, i64 216
@@ -1190,22 +1200,32 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %25, %do.end.i
           to label %call.i.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.i.noexc:                                   ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i
-  %call.i.i28.off = add i64 %call.i.i28, -9223372036854775807
-  %switch = icmp ult i64 %call.i.i28.off, 2
+  switch i64 %call.i.i28, label %if.end11.i.i.i [
+    i64 9223372036854775807, label %invoke.cont36
+    i64 -9223372036854775808, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split.i
+  ]
+
+if.end11.i.i.i:                                   ; preds = %call.i.i.noexc
   %or.cond.i = icmp sgt i64 %call.i.i28, 9223372036854774807
   %add.i.i.i.i = add nsw i64 %call.i.i28, 1000
   %spec.select.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %add.i.i.i.i
-  %retval.0.i.i.i = select i1 %switch, i64 %call.i.i28, i64 %spec.select.i
+  br label %invoke.cont36
+
+_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split.i: ; preds = %call.i.i.noexc
+  br label %invoke.cont36
+
+invoke.cont36:                                    ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split.i, %if.end11.i.i.i, %call.i.i.noexc
+  %retval.0.i.i.i = phi i64 [ %call.i.i28, %call.i.i.noexc ], [ -9223372036854775808, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split.i ], [ %spec.select.i, %if.end11.i.i.i ]
   %29 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i29 = trunc i8 %29 to i1
   br i1 %tobool.i.i.i.i29, label %if.then.i31, label %do.end.i30
 
-if.then.i31:                                      ; preds = %call.i.i.noexc
+if.then.i31:                                      ; preds = %invoke.cont36
   %30 = load ptr, ptr %request, align 8
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.5, i32 noundef 193, i32 noundef 0, ptr noundef nonnull @.str.36, ptr noundef %30, ptr noundef nonnull %arg)
           to label %do.end.i30 unwind label %lpad.loopexit.split-lp
 
-do.end.i30:                                       ; preds = %if.then.i31, %call.i.i.noexc
+do.end.i30:                                       ; preds = %if.then.i31, %invoke.cont36
   %refs.i = getelementptr inbounds i8, ptr %arg, i64 16
   invoke void @gpr_ref(ptr noundef nonnull %refs.i)
           to label %invoke.cont38 unwind label %lpad.loopexit.split-lp

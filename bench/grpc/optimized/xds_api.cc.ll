@@ -2915,9 +2915,10 @@ invoke.cont29:                                    ; preds = %invoke.cont21, %if.
   %cond10.i.i.i = select i1 %cmp.not.i.i.i, i64 %spec.select.i.i.i, i64 9223372036854775807
   %div.i1.i = sdiv i32 %22, 1000000
   %div.i.sext.i = sext i32 %div.i1.i to i64
-  %cond10.i.i.i.off = add i64 %cond10.i.i.i, -9223372036854775807
-  %switch = icmp ult i64 %cond10.i.i.i.off, 2
-  br i1 %switch, label %invoke.cont31, label %if.end11.i.i.i
+  switch i64 %cond10.i.i.i, label %if.end11.i.i.i [
+    i64 9223372036854775807, label %invoke.cont31
+    i64 -9223372036854775808, label %_ZN9grpc_coreplENS_8DurationES0_.exit.fold.split.i
+  ]
 
 if.end11.i.i.i:                                   ; preds = %invoke.cont29
   %cmp.i.i.i.i30 = icmp sgt i64 %cond10.i.i.i, 0
@@ -2937,8 +2938,11 @@ if.end7.i.i.i.i:                                  ; preds = %if.else.i.i.i.i, %i
   %add.i.i.i.i31 = add nsw i64 %cond10.i.i.i, %div.i.sext.i
   br label %invoke.cont31
 
-invoke.cont31:                                    ; preds = %invoke.cont29, %if.end7.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i32
-  %retval.0.i.i.i = phi i64 [ %add.i.i.i.i31, %if.end7.i.i.i.i ], [ 9223372036854775807, %if.then.i.i.i.i32 ], [ -9223372036854775808, %if.else.i.i.i.i ], [ %cond10.i.i.i, %invoke.cont29 ]
+_ZN9grpc_coreplENS_8DurationES0_.exit.fold.split.i: ; preds = %invoke.cont29
+  br label %invoke.cont31
+
+invoke.cont31:                                    ; preds = %_ZN9grpc_coreplENS_8DurationES0_.exit.fold.split.i, %if.end7.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i32, %invoke.cont29
+  %retval.0.i.i.i = phi i64 [ %cond10.i.i.i, %invoke.cont29 ], [ %add.i.i.i.i31, %if.end7.i.i.i.i ], [ 9223372036854775807, %if.then.i.i.i.i32 ], [ -9223372036854775808, %if.else.i.i.i.i ], [ -9223372036854775808, %_ZN9grpc_coreplENS_8DurationES0_.exit.fold.split.i ]
   store i64 %retval.0.i.i.i, ptr %load_reporting_interval, align 8
   store i64 0, ptr %agg.result, align 8, !alias.scope !28
   br label %if.then.i.i

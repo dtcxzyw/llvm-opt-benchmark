@@ -2142,28 +2142,36 @@ cond.end:                                         ; preds = %cond.true, %invoke.
   %storemerge = phi i32 [ %call78, %cond.true ], [ 2147483647, %invoke.cont75 ]
   %graph_lag87 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0431, i64 96
   %7 = load i32, ptr %graph_lag87, align 8
-  %call72.off = add i32 %call72, -2147483647
-  %switch = icmp ult i32 %call72.off, 2
-  br i1 %switch, label %invoke.cont91, label %if.end7.i.i
+  switch i32 %call72, label %if.end7.i.i [
+    i32 -2147483648, label %invoke.cont91
+    i32 2147483647, label %return.fold.split.i.i
+  ]
 
 if.end7.i.i:                                      ; preds = %cond.end
   %add.i.i = add i32 %7, %call72
   %cmp8.i.i = icmp ugt i32 %add.i.i, 2147483646
   br i1 %cmp8.i.i, label %if.then.i.invoke, label %invoke.cont91
 
-invoke.cont91:                                    ; preds = %cond.end, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.end7.i.i ], [ %call72, %cond.end ]
-  %storemerge.off = add i32 %storemerge, -2147483647
-  %switch4 = icmp ult i32 %storemerge.off, 2
-  br i1 %switch4, label %invoke.cont94, label %if.end7.i.i312
+return.fold.split.i.i:                            ; preds = %cond.end
+  br label %invoke.cont91
+
+invoke.cont91:                                    ; preds = %return.fold.split.i.i, %if.end7.i.i, %cond.end
+  %retval.sroa.0.0.i.i = phi i32 [ %call72, %cond.end ], [ %add.i.i, %if.end7.i.i ], [ 2147483647, %return.fold.split.i.i ]
+  switch i32 %storemerge, label %if.end7.i.i312 [
+    i32 -2147483648, label %invoke.cont94
+    i32 2147483647, label %return.fold.split.i.i310
+  ]
 
 if.end7.i.i312:                                   ; preds = %invoke.cont91
   %add.i.i313 = add i32 %7, %storemerge
   %cmp8.i.i314 = icmp ugt i32 %add.i.i313, 2147483646
   br i1 %cmp8.i.i314, label %if.then.i.invoke, label %invoke.cont94
 
-invoke.cont94:                                    ; preds = %invoke.cont91, %if.end7.i.i312
-  %retval.sroa.0.0.i.i311 = phi i32 [ %add.i.i313, %if.end7.i.i312 ], [ %storemerge, %invoke.cont91 ]
+return.fold.split.i.i310:                         ; preds = %invoke.cont91
+  br label %invoke.cont94
+
+invoke.cont94:                                    ; preds = %return.fold.split.i.i310, %if.end7.i.i312, %invoke.cont91
+  %retval.sroa.0.0.i.i311 = phi i32 [ %storemerge, %invoke.cont91 ], [ %add.i.i313, %if.end7.i.i312 ], [ 2147483647, %return.fold.split.i.i310 ]
   %cmp.i.i = icmp ult i32 %retval.sroa.0.0.i.i, 2147483647
   br i1 %cmp.i.i, label %invoke.cont98, label %if.then.i.invoke
 

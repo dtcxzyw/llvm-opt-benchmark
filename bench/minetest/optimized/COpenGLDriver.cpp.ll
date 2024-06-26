@@ -15440,7 +15440,7 @@ if.then170:                                       ; preds = %lor.lhs.false160, %
 
 if.end182.sink.split:                             ; preds = %if.then170, %cond.end152.fold.split, %cond.false148, %if.then140
   %cond178.sink = phi i32 [ %cond178, %if.then170 ], [ 9984, %if.then140 ], [ %cond150, %cond.false148 ], [ 9985, %cond.end152.fold.split ]
-  %.sink592 = phi i32 [ %.pre577, %if.then170 ], [ %.pre574, %if.then140 ], [ %.pre574, %cond.false148 ], [ %.pre574, %cond.end152.fold.split ]
+  %.sink592 = phi i32 [ %.pre577, %if.then170 ], [ %.pre574, %if.then140 ], [ %.pre574, %cond.false148 ], [ 1, %cond.end152.fold.split ]
   %.sink591 = phi i8 [ 0, %if.then170 ], [ 1, %if.then140 ], [ 1, %cond.false148 ], [ 1, %cond.end152.fold.split ]
   call void @glTexParameteri(i32 noundef %99, i32 noundef 10241, i32 noundef %cond178.sink) #24
   %MinFilter179 = getelementptr inbounds i8, ptr %5, i64 228

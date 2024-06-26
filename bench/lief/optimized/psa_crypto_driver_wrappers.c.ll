@@ -200,20 +200,25 @@ define hidden noundef i32 @psa_driver_wrapper_cipher_encrypt_setup(ptr noundef %
   %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %cond = icmp ult i32 %7, 256
-  br i1 %cond, label %8, label %12
+  br i1 %cond, label %8, label %13
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = tail call i32 @mbedtls_psa_cipher_encrypt_setup(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #5
-  %cond12 = icmp eq i32 %10, 0
-  br i1 %cond12, label %11, label %12
+  switch i32 %10, label %13 [
+    i32 0, label %11
+    i32 -134, label %12
+  ]
 
 11:                                               ; preds = %8
   store i32 1, ptr %0, align 8
-  br label %12
+  br label %13
 
-12:                                               ; preds = %8, %11, %5
-  %.0 = phi i32 [ 0, %11 ], [ -135, %5 ], [ %10, %8 ]
+12:                                               ; preds = %8
+  br label %13
+
+13:                                               ; preds = %11, %5, %8, %12
+  %.0 = phi i32 [ -134, %12 ], [ %10, %8 ], [ 0, %11 ], [ -135, %5 ]
   ret i32 %.0
 }
 
@@ -694,20 +699,25 @@ define hidden noundef i32 @psa_driver_wrapper_mac_sign_setup(ptr noundef %0, ptr
   %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %cond = icmp ult i32 %7, 256
-  br i1 %cond, label %8, label %12
+  br i1 %cond, label %8, label %13
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = tail call i32 @mbedtls_psa_mac_sign_setup(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #5
-  %cond12 = icmp eq i32 %10, 0
-  br i1 %cond12, label %11, label %12
+  switch i32 %10, label %13 [
+    i32 0, label %11
+    i32 -134, label %12
+  ]
 
 11:                                               ; preds = %8
   store i32 1, ptr %0, align 8
-  br label %12
+  br label %13
 
-12:                                               ; preds = %8, %11, %5
-  %.0 = phi i32 [ 0, %11 ], [ -135, %5 ], [ %10, %8 ]
+12:                                               ; preds = %8
+  br label %13
+
+13:                                               ; preds = %11, %5, %8, %12
+  %.0 = phi i32 [ -134, %12 ], [ %10, %8 ], [ 0, %11 ], [ -135, %5 ]
   ret i32 %.0
 }
 
@@ -718,20 +728,25 @@ define hidden noundef i32 @psa_driver_wrapper_mac_verify_setup(ptr noundef %0, p
   %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %cond = icmp ult i32 %7, 256
-  br i1 %cond, label %8, label %12
+  br i1 %cond, label %8, label %13
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = tail call i32 @mbedtls_psa_mac_verify_setup(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #5
-  %cond12 = icmp eq i32 %10, 0
-  br i1 %cond12, label %11, label %12
+  switch i32 %10, label %13 [
+    i32 0, label %11
+    i32 -134, label %12
+  ]
 
 11:                                               ; preds = %8
   store i32 1, ptr %0, align 8
-  br label %12
+  br label %13
 
-12:                                               ; preds = %8, %11, %5
-  %.0 = phi i32 [ 0, %11 ], [ -135, %5 ], [ %10, %8 ]
+12:                                               ; preds = %8
+  br label %13
+
+13:                                               ; preds = %11, %5, %8, %12
+  %.0 = phi i32 [ -134, %12 ], [ %10, %8 ], [ 0, %11 ], [ -135, %5 ]
   ret i32 %.0
 }
 

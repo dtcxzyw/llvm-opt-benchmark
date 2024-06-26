@@ -1504,8 +1504,10 @@ if.end223:                                        ; preds = %if.then.i, %if.end.
   %r.addr.2 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i247, %if.end.i241 ], [ %add.ptr.i252, %if.end7.i254 ]
   %L224 = getelementptr inbounds i8, ptr %sbx, i64 24
   %46 = load i64, ptr %L224, align 8
-  %switch = icmp ult i32 %nhash.2, 2
-  br i1 %switch, label %cond.end233, label %cond.false
+  switch i32 %nhash.2, label %cond.false [
+    i32 0, label %cond.end233
+    i32 1, label %cond.end233.fold.split
+  ]
 
 cond.false:                                       ; preds = %if.end223
   %sub231 = add i32 %nhash.2, -1
@@ -1513,12 +1515,15 @@ cond.false:                                       ; preds = %if.end223
   %add = sub nuw nsw i32 32, %47
   br label %cond.end233
 
-cond.end233:                                      ; preds = %if.end223, %if.end223.thread, %cond.false
-  %.in.in = phi i64 [ %46, %cond.false ], [ %42, %if.end223.thread ], [ %46, %if.end223 ]
-  %L224302 = phi ptr [ %L224, %cond.false ], [ %L224298, %if.end223.thread ], [ %L224, %if.end223 ]
-  %r.addr.2301 = phi ptr [ %r.addr.2, %cond.false ], [ %r.addr.1, %if.end223.thread ], [ %r.addr.2, %if.end223 ]
-  %nhash.2300 = phi i32 [ %nhash.2, %cond.false ], [ 0, %if.end223.thread ], [ %nhash.2, %if.end223 ]
-  %cond234 = phi i32 [ %add, %cond.false ], [ 0, %if.end223.thread ], [ %nhash.2, %if.end223 ]
+cond.end233.fold.split:                           ; preds = %if.end223
+  br label %cond.end233
+
+cond.end233:                                      ; preds = %if.end223.thread, %if.end223, %cond.end233.fold.split, %cond.false
+  %.in.in = phi i64 [ %46, %cond.false ], [ %46, %if.end223 ], [ %46, %cond.end233.fold.split ], [ %42, %if.end223.thread ]
+  %L224302 = phi ptr [ %L224, %cond.false ], [ %L224, %if.end223 ], [ %L224, %cond.end233.fold.split ], [ %L224298, %if.end223.thread ]
+  %r.addr.2301 = phi ptr [ %r.addr.2, %cond.false ], [ %r.addr.2, %if.end223 ], [ %r.addr.2, %cond.end233.fold.split ], [ %r.addr.1, %if.end223.thread ]
+  %nhash.2300 = phi i32 [ %nhash.2, %cond.false ], [ %nhash.2, %if.end223 ], [ 1, %cond.end233.fold.split ], [ 0, %if.end223.thread ]
+  %cond234 = phi i32 [ %add, %cond.false ], [ %nhash.2, %if.end223 ], [ 1, %cond.end233.fold.split ], [ 0, %if.end223.thread ]
   %.in = and i64 %.in.in, -8
   %48 = inttoptr i64 %.in to ptr
   %call235 = tail call ptr @lj_tab_new(ptr noundef %48, i32 noundef %narray.2, i32 noundef %cond234) #8

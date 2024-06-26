@@ -10574,31 +10574,34 @@ define internal fastcc ptr @cfg80211_beacon_dup(ptr nocapture noundef readonly %
 define internal fastcc range(i32 0, 4) i32 @cfg80211_get_chandef_type(ptr nocapture noundef readonly %0) unnamed_addr #13 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  switch i32 %3, label %12 [
-    i32 0, label %13
-    i32 1, label %13
-    i32 2, label %4
+  switch i32 %3, label %13 [
+    i32 0, label %14
+    i32 1, label %4
+    i32 2, label %5
   ]
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
-  %6 = load i32, ptr %5, align 4
-  %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp ugt i32 %6, %9
-  %11 = select i1 %10, i32 3, i32 2
-  br label %13
+  br label %14
 
-12:                                               ; preds = %1
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = load i32, ptr %6, align 4
+  %8 = load ptr, ptr %0, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp ugt i32 %7, %10
+  %12 = select i1 %11, i32 3, i32 2
+  br label %14
+
+13:                                               ; preds = %1
   tail call void asm sideeffect "517: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 517b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 517) #15, !srcloc !280
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 926, i32 2305, i64 12) #15, !srcloc !281
   tail call void asm sideeffect "518: nop\0A\09.pushsection .discard.instr_end\0A\09.long 518b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 518) #15, !srcloc !282
-  br label %13
+  br label %14
 
-13:                                               ; preds = %1, %12, %4, %1
-  %14 = phi i32 [ 0, %12 ], [ %3, %1 ], [ %11, %4 ], [ %3, %1 ]
-  ret i32 %14
+14:                                               ; preds = %13, %5, %4, %1
+  %15 = phi i32 [ 0, %13 ], [ 1, %4 ], [ %3, %1 ], [ %12, %5 ]
+  ret i32 %15
 }
 
 ; Function Attrs: null_pointer_is_valid

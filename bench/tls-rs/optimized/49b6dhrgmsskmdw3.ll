@@ -6294,9 +6294,9 @@ define noundef i8 @"_ZN6rustls4msgs5enums102_$LT$impl$u20$core..convert..From$LT
 define i8 @_ZN6rustls4msgs5enums11Compression8to_array17h8584bdebe23a76d7E(i8 noundef %0, i8 %1) unnamed_addr #6 {
   switch i8 %0, label %3 [
     i8 0, label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit"
-    i8 1, label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit"
-    i8 2, label %4
-    i8 3, label %5
+    i8 1, label %4
+    i8 2, label %5
+    i8 3, label %6
   ]
 
 3:                                                ; preds = %2
@@ -6308,8 +6308,11 @@ define i8 @_ZN6rustls4msgs5enums11Compression8to_array17h8584bdebe23a76d7E(i8 no
 5:                                                ; preds = %2
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit"
 
-"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit": ; preds = %2, %2, %4, %5
-  %.0.i = phi i8 [ %1, %5 ], [ 64, %4 ], [ %0, %2 ], [ %0, %2 ]
+6:                                                ; preds = %2
+  br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit"
+
+"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit": ; preds = %2, %4, %5, %6
+  %.0.i = phi i8 [ %1, %6 ], [ 64, %5 ], [ 1, %4 ], [ %0, %2 ]
   ret i8 %.0.i
 }
 
@@ -6333,9 +6336,9 @@ define void @"_ZN79_$LT$rustls..msgs..enums..Compression$u20$as$u20$rustls..msgs
   %3 = load i8, ptr %0, align 1, !range !635, !noundef !9
   switch i8 %3, label %default.unreachable [
     i8 0, label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit"
-    i8 1, label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit"
-    i8 2, label %4
-    i8 3, label %5
+    i8 1, label %4
+    i8 2, label %5
+    i8 3, label %6
   ]
 
 default.unreachable:                              ; preds = %2
@@ -6345,32 +6348,35 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit"
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
-  %7 = load i8, ptr %6, align 1
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit"
 
-"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit": ; preds = %2, %2, %4, %5
-  %.0.i = phi i8 [ %7, %5 ], [ 64, %4 ], [ %3, %2 ], [ %3, %2 ]
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = load i64, ptr %8, align 8, !alias.scope !636, !noalias !641, !noundef !9
-  %10 = load i64, ptr %1, align 8, !alias.scope !636, !noalias !641, !noundef !9
-  %11 = icmp eq i64 %9, %10
-  br i1 %11, label %12, label %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit"
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = load i8, ptr %7, align 1
+  br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit"
 
-12:                                               ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3114d753502b12b6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %9), !noalias !641
-  %.pre.i.i = load i64, ptr %8, align 8, !alias.scope !636, !noalias !641
+"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit": ; preds = %2, %4, %5, %6
+  %.0.i = phi i8 [ %8, %6 ], [ 64, %5 ], [ 1, %4 ], [ %3, %2 ]
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = load i64, ptr %9, align 8, !alias.scope !636, !noalias !641, !noundef !9
+  %11 = load i64, ptr %1, align 8, !alias.scope !636, !noalias !641, !noundef !9
+  %12 = icmp eq i64 %10, %11
+  br i1 %12, label %13, label %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit"
+
+13:                                               ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit"
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3114d753502b12b6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %10), !noalias !641
+  %.pre.i.i = load i64, ptr %9, align 8, !alias.scope !636, !noalias !641
   br label %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit"
 
-"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit": ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit", %12
-  %13 = phi i64 [ %.pre.i.i, %12 ], [ %9, %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit" ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !alias.scope !636, !noalias !641, !nonnull !9, !noundef !9
-  %16 = getelementptr inbounds i8, ptr %15, i64 %13
-  store i8 %.0.i, ptr %16, align 1, !noalias !641
-  %17 = load i64, ptr %8, align 8, !alias.scope !636, !noalias !641, !noundef !9
-  %18 = add i64 %17, 1
-  store i64 %18, ptr %8, align 8, !alias.scope !636, !noalias !641
+"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit": ; preds = %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit", %13
+  %14 = phi i64 [ %.pre.i.i, %13 ], [ %10, %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit" ]
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load ptr, ptr %15, align 8, !alias.scope !636, !noalias !641, !nonnull !9, !noundef !9
+  %17 = getelementptr inbounds i8, ptr %16, i64 %14
+  store i8 %.0.i, ptr %17, align 1, !noalias !641
+  %18 = load i64, ptr %9, align 8, !alias.scope !636, !noalias !641, !noundef !9
+  %19 = add i64 %18, 1
+  store i64 %19, ptr %9, align 8, !alias.scope !636, !noalias !641
   ret void
 }
 
@@ -6470,23 +6476,26 @@ define { i8, i8 } @"_ZN82_$LT$rustls..msgs..enums..Compression$u20$as$u20$core..
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef i8 @"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E"(i8 noundef %0, i8 %1) unnamed_addr #6 {
   switch i8 %0, label %3 [
-    i8 0, label %6
-    i8 1, label %6
-    i8 2, label %4
-    i8 3, label %5
+    i8 0, label %7
+    i8 1, label %4
+    i8 2, label %5
+    i8 3, label %6
   ]
 
 3:                                                ; preds = %2
   unreachable
 
 4:                                                ; preds = %2
-  br label %6
+  br label %7
 
 5:                                                ; preds = %2
-  br label %6
+  br label %7
 
-6:                                                ; preds = %2, %2, %5, %4
-  %.0 = phi i8 [ %1, %5 ], [ 64, %4 ], [ %0, %2 ], [ %0, %2 ]
+6:                                                ; preds = %2
+  br label %7
+
+7:                                                ; preds = %2, %6, %5, %4
+  %.0 = phi i8 [ %1, %6 ], [ 64, %5 ], [ 1, %4 ], [ %0, %2 ]
   ret i8 %.0
 }
 
@@ -8638,10 +8647,24 @@ define noundef i8 @"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define i8 @_ZN6rustls4msgs5enums18PSKKeyExchangeMode8to_array17h23a83cb4b1fd9bb4E(i8 noundef %0, i8 %1) unnamed_addr #6 {
-"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit":
-  %switch = icmp ult i8 %0, 2
-  %spec.select = select i1 %switch, i8 %0, i8 %1
-  ret i8 %spec.select
+  switch i8 %0, label %3 [
+    i8 0, label %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit"
+    i8 1, label %4
+    i8 2, label %5
+  ]
+
+3:                                                ; preds = %2
+  unreachable
+
+4:                                                ; preds = %2
+  br label %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit"
+
+5:                                                ; preds = %2
+  br label %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit"
+
+"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit": ; preds = %2, %4, %5
+  %.0.i = phi i8 [ %1, %5 ], [ 1, %4 ], [ %0, %2 ]
+  ret i8 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -8661,32 +8684,46 @@ switch.lookup:
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN86_$LT$rustls..msgs..enums..PSKKeyExchangeMode$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h982c7fcbf9e3571bE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit":
-  %2 = load i8, ptr %0, align 1, !range !656, !noundef !9
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
-  %4 = load i8, ptr %3, align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
-  %6 = load i64, ptr %5, align 8, !alias.scope !862, !noalias !867, !noundef !9
-  %7 = load i64, ptr %1, align 8, !alias.scope !862, !noalias !867, !noundef !9
-  %8 = icmp eq i64 %6, %7
-  br i1 %8, label %9, label %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit"
+  %3 = load i8, ptr %0, align 1, !range !656, !noundef !9
+  switch i8 %3, label %default.unreachable [
+    i8 0, label %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit"
+    i8 1, label %4
+    i8 2, label %5
+  ]
 
-9:                                                ; preds = %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3114d753502b12b6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %6), !noalias !867
-  %.pre.i.i = load i64, ptr %5, align 8, !alias.scope !862, !noalias !867
+default.unreachable:                              ; preds = %2
+  unreachable
+
+4:                                                ; preds = %2
+  br label %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit"
+
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = load i8, ptr %6, align 1
+  br label %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit"
+
+"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit": ; preds = %2, %4, %5
+  %.0.i = phi i8 [ %7, %5 ], [ 1, %4 ], [ %3, %2 ]
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = load i64, ptr %8, align 8, !alias.scope !862, !noalias !867, !noundef !9
+  %10 = load i64, ptr %1, align 8, !alias.scope !862, !noalias !867, !noundef !9
+  %11 = icmp eq i64 %9, %10
+  br i1 %11, label %12, label %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit"
+
+12:                                               ; preds = %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit"
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3114d753502b12b6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %9), !noalias !867
+  %.pre.i.i = load i64, ptr %8, align 8, !alias.scope !862, !noalias !867
   br label %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit"
 
-"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit": ; preds = %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit", %9
-  %10 = phi i64 [ %.pre.i.i, %9 ], [ %6, %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit" ]
-  %switch = icmp ult i8 %2, 2
-  %.0.i = select i1 %switch, i8 %2, i8 %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !alias.scope !862, !noalias !867, !nonnull !9, !noundef !9
-  %13 = getelementptr inbounds i8, ptr %12, i64 %10
-  store i8 %.0.i, ptr %13, align 1, !noalias !867
-  %14 = load i64, ptr %5, align 8, !alias.scope !862, !noalias !867, !noundef !9
-  %15 = add i64 %14, 1
-  store i64 %15, ptr %5, align 8, !alias.scope !862, !noalias !867
+"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit": ; preds = %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit", %12
+  %13 = phi i64 [ %.pre.i.i, %12 ], [ %9, %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit" ]
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = load ptr, ptr %14, align 8, !alias.scope !862, !noalias !867, !nonnull !9, !noundef !9
+  %16 = getelementptr inbounds i8, ptr %15, i64 %13
+  store i8 %.0.i, ptr %16, align 1, !noalias !867
+  %17 = load i64, ptr %8, align 8, !alias.scope !862, !noalias !867, !noundef !9
+  %18 = add i64 %17, 1
+  store i64 %18, ptr %8, align 8, !alias.scope !862, !noalias !867
   ret void
 }
 
@@ -8759,17 +8796,46 @@ define { i8, i8 } @"_ZN89_$LT$rustls..msgs..enums..PSKKeyExchangeMode$u20$as$u20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef i8 @"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E"(i8 noundef %0, i8 %1) unnamed_addr #6 {
-  %switch = icmp ult i8 %0, 2
-  %spec.select = select i1 %switch, i8 %0, i8 %1
-  ret i8 %spec.select
+  switch i8 %0, label %3 [
+    i8 0, label %6
+    i8 1, label %4
+    i8 2, label %5
+  ]
+
+3:                                                ; preds = %2
+  unreachable
+
+4:                                                ; preds = %2
+  br label %6
+
+5:                                                ; preds = %2
+  br label %6
+
+6:                                                ; preds = %2, %5, %4
+  %.0 = phi i8 [ %1, %5 ], [ 1, %4 ], [ %0, %2 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define i8 @_ZN6rustls4msgs5enums16KeyUpdateRequest8to_array17hae7ab947d83f474dE(i8 noundef %0, i8 %1) unnamed_addr #6 {
-"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit":
-  %switch = icmp ult i8 %0, 2
-  %spec.select = select i1 %switch, i8 %0, i8 %1
-  ret i8 %spec.select
+  switch i8 %0, label %3 [
+    i8 0, label %"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit"
+    i8 1, label %4
+    i8 2, label %5
+  ]
+
+3:                                                ; preds = %2
+  unreachable
+
+4:                                                ; preds = %2
+  br label %"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit"
+
+5:                                                ; preds = %2
+  br label %"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit"
+
+"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit": ; preds = %2, %4, %5
+  %.0.i = phi i8 [ %1, %5 ], [ 1, %4 ], [ %0, %2 ]
+  ret i8 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -8789,32 +8855,46 @@ switch.lookup:
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN84_$LT$rustls..msgs..enums..KeyUpdateRequest$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h6dc7da9c538c0639E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit":
-  %2 = load i8, ptr %0, align 1, !range !656, !noundef !9
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
-  %4 = load i8, ptr %3, align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
-  %6 = load i64, ptr %5, align 8, !alias.scope !882, !noalias !887, !noundef !9
-  %7 = load i64, ptr %1, align 8, !alias.scope !882, !noalias !887, !noundef !9
-  %8 = icmp eq i64 %6, %7
-  br i1 %8, label %9, label %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit"
+  %3 = load i8, ptr %0, align 1, !range !656, !noundef !9
+  switch i8 %3, label %default.unreachable [
+    i8 0, label %"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit"
+    i8 1, label %4
+    i8 2, label %5
+  ]
 
-9:                                                ; preds = %"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3114d753502b12b6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %6), !noalias !887
-  %.pre.i.i = load i64, ptr %5, align 8, !alias.scope !882, !noalias !887
+default.unreachable:                              ; preds = %2
+  unreachable
+
+4:                                                ; preds = %2
+  br label %"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit"
+
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = load i8, ptr %6, align 1
+  br label %"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit"
+
+"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit": ; preds = %2, %4, %5
+  %.0.i = phi i8 [ %7, %5 ], [ 1, %4 ], [ %3, %2 ]
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = load i64, ptr %8, align 8, !alias.scope !882, !noalias !887, !noundef !9
+  %10 = load i64, ptr %1, align 8, !alias.scope !882, !noalias !887, !noundef !9
+  %11 = icmp eq i64 %9, %10
+  br i1 %11, label %12, label %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit"
+
+12:                                               ; preds = %"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit"
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3114d753502b12b6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %9), !noalias !887
+  %.pre.i.i = load i64, ptr %8, align 8, !alias.scope !882, !noalias !887
   br label %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit"
 
-"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit": ; preds = %"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit", %9
-  %10 = phi i64 [ %.pre.i.i, %9 ], [ %6, %"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit" ]
-  %switch = icmp ult i8 %2, 2
-  %.0.i = select i1 %switch, i8 %2, i8 %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !alias.scope !882, !noalias !887, !nonnull !9, !noundef !9
-  %13 = getelementptr inbounds i8, ptr %12, i64 %10
-  store i8 %.0.i, ptr %13, align 1, !noalias !887
-  %14 = load i64, ptr %5, align 8, !alias.scope !882, !noalias !887, !noundef !9
-  %15 = add i64 %14, 1
-  store i64 %15, ptr %5, align 8, !alias.scope !882, !noalias !887
+"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit": ; preds = %"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit", %12
+  %13 = phi i64 [ %.pre.i.i, %12 ], [ %9, %"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE.exit" ]
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = load ptr, ptr %14, align 8, !alias.scope !882, !noalias !887, !nonnull !9, !noundef !9
+  %16 = getelementptr inbounds i8, ptr %15, i64 %13
+  store i8 %.0.i, ptr %16, align 1, !noalias !887
+  %17 = load i64, ptr %8, align 8, !alias.scope !882, !noalias !887, !noundef !9
+  %18 = add i64 %17, 1
+  store i64 %18, ptr %8, align 8, !alias.scope !882, !noalias !887
   ret void
 }
 
@@ -8887,9 +8967,24 @@ define { i8, i8 } @"_ZN87_$LT$rustls..msgs..enums..KeyUpdateRequest$u20$as$u20$c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef i8 @"_ZN6rustls4msgs5enums97_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..KeyUpdateRequest$GT$$u20$for$u20$u8$GT$4from17h278886ee6565121eE"(i8 noundef %0, i8 %1) unnamed_addr #6 {
-  %switch = icmp ult i8 %0, 2
-  %spec.select = select i1 %switch, i8 %0, i8 %1
-  ret i8 %spec.select
+  switch i8 %0, label %3 [
+    i8 0, label %6
+    i8 1, label %4
+    i8 2, label %5
+  ]
+
+3:                                                ; preds = %2
+  unreachable
+
+4:                                                ; preds = %2
+  br label %6
+
+5:                                                ; preds = %2
+  br label %6
+
+6:                                                ; preds = %2, %5, %4
+  %.0 = phi i8 [ %1, %5 ], [ 1, %4 ], [ %0, %2 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

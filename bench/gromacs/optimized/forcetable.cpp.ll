@@ -1458,7 +1458,7 @@ _ZSt11make_uniqueI12t_forcetableJ16TableInteraction11TableFormatEENSt8__detail9_
   br label %.thread74.i
 
 .thread74.i:                                      ; preds = %66, %67, %65, %.thread74.sink.split.i
-  %.sink183 = phi i32 [ %60, %65 ], [ %60, %66 ], [ 12, %67 ], [ 13, %.thread74.sink.split.i ]
+  %.sink183 = phi i32 [ %60, %65 ], [ 2, %66 ], [ 12, %67 ], [ 13, %.thread74.sink.split.i ]
   %.sink = phi i32 [ 1, %65 ], [ 3, %66 ], [ 1, %67 ], [ 14, %.thread74.sink.split.i ]
   %74 = getelementptr inbounds i8, ptr %17, i64 4
   store i32 %.sink183, ptr %74, align 4

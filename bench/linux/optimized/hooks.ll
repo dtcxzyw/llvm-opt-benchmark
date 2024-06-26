@@ -12073,58 +12073,61 @@ define internal void @selinux_key_free(ptr nocapture noundef %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_key_permission(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 align 16 {
-  switch i32 %2, label %8 [
-    i32 1, label %9
-    i32 2, label %9
-    i32 3, label %4
-    i32 4, label %5
-    i32 5, label %6
-    i32 6, label %7
-    i32 7, label %25
-    i32 8, label %25
-    i32 9, label %25
-    i32 10, label %25
+  switch i32 %2, label %9 [
+    i32 1, label %10
+    i32 2, label %4
+    i32 3, label %5
+    i32 4, label %6
+    i32 5, label %7
+    i32 6, label %8
+    i32 7, label %26
+    i32 8, label %26
+    i32 9, label %26
+    i32 10, label %26
   ]
 
 4:                                                ; preds = %3
-  br label %9
+  br label %10
 
 5:                                                ; preds = %3
-  br label %9
+  br label %10
 
 6:                                                ; preds = %3
-  br label %9
+  br label %10
 
 7:                                                ; preds = %3
-  br label %9
+  br label %10
 
 8:                                                ; preds = %3
+  br label %10
+
+9:                                                ; preds = %3
   tail call void asm sideeffect "1072: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1072b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1072) #24, !srcloc !34
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 6732, i32 2305, i64 12) #24, !srcloc !35
   tail call void asm sideeffect "1073: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1073b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1073) #24, !srcloc !36
-  br label %25
+  br label %26
 
-9:                                                ; preds = %3, %7, %6, %5, %4, %3
-  %10 = phi i32 [ 32, %7 ], [ 16, %6 ], [ 8, %5 ], [ 4, %4 ], [ %2, %3 ], [ %2, %3 ]
-  %11 = getelementptr inbounds i8, ptr %1, i64 128
-  %12 = load ptr, ptr %11, align 8
-  %13 = load i32, ptr @selinux_blob_sizes, align 4
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
-  %17 = load i32, ptr %16, align 4
-  %18 = ptrtoint ptr %0 to i64
-  %19 = and i64 %18, -2
-  %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 80
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i32, ptr %22, align 4
-  %24 = tail call i32 @avc_has_perm(i32 noundef %17, i32 noundef %23, i16 noundef zeroext 50, i32 noundef %10, ptr noundef null) #24
-  br label %25
+10:                                               ; preds = %8, %7, %6, %5, %4, %3
+  %11 = phi i32 [ 32, %8 ], [ 16, %7 ], [ 8, %6 ], [ 4, %5 ], [ 2, %4 ], [ %2, %3 ]
+  %12 = getelementptr inbounds i8, ptr %1, i64 128
+  %13 = load ptr, ptr %12, align 8
+  %14 = load i32, ptr @selinux_blob_sizes, align 4
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr i8, ptr %13, i64 %15
+  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = ptrtoint ptr %0 to i64
+  %20 = and i64 %19, -2
+  %21 = inttoptr i64 %20 to ptr
+  %22 = getelementptr inbounds i8, ptr %21, i64 80
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i32, ptr %23, align 4
+  %25 = tail call i32 @avc_has_perm(i32 noundef %18, i32 noundef %24, i16 noundef zeroext 50, i32 noundef %11, ptr noundef null) #24
+  br label %26
 
-25:                                               ; preds = %9, %8, %3, %3, %3, %3
-  %26 = phi i32 [ -1, %8 ], [ %24, %9 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
-  ret i32 %26
+26:                                               ; preds = %10, %9, %3, %3, %3, %3
+  %27 = phi i32 [ -1, %9 ], [ %25, %10 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  ret i32 %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -10868,7 +10868,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN83_$LT$rustls..msgs..codec..LengthPrefixedBuffer$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1e05688e67d428c5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
-          to label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..codec..LengthPrefixedBuffer$GT$17h727c67671eb7330bE.exit" unwind label %35
+          to label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..codec..LengthPrefixedBuffer$GT$17h727c67671eb7330bE.exit" unwind label %36
 
 11:                                               ; preds = %8, %2
   %12 = phi i64 [ %5, %2 ], [ %.pre.i.i, %8 ]
@@ -10907,9 +10907,9 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %30 = load i8, ptr %.sroa.0.0, align 1, !range !508, !alias.scope !2324, !noalias !2327, !noundef !4
   switch i8 %30, label %default.unreachable [
     i8 0, label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit.i"
-    i8 1, label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit.i"
-    i8 2, label %31
-    i8 3, label %32
+    i8 1, label %31
+    i8 2, label %32
+    i8 3, label %33
   ]
 
 default.unreachable:                              ; preds = %27
@@ -10919,17 +10919,20 @@ default.unreachable:                              ; preds = %27
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit.i"
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1
-  %34 = load i8, ptr %33, align 1, !alias.scope !2324, !noalias !2327
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit.i"
 
-"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit.i": ; preds = %27, %32, %31, %27
-  %.0.i.i = phi i8 [ %34, %32 ], [ 64, %31 ], [ %30, %27 ], [ %30, %27 ]
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1
+  %35 = load i8, ptr %34, align 1, !alias.scope !2324, !noalias !2327
+  br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit.i"
+
+"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit.i": ; preds = %33, %32, %31, %27
+  %.0.i.i = phi i8 [ %35, %33 ], [ 64, %32 ], [ 1, %31 ], [ %30, %27 ]
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8f7e363601c96fb9E.llvm.12014582817787848890"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29, i8 noundef %.0.i.i)
           to label %"_ZN79_$LT$rustls..msgs..enums..Compression$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h0a5bf5642be7212cE.exit" unwind label %9
 
-35:                                               ; preds = %9
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %9
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #37
   unreachable
@@ -11926,7 +11929,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN83_$LT$rustls..msgs..codec..LengthPrefixedBuffer$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1e05688e67d428c5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
-          to label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..codec..LengthPrefixedBuffer$GT$17h727c67671eb7330bE.exit" unwind label %34
+          to label %"_ZN4core3ptr62drop_in_place$LT$rustls..msgs..codec..LengthPrefixedBuffer$GT$17h727c67671eb7330bE.exit" unwind label %35
 
 11:                                               ; preds = %8, %2
   %12 = phi i64 [ %5, %2 ], [ %.pre.i.i, %8 ]
@@ -11963,21 +11966,30 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %28 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 2
   %29 = load ptr, ptr %18, align 8, !nonnull !4, !align !20, !noundef !4
   %30 = load i8, ptr %.sroa.0.0, align 1, !range !2586, !alias.scope !2587, !noalias !2590, !noundef !4
-  %switch = icmp ult i8 %30, 2
-  br i1 %switch, label %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit.i", label %31
+  switch i8 %30, label %default.unreachable [
+    i8 0, label %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit.i"
+    i8 1, label %31
+    i8 2, label %32
+  ]
+
+default.unreachable:                              ; preds = %27
+  unreachable
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1
-  %33 = load i8, ptr %32, align 1, !alias.scope !2587, !noalias !2590
   br label %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit.i"
 
-"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit.i": ; preds = %27, %31
-  %.0.i.i = phi i8 [ %33, %31 ], [ %30, %27 ]
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1
+  %34 = load i8, ptr %33, align 1, !alias.scope !2587, !noalias !2590
+  br label %"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit.i"
+
+"_ZN6rustls4msgs5enums99_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..PSKKeyExchangeMode$GT$$u20$for$u20$u8$GT$4from17h1fc34111b7e35071E.exit.i": ; preds = %32, %31, %27
+  %.0.i.i = phi i8 [ %34, %32 ], [ 1, %31 ], [ %30, %27 ]
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8f7e363601c96fb9E.llvm.12014582817787848890"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29, i8 noundef %.0.i.i)
           to label %"_ZN86_$LT$rustls..msgs..enums..PSKKeyExchangeMode$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h982c7fcbf9e3571bE.exit" unwind label %9
 
-34:                                               ; preds = %9
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %9
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #37
   unreachable

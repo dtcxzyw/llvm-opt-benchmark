@@ -3836,18 +3836,21 @@ sw.bb10:                                          ; preds = %for.cond
 sw.bb11:                                          ; preds = %for.cond
   switch i32 %fd.sroa.0.0, label %if.then17 [
     i32 0, label %for.inc
-    i32 2, label %for.inc
+    i32 2, label %if.end19
   ]
 
 if.then17:                                        ; preds = %sw.bb11
   br label %for.inc
 
-for.inc:                                          ; preds = %sw.bb11, %sw.bb3, %if.then17, %for.cond, %sw.bb11, %sw.bb2, %sw.bb9, %sw.bb10
-  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb11 ], [ 1, %sw.bb10 ], [ %fd.sroa.67.0, %sw.bb9 ], [ %fd.sroa.67.0, %sw.bb2 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %if.then17 ], [ %fd.sroa.67.0, %sw.bb3 ], [ %fd.sroa.67.0, %sw.bb11 ]
-  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb11 ], [ %fd.sroa.17.0, %sw.bb10 ], [ 1, %sw.bb9 ], [ %fd.sroa.17.0, %sw.bb2 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %if.then17 ], [ %fd.sroa.17.0, %sw.bb3 ], [ %fd.sroa.17.0, %sw.bb11 ]
-  %fd.sroa.13.1 = phi i32 [ %fd.sroa.13.0, %sw.bb11 ], [ %fd.sroa.13.0, %sw.bb10 ], [ %fd.sroa.13.0, %sw.bb9 ], [ 2, %sw.bb2 ], [ %fd.sroa.13.0, %for.cond ], [ %fd.sroa.13.0, %if.then17 ], [ %spec.select147, %sw.bb3 ], [ %fd.sroa.13.0, %sw.bb11 ]
-  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0, %sw.bb11 ], [ %fd.sroa.0.0, %sw.bb10 ], [ %fd.sroa.0.0, %sw.bb9 ], [ %fd.sroa.0.0, %sw.bb2 ], [ 0, %for.cond ], [ 2, %if.then17 ], [ %fd.sroa.0.0, %sw.bb3 ], [ %fd.sroa.0.0, %sw.bb11 ]
-  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0, %sw.bb11 ], [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.0, %sw.bb2 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %fd.sroa.0.0, %if.then17 ], [ %alignmentNonZeroFill.0, %sw.bb3 ], [ %alignmentNonZeroFill.0, %sw.bb11 ]
+if.end19:                                         ; preds = %sw.bb11
+  br label %for.inc
+
+for.inc:                                          ; preds = %sw.bb3, %if.then17, %for.cond, %sw.bb11, %sw.bb2, %sw.bb9, %sw.bb10, %if.end19
+  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb11 ], [ 1, %sw.bb10 ], [ %fd.sroa.67.0, %sw.bb9 ], [ %fd.sroa.67.0, %sw.bb2 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %if.then17 ], [ %fd.sroa.67.0, %if.end19 ], [ %fd.sroa.67.0, %sw.bb3 ]
+  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb11 ], [ %fd.sroa.17.0, %sw.bb10 ], [ 1, %sw.bb9 ], [ %fd.sroa.17.0, %sw.bb2 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %if.then17 ], [ %fd.sroa.17.0, %if.end19 ], [ %fd.sroa.17.0, %sw.bb3 ]
+  %fd.sroa.13.1 = phi i32 [ %fd.sroa.13.0, %sw.bb11 ], [ %fd.sroa.13.0, %sw.bb10 ], [ %fd.sroa.13.0, %sw.bb9 ], [ 2, %sw.bb2 ], [ %fd.sroa.13.0, %for.cond ], [ %fd.sroa.13.0, %if.then17 ], [ %fd.sroa.13.0, %if.end19 ], [ %spec.select147, %sw.bb3 ]
+  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0, %sw.bb11 ], [ %fd.sroa.0.0, %sw.bb10 ], [ %fd.sroa.0.0, %sw.bb9 ], [ %fd.sroa.0.0, %sw.bb2 ], [ 0, %for.cond ], [ 2, %if.then17 ], [ 2, %if.end19 ], [ %fd.sroa.0.0, %sw.bb3 ]
+  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0, %sw.bb11 ], [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.0, %sw.bb2 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %fd.sroa.0.0, %if.then17 ], [ %alignmentNonZeroFill.0, %if.end19 ], [ %alignmentNonZeroFill.0, %sw.bb3 ]
   %incdec.ptr22 = getelementptr inbounds i8, ptr %pFormatCurrent.0, i64 1
   %1 = load i8, ptr %incdec.ptr22, align 1
   br label %for.cond, !llvm.loop !74
@@ -5866,18 +5869,21 @@ sw.bb10:                                          ; preds = %for.cond
 sw.bb11:                                          ; preds = %for.cond
   switch i32 %fd.sroa.0.0, label %if.then17 [
     i32 0, label %for.inc
-    i32 2, label %for.inc
+    i32 2, label %if.end19
   ]
 
 if.then17:                                        ; preds = %sw.bb11
   br label %for.inc
 
-for.inc:                                          ; preds = %sw.bb11, %sw.bb3, %if.then17, %for.cond, %sw.bb11, %sw.bb2, %sw.bb9, %sw.bb10
-  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb11 ], [ 1, %sw.bb10 ], [ %fd.sroa.67.0, %sw.bb9 ], [ %fd.sroa.67.0, %sw.bb2 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %if.then17 ], [ %fd.sroa.67.0, %sw.bb3 ], [ %fd.sroa.67.0, %sw.bb11 ]
-  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb11 ], [ %fd.sroa.17.0, %sw.bb10 ], [ 1, %sw.bb9 ], [ %fd.sroa.17.0, %sw.bb2 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %if.then17 ], [ %fd.sroa.17.0, %sw.bb3 ], [ %fd.sroa.17.0, %sw.bb11 ]
-  %fd.sroa.13.1 = phi i32 [ %fd.sroa.13.0, %sw.bb11 ], [ %fd.sroa.13.0, %sw.bb10 ], [ %fd.sroa.13.0, %sw.bb9 ], [ 2, %sw.bb2 ], [ %fd.sroa.13.0, %for.cond ], [ %fd.sroa.13.0, %if.then17 ], [ %spec.select147, %sw.bb3 ], [ %fd.sroa.13.0, %sw.bb11 ]
-  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0, %sw.bb11 ], [ %fd.sroa.0.0, %sw.bb10 ], [ %fd.sroa.0.0, %sw.bb9 ], [ %fd.sroa.0.0, %sw.bb2 ], [ 0, %for.cond ], [ 2, %if.then17 ], [ %fd.sroa.0.0, %sw.bb3 ], [ %fd.sroa.0.0, %sw.bb11 ]
-  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0, %sw.bb11 ], [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.0, %sw.bb2 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %fd.sroa.0.0, %if.then17 ], [ %alignmentNonZeroFill.0, %sw.bb3 ], [ %alignmentNonZeroFill.0, %sw.bb11 ]
+if.end19:                                         ; preds = %sw.bb11
+  br label %for.inc
+
+for.inc:                                          ; preds = %sw.bb3, %if.then17, %for.cond, %sw.bb11, %sw.bb2, %sw.bb9, %sw.bb10, %if.end19
+  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb11 ], [ 1, %sw.bb10 ], [ %fd.sroa.67.0, %sw.bb9 ], [ %fd.sroa.67.0, %sw.bb2 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %if.then17 ], [ %fd.sroa.67.0, %if.end19 ], [ %fd.sroa.67.0, %sw.bb3 ]
+  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb11 ], [ %fd.sroa.17.0, %sw.bb10 ], [ 1, %sw.bb9 ], [ %fd.sroa.17.0, %sw.bb2 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %if.then17 ], [ %fd.sroa.17.0, %if.end19 ], [ %fd.sroa.17.0, %sw.bb3 ]
+  %fd.sroa.13.1 = phi i32 [ %fd.sroa.13.0, %sw.bb11 ], [ %fd.sroa.13.0, %sw.bb10 ], [ %fd.sroa.13.0, %sw.bb9 ], [ 2, %sw.bb2 ], [ %fd.sroa.13.0, %for.cond ], [ %fd.sroa.13.0, %if.then17 ], [ %fd.sroa.13.0, %if.end19 ], [ %spec.select147, %sw.bb3 ]
+  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0, %sw.bb11 ], [ %fd.sroa.0.0, %sw.bb10 ], [ %fd.sroa.0.0, %sw.bb9 ], [ %fd.sroa.0.0, %sw.bb2 ], [ 0, %for.cond ], [ 2, %if.then17 ], [ 2, %if.end19 ], [ %fd.sroa.0.0, %sw.bb3 ]
+  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0, %sw.bb11 ], [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.0, %sw.bb2 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %fd.sroa.0.0, %if.then17 ], [ %alignmentNonZeroFill.0, %if.end19 ], [ %alignmentNonZeroFill.0, %sw.bb3 ]
   %incdec.ptr22 = getelementptr inbounds i8, ptr %pFormatCurrent.0, i64 2
   %1 = load i16, ptr %incdec.ptr22, align 2
   br label %for.cond, !llvm.loop !108
@@ -7890,18 +7896,21 @@ sw.bb9:                                           ; preds = %for.cond
 sw.bb10:                                          ; preds = %for.cond
   switch i32 %fd.sroa.0.0, label %if.then16 [
     i32 0, label %for.inc
-    i32 2, label %for.inc
+    i32 2, label %if.end18
   ]
 
 if.then16:                                        ; preds = %sw.bb10
   br label %for.inc
 
-for.inc:                                          ; preds = %sw.bb10, %sw.bb2, %if.then16, %for.cond, %sw.bb10, %sw.bb1, %sw.bb8, %sw.bb9
-  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb10 ], [ 1, %sw.bb9 ], [ %fd.sroa.67.0, %sw.bb8 ], [ %fd.sroa.67.0, %sw.bb1 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %if.then16 ], [ %fd.sroa.67.0, %sw.bb2 ], [ %fd.sroa.67.0, %sw.bb10 ]
-  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb10 ], [ %fd.sroa.17.0, %sw.bb9 ], [ 1, %sw.bb8 ], [ %fd.sroa.17.0, %sw.bb1 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %if.then16 ], [ %fd.sroa.17.0, %sw.bb2 ], [ %fd.sroa.17.0, %sw.bb10 ]
-  %fd.sroa.13.1 = phi i32 [ %fd.sroa.13.0, %sw.bb10 ], [ %fd.sroa.13.0, %sw.bb9 ], [ %fd.sroa.13.0, %sw.bb8 ], [ 2, %sw.bb1 ], [ %fd.sroa.13.0, %for.cond ], [ %fd.sroa.13.0, %if.then16 ], [ %spec.select150, %sw.bb2 ], [ %fd.sroa.13.0, %sw.bb10 ]
-  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0, %sw.bb10 ], [ %fd.sroa.0.0, %sw.bb9 ], [ %fd.sroa.0.0, %sw.bb8 ], [ %fd.sroa.0.0, %sw.bb1 ], [ 0, %for.cond ], [ 2, %if.then16 ], [ %fd.sroa.0.0, %sw.bb2 ], [ %fd.sroa.0.0, %sw.bb10 ]
-  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.0, %sw.bb8 ], [ %alignmentNonZeroFill.0, %sw.bb1 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %fd.sroa.0.0, %if.then16 ], [ %alignmentNonZeroFill.0, %sw.bb2 ], [ %alignmentNonZeroFill.0, %sw.bb10 ]
+if.end18:                                         ; preds = %sw.bb10
+  br label %for.inc
+
+for.inc:                                          ; preds = %sw.bb2, %if.then16, %for.cond, %sw.bb10, %sw.bb1, %sw.bb8, %sw.bb9, %if.end18
+  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb10 ], [ 1, %sw.bb9 ], [ %fd.sroa.67.0, %sw.bb8 ], [ %fd.sroa.67.0, %sw.bb1 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %if.then16 ], [ %fd.sroa.67.0, %if.end18 ], [ %fd.sroa.67.0, %sw.bb2 ]
+  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb10 ], [ %fd.sroa.17.0, %sw.bb9 ], [ 1, %sw.bb8 ], [ %fd.sroa.17.0, %sw.bb1 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %if.then16 ], [ %fd.sroa.17.0, %if.end18 ], [ %fd.sroa.17.0, %sw.bb2 ]
+  %fd.sroa.13.1 = phi i32 [ %fd.sroa.13.0, %sw.bb10 ], [ %fd.sroa.13.0, %sw.bb9 ], [ %fd.sroa.13.0, %sw.bb8 ], [ 2, %sw.bb1 ], [ %fd.sroa.13.0, %for.cond ], [ %fd.sroa.13.0, %if.then16 ], [ %fd.sroa.13.0, %if.end18 ], [ %spec.select150, %sw.bb2 ]
+  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0, %sw.bb10 ], [ %fd.sroa.0.0, %sw.bb9 ], [ %fd.sroa.0.0, %sw.bb8 ], [ %fd.sroa.0.0, %sw.bb1 ], [ 0, %for.cond ], [ 2, %if.then16 ], [ 2, %if.end18 ], [ %fd.sroa.0.0, %sw.bb2 ]
+  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.0, %sw.bb8 ], [ %alignmentNonZeroFill.0, %sw.bb1 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %fd.sroa.0.0, %if.then16 ], [ %alignmentNonZeroFill.0, %if.end18 ], [ %alignmentNonZeroFill.0, %sw.bb2 ]
   %incdec.ptr21 = getelementptr inbounds i8, ptr %pFormatCurrent.0, i64 4
   %1 = load i32, ptr %incdec.ptr21, align 4
   br label %for.cond, !llvm.loop !144

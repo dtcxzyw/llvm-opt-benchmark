@@ -36515,7 +36515,7 @@ parser_set_lex_state.exit.i818:                   ; preds = %623, %620
 
 .critedge.i822:                                   ; preds = %.preheader.i821, %.critedge.fold.split.i, %634, %631
   %.086.i = phi i32 [ 0, %634 ], [ 0, %631 ], [ 1, %.critedge.fold.split.i ], [ 1, %.preheader.i821 ]
-  %.1.i823 = phi i32 [ %632, %634 ], [ %632, %631 ], [ %632, %.critedge.fold.split.i ], [ %635, %.preheader.i821 ]
+  %.1.i823 = phi i32 [ %632, %634 ], [ %632, %631 ], [ 10, %.critedge.fold.split.i ], [ %635, %.preheader.i821 ]
   %640 = and i32 %608, 16384
   %.not92.i = icmp eq i32 %640, 0
   br i1 %.not92.i, label %644, label %641
@@ -47313,7 +47313,7 @@ tok_hex.exit.loopexit328:                         ; preds = %tailrecurse
   br label %tok_hex.exit
 
 tok_hex.exit:                                     ; preds = %tailrecurse, %tok_hex.exit.loopexit328, %tok_hex.exit.loopexit270, %tok_hex.exit.loopexit, %50, %37, %.loopexit155, %.loopexit, %97, %152, %.loopexit97, %138, %91, %55, %54, %pushback.exit, %9, %8
-  %.0 = phi i32 [ %7, %152 ], [ 0, %.loopexit97 ], [ %139, %138 ], [ %92, %91 ], [ 32, %55 ], [ 8, %54 ], [ %29, %pushback.exit ], [ 27, %9 ], [ 7, %8 ], [ 127, %97 ], [ %7, %.loopexit ], [ 10, %.loopexit155 ], [ %51, %50 ], [ 0, %37 ], [ 9, %tok_hex.exit.loopexit ], [ 13, %tok_hex.exit.loopexit270 ], [ 12, %tok_hex.exit.loopexit328 ], [ 11, %tailrecurse ]
+  %.0 = phi i32 [ %7, %152 ], [ 0, %.loopexit97 ], [ %139, %138 ], [ %92, %91 ], [ 32, %55 ], [ 8, %54 ], [ %29, %pushback.exit ], [ 27, %9 ], [ 7, %8 ], [ 127, %97 ], [ 92, %.loopexit ], [ 10, %.loopexit155 ], [ %51, %50 ], [ 0, %37 ], [ 9, %tok_hex.exit.loopexit ], [ 13, %tok_hex.exit.loopexit270 ], [ 12, %tok_hex.exit.loopexit328 ], [ 11, %tailrecurse ]
   %accumulator.ret.tr = or i32 %.0, %accumulator.tr
   ret i32 %accumulator.ret.tr
 }

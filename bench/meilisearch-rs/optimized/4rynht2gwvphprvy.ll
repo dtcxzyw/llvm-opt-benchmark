@@ -568,7 +568,7 @@ define internal fastcc { i64, ptr } @"_ZN100_$LT$tokio..io..util..buf_writer..Bu
     i64 2, label %17
   ]
 
-8:                                                ; preds = %2
+8:                                                ; preds = %26, %2
   unreachable
 
 9:                                                ; preds = %2
@@ -576,7 +576,7 @@ define internal fastcc { i64, ptr } @"_ZN100_$LT$tokio..io..util..buf_writer..Bu
   %11 = tail call { i64, ptr } @"_ZN74_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_seek..AsyncSeek$GT$13poll_complete17h996299ce884b623fE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %12 = extractvalue { i64, ptr } %11, 0
   %13 = extractvalue { i64, ptr } %11, 1
-  br label %40
+  br label %41
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %0, i64 8
@@ -590,11 +590,11 @@ define internal fastcc { i64, ptr } @"_ZN100_$LT$tokio..io..util..buf_writer..Bu
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
   %switch = icmp eq i64 %19, 0
-  br i1 %switch, label %21, label %40
+  br i1 %switch, label %21, label %41
 
 21:                                               ; preds = %17
   %22 = icmp eq ptr %20, null
-  br i1 %22, label %23, label %40
+  br i1 %22, label %23, label %41
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %0, i64 40
@@ -605,42 +605,47 @@ define internal fastcc { i64, ptr } @"_ZN100_$LT$tokio..io..util..buf_writer..Bu
   %27 = tail call { i64, ptr } @"_ZN74_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_seek..AsyncSeek$GT$13poll_complete17h996299ce884b623fE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %24, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %.off = add i64 %28, -1
-  %switch31 = icmp ult i64 %.off, 2
-  br i1 %switch31, label %40, label %35
+  switch i64 %28, label %8 [
+    i64 2, label %41
+    i64 0, label %35
+    i64 1, label %38
+  ]
 
-30:                                               ; preds = %23, %39
+30:                                               ; preds = %23, %40
   %31 = tail call { i64, ptr } @"_ZN74_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_seek..AsyncSeek$GT$13poll_complete17h996299ce884b623fE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %24, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %32 = extractvalue { i64, ptr } %31, 0
   %33 = extractvalue { i64, ptr } %31, 1
   %34 = icmp eq i64 %32, 2
   %. = select i1 %34, i64 5, i64 3
   store i64 %., ptr %0, align 8
-  br label %40
+  br label %41
 
 35:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %36 = tail call noundef ptr @"_ZN74_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_seek..AsyncSeek$GT$10start_seek17h9cfae1a86bdf974cE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %24, i64 noundef %.sroa.01.0, i64 noundef %.sroa.7.0)
   store ptr %36, ptr %3, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %39, label %38
+  br i1 %37, label %40, label %39
 
-38:                                               ; preds = %35
-  store i64 3, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %40
+38:                                               ; preds = %26
+  br label %41
 
 39:                                               ; preds = %35
+  store i64 3, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  br label %41
+
+40:                                               ; preds = %35
   call void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hd688c50907fd1b34E.llvm.3021571406010367114"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %30
 
-40:                                               ; preds = %26, %17, %21, %9, %38, %30
-  %.sroa.9.3 = phi ptr [ %33, %30 ], [ %36, %38 ], [ %13, %9 ], [ %20, %21 ], [ %20, %17 ], [ %29, %26 ]
-  %.sroa.0.3 = phi i64 [ %32, %30 ], [ 1, %38 ], [ %12, %9 ], [ 1, %21 ], [ 2, %17 ], [ %28, %26 ]
-  %41 = insertvalue { i64, ptr } poison, i64 %.sroa.0.3, 0
-  %42 = insertvalue { i64, ptr } %41, ptr %.sroa.9.3, 1
-  ret { i64, ptr } %42
+41:                                               ; preds = %17, %21, %38, %26, %9, %39, %30
+  %.sroa.9.3 = phi ptr [ %33, %30 ], [ %36, %39 ], [ %13, %9 ], [ %29, %26 ], [ %29, %38 ], [ %20, %21 ], [ %20, %17 ]
+  %.sroa.0.3 = phi i64 [ %32, %30 ], [ 1, %39 ], [ %12, %9 ], [ %28, %26 ], [ 1, %38 ], [ 1, %21 ], [ 2, %17 ]
+  %42 = insertvalue { i64, ptr } poison, i64 %.sroa.0.3, 0
+  %43 = insertvalue { i64, ptr } %42, ptr %.sroa.9.3, 1
+  ret { i64, ptr } %43
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -57417,28 +57422,38 @@ define hidden { i64, ptr } @"_ZN79_$LT$tokio..io..seek..Seek$LT$S$GT$$u20$as$u20
   %6 = load ptr, ptr %3, align 8, !nonnull !12, !align !129, !noundef !12
   %7 = tail call fastcc { i64, ptr } @"_ZN100_$LT$tokio..io..util..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$tokio..io..async_seek..AsyncSeek$GT$13poll_complete17h81de071c03c4eea1E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %8 = extractvalue { i64, ptr } %7, 0
-  %.off = add i64 %8, -1
-  %switch = icmp ult i64 %.off, 2
-  %or.cond = select i1 %5, i1 true, i1 %switch
-  br i1 %or.cond, label %9, label %12
+  br i1 %5, label %11, label %10
 
-9:                                                ; preds = %2, %12
-  %.pn = phi { i64, ptr } [ %16, %12 ], [ %7, %2 ]
-  %.sroa.0.0 = phi i64 [ %17, %12 ], [ %8, %2 ]
+9:                                                ; preds = %10
+  unreachable
+
+10:                                               ; preds = %2
+  switch i64 %8, label %9 [
+    i64 2, label %11
+    i64 0, label %14
+    i64 1, label %20
+  ]
+
+11:                                               ; preds = %2, %20, %10, %14
+  %.pn = phi { i64, ptr } [ %18, %14 ], [ %7, %10 ], [ %7, %20 ], [ %7, %2 ]
+  %.sroa.0.0 = phi i64 [ %19, %14 ], [ %8, %10 ], [ 1, %20 ], [ %8, %2 ]
   %.sroa.6.0 = extractvalue { i64, ptr } %.pn, 1
-  %10 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %11 = insertvalue { i64, ptr } %10, ptr %.sroa.6.0, 1
-  ret { i64, ptr } %11
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.6.0, 1
+  ret { i64, ptr } %13
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8, !nonnull !12, !align !129, !noundef !12
-  %14 = load <2 x i64>, ptr %0, align 8
-  store <2 x i64> %14, ptr %13, align 8, !alias.scope !11338
-  store i64 3, ptr %0, align 8
+14:                                               ; preds = %10
   %15 = load ptr, ptr %3, align 8, !nonnull !12, !align !129, !noundef !12
-  %16 = tail call fastcc { i64, ptr } @"_ZN100_$LT$tokio..io..util..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$tokio..io..async_seek..AsyncSeek$GT$13poll_complete17h81de071c03c4eea1E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %15, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  %17 = extractvalue { i64, ptr } %16, 0
-  br label %9
+  %16 = load <2 x i64>, ptr %0, align 8
+  store <2 x i64> %16, ptr %15, align 8, !alias.scope !11338
+  store i64 3, ptr %0, align 8
+  %17 = load ptr, ptr %3, align 8, !nonnull !12, !align !129, !noundef !12
+  %18 = tail call fastcc { i64, ptr } @"_ZN100_$LT$tokio..io..util..buf_writer..BufWriter$LT$W$GT$$u20$as$u20$tokio..io..async_seek..AsyncSeek$GT$13poll_complete17h81de071c03c4eea1E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %17, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  %19 = extractvalue { i64, ptr } %18, 0
+  br label %11
+
+20:                                               ; preds = %10
+  br label %11
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

@@ -37108,7 +37108,7 @@ parser_set_lex_state.exit.i845:                   ; preds = %629, %626
 
 .critedge.i849:                                   ; preds = %.preheader.i848, %.critedge.fold.split.i, %640, %637
   %.085.i = phi i32 [ 0, %640 ], [ 0, %637 ], [ 1, %.critedge.fold.split.i ], [ 1, %.preheader.i848 ]
-  %.1.i850 = phi i32 [ %638, %640 ], [ %638, %637 ], [ %638, %.critedge.fold.split.i ], [ %641, %.preheader.i848 ]
+  %.1.i850 = phi i32 [ %638, %640 ], [ %638, %637 ], [ 10, %.critedge.fold.split.i ], [ %641, %.preheader.i848 ]
   %646 = and i32 %614, 16384
   %.not91.i = icmp eq i32 %646, 0
   br i1 %.not91.i, label %650, label %647
@@ -48000,7 +48000,7 @@ parser_yyerror0.exit:                             ; preds = %.loopexit103, %125
   br label %131
 
 131:                                              ; preds = %tailrecurse, %.loopexit335, %.loopexit277, %.loopexit219, %.loopexit161, %.loopexit, %73, %34, %130, %parser_yyerror0.exit, %104, %67, %39, %38, %pushback.exit, %10, %9
-  %.0 = phi i32 [ %8, %130 ], [ 0, %parser_yyerror0.exit ], [ %105, %104 ], [ %68, %67 ], [ 32, %39 ], [ 8, %38 ], [ %30, %pushback.exit ], [ 27, %10 ], [ 7, %9 ], [ %., %34 ], [ 127, %73 ], [ %8, %.loopexit ], [ 10, %.loopexit161 ], [ 9, %.loopexit219 ], [ 13, %.loopexit277 ], [ 12, %.loopexit335 ], [ 11, %tailrecurse ]
+  %.0 = phi i32 [ %8, %130 ], [ 0, %parser_yyerror0.exit ], [ %105, %104 ], [ %68, %67 ], [ 32, %39 ], [ 8, %38 ], [ %30, %pushback.exit ], [ 27, %10 ], [ 7, %9 ], [ %., %34 ], [ 127, %73 ], [ 92, %.loopexit ], [ 10, %.loopexit161 ], [ 9, %.loopexit219 ], [ 13, %.loopexit277 ], [ 12, %.loopexit335 ], [ 11, %tailrecurse ]
   %accumulator.ret.tr = or i32 %.0, %accumulator.tr
   ret i32 %accumulator.ret.tr
 }

@@ -812,9 +812,10 @@ for.inc.i.i:                                      ; preds = %if.then14.i.i, %_ZN
   br i1 %cmp.i.i.i.i.i.i.i.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %max_depth.sroa.0.2.i.i.off = add i32 %max_depth.sroa.0.2.i.i, -2147483647
-  %switch = icmp ult i32 %max_depth.sroa.0.2.i.i.off, 2
-  br i1 %switch, label %invoke.cont16.i, label %if.end7.i.i.i
+  switch i32 %max_depth.sroa.0.2.i.i, label %if.end7.i.i.i [
+    i32 -2147483648, label %invoke.cont16.i
+    i32 2147483647, label %return.fold.split.i.i.i
+  ]
 
 if.end7.i.i.i:                                    ; preds = %for.end.i.i
   %add.i.i.i = add nsw i32 %max_depth.sroa.0.2.i.i, 1
@@ -829,8 +830,11 @@ do.end.i.i.i:                                     ; preds = %if.end7.i.i.i
 .noexc8.i:                                        ; preds = %do.end.i.i.i
   unreachable
 
-invoke.cont16.i:                                  ; preds = %for.end.i.i, %if.end7.i.i.i, %if.end.i
-  %retval.sroa.0.0.i.i.i = phi i32 [ %add.i.i.i, %if.end7.i.i.i ], [ 1, %if.end.i ], [ %max_depth.sroa.0.2.i.i, %for.end.i.i ]
+return.fold.split.i.i.i:                          ; preds = %for.end.i.i
+  br label %invoke.cont16.i
+
+invoke.cont16.i:                                  ; preds = %return.fold.split.i.i.i, %if.end7.i.i.i, %for.end.i.i, %if.end.i
+  %retval.sroa.0.0.i.i.i = phi i32 [ %max_depth.sroa.0.2.i.i, %for.end.i.i ], [ %add.i.i.i, %if.end7.i.i.i ], [ 2147483647, %return.fold.split.i.i.i ], [ 1, %if.end.i ]
   %12 = load i32, ptr %max_head_depth, align 4, !noalias !8
   %cmp.i.i9.not.i = icmp ult i32 %12, %retval.sroa.0.0.i.i.i
   br i1 %cmp.i.i9.not.i, label %for.inc.i, label %if.then18.i
@@ -966,9 +970,10 @@ for.inc.i.i92:                                    ; preds = %if.then14.i.i90, %_
   br i1 %cmp.i.i.i.i.i.i.i.not.i.i95, label %for.end.i.i96, label %for.body.i.i62
 
 for.end.i.i96:                                    ; preds = %for.inc.i.i92
-  %max_depth.sroa.0.2.i.i93.off = add i32 %max_depth.sroa.0.2.i.i93, -2147483647
-  %switch926 = icmp ult i32 %max_depth.sroa.0.2.i.i93.off, 2
-  br i1 %switch926, label %invoke.cont16.i98, label %if.end7.i.i.i107
+  switch i32 %max_depth.sroa.0.2.i.i93, label %if.end7.i.i.i107 [
+    i32 -2147483648, label %invoke.cont16.i98
+    i32 2147483647, label %return.fold.split.i.i.i97
+  ]
 
 if.end7.i.i.i107:                                 ; preds = %for.end.i.i96
   %add.i.i.i108 = add nsw i32 %max_depth.sroa.0.2.i.i93, 1
@@ -983,8 +988,11 @@ do.end.i.i.i110:                                  ; preds = %if.end7.i.i.i107
 .noexc8.i112:                                     ; preds = %do.end.i.i.i110
   unreachable
 
-invoke.cont16.i98:                                ; preds = %for.end.i.i96, %if.end7.i.i.i107, %if.end.i51
-  %retval.sroa.0.0.i.i.i99 = phi i32 [ %add.i.i.i108, %if.end7.i.i.i107 ], [ 1, %if.end.i51 ], [ %max_depth.sroa.0.2.i.i93, %for.end.i.i96 ]
+return.fold.split.i.i.i97:                        ; preds = %for.end.i.i96
+  br label %invoke.cont16.i98
+
+invoke.cont16.i98:                                ; preds = %return.fold.split.i.i.i97, %if.end7.i.i.i107, %for.end.i.i96, %if.end.i51
+  %retval.sroa.0.0.i.i.i99 = phi i32 [ %max_depth.sroa.0.2.i.i93, %for.end.i.i96 ], [ %add.i.i.i108, %if.end7.i.i.i107 ], [ 2147483647, %return.fold.split.i.i.i97 ], [ 1, %if.end.i51 ]
   %24 = load i32, ptr %max_tail_depth, align 4, !noalias !11
   %cmp.i.i9.not.i100 = icmp ult i32 %24, %retval.sroa.0.0.i.i.i99
   br i1 %cmp.i.i9.not.i100, label %for.inc.i104, label %if.then18.i101

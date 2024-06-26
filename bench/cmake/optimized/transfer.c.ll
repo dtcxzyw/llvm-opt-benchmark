@@ -2045,7 +2045,7 @@ define dso_local i32 @Curl_follow(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not162, label %83, label %79
 
 .thread235:                                       ; preds = %58, %62, %.thread
-  %.0120212217234 = phi i32 [ %.0120211, %62 ], [ 2, %.thread ], [ %.0120211, %58 ]
+  %.0120212217234 = phi i32 [ 3, %62 ], [ 2, %.thread ], [ %.0120211, %58 ]
   %.0124210219233 = phi i1 [ %.0124209, %62 ], [ false, %.thread ], [ %.0124209, %58 ]
   %.0121221232 = phi i1 [ %.0121, %62 ], [ false, %.thread ], [ %.0121, %58 ]
   %65 = phi ptr [ %59, %62 ], [ %51, %.thread ], [ %59, %58 ]

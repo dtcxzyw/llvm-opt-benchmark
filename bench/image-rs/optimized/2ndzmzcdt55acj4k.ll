@@ -30812,24 +30812,27 @@ define internal fastcc void @_ZN5image6codecs3hdr7decoder16limit_string_len17he4
 ; Function Attrs: nonlazybind uwtable
 define noundef range(i8 0, 5) i8 @"_ZN5image6codecs4jpeg7decoder41_$LT$impl$u20$image..color..ColorType$GT$9from_jpeg17hd712effa3c3e8cb9E"(i8 noundef %0) unnamed_addr #2 {
   switch i8 %0, label %2 [
-    i8 0, label %5
+    i8 0, label %6
     i8 1, label %3
-    i8 2, label %5
-    i8 3, label %4
+    i8 2, label %4
+    i8 3, label %5
   ]
 
 2:                                                ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
-  br label %5
+  br label %6
 
 4:                                                ; preds = %1
+  br label %6
+
+5:                                                ; preds = %1
   tail call void @"_ZN5image6codecs4jpeg7decoder41_$LT$impl$u20$image..color..ColorType$GT$9from_jpeg19panic_cold_explicit17h0cf6c6ea9e64ac60E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b96271f4cf8a6d021d67e6f234d08bd0.213.llvm.6960974148744716740) #32
   unreachable
 
-5:                                                ; preds = %1, %1, %3
-  %.0 = phi i8 [ 4, %3 ], [ %0, %1 ], [ %0, %1 ]
+6:                                                ; preds = %1, %4, %3
+  %.0 = phi i8 [ 2, %4 ], [ 4, %3 ], [ %0, %1 ]
   ret i8 %.0
 }
 

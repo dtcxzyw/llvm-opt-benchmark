@@ -46092,15 +46092,18 @@ _ZN7glslang13TIntermediate18setOutputPrimitiveENS_15TLayoutGeometryE.exit35: ; p
   %219 = load i32, ptr %218, align 8
   switch i32 %219, label %220 [
     i32 1, label %.sink.split46
-    i32 2, label %.sink.split46
+    i32 2, label %_ZN7glslang13TIntermediate11setVerticesEi.exit40
     i32 5, label %_ZN7glslang13TIntermediate11setVerticesEi.exit43
   ]
+
+_ZN7glslang13TIntermediate11setVerticesEi.exit40: ; preds = %217
+  br label %.sink.split46
 
 _ZN7glslang13TIntermediate11setVerticesEi.exit43: ; preds = %217
   br label %.sink.split46
 
-.sink.split46:                                    ; preds = %217, %217, %_ZN7glslang13TIntermediate11setVerticesEi.exit43
-  %.sink47 = phi i32 [ 3, %_ZN7glslang13TIntermediate11setVerticesEi.exit43 ], [ %219, %217 ], [ %219, %217 ]
+.sink.split46:                                    ; preds = %217, %_ZN7glslang13TIntermediate11setVerticesEi.exit40, %_ZN7glslang13TIntermediate11setVerticesEi.exit43
+  %.sink47 = phi i32 [ 3, %_ZN7glslang13TIntermediate11setVerticesEi.exit43 ], [ 2, %_ZN7glslang13TIntermediate11setVerticesEi.exit40 ], [ %219, %217 ]
   store i32 %.sink47, ptr %214, align 4
   br label %220
 

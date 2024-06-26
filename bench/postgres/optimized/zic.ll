@@ -7668,453 +7668,457 @@ ecpyalloc.exit93:                                 ; preds = %85
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @rpytime(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
-  %.off200 = add i64 %1, -9223372036854775807
-  %switch201 = icmp ult i64 %.off200, 2
-  br i1 %switch201, label %198, label %3
+  switch i64 %1, label %4 [
+    i64 -9223372036854775808, label %199
+    i64 9223372036854775807, label %3
+  ]
 
 3:                                                ; preds = %2
-  %4 = icmp sgt i64 %1, 1970
-  br i1 %4, label %5, label %11
+  br label %199
 
-5:                                                ; preds = %3
-  %6 = add nsw i64 %1, -1970
-  %7 = udiv i64 %6, 400
-  %8 = mul i64 %7, 146097
-  %9 = urem i64 %6, 400
-  %10 = add nuw nsw i64 %9, 1970
-  br label %16
+4:                                                ; preds = %2
+  %5 = icmp sgt i64 %1, 1970
+  br i1 %5, label %6, label %12
 
-11:                                               ; preds = %3
-  %12 = icmp slt i64 %1, 0
-  br i1 %12, label %.thread, label %16
+6:                                                ; preds = %4
+  %7 = add nsw i64 %1, -1970
+  %8 = udiv i64 %7, 400
+  %9 = mul i64 %8, 146097
+  %10 = urem i64 %7, 400
+  %11 = add nuw nsw i64 %10, 1970
+  br label %17
 
-.thread:                                          ; preds = %11
+12:                                               ; preds = %4
+  %13 = icmp slt i64 %1, 0
+  br i1 %13, label %.thread, label %17
+
+.thread:                                          ; preds = %12
   %.nonneg = sub nsw i64 0, %1
-  %13 = udiv i64 %.nonneg, 400
-  %14 = mul i64 %13, -146097
-  %15 = urem i64 %.nonneg, 400
-  %.neg113 = sub nsw i64 0, %15
+  %14 = udiv i64 %.nonneg, 400
+  %15 = mul i64 %14, -146097
+  %16 = urem i64 %.nonneg, 400
+  %.neg113 = sub nsw i64 0, %16
   br label %.lr.ph.preheader
 
-16:                                               ; preds = %11, %5
-  %.089 = phi i64 [ %10, %5 ], [ %1, %11 ]
-  %.081 = phi i64 [ %8, %5 ], [ 0, %11 ]
+17:                                               ; preds = %12, %6
+  %.089 = phi i64 [ %11, %6 ], [ %1, %12 ]
+  %.081 = phi i64 [ %9, %6 ], [ 0, %12 ]
   %.not124 = icmp eq i64 %.089, 1970
   br i1 %.not124, label %.preheader, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread, %16
-  %.081170 = phi i64 [ %14, %.thread ], [ %.081, %16 ]
-  %.089169 = phi i64 [ %.neg113, %.thread ], [ %.089, %16 ]
+.lr.ph.preheader:                                 ; preds = %.thread, %17
+  %.081170 = phi i64 [ %15, %.thread ], [ %.081, %17 ]
+  %.089169 = phi i64 [ %.neg113, %.thread ], [ %.089, %17 ]
   br label %.lr.ph
 
-.preheader:                                       ; preds = %oadd.exit, %16
-  %.182.lcssa = phi i64 [ %.081, %16 ], [ %94, %oadd.exit ]
-  %.078.lcssa = phi i64 [ 1970, %16 ], [ %.089169, %oadd.exit ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 44
-  %18 = load i32, ptr %17, align 4
-  %.not97128 = icmp eq i32 %18, 0
+.preheader:                                       ; preds = %oadd.exit, %17
+  %.182.lcssa = phi i64 [ %.081, %17 ], [ %95, %oadd.exit ]
+  %.078.lcssa = phi i64 [ 1970, %17 ], [ %.089169, %oadd.exit ]
+  %18 = getelementptr inbounds i8, ptr %0, i64 44
+  %19 = load i32, ptr %18, align 4
+  %.not97128 = icmp eq i32 %19, 0
   br i1 %.not97128, label %._crit_edge.thread, label %.lr.ph131
 
 ._crit_edge.thread:                               ; preds = %.preheader
-  %19 = getelementptr inbounds i8, ptr %0, i64 52
-  %20 = load i32, ptr %19, align 4
-  br label %124
+  %20 = getelementptr inbounds i8, ptr %0, i64 52
+  %21 = load i32, ptr %20, align 4
+  br label %125
 
 .lr.ph131:                                        ; preds = %.preheader
-  %21 = and i64 %.078.lcssa, 3
-  %22 = icmp eq i64 %21, 0
-  %23 = srem i64 %.078.lcssa, 400
-  %24 = icmp eq i64 %23, 0
-  br i1 %22, label %.lr.ph131.split.us, label %.lr.ph131.split
+  %22 = and i64 %.078.lcssa, 3
+  %23 = icmp eq i64 %22, 0
+  %24 = srem i64 %.078.lcssa, 400
+  %25 = icmp eq i64 %24, 0
+  br i1 %23, label %.lr.ph131.split.us, label %.lr.ph131.split
 
 .lr.ph131.split.us:                               ; preds = %.lr.ph131
-  %25 = srem i64 %.078.lcssa, 100
-  %.not103 = icmp eq i64 %25, 0
+  %26 = srem i64 %.078.lcssa, 100
+  %.not103 = icmp eq i64 %26, 0
   br i1 %.not103, label %.lr.ph131.split.us.split.us, label %.lr.ph131.split.us.split
 
 .lr.ph131.split.us.split.us:                      ; preds = %.lr.ph131.split.us
-  %26 = zext i1 %24 to i64
-  br label %27
+  %27 = zext i1 %25 to i64
+  br label %28
 
-27:                                               ; preds = %oadd.exit108.us.us, %.lr.ph131.split.us.split.us
-  %.283130.us.us = phi i64 [ %.182.lcssa, %.lr.ph131.split.us.split.us ], [ %39, %oadd.exit108.us.us ]
-  %.088129.us.us = phi i32 [ 0, %.lr.ph131.split.us.split.us ], [ %40, %oadd.exit108.us.us ]
-  %28 = sext i32 %.088129.us.us to i64
-  %29 = getelementptr [2 x [12 x i32]], ptr @len_months, i64 0, i64 %26, i64 %28
-  %30 = load i32, ptr %29, align 4
-  %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %.283130.us.us, 0
-  br i1 %32, label %36, label %33
+28:                                               ; preds = %oadd.exit108.us.us, %.lr.ph131.split.us.split.us
+  %.283130.us.us = phi i64 [ %.182.lcssa, %.lr.ph131.split.us.split.us ], [ %40, %oadd.exit108.us.us ]
+  %.088129.us.us = phi i32 [ 0, %.lr.ph131.split.us.split.us ], [ %41, %oadd.exit108.us.us ]
+  %29 = sext i32 %.088129.us.us to i64
+  %30 = getelementptr [2 x [12 x i32]], ptr @len_months, i64 0, i64 %27, i64 %29
+  %31 = load i32, ptr %30, align 4
+  %32 = sext i32 %31 to i64
+  %33 = icmp slt i64 %.283130.us.us, 0
+  br i1 %33, label %37, label %34
 
-33:                                               ; preds = %27
-  %34 = sub nuw nsw i64 9223372036854775807, %.283130.us.us
-  %35 = icmp slt i64 %34, %31
-  br i1 %35, label %.split.us, label %oadd.exit108.us.us
+34:                                               ; preds = %28
+  %35 = sub nuw nsw i64 9223372036854775807, %.283130.us.us
+  %36 = icmp slt i64 %35, %32
+  br i1 %36, label %.split.us, label %oadd.exit108.us.us
 
-36:                                               ; preds = %27
-  %37 = sub nsw i64 -9223372036854775808, %.283130.us.us
-  %38 = icmp sgt i64 %37, %31
-  br i1 %38, label %.split.us, label %oadd.exit108.us.us
+37:                                               ; preds = %28
+  %38 = sub nsw i64 -9223372036854775808, %.283130.us.us
+  %39 = icmp sgt i64 %38, %32
+  br i1 %39, label %.split.us, label %oadd.exit108.us.us
 
-oadd.exit108.us.us:                               ; preds = %36, %33
-  %39 = add i64 %.283130.us.us, %31
-  %40 = add nuw i32 %.088129.us.us, 1
-  %.not97.us.us = icmp eq i32 %40, %18
-  br i1 %.not97.us.us, label %._crit_edge, label %27, !llvm.loop !80
+oadd.exit108.us.us:                               ; preds = %37, %34
+  %40 = add i64 %.283130.us.us, %32
+  %41 = add nuw i32 %.088129.us.us, 1
+  %.not97.us.us = icmp eq i32 %41, %19
+  br i1 %.not97.us.us, label %._crit_edge, label %28, !llvm.loop !80
 
 .lr.ph131.split.us.split:                         ; preds = %.lr.ph131.split.us, %oadd.exit108.us
-  %.283130.us = phi i64 [ %52, %oadd.exit108.us ], [ %.182.lcssa, %.lr.ph131.split.us ]
-  %.088129.us = phi i32 [ %53, %oadd.exit108.us ], [ 0, %.lr.ph131.split.us ]
-  %41 = sext i32 %.088129.us to i64
-  %42 = getelementptr [2 x [12 x i32]], ptr @len_months, i64 0, i64 1, i64 %41
-  %43 = load i32, ptr %42, align 4
-  %44 = sext i32 %43 to i64
-  %45 = icmp slt i64 %.283130.us, 0
-  br i1 %45, label %49, label %46
+  %.283130.us = phi i64 [ %53, %oadd.exit108.us ], [ %.182.lcssa, %.lr.ph131.split.us ]
+  %.088129.us = phi i32 [ %54, %oadd.exit108.us ], [ 0, %.lr.ph131.split.us ]
+  %42 = sext i32 %.088129.us to i64
+  %43 = getelementptr [2 x [12 x i32]], ptr @len_months, i64 0, i64 1, i64 %42
+  %44 = load i32, ptr %43, align 4
+  %45 = sext i32 %44 to i64
+  %46 = icmp slt i64 %.283130.us, 0
+  br i1 %46, label %50, label %47
 
-46:                                               ; preds = %.lr.ph131.split.us.split
-  %47 = sub nuw nsw i64 9223372036854775807, %.283130.us
-  %48 = icmp slt i64 %47, %44
-  br i1 %48, label %.split.us, label %oadd.exit108.us
+47:                                               ; preds = %.lr.ph131.split.us.split
+  %48 = sub nuw nsw i64 9223372036854775807, %.283130.us
+  %49 = icmp slt i64 %48, %45
+  br i1 %49, label %.split.us, label %oadd.exit108.us
 
-49:                                               ; preds = %.lr.ph131.split.us.split
-  %50 = sub nsw i64 -9223372036854775808, %.283130.us
-  %51 = icmp sgt i64 %50, %44
-  br i1 %51, label %.split.us, label %oadd.exit108.us
+50:                                               ; preds = %.lr.ph131.split.us.split
+  %51 = sub nsw i64 -9223372036854775808, %.283130.us
+  %52 = icmp sgt i64 %51, %45
+  br i1 %52, label %.split.us, label %oadd.exit108.us
 
-oadd.exit108.us:                                  ; preds = %49, %46
-  %52 = add i64 %.283130.us, %44
-  %53 = add nuw i32 %.088129.us, 1
-  %.not97.us = icmp eq i32 %53, %18
+oadd.exit108.us:                                  ; preds = %50, %47
+  %53 = add i64 %.283130.us, %45
+  %54 = add nuw i32 %.088129.us, 1
+  %.not97.us = icmp eq i32 %54, %19
   br i1 %.not97.us, label %._crit_edge, label %.lr.ph131.split.us.split, !llvm.loop !80
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %oadd.exit
   %.078126 = phi i64 [ %.179, %oadd.exit ], [ 1970, %.lr.ph.preheader ]
-  %.182125 = phi i64 [ %94, %oadd.exit ], [ %.081170, %.lr.ph.preheader ]
-  %54 = icmp sgt i64 %.089169, %.078126
-  br i1 %54, label %55, label %69
+  %.182125 = phi i64 [ %95, %oadd.exit ], [ %.081170, %.lr.ph.preheader ]
+  %55 = icmp sgt i64 %.089169, %.078126
+  br i1 %55, label %56, label %70
 
-55:                                               ; preds = %.lr.ph
-  %56 = and i64 %.078126, 3
-  %57 = icmp eq i64 %56, 0
-  br i1 %57, label %58, label %63
+56:                                               ; preds = %.lr.ph
+  %57 = and i64 %.078126, 3
+  %58 = icmp eq i64 %57, 0
+  br i1 %58, label %59, label %64
 
-58:                                               ; preds = %55
-  %59 = srem i64 %.078126, 100
-  %.not105 = icmp eq i64 %59, 0
-  br i1 %.not105, label %60, label %63
+59:                                               ; preds = %56
+  %60 = srem i64 %.078126, 100
+  %.not105 = icmp eq i64 %60, 0
+  br i1 %.not105, label %61, label %64
 
-60:                                               ; preds = %58
-  %61 = srem i64 %.078126, 400
-  %62 = icmp eq i64 %61, 0
-  br label %63
+61:                                               ; preds = %59
+  %62 = srem i64 %.078126, 400
+  %63 = icmp eq i64 %62, 0
+  br label %64
 
-63:                                               ; preds = %58, %60, %55
-  %64 = phi i1 [ false, %55 ], [ true, %58 ], [ %62, %60 ]
-  %65 = zext i1 %64 to i64
-  %66 = getelementptr [2 x i32], ptr @len_years, i64 0, i64 %65
-  %67 = load i32, ptr %66, align 4
-  %68 = add nsw i64 %.078126, 1
-  br label %84
+64:                                               ; preds = %59, %61, %56
+  %65 = phi i1 [ false, %56 ], [ true, %59 ], [ %63, %61 ]
+  %66 = zext i1 %65 to i64
+  %67 = getelementptr [2 x i32], ptr @len_years, i64 0, i64 %66
+  %68 = load i32, ptr %67, align 4
+  %69 = add nsw i64 %.078126, 1
+  br label %85
 
-69:                                               ; preds = %.lr.ph
-  %70 = add nsw i64 %.078126, -1
-  %71 = and i64 %70, 3
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %73, label %78
+70:                                               ; preds = %.lr.ph
+  %71 = add nsw i64 %.078126, -1
+  %72 = and i64 %71, 3
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %74, label %79
 
-73:                                               ; preds = %69
-  %74 = srem i64 %70, 100
-  %.not104 = icmp eq i64 %74, 0
-  br i1 %.not104, label %75, label %78
+74:                                               ; preds = %70
+  %75 = srem i64 %71, 100
+  %.not104 = icmp eq i64 %75, 0
+  br i1 %.not104, label %76, label %79
 
-75:                                               ; preds = %73
-  %76 = srem i64 %70, 400
-  %77 = icmp eq i64 %76, 0
-  br label %78
+76:                                               ; preds = %74
+  %77 = srem i64 %71, 400
+  %78 = icmp eq i64 %77, 0
+  br label %79
 
-78:                                               ; preds = %73, %75, %69
-  %79 = phi i1 [ false, %69 ], [ true, %73 ], [ %77, %75 ]
-  %80 = zext i1 %79 to i64
-  %81 = getelementptr [2 x i32], ptr @len_years, i64 0, i64 %80
-  %82 = load i32, ptr %81, align 4
-  %83 = sub i32 0, %82
-  br label %84
+79:                                               ; preds = %74, %76, %70
+  %80 = phi i1 [ false, %70 ], [ true, %74 ], [ %78, %76 ]
+  %81 = zext i1 %80 to i64
+  %82 = getelementptr [2 x i32], ptr @len_years, i64 0, i64 %81
+  %83 = load i32, ptr %82, align 4
+  %84 = sub i32 0, %83
+  br label %85
 
-84:                                               ; preds = %78, %63
-  %.084 = phi i32 [ %67, %63 ], [ %83, %78 ]
-  %.179 = phi i64 [ %68, %63 ], [ %70, %78 ]
-  %85 = sext i32 %.084 to i64
-  %86 = icmp slt i64 %.182125, 0
-  br i1 %86, label %87, label %90
+85:                                               ; preds = %79, %64
+  %.084 = phi i32 [ %68, %64 ], [ %84, %79 ]
+  %.179 = phi i64 [ %69, %64 ], [ %71, %79 ]
+  %86 = sext i32 %.084 to i64
+  %87 = icmp slt i64 %.182125, 0
+  br i1 %87, label %88, label %91
 
-87:                                               ; preds = %84
-  %88 = sub nsw i64 -9223372036854775808, %.182125
-  %89 = icmp sgt i64 %88, %85
-  br i1 %89, label %93, label %oadd.exit
+88:                                               ; preds = %85
+  %89 = sub nsw i64 -9223372036854775808, %.182125
+  %90 = icmp sgt i64 %89, %86
+  br i1 %90, label %94, label %oadd.exit
 
-90:                                               ; preds = %84
-  %91 = sub nuw nsw i64 9223372036854775807, %.182125
-  %92 = icmp slt i64 %91, %85
-  br i1 %92, label %93, label %oadd.exit
+91:                                               ; preds = %85
+  %92 = sub nuw nsw i64 9223372036854775807, %.182125
+  %93 = icmp slt i64 %92, %86
+  br i1 %93, label %94, label %oadd.exit
 
-93:                                               ; preds = %90, %87
+94:                                               ; preds = %91, %88
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.57)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
-oadd.exit:                                        ; preds = %87, %90
-  %94 = add i64 %.182125, %85
+oadd.exit:                                        ; preds = %88, %91
+  %95 = add i64 %.182125, %86
   %.not = icmp eq i64 %.089169, %.179
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !81
 
 .lr.ph131.split:                                  ; preds = %.lr.ph131, %oadd.exit108
-  %.283130 = phi i64 [ %106, %oadd.exit108 ], [ %.182.lcssa, %.lr.ph131 ]
-  %.088129 = phi i32 [ %107, %oadd.exit108 ], [ 0, %.lr.ph131 ]
-  %95 = sext i32 %.088129 to i64
-  %96 = getelementptr [2 x [12 x i32]], ptr @len_months, i64 0, i64 0, i64 %95
-  %97 = load i32, ptr %96, align 4
-  %98 = sext i32 %97 to i64
-  %99 = icmp slt i64 %.283130, 0
-  br i1 %99, label %100, label %103
+  %.283130 = phi i64 [ %107, %oadd.exit108 ], [ %.182.lcssa, %.lr.ph131 ]
+  %.088129 = phi i32 [ %108, %oadd.exit108 ], [ 0, %.lr.ph131 ]
+  %96 = sext i32 %.088129 to i64
+  %97 = getelementptr [2 x [12 x i32]], ptr @len_months, i64 0, i64 0, i64 %96
+  %98 = load i32, ptr %97, align 4
+  %99 = sext i32 %98 to i64
+  %100 = icmp slt i64 %.283130, 0
+  br i1 %100, label %101, label %104
 
-100:                                              ; preds = %.lr.ph131.split
-  %101 = sub nsw i64 -9223372036854775808, %.283130
-  %102 = icmp sgt i64 %101, %98
-  br i1 %102, label %.split.us, label %oadd.exit108
+101:                                              ; preds = %.lr.ph131.split
+  %102 = sub nsw i64 -9223372036854775808, %.283130
+  %103 = icmp sgt i64 %102, %99
+  br i1 %103, label %.split.us, label %oadd.exit108
 
-103:                                              ; preds = %.lr.ph131.split
-  %104 = sub nuw nsw i64 9223372036854775807, %.283130
-  %105 = icmp slt i64 %104, %98
-  br i1 %105, label %.split.us, label %oadd.exit108
+104:                                              ; preds = %.lr.ph131.split
+  %105 = sub nuw nsw i64 9223372036854775807, %.283130
+  %106 = icmp slt i64 %105, %99
+  br i1 %106, label %.split.us, label %oadd.exit108
 
-.split.us:                                        ; preds = %100, %103, %49, %46, %36, %33
+.split.us:                                        ; preds = %101, %104, %50, %47, %37, %34
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.57)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
-oadd.exit108:                                     ; preds = %100, %103
-  %106 = add i64 %.283130, %98
-  %107 = add nuw i32 %.088129, 1
-  %.not97 = icmp eq i32 %107, %18
+oadd.exit108:                                     ; preds = %101, %104
+  %107 = add i64 %.283130, %99
+  %108 = add nuw i32 %.088129, 1
+  %.not97 = icmp eq i32 %108, %19
   br i1 %.not97, label %._crit_edge, label %.lr.ph131.split, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %oadd.exit108, %oadd.exit108.us, %oadd.exit108.us.us
-  %.283.lcssa = phi i64 [ %39, %oadd.exit108.us.us ], [ %52, %oadd.exit108.us ], [ %106, %oadd.exit108 ]
-  %108 = getelementptr inbounds i8, ptr %0, i64 52
-  %109 = load i32, ptr %108, align 4
-  %110 = icmp eq i32 %18, 1
-  %111 = icmp eq i32 %109, 29
-  %or.cond = select i1 %110, i1 %111, i1 false
-  br i1 %or.cond, label %112, label %124
+  %.283.lcssa = phi i64 [ %40, %oadd.exit108.us.us ], [ %53, %oadd.exit108.us ], [ %107, %oadd.exit108 ]
+  %109 = getelementptr inbounds i8, ptr %0, i64 52
+  %110 = load i32, ptr %109, align 4
+  %111 = icmp eq i32 %19, 1
+  %112 = icmp eq i32 %110, 29
+  %or.cond = select i1 %111, i1 %112, i1 false
+  br i1 %or.cond, label %113, label %125
 
-112:                                              ; preds = %._crit_edge
-  %113 = and i64 %.078.lcssa, 3
-  %114 = icmp eq i64 %113, 0
-  br i1 %114, label %115, label %119
+113:                                              ; preds = %._crit_edge
+  %114 = and i64 %.078.lcssa, 3
+  %115 = icmp eq i64 %114, 0
+  br i1 %115, label %116, label %120
 
-115:                                              ; preds = %112
-  %116 = srem i64 %.078.lcssa, 100
-  %.not98 = icmp ne i64 %116, 0
-  %117 = srem i64 %.078.lcssa, 400
-  %118 = icmp eq i64 %117, 0
-  %or.cond107 = or i1 %.not98, %118
-  br i1 %or.cond107, label %124, label %119
+116:                                              ; preds = %113
+  %117 = srem i64 %.078.lcssa, 100
+  %.not98 = icmp ne i64 %117, 0
+  %118 = srem i64 %.078.lcssa, 400
+  %119 = icmp eq i64 %118, 0
+  %or.cond107 = or i1 %.not98, %119
+  br i1 %or.cond107, label %125, label %120
 
-119:                                              ; preds = %115, %112
-  %120 = getelementptr inbounds i8, ptr %0, i64 48
-  %121 = load i32, ptr %120, align 8
-  %122 = icmp eq i32 %121, 2
-  br i1 %122, label %124, label %123
+120:                                              ; preds = %116, %113
+  %121 = getelementptr inbounds i8, ptr %0, i64 48
+  %122 = load i32, ptr %121, align 8
+  %123 = icmp eq i32 %122, 2
+  br i1 %123, label %125, label %124
 
-123:                                              ; preds = %119
+124:                                              ; preds = %120
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.123)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
-124:                                              ; preds = %._crit_edge.thread, %119, %115, %._crit_edge
-  %.283.lcssa175 = phi i64 [ %.283.lcssa, %115 ], [ %.283.lcssa, %._crit_edge ], [ %.283.lcssa, %119 ], [ %.182.lcssa, %._crit_edge.thread ]
-  %.088.lcssa174 = phi i32 [ 1, %115 ], [ %18, %._crit_edge ], [ 1, %119 ], [ 0, %._crit_edge.thread ]
-  %.185 = phi i32 [ 29, %115 ], [ %109, %._crit_edge ], [ 28, %119 ], [ %20, %._crit_edge.thread ]
-  %125 = add i32 %.185, -1
-  %126 = sext i32 %125 to i64
-  %127 = icmp slt i64 %.283.lcssa175, 0
-  br i1 %127, label %128, label %131
+125:                                              ; preds = %._crit_edge.thread, %120, %116, %._crit_edge
+  %.283.lcssa175 = phi i64 [ %.283.lcssa, %116 ], [ %.283.lcssa, %._crit_edge ], [ %.283.lcssa, %120 ], [ %.182.lcssa, %._crit_edge.thread ]
+  %.088.lcssa174 = phi i32 [ 1, %116 ], [ %19, %._crit_edge ], [ 1, %120 ], [ 0, %._crit_edge.thread ]
+  %.185 = phi i32 [ 29, %116 ], [ %110, %._crit_edge ], [ 28, %120 ], [ %21, %._crit_edge.thread ]
+  %126 = add i32 %.185, -1
+  %127 = sext i32 %126 to i64
+  %128 = icmp slt i64 %.283.lcssa175, 0
+  br i1 %128, label %129, label %132
 
-128:                                              ; preds = %124
-  %129 = sub nsw i64 -9223372036854775808, %.283.lcssa175
-  %130 = icmp sgt i64 %129, %126
-  br i1 %130, label %134, label %oadd.exit109
+129:                                              ; preds = %125
+  %130 = sub nsw i64 -9223372036854775808, %.283.lcssa175
+  %131 = icmp sgt i64 %130, %127
+  br i1 %131, label %135, label %oadd.exit109
 
-131:                                              ; preds = %124
-  %132 = sub nuw nsw i64 9223372036854775807, %.283.lcssa175
-  %133 = icmp slt i64 %132, %126
-  br i1 %133, label %134, label %oadd.exit109
+132:                                              ; preds = %125
+  %133 = sub nuw nsw i64 9223372036854775807, %.283.lcssa175
+  %134 = icmp slt i64 %133, %127
+  br i1 %134, label %135, label %oadd.exit109
 
-134:                                              ; preds = %131, %128
+135:                                              ; preds = %132, %129
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.57)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
-oadd.exit109:                                     ; preds = %128, %131
-  %135 = add i64 %.283.lcssa175, %126
-  %136 = getelementptr inbounds i8, ptr %0, i64 48
-  %137 = load i32, ptr %136, align 8
-  %.off = add i32 %137, -1
+oadd.exit109:                                     ; preds = %129, %132
+  %136 = add i64 %.283.lcssa175, %127
+  %137 = getelementptr inbounds i8, ptr %0, i64 48
+  %138 = load i32, ptr %137, align 8
+  %.off = add i32 %138, -1
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %138, label %180
+  br i1 %switch, label %139, label %181
 
-138:                                              ; preds = %oadd.exit109
-  %139 = icmp sgt i64 %135, -1
-  br i1 %139, label %140, label %143
+139:                                              ; preds = %oadd.exit109
+  %140 = icmp sgt i64 %136, -1
+  br i1 %140, label %141, label %144
 
-140:                                              ; preds = %138
-  %141 = add nuw i64 %135, 4
-  %142 = srem i64 %141, 7
-  br label %147
+141:                                              ; preds = %139
+  %142 = add nuw i64 %136, 4
+  %143 = srem i64 %142, 7
+  br label %148
 
-143:                                              ; preds = %138
-  %144 = sub i64 0, %135
-  %145 = srem i64 %144, 7
-  %146 = icmp sgt i64 %145, 4
-  %spec.select.v = select i1 %146, i64 11, i64 4
-  %spec.select = sub nsw i64 %spec.select.v, %145
-  br label %147
+144:                                              ; preds = %139
+  %145 = sub i64 0, %136
+  %146 = srem i64 %145, 7
+  %147 = icmp sgt i64 %146, 4
+  %spec.select.v = select i1 %147, i64 11, i64 4
+  %spec.select = sub nsw i64 %spec.select.v, %146
+  br label %148
 
-147:                                              ; preds = %143, %140
-  %.0 = phi i64 [ %142, %140 ], [ %spec.select, %143 ]
-  %148 = getelementptr inbounds i8, ptr %0, i64 56
-  %149 = load i32, ptr %148, align 8
-  %150 = sext i32 %149 to i64
-  %.not99137 = icmp eq i64 %.0, %150
+148:                                              ; preds = %144, %141
+  %.0 = phi i64 [ %143, %141 ], [ %spec.select, %144 ]
+  %149 = getelementptr inbounds i8, ptr %0, i64 56
+  %150 = load i32, ptr %149, align 8
+  %151 = sext i32 %150 to i64
+  %.not99137 = icmp eq i64 %.0, %151
   br i1 %.not99137, label %._crit_edge143, label %.lr.ph142
 
-.lr.ph142:                                        ; preds = %147
-  %151 = icmp eq i32 %137, 1
-  br i1 %151, label %.lr.ph142.split.us, label %.lr.ph142.split
+.lr.ph142:                                        ; preds = %148
+  %152 = icmp eq i32 %138, 1
+  br i1 %152, label %.lr.ph142.split.us, label %.lr.ph142.split
 
 .lr.ph142.split.us:                               ; preds = %.lr.ph142, %oadd.exit110.us
   %.1140.us = phi i64 [ %spec.store.select.us, %oadd.exit110.us ], [ %.0, %.lr.ph142 ]
-  %.3139.us = phi i64 [ %153, %oadd.exit110.us ], [ %135, %.lr.ph142 ]
-  %.286138.us = phi i32 [ %156, %oadd.exit110.us ], [ %125, %.lr.ph142 ]
-  %152 = icmp eq i64 %.3139.us, 9223372036854775807
-  br i1 %152, label %.split147.us, label %oadd.exit110.us
+  %.3139.us = phi i64 [ %154, %oadd.exit110.us ], [ %136, %.lr.ph142 ]
+  %.286138.us = phi i32 [ %157, %oadd.exit110.us ], [ %126, %.lr.ph142 ]
+  %153 = icmp eq i64 %.3139.us, 9223372036854775807
+  br i1 %153, label %.split147.us, label %oadd.exit110.us
 
 oadd.exit110.us:                                  ; preds = %.lr.ph142.split.us
-  %153 = add nsw i64 %.3139.us, 1
-  %154 = add i64 %.1140.us, 1
-  %155 = icmp sgt i64 %154, 6
-  %spec.store.select.us = select i1 %155, i64 0, i64 %154
-  %156 = add i32 %.286138.us, 1
-  %.not99.us = icmp eq i64 %spec.store.select.us, %150
+  %154 = add nsw i64 %.3139.us, 1
+  %155 = add i64 %.1140.us, 1
+  %156 = icmp sgt i64 %155, 6
+  %spec.store.select.us = select i1 %156, i64 0, i64 %155
+  %157 = add i32 %.286138.us, 1
+  %.not99.us = icmp eq i64 %spec.store.select.us, %151
   br i1 %.not99.us, label %._crit_edge143, label %.lr.ph142.split.us, !llvm.loop !82
 
 .lr.ph142.split:                                  ; preds = %.lr.ph142, %oadd.exit111
   %.1140 = phi i64 [ %spec.store.select2, %oadd.exit111 ], [ %.0, %.lr.ph142 ]
-  %.3139 = phi i64 [ %159, %oadd.exit111 ], [ %135, %.lr.ph142 ]
-  %.286138 = phi i32 [ %162, %oadd.exit111 ], [ %125, %.lr.ph142 ]
-  %157 = icmp eq i64 %.3139, -9223372036854775808
-  br i1 %157, label %158, label %oadd.exit111
+  %.3139 = phi i64 [ %160, %oadd.exit111 ], [ %136, %.lr.ph142 ]
+  %.286138 = phi i32 [ %163, %oadd.exit111 ], [ %126, %.lr.ph142 ]
+  %158 = icmp eq i64 %.3139, -9223372036854775808
+  br i1 %158, label %159, label %oadd.exit111
 
 .split147.us:                                     ; preds = %.lr.ph142.split.us
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.57)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
-158:                                              ; preds = %.lr.ph142.split
+159:                                              ; preds = %.lr.ph142.split
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.57)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
 oadd.exit111:                                     ; preds = %.lr.ph142.split
-  %159 = add nsw i64 %.3139, -1
-  %160 = add i64 %.1140, -1
-  %161 = icmp slt i64 %160, 0
-  %spec.store.select2 = select i1 %161, i64 6, i64 %160
-  %162 = add i32 %.286138, -1
-  %.not99 = icmp eq i64 %spec.store.select2, %150
+  %160 = add nsw i64 %.3139, -1
+  %161 = add i64 %.1140, -1
+  %162 = icmp slt i64 %161, 0
+  %spec.store.select2 = select i1 %162, i64 6, i64 %161
+  %163 = add i32 %.286138, -1
+  %.not99 = icmp eq i64 %spec.store.select2, %151
   br i1 %.not99, label %._crit_edge143, label %.lr.ph142.split, !llvm.loop !82
 
-._crit_edge143:                                   ; preds = %oadd.exit111, %oadd.exit110.us, %147
-  %.286.lcssa = phi i32 [ %125, %147 ], [ %156, %oadd.exit110.us ], [ %162, %oadd.exit111 ]
-  %.3.lcssa = phi i64 [ %135, %147 ], [ %153, %oadd.exit110.us ], [ %159, %oadd.exit111 ]
-  %163 = icmp slt i32 %.286.lcssa, 0
-  br i1 %163, label %178, label %164
+._crit_edge143:                                   ; preds = %oadd.exit111, %oadd.exit110.us, %148
+  %.286.lcssa = phi i32 [ %126, %148 ], [ %157, %oadd.exit110.us ], [ %163, %oadd.exit111 ]
+  %.3.lcssa = phi i64 [ %136, %148 ], [ %154, %oadd.exit110.us ], [ %160, %oadd.exit111 ]
+  %164 = icmp slt i32 %.286.lcssa, 0
+  br i1 %164, label %179, label %165
 
-164:                                              ; preds = %._crit_edge143
-  %165 = and i64 %.078.lcssa, 3
-  %166 = icmp eq i64 %165, 0
-  br i1 %166, label %167, label %173
+165:                                              ; preds = %._crit_edge143
+  %166 = and i64 %.078.lcssa, 3
+  %167 = icmp eq i64 %166, 0
+  br i1 %167, label %168, label %174
 
-167:                                              ; preds = %164
-  %168 = srem i64 %.078.lcssa, 100
-  %.not100 = icmp eq i64 %168, 0
-  br i1 %.not100, label %169, label %173
+168:                                              ; preds = %165
+  %169 = srem i64 %.078.lcssa, 100
+  %.not100 = icmp eq i64 %169, 0
+  br i1 %.not100, label %170, label %174
 
-169:                                              ; preds = %167
-  %170 = srem i64 %.078.lcssa, 400
-  %171 = icmp eq i64 %170, 0
-  %172 = zext i1 %171 to i64
-  br label %173
+170:                                              ; preds = %168
+  %171 = srem i64 %.078.lcssa, 400
+  %172 = icmp eq i64 %171, 0
+  %173 = zext i1 %172 to i64
+  br label %174
 
-173:                                              ; preds = %167, %169, %164
-  %174 = phi i64 [ 0, %164 ], [ 1, %167 ], [ %172, %169 ]
-  %175 = sext i32 %.088.lcssa174 to i64
-  %176 = getelementptr [2 x [12 x i32]], ptr @len_months, i64 0, i64 %174, i64 %175
-  %177 = load i32, ptr %176, align 4
-  %.not101 = icmp slt i32 %.286.lcssa, %177
-  br i1 %.not101, label %180, label %178
+174:                                              ; preds = %168, %170, %165
+  %175 = phi i64 [ 0, %165 ], [ 1, %168 ], [ %173, %170 ]
+  %176 = sext i32 %.088.lcssa174 to i64
+  %177 = getelementptr [2 x [12 x i32]], ptr @len_months, i64 0, i64 %175, i64 %176
+  %178 = load i32, ptr %177, align 4
+  %.not101 = icmp slt i32 %.286.lcssa, %178
+  br i1 %.not101, label %181, label %179
 
-178:                                              ; preds = %173, %._crit_edge143
+179:                                              ; preds = %174, %._crit_edge143
   %.b102 = load i1, ptr @noise, align 1
-  br i1 %.b102, label %179, label %180
+  br i1 %.b102, label %180, label %181
 
-179:                                              ; preds = %178
+180:                                              ; preds = %179
   tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.124)
-  br label %180
+  br label %181
 
-180:                                              ; preds = %oadd.exit109, %173, %179, %178
-  %.5 = phi i64 [ %.3.lcssa, %179 ], [ %.3.lcssa, %178 ], [ %.3.lcssa, %173 ], [ %135, %oadd.exit109 ]
-  %181 = icmp slt i64 %.5, -106751991167300
-  br i1 %181, label %198, label %182
+181:                                              ; preds = %oadd.exit109, %174, %180, %179
+  %.5 = phi i64 [ %.3.lcssa, %180 ], [ %.3.lcssa, %179 ], [ %.3.lcssa, %174 ], [ %136, %oadd.exit109 ]
+  %182 = icmp slt i64 %.5, -106751991167300
+  br i1 %182, label %199, label %183
 
-182:                                              ; preds = %180
-  %183 = icmp sgt i64 %.5, 106751991167300
-  br i1 %183, label %198, label %184
+183:                                              ; preds = %181
+  %184 = icmp sgt i64 %.5, 106751991167300
+  br i1 %184, label %199, label %185
 
-184:                                              ; preds = %182
-  %185 = mul nsw i64 %.5, 86400
-  %186 = getelementptr inbounds i8, ptr %0, i64 64
-  %187 = load i64, ptr %186, align 8
-  %188 = icmp slt i64 %.5, 0
-  br i1 %188, label %189, label %193
+185:                                              ; preds = %183
+  %186 = mul nsw i64 %.5, 86400
+  %187 = getelementptr inbounds i8, ptr %0, i64 64
+  %188 = load i64, ptr %187, align 8
+  %189 = icmp slt i64 %.5, 0
+  br i1 %189, label %190, label %194
 
-189:                                              ; preds = %184
-  %190 = sub nsw i64 -9223372036854775808, %185
-  %191 = icmp sgt i64 %190, %187
-  br i1 %191, label %192, label %tadd.exit
+190:                                              ; preds = %185
+  %191 = sub nsw i64 -9223372036854775808, %186
+  %192 = icmp sgt i64 %191, %188
+  br i1 %192, label %193, label %tadd.exit
 
-192:                                              ; preds = %189
+193:                                              ; preds = %190
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.57)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
-193:                                              ; preds = %184
-  %194 = sub nuw nsw i64 9223372036854775807, %185
-  %195 = icmp slt i64 %194, %187
-  br i1 %195, label %196, label %tadd.exit
+194:                                              ; preds = %185
+  %195 = sub nuw nsw i64 9223372036854775807, %186
+  %196 = icmp slt i64 %195, %188
+  br i1 %196, label %197, label %tadd.exit
 
-196:                                              ; preds = %193
+197:                                              ; preds = %194
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.57)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
-tadd.exit:                                        ; preds = %189, %193
-  %197 = add i64 %187, %185
-  br label %198
+tadd.exit:                                        ; preds = %190, %194
+  %198 = add i64 %188, %186
+  br label %199
 
-198:                                              ; preds = %2, %182, %180, %tadd.exit
-  %.080 = phi i64 [ %197, %tadd.exit ], [ -9223372036854775808, %180 ], [ 9223372036854775807, %182 ], [ %1, %2 ]
+199:                                              ; preds = %183, %181, %2, %tadd.exit, %3
+  %.080 = phi i64 [ 9223372036854775807, %3 ], [ %198, %tadd.exit ], [ %1, %2 ], [ -9223372036854775808, %181 ], [ 9223372036854775807, %183 ]
   ret i64 %.080
 }
 

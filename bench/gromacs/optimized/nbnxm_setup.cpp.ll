@@ -516,8 +516,8 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i.i: ; preds = %_ZN3gmx14L
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
   br label %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i
 
-common.resume:                                    ; preds = %.body, %180, %common.resume.i
-  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i, %common.resume.i ], [ %181, %180 ], [ %.pn.pn, %.body ]
+common.resume:                                    ; preds = %.body, %181, %common.resume.i
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i, %common.resume.i ], [ %182, %181 ], [ %.pn.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 common.resume.i:                                  ; preds = %.body28.i, %.body.i, %64, %46
@@ -745,228 +745,233 @@ _ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.exit: ; preds = %144, %157, %
 
 162:                                              ; preds = %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.exit
   %.val70 = load i32, ptr %160, align 8
-  %switch = icmp ult i32 %.val70, 2
-  br i1 %switch, label %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit, label %163
+  switch i32 %.val70, label %164 [
+    i32 0, label %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit
+    i32 1, label %163
+  ]
 
 163:                                              ; preds = %162
+  br label %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit
+
+164:                                              ; preds = %162
   call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerecENK3$_0clEv", ptr noundef nonnull @.str.5, i32 noundef 388) #16
   unreachable
 
-_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit: ; preds = %162, %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.exit
-  %.0.i = phi i32 [ 2, %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.exit ], [ %.val70, %162 ]
-  %164 = getelementptr inbounds i8, ptr %3, i64 316
-  %165 = getelementptr inbounds i8, ptr %3, i64 328
+_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit: ; preds = %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.exit, %162, %163
+  %.0.i = phi i32 [ 1, %163 ], [ %.val70, %162 ], [ 2, %_ZN5NbnxmL23chooseLJCombinationRuleERK10t_forcerec.exit ]
+  %165 = getelementptr inbounds i8, ptr %3, i64 316
+  %166 = getelementptr inbounds i8, ptr %3, i64 328
   %brmerge65 = or i1 %.not, %6
-  br i1 %brmerge65, label %168, label %166
+  br i1 %brmerge65, label %169, label %167
 
-166:                                              ; preds = %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit
-  %167 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
-  br label %168
+167:                                              ; preds = %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit
+  %168 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
+  br label %169
 
-168:                                              ; preds = %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit, %166
-  %169 = phi i32 [ %167, %166 ], [ 1, %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit ]
+169:                                              ; preds = %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit, %167
+  %170 = phi i32 [ %168, %167 ], [ 1, %_ZN5NbnxmL26chooseLJPmeCombinationRuleERK10t_forcerec.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  %170 = call noalias noundef nonnull dereferenceable(464) ptr @_Znwm(i64 noundef 464) #19, !noalias !11
-  %171 = load i32, ptr %164, align 4, !noalias !11
-  %172 = load ptr, ptr %165, align 8, !noalias !11
-  store ptr %172, ptr %16, align 8, !noalias !11
-  %173 = getelementptr inbounds i8, ptr %16, i64 8
-  %174 = getelementptr inbounds i8, ptr %3, i64 336
-  %175 = load ptr, ptr %174, align 8, !noalias !11
-  %176 = ptrtoint ptr %175 to i64
-  %177 = ptrtoint ptr %172 to i64
-  %178 = sub i64 %176, %177
-  %179 = getelementptr inbounds i8, ptr %172, i64 %178
-  store ptr %179, ptr %173, align 8, !noalias !11
-  invoke void @_ZN16nbnxn_atomdata_tC1EN3gmx13PinningPolicyERKNS0_8MDLoggerEN5Nbnxm10KernelTypeERKSt8optionalI17LJCombinationRuleES8_iNS0_8ArrayRefIKfEEii(ptr noundef nonnull align 8 dereferenceable(464) %170, i32 noundef %145, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %107, ptr noundef nonnull align 4 dereferenceable(8) %25, i32 noundef %.0.i, i32 noundef %171, ptr noundef nonnull byval(%"class.gmx::ArrayRef.406") align 8 %16, i32 noundef %spec.store.select, i32 noundef %169)
-          to label %_ZSt11make_uniqueI16nbnxn_atomdata_tJRN3gmx13PinningPolicyERKNS1_8MDLoggerERN5Nbnxm10KernelTypeESt8optionalI17LJCombinationRuleESB_RKiRKSt6vectorIfSaIfEERiiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %180, !noalias !11
+  %171 = call noalias noundef nonnull dereferenceable(464) ptr @_Znwm(i64 noundef 464) #19, !noalias !11
+  %172 = load i32, ptr %165, align 4, !noalias !11
+  %173 = load ptr, ptr %166, align 8, !noalias !11
+  store ptr %173, ptr %16, align 8, !noalias !11
+  %174 = getelementptr inbounds i8, ptr %16, i64 8
+  %175 = getelementptr inbounds i8, ptr %3, i64 336
+  %176 = load ptr, ptr %175, align 8, !noalias !11
+  %177 = ptrtoint ptr %176 to i64
+  %178 = ptrtoint ptr %173 to i64
+  %179 = sub i64 %177, %178
+  %180 = getelementptr inbounds i8, ptr %173, i64 %179
+  store ptr %180, ptr %174, align 8, !noalias !11
+  invoke void @_ZN16nbnxn_atomdata_tC1EN3gmx13PinningPolicyERKNS0_8MDLoggerEN5Nbnxm10KernelTypeERKSt8optionalI17LJCombinationRuleES8_iNS0_8ArrayRefIKfEEii(ptr noundef nonnull align 8 dereferenceable(464) %171, i32 noundef %145, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %107, ptr noundef nonnull align 4 dereferenceable(8) %25, i32 noundef %.0.i, i32 noundef %172, ptr noundef nonnull byval(%"class.gmx::ArrayRef.406") align 8 %16, i32 noundef %spec.store.select, i32 noundef %170)
+          to label %_ZSt11make_uniqueI16nbnxn_atomdata_tJRN3gmx13PinningPolicyERKNS1_8MDLoggerERN5Nbnxm10KernelTypeESt8optionalI17LJCombinationRuleESB_RKiRKSt6vectorIfSaIfEERiiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %181, !noalias !11
 
-180:                                              ; preds = %168
-  %181 = landingpad { ptr, i32 }
+181:                                              ; preds = %169
+  %182 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %170) #20, !noalias !11
+  call void @_ZdlPv(ptr noundef nonnull %171) #20, !noalias !11
   br label %common.resume
 
-_ZSt11make_uniqueI16nbnxn_atomdata_tJRN3gmx13PinningPolicyERKNS1_8MDLoggerERN5Nbnxm10KernelTypeESt8optionalI17LJCombinationRuleESB_RKiRKSt6vectorIfSaIfEERiiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %168
-  store ptr %170, ptr %24, align 8, !alias.scope !11
+_ZSt11make_uniqueI16nbnxn_atomdata_tJRN3gmx13PinningPolicyERKNS1_8MDLoggerERN5Nbnxm10KernelTypeESt8optionalI17LJCombinationRuleESB_RKiRKSt6vectorIfSaIfEERiiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %169
+  store ptr %171, ptr %24, align 8, !alias.scope !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  %182 = load ptr, ptr %3, align 8
-  %183 = load i32, ptr %182, align 8
-  %184 = icmp eq i32 %183, 5
-  br i1 %184, label %185, label %197
+  %183 = load ptr, ptr %3, align 8
+  %184 = load i32, ptr %183, align 8
+  %185 = icmp eq i32 %184, 5
+  br i1 %185, label %186, label %198
 
-185:                                              ; preds = %_ZSt11make_uniqueI16nbnxn_atomdata_tJRN3gmx13PinningPolicyERKNS1_8MDLoggerERN5Nbnxm10KernelTypeESt8optionalI17LJCombinationRuleESB_RKiRKSt6vectorIfSaIfEERiiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %186 = load i32, ptr %160, align 8
-  switch i32 %186, label %.invoke [
-    i32 0, label %187
-    i32 1, label %191
+186:                                              ; preds = %_ZSt11make_uniqueI16nbnxn_atomdata_tJRN3gmx13PinningPolicyERKNS1_8MDLoggerERN5Nbnxm10KernelTypeESt8optionalI17LJCombinationRuleESB_RKiRKSt6vectorIfSaIfEERiiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %187 = load i32, ptr %160, align 8
+  switch i32 %187, label %.invoke [
+    i32 0, label %188
+    i32 1, label %192
   ]
 
-187:                                              ; preds = %185
-  %188 = getelementptr inbounds i8, ptr %170, i64 40
-  %189 = load i32, ptr %188, align 8
-  %190 = icmp eq i32 %189, 0
-  br i1 %190, label %197, label %.invoke
+188:                                              ; preds = %186
+  %189 = getelementptr inbounds i8, ptr %171, i64 40
+  %190 = load i32, ptr %189, align 8
+  %191 = icmp eq i32 %190, 0
+  br i1 %191, label %198, label %.invoke
 
-191:                                              ; preds = %185
-  %192 = getelementptr inbounds i8, ptr %170, i64 40
-  %193 = load i32, ptr %192, align 8
-  %194 = icmp eq i32 %193, 1
-  br i1 %194, label %197, label %.invoke
+192:                                              ; preds = %186
+  %193 = getelementptr inbounds i8, ptr %171, i64 40
+  %194 = load i32, ptr %193, align 8
+  %195 = icmp eq i32 %194, 1
+  br i1 %195, label %198, label %.invoke
 
-195:                                              ; preds = %.invoke, %225, %212
-  %196 = landingpad { ptr, i32 }
+196:                                              ; preds = %.invoke, %226, %213
+  %197 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-197:                                              ; preds = %191, %187, %_ZSt11make_uniqueI16nbnxn_atomdata_tJRN3gmx13PinningPolicyERKNS1_8MDLoggerERN5Nbnxm10KernelTypeESt8optionalI17LJCombinationRuleESB_RKiRKSt6vectorIfSaIfEERiiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+198:                                              ; preds = %192, %188, %_ZSt11make_uniqueI16nbnxn_atomdata_tJRN3gmx13PinningPolicyERKNS1_8MDLoggerERN5Nbnxm10KernelTypeESt8optionalI17LJCombinationRuleESB_RKiRKSt6vectorIfSaIfEERiiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   store ptr null, ptr %26, align 8
-  br i1 %6, label %198, label %225
+  br i1 %6, label %199, label %226
 
-198:                                              ; preds = %197
+199:                                              ; preds = %198
   %.not60 = icmp eq ptr %7, null
-  br i1 %.not60, label %.invoke, label %202
+  br i1 %.not60, label %.invoke, label %203
 
-.invoke:                                          ; preds = %191, %187, %185, %198
-  %199 = phi ptr [ @.str.25, %198 ], [ @.str.23, %185 ], [ @.str.23, %187 ], [ @.str.23, %191 ]
-  %200 = phi ptr [ @.str.26, %198 ], [ @.str.24, %185 ], [ @.str.24, %187 ], [ @.str.24, %191 ]
-  %201 = phi i32 [ 489, %198 ], [ 478, %185 ], [ 478, %187 ], [ 478, %191 ]
-  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull %199, ptr noundef nonnull %200, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN5Nbnxm14init_nb_verletERKN3gmx8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS0_19DeviceStreamManagerERK10gmx_mtop_tPNS0_25ObservablesReducerBuilderENS0_8ArrayRefIKNS0_11BasicVectorIfEEEEPA3_fP13gmx_wallcycleENK3$_0clEv", ptr noundef nonnull @.str.5, i32 noundef %201) #16
-          to label %.cont unwind label %195
+.invoke:                                          ; preds = %192, %188, %186, %199
+  %200 = phi ptr [ @.str.25, %199 ], [ @.str.23, %186 ], [ @.str.23, %188 ], [ @.str.23, %192 ]
+  %201 = phi ptr [ @.str.26, %199 ], [ @.str.24, %186 ], [ @.str.24, %188 ], [ @.str.24, %192 ]
+  %202 = phi i32 [ 489, %199 ], [ 478, %186 ], [ 478, %188 ], [ 478, %192 ]
+  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull %200, ptr noundef nonnull %201, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN5Nbnxm14init_nb_verletERKN3gmx8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS0_19DeviceStreamManagerERK10gmx_mtop_tPNS0_25ObservablesReducerBuilderENS0_8ArrayRefIKNS0_11BasicVectorIfEEEEPA3_fP13gmx_wallcycleENK3$_0clEv", ptr noundef nonnull @.str.5, i32 noundef %202) #16
+          to label %.cont unwind label %196
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-202:                                              ; preds = %198
+203:                                              ; preds = %199
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
-  %203 = call ptr @getenv(ptr noundef nonnull @.str.27) #17
-  %.not.i77 = icmp eq ptr %203, null
-  br i1 %.not.i77, label %220, label %204
+  %204 = call ptr @getenv(ptr noundef nonnull @.str.27) #17
+  %.not.i77 = icmp eq ptr %204, null
+  br i1 %.not.i77, label %221, label %205
 
-204:                                              ; preds = %202
+205:                                              ; preds = %203
   store ptr null, ptr %14, align 8
-  %205 = call i64 @strtol(ptr noundef nonnull %203, ptr noundef nonnull %14, i32 noundef 10) #17
-  %206 = trunc i64 %205 to i32
-  %207 = load ptr, ptr %14, align 8
-  %.not18.i = icmp eq ptr %207, null
-  br i1 %.not18.i, label %212, label %208
+  %206 = call i64 @strtol(ptr noundef nonnull %204, ptr noundef nonnull %14, i32 noundef 10) #17
+  %207 = trunc i64 %206 to i32
+  %208 = load ptr, ptr %14, align 8
+  %.not18.i = icmp eq ptr %208, null
+  br i1 %.not18.i, label %213, label %209
 
-208:                                              ; preds = %204
-  %209 = load i8, ptr %207, align 1
-  %210 = icmp ne i8 %209, 0
-  %211 = icmp slt i32 %206, 0
-  %or.cond.i78 = select i1 %210, i1 true, i1 %211
-  br i1 %or.cond.i78, label %212, label %216
+209:                                              ; preds = %205
+  %210 = load i8, ptr %208, align 1
+  %211 = icmp ne i8 %210, 0
+  %212 = icmp slt i32 %207, 0
+  %or.cond.i78 = select i1 %211, i1 true, i1 %212
+  br i1 %or.cond.i78, label %213, label %217
 
-212:                                              ; preds = %208, %204
+213:                                              ; preds = %209, %205
   invoke void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 1 dereferenceable(127) @.str.5, i8 noundef zeroext 2)
-          to label %.noexc80 unwind label %195
+          to label %.noexc80 unwind label %196
 
-.noexc80:                                         ; preds = %212
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef 332, ptr noundef nonnull @.str.28, ptr noundef nonnull %203) #16
-          to label %213 unwind label %214
-
-213:                                              ; preds = %.noexc80
-  unreachable
+.noexc80:                                         ; preds = %213
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef 332, ptr noundef nonnull @.str.28, ptr noundef nonnull %204) #16
+          to label %214 unwind label %215
 
 214:                                              ; preds = %.noexc80
-  %215 = landingpad { ptr, i32 }
+  unreachable
+
+215:                                              ; preds = %.noexc80
+  %216 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #17
   br label %.body
 
-216:                                              ; preds = %208
-  %217 = load ptr, ptr @debug, align 8
-  %.not19.i = icmp eq ptr %217, null
-  br i1 %.not19.i, label %224, label %218
+217:                                              ; preds = %209
+  %218 = load ptr, ptr @debug, align 8
+  %.not19.i = icmp eq ptr %218, null
+  br i1 %.not19.i, label %225, label %219
 
-218:                                              ; preds = %216
-  %219 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %217, ptr noundef nonnull @.str.29, i32 noundef %206) #17
-  br label %224
-
-220:                                              ; preds = %202
-  %221 = load ptr, ptr @debug, align 8
-  %.not17.i = icmp eq ptr %221, null
-  br i1 %.not17.i, label %224, label %222
-
-222:                                              ; preds = %220
-  %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %221, ptr noundef nonnull @.str.30, i32 noundef -1) #17
-  br label %224
-
-224:                                              ; preds = %222, %220, %218, %216
-  %.0.i79 = phi i32 [ %206, %218 ], [ %206, %216 ], [ -1, %222 ], [ -1, %220 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
+219:                                              ; preds = %217
+  %220 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %218, ptr noundef nonnull @.str.29, i32 noundef %207) #17
   br label %225
 
-225:                                              ; preds = %224, %197
-  %.0121 = phi i32 [ %.0.i79, %224 ], [ 0, %197 ]
+221:                                              ; preds = %203
+  %222 = load ptr, ptr @debug, align 8
+  %.not17.i = icmp eq ptr %222, null
+  br i1 %.not17.i, label %225, label %223
+
+223:                                              ; preds = %221
+  %224 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %222, ptr noundef nonnull @.str.30, i32 noundef -1) #17
+  br label %225
+
+225:                                              ; preds = %223, %221, %219, %217
+  %.0.i79 = phi i32 [ %207, %219 ], [ %207, %217 ], [ -1, %223 ], [ -1, %221 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
+  br label %226
+
+226:                                              ; preds = %225, %198
+  %.0121 = phi i32 [ %.0.i79, %225 ], [ 0, %198 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %226 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #19
-          to label %.noexc81 unwind label %195
+  %227 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #19
+          to label %.noexc81 unwind label %196
 
-.noexc81:                                         ; preds = %225
-  invoke void @_ZN12PairlistSetsC1ERK14PairlistParamsbi(ptr noundef nonnull align 8 dereferenceable(64) %226, ptr noundef nonnull align 4 dereferenceable(36) %23, i1 noundef zeroext %115, i32 noundef %.0121)
-          to label %229 unwind label %227, !noalias !14
+.noexc81:                                         ; preds = %226
+  invoke void @_ZN12PairlistSetsC1ERK14PairlistParamsbi(ptr noundef nonnull align 8 dereferenceable(64) %227, ptr noundef nonnull align 4 dereferenceable(36) %23, i1 noundef zeroext %115, i32 noundef %.0121)
+          to label %230 unwind label %228, !noalias !14
 
-227:                                              ; preds = %.noexc81
-  %228 = landingpad { ptr, i32 }
+228:                                              ; preds = %.noexc81
+  %229 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %226) #20, !noalias !14
+  call void @_ZdlPv(ptr noundef nonnull %227) #20, !noalias !14
   br label %.body
 
-229:                                              ; preds = %.noexc81
-  store ptr %226, ptr %27, align 8, !alias.scope !14
-  %230 = getelementptr inbounds i8, ptr %2, i64 176
-  %231 = load i32, ptr %141, align 4
-  %232 = add i32 %231, -7
-  %narrow = icmp ult i32 %232, 2
+230:                                              ; preds = %.noexc81
+  store ptr %227, ptr %27, align 8, !alias.scope !14
+  %231 = getelementptr inbounds i8, ptr %2, i64 176
+  %232 = load i32, ptr %141, align 4
+  %233 = add i32 %232, -7
+  %narrow = icmp ult i32 %233, 2
   %.val72 = load ptr, ptr %105, align 8
   %.not136 = icmp eq ptr %.val72, null
-  br i1 %.not136, label %236, label %233
+  br i1 %.not136, label %237, label %234
 
-233:                                              ; preds = %229
-  %234 = getelementptr inbounds i8, ptr %.val72, i64 148
-  %235 = invoke noundef ptr @_Z12domdec_zonesP12gmx_domdec_t(ptr noundef nonnull %.val72)
-          to label %236 unwind label %257
+234:                                              ; preds = %230
+  %235 = getelementptr inbounds i8, ptr %.val72, i64 148
+  %236 = invoke noundef ptr @_Z12domdec_zonesP12gmx_domdec_t(ptr noundef nonnull %.val72)
+          to label %237 unwind label %258
 
-236:                                              ; preds = %229, %233
-  %237 = phi ptr [ %234, %233 ], [ null, %229 ]
-  %238 = phi ptr [ %235, %233 ], [ null, %229 ]
-  %239 = invoke noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 2)
-          to label %240 unwind label %257
+237:                                              ; preds = %230, %234
+  %238 = phi ptr [ %235, %234 ], [ null, %230 ]
+  %239 = phi ptr [ %236, %234 ], [ null, %230 ]
+  %240 = invoke noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 2)
+          to label %241 unwind label %258
 
-240:                                              ; preds = %236
+241:                                              ; preds = %237
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %241 = invoke noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #19
-          to label %.noexc84 unwind label %257
+  %242 = invoke noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #19
+          to label %.noexc84 unwind label %258
 
-.noexc84:                                         ; preds = %240
-  %242 = load i32, ptr %230, align 8, !noalias !17
-  %243 = load i32, ptr %23, align 4, !noalias !17
-  invoke void @_ZN10PairSearchC1E7PbcTypebPA3_KiPK18gmx_domdec_zones_t12PairlistTypebiN3gmx13PinningPolicyE(ptr noundef nonnull align 8 dereferenceable(296) %241, i32 noundef %242, i1 noundef zeroext %narrow, ptr noundef %237, ptr noundef %238, i32 noundef %243, i1 noundef zeroext %121, i32 noundef %239, i32 noundef %145)
-          to label %246 unwind label %244, !noalias !17
+.noexc84:                                         ; preds = %241
+  %243 = load i32, ptr %231, align 8, !noalias !17
+  %244 = load i32, ptr %23, align 4, !noalias !17
+  invoke void @_ZN10PairSearchC1E7PbcTypebPA3_KiPK18gmx_domdec_zones_t12PairlistTypebiN3gmx13PinningPolicyE(ptr noundef nonnull align 8 dereferenceable(296) %242, i32 noundef %243, i1 noundef zeroext %narrow, ptr noundef %238, ptr noundef %239, i32 noundef %244, i1 noundef zeroext %121, i32 noundef %240, i32 noundef %145)
+          to label %247 unwind label %245, !noalias !17
 
-244:                                              ; preds = %.noexc84
-  %245 = landingpad { ptr, i32 }
+245:                                              ; preds = %.noexc84
+  %246 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %241) #20, !noalias !17
+  call void @_ZdlPv(ptr noundef nonnull %242) #20, !noalias !17
   br label %.body85
 
-246:                                              ; preds = %.noexc84
-  store ptr %241, ptr %28, align 8, !alias.scope !17
+247:                                              ; preds = %.noexc84
+  store ptr %242, ptr %28, align 8, !alias.scope !17
   store ptr null, ptr %29, align 8
-  %247 = getelementptr inbounds i8, ptr %2, i64 396
-  %248 = load i32, ptr %247, align 4
-  %.not61 = icmp eq i32 %248, 0
-  br i1 %.not61, label %_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit, label %249
+  %248 = getelementptr inbounds i8, ptr %2, i64 396
+  %249 = load i32, ptr %248, align 4
+  %.not61 = icmp eq i32 %249, 0
+  br i1 %.not61, label %_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit, label %250
 
-249:                                              ; preds = %246
-  %250 = getelementptr inbounds i8, ptr %2, i64 340
-  %.val73 = load i32, ptr %250, align 4
-  switch i32 %.val73, label %251 [
+250:                                              ; preds = %247
+  %251 = getelementptr inbounds i8, ptr %2, i64 340
+  %.val73 = load i32, ptr %251, align 4
+  switch i32 %.val73, label %252 [
     i32 3, label %.thread133
     i32 14, label %.thread133
     i32 13, label %.thread133
@@ -975,159 +980,159 @@ _ZSt11make_uniqueI16nbnxn_atomdata_tJRN3gmx13PinningPolicyERKNS1_8MDLoggerERN5Nb
     i32 4, label %.thread133
   ]
 
-251:                                              ; preds = %249
+252:                                              ; preds = %250
   %.val74 = load i32, ptr %79, align 4
-  %252 = icmp eq i32 %.val74, 5
-  br i1 %252, label %.thread133, label %_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit
+  %253 = icmp eq i32 %.val74, 5
+  br i1 %253, label %.thread133, label %_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit
 
-.thread133:                                       ; preds = %249, %249, %249, %249, %249, %249, %251
-  %253 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
-          to label %.noexc87 unwind label %259
+.thread133:                                       ; preds = %250, %250, %250, %250, %250, %250, %252
+  %254 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
+          to label %.noexc87 unwind label %260
 
 .noexc87:                                         ; preds = %.thread133
-  invoke void @_ZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderE(ptr noundef nonnull align 8 dereferenceable(8) %253, ptr noundef nonnull %4, ptr noundef nonnull align 1 %8, ptr noundef %9)
-          to label %_ZSt11make_uniqueI16ExclusionCheckerJRPK9t_commrecRK10gmx_mtop_tRPN3gmx25ObservablesReducerBuilderEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %254, !noalias !20
+  invoke void @_ZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderE(ptr noundef nonnull align 8 dereferenceable(8) %254, ptr noundef nonnull %4, ptr noundef nonnull align 1 %8, ptr noundef %9)
+          to label %_ZSt11make_uniqueI16ExclusionCheckerJRPK9t_commrecRK10gmx_mtop_tRPN3gmx25ObservablesReducerBuilderEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %255, !noalias !20
 
-254:                                              ; preds = %.noexc87
-  %255 = landingpad { ptr, i32 }
+255:                                              ; preds = %.noexc87
+  %256 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %253) #20, !noalias !20
+  call void @_ZdlPv(ptr noundef nonnull %254) #20, !noalias !20
   br label %.body88
 
 _ZSt11make_uniqueI16ExclusionCheckerJRPK9t_commrecRK10gmx_mtop_tRPN3gmx25ObservablesReducerBuilderEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %.noexc87
-  %256 = load ptr, ptr %29, align 8
-  store ptr %253, ptr %29, align 8
-  %.not.i.i.i.i = icmp eq ptr %256, null
+  %257 = load ptr, ptr %29, align 8
+  store ptr %254, ptr %29, align 8
+  %.not.i.i.i.i = icmp eq ptr %257, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteI16ExclusionCheckerEclEPS0_.exit.i.i.i.i
 
 _ZNKSt14default_deleteI16ExclusionCheckerEclEPS0_.exit.i.i.i.i: ; preds = %_ZSt11make_uniqueI16ExclusionCheckerJRPK9t_commrecRK10gmx_mtop_tRPN3gmx25ObservablesReducerBuilderEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  call void @_ZN16ExclusionCheckerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %256) #17
-  call void @_ZdlPv(ptr noundef nonnull %256) #20
+  call void @_ZN16ExclusionCheckerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %257) #17
+  call void @_ZdlPv(ptr noundef nonnull %257) #20
   br label %_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit
 
-257:                                              ; preds = %240, %236, %233
-  %258 = landingpad { ptr, i32 }
+258:                                              ; preds = %241, %237, %234
+  %259 = landingpad { ptr, i32 }
           cleanup
   br label %.body85
 
-259:                                              ; preds = %.thread133, %_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit
-  %260 = landingpad { ptr, i32 }
+260:                                              ; preds = %.thread133, %_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit
+  %261 = landingpad { ptr, i32 }
           cleanup
   br label %.body88
 
-.body88:                                          ; preds = %254, %259
-  %eh.lpad-body89 = phi { ptr, i32 } [ %260, %259 ], [ %255, %254 ]
+.body88:                                          ; preds = %255, %260
+  %eh.lpad-body89 = phi { ptr, i32 } [ %261, %260 ], [ %256, %255 ]
   call void @_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #17
   call void @_ZNSt10unique_ptrI10PairSearchSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #17
   br label %.body85
 
-_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZSt11make_uniqueI16ExclusionCheckerJRPK9t_commrecRK10gmx_mtop_tRPN3gmx25ObservablesReducerBuilderEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZNKSt14default_deleteI16ExclusionCheckerEclEPS0_.exit.i.i.i.i, %251, %246
+_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZSt11make_uniqueI16ExclusionCheckerJRPK9t_commrecRK10gmx_mtop_tRPN3gmx25ObservablesReducerBuilderEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZNKSt14default_deleteI16ExclusionCheckerEclEPS0_.exit.i.i.i.i, %252, %247
   invoke void @_ZSt11make_uniqueI18nonbonded_verlet_tJSt10unique_ptrI12PairlistSetsSt14default_deleteIS2_EES1_I10PairSearchS3_IS6_EES1_I16nbnxn_atomdata_tS3_IS9_EERN5Nbnxm11KernelSetupES1_I16ExclusionCheckerS3_ISF_EERP8NbnxmGpuRP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.23") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 4 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %261 unwind label %259
+          to label %262 unwind label %260
 
-261:                                              ; preds = %_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit
-  %262 = load ptr, ptr %29, align 8
-  %.not.i91 = icmp eq ptr %262, null
+262:                                              ; preds = %_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit
+  %263 = load ptr, ptr %29, align 8
+  %.not.i91 = icmp eq ptr %263, null
   br i1 %.not.i91, label %_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit93, label %_ZNKSt14default_deleteI16ExclusionCheckerEclEPS0_.exit.i92
 
-_ZNKSt14default_deleteI16ExclusionCheckerEclEPS0_.exit.i92: ; preds = %261
-  call void @_ZN16ExclusionCheckerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %262) #17
-  call void @_ZdlPv(ptr noundef nonnull %262) #20
+_ZNKSt14default_deleteI16ExclusionCheckerEclEPS0_.exit.i92: ; preds = %262
+  call void @_ZN16ExclusionCheckerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %263) #17
+  call void @_ZdlPv(ptr noundef nonnull %263) #20
   br label %_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit93
 
-_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit93: ; preds = %261, %_ZNKSt14default_deleteI16ExclusionCheckerEclEPS0_.exit.i92
+_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit93: ; preds = %262, %_ZNKSt14default_deleteI16ExclusionCheckerEclEPS0_.exit.i92
   store ptr null, ptr %29, align 8
-  %263 = load ptr, ptr %28, align 8
-  %.not.i94 = icmp eq ptr %263, null
-  br i1 %.not.i94, label %_ZNSt10unique_ptrI10PairSearchSt14default_deleteIS0_EED2Ev.exit, label %264
+  %264 = load ptr, ptr %28, align 8
+  %.not.i94 = icmp eq ptr %264, null
+  br i1 %.not.i94, label %_ZNSt10unique_ptrI10PairSearchSt14default_deleteIS0_EED2Ev.exit, label %265
 
-264:                                              ; preds = %_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit93
-  %265 = getelementptr inbounds i8, ptr %263, i64 192
-  %266 = load ptr, ptr %265, align 8
-  %267 = getelementptr inbounds i8, ptr %263, i64 200
-  %268 = load ptr, ptr %267, align 8
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %266, %268
+265:                                              ; preds = %_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit93
+  %266 = getelementptr inbounds i8, ptr %264, i64 192
+  %267 = load ptr, ptr %266, align 8
+  %268 = getelementptr inbounds i8, ptr %264, i64 200
+  %269 = load ptr, ptr %268, align 8
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %267, %269
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIP14PairsearchWorkS0_EvT_S2_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %264, %.lr.ph.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i = phi ptr [ %269, %.lr.ph.i.i.i.i.i.i.i ], [ %266, %264 ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %265, %.lr.ph.i.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i.i = phi ptr [ %270, %.lr.ph.i.i.i.i.i.i.i ], [ %267, %265 ]
   call void @_ZN14PairsearchWorkD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %.05.i.i.i.i.i.i.i) #17
-  %269 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 216
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %269, %268
+  %270 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 216
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %270, %269
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIP14PairsearchWorkS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !23
 
 _ZSt8_DestroyIP14PairsearchWorkS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.pr.i.i.i.i = load ptr, ptr %265, align 8
+  %.pr.i.i.i.i = load ptr, ptr %266, align 8
   br label %_ZSt8_DestroyIP14PairsearchWorkS0_EvT_S2_RSaIT0_E.exit.i.i.i.i
 
-_ZSt8_DestroyIP14PairsearchWorkS0_EvT_S2_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIP14PairsearchWorkS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i.i.i, %264
-  %270 = phi ptr [ %.pr.i.i.i.i, %_ZSt8_DestroyIP14PairsearchWorkS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %266, %264 ]
-  %.not.i.i.i.i.i.i = icmp eq ptr %270, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteI10PairSearchEclEPS0_.exit.i, label %271
+_ZSt8_DestroyIP14PairsearchWorkS0_EvT_S2_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIP14PairsearchWorkS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i.i.i, %265
+  %271 = phi ptr [ %.pr.i.i.i.i, %_ZSt8_DestroyIP14PairsearchWorkS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i.i.i ], [ %267, %265 ]
+  %.not.i.i.i.i.i.i = icmp eq ptr %271, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteI10PairSearchEclEPS0_.exit.i, label %272
 
-271:                                              ; preds = %_ZSt8_DestroyIP14PairsearchWorkS0_EvT_S2_RSaIT0_E.exit.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %270) #20
+272:                                              ; preds = %_ZSt8_DestroyIP14PairsearchWorkS0_EvT_S2_RSaIT0_E.exit.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %271) #20
   br label %_ZNKSt14default_deleteI10PairSearchEclEPS0_.exit.i
 
-_ZNKSt14default_deleteI10PairSearchEclEPS0_.exit.i: ; preds = %271, %_ZSt8_DestroyIP14PairsearchWorkS0_EvT_S2_RSaIT0_E.exit.i.i.i.i
-  call void @_ZN5Nbnxm7GridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(188) %263) #17
-  call void @_ZdlPv(ptr noundef nonnull %263) #20
+_ZNKSt14default_deleteI10PairSearchEclEPS0_.exit.i: ; preds = %272, %_ZSt8_DestroyIP14PairsearchWorkS0_EvT_S2_RSaIT0_E.exit.i.i.i.i
+  call void @_ZN5Nbnxm7GridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(188) %264) #17
+  call void @_ZdlPv(ptr noundef nonnull %264) #20
   br label %_ZNSt10unique_ptrI10PairSearchSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrI10PairSearchSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev.exit93, %_ZNKSt14default_deleteI10PairSearchEclEPS0_.exit.i
   store ptr null, ptr %28, align 8
-  %272 = load ptr, ptr %27, align 8
-  %.not.i95 = icmp eq ptr %272, null
-  br i1 %.not.i95, label %_ZNSt10unique_ptrI12PairlistSetsSt14default_deleteIS0_EED2Ev.exit, label %273
+  %273 = load ptr, ptr %27, align 8
+  %.not.i95 = icmp eq ptr %273, null
+  br i1 %.not.i95, label %_ZNSt10unique_ptrI12PairlistSetsSt14default_deleteIS0_EED2Ev.exit, label %274
 
-273:                                              ; preds = %_ZNSt10unique_ptrI10PairSearchSt14default_deleteIS0_EED2Ev.exit
-  %274 = getelementptr inbounds i8, ptr %272, i64 48
-  %275 = load ptr, ptr %274, align 8
-  %.not.i.i.i.i96 = icmp eq ptr %275, null
+274:                                              ; preds = %_ZNSt10unique_ptrI10PairSearchSt14default_deleteIS0_EED2Ev.exit
+  %275 = getelementptr inbounds i8, ptr %273, i64 48
+  %276 = load ptr, ptr %275, align 8
+  %.not.i.i.i.i96 = icmp eq ptr %276, null
   br i1 %.not.i.i.i.i96, label %_ZNSt10unique_ptrI11PairlistSetSt14default_deleteIS0_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteI11PairlistSetEclEPS0_.exit.i.i.i.i
 
-_ZNKSt14default_deleteI11PairlistSetEclEPS0_.exit.i.i.i.i: ; preds = %273
-  call void @_ZN11PairlistSetD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %275) #17
-  call void @_ZdlPv(ptr noundef nonnull %275) #20
+_ZNKSt14default_deleteI11PairlistSetEclEPS0_.exit.i.i.i.i: ; preds = %274
+  call void @_ZN11PairlistSetD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %276) #17
+  call void @_ZdlPv(ptr noundef nonnull %276) #20
   br label %_ZNSt10unique_ptrI11PairlistSetSt14default_deleteIS0_EED2Ev.exit.i.i.i
 
-_ZNSt10unique_ptrI11PairlistSetSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteI11PairlistSetEclEPS0_.exit.i.i.i.i, %273
-  store ptr null, ptr %274, align 8
-  %276 = getelementptr inbounds i8, ptr %272, i64 40
-  %277 = load ptr, ptr %276, align 8
-  %.not.i1.i.i.i = icmp eq ptr %277, null
+_ZNSt10unique_ptrI11PairlistSetSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteI11PairlistSetEclEPS0_.exit.i.i.i.i, %274
+  store ptr null, ptr %275, align 8
+  %277 = getelementptr inbounds i8, ptr %273, i64 40
+  %278 = load ptr, ptr %277, align 8
+  %.not.i1.i.i.i = icmp eq ptr %278, null
   br i1 %.not.i1.i.i.i, label %_ZNKSt14default_deleteI12PairlistSetsEclEPS0_.exit.i, label %_ZNKSt14default_deleteI11PairlistSetEclEPS0_.exit.i2.i.i.i
 
 _ZNKSt14default_deleteI11PairlistSetEclEPS0_.exit.i2.i.i.i: ; preds = %_ZNSt10unique_ptrI11PairlistSetSt14default_deleteIS0_EED2Ev.exit.i.i.i
-  call void @_ZN11PairlistSetD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %277) #17
-  call void @_ZdlPv(ptr noundef nonnull %277) #20
+  call void @_ZN11PairlistSetD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %278) #17
+  call void @_ZdlPv(ptr noundef nonnull %278) #20
   br label %_ZNKSt14default_deleteI12PairlistSetsEclEPS0_.exit.i
 
 _ZNKSt14default_deleteI12PairlistSetsEclEPS0_.exit.i: ; preds = %_ZNKSt14default_deleteI11PairlistSetEclEPS0_.exit.i2.i.i.i, %_ZNSt10unique_ptrI11PairlistSetSt14default_deleteIS0_EED2Ev.exit.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %272) #20
+  call void @_ZdlPv(ptr noundef nonnull %273) #20
   br label %_ZNSt10unique_ptrI12PairlistSetsSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrI12PairlistSetsSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrI10PairSearchSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteI12PairlistSetsEclEPS0_.exit.i
   store ptr null, ptr %27, align 8
-  %278 = load ptr, ptr %24, align 8
-  %.not.i97 = icmp eq ptr %278, null
+  %279 = load ptr, ptr %24, align 8
+  %.not.i97 = icmp eq ptr %279, null
   br i1 %.not.i97, label %_ZNSt10unique_ptrI16nbnxn_atomdata_tSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteI16nbnxn_atomdata_tEclEPS0_.exit.i
 
 _ZNKSt14default_deleteI16nbnxn_atomdata_tEclEPS0_.exit.i: ; preds = %_ZNSt10unique_ptrI12PairlistSetsSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZN16nbnxn_atomdata_tD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %278) #17
-  call void @_ZdlPv(ptr noundef nonnull %278) #20
+  call void @_ZN16nbnxn_atomdata_tD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %279) #17
+  call void @_ZdlPv(ptr noundef nonnull %279) #20
   br label %_ZNSt10unique_ptrI16nbnxn_atomdata_tSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrI16nbnxn_atomdata_tSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrI12PairlistSetsSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteI16nbnxn_atomdata_tEclEPS0_.exit.i
   ret void
 
-.body85:                                          ; preds = %257, %244, %.body88
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body89, %.body88 ], [ %258, %257 ], [ %245, %244 ]
+.body85:                                          ; preds = %258, %245, %.body88
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body89, %.body88 ], [ %259, %258 ], [ %246, %245 ]
   call void @_ZNSt10unique_ptrI12PairlistSetsSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #17
   br label %.body
 
-.body:                                            ; preds = %214, %227, %195, %.body85
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body85 ], [ %215, %214 ], [ %196, %195 ], [ %228, %227 ]
+.body:                                            ; preds = %215, %228, %196, %.body85
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body85 ], [ %216, %215 ], [ %197, %196 ], [ %229, %228 ]
   call void @_ZNSt10unique_ptrI16nbnxn_atomdata_tSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #17
   br label %common.resume
 }

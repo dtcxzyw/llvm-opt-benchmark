@@ -3721,64 +3721,67 @@ define internal fastcc i32 @spectre_v2_parse_user_cmdline() unnamed_addr #4 sect
   %1 = alloca [20 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %1) #15
   %2 = load i32, ptr @spectre_v2_cmd, align 4
-  switch i32 %2, label %3 [
-    i32 0, label %34
-    i32 2, label %34
+  switch i32 %2, label %4 [
+    i32 0, label %35
+    i32 2, label %3
   ]
 
 3:                                                ; preds = %0
+  br label %35
+
+4:                                                ; preds = %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %1, i8 0, i64 20, i1 false), !annotation !28
-  %4 = call i32 @cmdline_find_option(ptr noundef nonnull @boot_command_line, ptr noundef nonnull @.str.56, ptr noundef nonnull %1, i32 noundef 20) #15
-  %5 = icmp slt i32 %4, 0
-  br i1 %5, label %34, label %.preheader
+  %5 = call i32 @cmdline_find_option(ptr noundef nonnull @boot_command_line, ptr noundef nonnull @.str.56, ptr noundef nonnull %1, i32 noundef 20) #15
+  %6 = icmp slt i32 %5, 0
+  br i1 %6, label %35, label %.preheader
 
-.preheader:                                       ; preds = %3, %29
-  %6 = phi i64 [ %30, %29 ], [ 0, %3 ]
-  %7 = getelementptr [7 x %struct.anon.5], ptr @v2_user_options, i64 0, i64 %6
-  %8 = load ptr, ptr %7, align 16
-  %9 = call i64 @strlen(ptr noundef %8) #15
-  %10 = trunc i64 %9 to i32
-  %11 = icmp eq i32 %4, %10
-  br i1 %11, label %12, label %29
+.preheader:                                       ; preds = %4, %30
+  %7 = phi i64 [ %31, %30 ], [ 0, %4 ]
+  %8 = getelementptr [7 x %struct.anon.5], ptr @v2_user_options, i64 0, i64 %7
+  %9 = load ptr, ptr %8, align 16
+  %10 = call i64 @strlen(ptr noundef %9) #15
+  %11 = trunc i64 %10 to i32
+  %12 = icmp eq i32 %5, %11
+  br i1 %12, label %13, label %30
 
-12:                                               ; preds = %.preheader
-  %13 = and i64 %9, 4294967295
-  %14 = call i32 @strncmp(ptr noundef nonnull %1, ptr noundef %8, i64 noundef %13) #15
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %29
+13:                                               ; preds = %.preheader
+  %14 = and i64 %10, 4294967295
+  %15 = call i32 @strncmp(ptr noundef nonnull %1, ptr noundef %9, i64 noundef %14) #15
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %30
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %7, i64 12
-  %18 = load i8, ptr %17, align 4, !range !14, !noundef !29
-  %19 = icmp ne i8 %18, 0
-  %20 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 120), align 8
-  %21 = and i64 %20, 281474976710656
-  %22 = icmp ne i64 %21, 0
-  %23 = xor i1 %19, %22
-  br i1 %23, label %24, label %26
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %8, i64 12
+  %19 = load i8, ptr %18, align 4, !range !14, !noundef !29
+  %20 = icmp ne i8 %19, 0
+  %21 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 120), align 8
+  %22 = and i64 %21, 281474976710656
+  %23 = icmp ne i64 %22, 0
+  %24 = xor i1 %20, %23
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %16
-  %25 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62, ptr noundef %8) #17
-  br label %26
+25:                                               ; preds = %17
+  %26 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62, ptr noundef %9) #17
+  br label %27
 
-26:                                               ; preds = %24, %16
-  %27 = getelementptr inbounds i8, ptr %7, i64 8
-  %28 = load i32, ptr %27, align 8
-  br label %34
+27:                                               ; preds = %25, %17
+  %28 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = load i32, ptr %28, align 8
+  br label %35
 
-29:                                               ; preds = %12, %.preheader
-  %30 = add nuw nsw i64 %6, 1
-  %31 = icmp eq i64 %30, 7
-  br i1 %31, label %32, label %.preheader, !llvm.loop !30
+30:                                               ; preds = %13, %.preheader
+  %31 = add nuw nsw i64 %7, 1
+  %32 = icmp eq i64 %31, 7
+  br i1 %32, label %33, label %.preheader, !llvm.loop !30
 
-32:                                               ; preds = %29
-  %33 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef nonnull %1) #17
-  br label %34
+33:                                               ; preds = %30
+  %34 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef nonnull %1) #17
+  br label %35
 
-34:                                               ; preds = %0, %32, %26, %3, %0
-  %35 = phi i32 [ %28, %26 ], [ 1, %32 ], [ %2, %0 ], [ 1, %3 ], [ %2, %0 ]
+35:                                               ; preds = %33, %27, %4, %3, %0
+  %36 = phi i32 [ %29, %27 ], [ 1, %33 ], [ 2, %3 ], [ %2, %0 ], [ 1, %4 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %1) #15
-  ret i32 %35
+  ret i32 %36
 }
 
 ; Function Attrs: null_pointer_is_valid

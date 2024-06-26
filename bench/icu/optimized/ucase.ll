@@ -3379,7 +3379,7 @@ if.else151:                                       ; preds = %do.body136
   br label %return
 
 return:                                           ; preds = %if.then48, %if.then, %if.then140, %if.else151, %if.else128, %if.end77, %if.else68, %if.then60, %do.end, %if.then73, %if.then65
-  %retval.0 = phi i32 [ %c, %if.then65 ], [ %cond122, %do.end ], [ 105, %if.then73 ], [ 105, %if.then60 ], [ 305, %if.else68 ], [ %c, %if.end77 ], [ %c, %if.else128 ], [ %conv150, %if.then140 ], [ %or166, %if.else151 ], [ %add51, %if.then48 ], [ %c, %if.then ]
+  %retval.0 = phi i32 [ 304, %if.then65 ], [ %cond122, %do.end ], [ 105, %if.then73 ], [ 105, %if.then60 ], [ 305, %if.else68 ], [ %c, %if.end77 ], [ %c, %if.else128 ], [ %conv150, %if.then140 ], [ %or166, %if.else151 ], [ %add51, %if.then48 ], [ %c, %if.then ]
   ret i32 %retval.0
 }
 

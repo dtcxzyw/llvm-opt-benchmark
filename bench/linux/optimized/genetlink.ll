@@ -1493,7 +1493,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genlmsg_multicast_allns(ptr noca
   tail call void asm sideeffect "726: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 726b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 726) #15, !srcloc !83
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1939, i32 2307, i64 12) #15, !srcloc !84
   tail call void asm sideeffect "727: nop\0A\09.pushsection .discard.instr_end\0A\09.long 727b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 727) #15, !srcloc !85
-  br label %50
+  br label %52
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 132
@@ -1514,7 +1514,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genlmsg_multicast_allns(ptr noca
 22:                                               ; preds = %.preheader
   %23 = tail call ptr @skb_clone(ptr noundef %1, i32 noundef %4) #15
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %48, label %25
+  br i1 %24, label %50, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %18, i64 280
@@ -1523,7 +1523,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genlmsg_multicast_allns(ptr noca
   store i32 %14, ptr %28, align 8
   %29 = tail call i32 @netlink_broadcast_filtered(ptr noundef %27, ptr noundef nonnull %23, i32 noundef %2, i32 noundef %14, i32 noundef %4, ptr noundef null, ptr noundef null) #15
   %30 = tail call i32 @llvm.smin.i32(i32 %29, i32 0)
-  switch i32 %30, label %48 [
+  switch i32 %30, label %50 [
     i32 0, label %32
     i32 -3, label %31
   ]
@@ -1552,18 +1552,25 @@ define dso_local range(i32 -2147483648, 1) i32 @genlmsg_multicast_allns(ptr noca
   store i32 %14, ptr %45, align 8
   %46 = tail call i32 @netlink_broadcast_filtered(ptr noundef %44, ptr noundef %1, i32 noundef %2, i32 noundef %14, i32 noundef %4, ptr noundef null, ptr noundef null) #15
   %47 = tail call i32 @llvm.smin.i32(i32 %46, i32 0)
-  %cond = icmp eq i32 %46, -3
-  %spec.select = select i1 %cond, i32 %41, i32 %47
-  br label %50
+  switch i32 %47, label %52 [
+    i32 0, label %49
+    i32 -3, label %48
+  ]
 
-48:                                               ; preds = %25, %22
-  %49 = phi i32 [ -12, %22 ], [ %30, %25 ]
+48:                                               ; preds = %40
+  br label %52
+
+49:                                               ; preds = %40
+  br label %52
+
+50:                                               ; preds = %25, %22
+  %51 = phi i32 [ -12, %22 ], [ %30, %25 ]
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #15
-  br label %50
+  br label %52
 
-50:                                               ; preds = %40, %48, %10
-  %51 = phi i32 [ -22, %10 ], [ %49, %48 ], [ %spec.select, %40 ]
-  ret i32 %51
+52:                                               ; preds = %50, %49, %48, %40, %10
+  %53 = phi i32 [ -22, %10 ], [ %51, %50 ], [ %47, %40 ], [ %41, %48 ], [ 0, %49 ]
+  ret i32 %53
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

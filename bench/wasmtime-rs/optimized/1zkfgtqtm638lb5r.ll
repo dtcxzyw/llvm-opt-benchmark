@@ -13544,11 +13544,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -13570,7 +13570,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3448
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -13589,7 +13589,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3455
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -13637,11 +13637,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !3469
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -13649,38 +13649,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17hf8d1065698398eb9E.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17hf8d1065698398eb9E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -13696,11 +13699,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %46
-    i8 2, label %55
-    i8 3, label %55
+    i8 2, label %56
+    i8 3, label %48
   ]
 
-default.unreachable10:                            ; preds = %48, %1
+default.unreachable10:                            ; preds = %49, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -13741,7 +13744,7 @@ _ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.i: ; preds = %7
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3), !noalias !3472
   switch i32 %.sroa.5.0.copyload.i, label %15 [
     i32 1000000003, label %18
-    i32 1000000002, label %48
+    i32 1000000002, label %49
   ]
 
 15:                                               ; preds = %_ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.i
@@ -13773,7 +13776,7 @@ _ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.i: ; preds = %7
 
 .thread.i:                                        ; preds = %16
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !3481
-  br label %50
+  br label %51
 
 18:                                               ; preds = %_ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.i, %_ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.thread.i
   %.sroa.0.052.i = phi i64 [ undef, %_ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.i ]
@@ -13824,11 +13827,11 @@ _ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.i: ; preds = %7
   %44 = icmp ult i64 %43, -9223372036854775807
   call void @llvm.assume(i1 %44)
   %45 = icmp eq i64 %41, 0
-  br i1 %45, label %50, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %45, label %51, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %39
   call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %41, i64 noundef %43) #13, !noalias !3493
-  br label %50
+  br label %51
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %31
   resume { ptr, i32 } %32
@@ -13836,42 +13839,45 @@ _ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.i: ; preds = %7
 46:                                               ; preds = %1
   %47 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h8e3a2dacae8889c1E.llvm.16590137254369539614(ptr noundef nonnull align 8 %47)
-  br label %55
+  br label %56
 
-48:                                               ; preds = %_ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.i
+48:                                               ; preds = %1
+  br label %56
+
+49:                                               ; preds = %_ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
-  %49 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %49, label %default.unreachable10 [
-    i8 0, label %54
-    i8 1, label %51
-    i8 2, label %52
-    i8 3, label %53
+  %50 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %50, label %default.unreachable10 [
+    i8 0, label %55
+    i8 1, label %52
+    i8 2, label %53
+    i8 3, label %54
   ]
 
-50:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+51:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+52:                                               ; preds = %49
   br label %55
 
-51:                                               ; preds = %48
-  br label %54
+53:                                               ; preds = %49
+  br label %55
 
-52:                                               ; preds = %48
-  br label %54
-
-53:                                               ; preds = %48
+54:                                               ; preds = %49
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h8e3a2dacae8889c1E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %54
-
-54:                                               ; preds = %48, %53, %52, %51
-  %.0 = phi i8 [ 0, %53 ], [ 3, %52 ], [ 1, %51 ], [ 2, %48 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %55
 
-55:                                               ; preds = %1, %46, %54, %1, %50
-  %.2 = phi i8 [ 0, %50 ], [ 0, %46 ], [ %.0, %54 ], [ %6, %1 ], [ %6, %1 ]
+55:                                               ; preds = %49, %54, %53, %52
+  %.0 = phi i8 [ 0, %54 ], [ 3, %53 ], [ 1, %52 ], [ 2, %49 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+56:                                               ; preds = %46, %48, %55, %1, %51
+  %.2 = phi i8 [ 0, %51 ], [ 3, %48 ], [ 0, %46 ], [ %.0, %55 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -13892,10 +13898,10 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
     i8 0, label %13
     i8 1, label %51
     i8 2, label %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit
-    i8 3, label %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit
+    i8 3, label %62
   ]
 
-default.unreachable17:                            ; preds = %62, %1
+default.unreachable17:                            ; preds = %63, %1
   unreachable
 
 13:                                               ; preds = %1
@@ -13918,7 +13924,7 @@ default.unreachable17:                            ; preds = %62, %1
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, 4294967295
   %22 = icmp eq i64 %21, 2
-  br i1 %22, label %62, label %23
+  br i1 %22, label %63, label %23
 
 23:                                               ; preds = %25, %17
   %.sroa.03.0.i = phi i64 [ 1, %25 ], [ 0, %17 ]
@@ -13937,7 +13943,7 @@ default.unreachable17:                            ; preds = %62, %1
 
 .thread.i:                                        ; preds = %23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !3504
-  br label %64
+  br label %65
 
 25:                                               ; preds = %13
   %26 = landingpad { ptr, i32 }
@@ -13985,11 +13991,11 @@ default.unreachable17:                            ; preds = %62, %1
   %49 = icmp ult i64 %48, -9223372036854775807
   call void @llvm.assume(i1 %49)
   %50 = icmp eq i64 %46, 0
-  br i1 %50, label %64, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %50, label %65, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %44
   call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %46, i64 noundef %48) #13, !noalias !3517
-  br label %64
+  br label %65
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %36
   resume { ptr, i32 } %37
@@ -14036,73 +14042,76 @@ default.unreachable17:                            ; preds = %62, %1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit
 
-62:                                               ; preds = %17
-  %63 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %11), !range !4
-  switch i8 %63, label %default.unreachable17 [
+62:                                               ; preds = %1
+  br label %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit
+
+63:                                               ; preds = %17
+  %64 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %11), !range !4
+  switch i8 %64, label %default.unreachable17 [
     i8 0, label %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15
-    i8 1, label %65
-    i8 2, label %66
-    i8 3, label %67
+    i8 1, label %66
+    i8 2, label %67
+    i8 3, label %68
   ]
 
-64:                                               ; preds = %.thread.i, %44, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+65:                                               ; preds = %.thread.i, %44, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit
 
-65:                                               ; preds = %62
+66:                                               ; preds = %63
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15
 
-66:                                               ; preds = %62
+67:                                               ; preds = %63
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15
 
-67:                                               ; preds = %62
+68:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %15, ptr %2, align 16
   invoke void @_ZN3std9panicking3try7do_call17h03887aca3015a038E.llvm.862030130881490728(ptr nonnull %2)
-          to label %68 unwind label %71
+          to label %69 unwind label %72
 
-68:                                               ; preds = %67
+69:                                               ; preds = %68
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %69 = load i64, ptr %15, align 8, !noundef !5
+  %70 = load i64, ptr %15, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  %70 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %71, align 8
   %.sroa.4.0..sroa_idx.i13 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr null, ptr %.sroa.4.0..sroa_idx.i13, align 8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i14 = getelementptr inbounds i8, ptr %4, i64 32
-  store i64 %69, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i14, align 8
+  store i64 %70, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i14, align 8
   store i64 -9223372036854775807, ptr %4, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17ha99e6df727b7e30bE"(ptr noundef nonnull align 8 %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15
 
-71:                                               ; preds = %67
-  %72 = landingpad { ptr, i32 }
+72:                                               ; preds = %68
+  %73 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @_ZN3std9panicking3try8do_catch17h2957aa3687c6fc85E.llvm.862030130881490728(ptr nonnull %2, ptr %73)
-  %74 = getelementptr inbounds i8, ptr %3, i64 8
+  %74 = extractvalue { ptr, i32 } %73, 0
+  call void @_ZN3std9panicking3try8do_catch17h2957aa3687c6fc85E.llvm.862030130881490728(ptr nonnull %2, ptr %74)
+  %75 = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.4.0..sroa_idx8.i10 = getelementptr inbounds i8, ptr %3, i64 16
-  %75 = load <2 x ptr>, ptr %2, align 16
+  %76 = load <2 x ptr>, ptr %2, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %76 = load i64, ptr %15, align 8, !noundef !5
+  %77 = load i64, ptr %15, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  store i64 1, ptr %74, align 8
-  store <2 x ptr> %75, ptr %.sroa.4.0..sroa_idx8.i10, align 8
+  store i64 1, ptr %75, align 8
+  store <2 x ptr> %76, ptr %.sroa.4.0..sroa_idx8.i10, align 8
   %.sroa.4.sroa.514.0..sroa.4.0..sroa_idx8.sroa_idx.i12 = getelementptr inbounds i8, ptr %3, i64 32
-  store i64 %76, ptr %.sroa.4.sroa.514.0..sroa.4.0..sroa_idx8.sroa_idx.i12, align 8
+  store i64 %77, ptr %.sroa.4.sroa.514.0..sroa.4.0..sroa_idx8.sroa_idx.i12, align 8
   store i64 -9223372036854775807, ptr %3, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17ha99e6df727b7e30bE"(ptr noundef nonnull align 8 %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15
 
-_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15: ; preds = %71, %68, %62, %66, %65
-  %.0 = phi i8 [ 3, %66 ], [ 1, %65 ], [ 2, %62 ], [ 0, %68 ], [ 0, %71 ]
+_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15: ; preds = %72, %69, %63, %67, %66
+  %.0 = phi i8 [ 3, %67 ], [ 1, %66 ], [ 2, %63 ], [ 0, %69 ], [ 0, %72 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit
 
-_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit: ; preds = %1, %56, %53, %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15, %1, %64
-  %.2 = phi i8 [ 0, %64 ], [ %.0, %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %53 ], [ 0, %56 ], [ %12, %1 ]
+_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit: ; preds = %56, %53, %62, %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15, %1, %65
+  %.2 = phi i8 [ 0, %65 ], [ 3, %62 ], [ %.0, %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %53 ], [ 0, %56 ]
   ret i8 %.2
 }
 
@@ -14116,11 +14125,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %44
-    i8 2, label %53
-    i8 3, label %53
+    i8 2, label %54
+    i8 3, label %46
   ]
 
-default.unreachable10:                            ; preds = %46, %1
+default.unreachable10:                            ; preds = %47, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -14155,7 +14164,7 @@ _ZN3std9panicking3try17h68390cdce1ca6810E.exit.i: ; preds = %7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !3520
   switch i64 %.sroa.0.0.copyload.i, label %16 [
     i64 -9223372036854775806, label %19
-    i64 -9223372036854775807, label %46
+    i64 -9223372036854775807, label %47
   ]
 
 16:                                               ; preds = %_ZN3std9panicking3try17h68390cdce1ca6810E.exit.i
@@ -14182,7 +14191,7 @@ _ZN3std9panicking3try17h68390cdce1ca6810E.exit.i: ; preds = %7
 
 .thread.i:                                        ; preds = %18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3528
-  br label %48
+  br label %49
 
 19:                                               ; preds = %_ZN3std9panicking3try17h68390cdce1ca6810E.exit.i, %_ZN3std9panicking3try17h68390cdce1ca6810E.exit.thread.i
   %.sroa.7.029.i = phi ptr [ %13, %_ZN3std9panicking3try17h68390cdce1ca6810E.exit.thread.i ], [ %.sroa.7.0.copyload.i, %_ZN3std9panicking3try17h68390cdce1ca6810E.exit.i ]
@@ -14229,11 +14238,11 @@ _ZN3std9panicking3try17h68390cdce1ca6810E.exit.i: ; preds = %7
   %42 = icmp ult i64 %41, -9223372036854775807
   call void @llvm.assume(i1 %42)
   %43 = icmp eq i64 %39, 0
-  br i1 %43, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %43, label %49, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %37
   call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef %39, i64 noundef %41) #13, !noalias !3541
-  br label %48
+  br label %49
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %29
   resume { ptr, i32 } %30
@@ -14241,38 +14250,41 @@ _ZN3std9panicking3try17h68390cdce1ca6810E.exit.i: ; preds = %7
 44:                                               ; preds = %1
   %45 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17hc70fd56456866a06E.llvm.16590137254369539614(ptr noundef nonnull align 8 %45)
-  br label %53
+  br label %54
 
-46:                                               ; preds = %_ZN3std9panicking3try17h68390cdce1ca6810E.exit.i
-  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %47, label %default.unreachable10 [
-    i8 0, label %52
-    i8 1, label %49
-    i8 2, label %50
-    i8 3, label %51
+46:                                               ; preds = %1
+  br label %54
+
+47:                                               ; preds = %_ZN3std9panicking3try17h68390cdce1ca6810E.exit.i
+  %48 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %48, label %default.unreachable10 [
+    i8 0, label %53
+    i8 1, label %50
+    i8 2, label %51
+    i8 3, label %52
   ]
 
-48:                                               ; preds = %.thread.i, %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+49:                                               ; preds = %.thread.i, %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %54
+
+50:                                               ; preds = %47
   br label %53
 
-49:                                               ; preds = %46
-  br label %52
+51:                                               ; preds = %47
+  br label %53
 
-50:                                               ; preds = %46
-  br label %52
-
-51:                                               ; preds = %46
+52:                                               ; preds = %47
   call void @_ZN5tokio7runtime4task7harness11cancel_task17hc70fd56456866a06E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %52
-
-52:                                               ; preds = %46, %51, %50, %49
-  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %53
 
-53:                                               ; preds = %1, %44, %52, %1, %48
-  %.2 = phi i8 [ 0, %48 ], [ 0, %44 ], [ %.0, %52 ], [ %6, %1 ], [ %6, %1 ]
+53:                                               ; preds = %47, %52, %51, %50
+  %.0 = phi i8 [ 0, %52 ], [ 3, %51 ], [ 1, %50 ], [ 2, %47 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %54
+
+54:                                               ; preds = %44, %46, %53, %1, %49
+  %.2 = phi i8 [ 0, %49 ], [ 3, %46 ], [ 0, %44 ], [ %.0, %53 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -14288,11 +14300,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %46
-    i8 2, label %55
-    i8 3, label %55
+    i8 2, label %56
+    i8 3, label %48
   ]
 
-default.unreachable10:                            ; preds = %48, %1
+default.unreachable10:                            ; preds = %49, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -14333,7 +14345,7 @@ _ZN3std9panicking3try17h83491d4c365e855dE.exit.i: ; preds = %7
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3), !noalias !3544
   switch i32 %.sroa.5.0.copyload.i, label %15 [
     i32 1000000003, label %18
-    i32 1000000002, label %48
+    i32 1000000002, label %49
   ]
 
 15:                                               ; preds = %_ZN3std9panicking3try17h83491d4c365e855dE.exit.i
@@ -14365,7 +14377,7 @@ _ZN3std9panicking3try17h83491d4c365e855dE.exit.i: ; preds = %7
 
 .thread.i:                                        ; preds = %16
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !3553
-  br label %50
+  br label %51
 
 18:                                               ; preds = %_ZN3std9panicking3try17h83491d4c365e855dE.exit.i, %_ZN3std9panicking3try17h83491d4c365e855dE.exit.thread.i
   %.sroa.0.052.i = phi i64 [ undef, %_ZN3std9panicking3try17h83491d4c365e855dE.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZN3std9panicking3try17h83491d4c365e855dE.exit.i ]
@@ -14416,11 +14428,11 @@ _ZN3std9panicking3try17h83491d4c365e855dE.exit.i: ; preds = %7
   %44 = icmp ult i64 %43, -9223372036854775807
   call void @llvm.assume(i1 %44)
   %45 = icmp eq i64 %41, 0
-  br i1 %45, label %50, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %45, label %51, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %39
   call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %41, i64 noundef %43) #13, !noalias !3565
-  br label %50
+  br label %51
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %31
   resume { ptr, i32 } %32
@@ -14428,42 +14440,45 @@ _ZN3std9panicking3try17h83491d4c365e855dE.exit.i: ; preds = %7
 46:                                               ; preds = %1
   %47 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17hc3f1361739d1f9adE.llvm.16590137254369539614(ptr noundef nonnull align 8 %47)
-  br label %55
+  br label %56
 
-48:                                               ; preds = %_ZN3std9panicking3try17h83491d4c365e855dE.exit.i
+48:                                               ; preds = %1
+  br label %56
+
+49:                                               ; preds = %_ZN3std9panicking3try17h83491d4c365e855dE.exit.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
-  %49 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %49, label %default.unreachable10 [
-    i8 0, label %54
-    i8 1, label %51
-    i8 2, label %52
-    i8 3, label %53
+  %50 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %50, label %default.unreachable10 [
+    i8 0, label %55
+    i8 1, label %52
+    i8 2, label %53
+    i8 3, label %54
   ]
 
-50:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+51:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+52:                                               ; preds = %49
   br label %55
 
-51:                                               ; preds = %48
-  br label %54
+53:                                               ; preds = %49
+  br label %55
 
-52:                                               ; preds = %48
-  br label %54
-
-53:                                               ; preds = %48
+54:                                               ; preds = %49
   call void @_ZN5tokio7runtime4task7harness11cancel_task17hc3f1361739d1f9adE.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %54
-
-54:                                               ; preds = %48, %53, %52, %51
-  %.0 = phi i8 [ 0, %53 ], [ 3, %52 ], [ 1, %51 ], [ 2, %48 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %55
 
-55:                                               ; preds = %1, %46, %54, %1, %50
-  %.2 = phi i8 [ 0, %50 ], [ 0, %46 ], [ %.0, %54 ], [ %6, %1 ], [ %6, %1 ]
+55:                                               ; preds = %49, %54, %53, %52
+  %.0 = phi i8 [ 0, %54 ], [ 3, %53 ], [ 1, %52 ], [ 2, %49 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+56:                                               ; preds = %46, %48, %55, %1, %51
+  %.2 = phi i8 [ 0, %51 ], [ 3, %48 ], [ 0, %46 ], [ %.0, %55 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -14477,11 +14492,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %45
-    i8 2, label %54
-    i8 3, label %54
+    i8 2, label %55
+    i8 3, label %47
   ]
 
-default.unreachable10:                            ; preds = %47, %1
+default.unreachable10:                            ; preds = %48, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -14502,7 +14517,7 @@ default.unreachable10:                            ; preds = %47, %1
   %.sroa.10.8.copyload.i = load ptr, ptr %10, align 8, !noalias !3575
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3568
   %12 = icmp eq i64 %.sroa.5.8.copyload.i, 2
-  br i1 %12, label %47, label %13
+  br i1 %12, label %48, label %13
 
 13:                                               ; preds = %11
   %14 = inttoptr i64 %.sroa.5.8.copyload.i to ptr
@@ -14527,7 +14542,7 @@ default.unreachable10:                            ; preds = %47, %1
 
 .thread.i:                                        ; preds = %17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3576
-  br label %49
+  br label %50
 
 19:                                               ; preds = %7
   %20 = landingpad { ptr, i32 }
@@ -14575,11 +14590,11 @@ default.unreachable10:                            ; preds = %47, %1
   %43 = icmp ult i64 %42, -9223372036854775807
   call void @llvm.assume(i1 %43)
   %44 = icmp eq i64 %40, 0
-  br i1 %44, label %49, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %44, label %50, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %38
   call void @__rust_dealloc(ptr noundef nonnull %27, i64 noundef %40, i64 noundef %42) #13, !noalias !3589
-  br label %49
+  br label %50
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %30
   resume { ptr, i32 } %31
@@ -14587,38 +14602,41 @@ default.unreachable10:                            ; preds = %47, %1
 45:                                               ; preds = %1
   %46 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h3c98abfb1899fd61E.llvm.16590137254369539614(ptr noundef nonnull align 8 %46)
-  br label %54
+  br label %55
 
-47:                                               ; preds = %11
-  %48 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %48, label %default.unreachable10 [
-    i8 0, label %53
-    i8 1, label %50
-    i8 2, label %51
-    i8 3, label %52
+47:                                               ; preds = %1
+  br label %55
+
+48:                                               ; preds = %11
+  %49 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %49, label %default.unreachable10 [
+    i8 0, label %54
+    i8 1, label %51
+    i8 2, label %52
+    i8 3, label %53
   ]
 
-49:                                               ; preds = %.thread.i, %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+50:                                               ; preds = %.thread.i, %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %55
+
+51:                                               ; preds = %48
   br label %54
 
-50:                                               ; preds = %47
-  br label %53
+52:                                               ; preds = %48
+  br label %54
 
-51:                                               ; preds = %47
-  br label %53
-
-52:                                               ; preds = %47
+53:                                               ; preds = %48
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h3c98abfb1899fd61E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %53
-
-53:                                               ; preds = %47, %52, %51, %50
-  %.0 = phi i8 [ 0, %52 ], [ 3, %51 ], [ 1, %50 ], [ 2, %47 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
-54:                                               ; preds = %1, %45, %53, %1, %49
-  %.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.0, %53 ], [ %6, %1 ], [ %6, %1 ]
+54:                                               ; preds = %48, %53, %52, %51
+  %.0 = phi i8 [ 0, %53 ], [ 3, %52 ], [ 1, %51 ], [ 2, %48 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %55
+
+55:                                               ; preds = %45, %47, %54, %1, %50
+  %.2 = phi i8 [ 0, %50 ], [ 3, %47 ], [ 0, %45 ], [ %.0, %54 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -14634,11 +14652,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %46
-    i8 2, label %55
-    i8 3, label %55
+    i8 2, label %56
+    i8 3, label %48
   ]
 
-default.unreachable10:                            ; preds = %48, %1
+default.unreachable10:                            ; preds = %49, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -14679,7 +14697,7 @@ _ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.i: ; preds = %7
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3), !noalias !3592
   switch i32 %.sroa.5.0.copyload.i, label %15 [
     i32 1000000003, label %18
-    i32 1000000002, label %48
+    i32 1000000002, label %49
   ]
 
 15:                                               ; preds = %_ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.i
@@ -14711,7 +14729,7 @@ _ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.i: ; preds = %7
 
 .thread.i:                                        ; preds = %16
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !3601
-  br label %50
+  br label %51
 
 18:                                               ; preds = %_ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.i, %_ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.thread.i
   %.sroa.0.052.i = phi i64 [ undef, %_ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.i ]
@@ -14762,11 +14780,11 @@ _ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.i: ; preds = %7
   %44 = icmp ult i64 %43, -9223372036854775807
   call void @llvm.assume(i1 %44)
   %45 = icmp eq i64 %41, 0
-  br i1 %45, label %50, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %45, label %51, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %39
   call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %41, i64 noundef %43) #13, !noalias !3613
-  br label %50
+  br label %51
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %31
   resume { ptr, i32 } %32
@@ -14774,42 +14792,45 @@ _ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.i: ; preds = %7
 46:                                               ; preds = %1
   %47 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17he1ba017c78bb5120E.llvm.16590137254369539614(ptr noundef nonnull align 8 %47)
-  br label %55
+  br label %56
 
-48:                                               ; preds = %_ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.i
+48:                                               ; preds = %1
+  br label %56
+
+49:                                               ; preds = %_ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
-  %49 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %49, label %default.unreachable10 [
-    i8 0, label %54
-    i8 1, label %51
-    i8 2, label %52
-    i8 3, label %53
+  %50 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %50, label %default.unreachable10 [
+    i8 0, label %55
+    i8 1, label %52
+    i8 2, label %53
+    i8 3, label %54
   ]
 
-50:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+51:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+52:                                               ; preds = %49
   br label %55
 
-51:                                               ; preds = %48
-  br label %54
+53:                                               ; preds = %49
+  br label %55
 
-52:                                               ; preds = %48
-  br label %54
-
-53:                                               ; preds = %48
+54:                                               ; preds = %49
   call void @_ZN5tokio7runtime4task7harness11cancel_task17he1ba017c78bb5120E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %54
-
-54:                                               ; preds = %48, %53, %52, %51
-  %.0 = phi i8 [ 0, %53 ], [ 3, %52 ], [ 1, %51 ], [ 2, %48 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %55
 
-55:                                               ; preds = %1, %46, %54, %1, %50
-  %.2 = phi i8 [ 0, %50 ], [ 0, %46 ], [ %.0, %54 ], [ %6, %1 ], [ %6, %1 ]
+55:                                               ; preds = %49, %54, %53, %52
+  %.0 = phi i8 [ 0, %54 ], [ 3, %53 ], [ 1, %52 ], [ 2, %49 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+56:                                               ; preds = %46, %48, %55, %1, %51
+  %.2 = phi i8 [ 0, %51 ], [ 3, %48 ], [ 0, %46 ], [ %.0, %55 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -14830,10 +14851,10 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
     i8 0, label %13
     i8 1, label %50
     i8 2, label %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit
-    i8 3, label %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit
+    i8 3, label %61
   ]
 
-default.unreachable17:                            ; preds = %61, %1
+default.unreachable17:                            ; preds = %62, %1
   unreachable
 
 13:                                               ; preds = %1
@@ -14868,7 +14889,7 @@ _ZN3std9panicking3try17h48f7bda9fa19eff3E.exit.i: ; preds = %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !3616
   switch i64 %.sroa.0.0.copyload.i, label %22 [
     i64 -9223372036854775806, label %25
-    i64 -9223372036854775807, label %61
+    i64 -9223372036854775807, label %62
   ]
 
 22:                                               ; preds = %_ZN3std9panicking3try17h48f7bda9fa19eff3E.exit.i
@@ -14895,7 +14916,7 @@ _ZN3std9panicking3try17h48f7bda9fa19eff3E.exit.i: ; preds = %13
 
 .thread.i:                                        ; preds = %24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !3624
-  br label %63
+  br label %64
 
 25:                                               ; preds = %_ZN3std9panicking3try17h48f7bda9fa19eff3E.exit.i, %_ZN3std9panicking3try17h48f7bda9fa19eff3E.exit.thread.i
   %.sroa.7.029.i = phi ptr [ %19, %_ZN3std9panicking3try17h48f7bda9fa19eff3E.exit.thread.i ], [ %.sroa.7.0.copyload.i, %_ZN3std9panicking3try17h48f7bda9fa19eff3E.exit.i ]
@@ -14942,11 +14963,11 @@ _ZN3std9panicking3try17h48f7bda9fa19eff3E.exit.i: ; preds = %13
   %48 = icmp ult i64 %47, -9223372036854775807
   call void @llvm.assume(i1 %48)
   %49 = icmp eq i64 %45, 0
-  br i1 %49, label %63, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %49, label %64, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %43
   call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef %45, i64 noundef %47) #13, !noalias !3637
-  br label %63
+  br label %64
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %35
   resume { ptr, i32 } %36
@@ -14993,73 +15014,76 @@ _ZN3std9panicking3try17h48f7bda9fa19eff3E.exit.i: ; preds = %13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit
 
-61:                                               ; preds = %_ZN3std9panicking3try17h48f7bda9fa19eff3E.exit.i
-  %62 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %11), !range !4
-  switch i8 %62, label %default.unreachable17 [
+61:                                               ; preds = %1
+  br label %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit
+
+62:                                               ; preds = %_ZN3std9panicking3try17h48f7bda9fa19eff3E.exit.i
+  %63 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %11), !range !4
+  switch i8 %63, label %default.unreachable17 [
     i8 0, label %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15
-    i8 1, label %64
-    i8 2, label %65
-    i8 3, label %66
+    i8 1, label %65
+    i8 2, label %66
+    i8 3, label %67
   ]
 
-63:                                               ; preds = %.thread.i, %43, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+64:                                               ; preds = %.thread.i, %43, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit
 
-64:                                               ; preds = %61
+65:                                               ; preds = %62
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15
 
-65:                                               ; preds = %61
+66:                                               ; preds = %62
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15
 
-66:                                               ; preds = %61
+67:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %15, ptr %2, align 16
   invoke void @_ZN3std9panicking3try7do_call17h273887dae4ec83b4E.llvm.862030130881490728(ptr nonnull %2)
-          to label %67 unwind label %70
+          to label %68 unwind label %71
 
-67:                                               ; preds = %66
+68:                                               ; preds = %67
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %68 = load i64, ptr %15, align 8, !noundef !5
+  %69 = load i64, ptr %15, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  %69 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %70, align 8
   %.sroa.4.0..sroa_idx.i13 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr null, ptr %.sroa.4.0..sroa_idx.i13, align 8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i14 = getelementptr inbounds i8, ptr %4, i64 32
-  store i64 %68, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i14, align 8
+  store i64 %69, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i14, align 8
   store i64 -9223372036854775807, ptr %4, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h943a7ec56f709376E"(ptr noundef nonnull align 8 %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15
 
-70:                                               ; preds = %66
-  %71 = landingpad { ptr, i32 }
+71:                                               ; preds = %67
+  %72 = landingpad { ptr, i32 }
           catch ptr null
-  %72 = extractvalue { ptr, i32 } %71, 0
-  call void @_ZN3std9panicking3try8do_catch17h5afb71ae53485158E.llvm.862030130881490728(ptr nonnull %2, ptr %72)
-  %73 = getelementptr inbounds i8, ptr %3, i64 8
+  %73 = extractvalue { ptr, i32 } %72, 0
+  call void @_ZN3std9panicking3try8do_catch17h5afb71ae53485158E.llvm.862030130881490728(ptr nonnull %2, ptr %73)
+  %74 = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.4.0..sroa_idx8.i10 = getelementptr inbounds i8, ptr %3, i64 16
-  %74 = load <2 x ptr>, ptr %2, align 16
+  %75 = load <2 x ptr>, ptr %2, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %75 = load i64, ptr %15, align 8, !noundef !5
+  %76 = load i64, ptr %15, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  store i64 1, ptr %73, align 8
-  store <2 x ptr> %74, ptr %.sroa.4.0..sroa_idx8.i10, align 8
+  store i64 1, ptr %74, align 8
+  store <2 x ptr> %75, ptr %.sroa.4.0..sroa_idx8.i10, align 8
   %.sroa.4.sroa.514.0..sroa.4.0..sroa_idx8.sroa_idx.i12 = getelementptr inbounds i8, ptr %3, i64 32
-  store i64 %75, ptr %.sroa.4.sroa.514.0..sroa.4.0..sroa_idx8.sroa_idx.i12, align 8
+  store i64 %76, ptr %.sroa.4.sroa.514.0..sroa.4.0..sroa_idx8.sroa_idx.i12, align 8
   store i64 -9223372036854775807, ptr %3, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h943a7ec56f709376E"(ptr noundef nonnull align 8 %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15
 
-_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15: ; preds = %70, %67, %61, %65, %64
-  %.0 = phi i8 [ 3, %65 ], [ 1, %64 ], [ 2, %61 ], [ 0, %67 ], [ 0, %70 ]
+_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15: ; preds = %71, %68, %62, %66, %65
+  %.0 = phi i8 [ 3, %66 ], [ 1, %65 ], [ 2, %62 ], [ 0, %68 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit
 
-_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit: ; preds = %1, %55, %52, %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15, %1, %63
-  %.2 = phi i8 [ 0, %63 ], [ %.0, %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %52 ], [ 0, %55 ], [ %12, %1 ]
+_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit: ; preds = %55, %52, %61, %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15, %1, %64
+  %.2 = phi i8 [ 0, %64 ], [ 3, %61 ], [ %.0, %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %52 ], [ 0, %55 ]
   ret i8 %.2
 }
 
@@ -15075,11 +15099,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %46
-    i8 2, label %55
-    i8 3, label %55
+    i8 2, label %56
+    i8 3, label %48
   ]
 
-default.unreachable10:                            ; preds = %48, %1
+default.unreachable10:                            ; preds = %49, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -15120,7 +15144,7 @@ _ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.i: ; preds = %7
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3), !noalias !3640
   switch i32 %.sroa.5.0.copyload.i, label %15 [
     i32 1000000003, label %18
-    i32 1000000002, label %48
+    i32 1000000002, label %49
   ]
 
 15:                                               ; preds = %_ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.i
@@ -15152,7 +15176,7 @@ _ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.i: ; preds = %7
 
 .thread.i:                                        ; preds = %16
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !3649
-  br label %50
+  br label %51
 
 18:                                               ; preds = %_ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.i, %_ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.thread.i
   %.sroa.0.052.i = phi i64 [ undef, %_ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.i ]
@@ -15203,11 +15227,11 @@ _ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.i: ; preds = %7
   %44 = icmp ult i64 %43, -9223372036854775807
   call void @llvm.assume(i1 %44)
   %45 = icmp eq i64 %41, 0
-  br i1 %45, label %50, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %45, label %51, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %39
   call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %41, i64 noundef %43) #13, !noalias !3661
-  br label %50
+  br label %51
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %31
   resume { ptr, i32 } %32
@@ -15215,42 +15239,45 @@ _ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.i: ; preds = %7
 46:                                               ; preds = %1
   %47 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17hdcb52a61db3d43abE.llvm.16590137254369539614(ptr noundef nonnull align 8 %47)
-  br label %55
+  br label %56
 
-48:                                               ; preds = %_ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.i
+48:                                               ; preds = %1
+  br label %56
+
+49:                                               ; preds = %_ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
-  %49 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %49, label %default.unreachable10 [
-    i8 0, label %54
-    i8 1, label %51
-    i8 2, label %52
-    i8 3, label %53
+  %50 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %50, label %default.unreachable10 [
+    i8 0, label %55
+    i8 1, label %52
+    i8 2, label %53
+    i8 3, label %54
   ]
 
-50:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+51:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+52:                                               ; preds = %49
   br label %55
 
-51:                                               ; preds = %48
-  br label %54
+53:                                               ; preds = %49
+  br label %55
 
-52:                                               ; preds = %48
-  br label %54
-
-53:                                               ; preds = %48
+54:                                               ; preds = %49
   call void @_ZN5tokio7runtime4task7harness11cancel_task17hdcb52a61db3d43abE.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %54
-
-54:                                               ; preds = %48, %53, %52, %51
-  %.0 = phi i8 [ 0, %53 ], [ 3, %52 ], [ 1, %51 ], [ 2, %48 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %55
 
-55:                                               ; preds = %1, %46, %54, %1, %50
-  %.2 = phi i8 [ 0, %50 ], [ 0, %46 ], [ %.0, %54 ], [ %6, %1 ], [ %6, %1 ]
+55:                                               ; preds = %49, %54, %53, %52
+  %.0 = phi i8 [ 0, %54 ], [ 3, %53 ], [ 1, %52 ], [ 2, %49 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+56:                                               ; preds = %46, %48, %55, %1, %51
+  %.2 = phi i8 [ 0, %51 ], [ 3, %48 ], [ 0, %46 ], [ %.0, %55 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -15264,11 +15291,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -15290,7 +15317,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3664
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -15309,7 +15336,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3671
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -15357,11 +15384,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !3684
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -15369,38 +15396,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h703ff090b300950fE.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h703ff090b300950fE.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -15423,10 +15453,10 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
     i8 0, label %13
     i8 1, label %52
     i8 2, label %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit
-    i8 3, label %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit
+    i8 3, label %61
   ]
 
-default.unreachable17:                            ; preds = %61, %1
+default.unreachable17:                            ; preds = %62, %1
   unreachable
 
 13:                                               ; preds = %1
@@ -15463,7 +15493,7 @@ _ZN3std9panicking3try17h176e2208fea4c3a2E.exit.i: ; preds = %13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !3687
   switch i64 %.sroa.0.0.copyload.i, label %21 [
     i64 3, label %24
-    i64 2, label %61
+    i64 2, label %62
   ]
 
 21:                                               ; preds = %_ZN3std9panicking3try17h176e2208fea4c3a2E.exit.i
@@ -15489,7 +15519,7 @@ _ZN3std9panicking3try17h176e2208fea4c3a2E.exit.i: ; preds = %13
 
 .thread.i:                                        ; preds = %22
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8), !noalias !3696
-  br label %63
+  br label %64
 
 24:                                               ; preds = %_ZN3std9panicking3try17h176e2208fea4c3a2E.exit.i, %_ZN3std9panicking3try17h176e2208fea4c3a2E.exit.thread.i
   %25 = phi <2 x ptr> [ %19, %_ZN3std9panicking3try17h176e2208fea4c3a2E.exit.thread.i ], [ %20, %_ZN3std9panicking3try17h176e2208fea4c3a2E.exit.i ]
@@ -15538,11 +15568,11 @@ _ZN3std9panicking3try17h176e2208fea4c3a2E.exit.i: ; preds = %13
   %50 = icmp ult i64 %49, -9223372036854775807
   call void @llvm.assume(i1 %50)
   %51 = icmp eq i64 %47, 0
-  br i1 %51, label %63, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %51, label %64, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %45
   call void @__rust_dealloc(ptr noundef nonnull %34, i64 noundef %47, i64 noundef %49) #13, !noalias !3708
-  br label %63
+  br label %64
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %37
   resume { ptr, i32 } %38
@@ -15585,73 +15615,76 @@ _ZN3std9panicking3try17h176e2208fea4c3a2E.exit.i: ; preds = %13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit
 
-61:                                               ; preds = %_ZN3std9panicking3try17h176e2208fea4c3a2E.exit.i
+61:                                               ; preds = %1
+  br label %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit
+
+62:                                               ; preds = %_ZN3std9panicking3try17h176e2208fea4c3a2E.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.13.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7.i)
-  %62 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %11), !range !4
-  switch i8 %62, label %default.unreachable17 [
+  %63 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %11), !range !4
+  switch i8 %63, label %default.unreachable17 [
     i8 0, label %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15
-    i8 1, label %64
-    i8 2, label %65
-    i8 3, label %66
+    i8 1, label %65
+    i8 2, label %66
+    i8 3, label %67
   ]
 
-63:                                               ; preds = %.thread.i, %45, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+64:                                               ; preds = %.thread.i, %45, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.13.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit
 
-64:                                               ; preds = %61
+65:                                               ; preds = %62
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15
 
-65:                                               ; preds = %61
+66:                                               ; preds = %62
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15
 
-66:                                               ; preds = %61
+67:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %15, ptr %2, align 16
   invoke void @_ZN3std9panicking3try7do_call17h3343e3655ca62b9aE.llvm.862030130881490728(ptr nonnull %2)
-          to label %67 unwind label %69
+          to label %68 unwind label %70
 
-67:                                               ; preds = %66
+68:                                               ; preds = %67
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %68 = load i64, ptr %15, align 8, !noundef !5
+  %69 = load i64, ptr %15, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store i64 2, ptr %4, align 8
   %.sroa.4.0..sroa_idx.i13 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %.sroa.4.0..sroa_idx.i13, align 8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i14 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 %68, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i14, align 8
+  store i64 %69, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i14, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h2ddb137f1b6fc3f8E"(ptr noundef nonnull align 8 %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15
 
-69:                                               ; preds = %66
-  %70 = landingpad { ptr, i32 }
+70:                                               ; preds = %67
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  call void @_ZN3std9panicking3try8do_catch17hbf90d16bd43eff9bE.llvm.862030130881490728(ptr nonnull %2, ptr %71)
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @_ZN3std9panicking3try8do_catch17hbf90d16bd43eff9bE.llvm.862030130881490728(ptr nonnull %2, ptr %72)
   %.sroa.4.0..sroa_idx9.i10 = getelementptr inbounds i8, ptr %3, i64 8
-  %72 = load <2 x ptr>, ptr %2, align 16
+  %73 = load <2 x ptr>, ptr %2, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %73 = load i64, ptr %15, align 8, !noundef !5
+  %74 = load i64, ptr %15, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store i64 2, ptr %3, align 8
-  store <2 x ptr> %72, ptr %.sroa.4.0..sroa_idx9.i10, align 8
+  store <2 x ptr> %73, ptr %.sroa.4.0..sroa_idx9.i10, align 8
   %.sroa.4.sroa.516.0..sroa.4.0..sroa_idx9.sroa_idx.i12 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 %73, ptr %.sroa.4.sroa.516.0..sroa.4.0..sroa_idx9.sroa_idx.i12, align 8
+  store i64 %74, ptr %.sroa.4.sroa.516.0..sroa.4.0..sroa_idx9.sroa_idx.i12, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h2ddb137f1b6fc3f8E"(ptr noundef nonnull align 8 %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15
 
-_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15: ; preds = %69, %67, %61, %65, %64
-  %.0 = phi i8 [ 3, %65 ], [ 1, %64 ], [ 2, %61 ], [ 0, %67 ], [ 0, %69 ]
+_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15: ; preds = %70, %68, %62, %66, %65
+  %.0 = phi i8 [ 3, %66 ], [ 1, %65 ], [ 2, %62 ], [ 0, %68 ], [ 0, %70 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit
 
-_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit: ; preds = %1, %56, %54, %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15, %1, %63
-  %.2 = phi i8 [ 0, %63 ], [ %.0, %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %54 ], [ 0, %56 ], [ %12, %1 ]
+_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit: ; preds = %56, %54, %61, %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15, %1, %64
+  %.2 = phi i8 [ 0, %64 ], [ 3, %61 ], [ %.0, %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %54 ], [ 0, %56 ]
   ret i8 %.2
 }
 
@@ -15665,11 +15698,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %44
-    i8 2, label %53
-    i8 3, label %53
+    i8 2, label %54
+    i8 3, label %46
   ]
 
-default.unreachable10:                            ; preds = %46, %1
+default.unreachable10:                            ; preds = %47, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -15691,7 +15724,7 @@ default.unreachable10:                            ; preds = %46, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3711
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %46, label %15
+  br i1 %trunc16.i, label %47, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -15710,7 +15743,7 @@ default.unreachable10:                            ; preds = %46, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3718
-  br label %48
+  br label %49
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -15759,11 +15792,11 @@ default.unreachable10:                            ; preds = %46, %1
   %42 = icmp ult i64 %41, -9223372036854775807
   call void @llvm.assume(i1 %42)
   %43 = icmp eq i64 %39, 0
-  br i1 %43, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %43, label %49, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %37
   call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef %39, i64 noundef %41) #13, !noalias !3731
-  br label %48
+  br label %49
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %29
   resume { ptr, i32 } %30
@@ -15771,38 +15804,41 @@ default.unreachable10:                            ; preds = %46, %1
 44:                                               ; preds = %1
   %45 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h453a1751401b55e5E.llvm.16590137254369539614(ptr noundef nonnull align 8 %45)
-  br label %53
+  br label %54
 
-46:                                               ; preds = %11
-  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %47, label %default.unreachable10 [
-    i8 0, label %52
-    i8 1, label %49
-    i8 2, label %50
-    i8 3, label %51
+46:                                               ; preds = %1
+  br label %54
+
+47:                                               ; preds = %11
+  %48 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %48, label %default.unreachable10 [
+    i8 0, label %53
+    i8 1, label %50
+    i8 2, label %51
+    i8 3, label %52
   ]
 
-48:                                               ; preds = %.thread.i, %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+49:                                               ; preds = %.thread.i, %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %54
+
+50:                                               ; preds = %47
   br label %53
 
-49:                                               ; preds = %46
-  br label %52
+51:                                               ; preds = %47
+  br label %53
 
-50:                                               ; preds = %46
-  br label %52
-
-51:                                               ; preds = %46
+52:                                               ; preds = %47
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h453a1751401b55e5E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %52
-
-52:                                               ; preds = %46, %51, %50, %49
-  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %53
 
-53:                                               ; preds = %1, %44, %52, %1, %48
-  %.2 = phi i8 [ 0, %48 ], [ 0, %44 ], [ %.0, %52 ], [ %6, %1 ], [ %6, %1 ]
+53:                                               ; preds = %47, %52, %51, %50
+  %.0 = phi i8 [ 0, %52 ], [ 3, %51 ], [ 1, %50 ], [ 2, %47 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %54
+
+54:                                               ; preds = %44, %46, %53, %1, %49
+  %.2 = phi i8 [ 0, %49 ], [ 3, %46 ], [ 0, %44 ], [ %.0, %53 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -15816,11 +15852,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -15842,7 +15878,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3734
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -15861,7 +15897,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3741
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -15909,11 +15945,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !3754
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -15921,38 +15957,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17he22ec53993a27807E.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17he22ec53993a27807E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -15968,11 +16007,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %46
-    i8 2, label %55
-    i8 3, label %55
+    i8 2, label %56
+    i8 3, label %48
   ]
 
-default.unreachable10:                            ; preds = %48, %1
+default.unreachable10:                            ; preds = %49, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -16013,7 +16052,7 @@ _ZN3std9panicking3try17hb388154b942b6822E.exit.i: ; preds = %7
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3), !noalias !3757
   switch i32 %.sroa.5.0.copyload.i, label %15 [
     i32 1000000003, label %18
-    i32 1000000002, label %48
+    i32 1000000002, label %49
   ]
 
 15:                                               ; preds = %_ZN3std9panicking3try17hb388154b942b6822E.exit.i
@@ -16045,7 +16084,7 @@ _ZN3std9panicking3try17hb388154b942b6822E.exit.i: ; preds = %7
 
 .thread.i:                                        ; preds = %16
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !3766
-  br label %50
+  br label %51
 
 18:                                               ; preds = %_ZN3std9panicking3try17hb388154b942b6822E.exit.i, %_ZN3std9panicking3try17hb388154b942b6822E.exit.thread.i
   %.sroa.0.052.i = phi i64 [ undef, %_ZN3std9panicking3try17hb388154b942b6822E.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZN3std9panicking3try17hb388154b942b6822E.exit.i ]
@@ -16096,11 +16135,11 @@ _ZN3std9panicking3try17hb388154b942b6822E.exit.i: ; preds = %7
   %44 = icmp ult i64 %43, -9223372036854775807
   call void @llvm.assume(i1 %44)
   %45 = icmp eq i64 %41, 0
-  br i1 %45, label %50, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %45, label %51, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %39
   call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %41, i64 noundef %43) #13, !noalias !3778
-  br label %50
+  br label %51
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %31
   resume { ptr, i32 } %32
@@ -16108,42 +16147,45 @@ _ZN3std9panicking3try17hb388154b942b6822E.exit.i: ; preds = %7
 46:                                               ; preds = %1
   %47 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h5ec2298fdfde240eE.llvm.16590137254369539614(ptr noundef nonnull align 8 %47)
-  br label %55
+  br label %56
 
-48:                                               ; preds = %_ZN3std9panicking3try17hb388154b942b6822E.exit.i
+48:                                               ; preds = %1
+  br label %56
+
+49:                                               ; preds = %_ZN3std9panicking3try17hb388154b942b6822E.exit.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
-  %49 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %49, label %default.unreachable10 [
-    i8 0, label %54
-    i8 1, label %51
-    i8 2, label %52
-    i8 3, label %53
+  %50 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %50, label %default.unreachable10 [
+    i8 0, label %55
+    i8 1, label %52
+    i8 2, label %53
+    i8 3, label %54
   ]
 
-50:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+51:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+52:                                               ; preds = %49
   br label %55
 
-51:                                               ; preds = %48
-  br label %54
+53:                                               ; preds = %49
+  br label %55
 
-52:                                               ; preds = %48
-  br label %54
-
-53:                                               ; preds = %48
+54:                                               ; preds = %49
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h5ec2298fdfde240eE.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %54
-
-54:                                               ; preds = %48, %53, %52, %51
-  %.0 = phi i8 [ 0, %53 ], [ 3, %52 ], [ 1, %51 ], [ 2, %48 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %55
 
-55:                                               ; preds = %1, %46, %54, %1, %50
-  %.2 = phi i8 [ 0, %50 ], [ 0, %46 ], [ %.0, %54 ], [ %6, %1 ], [ %6, %1 ]
+55:                                               ; preds = %49, %54, %53, %52
+  %.0 = phi i8 [ 0, %54 ], [ 3, %53 ], [ 1, %52 ], [ 2, %49 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+56:                                               ; preds = %46, %48, %55, %1, %51
+  %.2 = phi i8 [ 0, %51 ], [ 3, %48 ], [ 0, %46 ], [ %.0, %55 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -16157,11 +16199,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -16183,7 +16225,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3781
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -16202,7 +16244,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3788
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -16250,11 +16292,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !3801
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -16262,38 +16304,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h84fb481a2ff9e60eE.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h84fb481a2ff9e60eE.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -16309,11 +16354,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %46
-    i8 2, label %55
-    i8 3, label %55
+    i8 2, label %56
+    i8 3, label %48
   ]
 
-default.unreachable10:                            ; preds = %48, %1
+default.unreachable10:                            ; preds = %49, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -16354,7 +16399,7 @@ _ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.i: ; preds = %7
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3), !noalias !3804
   switch i32 %.sroa.5.0.copyload.i, label %15 [
     i32 1000000003, label %18
-    i32 1000000002, label %48
+    i32 1000000002, label %49
   ]
 
 15:                                               ; preds = %_ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.i
@@ -16386,7 +16431,7 @@ _ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.i: ; preds = %7
 
 .thread.i:                                        ; preds = %16
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !3813
-  br label %50
+  br label %51
 
 18:                                               ; preds = %_ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.i, %_ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.thread.i
   %.sroa.0.052.i = phi i64 [ undef, %_ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.i ]
@@ -16437,11 +16482,11 @@ _ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.i: ; preds = %7
   %44 = icmp ult i64 %43, -9223372036854775807
   call void @llvm.assume(i1 %44)
   %45 = icmp eq i64 %41, 0
-  br i1 %45, label %50, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %45, label %51, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %39
   call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %41, i64 noundef %43) #13, !noalias !3825
-  br label %50
+  br label %51
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %31
   resume { ptr, i32 } %32
@@ -16449,42 +16494,45 @@ _ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.i: ; preds = %7
 46:                                               ; preds = %1
   %47 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h21651c2a43fe5c61E.llvm.16590137254369539614(ptr noundef nonnull align 8 %47)
-  br label %55
+  br label %56
 
-48:                                               ; preds = %_ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.i
+48:                                               ; preds = %1
+  br label %56
+
+49:                                               ; preds = %_ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
-  %49 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %49, label %default.unreachable10 [
-    i8 0, label %54
-    i8 1, label %51
-    i8 2, label %52
-    i8 3, label %53
+  %50 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %50, label %default.unreachable10 [
+    i8 0, label %55
+    i8 1, label %52
+    i8 2, label %53
+    i8 3, label %54
   ]
 
-50:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+51:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+52:                                               ; preds = %49
   br label %55
 
-51:                                               ; preds = %48
-  br label %54
+53:                                               ; preds = %49
+  br label %55
 
-52:                                               ; preds = %48
-  br label %54
-
-53:                                               ; preds = %48
+54:                                               ; preds = %49
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h21651c2a43fe5c61E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %54
-
-54:                                               ; preds = %48, %53, %52, %51
-  %.0 = phi i8 [ 0, %53 ], [ 3, %52 ], [ 1, %51 ], [ 2, %48 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %55
 
-55:                                               ; preds = %1, %46, %54, %1, %50
-  %.2 = phi i8 [ 0, %50 ], [ 0, %46 ], [ %.0, %54 ], [ %6, %1 ], [ %6, %1 ]
+55:                                               ; preds = %49, %54, %53, %52
+  %.0 = phi i8 [ 0, %54 ], [ 3, %53 ], [ 1, %52 ], [ 2, %49 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+56:                                               ; preds = %46, %48, %55, %1, %51
+  %.2 = phi i8 [ 0, %51 ], [ 3, %48 ], [ 0, %46 ], [ %.0, %55 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -16498,11 +16546,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -16524,7 +16572,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3828
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -16543,7 +16591,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3835
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -16591,11 +16639,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !3848
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -16603,38 +16651,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h9154bd8889f7f515E.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h9154bd8889f7f515E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -16648,11 +16699,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -16674,7 +16725,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3851
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -16693,7 +16744,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3858
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -16741,11 +16792,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !3871
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -16753,38 +16804,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17hee799fff6f3624b0E.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17hee799fff6f3624b0E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -16798,11 +16852,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -16824,7 +16878,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3874
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -16843,7 +16897,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3881
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -16891,11 +16945,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !3894
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -16903,38 +16957,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h03498a6ce5e18572E.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h03498a6ce5e18572E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -16955,10 +17012,10 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
     i8 0, label %13
     i8 1, label %50
     i8 2, label %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit
-    i8 3, label %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit
+    i8 3, label %61
   ]
 
-default.unreachable17:                            ; preds = %61, %1
+default.unreachable17:                            ; preds = %62, %1
   unreachable
 
 13:                                               ; preds = %1
@@ -16993,7 +17050,7 @@ _ZN3std9panicking3try17haa6a62bc900c1641E.exit.i: ; preds = %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !3897
   switch i64 %.sroa.0.0.copyload.i, label %22 [
     i64 -9223372036854775806, label %25
-    i64 -9223372036854775807, label %61
+    i64 -9223372036854775807, label %62
   ]
 
 22:                                               ; preds = %_ZN3std9panicking3try17haa6a62bc900c1641E.exit.i
@@ -17020,7 +17077,7 @@ _ZN3std9panicking3try17haa6a62bc900c1641E.exit.i: ; preds = %13
 
 .thread.i:                                        ; preds = %24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !3905
-  br label %63
+  br label %64
 
 25:                                               ; preds = %_ZN3std9panicking3try17haa6a62bc900c1641E.exit.i, %_ZN3std9panicking3try17haa6a62bc900c1641E.exit.thread.i
   %.sroa.7.029.i = phi ptr [ %19, %_ZN3std9panicking3try17haa6a62bc900c1641E.exit.thread.i ], [ %.sroa.7.0.copyload.i, %_ZN3std9panicking3try17haa6a62bc900c1641E.exit.i ]
@@ -17067,11 +17124,11 @@ _ZN3std9panicking3try17haa6a62bc900c1641E.exit.i: ; preds = %13
   %48 = icmp ult i64 %47, -9223372036854775807
   call void @llvm.assume(i1 %48)
   %49 = icmp eq i64 %45, 0
-  br i1 %49, label %63, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %49, label %64, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %43
   call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef %45, i64 noundef %47) #13, !noalias !3918
-  br label %63
+  br label %64
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %35
   resume { ptr, i32 } %36
@@ -17118,73 +17175,76 @@ _ZN3std9panicking3try17haa6a62bc900c1641E.exit.i: ; preds = %13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit
 
-61:                                               ; preds = %_ZN3std9panicking3try17haa6a62bc900c1641E.exit.i
-  %62 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %11), !range !4
-  switch i8 %62, label %default.unreachable17 [
+61:                                               ; preds = %1
+  br label %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit
+
+62:                                               ; preds = %_ZN3std9panicking3try17haa6a62bc900c1641E.exit.i
+  %63 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %11), !range !4
+  switch i8 %63, label %default.unreachable17 [
     i8 0, label %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15
-    i8 1, label %64
-    i8 2, label %65
-    i8 3, label %66
+    i8 1, label %65
+    i8 2, label %66
+    i8 3, label %67
   ]
 
-63:                                               ; preds = %.thread.i, %43, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+64:                                               ; preds = %.thread.i, %43, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit
 
-64:                                               ; preds = %61
+65:                                               ; preds = %62
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15
 
-65:                                               ; preds = %61
+66:                                               ; preds = %62
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15
 
-66:                                               ; preds = %61
+67:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %15, ptr %2, align 16
   invoke void @_ZN3std9panicking3try7do_call17h4b6d74d3a8ba7360E.llvm.862030130881490728(ptr nonnull %2)
-          to label %67 unwind label %70
+          to label %68 unwind label %71
 
-67:                                               ; preds = %66
+68:                                               ; preds = %67
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %68 = load i64, ptr %15, align 8, !noundef !5
+  %69 = load i64, ptr %15, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  %69 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %70, align 8
   %.sroa.4.0..sroa_idx.i13 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr null, ptr %.sroa.4.0..sroa_idx.i13, align 8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i14 = getelementptr inbounds i8, ptr %4, i64 32
-  store i64 %68, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i14, align 8
+  store i64 %69, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i14, align 8
   store i64 1, ptr %4, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h9407955c65c61890E"(ptr noundef nonnull align 8 %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15
 
-70:                                               ; preds = %66
-  %71 = landingpad { ptr, i32 }
+71:                                               ; preds = %67
+  %72 = landingpad { ptr, i32 }
           catch ptr null
-  %72 = extractvalue { ptr, i32 } %71, 0
-  call void @_ZN3std9panicking3try8do_catch17h217e904358137e95E.llvm.862030130881490728(ptr nonnull %2, ptr %72)
-  %73 = getelementptr inbounds i8, ptr %3, i64 8
+  %73 = extractvalue { ptr, i32 } %72, 0
+  call void @_ZN3std9panicking3try8do_catch17h217e904358137e95E.llvm.862030130881490728(ptr nonnull %2, ptr %73)
+  %74 = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.4.0..sroa_idx8.i10 = getelementptr inbounds i8, ptr %3, i64 16
-  %74 = load <2 x ptr>, ptr %2, align 16
+  %75 = load <2 x ptr>, ptr %2, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %75 = load i64, ptr %15, align 8, !noundef !5
+  %76 = load i64, ptr %15, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  store i64 1, ptr %73, align 8
-  store <2 x ptr> %74, ptr %.sroa.4.0..sroa_idx8.i10, align 8
+  store i64 1, ptr %74, align 8
+  store <2 x ptr> %75, ptr %.sroa.4.0..sroa_idx8.i10, align 8
   %.sroa.4.sroa.514.0..sroa.4.0..sroa_idx8.sroa_idx.i12 = getelementptr inbounds i8, ptr %3, i64 32
-  store i64 %75, ptr %.sroa.4.sroa.514.0..sroa.4.0..sroa_idx8.sroa_idx.i12, align 8
+  store i64 %76, ptr %.sroa.4.sroa.514.0..sroa.4.0..sroa_idx8.sroa_idx.i12, align 8
   store i64 1, ptr %3, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h9407955c65c61890E"(ptr noundef nonnull align 8 %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15
 
-_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15: ; preds = %70, %67, %61, %65, %64
-  %.0 = phi i8 [ 3, %65 ], [ 1, %64 ], [ 2, %61 ], [ 0, %67 ], [ 0, %70 ]
+_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15: ; preds = %71, %68, %62, %66, %65
+  %.0 = phi i8 [ 3, %66 ], [ 1, %65 ], [ 2, %62 ], [ 0, %68 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit
 
-_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit: ; preds = %1, %55, %52, %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15, %1, %63
-  %.2 = phi i8 [ 0, %63 ], [ %.0, %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %52 ], [ 0, %55 ], [ %12, %1 ]
+_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit: ; preds = %55, %52, %61, %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15, %1, %64
+  %.2 = phi i8 [ 0, %64 ], [ 3, %61 ], [ %.0, %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %52 ], [ 0, %55 ]
   ret i8 %.2
 }
 
@@ -17198,11 +17258,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %44
-    i8 2, label %53
-    i8 3, label %53
+    i8 2, label %54
+    i8 3, label %46
   ]
 
-default.unreachable10:                            ; preds = %46, %1
+default.unreachable10:                            ; preds = %47, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -17224,7 +17284,7 @@ default.unreachable10:                            ; preds = %46, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3921
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %46, label %15
+  br i1 %trunc16.i, label %47, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -17243,7 +17303,7 @@ default.unreachable10:                            ; preds = %46, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3928
-  br label %48
+  br label %49
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -17292,11 +17352,11 @@ default.unreachable10:                            ; preds = %46, %1
   %42 = icmp ult i64 %41, -9223372036854775807
   call void @llvm.assume(i1 %42)
   %43 = icmp eq i64 %39, 0
-  br i1 %43, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %43, label %49, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %37
   call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef %39, i64 noundef %41) #13, !noalias !3941
-  br label %48
+  br label %49
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %29
   resume { ptr, i32 } %30
@@ -17304,38 +17364,41 @@ default.unreachable10:                            ; preds = %46, %1
 44:                                               ; preds = %1
   %45 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h61038146ce73e0ffE.llvm.16590137254369539614(ptr noundef nonnull align 8 %45)
-  br label %53
+  br label %54
 
-46:                                               ; preds = %11
-  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %47, label %default.unreachable10 [
-    i8 0, label %52
-    i8 1, label %49
-    i8 2, label %50
-    i8 3, label %51
+46:                                               ; preds = %1
+  br label %54
+
+47:                                               ; preds = %11
+  %48 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %48, label %default.unreachable10 [
+    i8 0, label %53
+    i8 1, label %50
+    i8 2, label %51
+    i8 3, label %52
   ]
 
-48:                                               ; preds = %.thread.i, %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+49:                                               ; preds = %.thread.i, %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %54
+
+50:                                               ; preds = %47
   br label %53
 
-49:                                               ; preds = %46
-  br label %52
+51:                                               ; preds = %47
+  br label %53
 
-50:                                               ; preds = %46
-  br label %52
-
-51:                                               ; preds = %46
+52:                                               ; preds = %47
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h61038146ce73e0ffE.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %52
-
-52:                                               ; preds = %46, %51, %50, %49
-  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %53
 
-53:                                               ; preds = %1, %44, %52, %1, %48
-  %.2 = phi i8 [ 0, %48 ], [ 0, %44 ], [ %.0, %52 ], [ %6, %1 ], [ %6, %1 ]
+53:                                               ; preds = %47, %52, %51, %50
+  %.0 = phi i8 [ 0, %52 ], [ 3, %51 ], [ 1, %50 ], [ 2, %47 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %54
+
+54:                                               ; preds = %44, %46, %53, %1, %49
+  %.2 = phi i8 [ 0, %49 ], [ 3, %46 ], [ 0, %44 ], [ %.0, %53 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -17349,11 +17412,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -17375,7 +17438,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3944
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -17394,7 +17457,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3951
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -17442,11 +17505,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !3964
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -17454,38 +17517,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17hfa7908dddd4f9619E.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17hfa7908dddd4f9619E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -17499,11 +17565,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %45
-    i8 2, label %54
-    i8 3, label %54
+    i8 2, label %55
+    i8 3, label %47
   ]
 
-default.unreachable10:                            ; preds = %47, %1
+default.unreachable10:                            ; preds = %48, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -17524,7 +17590,7 @@ default.unreachable10:                            ; preds = %47, %1
   %.sroa.10.8.copyload.i = load ptr, ptr %10, align 8, !noalias !3974
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !3967
   %12 = icmp eq i64 %.sroa.5.8.copyload.i, 2
-  br i1 %12, label %47, label %13
+  br i1 %12, label %48, label %13
 
 13:                                               ; preds = %11
   %14 = inttoptr i64 %.sroa.5.8.copyload.i to ptr
@@ -17549,7 +17615,7 @@ default.unreachable10:                            ; preds = %47, %1
 
 .thread.i:                                        ; preds = %17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !3975
-  br label %49
+  br label %50
 
 19:                                               ; preds = %7
   %20 = landingpad { ptr, i32 }
@@ -17597,11 +17663,11 @@ default.unreachable10:                            ; preds = %47, %1
   %43 = icmp ult i64 %42, -9223372036854775807
   call void @llvm.assume(i1 %43)
   %44 = icmp eq i64 %40, 0
-  br i1 %44, label %49, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %44, label %50, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %38
   call void @__rust_dealloc(ptr noundef nonnull %27, i64 noundef %40, i64 noundef %42) #13, !noalias !3988
-  br label %49
+  br label %50
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %30
   resume { ptr, i32 } %31
@@ -17609,38 +17675,41 @@ default.unreachable10:                            ; preds = %47, %1
 45:                                               ; preds = %1
   %46 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h15256aba8ad31e20E.llvm.16590137254369539614(ptr noundef nonnull align 8 %46)
-  br label %54
+  br label %55
 
-47:                                               ; preds = %11
-  %48 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %48, label %default.unreachable10 [
-    i8 0, label %53
-    i8 1, label %50
-    i8 2, label %51
-    i8 3, label %52
+47:                                               ; preds = %1
+  br label %55
+
+48:                                               ; preds = %11
+  %49 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %49, label %default.unreachable10 [
+    i8 0, label %54
+    i8 1, label %51
+    i8 2, label %52
+    i8 3, label %53
   ]
 
-49:                                               ; preds = %.thread.i, %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+50:                                               ; preds = %.thread.i, %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %55
+
+51:                                               ; preds = %48
   br label %54
 
-50:                                               ; preds = %47
-  br label %53
+52:                                               ; preds = %48
+  br label %54
 
-51:                                               ; preds = %47
-  br label %53
-
-52:                                               ; preds = %47
+53:                                               ; preds = %48
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h15256aba8ad31e20E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %53
-
-53:                                               ; preds = %47, %52, %51, %50
-  %.0 = phi i8 [ 0, %52 ], [ 3, %51 ], [ 1, %50 ], [ 2, %47 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
-54:                                               ; preds = %1, %45, %53, %1, %49
-  %.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.0, %53 ], [ %6, %1 ], [ %6, %1 ]
+54:                                               ; preds = %48, %53, %52, %51
+  %.0 = phi i8 [ 0, %53 ], [ 3, %52 ], [ 1, %51 ], [ 2, %48 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %55
+
+55:                                               ; preds = %45, %47, %54, %1, %50
+  %.2 = phi i8 [ 0, %50 ], [ 3, %47 ], [ 0, %45 ], [ %.0, %54 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -17656,11 +17725,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %46
-    i8 2, label %55
-    i8 3, label %55
+    i8 2, label %56
+    i8 3, label %48
   ]
 
-default.unreachable10:                            ; preds = %48, %1
+default.unreachable10:                            ; preds = %49, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -17701,7 +17770,7 @@ _ZN3std9panicking3try17h090acf309411ee89E.exit.i: ; preds = %7
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3), !noalias !3991
   switch i32 %.sroa.5.0.copyload.i, label %15 [
     i32 1000000003, label %18
-    i32 1000000002, label %48
+    i32 1000000002, label %49
   ]
 
 15:                                               ; preds = %_ZN3std9panicking3try17h090acf309411ee89E.exit.i
@@ -17733,7 +17802,7 @@ _ZN3std9panicking3try17h090acf309411ee89E.exit.i: ; preds = %7
 
 .thread.i:                                        ; preds = %16
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !4000
-  br label %50
+  br label %51
 
 18:                                               ; preds = %_ZN3std9panicking3try17h090acf309411ee89E.exit.i, %_ZN3std9panicking3try17h090acf309411ee89E.exit.thread.i
   %.sroa.0.052.i = phi i64 [ undef, %_ZN3std9panicking3try17h090acf309411ee89E.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZN3std9panicking3try17h090acf309411ee89E.exit.i ]
@@ -17784,11 +17853,11 @@ _ZN3std9panicking3try17h090acf309411ee89E.exit.i: ; preds = %7
   %44 = icmp ult i64 %43, -9223372036854775807
   call void @llvm.assume(i1 %44)
   %45 = icmp eq i64 %41, 0
-  br i1 %45, label %50, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %45, label %51, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %39
   call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %41, i64 noundef %43) #13, !noalias !4012
-  br label %50
+  br label %51
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %31
   resume { ptr, i32 } %32
@@ -17796,42 +17865,45 @@ _ZN3std9panicking3try17h090acf309411ee89E.exit.i: ; preds = %7
 46:                                               ; preds = %1
   %47 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h276751ba347cbddbE.llvm.16590137254369539614(ptr noundef nonnull align 8 %47)
-  br label %55
+  br label %56
 
-48:                                               ; preds = %_ZN3std9panicking3try17h090acf309411ee89E.exit.i
+48:                                               ; preds = %1
+  br label %56
+
+49:                                               ; preds = %_ZN3std9panicking3try17h090acf309411ee89E.exit.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
-  %49 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %49, label %default.unreachable10 [
-    i8 0, label %54
-    i8 1, label %51
-    i8 2, label %52
-    i8 3, label %53
+  %50 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %50, label %default.unreachable10 [
+    i8 0, label %55
+    i8 1, label %52
+    i8 2, label %53
+    i8 3, label %54
   ]
 
-50:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+51:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+52:                                               ; preds = %49
   br label %55
 
-51:                                               ; preds = %48
-  br label %54
+53:                                               ; preds = %49
+  br label %55
 
-52:                                               ; preds = %48
-  br label %54
-
-53:                                               ; preds = %48
+54:                                               ; preds = %49
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h276751ba347cbddbE.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %54
-
-54:                                               ; preds = %48, %53, %52, %51
-  %.0 = phi i8 [ 0, %53 ], [ 3, %52 ], [ 1, %51 ], [ 2, %48 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %55
 
-55:                                               ; preds = %1, %46, %54, %1, %50
-  %.2 = phi i8 [ 0, %50 ], [ 0, %46 ], [ %.0, %54 ], [ %6, %1 ], [ %6, %1 ]
+55:                                               ; preds = %49, %54, %53, %52
+  %.0 = phi i8 [ 0, %54 ], [ 3, %53 ], [ 1, %52 ], [ 2, %49 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+56:                                               ; preds = %46, %48, %55, %1, %51
+  %.2 = phi i8 [ 0, %51 ], [ 3, %48 ], [ 0, %46 ], [ %.0, %55 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -17845,11 +17917,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -17871,7 +17943,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4015
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -17890,7 +17962,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4022
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -17938,11 +18010,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !4035
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -17950,38 +18022,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h8f000dc1c2f6f4d1E.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h8f000dc1c2f6f4d1E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -17995,11 +18070,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -18021,7 +18096,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4038
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -18040,7 +18115,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4045
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -18088,11 +18163,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !4058
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -18100,38 +18175,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17hd2d1fe0eac7da30fE.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17hd2d1fe0eac7da30fE.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -18145,11 +18223,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -18171,7 +18249,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4061
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -18190,7 +18268,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4068
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -18238,11 +18316,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !4081
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -18250,38 +18328,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h9bee4632dbc4a64bE.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h9bee4632dbc4a64bE.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -18297,11 +18378,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %46
-    i8 2, label %55
-    i8 3, label %55
+    i8 2, label %56
+    i8 3, label %48
   ]
 
-default.unreachable10:                            ; preds = %48, %1
+default.unreachable10:                            ; preds = %49, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -18342,7 +18423,7 @@ _ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.i: ; preds = %7
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3), !noalias !4084
   switch i32 %.sroa.5.0.copyload.i, label %15 [
     i32 1000000003, label %18
-    i32 1000000002, label %48
+    i32 1000000002, label %49
   ]
 
 15:                                               ; preds = %_ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.i
@@ -18374,7 +18455,7 @@ _ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.i: ; preds = %7
 
 .thread.i:                                        ; preds = %16
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2), !noalias !4093
-  br label %50
+  br label %51
 
 18:                                               ; preds = %_ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.i, %_ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.thread.i
   %.sroa.0.052.i = phi i64 [ undef, %_ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.i ]
@@ -18425,11 +18506,11 @@ _ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.i: ; preds = %7
   %44 = icmp ult i64 %43, -9223372036854775807
   call void @llvm.assume(i1 %44)
   %45 = icmp eq i64 %41, 0
-  br i1 %45, label %50, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %45, label %51, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %39
   call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %41, i64 noundef %43) #13, !noalias !4105
-  br label %50
+  br label %51
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %31
   resume { ptr, i32 } %32
@@ -18437,42 +18518,45 @@ _ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.i: ; preds = %7
 46:                                               ; preds = %1
   %47 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17hfa73d3918120c66eE.llvm.16590137254369539614(ptr noundef nonnull align 8 %47)
-  br label %55
+  br label %56
 
-48:                                               ; preds = %_ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.i
+48:                                               ; preds = %1
+  br label %56
+
+49:                                               ; preds = %_ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
-  %49 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %49, label %default.unreachable10 [
-    i8 0, label %54
-    i8 1, label %51
-    i8 2, label %52
-    i8 3, label %53
+  %50 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %50, label %default.unreachable10 [
+    i8 0, label %55
+    i8 1, label %52
+    i8 2, label %53
+    i8 3, label %54
   ]
 
-50:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+51:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+52:                                               ; preds = %49
   br label %55
 
-51:                                               ; preds = %48
-  br label %54
+53:                                               ; preds = %49
+  br label %55
 
-52:                                               ; preds = %48
-  br label %54
-
-53:                                               ; preds = %48
+54:                                               ; preds = %49
   call void @_ZN5tokio7runtime4task7harness11cancel_task17hfa73d3918120c66eE.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %54
-
-54:                                               ; preds = %48, %53, %52, %51
-  %.0 = phi i8 [ 0, %53 ], [ 3, %52 ], [ 1, %51 ], [ 2, %48 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %55
 
-55:                                               ; preds = %1, %46, %54, %1, %50
-  %.2 = phi i8 [ 0, %50 ], [ 0, %46 ], [ %.0, %54 ], [ %6, %1 ], [ %6, %1 ]
+55:                                               ; preds = %49, %54, %53, %52
+  %.0 = phi i8 [ 0, %54 ], [ 3, %53 ], [ 1, %52 ], [ 2, %49 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %56
+
+56:                                               ; preds = %46, %48, %55, %1, %51
+  %.2 = phi i8 [ 0, %51 ], [ 3, %48 ], [ 0, %46 ], [ %.0, %55 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -18486,11 +18570,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -18512,7 +18596,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4108
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -18531,7 +18615,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4115
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -18579,11 +18663,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !4128
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -18591,38 +18675,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17hccddcb43f3455c4fE.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17hccddcb43f3455c4fE.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -18636,11 +18723,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %45
-    i8 2, label %54
-    i8 3, label %54
+    i8 2, label %55
+    i8 3, label %47
   ]
 
-default.unreachable10:                            ; preds = %47, %1
+default.unreachable10:                            ; preds = %48, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -18663,7 +18750,7 @@ default.unreachable10:                            ; preds = %47, %1
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, 4294967295
   %16 = icmp eq i64 %15, 2
-  br i1 %16, label %47, label %17
+  br i1 %16, label %48, label %17
 
 17:                                               ; preds = %19, %11
   %.sroa.03.0.i = phi i64 [ 1, %19 ], [ 0, %11 ]
@@ -18682,7 +18769,7 @@ default.unreachable10:                            ; preds = %47, %1
 
 .thread.i:                                        ; preds = %17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4139
-  br label %49
+  br label %50
 
 19:                                               ; preds = %7
   %20 = landingpad { ptr, i32 }
@@ -18730,11 +18817,11 @@ default.unreachable10:                            ; preds = %47, %1
   %43 = icmp ult i64 %42, -9223372036854775807
   call void @llvm.assume(i1 %43)
   %44 = icmp eq i64 %40, 0
-  br i1 %44, label %49, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %44, label %50, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %38
   call void @__rust_dealloc(ptr noundef nonnull %27, i64 noundef %40, i64 noundef %42) #13, !noalias !4152
-  br label %49
+  br label %50
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %30
   resume { ptr, i32 } %31
@@ -18742,38 +18829,41 @@ default.unreachable10:                            ; preds = %47, %1
 45:                                               ; preds = %1
   %46 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h645dd0fbe5d052a3E.llvm.16590137254369539614(ptr noundef nonnull align 8 %46)
-  br label %54
+  br label %55
 
-47:                                               ; preds = %11
-  %48 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %48, label %default.unreachable10 [
-    i8 0, label %53
-    i8 1, label %50
-    i8 2, label %51
-    i8 3, label %52
+47:                                               ; preds = %1
+  br label %55
+
+48:                                               ; preds = %11
+  %49 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %49, label %default.unreachable10 [
+    i8 0, label %54
+    i8 1, label %51
+    i8 2, label %52
+    i8 3, label %53
   ]
 
-49:                                               ; preds = %.thread.i, %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+50:                                               ; preds = %.thread.i, %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %55
+
+51:                                               ; preds = %48
   br label %54
 
-50:                                               ; preds = %47
-  br label %53
+52:                                               ; preds = %48
+  br label %54
 
-51:                                               ; preds = %47
-  br label %53
-
-52:                                               ; preds = %47
+53:                                               ; preds = %48
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h645dd0fbe5d052a3E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %53
-
-53:                                               ; preds = %47, %52, %51, %50
-  %.0 = phi i8 [ 0, %52 ], [ 3, %51 ], [ 1, %50 ], [ 2, %47 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
-54:                                               ; preds = %1, %45, %53, %1, %49
-  %.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.0, %53 ], [ %6, %1 ], [ %6, %1 ]
+54:                                               ; preds = %48, %53, %52, %51
+  %.0 = phi i8 [ 0, %53 ], [ 3, %52 ], [ 1, %51 ], [ 2, %48 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %55
+
+55:                                               ; preds = %45, %47, %54, %1, %50
+  %.2 = phi i8 [ 0, %50 ], [ 3, %47 ], [ 0, %45 ], [ %.0, %54 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -18787,11 +18877,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -18813,7 +18903,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4155
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -18832,7 +18922,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4162
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -18880,11 +18970,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !4175
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -18892,38 +18982,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h2b487f2b8ecbc336E.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h2b487f2b8ecbc336E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -18937,11 +19030,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -18963,7 +19056,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4178
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -18982,7 +19075,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4185
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -19030,11 +19123,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !4198
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -19042,38 +19135,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h05e76ead5e2a51dbE.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h05e76ead5e2a51dbE.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -19087,11 +19183,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -19113,7 +19209,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4201
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -19132,7 +19228,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4208
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -19180,11 +19276,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !4221
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -19192,38 +19288,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h1fa8df4c5bd05a84E.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h1fa8df4c5bd05a84E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -19237,11 +19336,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %43
-    i8 2, label %52
-    i8 3, label %52
+    i8 2, label %53
+    i8 3, label %45
   ]
 
-default.unreachable10:                            ; preds = %45, %1
+default.unreachable10:                            ; preds = %46, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -19263,7 +19362,7 @@ default.unreachable10:                            ; preds = %45, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4224
   %trunc16.i = trunc nuw i64 %12 to i1
   %14 = insertelement <2 x ptr> <ptr poison, ptr undef>, ptr %13, i64 0
-  br i1 %trunc16.i, label %45, label %15
+  br i1 %trunc16.i, label %46, label %15
 
 15:                                               ; preds = %17, %11
   %.sroa.03.0.i = phi i64 [ 1, %17 ], [ 0, %11 ]
@@ -19282,7 +19381,7 @@ default.unreachable10:                            ; preds = %45, %1
 
 .thread.i:                                        ; preds = %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4231
-  br label %47
+  br label %48
 
 17:                                               ; preds = %7
   %18 = landingpad { ptr, i32 }
@@ -19330,11 +19429,11 @@ default.unreachable10:                            ; preds = %45, %1
   %41 = icmp ult i64 %40, -9223372036854775807
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %38, 0
-  br i1 %42, label %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %42, label %48, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %36
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %38, i64 noundef %40) #13, !noalias !4244
-  br label %47
+  br label %48
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %28
   resume { ptr, i32 } %29
@@ -19342,38 +19441,41 @@ default.unreachable10:                            ; preds = %45, %1
 43:                                               ; preds = %1
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h4f68a2f20fc6806aE.llvm.16590137254369539614(ptr noundef nonnull align 8 %44)
-  br label %52
+  br label %53
 
-45:                                               ; preds = %11
-  %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %46, label %default.unreachable10 [
-    i8 0, label %51
-    i8 1, label %48
-    i8 2, label %49
-    i8 3, label %50
+45:                                               ; preds = %1
+  br label %53
+
+46:                                               ; preds = %11
+  %47 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %47, label %default.unreachable10 [
+    i8 0, label %52
+    i8 1, label %49
+    i8 2, label %50
+    i8 3, label %51
   ]
 
-47:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+48:                                               ; preds = %.thread.i, %36, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+49:                                               ; preds = %46
   br label %52
 
-48:                                               ; preds = %45
-  br label %51
+50:                                               ; preds = %46
+  br label %52
 
-49:                                               ; preds = %45
-  br label %51
-
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h4f68a2f20fc6806aE.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %51
-
-51:                                               ; preds = %45, %50, %49, %48
-  %.0 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
-52:                                               ; preds = %1, %43, %51, %1, %47
-  %.2 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.0, %51 ], [ %6, %1 ], [ %6, %1 ]
+52:                                               ; preds = %46, %51, %50, %49
+  %.0 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %53
+
+53:                                               ; preds = %43, %45, %52, %1, %48
+  %.2 = phi i8 [ 0, %48 ], [ 3, %45 ], [ 0, %43 ], [ %.0, %52 ], [ %6, %1 ]
   ret i8 %.2
 }
 
@@ -19387,11 +19489,11 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   switch i8 %6, label %default.unreachable10 [
     i8 0, label %7
     i8 1, label %45
-    i8 2, label %54
-    i8 3, label %54
+    i8 2, label %55
+    i8 3, label %47
   ]
 
-default.unreachable10:                            ; preds = %47, %1
+default.unreachable10:                            ; preds = %48, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -19414,7 +19516,7 @@ default.unreachable10:                            ; preds = %47, %1
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, 4294967295
   %16 = icmp eq i64 %15, 2
-  br i1 %16, label %47, label %17
+  br i1 %16, label %48, label %17
 
 17:                                               ; preds = %19, %11
   %.sroa.03.0.i = phi i64 [ 1, %19 ], [ 0, %11 ]
@@ -19433,7 +19535,7 @@ default.unreachable10:                            ; preds = %47, %1
 
 .thread.i:                                        ; preds = %17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !4255
-  br label %49
+  br label %50
 
 19:                                               ; preds = %7
   %20 = landingpad { ptr, i32 }
@@ -19481,11 +19583,11 @@ default.unreachable10:                            ; preds = %47, %1
   %43 = icmp ult i64 %42, -9223372036854775807
   call void @llvm.assume(i1 %43)
   %44 = icmp eq i64 %40, 0
-  br i1 %44, label %49, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+  br i1 %44, label %50, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i": ; preds = %38
   call void @__rust_dealloc(ptr noundef nonnull %27, i64 noundef %40, i64 noundef %42) #13, !noalias !4268
-  br label %49
+  br label %50
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b5f46fc0944a1f7E.llvm.16590137254369539614.exit.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i.i.i.i", %30
   resume { ptr, i32 } %31
@@ -19493,38 +19595,41 @@ default.unreachable10:                            ; preds = %47, %1
 45:                                               ; preds = %1
   %46 = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZN5tokio7runtime4task7harness11cancel_task17h023e7758e3343562E.llvm.16590137254369539614(ptr noundef nonnull align 8 %46)
-  br label %54
+  br label %55
 
-47:                                               ; preds = %11
-  %48 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
-  switch i8 %48, label %default.unreachable10 [
-    i8 0, label %53
-    i8 1, label %50
-    i8 2, label %51
-    i8 3, label %52
+47:                                               ; preds = %1
+  br label %55
+
+48:                                               ; preds = %11
+  %49 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h15268b5949f7a653E(ptr noundef nonnull align 8 %5), !range !4
+  switch i8 %49, label %default.unreachable10 [
+    i8 0, label %54
+    i8 1, label %51
+    i8 2, label %52
+    i8 3, label %53
   ]
 
-49:                                               ; preds = %.thread.i, %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+50:                                               ; preds = %.thread.i, %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %55
+
+51:                                               ; preds = %48
   br label %54
 
-50:                                               ; preds = %47
-  br label %53
+52:                                               ; preds = %48
+  br label %54
 
-51:                                               ; preds = %47
-  br label %53
-
-52:                                               ; preds = %47
+53:                                               ; preds = %48
   call void @_ZN5tokio7runtime4task7harness11cancel_task17h023e7758e3343562E.llvm.16590137254369539614(ptr noundef nonnull align 8 %9)
-  br label %53
-
-53:                                               ; preds = %47, %52, %51, %50
-  %.0 = phi i8 [ 0, %52 ], [ 3, %51 ], [ 1, %50 ], [ 2, %47 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
-54:                                               ; preds = %1, %45, %53, %1, %49
-  %.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.0, %53 ], [ %6, %1 ], [ %6, %1 ]
+54:                                               ; preds = %48, %53, %52, %51
+  %.0 = phi i8 [ 0, %53 ], [ 3, %52 ], [ 1, %51 ], [ 2, %48 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %55
+
+55:                                               ; preds = %45, %47, %54, %1, %50
+  %.2 = phi i8 [ 0, %50 ], [ 3, %47 ], [ 0, %45 ], [ %.0, %54 ], [ %6, %1 ]
   ret i8 %.2
 }
 

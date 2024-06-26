@@ -83,9 +83,10 @@ entry:
   %conv.i = zext i1 %cmp.i to i64
   %add.i = add nsw i64 %div.i, %conv.i
   %agg.tmp3.sroa.0.0.copyload.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %add.i, i64 1)
-  %now.coerce.off = add i64 %now.coerce, -9223372036854775807
-  %switch = icmp ult i64 %now.coerce.off, 2
-  br i1 %switch, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18, label %if.end11.i.i
+  switch i64 %now.coerce, label %if.end11.i.i [
+    i64 9223372036854775807, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18
+    i64 -9223372036854775808, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18.fold.split
+  ]
 
 if.end11.i.i:                                     ; preds = %entry
   %cmp.i.i.i = icmp sgt i64 %now.coerce, 0
@@ -101,8 +102,11 @@ _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %if.end11.i.i
   %spec.select = select i1 %cmp.i.i2, i64 9223372036854775807, i64 %add.i.i.i13
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18
 
-_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18: ; preds = %entry, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, %if.end11.i.i
-  %retval.0.i.i14 = phi i64 [ 9223372036854775807, %if.end11.i.i ], [ %spec.select, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit ], [ %now.coerce, %entry ]
+_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18.fold.split: ; preds = %entry
+  br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18
+
+_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18: ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, %if.end11.i.i, %entry, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18.fold.split
+  %retval.0.i.i14 = phi i64 [ %now.coerce, %entry ], [ -9223372036854775808, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit18.fold.split ], [ 9223372036854775807, %if.end11.i.i ], [ %spec.select, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit ]
   ret i64 %retval.0.i.i14
 }
 

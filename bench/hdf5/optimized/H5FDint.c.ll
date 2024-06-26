@@ -629,7 +629,7 @@ define range(i32 -1, 1) i32 @H5FD_read_vector(ptr noundef %0, i32 noundef %1, pt
 
 44:                                               ; preds = %35, %38, %43, %34
   %.1114 = phi i1 [ true, %34 ], [ true, %38 ], [ false, %43 ], [ false, %35 ]
-  %.1101 = phi i32 [ %.0100156, %34 ], [ %42, %38 ], [ %37, %43 ], [ %37, %35 ]
+  %.1101 = phi i32 [ %.0100156, %34 ], [ %42, %38 ], [ 3, %43 ], [ %37, %35 ]
   %.199 = phi i8 [ %.098157, %34 ], [ %.098157, %38 ], [ 1, %43 ], [ %.098157, %35 ]
   %45 = load ptr, ptr %23, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 176
@@ -914,7 +914,7 @@ define range(i32 -1, 1) i32 @H5FD_write_vector(ptr noundef %0, i32 noundef %1, p
 
 40:                                               ; preds = %31, %34, %39, %30
   %.1101 = phi i1 [ true, %30 ], [ true, %34 ], [ false, %39 ], [ false, %31 ]
-  %.191 = phi i32 [ %.090137, %30 ], [ %38, %34 ], [ %33, %39 ], [ %33, %31 ]
+  %.191 = phi i32 [ %.090137, %30 ], [ %38, %34 ], [ 3, %39 ], [ %33, %31 ]
   %.1 = phi i8 [ %.087138, %30 ], [ %.087138, %34 ], [ 1, %39 ], [ %.087138, %31 ]
   %41 = load ptr, ptr %19, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 176

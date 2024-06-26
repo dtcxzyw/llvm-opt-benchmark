@@ -453,9 +453,10 @@ if.end33:                                         ; preds = %if.end28, %if.then3
   %cond10.i.i.i = select i1 %cmp.not.i.i.i, i64 %spec.select.i.i.i, i64 9223372036854775807
   %div.i1.i = sdiv i32 %nanos.1, 1000000
   %div.i.sext.i = sext i32 %div.i1.i to i64
-  %cond10.i.i.i.off = add i64 %cond10.i.i.i, -9223372036854775807
-  %switch = icmp ult i64 %cond10.i.i.i.off, 2
-  br i1 %switch, label %_ZN9grpc_core8Duration25FromSecondsAndNanosecondsEli.exit, label %if.end11.i.i.i
+  switch i64 %cond10.i.i.i, label %if.end11.i.i.i [
+    i64 9223372036854775807, label %_ZN9grpc_core8Duration25FromSecondsAndNanosecondsEli.exit
+    i64 -9223372036854775808, label %_ZN9grpc_coreplENS_8DurationES0_.exit.fold.split.i
+  ]
 
 if.end11.i.i.i:                                   ; preds = %if.end33
   %cmp.i.i.i.i = icmp sgt i64 %cond10.i.i.i, 0
@@ -475,8 +476,11 @@ if.end7.i.i.i.i:                                  ; preds = %if.else.i.i.i.i, %i
   %add.i.i.i.i = add nsw i64 %cond10.i.i.i, %div.i.sext.i
   br label %_ZN9grpc_core8Duration25FromSecondsAndNanosecondsEli.exit
 
-_ZN9grpc_core8Duration25FromSecondsAndNanosecondsEli.exit: ; preds = %if.end33, %if.then.i.i.i.i, %if.else.i.i.i.i, %if.end7.i.i.i.i
-  %retval.0.i.i.i = phi i64 [ %add.i.i.i.i, %if.end7.i.i.i.i ], [ 9223372036854775807, %if.then.i.i.i.i ], [ -9223372036854775808, %if.else.i.i.i.i ], [ %cond10.i.i.i, %if.end33 ]
+_ZN9grpc_coreplENS_8DurationES0_.exit.fold.split.i: ; preds = %if.end33
+  br label %_ZN9grpc_core8Duration25FromSecondsAndNanosecondsEli.exit
+
+_ZN9grpc_core8Duration25FromSecondsAndNanosecondsEli.exit: ; preds = %if.end33, %if.then.i.i.i.i, %if.else.i.i.i.i, %if.end7.i.i.i.i, %_ZN9grpc_coreplENS_8DurationES0_.exit.fold.split.i
+  %retval.0.i.i.i = phi i64 [ %cond10.i.i.i, %if.end33 ], [ %add.i.i.i.i, %if.end7.i.i.i.i ], [ 9223372036854775807, %if.then.i.i.i.i ], [ -9223372036854775808, %if.else.i.i.i.i ], [ -9223372036854775808, %_ZN9grpc_coreplENS_8DurationES0_.exit.fold.split.i ]
   store i64 %retval.0.i.i.i, ptr %dst, align 8
   br label %return
 

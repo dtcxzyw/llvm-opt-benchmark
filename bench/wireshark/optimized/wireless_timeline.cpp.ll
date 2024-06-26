@@ -282,64 +282,69 @@ define noundef i32 @_ZN16WirelessTimeline11find_packetEd(ptr nocapture noundef n
   %20 = tail call double @llvm.fmuladd.f64(double %15, double %19, double %5)
   %21 = fptoui double %20 to i64
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
-  %switch = icmp ult i32 %22, 2
-  br i1 %switch, label %_ZN16WirelessTimeline15find_packet_tsfEm.exit, label %23
+  switch i32 %22, label %24 [
+    i32 0, label %_ZN16WirelessTimeline15find_packet_tsfEm.exit
+    i32 1, label %23
+  ]
 
 23:                                               ; preds = %2
-  %24 = add i32 %22, -1
-  %25 = getelementptr inbounds i8, ptr %0, i64 888
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %26, ptr noundef nonnull inttoptr (i64 1 to ptr))
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
-  %29 = load i64, ptr %28, align 8
-  %30 = load ptr, ptr %25, align 8
-  %31 = zext i32 %24 to i64
-  %32 = inttoptr i64 %31 to ptr
-  %33 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %30, ptr noundef %32)
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
-  %35 = load i64, ptr %34, align 8
-  %.not39.i = icmp ugt i64 %35, %21
+  br label %_ZN16WirelessTimeline15find_packet_tsfEm.exit
+
+24:                                               ; preds = %2
+  %25 = add i32 %22, -1
+  %26 = getelementptr inbounds i8, ptr %0, i64 888
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %27, ptr noundef nonnull inttoptr (i64 1 to ptr))
+  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %30 = load i64, ptr %29, align 8
+  %31 = load ptr, ptr %26, align 8
+  %32 = zext i32 %25 to i64
+  %33 = inttoptr i64 %32 to ptr
+  %34 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %31, ptr noundef %33)
+  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %36 = load i64, ptr %35, align 8
+  %.not39.i = icmp ugt i64 %36, %21
   br i1 %.not39.i, label %.lr.ph.i, label %_ZN16WirelessTimeline15find_packet_tsfEm.exit
 
-._crit_edge.loopexit.i:                           ; preds = %44
-  %36 = add nuw i32 %..026.i, 1
+._crit_edge.loopexit.i:                           ; preds = %45
+  %37 = add nuw i32 %..026.i, 1
   br label %_ZN16WirelessTimeline15find_packet_tsfEm.exit
 
-.lr.ph.i:                                         ; preds = %23, %44
-  %.02143.i = phi i32 [ %.021..i, %44 ], [ 1, %23 ]
-  %.02242.i = phi i64 [ %..022.i, %44 ], [ %35, %23 ]
-  %.02441.i = phi i64 [ %.024..i, %44 ], [ %29, %23 ]
-  %.02640.i = phi i32 [ %..026.i, %44 ], [ %24, %23 ]
-  %37 = icmp ugt i64 %.02441.i, %21
-  br i1 %37, label %_ZN16WirelessTimeline15find_packet_tsfEm.exit, label %38
+.lr.ph.i:                                         ; preds = %24, %45
+  %.02143.i = phi i32 [ %.021..i, %45 ], [ 1, %24 ]
+  %.02242.i = phi i64 [ %..022.i, %45 ], [ %36, %24 ]
+  %.02441.i = phi i64 [ %.024..i, %45 ], [ %30, %24 ]
+  %.02640.i = phi i32 [ %..026.i, %45 ], [ %25, %24 ]
+  %38 = icmp ugt i64 %.02441.i, %21
+  br i1 %38, label %_ZN16WirelessTimeline15find_packet_tsfEm.exit, label %39
 
-38:                                               ; preds = %.lr.ph.i
-  %39 = add i32 %.02640.i, %.02143.i
-  %40 = lshr i32 %39, 1
-  %41 = icmp eq i32 %40, %.02143.i
-  br i1 %41, label %42, label %44
+39:                                               ; preds = %.lr.ph.i
+  %40 = add i32 %.02640.i, %.02143.i
+  %41 = lshr i32 %40, 1
+  %42 = icmp eq i32 %41, %.02143.i
+  br i1 %42, label %43, label %45
 
-42:                                               ; preds = %38
-  %43 = add nuw i32 %.02143.i, 1
+43:                                               ; preds = %39
+  %44 = add nuw i32 %.02143.i, 1
   br label %_ZN16WirelessTimeline15find_packet_tsfEm.exit
 
-44:                                               ; preds = %38
-  %45 = load ptr, ptr %25, align 8
-  %46 = zext nneg i32 %40 to i64
-  %47 = inttoptr i64 %46 to ptr
-  %48 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %45, ptr noundef %47)
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
-  %50 = load i64, ptr %49, align 8
-  %.not34.i = icmp ugt i64 %50, %21
-  %..026.i = select i1 %.not34.i, i32 %40, i32 %.02640.i
-  %.024..i = select i1 %.not34.i, i64 %.02441.i, i64 %50
-  %..022.i = select i1 %.not34.i, i64 %50, i64 %.02242.i
-  %.021..i = select i1 %.not34.i, i32 %.02143.i, i32 %40
+45:                                               ; preds = %39
+  %46 = load ptr, ptr %26, align 8
+  %47 = zext nneg i32 %41 to i64
+  %48 = inttoptr i64 %47 to ptr
+  %49 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %46, ptr noundef %48)
+  %50 = getelementptr inbounds i8, ptr %49, i64 24
+  %51 = load i64, ptr %50, align 8
+  %.not34.i = icmp ugt i64 %51, %21
+  %..026.i = select i1 %.not34.i, i32 %41, i32 %.02640.i
+  %.024..i = select i1 %.not34.i, i64 %.02441.i, i64 %51
+  %..022.i = select i1 %.not34.i, i64 %51, i64 %.02242.i
+  %.021..i = select i1 %.not34.i, i32 %.02143.i, i32 %41
   %.not.i = icmp ugt i64 %..022.i, %21
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !4
 
-_ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %2, %23, %._crit_edge.loopexit.i, %42
-  %.0.i = phi i32 [ %43, %42 ], [ %22, %23 ], [ %36, %._crit_edge.loopexit.i ], [ %22, %2 ], [ %.02143.i, %.lr.ph.i ]
+_ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %2, %23, %24, %._crit_edge.loopexit.i, %43
+  %.0.i = phi i32 [ 1, %23 ], [ %44, %43 ], [ %22, %2 ], [ %22, %24 ], [ %37, %._crit_edge.loopexit.i ], [ %.02143.i, %.lr.ph.i ]
   ret i32 %.0.i
 }
 
@@ -504,64 +509,69 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(896) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
-  %switch = icmp ult i32 %3, 2
-  br i1 %switch, label %.loopexit, label %4
+  switch i32 %3, label %5 [
+    i32 0, label %.loopexit
+    i32 1, label %4
+  ]
 
 4:                                                ; preds = %2
-  %5 = add i32 %3, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 888
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef nonnull inttoptr (i64 1 to ptr))
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
-  %10 = load i64, ptr %9, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = zext i32 %5 to i64
-  %13 = inttoptr i64 %12 to ptr
-  %14 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %11, ptr noundef %13)
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
-  %16 = load i64, ptr %15, align 8
-  %.not39 = icmp ugt i64 %16, %1
+  br label %.loopexit
+
+5:                                                ; preds = %2
+  %6 = add i32 %3, -1
+  %7 = getelementptr inbounds i8, ptr %0, i64 888
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef nonnull inttoptr (i64 1 to ptr))
+  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %11 = load i64, ptr %10, align 8
+  %12 = load ptr, ptr %7, align 8
+  %13 = zext i32 %6 to i64
+  %14 = inttoptr i64 %13 to ptr
+  %15 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %12, ptr noundef %14)
+  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %17 = load i64, ptr %16, align 8
+  %.not39 = icmp ugt i64 %17, %1
   br i1 %.not39, label %.lr.ph, label %.loopexit
 
-._crit_edge.loopexit:                             ; preds = %25
-  %17 = add nuw i32 %..026, 1
+._crit_edge.loopexit:                             ; preds = %26
+  %18 = add nuw i32 %..026, 1
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %4, %25
-  %.02143 = phi i32 [ %.021., %25 ], [ 1, %4 ]
-  %.02242 = phi i64 [ %..022, %25 ], [ %16, %4 ]
-  %.02441 = phi i64 [ %.024., %25 ], [ %10, %4 ]
-  %.02640 = phi i32 [ %..026, %25 ], [ %5, %4 ]
-  %18 = icmp ugt i64 %.02441, %1
-  br i1 %18, label %.loopexit, label %19
+.lr.ph:                                           ; preds = %5, %26
+  %.02143 = phi i32 [ %.021., %26 ], [ 1, %5 ]
+  %.02242 = phi i64 [ %..022, %26 ], [ %17, %5 ]
+  %.02441 = phi i64 [ %.024., %26 ], [ %11, %5 ]
+  %.02640 = phi i32 [ %..026, %26 ], [ %6, %5 ]
+  %19 = icmp ugt i64 %.02441, %1
+  br i1 %19, label %.loopexit, label %20
 
-19:                                               ; preds = %.lr.ph
-  %20 = add i32 %.02143, %.02640
-  %21 = lshr i32 %20, 1
-  %22 = icmp eq i32 %21, %.02143
-  br i1 %22, label %23, label %25
+20:                                               ; preds = %.lr.ph
+  %21 = add i32 %.02143, %.02640
+  %22 = lshr i32 %21, 1
+  %23 = icmp eq i32 %22, %.02143
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %19
-  %24 = add nuw i32 %.02143, 1
+24:                                               ; preds = %20
+  %25 = add nuw i32 %.02143, 1
   br label %.loopexit
 
-25:                                               ; preds = %19
-  %26 = load ptr, ptr %6, align 8
-  %27 = zext nneg i32 %21 to i64
-  %28 = inttoptr i64 %27 to ptr
-  %29 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %26, ptr noundef %28)
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
-  %31 = load i64, ptr %30, align 8
-  %.not34 = icmp ugt i64 %31, %1
-  %..026 = select i1 %.not34, i32 %21, i32 %.02640
-  %.024. = select i1 %.not34, i64 %.02441, i64 %31
-  %..022 = select i1 %.not34, i64 %31, i64 %.02242
-  %.021. = select i1 %.not34, i32 %.02143, i32 %21
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %7, align 8
+  %28 = zext nneg i32 %22 to i64
+  %29 = inttoptr i64 %28 to ptr
+  %30 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %27, ptr noundef %29)
+  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %32 = load i64, ptr %31, align 8
+  %.not34 = icmp ugt i64 %32, %1
+  %..026 = select i1 %.not34, i32 %22, i32 %.02640
+  %.024. = select i1 %.not34, i64 %.02441, i64 %32
+  %..022 = select i1 %.not34, i64 %32, i64 %.02242
+  %.021. = select i1 %.not34, i32 %.02143, i32 %22
   %.not = icmp ugt i64 %..022, %1
   br i1 %.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4
 
-.loopexit:                                        ; preds = %.lr.ph, %2, %4, %._crit_edge.loopexit, %23
-  %.0 = phi i32 [ %24, %23 ], [ %3, %4 ], [ %17, %._crit_edge.loopexit ], [ %3, %2 ], [ %.02143, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %5, %._crit_edge.loopexit, %2, %24, %4
+  %.0 = phi i32 [ 1, %4 ], [ %25, %24 ], [ %3, %2 ], [ %3, %5 ], [ %18, %._crit_edge.loopexit ], [ %.02143, %.lr.ph ]
   ret i32 %.0
 }
 

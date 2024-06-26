@@ -330,40 +330,43 @@ _ZN5ZXing10DataMatrix10SymbolInfo6LookupEiNS0_11SymbolShapeEiiii.exit: ; preds =
 define noundef range(i32 1, 7) i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizontalDataRegionsEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
-  switch i32 %3, label %7 [
-    i32 1, label %12
-    i32 2, label %12
-    i32 4, label %4
-    i32 16, label %5
-    i32 36, label %6
+  switch i32 %3, label %8 [
+    i32 1, label %13
+    i32 2, label %4
+    i32 4, label %5
+    i32 16, label %6
+    i32 36, label %7
   ]
 
 4:                                                ; preds = %1
-  br label %12
+  br label %13
 
 5:                                                ; preds = %1
-  br label %12
+  br label %13
 
 6:                                                ; preds = %1
-  br label %12
+  br label %13
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @__cxa_allocate_exception(i64 16) #4
-  invoke void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str)
-          to label %9 unwind label %10
+  br label %13
 
-9:                                                ; preds = %7
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #5
+8:                                                ; preds = %1
+  %9 = tail call ptr @__cxa_allocate_exception(i64 16) #4
+  invoke void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str)
+          to label %10 unwind label %11
+
+10:                                               ; preds = %8
+  tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #5
   unreachable
 
-10:                                               ; preds = %7
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %8
+  %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %8) #4
-  resume { ptr, i32 } %11
+  tail call void @__cxa_free_exception(ptr %9) #4
+  resume { ptr, i32 } %12
 
-12:                                               ; preds = %1, %1, %6, %5, %4
-  %.0 = phi i32 [ 6, %6 ], [ 4, %5 ], [ 2, %4 ], [ %3, %1 ], [ %3, %1 ]
+13:                                               ; preds = %1, %7, %6, %5, %4
+  %.0 = phi i32 [ 6, %7 ], [ 4, %6 ], [ 2, %5 ], [ 2, %4 ], [ %3, %1 ]
   ret i32 %.0
 }
 

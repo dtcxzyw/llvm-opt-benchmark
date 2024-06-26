@@ -690,8 +690,10 @@ define hidden void @"_ZN141_$LT$actix_service..apply..ApplyServiceFactoryRespons
   %11 = load ptr, ptr %10, align 8, !invariant.load !7, !noalias !144, !nonnull !7
   call void %11(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %5, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !133
   %12 = load i64, ptr %5, align 8, !range !145, !noundef !7
-  %switch = icmp slt i64 %12, -9223372036854775806
-  br i1 %switch, label %26, label %13
+  switch i64 %12, label %13 [
+    i64 -9223372036854775807, label %27
+    i64 -9223372036854775808, label %17
+  ]
 
 13:                                               ; preds = %3
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
@@ -706,46 +708,50 @@ define hidden void @"_ZN141_$LT$actix_service..apply..ApplyServiceFactoryRespons
   %16 = load ptr, ptr %15, align 8
   store i64 0, ptr %1, align 8
   %trunc = trunc nuw i64 %14 to i1
-  br i1 %trunc, label %18, label %17
+  br i1 %trunc, label %19, label %18
 
-17:                                               ; preds = %13
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5ecb3d2e9f1ae0be30078354766074af.25) #32
-          to label %21 unwind label %19
+17:                                               ; preds = %3
+  br label %27
 
 18:                                               ; preds = %13
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5ecb3d2e9f1ae0be30078354766074af.25) #32
+          to label %22 unwind label %20
+
+19:                                               ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.08, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.08, i64 40, i1 false)
   %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %16, ptr %.sroa.49.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.08)
-  br label %25
+  br label %26
 
-19:                                               ; preds = %17
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %18
+  %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$actix_web..resource..ResourceService$GT$17h1730833e5e2af4b7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #34
-          to label %24 unwind label %22
+          to label %25 unwind label %23
 
-21:                                               ; preds = %17
+22:                                               ; preds = %18
   unreachable
 
-22:                                               ; preds = %19
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %20
+  %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-24:                                               ; preds = %19
-  resume { ptr, i32 } %20
+25:                                               ; preds = %20
+  resume { ptr, i32 } %21
 
-25:                                               ; preds = %26, %18
+26:                                               ; preds = %27, %19
   ret void
 
-26:                                               ; preds = %3
-  store i64 %12, ptr %0, align 8
+27:                                               ; preds = %3, %17
+  %storemerge = phi i64 [ -9223372036854775808, %17 ], [ %12, %3 ]
+  store i64 %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  br label %25
+  br label %26
 }
 
 ; Function Attrs: nonlazybind uwtable

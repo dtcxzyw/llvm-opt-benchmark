@@ -1216,8 +1216,10 @@ select.unfold:                                    ; preds = %48, %38, %26, %41
 
 .loopexit:                                        ; preds = %79, %77, %82
   %86 = phi i32 [ %85, %82 ], [ %80, %79 ], [ %78, %77 ]
-  %cond = icmp eq i32 %86, -16
-  br i1 %cond, label %.loopexit._crit_edge, label %.thread18, !prof !43
+  switch i32 %86, label %.thread18.loopexit40 [
+    i32 0, label %.thread18
+    i32 -16, label %.loopexit._crit_edge
+  ], !prof !43
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
   %.pre = load i32, ptr %19, align 8
@@ -1240,8 +1242,11 @@ select.unfold:                                    ; preds = %48, %38, %26, %41
   %95 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #7
   br label %.thread18
 
-.thread18:                                        ; preds = %41, %48, %43, %.loopexit, %94, %.loopexit21, %4
-  %96 = phi i32 [ %9, %4 ], [ -12, %.loopexit21 ], [ -22, %94 ], [ %86, %.loopexit ], [ %42, %41 ], [ %46, %48 ], [ 0, %43 ]
+.thread18.loopexit40:                             ; preds = %.loopexit
+  br label %.thread18
+
+.thread18:                                        ; preds = %41, %48, %43, %.loopexit, %.thread18.loopexit40, %94, %.loopexit21, %4
+  %96 = phi i32 [ %9, %4 ], [ -12, %.loopexit21 ], [ -22, %94 ], [ %86, %.thread18.loopexit40 ], [ 0, %.loopexit ], [ %42, %41 ], [ %46, %48 ], [ 0, %43 ]
   ret i32 %96
 }
 
@@ -2366,7 +2371,7 @@ attributes #7 = { cold nounwind }
 !40 = distinct !{!40, !22, !23}
 !41 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
 !42 = distinct !{!42, !23}
-!43 = !{!"branch_weights", i32 1, i32 4001}
+!43 = !{!"branch_weights", i32 1, i32 4000, i32 1}
 !44 = distinct !{!44, !22, !23}
 !45 = !{i64 2148824912, i64 2148824951, i64 2148824972, i64 2148825009, i64 2148825032, i64 2148825041}
 !46 = !{i64 2148814424, i64 2148814463, i64 2148814484, i64 2148814521, i64 2148814544, i64 2148814414}

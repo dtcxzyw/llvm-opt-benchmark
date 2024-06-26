@@ -798,9 +798,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %do
   %7 = trunc i64 %5 to i32
   %8 = lshr i64 %5, 32
   %9 = trunc nuw i64 %8 to i32
-  %.off = add i32 %7, -2147483647
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %_ZN3ue25depthpLEi.exit, label %if.end7.i.i
+  switch i32 %7, label %if.end7.i.i [
+    i32 -2147483648, label %_ZN3ue25depthpLEi.exit
+    i32 2147483647, label %return.fold.split.i.i
+  ]
 
 if.end7.i.i:                                      ; preds = %for.body
   %add.i.i = add i32 %6, %7
@@ -812,12 +813,16 @@ do.end.i.i:                                       ; preds = %if.end7.i.i
   call void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN3ue218DepthOverflowErrorE, ptr null) #17
   unreachable
 
-_ZN3ue25depthpLEi.exit:                           ; preds = %for.body, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.end7.i.i ], [ %7, %for.body ]
+return.fold.split.i.i:                            ; preds = %for.body
+  br label %_ZN3ue25depthpLEi.exit
+
+_ZN3ue25depthpLEi.exit:                           ; preds = %for.body, %if.end7.i.i, %return.fold.split.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %7, %for.body ], [ %add.i.i, %if.end7.i.i ], [ 2147483647, %return.fold.split.i.i ]
   store i32 %retval.sroa.0.0.i.i, ptr %rd, align 8
-  %.off1 = add i32 %9, -2147483647
-  %switch2 = icmp ult i32 %.off1, 2
-  br i1 %switch2, label %_ZN3ue25depthpLEi.exit31, label %if.end7.i.i26
+  switch i32 %9, label %if.end7.i.i26 [
+    i32 -2147483648, label %_ZN3ue25depthpLEi.exit31
+    i32 2147483647, label %return.fold.split.i.i24
+  ]
 
 if.end7.i.i26:                                    ; preds = %_ZN3ue25depthpLEi.exit
   %add.i.i27 = add i32 %6, %9
@@ -829,8 +834,11 @@ do.end.i.i29:                                     ; preds = %if.end7.i.i26
   call void @__cxa_throw(ptr %exception.i.i30, ptr nonnull @_ZTIN3ue218DepthOverflowErrorE, ptr null) #17
   unreachable
 
-_ZN3ue25depthpLEi.exit31:                         ; preds = %_ZN3ue25depthpLEi.exit, %if.end7.i.i26
-  %retval.sroa.0.0.i.i25 = phi i32 [ %add.i.i27, %if.end7.i.i26 ], [ %9, %_ZN3ue25depthpLEi.exit ]
+return.fold.split.i.i24:                          ; preds = %_ZN3ue25depthpLEi.exit
+  br label %_ZN3ue25depthpLEi.exit31
+
+_ZN3ue25depthpLEi.exit31:                         ; preds = %_ZN3ue25depthpLEi.exit, %if.end7.i.i26, %return.fold.split.i.i24
+  %retval.sroa.0.0.i.i25 = phi i32 [ %9, %_ZN3ue25depthpLEi.exit ], [ %add.i.i27, %if.end7.i.i26 ], [ 2147483647, %return.fold.split.i.i24 ]
   store i32 %retval.sroa.0.0.i.i25, ptr %max21, align 4
   %minLength = getelementptr inbounds i8, ptr %call17, i64 24
   %10 = load i64, ptr %minLength, align 8

@@ -9612,7 +9612,7 @@ rb_num2long_inline.exit:                          ; preds = %23, %21, %rb_array_
   %.012 = phi i64 [ 0, %RARRAY_AREF.exit ], [ 0, %rb_array_len.exit ], [ 0, %3 ], [ 0, %rb_array_len.exit.thread ], [ %22, %21 ], [ %24, %23 ]
   %26 = tail call i64 @rb_check_funcall_default(i64 noundef %0, i64 noundef 2993, i32 noundef 0, ptr noundef null, i64 noundef 4) #14
   switch i64 %26, label %27 [
-    i64 4, label %.fold.split
+    i64 4, label %37
     i64 1, label %.fold.split
   ]
 
@@ -9622,21 +9622,24 @@ rb_num2long_inline.exit:                          ; preds = %23, %21, %rb_array_
 
 29:                                               ; preds = %27
   %30 = tail call i64 @rb_float_new_in_heap(double noundef 0x7FF0000000000000) #14
-  br label %.fold.split
+  br label %37
 
 31:                                               ; preds = %27
   %32 = icmp slt i64 %.012, 1
-  br i1 %32, label %.fold.split, label %33
+  br i1 %32, label %37, label %33
 
 33:                                               ; preds = %31
   %34 = shl nuw i64 %.012, 1
   %35 = or disjoint i64 %34, 1
   store i64 %35, ptr %4, align 8
   %36 = call i64 @rb_funcallv(i64 noundef %26, i64 noundef 42, i32 noundef 1, ptr noundef nonnull %4) #14
-  br label %.fold.split
+  br label %37
 
-.fold.split:                                      ; preds = %rb_num2long_inline.exit, %rb_num2long_inline.exit, %31, %33, %29
-  %.0 = phi i64 [ %30, %29 ], [ %36, %33 ], [ %26, %rb_num2long_inline.exit ], [ 1, %31 ], [ %26, %rb_num2long_inline.exit ]
+.fold.split:                                      ; preds = %rb_num2long_inline.exit
+  br label %37
+
+37:                                               ; preds = %rb_num2long_inline.exit, %.fold.split, %31, %33, %29
+  %.0 = phi i64 [ %30, %29 ], [ %36, %33 ], [ %26, %rb_num2long_inline.exit ], [ 1, %31 ], [ 1, %.fold.split ]
   ret i64 %.0
 }
 

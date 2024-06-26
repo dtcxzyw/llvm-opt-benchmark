@@ -1196,7 +1196,7 @@ define dso_local range(i32 -501, -502) i32 @nghttp2_frame_pack_goaway(ptr nounde
   br label %35
 
 35:                                               ; preds = %2, %34, %33
-  %.0 = phi i32 [ %32, %33 ], [ %32, %34 ], [ -522, %2 ]
+  %.0 = phi i32 [ %32, %33 ], [ 0, %34 ], [ -522, %2 ]
   ret i32 %.0
 }
 

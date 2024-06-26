@@ -2409,7 +2409,7 @@ define i32 @mca_btl_smcuda_get_cuda(ptr nocapture noundef readnone %0, ptr nound
   store ptr %15, ptr %16, align 8
   %17 = call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1200))
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %95, label %19
+  br i1 %18, label %96, label %19
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds i8, ptr %17, i64 104
@@ -2461,7 +2461,7 @@ define i32 @mca_btl_smcuda_get_cuda(ptr nocapture noundef readnone %0, ptr nound
 
 48:                                               ; preds = %36
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.3, i32 noundef %47) #21
-  br label %95
+  br label %96
 
 49:                                               ; preds = %36
   %50 = load ptr, ptr %16, align 8
@@ -2554,15 +2554,18 @@ mca_btl_smcuda_wait_stream_synchronize.exit:      ; preds = %.lr.ph.i.i, %62, %6
   %93 = call i32 @mca_btl_smcuda_memcpy(ptr noundef %2, ptr noundef %59, i64 noundef %6, ptr noundef nonnull @.str.5, ptr noundef nonnull %17) #21
   switch i32 %93, label %94 [
     i32 0, label %95
-    i32 -2, label %95
+    i32 -2, label %96
   ]
 
 94:                                               ; preds = %mca_btl_smcuda_wait_stream_synchronize.exit
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.6, i32 noundef %93) #21
-  br label %95
+  br label %96
 
-95:                                               ; preds = %mca_btl_smcuda_wait_stream_synchronize.exit, %94, %mca_btl_smcuda_wait_stream_synchronize.exit, %12, %48
-  %.0 = phi i32 [ %47, %48 ], [ -2, %12 ], [ %93, %mca_btl_smcuda_wait_stream_synchronize.exit ], [ %93, %94 ], [ %93, %mca_btl_smcuda_wait_stream_synchronize.exit ]
+95:                                               ; preds = %mca_btl_smcuda_wait_stream_synchronize.exit
+  br label %96
+
+96:                                               ; preds = %94, %mca_btl_smcuda_wait_stream_synchronize.exit, %12, %95, %48
+  %.0 = phi i32 [ %47, %48 ], [ 0, %95 ], [ -2, %12 ], [ %93, %mca_btl_smcuda_wait_stream_synchronize.exit ], [ %93, %94 ]
   ret i32 %.0
 }
 

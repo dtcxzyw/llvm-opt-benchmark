@@ -4493,31 +4493,31 @@ define internal fastcc range(i32 0, 6) i32 @to_float(ptr nocapture noundef %0, i
 rb_float_new_inline.exit:                         ; preds = %19, %23, %25
   %.0.i = phi i64 [ %26, %25 ], [ %22, %19 ], [ -9223372036854775806, %23 ]
   store i64 %.0.i, ptr %0, align 8
-  br label %69
+  br label %70
 
 27:                                               ; preds = %8
   %28 = and i64 %3, 2
   %.not23 = icmp eq i64 %28, 0
-  br i1 %.not23, label %29, label %69
+  br i1 %.not23, label %29, label %70
 
 29:                                               ; preds = %27
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %68, label %30
+  br i1 %.not, label %69, label %30
 
 30:                                               ; preds = %29
   tail call fastcc void @conversion_to_float(i64 noundef %3)
-  br label %68
+  br label %69
 
 31:                                               ; preds = %2
   %32 = inttoptr i64 %3 to ptr
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 31
-  switch i32 %35, label %68 [
-    i32 4, label %69
+  switch i32 %35, label %69 [
+    i32 4, label %70
     i32 10, label %36
     i32 15, label %52
-    i32 5, label %69
+    i32 5, label %68
   ]
 
 36:                                               ; preds = %31
@@ -4551,7 +4551,7 @@ rb_float_new_inline.exit:                         ; preds = %19, %23, %25
 rb_float_new_inline.exit17:                       ; preds = %44, %48, %50
   %.0.i16 = phi i64 [ %51, %50 ], [ %47, %44 ], [ -9223372036854775806, %48 ]
   store i64 %.0.i16, ptr %0, align 8
-  br label %69
+  br label %70
 
 52:                                               ; preds = %31
   %53 = tail call fastcc double @rat2dbl_without_to_f(i64 noundef %3)
@@ -4584,13 +4584,16 @@ rb_float_new_inline.exit17:                       ; preds = %44, %48, %50
 rb_float_new_inline.exit21:                       ; preds = %60, %64, %66
   %.0.i20 = phi i64 [ %67, %66 ], [ %63, %60 ], [ -9223372036854775806, %64 ]
   store i64 %.0.i20, ptr %0, align 8
-  br label %69
+  br label %70
 
-68:                                               ; preds = %31, %29, %30
-  br label %69
+68:                                               ; preds = %31
+  br label %70
 
-69:                                               ; preds = %31, %31, %27, %68, %rb_float_new_inline.exit21, %rb_float_new_inline.exit17, %rb_float_new_inline.exit
-  %.0 = phi i32 [ 4, %rb_float_new_inline.exit ], [ 0, %68 ], [ 4, %rb_float_new_inline.exit21 ], [ 4, %rb_float_new_inline.exit17 ], [ 4, %27 ], [ %35, %31 ], [ %35, %31 ]
+69:                                               ; preds = %31, %29, %30
+  br label %70
+
+70:                                               ; preds = %31, %27, %69, %68, %rb_float_new_inline.exit21, %rb_float_new_inline.exit17, %rb_float_new_inline.exit
+  %.0 = phi i32 [ 4, %rb_float_new_inline.exit ], [ 0, %69 ], [ 5, %68 ], [ 4, %rb_float_new_inline.exit21 ], [ 4, %rb_float_new_inline.exit17 ], [ 4, %27 ], [ %35, %31 ]
   ret i32 %.0
 }
 

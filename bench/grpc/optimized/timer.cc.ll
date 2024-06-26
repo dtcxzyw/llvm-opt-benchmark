@@ -60,19 +60,25 @@ entry:
 cond.true:                                        ; preds = %entry
   %queue_deadline_cap = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %queue_deadline_cap, align 8
-  %0 = add i64 %agg.tmp.sroa.0.0.copyload, 9223372036854775807
-  %switch = icmp ult i64 %0, -2
-  %add.i.i.i = zext i1 %switch to i64
-  %spec.select = add nsw i64 %agg.tmp.sroa.0.0.copyload, %add.i.i.i
+  switch i64 %agg.tmp.sroa.0.0.copyload, label %if.end7.i.i.i [
+    i64 9223372036854775807, label %cond.end
+    i64 -9223372036854775808, label %cond.end.fold.split
+  ]
+
+if.end7.i.i.i:                                    ; preds = %cond.true
+  %add.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload, 1
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
   %call9 = tail call noundef ptr @_ZN17grpc_event_engine12experimental9TimerHeap3TopEv(ptr noundef nonnull align 8 dereferenceable(24) %heap)
-  %1 = load i64, ptr %call9, align 8
+  %0 = load i64, ptr %call9, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %cond.true, %cond.false
-  %retval.sroa.0.0 = phi i64 [ %1, %cond.false ], [ %spec.select, %cond.true ]
+cond.end.fold.split:                              ; preds = %cond.true
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.true, %cond.end.fold.split, %if.end7.i.i.i, %cond.false
+  %retval.sroa.0.0 = phi i64 [ %0, %cond.false ], [ %agg.tmp.sroa.0.0.copyload, %cond.true ], [ %add.i.i.i, %if.end7.i.i.i ], [ -9223372036854775808, %cond.end.fold.split ]
   ret i64 %retval.sroa.0.0
 }
 
@@ -215,10 +221,13 @@ call.i.noexc:                                     ; preds = %invoke.cont27
 
 cond.true.i:                                      ; preds = %call.i.noexc
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %queue_deadline_cap, align 8
-  %15 = add i64 %agg.tmp.sroa.0.0.copyload.i, 9223372036854775807
-  %switch = icmp ult i64 %15, -2
-  %add.i.i.i.i = zext i1 %switch to i64
-  %spec.select28 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i, %add.i.i.i.i
+  switch i64 %agg.tmp.sroa.0.0.copyload.i, label %if.end7.i.i.i.i [
+    i64 9223372036854775807, label %invoke.cont34
+    i64 -9223372036854775808, label %cond.end.fold.split.i
+  ]
+
+if.end7.i.i.i.i:                                  ; preds = %cond.true.i
+  %add.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i, 1
   br label %invoke.cont34
 
 cond.false.i:                                     ; preds = %call.i.noexc
@@ -226,33 +235,36 @@ cond.false.i:                                     ; preds = %call.i.noexc
           to label %call9.i.noexc unwind label %lpad21
 
 call9.i.noexc:                                    ; preds = %cond.false.i
-  %16 = load i64, ptr %call9.i17, align 8
+  %15 = load i64, ptr %call9.i17, align 8
   br label %invoke.cont34
 
-invoke.cont34:                                    ; preds = %cond.true.i, %call9.i.noexc
-  %retval.sroa.0.0.i = phi i64 [ %16, %call9.i.noexc ], [ %spec.select28, %cond.true.i ]
+cond.end.fold.split.i:                            ; preds = %cond.true.i
+  br label %invoke.cont34
+
+invoke.cont34:                                    ; preds = %cond.end.fold.split.i, %call9.i.noexc, %if.end7.i.i.i.i, %cond.true.i
+  %retval.sroa.0.0.i = phi i64 [ %15, %call9.i.noexc ], [ %agg.tmp.sroa.0.0.copyload.i, %cond.true.i ], [ %add.i.i.i.i, %if.end7.i.i.i.i ], [ -9223372036854775808, %cond.end.fold.split.i ]
   %min_deadline = getelementptr inbounds i8, ptr %arrayidx.i, i64 72
   store i64 %retval.sroa.0.0.i, ptr %min_deadline, align 8
-  %17 = load ptr, ptr %shard_queue_25, align 8
-  %arrayidx.i18 = getelementptr inbounds ptr, ptr %17, i64 %i.021
+  %16 = load ptr, ptr %shard_queue_25, align 8
+  %arrayidx.i18 = getelementptr inbounds ptr, ptr %16, i64 %i.021
   store ptr %arrayidx.i, ptr %arrayidx.i18, align 8
   %inc = add nuw i64 %i.021, 1
-  %18 = load i64, ptr %num_shards_, align 8
-  %cmp = icmp ult i64 %inc, %18
+  %17 = load i64, ptr %num_shards_, align 8
+  %cmp = icmp ult i64 %inc, %17
   br i1 %cmp, label %invoke.cont27, label %for.end, !llvm.loop !4
 
 lpad:                                             ; preds = %entry
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup41
 
 lpad9:                                            ; preds = %invoke.cont
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup40
 
 lpad12:                                           ; preds = %arrayctor.loop
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 8
   br i1 %arraydestroy.isempty, label %arraydestroy.done14, label %arraydestroy.body
@@ -270,19 +282,19 @@ arraydestroy.done14:                              ; preds = %arraydestroy.body, 
   br label %ehcleanup40
 
 lpad16:                                           ; preds = %11
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad21:                                           ; preds = %cond.false.i, %invoke.cont27
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %24 = load ptr, ptr %shard_queue_25, align 8
-  %cmp.not.i = icmp eq ptr %24, null
+  %23 = load ptr, ptr %shard_queue_25, align 8
+  %cmp.not.i = icmp eq ptr %23, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_PN17grpc_event_engine12experimental9TimerList5ShardESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteIA_PN17grpc_event_engine12experimental9TimerList5ShardEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i
 
 _ZNKSt14default_deleteIA_PN17grpc_event_engine12experimental9TimerList5ShardEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i: ; preds = %lpad21
-  tail call void @_ZdaPv(ptr noundef nonnull %24) #18
+  tail call void @_ZdaPv(ptr noundef nonnull %23) #18
   br label %_ZNSt10unique_ptrIA_PN17grpc_event_engine12experimental9TimerList5ShardESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_PN17grpc_event_engine12experimental9TimerList5ShardESt14default_deleteIS5_EED2Ev.exit: ; preds = %lpad21, %_ZNKSt14default_deleteIA_PN17grpc_event_engine12experimental9TimerList5ShardEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i
@@ -293,17 +305,17 @@ for.end:                                          ; preds = %invoke.cont34, %inv
   ret void
 
 ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIA_PN17grpc_event_engine12experimental9TimerList5ShardESt14default_deleteIS5_EED2Ev.exit, %lpad16
-  %.pn = phi { ptr, i32 } [ %23, %_ZNSt10unique_ptrIA_PN17grpc_event_engine12experimental9TimerList5ShardESt14default_deleteIS5_EED2Ev.exit ], [ %22, %lpad16 ]
+  %.pn = phi { ptr, i32 } [ %22, %_ZNSt10unique_ptrIA_PN17grpc_event_engine12experimental9TimerList5ShardESt14default_deleteIS5_EED2Ev.exit ], [ %21, %lpad16 ]
   tail call void @_ZNSt10unique_ptrIA_N17grpc_event_engine12experimental9TimerList5ShardESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %shards_) #16
   br label %ehcleanup40
 
 ehcleanup40:                                      ; preds = %ehcleanup, %arraydestroy.done14, %lpad9
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %21, %arraydestroy.done14 ], [ %20, %lpad9 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %20, %arraydestroy.done14 ], [ %19, %lpad9 ]
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %checker_mu_) #16
   br label %ehcleanup41
 
 ehcleanup41:                                      ; preds = %ehcleanup40, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup40 ], [ %19, %lpad ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup40 ], [ %18, %lpad ]
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #16
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -1153,10 +1165,13 @@ call.i.noexc12:                                   ; preds = %while.end
 
 cond.true.i:                                      ; preds = %call.i.noexc12
   %agg.tmp.sroa.0.0.copyload.i11 = load i64, ptr %queue_deadline_cap.i, align 8
-  %10 = add i64 %agg.tmp.sroa.0.0.copyload.i11, 9223372036854775807
-  %switch = icmp ult i64 %10, -2
-  %add.i.i.i.i = zext i1 %switch to i64
-  %spec.select = add nsw i64 %agg.tmp.sroa.0.0.copyload.i11, %add.i.i.i.i
+  switch i64 %agg.tmp.sroa.0.0.copyload.i11, label %if.end7.i.i.i.i [
+    i64 9223372036854775807, label %invoke.cont4
+    i64 -9223372036854775808, label %cond.end.fold.split.i
+  ]
+
+if.end7.i.i.i.i:                                  ; preds = %cond.true.i
+  %add.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i11, 1
   br label %invoke.cont4
 
 cond.false.i:                                     ; preds = %call.i.noexc12
@@ -1164,20 +1179,23 @@ cond.false.i:                                     ; preds = %call.i.noexc12
           to label %call9.i.noexc unwind label %lpad.loopexit.split-lp
 
 call9.i.noexc:                                    ; preds = %cond.false.i
-  %11 = load i64, ptr %call9.i14, align 8
+  %10 = load i64, ptr %call9.i14, align 8
   br label %invoke.cont4
 
-invoke.cont4:                                     ; preds = %cond.true.i, %call9.i.noexc
-  %retval.sroa.0.0.i = phi i64 [ %11, %call9.i.noexc ], [ %spec.select, %cond.true.i ]
+cond.end.fold.split.i:                            ; preds = %cond.true.i
+  br label %invoke.cont4
+
+invoke.cont4:                                     ; preds = %cond.end.fold.split.i, %call9.i.noexc, %if.end7.i.i.i.i, %cond.true.i
+  %retval.sroa.0.0.i = phi i64 [ %10, %call9.i.noexc ], [ %agg.tmp.sroa.0.0.copyload.i11, %cond.true.i ], [ %add.i.i.i.i, %if.end7.i.i.i.i ], [ -9223372036854775808, %cond.end.fold.split.i ]
   store i64 %retval.sroa.0.0.i, ptr %new_min_deadline, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit16 unwind label %terminate.lpad.i15
 
 terminate.lpad.i15:                               ; preds = %invoke.cont4
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #19
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #19
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit16:      ; preds = %invoke.cont4

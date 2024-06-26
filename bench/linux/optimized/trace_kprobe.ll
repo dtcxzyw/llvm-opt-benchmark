@@ -3238,11 +3238,12 @@ define internal i32 @__trace_kprobe_create(i32 noundef %0, ptr noundef %1) #1 al
 
 .loopexit.sink.split:                             ; preds = %206, %207, %208
   %.sink = phi i32 [ 54, %208 ], [ 9, %207 ], [ 53, %206 ]
+  %.ph = phi i32 [ %204, %208 ], [ -2, %207 ], [ %204, %206 ]
   call void @__trace_probe_log_err(i32 noundef 0, i32 noundef %.sink) #18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %191, %.loopexit.sink.split, %206, %206, %.loopexit29
-  %212 = phi i32 [ %201, %.loopexit29 ], [ %204, %206 ], [ %204, %206 ], [ %204, %.loopexit.sink.split ], [ %197, %191 ]
+  %212 = phi i32 [ %201, %.loopexit29 ], [ %204, %206 ], [ %204, %206 ], [ %.ph, %.loopexit.sink.split ], [ %197, %191 ]
   %213 = icmp eq ptr %172, null
   br i1 %213, label %.thread28, label %214
 

@@ -8277,12 +8277,22 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %if.end, %3
   %vtable.i = load ptr, ptr %5, align 8
   %6 = load ptr, ptr %vtable.i, align 8
   %call.i = tail call i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %call.i.off = add i64 %call.i, -9223372036854775807
-  %switch = icmp ult i64 %call.i.off, 2
+  switch i64 %call.i, label %if.end11.i.i [
+    i64 9223372036854775807, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
+    i64 -9223372036854775808, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split
+  ]
+
+if.end11.i.i:                                     ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
   %or.cond = icmp sgt i64 %call.i, 9223372036854765807
   %add.i.i.i = add nsw i64 %call.i, 10000
   %spec.select = select i1 %or.cond, i64 9223372036854775807, i64 %add.i.i.i
-  %retval.0.i.i = select i1 %switch, i64 %call.i, i64 %spec.select
+  br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
+
+_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
+  br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
+
+_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %if.end11.i.i, %_ZN9grpc_core9Timestamp3NowEv.exit, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split
+  %retval.0.i.i = phi i64 [ %call.i, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ -9223372036854775808, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split ], [ %spec.select, %if.end11.i.i ]
   %add.ptr = getelementptr inbounds i8, ptr %bp, i64 40
   call void @_Z17grpc_pollset_workP12grpc_pollsetPP19grpc_pollset_workerN9grpc_core9TimestampE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp9, ptr noundef nonnull %add.ptr, ptr noundef null, i64 %retval.0.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -8290,7 +8300,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %if.end, %3
   %cmp.i.i12 = icmp eq i64 %7, 0
   br i1 %cmp.i.i12, label %invoke.cont, label %cond.false.i
 
-cond.false.i:                                     ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
+cond.false.i:                                     ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
   store i64 %7, ptr %agg.tmp.i, align 8
   %and.i.i.i.i = and i64 %7, 1
   %cmp.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
@@ -8329,7 +8339,7 @@ lpad.i:                                           ; preds = %_ZN4absl12lts_20230
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i) #24
   br label %eh.resume
 
-invoke.cont:                                      ; preds = %if.then.i.i3.i, %cleanup.action.i, %_ZN9grpc_core9Timestamp3NowEv.exit
+invoke.cont:                                      ; preds = %if.then.i.i3.i, %cleanup.action.i, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   %14 = load i64, ptr %agg.tmp9, align 8
   %and.i.i.i = and i64 %14, 1

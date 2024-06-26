@@ -11157,8 +11157,10 @@ if.then3:                                         ; preds = %entry
   br label %return
 
 if.else4:                                         ; preds = %entry
-  %switch = icmp ult i32 %p, 2
-  br i1 %switch, label %return, label %if.else9
+  switch i32 %p, label %if.else9 [
+    i32 0, label %return
+    i32 1, label %return.fold.split
+  ]
 
 if.else9:                                         ; preds = %if.else4
   %0 = load ptr, ptr %this, align 8
@@ -11242,8 +11244,11 @@ if.else14:                                        ; preds = %if.else9, %_ZNK2dd1
   %call15 = tail call noundef i32 @_ZN2dd11pdd_manager7pow_recEjj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %p, i32 noundef %j)
   br label %return
 
-return:                                           ; preds = %if.else4, %.noexc.i, %entry, %if.else14, %if.then3
-  %retval.0 = phi i32 [ %p, %if.then3 ], [ %call15, %if.else14 ], [ 1, %entry ], [ %call13, %.noexc.i ], [ %p, %if.else4 ]
+return.fold.split:                                ; preds = %if.else4
+  br label %return
+
+return:                                           ; preds = %if.else4, %return.fold.split, %.noexc.i, %entry, %if.else14, %if.then3
+  %retval.0 = phi i32 [ %p, %if.then3 ], [ %call15, %if.else14 ], [ 1, %entry ], [ %p, %if.else4 ], [ %call13, %.noexc.i ], [ 1, %return.fold.split ]
   ret i32 %retval.0
 }
 

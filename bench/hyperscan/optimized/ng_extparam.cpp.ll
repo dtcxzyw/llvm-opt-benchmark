@@ -674,9 +674,10 @@ invoke.cont13:                                    ; preds = %for.end.loopexit.i,
   %retval.sroa.0.0.insert.insert.i.i = phi i64 [ 0, %invoke.cont5 ], [ %13, %for.end.loopexit.i ]
   %ref.tmp11.sroa.2.0.extract.shift = lshr i64 %retval.sroa.0.0.insert.insert.i.i, 32
   %ref.tmp11.sroa.2.0.extract.trunc = trunc nuw i64 %ref.tmp11.sroa.2.0.extract.shift to i32
-  %.off = add i32 %14, -2147483647
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %invoke.cont16, label %if.end7.i.i
+  switch i32 %14, label %if.end7.i.i [
+    i32 -2147483648, label %invoke.cont16
+    i32 2147483647, label %return.fold.split.i.i
+  ]
 
 if.end7.i.i:                                      ; preds = %invoke.cont13
   %ref.tmp11.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.insert.insert.i.i to i32
@@ -684,21 +685,28 @@ if.end7.i.i:                                      ; preds = %invoke.cont13
   %cmp8.i.i = icmp ugt i32 %add.i.i, 2147483646
   br i1 %cmp8.i.i, label %do.end.i.i80.invoke, label %invoke.cont16
 
-invoke.cont16:                                    ; preds = %invoke.cont13, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.end7.i.i ], [ %14, %invoke.cont13 ]
+return.fold.split.i.i:                            ; preds = %invoke.cont13
+  br label %invoke.cont16
+
+invoke.cont16:                                    ; preds = %return.fold.split.i.i, %if.end7.i.i, %invoke.cont13
+  %retval.sroa.0.0.i.i = phi i32 [ %14, %invoke.cont13 ], [ %add.i.i, %if.end7.i.i ], [ 2147483647, %return.fold.split.i.i ]
   store i32 %retval.sroa.0.0.i.i, ptr %d, align 8
   %15 = load i32, ptr %max, align 4
-  %.off113 = add i32 %15, -2147483647
-  %switch114 = icmp ult i32 %.off113, 2
-  br i1 %switch114, label %invoke.cont18, label %if.end7.i.i18
+  switch i32 %15, label %if.end7.i.i18 [
+    i32 -2147483648, label %invoke.cont18
+    i32 2147483647, label %return.fold.split.i.i16
+  ]
 
 if.end7.i.i18:                                    ; preds = %invoke.cont16
   %add.i.i19 = add i32 %15, %ref.tmp11.sroa.2.0.extract.trunc
   %cmp8.i.i20 = icmp ugt i32 %add.i.i19, 2147483646
   br i1 %cmp8.i.i20, label %do.end.i.i80.invoke, label %invoke.cont18
 
-invoke.cont18:                                    ; preds = %invoke.cont16, %if.end7.i.i18
-  %retval.sroa.0.0.i.i17 = phi i32 [ %add.i.i19, %if.end7.i.i18 ], [ %15, %invoke.cont16 ]
+return.fold.split.i.i16:                          ; preds = %invoke.cont16
+  br label %invoke.cont18
+
+invoke.cont18:                                    ; preds = %return.fold.split.i.i16, %if.end7.i.i18, %invoke.cont16
+  %retval.sroa.0.0.i.i17 = phi i32 [ %15, %invoke.cont16 ], [ %add.i.i19, %if.end7.i.i18 ], [ 2147483647, %return.fold.split.i.i16 ]
   store i32 %retval.sroa.0.0.i.i17, ptr %max, align 4
   %call24 = invoke i64 @_ZN3ue216unionDepthMinMaxERKNS_11DepthMinMaxES2_(ptr noundef nonnull align 4 dereferenceable(8) %retval, ptr noundef nonnull align 4 dereferenceable(8) %d)
           to label %invoke.cont23 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -824,9 +832,10 @@ invoke.cont57:                                    ; preds = %for.end.loopexit.i5
   %retval.sroa.0.0.insert.insert.i.i60 = phi i64 [ 0, %if.end ], [ %30, %for.end.loopexit.i59 ]
   %ref.tmp55.sroa.2.0.extract.shift = lshr i64 %retval.sroa.0.0.insert.insert.i.i60, 32
   %ref.tmp55.sroa.2.0.extract.trunc = trunc nuw i64 %ref.tmp55.sroa.2.0.extract.shift to i32
-  %.off115 = add i32 %31, -2147483647
-  %switch116 = icmp ult i32 %.off115, 2
-  br i1 %switch116, label %invoke.cont65, label %if.end7.i.i68
+  switch i32 %31, label %if.end7.i.i68 [
+    i32 -2147483648, label %invoke.cont65
+    i32 2147483647, label %return.fold.split.i.i66
+  ]
 
 if.end7.i.i68:                                    ; preds = %invoke.cont57
   %ref.tmp55.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.insert.insert.i.i60 to i32
@@ -834,13 +843,17 @@ if.end7.i.i68:                                    ; preds = %invoke.cont57
   %cmp8.i.i70 = icmp ugt i32 %add.i.i69, 2147483646
   br i1 %cmp8.i.i70, label %do.end.i.i80.invoke, label %invoke.cont65
 
-invoke.cont65:                                    ; preds = %invoke.cont57, %if.end7.i.i68
-  %retval.sroa.0.0.i.i67 = phi i32 [ %add.i.i69, %if.end7.i.i68 ], [ %31, %invoke.cont57 ]
+return.fold.split.i.i66:                          ; preds = %invoke.cont57
+  br label %invoke.cont65
+
+invoke.cont65:                                    ; preds = %return.fold.split.i.i66, %if.end7.i.i68, %invoke.cont57
+  %retval.sroa.0.0.i.i67 = phi i32 [ %31, %invoke.cont57 ], [ %add.i.i69, %if.end7.i.i68 ], [ 2147483647, %return.fold.split.i.i66 ]
   store i32 %retval.sroa.0.0.i.i67, ptr %d52, align 8
   %32 = load i32, ptr %max70, align 4
-  %.off117 = add i32 %32, -2147483647
-  %switch118 = icmp ult i32 %.off117, 2
-  br i1 %switch118, label %invoke.cont71, label %if.end7.i.i77
+  switch i32 %32, label %if.end7.i.i77 [
+    i32 -2147483648, label %invoke.cont71
+    i32 2147483647, label %return.fold.split.i.i75
+  ]
 
 if.end7.i.i77:                                    ; preds = %invoke.cont65
   %add.i.i78 = add i32 %32, %ref.tmp55.sroa.2.0.extract.trunc
@@ -855,8 +868,11 @@ do.end.i.i80.invoke:                              ; preds = %if.end7.i.i18, %if.
 do.end.i.i80.cont:                                ; preds = %do.end.i.i80.invoke
   unreachable
 
-invoke.cont71:                                    ; preds = %invoke.cont65, %if.end7.i.i77
-  %retval.sroa.0.0.i.i76 = phi i32 [ %add.i.i78, %if.end7.i.i77 ], [ %32, %invoke.cont65 ]
+return.fold.split.i.i75:                          ; preds = %invoke.cont65
+  br label %invoke.cont71
+
+invoke.cont71:                                    ; preds = %return.fold.split.i.i75, %if.end7.i.i77, %invoke.cont65
+  %retval.sroa.0.0.i.i76 = phi i32 [ %32, %invoke.cont65 ], [ %add.i.i78, %if.end7.i.i77 ], [ 2147483647, %return.fold.split.i.i75 ]
   store i32 %retval.sroa.0.0.i.i76, ptr %max70, align 4
   %call77 = invoke i64 @_ZN3ue216unionDepthMinMaxERKNS_11DepthMinMaxES2_(ptr noundef nonnull align 4 dereferenceable(8) %retval, ptr noundef nonnull align 4 dereferenceable(8) %d52)
           to label %invoke.cont76 unwind label %lpad.loopexit.split-lp.loopexit
@@ -5512,9 +5528,10 @@ for.end.loopexit.i:                               ; preds = %for.inc.i
 
 invoke.cont34:                                    ; preds = %for.end.loopexit.i, %invoke.cont26
   %retval.sroa.0.0.insert.insert.i.i = phi i64 [ 0, %invoke.cont26 ], [ %26, %for.end.loopexit.i ]
-  %d.sroa.0.0.extract.trunc.off = add i32 %d.sroa.0.0.extract.trunc, -2147483647
-  %switch8 = icmp ult i32 %d.sroa.0.0.extract.trunc.off, 2
-  br i1 %switch8, label %invoke.cont36, label %if.end7.i.i
+  switch i32 %d.sroa.0.0.extract.trunc, label %if.end7.i.i [
+    i32 -2147483648, label %invoke.cont36
+    i32 2147483647, label %return.fold.split.i.i
+  ]
 
 if.end7.i.i:                                      ; preds = %invoke.cont34
   %adj.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.insert.insert.i.i to i32
@@ -5530,8 +5547,11 @@ do.end.i.i.invoke:                                ; preds = %if.end7.i.i, %if.en
 do.end.i.i.cont:                                  ; preds = %do.end.i.i.invoke
   unreachable
 
-invoke.cont36:                                    ; preds = %invoke.cont34, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.end7.i.i ], [ %d.sroa.0.0.extract.trunc, %invoke.cont34 ]
+return.fold.split.i.i:                            ; preds = %invoke.cont34
+  br label %invoke.cont36
+
+invoke.cont36:                                    ; preds = %return.fold.split.i.i, %if.end7.i.i, %invoke.cont34
+  %retval.sroa.0.0.i.i = phi i32 [ %d.sroa.0.0.extract.trunc, %invoke.cont34 ], [ %add.i.i, %if.end7.i.i ], [ 2147483647, %return.fold.split.i.i ]
   %d.sroa.4.0.extract.trunc.off = add i32 %d.sroa.4.0.extract.trunc, -2147483647
   %switch = icmp ult i32 %d.sroa.4.0.extract.trunc.off, 2
   br i1 %switch, label %if.end51, label %if.end7.i.i28

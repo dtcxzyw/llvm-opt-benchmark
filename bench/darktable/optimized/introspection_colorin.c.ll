@@ -4427,7 +4427,7 @@ define void @reload_defaults(ptr nocapture noundef %0) local_unnamed_addr #1 {
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #19
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #19
-  br label %172
+  br label %173
 
 142:                                              ; preds = %102
   %143 = load ptr, ptr %100, align 8, !tbaa !165
@@ -4437,337 +4437,341 @@ define void @reload_defaults(ptr nocapture noundef %0) local_unnamed_addr #1 {
 
 144:                                              ; preds = %142, %97
   %145 = icmp eq i32 %98, -1
-  br i1 %145, label %146, label %172
+  br i1 %145, label %146, label %173
 
 146:                                              ; preds = %144
   %147 = getelementptr inbounds i8, ptr %19, i64 1420
   %148 = load i32, ptr %147, align 4, !tbaa !183
   %149 = and i32 %148, 16384
   %150 = icmp eq i32 %149, 0
-  br i1 %150, label %151, label %172
+  br i1 %150, label %151, label %173
 
 151:                                              ; preds = %146
   %152 = call i32 @dt_image_is_monochrome(ptr noundef nonnull %19) #19
   %153 = icmp eq i32 %152, 0
-  br i1 %153, label %154, label %172
+  br i1 %153, label %154, label %173
 
 154:                                              ; preds = %151
   %155 = getelementptr inbounds i8, ptr %19, i64 1668
   %156 = load i32, ptr %155, align 4, !tbaa !184
-  %.off = add i32 %156, -1
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %172, label %157
+  switch i32 %156, label %158 [
+    i32 1, label %173
+    i32 2, label %157
+  ]
 
 157:                                              ; preds = %154
-  %158 = call i32 @dt_image_is_ldr(ptr noundef nonnull %19) #19
-  %159 = icmp eq i32 %158, 0
-  br i1 %159, label %160, label %172
+  br label %173
 
-160:                                              ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %19, i64 1616
-  %162 = load float, ptr %161, align 16, !tbaa !72
-  %163 = call float @llvm.fabs.f32(float %162)
-  %164 = fcmp ueq float %163, 0x7FF0000000000000
-  br i1 %164, label %165, label %172
+158:                                              ; preds = %154
+  %159 = call i32 @dt_image_is_ldr(ptr noundef nonnull %19) #19
+  %160 = icmp eq i32 %159, 0
+  br i1 %160, label %161, label %173
 
-165:                                              ; preds = %160
-  %166 = call i32 @dt_image_is_matrix_correction_supported(ptr noundef nonnull %19) #19
-  %167 = icmp eq i32 %166, 0
-  br i1 %167, label %168, label %172
+161:                                              ; preds = %158
+  %162 = getelementptr inbounds i8, ptr %19, i64 1616
+  %163 = load float, ptr %162, align 16, !tbaa !72
+  %164 = call float @llvm.fabs.f32(float %163)
+  %165 = fcmp ueq float %164, 0x7FF0000000000000
+  br i1 %165, label %166, label %173
 
-168:                                              ; preds = %165
-  %169 = call i32 @dt_image_is_hdr(ptr noundef nonnull %19) #19
-  %170 = icmp eq i32 %169, 0
-  %171 = select i1 %170, i32 1, i32 3
-  br label %172
+166:                                              ; preds = %161
+  %167 = call i32 @dt_image_is_matrix_correction_supported(ptr noundef nonnull %19) #19
+  %168 = icmp eq i32 %167, 0
+  br i1 %168, label %169, label %173
 
-172:                                              ; preds = %154, %168, %165, %160, %157, %151, %146, %144, %141
-  %173 = phi i32 [ 9, %141 ], [ %98, %144 ], [ 4, %146 ], [ 3, %151 ], [ 1, %157 ], [ 10, %160 ], [ 11, %165 ], [ %171, %168 ], [ %156, %154 ]
-  store i32 %173, ptr %13, align 4, !tbaa !137
-  %174 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !148
-  call void @dt_image_cache_write_release(ptr noundef %174, ptr noundef %19, i32 noundef 1) #19
-  %175 = load ptr, ptr %99, align 16, !tbaa !160
-  %176 = icmp eq ptr %175, null
-  br i1 %176, label %.loopexit, label %177
+169:                                              ; preds = %166
+  %170 = call i32 @dt_image_is_hdr(ptr noundef nonnull %19) #19
+  %171 = icmp eq i32 %170, 0
+  %172 = select i1 %171, i32 1, i32 3
+  br label %173
 
-177:                                              ; preds = %172
-  %178 = getelementptr inbounds i8, ptr %175, i64 24
-  %179 = load ptr, ptr %178, align 8, !tbaa !185
-  call void @g_list_free_full(ptr noundef %179, ptr noundef nonnull @free) #19
-  store ptr null, ptr %178, align 8, !tbaa !185
-  %180 = getelementptr inbounds i8, ptr %175, i64 32
-  store i32 0, ptr %180, align 8, !tbaa !167
-  %181 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !148
-  %182 = load ptr, ptr %15, align 8, !tbaa !63
-  %183 = getelementptr inbounds i8, ptr %182, i64 1544
-  %184 = load i32, ptr %183, align 8, !tbaa !171
-  %185 = call ptr @dt_image_cache_get(ptr noundef %181, i32 noundef %184, i8 noundef signext 114) #19
-  %186 = getelementptr inbounds i8, ptr %185, i64 1656
-  %187 = load ptr, ptr %186, align 8, !tbaa !157
-  %188 = icmp eq ptr %187, null
-  br i1 %188, label %197, label %189
+173:                                              ; preds = %169, %166, %161, %158, %157, %154, %151, %146, %144, %141
+  %174 = phi i32 [ 2, %157 ], [ 9, %141 ], [ %98, %144 ], [ 4, %146 ], [ 3, %151 ], [ %156, %154 ], [ 1, %158 ], [ 10, %161 ], [ 11, %166 ], [ %172, %169 ]
+  store i32 %174, ptr %13, align 4, !tbaa !137
+  %175 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !148
+  call void @dt_image_cache_write_release(ptr noundef %175, ptr noundef %19, i32 noundef 1) #19
+  %176 = load ptr, ptr %99, align 16, !tbaa !160
+  %177 = icmp eq ptr %176, null
+  br i1 %177, label %.loopexit, label %178
 
-189:                                              ; preds = %177
-  %190 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #28
-  %191 = getelementptr inbounds i8, ptr %190, i64 516
-  %192 = call ptr @dt_colorspaces_get_name(i32 noundef 9, ptr noundef nonnull @.str.26) #19
-  %193 = call i64 @g_strlcpy(ptr noundef nonnull %191, ptr noundef %192, i64 noundef 512) #19
-  store i32 9, ptr %190, align 8, !tbaa !54
-  %194 = load ptr, ptr %178, align 8, !tbaa !185
-  %195 = call ptr @g_list_append(ptr noundef %194, ptr noundef nonnull %190) #19
-  store ptr %195, ptr %178, align 8, !tbaa !185
-  %196 = getelementptr inbounds i8, ptr %190, i64 1040
-  store i32 0, ptr %196, align 8, !tbaa !166
-  br label %197
+178:                                              ; preds = %173
+  %179 = getelementptr inbounds i8, ptr %176, i64 24
+  %180 = load ptr, ptr %179, align 8, !tbaa !185
+  call void @g_list_free_full(ptr noundef %180, ptr noundef nonnull @free) #19
+  store ptr null, ptr %179, align 8, !tbaa !185
+  %181 = getelementptr inbounds i8, ptr %176, i64 32
+  store i32 0, ptr %181, align 8, !tbaa !167
+  %182 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !148
+  %183 = load ptr, ptr %15, align 8, !tbaa !63
+  %184 = getelementptr inbounds i8, ptr %183, i64 1544
+  %185 = load i32, ptr %184, align 8, !tbaa !171
+  %186 = call ptr @dt_image_cache_get(ptr noundef %182, i32 noundef %185, i8 noundef signext 114) #19
+  %187 = getelementptr inbounds i8, ptr %186, i64 1656
+  %188 = load ptr, ptr %187, align 8, !tbaa !157
+  %189 = icmp eq ptr %188, null
+  br i1 %189, label %198, label %190
 
-197:                                              ; preds = %189, %177
-  %198 = phi i32 [ 0, %189 ], [ -1, %177 ]
-  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !148
-  call void @dt_image_cache_read_release(ptr noundef %199, ptr noundef nonnull %185) #19
-  %200 = load ptr, ptr %15, align 8, !tbaa !63
-  %201 = getelementptr inbounds i8, ptr %200, i64 1728
-  %202 = load float, ptr %201, align 16, !tbaa !72
-  %203 = call float @llvm.fabs.f32(float %202)
-  %204 = fcmp ueq float %203, 0x7FF0000000000000
-  br i1 %204, label %215, label %205
+190:                                              ; preds = %178
+  %191 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #28
+  %192 = getelementptr inbounds i8, ptr %191, i64 516
+  %193 = call ptr @dt_colorspaces_get_name(i32 noundef 9, ptr noundef nonnull @.str.26) #19
+  %194 = call i64 @g_strlcpy(ptr noundef nonnull %192, ptr noundef %193, i64 noundef 512) #19
+  store i32 9, ptr %191, align 8, !tbaa !54
+  %195 = load ptr, ptr %179, align 8, !tbaa !185
+  %196 = call ptr @g_list_append(ptr noundef %195, ptr noundef nonnull %191) #19
+  store ptr %196, ptr %179, align 8, !tbaa !185
+  %197 = getelementptr inbounds i8, ptr %191, i64 1040
+  store i32 0, ptr %197, align 8, !tbaa !166
+  br label %198
 
-205:                                              ; preds = %197
-  %206 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #28
-  %207 = getelementptr inbounds i8, ptr %206, i64 516
-  %208 = call ptr @dt_colorspaces_get_name(i32 noundef 10, ptr noundef nonnull @.str.26) #19
-  %209 = call i64 @g_strlcpy(ptr noundef nonnull %207, ptr noundef %208, i64 noundef 512) #19
-  store i32 10, ptr %206, align 8, !tbaa !54
-  %210 = load ptr, ptr %178, align 8, !tbaa !185
-  %211 = call ptr @g_list_append(ptr noundef %210, ptr noundef nonnull %206) #19
-  store ptr %211, ptr %178, align 8, !tbaa !185
-  %212 = add nsw i32 %198, 1
-  %213 = getelementptr inbounds i8, ptr %206, i64 1040
-  store i32 %212, ptr %213, align 8, !tbaa !166
-  %214 = load ptr, ptr %15, align 8, !tbaa !63
-  br label %215
+198:                                              ; preds = %190, %178
+  %199 = phi i32 [ 0, %190 ], [ -1, %178 ]
+  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !148
+  call void @dt_image_cache_read_release(ptr noundef %200, ptr noundef nonnull %186) #19
+  %201 = load ptr, ptr %15, align 8, !tbaa !63
+  %202 = getelementptr inbounds i8, ptr %201, i64 1728
+  %203 = load float, ptr %202, align 16, !tbaa !72
+  %204 = call float @llvm.fabs.f32(float %203)
+  %205 = fcmp ueq float %204, 0x7FF0000000000000
+  br i1 %205, label %216, label %206
 
-215:                                              ; preds = %205, %197
-  %216 = phi ptr [ %214, %205 ], [ %200, %197 ]
-  %217 = phi i32 [ %212, %205 ], [ %198, %197 ]
-  %218 = getelementptr inbounds i8, ptr %216, i64 1872
-  %219 = load float, ptr %218, align 16, !tbaa !72
-  %220 = call float @llvm.fabs.f32(float %219)
-  %221 = fcmp ueq float %220, 0x7FF0000000000000
-  br i1 %221, label %237, label %222
+206:                                              ; preds = %198
+  %207 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #28
+  %208 = getelementptr inbounds i8, ptr %207, i64 516
+  %209 = call ptr @dt_colorspaces_get_name(i32 noundef 10, ptr noundef nonnull @.str.26) #19
+  %210 = call i64 @g_strlcpy(ptr noundef nonnull %208, ptr noundef %209, i64 noundef 512) #19
+  store i32 10, ptr %207, align 8, !tbaa !54
+  %211 = load ptr, ptr %179, align 8, !tbaa !185
+  %212 = call ptr @g_list_append(ptr noundef %211, ptr noundef nonnull %207) #19
+  store ptr %212, ptr %179, align 8, !tbaa !185
+  %213 = add nsw i32 %199, 1
+  %214 = getelementptr inbounds i8, ptr %207, i64 1040
+  store i32 %213, ptr %214, align 8, !tbaa !166
+  %215 = load ptr, ptr %15, align 8, !tbaa !63
+  br label %216
 
-222:                                              ; preds = %215
-  %223 = getelementptr inbounds i8, ptr %216, i64 1532
-  %224 = load i32, ptr %223, align 4, !tbaa !186
-  %225 = and i32 %224, 16384
-  %226 = icmp eq i32 %225, 0
-  br i1 %226, label %227, label %237
+216:                                              ; preds = %206, %198
+  %217 = phi ptr [ %215, %206 ], [ %201, %198 ]
+  %218 = phi i32 [ %213, %206 ], [ %199, %198 ]
+  %219 = getelementptr inbounds i8, ptr %217, i64 1872
+  %220 = load float, ptr %219, align 16, !tbaa !72
+  %221 = call float @llvm.fabs.f32(float %220)
+  %222 = fcmp ueq float %221, 0x7FF0000000000000
+  br i1 %222, label %238, label %223
 
-227:                                              ; preds = %222
-  %228 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #28
-  %229 = getelementptr inbounds i8, ptr %228, i64 516
-  %230 = call ptr @dt_colorspaces_get_name(i32 noundef 11, ptr noundef nonnull @.str.26) #19
-  %231 = call i64 @g_strlcpy(ptr noundef nonnull %229, ptr noundef %230, i64 noundef 512) #19
-  store i32 11, ptr %228, align 8, !tbaa !54
-  %232 = load ptr, ptr %178, align 8, !tbaa !185
-  %233 = call ptr @g_list_append(ptr noundef %232, ptr noundef nonnull %228) #19
-  store ptr %233, ptr %178, align 8, !tbaa !185
-  %234 = add nsw i32 %217, 1
-  %235 = getelementptr inbounds i8, ptr %228, i64 1040
-  store i32 %234, ptr %235, align 8, !tbaa !166
-  %236 = load ptr, ptr %15, align 8, !tbaa !63
-  br label %237
+223:                                              ; preds = %216
+  %224 = getelementptr inbounds i8, ptr %217, i64 1532
+  %225 = load i32, ptr %224, align 4, !tbaa !186
+  %226 = and i32 %225, 16384
+  %227 = icmp eq i32 %226, 0
+  br i1 %227, label %228, label %238
 
-237:                                              ; preds = %227, %222, %215
-  %238 = phi ptr [ %216, %222 ], [ %236, %227 ], [ %216, %215 ]
-  %239 = phi i32 [ %217, %222 ], [ %234, %227 ], [ %217, %215 ]
-  %240 = getelementptr inbounds i8, ptr %238, i64 1096
-  br label %244
+228:                                              ; preds = %223
+  %229 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #28
+  %230 = getelementptr inbounds i8, ptr %229, i64 516
+  %231 = call ptr @dt_colorspaces_get_name(i32 noundef 11, ptr noundef nonnull @.str.26) #19
+  %232 = call i64 @g_strlcpy(ptr noundef nonnull %230, ptr noundef %231, i64 noundef 512) #19
+  store i32 11, ptr %229, align 8, !tbaa !54
+  %233 = load ptr, ptr %179, align 8, !tbaa !185
+  %234 = call ptr @g_list_append(ptr noundef %233, ptr noundef nonnull %229) #19
+  store ptr %234, ptr %179, align 8, !tbaa !185
+  %235 = add nsw i32 %218, 1
+  %236 = getelementptr inbounds i8, ptr %229, i64 1040
+  store i32 %235, ptr %236, align 8, !tbaa !166
+  %237 = load ptr, ptr %15, align 8, !tbaa !63
+  br label %238
 
-241:                                              ; preds = %244
-  %242 = add nuw nsw i64 %245, 1
-  %243 = icmp eq i64 %242, 93
-  br i1 %243, label %.loopexit16, label %244
+238:                                              ; preds = %228, %223, %216
+  %239 = phi ptr [ %217, %223 ], [ %237, %228 ], [ %217, %216 ]
+  %240 = phi i32 [ %218, %223 ], [ %235, %228 ], [ %218, %216 ]
+  %241 = getelementptr inbounds i8, ptr %239, i64 1096
+  br label %245
 
-244:                                              ; preds = %241, %237
-  %245 = phi i64 [ 0, %237 ], [ %242, %241 ]
-  %246 = getelementptr inbounds [93 x %struct.dt_profiled_colormatrix_t], ptr @dt_profiled_colormatrices, i64 0, i64 %245
-  %247 = load ptr, ptr %246, align 8, !tbaa !187
-  %248 = call i32 @strcasecmp(ptr noundef nonnull %240, ptr noundef %247) #26
-  %249 = icmp eq i32 %248, 0
-  br i1 %249, label %250, label %241
+242:                                              ; preds = %245
+  %243 = add nuw nsw i64 %246, 1
+  %244 = icmp eq i64 %243, 93
+  br i1 %244, label %.loopexit16, label %245
 
-250:                                              ; preds = %244
-  %251 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #28
-  %252 = getelementptr inbounds i8, ptr %251, i64 516
-  %253 = call ptr @dt_colorspaces_get_name(i32 noundef 12, ptr noundef nonnull @.str.26) #19
-  %254 = call i64 @g_strlcpy(ptr noundef nonnull %252, ptr noundef %253, i64 noundef 512) #19
-  store i32 12, ptr %251, align 8, !tbaa !54
-  %255 = load ptr, ptr %178, align 8, !tbaa !185
-  %256 = call ptr @g_list_append(ptr noundef %255, ptr noundef nonnull %251) #19
-  store ptr %256, ptr %178, align 8, !tbaa !185
-  %257 = add nsw i32 %239, 1
-  %258 = getelementptr inbounds i8, ptr %251, i64 1040
-  store i32 %257, ptr %258, align 8, !tbaa !166
-  %259 = load ptr, ptr %15, align 8, !tbaa !63
+245:                                              ; preds = %242, %238
+  %246 = phi i64 [ 0, %238 ], [ %243, %242 ]
+  %247 = getelementptr inbounds [93 x %struct.dt_profiled_colormatrix_t], ptr @dt_profiled_colormatrices, i64 0, i64 %246
+  %248 = load ptr, ptr %247, align 8, !tbaa !187
+  %249 = call i32 @strcasecmp(ptr noundef nonnull %241, ptr noundef %248) #26
+  %250 = icmp eq i32 %249, 0
+  br i1 %250, label %251, label %242
+
+251:                                              ; preds = %245
+  %252 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #28
+  %253 = getelementptr inbounds i8, ptr %252, i64 516
+  %254 = call ptr @dt_colorspaces_get_name(i32 noundef 12, ptr noundef nonnull @.str.26) #19
+  %255 = call i64 @g_strlcpy(ptr noundef nonnull %253, ptr noundef %254, i64 noundef 512) #19
+  store i32 12, ptr %252, align 8, !tbaa !54
+  %256 = load ptr, ptr %179, align 8, !tbaa !185
+  %257 = call ptr @g_list_append(ptr noundef %256, ptr noundef nonnull %252) #19
+  store ptr %257, ptr %179, align 8, !tbaa !185
+  %258 = add nsw i32 %240, 1
+  %259 = getelementptr inbounds i8, ptr %252, i64 1040
+  store i32 %258, ptr %259, align 8, !tbaa !166
+  %260 = load ptr, ptr %15, align 8, !tbaa !63
   br label %.loopexit16
 
-.loopexit16:                                      ; preds = %241, %250
-  %260 = phi ptr [ %259, %250 ], [ %238, %241 ]
-  %261 = phi i32 [ %257, %250 ], [ %239, %241 ]
-  %262 = getelementptr inbounds i8, ptr %260, i64 1096
-  %263 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %262, ptr noundef nonnull dereferenceable(14) @.str.126) #26
-  %264 = icmp eq i32 %263, 0
-  br i1 %264, label %277, label %265
+.loopexit16:                                      ; preds = %242, %251
+  %261 = phi ptr [ %260, %251 ], [ %239, %242 ]
+  %262 = phi i32 [ %258, %251 ], [ %240, %242 ]
+  %263 = getelementptr inbounds i8, ptr %261, i64 1096
+  %264 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %263, ptr noundef nonnull dereferenceable(14) @.str.126) #26
+  %265 = icmp eq i32 %264, 0
+  br i1 %265, label %278, label %266
 
-265:                                              ; preds = %.loopexit16
-  %266 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %262, ptr noundef nonnull dereferenceable(15) @.str.129) #26
-  %267 = icmp eq i32 %266, 0
-  br i1 %267, label %277, label %268
+266:                                              ; preds = %.loopexit16
+  %267 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %263, ptr noundef nonnull dereferenceable(15) @.str.129) #26
+  %268 = icmp eq i32 %267, 0
+  br i1 %268, label %278, label %269
 
-268:                                              ; preds = %265
-  %269 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %262, ptr noundef nonnull dereferenceable(14) @.str.195) #26
-  %270 = icmp eq i32 %269, 0
-  br i1 %270, label %277, label %271
+269:                                              ; preds = %266
+  %270 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %263, ptr noundef nonnull dereferenceable(14) @.str.195) #26
+  %271 = icmp eq i32 %270, 0
+  br i1 %271, label %278, label %272
 
-271:                                              ; preds = %268
-  %272 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %262, ptr noundef nonnull dereferenceable(12) @.str.196) #26
-  %273 = icmp eq i32 %272, 0
-  br i1 %273, label %277, label %274
+272:                                              ; preds = %269
+  %273 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %263, ptr noundef nonnull dereferenceable(12) @.str.196) #26
+  %274 = icmp eq i32 %273, 0
+  br i1 %274, label %278, label %275
 
-274:                                              ; preds = %271
-  %275 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %262, ptr noundef nonnull dereferenceable(13) @.str.197) #26
-  %276 = icmp eq i32 %275, 0
-  br i1 %276, label %277, label %287
+275:                                              ; preds = %272
+  %276 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %263, ptr noundef nonnull dereferenceable(13) @.str.197) #26
+  %277 = icmp eq i32 %276, 0
+  br i1 %277, label %278, label %288
 
-277:                                              ; preds = %274, %271, %268, %265, %.loopexit16
-  %278 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #28
-  %279 = getelementptr inbounds i8, ptr %278, i64 516
-  %280 = call ptr @dt_colorspaces_get_name(i32 noundef 13, ptr noundef nonnull @.str.26) #19
-  %281 = call i64 @g_strlcpy(ptr noundef nonnull %279, ptr noundef %280, i64 noundef 512) #19
-  store i32 13, ptr %278, align 8, !tbaa !54
-  %282 = load ptr, ptr %178, align 8, !tbaa !185
-  %283 = call ptr @g_list_append(ptr noundef %282, ptr noundef nonnull %278) #19
-  store ptr %283, ptr %178, align 8, !tbaa !185
-  %284 = add nsw i32 %261, 1
-  %285 = getelementptr inbounds i8, ptr %278, i64 1040
-  store i32 %284, ptr %285, align 8, !tbaa !166
-  %286 = load ptr, ptr %15, align 8, !tbaa !63
-  br label %287
+278:                                              ; preds = %275, %272, %269, %266, %.loopexit16
+  %279 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #28
+  %280 = getelementptr inbounds i8, ptr %279, i64 516
+  %281 = call ptr @dt_colorspaces_get_name(i32 noundef 13, ptr noundef nonnull @.str.26) #19
+  %282 = call i64 @g_strlcpy(ptr noundef nonnull %280, ptr noundef %281, i64 noundef 512) #19
+  store i32 13, ptr %279, align 8, !tbaa !54
+  %283 = load ptr, ptr %179, align 8, !tbaa !185
+  %284 = call ptr @g_list_append(ptr noundef %283, ptr noundef nonnull %279) #19
+  store ptr %284, ptr %179, align 8, !tbaa !185
+  %285 = add nsw i32 %262, 1
+  %286 = getelementptr inbounds i8, ptr %279, i64 1040
+  store i32 %285, ptr %286, align 8, !tbaa !166
+  %287 = load ptr, ptr %15, align 8, !tbaa !63
+  br label %288
 
-287:                                              ; preds = %277, %274
-  %288 = phi ptr [ %286, %277 ], [ %260, %274 ]
-  %289 = phi i32 [ %284, %277 ], [ %261, %274 ]
-  %290 = getelementptr inbounds i8, ptr %288, i64 1096
-  %291 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %290, ptr noundef nonnull dereferenceable(15) @.str.129) #26
-  %292 = icmp eq i32 %291, 0
-  br i1 %292, label %302, label %293
+288:                                              ; preds = %278, %275
+  %289 = phi ptr [ %287, %278 ], [ %261, %275 ]
+  %290 = phi i32 [ %285, %278 ], [ %262, %275 ]
+  %291 = getelementptr inbounds i8, ptr %289, i64 1096
+  %292 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %291, ptr noundef nonnull dereferenceable(15) @.str.129) #26
+  %293 = icmp eq i32 %292, 0
+  br i1 %293, label %303, label %294
 
-293:                                              ; preds = %287
-  %294 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %290, ptr noundef nonnull dereferenceable(14) @.str.195) #26
-  %295 = icmp eq i32 %294, 0
-  br i1 %295, label %302, label %296
+294:                                              ; preds = %288
+  %295 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %291, ptr noundef nonnull dereferenceable(14) @.str.195) #26
+  %296 = icmp eq i32 %295, 0
+  br i1 %296, label %303, label %297
 
-296:                                              ; preds = %293
-  %297 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %290, ptr noundef nonnull dereferenceable(12) @.str.196) #26
-  %298 = icmp eq i32 %297, 0
-  br i1 %298, label %302, label %299
+297:                                              ; preds = %294
+  %298 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %291, ptr noundef nonnull dereferenceable(12) @.str.196) #26
+  %299 = icmp eq i32 %298, 0
+  br i1 %299, label %303, label %300
 
-299:                                              ; preds = %296
-  %300 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %290, ptr noundef nonnull dereferenceable(13) @.str.197) #26
-  %301 = icmp eq i32 %300, 0
-  br i1 %301, label %302, label %311
+300:                                              ; preds = %297
+  %301 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %291, ptr noundef nonnull dereferenceable(13) @.str.197) #26
+  %302 = icmp eq i32 %301, 0
+  br i1 %302, label %303, label %312
 
-302:                                              ; preds = %299, %296, %293, %287
-  %303 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #28
-  %304 = getelementptr inbounds i8, ptr %303, i64 516
-  %305 = call ptr @dt_colorspaces_get_name(i32 noundef 14, ptr noundef nonnull @.str.26) #19
-  %306 = call i64 @g_strlcpy(ptr noundef nonnull %304, ptr noundef %305, i64 noundef 512) #19
-  store i32 14, ptr %303, align 8, !tbaa !54
-  %307 = load ptr, ptr %178, align 8, !tbaa !185
-  %308 = call ptr @g_list_append(ptr noundef %307, ptr noundef nonnull %303) #19
-  store ptr %308, ptr %178, align 8, !tbaa !185
-  %309 = add nsw i32 %289, 1
-  %310 = getelementptr inbounds i8, ptr %303, i64 1040
-  store i32 %309, ptr %310, align 8, !tbaa !166
-  br label %311
+303:                                              ; preds = %300, %297, %294, %288
+  %304 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #28
+  %305 = getelementptr inbounds i8, ptr %304, i64 516
+  %306 = call ptr @dt_colorspaces_get_name(i32 noundef 14, ptr noundef nonnull @.str.26) #19
+  %307 = call i64 @g_strlcpy(ptr noundef nonnull %305, ptr noundef %306, i64 noundef 512) #19
+  store i32 14, ptr %304, align 8, !tbaa !54
+  %308 = load ptr, ptr %179, align 8, !tbaa !185
+  %309 = call ptr @g_list_append(ptr noundef %308, ptr noundef nonnull %304) #19
+  store ptr %309, ptr %179, align 8, !tbaa !185
+  %310 = add nsw i32 %290, 1
+  %311 = getelementptr inbounds i8, ptr %304, i64 1040
+  store i32 %310, ptr %311, align 8, !tbaa !166
+  br label %312
 
-311:                                              ; preds = %302, %299
-  %312 = phi i32 [ %309, %302 ], [ %289, %299 ]
-  %313 = add nsw i32 %312, 1
-  store i32 %313, ptr %180, align 8, !tbaa !167
-  %314 = load ptr, ptr %175, align 8, !tbaa !165
-  call void @dt_bauhaus_combobox_clear(ptr noundef %314) #19
-  %315 = load ptr, ptr %178, align 8, !tbaa !49
-  %316 = icmp eq ptr %315, null
-  br i1 %316, label %.loopexit15, label %.preheader14
+312:                                              ; preds = %303, %300
+  %313 = phi i32 [ %310, %303 ], [ %290, %300 ]
+  %314 = add nsw i32 %313, 1
+  store i32 %314, ptr %181, align 8, !tbaa !167
+  %315 = load ptr, ptr %176, align 8, !tbaa !165
+  call void @dt_bauhaus_combobox_clear(ptr noundef %315) #19
+  %316 = load ptr, ptr %179, align 8, !tbaa !49
+  %317 = icmp eq ptr %316, null
+  br i1 %317, label %.loopexit15, label %.preheader14
 
-.loopexit15:                                      ; preds = %.preheader14, %311
-  %317 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 216), align 8, !tbaa !40
-  %318 = load ptr, ptr %317, align 8, !tbaa !49
-  %319 = icmp eq ptr %318, null
-  br i1 %319, label %.loopexit13, label %.preheader12
+.loopexit15:                                      ; preds = %.preheader14, %312
+  %318 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 216), align 8, !tbaa !40
+  %319 = load ptr, ptr %318, align 8, !tbaa !49
+  %320 = icmp eq ptr %319, null
+  br i1 %320, label %.loopexit13, label %.preheader12
 
-.preheader14:                                     ; preds = %311, %.preheader14
-  %320 = phi ptr [ %325, %.preheader14 ], [ %315, %311 ]
-  %321 = load ptr, ptr %320, align 8, !tbaa !50
-  %322 = load ptr, ptr %175, align 8, !tbaa !165
-  %323 = getelementptr inbounds i8, ptr %321, i64 516
-  call void @dt_bauhaus_combobox_add(ptr noundef %322, ptr noundef nonnull %323) #19
-  %324 = getelementptr inbounds i8, ptr %320, i64 8
-  %325 = load ptr, ptr %324, align 8, !tbaa !49
-  %326 = icmp eq ptr %325, null
-  br i1 %326, label %.loopexit15, label %.preheader14
+.preheader14:                                     ; preds = %312, %.preheader14
+  %321 = phi ptr [ %326, %.preheader14 ], [ %316, %312 ]
+  %322 = load ptr, ptr %321, align 8, !tbaa !50
+  %323 = load ptr, ptr %176, align 8, !tbaa !165
+  %324 = getelementptr inbounds i8, ptr %322, i64 516
+  call void @dt_bauhaus_combobox_add(ptr noundef %323, ptr noundef nonnull %324) #19
+  %325 = getelementptr inbounds i8, ptr %321, i64 8
+  %326 = load ptr, ptr %325, align 8, !tbaa !49
+  %327 = icmp eq ptr %326, null
+  br i1 %327, label %.loopexit15, label %.preheader14
 
-.loopexit13:                                      ; preds = %340, %.loopexit15
-  %327 = getelementptr inbounds i8, ptr %175, i64 16
-  %328 = load ptr, ptr %327, align 8, !tbaa !164
-  call void @dt_bauhaus_combobox_clear(ptr noundef %328) #19
-  %329 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 216), align 8, !tbaa !40
-  %330 = load ptr, ptr %329, align 8, !tbaa !49
-  %331 = icmp eq ptr %330, null
-  br i1 %331, label %.loopexit, label %.preheader
+.loopexit13:                                      ; preds = %341, %.loopexit15
+  %328 = getelementptr inbounds i8, ptr %176, i64 16
+  %329 = load ptr, ptr %328, align 8, !tbaa !164
+  call void @dt_bauhaus_combobox_clear(ptr noundef %329) #19
+  %330 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 216), align 8, !tbaa !40
+  %331 = load ptr, ptr %330, align 8, !tbaa !49
+  %332 = icmp eq ptr %331, null
+  br i1 %332, label %.loopexit, label %.preheader
 
-.preheader12:                                     ; preds = %.loopexit15, %340
-  %332 = phi ptr [ %342, %340 ], [ %318, %.loopexit15 ]
-  %333 = load ptr, ptr %332, align 8, !tbaa !50
-  %334 = getelementptr inbounds i8, ptr %333, i64 1040
-  %335 = load i32, ptr %334, align 8, !tbaa !166
-  %336 = icmp sgt i32 %335, -1
-  br i1 %336, label %337, label %340
+.preheader12:                                     ; preds = %.loopexit15, %341
+  %333 = phi ptr [ %343, %341 ], [ %319, %.loopexit15 ]
+  %334 = load ptr, ptr %333, align 8, !tbaa !50
+  %335 = getelementptr inbounds i8, ptr %334, i64 1040
+  %336 = load i32, ptr %335, align 8, !tbaa !166
+  %337 = icmp sgt i32 %336, -1
+  br i1 %337, label %338, label %341
 
-337:                                              ; preds = %.preheader12
-  %338 = load ptr, ptr %175, align 8, !tbaa !165
-  %339 = getelementptr inbounds i8, ptr %333, i64 516
-  call void @dt_bauhaus_combobox_add(ptr noundef %338, ptr noundef nonnull %339) #19
-  br label %340
+338:                                              ; preds = %.preheader12
+  %339 = load ptr, ptr %176, align 8, !tbaa !165
+  %340 = getelementptr inbounds i8, ptr %334, i64 516
+  call void @dt_bauhaus_combobox_add(ptr noundef %339, ptr noundef nonnull %340) #19
+  br label %341
 
-340:                                              ; preds = %337, %.preheader12
-  %341 = getelementptr inbounds i8, ptr %332, i64 8
-  %342 = load ptr, ptr %341, align 8, !tbaa !49
-  %343 = icmp eq ptr %342, null
-  br i1 %343, label %.loopexit13, label %.preheader12
+341:                                              ; preds = %338, %.preheader12
+  %342 = getelementptr inbounds i8, ptr %333, i64 8
+  %343 = load ptr, ptr %342, align 8, !tbaa !49
+  %344 = icmp eq ptr %343, null
+  br i1 %344, label %.loopexit13, label %.preheader12
 
-.preheader:                                       ; preds = %.loopexit13, %352
-  %344 = phi ptr [ %354, %352 ], [ %330, %.loopexit13 ]
-  %345 = load ptr, ptr %344, align 8, !tbaa !50
-  %346 = getelementptr inbounds i8, ptr %345, i64 1060
-  %347 = load i32, ptr %346, align 4, !tbaa !52
-  %348 = icmp sgt i32 %347, -1
-  br i1 %348, label %349, label %352
+.preheader:                                       ; preds = %.loopexit13, %353
+  %345 = phi ptr [ %355, %353 ], [ %331, %.loopexit13 ]
+  %346 = load ptr, ptr %345, align 8, !tbaa !50
+  %347 = getelementptr inbounds i8, ptr %346, i64 1060
+  %348 = load i32, ptr %347, align 4, !tbaa !52
+  %349 = icmp sgt i32 %348, -1
+  br i1 %349, label %350, label %353
 
-349:                                              ; preds = %.preheader
-  %350 = load ptr, ptr %327, align 8, !tbaa !164
-  %351 = getelementptr inbounds i8, ptr %345, i64 516
-  call void @dt_bauhaus_combobox_add(ptr noundef %350, ptr noundef nonnull %351) #19
-  br label %352
+350:                                              ; preds = %.preheader
+  %351 = load ptr, ptr %328, align 8, !tbaa !164
+  %352 = getelementptr inbounds i8, ptr %346, i64 516
+  call void @dt_bauhaus_combobox_add(ptr noundef %351, ptr noundef nonnull %352) #19
+  br label %353
 
-352:                                              ; preds = %349, %.preheader
-  %353 = getelementptr inbounds i8, ptr %344, i64 8
-  %354 = load ptr, ptr %353, align 8, !tbaa !49
-  %355 = icmp eq ptr %354, null
-  br i1 %355, label %.loopexit, label %.preheader
+353:                                              ; preds = %350, %.preheader
+  %354 = getelementptr inbounds i8, ptr %345, i64 8
+  %355 = load ptr, ptr %354, align 8, !tbaa !49
+  %356 = icmp eq ptr %355, null
+  br i1 %356, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %352, %.loopexit13, %172
+.loopexit:                                        ; preds = %353, %.loopexit13, %173
   ret void
 }
 

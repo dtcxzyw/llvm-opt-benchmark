@@ -772,7 +772,7 @@ sw.default.i.i:                                   ; preds = %cond.end
   br label %ossl_quic_enc_level_to_pn_space.exit.i
 
 ossl_quic_enc_level_to_pn_space.exit.i:           ; preds = %cond.end, %cond.end.thread, %sw.default.i.i, %sw.bb2.i.i
-  %.pre-phi = phi i32 [ %10, %cond.end ], [ 0, %cond.end.thread ], [ %10, %sw.default.i.i ], [ %10, %sw.bb2.i.i ]
+  %.pre-phi = phi i32 [ %10, %cond.end ], [ 0, %cond.end.thread ], [ 0, %sw.default.i.i ], [ %10, %sw.bb2.i.i ]
   %hwm13355 = phi ptr [ %hwm13, %cond.end ], [ %hwm13351, %cond.end.thread ], [ %hwm13, %sw.default.i.i ], [ %hwm13, %sw.bb2.i.i ]
   %arrayidx11354 = phi ptr [ %arrayidx11, %cond.end ], [ %pkt, %cond.end.thread ], [ %arrayidx11, %sw.default.i.i ], [ %arrayidx11, %sw.bb2.i.i ]
   %idxprom10353 = phi i64 [ 1, %cond.end ], [ 0, %cond.end.thread ], [ %indvars.iv677, %sw.default.i.i ], [ %indvars.iv677, %sw.bb2.i.i ]
@@ -4192,10 +4192,13 @@ entry:
   %0 = load i32, ptr %enc_level1, align 8
   switch i32 %0, label %sw.default.i [
     i32 0, label %ossl_quic_enc_level_to_pn_space.exit
-    i32 1, label %ossl_quic_enc_level_to_pn_space.exit
+    i32 1, label %sw.bb1.i
     i32 2, label %sw.bb2.i
     i32 3, label %sw.bb2.i
   ]
+
+sw.bb1.i:                                         ; preds = %entry
+  br label %ossl_quic_enc_level_to_pn_space.exit
 
 sw.bb2.i:                                         ; preds = %entry, %entry
   br label %ossl_quic_enc_level_to_pn_space.exit
@@ -4203,9 +4206,9 @@ sw.bb2.i:                                         ; preds = %entry, %entry
 sw.default.i:                                     ; preds = %entry
   br label %ossl_quic_enc_level_to_pn_space.exit
 
-ossl_quic_enc_level_to_pn_space.exit:             ; preds = %entry, %entry, %sw.bb2.i, %sw.default.i
-  %cmp68.not = phi i1 [ true, %sw.default.i ], [ true, %sw.bb2.i ], [ false, %entry ], [ false, %entry ]
-  %retval.0.i = phi i32 [ 2, %sw.default.i ], [ 2, %sw.bb2.i ], [ %0, %entry ], [ %0, %entry ]
+ossl_quic_enc_level_to_pn_space.exit:             ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.default.i
+  %cmp68.not = phi i1 [ true, %sw.default.i ], [ true, %sw.bb2.i ], [ false, %sw.bb1.i ], [ false, %entry ]
+  %retval.0.i = phi i32 [ 2, %sw.default.i ], [ 2, %sw.bb2.i ], [ 1, %sw.bb1.i ], [ %0, %entry ]
   %adata = getelementptr inbounds i8, ptr %pkt, i64 276
   %tpkt2 = getelementptr inbounds i8, ptr %pkt, i64 136
   %1 = load ptr, ptr %tpkt2, align 8

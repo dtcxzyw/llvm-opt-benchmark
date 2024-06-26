@@ -233,15 +233,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @_Z24grpc_get_tsi_tls_version16grpc_tls_version(i32 noundef %tls_version) local_unnamed_addr #4 {
 entry:
-  %switch = icmp ult i32 %tls_version, 2
-  br i1 %switch, label %return, label %sw.default
+  switch i32 %tls_version, label %sw.default [
+    i32 0, label %return
+    i32 1, label %sw.bb1
+  ]
+
+sw.bb1:                                           ; preds = %entry
+  br label %return
 
 sw.default:                                       ; preds = %entry
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 125, i32 noundef 1, ptr noundef nonnull @.str.1)
   br label %return
 
-return:                                           ; preds = %entry, %sw.default
-  %retval.0 = phi i32 [ 0, %sw.default ], [ %tls_version, %entry ]
+return:                                           ; preds = %entry, %sw.default, %sw.bb1
+  %retval.0 = phi i32 [ 0, %sw.default ], [ 1, %sw.bb1 ], [ %tls_version, %entry ]
   ret i32 %retval.0
 }
 

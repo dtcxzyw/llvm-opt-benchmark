@@ -98,7 +98,7 @@ makePath.exit.loopexit:                           ; preds = %4
   br label %makePath.exit.sink.split
 
 makePath.exit.sink.split:                         ; preds = %.preheader, %4, %makePath.exit.loopexit
-  %.sink = phi i32 [ %0, %makePath.exit.loopexit ], [ 0, %4 ], [ %0, %.preheader ]
+  %.sink = phi i32 [ 2, %makePath.exit.loopexit ], [ 0, %4 ], [ %0, %.preheader ]
   tail call void %1(i32 noundef 1, i32 noundef %.sink) #13
   br label %makePath.exit
 

@@ -1021,7 +1021,7 @@ dissect_log.exit:                                 ; preds = %50, %.sink.split.i
   br label %.thread158.i.i
 
 .thread158.i.i:                                   ; preds = %167, %166, %163, %162, %.thread.i.i
-  %.0140152162.i.i = phi i8 [ %111, %162 ], [ %111, %167 ], [ %111, %166 ], [ %111, %163 ], [ 0, %.thread.i.i ]
+  %.0140152162.i.i = phi i8 [ %111, %162 ], [ %111, %167 ], [ 2, %166 ], [ %111, %163 ], [ 0, %.thread.i.i ]
   %.1.i.i = phi i32 [ 3, %162 ], [ 5, %167 ], [ 4, %166 ], [ %spec.select.i.i, %163 ], [ 2, %.thread.i.i ]
   %168 = call ptr @tvb_new_subset_remaining(ptr noundef %100, i32 noundef %.1.i.i) #6
   br label %169

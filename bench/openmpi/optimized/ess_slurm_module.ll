@@ -42,7 +42,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
   %3 = tail call i32 @prte_ess_base_std_prolog() #7
   switch i32 %3, label %59 [
     i32 0, label %4
-    i32 -43, label %.thread
+    i32 -43, label %65
   ]
 
 4:                                                ; preds = %2
@@ -152,9 +152,12 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
 slurm_set_name.exit:                              ; preds = %15, %20, %42, %55
   %57 = tail call i32 @prte_ess_base_prted_setup() #7
   switch i32 %57, label %.thread17 [
-    i32 0, label %.thread
+    i32 0, label %65
     i32 -43, label %.thread
   ]
+
+.thread:                                          ; preds = %slurm_set_name.exit
+  br label %65
 
 .thread17:                                        ; preds = %slurm_set_name.exit
   %58 = tail call ptr @prte_strerror(i32 noundef %57) #7
@@ -166,15 +169,15 @@ slurm_set_name.exit:                              ; preds = %15, %20, %42, %55
   %.0721 = phi i32 [ %57, %.thread17 ], [ %3, %2 ]
   %60 = load i8, ptr @prte_report_silent_errors, align 1
   %61 = trunc i8 %60 to i1
-  br i1 %61, label %.thread, label %62
+  br i1 %61, label %65, label %62
 
 62:                                               ; preds = %59
   %63 = tail call ptr @prte_strerror(i32 noundef %.0721) #7
   %64 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %.022, ptr noundef %63, i32 noundef %.0721) #7
-  br label %.thread
+  br label %65
 
-.thread:                                          ; preds = %slurm_set_name.exit, %2, %59, %62, %slurm_set_name.exit
-  %.08 = phi i32 [ %57, %slurm_set_name.exit ], [ %.0721, %62 ], [ %.0721, %59 ], [ %3, %2 ], [ %57, %slurm_set_name.exit ]
+65:                                               ; preds = %2, %.thread, %59, %62, %slurm_set_name.exit
+  %.08 = phi i32 [ %57, %slurm_set_name.exit ], [ %.0721, %62 ], [ %.0721, %59 ], [ -43, %.thread ], [ %3, %2 ]
   ret i32 %.08
 }
 

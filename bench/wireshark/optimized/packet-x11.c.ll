@@ -26738,61 +26738,64 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef %0) unnamed_addr #
 define internal fastcc i32 @guess_byte_ordering(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 10332
   %5 = load i32, ptr %4, align 4
-  switch i32 %5, label %6 [
-    i32 0, label %29
-    i32 -2147483648, label %29
+  switch i32 %5, label %7 [
+    i32 0, label %30
+    i32 -2147483648, label %6
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 284
-  %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 292
-  %10 = load i32, ptr %9, align 4
-  %11 = icmp eq i32 %8, %10
-  br i1 %11, label %29, label %12
+  br label %30
 
-12:                                               ; preds = %6
-  %13 = tail call fastcc i32 @x_endian_match(ptr noundef %0, i32 noundef -2147483648)
-  %14 = tail call fastcc i32 @x_endian_match(ptr noundef %0, i32 noundef 0)
-  %15 = icmp eq i32 %13, %14
-  br i1 %15, label %16, label %21
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %1, i64 284
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %1, i64 292
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp eq i32 %9, %11
+  br i1 %12, label %30, label %13
 
-16:                                               ; preds = %12
-  %17 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 4) #10
-  %.not27 = icmp eq i32 %17, 0
-  br i1 %.not27, label %22, label %18
+13:                                               ; preds = %7
+  %14 = tail call fastcc i32 @x_endian_match(ptr noundef %0, i32 noundef -2147483648)
+  %15 = tail call fastcc i32 @x_endian_match(ptr noundef %0, i32 noundef 0)
+  %16 = icmp eq i32 %14, %15
+  br i1 %16, label %17, label %22
 
-18:                                               ; preds = %16
-  %19 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #10
-  %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #10
-  %.not28 = icmp ugt i16 %19, %20
+17:                                               ; preds = %13
+  %18 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 4) #10
+  %.not27 = icmp eq i32 %18, 0
+  br i1 %.not27, label %23, label %19
+
+19:                                               ; preds = %17
+  %20 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #10
+  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #10
+  %.not28 = icmp ugt i16 %20, %21
   %. = select i1 %.not28, i32 0, i32 -2147483648
-  br label %22
+  br label %23
 
-21:                                               ; preds = %12
-  %.not = icmp slt i32 %13, %14
+22:                                               ; preds = %13
+  %.not = icmp slt i32 %14, %15
   %.29 = select i1 %.not, i32 0, i32 -2147483648
-  br label %22
+  br label %23
 
-22:                                               ; preds = %21, %18, %16
-  %.0 = phi i32 [ -2147483648, %16 ], [ %., %18 ], [ %.29, %21 ]
-  %23 = icmp slt i32 %13, 0
-  %24 = icmp sgt i32 %14, 0
-  %or.cond = and i1 %23, %24
-  br i1 %or.cond, label %28, label %25
+23:                                               ; preds = %22, %19, %17
+  %.0 = phi i32 [ -2147483648, %17 ], [ %., %19 ], [ %.29, %22 ]
+  %24 = icmp slt i32 %14, 0
+  %25 = icmp sgt i32 %15, 0
+  %or.cond = and i1 %24, %25
+  br i1 %or.cond, label %29, label %26
 
-25:                                               ; preds = %22
-  %26 = icmp sgt i32 %13, 0
-  %27 = icmp slt i32 %14, 0
-  %or.cond3 = and i1 %26, %27
-  br i1 %or.cond3, label %28, label %29
+26:                                               ; preds = %23
+  %27 = icmp sgt i32 %14, 0
+  %28 = icmp slt i32 %15, 0
+  %or.cond3 = and i1 %27, %28
+  br i1 %or.cond3, label %29, label %30
 
-28:                                               ; preds = %25, %22
+29:                                               ; preds = %26, %23
   store i32 %.0, ptr %4, align 4
-  br label %29
+  br label %30
 
-29:                                               ; preds = %3, %25, %28, %6, %3
-  %.023 = phi i32 [ %5, %3 ], [ -2147483648, %6 ], [ %.0, %28 ], [ %.0, %25 ], [ %5, %3 ]
+30:                                               ; preds = %26, %29, %7, %3, %6
+  %.023 = phi i32 [ -2147483648, %6 ], [ %5, %3 ], [ -2147483648, %7 ], [ %.0, %29 ], [ %.0, %26 ]
   ret i32 %.023
 }
 

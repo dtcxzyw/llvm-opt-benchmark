@@ -1943,7 +1943,7 @@ _validate_super_user.exit.thread:                 ; preds = %9, %_validate_super
   br label %27
 
 27:                                               ; preds = %_validate_super_user.exit.thread, %.fold.split, %26, %18
-  %.013 = phi i32 [ %25, %26 ], [ 2002, %18 ], [ %25, %_validate_super_user.exit.thread ], [ %25, %.fold.split ]
+  %.013 = phi i32 [ %25, %26 ], [ 2002, %18 ], [ %25, %_validate_super_user.exit.thread ], [ 0, %.fold.split ]
   %.0 = phi ptr [ @.str.41, %26 ], [ @.str.13, %18 ], [ @.str.43, %_validate_super_user.exit.thread ], [ @.str.38, %.fold.split ]
   %28 = load ptr, ptr %0, align 8
   %29 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %28, i32 noundef %.013, ptr noundef nonnull %.0, i16 noundef zeroext 1460) #10
@@ -3985,7 +3985,7 @@ define internal fastcc i32 @_modify_accounts(ptr nocapture noundef readonly %0, 
   br label %31
 
 31:                                               ; preds = %21, %24, %26, %29, %25
-  %.019 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
+  %.019 = phi i32 [ -1, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
   %.0 = phi ptr [ @.str.96, %24 ], [ @.str.97, %25 ], [ %27, %26 ], [ %spec.store.select, %29 ], [ @.str.13, %21 ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 60
@@ -4106,7 +4106,7 @@ define internal fastcc noundef i32 @_modify_assocs(ptr nocapture noundef readonl
   br label %45
 
 45:                                               ; preds = %._crit_edge, %30, %32, %42, %31
-  %.018 = phi i32 [ %29, %30 ], [ 0, %31 ], [ %34, %32 ], [ %43, %42 ], [ %29, %._crit_edge ]
+  %.018 = phi i32 [ -1, %30 ], [ 0, %31 ], [ %34, %32 ], [ %43, %42 ], [ %29, %._crit_edge ]
   %.0 = phi ptr [ @.str.96, %30 ], [ @.str.97, %31 ], [ %33, %32 ], [ %spec.store.select, %42 ], [ @.str.13, %._crit_edge ]
   %46 = load ptr, ptr %0, align 8
   %47 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %46, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1429) #10
@@ -4198,7 +4198,7 @@ define internal fastcc i32 @_modify_clusters(ptr nocapture noundef readonly %0, 
   br label %31
 
 31:                                               ; preds = %21, %24, %26, %29, %25
-  %.019 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
+  %.019 = phi i32 [ -1, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
   %.0 = phi ptr [ @.str.96, %24 ], [ @.str.97, %25 ], [ %27, %26 ], [ %spec.store.select, %29 ], [ @.str.13, %21 ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 60
@@ -4289,7 +4289,7 @@ define internal fastcc i32 @_modify_federations(ptr nocapture noundef readonly %
   br label %31
 
 31:                                               ; preds = %21, %24, %26, %29, %25
-  %.019 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
+  %.019 = phi i32 [ -1, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
   %.0 = phi ptr [ @.str.96, %24 ], [ @.str.97, %25 ], [ %27, %26 ], [ %spec.store.select, %29 ], [ @.str.13, %21 ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 60
@@ -4380,7 +4380,7 @@ define internal fastcc i32 @_modify_job(ptr nocapture noundef readonly %0, ptr n
   br label %31
 
 31:                                               ; preds = %21, %24, %26, %29, %25
-  %.025 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
+  %.025 = phi i32 [ -1, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
   %.0 = phi ptr [ @.str.96, %24 ], [ @.str.97, %25 ], [ %27, %26 ], [ %spec.store.select, %29 ], [ @.str.13, %21 ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 60
@@ -4585,7 +4585,7 @@ define internal fastcc i32 @_modify_res(ptr nocapture noundef readonly %0, ptr n
   br label %31
 
 31:                                               ; preds = %21, %24, %26, %29, %25
-  %.019 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
+  %.019 = phi i32 [ -1, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
   %.0 = phi ptr [ @.str.96, %24 ], [ @.str.97, %25 ], [ %27, %26 ], [ %spec.store.select, %29 ], [ @.str.13, %21 ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 60
@@ -4787,7 +4787,7 @@ _validate_super_user.exit:                        ; preds = %61
   br label %91
 
 91:                                               ; preds = %81, %84, %86, %89, %85
-  %.049 = phi i32 [ %83, %84 ], [ 0, %85 ], [ %88, %86 ], [ %83, %89 ], [ %83, %81 ]
+  %.049 = phi i32 [ -1, %84 ], [ 0, %85 ], [ %88, %86 ], [ %83, %89 ], [ %83, %81 ]
   %.048 = phi ptr [ @.str.96, %84 ], [ @.str.97, %85 ], [ %87, %86 ], [ %spec.store.select, %89 ], [ @.str.13, %81 ]
   %92 = load ptr, ptr %0, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 60
@@ -4878,7 +4878,7 @@ define internal fastcc i32 @_modify_wckeys(ptr nocapture noundef readonly %0, pt
   br label %31
 
 31:                                               ; preds = %21, %24, %26, %29, %25
-  %.019 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
+  %.019 = phi i32 [ -1, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
   %.0 = phi ptr [ @.str.96, %24 ], [ @.str.97, %25 ], [ %27, %26 ], [ %spec.store.select, %29 ], [ @.str.13, %21 ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 60
@@ -5487,7 +5487,7 @@ define internal fastcc i32 @_remove_accounts(ptr nocapture noundef readonly %0, 
   br label %29
 
 29:                                               ; preds = %21, %22, %24, %27, %23
-  %.018 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
+  %.018 = phi i32 [ -1, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %21 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60
@@ -5580,7 +5580,7 @@ define internal fastcc i32 @_remove_account_coords(ptr nocapture noundef readonl
   br label %31
 
 31:                                               ; preds = %21, %24, %26, %29, %25
-  %.019 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
+  %.019 = phi i32 [ -1, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
   %.0 = phi ptr [ @.str.96, %24 ], [ @.str.97, %25 ], [ %27, %26 ], [ %spec.store.select, %29 ], [ @.str.13, %21 ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 60
@@ -5671,7 +5671,7 @@ define internal fastcc i32 @_remove_assocs(ptr nocapture noundef readonly %0, pt
   br label %29
 
 29:                                               ; preds = %21, %22, %24, %27, %23
-  %.018 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
+  %.018 = phi i32 [ -1, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %21 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60
@@ -5762,7 +5762,7 @@ define internal fastcc i32 @_remove_clusters(ptr nocapture noundef readonly %0, 
   br label %29
 
 29:                                               ; preds = %21, %22, %24, %27, %23
-  %.018 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
+  %.018 = phi i32 [ -1, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %21 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60
@@ -5853,7 +5853,7 @@ define internal fastcc i32 @_remove_federations(ptr nocapture noundef readonly %
   br label %29
 
 29:                                               ; preds = %21, %22, %24, %27, %23
-  %.018 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
+  %.018 = phi i32 [ -1, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %21 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60
@@ -5944,7 +5944,7 @@ define internal fastcc i32 @_remove_qos(ptr nocapture noundef readonly %0, ptr n
   br label %29
 
 29:                                               ; preds = %19, %22, %24, %27, %23
-  %.018 = phi i32 [ %21, %22 ], [ 0, %23 ], [ %26, %24 ], [ %21, %27 ], [ %21, %19 ]
+  %.018 = phi i32 [ -1, %22 ], [ 0, %23 ], [ %26, %24 ], [ %21, %27 ], [ %21, %19 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %19 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60
@@ -6035,7 +6035,7 @@ define internal fastcc i32 @_remove_res(ptr nocapture noundef readonly %0, ptr n
   br label %29
 
 29:                                               ; preds = %21, %22, %24, %27, %23
-  %.018 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
+  %.018 = phi i32 [ -1, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %21 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60
@@ -6126,7 +6126,7 @@ define internal fastcc i32 @_remove_users(ptr nocapture noundef readonly %0, ptr
   br label %29
 
 29:                                               ; preds = %21, %22, %24, %27, %23
-  %.018 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
+  %.018 = phi i32 [ -1, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %21 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60
@@ -6217,7 +6217,7 @@ define internal fastcc i32 @_remove_wckeys(ptr nocapture noundef readonly %0, pt
   br label %29
 
 29:                                               ; preds = %19, %22, %24, %27, %23
-  %.018 = phi i32 [ %21, %22 ], [ 0, %23 ], [ %26, %24 ], [ %21, %27 ], [ %21, %19 ]
+  %.018 = phi i32 [ -1, %22 ], [ 0, %23 ], [ %26, %24 ], [ %21, %27 ], [ %21, %19 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %19 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60

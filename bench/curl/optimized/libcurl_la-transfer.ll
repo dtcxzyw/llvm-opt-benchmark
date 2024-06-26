@@ -2083,7 +2083,7 @@ cond.end:                                         ; preds = %do.end79
   br i1 %tobool93.not, label %if.else104, label %if.end99
 
 cond.end.thread:                                  ; preds = %do.end79, %13, %cond.false.thread
-  %type.addr.0128134155 = phi i32 [ %type.addr.0127, %13 ], [ 2, %cond.false.thread ], [ %type.addr.0127, %do.end79 ]
+  %type.addr.0128134155 = phi i32 [ 3, %13 ], [ 2, %cond.false.thread ], [ %type.addr.0127, %do.end79 ]
   %reachedmax.0126136154 = phi i1 [ %reachedmax.0125, %13 ], [ false, %cond.false.thread ], [ %reachedmax.0125, %do.end79 ]
   %disallowport.0138153 = phi i1 [ %disallowport.0, %13 ], [ false, %cond.false.thread ], [ %disallowport.0, %do.end79 ]
   %uh140152 = phi ptr [ %uh, %13 ], [ %uh132, %cond.false.thread ], [ %uh, %do.end79 ]

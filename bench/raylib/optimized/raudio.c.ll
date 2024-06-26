@@ -106320,1025 +106320,1028 @@ ma_log_post.exit398:                              ; preds = %ma_device_get_conte
   br label %ma_log_post.exit
 
 238:                                              ; preds = %.loopexit
-  switch i32 %.1300, label %242 [
-    i32 2, label %259
+  switch i32 %.1300, label %243 [
+    i32 2, label %260
     i32 32, label %239
     i32 10, label %240
     i32 14, label %241
-    i32 1, label %259
+    i32 1, label %242
   ]
 
 239:                                              ; preds = %238
-  br label %259
+  br label %260
 
 240:                                              ; preds = %238
-  br label %259
+  br label %260
 
 241:                                              ; preds = %238
-  br label %259
+  br label %260
 
 242:                                              ; preds = %238
-  %243 = load ptr, ptr %0, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 312
-  %245 = load ptr, ptr %244, align 8
-  %.not9.i400 = icmp eq ptr %245, null
-  br i1 %.not9.i400, label %ma_device_get_context.exit.i402, label %246
+  br label %260
 
-246:                                              ; preds = %242
-  %247 = getelementptr inbounds i8, ptr %243, i64 288
-  %248 = load ptr, ptr %247, align 8
-  tail call void %245(ptr noundef nonnull %41, ptr noundef %248) #68
+243:                                              ; preds = %238
+  %244 = load ptr, ptr %0, align 8
+  %245 = getelementptr inbounds i8, ptr %244, i64 312
+  %246 = load ptr, ptr %245, align 8
+  %.not9.i400 = icmp eq ptr %246, null
+  br i1 %.not9.i400, label %ma_device_get_context.exit.i402, label %247
+
+247:                                              ; preds = %243
+  %248 = getelementptr inbounds i8, ptr %244, i64 288
+  %249 = load ptr, ptr %248, align 8
+  tail call void %246(ptr noundef nonnull %41, ptr noundef %249) #68
   %.pre598 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i402
 
-ma_device_get_context.exit.i402:                  ; preds = %246, %242
-  %249 = phi ptr [ %.pre598, %246 ], [ %243, %242 ]
-  %250 = getelementptr inbounds i8, ptr %249, i64 440
-  %251 = load ptr, ptr %250, align 8
-  %252 = tail call i32 %251(ptr noundef %72) #68
-  %253 = load ptr, ptr %0, align 8
-  %254 = icmp eq ptr %253, null
-  br i1 %254, label %ma_device_get_log.exit404, label %255
+ma_device_get_context.exit.i402:                  ; preds = %247, %243
+  %250 = phi ptr [ %.pre598, %247 ], [ %244, %243 ]
+  %251 = getelementptr inbounds i8, ptr %250, i64 440
+  %252 = load ptr, ptr %251, align 8
+  %253 = tail call i32 %252(ptr noundef %72) #68
+  %254 = load ptr, ptr %0, align 8
+  %255 = icmp eq ptr %254, null
+  br i1 %255, label %ma_device_get_log.exit404, label %256
 
-255:                                              ; preds = %ma_device_get_context.exit.i402
-  %256 = getelementptr inbounds i8, ptr %253, i64 112
-  %257 = load ptr, ptr %256, align 8
+256:                                              ; preds = %ma_device_get_context.exit.i402
+  %257 = getelementptr inbounds i8, ptr %254, i64 112
+  %258 = load ptr, ptr %257, align 8
   br label %ma_device_get_log.exit404
 
-ma_device_get_log.exit404:                        ; preds = %ma_device_get_context.exit.i402, %255
-  %.0.i1.i403 = phi ptr [ %257, %255 ], [ null, %ma_device_get_context.exit.i402 ]
-  %258 = tail call i32 @ma_log_post(ptr noundef %.0.i1.i403, i32 noundef 1, ptr noundef nonnull @.str.518)
+ma_device_get_log.exit404:                        ; preds = %ma_device_get_context.exit.i402, %256
+  %.0.i1.i403 = phi ptr [ %258, %256 ], [ null, %ma_device_get_context.exit.i402 ]
+  %259 = tail call i32 @ma_log_post(ptr noundef %.0.i1.i403, i32 noundef 1, ptr noundef nonnull @.str.518)
   br label %ma_log_post.exit
 
-259:                                              ; preds = %238, %241, %240, %239, %238
-  %.0.i.ph = phi i32 [ %.1300, %238 ], [ 3, %239 ], [ 4, %240 ], [ 5, %241 ], [ %.1300, %238 ]
-  %260 = getelementptr inbounds i8, ptr %2, i64 16
-  %261 = load i32, ptr %260, align 8
-  %262 = icmp eq i32 %261, 0
-  %spec.store.select = select i1 %262, i32 2, i32 %261
+260:                                              ; preds = %242, %241, %240, %239, %238
+  %.0.i.ph = phi i32 [ %.1300, %238 ], [ 3, %239 ], [ 4, %240 ], [ 5, %241 ], [ 1, %242 ]
+  %261 = getelementptr inbounds i8, ptr %2, i64 16
+  %262 = load i32, ptr %261, align 8
+  %263 = icmp eq i32 %262, 0
+  %spec.store.select = select i1 %263, i32 2, i32 %262
   store i32 %spec.store.select, ptr %8, align 4
-  %263 = load ptr, ptr %0, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 496
-  %265 = load ptr, ptr %264, align 8
-  %266 = call i32 %265(ptr noundef %72, ptr noundef %41, ptr noundef nonnull %8) #68
-  %267 = icmp slt i32 %266, 0
-  br i1 %267, label %268, label %287
+  %264 = load ptr, ptr %0, align 8
+  %265 = getelementptr inbounds i8, ptr %264, i64 496
+  %266 = load ptr, ptr %265, align 8
+  %267 = call i32 %266(ptr noundef %72, ptr noundef %41, ptr noundef nonnull %8) #68
+  %268 = icmp slt i32 %267, 0
+  br i1 %268, label %269, label %288
 
-268:                                              ; preds = %259
-  %269 = load ptr, ptr %0, align 8
-  %270 = getelementptr inbounds i8, ptr %269, i64 312
-  %271 = load ptr, ptr %270, align 8
-  %.not9.i406 = icmp eq ptr %271, null
-  br i1 %.not9.i406, label %ma_device_get_context.exit.i408, label %272
+269:                                              ; preds = %260
+  %270 = load ptr, ptr %0, align 8
+  %271 = getelementptr inbounds i8, ptr %270, i64 312
+  %272 = load ptr, ptr %271, align 8
+  %.not9.i406 = icmp eq ptr %272, null
+  br i1 %.not9.i406, label %ma_device_get_context.exit.i408, label %273
 
-272:                                              ; preds = %268
-  %273 = getelementptr inbounds i8, ptr %269, i64 288
-  %274 = load ptr, ptr %273, align 8
-  call void %271(ptr noundef nonnull %41, ptr noundef %274) #68
+273:                                              ; preds = %269
+  %274 = getelementptr inbounds i8, ptr %270, i64 288
+  %275 = load ptr, ptr %274, align 8
+  call void %272(ptr noundef nonnull %41, ptr noundef %275) #68
   %.pre597 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i408
 
-ma_device_get_context.exit.i408:                  ; preds = %272, %268
-  %275 = phi ptr [ %.pre597, %272 ], [ %269, %268 ]
-  %276 = getelementptr inbounds i8, ptr %275, i64 440
-  %277 = load ptr, ptr %276, align 8
-  %278 = call i32 %277(ptr noundef %72) #68
-  %279 = load ptr, ptr %0, align 8
-  %280 = icmp eq ptr %279, null
-  br i1 %280, label %ma_device_get_log.exit410, label %281
+ma_device_get_context.exit.i408:                  ; preds = %273, %269
+  %276 = phi ptr [ %.pre597, %273 ], [ %270, %269 ]
+  %277 = getelementptr inbounds i8, ptr %276, i64 440
+  %278 = load ptr, ptr %277, align 8
+  %279 = call i32 %278(ptr noundef %72) #68
+  %280 = load ptr, ptr %0, align 8
+  %281 = icmp eq ptr %280, null
+  br i1 %281, label %ma_device_get_log.exit410, label %282
 
-281:                                              ; preds = %ma_device_get_context.exit.i408
-  %282 = getelementptr inbounds i8, ptr %279, i64 112
-  %283 = load ptr, ptr %282, align 8
+282:                                              ; preds = %ma_device_get_context.exit.i408
+  %283 = getelementptr inbounds i8, ptr %280, i64 112
+  %284 = load ptr, ptr %283, align 8
   br label %ma_device_get_log.exit410
 
-ma_device_get_log.exit410:                        ; preds = %ma_device_get_context.exit.i408, %281
-  %.0.i1.i409 = phi ptr [ %283, %281 ], [ null, %ma_device_get_context.exit.i408 ]
-  %284 = call i32 @ma_log_post(ptr noundef %.0.i1.i409, i32 noundef 1, ptr noundef nonnull @.str.519)
-  %285 = sub nsw i32 0, %266
-  %286 = call fastcc i32 @ma_result_from_errno(i32 noundef %285)
+ma_device_get_log.exit410:                        ; preds = %ma_device_get_context.exit.i408, %282
+  %.0.i1.i409 = phi ptr [ %284, %282 ], [ null, %ma_device_get_context.exit.i408 ]
+  %285 = call i32 @ma_log_post(ptr noundef %.0.i1.i409, i32 noundef 1, ptr noundef nonnull @.str.519)
+  %286 = sub nsw i32 0, %267
+  %287 = call fastcc i32 @ma_result_from_errno(i32 noundef %286)
   br label %ma_log_post.exit
 
-287:                                              ; preds = %259
-  %288 = load i32, ptr %8, align 4
-  %289 = load ptr, ptr %0, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 512
-  %291 = load ptr, ptr %290, align 8
-  %292 = call i32 %291(ptr noundef %72, ptr noundef %41, i32 noundef 0) #68
-  %293 = getelementptr inbounds i8, ptr %2, i64 20
-  %294 = load i32, ptr %293, align 4
-  %295 = icmp eq i32 %294, 0
-  %spec.store.select1 = select i1 %295, i32 48000, i32 %294
+288:                                              ; preds = %260
+  %289 = load i32, ptr %8, align 4
+  %290 = load ptr, ptr %0, align 8
+  %291 = getelementptr inbounds i8, ptr %290, i64 512
+  %292 = load ptr, ptr %291, align 8
+  %293 = call i32 %292(ptr noundef %72, ptr noundef %41, i32 noundef 0) #68
+  %294 = getelementptr inbounds i8, ptr %2, i64 20
+  %295 = load i32, ptr %294, align 4
+  %296 = icmp eq i32 %295, 0
+  %spec.store.select1 = select i1 %296, i32 48000, i32 %295
   store i32 %spec.store.select1, ptr %9, align 4
-  %296 = load ptr, ptr %0, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 528
-  %298 = load ptr, ptr %297, align 8
-  %299 = call i32 %298(ptr noundef %72, ptr noundef %41, ptr noundef nonnull %9, ptr noundef null) #68
-  %300 = icmp slt i32 %299, 0
-  br i1 %300, label %301, label %320
+  %297 = load ptr, ptr %0, align 8
+  %298 = getelementptr inbounds i8, ptr %297, i64 528
+  %299 = load ptr, ptr %298, align 8
+  %300 = call i32 %299(ptr noundef %72, ptr noundef %41, ptr noundef nonnull %9, ptr noundef null) #68
+  %301 = icmp slt i32 %300, 0
+  br i1 %301, label %302, label %321
 
-301:                                              ; preds = %287
-  %302 = load ptr, ptr %0, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 312
-  %304 = load ptr, ptr %303, align 8
-  %.not9.i412 = icmp eq ptr %304, null
-  br i1 %.not9.i412, label %ma_device_get_context.exit.i414, label %305
+302:                                              ; preds = %288
+  %303 = load ptr, ptr %0, align 8
+  %304 = getelementptr inbounds i8, ptr %303, i64 312
+  %305 = load ptr, ptr %304, align 8
+  %.not9.i412 = icmp eq ptr %305, null
+  br i1 %.not9.i412, label %ma_device_get_context.exit.i414, label %306
 
-305:                                              ; preds = %301
-  %306 = getelementptr inbounds i8, ptr %302, i64 288
-  %307 = load ptr, ptr %306, align 8
-  call void %304(ptr noundef nonnull %41, ptr noundef %307) #68
+306:                                              ; preds = %302
+  %307 = getelementptr inbounds i8, ptr %303, i64 288
+  %308 = load ptr, ptr %307, align 8
+  call void %305(ptr noundef nonnull %41, ptr noundef %308) #68
   %.pre596 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i414
 
-ma_device_get_context.exit.i414:                  ; preds = %305, %301
-  %308 = phi ptr [ %.pre596, %305 ], [ %302, %301 ]
-  %309 = getelementptr inbounds i8, ptr %308, i64 440
-  %310 = load ptr, ptr %309, align 8
-  %311 = call i32 %310(ptr noundef %72) #68
-  %312 = load ptr, ptr %0, align 8
-  %313 = icmp eq ptr %312, null
-  br i1 %313, label %ma_device_get_log.exit416, label %314
+ma_device_get_context.exit.i414:                  ; preds = %306, %302
+  %309 = phi ptr [ %.pre596, %306 ], [ %303, %302 ]
+  %310 = getelementptr inbounds i8, ptr %309, i64 440
+  %311 = load ptr, ptr %310, align 8
+  %312 = call i32 %311(ptr noundef %72) #68
+  %313 = load ptr, ptr %0, align 8
+  %314 = icmp eq ptr %313, null
+  br i1 %314, label %ma_device_get_log.exit416, label %315
 
-314:                                              ; preds = %ma_device_get_context.exit.i414
-  %315 = getelementptr inbounds i8, ptr %312, i64 112
-  %316 = load ptr, ptr %315, align 8
+315:                                              ; preds = %ma_device_get_context.exit.i414
+  %316 = getelementptr inbounds i8, ptr %313, i64 112
+  %317 = load ptr, ptr %316, align 8
   br label %ma_device_get_log.exit416
 
-ma_device_get_log.exit416:                        ; preds = %ma_device_get_context.exit.i414, %314
-  %.0.i1.i415 = phi ptr [ %316, %314 ], [ null, %ma_device_get_context.exit.i414 ]
-  %317 = call i32 @ma_log_post(ptr noundef %.0.i1.i415, i32 noundef 1, ptr noundef nonnull @.str.520)
-  %318 = sub nsw i32 0, %299
-  %319 = call fastcc i32 @ma_result_from_errno(i32 noundef %318)
+ma_device_get_log.exit416:                        ; preds = %ma_device_get_context.exit.i414, %315
+  %.0.i1.i415 = phi ptr [ %317, %315 ], [ null, %ma_device_get_context.exit.i414 ]
+  %318 = call i32 @ma_log_post(ptr noundef %.0.i1.i415, i32 noundef 1, ptr noundef nonnull @.str.520)
+  %319 = sub nsw i32 0, %300
+  %320 = call fastcc i32 @ma_result_from_errno(i32 noundef %319)
   br label %ma_log_post.exit
 
-320:                                              ; preds = %287
-  %321 = load i32, ptr %9, align 4
-  %322 = getelementptr inbounds i8, ptr %2, i64 288
-  %323 = load i32, ptr %322, align 8
-  store i32 %323, ptr %10, align 4
-  %324 = load ptr, ptr %0, align 8
-  %325 = getelementptr inbounds i8, ptr %324, i64 544
-  %326 = load ptr, ptr %325, align 8
-  %327 = call i32 %326(ptr noundef %72, ptr noundef %41, ptr noundef nonnull %10, ptr noundef null) #68
-  %328 = icmp slt i32 %327, 0
-  br i1 %328, label %329, label %348
+321:                                              ; preds = %288
+  %322 = load i32, ptr %9, align 4
+  %323 = getelementptr inbounds i8, ptr %2, i64 288
+  %324 = load i32, ptr %323, align 8
+  store i32 %324, ptr %10, align 4
+  %325 = load ptr, ptr %0, align 8
+  %326 = getelementptr inbounds i8, ptr %325, i64 544
+  %327 = load ptr, ptr %326, align 8
+  %328 = call i32 %327(ptr noundef %72, ptr noundef %41, ptr noundef nonnull %10, ptr noundef null) #68
+  %329 = icmp slt i32 %328, 0
+  br i1 %329, label %330, label %349
 
-329:                                              ; preds = %320
-  %330 = load ptr, ptr %0, align 8
-  %331 = getelementptr inbounds i8, ptr %330, i64 312
-  %332 = load ptr, ptr %331, align 8
-  %.not9.i418 = icmp eq ptr %332, null
-  br i1 %.not9.i418, label %ma_device_get_context.exit.i420, label %333
+330:                                              ; preds = %321
+  %331 = load ptr, ptr %0, align 8
+  %332 = getelementptr inbounds i8, ptr %331, i64 312
+  %333 = load ptr, ptr %332, align 8
+  %.not9.i418 = icmp eq ptr %333, null
+  br i1 %.not9.i418, label %ma_device_get_context.exit.i420, label %334
 
-333:                                              ; preds = %329
-  %334 = getelementptr inbounds i8, ptr %330, i64 288
-  %335 = load ptr, ptr %334, align 8
-  call void %332(ptr noundef nonnull %41, ptr noundef %335) #68
+334:                                              ; preds = %330
+  %335 = getelementptr inbounds i8, ptr %331, i64 288
+  %336 = load ptr, ptr %335, align 8
+  call void %333(ptr noundef nonnull %41, ptr noundef %336) #68
   %.pre595 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i420
 
-ma_device_get_context.exit.i420:                  ; preds = %333, %329
-  %336 = phi ptr [ %.pre595, %333 ], [ %330, %329 ]
-  %337 = getelementptr inbounds i8, ptr %336, i64 440
-  %338 = load ptr, ptr %337, align 8
-  %339 = call i32 %338(ptr noundef %72) #68
-  %340 = load ptr, ptr %0, align 8
-  %341 = icmp eq ptr %340, null
-  br i1 %341, label %ma_device_get_log.exit422, label %342
+ma_device_get_context.exit.i420:                  ; preds = %334, %330
+  %337 = phi ptr [ %.pre595, %334 ], [ %331, %330 ]
+  %338 = getelementptr inbounds i8, ptr %337, i64 440
+  %339 = load ptr, ptr %338, align 8
+  %340 = call i32 %339(ptr noundef %72) #68
+  %341 = load ptr, ptr %0, align 8
+  %342 = icmp eq ptr %341, null
+  br i1 %342, label %ma_device_get_log.exit422, label %343
 
-342:                                              ; preds = %ma_device_get_context.exit.i420
-  %343 = getelementptr inbounds i8, ptr %340, i64 112
-  %344 = load ptr, ptr %343, align 8
+343:                                              ; preds = %ma_device_get_context.exit.i420
+  %344 = getelementptr inbounds i8, ptr %341, i64 112
+  %345 = load ptr, ptr %344, align 8
   br label %ma_device_get_log.exit422
 
-ma_device_get_log.exit422:                        ; preds = %ma_device_get_context.exit.i420, %342
-  %.0.i1.i421 = phi ptr [ %344, %342 ], [ null, %ma_device_get_context.exit.i420 ]
-  %345 = call i32 @ma_log_post(ptr noundef %.0.i1.i421, i32 noundef 1, ptr noundef nonnull @.str.521)
-  %346 = sub nsw i32 0, %327
-  %347 = call fastcc i32 @ma_result_from_errno(i32 noundef %346)
+ma_device_get_log.exit422:                        ; preds = %ma_device_get_context.exit.i420, %343
+  %.0.i1.i421 = phi ptr [ %345, %343 ], [ null, %ma_device_get_context.exit.i420 ]
+  %346 = call i32 @ma_log_post(ptr noundef %.0.i1.i421, i32 noundef 1, ptr noundef nonnull @.str.521)
+  %347 = sub nsw i32 0, %328
+  %348 = call fastcc i32 @ma_result_from_errno(i32 noundef %347)
   br label %ma_log_post.exit
 
-348:                                              ; preds = %320
-  %349 = load i32, ptr %10, align 4
-  %350 = getelementptr inbounds i8, ptr %1, i64 20
-  %351 = load i32, ptr %350, align 4
-  %352 = call i32 @ma_calculate_buffer_size_in_frames_from_descriptor(ptr noundef nonnull %2, i32 noundef %321, i32 noundef %351)
-  %353 = mul i32 %352, %349
-  %354 = zext i32 %353 to i64
-  store i64 %354, ptr %11, align 8
-  %355 = load ptr, ptr %0, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 536
-  %357 = load ptr, ptr %356, align 8
-  %358 = call i32 %357(ptr noundef %72, ptr noundef %41, ptr noundef nonnull %11) #68
-  %359 = icmp slt i32 %358, 0
-  br i1 %359, label %360, label %379
+349:                                              ; preds = %321
+  %350 = load i32, ptr %10, align 4
+  %351 = getelementptr inbounds i8, ptr %1, i64 20
+  %352 = load i32, ptr %351, align 4
+  %353 = call i32 @ma_calculate_buffer_size_in_frames_from_descriptor(ptr noundef nonnull %2, i32 noundef %322, i32 noundef %352)
+  %354 = mul i32 %353, %350
+  %355 = zext i32 %354 to i64
+  store i64 %355, ptr %11, align 8
+  %356 = load ptr, ptr %0, align 8
+  %357 = getelementptr inbounds i8, ptr %356, i64 536
+  %358 = load ptr, ptr %357, align 8
+  %359 = call i32 %358(ptr noundef %72, ptr noundef %41, ptr noundef nonnull %11) #68
+  %360 = icmp slt i32 %359, 0
+  br i1 %360, label %361, label %380
 
-360:                                              ; preds = %348
-  %361 = load ptr, ptr %0, align 8
-  %362 = getelementptr inbounds i8, ptr %361, i64 312
-  %363 = load ptr, ptr %362, align 8
-  %.not9.i424 = icmp eq ptr %363, null
-  br i1 %.not9.i424, label %ma_device_get_context.exit.i426, label %364
+361:                                              ; preds = %349
+  %362 = load ptr, ptr %0, align 8
+  %363 = getelementptr inbounds i8, ptr %362, i64 312
+  %364 = load ptr, ptr %363, align 8
+  %.not9.i424 = icmp eq ptr %364, null
+  br i1 %.not9.i424, label %ma_device_get_context.exit.i426, label %365
 
-364:                                              ; preds = %360
-  %365 = getelementptr inbounds i8, ptr %361, i64 288
-  %366 = load ptr, ptr %365, align 8
-  call void %363(ptr noundef nonnull %41, ptr noundef %366) #68
+365:                                              ; preds = %361
+  %366 = getelementptr inbounds i8, ptr %362, i64 288
+  %367 = load ptr, ptr %366, align 8
+  call void %364(ptr noundef nonnull %41, ptr noundef %367) #68
   %.pre594 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i426
 
-ma_device_get_context.exit.i426:                  ; preds = %364, %360
-  %367 = phi ptr [ %.pre594, %364 ], [ %361, %360 ]
-  %368 = getelementptr inbounds i8, ptr %367, i64 440
-  %369 = load ptr, ptr %368, align 8
-  %370 = call i32 %369(ptr noundef %72) #68
-  %371 = load ptr, ptr %0, align 8
-  %372 = icmp eq ptr %371, null
-  br i1 %372, label %ma_device_get_log.exit428, label %373
+ma_device_get_context.exit.i426:                  ; preds = %365, %361
+  %368 = phi ptr [ %.pre594, %365 ], [ %362, %361 ]
+  %369 = getelementptr inbounds i8, ptr %368, i64 440
+  %370 = load ptr, ptr %369, align 8
+  %371 = call i32 %370(ptr noundef %72) #68
+  %372 = load ptr, ptr %0, align 8
+  %373 = icmp eq ptr %372, null
+  br i1 %373, label %ma_device_get_log.exit428, label %374
 
-373:                                              ; preds = %ma_device_get_context.exit.i426
-  %374 = getelementptr inbounds i8, ptr %371, i64 112
-  %375 = load ptr, ptr %374, align 8
+374:                                              ; preds = %ma_device_get_context.exit.i426
+  %375 = getelementptr inbounds i8, ptr %372, i64 112
+  %376 = load ptr, ptr %375, align 8
   br label %ma_device_get_log.exit428
 
-ma_device_get_log.exit428:                        ; preds = %ma_device_get_context.exit.i426, %373
-  %.0.i1.i427 = phi ptr [ %375, %373 ], [ null, %ma_device_get_context.exit.i426 ]
-  %376 = call i32 @ma_log_post(ptr noundef %.0.i1.i427, i32 noundef 1, ptr noundef nonnull @.str.522)
-  %377 = sub nsw i32 0, %358
-  %378 = call fastcc i32 @ma_result_from_errno(i32 noundef %377)
+ma_device_get_log.exit428:                        ; preds = %ma_device_get_context.exit.i426, %374
+  %.0.i1.i427 = phi ptr [ %376, %374 ], [ null, %ma_device_get_context.exit.i426 ]
+  %377 = call i32 @ma_log_post(ptr noundef %.0.i1.i427, i32 noundef 1, ptr noundef nonnull @.str.522)
+  %378 = sub nsw i32 0, %359
+  %379 = call fastcc i32 @ma_result_from_errno(i32 noundef %378)
   br label %ma_log_post.exit
 
-379:                                              ; preds = %348
-  %380 = load i64, ptr %11, align 8
-  %381 = zext i32 %349 to i64
-  %382 = udiv i64 %380, %381
-  %383 = trunc i64 %382 to i32
-  %384 = load ptr, ptr %0, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 664
-  %386 = load ptr, ptr %385, align 8
-  %387 = call i32 %386(ptr noundef %72, ptr noundef %41) #68
-  %388 = icmp slt i32 %387, 0
-  %389 = load ptr, ptr %0, align 8
-  %390 = getelementptr inbounds i8, ptr %389, i64 312
-  %391 = load ptr, ptr %390, align 8
-  %.not9.i430 = icmp eq ptr %391, null
-  br i1 %388, label %392, label %408
+380:                                              ; preds = %349
+  %381 = load i64, ptr %11, align 8
+  %382 = zext i32 %350 to i64
+  %383 = udiv i64 %381, %382
+  %384 = trunc i64 %383 to i32
+  %385 = load ptr, ptr %0, align 8
+  %386 = getelementptr inbounds i8, ptr %385, i64 664
+  %387 = load ptr, ptr %386, align 8
+  %388 = call i32 %387(ptr noundef %72, ptr noundef %41) #68
+  %389 = icmp slt i32 %388, 0
+  %390 = load ptr, ptr %0, align 8
+  %391 = getelementptr inbounds i8, ptr %390, i64 312
+  %392 = load ptr, ptr %391, align 8
+  %.not9.i430 = icmp eq ptr %392, null
+  br i1 %389, label %393, label %409
 
-392:                                              ; preds = %379
-  br i1 %.not9.i430, label %ma_device_get_context.exit.i432, label %393
+393:                                              ; preds = %380
+  br i1 %.not9.i430, label %ma_device_get_context.exit.i432, label %394
 
-393:                                              ; preds = %392
-  %394 = getelementptr inbounds i8, ptr %389, i64 288
-  %395 = load ptr, ptr %394, align 8
-  call void %391(ptr noundef nonnull %41, ptr noundef %395) #68
+394:                                              ; preds = %393
+  %395 = getelementptr inbounds i8, ptr %390, i64 288
+  %396 = load ptr, ptr %395, align 8
+  call void %392(ptr noundef nonnull %41, ptr noundef %396) #68
   %.pre593 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i432
 
-ma_device_get_context.exit.i432:                  ; preds = %393, %392
-  %396 = phi ptr [ %.pre593, %393 ], [ %389, %392 ]
-  %397 = getelementptr inbounds i8, ptr %396, i64 440
-  %398 = load ptr, ptr %397, align 8
-  %399 = call i32 %398(ptr noundef %72) #68
-  %400 = load ptr, ptr %0, align 8
-  %401 = icmp eq ptr %400, null
-  br i1 %401, label %ma_device_get_log.exit434, label %402
+ma_device_get_context.exit.i432:                  ; preds = %394, %393
+  %397 = phi ptr [ %.pre593, %394 ], [ %390, %393 ]
+  %398 = getelementptr inbounds i8, ptr %397, i64 440
+  %399 = load ptr, ptr %398, align 8
+  %400 = call i32 %399(ptr noundef %72) #68
+  %401 = load ptr, ptr %0, align 8
+  %402 = icmp eq ptr %401, null
+  br i1 %402, label %ma_device_get_log.exit434, label %403
 
-402:                                              ; preds = %ma_device_get_context.exit.i432
-  %403 = getelementptr inbounds i8, ptr %400, i64 112
-  %404 = load ptr, ptr %403, align 8
+403:                                              ; preds = %ma_device_get_context.exit.i432
+  %404 = getelementptr inbounds i8, ptr %401, i64 112
+  %405 = load ptr, ptr %404, align 8
   br label %ma_device_get_log.exit434
 
-ma_device_get_log.exit434:                        ; preds = %ma_device_get_context.exit.i432, %402
-  %.0.i1.i433 = phi ptr [ %404, %402 ], [ null, %ma_device_get_context.exit.i432 ]
-  %405 = call i32 @ma_log_post(ptr noundef %.0.i1.i433, i32 noundef 1, ptr noundef nonnull @.str.523)
-  %406 = sub nsw i32 0, %387
-  %407 = call fastcc i32 @ma_result_from_errno(i32 noundef %406)
+ma_device_get_log.exit434:                        ; preds = %ma_device_get_context.exit.i432, %403
+  %.0.i1.i433 = phi ptr [ %405, %403 ], [ null, %ma_device_get_context.exit.i432 ]
+  %406 = call i32 @ma_log_post(ptr noundef %.0.i1.i433, i32 noundef 1, ptr noundef nonnull @.str.523)
+  %407 = sub nsw i32 0, %388
+  %408 = call fastcc i32 @ma_result_from_errno(i32 noundef %407)
   br label %ma_log_post.exit
 
-408:                                              ; preds = %379
-  br i1 %.not9.i430, label %ma_free.exit437, label %409
+409:                                              ; preds = %380
+  br i1 %.not9.i430, label %ma_free.exit437, label %410
 
-409:                                              ; preds = %408
-  %410 = getelementptr inbounds i8, ptr %389, i64 288
-  %411 = load ptr, ptr %410, align 8
-  call void %391(ptr noundef nonnull %41, ptr noundef %411) #68
+410:                                              ; preds = %409
+  %411 = getelementptr inbounds i8, ptr %390, i64 288
+  %412 = load ptr, ptr %411, align 8
+  call void %392(ptr noundef nonnull %41, ptr noundef %412) #68
   %.pre581 = load ptr, ptr %0, align 8
   br label %ma_free.exit437
 
-ma_free.exit437:                                  ; preds = %408, %409
-  %412 = phi ptr [ %389, %408 ], [ %.pre581, %409 ]
-  %413 = getelementptr inbounds i8, ptr %412, i64 672
-  %414 = load ptr, ptr %413, align 8
-  %415 = call i64 %414() #68
-  %416 = load ptr, ptr %0, align 8
-  %417 = getelementptr inbounds i8, ptr %416, i64 296
-  %418 = load ptr, ptr %417, align 8
-  %.not8.i.i438 = icmp eq ptr %418, null
-  br i1 %.not8.i.i438, label %ma_device_get_context.exit.i444, label %419
+ma_free.exit437:                                  ; preds = %409, %410
+  %413 = phi ptr [ %390, %409 ], [ %.pre581, %410 ]
+  %414 = getelementptr inbounds i8, ptr %413, i64 672
+  %415 = load ptr, ptr %414, align 8
+  %416 = call i64 %415() #68
+  %417 = load ptr, ptr %0, align 8
+  %418 = getelementptr inbounds i8, ptr %417, i64 296
+  %419 = load ptr, ptr %418, align 8
+  %.not8.i.i438 = icmp eq ptr %419, null
+  br i1 %.not8.i.i438, label %ma_device_get_context.exit.i444, label %420
 
-419:                                              ; preds = %ma_free.exit437
-  %420 = getelementptr inbounds i8, ptr %416, i64 288
-  %421 = load ptr, ptr %420, align 8
-  %422 = call ptr %418(i64 noundef %415, ptr noundef %421) #68
-  %.not.i439 = icmp eq ptr %422, null
-  %.not11.i440 = icmp eq i64 %415, 0
+420:                                              ; preds = %ma_free.exit437
+  %421 = getelementptr inbounds i8, ptr %417, i64 288
+  %422 = load ptr, ptr %421, align 8
+  %423 = call ptr %419(i64 noundef %416, ptr noundef %422) #68
+  %.not.i439 = icmp eq ptr %423, null
+  %.not11.i440 = icmp eq i64 %416, 0
   %or.cond.i441 = or i1 %.not11.i440, %.not.i439
   br i1 %or.cond.i441, label %ma_calloc.exit443, label %ma_calloc.exit443.thread536
 
-ma_calloc.exit443.thread536:                      ; preds = %419
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %422, i8 0, i64 %415, i1 false)
-  br label %433
+ma_calloc.exit443.thread536:                      ; preds = %420
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %423, i8 0, i64 %416, i1 false)
+  br label %434
 
-ma_calloc.exit443:                                ; preds = %419
-  br i1 %.not.i439, label %ma_calloc.exit443.ma_device_get_context.exit.i444_crit_edge, label %433
+ma_calloc.exit443:                                ; preds = %420
+  br i1 %.not.i439, label %ma_calloc.exit443.ma_device_get_context.exit.i444_crit_edge, label %434
 
 ma_calloc.exit443.ma_device_get_context.exit.i444_crit_edge: ; preds = %ma_calloc.exit443
   %.pre592 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i444
 
 ma_device_get_context.exit.i444:                  ; preds = %ma_calloc.exit443.ma_device_get_context.exit.i444_crit_edge, %ma_free.exit437
-  %423 = phi ptr [ %.pre592, %ma_calloc.exit443.ma_device_get_context.exit.i444_crit_edge ], [ %416, %ma_free.exit437 ]
-  %424 = getelementptr inbounds i8, ptr %423, i64 440
-  %425 = load ptr, ptr %424, align 8
-  %426 = call i32 %425(ptr noundef %72) #68
-  %427 = load ptr, ptr %0, align 8
-  %428 = icmp eq ptr %427, null
-  br i1 %428, label %ma_device_get_log.exit446, label %429
+  %424 = phi ptr [ %.pre592, %ma_calloc.exit443.ma_device_get_context.exit.i444_crit_edge ], [ %417, %ma_free.exit437 ]
+  %425 = getelementptr inbounds i8, ptr %424, i64 440
+  %426 = load ptr, ptr %425, align 8
+  %427 = call i32 %426(ptr noundef %72) #68
+  %428 = load ptr, ptr %0, align 8
+  %429 = icmp eq ptr %428, null
+  br i1 %429, label %ma_device_get_log.exit446, label %430
 
-429:                                              ; preds = %ma_device_get_context.exit.i444
-  %430 = getelementptr inbounds i8, ptr %427, i64 112
-  %431 = load ptr, ptr %430, align 8
+430:                                              ; preds = %ma_device_get_context.exit.i444
+  %431 = getelementptr inbounds i8, ptr %428, i64 112
+  %432 = load ptr, ptr %431, align 8
   br label %ma_device_get_log.exit446
 
-ma_device_get_log.exit446:                        ; preds = %ma_device_get_context.exit.i444, %429
-  %.0.i1.i445 = phi ptr [ %431, %429 ], [ null, %ma_device_get_context.exit.i444 ]
-  %432 = call i32 @ma_log_post(ptr noundef %.0.i1.i445, i32 noundef 1, ptr noundef nonnull @.str.524)
+ma_device_get_log.exit446:                        ; preds = %ma_device_get_context.exit.i444, %430
+  %.0.i1.i445 = phi ptr [ %432, %430 ], [ null, %ma_device_get_context.exit.i444 ]
+  %433 = call i32 @ma_log_post(ptr noundef %.0.i1.i445, i32 noundef 1, ptr noundef nonnull @.str.524)
   br label %ma_log_post.exit
 
-433:                                              ; preds = %ma_calloc.exit443.thread536, %ma_calloc.exit443
-  %434 = load ptr, ptr %0, align 8
-  %435 = getelementptr inbounds i8, ptr %434, i64 680
-  %436 = load ptr, ptr %435, align 8
-  %437 = call i32 %436(ptr noundef %72, ptr noundef nonnull %422) #68
-  %438 = icmp slt i32 %437, 0
-  %439 = load ptr, ptr %0, align 8
-  br i1 %438, label %440, label %458
+434:                                              ; preds = %ma_calloc.exit443.thread536, %ma_calloc.exit443
+  %435 = load ptr, ptr %0, align 8
+  %436 = getelementptr inbounds i8, ptr %435, i64 680
+  %437 = load ptr, ptr %436, align 8
+  %438 = call i32 %437(ptr noundef %72, ptr noundef nonnull %423) #68
+  %439 = icmp slt i32 %438, 0
+  %440 = load ptr, ptr %0, align 8
+  br i1 %439, label %441, label %459
 
-440:                                              ; preds = %433
-  %441 = getelementptr inbounds i8, ptr %439, i64 312
-  %442 = load ptr, ptr %441, align 8
-  %.not9.i448 = icmp eq ptr %442, null
-  br i1 %.not9.i448, label %ma_device_get_context.exit.i450, label %443
+441:                                              ; preds = %434
+  %442 = getelementptr inbounds i8, ptr %440, i64 312
+  %443 = load ptr, ptr %442, align 8
+  %.not9.i448 = icmp eq ptr %443, null
+  br i1 %.not9.i448, label %ma_device_get_context.exit.i450, label %444
 
-443:                                              ; preds = %440
-  %444 = getelementptr inbounds i8, ptr %439, i64 288
-  %445 = load ptr, ptr %444, align 8
-  call void %442(ptr noundef nonnull %422, ptr noundef %445) #68
+444:                                              ; preds = %441
+  %445 = getelementptr inbounds i8, ptr %440, i64 288
+  %446 = load ptr, ptr %445, align 8
+  call void %443(ptr noundef nonnull %423, ptr noundef %446) #68
   %.pre591 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i450
 
-ma_device_get_context.exit.i450:                  ; preds = %443, %440
-  %446 = phi ptr [ %.pre591, %443 ], [ %439, %440 ]
-  %447 = getelementptr inbounds i8, ptr %446, i64 440
-  %448 = load ptr, ptr %447, align 8
-  %449 = call i32 %448(ptr noundef %72) #68
-  %450 = load ptr, ptr %0, align 8
-  %451 = icmp eq ptr %450, null
-  br i1 %451, label %ma_device_get_log.exit452, label %452
+ma_device_get_context.exit.i450:                  ; preds = %444, %441
+  %447 = phi ptr [ %.pre591, %444 ], [ %440, %441 ]
+  %448 = getelementptr inbounds i8, ptr %447, i64 440
+  %449 = load ptr, ptr %448, align 8
+  %450 = call i32 %449(ptr noundef %72) #68
+  %451 = load ptr, ptr %0, align 8
+  %452 = icmp eq ptr %451, null
+  br i1 %452, label %ma_device_get_log.exit452, label %453
 
-452:                                              ; preds = %ma_device_get_context.exit.i450
-  %453 = getelementptr inbounds i8, ptr %450, i64 112
-  %454 = load ptr, ptr %453, align 8
+453:                                              ; preds = %ma_device_get_context.exit.i450
+  %454 = getelementptr inbounds i8, ptr %451, i64 112
+  %455 = load ptr, ptr %454, align 8
   br label %ma_device_get_log.exit452
 
-ma_device_get_log.exit452:                        ; preds = %ma_device_get_context.exit.i450, %452
-  %.0.i1.i451 = phi ptr [ %454, %452 ], [ null, %ma_device_get_context.exit.i450 ]
-  %455 = call i32 @ma_log_post(ptr noundef %.0.i1.i451, i32 noundef 1, ptr noundef nonnull @.str.525)
-  %456 = sub nsw i32 0, %437
-  %457 = call fastcc i32 @ma_result_from_errno(i32 noundef %456)
+ma_device_get_log.exit452:                        ; preds = %ma_device_get_context.exit.i450, %453
+  %.0.i1.i451 = phi ptr [ %455, %453 ], [ null, %ma_device_get_context.exit.i450 ]
+  %456 = call i32 @ma_log_post(ptr noundef %.0.i1.i451, i32 noundef 1, ptr noundef nonnull @.str.525)
+  %457 = sub nsw i32 0, %438
+  %458 = call fastcc i32 @ma_result_from_errno(i32 noundef %457)
   br label %ma_log_post.exit
 
-458:                                              ; preds = %433
-  %459 = getelementptr inbounds i8, ptr %439, i64 696
-  %460 = load ptr, ptr %459, align 8
-  %461 = add i32 %383, -1
-  %462 = lshr i32 %461, 1
-  %463 = or i32 %462, %461
-  %464 = lshr i32 %463, 2
-  %465 = or i32 %464, %463
-  %466 = lshr i32 %465, 4
-  %467 = or i32 %466, %465
-  %468 = lshr i32 %467, 8
-  %469 = or i32 %468, %467
-  %470 = lshr i32 %469, 16
-  %471 = or i32 %470, %469
-  %472 = add i32 %471, 1
-  %473 = lshr i32 %472, 1
-  %474 = zext nneg i32 %473 to i64
-  %475 = call i32 %460(ptr noundef %72, ptr noundef nonnull %422, i64 noundef %474) #68
-  %476 = icmp slt i32 %475, 0
-  %477 = load ptr, ptr %0, align 8
-  br i1 %476, label %478, label %496
+459:                                              ; preds = %434
+  %460 = getelementptr inbounds i8, ptr %440, i64 696
+  %461 = load ptr, ptr %460, align 8
+  %462 = add i32 %384, -1
+  %463 = lshr i32 %462, 1
+  %464 = or i32 %463, %462
+  %465 = lshr i32 %464, 2
+  %466 = or i32 %465, %464
+  %467 = lshr i32 %466, 4
+  %468 = or i32 %467, %466
+  %469 = lshr i32 %468, 8
+  %470 = or i32 %469, %468
+  %471 = lshr i32 %470, 16
+  %472 = or i32 %471, %470
+  %473 = add i32 %472, 1
+  %474 = lshr i32 %473, 1
+  %475 = zext nneg i32 %474 to i64
+  %476 = call i32 %461(ptr noundef %72, ptr noundef nonnull %423, i64 noundef %475) #68
+  %477 = icmp slt i32 %476, 0
+  %478 = load ptr, ptr %0, align 8
+  br i1 %477, label %479, label %497
 
-478:                                              ; preds = %458
-  %479 = getelementptr inbounds i8, ptr %477, i64 312
-  %480 = load ptr, ptr %479, align 8
-  %.not9.i454 = icmp eq ptr %480, null
-  br i1 %.not9.i454, label %ma_device_get_context.exit.i456, label %481
+479:                                              ; preds = %459
+  %480 = getelementptr inbounds i8, ptr %478, i64 312
+  %481 = load ptr, ptr %480, align 8
+  %.not9.i454 = icmp eq ptr %481, null
+  br i1 %.not9.i454, label %ma_device_get_context.exit.i456, label %482
 
-481:                                              ; preds = %478
-  %482 = getelementptr inbounds i8, ptr %477, i64 288
-  %483 = load ptr, ptr %482, align 8
-  call void %480(ptr noundef nonnull %422, ptr noundef %483) #68
+482:                                              ; preds = %479
+  %483 = getelementptr inbounds i8, ptr %478, i64 288
+  %484 = load ptr, ptr %483, align 8
+  call void %481(ptr noundef nonnull %423, ptr noundef %484) #68
   %.pre590 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i456
 
-ma_device_get_context.exit.i456:                  ; preds = %481, %478
-  %484 = phi ptr [ %.pre590, %481 ], [ %477, %478 ]
-  %485 = getelementptr inbounds i8, ptr %484, i64 440
-  %486 = load ptr, ptr %485, align 8
-  %487 = call i32 %486(ptr noundef %72) #68
-  %488 = load ptr, ptr %0, align 8
-  %489 = icmp eq ptr %488, null
-  br i1 %489, label %ma_device_get_log.exit458, label %490
+ma_device_get_context.exit.i456:                  ; preds = %482, %479
+  %485 = phi ptr [ %.pre590, %482 ], [ %478, %479 ]
+  %486 = getelementptr inbounds i8, ptr %485, i64 440
+  %487 = load ptr, ptr %486, align 8
+  %488 = call i32 %487(ptr noundef %72) #68
+  %489 = load ptr, ptr %0, align 8
+  %490 = icmp eq ptr %489, null
+  br i1 %490, label %ma_device_get_log.exit458, label %491
 
-490:                                              ; preds = %ma_device_get_context.exit.i456
-  %491 = getelementptr inbounds i8, ptr %488, i64 112
-  %492 = load ptr, ptr %491, align 8
+491:                                              ; preds = %ma_device_get_context.exit.i456
+  %492 = getelementptr inbounds i8, ptr %489, i64 112
+  %493 = load ptr, ptr %492, align 8
   br label %ma_device_get_log.exit458
 
-ma_device_get_log.exit458:                        ; preds = %ma_device_get_context.exit.i456, %490
-  %.0.i1.i457 = phi ptr [ %492, %490 ], [ null, %ma_device_get_context.exit.i456 ]
-  %493 = call i32 @ma_log_post(ptr noundef %.0.i1.i457, i32 noundef 1, ptr noundef nonnull @.str.526)
-  %494 = sub nsw i32 0, %475
-  %495 = call fastcc i32 @ma_result_from_errno(i32 noundef %494)
+ma_device_get_log.exit458:                        ; preds = %ma_device_get_context.exit.i456, %491
+  %.0.i1.i457 = phi ptr [ %493, %491 ], [ null, %ma_device_get_context.exit.i456 ]
+  %494 = call i32 @ma_log_post(ptr noundef %.0.i1.i457, i32 noundef 1, ptr noundef nonnull @.str.526)
+  %495 = sub nsw i32 0, %476
+  %496 = call fastcc i32 @ma_result_from_errno(i32 noundef %495)
   br label %ma_log_post.exit
 
-496:                                              ; preds = %458
-  %497 = getelementptr inbounds i8, ptr %477, i64 688
-  %498 = load ptr, ptr %497, align 8
-  %499 = call i32 %498(ptr noundef nonnull %422, ptr noundef nonnull %7) #68
-  %500 = icmp slt i32 %499, 0
-  br i1 %500, label %501, label %504
+497:                                              ; preds = %459
+  %498 = getelementptr inbounds i8, ptr %478, i64 688
+  %499 = load ptr, ptr %498, align 8
+  %500 = call i32 %499(ptr noundef nonnull %423, ptr noundef nonnull %7) #68
+  %501 = icmp slt i32 %500, 0
+  br i1 %501, label %502, label %505
 
-501:                                              ; preds = %496
-  %502 = mul i32 %349, %383
-  %503 = zext i32 %502 to i64
-  store i64 %503, ptr %7, align 8
-  br label %504
+502:                                              ; preds = %497
+  %503 = mul i32 %350, %384
+  %504 = zext i32 %503 to i64
+  store i64 %504, ptr %7, align 8
+  br label %505
 
-504:                                              ; preds = %501, %496
+505:                                              ; preds = %502, %497
   %.not331 = icmp eq i32 %3, 1
-  br i1 %.not331, label %505, label %557
+  br i1 %.not331, label %506, label %558
 
-505:                                              ; preds = %504
-  %506 = load ptr, ptr %0, align 8
-  %507 = getelementptr inbounds i8, ptr %506, i64 704
-  %508 = load ptr, ptr %507, align 8
-  %509 = shl i64 %382, 1
-  %510 = and i64 %509, 4294967294
-  %511 = call i32 %508(ptr noundef %72, ptr noundef nonnull %422, i64 noundef %510) #68
-  %512 = icmp slt i32 %511, 0
-  %513 = load ptr, ptr %0, align 8
-  br i1 %512, label %514, label %532
+506:                                              ; preds = %505
+  %507 = load ptr, ptr %0, align 8
+  %508 = getelementptr inbounds i8, ptr %507, i64 704
+  %509 = load ptr, ptr %508, align 8
+  %510 = shl i64 %383, 1
+  %511 = and i64 %510, 4294967294
+  %512 = call i32 %509(ptr noundef %72, ptr noundef nonnull %423, i64 noundef %511) #68
+  %513 = icmp slt i32 %512, 0
+  %514 = load ptr, ptr %0, align 8
+  br i1 %513, label %515, label %533
 
-514:                                              ; preds = %505
-  %515 = getelementptr inbounds i8, ptr %513, i64 312
-  %516 = load ptr, ptr %515, align 8
-  %.not9.i460 = icmp eq ptr %516, null
-  br i1 %.not9.i460, label %ma_device_get_context.exit.i462, label %517
+515:                                              ; preds = %506
+  %516 = getelementptr inbounds i8, ptr %514, i64 312
+  %517 = load ptr, ptr %516, align 8
+  %.not9.i460 = icmp eq ptr %517, null
+  br i1 %.not9.i460, label %ma_device_get_context.exit.i462, label %518
 
-517:                                              ; preds = %514
-  %518 = getelementptr inbounds i8, ptr %513, i64 288
-  %519 = load ptr, ptr %518, align 8
-  call void %516(ptr noundef nonnull %422, ptr noundef %519) #68
+518:                                              ; preds = %515
+  %519 = getelementptr inbounds i8, ptr %514, i64 288
+  %520 = load ptr, ptr %519, align 8
+  call void %517(ptr noundef nonnull %423, ptr noundef %520) #68
   %.pre589 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i462
 
-ma_device_get_context.exit.i462:                  ; preds = %517, %514
-  %520 = phi ptr [ %.pre589, %517 ], [ %513, %514 ]
-  %521 = getelementptr inbounds i8, ptr %520, i64 440
-  %522 = load ptr, ptr %521, align 8
-  %523 = call i32 %522(ptr noundef %72) #68
-  %524 = load ptr, ptr %0, align 8
-  %525 = icmp eq ptr %524, null
-  br i1 %525, label %ma_device_get_log.exit464, label %526
+ma_device_get_context.exit.i462:                  ; preds = %518, %515
+  %521 = phi ptr [ %.pre589, %518 ], [ %514, %515 ]
+  %522 = getelementptr inbounds i8, ptr %521, i64 440
+  %523 = load ptr, ptr %522, align 8
+  %524 = call i32 %523(ptr noundef %72) #68
+  %525 = load ptr, ptr %0, align 8
+  %526 = icmp eq ptr %525, null
+  br i1 %526, label %ma_device_get_log.exit464, label %527
 
-526:                                              ; preds = %ma_device_get_context.exit.i462
-  %527 = getelementptr inbounds i8, ptr %524, i64 112
-  %528 = load ptr, ptr %527, align 8
+527:                                              ; preds = %ma_device_get_context.exit.i462
+  %528 = getelementptr inbounds i8, ptr %525, i64 112
+  %529 = load ptr, ptr %528, align 8
   br label %ma_device_get_log.exit464
 
-ma_device_get_log.exit464:                        ; preds = %ma_device_get_context.exit.i462, %526
-  %.0.i1.i463 = phi ptr [ %528, %526 ], [ null, %ma_device_get_context.exit.i462 ]
-  %529 = call i32 @ma_log_post(ptr noundef %.0.i1.i463, i32 noundef 1, ptr noundef nonnull @.str.527)
-  %530 = sub nsw i32 0, %511
-  %531 = call fastcc i32 @ma_result_from_errno(i32 noundef %530)
+ma_device_get_log.exit464:                        ; preds = %ma_device_get_context.exit.i462, %527
+  %.0.i1.i463 = phi ptr [ %529, %527 ], [ null, %ma_device_get_context.exit.i462 ]
+  %530 = call i32 @ma_log_post(ptr noundef %.0.i1.i463, i32 noundef 1, ptr noundef nonnull @.str.527)
+  %531 = sub nsw i32 0, %512
+  %532 = call fastcc i32 @ma_result_from_errno(i32 noundef %531)
   br label %ma_log_post.exit
 
-532:                                              ; preds = %505
-  %533 = getelementptr inbounds i8, ptr %513, i64 712
-  %534 = load ptr, ptr %533, align 8
-  %535 = load i64, ptr %7, align 8
-  %536 = call i32 %534(ptr noundef %72, ptr noundef nonnull %422, i64 noundef %535) #68
-  %537 = icmp slt i32 %536, 0
-  br i1 %537, label %538, label %557
+533:                                              ; preds = %506
+  %534 = getelementptr inbounds i8, ptr %514, i64 712
+  %535 = load ptr, ptr %534, align 8
+  %536 = load i64, ptr %7, align 8
+  %537 = call i32 %535(ptr noundef %72, ptr noundef nonnull %423, i64 noundef %536) #68
+  %538 = icmp slt i32 %537, 0
+  br i1 %538, label %539, label %558
 
-538:                                              ; preds = %532
-  %539 = load ptr, ptr %0, align 8
-  %540 = getelementptr inbounds i8, ptr %539, i64 312
-  %541 = load ptr, ptr %540, align 8
-  %.not9.i466 = icmp eq ptr %541, null
-  br i1 %.not9.i466, label %ma_device_get_context.exit.i468, label %542
+539:                                              ; preds = %533
+  %540 = load ptr, ptr %0, align 8
+  %541 = getelementptr inbounds i8, ptr %540, i64 312
+  %542 = load ptr, ptr %541, align 8
+  %.not9.i466 = icmp eq ptr %542, null
+  br i1 %.not9.i466, label %ma_device_get_context.exit.i468, label %543
 
-542:                                              ; preds = %538
-  %543 = getelementptr inbounds i8, ptr %539, i64 288
-  %544 = load ptr, ptr %543, align 8
-  call void %541(ptr noundef nonnull %422, ptr noundef %544) #68
+543:                                              ; preds = %539
+  %544 = getelementptr inbounds i8, ptr %540, i64 288
+  %545 = load ptr, ptr %544, align 8
+  call void %542(ptr noundef nonnull %423, ptr noundef %545) #68
   %.pre588 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i468
 
-ma_device_get_context.exit.i468:                  ; preds = %542, %538
-  %545 = phi ptr [ %.pre588, %542 ], [ %539, %538 ]
-  %546 = getelementptr inbounds i8, ptr %545, i64 440
-  %547 = load ptr, ptr %546, align 8
-  %548 = call i32 %547(ptr noundef %72) #68
-  %549 = load ptr, ptr %0, align 8
-  %550 = icmp eq ptr %549, null
-  br i1 %550, label %ma_device_get_log.exit470, label %551
+ma_device_get_context.exit.i468:                  ; preds = %543, %539
+  %546 = phi ptr [ %.pre588, %543 ], [ %540, %539 ]
+  %547 = getelementptr inbounds i8, ptr %546, i64 440
+  %548 = load ptr, ptr %547, align 8
+  %549 = call i32 %548(ptr noundef %72) #68
+  %550 = load ptr, ptr %0, align 8
+  %551 = icmp eq ptr %550, null
+  br i1 %551, label %ma_device_get_log.exit470, label %552
 
-551:                                              ; preds = %ma_device_get_context.exit.i468
-  %552 = getelementptr inbounds i8, ptr %549, i64 112
-  %553 = load ptr, ptr %552, align 8
+552:                                              ; preds = %ma_device_get_context.exit.i468
+  %553 = getelementptr inbounds i8, ptr %550, i64 112
+  %554 = load ptr, ptr %553, align 8
   br label %ma_device_get_log.exit470
 
-ma_device_get_log.exit470:                        ; preds = %ma_device_get_context.exit.i468, %551
-  %.0.i1.i469 = phi ptr [ %553, %551 ], [ null, %ma_device_get_context.exit.i468 ]
-  %554 = call i32 @ma_log_post(ptr noundef %.0.i1.i469, i32 noundef 1, ptr noundef nonnull @.str.528)
-  %555 = sub nsw i32 0, %536
-  %556 = call fastcc i32 @ma_result_from_errno(i32 noundef %555)
+ma_device_get_log.exit470:                        ; preds = %ma_device_get_context.exit.i468, %552
+  %.0.i1.i469 = phi ptr [ %554, %552 ], [ null, %ma_device_get_context.exit.i468 ]
+  %555 = call i32 @ma_log_post(ptr noundef %.0.i1.i469, i32 noundef 1, ptr noundef nonnull @.str.528)
+  %556 = sub nsw i32 0, %537
+  %557 = call fastcc i32 @ma_result_from_errno(i32 noundef %556)
   br label %ma_log_post.exit
 
-557:                                              ; preds = %532, %504
-  %558 = load ptr, ptr %0, align 8
-  %559 = getelementptr inbounds i8, ptr %558, i64 720
-  %560 = load ptr, ptr %559, align 8
-  %561 = call i32 %560(ptr noundef %72, ptr noundef nonnull %422) #68
-  %562 = icmp slt i32 %561, 0
-  %563 = load ptr, ptr %0, align 8
-  %564 = getelementptr inbounds i8, ptr %563, i64 312
-  %565 = load ptr, ptr %564, align 8
-  %.not9.i472 = icmp eq ptr %565, null
-  br i1 %562, label %566, label %582
+558:                                              ; preds = %533, %505
+  %559 = load ptr, ptr %0, align 8
+  %560 = getelementptr inbounds i8, ptr %559, i64 720
+  %561 = load ptr, ptr %560, align 8
+  %562 = call i32 %561(ptr noundef %72, ptr noundef nonnull %423) #68
+  %563 = icmp slt i32 %562, 0
+  %564 = load ptr, ptr %0, align 8
+  %565 = getelementptr inbounds i8, ptr %564, i64 312
+  %566 = load ptr, ptr %565, align 8
+  %.not9.i472 = icmp eq ptr %566, null
+  br i1 %563, label %567, label %583
 
-566:                                              ; preds = %557
-  br i1 %.not9.i472, label %ma_device_get_context.exit.i474, label %567
+567:                                              ; preds = %558
+  br i1 %.not9.i472, label %ma_device_get_context.exit.i474, label %568
 
-567:                                              ; preds = %566
-  %568 = getelementptr inbounds i8, ptr %563, i64 288
-  %569 = load ptr, ptr %568, align 8
-  call void %565(ptr noundef nonnull %422, ptr noundef %569) #68
+568:                                              ; preds = %567
+  %569 = getelementptr inbounds i8, ptr %564, i64 288
+  %570 = load ptr, ptr %569, align 8
+  call void %566(ptr noundef nonnull %423, ptr noundef %570) #68
   %.pre587 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i474
 
-ma_device_get_context.exit.i474:                  ; preds = %567, %566
-  %570 = phi ptr [ %.pre587, %567 ], [ %563, %566 ]
-  %571 = getelementptr inbounds i8, ptr %570, i64 440
-  %572 = load ptr, ptr %571, align 8
-  %573 = call i32 %572(ptr noundef %72) #68
-  %574 = load ptr, ptr %0, align 8
-  %575 = icmp eq ptr %574, null
-  br i1 %575, label %ma_device_get_log.exit476, label %576
+ma_device_get_context.exit.i474:                  ; preds = %568, %567
+  %571 = phi ptr [ %.pre587, %568 ], [ %564, %567 ]
+  %572 = getelementptr inbounds i8, ptr %571, i64 440
+  %573 = load ptr, ptr %572, align 8
+  %574 = call i32 %573(ptr noundef %72) #68
+  %575 = load ptr, ptr %0, align 8
+  %576 = icmp eq ptr %575, null
+  br i1 %576, label %ma_device_get_log.exit476, label %577
 
-576:                                              ; preds = %ma_device_get_context.exit.i474
-  %577 = getelementptr inbounds i8, ptr %574, i64 112
-  %578 = load ptr, ptr %577, align 8
+577:                                              ; preds = %ma_device_get_context.exit.i474
+  %578 = getelementptr inbounds i8, ptr %575, i64 112
+  %579 = load ptr, ptr %578, align 8
   br label %ma_device_get_log.exit476
 
-ma_device_get_log.exit476:                        ; preds = %ma_device_get_context.exit.i474, %576
-  %.0.i1.i475 = phi ptr [ %578, %576 ], [ null, %ma_device_get_context.exit.i474 ]
-  %579 = call i32 @ma_log_post(ptr noundef %.0.i1.i475, i32 noundef 1, ptr noundef nonnull @.str.529)
-  %580 = sub nsw i32 0, %561
-  %581 = call fastcc i32 @ma_result_from_errno(i32 noundef %580)
+ma_device_get_log.exit476:                        ; preds = %ma_device_get_context.exit.i474, %577
+  %.0.i1.i475 = phi ptr [ %579, %577 ], [ null, %ma_device_get_context.exit.i474 ]
+  %580 = call i32 @ma_log_post(ptr noundef %.0.i1.i475, i32 noundef 1, ptr noundef nonnull @.str.529)
+  %581 = sub nsw i32 0, %562
+  %582 = call fastcc i32 @ma_result_from_errno(i32 noundef %581)
   br label %ma_log_post.exit
 
-582:                                              ; preds = %557
-  br i1 %.not9.i472, label %ma_free.exit479, label %583
+583:                                              ; preds = %558
+  br i1 %.not9.i472, label %ma_free.exit479, label %584
 
-583:                                              ; preds = %582
-  %584 = getelementptr inbounds i8, ptr %563, i64 288
-  %585 = load ptr, ptr %584, align 8
-  call void %565(ptr noundef nonnull %422, ptr noundef %585) #68
+584:                                              ; preds = %583
+  %585 = getelementptr inbounds i8, ptr %564, i64 288
+  %586 = load ptr, ptr %585, align 8
+  call void %566(ptr noundef nonnull %423, ptr noundef %586) #68
   %.pre582 = load ptr, ptr %0, align 8
   br label %ma_free.exit479
 
-ma_free.exit479:                                  ; preds = %582, %583
-  %586 = phi ptr [ %563, %582 ], [ %.pre582, %583 ]
-  %587 = getelementptr inbounds i8, ptr %586, i64 744
-  %588 = load ptr, ptr %587, align 8
-  %.not332 = icmp eq ptr %588, null
-  br i1 %.not332, label %.thread539, label %589
+ma_free.exit479:                                  ; preds = %583, %584
+  %587 = phi ptr [ %564, %583 ], [ %.pre582, %584 ]
+  %588 = getelementptr inbounds i8, ptr %587, i64 744
+  %589 = load ptr, ptr %588, align 8
+  %.not332 = icmp eq ptr %589, null
+  br i1 %.not332, label %.thread539, label %590
 
-589:                                              ; preds = %ma_free.exit479
-  %590 = call ptr %588(ptr noundef %72) #68
-  %.not333 = icmp eq ptr %590, null
-  br i1 %.not333, label %.thread539, label %591
+590:                                              ; preds = %ma_free.exit479
+  %591 = call ptr %589(ptr noundef %72) #68
+  %.not333 = icmp eq ptr %591, null
+  br i1 %.not333, label %.thread539, label %592
 
-591:                                              ; preds = %589
-  %592 = load i32, ptr %590, align 4
-  %.not334 = icmp ult i32 %592, %288
+592:                                              ; preds = %590
+  %593 = load i32, ptr %591, align 4
+  %.not334 = icmp ult i32 %593, %289
   br i1 %.not334, label %.preheader.i.preheader, label %.preheader544
 
-.preheader.i.preheader:                           ; preds = %591
-  %593 = add i32 %288, -1
-  %594 = call i32 @llvm.umin.i32(i32 %593, i32 253)
-  %umin = zext nneg i32 %594 to i64
+.preheader.i.preheader:                           ; preds = %592
+  %594 = add i32 %289, -1
+  %595 = call i32 @llvm.umin.i32(i32 %594, i32 253)
+  %umin = zext nneg i32 %595 to i64
   %scevgep = getelementptr i8, ptr %6, i64 %umin
   br label %.preheader.i
 
-.preheader544:                                    ; preds = %591
-  %.not556 = icmp eq i32 %288, 0
+.preheader544:                                    ; preds = %592
+  %.not556 = icmp eq i32 %289, 0
   br i1 %.not556, label %ma_channel_map_init_standard.exit487, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader544
-  %595 = getelementptr inbounds i8, ptr %590, i64 4
-  %wide.trip.count = zext i32 %288 to i64
-  br label %596
+  %596 = getelementptr inbounds i8, ptr %591, i64 4
+  %wide.trip.count = zext i32 %289 to i64
+  br label %597
 
-596:                                              ; preds = %.lr.ph, %596
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %596 ]
-  %597 = getelementptr inbounds [1 x i32], ptr %595, i64 0, i64 %indvars.iv
-  %598 = load i32, ptr %597, align 4
-  %599 = call fastcc zeroext i8 @ma_convert_alsa_channel_position_to_ma_channel(i32 noundef %598)
-  %600 = getelementptr inbounds [254 x i8], ptr %6, i64 0, i64 %indvars.iv
-  store i8 %599, ptr %600, align 1
+597:                                              ; preds = %.lr.ph, %597
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %597 ]
+  %598 = getelementptr inbounds [1 x i32], ptr %596, i64 0, i64 %indvars.iv
+  %599 = load i32, ptr %598, align 4
+  %600 = call fastcc zeroext i8 @ma_convert_alsa_channel_position_to_ma_channel(i32 noundef %599)
+  %601 = getelementptr inbounds [254 x i8], ptr %6, i64 0, i64 %indvars.iv
+  store i8 %600, ptr %601, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond562.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond562.not, label %ma_channel_map_init_standard.exit487, label %596
+  br i1 %exitcond562.not, label %ma_channel_map_init_standard.exit487, label %597
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %.024.i = phi i32 [ %603, %.preheader.i ], [ 0, %.preheader.i.preheader ]
-  %.01723.i = phi ptr [ %602, %.preheader.i ], [ %6, %.preheader.i.preheader ]
-  %601 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 1, i32 noundef %288, i32 noundef %.024.i)
-  store i8 %601, ptr %.01723.i, align 1
-  %602 = getelementptr inbounds i8, ptr %.01723.i, i64 1
-  %603 = add nuw nsw i32 %.024.i, 1
+  %.024.i = phi i32 [ %604, %.preheader.i ], [ 0, %.preheader.i.preheader ]
+  %.01723.i = phi ptr [ %603, %.preheader.i ], [ %6, %.preheader.i.preheader ]
+  %602 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 1, i32 noundef %289, i32 noundef %.024.i)
+  store i8 %602, ptr %.01723.i, align 1
+  %603 = getelementptr inbounds i8, ptr %.01723.i, i64 1
+  %604 = add nuw nsw i32 %.024.i, 1
   %exitcond563 = icmp eq ptr %.01723.i, %scevgep
   br i1 %exitcond563, label %ma_channel_map_init_standard.exit.preheader, label %.preheader.i
 
 ma_channel_map_init_standard.exit.preheader:      ; preds = %.preheader.i
-  %.not557 = icmp eq i32 %592, 0
+  %.not557 = icmp eq i32 %593, 0
   br i1 %.not557, label %.preheader, label %.lr.ph550
 
 .lr.ph550:                                        ; preds = %ma_channel_map_init_standard.exit.preheader
-  %604 = getelementptr inbounds i8, ptr %590, i64 4
-  %wide.trip.count567 = zext i32 %592 to i64
+  %605 = getelementptr inbounds i8, ptr %591, i64 4
+  %wide.trip.count567 = zext i32 %593 to i64
   br label %ma_channel_map_init_standard.exit
 
 .preheader:                                       ; preds = %ma_channel_map_init_standard.exit, %ma_channel_map_init_standard.exit.preheader
-  %605 = zext i32 %288 to i64
-  br label %610
+  %606 = zext i32 %289 to i64
+  br label %611
 
 ma_channel_map_init_standard.exit:                ; preds = %.lr.ph550, %ma_channel_map_init_standard.exit
   %indvars.iv564 = phi i64 [ 0, %.lr.ph550 ], [ %indvars.iv.next565, %ma_channel_map_init_standard.exit ]
-  %606 = getelementptr inbounds [1 x i32], ptr %604, i64 0, i64 %indvars.iv564
-  %607 = load i32, ptr %606, align 4
-  %608 = call fastcc zeroext i8 @ma_convert_alsa_channel_position_to_ma_channel(i32 noundef %607)
-  %609 = getelementptr inbounds [254 x i8], ptr %6, i64 0, i64 %indvars.iv564
-  store i8 %608, ptr %609, align 1
+  %607 = getelementptr inbounds [1 x i32], ptr %605, i64 0, i64 %indvars.iv564
+  %608 = load i32, ptr %607, align 4
+  %609 = call fastcc zeroext i8 @ma_convert_alsa_channel_position_to_ma_channel(i32 noundef %608)
+  %610 = getelementptr inbounds [254 x i8], ptr %6, i64 0, i64 %indvars.iv564
+  store i8 %609, ptr %610, align 1
   %indvars.iv.next565 = add nuw nsw i64 %indvars.iv564, 1
   %exitcond568.not = icmp eq i64 %indvars.iv.next565, %wide.trip.count567
   br i1 %exitcond568.not, label %.preheader, label %ma_channel_map_init_standard.exit
 
-610:                                              ; preds = %.preheader, %._crit_edge
+611:                                              ; preds = %.preheader, %._crit_edge
   %indvars.iv575 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next576, %._crit_edge ]
   %indvars.iv569 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next570, %._crit_edge ]
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, 1
-  %611 = icmp ult i64 %indvars.iv.next576, %605
-  br i1 %611, label %.lr.ph552, label %ma_channel_map_init_standard.exit487
+  %612 = icmp ult i64 %indvars.iv.next576, %606
+  br i1 %612, label %.lr.ph552, label %ma_channel_map_init_standard.exit487
 
-.lr.ph552:                                        ; preds = %610
-  %612 = getelementptr inbounds [254 x i8], ptr %6, i64 0, i64 %indvars.iv575
-  %613 = load i8, ptr %612, align 1
-  br label %615
+.lr.ph552:                                        ; preds = %611
+  %613 = getelementptr inbounds [254 x i8], ptr %6, i64 0, i64 %indvars.iv575
+  %614 = load i8, ptr %613, align 1
+  br label %616
 
-614:                                              ; preds = %615
+615:                                              ; preds = %616
   %indvars.iv.next572 = add nuw nsw i64 %indvars.iv571, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next572 to i32
-  %exitcond574.not = icmp eq i32 %288, %lftr.wideiv
-  br i1 %exitcond574.not, label %._crit_edge, label %615
+  %exitcond574.not = icmp eq i32 %289, %lftr.wideiv
+  br i1 %exitcond574.not, label %._crit_edge, label %616
 
-615:                                              ; preds = %.lr.ph552, %614
-  %indvars.iv571 = phi i64 [ %indvars.iv569, %.lr.ph552 ], [ %indvars.iv.next572, %614 ]
-  %616 = getelementptr inbounds [254 x i8], ptr %6, i64 0, i64 %indvars.iv571
-  %617 = load i8, ptr %616, align 1
-  %.not610 = icmp eq i8 %613, %617
-  br i1 %.not610, label %.preheader.i482, label %614
+616:                                              ; preds = %.lr.ph552, %615
+  %indvars.iv571 = phi i64 [ %indvars.iv569, %.lr.ph552 ], [ %indvars.iv.next572, %615 ]
+  %617 = getelementptr inbounds [254 x i8], ptr %6, i64 0, i64 %indvars.iv571
+  %618 = load i8, ptr %617, align 1
+  %.not610 = icmp eq i8 %614, %618
+  br i1 %.not610, label %.preheader.i482, label %615
 
-._crit_edge:                                      ; preds = %614
+._crit_edge:                                      ; preds = %615
   %indvars.iv.next570 = add nuw nsw i64 %indvars.iv569, 1
-  br i1 %611, label %610, label %ma_channel_map_init_standard.exit487
+  br i1 %612, label %611, label %ma_channel_map_init_standard.exit487
 
-.preheader.i482:                                  ; preds = %615, %.preheader.i482
-  %.024.i483 = phi i32 [ %621, %.preheader.i482 ], [ 0, %615 ]
-  %.01723.i484 = phi ptr [ %619, %.preheader.i482 ], [ %6, %615 ]
-  %.01822.i485 = phi i64 [ %620, %.preheader.i482 ], [ 254, %615 ]
-  %618 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 1, i32 noundef %288, i32 noundef %.024.i483)
-  store i8 %618, ptr %.01723.i484, align 1
-  %619 = getelementptr inbounds i8, ptr %.01723.i484, i64 1
-  %620 = add nsw i64 %.01822.i485, -1
-  %621 = add nuw nsw i32 %.024.i483, 1
-  %622 = icmp uge i32 %621, %288
-  %623 = icmp eq i64 %620, 0
-  %or.cond5.i486 = select i1 %622, i1 true, i1 %623
+.preheader.i482:                                  ; preds = %616, %.preheader.i482
+  %.024.i483 = phi i32 [ %622, %.preheader.i482 ], [ 0, %616 ]
+  %.01723.i484 = phi ptr [ %620, %.preheader.i482 ], [ %6, %616 ]
+  %.01822.i485 = phi i64 [ %621, %.preheader.i482 ], [ 254, %616 ]
+  %619 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 1, i32 noundef %289, i32 noundef %.024.i483)
+  store i8 %619, ptr %.01723.i484, align 1
+  %620 = getelementptr inbounds i8, ptr %.01723.i484, i64 1
+  %621 = add nsw i64 %.01822.i485, -1
+  %622 = add nuw nsw i32 %.024.i483, 1
+  %623 = icmp uge i32 %622, %289
+  %624 = icmp eq i64 %621, 0
+  %or.cond5.i486 = select i1 %623, i1 true, i1 %624
   br i1 %or.cond5.i486, label %ma_channel_map_init_standard.exit487, label %.preheader.i482
 
-ma_channel_map_init_standard.exit487:             ; preds = %596, %._crit_edge, %610, %.preheader.i482, %.preheader544
-  call void @free(ptr noundef %590) #68
+ma_channel_map_init_standard.exit487:             ; preds = %597, %._crit_edge, %611, %.preheader.i482, %.preheader544
+  call void @free(ptr noundef %591) #68
   br label %ma_channel_map_init_standard.exit494
 
-.thread539:                                       ; preds = %ma_free.exit479, %589
-  %624 = icmp eq i32 %288, 0
-  br i1 %624, label %ma_channel_map_init_standard.exit494, label %.preheader.i489.preheader
+.thread539:                                       ; preds = %ma_free.exit479, %590
+  %625 = icmp eq i32 %289, 0
+  br i1 %625, label %ma_channel_map_init_standard.exit494, label %.preheader.i489.preheader
 
 .preheader.i489.preheader:                        ; preds = %.thread539
-  %625 = add i32 %288, -1
-  %626 = call i32 @llvm.umin.i32(i32 %625, i32 253)
-  %umin578 = zext nneg i32 %626 to i64
+  %626 = add i32 %289, -1
+  %627 = call i32 @llvm.umin.i32(i32 %626, i32 253)
+  %umin578 = zext nneg i32 %627 to i64
   %scevgep579 = getelementptr i8, ptr %6, i64 %umin578
   br label %.preheader.i489
 
 .preheader.i489:                                  ; preds = %.preheader.i489.preheader, %.preheader.i489
-  %.024.i490 = phi i32 [ %629, %.preheader.i489 ], [ 0, %.preheader.i489.preheader ]
-  %.01723.i491 = phi ptr [ %628, %.preheader.i489 ], [ %6, %.preheader.i489.preheader ]
-  %627 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 1, i32 noundef %288, i32 noundef %.024.i490)
-  store i8 %627, ptr %.01723.i491, align 1
-  %628 = getelementptr inbounds i8, ptr %.01723.i491, i64 1
-  %629 = add nuw nsw i32 %.024.i490, 1
+  %.024.i490 = phi i32 [ %630, %.preheader.i489 ], [ 0, %.preheader.i489.preheader ]
+  %.01723.i491 = phi ptr [ %629, %.preheader.i489 ], [ %6, %.preheader.i489.preheader ]
+  %628 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 1, i32 noundef %289, i32 noundef %.024.i490)
+  store i8 %628, ptr %.01723.i491, align 1
+  %629 = getelementptr inbounds i8, ptr %.01723.i491, i64 1
+  %630 = add nuw nsw i32 %.024.i490, 1
   %exitcond580 = icmp eq ptr %.01723.i491, %scevgep579
   br i1 %exitcond580, label %ma_channel_map_init_standard.exit494, label %.preheader.i489
 
 ma_channel_map_init_standard.exit494:             ; preds = %.preheader.i489, %.thread539, %ma_channel_map_init_standard.exit487
-  %630 = load ptr, ptr %0, align 8
-  %631 = getelementptr inbounds i8, ptr %630, i64 936
-  %632 = load ptr, ptr %631, align 8
-  %633 = call i32 %632(ptr noundef %72) #68
-  %634 = icmp slt i32 %633, 1
-  %635 = load ptr, ptr %0, align 8
-  br i1 %634, label %ma_device_get_context.exit.i495, label %645
+  %631 = load ptr, ptr %0, align 8
+  %632 = getelementptr inbounds i8, ptr %631, i64 936
+  %633 = load ptr, ptr %632, align 8
+  %634 = call i32 %633(ptr noundef %72) #68
+  %635 = icmp slt i32 %634, 1
+  %636 = load ptr, ptr %0, align 8
+  br i1 %635, label %ma_device_get_context.exit.i495, label %646
 
 ma_device_get_context.exit.i495:                  ; preds = %ma_channel_map_init_standard.exit494
-  %636 = getelementptr inbounds i8, ptr %635, i64 440
-  %637 = load ptr, ptr %636, align 8
-  %638 = call i32 %637(ptr noundef %72) #68
-  %639 = load ptr, ptr %0, align 8
-  %640 = icmp eq ptr %639, null
-  br i1 %640, label %ma_device_get_log.exit497, label %641
+  %637 = getelementptr inbounds i8, ptr %636, i64 440
+  %638 = load ptr, ptr %637, align 8
+  %639 = call i32 %638(ptr noundef %72) #68
+  %640 = load ptr, ptr %0, align 8
+  %641 = icmp eq ptr %640, null
+  br i1 %641, label %ma_device_get_log.exit497, label %642
 
-641:                                              ; preds = %ma_device_get_context.exit.i495
-  %642 = getelementptr inbounds i8, ptr %639, i64 112
-  %643 = load ptr, ptr %642, align 8
+642:                                              ; preds = %ma_device_get_context.exit.i495
+  %643 = getelementptr inbounds i8, ptr %640, i64 112
+  %644 = load ptr, ptr %643, align 8
   br label %ma_device_get_log.exit497
 
-ma_device_get_log.exit497:                        ; preds = %ma_device_get_context.exit.i495, %641
-  %.0.i1.i496 = phi ptr [ %643, %641 ], [ null, %ma_device_get_context.exit.i495 ]
-  %644 = call i32 @ma_log_post(ptr noundef %.0.i1.i496, i32 noundef 1, ptr noundef nonnull @.str.530)
+ma_device_get_log.exit497:                        ; preds = %ma_device_get_context.exit.i495, %642
+  %.0.i1.i496 = phi ptr [ %644, %642 ], [ null, %ma_device_get_context.exit.i495 ]
+  %645 = call i32 @ma_log_post(ptr noundef %.0.i1.i496, i32 noundef 1, ptr noundef nonnull @.str.530)
   br label %ma_log_post.exit
 
-645:                                              ; preds = %ma_channel_map_init_standard.exit494
-  %646 = getelementptr inbounds i8, ptr %635, i64 296
-  %647 = load ptr, ptr %646, align 8
-  %.not8.i = icmp eq ptr %647, null
+646:                                              ; preds = %ma_channel_map_init_standard.exit494
+  %647 = getelementptr inbounds i8, ptr %636, i64 296
+  %648 = load ptr, ptr %647, align 8
+  %.not8.i = icmp eq ptr %648, null
   br i1 %.not8.i, label %ma_device_get_context.exit.i500, label %ma_malloc.exit
 
-ma_malloc.exit:                                   ; preds = %645
-  %648 = getelementptr inbounds i8, ptr %635, i64 288
-  %649 = add nuw nsw i32 %633, 1
-  %650 = zext nneg i32 %649 to i64
-  %651 = shl nuw nsw i64 %650, 3
-  %652 = load ptr, ptr %648, align 8
-  %653 = call ptr %647(i64 noundef %651, ptr noundef %652) #68
-  %654 = icmp eq ptr %653, null
-  br i1 %654, label %ma_malloc.exit.ma_device_get_context.exit.i500_crit_edge, label %665
+ma_malloc.exit:                                   ; preds = %646
+  %649 = getelementptr inbounds i8, ptr %636, i64 288
+  %650 = add nuw nsw i32 %634, 1
+  %651 = zext nneg i32 %650 to i64
+  %652 = shl nuw nsw i64 %651, 3
+  %653 = load ptr, ptr %649, align 8
+  %654 = call ptr %648(i64 noundef %652, ptr noundef %653) #68
+  %655 = icmp eq ptr %654, null
+  br i1 %655, label %ma_malloc.exit.ma_device_get_context.exit.i500_crit_edge, label %666
 
 ma_malloc.exit.ma_device_get_context.exit.i500_crit_edge: ; preds = %ma_malloc.exit
   %.pre586 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i500
 
-ma_device_get_context.exit.i500:                  ; preds = %ma_malloc.exit.ma_device_get_context.exit.i500_crit_edge, %645
-  %655 = phi ptr [ %.pre586, %ma_malloc.exit.ma_device_get_context.exit.i500_crit_edge ], [ %635, %645 ]
-  %656 = getelementptr inbounds i8, ptr %655, i64 440
-  %657 = load ptr, ptr %656, align 8
-  %658 = call i32 %657(ptr noundef %72) #68
-  %659 = load ptr, ptr %0, align 8
-  %660 = icmp eq ptr %659, null
-  br i1 %660, label %ma_device_get_log.exit502, label %661
+ma_device_get_context.exit.i500:                  ; preds = %ma_malloc.exit.ma_device_get_context.exit.i500_crit_edge, %646
+  %656 = phi ptr [ %.pre586, %ma_malloc.exit.ma_device_get_context.exit.i500_crit_edge ], [ %636, %646 ]
+  %657 = getelementptr inbounds i8, ptr %656, i64 440
+  %658 = load ptr, ptr %657, align 8
+  %659 = call i32 %658(ptr noundef %72) #68
+  %660 = load ptr, ptr %0, align 8
+  %661 = icmp eq ptr %660, null
+  br i1 %661, label %ma_device_get_log.exit502, label %662
 
-661:                                              ; preds = %ma_device_get_context.exit.i500
-  %662 = getelementptr inbounds i8, ptr %659, i64 112
-  %663 = load ptr, ptr %662, align 8
+662:                                              ; preds = %ma_device_get_context.exit.i500
+  %663 = getelementptr inbounds i8, ptr %660, i64 112
+  %664 = load ptr, ptr %663, align 8
   br label %ma_device_get_log.exit502
 
-ma_device_get_log.exit502:                        ; preds = %ma_device_get_context.exit.i500, %661
-  %.0.i1.i501 = phi ptr [ %663, %661 ], [ null, %ma_device_get_context.exit.i500 ]
-  %664 = call i32 @ma_log_post(ptr noundef %.0.i1.i501, i32 noundef 1, ptr noundef nonnull @.str.531)
+ma_device_get_log.exit502:                        ; preds = %ma_device_get_context.exit.i500, %662
+  %.0.i1.i501 = phi ptr [ %664, %662 ], [ null, %ma_device_get_context.exit.i500 ]
+  %665 = call i32 @ma_log_post(ptr noundef %.0.i1.i501, i32 noundef 1, ptr noundef nonnull @.str.531)
   br label %ma_log_post.exit
 
-665:                                              ; preds = %ma_malloc.exit
-  %666 = call i32 @eventfd(i32 noundef 0, i32 noundef 0) #68
-  %667 = icmp slt i32 %666, 0
-  br i1 %667, label %668, label %688
+666:                                              ; preds = %ma_malloc.exit
+  %667 = call i32 @eventfd(i32 noundef 0, i32 noundef 0) #68
+  %668 = icmp slt i32 %667, 0
+  br i1 %668, label %669, label %689
 
-668:                                              ; preds = %665
-  %669 = load ptr, ptr %0, align 8
-  %670 = getelementptr inbounds i8, ptr %669, i64 312
-  %671 = load ptr, ptr %670, align 8
-  %.not9.i504 = icmp eq ptr %671, null
-  br i1 %.not9.i504, label %ma_device_get_context.exit.i506, label %672
+669:                                              ; preds = %666
+  %670 = load ptr, ptr %0, align 8
+  %671 = getelementptr inbounds i8, ptr %670, i64 312
+  %672 = load ptr, ptr %671, align 8
+  %.not9.i504 = icmp eq ptr %672, null
+  br i1 %.not9.i504, label %ma_device_get_context.exit.i506, label %673
 
-672:                                              ; preds = %668
-  %673 = getelementptr inbounds i8, ptr %669, i64 288
-  %674 = load ptr, ptr %673, align 8
-  call void %671(ptr noundef nonnull %653, ptr noundef %674) #68
+673:                                              ; preds = %669
+  %674 = getelementptr inbounds i8, ptr %670, i64 288
+  %675 = load ptr, ptr %674, align 8
+  call void %672(ptr noundef nonnull %654, ptr noundef %675) #68
   %.pre585 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i506
 
-ma_device_get_context.exit.i506:                  ; preds = %672, %668
-  %675 = phi ptr [ %.pre585, %672 ], [ %669, %668 ]
-  %676 = getelementptr inbounds i8, ptr %675, i64 440
-  %677 = load ptr, ptr %676, align 8
-  %678 = call i32 %677(ptr noundef %72) #68
-  %679 = load ptr, ptr %0, align 8
-  %680 = icmp eq ptr %679, null
-  br i1 %680, label %ma_device_get_log.exit508, label %681
+ma_device_get_context.exit.i506:                  ; preds = %673, %669
+  %676 = phi ptr [ %.pre585, %673 ], [ %670, %669 ]
+  %677 = getelementptr inbounds i8, ptr %676, i64 440
+  %678 = load ptr, ptr %677, align 8
+  %679 = call i32 %678(ptr noundef %72) #68
+  %680 = load ptr, ptr %0, align 8
+  %681 = icmp eq ptr %680, null
+  br i1 %681, label %ma_device_get_log.exit508, label %682
 
-681:                                              ; preds = %ma_device_get_context.exit.i506
-  %682 = getelementptr inbounds i8, ptr %679, i64 112
-  %683 = load ptr, ptr %682, align 8
+682:                                              ; preds = %ma_device_get_context.exit.i506
+  %683 = getelementptr inbounds i8, ptr %680, i64 112
+  %684 = load ptr, ptr %683, align 8
   br label %ma_device_get_log.exit508
 
-ma_device_get_log.exit508:                        ; preds = %ma_device_get_context.exit.i506, %681
-  %.0.i1.i507 = phi ptr [ %683, %681 ], [ null, %ma_device_get_context.exit.i506 ]
-  %684 = call i32 @ma_log_post(ptr noundef %.0.i1.i507, i32 noundef 1, ptr noundef nonnull @.str.532)
-  %685 = tail call ptr @__errno_location() #84
-  %686 = load i32, ptr %685, align 4
-  %687 = call fastcc i32 @ma_result_from_errno(i32 noundef %686)
+ma_device_get_log.exit508:                        ; preds = %ma_device_get_context.exit.i506, %682
+  %.0.i1.i507 = phi ptr [ %684, %682 ], [ null, %ma_device_get_context.exit.i506 ]
+  %685 = call i32 @ma_log_post(ptr noundef %.0.i1.i507, i32 noundef 1, ptr noundef nonnull @.str.532)
+  %686 = tail call ptr @__errno_location() #84
+  %687 = load i32, ptr %686, align 4
+  %688 = call fastcc i32 @ma_result_from_errno(i32 noundef %687)
   br label %ma_log_post.exit
 
-688:                                              ; preds = %665
-  store i32 %666, ptr %653, align 4
-  %689 = getelementptr inbounds i8, ptr %653, i64 4
-  store i16 1, ptr %689, align 4
-  %690 = getelementptr inbounds i8, ptr %653, i64 6
-  store i16 0, ptr %690, align 2
-  %691 = load ptr, ptr %0, align 8
-  %692 = getelementptr inbounds i8, ptr %691, i64 928
-  %693 = load ptr, ptr %692, align 8
-  %694 = getelementptr inbounds i8, ptr %653, i64 8
-  %695 = call i32 %693(ptr noundef %72, ptr noundef nonnull %694, i32 noundef %633) #68
-  %696 = icmp slt i32 %695, 1
-  br i1 %696, label %697, label %715
+689:                                              ; preds = %666
+  store i32 %667, ptr %654, align 4
+  %690 = getelementptr inbounds i8, ptr %654, i64 4
+  store i16 1, ptr %690, align 4
+  %691 = getelementptr inbounds i8, ptr %654, i64 6
+  store i16 0, ptr %691, align 2
+  %692 = load ptr, ptr %0, align 8
+  %693 = getelementptr inbounds i8, ptr %692, i64 928
+  %694 = load ptr, ptr %693, align 8
+  %695 = getelementptr inbounds i8, ptr %654, i64 8
+  %696 = call i32 %694(ptr noundef %72, ptr noundef nonnull %695, i32 noundef %634) #68
+  %697 = icmp slt i32 %696, 1
+  br i1 %697, label %698, label %716
 
-697:                                              ; preds = %688
-  %698 = call i32 @close(i32 noundef %666) #68
-  %699 = load ptr, ptr %0, align 8
-  %700 = getelementptr inbounds i8, ptr %699, i64 312
-  %701 = load ptr, ptr %700, align 8
-  %.not9.i510 = icmp eq ptr %701, null
-  br i1 %.not9.i510, label %ma_device_get_context.exit.i512, label %702
+698:                                              ; preds = %689
+  %699 = call i32 @close(i32 noundef %667) #68
+  %700 = load ptr, ptr %0, align 8
+  %701 = getelementptr inbounds i8, ptr %700, i64 312
+  %702 = load ptr, ptr %701, align 8
+  %.not9.i510 = icmp eq ptr %702, null
+  br i1 %.not9.i510, label %ma_device_get_context.exit.i512, label %703
 
-702:                                              ; preds = %697
-  %703 = getelementptr inbounds i8, ptr %699, i64 288
-  %704 = load ptr, ptr %703, align 8
-  call void %701(ptr noundef nonnull %653, ptr noundef %704) #68
+703:                                              ; preds = %698
+  %704 = getelementptr inbounds i8, ptr %700, i64 288
+  %705 = load ptr, ptr %704, align 8
+  call void %702(ptr noundef nonnull %654, ptr noundef %705) #68
   %.pre584 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i512
 
-ma_device_get_context.exit.i512:                  ; preds = %702, %697
-  %705 = phi ptr [ %.pre584, %702 ], [ %699, %697 ]
-  %706 = getelementptr inbounds i8, ptr %705, i64 440
-  %707 = load ptr, ptr %706, align 8
-  %708 = call i32 %707(ptr noundef %72) #68
-  %709 = load ptr, ptr %0, align 8
-  %710 = icmp eq ptr %709, null
-  br i1 %710, label %ma_device_get_log.exit514, label %711
+ma_device_get_context.exit.i512:                  ; preds = %703, %698
+  %706 = phi ptr [ %.pre584, %703 ], [ %700, %698 ]
+  %707 = getelementptr inbounds i8, ptr %706, i64 440
+  %708 = load ptr, ptr %707, align 8
+  %709 = call i32 %708(ptr noundef %72) #68
+  %710 = load ptr, ptr %0, align 8
+  %711 = icmp eq ptr %710, null
+  br i1 %711, label %ma_device_get_log.exit514, label %712
 
-711:                                              ; preds = %ma_device_get_context.exit.i512
-  %712 = getelementptr inbounds i8, ptr %709, i64 112
-  %713 = load ptr, ptr %712, align 8
+712:                                              ; preds = %ma_device_get_context.exit.i512
+  %713 = getelementptr inbounds i8, ptr %710, i64 112
+  %714 = load ptr, ptr %713, align 8
   br label %ma_device_get_log.exit514
 
-ma_device_get_log.exit514:                        ; preds = %ma_device_get_context.exit.i512, %711
-  %.0.i1.i513 = phi ptr [ %713, %711 ], [ null, %ma_device_get_context.exit.i512 ]
-  %714 = call i32 @ma_log_post(ptr noundef %.0.i1.i513, i32 noundef 1, ptr noundef nonnull @.str.533)
+ma_device_get_log.exit514:                        ; preds = %ma_device_get_context.exit.i512, %712
+  %.0.i1.i513 = phi ptr [ %714, %712 ], [ null, %ma_device_get_context.exit.i512 ]
+  %715 = call i32 @ma_log_post(ptr noundef %.0.i1.i513, i32 noundef 1, ptr noundef nonnull @.str.533)
   br label %ma_log_post.exit
 
-715:                                              ; preds = %688
-  %716 = icmp eq i32 %3, 2
-  br i1 %716, label %717, label %721
+716:                                              ; preds = %689
+  %717 = icmp eq i32 %3, 2
+  br i1 %717, label %718, label %722
 
-717:                                              ; preds = %715
-  %718 = getelementptr inbounds i8, ptr %0, i64 3460
-  store i32 %695, ptr %718, align 4
-  %719 = getelementptr inbounds i8, ptr %0, i64 3448
-  store ptr %653, ptr %719, align 8
-  %720 = getelementptr inbounds i8, ptr %0, i64 3468
-  store i32 %666, ptr %720, align 4
-  br label %725
+718:                                              ; preds = %716
+  %719 = getelementptr inbounds i8, ptr %0, i64 3460
+  store i32 %696, ptr %719, align 4
+  %720 = getelementptr inbounds i8, ptr %0, i64 3448
+  store ptr %654, ptr %720, align 8
+  %721 = getelementptr inbounds i8, ptr %0, i64 3468
+  store i32 %667, ptr %721, align 4
+  br label %726
 
-721:                                              ; preds = %715
-  %722 = getelementptr inbounds i8, ptr %0, i64 3456
-  store i32 %695, ptr %722, align 8
-  %723 = getelementptr inbounds i8, ptr %0, i64 3440
-  store ptr %653, ptr %723, align 8
-  %724 = getelementptr inbounds i8, ptr %0, i64 3464
-  store i32 %666, ptr %724, align 8
-  br label %725
+722:                                              ; preds = %716
+  %723 = getelementptr inbounds i8, ptr %0, i64 3456
+  store i32 %696, ptr %723, align 8
+  %724 = getelementptr inbounds i8, ptr %0, i64 3440
+  store ptr %654, ptr %724, align 8
+  %725 = getelementptr inbounds i8, ptr %0, i64 3464
+  store i32 %667, ptr %725, align 8
+  br label %726
 
-725:                                              ; preds = %721, %717
-  %726 = load ptr, ptr %0, align 8
-  %727 = getelementptr inbounds i8, ptr %726, i64 760
-  %728 = load ptr, ptr %727, align 8
-  %729 = call i32 %728(ptr noundef %72) #68
-  %730 = icmp slt i32 %729, 0
-  br i1 %730, label %731, label %751
+726:                                              ; preds = %722, %718
+  %727 = load ptr, ptr %0, align 8
+  %728 = getelementptr inbounds i8, ptr %727, i64 760
+  %729 = load ptr, ptr %728, align 8
+  %730 = call i32 %729(ptr noundef %72) #68
+  %731 = icmp slt i32 %730, 0
+  br i1 %731, label %732, label %752
 
-731:                                              ; preds = %725
-  %732 = call i32 @close(i32 noundef %666) #68
-  %733 = load ptr, ptr %0, align 8
-  %734 = getelementptr inbounds i8, ptr %733, i64 312
-  %735 = load ptr, ptr %734, align 8
-  %.not9.i516 = icmp eq ptr %735, null
-  br i1 %.not9.i516, label %ma_device_get_context.exit.i518, label %736
+732:                                              ; preds = %726
+  %733 = call i32 @close(i32 noundef %667) #68
+  %734 = load ptr, ptr %0, align 8
+  %735 = getelementptr inbounds i8, ptr %734, i64 312
+  %736 = load ptr, ptr %735, align 8
+  %.not9.i516 = icmp eq ptr %736, null
+  br i1 %.not9.i516, label %ma_device_get_context.exit.i518, label %737
 
-736:                                              ; preds = %731
-  %737 = getelementptr inbounds i8, ptr %733, i64 288
-  %738 = load ptr, ptr %737, align 8
-  call void %735(ptr noundef nonnull %653, ptr noundef %738) #68
+737:                                              ; preds = %732
+  %738 = getelementptr inbounds i8, ptr %734, i64 288
+  %739 = load ptr, ptr %738, align 8
+  call void %736(ptr noundef nonnull %654, ptr noundef %739) #68
   %.pre583 = load ptr, ptr %0, align 8
   br label %ma_device_get_context.exit.i518
 
-ma_device_get_context.exit.i518:                  ; preds = %736, %731
-  %739 = phi ptr [ %.pre583, %736 ], [ %733, %731 ]
-  %740 = getelementptr inbounds i8, ptr %739, i64 440
-  %741 = load ptr, ptr %740, align 8
-  %742 = call i32 %741(ptr noundef %72) #68
-  %743 = load ptr, ptr %0, align 8
-  %744 = icmp eq ptr %743, null
-  br i1 %744, label %ma_device_get_log.exit520, label %745
+ma_device_get_context.exit.i518:                  ; preds = %737, %732
+  %740 = phi ptr [ %.pre583, %737 ], [ %734, %732 ]
+  %741 = getelementptr inbounds i8, ptr %740, i64 440
+  %742 = load ptr, ptr %741, align 8
+  %743 = call i32 %742(ptr noundef %72) #68
+  %744 = load ptr, ptr %0, align 8
+  %745 = icmp eq ptr %744, null
+  br i1 %745, label %ma_device_get_log.exit520, label %746
 
-745:                                              ; preds = %ma_device_get_context.exit.i518
-  %746 = getelementptr inbounds i8, ptr %743, i64 112
-  %747 = load ptr, ptr %746, align 8
+746:                                              ; preds = %ma_device_get_context.exit.i518
+  %747 = getelementptr inbounds i8, ptr %744, i64 112
+  %748 = load ptr, ptr %747, align 8
   br label %ma_device_get_log.exit520
 
-ma_device_get_log.exit520:                        ; preds = %ma_device_get_context.exit.i518, %745
-  %.0.i1.i519 = phi ptr [ %747, %745 ], [ null, %ma_device_get_context.exit.i518 ]
-  %748 = call i32 @ma_log_post(ptr noundef %.0.i1.i519, i32 noundef 1, ptr noundef nonnull @.str.534)
-  %749 = sub nsw i32 0, %729
-  %750 = call fastcc i32 @ma_result_from_errno(i32 noundef %749)
+ma_device_get_log.exit520:                        ; preds = %ma_device_get_context.exit.i518, %746
+  %.0.i1.i519 = phi ptr [ %748, %746 ], [ null, %ma_device_get_context.exit.i518 ]
+  %749 = call i32 @ma_log_post(ptr noundef %.0.i1.i519, i32 noundef 1, ptr noundef nonnull @.str.534)
+  %750 = sub nsw i32 0, %730
+  %751 = call fastcc i32 @ma_result_from_errno(i32 noundef %750)
   br label %ma_log_post.exit
 
-751:                                              ; preds = %725
-  br i1 %716, label %752, label %755
+752:                                              ; preds = %726
+  br i1 %717, label %753, label %756
 
-752:                                              ; preds = %751
-  %753 = getelementptr inbounds i8, ptr %0, i64 3432
-  store ptr %72, ptr %753, align 8
-  %754 = getelementptr inbounds i8, ptr %0, i64 3473
-  store i8 0, ptr %754, align 1
-  br label %758
+753:                                              ; preds = %752
+  %754 = getelementptr inbounds i8, ptr %0, i64 3432
+  store ptr %72, ptr %754, align 8
+  %755 = getelementptr inbounds i8, ptr %0, i64 3473
+  store i8 0, ptr %755, align 1
+  br label %759
 
-755:                                              ; preds = %751
-  %756 = getelementptr inbounds i8, ptr %0, i64 3424
-  store ptr %72, ptr %756, align 8
-  %757 = getelementptr inbounds i8, ptr %0, i64 3472
-  store i8 0, ptr %757, align 8
-  br label %758
+756:                                              ; preds = %752
+  %757 = getelementptr inbounds i8, ptr %0, i64 3424
+  store ptr %72, ptr %757, align 8
+  %758 = getelementptr inbounds i8, ptr %0, i64 3472
+  store i8 0, ptr %758, align 8
+  br label %759
 
-758:                                              ; preds = %755, %752
+759:                                              ; preds = %756, %753
   store i32 %.0.i.ph, ptr %12, align 4
-  store i32 %288, ptr %260, align 8
-  store i32 %321, ptr %293, align 4
-  %.not543 = icmp eq i32 %288, 0
-  br i1 %.not543, label %ma_channel_map_copy.exit, label %759
+  store i32 %289, ptr %261, align 8
+  store i32 %322, ptr %294, align 4
+  %.not543 = icmp eq i32 %289, 0
+  br i1 %.not543, label %ma_channel_map_copy.exit, label %760
 
-759:                                              ; preds = %758
-  %760 = call i32 @llvm.umin.i32(i32 %288, i32 254)
-  %761 = getelementptr inbounds i8, ptr %2, i64 24
-  %762 = zext nneg i32 %760 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %761, ptr nonnull readonly align 16 %6, i64 %762, i1 false)
+760:                                              ; preds = %759
+  %761 = call i32 @llvm.umin.i32(i32 %289, i32 254)
+  %762 = getelementptr inbounds i8, ptr %2, i64 24
+  %763 = zext nneg i32 %761 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %762, ptr nonnull readonly align 16 %6, i64 %763, i1 false)
   br label %ma_channel_map_copy.exit
 
-ma_channel_map_copy.exit:                         ; preds = %758, %759
-  %763 = getelementptr inbounds i8, ptr %2, i64 280
-  store i32 %383, ptr %763, align 8
-  store i32 %349, ptr %322, align 8
+ma_channel_map_copy.exit:                         ; preds = %759, %760
+  %764 = getelementptr inbounds i8, ptr %2, i64 280
+  store i32 %384, ptr %764, align 8
+  store i32 %350, ptr %323, align 8
   br label %ma_log_post.exit
 
 ma_log_post.exit:                                 ; preds = %ma_device_get_context.exit.i370, %ma_device_get_context.exit.i, %._crit_edge.i380, %ma_device_get_log.exit372, %._crit_edge.i, %ma_device_get_log.exit, %4, %ma_channel_map_copy.exit, %ma_device_get_log.exit520, %ma_device_get_log.exit514, %ma_device_get_log.exit508, %ma_device_get_log.exit502, %ma_device_get_log.exit497, %ma_device_get_log.exit476, %ma_device_get_log.exit470, %ma_device_get_log.exit464, %ma_device_get_log.exit458, %ma_device_get_log.exit452, %ma_device_get_log.exit446, %ma_device_get_log.exit434, %ma_device_get_log.exit428, %ma_device_get_log.exit422, %ma_device_get_log.exit416, %ma_device_get_log.exit410, %ma_device_get_log.exit404, %ma_log_post.exit398, %ma_log_post.exit366, %ma_log_post.exit350
-  %.0296 = phi i32 [ %108, %ma_log_post.exit350 ], [ %237, %ma_log_post.exit398 ], [ -200, %ma_device_get_log.exit404 ], [ %286, %ma_device_get_log.exit410 ], [ %319, %ma_device_get_log.exit416 ], [ %347, %ma_device_get_log.exit422 ], [ %378, %ma_device_get_log.exit428 ], [ %407, %ma_device_get_log.exit434 ], [ -4, %ma_device_get_log.exit446 ], [ %457, %ma_device_get_log.exit452 ], [ %495, %ma_device_get_log.exit458 ], [ %581, %ma_device_get_log.exit476 ], [ -1, %ma_device_get_log.exit497 ], [ -4, %ma_device_get_log.exit502 ], [ %687, %ma_device_get_log.exit508 ], [ -1, %ma_device_get_log.exit514 ], [ %750, %ma_device_get_log.exit520 ], [ 0, %ma_channel_map_copy.exit ], [ %531, %ma_device_get_log.exit464 ], [ %556, %ma_device_get_log.exit470 ], [ %147, %ma_log_post.exit366 ], [ %29, %4 ], [ -4, %ma_device_get_log.exit ], [ -4, %._crit_edge.i ], [ -200, %ma_device_get_log.exit372 ], [ -200, %._crit_edge.i380 ], [ -4, %ma_device_get_context.exit.i ], [ -200, %ma_device_get_context.exit.i370 ]
+  %.0296 = phi i32 [ %108, %ma_log_post.exit350 ], [ %237, %ma_log_post.exit398 ], [ -200, %ma_device_get_log.exit404 ], [ %287, %ma_device_get_log.exit410 ], [ %320, %ma_device_get_log.exit416 ], [ %348, %ma_device_get_log.exit422 ], [ %379, %ma_device_get_log.exit428 ], [ %408, %ma_device_get_log.exit434 ], [ -4, %ma_device_get_log.exit446 ], [ %458, %ma_device_get_log.exit452 ], [ %496, %ma_device_get_log.exit458 ], [ %582, %ma_device_get_log.exit476 ], [ -1, %ma_device_get_log.exit497 ], [ -4, %ma_device_get_log.exit502 ], [ %688, %ma_device_get_log.exit508 ], [ -1, %ma_device_get_log.exit514 ], [ %751, %ma_device_get_log.exit520 ], [ 0, %ma_channel_map_copy.exit ], [ %532, %ma_device_get_log.exit464 ], [ %557, %ma_device_get_log.exit470 ], [ %147, %ma_log_post.exit366 ], [ %29, %4 ], [ -4, %ma_device_get_log.exit ], [ -4, %._crit_edge.i ], [ -200, %ma_device_get_log.exit372 ], [ -200, %._crit_edge.i380 ], [ -4, %ma_device_get_context.exit.i ], [ -200, %ma_device_get_context.exit.i370 ]
   ret i32 %.0296
 }
 

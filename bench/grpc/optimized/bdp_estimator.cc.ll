@@ -222,9 +222,13 @@ lpad43:                                           ; preds = %invoke.cont40
 
 if.end47:                                         ; preds = %invoke.cont44, %if.then25
   %31 = load i64, ptr %inter_ping_delay_, align 8
-  %.off = add i64 %31, -9223372036854775807
-  %switch = icmp ult i64 %.off, 2
-  br i1 %switch, label %if.end73.sink.split, label %if.else19.i
+  switch i64 %31, label %if.else19.i [
+    i64 9223372036854775807, label %if.end73.sink.split
+    i64 -9223372036854775808, label %if.then9.i
+  ]
+
+if.then9.i:                                       ; preds = %if.end47
+  br label %if.end73.sink.split
 
 if.else19.i:                                      ; preds = %if.end47
   %div.i = sdiv i64 %31, 2
@@ -255,8 +259,8 @@ if.then58:                                        ; preds = %if.then55
   %add.i = add nsw i64 %34, %conv65
   br label %if.end73.sink.split
 
-if.end73.sink.split:                              ; preds = %if.end47, %if.else19.i, %if.then58
-  %add.i.sink = phi i64 [ %add.i, %if.then58 ], [ %div.i, %if.else19.i ], [ %31, %if.end47 ]
+if.end73.sink.split:                              ; preds = %if.else19.i, %if.then9.i, %if.end47, %if.then58
+  %add.i.sink = phi i64 [ %add.i, %if.then58 ], [ -9223372036854775808, %if.then9.i ], [ %div.i, %if.else19.i ], [ %31, %if.end47 ]
   store i64 %add.i.sink, ptr %inter_ping_delay_, align 8
   br label %if.end73
 

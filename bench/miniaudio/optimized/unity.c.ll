@@ -118291,7 +118291,7 @@ if.end94:                                         ; preds = %if.end80
     i32 32, label %sw.bb1.i
     i32 10, label %sw.bb2.i
     i32 14, label %sw.bb3.i
-    i32 1, label %if.end105
+    i32 1, label %sw.bb10.i
   ]
 
 sw.bb1.i:                                         ; preds = %if.end94
@@ -118301,6 +118301,9 @@ sw.bb2.i:                                         ; preds = %if.end94
   br label %if.end105
 
 sw.bb3.i:                                         ; preds = %if.end94
+  br label %if.end105
+
+sw.bb10.i:                                        ; preds = %if.end94
   br label %if.end105
 
 if.end.i403:                                      ; preds = %if.end94
@@ -118336,8 +118339,8 @@ ma_device_get_log.exit414:                        ; preds = %ma_device_get_conte
   %call104 = tail call i32 @ma_log_post(ptr noundef %retval.0.i3.i413, i32 noundef 1, ptr noundef nonnull @.str.403)
   br label %return
 
-if.end105:                                        ; preds = %if.end94, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %if.end94
-  %retval.0.i401.ph = phi i32 [ %formatALSA.1, %if.end94 ], [ 3, %sw.bb1.i ], [ 4, %sw.bb2.i ], [ 5, %sw.bb3.i ], [ %formatALSA.1, %if.end94 ]
+if.end105:                                        ; preds = %sw.bb10.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %if.end94
+  %retval.0.i401.ph = phi i32 [ %formatALSA.1, %if.end94 ], [ 3, %sw.bb1.i ], [ 4, %sw.bb2.i ], [ 5, %sw.bb3.i ], [ 1, %sw.bb10.i ]
   %channels106 = getelementptr inbounds i8, ptr %pDescriptor, i64 16
   %95 = load i32, ptr %channels106, align 8
   %cmp107 = icmp eq i32 %95, 0

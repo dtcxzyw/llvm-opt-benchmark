@@ -825,7 +825,7 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %sw.default, %sw.bb1
-  %.sink = phi i32 [ 0, %sw.default ], [ %call, %sw.bb1 ], [ %call, %entry ]
+  %.sink = phi i32 [ 0, %sw.default ], [ 0, %sw.bb1 ], [ %call, %entry ]
   %retval.0 = phi i32 [ 0, %sw.default ], [ 1, %sw.bb1 ], [ %call, %entry ]
   store i32 %.sink, ptr %is_probably_prime, align 4
   ret i32 %retval.0

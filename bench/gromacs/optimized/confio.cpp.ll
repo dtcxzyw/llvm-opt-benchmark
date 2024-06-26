@@ -983,9 +983,9 @@ _ZNK3gmx17RangePartitioning5blockEi.exit13.i:     ; preds = %48
   br label %63
 
 63:                                               ; preds = %61, %60, %59, %58, %_ZNK3gmx17RangePartitioning5blockEi.exit13.i
-  %.sroa.4.1.i = phi i8 [ %62, %61 ], [ %.sroa.4.027.i, %60 ], [ 48, %59 ], [ %.sroa.4.027.i, %_ZNK3gmx17RangePartitioning5blockEi.exit13.i ], [ 97, %58 ]
+  %.sroa.4.1.i = phi i8 [ %62, %61 ], [ 57, %60 ], [ 48, %59 ], [ %.sroa.4.027.i, %_ZNK3gmx17RangePartitioning5blockEi.exit13.i ], [ 97, %58 ]
   %.sroa.10.1.i = phi i1 [ false, %61 ], [ true, %60 ], [ false, %59 ], [ %.sroa.10.028.i, %_ZNK3gmx17RangePartitioning5blockEi.exit13.i ], [ false, %58 ]
-  %.013.i.i = phi i8 [ %.sroa.4.027.i, %61 ], [ %.sroa.4.027.i, %60 ], [ %.sroa.4.027.i, %59 ], [ 32, %_ZNK3gmx17RangePartitioning5blockEi.exit13.i ], [ %.sroa.4.027.i, %58 ]
+  %.013.i.i = phi i8 [ %.sroa.4.027.i, %61 ], [ 57, %60 ], [ 122, %59 ], [ 32, %_ZNK3gmx17RangePartitioning5blockEi.exit13.i ], [ %.sroa.4.027.i, %58 ]
   %64 = icmp slt i32 %52, %54
   br i1 %64, label %.lr.ph.i.i, label %_ZN13ChainIdFiller4fillEP7t_atomsii.exit.i
 
@@ -1639,8 +1639,8 @@ define noundef zeroext i1 @_Z13read_tps_confRKNSt10filesystem7__cxx114pathEP10t_
 
 38:                                               ; preds = %36, %35, %34, %33, %23
   %.sroa.10.1.i = phi i1 [ false, %36 ], [ true, %35 ], [ false, %34 ], [ %.sroa.10.013.i, %23 ], [ false, %33 ]
-  %.sroa.4.1.i = phi i8 [ %37, %36 ], [ %.sroa.4.014.i, %35 ], [ 48, %34 ], [ %.sroa.4.014.i, %23 ], [ 97, %33 ]
-  %.013.i.i = phi i8 [ %.sroa.4.014.i, %36 ], [ %.sroa.4.014.i, %35 ], [ %.sroa.4.014.i, %34 ], [ 32, %23 ], [ %.sroa.4.014.i, %33 ]
+  %.sroa.4.1.i = phi i8 [ %37, %36 ], [ 57, %35 ], [ 48, %34 ], [ %.sroa.4.014.i, %23 ], [ 97, %33 ]
+  %.013.i.i = phi i8 [ %.sroa.4.014.i, %36 ], [ 57, %35 ], [ 122, %34 ], [ 32, %23 ], [ %.sroa.4.014.i, %33 ]
   %39 = icmp slt i32 %27, %30
   br i1 %39, label %.lr.ph.i.i, label %_ZN13ChainIdFiller4fillEP7t_atomsii.exit.i
 

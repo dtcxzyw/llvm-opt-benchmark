@@ -1152,7 +1152,7 @@ Dau_DsdComputeMatches.exit:                       ; preds = %24, %7
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i64 @Dau_Dsd6TruthCompose_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   switch i64 %0, label %tailrecurse.preheader [
-    i64 0, label %common.ret52
+    i64 0, label %common.ret.loopexit
     i64 -1, label %common.ret52
   ]
 
@@ -1186,8 +1186,11 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   %.not27 = icmp eq i64 %19, 0
   br i1 %.not27, label %tailrecurse, label %20
 
-common.ret52:                                     ; preds = %3, %6, %3, %20
-  %common.ret52.op = phi i64 [ %36, %20 ], [ %0, %3 ], [ %spec.select, %6 ], [ %0, %3 ]
+common.ret.loopexit:                              ; preds = %3
+  br label %common.ret52
+
+common.ret52:                                     ; preds = %common.ret.loopexit, %3, %6, %20
+  %common.ret52.op = phi i64 [ %36, %20 ], [ 0, %common.ret.loopexit ], [ %0, %3 ], [ %spec.select, %6 ]
   ret i64 %common.ret52.op
 
 20:                                               ; preds = %11

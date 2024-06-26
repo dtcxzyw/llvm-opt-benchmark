@@ -320,7 +320,7 @@ ompi_errcode_get_mpi_code.exit162:                ; preds = %111, %107, %.prehea
   %145 = call i32 %143(ptr noundef %0, i64 noundef %144, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 4, ptr noundef %10) #3
   switch i32 %145, label %146 [
     i32 0, label %ompi_request_cancel.exit
-    i32 75, label %ompi_request_cancel.exit
+    i32 75, label %.fold.split
   ]
 
 146:                                              ; preds = %142
@@ -334,8 +334,11 @@ ompi_errcode_get_mpi_code.exit162:                ; preds = %111, %107, %.prehea
   %151 = call i32 %149(ptr noundef nonnull %147, i32 noundef 1) #3
   br label %ompi_request_cancel.exit
 
-ompi_request_cancel.exit:                         ; preds = %142, %150, %146, %142, %141
-  %.0104 = phi i32 [ %145, %142 ], [ 0, %141 ], [ %145, %146 ], [ %145, %150 ], [ %145, %142 ]
+.fold.split:                                      ; preds = %142
+  br label %ompi_request_cancel.exit
+
+ompi_request_cancel.exit:                         ; preds = %150, %146, %142, %.fold.split, %141
+  %.0104 = phi i32 [ %145, %142 ], [ 0, %141 ], [ 75, %.fold.split ], [ %145, %146 ], [ %145, %150 ]
   br i1 %.not124, label %164, label %152
 
 152:                                              ; preds = %ompi_request_cancel.exit

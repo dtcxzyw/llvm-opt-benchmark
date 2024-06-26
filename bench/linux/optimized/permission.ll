@@ -14,113 +14,116 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_key_validate
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @key_task_permission(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   switch i32 %2, label %4 [
-    i32 7, label %59
-    i32 8, label %59
-    i32 9, label %59
-    i32 10, label %59
-    i32 1, label %9
-    i32 2, label %9
-    i32 3, label %5
-    i32 4, label %6
-    i32 5, label %7
-    i32 6, label %8
+    i32 7, label %60
+    i32 8, label %60
+    i32 9, label %60
+    i32 10, label %60
+    i32 1, label %10
+    i32 2, label %5
+    i32 3, label %6
+    i32 4, label %7
+    i32 5, label %8
+    i32 6, label %9
   ]
 
 4:                                                ; preds = %3
   tail call void asm sideeffect "332: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 332b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 332) #2, !srcloc !5
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 35, i32 2305, i64 12) #2, !srcloc !6
   tail call void asm sideeffect "333: nop\0A\09.pushsection .discard.instr_end\0A\09.long 333b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 333) #2, !srcloc !7
-  br label %61
+  br label %62
 
 5:                                                ; preds = %3
-  br label %9
+  br label %10
 
 6:                                                ; preds = %3
-  br label %9
+  br label %10
 
 7:                                                ; preds = %3
-  br label %9
+  br label %10
 
 8:                                                ; preds = %3
-  br label %9
+  br label %10
 
-9:                                                ; preds = %3, %8, %7, %6, %5, %3
-  %10 = phi i32 [ 32, %8 ], [ 16, %7 ], [ 8, %6 ], [ 4, %5 ], [ %2, %3 ], [ %2, %3 ]
-  %11 = ptrtoint ptr %0 to i64
-  %12 = and i64 %11, -2
-  %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 104
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = load i32, ptr %14, align 8
+9:                                                ; preds = %3
+  br label %10
+
+10:                                               ; preds = %9, %8, %7, %6, %5, %3
+  %11 = phi i32 [ 32, %9 ], [ 16, %8 ], [ 8, %7 ], [ 4, %6 ], [ 2, %5 ], [ %2, %3 ]
+  %12 = ptrtoint ptr %0 to i64
+  %13 = and i64 %12, -2
+  %14 = inttoptr i64 %13 to ptr
+  %15 = getelementptr inbounds i8, ptr %14, i64 104
+  %16 = getelementptr inbounds i8, ptr %1, i64 32
   %17 = load i32, ptr %15, align 8
-  %18 = icmp eq i32 %16, %17
-  br i1 %18, label %19, label %23
+  %18 = load i32, ptr %16, align 8
+  %19 = icmp eq i32 %17, %18
+  br i1 %19, label %20, label %24
 
-19:                                               ; preds = %9
-  %20 = getelementptr inbounds i8, ptr %13, i64 112
-  %21 = load i32, ptr %20, align 8
-  %22 = lshr i32 %21, 16
-  br label %49
+20:                                               ; preds = %10
+  %21 = getelementptr inbounds i8, ptr %14, i64 112
+  %22 = load i32, ptr %21, align 8
+  %23 = lshr i32 %22, 16
+  br label %50
 
-23:                                               ; preds = %9
-  %24 = getelementptr inbounds i8, ptr %13, i64 108
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %46, label %27
+24:                                               ; preds = %10
+  %25 = getelementptr inbounds i8, ptr %14, i64 108
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %26, -1
+  br i1 %27, label %47, label %28
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %13, i64 112
-  %29 = load i32, ptr %28, align 8
-  %30 = and i32 %29, 16128
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %46, label %32
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %14, i64 112
+  %30 = load i32, ptr %29, align 8
+  %31 = and i32 %30, 16128
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %47, label %33
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %1, i64 36
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %25, %34
-  br i1 %35, label %36, label %38
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds i8, ptr %1, i64 36
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp eq i32 %26, %35
+  br i1 %36, label %37, label %39
 
-36:                                               ; preds = %32
-  %37 = lshr i32 %29, 8
-  br label %49
+37:                                               ; preds = %33
+  %38 = lshr i32 %30, 8
+  br label %50
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %1, i64 160
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call i32 @groups_search(ptr noundef %40, i32 %25) #2
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %46, label %43
+39:                                               ; preds = %33
+  %40 = getelementptr inbounds i8, ptr %1, i64 160
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call i32 @groups_search(ptr noundef %41, i32 %26) #2
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %47, label %44
 
-43:                                               ; preds = %38
-  %44 = load i32, ptr %28, align 8
-  %45 = lshr i32 %44, 8
-  br label %49
+44:                                               ; preds = %39
+  %45 = load i32, ptr %29, align 8
+  %46 = lshr i32 %45, 8
+  br label %50
 
-46:                                               ; preds = %38, %27, %23
-  %47 = getelementptr inbounds i8, ptr %13, i64 112
-  %48 = load i32, ptr %47, align 8
-  br label %49
+47:                                               ; preds = %39, %28, %24
+  %48 = getelementptr inbounds i8, ptr %14, i64 112
+  %49 = load i32, ptr %48, align 8
+  br label %50
 
-49:                                               ; preds = %46, %43, %36, %19
-  %50 = phi i32 [ %21, %19 ], [ %29, %36 ], [ %44, %43 ], [ %48, %46 ]
-  %51 = phi i32 [ %22, %19 ], [ %37, %36 ], [ %45, %43 ], [ %48, %46 ]
-  %52 = and i64 %11, 1
-  %53 = icmp eq i64 %52, 0
-  %54 = lshr i32 %50, 24
-  %55 = select i1 %53, i32 0, i32 %54
-  %56 = or i32 %51, %55
-  %57 = and i32 %56, %10
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %61, label %59
+50:                                               ; preds = %47, %44, %37, %20
+  %51 = phi i32 [ %22, %20 ], [ %30, %37 ], [ %45, %44 ], [ %49, %47 ]
+  %52 = phi i32 [ %23, %20 ], [ %38, %37 ], [ %46, %44 ], [ %49, %47 ]
+  %53 = and i64 %12, 1
+  %54 = icmp eq i64 %53, 0
+  %55 = lshr i32 %51, 24
+  %56 = select i1 %54, i32 0, i32 %55
+  %57 = or i32 %52, %56
+  %58 = and i32 %57, %11
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %62, label %60
 
-59:                                               ; preds = %49, %3, %3, %3, %3
-  %60 = tail call i32 @security_key_permission(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2
-  br label %61
+60:                                               ; preds = %50, %3, %3, %3, %3
+  %61 = tail call i32 @security_key_permission(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2
+  br label %62
 
-61:                                               ; preds = %59, %49, %4
-  %62 = phi i32 [ -13, %4 ], [ %60, %59 ], [ -13, %49 ]
-  ret i32 %62
+62:                                               ; preds = %60, %50, %4
+  %63 = phi i32 [ -13, %4 ], [ %61, %60 ], [ -13, %50 ]
+  ret i32 %63
 }
 
 ; Function Attrs: null_pointer_is_valid

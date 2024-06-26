@@ -8239,7 +8239,7 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
 _ZN16wasmtime_environ9component5types21ComponentTypesBuilder10flags_type17hcdbaf99f8dea93ddE.exit: ; preds = %.noexc.i, %225, %226, %227
   %.09.i.i = phi i32 [ %230, %227 ], [ 2, %226 ], [ 1, %225 ], [ 0, %.noexc.i ]
   %.08.i.i = phi i32 [ 4, %227 ], [ 2, %226 ], [ 1, %225 ], [ 1, %.noexc.i ]
-  %.0.i.i = phi i8 [ %228, %227 ], [ 1, %226 ], [ %223, %225 ], [ %223, %.noexc.i ]
+  %.0.i.i = phi i8 [ %228, %227 ], [ 1, %226 ], [ 1, %225 ], [ %223, %.noexc.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %42, ptr noundef nonnull align 8 dereferenceable(72) %41, i64 72, i1 false), !noalias !953
   %235 = getelementptr inbounds i8, ptr %42, i64 72
   store i32 %.09.i.i, ptr %235, align 8, !noalias !953
@@ -12415,7 +12415,7 @@ define void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo5flags17h7df
 12:                                               ; preds = %2, %8, %7, %6
   %.09 = phi i32 [ %11, %8 ], [ 2, %7 ], [ 1, %6 ], [ 0, %2 ]
   %.08 = phi i32 [ 4, %8 ], [ 2, %7 ], [ 1, %6 ], [ 1, %2 ]
-  %.0 = phi i8 [ %9, %8 ], [ 1, %7 ], [ %4, %6 ], [ %4, %2 ]
+  %.0 = phi i8 [ %9, %8 ], [ 1, %7 ], [ 1, %6 ], [ %4, %2 ]
   store i32 %.09, ptr %0, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.08, ptr %13, align 4

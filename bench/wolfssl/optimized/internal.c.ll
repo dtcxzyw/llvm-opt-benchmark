@@ -10988,30 +10988,45 @@ if.end92:                                         ; preds = %if.end52
 
 if.then100:                                       ; preds = %if.end92
   switch i8 %spec.select, label %if.end187 [
-    i8 0, label %if.end187.sink.split.sink.split
+    i8 0, label %do.end107
     i8 1, label %do.end124
     i8 2, label %if.end187.sink.split
-    i8 3, label %if.end187.sink.split
+    i8 3, label %do.end149
   ]
+
+do.end107:                                        ; preds = %if.then100
+  %bf.clear114 = and i64 %bf.load12, -311297
+  store i64 %bf.clear114, ptr %resuming, align 8
+  br label %if.end187.sink.split
 
 do.end124:                                        ; preds = %if.then100
-  br label %if.end187.sink.split.sink.split
-
-if.else156:                                       ; preds = %if.end92
-  switch i8 %spec.select, label %if.end187 [
-    i8 -3, label %if.end187.sink.split.sink.split
-    i8 -1, label %if.end187.sink.split.sink.split
-  ]
-
-if.end187.sink.split.sink.split:                  ; preds = %if.else156, %if.else156, %if.then100, %do.end124
-  %.sink248 = phi i64 [ -294913, %do.end124 ], [ -311297, %if.then100 ], [ -65537, %if.else156 ], [ -65537, %if.else156 ]
-  %bf.clear128 = and i64 %bf.load12, %.sink248
+  %bf.clear128 = and i64 %bf.load12, -294913
   store i64 %bf.clear128, ptr %resuming, align 8
   br label %if.end187.sink.split
 
-if.end187.sink.split:                             ; preds = %if.end187.sink.split.sink.split, %if.then100, %if.then100
+do.end149:                                        ; preds = %if.then100
+  br label %if.end187.sink.split
+
+if.else156:                                       ; preds = %if.end92
+  switch i8 %spec.select, label %if.end187 [
+    i8 -3, label %do.end163
+    i8 -1, label %do.end177
+  ]
+
+do.end163:                                        ; preds = %if.else156
+  %bf.clear166 = and i64 %bf.load12, -65537
+  store i64 %bf.clear166, ptr %resuming, align 8
+  br label %if.end187.sink.split
+
+do.end177:                                        ; preds = %if.else156
+  %bf.clear181 = and i64 %bf.load12, -65537
+  store i64 %bf.clear181, ptr %resuming, align 8
+  br label %if.end187.sink.split
+
+if.end187.sink.split:                             ; preds = %if.then100, %do.end124, %do.end149, %do.end107, %do.end177, %do.end163
+  %.sink = phi i8 [ -3, %do.end163 ], [ -1, %do.end177 ], [ 0, %do.end107 ], [ 3, %do.end149 ], [ 1, %do.end124 ], [ %spec.select, %if.then100 ]
   %minor169 = getelementptr inbounds i8, ptr %ssl, i64 695
-  store i8 %spec.select, ptr %minor169, align 1
+  store i8 %.sink, ptr %minor169, align 1
   br label %if.end187
 
 if.end187:                                        ; preds = %if.end187.sink.split, %if.else156, %if.then100
@@ -23093,16 +23108,19 @@ if.then133:                                       ; preds = %land.lhs.true.i189
   %25 = load ptr, ptr %verify, align 8
   switch i8 %24, label %EncodeSigAlg.exit [
     i8 3, label %sw.epilog.sink.split.i193
-    i8 1, label %sw.epilog.sink.split.i193
+    i8 1, label %sw.bb2.i
     i8 8, label %sw.bb5.i
   ]
+
+sw.bb2.i:                                         ; preds = %if.then133
+  br label %sw.epilog.sink.split.i193
 
 sw.bb5.i:                                         ; preds = %if.then133
   br label %sw.epilog.sink.split.i193
 
-sw.epilog.sink.split.i193:                        ; preds = %if.then133, %sw.bb5.i, %if.then133
-  %.sink.i194 = phi i8 [ 8, %sw.bb5.i ], [ %23, %if.then133 ], [ %23, %if.then133 ]
-  %hashAlgo.sink.i = phi i8 [ %23, %sw.bb5.i ], [ %24, %if.then133 ], [ %24, %if.then133 ]
+sw.epilog.sink.split.i193:                        ; preds = %sw.bb5.i, %sw.bb2.i, %if.then133
+  %.sink.i194 = phi i8 [ 8, %sw.bb5.i ], [ %23, %sw.bb2.i ], [ %23, %if.then133 ]
+  %hashAlgo.sink.i = phi i8 [ %23, %sw.bb5.i ], [ 1, %sw.bb2.i ], [ %24, %if.then133 ]
   store i8 %.sink.i194, ptr %25, align 1
   %arrayidx7.i = getelementptr inbounds i8, ptr %25, i64 1
   store i8 %hashAlgo.sink.i, ptr %arrayidx7.i, align 1
@@ -24730,16 +24748,19 @@ if.then345:                                       ; preds = %land.lhs.true.i381
   %arrayidx352 = getelementptr inbounds i8, ptr %62, i64 %idxprom351
   switch i8 %61, label %EncodeSigAlg.exit [
     i8 3, label %sw.epilog.sink.split.i
-    i8 1, label %sw.epilog.sink.split.i
+    i8 1, label %sw.bb2.i
     i8 8, label %sw.bb5.i
   ]
+
+sw.bb2.i:                                         ; preds = %if.then345
+  br label %sw.epilog.sink.split.i
 
 sw.bb5.i:                                         ; preds = %if.then345
   br label %sw.epilog.sink.split.i
 
-sw.epilog.sink.split.i:                           ; preds = %if.then345, %sw.bb5.i, %if.then345
-  %.sink.i = phi i8 [ 8, %sw.bb5.i ], [ %60, %if.then345 ], [ %60, %if.then345 ]
-  %hashAlgo.sink.i = phi i8 [ %60, %sw.bb5.i ], [ %61, %if.then345 ], [ %61, %if.then345 ]
+sw.epilog.sink.split.i:                           ; preds = %sw.bb5.i, %sw.bb2.i, %if.then345
+  %.sink.i = phi i8 [ 8, %sw.bb5.i ], [ %60, %sw.bb2.i ], [ %60, %if.then345 ]
+  %hashAlgo.sink.i = phi i8 [ %60, %sw.bb5.i ], [ 1, %sw.bb2.i ], [ %61, %if.then345 ]
   store i8 %.sink.i, ptr %arrayidx352, align 1
   %arrayidx7.i = getelementptr inbounds i8, ptr %arrayidx352, i64 1
   store i8 %hashAlgo.sink.i, ptr %arrayidx7.i, align 1
@@ -25089,16 +25110,19 @@ if.then641:                                       ; preds = %land.lhs.true.i437
   %arrayidx649 = getelementptr inbounds i8, ptr %129, i64 %idxprom648
   switch i8 %128, label %EncodeSigAlg.exit448 [
     i8 3, label %sw.epilog.sink.split.i442
-    i8 1, label %sw.epilog.sink.split.i442
+    i8 1, label %sw.bb2.i447
     i8 8, label %sw.bb5.i441
   ]
+
+sw.bb2.i447:                                      ; preds = %if.then641
+  br label %sw.epilog.sink.split.i442
 
 sw.bb5.i441:                                      ; preds = %if.then641
   br label %sw.epilog.sink.split.i442
 
-sw.epilog.sink.split.i442:                        ; preds = %if.then641, %sw.bb5.i441, %if.then641
-  %.sink.i443 = phi i8 [ 8, %sw.bb5.i441 ], [ %127, %if.then641 ], [ %127, %if.then641 ]
-  %hashAlgo.sink.i444 = phi i8 [ %127, %sw.bb5.i441 ], [ %128, %if.then641 ], [ %128, %if.then641 ]
+sw.epilog.sink.split.i442:                        ; preds = %sw.bb5.i441, %sw.bb2.i447, %if.then641
+  %.sink.i443 = phi i8 [ 8, %sw.bb5.i441 ], [ %127, %sw.bb2.i447 ], [ %127, %if.then641 ]
+  %hashAlgo.sink.i444 = phi i8 [ %127, %sw.bb5.i441 ], [ 1, %sw.bb2.i447 ], [ %128, %if.then641 ]
   store i8 %.sink.i443, ptr %arrayidx649, align 1
   %arrayidx7.i445 = getelementptr inbounds i8, ptr %arrayidx649, i64 1
   store i8 %hashAlgo.sink.i444, ptr %arrayidx7.i445, align 1

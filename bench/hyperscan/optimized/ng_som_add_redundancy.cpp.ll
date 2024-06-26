@@ -496,9 +496,10 @@ invoke.cont34.i:                                  ; preds = %if.then.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %index.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %index4.i.i.i.i, i64 12, i1 false)
   store i64 %34, ptr %index.i.i.i, align 8
   %37 = load i32, ptr %_M_storage.i.i.i, align 4
-  %.off = add i32 %37, -2147483647
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %invoke.cont36.i, label %if.end7.i.i
+  switch i32 %37, label %if.end7.i.i [
+    i32 -2147483648, label %invoke.cont36.i
+    i32 2147483647, label %return.fold.split.i.i
+  ]
 
 if.end7.i.i:                                      ; preds = %invoke.cont34.i
   %add.i.i = add nsw i32 %37, 1
@@ -513,8 +514,11 @@ do.end.i.i:                                       ; preds = %if.end7.i.i
 .noexc46.i:                                       ; preds = %do.end.i.i
   unreachable
 
-invoke.cont36.i:                                  ; preds = %invoke.cont34.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.end7.i.i ], [ %37, %invoke.cont34.i ]
+return.fold.split.i.i:                            ; preds = %invoke.cont34.i
+  br label %invoke.cont36.i
+
+invoke.cont36.i:                                  ; preds = %return.fold.split.i.i, %if.end7.i.i, %invoke.cont34.i
+  %retval.sroa.0.0.i.i = phi i32 [ %37, %invoke.cont34.i ], [ %add.i.i, %if.end7.i.i ], [ 2147483647, %return.fold.split.i.i ]
   %conv39.i = and i64 %sub.ptr.div.i.i, 4294967295
   store i64 %conv39.i, ptr %index.i.i.i, align 8
   %38 = load ptr, ptr %3, align 8

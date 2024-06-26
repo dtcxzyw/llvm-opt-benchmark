@@ -119,7 +119,7 @@ define i32 @Dau_DsdMergeStatus_rec(ptr noundef %0, ptr nocapture noundef %1, ptr
   br label %.sink.split
 
 61:                                               ; preds = %.loopexit
-  switch i8 %52, label %82 [
+  switch i8 %52, label %83 [
     i8 40, label %62
     i8 91, label %62
     i8 60, label %62
@@ -154,26 +154,31 @@ define i32 @Dau_DsdMergeStatus_rec(ptr noundef %0, ptr nocapture noundef %1, ptr
   br i1 %77, label %.lr.ph88, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph88
-  %switch = icmp ult i32 %74, 2
-  br i1 %switch, label %.sink.split, label %78
+  switch i32 %74, label %79 [
+    i32 0, label %.sink.split
+    i32 1, label %78
+  ]
 
 78:                                               ; preds = %._crit_edge
-  %.not = icmp ugt i32 %74, %.06987
-  br i1 %.not, label %79, label %.sink.split
-
-79:                                               ; preds = %78
-  %80 = icmp eq i32 %74, %75
-  %spec.select = select i1 %80, i32 3, i32 %71
   br label %.sink.split
 
-.sink.split:                                      ; preds = %._crit_edge, %78, %79, %62, %54
-  %.sink106 = phi i64 [ %60, %54 ], [ %65, %62 ], [ %65, %79 ], [ %65, %78 ], [ %65, %._crit_edge ]
-  %.1.sink = phi i32 [ %57, %54 ], [ 0, %62 ], [ %spec.select, %79 ], [ 2, %78 ], [ %74, %._crit_edge ]
-  %81 = getelementptr inbounds i32, ptr %4, i64 %.sink106
-  store i32 %.1.sink, ptr %81, align 4
-  br label %82
+79:                                               ; preds = %._crit_edge
+  %.not = icmp ugt i32 %74, %.06987
+  br i1 %.not, label %80, label %.sink.split
 
-82:                                               ; preds = %.sink.split, %61
+80:                                               ; preds = %79
+  %81 = icmp eq i32 %74, %75
+  %spec.select = select i1 %81, i32 3, i32 %71
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %78, %._crit_edge, %79, %80, %62, %54
+  %.sink106 = phi i64 [ %60, %54 ], [ %65, %62 ], [ %65, %80 ], [ %65, %79 ], [ %65, %._crit_edge ], [ %65, %78 ]
+  %.1.sink = phi i32 [ %57, %54 ], [ 0, %62 ], [ %spec.select, %80 ], [ 2, %79 ], [ %74, %._crit_edge ], [ 1, %78 ]
+  %82 = getelementptr inbounds i32, ptr %4, i64 %.sink106
+  store i32 %.1.sink, ptr %82, align 4
+  br label %83
+
+83:                                               ; preds = %.sink.split, %61
   %.0 = phi i32 [ 0, %61 ], [ %.1.sink, %.sink.split ]
   ret i32 %.0
 }

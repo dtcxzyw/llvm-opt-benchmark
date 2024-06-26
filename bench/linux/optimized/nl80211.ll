@@ -1226,7 +1226,7 @@ define dso_local noundef range(i32 -105, 1) i32 @nl80211_send_chandef(ptr nounde
   tail call void asm sideeffect "3382: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3382b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3382) #25, !srcloc !7
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 3798, i32 2305, i64 12) #25, !srcloc !8
   tail call void asm sideeffect "3383: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3383b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3383) #25, !srcloc !9
-  br label %58
+  br label %59
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %1, align 8
@@ -1237,7 +1237,7 @@ define dso_local noundef range(i32 -105, 1) i32 @nl80211_send_chandef(ptr nounde
   %15 = call i32 @nla_put(ptr noundef %0, i32 noundef 38, i32 noundef 4, ptr noundef nonnull %8) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #25
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %58
+  br i1 %16, label %17, label %59
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %1, align 8
@@ -1249,80 +1249,89 @@ define dso_local noundef range(i32 -105, 1) i32 @nl80211_send_chandef(ptr nounde
   %22 = call i32 @nla_put(ptr noundef %0, i32 noundef 290, i32 noundef 4, ptr noundef nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #25
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %58
+  br i1 %23, label %24, label %59
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = icmp ult i32 %26, 3
-  br i1 %27, label %28, label %41
+  br i1 %27, label %28, label %42
 
 28:                                               ; preds = %24
-  %switch.not = icmp eq i32 %26, 2
-  br i1 %switch.not, label %29, label %37
+  switch i32 %26, label %default.unreachable [
+    i32 0, label %38
+    i32 1, label %29
+    i32 2, label %30
+  ]
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %1, i64 12
-  %31 = load i32, ptr %30, align 4
-  %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp ugt i32 %31, %34
-  %36 = select i1 %35, i32 3, i32 2
-  br label %37
+  br label %38
 
-37:                                               ; preds = %28, %29
-  %38 = phi i32 [ %36, %29 ], [ %26, %28 ]
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds i8, ptr %1, i64 12
+  %32 = load i32, ptr %31, align 4
+  %33 = load ptr, ptr %1, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp ugt i32 %32, %35
+  %37 = select i1 %36, i32 3, i32 2
+  br label %38
+
+default.unreachable:                              ; preds = %28
+  unreachable
+
+38:                                               ; preds = %30, %29, %28
+  %39 = phi i32 [ 1, %29 ], [ %26, %28 ], [ %37, %30 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #25
-  store i32 %38, ptr %6, align 4
-  %39 = call i32 @nla_put(ptr noundef %0, i32 noundef 39, i32 noundef 4, ptr noundef nonnull %6) #25
+  store i32 %39, ptr %6, align 4
+  %40 = call i32 @nla_put(ptr noundef %0, i32 noundef 39, i32 noundef 4, ptr noundef nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #25
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %._crit_edge, label %58
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %._crit_edge, label %59
 
-._crit_edge:                                      ; preds = %37
+._crit_edge:                                      ; preds = %38
   %.pre = load i32, ptr %25, align 8
-  br label %41
+  br label %42
 
-41:                                               ; preds = %._crit_edge, %24
-  %42 = phi i32 [ %.pre, %._crit_edge ], [ %26, %24 ]
+42:                                               ; preds = %._crit_edge, %24
+  %43 = phi i32 [ %.pre, %._crit_edge ], [ %26, %24 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #25
-  store i32 %42, ptr %5, align 4
-  %43 = call i32 @nla_put(ptr noundef %0, i32 noundef 159, i32 noundef 4, ptr noundef nonnull %5) #25
+  store i32 %43, ptr %5, align 4
+  %44 = call i32 @nla_put(ptr noundef %0, i32 noundef 159, i32 noundef 4, ptr noundef nonnull %5) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #25
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %58
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %59
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %1, i64 12
-  %47 = load i32, ptr %46, align 4
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds i8, ptr %1, i64 12
+  %48 = load i32, ptr %47, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #25
-  store i32 %47, ptr %4, align 4
-  %48 = call i32 @nla_put(ptr noundef %0, i32 noundef 160, i32 noundef 4, ptr noundef nonnull %4) #25
+  store i32 %48, ptr %4, align 4
+  %49 = call i32 @nla_put(ptr noundef %0, i32 noundef 160, i32 noundef 4, ptr noundef nonnull %4) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #25
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %58
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %59
 
-50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %1, i64 16
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %57, label %54
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %58, label %55
 
-54:                                               ; preds = %50
+55:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #25
-  store i32 %52, ptr %3, align 4
-  %55 = call i32 @nla_put(ptr noundef %0, i32 noundef 161, i32 noundef 4, ptr noundef nonnull %3) #25
+  store i32 %53, ptr %3, align 4
+  %56 = call i32 @nla_put(ptr noundef %0, i32 noundef 161, i32 noundef 4, ptr noundef nonnull %3) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #25
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %58
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %59
 
-57:                                               ; preds = %54, %50
-  br label %58
+58:                                               ; preds = %55, %51
+  br label %59
 
-58:                                               ; preds = %57, %54, %45, %41, %37, %17, %11, %10
-  %59 = phi i32 [ 0, %57 ], [ -22, %10 ], [ -105, %11 ], [ -105, %17 ], [ -105, %37 ], [ -105, %41 ], [ -105, %45 ], [ -105, %54 ]
-  ret i32 %59
+59:                                               ; preds = %58, %55, %46, %42, %38, %17, %11, %10
+  %60 = phi i32 [ 0, %58 ], [ -22, %10 ], [ -105, %11 ], [ -105, %17 ], [ -105, %38 ], [ -105, %42 ], [ -105, %46 ], [ -105, %55 ]
+  ret i32 %60
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

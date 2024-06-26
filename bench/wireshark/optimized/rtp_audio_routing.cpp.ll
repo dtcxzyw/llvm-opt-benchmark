@@ -136,7 +136,7 @@ define i64 @_ZN12AudioRouting7convertEb(ptr nocapture noundef nonnull readonly a
   br label %11
 
 11:                                               ; preds = %10, %7, %9, %8
-  %.sink = phi i32 [ %5, %9 ], [ %5, %8 ], [ 4, %7 ], [ %switch.select, %10 ]
+  %.sink = phi i32 [ %5, %9 ], [ 0, %8 ], [ 4, %7 ], [ %switch.select, %10 ]
   %12 = trunc i8 %6 to i1
   call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable(8) %3, i1 noundef zeroext %12, i32 noundef %.sink)
   %13 = load i64, ptr %3, align 8

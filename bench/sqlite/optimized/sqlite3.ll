@@ -52319,7 +52319,7 @@ unixFileLock.exit77:                              ; preds = %105, %109
 sqliteErrorFromPosixError.exit79:                 ; preds = %118, %117, %114, %114, %114, %114, %114, %114, %unixFileLock.exit77.thread, %unixFileLock.exit77
   %119 = phi i1 [ true, %unixFileLock.exit77 ], [ true, %unixFileLock.exit77.thread ], [ false, %118 ], [ false, %117 ], [ false, %114 ], [ false, %114 ], [ false, %114 ], [ false, %114 ], [ false, %114 ], [ false, %114 ]
   %.058 = phi i32 [ 0, %unixFileLock.exit77 ], [ 0, %unixFileLock.exit77.thread ], [ 3850, %118 ], [ 3, %117 ], [ 5, %114 ], [ 5, %114 ], [ 5, %114 ], [ 5, %114 ], [ 5, %114 ], [ 5, %114 ]
-  %.0 = phi i32 [ 0, %unixFileLock.exit77 ], [ 0, %unixFileLock.exit77.thread ], [ %116, %118 ], [ %116, %117 ], [ %116, %114 ], [ %116, %114 ], [ %116, %114 ], [ %116, %114 ], [ %116, %114 ], [ %116, %114 ]
+  %.0 = phi i32 [ 0, %unixFileLock.exit77 ], [ 0, %unixFileLock.exit77.thread ], [ %116, %118 ], [ 1, %117 ], [ %116, %114 ], [ %116, %114 ], [ %116, %114 ], [ %116, %114 ], [ %116, %114 ], [ %116, %114 ]
   %120 = load i32, ptr @sqlite3PendingByte, align 4
   %121 = sext i32 %120 to i64
   store i64 %121, ptr %44, align 8
