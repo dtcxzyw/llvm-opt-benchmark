@@ -2049,12 +2049,11 @@ default.unreachable.i.i:                          ; preds = %507
   br i1 %503, label %switch.lookup, label %507
 
 506:                                              ; preds = %504
-  %trunc20.i.i = trunc i8 %.064.i to i1
-  %anon.c1442423ab71096c578c2ca821fd175a.139.anon.c1442423ab71096c578c2ca821fd175a.140.i.i = select i1 %trunc20.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.140, ptr @anon.c1442423ab71096c578c2ca821fd175a.139
+  %trunc18.i.i = trunc i8 %.064.i to i1
+  %anon.c1442423ab71096c578c2ca821fd175a.139.anon.c1442423ab71096c578c2ca821fd175a.140.i.i = select i1 %trunc18.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.140, ptr @anon.c1442423ab71096c578c2ca821fd175a.139
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 507:                                              ; preds = %505
-  %trunc19.i.i = trunc i8 %.064.i to i1
   switch i8 %.0.i, label %default.unreachable.i.i [
     i8 0, label %508
     i8 1, label %509
@@ -2062,15 +2061,18 @@ default.unreachable.i.i:                          ; preds = %507
   ]
 
 508:                                              ; preds = %507
-  %anon.c1442423ab71096c578c2ca821fd175a.144.anon.c1442423ab71096c578c2ca821fd175a.145.i.i = select i1 %trunc19.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.145, ptr @anon.c1442423ab71096c578c2ca821fd175a.144
+  %trunc.i.i = trunc i8 %.064.i to i1
+  %anon.c1442423ab71096c578c2ca821fd175a.144.anon.c1442423ab71096c578c2ca821fd175a.145.i.i = select i1 %trunc.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.145, ptr @anon.c1442423ab71096c578c2ca821fd175a.144
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 509:                                              ; preds = %507
-  %anon.c1442423ab71096c578c2ca821fd175a.146.anon.c1442423ab71096c578c2ca821fd175a.147.i.i = select i1 %trunc19.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.147, ptr @anon.c1442423ab71096c578c2ca821fd175a.146
+  %switch21.i.i = icmp eq i8 %.064.i, 0
+  %anon.c1442423ab71096c578c2ca821fd175a.146.anon.c1442423ab71096c578c2ca821fd175a.147.i.i = select i1 %switch21.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.146, ptr @anon.c1442423ab71096c578c2ca821fd175a.147
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 510:                                              ; preds = %507
-  %anon.c1442423ab71096c578c2ca821fd175a.145.anon.c1442423ab71096c578c2ca821fd175a.144.i.i = select i1 %trunc19.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.144, ptr @anon.c1442423ab71096c578c2ca821fd175a.145
+  %switch23.i.i = icmp eq i8 %.064.i, 0
+  %anon.c1442423ab71096c578c2ca821fd175a.145.anon.c1442423ab71096c578c2ca821fd175a.144.i.i = select i1 %switch23.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.145, ptr @anon.c1442423ab71096c578c2ca821fd175a.144
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 switch.lookup:                                    ; preds = %505

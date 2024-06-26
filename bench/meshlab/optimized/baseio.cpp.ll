@@ -48734,9 +48734,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 .lr.ph575:                                        ; preds = %.preheader530
   %.not388 = icmp ne ptr %3, null
-  %.mask = shl nuw nsw i8 %.0327.lcssa, 1
-  %124 = and i8 %.mask, 2
-  %125 = zext nneg i8 %124 to i32
+  %124 = zext nneg i8 %.0327.lcssa to i32
+  %125 = shl nuw nsw i32 %124, 1
   br label %126
 
 126:                                              ; preds = %.lr.ph575, %.loopexit516
@@ -48850,7 +48849,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %185 = lshr exact i64 %184, 5
   %186 = trunc i64 %185 to i32
   %187 = trunc i64 %.5346 to i32
-  %188 = add i32 %187, %125
+  %188 = add i32 %125, %187
   %189 = sub i32 %186, %188
   %or.cond = icmp ugt i32 %189, 4
   br i1 %or.cond, label %.loopexit679, label %190

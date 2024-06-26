@@ -1473,8 +1473,8 @@ while.body.i:                                     ; preds = %if.end36.i, %while.
   %rem7.i = and i64 %dest_offset.addr.048.i, 7
   %7 = trunc nuw nsw i64 %rem7.i to i8
   %conv9.i = sub nuw nsw i8 8, %7
-  %8 = trunc nuw nsw i64 %rem7.i to i32
-  %shl.i = shl nuw nsw i32 255, %8
+  %sub11.i = trunc nuw nsw i64 %rem7.i to i32
+  %shl.i = shl nuw nsw i32 255, %sub11.i
   %cmp13.i = icmp ult i64 %length.addr.051.i, 9
   br i1 %cmp13.i, label %land.lhs.true.i, label %if.end.i
 
@@ -1484,10 +1484,10 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   br i1 %cmp16.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %9 = trunc nuw i64 %add15.i to i32
-  %conv20.i = sub nuw nsw i32 8, %9
-  %10 = lshr i32 254, %conv20.i
-  %shr.i = and i32 %10, %shl.i
+  %8 = trunc nuw i64 %add15.i to i32
+  %conv20.i = sub nuw nsw i32 8, %8
+  %9 = lshr i32 254, %conv20.i
+  %shr.i = and i32 %9, %shl.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %land.lhs.true.i, %while.body.i
@@ -1496,34 +1496,34 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
   br i1 %cmp28.i, label %if.then29.i, label %if.else.i
 
 if.then29.i:                                      ; preds = %if.end.i
-  %11 = load i8, ptr %add.ptr.i, align 1
-  %conv.i36.i = zext i8 %11 to i32
+  %10 = load i8, ptr %add.ptr.i, align 1
+  %conv.i36.i = zext i8 %10 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i36.i, 8
   %add.i37.i = or disjoint i32 %shl.i.i, %conv.i36.i
   br label %if.end36.i
 
 if.else.i:                                        ; preds = %if.end.i
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %j_src.049.i
-  %12 = load i16, ptr %gep.i, align 1
-  %13 = zext i16 %12 to i32
+  %11 = load i16, ptr %gep.i, align 1
+  %12 = zext i16 %11 to i32
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.else.i, %if.then29.i
-  %.sink.i = phi i32 [ %13, %if.else.i ], [ %add.i37.i, %if.then29.i ]
+  %.sink.i = phi i32 [ %12, %if.else.i ], [ %add.i37.i, %if.then29.i ]
   %conv2.i43.i = zext nneg i8 %conv6.i to i32
   %shr.i44.i = lshr i32 %.sink.i, %conv2.i43.i
   %conv3.i45.i = trunc i32 %shr.i44.i to i8
   %rev.i.i46.i = call noundef i8 @llvm.bitreverse.i8(i8 %conv3.i45.i)
   %arrayidx38.i = getelementptr inbounds i8, ptr %cond.i, i64 %i_dest.050.i
-  %14 = load i8, ptr %arrayidx38.i, align 1
-  %15 = trunc i32 %left_trailing_mask_dest.0.in.i to i8
-  %16 = xor i8 %15, -1
-  %conv40.i = and i8 %14, %16
+  %13 = load i8, ptr %arrayidx38.i, align 1
+  %14 = trunc i32 %left_trailing_mask_dest.0.in.i to i8
+  %15 = xor i8 %14, -1
+  %conv40.i = and i8 %13, %15
   %conv41.i = zext i8 %rev.i.i46.i to i32
-  %shl44.i = shl nuw nsw i32 %conv41.i, %8
+  %shl44.i = shl nuw nsw i32 %conv41.i, %sub11.i
   %and46.i = and i32 %shl44.i, %left_trailing_mask_dest.0.in.i
-  %17 = trunc i32 %and46.i to i8
-  %conv49.i = or i8 %conv40.i, %17
+  %16 = trunc i32 %and46.i to i8
+  %conv49.i = or i8 %conv40.i, %16
   store i8 %conv49.i, ptr %arrayidx38.i, align 1
   %conv50.i = zext nneg i8 %conv9.i to i64
   %add51.i = add nuw nsw i64 %dest_offset.addr.048.i, %conv50.i

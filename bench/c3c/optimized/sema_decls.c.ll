@@ -8947,11 +8947,10 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
   br label %175
 
 175:                                              ; preds = %171, %167
-  %.mask = and i8 %spec.select152, 1
-  %176 = zext nneg i8 %.mask to i64
+  %176 = zext nneg i8 %spec.select152 to i64
   %177 = shl nuw nsw i64 %176, 13
   %178 = and i64 %147, -8193
-  %179 = or disjoint i64 %177, %178
+  %179 = or i64 %177, %178
   store i64 %179, ptr %4, align 8
   store i32 %158, ptr %7, align 8
   br label %180

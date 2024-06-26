@@ -1525,7 +1525,7 @@ if.end152.i1243:                                  ; preds = %if.else.i1206
   %sub.ptr.lhs.cast142.i1236 = ptrtoint ptr %sym.i1130.0.lcssa to i64
   %sub.ptr.rhs.cast143.i1237 = ptrtoint ptr %add.ptr2.i1149 to i64
   %sub.ptr.sub144.i1238 = sub i64 %sub.ptr.lhs.cast142.i1236, %sub.ptr.rhs.cast143.i1237
-  %add146.i1240 = add i64 %sub.ptr.sub144.i1238, %conv63.i1182
+  %add146.i1240 = add nsw i64 %sub.ptr.sub144.i1238, %conv63.i1182
   %conv147.i1241 = trunc i64 %add146.i1240 to i16
   %add.ptr117.i1235 = getelementptr inbounds i8, ptr %c.i1124.0.lcssa, i64 -1
   %add.ptr155.i1246 = getelementptr inbounds i8, ptr %add.ptr117.i1235, i64 %conv63.i1182
@@ -1993,7 +1993,7 @@ if.end152.i:                                      ; preds = %if.else.i1084
   %sub.ptr.lhs.cast142.i = ptrtoint ptr %sym.i.0.lcssa to i64
   %sub.ptr.rhs.cast143.i = ptrtoint ptr %add.ptr2.i1064 to i64
   %sub.ptr.sub144.i = sub i64 %sub.ptr.lhs.cast142.i, %sub.ptr.rhs.cast143.i
-  %add146.i = add i64 %sub.ptr.sub144.i, %conv63.i
+  %add146.i = add nsw i64 %sub.ptr.sub144.i, %conv63.i
   %conv147.i = trunc i64 %add146.i to i16
   %add.ptr117.i = getelementptr inbounds i8, ptr %c.i1056.0.lcssa, i64 -1
   %add.ptr155.i = getelementptr inbounds i8, ptr %add.ptr117.i, i64 %conv63.i
@@ -2515,7 +2515,7 @@ if.end152.i1643:                                  ; preds = %if.else.i1606
   %sub.ptr.lhs.cast142.i1636 = ptrtoint ptr %sym.i1530.0.lcssa to i64
   %sub.ptr.rhs.cast143.i1637 = ptrtoint ptr %add.ptr2.i1549 to i64
   %sub.ptr.sub144.i1638 = sub i64 %sub.ptr.lhs.cast142.i1636, %sub.ptr.rhs.cast143.i1637
-  %add146.i1640 = add i64 %sub.ptr.sub144.i1638, %conv63.i1582
+  %add146.i1640 = add nsw i64 %sub.ptr.sub144.i1638, %conv63.i1582
   %conv147.i1641 = trunc i64 %add146.i1640 to i16
   %add.ptr117.i1635 = getelementptr inbounds i8, ptr %c.i1524.0.lcssa, i64 -1
   %add.ptr155.i1646 = getelementptr inbounds i8, ptr %add.ptr117.i1635, i64 %conv63.i1582
@@ -3033,7 +3033,7 @@ if.end152.i1443:                                  ; preds = %if.else.i1406
   %sub.ptr.lhs.cast142.i1436 = ptrtoint ptr %sym.i1330.0.lcssa to i64
   %sub.ptr.rhs.cast143.i1437 = ptrtoint ptr %add.ptr2.i1349 to i64
   %sub.ptr.sub144.i1438 = sub i64 %sub.ptr.lhs.cast142.i1436, %sub.ptr.rhs.cast143.i1437
-  %add146.i1440 = add i64 %sub.ptr.sub144.i1438, %conv63.i1382
+  %add146.i1440 = add nsw i64 %sub.ptr.sub144.i1438, %conv63.i1382
   %conv147.i1441 = trunc i64 %add146.i1440 to i16
   %add.ptr117.i1435 = getelementptr inbounds i8, ptr %c.i1324.0.lcssa, i64 -1
   %add.ptr155.i1446 = getelementptr inbounds i8, ptr %add.ptr117.i1435, i64 %conv63.i1382
@@ -3759,7 +3759,7 @@ if.then116.i414.i:                                ; preds = %if.else.i386.i
   %sub.ptr.lhs.cast142.i416.i = ptrtoint ptr %sym.i310.0.lcssa.i to i64
   %sub.ptr.rhs.cast143.i417.i = ptrtoint ptr %add.ptr2.i329.i to i64
   %sub.ptr.sub144.i418.i = sub i64 %sub.ptr.lhs.cast142.i416.i, %sub.ptr.rhs.cast143.i417.i
-  %add146.i420.i = add i64 %sub.ptr.sub144.i418.i, %conv63.i362.i
+  %add146.i420.i = add nsw i64 %sub.ptr.sub144.i418.i, %conv63.i362.i
   %conv147.i421.i = trunc i64 %add146.i420.i to i16
   br i1 %cmp.i323.not.i, label %if.end152.i423.i, label %if.then150.i427.i
 
@@ -4300,7 +4300,7 @@ if.then116.i.i:                                   ; preds = %if.else.i270.i
   %sub.ptr.lhs.cast142.i.i = ptrtoint ptr %sym.i.0.lcssa.i to i64
   %sub.ptr.rhs.cast143.i.i = ptrtoint ptr %add.ptr2.i256.i to i64
   %sub.ptr.sub144.i.i = sub i64 %sub.ptr.lhs.cast142.i.i, %sub.ptr.rhs.cast143.i.i
-  %add146.i.i = add i64 %sub.ptr.sub144.i.i, %conv63.i.i
+  %add146.i.i = add nsw i64 %sub.ptr.sub144.i.i, %conv63.i.i
   %conv147.i.i = trunc i64 %add146.i.i to i16
   br i1 %cmp.i250.not.i, label %if.end152.i.i, label %if.then150.i.i
 
@@ -5846,7 +5846,7 @@ if.then116.i414.i:                                ; preds = %if.else.i386.i
   %sub.ptr.lhs.cast142.i416.i = ptrtoint ptr %sym.i310.0.lcssa.i to i64
   %sub.ptr.rhs.cast143.i417.i = ptrtoint ptr %add.ptr2.i329.i to i64
   %sub.ptr.sub144.i418.i = sub i64 %sub.ptr.lhs.cast142.i416.i, %sub.ptr.rhs.cast143.i417.i
-  %add146.i420.i = add i64 %sub.ptr.sub144.i418.i, %conv63.i362.i
+  %add146.i420.i = add nsw i64 %sub.ptr.sub144.i418.i, %conv63.i362.i
   %conv147.i421.i = trunc i64 %add146.i420.i to i16
   br i1 %cmp.i323.not.i, label %if.end152.i423.i, label %if.then150.i427.i
 
@@ -6303,7 +6303,7 @@ if.then116.i.i:                                   ; preds = %if.else.i270.i
   %sub.ptr.lhs.cast142.i.i = ptrtoint ptr %sym.i.0.lcssa.i to i64
   %sub.ptr.rhs.cast143.i.i = ptrtoint ptr %add.ptr2.i256.i to i64
   %sub.ptr.sub144.i.i = sub i64 %sub.ptr.lhs.cast142.i.i, %sub.ptr.rhs.cast143.i.i
-  %add146.i.i = add i64 %sub.ptr.sub144.i.i, %conv63.i.i
+  %add146.i.i = add nsw i64 %sub.ptr.sub144.i.i, %conv63.i.i
   %conv147.i.i = trunc i64 %add146.i.i to i16
   br i1 %cmp.i250.not.i, label %if.end152.i.i, label %if.then150.i.i
 
@@ -7425,7 +7425,7 @@ if.then116.i414.i:                                ; preds = %if.else.i386.i
   %sub.ptr.lhs.cast142.i416.i = ptrtoint ptr %sym.i310.0.lcssa.i to i64
   %sub.ptr.rhs.cast143.i417.i = ptrtoint ptr %add.ptr2.i329.i to i64
   %sub.ptr.sub144.i418.i = sub i64 %sub.ptr.lhs.cast142.i416.i, %sub.ptr.rhs.cast143.i417.i
-  %add146.i420.i = add i64 %sub.ptr.sub144.i418.i, %conv63.i362.i
+  %add146.i420.i = add nsw i64 %sub.ptr.sub144.i418.i, %conv63.i362.i
   %conv147.i421.i = trunc i64 %add146.i420.i to i16
   br i1 %cmp.i323.not.i, label %if.end152.i423.i, label %if.then150.i427.i
 
@@ -7886,7 +7886,7 @@ if.then116.i.i:                                   ; preds = %if.else.i270.i
   %sub.ptr.lhs.cast142.i.i = ptrtoint ptr %sym.i.0.lcssa.i to i64
   %sub.ptr.rhs.cast143.i.i = ptrtoint ptr %add.ptr2.i256.i to i64
   %sub.ptr.sub144.i.i = sub i64 %sub.ptr.lhs.cast142.i.i, %sub.ptr.rhs.cast143.i.i
-  %add146.i.i = add i64 %sub.ptr.sub144.i.i, %conv63.i.i
+  %add146.i.i = add nsw i64 %sub.ptr.sub144.i.i, %conv63.i.i
   %conv147.i.i = trunc i64 %add146.i.i to i16
   br i1 %cmp.i250.not.i, label %if.end152.i.i, label %if.then150.i.i
 
@@ -9092,7 +9092,7 @@ if.then116.i1464:                                 ; preds = %if.else.i1436
   %sub.ptr.lhs.cast142.i1466 = ptrtoint ptr %sym.i1360.0.lcssa to i64
   %sub.ptr.rhs.cast143.i1467 = ptrtoint ptr %add.ptr2.i1379 to i64
   %sub.ptr.sub144.i1468 = sub i64 %sub.ptr.lhs.cast142.i1466, %sub.ptr.rhs.cast143.i1467
-  %add146.i1470 = add i64 %sub.ptr.sub144.i1468, %conv63.i1412
+  %add146.i1470 = add nsw i64 %sub.ptr.sub144.i1468, %conv63.i1412
   %conv147.i1471 = trunc i64 %add146.i1470 to i16
   br i1 %cmp.i1373.not, label %if.end152.i1473, label %if.then150.i1477
 
@@ -9582,7 +9582,7 @@ if.then116.i1264:                                 ; preds = %if.else.i1236
   %sub.ptr.lhs.cast142.i1266 = ptrtoint ptr %sym.i1160.0.lcssa to i64
   %sub.ptr.rhs.cast143.i1267 = ptrtoint ptr %add.ptr2.i1179 to i64
   %sub.ptr.sub144.i1268 = sub i64 %sub.ptr.lhs.cast142.i1266, %sub.ptr.rhs.cast143.i1267
-  %add146.i1270 = add i64 %sub.ptr.sub144.i1268, %conv63.i1212
+  %add146.i1270 = add nsw i64 %sub.ptr.sub144.i1268, %conv63.i1212
   %conv147.i1271 = trunc i64 %add146.i1270 to i16
   br i1 %cmp.i1173.not, label %if.end152.i1273, label %if.then150.i1277
 
@@ -10073,7 +10073,7 @@ if.then116.i1064:                                 ; preds = %if.else.i1036
   %sub.ptr.lhs.cast142.i1066 = ptrtoint ptr %sym.i960.0.lcssa to i64
   %sub.ptr.rhs.cast143.i1067 = ptrtoint ptr %add.ptr2.i979 to i64
   %sub.ptr.sub144.i1068 = sub i64 %sub.ptr.lhs.cast142.i1066, %sub.ptr.rhs.cast143.i1067
-  %add146.i1070 = add i64 %sub.ptr.sub144.i1068, %conv63.i1012
+  %add146.i1070 = add nsw i64 %sub.ptr.sub144.i1068, %conv63.i1012
   %conv147.i1071 = trunc i64 %add146.i1070 to i16
   br i1 %cmp.i973.not, label %if.end152.i1073, label %if.then150.i1077
 
@@ -10613,7 +10613,7 @@ if.then116.i:                                     ; preds = %if.else.i920
   %sub.ptr.lhs.cast142.i = ptrtoint ptr %sym.i.0.lcssa to i64
   %sub.ptr.rhs.cast143.i = ptrtoint ptr %add.ptr2.i906 to i64
   %sub.ptr.sub144.i = sub i64 %sub.ptr.lhs.cast142.i, %sub.ptr.rhs.cast143.i
-  %add146.i = add i64 %sub.ptr.sub144.i, %conv63.i
+  %add146.i = add nsw i64 %sub.ptr.sub144.i, %conv63.i
   %conv147.i = trunc i64 %add146.i to i16
   br i1 %cmp.i900.not, label %if.end152.i, label %if.then150.i
 

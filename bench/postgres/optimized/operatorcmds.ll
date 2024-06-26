@@ -648,34 +648,34 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   %24 = getelementptr inbounds i8, ptr %22, i64 16
   %25 = load i32, ptr %23, align 4
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph235, label %._crit_edge
+  br i1 %26, label %.lr.ph234, label %._crit_edge
 
-.lr.ph235:                                        ; preds = %.lr.ph, %88
-  %.0130165234 = phi ptr [ %.1131, %88 ], [ null, %.lr.ph ]
-  %.0127166233 = phi ptr [ %.1128, %88 ], [ null, %.lr.ph ]
-  %.0124167232 = phi i8 [ %.1125, %88 ], [ 0, %.lr.ph ]
-  %.0122168231 = phi i1 [ %.1123, %88 ], [ false, %.lr.ph ]
-  %.0120169230 = phi i8 [ %.1121, %88 ], [ 0, %.lr.ph ]
-  %.0118170229 = phi i1 [ %.1119, %88 ], [ false, %.lr.ph ]
-  %.0116172228 = phi i1 [ %.1117, %88 ], [ false, %.lr.ph ]
-  %.0114173227 = phi ptr [ %.1115, %88 ], [ null, %.lr.ph ]
-  %.0110174226 = phi i1 [ %.1111, %88 ], [ false, %.lr.ph ]
-  %.0109175225 = phi ptr [ %.1, %88 ], [ null, %.lr.ph ]
-  %indvars.iv224 = phi i64 [ %indvars.iv.next, %88 ], [ 0, %.lr.ph ]
+.lr.ph234:                                        ; preds = %.lr.ph, %88
+  %.0130164233 = phi ptr [ %.1131, %88 ], [ null, %.lr.ph ]
+  %.0127165232 = phi ptr [ %.1128, %88 ], [ null, %.lr.ph ]
+  %.0124166231 = phi i8 [ %.1125, %88 ], [ 0, %.lr.ph ]
+  %.0122167230 = phi i1 [ %.1123, %88 ], [ false, %.lr.ph ]
+  %.0120168229 = phi i8 [ %.1121, %88 ], [ 0, %.lr.ph ]
+  %.0118169228 = phi i1 [ %.1119, %88 ], [ false, %.lr.ph ]
+  %.0116171227 = phi i1 [ %.1117, %88 ], [ false, %.lr.ph ]
+  %.0114172226 = phi ptr [ %.1115, %88 ], [ null, %.lr.ph ]
+  %.0110173225 = phi i1 [ %.1111, %88 ], [ false, %.lr.ph ]
+  %.0109174224 = phi ptr [ %.1, %88 ], [ null, %.lr.ph ]
+  %indvars.iv223 = phi i64 [ %indvars.iv.next, %88 ], [ 0, %.lr.ph ]
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr %union.ListCell, ptr %27, i64 %indvars.iv224
+  %28 = getelementptr %union.ListCell, ptr %27, i64 %indvars.iv223
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %35, label %33
 
-33:                                               ; preds = %.lr.ph235
+33:                                               ; preds = %.lr.ph234
   %34 = tail call ptr @defGetQualifiedName(ptr noundef nonnull %29) #6
   br label %35
 
-35:                                               ; preds = %.lr.ph235, %33
-  %.0113 = phi ptr [ %34, %33 ], [ null, %.lr.ph235 ]
+35:                                               ; preds = %.lr.ph234, %33
+  %.0113 = phi ptr [ %34, %33 ], [ null, %.lr.ph234 ]
   %36 = getelementptr inbounds i8, ptr %29, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(9) @.str.8) #7
@@ -765,21 +765,21 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   unreachable
 
 88:                                               ; preds = %40, %35, %46, %56, %62, %51
-  %.1131 = phi ptr [ %47, %46 ], [ %.0130165234, %51 ], [ %.0130165234, %56 ], [ %.0130165234, %62 ], [ %.0130165234, %35 ], [ %.0130165234, %40 ]
-  %.1128 = phi ptr [ %.0127166233, %46 ], [ %52, %51 ], [ %.0127166233, %56 ], [ %.0127166233, %62 ], [ %.0127166233, %35 ], [ %.0127166233, %40 ]
-  %.1125 = phi i8 [ %.0124167232, %46 ], [ %.0124167232, %51 ], [ %58, %56 ], [ %.0124167232, %62 ], [ %.0124167232, %35 ], [ %.0124167232, %40 ]
-  %.1123 = phi i1 [ %.0122168231, %46 ], [ %.0122168231, %51 ], [ true, %56 ], [ %.0122168231, %62 ], [ %.0122168231, %35 ], [ %.0122168231, %40 ]
-  %.1121 = phi i8 [ %.0120169230, %46 ], [ %.0120169230, %51 ], [ %.0120169230, %56 ], [ %64, %62 ], [ %.0120169230, %35 ], [ %.0120169230, %40 ]
-  %.1119 = phi i1 [ %.0118170229, %46 ], [ %.0118170229, %51 ], [ %.0118170229, %56 ], [ true, %62 ], [ %.0118170229, %35 ], [ %.0118170229, %40 ]
-  %.1117 = phi i1 [ %.0116172228, %46 ], [ %.0116172228, %51 ], [ %.0116172228, %56 ], [ %.0116172228, %62 ], [ %.0116172228, %35 ], [ true, %40 ]
-  %.1115 = phi ptr [ %.0114173227, %46 ], [ %.0114173227, %51 ], [ %.0114173227, %56 ], [ %.0114173227, %62 ], [ %.0114173227, %35 ], [ %.0113, %40 ]
-  %.1111 = phi i1 [ %.0110174226, %46 ], [ %.0110174226, %51 ], [ %.0110174226, %56 ], [ %.0110174226, %62 ], [ true, %35 ], [ %.0110174226, %40 ]
-  %.1 = phi ptr [ %.0109175225, %46 ], [ %.0109175225, %51 ], [ %.0109175225, %56 ], [ %.0109175225, %62 ], [ %.0113, %35 ], [ %.0109175225, %40 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv224, 1
+  %.1131 = phi ptr [ %47, %46 ], [ %.0130164233, %51 ], [ %.0130164233, %56 ], [ %.0130164233, %62 ], [ %.0130164233, %35 ], [ %.0130164233, %40 ]
+  %.1128 = phi ptr [ %.0127165232, %46 ], [ %52, %51 ], [ %.0127165232, %56 ], [ %.0127165232, %62 ], [ %.0127165232, %35 ], [ %.0127165232, %40 ]
+  %.1125 = phi i8 [ %.0124166231, %46 ], [ %.0124166231, %51 ], [ %58, %56 ], [ %.0124166231, %62 ], [ %.0124166231, %35 ], [ %.0124166231, %40 ]
+  %.1123 = phi i1 [ %.0122167230, %46 ], [ %.0122167230, %51 ], [ true, %56 ], [ %.0122167230, %62 ], [ %.0122167230, %35 ], [ %.0122167230, %40 ]
+  %.1121 = phi i8 [ %.0120168229, %46 ], [ %.0120168229, %51 ], [ %.0120168229, %56 ], [ %64, %62 ], [ %.0120168229, %35 ], [ %.0120168229, %40 ]
+  %.1119 = phi i1 [ %.0118169228, %46 ], [ %.0118169228, %51 ], [ %.0118169228, %56 ], [ true, %62 ], [ %.0118169228, %35 ], [ %.0118169228, %40 ]
+  %.1117 = phi i1 [ %.0116171227, %46 ], [ %.0116171227, %51 ], [ %.0116171227, %56 ], [ %.0116171227, %62 ], [ %.0116171227, %35 ], [ true, %40 ]
+  %.1115 = phi ptr [ %.0114172226, %46 ], [ %.0114172226, %51 ], [ %.0114172226, %56 ], [ %.0114172226, %62 ], [ %.0114172226, %35 ], [ %.0113, %40 ]
+  %.1111 = phi i1 [ %.0110173225, %46 ], [ %.0110173225, %51 ], [ %.0110173225, %56 ], [ %.0110173225, %62 ], [ true, %35 ], [ %.0110173225, %40 ]
+  %.1 = phi ptr [ %.0109174224, %46 ], [ %.0109174224, %51 ], [ %.0109174224, %56 ], [ %.0109174224, %62 ], [ %.0113, %35 ], [ %.0109174224, %40 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv223, 1
   %89 = load i32, ptr %23, align 4
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next, %90
-  br i1 %91, label %.lr.ph235, label %._crit_edge
+  br i1 %91, label %.lr.ph234, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %88, %.lr.ph, %14
   %.0130.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1131, %88 ]
@@ -1001,8 +1001,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
 193:                                              ; preds = %192
   %194 = getelementptr inbounds i8, ptr %4, i64 5
   store i8 1, ptr %194, align 1
-  %.mask = and i8 %.0124.lcssa, 1
-  %195 = zext nneg i8 %.mask to i64
+  %195 = zext nneg i8 %.0124.lcssa to i64
   %196 = getelementptr inbounds i8, ptr %2, i64 40
   store i64 %195, ptr %196, align 8
   br label %197
@@ -1013,8 +1012,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
 198:                                              ; preds = %197
   %199 = getelementptr inbounds i8, ptr %4, i64 6
   store i8 1, ptr %199, align 1
-  %.mask152 = and i8 %.0120.lcssa, 1
-  %200 = zext nneg i8 %.mask152 to i64
+  %200 = zext nneg i8 %.0120.lcssa to i64
   %201 = getelementptr inbounds i8, ptr %2, i64 48
   store i64 %200, ptr %201, align 16
   br label %202

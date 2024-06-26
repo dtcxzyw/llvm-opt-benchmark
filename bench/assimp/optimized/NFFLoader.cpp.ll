@@ -10906,8 +10906,7 @@ invoke.cont2212:                                  ; preds = %invoke.cont2209
   %arrayidx.i3442 = getelementptr inbounds i8, ptr %call2210, i64 14
   store i8 0, ptr %arrayidx.i3442, align 1
   %tobool2215 = trunc nuw i8 %hasCam.4 to i1
-  %tobool2215.mask = and i8 %hasCam.4, 1
-  %cond = zext nneg i8 %tobool2215.mask to i32
+  %cond = zext nneg i8 %hasCam.4 to i32
   %add2216 = add i32 %numNamed.0.lcssa, %cond
   %_M_finish.i3443 = getelementptr inbounds i8, ptr %lights, i64 8
   %825 = load ptr, ptr %_M_finish.i3443, align 8

@@ -2784,8 +2784,8 @@ ClearOrSaveResult.exit107:                        ; preds = %96, %98
 126:                                              ; preds = %124, %120, %118
   %.sink16.i = phi ptr [ %123, %120 ], [ %125, %124 ], [ %119, %118 ]
   %.sink.i = phi i8 [ 1, %120 ], [ 0, %124 ], [ 0, %118 ]
-  %.not166 = icmp eq ptr %.sink16.i, null
-  br i1 %.not166, label %openQueryOutputFile.exit, label %127
+  %.not165 = icmp eq ptr %.sink16.i, null
+  br i1 %.not165, label %openQueryOutputFile.exit, label %127
 
 openQueryOutputFile.exit:                         ; preds = %126
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %115) #15

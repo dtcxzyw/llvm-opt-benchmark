@@ -40057,8 +40057,8 @@ default.unreachable67:                            ; preds = %4
   %.sroa.7.0.insert.shift.i = mul nuw i64 %311, 72339069014638592
   %.sroa.6.0.insert.shift.i44 = mul nuw nsw i64 %310, 1103806595072
   %.sroa.6.0.insert.insert.i = or disjoint i64 %.sroa.7.0.insert.shift.i, %.sroa.6.0.insert.shift.i44
-  %narrow71 = mul nuw i32 %.mask68, 16842752
-  %.sroa.5.0.insert.shift.i45 = zext i32 %narrow71 to i64
+  %narrow70 = mul nuw i32 %.mask68, 16842752
+  %.sroa.5.0.insert.shift.i45 = zext i32 %narrow70 to i64
   %.sroa.5.0.insert.insert.i46 = or disjoint i64 %.sroa.6.0.insert.insert.i, %.sroa.5.0.insert.shift.i45
   %.sroa.0.0.insert.insert.i47 = or disjoint i64 %.sroa.5.0.insert.insert.i46, %.sroa.0.0.insert.ext.i43
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6559)
@@ -40943,8 +40943,8 @@ default.unreachable61:                            ; preds = %4
   %.sroa.7.0.insert.shift.i = mul nuw i64 %316, 72339069014638592
   %.sroa.6.0.insert.shift.i41 = mul nuw nsw i64 %315, 1103806595072
   %.sroa.6.0.insert.insert.i = or disjoint i64 %.sroa.7.0.insert.shift.i, %.sroa.6.0.insert.shift.i41
-  %narrow65 = mul nuw i32 %.mask62, 16842752
-  %.sroa.5.0.insert.shift.i42 = zext i32 %narrow65 to i64
+  %narrow64 = mul nuw i32 %.mask62, 16842752
+  %.sroa.5.0.insert.shift.i42 = zext i32 %narrow64 to i64
   %.sroa.5.0.insert.insert.i43 = or disjoint i64 %.sroa.6.0.insert.insert.i, %.sroa.5.0.insert.shift.i42
   %.sroa.0.0.insert.insert.i44 = or disjoint i64 %.sroa.5.0.insert.insert.i43, %.sroa.0.0.insert.ext.i40
   store i64 %.sroa.0.0.insert.insert.i44, ptr %46, align 8

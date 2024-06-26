@@ -3771,8 +3771,8 @@ for.body:                                         ; preds = %land.rhs.lr.ph, %if
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %1 = trunc nuw i64 %call to i32
-  %add = add nsw i32 %off.02024, %1
+  %conv2 = trunc nuw i64 %call to i32
+  %add = add nsw i32 %off.02024, %conv2
   %cmp4 = icmp sgt i32 %add, 31
   br i1 %cmp4, label %return, label %if.end7
 
@@ -3785,10 +3785,10 @@ if.end7:                                          ; preds = %if.end
   %idx.ext = sext i32 %inc to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 2 %arrayidx, i64 %call, i1 false)
-  %add16 = add nsw i32 %inc, %1
+  %add16 = add nsw i32 %inc, %conv2
   %inc17 = add nuw i64 %i.01925, 1
-  %2 = load i64, ptr %count, align 8
-  %cmp = icmp ult i64 %inc17, %2
+  %1 = load i64, ptr %count, align 8
+  %cmp = icmp ult i64 %inc17, %1
   br i1 %cmp, label %for.body, label %for.end
 
 for.end:                                          ; preds = %if.end7, %land.rhs.lr.ph, %entry

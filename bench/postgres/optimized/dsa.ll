@@ -730,7 +730,7 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef %1) unnamed
   %9 = getelementptr i8, ptr %7, i64 24
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %164
+  br i1 %.not, label %11, label %161
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -962,198 +962,194 @@ transfer_first_span.exit36:                       ; preds = %.critedge113.i
   %spec.select.i = select i1 %14, i64 %120, i64 %.2.i
   %121 = trunc nuw i32 %1 to i16
   %122 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %spec.select.i)
-  %.mask = and i32 %1, 65535
-  %123 = zext nneg i32 %.mask to i64
-  %124 = getelementptr [38 x i16], ptr @dsa_size_classes, i64 0, i64 %123
-  %125 = load i16, ptr %124, align 2
-  %126 = load i64, ptr %9, align 8
-  %.not.i32 = icmp eq i64 %126, 0
-  br i1 %.not.i32, label %130, label %127
+  %123 = load i64, ptr %9, align 8
+  %.not.i32 = icmp eq i64 %123, 0
+  br i1 %.not.i32, label %127, label %124
 
-127:                                              ; preds = %109
-  %128 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %126)
-  %129 = getelementptr inbounds i8, ptr %128, i64 8
-  store i64 %spec.select.i, ptr %129, align 8
-  br label %130
+124:                                              ; preds = %109
+  %125 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %123)
+  %126 = getelementptr inbounds i8, ptr %125, i64 8
+  store i64 %spec.select.i, ptr %126, align 8
+  br label %127
 
-130:                                              ; preds = %127, %109
-  %131 = load ptr, ptr %0, align 8
-  %132 = ptrtoint ptr %7 to i64
-  %133 = ptrtoint ptr %131 to i64
-  %134 = sub i64 %132, %133
-  store i64 %134, ptr %122, align 8
-  %135 = load i64, ptr %9, align 8
-  %136 = getelementptr inbounds i8, ptr %122, i64 16
-  store i64 %135, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %122, i64 8
-  store i64 0, ptr %137, align 8
+127:                                              ; preds = %124, %109
+  %128 = load ptr, ptr %0, align 8
+  %129 = ptrtoint ptr %7 to i64
+  %130 = ptrtoint ptr %128 to i64
+  %131 = sub i64 %129, %130
+  store i64 %131, ptr %122, align 8
+  %132 = load i64, ptr %9, align 8
+  %133 = getelementptr inbounds i8, ptr %122, i64 16
+  store i64 %132, ptr %133, align 8
+  %134 = getelementptr inbounds i8, ptr %122, i64 8
+  store i64 0, ptr %134, align 8
   store i64 %spec.select.i, ptr %9, align 8
-  %138 = getelementptr inbounds i8, ptr %122, i64 24
-  store i64 %120, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %122, i64 32
-  store i64 %.097.i, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %122, i64 40
-  store i16 %121, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %122, i64 42
-  store i16 0, ptr %141, align 2
-  switch i16 %121, label %146 [
-    i16 0, label %142
+  %135 = getelementptr inbounds i8, ptr %122, i64 24
+  store i64 %120, ptr %135, align 8
+  %136 = getelementptr inbounds i8, ptr %122, i64 32
+  store i64 %.097.i, ptr %136, align 8
+  %137 = getelementptr inbounds i8, ptr %122, i64 40
+  store i16 %121, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %122, i64 42
+  store i16 0, ptr %138, align 2
+  switch i16 %121, label %143 [
+    i16 0, label %139
     i16 1, label %._crit_edge.i
   ]
 
-._crit_edge.i:                                    ; preds = %130
+._crit_edge.i:                                    ; preds = %127
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %122, i64 44
   %.pre.i = load i16, ptr %.phi.trans.insert.i, align 4
   br label %init_span.exit
 
-142:                                              ; preds = %130
-  store i16 1, ptr %141, align 2
-  %143 = udiv i16 4096, %125
-  %144 = add nsw i16 %143, -1
-  %145 = getelementptr inbounds i8, ptr %122, i64 44
-  store i16 %144, ptr %145, align 4
+139:                                              ; preds = %127
+  store i16 1, ptr %138, align 2
+  %140 = udiv i16 4096, %13
+  %141 = add nsw i16 %140, -1
+  %142 = getelementptr inbounds i8, ptr %122, i64 44
+  store i16 %141, ptr %142, align 4
   br label %init_span.exit
 
-146:                                              ; preds = %130
-  %.rhs.trunc.i = zext i16 %125 to i32
-  %147 = udiv i32 65536, %.rhs.trunc.i
-  %148 = trunc i32 %147 to i16
-  %149 = getelementptr inbounds i8, ptr %122, i64 44
-  store i16 %148, ptr %149, align 4
+143:                                              ; preds = %127
+  %.rhs.trunc.i = zext i16 %13 to i32
+  %144 = udiv i32 65536, %.rhs.trunc.i
+  %145 = trunc i32 %144 to i16
+  %146 = getelementptr inbounds i8, ptr %122, i64 44
+  store i16 %145, ptr %146, align 4
   br label %init_span.exit
 
-init_span.exit:                                   ; preds = %._crit_edge.i, %142, %146
-  %150 = phi i16 [ %.pre.i, %._crit_edge.i ], [ %148, %146 ], [ %144, %142 ]
-  %151 = getelementptr inbounds i8, ptr %122, i64 46
-  store i16 -1, ptr %151, align 2
-  %152 = getelementptr inbounds i8, ptr %122, i64 48
-  store i16 %150, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %122, i64 50
-  store i16 1, ptr %153, align 2
-  %154 = getelementptr inbounds i8, ptr %.095.i, i64 32
-  br label %155
+init_span.exit:                                   ; preds = %._crit_edge.i, %139, %143
+  %147 = phi i16 [ %.pre.i, %._crit_edge.i ], [ %145, %143 ], [ %141, %139 ]
+  %148 = getelementptr inbounds i8, ptr %122, i64 46
+  store i16 -1, ptr %148, align 2
+  %149 = getelementptr inbounds i8, ptr %122, i64 48
+  store i16 %147, ptr %149, align 8
+  %150 = getelementptr inbounds i8, ptr %122, i64 50
+  store i16 1, ptr %150, align 2
+  %151 = getelementptr inbounds i8, ptr %.095.i, i64 32
+  br label %152
 
-155:                                              ; preds = %init_span.exit, %155
-  %.096.i47 = phi i64 [ 0, %init_span.exit ], [ %160, %155 ]
-  %156 = load ptr, ptr %154, align 8
-  %157 = load i64, ptr %3, align 8
-  %158 = getelementptr i64, ptr %156, i64 %157
-  %159 = getelementptr i64, ptr %158, i64 %.096.i47
-  store i64 %spec.select.i, ptr %159, align 8
-  %160 = add nuw nsw i64 %.096.i47, 1
-  %exitcond.not = icmp eq i64 %160, %.097.i
-  br i1 %exitcond.not, label %ensure_active_superblock.exit.thread, label %155, !llvm.loop !12
+152:                                              ; preds = %init_span.exit, %152
+  %.096.i47 = phi i64 [ 0, %init_span.exit ], [ %157, %152 ]
+  %153 = load ptr, ptr %151, align 8
+  %154 = load i64, ptr %3, align 8
+  %155 = getelementptr i64, ptr %153, i64 %154
+  %156 = getelementptr i64, ptr %155, i64 %.096.i47
+  store i64 %spec.select.i, ptr %156, align 8
+  %157 = add nuw nsw i64 %.096.i47, 1
+  %exitcond.not = icmp eq i64 %157, %.097.i
+  br i1 %exitcond.not, label %ensure_active_superblock.exit.thread, label %152, !llvm.loop !12
 
 ensure_active_superblock.exit.thread.sink.split.sink.split: ; preds = %85, %74
   %.sink55 = phi i64 [ %76, %74 ], [ %87, %85 ]
   %.sink = phi i64 [ %.pr, %74 ], [ %77, %85 ]
   %.sink52.ph = phi ptr [ %68, %74 ], [ %79, %85 ]
-  %161 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %.sink55)
-  %162 = getelementptr inbounds i8, ptr %161, i64 8
-  store i64 %.sink, ptr %162, align 8
+  %158 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %.sink55)
+  %159 = getelementptr inbounds i8, ptr %158, i64 8
+  store i64 %.sink, ptr %159, align 8
   br label %ensure_active_superblock.exit.thread.sink.split
 
 ensure_active_superblock.exit.thread.sink.split:  ; preds = %ensure_active_superblock.exit.thread.sink.split.sink.split, %85, %74
   %.sink52 = phi ptr [ %68, %74 ], [ %79, %85 ], [ %.sink52.ph, %ensure_active_superblock.exit.thread.sink.split.sink.split ]
-  %163 = getelementptr inbounds i8, ptr %.sink52, i64 50
-  store i16 1, ptr %163, align 2
+  %160 = getelementptr inbounds i8, ptr %.sink52, i64 50
+  store i16 1, ptr %160, align 2
   br label %ensure_active_superblock.exit.thread
 
-ensure_active_superblock.exit.thread:             ; preds = %155, %ensure_active_superblock.exit.thread.sink.split, %._crit_edge
+ensure_active_superblock.exit.thread:             ; preds = %152, %ensure_active_superblock.exit.thread.sink.split, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.pre48 = load i64, ptr %9, align 8
-  br label %164
+  br label %161
 
 ensure_active_superblock.exit:                    ; preds = %88, %99
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %transfer_first_span.exit
 
-164:                                              ; preds = %ensure_active_superblock.exit.thread, %2
-  %165 = phi i64 [ %.pre48, %ensure_active_superblock.exit.thread ], [ %10, %2 ]
-  %166 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %165)
-  %167 = getelementptr inbounds i8, ptr %166, i64 24
-  %168 = load i64, ptr %167, align 8
-  %169 = getelementptr [38 x i16], ptr @dsa_size_classes, i64 0, i64 %6
+161:                                              ; preds = %ensure_active_superblock.exit.thread, %2
+  %162 = phi i64 [ %.pre48, %ensure_active_superblock.exit.thread ], [ %10, %2 ]
+  %163 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %162)
+  %164 = getelementptr inbounds i8, ptr %163, i64 24
+  %165 = load i64, ptr %164, align 8
+  %166 = getelementptr [38 x i16], ptr @dsa_size_classes, i64 0, i64 %6
+  %167 = load i16, ptr %166, align 2
+  %168 = zext i16 %167 to i64
+  %169 = getelementptr inbounds i8, ptr %163, i64 46
   %170 = load i16, ptr %169, align 2
-  %171 = zext i16 %170 to i64
-  %172 = getelementptr inbounds i8, ptr %166, i64 46
-  %173 = load i16, ptr %172, align 2
-  %.not30 = icmp eq i16 %173, -1
-  br i1 %.not30, label %180, label %174
+  %.not30 = icmp eq i16 %170, -1
+  br i1 %.not30, label %177, label %171
 
-174:                                              ; preds = %164
-  %175 = zext i16 %173 to i64
-  %176 = mul nuw nsw i64 %175, %171
-  %177 = add i64 %176, %168
-  %178 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %177)
+171:                                              ; preds = %161
+  %172 = zext i16 %170 to i64
+  %173 = mul nuw nsw i64 %172, %168
+  %174 = add i64 %173, %165
+  %175 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %174)
+  %176 = load i16, ptr %175, align 2
+  store i16 %176, ptr %169, align 2
+  br label %184
+
+177:                                              ; preds = %161
+  %178 = getelementptr inbounds i8, ptr %163, i64 42
   %179 = load i16, ptr %178, align 2
-  store i16 %179, ptr %172, align 2
-  br label %187
+  %180 = zext i16 %179 to i64
+  %181 = mul nuw nsw i64 %180, %168
+  %182 = add i64 %181, %165
+  %183 = add i16 %179, 1
+  store i16 %183, ptr %178, align 2
+  br label %184
 
-180:                                              ; preds = %164
-  %181 = getelementptr inbounds i8, ptr %166, i64 42
-  %182 = load i16, ptr %181, align 2
-  %183 = zext i16 %182 to i64
-  %184 = mul nuw nsw i64 %183, %171
-  %185 = add i64 %184, %168
-  %186 = add i16 %182, 1
-  store i16 %186, ptr %181, align 2
-  br label %187
+184:                                              ; preds = %177, %171
+  %.0 = phi i64 [ %174, %171 ], [ %182, %177 ]
+  %185 = getelementptr inbounds i8, ptr %163, i64 44
+  %186 = load i16, ptr %185, align 4
+  %187 = add i16 %186, -1
+  store i16 %187, ptr %185, align 4
+  %188 = icmp eq i16 %187, 0
+  br i1 %188, label %189, label %transfer_first_span.exit
 
-187:                                              ; preds = %180, %174
-  %.0 = phi i64 [ %177, %174 ], [ %185, %180 ]
-  %188 = getelementptr inbounds i8, ptr %166, i64 44
-  %189 = load i16, ptr %188, align 4
-  %190 = add i16 %189, -1
-  store i16 %190, ptr %188, align 4
-  %191 = icmp eq i16 %190, 0
-  br i1 %191, label %192, label %transfer_first_span.exit
+189:                                              ; preds = %184
+  %190 = load i64, ptr %9, align 8
+  %.not.i31.not = icmp eq i64 %190, 0
+  br i1 %.not.i31.not, label %transfer_first_span.exit, label %191
 
-192:                                              ; preds = %187
-  %193 = load i64, ptr %9, align 8
-  %.not.i31.not = icmp eq i64 %193, 0
-  br i1 %.not.i31.not, label %transfer_first_span.exit, label %194
+191:                                              ; preds = %189
+  %192 = call ptr @dsa_get_address(ptr noundef %0, i64 noundef %190)
+  %193 = getelementptr inbounds i8, ptr %192, i64 16
+  %194 = load i64, ptr %193, align 8
+  store i64 %194, ptr %9, align 8
+  %.not28.i = icmp eq i64 %194, 0
+  br i1 %.not28.i, label %198, label %195
 
-194:                                              ; preds = %192
-  %195 = call ptr @dsa_get_address(ptr noundef %0, i64 noundef %193)
-  %196 = getelementptr inbounds i8, ptr %195, i64 16
-  %197 = load i64, ptr %196, align 8
-  store i64 %197, ptr %9, align 8
-  %.not28.i = icmp eq i64 %197, 0
-  br i1 %.not28.i, label %201, label %198
+195:                                              ; preds = %191
+  %196 = call ptr @dsa_get_address(ptr noundef %0, i64 noundef %194)
+  %197 = getelementptr inbounds i8, ptr %196, i64 8
+  store i64 0, ptr %197, align 8
+  br label %198
 
-198:                                              ; preds = %194
-  %199 = call ptr @dsa_get_address(ptr noundef %0, i64 noundef %197)
-  %200 = getelementptr inbounds i8, ptr %199, i64 8
-  store i64 0, ptr %200, align 8
-  br label %201
+198:                                              ; preds = %195, %191
+  %199 = getelementptr i8, ptr %7, i64 40
+  %200 = load i64, ptr %199, align 8
+  store i64 %200, ptr %193, align 8
+  store i64 %190, ptr %199, align 8
+  %201 = load i64, ptr %193, align 8
+  %.not29.i = icmp eq i64 %201, 0
+  br i1 %.not29.i, label %205, label %202
 
-201:                                              ; preds = %198, %194
-  %202 = getelementptr i8, ptr %7, i64 40
-  %203 = load i64, ptr %202, align 8
-  store i64 %203, ptr %196, align 8
-  store i64 %193, ptr %202, align 8
-  %204 = load i64, ptr %196, align 8
-  %.not29.i = icmp eq i64 %204, 0
-  br i1 %.not29.i, label %208, label %205
+202:                                              ; preds = %198
+  %203 = call ptr @dsa_get_address(ptr noundef %0, i64 noundef %201)
+  %204 = getelementptr inbounds i8, ptr %203, i64 8
+  store i64 %190, ptr %204, align 8
+  br label %205
 
-205:                                              ; preds = %201
-  %206 = call ptr @dsa_get_address(ptr noundef %0, i64 noundef %204)
-  %207 = getelementptr inbounds i8, ptr %206, i64 8
-  store i64 %193, ptr %207, align 8
-  br label %208
-
-208:                                              ; preds = %205, %201
-  %209 = getelementptr inbounds i8, ptr %195, i64 50
-  store i16 3, ptr %209, align 2
+205:                                              ; preds = %202, %198
+  %206 = getelementptr inbounds i8, ptr %192, i64 50
+  store i16 3, ptr %206, align 2
   br label %transfer_first_span.exit
 
-transfer_first_span.exit:                         ; preds = %208, %192, %ensure_active_superblock.exit, %187
-  %.1 = phi i64 [ %.0, %187 ], [ 0, %ensure_active_superblock.exit ], [ %.0, %192 ], [ %.0, %208 ]
-  %210 = load ptr, ptr %0, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 4288
-  %212 = getelementptr [38 x %struct.dsa_area_pool], ptr %211, i64 0, i64 %6
-  call void @LWLockRelease(ptr noundef %212) #10
+transfer_first_span.exit:                         ; preds = %205, %189, %ensure_active_superblock.exit, %184
+  %.1 = phi i64 [ %.0, %184 ], [ 0, %ensure_active_superblock.exit ], [ %.0, %189 ], [ %.0, %205 ]
+  %207 = load ptr, ptr %0, align 8
+  %208 = getelementptr inbounds i8, ptr %207, i64 4288
+  %209 = getelementptr [38 x %struct.dsa_area_pool], ptr %208, i64 0, i64 %6
+  call void @LWLockRelease(ptr noundef %209) #10
   ret i64 %.1
 }
 

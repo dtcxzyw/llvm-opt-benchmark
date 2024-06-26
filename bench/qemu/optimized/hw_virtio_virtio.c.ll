@@ -2147,6 +2147,7 @@ if.then21:                                        ; preds = %if.end18
   %conv.i = zext i16 %9 to i32
   %last_avail_wrap_counter.i = getelementptr inbounds i8, ptr %vq, i64 58
   %10 = load i8, ptr %last_avail_wrap_counter.i, align 2
+  %frombool.i = and i8 %10, 1
   %desc2.i = getelementptr inbounds i8, ptr %4, i64 16
   call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc2.i, i32 noundef %conv.i, i1 noundef zeroext true)
   %flags.i = getelementptr inbounds i8, ptr %desc.i, i64 14
@@ -2170,7 +2171,7 @@ if.end.i:                                         ; preds = %if.end60.i, %if.end
   %15 = phi i16 [ %11, %if.end.lr.ph.i ], [ %31, %if.end60.i ]
   %16 = phi i32 [ %7, %if.end.lr.ph.i ], [ %30, %if.end60.i ]
   %idx.092.i = phi i32 [ %conv.i, %if.end.lr.ph.i ], [ %idx.2.i, %if.end60.i ]
-  %wrap_counter.091.i = phi i8 [ %10, %if.end.lr.ph.i ], [ %wrap_counter.1.i, %if.end60.i ]
+  %wrap_counter.091.i = phi i8 [ %frombool.i, %if.end.lr.ph.i ], [ %wrap_counter.1.i, %if.end60.i ]
   %out_total.090.i = phi i32 [ 0, %if.end.lr.ph.i ], [ %out_total.250.i, %if.end60.i ]
   %in_total.089.i = phi i32 [ 0, %if.end.lr.ph.i ], [ %in_total.253.i, %if.end60.i ]
   %total_bufs.088.i = phi i32 [ 0, %if.end.lr.ph.i ], [ %total_bufs.1.i, %if.end60.i ]
@@ -2318,14 +2319,15 @@ if.end60.i:                                       ; preds = %if.else58.i, %if.th
   %total_bufs.1.i = phi i32 [ %inc56.i, %if.then55.split.us.i ], [ %inc79.i, %if.else58.i ]
   %idx.1.i = phi i32 [ %inc57.i, %if.then55.split.us.i ], [ %add59.i, %if.else58.i ]
   %30 = load i32, ptr %vq, align 8
-  %cmp63.not.i = icmp uge i32 %idx.1.i, %30
-  %frombool72.i = zext i1 %cmp63.not.i to i8
-  %wrap_counter.1.i = xor i8 %wrap_counter.091.i, %frombool72.i
-  %sub68.i = select i1 %cmp63.not.i, i32 %30, i32 0
+  %cmp63.not.i = icmp ult i32 %idx.1.i, %30
+  %tobool71.i = icmp ne i8 %wrap_counter.091.i, 1
+  %frombool72.i = zext i1 %tobool71.i to i8
+  %wrap_counter.1.i = select i1 %cmp63.not.i, i8 %wrap_counter.091.i, i8 %frombool72.i
+  %sub68.i = select i1 %cmp63.not.i, i32 0, i32 %30
   %idx.2.i = sub i32 %idx.1.i, %sub68.i
   call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc2.i, i32 noundef %idx.2.i, i1 noundef zeroext true)
   %31 = load i16, ptr %flags.i, align 2
-  %tobool3.i = trunc i8 %wrap_counter.1.i to i1
+  %tobool3.i = trunc nuw i8 %wrap_counter.1.i to i1
   %32 = lshr i16 %31, 7
   %.lobit.i.i = and i16 %32, 1
   %flags.lobit.i.i = lshr i16 %31, 15
@@ -2337,18 +2339,18 @@ if.end60.i:                                       ; preds = %if.else58.i, %if.th
 
 for.end.loopexit.i:                               ; preds = %if.end60.i
   %35 = trunc i32 %idx.2.i to i16
+  %36 = and i8 %wrap_counter.1.i, 1
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.then21
   %in_total.0.lcssa.i = phi i32 [ 0, %if.then21 ], [ %in_total.253.i, %for.end.loopexit.i ]
   %out_total.0.lcssa.i = phi i32 [ 0, %if.then21 ], [ %out_total.250.i, %for.end.loopexit.i ]
-  %wrap_counter.0.lcssa.i = phi i8 [ %10, %if.then21 ], [ %wrap_counter.1.i, %for.end.loopexit.i ]
+  %wrap_counter.0.lcssa.i = phi i8 [ %frombool.i, %if.then21 ], [ %36, %for.end.loopexit.i ]
   %idx.0.lcssa.i = phi i16 [ %9, %if.then21 ], [ %35, %for.end.loopexit.i ]
   %shadow_avail_idx.i = getelementptr inbounds i8, ptr %vq, i64 60
   store i16 %idx.0.lcssa.i, ptr %shadow_avail_idx.i, align 4
   %shadow_avail_wrap_counter.i = getelementptr inbounds i8, ptr %vq, i64 62
-  %frombool76.i = and i8 %wrap_counter.0.lcssa.i, 1
-  store i8 %frombool76.i, ptr %shadow_avail_wrap_counter.i, align 2
+  store i8 %wrap_counter.0.lcssa.i, ptr %shadow_avail_wrap_counter.i, align 2
   br label %done.i
 
 done.i:                                           ; preds = %if.end32.i, %if.end32.us.i, %for.end.i, %if.then31.i, %if.then23.i, %if.then14.i, %if.then11.i
@@ -2382,8 +2384,8 @@ if.else:                                          ; preds = %if.end18
   store ptr null, ptr %mr.i.i25, align 16
   %fv.i.i26 = getelementptr inbounds i8, ptr %indirect_desc_cache.i23, i64 24
   store ptr null, ptr %fv.i.i26, align 8
-  %36 = load i16, ptr %last_avail_idx.i27, align 8
-  %conv.i28 = zext i16 %36 to i32
+  %37 = load i16, ptr %last_avail_idx.i27, align 8
+  %conv.i28 = zext i16 %37 to i32
   %shadow_avail_idx.i.i = getelementptr inbounds i8, ptr %vq, i64 60
   %desc.i29 = getelementptr inbounds i8, ptr %4, i64 16
   %flags.i30 = getelementptr inbounds i8, ptr %desc3.i, i64 12
@@ -2398,23 +2400,23 @@ while.cond.i:                                     ; preds = %while.cond.i.backed
   %total_bufs.0.i = phi i32 [ 0, %if.else ], [ %total_bufs.0.i.be, %while.cond.i.backedge ]
   %in_total.0.i = phi i32 [ 0, %if.else ], [ %in_total.2.i44, %while.cond.i.backedge ]
   %out_total.0.i = phi i32 [ 0, %if.else ], [ %out_total.2.i45, %while.cond.i.backedge ]
-  %37 = load i16, ptr %shadow_avail_idx.i.i, align 4
-  %conv.i.i = zext i16 %37 to i32
+  %38 = load i16, ptr %shadow_avail_idx.i.i, align 4
+  %conv.i.i = zext i16 %38 to i32
   %cmp.not.i.i32 = icmp eq i32 %idx.0.i, %conv.i.i
   br i1 %cmp.not.i.i32, label %cond.false.i.i, label %cond.end.i.i
 
 cond.false.i.i:                                   ; preds = %while.cond.i
-  %38 = load atomic i64, ptr %caches.i monotonic, align 8
+  %39 = load atomic i64, ptr %caches.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
-  %tobool.not.i.i.i = icmp eq i64 %38, 0
+  %tobool.not.i.i.i = icmp eq i64 %39, 0
   br i1 %tobool.not.i.i.i, label %cond.end.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %cond.false.i.i
-  %39 = inttoptr i64 %38 to ptr
-  %avail.i.i.i = getelementptr inbounds i8, ptr %39, i64 128
-  %len.i.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 144
-  %40 = load i64, ptr %len.i.i.i.i.i.i, align 16
-  %switch.i.i.i = icmp ult i64 %40, 4
+  %40 = inttoptr i64 %39 to ptr
+  %avail.i.i.i = getelementptr inbounds i8, ptr %40, i64 128
+  %len.i.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 144
+  %41 = load i64, ptr %len.i.i.i.i.i.i, align 16
+  %switch.i.i.i = icmp ult i64 %41, 4
   br i1 %switch.i.i.i, label %if.else.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
@@ -2422,12 +2424,12 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
   unreachable
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i
-  %41 = load ptr, ptr %avail.i.i.i, align 16
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %41, null
+  %42 = load ptr, ptr %avail.i.i.i, align 16
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i.i.i.i, label %if.else8.i.i.i.i.i.i, label %if.then5.i.i.i.i.i.i
 
 if.then5.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %41, i64 2
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %42, i64 2
   %add.ptr.val.i.i.i.i.i.i = load i16, ptr %add.ptr.i.i.i.i.i.i, align 1
   br label %virtio_lduw_phys_cached.exit.i.i.i
 
@@ -2441,46 +2443,46 @@ virtio_lduw_phys_cached.exit.i.i.i:               ; preds = %if.else8.i.i.i.i.i.
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %virtio_lduw_phys_cached.exit.i.i.i, %cond.false.i.i, %while.cond.i
-  %cond.i.i = phi i16 [ %37, %while.cond.i ], [ %retval.0.i.i.i.i.i.i, %virtio_lduw_phys_cached.exit.i.i.i ], [ 0, %cond.false.i.i ]
-  %42 = trunc i32 %idx.0.i to i16
-  %conv7.i.i = sub i16 %cond.i.i, %42
+  %cond.i.i = phi i16 [ %38, %while.cond.i ], [ %retval.0.i.i.i.i.i.i, %virtio_lduw_phys_cached.exit.i.i.i ], [ 0, %cond.false.i.i ]
+  %43 = trunc i32 %idx.0.i to i16
+  %conv7.i.i = sub i16 %cond.i.i, %43
   %conv8.i.i33 = zext i16 %conv7.i.i to i32
-  %43 = load i32, ptr %vq, align 8
-  %cmp9.i.i = icmp ult i32 %43, %conv8.i.i33
+  %44 = load i32, ptr %vq, align 8
+  %cmp9.i.i = icmp ult i32 %44, %conv8.i.i33
   br i1 %cmp9.i.i, label %while.end.thread.i, label %if.end.i.i
 
 while.end.thread.i:                               ; preds = %cond.end.i.i
-  %44 = load ptr, ptr %vdev, align 8
-  %45 = load i16, ptr %shadow_avail_idx.i.i, align 4
-  %conv12.i.i = zext i16 %45 to i32
-  call void (ptr, ptr, ...) @virtio_error(ptr noundef %44, ptr noundef nonnull @.str.78, i32 noundef %idx.0.i, i32 noundef %conv12.i.i)
+  %45 = load ptr, ptr %vdev, align 8
+  %46 = load i16, ptr %shadow_avail_idx.i.i, align 4
+  %conv12.i.i = zext i16 %46 to i32
+  call void (ptr, ptr, ...) @virtio_error(ptr noundef %45, ptr noundef nonnull @.str.78, i32 noundef %idx.0.i, i32 noundef %conv12.i.i)
   br label %done.i35
 
 if.end.i.i:                                       ; preds = %cond.end.i.i
-  %tobool.not.i.i = icmp eq i16 %cond.i.i, %42
+  %tobool.not.i.i = icmp eq i16 %cond.i.i, %43
   br i1 %tobool.not.i.i, label %done.i35, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !18
   fence acquire
-  %46 = load i32, ptr %vq, align 8
+  %47 = load i32, ptr %vq, align 8
   %inc.i34 = add i32 %idx.0.i, 1
-  %47 = load atomic i64, ptr %caches.i monotonic, align 8
+  %48 = load atomic i64, ptr %caches.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
-  %tobool.not.i.i31.i = icmp eq i64 %47, 0
+  %tobool.not.i.i31.i = icmp eq i64 %48, 0
   br i1 %tobool.not.i.i31.i, label %vring_avail_ring.exit.i.i, label %if.end.i.i32.i
 
 if.end.i.i32.i:                                   ; preds = %while.body.i
-  %rem.i.i = urem i32 %idx.0.i, %46
-  %48 = inttoptr i64 %47 to ptr
+  %rem.i.i = urem i32 %idx.0.i, %47
+  %49 = inttoptr i64 %48 to ptr
   %conv.i.i.i = sext i32 %rem.i.i to i64
-  %49 = shl nsw i64 %conv.i.i.i, 1
-  %50 = add nsw i64 %49, 4
-  %avail.i.i33.i = getelementptr inbounds i8, ptr %48, i64 128
-  %len.i.i.i.i.i34.i = getelementptr inbounds i8, ptr %48, i64 144
-  %51 = load i64, ptr %len.i.i.i.i.i34.i, align 16
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %51, %50
-  %sub.i.i.i.i.i.i = sub i64 %51, %50
+  %50 = shl nsw i64 %conv.i.i.i, 1
+  %51 = add nsw i64 %50, 4
+  %avail.i.i33.i = getelementptr inbounds i8, ptr %49, i64 128
+  %len.i.i.i.i.i34.i = getelementptr inbounds i8, ptr %49, i64 144
+  %52 = load i64, ptr %len.i.i.i.i.i34.i, align 16
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %52, %51
+  %sub.i.i.i.i.i.i = sub i64 %52, %51
   %cmp2.i.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i.i, 1
   %or.cond.i.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i, %cmp2.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i36.i, label %if.else.i.i.i.i.i35.i
@@ -2490,37 +2492,37 @@ if.else.i.i.i.i.i35.i:                            ; preds = %if.end.i.i32.i
   unreachable
 
 if.end.i.i.i.i.i36.i:                             ; preds = %if.end.i.i32.i
-  %52 = load ptr, ptr %avail.i.i33.i, align 16
-  %tobool.not.i.i.i.i.i37.i = icmp eq ptr %52, null
+  %53 = load ptr, ptr %avail.i.i33.i, align 16
+  %tobool.not.i.i.i.i.i37.i = icmp eq ptr %53, null
   br i1 %tobool.not.i.i.i.i.i37.i, label %if.else8.i.i.i.i.i45.i, label %if.then5.i.i.i.i.i38.i
 
 if.then5.i.i.i.i.i38.i:                           ; preds = %if.end.i.i.i.i.i36.i
-  %add.ptr.i.i.i.i.i39.i = getelementptr i8, ptr %52, i64 %50
+  %add.ptr.i.i.i.i.i39.i = getelementptr i8, ptr %53, i64 %51
   %add.ptr.val.i.i.i.i.i40.i = load i16, ptr %add.ptr.i.i.i.i.i39.i, align 1
   br label %vring_avail_ring.exit.i.i
 
 if.else8.i.i.i.i.i45.i:                           ; preds = %if.end.i.i.i.i.i36.i
-  %call10.i.i.i.i.i46.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i33.i, i64 noundef %50, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i46.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i33.i, i64 noundef %51, i32 1, ptr noundef null) #21
   br label %vring_avail_ring.exit.i.i
 
 vring_avail_ring.exit.i.i:                        ; preds = %if.else8.i.i.i.i.i45.i, %if.then5.i.i.i.i.i38.i, %while.body.i
   %retval.0.i.i.i = phi i16 [ 0, %while.body.i ], [ %add.ptr.val.i.i.i.i.i40.i, %if.then5.i.i.i.i.i38.i ], [ %call10.i.i.i.i.i46.i, %if.else8.i.i.i.i.i45.i ]
   %conv.i41.i = zext i16 %retval.0.i.i.i to i32
-  %53 = load i32, ptr %vq, align 8
-  %cmp.not.i42.i = icmp ugt i32 %53, %conv.i41.i
+  %54 = load i32, ptr %vq, align 8
+  %cmp.not.i42.i = icmp ugt i32 %54, %conv.i41.i
   br i1 %cmp.not.i42.i, label %if.end.i38, label %virtqueue_get_head.exit.i
 
 virtqueue_get_head.exit.i:                        ; preds = %vring_avail_ring.exit.i.i
-  %54 = load ptr, ptr %vdev, align 8
-  call void (ptr, ptr, ...) @virtio_error(ptr noundef %54, ptr noundef nonnull @.str.79, i32 noundef %conv.i41.i)
+  %55 = load ptr, ptr %vdev, align 8
+  call void (ptr, ptr, ...) @virtio_error(ptr noundef %55, ptr noundef nonnull @.str.79, i32 noundef %conv.i41.i)
   br label %done.i35
 
 if.end.i38:                                       ; preds = %vring_avail_ring.exit.i.i
   %conv.i47.i = zext i16 %retval.0.i.i.i to i64
   %mul.i.i = shl nuw nsw i64 %conv.i47.i, 4
-  %55 = load i64, ptr %len, align 16
-  %cmp.i.i.i = icmp ule i64 %55, %mul.i.i
-  %sub.i.i.i = sub i64 %55, %mul.i.i
+  %56 = load i64, ptr %len, align 16
+  %cmp.i.i.i = icmp ule i64 %56, %mul.i.i
+  %sub.i.i.i = sub i64 %56, %mul.i.i
   %cmp3.not.i.i.i = icmp ult i64 %sub.i.i.i, 16
   %or.cond.i.i.i = or i1 %cmp.i.i.i, %cmp3.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.end.i.i48.i
@@ -2530,12 +2532,12 @@ if.else.i.i.i:                                    ; preds = %if.end.i38
   unreachable
 
 if.end.i.i48.i:                                   ; preds = %if.end.i38
-  %56 = load ptr, ptr %desc.i29, align 16
-  %tobool.not.i.i49.i = icmp eq ptr %56, null
+  %57 = load ptr, ptr %desc.i29, align 16
+  %tobool.not.i.i49.i = icmp eq ptr %57, null
   br i1 %tobool.not.i.i49.i, label %if.else8.i.i.i, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i48.i
-  %add.ptr.i.i.i = getelementptr i8, ptr %56, i64 %mul.i.i
+  %add.ptr.i.i.i = getelementptr i8, ptr %57, i64 %mul.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %desc3.i, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i.i.i, i64 16, i1 false)
   br label %vring_split_desc_read.exit.i
 
@@ -2544,18 +2546,18 @@ if.else8.i.i.i:                                   ; preds = %if.end.i.i48.i
   br label %vring_split_desc_read.exit.i
 
 vring_split_desc_read.exit.i:                     ; preds = %if.else8.i.i.i, %if.then6.i.i.i
-  %57 = load i16, ptr %flags.i30, align 4
-  %58 = and i16 %57, 4
-  %tobool.not.i = icmp eq i16 %58, 0
+  %58 = load i16, ptr %flags.i30, align 4
+  %59 = and i16 %58, 4
+  %tobool.not.i = icmp eq i16 %59, 0
   br i1 %tobool.not.i, label %if.end30.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %vring_split_desc_read.exit.i
-  %59 = load i32, ptr %len7.i, align 8
-  %tobool8.not.i = icmp eq i32 %59, 0
+  %60 = load i32, ptr %len7.i, align 8
+  %tobool8.not.i = icmp eq i32 %60, 0
   br i1 %tobool8.not.i, label %if.then12.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then6.i
-  %conv10.i = zext i32 %59 to i64
+  %conv10.i = zext i32 %60 to i64
   %rem.i39 = and i64 %conv10.i, 15
   %tobool11.not.i = icmp eq i64 %rem.i39, 0
   br i1 %tobool11.not.i, label %if.end13.i, label %if.then12.i
@@ -2565,7 +2567,7 @@ if.then12.i:                                      ; preds = %lor.lhs.false.i, %i
   br label %done.i35
 
 if.end13.i:                                       ; preds = %lor.lhs.false.i
-  %cmp14.not.i = icmp ult i32 %total_bufs.0.i, %46
+  %cmp14.not.i = icmp ult i32 %total_bufs.0.i, %47
   br i1 %cmp14.not.i, label %if.end17.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end13.i
@@ -2573,11 +2575,11 @@ if.then16.i:                                      ; preds = %if.end13.i
   br label %done.i35
 
 if.end17.i:                                       ; preds = %if.end13.i
-  %60 = load ptr, ptr %dma_as.i31, align 8
-  %61 = load i64, ptr %desc3.i, align 8
-  %call20.i = call i64 @address_space_cache_init(ptr noundef nonnull %indirect_desc_cache.i23, ptr noundef %60, i64 noundef %61, i64 noundef %conv10.i, i1 noundef zeroext false) #21
-  %62 = load i32, ptr %len7.i, align 8
-  %conv22.i = zext i32 %62 to i64
+  %61 = load ptr, ptr %dma_as.i31, align 8
+  %62 = load i64, ptr %desc3.i, align 8
+  %call20.i = call i64 @address_space_cache_init(ptr noundef nonnull %indirect_desc_cache.i23, ptr noundef %61, i64 noundef %62, i64 noundef %conv10.i, i1 noundef zeroext false) #21
+  %63 = load i32, ptr %len7.i, align 8
+  %conv22.i = zext i32 %63 to i64
   %cmp23.i = icmp slt i64 %call20.i, %conv22.i
   br i1 %cmp23.i, label %if.then25.i, label %if.end26.i
 
@@ -2586,9 +2588,9 @@ if.then25.i:                                      ; preds = %if.end17.i
   br label %done.i35
 
 if.end26.i:                                       ; preds = %if.end17.i
-  %div29.i = lshr i32 %62, 4
-  %63 = load i64, ptr %len1.i.i50.i, align 16
-  %cmp3.not.i.i53.i = icmp ult i64 %63, 16
+  %div29.i = lshr i32 %63, 4
+  %64 = load i64, ptr %len1.i.i50.i, align 16
+  %cmp3.not.i.i53.i = icmp ult i64 %64, 16
   br i1 %cmp3.not.i.i53.i, label %if.else.i.i61.i, label %if.end.i.i55.i
 
 if.else.i.i61.i:                                  ; preds = %if.end26.i
@@ -2596,12 +2598,12 @@ if.else.i.i61.i:                                  ; preds = %if.end26.i
   unreachable
 
 if.end.i.i55.i:                                   ; preds = %if.end26.i
-  %64 = load ptr, ptr %indirect_desc_cache.i23, align 16
-  %tobool.not.i.i56.i = icmp eq ptr %64, null
+  %65 = load ptr, ptr %indirect_desc_cache.i23, align 16
+  %tobool.not.i.i56.i = icmp eq ptr %65, null
   br i1 %tobool.not.i.i56.i, label %if.else8.i.i59.i, label %if.then6.i.i57.i
 
 if.then6.i.i57.i:                                 ; preds = %if.end.i.i55.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %desc3.i, ptr noundef nonnull align 1 dereferenceable(16) %64, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %desc3.i, ptr noundef nonnull align 1 dereferenceable(16) %65, i64 16, i1 false)
   br label %if.end30.i
 
 if.else8.i.i59.i:                                 ; preds = %if.end.i.i55.i
@@ -2611,7 +2613,7 @@ if.else8.i.i59.i:                                 ; preds = %if.end.i.i55.i
 if.end30.i:                                       ; preds = %if.else8.i.i59.i, %if.then6.i.i57.i, %vring_split_desc_read.exit.i
   %desc_cache.0.i40 = phi ptr [ %desc.i29, %vring_split_desc_read.exit.i ], [ %indirect_desc_cache.i23, %if.then6.i.i57.i ], [ %indirect_desc_cache.i23, %if.else8.i.i59.i ]
   %num_bufs.0.i41 = phi i32 [ %total_bufs.0.i, %vring_split_desc_read.exit.i ], [ 0, %if.then6.i.i57.i ], [ 0, %if.else8.i.i59.i ]
-  %max.0.i42 = phi i32 [ %46, %vring_split_desc_read.exit.i ], [ %div29.i, %if.then6.i.i57.i ], [ %div29.i, %if.else8.i.i59.i ]
+  %max.0.i42 = phi i32 [ %47, %vring_split_desc_read.exit.i ], [ %div29.i, %if.then6.i.i57.i ], [ %div29.i, %if.else8.i.i59.i ]
   %inc31149.i = add i32 %num_bufs.0.i41, 1
   %cmp32150.i = icmp ugt i32 %inc31149.i, %max.0.i42
   br i1 %cmp32150.i, label %if.then34.i, label %if.end35.lr.ph.i
@@ -2628,13 +2630,13 @@ if.end35.i:                                       ; preds = %virtqueue_split_rea
   %inc31153.i = phi i32 [ %inc31149.i, %if.end35.lr.ph.i ], [ %inc31.i, %virtqueue_split_read_next_desc.exit.i ]
   %out_total.1152.i = phi i32 [ %out_total.0.i, %if.end35.lr.ph.i ], [ %out_total.2.i45, %virtqueue_split_read_next_desc.exit.i ]
   %in_total.1151.i = phi i32 [ %in_total.0.i, %if.end35.lr.ph.i ], [ %in_total.2.i44, %virtqueue_split_read_next_desc.exit.i ]
-  %65 = load i16, ptr %flags.i30, align 4
-  %66 = and i16 %65, 2
-  %tobool39.not.i = icmp eq i16 %66, 0
-  %67 = load i32, ptr %len7.i, align 8
-  %add.i43 = select i1 %tobool39.not.i, i32 0, i32 %67
+  %66 = load i16, ptr %flags.i30, align 4
+  %67 = and i16 %66, 2
+  %tobool39.not.i = icmp eq i16 %67, 0
+  %68 = load i32, ptr %len7.i, align 8
+  %add.i43 = select i1 %tobool39.not.i, i32 0, i32 %68
   %in_total.2.i44 = add i32 %add.i43, %in_total.1151.i
-  %add43.i = select i1 %tobool39.not.i, i32 %67, i32 0
+  %add43.i = select i1 %tobool39.not.i, i32 %68, i32 0
   %out_total.2.i45 = add i32 %add43.i, %out_total.1152.i
   %cmp45.not.i = icmp ult i32 %in_total.2.i44, %max_in_bytes
   %cmp47.not.i = icmp ult i32 %out_total.2.i45, %max_out_bytes
@@ -2642,13 +2644,13 @@ if.end35.i:                                       ; preds = %virtqueue_split_rea
   br i1 %or.cond.i46, label %if.end50.i, label %done.i35
 
 if.end50.i:                                       ; preds = %if.end35.i
-  %68 = and i16 %65, 1
-  %tobool.not.i63.i = icmp eq i16 %68, 0
+  %69 = and i16 %66, 1
+  %tobool.not.i63.i = icmp eq i16 %69, 0
   br i1 %tobool.not.i63.i, label %if.end57.i, label %if.end.i64.i
 
 if.end.i64.i:                                     ; preds = %if.end50.i
-  %69 = load i16, ptr %next.i.i, align 2
-  %conv1.i.i = zext i16 %69 to i32
+  %70 = load i16, ptr %next.i.i, align 2
+  %conv1.i.i = zext i16 %70 to i32
   %cmp.not.i65.i = icmp ugt i32 %max.0.i42, %conv1.i.i
   br i1 %cmp.not.i65.i, label %if.end6.i.i, label %virtqueue_split_read_next_desc.exit.thread72.i
 
@@ -2657,11 +2659,11 @@ virtqueue_split_read_next_desc.exit.thread72.i:   ; preds = %if.end.i64.i
   br label %done.i35
 
 if.end6.i.i:                                      ; preds = %if.end.i64.i
-  %conv.i.i67.i = zext i16 %69 to i64
+  %conv.i.i67.i = zext i16 %70 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i67.i, 4
-  %70 = load i64, ptr %len1.i.i.i.i, align 16
-  %cmp.i.i.i.i = icmp ule i64 %70, %mul.i.i.i
-  %sub.i.i.i.i = sub i64 %70, %mul.i.i.i
+  %71 = load i64, ptr %len1.i.i.i.i, align 16
+  %cmp.i.i.i.i = icmp ule i64 %71, %mul.i.i.i
+  %sub.i.i.i.i = sub i64 %71, %mul.i.i.i
   %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, 16
   %or.cond.i.i.i.i = or i1 %cmp.i.i.i.i, %cmp3.not.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -2671,12 +2673,12 @@ if.else.i.i.i.i:                                  ; preds = %if.end6.i.i
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.end6.i.i
-  %71 = load ptr, ptr %desc_cache.0.i40, align 16
-  %tobool.not.i.i.i.i = icmp eq ptr %71, null
+  %72 = load ptr, ptr %desc_cache.0.i40, align 16
+  %tobool.not.i.i.i.i = icmp eq ptr %72, null
   br i1 %tobool.not.i.i.i.i, label %if.else8.i.i.i.i, label %if.then6.i.i.i.i
 
 if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %71, i64 %mul.i.i.i
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %72, i64 %mul.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %desc3.i, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i.i.i.i, i64 16, i1 false)
   br label %virtqueue_split_read_next_desc.exit.i
 
@@ -2745,8 +2747,8 @@ if.then27:                                        ; preds = %if.end25
 if.then.i.i:                                      ; preds = %virtqueue_split_get_avail_bytes.exit, %virtqueue_packed_get_avail_bytes.exit, %if.then27, %if.end25
   %call.i.i.i.i49 = call ptr @get_ptr_rcu_reader() #21
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i49, i64 12
-  %72 = load i32, ptr %depth.i.i.i.i, align 4
-  %cmp.not.i.i.i.i = icmp eq i32 %72, 0
+  %73 = load i32, ptr %depth.i.i.i.i, align 4
+  %cmp.not.i.i.i.i = icmp eq i32 %73, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i51, label %if.end.i.i.i.i50
 
 if.else.i.i.i.i51:                                ; preds = %if.then.i.i
@@ -2754,7 +2756,7 @@ if.else.i.i.i.i51:                                ; preds = %if.then.i.i
   unreachable
 
 if.end.i.i.i.i50:                                 ; preds = %if.then.i.i
-  %dec.i.i.i.i = add i32 %72, -1
+  %dec.i.i.i.i = add i32 %73, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
   br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
@@ -2764,8 +2766,8 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i50
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i49, i64 8
-  %73 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
-  %tobool.i.i.i.i = trunc i8 %73 to i1
+  %74 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
+  %tobool.i.i.i.i = trunc i8 %74 to i1
   br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i

@@ -2251,9 +2251,9 @@ _ZNK5ZXing9BitMatrix3getEii.exit:                 ; preds = %_ZNK5ZXing9BitMatri
   br i1 %.not.i.i.i.i74, label %_ZNK5ZXing9BitMatrix3getEii.exit, label %._crit_edge, !llvm.loop !31
 
 55:                                               ; preds = %.lr.ph, %.critedge
-  %.059131 = phi i1 [ false, %.lr.ph ], [ %.1, %.critedge ]
+  %.059131 = phi i8 [ 0, %.lr.ph ], [ %.1, %.critedge ]
   %.161130 = phi i32 [ %45, %.lr.ph ], [ %.3, %.critedge ]
-  %.063127 = phi i32 [ %45, %.lr.ph ], [ %133, %.critedge ]
+  %.063127 = phi i32 [ %45, %.lr.ph ], [ %134, %.critedge ]
   %.064126 = phi i32 [ 0, %.lr.ph ], [ %.266, %.critedge ]
   %56 = load i32, ptr %0, align 8
   %57 = mul nsw i32 %56, %2
@@ -2275,8 +2275,9 @@ _ZNK5ZXing9BitMatrix3getEii.exit76:               ; preds = %55
   %66 = getelementptr inbounds i8, ptr %61, i64 %59
   %67 = load i8, ptr %66, align 1
   %68 = icmp ne i8 %67, 0
-  %69 = xor i1 %.059131, %68
-  br i1 %69, label %70, label %76
+  %69 = zext i1 %68 to i8
+  %.not = icmp eq i8 %.059131, %69
+  br i1 %.not, label %76, label %70
 
 70:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit76
   %71 = sext i32 %.064126 to i64
@@ -2400,104 +2401,105 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   %130 = load ptr, ptr %5, align 8
   %131 = getelementptr inbounds i32, ptr %130, i64 %129
   store i32 1, ptr %131, align 4
-  %132 = xor i1 %.059131, true
+  %132 = and i8 %.059131, 1
+  %133 = xor i8 %132, 1
   br label %.critedge
 
 .critedge:                                        ; preds = %70, %128
   %.266 = phi i32 [ %.064126, %70 ], [ %.165, %128 ]
   %.3 = phi i32 [ %.161130, %70 ], [ %.2, %128 ]
-  %.1 = phi i1 [ %.059131, %70 ], [ %132, %128 ]
-  %133 = add nsw i32 %.063127, 1
-  %134 = icmp slt i32 %133, %3
-  br i1 %134, label %55, label %.critedge._crit_edge, !llvm.loop !34
+  %.1 = phi i8 [ %.059131, %70 ], [ %133, %128 ]
+  %134 = add nsw i32 %.063127, 1
+  %135 = icmp slt i32 %134, %3
+  br i1 %135, label %55, label %.critedge._crit_edge, !llvm.loop !34
 
 .critedge._crit_edge:                             ; preds = %.critedge, %.critedge.preheader
   %.064.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.266, %.critedge ]
   %.063.lcssa = phi i32 [ %45, %.critedge.preheader ], [ %3, %.critedge ]
   %.161.lcssa = phi i32 [ %45, %.critedge.preheader ], [ %.3, %.critedge ]
-  %135 = icmp eq i32 %.064.lcssa, %47
-  br i1 %135, label %136, label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread
+  %136 = icmp eq i32 %.064.lcssa, %47
+  br i1 %136, label %137, label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread
 
-136:                                              ; preds = %.critedge._crit_edge
+137:                                              ; preds = %.critedge._crit_edge
   %.val71 = load ptr, ptr %5, align 8
   %.val72 = load ptr, ptr %10, align 8
   %.val73 = load ptr, ptr %4, align 8
   %.not.i77 = icmp eq ptr %.val72, %.val71
   br i1 %.not.i77, label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread, label %.lr.ph.preheader.i78
 
-.lr.ph.preheader.i78:                             ; preds = %136
-  %137 = ptrtoint ptr %.val72 to i64
-  %138 = ptrtoint ptr %.val71 to i64
-  %139 = sub i64 %137, %138
-  %140 = ashr exact i64 %139, 2
-  %umax.i79 = tail call i64 @llvm.umax.i64(i64 %140, i64 1)
+.lr.ph.preheader.i78:                             ; preds = %137
+  %138 = ptrtoint ptr %.val72 to i64
+  %139 = ptrtoint ptr %.val71 to i64
+  %140 = sub i64 %138, %139
+  %141 = ashr exact i64 %140, 2
+  %umax.i79 = tail call i64 @llvm.umax.i64(i64 %141, i64 1)
   br label %.lr.ph.i80
 
 .lr.ph.i80:                                       ; preds = %.lr.ph.i80, %.lr.ph.preheader.i78
-  %.0356.i81 = phi i32 [ %143, %.lr.ph.i80 ], [ 0, %.lr.ph.preheader.i78 ]
-  %.0385.i82 = phi i32 [ %146, %.lr.ph.i80 ], [ 0, %.lr.ph.preheader.i78 ]
-  %.0394.i83 = phi i64 [ %147, %.lr.ph.i80 ], [ 0, %.lr.ph.preheader.i78 ]
-  %141 = getelementptr inbounds i32, ptr %.val71, i64 %.0394.i83
-  %142 = load i32, ptr %141, align 4
-  %143 = add nsw i32 %142, %.0356.i81
-  %144 = getelementptr inbounds i32, ptr %.val73, i64 %.0394.i83
-  %145 = load i32, ptr %144, align 4
-  %146 = add nsw i32 %145, %.0385.i82
-  %147 = add nuw i64 %.0394.i83, 1
-  %exitcond.not.i84 = icmp eq i64 %147, %umax.i79
+  %.0356.i81 = phi i32 [ %144, %.lr.ph.i80 ], [ 0, %.lr.ph.preheader.i78 ]
+  %.0385.i82 = phi i32 [ %147, %.lr.ph.i80 ], [ 0, %.lr.ph.preheader.i78 ]
+  %.0394.i83 = phi i64 [ %148, %.lr.ph.i80 ], [ 0, %.lr.ph.preheader.i78 ]
+  %142 = getelementptr inbounds i32, ptr %.val71, i64 %.0394.i83
+  %143 = load i32, ptr %142, align 4
+  %144 = add nsw i32 %143, %.0356.i81
+  %145 = getelementptr inbounds i32, ptr %.val73, i64 %.0394.i83
+  %146 = load i32, ptr %145, align 4
+  %147 = add nsw i32 %146, %.0385.i82
+  %148 = add nuw i64 %.0394.i83, 1
+  %exitcond.not.i84 = icmp eq i64 %148, %umax.i79
   br i1 %exitcond.not.i84, label %._crit_edge.i85, label %.lr.ph.i80, !llvm.loop !32
 
 ._crit_edge.i85:                                  ; preds = %.lr.ph.i80
-  %148 = icmp slt i32 %143, %146
-  br i1 %148, label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread, label %.lr.ph12.preheader.i86
+  %149 = icmp slt i32 %144, %147
+  br i1 %149, label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread, label %.lr.ph12.preheader.i86
 
 .lr.ph12.preheader.i86:                           ; preds = %._crit_edge.i85
-  %149 = sitofp i32 %143 to float
-  %150 = sitofp i32 %146 to float
-  %151 = fdiv float %149, %150
-  %152 = fmul float %151, 0x3FE99999A0000000
+  %150 = sitofp i32 %144 to float
+  %151 = sitofp i32 %147 to float
+  %152 = fdiv float %150, %151
+  %153 = fmul float %152, 0x3FE99999A0000000
   br label %.lr.ph12.i88
 
-.lr.ph12.i88:                                     ; preds = %165, %.lr.ph12.preheader.i86
-  %.03610.i89 = phi i64 [ %167, %165 ], [ 0, %.lr.ph12.preheader.i86 ]
-  %.0379.i90 = phi float [ %166, %165 ], [ 0.000000e+00, %.lr.ph12.preheader.i86 ]
-  %153 = getelementptr inbounds i32, ptr %.val71, i64 %.03610.i89
-  %154 = load i32, ptr %153, align 4
-  %155 = getelementptr inbounds i32, ptr %.val73, i64 %.03610.i89
-  %156 = load i32, ptr %155, align 4
-  %157 = sitofp i32 %156 to float
-  %158 = fmul float %151, %157
-  %159 = sitofp i32 %154 to float
-  %160 = fcmp olt float %158, %159
-  %161 = fsub float %159, %158
-  %162 = fsub float %158, %159
-  %163 = select i1 %160, float %161, float %162
-  %164 = fcmp ogt float %163, %152
-  br i1 %164, label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread, label %165
+.lr.ph12.i88:                                     ; preds = %166, %.lr.ph12.preheader.i86
+  %.03610.i89 = phi i64 [ %168, %166 ], [ 0, %.lr.ph12.preheader.i86 ]
+  %.0379.i90 = phi float [ %167, %166 ], [ 0.000000e+00, %.lr.ph12.preheader.i86 ]
+  %154 = getelementptr inbounds i32, ptr %.val71, i64 %.03610.i89
+  %155 = load i32, ptr %154, align 4
+  %156 = getelementptr inbounds i32, ptr %.val73, i64 %.03610.i89
+  %157 = load i32, ptr %156, align 4
+  %158 = sitofp i32 %157 to float
+  %159 = fmul float %152, %158
+  %160 = sitofp i32 %155 to float
+  %161 = fcmp olt float %159, %160
+  %162 = fsub float %160, %159
+  %163 = fsub float %159, %160
+  %164 = select i1 %161, float %162, float %163
+  %165 = fcmp ogt float %164, %153
+  br i1 %165, label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread, label %166
 
-165:                                              ; preds = %.lr.ph12.i88
-  %166 = fadd float %.0379.i90, %163
-  %167 = add nuw i64 %.03610.i89, 1
-  %exitcond19.not.i91 = icmp eq i64 %167, %umax.i79
+166:                                              ; preds = %.lr.ph12.i88
+  %167 = fadd float %.0379.i90, %164
+  %168 = add nuw i64 %.03610.i89, 1
+  %exitcond19.not.i91 = icmp eq i64 %168, %umax.i79
   br i1 %exitcond19.not.i91, label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95, label %.lr.ph12.i88, !llvm.loop !33
 
-_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95: ; preds = %165
-  %168 = fdiv float %166, %149
-  %169 = fcmp olt float %168, 0x3FDAE147A0000000
-  br i1 %169, label %170, label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread
+_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95: ; preds = %166
+  %169 = fdiv float %167, %150
+  %170 = fcmp olt float %169, 0x3FDAE147A0000000
+  br i1 %170, label %171, label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread
 
-170:                                              ; preds = %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95
+171:                                              ; preds = %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95
   store i32 %.161.lcssa, ptr %6, align 4
-  %171 = add nsw i32 %.063.lcssa, -1
+  %172 = add nsw i32 %.063.lcssa, -1
   br label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread.sink.split
 
-_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread.sink.split: ; preds = %112, %170
-  %.sink = phi i32 [ %171, %170 ], [ %.063127, %112 ]
+_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread.sink.split: ; preds = %112, %171
+  %.sink = phi i32 [ %172, %171 ], [ %.063127, %112 ]
   store i32 %.sink, ptr %7, align 4
   br label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread
 
-_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread: ; preds = %.lr.ph12.i88, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread.sink.split, %136, %._crit_edge.i85, %.critedge._crit_edge, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95
-  %.0 = phi i1 [ false, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95 ], [ false, %.critedge._crit_edge ], [ false, %._crit_edge.i85 ], [ false, %136 ], [ true, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread.sink.split ], [ false, %.lr.ph12.i88 ]
+_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread: ; preds = %.lr.ph12.i88, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread.sink.split, %137, %._crit_edge.i85, %.critedge._crit_edge, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95
+  %.0 = phi i1 [ false, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95 ], [ false, %.critedge._crit_edge ], [ false, %._crit_edge.i85 ], [ false, %137 ], [ true, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread.sink.split ], [ false, %.lr.ph12.i88 ]
   ret i1 %.0
 }
 
