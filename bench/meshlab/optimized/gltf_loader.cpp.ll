@@ -120389,16 +120389,13 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 86:                                               ; preds = %66
   switch i32 %85, label %91 [
     i32 3, label %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
-    i32 4, label %.thread130
+    i32 4, label %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
     i32 65, label %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split
     i32 2, label %87
     i32 34, label %88
     i32 35, label %89
     i32 36, label %90
   ]
-
-.thread130:                                       ; preds = %86
-  br label %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
 
 .fold.split:                                      ; preds = %66
   switch i32 %85, label %91 [
@@ -120429,9 +120426,9 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 _ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split: ; preds = %86, %.fold.split
   br label %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
 
-_ZN8tinygltfL22GetNumComponentsInTypeEj.exit:     ; preds = %.fold.split, %.fold.split, %86, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split, %.thread130, %87, %88, %89, %90, %91
-  %.0129 = phi i32 [ %5, %87 ], [ %5, %88 ], [ %5, %89 ], [ %5, %90 ], [ %5, %91 ], [ 4, %.thread130 ], [ %85, %86 ], [ %5, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split ], [ %5, %.fold.split ], [ %5, %.fold.split ]
-  %.0.i = phi i32 [ 2, %87 ], [ 4, %88 ], [ 9, %89 ], [ 16, %90 ], [ -1, %91 ], [ 4, %.thread130 ], [ %85, %86 ], [ 1, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split ], [ %85, %.fold.split ], [ %85, %.fold.split ]
+_ZN8tinygltfL22GetNumComponentsInTypeEj.exit:     ; preds = %.fold.split, %.fold.split, %86, %86, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split, %87, %88, %89, %90, %91
+  %.0129 = phi i32 [ %5, %87 ], [ %5, %88 ], [ %5, %89 ], [ %5, %90 ], [ %5, %91 ], [ %85, %86 ], [ %85, %86 ], [ %5, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split ], [ %5, %.fold.split ], [ %5, %.fold.split ]
+  %.0.i = phi i32 [ 2, %87 ], [ 4, %88 ], [ 9, %89 ], [ 16, %90 ], [ -1, %91 ], [ %85, %86 ], [ %85, %86 ], [ 1, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split ], [ %85, %.fold.split ], [ %85, %.fold.split ]
   %92 = getelementptr inbounds i8, ptr %.087, i64 52
   %93 = load i32, ptr %92, align 4
   switch i32 %93, label %140 [

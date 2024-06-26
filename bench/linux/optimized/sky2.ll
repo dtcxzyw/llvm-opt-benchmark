@@ -4194,7 +4194,7 @@ define internal void @sky2_get_pauseparam(ptr nocapture noundef readonly %0, ptr
 
 8:                                                ; preds = %7, %6, %5, %2
   %9 = phi i64 [ 8, %7 ], [ 12, %6 ], [ 12, %5 ], [ 8, %2 ]
-  %10 = phi i32 [ 1, %7 ], [ 0, %6 ], [ 1, %5 ], [ %4, %2 ]
+  %10 = phi i32 [ 1, %7 ], [ 0, %6 ], [ %4, %5 ], [ %4, %2 ]
   %11 = phi i64 [ 12, %7 ], [ 8, %6 ], [ 8, %5 ], [ 12, %2 ]
   %12 = phi i32 [ 1, %7 ], [ 1, %6 ], [ 0, %5 ], [ %4, %2 ]
   %13 = getelementptr inbounds i8, ptr %1, i64 %9

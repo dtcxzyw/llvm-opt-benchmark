@@ -14024,13 +14024,10 @@ if.end:                                           ; preds = %if.then, %entry
   %0 = load i32, ptr %enforce_mode, align 8
   switch i32 %0, label %sw.epilog [
     i32 1, label %return
-    i32 3, label %sw.bb1
+    i32 3, label %return
     i32 2, label %sw.bb2
     i32 0, label %sw.bb9
   ]
-
-sw.bb1:                                           ; preds = %if.end
-  br label %return
 
 sw.bb2:                                           ; preds = %if.end
   %options_.i = getelementptr inbounds i8, ptr %file, i64 128
@@ -14093,8 +14090,8 @@ lpad27:                                           ; preds = %sw.epilog
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp26) #30
   unreachable
 
-return:                                           ; preds = %sw.bb9, %if.then13.if.end22_crit_edge, %if.end5, %sw.bb2, %if.end, %invoke.cont18, %sw.bb1
-  %retval.0 = phi i32 [ 1, %invoke.cont18 ], [ 3, %sw.bb1 ], [ %0, %if.end ], [ 3, %sw.bb2 ], [ %., %if.end5 ], [ %.pre14, %if.then13.if.end22_crit_edge ], [ %4, %sw.bb9 ]
+return:                                           ; preds = %if.end, %sw.bb9, %if.then13.if.end22_crit_edge, %if.end5, %sw.bb2, %if.end, %invoke.cont18
+  %retval.0 = phi i32 [ 1, %invoke.cont18 ], [ %0, %if.end ], [ 3, %sw.bb2 ], [ %., %if.end5 ], [ %.pre14, %if.then13.if.end22_crit_edge ], [ %4, %sw.bb9 ], [ %0, %if.end ]
   ret i32 %retval.0
 }
 

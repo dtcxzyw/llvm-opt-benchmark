@@ -87,39 +87,33 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @plm_slurm_init() #0 {
   %1 = tail call i32 @prte_plm_base_comm_start() #15
-  switch i32 %1, label %2 [
-    i32 0, label %4
-    i32 -43, label %13
+  switch i32 %1, label %.sink.split [
+    i32 0, label %2
+    i32 -43, label %9
   ]
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @prte_strerror(i32 noundef %1) #15
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 124) #15
-  br label %13
-
-4:                                                ; preds = %0
-  %5 = tail call ptr @prte_get_job_data_object(ptr noundef nonnull @prte_process_info) #15
-  %6 = getelementptr inbounds i8, ptr %5, i64 784
-  %7 = tail call zeroext i1 @prte_get_attribute(ptr noundef nonnull %6, i16 noundef zeroext 269, ptr noundef null, i16 noundef zeroext 1) #15
-  %. = zext i1 %7 to i8
+  %3 = tail call ptr @prte_get_job_data_object(ptr noundef nonnull @prte_process_info) #15
+  %4 = getelementptr inbounds i8, ptr %3, i64 784
+  %5 = tail call zeroext i1 @prte_get_attribute(ptr noundef nonnull %4, i16 noundef zeroext 269, ptr noundef null, i16 noundef zeroext 1) #15
+  %. = zext i1 %5 to i8
   store i8 %., ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 72), align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 24), align 8
-  %9 = tail call i32 %8(i32 noundef 8, ptr noundef nonnull @launch_daemons) #15
-  switch i32 %9, label %10 [
-    i32 0, label %12
-    i32 -43, label %13
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 24), align 8
+  %7 = tail call i32 %6(i32 noundef 8, ptr noundef nonnull @launch_daemons) #15
+  switch i32 %7, label %.sink.split [
+    i32 0, label %9
+    i32 -43, label %9
   ]
 
-10:                                               ; preds = %4
-  %11 = tail call ptr @prte_strerror(i32 noundef %9) #15
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %11, ptr noundef nonnull @.str.1, i32 noundef 148) #15
-  br label %13
+.sink.split:                                      ; preds = %2, %0
+  %.sink14 = phi i32 [ %1, %0 ], [ %7, %2 ]
+  %.sink13 = phi i32 [ 124, %0 ], [ 148, %2 ]
+  %8 = tail call ptr @prte_strerror(i32 noundef %.sink14) #15
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef %.sink13) #15
+  br label %9
 
-12:                                               ; preds = %4
-  br label %13
-
-13:                                               ; preds = %10, %4, %2, %0, %12
-  %.0 = phi i32 [ 0, %12 ], [ %1, %0 ], [ %1, %2 ], [ %9, %4 ], [ %9, %10 ]
+9:                                                ; preds = %.sink.split, %2, %2, %0
+  %.0 = phi i32 [ %1, %0 ], [ %7, %2 ], [ %7, %2 ], [ %.sink14, %.sink.split ]
   ret i32 %.0
 }
 

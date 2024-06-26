@@ -2113,7 +2113,7 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_w(ptr nocapture no
   br label %7
 
 7:                                                ; preds = %3, %3, %5, %6
-  %.1119 = phi i32 [ 15360, %6 ], [ %2, %3 ], [ %2, %3 ], [ 256, %5 ]
+  %.1119 = phi i32 [ %2, %6 ], [ %2, %3 ], [ %2, %3 ], [ 256, %5 ]
   %.0117 = phi i32 [ 6, %6 ], [ 5, %3 ], [ 5, %3 ], [ 5, %5 ]
   %.not326 = icmp eq ptr %1, null
   br i1 %.not326, label %.critedge, label %.lr.ph335
@@ -3003,7 +3003,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_acl_from_text_l(ptr noca
   br label %8
 
 8:                                                ; preds = %4, %4, %6, %7
-  %.1120 = phi i32 [ 15360, %7 ], [ %2, %4 ], [ %2, %4 ], [ 256, %6 ]
+  %.1120 = phi i32 [ %2, %7 ], [ %2, %4 ], [ %2, %4 ], [ 256, %6 ]
   %.0118 = phi i32 [ 6, %7 ], [ 5, %4 ], [ 5, %4 ], [ 5, %6 ]
   %.not352 = icmp eq ptr %1, null
   br i1 %.not352, label %.critedge, label %.lr.ph361

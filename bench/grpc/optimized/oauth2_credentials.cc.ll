@@ -2921,34 +2921,24 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i: ; preds = %49, %in
           to label %invoke.cont91 unwind label %ehcleanup105
 
 invoke.cont91:                                    ; preds = %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i
-  switch i64 %call.i41, label %if.end11.i.i [
-    i64 9223372036854775807, label %invoke.cont97
-    i64 -9223372036854775808, label %invoke.cont97.fold.split
-  ]
-
-if.end11.i.i:                                     ; preds = %invoke.cont91
+  %call.i41.off = add i64 %call.i41, -9223372036854775807
+  %switch = icmp ult i64 %call.i41.off, 2
   %or.cond = icmp sgt i64 %call.i41, 9223372036854715807
   %add.i.i.i = add nsw i64 %call.i41, 60000
   %spec.select = select i1 %or.cond, i64 9223372036854775807, i64 %add.i.i.i
-  br label %invoke.cont97
-
-invoke.cont97.fold.split:                         ; preds = %invoke.cont91
-  br label %invoke.cont97
-
-invoke.cont97:                                    ; preds = %if.end11.i.i, %invoke.cont91, %invoke.cont97.fold.split
-  %retval.0.i.i = phi i64 [ %call.i41, %invoke.cont91 ], [ -9223372036854775808, %invoke.cont97.fold.split ], [ %spec.select, %if.end11.i.i ]
+  %retval.0.i.i = select i1 %switch, i64 %call.i41, i64 %spec.select
   %vtable101 = load ptr, ptr %this, align 8
   %vfn102 = getelementptr inbounds i8, ptr %vtable101, i64 56
   %53 = load ptr, ptr %vfn102, align 8
   invoke void %53(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull %call82, ptr noundef nonnull %pollent_, ptr noundef nonnull @_ZL37on_oauth2_token_fetcher_http_responsePvN4absl12lts_202308026StatusE, i64 %retval.0.i.i)
           to label %if.then.i71 unwind label %ehcleanup105
 
-ehcleanup105:                                     ; preds = %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i, %49, %invoke.cont97
+ehcleanup105:                                     ; preds = %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i, %49, %invoke.cont91
   %54 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i87
 
-if.then.i71:                                      ; preds = %invoke.cont97, %invoke.cont78
+if.then.i71:                                      ; preds = %invoke.cont91, %invoke.cont78
   %55 = atomicrmw add ptr %refs_.i.i.i, i64 1 monotonic, align 8
   %arg.i63 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr @"_ZN9grpc_core20arena_promise_detail7InlinedIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEZN37grpc_oauth2_token_fetcher_credentials18GetRequestMetadataES9_PKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_1E6vtableE", ptr %agg.result, align 16

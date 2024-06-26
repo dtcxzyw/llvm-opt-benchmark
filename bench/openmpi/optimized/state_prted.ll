@@ -2378,7 +2378,7 @@ pack_state_for_proc.exit.thread37:                ; preds = %34, %pack_state_for
 ._crit_edge:                                      ; preds = %41, %.preheader
   %47 = call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1, i16 noundef zeroext 40) #9
   switch i32 %47, label %48 [
-    i32 0, label %50
+    i32 0, label %.loopexit
     i32 -2, label %.loopexit
   ]
 
@@ -2387,11 +2387,8 @@ pack_state_for_proc.exit.thread37:                ; preds = %34, %pack_state_for
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %49, ptr noundef nonnull @.str.1, i32 noundef 687) #9
   br label %.loopexit
 
-50:                                               ; preds = %._crit_edge
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %pack_state_for_proc.exit, %48, %._crit_edge, %pack_state_for_proc.exit.thread, %10, %2, %50
-  %.0 = phi i32 [ 0, %50 ], [ %5, %2 ], [ %5, %10 ], [ %.0.i3436, %pack_state_for_proc.exit.thread ], [ %47, %._crit_edge ], [ %47, %48 ], [ %.sink42, %pack_state_for_proc.exit ]
+.loopexit:                                        ; preds = %pack_state_for_proc.exit, %._crit_edge, %48, %._crit_edge, %pack_state_for_proc.exit.thread, %10, %2
+  %.0 = phi i32 [ %5, %2 ], [ %5, %10 ], [ %.0.i3436, %pack_state_for_proc.exit.thread ], [ %47, %._crit_edge ], [ %47, %48 ], [ %47, %._crit_edge ], [ %.sink42, %pack_state_for_proc.exit ]
   ret i32 %.0
 }
 

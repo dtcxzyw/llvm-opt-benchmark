@@ -1788,7 +1788,7 @@ define internal fastcc noundef ptr @decompress_sigcomp_message(ptr noundef %0, p
 
 66:                                               ; preds = %11, %65, %64, %63, %62
   %.not2547 = phi i1 [ false, %65 ], [ false, %64 ], [ false, %63 ], [ false, %62 ], [ true, %11 ]
-  %.02365 = phi i32 [ 1, %65 ], [ 1, %64 ], [ 1, %63 ], [ 1, %62 ], [ %5, %11 ]
+  %.02365 = phi i32 [ 1, %65 ], [ 1, %64 ], [ 1, %63 ], [ %5, %62 ], [ %5, %11 ]
   %.not2541 = phi i1 [ true, %65 ], [ false, %64 ], [ false, %63 ], [ true, %62 ], [ true, %11 ]
   %.not = phi i1 [ true, %65 ], [ false, %64 ], [ true, %63 ], [ true, %62 ], [ true, %11 ]
   %.02363 = phi i32 [ 0, %65 ], [ 1, %64 ], [ 0, %63 ], [ 0, %62 ], [ %5, %11 ]

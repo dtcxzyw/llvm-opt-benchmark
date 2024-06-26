@@ -716,10 +716,9 @@ if.then18:                                        ; preds = %if.then14
   %cond10.i.i.i.i = select i1 %cmp.not.i.i.i.i, i64 %spec.select.i.i.i.i, i64 9223372036854775807
   %div.i1.i.i = sdiv i32 %call16.val, 1000000
   %div.i.sext.i.i = sext i32 %div.i1.i.i to i64
-  switch i64 %cond10.i.i.i.i, label %if.end11.i.i.i.i [
-    i64 9223372036854775807, label %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit
-    i64 -9223372036854775808, label %_ZN9grpc_coreplENS_8DurationES0_.exit.fold.split.i.i
-  ]
+  %cond10.i.i.i.i.off = add i64 %cond10.i.i.i.i, -9223372036854775807
+  %switch = icmp ult i64 %cond10.i.i.i.i.off, 2
+  br i1 %switch, label %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit, label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %if.then18
   %cmp.i.i.i.i.i = icmp sgt i64 %cond10.i.i.i.i, 0
@@ -739,11 +738,8 @@ if.end7.i.i.i.i.i:                                ; preds = %if.else.i.i.i.i.i, 
   %add.i.i.i.i.i = add nsw i64 %cond10.i.i.i.i, %div.i.sext.i.i
   br label %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit
 
-_ZN9grpc_coreplENS_8DurationES0_.exit.fold.split.i.i: ; preds = %if.then18
-  br label %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit
-
-_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit: ; preds = %if.then18, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.end7.i.i.i.i.i, %_ZN9grpc_coreplENS_8DurationES0_.exit.fold.split.i.i
-  %retval.0.i.i.i.i21 = phi i64 [ %cond10.i.i.i.i, %if.then18 ], [ %add.i.i.i.i.i, %if.end7.i.i.i.i.i ], [ 9223372036854775807, %if.then.i.i.i.i.i ], [ -9223372036854775808, %if.else.i.i.i.i.i ], [ -9223372036854775808, %_ZN9grpc_coreplENS_8DurationES0_.exit.fold.split.i.i ]
+_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit: ; preds = %if.then18, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.end7.i.i.i.i.i
+  %retval.0.i.i.i.i21 = phi i64 [ %add.i.i.i.i.i, %if.end7.i.i.i.i.i ], [ 9223372036854775807, %if.then.i.i.i.i.i ], [ -9223372036854775808, %if.else.i.i.i.i.i ], [ %cond10.i.i.i.i, %if.then18 ]
   %client_stats_report_interval20 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %retval.0.i.i.i.i21, ptr %client_stats_report_interval20, align 8
   br label %return

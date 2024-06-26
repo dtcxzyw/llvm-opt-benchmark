@@ -2584,10 +2584,8 @@ _ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit.thread: ; preds = %80, %_ZN5rop
 "_ZN76_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1a060fa94bb6231eE.exit37": ; preds = %65, %72
   %.sink8.i.i35 = phi ptr [ %69, %65 ], [ %73, %72 ]
   %.sink7.i.i36 = phi i64 [ %71, %65 ], [ %17, %72 ]
-  switch i64 %.sink7.i.i36, label %.lr.ph90 [
-    i64 0, label %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43.thread
-    i64 1, label %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43.thread.fold.split
-  ]
+  %switch = icmp ult i64 %.sink7.i.i36, 2
+  br i1 %switch, label %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43.thread, label %.lr.ph90
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit.backedge
   %.sroa.05.187 = phi i64 [ %.sroa.05.1, %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit.backedge ], [ %.sroa.05.185, %.lr.ph.preheader ]
@@ -2623,11 +2621,8 @@ _ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit.backedge: ; preds = %80, %75
   %or.cond.i = or i1 %87, %88
   br i1 %or.cond.i, label %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit.thread, label %.lr.ph
 
-_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43.thread.fold.split: ; preds = %"_ZN76_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1a060fa94bb6231eE.exit37"
-  br label %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43.thread
-
-_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43.thread: ; preds = %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43, %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43.thread76, %"_ZN76_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1a060fa94bb6231eE.exit37", %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43.thread.fold.split
-  %.sroa.0.0 = phi i64 [ %.sink7.i.i36, %"_ZN76_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1a060fa94bb6231eE.exit37" ], [ 1, %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43.thread.fold.split ], [ %.sroa.0.189, %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43 ], [ %.sink7.i.i36, %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43.thread76 ]
+_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43.thread: ; preds = %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43, %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43.thread76, %"_ZN76_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1a060fa94bb6231eE.exit37"
+  %.sroa.0.0 = phi i64 [ %.sink7.i.i36, %"_ZN76_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1a060fa94bb6231eE.exit37" ], [ %.sroa.0.189, %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43 ], [ %.sink7.i.i36, %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit43.thread76 ]
   %89 = add i64 %.sroa.0.0, %.sink7.i.i33
   %90 = icmp eq i64 %.sroa.05.0, 0
   br i1 %90, label %105, label %103

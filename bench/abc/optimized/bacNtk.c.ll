@@ -2254,10 +2254,8 @@ define range(i32 0, 2) i32 @Bac_NtkDfsUserBoxes_rec(ptr nocapture noundef %0, i3
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i32, ptr %.val38, i64 %5
   %7 = load i32, ptr %6, align 4
-  switch i32 %7, label %8 [
-    i32 1, label %.loopexit
-    i32 0, label %.fold.split
-  ]
+  %switch = icmp ult i32 %7, 2
+  br i1 %switch, label %.loopexit, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 160
@@ -2387,11 +2385,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %9, i32 noundef %1, i32 noundef 1)
   br label %.loopexit
 
-.fold.split:                                      ; preds = %3
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %32, %3, %.fold.split, %Vec_IntPush.exit
-  %.0 = phi i32 [ 1, %Vec_IntPush.exit ], [ %7, %3 ], [ 0, %.fold.split ], [ 0, %32 ]
+.loopexit:                                        ; preds = %32, %3, %Vec_IntPush.exit
+  %.0 = phi i32 [ 1, %Vec_IntPush.exit ], [ %7, %3 ], [ 0, %32 ]
   ret i32 %.0
 }
 

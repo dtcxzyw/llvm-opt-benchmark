@@ -173,22 +173,11 @@ if.end41:                                         ; preds = %newhpart.exit, %if.
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lj_tab_new_ah(ptr noundef %L, i32 noundef %a, i32 noundef %h) local_unnamed_addr #0 {
 entry:
-  switch i32 %h, label %cond.false4 [
-    i32 0, label %cond.end9
-    i32 1, label %cond.end9.fold.split
-  ]
-
-cond.false4:                                      ; preds = %entry
+  %switch = icmp ult i32 %h, 2
   %sub = add nsw i32 %h, -1
   %0 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub, i1 true)
   %add5 = sub nuw nsw i32 32, %0
-  br label %cond.end9
-
-cond.end9.fold.split:                             ; preds = %entry
-  br label %cond.end9
-
-cond.end9:                                        ; preds = %entry, %cond.end9.fold.split, %cond.false4
-  %cond10 = phi i32 [ %add5, %cond.false4 ], [ %h, %entry ], [ 1, %cond.end9.fold.split ]
+  %cond10 = select i1 %switch, i32 %h, i32 %add5
   %cmp = icmp sgt i32 %a, 0
   %add = add nuw nsw i32 %a, 1
   %cond = select i1 %cmp, i32 %add, i32 0
@@ -198,7 +187,7 @@ cond.end9:                                        ; preds = %entry, %cond.end9.f
   %cmp.i12.not.i = icmp eq i32 %1, 0
   br i1 %cmp.i12.not.i, label %clearapart.exit.i, label %for.body.i.preheader.i
 
-for.body.i.preheader.i:                           ; preds = %cond.end9
+for.body.i.preheader.i:                           ; preds = %entry
   %array2.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load i64, ptr %array2.i.i, align 8
   %3 = inttoptr i64 %2 to ptr
@@ -207,7 +196,7 @@ for.body.i.preheader.i:                           ; preds = %cond.end9
   tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 -1, i64 %5, i1 false)
   br label %clearapart.exit.i
 
-clearapart.exit.i:                                ; preds = %for.body.i.preheader.i, %cond.end9
+clearapart.exit.i:                                ; preds = %for.body.i.preheader.i, %entry
   %hmask.i = getelementptr inbounds i8, ptr %call.i, i64 52
   %6 = load i32, ptr %hmask.i, align 4
   %cmp.not.i = icmp eq i32 %6, 0

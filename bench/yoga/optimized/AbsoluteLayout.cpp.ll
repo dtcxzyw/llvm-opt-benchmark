@@ -1378,7 +1378,7 @@ _ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE
   %.sink263 = phi i64 [ 508, %sw.bb2.i7.i ], [ 516, %sw.bb3.i5.i ], [ 520, %if.then66 ]
   %.sink = phi i64 [ 500, %sw.bb2.i7.i ], [ 500, %sw.bb3.i5.i ], [ 504, %if.then66 ]
   %.in254 = phi ptr [ %arrayidx.i.i.i.i.i218, %sw.bb2.i7.i ], [ %arrayidx.i.i.i.i.i218, %sw.bb3.i5.i ], [ %arrayidx.i.i.i.i.i209, %if.then66 ]
-  %retval.0.i6.i = phi i8 [ 2, %sw.bb2.i7.i ], [ 0, %sw.bb3.i5.i ], [ %retval.0.i181, %if.then66 ]
+  %retval.0.i6.i = phi i8 [ %retval.0.i181, %sw.bb2.i7.i ], [ 0, %sw.bb3.i5.i ], [ %retval.0.i181, %if.then66 ]
   %arrayidx.i.i.i.i208 = getelementptr inbounds i8, ptr %14, i64 %.sink263
   %arrayidx.i.i.i10.i.i211 = getelementptr inbounds i8, ptr %14, i64 %.sink
   %47 = load float, ptr %arrayidx.i.i.i.i208, align 4
@@ -1413,7 +1413,7 @@ _ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE
   %.sink265 = phi i64 [ 508, %sw.bb2.i7.i142 ], [ 516, %sw.bb3.i5.i138 ], [ 520, %if.then68 ]
   %.sink264 = phi i64 [ 500, %sw.bb2.i7.i142 ], [ 500, %sw.bb3.i5.i138 ], [ 504, %if.then68 ]
   %.in258 = phi ptr [ %arrayidx.i.i.i.i.i218, %sw.bb2.i7.i142 ], [ %arrayidx.i.i.i.i.i218, %sw.bb3.i5.i138 ], [ %arrayidx.i.i.i.i.i209, %if.then68 ]
-  %retval.0.i6.i139 = phi i8 [ 2, %sw.bb2.i7.i142 ], [ 0, %sw.bb3.i5.i138 ], [ %1, %if.then68 ]
+  %retval.0.i6.i139 = phi i8 [ %1, %sw.bb2.i7.i142 ], [ 0, %sw.bb3.i5.i138 ], [ %1, %if.then68 ]
   %arrayidx.i.i.i.i134234 = getelementptr inbounds i8, ptr %14, i64 %.sink265
   %arrayidx.i.i.i10.i.i137237 = getelementptr inbounds i8, ptr %14, i64 %.sink264
   %50 = load float, ptr %arrayidx.i.i.i.i134234, align 4

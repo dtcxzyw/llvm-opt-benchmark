@@ -55,66 +55,63 @@ define hidden range(i32 -1, 2) i32 @logcat_open(ptr noundef %0, ptr noundef %1, 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
   %9 = tail call fastcc i32 @detect_version(ptr noundef %8, ptr noundef %1, ptr noundef %2)
-  switch i32 %9, label %11 [
-    i32 -1, label %33
-    i32 0, label %10
-    i32 -2, label %18
+  switch i32 %9, label %10 [
+    i32 -1, label %32
+    i32 0, label %32
+    i32 -2, label %17
   ]
 
 10:                                               ; preds = %7
-  br label %33
-
-11:                                               ; preds = %7
   %.not37 = icmp eq i32 %9, %5
-  br i1 %.not37, label %12, label %33
+  br i1 %.not37, label %11, label %32
 
-12:                                               ; preds = %11
-  %13 = load ptr, ptr %0, align 8
-  %14 = tail call fastcc i32 @detect_version(ptr noundef %13, ptr noundef %1, ptr noundef %2)
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %33, label %16
+11:                                               ; preds = %10
+  %12 = load ptr, ptr %0, align 8
+  %13 = tail call fastcc i32 @detect_version(ptr noundef %12, ptr noundef %1, ptr noundef %2)
+  %14 = icmp slt i32 %13, 0
+  br i1 %14, label %32, label %15
 
-16:                                               ; preds = %12
-  %17 = icmp ne i32 %14, 0
-  %.not38 = icmp eq i32 %14, %5
-  %or.cond = and i1 %17, %.not38
-  br i1 %or.cond, label %18, label %33
+15:                                               ; preds = %11
+  %16 = icmp ne i32 %13, 0
+  %.not38 = icmp eq i32 %13, %5
+  %or.cond = and i1 %16, %.not38
+  br i1 %or.cond, label %17, label %32
 
-18:                                               ; preds = %16, %7
-  %19 = load ptr, ptr %0, align 8
-  %20 = tail call i64 @file_seek(ptr noundef %19, i64 noundef 0, i32 noundef 0, ptr noundef %1) #9
-  %21 = icmp eq i64 %20, -1
-  br i1 %21, label %33, label %22
+17:                                               ; preds = %15, %7
+  %18 = load ptr, ptr %0, align 8
+  %19 = tail call i64 @file_seek(ptr noundef %18, i64 noundef 0, i32 noundef 0, ptr noundef %1) #9
+  %20 = icmp eq i64 %19, -1
+  br i1 %20, label %32, label %21
 
-22:                                               ; preds = %18
-  %23 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #10
-  store i32 %5, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %23, ptr %24, align 8
-  %25 = load i32, ptr @logcat_file_type_subtype, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 163, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @logcat_read, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @logcat_seek_read, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 6, ptr %31, align 4
+21:                                               ; preds = %17
+  %22 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #10
+  store i32 %5, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %22, ptr %23, align 8
+  %24 = load i32, ptr @logcat_file_type_subtype, align 4
+  %25 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %24, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 163, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @logcat_read, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @logcat_seek_read, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 6, ptr %30, align 4
   tail call void @wtap_add_generated_idb(ptr noundef nonnull %0) #9
-  br label %33
+  br label %32
 
 switch.lookup:                                    ; preds = %3
-  %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.logcat_open, i64 0, i64 %32
+  %31 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.logcat_open, i64 0, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %33
+  br label %32
 
-33:                                               ; preds = %switch.lookup, %18, %16, %12, %11, %7, %22, %10
-  %.0 = phi i32 [ 0, %10 ], [ 1, %22 ], [ %9, %7 ], [ 0, %11 ], [ -1, %12 ], [ 0, %16 ], [ -1, %18 ], [ %switch.load, %switch.lookup ]
+32:                                               ; preds = %7, %switch.lookup, %17, %15, %11, %10, %7, %21
+  %.0 = phi i32 [ 1, %21 ], [ %9, %7 ], [ 0, %10 ], [ -1, %11 ], [ 0, %15 ], [ -1, %17 ], [ %switch.load, %switch.lookup ], [ %9, %7 ]
   ret i32 %.0
 }
 

@@ -7637,13 +7637,9 @@ lpad112:                                          ; preds = %if.then116
 
 if.else121:                                       ; preds = %invoke.cont113
   %agg.tmp123.sroa.0.0.copyload = load i64, ptr %retry_back_off.i, align 8
-  switch i64 %agg.tmp123.sroa.0.0.copyload, label %if.end22.i.i [
-    i64 9223372036854775807, label %if.then.i99
-    i64 -9223372036854775808, label %if.then13.i.i
-  ]
-
-if.then13.i.i:                                    ; preds = %if.else121
-  br label %if.then.i99
+  %agg.tmp123.sroa.0.0.copyload.off = add i64 %agg.tmp123.sroa.0.0.copyload, -9223372036854775807
+  %switch = icmp ult i64 %agg.tmp123.sroa.0.0.copyload.off, 2
+  br i1 %switch, label %if.then.i99, label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.else121
   %conv.i.i = sitofp i64 %agg.tmp123.sroa.0.0.copyload to double
@@ -7661,8 +7657,8 @@ if.end8.i.i.i:                                    ; preds = %if.end.i.i.i
   %conv9.i.i.i = fptosi double %mul.i.i.i to i64
   br label %if.then.i99
 
-if.then.i99:                                      ; preds = %if.then116, %if.else121, %if.then13.i.i, %if.end22.i.i, %if.end.i.i.i, %if.end8.i.i.i
-  %storemerge = phi i64 [ %call119, %if.then116 ], [ -9223372036854775808, %if.then13.i.i ], [ %conv9.i.i.i, %if.end8.i.i.i ], [ 9223372036854775807, %if.end22.i.i ], [ -9223372036854775808, %if.end.i.i.i ], [ %agg.tmp123.sroa.0.0.copyload, %if.else121 ]
+if.then.i99:                                      ; preds = %if.else121, %if.then116, %if.end22.i.i, %if.end.i.i.i, %if.end8.i.i.i
+  %storemerge = phi i64 [ %call119, %if.then116 ], [ %conv9.i.i.i, %if.end8.i.i.i ], [ 9223372036854775807, %if.end22.i.i ], [ -9223372036854775808, %if.end.i.i.i ], [ %agg.tmp123.sroa.0.0.copyload, %if.else121 ]
   %max_interval132 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %storemerge, ptr %max_interval132, align 8
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)

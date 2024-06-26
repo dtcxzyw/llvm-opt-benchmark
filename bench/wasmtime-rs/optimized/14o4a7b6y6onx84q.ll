@@ -11901,8 +11901,8 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit.i
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %181, %173, %101
-  %182 = phi i64 [ 1, %181 ], [ %174, %173 ], [ 1, %101 ]
-  %183 = phi i64 [ 1, %181 ], [ %174, %173 ], [ %99, %101 ]
+  %182 = phi i64 [ %174, %181 ], [ %174, %173 ], [ 1, %101 ]
+  %183 = phi i64 [ %174, %181 ], [ %174, %173 ], [ %99, %101 ]
   %184 = phi ptr [ @anon.7736b00188ea486646a9328fd927c866.181, %181 ], [ @anon.7736b00188ea486646a9328fd927c866.180, %173 ], [ @anon.7736b00188ea486646a9328fd927c866.179, %101 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %182, i64 noundef %183, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %184) #35
           to label %.cont.i unwind label %109, !noalias !2618

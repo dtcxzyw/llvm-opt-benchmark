@@ -847,10 +847,9 @@ if.then.i.i.i2.i.i.i:                             ; preds = %for.body11.i.i.i.i.
   %57 = load i64, ptr %memptr.offset.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::depth", ptr %distance.sroa.0.0, i64 %57
   %58 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  switch i32 %58, label %if.end7.i.i.i.i.i.i.i.i.i.i.i [
-    i32 -2147483648, label %_ZN5boost11bfs_visitorINS_17distance_recorderINS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPN3ue25depthESt6vectorIS6_SaIS6_EEEENS5_9ue2_graphINS5_8NGHolderENS5_19NFAGraphVertexPropsENS5_17NFAGraphEdgePropsEE8prop_mapIRmSE_EES6_RS6_EENS_12on_tree_edgeEEEE9tree_edgeINS5_12graph_detail15edge_descriptorISG_EEKNS_14filtered_graphISD_NS5_12_GLOBAL__N_117SpecialEdgeFilterENS_8keep_allEEEEENS_5graph32bfs_visitor_event_not_overriddenET_RT0_.exit.i.i.i.i.i.i
-    i32 2147483647, label %return.fold.split.i.i.i.i.i.i.i.i.i.i.i
-  ]
+  %.off = add i32 %58, -2147483647
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %_ZN5boost11bfs_visitorINS_17distance_recorderINS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPN3ue25depthESt6vectorIS6_SaIS6_EEEENS5_9ue2_graphINS5_8NGHolderENS5_19NFAGraphVertexPropsENS5_17NFAGraphEdgePropsEE8prop_mapIRmSE_EES6_RS6_EENS_12on_tree_edgeEEEE9tree_edgeINS5_12graph_detail15edge_descriptorISG_EEKNS_14filtered_graphISD_NS5_12_GLOBAL__N_117SpecialEdgeFilterENS_8keep_allEEEEENS_5graph32bfs_visitor_event_not_overriddenET_RT0_.exit.i.i.i.i.i.i, label %if.end7.i.i.i.i.i.i.i.i.i.i.i
 
 if.end7.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i2.i.i.i
   %add.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %58, 1
@@ -865,11 +864,8 @@ do.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end7.i.i.i.i.i.i
 .noexc12.i.i.i.i.i:                               ; preds = %do.end.i.i.i.i.i.i.i.i.i.i.i
   unreachable
 
-return.fold.split.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %if.then.i.i.i2.i.i.i
-  br label %_ZN5boost11bfs_visitorINS_17distance_recorderINS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPN3ue25depthESt6vectorIS6_SaIS6_EEEENS5_9ue2_graphINS5_8NGHolderENS5_19NFAGraphVertexPropsENS5_17NFAGraphEdgePropsEE8prop_mapIRmSE_EES6_RS6_EENS_12on_tree_edgeEEEE9tree_edgeINS5_12graph_detail15edge_descriptorISG_EEKNS_14filtered_graphISD_NS5_12_GLOBAL__N_117SpecialEdgeFilterENS_8keep_allEEEEENS_5graph32bfs_visitor_event_not_overriddenET_RT0_.exit.i.i.i.i.i.i
-
-_ZN5boost11bfs_visitorINS_17distance_recorderINS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPN3ue25depthESt6vectorIS6_SaIS6_EEEENS5_9ue2_graphINS5_8NGHolderENS5_19NFAGraphVertexPropsENS5_17NFAGraphEdgePropsEE8prop_mapIRmSE_EES6_RS6_EENS_12on_tree_edgeEEEE9tree_edgeINS5_12graph_detail15edge_descriptorISG_EEKNS_14filtered_graphISD_NS5_12_GLOBAL__N_117SpecialEdgeFilterENS_8keep_allEEEEENS_5graph32bfs_visitor_event_not_overriddenET_RT0_.exit.i.i.i.i.i.i: ; preds = %return.fold.split.i.i.i.i.i.i.i.i.i.i.i, %if.end7.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i2.i.i.i
-  %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %58, %if.then.i.i.i2.i.i.i ], [ %add.i.i.i.i.i.i.i.i.i.i.i, %if.end7.i.i.i.i.i.i.i.i.i.i.i ], [ 2147483647, %return.fold.split.i.i.i.i.i.i.i.i.i.i.i ]
+_ZN5boost11bfs_visitorINS_17distance_recorderINS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPN3ue25depthESt6vectorIS6_SaIS6_EEEENS5_9ue2_graphINS5_8NGHolderENS5_19NFAGraphVertexPropsENS5_17NFAGraphEdgePropsEE8prop_mapIRmSE_EES6_RS6_EENS_12on_tree_edgeEEEE9tree_edgeINS5_12graph_detail15edge_descriptorISG_EEKNS_14filtered_graphISD_NS5_12_GLOBAL__N_117SpecialEdgeFilterENS_8keep_allEEEEENS_5graph32bfs_visitor_event_not_overriddenET_RT0_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i, %if.end7.i.i.i.i.i.i.i.i.i.i.i
+  %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i.i.i.i.i.i.i, %if.end7.i.i.i.i.i.i.i.i.i.i.i ], [ %58, %if.then.i.i.i2.i.i.i ]
   %memptr.offset.i.i.i.i8.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %48, i64 80
   %59 = load i64, ptr %memptr.offset.i.i.i.i8.i.i.i.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i9.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::depth", ptr %distance.sroa.0.0, i64 %59
@@ -1489,10 +1485,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr %this, align 4
-  switch i32 %1, label %if.end10 [
-    i32 -2147483648, label %return
-    i32 2147483647, label %return.fold.split
-  ]
+  %.off = add i32 %1, -2147483647
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end
   %cmp = icmp ult i32 %1, %0
@@ -1513,11 +1508,8 @@ do.end.i:                                         ; preds = %if.end14
   tail call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN3ue218DepthOverflowErrorE, ptr null) #20
   unreachable
 
-return.fold.split:                                ; preds = %if.end
-  br label %return
-
-return:                                           ; preds = %if.end, %return.fold.split, %if.end14
-  %retval.sroa.0.0 = phi i32 [ %1, %if.end ], [ %sub, %if.end14 ], [ 2147483647, %return.fold.split ]
+return:                                           ; preds = %if.end, %if.end14
+  %retval.sroa.0.0 = phi i32 [ %sub, %if.end14 ], [ %1, %if.end ]
   ret i32 %retval.sroa.0.0
 }
 

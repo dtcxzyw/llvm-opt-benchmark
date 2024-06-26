@@ -37,7 +37,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
   %3 = tail call i32 @prte_ess_base_std_prolog() #3
   switch i32 %3, label %29 [
     i32 0, label %4
-    i32 -43, label %35
+    i32 -43, label %.thread
   ]
 
 4:                                                ; preds = %2
@@ -89,12 +89,9 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
 env_set_name.exit:                                ; preds = %7, %12, %25
   %27 = tail call i32 @prte_ess_base_prted_setup() #3
   switch i32 %27, label %.thread17 [
-    i32 0, label %35
+    i32 0, label %.thread
     i32 -43, label %.thread
   ]
-
-.thread:                                          ; preds = %env_set_name.exit
-  br label %35
 
 .thread17:                                        ; preds = %env_set_name.exit
   %28 = tail call ptr @prte_strerror(i32 noundef %27) #3
@@ -106,15 +103,15 @@ env_set_name.exit:                                ; preds = %7, %12, %25
   %.0721 = phi i32 [ %27, %.thread17 ], [ %3, %2 ]
   %30 = load i8, ptr @prte_report_silent_errors, align 1
   %31 = trunc i8 %30 to i1
-  br i1 %31, label %35, label %32
+  br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %29
   %33 = tail call ptr @prte_strerror(i32 noundef %.0721) #3
   %34 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %.022, ptr noundef %33, i32 noundef %.0721) #3
-  br label %35
+  br label %.thread
 
-35:                                               ; preds = %2, %.thread, %29, %32, %env_set_name.exit
-  %.08 = phi i32 [ %27, %env_set_name.exit ], [ %.0721, %32 ], [ %.0721, %29 ], [ -43, %.thread ], [ %3, %2 ]
+.thread:                                          ; preds = %env_set_name.exit, %2, %29, %32, %env_set_name.exit
+  %.08 = phi i32 [ %27, %env_set_name.exit ], [ %.0721, %32 ], [ %.0721, %29 ], [ %3, %2 ], [ %27, %env_set_name.exit ]
   ret i32 %.08
 }
 

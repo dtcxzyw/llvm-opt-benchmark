@@ -4907,7 +4907,7 @@ define dso_local noundef ptr @_Z12VL_POWSS_WWQiiiPjPKjmbb(i32 noundef %0, i32 %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_Z12VL_POWSS_QQWiiimPKjbb(i32 noundef %0, i32 %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #17 {
-  br i1 %6, label %8, label %28
+  br i1 %6, label %8, label %26
 
 8:                                                ; preds = %7
   %9 = add i32 %2, -1
@@ -4918,94 +4918,88 @@ define dso_local noundef i64 @_Z12VL_POWSS_QQWiiimPKjbb(i32 noundef %0, i32 %1, 
   %14 = and i32 %9, 31
   %15 = lshr i32 %13, %14
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %28, label %16
+  br i1 %.not, label %26, label %16
 
 16:                                               ; preds = %8
-  switch i64 %3, label %18 [
-    i64 0, label %_Z10VL_POW_QQWiiimPKj.exit
-    i64 1, label %17
-  ]
+  %switch = icmp ugt i64 %3, 1
+  %brmerge.not = and i1 %switch, %5
+  %.mux = select i1 %switch, i64 0, i64 %3
+  br i1 %brmerge.not, label %17, label %_Z10VL_POW_QQWiiimPKj.exit
 
 17:                                               ; preds = %16
-  br label %_Z10VL_POW_QQWiiimPKj.exit
+  %18 = and i32 %0, 63
+  %.not20 = icmp eq i32 %18, 0
+  %19 = zext nneg i32 %18 to i64
+  %notmask = shl nsw i64 -1, %19
+  %20 = xor i64 %notmask, -1
+  %21 = select i1 %.not20, i64 -1, i64 %20
+  %22 = icmp eq i64 %21, %3
+  br i1 %22, label %23, label %_Z10VL_POW_QQWiiimPKj.exit
 
-18:                                               ; preds = %16
-  br i1 %5, label %19, label %_Z10VL_POW_QQWiiimPKj.exit
-
-19:                                               ; preds = %18
-  %20 = and i32 %0, 63
-  %.not20 = icmp eq i32 %20, 0
-  %21 = zext nneg i32 %20 to i64
-  %notmask = shl nsw i64 -1, %21
-  %22 = xor i64 %notmask, -1
-  %23 = select i1 %.not20, i64 -1, i64 %22
-  %24 = icmp eq i64 %23, %3
-  br i1 %24, label %25, label %_Z10VL_POW_QQWiiimPKj.exit
-
-25:                                               ; preds = %19
-  %26 = load i32, ptr %4, align 4
-  %27 = and i32 %26, 1
-  %.not21 = icmp eq i32 %27, 0
+23:                                               ; preds = %17
+  %24 = load i32, ptr %4, align 4
+  %25 = and i32 %24, 1
+  %.not21 = icmp eq i32 %25, 0
   %. = select i1 %.not21, i64 1, i64 %3
   br label %_Z10VL_POW_QQWiiimPKj.exit
 
-28:                                               ; preds = %8, %7
-  %29 = load i32, ptr %4, align 4
-  %30 = icmp sgt i32 %2, 32
-  br i1 %30, label %.lr.ph.preheader.i, label %._crit_edge.i
+26:                                               ; preds = %8, %7
+  %27 = load i32, ptr %4, align 4
+  %28 = icmp sgt i32 %2, 32
+  br i1 %28, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %28
-  %31 = add nuw nsw i32 %2, 31
-  %32 = lshr i32 %31, 5
-  %wide.trip.count.i = zext nneg i32 %32 to i64
+.lr.ph.preheader.i:                               ; preds = %26
+  %29 = add nuw nsw i32 %2, 31
+  %30 = lshr i32 %29, 5
+  %wide.trip.count.i = zext nneg i32 %30 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.02732.i = phi i32 [ %29, %.lr.ph.preheader.i ], [ %35, %.lr.ph.i ]
-  %33 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
-  %34 = load i32, ptr %33, align 4
-  %35 = or i32 %34, %.02732.i
+  %.02732.i = phi i32 [ %27, %.lr.ph.preheader.i ], [ %33, %.lr.ph.i ]
+  %31 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
+  %32 = load i32, ptr %31, align 4
+  %33 = or i32 %32, %.02732.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !30
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %28
-  %.027.lcssa.i = phi i32 [ %29, %28 ], [ %35, %.lr.ph.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %26
+  %.027.lcssa.i = phi i32 [ %27, %26 ], [ %33, %.lr.ph.i ]
   %.not.i = icmp eq i32 %.027.lcssa.i, 0
-  br i1 %.not.i, label %_Z10VL_POW_QQWiiimPKj.exit, label %36
+  br i1 %.not.i, label %_Z10VL_POW_QQWiiimPKj.exit, label %34
 
-36:                                               ; preds = %._crit_edge.i
-  %37 = icmp eq i64 %3, 0
-  br i1 %37, label %_Z10VL_POW_QQWiiimPKj.exit, label %.preheader.i
+34:                                               ; preds = %._crit_edge.i
+  %35 = icmp eq i64 %3, 0
+  br i1 %35, label %_Z10VL_POW_QQWiiimPKj.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %36
-  %38 = icmp sgt i32 %2, 0
-  br i1 %38, label %.lr.ph37.i, label %_Z10VL_POW_QQWiiimPKj.exit
+.preheader.i:                                     ; preds = %34
+  %36 = icmp sgt i32 %2, 0
+  br i1 %36, label %.lr.ph37.i, label %_Z10VL_POW_QQWiiimPKj.exit
 
 .lr.ph37.i:                                       ; preds = %.preheader.i, %.lr.ph37.i
-  %.036.i = phi i32 [ %48, %.lr.ph37.i ], [ 0, %.preheader.i ]
+  %.036.i = phi i32 [ %46, %.lr.ph37.i ], [ 0, %.preheader.i ]
   %.02335.i = phi i64 [ %.1.i, %.lr.ph37.i ], [ 1, %.preheader.i ]
   %.02434.i = phi i64 [ %spec.select.i, %.lr.ph37.i ], [ %3, %.preheader.i ]
   %.not30.i = icmp eq i32 %.036.i, 0
-  %39 = select i1 %.not30.i, i64 1, i64 %.02434.i
-  %spec.select.i = mul i64 %39, %.02434.i
-  %40 = lshr i32 %.036.i, 5
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %4, i64 %41
-  %43 = load i32, ptr %42, align 4
-  %44 = and i32 %.036.i, 31
-  %45 = shl nuw i32 1, %44
-  %46 = and i32 %43, %45
-  %.not31.i = icmp eq i32 %46, 0
-  %47 = select i1 %.not31.i, i64 1, i64 %spec.select.i
-  %.1.i = mul i64 %47, %.02335.i
-  %48 = add nuw nsw i32 %.036.i, 1
-  %exitcond40.not.i = icmp eq i32 %48, %2
+  %37 = select i1 %.not30.i, i64 1, i64 %.02434.i
+  %spec.select.i = mul i64 %37, %.02434.i
+  %38 = lshr i32 %.036.i, 5
+  %39 = zext nneg i32 %38 to i64
+  %40 = getelementptr inbounds i32, ptr %4, i64 %39
+  %41 = load i32, ptr %40, align 4
+  %42 = and i32 %.036.i, 31
+  %43 = shl nuw i32 1, %42
+  %44 = and i32 %41, %43
+  %.not31.i = icmp eq i32 %44, 0
+  %45 = select i1 %.not31.i, i64 1, i64 %spec.select.i
+  %.1.i = mul i64 %45, %.02335.i
+  %46 = add nuw nsw i32 %.036.i, 1
+  %exitcond40.not.i = icmp eq i32 %46, %2
   br i1 %exitcond40.not.i, label %_Z10VL_POW_QQWiiimPKj.exit, label %.lr.ph37.i, !llvm.loop !31
 
-_Z10VL_POW_QQWiiimPKj.exit:                       ; preds = %.lr.ph37.i, %.preheader.i, %36, %._crit_edge.i, %18, %19, %25, %16, %17
-  %.0 = phi i64 [ 1, %17 ], [ %3, %16 ], [ %., %25 ], [ 0, %19 ], [ 0, %18 ], [ 1, %._crit_edge.i ], [ 0, %36 ], [ 1, %.preheader.i ], [ %.1.i, %.lr.ph37.i ]
+_Z10VL_POW_QQWiiimPKj.exit:                       ; preds = %.lr.ph37.i, %16, %.preheader.i, %34, %._crit_edge.i, %17, %23
+  %.0 = phi i64 [ %., %23 ], [ 0, %17 ], [ 1, %._crit_edge.i ], [ 0, %34 ], [ 1, %.preheader.i ], [ %.mux, %16 ], [ %.1.i, %.lr.ph37.i ]
   ret i64 %.0
 }
 

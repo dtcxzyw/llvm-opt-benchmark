@@ -460,7 +460,7 @@ _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwE
 
 180:                                              ; preds = %178, %179, %177, %175, %173
   %.289 = phi i32 [ %174, %173 ], [ %.087164, %175 ], [ %.087164, %177 ], [ %.087164, %179 ], [ %.087164, %178 ]
-  %.186 = phi i32 [ %.085166, %173 ], [ %.041.i, %175 ], [ %.041.i, %177 ], [ 99, %179 ], [ 100, %178 ]
+  %.186 = phi i32 [ %.085166, %173 ], [ %.041.i, %175 ], [ %.041.i, %177 ], [ 99, %179 ], [ %.041.i, %178 ]
   %.284 = phi i32 [ %.082, %173 ], [ %.041.i, %175 ], [ 103, %177 ], [ 105, %179 ], [ 104, %178 ]
   %181 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #9
           to label %182 unwind label %.loopexit155

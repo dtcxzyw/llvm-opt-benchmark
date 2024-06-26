@@ -10222,7 +10222,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.9990925514126320202.ex
 
 "_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WildcardPat$GT$17hd0ce768bbbfe8e10E.exit.sink.split.i": ; preds = %27
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %15)
-          to label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit" unwind label %59
+          to label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit" unwind label %58
 
 33:                                               ; preds = %20
   %34 = extractvalue { i32, i32 } %26, 0
@@ -10279,24 +10279,17 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.9990925514126320202.ex
 55:                                               ; preds = %48
   %56 = getelementptr inbounds i8, ptr %.val26, i64 %51
   %57 = load i8, ptr %56, align 1, !range !2025, !noundef !4
-  switch i8 %57, label %58 [
-    i8 3, label %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h030789a10532167aE.exit.thread"
-    i8 2, label %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h030789a10532167aE.exit.thread.fold.split"
-  ]
-
-58:                                               ; preds = %55
-  %.20 = xor i8 %57, 1
+  %switch37.not = icmp ult i8 %57, 2
+  %.20 = zext i1 %switch37.not to i8
+  %spec.select = xor i8 %57, %.20
   br label %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h030789a10532167aE.exit.thread"
 
-"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h030789a10532167aE.exit.thread.fold.split": ; preds = %55
-  br label %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h030789a10532167aE.exit.thread"
-
-"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h030789a10532167aE.exit.thread": ; preds = %55, %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h030789a10532167aE.exit.thread.fold.split", %48, %58, %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit30", %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit32"
-  %.1 = phi i8 [ 3, %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit32" ], [ 3, %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit30" ], [ %.20, %58 ], [ 3, %48 ], [ %57, %55 ], [ 2, %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h030789a10532167aE.exit.thread.fold.split" ]
+"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h030789a10532167aE.exit.thread": ; preds = %55, %48, %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit30", %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit32"
+  %.1 = phi i8 [ 3, %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit32" ], [ 3, %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit30" ], [ 3, %48 ], [ %spec.select, %55 ]
   ret i8 %.1
 
-59:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WildcardPat$GT$17hd0ce768bbbfe8e10E.exit.sink.split.i"
-  %60 = landingpad { ptr, i32 }
+58:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WildcardPat$GT$17hd0ce768bbbfe8e10E.exit.sink.split.i"
+  %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable

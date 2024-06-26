@@ -4449,21 +4449,17 @@ for.end.i.i:                                      ; preds = %_ZN3ue29ue2_graphIN
   br i1 %cmp.i.i.i.i357, label %if.then.i.i432, label %if.else.i.i358
 
 if.then.i.i432:                                   ; preds = %for.end.i.i
-  switch i32 %431, label %if.end7.i.i.i.i [
-    i32 -2147483648, label %_ZN3ue25depthmIEi.exit.i.i
-    i32 2147483647, label %return.fold.split.i.i.i.i
-  ]
+  %.off = add i32 %431, -2147483647
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %_ZN3ue25depthmIEi.exit.i.i, label %if.end7.i.i.i.i
 
 if.end7.i.i.i.i:                                  ; preds = %if.then.i.i432
   %sub.i.i.i.i = add nsw i32 %431, -1
   %cmp8.i.i.i.i = icmp slt i32 %431, 1
   br i1 %cmp8.i.i.i.i, label %do.end.i.i31.i.invoke.i, label %_ZN3ue25depthmIEi.exit.i.i
 
-return.fold.split.i.i.i.i:                        ; preds = %if.then.i.i432
-  br label %_ZN3ue25depthmIEi.exit.i.i
-
-_ZN3ue25depthmIEi.exit.i.i:                       ; preds = %return.fold.split.i.i.i.i, %if.end7.i.i.i.i, %if.then.i.i432
-  %retval.sroa.0.0.i.i.i.i433 = phi i32 [ %431, %if.then.i.i432 ], [ %sub.i.i.i.i, %if.end7.i.i.i.i ], [ 2147483647, %return.fold.split.i.i.i.i ]
+_ZN3ue25depthmIEi.exit.i.i:                       ; preds = %if.then.i.i432, %if.end7.i.i.i.i
+  %retval.sroa.0.0.i.i.i.i433 = phi i32 [ %sub.i.i.i.i, %if.end7.i.i.i.i ], [ %431, %if.then.i.i432 ]
   store i32 %retval.sroa.0.0.i.i.i.i433, ptr %repeatMin.i.i, align 4
   br label %if.end.i.i364
 
@@ -4709,10 +4705,9 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   %call5.i.i.i.i.i.i58268.i = phi ptr [ %call5.i.i.i.i.i.i58.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i ], [ %call5.i.i.i.i.i.i58269.i, %if.then.i.i.i366 ]
   %incdec.ptr.i.i.i278.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i58268.i, i64 16
   %451 = load i32, ptr %repeatMax.i, align 4
-  switch i32 %451, label %if.end7.i.i28.i.i [
-    i32 -2147483648, label %_ZN3ue25depthmIEi.exit33.i.i
-    i32 2147483647, label %return.fold.split.i.i26.i.i
-  ]
+  %.off1208 = add i32 %451, -2147483647
+  %switch1209 = icmp ult i32 %.off1208, 2
+  br i1 %switch1209, label %_ZN3ue25depthmIEi.exit33.i.i, label %if.end7.i.i28.i.i
 
 if.end7.i.i28.i.i:                                ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit.i.i
   %sub.i.i29.i.i = add nsw i32 %451, -1
@@ -4733,11 +4728,8 @@ do.end.i.i31.i.invoke.i:                          ; preds = %if.end7.i.i28.i.i, 
 do.end.i.i31.i.cont.i:                            ; preds = %do.end.i.i31.i.invoke.i
   unreachable
 
-return.fold.split.i.i26.i.i:                      ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit.i.i
-  br label %_ZN3ue25depthmIEi.exit33.i.i
-
-_ZN3ue25depthmIEi.exit33.i.i:                     ; preds = %return.fold.split.i.i26.i.i, %if.end7.i.i28.i.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit.i.i
-  %retval.sroa.0.0.i.i27.i.i = phi i32 [ %451, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit.i.i ], [ %sub.i.i29.i.i, %if.end7.i.i28.i.i ], [ 2147483647, %return.fold.split.i.i26.i.i ]
+_ZN3ue25depthmIEi.exit33.i.i:                     ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit.i.i, %if.end7.i.i28.i.i
+  %retval.sroa.0.0.i.i27.i.i = phi i32 [ %sub.i.i29.i.i, %if.end7.i.i28.i.i ], [ %451, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit.i.i ]
   store i32 %retval.sroa.0.0.i.i27.i.i, ptr %repeatMax.i, align 4
   %dec.i.i = add i32 %unpeel.0101.i.i, -1
   %tobool.not.i.i367 = icmp eq i32 %dec.i.i, 0
@@ -35767,10 +35759,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr %this, align 4
-  switch i32 %1, label %if.end10 [
-    i32 -2147483648, label %return
-    i32 2147483647, label %return.fold.split
-  ]
+  %.off = add i32 %1, -2147483647
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end
   %cmp = icmp ult i32 %1, %0
@@ -35791,11 +35782,8 @@ do.end.i:                                         ; preds = %if.end14
   tail call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN3ue218DepthOverflowErrorE, ptr null) #28
   unreachable
 
-return.fold.split:                                ; preds = %if.end
-  br label %return
-
-return:                                           ; preds = %if.end, %return.fold.split, %if.end14
-  %retval.sroa.0.0 = phi i32 [ %1, %if.end ], [ %sub, %if.end14 ], [ 2147483647, %return.fold.split ]
+return:                                           ; preds = %if.end, %if.end14
+  %retval.sroa.0.0 = phi i32 [ %sub, %if.end14 ], [ %1, %if.end ]
   ret i32 %retval.sroa.0.0
 }
 

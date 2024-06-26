@@ -1581,26 +1581,16 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i.i: ; preds = %9
           to label %invoke.cont38.i.i.i unwind label %lpad37.i.i.i, !noalias !11
 
 invoke.cont38.i.i.i:                              ; preds = %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i.i
-  switch i64 %call.i41.i.i.i, label %if.end11.i.i.i.i.i [
-    i64 9223372036854775807, label %invoke.cont44.i.i.i
-    i64 -9223372036854775808, label %invoke.cont44.fold.split.i.i.i
-  ]
-
-if.end11.i.i.i.i.i:                               ; preds = %invoke.cont38.i.i.i
+  %call.i41.i.i.i.off = add i64 %call.i41.i.i.i, -9223372036854775807
+  %switch = icmp ult i64 %call.i41.i.i.i.off, 2
   %or.cond.i.i.i = icmp sgt i64 %call.i41.i.i.i, 9223372036854774807
   %add.i.i.i.i.i.i = add nsw i64 %call.i41.i.i.i, 1000
   %spec.select.i.i.i = select i1 %or.cond.i.i.i, i64 9223372036854775807, i64 %add.i.i.i.i.i.i
-  br label %invoke.cont44.i.i.i
-
-invoke.cont44.fold.split.i.i.i:                   ; preds = %invoke.cont38.i.i.i
-  br label %invoke.cont44.i.i.i
-
-invoke.cont44.i.i.i:                              ; preds = %invoke.cont44.fold.split.i.i.i, %if.end11.i.i.i.i.i, %invoke.cont38.i.i.i
-  %retval.0.i.i.i.i.i = phi i64 [ %call.i41.i.i.i, %invoke.cont38.i.i.i ], [ -9223372036854775808, %invoke.cont44.fold.split.i.i.i ], [ %spec.select.i.i.i, %if.end11.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i = select i1 %switch, i64 %call.i41.i.i.i, i64 %spec.select.i.i.i
   %call.i45.i.i.i = invoke ptr @gpr_malloc(i64 noundef 48)
           to label %invoke.cont47.i.i.i unwind label %lpad37.i.i.i, !noalias !11
 
-invoke.cont47.i.i.i:                              ; preds = %invoke.cont44.i.i.i
+invoke.cont47.i.i.i:                              ; preds = %invoke.cont38.i.i.i
   store ptr @_ZL42on_metadata_server_detection_http_responsePvN4absl12lts_202308026StatusE, ptr %call.i45.i.i.i, align 8, !noalias !11
   %cb_arg2.i.i.i.i = getelementptr inbounds i8, ptr %call.i45.i.i.i, i64 8
   store ptr %detector.i.i.i, ptr %cb_arg2.i.i.i.i, align 8, !noalias !11
@@ -1747,7 +1737,7 @@ if.end86.thread.i.i.i:                            ; preds = %_ZN4absl12lts_20230
   store i32 0, ptr %success.i.i.i, align 4, !noalias !11
   br label %while.end.i.i.i
 
-lpad37.i.i.i:                                     ; preds = %invoke.cont47.i.i.i, %invoke.cont44.i.i.i, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i.i, %95
+lpad37.i.i.i:                                     ; preds = %invoke.cont47.i.i.i, %invoke.cont38.i.i.i, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i.i, %95
   %117 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup57.i.i.i

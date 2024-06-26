@@ -40528,8 +40528,8 @@ define internal fastcc noundef i8 @"_ZN61_$LT$just..attribute..Attribute$u20$as$
   %or.cond = and i1 %17, %18
   br i1 %or.cond, label %19, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h630e00f8c878dcebE.exit"
 
-"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h630e00f8c878dcebE.exit": ; preds = %2, %53, %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i", %37, %35, %33, %27, %26, %24, %19, %16, %14
-  %.1 = phi i8 [ 1, %14 ], [ 0, %16 ], [ 1, %24 ], [ 0, %26 ], [ %.0.i.i.i.i, %53 ], [ %.0.i.i.i, %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i" ], [ -1, %27 ], [ %36, %35 ], [ 1, %33 ], [ 1, %37 ], [ -1, %19 ], [ -1, %2 ]
+"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h630e00f8c878dcebE.exit": ; preds = %35, %2, %52, %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i", %33, %27, %26, %24, %19, %16, %14
+  %.1 = phi i8 [ 1, %14 ], [ 0, %16 ], [ 1, %24 ], [ 0, %26 ], [ %.0.i.i.i.i, %52 ], [ %.0.i.i.i, %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i" ], [ -1, %27 ], [ 1, %33 ], [ -1, %19 ], [ -1, %2 ], [ %36, %35 ]
   ret i8 %.1
 
 19:                                               ; preds = %16
@@ -40571,59 +40571,50 @@ define internal fastcc noundef i8 @"_ZN61_$LT$just..attribute..Attribute$u20$as$
 
 35:                                               ; preds = %33
   %36 = sub nsw i8 %.val.i.i, %.val6.i.i
-  switch i8 %36, label %default.unreachable.i.i.i [
-    i8 -1, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h630e00f8c878dcebE.exit"
-    i8 0, label %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i"
-    i8 1, label %37
-  ]
-
-default.unreachable.i.i.i:                        ; preds = %35
-  unreachable
-
-37:                                               ; preds = %35
-  br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h630e00f8c878dcebE.exit"
+  %switch = icmp eq i8 %36, 0
+  br i1 %switch, label %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i", label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h630e00f8c878dcebE.exit"
 
 "_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i": ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
-  %39 = load ptr, ptr %38, align 8, !alias.scope !5880, !noalias !5881, !nonnull !14, !align !226, !noundef !14
-  %40 = getelementptr inbounds i8, ptr %0, i64 32
-  %41 = load i64, ptr %40, align 8, !alias.scope !5880, !noalias !5881, !noundef !14
-  %42 = getelementptr inbounds i8, ptr %1, i64 24
-  %43 = load ptr, ptr %42, align 8, !alias.scope !5881, !noalias !5880, !nonnull !14, !align !226, !noundef !14
-  %44 = getelementptr inbounds i8, ptr %1, i64 32
-  %45 = load i64, ptr %44, align 8, !alias.scope !5881, !noalias !5880, !noundef !14
-  %46 = sub i64 %41, %45
-  %..i.i.i = tail call i64 @llvm.umin.i64(i64 %41, i64 %45)
-  %47 = tail call i32 @memcmp(ptr nonnull readonly %39, ptr nonnull readonly %43, i64 %..i.i.i), !alias.scope !5882, !noalias !5886
-  %48 = sext i32 %47 to i64
-  %49 = icmp eq i32 %47, 0
-  %spec.store.select.i.i.i = select i1 %49, i64 %46, i64 %48
-  %50 = icmp slt i64 %spec.store.select.i.i.i, 0
-  %51 = icmp ne i64 %spec.store.select.i.i.i, 0
-  %.8.i.i.i = zext i1 %51 to i8
-  %.0.i.i.i = select i1 %50, i8 -1, i8 %.8.i.i.i
-  %52 = icmp eq i8 %.0.i.i.i, 0
-  br i1 %52, label %53, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h630e00f8c878dcebE.exit"
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = load ptr, ptr %37, align 8, !alias.scope !5880, !noalias !5881, !nonnull !14, !align !226, !noundef !14
+  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %40 = load i64, ptr %39, align 8, !alias.scope !5880, !noalias !5881, !noundef !14
+  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %42 = load ptr, ptr %41, align 8, !alias.scope !5881, !noalias !5880, !nonnull !14, !align !226, !noundef !14
+  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %44 = load i64, ptr %43, align 8, !alias.scope !5881, !noalias !5880, !noundef !14
+  %45 = sub i64 %40, %44
+  %..i.i.i = tail call i64 @llvm.umin.i64(i64 %40, i64 %44)
+  %46 = tail call i32 @memcmp(ptr nonnull readonly %38, ptr nonnull readonly %42, i64 %..i.i.i), !alias.scope !5882, !noalias !5886
+  %47 = sext i32 %46 to i64
+  %48 = icmp eq i32 %46, 0
+  %spec.store.select.i.i.i = select i1 %48, i64 %45, i64 %47
+  %49 = icmp slt i64 %spec.store.select.i.i.i, 0
+  %50 = icmp ne i64 %spec.store.select.i.i.i, 0
+  %.8.i.i.i = zext i1 %50 to i8
+  %.0.i.i.i = select i1 %49, i8 -1, i8 %.8.i.i.i
+  %51 = icmp eq i8 %.0.i.i.i, 0
+  br i1 %51, label %52, label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h630e00f8c878dcebE.exit"
 
-53:                                               ; preds = %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i"
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val8.i.i = load ptr, ptr %54, align 8, !alias.scope !5880, !noalias !5881, !nonnull !14, !noundef !14
-  %55 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val9.i.i = load i64, ptr %55, align 8, !alias.scope !5880, !noalias !5881, !noundef !14
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
-  %.val10.i.i = load ptr, ptr %56, align 8, !alias.scope !5881, !noalias !5880, !nonnull !14, !noundef !14
-  %57 = getelementptr inbounds i8, ptr %1, i64 16
-  %.val11.i.i = load i64, ptr %57, align 8, !alias.scope !5881, !noalias !5880, !noundef !14
-  %58 = sub i64 %.val9.i.i, %.val11.i.i
+52:                                               ; preds = %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i"
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val8.i.i = load ptr, ptr %53, align 8, !alias.scope !5880, !noalias !5881, !nonnull !14, !noundef !14
+  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val9.i.i = load i64, ptr %54, align 8, !alias.scope !5880, !noalias !5881, !noundef !14
+  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %.val10.i.i = load ptr, ptr %55, align 8, !alias.scope !5881, !noalias !5880, !nonnull !14, !noundef !14
+  %56 = getelementptr inbounds i8, ptr %1, i64 16
+  %.val11.i.i = load i64, ptr %56, align 8, !alias.scope !5881, !noalias !5880, !noundef !14
+  %57 = sub i64 %.val9.i.i, %.val11.i.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val9.i.i, i64 %.val11.i.i)
-  %59 = tail call i32 @memcmp(ptr nonnull readonly %.val8.i.i, ptr nonnull readonly %.val10.i.i, i64 %..i.i.i.i), !alias.scope !5887, !noalias !5886
-  %60 = sext i32 %59 to i64
-  %61 = icmp eq i32 %59, 0
-  %spec.store.select.i.i.i.i = select i1 %61, i64 %58, i64 %60
-  %62 = icmp slt i64 %spec.store.select.i.i.i.i, 0
-  %63 = icmp ne i64 %spec.store.select.i.i.i.i, 0
-  %.8.i.i.i.i = zext i1 %63 to i8
-  %.0.i.i.i.i = select i1 %62, i8 -1, i8 %.8.i.i.i.i
+  %58 = tail call i32 @memcmp(ptr nonnull readonly %.val8.i.i, ptr nonnull readonly %.val10.i.i, i64 %..i.i.i.i), !alias.scope !5887, !noalias !5886
+  %59 = sext i32 %58 to i64
+  %60 = icmp eq i32 %58, 0
+  %spec.store.select.i.i.i.i = select i1 %60, i64 %57, i64 %59
+  %61 = icmp slt i64 %spec.store.select.i.i.i.i, 0
+  %62 = icmp ne i64 %spec.store.select.i.i.i.i, 0
+  %.8.i.i.i.i = zext i1 %62 to i8
+  %.0.i.i.i.i = select i1 %61, i8 -1, i8 %.8.i.i.i.i
   br label %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h630e00f8c878dcebE.exit"
 }
 
