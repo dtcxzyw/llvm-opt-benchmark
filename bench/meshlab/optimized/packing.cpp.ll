@@ -118,11 +118,11 @@ module asm ".previous"
 %"class.vcg::Point3" = type { [3 x double] }
 %"class.vcg::Color4" = type { %"class.vcg::Point4" }
 %"class.vcg::Point4" = type { [4 x i8] }
-%struct.TexCoordStorage = type { [3 x %"class.vcg::TexCoord2"] }
 %"class.std::allocator.61" = type { i8 }
 %"struct.std::_Rb_tree<vcg::PointerToAttribute, vcg::PointerToAttribute, std::_Identity<vcg::PointerToAttribute>, std::less<vcg::PointerToAttribute>>::_Alloc_node" = type { ptr }
 %"class.vcg::PointerToAttribute" = type { ptr, %"class.std::__cxx11::basic_string", i32, i32, i32, %"struct.std::type_index" }
 %"struct.std::type_index" = type { ptr }
+%struct.TexCoordStorage = type { [3 x %"class.vcg::TexCoord2"] }
 
 $_ZNSt10shared_ptrI9FaceGroupED2Ev = comdat any
 
@@ -3750,6 +3750,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXER
 
 _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXERNS_18RasterizedOutline2Eii.exit.thread.us: ; preds = %219, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXERNS_18RasterizedOutline2Eii.exit.us, %187
   %.0.i474783.us = phi i32 [ %.1.us.i477.us, %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXERNS_18RasterizedOutline2Eii.exit.us ], [ -2147483647, %187 ], [ -2147483647, %219 ]
+  %.sroa.0740.0.insert.ext.us = zext i32 %.0.i474783.us to i64
   %239 = getelementptr inbounds i8, ptr %189, i64 152
   %240 = load i32, ptr %239, align 8
   switch i32 %240, label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCostXERNS_18RasterizedOutline2ENS_6Point2IiEEi.exit528.us [
@@ -3805,9 +3806,10 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
   %264 = sub i64 %262, %263
   %265 = ashr exact i64 %264, 2
   %266 = getelementptr inbounds i8, ptr %189, i64 24
-  %267 = sext i32 %.0.i474783.us to i64
-  %268 = load ptr, ptr %266, align 8
-  %invariant.gep.i18.i499.us = getelementptr i32, ptr %268, i64 %267
+  %sext.i.i498.us = shl nuw i64 %.sroa.0740.0.insert.ext.us, 32
+  %267 = load ptr, ptr %266, align 8
+  %268 = ashr exact i64 %sext.i.i498.us, 30
+  %invariant.gep.i18.i499.us = getelementptr i8, ptr %267, i64 %268
   %269 = getelementptr inbounds i8, ptr %189, i64 148
   %270 = load i32, ptr %269, align 4
   %umax.i19.i500.us = call i64 @llvm.umax.i64(i64 %265, i64 1)
@@ -3945,9 +3947,10 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCost
   %344 = sub i64 %342, %343
   %345 = ashr exact i64 %344, 2
   %346 = getelementptr inbounds i8, ptr %189, i64 24
-  %347 = sext i32 %.0.i474783.us to i64
-  %348 = load ptr, ptr %346, align 8
-  %invariant.gep.i.i.i535.us = getelementptr i32, ptr %348, i64 %347
+  %sext.i.i.i534.us = shl nuw i64 %.sroa.0740.0.insert.ext.us, 32
+  %347 = load ptr, ptr %346, align 8
+  %348 = ashr exact i64 %sext.i.i.i534.us, 30
+  %invariant.gep.i.i.i535.us = getelementptr i8, ptr %347, i64 %348
   %umax.i.i.i536.us = call i64 @llvm.umax.i64(i64 %345, i64 1)
   %349 = trunc nuw nsw i64 %indvars.iv1159 to i32
   br label %350
@@ -4064,9 +4067,10 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
   %418 = sub i64 %416, %417
   %419 = ashr exact i64 %418, 2
   %420 = getelementptr inbounds i8, ptr %189, i64 24
-  %421 = sext i32 %.0.i474783.us to i64
-  %422 = load ptr, ptr %420, align 8
-  %invariant.gep.i.i570.us = getelementptr i32, ptr %422, i64 %421
+  %sext.i.i569.us = shl nuw i64 %.sroa.0740.0.insert.ext.us, 32
+  %421 = load ptr, ptr %420, align 8
+  %422 = ashr exact i64 %sext.i.i569.us, 30
+  %invariant.gep.i.i570.us = getelementptr i8, ptr %421, i64 %422
   %umax.i.i571.us = call i64 @llvm.umax.i64(i64 %419, i64 1)
   %423 = trunc nuw nsw i64 %indvars.iv1159 to i32
   br label %424
@@ -4131,6 +4135,7 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropXER
   %450 = getelementptr inbounds %"class.vcg::RasterizedOutline2Packer<float, QtOutline2Rasterizer>::packingfield", ptr %449, i64 %indvars.iv1163
   %451 = load ptr, ptr %6, align 8
   %452 = getelementptr inbounds %"class.vcg::RasterizedOutline2", ptr %451, i64 %147
+  %.sroa.0736.0.insert.ext.us = zext i32 %446 to i64
   %453 = getelementptr inbounds i8, ptr %450, i64 152
   %454 = load i32, ptr %453, align 8
   switch i32 %454, label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCostXERNS_18RasterizedOutline2ENS_6Point2IiEEi.exit626.us [
@@ -4193,9 +4198,10 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
   %484 = sub i64 %482, %483
   %485 = ashr exact i64 %484, 2
   %486 = getelementptr inbounds i8, ptr %450, i64 24
-  %487 = sext i32 %446 to i64
-  %488 = load ptr, ptr %486, align 8
-  %invariant.gep.i18.i597.us = getelementptr i32, ptr %488, i64 %487
+  %sext.i.i596.us = shl nuw i64 %.sroa.0736.0.insert.ext.us, 32
+  %487 = load ptr, ptr %486, align 8
+  %488 = ashr exact i64 %sext.i.i596.us, 30
+  %invariant.gep.i18.i597.us = getelementptr i8, ptr %487, i64 %488
   %489 = getelementptr inbounds i8, ptr %450, i64 148
   %490 = load i32, ptr %489, align 4
   %umax.i19.i598.us = call i64 @llvm.umax.i64(i64 %485, i64 1)
@@ -4348,9 +4354,10 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCost
   %577 = sub i64 %575, %576
   %578 = ashr exact i64 %577, 2
   %579 = getelementptr inbounds i8, ptr %450, i64 24
-  %580 = sext i32 %446 to i64
-  %581 = load ptr, ptr %579, align 8
-  %invariant.gep.i.i.i633.us = getelementptr i32, ptr %581, i64 %580
+  %sext.i.i.i632.us = shl nuw i64 %.sroa.0736.0.insert.ext.us, 32
+  %580 = load ptr, ptr %579, align 8
+  %581 = ashr exact i64 %sext.i.i.i632.us, 30
+  %invariant.gep.i.i.i633.us = getelementptr i8, ptr %580, i64 %581
   %umax.i.i.i634.us = call i64 @llvm.umax.i64(i64 %578, i64 1)
   br label %582
 
@@ -4469,9 +4476,10 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
   %652 = sub i64 %650, %651
   %653 = ashr exact i64 %652, 2
   %654 = getelementptr inbounds i8, ptr %450, i64 24
-  %655 = sext i32 %446 to i64
-  %656 = load ptr, ptr %654, align 8
-  %invariant.gep.i.i668.us = getelementptr i32, ptr %656, i64 %655
+  %sext.i.i667.us = shl nuw i64 %.sroa.0736.0.insert.ext.us, 32
+  %655 = load ptr, ptr %654, align 8
+  %656 = ashr exact i64 %sext.i.i667.us, 30
+  %invariant.gep.i.i668.us = getelementptr i8, ptr %655, i64 %656
   %umax.i.i669.us = call i64 @llvm.umax.i64(i64 %653, i64 1)
   br label %657
 
@@ -4594,8 +4602,9 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield5dropYER
   %699 = ptrtoint ptr %679 to i64
   %700 = sub i64 %698, %699
   %701 = ashr exact i64 %700, 2
+  %sext.i.i.i.us = shl nuw nsw i64 %indvars.iv1155, 2
   %702 = load ptr, ptr %1089, align 8
-  %invariant.gep.i.i.i.us = getelementptr i32, ptr %702, i64 %indvars.iv1155
+  %invariant.gep.i.i.i.us = getelementptr i8, ptr %702, i64 %sext.i.i.i.us
   %umax.i.i.i.us = call i64 @llvm.umax.i64(i64 %701, i64 1)
   br label %703
 
@@ -4699,8 +4708,9 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
   %760 = ptrtoint ptr %679 to i64
   %761 = sub i64 %759, %760
   %762 = ashr exact i64 %761, 2
+  %sext.i.i.us = shl nuw nsw i64 %indvars.iv1155, 2
   %763 = load ptr, ptr %1089, align 8
-  %invariant.gep.i.i.us = getelementptr i32, ptr %763, i64 %indvars.iv1155
+  %invariant.gep.i.i.us = getelementptr i8, ptr %763, i64 %sext.i.i.us
   %umax.i.i.us = call i64 @llvm.umax.i64(i64 %762, i64 1)
   br label %764
 
@@ -4779,8 +4789,9 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
   %797 = ptrtoint ptr %679 to i64
   %798 = sub i64 %796, %797
   %799 = ashr exact i64 %798, 2
+  %sext.i.i336.us = shl nuw nsw i64 %indvars.iv1155, 2
   %800 = load ptr, ptr %1089, align 8
-  %invariant.gep.i18.i.us = getelementptr i32, ptr %800, i64 %indvars.iv1155
+  %invariant.gep.i18.i.us = getelementptr i8, ptr %800, i64 %sext.i.i336.us
   %801 = load i32, ptr %1090, align 4
   %umax.i19.i.us = call i64 @llvm.umax.i64(i64 %799, i64 1)
   %802 = trunc nuw nsw i64 %indvars.iv1155 to i32
@@ -5016,8 +5027,9 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYI
   br i1 %.not.i356.us, label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyCellBetweenPolyAndBottomHorizonERNS_18RasterizedOutline2ENS_6Point2IiEEi.exit.i.i383.us, label %.lr.ph.i.i.i373.us
 
 .lr.ph.i.i.i373.us:                               ; preds = %922
+  %sext.i.i.i374.us = shl nuw nsw i64 %indvars.iv1155, 2
   %925 = load ptr, ptr %1089, align 8
-  %invariant.gep.i.i.i375.us = getelementptr i32, ptr %925, i64 %indvars.iv1155
+  %invariant.gep.i.i.i375.us = getelementptr i8, ptr %925, i64 %sext.i.i.i374.us
   %umax.i.i.i376.us = call i64 @llvm.umax.i64(i64 %887, i64 1)
   br label %926
 
@@ -5111,8 +5123,9 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield36emptyC
   br i1 %.not.i356.us, label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCostYERNS_18RasterizedOutline2ENS_6Point2IiEEi.exit418.us, label %.lr.ph.i.i408.us
 
 .lr.ph.i.i408.us:                                 ; preds = %975
+  %sext.i.i409.us = shl nuw nsw i64 %indvars.iv1155, 2
   %976 = load ptr, ptr %1089, align 8
-  %invariant.gep.i.i410.us = getelementptr i32, ptr %976, i64 %indvars.iv1155
+  %invariant.gep.i.i410.us = getelementptr i8, ptr %976, i64 %sext.i.i409.us
   %umax.i.i411.us = call i64 @llvm.umax.i64(i64 %887, i64 1)
   br label %977
 
@@ -5187,8 +5200,9 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyC
   br i1 %.not.i356.us, label %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield8getCostXERNS_18RasterizedOutline2ENS_6Point2IiEEi.exit466.us, label %.lr.ph.i17.i435.us
 
 .lr.ph.i17.i435.us:                               ; preds = %_ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield34emptyCellBetweenPolyAndLeftHorizonERNS_18RasterizedOutline2ENS_6Point2IiEEi.exit.i.i432.us
+  %sext.i.i436.us = shl nuw nsw i64 %indvars.iv1155, 2
   %1009 = load ptr, ptr %1089, align 8
-  %invariant.gep.i18.i437.us = getelementptr i32, ptr %1009, i64 %indvars.iv1155
+  %invariant.gep.i18.i437.us = getelementptr i8, ptr %1009, i64 %sext.i.i436.us
   %1010 = load i32, ptr %1090, align 4
   %umax.i19.i438.us = call i64 @llvm.umax.i64(i64 %887, i64 1)
   %1011 = trunc nuw nsw i64 %indvars.iv1155 to i32
@@ -11812,9 +11826,9 @@ _ZNKSt3mapIibSt4lessIiESaISt4pairIKibEEE11lower_boundERS3_.exit.i: ; preds = %57
   %72 = ptrtoint ptr %53 to i64
   %73 = ptrtoint ptr %71 to i64
   %74 = sub i64 %72, %73
-  %75 = sdiv exact i64 %74, 216
-  %76 = load ptr, ptr %23, align 8
-  %77 = getelementptr inbounds %struct.TexCoordStorage, ptr %76, i64 %75
+  %75 = load ptr, ptr %23, align 8
+  %76 = sdiv exact i64 %74, 3
+  %77 = getelementptr inbounds i8, ptr %75, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 24
   %79 = load double, ptr %78, align 8
   %80 = load double, ptr %77, align 8
@@ -11921,9 +11935,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.invoke, %.critedge
   %159 = load ptr, ptr %158, align 8
   %160 = ptrtoint ptr %159 to i64
   %161 = sub i64 %72, %160
-  %162 = sdiv exact i64 %161, 216
-  %163 = load ptr, ptr %23, align 8
-  %164 = getelementptr inbounds %struct.TexCoordStorage, ptr %163, i64 %162
+  %162 = load ptr, ptr %23, align 8
+  %163 = sdiv exact i64 %161, 3
+  %164 = getelementptr inbounds i8, ptr %162, i64 %163
   %.sroa.078.0.copyload = load double, ptr %164, align 8
   %.sroa.279.0..sroa_idx = getelementptr inbounds i8, ptr %164, i64 8
   %.sroa.279.0.copyload = load double, ptr %.sroa.279.0..sroa_idx, align 8

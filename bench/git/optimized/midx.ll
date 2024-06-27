@@ -3500,30 +3500,30 @@ if.end4.i.i:                                      ; preds = %if.end.i.i267, %for
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i253 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %240 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 96
-  %arrayidx.i.i268 = getelementptr inbounds ptr, ptr %239, i64 %sub.ptr.div.i.i
+  %241 = sdiv exact i64 %sub.ptr.sub.i.i, 12
+  %arrayidx.i.i268 = getelementptr inbounds i8, ptr %239, i64 %241
   store ptr %235, ptr %arrayidx.i.i268, align 8
   br label %oe_set_in_pack.exit.i
 
 oe_set_in_pack.exit.i:                            ; preds = %if.end4.i.i, %if.then2.i.i
   %inc.i263 = add i32 %i.012.i, 1
   %conv.i264 = zext i32 %inc.i263 to i64
-  %241 = load i64, ptr %entries_nr, align 8
-  %cmp.i265 = icmp ugt i64 %241, %conv.i264
+  %242 = load i64, ptr %entries_nr, align 8
+  %cmp.i265 = icmp ugt i64 %242, %conv.i264
   br i1 %cmp.i265, label %for.body.i251, label %prepare_midx_packing_data.exit, !llvm.loop !29
 
 prepare_midx_packing_data.exit:                   ; preds = %oe_set_in_pack.exit.i, %if.end488
-  %242 = load ptr, ptr @the_repository, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.14, i32 noundef 1142, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.94, ptr noundef %242) #23
+  %243 = load ptr, ptr @the_repository, align 8
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.14, i32 noundef 1142, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.94, ptr noundef %243) #23
   call void @llvm.lifetime.start.p0(i64 3024, ptr nonnull %revs.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cb.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cb.i, i8 0, i64 24, i1 false)
-  %243 = load ptr, ptr @the_repository, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.14, i32 noundef 1241, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.95, ptr noundef %243) #23
+  %244 = load ptr, ptr @the_repository, align 8
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.14, i32 noundef 1241, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.95, ptr noundef %244) #23
   %ctx1.i = getelementptr inbounds i8, ptr %cb.i, i64 24
   store ptr %ctx, ptr %ctx1.i, align 8
-  %244 = load ptr, ptr @the_repository, align 8
-  call void @repo_init_revisions(ptr noundef %244, ptr noundef nonnull %revs.i, ptr noundef null) #23
+  %245 = load ptr, ptr @the_repository, align 8
+  call void @repo_init_revisions(ptr noundef %245, ptr noundef nonnull %revs.i, ptr noundef null) #23
   %tobool.not.i269 = icmp eq ptr %refs_snapshot, null
   br i1 %tobool.not.i269, label %if.else.i, label %if.then.i270
 
@@ -3543,43 +3543,43 @@ while.body.lr.ph.i.i:                             ; preds = %if.then.i270
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end23.i.i, %while.body.lr.ph.i.i
-  %245 = load ptr, ptr %buf2.i.i, align 8
+  %246 = load ptr, ptr %buf2.i.i, align 8
   store ptr null, ptr %end.i.i, align 8
-  %246 = load i64, ptr %len.i.i, align 8
-  %tobool.not.i.i272 = icmp eq i64 %246, 0
+  %247 = load i64, ptr %len.i.i, align 8
+  %tobool.not.i.i272 = icmp eq i64 %247, 0
   br i1 %tobool.not.i.i272, label %if.end.i.i274, label %land.lhs.true.i.i273
 
 land.lhs.true.i.i273:                             ; preds = %while.body.i.i
-  %247 = load i8, ptr %245, align 1
-  %cmp4.i.i = icmp ne i8 %247, 43
+  %248 = load i8, ptr %246, align 1
+  %cmp4.i.i = icmp ne i8 %248, 43
   %not.cmp4.i.i = xor i1 %cmp4.i.i, true
   %spec.select3.idx.i.i = zext i1 %not.cmp4.i.i to i64
-  %spec.select3.i.i = getelementptr inbounds i8, ptr %245, i64 %spec.select3.idx.i.i
+  %spec.select3.i.i = getelementptr inbounds i8, ptr %246, i64 %spec.select3.idx.i.i
   br label %if.end.i.i274
 
 if.end.i.i274:                                    ; preds = %land.lhs.true.i.i273, %while.body.i.i
   %tobool20.not.i.i = phi i1 [ true, %while.body.i.i ], [ %cmp4.i.i, %land.lhs.true.i.i273 ]
-  %hex.0.i.i = phi ptr [ %245, %while.body.i.i ], [ %spec.select3.i.i, %land.lhs.true.i.i273 ]
+  %hex.0.i.i = phi ptr [ %246, %while.body.i.i ], [ %spec.select3.i.i, %land.lhs.true.i.i273 ]
   %call7.i.i = call i32 @parse_oid_hex(ptr noundef %hex.0.i.i, ptr noundef nonnull %oid.i.i, ptr noundef nonnull %end.i.i) #23
   %cmp8.i.i = icmp slt i32 %call7.i.i, 0
   br i1 %cmp8.i.i, label %if.then10.i.i, label %if.end13.i.i
 
 if.then10.i.i:                                    ; preds = %if.end.i.i274
   %call11.i.i = call fastcc ptr @_(ptr noundef nonnull @.str.98)
-  %248 = load ptr, ptr %buf2.i.i, align 8
-  call void (ptr, ...) @die(ptr noundef %call11.i.i, ptr noundef %248) #24
+  %249 = load ptr, ptr %buf2.i.i, align 8
+  call void (ptr, ...) @die(ptr noundef %call11.i.i, ptr noundef %249) #24
   unreachable
 
 if.end13.i.i:                                     ; preds = %if.end.i.i274
-  %249 = load ptr, ptr %end.i.i, align 8
-  %250 = load i8, ptr %249, align 1
-  %tobool14.not.i.i = icmp eq i8 %250, 0
+  %250 = load ptr, ptr %end.i.i, align 8
+  %251 = load i8, ptr %250, align 1
+  %tobool14.not.i.i = icmp eq i8 %251, 0
   br i1 %tobool14.not.i.i, label %if.end18.i.i, label %if.then15.i.i
 
 if.then15.i.i:                                    ; preds = %if.end13.i.i
   %call16.i.i = call fastcc ptr @_(ptr noundef nonnull @.str.99)
-  %251 = load ptr, ptr %buf2.i.i, align 8
-  call void (ptr, ...) @die(ptr noundef %call16.i.i, ptr noundef %251) #24
+  %252 = load ptr, ptr %buf2.i.i, align 8
+  call void (ptr, ...) @die(ptr noundef %call16.i.i, ptr noundef %252) #24
   unreachable
 
 if.end18.i.i:                                     ; preds = %if.end13.i.i
@@ -3629,36 +3629,36 @@ if.then6.i:                                       ; preds = %if.end.i279
 find_commits_for_midx_bitmap.exit:                ; preds = %if.end.i279
   call void @traverse_commit_list_filtered(ptr noundef nonnull %revs.i, ptr noundef nonnull @bitmap_show_commit, ptr noundef null, ptr noundef nonnull %cb.i, ptr noundef null) #23
   %commits_nr.i = getelementptr inbounds i8, ptr %cb.i, i64 8
-  %252 = load i64, ptr %commits_nr.i, align 8
-  %conv.i283 = trunc i64 %252 to i32
+  %253 = load i64, ptr %commits_nr.i, align 8
+  %conv.i283 = trunc i64 %253 to i32
   call void @release_revisions(ptr noundef nonnull %revs.i) #23
-  %253 = load ptr, ptr @the_repository, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.14, i32 noundef 1278, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.95, ptr noundef %253) #23
-  %254 = load ptr, ptr %cb.i, align 8
+  %254 = load ptr, ptr @the_repository, align 8
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.14, i32 noundef 1278, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.95, ptr noundef %254) #23
+  %255 = load ptr, ptr %cb.i, align 8
   call void @llvm.lifetime.end.p0(i64 3024, ptr nonnull %revs.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cb.i)
-  %255 = load ptr, ptr %entries, align 8
-  call void @free(ptr noundef %255) #23
+  %256 = load ptr, ptr %entries, align 8
+  call void @free(ptr noundef %256) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries, i8 0, i64 16, i1 false)
-  %256 = load ptr, ptr %buf, align 8
+  %257 = load ptr, ptr %buf, align 8
   %pack_order497 = getelementptr inbounds i8, ptr %ctx, i64 72
-  %257 = load ptr, ptr %pack_order497, align 8
+  %258 = load ptr, ptr %pack_order497, align 8
   %call.i285 = call ptr @hash_to_hex(ptr noundef nonnull %midx_hash) #23
-  %call1.i286 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.101, ptr noundef %256, ptr noundef %call.i285) #23
-  %258 = load ptr, ptr @the_repository, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.14, i32 noundef 1297, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.102, ptr noundef %258) #23
-  %259 = trunc i32 %flags.addr.0 to i16
-  %260 = lshr i16 %259, 1
-  %spec.select.i287 = and i16 %260, 4
-  %261 = and i16 %259, 16
-  %options.1.i = or disjoint i16 %spec.select.i287, %261
+  %call1.i286 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.101, ptr noundef %257, ptr noundef %call.i285) #23
+  %259 = load ptr, ptr @the_repository, align 8
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.14, i32 noundef 1297, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.102, ptr noundef %259) #23
+  %260 = trunc i32 %flags.addr.0 to i16
+  %261 = lshr i16 %260, 1
+  %spec.select.i287 = and i16 %261, 4
+  %262 = and i16 %260, 16
+  %options.1.i = or disjoint i16 %spec.select.i287, %262
   %nr_objects.i = getelementptr inbounds i8, ptr %pdata, i64 16
-  %262 = load i32, ptr %nr_objects.i, align 8
-  %conv10.i = zext i32 %262 to i64
+  %263 = load i32, ptr %nr_objects.i, align 8
+  %conv10.i = zext i32 %263 to i64
   %mul.i.i288 = shl nuw nsw i64 %conv10.i, 3
   %call12.i = call ptr @xmalloc(i64 noundef %mul.i.i288) #23
-  %263 = load i32, ptr %nr_objects.i, align 8
-  %cmp28.not.i = icmp eq i32 %263, 0
+  %264 = load i32, ptr %nr_objects.i, align 8
+  %cmp28.not.i = icmp eq i32 %264, 0
   br i1 %cmp28.not.i, label %for.end.i295, label %for.body.lr.ph.i289
 
 for.body.lr.ph.i289:                              ; preds = %find_commits_for_midx_bitmap.exit
@@ -3667,23 +3667,23 @@ for.body.lr.ph.i289:                              ; preds = %find_commits_for_mi
 
 for.body.i290:                                    ; preds = %for.body.i290, %for.body.lr.ph.i289
   %indvars.iv.i291 = phi i64 [ 0, %for.body.lr.ph.i289 ], [ %indvars.iv.next.i293, %for.body.i290 ]
-  %264 = load ptr, ptr %objects.i, align 8
-  %arrayidx.i292 = getelementptr inbounds %struct.object_entry, ptr %264, i64 %indvars.iv.i291
+  %265 = load ptr, ptr %objects.i, align 8
+  %arrayidx.i292 = getelementptr inbounds %struct.object_entry, ptr %265, i64 %indvars.iv.i291
   %arrayidx16.i = getelementptr inbounds ptr, ptr %call12.i, i64 %indvars.iv.i291
   store ptr %arrayidx.i292, ptr %arrayidx16.i, align 8
   %indvars.iv.next.i293 = add nuw nsw i64 %indvars.iv.i291, 1
-  %265 = load i32, ptr %nr_objects.i, align 8
-  %266 = zext i32 %265 to i64
-  %cmp.i294 = icmp ult i64 %indvars.iv.next.i293, %266
+  %266 = load i32, ptr %nr_objects.i, align 8
+  %267 = zext i32 %266 to i64
+  %cmp.i294 = icmp ult i64 %indvars.iv.next.i293, %267
   br i1 %cmp.i294, label %for.body.i290, label %for.end.i295, !llvm.loop !31
 
 for.end.i295:                                     ; preds = %for.body.i290, %find_commits_for_midx_bitmap.exit
   %and17.i = and i32 %flags.addr.0, 1
   call void @bitmap_writer_show_progress(i32 noundef %and17.i) #23
-  %267 = load i32, ptr %nr_objects.i, align 8
-  call void @bitmap_writer_build_type_index(ptr noundef nonnull %pdata, ptr noundef %call12.i, i32 noundef %267) #23
   %268 = load i32, ptr %nr_objects.i, align 8
-  %cmp2130.not.i = icmp eq i32 %268, 0
+  call void @bitmap_writer_build_type_index(ptr noundef nonnull %pdata, ptr noundef %call12.i, i32 noundef %268) #23
+  %269 = load i32, ptr %nr_objects.i, align 8
+  %cmp2130.not.i = icmp eq i32 %269, 0
   br i1 %cmp2130.not.i, label %for.end34.i, label %for.body23.lr.ph.i
 
 for.body23.lr.ph.i:                               ; preds = %for.end.i295
@@ -3692,44 +3692,44 @@ for.body23.lr.ph.i:                               ; preds = %for.end.i295
 
 for.body23.i:                                     ; preds = %for.body23.i, %for.body23.lr.ph.i
   %indvars.iv33.i = phi i64 [ 0, %for.body23.lr.ph.i ], [ %indvars.iv.next34.i, %for.body23.i ]
-  %269 = load ptr, ptr %objects24.i, align 8
-  %arrayidx26.i = getelementptr inbounds %struct.object_entry, ptr %269, i64 %indvars.iv33.i
-  %arrayidx29.i296 = getelementptr inbounds i32, ptr %257, i64 %indvars.iv33.i
-  %270 = load i32, ptr %arrayidx29.i296, align 4
-  %idxprom30.i = zext i32 %270 to i64
+  %270 = load ptr, ptr %objects24.i, align 8
+  %arrayidx26.i = getelementptr inbounds %struct.object_entry, ptr %270, i64 %indvars.iv33.i
+  %arrayidx29.i296 = getelementptr inbounds i32, ptr %258, i64 %indvars.iv33.i
+  %271 = load i32, ptr %arrayidx29.i296, align 4
+  %idxprom30.i = zext i32 %271 to i64
   %arrayidx31.i = getelementptr inbounds ptr, ptr %call12.i, i64 %idxprom30.i
   store ptr %arrayidx26.i, ptr %arrayidx31.i, align 8
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
-  %271 = load i32, ptr %nr_objects.i, align 8
-  %272 = zext i32 %271 to i64
-  %cmp21.i297 = icmp ult i64 %indvars.iv.next34.i, %272
+  %272 = load i32, ptr %nr_objects.i, align 8
+  %273 = zext i32 %272 to i64
+  %cmp21.i297 = icmp ult i64 %indvars.iv.next34.i, %273
   br i1 %cmp21.i297, label %for.body23.i, label %for.end34.i, !llvm.loop !32
 
 for.end34.i:                                      ; preds = %for.body23.i, %for.end.i295
-  call void @bitmap_writer_select_commits(ptr noundef %254, i32 noundef %conv.i283, i32 noundef -1) #23
+  call void @bitmap_writer_select_commits(ptr noundef %255, i32 noundef %conv.i283, i32 noundef -1) #23
   %call35.i = call i32 @bitmap_writer_build(ptr noundef nonnull %pdata) #23
   %cmp36.i = icmp slt i32 %call35.i, 0
   br i1 %cmp36.i, label %if.then501.critedge, label %if.end39.i
 
 if.end39.i:                                       ; preds = %for.end34.i
   call void @bitmap_writer_set_checksum(ptr noundef nonnull %midx_hash) #23
-  %273 = load i32, ptr %nr_objects.i, align 8
-  call void @bitmap_writer_finish(ptr noundef %call12.i, i32 noundef %273, ptr noundef %call1.i286, i16 noundef zeroext %options.1.i) #23
+  %274 = load i32, ptr %nr_objects.i, align 8
+  call void @bitmap_writer_finish(ptr noundef %call12.i, i32 noundef %274, ptr noundef %call1.i286, i16 noundef zeroext %options.1.i) #23
   call void @free(ptr noundef %call12.i) #23
   call void @free(ptr noundef %call1.i286) #23
-  %274 = load ptr, ptr @the_repository, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.14, i32 noundef 1345, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.102, ptr noundef %274) #23
+  %275 = load ptr, ptr @the_repository, align 8
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.14, i32 noundef 1345, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.102, ptr noundef %275) #23
   call void @clear_packing_data(ptr noundef nonnull %pdata) #23
-  call void @free(ptr noundef %254) #23
+  call void @free(ptr noundef %255) #23
   br label %if.end506
 
 if.then501.critedge:                              ; preds = %for.end34.i
   call void @free(ptr noundef %call12.i) #23
   call void @free(ptr noundef %call1.i286) #23
-  %275 = load ptr, ptr @the_repository, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.14, i32 noundef 1345, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.102, ptr noundef %275) #23
-  %276 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i299 = icmp eq i32 %276, 0
+  %276 = load ptr, ptr @the_repository, align 8
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.14, i32 noundef 1345, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.102, ptr noundef %276) #23
+  %277 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i299 = icmp eq i32 %277, 0
   br i1 %tobool1.not.i299, label %_.exit303, label %if.end3.i300
 
 if.end3.i300:                                     ; preds = %if.then501.critedge
@@ -3740,19 +3740,19 @@ _.exit303:                                        ; preds = %if.then501.critedge
   %retval.0.i302 = phi ptr [ %call.i301, %if.end3.i300 ], [ @.str.77, %if.then501.critedge ]
   %call503 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i302) #23
   call void @clear_packing_data(ptr noundef nonnull %pdata) #23
-  call void @free(ptr noundef %254) #23
+  call void @free(ptr noundef %255) #23
   br label %cleanup
 
 if.end506:                                        ; preds = %if.end39.i, %if.end481
-  %277 = load ptr, ptr %m7, align 8
-  %tobool508.not = icmp eq ptr %277, null
+  %278 = load ptr, ptr %m7, align 8
+  %tobool508.not = icmp eq ptr %278, null
   br i1 %tobool508.not, label %if.end510, label %if.then509
 
 if.then509:                                       ; preds = %if.end506
-  %278 = load ptr, ptr @the_repository, align 8
-  %objects = getelementptr inbounds i8, ptr %278, i64 16
-  %279 = load ptr, ptr %objects, align 8
-  call void @close_object_store(ptr noundef %279) #23
+  %279 = load ptr, ptr @the_repository, align 8
+  %objects = getelementptr inbounds i8, ptr %279, i64 16
+  %280 = load ptr, ptr %objects, align 8
+  call void @close_object_store(ptr noundef %280) #23
   br label %if.end510
 
 if.end510:                                        ; preds = %if.then509, %if.end506
@@ -3773,8 +3773,8 @@ if.end516:                                        ; preds = %if.end510
   %ext2.i310 = getelementptr inbounds i8, ptr %data.i304, i64 8
   store ptr @.str.24, ptr %ext2.i310, align 8
   call void @for_each_file_in_pack_dir(ptr noundef %object_dir, ptr noundef nonnull @clear_midx_file_ext, ptr noundef nonnull %data.i304) #23
-  %280 = load ptr, ptr %data.i304, align 8
-  call void @free(ptr noundef %280) #23
+  %281 = load ptr, ptr %data.i304, align 8
+  call void @free(ptr noundef %281) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i304)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data.i311)
   %call.i314 = call ptr @hash_to_hex(ptr noundef nonnull %midx_hash) #23
@@ -3783,61 +3783,61 @@ if.end516:                                        ; preds = %if.end510
   %ext2.i317 = getelementptr inbounds i8, ptr %data.i311, i64 8
   store ptr @.str.25, ptr %ext2.i317, align 8
   call void @for_each_file_in_pack_dir(ptr noundef %object_dir, ptr noundef nonnull @clear_midx_file_ext, ptr noundef nonnull %data.i311) #23
-  %281 = load ptr, ptr %data.i311, align 8
-  call void @free(ptr noundef %281) #23
+  %282 = load ptr, ptr %data.i311, align 8
+  call void @free(ptr noundef %282) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i311)
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end317, %if.then120, %if.then122, %if.end516, %_.exit303, %_.exit183, %_.exit146, %_.exit126
   %result.0 = phi i32 [ 1, %_.exit126 ], [ 1, %_.exit183 ], [ 1, %_.exit303 ], [ 0, %if.end516 ], [ 1, %_.exit146 ], [ 0, %if.then120 ], [ 0, %if.then122 ], [ 1, %for.end317 ]
-  %282 = load i64, ptr %nr320, align 8
-  %cmp522390.not = icmp eq i64 %282, 0
+  %283 = load i64, ptr %nr320, align 8
+  %cmp522390.not = icmp eq i64 %283, 0
   br i1 %cmp522390.not, label %for.end546, label %for.body524
 
 for.body524:                                      ; preds = %cleanup, %if.end539
   %conv520392 = phi i64 [ %conv520, %if.end539 ], [ 0, %cleanup ]
   %i.8391 = phi i32 [ %inc545, %if.end539 ], [ 0, %cleanup ]
-  %283 = load ptr, ptr %ctx, align 8
-  %p528 = getelementptr inbounds %struct.pack_info, ptr %283, i64 %conv520392, i32 2
-  %284 = load ptr, ptr %p528, align 8
-  %tobool529.not = icmp eq ptr %284, null
+  %284 = load ptr, ptr %ctx, align 8
+  %p528 = getelementptr inbounds %struct.pack_info, ptr %284, i64 %conv520392, i32 2
+  %285 = load ptr, ptr %p528, align 8
+  %tobool529.not = icmp eq ptr %285, null
   br i1 %tobool529.not, label %if.end539, label %if.then530
 
 if.then530:                                       ; preds = %for.body524
-  call void @close_pack(ptr noundef nonnull %284) #23
-  %285 = load ptr, ptr %ctx, align 8
-  %p538 = getelementptr inbounds %struct.pack_info, ptr %285, i64 %conv520392, i32 2
-  %286 = load ptr, ptr %p538, align 8
-  call void @free(ptr noundef %286) #23
+  call void @close_pack(ptr noundef nonnull %285) #23
+  %286 = load ptr, ptr %ctx, align 8
+  %p538 = getelementptr inbounds %struct.pack_info, ptr %286, i64 %conv520392, i32 2
+  %287 = load ptr, ptr %p538, align 8
+  call void @free(ptr noundef %287) #23
   %.pre426 = load ptr, ptr %ctx, align 8
   br label %if.end539
 
 if.end539:                                        ; preds = %if.then530, %for.body524
-  %287 = phi ptr [ %.pre426, %if.then530 ], [ %283, %for.body524 ]
-  %pack_name543 = getelementptr inbounds %struct.pack_info, ptr %287, i64 %conv520392, i32 1
-  %288 = load ptr, ptr %pack_name543, align 8
-  call void @free(ptr noundef %288) #23
+  %288 = phi ptr [ %.pre426, %if.then530 ], [ %284, %for.body524 ]
+  %pack_name543 = getelementptr inbounds %struct.pack_info, ptr %288, i64 %conv520392, i32 1
+  %289 = load ptr, ptr %pack_name543, align 8
+  call void @free(ptr noundef %289) #23
   %inc545 = add i32 %i.8391, 1
   %conv520 = zext i32 %inc545 to i64
-  %289 = load i64, ptr %nr320, align 8
-  %cmp522 = icmp ugt i64 %289, %conv520
+  %290 = load i64, ptr %nr320, align 8
+  %cmp522 = icmp ugt i64 %290, %conv520
   br i1 %cmp522, label %for.body524, label %for.end546, !llvm.loop !33
 
 for.end546:                                       ; preds = %if.end539, %cleanup
-  %290 = load ptr, ptr %ctx, align 8
-  call void @free(ptr noundef %290) #23
-  %entries548 = getelementptr inbounds i8, ptr %ctx, i64 48
-  %291 = load ptr, ptr %entries548, align 8
+  %291 = load ptr, ptr %ctx, align 8
   call void @free(ptr noundef %291) #23
-  %pack_perm549 = getelementptr inbounds i8, ptr %ctx, i64 64
-  %292 = load ptr, ptr %pack_perm549, align 8
+  %entries548 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %292 = load ptr, ptr %entries548, align 8
   call void @free(ptr noundef %292) #23
-  %pack_order550 = getelementptr inbounds i8, ptr %ctx, i64 72
-  %293 = load ptr, ptr %pack_order550, align 8
+  %pack_perm549 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %293 = load ptr, ptr %pack_perm549, align 8
   call void @free(ptr noundef %293) #23
+  %pack_order550 = getelementptr inbounds i8, ptr %ctx, i64 72
+  %294 = load ptr, ptr %pack_order550, align 8
+  call void @free(ptr noundef %294) #23
   call void @strbuf_release(ptr noundef nonnull %midx_name) #23
-  %294 = load ptr, ptr @the_repository, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.14, i32 noundef 1743, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.62, ptr noundef %294) #23
+  %295 = load ptr, ptr @the_repository, align 8
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.14, i32 noundef 1743, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.62, ptr noundef %295) #23
   ret i32 %result.0
 }
 

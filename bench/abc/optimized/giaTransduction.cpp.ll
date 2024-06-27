@@ -12990,8 +12990,8 @@ _ZNK12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE5PrintEN
 
 318:                                              ; preds = %316
   %sext190 = shl i64 %299, 32
-  %319 = ashr exact i64 %sext190, 32
-  %320 = getelementptr inbounds i32, ptr %206, i64 %319
+  %319 = ashr exact i64 %sext190, 30
+  %320 = getelementptr inbounds i8, ptr %206, i64 %319
   %321 = load i32, ptr %320, align 4
   %322 = xor i32 %321, %311
   %323 = getelementptr inbounds i32, ptr %206, i64 %indvars.iv219
@@ -13005,8 +13005,8 @@ _ZNK12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE5PrintEN
 
 326:                                              ; preds = %292
   %sext = shl i64 %299, 32
-  %327 = ashr exact i64 %sext, 32
-  %328 = getelementptr inbounds i32, ptr %206, i64 %327
+  %327 = ashr exact i64 %sext, 30
+  %328 = getelementptr inbounds i8, ptr %206, i64 %327
   %329 = load i32, ptr %328, align 4
   %330 = xor i32 %329, %311
   invoke void @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE7ConnectEiibbj(ptr noundef nonnull align 8 dereferenceable(456) %0, i32 noundef %.1184207, i32 noundef %330, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef -1)
@@ -13014,8 +13014,8 @@ _ZNK12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE5PrintEN
 
 331:                                              ; preds = %326
   %sext189 = shl i64 %307, 32
-  %332 = ashr exact i64 %sext189, 32
-  %333 = getelementptr inbounds i32, ptr %206, i64 %332
+  %332 = ashr exact i64 %sext189, 30
+  %333 = getelementptr inbounds i8, ptr %206, i64 %332
   %334 = load i32, ptr %333, align 4
   %335 = xor i32 %334, %314
   invoke void @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE7ConnectEiibbj(ptr noundef nonnull align 8 dereferenceable(456) %0, i32 noundef %.1184207, i32 noundef %335, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef -1)
@@ -13157,8 +13157,8 @@ _ZNK12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE5PrintEN
   %400 = lshr i32 %399, 29
   %401 = and i32 %400, 1
   %sext191 = shl i64 %398, 32
-  %402 = ashr exact i64 %sext191, 32
-  %403 = getelementptr inbounds i32, ptr %206, i64 %402
+  %402 = ashr exact i64 %sext191, 30
+  %403 = getelementptr inbounds i8, ptr %206, i64 %402
   %404 = load i32, ptr %403, align 4
   %405 = xor i32 %401, %404
   invoke void @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE7ConnectEiibbj(ptr noundef nonnull align 8 dereferenceable(456) %0, i32 noundef %.3214, i32 noundef %405, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef -1)
@@ -13702,7 +13702,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.val120 = load ptr, ptr %39, align 8
   %47 = getelementptr i8, ptr %.val120, i64 8
   %.val120.val = load ptr, ptr %47, align 8
-  %48 = getelementptr inbounds i32, ptr %.val120.val, i64 %indvars.iv
+  %sext.i = shl nuw nsw i64 %indvars.iv, 2
+  %48 = getelementptr inbounds i8, ptr %.val120.val, i64 %sext.i
   %49 = load i32, ptr %48, align 4
   %50 = getelementptr inbounds i32, ptr %.sroa.0166.0, i64 %indvars.iv
   store i32 %49, ptr %50, align 4
@@ -14095,8 +14096,8 @@ _ZNK12Transduction7ManUtilIN6NewBdd3ManEjLj4294967295EE6DecRefEj.exit142: ; pred
   %235 = sub i64 %233, %234
   %236 = sdiv exact i64 %235, 12
   %sext179 = shl i64 %236, 32
-  %237 = ashr exact i64 %sext179, 32
-  %238 = getelementptr inbounds i32, ptr %58, i64 %237
+  %237 = ashr exact i64 %sext179, 30
+  %238 = getelementptr inbounds i8, ptr %58, i64 %237
   %239 = load i32, ptr %238, align 4
   %240 = trunc i64 %229 to i32
   %241 = lshr i32 %240, 29
@@ -38028,8 +38029,8 @@ _ZNK12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE5PrintENS
 
 318:                                              ; preds = %316
   %sext190 = shl i64 %299, 32
-  %319 = ashr exact i64 %sext190, 32
-  %320 = getelementptr inbounds i32, ptr %206, i64 %319
+  %319 = ashr exact i64 %sext190, 30
+  %320 = getelementptr inbounds i8, ptr %206, i64 %319
   %321 = load i32, ptr %320, align 4
   %322 = xor i32 %321, %311
   %323 = getelementptr inbounds i32, ptr %206, i64 %indvars.iv219
@@ -38043,8 +38044,8 @@ _ZNK12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE5PrintENS
 
 326:                                              ; preds = %292
   %sext = shl i64 %299, 32
-  %327 = ashr exact i64 %sext, 32
-  %328 = getelementptr inbounds i32, ptr %206, i64 %327
+  %327 = ashr exact i64 %sext, 30
+  %328 = getelementptr inbounds i8, ptr %206, i64 %327
   %329 = load i32, ptr %328, align 4
   %330 = xor i32 %329, %311
   invoke void @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE7ConnectEiibbj(ptr noundef nonnull align 8 dereferenceable(456) %0, i32 noundef %.1184207, i32 noundef %330, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef -1)
@@ -38052,8 +38053,8 @@ _ZNK12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE5PrintENS
 
 331:                                              ; preds = %326
   %sext189 = shl i64 %307, 32
-  %332 = ashr exact i64 %sext189, 32
-  %333 = getelementptr inbounds i32, ptr %206, i64 %332
+  %332 = ashr exact i64 %sext189, 30
+  %333 = getelementptr inbounds i8, ptr %206, i64 %332
   %334 = load i32, ptr %333, align 4
   %335 = xor i32 %334, %314
   invoke void @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE7ConnectEiibbj(ptr noundef nonnull align 8 dereferenceable(456) %0, i32 noundef %.1184207, i32 noundef %335, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef -1)
@@ -38195,8 +38196,8 @@ _ZNK12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE5PrintENS
   %400 = lshr i32 %399, 29
   %401 = and i32 %400, 1
   %sext191 = shl i64 %398, 32
-  %402 = ashr exact i64 %sext191, 32
-  %403 = getelementptr inbounds i32, ptr %206, i64 %402
+  %402 = ashr exact i64 %sext191, 30
+  %403 = getelementptr inbounds i8, ptr %206, i64 %402
   %404 = load i32, ptr %403, align 4
   %405 = xor i32 %401, %404
   invoke void @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE7ConnectEiibbj(ptr noundef nonnull align 8 dereferenceable(456) %0, i32 noundef %.3214, i32 noundef %405, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef -1)
@@ -38786,7 +38787,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.val120 = load ptr, ptr %39, align 8
   %47 = getelementptr i8, ptr %.val120, i64 8
   %.val120.val = load ptr, ptr %47, align 8
-  %48 = getelementptr inbounds i32, ptr %.val120.val, i64 %indvars.iv
+  %sext.i = shl nuw nsw i64 %indvars.iv, 2
+  %48 = getelementptr inbounds i8, ptr %.val120.val, i64 %sext.i
   %49 = load i32, ptr %48, align 4
   %50 = getelementptr inbounds i32, ptr %.sroa.0166.0, i64 %indvars.iv
   store i32 %49, ptr %50, align 4
@@ -39178,8 +39180,8 @@ _ZNK12Transduction7ManUtilIN5NewTt3ManEjLj4294967295EE6DecRefEj.exit142: ; preds
   %234 = sub i64 %232, %233
   %235 = sdiv exact i64 %234, 12
   %sext179 = shl i64 %235, 32
-  %236 = ashr exact i64 %sext179, 32
-  %237 = getelementptr inbounds i32, ptr %58, i64 %236
+  %236 = ashr exact i64 %sext179, 30
+  %237 = getelementptr inbounds i8, ptr %58, i64 %236
   %238 = load i32, ptr %237, align 4
   %239 = trunc i64 %228 to i32
   %240 = lshr i32 %239, 29

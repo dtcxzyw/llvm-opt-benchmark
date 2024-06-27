@@ -2277,11 +2277,11 @@ define void @minimalSwapAndFlipIVar_superFast_iVar5_noEBFC(ptr nocapture noundef
   %sext = add i64 %20, 8589934592
   %21 = and i64 %indvars.iv.i, 2147483648
   %22 = icmp eq i64 %21, 0
+  %23 = ashr exact i64 %sext, 30
   br i1 %22, label %.lr.ph.i4, label %arrangeQuoters_superFast_iVar5.exit
 
 .lr.ph.i4:                                        ; preds = %19
-  %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds i32, ptr %5, i64 %23
+  %24 = getelementptr inbounds i8, ptr %5, i64 %23
   %25 = and i64 %indvars.iv.i, 2147483646
   %26 = or disjoint i64 %25, 1
   %invariant.gep = getelementptr i8, ptr %0, i64 -12
@@ -2300,11 +2300,10 @@ define void @minimalSwapAndFlipIVar_superFast_iVar5_noEBFC(ptr nocapture noundef
   br i1 %31, label %27, label %arrangeQuoters_superFast_iVar5.exit, !llvm.loop !12
 
 arrangeQuoters_superFast_iVar5.exit:              ; preds = %27, %19
-  %32 = ashr exact i64 %sext, 30
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %0, ptr nonnull align 16 %5, i64 %32, i1 false)
-  %33 = load i32, ptr %3, align 4
-  %34 = tail call i32 @adjustInfoAfterSwap(ptr noundef %2, i32 noundef %33, i32 noundef 5, i32 noundef 4) #9
-  store i32 %34, ptr %3, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %0, ptr nonnull align 16 %5, i64 %23, i1 false)
+  %32 = load i32, ptr %3, align 4
+  %33 = tail call i32 @adjustInfoAfterSwap(ptr noundef %2, i32 noundef %32, i32 noundef 5, i32 noundef 4) #9
+  store i32 %33, ptr %3, align 4
   br label %minTemp1_fast_iVar5.exit.thread
 
 minTemp1_fast_iVar5.exit.thread:                  ; preds = %.lr.ph.i, %16, %4, %arrangeQuoters_superFast_iVar5.exit
@@ -3638,7 +3637,7 @@ minimalSwapAndFlipIVar_superFast_lessThen5_noEBFC.exit: ; preds = %17, %arrangeQ
   %59 = getelementptr inbounds i8, ptr %3, i64 24
   %60 = load i32, ptr %59, align 4
   %61 = icmp eq i32 %.1, %60
-  br i1 %61, label %62, label %92
+  br i1 %61, label %62, label %91
 
 62:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %7)
@@ -3677,11 +3676,11 @@ minimalSwapAndFlipIVar_superFast_lessThen5_noEBFC.exit: ; preds = %17, %arrangeQ
   %sext.i = add i64 %77, 8589934592
   %78 = and i64 %indvars.iv.i.i46, 2147483648
   %79 = icmp eq i64 %78, 0
+  %80 = ashr exact i64 %sext.i, 30
   br i1 %79, label %.lr.ph.i4.i, label %arrangeQuoters_superFast_iVar5.exit.i
 
 .lr.ph.i4.i:                                      ; preds = %76
-  %80 = ashr exact i64 %sext.i, 32
-  %81 = getelementptr inbounds i32, ptr %7, i64 %80
+  %81 = getelementptr inbounds i8, ptr %7, i64 %80
   %82 = and i64 %indvars.iv.i.i46, 2147483646
   %83 = or disjoint i64 %82, 1
   %invariant.gep = getelementptr i8, ptr %0, i64 -12
@@ -3700,50 +3699,49 @@ minimalSwapAndFlipIVar_superFast_lessThen5_noEBFC.exit: ; preds = %17, %arrangeQ
   br i1 %88, label %84, label %arrangeQuoters_superFast_iVar5.exit.i, !llvm.loop !12
 
 arrangeQuoters_superFast_iVar5.exit.i:            ; preds = %84, %76
-  %89 = ashr exact i64 %sext.i, 30
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %0, ptr nonnull align 16 %7, i64 %89, i1 false)
-  %90 = load i32, ptr %5, align 4
-  %91 = tail call i32 @adjustInfoAfterSwap(ptr noundef %4, i32 noundef %90, i32 noundef 5, i32 noundef 4) #9
-  store i32 %91, ptr %5, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %0, ptr nonnull align 16 %7, i64 %80, i1 false)
+  %89 = load i32, ptr %5, align 4
+  %90 = tail call i32 @adjustInfoAfterSwap(ptr noundef %4, i32 noundef %89, i32 noundef 5, i32 noundef 4) #9
+  store i32 %90, ptr %5, align 4
   br label %minimalSwapAndFlipIVar_superFast_iVar5_noEBFC.exit
 
 minimalSwapAndFlipIVar_superFast_iVar5_noEBFC.exit: ; preds = %.lr.ph.i.i45, %73, %62, %arrangeQuoters_superFast_iVar5.exit.i
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7)
-  br label %92
+  br label %91
 
-92:                                               ; preds = %58, %minimalSwapAndFlipIVar_superFast_iVar5_noEBFC.exit
+91:                                               ; preds = %58, %minimalSwapAndFlipIVar_superFast_iVar5_noEBFC.exit
   %.2 = phi i32 [ %.1, %minimalSwapAndFlipIVar_superFast_iVar5_noEBFC.exit ], [ %60, %58 ]
-  %93 = icmp sgt i32 %1, 7
-  br i1 %93, label %.lr.ph.preheader, label %._crit_edge
+  %92 = icmp sgt i32 %1, 7
+  br i1 %92, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %92
-  %94 = add nsw i32 %1, -1
-  %wide.trip.count = zext nneg i32 %94 to i64
+.lr.ph.preheader:                                 ; preds = %91
+  %93 = add nsw i32 %1, -1
+  %wide.trip.count = zext nneg i32 %93 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %100
-  %indvars.iv55 = phi i64 [ 6, %.lr.ph.preheader ], [ %indvars.iv.next56, %100 ]
-  %.352 = phi i32 [ %.2, %.lr.ph.preheader ], [ %.4, %100 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %99
+  %indvars.iv55 = phi i64 [ 6, %.lr.ph.preheader ], [ %indvars.iv.next56, %99 ]
+  %.352 = phi i32 [ %.2, %.lr.ph.preheader ], [ %.4, %99 ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %95 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next56
-  %96 = load i32, ptr %95, align 4
-  %97 = icmp eq i32 %.352, %96
-  br i1 %97, label %98, label %100
+  %94 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next56
+  %95 = load i32, ptr %94, align 4
+  %96 = icmp eq i32 %.352, %95
+  br i1 %96, label %97, label %99
 
-98:                                               ; preds = %.lr.ph
-  %99 = trunc nuw nsw i64 %indvars.iv55 to i32
-  tail call void @minimalSwapAndFlipIVar_superFast_moreThen5_noEBFC(ptr noundef %0, i32 noundef %99, i32 noundef %2, ptr noundef %4, ptr noundef %5)
-  br label %100
+97:                                               ; preds = %.lr.ph
+  %98 = trunc nuw nsw i64 %indvars.iv55 to i32
+  tail call void @minimalSwapAndFlipIVar_superFast_moreThen5_noEBFC(ptr noundef %0, i32 noundef %98, i32 noundef %2, ptr noundef %4, ptr noundef %5)
+  br label %99
 
-100:                                              ; preds = %.lr.ph, %98
-  %.4 = phi i32 [ %.352, %98 ], [ %96, %.lr.ph ]
+99:                                               ; preds = %.lr.ph, %97
+  %.4 = phi i32 [ %.352, %97 ], [ %95, %.lr.ph ]
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count
   br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %100, %92
+._crit_edge:                                      ; preds = %99, %91
   %bcmp = call i32 @bcmp(ptr %0, ptr nonnull %9, i64 %12)
-  %101 = icmp ne i32 %bcmp, 0
-  %. = zext i1 %101 to i32
+  %100 = icmp ne i32 %bcmp, 0
+  %. = zext i1 %100 to i32
   ret i32 %.
 }
 

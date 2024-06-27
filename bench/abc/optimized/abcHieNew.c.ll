@@ -758,8 +758,8 @@ define ptr @Au_ManFindNtkP(ptr nocapture noundef readonly %0, ptr nocapture noun
 
 Au_ManFindNtk.exit:                               ; preds = %6
   %sext = shl i64 %indvars.iv.i, 32
-  %11 = ashr exact i64 %sext, 32
-  %12 = getelementptr inbounds ptr, ptr %.val10.i, i64 %11
+  %11 = ashr exact i64 %sext, 29
+  %12 = getelementptr inbounds i8, ptr %.val10.i, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %Au_ManFindNtk.exit.thread
 
@@ -2217,8 +2217,8 @@ Vec_IntFill.exit:                                 ; preds = %40, %34
 Vec_PtrFind.exit:                                 ; preds = %76, %80, %72
   %.07.i = phi i64 [ -1, %72 ], [ %indvars.iv.i93, %76 ], [ -1, %80 ]
   %sext = shl i64 %.07.i, 32
-  %81 = ashr exact i64 %sext, 32
-  %82 = getelementptr inbounds i32, ptr %.val89, i64 %81
+  %81 = ashr exact i64 %sext, 30
+  %82 = getelementptr inbounds i8, ptr %.val89, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = add nsw i32 %83, 1
   store i32 %84, ptr %82, align 4
@@ -7593,8 +7593,8 @@ Vec_PtrFree.exit58:                               ; preds = %.critedge, %88
 
 Au_ManFindNtkP.exit:                              ; preds = %92
   %sext.i = shl i64 %indvars.iv.i.i, 32
-  %97 = ashr exact i64 %sext.i, 32
-  %98 = getelementptr inbounds ptr, ptr %.val10.i.i, i64 %97
+  %97 = ashr exact i64 %sext.i, 29
+  %98 = getelementptr inbounds i8, ptr %.val10.i.i, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
   br i1 %100, label %Au_ManFindNtkP.exit.thread, label %104
@@ -7851,8 +7851,8 @@ Abc_Clock.exit32:                                 ; preds = %30, %33
 
 Au_ManFindNtk.exit.i:                             ; preds = %52
   %sext.i = shl i64 %indvars.iv.i.i, 32
-  %57 = ashr exact i64 %sext.i, 32
-  %58 = getelementptr inbounds ptr, ptr %.val10.i.i, i64 %57
+  %57 = ashr exact i64 %sext.i, 29
+  %58 = getelementptr inbounds i8, ptr %.val10.i.i, i64 %57
   %59 = load ptr, ptr %58, align 8
   br label %Au_ManFindNtkP.exit
 

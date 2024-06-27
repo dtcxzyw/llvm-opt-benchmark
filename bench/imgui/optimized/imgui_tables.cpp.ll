@@ -1015,21 +1015,21 @@ if.end321:                                        ; preds = %_ZN8ImVectorIfE6res
   %Data.i362 = getelementptr inbounds i8, ptr %0, i64 19992
   %116 = load ptr, ptr %Data.i362, align 8
   %sext = shl i64 %sub.ptr.div.i, 32
-  %idxprom.i363 = ashr exact i64 %sext, 32
-  %arrayidx.i364 = getelementptr inbounds float, ptr %116, i64 %idxprom.i363
+  %117 = ashr exact i64 %sext, 30
+  %arrayidx.i364 = getelementptr inbounds i8, ptr %116, i64 %117
   store float %conv322, ptr %arrayidx.i364, align 4
-  %117 = load double, ptr %Time, align 8
-  %conv326 = fptrunc double %117 to float
+  %118 = load double, ptr %Time, align 8
+  %conv326 = fptrunc double %118 to float
   %LastTimeActive = getelementptr i8, ptr %32, i64 -116
   store float %conv326, ptr %LastTimeActive, align 4
   %MemoryCompacted = getelementptr inbounds i8, ptr %call23, i64 584
   store i8 0, ptr %MemoryCompacted, align 8
   %Columns = getelementptr inbounds i8, ptr %call23, i64 24
   %DataEnd.i = getelementptr inbounds i8, ptr %call23, i64 32
-  %118 = load ptr, ptr %DataEnd.i, align 8
-  %119 = load ptr, ptr %Columns, align 8
-  %sub.ptr.lhs.cast.i365 = ptrtoint ptr %118 to i64
-  %sub.ptr.rhs.cast.i366 = ptrtoint ptr %119 to i64
+  %119 = load ptr, ptr %DataEnd.i, align 8
+  %120 = load ptr, ptr %Columns, align 8
+  %sub.ptr.lhs.cast.i365 = ptrtoint ptr %119 to i64
+  %sub.ptr.rhs.cast.i366 = ptrtoint ptr %120 to i64
   %sub.ptr.sub.i367 = sub i64 %sub.ptr.lhs.cast.i365, %sub.ptr.rhs.cast.i366
   %sub.ptr.div.i368 = sdiv exact i64 %sub.ptr.sub.i367, 112
   %conv.i369 = trunc i64 %sub.ptr.div.i368 to i32
@@ -1049,7 +1049,7 @@ if.end334:                                        ; preds = %if.end321
   br i1 %cmp336, label %if.then337, label %if.end338
 
 if.then337:                                       ; preds = %if.end334.thread, %if.end334
-  %old_columns_to_preserve.0431 = phi ptr [ %119, %if.end334.thread ], [ null, %if.end334 ]
+  %old_columns_to_preserve.0431 = phi ptr [ %120, %if.end334.thread ], [ null, %if.end334 ]
   %old_columns_raw_data.0429 = phi ptr [ %.pre419, %if.end334.thread ], [ null, %if.end334 ]
   %RawData335432 = getelementptr inbounds i8, ptr %call23, i64 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %span_allocator.i)
@@ -1073,20 +1073,20 @@ if.then337:                                       ; preds = %if.end334.thread, %
   %arrayidx6.i32.i = getelementptr inbounds i8, ptr %span_allocator.i, i64 48
   store i32 %mul5.i, ptr %arrayidx6.i32.i, align 8
   %add9.i35.i = add nsw i32 %and.i27.i, %mul5.i
-  %120 = ashr i32 %add.i.i370, 3
-  %121 = and i32 %120, -4
+  %121 = ashr i32 %add.i.i370, 3
+  %122 = and i32 %121, -4
   br label %for.body.i372
 
 for.body.i372:                                    ; preds = %for.body.i372, %if.then337
   %indvars.iv.i373 = phi i64 [ 3, %if.then337 ], [ %indvars.iv.next.i374, %for.body.i372 ]
-  %122 = phi i32 [ %add9.i35.i, %if.then337 ], [ %add9.i46.i, %for.body.i372 ]
-  %add.i37.i = add nsw i32 %122, 3
+  %123 = phi i32 [ %add9.i35.i, %if.then337 ], [ %add9.i46.i, %for.body.i372 ]
+  %add.i37.i = add nsw i32 %123, 3
   %and.i38.i = and i32 %add.i37.i, -4
   %arrayidx.i40.i = getelementptr inbounds [6 x i32], ptr %Offsets.i.i, i64 0, i64 %indvars.iv.i373
   store i32 %and.i38.i, ptr %arrayidx.i40.i, align 4
   %arrayidx6.i43.i = getelementptr inbounds [6 x i32], ptr %Sizes.i.i, i64 0, i64 %indvars.iv.i373
-  store i32 %121, ptr %arrayidx6.i43.i, align 4
-  %add9.i46.i = add nsw i32 %and.i38.i, %121
+  store i32 %122, ptr %arrayidx6.i43.i, align 4
+  %add9.i46.i = add nsw i32 %and.i38.i, %122
   %indvars.iv.next.i374 = add nuw nsw i64 %indvars.iv.i373, 1
   %exitcond.not.i375 = icmp eq i64 %indvars.iv.next.i374, 6
   br i1 %exitcond.not.i375, label %_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit, label %for.body.i372, !llvm.loop !7
@@ -1096,48 +1096,48 @@ _ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit: ; preds = %for.body.i372
   %call9.i = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %conv8.i)
   store ptr %call9.i, ptr %RawData335432, align 8
   call void @llvm.memset.p0.i64(ptr align 1 %call9.i, i8 0, i64 %conv8.i, i1 false)
-  %123 = load ptr, ptr %RawData335432, align 8
-  %124 = load i32, ptr %Sizes.i.i, align 8
-  %idx.ext4.i.i.i = sext i32 %124 to i64
-  %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %123, i64 %idx.ext4.i.i.i
-  store ptr %123, ptr %Columns, align 8
+  %124 = load ptr, ptr %RawData335432, align 8
+  %125 = load i32, ptr %Sizes.i.i, align 8
+  %idx.ext4.i.i.i = sext i32 %125 to i64
+  %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %124, i64 %idx.ext4.i.i.i
+  store ptr %124, ptr %Columns, align 8
   store ptr %add.ptr5.i.i.i, ptr %DataEnd.i, align 8
   %DisplayOrderToIndex.i = getelementptr inbounds i8, ptr %call23, i64 40
-  %125 = load i32, ptr %arrayidx.i.i371, align 4
-  %idx.ext.i.i50.i = sext i32 %125 to i64
-  %add.ptr.i.i51.i = getelementptr inbounds i8, ptr %123, i64 %idx.ext.i.i50.i
-  %126 = load i32, ptr %arrayidx6.i.i, align 4
-  %idx.ext4.i.i53.i = sext i32 %126 to i64
+  %126 = load i32, ptr %arrayidx.i.i371, align 4
+  %idx.ext.i.i50.i = sext i32 %126 to i64
+  %add.ptr.i.i51.i = getelementptr inbounds i8, ptr %124, i64 %idx.ext.i.i50.i
+  %127 = load i32, ptr %arrayidx6.i.i, align 4
+  %idx.ext4.i.i53.i = sext i32 %127 to i64
   %add.ptr5.i.i54.i = getelementptr inbounds i8, ptr %add.ptr.i.i51.i, i64 %idx.ext4.i.i53.i
   store ptr %add.ptr.i.i51.i, ptr %DisplayOrderToIndex.i, align 8
   %DataEnd.i.i55.i = getelementptr inbounds i8, ptr %call23, i64 48
   store ptr %add.ptr5.i.i54.i, ptr %DataEnd.i.i55.i, align 8
   %RowCellData.i = getelementptr inbounds i8, ptr %call23, i64 56
-  %127 = load i32, ptr %arrayidx.i29.i, align 8
-  %idx.ext.i.i58.i = sext i32 %127 to i64
-  %add.ptr.i.i59.i = getelementptr inbounds i8, ptr %123, i64 %idx.ext.i.i58.i
-  %128 = load i32, ptr %arrayidx6.i32.i, align 8
-  %idx.ext4.i.i62.i = sext i32 %128 to i64
+  %128 = load i32, ptr %arrayidx.i29.i, align 8
+  %idx.ext.i.i58.i = sext i32 %128 to i64
+  %add.ptr.i.i59.i = getelementptr inbounds i8, ptr %124, i64 %idx.ext.i.i58.i
+  %129 = load i32, ptr %arrayidx6.i32.i, align 8
+  %idx.ext4.i.i62.i = sext i32 %129 to i64
   %add.ptr5.i.i63.i = getelementptr inbounds i8, ptr %add.ptr.i.i59.i, i64 %idx.ext4.i.i62.i
   store ptr %add.ptr.i.i59.i, ptr %RowCellData.i, align 8
   %DataEnd.i.i64.i = getelementptr inbounds i8, ptr %call23, i64 64
   store ptr %add.ptr5.i.i63.i, ptr %DataEnd.i.i64.i, align 8
   %arrayidx.i66.i = getelementptr inbounds i8, ptr %span_allocator.i, i64 28
-  %129 = load i32, ptr %arrayidx.i66.i, align 4
-  %idx.ext.i.i = sext i32 %129 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %123, i64 %idx.ext.i.i
+  %130 = load i32, ptr %arrayidx.i66.i, align 4
+  %idx.ext.i.i = sext i32 %130 to i64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %124, i64 %idx.ext.i.i
   %EnabledMaskByDisplayOrder.i = getelementptr inbounds i8, ptr %call23, i64 72
   store ptr %add.ptr.i.i, ptr %EnabledMaskByDisplayOrder.i, align 8
   %arrayidx.i68.i = getelementptr inbounds i8, ptr %span_allocator.i, i64 32
-  %130 = load i32, ptr %arrayidx.i68.i, align 8
-  %idx.ext.i69.i = sext i32 %130 to i64
-  %add.ptr.i70.i = getelementptr inbounds i8, ptr %123, i64 %idx.ext.i69.i
+  %131 = load i32, ptr %arrayidx.i68.i, align 8
+  %idx.ext.i69.i = sext i32 %131 to i64
+  %add.ptr.i70.i = getelementptr inbounds i8, ptr %124, i64 %idx.ext.i69.i
   %EnabledMaskByIndex.i = getelementptr inbounds i8, ptr %call23, i64 80
   store ptr %add.ptr.i70.i, ptr %EnabledMaskByIndex.i, align 8
   %arrayidx.i72.i = getelementptr inbounds i8, ptr %span_allocator.i, i64 36
-  %131 = load i32, ptr %arrayidx.i72.i, align 4
-  %idx.ext.i73.i = sext i32 %131 to i64
-  %add.ptr.i74.i = getelementptr inbounds i8, ptr %123, i64 %idx.ext.i73.i
+  %132 = load i32, ptr %arrayidx.i72.i, align 4
+  %idx.ext.i73.i = sext i32 %132 to i64
+  %add.ptr.i74.i = getelementptr inbounds i8, ptr %124, i64 %idx.ext.i73.i
   %VisibleMaskByIndex.i = getelementptr inbounds i8, ptr %call23, i64 88
   store ptr %add.ptr.i74.i, ptr %VisibleMaskByIndex.i, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %span_allocator.i)
@@ -1151,8 +1151,8 @@ if.end338:                                        ; preds = %_ZN5ImGui20TableBeg
   %old_columns_to_preserve.0430 = phi ptr [ %old_columns_to_preserve.0431, %_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit ], [ null, %if.end334 ]
   %old_columns_raw_data.0428 = phi ptr [ %old_columns_raw_data.0429, %_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit ], [ null, %if.end334 ]
   %IsResetAllRequest = getelementptr inbounds i8, ptr %call23, i64 576
-  %132 = load i8, ptr %IsResetAllRequest, align 8
-  %tobool339 = trunc i8 %132 to i1
+  %133 = load i8, ptr %IsResetAllRequest, align 8
+  %tobool339 = trunc i8 %133 to i1
   br i1 %tobool339, label %if.end341.thread, label %if.end341
 
 if.end341.thread:                                 ; preds = %if.end338
@@ -1170,8 +1170,8 @@ if.end341.thread:                                 ; preds = %if.end338
 if.end341:                                        ; preds = %if.end338
   %IsInitializing342.phi.trans.insert = getelementptr inbounds i8, ptr %call23, i64 568
   %.pre420 = load i8, ptr %IsInitializing342.phi.trans.insert, align 8
-  %133 = trunc i8 %.pre420 to i1
-  br i1 %133, label %if.then344, label %if.end359
+  %134 = trunc i8 %.pre420 to i1
+  br i1 %134, label %if.then344, label %if.end359
 
 if.then344:                                       ; preds = %if.end341.thread, %if.end341
   %SettingsOffset = getelementptr inbounds i8, ptr %call23, i64 100
@@ -1201,16 +1201,16 @@ for.body.lr.ph:                                   ; preds = %if.then344
   %tobool348.not = icmp ne ptr %old_columns_to_preserve.0430, null
   %DisplayOrderToIndex = getelementptr inbounds i8, ptr %call23, i64 40
   %sext423 = shl i64 %sub.ptr.div.i368, 32
-  %134 = ashr exact i64 %sext423, 32
+  %135 = ashr exact i64 %sext423, 32
   %wide.trip.count = zext nneg i32 %columns_count to i64
   %ref.tmp353.sroa.4.52.NameOffset.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp353.sroa.4, i64 52
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end355
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end355 ]
-  %135 = load ptr, ptr %Columns, align 8
-  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %135, i64 %indvars.iv
-  %cmp350 = icmp slt i64 %indvars.iv, %134
+  %136 = load ptr, ptr %Columns, align 8
+  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %136, i64 %indvars.iv
+  %cmp350 = icmp slt i64 %indvars.iv, %135
   %or.cond263 = and i1 %tobool348.not, %cmp350
   br i1 %or.cond263, label %if.then351, label %if.else352
 
@@ -1221,7 +1221,7 @@ if.then351:                                       ; preds = %for.body
 
 if.else352:                                       ; preds = %for.body
   %WidthAuto = getelementptr inbounds i8, ptr %add.ptr.i, i64 20
-  %136 = load float, ptr %WidthAuto, align 4
+  %137 = load float, ptr %WidthAuto, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %ref.tmp353.sroa.4, i8 0, i64 52, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp353.sroa.4.52.NameOffset.i.sroa_idx, i8 -1, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
@@ -1238,9 +1238,9 @@ if.else352:                                       ; preds = %for.body
   %ref.tmp353.sroa.7.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 96
   store i16 255, ptr %ref.tmp353.sroa.7.0.add.ptr.i.sroa_idx, align 4
   %ref.tmp353.sroa.8.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 98
-  %137 = getelementptr inbounds i8, ptr %add.ptr.i, i64 100
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(11) %137, i8 0, i64 11, i1 false)
-  store float %136, ptr %WidthAuto, align 4
+  %138 = getelementptr inbounds i8, ptr %add.ptr.i, i64 100
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(11) %138, i8 0, i64 11, i1 false)
+  store float %137, ptr %WidthAuto, align 4
   %IsPreserveWidthAuto = getelementptr inbounds i8, ptr %add.ptr.i, i64 105
   store i8 1, ptr %IsPreserveWidthAuto, align 1
   %IsUserEnabledNextFrame = getelementptr inbounds i8, ptr %add.ptr.i, i64 100
@@ -1252,8 +1252,8 @@ if.else352:                                       ; preds = %for.body
 
 if.end355:                                        ; preds = %if.else352, %if.then351
   %conv356 = trunc i64 %indvars.iv to i16
-  %138 = load ptr, ptr %DisplayOrderToIndex, align 8
-  %add.ptr.i377 = getelementptr inbounds i16, ptr %138, i64 %indvars.iv
+  %139 = load ptr, ptr %DisplayOrderToIndex, align 8
+  %add.ptr.i377 = getelementptr inbounds i16, ptr %139, i64 %indvars.iv
   store i16 %conv356, ptr %add.ptr.i377, align 2
   %DisplayOrder = getelementptr inbounds i8, ptr %add.ptr.i, i64 82
   store i16 %conv356, ptr %DisplayOrder, align 2
@@ -1271,8 +1271,8 @@ if.then361:                                       ; preds = %if.end359
 
 if.end362:                                        ; preds = %if.then361, %if.end359
   %IsSettingsRequestLoad363 = getelementptr inbounds i8, ptr %call23, i64 573
-  %139 = load i8, ptr %IsSettingsRequestLoad363, align 1
-  %tobool364 = trunc i8 %139 to i1
+  %140 = load i8, ptr %IsSettingsRequestLoad363, align 1
+  %tobool364 = trunc i8 %140 to i1
   br i1 %tobool364, label %if.then365, label %if.end366
 
 if.then365:                                       ; preds = %if.end362
@@ -1281,16 +1281,16 @@ if.then365:                                       ; preds = %if.end362
 
 if.end366:                                        ; preds = %if.then365, %if.end362
   %FontSize = getelementptr inbounds i8, ptr %0, i64 15680
-  %140 = load float, ptr %FontSize, align 8
+  %141 = load float, ptr %FontSize, align 8
   %RefScale = getelementptr inbounds i8, ptr %call23, i64 228
-  %141 = load float, ptr %RefScale, align 4
-  %cmp367 = fcmp une float %141, 0.000000e+00
-  %cmp370 = fcmp une float %141, %140
+  %142 = load float, ptr %RefScale, align 4
+  %cmp367 = fcmp une float %142, 0.000000e+00
+  %cmp370 = fcmp une float %142, %141
   %or.cond264 = select i1 %cmp367, i1 %cmp370, i1 false
   br i1 %or.cond264, label %if.then371, label %if.end385
 
 if.then371:                                       ; preds = %if.end366
-  %div = fdiv float %140, %141
+  %div = fdiv float %141, %142
   %cmp375406 = icmp sgt i32 %columns_count, 0
   br i1 %cmp375406, label %for.body376.preheader, label %if.end385
 
@@ -1300,42 +1300,42 @@ for.body376.preheader:                            ; preds = %if.then371
 
 for.body376:                                      ; preds = %for.body376.preheader, %for.body376
   %indvars.iv409 = phi i64 [ 0, %for.body376.preheader ], [ %indvars.iv.next410, %for.body376 ]
-  %142 = load ptr, ptr %Columns, align 8
-  %WidthRequest = getelementptr inbounds %struct.ImGuiTableColumn, ptr %142, i64 %indvars.iv409, i32 4
-  %143 = load float, ptr %WidthRequest, align 4
-  %mul = fmul float %div, %143
+  %143 = load ptr, ptr %Columns, align 8
+  %WidthRequest = getelementptr inbounds %struct.ImGuiTableColumn, ptr %143, i64 %indvars.iv409, i32 4
+  %144 = load float, ptr %WidthRequest, align 4
+  %mul = fmul float %div, %144
   store float %mul, ptr %WidthRequest, align 4
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
   %exitcond413.not = icmp eq i64 %indvars.iv.next410, %wide.trip.count412
   br i1 %exitcond413.not, label %if.end385, label %for.body376, !llvm.loop !9
 
 if.end385:                                        ; preds = %for.body376, %if.then371, %if.end366
-  store float %140, ptr %RefScale, align 4
+  store float %141, ptr %RefScale, align 4
   store i8 1, ptr %SkipItems158, align 1
   %ColumnsNames = getelementptr inbounds i8, ptr %call23, i64 400
-  %144 = load i32, ptr %ColumnsNames, align 8
-  %cmp389 = icmp sgt i32 %144, 0
+  %145 = load i32, ptr %ColumnsNames, align 8
+  %cmp389 = icmp sgt i32 %145, 0
   br i1 %cmp389, label %if.then390, label %if.end393
 
 if.then390:                                       ; preds = %if.end385
   %Capacity.i382 = getelementptr inbounds i8, ptr %call23, i64 404
-  %145 = load i32, ptr %Capacity.i382, align 4
-  %cmp.i383 = icmp slt i32 %145, 0
+  %146 = load i32, ptr %Capacity.i382, align 4
+  %cmp.i383 = icmp slt i32 %146, 0
   br i1 %cmp.i383, label %if.then.i385, label %_ZN8ImVectorIcE6resizeEi.exit
 
 if.then.i385:                                     ; preds = %if.then390
   %call.i.i393 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 0)
   %Data.i.i394 = getelementptr inbounds i8, ptr %call23, i64 408
-  %146 = load ptr, ptr %Data.i.i394, align 8
-  %tobool.not.i4.i = icmp eq ptr %146, null
+  %147 = load ptr, ptr %Data.i.i394, align 8
+  %tobool.not.i4.i = icmp eq ptr %147, null
   br i1 %tobool.not.i4.i, label %if.end7.i.i397, label %if.then2.i.i395
 
 if.then2.i.i395:                                  ; preds = %if.then.i385
-  %147 = load i32, ptr %ColumnsNames, align 8
-  %conv4.i.i396 = sext i32 %147 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i393, ptr nonnull align 1 %146, i64 %conv4.i.i396, i1 false)
-  %148 = load ptr, ptr %Data.i.i394, align 8
-  call void @_ZN5ImGui7MemFreeEPv(ptr noundef %148)
+  %148 = load i32, ptr %ColumnsNames, align 8
+  %conv4.i.i396 = sext i32 %148 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i393, ptr nonnull align 1 %147, i64 %conv4.i.i396, i1 false)
+  %149 = load ptr, ptr %Data.i.i394, align 8
+  call void @_ZN5ImGui7MemFreeEPv(ptr noundef %149)
   br label %if.end7.i.i397
 
 if.end7.i.i397:                                   ; preds = %if.then2.i.i395, %if.then.i385
@@ -13025,7 +13025,8 @@ entry:
   store i32 %dec.i.i, ptr %AliveCount.i.i, align 4
   %Data.i5 = getelementptr inbounds i8, ptr %0, i64 19992
   %6 = load ptr, ptr %Data.i5, align 8
-  %arrayidx.i = getelementptr inbounds float, ptr %6, i64 %idxprom.i.i.i
+  %7 = ashr exact i64 %sext.i, 30
+  %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 %7
   store float -1.000000e+00, ptr %arrayidx.i, align 4
   ret void
 }
@@ -13100,8 +13101,8 @@ for.end:                                          ; preds = %for.body, %_ZN15ImG
   %Data.i12 = getelementptr inbounds i8, ptr %0, i64 19992
   %8 = load ptr, ptr %Data.i12, align 8
   %sext = shl i64 %sub.ptr.div.i, 32
-  %idxprom.i = ashr exact i64 %sext, 32
-  %arrayidx.i = getelementptr inbounds float, ptr %8, i64 %idxprom.i
+  %9 = ashr exact i64 %sext, 30
+  %arrayidx.i = getelementptr inbounds i8, ptr %8, i64 %9
   store float -1.000000e+00, ptr %arrayidx.i, align 4
   ret void
 }

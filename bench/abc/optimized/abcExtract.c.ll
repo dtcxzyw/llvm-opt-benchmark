@@ -222,8 +222,8 @@ Vec_WrdPush.exit:
   %21 = getelementptr i8, ptr %.val96, i64 8
   %.val96.val = load ptr, ptr %21, align 8
   %sext = shl i64 %20, 32
-  %22 = ashr exact i64 %sext, 32
-  %23 = getelementptr inbounds ptr, ptr %.val96.val, i64 %22
+  %22 = ashr exact i64 %sext, 29
+  %23 = getelementptr inbounds i8, ptr %.val96.val, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @Abc_NodeIsExorType(ptr noundef %24) #13
   %.not = icmp eq i32 %25, 0
@@ -1054,8 +1054,8 @@ Vec_IntGrow.exit.i90:                             ; preds = %111, %109
   %140 = getelementptr i8, ptr %.val59, i64 8
   %.val59.val = load ptr, ptr %140, align 8
   %sext = shl i64 %137, 32
-  %141 = ashr exact i64 %sext, 32
-  %142 = getelementptr inbounds ptr, ptr %.val59.val, i64 %141
+  %141 = ashr exact i64 %sext, 29
+  %142 = getelementptr inbounds i8, ptr %.val59.val, i64 %141
   %143 = load ptr, ptr %142, align 8
   tail call void @Abc_NtkTraverseSupersXor_rec(ptr noundef nonnull %0, ptr noundef %143, ptr noundef %2)
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
@@ -1190,8 +1190,8 @@ define void @Abc_NtkTraverseSupersAnd_rec(ptr nocapture noundef %0, ptr noundef 
   %36 = load i64, ptr %35, align 8
   %.val = load ptr, ptr %31, align 8
   %sext = shl i64 %36, 32
-  %37 = ashr exact i64 %sext, 32
-  %38 = getelementptr inbounds ptr, ptr %.val, i64 %37
+  %37 = ashr exact i64 %sext, 29
+  %38 = getelementptr inbounds i8, ptr %.val, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %Vec_IntPush.exit64, label %56

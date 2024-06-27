@@ -9545,8 +9545,8 @@ _ZL12addNewIEntryP16NbnxnPairlistGpuiii.exit.i:   ; preds = %_ZNSt6vectorI9nbnxn
   %2486 = shl nuw nsw i64 %indvars.iv.i.i.i143, 2
   %2487 = add nuw nsw i64 %2486, %2484
   %sext.i.i.i = shl i64 %2487, 32
-  %2488 = ashr exact i64 %sext.i.i.i, 32
-  %2489 = getelementptr inbounds float, ptr %.val417.i139, i64 %2488
+  %2488 = ashr exact i64 %sext.i.i.i, 30
+  %2489 = getelementptr inbounds i8, ptr %.val417.i139, i64 %2488
   %2490 = load float, ptr %2489, align 4
   %2491 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 %indvars.iv.i.i.i143
   %2492 = load float, ptr %2491, align 4
@@ -9563,8 +9563,8 @@ _ZL12addNewIEntryP16NbnxnPairlistGpuiii.exit.i:   ; preds = %_ZNSt6vectorI9nbnxn
   %2495 = add nuw nsw i64 %2494, 12
   %2496 = add nuw nsw i64 %2495, %2484
   %sext50.i.i.i = shl i64 %2496, 32
-  %2497 = ashr exact i64 %sext50.i.i.i, 32
-  %2498 = getelementptr inbounds float, ptr %.val417.i139, i64 %2497
+  %2497 = ashr exact i64 %sext50.i.i.i, 30
+  %2498 = getelementptr inbounds i8, ptr %.val417.i139, i64 %2497
   %2499 = load float, ptr %2498, align 4
   %2500 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 %indvars.iv39.i.i.i
   %2501 = load float, ptr %2500, align 4
@@ -12503,9 +12503,9 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %56, %58, %60, %62
   br i1 %.not62, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
-  %76 = ashr exact i64 %49, 32
-  %77 = load ptr, ptr %43, align 8
-  %78 = getelementptr inbounds i32, ptr %77, i64 %76
+  %76 = load ptr, ptr %43, align 8
+  %77 = ashr exact i64 %49, 30
+  %78 = getelementptr inbounds i8, ptr %76, i64 %77
   %79 = load i32, ptr %78, align 4
   store i32 0, ptr %78, align 4
   %sext64 = add i64 %49, -4294967296

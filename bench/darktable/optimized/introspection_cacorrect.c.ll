@@ -1553,8 +1553,8 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %1282 = load ptr, ptr %1281, align 8, !tbaa !12
   %1283 = shl i64 %1273, 32
   %1284 = add nuw i64 %1283, 8246337208320
-  %1285 = ashr exact i64 %1284, 32
-  %1286 = getelementptr inbounds float, ptr %1282, i64 %1285
+  %1285 = ashr exact i64 %1284, 30
+  %1286 = getelementptr inbounds i8, ptr %1282, i64 %1285
   %1287 = load float, ptr %1286, align 4, !tbaa !42
   %1288 = getelementptr float, ptr %1282, i64 %1273
   %1289 = getelementptr i8, ptr %1288, i64 512
@@ -1576,8 +1576,8 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %1301 = load ptr, ptr %1300, align 8, !tbaa !12
   %1302 = shl i64 %1292, 32
   %1303 = add nuw i64 %1302, 7696581394432
-  %1304 = ashr exact i64 %1303, 32
-  %1305 = getelementptr inbounds float, ptr %1301, i64 %1304
+  %1304 = ashr exact i64 %1303, 30
+  %1305 = getelementptr inbounds i8, ptr %1301, i64 %1304
   %1306 = load float, ptr %1305, align 4, !tbaa !42
   %1307 = getelementptr float, ptr %1301, i64 %1292
   %1308 = getelementptr i8, ptr %1307, i64 1024
@@ -1599,8 +1599,8 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %1320 = load ptr, ptr %1319, align 8, !tbaa !12
   %1321 = shl i64 %1311, 32
   %1322 = add nuw i64 %1321, 7146825580544
-  %1323 = ashr exact i64 %1322, 32
-  %1324 = getelementptr inbounds float, ptr %1320, i64 %1323
+  %1323 = ashr exact i64 %1322, 30
+  %1324 = getelementptr inbounds i8, ptr %1320, i64 %1323
   %1325 = load float, ptr %1324, align 4, !tbaa !42
   %1326 = getelementptr float, ptr %1320, i64 %1311
   %1327 = getelementptr i8, ptr %1326, i64 1536
@@ -1622,8 +1622,8 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %1339 = load ptr, ptr %1338, align 8, !tbaa !12
   %1340 = shl i64 %1330, 32
   %1341 = add nuw i64 %1340, 6597069766656
-  %1342 = ashr exact i64 %1341, 32
-  %1343 = getelementptr inbounds float, ptr %1339, i64 %1342
+  %1342 = ashr exact i64 %1341, 30
+  %1343 = getelementptr inbounds i8, ptr %1339, i64 %1342
   %1344 = load float, ptr %1343, align 4, !tbaa !42
   %1345 = getelementptr float, ptr %1339, i64 %1330
   %1346 = getelementptr i8, ptr %1345, i64 2048
@@ -1645,8 +1645,8 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %1358 = load ptr, ptr %1357, align 8, !tbaa !12
   %1359 = shl i64 %1349, 32
   %1360 = add nuw i64 %1359, 6047313952768
-  %1361 = ashr exact i64 %1360, 32
-  %1362 = getelementptr inbounds float, ptr %1358, i64 %1361
+  %1361 = ashr exact i64 %1360, 30
+  %1362 = getelementptr inbounds i8, ptr %1358, i64 %1361
   %1363 = load float, ptr %1362, align 4, !tbaa !42
   %1364 = getelementptr float, ptr %1358, i64 %1349
   %1365 = getelementptr i8, ptr %1364, i64 2560
@@ -1668,8 +1668,8 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %1377 = load ptr, ptr %1376, align 8, !tbaa !12
   %1378 = shl i64 %1368, 32
   %1379 = add nuw i64 %1378, 5497558138880
-  %1380 = ashr exact i64 %1379, 32
-  %1381 = getelementptr inbounds float, ptr %1377, i64 %1380
+  %1380 = ashr exact i64 %1379, 30
+  %1381 = getelementptr inbounds i8, ptr %1377, i64 %1380
   %1382 = load float, ptr %1381, align 4, !tbaa !42
   %1383 = getelementptr float, ptr %1377, i64 %1368
   %1384 = getelementptr i8, ptr %1383, i64 3072
@@ -1691,8 +1691,8 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %1396 = load ptr, ptr %1395, align 8, !tbaa !12
   %1397 = shl i64 %1387, 32
   %1398 = add nuw i64 %1397, 4947802324992
-  %1399 = ashr exact i64 %1398, 32
-  %1400 = getelementptr inbounds float, ptr %1396, i64 %1399
+  %1399 = ashr exact i64 %1398, 30
+  %1400 = getelementptr inbounds i8, ptr %1396, i64 %1399
   %1401 = load float, ptr %1400, align 4, !tbaa !42
   %1402 = getelementptr float, ptr %1396, i64 %1387
   %1403 = getelementptr i8, ptr %1402, i64 3584
@@ -1713,8 +1713,8 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %1414 = load ptr, ptr %1413, align 8, !tbaa !12
   %1415 = shl i64 %1406, 32
   %1416 = add nuw i64 %1415, 8796093022208
-  %1417 = ashr exact i64 %1416, 32
-  %1418 = getelementptr inbounds float, ptr %1414, i64 %1417
+  %1417 = ashr exact i64 %1416, 30
+  %1418 = getelementptr inbounds i8, ptr %1414, i64 %1417
   %1419 = load float, ptr %1418, align 4, !tbaa !42
   %1420 = getelementptr inbounds float, ptr %1414, i64 %1406
   store float %1419, ptr %1420, align 4, !tbaa !42
@@ -3296,22 +3296,22 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %2605 = getelementptr inbounds float, ptr %2574, i64 %2604
   store float %2603, ptr %2605, align 4, !tbaa !42
   %2606 = add i64 %.scalar, 47244640256
-  %2607 = ashr exact i64 %2606, 32
-  %2608 = getelementptr inbounds float, ptr %59, i64 %2607
+  %2607 = ashr exact i64 %2606, 30
+  %2608 = getelementptr inbounds i8, ptr %59, i64 %2607
   %2609 = load float, ptr %2608, align 4, !tbaa !42
   %2610 = or disjoint i64 %2566, 5
   %2611 = getelementptr inbounds float, ptr %2581, i64 %2610
   store float %2609, ptr %2611, align 4, !tbaa !42
   %2612 = add i64 %.scalar, 42949672960
-  %2613 = ashr exact i64 %2612, 32
-  %2614 = getelementptr inbounds float, ptr %59, i64 %2613
+  %2613 = ashr exact i64 %2612, 30
+  %2614 = getelementptr inbounds i8, ptr %59, i64 %2613
   %2615 = load float, ptr %2614, align 4, !tbaa !42
   %2616 = or disjoint i64 %2566, 6
   %2617 = getelementptr inbounds float, ptr %2574, i64 %2616
   store float %2615, ptr %2617, align 4, !tbaa !42
   %2618 = add i64 %.scalar, 38654705664
-  %2619 = ashr exact i64 %2618, 32
-  %2620 = getelementptr inbounds float, ptr %59, i64 %2619
+  %2619 = ashr exact i64 %2618, 30
+  %2620 = getelementptr inbounds i8, ptr %59, i64 %2619
   %2621 = load float, ptr %2620, align 4, !tbaa !42
   %2622 = or disjoint i64 %2566, 7
   %2623 = getelementptr inbounds float, ptr %2581, i64 %2622

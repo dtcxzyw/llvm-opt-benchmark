@@ -3285,8 +3285,8 @@ _ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit.thread: ; preds = %7
 
 96:                                               ; preds = %_ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit
   %sext = shl i64 %.012.i, 32
-  %97 = ashr exact i64 %sext, 32
-  %98 = getelementptr inbounds i32, ptr %71, i64 %97
+  %97 = ashr exact i64 %sext, 30
+  %98 = getelementptr inbounds i8, ptr %71, i64 %97
   store i32 1, ptr %98, align 4
   %99 = add nsw i32 %.073163, 1
   %100 = add nsw i32 %.068164, -1
@@ -3351,8 +3351,8 @@ _ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit95.thread: ; preds = 
 
 127:                                              ; preds = %_ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit95
   %sext87 = shl i64 %.012.i92, 32
-  %128 = ashr exact i64 %sext87, 32
-  %129 = getelementptr inbounds i32, ptr %102, i64 %128
+  %128 = ashr exact i64 %sext87, 30
+  %129 = getelementptr inbounds i8, ptr %102, i64 %128
   store i32 2, ptr %129, align 4
   %130 = load ptr, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
@@ -3393,7 +3393,7 @@ _ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit95.thread: ; preds = 
   %148 = load i32, ptr %56, align 8
   %149 = load ptr, ptr %57, align 8
   %150 = load ptr, ptr %51, align 8
-  %151 = getelementptr i32, ptr %150, i64 %128
+  %151 = getelementptr i8, ptr %150, i64 %128
   %152 = load i32, ptr %151, align 4
   %153 = getelementptr i8, ptr %151, i64 4
   %154 = load i32, ptr %153, align 4

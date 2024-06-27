@@ -137,11 +137,11 @@ module asm ".previous"
 %"struct.std::_Deque_base<MeshFace *, std::allocator<MeshFace *>>::_Deque_impl" = type { %"struct.std::_Deque_base<MeshFace *, std::allocator<MeshFace *>>::_Deque_impl_data" }
 %"struct.std::_Deque_base<MeshFace *, std::allocator<MeshFace *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%struct.FF = type { [3 x i32], [3 x i32] }
 %"class.std::vector.344" = type { %"struct.std::_Vector_base.345" }
 %"struct.std::_Vector_base.345" = type { %"struct.std::_Vector_base<vcg::tri::UpdateTopology<Mesh>::PEdge, std::allocator<vcg::tri::UpdateTopology<Mesh>::PEdge>>::_Vector_impl" }
 %"struct.std::_Vector_base<vcg::tri::UpdateTopology<Mesh>::PEdge, std::allocator<vcg::tri::UpdateTopology<Mesh>::PEdge>>::_Vector_impl" = type { %"struct.std::_Vector_base<vcg::tri::UpdateTopology<Mesh>::PEdge, std::allocator<vcg::tri::UpdateTopology<Mesh>::PEdge>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<vcg::tri::UpdateTopology<Mesh>::PEdge, std::allocator<vcg::tri::UpdateTopology<Mesh>::PEdge>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%struct.FF = type { [3 x i32], [3 x i32] }
 %"class.vcg::tri::UpdateTopology<Mesh>::PEdge" = type <{ [2 x ptr], ptr, i32, i8, [3 x i8] }>
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 %"class.std::map.350" = type { %"class.std::_Rb_tree.351" }
@@ -1125,9 +1125,9 @@ _ZNSt10_HashtableIP10MeshVertexSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stES
   %128 = ptrtoint ptr %.sroa.083.0123 to i64
   %129 = ptrtoint ptr %127 to i64
   %130 = sub i64 %128, %129
-  %131 = sdiv exact i64 %130, 216
-  %132 = load ptr, ptr %114, align 8
-  %133 = getelementptr inbounds i32, ptr %132, i64 %131
+  %131 = load ptr, ptr %114, align 8
+  %132 = sdiv exact i64 %130, 54
+  %133 = getelementptr inbounds i8, ptr %131, i64 %132
   %134 = trunc i64 %125 to i32
   store i32 %134, ptr %133, align 4
   %135 = getelementptr inbounds i8, ptr %117, i64 8
@@ -3204,8 +3204,8 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE10NeedUpdateEv.exit.t
   %108 = ptrtoint ptr %102 to i64
   %109 = ptrtoint ptr %107 to i64
   %110 = sub i64 %108, %109
-  %111 = sdiv exact i64 %110, 120
-  %112 = getelementptr inbounds i64, ptr %103, i64 %111
+  %111 = sdiv exact i64 %110, 15
+  %112 = getelementptr inbounds i8, ptr %103, i64 %111
   %113 = load i64, ptr %112, align 8
   %114 = getelementptr inbounds %class.MeshVertex, ptr %107, i64 %113
   store ptr %114, ptr %90, align 8
@@ -3272,8 +3272,8 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE6UpdateERS6_.exit: ; 
   %143 = ptrtoint ptr %137 to i64
   %144 = ptrtoint ptr %142 to i64
   %145 = sub i64 %143, %144
-  %146 = sdiv exact i64 %145, 120
-  %147 = getelementptr inbounds i64, ptr %138, i64 %146
+  %146 = sdiv exact i64 %145, 15
+  %147 = getelementptr inbounds i8, ptr %138, i64 %146
   %148 = load i64, ptr %147, align 8
   %149 = getelementptr inbounds %class.MeshVertex, ptr %142, i64 %148
   store ptr %149, ptr %.sroa.075.0114, align 8
@@ -3306,8 +3306,8 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE6UpdateERS6_.exit57: 
   %167 = ptrtoint ptr %161 to i64
   %168 = ptrtoint ptr %166 to i64
   %169 = sub i64 %167, %168
-  %170 = sdiv exact i64 %169, 120
-  %171 = getelementptr inbounds i64, ptr %162, i64 %170
+  %170 = sdiv exact i64 %169, 15
+  %171 = getelementptr inbounds i8, ptr %162, i64 %170
   %172 = load i64, ptr %171, align 8
   %173 = getelementptr inbounds %class.MeshVertex, ptr %166, i64 %172
   store ptr %173, ptr %150, align 8
@@ -3397,8 +3397,8 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE6UpdateERS6_.exit63.u
   %211 = sub i64 %210, %185
   %212 = getelementptr inbounds i8, ptr %184, i64 %211
   store ptr %212, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
-  %213 = sdiv exact i64 %211, 120
-  %214 = getelementptr inbounds i64, ptr %186, i64 %213
+  %213 = sdiv exact i64 %211, 15
+  %214 = getelementptr inbounds i8, ptr %186, i64 %213
   %215 = load i64, ptr %214, align 8
   %216 = getelementptr inbounds %class.MeshVertex, ptr %184, i64 %215
   store ptr %216, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
@@ -3763,8 +3763,8 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP8MeshFaceE10NeedUpdateEv.exit.thre
   %110 = ptrtoint ptr %104 to i64
   %111 = ptrtoint ptr %109 to i64
   %112 = sub i64 %110, %111
-  %113 = sdiv exact i64 %112, 216
-  %114 = getelementptr inbounds i64, ptr %105, i64 %113
+  %113 = sdiv exact i64 %112, 27
+  %114 = getelementptr inbounds i8, ptr %105, i64 %113
   %115 = load i64, ptr %114, align 8
   %116 = getelementptr inbounds %class.MeshFace, ptr %109, i64 %115
   store ptr %116, ptr %92, align 8
@@ -3837,8 +3837,8 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP8MeshFaceE6UpdateERS6_.exit: ; pre
   %144 = ptrtoint ptr %138 to i64
   %145 = ptrtoint ptr %143 to i64
   %146 = sub i64 %144, %145
-  %147 = sdiv exact i64 %146, 216
-  %148 = getelementptr inbounds i64, ptr %139, i64 %147
+  %147 = sdiv exact i64 %146, 27
+  %148 = getelementptr inbounds i8, ptr %139, i64 %147
   %149 = load i64, ptr %148, align 8
   %150 = getelementptr inbounds %class.MeshFace, ptr %143, i64 %149
   store ptr %150, ptr %126, align 8
@@ -3905,8 +3905,8 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP8MeshFaceE6UpdateERS6_.exit60: ; p
   %180 = ptrtoint ptr %174 to i64
   %181 = ptrtoint ptr %179 to i64
   %182 = sub i64 %180, %181
-  %183 = sdiv exact i64 %182, 216
-  %184 = getelementptr inbounds i64, ptr %175, i64 %183
+  %183 = sdiv exact i64 %182, 27
+  %184 = getelementptr inbounds i8, ptr %175, i64 %183
   %185 = load i64, ptr %184, align 8
   %186 = getelementptr inbounds %class.MeshFace, ptr %179, i64 %185
   store ptr %186, ptr %162, align 8
@@ -4766,8 +4766,8 @@ define noundef double @_ZNK9FaceGroup14OriginalAreaUVEv(ptr nocapture noundef no
   %20 = load ptr, ptr %.sroa.014.020, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = sub i64 %21, %17
-  %23 = sdiv exact i64 %22, 216
-  %24 = getelementptr inbounds %struct.TexCoordStorage, ptr %18, i64 %23
+  %23 = sdiv exact i64 %22, 3
+  %24 = getelementptr inbounds i8, ptr %18, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 24
   %26 = load double, ptr %25, align 8
   %27 = load double, ptr %24, align 8
@@ -8519,9 +8519,9 @@ _ZNSt10shared_ptrI9FaceGroupED2Ev.exit:           ; preds = %288, %307, %320, %_
   %328 = load ptr, ptr %327, align 8
   %329 = ptrtoint ptr %328 to i64
   %330 = sub i64 %325, %329
-  %331 = sdiv exact i64 %330, 216
-  %332 = load ptr, ptr %246, align 8
-  %333 = getelementptr inbounds %struct.FF, ptr %332, i64 %331
+  %331 = load ptr, ptr %246, align 8
+  %332 = sdiv exact i64 %330, 9
+  %333 = getelementptr inbounds i8, ptr %331, i64 %332
   %334 = getelementptr inbounds [3 x i32], ptr %333, i64 0, i64 %indvars.iv140
   %335 = load i32, ptr %334, align 4
   %336 = sext i32 %335 to i64
@@ -8535,8 +8535,8 @@ _ZNSt10shared_ptrI9FaceGroupED2Ev.exit:           ; preds = %288, %307, %320, %_
   %344 = sdiv exact i64 %343, 216
   %345 = ptrtoint ptr %338 to i64
   %346 = sub i64 %345, %329
-  %347 = sdiv exact i64 %346, 216
-  %348 = getelementptr inbounds %struct.FF, ptr %332, i64 %347
+  %347 = sdiv exact i64 %346, 9
+  %348 = getelementptr inbounds i8, ptr %331, i64 %347
   %349 = sext i32 %341 to i64
   %350 = getelementptr inbounds [3 x i32], ptr %348, i64 0, i64 %349
   %351 = load i32, ptr %350, align 4

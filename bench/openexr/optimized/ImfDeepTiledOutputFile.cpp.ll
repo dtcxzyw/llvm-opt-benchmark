@@ -6034,26 +6034,26 @@ if.then:                                          ; preds = %entry
   %numXTiles = getelementptr inbounds i8, ptr %this, i64 224
   %1 = load ptr, ptr %numXTiles, align 8
   %sext77 = shl i64 %a.8.val, 32
-  %idxprom = ashr exact i64 %sext77, 32
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 %idxprom
-  %2 = load i32, ptr %arrayidx, align 4
-  %cmp3.not = icmp slt i32 %inc, %2
+  %2 = ashr exact i64 %sext77, 30
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %2
+  %3 = load i32, ptr %arrayidx, align 4
+  %cmp3.not = icmp slt i32 %inc, %3
   br i1 %cmp3.not, label %if.end91, label %if.then4
 
 if.then4:                                         ; preds = %if.then
   %inc6 = add nsw i32 %retval.sroa.0.sroa.10.0.extract.trunc, 1
   %numYTiles = getelementptr inbounds i8, ptr %this, i64 232
-  %3 = load ptr, ptr %numYTiles, align 8
+  %4 = load ptr, ptr %numYTiles, align 8
   %idxprom8 = ashr i64 %a.8.val, 32
-  %arrayidx9 = getelementptr inbounds i32, ptr %3, i64 %idxprom8
-  %4 = load i32, ptr %arrayidx9, align 4
-  %cmp10.not = icmp slt i32 %inc6, %4
+  %arrayidx9 = getelementptr inbounds i32, ptr %4, i64 %idxprom8
+  %5 = load i32, ptr %arrayidx9, align 4
+  %cmp10.not = icmp slt i32 %inc6, %5
   br i1 %cmp10.not, label %if.end91, label %if.then11
 
 if.then11:                                        ; preds = %if.then4
   %mode = getelementptr inbounds i8, ptr %this, i64 72
-  %5 = load i32, ptr %mode, align 8
-  switch i32 %5, label %if.end91 [
+  %6 = load i32, ptr %mode, align 8
+  switch i32 %6, label %if.end91 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb
     i32 2, label %sw.bb17
@@ -6063,8 +6063,8 @@ if.then11:                                        ; preds = %if.then4
 sw.bb:                                            ; preds = %if.then11, %if.then11
   %inc14 = add i64 %a.8.val, 1
   %retval.sroa.18.8.insert.ext = and i64 %inc14, 4294967295
-  %6 = and i64 %a.8.val, -4294967296
-  %retval.sroa.18.12.insert.shift = add i64 %6, 4294967296
+  %7 = and i64 %a.8.val, -4294967296
+  %retval.sroa.18.12.insert.shift = add i64 %7, 4294967296
   %retval.sroa.18.12.insert.insert = or disjoint i64 %retval.sroa.18.8.insert.ext, %retval.sroa.18.12.insert.shift
   br label %if.end91
 
@@ -6075,8 +6075,8 @@ sw.bb17:                                          ; preds = %if.then11
   %retval.sroa.18.8.insert.insert17 = or disjoint i64 %retval.sroa.18.8.insert.ext15, %retval.sroa.18.8.insert.mask16
   %retval.sroa.18.8.extract.trunc19 = trunc i64 %inc19 to i32
   %numXLevels = getelementptr inbounds i8, ptr %this, i64 212
-  %7 = load i32, ptr %numXLevels, align 4
-  %cmp21.not = icmp sgt i32 %7, %retval.sroa.18.8.extract.trunc19
+  %8 = load i32, ptr %numXLevels, align 4
+  %cmp21.not = icmp sgt i32 %8, %retval.sroa.18.8.extract.trunc19
   %retval.sroa.18.12.insert.shift50 = add i64 %retval.sroa.18.8.insert.mask16, 4294967296
   %spec.select = select i1 %cmp21.not, i64 %retval.sroa.18.8.insert.insert17, i64 %retval.sroa.18.12.insert.shift50
   br label %if.end91
@@ -6091,7 +6091,7 @@ invoke.cont:                                      ; preds = %sw.bb26
   unreachable
 
 lpad:                                             ; preds = %sw.bb26
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception) #21
   br label %eh.resume
@@ -6099,12 +6099,12 @@ lpad:                                             ; preds = %sw.bb26
 if.then31:                                        ; preds = %entry
   %inc33 = add nsw i32 %retval.sroa.0.sroa.0.0.extract.trunc, 1
   %numXTiles35 = getelementptr inbounds i8, ptr %this, i64 224
-  %9 = load ptr, ptr %numXTiles35, align 8
+  %10 = load ptr, ptr %numXTiles35, align 8
   %sext = shl i64 %a.8.val, 32
-  %idxprom37 = ashr exact i64 %sext, 32
-  %arrayidx38 = getelementptr inbounds i32, ptr %9, i64 %idxprom37
-  %10 = load i32, ptr %arrayidx38, align 4
-  %cmp39.not = icmp slt i32 %inc33, %10
+  %11 = ashr exact i64 %sext, 30
+  %arrayidx38 = getelementptr inbounds i8, ptr %10, i64 %11
+  %12 = load i32, ptr %arrayidx38, align 4
+  %cmp39.not = icmp slt i32 %inc33, %12
   br i1 %cmp39.not, label %if.end91, label %if.then40
 
 if.then40:                                        ; preds = %if.then31
@@ -6114,8 +6114,8 @@ if.then40:                                        ; preds = %if.then31
 
 if.then45:                                        ; preds = %if.then40
   %mode47 = getelementptr inbounds i8, ptr %this, i64 72
-  %11 = load i32, ptr %mode47, align 8
-  switch i32 %11, label %sw.epilog68 [
+  %13 = load i32, ptr %mode47, align 8
+  switch i32 %13, label %sw.epilog68 [
     i32 0, label %sw.bb48
     i32 1, label %sw.bb48
     i32 2, label %sw.bb53
@@ -6125,8 +6125,8 @@ if.then45:                                        ; preds = %if.then40
 sw.bb48:                                          ; preds = %if.then45, %if.then45
   %inc50 = add i64 %a.8.val, 1
   %retval.sroa.18.8.insert.ext28 = and i64 %inc50, 4294967295
-  %12 = and i64 %a.8.val, -4294967296
-  %retval.sroa.18.12.insert.shift58 = add i64 %12, 4294967296
+  %14 = and i64 %a.8.val, -4294967296
+  %retval.sroa.18.12.insert.shift58 = add i64 %14, 4294967296
   %retval.sroa.18.12.insert.insert60 = or disjoint i64 %retval.sroa.18.8.insert.ext28, %retval.sroa.18.12.insert.shift58
   br label %sw.epilog68
 
@@ -6137,8 +6137,8 @@ sw.bb53:                                          ; preds = %if.then45
   %retval.sroa.18.8.insert.insert36 = or disjoint i64 %retval.sroa.18.8.insert.ext34, %retval.sroa.18.8.insert.mask35
   %retval.sroa.18.8.extract.trunc38 = trunc i64 %inc55 to i32
   %numXLevels57 = getelementptr inbounds i8, ptr %this, i64 212
-  %13 = load i32, ptr %numXLevels57, align 4
-  %cmp58.not = icmp sgt i32 %13, %retval.sroa.18.8.extract.trunc38
+  %15 = load i32, ptr %numXLevels57, align 4
+  %cmp58.not = icmp sgt i32 %15, %retval.sroa.18.8.extract.trunc38
   %retval.sroa.18.12.insert.shift66 = add i64 %retval.sroa.18.8.insert.mask35, 4294967296
   %spec.select1 = select i1 %cmp58.not, i64 %retval.sroa.18.8.insert.insert36, i64 %retval.sroa.18.12.insert.shift66
   br label %sw.epilog68
@@ -6153,7 +6153,7 @@ invoke.cont67:                                    ; preds = %sw.bb64
   unreachable
 
 lpad66:                                           ; preds = %sw.bb64
-  %14 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception65) #21
   br label %eh.resume
@@ -6163,17 +6163,17 @@ sw.epilog68:                                      ; preds = %sw.bb53, %sw.bb48, 
   %retval.sroa.18.12.extract.shift70 = lshr i64 %retval.sroa.18.0, 32
   %retval.sroa.18.12.extract.trunc71 = trunc nuw i64 %retval.sroa.18.12.extract.shift70 to i32
   %numYLevels = getelementptr inbounds i8, ptr %this, i64 216
-  %15 = load i32, ptr %numYLevels, align 8
-  %cmp70 = icmp sgt i32 %15, %retval.sroa.18.12.extract.trunc71
+  %17 = load i32, ptr %numYLevels, align 8
+  %cmp70 = icmp sgt i32 %17, %retval.sroa.18.12.extract.trunc71
   br i1 %cmp70, label %if.then71, label %if.end91
 
 if.then71:                                        ; preds = %sw.epilog68
   %numYTiles72 = getelementptr inbounds i8, ptr %this, i64 232
-  %16 = load ptr, ptr %numYTiles72, align 8
+  %18 = load ptr, ptr %numYTiles72, align 8
   %idxprom74 = ashr i64 %retval.sroa.18.0, 32
-  %arrayidx75 = getelementptr inbounds i32, ptr %16, i64 %idxprom74
-  %17 = load i32, ptr %arrayidx75, align 4
-  %sub = add nsw i32 %17, -1
+  %arrayidx75 = getelementptr inbounds i32, ptr %18, i64 %idxprom74
+  %19 = load i32, ptr %arrayidx75, align 4
+  %sub = add nsw i32 %19, -1
   br label %if.end91
 
 do.body:                                          ; preds = %entry
@@ -6193,18 +6193,18 @@ invoke.cont88:                                    ; preds = %invoke.cont85
           to label %unreachable unwind label %lpad84
 
 lpad84:                                           ; preds = %invoke.cont88, %do.body
-  %18 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad87:                                           ; preds = %invoke.cont85
-  %19 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception86) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad87, %lpad84
-  %.pn = phi { ptr, i32 } [ %18, %lpad84 ], [ %19, %lpad87 ]
+  %.pn = phi { ptr, i32 } [ %20, %lpad84 ], [ %21, %lpad87 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s) #21
   br label %eh.resume
 
@@ -6221,7 +6221,7 @@ if.end91:                                         ; preds = %sw.bb17, %entry, %i
   ret { i64, i64 } %.fca.1.insert
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad66, %lpad
-  %.pn79 = phi { ptr, i32 } [ %8, %lpad ], [ %14, %lpad66 ], [ %.pn, %ehcleanup ]
+  %.pn79 = phi { ptr, i32 } [ %9, %lpad ], [ %16, %lpad66 ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %.pn79
 
 unreachable:                                      ; preds = %invoke.cont88

@@ -2610,46 +2610,46 @@ _ZNK20btAlignedObjectArrayIP17btTypedConstraintE16findLinearSearchERKS1_.exit.i:
 if.then.i.i:                                      ; preds = %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE16findLinearSearchERKS1_.exit.i
   %sub.i.i = add nsw i32 %0, -1
   %sext.i = shl i64 %indvars.iv.i.i, 32
-  %idxprom.i.i.i = ashr exact i64 %sext.i, 32
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i.i.i
-  %6 = load ptr, ptr %arrayidx.i.i.i, align 8
+  %6 = ashr exact i64 %sext.i, 29
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 %6
+  %7 = load ptr, ptr %arrayidx.i.i.i, align 8
   %idxprom3.i.i.i = sext i32 %sub.i.i to i64
   %arrayidx4.i.i.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom3.i.i.i
-  %7 = load ptr, ptr %arrayidx4.i.i.i, align 8
-  store ptr %7, ptr %arrayidx.i.i.i, align 8
-  %8 = load ptr, ptr %m_data.i, align 8
-  %arrayidx10.i.i.i = getelementptr inbounds ptr, ptr %8, i64 %idxprom3.i.i.i
-  store ptr %6, ptr %arrayidx10.i.i.i, align 8
-  %9 = load i32, ptr %m_size.i.i, align 4
-  %dec.i.i.i = add nsw i32 %9, -1
+  %8 = load ptr, ptr %arrayidx4.i.i.i, align 8
+  store ptr %8, ptr %arrayidx.i.i.i, align 8
+  %9 = load ptr, ptr %m_data.i, align 8
+  %arrayidx10.i.i.i = getelementptr inbounds ptr, ptr %9, i64 %idxprom3.i.i.i
+  store ptr %7, ptr %arrayidx10.i.i.i, align 8
+  %10 = load i32, ptr %m_size.i.i, align 4
+  %dec.i.i.i = add nsw i32 %10, -1
   store i32 %dec.i.i.i, ptr %m_size.i.i, align 4
   br label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6removeERKS1_.exit
 
 _ZN20btAlignedObjectArrayIP17btTypedConstraintE6removeERKS1_.exit: ; preds = %for.inc.i.i, %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE16findLinearSearchERKS1_.exit.i, %if.then.i.i
   %m_rbA.i = getelementptr inbounds i8, ptr %c, i64 40
-  %10 = load ptr, ptr %m_rbA.i, align 8
+  %11 = load ptr, ptr %m_rbA.i, align 8
   %m_rbB.i = getelementptr inbounds i8, ptr %c, i64 48
-  %11 = load ptr, ptr %m_rbB.i, align 8
-  %cmp7 = icmp eq ptr %10, %this
+  %12 = load ptr, ptr %m_rbB.i, align 8
+  %cmp7 = icmp eq ptr %11, %this
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6removeERKS1_.exit
-  %m_size.i.i.i4 = getelementptr inbounds i8, ptr %10, i64 324
-  %12 = load i32, ptr %m_size.i.i.i4, align 4
-  %cmp5.i.i.i = icmp sgt i32 %12, 0
+  %m_size.i.i.i4 = getelementptr inbounds i8, ptr %11, i64 324
+  %13 = load i32, ptr %m_size.i.i.i4, align 4
+  %cmp5.i.i.i = icmp sgt i32 %13, 0
   br i1 %cmp5.i.i.i, label %for.body.lr.ph.i.i.i, label %if.end9.sink.split
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then8
-  %m_data.i.i.i = getelementptr inbounds i8, ptr %10, i64 336
-  %13 = load ptr, ptr %m_data.i.i.i, align 8
-  %wide.trip.count.i.i.i = zext nneg i32 %12 to i64
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %11, i64 336
+  %14 = load ptr, ptr %m_data.i.i.i, align 8
+  %wide.trip.count.i.i.i = zext nneg i32 %13 to i64
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i5 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.i.i.i
-  %14 = load ptr, ptr %arrayidx.i.i.i5, align 8
-  %cmp3.i.i.i = icmp eq ptr %14, %11
+  %arrayidx.i.i.i5 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv.i.i.i
+  %15 = load ptr, ptr %arrayidx.i.i.i5, align 8
+  %cmp3.i.i.i = icmp eq ptr %15, %12
   br i1 %cmp3.i.i.i, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -2658,27 +2658,27 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.end9.sink.split, label %for.body.i.i.i, !llvm.loop !16
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i: ; preds = %for.body.i.i.i
-  %15 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %cmp.i.i1.i = icmp sgt i32 %12, %15
+  %16 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %cmp.i.i1.i = icmp sgt i32 %13, %16
   br i1 %cmp.i.i1.i, label %if.end9.sink.split.sink.split, label %if.end9.sink.split
 
 if.else:                                          ; preds = %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6removeERKS1_.exit
-  %m_size.i.i.i6 = getelementptr inbounds i8, ptr %11, i64 324
-  %16 = load i32, ptr %m_size.i.i.i6, align 4
-  %cmp5.i.i.i7 = icmp sgt i32 %16, 0
+  %m_size.i.i.i6 = getelementptr inbounds i8, ptr %12, i64 324
+  %17 = load i32, ptr %m_size.i.i.i6, align 4
+  %cmp5.i.i.i7 = icmp sgt i32 %17, 0
   br i1 %cmp5.i.i.i7, label %for.body.lr.ph.i.i.i10, label %if.end9.sink.split
 
 for.body.lr.ph.i.i.i10:                           ; preds = %if.else
-  %m_data.i.i.i11 = getelementptr inbounds i8, ptr %11, i64 336
-  %17 = load ptr, ptr %m_data.i.i.i11, align 8
-  %wide.trip.count.i.i.i12 = zext nneg i32 %16 to i64
+  %m_data.i.i.i11 = getelementptr inbounds i8, ptr %12, i64 336
+  %18 = load ptr, ptr %m_data.i.i.i11, align 8
+  %wide.trip.count.i.i.i12 = zext nneg i32 %17 to i64
   br label %for.body.i.i.i13
 
 for.body.i.i.i13:                                 ; preds = %for.inc.i.i.i17, %for.body.lr.ph.i.i.i10
   %indvars.iv.i.i.i14 = phi i64 [ 0, %for.body.lr.ph.i.i.i10 ], [ %indvars.iv.next.i.i.i18, %for.inc.i.i.i17 ]
-  %arrayidx.i.i.i15 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i.i.i14
-  %18 = load ptr, ptr %arrayidx.i.i.i15, align 8
-  %cmp3.i.i.i16 = icmp eq ptr %18, %10
+  %arrayidx.i.i.i15 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv.i.i.i14
+  %19 = load ptr, ptr %arrayidx.i.i.i15, align 8
+  %cmp3.i.i.i16 = icmp eq ptr %19, %11
   br i1 %cmp3.i.i.i16, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20, label %for.inc.i.i.i17
 
 for.inc.i.i.i17:                                  ; preds = %for.body.i.i.i13
@@ -2687,39 +2687,39 @@ for.inc.i.i.i17:                                  ; preds = %for.body.i.i.i13
   br i1 %exitcond.not.i.i.i19, label %if.end9.sink.split, label %for.body.i.i.i13, !llvm.loop !16
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20: ; preds = %for.body.i.i.i13
-  %19 = trunc nuw nsw i64 %indvars.iv.i.i.i14 to i32
-  %cmp.i.i1.i21 = icmp sgt i32 %16, %19
+  %20 = trunc nuw nsw i64 %indvars.iv.i.i.i14 to i32
+  %cmp.i.i1.i21 = icmp sgt i32 %17, %20
   br i1 %cmp.i.i1.i21, label %if.end9.sink.split.sink.split, label %if.end9.sink.split
 
 if.end9.sink.split.sink.split:                    ; preds = %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i
-  %.sink60 = phi i32 [ %12, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %16, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ]
+  %.sink60 = phi i32 [ %13, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %17, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ]
   %indvars.iv.i.i.i14.lcssa.sink = phi i64 [ %indvars.iv.i.i.i, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %indvars.iv.i.i.i14, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ]
-  %.sink59 = phi ptr [ %13, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %17, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ]
+  %.sink58 = phi ptr [ %14, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %18, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ]
   %m_data.i.i.i11.sink = phi ptr [ %m_data.i.i.i, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %m_data.i.i.i11, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ]
-  %m_size.i.i.i6.sink52 = phi ptr [ %m_size.i.i.i4, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %m_size.i.i.i6, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ]
-  %.sink.ph = phi ptr [ %10, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %11, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ]
+  %m_size.i.i.i6.sink51 = phi ptr [ %m_size.i.i.i4, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %m_size.i.i.i6, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ]
+  %.sink.ph = phi ptr [ %11, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %12, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ]
   %sub.i.i.i23 = add nsw i32 %.sink60, -1
   %sext.i.i24 = shl i64 %indvars.iv.i.i.i14.lcssa.sink, 32
-  %idxprom.i.i.i.i25 = ashr exact i64 %sext.i.i24, 32
-  %arrayidx.i.i.i3.i26 = getelementptr inbounds ptr, ptr %.sink59, i64 %idxprom.i.i.i.i25
-  %20 = load ptr, ptr %arrayidx.i.i.i3.i26, align 8
-  %idxprom3.i.i.i.i27 = sext i32 %sub.i.i.i23 to i64
-  %arrayidx4.i.i.i.i28 = getelementptr inbounds ptr, ptr %.sink59, i64 %idxprom3.i.i.i.i27
-  %21 = load ptr, ptr %arrayidx4.i.i.i.i28, align 8
-  store ptr %21, ptr %arrayidx.i.i.i3.i26, align 8
-  %22 = load ptr, ptr %m_data.i.i.i11.sink, align 8
-  %arrayidx10.i.i.i.i29 = getelementptr inbounds ptr, ptr %22, i64 %idxprom3.i.i.i.i27
-  store ptr %20, ptr %arrayidx10.i.i.i.i29, align 8
-  %23 = load i32, ptr %m_size.i.i.i6.sink52, align 4
-  %dec.i.i.i.i30 = add nsw i32 %23, -1
-  store i32 %dec.i.i.i.i30, ptr %m_size.i.i.i6.sink52, align 4
-  %24 = icmp sgt i32 %23, 1
-  %25 = zext i1 %24 to i32
+  %21 = ashr exact i64 %sext.i.i24, 29
+  %arrayidx.i.i.i3.i25 = getelementptr inbounds i8, ptr %.sink58, i64 %21
+  %22 = load ptr, ptr %arrayidx.i.i.i3.i25, align 8
+  %idxprom3.i.i.i.i26 = sext i32 %sub.i.i.i23 to i64
+  %arrayidx4.i.i.i.i27 = getelementptr inbounds ptr, ptr %.sink58, i64 %idxprom3.i.i.i.i26
+  %23 = load ptr, ptr %arrayidx4.i.i.i.i27, align 8
+  store ptr %23, ptr %arrayidx.i.i.i3.i25, align 8
+  %24 = load ptr, ptr %m_data.i.i.i11.sink, align 8
+  %arrayidx10.i.i.i.i28 = getelementptr inbounds ptr, ptr %24, i64 %idxprom3.i.i.i.i26
+  store ptr %22, ptr %arrayidx10.i.i.i.i28, align 8
+  %25 = load i32, ptr %m_size.i.i.i6.sink51, align 4
+  %dec.i.i.i.i29 = add nsw i32 %25, -1
+  store i32 %dec.i.i.i.i29, ptr %m_size.i.i.i6.sink51, align 4
+  %26 = icmp sgt i32 %25, 1
+  %27 = zext i1 %26 to i32
   br label %if.end9.sink.split
 
 if.end9.sink.split:                               ; preds = %for.inc.i.i.i17, %for.inc.i.i.i, %if.end9.sink.split.sink.split, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20, %if.else, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i, %if.then8
-  %.sink = phi ptr [ %10, %if.then8 ], [ %10, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %11, %if.else ], [ %11, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ], [ %.sink.ph, %if.end9.sink.split.sink.split ], [ %10, %for.inc.i.i.i ], [ %11, %for.inc.i.i.i17 ]
-  %cmp.i.sink = phi i32 [ 0, %if.then8 ], [ 1, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ 0, %if.else ], [ 1, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ], [ %25, %if.end9.sink.split.sink.split ], [ 1, %for.inc.i.i.i ], [ 1, %for.inc.i.i.i17 ]
+  %.sink = phi ptr [ %11, %if.then8 ], [ %11, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %12, %if.else ], [ %12, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ], [ %.sink.ph, %if.end9.sink.split.sink.split ], [ %11, %for.inc.i.i.i ], [ %12, %for.inc.i.i.i17 ]
+  %cmp.i.sink = phi i32 [ 0, %if.then8 ], [ 1, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ 0, %if.else ], [ 1, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i20 ], [ %27, %if.end9.sink.split.sink.split ], [ 1, %for.inc.i.i.i ], [ 1, %for.inc.i.i.i17 ]
   %m_checkCollideWith.i = getelementptr inbounds i8, ptr %.sink, i64 312
   store i32 %cmp.i.sink, ptr %m_checkCollideWith.i, align 8
   br label %if.end9

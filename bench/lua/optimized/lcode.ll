@@ -4186,15 +4186,15 @@ land.lhs.true:                                    ; preds = %if.then
   %k8 = getelementptr inbounds i8, ptr %2, i64 56
   %7 = load ptr, ptr %k8, align 8
   %sext = shl i64 %5, 32
-  %idxprom = ashr exact i64 %sext, 32
-  %arrayidx = getelementptr inbounds %struct.TValue, ptr %7, i64 %idxprom
+  %8 = ashr exact i64 %sext, 28
+  %arrayidx = getelementptr inbounds i8, ptr %7, i64 %8
   %tt_9 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %8 = load i8, ptr %tt_9, align 8
+  %9 = load i8, ptr %tt_9, align 8
   %tt_11 = getelementptr inbounds i8, ptr %v, i64 8
-  %9 = load i8, ptr %tt_11, align 8
-  %10 = xor i8 %9, %8
-  %11 = and i8 %10, 63
-  %cmp14 = icmp eq i8 %11, 0
+  %10 = load i8, ptr %tt_11, align 8
+  %11 = xor i8 %10, %9
+  %12 = and i8 %11, 63
+  %cmp14 = icmp eq i8 %12, 0
   br i1 %cmp14, label %land.lhs.true16, label %if.end22
 
 land.lhs.true16:                                  ; preds = %land.lhs.true
@@ -4204,38 +4204,38 @@ land.lhs.true16:                                  ; preds = %land.lhs.true
 
 if.end22:                                         ; preds = %if.then, %land.lhs.true, %land.lhs.true16, %entry
   %sizek = getelementptr inbounds i8, ptr %2, i64 20
-  %12 = load i32, ptr %sizek, align 4
+  %13 = load i32, ptr %sizek, align 4
   %nk23 = getelementptr inbounds i8, ptr %fs, i64 44
-  %13 = load i32, ptr %nk23, align 4
-  %conv24 = sext i32 %13 to i64
+  %14 = load i32, ptr %nk23, align 4
+  %conv24 = sext i32 %14 to i64
   store i64 %conv24, ptr %val, align 8
   %tt_26 = getelementptr inbounds i8, ptr %val, i64 8
   store i8 3, ptr %tt_26, align 8
-  %14 = load ptr, ptr %ls, align 8
-  %h28 = getelementptr inbounds i8, ptr %14, i64 80
-  %15 = load ptr, ptr %h28, align 8
-  call void @luaH_finishset(ptr noundef %1, ptr noundef %15, ptr noundef %key, ptr noundef nonnull %call, ptr noundef nonnull %val) #13
+  %15 = load ptr, ptr %ls, align 8
+  %h28 = getelementptr inbounds i8, ptr %15, i64 80
+  %16 = load ptr, ptr %h28, align 8
+  call void @luaH_finishset(ptr noundef %1, ptr noundef %16, ptr noundef %key, ptr noundef nonnull %call, ptr noundef nonnull %val) #13
   %k29 = getelementptr inbounds i8, ptr %2, i64 56
-  %16 = load ptr, ptr %k29, align 8
-  %call31 = call ptr @luaM_growaux_(ptr noundef %1, ptr noundef %16, i32 noundef %13, ptr noundef nonnull %sizek, i32 noundef 16, i32 noundef 33554431, ptr noundef nonnull @.str.4) #13
+  %17 = load ptr, ptr %k29, align 8
+  %call31 = call ptr @luaM_growaux_(ptr noundef %1, ptr noundef %17, i32 noundef %14, ptr noundef nonnull %sizek, i32 noundef 16, i32 noundef 33554431, ptr noundef nonnull @.str.4) #13
   store ptr %call31, ptr %k29, align 8
-  %17 = load i32, ptr %sizek, align 4
-  %cmp3438 = icmp slt i32 %12, %17
+  %18 = load i32, ptr %sizek, align 4
+  %cmp3438 = icmp slt i32 %13, %18
   br i1 %cmp3438, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %if.end22
-  %18 = sext i32 %12 to i64
+  %19 = sext i32 %13 to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
-  %indvars.iv = phi i64 [ %18, %while.body.preheader ], [ %indvars.iv.next, %while.body ]
-  %19 = load ptr, ptr %k29, align 8
+  %indvars.iv = phi i64 [ %19, %while.body.preheader ], [ %indvars.iv.next, %while.body ]
+  %20 = load ptr, ptr %k29, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %tt_39 = getelementptr inbounds %struct.TValue, ptr %19, i64 %indvars.iv, i32 1
+  %tt_39 = getelementptr inbounds %struct.TValue, ptr %20, i64 %indvars.iv, i32 1
   store i8 0, ptr %tt_39, align 8
-  %20 = load i32, ptr %sizek, align 4
-  %21 = sext i32 %20 to i64
-  %cmp34 = icmp slt i64 %indvars.iv.next, %21
+  %21 = load i32, ptr %sizek, align 4
+  %22 = sext i32 %21 to i64
+  %cmp34 = icmp slt i64 %indvars.iv.next, %22
   br i1 %cmp34, label %while.body, label %while.end.loopexit, !llvm.loop !10
 
 while.end.loopexit:                               ; preds = %while.body
@@ -4243,43 +4243,43 @@ while.end.loopexit:                               ; preds = %while.body
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %if.end22
-  %22 = phi ptr [ %.pre, %while.end.loopexit ], [ %call31, %if.end22 ]
-  %arrayidx42 = getelementptr inbounds %struct.TValue, ptr %22, i64 %conv24
-  %23 = load i64, ptr %v, align 8
-  store i64 %23, ptr %arrayidx42, align 8
+  %23 = phi ptr [ %.pre, %while.end.loopexit ], [ %call31, %if.end22 ]
+  %arrayidx42 = getelementptr inbounds %struct.TValue, ptr %23, i64 %conv24
+  %24 = load i64, ptr %v, align 8
+  store i64 %24, ptr %arrayidx42, align 8
   %tt_45 = getelementptr inbounds i8, ptr %v, i64 8
-  %24 = load i8, ptr %tt_45, align 8
+  %25 = load i8, ptr %tt_45, align 8
   %tt_46 = getelementptr inbounds i8, ptr %arrayidx42, i64 8
-  store i8 %24, ptr %tt_46, align 8
-  %25 = load i32, ptr %nk23, align 4
-  %inc48 = add nsw i32 %25, 1
+  store i8 %25, ptr %tt_46, align 8
+  %26 = load i32, ptr %nk23, align 4
+  %inc48 = add nsw i32 %26, 1
   store i32 %inc48, ptr %nk23, align 4
-  %26 = load i8, ptr %tt_45, align 8
-  %27 = and i8 %26, 64
-  %tobool52.not = icmp eq i8 %27, 0
+  %27 = load i8, ptr %tt_45, align 8
+  %28 = and i8 %27, 64
+  %tobool52.not = icmp eq i8 %28, 0
   br i1 %tobool52.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %while.end
   %marked = getelementptr inbounds i8, ptr %2, i64 9
-  %28 = load i8, ptr %marked, align 1
-  %29 = and i8 %28, 32
-  %tobool55.not = icmp eq i8 %29, 0
+  %29 = load i8, ptr %marked, align 1
+  %30 = and i8 %29, 32
+  %tobool55.not = icmp eq i8 %30, 0
   br i1 %tobool55.not, label %return, label %land.lhs.true56
 
 land.lhs.true56:                                  ; preds = %cond.true
-  %30 = load ptr, ptr %v, align 8
-  %marked58 = getelementptr inbounds i8, ptr %30, i64 9
-  %31 = load i8, ptr %marked58, align 1
-  %32 = and i8 %31, 24
-  %tobool61.not = icmp eq i8 %32, 0
+  %31 = load ptr, ptr %v, align 8
+  %marked58 = getelementptr inbounds i8, ptr %31, i64 9
+  %32 = load i8, ptr %marked58, align 1
+  %33 = and i8 %32, 24
+  %tobool61.not = icmp eq i8 %33, 0
   br i1 %tobool61.not, label %return, label %cond.true62
 
 cond.true62:                                      ; preds = %land.lhs.true56
-  call void @luaC_barrier_(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %30) #13
+  call void @luaC_barrier_(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %31) #13
   br label %return
 
 return:                                           ; preds = %cond.true, %land.lhs.true56, %cond.true62, %while.end, %land.lhs.true16
-  %retval.0 = phi i32 [ %conv5, %land.lhs.true16 ], [ %13, %while.end ], [ %13, %cond.true62 ], [ %13, %land.lhs.true56 ], [ %13, %cond.true ]
+  %retval.0 = phi i32 [ %conv5, %land.lhs.true16 ], [ %14, %while.end ], [ %14, %cond.true62 ], [ %14, %land.lhs.true56 ], [ %14, %cond.true ]
   ret i32 %retval.0
 }
 

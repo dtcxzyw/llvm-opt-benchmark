@@ -3231,8 +3231,8 @@ Vec_IntPush.exit138:                              ; preds = %.Vec_IntGrow.exit10
   %224 = sub nsw i64 %indvars.iv185, %222
   %.val105 = load ptr, ptr %77, align 8
   %sext = shl i64 %224, 32
-  %225 = ashr exact i64 %sext, 32
-  %226 = getelementptr inbounds i32, ptr %.val105, i64 %225
+  %225 = ashr exact i64 %sext, 30
+  %226 = getelementptr inbounds i8, ptr %.val105, i64 %225
   %227 = load i32, ptr %226, align 4
   %228 = sext i32 %227 to i64
   %229 = getelementptr inbounds i32, ptr %.val105, i64 %228
@@ -3240,8 +3240,8 @@ Vec_IntPush.exit138:                              ; preds = %.Vec_IntGrow.exit10
   %231 = and i64 %230, 536870911
   %232 = sub nsw i64 %indvars.iv185, %231
   %sext188 = shl i64 %232, 32
-  %233 = ashr exact i64 %sext188, 32
-  %234 = getelementptr inbounds i32, ptr %.val105, i64 %233
+  %233 = ashr exact i64 %sext188, 30
+  %234 = getelementptr inbounds i8, ptr %.val105, i64 %233
   %235 = load i32, ptr %234, align 4
   %236 = sext i32 %235 to i64
   %237 = getelementptr inbounds i32, ptr %.val105, i64 %236
@@ -3505,18 +3505,18 @@ define void @Ree_ManRemoveTrivial(ptr noundef %0, ptr nocapture noundef %1) loca
   %10 = getelementptr i8, ptr %0, i64 32
   br label %11
 
-11:                                               ; preds = %.lr.ph, %47
-  %.val3343 = phi i32 [ %.val3339, %.lr.ph ], [ %.val33, %47 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %12 = phi i64 [ 0, %.lr.ph ], [ %48, %47 ]
-  %.041 = phi i32 [ 0, %.lr.ph ], [ %.1, %47 ]
+11:                                               ; preds = %.lr.ph, %48
+  %.val3343 = phi i32 [ %.val3339, %.lr.ph ], [ %.val33, %48 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
+  %12 = phi i64 [ 0, %.lr.ph ], [ %49, %48 ]
+  %.041 = phi i32 [ 0, %.lr.ph ], [ %.1, %48 ]
   %.val36 = load ptr, ptr %9, align 8
   %13 = and i64 %12, 4294967294
   %14 = getelementptr inbounds i32, ptr %.val36, i64 %13
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %42
+  br i1 %17, label %18, label %43
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds i8, ptr %14, i64 12
@@ -3541,39 +3541,40 @@ define void @Ree_ManRemoveTrivial(ptr noundef %0, ptr nocapture noundef %1) loca
   %35 = sub nsw i64 0, %34
   %36 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %22, i64 %35
   %37 = icmp eq ptr %26, %36
-  br i1 %37, label %38, label %42
+  br i1 %37, label %38, label %43
 
 38:                                               ; preds = %32, %18
   %.val38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds i32, ptr %.val38, i64 %25
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp eq i32 %40, 1
-  br i1 %41, label %47, label %42
+  %39 = shl nsw i64 %25, 2
+  %40 = getelementptr inbounds i8, ptr %.val38, i64 %39
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp eq i32 %41, 1
+  br i1 %42, label %48, label %43
 
-42:                                               ; preds = %32, %38, %11
-  %43 = add nsw i32 %.041, 1
-  %44 = mul nsw i32 %.041, 6
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %.val36, i64 %45
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %46, ptr noundef nonnull align 4 dereferenceable(24) %14, i64 24, i1 false)
+43:                                               ; preds = %32, %38, %11
+  %44 = add nsw i32 %.041, 1
+  %45 = mul nsw i32 %.041, 6
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i32, ptr %.val36, i64 %46
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %47, ptr noundef nonnull align 4 dereferenceable(24) %14, i64 24, i1 false)
   %.val33.pre = load i32, ptr %7, align 4
-  br label %47
+  br label %48
 
-47:                                               ; preds = %38, %42
-  %.val33 = phi i32 [ %.val3343, %38 ], [ %.val33.pre, %42 ]
-  %.1 = phi i32 [ %.041, %38 ], [ %43, %42 ]
+48:                                               ; preds = %38, %43
+  %.val33 = phi i32 [ %.val3343, %38 ], [ %.val33.pre, %43 ]
+  %.1 = phi i32 [ %.041, %38 ], [ %44, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = mul nuw nsw i64 %indvars.iv.next, 6
-  %49 = trunc nuw i64 %48 to i32
-  %50 = icmp sgt i32 %.val33, %49
-  br i1 %50, label %11, label %._crit_edge.loopexit, !llvm.loop !39
+  %49 = mul nuw nsw i64 %indvars.iv.next, 6
+  %50 = trunc nuw i64 %49 to i32
+  %51 = icmp sgt i32 %.val33, %50
+  br i1 %51, label %11, label %._crit_edge.loopexit, !llvm.loop !39
 
-._crit_edge.loopexit:                             ; preds = %47
-  %51 = mul nsw i32 %.1, 6
+._crit_edge.loopexit:                             ; preds = %48
+  %52 = mul nsw i32 %.1, 6
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
-  %.0.lcssa = phi i32 [ 0, %6 ], [ %51, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %6 ], [ %52, %._crit_edge.loopexit ]
   store i32 %.0.lcssa, ptr %7, align 4
   ret void
 }

@@ -1425,9 +1425,9 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
   %51 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i to i64
   %52 = sub i64 %51, %12
   %sext = shl i64 %52, 30
-  %53 = ashr exact i64 %sext, 32
-  %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds i32, ptr %54, i64 %53
+  %53 = load ptr, ptr %7, align 8
+  %54 = ashr exact i64 %sext, 30
+  %55 = getelementptr inbounds i8, ptr %53, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = icmp slt i32 %56, %storemerge35
   br i1 %57, label %.preheader, label %62

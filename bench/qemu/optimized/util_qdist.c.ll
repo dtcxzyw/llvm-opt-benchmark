@@ -211,10 +211,10 @@ if.end:                                           ; preds = %entry
   %2 = load double, ptr %1, align 8
   %conv.i = shl i64 %0, 32
   %sext.i = add i64 %conv.i, -4294967296
-  %idxprom.i.i = ashr exact i64 %sext.i, 32
-  %arrayidx.i.i = getelementptr %struct.qdist_entry, ptr %1, i64 %idxprom.i.i
-  %3 = load double, ptr %arrayidx.i.i, align 8
-  %sub = fsub double %3, %2
+  %3 = ashr exact i64 %sext.i, 28
+  %arrayidx.i.i = getelementptr i8, ptr %1, i64 %3
+  %4 = load double, ptr %arrayidx.i.i, align 8
+  %sub = fsub double %4, %2
   %conv = uitofp i64 %spec.select to double
   %div = fdiv double %sub, %conv
   %cmp10 = icmp eq i64 %spec.select, %0
@@ -228,20 +228,20 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %if.end, %for.cond
   %i.072 = phi i64 [ %inc, %for.cond ], [ 0, %if.end ]
   %arrayidx = getelementptr %struct.qdist_entry, ptr %1, i64 %i.072
-  %4 = load double, ptr %arrayidx, align 8
+  %5 = load double, ptr %arrayidx, align 8
   %conv16 = uitofp i64 %i.072 to double
-  %5 = tail call double @llvm.fmuladd.f64(double %conv16, double %div, double %2)
-  %cmp17 = fcmp une double %4, %5
+  %6 = tail call double @llvm.fmuladd.f64(double %conv16, double %div, double %2)
+  %cmp17 = fcmp une double %5, %6
   br i1 %cmp17, label %rebin, label %for.cond
 
 for.end:                                          ; preds = %for.cond
   %call22 = tail call ptr @g_realloc_n(ptr noundef %call.i, i64 noundef %0, i64 noundef 16) #12
   store ptr %call22, ptr %to, align 8
-  %6 = load i64, ptr %n1, align 8
-  store i64 %6, ptr %n.i, align 8
-  %7 = load ptr, ptr %from, align 8
-  %mul = shl i64 %6, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call22, ptr align 8 %7, i64 %mul, i1 false)
+  %7 = load i64, ptr %n1, align 8
+  store i64 %7, ptr %n.i, align 8
+  %8 = load ptr, ptr %from, align 8
+  %mul = shl i64 %7, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call22, ptr align 8 %8, i64 %mul, i1 false)
   br label %for.end55
 
 rebin:                                            ; preds = %for.body, %if.end
@@ -256,19 +256,19 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   %i.178 = phi i64 [ 0, %for.body33.lr.ph ], [ %add, %for.inc53 ]
   %j.077 = phi i64 [ 0, %for.body33.lr.ph ], [ %j.1.lcssa, %for.inc53 ]
   %conv35 = uitofp i64 %i.178 to double
-  %8 = call double @llvm.fmuladd.f64(double %conv35, double %div, double %2)
+  %9 = call double @llvm.fmuladd.f64(double %conv35, double %div, double %2)
   %add = add nuw i64 %i.178, 1
   %conv37 = uitofp i64 %add to double
-  %9 = call double @llvm.fmuladd.f64(double %conv37, double %div, double %2)
+  %10 = call double @llvm.fmuladd.f64(double %conv37, double %div, double %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %e.i)
-  %10 = load i64, ptr %n.i, align 8
-  %tobool.not.i = icmp eq i64 %10, 0
+  %11 = load i64, ptr %n.i, align 8
+  %tobool.not.i = icmp eq i64 %11, 0
   %.pre22.i.pre80 = load ptr, ptr %to, align 8
   br i1 %tobool.not.i, label %if.end7.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body33
-  store double %8, ptr %e.i, align 8
-  %call.i47 = call ptr @bsearch(ptr noundef nonnull %e.i, ptr noundef %.pre22.i.pre80, i64 noundef %10, i64 noundef 16, ptr noundef nonnull @qdist_cmp) #12
+  store double %9, ptr %e.i, align 8
+  %call.i47 = call ptr @bsearch(ptr noundef nonnull %e.i, ptr noundef %.pre22.i.pre80, i64 noundef %11, i64 noundef 16, ptr noundef nonnull @qdist_cmp) #12
   %tobool4.not.i = icmp eq ptr %call.i47, null
   br i1 %tobool4.not.i, label %if.end.if.end7_crit_edge.i, label %qdist_add.exit
 
@@ -279,13 +279,13 @@ if.end.if.end7_crit_edge.i:                       ; preds = %if.end.i
 
 if.end7.i:                                        ; preds = %if.end.if.end7_crit_edge.i, %for.body33
   %.pre22.i = phi ptr [ %.pre22.i.pre, %if.end.if.end7_crit_edge.i ], [ %.pre22.i.pre80, %for.body33 ]
-  %11 = phi i64 [ %.pre.i, %if.end.if.end7_crit_edge.i ], [ 0, %for.body33 ]
-  %12 = load i64, ptr %size.i, align 8
-  %cmp.i = icmp eq i64 %11, %12
+  %12 = phi i64 [ %.pre.i, %if.end.if.end7_crit_edge.i ], [ 0, %for.body33 ]
+  %13 = load i64, ptr %size.i, align 8
+  %cmp.i = icmp eq i64 %12, %13
   br i1 %cmp.i, label %if.then11.i, label %if.end17.i
 
 if.then11.i:                                      ; preds = %if.end7.i
-  %mul.i = shl i64 %11, 1
+  %mul.i = shl i64 %12, 1
   store i64 %mul.i, ptr %size.i, align 8
   %call15.i = call ptr @g_realloc_n(ptr noundef %.pre22.i, i64 noundef %mul.i, i64 noundef 16) #12
   store ptr %call15.i, ptr %to, align 8
@@ -293,23 +293,23 @@ if.then11.i:                                      ; preds = %if.end7.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then11.i, %if.end7.i
-  %13 = phi ptr [ %call15.i, %if.then11.i ], [ %.pre22.i, %if.end7.i ]
-  %14 = phi i64 [ %.pre21.i, %if.then11.i ], [ %11, %if.end7.i ]
-  %inc.i = add i64 %14, 1
+  %14 = phi ptr [ %call15.i, %if.then11.i ], [ %.pre22.i, %if.end7.i ]
+  %15 = phi i64 [ %.pre21.i, %if.then11.i ], [ %12, %if.end7.i ]
+  %inc.i = add i64 %15, 1
   store i64 %inc.i, ptr %n.i, align 8
-  %arrayidx.i = getelementptr %struct.qdist_entry, ptr %13, i64 %14
-  store double %8, ptr %arrayidx.i, align 8
+  %arrayidx.i = getelementptr %struct.qdist_entry, ptr %14, i64 %15
+  store double %9, ptr %arrayidx.i, align 8
   %count22.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i64 0, ptr %count22.i, align 8
-  %15 = load ptr, ptr %to, align 8
-  %16 = load i64, ptr %n.i, align 8
-  call void @qsort(ptr noundef %15, i64 noundef %16, i64 noundef 16, ptr noundef nonnull @qdist_cmp) #12
+  %16 = load ptr, ptr %to, align 8
+  %17 = load i64, ptr %n.i, align 8
+  call void @qsort(ptr noundef %16, i64 noundef %17, i64 noundef 16, ptr noundef nonnull @qdist_cmp) #12
   br label %qdist_add.exit
 
 qdist_add.exit:                                   ; preds = %if.end.i, %if.end17.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %e.i)
-  %17 = load i64, ptr %n1, align 8
-  %cmp4073 = icmp ult i64 %j.077, %17
+  %18 = load i64, ptr %n1, align 8
+  %cmp4073 = icmp ult i64 %j.077, %18
   br i1 %cmp4073, label %land.rhs.lr.ph, label %for.inc53
 
 land.rhs.lr.ph:                                   ; preds = %qdist_add.exit
@@ -318,25 +318,25 @@ land.rhs.lr.ph:                                   ; preds = %qdist_add.exit
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %qdist_add.exit71
   %j.174 = phi i64 [ %j.077, %land.rhs.lr.ph ], [ %inc52, %qdist_add.exit71 ]
-  %18 = load ptr, ptr %from, align 8
-  %arrayidx43 = getelementptr %struct.qdist_entry, ptr %18, i64 %j.174
-  %19 = load double, ptr %arrayidx43, align 8
-  %cmp45 = fcmp olt double %19, %9
-  %20 = or i1 %cmp48, %cmp45
-  br i1 %20, label %while.body, label %for.inc53
+  %19 = load ptr, ptr %from, align 8
+  %arrayidx43 = getelementptr %struct.qdist_entry, ptr %19, i64 %j.174
+  %20 = load double, ptr %arrayidx43, align 8
+  %cmp45 = fcmp olt double %20, %10
+  %21 = or i1 %cmp48, %cmp45
+  br i1 %21, label %while.body, label %for.inc53
 
 while.body:                                       ; preds = %land.rhs
   %count = getelementptr inbounds i8, ptr %arrayidx43, i64 8
-  %21 = load i64, ptr %count, align 8
+  %22 = load i64, ptr %count, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %e.i49)
-  %22 = load i64, ptr %n.i, align 8
-  %tobool.not.i51 = icmp eq i64 %22, 0
+  %23 = load i64, ptr %n.i, align 8
+  %tobool.not.i51 = icmp eq i64 %23, 0
   br i1 %tobool.not.i51, label %if.end7.i59, label %if.end.i52
 
 if.end.i52:                                       ; preds = %while.body
-  store double %8, ptr %e.i49, align 8
-  %23 = load ptr, ptr %to, align 8
-  %call.i53 = call ptr @bsearch(ptr noundef nonnull %e.i49, ptr noundef %23, i64 noundef %22, i64 noundef 16, ptr noundef nonnull @qdist_cmp) #12
+  store double %9, ptr %e.i49, align 8
+  %24 = load ptr, ptr %to, align 8
+  %call.i53 = call ptr @bsearch(ptr noundef nonnull %e.i49, ptr noundef %24, i64 noundef %23, i64 noundef 16, ptr noundef nonnull @qdist_cmp) #12
   %tobool4.not.i54 = icmp eq ptr %call.i53, null
   br i1 %tobool4.not.i54, label %if.end.if.end7_crit_edge.i57, label %if.then5.i55
 
@@ -346,20 +346,20 @@ if.end.if.end7_crit_edge.i57:                     ; preds = %if.end.i52
 
 if.then5.i55:                                     ; preds = %if.end.i52
   %count6.i56 = getelementptr inbounds i8, ptr %call.i53, i64 8
-  %24 = load i64, ptr %count6.i56, align 8
-  %add.i = add i64 %24, %21
+  %25 = load i64, ptr %count6.i56, align 8
+  %add.i = add i64 %25, %22
   store i64 %add.i, ptr %count6.i56, align 8
   br label %qdist_add.exit71
 
 if.end7.i59:                                      ; preds = %if.end.if.end7_crit_edge.i57, %while.body
-  %25 = phi i64 [ %.pre.i58, %if.end.if.end7_crit_edge.i57 ], [ 0, %while.body ]
-  %26 = load i64, ptr %size.i, align 8
-  %cmp.i61 = icmp eq i64 %25, %26
+  %26 = phi i64 [ %.pre.i58, %if.end.if.end7_crit_edge.i57 ], [ 0, %while.body ]
+  %27 = load i64, ptr %size.i, align 8
+  %cmp.i61 = icmp eq i64 %26, %27
   %.pre22.i62 = load ptr, ptr %to, align 8
   br i1 %cmp.i61, label %if.then11.i67, label %if.end17.i63
 
 if.then11.i67:                                    ; preds = %if.end7.i59
-  %mul.i68 = shl i64 %25, 1
+  %mul.i68 = shl i64 %26, 1
   store i64 %mul.i68, ptr %size.i, align 8
   %call15.i69 = call ptr @g_realloc_n(ptr noundef %.pre22.i62, i64 noundef %mul.i68, i64 noundef 16) #12
   store ptr %call15.i69, ptr %to, align 8
@@ -367,24 +367,24 @@ if.then11.i67:                                    ; preds = %if.end7.i59
   br label %if.end17.i63
 
 if.end17.i63:                                     ; preds = %if.then11.i67, %if.end7.i59
-  %27 = phi ptr [ %call15.i69, %if.then11.i67 ], [ %.pre22.i62, %if.end7.i59 ]
-  %28 = phi i64 [ %.pre21.i70, %if.then11.i67 ], [ %25, %if.end7.i59 ]
-  %inc.i64 = add i64 %28, 1
+  %28 = phi ptr [ %call15.i69, %if.then11.i67 ], [ %.pre22.i62, %if.end7.i59 ]
+  %29 = phi i64 [ %.pre21.i70, %if.then11.i67 ], [ %26, %if.end7.i59 ]
+  %inc.i64 = add i64 %29, 1
   store i64 %inc.i64, ptr %n.i, align 8
-  %arrayidx.i65 = getelementptr %struct.qdist_entry, ptr %27, i64 %28
-  store double %8, ptr %arrayidx.i65, align 8
+  %arrayidx.i65 = getelementptr %struct.qdist_entry, ptr %28, i64 %29
+  store double %9, ptr %arrayidx.i65, align 8
   %count22.i66 = getelementptr inbounds i8, ptr %arrayidx.i65, i64 8
-  store i64 %21, ptr %count22.i66, align 8
-  %29 = load ptr, ptr %to, align 8
-  %30 = load i64, ptr %n.i, align 8
-  call void @qsort(ptr noundef %29, i64 noundef %30, i64 noundef 16, ptr noundef nonnull @qdist_cmp) #12
+  store i64 %22, ptr %count22.i66, align 8
+  %30 = load ptr, ptr %to, align 8
+  %31 = load i64, ptr %n.i, align 8
+  call void @qsort(ptr noundef %30, i64 noundef %31, i64 noundef 16, ptr noundef nonnull @qdist_cmp) #12
   br label %qdist_add.exit71
 
 qdist_add.exit71:                                 ; preds = %if.then5.i55, %if.end17.i63
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %e.i49)
   %inc52 = add nuw i64 %j.174, 1
-  %31 = load i64, ptr %n1, align 8
-  %cmp40 = icmp ult i64 %inc52, %31
+  %32 = load i64, ptr %n1, align 8
+  %cmp40 = icmp ult i64 %inc52, %32
   br i1 %cmp40, label %land.rhs, label %for.inc53, !llvm.loop !7
 
 for.inc53:                                        ; preds = %qdist_add.exit71, %land.rhs, %qdist_add.exit
@@ -426,13 +426,13 @@ if.end.i:                                         ; preds = %entry
   %1 = load ptr, ptr %dist, align 8
   %conv = shl i64 %0, 32
   %sext = add i64 %conv, -4294967296
-  %idxprom.i = ashr exact i64 %sext, 32
-  %arrayidx.i = getelementptr %struct.qdist_entry, ptr %1, i64 %idxprom.i
-  %2 = load double, ptr %arrayidx.i, align 8
+  %2 = ashr exact i64 %sext, 28
+  %arrayidx.i = getelementptr i8, ptr %1, i64 %2
+  %3 = load double, ptr %arrayidx.i, align 8
   br label %qdist_x.exit
 
 qdist_x.exit:                                     ; preds = %entry, %if.end.i
-  %retval.0.i = phi double [ %2, %if.end.i ], [ 0x7FF8000000000000, %entry ]
+  %retval.0.i = phi double [ %3, %if.end.i ], [ 0x7FF8000000000000, %entry ]
   ret double %retval.0.i
 }
 
@@ -650,48 +650,48 @@ cond.end:                                         ; preds = %if.end, %cond.false
   br i1 %is_left, label %cond.true14, label %cond.false16
 
 cond.true14:                                      ; preds = %cond.end
-  br i1 %cmp.i.i, label %qdist_xmin.exit41, label %if.end.i.i
+  br i1 %cmp.i.i, label %qdist_xmin.exit40, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.true14
   %2 = load ptr, ptr %dist, align 8
-  br label %if.end.i.i39
+  br label %if.end.i.i38
 
 cond.false16:                                     ; preds = %cond.end
-  br i1 %cmp.i.i, label %qdist_xmin.exit41, label %if.end.i.i26
+  br i1 %cmp.i.i, label %qdist_xmin.exit40, label %if.end.i.i26
 
 if.end.i.i26:                                     ; preds = %cond.false16
   %3 = load ptr, ptr %dist, align 8
   %conv.i = shl i64 %1, 32
   %sext.i = add i64 %conv.i, -4294967296
-  %idxprom.i.i = ashr exact i64 %sext.i, 32
-  %arrayidx.i.i = getelementptr %struct.qdist_entry, ptr %3, i64 %idxprom.i.i
-  br label %if.end.i.i39
+  %4 = ashr exact i64 %sext.i, 28
+  %arrayidx.i.i = getelementptr i8, ptr %3, i64 %4
+  br label %if.end.i.i38
 
-if.end.i.i39:                                     ; preds = %if.end.i.i, %if.end.i.i26
+if.end.i.i38:                                     ; preds = %if.end.i.i, %if.end.i.i26
   %.sink = phi ptr [ %2, %if.end.i.i ], [ %arrayidx.i.i, %if.end.i.i26 ]
-  %4 = load double, ptr %.sink, align 8
-  %5 = load ptr, ptr %dist, align 8
+  %5 = load double, ptr %.sink, align 8
+  %6 = load ptr, ptr %dist, align 8
   %conv.i31 = shl i64 %1, 32
   %sext.i32 = add i64 %conv.i31, -4294967296
-  %idxprom.i.i33 = ashr exact i64 %sext.i32, 32
-  %arrayidx.i.i34 = getelementptr %struct.qdist_entry, ptr %5, i64 %idxprom.i.i33
-  %6 = load double, ptr %arrayidx.i.i34, align 8
-  %7 = load double, ptr %5, align 8
-  %8 = fsub double %6, %7
-  br label %qdist_xmin.exit41
+  %7 = ashr exact i64 %sext.i32, 28
+  %arrayidx.i.i33 = getelementptr i8, ptr %6, i64 %7
+  %8 = load double, ptr %arrayidx.i.i33, align 8
+  %9 = load double, ptr %6, align 8
+  %10 = fsub double %8, %9
+  br label %qdist_xmin.exit40
 
-qdist_xmin.exit41:                                ; preds = %cond.false16, %cond.true14, %if.end.i.i39
-  %cond1952 = phi double [ %4, %if.end.i.i39 ], [ 0x7FF8000000000000, %cond.true14 ], [ 0x7FF8000000000000, %cond.false16 ]
-  %sub = phi double [ %8, %if.end.i.i39 ], [ 0x7FF8000000000000, %cond.true14 ], [ 0x7FF8000000000000, %cond.false16 ]
+qdist_xmin.exit40:                                ; preds = %cond.false16, %cond.true14, %if.end.i.i38
+  %cond1951 = phi double [ %5, %if.end.i.i38 ], [ 0x7FF8000000000000, %cond.true14 ], [ 0x7FF8000000000000, %cond.false16 ]
+  %sub = phi double [ %10, %if.end.i.i38 ], [ 0x7FF8000000000000, %cond.true14 ], [ 0x7FF8000000000000, %cond.false16 ]
   %and23 = and i64 %conv, 16
   %tobool24.not = icmp eq i64 %and23, 0
-  %mul = fmul double %cond1952, 1.000000e+02
-  %x.0 = select i1 %tobool24.not, double %cond1952, double %mul
+  %mul = fmul double %cond1951, 1.000000e+02
+  %x.0 = select i1 %tobool24.not, double %cond1951, double %mul
   %and29 = and i64 %conv, 32
   %tobool30.not = icmp eq i64 %and29, 0
   br i1 %tobool30.not, label %if.else, label %if.end40
 
-if.else:                                          ; preds = %qdist_xmin.exit41
+if.else:                                          ; preds = %qdist_xmin.exit40
   %div = fdiv double %sub, %conv11
   %mul26 = fmul double %div, 1.000000e+02
   %step.0 = select i1 %tobool24.not, double %div, double %mul26
@@ -704,7 +704,7 @@ if.else:                                          ; preds = %qdist_xmin.exit41
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.9, i32 noundef %cond, double noundef %x2.0.ph, ptr noundef nonnull %cond34) #12
   br label %if.end45
 
-if.end40:                                         ; preds = %qdist_xmin.exit41
+if.end40:                                         ; preds = %qdist_xmin.exit40
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, i32 noundef %cond, double noundef %x.0) #12
   br label %if.end45
 

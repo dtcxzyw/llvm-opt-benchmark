@@ -1063,8 +1063,8 @@ set_optimize_info_from_tree.exit:                 ; preds = %comp_opt_exact_or_m
   %392 = ptrtoint ptr %390 to i64
   %393 = ptrtoint ptr %391 to i64
   %394 = sub i64 %392, %393
-  %395 = sdiv exact i64 %394, 24
-  %396 = getelementptr inbounds i32, ptr %389, i64 %395
+  %395 = sdiv exact i64 %394, 6
+  %396 = getelementptr inbounds i8, ptr %389, i64 %395
   store i32 79, ptr %396, align 4
   %397 = load ptr, ptr %386, align 8
   %398 = getelementptr inbounds i8, ptr %397, i64 8
@@ -1133,8 +1133,8 @@ set_optimize_info_from_tree.exit:                 ; preds = %comp_opt_exact_or_m
   %436 = ptrtoint ptr %434 to i64
   %437 = ptrtoint ptr %435 to i64
   %438 = sub i64 %436, %437
-  %439 = sdiv exact i64 %438, 24
-  %440 = getelementptr inbounds i32, ptr %433, i64 %439
+  %439 = sdiv exact i64 %438, 6
+  %440 = getelementptr inbounds i8, ptr %433, i64 %439
   store i32 1, ptr %440, align 4
   %441 = getelementptr inbounds i8, ptr %8, i64 80
   %442 = load i32, ptr %441, align 8
@@ -1670,8 +1670,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %66 = ptrtoint ptr %64 to i64
   %67 = ptrtoint ptr %65 to i64
   %68 = sub i64 %66, %67
-  %69 = sdiv exact i64 %68, 24
-  %70 = getelementptr inbounds i32, ptr %63, i64 %69
+  %69 = sdiv exact i64 %68, 6
+  %70 = getelementptr inbounds i8, ptr %63, i64 %69
   store i32 %37, ptr %70, align 4
   %71 = add nsw i32 %30, 2
   %72 = load ptr, ptr %5, align 8
@@ -1742,8 +1742,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %108 = ptrtoint ptr %106 to i64
   %109 = ptrtoint ptr %107 to i64
   %110 = sub i64 %108, %109
-  %111 = sdiv exact i64 %110, 24
-  %112 = getelementptr inbounds i32, ptr %105, i64 %111
+  %111 = sdiv exact i64 %110, 6
+  %112 = getelementptr inbounds i8, ptr %105, i64 %111
   store i32 58, ptr %112, align 4
   %113 = sub i32 %26, %80
   %114 = load ptr, ptr %5, align 8
@@ -1888,8 +1888,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %187 = ptrtoint ptr %185 to i64
   %188 = ptrtoint ptr %186 to i64
   %189 = sub i64 %187, %188
-  %190 = sdiv exact i64 %189, 24
-  %191 = getelementptr inbounds i32, ptr %184, i64 %190
+  %190 = sdiv exact i64 %189, 6
+  %191 = getelementptr inbounds i8, ptr %184, i64 %190
   store i32 %158, ptr %191, align 4
   %192 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #24
   %193 = load ptr, ptr %5, align 8
@@ -1987,8 +1987,8 @@ bitset_is_empty.exit.i:                           ; preds = %209, %201
   %245 = ptrtoint ptr %243 to i64
   %246 = ptrtoint ptr %244 to i64
   %247 = sub i64 %245, %246
-  %248 = sdiv exact i64 %247, 24
-  %249 = getelementptr inbounds i32, ptr %242, i64 %248
+  %248 = sdiv exact i64 %247, 6
+  %249 = getelementptr inbounds i8, ptr %242, i64 %248
   store i32 %216, ptr %249, align 4
   %250 = load ptr, ptr %151, align 8
   %251 = getelementptr inbounds i8, ptr %250, i64 8
@@ -2063,8 +2063,8 @@ bitset_is_empty.exit.i:                           ; preds = %209, %201
   %293 = ptrtoint ptr %291 to i64
   %294 = ptrtoint ptr %292 to i64
   %295 = sub i64 %293, %294
-  %296 = sdiv exact i64 %295, 24
-  %297 = getelementptr inbounds i32, ptr %290, i64 %296
+  %296 = sdiv exact i64 %295, 6
+  %297 = getelementptr inbounds i8, ptr %290, i64 %296
   store i32 %264, ptr %297, align 4
   %298 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #24
   %299 = load ptr, ptr %5, align 8
@@ -2159,8 +2159,8 @@ bitset_is_empty.exit.i:                           ; preds = %209, %201
   %352 = ptrtoint ptr %350 to i64
   %353 = ptrtoint ptr %351 to i64
   %354 = sub i64 %352, %353
-  %355 = sdiv exact i64 %354, 24
-  %356 = getelementptr inbounds i32, ptr %349, i64 %355
+  %355 = sdiv exact i64 %354, 6
+  %356 = getelementptr inbounds i8, ptr %349, i64 %355
   store i32 %323, ptr %356, align 4
   br label %.critedge
 
@@ -2225,8 +2225,8 @@ bitset_is_empty.exit.i:                           ; preds = %209, %201
   %393 = ptrtoint ptr %391 to i64
   %394 = ptrtoint ptr %392 to i64
   %395 = sub i64 %393, %394
-  %396 = sdiv exact i64 %395, 24
-  %397 = getelementptr inbounds i32, ptr %390, i64 %396
+  %396 = sdiv exact i64 %395, 6
+  %397 = getelementptr inbounds i8, ptr %390, i64 %396
   store i32 %.0135, ptr %397, align 4
   br label %.critedge
 
@@ -2294,8 +2294,8 @@ bitset_is_empty.exit.i:                           ; preds = %209, %201
   %433 = ptrtoint ptr %431 to i64
   %434 = ptrtoint ptr %432 to i64
   %435 = sub i64 %433, %434
-  %436 = sdiv exact i64 %435, 24
-  %437 = getelementptr inbounds i32, ptr %430, i64 %436
+  %436 = sdiv exact i64 %435, 6
+  %437 = getelementptr inbounds i8, ptr %430, i64 %436
   store i32 50, ptr %437, align 4
   %438 = getelementptr inbounds i8, ptr %.tr, i64 56
   %439 = load i32, ptr %438, align 8
@@ -2353,8 +2353,8 @@ add_op.exit213:                                   ; preds = %442, %443, %.sink.s
   %468 = ptrtoint ptr %466 to i64
   %469 = ptrtoint ptr %467 to i64
   %470 = sub i64 %468, %469
-  %471 = sdiv exact i64 %470, 24
-  %472 = getelementptr inbounds i32, ptr %465, i64 %471
+  %471 = sdiv exact i64 %470, 6
+  %472 = getelementptr inbounds i8, ptr %465, i64 %471
   store i32 49, ptr %472, align 4
   br label %509
 
@@ -2538,8 +2538,8 @@ add_op.exit213:                                   ; preds = %442, %443, %.sink.s
   %566 = ptrtoint ptr %564 to i64
   %567 = ptrtoint ptr %565 to i64
   %568 = sub i64 %566, %567
-  %569 = sdiv exact i64 %568, 24
-  %570 = getelementptr inbounds i32, ptr %563, i64 %569
+  %569 = sdiv exact i64 %568, 6
+  %570 = getelementptr inbounds i8, ptr %563, i64 %569
   store i32 80, ptr %570, align 4
   %571 = load ptr, ptr %5, align 8
   %572 = getelementptr inbounds i8, ptr %571, i64 8
@@ -2952,8 +2952,8 @@ len_multiply_cmp.exit238.thread:                  ; preds = %669
   %785 = ptrtoint ptr %783 to i64
   %786 = ptrtoint ptr %784 to i64
   %787 = sub i64 %785, %786
-  %788 = sdiv exact i64 %787, 24
-  %789 = getelementptr inbounds i32, ptr %782, i64 %788
+  %788 = sdiv exact i64 %787, 6
+  %789 = getelementptr inbounds i8, ptr %782, i64 %788
   store i32 58, ptr %789, align 4
   %790 = add nuw nsw i32 %616, 1
   %791 = load ptr, ptr %5, align 8
@@ -3086,8 +3086,8 @@ onig_positive_int_multiply.exit.thread277:        ; preds = %816
   %849 = ptrtoint ptr %847 to i64
   %850 = ptrtoint ptr %848 to i64
   %851 = sub i64 %849, %850
-  %852 = sdiv exact i64 %851, 24
-  %853 = getelementptr inbounds i32, ptr %846, i64 %852
+  %852 = sdiv exact i64 %851, 6
+  %853 = getelementptr inbounds i8, ptr %846, i64 %852
   store i32 59, ptr %853, align 4
   %854 = load ptr, ptr %5, align 8
   %855 = getelementptr inbounds i8, ptr %854, i64 8
@@ -3160,8 +3160,8 @@ onig_positive_int_multiply.exit.thread277:        ; preds = %816
   %893 = ptrtoint ptr %891 to i64
   %894 = ptrtoint ptr %892 to i64
   %895 = sub i64 %893, %894
-  %896 = sdiv exact i64 %895, 24
-  %897 = getelementptr inbounds i32, ptr %890, i64 %896
+  %896 = sdiv exact i64 %895, 6
+  %897 = getelementptr inbounds i8, ptr %890, i64 %896
   store i32 59, ptr %897, align 4
   %898 = load ptr, ptr %5, align 8
   %899 = getelementptr inbounds i8, ptr %898, i64 8
@@ -3217,8 +3217,8 @@ onig_positive_int_multiply.exit.thread277:        ; preds = %816
   %928 = ptrtoint ptr %926 to i64
   %929 = ptrtoint ptr %927 to i64
   %930 = sub i64 %928, %929
-  %931 = sdiv exact i64 %930, 24
-  %932 = getelementptr inbounds i32, ptr %925, i64 %931
+  %931 = sdiv exact i64 %930, 6
+  %932 = getelementptr inbounds i8, ptr %925, i64 %931
   store i32 58, ptr %932, align 4
   %933 = add nuw nsw i32 %616, 1
   %934 = load ptr, ptr %5, align 8
@@ -3293,8 +3293,8 @@ onig_positive_int_multiply.exit.thread277:        ; preds = %816
   %971 = ptrtoint ptr %969 to i64
   %972 = ptrtoint ptr %970 to i64
   %973 = sub i64 %971, %972
-  %974 = sdiv exact i64 %973, 24
-  %975 = getelementptr inbounds i32, ptr %968, i64 %974
+  %974 = sdiv exact i64 %973, 6
+  %975 = getelementptr inbounds i8, ptr %968, i64 %974
   store i32 %942, ptr %975, align 4
   %976 = load ptr, ptr %5, align 8
   %977 = getelementptr inbounds i8, ptr %976, i64 8
@@ -3417,8 +3417,8 @@ onig_positive_int_multiply.exit.thread277:        ; preds = %816
   %1045 = ptrtoint ptr %1043 to i64
   %1046 = ptrtoint ptr %1044 to i64
   %1047 = sub i64 %1045, %1046
-  %1048 = sdiv exact i64 %1047, 24
-  %1049 = getelementptr inbounds i32, ptr %1042, i64 %1048
+  %1048 = sdiv exact i64 %1047, 6
+  %1049 = getelementptr inbounds i8, ptr %1042, i64 %1048
   store i32 %1016, ptr %1049, align 4
   %1050 = load ptr, ptr %5, align 8
   %1051 = getelementptr inbounds i8, ptr %1050, i64 8
@@ -3494,8 +3494,8 @@ onig_positive_int_multiply.exit.thread277:        ; preds = %816
   %1088 = ptrtoint ptr %1086 to i64
   %1089 = ptrtoint ptr %1087 to i64
   %1090 = sub i64 %1088, %1089
-  %1091 = sdiv exact i64 %1090, 24
-  %1092 = getelementptr inbounds i32, ptr %1085, i64 %1091
+  %1091 = sdiv exact i64 %1090, 6
+  %1092 = getelementptr inbounds i8, ptr %1085, i64 %1091
   store i32 80, ptr %1092, align 4
   %1093 = load i32, ptr %6, align 8
   %1094 = add i32 %1093, 1
@@ -3567,8 +3567,8 @@ onig_positive_int_multiply.exit.thread277:        ; preds = %816
   %1135 = ptrtoint ptr %1133 to i64
   %1136 = ptrtoint ptr %1134 to i64
   %1137 = sub i64 %1135, %1136
-  %1138 = sdiv exact i64 %1137, 24
-  %1139 = getelementptr inbounds i32, ptr %1132, i64 %1138
+  %1138 = sdiv exact i64 %1137, 6
+  %1139 = getelementptr inbounds i8, ptr %1132, i64 %1138
   store i32 58, ptr %1139, align 4
   %1140 = add nsw i32 %1105, 2
   %1141 = load ptr, ptr %5, align 8
@@ -3628,8 +3628,8 @@ onig_positive_int_multiply.exit.thread277:        ; preds = %816
   %1172 = ptrtoint ptr %1170 to i64
   %1173 = ptrtoint ptr %1171 to i64
   %1174 = sub i64 %1172, %1173
-  %1175 = sdiv exact i64 %1174, 24
-  %1176 = getelementptr inbounds i32, ptr %1169, i64 %1175
+  %1175 = sdiv exact i64 %1174, 6
+  %1176 = getelementptr inbounds i8, ptr %1169, i64 %1175
   store i32 58, ptr %1176, align 4
   %1177 = add nsw i32 %1105, 4
   %1178 = load ptr, ptr %5, align 8
@@ -3744,8 +3744,8 @@ add_op.exit115.i:                                 ; preds = %add_op.exit115.sink
   %1237 = ptrtoint ptr %1235 to i64
   %1238 = ptrtoint ptr %1236 to i64
   %1239 = sub i64 %1237, %1238
-  %1240 = sdiv exact i64 %1239, 24
-  %1241 = getelementptr inbounds i32, ptr %1234, i64 %1240
+  %1240 = sdiv exact i64 %1239, 6
+  %1241 = getelementptr inbounds i8, ptr %1234, i64 %1240
   store i32 %.sink.i, ptr %1241, align 4
   %1242 = load i32, ptr %1181, align 8
   %1243 = load ptr, ptr %5, align 8
@@ -3871,8 +3871,8 @@ add_op.exit123.i:                                 ; preds = %add_op.exit123.sink
   %1310 = ptrtoint ptr %1308 to i64
   %1311 = ptrtoint ptr %1309 to i64
   %1312 = sub i64 %1310, %1311
-  %1313 = sdiv exact i64 %1312, 24
-  %1314 = getelementptr inbounds i32, ptr %1307, i64 %1313
+  %1313 = sdiv exact i64 %1312, 6
+  %1314 = getelementptr inbounds i8, ptr %1307, i64 %1313
   store i32 %.sink157.i, ptr %1314, align 4
   %1315 = load i32, ptr %1181, align 8
   %1316 = load ptr, ptr %5, align 8
@@ -4057,8 +4057,8 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   %1413 = ptrtoint ptr %1411 to i64
   %1414 = ptrtoint ptr %1412 to i64
   %1415 = sub i64 %1413, %1414
-  %1416 = sdiv exact i64 %1415, 24
-  %1417 = getelementptr inbounds i32, ptr %1410, i64 %1416
+  %1416 = sdiv exact i64 %1415, 6
+  %1417 = getelementptr inbounds i8, ptr %1410, i64 %1416
   store i32 77, ptr %1417, align 4
   %1418 = load ptr, ptr %5, align 8
   %1419 = getelementptr inbounds i8, ptr %1418, i64 8
@@ -4132,8 +4132,8 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   %1457 = ptrtoint ptr %1455 to i64
   %1458 = ptrtoint ptr %1456 to i64
   %1459 = sub i64 %1457, %1458
-  %1460 = sdiv exact i64 %1459, 24
-  %1461 = getelementptr inbounds i32, ptr %1454, i64 %1460
+  %1460 = sdiv exact i64 %1459, 6
+  %1461 = getelementptr inbounds i8, ptr %1454, i64 %1460
   store i32 59, ptr %1461, align 4
   %1462 = add nuw nsw i32 %1422, 3
   %1463 = add nuw nsw i32 %1462, %.0124.i
@@ -4196,8 +4196,8 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   %1496 = ptrtoint ptr %1494 to i64
   %1497 = ptrtoint ptr %1495 to i64
   %1498 = sub i64 %1496, %1497
-  %1499 = sdiv exact i64 %1498, 24
-  %1500 = getelementptr inbounds i32, ptr %1493, i64 %1499
+  %1499 = sdiv exact i64 %1498, 6
+  %1500 = getelementptr inbounds i8, ptr %1493, i64 %1499
   store i32 76, ptr %1500, align 4
   %1501 = load ptr, ptr %5, align 8
   %1502 = getelementptr inbounds i8, ptr %1501, i64 8
@@ -4274,8 +4274,8 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   %1540 = ptrtoint ptr %1538 to i64
   %1541 = ptrtoint ptr %1539 to i64
   %1542 = sub i64 %1540, %1541
-  %1543 = sdiv exact i64 %1542, 24
-  %1544 = getelementptr inbounds i32, ptr %1537, i64 %1543
+  %1543 = sdiv exact i64 %1542, 6
+  %1544 = getelementptr inbounds i8, ptr %1537, i64 %1543
   store i32 58, ptr %1544, align 4
   %1545 = add nuw nsw i32 %.0125.i, 2
   %1546 = load ptr, ptr %5, align 8
@@ -4332,8 +4332,8 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   %1576 = ptrtoint ptr %1574 to i64
   %1577 = ptrtoint ptr %1575 to i64
   %1578 = sub i64 %1576, %1577
-  %1579 = sdiv exact i64 %1578, 24
-  %1580 = getelementptr inbounds i32, ptr %1573, i64 %1579
+  %1579 = sdiv exact i64 %1578, 6
+  %1580 = getelementptr inbounds i8, ptr %1573, i64 %1579
   store i32 76, ptr %1580, align 4
   %1581 = load ptr, ptr %5, align 8
   %1582 = getelementptr inbounds i8, ptr %1581, i64 8
@@ -4598,8 +4598,8 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   %1710 = ptrtoint ptr %1708 to i64
   %1711 = ptrtoint ptr %1709 to i64
   %1712 = sub i64 %1710, %1711
-  %1713 = sdiv exact i64 %1712, 24
-  %1714 = getelementptr inbounds i32, ptr %1707, i64 %1713
+  %1713 = sdiv exact i64 %1712, 6
+  %1714 = getelementptr inbounds i8, ptr %1707, i64 %1713
   store i32 57, ptr %1714, align 4
   br label %.critedge
 
@@ -4655,8 +4655,8 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   %1744 = ptrtoint ptr %1742 to i64
   %1745 = ptrtoint ptr %1743 to i64
   %1746 = sub i64 %1744, %1745
-  %1747 = sdiv exact i64 %1746, 24
-  %1748 = getelementptr inbounds i32, ptr %1741, i64 %1747
+  %1747 = sdiv exact i64 %1746, 6
+  %1748 = getelementptr inbounds i8, ptr %1741, i64 %1747
   store i32 78, ptr %1748, align 4
   %1749 = getelementptr inbounds i8, ptr %.tr, i64 20
   %1750 = load i32, ptr %1749, align 4
@@ -4722,8 +4722,8 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   %1786 = ptrtoint ptr %1784 to i64
   %1787 = ptrtoint ptr %1785 to i64
   %1788 = sub i64 %1786, %1787
-  %1789 = sdiv exact i64 %1788, 24
-  %1790 = getelementptr inbounds i32, ptr %1783, i64 %1789
+  %1789 = sdiv exact i64 %1788, 6
+  %1790 = getelementptr inbounds i8, ptr %1783, i64 %1789
   store i32 79, ptr %1790, align 4
   %1791 = getelementptr inbounds i8, ptr %.tr, i64 20
   %1792 = load i32, ptr %1791, align 4
@@ -4802,8 +4802,8 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   %1835 = ptrtoint ptr %1833 to i64
   %1836 = ptrtoint ptr %1834 to i64
   %1837 = sub i64 %1835, %1836
-  %1838 = sdiv exact i64 %1837, 24
-  %1839 = getelementptr inbounds i32, ptr %1832, i64 %1838
+  %1838 = sdiv exact i64 %1837, 6
+  %1839 = getelementptr inbounds i8, ptr %1832, i64 %1838
   store i32 83, ptr %1839, align 4
   %1840 = getelementptr inbounds i8, ptr %.tr, i64 28
   %1841 = load i32, ptr %1840, align 4
@@ -4866,8 +4866,8 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   %1875 = ptrtoint ptr %1873 to i64
   %1876 = ptrtoint ptr %1874 to i64
   %1877 = sub i64 %1875, %1876
-  %1878 = sdiv exact i64 %1877, 24
-  %1879 = getelementptr inbounds i32, ptr %1872, i64 %1878
+  %1878 = sdiv exact i64 %1877, 6
+  %1879 = getelementptr inbounds i8, ptr %1872, i64 %1878
   store i32 82, ptr %1879, align 4
   %1880 = getelementptr inbounds i8, ptr %.tr, i64 24
   %1881 = load i32, ptr %1880, align 8
@@ -4939,8 +4939,8 @@ define internal fastcc noundef i32 @add_op(ptr nocapture noundef %0, i32 noundef
   %36 = ptrtoint ptr %34 to i64
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
-  %39 = sdiv exact i64 %38, 24
-  %40 = getelementptr inbounds i32, ptr %33, i64 %39
+  %39 = sdiv exact i64 %38, 6
+  %40 = getelementptr inbounds i8, ptr %33, i64 %39
   store i32 %1, ptr %40, align 4
   br label %ops_new.exit.thread
 
@@ -15659,8 +15659,8 @@ select_str_opcode.exit:                           ; preds = %7, %5, %4, %9
   %43 = ptrtoint ptr %41 to i64
   %44 = ptrtoint ptr %42 to i64
   %45 = sub i64 %43, %44
-  %46 = sdiv exact i64 %45, 24
-  %47 = getelementptr inbounds i32, ptr %40, i64 %46
+  %46 = sdiv exact i64 %45, 6
+  %47 = getelementptr inbounds i8, ptr %40, i64 %46
   store i32 %.0.i, ptr %47, align 4
   %48 = mul nsw i32 %2, %1
   %49 = sext i32 %48 to i64
@@ -15793,8 +15793,8 @@ define internal fastcc i32 @compile_quant_body_with_empty_check(ptr nocapture no
   %45 = ptrtoint ptr %43 to i64
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
-  %48 = sdiv exact i64 %47, 24
-  %49 = getelementptr inbounds i32, ptr %42, i64 %48
+  %48 = sdiv exact i64 %47, 6
+  %49 = getelementptr inbounds i8, ptr %42, i64 %48
   store i32 69, ptr %49, align 4
   %50 = load i32, ptr %8, align 8
   %51 = load ptr, ptr %39, align 8
@@ -15871,8 +15871,8 @@ define internal fastcc i32 @compile_quant_body_with_empty_check(ptr nocapture no
   %90 = ptrtoint ptr %88 to i64
   %91 = ptrtoint ptr %89 to i64
   %92 = sub i64 %90, %91
-  %93 = sdiv exact i64 %92, 24
-  %94 = getelementptr inbounds i32, ptr %87, i64 %93
+  %93 = sdiv exact i64 %92, 6
+  %94 = getelementptr inbounds i8, ptr %87, i64 %93
   store i32 70, ptr %94, align 4
   br label %add_op.exit57
 
@@ -15946,8 +15946,8 @@ define internal fastcc i32 @compile_quant_body_with_empty_check(ptr nocapture no
   %136 = ptrtoint ptr %134 to i64
   %137 = ptrtoint ptr %135 to i64
   %138 = sub i64 %136, %137
-  %139 = sdiv exact i64 %138, 24
-  %140 = getelementptr inbounds i32, ptr %133, i64 %139
+  %139 = sdiv exact i64 %138, 6
+  %140 = getelementptr inbounds i8, ptr %133, i64 %139
   store i32 71, ptr %140, align 4
   %141 = load i32, ptr %100, align 4
   %142 = load ptr, ptr %130, align 8
@@ -16012,8 +16012,8 @@ define internal fastcc i32 @compile_quant_body_with_empty_check(ptr nocapture no
   %178 = ptrtoint ptr %176 to i64
   %179 = ptrtoint ptr %177 to i64
   %180 = sub i64 %178, %179
-  %181 = sdiv exact i64 %180, 24
-  %182 = getelementptr inbounds i32, ptr %175, i64 %181
+  %181 = sdiv exact i64 %180, 6
+  %182 = getelementptr inbounds i8, ptr %175, i64 %181
   store i32 70, ptr %182, align 4
   br label %add_op.exit57
 
@@ -16074,8 +16074,8 @@ define internal fastcc i32 @compile_quant_body_with_empty_check(ptr nocapture no
   %217 = ptrtoint ptr %215 to i64
   %218 = ptrtoint ptr %216 to i64
   %219 = sub i64 %217, %218
-  %220 = sdiv exact i64 %219, 24
-  %221 = getelementptr inbounds i32, ptr %214, i64 %220
+  %220 = sdiv exact i64 %219, 6
+  %221 = getelementptr inbounds i8, ptr %214, i64 %220
   store i32 72, ptr %221, align 4
   %222 = getelementptr inbounds i8, ptr %0, i64 60
   %223 = load i32, ptr %222, align 4
@@ -16167,8 +16167,8 @@ define internal fastcc i32 @compile_anchor_look_behind_node(ptr nocapture nounde
   %47 = ptrtoint ptr %45 to i64
   %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %47, %48
-  %50 = sdiv exact i64 %49, 24
-  %51 = getelementptr inbounds i32, ptr %44, i64 %50
+  %50 = sdiv exact i64 %49, 6
+  %51 = getelementptr inbounds i8, ptr %44, i64 %50
   store i32 77, ptr %51, align 4
   %52 = load ptr, ptr %41, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 8
@@ -16227,8 +16227,8 @@ define internal fastcc i32 @compile_anchor_look_behind_node(ptr nocapture nounde
   %84 = ptrtoint ptr %82 to i64
   %85 = ptrtoint ptr %83 to i64
   %86 = sub i64 %84, %85
-  %87 = sdiv exact i64 %86, 24
-  %88 = getelementptr inbounds i32, ptr %81, i64 %87
+  %87 = sdiv exact i64 %86, 6
+  %88 = getelementptr inbounds i8, ptr %81, i64 %87
   store i32 74, ptr %88, align 4
   %89 = load i32, ptr %5, align 4
   %90 = load ptr, ptr %41, align 8
@@ -16298,8 +16298,8 @@ define internal fastcc i32 @compile_anchor_look_behind_node(ptr nocapture nounde
   %128 = ptrtoint ptr %126 to i64
   %129 = ptrtoint ptr %127 to i64
   %130 = sub i64 %128, %129
-  %131 = sdiv exact i64 %130, 24
-  %132 = getelementptr inbounds i32, ptr %125, i64 %131
+  %131 = sdiv exact i64 %130, 6
+  %132 = getelementptr inbounds i8, ptr %125, i64 %131
   store i32 76, ptr %132, align 4
   %133 = load ptr, ptr %41, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 8
@@ -16377,8 +16377,8 @@ define internal fastcc i32 @compile_anchor_look_behind_node(ptr nocapture nounde
   %177 = ptrtoint ptr %175 to i64
   %178 = ptrtoint ptr %176 to i64
   %179 = sub i64 %177, %178
-  %180 = sdiv exact i64 %179, 24
-  %181 = getelementptr inbounds i32, ptr %174, i64 %180
+  %180 = sdiv exact i64 %179, 6
+  %181 = getelementptr inbounds i8, ptr %174, i64 %180
   store i32 73, ptr %181, align 4
   %182 = load i32, ptr %4, align 4
   %183 = sub nsw i32 0, %182
@@ -16451,8 +16451,8 @@ define internal fastcc i32 @compile_anchor_look_behind_node(ptr nocapture nounde
   %225 = ptrtoint ptr %223 to i64
   %226 = ptrtoint ptr %224 to i64
   %227 = sub i64 %225, %226
-  %228 = sdiv exact i64 %227, 24
-  %229 = getelementptr inbounds i32, ptr %222, i64 %228
+  %228 = sdiv exact i64 %227, 6
+  %229 = getelementptr inbounds i8, ptr %222, i64 %228
   store i32 78, ptr %229, align 4
   %230 = load ptr, ptr %219, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 8
@@ -16511,8 +16511,8 @@ define internal fastcc i32 @compile_anchor_look_behind_node(ptr nocapture nounde
   %262 = ptrtoint ptr %260 to i64
   %263 = ptrtoint ptr %261 to i64
   %264 = sub i64 %262, %263
-  %265 = sdiv exact i64 %264, 24
-  %266 = getelementptr inbounds i32, ptr %259, i64 %265
+  %265 = sdiv exact i64 %264, 6
+  %266 = getelementptr inbounds i8, ptr %259, i64 %265
   store i32 79, ptr %266, align 4
   %267 = load ptr, ptr %219, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 8
@@ -16571,8 +16571,8 @@ define internal fastcc i32 @compile_anchor_look_behind_node(ptr nocapture nounde
   %299 = ptrtoint ptr %297 to i64
   %300 = ptrtoint ptr %298 to i64
   %301 = sub i64 %299, %300
-  %302 = sdiv exact i64 %301, 24
-  %303 = getelementptr inbounds i32, ptr %296, i64 %302
+  %302 = sdiv exact i64 %301, 6
+  %303 = getelementptr inbounds i8, ptr %296, i64 %302
   store i32 77, ptr %303, align 4
   %304 = load ptr, ptr %219, align 8
   %305 = getelementptr inbounds i8, ptr %304, i64 8
@@ -16631,8 +16631,8 @@ define internal fastcc i32 @compile_anchor_look_behind_node(ptr nocapture nounde
   %336 = ptrtoint ptr %334 to i64
   %337 = ptrtoint ptr %335 to i64
   %338 = sub i64 %336, %337
-  %339 = sdiv exact i64 %338, 24
-  %340 = getelementptr inbounds i32, ptr %333, i64 %339
+  %339 = sdiv exact i64 %338, 6
+  %340 = getelementptr inbounds i8, ptr %333, i64 %339
   store i32 59, ptr %340, align 4
   %341 = load ptr, ptr %219, align 8
   %342 = getelementptr inbounds i8, ptr %341, i64 8
@@ -16688,8 +16688,8 @@ define internal fastcc i32 @compile_anchor_look_behind_node(ptr nocapture nounde
   %371 = ptrtoint ptr %369 to i64
   %372 = ptrtoint ptr %370 to i64
   %373 = sub i64 %371, %372
-  %374 = sdiv exact i64 %373, 24
-  %375 = getelementptr inbounds i32, ptr %368, i64 %374
+  %374 = sdiv exact i64 %373, 6
+  %375 = getelementptr inbounds i8, ptr %368, i64 %374
   store i32 58, ptr %375, align 4
   %376 = load ptr, ptr %219, align 8
   %377 = getelementptr inbounds i8, ptr %376, i64 8
@@ -16745,8 +16745,8 @@ define internal fastcc i32 @compile_anchor_look_behind_node(ptr nocapture nounde
   %406 = ptrtoint ptr %404 to i64
   %407 = ptrtoint ptr %405 to i64
   %408 = sub i64 %406, %407
-  %409 = sdiv exact i64 %408, 24
-  %410 = getelementptr inbounds i32, ptr %403, i64 %409
+  %409 = sdiv exact i64 %408, 6
+  %410 = getelementptr inbounds i8, ptr %403, i64 %409
   store i32 79, ptr %410, align 4
   %411 = load ptr, ptr %219, align 8
   %412 = getelementptr inbounds i8, ptr %411, i64 8
@@ -16808,8 +16808,8 @@ define internal fastcc i32 @compile_anchor_look_behind_node(ptr nocapture nounde
   %445 = ptrtoint ptr %443 to i64
   %446 = ptrtoint ptr %444 to i64
   %447 = sub i64 %445, %446
-  %448 = sdiv exact i64 %447, 24
-  %449 = getelementptr inbounds i32, ptr %442, i64 %448
+  %448 = sdiv exact i64 %447, 6
+  %449 = getelementptr inbounds i8, ptr %442, i64 %448
   store i32 57, ptr %449, align 4
   %450 = getelementptr inbounds i8, ptr %2, i64 268
   %451 = load i32, ptr %450, align 4
@@ -17004,8 +17004,8 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr nocapture no
   %50 = ptrtoint ptr %48 to i64
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
-  %53 = sdiv exact i64 %52, 24
-  %54 = getelementptr inbounds i32, ptr %47, i64 %53
+  %53 = sdiv exact i64 %52, 6
+  %54 = getelementptr inbounds i8, ptr %47, i64 %53
   store i32 77, ptr %54, align 4
   %55 = load ptr, ptr %44, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 8
@@ -17064,8 +17064,8 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr nocapture no
   %87 = ptrtoint ptr %85 to i64
   %88 = ptrtoint ptr %86 to i64
   %89 = sub i64 %87, %88
-  %90 = sdiv exact i64 %89, 24
-  %91 = getelementptr inbounds i32, ptr %84, i64 %90
+  %90 = sdiv exact i64 %89, 6
+  %91 = getelementptr inbounds i8, ptr %84, i64 %90
   store i32 59, ptr %91, align 4
   %92 = add nsw i32 %7, 4
   %93 = load ptr, ptr %44, align 8
@@ -17122,8 +17122,8 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr nocapture no
   %123 = ptrtoint ptr %121 to i64
   %124 = ptrtoint ptr %122 to i64
   %125 = sub i64 %123, %124
-  %126 = sdiv exact i64 %125, 24
-  %127 = getelementptr inbounds i32, ptr %120, i64 %126
+  %126 = sdiv exact i64 %125, 6
+  %127 = getelementptr inbounds i8, ptr %120, i64 %126
   store i32 74, ptr %127, align 4
   %128 = load i32, ptr %8, align 4
   %129 = load ptr, ptr %44, align 8
@@ -17192,8 +17192,8 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr nocapture no
   %166 = ptrtoint ptr %164 to i64
   %167 = ptrtoint ptr %165 to i64
   %168 = sub i64 %166, %167
-  %169 = sdiv exact i64 %168, 24
-  %170 = getelementptr inbounds i32, ptr %163, i64 %169
+  %169 = sdiv exact i64 %168, 6
+  %170 = getelementptr inbounds i8, ptr %163, i64 %169
   store i32 62, ptr %170, align 4
   %171 = load ptr, ptr %44, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 8
@@ -17249,8 +17249,8 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr nocapture no
   %201 = ptrtoint ptr %199 to i64
   %202 = ptrtoint ptr %200 to i64
   %203 = sub i64 %201, %202
-  %204 = sdiv exact i64 %203, 24
-  %205 = getelementptr inbounds i32, ptr %198, i64 %204
+  %204 = sdiv exact i64 %203, 6
+  %205 = getelementptr inbounds i8, ptr %198, i64 %204
   store i32 57, ptr %205, align 4
   %206 = load i32, ptr %16, align 8
   %207 = load i32, ptr %18, align 4
@@ -17303,8 +17303,8 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr nocapture no
   %234 = ptrtoint ptr %232 to i64
   %235 = ptrtoint ptr %233 to i64
   %236 = sub i64 %234, %235
-  %237 = sdiv exact i64 %236, 24
-  %238 = getelementptr inbounds i32, ptr %231, i64 %237
+  %237 = sdiv exact i64 %236, 6
+  %238 = getelementptr inbounds i8, ptr %231, i64 %237
   store i32 61, ptr %238, align 4
   br label %add_op.exit.thread
 
@@ -17360,8 +17360,8 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr nocapture no
   %269 = ptrtoint ptr %267 to i64
   %270 = ptrtoint ptr %268 to i64
   %271 = sub i64 %269, %270
-  %272 = sdiv exact i64 %271, 24
-  %273 = getelementptr inbounds i32, ptr %266, i64 %272
+  %272 = sdiv exact i64 %271, 6
+  %273 = getelementptr inbounds i8, ptr %266, i64 %272
   store i32 78, ptr %273, align 4
   %274 = load ptr, ptr %263, align 8
   %275 = getelementptr inbounds i8, ptr %274, i64 8
@@ -17420,8 +17420,8 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr nocapture no
   %306 = ptrtoint ptr %304 to i64
   %307 = ptrtoint ptr %305 to i64
   %308 = sub i64 %306, %307
-  %309 = sdiv exact i64 %308, 24
-  %310 = getelementptr inbounds i32, ptr %303, i64 %309
+  %309 = sdiv exact i64 %308, 6
+  %310 = getelementptr inbounds i8, ptr %303, i64 %309
   store i32 79, ptr %310, align 4
   %311 = load ptr, ptr %263, align 8
   %312 = getelementptr inbounds i8, ptr %311, i64 8
@@ -17480,8 +17480,8 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr nocapture no
   %343 = ptrtoint ptr %341 to i64
   %344 = ptrtoint ptr %342 to i64
   %345 = sub i64 %343, %344
-  %346 = sdiv exact i64 %345, 24
-  %347 = getelementptr inbounds i32, ptr %340, i64 %346
+  %346 = sdiv exact i64 %345, 6
+  %347 = getelementptr inbounds i8, ptr %340, i64 %346
   store i32 77, ptr %347, align 4
   %348 = load ptr, ptr %263, align 8
   %349 = getelementptr inbounds i8, ptr %348, i64 8
@@ -17540,8 +17540,8 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr nocapture no
   %380 = ptrtoint ptr %378 to i64
   %381 = ptrtoint ptr %379 to i64
   %382 = sub i64 %380, %381
-  %383 = sdiv exact i64 %382, 24
-  %384 = getelementptr inbounds i32, ptr %377, i64 %383
+  %383 = sdiv exact i64 %382, 6
+  %384 = getelementptr inbounds i8, ptr %377, i64 %383
   store i32 59, ptr %384, align 4
   %385 = add nsw i32 %7, 8
   %386 = load ptr, ptr %263, align 8
@@ -17632,8 +17632,8 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr nocapture no
   %438 = ptrtoint ptr %436 to i64
   %439 = ptrtoint ptr %437 to i64
   %440 = sub i64 %438, %439
-  %441 = sdiv exact i64 %440, 24
-  %442 = getelementptr inbounds i32, ptr %435, i64 %441
+  %441 = sdiv exact i64 %440, 6
+  %442 = getelementptr inbounds i8, ptr %435, i64 %441
   store i32 73, ptr %442, align 4
   %443 = load i32, ptr %4, align 4
   %444 = sub nsw i32 0, %443
@@ -17706,8 +17706,8 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr nocapture no
   %483 = ptrtoint ptr %481 to i64
   %484 = ptrtoint ptr %482 to i64
   %485 = sub i64 %483, %484
-  %486 = sdiv exact i64 %485, 24
-  %487 = getelementptr inbounds i32, ptr %480, i64 %486
+  %486 = sdiv exact i64 %485, 6
+  %487 = getelementptr inbounds i8, ptr %480, i64 %486
   store i32 78, ptr %487, align 4
   %488 = load ptr, ptr %263, align 8
   %489 = getelementptr inbounds i8, ptr %488, i64 8
@@ -17770,8 +17770,8 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr nocapture no
   %521 = ptrtoint ptr %519 to i64
   %522 = ptrtoint ptr %520 to i64
   %523 = sub i64 %521, %522
-  %524 = sdiv exact i64 %523, 24
-  %525 = getelementptr inbounds i32, ptr %518, i64 %524
+  %524 = sdiv exact i64 %523, 6
+  %525 = getelementptr inbounds i8, ptr %518, i64 %524
   store i32 74, ptr %525, align 4
   %526 = load i32, ptr %10, align 8
   %.not192 = icmp eq i32 %526, -1
@@ -17838,8 +17838,8 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr nocapture no
   %562 = ptrtoint ptr %560 to i64
   %563 = ptrtoint ptr %561 to i64
   %564 = sub i64 %562, %563
-  %565 = sdiv exact i64 %564, 24
-  %566 = getelementptr inbounds i32, ptr %559, i64 %565
+  %565 = sdiv exact i64 %564, 6
+  %566 = getelementptr inbounds i8, ptr %559, i64 %565
   store i32 75, ptr %566, align 4
   %567 = load ptr, ptr %5, align 8
   %568 = call fastcc i32 @compile_tree(ptr noundef %567, ptr noundef nonnull %1, ptr noundef nonnull %2)

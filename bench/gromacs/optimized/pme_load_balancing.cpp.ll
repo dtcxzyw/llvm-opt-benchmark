@@ -2495,36 +2495,37 @@ define internal fastcc void @_ZL16switch_to_stage1P20pme_load_balancing_t(ptr no
   store i32 %45, ptr %46, align 8
   %47 = shl i64 %11, 26
   %sext = add i64 %47, -4294967296
-  %48 = ashr exact i64 %sext, 32
-  %49 = getelementptr inbounds %struct.pme_setup_t, ptr %8, i64 %48, i32 9
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %52, label %65
+  %48 = ashr exact i64 %sext, 26
+  %49 = getelementptr inbounds i8, ptr %8, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 48
+  %51 = load i32, ptr %50, align 8
+  %52 = icmp sgt i32 %51, 0
+  br i1 %52, label %53, label %66
 
-52:                                               ; preds = %.critedge4
-  %53 = add nsw i32 %45, -1
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds %struct.pme_setup_t, ptr %8, i64 %54, i32 10
-  %56 = load double, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 124
-  %58 = load i32, ptr %57, align 4
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds %struct.pme_setup_t, ptr %8, i64 %59, i32 10
-  %61 = load double, ptr %60, align 8
-  %62 = fmul double %61, 0x3FF1EB8520000000
-  %63 = fcmp ogt double %56, %62
-  br i1 %63, label %64, label %65
+53:                                               ; preds = %.critedge4
+  %54 = add nsw i32 %45, -1
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds %struct.pme_setup_t, ptr %8, i64 %55, i32 10
+  %57 = load double, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 124
+  %59 = load i32, ptr %58, align 4
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds %struct.pme_setup_t, ptr %8, i64 %60, i32 10
+  %62 = load double, ptr %61, align 8
+  %63 = fmul double %62, 0x3FF1EB8520000000
+  %64 = fcmp ogt double %57, %63
+  br i1 %64, label %65, label %66
 
-64:                                               ; preds = %52
-  store i32 %53, ptr %46, align 8
-  br label %65
+65:                                               ; preds = %53
+  store i32 %54, ptr %46, align 8
+  br label %66
 
-65:                                               ; preds = %64, %52, %.critedge4
-  %66 = phi i32 [ %53, %64 ], [ %45, %52 ], [ %45, %.critedge4 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 1, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %0, i64 120
-  store i32 %66, ptr %68, align 8
+66:                                               ; preds = %65, %53, %.critedge4
+  %67 = phi i32 [ %54, %65 ], [ %45, %53 ], [ %45, %.critedge4 ]
+  %68 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 1, ptr %68, align 4
+  %69 = getelementptr inbounds i8, ptr %0, i64 120
+  store i32 %67, ptr %69, align 8
   ret void
 }
 

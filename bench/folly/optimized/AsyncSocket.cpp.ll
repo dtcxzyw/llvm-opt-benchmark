@@ -46082,8 +46082,8 @@ if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   %5 = getelementptr inbounds i8, ptr %ctx, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !142, !noalias !866
   %sext = shl i64 %2, 32
-  %idxprom.i.i.i = ashr exact i64 %sext, 32
-  %arrayidx.i.i.i = getelementptr inbounds %"class.fmt::v9::basic_format_arg", ptr %6, i64 %idxprom.i.i.i
+  %7 = ashr exact i64 %sext, 27
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %6, i64 %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %agg.tmp.i8, ptr noundef nonnull align 16 dereferenceable(20) %arrayidx.i.i.i, i64 20, i1 false), !tbaa.struct !867
   br label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i
 
@@ -46095,18 +46095,18 @@ if.end7.i.i.i:                                    ; preds = %if.end4.i.i.i
   %mul.i.i.i.i = shl i64 %2, 2
   %sh_prom.i.i.i.i = and i64 %mul.i.i.i.i, 4294967292
   %shr.i.i.i.i = lshr i64 %3, %sh_prom.i.i.i.i
-  %7 = trunc i64 %shr.i.i.i.i to i32
-  %conv2.i.i.i.i = and i32 %7, 15
+  %8 = trunc i64 %shr.i.i.i.i to i32
+  %conv2.i.i.i.i = and i32 %8, 15
   store i32 %conv2.i.i.i.i, ptr %type_.i.i.i.i, align 16, !tbaa !863, !alias.scope !866
   %cmp10.i.i.i = icmp eq i32 %conv2.i.i.i.i, 0
   br i1 %cmp10.i.i.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i, label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end7.i.i.i
-  %8 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !142, !noalias !866
+  %9 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %10 = load ptr, ptr %9, align 8, !tbaa !142, !noalias !866
   %sext57 = shl i64 %2, 32
-  %idxprom13.i.i.i = ashr exact i64 %sext57, 32
-  %arrayidx14.i.i.i = getelementptr inbounds %"class.fmt::v9::detail::value", ptr %9, i64 %idxprom13.i.i.i
+  %11 = ashr exact i64 %sext57, 28
+  %arrayidx14.i.i.i = getelementptr inbounds i8, ptr %10, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp.i8, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i.i.i, i64 16, i1 false), !tbaa.struct !254
   br label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i
 
@@ -46143,28 +46143,28 @@ _ZN3fmt2v96detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_co
   ]
 
 sw.bb.i13:                                        ; preds = %_ZN3fmt2v96detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEvRiNS1_7arg_refINT0_9char_typeEEERS9_.exit
-  %10 = ptrtoint ptr %agg.tmp7.i.sroa.5.0.copyload to i64
-  %agg.tmp7.i10.sroa.456.0.extract.trunc = trunc i64 %10 to i32
+  %12 = ptrtoint ptr %agg.tmp7.i.sroa.5.0.copyload to i64
+  %agg.tmp7.i10.sroa.456.0.extract.trunc = trunc i64 %12 to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !869)
   %args_.i.i15 = getelementptr inbounds i8, ptr %ctx, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !872)
   %type_.i.i.i.i16 = getelementptr inbounds i8, ptr %agg.tmp.i11, i64 16
   store i32 0, ptr %type_.i.i.i.i16, align 16, !tbaa !863, !alias.scope !875
-  %11 = load i64, ptr %args_.i.i15, align 8, !noalias !875
-  %cmp.i.i.i.i17 = icmp sgt i64 %11, -1
+  %13 = load i64, ptr %args_.i.i15, align 8, !noalias !875
+  %cmp.i.i.i.i17 = icmp sgt i64 %13, -1
   br i1 %cmp.i.i.i.i17, label %if.end4.i.i.i27, label %if.then.i.i.i18
 
 if.then.i.i.i18:                                  ; preds = %sw.bb.i13
-  %12 = trunc i64 %11 to i32
-  %cmp.i.i.i19 = icmp slt i32 %agg.tmp7.i10.sroa.456.0.extract.trunc, %12
+  %14 = trunc i64 %13 to i32
+  %cmp.i.i.i19 = icmp slt i32 %agg.tmp7.i10.sroa.456.0.extract.trunc, %14
   br i1 %cmp.i.i.i19, label %if.then3.i.i.i24, label %sw.epilog.sink.split.i22
 
 if.then3.i.i.i24:                                 ; preds = %if.then.i.i.i18
-  %13 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !142, !noalias !875
-  %sext58 = shl i64 %10, 32
-  %idxprom.i.i.i25 = ashr exact i64 %sext58, 32
-  %arrayidx.i.i.i26 = getelementptr inbounds %"class.fmt::v9::basic_format_arg", ptr %14, i64 %idxprom.i.i.i25
+  %15 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !142, !noalias !875
+  %sext58 = shl i64 %12, 32
+  %17 = ashr exact i64 %sext58, 27
+  %arrayidx.i.i.i26 = getelementptr inbounds i8, ptr %16, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %agg.tmp.i11, ptr noundef nonnull align 16 dereferenceable(20) %arrayidx.i.i.i26, i64 20, i1 false), !tbaa.struct !867
   br label %sw.epilog.sink.split.i22
 
@@ -46173,21 +46173,21 @@ if.end4.i.i.i27:                                  ; preds = %sw.bb.i13
   br i1 %cmp5.i.i.i28, label %sw.epilog.sink.split.i22, label %if.end7.i.i.i29
 
 if.end7.i.i.i29:                                  ; preds = %if.end4.i.i.i27
-  %mul.i.i.i.i30 = shl i64 %10, 2
+  %mul.i.i.i.i30 = shl i64 %12, 2
   %sh_prom.i.i.i.i31 = and i64 %mul.i.i.i.i30, 4294967292
-  %shr.i.i.i.i32 = lshr i64 %11, %sh_prom.i.i.i.i31
-  %15 = trunc i64 %shr.i.i.i.i32 to i32
-  %conv2.i.i.i.i33 = and i32 %15, 15
+  %shr.i.i.i.i32 = lshr i64 %13, %sh_prom.i.i.i.i31
+  %18 = trunc i64 %shr.i.i.i.i32 to i32
+  %conv2.i.i.i.i33 = and i32 %18, 15
   store i32 %conv2.i.i.i.i33, ptr %type_.i.i.i.i16, align 16, !tbaa !863, !alias.scope !875
   %cmp10.i.i.i34 = icmp eq i32 %conv2.i.i.i.i33, 0
   br i1 %cmp10.i.i.i34, label %sw.epilog.sink.split.i22, label %if.end12.i.i.i35
 
 if.end12.i.i.i35:                                 ; preds = %if.end7.i.i.i29
-  %16 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !142, !noalias !875
-  %sext59 = shl i64 %10, 32
-  %idxprom13.i.i.i36 = ashr exact i64 %sext59, 32
-  %arrayidx14.i.i.i37 = getelementptr inbounds %"class.fmt::v9::detail::value", ptr %17, i64 %idxprom13.i.i.i36
+  %19 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !142, !noalias !875
+  %sext59 = shl i64 %12, 32
+  %21 = ashr exact i64 %sext59, 28
+  %arrayidx14.i.i.i37 = getelementptr inbounds i8, ptr %20, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp.i11, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i.i.i37, i64 16, i1 false), !tbaa.struct !254
   br label %sw.epilog.sink.split.i22
 
@@ -46206,8 +46206,8 @@ _ZN3fmt2v96detail19handle_dynamic_specINS1_17precision_checkerENS0_20basic_forma
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i12)
   %type.i = getelementptr inbounds i8, ptr %specs.i, i64 8
-  %18 = load i8, ptr %type.i, align 8, !tbaa !850
-  switch i8 %18, label %if.then.i.i [
+  %22 = load i8, ptr %type.i, align 8, !tbaa !850
+  switch i8 %22, label %if.then.i.i [
     i8 18, label %_ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit
     i8 16, label %_ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit
     i8 0, label %_ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit
@@ -46225,8 +46225,8 @@ _ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13typ
 
 if.end.i:                                         ; preds = %entry
   %type.i49 = getelementptr inbounds i8, ptr %this, i64 8
-  %19 = load i8, ptr %type.i49, align 8, !tbaa !850
-  switch i8 %19, label %if.then.i.i51 [
+  %23 = load i8, ptr %type.i49, align 8, !tbaa !850
+  switch i8 %23, label %if.then.i.i51 [
     i8 18, label %_ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit52
     i8 16, label %_ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit52
     i8 0, label %_ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit52

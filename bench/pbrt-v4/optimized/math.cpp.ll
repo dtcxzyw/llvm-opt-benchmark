@@ -2151,10 +2151,10 @@ while.body.i:                                     ; preds = %if.end6, %while.bod
   %shr.i = lshr i64 %size.03.i, 1
   %add.i = add i64 %shr.i, %first.02.i
   %sext.i = shl i64 %add.i, 32
-  %conv.i.i = ashr exact i64 %sext.i, 32
-  %arrayidx.i.i.i = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv.i.i
-  %3 = load float, ptr %arrayidx.i.i.i, align 4
-  %cmp.i.i = fcmp ole float %3, %x
+  %3 = ashr exact i64 %sext.i, 30
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %nodes.coerce0, i64 %3
+  %4 = load float, ptr %arrayidx.i.i.i, align 4
+  %cmp.i.i = fcmp ole float %4, %x
   %add1.i = add i64 %add.i, 1
   %cond.i = select i1 %cmp.i.i, i64 %add1.i, i64 %first.02.i
   %cond.fr10.i = freeze i64 %cond.i
@@ -2172,20 +2172,20 @@ while.end.i:                                      ; preds = %while.body.i
   br label %"_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.exit"
 
 "_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.exit": ; preds = %if.end6, %while.end.i
-  %4 = phi i64 [ 0, %if.end6 ], [ %spec.select.i, %while.end.i ]
-  %conv9 = trunc i64 %4 to i32
+  %5 = phi i64 [ 0, %if.end6 ], [ %spec.select.i, %while.end.i ]
+  %conv9 = trunc i64 %5 to i32
   %sub = add nsw i32 %conv9, -1
   store i32 %sub, ptr %offset, align 4
-  %sext = shl i64 %4, 32
-  %conv10 = ashr exact i64 %sext, 32
-  %arrayidx.i38 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv10
-  %5 = load float, ptr %arrayidx.i38, align 4
+  %sext = shl i64 %5, 32
+  %6 = ashr exact i64 %sext, 30
+  %arrayidx.i38 = getelementptr inbounds i8, ptr %nodes.coerce0, i64 %6
+  %7 = load float, ptr %arrayidx.i38, align 4
   %sext33 = add i64 %sext, 4294967296
-  %conv12 = ashr exact i64 %sext33, 32
-  %arrayidx.i39 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv12
-  %6 = load float, ptr %arrayidx.i39, align 4
-  %sub14 = fsub float %x, %5
-  %sub15 = fsub float %6, %5
+  %8 = ashr exact i64 %sext33, 30
+  %arrayidx.i39 = getelementptr inbounds i8, ptr %nodes.coerce0, i64 %8
+  %9 = load float, ptr %arrayidx.i39, align 4
+  %sub14 = fsub float %x, %7
+  %sub15 = fsub float %9, %7
   %div = fdiv float %sub14, %sub15
   %mul = fmul float %div, %div
   %mul16 = fmul float %div, %mul
@@ -2195,9 +2195,9 @@ while.end.i:                                      ; preds = %while.body.i
   %add20 = fadd float %sub19, 1.000000e+00
   %arrayidx.i40 = getelementptr inbounds i8, ptr %weights.coerce0, i64 4
   store float %add20, ptr %arrayidx.i40, align 4
-  %7 = fsub float %mul18, %mul17
+  %10 = fsub float %mul18, %mul17
   %arrayidx.i41 = getelementptr inbounds i8, ptr %weights.coerce0, i64 8
-  store float %7, ptr %arrayidx.i41, align 4
+  store float %10, ptr %arrayidx.i41, align 4
   %cmp26 = icmp sgt i32 %conv9, 0
   %mul28 = fmul float %mul, 2.000000e+00
   %sub29 = fsub float %mul16, %mul28
@@ -2208,8 +2208,8 @@ if.then27:                                        ; preds = %"_ZN4pbrt12FindInte
   %mul32 = fmul float %sub15, %add30
   %conv34 = zext nneg i32 %sub to i64
   %arrayidx.i42 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv34
-  %8 = load float, ptr %arrayidx.i42, align 4
-  %sub36 = fsub float %6, %8
+  %11 = load float, ptr %arrayidx.i42, align 4
+  %sub36 = fsub float %9, %11
   %div37 = fdiv float %mul32, %sub36
   %fneg = fneg float %div37
   br label %if.end50
@@ -2220,11 +2220,11 @@ if.else:                                          ; preds = %"_ZN4pbrt12FindInte
   br label %if.end50
 
 if.end50:                                         ; preds = %if.else, %if.then27
-  %9 = phi float [ %add20, %if.then27 ], [ %sub47, %if.else ]
+  %12 = phi float [ %add20, %if.then27 ], [ %sub47, %if.else ]
   %.sink = phi float [ %fneg, %if.then27 ], [ 0.000000e+00, %if.else ]
   %add44.pn = phi float [ %div37, %if.then27 ], [ %add30, %if.else ]
   store float %.sink, ptr %weights.coerce0, align 4
-  %storemerge = fadd float %7, %add44.pn
+  %storemerge = fadd float %10, %add44.pn
   store float %storemerge, ptr %arrayidx.i41, align 4
   %sext34 = add i64 %sext, 8589934592
   %conv52 = ashr exact i64 %sext34, 32
@@ -2235,15 +2235,15 @@ if.end50:                                         ; preds = %if.else, %if.then27
 if.then55:                                        ; preds = %if.end50
   %mul58 = fmul float %sub15, %sub56
   %arrayidx.i49 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv52
-  %10 = load float, ptr %arrayidx.i49, align 4
-  %sub62 = fsub float %10, %5
+  %13 = load float, ptr %arrayidx.i49, align 4
+  %sub62 = fsub float %13, %7
   %div63 = fdiv float %mul58, %sub62
-  %sub65 = fsub float %9, %div63
+  %sub65 = fsub float %12, %div63
   store float %sub65, ptr %arrayidx.i40, align 4
   br label %return.sink.split
 
 if.else67:                                        ; preds = %if.end50
-  %sub71 = fsub float %9, %sub56
+  %sub71 = fsub float %12, %sub56
   store float %sub71, ptr %arrayidx.i40, align 4
   %add73 = fadd float %sub56, %storemerge
   store float %add73, ptr %arrayidx.i41, align 4
@@ -2329,10 +2329,10 @@ while.body.i:                                     ; preds = %if.end7, %while.bod
   %shr.i = lshr i64 %size.03.i, 1
   %add.i = add i64 %shr.i, %first.02.i
   %sext.i = shl i64 %add.i, 32
-  %conv.i.i = ashr exact i64 %sext.i, 32
-  %arrayidx.i.i.i = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv.i.i
-  %3 = load float, ptr %arrayidx.i.i.i, align 4
-  %cmp.i.i = fcmp ole float %3, %x
+  %3 = ashr exact i64 %sext.i, 30
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %nodes.coerce0, i64 %3
+  %4 = load float, ptr %arrayidx.i.i.i, align 4
+  %cmp.i.i = fcmp ole float %4, %x
   %add1.i = add i64 %add.i, 1
   %cond.i = select i1 %cmp.i.i, i64 %add1.i, i64 %first.02.i
   %cond.fr10.i = freeze i64 %cond.i
@@ -2350,39 +2350,39 @@ while.end.i:                                      ; preds = %while.body.i
   br label %"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
 
 "_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit": ; preds = %if.end7, %while.end.i
-  %4 = phi i64 [ 0, %if.end7 ], [ %spec.select.i, %while.end.i ]
-  %conv = trunc i64 %4 to i32
-  %sext = shl i64 %4, 32
+  %5 = phi i64 [ 0, %if.end7 ], [ %spec.select.i, %while.end.i ]
+  %conv = trunc i64 %5 to i32
+  %sext = shl i64 %5, 32
   %conv10 = ashr exact i64 %sext, 32
   %arrayidx.i38 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv10
-  %5 = load float, ptr %arrayidx.i38, align 4
+  %6 = load float, ptr %arrayidx.i38, align 4
   %sext32 = add i64 %sext, 4294967296
   %conv12 = ashr exact i64 %sext32, 32
   %arrayidx.i39 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv12
-  %6 = load float, ptr %arrayidx.i39, align 4
+  %7 = load float, ptr %arrayidx.i39, align 4
   %arrayidx.i40 = getelementptr inbounds float, ptr %f.coerce0, i64 %conv10
-  %7 = load float, ptr %arrayidx.i40, align 4
+  %8 = load float, ptr %arrayidx.i40, align 4
   %arrayidx.i41 = getelementptr inbounds float, ptr %f.coerce0, i64 %conv12
-  %8 = load float, ptr %arrayidx.i41, align 4
-  %sub = fsub float %6, %5
+  %9 = load float, ptr %arrayidx.i41, align 4
+  %sub = fsub float %7, %6
   %cmp19 = icmp sgt i32 %conv, 0
   br i1 %cmp19, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
-  %sub21 = add i64 %4, 4294967295
+  %sub21 = add i64 %5, 4294967295
   %conv22 = and i64 %sub21, 4294967295
   %arrayidx.i42 = getelementptr inbounds float, ptr %f.coerce0, i64 %conv22
-  %9 = load float, ptr %arrayidx.i42, align 4
-  %sub24 = fsub float %8, %9
+  %10 = load float, ptr %arrayidx.i42, align 4
+  %sub24 = fsub float %9, %10
   %mul = fmul float %sub, %sub24
   %arrayidx.i43 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv22
-  %10 = load float, ptr %arrayidx.i43, align 4
-  %sub28 = fsub float %6, %10
+  %11 = load float, ptr %arrayidx.i43, align 4
+  %sub28 = fsub float %7, %11
   %div = fdiv float %mul, %sub28
   br label %if.end30
 
 if.else:                                          ; preds = %"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
-  %sub29 = fsub float %8, %7
+  %sub29 = fsub float %9, %8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else, %if.then20
@@ -2394,22 +2394,22 @@ if.end30:                                         ; preds = %if.else, %if.then20
 
 if.then35:                                        ; preds = %if.end30
   %arrayidx.i45 = getelementptr inbounds float, ptr %f.coerce0, i64 %conv32
-  %11 = load float, ptr %arrayidx.i45, align 4
-  %sub39 = fsub float %11, %7
+  %12 = load float, ptr %arrayidx.i45, align 4
+  %sub39 = fsub float %12, %8
   %mul40 = fmul float %sub, %sub39
   %arrayidx.i46 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv32
-  %12 = load float, ptr %arrayidx.i46, align 4
-  %sub44 = fsub float %12, %5
+  %13 = load float, ptr %arrayidx.i46, align 4
+  %sub44 = fsub float %13, %6
   %div45 = fdiv float %mul40, %sub44
   br label %if.end48
 
 if.else46:                                        ; preds = %if.end30
-  %sub47 = fsub float %8, %7
+  %sub47 = fsub float %9, %8
   br label %if.end48
 
 if.end48:                                         ; preds = %if.else46, %if.then35
   %d1.0 = phi float [ %div45, %if.then35 ], [ %sub47, %if.else46 ]
-  %sub49 = fsub float %x, %5
+  %sub49 = fsub float %x, %6
   %div51 = fdiv float %sub49, %sub
   %mul52 = fmul float %div51, %div51
   %mul53 = fmul float %div51, %mul52
@@ -2417,9 +2417,9 @@ if.end48:                                         ; preds = %if.else46, %if.then
   %mul55 = fmul float %mul52, 3.000000e+00
   %sub56 = fsub float %mul54, %mul55
   %add57 = fadd float %sub56, 1.000000e+00
-  %mul58 = fmul float %7, %add57
-  %13 = fsub float %mul55, %mul54
-  %mul62 = fmul float %8, %13
+  %mul58 = fmul float %8, %add57
+  %14 = fsub float %mul55, %mul54
+  %mul62 = fmul float %9, %14
   %add63 = fadd float %mul62, %mul58
   %mul64 = fmul float %mul52, 2.000000e+00
   %sub65 = fsub float %mul53, %mul64
@@ -2503,10 +2503,10 @@ while.body.i:                                     ; preds = %if.end6, %while.bod
   %shr.i = lshr i64 %size.03.i, 1
   %add.i = add i64 %shr.i, %first.02.i
   %sext.i = shl i64 %add.i, 32
-  %conv.i.i = ashr exact i64 %sext.i, 32
-  %arrayidx.i.i.i = getelementptr inbounds float, ptr %f.coerce0, i64 %conv.i.i
-  %6 = load float, ptr %arrayidx.i.i.i, align 4
-  %cmp.i.i = fcmp ole float %6, %u
+  %6 = ashr exact i64 %sext.i, 30
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %f.coerce0, i64 %6
+  %7 = load float, ptr %arrayidx.i.i.i, align 4
+  %cmp.i.i = fcmp ole float %7, %u
   %add1.i = add i64 %add.i, 1
   %cond.i = select i1 %cmp.i.i, i64 %add1.i, i64 %first.02.i
   %cond.fr10.i = freeze i64 %cond.i
@@ -2524,39 +2524,39 @@ while.end.i:                                      ; preds = %while.body.i
   br label %"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
 
 "_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit": ; preds = %if.end6, %while.end.i
-  %7 = phi i64 [ 0, %if.end6 ], [ %spec.select.i, %while.end.i ]
-  %conv = trunc i64 %7 to i32
-  %sext = shl i64 %7, 32
+  %8 = phi i64 [ 0, %if.end6 ], [ %spec.select.i, %while.end.i ]
+  %conv = trunc i64 %8 to i32
+  %sext = shl i64 %8, 32
   %conv9 = ashr exact i64 %sext, 32
   %arrayidx.i21 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv9
-  %8 = load float, ptr %arrayidx.i21, align 4
+  %9 = load float, ptr %arrayidx.i21, align 4
   %sext15 = add i64 %sext, 4294967296
   %conv11 = ashr exact i64 %sext15, 32
   %arrayidx.i22 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv11
-  %9 = load float, ptr %arrayidx.i22, align 4
+  %10 = load float, ptr %arrayidx.i22, align 4
   %arrayidx.i23 = getelementptr inbounds float, ptr %f.coerce0, i64 %conv9
-  %10 = load float, ptr %arrayidx.i23, align 4
+  %11 = load float, ptr %arrayidx.i23, align 4
   %arrayidx.i24 = getelementptr inbounds float, ptr %f.coerce0, i64 %conv11
-  %11 = load float, ptr %arrayidx.i24, align 4
-  %sub = fsub float %9, %8
+  %12 = load float, ptr %arrayidx.i24, align 4
+  %sub = fsub float %10, %9
   %cmp18 = icmp sgt i32 %conv, 0
   br i1 %cmp18, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
-  %sub19 = add i64 %7, 4294967295
+  %sub19 = add i64 %8, 4294967295
   %conv20 = and i64 %sub19, 4294967295
   %arrayidx.i25 = getelementptr inbounds float, ptr %f.coerce0, i64 %conv20
-  %12 = load float, ptr %arrayidx.i25, align 4
-  %sub22 = fsub float %11, %12
+  %13 = load float, ptr %arrayidx.i25, align 4
+  %sub22 = fsub float %12, %13
   %mul = fmul float %sub, %sub22
   %arrayidx.i26 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv20
-  %13 = load float, ptr %arrayidx.i26, align 4
-  %sub26 = fsub float %9, %13
+  %14 = load float, ptr %arrayidx.i26, align 4
+  %sub26 = fsub float %10, %14
   %div = fdiv float %mul, %sub26
   br label %cond.end
 
 cond.false:                                       ; preds = %"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
-  %sub27 = fsub float %11, %10
+  %sub27 = fsub float %12, %11
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -2568,47 +2568,47 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 
 cond.true32:                                      ; preds = %cond.end
   %arrayidx.i28 = getelementptr inbounds float, ptr %f.coerce0, i64 %conv29
-  %14 = load float, ptr %arrayidx.i28, align 4
-  %sub36 = fsub float %14, %10
+  %15 = load float, ptr %arrayidx.i28, align 4
+  %sub36 = fsub float %15, %11
   %mul37 = fmul float %sub, %sub36
   %arrayidx.i29 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv29
-  %15 = load float, ptr %arrayidx.i29, align 4
-  %sub41 = fsub float %15, %8
+  %16 = load float, ptr %arrayidx.i29, align 4
+  %sub41 = fsub float %16, %9
   %div42 = fdiv float %mul37, %sub41
   br label %cond.end45
 
 cond.false43:                                     ; preds = %cond.end
-  %sub44 = fsub float %11, %10
+  %sub44 = fsub float %12, %11
   br label %cond.end45
 
 cond.end45:                                       ; preds = %cond.false43, %cond.true32
   %cond46 = phi float [ %div42, %cond.true32 ], [ %sub44, %cond.false43 ]
-  %mul9.i.i = fmul float %11, 0.000000e+00
-  %add10.i.i = fadd float %10, %mul9.i.i
+  %mul9.i.i = fmul float %12, 0.000000e+00
+  %add10.i.i = fadd float %11, %mul9.i.i
   %mul14.i.i = fmul float %cond, 0.000000e+00
   %add15.i.i = fadd float %add10.i.i, %mul14.i.i
   %mul17.i.i = fmul float %cond46, 0.000000e+00
   %add18.i.i = fadd float %add15.i.i, %mul17.i.i
-  %mul22.i.i = fmul float %10, 0.000000e+00
+  %mul22.i.i = fmul float %11, 0.000000e+00
   %sub39.i.i = fsub float %add18.i.i, %u
-  %add10.i29.i = fadd float %mul22.i.i, %11
+  %add10.i29.i = fadd float %mul22.i.i, %12
   %add15.i31.i = fadd float %add10.i29.i, %mul14.i.i
   %add18.i33.i = fadd float %add15.i31.i, %mul17.i.i
   %sub39.i40.i = fsub float %add18.i33.i, %u
-  %16 = tail call noundef float @llvm.fabs.f32(float %sub39.i.i)
-  %cmp.i30 = fcmp olt float %16, 0x3EB0C6F7A0000000
+  %17 = tail call noundef float @llvm.fabs.f32(float %sub39.i.i)
+  %cmp.i30 = fcmp olt float %17, 0x3EB0C6F7A0000000
   br i1 %cmp.i30, label %"_ZN4pbrt15NewtonBisectionIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_1EEfffT_ff.exit", label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end45
-  %17 = tail call noundef float @llvm.fabs.f32(float %sub39.i40.i)
-  %cmp6.i = fcmp olt float %17, 0x3EB0C6F7A0000000
+  %18 = tail call noundef float @llvm.fabs.f32(float %sub39.i40.i)
+  %cmp6.i = fcmp olt float %18, 0x3EB0C6F7A0000000
   br i1 %cmp6.i, label %"_ZN4pbrt15NewtonBisectionIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_1EEfffT_ff.exit", label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
   %cmp9.i = fcmp olt float %sub39.i.i, 0.000000e+00
   %sub10.i = fsub float %sub39.i40.i, %sub39.i.i
-  %18 = fdiv float %sub39.i.i, %sub10.i
-  %add.i31 = fsub float 0.000000e+00, %18
+  %19 = fdiv float %sub39.i.i, %sub10.i
+  %add.i31 = fsub float 0.000000e+00, %19
   br label %while.body.i32
 
 while.body.i32:                                   ; preds = %if.end32.i, %if.end8.i
@@ -2627,9 +2627,9 @@ while.body.i32:                                   ; preds = %if.end32.i, %if.end
   %mul4.i.i = fmul float %mul.i.i, 3.000000e+00
   %sub.i.i = fsub float %mul3.i.i, %mul4.i.i
   %add.i.i = fadd float %sub.i.i, 1.000000e+00
-  %mul5.i43.i = fmul float %10, %add.i.i
-  %19 = fsub float %mul4.i.i, %mul3.i.i
-  %mul9.i44.i = fmul float %11, %19
+  %mul5.i43.i = fmul float %11, %add.i.i
+  %20 = fsub float %mul4.i.i, %mul3.i.i
+  %mul9.i44.i = fmul float %12, %20
   %add10.i45.i = fadd float %mul9.i44.i, %mul5.i43.i
   %mul11.i.i = fmul float %mul.i.i, 2.000000e+00
   %sub12.i.i = fsub float %mul2.i.i, %mul11.i.i
@@ -2640,14 +2640,14 @@ while.body.i32:                                   ; preds = %if.end32.i, %if.end
   %mul17.i48.i = fmul float %cond46, %sub16.i.i
   %add18.i49.i = fadd float %mul17.i48.i, %add15.i47.i
   %sub39.i57.i = fsub float %add18.i49.i, %u
-  %20 = fcmp uge float %sub39.i57.i, 0.000000e+00
-  %cmp23.i = xor i1 %cmp9.i, %20
+  %21 = fcmp uge float %sub39.i57.i, 0.000000e+00
+  %cmp23.i = xor i1 %cmp9.i, %21
   %x1.addr.1.i = select i1 %cmp23.i, float %x1.addr.0.i, float %xMid.1.i
   %x0.addr.1.i = select i1 %cmp23.i, float %xMid.1.i, float %x0.addr.0.i
   %sub26.i = fsub float %x1.addr.1.i, %x0.addr.1.i
   %cmp27.i = fcmp olt float %sub26.i, 0x3EB0C6F7A0000000
-  %21 = tail call float @llvm.fabs.f32(float %sub39.i57.i)
-  %cmp30.i = fcmp olt float %21, 0x3EB0C6F7A0000000
+  %22 = tail call float @llvm.fabs.f32(float %sub39.i57.i)
+  %cmp30.i = fcmp olt float %22, 0x3EB0C6F7A0000000
   %or.cond60.i = or i1 %cmp30.i, %cmp27.i
   br i1 %or.cond60.i, label %"_ZN4pbrt15NewtonBisectionIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_1EEfffT_ff.exit", label %if.end32.i
 
@@ -2655,9 +2655,9 @@ if.end32.i:                                       ; preds = %while.body.i32
   %mul19.i.i = fmul float %mul.i.i, 6.000000e+00
   %mul20.i.i = fmul float %xMid.1.i, 6.000000e+00
   %sub21.i.i = fsub float %mul19.i.i, %mul20.i.i
-  %mul22.i50.i = fmul float %10, %sub21.i.i
-  %22 = fsub float %mul20.i.i, %mul19.i.i
-  %mul26.i51.i = fmul float %11, %22
+  %mul22.i50.i = fmul float %11, %sub21.i.i
+  %23 = fsub float %mul20.i.i, %mul19.i.i
+  %mul26.i51.i = fmul float %12, %23
   %add27.i52.i = fadd float %mul22.i50.i, %mul26.i51.i
   %mul29.i.i = fmul float %xMid.1.i, 4.000000e+00
   %sub30.i.i = fsub float %mul4.i.i, %mul29.i.i
@@ -2675,7 +2675,7 @@ if.end32.i:                                       ; preds = %while.body.i32
 "_ZN4pbrt15NewtonBisectionIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_1EEfffT_ff.exit": ; preds = %while.body.i32, %cond.end45, %if.end.i
   %retval.0.i = phi float [ 0.000000e+00, %cond.end45 ], [ 1.000000e+00, %if.end.i ], [ %xMid.1.i, %while.body.i32 ]
   %mul48 = fmul float %sub, %retval.0.i
-  %add49 = fadd float %8, %mul48
+  %add49 = fadd float %9, %mul48
   br label %return
 
 return:                                           ; preds = %"_ZN4pbrt15NewtonBisectionIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_1EEfffT_ff.exit", %if.then4, %if.then

@@ -31,7 +31,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.cpuinfo_topology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.p4d_t = type { i64 }
 %struct.pmd_t = type { i64 }
-%struct.pte_t = type { i64 }
 
 @init_top_pgt = external dso_local global [0 x %struct.pgd_t], align 8
 @pgdir_shift = external dso_local local_unnamed_addr global i32, align 4
@@ -310,8 +309,8 @@ define dso_local void @init_espfix_ap(i32 noundef %0) local_unnamed_addr #2 alig
   %117 = and i64 %116, %113
   %118 = add i64 %117, %112
   %119 = inttoptr i64 %118 to ptr
-  %120 = lshr exact i64 %23, 12
-  %121 = getelementptr %struct.pte_t, ptr %119, i64 %120
+  %120 = lshr exact i64 %23, 9
+  %121 = getelementptr i8, ptr %119, i64 %120
   %122 = icmp eq i32 %41, -1
   br i1 %122, label %123, label %125
 

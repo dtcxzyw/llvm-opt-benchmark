@@ -217,25 +217,26 @@ if.then.i:                                        ; preds = %for.body
 
 if.else.i:                                        ; preds = %for.body
   %5 = load ptr, ptr %in_pack, align 8
-  %arrayidx2.i = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %6 = shl nuw nsw i64 %indvars.iv, 3
+  %arrayidx2.i = getelementptr inbounds i8, ptr %5, i64 %6
   br label %oe_in_pack.exit
 
 oe_in_pack.exit:                                  ; preds = %if.then.i, %if.else.i
-  %6 = phi ptr [ %.pre, %if.then.i ], [ %5, %if.else.i ]
+  %7 = phi ptr [ %.pre, %if.then.i ], [ %5, %if.else.i ]
   %retval.0.in.i = phi ptr [ %arrayidx.i, %if.then.i ], [ %arrayidx2.i, %if.else.i ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   store ptr %retval.0.i, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = load i32, ptr %nr_objects, align 8
-  %8 = zext i32 %7 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %8
+  %8 = load i32, ptr %nr_objects, align 8
+  %9 = zext i32 %8 to i64
+  %cmp = icmp ult i64 %indvars.iv.next, %9
   br i1 %cmp, label %for.body, label %do.body, !llvm.loop !7
 
 do.body:                                          ; preds = %oe_in_pack.exit, %if.end
   %in_pack_by_idx = getelementptr inbounds i8, ptr %pack, i64 56
-  %9 = load ptr, ptr %in_pack_by_idx, align 8
-  tail call void @free(ptr noundef %9) #12
+  %10 = load ptr, ptr %in_pack_by_idx, align 8
+  tail call void @free(ptr noundef %10) #12
   store ptr null, ptr %in_pack_by_idx, align 8
   ret void
 }

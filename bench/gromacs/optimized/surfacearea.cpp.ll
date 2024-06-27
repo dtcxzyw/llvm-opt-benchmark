@@ -3667,35 +3667,34 @@ define void @_ZNK3gmx21SurfaceAreaCalculator9calculateEPA3_KfPK5t_pbciPiiPfS8_PS
   %106 = getelementptr inbounds i8, ptr %12, i64 24
   store ptr %4, ptr %106, align 8
   call void @_ZN3gmx20AnalysisNeighborhood10initSearchEPK5t_pbcRKNS_29AnalysisNeighborhoodPositionsE(ptr dead_on_unwind nonnull writable sret(%"class.gmx::AnalysisNeighborhoodSearch") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %sext = shl i64 %50, 32
-  %107 = ashr exact i64 %sext, 32
-  %108 = icmp slt i32 %51, 0
-  br i1 %108, label %109, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %107 = icmp slt i32 %51, 0
+  br i1 %107, label %108, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
-109:                                              ; preds = %._crit_edge.i
+108:                                              ; preds = %._crit_edge.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #19
           to label %.noexc.i unwind label %160
 
-.noexc.i:                                         ; preds = %109
+.noexc.i:                                         ; preds = %108
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %._crit_edge.i
   %.not.i.i.i.i.i = icmp eq i32 %51, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i, label %110
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i, label %109
 
-110:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %111 = lshr exact i64 %sext, 30
+109:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %110 = shl i64 %50, 2
+  %111 = and i64 %110, 8589934588
   %112 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %111) #16
           to label %.noexc208.i unwind label %160
 
-.noexc208.i:                                      ; preds = %110
+.noexc208.i:                                      ; preds = %109
   store i32 0, ptr %112, align 4
   %113 = getelementptr i8, ptr %112, i64 4
   %114 = icmp eq i32 %51, 1
   br i1 %114, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc208.i
-  %115 = getelementptr i32, ptr %112, i64 %107
+  %115 = getelementptr i8, ptr %112, i64 %111
   %116 = add nsw i64 %111, -4
   call void @llvm.memset.p0.i64(ptr align 4 %113, i8 0, i64 %116, i1 false)
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i
@@ -3808,7 +3807,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
           cleanup
   br label %.loopexit.split-lp.i
 
-160:                                              ; preds = %110, %109
+160:                                              ; preds = %109, %108
   %161 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit223.i

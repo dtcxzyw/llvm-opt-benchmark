@@ -1038,8 +1038,8 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 12
   %sext.i.i = shl i64 %22, 32
-  %23 = ashr exact i64 %sext.i.i, 32
-  %24 = getelementptr inbounds i32, ptr %.val80, i64 %23
+  %23 = ashr exact i64 %sext.i.i, 30
+  %24 = getelementptr inbounds i8, ptr %.val80, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -1068,8 +1068,8 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   %40 = sub i64 %38, %39
   %41 = sdiv exact i64 %40, 12
   %sext.i.i96 = shl i64 %41, 32
-  %42 = ashr exact i64 %sext.i.i96, 32
-  %43 = getelementptr inbounds i32, ptr %.val85, i64 %42
+  %42 = ashr exact i64 %sext.i.i96, 30
+  %43 = getelementptr inbounds i8, ptr %.val85, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4
@@ -1087,8 +1087,8 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   %52 = sub i64 %50, %51
   %53 = sdiv exact i64 %52, 12
   %sext.i = shl i64 %53, 32
-  %54 = ashr exact i64 %sext.i, 32
-  %55 = getelementptr inbounds i32, ptr %.val87, i64 %54
+  %54 = ashr exact i64 %sext.i, 30
+  %55 = getelementptr inbounds i8, ptr %.val87, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = add nsw i32 %56, -1
   store i32 %57, ptr %55, align 4
@@ -1110,8 +1110,8 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   %69 = sub i64 %60, %68
   %70 = sdiv exact i64 %69, 12
   %sext.i97 = shl i64 %70, 32
-  %71 = ashr exact i64 %sext.i97, 32
-  %72 = getelementptr inbounds i32, ptr %.val89, i64 %71
+  %71 = ashr exact i64 %sext.i97, 30
+  %72 = getelementptr inbounds i8, ptr %.val89, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = add nsw i32 %73, -1
   store i32 %74, ptr %72, align 4
@@ -1156,8 +1156,8 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   %96 = sub i64 %94, %95
   %97 = sdiv exact i64 %96, 12
   %sext.i.i98 = shl i64 %97, 32
-  %98 = ashr exact i64 %sext.i.i98, 32
-  %99 = getelementptr inbounds i32, ptr %.val82, i64 %98
+  %98 = ashr exact i64 %sext.i.i98, 30
+  %99 = getelementptr inbounds i8, ptr %.val82, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = add nsw i32 %100, 1
   store i32 %101, ptr %99, align 4
@@ -1227,8 +1227,8 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   %128 = sub i64 %126, %127
   %129 = sdiv exact i64 %128, 12
   %sext.i101 = shl i64 %129, 32
-  %130 = ashr exact i64 %sext.i101, 32
-  %131 = getelementptr inbounds i32, ptr %.val91, i64 %130
+  %130 = ashr exact i64 %sext.i101, 30
+  %131 = getelementptr inbounds i8, ptr %.val91, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = icmp eq i32 %132, 1
   br i1 %133, label %134, label %160
@@ -1281,8 +1281,8 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   %167 = sub i64 %166, %.pre-phi
   %168 = sdiv exact i64 %167, 12
   %sext.i102 = shl i64 %168, 32
-  %169 = ashr exact i64 %sext.i102, 32
-  %170 = getelementptr inbounds i32, ptr %.val93, i64 %169
+  %169 = ashr exact i64 %sext.i102, 30
+  %170 = getelementptr inbounds i8, ptr %.val93, i64 %169
   %171 = load i32, ptr %170, align 4
   %172 = icmp eq i32 %171, 1
   br i1 %172, label %173, label %205
@@ -4637,8 +4637,8 @@ define void @Jf_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   %29 = getelementptr i8, ptr %0, i64 48
   %.val.i = load ptr, ptr %29, align 8
   %sext = shl i64 %27, 32
-  %30 = ashr exact i64 %sext, 32
-  %31 = getelementptr inbounds i32, ptr %.val.i, i64 %30
+  %30 = ashr exact i64 %sext, 30
+  %31 = getelementptr inbounds i8, ptr %.val.i, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds i8, ptr %0, i64 144
   %34 = load ptr, ptr %33, align 8
@@ -4703,8 +4703,8 @@ Jf_CutGetSign.exit:                               ; preds = %.lr.ph.i, %.lr.ph47
   %58 = and i64 %57, 536870911
   %59 = sub nsw i64 %18, %58
   %sext424 = shl i64 %59, 32
-  %60 = ashr exact i64 %sext424, 32
-  %61 = getelementptr inbounds i32, ptr %.val.i, i64 %60
+  %60 = ashr exact i64 %sext424, 30
+  %61 = getelementptr inbounds i8, ptr %.val.i, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = ashr i32 %62, %.val.i.i
   %64 = sext i32 %63 to i64
@@ -6603,8 +6603,8 @@ define internal fastcc i32 @Vec_SetAppend(ptr nocapture noundef %0, ptr noundef 
   %59 = load ptr, ptr %58, align 8
   %.val41 = load i64, ptr %59, align 8
   %sext42 = shl i64 %.val41, 32
-  %60 = ashr exact i64 %sext42, 32
-  %61 = getelementptr inbounds i64, ptr %59, i64 %60
+  %60 = ashr exact i64 %sext42, 29
+  %61 = getelementptr inbounds i8, ptr %59, i64 %60
   %62 = sext i32 %2 to i64
   %63 = shl nsw i64 %62, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull align 4 %1, i64 %63, i1 false)
@@ -6730,8 +6730,8 @@ define void @Jf_ManComputeCuts(ptr nocapture noundef %0, i32 noundef %1) local_u
   %59 = call fastcc i32 @Vec_SetAppend(ptr noundef nonnull %38, ptr noundef nonnull %4, i32 noundef 3)
   %.val5.i = load ptr, ptr %39, align 8
   %sext.i = shl i64 %indvars.iv, 32
-  %60 = ashr exact i64 %sext.i, 32
-  %61 = getelementptr inbounds i32, ptr %.val5.i, i64 %60
+  %60 = ashr exact i64 %sext.i, 30
+  %61 = getelementptr inbounds i8, ptr %.val5.i, i64 %60
   store i32 %59, ptr %61, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   %.val47.pre = load i64, ptr %45, align 4
@@ -6974,7 +6974,8 @@ define noundef i32 @Jf_ManComputeDelay(ptr nocapture noundef readonly %0, i32 no
 37:                                               ; preds = %34
   %38 = getelementptr i8, ptr %13, i64 144
   %.val43 = load ptr, ptr %38, align 8
-  %39 = getelementptr inbounds i32, ptr %.val43, i64 %indvars.iv
+  %sext.i = shl nuw nsw i64 %indvars.iv, 2
+  %39 = getelementptr inbounds i8, ptr %.val43, i64 %sext.i
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %66
@@ -7073,8 +7074,8 @@ Jf_CutArr.exit:                                   ; preds = %42, %._crit_edge.lo
   %91 = sub i64 %90, %79
   %92 = sdiv exact i64 %91, 12
   %sext = shl i64 %92, 32
-  %93 = ashr exact i64 %sext, 32
-  %94 = getelementptr inbounds i32, ptr %.val44, i64 %93
+  %93 = ashr exact i64 %sext, 30
+  %94 = getelementptr inbounds i8, ptr %.val44, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = tail call noundef i32 @llvm.smax.i32(i32 %.051, i32 %95)
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
@@ -7164,8 +7165,8 @@ define i32 @Jf_ManComputeRefs(ptr nocapture noundef readonly %0) local_unnamed_a
   %46 = sub i64 %44, %45
   %47 = sdiv exact i64 %46, 12
   %sext.i = shl i64 %47, 32
-  %48 = ashr exact i64 %sext.i, 32
-  %49 = getelementptr inbounds i32, ptr %.val64, i64 %48
+  %48 = ashr exact i64 %sext.i, 30
+  %49 = getelementptr inbounds i8, ptr %.val64, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %49, align 4
@@ -7178,7 +7179,8 @@ define i32 @Jf_ManComputeRefs(ptr nocapture noundef readonly %0) local_unnamed_a
 53:                                               ; preds = %52
   %54 = getelementptr i8, ptr %26, i64 144
   %.val67 = load ptr, ptr %54, align 8
-  %55 = getelementptr inbounds i32, ptr %.val67, i64 %indvars.iv.next
+  %sext.i78 = shl nuw nsw i64 %indvars.iv.next, 2
+  %55 = getelementptr inbounds i8, ptr %.val67, i64 %sext.i78
   %56 = load i32, ptr %55, align 4
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %58, label %106
@@ -7838,7 +7840,8 @@ define void @Jf_ManPropagateEla(ptr nocapture noundef readonly %0, i32 noundef %
 46:                                               ; preds = %44
   %47 = getelementptr i8, ptr %24, i64 144
   %.val44 = load ptr, ptr %47, align 8
-  %48 = getelementptr inbounds i32, ptr %.val44, i64 %indvars.iv.next
+  %sext.i = shl nuw nsw i64 %indvars.iv.next, 2
+  %48 = getelementptr inbounds i8, ptr %.val44, i64 %sext.i
   %49 = load i32, ptr %48, align 4
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %51, label %155
@@ -8297,7 +8300,8 @@ Abc_UtilStrsav.exit245:                           ; preds = %Abc_UtilStrsav.exit
 138:                                              ; preds = %131
   %139 = getelementptr i8, ptr %124, i64 144
   %.val206 = load ptr, ptr %139, align 8
-  %140 = getelementptr inbounds i32, ptr %.val206, i64 %indvars.iv345
+  %sext.i = shl nuw nsw i64 %indvars.iv345, 2
+  %140 = getelementptr inbounds i8, ptr %.val206, i64 %sext.i
   %141 = load i32, ptr %140, align 4
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %339, label %143
@@ -8768,8 +8772,8 @@ Vec_IntPush.exit276:                              ; preds = %.Vec_IntGrow.exit10
   %370 = sub nsw i64 %368, %369
   %.val184 = load ptr, ptr %90, align 8
   %sext = shl i64 %370, 32
-  %371 = ashr exact i64 %sext, 32
-  %372 = getelementptr inbounds i32, ptr %.val184, i64 %371
+  %371 = ashr exact i64 %sext, 30
+  %372 = getelementptr inbounds i8, ptr %.val184, i64 %371
   %373 = load i32, ptr %372, align 4
   %.not167 = icmp eq i32 %364, 0
   br i1 %.not167, label %407, label %374
@@ -9581,7 +9585,8 @@ Vec_IntFill.exit:                                 ; preds = %39, %Vec_IntAlloc.e
 66:                                               ; preds = %59
   %67 = getelementptr i8, ptr %52, i64 144
   %.val42 = load ptr, ptr %67, align 8
-  %68 = getelementptr inbounds i32, ptr %.val42, i64 %indvars.iv82
+  %sext.i = shl nuw nsw i64 %indvars.iv82, 2
+  %68 = getelementptr inbounds i8, ptr %.val42, i64 %sext.i
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %175, label %71
@@ -10068,7 +10073,8 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 122:                                              ; preds = %115
   %123 = getelementptr i8, ptr %108, i64 144
   %.val156 = load ptr, ptr %123, align 8
-  %124 = getelementptr inbounds i32, ptr %.val156, i64 %indvars.iv228
+  %sext.i = shl nuw nsw i64 %indvars.iv228, 2
+  %124 = getelementptr inbounds i8, ptr %.val156, i64 %sext.i
   %125 = load i32, ptr %124, align 4
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %274, label %127

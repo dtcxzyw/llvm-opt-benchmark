@@ -31203,32 +31203,32 @@ for.body:                                         ; preds = %for.body.preheader,
 for.body43:                                       ; preds = %for.body43.lr.ph, %_Py_NewRef.exit
   %indvars.iv78 = phi i64 [ 0, %for.body43.lr.ph ], [ %indvars.iv.next79, %_Py_NewRef.exit ]
   %sext = shl i64 %indvars.iv78, 33
-  %idxprom46 = ashr exact i64 %sext, 32
-  %arrayidx47 = getelementptr ptr, ptr %kws, i64 %idxprom46
-  %7 = load ptr, ptr %arrayidx47, align 8
-  %8 = load i32, ptr %7, align 8
-  %add.i.i = add i32 %8, 1
+  %7 = ashr exact i64 %sext, 29
+  %arrayidx47 = getelementptr i8, ptr %kws, i64 %7
+  %8 = load ptr, ptr %arrayidx47, align 8
+  %9 = load i32, ptr %8, align 8
+  %add.i.i = add i32 %9, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %_Py_NewRef.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body43
-  store i32 %add.i.i, ptr %7, align 8
+  store i32 %add.i.i, ptr %8, align 8
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %for.body43, %if.end.i.i
   %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %indvars.iv78
-  store ptr %7, ptr %arrayidx.i, align 8
+  store ptr %8, ptr %arrayidx.i, align 8
   %indvars.iv78.tr = trunc i64 %indvars.iv78 to i32
-  %9 = shl i32 %indvars.iv78.tr, 1
-  %10 = or disjoint i32 %9, 1
-  %idxprom51 = sext i32 %10 to i64
+  %10 = shl i32 %indvars.iv78.tr, 1
+  %11 = or disjoint i32 %10, 1
+  %idxprom51 = sext i32 %11 to i64
   %arrayidx52 = getelementptr ptr, ptr %kws, i64 %idxprom51
-  %11 = load ptr, ptr %arrayidx52, align 8
-  %12 = trunc nuw nsw i64 %indvars.iv78 to i32
-  %add53 = add i32 %12, %argcount
+  %12 = load ptr, ptr %arrayidx52, align 8
+  %13 = trunc nuw nsw i64 %indvars.iv78 to i32
+  %add53 = add i32 %13, %argcount
   %idxprom54 = sext i32 %add53 to i64
   %arrayidx55 = getelementptr ptr, ptr %call30, i64 %idxprom54
-  store ptr %11, ptr %arrayidx55, align 8
+  store ptr %12, ptr %arrayidx55, align 8
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count83
   br i1 %exitcond84.not, label %if.end59, label %for.body43, !llvm.loop !74
@@ -31242,10 +31242,10 @@ if.end59:                                         ; preds = %_Py_NewRef.exit, %f
   store ptr %call3, ptr %fc_builtins, align 8
   %fc_name = getelementptr inbounds i8, ptr %constr, i64 16
   %co_name = getelementptr inbounds i8, ptr %_co, i64 120
-  %13 = load ptr, ptr %co_name, align 8
-  store ptr %13, ptr %fc_name, align 8
+  %14 = load ptr, ptr %co_name, align 8
+  store ptr %14, ptr %fc_name, align 8
   %fc_qualname = getelementptr inbounds i8, ptr %constr, i64 24
-  store ptr %13, ptr %fc_qualname, align 8
+  store ptr %14, ptr %fc_qualname, align 8
   %fc_code = getelementptr inbounds i8, ptr %constr, i64 32
   store ptr %_co, ptr %fc_code, align 8
   %fc_defaults = getelementptr inbounds i8, ptr %constr, i64 40
@@ -31261,23 +31261,23 @@ if.end59:                                         ; preds = %_Py_NewRef.exit, %f
 do.body72:                                        ; preds = %if.end59
   %conv66 = sext i32 %argcount to i64
   %call67 = call ptr @_PyEval_Vector(ptr noundef %1, ptr noundef nonnull %call61, ptr noundef %spec.select, ptr noundef %allargs.0, i64 noundef %conv66, ptr noundef %kwnames.0)
-  %14 = load i64, ptr %call61, align 8
-  %15 = and i64 %14, 2147483648
-  %cmp.i132.not = icmp eq i64 %15, 0
+  %15 = load i64, ptr %call61, align 8
+  %16 = and i64 %15, 2147483648
+  %cmp.i132.not = icmp eq i64 %16, 0
   br i1 %cmp.i132.not, label %if.end77, label %do.body89
 
 if.end77:                                         ; preds = %do.body72
-  %dec78 = add i64 %14, -1
+  %dec78 = add i64 %15, -1
   store i64 %dec78, ptr %call61, align 8
   %cmp79 = icmp eq i64 %dec78, 0
   br i1 %cmp79, label %if.then81, label %do.body89
 
 if.then81:                                        ; preds = %if.end77
-  %16 = getelementptr i8, ptr %call61, i64 8
-  %func.0.val = load ptr, ptr %16, align 8
+  %17 = getelementptr i8, ptr %call61, i64 8
+  %func.0.val = load ptr, ptr %17, align 8
   %tp_dealloc84 = getelementptr inbounds i8, ptr %func.0.val, i64 48
-  %17 = load ptr, ptr %tp_dealloc84, align 8
-  call void %17(ptr noundef nonnull %call61) #15
+  %18 = load ptr, ptr %tp_dealloc84, align 8
+  call void %18(ptr noundef nonnull %call61) #15
   br label %do.body89
 
 do.body89:                                        ; preds = %if.end59, %do.body72, %if.then81, %if.end77
@@ -31289,46 +31289,46 @@ do.body94:                                        ; preds = %if.end28, %do.body8
   %newargs.15672 = phi ptr [ %newargs.0, %do.body89 ], [ null, %if.end28 ]
   %kwnames.15771 = phi ptr [ %kwnames.0, %do.body89 ], [ %call24, %if.end28 ]
   %res.05870 = phi ptr [ %res.058, %do.body89 ], [ null, %if.end28 ]
-  %18 = load i64, ptr %kwnames.15771, align 8
-  %19 = and i64 %18, 2147483648
-  %cmp.i128.not = icmp eq i64 %19, 0
+  %19 = load i64, ptr %kwnames.15771, align 8
+  %20 = and i64 %19, 2147483648
+  %cmp.i128.not = icmp eq i64 %20, 0
   br i1 %cmp.i128.not, label %if.end99, label %do.end110
 
 if.end99:                                         ; preds = %do.body94
-  %dec100 = add i64 %18, -1
+  %dec100 = add i64 %19, -1
   store i64 %dec100, ptr %kwnames.15771, align 8
   %cmp101 = icmp eq i64 %dec100, 0
   br i1 %cmp101, label %if.then103, label %do.end110
 
 if.then103:                                       ; preds = %if.end99
-  %20 = getelementptr i8, ptr %kwnames.15771, i64 8
-  %kwnames.1.val = load ptr, ptr %20, align 8
+  %21 = getelementptr i8, ptr %kwnames.15771, i64 8
+  %kwnames.1.val = load ptr, ptr %21, align 8
   %tp_dealloc106 = getelementptr inbounds i8, ptr %kwnames.1.val, i64 48
-  %21 = load ptr, ptr %tp_dealloc106, align 8
-  call void %21(ptr noundef nonnull %kwnames.15771) #15
+  %22 = load ptr, ptr %tp_dealloc106, align 8
+  call void %22(ptr noundef nonnull %kwnames.15771) #15
   br label %do.end110
 
 do.end110:                                        ; preds = %if.else, %do.body89, %if.end99, %if.then103, %do.body94
   %newargs.15664 = phi ptr [ %newargs.0, %do.body89 ], [ %newargs.15672, %if.end99 ], [ %newargs.15672, %if.then103 ], [ %newargs.15672, %do.body94 ], [ null, %if.else ]
   %res.05863 = phi ptr [ %res.058, %do.body89 ], [ %res.05870, %if.end99 ], [ %res.05870, %if.then103 ], [ %res.05870, %do.body94 ], [ null, %if.else ]
   call void @PyMem_Free(ptr noundef %newargs.15664) #15
-  %22 = load i64, ptr %call1, align 8
-  %23 = and i64 %22, 2147483648
-  %cmp.i.not = icmp eq i64 %23, 0
+  %23 = load i64, ptr %call1, align 8
+  %24 = and i64 %23, 2147483648
+  %cmp.i.not = icmp eq i64 %24, 0
   br i1 %cmp.i.not, label %if.end116, label %return
 
 if.end116:                                        ; preds = %do.end110
-  %dec117 = add i64 %22, -1
+  %dec117 = add i64 %23, -1
   store i64 %dec117, ptr %call1, align 8
   %cmp118 = icmp eq i64 %dec117, 0
   br i1 %cmp118, label %if.then120, label %return
 
 if.then120:                                       ; preds = %if.end116
-  %24 = getelementptr i8, ptr %call1, i64 8
-  %call1.val = load ptr, ptr %24, align 8
+  %25 = getelementptr i8, ptr %call1, i64 8
+  %call1.val = load ptr, ptr %25, align 8
   %tp_dealloc123 = getelementptr inbounds i8, ptr %call1.val, i64 48
-  %25 = load ptr, ptr %tp_dealloc123, align 8
-  call void %25(ptr noundef nonnull %call1) #15
+  %26 = load ptr, ptr %tp_dealloc123, align 8
+  call void %26(ptr noundef nonnull %call1) #15
   br label %return
 
 return:                                           ; preds = %do.end110, %if.then120, %if.end116, %do.body, %if.then12, %if.end9, %entry

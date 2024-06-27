@@ -499,21 +499,21 @@ define void @Gia_ManLutParams(ptr noundef %0, ptr nocapture noundef %1, ptr noca
   %74 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv139
   %75 = load i32, ptr %74, align 4
   %sext = shl i64 %63, 32
-  %76 = ashr exact i64 %sext, 32
-  %77 = getelementptr inbounds i32, ptr %37, i64 %76
+  %76 = ashr exact i64 %sext, 30
+  %77 = getelementptr inbounds i8, ptr %37, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = add nsw i32 %78, 1
   %80 = call noundef i32 @llvm.smax.i32(i32 %75, i32 %79)
   store i32 %80, ptr %74, align 4
   %sext123 = shl i64 %68, 32
-  %81 = ashr exact i64 %sext123, 32
-  %82 = getelementptr inbounds i32, ptr %37, i64 %81
+  %81 = ashr exact i64 %sext123, 30
+  %82 = getelementptr inbounds i8, ptr %37, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = call noundef i32 @llvm.smax.i32(i32 %80, i32 %83)
   store i32 %84, ptr %74, align 4
   %sext124 = shl i64 %73, 32
-  %85 = ashr exact i64 %sext124, 32
-  %86 = getelementptr inbounds i32, ptr %37, i64 %85
+  %85 = ashr exact i64 %sext124, 30
+  %86 = getelementptr inbounds i8, ptr %37, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = call noundef i32 @llvm.smax.i32(i32 %84, i32 %87)
   store i32 %88, ptr %74, align 4
@@ -1946,21 +1946,21 @@ define void @Gia_ManPrintMappingStats(ptr noundef %0, ptr noundef readonly %1) l
   %54 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv205
   %55 = load i32, ptr %54, align 4
   %sext = shl i64 %43, 32
-  %56 = ashr exact i64 %sext, 32
-  %57 = getelementptr inbounds i32, ptr %11, i64 %56
+  %56 = ashr exact i64 %sext, 30
+  %57 = getelementptr inbounds i8, ptr %11, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = add nsw i32 %58, 1
   %60 = call noundef i32 @llvm.smax.i32(i32 %55, i32 %59)
   store i32 %60, ptr %54, align 4
   %sext183 = shl i64 %48, 32
-  %61 = ashr exact i64 %sext183, 32
-  %62 = getelementptr inbounds i32, ptr %11, i64 %61
+  %61 = ashr exact i64 %sext183, 30
+  %62 = getelementptr inbounds i8, ptr %11, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = call noundef i32 @llvm.smax.i32(i32 %60, i32 %63)
   store i32 %64, ptr %54, align 4
   %sext184 = shl i64 %53, 32
-  %65 = ashr exact i64 %sext184, 32
-  %66 = getelementptr inbounds i32, ptr %11, i64 %65
+  %65 = ashr exact i64 %sext184, 30
+  %66 = getelementptr inbounds i8, ptr %11, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = call noundef i32 @llvm.smax.i32(i32 %64, i32 %67)
   store i32 %68, ptr %54, align 4
@@ -2489,8 +2489,8 @@ define void @Gia_ManChoiceLevel_rec(ptr noundef %0, ptr noundef %1) local_unname
   %10 = sub i64 %8, %9
   %11 = sdiv exact i64 %10, 12
   %sext.i = shl i64 %11, 32
-  %12 = ashr exact i64 %sext.i, 32
-  %13 = getelementptr inbounds i32, ptr %6, i64 %12
+  %12 = ashr exact i64 %sext.i, 30
+  %13 = getelementptr inbounds i8, ptr %6, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i8, ptr %0, i64 176
   %16 = load i32, ptr %15, align 8
@@ -2554,8 +2554,8 @@ define void @Gia_ManChoiceLevel_rec(ptr noundef %0, ptr noundef %1) local_unname
   %46 = getelementptr i8, ptr %.val83, i64 8
   %.val.i.i.i = load ptr, ptr %46, align 8
   %sext.i109 = shl i64 %43, 32
-  %47 = ashr exact i64 %sext.i109, 32
-  %48 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %47
+  %47 = ashr exact i64 %sext.i109, 30
+  %48 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = icmp slt i32 %.0138, %49
   br i1 %50, label %51, label %61
@@ -2572,8 +2572,8 @@ define void @Gia_ManChoiceLevel_rec(ptr noundef %0, ptr noundef %1) local_unname
   %57 = getelementptr i8, ptr %.val85, i64 8
   %.val.i.i.i110 = load ptr, ptr %57, align 8
   %sext.i111 = shl i64 %54, 32
-  %58 = ashr exact i64 %sext.i111, 32
-  %59 = getelementptr inbounds i32, ptr %.val.i.i.i110, i64 %58
+  %58 = ashr exact i64 %sext.i111, 30
+  %59 = getelementptr inbounds i8, ptr %.val.i.i.i110, i64 %58
   %60 = load i32, ptr %59, align 4
   br label %61
 
@@ -2612,8 +2612,8 @@ define void @Gia_ManChoiceLevel_rec(ptr noundef %0, ptr noundef %1) local_unname
   %77 = getelementptr i8, ptr %.val87, i64 8
   %.val.i.i.i113 = load ptr, ptr %77, align 8
   %sext.i114 = shl i64 %74, 32
-  %78 = ashr exact i64 %sext.i114, 32
-  %79 = getelementptr inbounds i32, ptr %.val.i.i.i113, i64 %78
+  %78 = ashr exact i64 %sext.i114, 30
+  %79 = getelementptr inbounds i8, ptr %.val.i.i.i113, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %82, label %Gia_ObjSiblObj.exit.thread
@@ -2630,8 +2630,8 @@ define void @Gia_ManChoiceLevel_rec(ptr noundef %0, ptr noundef %1) local_unname
   %88 = getelementptr i8, ptr %.val89, i64 8
   %.val.i.i.i115 = load ptr, ptr %88, align 8
   %sext.i116 = shl i64 %85, 32
-  %89 = ashr exact i64 %sext.i116, 32
-  %90 = getelementptr inbounds i32, ptr %.val.i.i.i115, i64 %89
+  %89 = ashr exact i64 %sext.i116, 30
+  %90 = getelementptr inbounds i8, ptr %.val.i.i.i115, i64 %89
   %91 = load i32, ptr %90, align 4
   br label %Gia_ObjSiblObj.exit.thread
 
@@ -2657,8 +2657,8 @@ define void @Gia_ManChoiceLevel_rec(ptr noundef %0, ptr noundef %1) local_unname
   %103 = getelementptr i8, ptr %.val91, i64 8
   %.val.i.i.i119 = load ptr, ptr %103, align 8
   %sext.i120 = shl i64 %100, 32
-  %104 = ashr exact i64 %sext.i120, 32
-  %105 = getelementptr inbounds i32, ptr %.val.i.i.i119, i64 %104
+  %104 = ashr exact i64 %sext.i120, 30
+  %105 = getelementptr inbounds i8, ptr %.val.i.i.i119, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = icmp sgt i32 %106, 0
   br i1 %107, label %108, label %118
@@ -2675,8 +2675,8 @@ define void @Gia_ManChoiceLevel_rec(ptr noundef %0, ptr noundef %1) local_unname
   %114 = getelementptr i8, ptr %.val93, i64 8
   %.val.i.i.i121 = load ptr, ptr %114, align 8
   %sext.i122 = shl i64 %111, 32
-  %115 = ashr exact i64 %sext.i122, 32
-  %116 = getelementptr inbounds i32, ptr %.val.i.i.i121, i64 %115
+  %115 = ashr exact i64 %sext.i122, 30
+  %116 = getelementptr inbounds i8, ptr %.val.i.i.i121, i64 %115
   %117 = load i32, ptr %116, align 4
   br label %118
 
@@ -2700,8 +2700,8 @@ define void @Gia_ManChoiceLevel_rec(ptr noundef %0, ptr noundef %1) local_unname
   %130 = getelementptr i8, ptr %.val95, i64 8
   %.val.i.i.i123 = load ptr, ptr %130, align 8
   %sext.i124 = shl i64 %127, 32
-  %131 = ashr exact i64 %sext.i124, 32
-  %132 = getelementptr inbounds i32, ptr %.val.i.i.i123, i64 %131
+  %131 = ashr exact i64 %sext.i124, 30
+  %132 = getelementptr inbounds i8, ptr %.val.i.i.i123, i64 %131
   %133 = load i32, ptr %132, align 4
   %134 = icmp slt i32 %.2, %133
   br i1 %134, label %135, label %145
@@ -2718,8 +2718,8 @@ define void @Gia_ManChoiceLevel_rec(ptr noundef %0, ptr noundef %1) local_unname
   %141 = getelementptr i8, ptr %.val97, i64 8
   %.val.i.i.i125 = load ptr, ptr %141, align 8
   %sext.i126 = shl i64 %138, 32
-  %142 = ashr exact i64 %sext.i126, 32
-  %143 = getelementptr inbounds i32, ptr %.val.i.i.i125, i64 %142
+  %142 = ashr exact i64 %sext.i126, 30
+  %143 = getelementptr inbounds i8, ptr %.val.i.i.i125, i64 %142
   %144 = load i32, ptr %143, align 4
   br label %145
 
@@ -2737,8 +2737,8 @@ define void @Gia_ManChoiceLevel_rec(ptr noundef %0, ptr noundef %1) local_unname
   %151 = sub i64 %8, %150
   %152 = sdiv exact i64 %151, 12
   %sext = shl i64 %152, 32
-  %153 = ashr exact i64 %sext, 32
-  %154 = getelementptr inbounds i32, ptr %148, i64 %153
+  %153 = ashr exact i64 %sext, 30
+  %154 = getelementptr inbounds i8, ptr %148, i64 %153
   %155 = load i32, ptr %154, align 4
   %.not6.i = icmp eq i32 %155, 0
   br i1 %.not6.i, label %Gia_ObjSiblObj.exit.thread, label %Gia_ObjSiblObj.exit
@@ -2759,8 +2759,8 @@ Gia_ObjSiblObj.exit:                              ; preds = %149
   %164 = getelementptr i8, ptr %.val99, i64 8
   %.val.i.i.i129 = load ptr, ptr %164, align 8
   %sext.i130 = shl i64 %161, 32
-  %165 = ashr exact i64 %sext.i130, 32
-  %166 = getelementptr inbounds i32, ptr %.val.i.i.i129, i64 %165
+  %165 = ashr exact i64 %sext.i130, 30
+  %166 = getelementptr inbounds i8, ptr %.val.i.i.i129, i64 %165
   %167 = load i32, ptr %166, align 4
   %168 = icmp slt i32 %146, %167
   br i1 %168, label %169, label %Gia_ObjSiblObj.exit.thread
@@ -2777,8 +2777,8 @@ Gia_ObjSiblObj.exit:                              ; preds = %149
   %175 = getelementptr i8, ptr %.val101, i64 8
   %.val.i.i.i131 = load ptr, ptr %175, align 8
   %sext.i132 = shl i64 %172, 32
-  %176 = ashr exact i64 %sext.i132, 32
-  %177 = getelementptr inbounds i32, ptr %.val.i.i.i131, i64 %176
+  %176 = ashr exact i64 %sext.i132, 30
+  %177 = getelementptr inbounds i8, ptr %.val.i.i.i131, i64 %176
   %178 = load i32, ptr %177, align 4
   br label %Gia_ObjSiblObj.exit.thread
 
@@ -2796,8 +2796,8 @@ Gia_ObjSiblObj.exit.thread:                       ; preds = %26, %._crit_edge.lo
   %185 = getelementptr i8, ptr %.val106, i64 8
   %.val.i.i.i134 = load ptr, ptr %185, align 8
   %sext.i135 = shl i64 %182, 32
-  %186 = ashr exact i64 %sext.i135, 32
-  %187 = getelementptr inbounds i32, ptr %.val.i.i.i134, i64 %186
+  %186 = ashr exact i64 %sext.i135, 30
+  %187 = getelementptr inbounds i8, ptr %.val.i.i.i134, i64 %186
   store i32 %.4, ptr %187, align 4
   br label %188
 
@@ -2857,8 +2857,8 @@ define i32 @Gia_ManChoiceLevel(ptr noundef %0) local_unnamed_addr #3 {
   %23 = getelementptr i8, ptr %.val57, i64 8
   %.val.i.i.i = load ptr, ptr %23, align 8
   %sext.i = shl i64 %20, 32
-  %24 = ashr exact i64 %sext.i, 32
-  %25 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %24
+  %24 = ashr exact i64 %sext.i, 30
+  %25 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp slt i32 %.069, %26
   br i1 %27, label %28, label %38
@@ -2875,8 +2875,8 @@ define i32 @Gia_ManChoiceLevel(ptr noundef %0) local_unnamed_addr #3 {
   %34 = getelementptr i8, ptr %.val55, i64 8
   %.val.i.i.i61 = load ptr, ptr %34, align 8
   %sext.i62 = shl i64 %31, 32
-  %35 = ashr exact i64 %sext.i62, 32
-  %36 = getelementptr inbounds i32, ptr %.val.i.i.i61, i64 %35
+  %35 = ashr exact i64 %sext.i62, 30
+  %36 = getelementptr inbounds i8, ptr %.val.i.i.i61, i64 %35
   %37 = load i32, ptr %36, align 4
   br label %38
 
@@ -2931,8 +2931,8 @@ define i32 @Gia_ManChoiceLevel(ptr noundef %0) local_unnamed_addr #3 {
   %62 = getelementptr i8, ptr %.val53, i64 8
   %.val.i.i.i63 = load ptr, ptr %62, align 8
   %sext.i64 = shl i64 %59, 32
-  %63 = ashr exact i64 %sext.i64, 32
-  %64 = getelementptr inbounds i32, ptr %.val.i.i.i63, i64 %63
+  %63 = ashr exact i64 %sext.i64, 30
+  %64 = getelementptr inbounds i8, ptr %.val.i.i.i63, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = icmp slt i32 %.274, %65
   br i1 %66, label %67, label %77
@@ -2949,8 +2949,8 @@ define i32 @Gia_ManChoiceLevel(ptr noundef %0) local_unnamed_addr #3 {
   %73 = getelementptr i8, ptr %.val51, i64 8
   %.val.i.i.i65 = load ptr, ptr %73, align 8
   %sext.i66 = shl i64 %70, 32
-  %74 = ashr exact i64 %sext.i66, 32
-  %75 = getelementptr inbounds i32, ptr %.val.i.i.i65, i64 %74
+  %74 = ashr exact i64 %sext.i66, 30
+  %75 = getelementptr inbounds i8, ptr %.val.i.i.i65, i64 %74
   %76 = load i32, ptr %75, align 4
   br label %77
 
@@ -3266,8 +3266,8 @@ Abc_UtilStrsav.exit:                              ; preds = %6, %8
   %75 = getelementptr i8, ptr %.val81, i64 8
   %.val.i.i.i = load ptr, ptr %75, align 8
   %sext.i = shl i64 %72, 32
-  %76 = ashr exact i64 %sext.i, 32
-  %77 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %76
+  %76 = ashr exact i64 %sext.i, 30
+  %77 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = load i32, ptr %68, align 8
   %80 = shl i32 %78, 13
@@ -3369,8 +3369,8 @@ Gia_ObjSibl.exit:                                 ; preds = %105
   %129 = sub i64 %127, %128
   %130 = sdiv exact i64 %129, 12
   %sext = shl i64 %130, 32
-  %131 = ashr exact i64 %sext, 32
-  %132 = getelementptr inbounds i32, ptr %125, i64 %131
+  %131 = ashr exact i64 %sext, 30
+  %132 = getelementptr inbounds i8, ptr %125, i64 %131
   %133 = load i32, ptr %132, align 4
   %.not6.i110 = icmp eq i32 %133, 0
   %134 = sext i32 %133 to i64
@@ -8701,8 +8701,8 @@ Vec_IntPrint.exit:                                ; preds = %98, %.critedge
   %122 = and i64 %.val3.i.i, 536870911
   %123 = sub nsw i64 %119, %122
   %sext.i = shl i64 %123, 32
-  %124 = ashr exact i64 %sext.i, 32
-  %125 = getelementptr inbounds i32, ptr %.val88, i64 %124
+  %124 = ashr exact i64 %sext.i, 30
+  %125 = getelementptr inbounds i8, ptr %.val88, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = trunc i64 %.val3.i.i to i32
   %128 = lshr i32 %127, 29
@@ -8712,8 +8712,8 @@ Vec_IntPrint.exit:                                ; preds = %98, %.critedge
   %132 = and i64 %131, 536870911
   %133 = sub nsw i64 %119, %132
   %sext.i93 = shl i64 %133, 32
-  %134 = ashr exact i64 %sext.i93, 32
-  %135 = getelementptr inbounds i32, ptr %.val88, i64 %134
+  %134 = ashr exact i64 %sext.i93, 30
+  %135 = getelementptr inbounds i8, ptr %.val88, i64 %134
   %136 = load i32, ptr %135, align 4
   %137 = lshr i64 %.val3.i.i, 61
   %138 = trunc nuw nsw i64 %137 to i32
@@ -8726,8 +8726,8 @@ Vec_IntPrint.exit:                                ; preds = %98, %.critedge
   %144 = sdiv exact i64 %143, 12
   %.val83 = load ptr, ptr %79, align 8
   %sext = shl i64 %144, 32
-  %145 = ashr exact i64 %sext, 32
-  %146 = getelementptr inbounds i32, ptr %.val83, i64 %145
+  %145 = ashr exact i64 %sext, 30
+  %146 = getelementptr inbounds i8, ptr %.val83, i64 %145
   store i32 %141, ptr %146, align 4
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112130, 1
   %.val72 = load i32, ptr %94, align 4
@@ -12846,8 +12846,8 @@ define range(i32 0, 2) i32 @Gia_ManMappingVerify_rec(ptr nocapture noundef reado
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
   %sext.i = shl i64 %9, 32
-  %10 = ashr exact i64 %sext.i, 32
-  %11 = getelementptr inbounds i32, ptr %4, i64 %10
+  %10 = ashr exact i64 %sext.i, 30
+  %11 = getelementptr inbounds i8, ptr %4, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 176
   %14 = load i32, ptr %13, align 8
@@ -13012,8 +13012,8 @@ Gia_ObjIsAndNotBuf.exit:                          ; preds = %19
   %34 = getelementptr i8, ptr %.val46, i64 8
   %.val46.val = load ptr, ptr %34, align 8
   %sext = shl i64 %33, 32
-  %35 = ashr exact i64 %sext, 32
-  %36 = getelementptr inbounds i32, ptr %.val46.val, i64 %35
+  %35 = ashr exact i64 %sext, 30
+  %36 = getelementptr inbounds i8, ptr %.val46.val, i64 %35
   %37 = load i32, ptr %36, align 4
   %.not67 = icmp eq i32 %37, 0
   br i1 %.not67, label %38, label %40
@@ -13089,8 +13089,8 @@ Gia_ObjIsAndNotBuf.exit61:                        ; preds = %53
   %74 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %74, align 8
   %sext69 = shl i64 %73, 32
-  %75 = ashr exact i64 %sext69, 32
-  %76 = getelementptr inbounds i32, ptr %.val.val, i64 %75
+  %75 = ashr exact i64 %sext69, 30
+  %76 = getelementptr inbounds i8, ptr %.val.val, i64 %75
   %77 = load i32, ptr %76, align 4
   %.not70 = icmp eq i32 %77, 0
   br i1 %.not70, label %78, label %80

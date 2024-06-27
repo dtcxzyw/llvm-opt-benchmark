@@ -76,7 +76,8 @@ for.body.i.i:                                     ; preds = %invoke.cont.i, %for
 
 _ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsISt10shared_ptrINS_5ArrayEEEESt6vectorIlSaIlEERKS6_IT_SaIS9_EE.exit: ; preds = %for.body.i.i, %invoke.cont.i
   %offset.1.i = phi i64 [ 0, %invoke.cont.i ], [ %add.i.i.i, %for.body.i.i ]
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %3, i64 %sub.ptr.div.i.i
+  %6 = ashr exact i64 %sub.ptr.sub.i.i, 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %6
   store i64 %offset.1.i, ptr %add.ptr.i.i, align 8, !noalias !4
   %cached_chunk_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %cached_chunk_, align 8
@@ -222,7 +223,8 @@ for.body.i.i:                                     ; preds = %invoke.cont.i, %for
 
 _ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsISt10shared_ptrINS_11RecordBatchEEEESt6vectorIlSaIlEERKS6_IT_SaIS9_EE.exit: ; preds = %for.body.i.i, %invoke.cont.i
   %offset.1.i = phi i64 [ 0, %invoke.cont.i ], [ %add.i.i.i, %for.body.i.i ]
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %3, i64 %sub.ptr.div.i.i
+  %5 = ashr exact i64 %sub.ptr.sub.i.i, 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %5
   store i64 %offset.1.i, ptr %add.ptr.i.i, align 8, !noalias !13
   %cached_chunk_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %cached_chunk_, align 8

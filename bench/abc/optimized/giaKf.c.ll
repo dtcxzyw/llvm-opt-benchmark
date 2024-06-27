@@ -77,7 +77,8 @@ define noundef i32 @Kf_ManComputeDelay(ptr nocapture noundef readonly %0, i32 no
 19:                                               ; preds = %14
   %20 = getelementptr i8, ptr %12, i64 144
   %.val34 = load ptr, ptr %20, align 8
-  %21 = getelementptr inbounds i32, ptr %.val34, i64 %indvars.iv
+  %sext.i = shl nuw nsw i64 %indvars.iv, 2
+  %21 = getelementptr inbounds i8, ptr %.val34, i64 %sext.i
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %50
@@ -179,8 +180,8 @@ Kf_CutTime.exit:                                  ; preds = %24, %._crit_edge.lo
   %75 = sub i64 %74, %63
   %76 = sdiv exact i64 %75, 12
   %sext = shl i64 %76, 32
-  %77 = ashr exact i64 %sext, 32
-  %78 = getelementptr inbounds i32, ptr %.val35, i64 %77
+  %77 = ashr exact i64 %sext, 30
+  %78 = getelementptr inbounds i8, ptr %.val35, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = tail call noundef i32 @llvm.smax.i32(i32 %.044, i32 %79)
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
@@ -269,8 +270,8 @@ define i32 @Kf_ManComputeRefs(ptr nocapture noundef readonly %0) local_unnamed_a
   %45 = sub i64 %43, %44
   %46 = sdiv exact i64 %45, 12
   %sext.i = shl i64 %46, 32
-  %47 = ashr exact i64 %sext.i, 32
-  %48 = getelementptr inbounds i32, ptr %.val66, i64 %47
+  %47 = ashr exact i64 %sext.i, 30
+  %48 = getelementptr inbounds i8, ptr %.val66, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 4
@@ -283,7 +284,8 @@ define i32 @Kf_ManComputeRefs(ptr nocapture noundef readonly %0) local_unnamed_a
 52:                                               ; preds = %51
   %53 = getelementptr i8, ptr %25, i64 144
   %.val57 = load ptr, ptr %53, align 8
-  %54 = getelementptr inbounds i32, ptr %.val57, i64 %indvars.iv.next
+  %sext.i71 = shl nuw nsw i64 %indvars.iv.next, 2
+  %54 = getelementptr inbounds i8, ptr %.val57, i64 %sext.i71
   %55 = load i32, ptr %54, align 4
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %57, label %90
@@ -1690,8 +1692,8 @@ Abc_Clock.exit:                                   ; preds = %112, %116
   %204 = load ptr, ptr %203, align 8
   %.val41.i.i = load i64, ptr %204, align 8
   %sext42.i.i = shl i64 %.val41.i.i, 32
-  %205 = ashr exact i64 %sext42.i.i, 32
-  %206 = getelementptr inbounds i64, ptr %204, i64 %205
+  %205 = ashr exact i64 %sext42.i.i, 29
+  %206 = getelementptr inbounds i8, ptr %204, i64 %205
   %207 = sext i32 %.val157 to i64
   %208 = shl nsw i64 %207, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %206, ptr nonnull readonly align 4 %.val158, i64 %208, i1 false)
@@ -2826,8 +2828,8 @@ define internal fastcc void @Kf_ObjSetCuts(ptr nocapture noundef %0, i32 noundef
   %59 = load ptr, ptr %58, align 8
   %.val41.i = load i64, ptr %59, align 8
   %sext42.i = shl i64 %.val41.i, 32
-  %60 = ashr exact i64 %sext42.i, 32
-  %61 = getelementptr inbounds i64, ptr %59, i64 %60
+  %60 = ashr exact i64 %sext42.i, 29
+  %61 = getelementptr inbounds i8, ptr %59, i64 %60
   %62 = sext i32 %.4.val to i64
   %63 = shl nsw i64 %62, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull readonly align 4 %.8.val, i64 %63, i1 false)
@@ -3095,8 +3097,8 @@ define void @Kf_ManComputeMapping(ptr noundef %0) local_unnamed_addr #5 {
   %107 = sub nsw i64 %indvars.iv192, %106
   %.val.i.i = load ptr, ptr %65, align 8
   %sext = shl i64 %107, 32
-  %108 = ashr exact i64 %sext, 32
-  %109 = getelementptr inbounds i32, ptr %.val.i.i, i64 %108
+  %108 = ashr exact i64 %sext, 30
+  %109 = getelementptr inbounds i8, ptr %.val.i.i, i64 %108
   %110 = load i32, ptr %109, align 4
   %111 = load ptr, ptr %66, align 8
   %.val.i.i.i = load i32, ptr %64, align 8
@@ -3112,8 +3114,8 @@ define void @Kf_ManComputeMapping(ptr noundef %0) local_unnamed_addr #5 {
   %120 = and i64 %119, 536870911
   %121 = sub nsw i64 %indvars.iv192, %120
   %sext196 = shl i64 %121, 32
-  %122 = ashr exact i64 %sext196, 32
-  %123 = getelementptr inbounds i32, ptr %.val.i.i, i64 %122
+  %122 = ashr exact i64 %sext196, 30
+  %123 = getelementptr inbounds i8, ptr %.val.i.i, i64 %122
   %124 = load i32, ptr %123, align 4
   %125 = ashr i32 %124, %.val.i.i.i
   %126 = sext i32 %125 to i64
@@ -3427,8 +3429,8 @@ Kf_SetMerge.exit:                                 ; preds = %select.unfold._crit
   %282 = sub nsw i64 %indvars.iv192, %281
   %.val.i.i142 = load ptr, ptr %65, align 8
   %sext199 = shl i64 %282, 32
-  %283 = ashr exact i64 %sext199, 32
-  %284 = getelementptr inbounds i32, ptr %.val.i.i142, i64 %283
+  %283 = ashr exact i64 %sext199, 30
+  %284 = getelementptr inbounds i8, ptr %.val.i.i142, i64 %283
   %285 = load i32, ptr %284, align 4
   %286 = load ptr, ptr %66, align 8
   %.val.i.i.i143 = load i32, ptr %64, align 8
@@ -3444,8 +3446,8 @@ Kf_SetMerge.exit:                                 ; preds = %select.unfold._crit
   %295 = and i64 %294, 536870911
   %296 = sub nsw i64 %indvars.iv192, %295
   %sext200 = shl i64 %296, 32
-  %297 = ashr exact i64 %sext200, 32
-  %298 = getelementptr inbounds i32, ptr %.val.i.i142, i64 %297
+  %297 = ashr exact i64 %sext200, 30
+  %298 = getelementptr inbounds i8, ptr %.val.i.i142, i64 %297
   %299 = load i32, ptr %298, align 4
   %300 = ashr i32 %299, %.val.i.i.i143
   %301 = sext i32 %300 to i64
@@ -4279,8 +4281,8 @@ Vec_FltFill.exit:                                 ; preds = %20, %Vec_FltGrow.ex
   %36 = sub nsw i64 %indvars.iv87, %35
   %.val53 = load ptr, ptr %27, align 8
   %sext83 = shl i64 %36, 32
-  %37 = ashr exact i64 %sext83, 32
-  %38 = getelementptr inbounds float, ptr %.val53, i64 %37
+  %37 = ashr exact i64 %sext83, 30
+  %38 = getelementptr inbounds i8, ptr %.val53, i64 %37
   %39 = load float, ptr %38, align 4
   %40 = fadd float %39, 1.000000e+00
   store float %40, ptr %38, align 4
@@ -4290,8 +4292,8 @@ Vec_FltFill.exit:                                 ; preds = %20, %Vec_FltGrow.ex
   %43 = sub nsw i64 %indvars.iv87, %42
   %.val54 = load ptr, ptr %27, align 8
   %sext84 = shl i64 %43, 32
-  %44 = ashr exact i64 %sext84, 32
-  %45 = getelementptr inbounds float, ptr %.val54, i64 %44
+  %44 = ashr exact i64 %sext84, 30
+  %45 = getelementptr inbounds i8, ptr %.val54, i64 %44
   %46 = load float, ptr %45, align 4
   %47 = fadd float %46, 1.000000e+00
   store float %47, ptr %45, align 4
@@ -4309,8 +4311,8 @@ Vec_FltFill.exit:                                 ; preds = %20, %Vec_FltGrow.ex
   %55 = sdiv exact i64 %54, 12
   %.val55 = load ptr, ptr %27, align 8
   %sext = shl i64 %55, 32
-  %56 = ashr exact i64 %sext, 32
-  %57 = getelementptr inbounds float, ptr %.val55, i64 %56
+  %56 = ashr exact i64 %sext, 30
+  %57 = getelementptr inbounds i8, ptr %.val55, i64 %56
   %58 = load float, ptr %57, align 4
   %59 = fadd float %58, -1.000000e+00
   store float %59, ptr %57, align 4
@@ -4332,8 +4334,8 @@ Vec_FltFill.exit:                                 ; preds = %20, %Vec_FltGrow.ex
   %72 = sdiv exact i64 %71, 12
   %.val56 = load ptr, ptr %27, align 8
   %sext60 = shl i64 %72, 32
-  %73 = ashr exact i64 %sext60, 32
-  %74 = getelementptr inbounds float, ptr %.val56, i64 %73
+  %73 = ashr exact i64 %sext60, 30
+  %74 = getelementptr inbounds i8, ptr %.val56, i64 %73
   %75 = load float, ptr %74, align 4
   %76 = fadd float %75, -1.000000e+00
   store float %76, ptr %74, align 4
@@ -4948,7 +4950,8 @@ Vec_IntFill.exit:                                 ; preds = %39, %Vec_IntAlloc.e
 66:                                               ; preds = %59
   %67 = getelementptr i8, ptr %52, i64 144
   %.val38 = load ptr, ptr %67, align 8
-  %68 = getelementptr inbounds i32, ptr %.val38, i64 %indvars.iv83
+  %sext.i = shl nuw nsw i64 %indvars.iv83, 2
+  %68 = getelementptr inbounds i8, ptr %.val38, i64 %sext.i
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %175, label %71

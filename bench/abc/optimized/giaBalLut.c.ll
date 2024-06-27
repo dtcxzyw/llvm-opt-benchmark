@@ -1711,82 +1711,83 @@ define i32 @Bal_ManSetGateLevel(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %.not.i.i, label %Gia_ObjIsMux.exit, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i32, ptr %.val71, i64 %8
-  %13 = load i32, ptr %12, align 4
-  %.not87 = icmp eq i32 %13, 0
+  %12 = shl nsw i64 %8, 2
+  %13 = getelementptr inbounds i8, ptr %.val71, i64 %12
+  %14 = load i32, ptr %13, align 4
+  %.not87 = icmp eq i32 %14, 0
   br label %Gia_ObjIsMux.exit
 
 Gia_ObjIsMux.exit:                                ; preds = %3, %11
   %.not = phi i1 [ true, %3 ], [ %.not87, %11 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr i8, ptr %15, i64 4
-  %.val = load i32, ptr %16, align 4
-  %17 = icmp slt i32 %4, %.val
-  br i1 %17, label %57, label %18
+  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr i8, ptr %16, i64 4
+  %.val = load i32, ptr %17, align 4
+  %18 = icmp slt i32 %4, %.val
+  br i1 %18, label %58, label %19
 
-18:                                               ; preds = %Gia_ObjIsMux.exit
+19:                                               ; preds = %Gia_ObjIsMux.exit
   %.val72 = load i64, ptr %9, align 4
-  %19 = trunc i64 %.val72 to i32
-  %20 = and i32 %19, 536870911
-  %21 = sub nsw i32 %4, %20
-  %22 = lshr i64 %.val72, 32
-  %23 = trunc nuw i64 %22 to i32
-  %24 = and i32 %23, 536870911
-  %25 = sub nsw i32 %4, %24
+  %20 = trunc i64 %.val72 to i32
+  %21 = and i32 %20, 536870911
+  %22 = sub nsw i32 %4, %21
+  %23 = lshr i64 %.val72, 32
+  %24 = trunc nuw i64 %23 to i32
+  %25 = and i32 %24, 536870911
+  %26 = sub nsw i32 %4, %25
   %brmerge = or i1 %.not.i.i, %.not
   %not..not = xor i1 %.not, true
   %.mux = sext i1 %not..not to i32
-  br i1 %brmerge, label %Gia_ObjFaninC2.exit, label %26
+  br i1 %brmerge, label %Gia_ObjFaninC2.exit, label %27
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds i32, ptr %.val71, i64 %8
-  %28 = load i32, ptr %27, align 4
-  %.not5.i = icmp eq i32 %28, 0
-  %29 = ashr i32 %28, 1
-  %spec.select.i = select i1 %.not5.i, i32 -1, i32 %29
+27:                                               ; preds = %19
+  %28 = getelementptr inbounds i32, ptr %.val71, i64 %8
+  %29 = load i32, ptr %28, align 4
+  %.not5.i = icmp eq i32 %29, 0
+  %30 = ashr i32 %29, 1
+  %spec.select.i = select i1 %.not5.i, i32 -1, i32 %30
   br label %Gia_ObjFaninC2.exit
 
-Gia_ObjFaninC2.exit:                              ; preds = %18, %26
-  %30 = phi i32 [ %spec.select.i, %26 ], [ %.mux, %18 ]
-  %31 = getelementptr i8, ptr %0, i64 32
-  %.val66 = load ptr, ptr %31, align 8
-  %32 = getelementptr i8, ptr %.val66, i64 8
-  %.val66.val = load ptr, ptr %32, align 8
-  %33 = sext i32 %21 to i64
-  %34 = getelementptr inbounds i32, ptr %.val66.val, i64 %33
-  %35 = load i32, ptr %34, align 4
-  %36 = ashr i32 %35, 4
-  %37 = sext i32 %25 to i64
-  %38 = getelementptr inbounds i32, ptr %.val66.val, i64 %37
-  %39 = load i32, ptr %38, align 4
-  %40 = ashr i32 %39, 4
-  %41 = sext i32 %30 to i64
-  %42 = getelementptr inbounds i32, ptr %.val66.val, i64 %41
-  %43 = load i32, ptr %42, align 4
-  %44 = ashr i32 %43, 4
-  %45 = tail call noundef i32 @llvm.smax.i32(i32 %40, i32 %44)
-  %46 = tail call noundef i32 @llvm.smax.i32(i32 %36, i32 %45)
-  %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %Gia_ObjIsXor.exit, label %Gia_ObjIsXor.exit84
+Gia_ObjFaninC2.exit:                              ; preds = %19, %27
+  %31 = phi i32 [ %spec.select.i, %27 ], [ %.mux, %19 ]
+  %32 = getelementptr i8, ptr %0, i64 32
+  %.val66 = load ptr, ptr %32, align 8
+  %33 = getelementptr i8, ptr %.val66, i64 8
+  %.val66.val = load ptr, ptr %33, align 8
+  %34 = sext i32 %22 to i64
+  %35 = getelementptr inbounds i32, ptr %.val66.val, i64 %34
+  %36 = load i32, ptr %35, align 4
+  %37 = ashr i32 %36, 4
+  %38 = sext i32 %26 to i64
+  %39 = getelementptr inbounds i32, ptr %.val66.val, i64 %38
+  %40 = load i32, ptr %39, align 4
+  %41 = ashr i32 %40, 4
+  %42 = sext i32 %31 to i64
+  %43 = getelementptr inbounds i32, ptr %.val66.val, i64 %42
+  %44 = load i32, ptr %43, align 4
+  %45 = ashr i32 %44, 4
+  %46 = tail call noundef i32 @llvm.smax.i32(i32 %41, i32 %45)
+  %47 = tail call noundef i32 @llvm.smax.i32(i32 %37, i32 %46)
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %Gia_ObjIsXor.exit, label %Gia_ObjIsXor.exit84
 
 Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjFaninC2.exit
-  %48 = icmp ne i32 %44, %46
-  %49 = zext i1 %48 to i32
-  %50 = icmp ne i32 %40, %46
-  %51 = zext i1 %50 to i32
-  %52 = icmp slt i32 %36, %45
-  %53 = zext i1 %52 to i32
-  %54 = tail call i32 @Bal_ManDeriveCuts(ptr noundef nonnull %0, i32 noundef %21, i32 noundef %25, i32 noundef %30, i32 poison, i32 poison, i32 poison, i32 noundef %53, i32 noundef %51, i32 noundef %49, i32 poison, i32 poison, i32 noundef 1)
-  %55 = icmp sgt i32 %54, -1
-  br i1 %55, label %57, label %Gia_ObjIsXor.exit84
+  %49 = icmp ne i32 %45, %47
+  %50 = zext i1 %49 to i32
+  %51 = icmp ne i32 %41, %47
+  %52 = zext i1 %51 to i32
+  %53 = icmp slt i32 %37, %46
+  %54 = zext i1 %53 to i32
+  %55 = tail call i32 @Bal_ManDeriveCuts(ptr noundef nonnull %0, i32 noundef %22, i32 noundef %26, i32 noundef %31, i32 poison, i32 poison, i32 poison, i32 noundef %54, i32 noundef %52, i32 noundef %50, i32 poison, i32 poison, i32 noundef 1)
+  %56 = icmp sgt i32 %55, -1
+  br i1 %56, label %58, label %Gia_ObjIsXor.exit84
 
 Gia_ObjIsXor.exit84:                              ; preds = %Gia_ObjIsXor.exit, %Gia_ObjFaninC2.exit
-  %56 = tail call i32 @Bal_ManDeriveCuts(ptr noundef nonnull %0, i32 noundef %21, i32 noundef %25, i32 noundef %30, i32 poison, i32 poison, i32 poison, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 poison, i32 poison, i32 noundef 1)
-  br label %57
+  %57 = tail call i32 @Bal_ManDeriveCuts(ptr noundef nonnull %0, i32 noundef %22, i32 noundef %26, i32 noundef %31, i32 poison, i32 poison, i32 poison, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 poison, i32 poison, i32 noundef 1)
+  br label %58
 
-57:                                               ; preds = %Gia_ObjIsXor.exit, %Gia_ObjIsMux.exit, %Gia_ObjIsXor.exit84
-  %.0 = phi i32 [ %56, %Gia_ObjIsXor.exit84 ], [ -1, %Gia_ObjIsMux.exit ], [ %54, %Gia_ObjIsXor.exit ]
+58:                                               ; preds = %Gia_ObjIsXor.exit, %Gia_ObjIsMux.exit, %Gia_ObjIsXor.exit84
+  %.0 = phi i32 [ %57, %Gia_ObjIsXor.exit84 ], [ -1, %Gia_ObjIsMux.exit ], [ %55, %Gia_ObjIsXor.exit ]
   ret i32 %.0
 }
 
@@ -2387,8 +2388,8 @@ Gia_ObjIsMux.exit:                                ; preds = %6
   %11 = sub i64 %9, %10
   %12 = sdiv exact i64 %11, 12
   %sext.i = shl i64 %12, 32
-  %13 = ashr exact i64 %sext.i, 32
-  %14 = getelementptr inbounds i32, ptr %.val58, i64 %13
+  %13 = ashr exact i64 %sext.i, 30
+  %14 = getelementptr inbounds i8, ptr %.val58, i64 %13
   %15 = load i32, ptr %14, align 4
   %.not101 = icmp eq i32 %15, 0
   br i1 %.not101, label %Gia_ObjIsMux.exit.thread, label %16
@@ -2415,8 +2416,8 @@ Gia_ObjIsMux.exit:                                ; preds = %6
   %29 = sub i64 %9, %28
   %30 = sdiv exact i64 %29, 12
   %sext.i64 = shl i64 %30, 32
-  %31 = ashr exact i64 %sext.i64, 32
-  %32 = getelementptr inbounds i32, ptr %26, i64 %31
+  %31 = ashr exact i64 %sext.i64, 30
+  %32 = getelementptr inbounds i8, ptr %26, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = ashr i32 %33, 1
   %35 = sext i32 %34 to i64
@@ -2436,8 +2437,8 @@ Gia_ObjFanin2.exit:                               ; preds = %16, %27
   %41 = sub i64 %9, %40
   %42 = sdiv exact i64 %41, 12
   %sext.i.i = shl i64 %42, 32
-  %43 = ashr exact i64 %sext.i.i, 32
-  %44 = getelementptr inbounds i32, ptr %38, i64 %43
+  %43 = ashr exact i64 %sext.i.i, 30
+  %44 = getelementptr inbounds i8, ptr %38, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = ashr i32 %45, 1
   %47 = sext i32 %46 to i64
@@ -2660,8 +2661,8 @@ Gia_ObjIsAndReal.exit.i:                          ; preds = %147
   %150 = sub i64 %148, %149
   %151 = sdiv exact i64 %150, 12
   %sext.i.i.i = shl i64 %151, 32
-  %152 = ashr exact i64 %sext.i.i.i, 32
-  %153 = getelementptr inbounds i32, ptr %.val6.i.i, i64 %152
+  %152 = ashr exact i64 %sext.i.i.i, 30
+  %153 = getelementptr inbounds i8, ptr %.val6.i.i, i64 %152
   %154 = load i32, ptr %153, align 4
   %.not43.i = icmp eq i32 %154, 0
   br i1 %.not43.i, label %Gia_ObjIsAndReal.exit.thread41.i, label %Gia_ManSuperCollect.exit
@@ -4212,8 +4213,8 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsXor.exit.l
   %18 = sub i64 %16, %17
   %19 = sdiv exact i64 %18, 12
   %sext.i = shl i64 %19, 32
-  %20 = ashr exact i64 %sext.i, 32
-  %21 = getelementptr inbounds i32, ptr %.val13, i64 %20
+  %20 = ashr exact i64 %sext.i, 30
+  %21 = getelementptr inbounds i8, ptr %.val13, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 3
   br i1 %23, label %Gia_ObjIsXor.exit.thread, label %24
@@ -4367,18 +4368,18 @@ define internal fastcc void @Gia_ManSuperCollectAnd_rec(ptr nocapture noundef re
   %.pre38 = sub i64 %10, %.pre
   %.pre40 = sdiv exact i64 %.pre38, 12
   %.pre42 = shl i64 %.pre40, 32
-  %.pre43 = ashr exact i64 %.pre42, 32
+  %.pre43 = ashr exact i64 %.pre42, 30
   br i1 %.not.i.i.i, label %Gia_ObjIsAndReal.exit.thread18, label %Gia_ObjIsAndReal.exit
 
 Gia_ObjIsAndReal.exit:                            ; preds = %21
-  %22 = getelementptr inbounds i32, ptr %.val6.i, i64 %.pre43
+  %22 = getelementptr inbounds i8, ptr %.val6.i, i64 %.pre43
   %23 = load i32, ptr %22, align 4
   %.not20 = icmp eq i32 %23, 0
   br i1 %.not20, label %Gia_ObjIsAndReal.exit.thread18, label %Gia_ObjIsAndReal.exit.thread
 
 Gia_ObjIsAndReal.exit.thread18:                   ; preds = %21, %Gia_ObjIsAndReal.exit
   %.val15 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds i32, ptr %.val15, i64 %.pre43
+  %24 = getelementptr inbounds i8, ptr %.val15, i64 %.pre43
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, 3
   br i1 %26, label %Gia_ObjIsAndReal.exit.thread, label %27

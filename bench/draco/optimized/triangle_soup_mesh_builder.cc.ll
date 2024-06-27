@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"struct.draco::Mesh::AttributeData" = type { i32 }
 
 $_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_ = comdat any
 
@@ -457,9 +456,9 @@ define void @_ZN5draco23TriangleSoupMeshBuilder8FinalizeEv(ptr dead_on_unwind no
   %24 = zext nneg i8 %20 to i32
   %25 = getelementptr inbounds i8, ptr %23, i64 168
   %sext = shl i64 %.05, 32
-  %26 = ashr exact i64 %sext, 32
-  %27 = load ptr, ptr %25, align 8
-  %28 = getelementptr inbounds %"struct.draco::Mesh::AttributeData", ptr %27, i64 %26
+  %26 = load ptr, ptr %25, align 8
+  %27 = ashr exact i64 %sext, 30
+  %28 = getelementptr inbounds i8, ptr %26, i64 %27
   store i32 %24, ptr %28, align 4
   %.pre = load ptr, ptr %14, align 8
   %.pre6 = load ptr, ptr %1, align 8

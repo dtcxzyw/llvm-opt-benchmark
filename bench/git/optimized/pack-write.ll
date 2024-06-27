@@ -1368,16 +1368,16 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 96
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %7, i64 %sub.ptr.div.i.i.i
-  %10 = load i32, ptr %arrayidx.i.i.i, align 4
+  %10 = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 %10
+  %11 = load i32, ptr %arrayidx.i.i.i, align 4
   br label %oe_cruft_mtime.exit.i.i
 
 oe_cruft_mtime.exit.i.i:                          ; preds = %if.end.i.i.i, %for.body.i.i
-  %retval.0.i.i.i = phi i32 [ %10, %if.end.i.i.i ], [ 0, %for.body.i.i ]
+  %retval.0.i.i.i = phi i32 [ %11, %if.end.i.i.i ], [ 0, %for.body.i.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data.addr.i.i8.i)
-  %11 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %retval.0.i.i.i) #20, !srcloc !7
-  store i32 %11, ptr %data.addr.i.i8.i, align 4
+  %12 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %retval.0.i.i.i) #20, !srcloc !7
+  store i32 %12, ptr %data.addr.i.i8.i, align 4
   call void @hashwrite(ptr noundef %call2.i, ptr noundef nonnull %data.addr.i.i8.i, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i.i8.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1385,12 +1385,12 @@ oe_cruft_mtime.exit.i.i:                          ; preds = %if.end.i.i.i, %for.
   br i1 %exitcond.not.i.i, label %write_mtimes_objects.exit.i, label %for.body.i.i, !llvm.loop !19
 
 write_mtimes_objects.exit.i:                      ; preds = %oe_cruft_mtime.exit.i.i, %if.end.i17
-  %12 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i13.i = getelementptr inbounds i8, ptr %12, i64 256
-  %13 = load ptr, ptr %hash_algo.i13.i, align 8
-  %rawsz.i.i = getelementptr inbounds i8, ptr %13, i64 16
-  %14 = load i64, ptr %rawsz.i.i, align 8
-  %conv.i14.i = trunc i64 %14 to i32
+  %13 = load ptr, ptr @the_repository, align 8
+  %hash_algo.i13.i = getelementptr inbounds i8, ptr %13, i64 256
+  %14 = load ptr, ptr %hash_algo.i13.i, align 8
+  %rawsz.i.i = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = load i64, ptr %rawsz.i.i, align 8
+  %conv.i14.i = trunc i64 %15 to i32
   call void @hashwrite(ptr noundef %call2.i, ptr noundef %hash, i32 noundef %conv.i14.i) #19
   %call3.i18 = call i32 @adjust_shared_perm(ptr noundef %call1.i) #19
   %cmp.i = icmp slt i32 %call3.i18, 0
@@ -1409,23 +1409,23 @@ write_mtimes_file.exit:                           ; preds = %write_mtimes_object
 if.end11:                                         ; preds = %write_mtimes_file.exit, %write_rev_file.exit
   %mtimes_tmp_name.0 = phi ptr [ %call1.i, %write_mtimes_file.exit ], [ null, %write_rev_file.exit ]
   %len.i = getelementptr inbounds i8, ptr %name_buffer, i64 8
-  %15 = load i64, ptr %len.i, align 8
+  %16 = load i64, ptr %len.i, align 8
   call void @strbuf_add(ptr noundef %name_buffer, ptr noundef nonnull @.str.21, i64 noundef 4) #19
   %buf.i = getelementptr inbounds i8, ptr %name_buffer, i64 16
-  %16 = load ptr, ptr %buf.i, align 8
-  %call.i20 = call i32 @rename(ptr noundef readonly %pack_tmp_name, ptr noundef %16) #19
+  %17 = load ptr, ptr %buf.i, align 8
+  %call.i20 = call i32 @rename(ptr noundef readonly %pack_tmp_name, ptr noundef %17) #19
   %tobool.not.i21 = icmp eq i32 %call.i20, 0
   br i1 %tobool.not.i21, label %if.end.i23, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end11
-  %17 = load ptr, ptr %buf.i, align 8
-  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.29, ptr noundef %17) #21
+  %18 = load ptr, ptr %buf.i, align 8
+  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.29, ptr noundef %18) #21
   unreachable
 
 if.end.i23:                                       ; preds = %if.end11
-  %18 = load i64, ptr %name_buffer, align 8
-  %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %18, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i.i, %15
+  %19 = load i64, ptr %name_buffer, align 8
+  %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %19, i64 1)
+  %cmp.i.i = icmp ult i64 %spec.select.i.i, %16
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i23
@@ -1433,13 +1433,13 @@ if.then.i.i:                                      ; preds = %if.end.i23
   unreachable
 
 if.end.i.i:                                       ; preds = %if.end.i23
-  store i64 %15, ptr %len.i, align 8
-  %19 = load ptr, ptr %buf.i, align 8
-  %cmp3.not.i.i24 = icmp eq ptr %19, @strbuf_slopbuf
+  store i64 %16, ptr %len.i, align 8
+  %20 = load ptr, ptr %buf.i, align 8
+  %cmp3.not.i.i24 = icmp eq ptr %20, @strbuf_slopbuf
   br i1 %cmp3.not.i.i24, label %rename_tmp_packfile.exit, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %arrayidx.i.i25 = getelementptr inbounds i8, ptr %19, i64 %15
+  %arrayidx.i.i25 = getelementptr inbounds i8, ptr %20, i64 %16
   store i8 0, ptr %arrayidx.i.i25, align 1
   br label %rename_tmp_packfile.exit
 
@@ -1448,22 +1448,22 @@ rename_tmp_packfile.exit:                         ; preds = %if.end.i.i, %if.the
   br i1 %tobool12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %rename_tmp_packfile.exit
-  %20 = load i64, ptr %len.i, align 8
+  %21 = load i64, ptr %len.i, align 8
   call void @strbuf_add(ptr noundef nonnull %name_buffer, ptr noundef nonnull @.str.22, i64 noundef 3) #19
-  %21 = load ptr, ptr %buf.i, align 8
-  %call.i29 = call i32 @rename(ptr noundef nonnull readonly %retval.0.i, ptr noundef %21) #19
+  %22 = load ptr, ptr %buf.i, align 8
+  %call.i29 = call i32 @rename(ptr noundef nonnull readonly %retval.0.i, ptr noundef %22) #19
   %tobool.not.i30 = icmp eq i32 %call.i29, 0
   br i1 %tobool.not.i30, label %if.end.i32, label %if.then.i31
 
 if.then.i31:                                      ; preds = %if.then13
-  %22 = load ptr, ptr %buf.i, align 8
-  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.29, ptr noundef %22) #21
+  %23 = load ptr, ptr %buf.i, align 8
+  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.29, ptr noundef %23) #21
   unreachable
 
 if.end.i32:                                       ; preds = %if.then13
-  %23 = load i64, ptr %name_buffer, align 8
-  %spec.select.i.i33 = call i64 @llvm.usub.sat.i64(i64 %23, i64 1)
-  %cmp.i.i34 = icmp ult i64 %spec.select.i.i33, %20
+  %24 = load i64, ptr %name_buffer, align 8
+  %spec.select.i.i33 = call i64 @llvm.usub.sat.i64(i64 %24, i64 1)
+  %cmp.i.i34 = icmp ult i64 %spec.select.i.i33, %21
   br i1 %cmp.i.i34, label %if.then.i.i39, label %if.end.i.i35
 
 if.then.i.i39:                                    ; preds = %if.end.i32
@@ -1471,13 +1471,13 @@ if.then.i.i39:                                    ; preds = %if.end.i32
   unreachable
 
 if.end.i.i35:                                     ; preds = %if.end.i32
-  store i64 %20, ptr %len.i, align 8
-  %24 = load ptr, ptr %buf.i, align 8
-  %cmp3.not.i.i36 = icmp eq ptr %24, @strbuf_slopbuf
+  store i64 %21, ptr %len.i, align 8
+  %25 = load ptr, ptr %buf.i, align 8
+  %cmp3.not.i.i36 = icmp eq ptr %25, @strbuf_slopbuf
   br i1 %cmp3.not.i.i36, label %if.end14, label %if.then4.i.i37
 
 if.then4.i.i37:                                   ; preds = %if.end.i.i35
-  %arrayidx.i.i38 = getelementptr inbounds i8, ptr %24, i64 %20
+  %arrayidx.i.i38 = getelementptr inbounds i8, ptr %25, i64 %21
   store i8 0, ptr %arrayidx.i.i38, align 1
   br label %if.end14
 
@@ -1486,22 +1486,22 @@ if.end14:                                         ; preds = %if.then4.i.i37, %if
   br i1 %tobool15.not, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %25 = load i64, ptr %len.i, align 8
+  %26 = load i64, ptr %len.i, align 8
   call void @strbuf_add(ptr noundef nonnull %name_buffer, ptr noundef nonnull @.str.23, i64 noundef 6) #19
-  %26 = load ptr, ptr %buf.i, align 8
-  %call.i44 = call i32 @rename(ptr noundef nonnull readonly %mtimes_tmp_name.0, ptr noundef %26) #19
+  %27 = load ptr, ptr %buf.i, align 8
+  %call.i44 = call i32 @rename(ptr noundef nonnull readonly %mtimes_tmp_name.0, ptr noundef %27) #19
   %tobool.not.i45 = icmp eq i32 %call.i44, 0
   br i1 %tobool.not.i45, label %if.end.i47, label %if.then.i46
 
 if.then.i46:                                      ; preds = %if.then16
-  %27 = load ptr, ptr %buf.i, align 8
-  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.29, ptr noundef %27) #21
+  %28 = load ptr, ptr %buf.i, align 8
+  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.29, ptr noundef %28) #21
   unreachable
 
 if.end.i47:                                       ; preds = %if.then16
-  %28 = load i64, ptr %name_buffer, align 8
-  %spec.select.i.i48 = call i64 @llvm.usub.sat.i64(i64 %28, i64 1)
-  %cmp.i.i49 = icmp ult i64 %spec.select.i.i48, %25
+  %29 = load i64, ptr %name_buffer, align 8
+  %spec.select.i.i48 = call i64 @llvm.usub.sat.i64(i64 %29, i64 1)
+  %cmp.i.i49 = icmp ult i64 %spec.select.i.i48, %26
   br i1 %cmp.i.i49, label %if.then.i.i54, label %if.end.i.i50
 
 if.then.i.i54:                                    ; preds = %if.end.i47
@@ -1509,13 +1509,13 @@ if.then.i.i54:                                    ; preds = %if.end.i47
   unreachable
 
 if.end.i.i50:                                     ; preds = %if.end.i47
-  store i64 %25, ptr %len.i, align 8
-  %29 = load ptr, ptr %buf.i, align 8
-  %cmp3.not.i.i51 = icmp eq ptr %29, @strbuf_slopbuf
+  store i64 %26, ptr %len.i, align 8
+  %30 = load ptr, ptr %buf.i, align 8
+  %cmp3.not.i.i51 = icmp eq ptr %30, @strbuf_slopbuf
   br i1 %cmp3.not.i.i51, label %if.end17, label %if.then4.i.i52
 
 if.then4.i.i52:                                   ; preds = %if.end.i.i50
-  %arrayidx.i.i53 = getelementptr inbounds i8, ptr %29, i64 %25
+  %arrayidx.i.i53 = getelementptr inbounds i8, ptr %30, i64 %26
   store i8 0, ptr %arrayidx.i.i53, align 1
   br label %if.end17
 
