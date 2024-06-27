@@ -5144,80 +5144,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @math_tan(ptr nocapture readnone %self, ptr noundef %args) #0 {
 entry:
-  %call.i = tail call double @PyFloat_AsDouble(ptr noundef %args) #15
-  %cmp.i = fcmp oeq double %call.i, -1.000000e+00
-  br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
-
-land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #15
-  %tobool.not.i = icmp eq ptr %call1.i, null
-  br i1 %tobool.not.i, label %if.end.i, label %math_1.exit
-
-if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  %call2.i = tail call ptr @__errno_location() #16
-  store i32 0, ptr %call2.i, align 4
-  %call3.i = tail call double @tan(double noundef %call.i) #15
-  %0 = fcmp ord double %call3.i, 0.000000e+00
-  %1 = fcmp uno double %call.i, 0.000000e+00
-  %or.cond.i = or i1 %1, %0
-  br i1 %or.cond.i, label %if.end6.i, label %if.then5.i
-
-if.then5.i:                                       ; preds = %if.end.i
-  %2 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.57) #15
-  br label %math_1.exit
-
-if.end6.i:                                        ; preds = %if.end.i
-  %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
-  %isinf.i = fcmp une double %3, 0x7FF0000000000000
-  %4 = tail call double @llvm.fabs.f64(double %call.i)
-  %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %or.cond9.i = or i1 %5, %isinf.i
-  br i1 %or.cond9.i, label %if.end13.i, label %if.then9.i
-
-if.then9.i:                                       ; preds = %if.end6.i
-  %6 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.57) #15
-  br label %math_1.exit
-
-if.end13.i:                                       ; preds = %if.end6.i
-  %7 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %7, label %if.end21.i, label %land.lhs.true14.i
-
-land.lhs.true14.i:                                ; preds = %if.end13.i
-  %8 = load i32, ptr %call2.i, align 4
-  switch i32 %8, label %if.else7.i.i [
-    i32 0, label %if.end21.i
-    i32 33, label %if.then.i.i
-    i32 34, label %if.then3.i.i
-  ]
-
-if.then.i.i:                                      ; preds = %land.lhs.true14.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.57) #15
-  br label %math_1.exit
-
-if.then3.i.i:                                     ; preds = %land.lhs.true14.i
-  %cmp4.i.i = fcmp olt double %3, 1.500000e+00
-  br i1 %cmp4.i.i, label %if.end21.i, label %if.else6.i.i
-
-if.else6.i.i:                                     ; preds = %if.then3.i.i
-  %10 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.58) #15
-  br label %math_1.exit
-
-if.else7.i.i:                                     ; preds = %land.lhs.true14.i
-  %11 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %11) #15
-  br label %math_1.exit
-
-if.end21.i:                                       ; preds = %if.then3.i.i, %land.lhs.true14.i, %if.end13.i
-  %call22.i = tail call ptr @PyFloat_FromDouble(double noundef %call3.i) #15
-  br label %math_1.exit
-
-math_1.exit:                                      ; preds = %land.lhs.true.i, %if.then5.i, %if.then9.i, %if.then.i.i, %if.else6.i.i, %if.else7.i.i, %if.end21.i
-  %retval.0.i = phi ptr [ %call22.i, %if.end21.i ], [ null, %if.then5.i ], [ null, %land.lhs.true.i ], [ null, %if.then9.i ], [ null, %if.then.i.i ], [ null, %if.else6.i.i ], [ null, %if.else7.i.i ]
-  ret ptr %retval.0.i
+  %call = tail call fastcc ptr @math_1(ptr noundef %args, ptr noundef nonnull @tan, i32 noundef 0)
+  ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8976,7 +8904,7 @@ return:                                           ; preds = %if.end17, %if.end15
 declare double @sinh(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @tan(double noundef) local_unnamed_addr #2
+declare double @tan(double noundef) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @tanh(double noundef) local_unnamed_addr #2
