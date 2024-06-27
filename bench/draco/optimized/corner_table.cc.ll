@@ -164,64 +164,63 @@ _ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit:
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
-  %16 = sdiv exact i64 %15, 12
-  %17 = mul nsw i64 %16, 3
-  tail call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %17)
-  %18 = load ptr, ptr %10, align 8
-  %19 = load ptr, ptr %1, align 8
+  %16 = ashr exact i64 %15, 2
+  tail call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEESaIS3_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %16)
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %1, align 8
+  %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
-  %21 = ptrtoint ptr %19 to i64
-  %22 = sub i64 %20, %21
-  %23 = sdiv exact i64 %22, 12
-  %24 = and i64 %23, 4294967295
-  %.not = icmp eq i64 %24, 0
+  %21 = sub i64 %19, %20
+  %22 = sdiv exact i64 %21, 12
+  %23 = and i64 %22, 4294967295
+  %.not = icmp eq i64 %23, 0
   br i1 %.not, label %._crit_edge, label %.preheader
 
-.preheader:                                       ; preds = %_ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit, %35
-  %indvars.iv19 = phi i64 [ %indvars.iv.next20, %35 ], [ 0, %_ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit ]
-  %25 = mul nuw nsw i64 %indvars.iv19, 3
-  br label %26
+.preheader:                                       ; preds = %_ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit, %34
+  %indvars.iv19 = phi i64 [ %indvars.iv.next20, %34 ], [ 0, %_ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit ]
+  %24 = mul nuw nsw i64 %indvars.iv19, 3
+  br label %25
 
-26:                                               ; preds = %.preheader, %26
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %26 ]
-  %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr inbounds %"struct.std::array", ptr %27, i64 %indvars.iv19
-  %29 = getelementptr inbounds [3 x %"class.draco::IndexType.28"], ptr %28, i64 0, i64 %indvars.iv
-  %30 = add nuw i64 %25, %indvars.iv
-  %31 = and i64 %30, 4294967295
-  %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds %"class.draco::IndexType.28", ptr %32, i64 %31
-  %34 = load i32, ptr %29, align 4
-  store i32 %34, ptr %33, align 4
+25:                                               ; preds = %.preheader, %25
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %25 ]
+  %26 = load ptr, ptr %1, align 8
+  %27 = getelementptr inbounds %"struct.std::array", ptr %26, i64 %indvars.iv19
+  %28 = getelementptr inbounds [3 x %"class.draco::IndexType.28"], ptr %27, i64 0, i64 %indvars.iv
+  %29 = add nuw i64 %24, %indvars.iv
+  %30 = and i64 %29, 4294967295
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds %"class.draco::IndexType.28", ptr %31, i64 %30
+  %33 = load i32, ptr %28, align 4
+  store i32 %33, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %35, label %26, !llvm.loop !4
+  br i1 %exitcond.not, label %34, label %25, !llvm.loop !4
 
-35:                                               ; preds = %26
+34:                                               ; preds = %25
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %1, align 8
+  %35 = load ptr, ptr %10, align 8
+  %36 = load ptr, ptr %1, align 8
+  %37 = ptrtoint ptr %35 to i64
   %38 = ptrtoint ptr %36 to i64
-  %39 = ptrtoint ptr %37 to i64
-  %40 = sub i64 %38, %39
-  %41 = sdiv exact i64 %40, 12
-  %42 = and i64 %41, 4294967295
-  %43 = icmp ult i64 %indvars.iv.next20, %42
-  br i1 %43, label %.preheader, label %._crit_edge, !llvm.loop !6
+  %39 = sub i64 %37, %38
+  %40 = sdiv exact i64 %39, 12
+  %41 = and i64 %40, 4294967295
+  %42 = icmp ult i64 %indvars.iv.next20, %41
+  br i1 %42, label %.preheader, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %35, %_ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit
+._crit_edge:                                      ; preds = %34, %_ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit
   store i32 -1, ptr %3, align 4
-  %44 = call noundef zeroext i1 @_ZN5draco11CornerTable22ComputeOppositeCornersEPi(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull %3)
-  br i1 %44, label %45, label %49
+  %43 = call noundef zeroext i1 @_ZN5draco11CornerTable22ComputeOppositeCornersEPi(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull %3)
+  br i1 %43, label %44, label %48
 
-45:                                               ; preds = %._crit_edge
-  %46 = call noundef zeroext i1 @_ZN5draco11CornerTable21BreakNonManifoldEdgesEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
-  %47 = load i32, ptr %3, align 4
-  %48 = call noundef zeroext i1 @_ZN5draco11CornerTable20ComputeVertexCornersEi(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef %47)
-  br label %49
+44:                                               ; preds = %._crit_edge
+  %45 = call noundef zeroext i1 @_ZN5draco11CornerTable21BreakNonManifoldEdgesEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
+  %46 = load i32, ptr %3, align 4
+  %47 = call noundef zeroext i1 @_ZN5draco11CornerTable20ComputeVertexCornersEi(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef %46)
+  br label %48
 
-49:                                               ; preds = %._crit_edge, %45
-  ret i1 %44
+48:                                               ; preds = %._crit_edge, %44
+  ret i1 %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

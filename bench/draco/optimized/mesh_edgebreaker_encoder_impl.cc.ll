@@ -19921,92 +19921,91 @@ define linkonce_odr void @_ZN5draco31MeshEdgebreakerTraversalEncoder22EncodeTrav
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
-  %18 = sdiv exact i64 %17, 12
-  %19 = mul nsw i64 %18, 3
-  %20 = and i64 %19, 4294967295
-  %21 = tail call noundef zeroext i1 @_ZN5draco13EncoderBuffer16StartBitEncodingElb(ptr noundef nonnull align 8 dereferenceable(41) %2, i64 noundef %20, i1 noundef zeroext true)
-  %22 = getelementptr inbounds i8, ptr %0, i64 112
-  %23 = getelementptr inbounds i8, ptr %0, i64 120
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %22, align 8
+  %18 = lshr exact i64 %17, 2
+  %19 = and i64 %18, 4294967295
+  %20 = tail call noundef zeroext i1 @_ZN5draco13EncoderBuffer16StartBitEncodingElb(ptr noundef nonnull align 8 dereferenceable(41) %2, i64 noundef %19, i1 noundef zeroext true)
+  %21 = getelementptr inbounds i8, ptr %0, i64 112
+  %22 = getelementptr inbounds i8, ptr %0, i64 120
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %21, align 8
+  %25 = ptrtoint ptr %23 to i64
   %26 = ptrtoint ptr %24 to i64
-  %27 = ptrtoint ptr %25 to i64
-  %28 = sub i64 %26, %27
-  %29 = lshr exact i64 %28, 2
-  %30 = trunc i64 %29 to i32
-  %.04 = add i32 %30, -1
-  %31 = icmp sgt i32 %.04, -1
-  br i1 %31, label %.lr.ph, label %._crit_edge
+  %27 = sub i64 %25, %26
+  %28 = lshr exact i64 %27, 2
+  %29 = trunc i64 %28 to i32
+  %.04 = add i32 %29, -1
+  %30 = icmp sgt i32 %.04, -1
+  br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %32 = getelementptr inbounds i8, ptr %0, i64 88
-  %33 = getelementptr inbounds i8, ptr %0, i64 80
-  %34 = load i64, ptr %32, align 8
-  %35 = icmp sgt i64 %34, 0
-  br i1 %35, label %.lr.ph.split.preheader, label %._crit_edge
+  %31 = getelementptr inbounds i8, ptr %0, i64 88
+  %32 = getelementptr inbounds i8, ptr %0, i64 80
+  %33 = load i64, ptr %31, align 8
+  %34 = icmp sgt i64 %33, 0
+  br i1 %34, label %.lr.ph.split.preheader, label %._crit_edge
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %36 = zext nneg i32 %.04 to i64
+  %35 = zext nneg i32 %.04 to i64
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN5draco13EncoderBuffer28EncodeLeastSignificantBits32Eij.exit
-  %indvars.iv = phi i64 [ %36, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZN5draco13EncoderBuffer28EncodeLeastSignificantBits32Eij.exit ]
-  %37 = load ptr, ptr %22, align 8
-  %38 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv
-  %39 = load i32, ptr %38, align 4
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds [8 x i32], ptr @_ZN5dracoL40edge_breaker_topology_bit_pattern_lengthE, i64 0, i64 %40
-  %42 = load i32, ptr %41, align 4
-  %43 = load i64, ptr %32, align 8
-  %44 = icmp sgt i64 %43, 0
-  br i1 %44, label %45, label %_ZN5draco13EncoderBuffer28EncodeLeastSignificantBits32Eij.exit
+  %indvars.iv = phi i64 [ %35, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZN5draco13EncoderBuffer28EncodeLeastSignificantBits32Eij.exit ]
+  %36 = load ptr, ptr %21, align 8
+  %37 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv
+  %38 = load i32, ptr %37, align 4
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds [8 x i32], ptr @_ZN5dracoL40edge_breaker_topology_bit_pattern_lengthE, i64 0, i64 %39
+  %41 = load i32, ptr %40, align 4
+  %42 = load i64, ptr %31, align 8
+  %43 = icmp sgt i64 %42, 0
+  br i1 %43, label %44, label %_ZN5draco13EncoderBuffer28EncodeLeastSignificantBits32Eij.exit
 
-45:                                               ; preds = %.lr.ph.split
-  %46 = load ptr, ptr %33, align 8
-  %47 = lshr i64 171, %40
-  %48 = and i64 %47, 1
-  %.not = icmp eq i64 %48, 0
+44:                                               ; preds = %.lr.ph.split
+  %45 = load ptr, ptr %32, align 8
+  %46 = lshr i64 171, %39
+  %47 = and i64 %46, 1
+  %.not = icmp eq i64 %47, 0
   br i1 %.not, label %_ZN5draco13EncoderBuffer28EncodeLeastSignificantBits32Eij.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %46, i64 8
-  %.pre.i.i = load i64, ptr %49, align 8
-  br label %50
+.lr.ph.i.i:                                       ; preds = %44
+  %48 = getelementptr inbounds i8, ptr %45, i64 8
+  %.pre.i.i = load i64, ptr %48, align 8
+  br label %49
 
-50:                                               ; preds = %50, %.lr.ph.i.i
-  %51 = phi i64 [ %.pre.i.i, %.lr.ph.i.i ], [ %71, %50 ]
-  %.05.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %72, %50 ]
-  %52 = lshr i32 %39, %.05.i.i
-  %53 = and i32 %52, 1
-  %54 = lshr i64 %51, 3
-  %55 = trunc i64 %51 to i32
-  %56 = and i32 %55, 7
-  %57 = shl nuw nsw i32 1, %56
-  %58 = load ptr, ptr %46, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 %54
-  %60 = load i8, ptr %59, align 1
-  %61 = trunc nuw i32 %57 to i8
-  %62 = xor i8 %61, -1
-  %63 = and i8 %60, %62
-  store i8 %63, ptr %59, align 1
-  %64 = shl nuw nsw i32 %53, %56
-  %65 = load ptr, ptr %46, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 %54
-  %67 = load i8, ptr %66, align 1
-  %68 = trunc nuw i32 %64 to i8
-  %69 = or i8 %67, %68
-  store i8 %69, ptr %66, align 1
-  %70 = load i64, ptr %49, align 8
-  %71 = add i64 %70, 1
-  store i64 %71, ptr %49, align 8
-  %72 = add nuw nsw i32 %.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %72, %42
-  br i1 %exitcond.not.i.i, label %_ZN5draco13EncoderBuffer28EncodeLeastSignificantBits32Eij.exit, label %50, !llvm.loop !184
+49:                                               ; preds = %49, %.lr.ph.i.i
+  %50 = phi i64 [ %.pre.i.i, %.lr.ph.i.i ], [ %70, %49 ]
+  %.05.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %71, %49 ]
+  %51 = lshr i32 %38, %.05.i.i
+  %52 = and i32 %51, 1
+  %53 = lshr i64 %50, 3
+  %54 = trunc i64 %50 to i32
+  %55 = and i32 %54, 7
+  %56 = shl nuw nsw i32 1, %55
+  %57 = load ptr, ptr %45, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 %53
+  %59 = load i8, ptr %58, align 1
+  %60 = trunc nuw i32 %56 to i8
+  %61 = xor i8 %60, -1
+  %62 = and i8 %59, %61
+  store i8 %62, ptr %58, align 1
+  %63 = shl nuw nsw i32 %52, %55
+  %64 = load ptr, ptr %45, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 %53
+  %66 = load i8, ptr %65, align 1
+  %67 = trunc nuw i32 %63 to i8
+  %68 = or i8 %66, %67
+  store i8 %68, ptr %65, align 1
+  %69 = load i64, ptr %48, align 8
+  %70 = add i64 %69, 1
+  store i64 %70, ptr %48, align 8
+  %71 = add nuw nsw i32 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %71, %41
+  br i1 %exitcond.not.i.i, label %_ZN5draco13EncoderBuffer28EncodeLeastSignificantBits32Eij.exit, label %49, !llvm.loop !184
 
-_ZN5draco13EncoderBuffer28EncodeLeastSignificantBits32Eij.exit: ; preds = %50, %.lr.ph.split, %45
+_ZN5draco13EncoderBuffer28EncodeLeastSignificantBits32Eij.exit: ; preds = %49, %.lr.ph.split, %44
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %73 = icmp sgt i64 %indvars.iv, 0
-  br i1 %73, label %.lr.ph.split, label %._crit_edge, !llvm.loop !185
+  %72 = icmp sgt i64 %indvars.iv, 0
+  br i1 %72, label %.lr.ph.split, label %._crit_edge, !llvm.loop !185
 
 ._crit_edge:                                      ; preds = %_ZN5draco13EncoderBuffer28EncodeLeastSignificantBits32Eij.exit, %.lr.ph, %1
   tail call void @_ZN5draco13EncoderBuffer14EndBitEncodingEv(ptr noundef nonnull align 8 dereferenceable(41) %2)
