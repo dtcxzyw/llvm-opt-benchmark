@@ -332,333 +332,65 @@ figColorResolve.exit.thread:                      ; preds = %45, %._crit_edge.i
 
 ; Function Attrs: nounwind uwtable
 define internal void @fig_ellipse(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 168
-  %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
-  %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 72
-  %11 = load i32, ptr %10, align 8
-  %12 = load i32, ptr @Depth, align 4
-  %13 = getelementptr i8, ptr %5, i64 160
-  %.val = load i32, ptr %13, align 8
-  switch i32 %.val, label %15 [
-    i32 1, label %fig_line_style.exit
-    i32 2, label %14
-  ]
-
-14:                                               ; preds = %3
-  br label %fig_line_style.exit
-
-15:                                               ; preds = %3
-  br label %fig_line_style.exit
-
-fig_line_style.exit:                              ; preds = %3, %14, %15
-  %.sink1.i = phi i32 [ 0, %15 ], [ 2, %14 ], [ %.val, %3 ]
-  %.sink.i = phi double [ 0.000000e+00, %15 ], [ 1.000000e+01, %14 ], [ 1.000000e+01, %3 ]
-  %16 = load double, ptr %1, align 8
+fig_line_style.exit:
+  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 168
+  %6 = load double, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = load i32, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = load i32, ptr %9, align 8
+  %11 = load i32, ptr @Depth, align 4
+  %12 = getelementptr i8, ptr %4, i64 160
+  %.val = load i32, ptr %12, align 8
+  %.val.off = add i32 %.val, -1
+  %switch = icmp ult i32 %.val.off, 2
+  %.sink1.i = select i1 %switch, i32 %.val, i32 0
+  %.sink.i = select i1 %switch, double 1.000000e+01, double 0.000000e+00
+  %13 = load double, ptr %1, align 8
+  %14 = fcmp ult double %13, 0.000000e+00
+  %.in.v = select i1 %14, double -5.000000e-01, double 5.000000e-01
+  %.in = fadd double %13, %.in.v
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load double, ptr %15, align 8
   %17 = fcmp ult double %16, 0.000000e+00
-  %.in.v = select i1 %17, double -5.000000e-01, double 5.000000e-01
-  %.in = fadd double %16, %.in.v
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %.in58.v = select i1 %17, double -5.000000e-01, double 5.000000e-01
+  %.in58 = fadd double %16, %.in58.v
+  %18 = getelementptr inbounds i8, ptr %1, i64 16
   %19 = load double, ptr %18, align 8
-  %20 = fcmp ult double %19, 0.000000e+00
-  %.in58.v = select i1 %20, double -5.000000e-01, double 5.000000e-01
-  %.in58 = fadd double %19, %.in58.v
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
-  %22 = load double, ptr %21, align 8
-  %23 = fsub double %22, %16
-  %24 = fcmp ult double %23, 0.000000e+00
-  %.in59.v = select i1 %24, double -5.000000e-01, double 5.000000e-01
-  %.in59 = fadd double %23, %.in59.v
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
-  %26 = load double, ptr %25, align 8
-  %27 = fsub double %26, %19
-  %28 = fcmp ult double %27, 0.000000e+00
-  %.in60.v = select i1 %28, double -5.000000e-01, double 5.000000e-01
-  %.in60 = fadd double %27, %.in60.v
-  %29 = fcmp ult double %22, 0.000000e+00
-  %.in61.v = select i1 %29, double -5.000000e-01, double 5.000000e-01
-  %.in61 = fadd double %22, %.in61.v
-  %30 = fcmp ult double %26, 0.000000e+00
-  %.in62.v = select i1 %30, double -5.000000e-01, double 5.000000e-01
-  %.in62 = fadd double %26, %.in62.v
-  %31 = fptosi double %.in62 to i32
-  %32 = fptosi double %.in61 to i32
-  %33 = fptosi double %.in60 to i32
-  %34 = fptosi double %.in59 to i32
-  %35 = fptosi double %.in58 to i32
-  %36 = fptosi double %.in to i32
+  %20 = fsub double %19, %13
+  %21 = fcmp ult double %20, 0.000000e+00
+  %.in59.v = select i1 %21, double -5.000000e-01, double 5.000000e-01
+  %.in59 = fadd double %20, %.in59.v
+  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = load double, ptr %22, align 8
+  %24 = fsub double %23, %16
+  %25 = fcmp ult double %24, 0.000000e+00
+  %.in60.v = select i1 %25, double -5.000000e-01, double 5.000000e-01
+  %.in60 = fadd double %24, %.in60.v
+  %26 = fcmp ult double %19, 0.000000e+00
+  %.in61.v = select i1 %26, double -5.000000e-01, double 5.000000e-01
+  %.in61 = fadd double %19, %.in61.v
+  %27 = fcmp ult double %23, 0.000000e+00
+  %.in62.v = select i1 %27, double -5.000000e-01, double 5.000000e-01
+  %.in62 = fadd double %23, %.in62.v
+  %28 = fptosi double %.in62 to i32
+  %29 = fptosi double %.in61 to i32
+  %30 = fptosi double %.in60 to i32
+  %31 = fptosi double %.in59 to i32
+  %32 = fptosi double %.in58 to i32
+  %33 = fptosi double %.in to i32
   %.not = icmp eq i32 %2, 0
-  %37 = select i1 %.not, i32 -1, i32 20
-  %38 = tail call double @llvm.round.f64(double %7)
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, i32 noundef 1, i32 noundef 1, i32 noundef %.sink1.i, double noundef %38, i32 noundef %9, i32 noundef %11, i32 noundef %12, i32 noundef 0, i32 noundef %37, double noundef %.sink.i, i32 noundef 0, double noundef 0.000000e+00, i32 noundef %36, i32 noundef %35, i32 noundef %34, i32 noundef %33, i32 noundef %36, i32 noundef %35, i32 noundef %32, i32 noundef %31) #16
+  %34 = select i1 %.not, i32 -1, i32 20
+  %35 = tail call double @llvm.round.f64(double %6)
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, i32 noundef 1, i32 noundef 1, i32 noundef %.sink1.i, double noundef %35, i32 noundef %8, i32 noundef %10, i32 noundef %11, i32 noundef 0, i32 noundef %34, double noundef %.sink.i, i32 noundef 0, double noundef 0.000000e+00, i32 noundef %33, i32 noundef %32, i32 noundef %31, i32 noundef %30, i32 noundef %33, i32 noundef %32, i32 noundef %29, i32 noundef %28) #16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @fig_polygon(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 168
-  %8 = load double, ptr %7, align 8
-  %9 = tail call double @llvm.round.f64(double %8)
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
-  %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 72
-  %13 = load i32, ptr %12, align 8
-  %14 = load i32, ptr @Depth, align 4
-  %.not = icmp eq i32 %3, 0
-  %15 = select i1 %.not, i32 -1, i32 20
-  %16 = add i64 %2, 1
-  %17 = getelementptr i8, ptr %6, i64 160
-  %.val = load i32, ptr %17, align 8
-  switch i32 %.val, label %19 [
-    i32 1, label %fig_line_style.exit
-    i32 2, label %18
-  ]
-
-18:                                               ; preds = %4
-  br label %fig_line_style.exit
-
-19:                                               ; preds = %4
-  br label %fig_line_style.exit
-
-fig_line_style.exit:                              ; preds = %4, %18, %19
-  %.sink1.i = phi i32 [ 0, %19 ], [ 2, %18 ], [ %.val, %4 ]
-  %.sink.i = phi double [ 0.000000e+00, %19 ], [ 1.000000e+01, %18 ], [ 1.000000e+01, %4 ]
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.30, i32 noundef 2, i32 noundef 3, i32 noundef %.sink1.i, double noundef %9, i32 noundef %11, i32 noundef %13, i32 noundef %14, i32 noundef 0, i32 noundef %15, double noundef %.sink.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i64 noundef %16) #16
-  %.not37.i = icmp eq i64 %2, 0
-  br i1 %.not37.i, label %figptarray.exit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %fig_line_style.exit, %.lr.ph.i
-  %.036.i = phi i64 [ %28, %.lr.ph.i ], [ 0, %fig_line_style.exit ]
-  %20 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %.036.i
-  %21 = load double, ptr %20, align 8
-  %22 = fcmp ult double %21, 0.000000e+00
-  %.in34.v.i = select i1 %22, double -5.000000e-01, double 5.000000e-01
-  %.in34.i = fadd double %21, %.in34.v.i
-  %23 = fptosi double %.in34.i to i32
-  %24 = getelementptr inbounds i8, ptr %20, i64 8
-  %25 = load double, ptr %24, align 8
-  %26 = fcmp ult double %25, 0.000000e+00
-  %.in35.v.i = select i1 %26, double -5.000000e-01, double 5.000000e-01
-  %.in35.i = fadd double %25, %.in35.v.i
-  %27 = fptosi double %.in35.i to i32
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %23, i32 noundef %27) #16
-  %28 = add nuw i64 %.036.i, 1
-  %exitcond.not.i = icmp eq i64 %28, %2
-  br i1 %exitcond.not.i, label %figptarray.exit, label %.lr.ph.i
-
-figptarray.exit:                                  ; preds = %.lr.ph.i, %fig_line_style.exit
-  %29 = load double, ptr %1, align 8
-  %30 = fcmp ult double %29, 0.000000e+00
-  %.in.v.i = select i1 %30, double -5.000000e-01, double 5.000000e-01
-  %.in.i = fadd double %29, %.in.v.i
-  %31 = fptosi double %.in.i to i32
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
-  %33 = load double, ptr %32, align 8
-  %34 = fcmp ult double %33, 0.000000e+00
-  %.in33.v.i = select i1 %34, double -5.000000e-01, double 5.000000e-01
-  %.in33.i = fadd double %33, %.in33.v.i
-  %35 = fptosi double %.in33.i to i32
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %31, i32 noundef %35) #16
-  %36 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.32) #16
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @fig_bezier(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) #0 {
-  %5 = alloca [4 x %struct.pointf_s], align 16
-  %6 = alloca %struct.agxbuf, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 168
-  %10 = load double, ptr %9, align 8
-  %11 = tail call double @llvm.round.f64(double %10)
-  %12 = getelementptr inbounds i8, ptr %8, i64 32
-  %13 = load i32, ptr %12, align 8
-  %14 = load i32, ptr @Depth, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %15 = getelementptr i8, ptr %8, i64 160
-  %.val = load i32, ptr %15, align 8
-  switch i32 %.val, label %17 [
-    i32 1, label %fig_line_style.exit
-    i32 2, label %16
-  ]
-
-16:                                               ; preds = %4
-  br label %fig_line_style.exit
-
-17:                                               ; preds = %4
-  br label %fig_line_style.exit
-
-fig_line_style.exit:                              ; preds = %4, %16, %17
-  %.sink1.i = phi i32 [ 0, %17 ], [ 2, %16 ], [ %.val, %4 ]
-  %.sink.i = phi double [ 0.000000e+00, %17 ], [ 1.000000e+01, %16 ], [ 1.000000e+01, %4 ]
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %21, label %18
-
-18:                                               ; preds = %fig_line_style.exit
-  %19 = getelementptr inbounds i8, ptr %8, i64 72
-  %20 = load i32, ptr %19, align 8
-  br label %21
-
-21:                                               ; preds = %fig_line_style.exit, %18
-  %.068 = phi i32 [ 20, %18 ], [ -1, %fig_line_style.exit ]
-  %.063 = phi i32 [ %20, %18 ], [ 0, %fig_line_style.exit ]
-  %.062 = phi i32 [ 5, %18 ], [ 4, %fig_line_style.exit ]
-  %22 = getelementptr inbounds i8, ptr %5, i64 48
-  %23 = load <2 x double>, ptr %1, align 8
-  store <2 x double> %23, ptr %22, align 16
-  %24 = extractelement <2 x double> %23, i64 0
-  %25 = fcmp ult double %24, 0.000000e+00
-  %.in.v = select i1 %25, double -5.000000e-01, double 5.000000e-01
-  %.in = fadd double %24, %.in.v
-  %26 = fptosi double %.in to i32
-  %27 = extractelement <2 x double> %23, i64 1
-  %28 = fcmp ult double %27, 0.000000e+00
-  %.in78.v = select i1 %28, double -5.000000e-01, double 5.000000e-01
-  %.in78 = fadd double %27, %.in78.v
-  %29 = fptosi double %.in78 to i32
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr nonnull poison, i32 noundef %26, i32 noundef %29)
-  %30 = icmp ugt i64 %2, 3
-  br i1 %30, label %.lr.ph, label %agxbsizeof.exit.i.i
-
-.loopexit:                                        ; preds = %.preheader
-  %31 = add i32 %.06687, 6
-  %32 = add i64 %34, 3
-  %33 = icmp ult i64 %32, %2
-  br i1 %33, label %.lr.ph, label %agxbsizeof.exit.i.i
-
-.lr.ph:                                           ; preds = %21, %.loopexit
-  %34 = phi i64 [ %32, %.loopexit ], [ 3, %21 ]
-  %.06588 = phi i64 [ %34, %.loopexit ], [ 0, %21 ]
-  %.06687 = phi i32 [ %31, %.loopexit ], [ 1, %21 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %22, i64 16, i1 false)
-  %35 = getelementptr %struct.pointf_s, ptr %1, i64 %.06588
-  br label %36
-
-36:                                               ; preds = %.lr.ph, %36
-  %.06484 = phi i64 [ 1, %.lr.ph ], [ %40, %36 ]
-  %37 = getelementptr %struct.pointf_s, ptr %35, i64 %.06484
-  %38 = getelementptr inbounds [4 x %struct.pointf_s], ptr %5, i64 0, i64 %.06484
-  %39 = load <2 x double>, ptr %37, align 8
-  store <2 x double> %39, ptr %38, align 16
-  %40 = add nuw nsw i64 %.06484, 1
-  %exitcond.not = icmp eq i64 %40, 4
-  br i1 %exitcond.not, label %.preheader, label %36
-
-.preheader:                                       ; preds = %36, %.preheader
-  %.06785 = phi i32 [ %50, %.preheader ], [ 1, %36 ]
-  %41 = uitofp nneg i32 %.06785 to double
-  %42 = fdiv double %41, 6.000000e+00
-  %43 = call { double, double } @Bezier(ptr noundef nonnull %5, double noundef %42, ptr noundef null, ptr noundef null) #16
-  %44 = extractvalue { double, double } %43, 0
-  %45 = extractvalue { double, double } %43, 1
-  %46 = fcmp ult double %44, 0.000000e+00
-  %.in80.v = select i1 %46, double -5.000000e-01, double 5.000000e-01
-  %.in80 = fadd double %44, %.in80.v
-  %47 = fptosi double %.in80 to i32
-  %48 = fcmp ult double %45, 0.000000e+00
-  %.in81.v = select i1 %48, double -5.000000e-01, double 5.000000e-01
-  %.in81 = fadd double %45, %.in81.v
-  %49 = fptosi double %.in81 to i32
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr nonnull poison, i32 noundef %47, i32 noundef %49)
-  %50 = add nuw nsw i32 %.06785, 1
-  %exitcond91.not = icmp eq i32 %50, 7
-  br i1 %exitcond91.not, label %.loopexit, label %.preheader
-
-agxbsizeof.exit.i.i:                              ; preds = %.loopexit, %21
-  %.066.lcssa = phi i32 [ 1, %21 ], [ %31, %.loopexit ]
-  call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef 3, i32 noundef %.062, i32 noundef %.sink1.i, double noundef %11, i32 noundef %13, i32 noundef %.063, i32 noundef %14, i32 noundef 0, i32 noundef %.068, double noundef %.sink.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %.066.lcssa) #16
-  %51 = getelementptr inbounds i8, ptr %6, i64 31
-  %.val.i.i.i = load i8, ptr %51, align 1
-  %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
-  %52 = getelementptr inbounds i8, ptr %6, i64 8
-  %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %6, i64 16
-  %55 = load i64, ptr %54, align 8
-  %56 = zext i8 %.val.i.i.i to i64
-  %.0.i20.i.i = select i1 %.not.i.i.i, i64 %53, i64 %56
-  %.0.i14.i.i = select i1 %.not.i.i.i, i64 %55, i64 31
-  %.not.i.i = icmp ult i64 %.0.i20.i.i, %.0.i14.i.i
-  br i1 %.not.i.i, label %58, label %57
-
-57:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
-  %.val.i15.pre.i.i = load i8, ptr %51, align 1
-  br label %58
-
-58:                                               ; preds = %57, %agxbsizeof.exit.i.i
-  %.val.i.pr.i = phi i8 [ %.val.i15.pre.i.i, %57 ], [ %.val.i.i.i, %agxbsizeof.exit.i.i ]
-  %.not.i16.i.i = icmp eq i8 %.val.i.pr.i, -1
-  br i1 %.not.i16.i.i, label %agxbputc.exit.i.thread, label %agxbputc.exit.i
-
-agxbputc.exit.i.thread:                           ; preds = %58
-  %59 = load i64, ptr %52, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 %59
-  store i8 0, ptr %61, align 1
-  br label %67
-
-agxbputc.exit.i:                                  ; preds = %58
-  %62 = zext i8 %.val.i.pr.i to i64
-  %63 = getelementptr inbounds [31 x i8], ptr %6, i64 0, i64 %62
-  store i8 0, ptr %63, align 1
-  %64 = load i8, ptr %51, align 1
-  %65 = add i8 %64, 1
-  store i8 %65, ptr %51, align 1
-  %66 = icmp eq i8 %65, -1
-  br i1 %66, label %67, label %agxbclear.exit.thread.i
-
-agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
-  store i8 0, ptr %51, align 1
-  br label %agxbuse.exit
-
-67:                                               ; preds = %agxbputc.exit.i.thread, %agxbputc.exit.i
-  store i64 0, ptr %52, align 8
-  %68 = load ptr, ptr %6, align 8
-  br label %agxbuse.exit
-
-agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %67
-  %69 = phi ptr [ %68, %67 ], [ %6, %agxbclear.exit.thread.i ]
-  call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef %69) #16
-  %.val83 = load i8, ptr %51, align 1
-  %70 = icmp eq i8 %.val83, -1
-  br i1 %70, label %71, label %agxbfree.exit
-
-71:                                               ; preds = %agxbuse.exit
-  %.val82 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %.val82) #16
-  br label %agxbfree.exit
-
-agxbfree.exit:                                    ; preds = %agxbuse.exit, %71
-  %72 = icmp sgt i32 %.066.lcssa, 0
-  br i1 %72, label %.lr.ph90, label %._crit_edge
-
-.lr.ph90:                                         ; preds = %agxbfree.exit
-  %73 = add nsw i32 %.066.lcssa, -1
-  br label %74
-
-74:                                               ; preds = %.lr.ph90, %74
-  %.089 = phi i32 [ 0, %.lr.ph90 ], [ %77, %74 ]
-  %75 = srem i32 %.089, %73
-  %.not79 = icmp ne i32 %75, 0
-  %76 = zext i1 %.not79 to i32
-  call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %76) #16
-  %77 = add nuw nsw i32 %.089, 1
-  %exitcond92.not = icmp eq i32 %77, %.066.lcssa
-  br i1 %exitcond92.not, label %._crit_edge, label %74
-
-._crit_edge:                                      ; preds = %74, %agxbfree.exit
-  %78 = call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.32) #16
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @fig_polyline(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+fig_line_style.exit:
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 168
@@ -666,48 +398,280 @@ define internal void @fig_polyline(ptr noundef %0, ptr nocapture noundef readonl
   %8 = tail call double @llvm.round.f64(double %7)
   %9 = getelementptr inbounds i8, ptr %5, i64 32
   %10 = load i32, ptr %9, align 8
-  %11 = load i32, ptr @Depth, align 4
-  %12 = getelementptr i8, ptr %5, i64 160
-  %.val = load i32, ptr %12, align 8
-  switch i32 %.val, label %14 [
-    i32 1, label %fig_line_style.exit
-    i32 2, label %13
-  ]
-
-13:                                               ; preds = %3
-  br label %fig_line_style.exit
-
-14:                                               ; preds = %3
-  br label %fig_line_style.exit
-
-fig_line_style.exit:                              ; preds = %3, %13, %14
-  %.sink1.i = phi i32 [ 0, %14 ], [ 2, %13 ], [ %.val, %3 ]
-  %.sink.i = phi double [ 0.000000e+00, %14 ], [ 1.000000e+01, %13 ], [ 1.000000e+01, %3 ]
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.30, i32 noundef 2, i32 noundef 1, i32 noundef %.sink1.i, double noundef %8, i32 noundef %10, i32 noundef 0, i32 noundef %11, i32 noundef 0, i32 noundef 0, double noundef %.sink.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i64 noundef %2) #16
+  %11 = getelementptr inbounds i8, ptr %5, i64 72
+  %12 = load i32, ptr %11, align 8
+  %13 = load i32, ptr @Depth, align 4
+  %.not = icmp eq i32 %3, 0
+  %14 = select i1 %.not, i32 -1, i32 20
+  %15 = add i64 %2, 1
+  %16 = getelementptr i8, ptr %5, i64 160
+  %.val = load i32, ptr %16, align 8
+  %.val.off = add i32 %.val, -1
+  %switch = icmp ult i32 %.val.off, 2
+  %.sink1.i = select i1 %switch, i32 %.val, i32 0
+  %.sink.i = select i1 %switch, double 1.000000e+01, double 0.000000e+00
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.30, i32 noundef 2, i32 noundef 3, i32 noundef %.sink1.i, double noundef %8, i32 noundef %10, i32 noundef %12, i32 noundef %13, i32 noundef 0, i32 noundef %14, double noundef %.sink.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i64 noundef %15) #16
   %.not37.i = icmp eq i64 %2, 0
   br i1 %.not37.i, label %figptarray.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %fig_line_style.exit, %.lr.ph.i
-  %.036.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %fig_line_style.exit ]
-  %15 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %.036.i
-  %16 = load double, ptr %15, align 8
-  %17 = fcmp ult double %16, 0.000000e+00
-  %.in34.v.i = select i1 %17, double -5.000000e-01, double 5.000000e-01
-  %.in34.i = fadd double %16, %.in34.v.i
-  %18 = fptosi double %.in34.i to i32
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
-  %20 = load double, ptr %19, align 8
-  %21 = fcmp ult double %20, 0.000000e+00
-  %.in35.v.i = select i1 %21, double -5.000000e-01, double 5.000000e-01
-  %.in35.i = fadd double %20, %.in35.v.i
-  %22 = fptosi double %.in35.i to i32
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %18, i32 noundef %22) #16
-  %23 = add nuw i64 %.036.i, 1
-  %exitcond.not.i = icmp eq i64 %23, %2
+  %.036.i = phi i64 [ %25, %.lr.ph.i ], [ 0, %fig_line_style.exit ]
+  %17 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %.036.i
+  %18 = load double, ptr %17, align 8
+  %19 = fcmp ult double %18, 0.000000e+00
+  %.in34.v.i = select i1 %19, double -5.000000e-01, double 5.000000e-01
+  %.in34.i = fadd double %18, %.in34.v.i
+  %20 = fptosi double %.in34.i to i32
+  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %22 = load double, ptr %21, align 8
+  %23 = fcmp ult double %22, 0.000000e+00
+  %.in35.v.i = select i1 %23, double -5.000000e-01, double 5.000000e-01
+  %.in35.i = fadd double %22, %.in35.v.i
+  %24 = fptosi double %.in35.i to i32
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %20, i32 noundef %24) #16
+  %25 = add nuw i64 %.036.i, 1
+  %exitcond.not.i = icmp eq i64 %25, %2
   br i1 %exitcond.not.i, label %figptarray.exit, label %.lr.ph.i
 
 figptarray.exit:                                  ; preds = %.lr.ph.i, %fig_line_style.exit
-  %24 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.32) #16
+  %26 = load double, ptr %1, align 8
+  %27 = fcmp ult double %26, 0.000000e+00
+  %.in.v.i = select i1 %27, double -5.000000e-01, double 5.000000e-01
+  %.in.i = fadd double %26, %.in.v.i
+  %28 = fptosi double %.in.i to i32
+  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = load double, ptr %29, align 8
+  %31 = fcmp ult double %30, 0.000000e+00
+  %.in33.v.i = select i1 %31, double -5.000000e-01, double 5.000000e-01
+  %.in33.i = fadd double %30, %.in33.v.i
+  %32 = fptosi double %.in33.i to i32
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %28, i32 noundef %32) #16
+  %33 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.32) #16
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @fig_bezier(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) #0 {
+fig_line_style.exit:
+  %4 = alloca [4 x %struct.pointf_s], align 16
+  %5 = alloca %struct.agxbuf, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 168
+  %9 = load double, ptr %8, align 8
+  %10 = tail call double @llvm.round.f64(double %9)
+  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %12 = load i32, ptr %11, align 8
+  %13 = load i32, ptr @Depth, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  %14 = getelementptr i8, ptr %7, i64 160
+  %.val = load i32, ptr %14, align 8
+  %.val.off = add i32 %.val, -1
+  %switch = icmp ult i32 %.val.off, 2
+  %.sink1.i = select i1 %switch, i32 %.val, i32 0
+  %.sink.i = select i1 %switch, double 1.000000e+01, double 0.000000e+00
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %18, label %15
+
+15:                                               ; preds = %fig_line_style.exit
+  %16 = getelementptr inbounds i8, ptr %7, i64 72
+  %17 = load i32, ptr %16, align 8
+  br label %18
+
+18:                                               ; preds = %fig_line_style.exit, %15
+  %.068 = phi i32 [ 20, %15 ], [ -1, %fig_line_style.exit ]
+  %.063 = phi i32 [ %17, %15 ], [ 0, %fig_line_style.exit ]
+  %.062 = phi i32 [ 5, %15 ], [ 4, %fig_line_style.exit ]
+  %19 = getelementptr inbounds i8, ptr %4, i64 48
+  %20 = load <2 x double>, ptr %1, align 8
+  store <2 x double> %20, ptr %19, align 16
+  %21 = extractelement <2 x double> %20, i64 0
+  %22 = fcmp ult double %21, 0.000000e+00
+  %.in.v = select i1 %22, double -5.000000e-01, double 5.000000e-01
+  %.in = fadd double %21, %.in.v
+  %23 = fptosi double %.in to i32
+  %24 = extractelement <2 x double> %20, i64 1
+  %25 = fcmp ult double %24, 0.000000e+00
+  %.in78.v = select i1 %25, double -5.000000e-01, double 5.000000e-01
+  %.in78 = fadd double %24, %.in78.v
+  %26 = fptosi double %.in78 to i32
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef %23, i32 noundef %26)
+  %27 = icmp ugt i64 %2, 3
+  br i1 %27, label %.lr.ph, label %agxbsizeof.exit.i.i
+
+.loopexit:                                        ; preds = %.preheader
+  %28 = add i32 %.06687, 6
+  %29 = add i64 %31, 3
+  %30 = icmp ult i64 %29, %2
+  br i1 %30, label %.lr.ph, label %agxbsizeof.exit.i.i
+
+.lr.ph:                                           ; preds = %18, %.loopexit
+  %31 = phi i64 [ %29, %.loopexit ], [ 3, %18 ]
+  %.06588 = phi i64 [ %31, %.loopexit ], [ 0, %18 ]
+  %.06687 = phi i32 [ %28, %.loopexit ], [ 1, %18 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %19, i64 16, i1 false)
+  %32 = getelementptr %struct.pointf_s, ptr %1, i64 %.06588
+  br label %33
+
+33:                                               ; preds = %.lr.ph, %33
+  %.06484 = phi i64 [ 1, %.lr.ph ], [ %37, %33 ]
+  %34 = getelementptr %struct.pointf_s, ptr %32, i64 %.06484
+  %35 = getelementptr inbounds [4 x %struct.pointf_s], ptr %4, i64 0, i64 %.06484
+  %36 = load <2 x double>, ptr %34, align 8
+  store <2 x double> %36, ptr %35, align 16
+  %37 = add nuw nsw i64 %.06484, 1
+  %exitcond.not = icmp eq i64 %37, 4
+  br i1 %exitcond.not, label %.preheader, label %33
+
+.preheader:                                       ; preds = %33, %.preheader
+  %.06785 = phi i32 [ %47, %.preheader ], [ 1, %33 ]
+  %38 = uitofp nneg i32 %.06785 to double
+  %39 = fdiv double %38, 6.000000e+00
+  %40 = call { double, double } @Bezier(ptr noundef nonnull %4, double noundef %39, ptr noundef null, ptr noundef null) #16
+  %41 = extractvalue { double, double } %40, 0
+  %42 = extractvalue { double, double } %40, 1
+  %43 = fcmp ult double %41, 0.000000e+00
+  %.in80.v = select i1 %43, double -5.000000e-01, double 5.000000e-01
+  %.in80 = fadd double %41, %.in80.v
+  %44 = fptosi double %.in80 to i32
+  %45 = fcmp ult double %42, 0.000000e+00
+  %.in81.v = select i1 %45, double -5.000000e-01, double 5.000000e-01
+  %.in81 = fadd double %42, %.in81.v
+  %46 = fptosi double %.in81 to i32
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef %44, i32 noundef %46)
+  %47 = add nuw nsw i32 %.06785, 1
+  %exitcond91.not = icmp eq i32 %47, 7
+  br i1 %exitcond91.not, label %.loopexit, label %.preheader
+
+agxbsizeof.exit.i.i:                              ; preds = %.loopexit, %18
+  %.066.lcssa = phi i32 [ 1, %18 ], [ %28, %.loopexit ]
+  call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef 3, i32 noundef %.062, i32 noundef %.sink1.i, double noundef %10, i32 noundef %12, i32 noundef %.063, i32 noundef %13, i32 noundef 0, i32 noundef %.068, double noundef %.sink.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %.066.lcssa) #16
+  %48 = getelementptr inbounds i8, ptr %5, i64 31
+  %.val.i.i.i = load i8, ptr %48, align 1
+  %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
+  %49 = getelementptr inbounds i8, ptr %5, i64 8
+  %50 = load i64, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %5, i64 16
+  %52 = load i64, ptr %51, align 8
+  %53 = zext i8 %.val.i.i.i to i64
+  %.0.i20.i.i = select i1 %.not.i.i.i, i64 %50, i64 %53
+  %.0.i14.i.i = select i1 %.not.i.i.i, i64 %52, i64 31
+  %.not.i.i = icmp ult i64 %.0.i20.i.i, %.0.i14.i.i
+  br i1 %.not.i.i, label %55, label %54
+
+54:                                               ; preds = %agxbsizeof.exit.i.i
+  call fastcc void @agxbmore(ptr noundef nonnull %5, i64 noundef 1)
+  %.val.i15.pre.i.i = load i8, ptr %48, align 1
+  br label %55
+
+55:                                               ; preds = %54, %agxbsizeof.exit.i.i
+  %.val.i.pr.i = phi i8 [ %.val.i15.pre.i.i, %54 ], [ %.val.i.i.i, %agxbsizeof.exit.i.i ]
+  %.not.i16.i.i = icmp eq i8 %.val.i.pr.i, -1
+  br i1 %.not.i16.i.i, label %agxbputc.exit.i.thread, label %agxbputc.exit.i
+
+agxbputc.exit.i.thread:                           ; preds = %55
+  %56 = load i64, ptr %49, align 8
+  %57 = load ptr, ptr %5, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 %56
+  store i8 0, ptr %58, align 1
+  br label %64
+
+agxbputc.exit.i:                                  ; preds = %55
+  %59 = zext i8 %.val.i.pr.i to i64
+  %60 = getelementptr inbounds [31 x i8], ptr %5, i64 0, i64 %59
+  store i8 0, ptr %60, align 1
+  %61 = load i8, ptr %48, align 1
+  %62 = add i8 %61, 1
+  store i8 %62, ptr %48, align 1
+  %63 = icmp eq i8 %62, -1
+  br i1 %63, label %64, label %agxbclear.exit.thread.i
+
+agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
+  store i8 0, ptr %48, align 1
+  br label %agxbuse.exit
+
+64:                                               ; preds = %agxbputc.exit.i.thread, %agxbputc.exit.i
+  store i64 0, ptr %49, align 8
+  %65 = load ptr, ptr %5, align 8
+  br label %agxbuse.exit
+
+agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %64
+  %66 = phi ptr [ %65, %64 ], [ %5, %agxbclear.exit.thread.i ]
+  call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef %66) #16
+  %.val83 = load i8, ptr %48, align 1
+  %67 = icmp eq i8 %.val83, -1
+  br i1 %67, label %68, label %agxbfree.exit
+
+68:                                               ; preds = %agxbuse.exit
+  %.val82 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %.val82) #16
+  br label %agxbfree.exit
+
+agxbfree.exit:                                    ; preds = %agxbuse.exit, %68
+  %69 = icmp sgt i32 %.066.lcssa, 0
+  br i1 %69, label %.lr.ph90, label %._crit_edge
+
+.lr.ph90:                                         ; preds = %agxbfree.exit
+  %70 = add nsw i32 %.066.lcssa, -1
+  br label %71
+
+71:                                               ; preds = %.lr.ph90, %71
+  %.089 = phi i32 [ 0, %.lr.ph90 ], [ %74, %71 ]
+  %72 = srem i32 %.089, %70
+  %.not79 = icmp ne i32 %72, 0
+  %73 = zext i1 %.not79 to i32
+  call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %73) #16
+  %74 = add nuw nsw i32 %.089, 1
+  %exitcond92.not = icmp eq i32 %74, %.066.lcssa
+  br i1 %exitcond92.not, label %._crit_edge, label %71
+
+._crit_edge:                                      ; preds = %71, %agxbfree.exit
+  %75 = call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.32) #16
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @fig_polyline(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+fig_line_style.exit:
+  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 168
+  %6 = load double, ptr %5, align 8
+  %7 = tail call double @llvm.round.f64(double %6)
+  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = load i32, ptr %8, align 8
+  %10 = load i32, ptr @Depth, align 4
+  %11 = getelementptr i8, ptr %4, i64 160
+  %.val = load i32, ptr %11, align 8
+  %.val.off = add i32 %.val, -1
+  %switch = icmp ult i32 %.val.off, 2
+  %.sink1.i = select i1 %switch, i32 %.val, i32 0
+  %.sink.i = select i1 %switch, double 1.000000e+01, double 0.000000e+00
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.30, i32 noundef 2, i32 noundef 1, i32 noundef %.sink1.i, double noundef %7, i32 noundef %9, i32 noundef 0, i32 noundef %10, i32 noundef 0, i32 noundef 0, double noundef %.sink.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i64 noundef %2) #16
+  %.not37.i = icmp eq i64 %2, 0
+  br i1 %.not37.i, label %figptarray.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %fig_line_style.exit, %.lr.ph.i
+  %.036.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %fig_line_style.exit ]
+  %12 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %.036.i
+  %13 = load double, ptr %12, align 8
+  %14 = fcmp ult double %13, 0.000000e+00
+  %.in34.v.i = select i1 %14, double -5.000000e-01, double 5.000000e-01
+  %.in34.i = fadd double %13, %.in34.v.i
+  %15 = fptosi double %.in34.i to i32
+  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = load double, ptr %16, align 8
+  %18 = fcmp ult double %17, 0.000000e+00
+  %.in35.v.i = select i1 %18, double -5.000000e-01, double 5.000000e-01
+  %.in35.i = fadd double %17, %.in35.v.i
+  %19 = fptosi double %.in35.i to i32
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %15, i32 noundef %19) #16
+  %20 = add nuw i64 %.036.i, 1
+  %exitcond.not.i = icmp eq i64 %20, %2
+  br i1 %exitcond.not.i, label %figptarray.exit, label %.lr.ph.i
+
+figptarray.exit:                                  ; preds = %.lr.ph.i, %fig_line_style.exit
+  %21 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.32) #16
   ret void
 }
 

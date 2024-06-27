@@ -6845,13 +6845,8 @@ declare i32 @git_config_bool(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 -1, 3) i32 @parse_decoration_style(ptr noundef %value) unnamed_addr #0 {
 entry:
   %call = tail call i32 @git_parse_maybe_bool(ptr noundef %value) #20
-  switch i32 %call, label %sw.epilog [
-    i32 1, label %return
-    i32 0, label %sw.bb1
-  ]
-
-sw.bb1:                                           ; preds = %entry
-  br label %return
+  %switch = icmp ult i32 %call, 2
+  br i1 %switch, label %return, label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value, ptr noundef nonnull dereferenceable(5) @.str.152) #21
@@ -6879,8 +6874,8 @@ lor.rhs.i.i:                                      ; preds = %if.then9
   %0 = zext i1 %tobool2.i.i to i32
   br label %return
 
-return:                                           ; preds = %lor.rhs.i.i, %if.then9, %if.else6, %if.else, %sw.epilog, %entry, %sw.bb1
-  %retval.0 = phi i32 [ 0, %sw.bb1 ], [ %call, %entry ], [ 2, %sw.epilog ], [ 1, %if.else ], [ -1, %if.else6 ], [ 1, %if.then9 ], [ %0, %lor.rhs.i.i ]
+return:                                           ; preds = %entry, %lor.rhs.i.i, %if.then9, %if.else6, %if.else, %sw.epilog
+  %retval.0 = phi i32 [ 2, %sw.epilog ], [ 1, %if.else ], [ -1, %if.else6 ], [ 1, %if.then9 ], [ %0, %lor.rhs.i.i ], [ %call, %entry ]
   ret i32 %retval.0
 }
 

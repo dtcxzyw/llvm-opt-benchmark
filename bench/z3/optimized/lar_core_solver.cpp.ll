@@ -1045,13 +1045,10 @@ entry:
   %5 = load i32, ptr %arrayidx.i.i, align 4
   switch i32 %5, label %sw.default.i [
     i32 0, label %_ZNK2lp21lp_primal_core_solverI8rationalNS_12numeric_pairIS1_EEE18inf_sign_of_columnEj.exit
-    i32 1, label %sw.bb2.i
+    i32 1, label %_ZNK2lp21lp_primal_core_solverI8rationalNS_12numeric_pairIS1_EEE18inf_sign_of_columnEj.exit
     i32 4, label %sw.bb3.i
     i32 3, label %sw.bb3.i
   ]
-
-sw.bb2.i:                                         ; preds = %entry
-  br label %_ZNK2lp21lp_primal_core_solverI8rationalNS_12numeric_pairIS1_EEE18inf_sign_of_columnEj.exit
 
 sw.bb3.i:                                         ; preds = %entry, %entry
   %m_x.i.i = getelementptr inbounds i8, ptr %this, i64 448
@@ -1069,8 +1066,8 @@ sw.bb3.i:                                         ; preds = %entry, %entry
 sw.default.i:                                     ; preds = %entry
   br label %_ZNK2lp21lp_primal_core_solverI8rationalNS_12numeric_pairIS1_EEE18inf_sign_of_columnEj.exit
 
-_ZNK2lp21lp_primal_core_solverI8rationalNS_12numeric_pairIS1_EEE18inf_sign_of_columnEj.exit: ; preds = %entry, %sw.bb2.i, %sw.bb3.i, %sw.default.i
-  %retval.0.i = phi i32 [ -1, %sw.default.i ], [ %cond.i, %sw.bb3.i ], [ 1, %sw.bb2.i ], [ %5, %entry ]
+_ZNK2lp21lp_primal_core_solverI8rationalNS_12numeric_pairIS1_EEE18inf_sign_of_columnEj.exit: ; preds = %entry, %entry, %sw.bb3.i, %sw.default.i
+  %retval.0.i = phi i32 [ -1, %sw.default.i ], [ %cond.i, %sw.bb3.i ], [ %5, %entry ], [ %5, %entry ]
   %m_infeasible_sum_sign = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %m_infeasible_sum_sign, align 8
   %10 = load ptr, ptr %this, align 8

@@ -1102,24 +1102,23 @@ for.body45:                                       ; preds = %invoke.cont39, %for
   %cmp47 = icmp ult i32 %byte142.0288, 32
   br i1 %cmp47, label %if.then48.invoke, label %if.end50
 
-if.then48.invoke:                                 ; preds = %for.body45, %if.end50, %if.then56
-  %3 = phi i32 [ 92, %if.then56 ], [ %byte142.0288, %if.end50 ], [ %byte142.0288, %for.body45 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %3, i32 noundef -1, i32 noundef -1)
+if.then48.invoke:                                 ; preds = %if.end50, %for.body45, %if.end50
+  invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext false, i32 noundef %byte142.0288, i32 noundef -1, i32 noundef -1)
           to label %for.inc61 unwind label %lpad38.loopexit
 
 lpad27:                                           ; preds = %invoke.cont26
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp25) #22
   br label %ehcleanup863
 
 lpad29:                                           ; preds = %if.then32, %invoke.cont28
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad36:                                           ; preds = %invoke.cont35
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp34) #22
   br label %ehcleanup
@@ -1142,11 +1141,8 @@ lpad38:                                           ; preds = %lpad38.loopexit.spl
 if.end50:                                         ; preds = %for.body45
   switch i32 %byte142.0288, label %if.end58 [
     i32 34, label %if.then48.invoke
-    i32 92, label %if.then56
+    i32 92, label %if.then48.invoke
   ]
-
-if.then56:                                        ; preds = %if.end50
-  br label %if.then48.invoke
 
 if.end58:                                         ; preds = %if.end50
   invoke fastcc void @_ZN12_GLOBAL__N_116check_utf8stringEbiiii(i1 noundef zeroext true, i32 noundef %byte142.0288, i32 noundef -1, i32 noundef -1)
@@ -1217,23 +1213,23 @@ for.inc95:                                        ; preds = %invoke.cont93
   br i1 %exitcond334.not, label %for.inc98, label %for.body92, !llvm.loop !12
 
 ehcleanup:                                        ; preds = %lpad38, %lpad36, %lpad29
-  %.pn212 = phi { ptr, i32 } [ %lpad.phi279, %lpad38 ], [ %6, %lpad36 ], [ %5, %lpad29 ]
+  %.pn212 = phi { ptr, i32 } [ %lpad.phi279, %lpad38 ], [ %5, %lpad36 ], [ %4, %lpad29 ]
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp24) #22
   br label %ehcleanup863
 
 lpad69:                                           ; preds = %invoke.cont68
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp67) #22
   br label %ehcleanup863
 
 lpad72:                                           ; preds = %if.end122, %if.end101, %if.then75, %invoke.cont70
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup158
 
 lpad79:                                           ; preds = %invoke.cont78
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp77) #22
   br label %ehcleanup158
@@ -1290,7 +1286,7 @@ for.inc119:                                       ; preds = %invoke.cont117
   br i1 %exitcond336.not, label %if.end122, label %for.body116, !llvm.loop !14
 
 lpad106:                                          ; preds = %invoke.cont105
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp104) #22
   br label %ehcleanup158
@@ -1333,12 +1329,12 @@ for.cond139.preheader:                            ; preds = %invoke.cont131, %fo
 
 for.body141:                                      ; preds = %for.cond139.preheader, %for.inc149
   %byte2138.0292 = phi i32 [ 0, %for.cond139.preheader ], [ %inc150, %for.inc149 ]
-  %11 = and i32 %byte2138.0292, 192
-  %or.cond1 = icmp eq i32 %11, 128
+  %10 = and i32 %byte2138.0292, 192
+  %or.cond1 = icmp eq i32 %10, 128
   br i1 %or.cond1, label %for.inc149, label %if.end146
 
 lpad127:                                          ; preds = %invoke.cont126
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp125) #22
   br label %ehcleanup158
@@ -1432,23 +1428,23 @@ for.inc192:                                       ; preds = %invoke.cont190
   br i1 %exitcond339.not, label %for.inc195, label %for.body189, !llvm.loop !17
 
 ehcleanup158:                                     ; preds = %lpad130, %lpad127, %lpad109, %lpad106, %lpad82, %lpad79, %lpad72
-  %.pn210 = phi { ptr, i32 } [ %lpad.phi276, %lpad82 ], [ %lpad.phi273, %lpad109 ], [ %lpad.phi270, %lpad130 ], [ %12, %lpad127 ], [ %8, %lpad72 ], [ %10, %lpad106 ], [ %9, %lpad79 ]
+  %.pn210 = phi { ptr, i32 } [ %lpad.phi276, %lpad82 ], [ %lpad.phi273, %lpad109 ], [ %lpad.phi270, %lpad130 ], [ %11, %lpad127 ], [ %7, %lpad72 ], [ %9, %lpad106 ], [ %8, %lpad79 ]
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp66) #22
   br label %ehcleanup863
 
 lpad162:                                          ; preds = %invoke.cont161
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp160) #22
   br label %ehcleanup863
 
 lpad165:                                          ; preds = %if.end290, %if.end250, %if.end222, %if.end201, %if.then168, %invoke.cont163
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup333
 
 lpad172:                                          ; preds = %invoke.cont171
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp170) #22
   br label %ehcleanup333
@@ -1499,13 +1495,13 @@ invoke.cont217:                                   ; preds = %for.body216
           to label %if.end222 unwind label %lpad209
 
 lpad206:                                          ; preds = %invoke.cont205
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp204) #22
   br label %ehcleanup333
 
 lpad209:                                          ; preds = %invoke.cont217, %for.body216, %invoke.cont207
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp203) #22
   br label %ehcleanup333
@@ -1542,7 +1538,7 @@ for.inc244:                                       ; preds = %invoke.cont242
   br i1 %exitcond341.not, label %if.end250, label %for.body241, !llvm.loop !19
 
 lpad227:                                          ; preds = %invoke.cont226
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp225) #22
   br label %ehcleanup333
@@ -1581,12 +1577,12 @@ invoke.cont259:                                   ; preds = %invoke.cont256
 
 for.body269:                                      ; preds = %invoke.cont259, %for.inc284
   %byte2266.0298 = phi i32 [ %inc285, %for.inc284 ], [ 0, %invoke.cont259 ]
-  %19 = and i32 %byte2266.0298, 224
-  %or.cond2 = icmp eq i32 %19, 160
+  %18 = and i32 %byte2266.0298, 224
+  %or.cond2 = icmp eq i32 %18, 160
   br i1 %or.cond2, label %for.inc284, label %for.body278
 
 lpad255:                                          ; preds = %invoke.cont254
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp253) #22
   br label %ehcleanup333
@@ -1648,12 +1644,12 @@ for.cond311.preheader:                            ; preds = %invoke.cont299, %fo
 
 for.body313:                                      ; preds = %for.cond311.preheader, %for.inc321
   %byte3310.0299 = phi i32 [ 0, %for.cond311.preheader ], [ %inc322, %for.inc321 ]
-  %21 = and i32 %byte3310.0299, 192
-  %or.cond3 = icmp eq i32 %21, 128
+  %20 = and i32 %byte3310.0299, 192
+  %or.cond3 = icmp eq i32 %20, 128
   br i1 %or.cond3, label %for.inc321, label %if.end318
 
 lpad295:                                          ; preds = %invoke.cont294
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp293) #22
   br label %ehcleanup333
@@ -1751,23 +1747,23 @@ for.inc368:                                       ; preds = %invoke.cont366
   br i1 %exitcond346.not, label %for.inc371, label %for.body365, !llvm.loop !24
 
 ehcleanup333:                                     ; preds = %lpad298, %lpad295, %lpad258, %lpad255, %lpad230, %lpad227, %lpad209, %lpad206, %lpad175, %lpad172, %lpad165
-  %.pn208 = phi { ptr, i32 } [ %lpad.phi267, %lpad175 ], [ %17, %lpad209 ], [ %lpad.phi264, %lpad230 ], [ %lpad.phi261, %lpad258 ], [ %lpad.phi258, %lpad298 ], [ %22, %lpad295 ], [ %14, %lpad165 ], [ %20, %lpad255 ], [ %18, %lpad227 ], [ %16, %lpad206 ], [ %15, %lpad172 ]
+  %.pn208 = phi { ptr, i32 } [ %lpad.phi267, %lpad175 ], [ %16, %lpad209 ], [ %lpad.phi264, %lpad230 ], [ %lpad.phi261, %lpad258 ], [ %lpad.phi258, %lpad298 ], [ %21, %lpad295 ], [ %13, %lpad165 ], [ %19, %lpad255 ], [ %17, %lpad227 ], [ %15, %lpad206 ], [ %14, %lpad172 ]
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp159) #22
   br label %ehcleanup863
 
 lpad337:                                          ; preds = %invoke.cont336
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp335) #22
   br label %ehcleanup863
 
 lpad340:                                          ; preds = %if.end466, %if.end426, %if.end398, %if.end377, %if.then343, %invoke.cont338
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup509
 
 lpad347:                                          ; preds = %invoke.cont346
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp345) #22
   br label %ehcleanup509
@@ -1829,7 +1825,7 @@ for.inc395:                                       ; preds = %invoke.cont393
   br i1 %exitcond349.not, label %if.end398, label %for.body392, !llvm.loop !27
 
 lpad382:                                          ; preds = %invoke.cont381
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp380) #22
   br label %ehcleanup509
@@ -1885,7 +1881,7 @@ for.inc420:                                       ; preds = %invoke.cont418
   br i1 %exitcond350.not, label %for.inc423, label %for.body417, !llvm.loop !28
 
 lpad403:                                          ; preds = %invoke.cont402
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp401) #22
   br label %ehcleanup509
@@ -1933,12 +1929,12 @@ for.cond443.preheader:                            ; preds = %invoke.cont435, %fo
 
 for.body445:                                      ; preds = %for.cond443.preheader, %for.inc460
   %byte2442.0308 = phi i32 [ 0, %for.cond443.preheader ], [ %inc461, %for.inc460 ]
-  %28 = and i32 %byte2442.0308, 192
-  %or.cond4 = icmp eq i32 %28, 128
+  %27 = and i32 %byte2442.0308, 192
+  %or.cond4 = icmp eq i32 %27, 128
   br i1 %or.cond4, label %for.inc460, label %for.body454
 
 lpad431:                                          ; preds = %invoke.cont430
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp429) #22
   br label %ehcleanup509
@@ -2009,12 +2005,12 @@ for.cond487.preheader:                            ; preds = %for.cond483.prehead
 
 for.body489:                                      ; preds = %for.cond487.preheader, %for.inc497
   %byte3486.0310 = phi i32 [ 0, %for.cond487.preheader ], [ %inc498, %for.inc497 ]
-  %30 = and i32 %byte3486.0310, 192
-  %or.cond5 = icmp eq i32 %30, 128
+  %29 = and i32 %byte3486.0310, 192
+  %or.cond5 = icmp eq i32 %29, 128
   br i1 %or.cond5, label %for.inc497, label %if.end494
 
 lpad471:                                          ; preds = %invoke.cont470
-  %31 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp469) #22
   br label %ehcleanup509
@@ -2113,23 +2109,23 @@ for.inc544:                                       ; preds = %invoke.cont542
   br i1 %exitcond358.not, label %for.inc547, label %for.body541, !llvm.loop !36
 
 ehcleanup509:                                     ; preds = %lpad474, %lpad471, %lpad434, %lpad431, %lpad406, %lpad403, %lpad385, %lpad382, %lpad350, %lpad347, %lpad340
-  %.pn206 = phi { ptr, i32 } [ %lpad.phi255, %lpad350 ], [ %lpad.phi252, %lpad385 ], [ %lpad.phi249, %lpad406 ], [ %lpad.phi246, %lpad434 ], [ %lpad.phi243, %lpad474 ], [ %31, %lpad471 ], [ %24, %lpad340 ], [ %29, %lpad431 ], [ %27, %lpad403 ], [ %26, %lpad382 ], [ %25, %lpad347 ]
+  %.pn206 = phi { ptr, i32 } [ %lpad.phi255, %lpad350 ], [ %lpad.phi252, %lpad385 ], [ %lpad.phi249, %lpad406 ], [ %lpad.phi246, %lpad434 ], [ %lpad.phi243, %lpad474 ], [ %30, %lpad471 ], [ %23, %lpad340 ], [ %28, %lpad431 ], [ %26, %lpad403 ], [ %25, %lpad382 ], [ %24, %lpad347 ]
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp334) #22
   br label %ehcleanup863
 
 lpad513:                                          ; preds = %invoke.cont512
-  %32 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp511) #22
   br label %ehcleanup863
 
 lpad516:                                          ; preds = %if.end642, %if.end602, %if.end574, %if.end553, %if.then519, %invoke.cont514
-  %33 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup685
 
 lpad523:                                          ; preds = %invoke.cont522
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp521) #22
   br label %ehcleanup685
@@ -2180,13 +2176,13 @@ invoke.cont569:                                   ; preds = %for.body568
           to label %if.end574 unwind label %lpad561
 
 lpad558:                                          ; preds = %invoke.cont557
-  %35 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp556) #22
   br label %ehcleanup685
 
 lpad561:                                          ; preds = %invoke.cont569, %for.body568, %invoke.cont559
-  %36 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp555) #22
   br label %ehcleanup685
@@ -2223,7 +2219,7 @@ for.inc596:                                       ; preds = %invoke.cont594
   br i1 %exitcond360.not, label %if.end602, label %for.body593, !llvm.loop !38
 
 lpad579:                                          ; preds = %invoke.cont578
-  %37 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp577) #22
   br label %ehcleanup685
@@ -2262,12 +2258,12 @@ invoke.cont611:                                   ; preds = %invoke.cont608
 
 for.body621:                                      ; preds = %invoke.cont611, %for.inc636
   %byte2618.0317 = phi i32 [ %inc637, %for.inc636 ], [ 0, %invoke.cont611 ]
-  %38 = and i32 %byte2618.0317, 224
-  %or.cond6 = icmp eq i32 %38, 128
+  %37 = and i32 %byte2618.0317, 224
+  %or.cond6 = icmp eq i32 %37, 128
   br i1 %or.cond6, label %for.inc636, label %for.body630
 
 lpad607:                                          ; preds = %invoke.cont606
-  %39 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp605) #22
   br label %ehcleanup685
@@ -2329,12 +2325,12 @@ for.cond663.preheader:                            ; preds = %invoke.cont651, %fo
 
 for.body665:                                      ; preds = %for.cond663.preheader, %for.inc673
   %byte3662.0318 = phi i32 [ 0, %for.cond663.preheader ], [ %inc674, %for.inc673 ]
-  %40 = and i32 %byte3662.0318, 192
-  %or.cond7 = icmp eq i32 %40, 128
+  %39 = and i32 %byte3662.0318, 192
+  %or.cond7 = icmp eq i32 %39, 128
   br i1 %or.cond7, label %for.inc673, label %if.end670
 
 lpad647:                                          ; preds = %invoke.cont646
-  %41 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp645) #22
   br label %ehcleanup685
@@ -2432,23 +2428,23 @@ for.inc720:                                       ; preds = %invoke.cont718
   br i1 %exitcond365.not, label %for.inc723, label %for.body717, !llvm.loop !43
 
 ehcleanup685:                                     ; preds = %lpad650, %lpad647, %lpad610, %lpad607, %lpad582, %lpad579, %lpad561, %lpad558, %lpad526, %lpad523, %lpad516
-  %.pn204 = phi { ptr, i32 } [ %lpad.phi240, %lpad526 ], [ %36, %lpad561 ], [ %lpad.phi237, %lpad582 ], [ %lpad.phi234, %lpad610 ], [ %lpad.phi231, %lpad650 ], [ %41, %lpad647 ], [ %33, %lpad516 ], [ %39, %lpad607 ], [ %37, %lpad579 ], [ %35, %lpad558 ], [ %34, %lpad523 ]
+  %.pn204 = phi { ptr, i32 } [ %lpad.phi240, %lpad526 ], [ %35, %lpad561 ], [ %lpad.phi237, %lpad582 ], [ %lpad.phi234, %lpad610 ], [ %lpad.phi231, %lpad650 ], [ %40, %lpad647 ], [ %32, %lpad516 ], [ %38, %lpad607 ], [ %36, %lpad579 ], [ %34, %lpad558 ], [ %33, %lpad523 ]
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp510) #22
   br label %ehcleanup863
 
 lpad689:                                          ; preds = %invoke.cont688
-  %42 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp687) #22
   br label %ehcleanup863
 
 lpad692:                                          ; preds = %if.end818, %if.end778, %if.end750, %if.end729, %if.then695, %invoke.cont690
-  %43 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup861
 
 lpad699:                                          ; preds = %invoke.cont698
-  %44 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp697) #22
   br label %ehcleanup861
@@ -2510,7 +2506,7 @@ for.inc747:                                       ; preds = %invoke.cont745
   br i1 %exitcond368.not, label %if.end750, label %for.body744, !llvm.loop !46
 
 lpad734:                                          ; preds = %invoke.cont733
-  %45 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp732) #22
   br label %ehcleanup861
@@ -2566,7 +2562,7 @@ for.inc772:                                       ; preds = %invoke.cont770
   br i1 %exitcond369.not, label %for.inc775, label %for.body769, !llvm.loop !47
 
 lpad755:                                          ; preds = %invoke.cont754
-  %46 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp753) #22
   br label %ehcleanup861
@@ -2614,12 +2610,12 @@ for.cond795.preheader:                            ; preds = %invoke.cont787, %fo
 
 for.body797:                                      ; preds = %for.cond795.preheader, %for.inc812
   %byte2794.0327 = phi i32 [ 0, %for.cond795.preheader ], [ %inc813, %for.inc812 ]
-  %47 = and i32 %byte2794.0327, 192
-  %or.cond8 = icmp eq i32 %47, 128
+  %46 = and i32 %byte2794.0327, 192
+  %or.cond8 = icmp eq i32 %46, 128
   br i1 %or.cond8, label %for.inc812, label %for.body806
 
 lpad783:                                          ; preds = %invoke.cont782
-  %48 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp781) #22
   br label %ehcleanup861
@@ -2690,12 +2686,12 @@ for.cond839.preheader:                            ; preds = %for.cond835.prehead
 
 for.body841:                                      ; preds = %for.cond839.preheader, %for.inc849
   %byte3838.0329 = phi i32 [ 0, %for.cond839.preheader ], [ %inc850, %for.inc849 ]
-  %49 = and i32 %byte3838.0329, 192
-  %or.cond9 = icmp eq i32 %49, 128
+  %48 = and i32 %byte3838.0329, 192
+  %or.cond9 = icmp eq i32 %48, 128
   br i1 %or.cond9, label %for.inc849, label %if.end846
 
 lpad823:                                          ; preds = %invoke.cont822
-  %50 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp821) #22
   br label %ehcleanup861
@@ -2747,7 +2743,7 @@ if.end860:                                        ; preds = %if.end858, %invoke.
   br label %if.end862
 
 ehcleanup861:                                     ; preds = %lpad826, %lpad823, %lpad786, %lpad783, %lpad758, %lpad755, %lpad737, %lpad734, %lpad702, %lpad699, %lpad692
-  %.pn = phi { ptr, i32 } [ %lpad.phi228, %lpad702 ], [ %lpad.phi225, %lpad737 ], [ %lpad.phi222, %lpad758 ], [ %lpad.phi219, %lpad786 ], [ %lpad.phi, %lpad826 ], [ %50, %lpad823 ], [ %43, %lpad692 ], [ %48, %lpad783 ], [ %46, %lpad755 ], [ %45, %lpad734 ], [ %44, %lpad699 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi228, %lpad702 ], [ %lpad.phi225, %lpad737 ], [ %lpad.phi222, %lpad758 ], [ %lpad.phi219, %lpad786 ], [ %lpad.phi, %lpad826 ], [ %49, %lpad823 ], [ %42, %lpad692 ], [ %47, %lpad783 ], [ %45, %lpad755 ], [ %44, %lpad734 ], [ %43, %lpad699 ]
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp686) #22
   br label %ehcleanup863
 
@@ -2756,7 +2752,7 @@ if.end862:                                        ; preds = %if.end860, %invoke.
   ret void
 
 ehcleanup863:                                     ; preds = %ehcleanup861, %lpad689, %ehcleanup685, %lpad513, %ehcleanup509, %lpad337, %ehcleanup333, %lpad162, %ehcleanup158, %lpad69, %ehcleanup, %lpad27, %lpad9, %lpad7, %lpad2
-  %.pn214 = phi { ptr, i32 } [ %lpad.phi282, %lpad9 ], [ %.pn212, %ehcleanup ], [ %.pn210, %ehcleanup158 ], [ %.pn208, %ehcleanup333 ], [ %.pn206, %ehcleanup509 ], [ %.pn204, %ehcleanup685 ], [ %.pn, %ehcleanup861 ], [ %42, %lpad689 ], [ %1, %lpad2 ], [ %32, %lpad513 ], [ %23, %lpad337 ], [ %13, %lpad162 ], [ %7, %lpad69 ], [ %4, %lpad27 ], [ %2, %lpad7 ]
+  %.pn214 = phi { ptr, i32 } [ %lpad.phi282, %lpad9 ], [ %.pn212, %ehcleanup ], [ %.pn210, %ehcleanup158 ], [ %.pn208, %ehcleanup333 ], [ %.pn206, %ehcleanup509 ], [ %.pn204, %ehcleanup685 ], [ %.pn, %ehcleanup861 ], [ %41, %lpad689 ], [ %1, %lpad2 ], [ %31, %lpad513 ], [ %22, %lpad337 ], [ %12, %lpad162 ], [ %6, %lpad69 ], [ %3, %lpad27 ], [ %2, %lpad7 ]
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ref.tmp) #22
   br label %eh.resume
 

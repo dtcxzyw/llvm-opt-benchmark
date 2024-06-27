@@ -5184,15 +5184,12 @@ evbuffer_read_setup_vecs_.exit:                   ; preds = %if.end11.i, %for.en
   %conv30 = trunc i64 %call29 to i32
   switch i32 %conv30, label %for.cond.preheader [
     i32 -1, label %do.body65
-    i32 0, label %if.then38
+    i32 0, label %do.body65
   ]
 
 for.cond.preheader:                               ; preds = %evbuffer_read_setup_vecs_.exit
   %cmp4043 = icmp sgt i32 %retval.0.i34, 0
   br i1 %cmp4043, label %for.body, label %for.end
-
-if.then38:                                        ; preds = %evbuffer_read_setup_vecs_.exit
-  br label %do.body65
 
 for.body:                                         ; preds = %for.cond.preheader, %if.then50
   %remaining.046 = phi i32 [ %sub54, %if.then50 ], [ %conv30, %for.cond.preheader ]
@@ -5256,8 +5253,8 @@ for.end:                                          ; preds = %if.then50, %for.con
   call void @evbuffer_invoke_callbacks_(ptr noundef %buf)
   br label %do.body65
 
-do.body65:                                        ; preds = %evbuffer_read_setup_vecs_.exit, %if.end6, %do.end3, %for.end, %if.then38
-  %result.0 = phi i32 [ 0, %if.then38 ], [ %conv30, %for.end ], [ -1, %do.end3 ], [ -1, %if.end6 ], [ %conv30, %evbuffer_read_setup_vecs_.exit ]
+do.body65:                                        ; preds = %evbuffer_read_setup_vecs_.exit, %evbuffer_read_setup_vecs_.exit, %if.end6, %do.end3, %for.end
+  %result.0 = phi i32 [ %conv30, %for.end ], [ -1, %do.end3 ], [ -1, %if.end6 ], [ %conv30, %evbuffer_read_setup_vecs_.exit ], [ %conv30, %evbuffer_read_setup_vecs_.exit ]
   %34 = load ptr, ptr %lock, align 8
   %tobool67.not = icmp eq ptr %34, null
   br i1 %tobool67.not, label %do.end73, label %if.then68

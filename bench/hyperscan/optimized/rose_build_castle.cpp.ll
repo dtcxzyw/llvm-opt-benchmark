@@ -2558,10 +2558,9 @@ for.cond.cleanup122.i:                            ; preds = %for.body123.i, %do.
   %min_succ_lit_len.4256.i586 = phi i64 [ %min_succ_lit_len.1.lcssa.i281287, %do.end112.i ], [ 0, %call8.i.noexc ], [ %min_succ_lit_len.1.lcssa.i281287, %for.body123.i ]
   %allowed_to_remove.4257.i585 = phi i32 [ %allowed_to_remove.1.lcssa.i282286, %do.end112.i ], [ -1, %call8.i.noexc ], [ %allowed_to_remove.1.lcssa.i282286, %for.body123.i ]
   %277 = load i32, ptr %max.i, align 4
-  switch i32 %277, label %if.end7.i.i.i [
-    i32 -2147483648, label %_ZN3ue25depthpLEi.exit.i
-    i32 2147483647, label %return.fold.split.i.i.i
-  ]
+  %.off = add i32 %277, -2147483647
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %_ZN3ue25depthpLEi.exit.i, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %for.cond.cleanup122.i
   %add.i.i.i = add i32 %277, %allowed_to_remove.4257.i585
@@ -2576,11 +2575,8 @@ do.end.i.i.i.invoke:                              ; preds = %if.end7.i.i229.i, %
 do.end.i.i.i.cont:                                ; preds = %do.end.i.i.i.invoke
   unreachable
 
-return.fold.split.i.i.i:                          ; preds = %for.cond.cleanup122.i
-  br label %_ZN3ue25depthpLEi.exit.i
-
-_ZN3ue25depthpLEi.exit.i:                         ; preds = %return.fold.split.i.i.i, %if.end7.i.i.i, %for.cond.cleanup122.i
-  %retval.sroa.0.0.i.i.i = phi i32 [ %277, %for.cond.cleanup122.i ], [ %add.i.i.i, %if.end7.i.i.i ], [ 2147483647, %return.fold.split.i.i.i ]
+_ZN3ue25depthpLEi.exit.i:                         ; preds = %for.cond.cleanup122.i, %if.end7.i.i.i
+  %retval.sroa.0.0.i.i.i = phi i32 [ %add.i.i.i, %if.end7.i.i.i ], [ %277, %for.cond.cleanup122.i ]
   store i32 %retval.sroa.0.0.i.i.i, ptr %max.i, align 4
   %278 = load i32, ptr %bounds.i, align 4
   %cmp.i.i.i = icmp ne i32 %278, 0
@@ -2601,21 +2597,17 @@ for.body123.i:                                    ; preds = %do.end112.i, %for.b
   br i1 %cmp.i222.not.i, label %for.cond.cleanup122.i, label %for.body123.i
 
 if.then144.i:                                     ; preds = %_ZN3ue25depthpLEi.exit.i
-  switch i32 %278, label %if.end7.i.i229.i [
-    i32 -2147483648, label %_ZN3ue25depthpLEi.exit234.i
-    i32 2147483647, label %return.fold.split.i.i227.i
-  ]
+  %.off403 = add i32 %278, -2147483647
+  %switch404 = icmp ult i32 %.off403, 2
+  br i1 %switch404, label %_ZN3ue25depthpLEi.exit234.i, label %if.end7.i.i229.i
 
 if.end7.i.i229.i:                                 ; preds = %if.then144.i
   %add.i.i230.i = add i32 %278, %allowed_to_remove.4257.i585
   %cmp8.i.i231.i = icmp ugt i32 %add.i.i230.i, 2147483646
   br i1 %cmp8.i.i231.i, label %do.end.i.i.i.invoke, label %_ZN3ue25depthpLEi.exit234.i
 
-return.fold.split.i.i227.i:                       ; preds = %if.then144.i
-  br label %_ZN3ue25depthpLEi.exit234.i
-
-_ZN3ue25depthpLEi.exit234.i:                      ; preds = %return.fold.split.i.i227.i, %if.end7.i.i229.i, %if.then144.i
-  %retval.sroa.0.0.i.i228.i = phi i32 [ %278, %if.then144.i ], [ %add.i.i230.i, %if.end7.i.i229.i ], [ 2147483647, %return.fold.split.i.i227.i ]
+_ZN3ue25depthpLEi.exit234.i:                      ; preds = %if.then144.i, %if.end7.i.i229.i
+  %retval.sroa.0.0.i.i228.i = phi i32 [ %add.i.i230.i, %if.end7.i.i229.i ], [ %278, %if.then144.i ]
   store i32 %retval.sroa.0.0.i.i228.i, ptr %bounds.i, align 4
   br label %invoke.cont74
 

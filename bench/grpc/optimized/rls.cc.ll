@@ -30044,28 +30044,18 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i: ; preds = %134
           to label %invoke.cont17.i.i unwind label %lpad10.i.i
 
 invoke.cont17.i.i:                                ; preds = %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i
-  switch i64 %call.i6.i.i, label %if.end11.i.i.i.i [
-    i64 9223372036854775807, label %invoke.cont23.i.i
-    i64 -9223372036854775808, label %invoke.cont23.fold.split.i.i
-  ]
-
-if.end11.i.i.i.i:                                 ; preds = %invoke.cont17.i.i
+  %call.i6.i.i.off = add i64 %call.i6.i.i, -9223372036854775807
+  %switch = icmp ult i64 %call.i6.i.i.off, 2
   %or.cond.i.i = icmp sgt i64 %call.i6.i.i, 9223372036854770807
   %add.i.i.i.i.i123 = add nsw i64 %call.i6.i.i, 5000
   %spec.select.i.i = select i1 %or.cond.i.i, i64 9223372036854775807, i64 %add.i.i.i.i.i123
-  br label %invoke.cont23.i.i
-
-invoke.cont23.fold.split.i.i:                     ; preds = %invoke.cont17.i.i
-  br label %invoke.cont23.i.i
-
-invoke.cont23.i.i:                                ; preds = %invoke.cont23.fold.split.i.i, %if.end11.i.i.i.i, %invoke.cont17.i.i
-  %retval.0.i.i.i.i = phi i64 [ %call.i6.i.i, %invoke.cont17.i.i ], [ -9223372036854775808, %invoke.cont23.fold.split.i.i ], [ %spec.select.i.i, %if.end11.i.i.i.i ]
+  %retval.0.i.i.i.i = select i1 %switch, i64 %call.i6.i.i, i64 %spec.select.i.i
   store i64 %retval.0.i.i.i.i, ptr %min_expiration_time_.i.i, align 8
   %lb_policy_.val3.i.i = load ptr, ptr %lb_policy_.i.i, align 8
   %call5.i.i.i.i.i7.i.i = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
           to label %call5.i.i.i.i.i.noexc.i.i unwind label %lpad10.i.i
 
-call5.i.i.i.i.i.noexc.i.i:                        ; preds = %invoke.cont23.i.i
+call5.i.i.i.i.i.noexc.i.i:                        ; preds = %invoke.cont17.i.i
   %137 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i7.i.i, i64 24
   store i32 0, ptr %137, align 8
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i7.i.i, i64 32
@@ -30126,7 +30116,7 @@ lpad2.i.i:                                        ; preds = %call12.i.noexc
           cleanup
   br label %ehcleanup39.i.i
 
-lpad10.i.i:                                       ; preds = %invoke.cont23.i.i, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i, %134
+lpad10.i.i:                                       ; preds = %invoke.cont17.i.i, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i, %134
   %144 = landingpad { ptr, i32 }
           cleanup
   br label %lpad10.body.i.i

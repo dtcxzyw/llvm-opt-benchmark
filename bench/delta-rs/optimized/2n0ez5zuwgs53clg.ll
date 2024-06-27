@@ -20267,7 +20267,7 @@ common.resume:                                    ; preds = %244, %226, %140, %1
   br label %.loopexit70
 
 .loopexit70:                                      ; preds = %237, %.loopexit70.loopexit, %238
-  %.sroa.7.049 = phi i8 [ %236, %238 ], [ 0, %.loopexit70.loopexit ], [ 2, %237 ]
+  %.sroa.7.049 = phi i8 [ %236, %238 ], [ 0, %.loopexit70.loopexit ], [ %236, %237 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !2729
   store ptr %7, ptr %5, align 8, !noalias !2729
   %243 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h44d89f3eb896f8ebE.llvm.18123795597341512700(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)

@@ -7467,22 +7467,11 @@ if.then44:                                        ; preds = %if.then41
   %24 = load ptr, ptr %L, align 8
   %tobool45.not = icmp eq i32 %needarr.2, 0
   %cond = select i1 %tobool45.not, i32 0, i32 %narr.1
-  switch i32 %nhash.2, label %cond.false50 [
-    i32 0, label %cond.end54
-    i32 1, label %cond.end54.fold.split
-  ]
-
-cond.false50:                                     ; preds = %if.then44
+  %switch = icmp ult i32 %nhash.2, 2
   %sub = add i32 %nhash.2, -1
   %25 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub, i1 true)
   %add = sub nuw nsw i32 32, %25
-  br label %cond.end54
-
-cond.end54.fold.split:                            ; preds = %if.then44
-  br label %cond.end54
-
-cond.end54:                                       ; preds = %if.then44, %cond.end54.fold.split, %cond.false50
-  %cond55 = phi i32 [ %add, %cond.false50 ], [ %nhash.2, %if.then44 ], [ 1, %cond.end54.fold.split ]
+  %cond55 = select i1 %switch, i32 %nhash.2, i32 %add
   %call56 = call ptr @lj_tab_new(ptr noundef %24, i32 noundef %cond, i32 noundef %cond55) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %key.i)
   %26 = load ptr, ptr %L, align 8
@@ -7496,11 +7485,11 @@ cond.end54:                                       ; preds = %if.then44, %cond.en
   %cmp.i119 = icmp eq i32 %29, 0
   br i1 %cmp.i119, label %if.then.i121, label %if.end.i
 
-if.then.i121:                                     ; preds = %cond.end54
+if.then.i121:                                     ; preds = %if.then44
   %30 = load i32, ptr %call.i118, align 8
   br label %const_gc.exit
 
-if.end.i:                                         ; preds = %cond.end54
+if.end.i:                                         ; preds = %if.then44
   %31 = load i32, ptr %nkgc.i, align 8
   %conv.i120 = zext i32 %31 to i64
   store i64 %conv.i120, ptr %call.i118, align 8

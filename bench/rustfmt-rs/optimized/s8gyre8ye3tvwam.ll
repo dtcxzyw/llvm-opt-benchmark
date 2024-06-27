@@ -13101,54 +13101,51 @@ define hidden { i64, i64 } @_ZN15rustfmt_nightly5lists17definitive_tactic17h55ee
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit": ; preds = %9
   switch i64 %1, label %14 [
     i64 0, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0aff71f23697921bE.exit"
-    i64 1, label %15
-    i64 2, label %17
-    i64 3, label %16
-    i64 4, label %17
+    i64 1, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0aff71f23697921bE.exit"
+    i64 2, label %16
+    i64 3, label %15
+    i64 4, label %16
   ]
 
 14:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit"
   unreachable
 
 15:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit"
-  br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0aff71f23697921bE.exit"
-
-16:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit"
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %2)
-  br label %17
+  br label %16
 
-17:                                               ; preds = %16, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit"
-  %.0 = phi i64 [ %4, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit" ], [ %4, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit" ], [ %.0.sroa.speculated.i, %16 ]
-  %18 = tail call { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h16dc777592ee58a3E.llvm.13396924176064657314"(ptr noundef nonnull %.val, ptr noundef nonnull %8, i64 noundef 0, i64 noundef 0)
+16:                                               ; preds = %15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit"
+  %.0 = phi i64 [ %4, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit" ], [ %4, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit" ], [ %.0.sroa.speculated.i, %15 ]
+  %17 = tail call { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h16dc777592ee58a3E.llvm.13396924176064657314"(ptr noundef nonnull %.val, ptr noundef nonnull %8, i64 noundef 0, i64 noundef 0)
   %..i = select i1 %3, i64 3, i64 2
-  %19 = extractvalue { i64, i64 } %18, 1
-  %20 = extractvalue { i64, i64 } %18, 0
-  %21 = tail call i64 @llvm.usub.sat.i64(i64 %20, i64 1)
-  %22 = mul i64 %21, %..i
-  %23 = add i64 %22, %19
-  %.not = icmp ugt i64 %23, %.0
+  %18 = extractvalue { i64, i64 } %17, 1
+  %19 = extractvalue { i64, i64 } %17, 0
+  %20 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 1)
+  %21 = mul i64 %20, %..i
+  %22 = add i64 %21, %18
+  %.not = icmp ugt i64 %22, %.0
   br i1 %.not, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %26, %17
-  %24 = icmp eq i64 %1, 4
-  %. = select i1 %24, i64 2, i64 0
+.loopexit:                                        ; preds = %25, %16
+  %23 = icmp eq i64 %1, 4
+  %. = select i1 %23, i64 2, i64 0
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0aff71f23697921bE.exit"
 
-.preheader:                                       ; preds = %17, %26
-  %25 = phi ptr [ %27, %26 ], [ %.val, %17 ]
-  %.not.i16.not = icmp eq ptr %25, %8
-  br i1 %.not.i16.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0aff71f23697921bE.exit", label %26
+.preheader:                                       ; preds = %16, %25
+  %24 = phi ptr [ %26, %25 ], [ %.val, %16 ]
+  %.not.i16.not = icmp eq ptr %24, %8
+  br i1 %.not.i16.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0aff71f23697921bE.exit", label %25
 
-26:                                               ; preds = %.preheader
-  %27 = getelementptr inbounds i8, ptr %25, i64 80
-  %28 = tail call noundef zeroext i1 @_ZN15rustfmt_nightly5lists8ListItem12is_multiline17hf2b43d321eb34609E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %25), !noalias !2264
-  br i1 %28, label %.loopexit, label %.preheader
+25:                                               ; preds = %.preheader
+  %26 = getelementptr inbounds i8, ptr %24, i64 80
+  %27 = tail call noundef zeroext i1 @_ZN15rustfmt_nightly5lists8ListItem12is_multiline17hf2b43d321eb34609E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %24), !noalias !2264
+  br i1 %27, label %.loopexit, label %.preheader
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0aff71f23697921bE.exit": ; preds = %11, %.preheader, %.loopexit, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit", %15
-  %.sroa.02.0 = phi i64 [ 1, %15 ], [ %1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit" ], [ %., %.loopexit ], [ 1, %.preheader ], [ 0, %11 ]
-  %29 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
-  %30 = insertvalue { i64, i64 } %29, i64 undef, 1
-  ret { i64, i64 } %30
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0aff71f23697921bE.exit": ; preds = %11, %.preheader, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit", %.loopexit, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit"
+  %.sroa.02.0 = phi i64 [ %1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit" ], [ %., %.loopexit ], [ %1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4e985b7ae78614beE.exit" ], [ 1, %.preheader ], [ 0, %11 ]
+  %28 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
+  %29 = insertvalue { i64, i64 } %28, i64 undef, 1
+  ret { i64, i64 } %29
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -13169,54 +13166,51 @@ define hidden { i64, i64 } @_ZN15rustfmt_nightly5lists17definitive_tactic17hc5da
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit": ; preds = %8
   switch i64 %2, label %13 [
     i64 0, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h476ad43d8ba6a0f7E.exit"
-    i64 1, label %14
-    i64 2, label %16
-    i64 3, label %15
-    i64 4, label %16
+    i64 1, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h476ad43d8ba6a0f7E.exit"
+    i64 2, label %15
+    i64 3, label %14
+    i64 4, label %15
   ]
 
 13:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit"
   unreachable
 
 14:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit"
-  br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h476ad43d8ba6a0f7E.exit"
-
-15:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit"
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 %3)
-  br label %16
+  br label %15
 
-16:                                               ; preds = %15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit"
-  %.0 = phi i64 [ %5, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit" ], [ %5, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit" ], [ %.0.sroa.speculated.i, %15 ]
-  %17 = tail call { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha97fb9e031abfff6E.llvm.13396924176064657314"(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %7, i64 noundef 0, i64 noundef 0)
+15:                                               ; preds = %14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit"
+  %.0 = phi i64 [ %5, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit" ], [ %5, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit" ], [ %.0.sroa.speculated.i, %14 ]
+  %16 = tail call { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha97fb9e031abfff6E.llvm.13396924176064657314"(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %7, i64 noundef 0, i64 noundef 0)
   %..i = select i1 %4, i64 3, i64 2
-  %18 = extractvalue { i64, i64 } %17, 1
-  %19 = extractvalue { i64, i64 } %17, 0
-  %20 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 1)
-  %21 = mul i64 %20, %..i
-  %22 = add i64 %21, %18
-  %.not = icmp ugt i64 %22, %.0
+  %17 = extractvalue { i64, i64 } %16, 1
+  %18 = extractvalue { i64, i64 } %16, 0
+  %19 = tail call i64 @llvm.usub.sat.i64(i64 %18, i64 1)
+  %20 = mul i64 %19, %..i
+  %21 = add i64 %20, %17
+  %.not = icmp ugt i64 %21, %.0
   br i1 %.not, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %25, %16
-  %23 = icmp eq i64 %2, 4
-  %. = select i1 %23, i64 2, i64 0
+.loopexit:                                        ; preds = %24, %15
+  %22 = icmp eq i64 %2, 4
+  %. = select i1 %22, i64 2, i64 0
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h476ad43d8ba6a0f7E.exit"
 
-.preheader:                                       ; preds = %16, %25
-  %24 = phi ptr [ %26, %25 ], [ %0, %16 ]
-  %.not.i11.not = icmp eq ptr %24, %7
-  br i1 %.not.i11.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h476ad43d8ba6a0f7E.exit", label %25
+.preheader:                                       ; preds = %15, %24
+  %23 = phi ptr [ %25, %24 ], [ %0, %15 ]
+  %.not.i11.not = icmp eq ptr %23, %7
+  br i1 %.not.i11.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h476ad43d8ba6a0f7E.exit", label %24
 
-25:                                               ; preds = %.preheader
-  %26 = getelementptr inbounds i8, ptr %24, i64 80
-  %27 = tail call noundef zeroext i1 @_ZN15rustfmt_nightly5lists8ListItem12is_multiline17hf2b43d321eb34609E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %24), !noalias !2270
-  br i1 %27, label %.loopexit, label %.preheader
+24:                                               ; preds = %.preheader
+  %25 = getelementptr inbounds i8, ptr %23, i64 80
+  %26 = tail call noundef zeroext i1 @_ZN15rustfmt_nightly5lists8ListItem12is_multiline17hf2b43d321eb34609E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %23), !noalias !2270
+  br i1 %26, label %.loopexit, label %.preheader
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h476ad43d8ba6a0f7E.exit": ; preds = %10, %.preheader, %.loopexit, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit", %14
-  %.sroa.02.0 = phi i64 [ 1, %14 ], [ %2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit" ], [ %., %.loopexit ], [ 1, %.preheader ], [ 0, %10 ]
-  %28 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
-  %29 = insertvalue { i64, i64 } %28, i64 undef, 1
-  ret { i64, i64 } %29
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h476ad43d8ba6a0f7E.exit": ; preds = %10, %.preheader, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit", %.loopexit, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit"
+  %.sroa.02.0 = phi i64 [ %2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit" ], [ %., %.loopexit ], [ %2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd601c826a6fb69ceE.exit" ], [ 1, %.preheader ], [ 0, %10 ]
+  %27 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
+  %28 = insertvalue { i64, i64 } %27, i64 undef, 1
+  ret { i64, i64 } %28
 }
 
 ; Function Attrs: nonlazybind uwtable

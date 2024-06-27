@@ -2782,7 +2782,7 @@ switch.lookup223:                                 ; preds = %.thread64.i
 
 _ZN6uucore8features13quoting_style11EscapedChar9new_shell17h77ff203a41fcf448E.exit.i96: ; preds = %switch.lookup223, %343, %.noexc.i131, %340, %338
   %.sroa.144.0.i.i97 = phi i32 [ %..i.i132, %.noexc.i131 ], [ %.9.i.i, %343 ], [ %.sroa.4.0.i.ph68.i, %338 ], [ %.sroa.4.0.i.ph68.i, %340 ], [ 1114114, %switch.lookup223 ]
-  %.sroa.0.0.i24.i = phi i32 [ %.sroa.4.0.i.ph68.i, %.noexc.i131 ], [ 39, %343 ], [ 2, %338 ], [ 2, %340 ], [ %switch.load226, %switch.lookup223 ]
+  %.sroa.0.0.i24.i = phi i32 [ %.sroa.4.0.i.ph68.i, %.noexc.i131 ], [ %.sroa.4.0.i.ph68.i, %343 ], [ 2, %338 ], [ 2, %340 ], [ %switch.load226, %switch.lookup223 ]
   %385 = add nsw i32 %.sroa.144.0.i.i97, -1114112
   %narrow.i98 = call i32 @llvm.umin.i32(i32 %385, i32 4)
   switch i32 %narrow.i98, label %386 [

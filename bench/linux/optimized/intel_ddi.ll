@@ -2692,52 +2692,49 @@ define dso_local void @hsw_ddi_get_config(ptr noundef %0, ptr noundef %1) #0 ali
   %12 = lshr i32 %11, 29
   %13 = xor i32 %12, 4
   switch i32 %13, label %default.unreachable1 [
-    i32 0, label %21
-    i32 1, label %14
-    i32 7, label %15
-    i32 6, label %16
-    i32 5, label %17
-    i32 4, label %18
-    i32 3, label %24
-    i32 2, label %19
+    i32 0, label %20
+    i32 1, label %20
+    i32 7, label %14
+    i32 6, label %15
+    i32 5, label %16
+    i32 4, label %17
+    i32 3, label %23
+    i32 2, label %18
   ]
 
 14:                                               ; preds = %2
-  br label %21
+  br label %20
 
 15:                                               ; preds = %2
-  br label %21
+  br label %20
 
 16:                                               ; preds = %2
-  br label %21
+  br label %20
 
 17:                                               ; preds = %2
-  br label %21
-
-18:                                               ; preds = %2
-  br label %21
+  br label %20
 
 default.unreachable1:                             ; preds = %2
   unreachable
 
-19:                                               ; preds = %2
+18:                                               ; preds = %2
   tail call void asm sideeffect "1057: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1057b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1057) #14, !srcloc !126
-  %20 = zext i32 %11 to i64
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.50, i64 noundef %20) #14
+  %19 = zext i32 %11 to i64
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.50, i64 noundef %19) #14
   tail call void asm sideeffect "1058: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1058b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1058) #14, !srcloc !127
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1996, i32 2313, i64 12) #14, !srcloc !128
   tail call void asm sideeffect "1059: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1059b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1059) #14, !srcloc !129
   tail call void asm sideeffect "1060: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1060b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1060) #14, !srcloc !130
-  br label %24
+  br label %23
 
-21:                                               ; preds = %2, %18, %17, %16, %15, %14
-  %22 = phi i32 [ 5, %18 ], [ 4, %17 ], [ 3, %16 ], [ 2, %15 ], [ 1, %14 ], [ %13, %2 ]
-  %23 = tail call ptr @intel_get_shared_dpll_by_id(ptr noundef %3, i32 noundef %22) #14
-  br label %24
+20:                                               ; preds = %2, %2, %17, %16, %15, %14
+  %21 = phi i32 [ 5, %17 ], [ 4, %16 ], [ 3, %15 ], [ 2, %14 ], [ %13, %2 ], [ %13, %2 ]
+  %22 = tail call ptr @intel_get_shared_dpll_by_id(ptr noundef %3, i32 noundef %21) #14
+  br label %23
 
-24:                                               ; preds = %2, %21, %19
-  %25 = phi ptr [ %23, %21 ], [ null, %2 ], [ null, %19 ]
-  tail call void @intel_ddi_get_clock(ptr noundef %0, ptr noundef %1, ptr noundef %25)
+23:                                               ; preds = %2, %20, %18
+  %24 = phi ptr [ %22, %20 ], [ null, %2 ], [ null, %18 ]
+  tail call void @intel_ddi_get_clock(ptr noundef %0, ptr noundef %1, ptr noundef %24)
   tail call fastcc void @intel_ddi_get_config(ptr noundef %0, ptr noundef %1)
   ret void
 }

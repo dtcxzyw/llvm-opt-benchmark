@@ -12477,7 +12477,7 @@ distance_multiply.exit.i:                         ; preds = %148, %144
   %153 = getelementptr inbounds i8, ptr %2, i64 4
   switch i32 %146, label %154 [
     i32 -1, label %mmcl_repeat_range_multiply.exit
-    i32 0, label %distance_multiply.exit9.i
+    i32 0, label %mmcl_repeat_range_multiply.exit
   ]
 
 154:                                              ; preds = %distance_multiply.exit.i
@@ -12488,11 +12488,8 @@ distance_multiply.exit.i:                         ; preds = %148, %144
   %spec.select.i7.i = select i1 %157, i32 %158, i32 -1
   br label %mmcl_repeat_range_multiply.exit
 
-distance_multiply.exit9.i:                        ; preds = %distance_multiply.exit.i
-  br label %mmcl_repeat_range_multiply.exit
-
-mmcl_repeat_range_multiply.exit:                  ; preds = %distance_multiply.exit.i, %154, %distance_multiply.exit9.i
-  %.0.i8.sink.i = phi i32 [ %146, %distance_multiply.exit.i ], [ %spec.select.i7.i, %154 ], [ 0, %distance_multiply.exit9.i ]
+mmcl_repeat_range_multiply.exit:                  ; preds = %distance_multiply.exit.i, %distance_multiply.exit.i, %154
+  %.0.i8.sink.i = phi i32 [ %146, %distance_multiply.exit.i ], [ %spec.select.i7.i, %154 ], [ %146, %distance_multiply.exit.i ]
   store i32 %.0.i8.sink.i, ptr %153, align 4
   br label %mmcl_alt_merge.exit229
 
@@ -14785,7 +14782,7 @@ tailrecurse.backedge:                             ; preds = %78, %78, %61
   %73 = load i32, ptr %66, align 4
   switch i32 %73, label %74 [
     i32 -1, label %common.ret177
-    i32 0, label %distance_multiply.exit.fold.split
+    i32 0, label %common.ret177
   ]
 
 74:                                               ; preds = %72
@@ -14822,8 +14819,8 @@ tailrecurse.backedge:                             ; preds = %78, %78, %61
   %.not90 = icmp eq i32 %89, 0
   br i1 %.not90, label %90, label %common.ret177
 
-common.ret177:                                    ; preds = %72, %distance_multiply.exit.fold.split, %74, %116, %42, %88, %85, %65, %68, %32, %27, %18, %44, %.preheader, %.preheader110, %.lr.ph, %61, %tailrecurse, %78, %90
-  %common.ret177.op = phi i32 [ %94, %90 ], [ %87, %85 ], [ 0, %68 ], [ 0, %65 ], [ 0, %32 ], [ %31, %27 ], [ %26, %18 ], [ %sext, %42 ], [ %73, %72 ], [ -1, %88 ], [ %spec.select103, %116 ], [ %spec.select.i, %74 ], [ 0, %distance_multiply.exit.fold.split ], [ 0, %44 ], [ %.0.i, %.preheader ], [ %spec.select, %.preheader110 ], [ %spec.select102, %.lr.ph ], [ -1, %61 ], [ 0, %78 ], [ 0, %tailrecurse ]
+common.ret177:                                    ; preds = %72, %74, %116, %42, %88, %85, %65, %68, %32, %27, %18, %44, %72, %.preheader, %.preheader110, %.lr.ph, %61, %tailrecurse, %78, %90
+  %common.ret177.op = phi i32 [ %94, %90 ], [ %87, %85 ], [ 0, %68 ], [ 0, %65 ], [ 0, %32 ], [ %31, %27 ], [ %26, %18 ], [ %sext, %42 ], [ %73, %72 ], [ -1, %88 ], [ %spec.select103, %116 ], [ %spec.select.i, %74 ], [ 0, %44 ], [ %73, %72 ], [ %.0.i, %.preheader ], [ %spec.select, %.preheader110 ], [ %spec.select102, %.lr.ph ], [ -1, %61 ], [ 0, %78 ], [ 0, %tailrecurse ]
   ret i32 %common.ret177.op
 
 90:                                               ; preds = %88
@@ -14875,9 +14872,6 @@ common.ret177:                                    ; preds = %72, %distance_multi
 116:                                              ; preds = %111, %114
   %.0 = phi i32 [ %115, %114 ], [ 0, %111 ]
   %spec.select103 = tail call i32 @llvm.umax.i32(i32 %.0, i32 %.5)
-  br label %common.ret177
-
-distance_multiply.exit.fold.split:                ; preds = %72
   br label %common.ret177
 }
 

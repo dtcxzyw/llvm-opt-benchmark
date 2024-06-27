@@ -4328,41 +4328,33 @@ _ZN3ue25depthC2Ej.exit39.i.i:                     ; preds = %if.then5.i.i
           to label %call11.i.i.noexc unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call11.i.i.noexc:                                 ; preds = %_ZN3ue25depthC2Ej.exit39.i.i
-  switch i32 %call11.i.i357, label %if.end10.i.i.i [
-    i32 -2147483648, label %_ZNK3ue25depthplERKS0_.exit.i.i
-    i32 2147483647, label %_ZNK3ue25depthplERKS0_.exit.fold.split.i.i
-  ]
+  %call11.i.i357.off = add i32 %call11.i.i357, -2147483647
+  %switch = icmp ult i32 %call11.i.i357.off, 2
+  br i1 %switch, label %_ZNK3ue25depthplERKS0_.exit.i.i, label %if.end10.i.i.i
 
 if.end10.i.i.i:                                   ; preds = %call11.i.i.noexc
   %add.i.i.i351 = add i32 %call11.i.i357, %114
   %cmp.i40.i.i = icmp ugt i32 %add.i.i.i351, 2147483646
   br i1 %cmp.i40.i.i, label %if.then.i.i.i326.invoke, label %_ZNK3ue25depthplERKS0_.exit.i.i
 
-_ZNK3ue25depthplERKS0_.exit.fold.split.i.i:       ; preds = %call11.i.i.noexc
-  br label %_ZNK3ue25depthplERKS0_.exit.i.i
-
-_ZNK3ue25depthplERKS0_.exit.i.i:                  ; preds = %_ZNK3ue25depthplERKS0_.exit.fold.split.i.i, %if.end10.i.i.i, %call11.i.i.noexc
-  %retval.sroa.0.0.i.i.i = phi i32 [ %call11.i.i357, %call11.i.i.noexc ], [ %add.i.i.i351, %if.end10.i.i.i ], [ 2147483647, %_ZNK3ue25depthplERKS0_.exit.fold.split.i.i ]
+_ZNK3ue25depthplERKS0_.exit.i.i:                  ; preds = %call11.i.i.noexc, %if.end10.i.i.i
+  %retval.sroa.0.0.i.i.i = phi i32 [ %add.i.i.i351, %if.end10.i.i.i ], [ %call11.i.i357, %call11.i.i.noexc ]
   %115 = load ptr, ptr %graph.i317, align 8
   %call18.i.i359 = invoke i32 @_ZN3ue212findMinWidthERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136) %115)
           to label %call18.i.i.noexc unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call18.i.i.noexc:                                 ; preds = %_ZNK3ue25depthplERKS0_.exit.i.i
-  switch i32 %call18.i.i359, label %if.end10.i50.i.i [
-    i32 -2147483648, label %_ZNK3ue25depthplERKS0_.exit56.i.i
-    i32 2147483647, label %_ZNK3ue25depthplERKS0_.exit56.fold.split.i.i
-  ]
+  %call18.i.i359.off = add i32 %call18.i.i359, -2147483647
+  %switch1640 = icmp ult i32 %call18.i.i359.off, 2
+  br i1 %switch1640, label %_ZNK3ue25depthplERKS0_.exit56.i.i, label %if.end10.i50.i.i
 
 if.end10.i50.i.i:                                 ; preds = %call18.i.i.noexc
   %add.i51.i.i = add i32 %call18.i.i359, %114
   %cmp.i52.i.i = icmp ugt i32 %add.i51.i.i, 2147483646
   br i1 %cmp.i52.i.i, label %if.then.i.i.i326.invoke, label %_ZNK3ue25depthplERKS0_.exit56.i.i
 
-_ZNK3ue25depthplERKS0_.exit56.fold.split.i.i:     ; preds = %call18.i.i.noexc
-  br label %_ZNK3ue25depthplERKS0_.exit56.i.i
-
-_ZNK3ue25depthplERKS0_.exit56.i.i:                ; preds = %_ZNK3ue25depthplERKS0_.exit56.fold.split.i.i, %if.end10.i50.i.i, %call18.i.i.noexc
-  %retval.sroa.0.0.i53.i.i = phi i32 [ %call18.i.i359, %call18.i.i.noexc ], [ %add.i51.i.i, %if.end10.i50.i.i ], [ 2147483647, %_ZNK3ue25depthplERKS0_.exit56.fold.split.i.i ]
+_ZNK3ue25depthplERKS0_.exit56.i.i:                ; preds = %call18.i.i.noexc, %if.end10.i50.i.i
+  %retval.sroa.0.0.i53.i.i = phi i32 [ %add.i51.i.i, %if.end10.i50.i.i ], [ %call18.i.i359, %call18.i.i.noexc ]
   %116 = load ptr, ptr %graph.i317, align 8
   %startDs.i.i = getelementptr inbounds i8, ptr %116, i64 88
   %agg.tmp.sroa.0.0.copyload.i.i.i331 = load ptr, ptr %startDs.i.i, align 8

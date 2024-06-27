@@ -554,7 +554,7 @@ return.fold.split:                                ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %return.fold.split, %if.end7
-  %retval.sroa.0.0 = phi i64 [ %div, %if.end7 ], [ %0, %entry ], [ 9223372036854775807, %return.fold.split ]
+  %retval.sroa.0.0 = phi i64 [ %div, %if.end7 ], [ %0, %entry ], [ %0, %return.fold.split ]
   %retval.sroa.4.0 = phi i64 [ %rem, %if.end7 ], [ %0, %entry ], [ 999999, %return.fold.split ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1

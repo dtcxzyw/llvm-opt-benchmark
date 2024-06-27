@@ -2385,20 +2385,15 @@ define internal range(i32 -30, 2) i32 @compression_code_deflate(ptr noundef %0, 
   store i64 %33, ptr %17, align 8
   %34 = load i64, ptr %23, align 8
   store i64 %34, ptr %21, align 8
-  switch i32 %26, label %36 [
-    i32 0, label %37
-    i32 1, label %35
-  ]
+  %switch = icmp ult i32 %26, 2
+  br i1 %switch, label %36, label %35
 
 35:                                               ; preds = %3
-  br label %37
-
-36:                                               ; preds = %3
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.31, i32 noundef %26) #18
-  br label %37
+  br label %36
 
-37:                                               ; preds = %3, %36, %35
-  %.0 = phi i32 [ -30, %36 ], [ 1, %35 ], [ %26, %3 ]
+36:                                               ; preds = %3, %35
+  %.0 = phi i32 [ -30, %35 ], [ %26, %3 ]
   ret i32 %.0
 }
 
@@ -2712,28 +2707,25 @@ define internal range(i32 -30, 2) i32 @compression_code_lzma(ptr noundef %0, ptr
   store i64 %29, ptr %16, align 8
   %30 = load i64, ptr %21, align 8
   store i64 %30, ptr %19, align 8
-  switch i32 %24, label %36 [
-    i32 0, label %37
-    i32 1, label %31
-    i32 6, label %32
+  switch i32 %24, label %35 [
+    i32 0, label %36
+    i32 1, label %36
+    i32 6, label %31
   ]
 
 31:                                               ; preds = %3
-  br label %37
+  %32 = tail call i64 @lzma_memusage(ptr noundef nonnull %5) #20
+  %33 = add i64 %32, 1048575
+  %34 = lshr i64 %33, 20
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.41, i64 noundef %34) #18
+  br label %36
 
-32:                                               ; preds = %3
-  %33 = tail call i64 @lzma_memusage(ptr noundef nonnull %5) #20
-  %34 = add i64 %33, 1048575
-  %35 = lshr i64 %34, 20
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.41, i64 noundef %35) #18
-  br label %37
-
-36:                                               ; preds = %3
+35:                                               ; preds = %3
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.42, i32 noundef %24) #18
-  br label %37
+  br label %36
 
-37:                                               ; preds = %3, %36, %32, %31
-  %.0 = phi i32 [ -30, %36 ], [ -30, %32 ], [ 1, %31 ], [ %24, %3 ]
+36:                                               ; preds = %3, %3, %35, %31
+  %.0 = phi i32 [ -30, %35 ], [ -30, %31 ], [ %24, %3 ], [ %24, %3 ]
   ret i32 %.0
 }
 

@@ -8727,10 +8727,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr %this, align 4
-  switch i32 %1, label %if.end10 [
-    i32 -2147483648, label %return
-    i32 2147483647, label %return.fold.split
-  ]
+  %.off = add i32 %1, -2147483647
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end
   %cmp = icmp ult i32 %1, %0
@@ -8751,11 +8750,8 @@ do.end.i:                                         ; preds = %if.end14
   tail call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN3ue218DepthOverflowErrorE, ptr null) #19
   unreachable
 
-return.fold.split:                                ; preds = %if.end
-  br label %return
-
-return:                                           ; preds = %return.fold.split, %if.end14, %if.end
-  %retval.sroa.0.0 = phi i32 [ %1, %if.end ], [ %sub, %if.end14 ], [ 2147483647, %return.fold.split ]
+return:                                           ; preds = %if.end, %if.end14
+  %retval.sroa.0.0 = phi i32 [ %sub, %if.end14 ], [ %1, %if.end ]
   ret i32 %retval.sroa.0.0
 }
 

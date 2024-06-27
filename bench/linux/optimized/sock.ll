@@ -1049,7 +1049,7 @@ define dso_local i32 @sock_queue_rcv_skb_reason(ptr noundef %0, ptr noundef %1, 
 
 10:                                               ; preds = %9, %8, %6, %3
   %11 = phi i32 [ 0, %9 ], [ 17, %8 ], [ 6, %3 ], [ 16, %6 ]
-  %12 = phi i32 [ %7, %9 ], [ -105, %8 ], [ %4, %3 ], [ %7, %6 ]
+  %12 = phi i32 [ %7, %9 ], [ %7, %8 ], [ %4, %3 ], [ %7, %6 ]
   %13 = icmp eq ptr %2, null
   br i1 %13, label %15, label %14
 

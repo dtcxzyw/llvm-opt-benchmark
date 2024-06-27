@@ -1208,20 +1208,10 @@ declare void @_ZN6icu_756number4impl15DecimalQuantity15roundToInfinityEv(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_756number9Precision18constructIncrementEms(ptr noalias nocapture writeonly sret(%"class.icu_75::number::IncrementPrecision") align 8 %agg.result, i64 noundef %increment, i16 noundef signext %magnitude) local_unnamed_addr #7 align 2 {
 entry:
-  switch i64 %increment, label %if.else7 [
-    i64 1, label %return
-    i64 5, label %if.then5
-  ]
-
-if.then5:                                         ; preds = %entry
-  br label %return
-
-if.else7:                                         ; preds = %entry
-  br label %return
-
-return:                                           ; preds = %entry, %if.else7, %if.then5
-  %.sink = phi i32 [ 5, %if.else7 ], [ 7, %if.then5 ], [ 6, %entry ]
-  %increment.sink = phi i64 [ %increment, %if.else7 ], [ 5, %if.then5 ], [ %increment, %entry ]
+  %switch.selectcmp = icmp eq i64 %increment, 5
+  %switch.select = select i1 %switch.selectcmp, i32 7, i32 5
+  %switch.selectcmp17 = icmp eq i64 %increment, 1
+  %switch.select18 = select i1 %switch.selectcmp17, i32 6, i32 %switch.select
   %fTrailingZeroDisplay.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %union_.sroa.5.0.fUnion.i.i7.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 18
   %union_.sroa.4.0.fUnion.i.i7.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -1229,8 +1219,8 @@ return:                                           ; preds = %entry, %if.else7, %
   %cmp = icmp sgt i16 %magnitude, 0
   %sub = sub i16 0, %magnitude
   %conv2 = select i1 %cmp, i16 0, i16 %sub
-  store i32 %.sink, ptr %agg.result, align 8
-  store i64 %increment.sink, ptr %fUnion.i.i7, align 8
+  store i32 %switch.select18, ptr %agg.result, align 8
+  store i64 %increment, ptr %fUnion.i.i7, align 8
   store i16 %magnitude, ptr %union_.sroa.4.0.fUnion.i.i7.sroa_idx, align 8
   store i16 %conv2, ptr %union_.sroa.5.0.fUnion.i.i7.sroa_idx, align 2
   store i32 0, ptr %fTrailingZeroDisplay.i.i8, align 8

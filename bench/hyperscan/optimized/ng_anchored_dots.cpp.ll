@@ -1093,10 +1093,9 @@ invoke.cont110.i.i:                               ; preds = %if.end96.i.i
 if.end126.i.i:                                    ; preds = %invoke.cont110.i.i, %invoke.cont102.i.i, %if.end96.thread.i.i, %if.end96.i.i
   %max.sroa.0.024.i.i = phi i32 [ 2147483647, %if.end96.i.i ], [ 1, %if.end96.thread.i.i ], [ 2147483647, %invoke.cont110.i.i ], [ 1, %invoke.cont102.i.i ]
   %min.sroa.0.0.i.i = phi i32 [ 1, %if.end96.i.i ], [ 1, %if.end96.thread.i.i ], [ 0, %invoke.cont110.i.i ], [ 0, %invoke.cont102.i.i ]
-  switch i32 %startBegin.sroa.0.2, label %if.end10.i.i.i.i [
-    i32 -2147483648, label %invoke.cont127.i.i
-    i32 2147483647, label %invoke.cont127.fold.split.i.i
-  ]
+  %startBegin.sroa.0.2.off = add i32 %startBegin.sroa.0.2, -2147483647
+  %switch = icmp ult i32 %startBegin.sroa.0.2.off, 2
+  br i1 %switch, label %invoke.cont127.i.i, label %if.end10.i.i.i.i
 
 if.end10.i.i.i.i:                                 ; preds = %if.end126.i.i
   %add.i.i.i.i = add nsw i32 %min.sroa.0.0.i.i, %startBegin.sroa.0.2
@@ -1111,11 +1110,8 @@ do.end.i.i.invoke.i.i:                            ; preds = %if.end10.i.i61.i.i,
 do.end.i.i.cont.i.i:                              ; preds = %do.end.i.i.invoke.i.i
   unreachable
 
-invoke.cont127.fold.split.i.i:                    ; preds = %if.end126.i.i
-  br label %invoke.cont127.i.i
-
-invoke.cont127.i.i:                               ; preds = %invoke.cont127.fold.split.i.i, %if.end10.i.i.i.i, %if.end126.i.i
-  %retval.sroa.0.0.i.i53.i.i = phi i32 [ %startBegin.sroa.0.2, %if.end126.i.i ], [ %add.i.i.i.i, %if.end10.i.i.i.i ], [ 2147483647, %invoke.cont127.fold.split.i.i ]
+invoke.cont127.i.i:                               ; preds = %if.end126.i.i, %if.end10.i.i.i.i
+  %retval.sroa.0.0.i.i53.i.i = phi i32 [ %add.i.i.i.i, %if.end10.i.i.i.i ], [ %startBegin.sroa.0.2, %if.end126.i.i ]
   %cmp.i.i.i54.i.i = icmp eq i32 %63, -2147483648
   br i1 %cmp.i.i.i54.i.i, label %invoke.cont129.i.i, label %if.end.i.i57.i.i
 

@@ -14635,9 +14635,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14v
   %76 = and i64 %75, 4294967296
   %.not551 = icmp eq i64 %76, 0
   %.sink628.sroa.gep = getelementptr inbounds i8, ptr %44, i64 4
-  %.sink628.sroa.gep642 = getelementptr inbounds i8, ptr %42, i64 4
+  %.sink628.sroa.gep641 = getelementptr inbounds i8, ptr %42, i64 4
   %.sink623.sroa.gep = getelementptr inbounds i8, ptr %37, i64 4
-  %.sink623.sroa.gep643 = getelementptr inbounds i8, ptr %35, i64 4
+  %.sink623.sroa.gep642 = getelementptr inbounds i8, ptr %35, i64 4
   br i1 %.not551, label %78, label %77
 
 77:                                               ; preds = %3
@@ -15681,9 +15681,9 @@ _ZNSt6vectorIjSaIjEED2Ev.exit346:                 ; preds = %420, %_ZNSt6vectorI
   br i1 %.not295, label %.thread531, label %.thread540
 
 .thread540:                                       ; preds = %455, %89, %89, %..thread540_crit_edge, %89, %494
-  %495 = phi ptr [ %.pn, %494 ], [ %86, %89 ], [ %.pre, %..thread540_crit_edge ], [ %86, %89 ], [ %86, %89 ], [ %86, %455 ]
-  %.0270547 = phi i32 [ %.0270, %494 ], [ %88, %89 ], [ 158, %..thread540_crit_edge ], [ %88, %89 ], [ %88, %89 ], [ %88, %455 ]
-  %.0271546 = phi i1 [ true, %494 ], [ true, %89 ], [ true, %..thread540_crit_edge ], [ true, %89 ], [ true, %89 ], [ false, %455 ]
+  %495 = phi ptr [ %.pn, %494 ], [ %86, %89 ], [ %.pre, %..thread540_crit_edge ], [ %86, %455 ], [ %86, %89 ], [ %86, %89 ]
+  %.0270547 = phi i32 [ %.0270, %494 ], [ %88, %89 ], [ 158, %..thread540_crit_edge ], [ %88, %455 ], [ %88, %89 ], [ %88, %89 ]
+  %.0271546 = phi i1 [ true, %494 ], [ true, %89 ], [ true, %..thread540_crit_edge ], [ false, %455 ], [ true, %89 ], [ true, %89 ]
   %496 = load ptr, ptr %495, align 8
   %497 = getelementptr inbounds i8, ptr %496, i64 400
   %498 = load ptr, ptr %497, align 8
@@ -17304,7 +17304,7 @@ _ZNK7glslang10TSourceLoc11getFilenameEv.exit403:  ; preds = %._crit_edge580, %13
   br label %1383
 
 1383:                                             ; preds = %1376, %1372
-  %.sink623.sroa.phi = phi ptr [ %.sink623.sroa.gep, %1376 ], [ %.sink623.sroa.gep643, %1372 ]
+  %.sink623.sroa.phi = phi ptr [ %.sink623.sroa.gep, %1376 ], [ %.sink623.sroa.gep642, %1372 ]
   %.sink623 = phi ptr [ %37, %1376 ], [ %35, %1372 ]
   %.sink621 = phi i32 [ %1382, %1376 ], [ %1375, %1372 ]
   store i32 %.sink621, ptr %.sink623.sroa.phi, align 4
@@ -17431,7 +17431,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit:                ; preds = %1383, %1402
   br label %1462
 
 1462:                                             ; preds = %1455, %1451
-  %.sink628.sroa.phi = phi ptr [ %.sink628.sroa.gep, %1455 ], [ %.sink628.sroa.gep642, %1451 ]
+  %.sink628.sroa.phi = phi ptr [ %.sink628.sroa.gep, %1455 ], [ %.sink628.sroa.gep641, %1451 ]
   %.sink628 = phi ptr [ %44, %1455 ], [ %42, %1451 ]
   %.sink626 = phi i32 [ %1461, %1455 ], [ %1454, %1451 ]
   store i32 %.sink626, ptr %.sink628.sroa.phi, align 4

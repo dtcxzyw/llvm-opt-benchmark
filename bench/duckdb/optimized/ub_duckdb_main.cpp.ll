@@ -47936,13 +47936,10 @@ if.end:                                           ; preds = %entry
   %0 = load i8, ptr %default_null_order, align 1, !tbaa !1138
   switch i8 %0, label %sw.default [
     i8 2, label %return
-    i8 3, label %sw.bb2
+    i8 3, label %return
     i8 4, label %sw.bb3
     i8 5, label %sw.bb5
   ]
-
-sw.bb2:                                           ; preds = %if.end
-  br label %return
 
 sw.bb3:                                           ; preds = %if.end
   %cmp4 = icmp eq i8 %order_type, 2
@@ -48005,8 +48002,8 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
   call void @__cxa_free_exception(ptr %exception) #38
   br label %eh.resume
 
-return:                                           ; preds = %sw.bb5, %sw.bb3, %sw.bb2, %if.end, %entry
-  %retval.0 = phi i8 [ %cond7, %sw.bb5 ], [ %cond, %sw.bb3 ], [ 3, %sw.bb2 ], [ %null_type, %entry ], [ %0, %if.end ]
+return:                                           ; preds = %if.end, %sw.bb5, %sw.bb3, %if.end, %entry
+  %retval.0 = phi i8 [ %cond7, %sw.bb5 ], [ %cond, %sw.bb3 ], [ %null_type, %entry ], [ %0, %if.end ], [ %0, %if.end ]
   ret i8 %retval.0
 
 eh.resume:                                        ; preds = %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i

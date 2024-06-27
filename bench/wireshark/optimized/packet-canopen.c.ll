@@ -860,7 +860,7 @@ proto_item_set_generated.exit135:                 ; preds = %proto_item_set_gene
 
 164:                                              ; preds = %152, %151, %150, %149, %147
   %.084.ph.i = phi i8 [ 7, %147 ], [ 4, %149 ], [ 0, %150 ], [ 0, %151 ], [ 4, %152 ]
-  %.182.ph.i = phi i8 [ %143, %147 ], [ 1, %149 ], [ 1, %150 ], [ 0, %151 ], [ 1, %152 ]
+  %.182.ph.i = phi i8 [ %143, %147 ], [ %143, %149 ], [ 1, %150 ], [ 0, %151 ], [ 1, %152 ]
   %165 = zext nneg i8 %143 to i64
   %166 = getelementptr [5 x ptr], ptr @_sdo_cmd_fields_ccs, i64 0, i64 %165
   br label %.sink.split.i.i

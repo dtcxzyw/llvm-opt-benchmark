@@ -1389,7 +1389,7 @@ if.end14:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %if.end14, %if.then13
-  %retval.0 = phi i32 [ %call, %if.then13 ], [ 0, %if.end14 ], [ -522, %if.end ]
+  %retval.0 = phi i32 [ %call, %if.then13 ], [ %call, %if.end14 ], [ -522, %if.end ]
   ret i32 %retval.0
 }
 
