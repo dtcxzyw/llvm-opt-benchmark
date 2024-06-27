@@ -21491,8 +21491,6 @@ thread-pre-split10294.thread:                     ; preds = %4944, %4925, %4940,
   br i1 %4979, label %4988, label %4980
 
 4980:                                             ; preds = %4970
-  %.not8820 = icmp sgt i32 %.17649, -1
-  %spec.select9802 = select i1 %.not8820, i32 %.17649, i32 -1073741568
   %4981 = getelementptr inbounds i8, ptr %4972, i64 40
   %4982 = load i8, ptr %4981, align 8
   %4983 = lshr i8 %4982, 2
@@ -21506,7 +21504,7 @@ thread-pre-split10294.thread:                     ; preds = %4944, %4925, %4940,
   br label %4988
 
 4988:                                             ; preds = %4980, %4985, %4970
-  %.47652 = phi i32 [ %4987, %4985 ], [ %spec.select9802, %4980 ], [ %.17649, %4970 ]
+  %.47652 = phi i32 [ %4987, %4985 ], [ %.17649, %4980 ], [ %.17649, %4970 ]
   %4989 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %15, i64 %4971
   %4990 = load i32, ptr %4989, align 8
   %.not8822 = icmp eq i32 %4990, %.47652
@@ -44896,8 +44894,6 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   br i1 %5048, label %5057, label %5049
 
 5049:                                             ; preds = %5041
-  %.not9053 = icmp sgt i32 %.17962, -1
-  %spec.select10033 = select i1 %.not9053, i32 %.17962, i32 -1073741568
   %5050 = getelementptr inbounds i8, ptr %5043, i64 40
   %5051 = load i8, ptr %5050, align 8
   %5052 = lshr i8 %5051, 2
@@ -44911,7 +44907,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   br label %5057
 
 5057:                                             ; preds = %5049, %5054, %5041
-  %.47965 = phi i32 [ %5056, %5054 ], [ %spec.select10033, %5049 ], [ %.17962, %5041 ]
+  %.47965 = phi i32 [ %5056, %5054 ], [ %.17962, %5049 ], [ %.17962, %5041 ]
   %5058 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %371, i64 %5042
   %5059 = load i32, ptr %5058, align 8
   %.not9055 = icmp eq i32 %5059, %.47965

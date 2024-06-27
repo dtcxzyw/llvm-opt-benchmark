@@ -628,19 +628,19 @@ Cmd_Argv_length.exit147.i:                        ; preds = %163
   br i1 %.not68.i.i, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %Cmd_Argv_length.exit147.i, %.critedge2.us.i.i
-  %.076.us.i.i = phi ptr [ %225, %.critedge2.us.i.i ], [ %203, %Cmd_Argv_length.exit147.i ]
-  %209 = load i8, ptr %.076.us.i.i, align 1
+  %.075.us.i.i = phi ptr [ %225, %.critedge2.us.i.i ], [ %203, %Cmd_Argv_length.exit147.i ]
+  %209 = load i8, ptr %.075.us.i.i, align 1
   switch i8 %209, label %212 [
     i8 0, label %dissect_id_infostring.exit.i
     i8 92, label %210
   ]
 
 210:                                              ; preds = %.split.us.i.i
-  %211 = getelementptr i8, ptr %.076.us.i.i, i64 1
+  %211 = getelementptr i8, ptr %.075.us.i.i, i64 1
   br label %212
 
 212:                                              ; preds = %210, %.split.us.i.i
-  %.057.us.i.i = phi ptr [ %211, %210 ], [ %.076.us.i.i, %.split.us.i.i ]
+  %.057.us.i.i = phi ptr [ %211, %210 ], [ %.075.us.i.i, %.split.us.i.i ]
   br label %213
 
 213:                                              ; preds = %228, %212
@@ -670,11 +670,11 @@ Cmd_Argv_length.exit147.i:                        ; preds = %163
 
 .critedge2.us.i.i:                                ; preds = %220, %220
   %224 = getelementptr i8, ptr %219, i64 %221
-  %.not77.i.i = icmp eq i8 %223, 0
+  %.not76.i.i = icmp eq i8 %223, 0
   store i8 61, ptr %218, align 1
   store i8 0, ptr %224, align 1
   %225 = getelementptr i8, ptr %224, i64 1
-  br i1 %.not77.i.i, label %dissect_id_infostring.exit.i, label %.split.us.i.i, !llvm.loop !10
+  br i1 %.not76.i.i, label %dissect_id_infostring.exit.i, label %.split.us.i.i, !llvm.loop !10
 
 226:                                              ; preds = %220
   %227 = add i32 %.058.us.i.i, 1
@@ -685,19 +685,19 @@ Cmd_Argv_length.exit147.i:                        ; preds = %163
   br label %213, !llvm.loop !12
 
 .split.i.i:                                       ; preds = %Cmd_Argv_length.exit147.i, %.critedge2.i.i
-  %.076.i.i = phi ptr [ %264, %.critedge2.i.i ], [ %203, %Cmd_Argv_length.exit147.i ]
-  %230 = load i8, ptr %.076.i.i, align 1
+  %.075.i.i = phi ptr [ %264, %.critedge2.i.i ], [ %203, %Cmd_Argv_length.exit147.i ]
+  %230 = load i8, ptr %.075.i.i, align 1
   switch i8 %230, label %233 [
     i8 0, label %dissect_id_infostring.exit.i
     i8 92, label %231
   ]
 
 231:                                              ; preds = %.split.i.i
-  %232 = getelementptr i8, ptr %.076.i.i, i64 1
+  %232 = getelementptr i8, ptr %.075.i.i, i64 1
   br label %233
 
 233:                                              ; preds = %231, %.split.i.i
-  %.057.i.i = phi ptr [ %232, %231 ], [ %.076.i.i, %.split.i.i ]
+  %.057.i.i = phi ptr [ %232, %231 ], [ %.075.i.i, %.split.i.i ]
   br label %234
 
 234:                                              ; preds = %238, %233

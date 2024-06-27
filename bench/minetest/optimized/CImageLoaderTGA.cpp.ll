@@ -393,17 +393,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %53 = load ptr, ptr %vtable, align 8
   %call6 = call noundef i64 %53(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %chunkheader, i64 noundef 1) #13
   %54 = load i8, ptr %chunkheader, align 1, !tbaa !11
-  %cmp8 = icmp sgt i8 %54, -1
-  %inc = add nuw i8 %54, 1
-  %narrow = mul nuw nsw i8 %inc, %1
-  %conv13 = zext nneg i8 %narrow to i64
-  %sub = add i8 %54, -127
-  %sub.sink = select i1 %cmp8, i8 %inc, i8 %sub
-  %conv29.sink = select i1 %cmp8, i64 %conv13, i64 %conv29
+  %55 = and i8 %54, -128
+  %sub.sink.v = or disjoint i8 %55, 1
+  %sub.sink = add i8 %54, %sub.sink.v
   store i8 %sub.sink, ptr %chunkheader, align 1
   %vtable30 = load ptr, ptr %file, align 8, !tbaa !18
-  %55 = load ptr, ptr %vtable30, align 8
-  %call32 = call noundef i64 %55(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %call, i64 noundef %conv29.sink) #13
+  %56 = load ptr, ptr %vtable30, align 8
+  %call32 = call noundef i64 %56(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %call, i64 noundef 0) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %chunkheader) #13
   br label %while.body
 
@@ -411,8 +407,8 @@ cleanup66.thread:                                 ; preds = %if.then.us, %if.els
   %.str.2.sink = phi ptr [ @.str.2, %if.then.us ], [ @.str.3, %if.else21.us ]
   %vtable18 = load ptr, ptr %file, align 8, !tbaa !18
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 32
-  %56 = load ptr, ptr %vfn19, align 8
-  %call20 = call noundef nonnull align 8 dereferenceable(32) ptr %56(ptr noundef nonnull align 8 dereferenceable(8) %file) #13
+  %57 = load ptr, ptr %vfn19, align 8
+  %call20 = call noundef nonnull align 8 dereferenceable(32) ptr %57(ptr noundef nonnull align 8 dereferenceable(8) %file) #13
   call void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef nonnull %.str.2.sink, ptr noundef nonnull align 8 dereferenceable(32) %call20, i32 noundef 2) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %chunkheader) #13
   br label %while.end

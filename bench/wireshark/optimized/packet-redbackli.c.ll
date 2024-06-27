@@ -98,12 +98,12 @@ define internal i32 @redbackli_dissect(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not32, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %redbackli_dissect_avp.exit.us
-  %.035.us = phi i32 [ %22, %redbackli_dissect_avp.exit.us ], [ %11, %.lr.ph ]
-  %.02934.us = phi i32 [ %21, %redbackli_dissect_avp.exit.us ], [ 0, %.lr.ph ]
-  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02934.us) #2
-  %14 = add i32 %.02934.us, 1
+  %.034.us = phi i32 [ %22, %redbackli_dissect_avp.exit.us ], [ %11, %.lr.ph ]
+  %.02933.us = phi i32 [ %21, %redbackli_dissect_avp.exit.us ], [ 0, %.lr.ph ]
+  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02933.us) #2
+  %14 = add i32 %.02933.us, 1
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #2
-  %16 = add nsw i32 %.035.us, -2
+  %16 = add nsw i32 %.034.us, -2
   %17 = zext i8 %15 to i32
   %18 = icmp ult i32 %16, %17
   br i1 %18, label %._crit_edge, label %redbackli_dissect_avp.exit.us
@@ -111,19 +111,19 @@ define internal i32 @redbackli_dissect(ptr noundef %0, ptr noundef %1, ptr nound
 redbackli_dissect_avp.exit.us:                    ; preds = %.lr.ph.split.us
   %19 = icmp ne i8 %13, 0
   %20 = add nuw nsw i32 %17, 2
-  %21 = add i32 %20, %.02934.us
-  %22 = sub nsw i32 %.035.us, %20
+  %21 = add i32 %20, %.02933.us
+  %22 = sub nsw i32 %.034.us, %20
   %23 = icmp sgt i32 %22, 2
   %24 = select i1 %19, i1 %23, i1 false
   br i1 %24, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %redbackli_dissect_avp.exit
-  %.035 = phi i32 [ %54, %redbackli_dissect_avp.exit ], [ %11, %.lr.ph ]
-  %.02934 = phi i32 [ %53, %redbackli_dissect_avp.exit ], [ 0, %.lr.ph ]
-  %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02934) #2
-  %26 = add i32 %.02934, 1
+  %.034 = phi i32 [ %54, %redbackli_dissect_avp.exit ], [ %11, %.lr.ph ]
+  %.02933 = phi i32 [ %53, %redbackli_dissect_avp.exit ], [ 0, %.lr.ph ]
+  %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02933) #2
+  %26 = add i32 %.02933, 1
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %26) #2
-  %28 = add nsw i32 %.035, -2
+  %28 = add nsw i32 %.034, -2
   %29 = zext i8 %27 to i32
   %30 = icmp ult i32 %28, %29
   br i1 %30, label %._crit_edge, label %31
@@ -133,16 +133,16 @@ redbackli_dissect_avp.exit.us:                    ; preds = %.lr.ph.split.us
   %33 = tail call ptr @val_to_str_const(i32 noundef %32, ptr noundef nonnull @avp_names, ptr noundef nonnull @.str.31) #2
   %34 = add nuw nsw i32 %29, 2
   %35 = load i32, ptr @ett_redbackli, align 4
-  %36 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.02934, i32 noundef %34, i32 noundef %35, ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef %33) #2
+  %36 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.02933, i32 noundef %34, i32 noundef %35, ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef %33) #2
   %37 = load i32, ptr @hf_redbackli_avptype, align 4
-  %38 = tail call ptr @proto_tree_add_uint(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef %.02934, i32 noundef 1, i32 noundef %32) #2
+  %38 = tail call ptr @proto_tree_add_uint(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef %.02933, i32 noundef 1, i32 noundef %32) #2
   %39 = load i32, ptr @hf_redbackli_avplen, align 4
   %40 = tail call ptr @proto_tree_add_uint(ptr noundef %36, i32 noundef %39, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef %29) #2
   %.not.i = icmp eq i8 %27, 0
   br i1 %.not.i, label %redbackli_dissect_avp.exit, label %41
 
 41:                                               ; preds = %31
-  %42 = add i32 %.02934, 2
+  %42 = add i32 %.02933, 2
   switch i8 %25, label %49 [
     i8 1, label %.sink.split.i
     i8 2, label %43
@@ -182,14 +182,14 @@ redbackli_dissect_avp.exit.us:                    ; preds = %.lr.ph.split.us
 
 redbackli_dissect_avp.exit:                       ; preds = %.sink.split.i, %31
   %52 = icmp ne i8 %25, 0
-  %53 = add i32 %34, %.02934
-  %54 = sub nsw i32 %.035, %34
+  %53 = add i32 %34, %.02933
+  %54 = sub nsw i32 %.034, %34
   %55 = icmp sgt i32 %54, 2
   %56 = select i1 %52, i1 %55, i1 false
   br i1 %56, label %.lr.ph.split, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %redbackli_dissect_avp.exit, %.lr.ph.split, %redbackli_dissect_avp.exit.us, %.lr.ph.split.us, %4
-  %.029.lcssa = phi i32 [ 0, %4 ], [ %.02934.us, %.lr.ph.split.us ], [ %21, %redbackli_dissect_avp.exit.us ], [ %.02934, %.lr.ph.split ], [ %53, %redbackli_dissect_avp.exit ]
+  %.029.lcssa = phi i32 [ 0, %4 ], [ %.02933.us, %.lr.ph.split.us ], [ %21, %redbackli_dissect_avp.exit.us ], [ %.02933, %.lr.ph.split ], [ %53, %redbackli_dissect_avp.exit ]
   %57 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.029.lcssa) #2
   %58 = load ptr, ptr @ip_handle, align 8
   %59 = tail call i32 @call_dissector(ptr noundef %58, ptr noundef %57, ptr noundef %1, ptr noundef %2) #2

@@ -3798,20 +3798,20 @@ define hidden void @dissect_bgp_path_attr(ptr noundef %0, ptr noundef %1, i16 no
 
 .preheader.i:                                     ; preds = %72
   %76 = icmp slt i32 %73, %74
-  br i1 %76, label %.lr.ph105.i, label %heuristic_as2_or_4_from_as_path.exit.thread
+  br i1 %76, label %.lr.ph104.i, label %heuristic_as2_or_4_from_as_path.exit.thread
 
-.lr.ph105.i:                                      ; preds = %.preheader.i, %.lr.ph105.i
-  %.0104.i = phi i32 [ %82, %.lr.ph105.i ], [ %73, %.preheader.i ]
-  %.079103.i = phi i32 [ %83, %.lr.ph105.i ], [ 0, %.preheader.i ]
-  %77 = add nsw i32 %.0104.i, 1
+.lr.ph104.i:                                      ; preds = %.preheader.i, %.lr.ph104.i
+  %.0103.i = phi i32 [ %82, %.lr.ph104.i ], [ %73, %.preheader.i ]
+  %.079102.i = phi i32 [ %83, %.lr.ph104.i ], [ 0, %.preheader.i ]
+  %77 = add nsw i32 %.0103.i, 1
   %78 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %77) #4
-  %79 = add i32 %.0104.i, 2
+  %79 = add i32 %.0103.i, 2
   %80 = zext i8 %78 to i32
   %81 = shl nuw nsw i32 %80, 2
   %82 = add i32 %79, %81
-  %83 = add i32 %.079103.i, 1
+  %83 = add i32 %.079102.i, 1
   %84 = icmp slt i32 %82, %74
-  br i1 %84, label %.lr.ph105.i, label %heuristic_as2_or_4_from_as_path.exit.thread, !llvm.loop !4
+  br i1 %84, label %.lr.ph104.i, label %heuristic_as2_or_4_from_as_path.exit.thread, !llvm.loop !4
 
 85:                                               ; preds = %72
   %86 = load i32, ptr @bgp_asn_len, align 4
@@ -3852,63 +3852,63 @@ define hidden void @dissect_bgp_path_attr(ptr noundef %0, ptr noundef %1, i16 no
   %106 = add i32 %105, %102
   %107 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %106) #4
   %108 = icmp eq i32 %106, %74
-  br i1 %108, label %._crit_edge94.i, label %109
+  br i1 %108, label %._crit_edge93.i, label %109
 
 109:                                              ; preds = %100
   %110 = add i8 %107, -1
   %or.cond8.i = icmp ult i8 %110, 4
-  br i1 %or.cond8.i, label %.preheader87.i, label %._crit_edge94.i
+  br i1 %or.cond8.i, label %.preheader87.i, label %._crit_edge93.i
 
 .preheader87.i:                                   ; preds = %109
-  %.not108.i = icmp eq i8 %103, 0
-  br i1 %.not108.i, label %._crit_edge94.i, label %.lr.ph93.i
+  %.not107.i = icmp eq i8 %103, 0
+  br i1 %.not107.i, label %._crit_edge93.i, label %.lr.ph92.i
 
-.lr.ph93.i:                                       ; preds = %.preheader87.i, %.lr.ph93.i
-  %.07592.i = phi i32 [ %115, %.lr.ph93.i ], [ 0, %.preheader87.i ]
-  %111 = shl nuw i32 %.07592.i, 1
+.lr.ph92.i:                                       ; preds = %.preheader87.i, %.lr.ph92.i
+  %.07591.i = phi i32 [ %115, %.lr.ph92.i ], [ 0, %.preheader87.i ]
+  %111 = shl nuw i32 %.07591.i, 1
   %112 = add i32 %111, %102
   %113 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %112) #4
   %114 = icmp ne i16 %113, 0
-  %115 = add nuw nsw i32 %.07592.i, 1
+  %115 = add nuw nsw i32 %.07591.i, 1
   %116 = icmp ult i32 %115, %104
   %117 = select i1 %116, i1 %114, i1 false
-  br i1 %117, label %.lr.ph93.i, label %._crit_edge94.loopexit.i, !llvm.loop !7
+  br i1 %117, label %.lr.ph92.i, label %._crit_edge93.loopexit.i, !llvm.loop !7
 
-._crit_edge94.loopexit.i:                         ; preds = %.lr.ph93.i
+._crit_edge93.loopexit.i:                         ; preds = %.lr.ph92.i
   %118 = select i1 %114, i8 2, i8 4
-  br label %._crit_edge94.i
+  br label %._crit_edge93.i
 
-._crit_edge94.i:                                  ; preds = %._crit_edge94.loopexit.i, %.preheader87.i, %109, %100
-  %.078.i = phi i8 [ 2, %100 ], [ 4, %109 ], [ 2, %.preheader87.i ], [ %118, %._crit_edge94.loopexit.i ]
+._crit_edge93.i:                                  ; preds = %._crit_edge93.loopexit.i, %.preheader87.i, %109, %100
+  %.078.i = phi i8 [ 2, %100 ], [ 4, %109 ], [ 2, %.preheader87.i ], [ %118, %._crit_edge93.loopexit.i ]
   %119 = icmp slt i32 %73, %74
-  br i1 %119, label %.lr.ph99.i, label %._crit_edge100.i
+  br i1 %119, label %.lr.ph98.i, label %._crit_edge99.i
 
-.lr.ph99.i:                                       ; preds = %._crit_edge94.i
+.lr.ph98.i:                                       ; preds = %._crit_edge93.i
   %120 = zext nneg i8 %.078.i to i32
   br label %121
 
-121:                                              ; preds = %121, %.lr.ph99.i
-  %.297.i = phi i32 [ %73, %.lr.ph99.i ], [ %127, %121 ]
-  %.28196.i = phi i32 [ 0, %.lr.ph99.i ], [ %128, %121 ]
-  %122 = add nsw i32 %.297.i, 1
+121:                                              ; preds = %121, %.lr.ph98.i
+  %.296.i = phi i32 [ %73, %.lr.ph98.i ], [ %127, %121 ]
+  %.28195.i = phi i32 [ 0, %.lr.ph98.i ], [ %128, %121 ]
+  %122 = add nsw i32 %.296.i, 1
   %123 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %122) #4
-  %124 = add i32 %.297.i, 2
+  %124 = add i32 %.296.i, 2
   %125 = zext i8 %123 to i32
   %126 = mul nuw nsw i32 %125, %120
   %127 = add i32 %124, %126
-  %128 = add i32 %.28196.i, 1
+  %128 = add i32 %.28195.i, 1
   %129 = icmp slt i32 %127, %74
-  br i1 %129, label %121, label %._crit_edge100.i, !llvm.loop !8
+  br i1 %129, label %121, label %._crit_edge99.i, !llvm.loop !8
 
-._crit_edge100.i:                                 ; preds = %121, %._crit_edge94.i
-  %.281.lcssa.i = phi i32 [ 0, %._crit_edge94.i ], [ %128, %121 ]
-  %.2.lcssa.i = phi i32 [ %73, %._crit_edge94.i ], [ %127, %121 ]
+._crit_edge99.i:                                  ; preds = %121, %._crit_edge93.i
+  %.281.lcssa.i = phi i32 [ 0, %._crit_edge93.i ], [ %128, %121 ]
+  %.2.lcssa.i = phi i32 [ %73, %._crit_edge93.i ], [ %127, %121 ]
   %130 = icmp eq i32 %.2.lcssa.i, %74
   br i1 %130, label %heuristic_as2_or_4_from_as_path.exit.thread, label %heuristic_as2_or_4_from_as_path.exit.thread1779
 
-heuristic_as2_or_4_from_as_path.exit.thread:      ; preds = %.lr.ph105.i, %98, %.preheader.i, %._crit_edge100.i
-  %.11773.ph = phi i32 [ 0, %.preheader.i ], [ %.281.lcssa.i, %._crit_edge100.i ], [ 0, %98 ], [ %83, %.lr.ph105.i ]
-  %.082.i.ph = phi i8 [ 4, %.preheader.i ], [ %.078.i, %._crit_edge100.i ], [ 0, %98 ], [ 4, %.lr.ph105.i ]
+heuristic_as2_or_4_from_as_path.exit.thread:      ; preds = %.lr.ph104.i, %98, %.preheader.i, %._crit_edge99.i
+  %.11773.ph = phi i32 [ 0, %.preheader.i ], [ %.281.lcssa.i, %._crit_edge99.i ], [ 0, %98 ], [ %83, %.lr.ph104.i ]
+  %.082.i.ph = phi i8 [ 4, %.preheader.i ], [ %.078.i, %._crit_edge99.i ], [ 0, %98 ], [ 4, %.lr.ph104.i ]
   %131 = zext nneg i8 %.082.i.ph to i32
   br label %137
 
@@ -3924,7 +3924,7 @@ heuristic_as2_or_4_from_as_path.exit:             ; preds = %heuristic_as2_or_4_
   %135 = icmp eq i8 %133, -1
   br i1 %135, label %heuristic_as2_or_4_from_as_path.exit.thread1779, label %137
 
-heuristic_as2_or_4_from_as_path.exit.thread1779:  ; preds = %._crit_edge100.i, %heuristic_as2_or_4_from_as_path.exit
+heuristic_as2_or_4_from_as_path.exit.thread1779:  ; preds = %._crit_edge99.i, %heuristic_as2_or_4_from_as_path.exit
   %136 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %4, ptr noundef %28, ptr noundef nonnull @ei_bgp_attr_as_path_as_len_err, ptr noundef nonnull @.str.15, i32 noundef 255) #4
   br label %dissect_bgp_update_pmsi_attr.exit
 

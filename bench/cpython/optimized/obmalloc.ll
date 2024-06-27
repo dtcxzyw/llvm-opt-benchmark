@@ -10668,7 +10668,7 @@ if.end.i.us:                                      ; preds = %for.body.us
   br i1 %cmp2.not22.i.us, label %for.inc.us, label %while.cond.outer.split.lr.ph.i.us
 
 while.cond.outer.split.lr.ph.i.us:                ; preds = %if.end.i.us
-  %shl.i.us = shl nuw i64 %sub.i.i, %1
+  %shl.i.us = shl nuw i64 1, %1
   br label %while.cond.outer.split.us.i.us
 
 while.cond.outer.split.us.i.us:                   ; preds = %while.cond.outer.split.lr.ph.i.us, %if.else7.us.i.us
@@ -10905,7 +10905,7 @@ if.end.i.us:                                      ; preds = %for.body.us
   br i1 %cmp2.not22.i.us, label %for.inc.us, label %while.cond.outer.split.lr.ph.i.us
 
 while.cond.outer.split.lr.ph.i.us:                ; preds = %if.end.i.us
-  %shl.i.us = shl nuw i64 %sub.i.i, %1
+  %shl.i.us = shl nuw i64 1, %1
   br label %while.cond.outer.split.us.i.us
 
 while.cond.outer.split.us.i.us:                   ; preds = %while.cond.outer.split.lr.ph.i.us, %if.else7.us.i.us

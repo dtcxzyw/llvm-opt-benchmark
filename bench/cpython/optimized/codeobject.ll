@@ -1644,12 +1644,7 @@ scan_signed_varint.exit.i.i:                      ; preds = %while.body.i.i.i.i,
   %and.i.i.i = and i32 %val.0.lcssa.i.i.i.fr.i, 1
   %tobool.not.i.i.i = icmp eq i32 %and.i.i.i, 0
   %shr.i.i.i = and i32 %val.0.lcssa.i.i.i.fr.i, -2
-  %cmp.i.i = icmp ugt i32 %val.0.lcssa.i.i.i.fr.i, 1
-  %shl1.i.i = sub i32 0, %shr.i.i.i
-  %spec.select35.i = select i1 %cmp.i.i, i32 %val.0.lcssa.i.i.i.fr.i, i32 %shl1.i.i
-  %24 = select i1 %tobool.not.i.i.i, i32 %shr.i.i.i, i32 %spec.select35.i
-  %cmp6.i.i.i = icmp ugt i32 %24, 63
-  br i1 %cmp6.i.i.i, label %while.body.i.i.i, label %write_signed_varint.exit.i
+  br i1 %tobool.not.i.i.i, label %get_line_delta.exit.thread.i, label %get_line_delta.exit.i
 
 sw.bb3.i.i:                                       ; preds = %if.else.i
   br label %write_signed_varint.exit.i
@@ -1657,10 +1652,19 @@ sw.bb3.i.i:                                       ; preds = %if.else.i
 sw.bb4.i.i:                                       ; preds = %if.else.i
   br label %write_signed_varint.exit.i
 
-while.body.i.i.i:                                 ; preds = %scan_signed_varint.exit.i.i, %while.body.i.i.i
-  %written.09.i.i.i = phi i32 [ %inc.i.i.i, %while.body.i.i.i ], [ 1, %scan_signed_varint.exit.i.i ]
-  %val.addr.08.i.i.i = phi i32 [ %shr.i.i27.i, %while.body.i.i.i ], [ %24, %scan_signed_varint.exit.i.i ]
-  %ptr.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %add.ptr32.i, %scan_signed_varint.exit.i.i ]
+get_line_delta.exit.i:                            ; preds = %scan_signed_varint.exit.i.i
+  %cmp.i.i = icmp ugt i32 %val.0.lcssa.i.i.i.fr.i, 1
+  br i1 %cmp.i.i, label %get_line_delta.exit.thread.i, label %write_signed_varint.exit.i
+
+get_line_delta.exit.thread.i:                     ; preds = %get_line_delta.exit.i, %scan_signed_varint.exit.i.i
+  %24 = phi i32 [ %shr.i.i.i, %scan_signed_varint.exit.i.i ], [ %val.0.lcssa.i.i.i.fr.i, %get_line_delta.exit.i ]
+  %cmp6.i.i.i = icmp ugt i32 %24, 63
+  br i1 %cmp6.i.i.i, label %while.body.i.i.i, label %write_signed_varint.exit.i
+
+while.body.i.i.i:                                 ; preds = %get_line_delta.exit.thread.i, %while.body.i.i.i
+  %written.09.i.i.i = phi i32 [ %inc.i.i.i, %while.body.i.i.i ], [ 1, %get_line_delta.exit.thread.i ]
+  %val.addr.08.i.i.i = phi i32 [ %shr.i.i27.i, %while.body.i.i.i ], [ %24, %get_line_delta.exit.thread.i ]
+  %ptr.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %add.ptr32.i, %get_line_delta.exit.thread.i ]
   %25 = trunc i32 %val.addr.08.i.i.i to i8
   %26 = and i8 %25, 63
   %conv.i.i.i = or disjoint i8 %26, 64
@@ -1671,10 +1675,10 @@ while.body.i.i.i:                                 ; preds = %scan_signed_varint.
   %cmp.i.i.i = icmp ugt i32 %val.addr.08.i.i.i, 4095
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %write_signed_varint.exit.i, !llvm.loop !11
 
-write_signed_varint.exit.i:                       ; preds = %while.body.i.i.i, %sw.bb4.i.i, %sw.bb3.i.i, %scan_signed_varint.exit.i.i, %if.else.i
-  %ptr.addr.0.lcssa.i.i.i = phi ptr [ %add.ptr32.i, %scan_signed_varint.exit.i.i ], [ %add.ptr32.i, %if.else.i ], [ %add.ptr32.i, %sw.bb3.i.i ], [ %add.ptr32.i, %sw.bb4.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %val.addr.0.lcssa.i.i.i = phi i32 [ %24, %scan_signed_varint.exit.i.i ], [ 0, %if.else.i ], [ 2, %sw.bb3.i.i ], [ 4, %sw.bb4.i.i ], [ %shr.i.i27.i, %while.body.i.i.i ]
-  %written.0.lcssa.i.i.i = phi i32 [ 1, %scan_signed_varint.exit.i.i ], [ 1, %if.else.i ], [ 1, %sw.bb3.i.i ], [ 1, %sw.bb4.i.i ], [ %inc.i.i.i, %while.body.i.i.i ]
+write_signed_varint.exit.i:                       ; preds = %while.body.i.i.i, %get_line_delta.exit.thread.i, %get_line_delta.exit.i, %sw.bb4.i.i, %sw.bb3.i.i, %if.else.i
+  %ptr.addr.0.lcssa.i.i.i = phi ptr [ %add.ptr32.i, %get_line_delta.exit.thread.i ], [ %add.ptr32.i, %get_line_delta.exit.i ], [ %add.ptr32.i, %if.else.i ], [ %add.ptr32.i, %sw.bb3.i.i ], [ %add.ptr32.i, %sw.bb4.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
+  %val.addr.0.lcssa.i.i.i = phi i32 [ %24, %get_line_delta.exit.thread.i ], [ 0, %get_line_delta.exit.i ], [ 0, %if.else.i ], [ 2, %sw.bb3.i.i ], [ 4, %sw.bb4.i.i ], [ %shr.i.i27.i, %while.body.i.i.i ]
+  %written.0.lcssa.i.i.i = phi i32 [ 1, %get_line_delta.exit.thread.i ], [ 1, %get_line_delta.exit.i ], [ 1, %if.else.i ], [ 1, %sw.bb3.i.i ], [ 1, %sw.bb4.i.i ], [ %inc.i.i.i, %while.body.i.i.i ]
   %conv1.i.i.i = trunc nuw nsw i32 %val.addr.0.lcssa.i.i.i to i8
   store i8 %conv1.i.i.i, ptr %ptr.addr.0.lcssa.i.i.i, align 1
   %idx.ext37.i = sext i32 %written.0.lcssa.i.i.i to i64

@@ -1580,71 +1580,69 @@ define linkonce_odr hidden void @_ZN7mitsuba3xml6detail9class_keyERKNSt3__112bas
   br i1 %16, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread: ; preds = %15
-  %17 = and i64 %12, -8
-  %18 = add nuw i64 %17, 8
-  %19 = or i64 %12, 7
-  %20 = icmp eq i64 %19, 23
-  %spec.select.i.i.i = select i1 %20, i64 %18, i64 %19
-  %21 = add i64 %spec.select.i.i.i, 1
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #29, !noalias !4
-  %23 = or i64 %21, 1
-  store i64 %23, ptr %4, align 8, !alias.scope !4
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %22, ptr %24, align 8, !alias.scope !4
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %12, ptr %25, align 8, !alias.scope !4
-  br label %29
+  %17 = or i64 %12, 7
+  %18 = icmp eq i64 %17, 23
+  %19 = add i64 %17, 1
+  %20 = select i1 %18, i64 25, i64 %19
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #29, !noalias !4
+  %22 = or i64 %20, 1
+  store i64 %22, ptr %4, align 8, !alias.scope !4
+  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %21, ptr %23, align 8, !alias.scope !4
+  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %12, ptr %24, align 8, !alias.scope !4
+  br label %28
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i: ; preds = %15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !4
-  %26 = trunc nuw i64 %12 to i8
-  %27 = shl nuw nsw i8 %26, 1
-  store i8 %27, ptr %4, align 8, !alias.scope !4
-  %28 = getelementptr inbounds i8, ptr %4, i64 1
+  %25 = trunc nuw i64 %12 to i8
+  %26 = shl nuw nsw i8 %25, 1
+  store i8 %26, ptr %4, align 8, !alias.scope !4
+  %27 = getelementptr inbounds i8, ptr %4, i64 1
   %.not.i.i16.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i16.i, label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i, label %29
+  br i1 %.not.i.i16.i, label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i, label %28
 
-29:                                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i
-  %30 = phi ptr [ %22, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread ], [ %28, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i ]
-  %31 = getelementptr inbounds i8, ptr %1, i64 1
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
-  %33 = load ptr, ptr %32, align 8, !noalias !4
-  %34 = select i1 %.not.i.i, ptr %31, ptr %33
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %34, i64 %11, i1 false)
+28:                                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i
+  %29 = phi ptr [ %21, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread ], [ %27, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i ]
+  %30 = getelementptr inbounds i8, ptr %1, i64 1
+  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = load ptr, ptr %31, align 8, !noalias !4
+  %33 = select i1 %.not.i.i, ptr %30, ptr %32
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %33, i64 %11, i1 false)
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i
 
-_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i: ; preds = %29, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i
-  %35 = phi ptr [ %30, %29 ], [ %28, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i ]
-  %36 = getelementptr inbounds i8, ptr %35, i64 %11
-  store i8 46, ptr %36, align 1
-  %37 = getelementptr inbounds i8, ptr %36, i64 1
-  store i8 0, ptr %37, align 1
-  %38 = load i8, ptr %2, align 8, !noalias !7
-  %39 = and i8 %38, 1
-  %.not.i.i.i.i = icmp eq i8 %39, 0
-  %40 = getelementptr inbounds i8, ptr %2, i64 16
-  %41 = load ptr, ptr %40, align 8, !noalias !7
-  %42 = getelementptr inbounds i8, ptr %2, i64 1
-  %43 = select i1 %.not.i.i.i.i, ptr %42, ptr %41
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
-  %45 = load i64, ptr %44, align 8, !noalias !7
-  %46 = lshr i8 %38, 1
-  %47 = zext nneg i8 %46 to i64
-  %48 = select i1 %.not.i.i.i.i, i64 %47, i64 %45
-  %49 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %43, i64 noundef %48)
-          to label %50 unwind label %51
+_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i: ; preds = %28, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i
+  %34 = phi ptr [ %29, %28 ], [ %27, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i ]
+  %35 = getelementptr inbounds i8, ptr %34, i64 %11
+  store i8 46, ptr %35, align 1
+  %36 = getelementptr inbounds i8, ptr %35, i64 1
+  store i8 0, ptr %36, align 1
+  %37 = load i8, ptr %2, align 8, !noalias !7
+  %38 = and i8 %37, 1
+  %.not.i.i.i.i = icmp eq i8 %38, 0
+  %39 = getelementptr inbounds i8, ptr %2, i64 16
+  %40 = load ptr, ptr %39, align 8, !noalias !7
+  %41 = getelementptr inbounds i8, ptr %2, i64 1
+  %42 = select i1 %.not.i.i.i.i, ptr %41, ptr %40
+  %43 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = load i64, ptr %43, align 8, !noalias !7
+  %45 = lshr i8 %37, 1
+  %46 = zext nneg i8 %45 to i64
+  %47 = select i1 %.not.i.i.i.i, i64 %46, i64 %44
+  %48 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %42, i64 noundef %47)
+          to label %49 unwind label %50
 
-50:                                               ; preds = %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false), !noalias !7
+49:                                               ; preds = %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %48, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false), !noalias !7
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #28
   ret void
 
-51:                                               ; preds = %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #28
-  resume { ptr, i32 } %52
+  resume { ptr, i32 } %51
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -29615,19 +29613,17 @@ _ZN7mitsuba3refINS_6ObjectEEC2ERKS2_.exit86:      ; preds = %104, %106
 
 118:                                              ; preds = %_ZN7mitsuba3refINS_6ObjectEEC2ERKS2_.exit86
   %119 = icmp ult i64 %115, 23
-  br i1 %119, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE11__recommendB8ne190000Em.exit.i.i
+  br i1 %119, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i, label %120
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE11__recommendB8ne190000Em.exit.i.i: ; preds = %118
-  %120 = and i64 %115, -8
-  %121 = add nuw i64 %120, 8
-  %122 = or i64 %115, 7
-  %123 = icmp eq i64 %122, 23
-  %spec.select.i.i.i = select i1 %123, i64 %121, i64 %122
-  %124 = add i64 %spec.select.i.i.i, 1
+120:                                              ; preds = %118
+  %121 = or i64 %115, 7
+  %122 = icmp eq i64 %121, 23
+  %123 = add i64 %121, 1
+  %124 = select i1 %122, i64 25, i64 %123
   %125 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %124) #29
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread unwind label %.loopexit147
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread: ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE11__recommendB8ne190000Em.exit.i.i
+_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i.thread: ; preds = %120
   %126 = or i64 %124, 1
   store i64 %126, ptr %13, align 8, !alias.scope !428
   store ptr %125, ptr %57, align 8, !alias.scope !428
@@ -29695,7 +29691,7 @@ _ZN7mitsuba3refINS_6ObjectEED2Ev.exit:            ; preds = %148, %150
   %.not144 = icmp eq ptr %151, %89
   br i1 %.not144, label %.loopexit146, label %104
 
-.loopexit147:                                     ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE11__recommendB8ne190000Em.exit.i.i
+.loopexit147:                                     ; preds = %120
   %lpad.loopexit149 = landingpad { ptr, i32 }
           cleanup
   br label %160

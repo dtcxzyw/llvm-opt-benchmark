@@ -147,7 +147,7 @@ declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @load_image_size(ptr nocapture noundef readonly %filename, ptr nocapture noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local noundef i64 @load_image_size(ptr nocapture noundef readonly %filename, ptr nocapture noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, i32, ...) @open64(ptr noundef %filename, i32 noundef 0) #23
   %cmp = icmp slt i32 %call, 0
@@ -164,8 +164,8 @@ while.cond:                                       ; preds = %entry, %while.cond
 
 while.end:                                        ; preds = %while.cond
   %call3 = tail call i32 @close(i32 noundef %call) #23
-  %cmp4.not = icmp eq i64 %call1, 0
-  %cond = select i1 %cmp4.not, i64 %l.0, i64 -1
+  %cmp4.not = icmp ne i64 %call1, 0
+  %cond = sext i1 %cmp4.not to i64
   br label %return
 
 return:                                           ; preds = %entry, %while.end

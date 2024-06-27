@@ -928,7 +928,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #26
   br label %_ZN7mitsuba10TensorFile5FieldD2Ev.exit221
 
-252:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE11__recommendB8ne190000Em.exit.i.i.i, %767, %260, %193, %181, %176, %700, %644, %586, %_ZN7mitsuba10Marginal2DIfLm0ELb1EED2Ev.exit, %.preheader233.preheader, %414, %264
+252:                                              ; preds = %770, %767, %260, %193, %181, %176, %700, %644, %586, %_ZN7mitsuba10Marginal2DIfLm0ELb1EED2Ev.exit, %.preheader233.preheader, %414, %264
   %253 = landingpad { ptr, i32 }
           cleanup
   br label %828
@@ -1820,19 +1820,17 @@ _ZN7mitsuba10Marginal2DIfLm3ELb1EED2Ev.exit:      ; preds = %_ZN5drjit12DynamicA
 
 768:                                              ; preds = %_ZN7mitsuba10Marginal2DIfLm3ELb1EED2Ev.exit
   %769 = icmp ult i64 %764, 23
-  br i1 %769, label %779, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE11__recommendB8ne190000Em.exit.i.i.i
+  br i1 %769, label %779, label %770
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE11__recommendB8ne190000Em.exit.i.i.i: ; preds = %768
-  %770 = and i64 %764, -8
-  %771 = add nuw i64 %770, 8
-  %772 = or i64 %764, 7
-  %773 = icmp eq i64 %772, 23
-  %spec.select.i.i.i.i = select i1 %773, i64 %771, i64 %772
-  %774 = add i64 %spec.select.i.i.i.i, 1
+770:                                              ; preds = %768
+  %771 = or i64 %764, 7
+  %772 = icmp eq i64 %771, 23
+  %773 = add i64 %771, 1
+  %774 = select i1 %772, i64 25, i64 %773
   %775 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %774) #24
           to label %.thread unwind label %252
 
-.thread:                                          ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE11__recommendB8ne190000Em.exit.i.i.i
+.thread:                                          ; preds = %770
   %776 = getelementptr inbounds i8, ptr %46, i64 16
   store ptr %775, ptr %776, align 8
   %777 = or i64 %774, 1

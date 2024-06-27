@@ -1399,12 +1399,12 @@ while.body.i:                                     ; preds = %lor.lhs.false.i, %w
   call void @fill_bloom_key(ptr noundef %3, i64 noundef %call11.i, ptr noundef nonnull %key.i, ptr noundef %4) #16
   %5 = load ptr, ptr %bloom_filter_settings.i, align 8
   %call14.i = call i32 @bloom_filter_contains(ptr noundef nonnull %call.i20, ptr noundef nonnull %key.i, ptr noundef %5) #16
-  %tobool15.not.i = icmp eq i32 %call14.i, 0
+  %tobool15.not.i = icmp ne i32 %call14.i, 0
   call void @clear_bloom_key(ptr noundef nonnull %key.i) #16
   %6 = load ptr, ptr %range.addr.011.i, align 8
-  %tobool9.i = icmp ne ptr %6, null
-  %7 = select i1 %tobool15.not.i, i1 %tobool9.i, i1 false
-  br i1 %7, label %while.body.i, label %bloom_filter_check.exit, !llvm.loop !22
+  %tobool9.i = icmp eq ptr %6, null
+  %.not.i = select i1 %tobool15.not.i, i1 true, i1 %tobool9.i
+  br i1 %.not.i, label %bloom_filter_check.exit, label %while.body.i, !llvm.loop !22
 
 bloom_filter_check.exit.thread:                   ; preds = %lor.lhs.false.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i)
@@ -1412,37 +1412,37 @@ bloom_filter_check.exit.thread:                   ; preds = %lor.lhs.false.i, %i
 
 bloom_filter_check.exit:                          ; preds = %while.body.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i)
-  br i1 %tobool15.not.i, label %if.then4, label %if.else
+  br i1 %tobool15.not.i, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %bloom_filter_check.exit
   %call5 = call fastcc ptr @line_log_data_copy(ptr noundef nonnull %call.i)
-  %8 = load ptr, ptr %parents, align 8
-  %9 = load ptr, ptr %8, align 8
-  call fastcc void @add_line_range(ptr noundef nonnull %rev, ptr noundef %9, ptr noundef %call5)
+  %7 = load ptr, ptr %parents, align 8
+  %8 = load ptr, ptr %7, align 8
+  call fastcc void @add_line_range(ptr noundef nonnull %rev, ptr noundef %8, ptr noundef %call5)
   %call.i22 = call ptr @lookup_decoration(ptr noundef nonnull %line_log_data.i, ptr noundef %commit) #16
   %tobool.not.i23 = icmp eq ptr %call.i22, null
   br i1 %tobool.not.i23, label %if.then18, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then4, %line_log_data_clear.exit.i.i
-  %r.addr.05.i.i = phi ptr [ %10, %line_log_data_clear.exit.i.i ], [ %call.i22, %if.then4 ]
-  %10 = load ptr, ptr %r.addr.05.i.i, align 8
+  %r.addr.05.i.i = phi ptr [ %9, %line_log_data_clear.exit.i.i ], [ %call.i22, %if.then4 ]
+  %9 = load ptr, ptr %r.addr.05.i.i, align 8
   %ranges.i.i.i = getelementptr inbounds i8, ptr %r.addr.05.i.i, i64 16
   %ranges.i.i.i.i = getelementptr inbounds i8, ptr %r.addr.05.i.i, i64 24
-  %11 = load ptr, ptr %ranges.i.i.i.i, align 8
-  call void @free(ptr noundef %11) #16
+  %10 = load ptr, ptr %ranges.i.i.i.i, align 8
+  call void @free(ptr noundef %10) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ranges.i.i.i, i8 0, i64 16, i1 false)
   %pair.i.i.i = getelementptr inbounds i8, ptr %r.addr.05.i.i, i64 32
-  %12 = load ptr, ptr %pair.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %pair.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i, label %line_log_data_clear.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i.i
-  call void @diff_free_filepair(ptr noundef nonnull %12) #16
+  call void @diff_free_filepair(ptr noundef nonnull %11) #16
   br label %line_log_data_clear.exit.i.i
 
 line_log_data_clear.exit.i.i:                     ; preds = %if.then.i.i.i, %while.body.i.i
   call void @free(ptr noundef nonnull %r.addr.05.i.i) #16
-  %tobool.not.i.i = icmp eq ptr %10, null
+  %tobool.not.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i, label %free_line_log_data.exit.i, label %while.body.i.i, !llvm.loop !12
 
 free_line_log_data.exit.i:                        ; preds = %line_log_data_clear.exit.i.i
@@ -1456,8 +1456,8 @@ if.else:                                          ; preds = %bloom_filter_check.
 
 lor.lhs.false:                                    ; preds = %if.else
   %next = getelementptr inbounds i8, ptr %.pr, i64 8
-  %13 = load ptr, ptr %next, align 8
-  %tobool10.not = icmp eq ptr %13, null
+  %12 = load ptr, ptr %next, align 8
+  %tobool10.not = icmp eq ptr %12, null
   br i1 %tobool10.not, label %if.then.i, label %if.else13
 
 if.then11.thread:                                 ; preds = %if.else, %if.then
@@ -1468,11 +1468,11 @@ if.then11.thread:                                 ; preds = %if.else, %if.then
 if.then.i:                                        ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %queue.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %parent_range.i)
-  %14 = load ptr, ptr %.pr, align 8
+  %13 = load ptr, ptr %.pr, align 8
   br label %if.end.i26
 
 if.end.i26:                                       ; preds = %if.then11.thread, %if.then.i
-  %parent.0.i = phi ptr [ %14, %if.then.i ], [ null, %if.then11.thread ]
+  %parent.0.i = phi ptr [ %13, %if.then.i ], [ null, %if.then11.thread ]
   %diffopt.i = getelementptr inbounds i8, ptr %rev, i64 1472
   call fastcc void @queue_diffs(ptr noundef nonnull %call.i, ptr noundef nonnull %diffopt.i, ptr noundef nonnull %queue.i, ptr noundef nonnull %commit, ptr noundef %parent.0.i)
   %call.i27 = call fastcc i32 @process_all_files(ptr noundef nonnull %parent_range.i, ptr noundef %rev, ptr noundef nonnull %queue.i, ptr noundef nonnull %call.i)
@@ -1489,25 +1489,25 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   br i1 %tobool.not4.i.i, label %process_ranges_ordinary_commit.exit, label %while.body.i.i29
 
 while.body.i.i29:                                 ; preds = %if.end4.i, %line_log_data_clear.exit.i.i36
-  %r.addr.05.i.i30 = phi ptr [ %15, %line_log_data_clear.exit.i.i36 ], [ %.pr.i, %if.end4.i ]
-  %15 = load ptr, ptr %r.addr.05.i.i30, align 8
+  %r.addr.05.i.i30 = phi ptr [ %14, %line_log_data_clear.exit.i.i36 ], [ %.pr.i, %if.end4.i ]
+  %14 = load ptr, ptr %r.addr.05.i.i30, align 8
   %ranges.i.i.i31 = getelementptr inbounds i8, ptr %r.addr.05.i.i30, i64 16
   %ranges.i.i.i.i32 = getelementptr inbounds i8, ptr %r.addr.05.i.i30, i64 24
-  %16 = load ptr, ptr %ranges.i.i.i.i32, align 8
-  call void @free(ptr noundef %16) #16
+  %15 = load ptr, ptr %ranges.i.i.i.i32, align 8
+  call void @free(ptr noundef %15) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ranges.i.i.i31, i8 0, i64 16, i1 false)
   %pair.i.i.i33 = getelementptr inbounds i8, ptr %r.addr.05.i.i30, i64 32
-  %17 = load ptr, ptr %pair.i.i.i33, align 8
-  %tobool.not.i.i.i34 = icmp eq ptr %17, null
+  %16 = load ptr, ptr %pair.i.i.i33, align 8
+  %tobool.not.i.i.i34 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i34, label %line_log_data_clear.exit.i.i36, label %if.then.i.i.i35
 
 if.then.i.i.i35:                                  ; preds = %while.body.i.i29
-  call void @diff_free_filepair(ptr noundef nonnull %17) #16
+  call void @diff_free_filepair(ptr noundef nonnull %16) #16
   br label %line_log_data_clear.exit.i.i36
 
 line_log_data_clear.exit.i.i36:                   ; preds = %if.then.i.i.i35, %while.body.i.i29
   call void @free(ptr noundef nonnull %r.addr.05.i.i30) #16
-  %tobool.not.i.i37 = icmp eq ptr %15, null
+  %tobool.not.i.i37 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i37, label %process_ranges_ordinary_commit.exit, label %while.body.i.i29, !llvm.loop !12
 
 process_ranges_ordinary_commit.exit:              ; preds = %line_log_data_clear.exit.i.i36, %if.end4.i
@@ -1524,8 +1524,8 @@ if.else13:                                        ; preds = %lor.lhs.false
 if.end.thread.i:                                  ; preds = %if.else13
   %first_parent_only.i = getelementptr inbounds i8, ptr %rev, i64 280
   %bf.load.i = load i64, ptr %first_parent_only.i, align 8
-  %18 = and i64 %bf.load.i, 274877906944
-  %tobool.not.i47 = icmp eq i64 %18, 0
+  %17 = and i64 %bf.load.i, 274877906944
+  %tobool.not.i47 = icmp eq i64 %17, 0
   %spec.select.i48 = select i1 %tobool.not.i47, i32 %call.i39, i32 1
   %conv109.i = zext nneg i32 %spec.select.i48 to i64
   br label %st_mult.exit.i
@@ -1551,7 +1551,7 @@ st_mult.exit.i:                                   ; preds = %if.end.i40, %if.end
   br i1 %cmp1187.not.i, label %for.end52.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %st_mult.exit.i
-  %19 = load ptr, ptr %parents, align 8
+  %18 = load ptr, ptr %parents, align 8
   %diffopt.i42 = getelementptr inbounds i8, ptr %rev, i64 1472
   %wide.trip.count.i = zext nneg i32 %nparents.0111.i to i64
   br label %for.body.i
@@ -1563,14 +1563,14 @@ for.body20.preheader.i:                           ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %p.088.i = phi ptr [ %19, %for.body.lr.ph.i ], [ %21, %for.body.i ]
-  %20 = load ptr, ptr %p.088.i, align 8
+  %p.088.i = phi ptr [ %18, %for.body.lr.ph.i ], [ %20, %for.body.i ]
+  %19 = load ptr, ptr %p.088.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %call9.i, i64 %indvars.iv.i
-  store ptr %20, ptr %arrayidx.i, align 8
+  store ptr %19, ptr %arrayidx.i, align 8
   %next.i = getelementptr inbounds i8, ptr %p.088.i, i64 8
-  %21 = load ptr, ptr %next.i, align 8
+  %20 = load ptr, ptr %next.i, align 8
   %arrayidx14.i = getelementptr inbounds %struct.diff_queue_struct, ptr %call3.i41, i64 %indvars.iv.i
-  call fastcc void @queue_diffs(ptr noundef nonnull %call.i, ptr noundef nonnull %diffopt.i42, ptr noundef %arrayidx14.i, ptr noundef %commit, ptr noundef %20)
+  call fastcc void @queue_diffs(ptr noundef nonnull %call.i, ptr noundef nonnull %diffopt.i42, ptr noundef %arrayidx14.i, ptr noundef %commit, ptr noundef %19)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.body20.preheader.i, label %for.body.i, !llvm.loop !23
@@ -1591,33 +1591,33 @@ for.body20.i:                                     ; preds = %for.cond17.i, %for.
 
 if.then29.i:                                      ; preds = %for.body20.i
   %arrayidx31.i = getelementptr inbounds ptr, ptr %call9.i, i64 %indvars.iv97.i
-  %22 = load ptr, ptr %arrayidx31.i, align 8
-  %23 = load ptr, ptr %arrayidx22.i, align 8
-  call fastcc void @add_line_range(ptr noundef %rev, ptr noundef %22, ptr noundef %23)
+  %21 = load ptr, ptr %arrayidx31.i, align 8
+  %22 = load ptr, ptr %arrayidx22.i, align 8
+  call fastcc void @add_line_range(ptr noundef %rev, ptr noundef %21, ptr noundef %22)
   %call.i.i = call ptr @lookup_decoration(ptr noundef nonnull %line_log_data.i, ptr noundef %commit) #16
   %tobool.not.i.i44 = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i44, label %clear_commit_line_range.exit.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then29.i, %line_log_data_clear.exit.i.i.i
-  %r.addr.05.i.i.i = phi ptr [ %24, %line_log_data_clear.exit.i.i.i ], [ %call.i.i, %if.then29.i ]
-  %24 = load ptr, ptr %r.addr.05.i.i.i, align 8
+  %r.addr.05.i.i.i = phi ptr [ %23, %line_log_data_clear.exit.i.i.i ], [ %call.i.i, %if.then29.i ]
+  %23 = load ptr, ptr %r.addr.05.i.i.i, align 8
   %ranges.i.i.i.i45 = getelementptr inbounds i8, ptr %r.addr.05.i.i.i, i64 16
   %ranges.i.i.i.i.i = getelementptr inbounds i8, ptr %r.addr.05.i.i.i, i64 24
-  %25 = load ptr, ptr %ranges.i.i.i.i.i, align 8
-  call void @free(ptr noundef %25) #16
+  %24 = load ptr, ptr %ranges.i.i.i.i.i, align 8
+  call void @free(ptr noundef %24) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ranges.i.i.i.i45, i8 0, i64 16, i1 false)
   %pair.i.i.i.i = getelementptr inbounds i8, ptr %r.addr.05.i.i.i, i64 32
-  %26 = load ptr, ptr %pair.i.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %26, null
+  %25 = load ptr, ptr %pair.i.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i.i, label %line_log_data_clear.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i
-  call void @diff_free_filepair(ptr noundef nonnull %26) #16
+  call void @diff_free_filepair(ptr noundef nonnull %25) #16
   br label %line_log_data_clear.exit.i.i.i
 
 line_log_data_clear.exit.i.i.i:                   ; preds = %if.then.i.i.i.i, %while.body.i.i.i
   call void @free(ptr noundef nonnull %r.addr.05.i.i.i) #16
-  %tobool.not.i.i.i46 = icmp eq ptr %24, null
+  %tobool.not.i.i.i46 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i46, label %free_line_log_data.exit.i.i, label %while.body.i.i.i, !llvm.loop !12
 
 free_line_log_data.exit.i.i:                      ; preds = %line_log_data_clear.exit.i.i.i
@@ -1625,8 +1625,8 @@ free_line_log_data.exit.i.i:                      ; preds = %line_log_data_clear
   br label %clear_commit_line_range.exit.i
 
 clear_commit_line_range.exit.i:                   ; preds = %free_line_log_data.exit.i.i, %if.then29.i
-  %27 = load ptr, ptr %arrayidx31.i, align 8
-  %call37.i = call ptr @commit_list_append(ptr noundef %27, ptr noundef nonnull %parents) #16
+  %26 = load ptr, ptr %arrayidx31.i, align 8
+  %call37.i = call ptr @commit_list_append(ptr noundef %26, ptr noundef nonnull %parents) #16
   call void @free(ptr noundef %call9.i) #16
   call void @free(ptr noundef %call6.i) #16
   br label %for.body.i.i
@@ -1642,10 +1642,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %clea
 for.body45.i:                                     ; preds = %for.cond17.i, %for.body45.i
   %indvars.iv102.i = phi i64 [ %indvars.iv.next103.i, %for.body45.i ], [ 0, %for.cond17.i ]
   %arrayidx47.i = getelementptr inbounds ptr, ptr %call9.i, i64 %indvars.iv102.i
-  %28 = load ptr, ptr %arrayidx47.i, align 8
+  %27 = load ptr, ptr %arrayidx47.i, align 8
   %arrayidx49.i = getelementptr inbounds ptr, ptr %call6.i, i64 %indvars.iv102.i
-  %29 = load ptr, ptr %arrayidx49.i, align 8
-  call fastcc void @add_line_range(ptr noundef %rev, ptr noundef %28, ptr noundef %29)
+  %28 = load ptr, ptr %arrayidx49.i, align 8
+  call fastcc void @add_line_range(ptr noundef %rev, ptr noundef %27, ptr noundef %28)
   %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
   %exitcond107.not.i = icmp eq i64 %indvars.iv.next103.i, %wide.trip.count100.i
   br i1 %exitcond107.not.i, label %for.end52.i, label %for.body45.i, !llvm.loop !26
@@ -1656,25 +1656,25 @@ for.end52.i:                                      ; preds = %for.body45.i, %st_m
   br i1 %tobool.not.i65.i, label %clear_commit_line_range.exit77.i, label %while.body.i.i66.i
 
 while.body.i.i66.i:                               ; preds = %for.end52.i, %line_log_data_clear.exit.i.i73.i
-  %r.addr.05.i.i67.i = phi ptr [ %30, %line_log_data_clear.exit.i.i73.i ], [ %call.i64.i, %for.end52.i ]
-  %30 = load ptr, ptr %r.addr.05.i.i67.i, align 8
+  %r.addr.05.i.i67.i = phi ptr [ %29, %line_log_data_clear.exit.i.i73.i ], [ %call.i64.i, %for.end52.i ]
+  %29 = load ptr, ptr %r.addr.05.i.i67.i, align 8
   %ranges.i.i.i68.i = getelementptr inbounds i8, ptr %r.addr.05.i.i67.i, i64 16
   %ranges.i.i.i.i69.i = getelementptr inbounds i8, ptr %r.addr.05.i.i67.i, i64 24
-  %31 = load ptr, ptr %ranges.i.i.i.i69.i, align 8
-  call void @free(ptr noundef %31) #16
+  %30 = load ptr, ptr %ranges.i.i.i.i69.i, align 8
+  call void @free(ptr noundef %30) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ranges.i.i.i68.i, i8 0, i64 16, i1 false)
   %pair.i.i.i70.i = getelementptr inbounds i8, ptr %r.addr.05.i.i67.i, i64 32
-  %32 = load ptr, ptr %pair.i.i.i70.i, align 8
-  %tobool.not.i.i.i71.i = icmp eq ptr %32, null
+  %31 = load ptr, ptr %pair.i.i.i70.i, align 8
+  %tobool.not.i.i.i71.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i71.i, label %line_log_data_clear.exit.i.i73.i, label %if.then.i.i.i72.i
 
 if.then.i.i.i72.i:                                ; preds = %while.body.i.i66.i
-  call void @diff_free_filepair(ptr noundef nonnull %32) #16
+  call void @diff_free_filepair(ptr noundef nonnull %31) #16
   br label %line_log_data_clear.exit.i.i73.i
 
 line_log_data_clear.exit.i.i73.i:                 ; preds = %if.then.i.i.i72.i, %while.body.i.i66.i
   call void @free(ptr noundef nonnull %r.addr.05.i.i67.i) #16
-  %tobool.not.i.i74.i = icmp eq ptr %30, null
+  %tobool.not.i.i74.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i74.i, label %free_line_log_data.exit.i75.i, label %while.body.i.i66.i, !llvm.loop !12
 
 free_line_log_data.exit.i75.i:                    ; preds = %line_log_data_clear.exit.i.i73.i

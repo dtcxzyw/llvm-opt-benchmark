@@ -1501,13 +1501,13 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture n
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.outer.backedge.i, %3
-  %.03977.ph.i = phi i16 [ 0, %3 ], [ %.03977.ph.be.i, %.outer.backedge.i ]
-  %.04376.ph.i = phi ptr [ null, %3 ], [ %.04376.ph.be.i, %.outer.backedge.i ]
-  %.04575.ph.i = phi ptr [ %10, %3 ], [ %.04575.ph.be.i, %.outer.backedge.i ]
+  %.03976.ph.i = phi i16 [ 0, %3 ], [ %.03976.ph.be.i, %.outer.backedge.i ]
+  %.04375.ph.i = phi ptr [ null, %3 ], [ %.04375.ph.be.i, %.outer.backedge.i ]
+  %.04574.ph.i = phi ptr [ %10, %3 ], [ %.04574.ph.be.i, %.outer.backedge.i ]
   %.04973.ph.i = phi i32 [ 0, %3 ], [ %.04973.ph.be.i, %.outer.backedge.i ]
   %.05272.ph.i = phi i32 [ 0, %3 ], [ %.05272.ph.be.i, %.outer.backedge.i ]
   %13 = load ptr, ptr %11, align 8
-  %14 = load i8, ptr %.04575.ph.i, align 1
+  %14 = load i8, ptr %.04574.ph.i, align 1
   %15 = sext i8 %14 to i64
   %16 = getelementptr inbounds i16, ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2
@@ -1517,11 +1517,11 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture n
 
 .lr.ph:                                           ; preds = %.outer.i, %.lr.ph
   %.05272.i13 = phi i32 [ 1, %.lr.ph ], [ %.05272.ph.i, %.outer.i ]
-  %.04575.i12 = phi ptr [ %19, %.lr.ph ], [ %.04575.ph.i, %.outer.i ]
-  %.04376.i11 = phi ptr [ %spec.select.i, %.lr.ph ], [ %.04376.ph.i, %.outer.i ]
+  %.04574.i12 = phi ptr [ %19, %.lr.ph ], [ %.04574.ph.i, %.outer.i ]
+  %.04375.i11 = phi ptr [ %spec.select.i, %.lr.ph ], [ %.04375.ph.i, %.outer.i ]
   %.not59.i = icmp eq i32 %.05272.i13, 0
-  %spec.select.i = select i1 %.not59.i, ptr %.04575.i12, ptr %.04376.i11
-  %19 = getelementptr inbounds i8, ptr %.04575.i12, i64 1
+  %spec.select.i = select i1 %.not59.i, ptr %.04574.i12, ptr %.04375.i11
+  %19 = getelementptr inbounds i8, ptr %.04574.i12, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = sext i8 %20 to i64
   %22 = getelementptr inbounds i16, ptr %13, i64 %21
@@ -1531,8 +1531,8 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture n
   br i1 %.not57.i, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.outer.i
-  %.04376.i.lcssa = phi ptr [ %.04376.ph.i, %.outer.i ], [ %spec.select.i, %.lr.ph ]
-  %.04575.i.lcssa = phi ptr [ %.04575.ph.i, %.outer.i ], [ %19, %.lr.ph ]
+  %.04375.i.lcssa = phi ptr [ %.04375.ph.i, %.outer.i ], [ %spec.select.i, %.lr.ph ]
+  %.04574.i.lcssa = phi ptr [ %.04574.ph.i, %.outer.i ], [ %19, %.lr.ph ]
   %.05272.i.lcssa = phi i32 [ %.05272.ph.i, %.outer.i ], [ 1, %.lr.ph ]
   %.lcssa = phi i8 [ %14, %.outer.i ], [ %20, %.lr.ph ]
   switch i8 %.lcssa, label %_range_to_map.exit [
@@ -1542,30 +1542,30 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture n
   ]
 
 25:                                               ; preds = %._crit_edge
-  %26 = icmp ne ptr %.04376.i.lcssa, null
+  %26 = icmp ne ptr %.04375.i.lcssa, null
   %27 = icmp ne i32 %.05272.i.lcssa, 0
   %or.cond.i = select i1 %26, i1 %27, i1 false
   br i1 %or.cond.i, label %28, label %.outer.backedge.i
 
 28:                                               ; preds = %25
-  store i8 0, ptr %.04575.i.lcssa, align 1
-  %29 = tail call i32 @atoi(ptr nocapture noundef nonnull %.04376.i.lcssa) #13
+  store i8 0, ptr %.04574.i.lcssa, align 1
+  %29 = tail call i32 @atoi(ptr nocapture noundef nonnull %.04375.i.lcssa) #13
   %30 = trunc i32 %29 to i16
   br label %.outer.backedge.i
 
 31:                                               ; preds = %._crit_edge, %._crit_edge
   %32 = icmp eq i8 %.lcssa, 0
-  %33 = icmp ne ptr %.04376.i.lcssa, null
+  %33 = icmp ne ptr %.04375.i.lcssa, null
   %34 = icmp ne i32 %.05272.i.lcssa, 0
   %or.cond3.i = select i1 %33, i1 %34, i1 false
   br i1 %or.cond3.i, label %35, label %.thread.i
 
 35:                                               ; preds = %31
-  store i8 0, ptr %.04575.i.lcssa, align 1
-  %36 = tail call i32 @atoi(ptr nocapture noundef nonnull %.04376.i.lcssa) #13
+  store i8 0, ptr %.04574.i.lcssa, align 1
+  %36 = tail call i32 @atoi(ptr nocapture noundef nonnull %.04375.i.lcssa) #13
   %37 = trunc i32 %36 to i16
   %.not58.i = icmp eq i32 %.04973.ph.i, 0
-  %spec.select61.i = select i1 %.not58.i, i16 %37, i16 %.03977.ph.i
+  %spec.select61.i = select i1 %.not58.i, i16 %37, i16 %.03976.ph.i
   %38 = load i16, ptr @threads, align 2
   %39 = mul i16 %spec.select61.i, %38
   %40 = add i16 %37, 1
@@ -1592,18 +1592,18 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture n
   br i1 %51, label %.lr.ph.i, label %.thread.i, !llvm.loop !24
 
 .thread.i:                                        ; preds = %.lr.ph.i, %35, %31
-  %.14470.i = phi ptr [ %.04376.i.lcssa, %31 ], [ null, %35 ], [ null, %.lr.ph.i ]
+  %.14470.i = phi ptr [ %.04375.i.lcssa, %31 ], [ null, %35 ], [ null, %.lr.ph.i ]
   %.15368.i = phi i32 [ %.05272.i.lcssa, %31 ], [ 0, %35 ], [ 0, %.lr.ph.i ]
   %.251.i = phi i32 [ %.04973.ph.i, %31 ], [ 0, %35 ], [ 0, %.lr.ph.i ]
-  %.4.i = phi i16 [ %.03977.ph.i, %31 ], [ %39, %35 ], [ %39, %.lr.ph.i ]
+  %.4.i = phi i16 [ %.03976.ph.i, %31 ], [ %39, %35 ], [ %39, %.lr.ph.i ]
   br i1 %32, label %_range_to_map.exit, label %.outer.backedge.i
 
 .outer.backedge.i:                                ; preds = %25, %.thread.i, %28
-  %.03977.ph.be.i = phi i16 [ %30, %28 ], [ %.4.i, %.thread.i ], [ %.03977.ph.i, %25 ]
-  %.04376.ph.be.i = phi ptr [ null, %28 ], [ %.14470.i, %.thread.i ], [ %.04376.i.lcssa, %25 ]
+  %.03976.ph.be.i = phi i16 [ %30, %28 ], [ %.4.i, %.thread.i ], [ %.03976.ph.i, %25 ]
+  %.04375.ph.be.i = phi ptr [ null, %28 ], [ %.14470.i, %.thread.i ], [ %.04375.i.lcssa, %25 ]
   %.04973.ph.be.i = phi i32 [ 1, %28 ], [ %.251.i, %.thread.i ], [ %.04973.ph.i, %25 ]
   %.05272.ph.be.i = phi i32 [ 0, %28 ], [ %.15368.i, %.thread.i ], [ %.05272.i.lcssa, %25 ]
-  %.04575.ph.be.i = getelementptr inbounds i8, ptr %.04575.i.lcssa, i64 1
+  %.04574.ph.be.i = getelementptr inbounds i8, ptr %.04574.i.lcssa, i64 1
   br label %.outer.i, !llvm.loop !23
 
 _range_to_map.exit:                               ; preds = %._crit_edge, %.thread.i

@@ -4662,53 +4662,53 @@ if.then6.i:                                       ; preds = %if.end4.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
   %switch.i.i = icmp eq i64 %_len, 2
-  br i1 %switch.i.i, label %sw.bb.i.i, label %return.sink.split.i.thread43.i
+  br i1 %switch.i.i, label %sw.bb.i.i, label %sw.bb12.i.i
 
 sw.bb.i.i:                                        ; preds = %if.then.i.i
   %arrayidx.i.i = getelementptr i8, ptr %_buf, i64 1
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %cmp2.i.i = icmp ugt i8 %1, -65
-  br i1 %cmp2.i.i, label %if.end11.i, label %return.sink.split.i.thread.i
+  br i1 %cmp2.i.i, label %if.end11.i, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %sw.bb.i.i
+  %2 = load i8, ptr %_buf, align 1
+  %cmp8.i.i = icmp ugt i8 %2, -33
+  br i1 %cmp8.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
+
+sw.bb12.i.i:                                      ; preds = %if.then.i.i
+  %3 = getelementptr i8, ptr %_buf, i64 %_len
+  %arrayidx14.i.i = getelementptr i8, ptr %3, i64 -1
+  %4 = load i8, ptr %arrayidx14.i.i, align 1
+  %cmp16.i.i = icmp ugt i8 %4, -65
+  br i1 %cmp16.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
 
 if.end21.i.i:                                     ; preds = %if.then6.i
   %sub22.i.i = add i64 %_len, -1
   %arrayidx23.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub22.i.i
-  %2 = load i8, ptr %arrayidx23.i.i, align 1
-  %cmp25.i.i = icmp ugt i8 %2, -65
+  %5 = load i8, ptr %arrayidx23.i.i, align 1
+  %cmp25.i.i = icmp ugt i8 %5, -65
   br i1 %cmp25.i.i, label %if.end11.i, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.end21.i.i
   %sub29.i.i = add i64 %_len, -2
   %arrayidx30.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub29.i.i
-  %3 = load i8, ptr %arrayidx30.i.i, align 1
-  %cmp32.i.i = icmp ugt i8 %3, -33
-  br i1 %cmp32.i.i, label %if.end11.i, label %return.sink.split.i.i
+  %6 = load i8, ptr %arrayidx30.i.i, align 1
+  %cmp32.i.i = icmp ugt i8 %6, -33
+  br i1 %cmp32.i.i, label %if.end11.i, label %if.end35.i.i
 
-return.sink.split.i.i:                            ; preds = %if.end28.i.i
+if.end35.i.i:                                     ; preds = %if.end28.i.i
   %sub36.i.i = add i64 %_len, -3
   %arrayidx37.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub36.i.i
-  %4 = load i8, ptr %arrayidx37.i.i, align 1
-  %cmp39.i.i = icmp ugt i8 %4, -17
+  %7 = load i8, ptr %arrayidx37.i.i, align 1
+  %cmp39.i.i = icmp ugt i8 %7, -17
   br i1 %cmp39.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, label %if.end11.i
 
-return.sink.split.i.thread43.i:                   ; preds = %if.then.i.i
-  %5 = getelementptr i8, ptr %_buf, i64 %_len
-  %arrayidx14.i.i = getelementptr i8, ptr %5, i64 -1
-  %6 = load i8, ptr %arrayidx14.i.i, align 1
-  %cmp39.i47.i = icmp ugt i8 %6, -65
-  br i1 %cmp39.i47.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
-
-return.sink.split.i.thread.i:                     ; preds = %sw.bb.i.i
-  %7 = load i8, ptr %_buf, align 1
-  %cmp39.i31.i = icmp ugt i8 %7, -33
-  br i1 %cmp39.i31.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
-
-_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i: ; preds = %return.sink.split.i.i
+_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i: ; preds = %if.end35.i.i
   %cmp8.i = icmp eq i64 %sub36.i.i, 0
   br i1 %cmp8.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
 
-if.end11.i:                                       ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %return.sink.split.i.thread.i, %return.sink.split.i.thread43.i, %return.sink.split.i.i, %if.end28.i.i, %if.end21.i.i, %sw.bb.i.i, %if.end4.i
-  %len.addr.0.i = phi i64 [ %sub36.i.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ %_len, %if.end4.i ], [ %_len, %return.sink.split.i.i ], [ %sub29.i.i, %if.end28.i.i ], [ %sub22.i.i, %if.end21.i.i ], [ 1, %sw.bb.i.i ], [ 2, %return.sink.split.i.thread.i ], [ 1, %return.sink.split.i.thread43.i ]
+if.end11.i:                                       ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %if.end35.i.i, %if.end28.i.i, %if.end21.i.i, %sw.bb12.i.i, %if.end.i.i, %sw.bb.i.i, %if.end4.i
+  %len.addr.0.i = phi i64 [ %sub36.i.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ %_len, %if.end4.i ], [ %_len, %if.end35.i.i ], [ %sub29.i.i, %if.end28.i.i ], [ %sub22.i.i, %if.end21.i.i ], [ 1, %sw.bb12.i.i ], [ 2, %if.end.i.i ], [ 1, %sw.bb.i.i ]
   store ptr %_buf, ptr %reader.i, align 8
   %len.i.i = getelementptr inbounds i8, ptr %reader.i, i64 8
   store i64 %len.addr.0.i, ptr %len.i.i, align 8
@@ -4750,10 +4750,10 @@ while.end.i._ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE
 
 _ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i: ; preds = %while.end.i._ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge, %if.end11.i
   %9 = phi ptr [ %.pre, %while.end.i._ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ %_buf, %if.end11.i ]
-  %reader.val10.lcssa53.i = phi i64 [ %reader.val10.i, %while.end.i._ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ 0, %if.end11.i ]
+  %reader.val10.lcssa45.i = phi i64 [ %reader.val10.i, %while.end.i._ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ 0, %if.end11.i ]
   %10 = phi i64 [ %.pre.i, %while.end.i._ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ %len.addr.0.i, %if.end11.i ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %reader.val10.lcssa53.i
-  %sub.i.i = sub i64 %10, %reader.val10.lcssa53.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %reader.val10.lcssa45.i
+  %sub.i.i = sub i64 %10, %reader.val10.lcssa45.i
   %11 = icmp ugt i64 %sub.i.i, 127
   %12 = sub i64 128, %sub.i.i
   %13 = select i1 %11, i64 0, i64 %12
@@ -4770,15 +4770,15 @@ _ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remain
   %this.val.i.i = load i64, ptr %17, align 16
   %tobool.i.not.i.not.i.i = icmp eq i64 %this.val.i.i, 0
   %brmerge.i.i = select i1 %cmp.i.i, i1 true, i1 %tobool.i.not.i.not.i.i
-  br i1 %brmerge.i.i, label %if.end.i24.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
+  br i1 %brmerge.i.i, label %if.end.i25.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-if.end.i24.i:                                     ; preds = %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
+if.end.i25.i:                                     ; preds = %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
   %unescaped_chars_error.i.i = getelementptr inbounds i8, ptr %indexer.i, i64 144
   %18 = load i64, ptr %unescaped_chars_error.i.i, align 16
   %tobool9.not.i.i = icmp eq i64 %18, 0
   br i1 %tobool9.not.i.i, label %if.end11.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-if.end11.i.i:                                     ; preds = %if.end.i24.i
+if.end11.i.i:                                     ; preds = %if.end.i25.i
   %19 = load ptr, ptr %indexer.i.i, align 32
   %20 = load ptr, ptr %structural_indexes.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %19 to i64
@@ -4888,8 +4888,8 @@ if.end106.i.i:                                    ; preds = %if.end81.i.i, %if.e
   %cond.i.i.i = select i1 %tobool.i.not.i.i.i.i, i32 10, i32 0
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit: ; preds = %entry, %if.end.i, %return.sink.split.i.thread43.i, %return.sink.split.i.thread.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %while.end.i, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i, %if.end.i24.i, %if.end11.i.i, %if.end36.i.i, %if.then52.i.i, %if.then66.i.i, %if.else.i.i, %if.end81.i.i, %if.end106.i.i
-  %retval.0.i = phi i32 [ 1, %entry ], [ 12, %if.end.i ], [ 10, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ 12, %if.else.i.i ], [ %cond.i.i.i, %if.end106.i.i ], [ 13, %if.end.i24.i ], [ 12, %if.end11.i.i ], [ 23, %if.end36.i.i ], [ 1, %if.then52.i.i ], [ 1, %if.then66.i.i ], [ 12, %if.end81.i.i ], [ 14, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ], [ 10, %return.sink.split.i.thread.i ], [ 23, %while.end.i ], [ 10, %return.sink.split.i.thread43.i ]
+_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit: ; preds = %entry, %if.end.i, %if.end.i.i, %sw.bb12.i.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %while.end.i, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i, %if.end.i25.i, %if.end11.i.i, %if.end36.i.i, %if.then52.i.i, %if.then66.i.i, %if.else.i.i, %if.end81.i.i, %if.end106.i.i
+  %retval.0.i = phi i32 [ 1, %entry ], [ 12, %if.end.i ], [ 10, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ 12, %if.else.i.i ], [ %cond.i.i.i, %if.end106.i.i ], [ 13, %if.end.i25.i ], [ 12, %if.end11.i.i ], [ 23, %if.end36.i.i ], [ 1, %if.then52.i.i ], [ 1, %if.then66.i.i ], [ 12, %if.end81.i.i ], [ 14, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ], [ 10, %if.end.i.i ], [ 10, %sw.bb12.i.i ], [ 23, %while.end.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %reader.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %indexer.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %block.i)
@@ -6865,53 +6865,53 @@ if.then6.i:                                       ; preds = %if.end4.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
   %switch.i.i = icmp eq i64 %_len, 2
-  br i1 %switch.i.i, label %sw.bb.i.i, label %return.sink.split.i.thread43.i
+  br i1 %switch.i.i, label %sw.bb.i.i, label %sw.bb12.i.i
 
 sw.bb.i.i:                                        ; preds = %if.then.i.i
   %arrayidx.i.i = getelementptr i8, ptr %_buf, i64 1
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %cmp2.i.i = icmp ugt i8 %1, -65
-  br i1 %cmp2.i.i, label %if.end11.i, label %return.sink.split.i.thread.i
+  br i1 %cmp2.i.i, label %if.end11.i, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %sw.bb.i.i
+  %2 = load i8, ptr %_buf, align 1
+  %cmp8.i.i = icmp ugt i8 %2, -33
+  br i1 %cmp8.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
+
+sw.bb12.i.i:                                      ; preds = %if.then.i.i
+  %3 = getelementptr i8, ptr %_buf, i64 %_len
+  %arrayidx14.i.i = getelementptr i8, ptr %3, i64 -1
+  %4 = load i8, ptr %arrayidx14.i.i, align 1
+  %cmp16.i.i = icmp ugt i8 %4, -65
+  br i1 %cmp16.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
 
 if.end21.i.i:                                     ; preds = %if.then6.i
   %sub22.i.i = add i64 %_len, -1
   %arrayidx23.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub22.i.i
-  %2 = load i8, ptr %arrayidx23.i.i, align 1
-  %cmp25.i.i = icmp ugt i8 %2, -65
+  %5 = load i8, ptr %arrayidx23.i.i, align 1
+  %cmp25.i.i = icmp ugt i8 %5, -65
   br i1 %cmp25.i.i, label %if.end11.i, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.end21.i.i
   %sub29.i.i = add i64 %_len, -2
   %arrayidx30.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub29.i.i
-  %3 = load i8, ptr %arrayidx30.i.i, align 1
-  %cmp32.i.i = icmp ugt i8 %3, -33
-  br i1 %cmp32.i.i, label %if.end11.i, label %return.sink.split.i.i
+  %6 = load i8, ptr %arrayidx30.i.i, align 1
+  %cmp32.i.i = icmp ugt i8 %6, -33
+  br i1 %cmp32.i.i, label %if.end11.i, label %if.end35.i.i
 
-return.sink.split.i.i:                            ; preds = %if.end28.i.i
+if.end35.i.i:                                     ; preds = %if.end28.i.i
   %sub36.i.i = add i64 %_len, -3
   %arrayidx37.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub36.i.i
-  %4 = load i8, ptr %arrayidx37.i.i, align 1
-  %cmp39.i.i = icmp ugt i8 %4, -17
+  %7 = load i8, ptr %arrayidx37.i.i, align 1
+  %cmp39.i.i = icmp ugt i8 %7, -17
   br i1 %cmp39.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, label %if.end11.i
 
-return.sink.split.i.thread43.i:                   ; preds = %if.then.i.i
-  %5 = getelementptr i8, ptr %_buf, i64 %_len
-  %arrayidx14.i.i = getelementptr i8, ptr %5, i64 -1
-  %6 = load i8, ptr %arrayidx14.i.i, align 1
-  %cmp39.i47.i = icmp ugt i8 %6, -65
-  br i1 %cmp39.i47.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
-
-return.sink.split.i.thread.i:                     ; preds = %sw.bb.i.i
-  %7 = load i8, ptr %_buf, align 1
-  %cmp39.i31.i = icmp ugt i8 %7, -33
-  br i1 %cmp39.i31.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
-
-_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i: ; preds = %return.sink.split.i.i
+_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i: ; preds = %if.end35.i.i
   %cmp8.i = icmp eq i64 %sub36.i.i, 0
   br i1 %cmp8.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
 
-if.end11.i:                                       ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %return.sink.split.i.thread.i, %return.sink.split.i.thread43.i, %return.sink.split.i.i, %if.end28.i.i, %if.end21.i.i, %sw.bb.i.i, %if.end4.i
-  %len.addr.0.i = phi i64 [ %sub36.i.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ %_len, %if.end4.i ], [ %_len, %return.sink.split.i.i ], [ %sub29.i.i, %if.end28.i.i ], [ %sub22.i.i, %if.end21.i.i ], [ 1, %sw.bb.i.i ], [ 2, %return.sink.split.i.thread.i ], [ 1, %return.sink.split.i.thread43.i ]
+if.end11.i:                                       ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %if.end35.i.i, %if.end28.i.i, %if.end21.i.i, %sw.bb12.i.i, %if.end.i.i, %sw.bb.i.i, %if.end4.i
+  %len.addr.0.i = phi i64 [ %sub36.i.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ %_len, %if.end4.i ], [ %_len, %if.end35.i.i ], [ %sub29.i.i, %if.end28.i.i ], [ %sub22.i.i, %if.end21.i.i ], [ 1, %sw.bb12.i.i ], [ 2, %if.end.i.i ], [ 1, %sw.bb.i.i ]
   store ptr %_buf, ptr %reader.i, align 8
   %len.i.i = getelementptr inbounds i8, ptr %reader.i, i64 8
   store i64 %len.addr.0.i, ptr %len.i.i, align 8
@@ -6953,10 +6953,10 @@ while.end.i._ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE
 
 _ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i: ; preds = %while.end.i._ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge, %if.end11.i
   %9 = phi ptr [ %.pre, %while.end.i._ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ %_buf, %if.end11.i ]
-  %reader.val10.lcssa53.i = phi i64 [ %reader.val10.i, %while.end.i._ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ 0, %if.end11.i ]
+  %reader.val10.lcssa45.i = phi i64 [ %reader.val10.i, %while.end.i._ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ 0, %if.end11.i ]
   %10 = phi i64 [ %.pre.i, %while.end.i._ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i_crit_edge ], [ %len.addr.0.i, %if.end11.i ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %reader.val10.lcssa53.i
-  %sub.i.i = sub i64 %10, %reader.val10.lcssa53.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %reader.val10.lcssa45.i
+  %sub.i.i = sub i64 %10, %reader.val10.lcssa45.i
   %11 = icmp ugt i64 %sub.i.i, 127
   %12 = sub i64 128, %sub.i.i
   %13 = select i1 %11, i64 0, i64 %12
@@ -7021,15 +7021,15 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i: ; pred
   %this.val.i.i = load i64, ptr %25, align 16
   %tobool.i.not.i.not.i.i = icmp eq i64 %this.val.i.i, 0
   %brmerge.i.i = select i1 %cmp.i.i, i1 true, i1 %tobool.i.not.i.not.i.i
-  br i1 %brmerge.i.i, label %if.end.i24.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
+  br i1 %brmerge.i.i, label %if.end.i25.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-if.end.i24.i:                                     ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i
+if.end.i25.i:                                     ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i
   %unescaped_chars_error.i.i = getelementptr inbounds i8, ptr %indexer.i, i64 272
   %26 = load i64, ptr %unescaped_chars_error.i.i, align 16
   %tobool9.not.i.i = icmp eq i64 %26, 0
   br i1 %tobool9.not.i.i, label %if.end11.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-if.end11.i.i:                                     ; preds = %if.end.i24.i
+if.end11.i.i:                                     ; preds = %if.end.i25.i
   %27 = load ptr, ptr %indexer.i.i, align 64
   %28 = load ptr, ptr %structural_indexes.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %27 to i64
@@ -7141,8 +7141,8 @@ if.end106.i.i:                                    ; preds = %if.end81.i.i, %if.e
   %cond.i.i.i = select i1 %tobool.not.i.i.not.i.i.i, i32 0, i32 10
   br label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit: ; preds = %entry, %if.end.i, %return.sink.split.i.thread43.i, %return.sink.split.i.thread.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %while.end.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i, %if.end.i24.i, %if.end11.i.i, %if.end36.i.i, %if.then52.i.i, %if.then66.i.i, %if.else.i.i, %if.end81.i.i, %if.end106.i.i
-  %retval.0.i = phi i32 [ 1, %entry ], [ 12, %if.end.i ], [ 10, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ 12, %if.else.i.i ], [ %cond.i.i.i, %if.end106.i.i ], [ 13, %if.end.i24.i ], [ 12, %if.end11.i.i ], [ 23, %if.end36.i.i ], [ 1, %if.then52.i.i ], [ 1, %if.then66.i.i ], [ 12, %if.end81.i.i ], [ 14, %_ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i ], [ 10, %return.sink.split.i.thread.i ], [ 23, %while.end.i ], [ 10, %return.sink.split.i.thread43.i ]
+_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit: ; preds = %entry, %if.end.i, %if.end.i.i, %sw.bb12.i.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %while.end.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i, %if.end.i25.i, %if.end11.i.i, %if.end36.i.i, %if.then52.i.i, %if.then66.i.i, %if.else.i.i, %if.end81.i.i, %if.end106.i.i
+  %retval.0.i = phi i32 [ 1, %entry ], [ 12, %if.end.i ], [ 10, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ 12, %if.else.i.i ], [ %cond.i.i.i, %if.end106.i.i ], [ 13, %if.end.i25.i ], [ 12, %if.end11.i.i ], [ 23, %if.end36.i.i ], [ 1, %if.then52.i.i ], [ 1, %if.then66.i.i ], [ 12, %if.end81.i.i ], [ 14, %_ZN8simdjson7icelake12_GLOBAL__N_16stage111bit_indexer5writeEjm.exit.i.i ], [ 10, %if.end.i.i ], [ 10, %sw.bb12.i.i ], [ 23, %while.end.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %reader.i)
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %indexer.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %block.i)
@@ -9259,53 +9259,53 @@ if.then6.i:                                       ; preds = %if.end4.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
   %switch.i.i = icmp eq i64 %_len, 2
-  br i1 %switch.i.i, label %sw.bb.i.i, label %return.sink.split.i.thread43.i
+  br i1 %switch.i.i, label %sw.bb.i.i, label %sw.bb12.i.i
 
 sw.bb.i.i:                                        ; preds = %if.then.i.i
   %arrayidx.i.i = getelementptr i8, ptr %_buf, i64 1
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %cmp2.i.i = icmp ugt i8 %1, -65
-  br i1 %cmp2.i.i, label %if.end11.i, label %return.sink.split.i.thread.i
+  br i1 %cmp2.i.i, label %if.end11.i, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %sw.bb.i.i
+  %2 = load i8, ptr %_buf, align 1
+  %cmp8.i.i = icmp ugt i8 %2, -33
+  br i1 %cmp8.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
+
+sw.bb12.i.i:                                      ; preds = %if.then.i.i
+  %3 = getelementptr i8, ptr %_buf, i64 %_len
+  %arrayidx14.i.i = getelementptr i8, ptr %3, i64 -1
+  %4 = load i8, ptr %arrayidx14.i.i, align 1
+  %cmp16.i.i = icmp ugt i8 %4, -65
+  br i1 %cmp16.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
 
 if.end21.i.i:                                     ; preds = %if.then6.i
   %sub22.i.i = add i64 %_len, -1
   %arrayidx23.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub22.i.i
-  %2 = load i8, ptr %arrayidx23.i.i, align 1
-  %cmp25.i.i = icmp ugt i8 %2, -65
+  %5 = load i8, ptr %arrayidx23.i.i, align 1
+  %cmp25.i.i = icmp ugt i8 %5, -65
   br i1 %cmp25.i.i, label %if.end11.i, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.end21.i.i
   %sub29.i.i = add i64 %_len, -2
   %arrayidx30.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub29.i.i
-  %3 = load i8, ptr %arrayidx30.i.i, align 1
-  %cmp32.i.i = icmp ugt i8 %3, -33
-  br i1 %cmp32.i.i, label %if.end11.i, label %return.sink.split.i.i
+  %6 = load i8, ptr %arrayidx30.i.i, align 1
+  %cmp32.i.i = icmp ugt i8 %6, -33
+  br i1 %cmp32.i.i, label %if.end11.i, label %if.end35.i.i
 
-return.sink.split.i.i:                            ; preds = %if.end28.i.i
+if.end35.i.i:                                     ; preds = %if.end28.i.i
   %sub36.i.i = add i64 %_len, -3
   %arrayidx37.i.i = getelementptr inbounds i8, ptr %_buf, i64 %sub36.i.i
-  %4 = load i8, ptr %arrayidx37.i.i, align 1
-  %cmp39.i.i = icmp ugt i8 %4, -17
+  %7 = load i8, ptr %arrayidx37.i.i, align 1
+  %cmp39.i.i = icmp ugt i8 %7, -17
   br i1 %cmp39.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, label %if.end11.i
 
-return.sink.split.i.thread43.i:                   ; preds = %if.then.i.i
-  %5 = getelementptr i8, ptr %_buf, i64 %_len
-  %arrayidx14.i.i = getelementptr i8, ptr %5, i64 -1
-  %6 = load i8, ptr %arrayidx14.i.i, align 1
-  %cmp39.i47.i = icmp ugt i8 %6, -65
-  br i1 %cmp39.i47.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
-
-return.sink.split.i.thread.i:                     ; preds = %sw.bb.i.i
-  %7 = load i8, ptr %_buf, align 1
-  %cmp39.i31.i = icmp ugt i8 %7, -33
-  br i1 %cmp39.i31.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
-
-_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i: ; preds = %return.sink.split.i.i
+_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i: ; preds = %if.end35.i.i
   %cmp8.i = icmp eq i64 %sub36.i.i, 0
   br i1 %cmp8.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit, label %if.end11.i
 
-if.end11.i:                                       ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %return.sink.split.i.thread.i, %return.sink.split.i.thread43.i, %return.sink.split.i.i, %if.end28.i.i, %if.end21.i.i, %sw.bb.i.i, %if.end4.i
-  %len.addr.0.i = phi i64 [ %sub36.i.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ %_len, %if.end4.i ], [ %_len, %return.sink.split.i.i ], [ %sub29.i.i, %if.end28.i.i ], [ %sub22.i.i, %if.end21.i.i ], [ 1, %sw.bb.i.i ], [ 2, %return.sink.split.i.thread.i ], [ 1, %return.sink.split.i.thread43.i ]
+if.end11.i:                                       ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %if.end35.i.i, %if.end28.i.i, %if.end21.i.i, %sw.bb12.i.i, %if.end.i.i, %sw.bb.i.i, %if.end4.i
+  %len.addr.0.i = phi i64 [ %sub36.i.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ %_len, %if.end4.i ], [ %_len, %if.end35.i.i ], [ %sub29.i.i, %if.end28.i.i ], [ %sub22.i.i, %if.end21.i.i ], [ 1, %sw.bb12.i.i ], [ 2, %if.end.i.i ], [ 1, %sw.bb.i.i ]
   store ptr %_buf, ptr %reader.i, align 8
   %len.i.i = getelementptr inbounds i8, ptr %reader.i, i64 8
   store i64 %len.addr.0.i, ptr %len.i.i, align 8
@@ -9347,10 +9347,10 @@ while.end.i._ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE
 
 _ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i: ; preds = %while.end.i._ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i_crit_edge, %if.end11.i
   %9 = phi ptr [ %.pre, %while.end.i._ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i_crit_edge ], [ %_buf, %if.end11.i ]
-  %reader.val10.lcssa53.i = phi i64 [ %reader.val10.i, %while.end.i._ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i_crit_edge ], [ 0, %if.end11.i ]
+  %reader.val10.lcssa45.i = phi i64 [ %reader.val10.i, %while.end.i._ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i_crit_edge ], [ 0, %if.end11.i ]
   %10 = phi i64 [ %.pre.i, %while.end.i._ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i_crit_edge ], [ %len.addr.0.i, %if.end11.i ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %reader.val10.lcssa53.i
-  %sub.i.i = sub i64 %10, %reader.val10.lcssa53.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %reader.val10.lcssa45.i
+  %sub.i.i = sub i64 %10, %reader.val10.lcssa45.i
   %11 = icmp ugt i64 %sub.i.i, 63
   %12 = sub i64 64, %sub.i.i
   %13 = select i1 %11, i64 0, i64 %12
@@ -9367,15 +9367,15 @@ _ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remain
   %this.val.i.i = load i64, ptr %17, align 16
   %tobool.i.not.i.not.i.i = icmp eq i64 %this.val.i.i, 0
   %brmerge.i.i = select i1 %cmp.i.i, i1 true, i1 %tobool.i.not.i.not.i.i
-  br i1 %brmerge.i.i, label %if.end.i24.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
+  br i1 %brmerge.i.i, label %if.end.i25.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-if.end.i24.i:                                     ; preds = %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
+if.end.i25.i:                                     ; preds = %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
   %unescaped_chars_error.i.i = getelementptr inbounds i8, ptr %indexer.i, i64 96
   %18 = load i64, ptr %unescaped_chars_error.i.i, align 16
   %tobool9.not.i.i = icmp eq i64 %18, 0
   br i1 %tobool9.not.i.i, label %if.end11.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-if.end11.i.i:                                     ; preds = %if.end.i24.i
+if.end11.i.i:                                     ; preds = %if.end.i25.i
   %19 = load ptr, ptr %indexer.i.i, align 16
   %20 = load ptr, ptr %structural_indexes.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %19 to i64
@@ -9485,8 +9485,8 @@ if.end106.i.i:                                    ; preds = %if.end81.i.i, %if.e
   %cond.i.i.i = select i1 %tobool.i.not.i.i.i.i, i32 10, i32 0
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
-_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit: ; preds = %entry, %if.end.i, %return.sink.split.i.thread43.i, %return.sink.split.i.thread.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %while.end.i, %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i, %if.end.i24.i, %if.end11.i.i, %if.end36.i.i, %if.then52.i.i, %if.then66.i.i, %if.else.i.i, %if.end81.i.i, %if.end106.i.i
-  %retval.0.i = phi i32 [ 1, %entry ], [ 12, %if.end.i ], [ 10, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ 12, %if.else.i.i ], [ %cond.i.i.i, %if.end106.i.i ], [ 13, %if.end.i24.i ], [ 12, %if.end11.i.i ], [ 23, %if.end36.i.i ], [ 1, %if.then52.i.i ], [ 1, %if.then66.i.i ], [ 12, %if.end81.i.i ], [ 14, %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i ], [ 10, %return.sink.split.i.thread.i ], [ 23, %while.end.i ], [ 10, %return.sink.split.i.thread43.i ]
+_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit: ; preds = %entry, %if.end.i, %if.end.i.i, %sw.bb12.i.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i, %while.end.i, %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i, %if.end.i25.i, %if.end11.i.i, %if.end36.i.i, %if.then52.i.i, %if.then66.i.i, %if.else.i.i, %if.end81.i.i, %if.end106.i.i
+  %retval.0.i = phi i32 [ 1, %entry ], [ 12, %if.end.i ], [ 10, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.i ], [ 12, %if.else.i.i ], [ %cond.i.i.i, %if.end106.i.i ], [ 13, %if.end.i25.i ], [ 12, %if.end11.i.i ], [ 23, %if.end36.i.i ], [ 1, %if.then52.i.i ], [ 1, %if.then66.i.i ], [ 12, %if.end81.i.i ], [ 14, %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i ], [ 10, %if.end.i.i ], [ 10, %sw.bb12.i.i ], [ 23, %while.end.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %reader.i)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %indexer.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %block.i)

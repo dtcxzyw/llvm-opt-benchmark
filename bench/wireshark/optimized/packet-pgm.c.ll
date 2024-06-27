@@ -845,20 +845,20 @@ optsstr.exit:                                     ; preds = %proto_item_set_hidd
 
 286:                                              ; preds = %273
   %287 = add i16 %277, -4
-  %.not496.i = icmp eq i16 %287, 0
-  br i1 %.not496.i, label %dissect_pgmopts.exit, label %.lr.ph495.i
+  %.not495.i = icmp eq i16 %287, 0
+  br i1 %.not495.i, label %dissect_pgmopts.exit, label %.lr.ph494.i
 
-.lr.ph495.i:                                      ; preds = %286, %._crit_edge.thread.i
+.lr.ph494.i:                                      ; preds = %286, %._crit_edge.thread.i
   %.0427492.i = phi i16 [ %758, %._crit_edge.thread.i ], [ %287, %286 ]
   %288 = zext i16 %.0427492.i to i32
   %289 = icmp ult i16 %.0427492.i, 4
   br i1 %289, label %290, label %292
 
-290:                                              ; preds = %.lr.ph495.i
+290:                                              ; preds = %.lr.ph494.i
   %291 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %282, ptr noundef nonnull @ei_pgm_opt_tlen, ptr noundef nonnull @.str.198) #6
   br label %dissect_pgmopts.exit
 
-292:                                              ; preds = %.lr.ph495.i
+292:                                              ; preds = %.lr.ph494.i
   %293 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
   %294 = call zeroext i8 @tvb_get_guint8(ptr noundef %259, i32 noundef %293) #6
   %295 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
@@ -1116,8 +1116,8 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
   %456 = trunc nuw nsw i64 %455 to i32
   %457 = load ptr, ptr %24, align 8
   %458 = call noalias ptr @wmem_alloc(ptr noundef %457, i64 noundef 8192) #6
-  %.not497.i = icmp ult i8 %451, 4
-  br i1 %.not497.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
+  %.not496.i = icmp ult i8 %451, 4
+  br i1 %.not496.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %438
   %umax.i = call i32 @llvm.umax.i32(i32 %456, i32 1)
@@ -1597,7 +1597,7 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
   %758 = sub i16 %.0427492.i, %757
   %759 = icmp ne i16 %758, 0
   %760 = select i1 %.not461.i, i1 %759, i1 false
-  br i1 %760, label %.lr.ph495.i, label %dissect_pgmopts.exit, !llvm.loop !6
+  br i1 %760, label %.lr.ph494.i, label %dissect_pgmopts.exit, !llvm.loop !6
 
 dissect_pgmopts.exit:                             ; preds = %._crit_edge.thread.i, %268, %284, %286, %290, %306, %311, %339, %344, %397, %402, %430, %435, %501, %506, %548, %553, %595, %600, %630, %635, %665, %670, %710, %715, %748, %753
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)

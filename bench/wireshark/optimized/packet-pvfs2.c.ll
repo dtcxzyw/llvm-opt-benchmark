@@ -2077,38 +2077,37 @@ define internal fastcc i32 @dissect_pvfs_distribution(ptr noundef %0, ptr nounde
   %10 = add i32 %5, 12
   %11 = and i32 %10, -8
   %12 = icmp eq i32 %5, 13
-  br i1 %12, label %13, label %17
+  br i1 %12, label %13, label %16
 
 13:                                               ; preds = %4
   %14 = tail call i32 @g_ascii_strncasecmp(ptr noundef %9, ptr noundef nonnull @.str.403, i64 noundef 13) #9
   %15 = icmp ne i32 %14, 0
-  %16 = add nuw nsw i32 %11, 8
-  %spec.select28 = select i1 %15, i32 %11, i32 %16
-  br label %17
+  %spec.select28 = select i1 %15, i32 24, i32 32
+  br label %16
 
-17:                                               ; preds = %13, %4
+16:                                               ; preds = %13, %4
   %.not = phi i1 [ true, %4 ], [ %15, %13 ]
   %.0 = phi i32 [ %11, %4 ], [ %spec.select28, %13 ]
-  %18 = load i32, ptr @hf_pvfs_distribution, align 4
-  %19 = add i32 %.0, 8
-  %20 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %18, ptr noundef %0, i32 noundef %2, i32 noundef %19, ptr noundef %9) #9
-  %21 = load i32, ptr @ett_pvfs_distribution, align 4
-  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #9
-  %23 = load i32, ptr @hf_pvfs_io_dist, align 4
-  %24 = tail call fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %22, i32 noundef %23, i32 noundef %2, ptr noundef nonnull %3)
-  br i1 %.not, label %30, label %25
+  %17 = load i32, ptr @hf_pvfs_distribution, align 4
+  %18 = add i32 %.0, 8
+  %19 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %17, ptr noundef %0, i32 noundef %2, i32 noundef %18, ptr noundef %9) #9
+  %20 = load i32, ptr @ett_pvfs_distribution, align 4
+  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20) #9
+  %22 = load i32, ptr @hf_pvfs_io_dist, align 4
+  %23 = tail call fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %21, i32 noundef %22, i32 noundef %2, ptr noundef nonnull %3)
+  br i1 %.not, label %29, label %24
 
-25:                                               ; preds = %17
-  %26 = load i32, ptr @hf_pvfs_strip_size, align 4
-  %27 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %24) #9
-  %28 = tail call ptr @proto_tree_add_uint64(ptr noundef %22, i32 noundef %26, ptr noundef %0, i32 noundef %24, i32 noundef 8, i64 noundef %27) #9
-  %29 = add i32 %24, 8
-  br label %30
+24:                                               ; preds = %16
+  %25 = load i32, ptr @hf_pvfs_strip_size, align 4
+  %26 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %23) #9
+  %27 = tail call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %25, ptr noundef %0, i32 noundef %23, i32 noundef 8, i64 noundef %26) #9
+  %28 = add i32 %23, 8
+  br label %29
 
-30:                                               ; preds = %25, %17
-  %.027 = phi i32 [ %29, %25 ], [ %24, %17 ]
-  %31 = add i32 %.027, 8
-  ret i32 %31
+29:                                               ; preds = %24, %16
+  %.027 = phi i32 [ %28, %24 ], [ %23, %16 ]
+  %30 = add i32 %.027, 8
+  ret i32 %30
 }
 
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2

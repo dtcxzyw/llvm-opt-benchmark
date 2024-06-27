@@ -11037,65 +11037,73 @@ define internal fastcc void @io_prep_async_work(ptr noundef %0) unnamed_addr #1 
   br label %61
 
 60:                                               ; preds = %33
-  br i1 %36, label %61, label %89
+  br i1 %36, label %61, label %97
 
 61:                                               ; preds = %.thread, %60
   %62 = phi i32 [ %59, %.thread ], [ %24, %60 ]
   %63 = and i32 %62, 1073741824
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %83, label %65
+  br i1 %64, label %91, label %65
 
 65:                                               ; preds = %61
   %66 = load i16, ptr %5, align 8
   %67 = and i16 %66, 4
   %68 = icmp eq i16 %67, 0
-  br i1 %68, label %.thread3, label %69
+  %69 = lshr exact i16 %67, 2
+  %70 = trunc nuw nsw i16 %69 to i8
+  br i1 %68, label %82, label %71
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %35, i64 72
-  %71 = load i32, ptr %70, align 8
-  %72 = and i32 %71, 16384
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.thread4, label %74
+71:                                               ; preds = %65
+  %72 = getelementptr inbounds i8, ptr %35, i64 72
+  %73 = load i32, ptr %72, align 8
+  %74 = and i32 %73, 16384
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %.thread3, label %76
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %35, i64 20
-  %76 = load i32, ptr %75, align 4
-  %77 = and i32 %76, 16777216
-  %.not = icmp eq i32 %77, 0
-  br i1 %.not, label %.thread4, label %.thread3
-
-.thread3:                                         ; preds = %65, %74
-  %78 = load i32, ptr %7, align 64
-  %79 = and i32 %78, 1
+76:                                               ; preds = %71
+  %77 = getelementptr inbounds i8, ptr %35, i64 20
+  %78 = load i32, ptr %77, align 4
+  %79 = and i32 %78, 16777216
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %94, label %.thread4
+  %81 = zext i1 %80 to i8
+  br label %82
 
-.thread4:                                         ; preds = %74, %69, %.thread3
-  %81 = getelementptr inbounds i8, ptr %35, i64 168
-  %82 = load ptr, ptr %81, align 8
-  tail call void @io_wq_hash_work(ptr noundef %25, ptr noundef %82) #23
-  br label %94
+82:                                               ; preds = %76, %65
+  %83 = phi i8 [ %70, %65 ], [ %81, %76 ]
+  %84 = icmp eq i8 %83, 0
+  br i1 %84, label %85, label %.thread3
 
-83:                                               ; preds = %61
-  %84 = getelementptr inbounds i8, ptr %35, i64 168
-  %85 = load ptr, ptr %84, align 8
-  %86 = load i16, ptr %85, align 8
-  %87 = and i16 %86, -4096
-  %88 = icmp eq i16 %87, 24576
-  br i1 %88, label %94, label %89
+85:                                               ; preds = %82
+  %86 = load i32, ptr %7, align 64
+  %87 = and i32 %86, 1
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %102, label %.thread3
 
-89:                                               ; preds = %83, %60
-  %90 = load i16, ptr %5, align 8
-  %91 = and i16 %90, 8
-  %92 = icmp eq i16 %91, 0
-  br i1 %92, label %94, label %93
+.thread3:                                         ; preds = %71, %85, %82
+  %89 = getelementptr inbounds i8, ptr %35, i64 168
+  %90 = load ptr, ptr %89, align 8
+  tail call void @io_wq_hash_work(ptr noundef %25, ptr noundef %90) #23
+  br label %102
 
-93:                                               ; preds = %89
+91:                                               ; preds = %61
+  %92 = getelementptr inbounds i8, ptr %35, i64 168
+  %93 = load ptr, ptr %92, align 8
+  %94 = load i16, ptr %93, align 8
+  %95 = and i16 %94, -4096
+  %96 = icmp eq i16 %95, 24576
+  br i1 %96, label %102, label %97
+
+97:                                               ; preds = %91, %60
+  %98 = load i16, ptr %5, align 8
+  %99 = and i16 %98, 8
+  %100 = icmp eq i16 %99, 0
+  br i1 %100, label %102, label %101
+
+101:                                              ; preds = %97
   store i32 %34, ptr %26, align 8
-  br label %94
+  br label %102
 
-94:                                               ; preds = %93, %89, %83, %.thread4, %.thread3
+102:                                              ; preds = %101, %97, %91, %.thread3, %85
   ret void
 }
 

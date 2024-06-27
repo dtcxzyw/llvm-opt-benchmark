@@ -9836,12 +9836,12 @@ while.cond.preheader:                             ; preds = %for.inc, %for.inc.t
   %total_op_count.0.lcssa = phi i32 [ %total_op_count.066, %for.inc.thread ], [ %total_op_count.1, %for.inc ]
   %num_inprogress.0.lcssa = phi i32 [ %num_inprogress.067, %for.inc.thread ], [ %num_inprogress.1, %for.inc ]
   %error.0.lcssa = phi i32 [ 1, %for.inc.thread ], [ %5, %for.inc ]
-  %cmp12123 = icmp sgt i32 %num_inprogress.0.lcssa, 0
-  br i1 %cmp12123, label %for.cond13.preheader.lr.ph.lr.ph, label %while.end
+  %cmp12122 = icmp sgt i32 %num_inprogress.0.lcssa, 0
+  br i1 %cmp12122, label %for.cond13.preheader.lr.ph.lr.ph, label %while.end
 
 for.cond13.preheader.lr.ph.lr.ph:                 ; preds = %while.cond.preheader
   %wide.trip.count = zext nneg i32 %async_jobs to i64
-  %wide.trip.count169 = zext nneg i32 %async_jobs to i64
+  %wide.trip.count168 = zext nneg i32 %async_jobs to i64
   br label %for.cond13.preheader.lr.ph
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -9890,11 +9890,11 @@ for.inc:                                          ; preds = %sw.bb5, %for.body, 
   %6 = and i1 %cmp1, %tobool.not
   br i1 %6, label %for.body, label %while.cond.preheader, !llvm.loop !119
 
-for.cond84.preheader:                             ; preds = %for.cond13.preheader.us86, %if.end65.us
-  %.us-phi83 = phi i32 [ %error.3.us, %if.end65.us ], [ %error.2.fr77128, %for.cond13.preheader.us86 ]
+for.cond84.preheader:                             ; preds = %for.cond13.preheader.us85, %if.end65.us
+  %.us-phi82 = phi i32 [ %error.3.us, %if.end65.us ], [ %error.2.fr76127, %for.cond13.preheader.us85 ]
   br i1 %cmp165, label %for.body87, label %for.end153
 
-if.then77:                                        ; preds = %land.lhs.true.us87, %land.lhs.true.us
+if.then77:                                        ; preds = %land.lhs.true.us86, %land.lhs.true.us
   %7 = load ptr, ptr @bio_err, align 8
   %call78 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %7, ptr noundef nonnull @.str.414) #15
   %8 = load ptr, ptr @bio_err, align 8
@@ -9902,11 +9902,11 @@ if.then77:                                        ; preds = %land.lhs.true.us87,
   br label %return
 
 for.body87:                                       ; preds = %for.cond84.preheader, %for.inc151
-  %indvars.iv166 = phi i64 [ %indvars.iv.next167, %for.inc151 ], [ 0, %for.cond84.preheader ]
-  %error.4118 = phi i32 [ %error.6, %for.inc151 ], [ %.us-phi83, %for.cond84.preheader ]
-  %num_inprogress.3117 = phi i32 [ %num_inprogress.4, %for.inc151 ], [ %num_inprogress.2.ph126, %for.cond84.preheader ]
-  %total_op_count.3116 = phi i32 [ %total_op_count.5, %for.inc151 ], [ %total_op_count.2.ph125, %for.cond84.preheader ]
-  %arrayidx89 = getelementptr inbounds %struct.loopargs_st, ptr %loopargs, i64 %indvars.iv166
+  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %for.inc151 ], [ 0, %for.cond84.preheader ]
+  %error.4117 = phi i32 [ %error.6, %for.inc151 ], [ %.us-phi82, %for.cond84.preheader ]
+  %num_inprogress.3116 = phi i32 [ %num_inprogress.4, %for.inc151 ], [ %num_inprogress.2.ph125, %for.cond84.preheader ]
+  %total_op_count.3115 = phi i32 [ %total_op_count.5, %for.inc151 ], [ %total_op_count.2.ph124, %for.cond84.preheader ]
+  %arrayidx89 = getelementptr inbounds %struct.loopargs_st, ptr %loopargs, i64 %indvars.iv165
   %9 = load ptr, ptr %arrayidx89, align 8
   %cmp91 = icmp eq ptr %9, null
   br i1 %cmp91, label %for.inc151, label %if.end94
@@ -9929,7 +9929,7 @@ if.then103:                                       ; preds = %if.end94
   br label %for.end153
 
 if.end105:                                        ; preds = %if.end94
-  %wait_ctx108 = getelementptr inbounds %struct.loopargs_st, ptr %loopargs, i64 %indvars.iv166, i32 1
+  %wait_ctx108 = getelementptr inbounds %struct.loopargs_st, ptr %loopargs, i64 %indvars.iv165, i32 1
   %14 = load ptr, ptr %wait_ctx108, align 8
   %call109 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef %14, ptr noundef nonnull %job_fd, ptr noundef nonnull %num_job_fds) #15
   %15 = load i64, ptr %num_job_fds, align 8
@@ -9950,7 +9950,7 @@ land.lhs.true112:                                 ; preds = %if.end105
   br i1 %cmp120.not, label %for.inc151, label %if.end123
 
 if.end123:                                        ; preds = %land.lhs.true112, %if.end105
-  %arrayidx125 = getelementptr inbounds %struct.loopargs_st, ptr %loopargs, i64 %indvars.iv166
+  %arrayidx125 = getelementptr inbounds %struct.loopargs_st, ptr %loopargs, i64 %indvars.iv165
   %wait_ctx129 = getelementptr inbounds i8, ptr %arrayidx125, i64 8
   %18 = load ptr, ptr %wait_ctx129, align 8
   %call132 = call i32 @ASYNC_start_job(ptr noundef %arrayidx125, ptr noundef %18, ptr noundef nonnull %job_op_count, ptr noundef %loop_function, ptr noundef %arrayidx125, i64 noundef 13648) #15
@@ -9964,16 +9964,16 @@ sw.bb134:                                         ; preds = %if.end123
   %19 = load i32, ptr %job_op_count, align 4
   %cmp135 = icmp eq i32 %19, -1
   %add139 = select i1 %cmp135, i32 0, i32 %19
-  %total_op_count.4 = add nsw i32 %add139, %total_op_count.3116
-  %error.5 = select i1 %cmp135, i32 1, i32 %error.4118
-  %dec = add nsw i32 %num_inprogress.3117, -1
-  %arrayidx142 = getelementptr inbounds %struct.loopargs_st, ptr %loopargs, i64 %indvars.iv166
+  %total_op_count.4 = add nsw i32 %add139, %total_op_count.3115
+  %error.5 = select i1 %cmp135, i32 1, i32 %error.4117
+  %dec = add nsw i32 %num_inprogress.3116, -1
+  %arrayidx142 = getelementptr inbounds %struct.loopargs_st, ptr %loopargs, i64 %indvars.iv165
   store ptr null, ptr %arrayidx142, align 8
   br label %for.inc151
 
 sw.bb144:                                         ; preds = %if.end123, %if.end123
-  %dec145 = add nsw i32 %num_inprogress.3117, -1
-  %arrayidx147 = getelementptr inbounds %struct.loopargs_st, ptr %loopargs, i64 %indvars.iv166
+  %dec145 = add nsw i32 %num_inprogress.3116, -1
+  %arrayidx147 = getelementptr inbounds %struct.loopargs_st, ptr %loopargs, i64 %indvars.iv165
   store ptr null, ptr %arrayidx147, align 8
   %20 = load ptr, ptr @bio_err, align 8
   %call149 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %20, ptr noundef nonnull @.str.411) #15
@@ -9982,36 +9982,36 @@ sw.bb144:                                         ; preds = %if.end123, %if.end1
   br label %for.inc151
 
 for.inc151:                                       ; preds = %if.end123, %sw.bb134, %sw.bb144, %land.lhs.true112, %for.body87
-  %total_op_count.5 = phi i32 [ %total_op_count.3116, %for.body87 ], [ %total_op_count.3116, %if.end123 ], [ %total_op_count.4, %sw.bb134 ], [ %total_op_count.3116, %sw.bb144 ], [ %total_op_count.3116, %land.lhs.true112 ]
-  %num_inprogress.4 = phi i32 [ %num_inprogress.3117, %for.body87 ], [ %num_inprogress.3117, %if.end123 ], [ %dec, %sw.bb134 ], [ %dec145, %sw.bb144 ], [ %num_inprogress.3117, %land.lhs.true112 ]
-  %error.6 = phi i32 [ %error.4118, %for.body87 ], [ %error.4118, %if.end123 ], [ %error.5, %sw.bb134 ], [ 1, %sw.bb144 ], [ %error.4118, %land.lhs.true112 ]
-  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
-  %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
-  br i1 %exitcond170.not, label %for.end153, label %for.body87, !llvm.loop !120
+  %total_op_count.5 = phi i32 [ %total_op_count.3115, %for.body87 ], [ %total_op_count.3115, %if.end123 ], [ %total_op_count.4, %sw.bb134 ], [ %total_op_count.3115, %sw.bb144 ], [ %total_op_count.3115, %land.lhs.true112 ]
+  %num_inprogress.4 = phi i32 [ %num_inprogress.3116, %for.body87 ], [ %num_inprogress.3116, %if.end123 ], [ %dec, %sw.bb134 ], [ %dec145, %sw.bb144 ], [ %num_inprogress.3116, %land.lhs.true112 ]
+  %error.6 = phi i32 [ %error.4117, %for.body87 ], [ %error.4117, %if.end123 ], [ %error.5, %sw.bb134 ], [ 1, %sw.bb144 ], [ %error.4117, %land.lhs.true112 ]
+  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
+  %exitcond169.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count168
+  br i1 %exitcond169.not, label %for.end153, label %for.body87, !llvm.loop !120
 
 for.end153:                                       ; preds = %for.inc151, %for.cond84.preheader, %if.then103
-  %total_op_count.362 = phi i32 [ %total_op_count.3116, %if.then103 ], [ %total_op_count.2.ph125, %for.cond84.preheader ], [ %total_op_count.5, %for.inc151 ]
-  %num_inprogress.360 = phi i32 [ %num_inprogress.3117, %if.then103 ], [ %num_inprogress.2.ph126, %for.cond84.preheader ], [ %num_inprogress.4, %for.inc151 ]
-  %error.7 = phi i32 [ 1, %if.then103 ], [ %.us-phi83, %for.cond84.preheader ], [ %error.6, %for.inc151 ]
+  %total_op_count.362 = phi i32 [ %total_op_count.3115, %if.then103 ], [ %total_op_count.2.ph124, %for.cond84.preheader ], [ %total_op_count.5, %for.inc151 ]
+  %num_inprogress.360 = phi i32 [ %num_inprogress.3116, %if.then103 ], [ %num_inprogress.2.ph125, %for.cond84.preheader ], [ %num_inprogress.4, %for.inc151 ]
+  %error.7 = phi i32 [ 1, %if.then103 ], [ %.us-phi82, %for.cond84.preheader ], [ %error.6, %for.inc151 ]
   %cmp12 = icmp sgt i32 %num_inprogress.360, 0
-  %error.2.fr77 = freeze i32 %error.7
+  %error.2.fr76 = freeze i32 %error.7
   br i1 %cmp12, label %for.cond13.preheader.lr.ph, label %while.end, !llvm.loop !121
 
 for.cond13.preheader.lr.ph:                       ; preds = %for.cond13.preheader.lr.ph.lr.ph, %for.end153
-  %error.2.fr77128 = phi i32 [ %error.0.lcssa, %for.cond13.preheader.lr.ph.lr.ph ], [ %error.2.fr77, %for.end153 ]
-  %num_inprogress.2.ph126 = phi i32 [ %num_inprogress.0.lcssa, %for.cond13.preheader.lr.ph.lr.ph ], [ %num_inprogress.360, %for.end153 ]
-  %total_op_count.2.ph125 = phi i32 [ %total_op_count.0.lcssa, %for.cond13.preheader.lr.ph.lr.ph ], [ %total_op_count.362, %for.end153 ]
-  br i1 %cmp165, label %for.cond13.preheader.us, label %for.cond13.preheader.us86
+  %error.2.fr76127 = phi i32 [ %error.0.lcssa, %for.cond13.preheader.lr.ph.lr.ph ], [ %error.2.fr76, %for.end153 ]
+  %num_inprogress.2.ph125 = phi i32 [ %num_inprogress.0.lcssa, %for.cond13.preheader.lr.ph.lr.ph ], [ %num_inprogress.360, %for.end153 ]
+  %total_op_count.2.ph124 = phi i32 [ %total_op_count.0.lcssa, %for.cond13.preheader.lr.ph.lr.ph ], [ %total_op_count.362, %for.end153 ]
+  br i1 %cmp165, label %for.cond13.preheader.us, label %for.cond13.preheader.us85
 
 for.cond13.preheader.us:                          ; preds = %for.cond13.preheader.lr.ph, %for.cond13.preheader.us.backedge
-  %error.2.fr78.us = phi i32 [ %error.3.us, %for.cond13.preheader.us.backedge ], [ %error.2.fr77128, %for.cond13.preheader.lr.ph ]
+  %error.2.fr77.us = phi i32 [ %error.3.us, %for.cond13.preheader.us.backedge ], [ %error.2.fr76127, %for.cond13.preheader.lr.ph ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %waitfdset, i8 0, i64 128, i1 false)
   br label %for.body29.us
 
 for.body29.us:                                    ; preds = %for.cond13.preheader.us, %for.inc58.us
-  %indvars.iv163 = phi i64 [ 0, %for.cond13.preheader.us ], [ %indvars.iv.next164, %for.inc58.us ]
-  %max_fd.075.us = phi i32 [ 0, %for.cond13.preheader.us ], [ %max_fd.1.us, %for.inc58.us ]
-  %arrayidx31.us = getelementptr inbounds %struct.loopargs_st, ptr %loopargs, i64 %indvars.iv163
+  %indvars.iv162 = phi i64 [ 0, %for.cond13.preheader.us ], [ %indvars.iv.next163, %for.inc58.us ]
+  %max_fd.074.us = phi i32 [ 0, %for.cond13.preheader.us ], [ %max_fd.1.us, %for.inc58.us ]
+  %arrayidx31.us = getelementptr inbounds %struct.loopargs_st, ptr %loopargs, i64 %indvars.iv162
   %22 = load ptr, ptr %arrayidx31.us, align 8
   %cmp33.us = icmp eq ptr %22, null
   br i1 %cmp33.us, label %for.inc58.us, label %if.end36.us
@@ -10027,7 +10027,7 @@ if.end36.us:                                      ; preds = %for.body29.us
   br i1 %or.cond.us, label %if.then44.us, label %if.end46.us
 
 if.end46.us:                                      ; preds = %if.end36.us
-  %wait_ctx49.us = getelementptr inbounds %struct.loopargs_st, ptr %loopargs, i64 %indvars.iv163, i32 1
+  %wait_ctx49.us = getelementptr inbounds %struct.loopargs_st, ptr %loopargs, i64 %indvars.iv162, i32 1
   %25 = load ptr, ptr %wait_ctx49.us, align 8
   %call50.us = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef %25, ptr noundef nonnull %job_fd, ptr noundef nonnull %num_job_fds) #15
   %26 = load i32, ptr %job_fd, align 4
@@ -10040,7 +10040,7 @@ if.end46.us:                                      ; preds = %if.end36.us
   %27 = load i64, ptr %arrayidx53.us, align 8
   %or.us = or i64 %shl.us, %27
   store i64 %or.us, ptr %arrayidx53.us, align 8
-  %spec.select.us = call i32 @llvm.smax.i32(i32 %26, i32 %max_fd.075.us)
+  %spec.select.us = call i32 @llvm.smax.i32(i32 %26, i32 %max_fd.074.us)
   br label %for.inc58.us
 
 if.then44.us:                                     ; preds = %if.end36.us
@@ -10051,8 +10051,8 @@ if.then44.us:                                     ; preds = %if.end36.us
   br label %for.end60.us
 
 for.end60.us:                                     ; preds = %for.inc58.us, %if.then44.us
-  %max_fd.050.us = phi i32 [ %max_fd.075.us, %if.then44.us ], [ %max_fd.1.us, %for.inc58.us ]
-  %error.3.us = phi i32 [ 1, %if.then44.us ], [ %error.2.fr78.us, %for.inc58.us ]
+  %max_fd.050.us = phi i32 [ %max_fd.074.us, %if.then44.us ], [ %max_fd.1.us, %for.inc58.us ]
+  %error.3.us = phi i32 [ 1, %if.then44.us ], [ %error.2.fr77.us, %for.inc58.us ]
   %cmp61.us = icmp sgt i32 %max_fd.050.us, 1023
   br i1 %cmp61.us, label %if.then63.split.us, label %if.end65.us
 
@@ -10074,9 +10074,9 @@ for.cond13.preheader.us.backedge:                 ; preds = %land.lhs.true.us, %
   br label %for.cond13.preheader.us
 
 for.inc58.us:                                     ; preds = %if.end46.us, %for.body29.us
-  %max_fd.1.us = phi i32 [ %max_fd.075.us, %for.body29.us ], [ %spec.select.us, %if.end46.us ]
-  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count
+  %max_fd.1.us = phi i32 [ %max_fd.074.us, %for.body29.us ], [ %spec.select.us, %if.end46.us ]
+  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count
   br i1 %exitcond.not, label %for.end60.us, label %for.body29.us, !llvm.loop !122
 
 if.then63.split.us:                               ; preds = %for.end60.us
@@ -10086,26 +10086,26 @@ if.then63.split.us:                               ; preds = %for.end60.us
   call void @ERR_print_errors(ptr noundef %32) #15
   br label %return
 
-for.cond13.preheader.us86:                        ; preds = %for.cond13.preheader.lr.ph, %for.cond13.preheader.us86.backedge
+for.cond13.preheader.us85:                        ; preds = %for.cond13.preheader.lr.ph, %for.cond13.preheader.us85.backedge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %waitfdset, i8 0, i64 128, i1 false)
-  %call67.us97 = call i32 @select(i32 noundef 1, ptr noundef nonnull %waitfdset, ptr noundef null, ptr noundef null, ptr noundef null) #15
-  switch i32 %call67.us97, label %for.cond84.preheader [
-    i32 -1, label %land.lhs.true.us87
-    i32 0, label %for.cond13.preheader.us86.backedge
+  %call67.us96 = call i32 @select(i32 noundef 1, ptr noundef nonnull %waitfdset, ptr noundef null, ptr noundef null, ptr noundef null) #15
+  switch i32 %call67.us96, label %for.cond84.preheader [
+    i32 -1, label %land.lhs.true.us86
+    i32 0, label %for.cond13.preheader.us85.backedge
   ]
 
-for.cond13.preheader.us86.backedge:               ; preds = %for.cond13.preheader.us86, %land.lhs.true.us87
-  br label %for.cond13.preheader.us86
+for.cond13.preheader.us85.backedge:               ; preds = %for.cond13.preheader.us85, %land.lhs.true.us86
+  br label %for.cond13.preheader.us85
 
-land.lhs.true.us87:                               ; preds = %for.cond13.preheader.us86
-  %call70.us88 = tail call ptr @__errno_location() #18
-  %33 = load i32, ptr %call70.us88, align 4
-  %cmp71.us89 = icmp eq i32 %33, 4
-  br i1 %cmp71.us89, label %for.cond13.preheader.us86.backedge, label %if.then77
+land.lhs.true.us86:                               ; preds = %for.cond13.preheader.us85
+  %call70.us87 = tail call ptr @__errno_location() #18
+  %33 = load i32, ptr %call70.us87, align 4
+  %cmp71.us88 = icmp eq i32 %33, 4
+  br i1 %cmp71.us88, label %for.cond13.preheader.us85.backedge, label %if.then77
 
 while.end:                                        ; preds = %for.end153, %while.cond.preheader
   %total_op_count.2.ph.lcssa64 = phi i32 [ %total_op_count.0.lcssa, %while.cond.preheader ], [ %total_op_count.362, %for.end153 ]
-  %error.2.fr.lcssa = phi i32 [ %error.0.lcssa, %while.cond.preheader ], [ %error.2.fr77, %for.end153 ]
+  %error.2.fr.lcssa = phi i32 [ %error.0.lcssa, %while.cond.preheader ], [ %error.2.fr76, %for.end153 ]
   %tobool154.not = icmp eq i32 %error.2.fr.lcssa, 0
   %spec.select = select i1 %tobool154.not, i32 %total_op_count.2.ph.lcssa64, i32 -1
   br label %return

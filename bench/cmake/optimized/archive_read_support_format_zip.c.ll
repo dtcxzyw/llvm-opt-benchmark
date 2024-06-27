@@ -1855,10 +1855,10 @@ slurp_central_directory.exit.thread:              ; preds = %._crit_edge.i, %264
   %323 = load i8, ptr %322, align 8
   switch i8 %323, label %330 [
     i8 0, label %324
-    i8 8, label %._crit_edge130.i
+    i8 8, label %._crit_edge129.i
   ]
 
-._crit_edge130.i:                                 ; preds = %318
+._crit_edge129.i:                                 ; preds = %318
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.055, i64 48
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %340
@@ -1901,8 +1901,8 @@ compression_name.exit.i:                          ; preds = %332, %337
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.121, ptr noundef %.06.i.i) #21
   br label %zip_read_mac_metadata.exit.thread
 
-340:                                              ; preds = %324, %._crit_edge130.i
-  %341 = phi i64 [ %.pre.i, %._crit_edge130.i ], [ %326, %324 ]
+340:                                              ; preds = %324, %._crit_edge129.i
+  %341 = phi i64 [ %.pre.i, %._crit_edge129.i ], [ %326, %324 ]
   %342 = getelementptr inbounds i8, ptr %.055, i64 48
   %343 = icmp sgt i64 %341, 4194304
   br i1 %343, label %344, label %345
@@ -1983,8 +1983,8 @@ zip_get_local_file_header_size.exit.i:            ; preds = %370, %369, %367
   %377 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %.0.i.i72) #21
   %378 = load i64, ptr %346, align 8
   %379 = load i64, ptr %342, align 8
-  %.not126.i = icmp eq i64 %378, 0
-  br i1 %.not126.i, label %._crit_edge.i76, label %.lr.ph.i73
+  %.not125.i = icmp eq i64 %378, 0
+  br i1 %.not125.i, label %._crit_edge.i76, label %.lr.ph.i73
 
 .lr.ph.i73:                                       ; preds = %zip_get_local_file_header_size.exit.i
   %380 = getelementptr inbounds i8, ptr %320, i64 161
@@ -1998,7 +1998,7 @@ zip_get_local_file_header_size.exit.i:            ; preds = %370, %369, %367
   br label %388
 
 388:                                              ; preds = %430, %.lr.ph.i73
-  %.085125.i = phi ptr [ %351, %.lr.ph.i73 ], [ %.1.i75, %430 ]
+  %.085124.i = phi ptr [ %351, %.lr.ph.i73 ], [ %.1.i75, %430 ]
   %.091123.i = phi i64 [ %378, %.lr.ph.i73 ], [ %432, %430 ]
   %.092122.i = phi i64 [ %379, %.lr.ph.i73 ], [ %.193.i, %430 ]
   %389 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 1, ptr noundef nonnull %3) #21
@@ -2036,10 +2036,10 @@ zip_get_local_file_header_size.exit.i:            ; preds = %370, %369, %367
 
 402:                                              ; preds = %401, %399
   %403 = phi i64 [ %.092122.i, %401 ], [ %397, %399 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.085125.i, ptr nonnull align 1 %389, i64 %403, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.085124.i, ptr nonnull align 1 %389, i64 %403, i1 false)
   %404 = load i64, ptr %3, align 8
   %405 = sub i64 %.092122.i, %404
-  %406 = getelementptr inbounds i8, ptr %.085125.i, i64 %404
+  %406 = getelementptr inbounds i8, ptr %.085124.i, i64 %404
   %407 = icmp eq i64 %405, 0
   %spec.select110.i = zext i1 %407 to i32
   br label %430
@@ -2070,7 +2070,7 @@ zip_get_local_file_header_size.exit.i:            ; preds = %370, %369, %367
 417:                                              ; preds = %416
   store i8 1, ptr %381, align 8
   store i8 1, ptr %380, align 1
-  %.pre131.i = load i64, ptr %3, align 8
+  %.pre130.i = load i64, ptr %3, align 8
   br label %418
 
 zip_deflate_init.exit.i:                          ; preds = %416
@@ -2078,12 +2078,12 @@ zip_deflate_init.exit.i:                          ; preds = %416
   br label %zip_read_mac_metadata.exit
 
 418:                                              ; preds = %417, %408
-  %419 = phi i64 [ %.pre131.i, %417 ], [ %397, %408 ]
+  %419 = phi i64 [ %.pre130.i, %417 ], [ %397, %408 ]
   store ptr %389, ptr %382, align 8
   %420 = trunc i64 %419 to i32
   store i32 %420, ptr %383, align 8
   store i64 0, ptr %384, align 8
-  store ptr %.085125.i, ptr %385, align 8
+  store ptr %.085124.i, ptr %385, align 8
   %421 = trunc i64 %.092122.i to i32
   store i32 %421, ptr %386, align 8
   store i64 0, ptr %387, align 8
@@ -2106,13 +2106,13 @@ zip_deflate_init.exit.i:                          ; preds = %416
   %426 = load i64, ptr %384, align 8
   %427 = load i64, ptr %387, align 8
   %428 = sub i64 %.092122.i, %427
-  %429 = getelementptr inbounds i8, ptr %.085125.i, i64 %427
+  %429 = getelementptr inbounds i8, ptr %.085124.i, i64 %427
   br label %430
 
 430:                                              ; preds = %425, %402, %396
   %.193.i = phi i64 [ %428, %425 ], [ %405, %402 ], [ %.092122.i, %396 ]
   %.2.i = phi i32 [ %422, %425 ], [ %spec.select110.i, %402 ], [ 0, %396 ]
-  %.1.i75 = phi ptr [ %429, %425 ], [ %406, %402 ], [ %.085125.i, %396 ]
+  %.1.i75 = phi ptr [ %429, %425 ], [ %406, %402 ], [ %.085124.i, %396 ]
   %.084.i = phi i64 [ %426, %425 ], [ %404, %402 ], [ 0, %396 ]
   %431 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.084.i) #21
   %432 = sub i64 %.091123.i, %.084.i
@@ -2122,11 +2122,11 @@ zip_deflate_init.exit.i:                          ; preds = %416
   br i1 %434, label %388, label %._crit_edge.loopexit.i, !llvm.loop !14
 
 ._crit_edge.loopexit.i:                           ; preds = %430
-  %.pre132.i = load i64, ptr %342, align 8
+  %.pre131.i = load i64, ptr %342, align 8
   br label %._crit_edge.i76
 
 ._crit_edge.i76:                                  ; preds = %._crit_edge.loopexit.i, %zip_get_local_file_header_size.exit.i
-  %435 = phi i64 [ %379, %zip_get_local_file_header_size.exit.i ], [ %.pre132.i, %._crit_edge.loopexit.i ]
+  %435 = phi i64 [ %379, %zip_get_local_file_header_size.exit.i ], [ %.pre131.i, %._crit_edge.loopexit.i ]
   %.092.lcssa.i = phi i64 [ %379, %zip_get_local_file_header_size.exit.i ], [ %.193.i, %._crit_edge.loopexit.i ]
   %436 = sub i64 %435, %.092.lcssa.i
   call void @archive_entry_copy_mac_metadata(ptr noundef %1, ptr noundef nonnull %351, i64 noundef %436) #21

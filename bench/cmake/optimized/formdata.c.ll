@@ -1300,29 +1300,29 @@ define dso_local i32 @Curl_getformdata(ptr noundef %0, ptr noundef %1, ptr nound
 5:                                                ; preds = %4
   %6 = tail call ptr @curl_mime_init(ptr noundef %0) #6
   %.not92.not = icmp eq ptr %6, null
-  br i1 %.not92.not, label %._crit_edge168.thread, label %7
+  br i1 %.not92.not, label %._crit_edge166.thread, label %7
 
 7:                                                ; preds = %5
   %8 = tail call i32 @curl_mime_subparts(ptr noundef %1, ptr noundef nonnull %6) #6
-  %.not94163 = icmp eq i32 %8, 0
-  br i1 %.not94163, label %.lr.ph167, label %._crit_edge168.thread
+  %.not94162 = icmp eq i32 %8, 0
+  br i1 %.not94162, label %.lr.ph165, label %._crit_edge166.thread
 
-.lr.ph167:                                        ; preds = %7, %._crit_edge
-  %.086164 = phi ptr [ %113, %._crit_edge ], [ %2, %7 ]
-  %9 = getelementptr inbounds i8, ptr %.086164, i64 72
+.lr.ph165:                                        ; preds = %7, %._crit_edge
+  %.086163 = phi ptr [ %113, %._crit_edge ], [ %2, %7 ]
+  %9 = getelementptr inbounds i8, ptr %.086163, i64 72
   %10 = load ptr, ptr %9, align 8
   %.not95 = icmp eq ptr %10, null
   br i1 %.not95, label %.lr.ph, label %11
 
-11:                                               ; preds = %.lr.ph167
+11:                                               ; preds = %.lr.ph165
   %12 = tail call ptr @curl_mime_addpart(ptr noundef nonnull %6) #6
   %.not96.not = icmp eq ptr %12, null
   br i1 %.not96.not, label %.thread, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %.086164, i64 8
+  %14 = getelementptr inbounds i8, ptr %.086163, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %.086164, i64 16
+  %16 = getelementptr inbounds i8, ptr %.086163, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = icmp ne ptr %15, null
   %19 = icmp ne i64 %17, 0
@@ -1336,7 +1336,7 @@ define dso_local i32 @Curl_getformdata(ptr noundef %0, ptr noundef %1, ptr nound
 22:                                               ; preds = %13
   %23 = tail call ptr @Curl_memdup0(ptr noundef nonnull %15, i64 noundef %17) #6
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %._crit_edge168.thread, label %24
+  br i1 %.not.i, label %._crit_edge166.thread, label %24
 
 24:                                               ; preds = %22
   %25 = tail call i32 @curl_mime_name(ptr noundef nonnull %12, ptr noundef nonnull %23) #6
@@ -1347,12 +1347,12 @@ define dso_local i32 @Curl_getformdata(ptr noundef %0, ptr noundef %1, ptr nound
 setname.exit:                                     ; preds = %24, %20
   %.4 = phi i32 [ %25, %24 ], [ %21, %20 ]
   %.not98 = icmp eq i32 %.4, 0
-  br i1 %.not98, label %27, label %._crit_edge168.thread
+  br i1 %.not98, label %27, label %._crit_edge166.thread
 
 27:                                               ; preds = %setname.exit
   %28 = tail call ptr @curl_mime_init(ptr noundef %0) #6
   %.not99 = icmp eq ptr %28, null
-  br i1 %.not99, label %._crit_edge168.thread, label %29
+  br i1 %.not99, label %._crit_edge166.thread, label %29
 
 29:                                               ; preds = %27
   %30 = tail call i32 @curl_mime_subparts(ptr noundef nonnull %12, ptr noundef nonnull %28) #6
@@ -1362,35 +1362,35 @@ setname.exit:                                     ; preds = %24, %20
   %.6 = phi i32 [ %30, %29 ], [ 27, %11 ]
   %.1 = phi ptr [ %28, %29 ], [ %6, %11 ]
   %.not101160 = icmp eq i32 %.6, 0
-  br i1 %.not101160, label %.lr.ph, label %._crit_edge168.thread
+  br i1 %.not101160, label %.lr.ph, label %._crit_edge166.thread
 
-.lr.ph:                                           ; preds = %.lr.ph167, %.thread
-  %.1183 = phi ptr [ %.1, %.thread ], [ %6, %.lr.ph167 ]
-  %31 = getelementptr inbounds i8, ptr %.086164, i64 8
-  %32 = getelementptr inbounds i8, ptr %.086164, i64 16
-  %33 = getelementptr inbounds i8, ptr %.086164, i64 80
-  %34 = getelementptr inbounds i8, ptr %.086164, i64 40
-  %35 = getelementptr inbounds i8, ptr %.086164, i64 48
-  %36 = getelementptr inbounds i8, ptr %.086164, i64 96
-  %37 = getelementptr inbounds i8, ptr %.086164, i64 24
-  %38 = getelementptr inbounds i8, ptr %.086164, i64 88
+.lr.ph:                                           ; preds = %.lr.ph165, %.thread
+  %.1181 = phi ptr [ %.1, %.thread ], [ %6, %.lr.ph165 ]
+  %31 = getelementptr inbounds i8, ptr %.086163, i64 8
+  %32 = getelementptr inbounds i8, ptr %.086163, i64 16
+  %33 = getelementptr inbounds i8, ptr %.086163, i64 80
+  %34 = getelementptr inbounds i8, ptr %.086163, i64 40
+  %35 = getelementptr inbounds i8, ptr %.086163, i64 48
+  %36 = getelementptr inbounds i8, ptr %.086163, i64 96
+  %37 = getelementptr inbounds i8, ptr %.086163, i64 24
+  %38 = getelementptr inbounds i8, ptr %.086163, i64 88
   br label %39
 
 39:                                               ; preds = %.lr.ph, %.thread154
-  %.082162 = phi ptr [ %.086164, %.lr.ph ], [ %110, %.thread154 ]
-  %40 = tail call ptr @curl_mime_addpart(ptr noundef %.1183) #6
+  %.082161 = phi ptr [ %.086163, %.lr.ph ], [ %110, %.thread154 ]
+  %40 = tail call ptr @curl_mime_addpart(ptr noundef %.1181) #6
   %.not102.not = icmp eq ptr %40, null
   br i1 %.not102.not, label %.thread154, label %41
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %.082162, i64 64
+  %42 = getelementptr inbounds i8, ptr %.082161, i64 64
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 @curl_mime_headers(ptr noundef nonnull %40, ptr noundef %43, i32 noundef 0) #6
   %.not104 = icmp eq i32 %44, 0
-  br i1 %.not104, label %45, label %._crit_edge168.thread
+  br i1 %.not104, label %45, label %._crit_edge166.thread
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %.082162, i64 56
+  %46 = getelementptr inbounds i8, ptr %.082161, i64 56
   %47 = load ptr, ptr %46, align 8
   %.not105 = icmp eq ptr %47, null
   br i1 %.not105, label %.thread145, label %48
@@ -1398,7 +1398,7 @@ setname.exit:                                     ; preds = %24, %20
 48:                                               ; preds = %45
   %49 = tail call i32 @curl_mime_type(ptr noundef nonnull %40, ptr noundef nonnull %47) #6
   %.not106 = icmp eq i32 %49, 0
-  br i1 %.not106, label %.thread145, label %._crit_edge168.thread
+  br i1 %.not106, label %.thread145, label %._crit_edge166.thread
 
 .thread145:                                       ; preds = %45, %48
   %50 = load ptr, ptr %9, align 8
@@ -1420,7 +1420,7 @@ setname.exit:                                     ; preds = %24, %20
 58:                                               ; preds = %51
   %59 = tail call ptr @Curl_memdup0(ptr noundef nonnull %52, i64 noundef %53) #6
   %.not.i131 = icmp eq ptr %59, null
-  br i1 %.not.i131, label %._crit_edge168.thread, label %60
+  br i1 %.not.i131, label %._crit_edge166.thread, label %60
 
 60:                                               ; preds = %58
   %61 = tail call i32 @curl_mime_name(ptr noundef nonnull %40, ptr noundef nonnull %59) #6
@@ -1431,27 +1431,27 @@ setname.exit:                                     ; preds = %24, %20
 setname.exit132:                                  ; preds = %60, %56
   %.11 = phi i32 [ %61, %60 ], [ %57, %56 ]
   %.not108 = icmp eq i32 %.11, 0
-  br i1 %.not108, label %setname.exit132.thread150, label %._crit_edge168.thread
+  br i1 %.not108, label %setname.exit132.thread150, label %._crit_edge166.thread
 
 setname.exit132.thread150:                        ; preds = %.thread145, %setname.exit132
   %63 = load i64, ptr %33, align 8
   %64 = and i64 %63, 128
   %.not109 = icmp eq i64 %64, 0
   %spec.select127.v = select i1 %.not109, i64 32, i64 104
-  %spec.select127 = getelementptr inbounds i8, ptr %.086164, i64 %spec.select127.v
+  %spec.select127 = getelementptr inbounds i8, ptr %.086163, i64 %spec.select127.v
   %.080 = load i64, ptr %spec.select127, align 8
   %65 = and i64 %63, 3
   %.not110 = icmp eq i64 %65, 0
   br i1 %.not110, label %86, label %sub_0
 
 sub_0:                                            ; preds = %setname.exit132.thread150
-  %66 = getelementptr inbounds i8, ptr %.082162, i64 24
+  %66 = getelementptr inbounds i8, ptr %.082161, i64 24
   %67 = load ptr, ptr %66, align 8
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
   %70 = add nsw i32 %69, -45
-  %.not171 = icmp eq i32 %70, 0
-  br i1 %.not171, label %sub_1, label %.tail
+  %.not169 = icmp eq i32 %70, 0
+  br i1 %.not169, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
   %71 = getelementptr inbounds i8, ptr %67, i64 1
@@ -1476,7 +1476,7 @@ sub_1:                                            ; preds = %sub_0
 80:                                               ; preds = %78, %75
   %.12 = phi i32 [ %79, %78 ], [ %77, %75 ]
   %.not117 = icmp eq i32 %.12, 0
-  br i1 %.not117, label %81, label %._crit_edge168.thread
+  br i1 %.not117, label %81, label %._crit_edge166.thread
 
 81:                                               ; preds = %80
   %82 = load i64, ptr %33, align 8
@@ -1521,7 +1521,7 @@ sub_1:                                            ; preds = %sub_0
 100:                                              ; preds = %84, %94, %97, %88
   %.13 = phi i32 [ %85, %84 ], [ %91, %88 ], [ %96, %94 ], [ %99, %97 ]
   %.not119 = icmp eq i32 %.13, 0
-  br i1 %.not119, label %.thread157, label %._crit_edge168.thread
+  br i1 %.not119, label %.thread157, label %._crit_edge166.thread
 
 .thread157:                                       ; preds = %81, %100
   %101 = load ptr, ptr %38, align 8
@@ -1545,7 +1545,7 @@ sub_1:                                            ; preds = %sub_0
 
 .thread154:                                       ; preds = %39, %.thread157, %107, %104
   %.14 = phi i32 [ %108, %107 ], [ 0, %104 ], [ 0, %.thread157 ], [ 27, %39 ]
-  %109 = getelementptr inbounds i8, ptr %.082162, i64 72
+  %109 = getelementptr inbounds i8, ptr %.082161, i64 72
   %110 = load ptr, ptr %109, align 8
   %.not101 = icmp eq i32 %.14, 0
   %111 = icmp ne ptr %110, null
@@ -1553,22 +1553,22 @@ sub_1:                                            ; preds = %sub_0
   br i1 %112, label %39, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.thread154
-  %113 = load ptr, ptr %.086164, align 8
+  %113 = load ptr, ptr %.086163, align 8
   %.not94 = icmp eq i32 %.14, 0
   %114 = icmp ne ptr %113, null
   %115 = select i1 %.not94, i1 %114, i1 false
-  br i1 %115, label %.lr.ph167, label %._crit_edge168, !llvm.loop !14
+  br i1 %115, label %.lr.ph165, label %._crit_edge166, !llvm.loop !14
 
-._crit_edge168:                                   ; preds = %._crit_edge
-  br i1 %.not94, label %116, label %._crit_edge168.thread
+._crit_edge166:                                   ; preds = %._crit_edge
+  br i1 %.not94, label %116, label %._crit_edge166.thread
 
-._crit_edge168.thread:                            ; preds = %27, %22, %setname.exit, %.thread, %41, %48, %58, %setname.exit132, %80, %100, %5, %7, %._crit_edge168
-  %.2.lcssa193 = phi i32 [ %.14, %._crit_edge168 ], [ %8, %7 ], [ 27, %5 ], [ %.13, %100 ], [ %.12, %80 ], [ %.11, %setname.exit132 ], [ 27, %58 ], [ %49, %48 ], [ %44, %41 ], [ %.4, %setname.exit ], [ 27, %22 ], [ 27, %27 ], [ %.6, %.thread ]
+._crit_edge166.thread:                            ; preds = %27, %22, %setname.exit, %.thread, %41, %48, %58, %setname.exit132, %80, %100, %5, %7, %._crit_edge166
+  %.2.lcssa191 = phi i32 [ %.14, %._crit_edge166 ], [ %8, %7 ], [ 27, %5 ], [ %.13, %100 ], [ %.12, %80 ], [ %.11, %setname.exit132 ], [ 27, %58 ], [ %49, %48 ], [ %44, %41 ], [ %.4, %setname.exit ], [ 27, %22 ], [ 27, %27 ], [ %.6, %.thread ]
   tail call void @Curl_mime_cleanpart(ptr noundef %1) #6
   br label %116
 
-116:                                              ; preds = %._crit_edge168, %._crit_edge168.thread, %4
-  %.085 = phi i32 [ 0, %4 ], [ %.2.lcssa193, %._crit_edge168.thread ], [ 0, %._crit_edge168 ]
+116:                                              ; preds = %._crit_edge166, %._crit_edge166.thread, %4
+  %.085 = phi i32 [ 0, %4 ], [ %.2.lcssa191, %._crit_edge166.thread ], [ 0, %._crit_edge166 ]
   ret i32 %.085
 }
 

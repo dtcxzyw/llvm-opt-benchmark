@@ -115,10 +115,10 @@ if.else43:                                        ; preds = %if.end.i
   br i1 %cmp45, label %land.lhs.true47, label %return
 
 land.lhs.true47:                                  ; preds = %if.else43
-  %cmp48 = icmp eq i32 %cp.0.lcssa, 0
-  %cmp51 = icmp eq i32 %inc, 2
-  %or.cond1 = and i1 %cmp48, %cmp51
-  %spec.store.select = select i1 %or.cond1, i32 %cp.0.lcssa, i32 -1
+  %cmp48 = icmp ne i32 %cp.0.lcssa, 0
+  %cmp51 = icmp ne i32 %inc, 2
+  %or.cond1.not = or i1 %cmp48, %cmp51
+  %spec.store.select = sext i1 %or.cond1.not to i32
   br label %return
 
 return:                                           ; preds = %for.body27, %cond.end, %if.end.i, %for.end41, %if.else43, %land.lhs.true47, %if.end, %if.else, %entry, %lor.lhs.false

@@ -14,15 +14,15 @@ define dso_local void @pg_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
   br label %.lr.ph295
 
 .lr.ph295:                                        ; preds = %.lr.ph295.lr.ph, %.outer
-  %.0.ph301 = phi i64 [ %1, %.lr.ph295.lr.ph ], [ %200, %.outer ]
-  %.0176.ph300 = phi ptr [ %0, %.lr.ph295.lr.ph ], [ %199, %.outer ]
+  %.0.ph301 = phi i64 [ %1, %.lr.ph295.lr.ph ], [ %199, %.outer ]
+  %.0176.ph300 = phi ptr [ %0, %.lr.ph295.lr.ph ], [ %198, %.outer ]
   %7 = getelementptr i8, ptr %.0176.ph300, i64 %2
   %8 = ptrtoint ptr %.0176.ph300 to i64
   br label %28
 
-.preheader243:                                    ; preds = %.outer, %210, %4
-  %.0176.ph.lcssa260 = phi ptr [ %0, %4 ], [ %.0176.ph300, %210 ], [ %199, %.outer ]
-  %.0.lcssa = phi i64 [ %1, %4 ], [ %211, %210 ], [ %200, %.outer ]
+.preheader243:                                    ; preds = %.outer, %209, %4
+  %.0176.ph.lcssa260 = phi ptr [ %0, %4 ], [ %.0176.ph300, %209 ], [ %198, %.outer ]
+  %.0.lcssa = phi i64 [ %1, %4 ], [ %210, %209 ], [ %199, %.outer ]
   %9 = mul i64 %.0.lcssa, %2
   %10 = getelementptr i8, ptr %.0176.ph.lcssa260, i64 %9
   %.0178307 = getelementptr i8, ptr %.0176.ph.lcssa260, i64 %2
@@ -84,8 +84,8 @@ pg_qsort_swapn.exit.loopexit:                     ; preds = %.lr.ph.i
   %27 = icmp ult ptr %.0178, %10
   br i1 %27, label %.preheader, label %.critedge208, !llvm.loop !8
 
-28:                                               ; preds = %.lr.ph295, %210
-  %.0294 = phi i64 [ %.0.ph301, %.lr.ph295 ], [ %211, %210 ]
+28:                                               ; preds = %.lr.ph295, %209
+  %.0294 = phi i64 [ %.0.ph301, %.lr.ph295 ], [ %210, %209 ]
   %29 = mul i64 %.0294, %2
   %30 = getelementptr i8, ptr %.0176.ph300, i64 %29
   %31 = icmp ult ptr %7, %30
@@ -261,8 +261,8 @@ pg_qsort_swapn.exit216:                           ; preds = %.lr.ph.i213, %pg_qs
 
 129:                                              ; preds = %pg_qsort_swapn.exit231, %pg_qsort_swapn.exit216
   %.0188 = phi ptr [ %7, %pg_qsort_swapn.exit216 ], [ %.1189.lcssa, %pg_qsort_swapn.exit231 ]
-  %.0186 = phi ptr [ %7, %pg_qsort_swapn.exit216 ], [ %165, %pg_qsort_swapn.exit231 ]
-  %.0184 = phi ptr [ %128, %pg_qsort_swapn.exit216 ], [ %166, %pg_qsort_swapn.exit231 ]
+  %.0186 = phi ptr [ %7, %pg_qsort_swapn.exit216 ], [ %164, %pg_qsort_swapn.exit231 ]
+  %.0184 = phi ptr [ %128, %pg_qsort_swapn.exit216 ], [ %165, %pg_qsort_swapn.exit231 ]
   %.0181 = phi ptr [ %128, %pg_qsort_swapn.exit216 ], [ %.us-phi289, %pg_qsort_swapn.exit231 ]
   %.not204263 = icmp ugt ptr %.0186, %.0184
   br i1 %.not204263, label %.critedge2, label %.lr.ph267
@@ -318,170 +318,166 @@ pg_qsort_swapn.exit221.loopexit:                  ; preds = %.lr.ph.i218
   br i1 %.not.i212, label %.lr.ph279.split.us, label %.lr.ph279.split
 
 .lr.ph279.split.us:                               ; preds = %.lr.ph279, %pg_qsort_swapn.exit226.us
-  %.1182278.us = phi ptr [ %spec.select310, %pg_qsort_swapn.exit226.us ], [ %.0181, %.lr.ph279 ]
-  %.1185276.us = phi ptr [ %147, %pg_qsort_swapn.exit226.us ], [ %.0184, %.lr.ph279 ]
+  %.1185276.us = phi ptr [ %146, %pg_qsort_swapn.exit226.us ], [ %.0184, %.lr.ph279 ]
   %144 = tail call i32 %3(ptr noundef %.1185276.us, ptr noundef %.0176.ph300) #4
   %145 = icmp sgt i32 %144, -1
   br i1 %145, label %pg_qsort_swapn.exit226.us, label %.critedge4
 
 pg_qsort_swapn.exit226.us:                        ; preds = %.lr.ph279.split.us
-  %146 = icmp eq i32 %144, 0
-  %spec.select310.idx = select i1 %146, i64 %5, i64 0
-  %spec.select310 = getelementptr i8, ptr %.1182278.us, i64 %spec.select310.idx
-  %147 = getelementptr i8, ptr %.1185276.us, i64 %5
-  %.not205.us = icmp ugt ptr %.1187.lcssa, %147
+  %146 = getelementptr i8, ptr %.1185276.us, i64 %5
+  %.not205.us = icmp ugt ptr %.1187.lcssa, %146
   br i1 %.not205.us, label %.critedge2._crit_edge, label %.lr.ph279.split.us, !llvm.loop !11
 
-.lr.ph279.split:                                  ; preds = %.lr.ph279, %158
-  %.1182278 = phi ptr [ %.2183, %158 ], [ %.0181, %.lr.ph279 ]
-  %.1185276 = phi ptr [ %159, %158 ], [ %.0184, %.lr.ph279 ]
-  %148 = tail call i32 %3(ptr noundef %.1185276, ptr noundef %.0176.ph300) #4
-  %149 = icmp sgt i32 %148, -1
-  br i1 %149, label %150, label %.critedge4
+.lr.ph279.split:                                  ; preds = %.lr.ph279, %157
+  %.1182278 = phi ptr [ %.2183, %157 ], [ %.0181, %.lr.ph279 ]
+  %.1185276 = phi ptr [ %158, %157 ], [ %.0184, %.lr.ph279 ]
+  %147 = tail call i32 %3(ptr noundef %.1185276, ptr noundef %.0176.ph300) #4
+  %148 = icmp sgt i32 %147, -1
+  br i1 %148, label %149, label %.critedge4
 
-150:                                              ; preds = %.lr.ph279.split
-  %151 = icmp eq i32 %148, 0
-  br i1 %151, label %.lr.ph.i223, label %158
+149:                                              ; preds = %.lr.ph279.split
+  %150 = icmp eq i32 %147, 0
+  br i1 %150, label %.lr.ph.i223, label %157
 
-.lr.ph.i223:                                      ; preds = %150, %.lr.ph.i223
-  %.06.i224 = phi i64 [ %156, %.lr.ph.i223 ], [ 0, %150 ]
-  %152 = getelementptr i8, ptr %.1185276, i64 %.06.i224
-  %153 = getelementptr i8, ptr %.1182278, i64 %.06.i224
+.lr.ph.i223:                                      ; preds = %149, %.lr.ph.i223
+  %.06.i224 = phi i64 [ %155, %.lr.ph.i223 ], [ 0, %149 ]
+  %151 = getelementptr i8, ptr %.1185276, i64 %.06.i224
+  %152 = getelementptr i8, ptr %.1182278, i64 %.06.i224
+  %153 = load i8, ptr %151, align 1
   %154 = load i8, ptr %152, align 1
-  %155 = load i8, ptr %153, align 1
-  store i8 %155, ptr %152, align 1
-  store i8 %154, ptr %153, align 1
-  %156 = add nuw i64 %.06.i224, 1
-  %exitcond.not.i225 = icmp eq i64 %156, %2
+  store i8 %154, ptr %151, align 1
+  store i8 %153, ptr %152, align 1
+  %155 = add nuw i64 %.06.i224, 1
+  %exitcond.not.i225 = icmp eq i64 %155, %2
   br i1 %exitcond.not.i225, label %pg_qsort_swapn.exit226.loopexit, label %.lr.ph.i223, !llvm.loop !7
 
 pg_qsort_swapn.exit226.loopexit:                  ; preds = %.lr.ph.i223
-  %157 = getelementptr i8, ptr %.1182278, i64 %5
-  br label %158
+  %156 = getelementptr i8, ptr %.1182278, i64 %5
+  br label %157
 
-158:                                              ; preds = %pg_qsort_swapn.exit226.loopexit, %150
-  %.2183 = phi ptr [ %157, %pg_qsort_swapn.exit226.loopexit ], [ %.1182278, %150 ]
-  %159 = getelementptr i8, ptr %.1185276, i64 %5
-  %.not205 = icmp ugt ptr %.1187.lcssa, %159
+157:                                              ; preds = %pg_qsort_swapn.exit226.loopexit, %149
+  %.2183 = phi ptr [ %156, %pg_qsort_swapn.exit226.loopexit ], [ %.1182278, %149 ]
+  %158 = getelementptr i8, ptr %.1185276, i64 %5
+  %.not205 = icmp ugt ptr %.1187.lcssa, %158
   br i1 %.not205, label %.critedge2._crit_edge, label %.lr.ph279.split, !llvm.loop !11
 
 .critedge4:                                       ; preds = %.lr.ph279.split, %.lr.ph279.split.us
   %.us-phi288 = phi ptr [ %.1185276.us, %.lr.ph279.split.us ], [ %.1185276, %.lr.ph279.split ]
-  %.us-phi289 = phi ptr [ %.1182278.us, %.lr.ph279.split.us ], [ %.1182278, %.lr.ph279.split ]
+  %.us-phi289 = phi ptr [ %.0181, %.lr.ph279.split.us ], [ %.1182278, %.lr.ph279.split ]
   br i1 %.not.i212, label %pg_qsort_swapn.exit231, label %.lr.ph.i228
 
 .lr.ph.i228:                                      ; preds = %.critedge4, %.lr.ph.i228
-  %.06.i229 = phi i64 [ %164, %.lr.ph.i228 ], [ 0, %.critedge4 ]
-  %160 = getelementptr i8, ptr %.1187.lcssa, i64 %.06.i229
-  %161 = getelementptr i8, ptr %.us-phi288, i64 %.06.i229
+  %.06.i229 = phi i64 [ %163, %.lr.ph.i228 ], [ 0, %.critedge4 ]
+  %159 = getelementptr i8, ptr %.1187.lcssa, i64 %.06.i229
+  %160 = getelementptr i8, ptr %.us-phi288, i64 %.06.i229
+  %161 = load i8, ptr %159, align 1
   %162 = load i8, ptr %160, align 1
-  %163 = load i8, ptr %161, align 1
-  store i8 %163, ptr %160, align 1
-  store i8 %162, ptr %161, align 1
-  %164 = add nuw i64 %.06.i229, 1
-  %exitcond.not.i230 = icmp eq i64 %164, %2
+  store i8 %162, ptr %159, align 1
+  store i8 %161, ptr %160, align 1
+  %163 = add nuw i64 %.06.i229, 1
+  %exitcond.not.i230 = icmp eq i64 %163, %2
   br i1 %exitcond.not.i230, label %pg_qsort_swapn.exit231, label %.lr.ph.i228, !llvm.loop !7
 
 pg_qsort_swapn.exit231:                           ; preds = %.lr.ph.i228, %.critedge4
-  %165 = getelementptr i8, ptr %.1187.lcssa, i64 %2
-  %166 = getelementptr i8, ptr %.us-phi288, i64 %5
+  %164 = getelementptr i8, ptr %.1187.lcssa, i64 %2
+  %165 = getelementptr i8, ptr %.us-phi288, i64 %5
   br label %129
 
-.critedge2._crit_edge:                            ; preds = %.critedge2, %158, %pg_qsort_swapn.exit226.us
-  %.1185.lcssa = phi ptr [ %147, %pg_qsort_swapn.exit226.us ], [ %159, %158 ], [ %.0184, %.critedge2 ]
-  %.1182.lcssa = phi ptr [ %spec.select310, %pg_qsort_swapn.exit226.us ], [ %.2183, %158 ], [ %.0181, %.critedge2 ]
-  %167 = ptrtoint ptr %.1189.lcssa to i64
-  %168 = sub i64 %167, %8
-  %169 = ptrtoint ptr %.1187.lcssa to i64
-  %170 = sub i64 %169, %167
-  %. = tail call i64 @llvm.smin.i64(i64 %168, i64 %170)
-  %171 = sub i64 0, %.
-  %172 = getelementptr i8, ptr %.1187.lcssa, i64 %171
+.critedge2._crit_edge:                            ; preds = %.critedge2, %157, %pg_qsort_swapn.exit226.us
+  %.1185.lcssa = phi ptr [ %146, %pg_qsort_swapn.exit226.us ], [ %158, %157 ], [ %.0184, %.critedge2 ]
+  %.1182.lcssa = phi ptr [ %.0181, %pg_qsort_swapn.exit226.us ], [ %.2183, %157 ], [ %.0181, %.critedge2 ]
+  %166 = ptrtoint ptr %.1189.lcssa to i64
+  %167 = sub i64 %166, %8
+  %168 = ptrtoint ptr %.1187.lcssa to i64
+  %169 = sub i64 %168, %166
+  %. = tail call i64 @llvm.smin.i64(i64 %167, i64 %169)
+  %170 = sub i64 0, %.
+  %171 = getelementptr i8, ptr %.1187.lcssa, i64 %170
   %.not.i232 = icmp eq i64 %., 0
   br i1 %.not.i232, label %pg_qsort_swapn.exit236, label %.lr.ph.i233
 
 .lr.ph.i233:                                      ; preds = %.critedge2._crit_edge, %.lr.ph.i233
-  %.06.i234 = phi i64 [ %177, %.lr.ph.i233 ], [ 0, %.critedge2._crit_edge ]
-  %173 = getelementptr i8, ptr %.0176.ph300, i64 %.06.i234
-  %174 = getelementptr i8, ptr %172, i64 %.06.i234
+  %.06.i234 = phi i64 [ %176, %.lr.ph.i233 ], [ 0, %.critedge2._crit_edge ]
+  %172 = getelementptr i8, ptr %.0176.ph300, i64 %.06.i234
+  %173 = getelementptr i8, ptr %171, i64 %.06.i234
+  %174 = load i8, ptr %172, align 1
   %175 = load i8, ptr %173, align 1
-  %176 = load i8, ptr %174, align 1
-  store i8 %176, ptr %173, align 1
-  store i8 %175, ptr %174, align 1
-  %177 = add nuw i64 %.06.i234, 1
-  %exitcond.not.i235 = icmp eq i64 %177, %.
+  store i8 %175, ptr %172, align 1
+  store i8 %174, ptr %173, align 1
+  %176 = add nuw i64 %.06.i234, 1
+  %exitcond.not.i235 = icmp eq i64 %176, %.
   br i1 %exitcond.not.i235, label %pg_qsort_swapn.exit236, label %.lr.ph.i233, !llvm.loop !7
 
 pg_qsort_swapn.exit236:                           ; preds = %.lr.ph.i233, %.critedge2._crit_edge
-  %178 = ptrtoint ptr %.1182.lcssa to i64
-  %179 = ptrtoint ptr %.1185.lcssa to i64
-  %180 = sub i64 %178, %179
-  %181 = ptrtoint ptr %30 to i64
-  %182 = add i64 %178, %2
-  %183 = sub i64 %181, %182
-  %184 = tail call i64 @llvm.umin.i64(i64 %180, i64 %183)
-  %185 = sub i64 0, %184
-  %186 = getelementptr i8, ptr %30, i64 %185
-  %.not.i237 = icmp eq i64 %184, 0
+  %177 = ptrtoint ptr %.1182.lcssa to i64
+  %178 = ptrtoint ptr %.1185.lcssa to i64
+  %179 = sub i64 %177, %178
+  %180 = ptrtoint ptr %30 to i64
+  %181 = add i64 %177, %2
+  %182 = sub i64 %180, %181
+  %183 = tail call i64 @llvm.umin.i64(i64 %179, i64 %182)
+  %184 = sub i64 0, %183
+  %185 = getelementptr i8, ptr %30, i64 %184
+  %.not.i237 = icmp eq i64 %183, 0
   br i1 %.not.i237, label %pg_qsort_swapn.exit241, label %.lr.ph.i238
 
 .lr.ph.i238:                                      ; preds = %pg_qsort_swapn.exit236, %.lr.ph.i238
-  %.06.i239 = phi i64 [ %191, %.lr.ph.i238 ], [ 0, %pg_qsort_swapn.exit236 ]
-  %187 = getelementptr i8, ptr %.1187.lcssa, i64 %.06.i239
-  %188 = getelementptr i8, ptr %186, i64 %.06.i239
+  %.06.i239 = phi i64 [ %190, %.lr.ph.i238 ], [ 0, %pg_qsort_swapn.exit236 ]
+  %186 = getelementptr i8, ptr %.1187.lcssa, i64 %.06.i239
+  %187 = getelementptr i8, ptr %185, i64 %.06.i239
+  %188 = load i8, ptr %186, align 1
   %189 = load i8, ptr %187, align 1
-  %190 = load i8, ptr %188, align 1
-  store i8 %190, ptr %187, align 1
-  store i8 %189, ptr %188, align 1
-  %191 = add nuw i64 %.06.i239, 1
-  %exitcond.not.i240 = icmp eq i64 %191, %184
+  store i8 %189, ptr %186, align 1
+  store i8 %188, ptr %187, align 1
+  %190 = add nuw i64 %.06.i239, 1
+  %exitcond.not.i240 = icmp eq i64 %190, %183
   br i1 %exitcond.not.i240, label %pg_qsort_swapn.exit241, label %.lr.ph.i238, !llvm.loop !7
 
 pg_qsort_swapn.exit241:                           ; preds = %.lr.ph.i238, %pg_qsort_swapn.exit236
-  %.not206 = icmp ugt i64 %170, %180
-  br i1 %.not206, label %202, label %192
+  %.not206 = icmp ugt i64 %169, %179
+  br i1 %.not206, label %201, label %191
 
-192:                                              ; preds = %pg_qsort_swapn.exit241
-  %193 = icmp ugt i64 %170, %2
-  br i1 %193, label %194, label %196
+191:                                              ; preds = %pg_qsort_swapn.exit241
+  %192 = icmp ugt i64 %169, %2
+  br i1 %192, label %193, label %195
 
-194:                                              ; preds = %192
-  %195 = udiv i64 %170, %2
-  tail call void @pg_qsort(ptr noundef %.0176.ph300, i64 noundef %195, i64 noundef %2, ptr noundef %3)
-  br label %196
+193:                                              ; preds = %191
+  %194 = udiv i64 %169, %2
+  tail call void @pg_qsort(ptr noundef %.0176.ph300, i64 noundef %194, i64 noundef %2, ptr noundef %3)
+  br label %195
 
-196:                                              ; preds = %194, %192
-  %197 = icmp ugt i64 %180, %2
-  br i1 %197, label %.outer, label %.critedge208
+195:                                              ; preds = %193, %191
+  %196 = icmp ugt i64 %179, %2
+  br i1 %196, label %.outer, label %.critedge208
 
-.outer:                                           ; preds = %196
-  %198 = sub i64 0, %180
-  %199 = getelementptr i8, ptr %30, i64 %198
-  %200 = udiv i64 %180, %2
-  %201 = icmp ult i64 %200, 7
-  br i1 %201, label %.preheader243, label %.lr.ph295
+.outer:                                           ; preds = %195
+  %197 = sub i64 0, %179
+  %198 = getelementptr i8, ptr %30, i64 %197
+  %199 = udiv i64 %179, %2
+  %200 = icmp ult i64 %199, 7
+  br i1 %200, label %.preheader243, label %.lr.ph295
 
-202:                                              ; preds = %pg_qsort_swapn.exit241
-  %203 = icmp ugt i64 %180, %2
-  br i1 %203, label %204, label %208
+201:                                              ; preds = %pg_qsort_swapn.exit241
+  %202 = icmp ugt i64 %179, %2
+  br i1 %202, label %203, label %207
 
-204:                                              ; preds = %202
-  %205 = sub i64 0, %180
-  %206 = getelementptr i8, ptr %30, i64 %205
-  %207 = udiv i64 %180, %2
-  tail call void @pg_qsort(ptr noundef %206, i64 noundef %207, i64 noundef %2, ptr noundef %3)
-  br label %208
+203:                                              ; preds = %201
+  %204 = sub i64 0, %179
+  %205 = getelementptr i8, ptr %30, i64 %204
+  %206 = udiv i64 %179, %2
+  tail call void @pg_qsort(ptr noundef %205, i64 noundef %206, i64 noundef %2, ptr noundef %3)
+  br label %207
 
-208:                                              ; preds = %204, %202
-  %209 = icmp ugt i64 %170, %2
-  br i1 %209, label %210, label %.critedge208
+207:                                              ; preds = %203, %201
+  %208 = icmp ugt i64 %169, %2
+  br i1 %208, label %209, label %.critedge208
 
-210:                                              ; preds = %208
-  %211 = udiv i64 %170, %2
-  %212 = icmp ult i64 %211, 7
-  br i1 %212, label %.preheader243, label %28
+209:                                              ; preds = %207
+  %210 = udiv i64 %169, %2
+  %211 = icmp ult i64 %210, 7
+  br i1 %211, label %.preheader243, label %28
 
-.critedge208:                                     ; preds = %196, %208, %28, %35, %.critedge, %.preheader243
+.critedge208:                                     ; preds = %195, %207, %28, %35, %.critedge, %.preheader243
   ret void
 
 infloop:                                          ; preds = %.lr.ph305.us, %infloop

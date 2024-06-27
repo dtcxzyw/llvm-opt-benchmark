@@ -15840,8 +15840,8 @@ if.then106:                                       ; preds = %if.end99
   br i1 %cmp117, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then106
-  %cmp121193.not = icmp ult i64 %sub107, 30
-  br i1 %cmp121193.not, label %for.end, label %for.body.lr.ph
+  %cmp121192.not = icmp ult i64 %sub107, 30
+  br i1 %cmp121192.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %ob_digit124 = getelementptr inbounds i8, ptr %call116, i64 24
@@ -15930,12 +15930,12 @@ v_rshift.exit:                                    ; preds = %for.body.i141
   br i1 %cmp166189, label %while.body169, label %if.end178
 
 while.body169:                                    ; preds = %27, %while.body169
-  %shift_digits140.0191 = phi i64 [ %dec172, %while.body169 ], [ %div141, %27 ]
-  %dec172 = add nsw i64 %shift_digits140.0191, -1
+  %shift_digits140.0190 = phi i64 [ %dec172, %while.body169 ], [ %div141, %27 ]
+  %dec172 = add nsw i64 %shift_digits140.0190, -1
   %arrayidx173 = getelementptr [1 x i32], ptr %ob_digit79, i64 0, i64 %dec172
   %28 = load i32, ptr %arrayidx173, align 4
   %tobool174.not = icmp ne i32 %28, 0
-  %cmp166 = icmp slt i64 %shift_digits140.0191, 2
+  %cmp166 = icmp slt i64 %shift_digits140.0190, 2
   %.not = or i1 %cmp166, %tobool174.not
   br i1 %.not, label %if.end178.loopexit, label %while.body169, !llvm.loop !116
 
@@ -15943,9 +15943,9 @@ if.end178.loopexit:                               ; preds = %while.body169
   %spec.select114 = zext i1 %tobool174.not to i32
   br label %if.end178
 
-if.end178:                                        ; preds = %if.end178.loopexit, %v_rshift.exit, %27, %v_lshift.exit
-  %x.0 = phi ptr [ %call116, %v_lshift.exit ], [ %call144, %27 ], [ %call144, %v_rshift.exit ], [ %call144, %if.end178.loopexit ]
-  %inexact.3 = phi i32 [ 0, %v_lshift.exit ], [ 0, %27 ], [ 1, %v_rshift.exit ], [ %spec.select114, %if.end178.loopexit ]
+if.end178:                                        ; preds = %v_rshift.exit, %if.end178.loopexit, %27, %v_lshift.exit
+  %x.0 = phi ptr [ %call116, %v_lshift.exit ], [ %call144, %27 ], [ %call144, %if.end178.loopexit ], [ %call144, %v_rshift.exit ]
+  %inexact.3 = phi i32 [ 0, %v_lshift.exit ], [ 0, %27 ], [ %spec.select114, %if.end178.loopexit ], [ 1, %v_rshift.exit ]
   %call179 = tail call fastcc ptr @long_normalize(ptr noundef nonnull %x.0)
   %29 = getelementptr i8, ptr %x.0, i64 16
   %x.0.val = load i64, ptr %29, align 8
@@ -16083,18 +16083,18 @@ if.end244:                                        ; preds = %land.lhs.true237, %
   store i32 %and247, ptr %ob_digit217, align 8
   %44 = load i32, ptr %arrayidx219, align 4
   %conv255 = uitofp i32 %44 to double
-  %cmp257195 = icmp ugt i64 %x.1.val, 15
-  br i1 %cmp257195, label %while.body259, label %while.end266
+  %cmp257194 = icmp ugt i64 %x.1.val, 15
+  br i1 %cmp257194, label %while.body259, label %while.end266
 
 while.body259:                                    ; preds = %if.end244, %while.body259
-  %x_size.0197 = phi i64 [ %dec263, %while.body259 ], [ %sub214, %if.end244 ]
-  %dx.0196 = phi double [ %46, %while.body259 ], [ %conv255, %if.end244 ]
-  %dec263 = add nsw i64 %x_size.0197, -1
+  %x_size.0196 = phi i64 [ %dec263, %while.body259 ], [ %sub214, %if.end244 ]
+  %dx.0195 = phi double [ %46, %while.body259 ], [ %conv255, %if.end244 ]
+  %dec263 = add nsw i64 %x_size.0196, -1
   %arrayidx264 = getelementptr [1 x i32], ptr %ob_digit217, i64 0, i64 %dec263
   %45 = load i32, ptr %arrayidx264, align 4
   %conv265 = uitofp i32 %45 to double
-  %46 = tail call double @llvm.fmuladd.f64(double %dx.0196, double 0x41D0000000000000, double %conv265)
-  %cmp257 = icmp sgt i64 %x_size.0197, 1
+  %46 = tail call double @llvm.fmuladd.f64(double %dx.0195, double 0x41D0000000000000, double %conv265)
+  %cmp257 = icmp sgt i64 %x_size.0196, 1
   br i1 %cmp257, label %while.body259, label %while.end266, !llvm.loop !117
 
 while.end266:                                     ; preds = %while.body259, %if.end244

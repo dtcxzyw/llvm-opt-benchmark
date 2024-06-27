@@ -4544,8 +4544,8 @@ AlreadySigner.exit:                               ; preds = %while.body.i
 if.end100:                                        ; preds = %if.end.i, %AlreadySigner.exit.thread72
   %18 = load ptr, ptr %heap, align 8
   %call93 = call ptr @MakeSigner(ptr noundef %18) #20
-  %tobool94.not.not = icmp eq ptr %call93, null
-  br i1 %tobool94.not.not, label %do.end195.thread89, label %if.then106
+  %cmp104.not = icmp eq ptr %call93, null
+  br i1 %cmp104.not, label %do.end195.thread89, label %if.then106
 
 do.end195.thread89:                               ; preds = %if.end100
   call void @FreeDecodedCert(ptr noundef nonnull %cert) #20
@@ -4637,7 +4637,7 @@ if.end127:                                        ; preds = %if.then124, %if.end
   %34 = load i8, ptr %arrayidx8.i.i, align 1
   %call173 = call i32 @wc_LockMutex(ptr noundef nonnull %caLock.i) #20
   %cmp174 = icmp eq i32 %call173, 0
-  br i1 %cmp174, label %if.then176, label %if.then202
+  br i1 %cmp174, label %if.then176, label %do.end195
 
 if.then176:                                       ; preds = %if.end127
   %conv2.i.i = zext i8 %32 to i32
@@ -4673,14 +4673,17 @@ do.end195.thread:                                 ; preds = %if.then184, %if.the
   call void @FreeDecodedCert(ptr noundef nonnull %cert) #20
   br label %do.end206
 
-if.then202:                                       ; preds = %if.end127
+do.end195:                                        ; preds = %if.end127
   call void @FreeDecodedCert(ptr noundef nonnull %cert) #20
+  br i1 %cmp104.not, label %do.end206, label %if.then202
+
+if.then202:                                       ; preds = %do.end195
   %39 = load ptr, ptr %heap, align 8
   call void @FreeSigner(ptr noundef nonnull %call93, ptr noundef %39) #20
   br label %do.end206
 
-do.end206:                                        ; preds = %do.end195.thread89, %do.end195.thread, %if.then202
-  %ret.288 = phi i32 [ %ret.2.ph, %do.end195.thread ], [ -106, %if.then202 ], [ -303, %do.end195.thread89 ]
+do.end206:                                        ; preds = %do.end195.thread89, %do.end195.thread, %if.then202, %do.end195
+  %ret.288 = phi i32 [ %ret.2.ph, %do.end195.thread ], [ -106, %if.then202 ], [ -106, %do.end195 ], [ -303, %do.end195.thread89 ]
   call void @FreeDer(ptr noundef nonnull %pDer) #20
   %cond216 = call i32 @llvm.umax.i32(i32 %ret.288, i32 1)
   br label %return
