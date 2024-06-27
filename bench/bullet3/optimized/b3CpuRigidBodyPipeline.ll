@@ -1346,7 +1346,7 @@ if.end.i121:                                      ; preds = %for.end95
   %arrayidx3.i.i125 = getelementptr inbounds i8, ptr %arrayidx.i114, i64 8
   %178 = load float, ptr %arrayidx3.i.i125, align 8
   %fneg4.i.i126 = fneg float %178
-  %179 = tail call noundef float @llvm.fabs.f32(float %fneg4.i.i126)
+  %179 = tail call float @llvm.fabs.f32(float %178)
   %cmp.i.i127 = fcmp ogt float %179, 0x3FE6A09E60000000
   br i1 %cmp.i.i127, label %if.then.i.i, label %if.else.i.i
 

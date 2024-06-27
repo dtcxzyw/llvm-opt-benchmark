@@ -2913,7 +2913,7 @@ if.end.i80:                                       ; preds = %for.end52
   %arrayidx3.i.i83 = getelementptr inbounds i8, ptr %arrayidx.i44, i64 8
   %154 = load float, ptr %arrayidx3.i.i83, align 8
   %fneg4.i.i84 = fneg float %154
-  %155 = tail call noundef float @llvm.fabs.f32(float %fneg4.i.i84)
+  %155 = tail call float @llvm.fabs.f32(float %154)
   %cmp.i.i85 = fcmp ogt float %155, 0x3FE6A09E60000000
   br i1 %cmp.i.i85, label %if.then.i.i, label %if.else.i.i
 

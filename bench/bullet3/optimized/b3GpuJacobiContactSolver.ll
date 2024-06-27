@@ -2679,7 +2679,7 @@ if.end.i385:                                      ; preds = %for.end314
   %arrayidx3.i63.i = getelementptr inbounds i8, ptr %arrayidx.i343, i64 8
   %286 = load float, ptr %arrayidx3.i63.i, align 8
   %fneg4.i.i388 = fneg float %286
-  %287 = call noundef float @llvm.fabs.f32(float %fneg4.i.i388)
+  %287 = call float @llvm.fabs.f32(float %286)
   %cmp.i.i389 = fcmp ogt float %287, 0x3FE6A09E60000000
   br i1 %cmp.i.i389, label %if.then.i.i, label %if.else.i.i
 

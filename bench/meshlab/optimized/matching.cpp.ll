@@ -5856,7 +5856,7 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(304) ptr @_ZN5Eigen
   %9 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 %8, ptr %9, align 4
   %10 = icmp eq i32 %8, 0
-  br i1 %10, label %11, label %94
+  br i1 %10, label %11, label %89
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 256
@@ -5882,8 +5882,8 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(304) ptr @_ZN5Eigen
   %24 = getelementptr inbounds i8, ptr %0, i64 32
   br label %25
 
-25:                                               ; preds = %23, %89
-  %.05773 = phi i64 [ 0, %23 ], [ %90, %89 ]
+25:                                               ; preds = %23, %84
+  %.05773 = phi i64 [ 0, %23 ], [ %85, %84 ]
   %26 = icmp eq i64 %.05773, 1
   br i1 %26, label %._crit_edge, label %27
 
@@ -5907,7 +5907,7 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(304) ptr @_ZN5Eigen
   store double 0.000000e+00, ptr %37, align 8
   %38 = tail call double @llvm.fabs.f64(double %35)
   %39 = fcmp ueq double %38, 0x7FF0000000000000
-  br i1 %39, label %40, label %89
+  br i1 %39, label %40, label %84
 
 40:                                               ; preds = %._crit_edge
   %41 = getelementptr inbounds i8, ptr %0, i64 64
@@ -5915,7 +5915,7 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(304) ptr @_ZN5Eigen
   %42 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 0, ptr %42, align 1
   store i32 1, ptr %9, align 4
-  br label %97
+  br label %92
 
 43:                                               ; preds = %27
   %44 = getelementptr double, ptr %29, i64 %.05773
@@ -5961,49 +5961,44 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(304) ptr @_ZN5Eigen
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %74, i64 8
   store double %73, ptr %.sroa.2.0..sroa_idx, align 8
   %75 = tail call double @llvm.fabs.f64(double %69)
-  %76 = fcmp one double %75, 0x7FF0000000000000
+  %76 = fcmp ueq double %75, 0x7FF0000000000000
   %77 = tail call double @llvm.fabs.f64(double %68)
-  %78 = fcmp one double %77, 0x7FF0000000000000
-  %79 = and i1 %76, %78
-  br i1 %79, label %80, label %86
+  %78 = fcmp ueq double %77, 0x7FF0000000000000
+  %.not77 = or i1 %76, %78
+  %79 = tail call double @llvm.fabs.f64(double %72)
+  %80 = fcmp ueq double %79, 0x7FF0000000000000
+  %or.cond = select i1 %.not77, i1 true, i1 %80
+  br i1 %or.cond, label %81, label %84
 
-80:                                               ; preds = %43
-  %81 = tail call double @llvm.fabs.f64(double %72)
-  %82 = fcmp one double %81, 0x7FF0000000000000
-  %83 = tail call double @llvm.fabs.f64(double %73)
-  %84 = fcmp one double %83, 0x7FF0000000000000
-  %85 = select i1 %82, i1 %84, i1 false
-  br i1 %85, label %89, label %86
-
-86:                                               ; preds = %80, %43
-  %87 = getelementptr inbounds i8, ptr %0, i64 64
-  store i8 1, ptr %87, align 16
-  %88 = getelementptr inbounds i8, ptr %0, i64 65
-  store i8 0, ptr %88, align 1
+81:                                               ; preds = %43
+  %82 = getelementptr inbounds i8, ptr %0, i64 64
+  store i8 1, ptr %82, align 16
+  %83 = getelementptr inbounds i8, ptr %0, i64 65
+  store i8 0, ptr %83, align 1
   store i32 1, ptr %9, align 4
-  br label %97
+  br label %92
 
-89:                                               ; preds = %80, %._crit_edge
-  %.sink = phi i64 [ 1, %._crit_edge ], [ 2, %80 ]
-  %90 = add nuw nsw i64 %.05773, %.sink
-  %91 = icmp ult i64 %90, 2
-  br i1 %91, label %25, label %92, !llvm.loop !196
+84:                                               ; preds = %43, %._crit_edge
+  %.sink = phi i64 [ 1, %._crit_edge ], [ 2, %43 ]
+  %85 = add nuw nsw i64 %.05773, %.sink
+  %86 = icmp ult i64 %85, 2
+  br i1 %86, label %25, label %87, !llvm.loop !196
 
-92:                                               ; preds = %89
-  br i1 %2, label %93, label %94
+87:                                               ; preds = %84
+  br i1 %2, label %88, label %89
 
-93:                                               ; preds = %92
+88:                                               ; preds = %87
   tail call void @_ZN5Eigen11EigenSolverINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE21doComputeEigenvectorsEv(ptr noundef nonnull align 16 dereferenceable(304) %0)
-  br label %94
+  br label %89
 
-94:                                               ; preds = %92, %93, %3
-  %95 = getelementptr inbounds i8, ptr %0, i64 64
-  store i8 1, ptr %95, align 16
-  %96 = getelementptr inbounds i8, ptr %0, i64 65
-  store i8 %4, ptr %96, align 1
-  br label %97
+89:                                               ; preds = %87, %88, %3
+  %90 = getelementptr inbounds i8, ptr %0, i64 64
+  store i8 1, ptr %90, align 16
+  %91 = getelementptr inbounds i8, ptr %0, i64 65
+  store i8 %4, ptr %91, align 1
+  br label %92
 
-97:                                               ; preds = %94, %86, %40
+92:                                               ; preds = %89, %81, %40
   ret ptr %0
 }
 

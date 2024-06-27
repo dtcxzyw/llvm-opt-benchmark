@@ -81668,12 +81668,12 @@ _ZN3vcg6VolumeINS_7VoxelfcEfE6Bound1Eiii.exit:    ; preds = %96
   %117 = getelementptr inbounds i8, ptr %111, i64 8
   %118 = load float, ptr %117, align 4
   %119 = tail call noundef float @llvm.fmuladd.f32(float %118, float %106, float %116)
-  %120 = fneg float %119
-  %121 = tail call noundef float @llvm.fabs.f32(float %120)
-  %122 = fcmp ogt float %121, %3
-  br i1 %122, label %123, label %212
+  %120 = tail call float @llvm.fabs.f32(float %119)
+  %121 = fcmp ogt float %120, %3
+  br i1 %121, label %122, label %212
 
-123:                                              ; preds = %.preheader
+122:                                              ; preds = %.preheader
+  %123 = fneg float %119
   %124 = load ptr, ptr %0, align 8
   %125 = getelementptr inbounds %"class.std::vector.244", ptr %124, i64 %56
   %126 = load ptr, ptr %125, align 8
@@ -81681,7 +81681,7 @@ _ZN3vcg6VolumeINS_7VoxelfcEfE6Bound1Eiii.exit:    ; preds = %96
   %128 = load float, ptr %127, align 4
   %129 = getelementptr inbounds [26 x float], ptr %53, i64 0, i64 %indvars.iv
   %130 = load float, ptr %129, align 4
-  %131 = tail call float @llvm.fmuladd.f32(float %130, float %120, float %128)
+  %131 = tail call float @llvm.fmuladd.f32(float %130, float %123, float %128)
   %132 = getelementptr inbounds [26 x %"class.vcg::Point3.172"], ptr %54, i64 0, i64 %indvars.iv
   %133 = load i32, ptr %132, align 4
   %134 = add nsw i32 %133, %83
@@ -81717,7 +81717,7 @@ _ZN3vcg6VolumeINS_7VoxelfcEfE6Bound1Eiii.exit:    ; preds = %96
   %.not.i16 = icmp eq ptr %159, %161
   br i1 %.not.i16, label %162, label %_ZN3vcg6VolumeINS_7VoxelfcEfE1VERKiS4_S4_.exit
 
-162:                                              ; preds = %123
+162:                                              ; preds = %122
   %163 = load atomic i8, ptr @_ZGVZN3vcg7Voxelfc4ZeroEvE2tt acquire, align 8
   %164 = icmp eq i8 %163, 0
   br i1 %164, label %165, label %_ZN3vcg7Voxelfc4ZeroEv.exit.i, !prof !42
@@ -81767,7 +81767,7 @@ _ZN3vcg7Voxelfc4ZeroEv.exit.i:                    ; preds = %167, %165, %162
   store ptr %182, ptr %170, align 8
   br label %_ZN3vcg6VolumeINS_7VoxelfcEfE1VERKiS4_S4_.exit
 
-_ZN3vcg6VolumeINS_7VoxelfcEfE1VERKiS4_S4_.exit:   ; preds = %123, %178, %180, %181, %183
+_ZN3vcg6VolumeINS_7VoxelfcEfE1VERKiS4_S4_.exit:   ; preds = %122, %178, %180, %181, %183
   %184 = shl nsw i32 %150, 3
   %185 = add nsw i32 %184, %148
   %186 = shl nsw i32 %152, 6

@@ -1521,7 +1521,7 @@ _ZN5ZXing9IsPatternILb0ELi8ELi17EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_E
   store <4 x i32> <i32 -1, i32 -1, i32 -1, i32 0>, ptr %60, align 4
   %61 = getelementptr inbounds i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %61, align 4
-  br label %111
+  br label %110
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5ZXing9IsPatternILb0ELi8ELi17EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit, %.lr.ph.i.i.i
   %.08.i.i.idx.i = phi i64 [ %.08.i.i.add.i, %.lr.ph.i.i.i ], [ 0, %_ZN5ZXing9IsPatternILb0ELi8ELi17EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit ]
@@ -1539,67 +1539,66 @@ _ZN5ZXing6ReduceISt5arrayItLm8EEtSt4plusItEEET0_RKT_S5_T1_.exit: ; preds = %.lr.
   %66 = fdiv float %65, 1.700000e+01
   %67 = fcmp olt float %66, 1.000000e+00
   %.sroa.speculated = select i1 %67, float 1.000000e+00, float %66
-  %68 = call noundef double @llvm.fabs.f64(double %41)
-  %69 = fcmp olt double %68, %27
-  %.sroa.speculated.i.i = select i1 %69, double %27, double %68
-  %70 = fdiv double %41, %.sroa.speculated.i.i
-  %71 = extractelement <2 x double> %18, i64 0
-  %72 = fdiv double %71, %.sroa.speculated.i.i
-  %73 = fpext float %.sroa.speculated to double
-  %74 = fmul double %70, %73
-  %75 = fmul double %72, %73
-  %76 = add nsw i32 %3, -1
-  %77 = sitofp i32 %76 to double
-  call void @_ZN5ZXing6Pdf41714ReadSymbolInfoINS_6PointTIdEEEENS0_10SymbolInfoENS_15BitMatrixCursorIT_EES6_iii(ptr dead_on_unwind nonnull writable sret(%"struct.ZXing::Pdf417::SymbolInfo") align 4 %7, ptr noundef nonnull byval(%"class.ZXing::BitMatrixCursor") align 8 %1, double %74, double %75, i32 noundef %64, i32 noundef %2, i32 noundef %3)
+  %68 = fcmp olt double %28, %27
+  %.sroa.speculated.i.i = select i1 %68, double %27, double %28
+  %69 = fdiv double %41, %.sroa.speculated.i.i
+  %70 = extractelement <2 x double> %18, i64 0
+  %71 = fdiv double %70, %.sroa.speculated.i.i
+  %72 = fpext float %.sroa.speculated to double
+  %73 = fmul double %69, %72
+  %74 = fmul double %71, %72
+  %75 = add nsw i32 %3, -1
+  %76 = sitofp i32 %75 to double
+  call void @_ZN5ZXing6Pdf41714ReadSymbolInfoINS_6PointTIdEEEENS0_10SymbolInfoENS_15BitMatrixCursorIT_EES6_iii(ptr dead_on_unwind nonnull writable sret(%"struct.ZXing::Pdf417::SymbolInfo") align 4 %7, ptr noundef nonnull byval(%"class.ZXing::BitMatrixCursor") align 8 %1, double %73, double %74, i32 noundef %64, i32 noundef %2, i32 noundef %3)
   store ptr %13, ptr %9, align 8
   %.sroa.239.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
-  %78 = insertelement <2 x double> poison, double %77, i64 0
-  %79 = shufflevector <2 x double> %78, <2 x double> poison, <2 x i32> zeroinitializer
-  %80 = fmul <2 x double> %18, %79
-  %81 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %82 = fsub <2 x double> %15, %81
-  %83 = fadd <2 x double> %15, %81
-  %84 = shufflevector <2 x double> %82, <2 x double> %83, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %84, ptr %.sroa.239.0..sroa_idx, align 8
+  %77 = insertelement <2 x double> poison, double %76, i64 0
+  %78 = shufflevector <2 x double> %77, <2 x double> poison, <2 x i32> zeroinitializer
+  %79 = fmul <2 x double> %18, %78
+  %80 = shufflevector <2 x double> %79, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %81 = fsub <2 x double> %15, %80
+  %82 = fadd <2 x double> %15, %80
+  %83 = shufflevector <2 x double> %81, <2 x double> %82, <2 x i32> <i32 0, i32 3>
+  store <2 x double> %83, ptr %.sroa.239.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
   store <2 x double> %32, ptr %.sroa.4.0..sroa_idx, align 8
+  %84 = fneg double %73
   %85 = fneg double %74
-  %86 = fneg double %75
-  call void @_ZN5ZXing6Pdf41714ReadSymbolInfoINS_6PointTIdEEEENS0_10SymbolInfoENS_15BitMatrixCursorIT_EES6_iii(ptr dead_on_unwind nonnull writable sret(%"struct.ZXing::Pdf417::SymbolInfo") align 4 %8, ptr noundef nonnull byval(%"class.ZXing::BitMatrixCursor") align 8 %9, double %85, double %86, i32 noundef %64, i32 noundef %2, i32 noundef %3)
+  call void @_ZN5ZXing6Pdf41714ReadSymbolInfoINS_6PointTIdEEEENS0_10SymbolInfoENS_15BitMatrixCursorIT_EES6_iii(ptr dead_on_unwind nonnull writable sret(%"struct.ZXing::Pdf417::SymbolInfo") align 4 %8, ptr noundef nonnull byval(%"class.ZXing::BitMatrixCursor") align 8 %9, double %84, double %85, i32 noundef %64, i32 noundef %2, i32 noundef %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, ptr noundef nonnull align 4 dereferenceable(36) %7, i64 36, i1 false)
-  %87 = getelementptr inbounds i8, ptr %8, i64 16
-  %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %88, ptr %89, align 4
-  %90 = sitofp i32 %3 to float
-  %91 = getelementptr inbounds i8, ptr %0, i64 16
-  %92 = load i32, ptr %91, align 4
-  %93 = sub nsw i32 %88, %92
-  %94 = call i32 @llvm.abs.i32(i32 %93, i1 true)
-  %95 = add nuw nsw i32 %94, 1
-  %96 = uitofp nneg i32 %95 to float
-  %97 = fdiv float %90, %96
-  %98 = getelementptr inbounds i8, ptr %0, i64 32
-  store float %97, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %7, i64 12
-  %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %8, i64 12
-  %102 = load i32, ptr %101, align 4
-  %.not = icmp eq i32 %100, %102
-  br i1 %.not, label %111, label %103
+  %86 = getelementptr inbounds i8, ptr %8, i64 16
+  %87 = load i32, ptr %86, align 4
+  %88 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %87, ptr %88, align 4
+  %89 = sitofp i32 %3 to float
+  %90 = getelementptr inbounds i8, ptr %0, i64 16
+  %91 = load i32, ptr %90, align 4
+  %92 = sub nsw i32 %87, %91
+  %93 = call i32 @llvm.abs.i32(i32 %92, i1 true)
+  %94 = add nuw nsw i32 %93, 1
+  %95 = uitofp nneg i32 %94 to float
+  %96 = fdiv float %89, %95
+  %97 = getelementptr inbounds i8, ptr %0, i64 32
+  store float %96, ptr %97, align 4
+  %98 = getelementptr inbounds i8, ptr %7, i64 12
+  %99 = load i32, ptr %98, align 4
+  %100 = getelementptr inbounds i8, ptr %8, i64 12
+  %101 = load i32, ptr %100, align 4
+  %.not = icmp eq i32 %99, %101
+  br i1 %.not, label %110, label %102
 
-103:                                              ; preds = %_ZN5ZXing6ReduceISt5arrayItLm8EEtSt4plusItEEET0_RKT_S5_T1_.exit
-  %104 = getelementptr inbounds i8, ptr %0, i64 28
-  %105 = load i32, ptr %104, align 4
-  %106 = sdiv i32 %105, 2
-  %107 = add nsw i32 %106, %2
-  %108 = sdiv i32 %107, %105
-  %109 = add nsw i32 %108, -4
-  %110 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %109, ptr %110, align 4
-  br label %111
+102:                                              ; preds = %_ZN5ZXing6ReduceISt5arrayItLm8EEtSt4plusItEEET0_RKT_S5_T1_.exit
+  %103 = getelementptr inbounds i8, ptr %0, i64 28
+  %104 = load i32, ptr %103, align 4
+  %105 = sdiv i32 %104, 2
+  %106 = add nsw i32 %105, %2
+  %107 = sdiv i32 %106, %104
+  %108 = add nsw i32 %107, -4
+  %109 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %108, ptr %109, align 4
+  br label %110
 
-111:                                              ; preds = %_ZN5ZXing6ReduceISt5arrayItLm8EEtSt4plusItEEET0_RKT_S5_T1_.exit, %103, %_ZN5ZXing9IsPatternILb0ELi8ELi17EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit.thread
+110:                                              ; preds = %_ZN5ZXing6ReduceISt5arrayItLm8EEtSt4plusItEEET0_RKT_S5_T1_.exit, %102, %_ZN5ZXing9IsPatternILb0ELi8ELi17EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit.thread
   ret void
 }
 

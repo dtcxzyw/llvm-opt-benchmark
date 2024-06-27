@@ -18610,7 +18610,7 @@ define internal fastcc double @rect_nfa(ptr noundef readonly %0, ptr nocapture n
 
 174:                                              ; preds = %170
   %175 = fneg reassoc nsz arcp contract afn double %2
-  br label %464
+  br label %463
 
 176:                                              ; preds = %170
   %177 = icmp eq i32 %157, %158
@@ -18622,7 +18622,7 @@ define internal fastcc double @rect_nfa(ptr noundef readonly %0, ptr nocapture n
   %181 = fmul reassoc nsz arcp contract afn double %180, %179
   %182 = fadd reassoc nsz arcp contract afn double %181, %2
   %183 = fneg reassoc nsz arcp contract afn double %182
-  br label %464
+  br label %463
 
 184:                                              ; preds = %176
   %185 = fsub reassoc nsz arcp contract afn double 1.000000e+00, %160
@@ -18881,11 +18881,11 @@ define internal fastcc double @rect_nfa(ptr noundef readonly %0, ptr nocapture n
 409:                                              ; preds = %406
   %410 = fmul reassoc nsz arcp contract afn double %388, 0xBFDBCB7B1526E50D
   %411 = fsub reassoc nsz arcp contract afn double %410, %2
-  br label %464
+  br label %463
 
 412:                                              ; preds = %406
   %413 = fneg reassoc nsz arcp contract afn double %2
-  br label %464
+  br label %463
 
 414:                                              ; preds = %.backedge, %401
   %415 = phi i64 [ %403, %401 ], [ %418, %.backedge ]
@@ -18924,7 +18924,7 @@ define internal fastcc double @rect_nfa(ptr noundef readonly %0, ptr nocapture n
   %439 = fmul reassoc nsz arcp contract afn double %438, %416
   %440 = fadd reassoc nsz arcp contract afn double %439, %417
   %441 = fcmp reassoc nsz arcp contract afn olt double %436, 1.000000e+00
-  br i1 %441, label %442, label %458
+  br i1 %441, label %442, label %457
 
 442:                                              ; preds = %434
   %443 = tail call reassoc nsz arcp contract afn double @llvm.powi.f64.i32(double %438, i32 %421)
@@ -18935,32 +18935,31 @@ define internal fastcc double @rect_nfa(ptr noundef readonly %0, ptr nocapture n
   %448 = fmul reassoc nsz arcp contract afn double %447, %439
   %449 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %440)
   %450 = fadd reassoc nsz arcp contract afn double %449, %2
-  %451 = fneg reassoc nsz arcp contract afn double %450
-  %452 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %451)
-  %453 = fmul reassoc nsz arcp contract afn double %440, 1.000000e-01
-  %454 = fmul reassoc nsz arcp contract afn double %453, %452
-  %455 = fcmp reassoc nsz arcp contract afn uge double %448, %454
-  %456 = icmp slt i64 %418, %404
-  %457 = select i1 %455, i1 %456, i1 false
-  br i1 %457, label %.backedge, label %.loopexit
+  %451 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %450)
+  %452 = fmul reassoc nsz arcp contract afn double %440, 1.000000e-01
+  %453 = fmul reassoc nsz arcp contract afn double %452, %451
+  %454 = fcmp reassoc nsz arcp contract afn uge double %448, %453
+  %455 = icmp slt i64 %418, %404
+  %456 = select i1 %454, i1 %455, i1 false
+  br i1 %456, label %.backedge, label %.loopexit
 
-458:                                              ; preds = %434
-  %459 = icmp slt i64 %418, %404
-  br i1 %459, label %.backedge, label %.loopexit
+457:                                              ; preds = %434
+  %458 = icmp slt i64 %418, %404
+  br i1 %458, label %.backedge, label %.loopexit
 
-.backedge:                                        ; preds = %458, %442
+.backedge:                                        ; preds = %457, %442
   br label %414
 
-.loopexit:                                        ; preds = %458, %442, %399
-  %460 = phi double [ %389, %399 ], [ %440, %442 ], [ %440, %458 ]
-  %461 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %460)
-  %462 = fadd reassoc nsz arcp contract afn double %461, %2
-  %463 = fneg reassoc nsz arcp contract afn double %462
-  br label %464
+.loopexit:                                        ; preds = %457, %442, %399
+  %459 = phi double [ %389, %399 ], [ %440, %442 ], [ %440, %457 ]
+  %460 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %459)
+  %461 = fadd reassoc nsz arcp contract afn double %460, %2
+  %462 = fneg reassoc nsz arcp contract afn double %461
+  br label %463
 
-464:                                              ; preds = %.loopexit, %412, %409, %178, %174
-  %465 = phi double [ %175, %174 ], [ %183, %178 ], [ %411, %409 ], [ %413, %412 ], [ %463, %.loopexit ]
-  ret double %465
+463:                                              ; preds = %.loopexit, %412, %409, %178, %174
+  %464 = phi double [ %175, %174 ], [ %183, %178 ], [ %411, %409 ], [ %413, %412 ], [ %462, %.loopexit ]
+  ret double %464
 }
 
 ; Function Attrs: nounwind uwtable

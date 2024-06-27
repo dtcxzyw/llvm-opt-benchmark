@@ -7571,7 +7571,7 @@ define linkonce_odr { i64, i32 } @_ZN5ZXing20ReadSymmetricPatternILi5ENS_15BitMa
   %10 = getelementptr inbounds i8, ptr %4, i64 24
   %11 = load <2 x double>, ptr %7, align 8, !noalias !151
   %12 = fneg <2 x double> %11
-  %13 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %12)
+  %13 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %11)
   %14 = extractelement <2 x double> %13, i64 0
   %15 = extractelement <2 x double> %13, i64 1
   %16 = fcmp olt double %14, %15

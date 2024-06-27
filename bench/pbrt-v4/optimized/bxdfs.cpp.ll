@@ -2128,10 +2128,10 @@ if.then500:                                       ; preds = %for.cond.i.i.i892, 
   br i1 %tobool.i.i906, label %invoke.cont513, label %land.rhs.i.i318.invoke
 
 invoke.cont513:                                   ; preds = %if.then500
-  %fneg3.i928 = fneg float %72
   br i1 %tobool.not.i851, label %cond.false.i937, label %cond.true.i934
 
 cond.true.i934:                                   ; preds = %invoke.cont513
+  %fneg3.i928 = fneg float %72
   %fneg3.i914 = fneg float %w.sroa.27.01661
   %212 = load <2 x float>, ptr %wi512, align 4
   %213 = fneg <2 x float> %212
@@ -2142,7 +2142,7 @@ cond.true.i934:                                   ; preds = %invoke.cont513
 cond.false.i937:                                  ; preds = %invoke.cont513
   %mul.i.i.i938 = fmul float %w.sroa.27.01661, %72
   %cmp.i.i.i939 = fcmp ogt float %mul.i.i.i938, 0.000000e+00
-  %215 = call float @llvm.fabs.f32(float %fneg3.i928)
+  %215 = call float @llvm.fabs.f32(float %72)
   %mul.i2.i.i940 = fmul float %215, 0x3FD45F3060000000
   %retval.0.i.i = select i1 %cmp.i.i.i939, float %mul.i2.i.i940, float 0.000000e+00
   br label %invoke.cont517
@@ -4878,12 +4878,12 @@ if.then156.us:                                    ; preds = %invoke.cont149.us, 
 
 invoke.cont187.us:                                ; preds = %if.then156.us
   %73 = load float, ptr %z.i369, align 4
-  %fneg3.i370.us = fneg float %73
   %74 = load ptr, ptr %rInterface, align 8
   %tobool.not.i375.us = icmp eq ptr %74, null
   br i1 %tobool.not.i375.us, label %cond.false.i378.us, label %cond.true.i376.us
 
 cond.true.i376.us:                                ; preds = %invoke.cont187.us
+  %fneg3.i370.us = fneg float %73
   %75 = load <2 x float>, ptr %wi186, align 4
   %76 = fneg <2 x float> %75
   %call.i384.us = call noundef float @_ZNK4pbrt14DielectricBxDF3PDFENS_7Vector3IfEES2_NS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noundef nonnull align 4 dereferenceable(12) %74, <2 x float> %53, float %fneg3.i246.us, <2 x float> %76, float %fneg3.i370.us, i32 poison, i32 noundef 3)
@@ -4892,7 +4892,7 @@ cond.true.i376.us:                                ; preds = %invoke.cont187.us
 cond.false.i378.us:                               ; preds = %invoke.cont187.us
   %mul.i.i.i379.us = fmul float %54, %73
   %cmp.i.i.i380.us = fcmp ogt float %mul.i.i.i379.us, 0.000000e+00
-  %77 = call float @llvm.fabs.f32(float %fneg3.i370.us)
+  %77 = call float @llvm.fabs.f32(float %73)
   %mul.i2.i.i381.us = fmul float %77, 0x3FD45F3060000000
   %retval.0.i.i382.us = select i1 %cmp.i.i.i380.us, float %mul.i2.i.i381.us, float 0.000000e+00
   br label %invoke.cont193.us
@@ -4962,12 +4962,12 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i.i436.us: ; preds = %if.end
 invoke.cont116.us:                                ; preds = %invoke.cont101.us
   %92 = load float, ptr %z.i245, align 4
   %93 = load float, ptr %z.i369, align 4
-  %fneg3.i216.us = fneg float %93
   %94 = load ptr, ptr %rInterface, align 8
   %tobool.not.i221.us = icmp eq ptr %94, null
   br i1 %tobool.not.i221.us, label %cond.false.i224.us, label %cond.true.i222.us
 
 cond.true.i222.us:                                ; preds = %invoke.cont116.us
+  %fneg3.i216.us = fneg float %93
   %fneg3.i201.us = fneg float %92
   %95 = load <2 x float>, ptr %wi186, align 4
   %96 = fneg <2 x float> %95
@@ -4979,7 +4979,7 @@ cond.true.i222.us:                                ; preds = %invoke.cont116.us
 cond.false.i224.us:                               ; preds = %invoke.cont116.us
   %mul.i.i.i225.us = fmul float %92, %93
   %cmp.i.i.i226.us = fcmp ogt float %mul.i.i.i225.us, 0.000000e+00
-  %99 = call float @llvm.fabs.f32(float %fneg3.i216.us)
+  %99 = call float @llvm.fabs.f32(float %93)
   %mul.i2.i.i.us = fmul float %99, 0x3FD45F3060000000
   %retval.0.i.i.us = select i1 %cmp.i.i.i226.us, float %mul.i2.i.i.us, float 0.000000e+00
   br label %invoke.cont120.us
@@ -5255,7 +5255,7 @@ cond.true.i660:                                   ; preds = %invoke.cont339
 cond.false.i662:                                  ; preds = %invoke.cont339
   %mul.i.i.i663 = fmul float %wo.sroa.12.0, %fneg3.i654
   %cmp.i.i.i664 = fcmp ogt float %mul.i.i.i663, 0.000000e+00
-  %162 = call float @llvm.fabs.f32(float %fneg3.i654)
+  %162 = call float @llvm.fabs.f32(float %158)
   %mul.i2.i.i665 = fmul float %162, 0x3FD45F3060000000
   %retval.0.i.i666 = select i1 %cmp.i.i.i664, float %mul.i2.i.i665, float 0.000000e+00
   br label %if.end372
@@ -5279,7 +5279,7 @@ cond.true.i686:                                   ; preds = %invoke.cont352
 cond.false.i688:                                  ; preds = %invoke.cont352
   %mul.i.i.i689 = fmul float %wo.sroa.12.0, %fneg3.i680
   %cmp.i.i.i690 = fcmp ogt float %mul.i.i.i689, 0.000000e+00
-  %167 = call float @llvm.fabs.f32(float %fneg3.i680)
+  %167 = call float @llvm.fabs.f32(float %163)
   %mul.i2.i.i691 = fmul float %167, 0x3FD45F3060000000
   %retval.0.i.i692 = select i1 %cmp.i.i.i690, float %mul.i2.i.i691, float 0.000000e+00
   br label %invoke.cont356
@@ -22324,9 +22324,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %for.body.i.i
   br label %return
 
 if.else:                                          ; preds = %if.end17
-  %fneg3.i = fneg float %wo.coerce1
-  %16 = tail call noundef float @llvm.fabs.f32(float %fneg3.i)
-  %div35 = fdiv float %T.0, %16
+  %div35 = fdiv float %T.0, %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ft, i8 0, i64 16, i1 false)
   br label %for.body.i.i26
 
@@ -22339,8 +22337,9 @@ for.body.i.i26:                                   ; preds = %for.body.i.i26, %if
   br i1 %exitcond.not.i.i30, label %_ZN4pbrt15SampledSpectrumC2Ef.exit31, label %for.body.i.i26, !llvm.loop !33
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit31:             ; preds = %for.body.i.i26
-  %17 = fneg <2 x float> %wo.coerce0
-  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %17, float %fneg, i64 0
+  %fneg3.i = fneg float %wo.coerce1
+  %16 = fneg <2 x float> %wo.coerce0
+  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %16, float %fneg, i64 0
   %agg.tmp37.sroa.0.0.copyload = load <2 x float>, ptr %ft, align 8
   %agg.tmp37.sroa.2.0.ft.sroa_idx = getelementptr inbounds i8, ptr %ft, i64 8
   %agg.tmp37.sroa.2.0.copyload = load <2 x float>, ptr %agg.tmp37.sroa.2.0.ft.sroa_idx, align 8
