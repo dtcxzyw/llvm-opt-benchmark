@@ -715,44 +715,44 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %148 = getelementptr inbounds i8, ptr %6, i64 262184
   %149 = insertelement <2 x float> poison, float %147, i64 0
   %150 = shufflevector <2 x float> %149, <2 x float> poison, <2 x i32> zeroinitializer
-  %151 = insertelement <2 x float> poison, float %147, i64 0
-  %152 = shufflevector <2 x float> %151, <2 x float> poison, <2 x i32> zeroinitializer
-  br label %153
+  br label %151
 
-153:                                              ; preds = %153, %133
-  %154 = phi i64 [ 0, %133 ], [ %180, %153 ]
-  %155 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %133 ], [ %181, %153 ]
-  %156 = uitofp <8 x i64> %155 to <8 x float>
-  %157 = fmul reassoc nsz arcp contract afn <8 x float> %156, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %158 = extractelement <8 x float> %157, i64 0
+151:                                              ; preds = %151, %133
+  %152 = phi i64 [ 0, %133 ], [ %180, %151 ]
+  %153 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %133 ], [ %181, %151 ]
+  %154 = uitofp <8 x i64> %153 to <8 x float>
+  %155 = fmul reassoc nsz arcp contract afn <8 x float> %154, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %156 = extractelement <8 x float> %155, i64 0
+  %157 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %156, float %147)
+  %158 = extractelement <8 x float> %155, i64 1
   %159 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %158, float %147)
-  %160 = extractelement <8 x float> %157, i64 1
+  %160 = extractelement <8 x float> %155, i64 2
   %161 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %160, float %147)
-  %162 = extractelement <8 x float> %157, i64 2
+  %162 = extractelement <8 x float> %155, i64 3
   %163 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %162, float %147)
-  %164 = extractelement <8 x float> %157, i64 3
+  %164 = extractelement <8 x float> %155, i64 4
   %165 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %164, float %147)
-  %166 = shufflevector <8 x float> %157, <8 x float> poison, <2 x i32> <i32 4, i32 5>
-  %167 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.pow.v2f32(<2 x float> %166, <2 x float> %152)
-  %168 = shufflevector <8 x float> %157, <8 x float> poison, <2 x i32> <i32 6, i32 7>
+  %166 = extractelement <8 x float> %155, i64 5
+  %167 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %166, float %147)
+  %168 = shufflevector <8 x float> %155, <8 x float> poison, <2 x i32> <i32 6, i32 7>
   %169 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.pow.v2f32(<2 x float> %168, <2 x float> %150)
-  %170 = insertelement <8 x float> poison, float %159, i64 0
-  %171 = insertelement <8 x float> %170, float %161, i64 1
-  %172 = insertelement <8 x float> %171, float %163, i64 2
-  %173 = insertelement <8 x float> %172, float %165, i64 3
-  %174 = shufflevector <2 x float> %167, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %175 = shufflevector <8 x float> %173, <8 x float> %174, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 poison, i32 poison>
+  %170 = insertelement <8 x float> poison, float %157, i64 0
+  %171 = insertelement <8 x float> %170, float %159, i64 1
+  %172 = insertelement <8 x float> %171, float %161, i64 2
+  %173 = insertelement <8 x float> %172, float %163, i64 3
+  %174 = insertelement <8 x float> %173, float %165, i64 4
+  %175 = insertelement <8 x float> %174, float %167, i64 5
   %176 = shufflevector <2 x float> %169, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %177 = shufflevector <8 x float> %175, <8 x float> %176, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 8, i32 9>
   %178 = fmul reassoc nsz arcp contract afn <8 x float> %177, <float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02>
-  %179 = getelementptr inbounds float, ptr %148, i64 %154
+  %179 = getelementptr inbounds float, ptr %148, i64 %152
   store <8 x float> %178, ptr %179, align 4, !tbaa !26
-  %180 = add nuw nsw i64 %154, 8
-  %181 = add <8 x i64> %155, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %180 = add nuw nsw i64 %152, 8
+  %181 = add <8 x i64> %153, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
   %182 = icmp eq i64 %180, 65536
-  br i1 %182, label %183, label %153, !llvm.loop !69
+  br i1 %182, label %183, label %151, !llvm.loop !69
 
-183:                                              ; preds = %153
+183:                                              ; preds = %151
   %184 = getelementptr inbounds i8, ptr %6, i64 445684
   %185 = load float, ptr %184, align 4, !tbaa !26
   %186 = getelementptr inbounds i8, ptr %6, i64 471896

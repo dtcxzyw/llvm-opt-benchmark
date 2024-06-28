@@ -8673,25 +8673,25 @@ if.end4:                                          ; preds = %if.end
   %cmp6 = icmp sgt i32 %call5, -1
   %tobool.not = icmp ne i32 %fix, 0
   %or.cond.not68 = and i1 %tobool.not, %cmp6
-  %19 = extractelement <4 x i32> %16, i64 2
-  %cmp9 = icmp eq i32 %19, 0
-  %or.cond66 = select i1 %or.cond.not68, i1 %cmp9, i1 false
-  %20 = extractelement <4 x i32> %16, i64 0
-  %cmp11 = icmp eq i32 %20, 0
-  %or.cond67 = select i1 %or.cond66, i1 %cmp11, i1 false
+  %19 = shufflevector <4 x i32> %16, <4 x i32> poison, <2 x i32> <i32 0, i32 2>
+  %20 = icmp eq <2 x i32> %19, zeroinitializer
+  %21 = extractelement <2 x i1> %20, i64 1
+  %or.cond66 = select i1 %or.cond.not68, i1 %21, i1 false
+  %22 = extractelement <2 x i1> %20, i64 0
+  %or.cond67 = select i1 %or.cond66, i1 %22, i1 false
   br i1 %or.cond67, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.end4
   %opaque.i = getelementptr inbounds i8, ptr %bs, i64 24
-  %21 = load ptr, ptr %opaque.i, align 8
-  %incompatible_features.i = getelementptr inbounds i8, ptr %21, i64 360
-  %22 = load i64, ptr %incompatible_features.i, align 8
-  %and.i = and i64 %22, 1
+  %23 = load ptr, ptr %opaque.i, align 8
+  %incompatible_features.i = getelementptr inbounds i8, ptr %23, i64 360
+  %24 = load i64, ptr %incompatible_features.i, align 8
+  %and.i = and i64 %24, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end16, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then12
-  %and2.i = and i64 %22, -2
+  %and2.i = and i64 %24, -2
   store i64 %and2.i, ptr %incompatible_features.i, align 8
   %call.i = call i32 @qcow2_flush_caches(ptr noundef nonnull %bs) #22
   %cmp.i = icmp slt i32 %call.i, 0

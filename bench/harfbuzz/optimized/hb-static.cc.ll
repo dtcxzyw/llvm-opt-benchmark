@@ -1059,13 +1059,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.body, %if.then7.for.end_crit_edge
   %13 = phi <4 x float> [ %4, %if.then7.for.end_crit_edge ], [ %12, %for.body ]
   %14 = load ptr, ptr %consumer, align 8
-  %15 = shufflevector <4 x float> %13, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %16 = shufflevector <4 x float> %13, <4 x float> poison, <2 x i32> <i32 2, i32 3>
-  %17 = fcmp oge <2 x float> %15, %16
-  %18 = extractelement <2 x i1> %17, i64 0
-  %19 = extractelement <2 x i1> %17, i64 1
-  %20 = select i1 %18, i1 true, i1 %19
-  br i1 %20, label %if.then.i.i, label %if.end.i.i
+  %15 = extractelement <4 x float> %13, i64 0
+  %16 = extractelement <4 x float> %13, i64 2
+  %cmp.i.i.i = fcmp oge float %15, %16
+  %17 = extractelement <4 x float> %13, i64 1
+  %18 = extractelement <4 x float> %13, i64 3
+  %cmp2.i.i.i = fcmp oge float %17, %18
+  %19 = select i1 %cmp.i.i.i, i1 true, i1 %cmp2.i.i.i
+  br i1 %19, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, i8 0, i64 16, i1 false)
@@ -1073,30 +1074,27 @@ if.then.i.i:                                      ; preds = %for.end
 
 if.end.i.i:                                       ; preds = %for.end
   %scaled.i = getelementptr inbounds i8, ptr %consumer, i64 24
-  %21 = load i8, ptr %scaled.i, align 8
-  %tobool.i18 = trunc i8 %21 to i1
-  %22 = extractelement <4 x float> %13, i64 0
-  %add.i.i.i = fadd float %22, 5.000000e-01
-  %23 = call noundef float @llvm.floor.f32(float %add.i.i.i)
-  %conv.i.i = fptosi float %23 to i32
+  %20 = load i8, ptr %scaled.i, align 8
+  %tobool.i18 = trunc i8 %20 to i1
+  %add.i.i.i = fadd float %15, 5.000000e-01
+  %21 = call noundef float @llvm.floor.f32(float %add.i.i.i)
+  %conv.i.i = fptosi float %21 to i32
   store i32 %conv.i.i, ptr %1, align 4
   %conv5.i.i = sitofp i32 %conv.i.i to float
-  %24 = extractelement <4 x float> %13, i64 2
-  %sub.i.i = fsub float %24, %conv5.i.i
+  %sub.i.i = fsub float %16, %conv5.i.i
   %y_bearing11.i.i = getelementptr inbounds i8, ptr %1, i64 4
-  %25 = shufflevector <4 x float> %13, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
-  %26 = insertelement <2 x float> %25, float %sub.i.i, i64 1
-  %27 = fadd <2 x float> %26, <float 5.000000e-01, float 5.000000e-01>
-  %28 = call <2 x float> @llvm.floor.v2f32(<2 x float> %27)
-  %29 = fptosi <2 x float> %28 to <2 x i32>
-  store <2 x i32> %29, ptr %y_bearing11.i.i, align 4
-  %30 = extractelement <2 x i32> %29, i64 0
-  %conv13.i.i = sitofp i32 %30 to float
-  %31 = extractelement <4 x float> %13, i64 1
-  %sub14.i.i = fsub float %31, %conv13.i.i
+  %22 = shufflevector <4 x float> %13, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
+  %23 = insertelement <2 x float> %22, float %sub.i.i, i64 1
+  %24 = fadd <2 x float> %23, <float 5.000000e-01, float 5.000000e-01>
+  %25 = call <2 x float> @llvm.floor.v2f32(<2 x float> %24)
+  %26 = fptosi <2 x float> %25 to <2 x i32>
+  store <2 x i32> %26, ptr %y_bearing11.i.i, align 4
+  %27 = extractelement <2 x i32> %26, i64 0
+  %conv13.i.i = sitofp i32 %27 to float
+  %sub14.i.i = fsub float %17, %conv13.i.i
   %add.i13.i.i = fadd float %sub14.i.i, 5.000000e-01
-  %32 = call noundef float @llvm.floor.f32(float %add.i13.i.i)
-  %conv16.i.i = fptosi float %32 to i32
+  %28 = call noundef float @llvm.floor.f32(float %add.i13.i.i)
+  %conv16.i.i = fptosi float %28 to i32
   %height17.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 %conv16.i.i, ptr %height17.i.i, align 4
   br i1 %tobool.i18, label %if.then18.i.i, label %if.end15
@@ -1107,8 +1105,8 @@ if.then18.i.i:                                    ; preds = %if.end.i.i
 
 if.end15:                                         ; preds = %if.then18.i.i, %if.end.i.i, %if.then.i.i, %if.end5
   %phantoms.i = getelementptr inbounds i8, ptr %consumer, i64 16
-  %33 = load ptr, ptr %phantoms.i, align 8
-  %tobool17.not = icmp eq ptr %33, null
+  %29 = load ptr, ptr %phantoms.i, align 8
+  %tobool17.not = icmp eq ptr %29, null
   br i1 %tobool17.not, label %cleanup, label %for.cond19.preheader
 
 for.cond19.preheader:                             ; preds = %if.end15
@@ -1117,28 +1115,28 @@ for.cond19.preheader:                             ; preds = %if.end15
 
 for.body21:                                       ; preds = %for.cond19.preheader, %for.body21
   %indvars.iv = phi i64 [ 0, %for.cond19.preheader ], [ %indvars.iv.next, %for.body21 ]
-  %34 = load ptr, ptr %arrayZ, align 8
-  %35 = trunc nuw nsw i64 %indvars.iv to i32
-  %add = add i32 %sub, %35
+  %30 = load ptr, ptr %arrayZ, align 8
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
+  %add = add i32 %sub, %31
   %idxprom = zext i32 %add to i64
-  %arrayidx = getelementptr inbounds %struct.contour_point_t, ptr %34, i64 %idxprom
-  %arrayidx23 = getelementptr inbounds %struct.contour_point_t, ptr %33, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds %struct.contour_point_t, ptr %30, i64 %idxprom
+  %arrayidx23 = getelementptr inbounds %struct.contour_point_t, ptr %29, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx23, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx, i64 12, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %cleanup, label %for.body21, !llvm.loop !8
 
 cleanup:                                          ; preds = %for.body21, %if.end15, %if.end
-  %36 = load i32, ptr %all_points, align 8
-  %tobool.not.i.i.i = icmp eq i32 %36, 0
+  %32 = load i32, ptr %all_points, align 8
+  %tobool.not.i.i.i = icmp eq i32 %32, 0
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
   %length.i.i.i.i = getelementptr inbounds i8, ptr %all_points, i64 4
   store i32 0, ptr %length.i.i.i.i, align 4
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %all_points, i64 8
-  %37 = load ptr, ptr %arrayZ.i.i.i, align 8
-  call void @free(ptr noundef %37) #13
+  %33 = load ptr, ptr %arrayZ.i.i.i, align 8
+  call void @free(ptr noundef %33) #13
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %entry
