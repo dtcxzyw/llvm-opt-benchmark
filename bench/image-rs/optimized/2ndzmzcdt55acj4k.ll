@@ -31355,15 +31355,15 @@ define void @_ZN5image6codecs4webp7decoder13WebPRiffChunk11from_fourcc17hd2794e3
   %.sroa.0.0.vec.extract = trunc i32 %1 to i8
   switch i8 %.sroa.0.0.vec.extract, label %5 [
     i8 82, label %14
-    i8 87, label %18
-    i8 86, label %22
-    i8 65, label %25
-    i8 73, label %26
-    i8 69, label %30
-    i8 88, label %34
+    i8 87, label %19
+    i8 86, label %24
+    i8 65, label %28
+    i8 73, label %29
+    i8 69, label %34
+    i8 88, label %39
   ]
 
-5:                                                ; preds = %57, %55, %51, %50, %43, %34, %30, %26, %25, %22, %18, %14, %2
+5:                                                ; preds = %63, %61, %57, %56, %49, %39, %34, %29, %28, %24, %19, %14, %2
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %.sroa.4)
   %.sroa.4.0.insert.ext = zext i32 %1 to i40
   %.sroa.4.0.insert.shift = shl nuw i40 %.sroa.4.0.insert.ext, 8
@@ -31418,173 +31418,179 @@ define void @_ZN5image6codecs4webp7decoder13WebPRiffChunk11from_fourcc17hd2794e3
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store ptr @anon.1f4c41b43b6b1ec3b0d7299236cb1468.42.llvm.9742654456972663382, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %.sroa.4)
-  br label %40
+  br label %46
 
 14:                                               ; preds = %2
-  %15 = icmp eq <4 x i8> %4, <i8 poison, i8 73, i8 70, i8 poison>
-  %shift = shufflevector <4 x i1> %15, <4 x i1> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %16 = and <4 x i1> %15, %shift
-  %or.cond = extractelement <4 x i1> %16, i64 1
+  %15 = shufflevector <4 x i8> %4, <4 x i8> poison, <2 x i32> <i32 1, i32 2>
+  %16 = icmp eq <2 x i8> %15, <i8 73, i8 70>
+  %shift = shufflevector <2 x i1> %16, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
+  %17 = and <2 x i1> %16, %shift
+  %or.cond = extractelement <2 x i1> %17, i64 0
   %.sroa.0.3.vec.extract68 = extractelement <4 x i8> %4, i64 3
-  %17 = icmp eq i8 %.sroa.0.3.vec.extract68, 70
-  %or.cond5 = and i1 %17, %or.cond
-  br i1 %or.cond5, label %38, label %5
+  %18 = icmp eq i8 %.sroa.0.3.vec.extract68, 70
+  %or.cond5 = and i1 %18, %or.cond
+  br i1 %or.cond5, label %44, label %5
 
-18:                                               ; preds = %2
-  %19 = icmp eq <4 x i8> %4, <i8 poison, i8 69, i8 66, i8 poison>
-  %shift80 = shufflevector <4 x i1> %19, <4 x i1> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %20 = and <4 x i1> %19, %shift80
-  %or.cond8 = extractelement <4 x i1> %20, i64 1
+19:                                               ; preds = %2
+  %20 = shufflevector <4 x i8> %4, <4 x i8> poison, <2 x i32> <i32 1, i32 2>
+  %21 = icmp eq <2 x i8> %20, <i8 69, i8 66>
+  %shift80 = shufflevector <2 x i1> %21, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
+  %22 = and <2 x i1> %21, %shift80
+  %or.cond8 = extractelement <2 x i1> %22, i64 0
   %.sroa.0.3.vec.extract70 = extractelement <4 x i8> %4, i64 3
-  %21 = icmp eq i8 %.sroa.0.3.vec.extract70, 80
-  %or.cond11 = and i1 %21, %or.cond8
-  br i1 %or.cond11, label %41, label %5
+  %23 = icmp eq i8 %.sroa.0.3.vec.extract70, 80
+  %or.cond11 = and i1 %23, %or.cond8
+  br i1 %or.cond11, label %47, label %5
 
-22:                                               ; preds = %2
-  %23 = icmp eq <4 x i8> %4, <i8 poison, i8 80, i8 56, i8 poison>
-  %shift81 = shufflevector <4 x i1> %23, <4 x i1> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %24 = and <4 x i1> %23, %shift81
-  %or.cond14 = extractelement <4 x i1> %24, i64 1
-  br i1 %or.cond14, label %43, label %5
+24:                                               ; preds = %2
+  %25 = shufflevector <4 x i8> %4, <4 x i8> poison, <2 x i32> <i32 1, i32 2>
+  %26 = icmp eq <2 x i8> %25, <i8 80, i8 56>
+  %shift81 = shufflevector <2 x i1> %26, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
+  %27 = and <2 x i1> %26, %shift81
+  %or.cond14 = extractelement <2 x i1> %27, i64 0
+  br i1 %or.cond14, label %49, label %5
 
-25:                                               ; preds = %2
+28:                                               ; preds = %2
   %.sroa.0.1.vec.extract42 = extractelement <4 x i8> %4, i64 1
   switch i8 %.sroa.0.1.vec.extract42, label %5 [
-    i8 78, label %50
-    i8 76, label %51
+    i8 78, label %56
+    i8 76, label %57
   ]
 
-26:                                               ; preds = %2
-  %27 = icmp eq <4 x i8> %4, <i8 poison, i8 67, i8 67, i8 poison>
-  %shift82 = shufflevector <4 x i1> %27, <4 x i1> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %28 = and <4 x i1> %27, %shift82
-  %or.cond20 = extractelement <4 x i1> %28, i64 1
+29:                                               ; preds = %2
+  %30 = shufflevector <4 x i8> %4, <4 x i8> poison, <2 x i32> <i32 1, i32 2>
+  %31 = icmp eq <2 x i8> %30, <i8 67, i8 67>
+  %shift82 = shufflevector <2 x i1> %31, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
+  %32 = and <2 x i1> %31, %shift82
+  %or.cond20 = extractelement <2 x i1> %32, i64 0
   %.sroa.0.3.vec.extract74 = extractelement <4 x i8> %4, i64 3
-  %29 = icmp eq i8 %.sroa.0.3.vec.extract74, 80
-  %or.cond23 = and i1 %29, %or.cond20
-  br i1 %or.cond23, label %65, label %5
-
-30:                                               ; preds = %2
-  %31 = icmp eq <4 x i8> %4, <i8 poison, i8 88, i8 73, i8 poison>
-  %shift83 = shufflevector <4 x i1> %31, <4 x i1> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %32 = and <4 x i1> %31, %shift83
-  %or.cond26 = extractelement <4 x i1> %32, i64 1
-  %.sroa.0.3.vec.extract76 = extractelement <4 x i8> %4, i64 3
-  %33 = icmp eq i8 %.sroa.0.3.vec.extract76, 70
-  %or.cond29 = and i1 %33, %or.cond26
-  br i1 %or.cond29, label %67, label %5
+  %33 = icmp eq i8 %.sroa.0.3.vec.extract74, 80
+  %or.cond23 = and i1 %33, %or.cond20
+  br i1 %or.cond23, label %71, label %5
 
 34:                                               ; preds = %2
-  %35 = icmp eq <4 x i8> %4, <i8 poison, i8 77, i8 80, i8 poison>
-  %shift84 = shufflevector <4 x i1> %35, <4 x i1> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %36 = and <4 x i1> %35, %shift84
-  %or.cond32 = extractelement <4 x i1> %36, i64 1
+  %35 = shufflevector <4 x i8> %4, <4 x i8> poison, <2 x i32> <i32 1, i32 2>
+  %36 = icmp eq <2 x i8> %35, <i8 88, i8 73>
+  %shift83 = shufflevector <2 x i1> %36, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
+  %37 = and <2 x i1> %36, %shift83
+  %or.cond26 = extractelement <2 x i1> %37, i64 0
+  %.sroa.0.3.vec.extract76 = extractelement <4 x i8> %4, i64 3
+  %38 = icmp eq i8 %.sroa.0.3.vec.extract76, 70
+  %or.cond29 = and i1 %38, %or.cond26
+  br i1 %or.cond29, label %73, label %5
+
+39:                                               ; preds = %2
+  %40 = shufflevector <4 x i8> %4, <4 x i8> poison, <2 x i32> <i32 1, i32 2>
+  %41 = icmp eq <2 x i8> %40, <i8 77, i8 80>
+  %shift84 = shufflevector <2 x i1> %41, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
+  %42 = and <2 x i1> %41, %shift84
+  %or.cond32 = extractelement <2 x i1> %42, i64 0
   %.sroa.0.3.vec.extract78 = extractelement <4 x i8> %4, i64 3
-  %37 = icmp eq i8 %.sroa.0.3.vec.extract78, 32
-  %or.cond35 = and i1 %37, %or.cond32
-  br i1 %or.cond35, label %69, label %5
+  %43 = icmp eq i8 %.sroa.0.3.vec.extract78, 32
+  %or.cond35 = and i1 %43, %or.cond32
+  br i1 %or.cond35, label %75, label %5
 
-38:                                               ; preds = %14
-  %39 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 0, ptr %39, align 1
+44:                                               ; preds = %14
+  %45 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 0, ptr %45, align 1
   store i8 10, ptr %0, align 8
-  br label %40
+  br label %46
 
-40:                                               ; preds = %69, %67, %65, %63, %61, %59, %48, %46, %44, %41, %38, %"_ZN5image6codecs4webp7decoder124_$LT$impl$u20$core..convert..From$LT$image..codecs..webp..decoder..DecoderError$GT$$u20$for$u20$image..error..ImageError$GT$4from17h7c97d64e1123a399E.exit"
+46:                                               ; preds = %75, %73, %71, %69, %67, %65, %54, %52, %50, %47, %44, %"_ZN5image6codecs4webp7decoder124_$LT$impl$u20$core..convert..From$LT$image..codecs..webp..decoder..DecoderError$GT$$u20$for$u20$image..error..ImageError$GT$4from17h7c97d64e1123a399E.exit"
   ret void
 
-41:                                               ; preds = %18
-  %42 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 1, ptr %42, align 1
+47:                                               ; preds = %19
+  %48 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 1, ptr %48, align 1
   store i8 10, ptr %0, align 8
-  br label %40
+  br label %46
 
-43:                                               ; preds = %22
+49:                                               ; preds = %24
   %.sroa.0.3.vec.extract = extractelement <4 x i8> %4, i64 3
   switch i8 %.sroa.0.3.vec.extract, label %5 [
-    i8 32, label %44
-    i8 76, label %46
-    i8 88, label %48
+    i8 32, label %50
+    i8 76, label %52
+    i8 88, label %54
   ]
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 2, ptr %45, align 1
+50:                                               ; preds = %49
+  %51 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 2, ptr %51, align 1
   store i8 10, ptr %0, align 8
-  br label %40
+  br label %46
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 3, ptr %47, align 1
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 3, ptr %53, align 1
   store i8 10, ptr %0, align 8
-  br label %40
+  br label %46
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 4, ptr %49, align 1
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 4, ptr %55, align 1
   store i8 10, ptr %0, align 8
-  br label %40
+  br label %46
 
-50:                                               ; preds = %25
+56:                                               ; preds = %28
   %.sroa.0.2.vec.extract = extractelement <4 x i8> %4, i64 2
   switch i8 %.sroa.0.2.vec.extract, label %5 [
-    i8 73, label %55
-    i8 77, label %57
+    i8 73, label %61
+    i8 77, label %63
   ]
 
-51:                                               ; preds = %25
-  %52 = shufflevector <4 x i8> %4, <4 x i8> poison, <2 x i32> <i32 2, i32 3>
-  %53 = icmp eq <2 x i8> %52, <i8 80, i8 72>
-  %shift85 = shufflevector <2 x i1> %53, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
-  %54 = and <2 x i1> %53, %shift85
-  %or.cond17 = extractelement <2 x i1> %54, i64 0
-  br i1 %or.cond17, label %63, label %5
+57:                                               ; preds = %28
+  %58 = shufflevector <4 x i8> %4, <4 x i8> poison, <2 x i32> <i32 2, i32 3>
+  %59 = icmp eq <2 x i8> %58, <i8 80, i8 72>
+  %shift85 = shufflevector <2 x i1> %59, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
+  %60 = and <2 x i1> %59, %shift85
+  %or.cond17 = extractelement <2 x i1> %60, i64 0
+  br i1 %or.cond17, label %69, label %5
 
-55:                                               ; preds = %50
+61:                                               ; preds = %56
   %.sroa.0.3.vec.extract64 = extractelement <4 x i8> %4, i64 3
-  %56 = icmp eq i8 %.sroa.0.3.vec.extract64, 77
-  br i1 %56, label %59, label %5
+  %62 = icmp eq i8 %.sroa.0.3.vec.extract64, 77
+  br i1 %62, label %65, label %5
 
-57:                                               ; preds = %50
+63:                                               ; preds = %56
   %.sroa.0.3.vec.extract66 = extractelement <4 x i8> %4, i64 3
-  %58 = icmp eq i8 %.sroa.0.3.vec.extract66, 70
-  br i1 %58, label %61, label %5
+  %64 = icmp eq i8 %.sroa.0.3.vec.extract66, 70
+  br i1 %64, label %67, label %5
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 5, ptr %60, align 1
-  store i8 10, ptr %0, align 8
-  br label %40
-
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 6, ptr %62, align 1
-  store i8 10, ptr %0, align 8
-  br label %40
-
-63:                                               ; preds = %51
-  %64 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 7, ptr %64, align 1
-  store i8 10, ptr %0, align 8
-  br label %40
-
-65:                                               ; preds = %26
+65:                                               ; preds = %61
   %66 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 8, ptr %66, align 1
+  store i8 5, ptr %66, align 1
   store i8 10, ptr %0, align 8
-  br label %40
+  br label %46
 
-67:                                               ; preds = %30
+67:                                               ; preds = %63
   %68 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 9, ptr %68, align 1
+  store i8 6, ptr %68, align 1
   store i8 10, ptr %0, align 8
-  br label %40
+  br label %46
 
-69:                                               ; preds = %34
+69:                                               ; preds = %57
   %70 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 10, ptr %70, align 1
+  store i8 7, ptr %70, align 1
   store i8 10, ptr %0, align 8
-  br label %40
+  br label %46
+
+71:                                               ; preds = %29
+  %72 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 8, ptr %72, align 1
+  store i8 10, ptr %0, align 8
+  br label %46
+
+73:                                               ; preds = %34
+  %74 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 9, ptr %74, align 1
+  store i8 10, ptr %0, align 8
+  br label %46
+
+75:                                               ; preds = %39
+  %76 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 10, ptr %76, align 1
+  store i8 10, ptr %0, align 8
+  br label %46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

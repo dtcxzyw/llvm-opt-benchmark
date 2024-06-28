@@ -118,7 +118,7 @@ define void @expose(ptr nocapture noundef readonly %0, ptr noundef %1, i32 nound
   %17 = load ptr, ptr %16, align 8, !tbaa !6
   %18 = load ptr, ptr %17, align 8, !tbaa !39
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %109, label %20
+  br i1 %19, label %115, label %20
 
 20:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
@@ -195,64 +195,70 @@ define void @expose(ptr nocapture noundef readonly %0, ptr noundef %1, i32 nound
   %68 = fadd reassoc nsz arcp contract afn float %67, %63
   %69 = load float, ptr %8, align 4, !tbaa !42
   %70 = load float, ptr %10, align 4, !tbaa !42
-  %71 = extractelement <4 x float> %37, i64 3
-  %72 = fmul reassoc nsz arcp contract afn float %70, %71
-  %73 = fdiv reassoc nsz arcp contract afn float %72, %35
-  %74 = fadd reassoc nsz arcp contract afn float %73, %69
-  %75 = extractelement <4 x float> %37, i64 1
-  %76 = fneg reassoc nsz arcp contract afn float %75
-  %77 = fmul reassoc nsz arcp contract afn float %64, %76
-  %78 = fdiv reassoc nsz arcp contract afn float %77, %36
-  %79 = fadd reassoc nsz arcp contract afn float %40, %78
-  %80 = extractelement <4 x float> %37, i64 2
-  %81 = fneg reassoc nsz arcp contract afn float %80
-  %82 = fmul reassoc nsz arcp contract afn float %70, %81
-  %83 = fdiv reassoc nsz arcp contract afn float %82, %35
-  %84 = fadd reassoc nsz arcp contract afn float %43, %83
-  %85 = fadd reassoc nsz arcp contract afn float %68, -1.000000e+01
-  %86 = fpext float %85 to double
-  %87 = fpext float %74 to double
-  call void @cairo_move_to(ptr noundef %1, double noundef %86, double noundef %87) #10
-  %88 = fpext float %68 to double
-  call void @cairo_line_to(ptr noundef %1, double noundef %88, double noundef %87) #10
-  %89 = fadd reassoc nsz arcp contract afn float %74, -1.000000e+01
+  %71 = extractelement <4 x float> %37, i64 1
+  %72 = fneg reassoc nsz arcp contract afn float %71
+  %73 = fmul reassoc nsz arcp contract afn float %64, %72
+  %74 = fdiv reassoc nsz arcp contract afn float %73, %36
+  %75 = fadd reassoc nsz arcp contract afn float %40, %74
+  %76 = extractelement <4 x float> %37, i64 2
+  %77 = fneg reassoc nsz arcp contract afn float %76
+  %78 = insertelement <2 x float> poison, float %70, i64 0
+  %79 = shufflevector <2 x float> %78, <2 x float> poison, <2 x i32> zeroinitializer
+  %80 = shufflevector <4 x float> %37, <4 x float> poison, <2 x i32> <i32 poison, i32 3>
+  %81 = insertelement <2 x float> %80, float %77, i64 0
+  %82 = fmul reassoc nsz arcp contract afn <2 x float> %79, %81
+  %83 = insertelement <2 x float> poison, float %35, i64 0
+  %84 = shufflevector <2 x float> %83, <2 x float> poison, <2 x i32> zeroinitializer
+  %85 = fdiv reassoc nsz arcp contract afn <2 x float> %82, %84
+  %86 = insertelement <2 x float> poison, float %43, i64 0
+  %87 = insertelement <2 x float> %86, float %69, i64 1
+  %88 = fadd reassoc nsz arcp contract afn <2 x float> %85, %87
+  %89 = fadd reassoc nsz arcp contract afn float %68, -1.000000e+01
   %90 = fpext float %89 to double
-  call void @cairo_line_to(ptr noundef %1, double noundef %88, double noundef %90) #10
-  call void @cairo_stroke(ptr noundef %1) #10
-  %91 = fadd reassoc nsz arcp contract afn float %79, 1.000000e+01
+  %91 = extractelement <2 x float> %88, i64 1
   %92 = fpext float %91 to double
-  call void @cairo_move_to(ptr noundef %1, double noundef %92, double noundef %87) #10
-  %93 = fpext float %79 to double
-  call void @cairo_line_to(ptr noundef %1, double noundef %93, double noundef %87) #10
-  call void @cairo_line_to(ptr noundef %1, double noundef %93, double noundef %90) #10
+  call void @cairo_move_to(ptr noundef %1, double noundef %90, double noundef %92) #10
+  %93 = fpext float %68 to double
+  call void @cairo_line_to(ptr noundef %1, double noundef %93, double noundef %92) #10
+  %94 = fadd reassoc nsz arcp contract afn float %91, -1.000000e+01
+  %95 = fpext float %94 to double
+  call void @cairo_line_to(ptr noundef %1, double noundef %93, double noundef %95) #10
   call void @cairo_stroke(ptr noundef %1) #10
-  %94 = fpext float %84 to double
-  call void @cairo_move_to(ptr noundef %1, double noundef %86, double noundef %94) #10
-  call void @cairo_line_to(ptr noundef %1, double noundef %88, double noundef %94) #10
-  %95 = fadd reassoc nsz arcp contract afn float %84, 1.000000e+01
-  %96 = fpext float %95 to double
-  call void @cairo_line_to(ptr noundef %1, double noundef %88, double noundef %96) #10
+  %96 = fadd reassoc nsz arcp contract afn float %75, 1.000000e+01
+  %97 = fpext float %96 to double
+  call void @cairo_move_to(ptr noundef %1, double noundef %97, double noundef %92) #10
+  %98 = fpext float %75 to double
+  call void @cairo_line_to(ptr noundef %1, double noundef %98, double noundef %92) #10
+  call void @cairo_line_to(ptr noundef %1, double noundef %98, double noundef %95) #10
   call void @cairo_stroke(ptr noundef %1) #10
-  call void @cairo_move_to(ptr noundef %1, double noundef %92, double noundef %94) #10
-  call void @cairo_line_to(ptr noundef %1, double noundef %93, double noundef %94) #10
-  call void @cairo_line_to(ptr noundef %1, double noundef %93, double noundef %96) #10
-  call void @cairo_stroke(ptr noundef %1) #10
-  %97 = fsub reassoc nsz arcp contract afn float %79, %68
-  %98 = fpext float %97 to double
-  %99 = fsub reassoc nsz arcp contract afn float %84, %74
+  %99 = extractelement <2 x float> %88, i64 0
   %100 = fpext float %99 to double
-  call void @cairo_rectangle(ptr noundef %1, double noundef %88, double noundef %87, double noundef %98, double noundef %100) #10
+  call void @cairo_move_to(ptr noundef %1, double noundef %90, double noundef %100) #10
+  call void @cairo_line_to(ptr noundef %1, double noundef %93, double noundef %100) #10
+  %101 = fadd reassoc nsz arcp contract afn float %99, 1.000000e+01
+  %102 = fpext float %101 to double
+  call void @cairo_line_to(ptr noundef %1, double noundef %93, double noundef %102) #10
+  call void @cairo_stroke(ptr noundef %1) #10
+  call void @cairo_move_to(ptr noundef %1, double noundef %97, double noundef %100) #10
+  call void @cairo_line_to(ptr noundef %1, double noundef %98, double noundef %100) #10
+  call void @cairo_line_to(ptr noundef %1, double noundef %98, double noundef %102) #10
+  call void @cairo_stroke(ptr noundef %1) #10
+  %103 = fsub reassoc nsz arcp contract afn float %75, %68
+  %104 = fpext float %103 to double
+  %105 = fsub reassoc nsz arcp contract afn float %99, %91
+  %106 = fpext float %105 to double
+  call void @cairo_rectangle(ptr noundef %1, double noundef %93, double noundef %92, double noundef %104, double noundef %106) #10
   call void @cairo_clip(ptr noundef %1) #10
   call void @cairo_set_source_rgb(ptr noundef %1, double noundef 7.700000e-01, double noundef 7.700000e-01, double noundef 7.700000e-01) #10
-  %101 = load float, ptr %11, align 4, !tbaa !42
-  %102 = fpext float %101 to double
-  %103 = load float, ptr %12, align 4, !tbaa !42
-  %104 = fpext float %103 to double
-  %105 = load float, ptr %13, align 4, !tbaa !42
-  %106 = fpext float %105 to double
-  %107 = load float, ptr %14, align 4, !tbaa !42
+  %107 = load float, ptr %11, align 4, !tbaa !42
   %108 = fpext float %107 to double
-  call void @cairo_rectangle(ptr noundef %1, double noundef %102, double noundef %104, double noundef %106, double noundef %108) #10
+  %109 = load float, ptr %12, align 4, !tbaa !42
+  %110 = fpext float %109 to double
+  %111 = load float, ptr %13, align 4, !tbaa !42
+  %112 = fpext float %111 to double
+  %113 = load float, ptr %14, align 4, !tbaa !42
+  %114 = fpext float %113 to double
+  call void @cairo_rectangle(ptr noundef %1, double noundef %108, double noundef %110, double noundef %112, double noundef %114) #10
   call void @cairo_fill(ptr noundef %1) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #10
@@ -263,9 +269,9 @@ define void @expose(ptr nocapture noundef readonly %0, ptr noundef %1, i32 nound
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
-  br label %109
+  br label %115
 
-109:                                              ; preds = %20, %6
+115:                                              ; preds = %20, %6
   ret void
 }
 

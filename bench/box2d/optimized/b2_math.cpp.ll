@@ -229,12 +229,15 @@ entry:
   store float %41, ptr %y20, align 4
   store <4 x float> %40, ptr %z26, align 4
   %ez45 = getelementptr inbounds i8, ptr %M, i64 24
-  %42 = shufflevector <4 x float> %40, <4 x float> poison, <2 x i32> <i32 0, i32 3>
-  store <2 x float> %42, ptr %ez45, align 4
-  %43 = extractelement <2 x float> %17, i64 1
-  %neg53 = fmul float %7, %43
-  %44 = tail call float @llvm.fmuladd.f32(float %11, float %0, float %neg53)
-  %mul54 = fmul float %44, %det.0
+  %42 = extractelement <4 x float> %40, i64 0
+  store float %42, ptr %ez45, align 4
+  %y50 = getelementptr inbounds i8, ptr %M, i64 28
+  %43 = extractelement <4 x float> %40, i64 3
+  store float %43, ptr %y50, align 4
+  %44 = extractelement <2 x float> %17, i64 1
+  %neg53 = fmul float %7, %44
+  %45 = tail call float @llvm.fmuladd.f32(float %11, float %0, float %neg53)
+  %mul54 = fmul float %45, %det.0
   %z56 = getelementptr inbounds i8, ptr %M, i64 32
   store float %mul54, ptr %z56, align 4
   ret void
