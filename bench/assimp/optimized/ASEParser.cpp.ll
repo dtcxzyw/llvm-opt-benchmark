@@ -11139,8 +11139,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 132
-  %mul = mul nsw i64 %sub.ptr.div.i, 3
+  %mul = sdiv exact i64 %sub.ptr.sub.i, 44
   store <2 x float> zeroinitializer, ptr %ref.tmp, align 8
   %z.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store float 0.000000e+00, ptr %z.i, align 8

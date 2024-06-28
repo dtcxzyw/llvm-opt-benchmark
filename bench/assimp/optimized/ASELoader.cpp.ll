@@ -1493,8 +1493,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 132
-  %mul = mul nsw i64 %sub.ptr.div.i, 3
+  %mul = sdiv exact i64 %sub.ptr.sub.i, 44
   %conv2 = and i64 %mul, 4294967295
   %_M_finish.i.i = getelementptr inbounds i8, ptr %mPositions, i64 8
   %cmp.i.not = icmp eq i64 %conv2, 0
