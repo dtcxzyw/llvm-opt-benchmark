@@ -8157,7 +8157,7 @@ define internal fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1,
 10:                                               ; preds = %7
   %11 = zext i8 %4 to i32
   %.not44 = icmp eq i8 %4, -1
-  br i1 %.not44, label %53, label %12
+  br i1 %.not44, label %52, label %12
 
 12:                                               ; preds = %10
   %.not45 = icmp eq i32 %5, 0
@@ -8189,13 +8189,13 @@ define internal fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1,
   %28 = getelementptr inbounds i8, ptr %6, i64 48
   %29 = load ptr, ptr %28, align 8
   %.not48 = icmp eq ptr %29, null
-  br i1 %.not48, label %41, label %30
+  br i1 %.not48, label %40, label %30
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds i8, ptr %29, i64 48
   %32 = load i16, ptr %31, align 8
   %.not49 = icmp eq i16 %32, 0
-  br i1 %.not49, label %41, label %33
+  br i1 %.not49, label %40, label %33
 
 33:                                               ; preds = %30
   %34 = load i32, ptr %24, align 4
@@ -8203,42 +8203,37 @@ define internal fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1,
   %35 = getelementptr inbounds i8, ptr %29, i64 44
   %36 = load i32, ptr %35, align 4
   %.not53 = icmp eq i32 %36, 0
-  br i1 %.not50, label %38, label %37
-
-37:                                               ; preds = %33
-  br i1 %.not53, label %39, label %41
+  %37 = xor i1 %.not50, %.not53
+  br i1 %37, label %38, label %40
 
 38:                                               ; preds = %33
-  br i1 %.not53, label %41, label %39
+  %39 = call ptr @dissect_smb_fid(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, i32 noundef %2, i32 noundef 0, i16 noundef zeroext %32, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %6)
+  br label %40
 
-39:                                               ; preds = %38, %37
-  %40 = call ptr @dissect_smb_fid(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, i32 noundef %2, i32 noundef 0, i16 noundef zeroext %32, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %6)
-  br label %41
+40:                                               ; preds = %33, %38, %30, %21
+  %41 = load i32, ptr %24, align 4
+  %.not54 = icmp eq i32 %41, 0
+  %42 = zext i8 %4 to i64
+  %43 = getelementptr [256 x %struct._smb_function], ptr @smb_dissector, i64 0, i64 %42
+  %44 = getelementptr [256 x %struct._smb_function], ptr @smb_dissector, i64 0, i64 %42, i32 1
+  %.in = select i1 %.not54, ptr %44, ptr %43
+  %45 = load ptr, ptr %.in, align 8
+  %46 = call i32 %45(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %6) #15
+  %47 = add i32 %46, -1
+  %48 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %47) #15
+  %.not55 = icmp eq i32 %48, 0
+  br i1 %.not55, label %49, label %50
 
-41:                                               ; preds = %37, %38, %39, %30, %21
-  %42 = load i32, ptr %24, align 4
-  %.not54 = icmp eq i32 %42, 0
-  %43 = zext i8 %4 to i64
-  %44 = getelementptr [256 x %struct._smb_function], ptr @smb_dissector, i64 0, i64 %43
-  %45 = getelementptr [256 x %struct._smb_function], ptr @smb_dissector, i64 0, i64 %43, i32 1
-  %.in = select i1 %.not54, ptr %45, ptr %44
-  %46 = load ptr, ptr %.in, align 8
-  %47 = call i32 %46(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %6) #15
-  %48 = add i32 %47, -1
-  %49 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %48) #15
-  %.not55 = icmp eq i32 %49, 0
-  br i1 %.not55, label %50, label %51
-
-50:                                               ; preds = %41
+49:                                               ; preds = %40
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #16
   unreachable
 
-51:                                               ; preds = %41
-  %52 = load ptr, ptr %8, align 8
-  call void @proto_item_set_end(ptr noundef %52, ptr noundef %0, i32 noundef %47) #15
-  br label %53
+50:                                               ; preds = %40
+  %51 = load ptr, ptr %8, align 8
+  call void @proto_item_set_end(ptr noundef %51, ptr noundef %0, i32 noundef %46) #15
+  br label %52
 
-53:                                               ; preds = %51, %10
+52:                                               ; preds = %50, %10
   ret void
 }
 

@@ -8553,30 +8553,25 @@ _ZNK11ast_manager6is_xorEPK4expr.exit:            ; preds = %land.rhs.i.i
   %cmp2.i.i.i.i.i = icmp eq i32 %11, 7
   %12 = select i1 %cmp.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   %cond.fr = freeze i1 %12
-  br i1 %cond.fr, label %13, label %14
+  %13 = xor i1 %cond.fr, %sign
+  br i1 %13, label %if.then25, label %if.else
 
-13:                                               ; preds = %_ZNK11ast_manager6is_xorEPK4expr.exit
-  br i1 %sign, label %if.else, label %if.then25
-
-14:                                               ; preds = %_ZNK11ast_manager6is_xorEPK4expr.exit
-  br i1 %sign, label %if.then25, label %if.else
-
-if.then25:                                        ; preds = %_ZNK11ast_manager6is_xorEPK4expr.exit.thread, %13, %14
+if.then25:                                        ; preds = %_ZNK11ast_manager6is_xorEPK4expr.exit, %_ZNK11ast_manager6is_xorEPK4expr.exit.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lits.i)
   store i32 %7, ptr %lits.i, align 4
   %arrayinit.element.i = getelementptr inbounds i8, ptr %lits.i, i64 4
   store i32 %l2.sroa.0.0.copyload, ptr %arrayinit.element.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   %m_euf.i.i.i = getelementptr inbounds i8, ptr %this, i64 273
-  %15 = load i8, ptr %m_euf.i.i.i, align 1
-  %tobool.i.i.i = trunc i8 %15 to i1
+  %14 = load i8, ptr %m_euf.i.i.i, align 1
+  %tobool.i.i.i = trunc i8 %14 to i1
   br i1 %tobool.i.i.i, label %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i, label %_ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit
 
 _ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i:   ; preds = %if.then25
   %call.i.i.i = tail call noundef ptr @_ZN8goal2sat3imp10ensure_eufEv(ptr noundef nonnull align 8 dereferenceable(300) %this)
   %m_enabled.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 160
-  %16 = load i8, ptr %m_enabled.i.i.i.i.i, align 8
-  %tobool.i.i.i.i.i = trunc i8 %16 to i1
+  %15 = load i8, ptr %m_enabled.i.i.i.i.i, align 8
+  %tobool.i.i.i.i.i = trunc i8 %15 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then.i.i, label %_ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit
 
 if.then.i.i:                                      ; preds = %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i
@@ -8587,16 +8582,16 @@ if.then.i.i:                                      ; preds = %_ZN8goal2sat3imp17r
 
 _ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit: ; preds = %if.then25, %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i, %if.then.i.i
   %m_solver.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  %17 = load ptr, ptr %m_solver.i.i, align 8
+  %16 = load ptr, ptr %m_solver.i.i, align 8
   store i32 0, ptr %agg.tmp.i.i, align 8
-  %18 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 4
-  store i32 -1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
-  store ptr null, ptr %19, align 8
-  %vtable.i.i = load ptr, ptr %17, align 8
+  %17 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 4
+  store i32 -1, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
+  store ptr null, ptr %18, align 8
+  %vtable.i.i = load ptr, ptr %16, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
-  %20 = load ptr, ptr %vfn.i.i, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 2, ptr noundef nonnull %lits.i, ptr noundef nonnull %agg.tmp.i.i)
+  %19 = load ptr, ptr %vfn.i.i, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 2, ptr noundef nonnull %lits.i, ptr noundef nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lits.i)
   %xor.i = xor i32 %7, 1
@@ -8606,15 +8601,15 @@ _ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit: ;
   %arrayinit.element.i35 = getelementptr inbounds i8, ptr %lits.i34, i64 4
   store i32 %xor.i32, ptr %arrayinit.element.i35, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i33)
-  %21 = load i8, ptr %m_euf.i.i.i, align 1
-  %tobool.i.i.i37 = trunc i8 %21 to i1
+  %20 = load i8, ptr %m_euf.i.i.i, align 1
+  %tobool.i.i.i37 = trunc i8 %20 to i1
   br i1 %tobool.i.i.i37, label %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i41, label %_ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit48
 
 _ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i41: ; preds = %_ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit
   %call.i.i.i42 = call noundef ptr @_ZN8goal2sat3imp10ensure_eufEv(ptr noundef nonnull align 8 dereferenceable(300) %this)
   %m_enabled.i.i.i.i.i43 = getelementptr inbounds i8, ptr %call.i.i.i42, i64 160
-  %22 = load i8, ptr %m_enabled.i.i.i.i.i43, align 8
-  %tobool.i.i.i.i.i44 = trunc i8 %22 to i1
+  %21 = load i8, ptr %m_enabled.i.i.i.i.i43, align 8
+  %tobool.i.i.i.i.i44 = trunc i8 %21 to i1
   br i1 %tobool.i.i.i.i.i44, label %if.then.i.i45, label %_ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit48
 
 if.then.i.i45:                                    ; preds = %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i41
@@ -8624,21 +8619,21 @@ if.then.i.i45:                                    ; preds = %_ZN8goal2sat3imp17r
   br label %_ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit48
 
 _ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit48: ; preds = %_ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit, %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i41, %if.then.i.i45
-  %23 = load ptr, ptr %m_solver.i.i, align 8
+  %22 = load ptr, ptr %m_solver.i.i, align 8
   store i32 0, ptr %agg.tmp.i.i33, align 8
-  %24 = getelementptr inbounds i8, ptr %agg.tmp.i.i33, i64 4
-  store i32 -1, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %agg.tmp.i.i33, i64 8
-  store ptr null, ptr %25, align 8
-  %vtable.i.i39 = load ptr, ptr %23, align 8
+  %23 = getelementptr inbounds i8, ptr %agg.tmp.i.i33, i64 4
+  store i32 -1, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %agg.tmp.i.i33, i64 8
+  store ptr null, ptr %24, align 8
+  %vtable.i.i39 = load ptr, ptr %22, align 8
   %vfn.i.i40 = getelementptr inbounds i8, ptr %vtable.i.i39, i64 16
-  %26 = load ptr, ptr %vfn.i.i40, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 2, ptr noundef nonnull %lits.i34, ptr noundef nonnull %agg.tmp.i.i33)
+  %25 = load ptr, ptr %vfn.i.i40, align 8
+  call void %25(ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 2, ptr noundef nonnull %lits.i34, ptr noundef nonnull %agg.tmp.i.i33)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lits.i34)
   br label %if.end186
 
-if.else:                                          ; preds = %_ZNK11ast_manager6is_xorEPK4expr.exit.thread, %13, %14
+if.else:                                          ; preds = %_ZNK11ast_manager6is_xorEPK4expr.exit, %_ZNK11ast_manager6is_xorEPK4expr.exit.thread
   %xor.i49 = xor i32 %l2.sroa.0.0.copyload, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lits.i51)
   store i32 %7, ptr %lits.i51, align 4
@@ -8646,15 +8641,15 @@ if.else:                                          ; preds = %_ZNK11ast_manager6i
   store i32 %xor.i49, ptr %arrayinit.element.i52, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i50)
   %m_euf.i.i.i53 = getelementptr inbounds i8, ptr %this, i64 273
-  %27 = load i8, ptr %m_euf.i.i.i53, align 1
-  %tobool.i.i.i54 = trunc i8 %27 to i1
+  %26 = load i8, ptr %m_euf.i.i.i53, align 1
+  %tobool.i.i.i54 = trunc i8 %26 to i1
   br i1 %tobool.i.i.i54, label %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i58, label %_ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit65
 
 _ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i58: ; preds = %if.else
   %call.i.i.i59 = tail call noundef ptr @_ZN8goal2sat3imp10ensure_eufEv(ptr noundef nonnull align 8 dereferenceable(300) %this)
   %m_enabled.i.i.i.i.i60 = getelementptr inbounds i8, ptr %call.i.i.i59, i64 160
-  %28 = load i8, ptr %m_enabled.i.i.i.i.i60, align 8
-  %tobool.i.i.i.i.i61 = trunc i8 %28 to i1
+  %27 = load i8, ptr %m_enabled.i.i.i.i.i60, align 8
+  %tobool.i.i.i.i.i61 = trunc i8 %27 to i1
   br i1 %tobool.i.i.i.i.i61, label %if.then.i.i62, label %_ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit65
 
 if.then.i.i62:                                    ; preds = %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i58
@@ -8665,16 +8660,16 @@ if.then.i.i62:                                    ; preds = %_ZN8goal2sat3imp17r
 
 _ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit65: ; preds = %if.else, %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i58, %if.then.i.i62
   %m_solver.i.i55 = getelementptr inbounds i8, ptr %this, i64 192
-  %29 = load ptr, ptr %m_solver.i.i55, align 8
+  %28 = load ptr, ptr %m_solver.i.i55, align 8
   store i32 0, ptr %agg.tmp.i.i50, align 8
-  %30 = getelementptr inbounds i8, ptr %agg.tmp.i.i50, i64 4
-  store i32 -1, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %agg.tmp.i.i50, i64 8
-  store ptr null, ptr %31, align 8
-  %vtable.i.i56 = load ptr, ptr %29, align 8
+  %29 = getelementptr inbounds i8, ptr %agg.tmp.i.i50, i64 4
+  store i32 -1, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %agg.tmp.i.i50, i64 8
+  store ptr null, ptr %30, align 8
+  %vtable.i.i56 = load ptr, ptr %28, align 8
   %vfn.i.i57 = getelementptr inbounds i8, ptr %vtable.i.i56, i64 16
-  %32 = load ptr, ptr %vfn.i.i57, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 2, ptr noundef nonnull %lits.i51, ptr noundef nonnull %agg.tmp.i.i50)
+  %31 = load ptr, ptr %vfn.i.i57, align 8
+  call void %31(ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 2, ptr noundef nonnull %lits.i51, ptr noundef nonnull %agg.tmp.i.i50)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i50)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lits.i51)
   %xor.i66 = xor i32 %7, 1
@@ -8683,15 +8678,15 @@ _ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit65:
   %arrayinit.element.i69 = getelementptr inbounds i8, ptr %lits.i68, i64 4
   store i32 %l2.sroa.0.0.copyload, ptr %arrayinit.element.i69, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i67)
-  %33 = load i8, ptr %m_euf.i.i.i53, align 1
-  %tobool.i.i.i71 = trunc i8 %33 to i1
+  %32 = load i8, ptr %m_euf.i.i.i53, align 1
+  %tobool.i.i.i71 = trunc i8 %32 to i1
   br i1 %tobool.i.i.i71, label %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i75, label %_ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit82
 
 _ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i75: ; preds = %_ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit65
   %call.i.i.i76 = call noundef ptr @_ZN8goal2sat3imp10ensure_eufEv(ptr noundef nonnull align 8 dereferenceable(300) %this)
   %m_enabled.i.i.i.i.i77 = getelementptr inbounds i8, ptr %call.i.i.i76, i64 160
-  %34 = load i8, ptr %m_enabled.i.i.i.i.i77, align 8
-  %tobool.i.i.i.i.i78 = trunc i8 %34 to i1
+  %33 = load i8, ptr %m_enabled.i.i.i.i.i77, align 8
+  %tobool.i.i.i.i.i78 = trunc i8 %33 to i1
   br i1 %tobool.i.i.i.i.i78, label %if.then.i.i79, label %_ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit82
 
 if.then.i.i79:                                    ; preds = %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i75
@@ -8701,16 +8696,16 @@ if.then.i.i79:                                    ; preds = %_ZN8goal2sat3imp17r
   br label %_ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit82
 
 _ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit82: ; preds = %_ZN8goal2sat3imp14mk_root_clauseEN3sat7literalES2_PN3euf13th_proof_hintE.exit65, %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i75, %if.then.i.i79
-  %35 = load ptr, ptr %m_solver.i.i55, align 8
+  %34 = load ptr, ptr %m_solver.i.i55, align 8
   store i32 0, ptr %agg.tmp.i.i67, align 8
-  %36 = getelementptr inbounds i8, ptr %agg.tmp.i.i67, i64 4
-  store i32 -1, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %agg.tmp.i.i67, i64 8
-  store ptr null, ptr %37, align 8
-  %vtable.i.i73 = load ptr, ptr %35, align 8
+  %35 = getelementptr inbounds i8, ptr %agg.tmp.i.i67, i64 4
+  store i32 -1, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %agg.tmp.i.i67, i64 8
+  store ptr null, ptr %36, align 8
+  %vtable.i.i73 = load ptr, ptr %34, align 8
   %vfn.i.i74 = getelementptr inbounds i8, ptr %vtable.i.i73, i64 16
-  %38 = load ptr, ptr %vfn.i.i74, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef 2, ptr noundef nonnull %lits.i68, ptr noundef nonnull %agg.tmp.i.i67)
+  %37 = load ptr, ptr %vfn.i.i74, align 8
+  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %34, i32 noundef 2, ptr noundef nonnull %lits.i68, ptr noundef nonnull %agg.tmp.i.i67)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i67)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lits.i68)
   br label %if.end186
@@ -8730,20 +8725,20 @@ if.end62:                                         ; preds = %if.else57
 
 land.rhs.i.i87:                                   ; preds = %if.end62
   %m_decl.i.i.i88 = getelementptr inbounds i8, ptr %t, i64 16
-  %39 = load ptr, ptr %m_decl.i.i.i88, align 8
-  %m_info.i.i.i.i89 = getelementptr inbounds i8, ptr %39, i64 24
-  %40 = load ptr, ptr %m_info.i.i.i.i89, align 8
-  %tobool.not.i.i.i.i90 = icmp eq ptr %40, null
+  %38 = load ptr, ptr %m_decl.i.i.i88, align 8
+  %m_info.i.i.i.i89 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = load ptr, ptr %m_info.i.i.i.i89, align 8
+  %tobool.not.i.i.i.i90 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i.i90, label %if.end67, label %_ZNK11ast_manager6is_xorEPK4expr.exit95
 
 _ZNK11ast_manager6is_xorEPK4expr.exit95:          ; preds = %land.rhs.i.i87
-  %41 = load i32, ptr %40, align 8
-  %cmp.i.i.i.i.i92 = icmp eq i32 %41, 0
-  %m_kind.i.i.i.i.i93 = getelementptr inbounds i8, ptr %40, i64 4
-  %42 = load i32, ptr %m_kind.i.i.i.i.i93, align 4
-  %cmp2.i.i.i.i.i94 = icmp eq i32 %42, 7
-  %43 = select i1 %cmp.i.i.i.i.i92, i1 %cmp2.i.i.i.i.i94, i1 false
-  %xor.i96 = zext i1 %43 to i32
+  %40 = load i32, ptr %39, align 8
+  %cmp.i.i.i.i.i92 = icmp eq i32 %40, 0
+  %m_kind.i.i.i.i.i93 = getelementptr inbounds i8, ptr %39, i64 4
+  %41 = load i32, ptr %m_kind.i.i.i.i.i93, align 4
+  %cmp2.i.i.i.i.i94 = icmp eq i32 %41, 7
+  %42 = select i1 %cmp.i.i.i.i.i92, i1 %cmp2.i.i.i.i.i94, i1 false
+  %xor.i96 = zext i1 %42 to i32
   %spec.select = xor i32 %7, %xor.i96
   br label %if.end67
 
@@ -8753,21 +8748,21 @@ if.end67:                                         ; preds = %_ZNK11ast_manager6i
   %xor.i98 = xor i32 %l2.sroa.0.0.copyload, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lits.i101)
   %m_euf.i = getelementptr inbounds i8, ptr %this, i64 273
-  %44 = load i8, ptr %m_euf.i, align 1
-  %tobool.i = trunc i8 %44 to i1
+  %43 = load i8, ptr %m_euf.i, align 1
+  %tobool.i = trunc i8 %43 to i1
   br i1 %tobool.i, label %land.lhs.true.i, label %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit
 
 land.lhs.true.i:                                  ; preds = %if.end67
   %call.i = tail call noundef ptr @_ZN8goal2sat3imp10ensure_eufEv(ptr noundef nonnull align 8 dereferenceable(300) %this)
   %m_solver.i.i103 = getelementptr inbounds i8, ptr %call.i, i64 24
-  %45 = load ptr, ptr %m_solver.i.i103, align 8
-  %tobool.not.i.i = icmp eq ptr %45, null
+  %44 = load ptr, ptr %m_solver.i.i103, align 8
+  %tobool.not.i.i = icmp eq ptr %44, null
   br i1 %tobool.not.i.i, label %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %land.lhs.true.i
-  %m_drat.i.i = getelementptr inbounds i8, ptr %45, i64 352
-  %46 = load i8, ptr %m_drat.i.i, align 8
-  %tobool3.i.i = trunc i8 %46 to i1
+  %m_drat.i.i = getelementptr inbounds i8, ptr %44, i64 352
+  %45 = load i8, ptr %m_drat.i.i, align 8
+  %tobool3.i.i = trunc i8 %45 to i1
   br i1 %tobool3.i.i, label %if.then.i104, label %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit
 
 if.then.i104:                                     ; preds = %land.lhs.true.i.i
@@ -8792,15 +8787,15 @@ _ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit: ; preds = %if.end67, %la
   %arrayinit.element4.i = getelementptr inbounds i8, ptr %lits.i107, i64 8
   store i32 %xor.i98, ptr %arrayinit.element4.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i106)
-  %47 = load i8, ptr %m_euf.i, align 1
-  %tobool.i.i.i110 = trunc i8 %47 to i1
+  %46 = load i8, ptr %m_euf.i, align 1
+  %tobool.i.i.i110 = trunc i8 %46 to i1
   br i1 %tobool.i.i.i110, label %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i114, label %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit
 
 _ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i114: ; preds = %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit
   %call.i.i.i115 = call noundef ptr @_ZN8goal2sat3imp10ensure_eufEv(ptr noundef nonnull align 8 dereferenceable(300) %this)
   %m_enabled.i.i.i.i.i116 = getelementptr inbounds i8, ptr %call.i.i.i115, i64 160
-  %48 = load i8, ptr %m_enabled.i.i.i.i.i116, align 8
-  %tobool.i.i.i.i.i117 = trunc i8 %48 to i1
+  %47 = load i8, ptr %m_enabled.i.i.i.i.i116, align 8
+  %tobool.i.i.i.i.i117 = trunc i8 %47 to i1
   br i1 %tobool.i.i.i.i.i117, label %if.then.i.i118, label %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit
 
 if.then.i.i118:                                   ; preds = %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i114
@@ -8811,35 +8806,35 @@ if.then.i.i118:                                   ; preds = %_ZN8goal2sat3imp17r
 
 _ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit: ; preds = %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit, %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i114, %if.then.i.i118
   %m_solver.i.i111 = getelementptr inbounds i8, ptr %this, i64 192
-  %49 = load ptr, ptr %m_solver.i.i111, align 8
+  %48 = load ptr, ptr %m_solver.i.i111, align 8
   store i32 1, ptr %agg.tmp.i.i106, align 8, !alias.scope !89
   %m_orig.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i106, i64 4
   store i32 0, ptr %m_orig.i.i.i.i.i, align 4, !alias.scope !89
   %m_hint.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i106, i64 8
   store ptr %retval.0.i102, ptr %m_hint.i.i.i.i.i, align 8, !alias.scope !89
-  %vtable.i.i112 = load ptr, ptr %49, align 8
+  %vtable.i.i112 = load ptr, ptr %48, align 8
   %vfn.i.i113 = getelementptr inbounds i8, ptr %vtable.i.i112, i64 16
-  %50 = load ptr, ptr %vfn.i.i113, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(16) %49, i32 noundef 3, ptr noundef nonnull %lits.i107, ptr noundef nonnull %agg.tmp.i.i106)
+  %49 = load ptr, ptr %vfn.i.i113, align 8
+  call void %49(ptr noundef nonnull align 8 dereferenceable(16) %48, i32 noundef 3, ptr noundef nonnull %lits.i107, ptr noundef nonnull %agg.tmp.i.i106)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i106)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lits.i107)
   %xor.i122 = xor i32 %l1.sroa.0.0, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lits.i125)
-  %51 = load i8, ptr %m_euf.i, align 1
-  %tobool.i127 = trunc i8 %51 to i1
+  %50 = load i8, ptr %m_euf.i, align 1
+  %tobool.i127 = trunc i8 %50 to i1
   br i1 %tobool.i127, label %land.lhs.true.i129, label %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit142
 
 land.lhs.true.i129:                               ; preds = %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit
   %call.i130 = call noundef ptr @_ZN8goal2sat3imp10ensure_eufEv(ptr noundef nonnull align 8 dereferenceable(300) %this)
   %m_solver.i.i131 = getelementptr inbounds i8, ptr %call.i130, i64 24
-  %52 = load ptr, ptr %m_solver.i.i131, align 8
-  %tobool.not.i.i132 = icmp eq ptr %52, null
+  %51 = load ptr, ptr %m_solver.i.i131, align 8
+  %tobool.not.i.i132 = icmp eq ptr %51, null
   br i1 %tobool.not.i.i132, label %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit142, label %land.lhs.true.i.i133
 
 land.lhs.true.i.i133:                             ; preds = %land.lhs.true.i129
-  %m_drat.i.i134 = getelementptr inbounds i8, ptr %52, i64 352
-  %53 = load i8, ptr %m_drat.i.i134, align 8
-  %tobool3.i.i135 = trunc i8 %53 to i1
+  %m_drat.i.i134 = getelementptr inbounds i8, ptr %51, i64 352
+  %52 = load i8, ptr %m_drat.i.i134, align 8
+  %tobool3.i.i135 = trunc i8 %52 to i1
   br i1 %tobool3.i.i135, label %if.then.i136, label %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit142
 
 if.then.i136:                                     ; preds = %land.lhs.true.i.i133
@@ -8864,15 +8859,15 @@ _ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit142: ; preds = %_ZN8goal2s
   %arrayinit.element4.i146 = getelementptr inbounds i8, ptr %lits.i144, i64 8
   store i32 %l2.sroa.0.0.copyload, ptr %arrayinit.element4.i146, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i143)
-  %54 = load i8, ptr %m_euf.i, align 1
-  %tobool.i.i.i148 = trunc i8 %54 to i1
+  %53 = load i8, ptr %m_euf.i, align 1
+  %tobool.i.i.i148 = trunc i8 %53 to i1
   br i1 %tobool.i.i.i148, label %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i154, label %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit161
 
 _ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i154: ; preds = %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit142
   %call.i.i.i155 = call noundef ptr @_ZN8goal2sat3imp10ensure_eufEv(ptr noundef nonnull align 8 dereferenceable(300) %this)
   %m_enabled.i.i.i.i.i156 = getelementptr inbounds i8, ptr %call.i.i.i155, i64 160
-  %55 = load i8, ptr %m_enabled.i.i.i.i.i156, align 8
-  %tobool.i.i.i.i.i157 = trunc i8 %55 to i1
+  %54 = load i8, ptr %m_enabled.i.i.i.i.i156, align 8
+  %tobool.i.i.i.i.i157 = trunc i8 %54 to i1
   br i1 %tobool.i.i.i.i.i157, label %if.then.i.i158, label %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit161
 
 if.then.i.i158:                                   ; preds = %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i154
@@ -8882,34 +8877,34 @@ if.then.i.i158:                                   ; preds = %_ZN8goal2sat3imp17r
   br label %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit161
 
 _ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit161: ; preds = %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit142, %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i154, %if.then.i.i158
-  %56 = load ptr, ptr %m_solver.i.i111, align 8
+  %55 = load ptr, ptr %m_solver.i.i111, align 8
   store i32 1, ptr %agg.tmp.i.i143, align 8, !alias.scope !94
   %m_orig.i.i.i.i.i150 = getelementptr inbounds i8, ptr %agg.tmp.i.i143, i64 4
   store i32 0, ptr %m_orig.i.i.i.i.i150, align 4, !alias.scope !94
   %m_hint.i.i.i.i.i151 = getelementptr inbounds i8, ptr %agg.tmp.i.i143, i64 8
   store ptr %retval.0.i128, ptr %m_hint.i.i.i.i.i151, align 8, !alias.scope !94
-  %vtable.i.i152 = load ptr, ptr %56, align 8
+  %vtable.i.i152 = load ptr, ptr %55, align 8
   %vfn.i.i153 = getelementptr inbounds i8, ptr %vtable.i.i152, i64 16
-  %57 = load ptr, ptr %vfn.i.i153, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(16) %56, i32 noundef 3, ptr noundef nonnull %lits.i144, ptr noundef nonnull %agg.tmp.i.i143)
+  %56 = load ptr, ptr %vfn.i.i153, align 8
+  call void %56(ptr noundef nonnull align 8 dereferenceable(16) %55, i32 noundef 3, ptr noundef nonnull %lits.i144, ptr noundef nonnull %agg.tmp.i.i143)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i143)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lits.i144)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lits.i162)
-  %58 = load i8, ptr %m_euf.i, align 1
-  %tobool.i164 = trunc i8 %58 to i1
+  %57 = load i8, ptr %m_euf.i, align 1
+  %tobool.i164 = trunc i8 %57 to i1
   br i1 %tobool.i164, label %land.lhs.true.i166, label %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit179
 
 land.lhs.true.i166:                               ; preds = %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit161
   %call.i167 = call noundef ptr @_ZN8goal2sat3imp10ensure_eufEv(ptr noundef nonnull align 8 dereferenceable(300) %this)
   %m_solver.i.i168 = getelementptr inbounds i8, ptr %call.i167, i64 24
-  %59 = load ptr, ptr %m_solver.i.i168, align 8
-  %tobool.not.i.i169 = icmp eq ptr %59, null
+  %58 = load ptr, ptr %m_solver.i.i168, align 8
+  %tobool.not.i.i169 = icmp eq ptr %58, null
   br i1 %tobool.not.i.i169, label %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit179, label %land.lhs.true.i.i170
 
 land.lhs.true.i.i170:                             ; preds = %land.lhs.true.i166
-  %m_drat.i.i171 = getelementptr inbounds i8, ptr %59, i64 352
-  %60 = load i8, ptr %m_drat.i.i171, align 8
-  %tobool3.i.i172 = trunc i8 %60 to i1
+  %m_drat.i.i171 = getelementptr inbounds i8, ptr %58, i64 352
+  %59 = load i8, ptr %m_drat.i.i171, align 8
+  %tobool3.i.i172 = trunc i8 %59 to i1
   br i1 %tobool3.i.i172, label %if.then.i173, label %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit179
 
 if.then.i173:                                     ; preds = %land.lhs.true.i.i170
@@ -8934,15 +8929,15 @@ _ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit179: ; preds = %_ZN8goal2s
   %arrayinit.element4.i183 = getelementptr inbounds i8, ptr %lits.i181, i64 8
   store i32 %l2.sroa.0.0.copyload, ptr %arrayinit.element4.i183, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i180)
-  %61 = load i8, ptr %m_euf.i, align 1
-  %tobool.i.i.i185 = trunc i8 %61 to i1
+  %60 = load i8, ptr %m_euf.i, align 1
+  %tobool.i.i.i185 = trunc i8 %60 to i1
   br i1 %tobool.i.i.i185, label %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i191, label %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit198
 
 _ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i191: ; preds = %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit179
   %call.i.i.i192 = call noundef ptr @_ZN8goal2sat3imp10ensure_eufEv(ptr noundef nonnull align 8 dereferenceable(300) %this)
   %m_enabled.i.i.i.i.i193 = getelementptr inbounds i8, ptr %call.i.i.i192, i64 160
-  %62 = load i8, ptr %m_enabled.i.i.i.i.i193, align 8
-  %tobool.i.i.i.i.i194 = trunc i8 %62 to i1
+  %61 = load i8, ptr %m_enabled.i.i.i.i.i193, align 8
+  %tobool.i.i.i.i.i194 = trunc i8 %61 to i1
   br i1 %tobool.i.i.i.i.i194, label %if.then.i.i195, label %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit198
 
 if.then.i.i195:                                   ; preds = %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i191
@@ -8952,34 +8947,34 @@ if.then.i.i195:                                   ; preds = %_ZN8goal2sat3imp17r
   br label %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit198
 
 _ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit198: ; preds = %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit179, %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i191, %if.then.i.i195
-  %63 = load ptr, ptr %m_solver.i.i111, align 8
+  %62 = load ptr, ptr %m_solver.i.i111, align 8
   store i32 1, ptr %agg.tmp.i.i180, align 8, !alias.scope !99
   %m_orig.i.i.i.i.i187 = getelementptr inbounds i8, ptr %agg.tmp.i.i180, i64 4
   store i32 0, ptr %m_orig.i.i.i.i.i187, align 4, !alias.scope !99
   %m_hint.i.i.i.i.i188 = getelementptr inbounds i8, ptr %agg.tmp.i.i180, i64 8
   store ptr %retval.0.i165, ptr %m_hint.i.i.i.i.i188, align 8, !alias.scope !99
-  %vtable.i.i189 = load ptr, ptr %63, align 8
+  %vtable.i.i189 = load ptr, ptr %62, align 8
   %vfn.i.i190 = getelementptr inbounds i8, ptr %vtable.i.i189, i64 16
-  %64 = load ptr, ptr %vfn.i.i190, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(16) %63, i32 noundef 3, ptr noundef nonnull %lits.i181, ptr noundef nonnull %agg.tmp.i.i180)
+  %63 = load ptr, ptr %vfn.i.i190, align 8
+  call void %63(ptr noundef nonnull align 8 dereferenceable(16) %62, i32 noundef 3, ptr noundef nonnull %lits.i181, ptr noundef nonnull %agg.tmp.i.i180)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i180)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lits.i181)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lits.i203)
-  %65 = load i8, ptr %m_euf.i, align 1
-  %tobool.i205 = trunc i8 %65 to i1
+  %64 = load i8, ptr %m_euf.i, align 1
+  %tobool.i205 = trunc i8 %64 to i1
   br i1 %tobool.i205, label %land.lhs.true.i207, label %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit220
 
 land.lhs.true.i207:                               ; preds = %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit198
   %call.i208 = call noundef ptr @_ZN8goal2sat3imp10ensure_eufEv(ptr noundef nonnull align 8 dereferenceable(300) %this)
   %m_solver.i.i209 = getelementptr inbounds i8, ptr %call.i208, i64 24
-  %66 = load ptr, ptr %m_solver.i.i209, align 8
-  %tobool.not.i.i210 = icmp eq ptr %66, null
+  %65 = load ptr, ptr %m_solver.i.i209, align 8
+  %tobool.not.i.i210 = icmp eq ptr %65, null
   br i1 %tobool.not.i.i210, label %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit220, label %land.lhs.true.i.i211
 
 land.lhs.true.i.i211:                             ; preds = %land.lhs.true.i207
-  %m_drat.i.i212 = getelementptr inbounds i8, ptr %66, i64 352
-  %67 = load i8, ptr %m_drat.i.i212, align 8
-  %tobool3.i.i213 = trunc i8 %67 to i1
+  %m_drat.i.i212 = getelementptr inbounds i8, ptr %65, i64 352
+  %66 = load i8, ptr %m_drat.i.i212, align 8
+  %tobool3.i.i213 = trunc i8 %66 to i1
   br i1 %tobool3.i.i213, label %if.then.i214, label %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit220
 
 if.then.i214:                                     ; preds = %land.lhs.true.i.i211
@@ -9004,15 +8999,15 @@ _ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit220: ; preds = %_ZN8goal2s
   %arrayinit.element4.i224 = getelementptr inbounds i8, ptr %lits.i222, i64 8
   store i32 %xor.i98, ptr %arrayinit.element4.i224, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i221)
-  %68 = load i8, ptr %m_euf.i, align 1
-  %tobool.i.i.i226 = trunc i8 %68 to i1
+  %67 = load i8, ptr %m_euf.i, align 1
+  %tobool.i.i.i226 = trunc i8 %67 to i1
   br i1 %tobool.i.i.i226, label %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i232, label %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit239
 
 _ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i232: ; preds = %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit220
   %call.i.i.i233 = call noundef ptr @_ZN8goal2sat3imp10ensure_eufEv(ptr noundef nonnull align 8 dereferenceable(300) %this)
   %m_enabled.i.i.i.i.i234 = getelementptr inbounds i8, ptr %call.i.i.i233, i64 160
-  %69 = load i8, ptr %m_enabled.i.i.i.i.i234, align 8
-  %tobool.i.i.i.i.i235 = trunc i8 %69 to i1
+  %68 = load i8, ptr %m_enabled.i.i.i.i.i234, align 8
+  %tobool.i.i.i.i.i235 = trunc i8 %68 to i1
   br i1 %tobool.i.i.i.i.i235, label %if.then.i.i236, label %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit239
 
 if.then.i.i236:                                   ; preds = %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i232
@@ -9022,51 +9017,51 @@ if.then.i.i236:                                   ; preds = %_ZN8goal2sat3imp17r
   br label %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit239
 
 _ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit239: ; preds = %_ZN8goal2sat3imp10mk_tseitinEN3sat7literalES2_S2_.exit220, %_ZN8goal2sat3imp17relevancy_enabledEv.exit.i.i232, %if.then.i.i236
-  %70 = load ptr, ptr %m_solver.i.i111, align 8
+  %69 = load ptr, ptr %m_solver.i.i111, align 8
   store i32 1, ptr %agg.tmp.i.i221, align 8, !alias.scope !104
   %m_orig.i.i.i.i.i228 = getelementptr inbounds i8, ptr %agg.tmp.i.i221, i64 4
   store i32 0, ptr %m_orig.i.i.i.i.i228, align 4, !alias.scope !104
   %m_hint.i.i.i.i.i229 = getelementptr inbounds i8, ptr %agg.tmp.i.i221, i64 8
   store ptr %retval.0.i206, ptr %m_hint.i.i.i.i.i229, align 8, !alias.scope !104
-  %vtable.i.i230 = load ptr, ptr %70, align 8
+  %vtable.i.i230 = load ptr, ptr %69, align 8
   %vfn.i.i231 = getelementptr inbounds i8, ptr %vtable.i.i230, i64 16
-  %71 = load ptr, ptr %vfn.i.i231, align 8
-  call void %71(ptr noundef nonnull align 8 dereferenceable(16) %70, i32 noundef 3, ptr noundef nonnull %lits.i222, ptr noundef nonnull %agg.tmp.i.i221)
+  %70 = load ptr, ptr %vfn.i.i231, align 8
+  call void %70(ptr noundef nonnull align 8 dereferenceable(16) %69, i32 noundef 3, ptr noundef nonnull %lits.i222, ptr noundef nonnull %agg.tmp.i.i221)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i221)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lits.i222)
-  %72 = load ptr, ptr %m_solver.i.i111, align 8
-  %vtable.i = load ptr, ptr %72, align 8
+  %71 = load ptr, ptr %m_solver.i.i111, align 8
+  %vtable.i = load ptr, ptr %71, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 104
-  %73 = load ptr, ptr %vfn.i, align 8
-  %call.i240 = call noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(16) %72)
+  %72 = load ptr, ptr %vfn.i, align 8
+  %call.i240 = call noundef ptr %72(ptr noundef nonnull align 8 dereferenceable(16) %71)
   %tobool169.not = icmp eq ptr %call.i240, null
   br i1 %tobool169.not, label %if.end178, label %if.then170
 
 if.then170:                                       ; preds = %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit239
-  %74 = load ptr, ptr %m_solver.i.i111, align 8
-  %vtable.i242 = load ptr, ptr %74, align 8
+  %73 = load ptr, ptr %m_solver.i.i111, align 8
+  %vtable.i242 = load ptr, ptr %73, align 8
   %vfn.i243 = getelementptr inbounds i8, ptr %vtable.i242, i64 104
-  %75 = load ptr, ptr %vfn.i243, align 8
-  %call.i244 = call noundef ptr %75(ptr noundef nonnull align 8 dereferenceable(16) %74)
+  %74 = load ptr, ptr %vfn.i243, align 8
+  %call.i244 = call noundef ptr %74(ptr noundef nonnull align 8 dereferenceable(16) %73)
   call void @_ZN3sat14cut_simplifier7add_iffENS_7literalES1_S1_(ptr noundef nonnull align 8 dereferenceable(600) %call.i244, i32 %shl.i, i32 %l1.sroa.0.0, i32 %l2.sroa.0.0.copyload)
   br label %if.end178
 
 if.end178:                                        ; preds = %if.then170, %_ZN8goal2sat3imp9mk_clauseEN3sat7literalES2_S2_PN3euf13th_proof_hintE.exit239
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %76 = load ptr, ptr %vfn, align 8
-  call void %76(ptr noundef nonnull align 8 dereferenceable(300) %this, ptr noundef nonnull %t, i32 %shl.i)
+  %75 = load ptr, ptr %vfn, align 8
+  call void %75(ptr noundef nonnull align 8 dereferenceable(300) %this, ptr noundef nonnull %t, i32 %shl.i)
   %spec.select282 = select i1 %sign, i32 %xor.i97, i32 %shl.i
-  %77 = load ptr, ptr %m_result_stack, align 8
-  %cmp.i246 = icmp eq ptr %77, null
+  %76 = load ptr, ptr %m_result_stack, align 8
+  %cmp.i246 = icmp eq ptr %76, null
   br i1 %cmp.i246, label %if.then.i249, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end178
-  %arrayidx.i247 = getelementptr inbounds i8, ptr %77, i64 -4
-  %78 = load i32, ptr %arrayidx.i247, align 4
-  %arrayidx4.i = getelementptr inbounds i8, ptr %77, i64 -8
-  %79 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp eq i32 %78, %79
+  %arrayidx.i247 = getelementptr inbounds i8, ptr %76, i64 -4
+  %77 = load i32, ptr %arrayidx.i247, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %76, i64 -8
+  %78 = load i32, ptr %arrayidx4.i, align 4
+  %cmp5.i = icmp eq i32 %77, %78
   br i1 %cmp5.i, label %if.then.i249, label %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
 
 if.then.i249:                                     ; preds = %lor.lhs.false.i, %if.end178
@@ -9077,15 +9072,15 @@ if.then.i249:                                     ; preds = %lor.lhs.false.i, %i
   br label %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
 
 _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %lor.lhs.false.i, %if.then.i249
-  %80 = phi i32 [ %.pre1.i, %if.then.i249 ], [ %78, %lor.lhs.false.i ]
-  %81 = phi ptr [ %.pre.i, %if.then.i249 ], [ %77, %lor.lhs.false.i ]
-  %idx.ext.i = zext i32 %80 to i64
-  %add.ptr.i = getelementptr inbounds %"class.sat::literal", ptr %81, i64 %idx.ext.i
+  %79 = phi i32 [ %.pre1.i, %if.then.i249 ], [ %77, %lor.lhs.false.i ]
+  %80 = phi ptr [ %.pre.i, %if.then.i249 ], [ %76, %lor.lhs.false.i ]
+  %idx.ext.i = zext i32 %79 to i64
+  %add.ptr.i = getelementptr inbounds %"class.sat::literal", ptr %80, i64 %idx.ext.i
   store i32 %spec.select282, ptr %add.ptr.i, align 4
-  %82 = load ptr, ptr %m_result_stack, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %82, i64 -4
-  %83 = load i32, ptr %arrayidx10.i, align 4
-  %inc.i = add i32 %83, 1
+  %81 = load ptr, ptr %m_result_stack, align 8
+  %arrayidx10.i = getelementptr inbounds i8, ptr %81, i64 -4
+  %82 = load i32, ptr %arrayidx10.i, align 4
+  %inc.i = add i32 %82, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   br label %if.end186
 

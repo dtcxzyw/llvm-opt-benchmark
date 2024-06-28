@@ -806,15 +806,10 @@ entry:
   %shl = shl nuw nsw i32 1, %and
   %and3 = and i32 %shl, %conv
   %tobool4.not = icmp eq i32 %and3, 0
-  br i1 %tobool.not, label %if.then, label %if.else
+  %1 = xor i1 %tobool.not, %tobool4.not
+  br i1 %1, label %if.end55, label %if.end19
 
-if.then:                                          ; preds = %entry
-  br i1 %tobool4.not, label %if.end19, label %if.end55
-
-if.else:                                          ; preds = %entry
-  br i1 %tobool4.not, label %if.end55, label %if.end19
-
-if.end19:                                         ; preds = %if.else, %if.then
+if.end19:                                         ; preds = %entry
   %shr20 = ashr i32 %x, 5
   %shr21 = ashr i32 %y, 5
   %sub = add nsw i32 %shr20, -1
@@ -832,11 +827,11 @@ if.end19:                                         ; preds = %if.else, %if.then
   %shr31 = ashr i32 %x, 3
   %idxprom32 = sext i32 %shr31 to i64
   %arrayidx33 = getelementptr inbounds [1024 x [128 x i8]], ptr %map28, i64 0, i64 %idxprom29, i64 %idxprom32
-  %1 = load i8, ptr %arrayidx33, align 1
-  %2 = trunc nuw i32 %shl27 to i8
-  %3 = xor i8 %2, -1
-  %conv47 = and i8 %1, %3
-  %conv35 = or i8 %1, %2
+  %2 = load i8, ptr %arrayidx33, align 1
+  %3 = trunc nuw i32 %shl27 to i8
+  %4 = xor i8 %3, -1
+  %conv47 = and i8 %2, %4
+  %conv35 = or i8 %2, %3
   %conv47.sink = select i1 %tobool.not, i8 %conv35, i8 %conv47
   store i8 %conv47.sink, ptr %arrayidx33, align 1
   tail call void @stbcc__build_clumps_for_cluster(ptr noundef nonnull %g, i32 noundef %shr20, i32 noundef %shr21)
@@ -846,16 +841,16 @@ if.end19:                                         ; preds = %if.else, %if.then
 
 land.lhs.true.i:                                  ; preds = %if.end19
   %cw.i = getelementptr inbounds i8, ptr %g, i64 8
-  %4 = load i32, ptr %cw.i, align 4
-  %cmp1.i = icmp sge i32 %4, %shr20
+  %5 = load i32, ptr %cw.i, align 4
+  %cmp1.i = icmp sge i32 %5, %shr20
   %cmp3.i = icmp sgt i32 %shr21, -1
   %or.cond.i = and i1 %cmp3.i, %cmp1.i
   br i1 %or.cond.i, label %land.lhs.true4.i, label %land.lhs.true.i48
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   %ch.i = getelementptr inbounds i8, ptr %g, i64 12
-  %5 = load i32, ptr %ch.i, align 4
-  %cmp5.i = icmp sgt i32 %5, %shr21
+  %6 = load i32, ptr %ch.i, align 4
+  %cmp5.i = icmp sgt i32 %6, %shr21
   br i1 %cmp5.i, label %if.then.i, label %land.lhs.true.i48
 
 if.then.i:                                        ; preds = %land.lhs.true4.i
@@ -864,8 +859,8 @@ if.then.i:                                        ; preds = %land.lhs.true4.i
   %idxprom.i = zext nneg i32 %shr21 to i64
   %idxprom6.i = zext nneg i32 %sub to i64
   %rebuild_adjacency.i = getelementptr inbounds [32 x [32 x %struct.stbcc__cluster]], ptr %cluster.i, i64 0, i64 %idxprom.i, i64 %idxprom6.i, i32 2
-  %6 = load i8, ptr %rebuild_adjacency.i, align 1
-  %tobool.not.i = icmp eq i8 %6, 0
+  %7 = load i8, ptr %rebuild_adjacency.i, align 1
+  %tobool.not.i = icmp eq i8 %7, 0
   br i1 %tobool.not.i, label %land.lhs.true.i48, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then.i
@@ -878,16 +873,16 @@ stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit: ; preds = %if.end1
 
 land.lhs.true.i48:                                ; preds = %if.then8.i, %if.then.i, %land.lhs.true4.i, %land.lhs.true.i, %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit
   %cw.i49 = getelementptr inbounds i8, ptr %g, i64 8
-  %7 = load i32, ptr %cw.i49, align 4
-  %cmp1.i50 = icmp sgt i32 %7, %add
+  %8 = load i32, ptr %cw.i49, align 4
+  %cmp1.i50 = icmp sgt i32 %8, %add
   %cmp3.i51 = icmp sgt i32 %shr21, -1
   %or.cond.i52 = and i1 %cmp3.i51, %cmp1.i50
   br i1 %or.cond.i52, label %land.lhs.true4.i53, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit63
 
 land.lhs.true4.i53:                               ; preds = %land.lhs.true.i48
   %ch.i54 = getelementptr inbounds i8, ptr %g, i64 12
-  %8 = load i32, ptr %ch.i54, align 4
-  %cmp5.i55 = icmp sgt i32 %8, %shr21
+  %9 = load i32, ptr %ch.i54, align 4
+  %cmp5.i55 = icmp sgt i32 %9, %shr21
   br i1 %cmp5.i55, label %if.then.i56, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit63
 
 if.then.i56:                                      ; preds = %land.lhs.true4.i53
@@ -896,8 +891,8 @@ if.then.i56:                                      ; preds = %land.lhs.true4.i53
   %idxprom.i58 = zext nneg i32 %shr21 to i64
   %idxprom6.i59 = zext nneg i32 %add to i64
   %rebuild_adjacency.i60 = getelementptr inbounds [32 x [32 x %struct.stbcc__cluster]], ptr %cluster.i57, i64 0, i64 %idxprom.i58, i64 %idxprom6.i59, i32 2
-  %9 = load i8, ptr %rebuild_adjacency.i60, align 1
-  %tobool.not.i61 = icmp eq i8 %9, 0
+  %10 = load i8, ptr %rebuild_adjacency.i60, align 1
+  %tobool.not.i61 = icmp eq i8 %10, 0
   br i1 %tobool.not.i61, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit63, label %if.then8.i62
 
 if.then8.i62:                                     ; preds = %if.then.i56
@@ -909,16 +904,16 @@ stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit63: ; preds = %land.
   br i1 %cmp.i64, label %land.lhs.true.i65, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit97
 
 land.lhs.true.i65:                                ; preds = %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit63
-  %10 = load i32, ptr %cw.i49, align 4
-  %cmp1.i67 = icmp sgt i32 %10, %shr20
+  %11 = load i32, ptr %cw.i49, align 4
+  %cmp1.i67 = icmp sgt i32 %11, %shr20
   %cmp3.i68 = icmp sgt i32 %shr21, 0
   %or.cond.i69 = and i1 %cmp3.i68, %cmp1.i67
   br i1 %or.cond.i69, label %land.lhs.true4.i70, label %land.lhs.true.i82
 
 land.lhs.true4.i70:                               ; preds = %land.lhs.true.i65
   %ch.i71 = getelementptr inbounds i8, ptr %g, i64 12
-  %11 = load i32, ptr %ch.i71, align 4
-  %cmp5.i72.not = icmp slt i32 %11, %shr21
+  %12 = load i32, ptr %ch.i71, align 4
+  %cmp5.i72.not = icmp slt i32 %12, %shr21
   br i1 %cmp5.i72.not, label %land.lhs.true.i82, label %if.then.i73
 
 if.then.i73:                                      ; preds = %land.lhs.true4.i70
@@ -927,8 +922,8 @@ if.then.i73:                                      ; preds = %land.lhs.true4.i70
   %idxprom.i75 = zext nneg i32 %sub22 to i64
   %idxprom6.i76 = zext nneg i32 %shr20 to i64
   %rebuild_adjacency.i77 = getelementptr inbounds [32 x [32 x %struct.stbcc__cluster]], ptr %cluster.i74, i64 0, i64 %idxprom.i75, i64 %idxprom6.i76, i32 2
-  %12 = load i8, ptr %rebuild_adjacency.i77, align 1
-  %tobool.not.i78 = icmp eq i8 %12, 0
+  %13 = load i8, ptr %rebuild_adjacency.i77, align 1
+  %tobool.not.i78 = icmp eq i8 %13, 0
   br i1 %tobool.not.i78, label %land.lhs.true.i82, label %if.then8.i79
 
 if.then8.i79:                                     ; preds = %if.then.i73
@@ -936,16 +931,16 @@ if.then8.i79:                                     ; preds = %if.then.i73
   br label %land.lhs.true.i82
 
 land.lhs.true.i82:                                ; preds = %land.lhs.true.i65, %land.lhs.true4.i70, %if.then.i73, %if.then8.i79
-  %13 = load i32, ptr %cw.i49, align 4
-  %cmp1.i84 = icmp sgt i32 %13, %shr20
+  %14 = load i32, ptr %cw.i49, align 4
+  %cmp1.i84 = icmp sgt i32 %14, %shr20
   %cmp3.i85 = icmp sgt i32 %shr21, -2
   %or.cond.i86 = and i1 %cmp3.i85, %cmp1.i84
   br i1 %or.cond.i86, label %land.lhs.true4.i87, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit97
 
 land.lhs.true4.i87:                               ; preds = %land.lhs.true.i82
   %ch.i88 = getelementptr inbounds i8, ptr %g, i64 12
-  %14 = load i32, ptr %ch.i88, align 4
-  %cmp5.i89 = icmp sgt i32 %14, %add23
+  %15 = load i32, ptr %ch.i88, align 4
+  %cmp5.i89 = icmp sgt i32 %15, %add23
   br i1 %cmp5.i89, label %if.then.i90, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit97
 
 if.then.i90:                                      ; preds = %land.lhs.true4.i87
@@ -954,8 +949,8 @@ if.then.i90:                                      ; preds = %land.lhs.true4.i87
   %idxprom.i92 = zext nneg i32 %add23 to i64
   %idxprom6.i93 = zext nneg i32 %shr20 to i64
   %rebuild_adjacency.i94 = getelementptr inbounds [32 x [32 x %struct.stbcc__cluster]], ptr %cluster.i91, i64 0, i64 %idxprom.i92, i64 %idxprom6.i93, i32 2
-  %15 = load i8, ptr %rebuild_adjacency.i94, align 1
-  %tobool.not.i95 = icmp eq i8 %15, 0
+  %16 = load i8, ptr %rebuild_adjacency.i94, align 1
+  %tobool.not.i95 = icmp eq i8 %16, 0
   br i1 %tobool.not.i95, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit97, label %if.then8.i96
 
 if.then8.i96:                                     ; preds = %if.then.i90
@@ -964,15 +959,15 @@ if.then8.i96:                                     ; preds = %if.then.i90
 
 stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit97: ; preds = %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit63, %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit, %land.lhs.true.i82, %land.lhs.true4.i87, %if.then.i90, %if.then8.i96
   %in_batched_update = getelementptr inbounds i8, ptr %g, i64 16
-  %16 = load i32, ptr %in_batched_update, align 4
-  %tobool53.not = icmp eq i32 %16, 0
+  %17 = load i32, ptr %in_batched_update, align 4
+  %tobool53.not = icmp eq i32 %17, 0
   br i1 %tobool53.not, label %if.then54, label %if.end55
 
 if.then54:                                        ; preds = %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit97
   tail call void @stbcc__build_connected_components_for_clumps(ptr noundef nonnull %g)
   br label %if.end55
 
-if.end55:                                         ; preds = %if.else, %if.then, %if.then54, %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit97
+if.end55:                                         ; preds = %entry, %if.then54, %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit97
   ret void
 }
 

@@ -2974,7 +2974,7 @@ define internal fastcc void @azx_init_pci(ptr nocapture noundef readonly %0) unn
     i32 2, label %22
     i32 3, label %35
     i32 1, label %52
-    i32 0, label %75
+    i32 0, label %74
   ]
 
 22:                                               ; preds = %21
@@ -2994,7 +2994,7 @@ define internal fastcc void @azx_init_pci(ptr nocapture noundef readonly %0) unn
   store i8 %33, ptr %5, align 1
   %34 = call i32 @pci_write_config_byte(ptr noundef %24, i32 noundef 66, i8 noundef zeroext %33) #15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #15
-  br label %75
+  br label %74
 
 35:                                               ; preds = %21
   %36 = getelementptr inbounds i8, ptr %0, i64 1408
@@ -3025,7 +3025,7 @@ define internal fastcc void @azx_init_pci(ptr nocapture noundef readonly %0) unn
   store i8 %50, ptr %2, align 1
   %51 = call i32 @pci_write_config_byte(ptr noundef %47, i32 noundef 76, i8 noundef zeroext %50) #15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #15
-  br label %75
+  br label %74
 
 52:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #15
@@ -3040,34 +3040,29 @@ define internal fastcc void @azx_init_pci(ptr nocapture noundef readonly %0) unn
   %60 = load i16, ptr %7, align 2
   %61 = and i16 %60, 2048
   %62 = icmp eq i16 %61, 0
-  br i1 %59, label %63, label %64
-
-63:                                               ; preds = %52
-  br i1 %62, label %65, label %74
+  %63 = xor i1 %59, %62
+  br i1 %63, label %73, label %64
 
 64:                                               ; preds = %52
-  br i1 %62, label %74, label %65
+  %65 = and i16 %60, -2049
+  %66 = shl nuw nsw i16 %58, 6
+  %67 = or disjoint i16 %65, %66
+  %68 = xor i16 %67, 2048
+  store i16 %68, ptr %7, align 2
+  %69 = load ptr, ptr %53, align 8
+  %70 = call i32 @pci_write_config_word(ptr noundef %69, i32 noundef 120, i16 noundef zeroext %68) #15
+  %71 = load ptr, ptr %53, align 8
+  %72 = call i32 @pci_read_config_word(ptr noundef %71, i32 noundef 120, ptr noundef nonnull %7) #15
+  br label %73
 
-65:                                               ; preds = %64, %63
-  %66 = and i16 %60, -2049
-  %67 = shl nuw nsw i16 %58, 6
-  %68 = or disjoint i16 %66, %67
-  %69 = xor i16 %68, 2048
-  store i16 %69, ptr %7, align 2
-  %70 = load ptr, ptr %53, align 8
-  %71 = call i32 @pci_write_config_word(ptr noundef %70, i32 noundef 120, i16 noundef zeroext %69) #15
-  %72 = load ptr, ptr %53, align 8
-  %73 = call i32 @pci_read_config_word(ptr noundef %72, i32 noundef 120, ptr noundef nonnull %7) #15
-  br label %74
-
-74:                                               ; preds = %63, %65, %64
+73:                                               ; preds = %52, %64
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #15
-  br label %75
+  br label %74
 
 default.unreachable1:                             ; preds = %21
   unreachable
 
-75:                                               ; preds = %21, %74, %35, %22
+74:                                               ; preds = %21, %73, %35, %22
   ret void
 }
 

@@ -14483,20 +14483,15 @@ define hidden ptr @dom_get_ns(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   %.not21 = icmp eq i32 %10, 0
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(30) @.str.160) #20
   %.not22 = icmp eq i32 %11, 0
-  br i1 %.not21, label %12, label %.critedge.thread
+  %12 = xor i1 %.not21, %.not22
+  br i1 %12, label %.thread, label %.critedge25
 
-12:                                               ; preds = %9
-  br i1 %.not22, label %.critedge25, label %.thread
-
-.critedge.thread:                                 ; preds = %9
-  br i1 %.not22, label %.thread, label %.critedge25
-
-.critedge25:                                      ; preds = %12, %.critedge.thread, %4
+.critedge25:                                      ; preds = %9, %4
   %13 = tail call ptr @dom_get_ns_unchecked(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
 
-.thread:                                          ; preds = %.critedge.thread, %7, %12, %.critedge25
+.thread:                                          ; preds = %9, %7, %.critedge25
   br label %15
 
 15:                                               ; preds = %.critedge25, %.thread

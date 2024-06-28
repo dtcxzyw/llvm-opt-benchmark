@@ -491,7 +491,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @process_bit0(ptr nocapture 
   br label %44
 
 44:                                               ; preds = %58, %38
-  %45 = phi i32 [ 1, %38 ], [ %59, %58 ]
+  %45 = phi i32 [ 1, %38 ], [ %.pr.pre, %58 ]
   %46 = phi i32 [ %42, %38 ], [ %47, %58 ]
   %47 = shl i32 %46, 1
   %48 = and i32 %47, 256
@@ -502,62 +502,55 @@ define internal fastcc noundef range(i32 -1, 1) i32 @process_bit0(ptr nocapture 
   %53 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %52, ptr noundef nonnull %8) #12, !range !12
   %54 = icmp eq i32 %53, 0
   %55 = icmp eq i32 %48, 0
-  br i1 %54, label %57, label %56
-
-56:                                               ; preds = %44
-  br i1 %55, label %.loopexit3, label %58
-
-57:                                               ; preds = %44
-  br i1 %55, label %58, label %.loopexit3
-
-58:                                               ; preds = %56, %57
-  %59 = load i32, ptr %8, align 4
-  %60 = icmp slt i32 %59, 256
-  br i1 %60, label %44, label %.loopexit, !llvm.loop !13
-
-.loopexit3:                                       ; preds = %57, %56
+  %56 = xor i1 %54, %55
   %.pr.pre = load i32, ptr %8, align 4
-  %61 = icmp slt i32 %.pr.pre, 256
-  br i1 %61, label %.preheader.preheader, label %.loopexit
+  %57 = icmp slt i32 %.pr.pre, 256
+  br i1 %56, label %.loopexit3, label %58
+
+58:                                               ; preds = %44
+  br i1 %57, label %44, label %.loopexit, !llvm.loop !13
+
+.loopexit3:                                       ; preds = %44
+  br i1 %57, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %7, %.loopexit3
   %.ph = phi i32 [ 1, %7 ], [ %.pr.pre, %.loopexit3 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %62 = phi i32 [ %66, %.preheader ], [ %.ph, %.preheader.preheader ]
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr i16, ptr %35, i64 %63
-  %65 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %64, ptr noundef nonnull %8) #12, !range !12
-  %66 = load i32, ptr %8, align 4
-  %67 = icmp slt i32 %66, 256
-  br i1 %67, label %.preheader, label %.loopexit, !llvm.loop !14
+  %59 = phi i32 [ %63, %.preheader ], [ %.ph, %.preheader.preheader ]
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr i16, ptr %35, i64 %60
+  %62 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %61, ptr noundef nonnull %8) #12, !range !12
+  %63 = load i32, ptr %8, align 4
+  %64 = icmp slt i32 %63, 256
+  br i1 %64, label %.preheader, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %58, %.preheader, %.loopexit3
-  %68 = phi i32 [ %.pr.pre, %.loopexit3 ], [ %66, %.preheader ], [ %59, %58 ]
-  %69 = load i32, ptr %2, align 4
-  %70 = icmp slt i32 %69, 4
-  br i1 %70, label %77, label %71
+  %65 = phi i32 [ %.pr.pre, %.loopexit3 ], [ %63, %.preheader ], [ %.pr.pre, %58 ]
+  %66 = load i32, ptr %2, align 4
+  %67 = icmp slt i32 %66, 4
+  br i1 %67, label %74, label %68
 
-71:                                               ; preds = %.loopexit
-  %72 = icmp ult i32 %69, 10
-  br i1 %72, label %73, label %75
+68:                                               ; preds = %.loopexit
+  %69 = icmp ult i32 %66, 10
+  br i1 %69, label %70, label %72
 
-73:                                               ; preds = %71
-  %74 = add nsw i32 %69, -3
-  br label %77
+70:                                               ; preds = %68
+  %71 = add nsw i32 %66, -3
+  br label %74
 
-75:                                               ; preds = %71
-  %76 = add nsw i32 %69, -6
-  br label %77
+72:                                               ; preds = %68
+  %73 = add nsw i32 %66, -6
+  br label %74
 
-77:                                               ; preds = %75, %73, %.loopexit
-  %78 = phi i32 [ %74, %73 ], [ %76, %75 ], [ 0, %.loopexit ]
-  store i32 %78, ptr %2, align 4
-  %79 = trunc i32 %68 to i8
-  %80 = tail call fastcc i32 @write_byte(ptr noundef %0, i8 noundef zeroext %79) #12, !range !15
+74:                                               ; preds = %72, %70, %.loopexit
+  %75 = phi i32 [ %71, %70 ], [ %73, %72 ], [ 0, %.loopexit ]
+  store i32 %75, ptr %2, align 4
+  %76 = trunc i32 %65 to i8
+  %77 = tail call fastcc i32 @write_byte(ptr noundef %0, i8 noundef zeroext %76) #12, !range !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
-  ret i32 %80
+  ret i32 %77
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid optsize

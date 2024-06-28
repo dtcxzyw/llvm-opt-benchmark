@@ -1018,13 +1018,13 @@ define dso_local i32 @SpGistGetBuffer(ptr noundef %0, i32 noundef %1, i32 nounde
 29:                                               ; preds = %19
   store i8 1, ptr %3, align 1
   %30 = tail call fastcc i32 @allocNewBuffer(ptr noundef nonnull %0, i32 noundef %1)
-  br label %110
+  br label %108
 
 31:                                               ; preds = %19
   %32 = getelementptr inbounds i8, ptr %26, i64 4
   %33 = load i32, ptr %32, align 4
   %.not60 = icmp slt i32 %33, %22
-  br i1 %.not60, label %108, label %34
+  br i1 %.not60, label %106, label %34
 
 34:                                               ; preds = %31
   %35 = tail call i32 @ReadBuffer(ptr noundef nonnull %0, i32 noundef %27) #9
@@ -1035,7 +1035,7 @@ define dso_local i32 @SpGistGetBuffer(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @ReleaseBuffer(i32 noundef %35) #9
   store i8 1, ptr %3, align 1
   %38 = tail call fastcc i32 @allocNewBuffer(ptr noundef nonnull %0, i32 noundef %1)
-  br label %110
+  br label %108
 
 39:                                               ; preds = %34
   %40 = icmp slt i32 %35, 0
@@ -1121,57 +1121,47 @@ SpGistInitBuffer.exit:                            ; preds = %71, %77
   %90 = sub i32 %89, %22
   store i32 %90, ptr %32, align 4
   store i8 1, ptr %3, align 1
-  br label %110
+  br label %108
 
 91:                                               ; preds = %62
   %92 = and i32 %1, 3
   %93 = icmp eq i32 %92, 3
   %94 = and i16 %60, 4
   %.not63 = icmp eq i16 %94, 0
-  br i1 %93, label %95, label %96
-
-95:                                               ; preds = %91
-  br i1 %.not63, label %107, label %97
+  %95 = xor i1 %93, %.not63
+  br i1 %95, label %96, label %105
 
 96:                                               ; preds = %91
-  br i1 %.not63, label %97, label %107
+  %97 = and i32 %1, 4
+  %.not64 = icmp eq i32 %97, 0
+  %98 = and i16 %60, 8
+  %.not65 = icmp eq i16 %98, 0
+  %99 = xor i1 %.not64, %.not65
+  br i1 %99, label %105, label %100
 
-97:                                               ; preds = %96, %95
-  %98 = and i32 %1, 4
-  %.not64 = icmp eq i32 %98, 0
-  %99 = and i16 %60, 8
-  %.not65 = icmp eq i16 %99, 0
-  br i1 %.not64, label %101, label %100
+100:                                              ; preds = %96
+  %101 = tail call i64 @PageGetExactFreeSpace(ptr noundef nonnull %.0.i.i) #9
+  %102 = trunc i64 %101 to i32
+  %.not67 = icmp sgt i32 %22, %102
+  br i1 %.not67, label %105, label %103
 
-100:                                              ; preds = %97
-  br i1 %.not65, label %107, label %102
-
-101:                                              ; preds = %97
-  br i1 %.not65, label %102, label %107
-
-102:                                              ; preds = %101, %100
-  %103 = tail call i64 @PageGetExactFreeSpace(ptr noundef nonnull %.0.i.i) #9
-  %104 = trunc i64 %103 to i32
-  %.not67 = icmp sgt i32 %22, %104
-  br i1 %.not67, label %107, label %105
-
-105:                                              ; preds = %102
-  %106 = sub nsw i32 %104, %22
-  store i32 %106, ptr %32, align 4
+103:                                              ; preds = %100
+  %104 = sub nsw i32 %102, %22
+  store i32 %104, ptr %32, align 4
   store i8 0, ptr %3, align 1
-  br label %110
-
-107:                                              ; preds = %102, %101, %100, %96, %95
-  tail call void @UnlockReleaseBuffer(i32 noundef %35) #9
   br label %108
 
-108:                                              ; preds = %107, %31
-  store i8 1, ptr %3, align 1
-  %109 = tail call fastcc i32 @allocNewBuffer(ptr noundef nonnull %0, i32 noundef %1)
-  br label %110
+105:                                              ; preds = %96, %91, %100
+  tail call void @UnlockReleaseBuffer(i32 noundef %35) #9
+  br label %106
 
-110:                                              ; preds = %108, %105, %SpGistInitBuffer.exit, %37, %29
-  %.0 = phi i32 [ %30, %29 ], [ %35, %SpGistInitBuffer.exit ], [ %35, %105 ], [ %109, %108 ], [ %38, %37 ]
+106:                                              ; preds = %105, %31
+  store i8 1, ptr %3, align 1
+  %107 = tail call fastcc i32 @allocNewBuffer(ptr noundef nonnull %0, i32 noundef %1)
+  br label %108
+
+108:                                              ; preds = %106, %103, %SpGistInitBuffer.exit, %37, %29
+  %.0 = phi i32 [ %30, %29 ], [ %35, %SpGistInitBuffer.exit ], [ %35, %103 ], [ %107, %106 ], [ %38, %37 ]
   ret i32 %.0
 }
 

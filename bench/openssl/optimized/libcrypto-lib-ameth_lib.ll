@@ -278,23 +278,18 @@ entry:
   %1 = load i64, ptr %pkey_flags, align 8
   %and = and i64 %1, 1
   %cmp1.not = icmp eq i64 %and, 0
-  br i1 %cmp, label %land.lhs.true, label %land.lhs.true4
+  %2 = xor i1 %cmp, %cmp1.not
+  br i1 %2, label %if.end, label %if.then
 
-land.lhs.true:                                    ; preds = %entry
-  br i1 %cmp1.not, label %if.then, label %if.end
-
-land.lhs.true4:                                   ; preds = %entry
-  br i1 %cmp1.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %land.lhs.true, %land.lhs.true4
+if.then:                                          ; preds = %entry
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 158, ptr noundef nonnull @__func__.EVP_PKEY_asn1_add0) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 524550, ptr noundef null) #10
   br label %return
 
-if.end:                                           ; preds = %land.lhs.true4, %land.lhs.true
-  %2 = load ptr, ptr @app_methods, align 8
-  %cmp8 = icmp eq ptr %2, null
+if.end:                                           ; preds = %entry
+  %3 = load ptr, ptr @app_methods, align 8
+  %cmp8 = icmp eq ptr %3, null
   br i1 %cmp8, label %if.then9, label %if.end13
 
 if.then9:                                         ; preds = %if.end
@@ -304,10 +299,10 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp10, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.then9, %if.end
-  %3 = phi ptr [ %call.i, %if.then9 ], [ %2, %if.end ]
-  %4 = load i32, ptr %ameth, align 8
-  store i32 %4, ptr %tmp, align 8
-  %call.i6 = call i32 @OPENSSL_sk_find(ptr noundef nonnull %3, ptr noundef nonnull %tmp) #10
+  %4 = phi ptr [ %call.i, %if.then9 ], [ %3, %if.end ]
+  %5 = load i32, ptr %ameth, align 8
+  store i32 %5, ptr %tmp, align 8
+  %call.i6 = call i32 @OPENSSL_sk_find(ptr noundef nonnull %4, ptr noundef nonnull %tmp) #10
   %cmp16 = icmp sgt i32 %call.i6, -1
   br i1 %cmp16, label %if.then17, label %if.end18
 
@@ -318,14 +313,14 @@ if.then17:                                        ; preds = %if.end13
   br label %return
 
 if.end18:                                         ; preds = %if.end13
-  %5 = load ptr, ptr @app_methods, align 8
-  %call.i7 = call i32 @OPENSSL_sk_push(ptr noundef %5, ptr noundef nonnull %ameth) #10
+  %6 = load ptr, ptr @app_methods, align 8
+  %call.i7 = call i32 @OPENSSL_sk_push(ptr noundef %6, ptr noundef nonnull %ameth) #10
   %tobool.not = icmp eq i32 %call.i7, 0
   br i1 %tobool.not, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end18
-  %6 = load ptr, ptr @app_methods, align 8
-  call void @OPENSSL_sk_sort(ptr noundef %6) #10
+  %7 = load ptr, ptr @app_methods, align 8
+  call void @OPENSSL_sk_sort(ptr noundef %7) #10
   br label %return
 
 return:                                           ; preds = %if.end18, %if.then9, %if.end21, %if.then17, %if.then
