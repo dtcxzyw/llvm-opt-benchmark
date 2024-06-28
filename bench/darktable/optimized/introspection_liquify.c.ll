@@ -1165,11 +1165,11 @@ define internal fastcc noundef range(i32 0, 2) i32 @_distort_xtransform(ptr noca
   %49 = fadd reassoc nsz arcp contract afn <4 x double> %48, <double -5.000000e-01, double -5.000000e-01, double 2.500000e+00, double 2.500000e+00>
   %50 = fptosi <4 x double> %49 to <4 x i32>
   store <4 x i32> %50, ptr %6, align 16, !tbaa !7
-  %51 = shufflevector <4 x i32> %50, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
-  %52 = icmp sgt <2 x i32> %51, zeroinitializer
-  %53 = extractelement <2 x i1> %52, i64 0
-  %54 = extractelement <2 x i1> %52, i64 1
-  %55 = select i1 %53, i1 %54, i1 false
+  %51 = extractelement <4 x i32> %50, i64 2
+  %52 = icmp sgt i32 %51, 0
+  %53 = extractelement <4 x i32> %50, i64 3
+  %54 = icmp sgt i32 %53, 0
+  %55 = select i1 %52, i1 %54, i1 false
   br i1 %55, label %85, label %228
 
 56:                                               ; preds = %56, %16
