@@ -3153,6 +3153,8 @@ _ZN15b2GrowableStackIiLi256EE4PushERKi.exit:
   %0 = load i32, ptr %this, align 8
   store i32 %0, ptr %m_array.i, align 8
   %m_nodes = getelementptr inbounds i8, ptr %this, i64 8
+  %y.i.i = getelementptr inbounds i8, ptr %aabb, i64 4
+  %y2.i6.i = getelementptr inbounds i8, ptr %aabb, i64 12
   %upperBound3.i = getelementptr inbounds i8, ptr %aabb, i64 8
   %callback.i = getelementptr inbounds i8, ptr %callback, i64 8
   br label %while.body
@@ -3189,44 +3191,46 @@ if.end:                                           ; preds = %while.body
   %idx.ext = sext i32 %3 to i64
   %add.ptr = getelementptr inbounds %struct.b2TreeNode, ptr %5, i64 %idx.ext
   %upperBound.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %6 = load <2 x float>, ptr %aabb, align 4
-  %7 = load <2 x float>, ptr %upperBound.i, align 4
-  %8 = fsub <2 x float> %6, %7
-  %9 = fcmp ogt <2 x float> %8, zeroinitializer
-  %10 = extractelement <2 x i1> %9, i64 0
-  %11 = extractelement <2 x i1> %9, i64 1
-  %or.cond.i = select i1 %10, i1 true, i1 %11
+  %6 = load float, ptr %aabb, align 4
+  %7 = load float, ptr %upperBound.i, align 4
+  %8 = load float, ptr %y.i.i, align 4
+  %y2.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %9 = load float, ptr %y2.i.i, align 4
+  %cmp.i14 = fcmp ogt float %6, %7
+  %cmp5.i = fcmp ogt float %8, %9
+  %or.cond.i = select i1 %cmp.i14, i1 true, i1 %cmp5.i
   br i1 %or.cond.i, label %while.condthread-pre-split, label %invoke.cont7, !llvm.loop !46
 
 invoke.cont7:                                     ; preds = %if.end
-  %12 = load <2 x float>, ptr %add.ptr, align 4
-  %13 = load <2 x float>, ptr %upperBound3.i, align 4
-  %14 = fsub <2 x float> %12, %13
-  %15 = fcmp ule <2 x float> %14, zeroinitializer
-  %16 = extractelement <2 x i1> %15, i64 0
-  %17 = extractelement <2 x i1> %15, i64 1
-  %or.cond1.not.i = select i1 %16, i1 %17, i1 false
+  %y.i5.i = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %10 = load float, ptr %y.i5.i, align 4
+  %11 = load float, ptr %y2.i6.i, align 4
+  %12 = load float, ptr %add.ptr, align 4
+  %13 = load float, ptr %upperBound3.i, align 4
+  %cmp7.i = fcmp ule float %12, %13
+  %cmp10.i = fcmp ule float %10, %11
+  %or.cond1.not.i = select i1 %cmp7.i, i1 %cmp10.i, i1 false
   br i1 %or.cond1.not.i, label %if.then9, label %while.condthread-pre-split, !llvm.loop !46
 
 if.then9:                                         ; preds = %invoke.cont7
   %child1.i = getelementptr inbounds i8, ptr %add.ptr, i64 28
-  %18 = load i32, ptr %child1.i, align 4
-  %cmp.i15 = icmp eq i32 %18, -1
+  %14 = load i32, ptr %child1.i, align 4
+  %cmp.i15 = icmp eq i32 %14, -1
   br i1 %cmp.i15, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.then9
-  %19 = load ptr, ptr %callback, align 8
-  %m_nodes.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load ptr, ptr %m_nodes.i.i.i, align 8
-  %userData.i.i.i = getelementptr inbounds %struct.b2TreeNode, ptr %20, i64 %idx.ext, i32 1
-  %21 = load ptr, ptr %userData.i.i.i, align 8
-  %22 = load ptr, ptr %callback.i, align 8
-  %fixture.i = getelementptr inbounds i8, ptr %21, i64 16
-  %23 = load ptr, ptr %fixture.i, align 8
-  %vtable.i = load ptr, ptr %22, align 8
+  %15 = load ptr, ptr %callback, align 8
+  %m_nodes.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load ptr, ptr %m_nodes.i.i.i, align 8
+  %userData.i.i.i = getelementptr inbounds %struct.b2TreeNode, ptr %16, i64 %idx.ext, i32 1
+  %17 = load ptr, ptr %userData.i.i.i, align 8
+  %18 = load ptr, ptr %callback.i, align 8
+  %fixture.i = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = load ptr, ptr %fixture.i, align 8
+  %vtable.i = load ptr, ptr %18, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %24 = load ptr, ptr %vfn.i, align 8
-  %call2.i16 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %23)
+  %20 = load ptr, ptr %vfn.i, align 8
+  %call2.i16 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %19)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.then12
@@ -3236,8 +3240,8 @@ invoke.cont13:                                    ; preds = %if.then12
   br i1 %or.cond, label %while.body.backedge, label %cleanup
 
 if.else:                                          ; preds = %if.then9
-  %25 = load i32, ptr %m_capacity.i, align 4
-  %cmp.i19 = icmp eq i32 %dec.i, %25
+  %21 = load i32, ptr %m_capacity.i, align 4
+  %cmp.i19 = icmp eq i32 %dec.i, %21
   br i1 %cmp.i19, label %if.then.i23, label %invoke.cont18
 
 if.then.i23:                                      ; preds = %if.else
@@ -3249,8 +3253,8 @@ if.then.i23:                                      ; preds = %if.else
 
 call.i.i.noexc31:                                 ; preds = %if.then.i23
   store ptr %call.i.i32, ptr %stack, align 8
-  %26 = load i32, ptr %m_count.i, align 8
-  %conv9.i26 = sext i32 %26 to i64
+  %22 = load i32, ptr %m_count.i, align 8
+  %conv9.i26 = sext i32 %22 to i64
   %mul10.i27 = shl nsw i64 %conv9.i26, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i32, ptr nonnull align 4 %1, i64 %mul10.i27, i1 false)
   %cmp11.not.i29 = icmp eq ptr %1, %m_array.i
@@ -3261,22 +3265,22 @@ if.then12.i30:                                    ; preds = %call.i.i.noexc31
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %call.i.i.noexc31, %if.else, %if.then12.i30
-  %27 = load i32, ptr %child1.i, align 4
-  %28 = load ptr, ptr %stack, align 8
-  %29 = load i32, ptr %m_count.i, align 8
-  %idxprom.i20 = sext i32 %29 to i64
-  %arrayidx.i21 = getelementptr inbounds i32, ptr %28, i64 %idxprom.i20
-  store i32 %27, ptr %arrayidx.i21, align 4
-  %30 = load i32, ptr %m_count.i, align 8
-  %inc.i22 = add nsw i32 %30, 1
+  %23 = load i32, ptr %child1.i, align 4
+  %24 = load ptr, ptr %stack, align 8
+  %25 = load i32, ptr %m_count.i, align 8
+  %idxprom.i20 = sext i32 %25 to i64
+  %arrayidx.i21 = getelementptr inbounds i32, ptr %24, i64 %idxprom.i20
+  store i32 %23, ptr %arrayidx.i21, align 4
+  %26 = load i32, ptr %m_count.i, align 8
+  %inc.i22 = add nsw i32 %26, 1
   store i32 %inc.i22, ptr %m_count.i, align 8
   %child2 = getelementptr inbounds i8, ptr %add.ptr, i64 32
-  %31 = load i32, ptr %m_capacity.i, align 4
-  %cmp.i37 = icmp eq i32 %inc.i22, %31
+  %27 = load i32, ptr %m_capacity.i, align 4
+  %cmp.i37 = icmp eq i32 %inc.i22, %27
   br i1 %cmp.i37, label %if.then.i41, label %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit52
 
 if.then.i41:                                      ; preds = %invoke.cont18
-  %32 = load ptr, ptr %stack, align 8
+  %28 = load ptr, ptr %stack, align 8
   %mul.i42 = shl nsw i32 %inc.i22, 1
   store i32 %mul.i42, ptr %m_capacity.i, align 4
   %mul4.i43 = shl i32 %inc.i22, 3
@@ -3285,43 +3289,43 @@ if.then.i41:                                      ; preds = %invoke.cont18
 
 call.i.i.noexc49:                                 ; preds = %if.then.i41
   store ptr %call.i.i50, ptr %stack, align 8
-  %33 = load i32, ptr %m_count.i, align 8
-  %conv9.i44 = sext i32 %33 to i64
+  %29 = load i32, ptr %m_count.i, align 8
+  %conv9.i44 = sext i32 %29 to i64
   %mul10.i45 = shl nsw i64 %conv9.i44, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i50, ptr align 4 %32, i64 %mul10.i45, i1 false)
-  %cmp11.not.i47 = icmp eq ptr %32, %m_array.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i50, ptr align 4 %28, i64 %mul10.i45, i1 false)
+  %cmp11.not.i47 = icmp eq ptr %28, %m_array.i
   br i1 %cmp11.not.i47, label %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit52, label %if.then12.i48
 
 if.then12.i48:                                    ; preds = %call.i.i.noexc49
-  invoke void @_Z14b2Free_DefaultPv(ptr noundef %32)
+  invoke void @_Z14b2Free_DefaultPv(ptr noundef %28)
           to label %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit52 unwind label %lpad
 
 _ZN15b2GrowableStackIiLi256EE4PushERKi.exit52:    ; preds = %if.then12.i48, %invoke.cont18, %call.i.i.noexc49
-  %34 = load i32, ptr %child2, align 4
-  %35 = load ptr, ptr %stack, align 8
-  %36 = load i32, ptr %m_count.i, align 8
-  %idxprom.i38 = sext i32 %36 to i64
-  %arrayidx.i39 = getelementptr inbounds i32, ptr %35, i64 %idxprom.i38
-  store i32 %34, ptr %arrayidx.i39, align 4
-  %37 = load i32, ptr %m_count.i, align 8
-  %inc.i40 = add nsw i32 %37, 1
+  %30 = load i32, ptr %child2, align 4
+  %31 = load ptr, ptr %stack, align 8
+  %32 = load i32, ptr %m_count.i, align 8
+  %idxprom.i38 = sext i32 %32 to i64
+  %arrayidx.i39 = getelementptr inbounds i32, ptr %31, i64 %idxprom.i38
+  store i32 %30, ptr %arrayidx.i39, align 4
+  %33 = load i32, ptr %m_count.i, align 8
+  %inc.i40 = add nsw i32 %33, 1
   store i32 %inc.i40, ptr %m_count.i, align 8
   br label %while.condthread-pre-split, !llvm.loop !46
 
 cleanup:                                          ; preds = %while.condthread-pre-split, %invoke.cont13
-  %38 = load ptr, ptr %stack, align 8
-  %cmp.not.i = icmp eq ptr %38, %m_array.i
+  %34 = load ptr, ptr %stack, align 8
+  %cmp.not.i = icmp eq ptr %34, %m_array.i
   br i1 %cmp.not.i, label %_ZN15b2GrowableStackIiLi256EED2Ev.exit, label %if.then.i54
 
 if.then.i54:                                      ; preds = %cleanup
-  invoke void @_Z14b2Free_DefaultPv(ptr noundef %38)
+  invoke void @_Z14b2Free_DefaultPv(ptr noundef %34)
           to label %_ZN15b2GrowableStackIiLi256EED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i54
-  %39 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #16
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #16
   unreachable
 
 _ZN15b2GrowableStackIiLi256EED2Ev.exit:           ; preds = %if.then.i54, %cleanup
@@ -3381,14 +3385,14 @@ entry:
   %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> zeroinitializer
   %8 = fmul <2 x float> %2, %7
   %r.sroa.0.0 = select i1 %cmp.i, <2 x float> %2, <2 x float> %8
-  %r.sroa.0.4.vec.extract191 = extractelement <2 x float> %r.sroa.0.0, i64 1
-  %mul.i17 = fneg float %r.sroa.0.4.vec.extract191
-  %r.sroa.0.0.vec.extract188 = extractelement <2 x float> %r.sroa.0.0, i64 0
-  %cmp.i.i = fcmp olt float %r.sroa.0.4.vec.extract191, 0.000000e+00
-  %cond.i.i = select i1 %cmp.i.i, float %mul.i17, float %r.sroa.0.4.vec.extract191
-  %cmp.i2.i = fcmp ogt float %r.sroa.0.0.vec.extract188, 0.000000e+00
-  %fneg.i3.i = fneg float %r.sroa.0.0.vec.extract188
-  %cond.i4.i = select i1 %cmp.i2.i, float %r.sroa.0.0.vec.extract188, float %fneg.i3.i
+  %r.sroa.0.4.vec.extract189 = extractelement <2 x float> %r.sroa.0.0, i64 1
+  %mul.i17 = fneg float %r.sroa.0.4.vec.extract189
+  %r.sroa.0.0.vec.extract186 = extractelement <2 x float> %r.sroa.0.0, i64 0
+  %cmp.i.i = fcmp olt float %r.sroa.0.4.vec.extract189, 0.000000e+00
+  %cond.i.i = select i1 %cmp.i.i, float %mul.i17, float %r.sroa.0.4.vec.extract189
+  %cmp.i2.i = fcmp ogt float %r.sroa.0.0.vec.extract186, 0.000000e+00
+  %fneg.i3.i = fneg float %r.sroa.0.0.vec.extract186
+  %cond.i4.i = select i1 %cmp.i2.i, float %r.sroa.0.0.vec.extract186, float %fneg.i3.i
   %maxFraction7 = getelementptr inbounds i8, ptr %input, i64 16
   %9 = load float, ptr %maxFraction7, align 4
   %10 = insertelement <2 x float> poison, float %9, i64 0
@@ -3416,24 +3420,24 @@ entry:
   br label %while.body
 
 while.condthread-pre-splitthread-pre-split:       ; preds = %invoke.cont31, %invoke.cont19, %while.body, %if.end53, %invoke.cont70, %if.end
-  %segmentAABB.sroa.0.0.ph.ph = phi <2 x float> [ %segmentAABB.sroa.0.0215, %if.end ], [ %segmentAABB.sroa.0.0215, %if.end53 ], [ %70, %invoke.cont70 ], [ %segmentAABB.sroa.0.0215, %while.body ], [ %segmentAABB.sroa.0.0215, %invoke.cont31 ], [ %segmentAABB.sroa.0.0215, %invoke.cont19 ]
-  %segmentAABB.sroa.4.0.ph.ph = phi <2 x float> [ %segmentAABB.sroa.4.0216, %if.end ], [ %segmentAABB.sroa.4.0216, %if.end53 ], [ %72, %invoke.cont70 ], [ %segmentAABB.sroa.4.0216, %while.body ], [ %segmentAABB.sroa.4.0216, %invoke.cont31 ], [ %segmentAABB.sroa.4.0216, %invoke.cont19 ]
-  %maxFraction.0.ph.ph = phi float [ %maxFraction.0217, %if.end ], [ %maxFraction.0217, %if.end53 ], [ %retval.0.i92, %invoke.cont70 ], [ %maxFraction.0217, %while.body ], [ %maxFraction.0217, %invoke.cont31 ], [ %maxFraction.0217, %invoke.cont19 ]
+  %segmentAABB.sroa.0.0.ph.ph = phi <2 x float> [ %segmentAABB.sroa.0.0213, %if.end ], [ %segmentAABB.sroa.0.0213, %if.end53 ], [ %60, %invoke.cont70 ], [ %segmentAABB.sroa.0.0213, %while.body ], [ %segmentAABB.sroa.0.0213, %invoke.cont31 ], [ %segmentAABB.sroa.0.0213, %invoke.cont19 ]
+  %segmentAABB.sroa.4.0.ph.ph = phi <2 x float> [ %segmentAABB.sroa.4.0214, %if.end ], [ %segmentAABB.sroa.4.0214, %if.end53 ], [ %62, %invoke.cont70 ], [ %segmentAABB.sroa.4.0214, %while.body ], [ %segmentAABB.sroa.4.0214, %invoke.cont31 ], [ %segmentAABB.sroa.4.0214, %invoke.cont19 ]
+  %maxFraction.0.ph.ph = phi float [ %maxFraction.0215, %if.end ], [ %maxFraction.0215, %if.end53 ], [ %retval.0.i90, %invoke.cont70 ], [ %maxFraction.0215, %while.body ], [ %maxFraction.0215, %invoke.cont31 ], [ %maxFraction.0215, %invoke.cont19 ]
   %.pr.pr = load i32, ptr %m_count.i, align 8
   br label %while.condthread-pre-split
 
-while.condthread-pre-split:                       ; preds = %while.condthread-pre-splitthread-pre-split, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit170
-  %.pr = phi i32 [ %.pr.pr, %while.condthread-pre-splitthread-pre-split ], [ %inc.i158, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit170 ]
-  %segmentAABB.sroa.0.0.ph = phi <2 x float> [ %segmentAABB.sroa.0.0.ph.ph, %while.condthread-pre-splitthread-pre-split ], [ %segmentAABB.sroa.0.0215, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit170 ]
-  %segmentAABB.sroa.4.0.ph = phi <2 x float> [ %segmentAABB.sroa.4.0.ph.ph, %while.condthread-pre-splitthread-pre-split ], [ %segmentAABB.sroa.4.0216, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit170 ]
-  %maxFraction.0.ph = phi float [ %maxFraction.0.ph.ph, %while.condthread-pre-splitthread-pre-split ], [ %maxFraction.0217, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit170 ]
+while.condthread-pre-split:                       ; preds = %while.condthread-pre-splitthread-pre-split, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168
+  %.pr = phi i32 [ %.pr.pr, %while.condthread-pre-splitthread-pre-split ], [ %inc.i156, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168 ]
+  %segmentAABB.sroa.0.0.ph = phi <2 x float> [ %segmentAABB.sroa.0.0.ph.ph, %while.condthread-pre-splitthread-pre-split ], [ %segmentAABB.sroa.0.0213, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168 ]
+  %segmentAABB.sroa.4.0.ph = phi <2 x float> [ %segmentAABB.sroa.4.0.ph.ph, %while.condthread-pre-splitthread-pre-split ], [ %segmentAABB.sroa.4.0214, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168 ]
+  %maxFraction.0.ph = phi float [ %maxFraction.0.ph.ph, %while.condthread-pre-splitthread-pre-split ], [ %maxFraction.0215, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168 ]
   %cmp = icmp sgt i32 %.pr, 0
   br i1 %cmp, label %while.body, label %cleanup
 
 while.body:                                       ; preds = %entry, %while.condthread-pre-split
-  %maxFraction.0217 = phi float [ %9, %entry ], [ %maxFraction.0.ph, %while.condthread-pre-split ]
-  %segmentAABB.sroa.4.0216 = phi <2 x float> [ %17, %entry ], [ %segmentAABB.sroa.4.0.ph, %while.condthread-pre-split ]
-  %segmentAABB.sroa.0.0215 = phi <2 x float> [ %15, %entry ], [ %segmentAABB.sroa.0.0.ph, %while.condthread-pre-split ]
+  %maxFraction.0215 = phi float [ %9, %entry ], [ %maxFraction.0.ph, %while.condthread-pre-split ]
+  %segmentAABB.sroa.4.0214 = phi <2 x float> [ %17, %entry ], [ %segmentAABB.sroa.4.0.ph, %while.condthread-pre-split ]
+  %segmentAABB.sroa.0.0213 = phi <2 x float> [ %15, %entry ], [ %segmentAABB.sroa.0.0.ph, %while.condthread-pre-split ]
   %21 = phi i32 [ 1, %entry ], [ %.pr, %while.condthread-pre-split ]
   %dec.i = add nsw i32 %21, -1
   store i32 %dec.i, ptr %m_count.i, align 8
@@ -3444,7 +3448,7 @@ while.body:                                       ; preds = %entry, %while.condt
   %cmp18 = icmp eq i32 %23, -1
   br i1 %cmp18, label %while.condthread-pre-splitthread-pre-split, label %if.end, !llvm.loop !47
 
-lpad:                                             ; preds = %if.then12.i166, %if.then.i159, %if.then12.i148, %if.then.i141, %if.then.i93, %if.then43
+lpad:                                             ; preds = %if.then12.i164, %if.then.i157, %if.then12.i146, %if.then.i139, %if.then.i91, %if.then43
   %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN15b2GrowableStackIiLi256EED2Ev(ptr noundef nonnull align 8 dereferenceable(1040) %stack) #15
@@ -3455,220 +3459,219 @@ if.end:                                           ; preds = %while.body
   %idx.ext = sext i32 %23 to i64
   %add.ptr = getelementptr inbounds %struct.b2TreeNode, ptr %25, i64 %idx.ext
   %upperBound.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %26 = load <2 x float>, ptr %upperBound.i, align 4
-  %27 = fsub <2 x float> %segmentAABB.sroa.0.0215, %26
-  %28 = fcmp ogt <2 x float> %27, zeroinitializer
-  %29 = extractelement <2 x i1> %28, i64 0
-  %30 = extractelement <2 x i1> %28, i64 1
-  %or.cond.i = select i1 %29, i1 true, i1 %30
+  %segmentAABB.sroa.0.0.vec.extract = extractelement <2 x float> %segmentAABB.sroa.0.0213, i64 0
+  %26 = load float, ptr %upperBound.i, align 4
+  %segmentAABB.sroa.0.4.vec.extract = extractelement <2 x float> %segmentAABB.sroa.0.0213, i64 1
+  %y2.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %27 = load float, ptr %y2.i.i, align 4
+  %cmp.i63 = fcmp ogt float %segmentAABB.sroa.0.0.vec.extract, %26
+  %cmp5.i = fcmp ogt float %segmentAABB.sroa.0.4.vec.extract, %27
+  %or.cond.i = select i1 %cmp.i63, i1 true, i1 %cmp5.i
   br i1 %or.cond.i, label %while.condthread-pre-splitthread-pre-split, label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %if.end
-  %31 = load <2 x float>, ptr %add.ptr, align 4
-  %32 = fsub <2 x float> %31, %segmentAABB.sroa.4.0216
-  %33 = fcmp ule <2 x float> %32, zeroinitializer
-  %34 = extractelement <2 x i1> %33, i64 0
-  %35 = extractelement <2 x i1> %33, i64 1
-  %or.cond1.not.i = select i1 %34, i1 %35, i1 false
+  %y.i5.i = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %28 = load float, ptr %y.i5.i, align 4
+  %segmentAABB.sroa.4.12.vec.extract = extractelement <2 x float> %segmentAABB.sroa.4.0214, i64 1
+  %29 = load float, ptr %add.ptr, align 4
+  %segmentAABB.sroa.4.8.vec.extract = extractelement <2 x float> %segmentAABB.sroa.4.0214, i64 0
+  %cmp7.i = fcmp ule float %29, %segmentAABB.sroa.4.8.vec.extract
+  %cmp10.i = fcmp ule float %28, %segmentAABB.sroa.4.12.vec.extract
+  %or.cond1.not.i = select i1 %cmp7.i, i1 %cmp10.i, i1 false
   br i1 %or.cond1.not.i, label %invoke.cont31, label %while.condthread-pre-splitthread-pre-split, !llvm.loop !47
 
 invoke.cont31:                                    ; preds = %invoke.cont19
-  %36 = fadd <2 x float> %26, %31
-  %add.i.i = extractelement <2 x float> %36, i64 0
-  %37 = extractelement <2 x float> %31, i64 1
-  %38 = extractelement <2 x float> %26, i64 1
-  %add3.i.i = fadd float %38, %37
+  %add.i.i = fadd float %26, %29
+  %add3.i.i = fadd float %27, %28
   %mul.i.i = fmul float %add.i.i, 5.000000e-01
   %mul1.i.i = fmul float %add3.i.i, 5.000000e-01
-  %39 = fsub <2 x float> %26, %31
-  %sub.i.i70 = extractelement <2 x float> %39, i64 0
-  %sub3.i.i73 = fsub float %38, %37
-  %mul.i.i74 = fmul float %sub.i.i70, 5.000000e-01
-  %mul1.i.i75 = fmul float %sub3.i.i73, 5.000000e-01
-  %sub.i78 = fsub float %19, %mul.i.i
-  %sub3.i81 = fsub float %20, %mul1.i.i
-  %mul3.i = fmul float %r.sroa.0.0.vec.extract188, %sub3.i81
-  %40 = call noundef float @llvm.fmuladd.f32(float %mul.i17, float %sub.i78, float %mul3.i)
-  %cmp.i86 = fcmp ogt float %40, 0.000000e+00
-  %fneg.i = fneg float %40
-  %cond.i = select i1 %cmp.i86, float %40, float %fneg.i
-  %mul3.i89 = fmul float %cond.i4.i, %mul1.i.i75
-  %41 = call noundef float @llvm.fmuladd.f32(float %cond.i.i, float %mul.i.i74, float %mul3.i89)
-  %sub = fsub float %cond.i, %41
-  %cmp39 = fcmp ogt float %sub, 0.000000e+00
+  %sub.i.i = fsub float %26, %29
+  %sub3.i.i = fsub float %27, %28
+  %mul.i.i72 = fmul float %sub.i.i, 5.000000e-01
+  %mul1.i.i73 = fmul float %sub3.i.i, 5.000000e-01
+  %sub.i76 = fsub float %19, %mul.i.i
+  %sub3.i79 = fsub float %20, %mul1.i.i
+  %mul3.i = fmul float %r.sroa.0.0.vec.extract186, %sub3.i79
+  %30 = call noundef float @llvm.fmuladd.f32(float %mul.i17, float %sub.i76, float %mul3.i)
+  %cmp.i84 = fcmp ogt float %30, 0.000000e+00
+  %fneg.i = fneg float %30
+  %cond.i = select i1 %cmp.i84, float %30, float %fneg.i
+  %mul3.i87 = fmul float %cond.i4.i, %mul1.i.i73
+  %31 = call noundef float @llvm.fmuladd.f32(float %cond.i.i, float %mul.i.i72, float %mul3.i87)
+  %cmp39 = fcmp ogt float %cond.i, %31
   br i1 %cmp39, label %while.condthread-pre-splitthread-pre-split, label %if.end41, !llvm.loop !47
 
 if.end41:                                         ; preds = %invoke.cont31
   %child1.i = getelementptr inbounds i8, ptr %add.ptr, i64 28
-  %42 = load i32, ptr %child1.i, align 4
-  %cmp.i90 = icmp eq i32 %42, -1
-  br i1 %cmp.i90, label %if.then43, label %if.else
+  %32 = load i32, ptr %child1.i, align 4
+  %cmp.i88 = icmp eq i32 %32, -1
+  br i1 %cmp.i88, label %if.then43, label %if.else
 
 if.then43:                                        ; preds = %if.end41
-  %43 = load <2 x i64>, ptr %input, align 4
-  store <2 x i64> %43, ptr %subInput, align 16
-  store float %maxFraction.0217, ptr %maxFraction48, align 16
+  %33 = load <2 x i64>, ptr %input, align 4
+  store <2 x i64> %33, ptr %subInput, align 16
+  store float %maxFraction.0215, ptr %maxFraction48, align 16
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %output.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %point.i)
-  %44 = load ptr, ptr %callback, align 8
-  %m_nodes.i.i.i = getelementptr inbounds i8, ptr %44, i64 8
-  %45 = load ptr, ptr %m_nodes.i.i.i, align 8
-  %userData.i.i.i = getelementptr inbounds %struct.b2TreeNode, ptr %45, i64 %idx.ext, i32 1
-  %46 = load ptr, ptr %userData.i.i.i, align 8
-  %fixture2.i = getelementptr inbounds i8, ptr %46, i64 16
-  %47 = load ptr, ptr %fixture2.i, align 8
-  %childIndex.i = getelementptr inbounds i8, ptr %46, i64 24
-  %48 = load i32, ptr %childIndex.i, align 8
-  %m_shape.i.i = getelementptr inbounds i8, ptr %47, i64 24
-  %49 = load ptr, ptr %m_shape.i.i, align 8
-  %m_body.i.i = getelementptr inbounds i8, ptr %47, i64 16
-  %50 = load ptr, ptr %m_body.i.i, align 8
-  %m_xf.i.i.i = getelementptr inbounds i8, ptr %50, i64 12
-  %vtable.i.i = load ptr, ptr %49, align 8
+  %34 = load ptr, ptr %callback, align 8
+  %m_nodes.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = load ptr, ptr %m_nodes.i.i.i, align 8
+  %userData.i.i.i = getelementptr inbounds %struct.b2TreeNode, ptr %35, i64 %idx.ext, i32 1
+  %36 = load ptr, ptr %userData.i.i.i, align 8
+  %fixture2.i = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = load ptr, ptr %fixture2.i, align 8
+  %childIndex.i = getelementptr inbounds i8, ptr %36, i64 24
+  %38 = load i32, ptr %childIndex.i, align 8
+  %m_shape.i.i = getelementptr inbounds i8, ptr %37, i64 24
+  %39 = load ptr, ptr %m_shape.i.i, align 8
+  %m_body.i.i = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %m_body.i.i, align 8
+  %m_xf.i.i.i = getelementptr inbounds i8, ptr %40, i64 12
+  %vtable.i.i = load ptr, ptr %39, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 40
-  %51 = load ptr, ptr %vfn.i.i, align 8
-  %call2.i.i100 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull %output.i, ptr noundef nonnull align 4 dereferenceable(20) %subInput, ptr noundef nonnull align 4 dereferenceable(16) %m_xf.i.i.i, i32 noundef %48)
+  %41 = load ptr, ptr %vfn.i.i, align 8
+  %call2.i.i98 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull %output.i, ptr noundef nonnull align 4 dereferenceable(20) %subInput, ptr noundef nonnull align 4 dereferenceable(16) %m_xf.i.i.i, i32 noundef %38)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %if.then43
-  br i1 %call2.i.i100, label %if.then.i93, label %if.end.i91
+  br i1 %call2.i.i98, label %if.then.i91, label %if.end.i89
 
-if.then.i93:                                      ; preds = %call2.i.i.noexc
-  %52 = load float, ptr %fraction4.i, align 4
-  %sub.i94 = fsub float 1.000000e+00, %52
-  %53 = load <2 x float>, ptr %subInput, align 16
-  %54 = insertelement <2 x float> poison, float %sub.i94, i64 0
-  %55 = shufflevector <2 x float> %54, <2 x float> poison, <2 x i32> zeroinitializer
-  %56 = fmul <2 x float> %53, %55
-  %57 = load <2 x float>, ptr %p247, align 8
-  %58 = insertelement <2 x float> poison, float %52, i64 0
-  %59 = shufflevector <2 x float> %58, <2 x float> poison, <2 x i32> zeroinitializer
-  %60 = fmul <2 x float> %59, %57
-  %61 = fadd <2 x float> %56, %60
-  store <2 x float> %61, ptr %point.i, align 8
-  %62 = load ptr, ptr %callback.i, align 8
-  %vtable.i = load ptr, ptr %62, align 8
+if.then.i91:                                      ; preds = %call2.i.i.noexc
+  %42 = load float, ptr %fraction4.i, align 4
+  %sub.i92 = fsub float 1.000000e+00, %42
+  %43 = load <2 x float>, ptr %subInput, align 16
+  %44 = insertelement <2 x float> poison, float %sub.i92, i64 0
+  %45 = shufflevector <2 x float> %44, <2 x float> poison, <2 x i32> zeroinitializer
+  %46 = fmul <2 x float> %43, %45
+  %47 = load <2 x float>, ptr %p247, align 8
+  %48 = insertelement <2 x float> poison, float %42, i64 0
+  %49 = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> zeroinitializer
+  %50 = fmul <2 x float> %49, %47
+  %51 = fadd <2 x float> %46, %50
+  store <2 x float> %51, ptr %point.i, align 8
+  %52 = load ptr, ptr %callback.i, align 8
+  %vtable.i = load ptr, ptr %52, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %63 = load ptr, ptr %vfn.i, align 8
-  %call9.i101 = invoke noundef float %63(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull %47, ptr noundef nonnull align 4 dereferenceable(8) %point.i, ptr noundef nonnull align 4 dereferenceable(8) %output.i, float noundef %52)
+  %53 = load ptr, ptr %vfn.i, align 8
+  %call9.i99 = invoke noundef float %53(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull %37, ptr noundef nonnull align 4 dereferenceable(8) %point.i, ptr noundef nonnull align 4 dereferenceable(8) %output.i, float noundef %42)
           to label %invoke.cont49 unwind label %lpad
 
-if.end.i91:                                       ; preds = %call2.i.i.noexc
-  %64 = load float, ptr %maxFraction48, align 16
+if.end.i89:                                       ; preds = %call2.i.i.noexc
+  %54 = load float, ptr %maxFraction48, align 16
   br label %invoke.cont49
 
-invoke.cont49:                                    ; preds = %if.end.i91, %if.then.i93
-  %retval.0.i92 = phi float [ %64, %if.end.i91 ], [ %call9.i101, %if.then.i93 ]
+invoke.cont49:                                    ; preds = %if.end.i89, %if.then.i91
+  %retval.0.i90 = phi float [ %54, %if.end.i89 ], [ %call9.i99, %if.then.i91 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %output.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %point.i)
-  %cmp51 = fcmp oeq float %retval.0.i92, 0.000000e+00
+  %cmp51 = fcmp oeq float %retval.0.i90, 0.000000e+00
   br i1 %cmp51, label %cleanup, label %if.end53
 
 if.end53:                                         ; preds = %invoke.cont49
-  %cmp54 = fcmp ogt float %retval.0.i92, 0.000000e+00
+  %cmp54 = fcmp ogt float %retval.0.i90, 0.000000e+00
   br i1 %cmp54, label %invoke.cont70, label %while.condthread-pre-splitthread-pre-split, !llvm.loop !47
 
 invoke.cont70:                                    ; preds = %if.end53
-  %65 = insertelement <2 x float> poison, float %retval.0.i92, i64 0
-  %66 = shufflevector <2 x float> %65, <2 x float> poison, <2 x i32> zeroinitializer
-  %67 = fmul <2 x float> %2, %66
-  %68 = fadd <2 x float> %0, %67
-  %69 = fcmp olt <2 x float> %0, %68
-  %70 = select <2 x i1> %69, <2 x float> %0, <2 x float> %68
-  %71 = fcmp ogt <2 x float> %0, %68
-  %72 = select <2 x i1> %71, <2 x float> %0, <2 x float> %68
+  %55 = insertelement <2 x float> poison, float %retval.0.i90, i64 0
+  %56 = shufflevector <2 x float> %55, <2 x float> poison, <2 x i32> zeroinitializer
+  %57 = fmul <2 x float> %2, %56
+  %58 = fadd <2 x float> %0, %57
+  %59 = fcmp olt <2 x float> %0, %58
+  %60 = select <2 x i1> %59, <2 x float> %0, <2 x float> %58
+  %61 = fcmp ogt <2 x float> %0, %58
+  %62 = select <2 x i1> %61, <2 x float> %0, <2 x float> %58
   br label %while.condthread-pre-splitthread-pre-split, !llvm.loop !47
 
 if.else:                                          ; preds = %if.end41
-  %73 = load i32, ptr %m_capacity.i, align 4
-  %cmp.i137 = icmp eq i32 %dec.i, %73
-  br i1 %cmp.i137, label %if.then.i141, label %invoke.cont74
+  %63 = load i32, ptr %m_capacity.i, align 4
+  %cmp.i135 = icmp eq i32 %dec.i, %63
+  br i1 %cmp.i135, label %if.then.i139, label %invoke.cont74
 
-if.then.i141:                                     ; preds = %if.else
-  %mul.i142 = shl nuw nsw i32 %dec.i, 1
-  store i32 %mul.i142, ptr %m_capacity.i, align 4
-  %mul4.i143 = shl i32 %dec.i, 3
-  %call.i.i150 = invoke noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef %mul4.i143)
-          to label %call.i.i.noexc149 unwind label %lpad
+if.then.i139:                                     ; preds = %if.else
+  %mul.i140 = shl nuw nsw i32 %dec.i, 1
+  store i32 %mul.i140, ptr %m_capacity.i, align 4
+  %mul4.i141 = shl i32 %dec.i, 3
+  %call.i.i148 = invoke noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef %mul4.i141)
+          to label %call.i.i.noexc147 unwind label %lpad
 
-call.i.i.noexc149:                                ; preds = %if.then.i141
-  store ptr %call.i.i150, ptr %stack, align 8
-  %74 = load i32, ptr %m_count.i, align 8
-  %conv9.i144 = sext i32 %74 to i64
-  %mul10.i145 = shl nsw i64 %conv9.i144, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i150, ptr nonnull align 4 %22, i64 %mul10.i145, i1 false)
-  %cmp11.not.i147 = icmp eq ptr %22, %m_array.i
-  br i1 %cmp11.not.i147, label %invoke.cont74, label %if.then12.i148
+call.i.i.noexc147:                                ; preds = %if.then.i139
+  store ptr %call.i.i148, ptr %stack, align 8
+  %64 = load i32, ptr %m_count.i, align 8
+  %conv9.i142 = sext i32 %64 to i64
+  %mul10.i143 = shl nsw i64 %conv9.i142, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i148, ptr nonnull align 4 %22, i64 %mul10.i143, i1 false)
+  %cmp11.not.i145 = icmp eq ptr %22, %m_array.i
+  br i1 %cmp11.not.i145, label %invoke.cont74, label %if.then12.i146
 
-if.then12.i148:                                   ; preds = %call.i.i.noexc149
+if.then12.i146:                                   ; preds = %call.i.i.noexc147
   invoke void @_Z14b2Free_DefaultPv(ptr noundef nonnull %22)
           to label %invoke.cont74 unwind label %lpad
 
-invoke.cont74:                                    ; preds = %call.i.i.noexc149, %if.else, %if.then12.i148
-  %75 = load i32, ptr %child1.i, align 4
-  %76 = load ptr, ptr %stack, align 8
-  %77 = load i32, ptr %m_count.i, align 8
-  %idxprom.i138 = sext i32 %77 to i64
-  %arrayidx.i139 = getelementptr inbounds i32, ptr %76, i64 %idxprom.i138
-  store i32 %75, ptr %arrayidx.i139, align 4
-  %78 = load i32, ptr %m_count.i, align 8
-  %inc.i140 = add nsw i32 %78, 1
-  store i32 %inc.i140, ptr %m_count.i, align 8
+invoke.cont74:                                    ; preds = %call.i.i.noexc147, %if.else, %if.then12.i146
+  %65 = load i32, ptr %child1.i, align 4
+  %66 = load ptr, ptr %stack, align 8
+  %67 = load i32, ptr %m_count.i, align 8
+  %idxprom.i136 = sext i32 %67 to i64
+  %arrayidx.i137 = getelementptr inbounds i32, ptr %66, i64 %idxprom.i136
+  store i32 %65, ptr %arrayidx.i137, align 4
+  %68 = load i32, ptr %m_count.i, align 8
+  %inc.i138 = add nsw i32 %68, 1
+  store i32 %inc.i138, ptr %m_count.i, align 8
   %child2 = getelementptr inbounds i8, ptr %add.ptr, i64 32
-  %79 = load i32, ptr %m_capacity.i, align 4
-  %cmp.i155 = icmp eq i32 %inc.i140, %79
-  br i1 %cmp.i155, label %if.then.i159, label %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit170
+  %69 = load i32, ptr %m_capacity.i, align 4
+  %cmp.i153 = icmp eq i32 %inc.i138, %69
+  br i1 %cmp.i153, label %if.then.i157, label %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168
 
-if.then.i159:                                     ; preds = %invoke.cont74
-  %80 = load ptr, ptr %stack, align 8
-  %mul.i160 = shl nsw i32 %inc.i140, 1
-  store i32 %mul.i160, ptr %m_capacity.i, align 4
-  %mul4.i161 = shl i32 %inc.i140, 3
-  %call.i.i168 = invoke noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef %mul4.i161)
-          to label %call.i.i.noexc167 unwind label %lpad
+if.then.i157:                                     ; preds = %invoke.cont74
+  %70 = load ptr, ptr %stack, align 8
+  %mul.i158 = shl nsw i32 %inc.i138, 1
+  store i32 %mul.i158, ptr %m_capacity.i, align 4
+  %mul4.i159 = shl i32 %inc.i138, 3
+  %call.i.i166 = invoke noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef %mul4.i159)
+          to label %call.i.i.noexc165 unwind label %lpad
 
-call.i.i.noexc167:                                ; preds = %if.then.i159
-  store ptr %call.i.i168, ptr %stack, align 8
-  %81 = load i32, ptr %m_count.i, align 8
-  %conv9.i162 = sext i32 %81 to i64
-  %mul10.i163 = shl nsw i64 %conv9.i162, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i168, ptr align 4 %80, i64 %mul10.i163, i1 false)
-  %cmp11.not.i165 = icmp eq ptr %80, %m_array.i
-  br i1 %cmp11.not.i165, label %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit170, label %if.then12.i166
+call.i.i.noexc165:                                ; preds = %if.then.i157
+  store ptr %call.i.i166, ptr %stack, align 8
+  %71 = load i32, ptr %m_count.i, align 8
+  %conv9.i160 = sext i32 %71 to i64
+  %mul10.i161 = shl nsw i64 %conv9.i160, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i166, ptr align 4 %70, i64 %mul10.i161, i1 false)
+  %cmp11.not.i163 = icmp eq ptr %70, %m_array.i
+  br i1 %cmp11.not.i163, label %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168, label %if.then12.i164
 
-if.then12.i166:                                   ; preds = %call.i.i.noexc167
-  invoke void @_Z14b2Free_DefaultPv(ptr noundef %80)
-          to label %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit170 unwind label %lpad
+if.then12.i164:                                   ; preds = %call.i.i.noexc165
+  invoke void @_Z14b2Free_DefaultPv(ptr noundef %70)
+          to label %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168 unwind label %lpad
 
-_ZN15b2GrowableStackIiLi256EE4PushERKi.exit170:   ; preds = %if.then12.i166, %invoke.cont74, %call.i.i.noexc167
-  %82 = load i32, ptr %child2, align 4
-  %83 = load ptr, ptr %stack, align 8
-  %84 = load i32, ptr %m_count.i, align 8
-  %idxprom.i156 = sext i32 %84 to i64
-  %arrayidx.i157 = getelementptr inbounds i32, ptr %83, i64 %idxprom.i156
-  store i32 %82, ptr %arrayidx.i157, align 4
-  %85 = load i32, ptr %m_count.i, align 8
-  %inc.i158 = add nsw i32 %85, 1
-  store i32 %inc.i158, ptr %m_count.i, align 8
+_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168:   ; preds = %if.then12.i164, %invoke.cont74, %call.i.i.noexc165
+  %72 = load i32, ptr %child2, align 4
+  %73 = load ptr, ptr %stack, align 8
+  %74 = load i32, ptr %m_count.i, align 8
+  %idxprom.i154 = sext i32 %74 to i64
+  %arrayidx.i155 = getelementptr inbounds i32, ptr %73, i64 %idxprom.i154
+  store i32 %72, ptr %arrayidx.i155, align 4
+  %75 = load i32, ptr %m_count.i, align 8
+  %inc.i156 = add nsw i32 %75, 1
+  store i32 %inc.i156, ptr %m_count.i, align 8
   br label %while.condthread-pre-split, !llvm.loop !47
 
 cleanup:                                          ; preds = %while.condthread-pre-split, %invoke.cont49
-  %86 = load ptr, ptr %stack, align 8
-  %cmp.not.i = icmp eq ptr %86, %m_array.i
-  br i1 %cmp.not.i, label %_ZN15b2GrowableStackIiLi256EED2Ev.exit, label %if.then.i172
+  %76 = load ptr, ptr %stack, align 8
+  %cmp.not.i = icmp eq ptr %76, %m_array.i
+  br i1 %cmp.not.i, label %_ZN15b2GrowableStackIiLi256EED2Ev.exit, label %if.then.i170
 
-if.then.i172:                                     ; preds = %cleanup
-  invoke void @_Z14b2Free_DefaultPv(ptr noundef %86)
+if.then.i170:                                     ; preds = %cleanup
+  invoke void @_Z14b2Free_DefaultPv(ptr noundef %76)
           to label %_ZN15b2GrowableStackIiLi256EED2Ev.exit unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %if.then.i172
-  %87 = landingpad { ptr, i32 }
+terminate.lpad.i:                                 ; preds = %if.then.i170
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #16
+  %78 = extractvalue { ptr, i32 } %77, 0
+  call void @__clang_call_terminate(ptr %78) #16
   unreachable
 
-_ZN15b2GrowableStackIiLi256EED2Ev.exit:           ; preds = %if.then.i172, %cleanup
+_ZN15b2GrowableStackIiLi256EED2Ev.exit:           ; preds = %if.then.i170, %cleanup
   ret void
 }
 

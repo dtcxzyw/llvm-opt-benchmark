@@ -10,12 +10,11 @@ define float @ceilf(float noundef %0) local_unnamed_addr #0 {
   %3 = call float @modff(float noundef %0, ptr noundef nonnull %2) #2
   %4 = fcmp ule float %0, 0.000000e+00
   %.pre = load float, ptr %2, align 4
-  %5 = fsub float %0, %.pre
-  %6 = fcmp ueq float %5, 0.000000e+00
-  %or.cond = select i1 %4, i1 true, i1 %6
-  %7 = fadd float %.pre, 1.000000e+00
-  %8 = select i1 %or.cond, float %.pre, float %7
-  ret float %8
+  %5 = fcmp ueq float %.pre, %0
+  %or.cond = select i1 %4, i1 true, i1 %5
+  %6 = fadd float %.pre, 1.000000e+00
+  %7 = select i1 %or.cond, float %.pre, float %6
+  ret float %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)

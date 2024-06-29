@@ -569,22 +569,21 @@ pmix_obj_run_destructors.exit218:                 ; preds = %.lr.ph.i215, %203
   %257 = fdiv float %254, %256
   %258 = fptosi float %257 to i32
   %259 = sitofp i32 %258 to float
-  %260 = fsub float %257, %259
-  %261 = fcmp ogt float %260, 0.000000e+00
-  br i1 %261, label %262, label %.backedge
+  %260 = fcmp ogt float %257, %259
+  br i1 %260, label %261, label %.backedge
 
-262:                                              ; preds = %251
-  %263 = load volatile i64, ptr %62, align 8
-  %264 = trunc i64 %263 to i32
-  %265 = mul i32 %264, %258
-  %266 = add i32 %.1163.lcssa, %265
-  %267 = sub i32 %252, %266
-  %268 = add nsw i32 %258, 1
+261:                                              ; preds = %251
+  %262 = load volatile i64, ptr %62, align 8
+  %263 = trunc i64 %262 to i32
+  %264 = mul i32 %263, %258
+  %265 = add i32 %.1163.lcssa, %264
+  %266 = sub i32 %252, %265
+  %267 = add nsw i32 %258, 1
   br label %.backedge
 
-.backedge:                                        ; preds = %262, %251
-  %.0155.be = phi i32 [ %268, %262 ], [ %258, %251 ]
-  %.0154.be = phi i32 [ %267, %262 ], [ %.1.lcssa, %251 ]
+.backedge:                                        ; preds = %261, %251
+  %.0155.be = phi i32 [ %267, %261 ], [ %258, %251 ]
+  %.0154.be = phi i32 [ %266, %261 ], [ %.1.lcssa, %251 ]
   br label %63
 
 .loopexit:                                        ; preds = %.critedge, %84, %.loopexit221, %.thread, %43, %27
@@ -1128,7 +1127,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bycpu(ptr noundef %0, ptr noundef %1
   %33 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1, i32 noundef %23, ptr noundef %31, ptr noundef %32) #9
   %34 = load i32, ptr @prte_exit_status, align 4
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %288
+  br i1 %35, label %36, label %287
 
 36:                                               ; preds = %29
   %37 = load i32, ptr @prte_debug_output, align 4
@@ -1149,7 +1148,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bycpu(ptr noundef %0, ptr noundef %1
 
 45:                                               ; preds = %43, %38, %36
   store i32 1, ptr @prte_exit_status, align 4
-  br label %288
+  br label %287
 
 46:                                               ; preds = %25
   %47 = getelementptr inbounds i8, ptr %0, i64 472
@@ -1188,12 +1187,12 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bycpu(ptr noundef %0, ptr noundef %1
   %71 = getelementptr inbounds i8, ptr %2, i64 264
   br label %72
 
-72:                                               ; preds = %276, %53
-  %.0184 = phi i32 [ 0, %53 ], [ %.1185.lcssa, %276 ]
-  %.0178 = phi i32 [ undef, %53 ], [ %.1179.lcssa, %276 ]
-  %.0176.not = phi i1 [ true, %53 ], [ false, %276 ]
-  %.0172 = phi i32 [ 0, %53 ], [ %.3175, %276 ]
-  %.0171 = phi i32 [ 0, %53 ], [ %.3, %276 ]
+72:                                               ; preds = %275, %53
+  %.0184 = phi i32 [ 0, %53 ], [ %.1185.lcssa, %275 ]
+  %.0178 = phi i32 [ undef, %53 ], [ %.1179.lcssa, %275 ]
+  %.0176.not = phi i1 [ true, %53 ], [ false, %275 ]
+  %.0172 = phi i32 [ 0, %53 ], [ %.3175, %275 ]
+  %.0171 = phi i32 [ 0, %53 ], [ %.3, %275 ]
   %73 = load ptr, ptr %61, align 8
   %.not213293 = icmp eq ptr %73, %60
   br i1 %.not213293, label %._crit_edge, label %.lr.ph300
@@ -1567,11 +1566,11 @@ pmix_obj_run_destructors.exit246:                 ; preds = %.lr.ph.i243, %214
 
 240:                                              ; preds = %239, %237
   %.not227 = icmp eq ptr %59, null
-  br i1 %.not227, label %288, label %241
+  br i1 %.not227, label %287, label %241
 
 241:                                              ; preds = %240
   tail call void @free(ptr noundef nonnull %59) #9
-  br label %288
+  br label %287
 
 242:                                              ; preds = %.critedge
   br i1 %.not225, label %244, label %243
@@ -1629,66 +1628,65 @@ pmix_obj_run_destructors.exit246:                 ; preds = %.lr.ph.i243, %214
   %261 = fdiv float %258, %260
   %262 = fptosi float %261 to i32
   %263 = sitofp i32 %262 to float
-  %264 = fsub float %261, %263
-  %265 = fcmp ogt float %264, 0.000000e+00
-  br i1 %265, label %266, label %273
+  %264 = fcmp ogt float %261, %263
+  br i1 %264, label %265, label %272
 
-266:                                              ; preds = %255
-  %267 = load volatile i64, ptr %71, align 8
-  %268 = trunc i64 %267 to i32
-  %269 = mul i32 %268, %262
-  %270 = add i32 %.1185.lcssa, %269
-  %271 = sub i32 %256, %270
-  %272 = add nsw i32 %262, 1
-  br label %273
+265:                                              ; preds = %255
+  %266 = load volatile i64, ptr %71, align 8
+  %267 = trunc i64 %266 to i32
+  %268 = mul i32 %267, %262
+  %269 = add i32 %.1185.lcssa, %268
+  %270 = sub i32 %256, %269
+  %271 = add nsw i32 %262, 1
+  br label %272
 
-273:                                              ; preds = %266, %255
-  %.3175 = phi i32 [ %272, %266 ], [ %262, %255 ]
-  %.3 = phi i32 [ %271, %266 ], [ %.1.lcssa, %255 ]
-  %274 = load ptr, ptr %54, align 8
-  %.not214 = icmp eq ptr %274, null
-  br i1 %.not214, label %276, label %275
+272:                                              ; preds = %265, %255
+  %.3175 = phi i32 [ %271, %265 ], [ %262, %255 ]
+  %.3 = phi i32 [ %270, %265 ], [ %.1.lcssa, %255 ]
+  %273 = load ptr, ptr %54, align 8
+  %.not214 = icmp eq ptr %273, null
+  br i1 %.not214, label %275, label %274
 
-275:                                              ; preds = %273
-  tail call void @free(ptr noundef nonnull %274) #9
-  br label %276
+274:                                              ; preds = %272
+  tail call void @free(ptr noundef nonnull %273) #9
+  br label %275
 
-276:                                              ; preds = %275, %273
-  %277 = tail call noalias ptr @strdup(ptr noundef %59) #9
-  store ptr %277, ptr %54, align 8
+275:                                              ; preds = %274, %272
+  %276 = tail call noalias ptr @strdup(ptr noundef %59) #9
+  store ptr %276, ptr %54, align 8
   br label %72
 
 .loopexit:                                        ; preds = %._crit_edge, %202, %204, %185
   %.5 = phi i32 [ %156, %185 ], [ %156, %204 ], [ %156, %202 ], [ %.1179.lcssa, %._crit_edge ]
   %.not228 = icmp eq i32 %.5, -43
-  br i1 %.not228, label %.thread, label %278
+  br i1 %.not228, label %.thread, label %277
 
-278:                                              ; preds = %.loopexit
-  %279 = icmp eq ptr %1, null
-  br i1 %279, label %.thread250, label %280
+277:                                              ; preds = %.loopexit
+  %278 = icmp eq ptr %1, null
+  br i1 %278, label %.thread250, label %279
 
-280:                                              ; preds = %278
-  %281 = getelementptr inbounds i8, ptr %1, i64 136
-  %282 = load ptr, ptr %281, align 8
-  %283 = load i32, ptr %22, align 8
+279:                                              ; preds = %277
+  %280 = getelementptr inbounds i8, ptr %1, i64 136
+  %281 = load ptr, ptr %280, align 8
+  %282 = load i32, ptr %22, align 8
   br label %.thread250
 
-.thread250:                                       ; preds = %278, %280
-  %284 = phi ptr [ %282, %280 ], [ @.str.8, %278 ]
-  %285 = phi i32 [ %283, %280 ], [ -1, %278 ]
-  %286 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef %284, i32 noundef %285, ptr noundef %59) #9
+.thread250:                                       ; preds = %277, %279
+  %283 = phi ptr [ %281, %279 ], [ @.str.8, %277 ]
+  %284 = phi i32 [ %282, %279 ], [ -1, %277 ]
+  %285 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef %283, i32 noundef %284, ptr noundef %59) #9
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph348, %.thread250, %.loopexit
   %.not229 = icmp eq ptr %59, null
-  br i1 %.not229, label %288, label %287
+  br i1 %.not229, label %287, label %286
 
-287:                                              ; preds = %.thread
+286:                                              ; preds = %.thread
   tail call void @free(ptr noundef nonnull %59) #9
-  br label %288
+  br label %287
 
-288:                                              ; preds = %.thread, %287, %240, %241, %45, %29
-  %.0170 = phi i32 [ -43, %29 ], [ -43, %45 ], [ 0, %241 ], [ 0, %240 ], [ -43, %287 ], [ -43, %.thread ]
+287:                                              ; preds = %.thread, %286, %240, %241, %45, %29
+  %.0170 = phi i32 [ -43, %29 ], [ -43, %45 ], [ 0, %241 ], [ 0, %240 ], [ -43, %286 ], [ -43, %.thread ]
   ret i32 %.0170
 }
 

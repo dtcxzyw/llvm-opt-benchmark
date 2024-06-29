@@ -4844,21 +4844,20 @@ _Z15calc_box_centeriPA3_KfPf.exit:                ; preds = %.preheader22.i, %16
   %.060 = phi float [ %80, %75 ], [ %83, %81 ], [ %73, %71 ]
   %85 = getelementptr inbounds [3 x float], ptr %67, i64 0, i64 %indvars.iv111
   %86 = load float, ptr %85, align 4
-  %87 = fsub float %86, %.060
-  %88 = fcmp olt float %87, 0.000000e+00
-  br i1 %88, label %.preheader68, label %.preheader70
+  %87 = fcmp olt float %86, %.060
+  br i1 %87, label %.preheader68, label %.preheader70
 
 ..loopexit69_crit_edge:                           ; preds = %.preheader68
-  %89 = load float, ptr %85, align 4
-  %90 = fsub float %89, %.060
-  %91 = fcmp olt float %90, 0.000000e+00
-  br i1 %91, label %.preheader68.backedge, label %.preheader70
+  %88 = load float, ptr %85, align 4
+  %89 = fcmp olt float %88, %.060
+  br i1 %89, label %.preheader68.backedge, label %.preheader70
 
 .preheader70:                                     ; preds = %..loopexit69_crit_edge, %84
-  %.pre-phi = phi float [ %87, %84 ], [ %90, %..loopexit69_crit_edge ]
-  %92 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv111, i64 %indvars.iv111
-  %93 = load float, ptr %92, align 4
-  %94 = fcmp ult float %.pre-phi, %93
+  %90 = phi float [ %86, %84 ], [ %88, %..loopexit69_crit_edge ]
+  %91 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv111, i64 %indvars.iv111
+  %92 = fsub float %90, %.060
+  %93 = load float, ptr %91, align 4
+  %94 = fcmp ult float %92, %93
   br i1 %94, label %._crit_edge, label %.preheader
 
 .preheader68:                                     ; preds = %84, %.preheader68.backedge
@@ -4880,7 +4879,7 @@ _Z15calc_box_centeriPA3_KfPf.exit:                ; preds = %.preheader22.i, %16
 ..loopexit_crit_edge:                             ; preds = %.preheader
   %100 = load float, ptr %85, align 4
   %101 = fsub float %100, %.060
-  %102 = load float, ptr %92, align 4
+  %102 = load float, ptr %91, align 4
   %103 = fcmp ult float %101, %102
   br i1 %103, label %._crit_edge, label %.preheader.backedge
 

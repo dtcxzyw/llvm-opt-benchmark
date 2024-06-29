@@ -50000,14 +50000,14 @@ if.end:                                           ; preds = %entry
   %cond = tail call i32 @llvm.smax.i32(i32 %conv, i32 0)
   %add = add nsw i32 %cond, %row_height
   %1 = load i8, ptr %title, align 1
-  %cmp.not.i173 = icmp eq i8 %1, 0
-  br i1 %cmp.not.i173, label %nk_strlen.exit, label %while.body.i
+  %cmp.not.i167 = icmp eq i8 %1, 0
+  br i1 %cmp.not.i167, label %nk_strlen.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end, %while.body.i
-  %str.addr.04.i175 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %title, %if.end ]
-  %siz.05.i174 = phi i32 [ %inc.i, %while.body.i ], [ 0, %if.end ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.04.i175, i64 1
-  %inc.i = add nuw nsw i32 %siz.05.i174, 1
+  %str.addr.04.i169 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %title, %if.end ]
+  %siz.05.i168 = phi i32 [ %inc.i, %while.body.i ], [ 0, %if.end ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.04.i169, i64 1
+  %inc.i = add nuw nsw i32 %siz.05.i168, 1
   %2 = load i8, ptr %incdec.ptr.i, align 1
   %cmp.not.i = icmp eq i8 %2, 0
   br i1 %cmp.not.i, label %nk_strlen.exit, label %while.body.i
@@ -50146,8 +50146,8 @@ if.end10.i:                                       ; preds = %if.end.i15.i, %if.t
   br label %if.end.i65
 
 if.end.i65:                                       ; preds = %if.then6.i, %if.end10.i
-  %retval.0.i55162 = phi ptr [ %arrayidx26.i, %if.end10.i ], [ null, %if.then6.i ]
-  %add13163 = add i32 %call8, 1
+  %retval.0.i55156 = phi ptr [ %arrayidx26.i, %if.end10.i ], [ null, %if.then6.i ]
+  %add13157 = add i32 %call8, 1
   %18 = load ptr, ptr %tables.i, align 8
   %tobool2.not.i67 = icmp eq ptr %18, null
   br i1 %tobool2.not.i67, label %if.then6.i85, label %lor.lhs.false3.i68
@@ -50225,7 +50225,7 @@ nk_add_value.exit110:                             ; preds = %lor.lhs.false3.i68,
   %27 = load i32, ptr %size15.i73, align 4
   %idxprom.i74 = zext i32 %27 to i64
   %arrayidx.i75 = getelementptr inbounds [60 x i32], ptr %keys.i72, i64 0, i64 %idxprom.i74
-  store i32 %add13163, ptr %arrayidx.i75, align 4
+  store i32 %add13157, ptr %arrayidx.i75, align 4
   %28 = load ptr, ptr %tables.i, align 8
   %values.i76 = getelementptr inbounds i8, ptr %28, i64 248
   %size18.i77 = getelementptr inbounds i8, ptr %28, i64 4
@@ -50238,7 +50238,7 @@ nk_add_value.exit110:                             ; preds = %lor.lhs.false3.i68,
   %31 = load i32, ptr %size24.i81, align 4
   %inc.i82 = add i32 %31, 1
   store i32 %inc.i82, ptr %size24.i81, align 4
-  %tobool15.not = icmp eq ptr %retval.0.i55162, null
+  %tobool15.not = icmp eq ptr %retval.0.i55156, null
   br i1 %tobool15.not, label %return, label %if.end19
 
 if.end19:                                         ; preds = %nk_add_value.exit110
@@ -50246,7 +50246,7 @@ if.end19:                                         ; preds = %nk_add_value.exit11
   %idxprom25.i83 = zext i32 %31 to i64
   %arrayidx26.i84 = getelementptr inbounds [60 x i32], ptr %values22.i80, i64 0, i64 %idxprom25.i83
   store i32 0, ptr %arrayidx26.i84, align 4
-  store i32 0, ptr %retval.0.i55162, align 4
+  store i32 0, ptr %retval.0.i55156, align 4
   br label %if.end22
 
 if.else:                                          ; preds = %for.body.i
@@ -50294,7 +50294,7 @@ for.end.i128:                                     ; preds = %for.cond.i125, %whi
 
 if.end22:                                         ; preds = %if.then.i133, %if.end19
   %y_offset.0 = phi ptr [ %arrayidx26.i84, %if.end19 ], [ %arrayidx5.i135, %if.then.i133 ]
-  %x_offset.0 = phi ptr [ %retval.0.i55162, %if.end19 ], [ %arrayidx5.i, %if.then.i133 ]
+  %x_offset.0 = phi ptr [ %retval.0.i55156, %if.end19 ], [ %arrayidx5.i, %if.then.i133 ]
   %35 = load i32, ptr %y_offset.0, align 4
   %scroll_value = getelementptr inbounds i8, ptr %view, i64 32
   store i32 %35, ptr %scroll_value, align 8
@@ -50314,20 +50314,16 @@ if.end22:                                         ; preds = %if.then.i133, %if.e
   %conv34 = sitofp i32 %add to float
   %div = fdiv float %conv33, %conv34
   %.inv = fcmp ole float %div, 0.000000e+00
-  %cond44169 = select i1 %.inv, float 0.000000e+00, float %div
-  %cond44 = fptosi float %cond44169 to i32
+  %cond44163 = select i1 %.inv, float 0.000000e+00, float %div
+  %cond44 = fptosi float %cond44163 to i32
   store i32 %cond44, ptr %view, align 8
   %h = getelementptr inbounds i8, ptr %37, i64 80
   %39 = load float, ptr %h, align 4
   %div47 = fdiv float %39, %conv34
-  %cmp.i137 = fcmp ult float %div47, 0.000000e+00
   %conv4.i = fptosi float %div47 to i32
   %conv5.i = sitofp i32 %conv4.i to float
-  %sub.i = fsub float %div47, %conv5.i
-  %cmp6.i = fcmp ogt float %sub.i, 0.000000e+00
-  %cmp2.i138 = fcmp ogt float %div47, %conv5.i
-  %cmp6.sink.i = select i1 %cmp.i137, i1 %cmp6.i, i1 %cmp2.i138
-  %add9.i = zext i1 %cmp6.sink.i to i32
+  %cmp6.i = fcmp ogt float %div47, %conv5.i
+  %add9.i = zext i1 %cmp6.i to i32
   %cond12.i = add nsw i32 %add9.i, %conv4.i
   %spec.select = tail call i32 @llvm.smax.i32(i32 %cond12.i, i32 0)
   %count = getelementptr inbounds i8, ptr %view, i64 8
@@ -70316,14 +70312,10 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool9.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %land.lhs.true, %if.end
-  %cmp.i = fcmp ult float %width, 0.000000e+00
   %conv4.i = fptosi float %width to i32
   %conv5.i = sitofp i32 %conv4.i to float
-  %sub.i = fsub float %width, %conv5.i
-  %cmp6.i = fcmp ogt float %sub.i, 0.000000e+00
-  %cmp2.i = fcmp olt float %conv5.i, %width
-  %cmp6.sink.i = select i1 %cmp.i, i1 %cmp6.i, i1 %cmp2.i
-  %add9.i = zext i1 %cmp6.sink.i to i32
+  %cmp6.i = fcmp olt float %conv5.i, %width
+  %add9.i = zext i1 %cmp6.i to i32
   %cond12.i = add nsw i32 %add9.i, %conv4.i
   %pos = getelementptr inbounds i8, ptr %ctx, i64 324
   %clip = getelementptr inbounds i8, ptr %1, i64 68

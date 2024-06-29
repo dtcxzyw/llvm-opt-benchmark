@@ -702,8 +702,7 @@ if.then77:                                        ; preds = %if.end73
   %38 = select i1 %cmp.i147, double %37, double %34
   %cmp.i149 = fcmp olt double %35, %36
   %39 = select i1 %cmp.i149, double %35, double %36
-  %sub86 = fsub double %38, %ylast.0354
-  %cmp87 = fcmp ogt double %sub86, 0.000000e+00
+  %cmp87 = fcmp ogt double %38, %ylast.0354
   br i1 %cmp87, label %if.then88, label %for.inc93
 
 if.then88:                                        ; preds = %if.then77
@@ -8929,8 +8928,7 @@ land.lhs.true156:                                 ; preds = %if.end151
   %sub = fsub double %dmax.0.lcssa, %dmin.0.lcssa
   %134 = call double @llvm.fabs.f64(double %sub)
   %mul152 = fmul double %134, 1.000000e-04
-  %sub157 = fsub double %dmin.0.lcssa, %mul152
-  %cmp158 = fcmp ogt double %sub157, 0.000000e+00
+  %cmp158 = fcmp ogt double %dmin.0.lcssa, %mul152
   %add160 = fadd double %dmax.0.lcssa, %mul152
   %cmp161 = fcmp olt double %add160, 0.000000e+00
   %or.cond = select i1 %cmp158, i1 true, i1 %cmp161

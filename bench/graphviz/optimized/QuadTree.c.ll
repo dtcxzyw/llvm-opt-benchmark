@@ -1400,11 +1400,11 @@ node_data_new.exit:                               ; preds = %.lr.ph.i, %gv_alloc
   store ptr null, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %26, ptr %38, align 8
-  br label %223
+  br label %221
 
 39:                                               ; preds = %5
   %40 = icmp sgt i32 %9, %4
-  br i1 %40, label %41, label %186
+  br i1 %40, label %41, label %184
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1469,308 +1469,306 @@ node_data_new.exit:                               ; preds = %.lr.ph.i, %gv_alloc
   %74 = load double, ptr %73, align 8
   %75 = getelementptr inbounds double, ptr %71, i64 %indvars.iv.next.i131
   %76 = load double, ptr %75, align 8
-  %77 = fsub double %74, %76
-  %78 = fcmp uge double %77, 0.000000e+00
-  %79 = shl nsw i32 %.0910.i, 1
-  %80 = zext i1 %78 to i32
-  %.1.i = or disjoint i32 %79, %80
-  %81 = icmp ugt i64 %indvars.iv.i130, 1
-  br i1 %81, label %.lr.ph.i129, label %QuadTree_get_quadrant.exit
+  %77 = fcmp uge double %74, %76
+  %78 = shl nsw i32 %.0910.i, 1
+  %79 = zext i1 %77 to i32
+  %.1.i = or disjoint i32 %78, %79
+  %80 = icmp ugt i64 %indvars.iv.i130, 1
+  br i1 %80, label %.lr.ph.i129, label %QuadTree_get_quadrant.exit
 
 QuadTree_get_quadrant.exit:                       ; preds = %.lr.ph.i129, %68
   %.09.lcssa.i = phi i32 [ 0, %68 ], [ %.1.i, %.lr.ph.i129 ]
-  %82 = sext i32 %.09.lcssa.i to i64
-  %83 = getelementptr inbounds ptr, ptr %69, i64 %82
-  %84 = load ptr, ptr %83, align 8
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %86, label %115
+  %81 = sext i32 %.09.lcssa.i to i64
+  %82 = getelementptr inbounds ptr, ptr %69, i64 %81
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %85, label %114
 
-86:                                               ; preds = %QuadTree_get_quadrant.exit
-  %87 = load i32, ptr %6, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 32
-  %89 = load double, ptr %88, align 8
-  %90 = fmul double %89, 5.000000e-01
-  %91 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #15
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %93, label %gv_alloc.exit.i.i
+85:                                               ; preds = %QuadTree_get_quadrant.exit
+  %86 = load i32, ptr %6, align 8
+  %87 = getelementptr inbounds i8, ptr %0, i64 32
+  %88 = load double, ptr %87, align 8
+  %89 = fmul double %88, 5.000000e-01
+  %90 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #15
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %92, label %gv_alloc.exit.i.i
 
-93:                                               ; preds = %86
-  %94 = load ptr, ptr @stderr, align 8
-  %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.5, i64 noundef 80) #16
+92:                                               ; preds = %85
+  %93 = load ptr, ptr @stderr, align 8
+  %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.5, i64 noundef 80) #16
   tail call fastcc void @graphviz_exit() #17
   unreachable
 
-gv_alloc.exit.i.i:                                ; preds = %86
-  %96 = getelementptr inbounds i8, ptr %91, i64 16
-  store i32 %87, ptr %96, align 8
-  %97 = sext i32 %87 to i64
-  %98 = tail call fastcc ptr @gv_calloc(i64 noundef %97, i64 noundef 8)
-  %99 = getelementptr inbounds i8, ptr %91, i64 24
-  store ptr %98, ptr %99, align 8
-  %100 = icmp sgt i32 %87, 0
-  br i1 %100, label %.lr.ph.preheader.i132, label %QuadTree_new.exit.i
+gv_alloc.exit.i.i:                                ; preds = %85
+  %95 = getelementptr inbounds i8, ptr %90, i64 16
+  store i32 %86, ptr %95, align 8
+  %96 = sext i32 %86 to i64
+  %97 = tail call fastcc ptr @gv_calloc(i64 noundef %96, i64 noundef 8)
+  %98 = getelementptr inbounds i8, ptr %90, i64 24
+  store ptr %97, ptr %98, align 8
+  %99 = icmp sgt i32 %86, 0
+  br i1 %99, label %.lr.ph.preheader.i132, label %QuadTree_new.exit.i
 
 QuadTree_new.exit.i:                              ; preds = %gv_alloc.exit.i.i
-  %101 = getelementptr inbounds i8, ptr %91, i64 32
-  store double %90, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %91, i64 64
-  store i32 %9, ptr %102, align 8
+  %100 = getelementptr inbounds i8, ptr %90, i64 32
+  store double %89, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %90, i64 64
+  store i32 %9, ptr %101, align 8
   br label %QuadTree_new_in_quadrant.exit
 
 .lr.ph.preheader.i132:                            ; preds = %gv_alloc.exit.i.i
-  %103 = zext nneg i32 %87 to i64
-  %104 = shl nuw nsw i64 %103, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %98, ptr readonly align 8 %71, i64 %104, i1 false)
-  %105 = getelementptr inbounds i8, ptr %91, i64 32
-  store double %90, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %91, i64 64
-  store i32 %9, ptr %106, align 8
-  %107 = fneg double %90
+  %102 = zext nneg i32 %86 to i64
+  %103 = shl nuw nsw i64 %102, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %97, ptr readonly align 8 %71, i64 %103, i1 false)
+  %104 = getelementptr inbounds i8, ptr %90, i64 32
+  store double %89, ptr %104, align 8
+  %105 = getelementptr inbounds i8, ptr %90, i64 64
+  store i32 %9, ptr %105, align 8
+  %106 = fneg double %89
   br label %.lr.ph.i134
 
 .lr.ph.i134:                                      ; preds = %.lr.ph.i134, %.lr.ph.preheader.i132
   %indvars.iv.i135 = phi i64 [ 0, %.lr.ph.preheader.i132 ], [ %indvars.iv.next.i136, %.lr.ph.i134 ]
-  %.01718.i = phi i32 [ %.09.lcssa.i, %.lr.ph.preheader.i132 ], [ %112, %.lr.ph.i134 ]
-  %108 = and i32 %.01718.i, 1
-  %109 = icmp eq i32 %108, 0
-  %110 = getelementptr inbounds double, ptr %98, i64 %indvars.iv.i135
-  %111 = load double, ptr %110, align 8
-  %.sink.p.i = select i1 %109, double %107, double %90
-  %.sink.i = fadd double %111, %.sink.p.i
-  store double %.sink.i, ptr %110, align 8
-  %112 = sdiv i32 %.01718.i, 2
+  %.01718.i = phi i32 [ %.09.lcssa.i, %.lr.ph.preheader.i132 ], [ %111, %.lr.ph.i134 ]
+  %107 = and i32 %.01718.i, 1
+  %108 = icmp eq i32 %107, 0
+  %109 = getelementptr inbounds double, ptr %97, i64 %indvars.iv.i135
+  %110 = load double, ptr %109, align 8
+  %.sink.p.i = select i1 %108, double %106, double %89
+  %.sink.i = fadd double %110, %.sink.p.i
+  store double %.sink.i, ptr %109, align 8
+  %111 = sdiv i32 %.01718.i, 2
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i135, 1
-  %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, %103
+  %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, %102
   br i1 %exitcond.not.i137, label %QuadTree_new_in_quadrant.exit, label %.lr.ph.i134
 
 QuadTree_new_in_quadrant.exit:                    ; preds = %.lr.ph.i134, %QuadTree_new.exit.i
-  %113 = load ptr, ptr %62, align 8
-  %114 = getelementptr inbounds ptr, ptr %113, i64 %82
-  store ptr %91, ptr %114, align 8
+  %112 = load ptr, ptr %62, align 8
+  %113 = getelementptr inbounds ptr, ptr %112, i64 %81
+  store ptr %90, ptr %113, align 8
   %.pre = load ptr, ptr %62, align 8
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %82
+  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %81
   %.pre188 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %115
+  br label %114
 
-115:                                              ; preds = %QuadTree_new_in_quadrant.exit, %QuadTree_get_quadrant.exit
-  %116 = phi ptr [ %.pre188, %QuadTree_new_in_quadrant.exit ], [ %84, %QuadTree_get_quadrant.exit ]
-  %117 = add nsw i32 %4, 1
-  %118 = tail call fastcc ptr @QuadTree_add_internal(ptr noundef %116, ptr noundef %1, double noundef %2, i32 noundef %3, i32 noundef %117)
-  %119 = load ptr, ptr %62, align 8
-  %120 = getelementptr inbounds ptr, ptr %119, i64 %82
-  store ptr %116, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 56
-  %122 = load ptr, ptr %121, align 8
-  %.not127 = icmp eq ptr %122, null
-  br i1 %.not127, label %.loopexit, label %123
+114:                                              ; preds = %QuadTree_new_in_quadrant.exit, %QuadTree_get_quadrant.exit
+  %115 = phi ptr [ %.pre188, %QuadTree_new_in_quadrant.exit ], [ %83, %QuadTree_get_quadrant.exit ]
+  %116 = add nsw i32 %4, 1
+  %117 = tail call fastcc ptr @QuadTree_add_internal(ptr noundef %115, ptr noundef %1, double noundef %2, i32 noundef %3, i32 noundef %116)
+  %118 = load ptr, ptr %62, align 8
+  %119 = getelementptr inbounds ptr, ptr %118, i64 %81
+  store ptr %115, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %0, i64 56
+  %121 = load ptr, ptr %120, align 8
+  %.not127 = icmp eq ptr %121, null
+  br i1 %.not127, label %.loopexit, label %122
 
-123:                                              ; preds = %115
-  %124 = getelementptr inbounds i8, ptr %122, i64 16
-  %125 = load i32, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %122, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = load double, ptr %122, align 8
-  %129 = load ptr, ptr %70, align 8
+122:                                              ; preds = %114
+  %123 = getelementptr inbounds i8, ptr %121, i64 16
+  %124 = load i32, ptr %123, align 8
+  %125 = getelementptr inbounds i8, ptr %121, i64 8
+  %126 = load ptr, ptr %125, align 8
+  %127 = load double, ptr %121, align 8
+  %128 = load ptr, ptr %70, align 8
   br i1 %45, label %.lr.ph.preheader.i139, label %QuadTree_get_quadrant.exit145
 
-.lr.ph.preheader.i139:                            ; preds = %123
-  %130 = zext nneg i32 %7 to i64
+.lr.ph.preheader.i139:                            ; preds = %122
+  %129 = zext nneg i32 %7 to i64
   br label %.lr.ph.i140
 
 .lr.ph.i140:                                      ; preds = %.lr.ph.i140, %.lr.ph.preheader.i139
-  %indvars.iv.i141 = phi i64 [ %130, %.lr.ph.preheader.i139 ], [ %indvars.iv.next.i143, %.lr.ph.i140 ]
+  %indvars.iv.i141 = phi i64 [ %129, %.lr.ph.preheader.i139 ], [ %indvars.iv.next.i143, %.lr.ph.i140 ]
   %.0910.i142 = phi i32 [ 0, %.lr.ph.preheader.i139 ], [ %.1.i144, %.lr.ph.i140 ]
   %indvars.iv.next.i143 = add nsw i64 %indvars.iv.i141, -1
-  %131 = getelementptr inbounds double, ptr %127, i64 %indvars.iv.next.i143
-  %132 = load double, ptr %131, align 8
-  %133 = getelementptr inbounds double, ptr %129, i64 %indvars.iv.next.i143
-  %134 = load double, ptr %133, align 8
-  %135 = fsub double %132, %134
-  %136 = fcmp uge double %135, 0.000000e+00
-  %137 = shl nsw i32 %.0910.i142, 1
-  %138 = zext i1 %136 to i32
-  %.1.i144 = or disjoint i32 %137, %138
-  %139 = icmp ugt i64 %indvars.iv.i141, 1
-  br i1 %139, label %.lr.ph.i140, label %QuadTree_get_quadrant.exit145
+  %130 = getelementptr inbounds double, ptr %126, i64 %indvars.iv.next.i143
+  %131 = load double, ptr %130, align 8
+  %132 = getelementptr inbounds double, ptr %128, i64 %indvars.iv.next.i143
+  %133 = load double, ptr %132, align 8
+  %134 = fcmp uge double %131, %133
+  %135 = shl nsw i32 %.0910.i142, 1
+  %136 = zext i1 %134 to i32
+  %.1.i144 = or disjoint i32 %135, %136
+  %137 = icmp ugt i64 %indvars.iv.i141, 1
+  br i1 %137, label %.lr.ph.i140, label %QuadTree_get_quadrant.exit145
 
-QuadTree_get_quadrant.exit145:                    ; preds = %.lr.ph.i140, %123
-  %.09.lcssa.i138 = phi i32 [ 0, %123 ], [ %.1.i144, %.lr.ph.i140 ]
-  %140 = load ptr, ptr %62, align 8
-  %141 = sext i32 %.09.lcssa.i138 to i64
-  %142 = getelementptr inbounds ptr, ptr %140, i64 %141
-  %143 = load ptr, ptr %142, align 8
-  %144 = icmp eq ptr %143, null
-  br i1 %144, label %145, label %174
+QuadTree_get_quadrant.exit145:                    ; preds = %.lr.ph.i140, %122
+  %.09.lcssa.i138 = phi i32 [ 0, %122 ], [ %.1.i144, %.lr.ph.i140 ]
+  %138 = load ptr, ptr %62, align 8
+  %139 = sext i32 %.09.lcssa.i138 to i64
+  %140 = getelementptr inbounds ptr, ptr %138, i64 %139
+  %141 = load ptr, ptr %140, align 8
+  %142 = icmp eq ptr %141, null
+  br i1 %142, label %143, label %172
 
-145:                                              ; preds = %QuadTree_get_quadrant.exit145
-  %146 = load i32, ptr %6, align 8
-  %147 = getelementptr inbounds i8, ptr %0, i64 32
-  %148 = load double, ptr %147, align 8
-  %149 = fmul double %148, 5.000000e-01
-  %150 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #15
-  %151 = icmp eq ptr %150, null
-  br i1 %151, label %152, label %gv_alloc.exit.i.i146
+143:                                              ; preds = %QuadTree_get_quadrant.exit145
+  %144 = load i32, ptr %6, align 8
+  %145 = getelementptr inbounds i8, ptr %0, i64 32
+  %146 = load double, ptr %145, align 8
+  %147 = fmul double %146, 5.000000e-01
+  %148 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #15
+  %149 = icmp eq ptr %148, null
+  br i1 %149, label %150, label %gv_alloc.exit.i.i146
 
-152:                                              ; preds = %145
-  %153 = load ptr, ptr @stderr, align 8
-  %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %153, ptr noundef nonnull @.str.5, i64 noundef 80) #16
+150:                                              ; preds = %143
+  %151 = load ptr, ptr @stderr, align 8
+  %152 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef nonnull @.str.5, i64 noundef 80) #16
   tail call fastcc void @graphviz_exit() #17
   unreachable
 
-gv_alloc.exit.i.i146:                             ; preds = %145
-  %155 = getelementptr inbounds i8, ptr %150, i64 16
-  store i32 %146, ptr %155, align 8
-  %156 = sext i32 %146 to i64
-  %157 = tail call fastcc ptr @gv_calloc(i64 noundef %156, i64 noundef 8)
-  %158 = getelementptr inbounds i8, ptr %150, i64 24
-  store ptr %157, ptr %158, align 8
-  %159 = icmp sgt i32 %146, 0
-  br i1 %159, label %.lr.ph.preheader.i148, label %QuadTree_new.exit.i147
+gv_alloc.exit.i.i146:                             ; preds = %143
+  %153 = getelementptr inbounds i8, ptr %148, i64 16
+  store i32 %144, ptr %153, align 8
+  %154 = sext i32 %144 to i64
+  %155 = tail call fastcc ptr @gv_calloc(i64 noundef %154, i64 noundef 8)
+  %156 = getelementptr inbounds i8, ptr %148, i64 24
+  store ptr %155, ptr %156, align 8
+  %157 = icmp sgt i32 %144, 0
+  br i1 %157, label %.lr.ph.preheader.i148, label %QuadTree_new.exit.i147
 
 QuadTree_new.exit.i147:                           ; preds = %gv_alloc.exit.i.i146
-  %160 = getelementptr inbounds i8, ptr %150, i64 32
-  store double %149, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %150, i64 64
-  store i32 %9, ptr %161, align 8
+  %158 = getelementptr inbounds i8, ptr %148, i64 32
+  store double %147, ptr %158, align 8
+  %159 = getelementptr inbounds i8, ptr %148, i64 64
+  store i32 %9, ptr %159, align 8
   br label %QuadTree_new_in_quadrant.exit157
 
 .lr.ph.preheader.i148:                            ; preds = %gv_alloc.exit.i.i146
-  %162 = zext nneg i32 %146 to i64
-  %163 = shl nuw nsw i64 %162, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %157, ptr readonly align 8 %129, i64 %163, i1 false)
-  %164 = getelementptr inbounds i8, ptr %150, i64 32
-  store double %149, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %150, i64 64
-  store i32 %9, ptr %165, align 8
-  %166 = fneg double %149
+  %160 = zext nneg i32 %144 to i64
+  %161 = shl nuw nsw i64 %160, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %155, ptr readonly align 8 %128, i64 %161, i1 false)
+  %162 = getelementptr inbounds i8, ptr %148, i64 32
+  store double %147, ptr %162, align 8
+  %163 = getelementptr inbounds i8, ptr %148, i64 64
+  store i32 %9, ptr %163, align 8
+  %164 = fneg double %147
   br label %.lr.ph.i150
 
 .lr.ph.i150:                                      ; preds = %.lr.ph.i150, %.lr.ph.preheader.i148
   %indvars.iv.i151 = phi i64 [ 0, %.lr.ph.preheader.i148 ], [ %indvars.iv.next.i155, %.lr.ph.i150 ]
-  %.01718.i152 = phi i32 [ %.09.lcssa.i138, %.lr.ph.preheader.i148 ], [ %171, %.lr.ph.i150 ]
-  %167 = and i32 %.01718.i152, 1
-  %168 = icmp eq i32 %167, 0
-  %169 = getelementptr inbounds double, ptr %157, i64 %indvars.iv.i151
-  %170 = load double, ptr %169, align 8
-  %.sink.p.i153 = select i1 %168, double %166, double %149
-  %.sink.i154 = fadd double %170, %.sink.p.i153
-  store double %.sink.i154, ptr %169, align 8
-  %171 = sdiv i32 %.01718.i152, 2
+  %.01718.i152 = phi i32 [ %.09.lcssa.i138, %.lr.ph.preheader.i148 ], [ %169, %.lr.ph.i150 ]
+  %165 = and i32 %.01718.i152, 1
+  %166 = icmp eq i32 %165, 0
+  %167 = getelementptr inbounds double, ptr %155, i64 %indvars.iv.i151
+  %168 = load double, ptr %167, align 8
+  %.sink.p.i153 = select i1 %166, double %164, double %147
+  %.sink.i154 = fadd double %168, %.sink.p.i153
+  store double %.sink.i154, ptr %167, align 8
+  %169 = sdiv i32 %.01718.i152, 2
   %indvars.iv.next.i155 = add nuw nsw i64 %indvars.iv.i151, 1
-  %exitcond.not.i156 = icmp eq i64 %indvars.iv.next.i155, %162
+  %exitcond.not.i156 = icmp eq i64 %indvars.iv.next.i155, %160
   br i1 %exitcond.not.i156, label %QuadTree_new_in_quadrant.exit157, label %.lr.ph.i150
 
 QuadTree_new_in_quadrant.exit157:                 ; preds = %.lr.ph.i150, %QuadTree_new.exit.i147
-  %172 = load ptr, ptr %62, align 8
-  %173 = getelementptr inbounds ptr, ptr %172, i64 %141
-  store ptr %150, ptr %173, align 8
+  %170 = load ptr, ptr %62, align 8
+  %171 = getelementptr inbounds ptr, ptr %170, i64 %139
+  store ptr %148, ptr %171, align 8
   %.pre189 = load ptr, ptr %62, align 8
-  %.phi.trans.insert190 = getelementptr inbounds ptr, ptr %.pre189, i64 %141
+  %.phi.trans.insert190 = getelementptr inbounds ptr, ptr %.pre189, i64 %139
   %.pre191 = load ptr, ptr %.phi.trans.insert190, align 8
-  br label %174
+  br label %172
 
-174:                                              ; preds = %QuadTree_new_in_quadrant.exit157, %QuadTree_get_quadrant.exit145
-  %175 = phi ptr [ %.pre191, %QuadTree_new_in_quadrant.exit157 ], [ %143, %QuadTree_get_quadrant.exit145 ]
-  %176 = tail call fastcc ptr @QuadTree_add_internal(ptr noundef %175, ptr noundef %127, double noundef %128, i32 noundef %125, i32 noundef %117)
-  %177 = load ptr, ptr %62, align 8
-  %178 = getelementptr inbounds ptr, ptr %177, i64 %141
-  store ptr %175, ptr %178, align 8
-  %.pr = load ptr, ptr %121, align 8
+172:                                              ; preds = %QuadTree_new_in_quadrant.exit157, %QuadTree_get_quadrant.exit145
+  %173 = phi ptr [ %.pre191, %QuadTree_new_in_quadrant.exit157 ], [ %141, %QuadTree_get_quadrant.exit145 ]
+  %174 = tail call fastcc ptr @QuadTree_add_internal(ptr noundef %173, ptr noundef %126, double noundef %127, i32 noundef %124, i32 noundef %116)
+  %175 = load ptr, ptr %62, align 8
+  %176 = getelementptr inbounds ptr, ptr %175, i64 %139
+  store ptr %173, ptr %176, align 8
+  %.pr = load ptr, ptr %120, align 8
   %.not128171 = icmp eq ptr %.pr, null
   br i1 %.not128171, label %.loopexit, label %.lr.ph173
 
-.lr.ph173:                                        ; preds = %174, %.lr.ph173
-  %179 = phi ptr [ %181, %.lr.ph173 ], [ %.pr, %174 ]
-  %180 = getelementptr inbounds i8, ptr %179, i64 32
+.lr.ph173:                                        ; preds = %172, %.lr.ph173
+  %177 = phi ptr [ %179, %.lr.ph173 ], [ %.pr, %172 ]
+  %178 = getelementptr inbounds i8, ptr %177, i64 32
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds i8, ptr %177, i64 8
   %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %179, i64 8
-  %183 = load ptr, ptr %182, align 8
-  tail call void @free(ptr noundef %183) #18
-  tail call void @free(ptr noundef nonnull %179) #18
-  store ptr %181, ptr %121, align 8
-  %.not128 = icmp eq ptr %181, null
+  tail call void @free(ptr noundef %181) #18
+  tail call void @free(ptr noundef nonnull %177) #18
+  store ptr %179, ptr %120, align 8
+  %.not128 = icmp eq ptr %179, null
   br i1 %.not128, label %.loopexit, label %.lr.ph173
 
-.loopexit:                                        ; preds = %.lr.ph173, %174, %115
-  %184 = load i32, ptr %0, align 8
-  %185 = add nsw i32 %184, 1
+.loopexit:                                        ; preds = %.lr.ph173, %172, %114
+  %182 = load i32, ptr %0, align 8
+  %183 = add nsw i32 %182, 1
+  store i32 %183, ptr %0, align 8
+  br label %221
+
+184:                                              ; preds = %39
+  %185 = add nsw i32 %10, 1
   store i32 %185, ptr %0, align 8
-  br label %223
+  %186 = getelementptr inbounds i8, ptr %0, i64 8
+  %187 = load double, ptr %186, align 8
+  %188 = fadd double %187, %2
+  store double %188, ptr %186, align 8
+  %189 = icmp sgt i32 %7, 0
+  br i1 %189, label %.lr.ph, label %._crit_edge
 
-186:                                              ; preds = %39
-  %187 = add nsw i32 %10, 1
-  store i32 %187, ptr %0, align 8
-  %188 = getelementptr inbounds i8, ptr %0, i64 8
-  %189 = load double, ptr %188, align 8
-  %190 = fadd double %189, %2
-  store double %190, ptr %188, align 8
-  %191 = icmp sgt i32 %7, 0
-  br i1 %191, label %.lr.ph, label %._crit_edge
+.lr.ph:                                           ; preds = %184
+  %190 = getelementptr inbounds i8, ptr %0, i64 40
+  br label %191
 
-.lr.ph:                                           ; preds = %186
-  %192 = getelementptr inbounds i8, ptr %0, i64 40
-  br label %193
-
-193:                                              ; preds = %.lr.ph, %193
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %193 ]
-  %194 = load ptr, ptr %192, align 8
-  %195 = getelementptr inbounds double, ptr %194, i64 %indvars.iv
-  %196 = load double, ptr %195, align 8
-  %197 = load i32, ptr %0, align 8
-  %198 = sitofp i32 %197 to double
-  %199 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
-  %200 = load double, ptr %199, align 8
-  %201 = tail call double @llvm.fmuladd.f64(double %196, double %198, double %200)
-  %202 = add nsw i32 %197, 1
-  %203 = sitofp i32 %202 to double
-  %204 = fdiv double %201, %203
-  store double %204, ptr %195, align 8
+191:                                              ; preds = %.lr.ph, %191
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %191 ]
+  %192 = load ptr, ptr %190, align 8
+  %193 = getelementptr inbounds double, ptr %192, i64 %indvars.iv
+  %194 = load double, ptr %193, align 8
+  %195 = load i32, ptr %0, align 8
+  %196 = sitofp i32 %195 to double
+  %197 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %198 = load double, ptr %197, align 8
+  %199 = tail call double @llvm.fmuladd.f64(double %194, double %196, double %198)
+  %200 = add nsw i32 %195, 1
+  %201 = sitofp i32 %200 to double
+  %202 = fdiv double %199, %201
+  store double %202, ptr %193, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %205 = load i32, ptr %6, align 8
-  %206 = sext i32 %205 to i64
-  %207 = icmp slt i64 %indvars.iv.next, %206
-  br i1 %207, label %193, label %._crit_edge
+  %203 = load i32, ptr %6, align 8
+  %204 = sext i32 %203 to i64
+  %205 = icmp slt i64 %indvars.iv.next, %204
+  br i1 %205, label %191, label %._crit_edge
 
-._crit_edge:                                      ; preds = %193, %186
-  %.lcssa165 = phi i32 [ %7, %186 ], [ %205, %193 ]
-  %208 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #15
-  %209 = icmp eq ptr %208, null
-  br i1 %209, label %210, label %gv_alloc.exit.i158
+._crit_edge:                                      ; preds = %191, %184
+  %.lcssa165 = phi i32 [ %7, %184 ], [ %203, %191 ]
+  %206 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #15
+  %207 = icmp eq ptr %206, null
+  br i1 %207, label %208, label %gv_alloc.exit.i158
 
-210:                                              ; preds = %._crit_edge
-  %211 = load ptr, ptr @stderr, align 8
-  %212 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %211, ptr noundef nonnull @.str.5, i64 noundef 40) #16
+208:                                              ; preds = %._crit_edge
+  %209 = load ptr, ptr @stderr, align 8
+  %210 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.5, i64 noundef 40) #16
   tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit.i158:                               ; preds = %._crit_edge
-  store double %2, ptr %208, align 8
-  %213 = sext i32 %.lcssa165 to i64
-  %214 = tail call fastcc ptr @gv_calloc(i64 noundef %213, i64 noundef 8)
-  %215 = getelementptr inbounds i8, ptr %208, i64 8
-  store ptr %214, ptr %215, align 8
-  %216 = getelementptr inbounds i8, ptr %208, i64 16
-  store i32 %3, ptr %216, align 8
-  %217 = icmp sgt i32 %.lcssa165, 0
-  br i1 %217, label %.lr.ph.i159, label %node_data_new.exit164
+  store double %2, ptr %206, align 8
+  %211 = sext i32 %.lcssa165 to i64
+  %212 = tail call fastcc ptr @gv_calloc(i64 noundef %211, i64 noundef 8)
+  %213 = getelementptr inbounds i8, ptr %206, i64 8
+  store ptr %212, ptr %213, align 8
+  %214 = getelementptr inbounds i8, ptr %206, i64 16
+  store i32 %3, ptr %214, align 8
+  %215 = icmp sgt i32 %.lcssa165, 0
+  br i1 %215, label %.lr.ph.i159, label %node_data_new.exit164
 
 .lr.ph.i159:                                      ; preds = %gv_alloc.exit.i158
   %wide.trip.count.i160 = zext nneg i32 %.lcssa165 to i64
-  %218 = shl nuw nsw i64 %wide.trip.count.i160, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %214, ptr align 8 %1, i64 %218, i1 false)
+  %216 = shl nuw nsw i64 %wide.trip.count.i160, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %212, ptr align 8 %1, i64 %216, i1 false)
   br label %node_data_new.exit164
 
 node_data_new.exit164:                            ; preds = %.lr.ph.i159, %gv_alloc.exit.i158
-  %219 = getelementptr inbounds i8, ptr %208, i64 24
-  store ptr null, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %0, i64 56
-  %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds i8, ptr %208, i64 32
-  store ptr %221, ptr %222, align 8
-  store ptr %208, ptr %220, align 8
-  br label %223
+  %217 = getelementptr inbounds i8, ptr %206, i64 24
+  store ptr null, ptr %217, align 8
+  %218 = getelementptr inbounds i8, ptr %0, i64 56
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds i8, ptr %206, i64 32
+  store ptr %219, ptr %220, align 8
+  store ptr %206, ptr %218, align 8
+  br label %221
 
-223:                                              ; preds = %.loopexit, %node_data_new.exit164, %node_data_new.exit
+221:                                              ; preds = %.loopexit, %node_data_new.exit164, %node_data_new.exit
   ret ptr %0
 }
 

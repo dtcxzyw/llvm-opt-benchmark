@@ -8858,8 +8858,7 @@ if.then180:                                       ; preds = %land.lhs.true177
 if.then184:                                       ; preds = %if.then180
   %conv185 = fptosi double %call181 to i32
   %conv186 = sitofp i32 %conv185 to double
-  %sub187 = fsub double %call181, %conv186
-  %cmp188 = fcmp ogt double %sub187, 0.000000e+00
+  %cmp188 = fcmp ogt double %call181, %conv186
   %cond = select i1 %cmp188, i32 30, i32 0
   call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %cal, i32 noundef 11, i32 noundef %conv185)
   call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %cal, i32 noundef 12, i32 noundef %cond)

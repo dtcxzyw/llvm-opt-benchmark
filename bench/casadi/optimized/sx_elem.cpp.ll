@@ -769,108 +769,107 @@ define void @_ZN6casadi6SXElemC2Ed(ptr nocapture noundef nonnull writeonly align
   %4 = alloca %"struct.std::pair.80", align 8
   %5 = fptosi double %1 to i32
   %6 = sitofp i32 %5 to double
-  %7 = fsub double %1, %6
-  %8 = fcmp oeq double %7, 0.000000e+00
-  br i1 %8, label %9, label %21
+  %7 = fcmp oeq double %6, %1
+  br i1 %7, label %8, label %20
 
-9:                                                ; preds = %2
-  switch i32 %5, label %18 [
-    i32 0, label %10
-    i32 1, label %12
-    i32 2, label %14
-    i32 -1, label %16
+8:                                                ; preds = %2
+  switch i32 %5, label %17 [
+    i32 0, label %9
+    i32 1, label %11
+    i32 2, label %13
+    i32 -1, label %15
   ]
 
-10:                                               ; preds = %9
-  %11 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE4zeroE, align 8
-  br label %48
+9:                                                ; preds = %8
+  %10 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE4zeroE, align 8
+  br label %47
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE3oneE, align 8
-  br label %48
+11:                                               ; preds = %8
+  %12 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE3oneE, align 8
+  br label %47
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE3twoE, align 8
-  br label %48
+13:                                               ; preds = %8
+  %14 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE3twoE, align 8
+  br label %47
 
-16:                                               ; preds = %9
-  %17 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE9minus_oneE, align 8
-  br label %48
+15:                                               ; preds = %8
+  %16 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE9minus_oneE, align 8
+  br label %47
 
-18:                                               ; preds = %9
-  %19 = sext i32 %5 to i64
-  %20 = tail call noundef ptr @_ZN6casadi9IntegerSX6createEx(i64 noundef %19)
-  br label %48
+17:                                               ; preds = %8
+  %18 = sext i32 %5 to i64
+  %19 = tail call noundef ptr @_ZN6casadi9IntegerSX6createEx(i64 noundef %18)
+  br label %47
 
-21:                                               ; preds = %2
-  %22 = fcmp uno double %1, 0.000000e+00
-  br i1 %22, label %23, label %25
+20:                                               ; preds = %2
+  %21 = fcmp uno double %1, 0.000000e+00
+  br i1 %21, label %22, label %24
 
-23:                                               ; preds = %21
-  %24 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE3nanE, align 8
-  br label %48
+22:                                               ; preds = %20
+  %23 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE3nanE, align 8
+  br label %47
 
-25:                                               ; preds = %21
-  %26 = tail call double @llvm.fabs.f64(double %1)
-  %27 = fcmp oeq double %26, 0x7FF0000000000000
-  br i1 %27, label %28, label %33
+24:                                               ; preds = %20
+  %25 = tail call double @llvm.fabs.f64(double %1)
+  %26 = fcmp oeq double %25, 0x7FF0000000000000
+  br i1 %26, label %27, label %32
 
-28:                                               ; preds = %25
-  %29 = fcmp ogt double %1, 0.000000e+00
-  %30 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE3infE, align 8
-  %31 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE9minus_infE, align 8
-  %32 = select i1 %29, ptr %30, ptr %31
-  br label %48
+27:                                               ; preds = %24
+  %28 = fcmp ogt double %1, 0.000000e+00
+  %29 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE3infE, align 8
+  %30 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE9minus_infE, align 8
+  %31 = select i1 %28, ptr %29, ptr %30
+  br label %47
 
-33:                                               ; preds = %25
+32:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store double %1, ptr %3, align 8
-  %34 = call ptr @_ZNSt10_HashtableIdSt4pairIKdPN6casadi10RealtypeSXEESaIS5_ENSt8__detail10_Select1stESt8equal_toIdESt4hashIdENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS1_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6casadi10RealtypeSX17cached_constants_E, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %46
+  %33 = call ptr @_ZNSt10_HashtableIdSt4pairIKdPN6casadi10RealtypeSXEESaIS5_ENSt8__detail10_Select1stESt8equal_toIdESt4hashIdENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS1_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6casadi10RealtypeSX17cached_constants_E, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %45
 
-36:                                               ; preds = %33
-  %37 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-  %38 = load double, ptr %3, align 8
-  invoke void @_ZN6casadi6SXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %37)
-          to label %39 unwind label %44
+35:                                               ; preds = %32
+  %36 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+  %37 = load double, ptr %3, align 8
+  invoke void @_ZN6casadi6SXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %36)
+          to label %38 unwind label %43
 
-39:                                               ; preds = %36
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi10RealtypeSXE, i64 16), ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 16
-  store double %38, ptr %40, align 8
-  %41 = load double, ptr %3, align 8
-  store double %41, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %37, ptr %42, align 8
-  %43 = call { ptr, i8 } @_ZNSt10_HashtableIdSt4pairIKdPN6casadi10RealtypeSXEESaIS5_ENSt8__detail10_Select1stESt8equal_toIdESt4hashIdENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS0_IdS4_EEEES0_INS7_14_Node_iteratorIS5_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6casadi10RealtypeSX17cached_constants_E, ptr noundef nonnull align 8 dereferenceable(16) %4)
+38:                                               ; preds = %35
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi10RealtypeSXE, i64 16), ptr %36, align 8
+  %39 = getelementptr inbounds i8, ptr %36, i64 16
+  store double %37, ptr %39, align 8
+  %40 = load double, ptr %3, align 8
+  store double %40, ptr %4, align 8
+  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %36, ptr %41, align 8
+  %42 = call { ptr, i8 } @_ZNSt10_HashtableIdSt4pairIKdPN6casadi10RealtypeSXEESaIS5_ENSt8__detail10_Select1stESt8equal_toIdESt4hashIdENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS0_IdS4_EEEES0_INS7_14_Node_iteratorIS5_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6casadi10RealtypeSX17cached_constants_E, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br label %_ZN6casadi10RealtypeSX6createEd.exit
 
-44:                                               ; preds = %36
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %35
+  %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %37) #23
-  resume { ptr, i32 } %45
+  call void @_ZdlPv(ptr noundef nonnull %36) #23
+  resume { ptr, i32 } %44
 
-46:                                               ; preds = %33
-  %47 = getelementptr inbounds i8, ptr %34, i64 16
-  %.0.in.sroa.speculate.load.2.i = load ptr, ptr %47, align 8
+45:                                               ; preds = %32
+  %46 = getelementptr inbounds i8, ptr %33, i64 16
+  %.0.in.sroa.speculate.load.2.i = load ptr, ptr %46, align 8
   br label %_ZN6casadi10RealtypeSX6createEd.exit
 
-_ZN6casadi10RealtypeSX6createEd.exit:             ; preds = %39, %46
-  %.0.in.sroa.speculated.i = phi ptr [ %37, %39 ], [ %.0.in.sroa.speculate.load.2.i, %46 ]
+_ZN6casadi10RealtypeSX6createEd.exit:             ; preds = %38, %45
+  %.0.in.sroa.speculated.i = phi ptr [ %36, %38 ], [ %.0.in.sroa.speculate.load.2.i, %45 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %48
+  br label %47
 
-48:                                               ; preds = %23, %_ZN6casadi10RealtypeSX6createEd.exit, %28, %10, %14, %18, %16, %12
-  %.sink12.sink = phi ptr [ %13, %12 ], [ %17, %16 ], [ %20, %18 ], [ %15, %14 ], [ %11, %10 ], [ %32, %28 ], [ %.0.in.sroa.speculated.i, %_ZN6casadi10RealtypeSX6createEd.exit ], [ %24, %23 ]
+47:                                               ; preds = %22, %_ZN6casadi10RealtypeSX6createEd.exit, %27, %9, %13, %17, %15, %11
+  %.sink12.sink = phi ptr [ %12, %11 ], [ %16, %15 ], [ %19, %17 ], [ %14, %13 ], [ %10, %9 ], [ %31, %27 ], [ %.0.in.sroa.speculated.i, %_ZN6casadi10RealtypeSX6createEd.exit ], [ %23, %22 ]
   store ptr %.sink12.sink, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %.sink12.sink, i64 12
-  %50 = load i32, ptr %49, align 4
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %49, align 4
+  %48 = getelementptr inbounds i8, ptr %.sink12.sink, i64 12
+  %49 = load i32, ptr %48, align 4
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %48, align 4
   ret void
 }
 

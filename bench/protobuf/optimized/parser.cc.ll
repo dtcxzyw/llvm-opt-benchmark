@@ -18772,8 +18772,7 @@ lpad78:                                           ; preds = %invoke.cont77
 if.end81:                                         ; preds = %if.end68
   %conv = fptosi double %29 to i64
   %conv84 = sitofp i64 %conv to double
-  %sub = fsub double %29, %conv84
-  %cmp85 = fcmp une double %sub, 0.000000e+00
+  %cmp85 = fcmp une double %29, %conv84
   br i1 %cmp85, label %if.then86, label %cleanup97
 
 if.then86:                                        ; preds = %if.end81
@@ -19657,8 +19656,7 @@ lpad78:                                           ; preds = %invoke.cont77
 if.end81:                                         ; preds = %if.end68
   %conv = fptoui double %29 to i64
   %conv84 = uitofp i64 %conv to double
-  %sub = fsub double %29, %conv84
-  %cmp85 = fcmp une double %sub, 0.000000e+00
+  %cmp85 = fcmp une double %29, %conv84
   br i1 %cmp85, label %if.then86, label %cleanup97
 
 if.then86:                                        ; preds = %if.end81

@@ -71,75 +71,74 @@ define void @_ZNK3gmx18EnergyDriftTracker17energyDriftStringERKNSt7__cxx1112basi
   %8 = load double, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load double, ptr %9, align 8
-  %11 = fsub double %8, %10
-  %12 = fcmp ogt double %11, 0.000000e+00
-  br i1 %12, label %13, label %41
+  %11 = fcmp ogt double %8, %10
+  br i1 %11, label %12, label %40
 
-13:                                               ; preds = %3
-  %14 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #5
-  %15 = load double, ptr %7, align 8
-  %16 = load double, ptr %9, align 8
-  %17 = fsub double %15, %16
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str, ptr noundef %14, double noundef %17, double noundef %16, double noundef %15)
-          to label %18 unwind label %37
+12:                                               ; preds = %3
+  %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #5
+  %14 = load double, ptr %7, align 8
+  %15 = load double, ptr %9, align 8
+  %16 = fsub double %14, %15
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str, ptr noundef %13, double noundef %16, double noundef %15, double noundef %14)
+          to label %17 unwind label %36
 
-18:                                               ; preds = %13
-  %19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+17:                                               ; preds = %12
+  %18 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
-  %20 = load double, ptr %7, align 8
-  %21 = load double, ptr %9, align 8
-  %22 = fsub double %20, %21
-  %23 = fcmp ogt double %22, 0.000000e+00
-  br i1 %23, label %24, label %_ZNK3gmx18EnergyDriftTracker11energyDriftEv.exit
+  %19 = load double, ptr %7, align 8
+  %20 = load double, ptr %9, align 8
+  %21 = fsub double %19, %20
+  %22 = fcmp ogt double %21, 0.000000e+00
+  br i1 %22, label %23, label %_ZNK3gmx18EnergyDriftTracker11energyDriftEv.exit
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
-  %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
-  %28 = load double, ptr %27, align 8
-  %29 = fsub double %26, %28
-  %30 = getelementptr inbounds i8, ptr %1, i64 40
-  %31 = load i32, ptr %30, align 8
-  %32 = sitofp i32 %31 to double
-  %33 = fmul double %22, %32
-  %34 = fdiv double %29, %33
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = load double, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = load double, ptr %26, align 8
+  %28 = fsub double %25, %27
+  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = load i32, ptr %29, align 8
+  %31 = sitofp i32 %30 to double
+  %32 = fmul double %21, %31
+  %33 = fdiv double %28, %32
   br label %_ZNK3gmx18EnergyDriftTracker11energyDriftEv.exit
 
-_ZNK3gmx18EnergyDriftTracker11energyDriftEv.exit: ; preds = %24, %18
-  %.0.i = phi double [ %34, %24 ], [ 0.000000e+00, %18 ]
+_ZNK3gmx18EnergyDriftTracker11energyDriftEv.exit: ; preds = %23, %17
+  %.0.i = phi double [ %33, %23 ], [ 0.000000e+00, %17 ]
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.1, double noundef %.0.i)
-          to label %35 unwind label %37
+          to label %34 unwind label %36
 
-35:                                               ; preds = %_ZNK3gmx18EnergyDriftTracker11energyDriftEv.exit
-  %36 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %44 unwind label %39
+34:                                               ; preds = %_ZNK3gmx18EnergyDriftTracker11energyDriftEv.exit
+  %35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %43 unwind label %38
 
-37:                                               ; preds = %41, %_ZNK3gmx18EnergyDriftTracker11energyDriftEv.exit, %13
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %40, %_ZNK3gmx18EnergyDriftTracker11energyDriftEv.exit, %12
+  %37 = landingpad { ptr, i32 }
           cleanup
-  br label %45
-
-39:                                               ; preds = %35
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
-  br label %45
-
-41:                                               ; preds = %3
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.2, double noundef %10, double noundef %8)
-          to label %42 unwind label %37
-
-42:                                               ; preds = %41
-  %43 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6) #5
   br label %44
 
-44:                                               ; preds = %35, %42
-  %.sink = phi ptr [ %6, %42 ], [ %5, %35 ]
+38:                                               ; preds = %34
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
+  br label %44
+
+40:                                               ; preds = %3
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.2, double noundef %10, double noundef %8)
+          to label %41 unwind label %36
+
+41:                                               ; preds = %40
+  %42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6) #5
+  br label %43
+
+43:                                               ; preds = %34, %41
+  %.sink = phi ptr [ %6, %41 ], [ %5, %34 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #5
   ret void
 
-45:                                               ; preds = %39, %37
-  %.pn = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ]
+44:                                               ; preds = %38, %36
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #5
   resume { ptr, i32 } %.pn
 }

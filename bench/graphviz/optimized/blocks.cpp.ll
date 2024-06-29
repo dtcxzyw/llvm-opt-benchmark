@@ -428,9 +428,9 @@ define void @_ZN6Blocks9mergeLeftEP5Block(ptr nocapture nonnull readnone align 8
   %.not26 = icmp eq ptr %6, null
   br i1 %.not26, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %36
-  %.01028 = phi ptr [ %65, %36 ], [ %6, %2 ]
-  %.02527 = phi ptr [ %.1, %36 ], [ %1, %2 ]
+.lr.ph:                                           ; preds = %2, %35
+  %.01028 = phi ptr [ %64, %35 ], [ %6, %2 ]
+  %.02527 = phi ptr [ %.1, %35 ], [ %1, %2 ]
   %7 = getelementptr inbounds i8, ptr %.01028, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 32
@@ -451,67 +451,66 @@ define void @_ZN6Blocks9mergeLeftEP5Block(ptr nocapture nonnull readnone align 8
   %24 = getelementptr inbounds i8, ptr %19, i64 24
   %25 = load double, ptr %24, align 8
   %26 = fadd double %23, %25
-  %27 = fsub double %18, %26
-  %28 = fcmp olt double %27, 0.000000e+00
-  br i1 %28, label %29, label %.critedge
+  %27 = fcmp olt double %18, %26
+  br i1 %27, label %28, label %.critedge
 
-29:                                               ; preds = %.lr.ph
+28:                                               ; preds = %.lr.ph
   tail call void @_ZN5Block21deleteMinInConstraintEv(ptr noundef nonnull align 8 dereferenceable(80) %.02527)
-  %30 = load ptr, ptr %.01028, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 64
-  %34 = load ptr, ptr %33, align 8
-  %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %35, label %36
+  %29 = load ptr, ptr %.01028, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 64
+  %33 = load ptr, ptr %32, align 8
+  %.not.i = icmp eq ptr %33, null
+  br i1 %.not.i, label %34, label %35
 
-35:                                               ; preds = %29
-  tail call void @_ZN5Block18setUpInConstraintsEv(ptr noundef nonnull align 8 dereferenceable(80) %32)
+34:                                               ; preds = %28
+  tail call void @_ZN5Block18setUpInConstraintsEv(ptr noundef nonnull align 8 dereferenceable(80) %31)
   %.pre = load ptr, ptr %.01028, align 8
-  br label %36
+  br label %35
 
-36:                                               ; preds = %35, %29
-  %37 = phi ptr [ %.pre, %35 ], [ %30, %29 ]
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
-  %40 = load double, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 24
-  %42 = load double, ptr %41, align 8
-  %43 = fsub double %40, %42
-  %44 = load double, ptr %16, align 8
-  %45 = fsub double %43, %44
-  %46 = getelementptr inbounds i8, ptr %.02527, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %.02527, align 8
+35:                                               ; preds = %34, %28
+  %36 = phi ptr [ %.pre, %34 ], [ %29, %28 ]
+  %37 = load ptr, ptr %7, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %39 = load double, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %36, i64 24
+  %41 = load double, ptr %40, align 8
+  %42 = fsub double %39, %41
+  %43 = load double, ptr %16, align 8
+  %44 = fsub double %42, %43
+  %45 = getelementptr inbounds i8, ptr %.02527, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %.02527, align 8
+  %48 = ptrtoint ptr %46 to i64
   %49 = ptrtoint ptr %47 to i64
-  %50 = ptrtoint ptr %48 to i64
-  %51 = sub i64 %49, %50
-  %52 = getelementptr inbounds i8, ptr %32, i64 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr %32, align 8
+  %50 = sub i64 %48, %49
+  %51 = getelementptr inbounds i8, ptr %31, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = load ptr, ptr %31, align 8
+  %54 = ptrtoint ptr %52 to i64
   %55 = ptrtoint ptr %53 to i64
-  %56 = ptrtoint ptr %54 to i64
-  %57 = sub i64 %55, %56
-  %58 = icmp ult i64 %51, %57
-  %59 = fneg double %45
-  %.1 = select i1 %58, ptr %32, ptr %.02527
-  %.024 = select i1 %58, ptr %.02527, ptr %32
-  %.0 = select i1 %58, double %59, double %45
-  %60 = load i64, ptr @blockTimeCtr, align 8
-  %61 = add nsw i64 %60, 1
-  store i64 %61, ptr @blockTimeCtr, align 8
+  %56 = sub i64 %54, %55
+  %57 = icmp ult i64 %50, %56
+  %58 = fneg double %44
+  %.1 = select i1 %57, ptr %31, ptr %.02527
+  %.024 = select i1 %57, ptr %.02527, ptr %31
+  %.0 = select i1 %57, double %58, double %44
+  %59 = load i64, ptr @blockTimeCtr, align 8
+  %60 = add nsw i64 %59, 1
+  store i64 %60, ptr @blockTimeCtr, align 8
   tail call void @_ZN5Block5mergeEPS_P10Constraintd(ptr noundef nonnull align 8 dereferenceable(80) %.1, ptr noundef nonnull %.024, ptr noundef nonnull %.01028, double noundef %.0)
   tail call void @_ZN5Block7mergeInEPS_(ptr noundef nonnull align 8 dereferenceable(80) %.1, ptr noundef nonnull %.024)
-  %62 = load i64, ptr @blockTimeCtr, align 8
-  %63 = getelementptr inbounds i8, ptr %.1, i64 56
-  store i64 %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %.024, i64 48
-  store i8 1, ptr %64, align 8
-  %65 = tail call noundef ptr @_ZN5Block19findMinInConstraintEv(ptr noundef nonnull align 8 dereferenceable(80) %.1)
-  %.not = icmp eq ptr %65, null
+  %61 = load i64, ptr @blockTimeCtr, align 8
+  %62 = getelementptr inbounds i8, ptr %.1, i64 56
+  store i64 %61, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %.024, i64 48
+  store i8 1, ptr %63, align 8
+  %64 = tail call noundef ptr @_ZN5Block19findMinInConstraintEv(ptr noundef nonnull align 8 dereferenceable(80) %.1)
+  %.not = icmp eq ptr %64, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !10
 
-.critedge:                                        ; preds = %.lr.ph, %36, %2
+.critedge:                                        ; preds = %.lr.ph, %35, %2
   ret void
 }
 
@@ -539,9 +538,9 @@ define void @_ZN6Blocks10mergeRightEP5Block(ptr nocapture nonnull readnone align
   %.not24 = icmp eq ptr %3, null
   br i1 %.not24, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %26
-  %.01026 = phi ptr [ %54, %26 ], [ %3, %2 ]
-  %.02325 = phi ptr [ %.1, %26 ], [ %1, %2 ]
+.lr.ph:                                           ; preds = %2, %25
+  %.01026 = phi ptr [ %53, %25 ], [ %3, %2 ]
+  %.02325 = phi ptr [ %.1, %25 ], [ %1, %2 ]
   %4 = getelementptr inbounds i8, ptr %.01026, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32
@@ -562,51 +561,50 @@ define void @_ZN6Blocks10mergeRightEP5Block(ptr nocapture nonnull readnone align
   %21 = getelementptr inbounds i8, ptr %16, i64 24
   %22 = load double, ptr %21, align 8
   %23 = fadd double %20, %22
-  %24 = fsub double %15, %23
-  %25 = fcmp olt double %24, 0.000000e+00
-  br i1 %25, label %26, label %.critedge
+  %24 = fcmp olt double %15, %23
+  br i1 %24, label %25, label %.critedge
 
-26:                                               ; preds = %.lr.ph
+25:                                               ; preds = %.lr.ph
   tail call void @_ZN5Block22deleteMinOutConstraintEv(ptr noundef nonnull align 8 dereferenceable(80) %.02325)
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
-  %29 = load ptr, ptr %28, align 8
-  tail call void @_ZN5Block19setUpOutConstraintsEv(ptr noundef nonnull align 8 dereferenceable(80) %29)
-  %30 = load ptr, ptr %.01026, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
-  %32 = load double, ptr %31, align 8
-  %33 = load double, ptr %13, align 8
-  %34 = fadd double %32, %33
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
-  %37 = load double, ptr %36, align 8
-  %38 = fsub double %34, %37
-  %39 = getelementptr inbounds i8, ptr %.02325, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %.02325, align 8
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 32
+  %28 = load ptr, ptr %27, align 8
+  tail call void @_ZN5Block19setUpOutConstraintsEv(ptr noundef nonnull align 8 dereferenceable(80) %28)
+  %29 = load ptr, ptr %.01026, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %31 = load double, ptr %30, align 8
+  %32 = load double, ptr %13, align 8
+  %33 = fadd double %31, %32
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %36 = load double, ptr %35, align 8
+  %37 = fsub double %33, %36
+  %38 = getelementptr inbounds i8, ptr %.02325, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %.02325, align 8
+  %41 = ptrtoint ptr %39 to i64
   %42 = ptrtoint ptr %40 to i64
-  %43 = ptrtoint ptr %41 to i64
-  %44 = sub i64 %42, %43
-  %45 = getelementptr inbounds i8, ptr %29, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr %29, align 8
+  %43 = sub i64 %41, %42
+  %44 = getelementptr inbounds i8, ptr %28, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %28, align 8
+  %47 = ptrtoint ptr %45 to i64
   %48 = ptrtoint ptr %46 to i64
-  %49 = ptrtoint ptr %47 to i64
-  %50 = sub i64 %48, %49
-  %51 = icmp ugt i64 %44, %50
-  %52 = fneg double %38
-  %.1 = select i1 %51, ptr %29, ptr %.02325
-  %.022 = select i1 %51, ptr %.02325, ptr %29
-  %.0 = select i1 %51, double %52, double %38
+  %49 = sub i64 %47, %48
+  %50 = icmp ugt i64 %43, %49
+  %51 = fneg double %37
+  %.1 = select i1 %50, ptr %28, ptr %.02325
+  %.022 = select i1 %50, ptr %.02325, ptr %28
+  %.0 = select i1 %50, double %51, double %37
   tail call void @_ZN5Block5mergeEPS_P10Constraintd(ptr noundef nonnull align 8 dereferenceable(80) %.1, ptr noundef nonnull %.022, ptr noundef nonnull %.01026, double noundef %.0)
   tail call void @_ZN5Block8mergeOutEPS_(ptr noundef nonnull align 8 dereferenceable(80) %.1, ptr noundef nonnull %.022)
-  %53 = getelementptr inbounds i8, ptr %.022, i64 48
-  store i8 1, ptr %53, align 8
-  %54 = tail call noundef ptr @_ZN5Block20findMinOutConstraintEv(ptr noundef nonnull align 8 dereferenceable(80) %.1)
-  %.not = icmp eq ptr %54, null
+  %52 = getelementptr inbounds i8, ptr %.022, i64 48
+  store i8 1, ptr %52, align 8
+  %53 = tail call noundef ptr @_ZN5Block20findMinOutConstraintEv(ptr noundef nonnull align 8 dereferenceable(80) %.1)
+  %.not = icmp eq ptr %53, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !11
 
-.critedge:                                        ; preds = %.lr.ph, %26, %2
+.critedge:                                        ; preds = %.lr.ph, %25, %2
   ret void
 }
 

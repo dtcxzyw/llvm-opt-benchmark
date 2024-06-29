@@ -3932,37 +3932,35 @@ define zeroext i1 @CheckCollisionCircles(<2 x float> %0, float noundef %1, <2 x 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext i1 @CheckCollisionPointTriangle(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #10 {
   %5 = fsub <2 x float> %2, %3
-  %6 = extractelement <2 x float> %5, i64 1
-  %7 = fsub <2 x float> %3, %2
-  %8 = fsub <2 x float> %1, %3
-  %shift = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = fmul <2 x float> %7, %shift
-  %10 = extractelement <2 x float> %9, i64 0
-  %11 = shufflevector <2 x float> %1, <2 x float> %0, <2 x i32> <i32 0, i32 3>
-  %12 = fsub <2 x float> %11, %3
-  %13 = extractelement <2 x float> %12, i64 0
-  %14 = tail call float @llvm.fmuladd.f32(float %6, float %13, float %10)
-  %15 = shufflevector <2 x float> %3, <2 x float> %0, <2 x i32> <i32 1, i32 2>
-  %16 = shufflevector <2 x float> %1, <2 x float> %3, <2 x i32> <i32 1, i32 2>
-  %17 = fsub <2 x float> %15, %16
-  %18 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %19 = shufflevector <2 x float> %18, <2 x float> %7, <2 x i32> <i32 0, i32 2>
-  %20 = fmul <2 x float> %12, %19
-  %21 = shufflevector <2 x float> %17, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %22 = shufflevector <2 x float> %21, <2 x float> %5, <2 x i32> <i32 0, i32 3>
-  %23 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %17, <2 x float> %22, <2 x float> %20)
-  %24 = insertelement <2 x float> poison, float %14, i64 0
-  %25 = shufflevector <2 x float> %24, <2 x float> poison, <2 x i32> zeroinitializer
-  %26 = fdiv <2 x float> %23, %25
-  %27 = extractelement <2 x float> %26, i64 1
-  %28 = fsub float 1.000000e+00, %27
-  %29 = extractelement <2 x float> %26, i64 0
-  %30 = fsub float %28, %29
-  %31 = fcmp ogt float %27, 0.000000e+00
-  %32 = fcmp ogt float %29, 0.000000e+00
-  %33 = fcmp ogt float %30, 0.000000e+00
-  %34 = and i1 %32, %33
-  %or.cond3 = select i1 %31, i1 %34, i1 false
+  %6 = fsub <2 x float> %3, %2
+  %7 = shufflevector <2 x float> %0, <2 x float> %1, <2 x i32> <i32 0, i32 2>
+  %8 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> zeroinitializer
+  %9 = fsub <2 x float> %7, %8
+  %10 = shufflevector <2 x float> %0, <2 x float> %1, <2 x i32> <i32 1, i32 3>
+  %11 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %12 = fsub <2 x float> %10, %11
+  %13 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> zeroinitializer
+  %14 = fmul <2 x float> %13, %12
+  %15 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %16 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %15, <2 x float> %9, <2 x float> %14)
+  %17 = fsub <2 x float> %3, %1
+  %18 = extractelement <2 x float> %17, i64 1
+  %shift = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %19 = fmul <2 x float> %shift, %12
+  %20 = extractelement <2 x float> %19, i64 0
+  %21 = extractelement <2 x float> %9, i64 0
+  %22 = tail call float @llvm.fmuladd.f32(float %18, float %21, float %20)
+  %23 = insertelement <2 x float> %16, float %22, i64 1
+  %24 = shufflevector <2 x float> %16, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %25 = fdiv <2 x float> %23, %24
+  %26 = extractelement <2 x float> %25, i64 0
+  %27 = fsub float 1.000000e+00, %26
+  %28 = fcmp ogt float %26, 0.000000e+00
+  %29 = extractelement <2 x float> %25, i64 1
+  %30 = fcmp ogt float %29, 0.000000e+00
+  %31 = fcmp ogt float %27, %29
+  %32 = and i1 %30, %31
+  %or.cond3 = select i1 %28, i1 %32, i1 false
   ret i1 %or.cond3
 }
 

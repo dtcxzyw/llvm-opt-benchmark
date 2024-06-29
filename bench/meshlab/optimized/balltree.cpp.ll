@@ -200,22 +200,21 @@ _ZN7GaelMls12NeighborhoodIfE5clearEv.exit:        ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %70, label %33, label %_ZNK7GaelMls8BallTreeIfE9queryNodeERNS1_4NodeEPNS_12NeighborhoodIfEE.exit, !llvm.loop !5
 
 tailrecurse.backedge.i:                           ; preds = %_ZN7GaelMls12NeighborhoodIfE5clearEv.exit, %tailrecurse.backedge.i
-  %71 = phi i8 [ %81, %tailrecurse.backedge.i ], [ %22, %_ZN7GaelMls12NeighborhoodIfE5clearEv.exit ]
+  %71 = phi i8 [ %80, %tailrecurse.backedge.i ], [ %22, %_ZN7GaelMls12NeighborhoodIfE5clearEv.exit ]
   %.tr2124.i = phi ptr [ %.tr21.be.i, %tailrecurse.backedge.i ], [ %20, %_ZN7GaelMls12NeighborhoodIfE5clearEv.exit ]
   %72 = and i8 %71, 3
   %73 = zext nneg i8 %72 to i64
   %74 = getelementptr inbounds [3 x float], ptr %18, i64 0, i64 %73
   %75 = load float, ptr %74, align 4
   %76 = load float, ptr %.tr2124.i, align 8
-  %77 = fsub float %75, %76
-  %78 = fcmp olt float %77, 0.000000e+00
-  %.sink.i = select i1 %78, i64 8, i64 16
-  %79 = getelementptr inbounds i8, ptr %.tr2124.i, i64 %.sink.i
-  %.tr21.be.i = load ptr, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %.tr21.be.i, i64 4
-  %81 = load i8, ptr %80, align 4
-  %82 = and i8 %81, 4
-  %.not.i = icmp eq i8 %82, 0
+  %77 = fcmp olt float %75, %76
+  %.sink.i = select i1 %77, i64 8, i64 16
+  %78 = getelementptr inbounds i8, ptr %.tr2124.i, i64 %.sink.i
+  %.tr21.be.i = load ptr, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %.tr21.be.i, i64 4
+  %80 = load i8, ptr %79, align 4
+  %81 = and i8 %80, 4
+  %.not.i = icmp eq i8 %81, 0
   br i1 %.not.i, label %tailrecurse.backedge.i, label %.preheader.i
 
 _ZNK7GaelMls8BallTreeIfE9queryNodeERNS1_4NodeEPNS_12NeighborhoodIfEE.exit: ; preds = %67, %.preheader.i
@@ -481,22 +480,21 @@ define weak_odr void @_ZNK7GaelMls8BallTreeIfE9queryNodeERNS1_4NodeEPNS_12Neighb
   br i1 %55, label %18, label %._crit_edge, !llvm.loop !5
 
 tailrecurse.backedge:                             ; preds = %.lr.ph, %tailrecurse.backedge
-  %56 = phi i8 [ %5, %.lr.ph ], [ %66, %tailrecurse.backedge ]
+  %56 = phi i8 [ %5, %.lr.ph ], [ %65, %tailrecurse.backedge ]
   %.tr2124 = phi ptr [ %1, %.lr.ph ], [ %.tr21.be, %tailrecurse.backedge ]
   %57 = and i8 %56, 3
   %58 = zext nneg i8 %57 to i64
   %59 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 %58
   %60 = load float, ptr %59, align 4
   %61 = load float, ptr %.tr2124, align 8
-  %62 = fsub float %60, %61
-  %63 = fcmp olt float %62, 0.000000e+00
-  %.sink = select i1 %63, i64 8, i64 16
-  %64 = getelementptr inbounds i8, ptr %.tr2124, i64 %.sink
-  %.tr21.be = load ptr, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %.tr21.be, i64 4
-  %66 = load i8, ptr %65, align 4
-  %67 = and i8 %66, 4
-  %.not = icmp eq i8 %67, 0
+  %62 = fcmp olt float %60, %61
+  %.sink = select i1 %62, i64 8, i64 16
+  %63 = getelementptr inbounds i8, ptr %.tr2124, i64 %.sink
+  %.tr21.be = load ptr, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %.tr21.be, i64 4
+  %65 = load i8, ptr %64, align 4
+  %66 = and i8 %65, 4
+  %.not = icmp eq i8 %66, 0
   br i1 %.not, label %tailrecurse.backedge, label %.preheader
 
 ._crit_edge:                                      ; preds = %52, %.preheader
@@ -1370,22 +1368,21 @@ _ZN7GaelMls12NeighborhoodIdE5clearEv.exit:        ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %70, label %33, label %_ZNK7GaelMls8BallTreeIdE9queryNodeERNS1_4NodeEPNS_12NeighborhoodIdEE.exit, !llvm.loop !15
 
 tailrecurse.backedge.i:                           ; preds = %_ZN7GaelMls12NeighborhoodIdE5clearEv.exit, %tailrecurse.backedge.i
-  %71 = phi i8 [ %81, %tailrecurse.backedge.i ], [ %22, %_ZN7GaelMls12NeighborhoodIdE5clearEv.exit ]
+  %71 = phi i8 [ %80, %tailrecurse.backedge.i ], [ %22, %_ZN7GaelMls12NeighborhoodIdE5clearEv.exit ]
   %.tr2124.i = phi ptr [ %.tr21.be.i, %tailrecurse.backedge.i ], [ %20, %_ZN7GaelMls12NeighborhoodIdE5clearEv.exit ]
   %72 = and i8 %71, 3
   %73 = zext nneg i8 %72 to i64
   %74 = getelementptr inbounds [3 x double], ptr %18, i64 0, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = load double, ptr %.tr2124.i, align 8
-  %77 = fsub double %75, %76
-  %78 = fcmp olt double %77, 0.000000e+00
-  %.sink.i = select i1 %78, i64 16, i64 24
-  %79 = getelementptr inbounds i8, ptr %.tr2124.i, i64 %.sink.i
-  %.tr21.be.i = load ptr, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %.tr21.be.i, i64 8
-  %81 = load i8, ptr %80, align 8
-  %82 = and i8 %81, 4
-  %.not.i = icmp eq i8 %82, 0
+  %77 = fcmp olt double %75, %76
+  %.sink.i = select i1 %77, i64 16, i64 24
+  %78 = getelementptr inbounds i8, ptr %.tr2124.i, i64 %.sink.i
+  %.tr21.be.i = load ptr, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %.tr21.be.i, i64 8
+  %80 = load i8, ptr %79, align 8
+  %81 = and i8 %80, 4
+  %.not.i = icmp eq i8 %81, 0
   br i1 %.not.i, label %tailrecurse.backedge.i, label %.preheader.i
 
 _ZNK7GaelMls8BallTreeIdE9queryNodeERNS1_4NodeEPNS_12NeighborhoodIdEE.exit: ; preds = %67, %.preheader.i
@@ -1651,22 +1648,21 @@ define weak_odr void @_ZNK7GaelMls8BallTreeIdE9queryNodeERNS1_4NodeEPNS_12Neighb
   br i1 %55, label %18, label %._crit_edge, !llvm.loop !15
 
 tailrecurse.backedge:                             ; preds = %.lr.ph, %tailrecurse.backedge
-  %56 = phi i8 [ %5, %.lr.ph ], [ %66, %tailrecurse.backedge ]
+  %56 = phi i8 [ %5, %.lr.ph ], [ %65, %tailrecurse.backedge ]
   %.tr2124 = phi ptr [ %1, %.lr.ph ], [ %.tr21.be, %tailrecurse.backedge ]
   %57 = and i8 %56, 3
   %58 = zext nneg i8 %57 to i64
   %59 = getelementptr inbounds [3 x double], ptr %7, i64 0, i64 %58
   %60 = load double, ptr %59, align 8
   %61 = load double, ptr %.tr2124, align 8
-  %62 = fsub double %60, %61
-  %63 = fcmp olt double %62, 0.000000e+00
-  %.sink = select i1 %63, i64 16, i64 24
-  %64 = getelementptr inbounds i8, ptr %.tr2124, i64 %.sink
-  %.tr21.be = load ptr, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %.tr21.be, i64 8
-  %66 = load i8, ptr %65, align 8
-  %67 = and i8 %66, 4
-  %.not = icmp eq i8 %67, 0
+  %62 = fcmp olt double %60, %61
+  %.sink = select i1 %62, i64 16, i64 24
+  %63 = getelementptr inbounds i8, ptr %.tr2124, i64 %.sink
+  %.tr21.be = load ptr, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %.tr21.be, i64 8
+  %65 = load i8, ptr %64, align 8
+  %66 = and i8 %65, 4
+  %.not = icmp eq i8 %66, 0
   br i1 %.not, label %tailrecurse.backedge, label %.preheader
 
 ._crit_edge:                                      ; preds = %52, %.preheader

@@ -10,12 +10,11 @@ define x86_fp80 @ceill(x86_fp80 noundef %0) local_unnamed_addr #0 {
   %3 = call x86_fp80 @modfl(x86_fp80 noundef %0, ptr noundef nonnull %2) #2
   %4 = fcmp ule x86_fp80 %0, 0xK00000000000000000000
   %.pre = load x86_fp80, ptr %2, align 16
-  %5 = fsub x86_fp80 %0, %.pre
-  %6 = fcmp ueq x86_fp80 %5, 0xK00000000000000000000
-  %or.cond = select i1 %4, i1 true, i1 %6
-  %7 = fadd x86_fp80 %.pre, 0xK3FFF8000000000000000
-  %8 = select i1 %or.cond, x86_fp80 %.pre, x86_fp80 %7
-  ret x86_fp80 %8
+  %5 = fcmp ueq x86_fp80 %.pre, %0
+  %or.cond = select i1 %4, i1 true, i1 %5
+  %6 = fadd x86_fp80 %.pre, 0xK3FFF8000000000000000
+  %7 = select i1 %or.cond, x86_fp80 %.pre, x86_fp80 %6
+  ret x86_fp80 %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)

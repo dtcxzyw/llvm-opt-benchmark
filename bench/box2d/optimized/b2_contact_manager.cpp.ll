@@ -270,7 +270,7 @@ if.then9:                                         ; preds = %if.then
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then9, %if.then16, %if.then38, %if.then50, %if.end53
-  %c.0.be = phi ptr [ %8, %if.then9 ], [ %11, %if.then16 ], [ %21, %if.then38 ], [ %39, %if.then50 ], [ %41, %if.end53 ]
+  %c.0.be = phi ptr [ %8, %if.then9 ], [ %11, %if.then16 ], [ %21, %if.then38 ], [ %35, %if.then50 ], [ %37, %if.end53 ]
   %tobool.not = icmp eq ptr %c.0.be, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !4
 
@@ -350,37 +350,41 @@ if.end40:                                         ; preds = %land.end29
   %idxprom.i2.i = sext i32 %25 to i64
   %arrayidx.i3.i = getelementptr inbounds %struct.b2TreeNode, ptr %26, i64 %idxprom.i2.i
   %upperBound.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
-  %27 = load <2 x float>, ptr %arrayidx.i3.i, align 4
-  %28 = load <2 x float>, ptr %upperBound.i.i, align 4
-  %29 = fsub <2 x float> %27, %28
-  %30 = fcmp ogt <2 x float> %29, zeroinitializer
-  %31 = extractelement <2 x i1> %30, i64 0
-  %32 = extractelement <2 x i1> %30, i64 1
-  %or.cond.i.i = select i1 %31, i1 true, i1 %32
+  %27 = load float, ptr %arrayidx.i3.i, align 4
+  %28 = load float, ptr %upperBound.i.i, align 4
+  %y.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i3.i, i64 4
+  %29 = load float, ptr %y.i.i.i, align 4
+  %y2.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
+  %30 = load float, ptr %y2.i.i.i, align 4
+  %cmp.i.i = fcmp ogt float %27, %28
+  %cmp5.i.i = fcmp ogt float %29, %30
+  %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp5.i.i
   br i1 %or.cond.i.i, label %if.then50, label %_ZNK12b2BroadPhase11TestOverlapEii.exit
 
 _ZNK12b2BroadPhase11TestOverlapEii.exit:          ; preds = %if.end40
+  %y.i5.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
+  %31 = load float, ptr %y.i5.i.i, align 4
+  %y2.i6.i.i = getelementptr inbounds i8, ptr %arrayidx.i3.i, i64 12
+  %32 = load float, ptr %y2.i6.i.i, align 4
   %upperBound3.i.i = getelementptr inbounds i8, ptr %arrayidx.i3.i, i64 8
-  %33 = load <2 x float>, ptr %arrayidx.i.i, align 4
-  %34 = load <2 x float>, ptr %upperBound3.i.i, align 4
-  %35 = fsub <2 x float> %33, %34
-  %36 = fcmp ule <2 x float> %35, zeroinitializer
-  %37 = extractelement <2 x i1> %36, i64 0
-  %38 = extractelement <2 x i1> %36, i64 1
-  %or.cond1.not.i.i = select i1 %37, i1 %38, i1 false
+  %33 = load float, ptr %arrayidx.i.i, align 4
+  %34 = load float, ptr %upperBound3.i.i, align 4
+  %cmp7.i.i = fcmp ule float %33, %34
+  %cmp10.i.i = fcmp ule float %31, %32
+  %or.cond1.not.i.i = select i1 %cmp7.i.i, i1 %cmp10.i.i, i1 false
   br i1 %or.cond1.not.i.i, label %if.end53, label %if.then50
 
 if.then50:                                        ; preds = %if.end40, %_ZNK12b2BroadPhase11TestOverlapEii.exit
   %m_next.i29 = getelementptr inbounds i8, ptr %c.033, i64 24
-  %39 = load ptr, ptr %m_next.i29, align 8
+  %35 = load ptr, ptr %m_next.i29, align 8
   tail call void @_ZN16b2ContactManager7DestroyEP9b2Contact(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull %c.033)
   br label %while.cond.backedge
 
 if.end53:                                         ; preds = %_ZNK12b2BroadPhase11TestOverlapEii.exit
-  %40 = load ptr, ptr %m_contactListener, align 8
-  tail call void @_ZN9b2Contact6UpdateEP17b2ContactListener(ptr noundef nonnull align 8 dereferenceable(208) %c.033, ptr noundef %40)
+  %36 = load ptr, ptr %m_contactListener, align 8
+  tail call void @_ZN9b2Contact6UpdateEP17b2ContactListener(ptr noundef nonnull align 8 dereferenceable(208) %c.033, ptr noundef %36)
   %m_next.i30 = getelementptr inbounds i8, ptr %c.033, i64 24
-  %41 = load ptr, ptr %m_next.i30, align 8
+  %37 = load ptr, ptr %m_next.i30, align 8
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %entry
@@ -726,6 +730,8 @@ _ZN15b2GrowableStackIiLi256EE4PushERKi.exit:
   %0 = load i32, ptr %this, align 8
   store i32 %0, ptr %m_array.i, align 8
   %m_nodes = getelementptr inbounds i8, ptr %this, i64 8
+  %y.i.i = getelementptr inbounds i8, ptr %aabb, i64 4
+  %y2.i6.i = getelementptr inbounds i8, ptr %aabb, i64 12
   %upperBound3.i = getelementptr inbounds i8, ptr %aabb, i64 8
   br label %while.body
 
@@ -761,29 +767,31 @@ if.end:                                           ; preds = %while.body
   %idx.ext = sext i32 %3 to i64
   %add.ptr = getelementptr inbounds %struct.b2TreeNode, ptr %5, i64 %idx.ext
   %upperBound.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %6 = load <2 x float>, ptr %aabb, align 4
-  %7 = load <2 x float>, ptr %upperBound.i, align 4
-  %8 = fsub <2 x float> %6, %7
-  %9 = fcmp ogt <2 x float> %8, zeroinitializer
-  %10 = extractelement <2 x i1> %9, i64 0
-  %11 = extractelement <2 x i1> %9, i64 1
-  %or.cond.i = select i1 %10, i1 true, i1 %11
+  %6 = load float, ptr %aabb, align 4
+  %7 = load float, ptr %upperBound.i, align 4
+  %8 = load float, ptr %y.i.i, align 4
+  %y2.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %9 = load float, ptr %y2.i.i, align 4
+  %cmp.i14 = fcmp ogt float %6, %7
+  %cmp5.i = fcmp ogt float %8, %9
+  %or.cond.i = select i1 %cmp.i14, i1 true, i1 %cmp5.i
   br i1 %or.cond.i, label %while.condthread-pre-split, label %invoke.cont7, !llvm.loop !10
 
 invoke.cont7:                                     ; preds = %if.end
-  %12 = load <2 x float>, ptr %add.ptr, align 4
-  %13 = load <2 x float>, ptr %upperBound3.i, align 4
-  %14 = fsub <2 x float> %12, %13
-  %15 = fcmp ule <2 x float> %14, zeroinitializer
-  %16 = extractelement <2 x i1> %15, i64 0
-  %17 = extractelement <2 x i1> %15, i64 1
-  %or.cond1.not.i = select i1 %16, i1 %17, i1 false
+  %y.i5.i = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %10 = load float, ptr %y.i5.i, align 4
+  %11 = load float, ptr %y2.i6.i, align 4
+  %12 = load float, ptr %add.ptr, align 4
+  %13 = load float, ptr %upperBound3.i, align 4
+  %cmp7.i = fcmp ule float %12, %13
+  %cmp10.i = fcmp ule float %10, %11
+  %or.cond1.not.i = select i1 %cmp7.i, i1 %cmp10.i, i1 false
   br i1 %or.cond1.not.i, label %if.then9, label %while.condthread-pre-split, !llvm.loop !10
 
 if.then9:                                         ; preds = %invoke.cont7
   %child1.i = getelementptr inbounds i8, ptr %add.ptr, i64 28
-  %18 = load i32, ptr %child1.i, align 4
-  %cmp.i15 = icmp eq i32 %18, -1
+  %14 = load i32, ptr %child1.i, align 4
+  %cmp.i15 = icmp eq i32 %14, -1
   br i1 %cmp.i15, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.then9
@@ -797,8 +805,8 @@ invoke.cont13:                                    ; preds = %if.then12
   br i1 %or.cond, label %while.body.backedge, label %cleanup
 
 if.else:                                          ; preds = %if.then9
-  %19 = load i32, ptr %m_capacity.i, align 4
-  %cmp.i18 = icmp eq i32 %dec.i, %19
+  %15 = load i32, ptr %m_capacity.i, align 4
+  %cmp.i18 = icmp eq i32 %dec.i, %15
   br i1 %cmp.i18, label %if.then.i22, label %invoke.cont18
 
 if.then.i22:                                      ; preds = %if.else
@@ -810,8 +818,8 @@ if.then.i22:                                      ; preds = %if.else
 
 call.i.i.noexc30:                                 ; preds = %if.then.i22
   store ptr %call.i.i31, ptr %stack, align 8
-  %20 = load i32, ptr %m_count.i, align 8
-  %conv9.i25 = sext i32 %20 to i64
+  %16 = load i32, ptr %m_count.i, align 8
+  %conv9.i25 = sext i32 %16 to i64
   %mul10.i26 = shl nsw i64 %conv9.i25, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i31, ptr nonnull align 4 %1, i64 %mul10.i26, i1 false)
   %cmp11.not.i28 = icmp eq ptr %1, %m_array.i
@@ -822,22 +830,22 @@ if.then12.i29:                                    ; preds = %call.i.i.noexc30
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %call.i.i.noexc30, %if.else, %if.then12.i29
-  %21 = load i32, ptr %child1.i, align 4
-  %22 = load ptr, ptr %stack, align 8
-  %23 = load i32, ptr %m_count.i, align 8
-  %idxprom.i19 = sext i32 %23 to i64
-  %arrayidx.i20 = getelementptr inbounds i32, ptr %22, i64 %idxprom.i19
-  store i32 %21, ptr %arrayidx.i20, align 4
-  %24 = load i32, ptr %m_count.i, align 8
-  %inc.i21 = add nsw i32 %24, 1
+  %17 = load i32, ptr %child1.i, align 4
+  %18 = load ptr, ptr %stack, align 8
+  %19 = load i32, ptr %m_count.i, align 8
+  %idxprom.i19 = sext i32 %19 to i64
+  %arrayidx.i20 = getelementptr inbounds i32, ptr %18, i64 %idxprom.i19
+  store i32 %17, ptr %arrayidx.i20, align 4
+  %20 = load i32, ptr %m_count.i, align 8
+  %inc.i21 = add nsw i32 %20, 1
   store i32 %inc.i21, ptr %m_count.i, align 8
   %child2 = getelementptr inbounds i8, ptr %add.ptr, i64 32
-  %25 = load i32, ptr %m_capacity.i, align 4
-  %cmp.i36 = icmp eq i32 %inc.i21, %25
+  %21 = load i32, ptr %m_capacity.i, align 4
+  %cmp.i36 = icmp eq i32 %inc.i21, %21
   br i1 %cmp.i36, label %if.then.i40, label %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit51
 
 if.then.i40:                                      ; preds = %invoke.cont18
-  %26 = load ptr, ptr %stack, align 8
+  %22 = load ptr, ptr %stack, align 8
   %mul.i41 = shl nsw i32 %inc.i21, 1
   store i32 %mul.i41, ptr %m_capacity.i, align 4
   %mul4.i42 = shl i32 %inc.i21, 3
@@ -846,43 +854,43 @@ if.then.i40:                                      ; preds = %invoke.cont18
 
 call.i.i.noexc48:                                 ; preds = %if.then.i40
   store ptr %call.i.i49, ptr %stack, align 8
-  %27 = load i32, ptr %m_count.i, align 8
-  %conv9.i43 = sext i32 %27 to i64
+  %23 = load i32, ptr %m_count.i, align 8
+  %conv9.i43 = sext i32 %23 to i64
   %mul10.i44 = shl nsw i64 %conv9.i43, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i49, ptr align 4 %26, i64 %mul10.i44, i1 false)
-  %cmp11.not.i46 = icmp eq ptr %26, %m_array.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i49, ptr align 4 %22, i64 %mul10.i44, i1 false)
+  %cmp11.not.i46 = icmp eq ptr %22, %m_array.i
   br i1 %cmp11.not.i46, label %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit51, label %if.then12.i47
 
 if.then12.i47:                                    ; preds = %call.i.i.noexc48
-  invoke void @_Z14b2Free_DefaultPv(ptr noundef %26)
+  invoke void @_Z14b2Free_DefaultPv(ptr noundef %22)
           to label %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit51 unwind label %lpad
 
 _ZN15b2GrowableStackIiLi256EE4PushERKi.exit51:    ; preds = %if.then12.i47, %invoke.cont18, %call.i.i.noexc48
-  %28 = load i32, ptr %child2, align 4
-  %29 = load ptr, ptr %stack, align 8
-  %30 = load i32, ptr %m_count.i, align 8
-  %idxprom.i37 = sext i32 %30 to i64
-  %arrayidx.i38 = getelementptr inbounds i32, ptr %29, i64 %idxprom.i37
-  store i32 %28, ptr %arrayidx.i38, align 4
-  %31 = load i32, ptr %m_count.i, align 8
-  %inc.i39 = add nsw i32 %31, 1
+  %24 = load i32, ptr %child2, align 4
+  %25 = load ptr, ptr %stack, align 8
+  %26 = load i32, ptr %m_count.i, align 8
+  %idxprom.i37 = sext i32 %26 to i64
+  %arrayidx.i38 = getelementptr inbounds i32, ptr %25, i64 %idxprom.i37
+  store i32 %24, ptr %arrayidx.i38, align 4
+  %27 = load i32, ptr %m_count.i, align 8
+  %inc.i39 = add nsw i32 %27, 1
   store i32 %inc.i39, ptr %m_count.i, align 8
   br label %while.condthread-pre-split, !llvm.loop !10
 
 cleanup:                                          ; preds = %while.condthread-pre-split, %invoke.cont13
-  %32 = load ptr, ptr %stack, align 8
-  %cmp.not.i = icmp eq ptr %32, %m_array.i
+  %28 = load ptr, ptr %stack, align 8
+  %cmp.not.i = icmp eq ptr %28, %m_array.i
   br i1 %cmp.not.i, label %_ZN15b2GrowableStackIiLi256EED2Ev.exit, label %if.then.i53
 
 if.then.i53:                                      ; preds = %cleanup
-  invoke void @_Z14b2Free_DefaultPv(ptr noundef %32)
+  invoke void @_Z14b2Free_DefaultPv(ptr noundef %28)
           to label %_ZN15b2GrowableStackIiLi256EED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i53
-  %33 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #9
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #9
   unreachable
 
 _ZN15b2GrowableStackIiLi256EED2Ev.exit:           ; preds = %if.then.i53, %cleanup

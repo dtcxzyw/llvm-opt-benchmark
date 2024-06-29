@@ -455,8 +455,7 @@ if.then94:                                        ; preds = %land.lhs.true87, %l
   %cmp.i476 = fcmp nsz olt float %29, %28
   %.sroa.speculated542 = select i1 %cmp.i476, float %29, float %28
   %sub111 = fsub nsz float %.sroa.speculated545, %.sroa.speculated542
-  %sub114 = fsub nsz float %sub111, %add
-  %cmp115 = fcmp nsz olt float %sub114, 0.000000e+00
+  %cmp115 = fcmp nsz olt float %sub111, %add
   br i1 %cmp115, label %land.rhs, label %if.end140
 
 land.rhs:                                         ; preds = %if.then94
@@ -471,8 +470,7 @@ land.rhs:                                         ; preds = %if.then94
   %cmp.i480 = fcmp nsz olt float %35, %34
   %.sroa.speculated536 = select i1 %cmp.i480, float %35, float %34
   %sub132 = fsub nsz float %.sroa.speculated539, %.sroa.speculated536
-  %sub135 = fsub nsz float %sub132, %add26
-  %cmp136 = fcmp nsz olt float %sub135, 0.000000e+00
+  %cmp136 = fcmp nsz olt float %sub132, %add26
   br i1 %cmp136, label %cleanup, label %if.end140
 
 if.end140:                                        ; preds = %land.rhs, %if.then94, %land.lhs.true87, %lor.lhs.false, %entry
@@ -528,8 +526,7 @@ if.then184:                                       ; preds = %land.lhs.true177, %
   %cmp.i488 = fcmp nsz olt float %46, %45
   %.sroa.speculated524 = select i1 %cmp.i488, float %46, float %45
   %sub201 = fsub nsz float %.sroa.speculated527, %.sroa.speculated524
-  %sub204 = fsub nsz float %sub201, %add16
-  %cmp205 = fcmp nsz olt float %sub204, 0.000000e+00
+  %cmp205 = fcmp nsz olt float %sub201, %add16
   br i1 %cmp205, label %land.rhs206, label %if.end234
 
 land.rhs206:                                      ; preds = %if.then184
@@ -544,8 +541,7 @@ land.rhs206:                                      ; preds = %if.then184
   %cmp.i492 = fcmp nsz olt float %52, %51
   %.sroa.speculated518 = select i1 %cmp.i492, float %52, float %51
   %sub223 = fsub nsz float %.sroa.speculated521, %.sroa.speculated518
-  %sub226 = fsub nsz float %sub223, %add26
-  %cmp227 = fcmp nsz olt float %sub226, 0.000000e+00
+  %cmp227 = fcmp nsz olt float %sub223, %add26
   br i1 %cmp227, label %cleanup, label %if.end234
 
 if.end234:                                        ; preds = %land.rhs206, %if.then184, %land.lhs.true177, %lor.lhs.false174, %if.end140
@@ -600,8 +596,7 @@ if.then278:                                       ; preds = %land.lhs.true271, %
   %cmp.i500 = fcmp nsz olt float %63, %62
   %.sroa.speculated509 = select i1 %cmp.i500, float %63, float %62
   %sub295 = fsub nsz float %.sroa.speculated511, %.sroa.speculated509
-  %sub298 = fsub nsz float %sub295, %add
-  %cmp299 = fcmp nsz olt float %sub298, 0.000000e+00
+  %cmp299 = fcmp nsz olt float %sub295, %add
   br i1 %cmp299, label %land.rhs300, label %if.end327
 
 land.rhs300:                                      ; preds = %if.then278
@@ -616,8 +611,7 @@ land.rhs300:                                      ; preds = %if.then278
   %cmp.i504 = fcmp nsz olt float %69, %68
   %.sroa.speculated = select i1 %cmp.i504, float %69, float %68
   %sub317 = fsub nsz float %.sroa.speculated507, %.sroa.speculated
-  %sub320 = fsub nsz float %sub317, %add16
-  %cmp321 = fcmp nsz olt float %sub320, 0.000000e+00
+  %cmp321 = fcmp nsz olt float %sub317, %add16
   br i1 %cmp321, label %cleanup, label %if.end327
 
 if.end327:                                        ; preds = %land.rhs300, %if.then278, %land.lhs.true271, %lor.lhs.false268, %if.then237, %if.end234

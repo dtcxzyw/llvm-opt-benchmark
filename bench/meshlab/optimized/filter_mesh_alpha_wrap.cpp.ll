@@ -194928,78 +194928,77 @@ _ZNK4CGAL10Triangle_3INS_5EpickEEixEi.exit24:     ; preds = %88, %103
 107:                                              ; preds = %_ZNK4CGAL10Triangle_3INS_5EpickEEixEi.exit24
   %.sroa.3.0.copyload.i26 = load double, ptr %.sroa.1.0..sroa_idx.i, align 8, !noalias !3733
   %108 = load double, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !3736
-  %109 = fsub double %.sroa.3.0.copyload.i26, %108
-  %110 = fcmp ogt double %109, 0.000000e+00
-  %111 = icmp ne i32 %106, 1
-  %112 = xor i1 %111, %110
-  br i1 %112, label %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_6Bbox_3E.exit.thread, label %.critedge
+  %109 = fcmp ogt double %.sroa.3.0.copyload.i26, %108
+  %110 = icmp ne i32 %106, 1
+  %111 = xor i1 %110, %109
+  br i1 %111, label %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_6Bbox_3E.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %_ZNK4CGAL10Triangle_3INS_5EpickEEixEi.exit24, %107
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6)
-  %113 = call noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates13Orientation_2INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEEEclERKNS_7Point_2IS6_EESE_SE_(ptr noundef nonnull align 1 dereferenceable(9) %6, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %14)
+  %112 = call noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates13Orientation_2INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEEEclERKNS_7Point_2IS6_EESE_SE_(ptr noundef nonnull align 1 dereferenceable(9) %6, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6)
-  switch i32 %113, label %117 [
-    i32 0, label %114
+  switch i32 %112, label %116 [
+    i32 0, label %113
     i32 -1, label %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_6Bbox_3E.exit.thread
   ]
 
-114:                                              ; preds = %.critedge
-  %115 = load ptr, ptr %0, align 8
-  store i32 2, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 1, ptr %116, align 8
+113:                                              ; preds = %.critedge
+  %114 = load ptr, ptr %0, align 8
+  store i32 2, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 1, ptr %115, align 8
   br label %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_6Bbox_3E.exit.thread
 
-117:                                              ; preds = %.critedge
+116:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5)
-  %118 = call noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates13Orientation_2INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEEEclERKNS_7Point_2IS6_EESE_SE_(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14)
+  %117 = call noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates13Orientation_2INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEEEclERKNS_7Point_2IS6_EESE_SE_(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %5)
-  switch i32 %118, label %122 [
-    i32 0, label %119
+  switch i32 %117, label %121 [
+    i32 0, label %118
     i32 -1, label %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_6Bbox_3E.exit.thread
   ]
 
-119:                                              ; preds = %117
-  %120 = load ptr, ptr %0, align 8
-  store i32 2, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 1, ptr %121, align 8
+118:                                              ; preds = %116
+  %119 = load ptr, ptr %0, align 8
+  store i32 2, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 1, ptr %120, align 8
   br label %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_6Bbox_3E.exit.thread
 
-122:                                              ; preds = %117
+121:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %4)
-  %123 = call noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates13Orientation_2INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEEEclERKNS_7Point_2IS6_EESE_SE_(ptr noundef nonnull align 1 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %14)
+  %122 = call noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates13Orientation_2INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEEEclERKNS_7Point_2IS6_EESE_SE_(ptr noundef nonnull align 1 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %4)
-  switch i32 %123, label %127 [
-    i32 0, label %124
+  switch i32 %122, label %126 [
+    i32 0, label %123
     i32 -1, label %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_6Bbox_3E.exit.thread
   ]
 
-124:                                              ; preds = %122
-  %125 = load ptr, ptr %0, align 8
-  store i32 2, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 1, ptr %126, align 8
+123:                                              ; preds = %121
+  %124 = load ptr, ptr %0, align 8
+  store i32 2, ptr %124, align 8
+  %125 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 1, ptr %125, align 8
   br label %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_6Bbox_3E.exit.thread
 
-127:                                              ; preds = %122
-  %128 = load ptr, ptr %0, align 8
-  br i1 %.not, label %129, label %131
+126:                                              ; preds = %121
+  %127 = load ptr, ptr %0, align 8
+  br i1 %.not, label %128, label %130
 
-129:                                              ; preds = %127
-  store i32 0, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 1, ptr %130, align 8
+128:                                              ; preds = %126
+  store i32 0, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 1, ptr %129, align 8
   br label %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_6Bbox_3E.exit.thread
 
-131:                                              ; preds = %127
-  %132 = getelementptr inbounds i8, ptr %128, i64 8
-  %133 = load i64, ptr %132, align 8
-  %134 = add i64 %133, 1
-  store i64 %134, ptr %132, align 8
+130:                                              ; preds = %126
+  %131 = getelementptr inbounds i8, ptr %127, i64 8
+  %132 = load i64, ptr %131, align 8
+  %133 = add i64 %132, 1
+  store i64 %133, ptr %131, align 8
   br label %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_6Bbox_3E.exit.thread
 
-_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_6Bbox_3E.exit.thread: ; preds = %81, %74, %.critedge.i, %122, %124, %117, %119, %.critedge, %114, %107, %90, %131, %129, %100
+_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_6Bbox_3E.exit.thread: ; preds = %81, %74, %.critedge.i, %121, %123, %116, %118, %.critedge, %113, %107, %90, %130, %128, %100
   ret void
 }
 

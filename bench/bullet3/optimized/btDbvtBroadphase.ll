@@ -1566,7 +1566,6 @@ if.then7:                                         ; preds = %_Z9IntersectRK12btD
   %19 = load float, ptr %arrayidx11.i, align 4
   %arrayidx13.i = getelementptr inbounds i8, ptr %absproxy, i64 28
   %20 = load float, ptr %arrayidx13.i, align 4
-  %sub14.i = fsub float %19, %20
   %m_aabbMax = getelementptr inbounds i8, ptr %absproxy, i64 36
   %arrayidx11.i26 = getelementptr inbounds i8, ptr %absproxy, i64 44
   %21 = load float, ptr %arrayidx11.i26, align 4
@@ -1575,48 +1574,46 @@ if.then7:                                         ; preds = %_Z9IntersectRK12btD
   %m_prediction = getelementptr inbounds i8, ptr %this, i64 168
   %22 = load float, ptr %m_prediction, align 8
   %23 = load <2 x float>, ptr %m_aabbMin, align 4
-  %24 = extractelement <2 x float> %23, i64 0
-  %sub.i = fsub float %17, %24
-  %25 = extractelement <2 x float> %23, i64 1
-  %sub8.i = fsub float %18, %25
-  %26 = load <2 x float>, ptr %m_aabbMax, align 4
-  %27 = fsub <2 x float> %26, %23
-  %28 = fmul <2 x float> %27, <float 5.000000e-01, float 5.000000e-01>
-  %29 = insertelement <2 x float> poison, float %22, i64 0
-  %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> zeroinitializer
-  %31 = fmul <2 x float> %28, %30
+  %24 = load <2 x float>, ptr %m_aabbMax, align 4
+  %25 = fsub <2 x float> %24, %23
+  %26 = fmul <2 x float> %25, <float 5.000000e-01, float 5.000000e-01>
+  %27 = insertelement <2 x float> poison, float %22, i64 0
+  %28 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
+  %29 = fmul <2 x float> %26, %28
   %mul8.i = fmul float %22, %mul8.i.i
   %retval.sroa.3.12.vec.insert.i37 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i, i64 0
-  store <2 x float> %31, ptr %velocity, align 8
-  %32 = getelementptr inbounds i8, ptr %velocity, i64 8
-  store <2 x float> %retval.sroa.3.12.vec.insert.i37, ptr %32, align 8
-  %cmp20 = fcmp olt float %sub.i, 0.000000e+00
+  store <2 x float> %29, ptr %velocity, align 8
+  %30 = getelementptr inbounds i8, ptr %velocity, i64 8
+  store <2 x float> %retval.sroa.3.12.vec.insert.i37, ptr %30, align 8
+  %31 = extractelement <2 x float> %23, i64 0
+  %cmp20 = fcmp olt float %17, %31
   br i1 %cmp20, label %if.then21, label %if.end
 
 if.then21:                                        ; preds = %if.then7
-  %33 = extractelement <2 x float> %31, i64 0
-  %fneg = fneg float %33
+  %32 = extractelement <2 x float> %29, i64 0
+  %fneg = fneg float %32
   store float %fneg, ptr %velocity, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then21, %if.then7
-  %cmp28 = fcmp olt float %sub8.i, 0.000000e+00
+  %33 = extractelement <2 x float> %23, i64 1
+  %cmp28 = fcmp olt float %18, %33
   br i1 %cmp28, label %if.then29, label %if.end35
 
 if.then29:                                        ; preds = %if.end
   %arrayidx31 = getelementptr inbounds i8, ptr %velocity, i64 4
-  %34 = extractelement <2 x float> %31, i64 1
+  %34 = extractelement <2 x float> %29, i64 1
   %fneg32 = fneg float %34
   store float %fneg32, ptr %arrayidx31, align 4
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then29, %if.end
-  %cmp38 = fcmp olt float %sub14.i, 0.000000e+00
+  %cmp38 = fcmp olt float %19, %20
   br i1 %cmp38, label %if.then39, label %if.end45
 
 if.then39:                                        ; preds = %if.end35
   %fneg42 = fneg float %mul8.i
-  store float %fneg42, ptr %32, align 8
+  store float %fneg42, ptr %30, align 8
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then39, %if.end35

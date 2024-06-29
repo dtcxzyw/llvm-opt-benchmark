@@ -39787,8 +39787,7 @@ _ZNK9rapidjson8internal5DiyFp20NormalizedBoundariesEPS1_S2_.exit: ; preds = %ent
   %4 = tail call double @llvm.fmuladd.f64(double %conv.i8, double 0x3FD34413509F79FE, double 3.470000e+02)
   %conv1.i = fptosi double %4 to i32
   %conv2.i = sitofp i32 %conv1.i to double
-  %sub3.i = fsub double %4, %conv2.i
-  %cmp.i9 = fcmp ogt double %sub3.i, 0.000000e+00
+  %cmp.i9 = fcmp ogt double %4, %conv2.i
   %inc.i = zext i1 %cmp.i9 to i32
   %k.0.i = add nsw i32 %inc.i, %conv1.i
   %shr.i = ashr i32 %k.0.i, 3
@@ -46111,8 +46110,8 @@ for.body3.us264:                                  ; preds = %for.cond1.preheader
   %0 = load i16, ptr %arrayidx.us267, align 2
   %arrayidx6.us = getelementptr inbounds i16, ptr %dataBase, i64 %indvars.iv
   %1 = load i16, ptr %arrayidx6.us, align 2
-  %cmp9.us269366.not = icmp eq i16 %0, %1
-  br i1 %cmp9.us269366.not, label %for.cond1.us262, label %for.cond14.preheader.us
+  %cmp9.us269365.not = icmp eq i16 %0, %1
+  br i1 %cmp9.us269365.not, label %for.cond1.us262, label %for.cond14.preheader.us
 
 for.end36.us:                                     ; preds = %for.inc34.us
   %cmp.not.i.i27.us = icmp eq ptr %vNZIdx.sroa.11.0241.us, %vNZIdx.sroa.22.0242.us
@@ -46575,8 +46574,8 @@ for.body3.us270:                                  ; preds = %for.cond1.preheader
   %0 = load i16, ptr %arrayidx.us273, align 2
   %arrayidx6.us = getelementptr inbounds i16, ptr %dataBase, i64 %indvars.iv
   %1 = load i16, ptr %arrayidx6.us, align 2
-  %cmp9.us275372.not = icmp eq i16 %0, %1
-  br i1 %cmp9.us275372.not, label %for.cond1.us268, label %for.cond14.preheader.us
+  %cmp9.us275371.not = icmp eq i16 %0, %1
+  br i1 %cmp9.us275371.not, label %for.cond1.us268, label %for.cond14.preheader.us
 
 for.end36.us:                                     ; preds = %for.inc34.us
   %cmp.not.i.i28.us = icmp eq ptr %vNZIdx.sroa.11.0247.us, %vNZIdx.sroa.22.0248.us
@@ -47039,8 +47038,8 @@ for.body3.us264:                                  ; preds = %for.cond1.preheader
   %0 = load i32, ptr %arrayidx.us267, align 4
   %arrayidx6.us = getelementptr inbounds i32, ptr %dataBase, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx6.us, align 4
-  %cmp8.us269366.not = icmp eq i32 %0, %1
-  br i1 %cmp8.us269366.not, label %for.cond1.us262, label %for.cond13.preheader.us
+  %cmp8.us269365.not = icmp eq i32 %0, %1
+  br i1 %cmp8.us269365.not, label %for.cond1.us262, label %for.cond13.preheader.us
 
 for.end30.us:                                     ; preds = %for.inc28.us
   %cmp.not.i.i26.us = icmp eq ptr %vNZIdx.sroa.11.0241.us, %vNZIdx.sroa.22.0242.us
@@ -47970,8 +47969,8 @@ for.body3.us254:                                  ; preds = %for.cond1.preheader
   %0 = load i8, ptr %arrayidx.us257, align 1
   %arrayidx6.us = getelementptr inbounds i8, ptr %dataBase, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx6.us, align 1
-  %cmp9.us259356.not = icmp eq i8 %0, %1
-  br i1 %cmp9.us259356.not, label %for.cond1.us252, label %for.cond14.preheader.us
+  %cmp9.us259355.not = icmp eq i8 %0, %1
+  br i1 %cmp9.us259355.not, label %for.cond1.us252, label %for.cond14.preheader.us
 
 for.end36.us:                                     ; preds = %for.inc34.us
   %cmp.not.i.i26.us = icmp eq ptr %vNZIdx.sroa.11.0231.us, %vNZIdx.sroa.22.0232.us
@@ -48427,8 +48426,8 @@ for.body3.us254:                                  ; preds = %for.cond1.preheader
   %0 = load i8, ptr %arrayidx.us257, align 1
   %arrayidx6.us = getelementptr inbounds i8, ptr %dataBase, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx6.us, align 1
-  %cmp9.us259356.not = icmp eq i8 %0, %1
-  br i1 %cmp9.us259356.not, label %for.cond1.us252, label %for.cond14.preheader.us
+  %cmp9.us259355.not = icmp eq i8 %0, %1
+  br i1 %cmp9.us259355.not, label %for.cond1.us252, label %for.cond14.preheader.us
 
 for.end36.us:                                     ; preds = %for.inc34.us
   %cmp.not.i.i26.us = icmp eq ptr %vNZIdx.sroa.11.0231.us, %vNZIdx.sroa.22.0232.us

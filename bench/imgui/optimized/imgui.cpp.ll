@@ -32444,76 +32444,77 @@ if.end632:                                        ; preds = %_ZN5ImGui20MarkIniS
   %341 = fsub <2 x float> %335, %339
   %brmerge263 = select i1 %window_pos_set_by_api.0.shrunk, i1 true, i1 %tobool267.not
   %brmerge263.not = xor i1 %brmerge263, true
-  %342 = fsub <2 x float> %331, %329
-  %343 = fcmp ogt <2 x float> %342, zeroinitializer
-  %344 = extractelement <2 x i1> %343, i64 0
-  %or.cond1536 = select i1 %brmerge263.not, i1 %344, i1 false
-  %345 = extractelement <2 x i1> %343, i64 1
-  %or.cond1537 = select i1 %or.cond1536, i1 %345, i1 false
+  %342 = extractelement <2 x float> %331, i64 0
+  %343 = extractelement <2 x float> %329, i64 0
+  %cmp648 = fcmp ogt float %342, %343
+  %or.cond1536 = select i1 %brmerge263.not, i1 %cmp648, i1 false
+  %344 = fcmp ogt <2 x float> %331, %329
+  %cmp651 = extractelement <2 x i1> %344, i64 1
+  %or.cond1537 = select i1 %or.cond1536, i1 %cmp651, i1 false
   br i1 %or.cond1537, label %if.then652, label %if.end654
 
 if.then652:                                       ; preds = %if.end632
-  %346 = load ptr, ptr @GImGui, align 8
-  %347 = load float, ptr %Size547, align 8
+  %345 = load ptr, ptr @GImGui, align 8
+  %346 = load float, ptr %Size547, align 8
   %Size.sroa_idx.i = getelementptr inbounds i8, ptr %window.0, i64 52
-  %348 = load float, ptr %Size.sroa_idx.i, align 4
-  %ConfigWindowsMoveFromTitleBarOnly.i = getelementptr inbounds i8, ptr %346, i64 95
-  %349 = load i8, ptr %ConfigWindowsMoveFromTitleBarOnly.i, align 1
-  %tobool.i = trunc i8 %349 to i1
+  %347 = load float, ptr %Size.sroa_idx.i, align 4
+  %ConfigWindowsMoveFromTitleBarOnly.i = getelementptr inbounds i8, ptr %345, i64 95
+  %348 = load i8, ptr %ConfigWindowsMoveFromTitleBarOnly.i, align 1
+  %tobool.i = trunc i8 %348 to i1
   br i1 %tobool.i, label %land.lhs.true.i605, label %if.end.i599
 
 land.lhs.true.i605:                               ; preds = %if.then652
-  %350 = load i32, ptr %Flags.i457, align 4
-  %and.i607 = and i32 %350, 1
+  %349 = load i32, ptr %Flags.i457, align 4
+  %and.i607 = and i32 %349, 1
   %tobool1.not.i = icmp eq i32 %and.i607, 0
   br i1 %tobool1.not.i, label %cond.false.i.i608, label %if.end.i599
 
 cond.false.i.i608:                                ; preds = %land.lhs.true.i605
-  %351 = load ptr, ptr %window.0, align 8
-  %FontBaseSize.i.i.i609 = getelementptr inbounds i8, ptr %351, i64 15684
-  %352 = load float, ptr %FontBaseSize.i.i.i609, align 4
-  %353 = load float, ptr %FontWindowScale.i.i, align 8
-  %mul.i.i.i611 = fmul float %352, %353
-  %354 = load ptr, ptr %ParentWindow.i.i, align 8
-  %tobool.not.i.i.i613 = icmp eq ptr %354, null
+  %350 = load ptr, ptr %window.0, align 8
+  %FontBaseSize.i.i.i609 = getelementptr inbounds i8, ptr %350, i64 15684
+  %351 = load float, ptr %FontBaseSize.i.i.i609, align 4
+  %352 = load float, ptr %FontWindowScale.i.i, align 8
+  %mul.i.i.i611 = fmul float %351, %352
+  %353 = load ptr, ptr %ParentWindow.i.i, align 8
+  %tobool.not.i.i.i613 = icmp eq ptr %353, null
   br i1 %tobool.not.i.i.i613, label %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i, label %if.then.i.i.i614
 
 if.then.i.i.i614:                                 ; preds = %cond.false.i.i608
-  %FontWindowScale3.i.i.i615 = getelementptr inbounds i8, ptr %354, i64 672
-  %355 = load float, ptr %FontWindowScale3.i.i.i615, align 8
-  %mul4.i.i.i616 = fmul float %mul.i.i.i611, %355
+  %FontWindowScale3.i.i.i615 = getelementptr inbounds i8, ptr %353, i64 672
+  %354 = load float, ptr %FontWindowScale3.i.i.i615, align 8
+  %mul4.i.i.i616 = fmul float %mul.i.i.i611, %354
   br label %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i
 
 _ZNK11ImGuiWindow14TitleBarHeightEv.exit.i:       ; preds = %if.then.i.i.i614, %cond.false.i.i608
   %scale.0.i.i.i617 = phi float [ %mul4.i.i.i616, %if.then.i.i.i614 ], [ %mul.i.i.i611, %cond.false.i.i608 ]
-  %y.i.i618 = getelementptr inbounds i8, ptr %351, i64 14640
-  %356 = load float, ptr %y.i.i618, align 4
-  %357 = call float @llvm.fmuladd.f32(float %356, float 2.000000e+00, float %scale.0.i.i.i617)
+  %y.i.i618 = getelementptr inbounds i8, ptr %350, i64 14640
+  %355 = load float, ptr %y.i.i618, align 4
+  %356 = call float @llvm.fmuladd.f32(float %355, float 2.000000e+00, float %scale.0.i.i.i617)
   br label %if.end.i599
 
 if.end.i599:                                      ; preds = %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i, %land.lhs.true.i605, %if.then652
-  %size_for_clamping.sroa.2.0.i = phi float [ %357, %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i ], [ %348, %land.lhs.true.i605 ], [ %348, %if.then652 ]
+  %size_for_clamping.sroa.2.0.i = phi float [ %356, %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i ], [ %347, %land.lhs.true.i605 ], [ %347, %if.then652 ]
   %Pos.i600 = getelementptr inbounds i8, ptr %window.0, i64 40
-  %358 = insertelement <2 x float> poison, float %347, i64 0
-  %359 = insertelement <2 x float> %358, float %size_for_clamping.sroa.2.0.i, i64 1
-  %360 = fsub <2 x float> %340, %359
-  %361 = load <2 x float>, ptr %Pos.i600, align 4
-  %362 = fcmp olt <2 x float> %361, %360
-  %363 = fcmp olt <2 x float> %341, %361
-  %364 = select <2 x i1> %363, <2 x float> %341, <2 x float> %361
-  %365 = select <2 x i1> %362, <2 x float> %360, <2 x float> %364
-  store <2 x float> %365, ptr %Pos.i600, align 8
+  %357 = insertelement <2 x float> poison, float %346, i64 0
+  %358 = insertelement <2 x float> %357, float %size_for_clamping.sroa.2.0.i, i64 1
+  %359 = fsub <2 x float> %340, %358
+  %360 = load <2 x float>, ptr %Pos.i600, align 4
+  %361 = fcmp olt <2 x float> %360, %359
+  %362 = fcmp olt <2 x float> %341, %360
+  %363 = select <2 x i1> %362, <2 x float> %341, <2 x float> %360
+  %364 = select <2 x i1> %361, <2 x float> %359, <2 x float> %363
+  store <2 x float> %364, ptr %Pos.i600, align 8
   br label %if.end654
 
 if.end654:                                        ; preds = %if.end632, %if.end.i599
   %Pos656 = getelementptr inbounds i8, ptr %window.0, i64 40
-  %366 = getelementptr i8, ptr %window.0, i64 44
-  %367 = load <2 x float>, ptr %Pos656, align 4
-  %368 = fptosi <2 x float> %367 to <2 x i32>
-  %369 = sitofp <2 x i32> %368 to <2 x float>
-  store <2 x float> %369, ptr %Pos656, align 8
-  %370 = and i32 %flags.addr.1, 201326592
-  %or.cond265.not.not = icmp eq i32 %370, 67108864
+  %365 = getelementptr i8, ptr %window.0, i64 44
+  %366 = load <2 x float>, ptr %Pos656, align 4
+  %367 = fptosi <2 x float> %366 to <2 x i32>
+  %368 = sitofp <2 x i32> %367 to <2 x float>
+  store <2 x float> %368, ptr %Pos656, align 8
+  %369 = and i32 %flags.addr.1, 201326592
+  %or.cond265.not.not = icmp eq i32 %369, 67108864
   %. = select i1 %or.cond265.not.not, i64 14628, i64 14592
   %.sink = select i1 %tobool267.not, i64 14620, i64 %.
   %PopupRounding = getelementptr inbounds i8, ptr %0, i64 %.sink
@@ -32527,31 +32528,31 @@ if.end654:                                        ; preds = %if.end632, %if.end.
   %cmp685 = icmp eq i32 %174, 0
   %spec.select1494 = select i1 %brmerge287.not, i1 %cmp685, i1 %or.cond266.not
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %resize_grip_col, i8 0, i64 16, i1 false)
-  %371 = load i32, ptr %Flags.i457, align 4
-  %and691 = and i32 %371, 16777216
+  %370 = load i32, ptr %Flags.i457, align 4
+  %and691 = and i32 %370, 16777216
   %tobool692.not = icmp eq i32 %and691, 0
   br i1 %tobool692.not, label %cond.false694, label %cond.end698
 
 cond.false694:                                    ; preds = %if.end654
   %ConfigWindowsResizeFromEdges = getelementptr inbounds i8, ptr %0, i64 94
-  %372 = load i8, ptr %ConfigWindowsResizeFromEdges, align 2
-  %tobool696 = trunc i8 %372 to i1
+  %371 = load i8, ptr %ConfigWindowsResizeFromEdges, align 2
+  %tobool696 = trunc i8 %371 to i1
   %cond697 = select i1 %tobool696, i32 2, i32 1
   br label %cond.end698
 
 cond.end698:                                      ; preds = %if.end654, %cond.false694
   %cond699 = phi i32 [ %cond697, %cond.false694 ], [ 0, %if.end654 ]
   %FontSize = getelementptr inbounds i8, ptr %0, i64 15680
-  %373 = load float, ptr %FontSize, align 8
-  %mul = fmul float %373, 0x3FF19999A0000000
+  %372 = load float, ptr %FontSize, align 8
+  %mul = fmul float %372, 0x3FF19999A0000000
   %add701 = fadd float %cond673, 1.000000e+00
-  %374 = call float @llvm.fmuladd.f32(float %373, float 0x3FC99999A0000000, float %add701)
-  %cmp.i623 = fcmp oge float %mul, %374
-  %cond.i624 = select i1 %cmp.i623, float %mul, float %374
+  %373 = call float @llvm.fmuladd.f32(float %372, float 0x3FC99999A0000000, float %add701)
+  %cmp.i623 = fcmp oge float %mul, %373
+  %cond.i624 = select i1 %cmp.i623, float %mul, float %373
   %conv705 = fptosi float %cond.i624 to i32
   %conv706 = sitofp i32 %conv705 to float
-  %375 = load i8, ptr %Collapsed535, align 1
-  %tobool708 = trunc i8 %375 to i1
+  %374 = load i8, ptr %Collapsed535, align 1
+  %tobool708 = trunc i8 %374 to i1
   br i1 %tobool708, label %if.end723, label %if.then709
 
 if.then709:                                       ; preds = %cond.end698
@@ -32565,81 +32566,81 @@ if.then709:                                       ; preds = %cond.end698
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp218.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %border_curr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %border_target.i)
-  %376 = load ptr, ptr @GImGui, align 8
-  %377 = and i32 %371, 66
-  %or.cond166.i = icmp eq i32 %377, 0
+  %375 = load ptr, ptr @GImGui, align 8
+  %376 = and i32 %370, 66
+  %or.cond166.i = icmp eq i32 %376, 0
   br i1 %or.cond166.i, label %lor.lhs.false3.i, label %_ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.exit.thread
 
 lor.lhs.false3.i:                                 ; preds = %if.then709
   %AutoFitFramesX.i = getelementptr inbounds i8, ptr %window.0, i64 220
-  %378 = load i8, ptr %AutoFitFramesX.i, align 4
-  %cmp.i626 = icmp sgt i8 %378, 0
+  %377 = load i8, ptr %AutoFitFramesX.i, align 4
+  %cmp.i626 = icmp sgt i8 %377, 0
   br i1 %cmp.i626, label %_ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.exit.thread, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false3.i
   %AutoFitFramesY.i = getelementptr inbounds i8, ptr %window.0, i64 221
-  %379 = load i8, ptr %AutoFitFramesY.i, align 1
-  %cmp6.i = icmp sgt i8 %379, 0
+  %378 = load i8, ptr %AutoFitFramesY.i, align 1
+  %cmp6.i = icmp sgt i8 %378, 0
   br i1 %cmp6.i, label %_ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.exit.thread, label %if.end.i627
 
 if.end.i627:                                      ; preds = %lor.lhs.false4.i
   %WasActive.i = getelementptr inbounds i8, ptr %window.0, i64 191
-  %380 = load i8, ptr %WasActive.i, align 1
-  %381 = and i8 %380, 1
-  %cmp9.i = icmp eq i8 %381, 0
+  %379 = load i8, ptr %WasActive.i, align 1
+  %380 = and i8 %379, 1
+  %cmp9.i = icmp eq i8 %380, 0
   br i1 %cmp9.i, label %_ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.exit.thread, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end.i627
-  %FontSize.i628 = getelementptr inbounds i8, ptr %376, i64 15680
-  %382 = load float, ptr %FontSize.i628, align 8
-  %mul.i629 = fmul float %382, 0x3FF59999A0000000
-  %383 = call float @llvm.fmuladd.f32(float %382, float 0x3FC99999A0000000, float %add701)
-  %cmp.i.i631 = fcmp oge float %mul.i629, %383
-  %cond.i.i632 = select i1 %cmp.i.i631, float %mul.i629, float %383
+  %FontSize.i628 = getelementptr inbounds i8, ptr %375, i64 15680
+  %381 = load float, ptr %FontSize.i628, align 8
+  %mul.i629 = fmul float %381, 0x3FF59999A0000000
+  %382 = call float @llvm.fmuladd.f32(float %381, float 0x3FC99999A0000000, float %add701)
+  %cmp.i.i631 = fcmp oge float %mul.i629, %382
+  %cond.i.i632 = select i1 %cmp.i.i631, float %mul.i629, float %382
   %conv14.i633 = fptosi float %cond.i.i632 to i32
   %conv15.i634 = sitofp i32 %conv14.i633 to float
   %mul16.i = fmul float %conv15.i634, 7.500000e-01
   %conv17.i = fptosi float %mul16.i to i32
   %conv18.i = sitofp i32 %conv17.i to float
-  %ConfigWindowsResizeFromEdges.i = getelementptr inbounds i8, ptr %376, i64 94
-  %384 = load i8, ptr %ConfigWindowsResizeFromEdges.i, align 2
-  %tobool19.i = trunc i8 %384 to i1
+  %ConfigWindowsResizeFromEdges.i = getelementptr inbounds i8, ptr %375, i64 94
+  %383 = load i8, ptr %ConfigWindowsResizeFromEdges.i, align 2
+  %tobool19.i = trunc i8 %383 to i1
   %cond.i635 = select i1 %tobool19.i, float 4.000000e+00, float 0.000000e+00
-  %ConfigWindowsMoveFromTitleBarOnly.i636 = getelementptr inbounds i8, ptr %376, i64 95
-  %385 = load i8, ptr %ConfigWindowsMoveFromTitleBarOnly.i636, align 1
-  %tobool21.i = trunc i8 %385 to i1
-  %and23.i = and i32 %371, 1
+  %ConfigWindowsMoveFromTitleBarOnly.i636 = getelementptr inbounds i8, ptr %375, i64 95
+  %384 = load i8, ptr %ConfigWindowsMoveFromTitleBarOnly.i636, align 1
+  %tobool21.i = trunc i8 %384 to i1
+  %and23.i = and i32 %370, 1
   %tobool24.not.i = icmp eq i32 %and23.i, 0
   %or.cond560.i = and i1 %tobool24.not.i, %tobool21.i
-  %386 = extractelement <2 x float> %340, i64 1
+  %385 = extractelement <2 x float> %340, i64 1
   br i1 %or.cond560.i, label %cond.false.i.i690, label %if.end28.i
 
 cond.false.i.i690:                                ; preds = %if.end11.i
-  %387 = load ptr, ptr %window.0, align 8
-  %FontBaseSize.i.i.i691 = getelementptr inbounds i8, ptr %387, i64 15684
-  %388 = load float, ptr %FontBaseSize.i.i.i691, align 4
-  %389 = load float, ptr %FontWindowScale.i.i, align 8
-  %mul.i.i.i693 = fmul float %388, %389
-  %390 = load ptr, ptr %ParentWindow.i.i, align 8
-  %tobool.not.i.i.i695 = icmp eq ptr %390, null
+  %386 = load ptr, ptr %window.0, align 8
+  %FontBaseSize.i.i.i691 = getelementptr inbounds i8, ptr %386, i64 15684
+  %387 = load float, ptr %FontBaseSize.i.i.i691, align 4
+  %388 = load float, ptr %FontWindowScale.i.i, align 8
+  %mul.i.i.i693 = fmul float %387, %388
+  %389 = load ptr, ptr %ParentWindow.i.i, align 8
+  %tobool.not.i.i.i695 = icmp eq ptr %389, null
   br i1 %tobool.not.i.i.i695, label %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i699, label %if.then.i.i.i696
 
 if.then.i.i.i696:                                 ; preds = %cond.false.i.i690
-  %FontWindowScale3.i.i.i697 = getelementptr inbounds i8, ptr %390, i64 672
-  %391 = load float, ptr %FontWindowScale3.i.i.i697, align 8
-  %mul4.i.i.i698 = fmul float %mul.i.i.i693, %391
+  %FontWindowScale3.i.i.i697 = getelementptr inbounds i8, ptr %389, i64 672
+  %390 = load float, ptr %FontWindowScale3.i.i.i697, align 8
+  %mul4.i.i.i698 = fmul float %mul.i.i.i693, %390
   br label %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i699
 
 _ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i699:    ; preds = %if.then.i.i.i696, %cond.false.i.i690
   %scale.0.i.i.i700 = phi float [ %mul4.i.i.i698, %if.then.i.i.i696 ], [ %mul.i.i.i693, %cond.false.i.i690 ]
-  %y.i.i701 = getelementptr inbounds i8, ptr %387, i64 14640
-  %392 = load float, ptr %y.i.i701, align 4
-  %393 = call float @llvm.fmuladd.f32(float %392, float 2.000000e+00, float %scale.0.i.i.i700)
-  %sub.i702 = fsub float %386, %393
+  %y.i.i701 = getelementptr inbounds i8, ptr %386, i64 14640
+  %391 = load float, ptr %y.i.i701, align 4
+  %392 = call float @llvm.fmuladd.f32(float %391, float 2.000000e+00, float %scale.0.i.i.i700)
+  %sub.i702 = fsub float %385, %392
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i699, %if.end11.i
-  %clamp_rect.sroa.4.0.i = phi float [ %sub.i702, %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i699 ], [ %386, %if.end11.i ]
+  %clamp_rect.sroa.4.0.i = phi float [ %sub.i702, %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i699 ], [ %385, %if.end11.i ]
   %y.i226.i = getelementptr inbounds i8, ptr %size_target.i, i64 4
   store <2 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, ptr %size_target.i, align 8
   %NavLayerCurrent.i = getelementptr inbounds i8, ptr %window.0, i64 360
@@ -32653,20 +32654,20 @@ for.body.lr.ph.i653:                              ; preds = %if.end28.i
   %y52.i = getelementptr inbounds i8, ptr %resize_rect.i, i64 4
   %y54.i = getelementptr inbounds i8, ptr %resize_rect.i, i64 12
   %Data.i.i.i656 = getelementptr inbounds i8, ptr %window.0, i64 264
-  %MouseCursor.i = getelementptr inbounds i8, ptr %376, i64 20120
-  %MouseDoubleClicked.i = getelementptr inbounds i8, ptr %376, i64 14445
-  %MousePos.i = getelementptr inbounds i8, ptr %376, i64 3656
-  %ActiveIdClickOffset.i = getelementptr inbounds i8, ptr %376, i64 16512
+  %MouseCursor.i = getelementptr inbounds i8, ptr %375, i64 20120
+  %MouseDoubleClicked.i = getelementptr inbounds i8, ptr %375, i64 14445
+  %MousePos.i = getelementptr inbounds i8, ptr %375, i64 3656
+  %ActiveIdClickOffset.i = getelementptr inbounds i8, ptr %375, i64 16512
   %fneg.i = fneg float %conv18.i
   %wide.trip.count.i = zext nneg i32 %cond699 to i64
-  %394 = bitcast <2 x float> %call459 to i64
-  %395 = insertelement <2 x float> poison, float %fneg.i, i64 0
-  %396 = shufflevector <2 x float> %395, <2 x float> poison, <2 x i32> zeroinitializer
-  %397 = insertelement <2 x float> poison, float %cond.i635, i64 0
-  %398 = shufflevector <2 x float> %397, <2 x float> poison, <2 x i32> zeroinitializer
-  %399 = insertelement <2 x float> %340, float %clamp_rect.sroa.4.0.i, i64 1
-  %400 = insertelement <2 x float> poison, float %conv18.i, i64 0
-  %401 = shufflevector <2 x float> %400, <2 x float> poison, <2 x i32> zeroinitializer
+  %393 = bitcast <2 x float> %call459 to i64
+  %394 = insertelement <2 x float> poison, float %fneg.i, i64 0
+  %395 = shufflevector <2 x float> %394, <2 x float> poison, <2 x i32> zeroinitializer
+  %396 = insertelement <2 x float> poison, float %cond.i635, i64 0
+  %397 = shufflevector <2 x float> %396, <2 x float> poison, <2 x i32> zeroinitializer
+  %398 = insertelement <2 x float> %340, float %clamp_rect.sroa.4.0.i, i64 1
+  %399 = insertelement <2 x float> poison, float %conv18.i, i64 0
+  %400 = shufflevector <2 x float> %399, <2 x float> poison, <2 x i32> zeroinitializer
   br label %for.body.i657
 
 for.body.i657:                                    ; preds = %for.inc.i, %for.body.lr.ph.i653
@@ -32676,51 +32677,51 @@ for.body.i657:                                    ; preds = %for.inc.i, %for.bod
   %call5.i565567.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %for.body.lr.ph.i653 ], [ %call5.i564.i, %for.inc.i ]
   %arrayidx.i659 = getelementptr inbounds [4 x %struct.ImGuiResizeGripDef], ptr @_ZL15resize_grip_def, i64 0, i64 %indvars.iv.i658
   %InnerDir.i = getelementptr inbounds i8, ptr %arrayidx.i659, i64 8
-  %402 = load <2 x float>, ptr %arrayidx.i659, align 8
-  %403 = load <2 x float>, ptr %InnerDir.i, align 8
-  %404 = fmul <2 x float> %398, %403
-  %405 = load <2 x float>, ptr %Pos656, align 4
-  %406 = load <2 x float>, ptr %Size547, align 4
-  %407 = fadd <2 x float> %405, %406
-  %408 = fsub <2 x float> %407, %405
-  %409 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %408, <2 x float> %402, <2 x float> %405)
-  %410 = fsub <2 x float> %409, %404
-  %411 = fmul <2 x float> %403, %401
-  %412 = fadd <2 x float> %409, %411
-  store <2 x float> %410, ptr %resize_rect.i, align 8
-  store <2 x float> %412, ptr %Max.i.i, align 8
-  %413 = extractelement <2 x float> %412, i64 0
-  %414 = extractelement <2 x float> %410, i64 0
-  %cmp44.i = fcmp ogt float %414, %413
+  %401 = load <2 x float>, ptr %arrayidx.i659, align 8
+  %402 = load <2 x float>, ptr %InnerDir.i, align 8
+  %403 = fmul <2 x float> %397, %402
+  %404 = load <2 x float>, ptr %Pos656, align 4
+  %405 = load <2 x float>, ptr %Size547, align 4
+  %406 = fadd <2 x float> %404, %405
+  %407 = fsub <2 x float> %406, %404
+  %408 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %407, <2 x float> %401, <2 x float> %404)
+  %409 = fsub <2 x float> %408, %403
+  %410 = fmul <2 x float> %402, %400
+  %411 = fadd <2 x float> %408, %410
+  store <2 x float> %409, ptr %resize_rect.i, align 8
+  store <2 x float> %411, ptr %Max.i.i, align 8
+  %412 = extractelement <2 x float> %411, i64 0
+  %413 = extractelement <2 x float> %409, i64 0
+  %cmp44.i = fcmp ogt float %413, %412
   br i1 %cmp44.i, label %if.then45.i, label %if.end50.i
 
 if.then45.i:                                      ; preds = %for.body.i657
-  store float %413, ptr %resize_rect.i, align 8
-  store float %414, ptr %Max.i.i, align 8
+  store float %412, ptr %resize_rect.i, align 8
+  store float %413, ptr %Max.i.i, align 8
   br label %if.end50.i
 
 if.end50.i:                                       ; preds = %if.then45.i, %for.body.i657
-  %415 = extractelement <2 x float> %412, i64 1
-  %416 = extractelement <2 x float> %410, i64 1
-  %cmp55.i = fcmp ogt float %416, %415
+  %414 = extractelement <2 x float> %411, i64 1
+  %415 = extractelement <2 x float> %409, i64 1
+  %cmp55.i = fcmp ogt float %415, %414
   br i1 %cmp55.i, label %if.then56.i, label %if.end61.i
 
 if.then56.i:                                      ; preds = %if.end50.i
-  store float %415, ptr %y52.i, align 4
-  store float %416, ptr %y54.i, align 4
+  store float %414, ptr %y52.i, align 4
+  store float %415, ptr %y54.i, align 4
   br label %if.end61.i
 
 if.end61.i:                                       ; preds = %if.then56.i, %if.end50.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.addr.i.i)
-  %417 = trunc nuw nsw i64 %indvars.iv.i658 to i32
-  store i32 %417, ptr %n.addr.i.i, align 4
-  %418 = load ptr, ptr %Data.i.i.i656, align 8
-  %419 = load i32, ptr %IDStack, align 8
-  %420 = sext i32 %419 to i64
-  %421 = getelementptr i32, ptr %418, i64 %420
-  %arrayidx.i.i.i667 = getelementptr i8, ptr %421, i64 -4
-  %422 = load i32, ptr %arrayidx.i.i.i667, align 4
-  %not.i.i.i = xor i32 %422, -1
+  %416 = trunc nuw nsw i64 %indvars.iv.i658 to i32
+  store i32 %416, ptr %n.addr.i.i, align 4
+  %417 = load ptr, ptr %Data.i.i.i656, align 8
+  %418 = load i32, ptr %IDStack, align 8
+  %419 = sext i32 %418 to i64
+  %420 = getelementptr i32, ptr %417, i64 %419
+  %arrayidx.i.i.i667 = getelementptr i8, ptr %420, i64 -4
+  %421 = load i32, ptr %arrayidx.i.i.i667, align 4
+  %not.i.i.i = xor i32 %421, -1
   br label %while.body.i.i.i668
 
 while.body.i.i.i668:                              ; preds = %while.body.i.i.i668, %if.end61.i
@@ -32731,35 +32732,35 @@ while.body.i.i.i668:                              ; preds = %while.body.i.i.i668
   %shr.i.i.i669 = lshr i32 %crc.04.i.i.i, 8
   %and.i.i.i = and i32 %crc.04.i.i.i, 255
   %incdec.ptr.i.i.i670 = getelementptr inbounds i8, ptr %data.05.i.i.i, i64 1
-  %423 = load i8, ptr %data.05.i.i.i, align 1
-  %conv.i.i.i671 = zext i8 %423 to i32
+  %422 = load i8, ptr %data.05.i.i.i, align 1
+  %conv.i.i.i671 = zext i8 %422 to i32
   %xor.i.i.i = xor i32 %and.i.i.i, %conv.i.i.i671
   %idxprom.i.i.i672 = zext nneg i32 %xor.i.i.i to i64
   %arrayidx.i3.i.i = getelementptr inbounds i32, ptr @_ZL17GCrc32LookupTable, i64 %idxprom.i.i.i672
-  %424 = load i32, ptr %arrayidx.i3.i.i, align 4
-  %xor1.i.i.i = xor i32 %424, %shr.i.i.i669
+  %423 = load i32, ptr %arrayidx.i3.i.i, align 4
+  %xor1.i.i.i = xor i32 %423, %shr.i.i.i669
   %cmp.not.i.i.i673 = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.not.i.i.i673, label %_Z10ImHashDataPKvmj.exit.i.i, label %while.body.i.i.i668, !llvm.loop !22
 
 _Z10ImHashDataPKvmj.exit.i.i:                     ; preds = %while.body.i.i.i668
-  %425 = xor i32 %xor1.i.i.i, -1
-  %426 = load ptr, ptr %window.0, align 8
-  %DebugHookIdInfo.i.i = getelementptr inbounds i8, ptr %426, i64 16468
-  %427 = load i32, ptr %DebugHookIdInfo.i.i, align 4
-  %cmp.i242.i = icmp eq i32 %427, %425
+  %424 = xor i32 %xor1.i.i.i, -1
+  %425 = load ptr, ptr %window.0, align 8
+  %DebugHookIdInfo.i.i = getelementptr inbounds i8, ptr %425, i64 16468
+  %426 = load i32, ptr %DebugHookIdInfo.i.i, align 4
+  %cmp.i242.i = icmp eq i32 %426, %424
   br i1 %cmp.i242.i, label %if.then.i.i689, label %_ZN11ImGuiWindow5GetIDEi.exit.i
 
 if.then.i.i689:                                   ; preds = %_Z10ImHashDataPKvmj.exit.i.i
-  %428 = inttoptr i64 %indvars.iv.i658 to ptr
-  call void @_ZN5ImGui15DebugHookIdInfoEjiPKvS1_(i32 noundef %425, i32 noundef 4, ptr noundef %428, ptr noundef null)
+  %427 = inttoptr i64 %indvars.iv.i658 to ptr
+  call void @_ZN5ImGui15DebugHookIdInfoEjiPKvS1_(i32 noundef %424, i32 noundef 4, ptr noundef %427, ptr noundef null)
   br label %_ZN11ImGuiWindow5GetIDEi.exit.i
 
 _ZN11ImGuiWindow5GetIDEi.exit.i:                  ; preds = %if.then.i.i689, %_Z10ImHashDataPKvmj.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.addr.i.i)
-  %call63.i = call noundef zeroext i1 @_ZN5ImGui7ItemAddERK6ImRectjPS1_i(ptr noundef nonnull align 4 dereferenceable(16) %resize_rect.i, i32 noundef %425, ptr noundef null, i32 noundef 8)
-  %call64.i = call noundef zeroext i1 @_ZN5ImGui14ButtonBehaviorERK6ImRectjPbS3_i(ptr noundef nonnull align 4 dereferenceable(16) %resize_rect.i, i32 noundef %425, ptr noundef nonnull %hovered.i, ptr noundef nonnull %held.i, i32 noundef 264192)
-  %429 = load i8, ptr %hovered.i, align 1
-  %tobool65.i = trunc i8 %429 to i1
+  %call63.i = call noundef zeroext i1 @_ZN5ImGui7ItemAddERK6ImRectjPS1_i(ptr noundef nonnull align 4 dereferenceable(16) %resize_rect.i, i32 noundef %424, ptr noundef null, i32 noundef 8)
+  %call64.i = call noundef zeroext i1 @_ZN5ImGui14ButtonBehaviorERK6ImRectjPbS3_i(ptr noundef nonnull align 4 dereferenceable(16) %resize_rect.i, i32 noundef %424, ptr noundef nonnull %hovered.i, ptr noundef nonnull %held.i, i32 noundef 264192)
+  %428 = load i8, ptr %hovered.i, align 1
+  %tobool65.i = trunc i8 %428 to i1
   %.pre.pre.i = load i8, ptr %held.i, align 1
   %.pre593.i = trunc i8 %.pre.pre.i to i1
   br i1 %tobool65.i, label %if.end72.i, label %lor.lhs.false66.i
@@ -32768,70 +32769,70 @@ lor.lhs.false66.i:                                ; preds = %_ZN11ImGuiWindow5Ge
   br i1 %.pre593.i, label %if.end72.thread598.i, label %if.end138.i
 
 if.end72.thread598.i:                             ; preds = %lor.lhs.false66.i
-  %and69600.i = and i32 %417, 1
+  %and69600.i = and i32 %416, 1
   %tobool70.not601.i = icmp eq i32 %and69600.i, 0
   %cond71602.i = select i1 %tobool70.not601.i, i32 6, i32 5
   store i32 %cond71602.i, ptr %MouseCursor.i, align 8
   br label %land.lhs.true.i678
 
 if.end72.i:                                       ; preds = %_ZN11ImGuiWindow5GetIDEi.exit.i
-  %and69.i = and i32 %417, 1
+  %and69.i = and i32 %416, 1
   %tobool70.not.i = icmp eq i32 %and69.i, 0
   %cond71.i = select i1 %tobool70.not.i, i32 6, i32 5
   store i32 %cond71.i, ptr %MouseCursor.i, align 8
   br i1 %.pre593.i, label %land.lhs.true.i678, label %if.end138.i
 
 land.lhs.true.i678:                               ; preds = %if.end72.i, %if.end72.thread598.i
-  %430 = load i8, ptr %MouseDoubleClicked.i, align 1
-  %tobool76.i = trunc i8 %430 to i1
+  %429 = load i8, ptr %MouseDoubleClicked.i, align 1
+  %tobool76.i = trunc i8 %429 to i1
   br i1 %tobool76.i, label %if.then77.i, label %if.then81.i
 
 if.then77.i:                                      ; preds = %land.lhs.true.i678
-  %call79.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window.0, i64 %394)
+  %call79.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window.0, i64 %393)
   call void @_ZN5ImGui11SetActiveIDEjP11ImGuiWindow(i32 noundef 0, ptr noundef null)
   br label %if.end138.i
 
 if.then81.i:                                      ; preds = %land.lhs.true.i678
-  %431 = fcmp oeq <2 x float> %402, <float 1.000000e+00, float 1.000000e+00>
-  %432 = fcmp oeq <2 x float> %402, zeroinitializer
-  %433 = extractelement <2 x i1> %432, i64 1
-  %brmerge.not.i679 = and i1 %or.cond560.i, %433
-  %434 = extractelement <2 x i1> %431, i64 1
-  %or.cond561.i = or i1 %434, %brmerge.not.i679
-  %435 = fmul <2 x float> %403, %396
-  %436 = insertelement <2 x i1> %431, i1 %or.cond561.i, i64 1
-  %437 = select <2 x i1> %436, <2 x float> %399, <2 x float> <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>
-  %438 = select <2 x i1> %432, <2 x float> %341, <2 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>
-  %439 = load <2 x float>, ptr %MousePos.i, align 4
-  %440 = load <2 x float>, ptr %ActiveIdClickOffset.i, align 4
-  %441 = fsub <2 x float> %439, %440
-  %442 = fsub <2 x float> %435, %404
-  %443 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %442, <2 x float> %402, <2 x float> %404)
-  %444 = fadd <2 x float> %443, %441
-  %445 = fcmp olt <2 x float> %444, %437
-  %446 = fcmp olt <2 x float> %438, %444
-  %447 = select <2 x i1> %446, <2 x float> %438, <2 x float> %444
-  %448 = select <2 x i1> %445, <2 x float> %437, <2 x float> %447
-  %449 = load <2 x float>, ptr %Pos656, align 4
-  %450 = fsub <2 x float> %449, %448
-  %451 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %450, <2 x float> %402, <2 x float> %448)
-  %452 = load <2 x float>, ptr %Size547, align 4
-  %453 = fadd <2 x float> %449, %452
-  %454 = fsub <2 x float> %448, %453
-  %455 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %454, <2 x float> %402, <2 x float> %453)
-  %456 = fsub <2 x float> %455, %451
-  %457 = bitcast <2 x float> %456 to i64
-  %call5.i.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull readonly %window.0, i64 %457)
-  %458 = fsub <2 x float> %call5.i.i, %456
-  %459 = fsub <2 x float> %451, %458
-  %sel = select <2 x i1> %432, <2 x float> %459, <2 x float> %451
-  %pos_target.sroa.0.1.i = shufflevector <2 x float> %sel, <2 x float> %451, <2 x i32> <i32 0, i32 3>
-  br i1 %433, label %if.then11.i.i, label %if.end138.i
+  %430 = fcmp oeq <2 x float> %401, <float 1.000000e+00, float 1.000000e+00>
+  %431 = fcmp oeq <2 x float> %401, zeroinitializer
+  %432 = extractelement <2 x i1> %431, i64 1
+  %brmerge.not.i679 = and i1 %or.cond560.i, %432
+  %433 = extractelement <2 x i1> %430, i64 1
+  %or.cond561.i = or i1 %433, %brmerge.not.i679
+  %434 = fmul <2 x float> %402, %395
+  %435 = insertelement <2 x i1> %430, i1 %or.cond561.i, i64 1
+  %436 = select <2 x i1> %435, <2 x float> %398, <2 x float> <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>
+  %437 = select <2 x i1> %431, <2 x float> %341, <2 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>
+  %438 = load <2 x float>, ptr %MousePos.i, align 4
+  %439 = load <2 x float>, ptr %ActiveIdClickOffset.i, align 4
+  %440 = fsub <2 x float> %438, %439
+  %441 = fsub <2 x float> %434, %403
+  %442 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %441, <2 x float> %401, <2 x float> %403)
+  %443 = fadd <2 x float> %442, %440
+  %444 = fcmp olt <2 x float> %443, %436
+  %445 = fcmp olt <2 x float> %437, %443
+  %446 = select <2 x i1> %445, <2 x float> %437, <2 x float> %443
+  %447 = select <2 x i1> %444, <2 x float> %436, <2 x float> %446
+  %448 = load <2 x float>, ptr %Pos656, align 4
+  %449 = fsub <2 x float> %448, %447
+  %450 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %449, <2 x float> %401, <2 x float> %447)
+  %451 = load <2 x float>, ptr %Size547, align 4
+  %452 = fadd <2 x float> %448, %451
+  %453 = fsub <2 x float> %447, %452
+  %454 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %453, <2 x float> %401, <2 x float> %452)
+  %455 = fsub <2 x float> %454, %450
+  %456 = bitcast <2 x float> %455 to i64
+  %call5.i.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull readonly %window.0, i64 %456)
+  %457 = fsub <2 x float> %call5.i.i, %455
+  %458 = fsub <2 x float> %450, %457
+  %sel = select <2 x i1> %431, <2 x float> %458, <2 x float> %450
+  %pos_target.sroa.0.1.i = shufflevector <2 x float> %sel, <2 x float> %450, <2 x i32> <i32 0, i32 3>
+  br i1 %432, label %if.then11.i.i, label %if.end138.i
 
 if.then11.i.i:                                    ; preds = %if.then81.i
-  %460 = fsub <2 x float> %call5.i.i, %456
-  %461 = fsub <2 x float> %451, %460
-  %pos_target.sroa.0.4.vec.insert544.i = shufflevector <2 x float> %pos_target.sroa.0.1.i, <2 x float> %461, <2 x i32> <i32 0, i32 3>
+  %459 = fsub <2 x float> %call5.i.i, %455
+  %460 = fsub <2 x float> %450, %459
+  %pos_target.sroa.0.4.vec.insert544.i = shufflevector <2 x float> %pos_target.sroa.0.1.i, <2 x float> %460, <2 x i32> <i32 0, i32 3>
   br label %if.end138.i
 
 if.end138.i:                                      ; preds = %if.then11.i.i, %if.then81.i, %if.then77.i, %if.end72.i, %lor.lhs.false66.i
@@ -32848,10 +32849,10 @@ lor.lhs.false140.i:                               ; preds = %if.end138.i
   br i1 %tobool141.i, label %if.then144.thread.i, label %lor.lhs.false142.i
 
 if.then144.thread.i:                              ; preds = %lor.lhs.false140.i
-  %462 = load ptr, ptr @GImGui, align 8
-  %Style.i605.i = getelementptr inbounds i8, ptr %462, i64 14576
-  %Colors.i606.i = getelementptr inbounds i8, ptr %462, i64 14804
-  br label %466
+  %461 = load ptr, ptr @GImGui, align 8
+  %Style.i605.i = getelementptr inbounds i8, ptr %461, i64 14576
+  %Colors.i606.i = getelementptr inbounds i8, ptr %461, i64 14804
+  br label %465
 
 lor.lhs.false142.i:                               ; preds = %lor.lhs.false140.i
   %.pre587.i = load i8, ptr %hovered.i, align 1
@@ -32859,27 +32860,27 @@ lor.lhs.false142.i:                               ; preds = %lor.lhs.false140.i
   br i1 %tobool143.i, label %if.then144.thread612.i, label %for.inc.i
 
 if.then144.thread612.i:                           ; preds = %lor.lhs.false142.i
-  %463 = load ptr, ptr @GImGui, align 8
-  %Style.i615.i = getelementptr inbounds i8, ptr %463, i64 14576
-  %Colors.i616.i = getelementptr inbounds i8, ptr %463, i64 14804
-  br label %466
+  %462 = load ptr, ptr @GImGui, align 8
+  %Style.i615.i = getelementptr inbounds i8, ptr %462, i64 14576
+  %Colors.i616.i = getelementptr inbounds i8, ptr %462, i64 14804
+  br label %465
 
 if.then144.i:                                     ; preds = %if.end138.i
   %.pre586.i = load i8, ptr %hovered.i, align 1
   %.pre591.i = trunc i8 %.pre585.fr.i to i1
   %tobool148.i = trunc i8 %.pre586.i to i1
-  %464 = select i1 %tobool148.i, i64 31, i64 30
-  %465 = load ptr, ptr @GImGui, align 8
-  %Style.i.i = getelementptr inbounds i8, ptr %465, i64 14576
-  %Colors.i.i = getelementptr inbounds i8, ptr %465, i64 14804
-  %spec.select.i = select i1 %.pre591.i, i64 32, i64 %464
-  br label %466
+  %463 = select i1 %tobool148.i, i64 31, i64 30
+  %464 = load ptr, ptr @GImGui, align 8
+  %Style.i.i = getelementptr inbounds i8, ptr %464, i64 14576
+  %Colors.i.i = getelementptr inbounds i8, ptr %464, i64 14804
+  %spec.select.i = select i1 %.pre591.i, i64 32, i64 %463
+  br label %465
 
-466:                                              ; preds = %if.then144.i, %if.then144.thread612.i, %if.then144.thread.i
+465:                                              ; preds = %if.then144.i, %if.then144.thread612.i, %if.then144.thread.i
   %Colors.i610.i = phi ptr [ %Colors.i616.i, %if.then144.thread612.i ], [ %Colors.i606.i, %if.then144.thread.i ], [ %Colors.i.i, %if.then144.i ]
   %Style.i608.i = phi ptr [ %Style.i615.i, %if.then144.thread612.i ], [ %Style.i605.i, %if.then144.thread.i ], [ %Style.i.i, %if.then144.i ]
-  %467 = phi i64 [ 31, %if.then144.thread612.i ], [ 32, %if.then144.thread.i ], [ %spec.select.i, %if.then144.i ]
-  %arrayidx.i.i675 = getelementptr inbounds [53 x %struct.ImVec4], ptr %Colors.i610.i, i64 0, i64 %467
+  %466 = phi i64 [ 31, %if.then144.thread612.i ], [ 32, %if.then144.thread.i ], [ %spec.select.i, %if.then144.i ]
+  %arrayidx.i.i675 = getelementptr inbounds [53 x %struct.ImVec4], ptr %Colors.i610.i, i64 0, i64 %466
   %c.sroa.0.0.copyload.i.i = load float, ptr %arrayidx.i.i675, align 4
   %c.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i675, i64 4
   %c.sroa.2.0.copyload.i.i = load float, ptr %c.sroa.2.0.arrayidx.sroa_idx.i.i, align 4
@@ -32887,40 +32888,40 @@ if.then144.i:                                     ; preds = %if.end138.i
   %c.sroa.3.0.copyload.i.i = load float, ptr %c.sroa.3.0.arrayidx.sroa_idx.i.i, align 4
   %c.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i675, i64 12
   %c.sroa.4.0.copyload.i.i = load float, ptr %c.sroa.4.0.arrayidx.sroa_idx.i.i, align 4
-  %468 = load float, ptr %Style.i608.i, align 4
-  %mul1.i272.i = fmul float %c.sroa.4.0.copyload.i.i, %468
+  %467 = load float, ptr %Style.i608.i, align 4
+  %mul1.i272.i = fmul float %c.sroa.4.0.copyload.i.i, %467
   %cmp.i.i.i.i676 = fcmp olt float %c.sroa.0.0.copyload.i.i, 0.000000e+00
   %cmp1.i.i.i.i = fcmp ogt float %c.sroa.0.0.copyload.i.i, 1.000000e+00
   %cond.i.i.i.i677 = select i1 %cmp1.i.i.i.i, float 1.000000e+00, float %c.sroa.0.0.copyload.i.i
   %cond5.i.i.i.i = select i1 %cmp.i.i.i.i676, float 0.000000e+00, float %cond.i.i.i.i677
-  %469 = call float @llvm.fmuladd.f32(float %cond5.i.i.i.i, float 2.550000e+02, float 5.000000e-01)
-  %conv.i.i273.i = fptosi float %469 to i32
+  %468 = call float @llvm.fmuladd.f32(float %cond5.i.i.i.i, float 2.550000e+02, float 5.000000e-01)
+  %conv.i.i273.i = fptosi float %468 to i32
   %cmp.i7.i.i.i = fcmp olt float %c.sroa.2.0.copyload.i.i, 0.000000e+00
   %cmp1.i8.i.i.i = fcmp ogt float %c.sroa.2.0.copyload.i.i, 1.000000e+00
   %cond.i9.i.i.i = select i1 %cmp1.i8.i.i.i, float 1.000000e+00, float %c.sroa.2.0.copyload.i.i
   %cond5.i10.i.i.i = select i1 %cmp.i7.i.i.i, float 0.000000e+00, float %cond.i9.i.i.i
-  %470 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i.i, float 2.550000e+02, float 5.000000e-01)
-  %conv2.i.i.i = fptosi float %470 to i32
+  %469 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i.i, float 2.550000e+02, float 5.000000e-01)
+  %conv2.i.i.i = fptosi float %469 to i32
   %shl3.i.i.i = shl i32 %conv2.i.i.i, 8
   %or.i.i.i = or i32 %shl3.i.i.i, %conv.i.i273.i
-  %471 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i.i, i64 0
-  %472 = insertelement <2 x float> %471, float %mul1.i272.i, i64 1
-  %473 = fcmp olt <2 x float> %472, zeroinitializer
-  %474 = fcmp ogt <2 x float> %472, <float 1.000000e+00, float 1.000000e+00>
-  %475 = select <2 x i1> %474, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %472
-  %476 = select <2 x i1> %473, <2 x float> zeroinitializer, <2 x float> %475
-  %477 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %476, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
-  %478 = fptosi <2 x float> %477 to <2 x i32>
-  %479 = shl <2 x i32> %478, <i32 16, i32 24>
-  %480 = extractelement <2 x i32> %479, i64 0
-  %or7.i.i.i = or i32 %or.i.i.i, %480
-  %481 = extractelement <2 x i32> %479, i64 1
-  %or11.i.i.i = or i32 %or7.i.i.i, %481
+  %470 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i.i, i64 0
+  %471 = insertelement <2 x float> %470, float %mul1.i272.i, i64 1
+  %472 = fcmp olt <2 x float> %471, zeroinitializer
+  %473 = fcmp ogt <2 x float> %471, <float 1.000000e+00, float 1.000000e+00>
+  %474 = select <2 x i1> %473, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %471
+  %475 = select <2 x i1> %472, <2 x float> zeroinitializer, <2 x float> %474
+  %476 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %475, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
+  %477 = fptosi <2 x float> %476 to <2 x i32>
+  %478 = shl <2 x i32> %477, <i32 16, i32 24>
+  %479 = extractelement <2 x i32> %478, i64 0
+  %or7.i.i.i = or i32 %or.i.i.i, %479
+  %480 = extractelement <2 x i32> %478, i64 1
+  %or11.i.i.i = or i32 %or7.i.i.i, %480
   %arrayidx154.i = getelementptr inbounds i32, ptr %resize_grip_col, i64 %indvars.iv.i658
   store i32 %or11.i.i.i, ptr %arrayidx154.i, align 4
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %466, %lor.lhs.false142.i
+for.inc.i:                                        ; preds = %465, %lor.lhs.false142.i
   %indvars.iv.next.i674 = add nuw nsw i64 %indvars.iv.i658, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i674, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i637, label %for.body.i657, !llvm.loop !94
@@ -32930,54 +32931,54 @@ for.end.i637:                                     ; preds = %for.inc.i, %if.end2
   %pos_target.sroa.0.0.lcssa.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %if.end28.i ], [ %pos_target.sroa.0.3.i, %for.inc.i ]
   %ret_auto_fit_mask.0.lcssa.i = phi i32 [ 0, %if.end28.i ], [ %ret_auto_fit_mask.1.i, %for.inc.i ]
   store <2 x float> %call5.i565.lcssa.i, ptr %size_target.i, align 8
-  %482 = load i32, ptr %Flags.i457, align 4
-  %and157.i = and i32 %482, 16777216
+  %481 = load i32, ptr %Flags.i457, align 4
+  %and157.i = and i32 %481, 16777216
   %tobool158.not.i = icmp eq i32 %and157.i, 0
   br i1 %tobool158.not.i, label %if.else168.i, label %if.then159.i
 
 if.then159.i:                                     ; preds = %for.end.i637
   %ChildFlags.i = getelementptr inbounds i8, ptr %window.0, i64 24
-  %483 = load i32, ptr %ChildFlags.i, align 8
-  %and160.i = lshr i32 %483, 1
+  %482 = load i32, ptr %ChildFlags.i, align 8
+  %and160.i = lshr i32 %482, 1
   %cond162.i = and i32 %and160.i, 2
-  %and164.i = and i32 %483, 8
+  %and164.i = and i32 %482, 8
   %or.i = or disjoint i32 %cond162.i, %and164.i
   br label %if.end173.i
 
 if.else168.i:                                     ; preds = %for.end.i637
-  %484 = load i8, ptr %ConfigWindowsResizeFromEdges.i, align 2
-  %tobool171.i = trunc i8 %484 to i1
+  %483 = load i8, ptr %ConfigWindowsResizeFromEdges.i, align 2
+  %tobool171.i = trunc i8 %483 to i1
   %cond172.i = select i1 %tobool171.i, i32 15, i32 0
   br label %if.end173.i
 
 if.end173.i:                                      ; preds = %if.else168.i, %if.then159.i
   %resize_border_mask.0.i = phi i32 [ %or.i, %if.then159.i ], [ %cond172.i, %if.else168.i ]
   %y9.i.i.i = getelementptr i8, ptr %window.0, i64 52
-  %485 = getelementptr inbounds i8, ptr %border_rect.i, i64 8
+  %484 = getelementptr inbounds i8, ptr %border_rect.i, i64 8
   %Data.i.i284.i = getelementptr inbounds i8, ptr %window.0, i64 264
-  %HoveredIdTimer.i = getelementptr inbounds i8, ptr %376, i64 16484
-  %MouseCursor205.i = getelementptr inbounds i8, ptr %376, i64 20120
-  %MouseDoubleClicked210.i = getelementptr inbounds i8, ptr %376, i64 14445
-  %WheelingWindow.i = getelementptr inbounds i8, ptr %376, i64 16424
-  %WheelingWindowScrolledFrame.i = getelementptr inbounds i8, ptr %376, i64 16444
-  %FrameCount.i = getelementptr inbounds i8, ptr %376, i64 16224
-  %ActiveIdIsJustActivated.i = getelementptr inbounds i8, ptr %376, i64 16504
-  %WindowResizeBorderExpectedRect.i = getelementptr inbounds i8, ptr %376, i64 24100
-  %WindowResizeRelativeMode.i = getelementptr inbounds i8, ptr %376, i64 24116
-  %MouseDelta.i = getelementptr inbounds i8, ptr %376, i64 232
-  %MousePos267.i = getelementptr inbounds i8, ptr %376, i64 3656
-  %ActiveIdClickOffset270.i = getelementptr inbounds i8, ptr %376, i64 16512
-  %486 = getelementptr inbounds i8, ptr %border_target.i, i64 4
-  %and341.i = and i32 %371, 34816
+  %HoveredIdTimer.i = getelementptr inbounds i8, ptr %375, i64 16484
+  %MouseCursor205.i = getelementptr inbounds i8, ptr %375, i64 20120
+  %MouseDoubleClicked210.i = getelementptr inbounds i8, ptr %375, i64 14445
+  %WheelingWindow.i = getelementptr inbounds i8, ptr %375, i64 16424
+  %WheelingWindowScrolledFrame.i = getelementptr inbounds i8, ptr %375, i64 16444
+  %FrameCount.i = getelementptr inbounds i8, ptr %375, i64 16224
+  %ActiveIdIsJustActivated.i = getelementptr inbounds i8, ptr %375, i64 16504
+  %WindowResizeBorderExpectedRect.i = getelementptr inbounds i8, ptr %375, i64 24100
+  %WindowResizeRelativeMode.i = getelementptr inbounds i8, ptr %375, i64 24116
+  %MouseDelta.i = getelementptr inbounds i8, ptr %375, i64 232
+  %MousePos267.i = getelementptr inbounds i8, ptr %375, i64 3656
+  %ActiveIdClickOffset270.i = getelementptr inbounds i8, ptr %375, i64 16512
+  %485 = getelementptr inbounds i8, ptr %border_target.i, i64 4
+  %and341.i = and i32 %370, 34816
   %cmp342.i = icmp ne i32 %and341.i, 0
-  %and344.i = and i32 %371, 8
+  %and344.i = and i32 %370, 8
   %tobool345.not.i = icmp eq i32 %and344.i, 0
   %or.cond.i638 = and i1 %cmp342.i, %tobool345.not.i
   %brmerge.i640 = or i1 %tobool692.not, %or.cond.i638
-  %487 = bitcast <2 x float> %call459 to i64
-  %488 = insertelement <2 x float> <float -4.000000e+00, float poison>, float %conv18.i, i64 1
-  %489 = insertelement <2 x float> <float poison, float -4.000000e+00>, float %conv18.i, i64 0
-  %490 = extractelement <2 x float> %340, i64 0
+  %486 = bitcast <2 x float> %call459 to i64
+  %487 = insertelement <2 x float> <float -4.000000e+00, float poison>, float %conv18.i, i64 1
+  %488 = insertelement <2 x float> <float poison, float -4.000000e+00>, float %conv18.i, i64 0
+  %489 = extractelement <2 x float> %340, i64 0
   br label %for.body176.i
 
 for.body176.i:                                    ; preds = %for.inc388.i, %if.end173.i
@@ -32986,8 +32987,8 @@ for.body176.i:                                    ; preds = %for.inc388.i, %if.e
   %indvars.iv580.i = phi i64 [ 0, %if.end173.i ], [ %indvars.iv.next581.i, %for.inc388.i ]
   %ret_auto_fit_mask.2578.i = phi i32 [ %ret_auto_fit_mask.0.lcssa.i, %if.end173.i ], [ %ret_auto_fit_mask.5.i, %for.inc388.i ]
   %pos_target.sroa.0.4575.i = phi <2 x float> [ %pos_target.sroa.0.0.lcssa.i, %if.end173.i ], [ %pos_target.sroa.0.8.i, %for.inc388.i ]
-  %491 = trunc nuw nsw i64 %indvars.iv580.i to i32
-  %shl.i = shl nuw nsw i32 1, %491
+  %490 = trunc nuw nsw i64 %indvars.iv580.i to i32
+  %shl.i = shl nuw nsw i32 1, %490
   %and177.i = and i32 %shl.i, %resize_border_mask.0.i
   %cmp178.i = icmp eq i32 %and177.i, 0
   br i1 %cmp178.i, label %for.inc388.i, label %if.end180.i
@@ -32996,16 +32997,16 @@ if.end180.i:                                      ; preds = %for.body176.i
   %arrayidx183.i = getelementptr inbounds [4 x %struct.ImGuiResizeBorderDef], ptr @_ZL17resize_border_def, i64 0, i64 %indvars.iv580.i
   %cmp184.i = icmp eq i64 %indvars.iv580.i, 0
   %cmp185.i = icmp eq i64 %indvars.iv580.i, 1
-  %492 = icmp ugt i64 %indvars.iv580.i, 1
-  %cond186.i = zext i1 %492 to i32
-  %493 = load <2 x float>, ptr %Pos656, align 8
-  %494 = load float, ptr %Size547, align 8
-  %495 = extractelement <2 x float> %493, i64 0
-  %add.i.i274.i = fadd float %495, %494
-  %496 = load float, ptr %y9.i.i.i, align 4
-  %497 = extractelement <2 x float> %493, i64 1
-  %add10.i.i.i = fadd float %497, %496
-  switch i32 %491, label %default.unreachable.i [
+  %491 = icmp ugt i64 %indvars.iv580.i, 1
+  %cond186.i = zext i1 %491 to i32
+  %492 = load <2 x float>, ptr %Pos656, align 8
+  %493 = load float, ptr %Size547, align 8
+  %494 = extractelement <2 x float> %492, i64 0
+  %add.i.i274.i = fadd float %494, %493
+  %495 = load float, ptr %y9.i.i.i, align 4
+  %496 = extractelement <2 x float> %492, i64 1
+  %add10.i.i.i = fadd float %496, %495
+  switch i32 %490, label %default.unreachable.i [
     i32 0, label %if.then3.i.i
     i32 1, label %if.then13.i.i
     i32 2, label %if.then28.i.i
@@ -33013,27 +33014,27 @@ if.end180.i:                                      ; preds = %for.body176.i
   ]
 
 if.then3.i.i:                                     ; preds = %if.end180.i
-  %498 = fadd <2 x float> %493, %488
-  %add7.i.i = fadd float %495, 4.000000e+00
+  %497 = fadd <2 x float> %492, %487
+  %add7.i.i = fadd float %494, 4.000000e+00
   %sub10.i.i = fsub float %add10.i.i.i, %conv18.i
   br label %_ZL19GetResizeBorderRectP11ImGuiWindowiff.exit.i
 
 if.then13.i.i:                                    ; preds = %if.end180.i
-  %499 = insertelement <2 x float> %493, float %add.i.i274.i, i64 0
-  %500 = fadd <2 x float> %499, %488
+  %498 = insertelement <2 x float> %492, float %add.i.i274.i, i64 0
+  %499 = fadd <2 x float> %498, %487
   %add22.i.i = fadd float %add.i.i274.i, 4.000000e+00
   %sub25.i.i = fsub float %add10.i.i.i, %conv18.i
   br label %_ZL19GetResizeBorderRectP11ImGuiWindowiff.exit.i
 
 if.then28.i.i:                                    ; preds = %if.end180.i
-  %501 = fadd <2 x float> %493, %489
+  %500 = fadd <2 x float> %492, %488
   %sub37.i.i = fsub float %add.i.i274.i, %conv18.i
-  %add40.i.i = fadd float %497, 4.000000e+00
+  %add40.i.i = fadd float %496, 4.000000e+00
   br label %_ZL19GetResizeBorderRectP11ImGuiWindowiff.exit.i
 
 if.then43.i.i:                                    ; preds = %if.end180.i
-  %502 = insertelement <2 x float> %493, float %add10.i.i.i, i64 1
-  %503 = fadd <2 x float> %502, %489
+  %501 = insertelement <2 x float> %492, float %add10.i.i.i, i64 1
+  %502 = fadd <2 x float> %501, %488
   %sub52.i.i = fsub float %add.i.i274.i, %conv18.i
   %add55.i.i = fadd float %add10.i.i.i, 4.000000e+00
   br label %_ZL19GetResizeBorderRectP11ImGuiWindowiff.exit.i
@@ -33044,22 +33045,22 @@ default.unreachable.i:                            ; preds = %if.end180.i
 _ZL19GetResizeBorderRectP11ImGuiWindowiff.exit.i: ; preds = %if.then43.i.i, %if.then28.i.i, %if.then13.i.i, %if.then3.i.i
   %add7.i.sink.i = phi float [ %add7.i.i, %if.then3.i.i ], [ %add22.i.i, %if.then13.i.i ], [ %sub37.i.i, %if.then28.i.i ], [ %sub52.i.i, %if.then43.i.i ]
   %sub10.i.sink.i = phi float [ %sub10.i.i, %if.then3.i.i ], [ %sub25.i.i, %if.then13.i.i ], [ %add40.i.i, %if.then28.i.i ], [ %add55.i.i, %if.then43.i.i ]
-  %504 = phi <2 x float> [ %498, %if.then3.i.i ], [ %500, %if.then13.i.i ], [ %501, %if.then28.i.i ], [ %503, %if.then43.i.i ]
+  %503 = phi <2 x float> [ %497, %if.then3.i.i ], [ %499, %if.then13.i.i ], [ %500, %if.then28.i.i ], [ %502, %if.then43.i.i ]
   %retval.sroa.10.8.vec.insert.i.i = insertelement <2 x float> poison, float %add7.i.sink.i, i64 0
   %retval.sroa.10.12.vec.insert.i.i = insertelement <2 x float> %retval.sroa.10.8.vec.insert.i.i, float %sub10.i.sink.i, i64 1
-  store <2 x float> %504, ptr %border_rect.i, align 8
-  store <2 x float> %retval.sroa.10.12.vec.insert.i.i, ptr %485, align 8
-  %505 = or disjoint i64 %indvars.iv580.i, 4
+  store <2 x float> %503, ptr %border_rect.i, align 8
+  store <2 x float> %retval.sroa.10.12.vec.insert.i.i, ptr %484, align 8
+  %504 = or disjoint i64 %indvars.iv580.i, 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.addr.i282.i)
-  %506 = trunc nuw nsw i64 %505 to i32
-  store i32 %506, ptr %n.addr.i282.i, align 4
-  %507 = load ptr, ptr %Data.i.i284.i, align 8
-  %508 = load i32, ptr %IDStack, align 8
-  %509 = sext i32 %508 to i64
-  %510 = getelementptr i32, ptr %507, i64 %509
-  %arrayidx.i.i285.i = getelementptr i8, ptr %510, i64 -4
-  %511 = load i32, ptr %arrayidx.i.i285.i, align 4
-  %not.i.i286.i = xor i32 %511, -1
+  %505 = trunc nuw nsw i64 %504 to i32
+  store i32 %505, ptr %n.addr.i282.i, align 4
+  %506 = load ptr, ptr %Data.i.i284.i, align 8
+  %507 = load i32, ptr %IDStack, align 8
+  %508 = sext i32 %507 to i64
+  %509 = getelementptr i32, ptr %506, i64 %508
+  %arrayidx.i.i285.i = getelementptr i8, ptr %509, i64 -4
+  %510 = load i32, ptr %arrayidx.i.i285.i, align 4
+  %not.i.i286.i = xor i32 %510, -1
   br label %while.body.i.i287.i
 
 while.body.i.i287.i:                              ; preds = %while.body.i.i287.i, %_ZL19GetResizeBorderRectP11ImGuiWindowiff.exit.i
@@ -33070,40 +33071,40 @@ while.body.i.i287.i:                              ; preds = %while.body.i.i287.i
   %shr.i.i292.i = lshr i32 %crc.04.i.i290.i, 8
   %and.i.i293.i = and i32 %crc.04.i.i290.i, 255
   %incdec.ptr.i.i294.i = getelementptr inbounds i8, ptr %data.05.i.i289.i, i64 1
-  %512 = load i8, ptr %data.05.i.i289.i, align 1
-  %conv.i.i295.i = zext i8 %512 to i32
+  %511 = load i8, ptr %data.05.i.i289.i, align 1
+  %conv.i.i295.i = zext i8 %511 to i32
   %xor.i.i296.i = xor i32 %and.i.i293.i, %conv.i.i295.i
   %idxprom.i.i297.i = zext nneg i32 %xor.i.i296.i to i64
   %arrayidx.i3.i298.i = getelementptr inbounds i32, ptr @_ZL17GCrc32LookupTable, i64 %idxprom.i.i297.i
-  %513 = load i32, ptr %arrayidx.i3.i298.i, align 4
-  %xor1.i.i299.i = xor i32 %513, %shr.i.i292.i
+  %512 = load i32, ptr %arrayidx.i3.i298.i, align 4
+  %xor1.i.i299.i = xor i32 %512, %shr.i.i292.i
   %cmp.not.i.i300.i = icmp eq i64 %dec.i.i291.i, 0
   br i1 %cmp.not.i.i300.i, label %_Z10ImHashDataPKvmj.exit.i301.i, label %while.body.i.i287.i, !llvm.loop !22
 
 _Z10ImHashDataPKvmj.exit.i301.i:                  ; preds = %while.body.i.i287.i
-  %514 = xor i32 %xor1.i.i299.i, -1
-  %515 = load ptr, ptr %window.0, align 8
-  %DebugHookIdInfo.i302.i = getelementptr inbounds i8, ptr %515, i64 16468
-  %516 = load i32, ptr %DebugHookIdInfo.i302.i, align 4
-  %cmp.i303.i = icmp eq i32 %516, %514
+  %513 = xor i32 %xor1.i.i299.i, -1
+  %514 = load ptr, ptr %window.0, align 8
+  %DebugHookIdInfo.i302.i = getelementptr inbounds i8, ptr %514, i64 16468
+  %515 = load i32, ptr %DebugHookIdInfo.i302.i, align 4
+  %cmp.i303.i = icmp eq i32 %515, %513
   br i1 %cmp.i303.i, label %if.then.i305.i, label %_ZN11ImGuiWindow5GetIDEi.exit307.i
 
 if.then.i305.i:                                   ; preds = %_Z10ImHashDataPKvmj.exit.i301.i
-  %517 = inttoptr i64 %505 to ptr
-  call void @_ZN5ImGui15DebugHookIdInfoEjiPKvS1_(i32 noundef %514, i32 noundef 4, ptr noundef nonnull %517, ptr noundef null)
+  %516 = inttoptr i64 %504 to ptr
+  call void @_ZN5ImGui15DebugHookIdInfoEjiPKvS1_(i32 noundef %513, i32 noundef 4, ptr noundef nonnull %516, ptr noundef null)
   br label %_ZN11ImGuiWindow5GetIDEi.exit307.i
 
 _ZN11ImGuiWindow5GetIDEi.exit307.i:               ; preds = %if.then.i305.i, %_Z10ImHashDataPKvmj.exit.i301.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.addr.i282.i)
-  %call192.i = call noundef zeroext i1 @_ZN5ImGui7ItemAddERK6ImRectjPS1_i(ptr noundef nonnull align 4 dereferenceable(16) %border_rect.i, i32 noundef %514, ptr noundef null, i32 noundef 8)
-  %call193.i = call noundef zeroext i1 @_ZN5ImGui14ButtonBehaviorERK6ImRectjPbS3_i(ptr noundef nonnull align 4 dereferenceable(16) %border_rect.i, i32 noundef %514, ptr noundef nonnull %hovered187.i, ptr noundef nonnull %held188.i, i32 noundef 264192)
-  %518 = load i8, ptr %hovered187.i, align 1
-  %tobool194.i = trunc i8 %518 to i1
+  %call192.i = call noundef zeroext i1 @_ZN5ImGui7ItemAddERK6ImRectjPS1_i(ptr noundef nonnull align 4 dereferenceable(16) %border_rect.i, i32 noundef %513, ptr noundef null, i32 noundef 8)
+  %call193.i = call noundef zeroext i1 @_ZN5ImGui14ButtonBehaviorERK6ImRectjPbS3_i(ptr noundef nonnull align 4 dereferenceable(16) %border_rect.i, i32 noundef %513, ptr noundef nonnull %hovered187.i, ptr noundef nonnull %held188.i, i32 noundef 264192)
+  %517 = load i8, ptr %hovered187.i, align 1
+  %tobool194.i = trunc i8 %517 to i1
   br i1 %tobool194.i, label %land.lhs.true195.i, label %lor.lhs.false200.i
 
 land.lhs.true195.i:                               ; preds = %_ZN11ImGuiWindow5GetIDEi.exit307.i
-  %519 = load float, ptr %HoveredIdTimer.i, align 4
-  %cmp196.i = fcmp ugt float %519, 0x3FA47AE140000000
+  %518 = load float, ptr %HoveredIdTimer.i, align 4
+  %cmp196.i = fcmp ugt float %518, 0x3FA47AE140000000
   br i1 %cmp196.i, label %if.end206.i, label %if.end198.thread.i
 
 if.end198.thread.i:                               ; preds = %land.lhs.true195.i
@@ -33116,36 +33117,36 @@ lor.lhs.false200.i:                               ; preds = %_ZN11ImGuiWindow5Ge
   br i1 %tobool201.i, label %if.end206.thread622.i, label %if.end381.i
 
 if.end206.thread622.i:                            ; preds = %lor.lhs.false200.i
-  %cond204624.i = select i1 %492, i32 3, i32 4
+  %cond204624.i = select i1 %491, i32 3, i32 4
   store i32 %cond204624.i, ptr %MouseCursor205.i, align 8
   br label %land.lhs.true208.i
 
 if.end206.i:                                      ; preds = %land.lhs.true195.i
   %.pre588.pre.i1448 = load i8, ptr %held188.i, align 1
   %.pre.i652 = trunc i8 %.pre588.pre.i1448 to i1
-  %cond204.i = select i1 %492, i32 3, i32 4
+  %cond204.i = select i1 %491, i32 3, i32 4
   store i32 %cond204.i, ptr %MouseCursor205.i, align 8
   br i1 %.pre.i652, label %land.lhs.true208.i, label %if.end381.i
 
 land.lhs.true208.i:                               ; preds = %if.end206.i, %if.end206.thread622.i
-  %520 = load i8, ptr %MouseDoubleClicked210.i, align 1
-  %tobool212.i = trunc i8 %520 to i1
+  %519 = load i8, ptr %MouseDoubleClicked210.i, align 1
+  %tobool212.i = trunc i8 %519 to i1
   br i1 %tobool212.i, label %if.then213.i, label %if.then229.i
 
 if.then213.i:                                     ; preds = %land.lhs.true208.i
-  switch i32 %491, label %if.end226.i [
+  switch i32 %490, label %if.end226.i [
     i32 3, label %if.then217.i
     i32 1, label %if.then217.i
   ]
 
 if.then217.i:                                     ; preds = %if.then213.i, %if.then213.i
-  %call219.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window.0, i64 %487)
+  %call219.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window.0, i64 %486)
   store <2 x float> %call219.i, ptr %ref.tmp218.i, align 8
-  %conv220.i = zext i1 %492 to i64
+  %conv220.i = zext i1 %491 to i64
   %arrayidx.i308.i = getelementptr inbounds float, ptr %ref.tmp218.i, i64 %conv220.i
-  %521 = load float, ptr %arrayidx.i308.i, align 4
+  %520 = load float, ptr %arrayidx.i308.i, align 4
   %arrayidx.i309.i = getelementptr inbounds float, ptr %size_target.i, i64 %conv220.i
-  store float %521, ptr %arrayidx.i309.i, align 4
+  store float %520, ptr %arrayidx.i309.i, align 4
   %shl224.i = shl nuw nsw i32 1, %cond186.i
   %or225.i = or i32 %shl224.i, %ret_auto_fit_mask.2578.i
   store i8 0, ptr %held188.i, align 1
@@ -33158,30 +33159,30 @@ if.end226.i:                                      ; preds = %if.then217.i, %if.t
   br label %if.end381.i
 
 if.then229.i:                                     ; preds = %land.lhs.true208.i
-  %522 = load ptr, ptr %WheelingWindow.i, align 8
-  %cmp230.not.i = icmp eq ptr %522, null
+  %521 = load ptr, ptr %WheelingWindow.i, align 8
+  %cmp230.not.i = icmp eq ptr %521, null
   br i1 %cmp230.not.i, label %land.end236.i, label %land.lhs.true231.i
 
 land.lhs.true231.i:                               ; preds = %if.then229.i
-  %523 = load i32, ptr %WheelingWindowScrolledFrame.i, align 4
-  %524 = load i32, ptr %FrameCount.i, align 8
-  %cmp232.i = icmp eq i32 %523, %524
+  %522 = load i32, ptr %WheelingWindowScrolledFrame.i, align 4
+  %523 = load i32, ptr %FrameCount.i, align 8
+  %cmp232.i = icmp eq i32 %522, %523
   br i1 %cmp232.i, label %while.body.i.i310.i, label %land.end236.i
 
 while.body.i.i310.i:                              ; preds = %land.lhs.true231.i, %while.body.i.i310.i
-  %window.addr.06.i.i.i = phi ptr [ %525, %while.body.i.i310.i ], [ %window.0, %land.lhs.true231.i ]
+  %window.addr.06.i.i.i = phi ptr [ %524, %while.body.i.i310.i ], [ %window.0, %land.lhs.true231.i ]
   %RootWindow.i.i.i = getelementptr inbounds i8, ptr %window.addr.06.i.i.i, i64 904
-  %525 = load ptr, ptr %RootWindow.i.i.i, align 8
-  %cmp.not.i.i311.i = icmp eq ptr %window.addr.06.i.i.i, %525
+  %524 = load ptr, ptr %RootWindow.i.i.i, align 8
+  %cmp.not.i.i311.i = icmp eq ptr %window.addr.06.i.i.i, %524
   br i1 %cmp.not.i.i311.i, label %_ZL21GetCombinedRootWindowP11ImGuiWindowb.exit.i.i, label %while.body.i.i310.i, !llvm.loop !95
 
 _ZL21GetCombinedRootWindowP11ImGuiWindowb.exit.i.i: ; preds = %while.body.i.i310.i
-  %cmp.i312.i = icmp eq ptr %window.addr.06.i.i.i, %522
+  %cmp.i312.i = icmp eq ptr %window.addr.06.i.i.i, %521
   br i1 %cmp.i312.i, label %if.then241.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZL21GetCombinedRootWindowP11ImGuiWindowb.exit.i.i, %if.end7.i.i
-  %window.addr.010.i.i = phi ptr [ %526, %if.end7.i.i ], [ %window.0, %_ZL21GetCombinedRootWindowP11ImGuiWindowb.exit.i.i ]
-  %cmp2.i.i = icmp eq ptr %window.addr.010.i.i, %522
+  %window.addr.010.i.i = phi ptr [ %525, %if.end7.i.i ], [ %window.0, %_ZL21GetCombinedRootWindowP11ImGuiWindowb.exit.i.i ]
+  %cmp2.i.i = icmp eq ptr %window.addr.010.i.i, %521
   br i1 %cmp2.i.i, label %if.then241.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %while.body.i.i
@@ -33190,13 +33191,13 @@ if.end4.i.i:                                      ; preds = %while.body.i.i
 
 if.end7.i.i:                                      ; preds = %if.end4.i.i
   %ParentWindow.i.i651 = getelementptr inbounds i8, ptr %window.addr.010.i.i, i64 888
-  %526 = load ptr, ptr %ParentWindow.i.i651, align 8
-  %cmp1.not.i.i = icmp eq ptr %526, null
+  %525 = load ptr, ptr %ParentWindow.i.i651, align 8
+  %cmp1.not.i.i = icmp eq ptr %525, null
   br i1 %cmp1.not.i.i, label %land.end236.i, label %while.body.i.i, !llvm.loop !96
 
 land.end236.i:                                    ; preds = %if.end7.i.i, %if.end4.i.i, %land.lhs.true231.i, %if.then229.i
-  %527 = load i8, ptr %ActiveIdIsJustActivated.i, align 8
-  %tobool238.i = trunc i8 %527 to i1
+  %526 = load i8, ptr %ActiveIdIsJustActivated.i, align 8
+  %tobool238.i = trunc i8 %526 to i1
   br i1 %tobool238.i, label %if.then241.i, label %if.end242.i
 
 if.then241.i:                                     ; preds = %while.body.i.i, %land.end236.i, %_ZL21GetCombinedRootWindowP11ImGuiWindowb.exit.i.i
@@ -33205,8 +33206,8 @@ if.then241.i:                                     ; preds = %while.body.i.i, %la
   br label %if.end242.i
 
 if.end242.i:                                      ; preds = %if.then241.i, %land.end236.i
-  %528 = load i32, ptr %Flags.i457, align 4
-  %and244.i = and i32 %528, 16777216
+  %527 = load i32, ptr %Flags.i457, align 4
+  %and244.i = and i32 %527, 16777216
   %tobool245.not.i = icmp eq i32 %and244.i, 0
   br i1 %tobool245.not.i, label %if.end252.i, label %land.lhs.true246.i
 
@@ -33222,49 +33223,49 @@ if.then250.i:                                     ; preds = %land.lhs.true246.i
 if.end252.i:                                      ; preds = %if.then250.i, %land.lhs.true246.i, %if.end242.i
   %SegmentN1.i = getelementptr inbounds i8, ptr %arrayidx183.i, i64 8
   %SegmentN2.i = getelementptr inbounds i8, ptr %arrayidx183.i, i64 16
-  %conv260.i = zext i1 %492 to i64
+  %conv260.i = zext i1 %491 to i64
   %arrayidx.i326.i = getelementptr inbounds float, ptr %border_curr.i, i64 %conv260.i
   %arrayidx.i327.i = getelementptr inbounds float, ptr %MouseDelta.i, i64 %conv260.i
-  %529 = load float, ptr %arrayidx.i327.i, align 4
+  %528 = load float, ptr %arrayidx.i327.i, align 4
   %arrayidx.i328.i = getelementptr inbounds float, ptr %MousePos267.i, i64 %conv260.i
-  %530 = load float, ptr %arrayidx.i328.i, align 4
+  %529 = load float, ptr %arrayidx.i328.i, align 4
   %arrayidx.i329.i = getelementptr inbounds float, ptr %ActiveIdClickOffset270.i, i64 %conv260.i
-  %531 = load float, ptr %arrayidx.i329.i, align 4
-  %sub273.i = fsub float %530, %531
+  %530 = load float, ptr %arrayidx.i329.i, align 4
+  %sub273.i = fsub float %529, %530
   %add274.i = fadd float %sub273.i, 4.000000e+00
-  %532 = load i64, ptr %Pos656, align 8
-  store i64 %532, ptr %border_target.i, align 8
+  %531 = load i64, ptr %Pos656, align 8
+  store i64 %531, ptr %border_target.i, align 8
   %arrayidx.i330.i = getelementptr inbounds float, ptr %border_target.i, i64 %conv260.i
   store float %add274.i, ptr %arrayidx.i330.i, align 4
-  %533 = load i8, ptr %WindowResizeRelativeMode.i, align 4
-  %tobool279.i = trunc i8 %533 to i1
-  %534 = lshr i64 %532, 32
-  %535 = load <2 x float>, ptr %SegmentN1.i, align 4
-  %536 = load <2 x float>, ptr %SegmentN2.i, align 4
-  %537 = fcmp olt <2 x float> %535, %536
-  %538 = select <2 x i1> %537, <2 x float> %535, <2 x float> %536
-  %539 = load <2 x float>, ptr %Size547, align 4
-  %540 = load <2 x float>, ptr %Pos656, align 4
-  %541 = fmul <2 x float> %538, %539
-  %542 = fadd <2 x float> %541, %540
-  store <2 x float> %542, ptr %border_curr.i, align 8
-  %543 = load float, ptr %arrayidx.i326.i, align 4
-  %add265.i = fadd float %543, %529
-  %544 = insertelement <2 x i64> poison, i64 %532, i64 0
-  %545 = insertelement <2 x i64> %544, i64 %534, i64 1
-  %546 = trunc <2 x i64> %545 to <2 x i32>
-  %547 = bitcast <2 x i32> %546 to <2 x float>
+  %532 = load i8, ptr %WindowResizeRelativeMode.i, align 4
+  %tobool279.i = trunc i8 %532 to i1
+  %533 = lshr i64 %531, 32
+  %534 = load <2 x float>, ptr %SegmentN1.i, align 4
+  %535 = load <2 x float>, ptr %SegmentN2.i, align 4
+  %536 = fcmp olt <2 x float> %534, %535
+  %537 = select <2 x i1> %536, <2 x float> %534, <2 x float> %535
+  %538 = load <2 x float>, ptr %Size547, align 4
+  %539 = load <2 x float>, ptr %Pos656, align 4
+  %540 = fmul <2 x float> %537, %538
+  %541 = fadd <2 x float> %540, %539
+  store <2 x float> %541, ptr %border_curr.i, align 8
+  %542 = load float, ptr %arrayidx.i326.i, align 4
+  %add265.i = fadd float %542, %528
+  %543 = insertelement <2 x i64> poison, i64 %531, i64 0
+  %544 = insertelement <2 x i64> %543, i64 %533, i64 1
+  %545 = trunc <2 x i64> %544 to <2 x i32>
+  %546 = bitcast <2 x i32> %545 to <2 x float>
   br i1 %tobool279.i, label %if.then280.i, label %if.end300.i
 
 if.then280.i:                                     ; preds = %if.end252.i
   store float %add265.i, ptr %arrayidx.i330.i, align 4
-  %cmp287.i = fcmp oeq float %529, 0.000000e+00
+  %cmp287.i = fcmp oeq float %528, 0.000000e+00
   br i1 %cmp287.i, label %if.then298.i, label %lor.lhs.false288.i
 
 lor.lhs.false288.i:                               ; preds = %if.then280.i
-  %cmp293.i = fcmp ogt float %529, 0.000000e+00
-  %548 = fcmp ule float %add265.i, %add274.i
-  %cmp297.i = xor i1 %cmp293.i, %548
+  %cmp293.i = fcmp ogt float %528, 0.000000e+00
+  %547 = fcmp ule float %add265.i, %add274.i
+  %cmp297.i = xor i1 %cmp293.i, %547
   br i1 %cmp297.i, label %if.then298.i, label %if.end300.i
 
 if.then298.i:                                     ; preds = %lor.lhs.false288.i, %if.then280.i
@@ -33272,8 +33273,8 @@ if.then298.i:                                     ; preds = %lor.lhs.false288.i,
 
 if.end300.i:                                      ; preds = %if.then298.i, %lor.lhs.false288.i, %if.end252.i
   %ignore_resize.0.i = phi i1 [ true, %if.then298.i ], [ false, %lor.lhs.false288.i ], [ false, %if.end252.i ]
-  %cond308.i = select i1 %cmp185.i, float %490, float 0xC7EFFFFFE0000000
-  switch i32 %491, label %cond.end318.i [
+  %cond308.i = select i1 %cmp185.i, float %489, float 0xC7EFFFFFE0000000
+  switch i32 %490, label %cond.end318.i [
     i32 3, label %cond.true314.i
     i32 2, label %land.lhs.true312.i
   ]
@@ -33287,72 +33288,72 @@ cond.true314.i:                                   ; preds = %land.lhs.true312.i,
 cond.end318.i:                                    ; preds = %cond.true314.i, %land.lhs.true312.i, %if.end300.i
   %cond319.i = phi float [ %clamp_rect.sroa.4.0.i, %cond.true314.i ], [ 0xC7EFFFFFE0000000, %land.lhs.true312.i ], [ 0xC7EFFFFFE0000000, %if.end300.i ]
   %cmp328.i = icmp eq i64 %indvars.iv580.i, 2
-  %549 = insertelement <2 x i1> poison, i1 %cmp184.i, i64 0
-  %550 = insertelement <2 x i1> %549, i1 %cmp328.i, i64 1
-  %551 = select <2 x i1> %550, <2 x float> %341, <2 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>
-  %552 = load <2 x float>, ptr %border_target.i, align 8
-  %553 = insertelement <2 x float> poison, float %cond308.i, i64 0
-  %554 = insertelement <2 x float> %553, float %cond319.i, i64 1
-  %555 = fcmp olt <2 x float> %552, %554
-  %556 = fcmp olt <2 x float> %551, %552
-  %557 = select <2 x i1> %556, <2 x float> %551, <2 x float> %552
-  %558 = select <2 x i1> %555, <2 x float> %554, <2 x float> %557
-  store <2 x float> %558, ptr %border_target.i, align 8
+  %548 = insertelement <2 x i1> poison, i1 %cmp184.i, i64 0
+  %549 = insertelement <2 x i1> %548, i1 %cmp328.i, i64 1
+  %550 = select <2 x i1> %549, <2 x float> %341, <2 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>
+  %551 = load <2 x float>, ptr %border_target.i, align 8
+  %552 = insertelement <2 x float> poison, float %cond308.i, i64 0
+  %553 = insertelement <2 x float> %552, float %cond319.i, i64 1
+  %554 = fcmp olt <2 x float> %551, %553
+  %555 = fcmp olt <2 x float> %550, %551
+  %556 = select <2 x i1> %555, <2 x float> %550, <2 x float> %551
+  %557 = select <2 x i1> %554, <2 x float> %553, <2 x float> %556
+  store <2 x float> %557, ptr %border_target.i, align 8
   br i1 %brmerge.i640, label %if.end372.i, label %if.end356.i
 
 if.end356.i:                                      ; preds = %cond.end318.i
-  %559 = load ptr, ptr %ParentWindow.i.i, align 8
-  %InnerClipRect.i = getelementptr inbounds i8, ptr %559, i64 536
-  %560 = load float, ptr %InnerClipRect.i, align 8
-  %Max352.i = getelementptr inbounds i8, ptr %559, i64 544
-  %561 = load float, ptr %Max352.i, align 8
-  %562 = extractelement <2 x float> %558, i64 0
-  %cmp.i350.i = fcmp olt float %562, %560
-  %cmp1.i.i650 = fcmp ogt float %562, %561
-  %cond.i351.i = select i1 %cmp1.i.i650, float %561, float %562
-  %cond5.i.i = select i1 %cmp.i350.i, float %560, float %cond.i351.i
+  %558 = load ptr, ptr %ParentWindow.i.i, align 8
+  %InnerClipRect.i = getelementptr inbounds i8, ptr %558, i64 536
+  %559 = load float, ptr %InnerClipRect.i, align 8
+  %Max352.i = getelementptr inbounds i8, ptr %558, i64 544
+  %560 = load float, ptr %Max352.i, align 8
+  %561 = extractelement <2 x float> %557, i64 0
+  %cmp.i350.i = fcmp olt float %561, %559
+  %cmp1.i.i650 = fcmp ogt float %561, %560
+  %cond.i351.i = select i1 %cmp1.i.i650, float %560, float %561
+  %cond5.i.i = select i1 %cmp.i350.i, float %559, float %cond.i351.i
   store float %cond5.i.i, ptr %border_target.i, align 8
-  %563 = insertelement <2 x float> %558, float %cond5.i.i, i64 0
+  %562 = insertelement <2 x float> %557, float %cond5.i.i, i64 0
   br i1 %tobool345.not.i, label %if.end372.i, label %if.then359.i
 
 if.then359.i:                                     ; preds = %if.end356.i
-  %y364.i = getelementptr inbounds i8, ptr %559, i64 540
-  %564 = load float, ptr %y364.i, align 4
-  %y368.i = getelementptr inbounds i8, ptr %559, i64 548
-  %565 = load float, ptr %y368.i, align 4
-  %566 = extractelement <2 x float> %558, i64 1
-  %cmp.i352.i = fcmp olt float %566, %564
-  %cmp1.i353.i = fcmp ogt float %566, %565
-  %cond.i354.i = select i1 %cmp1.i353.i, float %565, float %566
-  %cond5.i355.i = select i1 %cmp.i352.i, float %564, float %cond.i354.i
-  store float %cond5.i355.i, ptr %486, align 4
-  %567 = insertelement <2 x float> %563, float %cond5.i355.i, i64 1
+  %y364.i = getelementptr inbounds i8, ptr %558, i64 540
+  %563 = load float, ptr %y364.i, align 4
+  %y368.i = getelementptr inbounds i8, ptr %558, i64 548
+  %564 = load float, ptr %y368.i, align 4
+  %565 = extractelement <2 x float> %557, i64 1
+  %cmp.i352.i = fcmp olt float %565, %563
+  %cmp1.i353.i = fcmp ogt float %565, %564
+  %cond.i354.i = select i1 %cmp1.i353.i, float %564, float %565
+  %cond5.i355.i = select i1 %cmp.i352.i, float %563, float %cond.i354.i
+  store float %cond5.i355.i, ptr %485, align 4
+  %566 = insertelement <2 x float> %562, float %cond5.i355.i, i64 1
   br label %if.end372.i
 
 if.end372.i:                                      ; preds = %if.then359.i, %if.end356.i, %cond.end318.i
-  %568 = phi <2 x float> [ %558, %cond.end318.i ], [ %563, %if.end356.i ], [ %567, %if.then359.i ]
+  %567 = phi <2 x float> [ %557, %cond.end318.i ], [ %562, %if.end356.i ], [ %566, %if.then359.i ]
   br i1 %ignore_resize.0.i, label %if.end381.i, label %if.then374.i
 
 if.then374.i:                                     ; preds = %if.end372.i
-  %569 = fsub <2 x float> %547, %568
-  %570 = fadd <2 x float> %539, %547
-  %571 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %569, <2 x float> %538, <2 x float> %568)
-  %572 = fsub <2 x float> %568, %570
-  %573 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %572, <2 x float> %538, <2 x float> %570)
-  %574 = fsub <2 x float> %573, %571
-  %575 = bitcast <2 x float> %574 to i64
-  %call5.i382.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull readonly %window.0, i64 %575)
-  %576 = extractelement <2 x float> %538, i64 0
-  %cmp.i383.i = fcmp oeq float %576, 0.000000e+00
-  %577 = fsub <2 x float> %call5.i382.i, %574
-  %578 = fsub <2 x float> %571, %577
-  %sel1539 = select i1 %cmp.i383.i, <2 x float> %578, <2 x float> %571
-  %pos_target.sroa.0.5.i = shufflevector <2 x float> %sel1539, <2 x float> %571, <2 x i32> <i32 0, i32 3>
-  %579 = extractelement <2 x float> %538, i64 1
-  %cmp10.i385.i = fcmp oeq float %579, 0.000000e+00
-  %580 = fsub <2 x float> %call5.i382.i, %574
-  %581 = fsub <2 x float> %571, %580
-  %pos_target.sroa.0.4.vec.insert546.i = shufflevector <2 x float> %pos_target.sroa.0.5.i, <2 x float> %581, <2 x i32> <i32 0, i32 3>
+  %568 = fsub <2 x float> %546, %567
+  %569 = fadd <2 x float> %538, %546
+  %570 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %568, <2 x float> %537, <2 x float> %567)
+  %571 = fsub <2 x float> %567, %569
+  %572 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %571, <2 x float> %537, <2 x float> %569)
+  %573 = fsub <2 x float> %572, %570
+  %574 = bitcast <2 x float> %573 to i64
+  %call5.i382.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull readonly %window.0, i64 %574)
+  %575 = extractelement <2 x float> %537, i64 0
+  %cmp.i383.i = fcmp oeq float %575, 0.000000e+00
+  %576 = fsub <2 x float> %call5.i382.i, %573
+  %577 = fsub <2 x float> %570, %576
+  %sel1539 = select i1 %cmp.i383.i, <2 x float> %577, <2 x float> %570
+  %pos_target.sroa.0.5.i = shufflevector <2 x float> %sel1539, <2 x float> %570, <2 x i32> <i32 0, i32 3>
+  %578 = extractelement <2 x float> %537, i64 1
+  %cmp10.i385.i = fcmp oeq float %578, 0.000000e+00
+  %579 = fsub <2 x float> %call5.i382.i, %573
+  %580 = fsub <2 x float> %570, %579
+  %pos_target.sroa.0.4.vec.insert546.i = shufflevector <2 x float> %pos_target.sroa.0.5.i, <2 x float> %580, <2 x i32> <i32 0, i32 3>
   %pos_target.sroa.0.6.i = select i1 %cmp10.i385.i, <2 x float> %pos_target.sroa.0.4.vec.insert546.i, <2 x float> %pos_target.sroa.0.5.i
   store <2 x float> %call5.i382.i, ptr %size_target.i, align 8
   br label %if.end381.i
@@ -33360,12 +33361,12 @@ if.then374.i:                                     ; preds = %if.end372.i
 if.end381.i:                                      ; preds = %if.then374.i, %if.end372.i, %if.end226.i, %if.end206.i, %lor.lhs.false200.i
   %pos_target.sroa.0.7.i = phi <2 x float> [ %pos_target.sroa.0.4575.i, %if.end226.i ], [ %pos_target.sroa.0.4575.i, %if.end372.i ], [ %pos_target.sroa.0.6.i, %if.then374.i ], [ %pos_target.sroa.0.4575.i, %if.end206.i ], [ %pos_target.sroa.0.4575.i, %lor.lhs.false200.i ]
   %ret_auto_fit_mask.4.i = phi i32 [ %ret_auto_fit_mask.3.i, %if.end226.i ], [ %ret_auto_fit_mask.2578.i, %if.end372.i ], [ %ret_auto_fit_mask.2578.i, %if.then374.i ], [ %ret_auto_fit_mask.2578.i, %if.end206.i ], [ %ret_auto_fit_mask.2578.i, %lor.lhs.false200.i ]
-  %582 = load i8, ptr %hovered187.i, align 1
-  %tobool382.i = trunc i8 %582 to i1
-  %spec.select1495 = select i1 %tobool382.i, i32 %491, i32 %border_hovered.0
-  %583 = load i8, ptr %held188.i, align 1
-  %tobool385.i = trunc i8 %583 to i1
-  %spec.select1500 = select i1 %tobool385.i, i32 %491, i32 %border_held.0
+  %581 = load i8, ptr %hovered187.i, align 1
+  %tobool382.i = trunc i8 %581 to i1
+  %spec.select1495 = select i1 %tobool382.i, i32 %490, i32 %border_hovered.0
+  %582 = load i8, ptr %held188.i, align 1
+  %tobool385.i = trunc i8 %582 to i1
+  %spec.select1500 = select i1 %tobool385.i, i32 %490, i32 %border_held.0
   br label %for.inc388.i
 
 for.inc388.i:                                     ; preds = %if.end381.i, %for.body176.i
@@ -33378,37 +33379,37 @@ for.inc388.i:                                     ; preds = %if.end381.i, %for.b
   br i1 %exitcond584.not.i, label %for.end390.i, label %for.body176.i, !llvm.loop !97
 
 for.end390.i:                                     ; preds = %for.inc388.i
-  %584 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i.i = getelementptr inbounds i8, ptr %584, i64 16392
-  %585 = load ptr, ptr %CurrentWindow.i.i, align 8
-  %IDStack.i396.i = getelementptr inbounds i8, ptr %585, i64 256
-  %586 = load i32, ptr %IDStack.i396.i, align 8
-  %dec.i.i397.i = add nsw i32 %586, -1
+  %583 = load ptr, ptr @GImGui, align 8
+  %CurrentWindow.i.i = getelementptr inbounds i8, ptr %583, i64 16392
+  %584 = load ptr, ptr %CurrentWindow.i.i, align 8
+  %IDStack.i396.i = getelementptr inbounds i8, ptr %584, i64 256
+  %585 = load i32, ptr %IDStack.i396.i, align 8
+  %dec.i.i397.i = add nsw i32 %585, -1
   store i32 %dec.i.i397.i, ptr %IDStack.i396.i, align 8
   store i32 0, ptr %NavLayerCurrent.i, align 8
-  %NavWindowingTarget.i = getelementptr inbounds i8, ptr %376, i64 19656
-  %587 = load ptr, ptr %NavWindowingTarget.i, align 8
-  %tobool393.not.i = icmp eq ptr %587, null
+  %NavWindowingTarget.i = getelementptr inbounds i8, ptr %375, i64 19656
+  %586 = load ptr, ptr %NavWindowingTarget.i, align 8
+  %tobool393.not.i = icmp eq ptr %586, null
   br i1 %tobool393.not.i, label %if.end459.i, label %land.lhs.true394.i
 
 land.lhs.true394.i:                               ; preds = %for.end390.i
-  %RootWindow.i641 = getelementptr inbounds i8, ptr %587, i64 904
-  %588 = load ptr, ptr %RootWindow.i641, align 8
-  %cmp396.i = icmp eq ptr %588, %window.0
+  %RootWindow.i641 = getelementptr inbounds i8, ptr %586, i64 904
+  %587 = load ptr, ptr %RootWindow.i641, align 8
+  %cmp396.i = icmp eq ptr %587, %window.0
   br i1 %cmp396.i, label %if.then397.i, label %if.end459.i
 
 if.then397.i:                                     ; preds = %land.lhs.true394.i
-  %NavInputSource.i = getelementptr inbounds i8, ptr %376, i64 19228
-  %589 = load i32, ptr %NavInputSource.i, align 4
-  switch i32 %589, label %if.end411.i [
+  %NavInputSource.i = getelementptr inbounds i8, ptr %375, i64 19228
+  %588 = load i32, ptr %NavInputSource.i, align 4
+  switch i32 %588, label %if.end411.i [
     i32 2, label %land.lhs.true399.i
     i32 3, label %if.end411.sink.split.i
   ]
 
 land.lhs.true399.i:                               ; preds = %if.then397.i
-  %KeyShift.i = getelementptr inbounds i8, ptr %376, i64 3685
-  %590 = load i8, ptr %KeyShift.i, align 1
-  %tobool401.i = trunc i8 %590 to i1
+  %KeyShift.i = getelementptr inbounds i8, ptr %375, i64 3685
+  %589 = load i8, ptr %KeyShift.i, align 1
+  %tobool401.i = trunc i8 %589 to i1
   br i1 %tobool401.i, label %if.end411.sink.split.i, label %if.end411.i
 
 if.end411.sink.split.i:                           ; preds = %land.lhs.true399.i, %if.then397.i
@@ -33416,100 +33417,100 @@ if.end411.sink.split.i:                           ; preds = %land.lhs.true399.i,
   %.sink629.i = phi i64 [ 11912, %land.lhs.true399.i ], [ 13896, %if.then397.i ]
   %.sink.i = phi i64 [ 11960, %land.lhs.true399.i ], [ 13944, %if.then397.i ]
   %.sink626.i = phi i64 [ 11944, %land.lhs.true399.i ], [ 13928, %if.then397.i ]
-  %AnalogValue.i.i = getelementptr inbounds i8, ptr %584, i64 %.sink630.i
-  %591 = load float, ptr %AnalogValue.i.i, align 4
-  %AnalogValue2.i.i = getelementptr inbounds i8, ptr %584, i64 %.sink629.i
-  %592 = load float, ptr %AnalogValue2.i.i, align 4
-  %AnalogValue4.i.i = getelementptr inbounds i8, ptr %584, i64 %.sink.i
-  %593 = load float, ptr %AnalogValue4.i.i, align 4
-  %AnalogValue6.i.i = getelementptr inbounds i8, ptr %584, i64 %.sink626.i
-  %594 = load float, ptr %AnalogValue6.i.i, align 4
-  %595 = insertelement <2 x float> poison, float %591, i64 0
-  %596 = insertelement <2 x float> %595, float %593, i64 1
-  %597 = insertelement <2 x float> poison, float %592, i64 0
-  %598 = insertelement <2 x float> %597, float %594, i64 1
-  %599 = fsub <2 x float> %596, %598
+  %AnalogValue.i.i = getelementptr inbounds i8, ptr %583, i64 %.sink630.i
+  %590 = load float, ptr %AnalogValue.i.i, align 4
+  %AnalogValue2.i.i = getelementptr inbounds i8, ptr %583, i64 %.sink629.i
+  %591 = load float, ptr %AnalogValue2.i.i, align 4
+  %AnalogValue4.i.i = getelementptr inbounds i8, ptr %583, i64 %.sink.i
+  %592 = load float, ptr %AnalogValue4.i.i, align 4
+  %AnalogValue6.i.i = getelementptr inbounds i8, ptr %583, i64 %.sink626.i
+  %593 = load float, ptr %AnalogValue6.i.i, align 4
+  %594 = insertelement <2 x float> poison, float %590, i64 0
+  %595 = insertelement <2 x float> %594, float %592, i64 1
+  %596 = insertelement <2 x float> poison, float %591, i64 0
+  %597 = insertelement <2 x float> %596, float %593, i64 1
+  %598 = fsub <2 x float> %595, %597
   br label %if.end411.i
 
 if.end411.i:                                      ; preds = %if.end411.sink.split.i, %land.lhs.true399.i, %if.then397.i
-  %nav_resize_dir.sroa.0.1.i = phi <2 x float> [ zeroinitializer, %land.lhs.true399.i ], [ zeroinitializer, %if.then397.i ], [ %599, %if.end411.sink.split.i ]
-  %600 = extractelement <2 x float> %nav_resize_dir.sroa.0.1.i, i64 0
-  %cmp413.i = fcmp une float %600, 0.000000e+00
-  %601 = extractelement <2 x float> %nav_resize_dir.sroa.0.1.i, i64 1
-  %cmp416.i = fcmp une float %601, 0.000000e+00
+  %nav_resize_dir.sroa.0.1.i = phi <2 x float> [ zeroinitializer, %land.lhs.true399.i ], [ zeroinitializer, %if.then397.i ], [ %598, %if.end411.sink.split.i ]
+  %599 = extractelement <2 x float> %nav_resize_dir.sroa.0.1.i, i64 0
+  %cmp413.i = fcmp une float %599, 0.000000e+00
+  %600 = extractelement <2 x float> %nav_resize_dir.sroa.0.1.i, i64 1
+  %cmp416.i = fcmp une float %600, 0.000000e+00
   %or.cond1.i = select i1 %cmp413.i, i1 true, i1 %cmp416.i
   br i1 %or.cond1.i, label %if.then417.i, label %if.end459.i
 
 if.then417.i:                                     ; preds = %if.end411.i
-  %DeltaTime.i = getelementptr inbounds i8, ptr %376, i64 24
-  %602 = load float, ptr %DeltaTime.i, align 8
-  %mul419.i = fmul float %602, 6.000000e+02
-  %DisplayFramebufferScale.i = getelementptr inbounds i8, ptr %376, i64 80
-  %603 = load float, ptr %DisplayFramebufferScale.i, align 8
-  %y424.i = getelementptr inbounds i8, ptr %376, i64 84
-  %604 = load float, ptr %y424.i, align 4
-  %cmp.i411.i = fcmp olt float %603, %604
-  %cond.i412.i = select i1 %cmp.i411.i, float %603, float %604
+  %DeltaTime.i = getelementptr inbounds i8, ptr %375, i64 24
+  %601 = load float, ptr %DeltaTime.i, align 8
+  %mul419.i = fmul float %601, 6.000000e+02
+  %DisplayFramebufferScale.i = getelementptr inbounds i8, ptr %375, i64 80
+  %602 = load float, ptr %DisplayFramebufferScale.i, align 8
+  %y424.i = getelementptr inbounds i8, ptr %375, i64 84
+  %603 = load float, ptr %y424.i, align 4
+  %cmp.i411.i = fcmp olt float %602, %603
+  %cond.i412.i = select i1 %cmp.i411.i, float %602, float %603
   %mul426.i = fmul float %mul419.i, %cond.i412.i
-  %NavWindowingAccumDeltaSize.i = getelementptr inbounds i8, ptr %376, i64 19700
-  %NavWindowingToggleLayer.i = getelementptr inbounds i8, ptr %376, i64 19688
-  %NavDisableMouseHover.i = getelementptr inbounds i8, ptr %376, i64 19251
-  %605 = insertelement <2 x float> poison, float %mul426.i, i64 0
-  %606 = shufflevector <2 x float> %605, <2 x float> poison, <2 x i32> zeroinitializer
-  %607 = fmul <2 x float> %nav_resize_dir.sroa.0.1.i, %606
-  %608 = load <2 x float>, ptr %NavWindowingAccumDeltaSize.i, align 4
-  %609 = fadd <2 x float> %608, %607
-  store <2 x float> %609, ptr %NavWindowingAccumDeltaSize.i, align 4
-  %610 = load <2 x float>, ptr %Pos656, align 4
-  %611 = insertelement <2 x float> %340, float %clamp_rect.sroa.4.0.i, i64 1
-  %612 = fsub <2 x float> %611, %610
-  %613 = load <2 x float>, ptr %Size547, align 4
-  %614 = fsub <2 x float> %612, %613
-  %615 = fcmp oge <2 x float> %609, %614
-  %616 = select <2 x i1> %615, <2 x float> %609, <2 x float> %614
-  store <2 x float> %616, ptr %NavWindowingAccumDeltaSize.i, align 4
+  %NavWindowingAccumDeltaSize.i = getelementptr inbounds i8, ptr %375, i64 19700
+  %NavWindowingToggleLayer.i = getelementptr inbounds i8, ptr %375, i64 19688
+  %NavDisableMouseHover.i = getelementptr inbounds i8, ptr %375, i64 19251
+  %604 = insertelement <2 x float> poison, float %mul426.i, i64 0
+  %605 = shufflevector <2 x float> %604, <2 x float> poison, <2 x i32> zeroinitializer
+  %606 = fmul <2 x float> %nav_resize_dir.sroa.0.1.i, %605
+  %607 = load <2 x float>, ptr %NavWindowingAccumDeltaSize.i, align 4
+  %608 = fadd <2 x float> %607, %606
+  store <2 x float> %608, ptr %NavWindowingAccumDeltaSize.i, align 4
+  %609 = load <2 x float>, ptr %Pos656, align 4
+  %610 = insertelement <2 x float> %340, float %clamp_rect.sroa.4.0.i, i64 1
+  %611 = fsub <2 x float> %610, %609
+  %612 = load <2 x float>, ptr %Size547, align 4
+  %613 = fsub <2 x float> %611, %612
+  %614 = fcmp oge <2 x float> %608, %613
+  %615 = select <2 x i1> %614, <2 x float> %608, <2 x float> %613
+  store <2 x float> %615, ptr %NavWindowingAccumDeltaSize.i, align 4
   store i8 0, ptr %NavWindowingToggleLayer.i, align 8
   store i8 1, ptr %NavDisableMouseHover.i, align 1
   %call441.i = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 32, float noundef 1.000000e+00)
   store i32 %call441.i, ptr %resize_grip_col, align 16
-  %617 = fptosi <2 x float> %616 to <2 x i32>
-  %618 = icmp ne <2 x i32> %617, zeroinitializer
-  %619 = extractelement <2 x i1> %618, i64 0
-  %620 = extractelement <2 x i1> %618, i64 1
-  %or.cond2.i = select i1 %619, i1 true, i1 %620
+  %616 = fptosi <2 x float> %615 to <2 x i32>
+  %617 = icmp ne <2 x i32> %616, zeroinitializer
+  %618 = extractelement <2 x i1> %617, i64 0
+  %619 = extractelement <2 x i1> %617, i64 1
+  %or.cond2.i = select i1 %618, i1 true, i1 %619
   br i1 %or.cond2.i, label %if.then450.i, label %if.end459.i
 
 if.then450.i:                                     ; preds = %if.then417.i
-  %621 = sitofp <2 x i32> %617 to <2 x float>
-  %622 = load <2 x float>, ptr %SizeFull531, align 4
-  %623 = fadd <2 x float> %622, %621
-  %624 = bitcast <2 x float> %623 to i64
-  %call454.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window.0, i64 %624)
+  %620 = sitofp <2 x i32> %616 to <2 x float>
+  %621 = load <2 x float>, ptr %SizeFull531, align 4
+  %622 = fadd <2 x float> %621, %620
+  %623 = bitcast <2 x float> %622 to i64
+  %call454.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window.0, i64 %623)
   store <2 x float> %call454.i, ptr %size_target.i, align 8
-  %625 = load <2 x float>, ptr %NavWindowingAccumDeltaSize.i, align 4
-  %626 = fsub <2 x float> %625, %621
-  store <2 x float> %626, ptr %NavWindowingAccumDeltaSize.i, align 4
+  %624 = load <2 x float>, ptr %NavWindowingAccumDeltaSize.i, align 4
+  %625 = fsub <2 x float> %624, %620
+  store <2 x float> %625, ptr %NavWindowingAccumDeltaSize.i, align 4
   br label %if.end459.i
 
 if.end459.i:                                      ; preds = %if.then450.i, %if.then417.i, %if.end411.i, %land.lhs.true394.i, %for.end390.i
-  %627 = load float, ptr %size_target.i, align 8
-  %cmp461.i = fcmp une float %627, 0x47EFFFFFE0000000
+  %626 = load float, ptr %size_target.i, align 8
+  %cmp461.i = fcmp une float %626, 0x47EFFFFFE0000000
   br i1 %cmp461.i, label %if.then462.i, label %if.end468.i
 
 if.then462.i:                                     ; preds = %if.end459.i
-  store float %627, ptr %SizeFull531, align 8
-  store float %627, ptr %Size547, align 8
+  store float %626, ptr %SizeFull531, align 8
+  store float %626, ptr %Size547, align 8
   br label %if.end468.i
 
 if.end468.i:                                      ; preds = %if.then462.i, %if.end459.i
-  %628 = load float, ptr %y.i226.i, align 4
-  %cmp470.i = fcmp une float %628, 0x47EFFFFFE0000000
+  %627 = load float, ptr %y.i226.i, align 4
+  %cmp470.i = fcmp une float %627, 0x47EFFFFFE0000000
   br i1 %cmp470.i, label %if.then471.i, label %if.end477.i
 
 if.then471.i:                                     ; preds = %if.end468.i
   %y474.i = getelementptr inbounds i8, ptr %window.0, i64 60
-  store float %628, ptr %y474.i, align 4
-  store float %628, ptr %y9.i.i.i, align 4
+  store float %627, ptr %y474.i, align 4
+  store float %627, ptr %y9.i.i.i, align 4
   br label %if.end477.i
 
 if.end477.i:                                      ; preds = %if.then471.i, %if.end468.i
@@ -33531,7 +33532,7 @@ if.end485.i:                                      ; preds = %if.then480.i, %if.e
 if.end493.thread.i:                               ; preds = %if.end485.i
   %conv.i445.i = fptosi float %pos_target.sroa.0.4.vec.extract541.i to i32
   %conv1.i446.i = sitofp i32 %conv.i445.i to float
-  store float %conv1.i446.i, ptr %366, align 4
+  store float %conv1.i446.i, ptr %365, align 4
   br label %if.then505.i
 
 if.end493.i:                                      ; preds = %if.end485.i
@@ -33540,22 +33541,22 @@ if.end493.i:                                      ; preds = %if.end485.i
   br i1 %or.cond4.i, label %if.then505.i, label %if.end506.i
 
 if.then505.i:                                     ; preds = %if.end493.i, %if.end493.thread.i
-  %629 = load ptr, ptr @GImGui, align 8
-  %630 = load i32, ptr %Flags.i457, align 4
-  %and.i448.i = and i32 %630, 256
+  %628 = load ptr, ptr @GImGui, align 8
+  %629 = load i32, ptr %Flags.i457, align 4
+  %and.i448.i = and i32 %629, 256
   %tobool.not.i449.i = icmp eq i32 %and.i448.i, 0
   br i1 %tobool.not.i449.i, label %if.then.i450.i, label %if.end506.i
 
 if.then.i450.i:                                   ; preds = %if.then505.i
-  %SettingsDirtyTimer.i.i642 = getelementptr inbounds i8, ptr %629, i64 24332
-  %631 = load float, ptr %SettingsDirtyTimer.i.i642, align 4
-  %cmp.i451.i = fcmp ugt float %631, 0.000000e+00
+  %SettingsDirtyTimer.i.i642 = getelementptr inbounds i8, ptr %628, i64 24332
+  %630 = load float, ptr %SettingsDirtyTimer.i.i642, align 4
+  %cmp.i451.i = fcmp ugt float %630, 0.000000e+00
   br i1 %cmp.i451.i, label %if.end506.i, label %if.then1.i.i643
 
 if.then1.i.i643:                                  ; preds = %if.then.i450.i
-  %IniSavingRate.i.i644 = getelementptr inbounds i8, ptr %629, i64 28
-  %632 = load float, ptr %IniSavingRate.i.i644, align 4
-  store float %632, ptr %SettingsDirtyTimer.i.i642, align 4
+  %IniSavingRate.i.i644 = getelementptr inbounds i8, ptr %628, i64 28
+  %631 = load float, ptr %IniSavingRate.i.i644, align 4
+  store float %631, ptr %SettingsDirtyTimer.i.i642, align 4
   br label %if.end506.i
 
 if.end506.i:                                      ; preds = %if.then1.i.i643, %if.then.i450.i, %if.then505.i, %if.end493.i
@@ -33563,9 +33564,9 @@ if.end506.i:                                      ; preds = %if.then1.i.i643, %i
   br i1 %cmp507.not.i, label %_ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.exit, label %if.then508.i
 
 if.then508.i:                                     ; preds = %if.end506.i
-  %633 = load <2 x float>, ptr %Pos656, align 8
-  %634 = load <2 x float>, ptr %Size547, align 8
-  %635 = fadd <2 x float> %633, %634
+  %632 = load <2 x float>, ptr %Pos656, align 8
+  %633 = load <2 x float>, ptr %Size547, align 8
+  %634 = fadd <2 x float> %632, %633
   switch i32 %border_held.1, label %_ZL19GetResizeBorderRectP11ImGuiWindowiff.exit504.i [
     i32 0, label %if.then3.i495.i
     i32 1, label %if.then13.i486.i
@@ -33574,42 +33575,42 @@ if.then508.i:                                     ; preds = %if.end506.i
   ]
 
 if.then3.i495.i:                                  ; preds = %if.then508.i
-  %636 = fadd <2 x float> %633, %488
-  %637 = extractelement <2 x float> %633, i64 0
-  %add7.i498.i = fadd float %637, 4.000000e+00
-  %638 = extractelement <2 x float> %635, i64 1
-  %sub10.i499.i = fsub float %638, %conv18.i
+  %635 = fadd <2 x float> %632, %487
+  %636 = extractelement <2 x float> %632, i64 0
+  %add7.i498.i = fadd float %636, 4.000000e+00
+  %637 = extractelement <2 x float> %634, i64 1
+  %sub10.i499.i = fsub float %637, %conv18.i
   %retval.sroa.10.8.vec.insert.i502.i = insertelement <2 x float> poison, float %add7.i498.i, i64 0
   %retval.sroa.10.12.vec.insert.i503.i = insertelement <2 x float> %retval.sroa.10.8.vec.insert.i502.i, float %sub10.i499.i, i64 1
   br label %_ZL19GetResizeBorderRectP11ImGuiWindowiff.exit504.i
 
 if.then13.i486.i:                                 ; preds = %if.then508.i
-  %639 = shufflevector <2 x float> %635, <2 x float> %633, <2 x i32> <i32 0, i32 3>
-  %640 = fadd <2 x float> %639, %488
-  %641 = insertelement <2 x float> <float 4.000000e+00, float poison>, float %conv18.i, i64 1
-  %642 = fadd <2 x float> %635, %641
-  %643 = fsub <2 x float> %635, %641
-  %644 = shufflevector <2 x float> %642, <2 x float> %643, <2 x i32> <i32 0, i32 3>
+  %638 = shufflevector <2 x float> %634, <2 x float> %632, <2 x i32> <i32 0, i32 3>
+  %639 = fadd <2 x float> %638, %487
+  %640 = insertelement <2 x float> <float 4.000000e+00, float poison>, float %conv18.i, i64 1
+  %641 = fadd <2 x float> %634, %640
+  %642 = fsub <2 x float> %634, %640
+  %643 = shufflevector <2 x float> %641, <2 x float> %642, <2 x i32> <i32 0, i32 3>
   br label %_ZL19GetResizeBorderRectP11ImGuiWindowiff.exit504.i
 
 if.then28.i477.i:                                 ; preds = %if.then508.i
-  %645 = fadd <2 x float> %633, %489
-  %646 = extractelement <2 x float> %635, i64 0
-  %sub37.i480.i = fsub float %646, %conv18.i
-  %647 = extractelement <2 x float> %633, i64 1
-  %add40.i481.i = fadd float %647, 4.000000e+00
+  %644 = fadd <2 x float> %632, %488
+  %645 = extractelement <2 x float> %634, i64 0
+  %sub37.i480.i = fsub float %645, %conv18.i
+  %646 = extractelement <2 x float> %632, i64 1
+  %add40.i481.i = fadd float %646, 4.000000e+00
   %retval.sroa.10.8.vec.insert69.i484.i = insertelement <2 x float> poison, float %sub37.i480.i, i64 0
   %retval.sroa.10.12.vec.insert75.i485.i = insertelement <2 x float> %retval.sroa.10.8.vec.insert69.i484.i, float %add40.i481.i, i64 1
   br label %_ZL19GetResizeBorderRectP11ImGuiWindowiff.exit504.i
 
 if.then43.i464.i:                                 ; preds = %if.then508.i
-  %648 = extractelement <2 x float> %633, i64 0
-  %add46.i465.i = fadd float %648, %conv18.i
-  %649 = extractelement <2 x float> %635, i64 1
-  %sub49.i466.i = fadd float %649, -4.000000e+00
-  %650 = extractelement <2 x float> %635, i64 0
-  %sub52.i467.i = fsub float %650, %conv18.i
-  %add55.i468.i = fadd float %649, 4.000000e+00
+  %647 = extractelement <2 x float> %632, i64 0
+  %add46.i465.i = fadd float %647, %conv18.i
+  %648 = extractelement <2 x float> %634, i64 1
+  %sub49.i466.i = fadd float %648, -4.000000e+00
+  %649 = extractelement <2 x float> %634, i64 0
+  %sub52.i467.i = fsub float %649, %conv18.i
+  %add55.i468.i = fadd float %648, 4.000000e+00
   %retval.sroa.0.0.vec.insert58.i469.i = insertelement <2 x float> poison, float %add46.i465.i, i64 0
   %retval.sroa.0.4.vec.insert64.i470.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert58.i469.i, float %sub49.i466.i, i64 1
   %retval.sroa.10.8.vec.insert71.i471.i = insertelement <2 x float> poison, float %sub52.i467.i, i64 0
@@ -33617,10 +33618,10 @@ if.then43.i464.i:                                 ; preds = %if.then508.i
   br label %_ZL19GetResizeBorderRectP11ImGuiWindowiff.exit504.i
 
 _ZL19GetResizeBorderRectP11ImGuiWindowiff.exit504.i: ; preds = %if.then43.i464.i, %if.then28.i477.i, %if.then13.i486.i, %if.then3.i495.i, %if.then508.i
-  %retval.sroa.0.0.i473.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert64.i470.i, %if.then43.i464.i ], [ %645, %if.then28.i477.i ], [ %640, %if.then13.i486.i ], [ %636, %if.then3.i495.i ], [ zeroinitializer, %if.then508.i ]
-  %retval.sroa.10.0.i474.i = phi <2 x float> [ %retval.sroa.10.12.vec.insert77.i472.i, %if.then43.i464.i ], [ %retval.sroa.10.12.vec.insert75.i485.i, %if.then28.i477.i ], [ %644, %if.then13.i486.i ], [ %retval.sroa.10.12.vec.insert.i503.i, %if.then3.i495.i ], [ zeroinitializer, %if.then508.i ]
+  %retval.sroa.0.0.i473.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert64.i470.i, %if.then43.i464.i ], [ %644, %if.then28.i477.i ], [ %639, %if.then13.i486.i ], [ %635, %if.then3.i495.i ], [ zeroinitializer, %if.then508.i ]
+  %retval.sroa.10.0.i474.i = phi <2 x float> [ %retval.sroa.10.12.vec.insert77.i472.i, %if.then43.i464.i ], [ %retval.sroa.10.12.vec.insert75.i485.i, %if.then28.i477.i ], [ %643, %if.then13.i486.i ], [ %retval.sroa.10.12.vec.insert.i503.i, %if.then3.i495.i ], [ zeroinitializer, %if.then508.i ]
   store <2 x float> %retval.sroa.0.0.i473.i, ptr %WindowResizeBorderExpectedRect.i, align 4
-  %ref.tmp509.sroa.2.0.WindowResizeBorderExpectedRect511.sroa_idx.i = getelementptr inbounds i8, ptr %376, i64 24108
+  %ref.tmp509.sroa.2.0.WindowResizeBorderExpectedRect511.sroa_idx.i = getelementptr inbounds i8, ptr %375, i64 24108
   store <2 x float> %retval.sroa.10.0.i474.i, ptr %ref.tmp509.sroa.2.0.WindowResizeBorderExpectedRect511.sroa_idx.i, align 4
   br label %_ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.exit
 
@@ -33670,45 +33671,45 @@ if.end723:                                        ; preds = %_ZN5ImGuiL24UpdateW
   %conv725 = trunc i32 %border_held.3 to i8
   %ResizeBorderHeld = getelementptr inbounds i8, ptr %window.0, i64 202
   store i8 %conv725, ptr %ResizeBorderHeld, align 2
-  %651 = load i8, ptr %Collapsed535, align 1
-  %tobool727 = trunc i8 %651 to i1
+  %650 = load i8, ptr %Collapsed535, align 1
+  %tobool727 = trunc i8 %650 to i1
   %.pre1515 = load float, ptr %SizeFull531, align 8
   br i1 %tobool727, label %if.end834, label %if.then728
 
 if.then728:                                       ; preds = %if.end723
   %y732 = getelementptr inbounds i8, ptr %window.0, i64 60
-  %652 = load float, ptr %y732, align 4
-  %653 = load float, ptr %DecoOuterSizeY1, align 4
-  %654 = load float, ptr %DecoOuterSizeY2, align 4
-  %add735 = fadd float %653, %654
-  %sub736 = fsub float %652, %add735
+  %651 = load float, ptr %y732, align 4
+  %652 = load float, ptr %DecoOuterSizeY1, align 4
+  %653 = load float, ptr %DecoOuterSizeY2, align 4
+  %add735 = fadd float %652, %653
+  %sub736 = fsub float %651, %add735
   %InnerRect = getelementptr inbounds i8, ptr %window.0, i64 520
   %Max.i704 = getelementptr inbounds i8, ptr %window.0, i64 528
-  %655 = load float, ptr %Max.i704, align 4
-  %656 = load float, ptr %InnerRect, align 4
-  %sub.i705 = fsub float %655, %656
+  %654 = load float, ptr %Max.i704, align 4
+  %655 = load float, ptr %InnerRect, align 4
+  %sub.i705 = fsub float %654, %655
   %y.i706 = getelementptr inbounds i8, ptr %window.0, i64 532
-  %657 = load float, ptr %y.i706, align 4
+  %656 = load float, ptr %y.i706, align 4
   %y5.i707 = getelementptr inbounds i8, ptr %window.0, i64 524
-  %658 = load float, ptr %y5.i707, align 4
-  %sub6.i708 = fsub float %657, %658
+  %657 = load float, ptr %y5.i707, align 4
+  %sub6.i708 = fsub float %656, %657
   %add.i711 = fadd float %244, %sub.i705
   %add3.i712 = fadd float %245, %sub6.i708
   br i1 %cmp1430, label %cond.end748, label %cond.false742
 
 cond.false742:                                    ; preds = %if.then728
   %WindowPadding745.val = load float, ptr %WindowPadding3761445, align 4
-  %659 = getelementptr i8, ptr %window.0, i64 92
-  %WindowPadding745.val289 = load float, ptr %659, align 4
-  %660 = insertelement <2 x float> poison, float %WindowPadding745.val, i64 0
-  %661 = insertelement <2 x float> %660, float %WindowPadding745.val289, i64 1
-  %662 = fmul <2 x float> %661, <float 2.000000e+00, float 2.000000e+00>
-  %663 = load <2 x float>, ptr %ContentSize, align 4
-  %664 = fadd <2 x float> %662, %663
+  %658 = getelementptr i8, ptr %window.0, i64 92
+  %WindowPadding745.val289 = load float, ptr %658, align 4
+  %659 = insertelement <2 x float> poison, float %WindowPadding745.val, i64 0
+  %660 = insertelement <2 x float> %659, float %WindowPadding745.val289, i64 1
+  %661 = fmul <2 x float> %660, <float 2.000000e+00, float 2.000000e+00>
+  %662 = load <2 x float>, ptr %ContentSize, align 4
+  %663 = fadd <2 x float> %661, %662
   br label %cond.end748
 
 cond.end748:                                      ; preds = %if.then728, %cond.false742
-  %needed_size_from_last_frame.sroa.0.0 = phi <2 x float> [ %664, %cond.false742 ], [ zeroinitializer, %if.then728 ]
+  %needed_size_from_last_frame.sroa.0.0 = phi <2 x float> [ %663, %cond.false742 ], [ zeroinitializer, %if.then728 ]
   %tobool749 = trunc nuw i8 %use_current_size_for_scrollbar_x.4 to i1
   %cond755 = select i1 %tobool749, float %.pre1515, float %add.i711
   %tobool756 = trunc nuw i8 %use_current_size_for_scrollbar_y.4 to i1
@@ -33722,9 +33723,9 @@ lor.end:                                          ; preds = %cond.end748
   %cmp766 = fcmp ogt float %needed_size_from_last_frame.sroa.0.4.vec.extract, %cond762
   %and768 = and i32 %flags.addr.1, 8
   %tobool769.not = icmp eq i32 %and768, 0
-  %665 = select i1 %cmp766, i1 %tobool769.not, i1 false
+  %664 = select i1 %cmp766, i1 %tobool769.not, i1 false
   %ScrollbarY = getelementptr inbounds i8, ptr %window.0, i64 189
-  %frombool772 = zext i1 %665 to i8
+  %frombool772 = zext i1 %664 to i8
   store i8 %frombool772, ptr %ScrollbarY, align 1
   %and773 = and i32 %flags.addr.1, 32768
   %tobool774.not = icmp eq i32 %and773, 0
@@ -33749,22 +33750,22 @@ lor.rhs775.thread:                                ; preds = %lor.end.thread
 
 lor.rhs775:                                       ; preds = %lor.end
   %needed_size_from_last_frame.sroa.0.0.vec.extract = extractelement <2 x float> %needed_size_from_last_frame.sroa.0.0, i64 0
-  br i1 %665, label %cond.true779, label %cond.end781
+  br i1 %664, label %cond.true779, label %cond.end781
 
 cond.true779:                                     ; preds = %lor.rhs775.thread, %lor.rhs775
   %.pre1523.pre-phi = phi i32 [ %.pre1524, %lor.rhs775.thread ], [ 0, %lor.rhs775 ]
   %needed_size_from_last_frame.sroa.0.0.vec.extract1465 = phi float [ %needed_size_from_last_frame.sroa.0.0.vec.extract1461, %lor.rhs775.thread ], [ %needed_size_from_last_frame.sroa.0.0.vec.extract, %lor.rhs775 ]
   %ScrollbarY14591463 = phi ptr [ %ScrollbarY1454, %lor.rhs775.thread ], [ %ScrollbarY, %lor.rhs775 ]
   %ScrollbarSize = getelementptr inbounds i8, ptr %0, i64 14692
-  %666 = load float, ptr %ScrollbarSize, align 4
+  %665 = load float, ptr %ScrollbarSize, align 4
   br label %cond.end781
 
 cond.end781:                                      ; preds = %lor.rhs775, %cond.true779
   %and786.pre-phi = phi i32 [ %and768, %lor.rhs775 ], [ %.pre1523.pre-phi, %cond.true779 ]
   %needed_size_from_last_frame.sroa.0.0.vec.extract1464 = phi float [ %needed_size_from_last_frame.sroa.0.0.vec.extract, %lor.rhs775 ], [ %needed_size_from_last_frame.sroa.0.0.vec.extract1465, %cond.true779 ]
-  %667 = phi i1 [ false, %lor.rhs775 ], [ true, %cond.true779 ]
+  %666 = phi i1 [ false, %lor.rhs775 ], [ true, %cond.true779 ]
   %ScrollbarY14591462 = phi ptr [ %ScrollbarY, %lor.rhs775 ], [ %ScrollbarY14591463, %cond.true779 ]
-  %cond782 = phi float [ 0.000000e+00, %lor.rhs775 ], [ %666, %cond.true779 ]
+  %cond782 = phi float [ 0.000000e+00, %lor.rhs775 ], [ %665, %cond.true779 ]
   %sub783 = fsub float %cond755, %cond782
   %cmp784 = fcmp ogt float %needed_size_from_last_frame.sroa.0.0.vec.extract1464, %sub783
   %tobool787.not = icmp eq i32 %and786.pre-phi, 0
@@ -33779,7 +33780,7 @@ lor.end792.thread1473:                            ; preds = %cond.end781
 lor.end792.thread:                                ; preds = %lor.end
   %ScrollbarX1467 = getelementptr inbounds i8, ptr %window.0, i64 188
   store i8 1, ptr %ScrollbarX1467, align 4
-  br i1 %665, label %if.end809, label %if.then799
+  br i1 %664, label %if.end809, label %if.then799
 
 lor.end792:                                       ; preds = %cond.end781
   %and789 = and i32 %flags.addr.1, 2048
@@ -33788,7 +33789,7 @@ lor.end792:                                       ; preds = %cond.end781
   %and789.lobit = lshr exact i32 %and789, 11
   %frombool793 = trunc nuw nsw i32 %and789.lobit to i8
   store i8 %frombool793, ptr %ScrollbarX, align 4
-  %brmerge1496 = or i1 %tobool790.not1506, %667
+  %brmerge1496 = or i1 %tobool790.not1506, %666
   br i1 %brmerge1496, label %if.end809, label %lor.end792.if.then799_crit_edge
 
 lor.end792.if.then799_crit_edge:                  ; preds = %lor.end792
@@ -33802,152 +33803,152 @@ if.then799:                                       ; preds = %lor.end792.if.then7
   %ScrollbarX14721477 = phi ptr [ %ScrollbarX, %lor.end792.if.then799_crit_edge ], [ %ScrollbarX1467, %lor.end792.thread ]
   %cmp801 = fcmp ogt float %needed_size_from_last_frame.sroa.0.4.vec.extract1204.pre-phi, %cond762
   %tobool804.not = icmp eq i32 %and803.pre-phi, 0
-  %668 = select i1 %cmp801, i1 %tobool804.not, i1 false
-  %frombool808 = zext i1 %668 to i8
+  %667 = select i1 %cmp801, i1 %tobool804.not, i1 false
+  %frombool808 = zext i1 %667 to i8
   store i8 %frombool808, ptr %ScrollbarY145814691478, align 1
   br label %if.end809
 
 if.end809:                                        ; preds = %lor.end792, %lor.end792.thread.thread, %lor.end792.thread, %lor.end792.thread1473, %if.then799
   %ScrollbarX1471 = phi ptr [ %ScrollbarX14721477, %if.then799 ], [ %ScrollbarX, %lor.end792 ], [ %ScrollbarX1475, %lor.end792.thread1473 ], [ %ScrollbarX1467, %lor.end792.thread ], [ %ScrollbarX14671485, %lor.end792.thread.thread ]
   %ScrollbarY14581470 = phi ptr [ %ScrollbarY145814691478, %if.then799 ], [ %ScrollbarY14591462, %lor.end792 ], [ %ScrollbarY14591462, %lor.end792.thread1473 ], [ %ScrollbarY, %lor.end792.thread ], [ %ScrollbarY1454, %lor.end792.thread.thread ]
-  %669 = load i8, ptr %ScrollbarY14581470, align 1
-  %tobool812 = trunc i8 %669 to i1
+  %668 = load i8, ptr %ScrollbarY14581470, align 1
+  %tobool812 = trunc i8 %668 to i1
   br i1 %tobool812, label %cond.true813, label %cond.end816
 
 cond.true813:                                     ; preds = %if.end809
   %ScrollbarSize814 = getelementptr inbounds i8, ptr %0, i64 14692
-  %670 = load float, ptr %ScrollbarSize814, align 4
+  %669 = load float, ptr %ScrollbarSize814, align 4
   br label %cond.end816
 
 cond.end816:                                      ; preds = %if.end809, %cond.true813
-  %cond817 = phi float [ %670, %cond.true813 ], [ 0.000000e+00, %if.end809 ]
-  %671 = load i8, ptr %ScrollbarX1471, align 4
-  %tobool819 = trunc i8 %671 to i1
+  %cond817 = phi float [ %669, %cond.true813 ], [ 0.000000e+00, %if.end809 ]
+  %670 = load i8, ptr %ScrollbarX1471, align 4
+  %tobool819 = trunc i8 %670 to i1
   br i1 %tobool819, label %cond.true820, label %cond.end823
 
 cond.true820:                                     ; preds = %cond.end816
   %ScrollbarSize821 = getelementptr inbounds i8, ptr %0, i64 14692
-  %672 = load float, ptr %ScrollbarSize821, align 4
+  %671 = load float, ptr %ScrollbarSize821, align 4
   br label %cond.end823
 
 cond.end823:                                      ; preds = %cond.end816, %cond.true820
-  %cond824 = phi float [ %672, %cond.true820 ], [ 0.000000e+00, %cond.end816 ]
+  %cond824 = phi float [ %671, %cond.true820 ], [ 0.000000e+00, %cond.end816 ]
   store float %cond817, ptr %ScrollbarSizes, align 4
   store float %cond824, ptr %ScrollbarSizes.sroa_idx, align 4
-  %673 = load <2 x float>, ptr %DecoOuterSizeX2, align 8
-  %674 = insertelement <2 x float> poison, float %cond817, i64 0
-  %675 = insertelement <2 x float> %674, float %cond824, i64 1
-  %676 = fadd <2 x float> %675, %673
-  store <2 x float> %676, ptr %DecoOuterSizeX2, align 8
+  %672 = load <2 x float>, ptr %DecoOuterSizeX2, align 8
+  %673 = insertelement <2 x float> poison, float %cond817, i64 0
+  %674 = insertelement <2 x float> %673, float %cond824, i64 1
+  %675 = fadd <2 x float> %674, %672
+  store <2 x float> %675, ptr %DecoOuterSizeX2, align 8
   %.pre1514 = load float, ptr %SizeFull531, align 8
   br label %if.end834
 
 if.end834:                                        ; preds = %cond.end823, %if.end723
-  %677 = phi float [ %.pre1514, %cond.end823 ], [ %.pre1515, %if.end723 ]
+  %676 = phi float [ %.pre1514, %cond.end823 ], [ %.pre1515, %if.end723 ]
   %ClipRect843 = getelementptr inbounds i8, ptr %cond75, i64 584
-  %678 = select i1 %brmerge2481447, i1 true, i1 %175
-  %cond-lvalue = select i1 %678, ptr %viewport_rect, ptr %ClipRect843
+  %677 = select i1 %brmerge2481447, i1 true, i1 %175
+  %cond-lvalue = select i1 %677, ptr %viewport_rect, ptr %ClipRect843
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %host_rect, ptr noundef nonnull align 4 dereferenceable(16) %cond-lvalue, i64 16, i1 false)
-  %679 = load <2 x float>, ptr %Pos656, align 8
+  %678 = load <2 x float>, ptr %Pos656, align 8
   %y9.i728 = getelementptr inbounds i8, ptr %window.0, i64 52
-  %680 = load <2 x float>, ptr %Size547, align 8
-  %681 = fadd <2 x float> %679, %680
-  %682 = load i32, ptr %Flags.i457, align 4
-  %and.i.i740 = and i32 %682, 1
+  %679 = load <2 x float>, ptr %Size547, align 8
+  %680 = fadd <2 x float> %678, %679
+  %681 = load i32, ptr %Flags.i457, align 4
+  %and.i.i740 = and i32 %681, 1
   %tobool.not.i.i741 = icmp eq i32 %and.i.i740, 0
   br i1 %tobool.not.i.i741, label %cond.false.i.i750, label %_ZNK11ImGuiWindow12TitleBarRectEv.exit762
 
 cond.false.i.i750:                                ; preds = %if.end834
-  %683 = load ptr, ptr %window.0, align 8
-  %FontBaseSize.i.i.i751 = getelementptr inbounds i8, ptr %683, i64 15684
-  %684 = load float, ptr %FontBaseSize.i.i.i751, align 4
-  %685 = load float, ptr %FontWindowScale.i.i, align 8
-  %mul.i.i.i753 = fmul float %684, %685
-  %686 = load ptr, ptr %ParentWindow.i.i, align 8
-  %tobool.not.i.i.i755 = icmp eq ptr %686, null
+  %682 = load ptr, ptr %window.0, align 8
+  %FontBaseSize.i.i.i751 = getelementptr inbounds i8, ptr %682, i64 15684
+  %683 = load float, ptr %FontBaseSize.i.i.i751, align 4
+  %684 = load float, ptr %FontWindowScale.i.i, align 8
+  %mul.i.i.i753 = fmul float %683, %684
+  %685 = load ptr, ptr %ParentWindow.i.i, align 8
+  %tobool.not.i.i.i755 = icmp eq ptr %685, null
   br i1 %tobool.not.i.i.i755, label %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i759, label %if.then.i.i.i756
 
 if.then.i.i.i756:                                 ; preds = %cond.false.i.i750
-  %FontWindowScale3.i.i.i757 = getelementptr inbounds i8, ptr %686, i64 672
-  %687 = load float, ptr %FontWindowScale3.i.i.i757, align 8
-  %mul4.i.i.i758 = fmul float %mul.i.i.i753, %687
+  %FontWindowScale3.i.i.i757 = getelementptr inbounds i8, ptr %685, i64 672
+  %686 = load float, ptr %FontWindowScale3.i.i.i757, align 8
+  %mul4.i.i.i758 = fmul float %mul.i.i.i753, %686
   br label %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i759
 
 _ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i759:    ; preds = %if.then.i.i.i756, %cond.false.i.i750
   %scale.0.i.i.i760 = phi float [ %mul4.i.i.i758, %if.then.i.i.i756 ], [ %mul.i.i.i753, %cond.false.i.i750 ]
-  %y.i.i761 = getelementptr inbounds i8, ptr %683, i64 14640
-  %688 = load float, ptr %y.i.i761, align 4
-  %689 = call float @llvm.fmuladd.f32(float %688, float 2.000000e+00, float %scale.0.i.i.i760)
+  %y.i.i761 = getelementptr inbounds i8, ptr %682, i64 14640
+  %687 = load float, ptr %y.i.i761, align 4
+  %688 = call float @llvm.fmuladd.f32(float %687, float 2.000000e+00, float %scale.0.i.i.i760)
   br label %_ZNK11ImGuiWindow12TitleBarRectEv.exit762
 
 _ZNK11ImGuiWindow12TitleBarRectEv.exit762:        ; preds = %if.end834, %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i759
-  %cond.i.i743 = phi float [ %689, %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i759 ], [ 0.000000e+00, %if.end834 ]
-  %690 = insertelement <2 x float> poison, float %677, i64 0
-  %691 = insertelement <2 x float> %690, float %cond.i.i743, i64 1
-  %692 = fadd <2 x float> %679, %691
-  %693 = load <2 x float>, ptr %Pos656, align 4
-  store <2 x float> %693, ptr %title_bar_rect847, align 8
-  %694 = getelementptr inbounds i8, ptr %title_bar_rect847, i64 8
-  store <2 x float> %692, ptr %694, align 8
+  %cond.i.i743 = phi float [ %688, %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i759 ], [ 0.000000e+00, %if.end834 ]
+  %689 = insertelement <2 x float> poison, float %676, i64 0
+  %690 = insertelement <2 x float> %689, float %cond.i.i743, i64 1
+  %691 = fadd <2 x float> %678, %690
+  %692 = load <2 x float>, ptr %Pos656, align 4
+  store <2 x float> %692, ptr %title_bar_rect847, align 8
+  %693 = getelementptr inbounds i8, ptr %title_bar_rect847, i64 8
+  store <2 x float> %691, ptr %693, align 8
   %OuterRectClipped = getelementptr inbounds i8, ptr %window.0, i64 504
   %outer_rect.sroa.2.0.OuterRectClipped.sroa_idx = getelementptr inbounds i8, ptr %window.0, i64 512
   %Max5.i = getelementptr inbounds i8, ptr %host_rect, i64 8
-  %695 = load <2 x float>, ptr %Max5.i, align 8
-  %696 = fcmp olt <2 x float> %681, %695
-  %697 = select <2 x i1> %696, <2 x float> %681, <2 x float> %695
-  store <2 x float> %697, ptr %outer_rect.sroa.2.0.OuterRectClipped.sroa_idx, align 4
+  %694 = load <2 x float>, ptr %Max5.i, align 8
+  %695 = fcmp olt <2 x float> %680, %694
+  %696 = select <2 x i1> %695, <2 x float> %680, <2 x float> %694
+  store <2 x float> %696, ptr %outer_rect.sroa.2.0.OuterRectClipped.sroa_idx, align 4
   %InnerRect854 = getelementptr inbounds i8, ptr %window.0, i64 520
-  %698 = extractelement <2 x float> %680, i64 0
-  %699 = fadd <2 x float> %680, %693
-  %700 = load <2 x float>, ptr %DecoOuterSizeX1, align 8
-  %701 = shufflevector <2 x float> %693, <2 x float> %679, <2 x i32> <i32 0, i32 3>
-  %702 = fadd <2 x float> %701, %700
-  %703 = extractelement <2 x float> %702, i64 1
-  %704 = load <2 x float>, ptr %DecoOuterSizeX2, align 8
-  %705 = shufflevector <2 x float> %699, <2 x float> %681, <2 x i32> <i32 0, i32 3>
-  %706 = fsub <2 x float> %705, %704
-  %707 = extractelement <2 x float> %706, i64 0
-  %708 = shufflevector <2 x float> %702, <2 x float> %706, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x float> %708, ptr %InnerRect854, align 8
-  %709 = and i32 %flags.addr.1, 1025
-  %brmerge273.not = icmp eq i32 %709, 1
+  %697 = extractelement <2 x float> %679, i64 0
+  %698 = fadd <2 x float> %679, %692
+  %699 = load <2 x float>, ptr %DecoOuterSizeX1, align 8
+  %700 = shufflevector <2 x float> %692, <2 x float> %678, <2 x i32> <i32 0, i32 3>
+  %701 = fadd <2 x float> %700, %699
+  %702 = extractelement <2 x float> %701, i64 1
+  %703 = load <2 x float>, ptr %DecoOuterSizeX2, align 8
+  %704 = shufflevector <2 x float> %698, <2 x float> %680, <2 x i32> <i32 0, i32 3>
+  %705 = fsub <2 x float> %704, %703
+  %706 = extractelement <2 x float> %705, i64 0
+  %707 = shufflevector <2 x float> %701, <2 x float> %705, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  store <4 x float> %707, ptr %InnerRect854, align 8
+  %708 = and i32 %flags.addr.1, 1025
+  %brmerge273.not = icmp eq i32 %708, 1
   %FrameBorderSize = getelementptr inbounds i8, ptr %0, i64 14648
   %WindowBorderSize891 = getelementptr inbounds i8, ptr %window.0, i64 100
   %cond893.in = select i1 %brmerge273.not, ptr %WindowBorderSize891, ptr %FrameBorderSize
-  %710 = load float, ptr %WindowBorderSize891, align 4
+  %709 = load float, ptr %WindowBorderSize891, align 4
   %InnerClipRect = getelementptr inbounds i8, ptr %window.0, i64 536
-  %add911 = fadd float %703, 5.000000e-01
-  %add920 = fadd float %707, 5.000000e-01
+  %add911 = fadd float %702, 5.000000e-01
+  %add920 = fadd float %706, 5.000000e-01
   %Max930 = getelementptr inbounds i8, ptr %window.0, i64 544
-  %711 = load <2 x float>, ptr %host_rect, align 8
-  %712 = fcmp oge <2 x float> %679, %711
-  %713 = select <2 x i1> %712, <2 x float> %679, <2 x float> %711
-  store <2 x float> %713, ptr %OuterRectClipped, align 4
+  %710 = load <2 x float>, ptr %host_rect, align 8
+  %711 = fcmp oge <2 x float> %678, %710
+  %712 = select <2 x i1> %711, <2 x float> %678, <2 x float> %710
+  store <2 x float> %712, ptr %OuterRectClipped, align 4
   %cond893 = load float, ptr %cond893.in, align 4
-  %714 = load float, ptr %WindowPadding3761445, align 8
-  %mul900 = fmul float %714, 5.000000e-01
+  %713 = load float, ptr %WindowPadding3761445, align 8
+  %mul900 = fmul float %713, 5.000000e-01
   %conv.i772 = fptosi float %mul900 to i32
   %conv1.i773 = sitofp i32 %conv.i772 to float
-  %cmp.i774 = fcmp ole float %710, %conv1.i773
-  %cond.i775 = select i1 %cmp.i774, float %conv1.i773, float %710
-  %715 = shufflevector <2 x float> %702, <2 x float> %706, <2 x i32> <i32 0, i32 3>
-  %716 = fadd <2 x float> %715, <float 5.000000e-01, float 5.000000e-01>
-  %717 = insertelement <2 x float> poison, float %cond.i775, i64 0
-  %718 = insertelement <2 x float> %717, float %710, i64 1
-  %719 = fsub <2 x float> %716, %718
-  %720 = fadd <2 x float> %716, %718
-  %721 = shufflevector <2 x float> %720, <2 x float> %719, <2 x i32> <i32 0, i32 3>
-  %722 = fptosi <2 x float> %721 to <2 x i32>
+  %cmp.i774 = fcmp ole float %709, %conv1.i773
+  %cond.i775 = select i1 %cmp.i774, float %conv1.i773, float %709
+  %714 = shufflevector <2 x float> %701, <2 x float> %705, <2 x i32> <i32 0, i32 3>
+  %715 = fadd <2 x float> %714, <float 5.000000e-01, float 5.000000e-01>
+  %716 = insertelement <2 x float> poison, float %cond.i775, i64 0
+  %717 = insertelement <2 x float> %716, float %709, i64 1
+  %718 = fsub <2 x float> %715, %717
+  %719 = fadd <2 x float> %715, %717
+  %720 = shufflevector <2 x float> %719, <2 x float> %718, <2 x i32> <i32 0, i32 3>
+  %721 = fptosi <2 x float> %720 to <2 x i32>
   %add912 = fadd float %add911, %cond893
   %conv.i778 = fptosi float %add912 to i32
   %conv1.i779 = sitofp i32 %conv.i778 to float
   %sub927 = fsub float %add920, %cond.i775
   %conv.i784 = fptosi float %sub927 to i32
   %conv1.i785 = sitofp i32 %conv.i784 to float
-  %723 = sitofp <2 x i32> %722 to <2 x float>
+  %722 = sitofp <2 x i32> %721 to <2 x float>
   %agg.tmp.sroa.0.0.copyload.i789 = load <2 x float>, ptr %Max5.i, align 8
-  %724 = extractelement <2 x float> %711, i64 1
-  %cmp13.i.i792 = fcmp ogt float %724, %conv1.i779
+  %723 = extractelement <2 x float> %710, i64 1
+  %cmp13.i.i792 = fcmp ogt float %723, %conv1.i779
   br i1 %cmp13.i.i792, label %_ZL7ImClampRK6ImVec2S1_S_.exit.i, label %cond.false16.i.i793
 
 cond.false16.i.i793:                              ; preds = %_ZNK11ImGuiWindow12TitleBarRectEv.exit762
@@ -33957,73 +33958,73 @@ cond.false16.i.i793:                              ; preds = %_ZNK11ImGuiWindow12
   br label %_ZL7ImClampRK6ImVec2S1_S_.exit.i
 
 _ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i793, %_ZNK11ImGuiWindow12TitleBarRectEv.exit762
-  %cond27.i.i797 = phi float [ %724, %_ZNK11ImGuiWindow12TitleBarRectEv.exit762 ], [ %mx.sroa.0.4.vec.extract..i.i796, %cond.false16.i.i793 ]
-  %725 = fcmp ogt <2 x float> %711, %723
+  %cond27.i.i797 = phi float [ %723, %_ZNK11ImGuiWindow12TitleBarRectEv.exit762 ], [ %mx.sroa.0.4.vec.extract..i.i796, %cond.false16.i.i793 ]
+  %724 = fcmp ogt <2 x float> %710, %722
   %mx.sroa.0.0.vec.extract.i.i799 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i789, i64 0
-  %726 = extractelement <2 x float> %723, i64 0
-  %cmp5.i.i800 = fcmp olt float %mx.sroa.0.0.vec.extract.i.i799, %726
-  %mx.sroa.0.0.vec.extract..i.i801 = select i1 %cmp5.i.i800, float %mx.sroa.0.0.vec.extract.i.i799, float %726
-  %727 = extractelement <2 x i1> %725, i64 0
-  %728 = extractelement <2 x float> %711, i64 0
-  %cond11.i.i802 = select i1 %727, float %728, float %mx.sroa.0.0.vec.extract..i.i801
+  %725 = extractelement <2 x float> %722, i64 0
+  %cmp5.i.i800 = fcmp olt float %mx.sroa.0.0.vec.extract.i.i799, %725
+  %mx.sroa.0.0.vec.extract..i.i801 = select i1 %cmp5.i.i800, float %mx.sroa.0.0.vec.extract.i.i799, float %725
+  %726 = extractelement <2 x i1> %724, i64 0
+  %727 = extractelement <2 x float> %710, i64 0
+  %cond11.i.i802 = select i1 %726, float %727, float %mx.sroa.0.0.vec.extract..i.i801
   %retval.sroa.0.0.vec.insert.i.i803 = insertelement <2 x float> poison, float %cond11.i.i802, i64 0
   %retval.sroa.0.4.vec.insert.i.i804 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i803, float %cond27.i.i797, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i804, ptr %InnerClipRect, align 4
-  %729 = extractelement <2 x i1> %725, i64 1
-  br i1 %729, label %_ZN6ImRect12ClipWithFullERKS_.exit, label %cond.false16.i10.i
+  %728 = extractelement <2 x i1> %724, i64 1
+  br i1 %728, label %_ZN6ImRect12ClipWithFullERKS_.exit, label %cond.false16.i10.i
 
 cond.false16.i10.i:                               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i
   %mx.sroa.0.4.vec.extract.i11.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i789, i64 1
-  %730 = extractelement <2 x float> %723, i64 1
-  %cmp19.i12.i = fcmp olt float %mx.sroa.0.4.vec.extract.i11.i, %730
-  %mx.sroa.0.4.vec.extract..i13.i = select i1 %cmp19.i12.i, float %mx.sroa.0.4.vec.extract.i11.i, float %730
+  %729 = extractelement <2 x float> %722, i64 1
+  %cmp19.i12.i = fcmp olt float %mx.sroa.0.4.vec.extract.i11.i, %729
+  %mx.sroa.0.4.vec.extract..i13.i = select i1 %cmp19.i12.i, float %mx.sroa.0.4.vec.extract.i11.i, float %729
   br label %_ZN6ImRect12ClipWithFullERKS_.exit
 
 _ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i, %cond.false16.i10.i
-  %cond27.i14.i = phi float [ %724, %_ZL7ImClampRK6ImVec2S1_S_.exit.i ], [ %mx.sroa.0.4.vec.extract..i13.i, %cond.false16.i10.i ]
-  %cmp.i15.i = fcmp ogt float %728, %conv1.i785
+  %cond27.i14.i = phi float [ %723, %_ZL7ImClampRK6ImVec2S1_S_.exit.i ], [ %mx.sroa.0.4.vec.extract..i13.i, %cond.false16.i10.i ]
+  %cmp.i15.i = fcmp ogt float %727, %conv1.i785
   %cmp5.i17.i = fcmp olt float %mx.sroa.0.0.vec.extract.i.i799, %conv1.i785
   %mx.sroa.0.0.vec.extract..i18.i = select i1 %cmp5.i17.i, float %mx.sroa.0.0.vec.extract.i.i799, float %conv1.i785
-  %cond11.i19.i = select i1 %cmp.i15.i, float %728, float %mx.sroa.0.0.vec.extract..i18.i
+  %cond11.i19.i = select i1 %cmp.i15.i, float %727, float %mx.sroa.0.0.vec.extract..i18.i
   %retval.sroa.0.0.vec.insert.i20.i = insertelement <2 x float> poison, float %cond11.i19.i, i64 0
   %retval.sroa.0.4.vec.insert.i21.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i20.i, float %cond27.i14.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i21.i, ptr %Max930, align 4
-  %cmp945 = fcmp ule float %698, 0.000000e+00
+  %cmp945 = fcmp ule float %697, 0.000000e+00
   %tobool270.not.not = xor i1 %tobool270.not, true
   %brmerge274 = select i1 %cmp945, i1 true, i1 %tobool270.not.not
   %brmerge275 = or i1 %tobool461.not, %brmerge274
   br i1 %brmerge275, label %if.else957, label %if.then952
 
 if.then952:                                       ; preds = %_ZN6ImRect12ClipWithFullERKS_.exit
-  %mul955 = fmul float %698, 0x3FE4CCCCC0000000
+  %mul955 = fmul float %697, 0x3FE4CCCCC0000000
   br label %if.end962
 
 if.else957:                                       ; preds = %_ZN6ImRect12ClipWithFullERKS_.exit
-  %731 = load float, ptr %FontSize, align 8
-  %mul959 = fmul float %731, 1.600000e+01
+  %730 = load float, ptr %FontSize, align 8
+  %mul959 = fmul float %730, 1.600000e+01
   br label %if.end962
 
 if.end962:                                        ; preds = %if.else957, %if.then952
   %conv1.i808.sink.in.in = phi float [ %mul959, %if.else957 ], [ %mul955, %if.then952 ]
   %conv1.i808.sink.in = fptosi float %conv1.i808.sink.in.in to i32
   %conv1.i808.sink = sitofp i32 %conv1.i808.sink.in to float
-  %732 = getelementptr inbounds i8, ptr %window.0, i64 632
-  store float %conv1.i808.sink, ptr %732, align 8
-  %733 = load float, ptr %WindowPadding3761445, align 8
-  %734 = fsub <2 x float> %706, %702
+  %731 = getelementptr inbounds i8, ptr %window.0, i64 632
+  store float %conv1.i808.sink, ptr %731, align 8
+  %732 = load float, ptr %WindowPadding3761445, align 8
+  %733 = fsub <2 x float> %705, %701
   %ScrollMax = getelementptr inbounds i8, ptr %window.0, i64 148
   %y974 = getelementptr inbounds i8, ptr %window.0, i64 68
   %y976 = getelementptr inbounds i8, ptr %window.0, i64 92
-  %735 = load float, ptr %y976, align 4
+  %734 = load float, ptr %y976, align 4
   %y983 = getelementptr inbounds i8, ptr %window.0, i64 152
-  %736 = load <2 x float>, ptr %ContentSize, align 8
-  %737 = insertelement <2 x float> poison, float %733, i64 0
-  %738 = insertelement <2 x float> %737, float %735, i64 1
-  %739 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %738, <2 x float> <float 2.000000e+00, float 2.000000e+00>, <2 x float> %736)
-  %740 = fsub <2 x float> %739, %734
-  %741 = fcmp ole <2 x float> %740, zeroinitializer
-  %742 = select <2 x i1> %741, <2 x float> zeroinitializer, <2 x float> %740
-  store <2 x float> %742, ptr %ScrollMax, align 4
+  %735 = load <2 x float>, ptr %ContentSize, align 8
+  %736 = insertelement <2 x float> poison, float %732, i64 0
+  %737 = insertelement <2 x float> %736, float %734, i64 1
+  %738 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %737, <2 x float> <float 2.000000e+00, float 2.000000e+00>, <2 x float> %735)
+  %739 = fsub <2 x float> %738, %733
+  %740 = fcmp ole <2 x float> %739, zeroinitializer
+  %741 = select <2 x i1> %740, <2 x float> zeroinitializer, <2 x float> %739
+  store <2 x float> %741, ptr %ScrollMax, align 4
   %call985 = call fastcc <2 x float> @_ZL38CalcNextScrollFromScrollTargetAndClampP11ImGuiWindow(ptr noundef nonnull %window.0)
   %Scroll = getelementptr inbounds i8, ptr %window.0, i64 140
   store <2 x float> %call985, ptr %Scroll, align 4
@@ -34033,107 +34034,107 @@ if.end962:                                        ; preds = %if.else957, %if.the
   store i32 2139095039, ptr %ScrollTarget987.sroa_idx, align 4
   %DecoInnerSizeX1 = getelementptr inbounds i8, ptr %window.0, i64 120
   store <2 x float> zeroinitializer, ptr %DecoInnerSizeX1, align 8
-  %743 = load ptr, ptr %DrawList, align 8
+  %742 = load ptr, ptr %DrawList, align 8
   %Font = getelementptr inbounds i8, ptr %0, i64 15672
-  %744 = load ptr, ptr %Font, align 8
-  %ContainerAtlas = getelementptr inbounds i8, ptr %744, i64 64
-  %745 = load ptr, ptr %ContainerAtlas, align 8
-  %TexID = getelementptr inbounds i8, ptr %745, i64 8
-  %746 = load ptr, ptr %TexID, align 8
-  call void @_ZN10ImDrawList13PushTextureIDEPv(ptr noundef nonnull align 8 dereferenceable(196) %743, ptr noundef %746)
-  %747 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i.i821 = getelementptr inbounds i8, ptr %747, i64 16392
-  %748 = load ptr, ptr %CurrentWindow.i.i821, align 8
-  %WriteAccessed.i.i = getelementptr inbounds i8, ptr %748, i64 192
+  %743 = load ptr, ptr %Font, align 8
+  %ContainerAtlas = getelementptr inbounds i8, ptr %743, i64 64
+  %744 = load ptr, ptr %ContainerAtlas, align 8
+  %TexID = getelementptr inbounds i8, ptr %744, i64 8
+  %745 = load ptr, ptr %TexID, align 8
+  call void @_ZN10ImDrawList13PushTextureIDEPv(ptr noundef nonnull align 8 dereferenceable(196) %742, ptr noundef %745)
+  %746 = load ptr, ptr @GImGui, align 8
+  %CurrentWindow.i.i821 = getelementptr inbounds i8, ptr %746, i64 16392
+  %747 = load ptr, ptr %CurrentWindow.i.i821, align 8
+  %WriteAccessed.i.i = getelementptr inbounds i8, ptr %747, i64 192
   store i8 1, ptr %WriteAccessed.i.i, align 8
-  %749 = load ptr, ptr %CurrentWindow.i.i821, align 8
-  %DrawList.i822 = getelementptr inbounds i8, ptr %749, i64 680
+  %748 = load ptr, ptr %CurrentWindow.i.i821, align 8
+  %DrawList.i822 = getelementptr inbounds i8, ptr %748, i64 680
+  %749 = load ptr, ptr %DrawList.i822, align 8
+  call void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 8 dereferenceable(196) %749, ptr noundef nonnull align 4 dereferenceable(8) %host_rect, ptr noundef nonnull align 4 dereferenceable(8) %Max5.i, i1 noundef zeroext false)
   %750 = load ptr, ptr %DrawList.i822, align 8
-  call void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 8 dereferenceable(196) %750, ptr noundef nonnull align 4 dereferenceable(8) %host_rect, ptr noundef nonnull align 4 dereferenceable(8) %Max5.i, i1 noundef zeroext false)
-  %751 = load ptr, ptr %DrawList.i822, align 8
-  %_ClipRectStack.i = getelementptr inbounds i8, ptr %751, i64 88
-  %Data.i.i823 = getelementptr inbounds i8, ptr %751, i64 96
-  %752 = load ptr, ptr %Data.i.i823, align 8
-  %753 = load i32, ptr %_ClipRectStack.i, align 8
-  %754 = sext i32 %753 to i64
-  %755 = getelementptr %struct.ImVec4, ptr %752, i64 %754
-  %arrayidx.i.i824 = getelementptr i8, ptr %755, i64 -16
-  %ClipRect.i = getelementptr inbounds i8, ptr %749, i64 584
-  %756 = load <4 x float>, ptr %arrayidx.i.i824, align 4
-  store <4 x float> %756, ptr %ClipRect.i, align 8
-  br i1 %678, label %if.end1043, label %if.then998
+  %_ClipRectStack.i = getelementptr inbounds i8, ptr %750, i64 88
+  %Data.i.i823 = getelementptr inbounds i8, ptr %750, i64 96
+  %751 = load ptr, ptr %Data.i.i823, align 8
+  %752 = load i32, ptr %_ClipRectStack.i, align 8
+  %753 = sext i32 %752 to i64
+  %754 = getelementptr %struct.ImVec4, ptr %751, i64 %753
+  %arrayidx.i.i824 = getelementptr i8, ptr %754, i64 -16
+  %ClipRect.i = getelementptr inbounds i8, ptr %748, i64 584
+  %755 = load <4 x float>, ptr %arrayidx.i.i824, align 4
+  store <4 x float> %755, ptr %ClipRect.i, align 8
+  br i1 %677, label %if.end1043, label %if.then998
 
 if.then998:                                       ; preds = %if.end962
   %ChildWindows1000 = getelementptr inbounds i8, ptr %cond75, i64 416
-  %757 = load i32, ptr %ChildWindows1000, align 8
-  %cmp1002 = icmp sgt i32 %757, 1
+  %756 = load i32, ptr %ChildWindows1000, align 8
+  %cmp1002 = icmp sgt i32 %756, 1
   br i1 %cmp1002, label %cond.end1012, label %cond.end1022
 
 cond.end1012:                                     ; preds = %if.then998
   %Data.i826 = getelementptr inbounds i8, ptr %cond75, i64 424
-  %758 = load ptr, ptr %Data.i826, align 8
-  %759 = zext nneg i32 %757 to i64
-  %760 = getelementptr ptr, ptr %758, i64 %759
-  %arrayidx.i828 = getelementptr i8, ptr %760, i64 -16
-  %761 = load ptr, ptr %arrayidx.i828, align 8
-  %tobool1014.not = icmp eq ptr %761, null
+  %757 = load ptr, ptr %Data.i826, align 8
+  %758 = zext nneg i32 %756 to i64
+  %759 = getelementptr ptr, ptr %757, i64 %758
+  %arrayidx.i828 = getelementptr i8, ptr %759, i64 -16
+  %760 = load ptr, ptr %arrayidx.i828, align 8
+  %tobool1014.not = icmp eq ptr %760, null
   br i1 %tobool1014.not, label %cond.end1022, label %cond.true1015
 
 cond.true1015:                                    ; preds = %cond.end1012
-  %Pos.i829 = getelementptr inbounds i8, ptr %761, i64 40
-  %762 = load <2 x float>, ptr %Pos.i829, align 8
-  %Size.i831 = getelementptr inbounds i8, ptr %761, i64 48
-  %763 = load <2 x float>, ptr %Size.i831, align 8
-  %764 = load <2 x float>, ptr %Pos656, align 8
-  %765 = load <2 x float>, ptr %Size547, align 8
-  %766 = fadd <2 x float> %764, %765
-  %767 = fadd <2 x float> %762, %763
-  %768 = shufflevector <2 x float> %766, <2 x float> %767, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %769 = shufflevector <2 x float> %762, <2 x float> %764, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %770 = fcmp ogt <4 x float> %768, %769
-  %771 = freeze <4 x i1> %770
-  %772 = bitcast <4 x i1> %771 to i4
-  %773 = icmp eq i4 %772, -1
+  %Pos.i829 = getelementptr inbounds i8, ptr %760, i64 40
+  %761 = load <2 x float>, ptr %Pos.i829, align 8
+  %Size.i831 = getelementptr inbounds i8, ptr %760, i64 48
+  %762 = load <2 x float>, ptr %Size.i831, align 8
+  %763 = load <2 x float>, ptr %Pos656, align 8
+  %764 = load <2 x float>, ptr %Size547, align 8
+  %765 = fadd <2 x float> %763, %764
+  %766 = fadd <2 x float> %761, %762
+  %767 = shufflevector <2 x float> %765, <2 x float> %766, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %768 = shufflevector <2 x float> %761, <2 x float> %763, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %769 = fcmp ogt <4 x float> %767, %768
+  %770 = freeze <4 x i1> %769
+  %771 = bitcast <4 x i1> %770 to i4
+  %772 = icmp eq i4 %771, -1
   br label %cond.end1022
 
 cond.end1022:                                     ; preds = %cond.true1015, %if.then998, %cond.end1012
-  %cond1023 = phi i1 [ false, %cond.end1012 ], [ false, %if.then998 ], [ %773, %cond.true1015 ]
+  %cond1023 = phi i1 [ false, %cond.end1012 ], [ false, %if.then998 ], [ %772, %cond.true1015 ]
   %DrawList1025 = getelementptr inbounds i8, ptr %cond75, i64 680
-  %774 = load ptr, ptr %DrawList1025, align 8
-  %VtxBuffer = getelementptr inbounds i8, ptr %774, i64 32
-  %775 = load i32, ptr %VtxBuffer, align 8
-  %776 = load ptr, ptr %DrawList, align 8
-  %Data.i858 = getelementptr inbounds i8, ptr %776, i64 8
-  %777 = load ptr, ptr %Data.i858, align 8
-  %778 = load i32, ptr %776, align 8
-  %779 = sext i32 %778 to i64
-  %780 = getelementptr %struct.ImDrawCmd, ptr %777, i64 %779
-  %ElemCount = getelementptr i8, ptr %780, i64 -24
-  %781 = load i32, ptr %ElemCount, align 8
-  %cmp1031 = icmp ne i32 %781, 0
-  %cmp1027 = icmp eq i32 %775, 0
+  %773 = load ptr, ptr %DrawList1025, align 8
+  %VtxBuffer = getelementptr inbounds i8, ptr %773, i64 32
+  %774 = load i32, ptr %VtxBuffer, align 8
+  %775 = load ptr, ptr %DrawList, align 8
+  %Data.i858 = getelementptr inbounds i8, ptr %775, i64 8
+  %776 = load ptr, ptr %Data.i858, align 8
+  %777 = load i32, ptr %775, align 8
+  %778 = sext i32 %777 to i64
+  %779 = getelementptr %struct.ImDrawCmd, ptr %776, i64 %778
+  %ElemCount = getelementptr i8, ptr %779, i64 -24
+  %780 = load i32, ptr %ElemCount, align 8
+  %cmp1031 = icmp ne i32 %780, 0
+  %cmp1027 = icmp eq i32 %774, 0
   %or.cond279.not1507.not1508 = select i1 %cmp1031, i1 true, i1 %cmp1027
   %or.cond1499.not = or i1 %or.cond279.not1507.not1508, %cond1023
   br i1 %or.cond1499.not, label %if.end1043, label %if.then1040
 
 if.then1040:                                      ; preds = %cond.end1022
-  store ptr %774, ptr %DrawList, align 8
+  store ptr %773, ptr %DrawList, align 8
   br label %if.end1043
 
 if.end1043:                                       ; preds = %if.end962, %cond.end1022, %if.then1040
   %render_decorations_in_parent.01482 = phi i1 [ true, %if.then1040 ], [ false, %cond.end1022 ], [ false, %if.end962 ]
   %NavWindowingTarget = getelementptr inbounds i8, ptr %0, i64 19656
-  %782 = load ptr, ptr %NavWindowingTarget, align 8
-  %tobool1044.not = icmp eq ptr %782, null
+  %781 = load ptr, ptr %NavWindowingTarget, align 8
+  %tobool1044.not = icmp eq ptr %781, null
   br i1 %tobool1044.not, label %cond.false1047, label %cond.end1048
 
 cond.false1047:                                   ; preds = %if.end1043
   %NavWindow = getelementptr inbounds i8, ptr %0, i64 19176
-  %783 = load ptr, ptr %NavWindow, align 8
+  %782 = load ptr, ptr %NavWindow, align 8
   br label %cond.end1048
 
 cond.end1048:                                     ; preds = %if.end1043, %cond.false1047
-  %cond1049 = phi ptr [ %783, %cond.false1047 ], [ %782, %if.end1043 ]
+  %cond1049 = phi ptr [ %782, %cond.false1047 ], [ %781, %if.end1043 ]
   br i1 %spec.select1494, label %lor.end1057, label %lor.rhs1051
 
 lor.rhs1051:                                      ; preds = %cond.end1048
@@ -34142,14 +34143,14 @@ lor.rhs1051:                                      ; preds = %cond.end1048
 
 land.rhs1053:                                     ; preds = %lor.rhs1051
   %RootWindowForTitleBarHighlight = getelementptr inbounds i8, ptr %window.0, i64 920
-  %784 = load ptr, ptr %RootWindowForTitleBarHighlight, align 8
+  %783 = load ptr, ptr %RootWindowForTitleBarHighlight, align 8
   %RootWindowForTitleBarHighlight1054 = getelementptr inbounds i8, ptr %cond1049, i64 920
-  %785 = load ptr, ptr %RootWindowForTitleBarHighlight1054, align 8
-  %cmp1055 = icmp eq ptr %784, %785
+  %784 = load ptr, ptr %RootWindowForTitleBarHighlight1054, align 8
+  %cmp1055 = icmp eq ptr %783, %784
   br label %lor.end1057
 
 lor.end1057:                                      ; preds = %lor.rhs1051, %land.rhs1053, %cond.end1048
-  %786 = phi i1 [ true, %cond.end1048 ], [ false, %lor.rhs1051 ], [ %cmp1055, %land.rhs1053 ]
+  %785 = phi i1 [ true, %cond.end1048 ], [ false, %lor.rhs1051 ], [ %cmp1055, %land.rhs1053 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp27.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp52.i)
@@ -34157,33 +34158,33 @@ lor.end1057:                                      ; preds = %lor.rhs1051, %land.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp73.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp75.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp129.i)
-  %787 = load ptr, ptr @GImGui, align 8
-  %788 = load i32, ptr %Flags.i457, align 4
+  %786 = load ptr, ptr @GImGui, align 8
+  %787 = load i32, ptr %Flags.i457, align 4
   %SkipItems.i = getelementptr inbounds i8, ptr %window.0, i64 195
   store i8 0, ptr %SkipItems.i, align 1
-  %789 = load float, ptr %WindowRounding674, align 8
-  %790 = load float, ptr %WindowBorderSize891, align 4
-  %791 = load i8, ptr %Collapsed535, align 1
-  %tobool.i863 = trunc i8 %791 to i1
+  %788 = load float, ptr %WindowRounding674, align 8
+  %789 = load float, ptr %WindowBorderSize891, align 4
+  %790 = load i8, ptr %Collapsed535, align 1
+  %tobool.i863 = trunc i8 %790 to i1
   br i1 %tobool.i863, label %if.then.i945, label %if.else.i864
 
 if.then.i945:                                     ; preds = %lor.end1057
-  %FrameBorderSize.i = getelementptr inbounds i8, ptr %787, i64 14648
-  %792 = load float, ptr %FrameBorderSize.i, align 4
-  store float %790, ptr %FrameBorderSize.i, align 8
-  br i1 %786, label %land.rhs.i987, label %land.end.i
+  %FrameBorderSize.i = getelementptr inbounds i8, ptr %786, i64 14648
+  %791 = load float, ptr %FrameBorderSize.i, align 4
+  store float %789, ptr %FrameBorderSize.i, align 8
+  br i1 %785, label %land.rhs.i987, label %land.end.i
 
 land.rhs.i987:                                    ; preds = %if.then.i945
-  %NavDisableHighlight.i = getelementptr inbounds i8, ptr %787, i64 19250
-  %793 = load i8, ptr %NavDisableHighlight.i, align 2
-  %tobool6.i = trunc i8 %793 to i1
-  %794 = select i1 %tobool6.i, i64 12, i64 11
+  %NavDisableHighlight.i = getelementptr inbounds i8, ptr %786, i64 19250
+  %792 = load i8, ptr %NavDisableHighlight.i, align 2
+  %tobool6.i = trunc i8 %792 to i1
+  %793 = select i1 %tobool6.i, i64 12, i64 11
   br label %land.end.i
 
 land.end.i:                                       ; preds = %land.rhs.i987, %if.then.i945
-  %cond.i946 = phi i64 [ 12, %if.then.i945 ], [ %794, %land.rhs.i987 ]
-  %Style.i.i947 = getelementptr inbounds i8, ptr %787, i64 14576
-  %Colors.i.i948 = getelementptr inbounds i8, ptr %787, i64 14804
+  %cond.i946 = phi i64 [ 12, %if.then.i945 ], [ %793, %land.rhs.i987 ]
+  %Style.i.i947 = getelementptr inbounds i8, ptr %786, i64 14576
+  %Colors.i.i948 = getelementptr inbounds i8, ptr %786, i64 14804
   %arrayidx.i.i949 = getelementptr inbounds [53 x %struct.ImVec4], ptr %Colors.i.i948, i64 0, i64 %cond.i946
   %c.sroa.0.0.copyload.i.i950 = load float, ptr %arrayidx.i.i949, align 4
   %c.sroa.2.0.arrayidx.sroa_idx.i.i951 = getelementptr inbounds i8, ptr %arrayidx.i.i949, i64 4
@@ -34192,153 +34193,153 @@ land.end.i:                                       ; preds = %land.rhs.i987, %if.
   %c.sroa.3.0.copyload.i.i954 = load float, ptr %c.sroa.3.0.arrayidx.sroa_idx.i.i953, align 4
   %c.sroa.4.0.arrayidx.sroa_idx.i.i955 = getelementptr inbounds i8, ptr %arrayidx.i.i949, i64 12
   %c.sroa.4.0.copyload.i.i956 = load float, ptr %c.sroa.4.0.arrayidx.sroa_idx.i.i955, align 4
-  %795 = load float, ptr %Style.i.i947, align 4
-  %mul1.i.i957 = fmul float %c.sroa.4.0.copyload.i.i956, %795
+  %794 = load float, ptr %Style.i.i947, align 4
+  %mul1.i.i957 = fmul float %c.sroa.4.0.copyload.i.i956, %794
   %cmp.i.i.i.i958 = fcmp olt float %c.sroa.0.0.copyload.i.i950, 0.000000e+00
   %cmp1.i.i.i.i959 = fcmp ogt float %c.sroa.0.0.copyload.i.i950, 1.000000e+00
   %cond.i.i.i.i960 = select i1 %cmp1.i.i.i.i959, float 1.000000e+00, float %c.sroa.0.0.copyload.i.i950
   %cond5.i.i.i.i961 = select i1 %cmp.i.i.i.i958, float 0.000000e+00, float %cond.i.i.i.i960
-  %796 = call float @llvm.fmuladd.f32(float %cond5.i.i.i.i961, float 2.550000e+02, float 5.000000e-01)
-  %conv.i.i.i962 = fptosi float %796 to i32
+  %795 = call float @llvm.fmuladd.f32(float %cond5.i.i.i.i961, float 2.550000e+02, float 5.000000e-01)
+  %conv.i.i.i962 = fptosi float %795 to i32
   %cmp.i7.i.i.i963 = fcmp olt float %c.sroa.2.0.copyload.i.i952, 0.000000e+00
   %cmp1.i8.i.i.i964 = fcmp ogt float %c.sroa.2.0.copyload.i.i952, 1.000000e+00
   %cond.i9.i.i.i965 = select i1 %cmp1.i8.i.i.i964, float 1.000000e+00, float %c.sroa.2.0.copyload.i.i952
   %cond5.i10.i.i.i966 = select i1 %cmp.i7.i.i.i963, float 0.000000e+00, float %cond.i9.i.i.i965
-  %797 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i.i966, float 2.550000e+02, float 5.000000e-01)
-  %conv2.i.i.i967 = fptosi float %797 to i32
+  %796 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i.i966, float 2.550000e+02, float 5.000000e-01)
+  %conv2.i.i.i967 = fptosi float %796 to i32
   %shl3.i.i.i968 = shl i32 %conv2.i.i.i967, 8
   %or.i.i.i969 = or i32 %shl3.i.i.i968, %conv.i.i.i962
-  %798 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i.i954, i64 0
-  %799 = insertelement <2 x float> %798, float %mul1.i.i957, i64 1
-  %800 = fcmp olt <2 x float> %799, zeroinitializer
-  %801 = fcmp ogt <2 x float> %799, <float 1.000000e+00, float 1.000000e+00>
-  %802 = select <2 x i1> %801, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %799
-  %803 = select <2 x i1> %800, <2 x float> zeroinitializer, <2 x float> %802
-  %804 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %803, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
-  %805 = fptosi <2 x float> %804 to <2 x i32>
-  %806 = shl <2 x i32> %805, <i32 16, i32 24>
-  %807 = extractelement <2 x i32> %806, i64 0
-  %or7.i.i.i976 = or i32 %or.i.i.i969, %807
-  %808 = extractelement <2 x i32> %806, i64 1
-  %or11.i.i.i983 = or i32 %or7.i.i.i976, %808
+  %797 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i.i954, i64 0
+  %798 = insertelement <2 x float> %797, float %mul1.i.i957, i64 1
+  %799 = fcmp olt <2 x float> %798, zeroinitializer
+  %800 = fcmp ogt <2 x float> %798, <float 1.000000e+00, float 1.000000e+00>
+  %801 = select <2 x i1> %800, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %798
+  %802 = select <2 x i1> %799, <2 x float> zeroinitializer, <2 x float> %801
+  %803 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %802, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
+  %804 = fptosi <2 x float> %803 to <2 x i32>
+  %805 = shl <2 x i32> %804, <i32 16, i32 24>
+  %806 = extractelement <2 x i32> %805, i64 0
+  %or7.i.i.i976 = or i32 %or.i.i.i969, %806
+  %807 = extractelement <2 x i32> %805, i64 1
+  %or11.i.i.i983 = or i32 %or7.i.i.i976, %807
   %agg.tmp.sroa.0.0.copyload.i984 = load <2 x float>, ptr %title_bar_rect847, align 8
-  %agg.tmp7.sroa.0.0.copyload.i986 = load <2 x float>, ptr %694, align 8
-  call void @_ZN5ImGui11RenderFrameE6ImVec2S0_jbf(<2 x float> %agg.tmp.sroa.0.0.copyload.i984, <2 x float> %agg.tmp7.sroa.0.0.copyload.i986, i32 noundef %or11.i.i.i983, i1 noundef zeroext true, float noundef %789)
-  store float %792, ptr %FrameBorderSize.i, align 8
+  %agg.tmp7.sroa.0.0.copyload.i986 = load <2 x float>, ptr %693, align 8
+  call void @_ZN5ImGui11RenderFrameE6ImVec2S0_jbf(<2 x float> %agg.tmp.sroa.0.0.copyload.i984, <2 x float> %agg.tmp7.sroa.0.0.copyload.i986, i32 noundef %or11.i.i.i983, i1 noundef zeroext true, float noundef %788)
+  store float %791, ptr %FrameBorderSize.i, align 8
   br label %_ZN5ImGuiL23RenderWindowDecorationsEP11ImGuiWindowRK6ImRectbbiPKjf.exit
 
 if.else.i864:                                     ; preds = %lor.end1057
-  %and.i865 = and i32 %788, 128
+  %and.i865 = and i32 %787, 128
   %tobool10.not.i866 = icmp eq i32 %and.i865, 0
   br i1 %tobool10.not.i866, label %if.then11.i912, label %if.else.if.end33_crit_edge.i
 
 if.else.if.end33_crit_edge.i:                     ; preds = %if.else.i864
-  %.pre.i867 = and i32 %788, 1
+  %.pre.i867 = and i32 %787, 1
   br label %if.end33.i
 
 if.then11.i912:                                   ; preds = %if.else.i864
-  %and.i.i913 = and i32 %788, 100663296
+  %and.i.i913 = and i32 %787, 100663296
   %tobool.not.i.i914 = icmp eq i32 %and.i.i913, 0
-  %and2.i.i = and i32 %788, 16777216
+  %and2.i.i = and i32 %787, 16777216
   %tobool3.not.i.i = icmp eq i32 %and2.i.i, 0
   %..i.i915 = select i1 %tobool3.not.i.i, i64 2, i64 3
   %retval.0.i.i = select i1 %tobool.not.i.i914, i64 %..i.i915, i64 4
-  %Style.i100.i = getelementptr inbounds i8, ptr %787, i64 14576
-  %Colors.i101.i = getelementptr inbounds i8, ptr %787, i64 14804
+  %Style.i100.i = getelementptr inbounds i8, ptr %786, i64 14576
+  %Colors.i101.i = getelementptr inbounds i8, ptr %786, i64 14804
   %arrayidx.i103.i = getelementptr inbounds [53 x %struct.ImVec4], ptr %Colors.i101.i, i64 0, i64 %retval.0.i.i
   %c.sroa.0.0.copyload.i104.i = load float, ptr %arrayidx.i103.i, align 4
   %c.sroa.2.0.arrayidx.sroa_idx.i105.i = getelementptr inbounds i8, ptr %arrayidx.i103.i, i64 4
   %c.sroa.4.0.arrayidx.sroa_idx.i109.i = getelementptr inbounds i8, ptr %arrayidx.i103.i, i64 12
   %c.sroa.4.0.copyload.i110.i = load float, ptr %c.sroa.4.0.arrayidx.sroa_idx.i109.i, align 4
-  %809 = load float, ptr %Style.i100.i, align 4
-  %mul1.i111.i = fmul float %c.sroa.4.0.copyload.i110.i, %809
+  %808 = load float, ptr %Style.i100.i, align 4
+  %mul1.i111.i = fmul float %c.sroa.4.0.copyload.i110.i, %808
   %cmp.i.i.i112.i = fcmp olt float %c.sroa.0.0.copyload.i104.i, 0.000000e+00
   %cmp1.i.i.i113.i = fcmp ogt float %c.sroa.0.0.copyload.i104.i, 1.000000e+00
   %cond.i.i.i114.i = select i1 %cmp1.i.i.i113.i, float 1.000000e+00, float %c.sroa.0.0.copyload.i104.i
   %cond5.i.i.i115.i = select i1 %cmp.i.i.i112.i, float 0.000000e+00, float %cond.i.i.i114.i
-  %810 = call float @llvm.fmuladd.f32(float %cond5.i.i.i115.i, float 2.550000e+02, float 5.000000e-01)
-  %conv.i.i116.i = fptosi float %810 to i32
-  %811 = load <2 x float>, ptr %c.sroa.2.0.arrayidx.sroa_idx.i105.i, align 4
-  %812 = fcmp olt <2 x float> %811, zeroinitializer
-  %813 = fcmp ogt <2 x float> %811, <float 1.000000e+00, float 1.000000e+00>
-  %814 = select <2 x i1> %813, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %811
-  %815 = select <2 x i1> %812, <2 x float> zeroinitializer, <2 x float> %814
-  %816 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %815, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
-  %817 = fptosi <2 x float> %816 to <2 x i32>
-  %818 = shl <2 x i32> %817, <i32 8, i32 16>
-  %819 = extractelement <2 x i32> %818, i64 0
-  %or.i.i123.i = or i32 %819, %conv.i.i116.i
-  %820 = extractelement <2 x i32> %818, i64 1
-  %or7.i.i130.i = or i32 %or.i.i123.i, %820
+  %809 = call float @llvm.fmuladd.f32(float %cond5.i.i.i115.i, float 2.550000e+02, float 5.000000e-01)
+  %conv.i.i116.i = fptosi float %809 to i32
+  %810 = load <2 x float>, ptr %c.sroa.2.0.arrayidx.sroa_idx.i105.i, align 4
+  %811 = fcmp olt <2 x float> %810, zeroinitializer
+  %812 = fcmp ogt <2 x float> %810, <float 1.000000e+00, float 1.000000e+00>
+  %813 = select <2 x i1> %812, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %810
+  %814 = select <2 x i1> %811, <2 x float> zeroinitializer, <2 x float> %813
+  %815 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %814, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
+  %816 = fptosi <2 x float> %815 to <2 x i32>
+  %817 = shl <2 x i32> %816, <i32 8, i32 16>
+  %818 = extractelement <2 x i32> %817, i64 0
+  %or.i.i123.i = or i32 %818, %conv.i.i116.i
+  %819 = extractelement <2 x i32> %817, i64 1
+  %or7.i.i130.i = or i32 %or.i.i123.i, %819
   %cmp.i15.i.i131.i = fcmp olt float %mul1.i111.i, 0.000000e+00
   %cmp1.i16.i.i132.i = fcmp ogt float %mul1.i111.i, 1.000000e+00
   %cond.i17.i.i133.i = select i1 %cmp1.i16.i.i132.i, float 1.000000e+00, float %mul1.i111.i
   %cond5.i18.i.i134.i = select i1 %cmp.i15.i.i131.i, float 0.000000e+00, float %cond.i17.i.i133.i
-  %821 = call float @llvm.fmuladd.f32(float %cond5.i18.i.i134.i, float 2.550000e+02, float 5.000000e-01)
-  %conv9.i.i135.i = fptosi float %821 to i32
+  %820 = call float @llvm.fmuladd.f32(float %cond5.i18.i.i134.i, float 2.550000e+02, float 5.000000e-01)
+  %conv9.i.i135.i = fptosi float %820 to i32
   %shl10.i.i136.i = shl i32 %conv9.i.i135.i, 24
   %or11.i.i137.i = or i32 %shl10.i.i136.i, %or7.i.i130.i
-  %NextWindowData.i = getelementptr inbounds i8, ptr %787, i64 18888
-  %822 = load i32, ptr %NextWindowData.i, align 8
-  %and15.i = and i32 %822, 64
+  %NextWindowData.i = getelementptr inbounds i8, ptr %786, i64 18888
+  %821 = load i32, ptr %NextWindowData.i, align 8
+  %and15.i = and i32 %821, 64
   %tobool16.not.not.i = icmp eq i32 %and15.i, 0
   br i1 %tobool16.not.not.i, label %if.end23.i, label %if.then20.i916
 
 if.then20.i916:                                   ; preds = %if.then11.i912
-  %BgAlphaVal.i = getelementptr inbounds i8, ptr %787, i64 18984
-  %823 = load float, ptr %BgAlphaVal.i, align 8
+  %BgAlphaVal.i = getelementptr inbounds i8, ptr %786, i64 18984
+  %822 = load float, ptr %BgAlphaVal.i, align 8
   %and21.i = and i32 %or7.i.i130.i, 16777215
-  %cmp.i.i917 = fcmp olt float %823, 0.000000e+00
-  %cmp1.i.i918 = fcmp ogt float %823, 1.000000e+00
-  %cond.i.i919 = select i1 %cmp1.i.i918, float 1.000000e+00, float %823
+  %cmp.i.i917 = fcmp olt float %822, 0.000000e+00
+  %cmp1.i.i918 = fcmp ogt float %822, 1.000000e+00
+  %cond.i.i919 = select i1 %cmp1.i.i918, float 1.000000e+00, float %822
   %cond5.i.i920 = select i1 %cmp.i.i917, float 0.000000e+00, float %cond.i.i919
-  %824 = call float @llvm.fmuladd.f32(float %cond5.i.i920, float 2.550000e+02, float 5.000000e-01)
-  %conv.i921 = fptosi float %824 to i32
+  %823 = call float @llvm.fmuladd.f32(float %cond5.i.i920, float 2.550000e+02, float 5.000000e-01)
+  %conv.i921 = fptosi float %823 to i32
   %shl.i922 = shl i32 %conv.i921, 24
   %or.i923 = or disjoint i32 %shl.i922, %and21.i
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then20.i916, %if.then11.i912
   %bg_col.0.i = phi i32 [ %or.i923, %if.then20.i916 ], [ %or11.i.i137.i, %if.then11.i912 ]
-  %825 = load ptr, ptr %DrawList, align 8
-  %and.i138.i = and i32 %788, 1
+  %824 = load ptr, ptr %DrawList, align 8
+  %and.i138.i = and i32 %787, 1
   %tobool.not.i139.i = icmp eq i32 %and.i138.i, 0
   br i1 %tobool.not.i139.i, label %cond.false.i.i933, label %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i926
 
 cond.false.i.i933:                                ; preds = %if.end23.i
-  %826 = load ptr, ptr %window.0, align 8
-  %FontBaseSize.i.i.i934 = getelementptr inbounds i8, ptr %826, i64 15684
-  %827 = load float, ptr %FontBaseSize.i.i.i934, align 4
-  %828 = load float, ptr %FontWindowScale.i.i, align 8
-  %mul.i.i.i936 = fmul float %827, %828
-  %829 = load ptr, ptr %ParentWindow.i.i, align 8
-  %tobool.not.i.i.i938 = icmp eq ptr %829, null
+  %825 = load ptr, ptr %window.0, align 8
+  %FontBaseSize.i.i.i934 = getelementptr inbounds i8, ptr %825, i64 15684
+  %826 = load float, ptr %FontBaseSize.i.i.i934, align 4
+  %827 = load float, ptr %FontWindowScale.i.i, align 8
+  %mul.i.i.i936 = fmul float %826, %827
+  %828 = load ptr, ptr %ParentWindow.i.i, align 8
+  %tobool.not.i.i.i938 = icmp eq ptr %828, null
   br i1 %tobool.not.i.i.i938, label %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i942, label %if.then.i.i.i939
 
 if.then.i.i.i939:                                 ; preds = %cond.false.i.i933
-  %FontWindowScale3.i.i.i940 = getelementptr inbounds i8, ptr %829, i64 672
-  %830 = load float, ptr %FontWindowScale3.i.i.i940, align 8
-  %mul4.i.i.i941 = fmul float %mul.i.i.i936, %830
+  %FontWindowScale3.i.i.i940 = getelementptr inbounds i8, ptr %828, i64 672
+  %829 = load float, ptr %FontWindowScale3.i.i.i940, align 8
+  %mul4.i.i.i941 = fmul float %mul.i.i.i936, %829
   br label %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i942
 
 _ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i942:    ; preds = %if.then.i.i.i939, %cond.false.i.i933
   %scale.0.i.i.i943 = phi float [ %mul4.i.i.i941, %if.then.i.i.i939 ], [ %mul.i.i.i936, %cond.false.i.i933 ]
-  %y.i.i944 = getelementptr inbounds i8, ptr %826, i64 14640
-  %831 = load float, ptr %y.i.i944, align 4
-  %832 = call float @llvm.fmuladd.f32(float %831, float 2.000000e+00, float %scale.0.i.i.i943)
+  %y.i.i944 = getelementptr inbounds i8, ptr %825, i64 14640
+  %830 = load float, ptr %y.i.i944, align 4
+  %831 = call float @llvm.fmuladd.f32(float %830, float 2.000000e+00, float %scale.0.i.i.i943)
   br label %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i926
 
 _ZNK11ImGuiWindow14TitleBarHeightEv.exit.i926:    ; preds = %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i942, %if.end23.i
   %cond32.i = phi i32 [ 192, %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i942 ], [ 0, %if.end23.i ]
-  %cond.i140.i = phi float [ %832, %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i942 ], [ 0.000000e+00, %if.end23.i ]
-  %833 = load <2 x float>, ptr %Pos656, align 4
-  %834 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %cond.i140.i, i64 1
-  %835 = fadd <2 x float> %834, %833
-  store <2 x float> %835, ptr %ref.tmp.i, align 8
-  %836 = load <2 x float>, ptr %Size547, align 4
-  %837 = fadd <2 x float> %833, %836
-  store <2 x float> %837, ptr %ref.tmp27.i, align 8
-  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %825, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp27.i, i32 noundef %bg_col.0.i, float noundef %789, i32 noundef %cond32.i)
+  %cond.i140.i = phi float [ %831, %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i942 ], [ 0.000000e+00, %if.end23.i ]
+  %832 = load <2 x float>, ptr %Pos656, align 4
+  %833 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %cond.i140.i, i64 1
+  %834 = fadd <2 x float> %833, %832
+  store <2 x float> %834, ptr %ref.tmp.i, align 8
+  %835 = load <2 x float>, ptr %Size547, align 4
+  %836 = fadd <2 x float> %832, %835
+  store <2 x float> %836, ptr %ref.tmp27.i, align 8
+  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %824, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp27.i, i32 noundef %bg_col.0.i, float noundef %788, i32 noundef %cond32.i)
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i926, %if.else.if.end33_crit_edge.i
@@ -34347,10 +34348,10 @@ if.end33.i:                                       ; preds = %_ZNK11ImGuiWindow14
   br i1 %tobool35.not.i, label %if.then36.i, label %if.end44.i
 
 if.then36.i:                                      ; preds = %if.end33.i
-  %838 = load ptr, ptr @GImGui, align 8
-  %Style.i146.i = getelementptr inbounds i8, ptr %838, i64 14576
-  %Colors.i147.i = getelementptr inbounds i8, ptr %838, i64 14804
-  %idxprom.i148.i = select i1 %786, i64 11, i64 10
+  %837 = load ptr, ptr @GImGui, align 8
+  %Style.i146.i = getelementptr inbounds i8, ptr %837, i64 14576
+  %Colors.i147.i = getelementptr inbounds i8, ptr %837, i64 14804
+  %idxprom.i148.i = select i1 %785, i64 11, i64 10
   %arrayidx.i149.i = getelementptr inbounds [53 x %struct.ImVec4], ptr %Colors.i147.i, i64 0, i64 %idxprom.i148.i
   %c.sroa.0.0.copyload.i150.i = load float, ptr %arrayidx.i149.i, align 4
   %c.sroa.2.0.arrayidx.sroa_idx.i151.i = getelementptr inbounds i8, ptr %arrayidx.i149.i, i64 4
@@ -34359,237 +34360,237 @@ if.then36.i:                                      ; preds = %if.end33.i
   %c.sroa.3.0.copyload.i154.i = load float, ptr %c.sroa.3.0.arrayidx.sroa_idx.i153.i, align 4
   %c.sroa.4.0.arrayidx.sroa_idx.i155.i = getelementptr inbounds i8, ptr %arrayidx.i149.i, i64 12
   %c.sroa.4.0.copyload.i156.i = load float, ptr %c.sroa.4.0.arrayidx.sroa_idx.i155.i, align 4
-  %839 = load float, ptr %Style.i146.i, align 4
-  %mul1.i157.i = fmul float %c.sroa.4.0.copyload.i156.i, %839
+  %838 = load float, ptr %Style.i146.i, align 4
+  %mul1.i157.i = fmul float %c.sroa.4.0.copyload.i156.i, %838
   %cmp.i.i.i158.i = fcmp olt float %c.sroa.0.0.copyload.i150.i, 0.000000e+00
   %cmp1.i.i.i159.i = fcmp ogt float %c.sroa.0.0.copyload.i150.i, 1.000000e+00
   %cond.i.i.i160.i = select i1 %cmp1.i.i.i159.i, float 1.000000e+00, float %c.sroa.0.0.copyload.i150.i
   %cond5.i.i.i161.i = select i1 %cmp.i.i.i158.i, float 0.000000e+00, float %cond.i.i.i160.i
-  %840 = call float @llvm.fmuladd.f32(float %cond5.i.i.i161.i, float 2.550000e+02, float 5.000000e-01)
-  %conv.i.i162.i = fptosi float %840 to i32
+  %839 = call float @llvm.fmuladd.f32(float %cond5.i.i.i161.i, float 2.550000e+02, float 5.000000e-01)
+  %conv.i.i162.i = fptosi float %839 to i32
   %cmp.i7.i.i163.i = fcmp olt float %c.sroa.2.0.copyload.i152.i, 0.000000e+00
   %cmp1.i8.i.i164.i = fcmp ogt float %c.sroa.2.0.copyload.i152.i, 1.000000e+00
   %cond.i9.i.i165.i = select i1 %cmp1.i8.i.i164.i, float 1.000000e+00, float %c.sroa.2.0.copyload.i152.i
   %cond5.i10.i.i166.i = select i1 %cmp.i7.i.i163.i, float 0.000000e+00, float %cond.i9.i.i165.i
-  %841 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i166.i, float 2.550000e+02, float 5.000000e-01)
-  %conv2.i.i167.i = fptosi float %841 to i32
+  %840 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i166.i, float 2.550000e+02, float 5.000000e-01)
+  %conv2.i.i167.i = fptosi float %840 to i32
   %shl3.i.i168.i = shl i32 %conv2.i.i167.i, 8
   %or.i.i169.i = or i32 %shl3.i.i168.i, %conv.i.i162.i
-  %842 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i154.i, i64 0
-  %843 = insertelement <2 x float> %842, float %mul1.i157.i, i64 1
-  %844 = fcmp olt <2 x float> %843, zeroinitializer
-  %845 = fcmp ogt <2 x float> %843, <float 1.000000e+00, float 1.000000e+00>
-  %846 = select <2 x i1> %845, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %843
-  %847 = select <2 x i1> %844, <2 x float> zeroinitializer, <2 x float> %846
-  %848 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %847, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
-  %849 = fptosi <2 x float> %848 to <2 x i32>
-  %850 = shl <2 x i32> %849, <i32 16, i32 24>
-  %851 = extractelement <2 x i32> %850, i64 0
-  %or7.i.i176.i = or i32 %or.i.i169.i, %851
-  %852 = extractelement <2 x i32> %850, i64 1
-  %or11.i.i183.i = or i32 %or7.i.i176.i, %852
-  %853 = load ptr, ptr %DrawList, align 8
-  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %853, ptr noundef nonnull align 4 dereferenceable(8) %title_bar_rect847, ptr noundef nonnull align 4 dereferenceable(8) %694, i32 noundef %or11.i.i183.i, float noundef %789, i32 noundef 48)
+  %841 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i154.i, i64 0
+  %842 = insertelement <2 x float> %841, float %mul1.i157.i, i64 1
+  %843 = fcmp olt <2 x float> %842, zeroinitializer
+  %844 = fcmp ogt <2 x float> %842, <float 1.000000e+00, float 1.000000e+00>
+  %845 = select <2 x i1> %844, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %842
+  %846 = select <2 x i1> %843, <2 x float> zeroinitializer, <2 x float> %845
+  %847 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %846, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
+  %848 = fptosi <2 x float> %847 to <2 x i32>
+  %849 = shl <2 x i32> %848, <i32 16, i32 24>
+  %850 = extractelement <2 x i32> %849, i64 0
+  %or7.i.i176.i = or i32 %or.i.i169.i, %850
+  %851 = extractelement <2 x i32> %849, i64 1
+  %or11.i.i183.i = or i32 %or7.i.i176.i, %851
+  %852 = load ptr, ptr %DrawList, align 8
+  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %852, ptr noundef nonnull align 4 dereferenceable(8) %title_bar_rect847, ptr noundef nonnull align 4 dereferenceable(8) %693, i32 noundef %or11.i.i183.i, float noundef %788, i32 noundef 48)
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then36.i, %if.end33.i
-  %and45.i = and i32 %788, 1024
+  %and45.i = and i32 %787, 1024
   %tobool46.not.i = icmp eq i32 %and45.i, 0
   br i1 %tobool46.not.i, label %if.end80.i, label %if.then47.i
 
 if.then47.i:                                      ; preds = %if.end44.i
-  %854 = load float, ptr %366, align 4
-  %855 = load i32, ptr %Flags.i457, align 4
-  %and.i.i.i868 = and i32 %855, 1
+  %853 = load float, ptr %365, align 4
+  %854 = load i32, ptr %Flags.i457, align 4
+  %and.i.i.i868 = and i32 %854, 1
   %tobool.not.i.i185.i = icmp eq i32 %and.i.i.i868, 0
   br i1 %tobool.not.i.i185.i, label %cond.false.i.i.i, label %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i.i
 
 cond.false.i.i.i:                                 ; preds = %if.then47.i
-  %856 = load ptr, ptr %window.0, align 8
-  %FontBaseSize.i.i.i.i = getelementptr inbounds i8, ptr %856, i64 15684
-  %857 = load float, ptr %FontBaseSize.i.i.i.i, align 4
-  %858 = load float, ptr %FontWindowScale.i.i, align 8
-  %mul.i.i.i.i = fmul float %857, %858
-  %859 = load ptr, ptr %ParentWindow.i.i, align 8
-  %tobool.not.i.i.i.i910 = icmp eq ptr %859, null
+  %855 = load ptr, ptr %window.0, align 8
+  %FontBaseSize.i.i.i.i = getelementptr inbounds i8, ptr %855, i64 15684
+  %856 = load float, ptr %FontBaseSize.i.i.i.i, align 4
+  %857 = load float, ptr %FontWindowScale.i.i, align 8
+  %mul.i.i.i.i = fmul float %856, %857
+  %858 = load ptr, ptr %ParentWindow.i.i, align 8
+  %tobool.not.i.i.i.i910 = icmp eq ptr %858, null
   br i1 %tobool.not.i.i.i.i910, label %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cond.false.i.i.i
-  %FontWindowScale3.i.i.i.i = getelementptr inbounds i8, ptr %859, i64 672
-  %860 = load float, ptr %FontWindowScale3.i.i.i.i, align 8
-  %mul4.i.i.i.i = fmul float %mul.i.i.i.i, %860
+  %FontWindowScale3.i.i.i.i = getelementptr inbounds i8, ptr %858, i64 672
+  %859 = load float, ptr %FontWindowScale3.i.i.i.i, align 8
+  %mul4.i.i.i.i = fmul float %mul.i.i.i.i, %859
   br label %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i.i
 
 _ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i.i:     ; preds = %if.then.i.i.i.i, %cond.false.i.i.i
   %scale.0.i.i.i.i = phi float [ %mul4.i.i.i.i, %if.then.i.i.i.i ], [ %mul.i.i.i.i, %cond.false.i.i.i ]
-  %y.i.i.i911 = getelementptr inbounds i8, ptr %856, i64 14640
-  %861 = load float, ptr %y.i.i.i911, align 4
-  %862 = call float @llvm.fmuladd.f32(float %861, float 2.000000e+00, float %scale.0.i.i.i.i)
+  %y.i.i.i911 = getelementptr inbounds i8, ptr %855, i64 14640
+  %860 = load float, ptr %y.i.i.i911, align 4
+  %861 = call float @llvm.fmuladd.f32(float %860, float 2.000000e+00, float %scale.0.i.i.i.i)
   br label %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i.i
 
 _ZNK11ImGuiWindow14TitleBarHeightEv.exit.i.i:     ; preds = %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i.i, %if.then47.i
-  %cond.i.i.i869 = phi float [ %862, %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i.i ], [ 0.000000e+00, %if.then47.i ]
-  %863 = load float, ptr %Pos656, align 8
-  %864 = load float, ptr %SizeFull531, align 8
-  %and.i3.i.i = and i32 %855, 1024
+  %cond.i.i.i869 = phi float [ %861, %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i.i ], [ 0.000000e+00, %if.then47.i ]
+  %862 = load float, ptr %Pos656, align 8
+  %863 = load float, ptr %SizeFull531, align 8
+  %and.i3.i.i = and i32 %854, 1024
   %tobool.not.i4.i.i = icmp eq i32 %and.i3.i.i, 0
   br i1 %tobool.not.i4.i.i, label %_ZNK11ImGuiWindow11MenuBarRectEv.exit.i, label %cond.true.i.i.i870
 
 cond.true.i.i.i870:                               ; preds = %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i.i
-  %865 = load ptr, ptr %window.0, align 8
-  %866 = load float, ptr %y415, align 4
-  %FontBaseSize.i.i6.i.i = getelementptr inbounds i8, ptr %865, i64 15684
-  %867 = load float, ptr %FontBaseSize.i.i6.i.i, align 4
-  %868 = load float, ptr %FontWindowScale.i.i, align 8
-  %mul.i.i8.i.i = fmul float %867, %868
-  %869 = load ptr, ptr %ParentWindow.i.i, align 8
-  %tobool.not.i.i10.i.i = icmp eq ptr %869, null
+  %864 = load ptr, ptr %window.0, align 8
+  %865 = load float, ptr %y415, align 4
+  %FontBaseSize.i.i6.i.i = getelementptr inbounds i8, ptr %864, i64 15684
+  %866 = load float, ptr %FontBaseSize.i.i6.i.i, align 4
+  %867 = load float, ptr %FontWindowScale.i.i, align 8
+  %mul.i.i8.i.i = fmul float %866, %867
+  %868 = load ptr, ptr %ParentWindow.i.i, align 8
+  %tobool.not.i.i10.i.i = icmp eq ptr %868, null
   br i1 %tobool.not.i.i10.i.i, label %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i14.i.i, label %if.then.i.i11.i.i
 
 if.then.i.i11.i.i:                                ; preds = %cond.true.i.i.i870
-  %FontWindowScale3.i.i12.i.i = getelementptr inbounds i8, ptr %869, i64 672
-  %870 = load float, ptr %FontWindowScale3.i.i12.i.i, align 8
-  %mul4.i.i13.i.i = fmul float %mul.i.i8.i.i, %870
+  %FontWindowScale3.i.i12.i.i = getelementptr inbounds i8, ptr %868, i64 672
+  %869 = load float, ptr %FontWindowScale3.i.i12.i.i, align 8
+  %mul4.i.i13.i.i = fmul float %mul.i.i8.i.i, %869
   br label %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i14.i.i
 
 _ZNK11ImGuiWindow12CalcFontSizeEv.exit.i14.i.i:   ; preds = %if.then.i.i11.i.i, %cond.true.i.i.i870
   %scale.0.i.i15.i.i = phi float [ %mul4.i.i13.i.i, %if.then.i.i11.i.i ], [ %mul.i.i8.i.i, %cond.true.i.i.i870 ]
-  %add.i.i.i871 = fadd float %866, %scale.0.i.i15.i.i
-  %y2.i.i.i = getelementptr inbounds i8, ptr %865, i64 14640
-  %871 = load float, ptr %y2.i.i.i, align 4
-  %872 = call float @llvm.fmuladd.f32(float %871, float 2.000000e+00, float %add.i.i.i871)
+  %add.i.i.i871 = fadd float %865, %scale.0.i.i15.i.i
+  %y2.i.i.i = getelementptr inbounds i8, ptr %864, i64 14640
+  %870 = load float, ptr %y2.i.i.i, align 4
+  %871 = call float @llvm.fmuladd.f32(float %870, float 2.000000e+00, float %add.i.i.i871)
   br label %_ZNK11ImGuiWindow11MenuBarRectEv.exit.i
 
 _ZNK11ImGuiWindow11MenuBarRectEv.exit.i:          ; preds = %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i14.i.i, %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i.i
-  %cond.i16.i.i = phi float [ %872, %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i14.i.i ], [ 0.000000e+00, %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i.i ]
-  %add.i186.i = fadd float %854, %cond.i.i.i869
-  %cmp5.inv.i.i.i = fcmp oge float %add.i186.i, %854
-  %cond11.i.i.i = select i1 %cmp5.inv.i.i.i, float %add.i186.i, float %854
-  %873 = insertelement <2 x float> poison, float %863, i64 0
-  %874 = insertelement <2 x float> %873, float %add.i186.i, i64 1
-  %875 = insertelement <2 x float> poison, float %864, i64 0
-  %876 = insertelement <2 x float> %875, float %cond.i16.i.i, i64 1
-  %877 = fadd <2 x float> %874, %876
-  %878 = load <2 x float>, ptr %Size547, align 8
-  %879 = insertelement <2 x float> %873, float %854, i64 1
-  %880 = fadd <2 x float> %879, %878
-  %881 = fcmp olt <2 x float> %877, %880
-  %882 = select <2 x i1> %881, <2 x float> %877, <2 x float> %880
-  %883 = load ptr, ptr %DrawList, align 8
-  %884 = insertelement <2 x float> poison, float %790, i64 0
-  %885 = insertelement <2 x float> %884, float %cond11.i.i.i, i64 1
-  %886 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %863, i64 0
-  %887 = fadd <2 x float> %885, %886
-  store <2 x float> %887, ptr %ref.tmp52.i, align 8
-  %888 = extractelement <2 x float> %882, i64 0
-  %sub.i.i873 = fsub float %888, %790
-  %889 = insertelement <2 x float> %882, float %sub.i.i873, i64 0
-  store <2 x float> %889, ptr %ref.tmp56.i, align 8
-  %890 = load ptr, ptr @GImGui, align 8
-  %Style.i206.i = getelementptr inbounds i8, ptr %890, i64 14576
-  %arrayidx.i208.i = getelementptr inbounds i8, ptr %890, i64 15012
+  %cond.i16.i.i = phi float [ %871, %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i14.i.i ], [ 0.000000e+00, %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i.i ]
+  %add.i186.i = fadd float %853, %cond.i.i.i869
+  %cmp5.inv.i.i.i = fcmp oge float %add.i186.i, %853
+  %cond11.i.i.i = select i1 %cmp5.inv.i.i.i, float %add.i186.i, float %853
+  %872 = insertelement <2 x float> poison, float %862, i64 0
+  %873 = insertelement <2 x float> %872, float %add.i186.i, i64 1
+  %874 = insertelement <2 x float> poison, float %863, i64 0
+  %875 = insertelement <2 x float> %874, float %cond.i16.i.i, i64 1
+  %876 = fadd <2 x float> %873, %875
+  %877 = load <2 x float>, ptr %Size547, align 8
+  %878 = insertelement <2 x float> %872, float %853, i64 1
+  %879 = fadd <2 x float> %878, %877
+  %880 = fcmp olt <2 x float> %876, %879
+  %881 = select <2 x i1> %880, <2 x float> %876, <2 x float> %879
+  %882 = load ptr, ptr %DrawList, align 8
+  %883 = insertelement <2 x float> poison, float %789, i64 0
+  %884 = insertelement <2 x float> %883, float %cond11.i.i.i, i64 1
+  %885 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %862, i64 0
+  %886 = fadd <2 x float> %884, %885
+  store <2 x float> %886, ptr %ref.tmp52.i, align 8
+  %887 = extractelement <2 x float> %881, i64 0
+  %sub.i.i873 = fsub float %887, %789
+  %888 = insertelement <2 x float> %881, float %sub.i.i873, i64 0
+  store <2 x float> %888, ptr %ref.tmp56.i, align 8
+  %889 = load ptr, ptr @GImGui, align 8
+  %Style.i206.i = getelementptr inbounds i8, ptr %889, i64 14576
+  %arrayidx.i208.i = getelementptr inbounds i8, ptr %889, i64 15012
   %c.sroa.0.0.copyload.i209.i = load float, ptr %arrayidx.i208.i, align 4
-  %c.sroa.2.0.arrayidx.sroa_idx.i210.i = getelementptr inbounds i8, ptr %890, i64 15016
+  %c.sroa.2.0.arrayidx.sroa_idx.i210.i = getelementptr inbounds i8, ptr %889, i64 15016
   %c.sroa.2.0.copyload.i211.i = load float, ptr %c.sroa.2.0.arrayidx.sroa_idx.i210.i, align 4
-  %c.sroa.3.0.arrayidx.sroa_idx.i212.i = getelementptr inbounds i8, ptr %890, i64 15020
+  %c.sroa.3.0.arrayidx.sroa_idx.i212.i = getelementptr inbounds i8, ptr %889, i64 15020
   %c.sroa.3.0.copyload.i213.i = load float, ptr %c.sroa.3.0.arrayidx.sroa_idx.i212.i, align 4
-  %c.sroa.4.0.arrayidx.sroa_idx.i214.i = getelementptr inbounds i8, ptr %890, i64 15024
+  %c.sroa.4.0.arrayidx.sroa_idx.i214.i = getelementptr inbounds i8, ptr %889, i64 15024
   %c.sroa.4.0.copyload.i215.i = load float, ptr %c.sroa.4.0.arrayidx.sroa_idx.i214.i, align 4
-  %891 = load float, ptr %Style.i206.i, align 4
-  %mul1.i216.i = fmul float %c.sroa.4.0.copyload.i215.i, %891
+  %890 = load float, ptr %Style.i206.i, align 4
+  %mul1.i216.i = fmul float %c.sroa.4.0.copyload.i215.i, %890
   %cmp.i.i.i217.i = fcmp olt float %c.sroa.0.0.copyload.i209.i, 0.000000e+00
   %cmp1.i.i.i218.i = fcmp ogt float %c.sroa.0.0.copyload.i209.i, 1.000000e+00
   %cond.i.i.i219.i = select i1 %cmp1.i.i.i218.i, float 1.000000e+00, float %c.sroa.0.0.copyload.i209.i
   %cond5.i.i.i220.i = select i1 %cmp.i.i.i217.i, float 0.000000e+00, float %cond.i.i.i219.i
-  %892 = call float @llvm.fmuladd.f32(float %cond5.i.i.i220.i, float 2.550000e+02, float 5.000000e-01)
-  %conv.i.i221.i = fptosi float %892 to i32
+  %891 = call float @llvm.fmuladd.f32(float %cond5.i.i.i220.i, float 2.550000e+02, float 5.000000e-01)
+  %conv.i.i221.i = fptosi float %891 to i32
   %cmp.i7.i.i222.i = fcmp olt float %c.sroa.2.0.copyload.i211.i, 0.000000e+00
   %cmp1.i8.i.i223.i = fcmp ogt float %c.sroa.2.0.copyload.i211.i, 1.000000e+00
   %cond.i9.i.i224.i = select i1 %cmp1.i8.i.i223.i, float 1.000000e+00, float %c.sroa.2.0.copyload.i211.i
   %cond5.i10.i.i225.i = select i1 %cmp.i7.i.i222.i, float 0.000000e+00, float %cond.i9.i.i224.i
-  %893 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i225.i, float 2.550000e+02, float 5.000000e-01)
-  %conv2.i.i226.i = fptosi float %893 to i32
+  %892 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i225.i, float 2.550000e+02, float 5.000000e-01)
+  %conv2.i.i226.i = fptosi float %892 to i32
   %shl3.i.i227.i = shl i32 %conv2.i.i226.i, 8
   %or.i.i228.i = or i32 %shl3.i.i227.i, %conv.i.i221.i
-  %894 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i213.i, i64 0
-  %895 = insertelement <2 x float> %894, float %mul1.i216.i, i64 1
-  %896 = fcmp olt <2 x float> %895, zeroinitializer
-  %897 = fcmp ogt <2 x float> %895, <float 1.000000e+00, float 1.000000e+00>
-  %898 = select <2 x i1> %897, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %895
-  %899 = select <2 x i1> %896, <2 x float> zeroinitializer, <2 x float> %898
-  %900 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %899, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
-  %901 = fptosi <2 x float> %900 to <2 x i32>
-  %902 = shl <2 x i32> %901, <i32 16, i32 24>
-  %903 = extractelement <2 x i32> %902, i64 0
-  %or7.i.i235.i = or i32 %or.i.i228.i, %903
-  %904 = extractelement <2 x i32> %902, i64 1
-  %or11.i.i242.i = or i32 %or7.i.i235.i, %904
-  %cond63.i = select i1 %tobool35.not.i, float 0.000000e+00, float %789
-  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %883, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp52.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp56.i, i32 noundef %or11.i.i242.i, float noundef %cond63.i, i32 noundef 48)
-  %FrameBorderSize64.i = getelementptr inbounds i8, ptr %787, i64 14648
-  %905 = load float, ptr %FrameBorderSize64.i, align 4
-  %cmp.i874 = fcmp ogt float %905, 0.000000e+00
+  %893 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i213.i, i64 0
+  %894 = insertelement <2 x float> %893, float %mul1.i216.i, i64 1
+  %895 = fcmp olt <2 x float> %894, zeroinitializer
+  %896 = fcmp ogt <2 x float> %894, <float 1.000000e+00, float 1.000000e+00>
+  %897 = select <2 x i1> %896, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %894
+  %898 = select <2 x i1> %895, <2 x float> zeroinitializer, <2 x float> %897
+  %899 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %898, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
+  %900 = fptosi <2 x float> %899 to <2 x i32>
+  %901 = shl <2 x i32> %900, <i32 16, i32 24>
+  %902 = extractelement <2 x i32> %901, i64 0
+  %or7.i.i235.i = or i32 %or.i.i228.i, %902
+  %903 = extractelement <2 x i32> %901, i64 1
+  %or11.i.i242.i = or i32 %or7.i.i235.i, %903
+  %cond63.i = select i1 %tobool35.not.i, float 0.000000e+00, float %788
+  call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %882, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp52.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp56.i, i32 noundef %or11.i.i242.i, float noundef %cond63.i, i32 noundef 48)
+  %FrameBorderSize64.i = getelementptr inbounds i8, ptr %786, i64 14648
+  %904 = load float, ptr %FrameBorderSize64.i, align 4
+  %cmp.i874 = fcmp ogt float %904, 0.000000e+00
   br i1 %cmp.i874, label %land.lhs.true.i908, label %if.end80.i
 
 land.lhs.true.i908:                               ; preds = %_ZNK11ImGuiWindow11MenuBarRectEv.exit.i
-  %906 = load float, ptr %366, align 4
-  %907 = load float, ptr %y9.i728, align 4
-  %add.i909 = fadd float %906, %907
-  %908 = extractelement <2 x float> %882, i64 1
-  %cmp70.i = fcmp olt float %908, %add.i909
+  %905 = load float, ptr %365, align 4
+  %906 = load float, ptr %y9.i728, align 4
+  %add.i909 = fadd float %905, %906
+  %907 = extractelement <2 x float> %881, i64 1
+  %cmp70.i = fcmp olt float %907, %add.i909
   br i1 %cmp70.i, label %if.then71.i, label %if.end80.i
 
 if.then71.i:                                      ; preds = %land.lhs.true.i908
-  %909 = load ptr, ptr %DrawList, align 8
-  %910 = insertelement <2 x float> %882, float %863, i64 0
-  store <2 x float> %910, ptr %ref.tmp73.i, align 8
-  store <2 x float> %882, ptr %ref.tmp75.i, align 8
-  %911 = load ptr, ptr @GImGui, align 8
-  %Style.i246.i = getelementptr inbounds i8, ptr %911, i64 14576
-  %arrayidx.i248.i = getelementptr inbounds i8, ptr %911, i64 14884
+  %908 = load ptr, ptr %DrawList, align 8
+  %909 = insertelement <2 x float> %881, float %862, i64 0
+  store <2 x float> %909, ptr %ref.tmp73.i, align 8
+  store <2 x float> %881, ptr %ref.tmp75.i, align 8
+  %910 = load ptr, ptr @GImGui, align 8
+  %Style.i246.i = getelementptr inbounds i8, ptr %910, i64 14576
+  %arrayidx.i248.i = getelementptr inbounds i8, ptr %910, i64 14884
   %c.sroa.0.0.copyload.i249.i = load float, ptr %arrayidx.i248.i, align 4
-  %c.sroa.2.0.arrayidx.sroa_idx.i250.i = getelementptr inbounds i8, ptr %911, i64 14888
+  %c.sroa.2.0.arrayidx.sroa_idx.i250.i = getelementptr inbounds i8, ptr %910, i64 14888
   %c.sroa.2.0.copyload.i251.i = load float, ptr %c.sroa.2.0.arrayidx.sroa_idx.i250.i, align 4
-  %c.sroa.3.0.arrayidx.sroa_idx.i252.i = getelementptr inbounds i8, ptr %911, i64 14892
+  %c.sroa.3.0.arrayidx.sroa_idx.i252.i = getelementptr inbounds i8, ptr %910, i64 14892
   %c.sroa.3.0.copyload.i253.i = load float, ptr %c.sroa.3.0.arrayidx.sroa_idx.i252.i, align 4
-  %c.sroa.4.0.arrayidx.sroa_idx.i254.i = getelementptr inbounds i8, ptr %911, i64 14896
+  %c.sroa.4.0.arrayidx.sroa_idx.i254.i = getelementptr inbounds i8, ptr %910, i64 14896
   %c.sroa.4.0.copyload.i255.i = load float, ptr %c.sroa.4.0.arrayidx.sroa_idx.i254.i, align 4
-  %912 = load float, ptr %Style.i246.i, align 4
-  %mul1.i256.i = fmul float %c.sroa.4.0.copyload.i255.i, %912
+  %911 = load float, ptr %Style.i246.i, align 4
+  %mul1.i256.i = fmul float %c.sroa.4.0.copyload.i255.i, %911
   %cmp.i.i.i257.i = fcmp olt float %c.sroa.0.0.copyload.i249.i, 0.000000e+00
   %cmp1.i.i.i258.i = fcmp ogt float %c.sroa.0.0.copyload.i249.i, 1.000000e+00
   %cond.i.i.i259.i = select i1 %cmp1.i.i.i258.i, float 1.000000e+00, float %c.sroa.0.0.copyload.i249.i
   %cond5.i.i.i260.i = select i1 %cmp.i.i.i257.i, float 0.000000e+00, float %cond.i.i.i259.i
-  %913 = call float @llvm.fmuladd.f32(float %cond5.i.i.i260.i, float 2.550000e+02, float 5.000000e-01)
-  %conv.i.i261.i = fptosi float %913 to i32
+  %912 = call float @llvm.fmuladd.f32(float %cond5.i.i.i260.i, float 2.550000e+02, float 5.000000e-01)
+  %conv.i.i261.i = fptosi float %912 to i32
   %cmp.i7.i.i262.i = fcmp olt float %c.sroa.2.0.copyload.i251.i, 0.000000e+00
   %cmp1.i8.i.i263.i = fcmp ogt float %c.sroa.2.0.copyload.i251.i, 1.000000e+00
   %cond.i9.i.i264.i = select i1 %cmp1.i8.i.i263.i, float 1.000000e+00, float %c.sroa.2.0.copyload.i251.i
   %cond5.i10.i.i265.i = select i1 %cmp.i7.i.i262.i, float 0.000000e+00, float %cond.i9.i.i264.i
-  %914 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i265.i, float 2.550000e+02, float 5.000000e-01)
-  %conv2.i.i266.i = fptosi float %914 to i32
+  %913 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i265.i, float 2.550000e+02, float 5.000000e-01)
+  %conv2.i.i266.i = fptosi float %913 to i32
   %shl3.i.i267.i = shl i32 %conv2.i.i266.i, 8
   %or.i.i268.i = or i32 %shl3.i.i267.i, %conv.i.i261.i
-  %915 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i253.i, i64 0
-  %916 = insertelement <2 x float> %915, float %mul1.i256.i, i64 1
-  %917 = fcmp olt <2 x float> %916, zeroinitializer
-  %918 = fcmp ogt <2 x float> %916, <float 1.000000e+00, float 1.000000e+00>
-  %919 = select <2 x i1> %918, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %916
-  %920 = select <2 x i1> %917, <2 x float> zeroinitializer, <2 x float> %919
-  %921 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %920, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
-  %922 = fptosi <2 x float> %921 to <2 x i32>
-  %923 = shl <2 x i32> %922, <i32 16, i32 24>
-  %924 = extractelement <2 x i32> %923, i64 0
-  %or7.i.i275.i = or i32 %or.i.i268.i, %924
-  %925 = extractelement <2 x i32> %923, i64 1
-  %or11.i.i282.i = or i32 %or7.i.i275.i, %925
-  call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %909, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp73.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp75.i, i32 noundef %or11.i.i282.i, float noundef %905)
+  %914 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i253.i, i64 0
+  %915 = insertelement <2 x float> %914, float %mul1.i256.i, i64 1
+  %916 = fcmp olt <2 x float> %915, zeroinitializer
+  %917 = fcmp ogt <2 x float> %915, <float 1.000000e+00, float 1.000000e+00>
+  %918 = select <2 x i1> %917, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %915
+  %919 = select <2 x i1> %916, <2 x float> zeroinitializer, <2 x float> %918
+  %920 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %919, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
+  %921 = fptosi <2 x float> %920 to <2 x i32>
+  %922 = shl <2 x i32> %921, <i32 16, i32 24>
+  %923 = extractelement <2 x i32> %922, i64 0
+  %or7.i.i275.i = or i32 %or.i.i268.i, %923
+  %924 = extractelement <2 x i32> %922, i64 1
+  %or11.i.i282.i = or i32 %or7.i.i275.i, %924
+  call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %908, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp73.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp75.i, i32 noundef %or11.i.i282.i, float noundef %904)
   br label %if.end80.i
 
 if.end80.i:                                       ; preds = %if.then71.i, %land.lhs.true.i908, %_ZNK11ImGuiWindow11MenuBarRectEv.exit.i, %if.end44.i
   %ScrollbarX.i = getelementptr inbounds i8, ptr %window.0, i64 188
-  %926 = load i8, ptr %ScrollbarX.i, align 4
-  %tobool81.i = trunc i8 %926 to i1
+  %925 = load i8, ptr %ScrollbarX.i, align 4
+  %tobool81.i = trunc i8 %925 to i1
   br i1 %tobool81.i, label %if.then82.i, label %if.end83.i
 
 if.then82.i:                                      ; preds = %if.end80.i
@@ -34598,8 +34599,8 @@ if.then82.i:                                      ; preds = %if.end80.i
 
 if.end83.i:                                       ; preds = %if.then82.i, %if.end80.i
   %ScrollbarY.i = getelementptr inbounds i8, ptr %window.0, i64 189
-  %927 = load i8, ptr %ScrollbarY.i, align 1
-  %tobool84.i = trunc i8 %927 to i1
+  %926 = load i8, ptr %ScrollbarY.i, align 1
+  %tobool84.i = trunc i8 %926 to i1
   br i1 %tobool84.i, label %if.then85.i, label %land.lhs.true88.i
 
 if.then85.i:                                      ; preds = %if.end83.i
@@ -34607,63 +34608,63 @@ if.then85.i:                                      ; preds = %if.end83.i
   br label %land.lhs.true88.i
 
 land.lhs.true88.i:                                ; preds = %if.then85.i, %if.end83.i
-  %and89.i = and i32 %788, 2
+  %and89.i = and i32 %787, 2
   %tobool90.not.i = icmp eq i32 %and89.i, 0
   %cmp92394.i = icmp ne i32 %cond699, 0
   %or.cond.i875 = and i1 %cmp92394.i, %tobool90.not.i
   br i1 %or.cond.i875, label %for.body.lr.ph.i884, label %if.then140.i
 
 for.body.lr.ph.i884:                              ; preds = %land.lhs.true88.i
-  %add132.i = fadd float %789, %790
+  %add132.i = fadd float %788, %789
   %wide.trip.count.i885 = zext nneg i32 %cond699 to i64
-  %928 = insertelement <2 x float> poison, float %add132.i, i64 0
-  %929 = shufflevector <2 x float> %928, <2 x float> poison, <2 x i32> zeroinitializer
-  %930 = insertelement <2 x float> poison, float %conv706, i64 0
-  %931 = insertelement <2 x float> %930, float %790, i64 1
-  %932 = shufflevector <2 x float> %931, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %927 = insertelement <2 x float> poison, float %add132.i, i64 0
+  %928 = shufflevector <2 x float> %927, <2 x float> poison, <2 x i32> zeroinitializer
+  %929 = insertelement <2 x float> poison, float %conv706, i64 0
+  %930 = insertelement <2 x float> %929, float %789, i64 1
+  %931 = shufflevector <2 x float> %930, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   br label %for.body.i886
 
 for.body.i886:                                    ; preds = %for.inc.i900, %for.body.lr.ph.i884
   %indvars.iv.i887 = phi i64 [ 0, %for.body.lr.ph.i884 ], [ %indvars.iv.next.i901, %for.inc.i900 ]
   %arrayidx.i888 = getelementptr inbounds i32, ptr %resize_grip_col, i64 %indvars.iv.i887
-  %933 = load i32, ptr %arrayidx.i888, align 4
-  %cmp94.i889 = icmp ult i32 %933, 16777216
+  %932 = load i32, ptr %arrayidx.i888, align 4
+  %cmp94.i889 = icmp ult i32 %932, 16777216
   br i1 %cmp94.i889, label %for.inc.i900, label %if.end96.i
 
 if.end96.i:                                       ; preds = %for.body.i886
   %arrayidx98.i = getelementptr inbounds [4 x %struct.ImGuiResizeGripDef], ptr @_ZL15resize_grip_def, i64 0, i64 %indvars.iv.i887
-  %934 = load ptr, ptr %DrawList, align 8
+  %933 = load ptr, ptr %DrawList, align 8
   %InnerDir.i891 = getelementptr inbounds i8, ptr %arrayidx98.i, i64 8
   %and109397.i = and i64 %indvars.iv.i887, 1
   %tobool110.not.i = icmp eq i64 %and109397.i, 0
-  %935 = insertelement <2 x i1> poison, i1 %tobool110.not.i, i64 0
-  %936 = shufflevector <2 x i1> %935, <2 x i1> poison, <2 x i32> zeroinitializer
-  %937 = select <2 x i1> %936, <2 x float> %931, <2 x float> %932
-  %938 = shufflevector <2 x float> %937, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %939 = load <2 x float>, ptr %Pos656, align 4
-  %940 = load <2 x float>, ptr %Size547, align 4
-  %941 = fadd <2 x float> %939, %940
-  %942 = load <2 x float>, ptr %arrayidx98.i, align 8
-  %943 = fsub <2 x float> %941, %939
-  %944 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %943, <2 x float> %942, <2 x float> %939)
-  %945 = load <2 x float>, ptr %InnerDir.i891, align 8
-  %946 = fmul <2 x float> %937, %945
-  %947 = fadd <2 x float> %944, %946
-  %_Path.i.i = getelementptr inbounds i8, ptr %934, i64 120
-  %948 = load i32, ptr %_Path.i.i, align 8
-  %Capacity.i.i.i894 = getelementptr inbounds i8, ptr %934, i64 124
-  %949 = load i32, ptr %Capacity.i.i.i894, align 4
-  %cmp.i.i298.i = icmp eq i32 %948, %949
+  %934 = insertelement <2 x i1> poison, i1 %tobool110.not.i, i64 0
+  %935 = shufflevector <2 x i1> %934, <2 x i1> poison, <2 x i32> zeroinitializer
+  %936 = select <2 x i1> %935, <2 x float> %930, <2 x float> %931
+  %937 = shufflevector <2 x float> %936, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %938 = load <2 x float>, ptr %Pos656, align 4
+  %939 = load <2 x float>, ptr %Size547, align 4
+  %940 = fadd <2 x float> %938, %939
+  %941 = load <2 x float>, ptr %arrayidx98.i, align 8
+  %942 = fsub <2 x float> %940, %938
+  %943 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %942, <2 x float> %941, <2 x float> %938)
+  %944 = load <2 x float>, ptr %InnerDir.i891, align 8
+  %945 = fmul <2 x float> %936, %944
+  %946 = fadd <2 x float> %943, %945
+  %_Path.i.i = getelementptr inbounds i8, ptr %933, i64 120
+  %947 = load i32, ptr %_Path.i.i, align 8
+  %Capacity.i.i.i894 = getelementptr inbounds i8, ptr %933, i64 124
+  %948 = load i32, ptr %Capacity.i.i.i894, align 4
+  %cmp.i.i298.i = icmp eq i32 %947, %948
   br i1 %cmp.i.i298.i, label %if.then.i.i299.i, label %_ZN10ImDrawList10PathLineToERK6ImVec2.exit.i
 
 if.then.i.i299.i:                                 ; preds = %if.end96.i
-  %add.i.i300.i = add nsw i32 %948, 1
-  %tobool.not.i.i.i301.i = icmp eq i32 %948, 0
+  %add.i.i300.i = add nsw i32 %947, 1
+  %tobool.not.i.i.i301.i = icmp eq i32 %947, 0
   br i1 %tobool.not.i.i.i301.i, label %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i.i, label %cond.true.i.i.i.i903
 
 cond.true.i.i.i.i903:                             ; preds = %if.then.i.i299.i
-  %div.i.i.i.i904 = sdiv i32 %948, 2
-  %add.i.i.i.i905 = add nsw i32 %div.i.i.i.i904, %948
+  %div.i.i.i.i904 = sdiv i32 %947, 2
+  %add.i.i.i.i905 = add nsw i32 %div.i.i.i.i904, %947
   br label %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i.i
 
 _ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i.i: ; preds = %cond.true.i.i.i.i903, %if.then.i.i299.i
@@ -34674,33 +34675,33 @@ _ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i.i: ; preds = %cond.true.i.i.i.
   br label %_ZN10ImDrawList10PathLineToERK6ImVec2.exit.i
 
 _ZN10ImDrawList10PathLineToERK6ImVec2.exit.i:     ; preds = %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i.i, %if.end96.i
-  %950 = phi i32 [ %.pre.i.i.i907, %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i.i ], [ %948, %if.end96.i ]
-  %Data.i.i.i895 = getelementptr inbounds i8, ptr %934, i64 128
-  %951 = load ptr, ptr %Data.i.i.i895, align 8
-  %idxprom.i.i.i896 = sext i32 %950 to i64
-  %arrayidx.i.i.i897 = getelementptr inbounds %struct.ImVec2, ptr %951, i64 %idxprom.i.i.i896
-  store <2 x float> %947, ptr %arrayidx.i.i.i897, align 4
-  %952 = load i32, ptr %_Path.i.i, align 8
-  %inc.i.i.i898 = add nsw i32 %952, 1
+  %949 = phi i32 [ %.pre.i.i.i907, %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i.i ], [ %947, %if.end96.i ]
+  %Data.i.i.i895 = getelementptr inbounds i8, ptr %933, i64 128
+  %950 = load ptr, ptr %Data.i.i.i895, align 8
+  %idxprom.i.i.i896 = sext i32 %949 to i64
+  %arrayidx.i.i.i897 = getelementptr inbounds %struct.ImVec2, ptr %950, i64 %idxprom.i.i.i896
+  store <2 x float> %946, ptr %arrayidx.i.i.i897, align 4
+  %951 = load i32, ptr %_Path.i.i, align 8
+  %inc.i.i.i898 = add nsw i32 %951, 1
   store i32 %inc.i.i.i898, ptr %_Path.i.i, align 8
-  %953 = load ptr, ptr %DrawList, align 8
-  %954 = fmul <2 x float> %938, %945
-  %955 = fadd <2 x float> %944, %954
-  %_Path.i313.i = getelementptr inbounds i8, ptr %953, i64 120
-  %956 = load i32, ptr %_Path.i313.i, align 8
-  %Capacity.i.i314.i = getelementptr inbounds i8, ptr %953, i64 124
-  %957 = load i32, ptr %Capacity.i.i314.i, align 4
-  %cmp.i.i315.i = icmp eq i32 %956, %957
+  %952 = load ptr, ptr %DrawList, align 8
+  %953 = fmul <2 x float> %937, %944
+  %954 = fadd <2 x float> %943, %953
+  %_Path.i313.i = getelementptr inbounds i8, ptr %952, i64 120
+  %955 = load i32, ptr %_Path.i313.i, align 8
+  %Capacity.i.i314.i = getelementptr inbounds i8, ptr %952, i64 124
+  %956 = load i32, ptr %Capacity.i.i314.i, align 4
+  %cmp.i.i315.i = icmp eq i32 %955, %956
   br i1 %cmp.i.i315.i, label %if.then.i.i320.i, label %_ZN10ImDrawList10PathLineToERK6ImVec2.exit330.i
 
 if.then.i.i320.i:                                 ; preds = %_ZN10ImDrawList10PathLineToERK6ImVec2.exit.i
-  %add.i.i321.i = add nsw i32 %956, 1
-  %tobool.not.i.i.i322.i = icmp eq i32 %956, 0
+  %add.i.i321.i = add nsw i32 %955, 1
+  %tobool.not.i.i.i322.i = icmp eq i32 %955, 0
   br i1 %tobool.not.i.i.i322.i, label %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i326.i, label %cond.true.i.i.i323.i
 
 cond.true.i.i.i323.i:                             ; preds = %if.then.i.i320.i
-  %div.i.i.i324.i = sdiv i32 %956, 2
-  %add.i.i.i325.i = add nsw i32 %div.i.i.i324.i, %956
+  %div.i.i.i324.i = sdiv i32 %955, 2
+  %add.i.i.i325.i = add nsw i32 %div.i.i.i324.i, %955
   br label %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i326.i
 
 _ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i326.i: ; preds = %cond.true.i.i.i323.i, %if.then.i.i320.i
@@ -34711,29 +34712,29 @@ _ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i326.i: ; preds = %cond.true.i.i
   br label %_ZN10ImDrawList10PathLineToERK6ImVec2.exit330.i
 
 _ZN10ImDrawList10PathLineToERK6ImVec2.exit330.i:  ; preds = %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i326.i, %_ZN10ImDrawList10PathLineToERK6ImVec2.exit.i
-  %958 = phi i32 [ %.pre.i.i329.i, %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i326.i ], [ %956, %_ZN10ImDrawList10PathLineToERK6ImVec2.exit.i ]
-  %Data.i.i316.i = getelementptr inbounds i8, ptr %953, i64 128
-  %959 = load ptr, ptr %Data.i.i316.i, align 8
-  %idxprom.i.i317.i = sext i32 %958 to i64
-  %arrayidx.i.i318.i = getelementptr inbounds %struct.ImVec2, ptr %959, i64 %idxprom.i.i317.i
-  store <2 x float> %955, ptr %arrayidx.i.i318.i, align 4
-  %960 = load i32, ptr %_Path.i313.i, align 8
-  %inc.i.i319.i = add nsw i32 %960, 1
+  %957 = phi i32 [ %.pre.i.i329.i, %_ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit.i.i326.i ], [ %955, %_ZN10ImDrawList10PathLineToERK6ImVec2.exit.i ]
+  %Data.i.i316.i = getelementptr inbounds i8, ptr %952, i64 128
+  %958 = load ptr, ptr %Data.i.i316.i, align 8
+  %idxprom.i.i317.i = sext i32 %957 to i64
+  %arrayidx.i.i318.i = getelementptr inbounds %struct.ImVec2, ptr %958, i64 %idxprom.i.i317.i
+  store <2 x float> %954, ptr %arrayidx.i.i318.i, align 4
+  %959 = load i32, ptr %_Path.i313.i, align 8
+  %inc.i.i319.i = add nsw i32 %959, 1
   store i32 %inc.i.i319.i, ptr %_Path.i313.i, align 8
-  %961 = load ptr, ptr %DrawList, align 8
-  %962 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %945, <2 x float> %929, <2 x float> %944)
-  store <2 x float> %962, ptr %ref.tmp129.i, align 8
+  %960 = load ptr, ptr %DrawList, align 8
+  %961 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %944, <2 x float> %928, <2 x float> %943)
+  store <2 x float> %961, ptr %ref.tmp129.i, align 8
   %AngleMin12.i = getelementptr inbounds i8, ptr %arrayidx98.i, i64 16
-  %963 = load i32, ptr %AngleMin12.i, align 8
+  %962 = load i32, ptr %AngleMin12.i, align 8
   %AngleMax12.i = getelementptr inbounds i8, ptr %arrayidx98.i, i64 20
-  %964 = load i32, ptr %AngleMax12.i, align 4
-  call void @_ZN10ImDrawList13PathArcToFastERK6ImVec2fii(ptr noundef nonnull align 8 dereferenceable(196) %961, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp129.i, float noundef %789, i32 noundef %963, i32 noundef %964)
-  %965 = load ptr, ptr %DrawList, align 8
-  %_Path.i332.i = getelementptr inbounds i8, ptr %965, i64 120
-  %Data.i.i899 = getelementptr inbounds i8, ptr %965, i64 128
-  %966 = load ptr, ptr %Data.i.i899, align 8
-  %967 = load i32, ptr %_Path.i332.i, align 8
-  call void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 dereferenceable(196) %965, ptr noundef %966, i32 noundef %967, i32 noundef %933)
+  %963 = load i32, ptr %AngleMax12.i, align 4
+  call void @_ZN10ImDrawList13PathArcToFastERK6ImVec2fii(ptr noundef nonnull align 8 dereferenceable(196) %960, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp129.i, float noundef %788, i32 noundef %962, i32 noundef %963)
+  %964 = load ptr, ptr %DrawList, align 8
+  %_Path.i332.i = getelementptr inbounds i8, ptr %964, i64 120
+  %Data.i.i899 = getelementptr inbounds i8, ptr %964, i64 128
+  %965 = load ptr, ptr %Data.i.i899, align 8
+  %966 = load i32, ptr %_Path.i332.i, align 8
+  call void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 dereferenceable(196) %964, ptr noundef %965, i32 noundef %966, i32 noundef %932)
   store i32 0, ptr %_Path.i332.i, align 8
   br label %for.inc.i900
 
@@ -34748,83 +34749,83 @@ if.then140.i:                                     ; preds = %for.inc.i900, %land
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp31.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp60.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp63.i.i)
-  %968 = load ptr, ptr @GImGui, align 8
-  %969 = load float, ptr %WindowRounding674, align 8
-  %970 = load float, ptr %WindowBorderSize891, align 4
-  %cmp.i333.i = fcmp ogt float %970, 0.000000e+00
+  %967 = load ptr, ptr @GImGui, align 8
+  %968 = load float, ptr %WindowRounding674, align 8
+  %969 = load float, ptr %WindowBorderSize891, align 4
+  %cmp.i333.i = fcmp ogt float %969, 0.000000e+00
   br i1 %cmp.i333.i, label %land.lhs.true.i.i, label %if.end.i.i876
 
 land.lhs.true.i.i:                                ; preds = %if.then140.i
-  %971 = load i32, ptr %Flags.i457, align 4
-  %and.i356.i = and i32 %971, 128
+  %970 = load i32, ptr %Flags.i457, align 4
+  %and.i356.i = and i32 %970, 128
   %tobool.not.i357.i = icmp eq i32 %and.i356.i, 0
   br i1 %tobool.not.i357.i, label %if.then.i.i881, label %if.end.i.i876
 
 if.then.i.i881:                                   ; preds = %land.lhs.true.i.i
-  %972 = load ptr, ptr %DrawList, align 8
-  %973 = load <2 x float>, ptr %Pos656, align 4
-  %974 = load <2 x float>, ptr %Size547, align 4
-  %975 = fadd <2 x float> %973, %974
-  store <2 x float> %975, ptr %ref.tmp.i.i, align 8
-  %Style.i.i.i = getelementptr inbounds i8, ptr %968, i64 14576
-  %arrayidx.i.i363.i = getelementptr inbounds i8, ptr %968, i64 14884
+  %971 = load ptr, ptr %DrawList, align 8
+  %972 = load <2 x float>, ptr %Pos656, align 4
+  %973 = load <2 x float>, ptr %Size547, align 4
+  %974 = fadd <2 x float> %972, %973
+  store <2 x float> %974, ptr %ref.tmp.i.i, align 8
+  %Style.i.i.i = getelementptr inbounds i8, ptr %967, i64 14576
+  %arrayidx.i.i363.i = getelementptr inbounds i8, ptr %967, i64 14884
   %c.sroa.0.0.copyload.i.i.i = load float, ptr %arrayidx.i.i363.i, align 4
-  %c.sroa.2.0.arrayidx.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %968, i64 14888
+  %c.sroa.2.0.arrayidx.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %967, i64 14888
   %c.sroa.2.0.copyload.i.i.i = load float, ptr %c.sroa.2.0.arrayidx.sroa_idx.i.i.i, align 4
-  %c.sroa.3.0.arrayidx.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %968, i64 14892
+  %c.sroa.3.0.arrayidx.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %967, i64 14892
   %c.sroa.3.0.copyload.i.i.i = load float, ptr %c.sroa.3.0.arrayidx.sroa_idx.i.i.i, align 4
-  %c.sroa.4.0.arrayidx.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %968, i64 14896
+  %c.sroa.4.0.arrayidx.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %967, i64 14896
   %c.sroa.4.0.copyload.i.i.i = load float, ptr %c.sroa.4.0.arrayidx.sroa_idx.i.i.i, align 4
-  %976 = load float, ptr %Style.i.i.i, align 4
-  %mul1.i.i.i = fmul float %c.sroa.4.0.copyload.i.i.i, %976
+  %975 = load float, ptr %Style.i.i.i, align 4
+  %mul1.i.i.i = fmul float %c.sroa.4.0.copyload.i.i.i, %975
   %cmp.i.i.i.i.i = fcmp olt float %c.sroa.0.0.copyload.i.i.i, 0.000000e+00
   %cmp1.i.i.i.i.i = fcmp ogt float %c.sroa.0.0.copyload.i.i.i, 1.000000e+00
   %cond.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i, float 1.000000e+00, float %c.sroa.0.0.copyload.i.i.i
   %cond5.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, float 0.000000e+00, float %cond.i.i.i.i.i
-  %977 = call float @llvm.fmuladd.f32(float %cond5.i.i.i.i.i, float 2.550000e+02, float 5.000000e-01)
-  %conv.i.i.i.i = fptosi float %977 to i32
+  %976 = call float @llvm.fmuladd.f32(float %cond5.i.i.i.i.i, float 2.550000e+02, float 5.000000e-01)
+  %conv.i.i.i.i = fptosi float %976 to i32
   %cmp.i7.i.i.i.i = fcmp olt float %c.sroa.2.0.copyload.i.i.i, 0.000000e+00
   %cmp1.i8.i.i.i.i = fcmp ogt float %c.sroa.2.0.copyload.i.i.i, 1.000000e+00
   %cond.i9.i.i.i.i = select i1 %cmp1.i8.i.i.i.i, float 1.000000e+00, float %c.sroa.2.0.copyload.i.i.i
   %cond5.i10.i.i.i.i = select i1 %cmp.i7.i.i.i.i, float 0.000000e+00, float %cond.i9.i.i.i.i
-  %978 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i.i.i, float 2.550000e+02, float 5.000000e-01)
-  %conv2.i.i.i.i = fptosi float %978 to i32
+  %977 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i.i.i, float 2.550000e+02, float 5.000000e-01)
+  %conv2.i.i.i.i = fptosi float %977 to i32
   %shl3.i.i.i.i = shl i32 %conv2.i.i.i.i, 8
   %or.i.i.i.i = or i32 %shl3.i.i.i.i, %conv.i.i.i.i
-  %979 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i.i.i, i64 0
-  %980 = insertelement <2 x float> %979, float %mul1.i.i.i, i64 1
-  %981 = fcmp olt <2 x float> %980, zeroinitializer
-  %982 = fcmp ogt <2 x float> %980, <float 1.000000e+00, float 1.000000e+00>
-  %983 = select <2 x i1> %982, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %980
-  %984 = select <2 x i1> %981, <2 x float> zeroinitializer, <2 x float> %983
-  %985 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %984, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
-  %986 = fptosi <2 x float> %985 to <2 x i32>
-  %987 = shl <2 x i32> %986, <i32 16, i32 24>
-  %988 = extractelement <2 x i32> %987, i64 0
-  %or7.i.i.i.i = or i32 %or.i.i.i.i, %988
-  %989 = extractelement <2 x i32> %987, i64 1
-  %or11.i.i.i.i = or i32 %or7.i.i.i.i, %989
-  call void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonnull align 8 dereferenceable(196) %972, ptr noundef nonnull align 4 dereferenceable(8) %Pos656, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i.i, i32 noundef %or11.i.i.i.i, float noundef %969, i32 noundef 0, float noundef %970)
+  %978 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i.i.i, i64 0
+  %979 = insertelement <2 x float> %978, float %mul1.i.i.i, i64 1
+  %980 = fcmp olt <2 x float> %979, zeroinitializer
+  %981 = fcmp ogt <2 x float> %979, <float 1.000000e+00, float 1.000000e+00>
+  %982 = select <2 x i1> %981, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %979
+  %983 = select <2 x i1> %980, <2 x float> zeroinitializer, <2 x float> %982
+  %984 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %983, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
+  %985 = fptosi <2 x float> %984 to <2 x i32>
+  %986 = shl <2 x i32> %985, <i32 16, i32 24>
+  %987 = extractelement <2 x i32> %986, i64 0
+  %or7.i.i.i.i = or i32 %or.i.i.i.i, %987
+  %988 = extractelement <2 x i32> %986, i64 1
+  %or11.i.i.i.i = or i32 %or7.i.i.i.i, %988
+  call void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonnull align 8 dereferenceable(196) %971, ptr noundef nonnull align 4 dereferenceable(8) %Pos656, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i.i, i32 noundef %or11.i.i.i.i, float noundef %968, i32 noundef 0, float noundef %969)
   br label %if.end.i.i876
 
 if.end.i.i876:                                    ; preds = %if.then.i.i881, %land.lhs.true.i.i, %if.then140.i
-  %990 = load i8, ptr %ResizeBorderHovered, align 1
-  %cmp3.not.i.i = icmp eq i8 %990, -1
-  %991 = load i8, ptr %ResizeBorderHeld, align 2
-  %cmp5.not.i.i877 = icmp eq i8 %991, -1
+  %989 = load i8, ptr %ResizeBorderHovered, align 1
+  %cmp3.not.i.i = icmp eq i8 %989, -1
+  %990 = load i8, ptr %ResizeBorderHeld, align 2
+  %cmp5.not.i.i877 = icmp eq i8 %990, -1
   %or.cond.i.i = select i1 %cmp3.not.i.i, i1 %cmp5.not.i.i877, i1 false
   br i1 %or.cond.i.i, label %if.end47.i.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.end.i.i876
-  %spec.select.i.i = select i1 %cmp5.not.i.i877, i8 %990, i8 %991
+  %spec.select.i.i = select i1 %cmp5.not.i.i877, i8 %989, i8 %990
   %idxprom.i334.i = sext i8 %spec.select.i.i to i64
   %arrayidx.i335.i = getelementptr inbounds [4 x %struct.ImGuiResizeBorderDef], ptr @_ZL17resize_border_def, i64 0, i64 %idxprom.i334.i
-  %992 = load float, ptr %Pos656, align 8
-  %993 = load float, ptr %366, align 4
-  %994 = load float, ptr %Size547, align 8
-  %add.i.i.i336.i = fadd float %992, %994
-  %995 = load float, ptr %y9.i728, align 4
-  %add10.i.i.i.i = fadd float %993, %995
+  %991 = load float, ptr %Pos656, align 8
+  %992 = load float, ptr %365, align 4
+  %993 = load float, ptr %Size547, align 8
+  %add.i.i.i336.i = fadd float %991, %993
+  %994 = load float, ptr %y9.i728, align 4
+  %add10.i.i.i.i = fadd float %992, %994
   %sub.i.i.i.i878 = fadd float %add.i.i.i336.i, -1.000000e+00
   %sub3.i.i.i.i = fadd float %add10.i.i.i.i, -1.000000e+00
   switch i8 %spec.select.i.i, label %_ZL19GetResizeBorderRectP11ImGuiWindowiff.exit.i.i [
@@ -34835,10 +34836,10 @@ if.then6.i.i:                                     ; preds = %if.end.i.i876
   ]
 
 if.then3.i.i.i:                                   ; preds = %if.then6.i.i
-  %add.i64.i.i = fadd float %969, %993
-  %add7.i.i.i = fadd float %992, 0.000000e+00
-  %sub10.i.i.i = fsub float %sub3.i.i.i.i, %969
-  %retval.sroa.0.0.vec.insert.i65.i.i = insertelement <2 x float> poison, float %992, i64 0
+  %add.i64.i.i = fadd float %968, %992
+  %add7.i.i.i = fadd float %991, 0.000000e+00
+  %sub10.i.i.i = fsub float %sub3.i.i.i.i, %968
+  %retval.sroa.0.0.vec.insert.i65.i.i = insertelement <2 x float> poison, float %991, i64 0
   %retval.sroa.0.4.vec.insert.i66.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i65.i.i, float %add.i64.i.i, i64 1
   %retval.sroa.10.8.vec.insert.i.i.i = insertelement <2 x float> poison, float %add7.i.i.i, i64 0
   %retval.sroa.10.12.vec.insert.i.i.i = insertelement <2 x float> %retval.sroa.10.8.vec.insert.i.i.i, float %sub10.i.i.i, i64 1
@@ -34846,25 +34847,25 @@ if.then3.i.i.i:                                   ; preds = %if.then6.i.i
 
 if.then13.i.i.i:                                  ; preds = %if.then6.i.i
   %rect.sroa.7.8.vec.insert.i.i.i = insertelement <2 x float> poison, float %sub.i.i.i.i878, i64 0
-  %add19.i.i.i = fadd float %969, %993
-  %sub25.i.i.i = fsub float %sub3.i.i.i.i, %969
+  %add19.i.i.i = fadd float %968, %992
+  %sub25.i.i.i = fsub float %sub3.i.i.i.i, %968
   %retval.sroa.0.4.vec.insert60.i.i.i = insertelement <2 x float> %rect.sroa.7.8.vec.insert.i.i.i, float %add19.i.i.i, i64 1
   %retval.sroa.10.12.vec.insert73.i.i.i = insertelement <2 x float> %rect.sroa.7.8.vec.insert.i.i.i, float %sub25.i.i.i, i64 1
   br label %_ZL19GetResizeBorderRectP11ImGuiWindowiff.exit.i.i
 
 if.then28.i.i.i:                                  ; preds = %if.then6.i.i
-  %add31.i.i.i = fadd float %969, %992
-  %sub37.i.i.i = fsub float %sub.i.i.i.i878, %969
-  %add40.i.i.i = fadd float %993, 0.000000e+00
+  %add31.i.i.i = fadd float %968, %991
+  %sub37.i.i.i = fsub float %sub.i.i.i.i878, %968
+  %add40.i.i.i = fadd float %992, 0.000000e+00
   %retval.sroa.0.0.vec.insert56.i.i.i = insertelement <2 x float> poison, float %add31.i.i.i, i64 0
-  %retval.sroa.0.4.vec.insert62.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert56.i.i.i, float %993, i64 1
+  %retval.sroa.0.4.vec.insert62.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert56.i.i.i, float %992, i64 1
   %retval.sroa.10.8.vec.insert69.i.i.i = insertelement <2 x float> poison, float %sub37.i.i.i, i64 0
   %retval.sroa.10.12.vec.insert75.i.i.i = insertelement <2 x float> %retval.sroa.10.8.vec.insert69.i.i.i, float %add40.i.i.i, i64 1
   br label %_ZL19GetResizeBorderRectP11ImGuiWindowiff.exit.i.i
 
 if.then43.i.i.i:                                  ; preds = %if.then6.i.i
-  %add46.i.i.i = fadd float %969, %992
-  %sub52.i.i.i = fsub float %sub.i.i.i.i878, %969
+  %add46.i.i.i = fadd float %968, %991
+  %sub52.i.i.i = fsub float %sub.i.i.i.i878, %968
   %retval.sroa.0.0.vec.insert58.i.i.i = insertelement <2 x float> poison, float %add46.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert64.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert58.i.i.i, float %sub3.i.i.i.i, i64 1
   %retval.sroa.10.8.vec.insert71.i.i.i = insertelement <2 x float> poison, float %sub52.i.i.i, i64 0
@@ -34874,9 +34875,9 @@ if.then43.i.i.i:                                  ; preds = %if.then6.i.i
 _ZL19GetResizeBorderRectP11ImGuiWindowiff.exit.i.i: ; preds = %if.then43.i.i.i, %if.then28.i.i.i, %if.then13.i.i.i, %if.then3.i.i.i, %if.then6.i.i
   %retval.sroa.0.0.i.i.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert64.i.i.i, %if.then43.i.i.i ], [ %retval.sroa.0.4.vec.insert62.i.i.i, %if.then28.i.i.i ], [ %retval.sroa.0.4.vec.insert60.i.i.i, %if.then13.i.i.i ], [ %retval.sroa.0.4.vec.insert.i66.i.i, %if.then3.i.i.i ], [ zeroinitializer, %if.then6.i.i ]
   %retval.sroa.10.0.i.i.i = phi <2 x float> [ %retval.sroa.10.12.vec.insert77.i.i.i, %if.then43.i.i.i ], [ %retval.sroa.10.12.vec.insert75.i.i.i, %if.then28.i.i.i ], [ %retval.sroa.10.12.vec.insert73.i.i.i, %if.then13.i.i.i ], [ %retval.sroa.10.12.vec.insert.i.i.i, %if.then3.i.i.i ], [ zeroinitializer, %if.then6.i.i ]
-  %996 = load ptr, ptr @GImGui, align 8
-  %Style.i67.i.i = getelementptr inbounds i8, ptr %996, i64 14576
-  %Colors.i68.i.i = getelementptr inbounds i8, ptr %996, i64 14804
+  %995 = load ptr, ptr @GImGui, align 8
+  %Style.i67.i.i = getelementptr inbounds i8, ptr %995, i64 14576
+  %Colors.i68.i.i = getelementptr inbounds i8, ptr %995, i64 14804
   %idxprom.i.i337.i = select i1 %cmp5.not.i.i877, i64 28, i64 29
   %arrayidx.i69.i.i = getelementptr inbounds [53 x %struct.ImVec4], ptr %Colors.i68.i.i, i64 0, i64 %idxprom.i.i337.i
   %c.sroa.0.0.copyload.i70.i.i = load float, ptr %arrayidx.i69.i.i, align 4
@@ -34886,159 +34887,159 @@ _ZL19GetResizeBorderRectP11ImGuiWindowiff.exit.i.i: ; preds = %if.then43.i.i.i, 
   %c.sroa.3.0.copyload.i74.i.i = load float, ptr %c.sroa.3.0.arrayidx.sroa_idx.i73.i.i, align 4
   %c.sroa.4.0.arrayidx.sroa_idx.i75.i.i = getelementptr inbounds i8, ptr %arrayidx.i69.i.i, i64 12
   %c.sroa.4.0.copyload.i76.i.i = load float, ptr %c.sroa.4.0.arrayidx.sroa_idx.i75.i.i, align 4
-  %997 = load float, ptr %Style.i67.i.i, align 4
-  %mul1.i77.i.i = fmul float %c.sroa.4.0.copyload.i76.i.i, %997
+  %996 = load float, ptr %Style.i67.i.i, align 4
+  %mul1.i77.i.i = fmul float %c.sroa.4.0.copyload.i76.i.i, %996
   %cmp.i.i.i78.i.i = fcmp olt float %c.sroa.0.0.copyload.i70.i.i, 0.000000e+00
   %cmp1.i.i.i79.i.i = fcmp ogt float %c.sroa.0.0.copyload.i70.i.i, 1.000000e+00
   %cond.i.i.i80.i.i = select i1 %cmp1.i.i.i79.i.i, float 1.000000e+00, float %c.sroa.0.0.copyload.i70.i.i
   %cond5.i.i.i81.i.i = select i1 %cmp.i.i.i78.i.i, float 0.000000e+00, float %cond.i.i.i80.i.i
-  %998 = call float @llvm.fmuladd.f32(float %cond5.i.i.i81.i.i, float 2.550000e+02, float 5.000000e-01)
-  %conv.i.i82.i.i = fptosi float %998 to i32
+  %997 = call float @llvm.fmuladd.f32(float %cond5.i.i.i81.i.i, float 2.550000e+02, float 5.000000e-01)
+  %conv.i.i82.i.i = fptosi float %997 to i32
   %cmp.i7.i.i83.i.i = fcmp olt float %c.sroa.2.0.copyload.i72.i.i, 0.000000e+00
   %cmp1.i8.i.i84.i.i = fcmp ogt float %c.sroa.2.0.copyload.i72.i.i, 1.000000e+00
   %cond.i9.i.i85.i.i = select i1 %cmp1.i8.i.i84.i.i, float 1.000000e+00, float %c.sroa.2.0.copyload.i72.i.i
   %cond5.i10.i.i86.i.i = select i1 %cmp.i7.i.i83.i.i, float 0.000000e+00, float %cond.i9.i.i85.i.i
-  %999 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i86.i.i, float 2.550000e+02, float 5.000000e-01)
-  %conv2.i.i87.i.i = fptosi float %999 to i32
+  %998 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i86.i.i, float 2.550000e+02, float 5.000000e-01)
+  %conv2.i.i87.i.i = fptosi float %998 to i32
   %shl3.i.i88.i.i = shl i32 %conv2.i.i87.i.i, 8
   %or.i.i89.i.i = or i32 %shl3.i.i88.i.i, %conv.i.i82.i.i
-  %1000 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i74.i.i, i64 0
-  %1001 = insertelement <2 x float> %1000, float %mul1.i77.i.i, i64 1
-  %1002 = fcmp olt <2 x float> %1001, zeroinitializer
-  %1003 = fcmp ogt <2 x float> %1001, <float 1.000000e+00, float 1.000000e+00>
-  %1004 = select <2 x i1> %1003, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %1001
-  %1005 = select <2 x i1> %1002, <2 x float> zeroinitializer, <2 x float> %1004
-  %1006 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %1005, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
-  %1007 = fptosi <2 x float> %1006 to <2 x i32>
-  %1008 = shl <2 x i32> %1007, <i32 16, i32 24>
-  %1009 = extractelement <2 x i32> %1008, i64 0
-  %or7.i.i96.i.i = or i32 %or.i.i89.i.i, %1009
-  %1010 = extractelement <2 x i32> %1008, i64 1
-  %or11.i.i103.i.i = or i32 %or7.i.i96.i.i, %1010
-  %1011 = load ptr, ptr %DrawList, align 8
+  %999 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i74.i.i, i64 0
+  %1000 = insertelement <2 x float> %999, float %mul1.i77.i.i, i64 1
+  %1001 = fcmp olt <2 x float> %1000, zeroinitializer
+  %1002 = fcmp ogt <2 x float> %1000, <float 1.000000e+00, float 1.000000e+00>
+  %1003 = select <2 x i1> %1002, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %1000
+  %1004 = select <2 x i1> %1001, <2 x float> zeroinitializer, <2 x float> %1003
+  %1005 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %1004, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
+  %1006 = fptosi <2 x float> %1005 to <2 x i32>
+  %1007 = shl <2 x i32> %1006, <i32 16, i32 24>
+  %1008 = extractelement <2 x i32> %1007, i64 0
+  %or7.i.i96.i.i = or i32 %or.i.i89.i.i, %1008
+  %1009 = extractelement <2 x i32> %1007, i64 1
+  %or11.i.i103.i.i = or i32 %or7.i.i96.i.i, %1009
+  %1010 = load ptr, ptr %DrawList, align 8
   %SegmentN1.i.i = getelementptr inbounds i8, ptr %arrayidx.i335.i, i64 8
-  %1012 = load <2 x float>, ptr %SegmentN1.i.i, align 4
-  %1013 = fsub <2 x float> %retval.sroa.10.0.i.i.i, %retval.sroa.0.0.i.i.i
-  %1014 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %1013, <2 x float> %1012, <2 x float> %retval.sroa.0.0.i.i.i)
-  %1015 = fadd <2 x float> %1014, <float 5.000000e-01, float 5.000000e-01>
-  %1016 = load <2 x float>, ptr %arrayidx.i335.i, align 4
-  %1017 = insertelement <2 x float> poison, float %969, i64 0
-  %1018 = shufflevector <2 x float> %1017, <2 x float> poison, <2 x i32> zeroinitializer
-  %1019 = fmul <2 x float> %1018, %1016
-  %1020 = fadd <2 x float> %1015, %1019
-  store <2 x float> %1020, ptr %ref.tmp20.i.i, align 8
+  %1011 = load <2 x float>, ptr %SegmentN1.i.i, align 4
+  %1012 = fsub <2 x float> %retval.sroa.10.0.i.i.i, %retval.sroa.0.0.i.i.i
+  %1013 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %1012, <2 x float> %1011, <2 x float> %retval.sroa.0.0.i.i.i)
+  %1014 = fadd <2 x float> %1013, <float 5.000000e-01, float 5.000000e-01>
+  %1015 = load <2 x float>, ptr %arrayidx.i335.i, align 4
+  %1016 = insertelement <2 x float> poison, float %968, i64 0
+  %1017 = shufflevector <2 x float> %1016, <2 x float> poison, <2 x i32> zeroinitializer
+  %1018 = fmul <2 x float> %1017, %1015
+  %1019 = fadd <2 x float> %1014, %1018
+  store <2 x float> %1019, ptr %ref.tmp20.i.i, align 8
   %OuterAngle.i.i = getelementptr inbounds i8, ptr %arrayidx.i335.i, i64 24
-  %1021 = load float, ptr %OuterAngle.i.i, align 4
-  %sub.i339.i = fadd float %1021, 0xBFE921FB60000000
-  call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(196) %1011, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp20.i.i, float noundef %969, float noundef %sub.i339.i, float noundef %1021, i32 noundef 0)
-  %1022 = load ptr, ptr %DrawList, align 8
+  %1020 = load float, ptr %OuterAngle.i.i, align 4
+  %sub.i339.i = fadd float %1020, 0xBFE921FB60000000
+  call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(196) %1010, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp20.i.i, float noundef %968, float noundef %sub.i339.i, float noundef %1020, i32 noundef 0)
+  %1021 = load ptr, ptr %DrawList, align 8
   %SegmentN2.i.i = getelementptr inbounds i8, ptr %arrayidx.i335.i, i64 16
-  %1023 = load <2 x float>, ptr %SegmentN2.i.i, align 4
-  %1024 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %1013, <2 x float> %1023, <2 x float> %retval.sroa.0.0.i.i.i)
-  %1025 = fadd <2 x float> %1024, <float 5.000000e-01, float 5.000000e-01>
-  %1026 = fadd <2 x float> %1019, %1025
-  store <2 x float> %1026, ptr %ref.tmp31.i.i, align 8
-  %add.i340.i = fadd float %1021, 0x3FE921FB60000000
-  call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(196) %1022, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp31.i.i, float noundef %969, float noundef %1021, float noundef %add.i340.i, i32 noundef 0)
-  %1027 = load ptr, ptr %DrawList, align 8
-  %cmp.i.i341.i = fcmp ole float %970, 2.000000e+00
-  %cond.i.i342.i = select i1 %cmp.i.i341.i, float 2.000000e+00, float %970
-  %_Path.i.i.i = getelementptr inbounds i8, ptr %1027, i64 120
-  %Data.i.i343.i = getelementptr inbounds i8, ptr %1027, i64 128
-  %1028 = load ptr, ptr %Data.i.i343.i, align 8
-  %1029 = load i32, ptr %_Path.i.i.i, align 8
-  call void @_ZN10ImDrawList11AddPolylineEPK6ImVec2ijif(ptr noundef nonnull align 8 dereferenceable(196) %1027, ptr noundef %1028, i32 noundef %1029, i32 noundef %or11.i.i103.i.i, i32 noundef 0, float noundef %cond.i.i342.i)
+  %1022 = load <2 x float>, ptr %SegmentN2.i.i, align 4
+  %1023 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %1012, <2 x float> %1022, <2 x float> %retval.sroa.0.0.i.i.i)
+  %1024 = fadd <2 x float> %1023, <float 5.000000e-01, float 5.000000e-01>
+  %1025 = fadd <2 x float> %1018, %1024
+  store <2 x float> %1025, ptr %ref.tmp31.i.i, align 8
+  %add.i340.i = fadd float %1020, 0x3FE921FB60000000
+  call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(196) %1021, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp31.i.i, float noundef %968, float noundef %1020, float noundef %add.i340.i, i32 noundef 0)
+  %1026 = load ptr, ptr %DrawList, align 8
+  %cmp.i.i341.i = fcmp ole float %969, 2.000000e+00
+  %cond.i.i342.i = select i1 %cmp.i.i341.i, float 2.000000e+00, float %969
+  %_Path.i.i.i = getelementptr inbounds i8, ptr %1026, i64 120
+  %Data.i.i343.i = getelementptr inbounds i8, ptr %1026, i64 128
+  %1027 = load ptr, ptr %Data.i.i343.i, align 8
+  %1028 = load i32, ptr %_Path.i.i.i, align 8
+  call void @_ZN10ImDrawList11AddPolylineEPK6ImVec2ijif(ptr noundef nonnull align 8 dereferenceable(196) %1026, ptr noundef %1027, i32 noundef %1028, i32 noundef %or11.i.i103.i.i, i32 noundef 0, float noundef %cond.i.i342.i)
   store i32 0, ptr %_Path.i.i.i, align 8
   br label %if.end47.i.i
 
 if.end47.i.i:                                     ; preds = %_ZL19GetResizeBorderRectP11ImGuiWindowiff.exit.i.i, %if.end.i.i876
-  %FrameBorderSize.i.i = getelementptr inbounds i8, ptr %968, i64 14648
-  %1030 = load float, ptr %FrameBorderSize.i.i, align 8
-  %cmp48.i.i = fcmp ogt float %1030, 0.000000e+00
+  %FrameBorderSize.i.i = getelementptr inbounds i8, ptr %967, i64 14648
+  %1029 = load float, ptr %FrameBorderSize.i.i, align 8
+  %cmp48.i.i = fcmp ogt float %1029, 0.000000e+00
   br i1 %cmp48.i.i, label %land.lhs.true49.i.i, label %_ZN5ImGuiL24RenderWindowOuterBordersEP11ImGuiWindow.exit.i
 
 land.lhs.true49.i.i:                              ; preds = %if.end47.i.i
-  %1031 = load i32, ptr %Flags.i457, align 4
-  %and51.i.i = and i32 %1031, 1
+  %1030 = load i32, ptr %Flags.i457, align 4
+  %and51.i.i = and i32 %1030, 1
   %tobool52.not.i.i = icmp eq i32 %and51.i.i, 0
   br i1 %tobool52.not.i.i, label %cond.false.i.i344.i, label %_ZN5ImGuiL24RenderWindowOuterBordersEP11ImGuiWindow.exit.i
 
 cond.false.i.i344.i:                              ; preds = %land.lhs.true49.i.i
-  %1032 = load float, ptr %366, align 4
-  %1033 = load ptr, ptr %window.0, align 8
-  %FontBaseSize.i.i.i345.i = getelementptr inbounds i8, ptr %1033, i64 15684
-  %1034 = load float, ptr %FontBaseSize.i.i.i345.i, align 4
-  %1035 = load float, ptr %FontWindowScale.i.i, align 8
-  %mul.i.i.i347.i = fmul float %1034, %1035
-  %1036 = load ptr, ptr %ParentWindow.i.i, align 8
-  %tobool.not.i.i.i349.i = icmp eq ptr %1036, null
+  %1031 = load float, ptr %365, align 4
+  %1032 = load ptr, ptr %window.0, align 8
+  %FontBaseSize.i.i.i345.i = getelementptr inbounds i8, ptr %1032, i64 15684
+  %1033 = load float, ptr %FontBaseSize.i.i.i345.i, align 4
+  %1034 = load float, ptr %FontWindowScale.i.i, align 8
+  %mul.i.i.i347.i = fmul float %1033, %1034
+  %1035 = load ptr, ptr %ParentWindow.i.i, align 8
+  %tobool.not.i.i.i349.i = icmp eq ptr %1035, null
   br i1 %tobool.not.i.i.i349.i, label %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i353.i, label %if.then.i.i.i350.i
 
 if.then.i.i.i350.i:                               ; preds = %cond.false.i.i344.i
-  %FontWindowScale3.i.i.i351.i = getelementptr inbounds i8, ptr %1036, i64 672
-  %1037 = load float, ptr %FontWindowScale3.i.i.i351.i, align 8
-  %mul4.i.i.i352.i = fmul float %mul.i.i.i347.i, %1037
+  %FontWindowScale3.i.i.i351.i = getelementptr inbounds i8, ptr %1035, i64 672
+  %1036 = load float, ptr %FontWindowScale3.i.i.i351.i, align 8
+  %mul4.i.i.i352.i = fmul float %mul.i.i.i347.i, %1036
   br label %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i353.i
 
 _ZNK11ImGuiWindow14TitleBarHeightEv.exit.i353.i:  ; preds = %if.then.i.i.i350.i, %cond.false.i.i344.i
   %scale.0.i.i.i354.i = phi float [ %mul4.i.i.i352.i, %if.then.i.i.i350.i ], [ %mul.i.i.i347.i, %cond.false.i.i344.i ]
-  %y.i135.i.i = getelementptr inbounds i8, ptr %1033, i64 14640
-  %1038 = load float, ptr %y.i135.i.i, align 4
-  %1039 = call float @llvm.fmuladd.f32(float %1038, float 2.000000e+00, float %scale.0.i.i.i354.i)
-  %add57.i.i = fadd float %1032, %1039
+  %y.i135.i.i = getelementptr inbounds i8, ptr %1032, i64 14640
+  %1037 = load float, ptr %y.i135.i.i, align 4
+  %1038 = call float @llvm.fmuladd.f32(float %1037, float 2.000000e+00, float %scale.0.i.i.i354.i)
+  %add57.i.i = fadd float %1031, %1038
   %sub58.i.i = fadd float %add57.i.i, -1.000000e+00
-  %1040 = load ptr, ptr %DrawList, align 8
-  %1041 = load float, ptr %Pos656, align 8
-  %add62.i.i = fadd float %970, %1041
+  %1039 = load ptr, ptr %DrawList, align 8
+  %1040 = load float, ptr %Pos656, align 8
+  %add62.i.i = fadd float %969, %1040
   store float %add62.i.i, ptr %ref.tmp60.i.i, align 4
   %y.i136.i.i = getelementptr inbounds i8, ptr %ref.tmp60.i.i, i64 4
   store float %sub58.i.i, ptr %y.i136.i.i, align 4
-  %1042 = load float, ptr %Size547, align 8
-  %add68.i.i = fadd float %1041, %1042
-  %sub69.i.i = fsub float %add68.i.i, %970
+  %1041 = load float, ptr %Size547, align 8
+  %add68.i.i = fadd float %1040, %1041
+  %sub69.i.i = fsub float %add68.i.i, %969
   store float %sub69.i.i, ptr %ref.tmp63.i.i, align 4
   %y.i137.i.i = getelementptr inbounds i8, ptr %ref.tmp63.i.i, i64 4
   store float %sub58.i.i, ptr %y.i137.i.i, align 4
-  %1043 = load ptr, ptr @GImGui, align 8
-  %Style.i138.i.i = getelementptr inbounds i8, ptr %1043, i64 14576
-  %arrayidx.i140.i.i = getelementptr inbounds i8, ptr %1043, i64 14884
+  %1042 = load ptr, ptr @GImGui, align 8
+  %Style.i138.i.i = getelementptr inbounds i8, ptr %1042, i64 14576
+  %arrayidx.i140.i.i = getelementptr inbounds i8, ptr %1042, i64 14884
   %c.sroa.0.0.copyload.i141.i.i = load float, ptr %arrayidx.i140.i.i, align 4
-  %c.sroa.2.0.arrayidx.sroa_idx.i142.i.i = getelementptr inbounds i8, ptr %1043, i64 14888
+  %c.sroa.2.0.arrayidx.sroa_idx.i142.i.i = getelementptr inbounds i8, ptr %1042, i64 14888
   %c.sroa.2.0.copyload.i143.i.i = load float, ptr %c.sroa.2.0.arrayidx.sroa_idx.i142.i.i, align 4
-  %c.sroa.3.0.arrayidx.sroa_idx.i144.i.i = getelementptr inbounds i8, ptr %1043, i64 14892
+  %c.sroa.3.0.arrayidx.sroa_idx.i144.i.i = getelementptr inbounds i8, ptr %1042, i64 14892
   %c.sroa.3.0.copyload.i145.i.i = load float, ptr %c.sroa.3.0.arrayidx.sroa_idx.i144.i.i, align 4
-  %c.sroa.4.0.arrayidx.sroa_idx.i146.i.i = getelementptr inbounds i8, ptr %1043, i64 14896
+  %c.sroa.4.0.arrayidx.sroa_idx.i146.i.i = getelementptr inbounds i8, ptr %1042, i64 14896
   %c.sroa.4.0.copyload.i147.i.i = load float, ptr %c.sroa.4.0.arrayidx.sroa_idx.i146.i.i, align 4
-  %1044 = load float, ptr %Style.i138.i.i, align 4
-  %mul1.i149.i.i = fmul float %c.sroa.4.0.copyload.i147.i.i, %1044
+  %1043 = load float, ptr %Style.i138.i.i, align 4
+  %mul1.i149.i.i = fmul float %c.sroa.4.0.copyload.i147.i.i, %1043
   %cmp.i.i.i150.i.i = fcmp olt float %c.sroa.0.0.copyload.i141.i.i, 0.000000e+00
   %cmp1.i.i.i151.i.i = fcmp ogt float %c.sroa.0.0.copyload.i141.i.i, 1.000000e+00
   %cond.i.i.i152.i.i = select i1 %cmp1.i.i.i151.i.i, float 1.000000e+00, float %c.sroa.0.0.copyload.i141.i.i
   %cond5.i.i.i153.i.i = select i1 %cmp.i.i.i150.i.i, float 0.000000e+00, float %cond.i.i.i152.i.i
-  %1045 = call float @llvm.fmuladd.f32(float %cond5.i.i.i153.i.i, float 2.550000e+02, float 5.000000e-01)
-  %conv.i.i154.i.i = fptosi float %1045 to i32
+  %1044 = call float @llvm.fmuladd.f32(float %cond5.i.i.i153.i.i, float 2.550000e+02, float 5.000000e-01)
+  %conv.i.i154.i.i = fptosi float %1044 to i32
   %cmp.i7.i.i155.i.i = fcmp olt float %c.sroa.2.0.copyload.i143.i.i, 0.000000e+00
   %cmp1.i8.i.i156.i.i = fcmp ogt float %c.sroa.2.0.copyload.i143.i.i, 1.000000e+00
   %cond.i9.i.i157.i.i = select i1 %cmp1.i8.i.i156.i.i, float 1.000000e+00, float %c.sroa.2.0.copyload.i143.i.i
   %cond5.i10.i.i158.i.i = select i1 %cmp.i7.i.i155.i.i, float 0.000000e+00, float %cond.i9.i.i157.i.i
-  %1046 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i158.i.i, float 2.550000e+02, float 5.000000e-01)
-  %conv2.i.i159.i.i = fptosi float %1046 to i32
+  %1045 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i158.i.i, float 2.550000e+02, float 5.000000e-01)
+  %conv2.i.i159.i.i = fptosi float %1045 to i32
   %shl3.i.i160.i.i = shl i32 %conv2.i.i159.i.i, 8
   %or.i.i161.i.i = or i32 %shl3.i.i160.i.i, %conv.i.i154.i.i
-  %1047 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i145.i.i, i64 0
-  %1048 = insertelement <2 x float> %1047, float %mul1.i149.i.i, i64 1
-  %1049 = fcmp olt <2 x float> %1048, zeroinitializer
-  %1050 = fcmp ogt <2 x float> %1048, <float 1.000000e+00, float 1.000000e+00>
-  %1051 = select <2 x i1> %1050, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %1048
-  %1052 = select <2 x i1> %1049, <2 x float> zeroinitializer, <2 x float> %1051
-  %1053 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %1052, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
-  %1054 = fptosi <2 x float> %1053 to <2 x i32>
-  %1055 = shl <2 x i32> %1054, <i32 16, i32 24>
-  %1056 = extractelement <2 x i32> %1055, i64 0
-  %or7.i.i168.i.i = or i32 %or.i.i161.i.i, %1056
-  %1057 = extractelement <2 x i32> %1055, i64 1
-  %or11.i.i175.i.i = or i32 %or7.i.i168.i.i, %1057
-  call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %1040, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp60.i.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp63.i.i, i32 noundef %or11.i.i175.i.i, float noundef %1030)
+  %1046 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i145.i.i, i64 0
+  %1047 = insertelement <2 x float> %1046, float %mul1.i149.i.i, i64 1
+  %1048 = fcmp olt <2 x float> %1047, zeroinitializer
+  %1049 = fcmp ogt <2 x float> %1047, <float 1.000000e+00, float 1.000000e+00>
+  %1050 = select <2 x i1> %1049, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %1047
+  %1051 = select <2 x i1> %1048, <2 x float> zeroinitializer, <2 x float> %1050
+  %1052 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %1051, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
+  %1053 = fptosi <2 x float> %1052 to <2 x i32>
+  %1054 = shl <2 x i32> %1053, <i32 16, i32 24>
+  %1055 = extractelement <2 x i32> %1054, i64 0
+  %or7.i.i168.i.i = or i32 %or.i.i161.i.i, %1055
+  %1056 = extractelement <2 x i32> %1054, i64 1
+  %or11.i.i175.i.i = or i32 %or7.i.i168.i.i, %1056
+  call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %1039, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp60.i.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp63.i.i, i32 noundef %or11.i.i175.i.i, float noundef %1029)
   br label %_ZN5ImGuiL24RenderWindowOuterBordersEP11ImGuiWindow.exit.i
 
 _ZN5ImGuiL24RenderWindowOuterBordersEP11ImGuiWindow.exit.i: ; preds = %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i353.i, %land.lhs.true49.i.i, %if.end47.i.i
@@ -35068,38 +35069,38 @@ if.end1063:                                       ; preds = %if.then1061, %_ZN5I
   %and1064 = and i32 %flags.addr.1, 8
   %tobool1065.not = icmp eq i32 %and1064, 0
   %ContentSizeExplicit1075 = getelementptr inbounds i8, ptr %window.0, i64 80
-  %1058 = load float, ptr %ContentSizeExplicit1075, align 8
-  %cmp1077 = fcmp une float %1058, 0.000000e+00
+  %1057 = load float, ptr %ContentSizeExplicit1075, align 8
+  %cmp1077 = fcmp une float %1057, 0.000000e+00
   br i1 %cmp1077, label %cond.end1099, label %cond.false1081
 
 cond.false1081:                                   ; preds = %if.end1063
-  %1059 = and i32 %flags.addr.1, 2056
-  %1060 = icmp eq i32 %1059, 2048
-  br i1 %1060, label %cond.true1083, label %cond.end1087
+  %1058 = and i32 %flags.addr.1, 2056
+  %1059 = icmp eq i32 %1058, 2048
+  br i1 %1059, label %cond.true1083, label %cond.end1087
 
 cond.true1083:                                    ; preds = %cond.false1081
-  %1061 = load float, ptr %ContentSize, align 8
+  %1060 = load float, ptr %ContentSize, align 8
   br label %cond.end1087
 
 cond.end1087:                                     ; preds = %cond.false1081, %cond.true1083
-  %cond1088 = phi float [ %1061, %cond.true1083 ], [ 0.000000e+00, %cond.false1081 ]
-  %1062 = load float, ptr %Size547, align 8
-  %1063 = load float, ptr %WindowPadding3761445, align 8
-  %neg = fneg float %1063
-  %1064 = call float @llvm.fmuladd.f32(float %neg, float 2.000000e+00, float %1062)
-  %1065 = load float, ptr %DecoOuterSizeX1, align 8
-  %1066 = load float, ptr %DecoOuterSizeX2, align 8
-  %add1096 = fadd float %1065, %1066
-  %sub1097 = fsub float %1064, %add1096
+  %cond1088 = phi float [ %1060, %cond.true1083 ], [ 0.000000e+00, %cond.false1081 ]
+  %1061 = load float, ptr %Size547, align 8
+  %1062 = load float, ptr %WindowPadding3761445, align 8
+  %neg = fneg float %1062
+  %1063 = call float @llvm.fmuladd.f32(float %neg, float 2.000000e+00, float %1061)
+  %1064 = load float, ptr %DecoOuterSizeX1, align 8
+  %1065 = load float, ptr %DecoOuterSizeX2, align 8
+  %add1096 = fadd float %1064, %1065
+  %sub1097 = fsub float %1063, %add1096
   %cmp.i988 = fcmp oge float %cond1088, %sub1097
   %cond.i989 = select i1 %cmp.i988, float %cond1088, float %sub1097
   br label %cond.end1099
 
 cond.end1099:                                     ; preds = %if.end1063, %cond.end1087
-  %cond1100 = phi float [ %cond.i989, %cond.end1087 ], [ %1058, %if.end1063 ]
+  %cond1100 = phi float [ %cond.i989, %cond.end1087 ], [ %1057, %if.end1063 ]
   %y1102 = getelementptr inbounds i8, ptr %window.0, i64 84
-  %1067 = load float, ptr %y1102, align 4
-  %cmp1103 = fcmp une float %1067, 0.000000e+00
+  %1066 = load float, ptr %y1102, align 4
+  %cmp1103 = fcmp une float %1066, 0.000000e+00
   br i1 %cmp1103, label %cond.end1099.cond.end1126_crit_edge, label %cond.false1107
 
 cond.end1099.cond.end1126_crit_edge:              ; preds = %cond.end1099
@@ -35111,171 +35112,171 @@ cond.false1107:                                   ; preds = %cond.end1099
   br i1 %tobool1065.not, label %cond.true1109, label %cond.end1113
 
 cond.true1109:                                    ; preds = %cond.false1107
-  %1068 = load float, ptr %y974, align 4
+  %1067 = load float, ptr %y974, align 4
   br label %cond.end1113
 
 cond.end1113:                                     ; preds = %cond.false1107, %cond.true1109
-  %cond1114 = phi float [ %1068, %cond.true1109 ], [ 0.000000e+00, %cond.false1107 ]
-  %1069 = load float, ptr %y9.i728, align 4
-  %1070 = load float, ptr %y976, align 4
-  %neg1120 = fneg float %1070
-  %1071 = call float @llvm.fmuladd.f32(float %neg1120, float 2.000000e+00, float %1069)
-  %1072 = load float, ptr %DecoOuterSizeY1, align 4
-  %1073 = load float, ptr %DecoOuterSizeY2, align 4
-  %add1123 = fadd float %1072, %1073
-  %sub1124 = fsub float %1071, %add1123
+  %cond1114 = phi float [ %1067, %cond.true1109 ], [ 0.000000e+00, %cond.false1107 ]
+  %1068 = load float, ptr %y9.i728, align 4
+  %1069 = load float, ptr %y976, align 4
+  %neg1120 = fneg float %1069
+  %1070 = call float @llvm.fmuladd.f32(float %neg1120, float 2.000000e+00, float %1068)
+  %1071 = load float, ptr %DecoOuterSizeY1, align 4
+  %1072 = load float, ptr %DecoOuterSizeY2, align 4
+  %add1123 = fadd float %1071, %1072
+  %sub1124 = fsub float %1070, %add1123
   %cmp.i990 = fcmp oge float %cond1114, %sub1124
   %cond.i991 = select i1 %cmp.i990, float %cond1114, float %sub1124
   br label %cond.end1126
 
 cond.end1126:                                     ; preds = %cond.end1099.cond.end1126_crit_edge, %cond.end1113
-  %1074 = phi float [ %1072, %cond.end1113 ], [ %.pre1517, %cond.end1099.cond.end1126_crit_edge ]
-  %1075 = phi float [ %1070, %cond.end1113 ], [ %.pre1516, %cond.end1099.cond.end1126_crit_edge ]
-  %cond1127 = phi float [ %cond.i991, %cond.end1113 ], [ %1067, %cond.end1099.cond.end1126_crit_edge ]
-  %1076 = load float, ptr %WindowPadding3761445, align 8
-  %1077 = load float, ptr %WindowBorderSize891, align 4
+  %1073 = phi float [ %1071, %cond.end1113 ], [ %.pre1517, %cond.end1099.cond.end1126_crit_edge ]
+  %1074 = phi float [ %1069, %cond.end1113 ], [ %.pre1516, %cond.end1099.cond.end1126_crit_edge ]
+  %cond1127 = phi float [ %cond.i991, %cond.end1113 ], [ %1066, %cond.end1099.cond.end1126_crit_edge ]
+  %1075 = load float, ptr %WindowPadding3761445, align 8
+  %1076 = load float, ptr %WindowBorderSize891, align 4
   %WorkRect = getelementptr inbounds i8, ptr %window.0, i64 552
   %Max1162 = getelementptr inbounds i8, ptr %window.0, i64 560
-  %1078 = load <2 x float>, ptr %InnerRect854, align 8
-  %1079 = load <2 x float>, ptr %Scroll, align 4
-  %1080 = fsub <2 x float> %1078, %1079
-  %1081 = insertelement <2 x float> poison, float %1076, i64 0
-  %1082 = insertelement <2 x float> %1081, float %1075, i64 1
-  %1083 = insertelement <2 x float> poison, float %1077, i64 0
-  %1084 = shufflevector <2 x float> %1083, <2 x float> poison, <2 x i32> zeroinitializer
-  %1085 = fcmp oge <2 x float> %1082, %1084
-  %1086 = select <2 x i1> %1085, <2 x float> %1082, <2 x float> %1084
-  %1087 = fadd <2 x float> %1080, %1086
-  %1088 = fptosi <2 x float> %1087 to <2 x i32>
-  %1089 = sitofp <2 x i32> %1088 to <2 x float>
-  store <2 x float> %1089, ptr %WorkRect, align 8
-  %1090 = insertelement <2 x float> poison, float %cond1100, i64 0
-  %1091 = insertelement <2 x float> %1090, float %cond1127, i64 1
-  %1092 = fadd <2 x float> %1091, %1089
-  store <2 x float> %1092, ptr %Max1162, align 8
+  %1077 = load <2 x float>, ptr %InnerRect854, align 8
+  %1078 = load <2 x float>, ptr %Scroll, align 4
+  %1079 = fsub <2 x float> %1077, %1078
+  %1080 = insertelement <2 x float> poison, float %1075, i64 0
+  %1081 = insertelement <2 x float> %1080, float %1074, i64 1
+  %1082 = insertelement <2 x float> poison, float %1076, i64 0
+  %1083 = shufflevector <2 x float> %1082, <2 x float> poison, <2 x i32> zeroinitializer
+  %1084 = fcmp oge <2 x float> %1081, %1083
+  %1085 = select <2 x i1> %1084, <2 x float> %1081, <2 x float> %1083
+  %1086 = fadd <2 x float> %1079, %1085
+  %1087 = fptosi <2 x float> %1086 to <2 x i32>
+  %1088 = sitofp <2 x i32> %1087 to <2 x float>
+  store <2 x float> %1088, ptr %WorkRect, align 8
+  %1089 = insertelement <2 x float> poison, float %cond1100, i64 0
+  %1090 = insertelement <2 x float> %1089, float %cond1127, i64 1
+  %1091 = fadd <2 x float> %1090, %1088
+  store <2 x float> %1091, ptr %Max1162, align 8
   %ParentWorkRect = getelementptr inbounds i8, ptr %window.0, i64 568
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ParentWorkRect, ptr noundef nonnull align 8 dereferenceable(16) %WorkRect, i64 16, i1 false)
-  %1093 = load float, ptr %DecoOuterSizeX1, align 8
+  %1092 = load float, ptr %DecoOuterSizeX1, align 8
   %ContentRegionRect = getelementptr inbounds i8, ptr %window.0, i64 600
-  %1094 = load <2 x float>, ptr %Pos656, align 8
-  %1095 = fsub <2 x float> %1094, %1079
-  %1096 = fadd <2 x float> %1082, %1095
-  %1097 = insertelement <2 x float> poison, float %1093, i64 0
-  %1098 = insertelement <2 x float> %1097, float %1074, i64 1
-  %1099 = fadd <2 x float> %1098, %1096
-  store <2 x float> %1099, ptr %ContentRegionRect, align 8
+  %1093 = load <2 x float>, ptr %Pos656, align 8
+  %1094 = fsub <2 x float> %1093, %1078
+  %1095 = fadd <2 x float> %1081, %1094
+  %1096 = insertelement <2 x float> poison, float %1092, i64 0
+  %1097 = insertelement <2 x float> %1096, float %1073, i64 1
+  %1098 = fadd <2 x float> %1097, %1095
+  store <2 x float> %1098, ptr %ContentRegionRect, align 8
   br i1 %cmp1077, label %cond.end1217, label %cond.false1206
 
 cond.false1206:                                   ; preds = %cond.end1126
-  %1100 = load float, ptr %Size547, align 8
-  %neg1212 = fneg float %1076
-  %1101 = call float @llvm.fmuladd.f32(float %neg1212, float 2.000000e+00, float %1100)
-  %1102 = load float, ptr %DecoOuterSizeX2, align 8
-  %add1215 = fadd float %1093, %1102
-  %sub1216 = fsub float %1101, %add1215
+  %1099 = load float, ptr %Size547, align 8
+  %neg1212 = fneg float %1075
+  %1100 = call float @llvm.fmuladd.f32(float %neg1212, float 2.000000e+00, float %1099)
+  %1101 = load float, ptr %DecoOuterSizeX2, align 8
+  %add1215 = fadd float %1092, %1101
+  %sub1216 = fsub float %1100, %add1215
   br label %cond.end1217
 
 cond.end1217:                                     ; preds = %cond.end1126, %cond.false1206
-  %cond1218 = phi float [ %sub1216, %cond.false1206 ], [ %1058, %cond.end1126 ]
-  %1103 = extractelement <2 x float> %1099, i64 0
-  %add1219 = fadd float %1103, %cond1218
+  %cond1218 = phi float [ %sub1216, %cond.false1206 ], [ %1057, %cond.end1126 ]
+  %1102 = extractelement <2 x float> %1098, i64 0
+  %add1219 = fadd float %1102, %cond1218
   %Max1221 = getelementptr inbounds i8, ptr %window.0, i64 608
   store float %add1219, ptr %Max1221, align 8
   br i1 %cmp1103, label %cond.end1243, label %cond.false1232
 
 cond.false1232:                                   ; preds = %cond.end1217
-  %1104 = load float, ptr %y9.i728, align 4
-  %neg1238 = fneg float %1075
-  %1105 = call float @llvm.fmuladd.f32(float %neg1238, float 2.000000e+00, float %1104)
-  %1106 = load float, ptr %DecoOuterSizeY2, align 4
-  %add1241 = fadd float %1074, %1106
-  %sub1242 = fsub float %1105, %add1241
+  %1103 = load float, ptr %y9.i728, align 4
+  %neg1238 = fneg float %1074
+  %1104 = call float @llvm.fmuladd.f32(float %neg1238, float 2.000000e+00, float %1103)
+  %1105 = load float, ptr %DecoOuterSizeY2, align 4
+  %add1241 = fadd float %1073, %1105
+  %sub1242 = fsub float %1104, %add1241
   br label %cond.end1243
 
 cond.end1243:                                     ; preds = %cond.end1217, %cond.false1232
-  %cond1244 = phi float [ %sub1242, %cond.false1232 ], [ %1067, %cond.end1217 ]
-  %1107 = extractelement <2 x float> %1099, i64 1
-  %add1245 = fadd float %1107, %cond1244
+  %cond1244 = phi float [ %sub1242, %cond.false1232 ], [ %1066, %cond.end1217 ]
+  %1106 = extractelement <2 x float> %1098, i64 1
+  %add1245 = fadd float %1106, %cond1244
   %y1248 = getelementptr inbounds i8, ptr %window.0, i64 612
   store float %add1245, ptr %y1248, align 4
-  %add1252 = fadd float %1076, %1093
-  %1108 = extractelement <2 x float> %1079, i64 0
-  %sub1255 = fsub float %add1252, %1108
+  %add1252 = fadd float %1075, %1092
+  %1107 = extractelement <2 x float> %1078, i64 0
+  %sub1255 = fsub float %add1252, %1107
   %Indent = getelementptr inbounds i8, ptr %window.0, i64 340
   store float %sub1255, ptr %Indent, align 4
   %ColumnsOffset = getelementptr inbounds i8, ptr %window.0, i64 344
   store <2 x float> zeroinitializer, ptr %ColumnsOffset, align 8
-  %1109 = extractelement <2 x float> %1094, i64 0
-  %conv1264 = fpext float %1109 to double
-  %conv1267 = fpext float %1076 to double
+  %1108 = extractelement <2 x float> %1093, i64 0
+  %conv1264 = fpext float %1108 to double
+  %conv1267 = fpext float %1075 to double
   %add1268 = fadd double %conv1267, %conv1264
-  %conv1271 = fpext float %1108 to double
+  %conv1271 = fpext float %1107 to double
   %sub1272 = fsub double %add1268, %conv1271
-  %1110 = insertelement <2 x float> %1079, float %1093, i64 0
-  %1111 = fpext <2 x float> %1110 to <2 x double>
-  %1112 = extractelement <2 x float> %1094, i64 1
-  %conv1283 = fpext float %1112 to double
-  %conv1286 = fpext float %1075 to double
+  %1109 = insertelement <2 x float> %1078, float %1092, i64 0
+  %1110 = fpext <2 x float> %1109 to <2 x double>
+  %1111 = extractelement <2 x float> %1093, i64 1
+  %conv1283 = fpext float %1111 to double
+  %conv1286 = fpext float %1074 to double
   %add1287 = fadd double %conv1286, %conv1283
-  %conv1293 = fpext float %1074 to double
+  %conv1293 = fpext float %1073 to double
   %CursorStartPos = getelementptr inbounds i8, ptr %window.0, i64 288
   %CursorStartPos.sroa_idx = getelementptr inbounds i8, ptr %window.0, i64 292
   %CursorStartPosLossyness = getelementptr inbounds i8, ptr %window.0, i64 352
-  %1113 = insertelement <2 x double> poison, double %sub1272, i64 0
-  %1114 = insertelement <2 x double> %1113, double %add1287, i64 1
-  %1115 = fadd <2 x double> %1114, %1111
-  %1116 = fsub <2 x double> %1114, %1111
-  %1117 = shufflevector <2 x double> %1115, <2 x double> %1116, <2 x i32> <i32 0, i32 3>
-  %1118 = insertelement <2 x double> <double 0.000000e+00, double poison>, double %conv1293, i64 1
-  %1119 = fadd <2 x double> %1117, %1118
-  %1120 = fptrunc <2 x double> %1119 to <2 x float>
-  %1121 = extractelement <2 x float> %1120, i64 0
-  store float %1121, ptr %CursorStartPos, align 8
-  %1122 = extractelement <2 x float> %1120, i64 1
-  store float %1122, ptr %CursorStartPos.sroa_idx, align 4
-  %1123 = fpext <2 x float> %1120 to <2 x double>
-  %1124 = fsub <2 x double> %1119, %1123
-  %1125 = fptrunc <2 x double> %1124 to <2 x float>
-  store <2 x float> %1125, ptr %CursorStartPosLossyness, align 8
+  %1112 = insertelement <2 x double> poison, double %sub1272, i64 0
+  %1113 = insertelement <2 x double> %1112, double %add1287, i64 1
+  %1114 = fadd <2 x double> %1113, %1110
+  %1115 = fsub <2 x double> %1113, %1110
+  %1116 = shufflevector <2 x double> %1114, <2 x double> %1115, <2 x i32> <i32 0, i32 3>
+  %1117 = insertelement <2 x double> <double 0.000000e+00, double poison>, double %conv1293, i64 1
+  %1118 = fadd <2 x double> %1116, %1117
+  %1119 = fptrunc <2 x double> %1118 to <2 x float>
+  %1120 = extractelement <2 x float> %1119, i64 0
+  store float %1120, ptr %CursorStartPos, align 8
+  %1121 = extractelement <2 x float> %1119, i64 1
+  store float %1121, ptr %CursorStartPos.sroa_idx, align 4
+  %1122 = fpext <2 x float> %1119 to <2 x double>
+  %1123 = fsub <2 x double> %1118, %1122
+  %1124 = fptrunc <2 x double> %1123 to <2 x float>
+  store <2 x float> %1124, ptr %CursorStartPosLossyness, align 8
   %DC1313 = getelementptr inbounds i8, ptr %window.0, i64 272
-  %1126 = load i64, ptr %CursorStartPos, align 8
-  store i64 %1126, ptr %DC1313, align 8
+  %1125 = load i64, ptr %CursorStartPos, align 8
+  store i64 %1125, ptr %DC1313, align 8
   %CursorPosPrevLine = getelementptr inbounds i8, ptr %window.0, i64 280
-  store i64 %1126, ptr %CursorPosPrevLine, align 8
+  store i64 %1125, ptr %CursorPosPrevLine, align 8
   %CursorMaxPos = getelementptr inbounds i8, ptr %window.0, i64 296
-  store i64 %1126, ptr %CursorMaxPos, align 8
+  store i64 %1125, ptr %CursorMaxPos, align 8
   %IdealMaxPos = getelementptr inbounds i8, ptr %window.0, i64 304
-  store i64 %1126, ptr %IdealMaxPos, align 8
+  store i64 %1125, ptr %IdealMaxPos, align 8
   %CurrLineSize = getelementptr inbounds i8, ptr %window.0, i64 312
   %NavLayerCurrent1334 = getelementptr inbounds i8, ptr %window.0, i64 360
   store i32 0, ptr %NavLayerCurrent1334, align 8
   %NavLayersActiveMaskNext = getelementptr inbounds i8, ptr %window.0, i64 366
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %CurrLineSize, i8 0, i64 26, i1 false)
-  %1127 = load i16, ptr %NavLayersActiveMaskNext, align 2
+  %1126 = load i16, ptr %NavLayersActiveMaskNext, align 2
   %NavLayersActiveMask = getelementptr inbounds i8, ptr %window.0, i64 364
-  store i16 %1127, ptr %NavLayersActiveMask, align 4
+  store i16 %1126, ptr %NavLayersActiveMask, align 4
   store i16 0, ptr %NavLayersActiveMaskNext, align 2
   store i8 1, ptr %NavIsScrollPushableX.i.i, align 8
   %NavHideHighlightOneFrame = getelementptr inbounds i8, ptr %window.0, i64 369
   store i8 0, ptr %NavHideHighlightOneFrame, align 1
-  %1128 = load float, ptr %y983, align 4
-  %cmp1343 = fcmp ogt float %1128, 0.000000e+00
+  %1127 = load float, ptr %y983, align 4
+  %cmp1343 = fcmp ogt float %1127, 0.000000e+00
   %NavWindowHasScrollY = getelementptr inbounds i8, ptr %window.0, i64 370
   %frombool1345 = zext i1 %cmp1343 to i8
   store i8 %frombool1345, ptr %NavWindowHasScrollY, align 2
   %MenuBarAppending = getelementptr inbounds i8, ptr %window.0, i64 371
   store i8 0, ptr %MenuBarAppending, align 1
   %MenuColumns = getelementptr inbounds i8, ptr %window.0, i64 380
-  %1129 = load float, ptr %ItemSpacing, align 4
-  call void @_ZN16ImGuiMenuColumns6UpdateEfb(ptr noundef nonnull align 4 dereferenceable(26) %MenuColumns, float noundef %1129, i1 noundef zeroext %window_just_activated_by_user.0.in1437)
+  %1128 = load float, ptr %ItemSpacing, align 4
+  call void @_ZN16ImGuiMenuColumns6UpdateEfb(ptr noundef nonnull align 4 dereferenceable(26) %MenuColumns, float noundef %1128, i1 noundef zeroext %window_just_activated_by_user.0.in1437)
   %TreeDepth = getelementptr inbounds i8, ptr %window.0, i64 408
   store i32 0, ptr %TreeDepth, align 8
   %TreeJumpToParentOnPopMask = getelementptr inbounds i8, ptr %window.0, i64 412
   store i32 0, ptr %TreeJumpToParentOnPopMask, align 4
   %ChildWindows1354 = getelementptr inbounds i8, ptr %window.0, i64 416
   %Capacity.i1003 = getelementptr inbounds i8, ptr %window.0, i64 420
-  %1130 = load i32, ptr %Capacity.i1003, align 4
-  %cmp.i1004 = icmp slt i32 %1130, 0
+  %1129 = load i32, ptr %Capacity.i1003, align 4
+  %cmp.i1004 = icmp slt i32 %1129, 0
   br i1 %cmp.i1004, label %if.then.i1006, label %_ZN8ImVectorIP11ImGuiWindowE6resizeEi.exit
 
 if.then.i1006:                                    ; preds = %cond.end1243
@@ -35296,22 +35297,22 @@ _ZN8ImVectorIP11ImGuiWindowE6resizeEi.exit:       ; preds = %cond.end1243, %if.t
 
 cond.true1360:                                    ; preds = %_ZN8ImVectorIP11ImGuiWindowE6resizeEi.exit
   %LayoutType1362 = getelementptr inbounds i8, ptr %cond75, i64 452
-  %1131 = load i32, ptr %LayoutType1362, align 4
+  %1130 = load i32, ptr %LayoutType1362, align 4
   br label %cond.end1364
 
 cond.end1364:                                     ; preds = %_ZN8ImVectorIP11ImGuiWindowE6resizeEi.exit, %cond.true1360
-  %cond1365 = phi i32 [ %1131, %cond.true1360 ], [ 1, %_ZN8ImVectorIP11ImGuiWindowE6resizeEi.exit ]
+  %cond1365 = phi i32 [ %1130, %cond.true1360 ], [ 1, %_ZN8ImVectorIP11ImGuiWindowE6resizeEi.exit ]
   %ParentLayoutType = getelementptr inbounds i8, ptr %window.0, i64 456
   store i32 %cond1365, ptr %ParentLayoutType, align 8
-  %1132 = load float, ptr %732, align 8
+  %1131 = load float, ptr %731, align 8
   %ItemWidth = getelementptr inbounds i8, ptr %window.0, i64 460
-  store float %1132, ptr %ItemWidth, align 4
+  store float %1131, ptr %ItemWidth, align 4
   %TextWrapPos = getelementptr inbounds i8, ptr %window.0, i64 464
   store float -1.000000e+00, ptr %TextWrapPos, align 8
   %ItemWidthStack = getelementptr inbounds i8, ptr %window.0, i64 472
   %Capacity.i1014 = getelementptr inbounds i8, ptr %window.0, i64 476
-  %1133 = load i32, ptr %Capacity.i1014, align 4
-  %cmp.i1015 = icmp slt i32 %1133, 0
+  %1132 = load i32, ptr %Capacity.i1014, align 4
+  %cmp.i1015 = icmp slt i32 %1132, 0
   br i1 %cmp.i1015, label %if.then.i1017, label %_ZN8ImVectorIfE6resizeEi.exit
 
 if.then.i1017:                                    ; preds = %cond.end1364
@@ -35322,8 +35323,8 @@ _ZN8ImVectorIfE6resizeEi.exit:                    ; preds = %cond.end1364, %if.t
   store i32 0, ptr %ItemWidthStack, align 8
   %TextWrapPosStack = getelementptr inbounds i8, ptr %window.0, i64 488
   %Capacity.i1024 = getelementptr inbounds i8, ptr %window.0, i64 492
-  %1134 = load i32, ptr %Capacity.i1024, align 4
-  %cmp.i1025 = icmp slt i32 %1134, 0
+  %1133 = load i32, ptr %Capacity.i1024, align 4
+  %cmp.i1025 = icmp slt i32 %1133, 0
   br i1 %cmp.i1025, label %if.then.i1027, label %_ZN8ImVectorIfE6resizeEi.exit1034
 
 if.then.i1027:                                    ; preds = %_ZN8ImVectorIfE6resizeEi.exit
@@ -35333,23 +35334,23 @@ if.then.i1027:                                    ; preds = %_ZN8ImVectorIfE6res
 _ZN8ImVectorIfE6resizeEi.exit1034:                ; preds = %_ZN8ImVectorIfE6resizeEi.exit, %if.then.i1027
   store i32 0, ptr %TextWrapPosStack, align 8
   %AutoFitFramesX1372 = getelementptr inbounds i8, ptr %window.0, i64 220
-  %1135 = load i8, ptr %AutoFitFramesX1372, align 4
-  %cmp1374 = icmp sgt i8 %1135, 0
+  %1134 = load i8, ptr %AutoFitFramesX1372, align 4
+  %cmp1374 = icmp sgt i8 %1134, 0
   br i1 %cmp1374, label %if.then1375, label %if.end1378
 
 if.then1375:                                      ; preds = %_ZN8ImVectorIfE6resizeEi.exit1034
-  %dec1377 = add nsw i8 %1135, -1
+  %dec1377 = add nsw i8 %1134, -1
   store i8 %dec1377, ptr %AutoFitFramesX1372, align 4
   br label %if.end1378
 
 if.end1378:                                       ; preds = %if.then1375, %_ZN8ImVectorIfE6resizeEi.exit1034
   %AutoFitFramesY1379 = getelementptr inbounds i8, ptr %window.0, i64 221
-  %1136 = load i8, ptr %AutoFitFramesY1379, align 1
-  %cmp1381 = icmp sgt i8 %1136, 0
+  %1135 = load i8, ptr %AutoFitFramesY1379, align 1
+  %cmp1381 = icmp sgt i8 %1135, 0
   br i1 %cmp1381, label %if.then1382, label %if.end1385
 
 if.then1382:                                      ; preds = %if.end1378
-  %dec1384 = add nsw i8 %1136, -1
+  %dec1384 = add nsw i8 %1135, -1
   store i8 %dec1384, ptr %AutoFitFramesY1379, align 1
   br label %if.end1385
 
@@ -35359,8 +35360,8 @@ if.end1385:                                       ; preds = %if.then1382, %if.en
 if.then1387:                                      ; preds = %if.end1385
   call void @_ZN5ImGui11FocusWindowEP11ImGuiWindowi(ptr noundef nonnull %window.0, i32 noundef 2)
   %NavWindow1391 = getelementptr inbounds i8, ptr %0, i64 19176
-  %1137 = load ptr, ptr %NavWindow1391, align 8
-  %cmp1392 = icmp eq ptr %window.0, %1137
+  %1136 = load ptr, ptr %NavWindow1391, align 8
+  %cmp1392 = icmp eq ptr %window.0, %1136
   br i1 %cmp1392, label %if.then1393, label %if.end1394
 
 if.then1393:                                      ; preds = %if.then1387
@@ -35372,43 +35373,43 @@ if.end1394:                                       ; preds = %if.end1385, %if.the
   br i1 %tobool421.not, label %if.then1397, label %if.end1411
 
 if.then1397:                                      ; preds = %if.end1394
-  %1138 = load float, ptr %title_bar_rect847, align 8
-  %1139 = load float, ptr %WindowBorderSize891, align 4
-  %add1402 = fadd float %1138, %1139
+  %1137 = load float, ptr %title_bar_rect847, align 8
+  %1138 = load float, ptr %WindowBorderSize891, align 4
+  %add1402 = fadd float %1137, %1138
   %y1404 = getelementptr inbounds i8, ptr %title_bar_rect847, i64 4
-  %1140 = load float, ptr %y1404, align 4
-  %1141 = load float, ptr %694, align 8
-  %sub1408 = fsub float %1141, %1139
+  %1139 = load float, ptr %y1404, align 4
+  %1140 = load float, ptr %693, align 8
+  %sub1408 = fsub float %1140, %1138
   %y1410 = getelementptr inbounds i8, ptr %title_bar_rect847, i64 12
-  %1142 = load float, ptr %y1410, align 4
+  %1141 = load float, ptr %y1410, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %close_button_pos.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %collapse_button_pos.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %text_size.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %layout_r.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %clip_r.i)
-  %1143 = load i32, ptr %Flags.i457, align 4
+  %1142 = load i32, ptr %Flags.i457, align 4
   %cmp.not.i1038 = icmp eq ptr %p_open, null
-  %and.i1039 = and i32 %1143, 32
+  %and.i1039 = and i32 %1142, 32
   %tobool.not.i1040 = icmp eq i32 %and.i1039, 0
   br i1 %tobool.not.i1040, label %land.rhs.i1122, label %land.end.i1041
 
 land.rhs.i1122:                                   ; preds = %if.then1397
   %WindowMenuButtonPosition.i = getelementptr inbounds i8, ptr %.pre1519, i64 14616
-  %1144 = load i32, ptr %WindowMenuButtonPosition.i, align 4
-  %cmp1.i = icmp ne i32 %1144, -1
+  %1143 = load i32, ptr %WindowMenuButtonPosition.i, align 4
+  %cmp1.i = icmp ne i32 %1143, -1
   br label %land.end.i1041
 
 land.end.i1041:                                   ; preds = %land.rhs.i1122, %if.then1397
-  %1145 = phi i1 [ false, %if.then1397 ], [ %cmp1.i, %land.rhs.i1122 ]
+  %1144 = phi i1 [ false, %if.then1397 ], [ %cmp1.i, %land.rhs.i1122 ]
   %CurrentItemFlags.i = getelementptr inbounds i8, ptr %.pre1519, i64 18768
-  %1146 = load i32, ptr %CurrentItemFlags.i, align 8
-  %or.i1042 = or i32 %1146, 16
+  %1145 = load i32, ptr %CurrentItemFlags.i, align 8
+  %or.i1042 = or i32 %1145, 16
   store i32 %or.i1042, ptr %CurrentItemFlags.i, align 8
   store i32 1, ptr %NavLayerCurrent1334, align 8
   %FramePadding.i = getelementptr inbounds i8, ptr %.pre1519, i64 14636
-  %1147 = load float, ptr %FramePadding.i, align 4
+  %1146 = load float, ptr %FramePadding.i, align 4
   %FontSize.i1044 = getelementptr inbounds i8, ptr %.pre1519, i64 15680
-  %1148 = load float, ptr %FontSize.i1044, align 8
+  %1147 = load float, ptr %FontSize.i1044, align 8
   store <2 x float> zeroinitializer, ptr %close_button_pos.i, align 8
   %y.i75.i = getelementptr inbounds i8, ptr %collapse_button_pos.i, i64 4
   store <2 x float> zeroinitializer, ptr %collapse_button_pos.i, align 8
@@ -35416,81 +35417,81 @@ land.end.i1041:                                   ; preds = %land.rhs.i1122, %if
 
 if.then.i1046:                                    ; preds = %land.end.i1041
   %y.i.i1045 = getelementptr inbounds i8, ptr %close_button_pos.i, i64 4
-  %sub.i1048 = fsub float %sub1408, %1147
-  %sub8.i = fsub float %sub.i1048, %1148
+  %sub.i1048 = fsub float %sub1408, %1146
+  %sub8.i = fsub float %sub.i1048, %1147
   %y10.i = getelementptr inbounds i8, ptr %.pre1519, i64 14640
-  %1149 = load float, ptr %y10.i, align 4
-  %add.i1050 = fadd float %1140, %1149
+  %1148 = load float, ptr %y10.i, align 4
+  %add.i1050 = fadd float %1139, %1148
   store float %sub8.i, ptr %close_button_pos.i, align 8
   store float %add.i1050, ptr %y.i.i1045, align 4
   %ItemInnerSpacing.i = getelementptr inbounds i8, ptr %.pre1519, i64 14660
-  %1150 = load float, ptr %ItemInnerSpacing.i, align 4
-  %add12.i = fadd float %1148, %1150
-  %add13.i = fadd float %1147, %add12.i
+  %1149 = load float, ptr %ItemInnerSpacing.i, align 4
+  %add12.i = fadd float %1147, %1149
+  %add13.i = fadd float %1146, %add12.i
   br label %if.end.i1051
 
 if.end.i1051:                                     ; preds = %if.then.i1046, %land.end.i1041
-  %pad_r.0.i = phi float [ %add13.i, %if.then.i1046 ], [ %1147, %land.end.i1041 ]
-  br i1 %1145, label %land.lhs.true.i1113, label %if.end57.i
+  %pad_r.0.i = phi float [ %add13.i, %if.then.i1046 ], [ %1146, %land.end.i1041 ]
+  br i1 %1144, label %land.lhs.true.i1113, label %if.end57.i
 
 land.lhs.true.i1113:                              ; preds = %if.end.i1051
   %WindowMenuButtonPosition15.i = getelementptr inbounds i8, ptr %.pre1519, i64 14616
-  %1151 = load i32, ptr %WindowMenuButtonPosition15.i, align 4
-  switch i32 %1151, label %if.then53.i [
+  %1150 = load i32, ptr %WindowMenuButtonPosition15.i, align 4
+  switch i32 %1150, label %if.then53.i [
     i32 1, label %land.lhs.true34.thread.i
     i32 0, label %if.then37.i
   ]
 
 land.lhs.true34.thread.i:                         ; preds = %land.lhs.true.i1113
   %sub21.i = fsub float %sub1408, %pad_r.0.i
-  %sub22.i = fsub float %sub21.i, %1148
+  %sub22.i = fsub float %sub21.i, %1147
   %y26.i = getelementptr inbounds i8, ptr %.pre1519, i64 14640
-  %1152 = load float, ptr %y26.i, align 4
-  %add27.i = fadd float %1140, %1152
+  %1151 = load float, ptr %y26.i, align 4
+  %add27.i = fadd float %1139, %1151
   store float %sub22.i, ptr %collapse_button_pos.i, align 8
   store float %add27.i, ptr %y.i75.i, align 4
   %ItemInnerSpacing28.i = getelementptr inbounds i8, ptr %.pre1519, i64 14660
-  %1153 = load float, ptr %ItemInnerSpacing28.i, align 4
-  %add30.i = fadd float %1148, %1153
+  %1152 = load float, ptr %ItemInnerSpacing28.i, align 4
+  %add30.i = fadd float %1147, %1152
   %add31.i = fadd float %pad_r.0.i, %add30.i
   br label %if.then53.i
 
 if.then37.i:                                      ; preds = %land.lhs.true.i1113
   %y45.i = getelementptr inbounds i8, ptr %.pre1519, i64 14640
-  %1154 = load float, ptr %y45.i, align 4
-  %1155 = insertelement <2 x float> poison, float %add1402, i64 0
-  %1156 = insertelement <2 x float> %1155, float %1140, i64 1
-  %1157 = insertelement <2 x float> poison, float %1147, i64 0
-  %1158 = insertelement <2 x float> %1157, float %1154, i64 1
-  %1159 = fadd <2 x float> %1156, %1158
-  store <2 x float> %1159, ptr %collapse_button_pos.i, align 8
+  %1153 = load float, ptr %y45.i, align 4
+  %1154 = insertelement <2 x float> poison, float %add1402, i64 0
+  %1155 = insertelement <2 x float> %1154, float %1139, i64 1
+  %1156 = insertelement <2 x float> poison, float %1146, i64 0
+  %1157 = insertelement <2 x float> %1156, float %1153, i64 1
+  %1158 = fadd <2 x float> %1155, %1157
+  store <2 x float> %1158, ptr %collapse_button_pos.i, align 8
   %ItemInnerSpacing47.i = getelementptr inbounds i8, ptr %.pre1519, i64 14660
-  %1160 = load float, ptr %ItemInnerSpacing47.i, align 4
-  %add49.i = fadd float %1148, %1160
-  %add50.i = fadd float %1147, %add49.i
+  %1159 = load float, ptr %ItemInnerSpacing47.i, align 4
+  %add49.i = fadd float %1147, %1159
+  %add50.i = fadd float %1146, %add49.i
   br label %if.then53.i
 
 if.then53.i:                                      ; preds = %if.then37.i, %land.lhs.true34.thread.i, %land.lhs.true.i1113
   %pad_r.1.ph180.i = phi float [ %pad_r.0.i, %if.then37.i ], [ %add31.i, %land.lhs.true34.thread.i ], [ %pad_r.0.i, %land.lhs.true.i1113 ]
-  %pad_l.0.ph.i = phi float [ %add50.i, %if.then37.i ], [ %1147, %land.lhs.true34.thread.i ], [ %1147, %land.lhs.true.i1113 ]
+  %pad_l.0.ph.i = phi float [ %add50.i, %if.then37.i ], [ %1146, %land.lhs.true34.thread.i ], [ %1146, %land.lhs.true.i1113 ]
   %Data.i.i.i1115 = getelementptr inbounds i8, ptr %window.0, i64 264
-  %1161 = load ptr, ptr %Data.i.i.i1115, align 8
-  %1162 = load i32, ptr %IDStack, align 8
-  %1163 = sext i32 %1162 to i64
-  %1164 = getelementptr i32, ptr %1161, i64 %1163
-  %arrayidx.i.i.i1116 = getelementptr i8, ptr %1164, i64 -4
-  %1165 = load i32, ptr %arrayidx.i.i.i1116, align 4
-  %not.i.i.i1117 = xor i32 %1165, -1
+  %1160 = load ptr, ptr %Data.i.i.i1115, align 8
+  %1161 = load i32, ptr %IDStack, align 8
+  %1162 = sext i32 %1161 to i64
+  %1163 = getelementptr i32, ptr %1160, i64 %1162
+  %arrayidx.i.i.i1116 = getelementptr i8, ptr %1163, i64 -4
+  %1164 = load i32, ptr %arrayidx.i.i.i1116, align 4
+  %not.i.i.i1117 = xor i32 %1164, -1
   br label %while.body18.i.i.i
 
 while.body18.i.i.i:                               ; preds = %if.end30.i.i.i, %if.then53.i
-  %1166 = phi i8 [ %.pre.i.i.i1118, %if.end30.i.i.i ], [ 35, %if.then53.i ]
+  %1165 = phi i8 [ %.pre.i.i.i1118, %if.end30.i.i.i ], [ 35, %if.then53.i ]
   %crc.228.i.i.i = phi i32 [ %xor37.i.i.i, %if.end30.i.i.i ], [ %not.i.i.i1117, %if.then53.i ]
   %data.127.i.i.idx.i = phi i64 [ %data.127.i.i.add.i, %if.end30.i.i.i ], [ 0, %if.then53.i ]
   %data.127.i.i.add.i = add nuw nsw i64 %data.127.i.i.idx.i, 1
   %incdec.ptr1729.i.i.ptr.i = getelementptr inbounds i8, ptr @.str.442, i64 %data.127.i.i.add.i
-  %conv19.i.i.i = zext i8 %1166 to i32
-  %cmp20.i.i.i = icmp eq i8 %1166, 35
+  %conv19.i.i.i = zext i8 %1165 to i32
+  %cmp20.i.i.i = icmp eq i8 %1165, 35
   %.pre.i.i.i1118 = load i8, ptr %incdec.ptr1729.i.i.ptr.i, align 1
   %cmp24.i.i.i = icmp eq i8 %.pre.i.i.i1118, 35
   %or.cond32.i.i.i = select i1 %cmp20.i.i.i, i1 %cmp24.i.i.i, i1 false
@@ -35498,8 +35499,8 @@ while.body18.i.i.i:                               ; preds = %if.end30.i.i.i, %if
 
 land.lhs.true25.i.i.i:                            ; preds = %while.body18.i.i.i
   %gep.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @.str.442, i64 2), i64 %data.127.i.i.idx.i
-  %1167 = load i8, ptr %gep.i, align 1
-  %cmp28.i.i.i = icmp eq i8 %1167, 35
+  %1166 = load i8, ptr %gep.i, align 1
+  %cmp28.i.i.i = icmp eq i8 %1166, 35
   %spec.select19.i.i.i = select i1 %cmp28.i.i.i, i32 %not.i.i.i1117, i32 %crc.228.i.i.i
   br label %if.end30.i.i.i
 
@@ -35510,17 +35511,17 @@ if.end30.i.i.i:                                   ; preds = %land.lhs.true25.i.i
   %xor34.i.i.i = xor i32 %and32.i.i.i, %conv19.i.i.i
   %idxprom35.i.i.i = zext nneg i32 %xor34.i.i.i to i64
   %arrayidx36.i.i.i = getelementptr inbounds i32, ptr @_ZL17GCrc32LookupTable, i64 %idxprom35.i.i.i
-  %1168 = load i32, ptr %arrayidx36.i.i.i, align 4
-  %xor37.i.i.i = xor i32 %shr31.i.i.i, %1168
+  %1167 = load i32, ptr %arrayidx36.i.i.i, align 4
+  %xor37.i.i.i = xor i32 %shr31.i.i.i, %1167
   %exitcond.i = icmp eq i64 %data.127.i.i.add.i, 9
   br i1 %exitcond.i, label %_Z9ImHashStrPKcmj.exit.i.i, label %while.body18.i.i.i, !llvm.loop !24
 
 _Z9ImHashStrPKcmj.exit.i.i:                       ; preds = %if.end30.i.i.i
   %not40.i.i.i = xor i32 %xor37.i.i.i, -1
-  %1169 = load ptr, ptr %window.0, align 8
-  %DebugHookIdInfo.i.i1119 = getelementptr inbounds i8, ptr %1169, i64 16468
-  %1170 = load i32, ptr %DebugHookIdInfo.i.i1119, align 4
-  %cmp.i.i1120 = icmp eq i32 %1170, %not40.i.i.i
+  %1168 = load ptr, ptr %window.0, align 8
+  %DebugHookIdInfo.i.i1119 = getelementptr inbounds i8, ptr %1168, i64 16468
+  %1169 = load i32, ptr %DebugHookIdInfo.i.i1119, align 4
+  %cmp.i.i1120 = icmp eq i32 %1169, %not40.i.i.i
   br i1 %cmp.i.i1120, label %if.then.i.i1121, label %_ZN11ImGuiWindow5GetIDEPKcS1_.exit.i
 
 if.then.i.i1121:                                  ; preds = %_Z9ImHashStrPKcmj.exit.i.i
@@ -35536,29 +35537,29 @@ if.then55.i:                                      ; preds = %_ZN11ImGuiWindow5Ge
   br label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.then55.i, %_ZN11ImGuiWindow5GetIDEPKcS1_.exit.i, %if.end.i1051
-  %pad_l.0174.i = phi float [ %pad_l.0.ph.i, %_ZN11ImGuiWindow5GetIDEPKcS1_.exit.i ], [ %pad_l.0.ph.i, %if.then55.i ], [ %1147, %if.end.i1051 ]
+  %pad_l.0174.i = phi float [ %pad_l.0.ph.i, %_ZN11ImGuiWindow5GetIDEPKcS1_.exit.i ], [ %pad_l.0.ph.i, %if.then55.i ], [ %1146, %if.end.i1051 ]
   %pad_r.1168172.i = phi float [ %pad_r.1.ph180.i, %_ZN11ImGuiWindow5GetIDEPKcS1_.exit.i ], [ %pad_r.1.ph180.i, %if.then55.i ], [ %pad_r.0.i, %if.end.i1051 ]
   br i1 %cmp.not.i1038, label %if.end64.i, label %if.then59.i
 
 if.then59.i:                                      ; preds = %if.end57.i
   %Data.i.i80.i = getelementptr inbounds i8, ptr %window.0, i64 264
-  %1171 = load ptr, ptr %Data.i.i80.i, align 8
-  %1172 = load i32, ptr %IDStack, align 8
-  %1173 = sext i32 %1172 to i64
-  %1174 = getelementptr i32, ptr %1171, i64 %1173
-  %arrayidx.i.i81.i = getelementptr i8, ptr %1174, i64 -4
-  %1175 = load i32, ptr %arrayidx.i.i81.i, align 4
-  %not.i.i82.i = xor i32 %1175, -1
+  %1170 = load ptr, ptr %Data.i.i80.i, align 8
+  %1171 = load i32, ptr %IDStack, align 8
+  %1172 = sext i32 %1171 to i64
+  %1173 = getelementptr i32, ptr %1170, i64 %1172
+  %arrayidx.i.i81.i = getelementptr i8, ptr %1173, i64 -4
+  %1174 = load i32, ptr %arrayidx.i.i81.i, align 4
+  %not.i.i82.i = xor i32 %1174, -1
   br label %while.body18.i.i89.i
 
 while.body18.i.i89.i:                             ; preds = %if.end30.i.i98.i, %if.then59.i
-  %1176 = phi i8 [ %.pre.i.i95.i, %if.end30.i.i98.i ], [ 35, %if.then59.i ]
+  %1175 = phi i8 [ %.pre.i.i95.i, %if.end30.i.i98.i ], [ 35, %if.then59.i ]
   %crc.228.i.i90.i = phi i32 [ %xor37.i.i105.i, %if.end30.i.i98.i ], [ %not.i.i82.i, %if.then59.i ]
   %data.127.i.i91.idx.i = phi i64 [ %data.127.i.i91.add.i, %if.end30.i.i98.i ], [ 0, %if.then59.i ]
   %data.127.i.i91.add.i = add nuw nsw i64 %data.127.i.i91.idx.i, 1
   %incdec.ptr1729.i.i92.ptr.i = getelementptr inbounds i8, ptr @.str.443, i64 %data.127.i.i91.add.i
-  %conv19.i.i93.i = zext i8 %1176 to i32
-  %cmp20.i.i94.i = icmp eq i8 %1176, 35
+  %conv19.i.i93.i = zext i8 %1175 to i32
+  %cmp20.i.i94.i = icmp eq i8 %1175, 35
   %.pre.i.i95.i = load i8, ptr %incdec.ptr1729.i.i92.ptr.i, align 1
   %cmp24.i.i96.i = icmp eq i8 %.pre.i.i95.i, 35
   %or.cond32.i.i97.i = select i1 %cmp20.i.i94.i, i1 %cmp24.i.i96.i, i1 false
@@ -35566,8 +35567,8 @@ while.body18.i.i89.i:                             ; preds = %if.end30.i.i98.i, %
 
 land.lhs.true25.i.i107.i:                         ; preds = %while.body18.i.i89.i
   %gep183.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @.str.443, i64 2), i64 %data.127.i.i91.idx.i
-  %1177 = load i8, ptr %gep183.i, align 1
-  %cmp28.i.i109.i = icmp eq i8 %1177, 35
+  %1176 = load i8, ptr %gep183.i, align 1
+  %cmp28.i.i109.i = icmp eq i8 %1176, 35
   %spec.select19.i.i110.i = select i1 %cmp28.i.i109.i, i32 %not.i.i82.i, i32 %crc.228.i.i90.i
   br label %if.end30.i.i98.i
 
@@ -35578,17 +35579,17 @@ if.end30.i.i98.i:                                 ; preds = %land.lhs.true25.i.i
   %xor34.i.i102.i = xor i32 %and32.i.i101.i, %conv19.i.i93.i
   %idxprom35.i.i103.i = zext nneg i32 %xor34.i.i102.i to i64
   %arrayidx36.i.i104.i = getelementptr inbounds i32, ptr @_ZL17GCrc32LookupTable, i64 %idxprom35.i.i103.i
-  %1178 = load i32, ptr %arrayidx36.i.i104.i, align 4
-  %xor37.i.i105.i = xor i32 %shr31.i.i100.i, %1178
+  %1177 = load i32, ptr %arrayidx36.i.i104.i, align 4
+  %xor37.i.i105.i = xor i32 %shr31.i.i100.i, %1177
   %exitcond176.i = icmp eq i64 %data.127.i.i91.add.i, 6
   br i1 %exitcond176.i, label %_Z9ImHashStrPKcmj.exit.i84.i, label %while.body18.i.i89.i, !llvm.loop !24
 
 _Z9ImHashStrPKcmj.exit.i84.i:                     ; preds = %if.end30.i.i98.i
   %not40.i.i85.i = xor i32 %xor37.i.i105.i, -1
-  %1179 = load ptr, ptr %window.0, align 8
-  %DebugHookIdInfo.i86.i = getelementptr inbounds i8, ptr %1179, i64 16468
-  %1180 = load i32, ptr %DebugHookIdInfo.i86.i, align 4
-  %cmp.i87.i = icmp eq i32 %1180, %not40.i.i85.i
+  %1178 = load ptr, ptr %window.0, align 8
+  %DebugHookIdInfo.i86.i = getelementptr inbounds i8, ptr %1178, i64 16468
+  %1179 = load i32, ptr %DebugHookIdInfo.i86.i, align 4
+  %cmp.i87.i = icmp eq i32 %1179, %not40.i.i85.i
   br i1 %cmp.i87.i, label %if.then.i88.i, label %_ZN11ImGuiWindow5GetIDEPKcS1_.exit111.i
 
 if.then.i88.i:                                    ; preds = %_Z9ImHashStrPKcmj.exit.i84.i
@@ -35605,32 +35606,32 @@ if.then62.i:                                      ; preds = %_ZN11ImGuiWindow5Ge
 
 if.end64.i:                                       ; preds = %if.then62.i, %_ZN11ImGuiWindow5GetIDEPKcS1_.exit111.i, %if.end57.i
   store i32 0, ptr %NavLayerCurrent1334, align 8
-  store i32 %1146, ptr %CurrentItemFlags.i, align 8
-  %and68.i = and i32 %1143, 262144
+  store i32 %1145, ptr %CurrentItemFlags.i, align 8
+  %and68.i = and i32 %1142, 262144
   %tobool69.not.i = icmp eq i32 %and68.i, 0
-  %mul.i1052 = fmul float %1148, 0x3FE99999A0000000
+  %mul.i1052 = fmul float %1147, 0x3FE99999A0000000
   %cond.i1053 = select i1 %tobool69.not.i, float 0.000000e+00, float %mul.i1052
-  %1181 = load ptr, ptr @GImGui, align 8
+  %1180 = load ptr, ptr @GImGui, align 8
   %cmp7.i.i.not.i = icmp eq ptr %name, inttoptr (i64 -1 to ptr)
   br i1 %cmp7.i.i.not.i, label %if.end.thread.i.i, label %land.lhs.true.i.i.i1054
 
 if.end.thread.i.i:                                ; preds = %if.end64.i
-  %FontSize12.i.i = getelementptr inbounds i8, ptr %1181, i64 15680
-  %1182 = load float, ptr %FontSize12.i.i, align 8
+  %FontSize12.i.i = getelementptr inbounds i8, ptr %1180, i64 15680
+  %1181 = load float, ptr %FontSize12.i.i, align 8
   br label %if.then1.i.i1111
 
 land.lhs.true.i.i.i1054:                          ; preds = %if.end64.i, %while.body.i.i.i1055
   %text_display_end.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i1056, %while.body.i.i.i1055 ], [ %name, %if.end64.i ]
-  %1183 = load i8, ptr %text_display_end.08.i.i.i, align 1
-  switch i8 %1183, label %while.body.i.i.i1055 [
+  %1182 = load i8, ptr %text_display_end.08.i.i.i, align 1
+  switch i8 %1182, label %while.body.i.i.i1055 [
     i8 0, label %if.end.i.i1057
     i8 35, label %lor.rhs.i.i.i
   ]
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i.i1054
   %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %text_display_end.08.i.i.i, i64 1
-  %1184 = load i8, ptr %arrayidx4.i.i.i, align 1
-  %cmp6.not.i.i.i = icmp eq i8 %1184, 35
+  %1183 = load i8, ptr %arrayidx4.i.i.i, align 1
+  %cmp6.not.i.i.i = icmp eq i8 %1183, 35
   br i1 %cmp6.not.i.i.i, label %if.end.i.i1057, label %while.body.i.i.i1055
 
 while.body.i.i.i1055:                             ; preds = %lor.rhs.i.i.i, %land.lhs.true.i.i.i1054
@@ -35640,20 +35641,20 @@ while.body.i.i.i1055:                             ; preds = %lor.rhs.i.i.i, %lan
 
 if.end.i.i1057:                                   ; preds = %while.body.i.i.i1055, %lor.rhs.i.i.i, %land.lhs.true.i.i.i1054
   %text_display_end.0.i.i = phi ptr [ %text_display_end.08.i.i.i, %lor.rhs.i.i.i ], [ inttoptr (i64 -1 to ptr), %while.body.i.i.i1055 ], [ %text_display_end.08.i.i.i, %land.lhs.true.i.i.i1054 ]
-  %FontSize.i.i = getelementptr inbounds i8, ptr %1181, i64 15680
-  %1185 = load float, ptr %FontSize.i.i, align 8
+  %FontSize.i.i = getelementptr inbounds i8, ptr %1180, i64 15680
+  %1184 = load float, ptr %FontSize.i.i, align 8
   %cmp.i113.i = icmp eq ptr %text_display_end.0.i.i, %name
   br i1 %cmp.i113.i, label %if.then1.i.i1111, label %if.end2.i.i
 
 if.then1.i.i1111:                                 ; preds = %if.end.i.i1057, %if.end.thread.i.i
-  %1186 = phi float [ %1182, %if.end.thread.i.i ], [ %1185, %if.end.i.i1057 ]
-  %retval.sroa.0.4.vec.insert.i.i1112 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %1186, i64 1
+  %1185 = phi float [ %1181, %if.end.thread.i.i ], [ %1184, %if.end.i.i1057 ]
+  %retval.sroa.0.4.vec.insert.i.i1112 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %1185, i64 1
   br label %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit.i
 
 if.end2.i.i:                                      ; preds = %if.end.i.i1057
-  %Font.i.i = getelementptr inbounds i8, ptr %1181, i64 15672
-  %1187 = load ptr, ptr %Font.i.i, align 8
-  %call3.i.i = call <2 x float> @_ZNK6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(118) %1187, float noundef %1185, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef nonnull %name, ptr noundef nonnull %text_display_end.0.i.i, ptr noundef null)
+  %Font.i.i = getelementptr inbounds i8, ptr %1180, i64 15672
+  %1186 = load ptr, ptr %Font.i.i, align 8
+  %call3.i.i = call <2 x float> @_ZNK6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(118) %1186, float noundef %1184, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef nonnull %name, ptr noundef nonnull %text_display_end.0.i.i, ptr noundef null)
   %retval.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %call3.i.i, i64 0
   %add.i.i1058 = fadd float %retval.sroa.0.0.vec.extract.i.i, 0x3FEFFFEB00000000
   %conv.i.i1059 = fptosi float %add.i.i1058 to i32
@@ -35663,55 +35664,55 @@ if.end2.i.i:                                      ; preds = %if.end.i.i1057
 
 _ZN5ImGui12CalcTextSizeEPKcS1_bf.exit.i:          ; preds = %if.end2.i.i, %if.then1.i.i1111
   %retval.sroa.0.0.i.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i1112, %if.then1.i.i1111 ], [ %retval.sroa.0.0.vec.insert.i.i1060, %if.end2.i.i ]
-  %1188 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %cond.i1053, i64 0
-  %1189 = fadd <2 x float> %1188, %retval.sroa.0.0.i.i
-  store <2 x float> %1189, ptr %text_size.i, align 8
-  %1190 = load float, ptr %FramePadding.i, align 4
-  %cmp76.i = fcmp ogt float %pad_l.0174.i, %1190
+  %1187 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %cond.i1053, i64 0
+  %1188 = fadd <2 x float> %1187, %retval.sroa.0.0.i.i
+  store <2 x float> %1188, ptr %text_size.i, align 8
+  %1189 = load float, ptr %FramePadding.i, align 4
+  %cmp76.i = fcmp ogt float %pad_l.0174.i, %1189
   br i1 %cmp76.i, label %if.then77.i1110, label %if.end82.i
 
 if.then77.i1110:                                  ; preds = %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit.i
   %ItemInnerSpacing79.i = getelementptr inbounds i8, ptr %.pre1519, i64 14660
-  %1191 = load float, ptr %ItemInnerSpacing79.i, align 4
-  %add81.i = fadd float %pad_l.0174.i, %1191
+  %1190 = load float, ptr %ItemInnerSpacing79.i, align 4
+  %add81.i = fadd float %pad_l.0174.i, %1190
   br label %if.end82.i
 
 if.end82.i:                                       ; preds = %if.then77.i1110, %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit.i
   %pad_l.1.i = phi float [ %add81.i, %if.then77.i1110 ], [ %pad_l.0174.i, %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit.i ]
-  %cmp85.i = fcmp ogt float %pad_r.1168172.i, %1190
+  %cmp85.i = fcmp ogt float %pad_r.1168172.i, %1189
   br i1 %cmp85.i, label %if.then86.i, label %if.end91.i
 
 if.then86.i:                                      ; preds = %if.end82.i
   %ItemInnerSpacing88.i = getelementptr inbounds i8, ptr %.pre1519, i64 14660
-  %1192 = load float, ptr %ItemInnerSpacing88.i, align 4
-  %add90.i = fadd float %pad_r.1168172.i, %1192
+  %1191 = load float, ptr %ItemInnerSpacing88.i, align 4
+  %add90.i = fadd float %pad_r.1168172.i, %1191
   br label %if.end91.i
 
 if.end91.i:                                       ; preds = %if.then86.i, %if.end82.i
   %pad_r.2.i = phi float [ %add90.i, %if.then86.i ], [ %pad_r.1168172.i, %if.end82.i ]
   %WindowTitleAlign.i = getelementptr inbounds i8, ptr %.pre1519, i64 14608
-  %1193 = load float, ptr %WindowTitleAlign.i, align 4
-  %cmp93.i = fcmp ogt float %1193, 0.000000e+00
-  %cmp97.i = fcmp olt float %1193, 1.000000e+00
+  %1192 = load float, ptr %WindowTitleAlign.i, align 4
+  %cmp93.i = fcmp ogt float %1192, 0.000000e+00
+  %cmp97.i = fcmp olt float %1192, 1.000000e+00
   %or.cond.i1062 = and i1 %cmp93.i, %cmp97.i
   br i1 %or.cond.i1062, label %if.then98.i, label %if.end115.i
 
 if.then98.i:                                      ; preds = %if.end91.i
-  %sub101.i = fadd float %1193, -5.000000e-01
-  %1194 = call float @llvm.fabs.f32(float %sub101.i)
-  %neg.i = fneg float %1194
-  %1195 = call float @llvm.fmuladd.f32(float %neg.i, float 2.000000e+00, float 1.000000e+00)
-  %cmp.i118.i = fcmp olt float %1195, 0.000000e+00
-  %cmp1.i.i1105 = fcmp ogt float %1195, 1.000000e+00
-  %cond.i.i1106 = select i1 %cmp1.i.i1105, float 1.000000e+00, float %1195
+  %sub101.i = fadd float %1192, -5.000000e-01
+  %1193 = call float @llvm.fabs.f32(float %sub101.i)
+  %neg.i = fneg float %1193
+  %1194 = call float @llvm.fmuladd.f32(float %neg.i, float 2.000000e+00, float 1.000000e+00)
+  %cmp.i118.i = fcmp olt float %1194, 0.000000e+00
+  %cmp1.i.i1105 = fcmp ogt float %1194, 1.000000e+00
+  %cond.i.i1106 = select i1 %cmp1.i.i1105, float 1.000000e+00, float %1194
   %cond5.i.i1107 = select i1 %cmp.i118.i, float 0.000000e+00, float %cond.i.i1106
   %cmp.i119.i = fcmp oge float %pad_l.1.i, %pad_r.2.i
   %cond.i120.i = select i1 %cmp.i119.i, float %pad_l.1.i, float %pad_r.2.i
   %sub.i.i1109 = fsub float %sub1408, %add1402
   %sub106.i = fsub float %sub.i.i1109, %pad_l.1.i
   %sub107.i = fsub float %sub106.i, %pad_r.2.i
-  %1196 = extractelement <2 x float> %1189, i64 0
-  %sub109.i = fsub float %sub107.i, %1196
+  %1195 = extractelement <2 x float> %1188, i64 0
+  %sub109.i = fsub float %sub107.i, %1195
   %cmp.i121.i = fcmp olt float %cond.i120.i, %sub109.i
   %cond.i122.i = select i1 %cmp.i121.i, float %cond.i120.i, float %sub109.i
   %mul111.i = fmul float %cond.i122.i, %cond5.i.i1107
@@ -35728,31 +35729,31 @@ if.end115.i:                                      ; preds = %if.end91.i, %if.the
   %sub123.i = fsub float %sub1408, %pad_r.3.i
   store float %add118.i, ptr %layout_r.i, align 4
   %y.i.i.i1064 = getelementptr inbounds i8, ptr %layout_r.i, i64 4
-  store float %1140, ptr %y.i.i.i1064, align 4
+  store float %1139, ptr %y.i.i.i1064, align 4
   %Max.i127.i = getelementptr inbounds i8, ptr %layout_r.i, i64 8
   store float %sub123.i, ptr %Max.i127.i, align 4
   %y.i1.i.i = getelementptr inbounds i8, ptr %layout_r.i, i64 12
-  store float %1142, ptr %y.i1.i.i, align 4
+  store float %1141, ptr %y.i1.i.i, align 4
   %ItemInnerSpacing133.i = getelementptr inbounds i8, ptr %.pre1519, i64 14660
-  %1197 = load float, ptr %ItemInnerSpacing133.i, align 4
-  %add135.i = fadd float %sub123.i, %1197
+  %1196 = load float, ptr %ItemInnerSpacing133.i, align 4
+  %add135.i = fadd float %sub123.i, %1196
   %cmp.i128.i = fcmp olt float %add135.i, %sub1408
   %cond.i129.i = select i1 %cmp.i128.i, float %add135.i, float %sub1408
   store float %add118.i, ptr %clip_r.i, align 4
   %y.i.i130.i = getelementptr inbounds i8, ptr %clip_r.i, i64 4
-  store float %1140, ptr %y.i.i130.i, align 4
+  store float %1139, ptr %y.i.i130.i, align 4
   %Max.i131.i = getelementptr inbounds i8, ptr %clip_r.i, i64 8
   store float %cond.i129.i, ptr %Max.i131.i, align 4
   %y.i1.i132.i = getelementptr inbounds i8, ptr %clip_r.i, i64 12
-  store float %1142, ptr %y.i1.i132.i, align 4
+  store float %1141, ptr %y.i1.i132.i, align 4
   br i1 %tobool69.not.i, label %if.end183.i, label %if.then143.i
 
 if.then143.i:                                     ; preds = %if.end115.i
   %sub.i135.i = fsub float %sub123.i, %add118.i
-  %1198 = extractelement <2 x float> %1189, i64 0
-  %sub148.i = fsub float %sub.i135.i, %1198
-  %1199 = call float @llvm.fmuladd.f32(float %sub148.i, float %1193, float %add118.i)
-  %add153.i = fadd float %1198, %1199
+  %1197 = extractelement <2 x float> %1188, i64 0
+  %sub148.i = fsub float %sub.i135.i, %1197
+  %1198 = call float @llvm.fmuladd.f32(float %sub148.i, float %1192, float %add118.i)
+  %add153.i = fadd float %1197, %1198
   %cmp.i136.i = fcmp olt float %add153.i, %add118.i
   %cmp1.i137.i = fcmp ogt float %add153.i, %sub123.i
   %cond.i138.i = select i1 %cmp1.i137.i, float %sub123.i, float %add153.i
@@ -35762,50 +35763,50 @@ if.then143.i:                                     ; preds = %if.end115.i
 
 if.then171.i:                                     ; preds = %if.then143.i
   %marker_pos.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %cond5.i139.i, i64 0
-  %add164.i = fadd float %1140, %1142
+  %add164.i = fadd float %1139, %1141
   %mul165.i = fmul float %add164.i, 5.000000e-01
   %marker_pos.sroa.0.4.vec.insert.i = insertelement <2 x float> %marker_pos.sroa.0.0.vec.insert.i, float %mul165.i, i64 1
-  %1200 = load ptr, ptr %DrawList, align 8
-  %1201 = load ptr, ptr @GImGui, align 8
-  %Style.i.i1068 = getelementptr inbounds i8, ptr %1201, i64 14576
-  %Colors.i.i1069 = getelementptr inbounds i8, ptr %1201, i64 14804
+  %1199 = load ptr, ptr %DrawList, align 8
+  %1200 = load ptr, ptr @GImGui, align 8
+  %Style.i.i1068 = getelementptr inbounds i8, ptr %1200, i64 14576
+  %Colors.i.i1069 = getelementptr inbounds i8, ptr %1200, i64 14804
   %c.sroa.0.0.copyload.i.i1070 = load float, ptr %Colors.i.i1069, align 4
-  %c.sroa.2.0.arrayidx.sroa_idx.i.i1071 = getelementptr inbounds i8, ptr %1201, i64 14808
+  %c.sroa.2.0.arrayidx.sroa_idx.i.i1071 = getelementptr inbounds i8, ptr %1200, i64 14808
   %c.sroa.2.0.copyload.i.i1072 = load float, ptr %c.sroa.2.0.arrayidx.sroa_idx.i.i1071, align 4
-  %c.sroa.3.0.arrayidx.sroa_idx.i.i1073 = getelementptr inbounds i8, ptr %1201, i64 14812
+  %c.sroa.3.0.arrayidx.sroa_idx.i.i1073 = getelementptr inbounds i8, ptr %1200, i64 14812
   %c.sroa.3.0.copyload.i.i1074 = load float, ptr %c.sroa.3.0.arrayidx.sroa_idx.i.i1073, align 4
-  %c.sroa.4.0.arrayidx.sroa_idx.i.i1075 = getelementptr inbounds i8, ptr %1201, i64 14816
+  %c.sroa.4.0.arrayidx.sroa_idx.i.i1075 = getelementptr inbounds i8, ptr %1200, i64 14816
   %c.sroa.4.0.copyload.i.i1076 = load float, ptr %c.sroa.4.0.arrayidx.sroa_idx.i.i1075, align 4
-  %1202 = load float, ptr %Style.i.i1068, align 4
-  %mul1.i.i1077 = fmul float %c.sroa.4.0.copyload.i.i1076, %1202
+  %1201 = load float, ptr %Style.i.i1068, align 4
+  %mul1.i.i1077 = fmul float %c.sroa.4.0.copyload.i.i1076, %1201
   %cmp.i.i.i.i1078 = fcmp olt float %c.sroa.0.0.copyload.i.i1070, 0.000000e+00
   %cmp1.i.i.i.i1079 = fcmp ogt float %c.sroa.0.0.copyload.i.i1070, 1.000000e+00
   %cond.i.i.i.i1080 = select i1 %cmp1.i.i.i.i1079, float 1.000000e+00, float %c.sroa.0.0.copyload.i.i1070
   %cond5.i.i.i.i1081 = select i1 %cmp.i.i.i.i1078, float 0.000000e+00, float %cond.i.i.i.i1080
-  %1203 = call float @llvm.fmuladd.f32(float %cond5.i.i.i.i1081, float 2.550000e+02, float 5.000000e-01)
-  %conv.i.i.i1082 = fptosi float %1203 to i32
+  %1202 = call float @llvm.fmuladd.f32(float %cond5.i.i.i.i1081, float 2.550000e+02, float 5.000000e-01)
+  %conv.i.i.i1082 = fptosi float %1202 to i32
   %cmp.i7.i.i.i1083 = fcmp olt float %c.sroa.2.0.copyload.i.i1072, 0.000000e+00
   %cmp1.i8.i.i.i1084 = fcmp ogt float %c.sroa.2.0.copyload.i.i1072, 1.000000e+00
   %cond.i9.i.i.i1085 = select i1 %cmp1.i8.i.i.i1084, float 1.000000e+00, float %c.sroa.2.0.copyload.i.i1072
   %cond5.i10.i.i.i1086 = select i1 %cmp.i7.i.i.i1083, float 0.000000e+00, float %cond.i9.i.i.i1085
-  %1204 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i.i1086, float 2.550000e+02, float 5.000000e-01)
-  %conv2.i.i.i1087 = fptosi float %1204 to i32
+  %1203 = call float @llvm.fmuladd.f32(float %cond5.i10.i.i.i1086, float 2.550000e+02, float 5.000000e-01)
+  %conv2.i.i.i1087 = fptosi float %1203 to i32
   %shl3.i.i.i1088 = shl i32 %conv2.i.i.i1087, 8
   %or.i.i.i1089 = or i32 %shl3.i.i.i1088, %conv.i.i.i1082
-  %1205 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i.i1074, i64 0
-  %1206 = insertelement <2 x float> %1205, float %mul1.i.i1077, i64 1
-  %1207 = fcmp olt <2 x float> %1206, zeroinitializer
-  %1208 = fcmp ogt <2 x float> %1206, <float 1.000000e+00, float 1.000000e+00>
-  %1209 = select <2 x i1> %1208, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %1206
-  %1210 = select <2 x i1> %1207, <2 x float> zeroinitializer, <2 x float> %1209
-  %1211 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %1210, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
-  %1212 = fptosi <2 x float> %1211 to <2 x i32>
-  %1213 = shl <2 x i32> %1212, <i32 16, i32 24>
-  %1214 = extractelement <2 x i32> %1213, i64 0
-  %or7.i.i.i1096 = or i32 %or.i.i.i1089, %1214
-  %1215 = extractelement <2 x i32> %1213, i64 1
-  %or11.i.i.i1103 = or i32 %or7.i.i.i1096, %1215
-  call void @_ZN5ImGui12RenderBulletEP10ImDrawList6ImVec2j(ptr noundef %1200, <2 x float> %marker_pos.sroa.0.4.vec.insert.i, i32 noundef %or11.i.i.i1103)
+  %1204 = insertelement <2 x float> poison, float %c.sroa.3.0.copyload.i.i1074, i64 0
+  %1205 = insertelement <2 x float> %1204, float %mul1.i.i1077, i64 1
+  %1206 = fcmp olt <2 x float> %1205, zeroinitializer
+  %1207 = fcmp ogt <2 x float> %1205, <float 1.000000e+00, float 1.000000e+00>
+  %1208 = select <2 x i1> %1207, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %1205
+  %1209 = select <2 x i1> %1206, <2 x float> zeroinitializer, <2 x float> %1208
+  %1210 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %1209, <2 x float> <float 2.550000e+02, float 2.550000e+02>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
+  %1211 = fptosi <2 x float> %1210 to <2 x i32>
+  %1212 = shl <2 x i32> %1211, <i32 16, i32 24>
+  %1213 = extractelement <2 x i32> %1212, i64 0
+  %or7.i.i.i1096 = or i32 %or.i.i.i1089, %1213
+  %1214 = extractelement <2 x i32> %1212, i64 1
+  %or11.i.i.i1103 = or i32 %or7.i.i.i1096, %1214
+  call void @_ZN5ImGui12RenderBulletEP10ImDrawList6ImVec2j(ptr noundef %1199, <2 x float> %marker_pos.sroa.0.4.vec.insert.i, i32 noundef %or11.i.i.i1103)
   %mul176.i = fmul float %mul.i1052, 5.000000e-01
   %conv.i1104 = fptosi float %mul176.i to i32
   %conv177.i = sitofp i32 %conv.i1104 to float
@@ -35824,16 +35825,16 @@ land.lhs.true.preheader.i.i147.i:                 ; preds = %if.end183.i
 
 land.lhs.true.i.i150.i:                           ; preds = %while.body.i.i155.i, %land.lhs.true.preheader.i.i147.i
   %text_display_end.08.i.i151.i = phi ptr [ %incdec.ptr.i.i156.i, %while.body.i.i155.i ], [ %name, %land.lhs.true.preheader.i.i147.i ]
-  %1216 = load i8, ptr %text_display_end.08.i.i151.i, align 1
-  switch i8 %1216, label %while.body.i.i155.i [
+  %1215 = load i8, ptr %text_display_end.08.i.i151.i, align 1
+  switch i8 %1215, label %while.body.i.i155.i [
     i8 0, label %_ZN5ImGui19FindRenderedTextEndEPKcS1_.exit.i.i
     i8 35, label %lor.rhs.i.i152.i
   ]
 
 lor.rhs.i.i152.i:                                 ; preds = %land.lhs.true.i.i150.i
   %arrayidx4.i.i153.i = getelementptr inbounds i8, ptr %text_display_end.08.i.i151.i, i64 1
-  %1217 = load i8, ptr %arrayidx4.i.i153.i, align 1
-  %cmp6.not.i.i154.i = icmp eq i8 %1217, 35
+  %1216 = load i8, ptr %arrayidx4.i.i153.i, align 1
+  %cmp6.not.i.i154.i = icmp eq i8 %1216, 35
   br i1 %cmp6.not.i.i154.i, label %_ZN5ImGui19FindRenderedTextEndEPKcS1_.exit.i.i, label %while.body.i.i155.i
 
 while.body.i.i155.i:                              ; preds = %lor.rhs.i.i152.i, %land.lhs.true.i.i150.i
@@ -35844,21 +35845,21 @@ while.body.i.i155.i:                              ; preds = %lor.rhs.i.i152.i, %
 _ZN5ImGui19FindRenderedTextEndEPKcS1_.exit.i.i:   ; preds = %while.body.i.i155.i, %lor.rhs.i.i152.i, %land.lhs.true.i.i150.i
   %text_display_end.0.lcssa.i.ph.i.i = phi ptr [ %text_display_end.08.i.i151.i, %land.lhs.true.i.i150.i ], [ inttoptr (i64 -1 to ptr), %while.body.i.i155.i ], [ %text_display_end.08.i.i151.i, %lor.rhs.i.i152.i ]
   %.pre8.i.i = ptrtoint ptr %text_display_end.0.lcssa.i.ph.i.i to i64
-  %1218 = sub i64 %.pre8.i.i, %text12.i.i148.i
-  %1219 = and i64 %1218, 4294967295
-  %1220 = icmp eq i64 %1219, 0
-  br i1 %1220, label %_ZN5ImGuiL28RenderWindowTitleBarContentsEP11ImGuiWindowRK6ImRectPKcPb.exit, label %if.end.i144.i
+  %1217 = sub i64 %.pre8.i.i, %text12.i.i148.i
+  %1218 = and i64 %1217, 4294967295
+  %1219 = icmp eq i64 %1218, 0
+  br i1 %1219, label %_ZN5ImGuiL28RenderWindowTitleBarContentsEP11ImGuiWindowRK6ImRectPKcPb.exit, label %if.end.i144.i
 
 if.end.i144.i:                                    ; preds = %_ZN5ImGui19FindRenderedTextEndEPKcS1_.exit.i.i
-  %1221 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i.i1065 = getelementptr inbounds i8, ptr %1221, i64 16392
-  %1222 = load ptr, ptr %CurrentWindow.i.i1065, align 8
-  %DrawList.i.i1066 = getelementptr inbounds i8, ptr %1222, i64 680
-  %1223 = load ptr, ptr %DrawList.i.i1066, align 8
-  call void @_ZN5ImGui19RenderTextClippedExEP10ImDrawListRK6ImVec2S4_PKcS6_PS3_S4_PK6ImRect(ptr noundef %1223, ptr noundef nonnull align 4 dereferenceable(8) %layout_r.i, ptr noundef nonnull readonly align 4 dereferenceable(8) %Max.i127.i, ptr noundef nonnull %name, ptr noundef nonnull %text_display_end.0.lcssa.i.ph.i.i, ptr noundef nonnull %text_size.i, ptr noundef nonnull readonly align 4 dereferenceable(8) %WindowTitleAlign.i, ptr noundef nonnull %clip_r.i)
-  %LogEnabled.i.i = getelementptr inbounds i8, ptr %1221, i64 24488
-  %1224 = load i8, ptr %LogEnabled.i.i, align 8
-  %tobool.i.i = trunc i8 %1224 to i1
+  %1220 = load ptr, ptr @GImGui, align 8
+  %CurrentWindow.i.i1065 = getelementptr inbounds i8, ptr %1220, i64 16392
+  %1221 = load ptr, ptr %CurrentWindow.i.i1065, align 8
+  %DrawList.i.i1066 = getelementptr inbounds i8, ptr %1221, i64 680
+  %1222 = load ptr, ptr %DrawList.i.i1066, align 8
+  call void @_ZN5ImGui19RenderTextClippedExEP10ImDrawListRK6ImVec2S4_PKcS6_PS3_S4_PK6ImRect(ptr noundef %1222, ptr noundef nonnull align 4 dereferenceable(8) %layout_r.i, ptr noundef nonnull readonly align 4 dereferenceable(8) %Max.i127.i, ptr noundef nonnull %name, ptr noundef nonnull %text_display_end.0.lcssa.i.ph.i.i, ptr noundef nonnull %text_size.i, ptr noundef nonnull readonly align 4 dereferenceable(8) %WindowTitleAlign.i, ptr noundef nonnull %clip_r.i)
+  %LogEnabled.i.i = getelementptr inbounds i8, ptr %1220, i64 24488
+  %1223 = load i8, ptr %LogEnabled.i.i, align 8
+  %tobool.i.i = trunc i8 %1223 to i1
   br i1 %tobool.i.i, label %if.then1.i146.i, label %_ZN5ImGuiL28RenderWindowTitleBarContentsEP11ImGuiWindowRK6ImRectPKcPb.exit
 
 if.then1.i146.i:                                  ; preds = %if.end.i144.i
@@ -35875,72 +35876,72 @@ _ZN5ImGuiL28RenderWindowTitleBarContentsEP11ImGuiWindowRK6ImRectPKcPb.exit: ; pr
   br label %if.end1411
 
 if.end1411:                                       ; preds = %_ZN5ImGuiL28RenderWindowTitleBarContentsEP11ImGuiWindowRK6ImRectPKcPb.exit, %if.end1394
-  %1225 = phi ptr [ %.pre1518, %_ZN5ImGuiL28RenderWindowTitleBarContentsEP11ImGuiWindowRK6ImRectPKcPb.exit ], [ %.pre1519, %if.end1394 ]
+  %1224 = phi ptr [ %.pre1518, %_ZN5ImGuiL28RenderWindowTitleBarContentsEP11ImGuiWindowRK6ImRectPKcPb.exit ], [ %.pre1519, %if.end1394 ]
   %y1412 = getelementptr inbounds i8, ptr %window.0, i64 618
   store i16 0, ptr %y1412, align 2
   %HitTestHoleSize1413 = getelementptr inbounds i8, ptr %window.0, i64 616
   store i16 0, ptr %HitTestHoleSize1413, align 8
   %MoveId = getelementptr inbounds i8, ptr %window.0, i64 132
-  %1226 = load i32, ptr %MoveId, align 4
+  %1225 = load i32, ptr %MoveId, align 4
   %CurrentItemFlags = getelementptr inbounds i8, ptr %0, i64 18768
-  %1227 = load i32, ptr %CurrentItemFlags, align 8
-  %1228 = load <2 x float>, ptr %title_bar_rect847, align 8
-  %1229 = load <2 x float>, ptr %694, align 8
-  %MousePos.i1124 = getelementptr inbounds i8, ptr %1225, i64 3656
-  %TouchExtraPadding.i = getelementptr inbounds i8, ptr %1225, i64 14676
-  %1230 = load float, ptr %MousePos.i1124, align 4
-  %rect_clipped.sroa.0.0.vec.extract6.i = extractelement <2 x float> %1228, i64 0
-  %1231 = load float, ptr %TouchExtraPadding.i, align 4
-  %sub.i.i1125 = fsub float %rect_clipped.sroa.0.0.vec.extract6.i, %1231
-  %cmp.i.i1126 = fcmp ult float %1230, %sub.i.i1125
+  %1226 = load i32, ptr %CurrentItemFlags, align 8
+  %1227 = load <2 x float>, ptr %title_bar_rect847, align 8
+  %1228 = load <2 x float>, ptr %693, align 8
+  %MousePos.i1124 = getelementptr inbounds i8, ptr %1224, i64 3656
+  %TouchExtraPadding.i = getelementptr inbounds i8, ptr %1224, i64 14676
+  %1229 = load float, ptr %MousePos.i1124, align 4
+  %rect_clipped.sroa.0.0.vec.extract6.i = extractelement <2 x float> %1227, i64 0
+  %1230 = load float, ptr %TouchExtraPadding.i, align 4
+  %sub.i.i1125 = fsub float %rect_clipped.sroa.0.0.vec.extract6.i, %1230
+  %cmp.i.i1126 = fcmp ult float %1229, %sub.i.i1125
   br i1 %cmp.i.i1126, label %_ZN5ImGui19IsMouseHoveringRectERK6ImVec2S2_b.exit, label %land.lhs.true.i.i1127
 
 land.lhs.true.i.i1127:                            ; preds = %if.end1411
-  %y.i.i1128 = getelementptr inbounds i8, ptr %1225, i64 3660
-  %1232 = load float, ptr %y.i.i1128, align 4
-  %rect_clipped.sroa.0.4.vec.extract9.i = extractelement <2 x float> %1228, i64 1
-  %y6.i.i = getelementptr inbounds i8, ptr %1225, i64 14680
-  %1233 = load float, ptr %y6.i.i, align 4
-  %sub7.i.i1129 = fsub float %rect_clipped.sroa.0.4.vec.extract9.i, %1233
-  %cmp8.i.i = fcmp oge float %1232, %sub7.i.i1129
-  %rect_clipped.sroa.6.8.vec.extract11.i = extractelement <2 x float> %1229, i64 0
-  %add.i.i1130 = fadd float %rect_clipped.sroa.6.8.vec.extract11.i, %1231
-  %cmp13.i.i1131 = fcmp olt float %1230, %add.i.i1130
+  %y.i.i1128 = getelementptr inbounds i8, ptr %1224, i64 3660
+  %1231 = load float, ptr %y.i.i1128, align 4
+  %rect_clipped.sroa.0.4.vec.extract9.i = extractelement <2 x float> %1227, i64 1
+  %y6.i.i = getelementptr inbounds i8, ptr %1224, i64 14680
+  %1232 = load float, ptr %y6.i.i, align 4
+  %sub7.i.i1129 = fsub float %rect_clipped.sroa.0.4.vec.extract9.i, %1232
+  %cmp8.i.i = fcmp oge float %1231, %sub7.i.i1129
+  %rect_clipped.sroa.6.8.vec.extract11.i = extractelement <2 x float> %1228, i64 0
+  %add.i.i1130 = fadd float %rect_clipped.sroa.6.8.vec.extract11.i, %1230
+  %cmp13.i.i1131 = fcmp olt float %1229, %add.i.i1130
   %or.cond.i1132 = select i1 %cmp8.i.i, i1 %cmp13.i.i1131, i1 false
   br i1 %or.cond.i1132, label %land.rhs.i.i1133, label %_ZN5ImGui19IsMouseHoveringRectERK6ImVec2S2_b.exit
 
 land.rhs.i.i1133:                                 ; preds = %land.lhs.true.i.i1127
-  %rect_clipped.sroa.6.12.vec.extract14.i = extractelement <2 x float> %1229, i64 1
-  %add18.i.i = fadd float %rect_clipped.sroa.6.12.vec.extract14.i, %1233
-  %cmp19.i.i1134 = fcmp olt float %1232, %add18.i.i
+  %rect_clipped.sroa.6.12.vec.extract14.i = extractelement <2 x float> %1228, i64 1
+  %add18.i.i = fadd float %rect_clipped.sroa.6.12.vec.extract14.i, %1232
+  %cmp19.i.i1134 = fcmp olt float %1231, %add18.i.i
   br label %_ZN5ImGui19IsMouseHoveringRectERK6ImVec2S2_b.exit
 
 _ZN5ImGui19IsMouseHoveringRectERK6ImVec2S2_b.exit: ; preds = %if.end1411, %land.lhs.true.i.i1127, %land.rhs.i.i1133
-  %1234 = phi i1 [ false, %land.lhs.true.i.i1127 ], [ false, %if.end1411 ], [ %cmp19.i.i1134, %land.rhs.i.i1133 ]
-  %cond1418 = zext i1 %1234 to i32
-  %LastItemData.i = getelementptr inbounds i8, ptr %1225, i64 18808
-  store i32 %1226, ptr %LastItemData.i, align 8
-  %InFlags.i = getelementptr inbounds i8, ptr %1225, i64 18812
-  store i32 %1227, ptr %InFlags.i, align 4
-  %StatusFlags.i = getelementptr inbounds i8, ptr %1225, i64 18816
+  %1233 = phi i1 [ false, %land.lhs.true.i.i1127 ], [ false, %if.end1411 ], [ %cmp19.i.i1134, %land.rhs.i.i1133 ]
+  %cond1418 = zext i1 %1233 to i32
+  %LastItemData.i = getelementptr inbounds i8, ptr %1224, i64 18808
+  store i32 %1225, ptr %LastItemData.i, align 8
+  %InFlags.i = getelementptr inbounds i8, ptr %1224, i64 18812
+  store i32 %1226, ptr %InFlags.i, align 4
+  %StatusFlags.i = getelementptr inbounds i8, ptr %1224, i64 18816
   store i32 %cond1418, ptr %StatusFlags.i, align 8
-  %NavRect.i = getelementptr inbounds i8, ptr %1225, i64 18836
+  %NavRect.i = getelementptr inbounds i8, ptr %1224, i64 18836
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %NavRect.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %title_bar_rect847, i64 16, i1 false)
-  %Rect.i = getelementptr inbounds i8, ptr %1225, i64 18820
+  %Rect.i = getelementptr inbounds i8, ptr %1224, i64 18820
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %Rect.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %title_bar_rect847, i64 16, i1 false)
   %DebugLocateId = getelementptr inbounds i8, ptr %0, i64 18772
-  %1235 = load i32, ptr %DebugLocateId, align 4
-  %cmp1419.not = icmp eq i32 %1235, 0
+  %1234 = load i32, ptr %DebugLocateId, align 4
+  %cmp1419.not = icmp eq i32 %1234, 0
   br i1 %cmp1419.not, label %if.end1431, label %land.lhs.true1420
 
 land.lhs.true1420:                                ; preds = %_ZN5ImGui19IsMouseHoveringRectERK6ImVec2S2_b.exit
-  %1236 = load i32, ptr %ID91, align 8
-  %cmp1423 = icmp eq i32 %1236, %1235
+  %1235 = load i32, ptr %ID91, align 8
+  %cmp1423 = icmp eq i32 %1235, %1234
   br i1 %cmp1423, label %if.then1428, label %lor.lhs.false1424
 
 lor.lhs.false1424:                                ; preds = %land.lhs.true1420
-  %1237 = load i32, ptr %MoveId, align 4
-  %cmp1427 = icmp eq i32 %1237, %1235
+  %1236 = load i32, ptr %MoveId, align 4
+  %cmp1427 = icmp eq i32 %1236, %1234
   br i1 %cmp1427, label %if.then1428, label %if.end1431
 
 if.then1428:                                      ; preds = %lor.lhs.false1424, %land.lhs.true1420
@@ -35949,32 +35950,32 @@ if.then1428:                                      ; preds = %lor.lhs.false1424, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p1.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p2.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %item_data.i, ptr noundef nonnull align 8 dereferenceable(76) %LastItemData.i, i64 76, i1 false)
-  %DebugLocateId.i = getelementptr inbounds i8, ptr %1225, i64 18772
+  %DebugLocateId.i = getelementptr inbounds i8, ptr %1224, i64 18772
   store i32 0, ptr %DebugLocateId.i, align 4
-  %Data.i.i.i.i1136 = getelementptr inbounds i8, ptr %1225, i64 19168
-  %1238 = load ptr, ptr %Data.i.i.i.i1136, align 8
-  %1239 = load ptr, ptr %1238, align 8
-  %call.i.i.i.i = call fastcc noundef ptr @_ZL23GetViewportBgFgDrawListP14ImGuiViewportPmPKc(ptr noundef %1239, i64 noundef 1, ptr noundef nonnull @.str.70)
+  %Data.i.i.i.i1136 = getelementptr inbounds i8, ptr %1224, i64 19168
+  %1237 = load ptr, ptr %Data.i.i.i.i1136, align 8
+  %1238 = load ptr, ptr %1237, align 8
+  %call.i.i.i.i = call fastcc noundef ptr @_ZL23GetViewportBgFgDrawListP14ImGuiViewportPmPKc(ptr noundef %1238, i64 noundef 1, ptr noundef nonnull @.str.70)
   %Rect.i1137 = getelementptr inbounds i8, ptr %item_data.i, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %r.i, ptr noundef nonnull align 4 dereferenceable(16) %Rect.i1137, i64 16, i1 false)
   %Max.i.i1141 = getelementptr inbounds i8, ptr %r.i, i64 8
-  %1240 = load <4 x float>, ptr %r.i, align 16
-  %1241 = fadd <4 x float> %1240, <float -3.000000e+00, float -3.000000e+00, float 3.000000e+00, float 3.000000e+00>
-  store <4 x float> %1241, ptr %r.i, align 16
-  %1242 = load i64, ptr %MousePos.i1124, align 8
-  store i64 %1242, ptr %p1.i, align 8
-  %1243 = lshr i64 %1242, 32
-  %1244 = insertelement <2 x i64> poison, i64 %1242, i64 0
-  %1245 = insertelement <2 x i64> %1244, i64 %1243, i64 1
-  %1246 = trunc <2 x i64> %1245 to <2 x i32>
-  %1247 = bitcast <2 x i32> %1246 to <2 x float>
-  %1248 = shufflevector <4 x float> %1241, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %1249 = fcmp ogt <2 x float> %1248, %1247
-  %1250 = shufflevector <4 x float> %1241, <4 x float> poison, <2 x i32> <i32 2, i32 3>
-  %1251 = fcmp olt <2 x float> %1250, %1247
-  %1252 = select <2 x i1> %1251, <2 x float> %1250, <2 x float> %1247
-  %1253 = select <2 x i1> %1249, <2 x float> %1248, <2 x float> %1252
-  store <2 x float> %1253, ptr %p2.i, align 8
+  %1239 = load <4 x float>, ptr %r.i, align 16
+  %1240 = fadd <4 x float> %1239, <float -3.000000e+00, float -3.000000e+00, float 3.000000e+00, float 3.000000e+00>
+  store <4 x float> %1240, ptr %r.i, align 16
+  %1241 = load i64, ptr %MousePos.i1124, align 8
+  store i64 %1241, ptr %p1.i, align 8
+  %1242 = lshr i64 %1241, 32
+  %1243 = insertelement <2 x i64> poison, i64 %1241, i64 0
+  %1244 = insertelement <2 x i64> %1243, i64 %1242, i64 1
+  %1245 = trunc <2 x i64> %1244 to <2 x i32>
+  %1246 = bitcast <2 x i32> %1245 to <2 x float>
+  %1247 = shufflevector <4 x float> %1240, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %1248 = fcmp ogt <2 x float> %1247, %1246
+  %1249 = shufflevector <4 x float> %1240, <4 x float> poison, <2 x i32> <i32 2, i32 3>
+  %1250 = fcmp olt <2 x float> %1249, %1246
+  %1251 = select <2 x i1> %1250, <2 x float> %1249, <2 x float> %1246
+  %1252 = select <2 x i1> %1248, <2 x float> %1247, <2 x float> %1251
+  store <2 x float> %1252, ptr %p2.i, align 8
   call void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonnull align 8 dereferenceable(196) %call.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %r.i, ptr noundef nonnull align 4 dereferenceable(8) %Max.i.i1141, i32 noundef -16711936, float noundef 0.000000e+00, i32 noundef 0, float noundef 1.000000e+00)
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %call.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %p1.i, ptr noundef nonnull align 4 dereferenceable(8) %p2.i, i32 noundef -16711936, float noundef 1.000000e+00)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %item_data.i)
@@ -35985,99 +35986,99 @@ if.then1428:                                      ; preds = %lor.lhs.false1424, 
   br label %if.end1431
 
 land.lhs.true.i1151:                              ; preds = %if.end263
-  %1254 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i1149 = getelementptr inbounds i8, ptr %1254, i64 16392
+  %1253 = load ptr, ptr @GImGui, align 8
+  %CurrentWindow.i1149 = getelementptr inbounds i8, ptr %1253, i64 16392
   store ptr %window.0, ptr %CurrentWindow.i1149, align 8
   %CurrentTableIdx.i1152 = getelementptr inbounds i8, ptr %window.0, i64 448
-  %1255 = load i32, ptr %CurrentTableIdx.i1152, align 8
-  %cmp.not.i1153 = icmp eq i32 %1255, -1
+  %1254 = load i32, ptr %CurrentTableIdx.i1152, align 8
+  %cmp.not.i1153 = icmp eq i32 %1254, -1
   br i1 %cmp.not.i1153, label %if.then.i1158, label %cond.true.i1154
 
 cond.true.i1154:                                  ; preds = %land.lhs.true.i1151
-  %Data.i.i.i1155 = getelementptr inbounds i8, ptr %1254, i64 19952
-  %1256 = load ptr, ptr %Data.i.i.i1155, align 8
-  %idxprom.i.i.i1156 = sext i32 %1255 to i64
-  %arrayidx.i.i.i1157 = getelementptr inbounds %struct.ImGuiTable, ptr %1256, i64 %idxprom.i.i.i1156
+  %Data.i.i.i1155 = getelementptr inbounds i8, ptr %1253, i64 19952
+  %1255 = load ptr, ptr %Data.i.i.i1155, align 8
+  %idxprom.i.i.i1156 = sext i32 %1254 to i64
+  %arrayidx.i.i.i1157 = getelementptr inbounds %struct.ImGuiTable, ptr %1255, i64 %idxprom.i.i.i1156
   br label %if.then.i1158
 
 if.then.i1158:                                    ; preds = %cond.true.i1154, %land.lhs.true.i1151
   %cond.i1159 = phi ptr [ %arrayidx.i.i.i1157, %cond.true.i1154 ], [ null, %land.lhs.true.i1151 ]
-  %CurrentTable.i1160 = getelementptr inbounds i8, ptr %1254, i64 19912
+  %CurrentTable.i1160 = getelementptr inbounds i8, ptr %1253, i64 19912
   store ptr %cond.i1159, ptr %CurrentTable.i1160, align 8
-  %1257 = load ptr, ptr %window.0, align 8
-  %FontBaseSize.i.i1161 = getelementptr inbounds i8, ptr %1257, i64 15684
-  %1258 = load float, ptr %FontBaseSize.i.i1161, align 4
+  %1256 = load ptr, ptr %window.0, align 8
+  %FontBaseSize.i.i1161 = getelementptr inbounds i8, ptr %1256, i64 15684
+  %1257 = load float, ptr %FontBaseSize.i.i1161, align 4
   %FontWindowScale.i.i1162 = getelementptr inbounds i8, ptr %window.0, i64 672
-  %1259 = load float, ptr %FontWindowScale.i.i1162, align 8
-  %mul.i.i1163 = fmul float %1258, %1259
+  %1258 = load float, ptr %FontWindowScale.i.i1162, align 8
+  %mul.i.i1163 = fmul float %1257, %1258
   %ParentWindow.i.i1164 = getelementptr inbounds i8, ptr %window.0, i64 888
-  %1260 = load ptr, ptr %ParentWindow.i.i1164, align 8
-  %tobool.not.i.i1165 = icmp eq ptr %1260, null
+  %1259 = load ptr, ptr %ParentWindow.i.i1164, align 8
+  %tobool.not.i.i1165 = icmp eq ptr %1259, null
   br i1 %tobool.not.i.i1165, label %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i1169, label %if.then.i.i1166
 
 if.then.i.i1166:                                  ; preds = %if.then.i1158
-  %FontWindowScale3.i.i1167 = getelementptr inbounds i8, ptr %1260, i64 672
-  %1261 = load float, ptr %FontWindowScale3.i.i1167, align 8
-  %mul4.i.i1168 = fmul float %mul.i.i1163, %1261
+  %FontWindowScale3.i.i1167 = getelementptr inbounds i8, ptr %1259, i64 672
+  %1260 = load float, ptr %FontWindowScale3.i.i1167, align 8
+  %mul4.i.i1168 = fmul float %mul.i.i1163, %1260
   br label %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i1169
 
 _ZNK11ImGuiWindow12CalcFontSizeEv.exit.i1169:     ; preds = %if.then.i.i1166, %if.then.i1158
   %scale.0.i.i1170 = phi float [ %mul4.i.i1168, %if.then.i.i1166 ], [ %mul.i.i1163, %if.then.i1158 ]
-  %FontSize.i1171 = getelementptr inbounds i8, ptr %1254, i64 15704
+  %FontSize.i1171 = getelementptr inbounds i8, ptr %1253, i64 15704
   store float %scale.0.i.i1170, ptr %FontSize.i1171, align 8
-  %FontSize5.i1172 = getelementptr inbounds i8, ptr %1254, i64 15680
+  %FontSize5.i1172 = getelementptr inbounds i8, ptr %1253, i64 15680
   store float %scale.0.i.i1170, ptr %FontSize5.i1172, align 8
   %cmp.i.i1173 = icmp eq ptr %cond.i1159, null
   br i1 %cmp.i.i1173, label %land.rhs.i.i1178, label %_ZL16SetCurrentWindowP11ImGuiWindow.exit1183
 
 land.rhs.i.i1178:                                 ; preds = %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i1169
   %CurrentColumns.i.i1179 = getelementptr inbounds i8, ptr %window.0, i64 440
-  %1262 = load ptr, ptr %CurrentColumns.i.i1179, align 8
-  %cmp1.i.i1180 = icmp eq ptr %1262, null
-  %1263 = zext i1 %cmp1.i.i1180 to i8
+  %1261 = load ptr, ptr %CurrentColumns.i.i1179, align 8
+  %cmp1.i.i1180 = icmp eq ptr %1261, null
+  %1262 = zext i1 %cmp1.i.i1180 to i8
   br label %_ZL16SetCurrentWindowP11ImGuiWindow.exit1183
 
 _ZL16SetCurrentWindowP11ImGuiWindow.exit1183:     ; preds = %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i1169, %land.rhs.i.i1178
-  %frombool.i.i1175 = phi i8 [ 0, %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i1169 ], [ %1263, %land.rhs.i.i1178 ]
+  %frombool.i.i1175 = phi i8 [ 0, %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i1169 ], [ %1262, %land.rhs.i.i1178 ]
   %NavIsScrollPushableX.i.i1176 = getelementptr inbounds i8, ptr %window.0, i64 368
   store i8 %frombool.i.i1175, ptr %NavIsScrollPushableX.i.i1176, align 8
   br label %if.end1431
 
 if.end1431:                                       ; preds = %_ZN5ImGui19IsMouseHoveringRectERK6ImVec2S2_b.exit, %lor.lhs.false1424, %if.then1428, %_ZL16SetCurrentWindowP11ImGuiWindow.exit1183
-  %1264 = phi ptr [ %1225, %_ZN5ImGui19IsMouseHoveringRectERK6ImVec2S2_b.exit ], [ %1225, %lor.lhs.false1424 ], [ %.pre1520, %if.then1428 ], [ %1254, %_ZL16SetCurrentWindowP11ImGuiWindow.exit1183 ]
+  %1263 = phi ptr [ %1224, %_ZN5ImGui19IsMouseHoveringRectERK6ImVec2S2_b.exit ], [ %1224, %lor.lhs.false1424 ], [ %.pre1520, %if.then1428 ], [ %1253, %_ZL16SetCurrentWindowP11ImGuiWindow.exit1183 ]
   %InnerClipRect1432 = getelementptr inbounds i8, ptr %window.0, i64 536
   %Max1435 = getelementptr inbounds i8, ptr %window.0, i64 544
-  %CurrentWindow.i.i1184 = getelementptr inbounds i8, ptr %1264, i64 16392
-  %1265 = load ptr, ptr %CurrentWindow.i.i1184, align 8
-  %WriteAccessed.i.i1185 = getelementptr inbounds i8, ptr %1265, i64 192
+  %CurrentWindow.i.i1184 = getelementptr inbounds i8, ptr %1263, i64 16392
+  %1264 = load ptr, ptr %CurrentWindow.i.i1184, align 8
+  %WriteAccessed.i.i1185 = getelementptr inbounds i8, ptr %1264, i64 192
   store i8 1, ptr %WriteAccessed.i.i1185, align 8
-  %1266 = load ptr, ptr %CurrentWindow.i.i1184, align 8
-  %DrawList.i1186 = getelementptr inbounds i8, ptr %1266, i64 680
+  %1265 = load ptr, ptr %CurrentWindow.i.i1184, align 8
+  %DrawList.i1186 = getelementptr inbounds i8, ptr %1265, i64 680
+  %1266 = load ptr, ptr %DrawList.i1186, align 8
+  call void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 8 dereferenceable(196) %1266, ptr noundef nonnull align 4 dereferenceable(8) %InnerClipRect1432, ptr noundef nonnull align 4 dereferenceable(8) %Max1435, i1 noundef zeroext true)
   %1267 = load ptr, ptr %DrawList.i1186, align 8
-  call void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 8 dereferenceable(196) %1267, ptr noundef nonnull align 4 dereferenceable(8) %InnerClipRect1432, ptr noundef nonnull align 4 dereferenceable(8) %Max1435, i1 noundef zeroext true)
-  %1268 = load ptr, ptr %DrawList.i1186, align 8
-  %_ClipRectStack.i1187 = getelementptr inbounds i8, ptr %1268, i64 88
-  %Data.i.i1188 = getelementptr inbounds i8, ptr %1268, i64 96
-  %1269 = load ptr, ptr %Data.i.i1188, align 8
-  %1270 = load i32, ptr %_ClipRectStack.i1187, align 8
-  %1271 = sext i32 %1270 to i64
-  %1272 = getelementptr %struct.ImVec4, ptr %1269, i64 %1271
-  %arrayidx.i.i1189 = getelementptr i8, ptr %1272, i64 -16
-  %ClipRect.i1193 = getelementptr inbounds i8, ptr %1266, i64 584
-  %1273 = load <4 x float>, ptr %arrayidx.i.i1189, align 4
-  store <4 x float> %1273, ptr %ClipRect.i1193, align 8
+  %_ClipRectStack.i1187 = getelementptr inbounds i8, ptr %1267, i64 88
+  %Data.i.i1188 = getelementptr inbounds i8, ptr %1267, i64 96
+  %1268 = load ptr, ptr %Data.i.i1188, align 8
+  %1269 = load i32, ptr %_ClipRectStack.i1187, align 8
+  %1270 = sext i32 %1269 to i64
+  %1271 = getelementptr %struct.ImVec4, ptr %1268, i64 %1270
+  %arrayidx.i.i1189 = getelementptr i8, ptr %1271, i64 -16
+  %ClipRect.i1193 = getelementptr inbounds i8, ptr %1265, i64 584
+  %1272 = load <4 x float>, ptr %arrayidx.i.i1189, align 4
+  store <4 x float> %1272, ptr %ClipRect.i1193, align 8
   %WriteAccessed = getelementptr inbounds i8, ptr %window.0, i64 192
   store i8 0, ptr %WriteAccessed, align 8
   %BeginCount = getelementptr inbounds i8, ptr %window.0, i64 204
-  %1274 = load i16, ptr %BeginCount, align 4
-  %inc1436 = add i16 %1274, 1
+  %1273 = load i16, ptr %BeginCount, align 4
+  %inc1436 = add i16 %1273, 1
   store i16 %inc1436, ptr %BeginCount, align 4
   store i32 0, ptr %NextWindowData106, align 8
   br i1 %cmp9.not, label %if.end1569, label %if.then1439
 
 if.then1439:                                      ; preds = %if.end1431
-  %1275 = and i32 %flags.addr.1, 285212672
-  %brmerge281.not = icmp eq i32 %1275, 16777216
+  %1274 = and i32 %flags.addr.1, 285212672
+  %brmerge281.not = icmp eq i32 %1274, 16777216
   br i1 %brmerge281.not, label %if.then1445, label %if.end1516
 
 if.then1445:                                      ; preds = %if.then1439
@@ -36087,58 +36088,58 @@ if.then1445:                                      ; preds = %if.then1439
 
 land.rhs1448:                                     ; preds = %if.then1445
   %NavAnyRequest = getelementptr inbounds i8, ptr %0, i64 19252
-  %1276 = load i8, ptr %NavAnyRequest, align 4
-  %tobool1449 = trunc i8 %1276 to i1
+  %1275 = load i8, ptr %NavAnyRequest, align 4
+  %tobool1449 = trunc i8 %1275 to i1
   br i1 %tobool1449, label %land.lhs.true1450, label %land.end1458
 
 land.lhs.true1450:                                ; preds = %land.rhs1448
   %NavWindow1451 = getelementptr inbounds i8, ptr %0, i64 19176
-  %1277 = load ptr, ptr %NavWindow1451, align 8
-  %tobool1452.not = icmp eq ptr %1277, null
+  %1276 = load ptr, ptr %NavWindow1451, align 8
+  %tobool1452.not = icmp eq ptr %1276, null
   br i1 %tobool1452.not, label %land.end1458, label %land.rhs1453
 
 land.rhs1453:                                     ; preds = %land.lhs.true1450
-  %RootWindowForNav = getelementptr inbounds i8, ptr %1277, i64 928
-  %1278 = load ptr, ptr %RootWindowForNav, align 8
+  %RootWindowForNav = getelementptr inbounds i8, ptr %1276, i64 928
+  %1277 = load ptr, ptr %RootWindowForNav, align 8
   %RootWindowForNav1455 = getelementptr inbounds i8, ptr %window.0, i64 928
-  %1279 = load ptr, ptr %RootWindowForNav1455, align 8
-  %cmp1456 = icmp eq ptr %1278, %1279
+  %1278 = load ptr, ptr %RootWindowForNav1455, align 8
+  %cmp1456 = icmp eq ptr %1277, %1278
   br label %land.end1458
 
 land.end1458:                                     ; preds = %land.rhs1448, %land.lhs.true1450, %land.rhs1453, %if.then1445
-  %1280 = phi i1 [ false, %if.then1445 ], [ false, %land.lhs.true1450 ], [ false, %land.rhs1448 ], [ %cmp1456, %land.rhs1453 ]
+  %1279 = phi i1 [ false, %if.then1445 ], [ false, %land.lhs.true1450 ], [ false, %land.rhs1448 ], [ %cmp1456, %land.rhs1453 ]
   %LogEnabled = getelementptr inbounds i8, ptr %0, i64 24488
-  %1281 = load i8, ptr %LogEnabled, align 8
-  %tobool1460 = trunc i8 %1281 to i1
-  %brmerge282 = select i1 %tobool1460, i1 true, i1 %1280
+  %1280 = load i8, ptr %LogEnabled, align 8
+  %tobool1460 = trunc i8 %1280 to i1
+  %brmerge282 = select i1 %tobool1460, i1 true, i1 %1279
   br i1 %brmerge282, label %if.end1493, label %if.then1463
 
 if.then1463:                                      ; preds = %land.end1458
   %OuterRectClipped1464 = getelementptr inbounds i8, ptr %window.0, i64 504
-  %1282 = load float, ptr %OuterRectClipped1464, align 8
+  %1281 = load float, ptr %OuterRectClipped1464, align 8
   %Max1468 = getelementptr inbounds i8, ptr %window.0, i64 512
-  %1283 = load float, ptr %Max1468, align 8
-  %cmp1470 = fcmp ult float %1282, %1283
+  %1282 = load float, ptr %Max1468, align 8
+  %cmp1470 = fcmp ult float %1281, %1282
   br i1 %cmp1470, label %lor.lhs.false1471, label %if.then1479
 
 lor.lhs.false1471:                                ; preds = %if.then1463
   %y1474 = getelementptr inbounds i8, ptr %window.0, i64 508
-  %1284 = load float, ptr %y1474, align 4
+  %1283 = load float, ptr %y1474, align 4
   %y1477 = getelementptr inbounds i8, ptr %window.0, i64 516
-  %1285 = load float, ptr %y1477, align 4
-  %cmp1478 = fcmp ult float %1284, %1285
+  %1284 = load float, ptr %y1477, align 4
+  %cmp1478 = fcmp ult float %1283, %1284
   br i1 %cmp1478, label %if.end1493, label %if.then1479
 
 if.then1479:                                      ; preds = %lor.lhs.false1471, %if.then1463
   %AutoFitFramesX1480 = getelementptr inbounds i8, ptr %window.0, i64 220
-  %1286 = load i8, ptr %AutoFitFramesX1480, align 4
-  %cmp1482 = icmp sgt i8 %1286, 0
+  %1285 = load i8, ptr %AutoFitFramesX1480, align 4
+  %cmp1482 = icmp sgt i8 %1285, 0
   br i1 %cmp1482, label %if.then1487, label %lor.lhs.false1483
 
 lor.lhs.false1483:                                ; preds = %if.then1479
   %AutoFitFramesY1484 = getelementptr inbounds i8, ptr %window.0, i64 221
-  %1287 = load i8, ptr %AutoFitFramesY1484, align 1
-  %cmp1486 = icmp sgt i8 %1287, 0
+  %1286 = load i8, ptr %AutoFitFramesY1484, align 1
+  %cmp1486 = icmp sgt i8 %1286, 0
   br i1 %cmp1486, label %if.then1487, label %if.else1489
 
 if.then1487:                                      ; preds = %lor.lhs.false1483, %if.then1479
@@ -36157,14 +36158,14 @@ if.end1493:                                       ; preds = %land.end1458, %lor.
 
 land.lhs.true1495:                                ; preds = %if.end1493
   %Collapsed1496 = getelementptr inbounds i8, ptr %cond75, i64 193
-  %1288 = load i8, ptr %Collapsed1496, align 1
-  %tobool1497 = trunc i8 %1288 to i1
+  %1287 = load i8, ptr %Collapsed1496, align 1
+  %tobool1497 = trunc i8 %1287 to i1
   br i1 %tobool1497, label %if.then1502, label %lor.lhs.false1498
 
 lor.lhs.false1498:                                ; preds = %land.lhs.true1495
   %HiddenFramesCanSkipItems1499 = getelementptr inbounds i8, ptr %cond75, i64 228
-  %1289 = load i8, ptr %HiddenFramesCanSkipItems1499, align 4
-  %cmp1501 = icmp sgt i8 %1289, 0
+  %1288 = load i8, ptr %HiddenFramesCanSkipItems1499, align 4
+  %cmp1501 = icmp sgt i8 %1288, 0
   br i1 %cmp1501, label %if.then1502, label %land.lhs.true1506
 
 if.then1502:                                      ; preds = %lor.lhs.false1498, %land.lhs.true1495
@@ -36174,14 +36175,14 @@ if.then1502:                                      ; preds = %lor.lhs.false1498, 
   br label %land.lhs.true1506
 
 land.lhs.true1506:                                ; preds = %lor.lhs.false1498, %if.then1502
-  %1290 = phi i8 [ %1288, %lor.lhs.false1498 ], [ %.pre1521, %if.then1502 ]
-  %tobool1508 = trunc i8 %1290 to i1
+  %1289 = phi i8 [ %1287, %lor.lhs.false1498 ], [ %.pre1521, %if.then1502 ]
+  %tobool1508 = trunc i8 %1289 to i1
   br i1 %tobool1508, label %if.then1513, label %lor.lhs.false1509
 
 lor.lhs.false1509:                                ; preds = %land.lhs.true1506
   %HiddenFramesCannotSkipItems1510 = getelementptr inbounds i8, ptr %cond75, i64 229
-  %1291 = load i8, ptr %HiddenFramesCannotSkipItems1510, align 1
-  %cmp1512 = icmp sgt i8 %1291, 0
+  %1290 = load i8, ptr %HiddenFramesCannotSkipItems1510, align 1
+  %cmp1512 = icmp sgt i8 %1290, 0
   br i1 %cmp1512, label %if.then1513, label %if.end1516
 
 if.then1513:                                      ; preds = %lor.lhs.false1509, %land.lhs.true1506
@@ -36190,8 +36191,8 @@ if.then1513:                                      ; preds = %lor.lhs.false1509, 
   br label %if.end1516
 
 if.end1516:                                       ; preds = %if.end1493, %if.then1439, %lor.lhs.false1509, %if.then1513
-  %1292 = load float, ptr %Style, align 4
-  %cmp1517 = fcmp ugt float %1292, 0.000000e+00
+  %1291 = load float, ptr %Style, align 4
+  %cmp1517 = fcmp ugt float %1291, 0.000000e+00
   %HiddenFramesCanSkipItems1521.phi.trans.insert = getelementptr inbounds i8, ptr %window.0, i64 228
   br i1 %cmp1517, label %if.end1520, label %if.end1520.thread
 
@@ -36201,70 +36202,70 @@ if.end1520.thread:                                ; preds = %if.end1516
 
 if.end1520:                                       ; preds = %if.end1516
   %.pre1522 = load i8, ptr %HiddenFramesCanSkipItems1521.phi.trans.insert, align 4
-  %1293 = icmp sgt i8 %.pre1522, 0
-  br i1 %1293, label %lor.end1535, label %lor.end1528
+  %1292 = icmp sgt i8 %.pre1522, 0
+  br i1 %1292, label %lor.end1535, label %lor.end1528
 
 lor.end1528:                                      ; preds = %if.end1520
   %HiddenFramesCannotSkipItems1525 = getelementptr inbounds i8, ptr %window.0, i64 229
-  %1294 = load i8, ptr %HiddenFramesCannotSkipItems1525, align 1
-  %cmp1527 = icmp sgt i8 %1294, 0
+  %1293 = load i8, ptr %HiddenFramesCannotSkipItems1525, align 1
+  %cmp1527 = icmp sgt i8 %1293, 0
   br i1 %cmp1527, label %lor.end1535, label %lor.rhs1531
 
 lor.rhs1531:                                      ; preds = %lor.end1528
   %HiddenFramesForRenderOnly1532 = getelementptr inbounds i8, ptr %window.0, i64 230
-  %1295 = load i8, ptr %HiddenFramesForRenderOnly1532, align 2
-  %cmp1534 = icmp sgt i8 %1295, 0
-  %1296 = zext i1 %cmp1534 to i8
+  %1294 = load i8, ptr %HiddenFramesForRenderOnly1532, align 2
+  %cmp1534 = icmp sgt i8 %1294, 0
+  %1295 = zext i1 %cmp1534 to i8
   br label %lor.end1535
 
 lor.end1535:                                      ; preds = %if.end1520.thread, %if.end1520, %lor.rhs1531, %lor.end1528
   %.not = phi i1 [ false, %lor.end1528 ], [ true, %lor.rhs1531 ], [ false, %if.end1520 ], [ false, %if.end1520.thread ]
-  %frombool1536 = phi i8 [ 1, %lor.end1528 ], [ %1296, %lor.rhs1531 ], [ 1, %if.end1520 ], [ 1, %if.end1520.thread ]
+  %frombool1536 = phi i8 [ 1, %lor.end1528 ], [ %1295, %lor.rhs1531 ], [ 1, %if.end1520 ], [ 1, %if.end1520.thread ]
   %Hidden = getelementptr inbounds i8, ptr %window.0, i64 197
   store i8 %frombool1536, ptr %Hidden, align 1
   %DisableInputsFrames = getelementptr inbounds i8, ptr %window.0, i64 231
-  %1297 = load i8, ptr %DisableInputsFrames, align 1
-  %cmp1538 = icmp sgt i8 %1297, 0
+  %1296 = load i8, ptr %DisableInputsFrames, align 1
+  %cmp1538 = icmp sgt i8 %1296, 0
   br i1 %cmp1538, label %if.then1539, label %if.end1544
 
 if.then1539:                                      ; preds = %lor.end1535
-  %dec1541 = add nsw i8 %1297, -1
+  %dec1541 = add nsw i8 %1296, -1
   store i8 %dec1541, ptr %DisableInputsFrames, align 1
   %Flags1542 = getelementptr inbounds i8, ptr %window.0, i64 20
-  %1298 = load i32, ptr %Flags1542, align 4
-  %or1543 = or i32 %1298, 197120
+  %1297 = load i32, ptr %Flags1542, align 4
+  %or1543 = or i32 %1297, 197120
   store i32 %or1543, ptr %Flags1542, align 4
   br label %if.end1544
 
 if.end1544:                                       ; preds = %if.then1539, %lor.end1535
   %Collapsed1545 = getelementptr inbounds i8, ptr %window.0, i64 193
-  %1299 = load i8, ptr %Collapsed1545, align 1
-  %tobool1546 = trunc i8 %1299 to i1
+  %1298 = load i8, ptr %Collapsed1545, align 1
+  %tobool1546 = trunc i8 %1298 to i1
   br i1 %tobool1546, label %if.then1552, label %lor.lhs.false1547
 
 lor.lhs.false1547:                                ; preds = %if.end1544
   %Active1548 = getelementptr inbounds i8, ptr %window.0, i64 190
-  %1300 = load i8, ptr %Active1548, align 2
-  %tobool1549 = trunc i8 %1300 to i1
+  %1299 = load i8, ptr %Active1548, align 2
+  %tobool1549 = trunc i8 %1299 to i1
   %brmerge283.not = and i1 %.not, %tobool1549
   br i1 %brmerge283.not, label %if.end1566, label %if.then1552
 
 if.then1552:                                      ; preds = %lor.lhs.false1547, %if.end1544
   %AutoFitFramesX1553 = getelementptr inbounds i8, ptr %window.0, i64 220
-  %1301 = load i8, ptr %AutoFitFramesX1553, align 4
-  %cmp1555 = icmp slt i8 %1301, 1
+  %1300 = load i8, ptr %AutoFitFramesX1553, align 4
+  %cmp1555 = icmp slt i8 %1300, 1
   br i1 %cmp1555, label %land.lhs.true1556, label %if.end1566
 
 land.lhs.true1556:                                ; preds = %if.then1552
   %AutoFitFramesY1557 = getelementptr inbounds i8, ptr %window.0, i64 221
-  %1302 = load i8, ptr %AutoFitFramesY1557, align 1
-  %cmp1559 = icmp slt i8 %1302, 1
+  %1301 = load i8, ptr %AutoFitFramesY1557, align 1
+  %cmp1559 = icmp slt i8 %1301, 1
   br i1 %cmp1559, label %land.lhs.true1560, label %if.end1566
 
 land.lhs.true1560:                                ; preds = %land.lhs.true1556
   %HiddenFramesCannotSkipItems1561 = getelementptr inbounds i8, ptr %window.0, i64 229
-  %1303 = load i8, ptr %HiddenFramesCannotSkipItems1561, align 1
-  %cmp1563 = icmp slt i8 %1303, 1
+  %1302 = load i8, ptr %HiddenFramesCannotSkipItems1561, align 1
+  %cmp1563 = icmp slt i8 %1302, 1
   %spec.select284 = zext i1 %cmp1563 to i8
   br label %if.end1566
 
@@ -36275,57 +36276,57 @@ if.end1566:                                       ; preds = %land.lhs.true1560, 
   br label %if.end1569
 
 if.end1569:                                       ; preds = %if.end1566, %if.end1431
-  %1304 = load i8, ptr %IsFallbackWindow, align 2
-  %tobool1571 = trunc i8 %1304 to i1
+  %1303 = load i8, ptr %IsFallbackWindow, align 2
+  %tobool1571 = trunc i8 %1303 to i1
   br i1 %tobool1571, label %if.end1600, label %land.lhs.true1572
 
 land.lhs.true1572:                                ; preds = %if.end1569
   %ConfigDebugBeginReturnValueOnce = getelementptr inbounds i8, ptr %0, i64 120
-  %1305 = load i8, ptr %ConfigDebugBeginReturnValueOnce, align 8
-  %tobool1574 = trunc i8 %1305 to i1
+  %1304 = load i8, ptr %ConfigDebugBeginReturnValueOnce, align 8
+  %tobool1574 = trunc i8 %1304 to i1
   %brmerge285.demorgan = and i1 %cmp1430, %tobool1574
   br i1 %brmerge285.demorgan, label %if.then1585, label %lor.lhs.false1577
 
 lor.lhs.false1577:                                ; preds = %land.lhs.true1572
   %ConfigDebugBeginReturnValueLoop = getelementptr inbounds i8, ptr %0, i64 121
-  %1306 = load i8, ptr %ConfigDebugBeginReturnValueLoop, align 1
-  %tobool1579 = trunc i8 %1306 to i1
+  %1305 = load i8, ptr %ConfigDebugBeginReturnValueLoop, align 1
+  %tobool1579 = trunc i8 %1305 to i1
   br i1 %tobool1579, label %land.lhs.true1580, label %if.end1600
 
 land.lhs.true1580:                                ; preds = %lor.lhs.false1577
   %DebugBeginReturnValueCullDepth = getelementptr inbounds i8, ptr %0, i64 24602
-  %1307 = load i8, ptr %DebugBeginReturnValueCullDepth, align 2
-  %conv1581 = sext i8 %1307 to i32
-  %1308 = load i32, ptr %CurrentWindowStack, align 8
-  %cmp1584 = icmp eq i32 %1308, %conv1581
+  %1306 = load i8, ptr %DebugBeginReturnValueCullDepth, align 2
+  %conv1581 = sext i8 %1306 to i32
+  %1307 = load i32, ptr %CurrentWindowStack, align 8
+  %cmp1584 = icmp eq i32 %1307, %conv1581
   br i1 %cmp1584, label %if.then1585, label %if.end1600
 
 if.then1585:                                      ; preds = %land.lhs.true1572, %land.lhs.true1580
   %AutoFitFramesX1586 = getelementptr inbounds i8, ptr %window.0, i64 220
-  %1309 = load i8, ptr %AutoFitFramesX1586, align 4
-  %cmp1588 = icmp sgt i8 %1309, 0
+  %1308 = load i8, ptr %AutoFitFramesX1586, align 4
+  %cmp1588 = icmp sgt i8 %1308, 0
   br i1 %cmp1588, label %if.then1589, label %if.end1592
 
 if.then1589:                                      ; preds = %if.then1585
-  %inc1591 = add nuw i8 %1309, 1
+  %inc1591 = add nuw i8 %1308, 1
   store i8 %inc1591, ptr %AutoFitFramesX1586, align 4
   br label %if.end1592
 
 if.end1592:                                       ; preds = %if.then1589, %if.then1585
   %AutoFitFramesY1593 = getelementptr inbounds i8, ptr %window.0, i64 221
-  %1310 = load i8, ptr %AutoFitFramesY1593, align 1
-  %cmp1595 = icmp sgt i8 %1310, 0
+  %1309 = load i8, ptr %AutoFitFramesY1593, align 1
+  %cmp1595 = icmp sgt i8 %1309, 0
   br i1 %cmp1595, label %if.then1596, label %return
 
 if.then1596:                                      ; preds = %if.end1592
-  %inc1598 = add nuw i8 %1310, 1
+  %inc1598 = add nuw i8 %1309, 1
   store i8 %inc1598, ptr %AutoFitFramesY1593, align 1
   br label %return
 
 if.end1600:                                       ; preds = %land.lhs.true1580, %lor.lhs.false1577, %if.end1569
   %SkipItems1601 = getelementptr inbounds i8, ptr %window.0, i64 195
-  %1311 = load i8, ptr %SkipItems1601, align 1
-  %tobool1602 = trunc i8 %1311 to i1
+  %1310 = load i8, ptr %SkipItems1601, align 1
+  %tobool1602 = trunc i8 %1310 to i1
   %lnot1603 = xor i1 %tobool1602, true
   br label %return
 

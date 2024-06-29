@@ -6817,8 +6817,7 @@ if.then:                                          ; preds = %entry
   %10 = tail call nsz noundef float @llvm.fabs.f32(float %call)
   %river_width = getelementptr inbounds i8, ptr %this, i64 480
   %11 = load float, ptr %river_width, align 8, !tbaa !144
-  %sub = fsub nsz float %10, %11
-  %cmp = fcmp nsz uge float %sub, 0.000000e+00
+  %cmp = fcmp nsz uge float %10, %11
   br i1 %cmp, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry.if.end5_crit_edge

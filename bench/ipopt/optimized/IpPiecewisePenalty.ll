@@ -194,21 +194,20 @@ define noundef zeroext i1 @_ZN5Ipopt16PiecewisePenalty10AcceptableEdd(ptr nocapt
   %113 = tail call double @llvm.fmuladd.f64(double %109, double %112, double %1)
   %114 = getelementptr inbounds i8, ptr %.sroa.047.1101, i64 8
   %115 = load double, ptr %114, align 8
-  %116 = fsub double %113, %115
-  %117 = fcmp olt double %116, 0.000000e+00
-  br i1 %117, label %.thread, label %107
+  %116 = fcmp olt double %113, %115
+  br i1 %116, label %.thread, label %107
 
 ._crit_edge:                                      ; preds = %107, %.loopexit
-  %118 = getelementptr inbounds i8, ptr %6, i64 -8
-  %119 = load double, ptr %118, align 8
-  %120 = fcmp ogt double %119, %2
-  br i1 %120, label %121, label %.thread
+  %117 = getelementptr inbounds i8, ptr %6, i64 -8
+  %118 = load double, ptr %117, align 8
+  %119 = fcmp ogt double %118, %2
+  br i1 %119, label %120, label %.thread
 
-121:                                              ; preds = %._crit_edge
+120:                                              ; preds = %._crit_edge
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %.lr.ph102, %._crit_edge, %121, %38, %53, %26
-  %.0 = phi i1 [ false, %26 ], [ false, %53 ], [ false, %38 ], [ true, %121 ], [ false, %._crit_edge ], [ true, %.lr.ph102 ], [ false, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %.lr.ph102, %._crit_edge, %120, %38, %53, %26
+  %.0 = phi i1 [ false, %26 ], [ false, %53 ], [ false, %38 ], [ true, %120 ], [ false, %._crit_edge ], [ true, %.lr.ph102 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

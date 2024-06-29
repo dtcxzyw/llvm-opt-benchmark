@@ -920,8 +920,7 @@ _ZNSt8optionalIN5sound12PlayingSound9FadeStateEEaSIS2_EENSt9enable_ifIX7__and_vI
   %tobool.not.i = icmp eq i8 %4, 0
   %mul.i = fmul nsz float %.pre.i, 0x3FD5555560000000
   %6 = select i1 %tobool.not.i, float %.pre.i, float %mul.i
-  %sub = fsub nsz float %cond, %6
-  %cmp3 = fcmp nsz ogt float %sub, 0.000000e+00
+  %cmp3 = fcmp nsz ogt float %cond, %6
   %7 = call nsz noundef float @llvm.fabs.f32(float %step)
   %fneg = fneg nsz float %7
   %cond10 = select nsz i1 %cmp3, float %7, float %fneg

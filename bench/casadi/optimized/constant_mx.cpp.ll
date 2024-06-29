@@ -1856,48 +1856,47 @@ common.resume:                                    ; preds = %.body, %12
 14:                                               ; preds = %2
   %15 = fptosi double %1 to i64
   %16 = sitofp i64 %15 to double
-  %17 = fsub double %16, %1
-  %18 = fcmp oeq double %17, 0.000000e+00
-  br i1 %18, label %19, label %21
+  %17 = fcmp oeq double %16, %1
+  br i1 %17, label %18, label %20
 
-19:                                               ; preds = %14
-  %20 = tail call noundef ptr @_ZN6casadi10ConstantMX6createERKNS_8SparsityEx(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %15)
+18:                                               ; preds = %14
+  %19 = tail call noundef ptr @_ZN6casadi10ConstantMX6createERKNS_8SparsityEx(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %15)
   br label %_ZN6casadi10ZeroByZero11getInstanceEv.exit
 
-21:                                               ; preds = %14
-  %22 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #29
-  invoke void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %22)
-          to label %.noexc unwind label %26
+20:                                               ; preds = %14
+  %21 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #29
+  invoke void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %21)
+          to label %.noexc unwind label %25
 
-.noexc:                                           ; preds = %21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi10ConstantMXE, i64 16), ptr %22, align 8
-  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %_ZN6casadi8ConstantINS_12RuntimeConstIdEEEC2ERKNS_8SparsityES2_.exit unwind label %23
+.noexc:                                           ; preds = %20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi10ConstantMXE, i64 16), ptr %21, align 8
+  invoke void @_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(8) %0)
+          to label %_ZN6casadi8ConstantINS_12RuntimeConstIdEEEC2ERKNS_8SparsityES2_.exit unwind label %22
 
-23:                                               ; preds = %.noexc
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %.noexc
+  %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %22) #25
+  tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %21) #25
   br label %.body
 
 _ZN6casadi8ConstantINS_12RuntimeConstIdEEEC2ERKNS_8SparsityES2_.exit: ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi8ConstantINS_12RuntimeConstIdEEEE, i64 16), ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 64
-  store double %1, ptr %25, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi8ConstantINS_12RuntimeConstIdEEEE, i64 16), ptr %21, align 8
+  %24 = getelementptr inbounds i8, ptr %21, i64 64
+  store double %1, ptr %24, align 8
   br label %_ZN6casadi10ZeroByZero11getInstanceEv.exit
 
-26:                                               ; preds = %21
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %20
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %23, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %24, %23 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %22) #28
+.body:                                            ; preds = %22, %25
+  %eh.lpad-body = phi { ptr, i32 } [ %26, %25 ], [ %23, %22 ]
+  tail call void @_ZdlPv(ptr noundef nonnull %21) #28
   br label %common.resume
 
-_ZN6casadi10ZeroByZero11getInstanceEv.exit:       ; preds = %10, %7, %4, %_ZN6casadi8ConstantINS_12RuntimeConstIdEEEC2ERKNS_8SparsityES2_.exit, %19
-  %.0 = phi ptr [ %20, %19 ], [ %22, %_ZN6casadi8ConstantINS_12RuntimeConstIdEEEC2ERKNS_8SparsityES2_.exit ], [ @_ZZN6casadi10ZeroByZero11getInstanceEvE8instance, %4 ], [ @_ZZN6casadi10ZeroByZero11getInstanceEvE8instance, %7 ], [ @_ZZN6casadi10ZeroByZero11getInstanceEvE8instance, %10 ]
+_ZN6casadi10ZeroByZero11getInstanceEv.exit:       ; preds = %10, %7, %4, %_ZN6casadi8ConstantINS_12RuntimeConstIdEEEC2ERKNS_8SparsityES2_.exit, %18
+  %.0 = phi ptr [ %19, %18 ], [ %21, %_ZN6casadi8ConstantINS_12RuntimeConstIdEEEC2ERKNS_8SparsityES2_.exit ], [ @_ZZN6casadi10ZeroByZero11getInstanceEvE8instance, %4 ], [ @_ZZN6casadi10ZeroByZero11getInstanceEvE8instance, %7 ], [ @_ZZN6casadi10ZeroByZero11getInstanceEvE8instance, %10 ]
   ret ptr %.0
 }
 
