@@ -28,7 +28,10 @@ jobs:
 
       - name: Get Pattern IR
         run: |
-          echo "${{ github.event.issue.body }}" | sed -n '/^```/,/^```/ p' | sed '/^```/ d' > ${{ github.workspace }}/test.ll
+          echo "${TEXT}" | sed -n '/^```/,/^```/ p' | sed '/^```/ d' > ${{ github.workspace }}/test.ll
+          cat ${{ github.workspace }}/test.ll
+        env:
+          TEXT: ${{ github.event.issue.body }}
 
       - name: Run LLVM DAG Grep
         run: ${{ github.workspace }}/scripts/run_dag_grep.sh
