@@ -16,7 +16,7 @@ cmake --build . -j
 cd ..
 
 echo "\`\`\`" >./scripts/grep.md
-./build/daggrep bench test.ll 2>&1 >>./scripts/grep.md
+./build/daggrep bench test.ll >>./scripts/grep.md 2>&1
 echo "\`\`\`" >>./scripts/grep.md
 
 exit 0

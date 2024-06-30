@@ -427,7 +427,12 @@ int main(int argc, char **argv) {
 
     SMDiagnostic Err;
     auto Pattern = parseIRFile(PatternFile, Err, Context);
-    if (!Pattern || !verifyPattern(*Pattern))
+    if (!Pattern) {
+      Err.print(argv[0], errs());
+      return EXIT_FAILURE;
+    }
+
+    if (!verifyPattern(*Pattern))
       return EXIT_FAILURE;
 
     if (!canonicalizePattern(*Pattern))
