@@ -2586,7 +2586,7 @@ define internal fastcc ptr @drm_connector_pick_cmdline_mode(ptr noundef readonly
   %9 = load i8, ptr %8, align 2
   %10 = and i8 %9, 32
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %3, label %92, !llvm.loop !59
+  br i1 %11, label %3, label %91, !llvm.loop !59
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %0, i64 1584
@@ -2618,15 +2618,15 @@ define internal fastcc ptr @drm_connector_pick_cmdline_mode(ptr noundef readonly
 .preheader:                                       ; preds = %.split
   br i1 %26, label %.preheader.split.us, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader, %58
-  %29 = phi ptr [ %59, %58 ], [ %27, %.preheader ]
+.preheader.split.us:                              ; preds = %.preheader, %57
+  %29 = phi ptr [ %58, %57 ], [ %27, %.preheader ]
   %30 = getelementptr i8, ptr %29, i64 -64
   %31 = getelementptr i8, ptr %29, i64 -60
   %32 = load i16, ptr %31, align 4
   %33 = zext i16 %32 to i32
   %34 = load i32, ptr %18, align 4
   %35 = icmp eq i32 %34, %33
-  br i1 %35, label %36, label %58
+  br i1 %35, label %36, label %57
 
 36:                                               ; preds = %.preheader.split.us
   %37 = getelementptr i8, ptr %29, i64 -50
@@ -2634,7 +2634,7 @@ define internal fastcc ptr @drm_connector_pick_cmdline_mode(ptr noundef readonly
   %39 = zext i16 %38 to i32
   %40 = load i32, ptr %19, align 4
   %41 = icmp eq i32 %40, %39
-  br i1 %41, label %42, label %58
+  br i1 %41, label %42, label %57
 
 42:                                               ; preds = %36
   %43 = load i8, ptr %20, align 1, !range !15, !noundef !16
@@ -2645,7 +2645,7 @@ define internal fastcc ptr @drm_connector_pick_cmdline_mode(ptr noundef readonly
   %46 = tail call i32 @drm_mode_vrefresh(ptr noundef %30) #11
   %47 = load i32, ptr %21, align 4
   %48 = icmp eq i32 %46, %47
-  br i1 %48, label %49, label %58
+  br i1 %48, label %49, label %57
 
 49:                                               ; preds = %45, %42
   %50 = load i8, ptr %17, align 1, !range !15, !noundef !16
@@ -2654,75 +2654,70 @@ define internal fastcc ptr @drm_connector_pick_cmdline_mode(ptr noundef readonly
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 16
   %55 = icmp eq i32 %54, 0
-  br i1 %51, label %57, label %56
+  %56 = xor i1 %51, %55
+  br i1 %56, label %57, label %.loopexit
 
-56:                                               ; preds = %49
-  br i1 %55, label %58, label %.loopexit
+57:                                               ; preds = %49, %45, %36, %.preheader.split.us
+  %58 = load ptr, ptr %29, align 8
+  %59 = icmp eq ptr %58, %2
+  br i1 %59, label %.loopexit4, label %.preheader.split.us, !llvm.loop !60
 
-57:                                               ; preds = %49
-  br i1 %55, label %.loopexit, label %58
+.preheader.split:                                 ; preds = %.preheader, %88
+  %60 = phi ptr [ %89, %88 ], [ %27, %.preheader ]
+  %61 = getelementptr i8, ptr %60, i64 -64
+  %62 = getelementptr i8, ptr %60, i64 -60
+  %63 = load i16, ptr %62, align 4
+  %64 = zext i16 %63 to i32
+  %65 = load i32, ptr %18, align 4
+  %66 = icmp eq i32 %65, %64
+  br i1 %66, label %67, label %88
 
-58:                                               ; preds = %57, %56, %45, %36, %.preheader.split.us
-  %59 = load ptr, ptr %29, align 8
-  %60 = icmp eq ptr %59, %2
-  br i1 %60, label %.loopexit4, label %.preheader.split.us, !llvm.loop !60
+67:                                               ; preds = %.preheader.split
+  %68 = getelementptr i8, ptr %60, i64 -50
+  %69 = load i16, ptr %68, align 2
+  %70 = zext i16 %69 to i32
+  %71 = load i32, ptr %19, align 4
+  %72 = icmp eq i32 %71, %70
+  br i1 %72, label %73, label %88
 
-.preheader.split:                                 ; preds = %.preheader, %89
-  %61 = phi ptr [ %90, %89 ], [ %27, %.preheader ]
-  %62 = getelementptr i8, ptr %61, i64 -64
-  %63 = getelementptr i8, ptr %61, i64 -60
-  %64 = load i16, ptr %63, align 4
-  %65 = zext i16 %64 to i32
-  %66 = load i32, ptr %18, align 4
-  %67 = icmp eq i32 %66, %65
-  br i1 %67, label %68, label %89
+73:                                               ; preds = %67
+  %74 = load i8, ptr %20, align 1, !range !15, !noundef !16
+  %75 = icmp eq i8 %74, 0
+  br i1 %75, label %80, label %76
 
-68:                                               ; preds = %.preheader.split
-  %69 = getelementptr i8, ptr %61, i64 -50
-  %70 = load i16, ptr %69, align 2
-  %71 = zext i16 %70 to i32
-  %72 = load i32, ptr %19, align 4
-  %73 = icmp eq i32 %72, %71
-  br i1 %73, label %74, label %89
+76:                                               ; preds = %73
+  %77 = tail call i32 @drm_mode_vrefresh(ptr noundef %61) #11
+  %78 = load i32, ptr %21, align 4
+  %79 = icmp eq i32 %77, %78
+  br i1 %79, label %80, label %88
 
-74:                                               ; preds = %68
-  %75 = load i8, ptr %20, align 1, !range !15, !noundef !16
-  %76 = icmp eq i8 %75, 0
-  br i1 %76, label %81, label %77
+80:                                               ; preds = %76, %73
+  %81 = load i8, ptr %17, align 1, !range !15, !noundef !16
+  %82 = icmp eq i8 %81, 0
+  br i1 %82, label %.loopexit, label %83
 
-77:                                               ; preds = %74
-  %78 = tail call i32 @drm_mode_vrefresh(ptr noundef %62) #11
-  %79 = load i32, ptr %21, align 4
-  %80 = icmp eq i32 %78, %79
-  br i1 %80, label %81, label %89
+83:                                               ; preds = %80
+  %84 = getelementptr i8, ptr %60, i64 -40
+  %85 = load i32, ptr %84, align 8
+  %86 = and i32 %85, 16
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %88, label %.loopexit
 
-81:                                               ; preds = %77, %74
-  %82 = load i8, ptr %17, align 1, !range !15, !noundef !16
-  %83 = icmp eq i8 %82, 0
-  br i1 %83, label %.loopexit, label %84
+88:                                               ; preds = %83, %76, %67, %.preheader.split
+  %89 = load ptr, ptr %60, align 8
+  %90 = icmp eq ptr %89, %2
+  br i1 %90, label %.loopexit4, label %.preheader.split, !llvm.loop !60
 
-84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %61, i64 -40
-  %86 = load i32, ptr %85, align 8
-  %87 = and i32 %86, 16
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %.loopexit
-
-89:                                               ; preds = %84, %77, %68, %.preheader.split
-  %90 = load ptr, ptr %61, align 8
-  %91 = icmp eq ptr %90, %2
-  br i1 %91, label %.loopexit4, label %.preheader.split, !llvm.loop !60
-
-.loopexit4:                                       ; preds = %89, %58, %.split
+.loopexit4:                                       ; preds = %88, %57, %.split
   br i1 %26, label %.split, label %.loopexit, !llvm.loop !61
 
-92:                                               ; preds = %7
-  %93 = getelementptr i8, ptr %5, i64 -64
+91:                                               ; preds = %7
+  %92 = getelementptr i8, ptr %5, i64 -64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit4, %84, %81, %57, %56, %16, %92, %12
-  %94 = phi ptr [ null, %12 ], [ %93, %92 ], [ null, %16 ], [ %30, %56 ], [ %30, %57 ], [ %62, %81 ], [ %62, %84 ], [ null, %.loopexit4 ]
-  ret ptr %94
+.loopexit:                                        ; preds = %.loopexit4, %83, %80, %49, %16, %91, %12
+  %93 = phi ptr [ null, %12 ], [ %92, %91 ], [ null, %16 ], [ %30, %49 ], [ %61, %80 ], [ %61, %83 ], [ null, %.loopexit4 ]
+  ret ptr %93
 }
 
 ; Function Attrs: null_pointer_is_valid

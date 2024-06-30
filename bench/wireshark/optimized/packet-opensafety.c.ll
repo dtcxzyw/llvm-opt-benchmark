@@ -3605,15 +3605,10 @@ opensafety_packet_receiver.exit.i116:             ; preds = %784, %783
   %1020 = getelementptr inbounds i8, ptr %992, i64 28
   %1021 = load i32, ptr %1020, align 4
   %.not399.i = icmp eq i32 %1021, 0
-  br i1 %662, label %1022, label %.critedge.i
+  %1022 = xor i1 %662, %.not399.i
+  br i1 %1022, label %dissect_opensafety_snmt_message.exit, label %1023
 
-1022:                                             ; preds = %1019
-  br i1 %.not399.i, label %1023, label %dissect_opensafety_snmt_message.exit
-
-.critedge.i:                                      ; preds = %1019
-  br i1 %.not399.i, label %dissect_opensafety_snmt_message.exit, label %1023
-
-1023:                                             ; preds = %.critedge.i, %1022
+1023:                                             ; preds = %1019
   %1024 = getelementptr inbounds i8, ptr %2, i64 272
   %1025 = load i32, ptr %1024, align 8
   %1026 = icmp ne i16 %.0362.i, 0
@@ -4608,8 +4603,8 @@ dissect_opensafety_spdo_message.exit:             ; preds = %1624, %dissect_data
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.357) #10
   br label %dissect_opensafety_snmt_message.exit
 
-dissect_opensafety_snmt_message.exit:             ; preds = %dissect_opensafety_ssdo_payload.exit.i, %1077, %1075, %.critedge.i, %1022, %1017, %996, %537, %536, %529, %439, %433, %421, %417, %406, %397, %378, %302, %298, %283, %244, %209, %114, %1635, %1644, %1649
-  %.not100 = phi i1 [ true, %1635 ], [ true, %1644 ], [ false, %1649 ], [ true, %114 ], [ true, %209 ], [ true, %244 ], [ true, %283 ], [ true, %298 ], [ true, %302 ], [ true, %378 ], [ true, %397 ], [ true, %406 ], [ true, %417 ], [ true, %421 ], [ true, %433 ], [ true, %439 ], [ true, %529 ], [ true, %536 ], [ true, %537 ], [ true, %996 ], [ true, %1017 ], [ true, %1022 ], [ true, %.critedge.i ], [ true, %1075 ], [ true, %1077 ], [ true, %dissect_opensafety_ssdo_payload.exit.i ]
+dissect_opensafety_snmt_message.exit:             ; preds = %dissect_opensafety_ssdo_payload.exit.i, %1077, %1075, %1019, %1017, %996, %537, %536, %529, %439, %433, %421, %417, %406, %397, %378, %302, %298, %283, %244, %209, %114, %1635, %1644, %1649
+  %.not100 = phi i1 [ true, %1635 ], [ true, %1644 ], [ false, %1649 ], [ true, %114 ], [ true, %209 ], [ true, %244 ], [ true, %283 ], [ true, %298 ], [ true, %302 ], [ true, %378 ], [ true, %397 ], [ true, %406 ], [ true, %417 ], [ true, %421 ], [ true, %433 ], [ true, %439 ], [ true, %529 ], [ true, %536 ], [ true, %537 ], [ true, %996 ], [ true, %1017 ], [ true, %1019 ], [ true, %1075 ], [ true, %1077 ], [ true, %dissect_opensafety_ssdo_payload.exit.i ]
   %1650 = load i32, ptr @hf_oss_length, align 4
   %1651 = load i16, ptr %11, align 4
   %1652 = zext i16 %1651 to i32
@@ -4772,7 +4767,7 @@ proto_item_set_generated.exit.i127:               ; preds = %1712, %1709, %1702
   %1755 = call ptr @g_byte_array_new() #10
   %1756 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 0, ptr %1756, align 4
-  br i1 %.not170.i, label %.critedge.i132, label %1757
+  br i1 %.not170.i, label %.critedge.i, label %1757
 
 1757:                                             ; preds = %1748
   %1758 = load ptr, ptr @local_scm_udid, align 8
@@ -4851,14 +4846,14 @@ proto_item_set_generated.exit.i127:               ; preds = %1712, %1709, %1702
 1800:                                             ; preds = %1794, %.thread185.i
   %.1.i130 = phi i16 [ %1799, %1794 ], [ %.0161.i, %.thread185.i ]
   %or.cond4.i131 = and i1 %1681, %1678
-  br i1 %or.cond4.i131, label %1801, label %.critedge.i132
+  br i1 %or.cond4.i131, label %1801, label %.critedge.i
 
 1801:                                             ; preds = %1800
   %1802 = getelementptr i8, ptr %1754, i64 5
   %1803 = load i16, ptr %1802, align 1
-  br label %.critedge.i132
+  br label %.critedge.i
 
-.critedge.i132:                                   ; preds = %1801, %1800, %1748
+.critedge.i:                                      ; preds = %1801, %1800, %1748
   %.2.i = phi i16 [ %1803, %1801 ], [ %.1.i130, %1800 ], [ %.0161.i, %1748 ]
   %1804 = load i32, ptr @hf_oss_crc, align 4
   %1805 = zext i16 %.2.i to i32
@@ -4872,7 +4867,7 @@ proto_item_set_generated.exit.i127:               ; preds = %1712, %1709, %1702
   %1813 = icmp ugt i8 %1812, 8
   br i1 %1813, label %1814, label %1818
 
-1814:                                             ; preds = %.critedge.i132
+1814:                                             ; preds = %.critedge.i
   %1815 = call zeroext i16 @crc16_0x755B(ptr noundef %1754, i32 noundef %1680, i16 noundef zeroext 0) #10
   %.not174.i = icmp eq i16 %.2.i, %1815
   br i1 %.not174.i, label %1821, label %1816
@@ -4881,7 +4876,7 @@ proto_item_set_generated.exit.i127:               ; preds = %1712, %1709, %1702
   %1817 = call zeroext i16 @crc16_0x5935(ptr noundef %1754, i32 noundef %1680, i16 noundef zeroext 0) #10
   br label %1821
 
-1818:                                             ; preds = %.critedge.i132
+1818:                                             ; preds = %.critedge.i
   %1819 = call zeroext i8 @crc8_0x2F(ptr noundef %1754, i32 noundef %1680, i8 noundef zeroext 0) #10
   %1820 = zext i8 %1819 to i16
   br label %1821

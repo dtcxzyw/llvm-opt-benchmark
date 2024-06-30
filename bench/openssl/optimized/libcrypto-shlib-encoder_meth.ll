@@ -1001,35 +1001,25 @@ for.end.i:                                        ; preds = %for.cond.i
   %cmp77.i = icmp eq ptr %23, null
   %24 = load ptr, ptr %freectx.i, align 8
   %cmp79.i = icmp eq ptr %24, null
-  br i1 %cmp77.i, label %land.lhs.true.i, label %land.lhs.true82.i
+  %25 = xor i1 %cmp77.i, %cmp79.i
+  br i1 %25, label %lor.lhs.false85.i, label %lor.lhs.false97.i
 
-land.lhs.true.i:                                  ; preds = %for.end.i
-  br i1 %cmp79.i, label %lor.lhs.false97.i, label %lor.lhs.false85.i
+lor.lhs.false85.i:                                ; preds = %for.end.i
+  %26 = load ptr, ptr %import_object.i, align 8
+  %cmp87.not.i = icmp eq ptr %26, null
+  %27 = load ptr, ptr %free_object.i, align 8
+  %cmp96.i = icmp eq ptr %27, null
+  %28 = xor i1 %cmp87.not.i, %cmp96.i
+  br i1 %28, label %if.end.i81.i, label %lor.lhs.false97.i
 
-land.lhs.true82.i:                                ; preds = %for.end.i
-  br i1 %cmp79.i, label %lor.lhs.false85.i, label %lor.lhs.false97.i
-
-lor.lhs.false85.i:                                ; preds = %land.lhs.true82.i, %land.lhs.true.i
-  %25 = load ptr, ptr %import_object.i, align 8
-  %cmp87.not.i = icmp eq ptr %25, null
-  %26 = load ptr, ptr %free_object.i, align 8
-  %cmp96.i = icmp eq ptr %26, null
-  br i1 %cmp87.not.i, label %land.lhs.true94.i, label %land.lhs.true88.i
-
-land.lhs.true88.i:                                ; preds = %lor.lhs.false85.i
-  br i1 %cmp96.i, label %if.end.i81.i, label %lor.lhs.false97.i
-
-land.lhs.true94.i:                                ; preds = %lor.lhs.false85.i
-  br i1 %cmp96.i, label %lor.lhs.false97.i, label %if.end.i81.i
-
-lor.lhs.false97.i:                                ; preds = %land.lhs.true94.i, %land.lhs.true88.i, %land.lhs.true82.i, %land.lhs.true.i
-  %27 = load ptr, ptr %encode.i, align 8
-  %cmp99.i = icmp eq ptr %27, null
+lor.lhs.false97.i:                                ; preds = %lor.lhs.false85.i, %for.end.i
+  %29 = load ptr, ptr %encode.i, align 8
+  %cmp99.i = icmp eq ptr %29, null
   br i1 %cmp99.i, label %if.end.i81.i, label %if.end101.i
 
-if.end.i81.i:                                     ; preds = %lor.lhs.false97.i, %land.lhs.true94.i, %land.lhs.true88.i
-  %28 = atomicrmw sub ptr %refcnt.i.i, i32 1 monotonic, align 4
-  %cmp.i.i83.i = icmp eq i32 %28, 1
+if.end.i81.i:                                     ; preds = %lor.lhs.false97.i, %lor.lhs.false85.i
+  %30 = atomicrmw sub ptr %refcnt.i.i, i32 1 monotonic, align 4
+  %cmp.i.i83.i = icmp eq i32 %30, 1
   br i1 %cmp.i.i83.i, label %CRYPTO_DOWN_REF.exit.thread.i89.i, label %CRYPTO_DOWN_REF.exit.i84.i
 
 CRYPTO_DOWN_REF.exit.thread.i89.i:                ; preds = %if.end.i81.i
@@ -1037,16 +1027,16 @@ CRYPTO_DOWN_REF.exit.thread.i89.i:                ; preds = %if.end.i81.i
   br label %if.end3.i86.i
 
 CRYPTO_DOWN_REF.exit.i84.i:                       ; preds = %if.end.i81.i
-  %cmp1.i85.i = icmp sgt i32 %28, 1
+  %cmp1.i85.i = icmp sgt i32 %30, 1
   br i1 %cmp1.i85.i, label %OSSL_ENCODER_free.exit90.i, label %if.end3.i86.i
 
 if.end3.i86.i:                                    ; preds = %CRYPTO_DOWN_REF.exit.i84.i, %CRYPTO_DOWN_REF.exit.thread.i89.i
-  %29 = load ptr, ptr %name.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str, i32 noundef 60) #7
-  %30 = load ptr, ptr %parsed_propdef.i, align 8
-  tail call void @ossl_property_free(ptr noundef %30) #7
-  %31 = load ptr, ptr %call.i.i, align 8
-  tail call void @ossl_provider_free(ptr noundef %31) #7
+  %31 = load ptr, ptr %name.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %31, ptr noundef nonnull @.str, i32 noundef 60) #7
+  %32 = load ptr, ptr %parsed_propdef.i, align 8
+  tail call void @ossl_property_free(ptr noundef %32) #7
+  %33 = load ptr, ptr %call.i.i, align 8
+  tail call void @ossl_provider_free(ptr noundef %33) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str, i32 noundef 64) #7
   br label %OSSL_ENCODER_free.exit90.i
 
@@ -1066,8 +1056,8 @@ land.lhs.true103.i:                               ; preds = %if.end101.i
   br i1 %tobool.not.i, label %if.end.i92.i, label %if.end
 
 if.end.i92.i:                                     ; preds = %land.lhs.true103.i
-  %32 = atomicrmw sub ptr %refcnt.i.i, i32 1 monotonic, align 4
-  %cmp.i.i94.i = icmp eq i32 %32, 1
+  %34 = atomicrmw sub ptr %refcnt.i.i, i32 1 monotonic, align 4
+  %cmp.i.i94.i = icmp eq i32 %34, 1
   br i1 %cmp.i.i94.i, label %CRYPTO_DOWN_REF.exit.thread.i100.i, label %CRYPTO_DOWN_REF.exit.i95.i
 
 CRYPTO_DOWN_REF.exit.thread.i100.i:               ; preds = %if.end.i92.i
@@ -1075,16 +1065,16 @@ CRYPTO_DOWN_REF.exit.thread.i100.i:               ; preds = %if.end.i92.i
   br label %if.end3.i97.i
 
 CRYPTO_DOWN_REF.exit.i95.i:                       ; preds = %if.end.i92.i
-  %cmp1.i96.i = icmp sgt i32 %32, 1
+  %cmp1.i96.i = icmp sgt i32 %34, 1
   br i1 %cmp1.i96.i, label %if.then5, label %if.end3.i97.i
 
 if.end3.i97.i:                                    ; preds = %CRYPTO_DOWN_REF.exit.i95.i, %CRYPTO_DOWN_REF.exit.thread.i100.i
-  %33 = load ptr, ptr %name.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %33, ptr noundef nonnull @.str, i32 noundef 60) #7
-  %34 = load ptr, ptr %parsed_propdef.i, align 8
-  tail call void @ossl_property_free(ptr noundef %34) #7
-  %35 = load ptr, ptr %call.i.i, align 8
-  tail call void @ossl_provider_free(ptr noundef %35) #7
+  %35 = load ptr, ptr %name.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %35, ptr noundef nonnull @.str, i32 noundef 60) #7
+  %36 = load ptr, ptr %parsed_propdef.i, align 8
+  tail call void @ossl_property_free(ptr noundef %36) #7
+  %37 = load ptr, ptr %call.i.i, align 8
+  tail call void @ossl_provider_free(ptr noundef %37) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str, i32 noundef 64) #7
   br label %if.then5
 

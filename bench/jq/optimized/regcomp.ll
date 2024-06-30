@@ -11037,7 +11037,7 @@ define internal fastcc i32 @is_exclusive(ptr nocapture noundef readonly %0, ptr 
   switch i32 %6, label %onig_is_code_in_cc.exit [
     i32 2, label %7
     i32 1, label %30
-    i32 0, label %141
+    i32 0, label %139
   ]
 
 7:                                                ; preds = %4
@@ -11225,8 +11225,8 @@ define internal fastcc i32 @is_exclusive(ptr nocapture noundef readonly %0, ptr 
   %.not135 = icmp eq i32 %107, 0
   br i1 %.not135, label %99, label %onig_is_code_in_cc.exit
 
-108:                                              ; preds = %.preheader149, %126
-  %.3173 = phi i32 [ 0, %.preheader149 ], [ %127, %126 ]
+108:                                              ; preds = %.preheader149, %124
+  %.3173 = phi i32 [ 0, %.preheader149 ], [ %125, %124 ]
   %109 = lshr i32 %.3173, 5
   %110 = zext nneg i32 %109 to i64
   %111 = getelementptr inbounds [8 x i32], ptr %31, i64 0, i64 %110
@@ -11235,244 +11235,234 @@ define internal fastcc i32 @is_exclusive(ptr nocapture noundef readonly %0, ptr 
   %114 = shl nuw i32 1, %113
   %115 = and i32 %112, %114
   %cond144 = icmp eq i32 %115, 0
-  br i1 %cond144, label %117, label %116
-
-116:                                              ; preds = %108
-  br i1 %.not128, label %118, label %126
+  %116 = xor i1 %cond144, %.not128
+  br i1 %116, label %117, label %124
 
 117:                                              ; preds = %108
-  br i1 %.not128, label %126, label %118
+  %118 = getelementptr inbounds [8 x i32], ptr %33, i64 0, i64 %110
+  %119 = load i32, ptr %118, align 4
+  %120 = and i32 %119, %114
+  %cond145 = icmp eq i32 %120, 0
+  %121 = load i32, ptr %34, align 8
+  %122 = and i32 %121, 1
+  %.not131 = icmp eq i32 %122, 0
+  %123 = xor i1 %cond145, %.not131
+  br i1 %123, label %onig_is_code_in_cc.exit, label %124
 
-118:                                              ; preds = %117, %116
-  %119 = getelementptr inbounds [8 x i32], ptr %33, i64 0, i64 %110
-  %120 = load i32, ptr %119, align 4
-  %121 = and i32 %120, %114
-  %cond145 = icmp eq i32 %121, 0
-  %122 = load i32, ptr %34, align 8
-  %123 = and i32 %122, 1
-  %.not131 = icmp eq i32 %123, 0
-  br i1 %cond145, label %125, label %124
+124:                                              ; preds = %117, %108
+  %125 = add nuw nsw i32 %.3173, 1
+  %exitcond202.not = icmp eq i32 %125, 256
+  br i1 %exitcond202.not, label %126, label %108, !llvm.loop !73
 
-124:                                              ; preds = %118
-  br i1 %.not131, label %onig_is_code_in_cc.exit, label %126
+126:                                              ; preds = %124
+  %127 = getelementptr inbounds i8, ptr %.0110, i64 56
+  %128 = load ptr, ptr %127, align 8
+  %129 = icmp eq ptr %128, null
+  %130 = and i32 %35, 1
+  %.not124 = icmp eq i32 %130, 0
+  %or.cond = and i1 %129, %.not124
+  br i1 %or.cond, label %onig_is_code_in_cc.exit, label %131
 
-125:                                              ; preds = %118
-  br i1 %.not131, label %126, label %onig_is_code_in_cc.exit
+131:                                              ; preds = %126
+  %132 = getelementptr inbounds i8, ptr %.0111, i64 56
+  %133 = load ptr, ptr %132, align 8
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %135, label %138
 
-126:                                              ; preds = %124, %116, %117, %125
-  %127 = add nuw nsw i32 %.3173, 1
-  %exitcond202.not = icmp eq i32 %127, 256
-  br i1 %exitcond202.not, label %128, label %108, !llvm.loop !73
+135:                                              ; preds = %131
+  %136 = load i32, ptr %34, align 8
+  %137 = and i32 %136, 1
+  %.not125 = icmp eq i32 %137, 0
+  br i1 %.not125, label %onig_is_code_in_cc.exit, label %138
 
-128:                                              ; preds = %126
-  %129 = getelementptr inbounds i8, ptr %.0110, i64 56
-  %130 = load ptr, ptr %129, align 8
-  %131 = icmp eq ptr %130, null
-  %132 = and i32 %35, 1
-  %.not124 = icmp eq i32 %132, 0
-  %or.cond = select i1 %131, i1 %.not124, i1 false
-  br i1 %or.cond, label %onig_is_code_in_cc.exit, label %133
-
-133:                                              ; preds = %128
-  %134 = getelementptr inbounds i8, ptr %.0111, i64 56
-  %135 = load ptr, ptr %134, align 8
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %137, label %140
-
-137:                                              ; preds = %133
-  %138 = load i32, ptr %34, align 8
-  %139 = and i32 %138, 1
-  %.not125 = icmp eq i32 %139, 0
-  br i1 %.not125, label %onig_is_code_in_cc.exit, label %140
-
-140:                                              ; preds = %137, %133
+138:                                              ; preds = %135, %131
   br label %onig_is_code_in_cc.exit
 
-141:                                              ; preds = %4
-  %142 = getelementptr inbounds i8, ptr %.0110, i64 24
+139:                                              ; preds = %4
+  %140 = getelementptr inbounds i8, ptr %.0110, i64 24
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr inbounds i8, ptr %.0110, i64 16
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %.0110, i64 16
-  %145 = load ptr, ptr %144, align 8
-  %146 = ptrtoint ptr %143 to i64
-  %147 = ptrtoint ptr %145 to i64
-  %148 = sub i64 %146, %147
-  %149 = trunc i64 %148 to i32
-  %150 = icmp eq i32 %149, 0
-  br i1 %150, label %onig_is_code_in_cc.exit, label %151
+  %144 = ptrtoint ptr %141 to i64
+  %145 = ptrtoint ptr %143 to i64
+  %146 = sub i64 %144, %145
+  %147 = trunc i64 %146 to i32
+  %148 = icmp eq i32 %147, 0
+  br i1 %148, label %onig_is_code_in_cc.exit, label %149
 
-151:                                              ; preds = %141
+149:                                              ; preds = %139
   switch i32 %5, label %onig_is_code_in_cc.exit [
-    i32 2, label %152
-    i32 1, label %178
-    i32 0, label %238
+    i32 2, label %150
+    i32 1, label %176
+    i32 0, label %236
   ]
 
-152:                                              ; preds = %151
-  %153 = getelementptr inbounds i8, ptr %.0111, i64 16
-  %154 = load i32, ptr %153, align 8
-  %cond = icmp eq i32 %154, 12
-  br i1 %cond, label %155, label %onig_is_code_in_cc.exit
+150:                                              ; preds = %149
+  %151 = getelementptr inbounds i8, ptr %.0111, i64 16
+  %152 = load i32, ptr %151, align 8
+  %cond = icmp eq i32 %152, 12
+  br i1 %cond, label %153, label %onig_is_code_in_cc.exit
 
-155:                                              ; preds = %152
-  %156 = getelementptr inbounds i8, ptr %.0111, i64 24
-  %157 = load i32, ptr %156, align 8
-  %158 = icmp eq i32 %157, 0
-  %159 = getelementptr inbounds i8, ptr %2, i64 96
-  %160 = load ptr, ptr %159, align 8
-  br i1 %158, label %161, label %172
+153:                                              ; preds = %150
+  %154 = getelementptr inbounds i8, ptr %.0111, i64 24
+  %155 = load i32, ptr %154, align 8
+  %156 = icmp eq i32 %155, 0
+  %157 = getelementptr inbounds i8, ptr %2, i64 96
+  %158 = load ptr, ptr %157, align 8
+  br i1 %156, label %159, label %170
 
-161:                                              ; preds = %155
-  %162 = getelementptr inbounds i8, ptr %160, i64 88
+159:                                              ; preds = %153
+  %160 = getelementptr inbounds i8, ptr %158, i64 88
+  %161 = load ptr, ptr %160, align 8
+  %162 = getelementptr inbounds i8, ptr %158, i64 32
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %160, i64 32
-  %165 = load ptr, ptr %164, align 8
-  %166 = tail call i32 %165(ptr noundef %145, ptr noundef %143) #22
-  %167 = tail call i32 %163(i32 noundef %166, i32 noundef 12) #22
-  %.not122 = icmp eq i32 %167, 0
-  %168 = getelementptr inbounds i8, ptr %.0111, i64 20
-  %169 = load i32, ptr %168, align 4
-  br i1 %.not122, label %170, label %onig_is_code_in_cc.exit
+  %164 = tail call i32 %163(ptr noundef %143, ptr noundef %141) #22
+  %165 = tail call i32 %161(i32 noundef %164, i32 noundef 12) #22
+  %.not122 = icmp eq i32 %165, 0
+  %166 = getelementptr inbounds i8, ptr %.0111, i64 20
+  %167 = load i32, ptr %166, align 4
+  br i1 %.not122, label %168, label %onig_is_code_in_cc.exit
 
-170:                                              ; preds = %161
-  %.not123 = icmp eq i32 %169, 0
-  %171 = zext i1 %.not123 to i32
+168:                                              ; preds = %159
+  %.not123 = icmp eq i32 %167, 0
+  %169 = zext i1 %.not123 to i32
   br label %onig_is_code_in_cc.exit
 
-172:                                              ; preds = %155
-  %173 = tail call i32 @onigenc_is_mbc_word_ascii(ptr noundef %160, ptr noundef %145, ptr noundef %143) #22
-  %.not120 = icmp eq i32 %173, 0
-  %174 = getelementptr inbounds i8, ptr %.0111, i64 20
-  %175 = load i32, ptr %174, align 4
-  br i1 %.not120, label %176, label %onig_is_code_in_cc.exit
+170:                                              ; preds = %153
+  %171 = tail call i32 @onigenc_is_mbc_word_ascii(ptr noundef %158, ptr noundef %143, ptr noundef %141) #22
+  %.not120 = icmp eq i32 %171, 0
+  %172 = getelementptr inbounds i8, ptr %.0111, i64 20
+  %173 = load i32, ptr %172, align 4
+  br i1 %.not120, label %174, label %onig_is_code_in_cc.exit
 
-176:                                              ; preds = %172
-  %.not121 = icmp eq i32 %175, 0
-  %177 = zext i1 %.not121 to i32
+174:                                              ; preds = %170
+  %.not121 = icmp eq i32 %173, 0
+  %175 = zext i1 %.not121 to i32
   br label %onig_is_code_in_cc.exit
 
-178:                                              ; preds = %151
-  %179 = getelementptr inbounds i8, ptr %2, i64 96
+176:                                              ; preds = %149
+  %177 = getelementptr inbounds i8, ptr %2, i64 96
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds i8, ptr %178, i64 32
   %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 32
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %180, i64 16
-  %184 = load i32, ptr %183, align 8
-  %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds i8, ptr %145, i64 %185
-  %187 = tail call i32 %182(ptr noundef %145, ptr noundef %186) #22
-  %188 = load ptr, ptr %179, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 20
-  %190 = load i32, ptr %189, align 4
-  %191 = icmp sgt i32 %190, 1
-  br i1 %191, label %.thread.i, label %192
+  %181 = getelementptr inbounds i8, ptr %178, i64 16
+  %182 = load i32, ptr %181, align 8
+  %183 = sext i32 %182 to i64
+  %184 = getelementptr inbounds i8, ptr %143, i64 %183
+  %185 = tail call i32 %180(ptr noundef %143, ptr noundef %184) #22
+  %186 = load ptr, ptr %177, align 8
+  %187 = getelementptr inbounds i8, ptr %186, i64 20
+  %188 = load i32, ptr %187, align 4
+  %189 = icmp sgt i32 %188, 1
+  br i1 %189, label %.thread.i, label %190
 
-192:                                              ; preds = %178
-  %193 = getelementptr inbounds i8, ptr %188, i64 40
-  %194 = load ptr, ptr %193, align 8
-  %195 = tail call i32 %194(i32 noundef %187) #22
-  %196 = icmp slt i32 %195, 0
-  br i1 %196, label %onig_is_code_in_cc.exit, label %197
+190:                                              ; preds = %176
+  %191 = getelementptr inbounds i8, ptr %186, i64 40
+  %192 = load ptr, ptr %191, align 8
+  %193 = tail call i32 %192(i32 noundef %185) #22
+  %194 = icmp slt i32 %193, 0
+  br i1 %194, label %onig_is_code_in_cc.exit, label %195
 
-197:                                              ; preds = %192
-  %198 = icmp ugt i32 %195, 1
-  %199 = icmp ugt i32 %187, 255
-  %or.cond.i.i = or i1 %199, %198
-  br i1 %or.cond.i.i, label %.thread.i, label %224
+195:                                              ; preds = %190
+  %196 = icmp ugt i32 %193, 1
+  %197 = icmp ugt i32 %185, 255
+  %or.cond.i.i = or i1 %197, %196
+  br i1 %or.cond.i.i, label %.thread.i, label %222
 
-.thread.i:                                        ; preds = %197, %178
-  %200 = getelementptr inbounds i8, ptr %.0111, i64 56
-  %201 = load ptr, ptr %200, align 8
-  %202 = icmp eq ptr %201, null
-  br i1 %202, label %onig_is_code_in_cc_len.exit.i, label %203
+.thread.i:                                        ; preds = %195, %176
+  %198 = getelementptr inbounds i8, ptr %.0111, i64 56
+  %199 = load ptr, ptr %198, align 8
+  %200 = icmp eq ptr %199, null
+  br i1 %200, label %onig_is_code_in_cc_len.exit.i, label %201
 
-203:                                              ; preds = %.thread.i
-  %204 = load ptr, ptr %201, align 8
-  %205 = load i32, ptr %204, align 4
-  %206 = getelementptr inbounds i8, ptr %204, i64 4
-  %.not.i.i.i = icmp eq i32 %205, 0
+201:                                              ; preds = %.thread.i
+  %202 = load ptr, ptr %199, align 8
+  %203 = load i32, ptr %202, align 4
+  %204 = getelementptr inbounds i8, ptr %202, i64 4
+  %.not.i.i.i = icmp eq i32 %203, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %203, %.lr.ph.i.i.i
-  %.020.i.i.i = phi i32 [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %205, %203 ]
-  %.01719.i.i.i = phi i32 [ %.118.i.i.i, %.lr.ph.i.i.i ], [ 0, %203 ]
-  %207 = add i32 %.01719.i.i.i, %.020.i.i.i
-  %208 = lshr i32 %207, 1
-  %209 = or i32 %207, 1
-  %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds i32, ptr %206, i64 %210
-  %212 = load i32, ptr %211, align 4
-  %213 = icmp ult i32 %212, %187
-  %214 = add nuw i32 %208, 1
-  %.118.i.i.i = select i1 %213, i32 %214, i32 %.01719.i.i.i
-  %.1.i.i.i = select i1 %213, i32 %.020.i.i.i, i32 %208
-  %215 = icmp ult i32 %.118.i.i.i, %.1.i.i.i
-  br i1 %215, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !23
+.lr.ph.i.i.i:                                     ; preds = %201, %.lr.ph.i.i.i
+  %.020.i.i.i = phi i32 [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %203, %201 ]
+  %.01719.i.i.i = phi i32 [ %.118.i.i.i, %.lr.ph.i.i.i ], [ 0, %201 ]
+  %205 = add i32 %.01719.i.i.i, %.020.i.i.i
+  %206 = lshr i32 %205, 1
+  %207 = or i32 %205, 1
+  %208 = zext i32 %207 to i64
+  %209 = getelementptr inbounds i32, ptr %204, i64 %208
+  %210 = load i32, ptr %209, align 4
+  %211 = icmp ult i32 %210, %185
+  %212 = add nuw i32 %206, 1
+  %.118.i.i.i = select i1 %211, i32 %212, i32 %.01719.i.i.i
+  %.1.i.i.i = select i1 %211, i32 %.020.i.i.i, i32 %206
+  %213 = icmp ult i32 %.118.i.i.i, %.1.i.i.i
+  br i1 %213, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !23
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %203
-  %.017.lcssa.i.i.i = phi i32 [ 0, %203 ], [ %.118.i.i.i, %.lr.ph.i.i.i ]
-  %216 = icmp ult i32 %.017.lcssa.i.i.i, %205
-  br i1 %216, label %217, label %onig_is_code_in_cc_len.exit.i
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %201
+  %.017.lcssa.i.i.i = phi i32 [ 0, %201 ], [ %.118.i.i.i, %.lr.ph.i.i.i ]
+  %214 = icmp ult i32 %.017.lcssa.i.i.i, %203
+  br i1 %214, label %215, label %onig_is_code_in_cc_len.exit.i
 
-217:                                              ; preds = %._crit_edge.i.i.i
-  %218 = shl i32 %.017.lcssa.i.i.i, 1
-  %219 = zext i32 %218 to i64
-  %220 = getelementptr inbounds i32, ptr %206, i64 %219
-  %221 = load i32, ptr %220, align 4
-  %222 = icmp ule i32 %221, %187
-  %223 = zext i1 %222 to i32
+215:                                              ; preds = %._crit_edge.i.i.i
+  %216 = shl i32 %.017.lcssa.i.i.i, 1
+  %217 = zext i32 %216 to i64
+  %218 = getelementptr inbounds i32, ptr %204, i64 %217
+  %219 = load i32, ptr %218, align 4
+  %220 = icmp ule i32 %219, %185
+  %221 = zext i1 %220 to i32
   br label %onig_is_code_in_cc_len.exit.i
 
-224:                                              ; preds = %197
-  %225 = getelementptr inbounds i8, ptr %.0111, i64 20
-  %226 = lshr i32 %187, 5
-  %227 = zext nneg i32 %226 to i64
-  %228 = getelementptr inbounds [8 x i32], ptr %225, i64 0, i64 %227
-  %229 = load i32, ptr %228, align 4
-  %230 = and i32 %187, 31
-  %231 = lshr i32 %229, %230
-  %232 = and i32 %231, 1
+222:                                              ; preds = %195
+  %223 = getelementptr inbounds i8, ptr %.0111, i64 20
+  %224 = lshr i32 %185, 5
+  %225 = zext nneg i32 %224 to i64
+  %226 = getelementptr inbounds [8 x i32], ptr %223, i64 0, i64 %225
+  %227 = load i32, ptr %226, align 4
+  %228 = and i32 %185, 31
+  %229 = lshr i32 %227, %228
+  %230 = and i32 %229, 1
   br label %onig_is_code_in_cc_len.exit.i
 
-onig_is_code_in_cc_len.exit.i:                    ; preds = %224, %217, %._crit_edge.i.i.i, %.thread.i
-  %.013.i.i = phi i32 [ %232, %224 ], [ 0, %.thread.i ], [ 0, %._crit_edge.i.i.i ], [ %223, %217 ]
-  %233 = getelementptr inbounds i8, ptr %.0111, i64 16
-  %234 = load i32, ptr %233, align 8
-  %235 = and i32 %234, 1
-  %236 = xor i32 %.013.i.i, %235
-  %237 = xor i32 %236, 1
+onig_is_code_in_cc_len.exit.i:                    ; preds = %222, %215, %._crit_edge.i.i.i, %.thread.i
+  %.013.i.i = phi i32 [ %230, %222 ], [ 0, %.thread.i ], [ 0, %._crit_edge.i.i.i ], [ %221, %215 ]
+  %231 = getelementptr inbounds i8, ptr %.0111, i64 16
+  %232 = load i32, ptr %231, align 8
+  %233 = and i32 %232, 1
+  %234 = xor i32 %.013.i.i, %233
+  %235 = xor i32 %234, 1
   br label %onig_is_code_in_cc.exit
 
-238:                                              ; preds = %151
-  %239 = getelementptr inbounds i8, ptr %.0111, i64 24
+236:                                              ; preds = %149
+  %237 = getelementptr inbounds i8, ptr %.0111, i64 24
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds i8, ptr %.0111, i64 16
   %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds i8, ptr %.0111, i64 16
-  %242 = load ptr, ptr %241, align 8
-  %243 = ptrtoint ptr %240 to i64
-  %244 = ptrtoint ptr %242 to i64
-  %245 = sub i64 %243, %244
-  %246 = trunc i64 %245 to i32
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %149, i32 %246)
-  %247 = icmp sgt i32 %spec.select, 0
-  br i1 %247, label %.lr.ph, label %onig_is_code_in_cc.exit
+  %241 = ptrtoint ptr %238 to i64
+  %242 = ptrtoint ptr %240 to i64
+  %243 = sub i64 %241, %242
+  %244 = trunc i64 %243 to i32
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %147, i32 %244)
+  %245 = icmp sgt i32 %spec.select, 0
+  br i1 %245, label %.lr.ph, label %onig_is_code_in_cc.exit
 
-.lr.ph:                                           ; preds = %238, %250
-  %.0109170 = phi ptr [ %253, %250 ], [ %145, %238 ]
-  %.4169 = phi i32 [ %251, %250 ], [ 0, %238 ]
-  %.0114168 = phi ptr [ %252, %250 ], [ %242, %238 ]
-  %248 = load i8, ptr %.0114168, align 1
-  %249 = load i8, ptr %.0109170, align 1
-  %.not = icmp eq i8 %248, %249
-  br i1 %.not, label %250, label %onig_is_code_in_cc.exit
+.lr.ph:                                           ; preds = %236, %248
+  %.0109170 = phi ptr [ %251, %248 ], [ %143, %236 ]
+  %.4169 = phi i32 [ %249, %248 ], [ 0, %236 ]
+  %.0114168 = phi ptr [ %250, %248 ], [ %240, %236 ]
+  %246 = load i8, ptr %.0114168, align 1
+  %247 = load i8, ptr %.0109170, align 1
+  %.not = icmp eq i8 %246, %247
+  br i1 %.not, label %248, label %onig_is_code_in_cc.exit
 
-250:                                              ; preds = %.lr.ph
-  %251 = add nuw nsw i32 %.4169, 1
-  %252 = getelementptr inbounds i8, ptr %.0114168, i64 1
-  %253 = getelementptr inbounds i8, ptr %.0109170, i64 1
-  %exitcond.not = icmp eq i32 %251, %spec.select
+248:                                              ; preds = %.lr.ph
+  %249 = add nuw nsw i32 %.4169, 1
+  %250 = getelementptr inbounds i8, ptr %.0114168, i64 1
+  %251 = getelementptr inbounds i8, ptr %.0109170, i64 1
+  %exitcond.not = icmp eq i32 %249, %spec.select
   br i1 %exitcond.not, label %onig_is_code_in_cc.exit, label %.lr.ph, !llvm.loop !74
 
-onig_is_code_in_cc.exit:                          ; preds = %11, %7, %15, %30, %4, %.lr.ph, %250, %124, %125, %89, %.lr.ph176, %99, %71, %66, %172, %161, %128, %238, %.preheader, %onig_is_code_in_cc_len.exit.i, %192, %37, %141, %151, %152, %137, %74, %73, %47, %48, %23, %176, %170, %140, %29
-  %.0 = phi i32 [ %171, %170 ], [ %177, %176 ], [ 0, %140 ], [ 0, %29 ], [ 1, %23 ], [ 0, %48 ], [ 0, %47 ], [ 0, %73 ], [ 0, %74 ], [ 1, %137 ], [ 0, %152 ], [ 0, %151 ], [ 0, %141 ], [ 0, %37 ], [ %237, %onig_is_code_in_cc_len.exit.i ], [ 1, %192 ], [ 1, %.preheader ], [ 0, %238 ], [ 1, %128 ], [ %169, %161 ], [ %175, %172 ], [ 1, %71 ], [ 0, %66 ], [ 0, %.lr.ph176 ], [ 1, %99 ], [ 0, %89 ], [ 0, %125 ], [ 0, %124 ], [ 1, %.lr.ph ], [ 0, %250 ], [ 0, %4 ], [ 0, %30 ], [ 0, %15 ], [ 0, %7 ], [ 0, %11 ]
+onig_is_code_in_cc.exit:                          ; preds = %11, %7, %15, %30, %4, %.lr.ph, %248, %117, %89, %.lr.ph176, %99, %71, %66, %170, %159, %126, %236, %.preheader, %onig_is_code_in_cc_len.exit.i, %190, %37, %139, %149, %150, %135, %74, %73, %47, %48, %23, %174, %168, %138, %29
+  %.0 = phi i32 [ %169, %168 ], [ %175, %174 ], [ 0, %138 ], [ 0, %29 ], [ 1, %23 ], [ 0, %48 ], [ 0, %47 ], [ 0, %73 ], [ 0, %74 ], [ 1, %135 ], [ 0, %150 ], [ 0, %149 ], [ 0, %139 ], [ 0, %37 ], [ %235, %onig_is_code_in_cc_len.exit.i ], [ 1, %190 ], [ 1, %.preheader ], [ 0, %236 ], [ 1, %126 ], [ %167, %159 ], [ %173, %170 ], [ 1, %71 ], [ 0, %66 ], [ 0, %.lr.ph176 ], [ 1, %99 ], [ 0, %89 ], [ 0, %117 ], [ 1, %.lr.ph ], [ 0, %248 ], [ 0, %4 ], [ 0, %30 ], [ 0, %15 ], [ 0, %7 ], [ 0, %11 ]
   ret i32 %.0
 }
 

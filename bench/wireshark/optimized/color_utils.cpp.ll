@@ -1042,15 +1042,10 @@ define { i64, i64 } @_ZN10ColorUtils20contrastingTextColorE6QColor(i64 %0, i64 %
   %7 = call noundef i32 @_ZNK6QColor9lightnessEv(ptr noundef nonnull align 4 dereferenceable(14) %3) #15
   %8 = icmp sgt i32 %7, 127
   %9 = call noundef zeroext i1 @_ZN10ColorUtils11themeIsDarkEv()
-  br i1 %8, label %10, label %.critedge
+  %10 = xor i1 %8, %9
+  br i1 %10, label %11, label %15
 
-10:                                               ; preds = %2
-  br i1 %9, label %15, label %11
-
-.critedge:                                        ; preds = %2
-  br i1 %9, label %11, label %15
-
-11:                                               ; preds = %.critedge, %10
+11:                                               ; preds = %2
   call void @_ZN15QGuiApplication7paletteEv(ptr dead_on_unwind nonnull writable sret(%class.QPalette) align 8 %4)
   %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 4, i32 noundef 6)
           to label %_ZNK8QPalette4textEv.exit unwind label %13
@@ -1060,7 +1055,7 @@ define { i64, i64 } @_ZN10ColorUtils20contrastingTextColorE6QColor(i64 %0, i64 %
           cleanup
   br label %21
 
-15:                                               ; preds = %10, %.critedge
+15:                                               ; preds = %2
   call void @_ZN15QGuiApplication7paletteEv(ptr dead_on_unwind nonnull writable sret(%class.QPalette) align 8 %5)
   %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 4, i32 noundef 9)
           to label %_ZNK8QPalette4textEv.exit unwind label %17

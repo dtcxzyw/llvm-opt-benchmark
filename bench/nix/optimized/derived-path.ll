@@ -3555,10 +3555,10 @@ define linkonce_odr void @_ZN2rc6detail8doAssertINS0_4expr2EqINS2_5ValueIN3nix17
   %15 = load i8, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %11, i64 48
   %17 = load i8, ptr %16, align 8
-  switch i8 %15, label %35 [
+  switch i8 %15, label %36 [
     i8 0, label %18
-    i8 1, label %30
-    i8 -1, label %33
+    i8 1, label %31
+    i8 -1, label %34
   ]
 
 18:                                               ; preds = %6
@@ -3582,94 +3582,95 @@ _ZNK3nix9StorePatheqERKS0_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %25
   %28 = load ptr, ptr %11, align 8
   %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %28, ptr %27, i64 %21)
   %29 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %29, label %_ZNK3nix9StorePatheqERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit.thr_comm
+  %30 = xor i1 %29, %1
+  br i1 %30, label %38, label %52
 
-_ZNK3nix9StorePatheqERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK3nix9StorePatheqERKS0_.exit.i.i.i.i.i.i.i.i.i.i.i, %25
-  br i1 %1, label %51, label %37
+_ZNK3nix9StorePatheqERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i.i: ; preds = %25
+  br i1 %1, label %52, label %38
 
-30:                                               ; preds = %6
-  %31 = icmp eq i8 %17, 1
-  br i1 %31, label %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i, label %_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit.thr_comm
+31:                                               ; preds = %6
+  %32 = icmp eq i8 %17, 1
+  br i1 %32, label %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i, label %_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit.thr_comm
 
-_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i: ; preds = %30
-  %32 = tail call noundef zeroext i1 @_ZNK3nix22SingleDerivedPathBuilteqERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %13)
+_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i: ; preds = %31
+  %33 = tail call noundef zeroext i1 @_ZNK3nix22SingleDerivedPathBuilteqERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %13)
   br label %_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit
 
-33:                                               ; preds = %6
-  %34 = icmp eq i8 %17, -1
+34:                                               ; preds = %6
+  %35 = icmp eq i8 %17, -1
   br label %_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit
 
-35:                                               ; preds = %6
+36:                                               ; preds = %6
   unreachable
 
-_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit.thr_comm: ; preds = %30, %18, %_ZSt3getILm0EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePatheqERKS0_.exit.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %1, label %37, label %51
+_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit.thr_comm: ; preds = %31, %18, %_ZSt3getILm0EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i
+  br i1 %1, label %38, label %52
 
-_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit: ; preds = %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i, %33
-  %.0.shrunk.i.i = phi i1 [ %34, %33 ], [ %32, %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i ]
-  %36 = xor i1 %.0.shrunk.i.i, %1
-  br i1 %36, label %37, label %51
+_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit: ; preds = %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i, %34
+  %.0.shrunk.i.i = phi i1 [ %35, %34 ], [ %33, %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i ]
+  %37 = xor i1 %.0.shrunk.i.i, %1
+  br i1 %37, label %38, label %52
 
-37:                                               ; preds = %_ZNK3nix9StorePatheqERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit.thr_comm, %_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit
+38:                                               ; preds = %_ZNK3nix9StorePatheqERKS0_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePatheqERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit.thr_comm, %_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7)
   invoke void @_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E4showERSo(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %38 unwind label %43
+          to label %39 unwind label %44
 
-38:                                               ; preds = %37
-  %39 = call ptr @__cxa_allocate_exception(i64 40) #23
+39:                                               ; preds = %38
+  %40 = call ptr @__cxa_allocate_exception(i64 40) #23
   invoke void @_ZNKRSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(112) %7)
-          to label %40 unwind label %.thread
+          to label %41 unwind label %.thread
 
-40:                                               ; preds = %38
+41:                                               ; preds = %39
   invoke void @_ZN2rc6detail21makeExpressionMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS8_S8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %41 unwind label %.thread21
-
-41:                                               ; preds = %40
-  invoke void @_ZN2rc6detail10CaseResultC1ENS1_4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %39, i32 noundef %2, ptr noundef nonnull %8)
-          to label %42 unwind label %47
+          to label %42 unwind label %.thread21
 
 42:                                               ; preds = %41
-  invoke void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTIN2rc6detail10CaseResultE, ptr nonnull @_ZN2rc6detail10CaseResultD2Ev) #24
-          to label %52 unwind label %47
+  invoke void @_ZN2rc6detail10CaseResultC1ENS1_4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %40, i32 noundef %2, ptr noundef nonnull %8)
+          to label %43 unwind label %48
 
-43:                                               ; preds = %37
-  %44 = landingpad { ptr, i32 }
+43:                                               ; preds = %42
+  invoke void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTIN2rc6detail10CaseResultE, ptr nonnull @_ZN2rc6detail10CaseResultD2Ev) #24
+          to label %53 unwind label %48
+
+44:                                               ; preds = %38
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  br label %51
+
+.thread:                                          ; preds = %39
+  %46 = landingpad { ptr, i32 }
           cleanup
   br label %50
 
-.thread:                                          ; preds = %38
-  %45 = landingpad { ptr, i32 }
-          cleanup
-  br label %49
-
-.thread21:                                        ; preds = %40
-  %46 = landingpad { ptr, i32 }
+.thread21:                                        ; preds = %41
+  %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
-  br label %49
+  br label %50
 
-47:                                               ; preds = %41, %42
-  %.0 = phi i1 [ false, %42 ], [ true, %41 ]
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %42, %43
+  %.0 = phi i1 [ false, %43 ], [ true, %42 ]
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
-  br i1 %.0, label %49, label %50
+  br i1 %.0, label %50, label %51
 
-49:                                               ; preds = %.thread21, %.thread, %47
-  %.pn.pn20 = phi { ptr, i32 } [ %45, %.thread ], [ %48, %47 ], [ %46, %.thread21 ]
-  call void @__cxa_free_exception(ptr %39) #23
-  br label %50
+50:                                               ; preds = %.thread21, %.thread, %48
+  %.pn.pn20 = phi { ptr, i32 } [ %46, %.thread ], [ %49, %48 ], [ %47, %.thread21 ]
+  call void @__cxa_free_exception(ptr %40) #23
+  br label %51
 
-50:                                               ; preds = %47, %49, %43
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn20, %49 ], [ %48, %47 ], [ %44, %43 ]
+51:                                               ; preds = %48, %50, %44
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn20, %50 ], [ %49, %48 ], [ %45, %44 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #23
   resume { ptr, i32 } %.pn.pn.pn
 
-51:                                               ; preds = %_ZNK3nix9StorePatheqERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit.thr_comm, %_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit
+52:                                               ; preds = %_ZNK3nix9StorePatheqERKS0_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePatheqERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit.thr_comm, %_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit
   ret void
 
-52:                                               ; preds = %42
+53:                                               ; preds = %43
   unreachable
 }
 

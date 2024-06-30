@@ -3825,20 +3825,15 @@ if.end:                                           ; preds = %entry
   %pass_by_stack = getelementptr inbounds i8, ptr %args, i64 136
   %1 = load i8, ptr %pass_by_stack, align 8
   %tobool3 = trunc i8 %1 to i1
-  br i1 %first_pass, label %land.lhs.true, label %land.lhs.true5
+  %2 = xor i1 %tobool3, %first_pass
+  br i1 %2, label %sw.epilog, label %if.end9
 
-land.lhs.true:                                    ; preds = %if.end
-  br i1 %tobool3, label %if.end9, label %sw.epilog
-
-land.lhs.true5:                                   ; preds = %if.end
-  br i1 %tobool3, label %sw.epilog, label %if.end9
-
-if.end9:                                          ; preds = %land.lhs.true, %land.lhs.true5
+if.end9:                                          ; preds = %if.end
   tail call fastcc void @gen_expr(ptr noundef nonnull %args)
   %ty = getelementptr inbounds i8, ptr %args, i64 16
-  %2 = load ptr, ptr %ty, align 16
-  %3 = load i32, ptr %2, align 8
-  switch i32 %3, label %sw.epilog.sink.split [
+  %3 = load ptr, ptr %ty, align 16
+  %4 = load i32, ptr %3, align 8
+  switch i32 %4, label %sw.epilog.sink.split [
     i32 14, label %sw.bb
     i32 15, label %sw.bb
     i32 6, label %sw.epilog.sink.split.sink.split
@@ -3847,18 +3842,18 @@ if.end9:                                          ; preds = %land.lhs.true, %lan
   ]
 
 sw.bb:                                            ; preds = %if.end9, %if.end9
-  %size.i = getelementptr inbounds i8, ptr %2, i64 4
-  %4 = load i32, ptr %size.i, align 4
-  %sub.i.i = add i32 %4, 7
-  %5 = srem i32 %sub.i.i, 8
-  %mul.i.i = sub nsw i32 %sub.i.i, %5
+  %size.i = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = load i32, ptr %size.i, align 4
+  %sub.i.i = add i32 %5, 7
+  %6 = srem i32 %sub.i.i, 8
+  %mul.i.i = sub nsw i32 %sub.i.i, %6
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.20, i32 noundef %mul.i.i)
   %div.i = sdiv i32 %sub.i.i, 8
-  %6 = load i32, ptr @depth, align 4
-  %add.i = add nsw i32 %6, %div.i
+  %7 = load i32, ptr @depth, align 4
+  %add.i = add nsw i32 %7, %div.i
   store i32 %add.i, ptr @depth, align 4
-  %7 = load i32, ptr %size.i, align 4
-  %cmp6.i = icmp sgt i32 %7, 0
+  %8 = load i32, ptr %size.i, align 4
+  %cmp6.i = icmp sgt i32 %8, 0
   br i1 %cmp6.i, label %for.body.i, label %sw.epilog
 
 for.body.i:                                       ; preds = %sw.bb, %for.body.i
@@ -3866,8 +3861,8 @@ for.body.i:                                       ; preds = %sw.bb, %for.body.i
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.252, i32 noundef %i.07.i)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.253, i32 noundef %i.07.i)
   %inc.i = add nuw nsw i32 %i.07.i, 1
-  %8 = load i32, ptr %size.i, align 4
-  %cmp.i = icmp slt i32 %inc.i, %8
+  %9 = load i32, ptr %size.i, align 4
+  %cmp.i = icmp slt i32 %inc.i, %9
   br i1 %cmp.i, label %for.body.i, label %sw.epilog, !llvm.loop !31
 
 sw.bb12:                                          ; preds = %if.end9
@@ -3884,12 +3879,12 @@ sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.spli
   %.str.221.sink = phi ptr [ @.str.221, %if.end9 ], [ %.str.221.sink.ph, %sw.epilog.sink.split.sink.split ]
   %.sink11 = phi i32 [ 1, %if.end9 ], [ %.sink11.ph, %sw.epilog.sink.split.sink.split ]
   tail call void (ptr, ...) @println(ptr noundef nonnull %.str.221.sink)
-  %9 = load i32, ptr @depth, align 4
-  %inc.i10 = add nsw i32 %9, %.sink11
+  %10 = load i32, ptr @depth, align 4
+  %inc.i10 = add nsw i32 %10, %.sink11
   store i32 %inc.i10, ptr @depth, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %for.body.i, %sw.epilog.sink.split, %sw.bb, %land.lhs.true, %land.lhs.true5, %entry
+sw.epilog:                                        ; preds = %for.body.i, %sw.epilog.sink.split, %if.end, %sw.bb, %entry
   ret void
 }
 

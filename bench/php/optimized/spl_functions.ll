@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @spl_add_class_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %13, label %6
+  br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %4
   %7 = icmp sgt i32 %2, 0
@@ -21,48 +21,43 @@ define hidden void @spl_add_class_name(ptr nocapture noundef readonly %0, ptr no
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, %3
   %.not19 = icmp eq i32 %10, 0
-  br i1 %7, label %11, label %12
+  %11 = xor i1 %7, %.not19
+  br i1 %11, label %12, label %31
 
-11:                                               ; preds = %6
-  br i1 %.not19, label %32, label %13
+12:                                               ; preds = %6, %4
+  %13 = load ptr, ptr %0, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call ptr @zend_hash_find(ptr noundef %13, ptr noundef %15) #4
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %31
 
-12:                                               ; preds = %6
-  br i1 %.not19, label %13, label %32
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %14, align 8
+  store ptr %19, ptr %5, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %21 = load i32, ptr %20, align 4
+  %22 = and i32 %21, 64
+  %.not21 = icmp eq i32 %22, 0
+  br i1 %.not21, label %23, label %26
 
-13:                                               ; preds = %12, %11, %4
-  %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr @zend_hash_find(ptr noundef %14, ptr noundef %16) #4
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %32
+23:                                               ; preds = %18
+  %24 = load i32, ptr %19, align 4
+  %25 = add i32 %24, 1
+  store i32 %25, ptr %19, align 4
+  %.pre = load ptr, ptr %14, align 8
+  br label %26
 
-19:                                               ; preds = %13
-  %20 = load ptr, ptr %15, align 8
-  store ptr %20, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
-  %22 = load i32, ptr %21, align 4
-  %23 = and i32 %22, 64
-  %.not21 = icmp eq i32 %23, 0
-  br i1 %.not21, label %24, label %27
+26:                                               ; preds = %18, %23
+  %27 = phi ptr [ %.pre, %23 ], [ %19, %18 ]
+  %.sink = phi i32 [ 262, %23 ], [ 6, %18 ]
+  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %.sink, ptr %28, align 8
+  %29 = load ptr, ptr %0, align 8
+  %30 = call ptr @zend_hash_add(ptr noundef %29, ptr noundef %27, ptr noundef nonnull %5) #4
+  br label %31
 
-24:                                               ; preds = %19
-  %25 = load i32, ptr %20, align 4
-  %26 = add i32 %25, 1
-  store i32 %26, ptr %20, align 4
-  %.pre = load ptr, ptr %15, align 8
-  br label %27
-
-27:                                               ; preds = %19, %24
-  %28 = phi ptr [ %.pre, %24 ], [ %20, %19 ]
-  %.sink = phi i32 [ 262, %24 ], [ 6, %19 ]
-  %29 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %.sink, ptr %29, align 8
-  %30 = load ptr, ptr %0, align 8
-  %31 = call ptr @zend_hash_add(ptr noundef %30, ptr noundef %28, ptr noundef nonnull %5) #4
-  br label %32
-
-32:                                               ; preds = %11, %13, %27, %12
+31:                                               ; preds = %6, %12, %26
   ret void
 }
 
@@ -86,163 +81,109 @@ define hidden void @spl_add_interfaces(ptr nocapture noundef readonly %0, ptr no
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds i8, ptr %1, i64 432
   %.not.i = icmp eq i32 %2, 0
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = icmp sgt i32 %2, 0
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %spl_add_class_name.exit.us
-  %indvars.iv22 = phi i64 [ %indvars.iv.next23, %spl_add_class_name.exit.us ], [ 0, %.lr.ph ]
-  %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv22
-  %16 = load ptr, ptr %15, align 8
+  %indvars.iv13 = phi i64 [ %indvars.iv.next14, %spl_add_class_name.exit.us ], [ 0, %.lr.ph ]
+  %15 = load ptr, ptr %12, align 8
+  %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv13
+  %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = call ptr @zend_hash_find(ptr noundef %17, ptr noundef %19) #4
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %spl_add_class_name.exit.us
+  %18 = load ptr, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = call ptr @zend_hash_find(ptr noundef %18, ptr noundef %20) #4
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %spl_add_class_name.exit.us
 
-22:                                               ; preds = %.lr.ph.split.us
-  %23 = load ptr, ptr %18, align 8
-  store ptr %23, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
-  %25 = load i32, ptr %24, align 4
-  %26 = and i32 %25, 64
-  %.not21.i.us = icmp eq i32 %26, 0
-  br i1 %.not21.i.us, label %27, label %30
+23:                                               ; preds = %.lr.ph.split.us
+  %24 = load ptr, ptr %19, align 8
+  store ptr %24, ptr %5, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = and i32 %26, 64
+  %.not21.i.us = icmp eq i32 %27, 0
+  br i1 %.not21.i.us, label %28, label %31
 
-27:                                               ; preds = %22
-  %28 = load i32, ptr %23, align 4
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %23, align 4
-  %.pre.i.us = load ptr, ptr %18, align 8
-  br label %30
+28:                                               ; preds = %23
+  %29 = load i32, ptr %24, align 4
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %24, align 4
+  %.pre.i.us = load ptr, ptr %19, align 8
+  br label %31
 
-30:                                               ; preds = %27, %22
-  %31 = phi ptr [ %.pre.i.us, %27 ], [ %23, %22 ]
-  %.sink.i.us = phi i32 [ 262, %27 ], [ 6, %22 ]
-  store i32 %.sink.i.us, ptr %13, align 8
-  %32 = load ptr, ptr %0, align 8
-  %33 = call ptr @zend_hash_add(ptr noundef %32, ptr noundef %31, ptr noundef nonnull %5) #4
+31:                                               ; preds = %28, %23
+  %32 = phi ptr [ %.pre.i.us, %28 ], [ %24, %23 ]
+  %.sink.i.us = phi i32 [ 262, %28 ], [ 6, %23 ]
+  store i32 %.sink.i.us, ptr %14, align 8
+  %33 = load ptr, ptr %0, align 8
+  %34 = call ptr @zend_hash_add(ptr noundef %33, ptr noundef %32, ptr noundef nonnull %5) #4
   br label %spl_add_class_name.exit.us
 
-spl_add_class_name.exit.us:                       ; preds = %30, %.lr.ph.split.us
+spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %34 = load i32, ptr %6, align 8
-  %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next23, %35
-  br i1 %36, label %.lr.ph.split.us, label %.loopexit
+  %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
+  %35 = load i32, ptr %6, align 8
+  %36 = zext i32 %35 to i64
+  %37 = icmp ult i64 %indvars.iv.next14, %36
+  br i1 %37, label %.lr.ph.split.us, label %.loopexit
 
-.lr.ph.split:                                     ; preds = %.lr.ph
-  %37 = icmp sgt i32 %2, 0
-  br i1 %37, label %.lr.ph.split.split.us, label %.lr.ph.split.split
-
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %spl_add_class_name.exit.us14
-  %indvars.iv19 = phi i64 [ %indvars.iv.next20, %spl_add_class_name.exit.us14 ], [ 0, %.lr.ph.split ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %spl_add_class_name.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %spl_add_class_name.exit ], [ 0, %.lr.ph ]
   %38 = load ptr, ptr %12, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv19
+  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %41 = getelementptr inbounds i8, ptr %40, i64 28
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, %3
-  %.not19.i.us = icmp eq i32 %43, 0
-  br i1 %.not19.i.us, label %spl_add_class_name.exit.us14, label %44
+  %.not19.i = icmp eq i32 %43, 0
+  %44 = xor i1 %13, %.not19.i
+  br i1 %44, label %45, label %spl_add_class_name.exit
 
-44:                                               ; preds = %.lr.ph.split.split.us
-  %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %40, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = call ptr @zend_hash_find(ptr noundef %45, ptr noundef %47) #4
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %spl_add_class_name.exit.us14
+45:                                               ; preds = %.lr.ph.split
+  %46 = load ptr, ptr %0, align 8
+  %47 = getelementptr inbounds i8, ptr %40, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = call ptr @zend_hash_find(ptr noundef %46, ptr noundef %48) #4
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %spl_add_class_name.exit
 
-50:                                               ; preds = %44
-  %51 = load ptr, ptr %46, align 8
-  store ptr %51, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
-  %53 = load i32, ptr %52, align 4
-  %54 = and i32 %53, 64
-  %.not21.i.us11 = icmp eq i32 %54, 0
-  br i1 %.not21.i.us11, label %55, label %58
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %47, align 8
+  store ptr %52, ptr %5, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %54 = load i32, ptr %53, align 4
+  %55 = and i32 %54, 64
+  %.not21.i = icmp eq i32 %55, 0
+  br i1 %.not21.i, label %56, label %59
 
-55:                                               ; preds = %50
-  %56 = load i32, ptr %51, align 4
-  %57 = add i32 %56, 1
-  store i32 %57, ptr %51, align 4
-  %.pre.i.us12 = load ptr, ptr %46, align 8
-  br label %58
+56:                                               ; preds = %51
+  %57 = load i32, ptr %52, align 4
+  %58 = add i32 %57, 1
+  store i32 %58, ptr %52, align 4
+  %.pre.i = load ptr, ptr %47, align 8
+  br label %59
 
-58:                                               ; preds = %55, %50
-  %59 = phi ptr [ %.pre.i.us12, %55 ], [ %51, %50 ]
-  %.sink.i.us13 = phi i32 [ 262, %55 ], [ 6, %50 ]
-  store i32 %.sink.i.us13, ptr %13, align 8
-  %60 = load ptr, ptr %0, align 8
-  %61 = call ptr @zend_hash_add(ptr noundef %60, ptr noundef %59, ptr noundef nonnull %5) #4
-  br label %spl_add_class_name.exit.us14
-
-spl_add_class_name.exit.us14:                     ; preds = %58, %44, %.lr.ph.split.split.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %62 = load i32, ptr %6, align 8
-  %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next20, %63
-  br i1 %64, label %.lr.ph.split.split.us, label %.loopexit
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %spl_add_class_name.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %spl_add_class_name.exit ], [ 0, %.lr.ph.split ]
-  %65 = load ptr, ptr %12, align 8
-  %66 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv
-  %67 = load ptr, ptr %66, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %68 = getelementptr inbounds i8, ptr %67, i64 28
-  %69 = load i32, ptr %68, align 4
-  %70 = and i32 %69, %3
-  %.not19.i = icmp eq i32 %70, 0
-  br i1 %.not19.i, label %71, label %spl_add_class_name.exit
-
-71:                                               ; preds = %.lr.ph.split.split
-  %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = call ptr @zend_hash_find(ptr noundef %72, ptr noundef %74) #4
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %spl_add_class_name.exit
-
-77:                                               ; preds = %71
-  %78 = load ptr, ptr %73, align 8
-  store ptr %78, ptr %5, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 4
-  %80 = load i32, ptr %79, align 4
-  %81 = and i32 %80, 64
-  %.not21.i = icmp eq i32 %81, 0
-  br i1 %.not21.i, label %82, label %85
-
-82:                                               ; preds = %77
-  %83 = load i32, ptr %78, align 4
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %78, align 4
-  %.pre.i = load ptr, ptr %73, align 8
-  br label %85
-
-85:                                               ; preds = %82, %77
-  %86 = phi ptr [ %.pre.i, %82 ], [ %78, %77 ]
-  %.sink.i = phi i32 [ 262, %82 ], [ 6, %77 ]
-  store i32 %.sink.i, ptr %13, align 8
-  %87 = load ptr, ptr %0, align 8
-  %88 = call ptr @zend_hash_add(ptr noundef %87, ptr noundef %86, ptr noundef nonnull %5) #4
+59:                                               ; preds = %56, %51
+  %60 = phi ptr [ %.pre.i, %56 ], [ %52, %51 ]
+  %.sink.i = phi i32 [ 262, %56 ], [ 6, %51 ]
+  store i32 %.sink.i, ptr %14, align 8
+  %61 = load ptr, ptr %0, align 8
+  %62 = call ptr @zend_hash_add(ptr noundef %61, ptr noundef %60, ptr noundef nonnull %5) #4
   br label %spl_add_class_name.exit
 
-spl_add_class_name.exit:                          ; preds = %.lr.ph.split.split, %71, %85
+spl_add_class_name.exit:                          ; preds = %.lr.ph.split, %45, %59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %89 = load i32, ptr %6, align 8
-  %90 = zext i32 %89 to i64
-  %91 = icmp ult i64 %indvars.iv.next, %90
-  br i1 %91, label %.lr.ph.split.split, label %.loopexit
+  %63 = load i32, ptr %6, align 8
+  %64 = zext i32 %63 to i64
+  %65 = icmp ult i64 %indvars.iv.next, %64
+  br i1 %65, label %.lr.ph.split, label %.loopexit
 
-.loopexit:                                        ; preds = %spl_add_class_name.exit, %spl_add_class_name.exit.us14, %spl_add_class_name.exit.us, %4
+.loopexit:                                        ; preds = %spl_add_class_name.exit, %spl_add_class_name.exit.us, %4
   ret void
 }
 
@@ -260,67 +201,64 @@ define hidden void @spl_add_traits(ptr nocapture noundef readonly %0, ptr nocapt
 .lr.ph:                                           ; preds = %4
   %8 = getelementptr inbounds i8, ptr %1, i64 440
   %.not.i = icmp eq i32 %2, 0
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = icmp sgt i32 %2, 0
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %spl_add_class_name.exit.us
-  %indvars.iv23 = phi i64 [ %indvars.iv.next24, %spl_add_class_name.exit.us ], [ 0, %.lr.ph ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds %struct._zend_class_name, ptr %10, i64 %indvars.iv23
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = call ptr @zend_fetch_class_by_name(ptr noundef %12, ptr noundef %14, i32 noundef 6) #4
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
+  %indvars.iv14 = phi i64 [ %indvars.iv.next15, %spl_add_class_name.exit.us ], [ 0, %.lr.ph ]
+  %11 = load ptr, ptr %8, align 8
+  %12 = getelementptr inbounds %struct._zend_class_name, ptr %11, i64 %indvars.iv14
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = call ptr @zend_fetch_class_by_name(ptr noundef %13, ptr noundef %15, i32 noundef 6) #4
+  %17 = icmp ne ptr %16, null
+  call void @llvm.assume(i1 %17)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = call ptr @zend_hash_find(ptr noundef %17, ptr noundef %19) #4
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %spl_add_class_name.exit.us
+  %18 = load ptr, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = call ptr @zend_hash_find(ptr noundef %18, ptr noundef %20) #4
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %spl_add_class_name.exit.us
 
-22:                                               ; preds = %.lr.ph.split.us
-  %23 = load ptr, ptr %18, align 8
-  store ptr %23, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
-  %25 = load i32, ptr %24, align 4
-  %26 = and i32 %25, 64
-  %.not21.i.us = icmp eq i32 %26, 0
-  br i1 %.not21.i.us, label %27, label %30
+23:                                               ; preds = %.lr.ph.split.us
+  %24 = load ptr, ptr %19, align 8
+  store ptr %24, ptr %5, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = and i32 %26, 64
+  %.not21.i.us = icmp eq i32 %27, 0
+  br i1 %.not21.i.us, label %28, label %31
 
-27:                                               ; preds = %22
-  %28 = load i32, ptr %23, align 4
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %23, align 4
-  %.pre.i.us = load ptr, ptr %18, align 8
-  br label %30
+28:                                               ; preds = %23
+  %29 = load i32, ptr %24, align 4
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %24, align 4
+  %.pre.i.us = load ptr, ptr %19, align 8
+  br label %31
 
-30:                                               ; preds = %27, %22
-  %31 = phi ptr [ %.pre.i.us, %27 ], [ %23, %22 ]
-  %.sink.i.us = phi i32 [ 262, %27 ], [ 6, %22 ]
-  store i32 %.sink.i.us, ptr %9, align 8
-  %32 = load ptr, ptr %0, align 8
-  %33 = call ptr @zend_hash_add(ptr noundef %32, ptr noundef %31, ptr noundef nonnull %5) #4
+31:                                               ; preds = %28, %23
+  %32 = phi ptr [ %.pre.i.us, %28 ], [ %24, %23 ]
+  %.sink.i.us = phi i32 [ 262, %28 ], [ 6, %23 ]
+  store i32 %.sink.i.us, ptr %10, align 8
+  %33 = load ptr, ptr %0, align 8
+  %34 = call ptr @zend_hash_add(ptr noundef %33, ptr noundef %32, ptr noundef nonnull %5) #4
   br label %spl_add_class_name.exit.us
 
-spl_add_class_name.exit.us:                       ; preds = %30, %.lr.ph.split.us
+spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %34 = load i32, ptr %6, align 4
-  %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %indvars.iv.next24, %35
-  br i1 %36, label %.lr.ph.split.us, label %._crit_edge
+  %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
+  %35 = load i32, ptr %6, align 4
+  %36 = zext i32 %35 to i64
+  %37 = icmp ult i64 %indvars.iv.next15, %36
+  br i1 %37, label %.lr.ph.split.us, label %._crit_edge
 
-.lr.ph.split:                                     ; preds = %.lr.ph
-  %37 = icmp sgt i32 %2, 0
-  br i1 %37, label %.lr.ph.split.split.us, label %.lr.ph.split.split
-
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %spl_add_class_name.exit.us16
-  %indvars.iv20 = phi i64 [ %indvars.iv.next21, %spl_add_class_name.exit.us16 ], [ 0, %.lr.ph.split ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %spl_add_class_name.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %spl_add_class_name.exit ], [ 0, %.lr.ph ]
   %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct._zend_class_name, ptr %38, i64 %indvars.iv20
+  %39 = getelementptr inbounds %struct._zend_class_name, ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %39, i64 8
   %42 = load ptr, ptr %41, align 8
@@ -331,107 +269,51 @@ spl_add_class_name.exit.us:                       ; preds = %30, %.lr.ph.split.u
   %45 = getelementptr inbounds i8, ptr %43, i64 28
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, %3
-  %.not19.i.us = icmp eq i32 %47, 0
-  br i1 %.not19.i.us, label %spl_add_class_name.exit.us16, label %48
+  %.not19.i = icmp eq i32 %47, 0
+  %48 = xor i1 %9, %.not19.i
+  br i1 %48, label %49, label %spl_add_class_name.exit
 
-48:                                               ; preds = %.lr.ph.split.split.us
-  %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %43, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = call ptr @zend_hash_find(ptr noundef %49, ptr noundef %51) #4
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %spl_add_class_name.exit.us16
+49:                                               ; preds = %.lr.ph.split
+  %50 = load ptr, ptr %0, align 8
+  %51 = getelementptr inbounds i8, ptr %43, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = call ptr @zend_hash_find(ptr noundef %50, ptr noundef %52) #4
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %55, label %spl_add_class_name.exit
 
-54:                                               ; preds = %48
-  %55 = load ptr, ptr %50, align 8
-  store ptr %55, ptr %5, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
-  %57 = load i32, ptr %56, align 4
-  %58 = and i32 %57, 64
-  %.not21.i.us13 = icmp eq i32 %58, 0
-  br i1 %.not21.i.us13, label %59, label %62
+55:                                               ; preds = %49
+  %56 = load ptr, ptr %51, align 8
+  store ptr %56, ptr %5, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %58 = load i32, ptr %57, align 4
+  %59 = and i32 %58, 64
+  %.not21.i = icmp eq i32 %59, 0
+  br i1 %.not21.i, label %60, label %63
 
-59:                                               ; preds = %54
-  %60 = load i32, ptr %55, align 4
-  %61 = add i32 %60, 1
-  store i32 %61, ptr %55, align 4
-  %.pre.i.us14 = load ptr, ptr %50, align 8
-  br label %62
+60:                                               ; preds = %55
+  %61 = load i32, ptr %56, align 4
+  %62 = add i32 %61, 1
+  store i32 %62, ptr %56, align 4
+  %.pre.i = load ptr, ptr %51, align 8
+  br label %63
 
-62:                                               ; preds = %59, %54
-  %63 = phi ptr [ %.pre.i.us14, %59 ], [ %55, %54 ]
-  %.sink.i.us15 = phi i32 [ 262, %59 ], [ 6, %54 ]
-  store i32 %.sink.i.us15, ptr %9, align 8
-  %64 = load ptr, ptr %0, align 8
-  %65 = call ptr @zend_hash_add(ptr noundef %64, ptr noundef %63, ptr noundef nonnull %5) #4
-  br label %spl_add_class_name.exit.us16
-
-spl_add_class_name.exit.us16:                     ; preds = %62, %48, %.lr.ph.split.split.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
-  %66 = load i32, ptr %6, align 4
-  %67 = zext i32 %66 to i64
-  %68 = icmp ult i64 %indvars.iv.next21, %67
-  br i1 %68, label %.lr.ph.split.split.us, label %._crit_edge
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %spl_add_class_name.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %spl_add_class_name.exit ], [ 0, %.lr.ph.split ]
-  %69 = load ptr, ptr %8, align 8
-  %70 = getelementptr inbounds %struct._zend_class_name, ptr %69, i64 %indvars.iv
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = call ptr @zend_fetch_class_by_name(ptr noundef %71, ptr noundef %73, i32 noundef 6) #4
-  %75 = icmp ne ptr %74, null
-  call void @llvm.assume(i1 %75)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %76 = getelementptr inbounds i8, ptr %74, i64 28
-  %77 = load i32, ptr %76, align 4
-  %78 = and i32 %77, %3
-  %.not19.i = icmp eq i32 %78, 0
-  br i1 %.not19.i, label %79, label %spl_add_class_name.exit
-
-79:                                               ; preds = %.lr.ph.split.split
-  %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %74, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = call ptr @zend_hash_find(ptr noundef %80, ptr noundef %82) #4
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %85, label %spl_add_class_name.exit
-
-85:                                               ; preds = %79
-  %86 = load ptr, ptr %81, align 8
-  store ptr %86, ptr %5, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
-  %88 = load i32, ptr %87, align 4
-  %89 = and i32 %88, 64
-  %.not21.i = icmp eq i32 %89, 0
-  br i1 %.not21.i, label %90, label %93
-
-90:                                               ; preds = %85
-  %91 = load i32, ptr %86, align 4
-  %92 = add i32 %91, 1
-  store i32 %92, ptr %86, align 4
-  %.pre.i = load ptr, ptr %81, align 8
-  br label %93
-
-93:                                               ; preds = %90, %85
-  %94 = phi ptr [ %.pre.i, %90 ], [ %86, %85 ]
-  %.sink.i = phi i32 [ 262, %90 ], [ 6, %85 ]
-  store i32 %.sink.i, ptr %9, align 8
-  %95 = load ptr, ptr %0, align 8
-  %96 = call ptr @zend_hash_add(ptr noundef %95, ptr noundef %94, ptr noundef nonnull %5) #4
+63:                                               ; preds = %60, %55
+  %64 = phi ptr [ %.pre.i, %60 ], [ %56, %55 ]
+  %.sink.i = phi i32 [ 262, %60 ], [ 6, %55 ]
+  store i32 %.sink.i, ptr %10, align 8
+  %65 = load ptr, ptr %0, align 8
+  %66 = call ptr @zend_hash_add(ptr noundef %65, ptr noundef %64, ptr noundef nonnull %5) #4
   br label %spl_add_class_name.exit
 
-spl_add_class_name.exit:                          ; preds = %.lr.ph.split.split, %79, %93
+spl_add_class_name.exit:                          ; preds = %.lr.ph.split, %49, %63
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %97 = load i32, ptr %6, align 4
-  %98 = zext i32 %97 to i64
-  %99 = icmp ult i64 %indvars.iv.next, %98
-  br i1 %99, label %.lr.ph.split.split, label %._crit_edge
+  %67 = load i32, ptr %6, align 4
+  %68 = zext i32 %67 to i64
+  %69 = icmp ult i64 %indvars.iv.next, %68
+  br i1 %69, label %.lr.ph.split, label %._crit_edge
 
-._crit_edge:                                      ; preds = %spl_add_class_name.exit, %spl_add_class_name.exit.us16, %spl_add_class_name.exit.us, %4
+._crit_edge:                                      ; preds = %spl_add_class_name.exit, %spl_add_class_name.exit.us, %4
   ret void
 }
 
@@ -444,7 +326,7 @@ define hidden void @spl_add_classes(ptr noundef readonly %0, ptr nocapture nound
   tail call void @llvm.assume(i1 %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %.not.i = icmp eq i32 %3, 0
-  br i1 %.not.i, label %15, label %8
+  br i1 %.not.i, label %14, label %8
 
 8:                                                ; preds = %5
   %9 = icmp sgt i32 %3, 0
@@ -452,67 +334,62 @@ define hidden void @spl_add_classes(ptr noundef readonly %0, ptr nocapture nound
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, %4
   %.not19.i = icmp eq i32 %12, 0
-  br i1 %9, label %13, label %14
+  %13 = xor i1 %9, %.not19.i
+  br i1 %13, label %14, label %spl_add_class_name.exit
 
-13:                                               ; preds = %8
-  br i1 %.not19.i, label %spl_add_class_name.exit, label %15
+14:                                               ; preds = %8, %5
+  %15 = load ptr, ptr %1, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call ptr @zend_hash_find(ptr noundef %15, ptr noundef %17) #4
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %spl_add_class_name.exit
 
-14:                                               ; preds = %8
-  br i1 %.not19.i, label %15, label %spl_add_class_name.exit
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %16, align 8
+  store ptr %21, ptr %6, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = and i32 %23, 64
+  %.not21.i = icmp eq i32 %24, 0
+  br i1 %.not21.i, label %25, label %28
 
-15:                                               ; preds = %14, %13, %5
-  %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr @zend_hash_find(ptr noundef %16, ptr noundef %18) #4
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %spl_add_class_name.exit
+25:                                               ; preds = %20
+  %26 = load i32, ptr %21, align 4
+  %27 = add i32 %26, 1
+  store i32 %27, ptr %21, align 4
+  %.pre.i = load ptr, ptr %16, align 8
+  br label %28
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %17, align 8
-  store ptr %22, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
-  %24 = load i32, ptr %23, align 4
-  %25 = and i32 %24, 64
-  %.not21.i = icmp eq i32 %25, 0
-  br i1 %.not21.i, label %26, label %29
-
-26:                                               ; preds = %21
-  %27 = load i32, ptr %22, align 4
-  %28 = add i32 %27, 1
-  store i32 %28, ptr %22, align 4
-  %.pre.i = load ptr, ptr %17, align 8
-  br label %29
-
-29:                                               ; preds = %26, %21
-  %30 = phi ptr [ %.pre.i, %26 ], [ %22, %21 ]
-  %.sink.i = phi i32 [ 262, %26 ], [ 6, %21 ]
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %.sink.i, ptr %31, align 8
-  %32 = load ptr, ptr %1, align 8
-  %33 = call ptr @zend_hash_add(ptr noundef %32, ptr noundef %30, ptr noundef nonnull %6) #4
+28:                                               ; preds = %25, %20
+  %29 = phi ptr [ %.pre.i, %25 ], [ %21, %20 ]
+  %.sink.i = phi i32 [ 262, %25 ], [ 6, %20 ]
+  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %.sink.i, ptr %30, align 8
+  %31 = load ptr, ptr %1, align 8
+  %32 = call ptr @zend_hash_add(ptr noundef %31, ptr noundef %29, ptr noundef nonnull %6) #4
   br label %spl_add_class_name.exit
 
-spl_add_class_name.exit:                          ; preds = %13, %14, %15, %29
+spl_add_class_name.exit:                          ; preds = %8, %14, %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br i1 %2, label %34, label %.loopexit
+  br i1 %2, label %33, label %.loopexit
 
-34:                                               ; preds = %spl_add_class_name.exit
+33:                                               ; preds = %spl_add_class_name.exit
   call void @spl_add_interfaces(ptr noundef %1, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %4)
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %.not18 = icmp eq ptr %36, null
+  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %.not18 = icmp eq ptr %35, null
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %34, %.lr.ph
-  %37 = phi ptr [ %39, %.lr.ph ], [ %36, %34 ]
-  call void @spl_add_classes(ptr noundef nonnull %37, ptr noundef %1, i1 noundef zeroext true, i32 noundef %3, i32 noundef %4)
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %.not = icmp eq ptr %39, null
+.lr.ph:                                           ; preds = %33, %.lr.ph
+  %36 = phi ptr [ %38, %.lr.ph ], [ %35, %33 ]
+  call void @spl_add_classes(ptr noundef nonnull %36, ptr noundef %1, i1 noundef zeroext true, i32 noundef %3, i32 noundef %4)
+  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %.not = icmp eq ptr %38, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %34, %spl_add_class_name.exit
+.loopexit:                                        ; preds = %.lr.ph, %33, %spl_add_class_name.exit
   ret void
 }
 

@@ -2027,9 +2027,9 @@ define dso_local zeroext i1 @_bt_checkkeys(ptr nocapture noundef readonly %0, pt
   br label %23
 
 23:                                               ; preds = %.lr.ph, %.thread90
-  %24 = phi i1 [ false, %.lr.ph ], [ %149, %.thread90 ]
-  %.068127 = phi ptr [ %20, %.lr.ph ], [ %147, %.thread90 ]
-  %.069126 = phi i32 [ 0, %.lr.ph ], [ %148, %.thread90 ]
+  %24 = phi i1 [ false, %.lr.ph ], [ %148, %.thread90 ]
+  %.068127 = phi ptr [ %20, %.lr.ph ], [ %146, %.thread90 ]
+  %.069126 = phi i32 [ 0, %.lr.ph ], [ %147, %.thread90 ]
   %25 = load i32, ptr %.068127, align 8
   %26 = and i32 %25, 65536
   %27 = icmp ne i32 %26, 0
@@ -2232,87 +2232,82 @@ _bt_check_rowcompare.exit:                        ; preds = %94, %96, %98, %106
   %116 = load i32, ptr %.068127, align 8
   %117 = and i32 %116, 1
   %.not73 = icmp eq i32 %117, 0
-  br i1 %.not73, label %126, label %118
+  br i1 %.not73, label %125, label %118
 
 118:                                              ; preds = %114
   %119 = and i32 %116, 64
   %.not75 = icmp eq i32 %119, 0
   %120 = load i8, ptr %9, align 1
   %121 = trunc i8 %120 to i1
-  br i1 %.not75, label %123, label %122
-
-122:                                              ; preds = %118
-  br i1 %121, label %.thread90, label %124
+  %122 = xor i1 %.not75, %121
+  br i1 %122, label %.thread90, label %123
 
 123:                                              ; preds = %118
-  br i1 %121, label %124, label %.thread90
+  br i1 %.06585, label %124, label %.loopexit
 
-124:                                              ; preds = %123, %122
-  br i1 %.06585, label %125, label %.loopexit
-
-125:                                              ; preds = %124
+124:                                              ; preds = %123
   store i8 0, ptr %4, align 1
   br label %.loopexit
 
-126:                                              ; preds = %114
-  %127 = load i8, ptr %9, align 1
-  %128 = trunc i8 %127 to i1
-  br i1 %128, label %129, label %137
+125:                                              ; preds = %114
+  %126 = load i8, ptr %9, align 1
+  %127 = trunc i8 %126 to i1
+  br i1 %127, label %128, label %136
 
-129:                                              ; preds = %126
-  %130 = and i32 %116, 33554432
-  %.not74 = icmp eq i32 %130, 0
-  %131 = and i32 %116, 196608
-  %132 = icmp ne i32 %131, 0
-  br i1 %.not74, label %135, label %133
+128:                                              ; preds = %125
+  %129 = and i32 %116, 33554432
+  %.not74 = icmp eq i32 %129, 0
+  %130 = and i32 %116, 196608
+  %131 = icmp ne i32 %130, 0
+  br i1 %.not74, label %134, label %132
 
-133:                                              ; preds = %129
-  %or.cond9 = and i1 %22, %132
-  br i1 %or.cond9, label %134, label %.loopexit
+132:                                              ; preds = %128
+  %or.cond9 = and i1 %22, %131
+  br i1 %or.cond9, label %133, label %.loopexit
 
-134:                                              ; preds = %133
+133:                                              ; preds = %132
   store i8 0, ptr %4, align 1
   br label %.loopexit
 
-135:                                              ; preds = %129
-  %or.cond11 = and i1 %21, %132
-  br i1 %or.cond11, label %136, label %.loopexit
+134:                                              ; preds = %128
+  %or.cond11 = and i1 %21, %131
+  br i1 %or.cond11, label %135, label %.loopexit
 
-136:                                              ; preds = %135
+135:                                              ; preds = %134
   store i8 0, ptr %4, align 1
   br label %.loopexit
 
-137:                                              ; preds = %126
+136:                                              ; preds = %125
   %brmerge82.demorgan = and i1 %.088, %6
-  br i1 %brmerge82.demorgan, label %.thread90, label %138
+  br i1 %brmerge82.demorgan, label %.thread90, label %137
 
-138:                                              ; preds = %137
-  %139 = getelementptr inbounds i8, ptr %.068127, i64 16
-  %140 = getelementptr inbounds i8, ptr %.068127, i64 12
-  %141 = load i32, ptr %140, align 4
-  %142 = getelementptr inbounds i8, ptr %.068127, i64 64
-  %143 = load i64, ptr %142, align 8
-  %144 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %139, i32 noundef %141, i64 noundef %115, i64 noundef %143) #14
-  %.not92 = icmp eq i64 %144, 0
-  br i1 %.not92, label %145, label %.thread90
+137:                                              ; preds = %136
+  %138 = getelementptr inbounds i8, ptr %.068127, i64 16
+  %139 = getelementptr inbounds i8, ptr %.068127, i64 12
+  %140 = load i32, ptr %139, align 4
+  %141 = getelementptr inbounds i8, ptr %.068127, i64 64
+  %142 = load i64, ptr %141, align 8
+  %143 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %138, i32 noundef %140, i64 noundef %115, i64 noundef %142) #14
+  %.not92 = icmp eq i64 %143, 0
+  br i1 %.not92, label %144, label %.thread90
 
-145:                                              ; preds = %138
-  br i1 %.06585, label %146, label %.loopexit
+144:                                              ; preds = %137
+  br i1 %.06585, label %145, label %.loopexit
 
-146:                                              ; preds = %145
+145:                                              ; preds = %144
   store i8 0, ptr %4, align 1
   br label %.loopexit
 
-.thread90:                                        ; preds = %137, %_bt_check_rowcompare.exit, %.thread, %138, %123, %122, %33
-  %147 = getelementptr i8, ptr %.068127, i64 72
-  %148 = add nuw nsw i32 %.069126, 1
-  %149 = icmp sge i32 %148, %17
-  %exitcond = icmp eq i32 %148, %17
+.thread90:                                        ; preds = %118, %136, %_bt_check_rowcompare.exit, %.thread, %137, %33
+  %146 = getelementptr i8, ptr %.068127, i64 72
+  %147 = add nuw nsw i32 %.069126, 1
+  %148 = icmp sge i32 %147, %17
+  %exitcond = icmp eq i32 %147, %17
   br i1 %exitcond, label %.loopexit, label %23, !llvm.loop !19
 
-.loopexit:                                        ; preds = %.thread90, %7, %_bt_check_rowcompare.exit.thread, %145, %146, %134, %133, %136, %135, %124, %125
-  %150 = phi i1 [ %24, %_bt_check_rowcompare.exit.thread ], [ %24, %145 ], [ %24, %146 ], [ %24, %134 ], [ %24, %133 ], [ %24, %136 ], [ %24, %135 ], [ %24, %124 ], [ %24, %125 ], [ true, %7 ], [ %149, %.thread90 ]
-  ret i1 %150
+.loopexit:                                        ; preds = %.thread90, %7, %_bt_check_rowcompare.exit.thread, %144, %145, %133, %132, %135, %134, %123, %124
+  %149 = phi i1 [ %24, %_bt_check_rowcompare.exit.thread ], [ %24, %144 ], [ %24, %145 ], [ %24, %133 ], [ %24, %132 ], [ %24, %135 ], [ %24, %134 ], [ %24, %123 ], [ %24, %124 ], [ true, %7 ], [ %148, %.thread90 ]
+  ret i1 %149
 }
 
 declare i64 @FunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1

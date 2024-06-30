@@ -9623,23 +9623,17 @@ if.else15:                                        ; preds = %for.body
   %d_coefficient.i = getelementptr inbounds i8, ptr %0, i64 24
   %d_areFixing = getelementptr inbounds i8, ptr %i.sroa.0.026, i64 72
   %13 = load i8, ptr %d_areFixing, align 8
-  %tobool18 = trunc i8 %13 to i1
   %d_upperbound20 = getelementptr inbounds i8, ptr %i.sroa.0.026, i64 88
   %14 = load i8, ptr %d_upperbound20, align 8
-  %tobool21 = trunc i8 %14 to i1
-  br i1 %tobool18, label %if.then19, label %if.else29
+  %15 = xor i8 %13, %14
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %if.then32.invoke, label %if.else35.invoke
 
-if.then19:                                        ; preds = %if.else15
-  br i1 %tobool21, label %if.else35.invoke, label %if.then32.invoke
-
-if.else29:                                        ; preds = %if.else15
-  br i1 %tobool21, label %if.then32.invoke, label %if.else35.invoke
-
-if.then32.invoke:                                 ; preds = %if.else29, %if.then19
+if.then32.invoke:                                 ; preds = %if.else15
   invoke void @__gmpq_sub(ptr noundef nonnull %agg.result, ptr noundef nonnull %agg.result, ptr noundef nonnull %d_coefficient.i)
           to label %for.inc unwind label %lpad
 
-if.else35.invoke:                                 ; preds = %if.else29, %if.then19
+if.else35.invoke:                                 ; preds = %if.else15
   invoke void @__gmpq_add(ptr noundef nonnull %agg.result, ptr noundef nonnull %agg.result, ptr noundef nonnull %d_coefficient.i)
           to label %for.inc unwind label %lpad
 
@@ -9657,10 +9651,10 @@ ehcleanup:                                        ; preds = %lpad12, %lpad7, %lp
           to label %_ZN4cvc58internal8RationalD2Ev.exit22 unwind label %terminate.lpad.i.i21
 
 terminate.lpad.i.i21:                             ; preds = %ehcleanup
-  %15 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #24
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #24
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit22:            ; preds = %ehcleanup

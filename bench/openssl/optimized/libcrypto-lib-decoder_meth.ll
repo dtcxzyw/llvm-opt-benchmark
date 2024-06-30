@@ -239,22 +239,17 @@ for.end:                                          ; preds = %for.cond
   %cmp71 = icmp eq ptr %21, null
   %22 = load ptr, ptr %freectx, align 8
   %cmp73 = icmp eq ptr %22, null
-  br i1 %cmp71, label %land.lhs.true, label %land.lhs.true76
+  %23 = xor i1 %cmp71, %cmp73
+  br i1 %23, label %if.end.i73, label %lor.lhs.false79
 
-land.lhs.true:                                    ; preds = %for.end
-  br i1 %cmp73, label %lor.lhs.false79, label %if.end.i73
-
-land.lhs.true76:                                  ; preds = %for.end
-  br i1 %cmp73, label %if.end.i73, label %lor.lhs.false79
-
-lor.lhs.false79:                                  ; preds = %land.lhs.true76, %land.lhs.true
-  %23 = load ptr, ptr %decode, align 8
-  %cmp81 = icmp eq ptr %23, null
+lor.lhs.false79:                                  ; preds = %for.end
+  %24 = load ptr, ptr %decode, align 8
+  %cmp81 = icmp eq ptr %24, null
   br i1 %cmp81, label %if.end.i73, label %if.end83
 
-if.end.i73:                                       ; preds = %land.lhs.true, %land.lhs.true76, %lor.lhs.false79
-  %24 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
-  %cmp.i.i75 = icmp eq i32 %24, 1
+if.end.i73:                                       ; preds = %for.end, %lor.lhs.false79
+  %25 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
+  %cmp.i.i75 = icmp eq i32 %25, 1
   br i1 %cmp.i.i75, label %CRYPTO_DOWN_REF.exit.thread.i81, label %CRYPTO_DOWN_REF.exit.i76
 
 CRYPTO_DOWN_REF.exit.thread.i81:                  ; preds = %if.end.i73
@@ -262,16 +257,16 @@ CRYPTO_DOWN_REF.exit.thread.i81:                  ; preds = %if.end.i73
   br label %if.end3.i78
 
 CRYPTO_DOWN_REF.exit.i76:                         ; preds = %if.end.i73
-  %cmp1.i77 = icmp sgt i32 %24, 1
+  %cmp1.i77 = icmp sgt i32 %25, 1
   br i1 %cmp1.i77, label %OSSL_DECODER_free.exit82, label %if.end3.i78
 
 if.end3.i78:                                      ; preds = %CRYPTO_DOWN_REF.exit.i76, %CRYPTO_DOWN_REF.exit.thread.i81
-  %25 = load ptr, ptr %name, align 8
-  tail call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 60) #7
-  %26 = load ptr, ptr %parsed_propdef, align 8
-  tail call void @ossl_property_free(ptr noundef %26) #7
-  %27 = load ptr, ptr %call.i, align 8
-  tail call void @ossl_provider_free(ptr noundef %27) #7
+  %26 = load ptr, ptr %name, align 8
+  tail call void @CRYPTO_free(ptr noundef %26, ptr noundef nonnull @.str, i32 noundef 60) #7
+  %27 = load ptr, ptr %parsed_propdef, align 8
+  tail call void @ossl_property_free(ptr noundef %27) #7
+  %28 = load ptr, ptr %call.i, align 8
+  tail call void @ossl_provider_free(ptr noundef %28) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 64) #7
   br label %OSSL_DECODER_free.exit82
 

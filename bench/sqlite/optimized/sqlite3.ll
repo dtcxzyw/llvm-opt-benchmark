@@ -191551,15 +191551,10 @@ sqlite3Strlen30.exit.thread.i:                    ; preds = %168
   %187 = load ptr, ptr %4, align 8
   %188 = icmp eq ptr %186, null
   %.not19.i.us.not.i = icmp eq ptr %187, null
-  br i1 %188, label %sqlite3_strnicmp.exit.us.i, label %189
+  %189 = xor i1 %188, %.not19.i.us.not.i
+  br i1 %189, label %sqlite3_strnicmp.exit.thread26.us.i, label %sqlite3_strnicmp.exit.thread.us.i
 
-189:                                              ; preds = %185
-  br i1 %.not19.i.us.not.i, label %sqlite3_strnicmp.exit.thread26.us.i, label %sqlite3_strnicmp.exit.thread.us.i
-
-sqlite3_strnicmp.exit.us.i:                       ; preds = %185
-  br i1 %.not19.i.us.not.i, label %sqlite3_strnicmp.exit.thread.us.i, label %sqlite3_strnicmp.exit.thread26.us.i
-
-sqlite3_strnicmp.exit.thread.us.i:                ; preds = %sqlite3_strnicmp.exit.us.i, %189
+sqlite3_strnicmp.exit.thread.us.i:                ; preds = %185
   %190 = load i8, ptr %186, align 1
   %191 = icmp eq i8 %190, 95
   br i1 %191, label %192, label %sqlite3_strnicmp.exit.thread26.us.i
@@ -191579,7 +191574,7 @@ sqlite3_strnicmp.exit.thread.us.i:                ; preds = %sqlite3_strnicmp.ex
   store i32 %200, ptr %182, align 8
   br label %sqlite3_strnicmp.exit.thread26.us.i
 
-sqlite3_strnicmp.exit.thread26.us.i:              ; preds = %198, %192, %sqlite3_strnicmp.exit.thread.us.i, %sqlite3_strnicmp.exit.us.i, %189, %181, %.lr.ph.split.us.i
+sqlite3_strnicmp.exit.thread26.us.i:              ; preds = %198, %192, %sqlite3_strnicmp.exit.thread.us.i, %185, %181, %.lr.ph.split.us.i
   %.0.us.i = load ptr, ptr %.038.us.i, align 8
   %.not.us.i = icmp eq ptr %.0.us.i, null
   br i1 %.not.us.i, label %sqlite3MarkAllShadowTablesOf.exit, label %.lr.ph.split.us.i, !llvm.loop !824
