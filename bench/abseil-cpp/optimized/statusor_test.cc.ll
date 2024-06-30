@@ -105247,7 +105247,7 @@ ehcleanup60:                                      ; preds = %_ZN7testing7Message
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar30) #25
   br label %ehcleanup543
 
-_ZN4absl8StatusOrIN12_GLOBAL__N_19MockValueEED2Ev.exit610: ; preds = %if.end59, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i209
+_ZN4absl8StatusOrIN12_GLOBAL__N_19MockValueEED2Ev.exit610: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i209, %if.end59
   store ptr null, ptr %message_.i207, align 8
   %status_or.val92.pre = load i64, ptr %status_or, align 8
   %and.i.i.i1.i.i611 = and i64 %status_or.val92.pre, 1

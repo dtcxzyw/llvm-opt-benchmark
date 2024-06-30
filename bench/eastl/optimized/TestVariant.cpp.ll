@@ -64,6 +64,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::variant.59" = type { i64, %"struct.eastl::variant_storage.60" }
 %"struct.eastl::variant_storage.60" = type { %"struct.eastl::aligned_storage<16, 4>::type" }
 %"struct.eastl::aligned_storage<16, 4>::type" = type { [16 x i8] }
+%struct.MultipleVisitor = type { i8 }
 %"class.eastl::basic_string" = type { %"class.eastl::compressed_pair" }
 %"class.eastl::compressed_pair" = type { %"class.eastl::compressed_pair_imp" }
 %"class.eastl::compressed_pair_imp" = type { %"struct.eastl::basic_string<char>::Layout" }
@@ -203,6 +204,7 @@ $_ZN5eastl14insertion_sortIPNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEE
 @.str.81 = private unnamed_addr constant [27 x i8] c"count == EAArrayCount(arr)\00", align 1
 @.str.82 = private unnamed_addr constant [22 x i8] c"visitedValue == 42.0f\00", align 1
 @.str.83 = private unnamed_addr constant [20 x i8] c"get<0>(v) == (int)2\00", align 1
+@_ZZ18TestVariantVisitorvE8bVisited_5 = internal unnamed_addr global i1 false, align 1
 @.str.84 = private unnamed_addr constant [16 x i8] c"get<0>(v) == 43\00", align 1
 @.str.85 = private unnamed_addr constant [35 x i8] c"visit(ReturningVisitor{}, v) == 42\00", align 1
 @.str.86 = private unnamed_addr constant [4 x i8] c"ret\00", align 1
@@ -1502,7 +1504,7 @@ eh.resume:                                        ; preds = %_ZN5eastl15variant_
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_Z15TestVariantSwapv() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit:
+invoke.cont15:
   %nErrorCount = alloca i32, align 4
   %v112 = alloca %"class.eastl::variant.28", align 8
   %v213 = alloca %"class.eastl::variant.28", align 8
@@ -1531,156 +1533,172 @@ _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exi
   %add.ptr.i1.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %v213, i64 13
   store i8 0, ptr %add.ptr.i1.i.i.i.i.i.i30, align 1
   store ptr @_ZN5eastl15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEE8DoOpImplIS3_EEvNS4_9StorageOpEPT_S8_, ptr %mpHandler.i.i12, align 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %mStorage.i10, ptr noundef nonnull dereferenceable(5) @.str.64, i64 5)
-  %cmp4.i = icmp eq i32 %bcmp.i, 0
-  %call20 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 580, ptr noundef nonnull @.str.66)
-          to label %while.cond.i.i47.preheader unwind label %lpad14
+  %0 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
+  %tobool.i.i.i.i = icmp slt i8 %0, 0
+  %1 = load i64, ptr %mnSize.i.i6.i.i.i.i.i, align 8
+  %conv.i.i.i.i = zext nneg i8 %0 to i64
+  %sub.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i
+  %cond.i.i.i = select i1 %tobool.i.i.i.i, i64 %1, i64 %sub.i.i.i.i
+  %cmp.i = icmp eq i64 %cond.i.i.i, 5
+  br i1 %cmp.i, label %land.rhs.i, label %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit
 
 common.resume:                                    ; preds = %if.then.i.i.i129, %ehcleanup
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %25
+
+land.rhs.i:                                       ; preds = %invoke.cont15
+  %2 = load ptr, ptr %mStorage.i10, align 8
+  %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %2, ptr %mStorage.i10
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %spec.select.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.64, i64 5)
+  %cmp4.i = icmp eq i32 %bcmp.i, 0
+  br label %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit
+
+_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit: ; preds = %invoke.cont15, %land.rhs.i
+  %3 = phi i1 [ false, %invoke.cont15 ], [ %cmp4.i, %land.rhs.i ]
+  %call20 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 580, ptr noundef nonnull @.str.66)
+          to label %while.cond.i.i47.preheader unwind label %lpad14
 
 while.cond.i.i47.preheader:                       ; preds = %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit
-  %0 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i13, align 1
-  %tobool.i.i.i.i55 = icmp slt i8 %0, 0
-  %1 = load i64, ptr %mnSize.i.i6.i.i.i.i.i26, align 8
-  %conv.i.i.i.i57 = zext nneg i8 %0 to i64
+  %4 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i13, align 1
+  %tobool.i.i.i.i55 = icmp slt i8 %4, 0
+  %5 = load i64, ptr %mnSize.i.i6.i.i.i.i.i26, align 8
+  %conv.i.i.i.i57 = zext nneg i8 %4 to i64
   %sub.i.i.i.i58 = sub nsw i64 23, %conv.i.i.i.i57
-  %cond.i.i.i59 = select i1 %tobool.i.i.i.i55, i64 %1, i64 %sub.i.i.i.i58
+  %cond.i.i.i59 = select i1 %tobool.i.i.i.i55, i64 %5, i64 %sub.i.i.i.i58
   %cmp.i60 = icmp eq i64 %cond.i.i.i59, 5
   br i1 %cmp.i60, label %land.rhs.i61, label %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit65
 
 land.rhs.i61:                                     ; preds = %while.cond.i.i47.preheader
-  %2 = load ptr, ptr %mStorage.i11, align 8
-  %spec.select.i.i.i62 = select i1 %tobool.i.i.i.i55, ptr %2, ptr %mStorage.i11
+  %6 = load ptr, ptr %mStorage.i11, align 8
+  %spec.select.i.i.i62 = select i1 %tobool.i.i.i.i55, ptr %6, ptr %mStorage.i11
   %bcmp.i63 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %spec.select.i.i.i62, ptr noundef nonnull dereferenceable(5) @.str.65, i64 5)
   %cmp4.i64 = icmp eq i32 %bcmp.i63, 0
   br label %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit65
 
 _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit65: ; preds = %while.cond.i.i47.preheader, %land.rhs.i61
-  %3 = phi i1 [ false, %while.cond.i.i47.preheader ], [ %cmp4.i64, %land.rhs.i61 ]
-  %call26 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 581, ptr noundef nonnull @.str.67)
+  %7 = phi i1 [ false, %while.cond.i.i47.preheader ], [ %cmp4.i64, %land.rhs.i61 ]
+  %call26 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %7, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 581, ptr noundef nonnull @.str.67)
           to label %invoke.cont25 unwind label %lpad14
 
 invoke.cont25:                                    ; preds = %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit65
-  %4 = load i64, ptr %v112, align 8
-  %5 = load i64, ptr %v213, align 8
-  store i64 %5, ptr %v112, align 8
-  store i64 %4, ptr %v213, align 8
+  %8 = load i64, ptr %v112, align 8
+  %9 = load i64, ptr %v213, align 8
+  store i64 %9, ptr %v112, align 8
+  store i64 %8, ptr %v213, align 8
   invoke void @_ZN5eastl4swapINS_15variant_storageILb0EJNS_12basic_stringIcNS_9allocatorEEEEEEEEvRT_S7_(ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i10, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i11)
           to label %while.cond.i.i69.preheader unwind label %lpad14
 
 while.cond.i.i69.preheader:                       ; preds = %invoke.cont25
-  %6 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
-  %tobool.i.i.i.i77 = icmp slt i8 %6, 0
-  %7 = load i64, ptr %mnSize.i.i6.i.i.i.i.i, align 8
-  %conv.i.i.i.i79 = zext nneg i8 %6 to i64
+  %10 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
+  %tobool.i.i.i.i77 = icmp slt i8 %10, 0
+  %11 = load i64, ptr %mnSize.i.i6.i.i.i.i.i, align 8
+  %conv.i.i.i.i79 = zext nneg i8 %10 to i64
   %sub.i.i.i.i80 = sub nsw i64 23, %conv.i.i.i.i79
-  %cond.i.i.i81 = select i1 %tobool.i.i.i.i77, i64 %7, i64 %sub.i.i.i.i80
+  %cond.i.i.i81 = select i1 %tobool.i.i.i.i77, i64 %11, i64 %sub.i.i.i.i80
   %cmp.i82 = icmp eq i64 %cond.i.i.i81, 5
   br i1 %cmp.i82, label %land.rhs.i83, label %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit87
 
 land.rhs.i83:                                     ; preds = %while.cond.i.i69.preheader
-  %8 = load ptr, ptr %mStorage.i10, align 8
-  %spec.select.i.i.i84 = select i1 %tobool.i.i.i.i77, ptr %8, ptr %mStorage.i10
+  %12 = load ptr, ptr %mStorage.i10, align 8
+  %spec.select.i.i.i84 = select i1 %tobool.i.i.i.i77, ptr %12, ptr %mStorage.i10
   %bcmp.i85 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %spec.select.i.i.i84, ptr noundef nonnull dereferenceable(5) @.str.65, i64 5)
   %cmp4.i86 = icmp eq i32 %bcmp.i85, 0
   br label %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit87
 
 _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit87: ; preds = %while.cond.i.i69.preheader, %land.rhs.i83
-  %9 = phi i1 [ false, %while.cond.i.i69.preheader ], [ %cmp4.i86, %land.rhs.i83 ]
-  %call33 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %9, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 585, ptr noundef nonnull @.str.68)
+  %13 = phi i1 [ false, %while.cond.i.i69.preheader ], [ %cmp4.i86, %land.rhs.i83 ]
+  %call33 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %13, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 585, ptr noundef nonnull @.str.68)
           to label %while.cond.i.i89.preheader unwind label %lpad14
 
 while.cond.i.i89.preheader:                       ; preds = %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit87
-  %10 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i13, align 1
-  %tobool.i.i.i.i97 = icmp slt i8 %10, 0
-  %11 = load i64, ptr %mnSize.i.i6.i.i.i.i.i26, align 8
-  %conv.i.i.i.i99 = zext nneg i8 %10 to i64
+  %14 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i13, align 1
+  %tobool.i.i.i.i97 = icmp slt i8 %14, 0
+  %15 = load i64, ptr %mnSize.i.i6.i.i.i.i.i26, align 8
+  %conv.i.i.i.i99 = zext nneg i8 %14 to i64
   %sub.i.i.i.i100 = sub nsw i64 23, %conv.i.i.i.i99
-  %cond.i.i.i101 = select i1 %tobool.i.i.i.i97, i64 %11, i64 %sub.i.i.i.i100
+  %cond.i.i.i101 = select i1 %tobool.i.i.i.i97, i64 %15, i64 %sub.i.i.i.i100
   %cmp.i102 = icmp eq i64 %cond.i.i.i101, 5
   br i1 %cmp.i102, label %land.rhs.i103, label %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit107
 
 land.rhs.i103:                                    ; preds = %while.cond.i.i89.preheader
-  %12 = load ptr, ptr %mStorage.i11, align 8
-  %spec.select.i.i.i104 = select i1 %tobool.i.i.i.i97, ptr %12, ptr %mStorage.i11
+  %16 = load ptr, ptr %mStorage.i11, align 8
+  %spec.select.i.i.i104 = select i1 %tobool.i.i.i.i97, ptr %16, ptr %mStorage.i11
   %bcmp.i105 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %spec.select.i.i.i104, ptr noundef nonnull dereferenceable(5) @.str.64, i64 5)
   %cmp4.i106 = icmp eq i32 %bcmp.i105, 0
   br label %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit107
 
 _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit107: ; preds = %while.cond.i.i89.preheader, %land.rhs.i103
-  %13 = phi i1 [ false, %while.cond.i.i89.preheader ], [ %cmp4.i106, %land.rhs.i103 ]
-  %call39 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %13, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 586, ptr noundef nonnull @.str.69)
+  %17 = phi i1 [ false, %while.cond.i.i89.preheader ], [ %cmp4.i106, %land.rhs.i103 ]
+  %call39 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %17, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 586, ptr noundef nonnull @.str.69)
           to label %invoke.cont38 unwind label %lpad14
 
 invoke.cont38:                                    ; preds = %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit107
-  %14 = load ptr, ptr %mpHandler.i.i12, align 8
-  %tobool.not.i.i.i108 = icmp eq ptr %14, null
+  %18 = load ptr, ptr %mpHandler.i.i12, align 8
+  %tobool.not.i.i.i108 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i108, label %_ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit, label %if.then.i.i.i109
 
 if.then.i.i.i109:                                 ; preds = %invoke.cont38
-  invoke void %14(i32 noundef 1, ptr noundef nonnull %mStorage.i11, ptr noundef null)
+  invoke void %18(i32 noundef 1, ptr noundef nonnull %mStorage.i11, ptr noundef null)
           to label %_ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit unwind label %terminate.lpad.i.i111
 
 terminate.lpad.i.i111:                            ; preds = %if.then.i.i.i109
-  %15 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #15
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #15
   unreachable
 
 _ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %invoke.cont38, %if.then.i.i.i109
-  %17 = load ptr, ptr %mpHandler.i.i, align 8
-  %tobool.not.i.i.i114 = icmp eq ptr %17, null
+  %21 = load ptr, ptr %mpHandler.i.i, align 8
+  %tobool.not.i.i.i114 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i114, label %_ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit119, label %if.then.i.i.i115
 
 if.then.i.i.i115:                                 ; preds = %_ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit
-  invoke void %17(i32 noundef 1, ptr noundef nonnull %mStorage.i10, ptr noundef null)
+  invoke void %21(i32 noundef 1, ptr noundef nonnull %mStorage.i10, ptr noundef null)
           to label %_ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit119 unwind label %terminate.lpad.i.i117
 
 terminate.lpad.i.i117:                            ; preds = %if.then.i.i.i115
-  %18 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #15
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #15
   unreachable
 
 _ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit119: ; preds = %_ZN5eastl7variantIJNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit, %if.then.i.i.i115
-  %20 = load i32, ptr %nErrorCount, align 4
-  ret i32 %20
+  %24 = load i32, ptr %nErrorCount, align 4
+  ret i32 %24
 
 lpad14:                                           ; preds = %invoke.cont25, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit107, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit87, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit65, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit
-  %21 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %22 = load ptr, ptr %mpHandler.i.i12, align 8
-  %tobool.not.i.i.i121 = icmp eq ptr %22, null
+  %26 = load ptr, ptr %mpHandler.i.i12, align 8
+  %tobool.not.i.i.i121 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i121, label %ehcleanup, label %if.then.i.i.i122
 
 if.then.i.i.i122:                                 ; preds = %lpad14
-  invoke void %22(i32 noundef 1, ptr noundef nonnull %mStorage.i11, ptr noundef null)
+  invoke void %26(i32 noundef 1, ptr noundef nonnull %mStorage.i11, ptr noundef null)
           to label %ehcleanup unwind label %terminate.lpad.i.i124
 
 terminate.lpad.i.i124:                            ; preds = %if.then.i.i.i122
-  %23 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #15
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #15
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i.i122, %lpad14
-  %25 = load ptr, ptr %mpHandler.i.i, align 8
-  %tobool.not.i.i.i128 = icmp eq ptr %25, null
+  %29 = load ptr, ptr %mpHandler.i.i, align 8
+  %tobool.not.i.i.i128 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i128, label %common.resume, label %if.then.i.i.i129
 
 if.then.i.i.i129:                                 ; preds = %ehcleanup
-  invoke void %25(i32 noundef 1, ptr noundef nonnull %mStorage.i10, ptr noundef null)
+  invoke void %29(i32 noundef 1, ptr noundef nonnull %mStorage.i10, ptr noundef null)
           to label %common.resume unwind label %terminate.lpad.i.i131
 
 terminate.lpad.i.i131:                            ; preds = %if.then.i.i.i129
-  %26 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #15
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #15
   unreachable
 }
 
@@ -2513,6 +2531,7 @@ invoke.cont:
   %v2 = alloca %"class.eastl::variant.59", align 8
   %i = alloca %"class.eastl::variant.30", align 8
   %s = alloca %"class.eastl::variant.30", align 8
+  %ref.tmp155 = alloca %struct.MultipleVisitor, align 1
   store i32 0, ptr %nErrorCount, align 4
   %mStorage.i = getelementptr inbounds i8, ptr %arr, i64 8
   %mpHandler.i.i = getelementptr inbounds i8, ptr %arr, i64 32
@@ -2755,11 +2774,17 @@ _ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i: ; preds = %invoke.c
   %add.ptr.i1.i.i.i.i.i.i163 = getelementptr inbounds i8, ptr %s, i64 13
   store i8 0, ptr %add.ptr.i1.i.i.i.i.i.i163, align 1
   store ptr @_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE8DoOpImplIS3_EEvNS4_9StorageOpEPT_S8_, ptr %mpHandler.i.i145, align 8
+  store i1 true, ptr @_ZZ18TestVariantVisitorvE8bVisited_5, align 1
   %call153 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1033, ptr noundef nonnull @.str.79)
+          to label %invoke.cont152 unwind label %lpad148
+
+invoke.cont152:                                   ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i
+  %call6.i.i.i.i295 = invoke fastcc noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl18visitor_caller_n_rIRZ18TestVariantVisitorvE15MultipleVisitorNS_16integer_sequenceImJLm0ELm1EEEES1_JRNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEESA_EE14visitor_leaf_rIS2_JLm0ELm1EEE21invoke_visitor_leaf_rEOS1_SA_SA_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp155, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(40) %s)
           to label %invoke.cont156 unwind label %lpad148
 
-invoke.cont156:                                   ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i
-  %call160 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1037, ptr noundef nonnull @.str.79)
+invoke.cont156:                                   ; preds = %invoke.cont152
+  %.b1425 = load i1, ptr @_ZZ18TestVariantVisitorvE8bVisited_5, align 1
+  %call160 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %.b1425, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1037, ptr noundef nonnull @.str.79)
           to label %invoke.cont159 unwind label %lpad148
 
 invoke.cont159:                                   ; preds = %invoke.cont156
@@ -2844,7 +2869,7 @@ terminate.lpad.i.i232:                            ; preds = %if.then.i.i.i230
   call void @__clang_call_terminate(ptr %28) #15
   unreachable
 
-lpad148:                                          ; preds = %invoke.cont156, %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i
+lpad148:                                          ; preds = %invoke.cont152, %invoke.cont156, %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i
   %29 = landingpad { ptr, i32 }
           cleanup
   %30 = load ptr, ptr %mpHandler.i.i145, align 8
@@ -5190,6 +5215,82 @@ sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.spli
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
   ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal fastcc noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl18visitor_caller_n_rIRZ18TestVariantVisitorvE15MultipleVisitorNS_16integer_sequenceImJLm0ELm1EEEES1_JRNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEESA_EE14visitor_leaf_rIS2_JLm0ELm1EEE21invoke_visitor_leaf_rEOS1_SA_SA_(ptr noundef nonnull readnone returned align 1 dereferenceable(1) %visitor, ptr nocapture nonnull readonly align 8 %variants, ptr noundef nonnull align 8 dereferenceable(40) %variants1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %agg.tmp.i.i = alloca %"class.eastl::basic_string", align 8
+  %mStorage.i1 = getelementptr inbounds i8, ptr %variants1, i64 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  store i8 0, ptr %agg.tmp.i.i, align 8
+  %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 23
+  %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds i8, ptr %variants1, i64 31
+  %0 = load i8, ptr %mRemainingSizeField.i.i.i.i.i, align 1
+  %tobool.i.i.i.i.i = icmp slt i8 %0, 0
+  %1 = load ptr, ptr %mStorage.i1, align 8
+  %spec.select.i.i.i.i = select i1 %tobool.i.i.i.i.i, ptr %1, ptr %mStorage.i1
+  %mnSize.i.i.i.i.i = getelementptr inbounds i8, ptr %variants1, i64 16
+  %2 = load i64, ptr %mnSize.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %2
+  %conv.i.i.i.i.i.i = zext nneg i8 %0 to i64
+  %sub.i.i.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i.i.i
+  %add.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %mStorage.i1, i64 %sub.i.i.i.i.i.i
+  %cond.i.i.i.i = select i1 %tobool.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %cond.i.i.i.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %spec.select.i.i.i.i to i64
+  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, 23
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
+
+if.then.i.i.i.i.i:                                ; preds = %entry
+  %add.i.i.i.i.i = add i64 %sub.ptr.sub.i.i.i.i, 1
+  %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  store ptr %call.i.i.i.i.i.i.i, ptr %agg.tmp.i.i, align 8
+  %or.i.i.i.i.i.i = or i64 %sub.ptr.sub.i.i.i.i, -9223372036854775808
+  %mnCapacity.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
+  store i64 %or.i.i.i.i.i.i, ptr %mnCapacity.i.i.i.i.i.i, align 8
+  %mnSize.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
+  store i64 %sub.ptr.sub.i.i.i.i, ptr %mnSize.i.i.i.i.i.i, align 8
+  br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i
+
+if.else.i.i.i.i.i:                                ; preds = %entry
+  %3 = trunc nuw i64 %sub.ptr.sub.i.i.i.i to i8
+  %conv.i.i.i5.i.i.i = sub nuw nsw i8 23, %3
+  store i8 %conv.i.i.i5.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
+  br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i
+
+_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
+  %spec.select.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %agg.tmp.i.i, %if.else.i.i.i.i.i ]
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i.i.i, ptr align 1 %spec.select.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  %4 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
+  %tobool.i.i5.i.i.i.i = icmp slt i8 %4, 0
+  %5 = load ptr, ptr %agg.tmp.i.i, align 8
+  %mnSize.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
+  %6 = load i64, ptr %mnSize.i.i6.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %6
+  %conv.i.i.i.i.i.i.i = zext nneg i8 %4 to i64
+  %sub.i.i.i.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i.i.i.i
+  %add.ptr.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 %sub.i.i.i.i.i.i.i
+  %cond.i.i.i.i.i = select i1 %tobool.i.i5.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i.i
+  store i8 0, ptr %cond.i.i.i.i.i, align 1
+  store i1 true, ptr @_ZZ18TestVariantVisitorvE8bVisited_5, align 1
+  %7 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
+  %tobool.i.i.i2.i.i = icmp slt i8 %7, 0
+  br i1 %tobool.i.i.i2.i.i, label %if.then.i.i.i.i, label %_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit
+
+if.then.i.i.i.i:                                  ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i
+  %8 = load ptr, ptr %agg.tmp.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i.i.i.i.i, label %_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
+
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #16
+  br label %_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit
+
+_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit: ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  ret ptr %visitor
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

@@ -34782,8 +34782,8 @@ while.body.i.i:                                   ; preds = %if.then.i227, %if.e
   %ls.014.i.i = phi ptr [ %43, %if.end8.i.i ], [ %lp.0.i, %if.then.i227 ]
   %cmp3.i.i = icmp eq ptr %ls.014.i.i, %rp.0.i
   %cmp6.i.i = icmp eq ptr %rs.015.i.i, %lp.0.i
-  %or.cond58 = select i1 %cmp3.i.i, i1 true, i1 %cmp6.i.i
-  br i1 %or.cond58, label %return, label %if.end8.i.i
+  %or.cond57 = select i1 %cmp3.i.i, i1 true, i1 %cmp6.i.i
+  br i1 %or.cond57, label %return, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %while.body.i.i
   %next_sibling.i.i = getelementptr inbounds i8, ptr %ls.014.i.i, i64 48
@@ -34857,8 +34857,8 @@ while.body.i36.i:                                 ; preds = %while.end32.i, %if.
   %ls.014.i38.i = phi ptr [ %52, %if.end8.i42.i ], [ %ln.addr.1.i, %while.end32.i ]
   %cmp3.i39.i = icmp eq ptr %ls.014.i38.i, %rn.addr.1.i
   %cmp6.i41.i = icmp eq ptr %rs.015.i37.i, %ln.addr.1.i
-  %or.cond59 = select i1 %cmp3.i39.i, i1 true, i1 %cmp6.i41.i
-  br i1 %or.cond59, label %return, label %if.end8.i42.i
+  %or.cond58 = select i1 %cmp3.i39.i, i1 true, i1 %cmp6.i41.i
+  br i1 %or.cond58, label %return, label %if.end8.i42.i
 
 if.end8.i42.i:                                    ; preds = %while.body.i36.i
   %next_sibling.i43.i = getelementptr inbounds i8, ptr %ls.014.i38.i, i64 48
