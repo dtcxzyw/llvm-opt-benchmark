@@ -646,7 +646,7 @@ define internal range(i32 0, 2) i32 @visual_dump(ptr noundef %0, ptr nocapture n
 
 13:                                               ; preds = %5
   store i32 -24, ptr %3, align 4
-  br label %105
+  br label %102
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %0, i64 16
@@ -658,7 +658,7 @@ define internal range(i32 0, 2) i32 @visual_dump(ptr noundef %0, ptr nocapture n
 
 19:                                               ; preds = %14
   store i32 -9, ptr %3, align 4
-  br label %105
+  br label %102
 
 20:                                               ; preds = %14
   %21 = load i32, ptr %7, align 8
@@ -667,11 +667,11 @@ define internal range(i32 0, 2) i32 @visual_dump(ptr noundef %0, ptr nocapture n
 
 23:                                               ; preds = %20
   store i32 -22, ptr %3, align 4
-  br label %105
+  br label %102
 
 24:                                               ; preds = %20
   %25 = icmp eq ptr %10, null
-  br i1 %25, label %105, label %26
+  br i1 %25, label %102, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %10, i64 4
@@ -687,7 +687,7 @@ define internal range(i32 0, 2) i32 @visual_dump(ptr noundef %0, ptr nocapture n
 
 33:                                               ; preds = %30
   store i32 -27, ptr %3, align 4
-  br label %105
+  br label %102
 
 34:                                               ; preds = %30
   %35 = trunc nuw i64 %32 to i32
@@ -773,70 +773,68 @@ define internal range(i32 0, 2) i32 @visual_dump(ptr noundef %0, ptr nocapture n
 
 70:                                               ; preds = %.thread63, %65, %65
   %71 = load i8, ptr %8, align 8
-  %72 = lshr i8 %71, 1
-  %73 = and i8 %72, 64
-  %74 = xor i8 %73, 64
-  %75 = zext nneg i8 %74 to i32
+  %.not57 = icmp sgt i8 %71, -1
+  %72 = select i1 %.not57, i32 64, i32 0
   br label %.thread
 
 .thread:                                          ; preds = %58, %60, %70, %67, %65
-  %.0 = phi i32 [ 0, %65 ], [ %75, %70 ], [ %69, %67 ], [ 0, %60 ], [ 0, %58 ]
-  %76 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %.0, ptr %76, align 4
-  %77 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 20, ptr noundef %3) #7
-  %.not59 = icmp eq i32 %77, 0
-  br i1 %.not59, label %105, label %78
+  %.0 = phi i32 [ 0, %65 ], [ %72, %70 ], [ %69, %67 ], [ 0, %60 ], [ 0, %58 ]
+  %73 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %.0, ptr %73, align 4
+  %74 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 20, ptr noundef %3) #7
+  %.not59 = icmp eq i32 %74, 0
+  br i1 %.not59, label %102, label %75
 
-78:                                               ; preds = %.thread
-  %79 = load i32, ptr %7, align 8
-  %80 = zext i32 %79 to i64
-  %81 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %80, ptr noundef %3) #7
-  %.not60 = icmp eq i32 %81, 0
-  br i1 %.not60, label %105, label %82
+75:                                               ; preds = %.thread
+  %76 = load i32, ptr %7, align 8
+  %77 = zext i32 %76 to i64
+  %78 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %77, ptr noundef %3) #7
+  %.not60 = icmp eq i32 %78, 0
+  br i1 %.not60, label %102, label %79
 
-82:                                               ; preds = %78
-  %83 = load i32, ptr %27, align 4
-  %84 = getelementptr inbounds i8, ptr %10, i64 8
-  %85 = load i32, ptr %84, align 8
-  %.not61 = icmp slt i32 %83, %85
-  br i1 %.not61, label %._crit_edge, label %86
+79:                                               ; preds = %75
+  %80 = load i32, ptr %27, align 4
+  %81 = getelementptr inbounds i8, ptr %10, i64 8
+  %82 = load i32, ptr %81, align 8
+  %.not61 = icmp slt i32 %80, %82
+  br i1 %.not61, label %._crit_edge, label %83
 
-._crit_edge:                                      ; preds = %82
+._crit_edge:                                      ; preds = %79
   %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 16
   %.pre65 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %93
+  br label %90
 
-86:                                               ; preds = %82
-  %87 = shl i32 %85, 1
-  store i32 %87, ptr %84, align 8
-  %88 = getelementptr inbounds i8, ptr %10, i64 16
-  %89 = load ptr, ptr %88, align 8
-  %90 = sext i32 %87 to i64
-  %91 = shl nsw i64 %90, 2
-  %92 = call ptr @g_realloc(ptr noundef %89, i64 noundef %91) #7
-  store ptr %92, ptr %88, align 8
+83:                                               ; preds = %79
+  %84 = shl i32 %82, 1
+  store i32 %84, ptr %81, align 8
+  %85 = getelementptr inbounds i8, ptr %10, i64 16
+  %86 = load ptr, ptr %85, align 8
+  %87 = sext i32 %84 to i64
+  %88 = shl nsw i64 %87, 2
+  %89 = call ptr @g_realloc(ptr noundef %86, i64 noundef %88) #7
+  store ptr %89, ptr %85, align 8
   %.pre66 = load i32, ptr %27, align 4
-  br label %93
+  br label %90
 
-93:                                               ; preds = %._crit_edge, %86
-  %94 = phi i32 [ %83, %._crit_edge ], [ %.pre66, %86 ]
-  %95 = phi ptr [ %.pre65, %._crit_edge ], [ %92, %86 ]
-  %96 = getelementptr inbounds i8, ptr %10, i64 24
-  %97 = load i32, ptr %96, align 8
-  %98 = sext i32 %94 to i64
-  %99 = getelementptr i32, ptr %95, i64 %98
-  store i32 %97, ptr %99, align 4
-  %100 = load i32, ptr %27, align 4
-  %101 = add i32 %100, 1
-  store i32 %101, ptr %27, align 4
-  %102 = load i32, ptr %7, align 8
-  %103 = add i32 %102, 20
-  %104 = add i32 %103, %97
-  store i32 %104, ptr %96, align 8
-  br label %105
+90:                                               ; preds = %._crit_edge, %83
+  %91 = phi i32 [ %80, %._crit_edge ], [ %.pre66, %83 ]
+  %92 = phi ptr [ %.pre65, %._crit_edge ], [ %89, %83 ]
+  %93 = getelementptr inbounds i8, ptr %10, i64 24
+  %94 = load i32, ptr %93, align 8
+  %95 = sext i32 %91 to i64
+  %96 = getelementptr i32, ptr %92, i64 %95
+  store i32 %94, ptr %96, align 4
+  %97 = load i32, ptr %27, align 4
+  %98 = add i32 %97, 1
+  store i32 %98, ptr %27, align 4
+  %99 = load i32, ptr %7, align 8
+  %100 = add i32 %99, 20
+  %101 = add i32 %100, %94
+  store i32 %101, ptr %93, align 8
+  br label %102
 
-105:                                              ; preds = %78, %.thread, %24, %93, %33, %23, %19, %13
-  %.052 = phi i32 [ 0, %13 ], [ 0, %19 ], [ 0, %23 ], [ 0, %33 ], [ 1, %93 ], [ 0, %24 ], [ 0, %.thread ], [ 0, %78 ]
+102:                                              ; preds = %75, %.thread, %24, %90, %33, %23, %19, %13
+  %.052 = phi i32 [ 0, %13 ], [ 0, %19 ], [ 0, %23 ], [ 0, %33 ], [ 1, %90 ], [ 0, %24 ], [ 0, %.thread ], [ 0, %75 ]
   ret i32 %.052
 }
 

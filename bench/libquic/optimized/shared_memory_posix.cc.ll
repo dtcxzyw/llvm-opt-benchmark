@@ -333,17 +333,15 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp2, label %do.body, label %return, !llvm.loop !5
 
 do.end:                                           ; preds = %do.body
+  %cmp3 = icmp sgt i32 %call, -1
   %spec.select4 = tail call i32 @llvm.smax.i32(i32 %call, i32 -1)
-  %2 = and i32 %call, -2147483648
-  %3 = zext i32 %2 to i64
-  %4 = shl nuw nsw i64 %3, 1
-  %5 = zext i32 %spec.select4 to i64
-  %6 = or disjoint i64 %4, %5
-  %7 = xor i64 %6, 4294967296
+  %2 = select i1 %cmp3, i64 4294967296, i64 0
+  %3 = zext i32 %spec.select4 to i64
+  %4 = or disjoint i64 %2, %3
   br label %return
 
 return:                                           ; preds = %land.rhs, %do.end
-  %retval.sroa.0.0.insert.insert = phi i64 [ %7, %do.end ], [ 4294967295, %land.rhs ]
+  %retval.sroa.0.0.insert.insert = phi i64 [ %4, %do.end ], [ 4294967295, %land.rhs ]
   ret i64 %retval.sroa.0.0.insert.insert
 }
 

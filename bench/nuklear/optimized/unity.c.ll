@@ -587,10 +587,8 @@ if.then14:                                        ; preds = %if.end8
 
 if.end19:                                         ; preds = %if.then14, %if.end8
   %d.1 = phi i32 [ %sub15, %if.then14 ], [ %d.0, %if.end8 ]
-  %4 = lshr i32 %d.1, 30
-  %5 = and i32 %4, 2
-  %shl = xor i32 %5, 2
-  %sub22 = add nsw i32 %shl, -1
+  %cmp20.inv.inv = icmp sgt i32 %d.1, -1
+  %sub22 = select i1 %cmp20.inv.inv, i32 1, i32 -1
   br label %return
 
 do.cond:                                          ; preds = %do.body, %if.then, %if.then14
@@ -649,10 +647,8 @@ if.then17:                                        ; preds = %if.end11
 
 if.end22:                                         ; preds = %if.then17, %if.end11
   %d.1 = phi i32 [ %sub18, %if.then17 ], [ %d.0, %if.end11 ]
-  %4 = lshr i32 %d.1, 30
-  %5 = and i32 %4, 2
-  %shl = xor i32 %5, 2
-  %sub25 = add nsw i32 %shl, -1
+  %cmp23.inv.inv = icmp sgt i32 %d.1, -1
+  %sub25 = select i1 %cmp23.inv.inv, i32 1, i32 -1
   br label %return
 
 do.cond:                                          ; preds = %if.end, %if.then7, %if.then17
