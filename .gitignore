@@ -5,3 +5,5 @@ CHANGELOGS
 patch.diff
 *.bench_tmp.ll
 .vscode
+build
+.cache

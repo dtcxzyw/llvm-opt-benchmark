@@ -1,0 +1,39 @@
+name: DAG grep
+
+on:
+  issues:
+    types: labeled
+
+jobs:
+  build:
+    if: github.event.label.name == 'grep'
+    runs-on: self-hosted
+
+    permissions:
+      issues: write
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C llvm/llvm-project checkout .
+          git -C llvm/llvm-project clean -fdx
+
+      - name: Get Pattern IR
+        run: |
+          echo "${{ github.event.issue.body }}" | sed -n '/^```/,/^```/ p' | sed '/^```/ d' > ${{ github.workspace }}/test.ll
+
+      - name: Run LLVM DAG Grep
+        run: ${{ github.workspace }}/scripts/run_dag_grep.sh
+
+      - name: Report
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          filePath: scripts/grep.md
