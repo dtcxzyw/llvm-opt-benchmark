@@ -2322,12 +2322,10 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp7.not.i.i, label %if.end13.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.end.i
-  %2 = lshr i64 %call6.i.i, 59
-  %3 = trunc nuw nsw i64 %2 to i8
-  %4 = and i8 %3, 16
+  %cmp9.i.i = icmp sgt i64 %call6.i.i, -1
+  %bf.shl12.i.i = select i1 %cmp9.i.i, i8 16, i8 0
   %bf.clear.i.i = and i8 %bf.load.i.i, -49
-  %5 = or disjoint i8 %4, %bf.clear.i.i
-  %bf.set.i.i = xor i8 %5, 16
+  %bf.set.i.i = or disjoint i8 %bf.clear.i.i, %bf.shl12.i.i
   store i8 %bf.set.i.i, ptr %seekable.i.i, align 4
   br label %if.end13.i.i
 
@@ -2336,8 +2334,8 @@ if.end13.i.i:                                     ; preds = %if.then8.i.i, %if.e
   br i1 %cmp14.i.i, label %if.then16.i.i, label %if.end26.i.i
 
 if.then16.i.i:                                    ; preds = %if.end13.i.i
-  %6 = load ptr, ptr @PyExc_OSError, align 8
-  %call24.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %6) #10
+  %2 = load ptr, ptr @PyExc_OSError, align 8
+  %call24.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %2) #10
   br label %_io_FileIO_tell_impl.exit
 
 if.end26.i.i:                                     ; preds = %if.end13.i.i
@@ -2417,12 +2415,10 @@ if.then7.i:                                       ; preds = %if.end5.i
   br i1 %cmp7.not.i.i, label %if.end13.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then7.i
-  %8 = lshr i64 %call6.i.i, 59
-  %9 = trunc nuw nsw i64 %8 to i8
-  %10 = and i8 %9, 16
+  %cmp9.i.i = icmp sgt i64 %call6.i.i, -1
+  %bf.shl12.i.i = select i1 %cmp9.i.i, i8 16, i8 0
   %bf.clear.i.i = and i8 %bf.load.i.i, -49
-  %11 = or disjoint i8 %10, %bf.clear.i.i
-  %bf.set.i.i = xor i8 %11, 16
+  %bf.set.i.i = or disjoint i8 %bf.clear.i.i, %bf.shl12.i.i
   store i8 %bf.set.i.i, ptr %writable.i, align 4
   br label %if.end13.i.i
 
@@ -2431,8 +2427,8 @@ if.end13.i.i:                                     ; preds = %if.then8.i.i, %if.t
   br i1 %cmp14.i.i, label %if.then16.i.i, label %if.end26.i.i
 
 if.then16.i.i:                                    ; preds = %if.end13.i.i
-  %12 = load ptr, ptr @PyExc_OSError, align 8
-  %call24.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %12) #10
+  %8 = load ptr, ptr @PyExc_OSError, align 8
+  %call24.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %8) #10
   br label %portable_lseek.exit.i
 
 if.end26.i.i:                                     ; preds = %if.end13.i.i
@@ -2445,8 +2441,8 @@ portable_lseek.exit.i:                            ; preds = %if.end26.i.i, %if.t
   br i1 %cmp9.i, label %exit, label %if.end12.i
 
 if.else.i:                                        ; preds = %if.end5.i
-  %13 = load i32, ptr %posobj.0, align 8
-  %add.i.i = add i32 %13, 1
+  %9 = load i32, ptr %posobj.0, align 8
+  %add.i.i = add i32 %9, 1
   %cmp.i41.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i41.i, label %if.end12.i, label %if.end.i42.i
 
@@ -2462,13 +2458,13 @@ if.end12.i:                                       ; preds = %if.end.i42.i, %if.e
   br i1 %tobool15.not.i, label %if.end17.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end12.i
-  %14 = load i64, ptr %posobj.addr.0.i, align 8
-  %15 = and i64 %14, 2147483648
-  %cmp.i35.not.i = icmp eq i64 %15, 0
+  %10 = load i64, ptr %posobj.addr.0.i, align 8
+  %11 = and i64 %10, 2147483648
+  %cmp.i35.not.i = icmp eq i64 %11, 0
   br i1 %cmp.i35.not.i, label %if.end.i28.i, label %exit
 
 if.end.i28.i:                                     ; preds = %if.then16.i
-  %dec.i29.i = add i64 %14, -1
+  %dec.i29.i = add i64 %10, -1
   store i64 %dec.i29.i, ptr %posobj.addr.0.i, align 8
   %cmp.i30.i = icmp eq i64 %dec.i29.i, 0
   br i1 %cmp.i30.i, label %if.then1.i31.i, label %exit
@@ -2487,15 +2483,15 @@ if.end17.i:                                       ; preds = %if.end12.i
   br i1 %cmp21.not.i, label %exit, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.end17.i
-  %16 = load ptr, ptr @PyExc_OSError, align 8
-  %call23.i = call ptr @PyErr_SetFromErrno(ptr noundef %16) #10
-  %17 = load i64, ptr %posobj.addr.0.i, align 8
-  %18 = and i64 %17, 2147483648
-  %cmp.i38.not.i = icmp eq i64 %18, 0
+  %12 = load ptr, ptr @PyExc_OSError, align 8
+  %call23.i = call ptr @PyErr_SetFromErrno(ptr noundef %12) #10
+  %13 = load i64, ptr %posobj.addr.0.i, align 8
+  %14 = and i64 %13, 2147483648
+  %cmp.i38.not.i = icmp eq i64 %14, 0
   br i1 %cmp.i38.not.i, label %if.end.i.i, label %exit
 
 if.end.i.i:                                       ; preds = %if.then22.i
-  %dec.i.i = add i64 %17, -1
+  %dec.i.i = add i64 %13, -1
   store i64 %dec.i.i, ptr %posobj.addr.0.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %exit
@@ -2696,12 +2692,10 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp7.not.i.i, label %if.end13.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then2.i
-  %2 = lshr i64 %call6.i.i, 59
-  %3 = trunc nuw nsw i64 %2 to i8
-  %4 = and i8 %3, 16
+  %cmp9.i.i = icmp sgt i64 %call6.i.i, -1
+  %bf.shl12.i.i = select i1 %cmp9.i.i, i8 16, i8 0
   %bf.clear.i.i = and i8 %bf.load.i.i, -49
-  %5 = or disjoint i8 %4, %bf.clear.i.i
-  %bf.set.i.i = xor i8 %5, 16
+  %bf.set.i.i = or disjoint i8 %bf.clear.i.i, %bf.shl12.i.i
   store i8 %bf.set.i.i, ptr %seekable.i, align 4
   br label %if.end13.i.i
 
@@ -2710,8 +2704,8 @@ if.end13.i.i:                                     ; preds = %if.then8.i.i, %if.t
   br i1 %cmp14.i.i, label %if.then16.i.i, label %if.end26.i.i
 
 if.then16.i.i:                                    ; preds = %if.end13.i.i
-  %6 = load ptr, ptr @PyExc_OSError, align 8
-  %call24.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %6) #10
+  %2 = load ptr, ptr @PyExc_OSError, align 8
+  %call24.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %2) #10
   br label %portable_lseek.exit.i
 
 if.end26.i.i:                                     ; preds = %if.end13.i.i
@@ -2728,13 +2722,13 @@ if.then5.i:                                       ; preds = %portable_lseek.exit
   br label %if.end7.i
 
 if.else.i:                                        ; preds = %portable_lseek.exit.i
-  %7 = load i64, ptr %retval.0.i.i, align 8
-  %8 = and i64 %7, 2147483648
-  %cmp.i15.not.i = icmp eq i64 %8, 0
+  %3 = load i64, ptr %retval.0.i.i, align 8
+  %4 = and i64 %3, 2147483648
+  %cmp.i15.not.i = icmp eq i64 %4, 0
   br i1 %cmp.i15.not.i, label %if.end.i.i, label %if.end7.i
 
 if.end.i.i:                                       ; preds = %if.else.i
-  %dec.i.i = add i64 %7, -1
+  %dec.i.i = add i64 %3, -1
   store i64 %dec.i.i, ptr %retval.0.i.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end7.i
@@ -3139,12 +3133,10 @@ if.end4:                                          ; preds = %entry, %if.else
   br i1 %cmp7.not, label %if.end13, label %if.then8
 
 if.then8:                                         ; preds = %if.end4
-  %1 = lshr i64 %call6, 59
-  %2 = trunc nuw nsw i64 %1 to i8
-  %3 = and i8 %2, 16
+  %cmp9 = icmp sgt i64 %call6, -1
+  %bf.shl12 = select i1 %cmp9, i8 16, i8 0
   %bf.clear = and i8 %bf.load, -49
-  %4 = or disjoint i8 %3, %bf.clear
-  %bf.set = xor i8 %4, 16
+  %bf.set = or disjoint i8 %bf.clear, %bf.shl12
   store i8 %bf.set, ptr %seekable, align 4
   br label %if.end13
 
@@ -3157,13 +3149,13 @@ if.then16:                                        ; preds = %if.end13
 
 land.lhs.true:                                    ; preds = %if.then16
   %call19 = tail call ptr @__errno_location() #12
-  %5 = load i32, ptr %call19, align 4
-  %cmp20 = icmp eq i32 %5, 29
+  %1 = load i32, ptr %call19, align 4
+  %cmp20 = icmp eq i32 %1, 29
   br i1 %cmp20, label %if.end26, label %if.else23
 
 if.else23:                                        ; preds = %land.lhs.true, %if.then16
-  %6 = load ptr, ptr @PyExc_OSError, align 8
-  %call24 = tail call ptr @PyErr_SetFromErrno(ptr noundef %6) #10
+  %2 = load ptr, ptr @PyExc_OSError, align 8
+  %call24 = tail call ptr @PyErr_SetFromErrno(ptr noundef %2) #10
   br label %return
 
 if.end26:                                         ; preds = %land.lhs.true, %if.end13

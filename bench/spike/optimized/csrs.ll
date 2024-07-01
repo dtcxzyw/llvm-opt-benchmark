@@ -5231,7 +5231,7 @@ define noundef range(i64 0, 8744) i64 @_ZNK9mip_csr_t10write_maskEv(ptr nocaptur
   %.sink.i.i = load i64, ptr %6, align 8
   %7 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %7, 0
-  br i1 %.0.i.i.not, label %20, label %8
+  br i1 %.0.i.i.not, label %18, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5242,32 +5242,31 @@ define noundef range(i64 0, 8744) i64 @_ZNK9mip_csr_t10write_maskEv(ptr nocaptur
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(37) %12) #26
-  %17 = lshr i64 %16, 58
-  %18 = and i64 %17, 32
-  %19 = xor i64 %18, 546
+  %.not = icmp sgt i64 %16, -1
+  %17 = select i1 %.not, i64 546, i64 514
   %.pre = load ptr, ptr %2, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 968
   %.pre8 = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert9 = getelementptr inbounds i8, ptr %.pre8, i64 40
   %.sink.i.i4.pre = load i64, ptr %.phi.trans.insert9, align 8
-  br label %20
+  br label %18
 
-20:                                               ; preds = %8, %1
+18:                                               ; preds = %8, %1
   %.sink.i.i4 = phi i64 [ %.sink.i.i4.pre, %8 ], [ %.sink.i.i, %1 ]
-  %21 = phi ptr [ %.pre, %8 ], [ %3, %1 ]
-  %22 = phi i64 [ %19, %8 ], [ 0, %1 ]
-  %23 = getelementptr inbounds i8, ptr %21, i64 4144
-  %.sink.i = load i64, ptr %23, align 8
-  %24 = and i64 %.sink.i.i4, 128
-  %.0.i.i5.not = icmp eq i64 %24, 0
-  %25 = lshr i64 %.sink.i, 44
-  %26 = and i64 %25, 8192
-  %27 = lshr exact i64 %24, 5
-  %28 = or i64 %26, %22
-  %29 = or i64 %28, %27
-  %30 = select i1 %.0.i.i5.not, i64 8738, i64 8742
-  %31 = and i64 %29, %30
-  ret i64 %31
+  %19 = phi ptr [ %.pre, %8 ], [ %3, %1 ]
+  %20 = phi i64 [ %17, %8 ], [ 0, %1 ]
+  %21 = getelementptr inbounds i8, ptr %19, i64 4144
+  %.sink.i = load i64, ptr %21, align 8
+  %22 = and i64 %.sink.i.i4, 128
+  %.0.i.i5.not = icmp eq i64 %22, 0
+  %23 = lshr i64 %.sink.i, 44
+  %24 = and i64 %23, 8192
+  %25 = lshr exact i64 %22, 5
+  %26 = or disjoint i64 %24, %20
+  %27 = or disjoint i64 %26, %25
+  %28 = select i1 %.0.i.i5.not, i64 8738, i64 8742
+  %29 = and i64 %27, %28
+  ret i64 %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

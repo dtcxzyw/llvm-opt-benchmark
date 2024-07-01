@@ -4093,7 +4093,7 @@ define dso_local noundef zeroext i1 @_ZN9Stockfish10Tablebases14root_probe_wdlER
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %41
   %30 = phi i32 [ %39, %41 ], [ 1, %.lr.ph ]
-  %.sroa.018.022 = phi ptr [ %56, %41 ], [ %6, %.lr.ph ]
+  %.sroa.018.022 = phi ptr [ %54, %41 ], [ %6, %.lr.ph ]
   %31 = getelementptr inbounds i8, ptr %.sroa.018.022, i64 32
   %32 = load ptr, ptr %31, align 8
   %.sroa.01.0.copyload = load i16, ptr %32, align 2
@@ -4126,17 +4126,15 @@ define dso_local noundef zeroext i1 @_ZN9Stockfish10Tablebases14root_probe_wdlER
   %46 = getelementptr inbounds i8, ptr %.sroa.018.022, i64 24
   store i32 %45, ptr %46, align 8
   %47 = icmp sgt i32 %.017, 0
-  %48 = lshr i32 %.017, 30
-  %49 = and i32 %48, 2
-  %50 = xor i32 %49, 2
-  %51 = select i1 %47, i32 4, i32 %50
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds [5 x i32], ptr @_ZN9Stockfish12_GLOBAL__N_112WDL_to_valueE, i64 0, i64 %52
-  %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %.sroa.018.022, i64 28
-  store i32 %54, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %.sroa.018.022, i64 56
-  %.not = icmp eq ptr %56, %8
+  %48 = icmp slt i32 %.017, 0
+  %49 = select i1 %48, i64 0, i64 2
+  %50 = select i1 %47, i64 4, i64 %49
+  %51 = getelementptr inbounds [5 x i32], ptr @_ZN9Stockfish12_GLOBAL__N_112WDL_to_valueE, i64 0, i64 %50
+  %52 = load i32, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %.sroa.018.022, i64 28
+  store i32 %52, ptr %53, align 4
+  %54 = getelementptr inbounds i8, ptr %.sroa.018.022, i64 56
+  %.not = icmp eq ptr %54, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %38, %41, %17, %20, %3

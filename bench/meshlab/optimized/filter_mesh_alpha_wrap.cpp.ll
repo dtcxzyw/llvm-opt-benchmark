@@ -596,10 +596,10 @@ module asm ".previous"
 %"struct.boost::tuples::cons.1577" = type <{ double, %"struct.boost::tuples::cons.1578", [4 x i8] }>
 %"struct.boost::tuples::cons.1578" = type { i32 }
 %class.anon.1470 = type { ptr, ptr, ptr, ptr }
+%class.anon.1472 = type { ptr, ptr, ptr, ptr }
 %"class.CGAL::Iso_cuboid_3.1467" = type { %"class.CGAL::Iso_cuboidC3.1468" }
 %"class.CGAL::Iso_cuboidC3.1468" = type { %"struct.std::array.1469" }
 %"struct.std::array.1469" = type { [2 x %"class.CGAL::Point_3.548"] }
-%class.anon.1472 = type { ptr, ptr, ptr, ptr }
 %"struct.std::pair.1475" = type { %"class.CGAL::Point_3", %"struct.std::pair.1222" }
 %"class.CGAL::Alpha_wraps_3::internal::Splitter_traversal_traits<CGAL::AABB_traits<CGAL::Alpha_wraps_3::internal::Alpha_wrap_AABB_geom_traits<CGAL::Epick>, CGAL::AABB_primitive<std::pair<unsigned long, unsigned long>, CGAL::Compose_property_map<CGAL::Compose_property_map<CGAL::First_of_pair_property_map<std::pair<unsigned long, unsigned long>>, CGAL::Alpha_wraps_3::internal::Vector_property_map<unsigned long>>, CGAL::Alpha_wraps_3::internal::Vector_property_map<CGAL::Triangle_3<CGAL::Epick>>>, CGAL::Compose_property_map<CGAL::First_of_pair_property_map<std::pair<unsigned long, unsigned long>>, CGAL::Alpha_wraps_3::internal::Vector_property_map<CGAL::Point_3<CGAL::Epick>>>, CGAL::Boolean_tag<true>, CGAL::Boolean_tag<false>>, CGAL::Compose_property_map<CGAL::First_of_pair_property_map<std::pair<unsigned long, unsigned long>>, CGAL::Alpha_wraps_3::internal::Vector_property_map<CGAL::Bbox_3>>>>::Projection_traits" = type { %"class.CGAL::internal::AABB_tree::Projection_traits", %"class.std::unordered_set.1477" }
 %"class.CGAL::internal::AABB_tree::Projection_traits" = type { %"class.CGAL::Point_3", %"struct.std::pair.1222", ptr }
@@ -1842,8 +1842,6 @@ $_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_n
 $_ZN4CGAL12Iso_cuboid_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev = comdat any
 
 $_ZZN4CGAL18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEv = comdat any
-
-$_ZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ = comdat any
 
 $_ZZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEv = comdat any
 
@@ -84812,371 +84810,590 @@ define linkonce_odr noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_2
   %5 = alloca %class.anon.1470, align 8
   %6 = alloca %"class.CGAL::Uncertain", align 2
   %7 = alloca %class.anon.1470, align 8
-  %8 = alloca %"class.CGAL::Iso_cuboid_3.1467", align 8
-  %9 = alloca %"class.CGAL::Point_3.548", align 8
-  call void @_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_4MpzfEEENS_12NT_converterIdS7_EEEclERKNS_12Iso_cuboid_3IS3_EE(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Iso_cuboid_3.1467") align 8 %8, ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
-  invoke void @_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_4MpzfEEENS_12NT_converterIdS7_EEEclERKNS_7Point_3IS3_EE(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3.548") align 8 %9, ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %10 unwind label %154
+  %8 = alloca %"class.CGAL::Uncertain", align 2
+  %9 = alloca %class.anon.1472, align 8
+  %10 = alloca %"class.CGAL::Uncertain", align 2
+  %11 = alloca %class.anon.1472, align 8
+  %12 = alloca %"class.CGAL::Iso_cuboid_3.1467", align 8
+  %13 = alloca %"class.CGAL::Point_3.548", align 8
+  call void @_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_4MpzfEEENS_12NT_converterIdS7_EEEclERKNS_12Iso_cuboid_3IS3_EE(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Iso_cuboid_3.1467") align 8 %12, ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  invoke void @_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_4MpzfEEENS_12NT_converterIdS7_EEEclERKNS_7Point_3IS3_EE(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3.548") align 8 %13, ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %14 unwind label %249
 
-10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %9, i64 88
-  %12 = getelementptr inbounds i8, ptr %9, i64 176
-  %13 = getelementptr inbounds i8, ptr %8, i64 88
-  %14 = getelementptr inbounds i8, ptr %8, i64 176
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds i8, ptr %13, i64 88
+  %16 = getelementptr inbounds i8, ptr %13, i64 176
+  %17 = getelementptr inbounds i8, ptr %12, i64 88
+  %18 = getelementptr inbounds i8, ptr %12, i64 176
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %15 = getelementptr inbounds i8, ptr %9, i64 80
-  %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 80
-  %18 = load i32, ptr %17, align 8
-  %19 = xor i32 %18, %16
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %21, label %22
+  %19 = getelementptr inbounds i8, ptr %13, i64 80
+  %20 = load i32, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %12, i64 80
+  %22 = load i32, ptr %21, align 8
+  %23 = xor i32 %22, %20
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %25, label %26
 
-21:                                               ; preds = %10
-  %.inv.i.i.i.i34 = icmp sgt i32 %16, -1
-  br label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i14
+25:                                               ; preds = %14
+  %.inv.i.i.i.i85 = icmp sgt i32 %20, -1
+  br label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i65
 
-22:                                               ; preds = %10
-  %23 = call i32 @llvm.abs.i32(i32 %16, i1 true)
-  %24 = call i32 @llvm.abs.i32(i32 %18, i1 true)
-  %25 = icmp eq i32 %18, 0
-  br i1 %25, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12, label %26
+26:                                               ; preds = %14
+  %27 = call i32 @llvm.abs.i32(i32 %20, i1 true)
+  %28 = call i32 @llvm.abs.i32(i32 %22, i1 true)
+  %29 = icmp eq i32 %22, 0
+  br i1 %29, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i63, label %30
 
-26:                                               ; preds = %22
-  %27 = icmp eq i32 %16, 0
-  br i1 %27, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12, label %28
+30:                                               ; preds = %26
+  %31 = icmp eq i32 %20, 0
+  br i1 %31, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i63, label %32
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %9, i64 84
-  %30 = load i32, ptr %29, align 4
-  %31 = add nsw i32 %30, %23
-  %32 = getelementptr inbounds i8, ptr %8, i64 84
-  %33 = load i32, ptr %32, align 4
-  %34 = add nsw i32 %33, %24
-  %.not.i.i.i.i.i11 = icmp eq i32 %31, %34
-  br i1 %.not.i.i.i.i.i11, label %37, label %35
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds i8, ptr %13, i64 84
+  %34 = load i32, ptr %33, align 4
+  %35 = add nsw i32 %34, %27
+  %36 = getelementptr inbounds i8, ptr %12, i64 84
+  %37 = load i32, ptr %36, align 4
+  %38 = add nsw i32 %37, %28
+  %.not.i.i.i.i.i62 = icmp eq i32 %35, %38
+  br i1 %.not.i.i.i.i.i62, label %41, label %39
 
-35:                                               ; preds = %28
-  %36 = sub nsw i32 %31, %34
-  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12
+39:                                               ; preds = %32
+  %40 = sub nsw i32 %35, %38
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i63
 
-37:                                               ; preds = %28
-  %38 = load ptr, ptr %9, align 8
-  %39 = zext nneg i32 %23 to i64
-  %40 = getelementptr i64, ptr %38, i64 %39
-  %41 = load ptr, ptr %8, align 8
-  %42 = zext nneg i32 %24 to i64
-  %43 = getelementptr i64, ptr %41, i64 %42
-  %smax.i.i.i.i.i24 = call i32 @llvm.abs.i32(i32 %16, i1 false)
-  %smax54.i.i.i.i.i25 = call i32 @llvm.abs.i32(i32 %18, i1 false)
-  %umin.i.i.i.i.i26 = call i32 @llvm.umin.i32(i32 %smax.i.i.i.i.i24, i32 %smax54.i.i.i.i.i25)
-  br label %46
+41:                                               ; preds = %32
+  %42 = load ptr, ptr %13, align 8
+  %43 = zext nneg i32 %27 to i64
+  %44 = getelementptr i64, ptr %42, i64 %43
+  %45 = load ptr, ptr %12, align 8
+  %46 = zext nneg i32 %28 to i64
+  %47 = getelementptr i64, ptr %45, i64 %46
+  %smax.i.i.i.i.i75 = call i32 @llvm.abs.i32(i32 %20, i1 false)
+  %smax54.i.i.i.i.i76 = call i32 @llvm.abs.i32(i32 %22, i1 false)
+  %umin.i.i.i.i.i77 = call i32 @llvm.umin.i32(i32 %smax.i.i.i.i.i75, i32 %smax54.i.i.i.i.i76)
+  br label %50
 
-44:                                               ; preds = %46
-  %45 = add nuw i32 %.02246.i.i.i.i.i29, 1
-  %exitcond.not.i.i.i.i.i33 = icmp eq i32 %45, %umin.i.i.i.i.i26
-  br i1 %exitcond.not.i.i.i.i.i33, label %52, label %46, !llvm.loop !238
+48:                                               ; preds = %50
+  %49 = add nuw i32 %.02246.i.i.i.i.i80, 1
+  %exitcond.not.i.i.i.i.i84 = icmp eq i32 %49, %umin.i.i.i.i.i77
+  br i1 %exitcond.not.i.i.i.i.i84, label %56, label %50, !llvm.loop !238
 
-46:                                               ; preds = %44, %37
-  %.pn49.i.i.i.i.i27 = phi ptr [ %40, %37 ], [ %.02148.i.i.i.i.i31, %44 ]
-  %.pn50.i.i.i.i.i28 = phi ptr [ %43, %37 ], [ %.02347.i.i.i.i.i30, %44 ]
-  %.02246.i.i.i.i.i29 = phi i32 [ 0, %37 ], [ %45, %44 ]
-  %.02347.i.i.i.i.i30 = getelementptr inbounds i8, ptr %.pn50.i.i.i.i.i28, i64 -8
-  %.02148.i.i.i.i.i31 = getelementptr inbounds i8, ptr %.pn49.i.i.i.i.i27, i64 -8
-  %47 = load i64, ptr %.02148.i.i.i.i.i31, align 8
-  %48 = load i64, ptr %.02347.i.i.i.i.i30, align 8
-  %.not30.i.i.i.i.i32 = icmp eq i64 %47, %48
-  br i1 %.not30.i.i.i.i.i32, label %44, label %49
+50:                                               ; preds = %48, %41
+  %.pn49.i.i.i.i.i78 = phi ptr [ %44, %41 ], [ %.02148.i.i.i.i.i82, %48 ]
+  %.pn50.i.i.i.i.i79 = phi ptr [ %47, %41 ], [ %.02347.i.i.i.i.i81, %48 ]
+  %.02246.i.i.i.i.i80 = phi i32 [ 0, %41 ], [ %49, %48 ]
+  %.02347.i.i.i.i.i81 = getelementptr inbounds i8, ptr %.pn50.i.i.i.i.i79, i64 -8
+  %.02148.i.i.i.i.i82 = getelementptr inbounds i8, ptr %.pn49.i.i.i.i.i78, i64 -8
+  %51 = load i64, ptr %.02148.i.i.i.i.i82, align 8
+  %52 = load i64, ptr %.02347.i.i.i.i.i81, align 8
+  %.not30.i.i.i.i.i83 = icmp eq i64 %51, %52
+  br i1 %.not30.i.i.i.i.i83, label %48, label %53
 
-49:                                               ; preds = %46
-  %50 = icmp ult i64 %47, %48
-  %51 = select i1 %50, i32 -1, i32 1
-  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12
+53:                                               ; preds = %50
+  %54 = icmp ult i64 %51, %52
+  %55 = select i1 %54, i32 -1, i32 1
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i63
 
-52:                                               ; preds = %44
-  %53 = sub nsw i32 %23, %24
-  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12
+56:                                               ; preds = %48
+  %57 = sub nsw i32 %27, %28
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i63
 
-_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12: ; preds = %52, %49, %35, %26, %22
-  %.0.i.i.i.i.i13 = phi i32 [ %36, %35 ], [ %51, %49 ], [ %53, %52 ], [ -1, %26 ], [ %23, %22 ]
-  %54 = icmp slt i32 %16, 0
-  %55 = sub nsw i32 0, %.0.i.i.i.i.i13
-  %56 = select i1 %54, i32 %55, i32 %.0.i.i.i.i.i13
-  %57 = icmp sgt i32 %56, 0
-  br label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i14
+_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i63: ; preds = %56, %53, %39, %30, %26
+  %.0.i.i.i.i.i64 = phi i32 [ %40, %39 ], [ %55, %53 ], [ %57, %56 ], [ -1, %30 ], [ %27, %26 ]
+  %58 = icmp slt i32 %20, 0
+  %59 = sub nsw i32 0, %.0.i.i.i.i.i64
+  %60 = select i1 %58, i32 %59, i32 %.0.i.i.i.i.i64
+  %61 = icmp sgt i32 %60, 0
+  br label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i65
 
-_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i14: ; preds = %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12, %21
-  %.0.i.i.i.i15 = phi i1 [ %.inv.i.i.i.i34, %21 ], [ %57, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12 ]
-  store ptr %11, ptr %5, align 8
-  %58 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %13, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %12, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %14, ptr %60, align 8
-  %.sroa.2.0.insert.ext.i16 = zext i1 %.0.i.i.i.i15 to i16
-  %.sroa.2.0.insert.shift.i17 = select i1 %.0.i.i.i.i15, i16 256, i16 0
-  %.sroa.2.0.extract.shift.i.i.i.i18 = lshr exact i16 %.sroa.2.0.insert.shift.i17, 8
-  %61 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i.i18, %.sroa.2.0.insert.ext.i16
-  %.not7.i.i19 = or i1 %.0.i.i.i.i15, %61
-  br i1 %.not7.i.i19, label %62, label %_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i20
+_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i65: ; preds = %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i63, %25
+  %.0.i.i.i.i66 = phi i1 [ %.inv.i.i.i.i85, %25 ], [ %61, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i63 ]
+  store ptr %15, ptr %5, align 8
+  %62 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %17, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %16, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %18, ptr %64, align 8
+  %.sroa.2.0.insert.ext.i67 = zext i1 %.0.i.i.i.i66 to i16
+  %.sroa.2.0.insert.shift.i68 = select i1 %.0.i.i.i.i66, i16 256, i16 0
+  %.sroa.2.0.extract.shift.i.i.i.i69 = lshr exact i16 %.sroa.2.0.insert.shift.i68, 8
+  %65 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i.i69, %.sroa.2.0.insert.ext.i67
+  %.not7.i.i70 = or i1 %.0.i.i.i.i66, %65
+  br i1 %.not7.i.i70, label %66, label %_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i71
 
-62:                                               ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i14
-  %63 = invoke i16 @_ZZN4CGAL18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %.noexc35 unwind label %156
+66:                                               ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i65
+  %67 = invoke i16 @_ZZN4CGAL18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %.noexc86 unwind label %251
 
-.noexc35:                                         ; preds = %62
-  %.sroa.0.0.insert.insert.i22 = or disjoint i16 %.sroa.2.0.insert.shift.i17, %.sroa.2.0.insert.ext.i16
-  %.sroa.03.0.insert.insert.i.i.i23 = and i16 %63, %.sroa.0.0.insert.insert.i22
-  br label %_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i20
+.noexc86:                                         ; preds = %66
+  %.sroa.0.0.insert.insert.i73 = or disjoint i16 %.sroa.2.0.insert.shift.i68, %.sroa.2.0.insert.ext.i67
+  %.sroa.03.0.insert.insert.i.i.i74 = and i16 %67, %.sroa.0.0.insert.insert.i73
+  br label %_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i71
 
-_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i20: ; preds = %.noexc35, %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i14
-  %.sroa.06.0.i.i21 = phi i16 [ %.sroa.03.0.insert.insert.i.i.i23, %.noexc35 ], [ 0, %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i14 ]
-  store i16 %.sroa.06.0.i.i21, ptr %4, align 2
-  %64 = invoke noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %4)
-          to label %.noexc unwind label %156
+_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i71: ; preds = %.noexc86, %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i65
+  %.sroa.06.0.i.i72 = phi i16 [ %.sroa.03.0.insert.insert.i.i.i74, %.noexc86 ], [ 0, %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i65 ]
+  store i16 %.sroa.06.0.i.i72, ptr %4, align 2
+  %68 = invoke noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %4)
+          to label %.noexc unwind label %251
 
-.noexc:                                           ; preds = %_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i20
+.noexc:                                           ; preds = %_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i71
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br i1 %64, label %65, label %118
+  br i1 %68, label %69, label %122
 
-65:                                               ; preds = %.noexc
-  %66 = getelementptr inbounds i8, ptr %8, i64 264
-  %67 = getelementptr inbounds i8, ptr %8, i64 352
-  %68 = getelementptr inbounds i8, ptr %8, i64 440
+69:                                               ; preds = %.noexc
+  %70 = getelementptr inbounds i8, ptr %12, i64 264
+  %71 = getelementptr inbounds i8, ptr %12, i64 352
+  %72 = getelementptr inbounds i8, ptr %12, i64 440
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %69 = getelementptr inbounds i8, ptr %8, i64 344
-  %70 = load i32, ptr %69, align 8
-  %71 = load i32, ptr %15, align 8
-  %72 = xor i32 %71, %70
-  %73 = icmp slt i32 %72, 0
-  br i1 %73, label %74, label %75
+  %73 = getelementptr inbounds i8, ptr %12, i64 344
+  %74 = load i32, ptr %73, align 8
+  %75 = load i32, ptr %19, align 8
+  %76 = xor i32 %75, %74
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %78, label %79
 
-74:                                               ; preds = %65
-  %.inv.i.i.i.i = icmp sgt i32 %70, -1
-  br label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i
+78:                                               ; preds = %69
+  %.inv.i.i.i.i = icmp sgt i32 %74, -1
+  br label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i41
 
-75:                                               ; preds = %65
-  %76 = call i32 @llvm.abs.i32(i32 %70, i1 true)
-  %77 = call i32 @llvm.abs.i32(i32 %71, i1 true)
-  %78 = icmp eq i32 %71, 0
-  br i1 %78, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i, label %79
+79:                                               ; preds = %69
+  %80 = call i32 @llvm.abs.i32(i32 %74, i1 true)
+  %81 = call i32 @llvm.abs.i32(i32 %75, i1 true)
+  %82 = icmp eq i32 %75, 0
+  br i1 %82, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i39, label %83
 
-79:                                               ; preds = %75
-  %80 = icmp eq i32 %70, 0
-  br i1 %80, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i, label %81
+83:                                               ; preds = %79
+  %84 = icmp eq i32 %74, 0
+  br i1 %84, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i39, label %85
 
-81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %8, i64 348
-  %83 = load i32, ptr %82, align 4
-  %84 = add nsw i32 %83, %76
-  %85 = getelementptr inbounds i8, ptr %9, i64 84
-  %86 = load i32, ptr %85, align 4
-  %87 = add nsw i32 %86, %77
-  %.not.i.i.i.i.i = icmp eq i32 %84, %87
-  br i1 %.not.i.i.i.i.i, label %90, label %88
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds i8, ptr %12, i64 348
+  %87 = load i32, ptr %86, align 4
+  %88 = add nsw i32 %87, %80
+  %89 = getelementptr inbounds i8, ptr %13, i64 84
+  %90 = load i32, ptr %89, align 4
+  %91 = add nsw i32 %90, %81
+  %.not.i.i.i.i.i38 = icmp eq i32 %88, %91
+  br i1 %.not.i.i.i.i.i38, label %94, label %92
 
-88:                                               ; preds = %81
-  %89 = sub nsw i32 %84, %87
-  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i
+92:                                               ; preds = %85
+  %93 = sub nsw i32 %88, %91
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i39
 
-90:                                               ; preds = %81
-  %91 = load ptr, ptr %66, align 8
-  %92 = zext nneg i32 %76 to i64
-  %93 = getelementptr i64, ptr %91, i64 %92
-  %94 = load ptr, ptr %9, align 8
-  %95 = zext nneg i32 %77 to i64
-  %96 = getelementptr i64, ptr %94, i64 %95
-  %smax.i.i.i.i.i = call i32 @llvm.abs.i32(i32 %70, i1 false)
-  %smax54.i.i.i.i.i = call i32 @llvm.abs.i32(i32 %71, i1 false)
-  %umin.i.i.i.i.i = call i32 @llvm.umin.i32(i32 %smax.i.i.i.i.i, i32 %smax54.i.i.i.i.i)
-  br label %99
+94:                                               ; preds = %85
+  %95 = load ptr, ptr %70, align 8
+  %96 = zext nneg i32 %80 to i64
+  %97 = getelementptr i64, ptr %95, i64 %96
+  %98 = load ptr, ptr %13, align 8
+  %99 = zext nneg i32 %81 to i64
+  %100 = getelementptr i64, ptr %98, i64 %99
+  %smax.i.i.i.i.i50 = call i32 @llvm.abs.i32(i32 %74, i1 false)
+  %smax54.i.i.i.i.i51 = call i32 @llvm.abs.i32(i32 %75, i1 false)
+  %umin.i.i.i.i.i52 = call i32 @llvm.umin.i32(i32 %smax.i.i.i.i.i50, i32 %smax54.i.i.i.i.i51)
+  br label %103
 
-97:                                               ; preds = %99
-  %98 = add nuw i32 %.02246.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i32 %98, %umin.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %105, label %99, !llvm.loop !238
+101:                                              ; preds = %103
+  %102 = add nuw i32 %.02246.i.i.i.i.i55, 1
+  %exitcond.not.i.i.i.i.i59 = icmp eq i32 %102, %umin.i.i.i.i.i52
+  br i1 %exitcond.not.i.i.i.i.i59, label %109, label %103, !llvm.loop !238
 
-99:                                               ; preds = %97, %90
-  %.pn49.i.i.i.i.i = phi ptr [ %93, %90 ], [ %.02148.i.i.i.i.i, %97 ]
-  %.pn50.i.i.i.i.i = phi ptr [ %96, %90 ], [ %.02347.i.i.i.i.i, %97 ]
-  %.02246.i.i.i.i.i = phi i32 [ 0, %90 ], [ %98, %97 ]
-  %.02347.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn50.i.i.i.i.i, i64 -8
-  %.02148.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn49.i.i.i.i.i, i64 -8
-  %100 = load i64, ptr %.02148.i.i.i.i.i, align 8
-  %101 = load i64, ptr %.02347.i.i.i.i.i, align 8
-  %.not30.i.i.i.i.i = icmp eq i64 %100, %101
-  br i1 %.not30.i.i.i.i.i, label %97, label %102
+103:                                              ; preds = %101, %94
+  %.pn49.i.i.i.i.i53 = phi ptr [ %97, %94 ], [ %.02148.i.i.i.i.i57, %101 ]
+  %.pn50.i.i.i.i.i54 = phi ptr [ %100, %94 ], [ %.02347.i.i.i.i.i56, %101 ]
+  %.02246.i.i.i.i.i55 = phi i32 [ 0, %94 ], [ %102, %101 ]
+  %.02347.i.i.i.i.i56 = getelementptr inbounds i8, ptr %.pn50.i.i.i.i.i54, i64 -8
+  %.02148.i.i.i.i.i57 = getelementptr inbounds i8, ptr %.pn49.i.i.i.i.i53, i64 -8
+  %104 = load i64, ptr %.02148.i.i.i.i.i57, align 8
+  %105 = load i64, ptr %.02347.i.i.i.i.i56, align 8
+  %.not30.i.i.i.i.i58 = icmp eq i64 %104, %105
+  br i1 %.not30.i.i.i.i.i58, label %101, label %106
 
-102:                                              ; preds = %99
-  %103 = icmp ult i64 %100, %101
-  %104 = select i1 %103, i32 -1, i32 1
-  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i
+106:                                              ; preds = %103
+  %107 = icmp ult i64 %104, %105
+  %108 = select i1 %107, i32 -1, i32 1
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i39
 
-105:                                              ; preds = %97
-  %106 = sub nsw i32 %76, %77
-  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i
+109:                                              ; preds = %101
+  %110 = sub nsw i32 %80, %81
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i39
 
-_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i: ; preds = %105, %102, %88, %79, %75
-  %.0.i.i.i.i.i = phi i32 [ %89, %88 ], [ %104, %102 ], [ %106, %105 ], [ -1, %79 ], [ %76, %75 ]
-  %107 = icmp slt i32 %70, 0
-  %108 = sub nsw i32 0, %.0.i.i.i.i.i
-  %109 = select i1 %107, i32 %108, i32 %.0.i.i.i.i.i
-  %110 = icmp sgt i32 %109, 0
-  br label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i
+_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i39: ; preds = %109, %106, %92, %83, %79
+  %.0.i.i.i.i.i40 = phi i32 [ %93, %92 ], [ %108, %106 ], [ %110, %109 ], [ -1, %83 ], [ %80, %79 ]
+  %111 = icmp slt i32 %74, 0
+  %112 = sub nsw i32 0, %.0.i.i.i.i.i40
+  %113 = select i1 %111, i32 %112, i32 %.0.i.i.i.i.i40
+  %114 = icmp sgt i32 %113, 0
+  br label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i41
 
-_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i: ; preds = %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i, %74
-  %.0.i.i.i.i = phi i1 [ %.inv.i.i.i.i, %74 ], [ %110, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i ]
-  store ptr %67, ptr %7, align 8
-  %111 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %11, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %68, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr %12, ptr %113, align 8
-  %.sroa.2.0.insert.ext.i = zext i1 %.0.i.i.i.i to i16
-  %.sroa.2.0.insert.shift.i = select i1 %.0.i.i.i.i, i16 256, i16 0
-  %.sroa.2.0.extract.shift.i.i.i.i = lshr exact i16 %.sroa.2.0.insert.shift.i, 8
-  %114 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i.i, %.sroa.2.0.insert.ext.i
-  %.not7.i.i = or i1 %.0.i.i.i.i, %114
-  br i1 %.not7.i.i, label %115, label %_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i
+_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i41: ; preds = %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i39, %78
+  %.0.i.i.i.i42 = phi i1 [ %.inv.i.i.i.i, %78 ], [ %114, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i39 ]
+  store ptr %71, ptr %7, align 8
+  %115 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %15, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %72, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr %16, ptr %117, align 8
+  %.sroa.2.0.insert.ext.i43 = zext i1 %.0.i.i.i.i42 to i16
+  %.sroa.2.0.insert.shift.i44 = select i1 %.0.i.i.i.i42, i16 256, i16 0
+  %.sroa.2.0.extract.shift.i.i.i.i45 = lshr exact i16 %.sroa.2.0.insert.shift.i44, 8
+  %118 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i.i45, %.sroa.2.0.insert.ext.i43
+  %.not7.i.i46 = or i1 %.0.i.i.i.i42, %118
+  br i1 %.not7.i.i46, label %119, label %_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i
 
-115:                                              ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i
-  %116 = invoke i16 @_ZZN4CGAL18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %.noexc9 unwind label %156
+119:                                              ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i41
+  %120 = invoke i16 @_ZZN4CGAL18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %.noexc60 unwind label %251
 
-.noexc9:                                          ; preds = %115
-  %.sroa.0.0.insert.insert.i = or disjoint i16 %.sroa.2.0.insert.shift.i, %.sroa.2.0.insert.ext.i
-  %.sroa.03.0.insert.insert.i.i.i = and i16 %116, %.sroa.0.0.insert.insert.i
+.noexc60:                                         ; preds = %119
+  %.sroa.0.0.insert.insert.i48 = or disjoint i16 %.sroa.2.0.insert.shift.i44, %.sroa.2.0.insert.ext.i43
+  %.sroa.03.0.insert.insert.i.i.i49 = and i16 %120, %.sroa.0.0.insert.insert.i48
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i
 
-_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i: ; preds = %.noexc9, %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i
-  %.sroa.06.0.i.i = phi i16 [ %.sroa.03.0.insert.insert.i.i.i, %.noexc9 ], [ 0, %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i ]
-  store i16 %.sroa.06.0.i.i, ptr %6, align 2
-  %117 = invoke noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %6)
-          to label %.noexc6 unwind label %156
+_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i: ; preds = %.noexc60, %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i41
+  %.sroa.06.0.i.i47 = phi i16 [ %.sroa.03.0.insert.insert.i.i.i49, %.noexc60 ], [ 0, %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i41 ]
+  store i16 %.sroa.06.0.i.i47, ptr %6, align 2
+  %121 = invoke noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %6)
+          to label %.noexc6 unwind label %251
 
 .noexc6:                                          ; preds = %_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br i1 %117, label %_ZNK4CGAL20CommonKernelFunctors23Has_on_unbounded_side_3INS_16Simple_cartesianINS_4MpzfEEEEclERKNS_12Iso_cuboid_3IS4_EERKNS_7Point_3IS4_EE.exit, label %118
+  br i1 %121, label %_ZNK4CGAL20CommonKernelFunctors23Has_on_unbounded_side_3INS_16Simple_cartesianINS_4MpzfEEEEclERKNS_12Iso_cuboid_3IS4_EERKNS_7Point_3IS4_EE.exit, label %122
 
-118:                                              ; preds = %.noexc6, %.noexc
-  %119 = invoke noundef zeroext i1 @_ZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(88) %12, ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull align 8 dereferenceable(88) %13, ptr noundef nonnull align 8 dereferenceable(88) %14)
-          to label %.noexc7 unwind label %156
+122:                                              ; preds = %.noexc6, %.noexc
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  %123 = load i32, ptr %19, align 8
+  %124 = load i32, ptr %21, align 8
+  %125 = xor i32 %124, %123
+  %126 = icmp slt i32 %125, 0
+  br i1 %126, label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i14, label %127
 
-.noexc7:                                          ; preds = %118
-  br i1 %119, label %120, label %125
+127:                                              ; preds = %122
+  %128 = call i32 @llvm.abs.i32(i32 %123, i1 true)
+  %129 = call i32 @llvm.abs.i32(i32 %124, i1 true)
+  %130 = icmp eq i32 %124, 0
+  br i1 %130, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12, label %131
 
-120:                                              ; preds = %.noexc7
-  %121 = getelementptr inbounds i8, ptr %8, i64 264
-  %122 = getelementptr inbounds i8, ptr %8, i64 352
-  %123 = getelementptr inbounds i8, ptr %8, i64 440
-  %124 = invoke noundef zeroext i1 @_ZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(88) %121, ptr noundef nonnull align 8 dereferenceable(88) %122, ptr noundef nonnull align 8 dereferenceable(88) %123, ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(88) %12)
-          to label %.noexc8 unwind label %156
+131:                                              ; preds = %127
+  %132 = icmp eq i32 %123, 0
+  br i1 %132, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12, label %133
 
-.noexc8:                                          ; preds = %120
-  br i1 %124, label %_ZNK4CGAL20CommonKernelFunctors23Has_on_unbounded_side_3INS_16Simple_cartesianINS_4MpzfEEEEclERKNS_12Iso_cuboid_3IS4_EERKNS_7Point_3IS4_EE.exit, label %125
+133:                                              ; preds = %131
+  %134 = getelementptr inbounds i8, ptr %13, i64 84
+  %135 = load i32, ptr %134, align 4
+  %136 = add nsw i32 %135, %128
+  %137 = getelementptr inbounds i8, ptr %12, i64 84
+  %138 = load i32, ptr %137, align 4
+  %139 = add nsw i32 %138, %129
+  %.not.i.i.i.i.i11 = icmp eq i32 %136, %139
+  br i1 %.not.i.i.i.i.i11, label %142, label %140
 
-125:                                              ; preds = %.noexc8, %.noexc7
+140:                                              ; preds = %133
+  %141 = sub nsw i32 %136, %139
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12
+
+142:                                              ; preds = %133
+  %143 = load ptr, ptr %13, align 8
+  %144 = zext nneg i32 %128 to i64
+  %145 = getelementptr i64, ptr %143, i64 %144
+  %146 = load ptr, ptr %12, align 8
+  %147 = zext nneg i32 %129 to i64
+  %148 = getelementptr i64, ptr %146, i64 %147
+  %smax.i.i.i.i.i25 = call i32 @llvm.abs.i32(i32 %123, i1 false)
+  %smax54.i.i.i.i.i26 = call i32 @llvm.abs.i32(i32 %124, i1 false)
+  %umin.i.i.i.i.i27 = call i32 @llvm.umin.i32(i32 %smax.i.i.i.i.i25, i32 %smax54.i.i.i.i.i26)
+  br label %151
+
+149:                                              ; preds = %151
+  %150 = add nuw i32 %.02246.i.i.i.i.i30, 1
+  %exitcond.not.i.i.i.i.i34 = icmp eq i32 %150, %umin.i.i.i.i.i27
+  br i1 %exitcond.not.i.i.i.i.i34, label %157, label %151, !llvm.loop !238
+
+151:                                              ; preds = %149, %142
+  %.pn49.i.i.i.i.i28 = phi ptr [ %145, %142 ], [ %.02148.i.i.i.i.i32, %149 ]
+  %.pn50.i.i.i.i.i29 = phi ptr [ %148, %142 ], [ %.02347.i.i.i.i.i31, %149 ]
+  %.02246.i.i.i.i.i30 = phi i32 [ 0, %142 ], [ %150, %149 ]
+  %.02347.i.i.i.i.i31 = getelementptr inbounds i8, ptr %.pn50.i.i.i.i.i29, i64 -8
+  %.02148.i.i.i.i.i32 = getelementptr inbounds i8, ptr %.pn49.i.i.i.i.i28, i64 -8
+  %152 = load i64, ptr %.02148.i.i.i.i.i32, align 8
+  %153 = load i64, ptr %.02347.i.i.i.i.i31, align 8
+  %.not30.i.i.i.i.i33 = icmp eq i64 %152, %153
+  br i1 %.not30.i.i.i.i.i33, label %149, label %154
+
+154:                                              ; preds = %151
+  %155 = icmp ult i64 %152, %153
+  %156 = select i1 %155, i32 -1, i32 1
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12
+
+157:                                              ; preds = %149
+  %158 = sub nsw i32 %128, %129
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12
+
+_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12: ; preds = %157, %154, %140, %131, %127
+  %.0.i.i.i.i.i13 = phi i32 [ %141, %140 ], [ %156, %154 ], [ %158, %157 ], [ -1, %131 ], [ %128, %127 ]
+  %159 = icmp slt i32 %123, 0
+  %160 = sub nsw i32 0, %.0.i.i.i.i.i13
+  %161 = select i1 %159, i32 %160, i32 %.0.i.i.i.i.i13
+  br label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i14
+
+_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i14: ; preds = %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12, %122
+  %.0.i.i.i.in.i15 = phi i32 [ %161, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i12 ], [ %123, %122 ]
+  %.0.i.i.i.i16 = icmp sgt i32 %.0.i.i.i.in.i15, -1
+  store ptr %15, ptr %9, align 8
+  %162 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %17, ptr %162, align 8
+  %163 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr %16, ptr %163, align 8
+  %164 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr %18, ptr %164, align 8
+  %.sroa.2.0.insert.ext.i17 = zext i1 %.0.i.i.i.i16 to i16
+  %.sroa.2.0.insert.shift.i18 = select i1 %.0.i.i.i.i16, i16 256, i16 0
+  %.sroa.2.0.extract.shift.i.i.i.i19 = lshr exact i16 %.sroa.2.0.insert.shift.i18, 8
+  %165 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i.i19, %.sroa.2.0.insert.ext.i17
+  %.not7.i.i20 = or i1 %.0.i.i.i.i16, %165
+  br i1 %.not7.i.i20, label %166, label %_ZN4CGAL8internal13cgal_and_implIZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i21
+
+166:                                              ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i14
+  %167 = invoke i16 @_ZZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %.noexc35 unwind label %251
+
+.noexc35:                                         ; preds = %166
+  %.sroa.0.0.insert.insert.i23 = or disjoint i16 %.sroa.2.0.insert.shift.i18, %.sroa.2.0.insert.ext.i17
+  %.sroa.03.0.insert.insert.i.i.i24 = and i16 %167, %.sroa.0.0.insert.insert.i23
+  br label %_ZN4CGAL8internal13cgal_and_implIZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i21
+
+_ZN4CGAL8internal13cgal_and_implIZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i21: ; preds = %.noexc35, %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i14
+  %.sroa.06.0.i.i22 = phi i16 [ %.sroa.03.0.insert.insert.i.i.i24, %.noexc35 ], [ 0, %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i14 ]
+  store i16 %.sroa.06.0.i.i22, ptr %8, align 2
+  %168 = invoke noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %8)
+          to label %.noexc7 unwind label %251
+
+.noexc7:                                          ; preds = %_ZN4CGAL8internal13cgal_and_implIZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i21
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  br i1 %168, label %169, label %220
+
+169:                                              ; preds = %.noexc7
+  %170 = getelementptr inbounds i8, ptr %12, i64 264
+  %171 = getelementptr inbounds i8, ptr %12, i64 352
+  %172 = getelementptr inbounds i8, ptr %12, i64 440
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  %173 = getelementptr inbounds i8, ptr %12, i64 344
+  %174 = load i32, ptr %173, align 8
+  %175 = load i32, ptr %19, align 8
+  %176 = xor i32 %175, %174
+  %177 = icmp slt i32 %176, 0
+  br i1 %177, label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i, label %178
+
+178:                                              ; preds = %169
+  %179 = call i32 @llvm.abs.i32(i32 %174, i1 true)
+  %180 = call i32 @llvm.abs.i32(i32 %175, i1 true)
+  %181 = icmp eq i32 %175, 0
+  br i1 %181, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i, label %182
+
+182:                                              ; preds = %178
+  %183 = icmp eq i32 %174, 0
+  br i1 %183, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i, label %184
+
+184:                                              ; preds = %182
+  %185 = getelementptr inbounds i8, ptr %12, i64 348
+  %186 = load i32, ptr %185, align 4
+  %187 = add nsw i32 %186, %179
+  %188 = getelementptr inbounds i8, ptr %13, i64 84
+  %189 = load i32, ptr %188, align 4
+  %190 = add nsw i32 %189, %180
+  %.not.i.i.i.i.i = icmp eq i32 %187, %190
+  br i1 %.not.i.i.i.i.i, label %193, label %191
+
+191:                                              ; preds = %184
+  %192 = sub nsw i32 %187, %190
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i
+
+193:                                              ; preds = %184
+  %194 = load ptr, ptr %170, align 8
+  %195 = zext nneg i32 %179 to i64
+  %196 = getelementptr i64, ptr %194, i64 %195
+  %197 = load ptr, ptr %13, align 8
+  %198 = zext nneg i32 %180 to i64
+  %199 = getelementptr i64, ptr %197, i64 %198
+  %smax.i.i.i.i.i = call i32 @llvm.abs.i32(i32 %174, i1 false)
+  %smax54.i.i.i.i.i = call i32 @llvm.abs.i32(i32 %175, i1 false)
+  %umin.i.i.i.i.i = call i32 @llvm.umin.i32(i32 %smax.i.i.i.i.i, i32 %smax54.i.i.i.i.i)
+  br label %202
+
+200:                                              ; preds = %202
+  %201 = add nuw i32 %.02246.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i32 %201, %umin.i.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i.i, label %208, label %202, !llvm.loop !238
+
+202:                                              ; preds = %200, %193
+  %.pn49.i.i.i.i.i = phi ptr [ %196, %193 ], [ %.02148.i.i.i.i.i, %200 ]
+  %.pn50.i.i.i.i.i = phi ptr [ %199, %193 ], [ %.02347.i.i.i.i.i, %200 ]
+  %.02246.i.i.i.i.i = phi i32 [ 0, %193 ], [ %201, %200 ]
+  %.02347.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn50.i.i.i.i.i, i64 -8
+  %.02148.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn49.i.i.i.i.i, i64 -8
+  %203 = load i64, ptr %.02148.i.i.i.i.i, align 8
+  %204 = load i64, ptr %.02347.i.i.i.i.i, align 8
+  %.not30.i.i.i.i.i = icmp eq i64 %203, %204
+  br i1 %.not30.i.i.i.i.i, label %200, label %205
+
+205:                                              ; preds = %202
+  %206 = icmp ult i64 %203, %204
+  %207 = select i1 %206, i32 -1, i32 1
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i
+
+208:                                              ; preds = %200
+  %209 = sub nsw i32 %179, %180
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i
+
+_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i: ; preds = %208, %205, %191, %182, %178
+  %.0.i.i.i.i.i = phi i32 [ %192, %191 ], [ %207, %205 ], [ %209, %208 ], [ -1, %182 ], [ %179, %178 ]
+  %210 = icmp slt i32 %174, 0
+  %211 = sub nsw i32 0, %.0.i.i.i.i.i
+  %212 = select i1 %210, i32 %211, i32 %.0.i.i.i.i.i
+  br label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i
+
+_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i: ; preds = %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i, %169
+  %.0.i.i.i.in.i = phi i32 [ %212, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i ], [ %174, %169 ]
+  %.0.i.i.i.i = icmp sgt i32 %.0.i.i.i.in.i, -1
+  store ptr %171, ptr %11, align 8
+  %213 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %15, ptr %213, align 8
+  %214 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %172, ptr %214, align 8
+  %215 = getelementptr inbounds i8, ptr %11, i64 24
+  store ptr %16, ptr %215, align 8
+  %.sroa.2.0.insert.ext.i = zext i1 %.0.i.i.i.i to i16
+  %.sroa.2.0.insert.shift.i = select i1 %.0.i.i.i.i, i16 256, i16 0
+  %.sroa.2.0.extract.shift.i.i.i.i = lshr exact i16 %.sroa.2.0.insert.shift.i, 8
+  %216 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i.i, %.sroa.2.0.insert.ext.i
+  %.not7.i.i = or i1 %.0.i.i.i.i, %216
+  br i1 %.not7.i.i, label %217, label %_ZN4CGAL8internal13cgal_and_implIZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i
+
+217:                                              ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i
+  %218 = invoke i16 @_ZZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %.noexc9 unwind label %251
+
+.noexc9:                                          ; preds = %217
+  %.sroa.0.0.insert.insert.i = or disjoint i16 %.sroa.2.0.insert.shift.i, %.sroa.2.0.insert.ext.i
+  %.sroa.03.0.insert.insert.i.i.i = and i16 %218, %.sroa.0.0.insert.insert.i
+  br label %_ZN4CGAL8internal13cgal_and_implIZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i
+
+_ZN4CGAL8internal13cgal_and_implIZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i: ; preds = %.noexc9, %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i
+  %.sroa.06.0.i.i = phi i16 [ %.sroa.03.0.insert.insert.i.i.i, %.noexc9 ], [ 0, %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit.i ]
+  store i16 %.sroa.06.0.i.i, ptr %10, align 2
+  %219 = invoke noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %10)
+          to label %.noexc8 unwind label %251
+
+.noexc8:                                          ; preds = %_ZN4CGAL8internal13cgal_and_implIZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
+  br i1 %219, label %_ZNK4CGAL20CommonKernelFunctors23Has_on_unbounded_side_3INS_16Simple_cartesianINS_4MpzfEEEEclERKNS_12Iso_cuboid_3IS4_EERKNS_7Point_3IS4_EE.exit, label %220
+
+220:                                              ; preds = %.noexc8, %.noexc7
   br label %_ZNK4CGAL20CommonKernelFunctors23Has_on_unbounded_side_3INS_16Simple_cartesianINS_4MpzfEEEEclERKNS_12Iso_cuboid_3IS4_EERKNS_7Point_3IS4_EE.exit
 
-_ZNK4CGAL20CommonKernelFunctors23Has_on_unbounded_side_3INS_16Simple_cartesianINS_4MpzfEEEEclERKNS_12Iso_cuboid_3IS4_EERKNS_7Point_3IS4_EE.exit: ; preds = %125, %.noexc8, %.noexc6
-  %126 = phi i1 [ true, %125 ], [ false, %.noexc6 ], [ false, %.noexc8 ]
-  %127 = getelementptr inbounds i8, ptr %9, i64 264
-  br label %128
+_ZNK4CGAL20CommonKernelFunctors23Has_on_unbounded_side_3INS_16Simple_cartesianINS_4MpzfEEEEclERKNS_12Iso_cuboid_3IS4_EERKNS_7Point_3IS4_EE.exit: ; preds = %220, %.noexc8, %.noexc6
+  %221 = phi i1 [ true, %220 ], [ false, %.noexc6 ], [ false, %.noexc8 ]
+  %222 = getelementptr inbounds i8, ptr %13, i64 264
+  br label %223
 
-128:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i, %_ZNK4CGAL20CommonKernelFunctors23Has_on_unbounded_side_3INS_16Simple_cartesianINS_4MpzfEEEEclERKNS_12Iso_cuboid_3IS4_EERKNS_7Point_3IS4_EE.exit
-  %129 = phi ptr [ %127, %_ZNK4CGAL20CommonKernelFunctors23Has_on_unbounded_side_3INS_16Simple_cartesianINS_4MpzfEEEEclERKNS_12Iso_cuboid_3IS4_EERKNS_7Point_3IS4_EE.exit ], [ %130, %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i ]
-  %130 = getelementptr inbounds i8, ptr %129, i64 -88
-  %131 = load ptr, ptr %130, align 8
-  br label %132
+223:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i, %_ZNK4CGAL20CommonKernelFunctors23Has_on_unbounded_side_3INS_16Simple_cartesianINS_4MpzfEEEEclERKNS_12Iso_cuboid_3IS4_EERKNS_7Point_3IS4_EE.exit
+  %224 = phi ptr [ %222, %_ZNK4CGAL20CommonKernelFunctors23Has_on_unbounded_side_3INS_16Simple_cartesianINS_4MpzfEEEEclERKNS_12Iso_cuboid_3IS4_EERKNS_7Point_3IS4_EE.exit ], [ %225, %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i ]
+  %225 = getelementptr inbounds i8, ptr %224, i64 -88
+  %226 = load ptr, ptr %225, align 8
+  br label %227
 
-132:                                              ; preds = %132, %128
-  %.pn.i.i.i.i.i.i.i = phi ptr [ %131, %128 ], [ %storemerge.i.i.i.i.i.i.i, %132 ]
+227:                                              ; preds = %227, %223
+  %.pn.i.i.i.i.i.i.i = phi ptr [ %226, %223 ], [ %storemerge.i.i.i.i.i.i.i, %227 ]
   %storemerge.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i.i, i64 -8
-  store ptr %storemerge.i.i.i.i.i.i.i, ptr %130, align 8
-  %133 = load i64, ptr %storemerge.i.i.i.i.i.i.i, align 8
-  %134 = icmp eq i64 %133, 0
-  br i1 %134, label %132, label %135, !llvm.loop !207
+  store ptr %storemerge.i.i.i.i.i.i.i, ptr %225, align 8
+  %228 = load i64, ptr %storemerge.i.i.i.i.i.i.i, align 8
+  %229 = icmp eq i64 %228, 0
+  br i1 %229, label %227, label %230, !llvm.loop !207
 
-135:                                              ; preds = %132
-  %136 = getelementptr inbounds i8, ptr %129, i64 -80
-  %137 = icmp eq ptr %storemerge.i.i.i.i.i.i.i, %136
-  br i1 %137, label %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i, label %138
+230:                                              ; preds = %227
+  %231 = getelementptr inbounds i8, ptr %224, i64 -80
+  %232 = icmp eq ptr %storemerge.i.i.i.i.i.i.i, %231
+  br i1 %232, label %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i, label %233
 
-138:                                              ; preds = %135
-  store ptr %.pn.i.i.i.i.i.i.i, ptr %130, align 8
+233:                                              ; preds = %230
+  store ptr %.pn.i.i.i.i.i.i.i, ptr %225, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.i.i.i.i.i) #36
   br label %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i
 
-_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i:                 ; preds = %138, %135
-  %139 = icmp eq ptr %130, %9
-  br i1 %139, label %_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit, label %128
+_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i:                 ; preds = %233, %230
+  %234 = icmp eq ptr %225, %13
+  br i1 %234, label %_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit, label %223
 
 _ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit: ; preds = %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i
-  %140 = getelementptr inbounds i8, ptr %8, i64 528
-  br label %141
+  %235 = getelementptr inbounds i8, ptr %12, i64 528
+  br label %236
 
-141:                                              ; preds = %_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit.i.i.i, %_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit
-  %142 = phi ptr [ %140, %_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit ], [ %152, %_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit.i.i.i ]
-  %invariant.gep.i.i.i = getelementptr i8, ptr %142, i64 -80
-  br label %143
+236:                                              ; preds = %_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit.i.i.i, %_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit
+  %237 = phi ptr [ %235, %_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit ], [ %247, %_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit.i.i.i ]
+  %invariant.gep.i.i.i = getelementptr i8, ptr %237, i64 -80
+  br label %238
 
-143:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i.i.i.i, %141
-  %.idx.i.i.i = phi i64 [ 0, %141 ], [ %.add.i.i.i, %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i.i.i.i ]
+238:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i.i.i.i, %236
+  %.idx.i.i.i = phi i64 [ 0, %236 ], [ %.add.i.i.i, %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i.i.i.i ]
   %.add.i.i.i = add nsw i64 %.idx.i.i.i, -88
-  %.ptr1.i.i.i = getelementptr inbounds i8, ptr %142, i64 %.add.i.i.i
-  %144 = load ptr, ptr %.ptr1.i.i.i, align 8
-  br label %145
+  %.ptr1.i.i.i = getelementptr inbounds i8, ptr %237, i64 %.add.i.i.i
+  %239 = load ptr, ptr %.ptr1.i.i.i, align 8
+  br label %240
 
-145:                                              ; preds = %145, %143
-  %.pn.i.i.i.i.i.i.i.i.i.i = phi ptr [ %144, %143 ], [ %storemerge.i.i.i.i.i.i.i.i.i.i, %145 ]
+240:                                              ; preds = %240, %238
+  %.pn.i.i.i.i.i.i.i.i.i.i = phi ptr [ %239, %238 ], [ %storemerge.i.i.i.i.i.i.i.i.i.i, %240 ]
   %storemerge.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i.i.i.i.i, i64 -8
   store ptr %storemerge.i.i.i.i.i.i.i.i.i.i, ptr %.ptr1.i.i.i, align 8
-  %146 = load i64, ptr %storemerge.i.i.i.i.i.i.i.i.i.i, align 8
-  %147 = icmp eq i64 %146, 0
-  br i1 %147, label %145, label %148, !llvm.loop !207
+  %241 = load i64, ptr %storemerge.i.i.i.i.i.i.i.i.i.i, align 8
+  %242 = icmp eq i64 %241, 0
+  br i1 %242, label %240, label %243, !llvm.loop !207
 
-148:                                              ; preds = %145
+243:                                              ; preds = %240
   %gep.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %.idx.i.i.i
-  %149 = icmp eq ptr %storemerge.i.i.i.i.i.i.i.i.i.i, %gep.i.i.i
-  br i1 %149, label %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i.i.i.i, label %150
+  %244 = icmp eq ptr %storemerge.i.i.i.i.i.i.i.i.i.i, %gep.i.i.i
+  br i1 %244, label %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i.i.i.i, label %245
 
-150:                                              ; preds = %148
+245:                                              ; preds = %243
   store ptr %.pn.i.i.i.i.i.i.i.i.i.i, ptr %.ptr1.i.i.i, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.i.i.i.i.i.i.i.i) #36
   br label %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i.i.i.i
 
-_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i.i.i.i:           ; preds = %150, %148
-  %151 = icmp eq i64 %.add.i.i.i, -264
-  br i1 %151, label %_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit.i.i.i, label %143
+_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i.i.i.i:           ; preds = %245, %243
+  %246 = icmp eq i64 %.add.i.i.i, -264
+  br i1 %246, label %_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit.i.i.i, label %238
 
 _ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit.i.i.i: ; preds = %_ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i.i.i.i
-  %152 = getelementptr inbounds i8, ptr %142, i64 -264
-  %153 = icmp eq ptr %152, %8
-  br i1 %153, label %_ZN4CGAL12Iso_cuboid_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit, label %141
+  %247 = getelementptr inbounds i8, ptr %237, i64 -264
+  %248 = icmp eq ptr %247, %12
+  br i1 %248, label %_ZN4CGAL12Iso_cuboid_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit, label %236
 
 _ZN4CGAL12Iso_cuboid_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit: ; preds = %_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev.exit.i.i.i
-  ret i1 %126
+  ret i1 %221
 
-154:                                              ; preds = %3
-  %155 = landingpad { ptr, i32 }
+249:                                              ; preds = %3
+  %250 = landingpad { ptr, i32 }
           cleanup
-  br label %158
+  br label %253
 
-156:                                              ; preds = %_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i20, %62, %_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i, %115, %120, %118
-  %157 = landingpad { ptr, i32 }
+251:                                              ; preds = %_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i71, %66, %_ZN4CGAL8internal13cgal_and_implIZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i, %119, %_ZN4CGAL8internal13cgal_and_implIZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i21, %166, %_ZN4CGAL8internal13cgal_and_implIZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit.i, %217
+  %252 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %9) #21
-  br label %158
+  call void @_ZN4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %13) #21
+  br label %253
 
-158:                                              ; preds = %156, %154
-  %.pn = phi { ptr, i32 } [ %157, %156 ], [ %155, %154 ]
-  call void @_ZN4CGAL12Iso_cuboid_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(528) %8) #21
+253:                                              ; preds = %251, %249
+  %.pn = phi { ptr, i32 } [ %252, %251 ], [ %250, %249 ]
+  call void @_ZN4CGAL12Iso_cuboid_3INS_16Simple_cartesianINS_4MpzfEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(528) %12) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -86005,119 +86222,6 @@ _ZN4CGAL8internal13cgal_and_implIZZNS_18strict_dominanceC3INS_4MpzfEEENS_8Equal_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %5) local_unnamed_addr #9 comdat {
-  %7 = alloca %"class.CGAL::Uncertain", align 2
-  %8 = alloca %class.anon.1472, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 80
-  %12 = load i32, ptr %11, align 8
-  %13 = xor i32 %12, %10
-  %14 = icmp slt i32 %13, 0
-  br i1 %14, label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit, label %15
-
-15:                                               ; preds = %6
-  %16 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
-  %17 = tail call i32 @llvm.abs.i32(i32 %12, i1 true)
-  %18 = icmp eq i32 %12, 0
-  br i1 %18, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i, label %19
-
-19:                                               ; preds = %15
-  %20 = icmp eq i32 %10, 0
-  br i1 %20, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i, label %21
-
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 84
-  %23 = load i32, ptr %22, align 4
-  %24 = add nsw i32 %23, %16
-  %25 = getelementptr inbounds i8, ptr %3, i64 84
-  %26 = load i32, ptr %25, align 4
-  %27 = add nsw i32 %26, %17
-  %.not.i.i.i.i = icmp eq i32 %24, %27
-  br i1 %.not.i.i.i.i, label %30, label %28
-
-28:                                               ; preds = %21
-  %29 = sub nsw i32 %24, %27
-  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i
-
-30:                                               ; preds = %21
-  %31 = load ptr, ptr %0, align 8
-  %32 = zext nneg i32 %16 to i64
-  %33 = getelementptr i64, ptr %31, i64 %32
-  %34 = load ptr, ptr %3, align 8
-  %35 = zext nneg i32 %17 to i64
-  %36 = getelementptr i64, ptr %34, i64 %35
-  %smax.i.i.i.i = tail call i32 @llvm.abs.i32(i32 %10, i1 false)
-  %smax54.i.i.i.i = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
-  %umin.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %smax.i.i.i.i, i32 %smax54.i.i.i.i)
-  br label %39
-
-37:                                               ; preds = %39
-  %38 = add nuw i32 %.02246.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i32 %38, %umin.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %45, label %39, !llvm.loop !238
-
-39:                                               ; preds = %37, %30
-  %.pn49.i.i.i.i = phi ptr [ %33, %30 ], [ %.02148.i.i.i.i, %37 ]
-  %.pn50.i.i.i.i = phi ptr [ %36, %30 ], [ %.02347.i.i.i.i, %37 ]
-  %.02246.i.i.i.i = phi i32 [ 0, %30 ], [ %38, %37 ]
-  %.02347.i.i.i.i = getelementptr inbounds i8, ptr %.pn50.i.i.i.i, i64 -8
-  %.02148.i.i.i.i = getelementptr inbounds i8, ptr %.pn49.i.i.i.i, i64 -8
-  %40 = load i64, ptr %.02148.i.i.i.i, align 8
-  %41 = load i64, ptr %.02347.i.i.i.i, align 8
-  %.not30.i.i.i.i = icmp eq i64 %40, %41
-  br i1 %.not30.i.i.i.i, label %37, label %42
-
-42:                                               ; preds = %39
-  %43 = icmp ult i64 %40, %41
-  %44 = select i1 %43, i32 -1, i32 1
-  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i
-
-45:                                               ; preds = %37
-  %46 = sub nsw i32 %16, %17
-  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i
-
-_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i:  ; preds = %45, %42, %28, %19, %15
-  %.0.i.i.i.i = phi i32 [ %29, %28 ], [ %44, %42 ], [ %46, %45 ], [ -1, %19 ], [ %16, %15 ]
-  %47 = icmp slt i32 %10, 0
-  %48 = sub nsw i32 0, %.0.i.i.i.i
-  %49 = select i1 %47, i32 %48, i32 %.0.i.i.i.i
-  br label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit
-
-_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit: ; preds = %6, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i
-  %.0.i.i.i.in = phi i32 [ %49, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i ], [ %10, %6 ]
-  %.0.i.i.i = icmp sgt i32 %.0.i.i.i.in, -1
-  store ptr %1, ptr %8, align 8
-  %50 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %4, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %2, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr %5, ptr %52, align 8
-  %.sroa.2.0.insert.ext = zext i1 %.0.i.i.i to i16
-  %53 = lshr i32 %.0.i.i.i.in, 23
-  %54 = trunc nuw nsw i32 %53 to i16
-  %55 = and i16 %54, 256
-  %56 = or disjoint i16 %55, %.sroa.2.0.insert.ext
-  %.sroa.0.0.insert.insert = xor i16 %56, 256
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.0.0.insert.insert, 8
-  %57 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.2.0.insert.ext
-  %.not7.i = or i1 %.0.i.i.i, %57
-  br i1 %.not7.i, label %58, label %_ZN4CGAL8internal13cgal_and_implIZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit
-
-58:                                               ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit
-  %59 = call i16 @_ZZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
-  %.sroa.03.0.insert.insert.i.i = and i16 %59, %.sroa.0.0.insert.insert
-  br label %_ZN4CGAL8internal13cgal_and_implIZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit
-
-_ZN4CGAL8internal13cgal_and_implIZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_EUlvE_EENS_9UncertainIbEERKSC_OS5_.exit: ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit, %58
-  %.sroa.06.0.i = phi i16 [ %.sroa.03.0.insert.insert.i.i, %58 ], [ 0, %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit ]
-  store i16 %.sroa.06.0.i, ptr %7, align 2
-  %60 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %7)
-  ret i1 %60
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr i16 @_ZZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #9 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -86206,107 +86310,101 @@ _ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsI
   %48 = getelementptr inbounds i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
   %.sroa.22.0.insert.ext = zext i1 %.0.i.i.i to i16
-  %50 = lshr i32 %.0.i.i.i.in, 23
-  %51 = trunc nuw nsw i32 %50 to i16
-  %52 = and i16 %51, 256
-  %53 = or disjoint i16 %52, %.sroa.22.0.insert.ext
-  %.sroa.01.0.insert.insert = xor i16 %53, 256
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.01.0.insert.insert, 8
-  %54 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.22.0.insert.ext
-  %.not6.i = or i1 %.0.i.i.i, %54
-  br i1 %.not6.i, label %55, label %_ZN4CGAL8internal13cgal_and_implIZZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_ENKUlvE_clEvEUlvE_EENS_9UncertainIbEERKSD_OS5_.exit
+  %.sroa.22.0.insert.shift = select i1 %.0.i.i.i, i16 256, i16 0
+  %.sroa.01.0.insert.insert = or disjoint i16 %.sroa.22.0.insert.shift, %.sroa.22.0.insert.ext
+  %.sroa.2.0.extract.shift.i.i.i = lshr exact i16 %.sroa.22.0.insert.shift, 8
+  %50 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i, %.sroa.22.0.insert.ext
+  %.not6.i = or i1 %.0.i.i.i, %50
+  br i1 %.not6.i, label %51, label %_ZN4CGAL8internal13cgal_and_implIZZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_ENKUlvE_clEvEUlvE_EENS_9UncertainIbEERKSD_OS5_.exit
 
-55:                                               ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit
-  %56 = getelementptr inbounds i8, ptr %47, i64 80
-  %57 = load i32, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %49, i64 80
-  %59 = load i32, ptr %58, align 8
-  %60 = xor i32 %59, %57
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %_ZZZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEvENKUlvE_clEv.exit.i, label %62
+51:                                               ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit
+  %52 = getelementptr inbounds i8, ptr %47, i64 80
+  %53 = load i32, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %49, i64 80
+  %55 = load i32, ptr %54, align 8
+  %56 = xor i32 %55, %53
+  %57 = icmp slt i32 %56, 0
+  br i1 %57, label %_ZZZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEvENKUlvE_clEv.exit.i, label %58
 
-62:                                               ; preds = %55
-  %63 = tail call i32 @llvm.abs.i32(i32 %57, i1 true)
-  %64 = tail call i32 @llvm.abs.i32(i32 %59, i1 true)
-  %65 = icmp eq i32 %59, 0
-  br i1 %65, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i.i, label %66
+58:                                               ; preds = %51
+  %59 = tail call i32 @llvm.abs.i32(i32 %53, i1 true)
+  %60 = tail call i32 @llvm.abs.i32(i32 %55, i1 true)
+  %61 = icmp eq i32 %55, 0
+  br i1 %61, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i.i, label %62
 
-66:                                               ; preds = %62
-  %67 = icmp eq i32 %57, 0
-  br i1 %67, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i.i, label %68
+62:                                               ; preds = %58
+  %63 = icmp eq i32 %53, 0
+  br i1 %63, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i.i, label %64
 
-68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %47, i64 84
-  %70 = load i32, ptr %69, align 4
-  %71 = add nsw i32 %70, %63
-  %72 = getelementptr inbounds i8, ptr %49, i64 84
-  %73 = load i32, ptr %72, align 4
-  %74 = add nsw i32 %73, %64
-  %.not.i.i.i.i.i.i = icmp eq i32 %71, %74
-  br i1 %.not.i.i.i.i.i.i, label %77, label %75
+64:                                               ; preds = %62
+  %65 = getelementptr inbounds i8, ptr %47, i64 84
+  %66 = load i32, ptr %65, align 4
+  %67 = add nsw i32 %66, %59
+  %68 = getelementptr inbounds i8, ptr %49, i64 84
+  %69 = load i32, ptr %68, align 4
+  %70 = add nsw i32 %69, %60
+  %.not.i.i.i.i.i.i = icmp eq i32 %67, %70
+  br i1 %.not.i.i.i.i.i.i, label %73, label %71
 
-75:                                               ; preds = %68
-  %76 = sub nsw i32 %71, %74
+71:                                               ; preds = %64
+  %72 = sub nsw i32 %67, %70
   br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i.i
 
-77:                                               ; preds = %68
-  %78 = load ptr, ptr %47, align 8
-  %79 = zext nneg i32 %63 to i64
-  %80 = getelementptr i64, ptr %78, i64 %79
-  %81 = load ptr, ptr %49, align 8
-  %82 = zext nneg i32 %64 to i64
-  %83 = getelementptr i64, ptr %81, i64 %82
-  %smax.i.i.i.i.i.i = tail call i32 @llvm.abs.i32(i32 %57, i1 false)
-  %smax54.i.i.i.i.i.i = tail call i32 @llvm.abs.i32(i32 %59, i1 false)
+73:                                               ; preds = %64
+  %74 = load ptr, ptr %47, align 8
+  %75 = zext nneg i32 %59 to i64
+  %76 = getelementptr i64, ptr %74, i64 %75
+  %77 = load ptr, ptr %49, align 8
+  %78 = zext nneg i32 %60 to i64
+  %79 = getelementptr i64, ptr %77, i64 %78
+  %smax.i.i.i.i.i.i = tail call i32 @llvm.abs.i32(i32 %53, i1 false)
+  %smax54.i.i.i.i.i.i = tail call i32 @llvm.abs.i32(i32 %55, i1 false)
   %umin.i.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %smax.i.i.i.i.i.i, i32 %smax54.i.i.i.i.i.i)
-  br label %86
+  br label %82
 
-84:                                               ; preds = %86
-  %85 = add nuw i32 %.02246.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i = icmp eq i32 %85, %umin.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i, label %92, label %86, !llvm.loop !238
+80:                                               ; preds = %82
+  %81 = add nuw i32 %.02246.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i = icmp eq i32 %81, %umin.i.i.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i.i.i, label %88, label %82, !llvm.loop !238
 
-86:                                               ; preds = %84, %77
-  %.pn49.i.i.i.i.i.i = phi ptr [ %80, %77 ], [ %.02148.i.i.i.i.i.i, %84 ]
-  %.pn50.i.i.i.i.i.i = phi ptr [ %83, %77 ], [ %.02347.i.i.i.i.i.i, %84 ]
-  %.02246.i.i.i.i.i.i = phi i32 [ 0, %77 ], [ %85, %84 ]
+82:                                               ; preds = %80, %73
+  %.pn49.i.i.i.i.i.i = phi ptr [ %76, %73 ], [ %.02148.i.i.i.i.i.i, %80 ]
+  %.pn50.i.i.i.i.i.i = phi ptr [ %79, %73 ], [ %.02347.i.i.i.i.i.i, %80 ]
+  %.02246.i.i.i.i.i.i = phi i32 [ 0, %73 ], [ %81, %80 ]
   %.02347.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn50.i.i.i.i.i.i, i64 -8
   %.02148.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn49.i.i.i.i.i.i, i64 -8
-  %87 = load i64, ptr %.02148.i.i.i.i.i.i, align 8
-  %88 = load i64, ptr %.02347.i.i.i.i.i.i, align 8
-  %.not30.i.i.i.i.i.i = icmp eq i64 %87, %88
-  br i1 %.not30.i.i.i.i.i.i, label %84, label %89
+  %83 = load i64, ptr %.02148.i.i.i.i.i.i, align 8
+  %84 = load i64, ptr %.02347.i.i.i.i.i.i, align 8
+  %.not30.i.i.i.i.i.i = icmp eq i64 %83, %84
+  br i1 %.not30.i.i.i.i.i.i, label %80, label %85
 
-89:                                               ; preds = %86
-  %90 = icmp ult i64 %87, %88
-  %91 = select i1 %90, i32 -1, i32 1
+85:                                               ; preds = %82
+  %86 = icmp ult i64 %83, %84
+  %87 = select i1 %86, i32 -1, i32 1
   br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i.i
 
-92:                                               ; preds = %84
-  %93 = sub nsw i32 %63, %64
+88:                                               ; preds = %80
+  %89 = sub nsw i32 %59, %60
   br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i.i
 
-_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i.i: ; preds = %92, %89, %75, %66, %62
-  %.0.i.i.i.i.i.i = phi i32 [ %76, %75 ], [ %91, %89 ], [ %93, %92 ], [ -1, %66 ], [ %63, %62 ]
-  %94 = icmp slt i32 %57, 0
-  %95 = sub nsw i32 0, %.0.i.i.i.i.i.i
-  %96 = select i1 %94, i32 %95, i32 %.0.i.i.i.i.i.i
+_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i.i: ; preds = %88, %85, %71, %62, %58
+  %.0.i.i.i.i.i.i = phi i32 [ %72, %71 ], [ %87, %85 ], [ %89, %88 ], [ -1, %62 ], [ %59, %58 ]
+  %90 = icmp slt i32 %53, 0
+  %91 = sub nsw i32 0, %.0.i.i.i.i.i.i
+  %92 = select i1 %90, i32 %91, i32 %.0.i.i.i.i.i.i
   br label %_ZZZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEvENKUlvE_clEv.exit.i
 
-_ZZZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEvENKUlvE_clEv.exit.i: ; preds = %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i.i, %55
-  %.0.i.i.i.in.i.i = phi i32 [ %96, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i.i ], [ %57, %55 ]
+_ZZZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEvENKUlvE_clEv.exit.i: ; preds = %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i.i, %51
+  %.0.i.i.i.in.i.i = phi i32 [ %92, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i.i.i ], [ %53, %51 ]
   %.0.i.i.i.i.i = icmp sgt i32 %.0.i.i.i.in.i.i, -1
   %.sroa.2.0.insert.ext.i.i = zext i1 %.0.i.i.i.i.i to i16
-  %97 = lshr i32 %.0.i.i.i.in.i.i, 23
-  %98 = trunc nuw nsw i32 %97 to i16
-  %99 = and i16 %98, 256
-  %100 = or disjoint i16 %99, %.sroa.2.0.insert.ext.i.i
-  %.sroa.0.0.insert.insert.i.i = xor i16 %100, 256
-  %101 = and i16 %.sroa.0.0.insert.insert.i.i, %.sroa.01.0.insert.insert
+  %.sroa.2.0.insert.shift.i.i = select i1 %.0.i.i.i.i.i, i16 256, i16 0
+  %.sroa.0.0.insert.insert.i.i = or disjoint i16 %.sroa.2.0.insert.shift.i.i, %.sroa.2.0.insert.ext.i.i
+  %93 = and i16 %.sroa.0.0.insert.insert.i.i, %.sroa.01.0.insert.insert
   br label %_ZN4CGAL8internal13cgal_and_implIZZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_ENKUlvE_clEvEUlvE_EENS_9UncertainIbEERKSD_OS5_.exit
 
 _ZN4CGAL8internal13cgal_and_implIZZNS_11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S5_E11result_typeERKS5_S9_S9_S9_S9_S9_ENKUlvE_clEvEUlvE_EENS_9UncertainIbEERKSD_OS5_.exit: ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit, %_ZZZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEvENKUlvE_clEv.exit.i
-  %.sroa.05.0.i = phi i16 [ %101, %_ZZZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEvENKUlvE_clEv.exit.i ], [ 0, %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit ]
+  %.sroa.05.0.i = phi i16 [ %93, %_ZZZN4CGAL11dominanceC3INS_4MpzfEEENS_8Equal_toIT_S3_E11result_typeERKS3_S7_S7_S7_S7_S7_ENKUlvE_clEvENKUlvE_clEv.exit.i ], [ 0, %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit ]
   ret i16 %.sroa.05.0.i
 }
 

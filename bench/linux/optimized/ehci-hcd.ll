@@ -10775,91 +10775,89 @@ define internal noundef i64 @companion_store(ptr nocapture noundef readonly %0, 
   %11 = load i32, ptr %5, align 4
   %12 = icmp slt i32 %11, 0
   %spec.select = call i32 @llvm.abs.i32(i32 %11, i1 false)
-  %13 = lshr i32 %11, 18
-  %14 = and i32 %13, 8192
-  %spec.select4 = xor i32 %14, 8192
-  %15 = icmp slt i32 %spec.select, 1
-  br i1 %15, label %.thread3, label %16
+  %spec.select4 = select i1 %12, i32 0, i32 8192
+  %13 = icmp slt i32 %spec.select, 1
+  br i1 %13, label %.thread3, label %14
 
-16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %7, i64 816
-  %18 = load i32, ptr %17, align 8
-  %19 = and i32 %18, 15
-  %20 = icmp ugt i32 %spec.select, %19
-  br i1 %20, label %.thread3, label %21
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %7, i64 816
+  %16 = load i32, ptr %15, align 8
+  %17 = and i32 %16, 15
+  %18 = icmp ugt i32 %spec.select, %17
+  br i1 %18, label %.thread3, label %19
 
-21:                                               ; preds = %16
-  %22 = add nsw i32 %spec.select, -1
-  store i32 %22, ptr %5, align 4
-  %23 = getelementptr inbounds i8, ptr %7, i64 1200
-  %24 = zext nneg i32 %22 to i64
-  br i1 %12, label %26, label %25
+19:                                               ; preds = %14
+  %20 = add nsw i32 %spec.select, -1
+  store i32 %20, ptr %5, align 4
+  %21 = getelementptr inbounds i8, ptr %7, i64 1200
+  %22 = zext nneg i32 %20 to i64
+  br i1 %12, label %24, label %23
 
-25:                                               ; preds = %21
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %23, i64 %24) #19, !srcloc !14
-  br label %27
+23:                                               ; preds = %19
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %21, i64 %22) #19, !srcloc !14
+  br label %25
 
-26:                                               ; preds = %21
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %23, i64 %24) #19, !srcloc !15
-  br label %27
+24:                                               ; preds = %19
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %21, i64 %22) #19, !srcloc !15
+  br label %25
 
-27:                                               ; preds = %26, %25
-  %28 = load i32, ptr %5, align 4
-  %29 = getelementptr inbounds i8, ptr %7, i64 800
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 68
-  %32 = sext i32 %28 to i64
-  %33 = getelementptr [15 x i32], ptr %31, i64 0, i64 %32
-  %34 = getelementptr inbounds i8, ptr %7, i64 820
-  %35 = getelementptr inbounds i8, ptr %7, i64 1300
-  call void @_raw_spin_lock_irq(ptr noundef %34) #19
-  %36 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #19, !srcloc !5
-  %37 = and i32 %36, 8192
-  %38 = icmp eq i32 %37, %spec.select4
-  %39 = and i32 %36, 8193
-  %40 = icmp eq i32 %39, 0
-  %41 = or i1 %38, %40
-  br i1 %41, label %.thread, label %.lr.ph
+25:                                               ; preds = %24, %23
+  %26 = load i32, ptr %5, align 4
+  %27 = getelementptr inbounds i8, ptr %7, i64 800
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 68
+  %30 = sext i32 %26 to i64
+  %31 = getelementptr [15 x i32], ptr %29, i64 0, i64 %30
+  %32 = getelementptr inbounds i8, ptr %7, i64 820
+  %33 = getelementptr inbounds i8, ptr %7, i64 1300
+  call void @_raw_spin_lock_irq(ptr noundef %32) #19
+  %34 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31) #19, !srcloc !5
+  %35 = and i32 %34, 8192
+  %36 = icmp eq i32 %35, %spec.select4
+  %37 = and i32 %34, 8193
+  %38 = icmp eq i32 %37, 0
+  %39 = or i1 %36, %38
+  br i1 %39, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %52, %27
-  call void @_raw_spin_unlock_irq(ptr noundef %34) #19
+.thread:                                          ; preds = %50, %25
+  call void @_raw_spin_unlock_irq(ptr noundef %32) #19
   br label %.thread3
 
-.lr.ph:                                           ; preds = %27, %52
-  %42 = phi i32 [ %54, %52 ], [ %36, %27 ]
-  %43 = phi i32 [ %53, %52 ], [ 4, %27 ]
-  %44 = load i32, ptr %35, align 4
-  %45 = and i32 %44, 32768
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %50
+.lr.ph:                                           ; preds = %25, %50
+  %40 = phi i32 [ %52, %50 ], [ %34, %25 ]
+  %41 = phi i32 [ %51, %50 ], [ 4, %25 ]
+  %42 = load i32, ptr %33, align 4
+  %43 = and i32 %42, 32768
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %48
 
-47:                                               ; preds = %.lr.ph
-  %48 = and i32 %42, -47
-  %49 = xor i32 %48, 8192
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %49, ptr elementtype(i32) %33) #19, !srcloc !9
-  br label %50
+45:                                               ; preds = %.lr.ph
+  %46 = and i32 %40, -47
+  %47 = xor i32 %46, 8192
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %47, ptr elementtype(i32) %31) #19, !srcloc !9
+  br label %48
 
-50:                                               ; preds = %47, %.lr.ph
-  call void @_raw_spin_unlock_irq(ptr noundef %34) #19
-  %51 = icmp ugt i32 %43, 1
-  br i1 %51, label %52, label %.thread3
+48:                                               ; preds = %45, %.lr.ph
+  call void @_raw_spin_unlock_irq(ptr noundef %32) #19
+  %49 = icmp ugt i32 %41, 1
+  br i1 %49, label %50, label %.thread3
 
-52:                                               ; preds = %50
+50:                                               ; preds = %48
   call void @msleep(i32 noundef 5) #19
-  %53 = add nsw i32 %43, -1
-  call void @_raw_spin_lock_irq(ptr noundef %34) #19
-  %54 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #19, !srcloc !5
-  %55 = and i32 %54, 8192
-  %56 = icmp eq i32 %55, %spec.select4
-  %57 = and i32 %54, 8193
-  %58 = icmp eq i32 %57, 0
-  %59 = or i1 %56, %58
-  br i1 %59, label %.thread, label %.lr.ph, !llvm.loop !127
+  %51 = add nsw i32 %41, -1
+  call void @_raw_spin_lock_irq(ptr noundef %32) #19
+  %52 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31) #19, !srcloc !5
+  %53 = and i32 %52, 8192
+  %54 = icmp eq i32 %53, %spec.select4
+  %55 = and i32 %52, 8193
+  %56 = icmp eq i32 %55, 0
+  %57 = or i1 %54, %56
+  br i1 %57, label %.thread, label %.lr.ph, !llvm.loop !127
 
-.thread3:                                         ; preds = %50, %.thread, %16, %10, %4
-  %60 = phi i64 [ -22, %4 ], [ -2, %16 ], [ -2, %10 ], [ %3, %.thread ], [ %3, %50 ]
+.thread3:                                         ; preds = %48, %.thread, %14, %10, %4
+  %58 = phi i64 [ -22, %4 ], [ -2, %14 ], [ -2, %10 ], [ %3, %.thread ], [ %3, %48 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #19
-  ret i64 %60
+  ret i64 %58
 }
 
 ; Function Attrs: null_pointer_is_valid

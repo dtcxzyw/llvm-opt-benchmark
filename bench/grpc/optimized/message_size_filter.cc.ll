@@ -856,16 +856,14 @@ if.end.i4:                                        ; preds = %invoke.cont
   %4 = and i64 %call2.i9, 4294967296
   %tobool.i.i.not.i = icmp eq i64 %4, 0
   %retval.0.i.i = select i1 %tobool.i.i.not.i, i32 4194304, i32 %ref.tmp.sroa.0.0.extract.trunc.i
-  %5 = and i32 %retval.0.i.i, -2147483648
-  %6 = zext i32 %5 to i64
-  %7 = shl nuw nsw i64 %6, 1
-  %8 = zext i32 %retval.0.i.i to i64
-  %9 = or disjoint i64 %7, %8
-  %10 = xor i64 %9, 4294967296
+  %cmp.i = icmp sgt i32 %retval.0.i.i, -1
+  %5 = select i1 %cmp.i, i64 4294967296, i64 0
+  %6 = zext i32 %retval.0.i.i to i64
+  %7 = or disjoint i64 %5, %6
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.end.i4, %invoke.cont
-  %retval.sroa.0.0.insert.insert.i5 = phi i64 [ 0, %invoke.cont ], [ %10, %if.end.i4 ]
+  %retval.sroa.0.0.insert.insert.i5 = phi i64 [ 0, %invoke.cont ], [ %7, %if.end.i4 ]
   %max_recv_size_ = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %retval.sroa.0.0.insert.insert.i5, ptr %max_recv_size_, align 8
   ret void
@@ -908,16 +906,14 @@ if.end:                                           ; preds = %entry
   %0 = and i64 %call2, 4294967296
   %tobool.i.i.not = icmp eq i64 %0, 0
   %retval.0.i = select i1 %tobool.i.i.not, i32 4194304, i32 %ref.tmp.sroa.0.0.extract.trunc
-  %1 = and i32 %retval.0.i, -2147483648
-  %2 = zext i32 %1 to i64
-  %3 = shl nuw nsw i64 %2, 1
-  %4 = zext i32 %retval.0.i to i64
-  %5 = or disjoint i64 %3, %4
-  %6 = xor i64 %5, 4294967296
+  %cmp = icmp sgt i32 %retval.0.i, -1
+  %1 = select i1 %cmp, i64 4294967296, i64 0
+  %2 = zext i32 %retval.0.i to i64
+  %3 = or disjoint i64 %1, %2
   br label %return
 
 return:                                           ; preds = %if.end, %entry
-  %retval.sroa.0.0.insert.insert = phi i64 [ 0, %entry ], [ %6, %if.end ]
+  %retval.sroa.0.0.insert.insert = phi i64 [ 0, %entry ], [ %3, %if.end ]
   ret i64 %retval.sroa.0.0.insert.insert
 }
 
@@ -1296,25 +1292,23 @@ call2.i9.i.noexc:                                 ; preds = %if.end.i4.i
   %5 = and i64 %call2.i9.i8, 4294967296
   %tobool.i.i.not.i.i = icmp eq i64 %5, 0
   %retval.0.i.i.i = select i1 %tobool.i.i.not.i.i, i32 4194304, i32 %ref.tmp.sroa.0.0.extract.trunc.i.i
-  %6 = and i32 %retval.0.i.i.i, -2147483648
-  %7 = zext i32 %6 to i64
-  %8 = shl nuw nsw i64 %7, 1
-  %9 = zext i32 %retval.0.i.i.i to i64
-  %10 = or disjoint i64 %8, %9
-  %11 = xor i64 %10, 4294967296
+  %cmp.i.i = icmp sgt i32 %retval.0.i.i.i, -1
+  %6 = select i1 %cmp.i.i, i64 4294967296, i64 0
+  %7 = zext i32 %retval.0.i.i.i to i64
+  %8 = or disjoint i64 %6, %7
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %call2.i9.i.noexc, %call.i7.i.noexc
-  %retval.sroa.0.0.insert.insert.i5.i = phi i64 [ 0, %call.i7.i.noexc ], [ %11, %call2.i9.i.noexc ]
+  %retval.sroa.0.0.insert.insert.i5.i = phi i64 [ 0, %call.i7.i.noexc ], [ %8, %call2.i9.i.noexc ]
   %max_recv_size_.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 %retval.sroa.0.0.insert.insert.i5.i, ptr %max_recv_size_.i, align 8, !alias.scope !11
   ret void
 
 lpad:                                             ; preds = %if.end.i4.i, %invoke.cont.i, %if.end.i.i3, %invoke.cont, %_ZN9grpc_core17CoreConfiguration3GetEv.exit.i, %if.end.i.i
-  %12 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN9grpc_core22ImplementChannelFilterINS_23ClientMessageSizeFilterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #22
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1567,25 +1561,23 @@ call2.i9.i.noexc:                                 ; preds = %if.end.i4.i
   %4 = and i64 %call2.i9.i4, 4294967296
   %tobool.i.i.not.i.i = icmp eq i64 %4, 0
   %retval.0.i.i.i = select i1 %tobool.i.i.not.i.i, i32 4194304, i32 %ref.tmp.sroa.0.0.extract.trunc.i.i
-  %5 = and i32 %retval.0.i.i.i, -2147483648
-  %6 = zext i32 %5 to i64
-  %7 = shl nuw nsw i64 %6, 1
-  %8 = zext i32 %retval.0.i.i.i to i64
-  %9 = or disjoint i64 %7, %8
-  %10 = xor i64 %9, 4294967296
+  %cmp.i.i = icmp sgt i32 %retval.0.i.i.i, -1
+  %5 = select i1 %cmp.i.i, i64 4294967296, i64 0
+  %6 = zext i32 %retval.0.i.i.i to i64
+  %7 = or disjoint i64 %5, %6
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %call2.i9.i.noexc, %call.i7.i.noexc
-  %retval.sroa.0.0.insert.insert.i5.i = phi i64 [ 0, %call.i7.i.noexc ], [ %10, %call2.i9.i.noexc ]
+  %retval.sroa.0.0.insert.insert.i5.i = phi i64 [ 0, %call.i7.i.noexc ], [ %7, %call2.i9.i.noexc ]
   %max_recv_size_.i = getelementptr inbounds i8, ptr %this, i64 40
   store i64 %retval.sroa.0.0.insert.insert.i5.i, ptr %max_recv_size_.i, align 8, !alias.scope !14
   ret void
 
 lpad:                                             ; preds = %if.end.i4.i, %invoke.cont.i, %if.end.i.i, %entry
-  %11 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN9grpc_core22ImplementChannelFilterINS_23ServerMessageSizeFilterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #22
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2124,24 +2116,24 @@ invoke.cont.i:                                    ; preds = %if.end.i.i, %entry
 if.end.i4.i:                                      ; preds = %invoke.cont.i
   %call2.i9.i = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %channel_args, i64 31, ptr nonnull @.str), !noalias !32
   %1 = and i64 %call2.i9.i, 6442450944
-  %2 = icmp ne i64 %1, 6442450944
+  %cmp.i.i.not = icmp ne i64 %1, 6442450944
   br label %_ZN9grpc_core23MessageSizeParsedConfig18GetFromChannelArgsERKNS_11ChannelArgsE.exit
 
 _ZN9grpc_core23MessageSizeParsedConfig18GetFromChannelArgsERKNS_11ChannelArgsE.exit: ; preds = %invoke.cont.i, %if.end.i4.i
-  %retval.sroa.0.0.insert.insert.i5.i = phi i1 [ false, %invoke.cont.i ], [ %2, %if.end.i4.i ]
+  %retval.sroa.0.0.insert.insert.i5.i = phi i1 [ false, %invoke.cont.i ], [ %cmp.i.i.not, %if.end.i4.i ]
   %brmerge = select i1 %retval.sroa.0.0.insert.insert.i.i, i1 true, i1 %retval.sroa.0.0.insert.insert.i5.i
   br i1 %brmerge, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZN9grpc_core23MessageSizeParsedConfig18GetFromChannelArgsERKNS_11ChannelArgsE.exit
   call void @_ZNK9grpc_core11ChannelArgs9GetStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::optional.284") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(8) %channel_args, i64 19, ptr nonnull @.str.22)
   %_M_engaged.i.i7 = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
-  %3 = load i8, ptr %_M_engaged.i.i7, align 8
-  %tobool.i.i8 = trunc i8 %3 to i1
+  %2 = load i8, ptr %_M_engaged.i.i7, align 8
+  %tobool.i.i8 = trunc i8 %2 to i1
   br label %lor.end
 
 lor.end:                                          ; preds = %_ZN9grpc_core23MessageSizeParsedConfig18GetFromChannelArgsERKNS_11ChannelArgsE.exit, %lor.rhs
-  %4 = phi i1 [ true, %_ZN9grpc_core23MessageSizeParsedConfig18GetFromChannelArgsERKNS_11ChannelArgsE.exit ], [ %tobool.i.i8, %lor.rhs ]
-  ret i1 %4
+  %3 = phi i1 [ true, %_ZN9grpc_core23MessageSizeParsedConfig18GetFromChannelArgsERKNS_11ChannelArgsE.exit ], [ %tobool.i.i8, %lor.rhs ]
+  ret i1 %3
 }
 
 declare noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration6BeforeESt16initializer_listIPK19grpc_channel_filterE(ptr noundef nonnull align 8 dereferenceable(104), ptr, i64) local_unnamed_addr #0
