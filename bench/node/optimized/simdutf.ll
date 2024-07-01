@@ -9438,7 +9438,7 @@ if.end44:                                         ; preds = %while.body
 
 if.else.i206:                                     ; preds = %if.end44
   %32 = bitcast <8 x i64> %checker.sroa.13.0996 to <16 x i32>
-  %33 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %28, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %32)
+  %33 = shufflevector <16 x i32> %28, <16 x i32> %32, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %34 = bitcast <16 x i32> %33 to <64 x i8>
   %palignr.i = shufflevector <64 x i8> %34, <64 x i8> %29, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %35 = bitcast <64 x i8> %palignr.i to <32 x i16>
@@ -9512,7 +9512,7 @@ if.then.i:                                        ; preds = %if.then57
 
 if.else.i:                                        ; preds = %if.then57
   %60 = bitcast <64 x i8> %57 to <16 x i32>
-  %61 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %60, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %checker.sroa.13.0.lcssa)
+  %61 = shufflevector <16 x i32> %60, <16 x i32> %checker.sroa.13.0.lcssa, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %62 = bitcast <16 x i32> %61 to <64 x i8>
   %palignr.i957 = shufflevector <64 x i8> %62, <64 x i8> %57, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %63 = bitcast <64 x i8> %palignr.i957 to <32 x i16>
@@ -9640,7 +9640,7 @@ for.body.i964:                                    ; preds = %for.inc.i, %for.bod
 if.else.i29.i:                                    ; preds = %for.body.i964
   %102 = bitcast <8 x i64> %checker.sroa.13.0810.i to <16 x i32>
   %103 = bitcast <8 x i64> %98 to <16 x i32>
-  %104 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %103, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %102)
+  %104 = shufflevector <16 x i32> %103, <16 x i32> %102, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %105 = bitcast <16 x i32> %104 to <64 x i8>
   %palignr.i.i = shufflevector <64 x i8> %105, <64 x i8> %99, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %106 = bitcast <64 x i8> %palignr.i.i to <32 x i16>
@@ -9705,7 +9705,7 @@ for.end.i967:                                     ; preds = %for.end.loopexit.i,
 
 if.else.i.i974:                                   ; preds = %for.end.i967
   %132 = bitcast <64 x i8> %129 to <16 x i32>
-  %133 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %132, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %checker.sroa.13.0.lcssa.i)
+  %133 = shufflevector <16 x i32> %132, <16 x i32> %checker.sroa.13.0.lcssa.i, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %134 = bitcast <16 x i32> %133 to <64 x i8>
   %palignr.i801.i = shufflevector <64 x i8> %134, <64 x i8> %129, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %135 = bitcast <64 x i8> %palignr.i801.i to <32 x i16>
@@ -9943,7 +9943,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.else.i29:                                      ; preds = %for.body
   %4 = bitcast <8 x i64> %checker.sroa.13.0810 to <16 x i32>
   %5 = bitcast <8 x i64> %0 to <16 x i32>
-  %6 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %5, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %4)
+  %6 = shufflevector <16 x i32> %5, <16 x i32> %4, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %7 = bitcast <16 x i32> %6 to <64 x i8>
   %palignr.i = shufflevector <64 x i8> %7, <64 x i8> %1, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %8 = bitcast <64 x i8> %palignr.i to <32 x i16>
@@ -10008,7 +10008,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 if.else.i:                                        ; preds = %for.end
   %34 = bitcast <64 x i8> %31 to <16 x i32>
-  %35 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %34, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %checker.sroa.13.0.lcssa)
+  %35 = shufflevector <16 x i32> %34, <16 x i32> %checker.sroa.13.0.lcssa, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %36 = bitcast <16 x i32> %35 to <64 x i8>
   %palignr.i801 = shufflevector <64 x i8> %36, <64 x i8> %31, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %37 = bitcast <64 x i8> %palignr.i801 to <32 x i16>
@@ -10081,7 +10081,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.else.i48:                                      ; preds = %for.body
   %4 = bitcast <8 x i64> %checker.sroa.13.0835 to <16 x i32>
   %5 = bitcast <8 x i64> %0 to <16 x i32>
-  %6 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %5, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %4)
+  %6 = shufflevector <16 x i32> %5, <16 x i32> %4, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %7 = bitcast <16 x i32> %6 to <64 x i8>
   %palignr.i = shufflevector <64 x i8> %7, <64 x i8> %1, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %8 = bitcast <64 x i8> %palignr.i to <32 x i16>
@@ -10155,7 +10155,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 if.else.i:                                        ; preds = %for.end
   %37 = bitcast <64 x i8> %34 to <16 x i32>
-  %38 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %37, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %checker.sroa.13.0.lcssa)
+  %38 = shufflevector <16 x i32> %37, <16 x i32> %checker.sroa.13.0.lcssa, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %39 = bitcast <16 x i32> %38 to <64 x i8>
   %palignr.i821 = shufflevector <64 x i8> %39, <64 x i8> %34, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %40 = bitcast <64 x i8> %palignr.i821 to <32 x i16>
@@ -15677,7 +15677,7 @@ if.end.i:                                         ; preds = %while.body.i, %whil
   %.lcssa65 = phi <16 x i32> [ %1, %while.body.lr.ph.i ], [ %6, %while.body.i ]
   %.lcssa = phi <64 x i8> [ %2, %while.body.lr.ph.i ], [ %7, %while.body.i ]
   %20 = bitcast <8 x i64> %checker.sroa.17.0.ph2417.i to <16 x i32>
-  %21 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %.lcssa65, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %20)
+  %21 = shufflevector <16 x i32> %.lcssa65, <16 x i32> %20, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %22 = bitcast <16 x i32> %21 to <64 x i8>
   %palignr.i.i = shufflevector <64 x i8> %22, <64 x i8> %.lcssa, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %23 = bitcast <64 x i8> %palignr.i.i to <32 x i16>
@@ -15936,7 +15936,7 @@ if.then106.i:                                     ; preds = %if.then101.i
 
 if.else133.i:                                     ; preds = %if.then101.i
   %175 = bitcast <8 x i64> %checker.sroa.17.0.ph.lcssa.i to <16 x i32>
-  %176 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %163, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %175)
+  %176 = shufflevector <16 x i32> %163, <16 x i32> %175, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %177 = bitcast <16 x i32> %176 to <64 x i8>
   %palignr.i2332.i = shufflevector <64 x i8> %177, <64 x i8> %164, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %178 = bitcast <64 x i8> %palignr.i2332.i to <32 x i16>
@@ -16123,7 +16123,7 @@ if.end231.i:                                      ; preds = %if.end191.i, %if.th
 if.else.i.i:                                      ; preds = %if.end231.i
   %291 = bitcast <8 x i64> %checker.sroa.17.3.i to <16 x i32>
   %292 = bitcast <64 x i8> %288 to <16 x i32>
-  %293 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %292, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %291)
+  %293 = shufflevector <16 x i32> %292, <16 x i32> %291, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %294 = bitcast <16 x i32> %293 to <64 x i8>
   %palignr.i2339.i = shufflevector <64 x i8> %294, <64 x i8> %288, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %295 = bitcast <64 x i8> %palignr.i2339.i to <32 x i16>
@@ -16278,7 +16278,7 @@ if.end.i:                                         ; preds = %while.body.i, %whil
   %.lcssa122 = phi <16 x i32> [ %1, %while.body.lr.ph.i ], [ %6, %while.body.i ]
   %.lcssa = phi <64 x i8> [ %2, %while.body.lr.ph.i ], [ %7, %while.body.i ]
   %20 = bitcast <8 x i64> %checker.sroa.21.0.ph2430.i to <16 x i32>
-  %21 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %.lcssa122, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %20)
+  %21 = shufflevector <16 x i32> %.lcssa122, <16 x i32> %20, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %22 = bitcast <16 x i32> %21 to <64 x i8>
   %palignr.i.i = shufflevector <64 x i8> %22, <64 x i8> %.lcssa, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %23 = bitcast <64 x i8> %palignr.i.i to <32 x i16>
@@ -16544,7 +16544,7 @@ if.then109.i:                                     ; preds = %if.then104.i
 
 if.else136.i:                                     ; preds = %if.then104.i
   %178 = bitcast <8 x i64> %checker.sroa.21.0.ph.lcssa2405.i to <16 x i32>
-  %179 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %166, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %178)
+  %179 = shufflevector <16 x i32> %166, <16 x i32> %178, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %180 = bitcast <16 x i32> %179 to <64 x i8>
   %palignr.i2336.i = shufflevector <64 x i8> %180, <64 x i8> %167, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %181 = bitcast <64 x i8> %palignr.i2336.i to <32 x i16>
@@ -16738,7 +16738,7 @@ if.end239.i:                                      ; preds = %if.end198.i, %if.th
 if.else.i.i:                                      ; preds = %if.end239.i
   %297 = bitcast <8 x i64> %checker.sroa.21.3.i to <16 x i32>
   %298 = bitcast <64 x i8> %294 to <16 x i32>
-  %299 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %298, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %297)
+  %299 = shufflevector <16 x i32> %298, <16 x i32> %297, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 31, i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 poison, i32 11>
   %300 = bitcast <16 x i32> %299 to <64 x i8>
   %palignr.i2344.i = shufflevector <64 x i8> %300, <64 x i8> %294, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %301 = bitcast <64 x i8> %palignr.i2344.i to <32 x i16>
@@ -52963,9 +52963,6 @@ entry:
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <16 x i32> @llvm.umax.v16i32(<16 x i32>, <16 x i32>) #40
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32>, <16 x i32>, <16 x i32>) #41
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <8 x i64> @llvm.x86.avx512.pternlog.q.512(<8 x i64>, <8 x i64>, <8 x i64>, i32 immarg) #41
