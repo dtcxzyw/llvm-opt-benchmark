@@ -1546,8 +1546,8 @@ Vec_IntStart.exit83:                              ; preds = %Vec_IntAlloc.exit.t
   %62 = and i64 %61, 536870911
   %63 = sub nsw i64 %indvars.iv, %62
   %sext = shl i64 %63, 32
-  %64 = ashr exact i64 %sext, 32
-  %65 = getelementptr inbounds i32, ptr %.val70, i64 %64
+  %64 = ashr exact i64 %sext, 30
+  %65 = getelementptr inbounds i8, ptr %.val70, i64 %64
   br label %.sink.split
 
 .sink.split:                                      ; preds = %48, %54

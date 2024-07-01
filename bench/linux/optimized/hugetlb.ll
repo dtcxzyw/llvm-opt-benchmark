@@ -4433,8 +4433,8 @@ define internal fastcc i32 @hugetlb_sysfs_add_hstate(ptr noundef %0, ptr noundef
   %8 = getelementptr inbounds i8, ptr %0, i64 6056
   %9 = tail call ptr @kobject_create_and_add(ptr noundef %8, ptr noundef %1) #22
   %10 = shl i64 %7, 32
-  %11 = ashr exact i64 %10, 32
-  %12 = getelementptr ptr, ptr %2, i64 %11
+  %11 = ashr exact i64 %10, 29
+  %12 = getelementptr i8, ptr %2, i64 %11
   store ptr %9, ptr %12, align 8
   %13 = icmp eq ptr %9, null
   br i1 %13, label %31, label %14
@@ -16955,8 +16955,8 @@ define internal fastcc void @hugetlb_folio_init_tail_vmemmap(ptr noundef %0, i64
   tail call void @__init_single_page(ptr noundef %32, i64 noundef %29, i64 noundef %26, i32 noundef %6) #25
   %33 = sub i64 %29, %10
   %34 = shl i64 %33, 32
-  %35 = ashr exact i64 %34, 32
-  %36 = getelementptr %struct.page, ptr %0, i64 %35
+  %35 = ashr exact i64 %34, 26
+  %36 = getelementptr i8, ptr %0, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 24
   store ptr inttoptr (i64 -2401263026318605312 to ptr), ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %36, i64 8

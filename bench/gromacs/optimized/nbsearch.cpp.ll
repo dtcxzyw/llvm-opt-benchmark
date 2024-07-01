@@ -3583,8 +3583,8 @@ define noundef zeroext i1 @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl1
 
 35:                                               ; preds = %29
   %sext = shl i64 %indvars.iv, 32
-  %36 = ashr exact i64 %sext, 32
-  %37 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i, i64 %36
+  %36 = ashr exact i64 %sext, 30
+  %37 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %27, %38
   br i1 %39, label %40, label %.critedge
@@ -4925,8 +4925,8 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit: ; preds 
 
 158:                                              ; preds = %152
   %sext.i = shl i64 %indvars.iv.i43, 32
-  %159 = ashr exact i64 %sext.i, 32
-  %160 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.i, i64 %159
+  %159 = ashr exact i64 %sext.i, 30
+  %160 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %159
   %161 = load i32, ptr %160, align 4
   %162 = icmp eq i32 %150, %161
   br i1 %162, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit, label %.loopexit
@@ -5339,8 +5339,8 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPKfPiS4_i.exit:
 
 370:                                              ; preds = %364
   %sext.i56 = shl i64 %indvars.iv.i55, 32
-  %371 = ashr exact i64 %sext.i56, 32
-  %372 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.i51, i64 %371
+  %371 = ashr exact i64 %sext.i56, 30
+  %372 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i51, i64 %371
   %373 = load i32, ptr %372, align 4
   %374 = icmp eq i32 %362, %373
   br i1 %374, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit59, label %.loopexit65
@@ -5819,8 +5819,8 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit: ; preds 
 
 161:                                              ; preds = %155
   %sext.i = shl i64 %indvars.iv.i41, 32
-  %162 = ashr exact i64 %sext.i, 32
-  %163 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.i, i64 %162
+  %162 = ashr exact i64 %sext.i, 30
+  %163 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %162
   %164 = load i32, ptr %163, align 4
   %165 = icmp eq i32 %153, %164
   br i1 %165, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit, label %.loopexit
@@ -6228,8 +6228,8 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPKfPiS4_i.exit:
 
 371:                                              ; preds = %365
   %sext.i54 = shl i64 %indvars.iv.i53, 32
-  %372 = ashr exact i64 %sext.i54, 32
-  %373 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload.i.i.i49, i64 %372
+  %372 = ashr exact i64 %sext.i54, 30
+  %373 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i49, i64 %372
   %374 = load i32, ptr %373, align 4
   %375 = icmp eq i32 %363, %374
   br i1 %375, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit57, label %.loopexit73

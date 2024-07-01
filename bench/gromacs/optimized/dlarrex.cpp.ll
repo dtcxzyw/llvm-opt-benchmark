@@ -684,8 +684,8 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %348 = load double, ptr %347, align 8
   %349 = call noundef double @llvm.fabs.f64(double %348)
   %sext = shl i64 %indvars.iv907, 33
-  %350 = ashr exact i64 %sext, 32
-  %gep733 = getelementptr double, ptr %invariant.gep762, i64 %350
+  %350 = ashr exact i64 %sext, 29
+  %gep733 = getelementptr i8, ptr %invariant.gep762, i64 %350
   store double %349, ptr %gep733, align 8
   %351 = getelementptr inbounds double, ptr %34, i64 %indvars.iv905
   %352 = load double, ptr %351, align 8

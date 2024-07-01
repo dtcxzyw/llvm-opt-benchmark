@@ -1995,8 +1995,8 @@ if.end39:                                         ; preds = %invoke.cont33
           to label %invoke.cont42 unwind label %lpad34
 
 invoke.cont42:                                    ; preds = %if.end39
-  %conv43 = ashr exact i64 %add, 32
-  %arrayidx.i = getelementptr inbounds i16, ptr %call32, i64 %conv43
+  %7 = ashr exact i64 %add, 31
+  %arrayidx.i = getelementptr inbounds i8, ptr %call32, i64 %7
   store i16 0, ptr %arrayidx.i, align 2
   %call46 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #12
   %new.isnull47 = icmp eq ptr %call46, null
@@ -2007,8 +2007,8 @@ new.notnull48:                                    ; preds = %invoke.cont42
           to label %invoke.cont59 unwind label %lpad51
 
 new.cont58:                                       ; preds = %invoke.cont42
-  %7 = load i32, ptr %status, align 4
-  %cmp.i.i = icmp sgt i32 %7, 0
+  %8 = load i32, ptr %status, align 4
+  %cmp.i.i = icmp sgt i32 %8, 0
   br i1 %cmp.i.i, label %cleanup81, label %if.then.i
 
 if.then.i:                                        ; preds = %new.cont58
@@ -2021,14 +2021,14 @@ invoke.cont59:                                    ; preds = %new.notnull48
   br i1 %cmp.i24, label %if.end63, label %delete.notnull.i27
 
 lpad51:                                           ; preds = %new.notnull48
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call46) #12
   br label %ehcleanup
 
 if.end63:                                         ; preds = %invoke.cont59
-  %9 = load ptr, ptr @_ZL16gMetaZoneIDTable, align 8
-  %call68 = invoke ptr @uhash_get_75(ptr noundef %9, ptr noundef nonnull %call46)
+  %10 = load ptr, ptr @_ZL16gMetaZoneIDTable, align 8
+  %call68 = invoke ptr @uhash_get_75(ptr noundef %10, ptr noundef nonnull %call46)
           to label %invoke.cont67 unwind label %delete.notnull.i
 
 invoke.cont67:                                    ; preds = %if.end63
@@ -2036,13 +2036,13 @@ invoke.cont67:                                    ; preds = %if.end63
   br i1 %cmp69, label %if.then70, label %delete.notnull.i27
 
 if.then70:                                        ; preds = %invoke.cont67
-  %10 = load ptr, ptr @_ZL16gMetaZoneIDTable, align 8
-  %call76 = invoke ptr @uhash_put_75(ptr noundef %10, ptr noundef nonnull %call46, ptr noundef nonnull %call32, ptr noundef nonnull %status)
+  %11 = load ptr, ptr @_ZL16gMetaZoneIDTable, align 8
+  %call76 = invoke ptr @uhash_put_75(ptr noundef %11, ptr noundef nonnull %call46, ptr noundef nonnull %call32, ptr noundef nonnull %status)
           to label %invoke.cont75 unwind label %lpad64.thread
 
 invoke.cont75:                                    ; preds = %if.then70
-  %11 = load ptr, ptr @_ZL12gMetaZoneIDs, align 8
-  invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull %call32, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %12 = load ptr, ptr @_ZL12gMetaZoneIDs, align 8
+  invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull %call32, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %cleanup81 unwind label %lpad64.thread
 
 lpad64.thread:                                    ; preds = %invoke.cont75, %if.then70
@@ -2056,16 +2056,16 @@ delete.notnull.i:                                 ; preds = %if.end63
           cleanup
   %vtable.i = load ptr, ptr %call46, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %12 = load ptr, ptr %vfn.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(64) %call46) #12
+  %13 = load ptr, ptr %vfn.i, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(64) %call46) #12
   br label %ehcleanup
 
 delete.notnull.i27:                               ; preds = %invoke.cont67, %invoke.cont59
   %cleanup.dest.slot.0.ph = phi i32 [ 0, %invoke.cont67 ], [ 3, %invoke.cont59 ]
   %vtable.i28 = load ptr, ptr %call46, align 8
   %vfn.i29 = getelementptr inbounds i8, ptr %vtable.i28, i64 8
-  %13 = load ptr, ptr %vfn.i29, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(64) %call46) #12
+  %14 = load ptr, ptr %vfn.i29, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(64) %call46) #12
   br label %cleanup81
 
 cleanup81:                                        ; preds = %new.cont58, %if.then.i, %invoke.cont75, %delete.notnull.i27, %if.then38
@@ -2075,30 +2075,30 @@ cleanup81:                                        ; preds = %new.cont58, %if.the
           to label %_ZN6icu_7511LocalMemoryIDsED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup81
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #15
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #15
   unreachable
 
 _ZN6icu_7511LocalMemoryIDsED2Ev.exit:             ; preds = %cleanup81
   %switch = icmp ne i32 %cleanup.dest.slot.1, 0
-  %16 = load i32, ptr %status, align 4
-  %cmp.i17 = icmp sgt i32 %16, 0
+  %17 = load i32, ptr %status, align 4
+  %cmp.i17 = icmp sgt i32 %17, 0
   %or.cond66 = select i1 %switch, i1 true, i1 %cmp.i17
   br i1 %or.cond66, label %while.end, label %land.rhs
 
 ehcleanup:                                        ; preds = %delete.notnull.i, %lpad64.thread, %lpad51, %lpad34
   %uMzID.sroa.0.3 = phi ptr [ %call32, %lpad51 ], [ %call32, %lpad34 ], [ %uMzID.sroa.0.0.ph, %lpad64.thread ], [ %call32, %delete.notnull.i ]
-  %.pn = phi { ptr, i32 } [ %8, %lpad51 ], [ %6, %lpad34 ], [ %lpad.thr_comm, %lpad64.thread ], [ %lpad.thr_comm.split-lp, %delete.notnull.i ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad51 ], [ %6, %lpad34 ], [ %lpad.thr_comm, %lpad64.thread ], [ %lpad.thr_comm.split-lp, %delete.notnull.i ]
   invoke void @uprv_free_75(ptr noundef %uMzID.sroa.0.3)
           to label %ehcleanup94 unwind label %terminate.lpad.i31
 
 terminate.lpad.i31:                               ; preds = %ehcleanup
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #15
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #15
   unreachable
 
 while.end:                                        ; preds = %_ZN6icu_7511LocalMemoryIDsED2Ev.exit, %invoke.cont20, %invoke.cont16, %if.end9
@@ -2110,25 +2110,25 @@ invoke.cont82:                                    ; preds = %while.end
           to label %invoke.cont83 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont83:                                    ; preds = %invoke.cont82
-  %19 = load i32, ptr %status, align 4
-  %cmp.i33 = icmp slt i32 %19, 1
+  %20 = load i32, ptr %status, align 4
+  %cmp.i33 = icmp slt i32 %20, 1
   br i1 %cmp.i33, label %if.end93, label %if.then86
 
 if.then86:                                        ; preds = %invoke.cont83
-  %20 = load ptr, ptr @_ZL16gMetaZoneIDTable, align 8
-  invoke void @uhash_close_75(ptr noundef %20)
+  %21 = load ptr, ptr @_ZL16gMetaZoneIDTable, align 8
+  invoke void @uhash_close_75(ptr noundef %21)
           to label %invoke.cont87 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont87:                                    ; preds = %if.then86
-  %21 = load ptr, ptr @_ZL12gMetaZoneIDs, align 8
-  %isnull88 = icmp eq ptr %21, null
+  %22 = load ptr, ptr @_ZL12gMetaZoneIDs, align 8
+  %isnull88 = icmp eq ptr %22, null
   br i1 %isnull88, label %delete.end92, label %delete.notnull89
 
 delete.notnull89:                                 ; preds = %invoke.cont87
-  %vtable90 = load ptr, ptr %21, align 8
+  %vtable90 = load ptr, ptr %22, align 8
   %vfn91 = getelementptr inbounds i8, ptr %vtable90, i64 8
-  %22 = load ptr, ptr %vfn91, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %21) #12
+  %23 = load ptr, ptr %vfn91, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(40) %22) #12
   br label %delete.end92
 
 delete.end92:                                     ; preds = %delete.notnull89, %invoke.cont87

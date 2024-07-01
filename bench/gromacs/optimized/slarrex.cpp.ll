@@ -692,8 +692,8 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %359 = load float, ptr %358, align 4
   %360 = call noundef float @llvm.fabs.f32(float %359)
   %sext = shl i64 %indvars.iv905, 33
-  %361 = ashr exact i64 %sext, 32
-  %gep731 = getelementptr float, ptr %invariant.gep760, i64 %361
+  %361 = ashr exact i64 %sext, 30
+  %gep731 = getelementptr i8, ptr %invariant.gep760, i64 %361
   store float %360, ptr %gep731, align 4
   %362 = getelementptr inbounds float, ptr %34, i64 %indvars.iv903
   %363 = load float, ptr %362, align 4

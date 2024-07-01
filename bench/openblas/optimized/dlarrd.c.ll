@@ -211,8 +211,8 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %135 = phi double [ %126, %130 ], [ %146, %133 ]
   %136 = phi double [ %126, %130 ], [ %142, %133 ]
   %137 = shl i64 %134, 33
-  %138 = ashr exact i64 %137, 32
-  %139 = getelementptr double, ptr %128, i64 %138
+  %138 = ashr exact i64 %137, 29
+  %139 = getelementptr i8, ptr %128, i64 %138
   %140 = load double, ptr %139, align 8, !tbaa !7
   %141 = fcmp ole double %136, %140
   %142 = select i1 %141, double %136, double %140

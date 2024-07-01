@@ -12981,13 +12981,13 @@ define internal fastcc void @nsvg__getLocalBounds(ptr nocapture noundef %0, ptr 
   %33 = load ptr, ptr %.03744, align 8
   %34 = shl i64 %indvars.iv, 33
   %sext = add i64 %34, 8589934592
-  %35 = ashr exact i64 %sext, 32
-  %36 = getelementptr inbounds float, ptr %33, i64 %35
+  %35 = ashr exact i64 %sext, 30
+  %36 = getelementptr inbounds i8, ptr %33, i64 %35
   %37 = load float, ptr %36, align 4
   %38 = shl i64 %indvars.iv, 33
   %sext49 = add i64 %38, 12884901888
-  %39 = ashr exact i64 %sext49, 32
-  %40 = getelementptr inbounds float, ptr %33, i64 %39
+  %39 = ashr exact i64 %sext49, 30
+  %40 = getelementptr inbounds i8, ptr %33, i64 %39
   %41 = load float, ptr %40, align 4
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %42 = shl i32 %indvars.iv.tr, 1

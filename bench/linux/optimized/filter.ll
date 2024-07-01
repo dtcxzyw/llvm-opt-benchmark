@@ -1474,8 +1474,8 @@ define internal fastcc ptr @bpf_prepare_filter(ptr noundef %0, ptr noundef reado
   %114 = zext i8 %113 to i64
   %115 = add nuw nsw i64 %111, %114
   %116 = shl i64 %115, 32
-  %117 = ashr exact i64 %116, 32
-  %118 = getelementptr i16, ptr %74, i64 %117
+  %117 = ashr exact i64 %116, 31
+  %118 = getelementptr i8, ptr %74, i64 %117
   %119 = load i16, ptr %118, align 2
   %120 = trunc nuw i32 %85 to i16
   %121 = and i16 %119, %120
@@ -1485,8 +1485,8 @@ define internal fastcc ptr @bpf_prepare_filter(ptr noundef %0, ptr noundef reado
   %124 = zext i8 %123 to i64
   %125 = add nuw nsw i64 %111, %124
   %126 = shl i64 %125, 32
-  %127 = ashr exact i64 %126, 32
-  %128 = getelementptr i16, ptr %74, i64 %127
+  %127 = ashr exact i64 %126, 31
+  %128 = getelementptr i8, ptr %74, i64 %127
   %129 = load i16, ptr %128, align 2
   %130 = and i16 %129, %120
   store i16 %130, ptr %128, align 2

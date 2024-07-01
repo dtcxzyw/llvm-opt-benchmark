@@ -4124,8 +4124,8 @@ _ZNK13sentencepiece3bpe7Trainer12GetPrevIndexEii.exit: ; preds = %637
 
 644:                                              ; preds = %_ZNK13sentencepiece3bpe7Trainer12GetPrevIndexEii.exit
   %sext = shl i64 %indvars.iv.next.i, 32
-  %645 = ashr exact i64 %sext, 32
-  %646 = getelementptr inbounds ptr, ptr %602, i64 %645
+  %645 = ashr exact i64 %sext, 29
+  %646 = getelementptr inbounds i8, ptr %602, i64 %645
   %647 = load ptr, ptr %646, align 8
   %648 = invoke noundef ptr @_ZN13sentencepiece3bpe7Trainer13GetPairSymbolEPKNS1_6SymbolES4_(ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef %647, ptr noundef nonnull %604)
           to label %.noexc236 unwind label %.loopexit

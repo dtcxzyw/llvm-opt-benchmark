@@ -6187,8 +6187,8 @@ XLogRecPtrToBytePos.exit89:                       ; preds = %541, %544, %548, %5
   %584 = getelementptr inbounds i8, ptr %495, i64 296
   %585 = load ptr, ptr %584, align 8
   %sext80 = shl i64 %569, 32
-  %586 = ashr exact i64 %sext80, 32
-  %587 = getelementptr %struct.pg_atomic_uint64, ptr %585, i64 %586
+  %586 = ashr exact i64 %sext80, 29
+  %587 = getelementptr i8, ptr %585, i64 %586
   %588 = load i64, ptr %571, align 8
   %589 = add i64 %588, 8192
   store volatile i64 %589, ptr %587, align 8

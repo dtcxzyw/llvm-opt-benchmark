@@ -1064,14 +1064,14 @@ if.end13.i:                                       ; preds = %land.rhs4.i
   %55 = trunc nsw i64 %indvars.iv66.i to i32
   %dec14.i = add nsw i32 %55, -1
   %sext.i = shl i64 %indvars.iv.i64, 32
-  %idxprom15.i = ashr exact i64 %sext.i, 32
-  %arrayidx16.i = getelementptr inbounds ptr, ptr %leaves, i64 %idxprom15.i
-  %56 = load ptr, ptr %arrayidx16.i, align 8
+  %56 = ashr exact i64 %sext.i, 29
+  %arrayidx16.i = getelementptr inbounds i8, ptr %leaves, i64 %56
+  %57 = load ptr, ptr %arrayidx16.i, align 8
   %idxprom17.i = sext i32 %dec14.i to i64
   %arrayidx18.i = getelementptr inbounds ptr, ptr %leaves, i64 %idxprom17.i
-  %57 = load ptr, ptr %arrayidx18.i, align 8
-  store ptr %57, ptr %arrayidx16.i, align 8
-  store ptr %56, ptr %arrayidx18.i, align 8
+  %58 = load ptr, ptr %arrayidx18.i, align 8
+  store ptr %58, ptr %arrayidx16.i, align 8
+  store ptr %57, ptr %arrayidx18.i, align 8
   %inc23.i = add nsw i32 %44, 1
   %cmp.not49.i = icmp eq i32 %inc23.i, %dec14.i
   br i1 %cmp.not49.i, label %if.end65, label %land.rhs.lr.ph.i, !llvm.loop !24
@@ -1084,8 +1084,8 @@ if.else:                                          ; preds = %for.end59
 if.end65:                                         ; preds = %if.end13.i, %while.cond2.preheader.i, %while.body.i, %while.body9.i, %if.else
   %partition.0 = phi i32 [ %add, %if.else ], [ %44, %while.body9.i ], [ %end.057.i, %while.body.i ], [ %dec14.i, %if.end13.i ], [ %end.057.i, %while.cond2.preheader.i ]
   %m_free.i.i = getelementptr inbounds i8, ptr %pdbvt, i64 8
-  %58 = load ptr, ptr %m_free.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %58, null
+  %59 = load ptr, ptr %m_free.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %59, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end65
@@ -1098,38 +1098,38 @@ if.else.i.i:                                      ; preds = %if.end65
   br label %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmPv.exit
 
 common.ret129:                                    ; preds = %if.end80, %if.else78, %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmPv.exit
-  %common.ret129.op = phi ptr [ %node.0.i.i, %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmPv.exit ], [ %62, %if.else78 ], [ %63, %if.end80 ]
+  %common.ret129.op = phi ptr [ %node.0.i.i, %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmPv.exit ], [ %63, %if.else78 ], [ %64, %if.end80 ]
   ret ptr %common.ret129.op
 
 _ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmPv.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %node.0.i.i = phi ptr [ %58, %if.then.i.i ], [ %call.i.i, %if.else.i.i ]
+  %node.0.i.i = phi ptr [ %59, %if.then.i.i ], [ %call.i.i, %if.else.i.i ]
   %parent3.i.i = getelementptr inbounds i8, ptr %node.0.i.i, i64 32
-  %59 = getelementptr inbounds i8, ptr %node.0.i.i, i64 40
+  %60 = getelementptr inbounds i8, ptr %node.0.i.i, i64 40
   %arrayidx.i.i66 = getelementptr inbounds i8, ptr %node.0.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %parent3.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %node.0.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %vol, i64 32, i1 false)
   %call68 = tail call fastcc noundef ptr @_ZL7topdownP6btDbvtPP10btDbvtNodeii(ptr noundef nonnull %pdbvt, ptr noundef nonnull %leaves, i32 noundef %partition.0, i32 noundef %bu_treshold)
-  store ptr %call68, ptr %59, align 8
+  store ptr %call68, ptr %60, align 8
   %idxprom70 = sext i32 %partition.0 to i64
   %arrayidx71 = getelementptr inbounds ptr, ptr %leaves, i64 %idxprom70
   %sub72 = sub nsw i32 %count, %partition.0
   %call73 = tail call fastcc noundef ptr @_ZL7topdownP6btDbvtPP10btDbvtNodeii(ptr noundef nonnull %pdbvt, ptr noundef nonnull %arrayidx71, i32 noundef %sub72, i32 noundef %bu_treshold)
   store ptr %call73, ptr %arrayidx.i.i66, align 8
-  %60 = load ptr, ptr %59, align 8
-  %parent = getelementptr inbounds i8, ptr %60, i64 32
+  %61 = load ptr, ptr %60, align 8
+  %parent = getelementptr inbounds i8, ptr %61, i64 32
   store ptr %node.0.i.i, ptr %parent, align 8
-  %61 = load ptr, ptr %arrayidx.i.i66, align 8
-  %parent77 = getelementptr inbounds i8, ptr %61, i64 32
+  %62 = load ptr, ptr %arrayidx.i.i66, align 8
+  %parent77 = getelementptr inbounds i8, ptr %62, i64 32
   store ptr %node.0.i.i, ptr %parent77, align 8
   br label %common.ret129
 
 if.else78:                                        ; preds = %if.then
   tail call fastcc void @_ZL8bottomupP6btDbvtPP10btDbvtNodei(ptr noundef %pdbvt, ptr noundef %leaves, i32 noundef %count)
-  %62 = load ptr, ptr %leaves, align 8
+  %63 = load ptr, ptr %leaves, align 8
   br label %common.ret129
 
 if.end80:                                         ; preds = %init.end
-  %63 = load ptr, ptr %leaves, align 8
+  %64 = load ptr, ptr %leaves, align 8
   br label %common.ret129
 }
 

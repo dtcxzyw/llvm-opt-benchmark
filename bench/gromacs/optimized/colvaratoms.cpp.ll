@@ -2869,8 +2869,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit17: ; 
   %50 = load ptr, ptr %49, align 8
   %51 = ptrtoint ptr %1 to i64
   %52 = sub i64 %51, %38
-  %53 = sdiv exact i64 %52, 120
-  %54 = getelementptr inbounds i32, ptr %50, i64 %53
+  %53 = sdiv exact i64 %52, 30
+  %54 = getelementptr inbounds i8, ptr %50, i64 %53
   %55 = getelementptr inbounds i8, ptr %54, i64 4
   %56 = getelementptr inbounds i8, ptr %0, i64 536
   %57 = load ptr, ptr %56, align 8

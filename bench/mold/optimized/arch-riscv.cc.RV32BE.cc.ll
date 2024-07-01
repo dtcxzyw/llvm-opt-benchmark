@@ -4040,8 +4040,9 @@ if.then.i:                                        ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %if.then.i
   %symtab_shndx_sec.i.i = getelementptr inbounds i8, ptr %6, i64 728
+  %add.ptr.i.idx.i = shl nuw nsw i64 %or9.i, 2
   %15 = load ptr, ptr %symtab_shndx_sec.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.mold::BigEndian", ptr %15, i64 %or9.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 %add.ptr.i.idx.i
   %x.0.copyload.i3.i.i = load i32, ptr %add.ptr.i.i.i, align 1
   %16 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i3.i.i)
   %conv5.i.i = zext i32 %16 to i64
@@ -37675,11 +37676,11 @@ while.body.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %_ZNK4mold3elf12Inpu
   %value27.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %value.i.i.i.i.i.i.i.i.i.i.i, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4mold3elf6ElfRelINS3_6RV32BEEEESt4spanIS7_Lm18446744073709551615EEEEmZZNS3_21riscv_resize_sectionsITkNS3_8is_riscvES5_EElRNS3_7ContextIT_EEENK3$_0clEPNS3_10ObjectFileIS5_EEEUlRS7_mE_ESE_SE_SE_RKT0_T1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i.i" ], [ %value.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_6RV32BEEE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %value23.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_6RV32BEEE8get_relsERNS0_7ContextIS2_EE.exit.thread.i.i.i.i.i.i.i.i.i.i.i ]
   %sub.ptr.lhs.cast.i.pre-phi.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.pre.i.i.i.i.i.i.i.i.i.i.i, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4mold3elf6ElfRelINS3_6RV32BEEEESt4spanIS7_Lm18446744073709551615EEEEmZZNS3_21riscv_resize_sectionsITkNS3_8is_riscvES5_EElRNS3_7ContextIT_EEENK3$_0clEPNS3_10ObjectFileIS5_EEEUlRS7_mE_ESE_SE_SE_RKT0_T1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i.i" ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_6RV32BEEE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZNK4mold3elf12InputSectionINS0_6RV32BEEE8get_relsERNS0_7ContextIS2_EE.exit.thread.i.i.i.i.i.i.i.i.i.i.i ]
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i29.i.i.i.i.i.i.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i, 12
   %18 = load ptr, ptr %extra.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %add.ptr.i13.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %18, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i.i.i.i
-  %19 = load i32, ptr %add.ptr.i13.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %conv.i.i.i.i.i.i.i.i.i.i.i = sext i32 %19 to i64
+  %19 = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i, 3
+  %add.ptr.i13.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 %19
+  %20 = load i32, ptr %add.ptr.i13.i.i.i.i.i.i.i.i.i.i.i, align 4
+  %conv.i.i.i.i.i.i.i.i.i.i.i = sext i32 %20 to i64
   %sub.i.i.i.i.i.i.i.i.i.i.i = sub i64 %value.val28.i.i.i.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i.i.i.i
   store i64 %sub.i.i.i.i.i.i.i.i.i.i.i, ptr %value27.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i

@@ -174,8 +174,8 @@ Abc_UtilStrsav.exit283:                           ; preds = %Abc_UtilStrsav.exit
   %66 = sdiv exact i64 %65, 12
   %.val6.i286 = load ptr, ptr %47, align 8
   %sext = shl i64 %66, 32
-  %67 = ashr exact i64 %sext, 32
-  %68 = getelementptr inbounds i32, ptr %.val6.i286, i64 %67
+  %67 = ashr exact i64 %sext, 30
+  %68 = getelementptr inbounds i8, ptr %.val6.i286, i64 %67
   store i32 %62, ptr %68, align 4
   %69 = add nuw nsw i32 %.0207395, 1
   %.val241 = load i32, ptr %48, align 8
@@ -1617,8 +1617,8 @@ define internal fastcc i32 @Gia_ManCorrSpecReal(ptr noundef %0, ptr nocapture no
   %63 = getelementptr i8, ptr %1, i64 400
   %.val5.i = load ptr, ptr %63, align 8
   %sext = shl i64 %62, 32
-  %64 = ashr exact i64 %sext, 32
-  %65 = getelementptr inbounds i32, ptr %.val5.i, i64 %64
+  %64 = ashr exact i64 %sext, 30
+  %65 = getelementptr inbounds i8, ptr %.val5.i, i64 %64
   %66 = load i32, ptr %65, align 4
   br label %109
 
@@ -1943,8 +1943,8 @@ Abc_UtilStrsav.exit133:                           ; preds = %Abc_UtilStrsav.exit
   %68 = sdiv exact i64 %67, 12
   %.val6.i = load ptr, ptr %52, align 8
   %sext = shl i64 %68, 32
-  %69 = ashr exact i64 %sext, 32
-  %70 = getelementptr inbounds i32, ptr %.val6.i, i64 %69
+  %69 = ashr exact i64 %sext, 30
+  %70 = getelementptr inbounds i8, ptr %.val6.i, i64 %69
   store i32 0, ptr %70, align 4
   %71 = add nuw nsw i32 %.0163, 1
   %.val117 = load i32, ptr %49, align 8
@@ -3800,8 +3800,8 @@ define void @Gia_ManCorrReduce_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
   %9 = getelementptr inbounds i8, ptr %1, i64 192
   %10 = load ptr, ptr %9, align 8
   %sext = shl i64 %8, 32
-  %11 = ashr exact i64 %sext, 32
-  %12 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %10, i64 %11
+  %11 = ashr exact i64 %sext, 30
+  %12 = getelementptr inbounds i8, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 268435455
   %15 = icmp eq i32 %14, 268435455
@@ -6638,8 +6638,8 @@ define internal fastcc void @Gia_ManCorrSpecReduce_rec(ptr noundef %0, ptr nocap
   %21 = getelementptr inbounds i8, ptr %1, i64 192
   %22 = load ptr, ptr %21, align 8
   %sext = shl i64 %12, 32
-  %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %22, i64 %23
+  %23 = ashr exact i64 %sext, 30
+  %24 = getelementptr inbounds i8, ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 268435455
   %27 = icmp eq i32 %26, 268435455

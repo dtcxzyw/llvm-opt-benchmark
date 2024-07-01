@@ -428,8 +428,8 @@ Abc_Clock.exit39:                                 ; preds = %30, %29
   %50 = fdiv float %49, %40
   %51 = ptrtoint ptr %.03143.us to i64
   %52 = sub i64 %51, %41
-  %53 = ashr exact i64 %52, 4
-  %54 = getelementptr inbounds float, ptr %21, i64 %53
+  %53 = ashr exact i64 %52, 2
+  %54 = getelementptr inbounds i8, ptr %21, i64 %53
   store float %50, ptr %54, align 4
   %55 = getelementptr inbounds i8, ptr %.03143.us, i64 16
   %56 = getelementptr inbounds i8, ptr %.03143.us, i64 24
@@ -446,8 +446,8 @@ Abc_Clock.exit39:                                 ; preds = %30, %29
   %62 = fdiv float %61, %40
   %63 = ptrtoint ptr %.03143 to i64
   %64 = sub i64 %63, %41
-  %65 = ashr exact i64 %64, 4
-  %66 = getelementptr inbounds float, ptr %21, i64 %65
+  %65 = ashr exact i64 %64, 2
+  %66 = getelementptr inbounds i8, ptr %21, i64 %65
   store float %62, ptr %66, align 4
   %67 = getelementptr inbounds i8, ptr %.03143, i64 16
   %68 = getelementptr inbounds i8, ptr %.03143, i64 24

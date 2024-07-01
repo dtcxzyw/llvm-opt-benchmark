@@ -4782,8 +4782,8 @@ Vec_PtrPush.exit94:                               ; preds = %Vec_PtrPush.exit94.
   %indvars.iv138 = phi i64 [ %indvars.iv136, %.lr.ph124 ], [ %indvars.iv.next139, %68 ]
   %.060.in122.in = phi i64 [ %indvars.iv.next137, %.lr.ph124 ], [ %indvars.iv138, %68 ]
   %sext = shl i64 %.060.in122.in, 32
-  %69 = ashr exact i64 %sext, 32
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %69
+  %69 = ashr exact i64 %sext, 29
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %69
   %70 = load ptr, ptr %gep, align 8
   %71 = getelementptr inbounds ptr, ptr %.val80126, i64 %indvars.iv138
   store ptr %70, ptr %71, align 8

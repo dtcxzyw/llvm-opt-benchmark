@@ -1465,8 +1465,8 @@ define internal fastcc range(i32 0, 3) i32 @fetch_request(ptr noundef %0, ptr no
   %159 = getelementptr inbounds i8, ptr %152, i64 16
   %160 = load ptr, ptr %159, align 8
   %sext = shl i64 %148, 32
-  %161 = ashr exact i64 %sext, 32
-  %162 = getelementptr inbounds i32, ptr %160, i64 %161
+  %161 = ashr exact i64 %sext, 30
+  %162 = getelementptr inbounds i8, ptr %160, i64 %161
   %163 = load i32, ptr %162, align 4
   %164 = sext i32 %163 to i64
   br label %translate.exit
@@ -1619,8 +1619,8 @@ translate.exit:                                   ; preds = %125, %155, %158
   %269 = getelementptr inbounds i8, ptr %262, i64 16
   %270 = load ptr, ptr %269, align 8
   %sext179 = shl i64 %258, 32
-  %271 = ashr exact i64 %sext179, 32
-  %272 = getelementptr inbounds i32, ptr %270, i64 %271
+  %271 = ashr exact i64 %sext179, 30
+  %272 = getelementptr inbounds i8, ptr %270, i64 %271
   %273 = load i32, ptr %272, align 4
   %274 = sext i32 %273 to i64
   br label %translate.exit153
@@ -1698,8 +1698,8 @@ translate.exit153:                                ; preds = %245, %265, %268
   %321 = getelementptr inbounds i8, ptr %314, i64 16
   %322 = load ptr, ptr %321, align 8
   %sext180 = shl i64 %310, 32
-  %323 = ashr exact i64 %sext180, 32
-  %324 = getelementptr inbounds i32, ptr %322, i64 %323
+  %323 = ashr exact i64 %sext180, 30
+  %324 = getelementptr inbounds i8, ptr %322, i64 %323
   %325 = load i32, ptr %324, align 4
   %326 = sext i32 %325 to i64
   br label %translate.exit156

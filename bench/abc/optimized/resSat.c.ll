@@ -967,8 +967,8 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %55 = trunc i64 %54 to i32
   %phi.call.val = load ptr, ptr %28, align 8
   %sext = shl i64 %54, 32
-  %56 = ashr exact i64 %sext, 32
-  %57 = getelementptr inbounds i32, ptr %phi.call.val, i64 %56
+  %56 = ashr exact i64 %sext, 30
+  %57 = getelementptr inbounds i8, ptr %phi.call.val, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i32 %58, 1
   br i1 %59, label %.split65, label %.split63

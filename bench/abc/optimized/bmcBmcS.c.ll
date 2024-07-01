@@ -3790,8 +3790,8 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %151 = sub i64 %63, %150
   %152 = sdiv exact i64 %151, 12
   %sext131 = shl i64 %152, 32
-  %153 = ashr exact i64 %sext131, 32
-  %154 = getelementptr inbounds i32, ptr %48, i64 %153
+  %153 = ashr exact i64 %sext131, 30
+  %154 = getelementptr inbounds i8, ptr %48, i64 %153
   store i32 %147, ptr %154, align 4
   %155 = icmp eq i32 %70, %67
   %156 = and i32 %.1136, 1
@@ -4042,8 +4042,8 @@ Gia_ManAppendCo.exit130:                          ; preds = %Vec_IntPush.exit.i1
   %301 = getelementptr i8, ptr %296, i64 400
   %.val114 = load ptr, ptr %301, align 8
   %sext = shl i64 %300, 32
-  %302 = ashr exact i64 %sext, 32
-  %303 = getelementptr inbounds i32, ptr %.val114, i64 %302
+  %302 = ashr exact i64 %sext, 30
+  %303 = getelementptr inbounds i8, ptr %.val114, i64 %302
   store i32 %284, ptr %303, align 4
   %304 = add nuw nsw i32 %.180147, 1
   %305 = load ptr, ptr %181, align 8

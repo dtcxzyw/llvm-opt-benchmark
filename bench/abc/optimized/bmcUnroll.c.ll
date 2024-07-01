@@ -1280,8 +1280,8 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %Gia_ObjIsRo.exit.th
   %412 = and i64 %.val250, 536870911
   %413 = sub nsw i64 %indvars.iv461, %412
   %sext478 = shl i64 %413, 32
-  %414 = ashr exact i64 %sext478, 32
-  %415 = getelementptr inbounds i32, ptr %.val230, i64 %414
+  %414 = ashr exact i64 %sext478, 30
+  %415 = getelementptr inbounds i8, ptr %.val230, i64 %414
   %416 = load i32, ptr %415, align 4
   store i32 %416, ptr %409, align 4
   %.val278 = load i64, ptr %402, align 4
@@ -1335,8 +1335,8 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %Gia_ObjIsRo.exit.th
   %446 = and i64 %445, 536870911
   %447 = sub nsw i64 %indvars.iv461, %446
   %sext479 = shl i64 %447, 32
-  %448 = ashr exact i64 %sext479, 32
-  %449 = getelementptr inbounds i32, ptr %.val230, i64 %448
+  %448 = ashr exact i64 %sext479, 30
+  %449 = getelementptr inbounds i8, ptr %.val230, i64 %448
   %450 = load i32, ptr %449, align 4
   %451 = getelementptr inbounds i8, ptr %409, i64 4
   store i32 %450, ptr %451, align 4

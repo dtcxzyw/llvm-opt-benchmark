@@ -1381,8 +1381,8 @@ Vec_PtrSort.exit:                                 ; preds = %.critedge6, %170
   %200 = getelementptr i8, ptr %191, i64 8
   %.val109 = load ptr, ptr %200, align 8
   %sext = shl i64 %197, 32
-  %201 = ashr exact i64 %sext, 32
-  %202 = getelementptr inbounds i32, ptr %.val109, i64 %201
+  %201 = ashr exact i64 %sext, 30
+  %202 = getelementptr inbounds i8, ptr %.val109, i64 %201
   store i32 %198, ptr %202, align 4
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %203 = load ptr, ptr %95, align 8

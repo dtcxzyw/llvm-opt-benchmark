@@ -4521,8 +4521,8 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   br i1 %cmp19.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
-  %41 = lshr exact i64 %indvars.iv.i.i.i, 6
-  %arrayidx.i35.i.i.i.i.i = getelementptr inbounds i64, ptr %38, i64 %41
+  %41 = lshr exact i64 %indvars.iv.i.i.i, 3
+  %arrayidx.i35.i.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 %41
   %42 = load i64, ptr %arrayidx.i35.i.i.i.i.i, align 8
   %cmp.i36.i.i.i.i.i = icmp eq i64 %42, -1
   br i1 %cmp.i36.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %land.end.i.i.i, !llvm.loop !40
@@ -4955,8 +4955,8 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
-  %98 = lshr exact i64 %indvars.iv.i.i114, 6
-  %arrayidx.i35.i.i.i.i = getelementptr inbounds i64, ptr %95, i64 %98
+  %98 = lshr exact i64 %indvars.iv.i.i114, 3
+  %arrayidx.i35.i.i.i.i = getelementptr inbounds i8, ptr %95, i64 %98
   %99 = load i64, ptr %arrayidx.i35.i.i.i.i, align 8
   %cmp.i36.i.i.i.i = icmp eq i64 %99, -1
   br i1 %cmp.i36.i.i.i.i, label %for.cond.i.i.i.i, label %land.end.i.i, !llvm.loop !40
@@ -5089,8 +5089,8 @@ for.cond.i.i.i.i.i92:                             ; preds = %for.body.i.i.i.i.i9
   br i1 %cmp19.not.i.i.i.i.i95, label %for.end.i.i.i.i.i99, label %for.body.i.i.i.i.i96
 
 for.body.i.i.i.i.i96:                             ; preds = %for.cond.i.i.i.i.i92
-  %118 = lshr exact i64 %indvars.iv.i.i.i93, 6
-  %arrayidx.i35.i.i.i.i.i97 = getelementptr inbounds i64, ptr %115, i64 %118
+  %118 = lshr exact i64 %indvars.iv.i.i.i93, 3
+  %arrayidx.i35.i.i.i.i.i97 = getelementptr inbounds i8, ptr %115, i64 %118
   %119 = load i64, ptr %arrayidx.i35.i.i.i.i.i97, align 8
   %cmp.i36.i.i.i.i.i98 = icmp eq i64 %119, -1
   br i1 %cmp.i36.i.i.i.i.i98, label %for.cond.i.i.i.i.i92, label %land.end.i.i.i18, !llvm.loop !40
@@ -5673,8 +5673,8 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
-  %7 = lshr exact i64 %indvars.iv.i.i, 6
-  %arrayidx.i35.i.i.i.i = getelementptr inbounds i64, ptr %4, i64 %7
+  %7 = lshr exact i64 %indvars.iv.i.i, 3
+  %arrayidx.i35.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %7
   %8 = load i64, ptr %arrayidx.i35.i.i.i.i, align 8
   %cmp.i36.i.i.i.i = icmp eq i64 %8, -1
   br i1 %cmp.i36.i.i.i.i, label %for.cond.i.i.i.i, label %land.end.i.i, !llvm.loop !40
@@ -6209,8 +6209,8 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
-  %13 = lshr exact i64 %indvars.iv.i, 6
-  %arrayidx.i43.i.i.i = getelementptr inbounds i64, ptr %9, i64 %13
+  %13 = lshr exact i64 %indvars.iv.i, 3
+  %arrayidx.i43.i.i.i = getelementptr inbounds i8, ptr %9, i64 %13
   %14 = load i64, ptr %arrayidx.i43.i.i.i, align 8
   %tobool.not.i44.i.i.i = icmp eq i64 %14, 0
   br i1 %tobool.not.i44.i.i.i, label %for.cond.i.i.i, label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i, !llvm.loop !43
@@ -7302,8 +7302,8 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   br i1 %cmp19.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
-  %41 = lshr exact i64 %indvars.iv.i.i.i, 6
-  %arrayidx.i35.i.i.i.i.i = getelementptr inbounds i64, ptr %38, i64 %41
+  %41 = lshr exact i64 %indvars.iv.i.i.i, 3
+  %arrayidx.i35.i.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 %41
   %42 = load i64, ptr %arrayidx.i35.i.i.i.i.i, align 8
   %cmp.i36.i.i.i.i.i = icmp eq i64 %42, -1
   br i1 %cmp.i36.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %land.end.i.i.i, !llvm.loop !40
@@ -7848,8 +7848,8 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
-  %127 = lshr exact i64 %indvars.iv.i.i115, 6
-  %arrayidx.i35.i.i.i.i = getelementptr inbounds i64, ptr %124, i64 %127
+  %127 = lshr exact i64 %indvars.iv.i.i115, 3
+  %arrayidx.i35.i.i.i.i = getelementptr inbounds i8, ptr %124, i64 %127
   %128 = load i64, ptr %arrayidx.i35.i.i.i.i, align 8
   %cmp.i36.i.i.i.i = icmp eq i64 %128, -1
   br i1 %cmp.i36.i.i.i.i, label %for.cond.i.i.i.i, label %land.end.i.i, !llvm.loop !40
@@ -7982,8 +7982,8 @@ for.cond.i.i.i.i.i93:                             ; preds = %for.body.i.i.i.i.i9
   br i1 %cmp19.not.i.i.i.i.i96, label %for.end.i.i.i.i.i100, label %for.body.i.i.i.i.i97
 
 for.body.i.i.i.i.i97:                             ; preds = %for.cond.i.i.i.i.i93
-  %147 = lshr exact i64 %indvars.iv.i.i.i94, 6
-  %arrayidx.i35.i.i.i.i.i98 = getelementptr inbounds i64, ptr %144, i64 %147
+  %147 = lshr exact i64 %indvars.iv.i.i.i94, 3
+  %arrayidx.i35.i.i.i.i.i98 = getelementptr inbounds i8, ptr %144, i64 %147
   %148 = load i64, ptr %arrayidx.i35.i.i.i.i.i98, align 8
   %cmp.i36.i.i.i.i.i99 = icmp eq i64 %148, -1
   br i1 %cmp.i36.i.i.i.i.i99, label %for.cond.i.i.i.i.i93, label %land.end.i.i.i18, !llvm.loop !40
@@ -8273,8 +8273,8 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
-  %7 = lshr exact i64 %indvars.iv.i.i, 6
-  %arrayidx.i35.i.i.i.i = getelementptr inbounds i64, ptr %4, i64 %7
+  %7 = lshr exact i64 %indvars.iv.i.i, 3
+  %arrayidx.i35.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %7
   %8 = load i64, ptr %arrayidx.i35.i.i.i.i, align 8
   %cmp.i36.i.i.i.i = icmp eq i64 %8, -1
   br i1 %cmp.i36.i.i.i.i, label %for.cond.i.i.i.i, label %land.end.i.i, !llvm.loop !40

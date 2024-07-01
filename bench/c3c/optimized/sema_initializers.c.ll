@@ -4464,8 +4464,8 @@ expand_.exit56:                                   ; preds = %264, %268
   store i32 0, ptr %321, align 8
   store ptr %321, ptr %319, align 8
   %sext = shl i64 %indvars.iv169, 32
-  %323 = ashr exact i64 %sext, 32
-  %324 = getelementptr inbounds ptr, ptr %308, i64 %323
+  %323 = ashr exact i64 %sext, 29
+  %324 = getelementptr inbounds i8, ptr %308, i64 %323
   store ptr %317, ptr %324, align 8
   br label %325
 

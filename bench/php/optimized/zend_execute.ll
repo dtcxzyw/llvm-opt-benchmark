@@ -164008,8 +164008,8 @@ define internal noundef i32 @ZEND_FUNC_GET_ARGS_SPEC_CONST_UNUSED_HANDLER(ptr no
   tail call void @llvm.assume(i1 %31)
   %32 = shl i64 %9, 32
   %sext = add i64 %32, 21474836480
-  %33 = ashr exact i64 %sext, 32
-  %34 = getelementptr inbounds %struct._zval_struct, ptr %0, i64 %33
+  %33 = ashr exact i64 %sext, 28
+  %34 = getelementptr inbounds i8, ptr %0, i64 %33
   %35 = icmp ugt i32 %4, %15
   br i1 %35, label %.preheader, label %76
 

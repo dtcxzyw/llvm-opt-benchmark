@@ -916,10 +916,10 @@ if.then:                                          ; preds = %land.lhs.true
   %chunkContents = getelementptr inbounds i8, ptr %ut, i64 48
   %2 = load ptr, ptr %chunkContents, align 8
   %sext = shl i64 %sub, 32
-  %idxprom = ashr exact i64 %sext, 32
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %3 = load i16, ptr %arrayidx, align 2
-  %conv6 = zext i16 %3 to i32
+  %3 = ashr exact i64 %sext, 31
+  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %3
+  %4 = load i16, ptr %arrayidx, align 2
+  %conv6 = zext i16 %4 to i32
   %and = and i32 %conv6, 63488
   %cmp7.not = icmp eq i32 %and, 55296
   br i1 %cmp7.not, label %lor.lhs.false.i, label %return
@@ -927,17 +927,17 @@ if.then:                                          ; preds = %land.lhs.true
 lor.lhs.false.i:                                  ; preds = %if.then, %land.lhs.true
   %c.0.ph = phi i32 [ -1, %land.lhs.true ], [ %conv6, %if.then ]
   %chunkNativeLimit.i = getelementptr inbounds i8, ptr %ut, i64 16
-  %4 = load i64, ptr %chunkNativeLimit.i, align 8
-  %cmp1.not.i = icmp sgt i64 %4, %nativeIndex
+  %5 = load i64, ptr %chunkNativeLimit.i, align 8
+  %cmp1.not.i = icmp sgt i64 %5, %nativeIndex
   br i1 %cmp1.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry, %lor.lhs.false.i
   %c.039 = phi i32 [ %c.0.ph, %lor.lhs.false.i ], [ -1, %entry ]
   %pFuncs.i = getelementptr inbounds i8, ptr %ut, i64 56
-  %5 = load ptr, ptr %pFuncs.i, align 8
-  %access.i = getelementptr inbounds i8, ptr %5, i64 32
-  %6 = load ptr, ptr %access.i, align 8
-  %call.i = tail call noundef signext i8 %6(ptr noundef nonnull %ut, i64 noundef %nativeIndex, i8 noundef signext 1)
+  %6 = load ptr, ptr %pFuncs.i, align 8
+  %access.i = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = load ptr, ptr %access.i, align 8
+  %call.i = tail call noundef signext i8 %7(ptr noundef nonnull %ut, i64 noundef %nativeIndex, i8 noundef signext 1)
   %chunkOffset13.phi.trans.insert.i = getelementptr inbounds i8, ptr %ut, i64 40
   %.pre.i = load i32, ptr %chunkOffset13.phi.trans.insert.i, align 8
   br label %if.end12.i
@@ -955,129 +955,129 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.else8.i:                                       ; preds = %if.else.i
   %pFuncs9.i = getelementptr inbounds i8, ptr %ut, i64 56
-  %7 = load ptr, ptr %pFuncs9.i, align 8
-  %mapNativeIndexToUTF16.i = getelementptr inbounds i8, ptr %7, i64 72
-  %8 = load ptr, ptr %mapNativeIndexToUTF16.i, align 8
-  %call10.i = tail call noundef i32 %8(ptr noundef nonnull %ut, i64 noundef %nativeIndex)
+  %8 = load ptr, ptr %pFuncs9.i, align 8
+  %mapNativeIndexToUTF16.i = getelementptr inbounds i8, ptr %8, i64 72
+  %9 = load ptr, ptr %mapNativeIndexToUTF16.i, align 8
+  %call10.i = tail call noundef i32 %9(ptr noundef nonnull %ut, i64 noundef %nativeIndex)
   %chunkOffset11.i = getelementptr inbounds i8, ptr %ut, i64 40
   store i32 %call10.i, ptr %chunkOffset11.i, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else8.i, %if.then4.i, %if.then.i
   %c.037 = phi i32 [ %c.0.ph, %if.then4.i ], [ %c.0.ph, %if.else8.i ], [ %c.039, %if.then.i ]
-  %9 = phi i32 [ %conv.i, %if.then4.i ], [ %call10.i, %if.else8.i ], [ %.pre.i, %if.then.i ]
+  %10 = phi i32 [ %conv.i, %if.then4.i ], [ %call10.i, %if.else8.i ], [ %.pre.i, %if.then.i ]
   %chunkOffset13.i = getelementptr inbounds i8, ptr %ut, i64 40
   %chunkLength.i = getelementptr inbounds i8, ptr %ut, i64 44
-  %10 = load i32, ptr %chunkLength.i, align 4
-  %cmp14.i = icmp slt i32 %9, %10
+  %11 = load i32, ptr %chunkLength.i, align 4
+  %cmp14.i = icmp slt i32 %10, %11
   br i1 %cmp14.i, label %if.then15.i, label %utext_setNativeIndex_75.exit
 
 if.then15.i:                                      ; preds = %if.end12.i
   %chunkContents.i = getelementptr inbounds i8, ptr %ut, i64 48
-  %11 = load ptr, ptr %chunkContents.i, align 8
-  %idxprom.i = sext i32 %9 to i64
-  %arrayidx.i = getelementptr inbounds i16, ptr %11, i64 %idxprom.i
-  %12 = load i16, ptr %arrayidx.i, align 2
-  %13 = and i16 %12, -1024
-  %cmp18.i = icmp eq i16 %13, -9216
+  %12 = load ptr, ptr %chunkContents.i, align 8
+  %idxprom.i = sext i32 %10 to i64
+  %arrayidx.i = getelementptr inbounds i16, ptr %12, i64 %idxprom.i
+  %13 = load i16, ptr %arrayidx.i, align 2
+  %14 = and i16 %13, -1024
+  %cmp18.i = icmp eq i16 %14, -9216
   br i1 %cmp18.i, label %if.then19.i, label %utext_setNativeIndex_75.exit
 
 if.then19.i:                                      ; preds = %if.then15.i
-  %cmp21.i = icmp eq i32 %9, 0
+  %cmp21.i = icmp eq i32 %10, 0
   br i1 %cmp21.i, label %if.then22.i, label %if.end27.i
 
 if.then22.i:                                      ; preds = %if.then19.i
   %pFuncs23.i = getelementptr inbounds i8, ptr %ut, i64 56
-  %14 = load ptr, ptr %pFuncs23.i, align 8
-  %access24.i = getelementptr inbounds i8, ptr %14, i64 32
-  %15 = load ptr, ptr %access24.i, align 8
-  %16 = load i64, ptr %chunkNativeStart, align 8
-  %call26.i = tail call noundef signext i8 %15(ptr noundef nonnull %ut, i64 noundef %16, i8 noundef signext 0)
+  %15 = load ptr, ptr %pFuncs23.i, align 8
+  %access24.i = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = load ptr, ptr %access24.i, align 8
+  %17 = load i64, ptr %chunkNativeStart, align 8
+  %call26.i = tail call noundef signext i8 %16(ptr noundef nonnull %ut, i64 noundef %17, i8 noundef signext 0)
   %.pre = load i32, ptr %chunkOffset13.i, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.then22.i, %if.then19.i
-  %17 = phi i32 [ %.pre, %if.then22.i ], [ %9, %if.then19.i ]
-  %cmp29.i = icmp sgt i32 %17, 0
+  %18 = phi i32 [ %.pre, %if.then22.i ], [ %10, %if.then19.i ]
+  %cmp29.i = icmp sgt i32 %18, 0
   br i1 %cmp29.i, label %if.then30.i, label %utext_setNativeIndex_75.exit
 
 if.then30.i:                                      ; preds = %if.end27.i
-  %18 = load ptr, ptr %chunkContents.i, align 8
-  %19 = zext nneg i32 %17 to i64
-  %20 = getelementptr i16, ptr %18, i64 %19
-  %arrayidx35.i = getelementptr i8, ptr %20, i64 -2
-  %21 = load i16, ptr %arrayidx35.i, align 2
-  %22 = and i16 %21, -1024
-  %cmp38.i = icmp eq i16 %22, -10240
+  %19 = load ptr, ptr %chunkContents.i, align 8
+  %20 = zext nneg i32 %18 to i64
+  %21 = getelementptr i16, ptr %19, i64 %20
+  %arrayidx35.i = getelementptr i8, ptr %21, i64 -2
+  %22 = load i16, ptr %arrayidx35.i, align 2
+  %23 = and i16 %22, -1024
+  %cmp38.i = icmp eq i16 %23, -10240
   br i1 %cmp38.i, label %if.then39.i, label %utext_setNativeIndex_75.exit
 
 if.then39.i:                                      ; preds = %if.then30.i
-  %dec.i = add nsw i32 %17, -1
+  %dec.i = add nsw i32 %18, -1
   store i32 %dec.i, ptr %chunkOffset13.i, align 8
   br label %utext_setNativeIndex_75.exit
 
 utext_setNativeIndex_75.exit:                     ; preds = %if.end12.i, %if.then15.i, %if.end27.i, %if.then30.i, %if.then39.i
-  %23 = phi i32 [ %9, %if.end12.i ], [ %9, %if.then15.i ], [ %17, %if.end27.i ], [ %17, %if.then30.i ], [ %dec.i, %if.then39.i ]
-  %24 = load i64, ptr %chunkNativeStart, align 8
-  %cmp13.not = icmp sgt i64 %24, %nativeIndex
+  %24 = phi i32 [ %10, %if.end12.i ], [ %10, %if.then15.i ], [ %18, %if.end27.i ], [ %18, %if.then30.i ], [ %dec.i, %if.then39.i ]
+  %25 = load i64, ptr %chunkNativeStart, align 8
+  %cmp13.not = icmp sgt i64 %25, %nativeIndex
   br i1 %cmp13.not, label %return, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %utext_setNativeIndex_75.exit
-  %25 = load i32, ptr %chunkLength.i, align 4
-  %cmp16 = icmp slt i32 %23, %25
+  %26 = load i32, ptr %chunkLength.i, align 4
+  %cmp16 = icmp slt i32 %24, %26
   br i1 %cmp16, label %if.then17, label %return
 
 if.then17:                                        ; preds = %land.lhs.true14
   %chunkContents18 = getelementptr inbounds i8, ptr %ut, i64 48
-  %26 = load ptr, ptr %chunkContents18, align 8
-  %idxprom20 = sext i32 %23 to i64
-  %arrayidx21 = getelementptr inbounds i16, ptr %26, i64 %idxprom20
-  %27 = load i16, ptr %arrayidx21, align 2
-  %conv22 = zext i16 %27 to i32
-  %28 = and i32 %conv22, 64512
-  %or.cond = icmp eq i32 %28, 55296
+  %27 = load ptr, ptr %chunkContents18, align 8
+  %idxprom20 = sext i32 %24 to i64
+  %arrayidx21 = getelementptr inbounds i16, ptr %27, i64 %idxprom20
+  %28 = load i16, ptr %arrayidx21, align 2
+  %conv22 = zext i16 %28 to i32
+  %29 = and i32 %conv22, 64512
+  %or.cond = icmp eq i32 %29, 55296
   br i1 %or.cond, label %if.end10.i, label %return
 
 if.end10.i:                                       ; preds = %if.then17
-  %add.i = add nsw i32 %23, 1
-  %cmp13.i = icmp slt i32 %add.i, %25
+  %add.i = add nsw i32 %24, 1
+  %cmp13.i = icmp slt i32 %add.i, %26
   br i1 %cmp13.i, label %if.then14.i, label %if.else.i28
 
 if.then14.i:                                      ; preds = %if.end10.i
   %idxprom18.i = sext i32 %add.i to i64
-  %arrayidx19.i = getelementptr inbounds i16, ptr %26, i64 %idxprom18.i
-  %29 = load i16, ptr %arrayidx19.i, align 2
-  %conv20.i = zext i16 %29 to i32
+  %arrayidx19.i = getelementptr inbounds i16, ptr %27, i64 %idxprom18.i
+  %30 = load i16, ptr %arrayidx19.i, align 2
+  %conv20.i = zext i16 %30 to i32
   br label %if.end40.i
 
 if.else.i28:                                      ; preds = %if.end10.i
   %chunkNativeLimit21.i = getelementptr inbounds i8, ptr %ut, i64 16
-  %30 = load i64, ptr %chunkNativeLimit21.i, align 8
+  %31 = load i64, ptr %chunkNativeLimit21.i, align 8
   %pFuncs22.i = getelementptr inbounds i8, ptr %ut, i64 56
-  %31 = load ptr, ptr %pFuncs22.i, align 8
-  %access23.i = getelementptr inbounds i8, ptr %31, i64 32
-  %32 = load ptr, ptr %access23.i, align 8
-  %call24.i = tail call noundef signext i8 %32(ptr noundef nonnull %ut, i64 noundef %30, i8 noundef signext 1)
+  %32 = load ptr, ptr %pFuncs22.i, align 8
+  %access23.i = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = load ptr, ptr %access23.i, align 8
+  %call24.i = tail call noundef signext i8 %33(ptr noundef nonnull %ut, i64 noundef %31, i8 noundef signext 1)
   %tobool.not.i = icmp eq i8 %call24.i, 0
   br i1 %tobool.not.i, label %if.end31.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.else.i28
-  %33 = load ptr, ptr %chunkContents18, align 8
-  %34 = load i32, ptr %chunkOffset13.i, align 8
-  %idxprom28.i = sext i32 %34 to i64
-  %arrayidx29.i = getelementptr inbounds i16, ptr %33, i64 %idxprom28.i
-  %35 = load i16, ptr %arrayidx29.i, align 2
-  %conv30.i = zext i16 %35 to i32
+  %34 = load ptr, ptr %chunkContents18, align 8
+  %35 = load i32, ptr %chunkOffset13.i, align 8
+  %idxprom28.i = sext i32 %35 to i64
+  %arrayidx29.i = getelementptr inbounds i16, ptr %34, i64 %idxprom28.i
+  %36 = load i16, ptr %arrayidx29.i, align 2
+  %conv30.i = zext i16 %36 to i32
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.then25.i, %if.else.i28
   %trail.0.i = phi i32 [ %conv30.i, %if.then25.i ], [ 0, %if.else.i28 ]
-  %36 = load ptr, ptr %pFuncs22.i, align 8
-  %access33.i = getelementptr inbounds i8, ptr %36, i64 32
-  %37 = load ptr, ptr %access33.i, align 8
-  %call34.i = tail call noundef signext i8 %37(ptr noundef nonnull %ut, i64 noundef %30, i8 noundef signext 0)
-  %38 = load i32, ptr %chunkLength.i, align 4
-  %sub.i29 = add nsw i32 %38, -1
+  %37 = load ptr, ptr %pFuncs22.i, align 8
+  %access33.i = getelementptr inbounds i8, ptr %37, i64 32
+  %38 = load ptr, ptr %access33.i, align 8
+  %call34.i = tail call noundef signext i8 %38(ptr noundef nonnull %ut, i64 noundef %31, i8 noundef signext 0)
+  %39 = load i32, ptr %chunkLength.i, align 4
+  %sub.i29 = add nsw i32 %39, -1
   store i32 %sub.i29, ptr %chunkOffset13.i, align 8
   %tobool37.not.i = icmp eq i8 %call34.i, 0
   br i1 %tobool37.not.i, label %return, label %if.end40.i

@@ -498,8 +498,8 @@ define internal range(i32 -128, 128) i32 @checkcondition_gin(ptr nocapture nound
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
-  %10 = sdiv exact i64 %9, 12
-  %11 = getelementptr i32, ptr %5, i64 %10
+  %10 = sdiv exact i64 %9, 3
+  %11 = getelementptr i8, ptr %5, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8

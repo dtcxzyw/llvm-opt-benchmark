@@ -1176,13 +1176,13 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit: ; preds = %if.then.i113, %_Z
   %sub.ptr.sub14.i = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i
   %retval.0.in.i = sdiv exact i64 %sub.ptr.sub14.i, 88
   %sext = shl i64 %retval.0.in.i, 32
-  %idxprom124 = ashr exact i64 %sext, 32
-  %arrayidx125 = getelementptr inbounds i32, ptr %call20, i64 %idxprom124
+  %93 = ashr exact i64 %sext, 30
+  %arrayidx125 = getelementptr inbounds i8, ptr %call20, i64 %93
   store i32 1073741824, ptr %arrayidx125, align 4
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %93 = load i32, ptr %field_count_.i104, align 4
-  %94 = sext i32 %93 to i64
-  %cmp119 = icmp slt i64 %indvars.iv.next181, %94
+  %94 = load i32, ptr %field_count_.i104, align 4
+  %95 = sext i32 %94 to i64
+  %cmp119 = icmp slt i64 %indvars.iv.next181, %95
   br i1 %cmp119, label %for.body120, label %for.inc129, !llvm.loop !17
 
 for.inc129:                                       ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit, %for.cond116.preheader
@@ -1206,27 +1206,27 @@ for.end131:                                       ; preds = %for.inc129, %for.en
   %prototype.i = getelementptr inbounds i8, ptr %call12, i64 64
   store ptr %call133, ptr %prototype.i, align 8
   tail call void @_ZN6google8protobuf14DynamicMessage10SharedCtorEb(ptr noundef nonnull align 8 dereferenceable(32) %call133, i1 noundef zeroext false)
-  %95 = load ptr, ptr %prototype.i, align 8
-  store ptr %95, ptr %schema, align 8
+  %96 = load ptr, ptr %prototype.i, align 8
+  store ptr %96, ptr %schema, align 8
   %offsets_ = getelementptr inbounds i8, ptr %schema, i64 8
-  %96 = load <2 x ptr>, ptr %offsets.i, align 8
-  store <2 x ptr> %96, ptr %offsets_, align 8
+  %97 = load <2 x ptr>, ptr %offsets.i, align 8
+  store <2 x ptr> %97, ptr %offsets_, align 8
   %has_bits_offset_ = getelementptr inbounds i8, ptr %schema, i64 24
-  %97 = load i32, ptr %has_bits_offset, align 4
-  store i32 %97, ptr %has_bits_offset_, align 8
+  %98 = load i32, ptr %has_bits_offset, align 4
+  store i32 %98, ptr %has_bits_offset_, align 8
   %metadata_offset_ = getelementptr inbounds i8, ptr %schema, i64 28
   store i32 8, ptr %metadata_offset_, align 4
   %extensions_offset_ = getelementptr inbounds i8, ptr %schema, i64 32
   %oneof_case_offset143 = getelementptr inbounds i8, ptr %call12, i64 8
-  %98 = load <2 x i32>, ptr %oneof_case_offset143, align 8
-  %99 = shufflevector <2 x i32> %98, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %99, ptr %extensions_offset_, align 8
+  %99 = load <2 x i32>, ptr %oneof_case_offset143, align 8
+  %100 = shufflevector <2 x i32> %99, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x i32> %100, ptr %extensions_offset_, align 8
   %object_size_ = getelementptr inbounds i8, ptr %schema, i64 40
-  %100 = load i32, ptr %call12, align 8
-  store i32 %100, ptr %object_size_, align 8
+  %101 = load i32, ptr %call12, align 8
+  store i32 %101, ptr %object_size_, align 8
   %weak_field_map_offset_ = getelementptr inbounds i8, ptr %schema, i64 44
-  %101 = load i32, ptr %weak_field_map_offset194, align 8
-  store i32 %101, ptr %weak_field_map_offset_, align 4
+  %102 = load i32, ptr %weak_field_map_offset194, align 8
+  store i32 %102, ptr %weak_field_map_offset_, align 4
   %inlined_string_indices_ = getelementptr inbounds i8, ptr %schema, i64 48
   store ptr null, ptr %inlined_string_indices_, align 8
   %inlined_string_donated_offset_ = getelementptr inbounds i8, ptr %schema, i64 56
@@ -1236,21 +1236,21 @@ for.end131:                                       ; preds = %for.inc129, %for.en
   %sizeof_split_ = getelementptr inbounds i8, ptr %schema, i64 64
   store i32 -1, ptr %sizeof_split_, align 8
   %call146 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #21
-  %102 = load ptr, ptr %type13, align 8
-  %103 = load ptr, ptr %pool, align 8
-  invoke void @_ZN6google8protobuf10ReflectionC1EPKNS0_10DescriptorERKNS0_8internal16ReflectionSchemaEPKNS0_14DescriptorPoolEPNS0_14MessageFactoryE(ptr noundef nonnull align 8 dereferenceable(112) %call146, ptr noundef %102, ptr noundef nonnull align 8 dereferenceable(72) %schema, ptr noundef %103, ptr noundef nonnull %this)
+  %103 = load ptr, ptr %type13, align 8
+  %104 = load ptr, ptr %pool, align 8
+  invoke void @_ZN6google8protobuf10ReflectionC1EPKNS0_10DescriptorERKNS0_8internal16ReflectionSchemaEPKNS0_14DescriptorPoolEPNS0_14MessageFactoryE(ptr noundef nonnull align 8 dereferenceable(112) %call146, ptr noundef %103, ptr noundef nonnull align 8 dereferenceable(72) %schema, ptr noundef %104, ptr noundef nonnull %this)
           to label %invoke.cont150 unwind label %lpad149
 
 invoke.cont150:                                   ; preds = %for.end131
   %reflection = getelementptr inbounds i8, ptr %call12, i64 56
-  %104 = load ptr, ptr %reflection, align 8
+  %105 = load ptr, ptr %reflection, align 8
   store ptr %call146, ptr %reflection, align 8
-  %tobool.not.i.i115 = icmp eq ptr %104, null
+  %tobool.not.i.i115 = icmp eq ptr %105, null
   br i1 %tobool.not.i.i115, label %_ZNSt10unique_ptrIKN6google8protobuf10ReflectionESt14default_deleteIS3_EE5resetEPS3_.exit, label %_ZNKSt14default_deleteIKN6google8protobuf10ReflectionEEclEPS3_.exit.i.i
 
 _ZNKSt14default_deleteIKN6google8protobuf10ReflectionEEclEPS3_.exit.i.i: ; preds = %invoke.cont150
-  call void @_ZN6google8protobuf10ReflectionD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %104) #24
-  call void @_ZdlPv(ptr noundef nonnull %104) #22
+  call void @_ZN6google8protobuf10ReflectionD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %105) #24
+  call void @_ZdlPv(ptr noundef nonnull %105) #22
   br label %_ZNSt10unique_ptrIKN6google8protobuf10ReflectionESt14default_deleteIS3_EE5resetEPS3_.exit
 
 _ZNSt10unique_ptrIKN6google8protobuf10ReflectionESt14default_deleteIS3_EE5resetEPS3_.exit: ; preds = %invoke.cont150, %_ZNKSt14default_deleteIKN6google8protobuf10ReflectionEEclEPS3_.exit.i.i
@@ -1258,10 +1258,10 @@ _ZNSt10unique_ptrIKN6google8protobuf10ReflectionESt14default_deleteIS3_EE5resetE
   br label %return
 
 lpad149:                                          ; preds = %for.end131
-  %105 = landingpad { ptr, i32 }
+  %106 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call146) #22
-  resume { ptr, i32 } %105
+  resume { ptr, i32 } %106
 
 return:                                           ; preds = %if.then, %_ZNSt10unique_ptrIKN6google8protobuf10ReflectionESt14default_deleteIS3_EE5resetEPS3_.exit, %if.then10
   %retval.0 = phi ptr [ %18, %if.then10 ], [ %call133, %_ZNSt10unique_ptrIKN6google8protobuf10ReflectionESt14default_deleteIS3_EE5resetEPS3_.exit ], [ %call4, %if.then ]

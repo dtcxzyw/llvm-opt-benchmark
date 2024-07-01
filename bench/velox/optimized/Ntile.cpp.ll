@@ -3734,18 +3734,18 @@ if.then5.i:                                       ; preds = %if.then.i10
   %idx.ext.i = sext i32 %resultOffset to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %call4.i, i64 %idx.ext.i
   %sext17 = shl i64 %div5, 32
-  %idx.ext8.i = ashr exact i64 %sext17, 32
-  %add.ptr9.i = getelementptr inbounds i64, ptr %add.ptr.i, i64 %idx.ext8.i
+  %35 = ashr exact i64 %sext17, 29
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %35
   %cmp.not4.i.i = icmp eq i32 %conv, 0
   br i1 %cmp.not4.i.i, label %if.end, label %for.body.i.preheader.i
 
 for.body.i.preheader.i:                           ; preds = %if.then5.i
   %partitionOffset_.i15 = getelementptr inbounds i8, ptr %this, i64 152
-  %35 = load i64, ptr %partitionOffset_.i15, align 8
+  %36 = load i64, ptr %partitionOffset_.i15, align 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
-  %__value.addr.06.i.in.i = phi i64 [ %__value.addr.06.i.i, %for.body.i.i ], [ %35, %for.body.i.preheader.i ]
+  %__value.addr.06.i.in.i = phi i64 [ %__value.addr.06.i.i, %for.body.i.i ], [ %36, %for.body.i.preheader.i ]
   %__first.addr.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr.i, %for.body.i.preheader.i ]
   %__value.addr.06.i.i = add nsw i64 %__value.addr.06.i.in.i, 1
   store i64 %__value.addr.06.i.i, ptr %__first.addr.05.i.i, align 8
@@ -3756,13 +3756,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 if.else.i11:                                      ; preds = %if.then.i10
   %fixedBucketMetrics_.i = getelementptr inbounds i8, ptr %this, i64 112
   %partitionOffset_10.i = getelementptr inbounds i8, ptr %this, i64 152
-  %36 = load i64, ptr %partitionOffset_10.i, align 8
+  %37 = load i64, ptr %partitionOffset_10.i, align 8
   %sext16 = shl i64 %div5, 32
   %conv.i.i12 = ashr exact i64 %sext16, 32
   %extraBucketsBoundary.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %cmp13.i.i = icmp sgt i32 %conv, 0
-  %37 = load i64, ptr %extraBucketsBoundary.i.i, align 8
-  %cmp214.i.i = icmp sgt i64 %37, %36
+  %38 = load i64, ptr %extraBucketsBoundary.i.i, align 8
+  %cmp214.i.i = icmp sgt i64 %38, %37
   %or.cond15.i.i = select i1 %cmp13.i.i, i1 %cmp214.i.i, i1 false
   br i1 %or.cond15.i.i, label %for.body.lr.ph.i.i, label %for.cond7.preheader.i.i
 
@@ -3783,10 +3783,10 @@ for.body10.lr.ph.i.i:                             ; preds = %for.cond7.preheader
   br label %for.body10.i.i
 
 for.body.i10.i:                                   ; preds = %for.body.i10.i, %for.body.lr.ph.i.i
-  %j.017.i.i = phi i64 [ %36, %for.body.lr.ph.i.i ], [ %inc6.i.i, %for.body.i10.i ]
+  %j.017.i.i = phi i64 [ %37, %for.body.lr.ph.i.i ], [ %inc6.i.i, %for.body.i10.i ]
   %i.016.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i11.i, %for.body.i10.i ]
-  %38 = load i64, ptr %fixedBucketMetrics_.i, align 8
-  %add.i.i14 = add nsw i64 %38, 1
+  %39 = load i64, ptr %fixedBucketMetrics_.i, align 8
+  %add.i.i14 = add nsw i64 %39, 1
   %div.i.i = sdiv i64 %j.017.i.i, %add.i.i14
   %add3.i.i = add nsw i64 %div.i.i, 1
   %gep.i.i = getelementptr i64, ptr %invariant.gep.i.i, i64 %i.016.i.i
@@ -3794,18 +3794,18 @@ for.body.i10.i:                                   ; preds = %for.body.i10.i, %fo
   %inc.i11.i = add nuw nsw i64 %i.016.i.i, 1
   %inc6.i.i = add nsw i64 %j.017.i.i, 1
   %cmp.i.i = icmp slt i64 %inc.i11.i, %conv.i.i12
-  %39 = load i64, ptr %extraBucketsBoundary.i.i, align 8
-  %cmp2.i.i = icmp slt i64 %inc6.i.i, %39
+  %40 = load i64, ptr %extraBucketsBoundary.i.i, align 8
+  %cmp2.i.i = icmp slt i64 %inc6.i.i, %40
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp2.i.i, i1 false
   br i1 %or.cond.i.i, label %for.body.i10.i, label %for.cond7.preheader.i.i, !llvm.loop !34
 
 for.body10.i.i:                                   ; preds = %for.body10.i.i, %for.body10.lr.ph.i.i
   %i.120.i.i = phi i64 [ %i.0.lcssa.i.i, %for.body10.lr.ph.i.i ], [ %inc19.i.i, %for.body10.i.i ]
-  %add11.i.i = add nsw i64 %i.120.i.i, %36
-  %40 = load i64, ptr %bucketsWithExtraRow.i.i, align 8
-  %sub.i.i13 = sub i64 %add11.i.i, %40
-  %41 = load i64, ptr %fixedBucketMetrics_.i, align 8
-  %div13.i.i = sdiv i64 %sub.i.i13, %41
+  %add11.i.i = add nsw i64 %i.120.i.i, %37
+  %41 = load i64, ptr %bucketsWithExtraRow.i.i, align 8
+  %sub.i.i13 = sub i64 %add11.i.i, %41
+  %42 = load i64, ptr %fixedBucketMetrics_.i, align 8
+  %div13.i.i = sdiv i64 %sub.i.i13, %42
   %add14.i.i = add nsw i64 %div13.i.i, 1
   %gep22.i.i = getelementptr i64, ptr %invariant.gep21.i.i, i64 %i.120.i.i
   store i64 %add14.i.i, ptr %gep22.i.i, align 8
@@ -3815,20 +3815,20 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
 
 if.else11.i:                                      ; preds = %if.else
   %length_.i.i.i = getelementptr inbounds i8, ptr %33, i64 56
-  %42 = load i32, ptr %length_.i.i.i, align 8
-  tail call void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(99) %33, i32 noundef %42, i1 noundef zeroext true)
+  %43 = load i32, ptr %length_.i.i.i, align 8
+  tail call void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(99) %33, i32 noundef %43, i1 noundef zeroext true)
   %rawNulls_.i.i8 = getelementptr inbounds i8, ptr %33, i64 40
-  %43 = load ptr, ptr %rawNulls_.i.i8, align 8
+  %44 = load ptr, ptr %rawNulls_.i.i8, align 8
   %add15.i = add nsw i32 %conv, %resultOffset
   %cmp.not.i12.i = icmp sgt i32 %conv, 0
   br i1 %cmp.not.i12.i, label %if.end.i.i9, label %if.end
 
 if.end.i.i9:                                      ; preds = %if.else11.i
   %add.i.i.i = add i32 %resultOffset, 63
-  %44 = srem i32 %add.i.i.i, 64
-  %mul.i.i.i = sub nsw i32 %add.i.i.i, %44
-  %45 = and i32 %add15.i, -64
-  %cmp2.i13.i = icmp slt i32 %45, %mul.i.i.i
+  %45 = srem i32 %add.i.i.i, 64
+  %mul.i.i.i = sub nsw i32 %add.i.i.i, %45
+  %46 = and i32 %add15.i, -64
+  %cmp2.i13.i = icmp slt i32 %46, %mul.i.i.i
   br i1 %cmp2.i13.i, label %if.then3.i.i, label %if.end8.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i9
@@ -3861,15 +3861,15 @@ if.then10.i.i:                                    ; preds = %if.end8.i.i
   %shl.i30.i.i = shl i64 %sub.i.i27.i.i, %sh_prom.i29.i.i
   %not.i33.i.i = xor i64 %shl.i30.i.i, -1
   %idxprom2.i34.i.i = sext i32 %div11.i.i to i64
-  %arrayidx3.i35.i.i = getelementptr inbounds i64, ptr %43, i64 %idxprom2.i34.i.i
-  %46 = load i64, ptr %arrayidx3.i35.i.i, align 8
-  %and4.i36.i.i = and i64 %46, %not.i33.i.i
+  %arrayidx3.i35.i.i = getelementptr inbounds i64, ptr %44, i64 %idxprom2.i34.i.i
+  %47 = load i64, ptr %arrayidx3.i35.i.i, align 8
+  %and4.i36.i.i = and i64 %47, %not.i33.i.i
   store i64 %and4.i36.i.i, ptr %arrayidx3.i35.i.i, align 8
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end8.i.i
   %add65.i.i = add nsw i32 %mul.i.i.i, 64
-  %cmp15.not66.i.i = icmp sgt i32 %add65.i.i, %45
+  %cmp15.not66.i.i = icmp sgt i32 %add65.i.i, %46
   br i1 %cmp15.not66.i.i, label %for.end.i.i, label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %if.end14.i.i, %for.body.i15.i
@@ -3877,14 +3877,14 @@ for.body.i15.i:                                   ; preds = %if.end14.i.i, %for.
   %i.067.i.i = phi i32 [ %add68.i.i, %for.body.i15.i ], [ %mul.i.i.i, %if.end14.i.i ]
   %div16.i.i = sdiv i32 %i.067.i.i, 64
   %idxprom.i42.i.i = sext i32 %div16.i.i to i64
-  %arrayidx.i43.i.i = getelementptr inbounds i64, ptr %43, i64 %idxprom.i42.i.i
+  %arrayidx.i43.i.i = getelementptr inbounds i64, ptr %44, i64 %idxprom.i42.i.i
   store i64 0, ptr %arrayidx.i43.i.i, align 8
   %add.i16.i = add nsw i32 %add68.i.i, 64
-  %cmp15.not.i.i = icmp sgt i32 %add.i16.i, %45
+  %cmp15.not.i.i = icmp sgt i32 %add.i16.i, %46
   br i1 %cmp15.not.i.i, label %for.end.i.i, label %for.body.i15.i, !llvm.loop !36
 
 for.end.i.i:                                      ; preds = %for.body.i15.i, %if.end14.i.i
-  %cmp18.not.i.i = icmp eq i32 %45, %add15.i
+  %cmp18.not.i.i = icmp eq i32 %46, %add15.i
   br i1 %cmp18.not.i.i, label %if.end, label %if.then19.i.i
 
 if.then19.i.i:                                    ; preds = %for.end.i.i
@@ -3897,9 +3897,9 @@ if.end16.sink.split.i:                            ; preds = %if.then19.i.i, %if.
   %notmask.i45.i.sink.i = phi i64 [ %notmask.i45.i.i, %if.then19.i.i ], [ %not.i.i.i, %if.then3.i.i ]
   %div20.i.sink.i = ashr i32 %add15.i, 6
   %idxprom2.i50.i.i = sext i32 %div20.i.sink.i to i64
-  %arrayidx3.i51.i.i = getelementptr inbounds i64, ptr %43, i64 %idxprom2.i50.i.i
-  %47 = load i64, ptr %arrayidx3.i51.i.i, align 8
-  %and4.i52.i.i = and i64 %47, %notmask.i45.i.sink.i
+  %arrayidx3.i51.i.i = getelementptr inbounds i64, ptr %44, i64 %idxprom2.i50.i.i
+  %48 = load i64, ptr %arrayidx3.i51.i.i, align 8
+  %and4.i52.i.i = and i64 %48, %notmask.i45.i.sink.i
   store i64 %and4.i52.i.i, ptr %arrayidx3.i51.i.i, align 8
   br label %if.end
 
@@ -3907,8 +3907,8 @@ if.end:                                           ; preds = %for.body10.i.i, %fo
   %sext = shl i64 %div5, 32
   %conv6 = ashr exact i64 %sext, 32
   %partitionOffset_ = getelementptr inbounds i8, ptr %this, i64 152
-  %48 = load i64, ptr %partitionOffset_, align 8
-  %add = add nsw i64 %48, %conv6
+  %49 = load i64, ptr %partitionOffset_, align 8
+  %add = add nsw i64 %49, %conv6
   store i64 %add, ptr %partitionOffset_, align 8
   ret void
 }

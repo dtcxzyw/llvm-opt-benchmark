@@ -8517,8 +8517,8 @@ median.exit:                                      ; preds = %52, %53, %54, %55
 partition.exit:                                   ; preds = %66
   %71 = trunc nsw i64 %indvars.iv.i19 to i32
   %sext = shl i64 %indvars.iv.i19, 32
-  %72 = ashr exact i64 %sext, 32
-  %73 = getelementptr inbounds i32, ptr %0, i64 %72
+  %72 = ashr exact i64 %sext, 30
+  %73 = getelementptr inbounds i8, ptr %0, i64 %72
   %74 = sub nsw i32 %.031, %71
   tail call fastcc void @introsort_loop(ptr noundef nonnull %73, i32 noundef %74, i32 noundef %44)
   %75 = icmp sgt i64 %indvars.iv.i19, 16

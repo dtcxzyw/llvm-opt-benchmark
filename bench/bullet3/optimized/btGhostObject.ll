@@ -305,11 +305,11 @@ if.then:                                          ; preds = %_ZNK20btAlignedObje
   %arrayidx.i4 = getelementptr i8, ptr %5, i64 -8
   %6 = load ptr, ptr %arrayidx.i4, align 8
   %sext = shl i64 %indvars.iv.i, 32
-  %idxprom.i6 = ashr exact i64 %sext, 32
-  %arrayidx.i7 = getelementptr inbounds ptr, ptr %2, i64 %idxprom.i6
+  %7 = ashr exact i64 %sext, 29
+  %arrayidx.i7 = getelementptr inbounds i8, ptr %2, i64 %7
   store ptr %6, ptr %arrayidx.i7, align 8
-  %7 = load i32, ptr %m_size.i.i, align 4
-  %dec.i = add nsw i32 %7, -1
+  %8 = load i32, ptr %m_size.i.i, align 4
+  %dec.i = add nsw i32 %8, -1
   store i32 %dec.i, ptr %m_size.i.i, align 4
   br label %if.end
 
@@ -669,18 +669,18 @@ if.then:                                          ; preds = %_ZNK20btAlignedObje
   %arrayidx.i6 = getelementptr i8, ptr %6, i64 -8
   %7 = load ptr, ptr %arrayidx.i6, align 8
   %sext = shl i64 %indvars.iv.i, 32
-  %idxprom.i8 = ashr exact i64 %sext, 32
-  %arrayidx.i9 = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i8
+  %8 = ashr exact i64 %sext, 29
+  %arrayidx.i9 = getelementptr inbounds i8, ptr %3, i64 %8
   store ptr %7, ptr %arrayidx.i9, align 8
-  %8 = load i32, ptr %m_size.i.i, align 4
-  %dec.i = add nsw i32 %8, -1
+  %9 = load i32, ptr %m_size.i.i, align 4
+  %dec.i = add nsw i32 %9, -1
   store i32 %dec.i, ptr %m_size.i.i, align 4
   %m_hashPairCache = getelementptr inbounds i8, ptr %this, i64 408
-  %9 = load ptr, ptr %m_hashPairCache, align 8
-  %vtable = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %m_hashPairCache, align 8
+  %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %10 = load ptr, ptr %vfn, align 8
-  %call12 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(120) %9, ptr noundef %cond, ptr noundef nonnull %otherProxy, ptr noundef %dispatcher)
+  %11 = load ptr, ptr %vfn, align 8
+  %call12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(120) %10, ptr noundef %cond, ptr noundef nonnull %otherProxy, ptr noundef %dispatcher)
   br label %if.end
 
 if.end:                                           ; preds = %for.inc.i, %entry, %if.then, %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE16findLinearSearchERKS1_.exit

@@ -118,8 +118,8 @@ define void @Gia_Iso3Compute(ptr nocapture noundef readonly %0, ptr nocapture no
   %20 = sdiv exact i64 %19, 12
   %.val10.i = load ptr, ptr %7, align 8
   %sext.i = shl i64 %20, 32
-  %21 = ashr exact i64 %sext.i, 32
-  %22 = getelementptr inbounds i32, ptr %.val10.i, i64 %21
+  %21 = ashr exact i64 %sext.i, 30
+  %22 = getelementptr inbounds i8, ptr %.val10.i, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds [2 x i32], ptr @Iso_Compl, i64 0, i64 %16
   %25 = load i32, ptr %24, align 4
@@ -136,8 +136,8 @@ define void @Gia_Iso3Compute(ptr nocapture noundef readonly %0, ptr nocapture no
   %34 = sdiv exact i64 %33, 12
   %.val11.i = load ptr, ptr %7, align 8
   %sext12.i = shl i64 %34, 32
-  %35 = ashr exact i64 %sext12.i, 32
-  %36 = getelementptr inbounds i32, ptr %.val11.i, i64 %35
+  %35 = ashr exact i64 %sext12.i, 30
+  %36 = getelementptr inbounds i8, ptr %.val11.i, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds i8, ptr %14, i64 8
   %39 = load i32, ptr %38, align 4
@@ -164,8 +164,8 @@ define void @Gia_Iso3Compute(ptr nocapture noundef readonly %0, ptr nocapture no
   %54 = sdiv exact i64 %53, 12
   %.val10.i31 = load ptr, ptr %7, align 8
   %sext.i32 = shl i64 %54, 32
-  %55 = ashr exact i64 %sext.i32, 32
-  %56 = getelementptr inbounds i32, ptr %.val10.i31, i64 %55
+  %55 = ashr exact i64 %sext.i32, 30
+  %56 = getelementptr inbounds i8, ptr %.val10.i31, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = getelementptr inbounds [2 x i32], ptr @Iso_Compl, i64 0, i64 %50
   %59 = load i32, ptr %58, align 4
@@ -182,8 +182,8 @@ define void @Gia_Iso3Compute(ptr nocapture noundef readonly %0, ptr nocapture no
   %68 = sdiv exact i64 %67, 12
   %.val11.i34 = load ptr, ptr %7, align 8
   %sext12.i35 = shl i64 %68, 32
-  %69 = ashr exact i64 %sext12.i35, 32
-  %70 = getelementptr inbounds i32, ptr %.val11.i34, i64 %69
+  %69 = ashr exact i64 %sext12.i35, 30
+  %70 = getelementptr inbounds i8, ptr %.val11.i34, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = getelementptr inbounds i8, ptr %48, i64 8
   %73 = load i32, ptr %72, align 4

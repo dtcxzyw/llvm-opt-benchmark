@@ -125,8 +125,8 @@ Abc_TruthHashKey.exit:                            ; preds = %.lr.ph.i49, %19
   %.0.lcssa.i = phi i64 [ 0, %19 ], [ %35, %.lr.ph.i49 ]
   %36 = urem i64 %.0.lcssa.i, %12
   %sext = shl i64 %36, 32
-  %37 = ashr exact i64 %sext, 32
-  %38 = getelementptr inbounds i32, ptr %14, i64 %37
+  %37 = ashr exact i64 %sext, 30
+  %38 = getelementptr inbounds i8, ptr %14, i64 %37
   %.012.i50 = load i32, ptr %38, align 4
   %.not13.i = icmp eq i32 %.012.i50, -1
   br i1 %.not13.i, label %.loopexit, label %.lr.ph.i51

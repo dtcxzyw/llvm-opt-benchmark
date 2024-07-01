@@ -1749,7 +1749,7 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %124, %131, %132, %1
   %149 = icmp eq i32 %148, 2
   %.idx.i.i.sroa.sel = select i1 %149, ptr %26, ptr %24
   %sext = shl i64 %.031, 32
-  %150 = ashr exact i64 %sext, 32
+  %150 = ashr exact i64 %sext, 29
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
@@ -2002,7 +2002,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 
 209:                                              ; preds = %.lr.ph78
   %210 = load ptr, ptr %18, align 8
-  %211 = getelementptr inbounds double, ptr %210, i64 %150
+  %211 = getelementptr inbounds i8, ptr %210, i64 %150
   br label %212
 
 212:                                              ; preds = %.lr.ph78, %176, %181, %182, %183, %.noexc36, %209
@@ -3649,7 +3649,7 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %124, %131, %132, %1
   %149 = icmp eq i32 %148, 2
   %.idx.i.i.sroa.sel = select i1 %149, ptr %26, ptr %24
   %sext = shl i64 %.031, 32
-  %150 = ashr exact i64 %sext, 32
+  %150 = ashr exact i64 %sext, 29
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
@@ -3902,7 +3902,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 
 209:                                              ; preds = %.lr.ph78
   %210 = load ptr, ptr %18, align 8
-  %211 = getelementptr inbounds double, ptr %210, i64 %150
+  %211 = getelementptr inbounds i8, ptr %210, i64 %150
   br label %212
 
 212:                                              ; preds = %.lr.ph78, %176, %181, %182, %183, %.noexc36, %209

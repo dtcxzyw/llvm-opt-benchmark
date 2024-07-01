@@ -5039,8 +5039,8 @@ define dso_local noundef double @_Z11VL_ITOR_D_WiPKj(i32 noundef %0, ptr nocaptu
 
 19:                                               ; preds = %11
   %sext = shl i64 %indvars.iv, 32
-  %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr i32, ptr %1, i64 %20
+  %20 = ashr exact i64 %sext, 30
+  %21 = getelementptr i8, ptr %1, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %12, -3
@@ -5114,8 +5114,8 @@ define dso_local noundef double @_Z12VL_ISTOR_D_WiPKj(i32 noundef %0, ptr nocapt
 
 28:                                               ; preds = %20
   %sext.i = shl i64 %indvars.iv.i, 32
-  %29 = ashr exact i64 %sext.i, 32
-  %30 = getelementptr i32, ptr %1, i64 %29
+  %29 = ashr exact i64 %sext.i, 30
+  %30 = getelementptr i8, ptr %1, i64 %29
   %31 = getelementptr i8, ptr %30, i64 -8
   %32 = load i32, ptr %31, align 4
   %33 = add nsw i32 %21, -3
@@ -5202,8 +5202,8 @@ _ZL11VL_NEGATE_WiPjPKj.exit:                      ; preds = %.lr.ph.i, %46
 
 76:                                               ; preds = %68
   %sext.i17 = shl i64 %indvars.iv.i13, 32
-  %77 = ashr exact i64 %sext.i17, 32
-  %78 = getelementptr i32, ptr %3, i64 %77
+  %77 = ashr exact i64 %sext.i17, 30
+  %78 = getelementptr i8, ptr %3, i64 %77
   %79 = getelementptr i8, ptr %78, i64 -8
   %80 = load i32, ptr %79, align 4
   %81 = add nsw i32 %69, -3

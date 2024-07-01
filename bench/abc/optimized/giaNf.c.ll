@@ -2714,8 +2714,8 @@ Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
   %126 = sub i64 %124, %125
   %127 = sdiv exact i64 %126, 12
   %sext.i = shl i64 %127, 32
-  %128 = ashr exact i64 %sext.i, 32
-  %129 = getelementptr inbounds i32, ptr %121, i64 %128
+  %128 = ashr exact i64 %sext.i, 30
+  %129 = getelementptr inbounds i8, ptr %121, i64 %128
   %130 = load i32, ptr %129, align 4
   %131 = and i32 %130, 1
   br label %Gia_ObjFaninC2.exit
@@ -6336,9 +6336,9 @@ define void @Nf_ManComputeMapping(ptr nocapture noundef readonly %0) local_unnam
   %8 = getelementptr inbounds i8, ptr %0, i64 216
   br label %9
 
-9:                                                ; preds = %.lr.ph, %52
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %10 = phi ptr [ %2, %.lr.ph ], [ %53, %52 ]
+9:                                                ; preds = %.lr.ph, %54
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
+  %10 = phi ptr [ %2, %.lr.ph ], [ %55, %54 ]
   %11 = getelementptr i8, ptr %10, i64 32
   %.val = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %.val, null
@@ -6352,7 +6352,7 @@ define void @Nf_ManComputeMapping(ptr nocapture noundef readonly %0) local_unnam
   %15 = and i64 %.val13, 536870911
   %16 = icmp ne i64 %15, 536870911
   %narrow.i = and i1 %.not.i, %16
-  br i1 %narrow.i, label %17, label %52
+  br i1 %narrow.i, label %17, label %54
 
 17:                                               ; preds = %12
   %18 = trunc i64 %.val13 to i32
@@ -6363,7 +6363,7 @@ define void @Nf_ManComputeMapping(ptr nocapture noundef readonly %0) local_unnam
   %23 = icmp eq i32 %19, %22
   %.not.i15 = icmp ne i32 %19, 536870911
   %or.cond.not.i = and i1 %.not.i15, %23
-  br i1 %or.cond.not.i, label %24, label %50
+  br i1 %or.cond.not.i, label %24, label %52
 
 24:                                               ; preds = %17
   %25 = sub nsw i64 %indvars.iv, %15
@@ -6371,10 +6371,11 @@ define void @Nf_ManComputeMapping(ptr nocapture noundef readonly %0) local_unnam
   %27 = and i64 %26, 1
   %.val36.i = load ptr, ptr %6, align 8
   %sext.i = shl i64 %25, 32
-  %28 = ashr exact i64 %sext.i, 32
-  %29 = getelementptr inbounds %struct.Nf_Obj_t_, ptr %.val36.i, i64 %28
+  %28 = ashr exact i64 %sext.i, 26
+  %29 = getelementptr inbounds i8, ptr %.val36.i, i64 %28
   %30 = getelementptr inbounds [2 x [2 x %struct.Nf_Mat_t_]], ptr %29, i64 0, i64 %27
-  %31 = getelementptr inbounds %struct.Nf_Obj_t_, ptr %.val36.i, i64 %indvars.iv
+  %sext42.i = shl nuw nsw i64 %indvars.iv, 6
+  %31 = getelementptr inbounds i8, ptr %.val36.i, i64 %sext42.i
   %32 = getelementptr inbounds i8, ptr %31, i64 32
   %33 = getelementptr inbounds i8, ptr %31, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %31, i8 0, i64 64, i1 false)
@@ -6391,37 +6392,39 @@ define void @Nf_ManComputeMapping(ptr nocapture noundef readonly %0) local_unnam
   %41 = getelementptr inbounds i8, ptr %31, i64 12
   store float %39, ptr %41, align 4
   store i32 -2147483648, ptr %31, align 4
-  %42 = load i32, ptr %7, align 8
-  %43 = add nsw i32 %42, %35
-  %44 = getelementptr inbounds i8, ptr %31, i64 56
-  store i32 %43, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %31, i64 40
-  store i32 %43, ptr %45, align 4
-  %46 = load float, ptr %8, align 8
-  %47 = fadd float %39, %46
-  %48 = getelementptr inbounds i8, ptr %31, i64 60
-  store float %47, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %31, i64 44
-  store float %47, ptr %49, align 4
+  %42 = load i32, ptr %34, align 4
+  %43 = load i32, ptr %7, align 8
+  %44 = add nsw i32 %43, %42
+  %45 = getelementptr inbounds i8, ptr %31, i64 56
+  store i32 %44, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %31, i64 40
+  store i32 %44, ptr %46, align 4
+  %47 = load float, ptr %38, align 4
+  %48 = load float, ptr %8, align 8
+  %49 = fadd float %47, %48
+  %50 = getelementptr inbounds i8, ptr %31, i64 60
+  store float %49, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %31, i64 44
+  store float %49, ptr %51, align 4
   store i32 1073741824, ptr %33, align 4
   store i32 -1073741824, ptr %32, align 4
-  br label %52
+  br label %54
 
-50:                                               ; preds = %17
-  %51 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @Nf_ManCutMatch(ptr noundef nonnull %0, i32 noundef %51)
-  br label %52
+52:                                               ; preds = %17
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @Nf_ManCutMatch(ptr noundef nonnull %0, i32 noundef %53)
+  br label %54
 
-52:                                               ; preds = %12, %50, %24
+54:                                               ; preds = %12, %52, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 24
-  %55 = load i32, ptr %54, align 8
-  %56 = sext i32 %55 to i64
-  %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %9, label %.critedge, !llvm.loop !75
+  %55 = load ptr, ptr %0, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  %57 = load i32, ptr %56, align 8
+  %58 = sext i32 %57 to i64
+  %59 = icmp slt i64 %indvars.iv.next, %58
+  br i1 %59, label %9, label %.critedge, !llvm.loop !75
 
-.critedge:                                        ; preds = %9, %52, %1
+.critedge:                                        ; preds = %9, %54, %1
   ret void
 }
 

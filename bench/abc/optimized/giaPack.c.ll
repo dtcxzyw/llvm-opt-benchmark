@@ -88,8 +88,8 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
   %.val55 = load i32, ptr %17, align 8
   %.val56 = load ptr, ptr %18, align 8
   %sext = shl i64 %42, 32
-  %44 = ashr exact i64 %sext, 32
-  %45 = getelementptr inbounds i32, ptr %.val56, i64 %44
+  %44 = ashr exact i64 %sext, 30
+  %45 = getelementptr inbounds i8, ptr %.val56, i64 %44
   %46 = load i32, ptr %45, align 4
   %.not76 = icmp eq i32 %46, %.val55
   br i1 %.not76, label %75, label %47

@@ -8759,18 +8759,18 @@ for.body16.us:                                    ; preds = %invoke.cont51.us.5,
   %add.i.i.i.us = mul nsw i64 %mul622.i.i.i.us, %conv5.i.i.i.us
   %add21.i.i.i.us = add nsw i64 %sub20.i.i.i.us, %add.i.i.i.us
   %sext = shl i64 %add21.i.i.i.us, 32
-  %idxprom.i.us = ashr exact i64 %sext, 32
-  %arrayidx.i.us = getelementptr inbounds %struct.MapNode, ptr %5, i64 %idxprom.i.us
-  %13 = load i16, ptr %arrayidx.i.us, align 4, !tbaa !467
-  %conv.i.i.us = zext i16 %13 to i64
+  %13 = ashr exact i64 %sext, 30
+  %arrayidx.i.us = getelementptr inbounds i8, ptr %5, i64 %13
+  %14 = load i16, ptr %arrayidx.i.us, align 4, !tbaa !467
+  %conv.i.i.us = zext i16 %14 to i64
   %cmp.i.i.us = icmp ugt i64 %sub.ptr.div.i.i.i.us, %conv.i.i.us
   br i1 %cmp.i.i.us, label %land.lhs.true.i.i.us, label %cond.false.i.i.us
 
 land.lhs.true.i.i.us:                             ; preds = %for.body16.us
   %add.ptr.i.i.i.us = getelementptr inbounds %struct.ContentFeatures, ptr %12, i64 %conv.i.i.us
   %_M_string_length.i.i.i.i.us = getelementptr inbounds i8, ptr %add.ptr.i.i.i.us, i64 1456
-  %14 = load i64, ptr %_M_string_length.i.i.i.i.us, align 8, !tbaa !14
-  %cmp.i.i.i.us = icmp eq i64 %14, 0
+  %15 = load i64, ptr %_M_string_length.i.i.i.i.us, align 8, !tbaa !14
+  %cmp.i.i.i.us = icmp eq i64 %15, 0
   br i1 %cmp.i.i.i.us, label %cond.false.i.i.us, label %invoke.cont51.us
 
 cond.false.i.i.us:                                ; preds = %land.lhs.true.i.i.us, %for.body16.us
@@ -8779,24 +8779,24 @@ cond.false.i.i.us:                                ; preds = %land.lhs.true.i.i.u
 invoke.cont51.us:                                 ; preds = %cond.false.i.i.us, %land.lhs.true.i.i.us
   %cond-lvalue.i.i.us = phi ptr [ %add.ptr.i14.i.i.us, %cond.false.i.i.us ], [ %add.ptr.i.i.i.us, %land.lhs.true.i.i.us ]
   %solidness.us = getelementptr inbounds i8, ptr %cond-lvalue.i.i.us, i64 1440
-  %15 = load i8, ptr %solidness.us, align 8, !tbaa !469
-  %cmp54.not.us = icmp eq i8 %15, 2
+  %16 = load i8, ptr %solidness.us, align 8, !tbaa !469
+  %cmp54.not.us = icmp eq i8 %16, 2
   %conv57.us = select i1 %cmp54.not.us, i8 -1, i8 -2
   %result.3.us = and i8 %conv57.us, %result.1144.us
   %add21.i.i.i.us.1 = add nsw i64 %sub20.i.i.i.us.1, %add.i.i.i.us
   %sext.1 = shl i64 %add21.i.i.i.us.1, 32
-  %idxprom.i.us.1 = ashr exact i64 %sext.1, 32
-  %arrayidx.i.us.1 = getelementptr inbounds %struct.MapNode, ptr %5, i64 %idxprom.i.us.1
-  %16 = load i16, ptr %arrayidx.i.us.1, align 4, !tbaa !467
-  %conv.i.i.us.1 = zext i16 %16 to i64
+  %17 = ashr exact i64 %sext.1, 30
+  %arrayidx.i.us.1 = getelementptr inbounds i8, ptr %5, i64 %17
+  %18 = load i16, ptr %arrayidx.i.us.1, align 4, !tbaa !467
+  %conv.i.i.us.1 = zext i16 %18 to i64
   %cmp.i.i.us.1 = icmp ugt i64 %sub.ptr.div.i.i.i.us, %conv.i.i.us.1
   br i1 %cmp.i.i.us.1, label %land.lhs.true.i.i.us.1, label %cond.false.i.i.us.1
 
 land.lhs.true.i.i.us.1:                           ; preds = %invoke.cont51.us
   %add.ptr.i.i.i.us.1 = getelementptr inbounds %struct.ContentFeatures, ptr %12, i64 %conv.i.i.us.1
   %_M_string_length.i.i.i.i.us.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.us.1, i64 1456
-  %17 = load i64, ptr %_M_string_length.i.i.i.i.us.1, align 8, !tbaa !14
-  %cmp.i.i.i.us.1 = icmp eq i64 %17, 0
+  %19 = load i64, ptr %_M_string_length.i.i.i.i.us.1, align 8, !tbaa !14
+  %cmp.i.i.i.us.1 = icmp eq i64 %19, 0
   br i1 %cmp.i.i.i.us.1, label %cond.false.i.i.us.1, label %invoke.cont51.us.1
 
 cond.false.i.i.us.1:                              ; preds = %land.lhs.true.i.i.us.1, %invoke.cont51.us
@@ -8805,26 +8805,26 @@ cond.false.i.i.us.1:                              ; preds = %land.lhs.true.i.i.u
 invoke.cont51.us.1:                               ; preds = %cond.false.i.i.us.1, %land.lhs.true.i.i.us.1
   %cond-lvalue.i.i.us.1 = phi ptr [ %add.ptr.i14.i.i.us, %cond.false.i.i.us.1 ], [ %add.ptr.i.i.i.us.1, %land.lhs.true.i.i.us.1 ]
   %solidness.us.1 = getelementptr inbounds i8, ptr %cond-lvalue.i.i.us.1, i64 1440
-  %18 = load i8, ptr %solidness.us.1, align 8, !tbaa !469
-  %cmp54.not.us.1 = icmp eq i8 %18, 2
+  %20 = load i8, ptr %solidness.us.1, align 8, !tbaa !469
+  %cmp54.not.us.1 = icmp eq i8 %20, 2
   %conv57.us.1 = select i1 %cmp54.not.us.1, i8 -1, i8 -3
   %result.3.us.1 = and i8 %result.3.us, %conv57.us.1
   %mul622.i.i.i.us.2 = add nsw i64 %sub11.i.i.i.us.2, %mul.i.i.i127.us
   %add.i.i.i.us.2 = mul nsw i64 %mul622.i.i.i.us.2, %conv5.i.i.i.us
   %add21.i.i.i.us.2 = add nsw i64 %add.i.i.i.us.2, %sub20.i.i.i.us.2
   %sext.2 = shl i64 %add21.i.i.i.us.2, 32
-  %idxprom.i.us.2 = ashr exact i64 %sext.2, 32
-  %arrayidx.i.us.2 = getelementptr inbounds %struct.MapNode, ptr %5, i64 %idxprom.i.us.2
-  %19 = load i16, ptr %arrayidx.i.us.2, align 4, !tbaa !467
-  %conv.i.i.us.2 = zext i16 %19 to i64
+  %21 = ashr exact i64 %sext.2, 30
+  %arrayidx.i.us.2 = getelementptr inbounds i8, ptr %5, i64 %21
+  %22 = load i16, ptr %arrayidx.i.us.2, align 4, !tbaa !467
+  %conv.i.i.us.2 = zext i16 %22 to i64
   %cmp.i.i.us.2 = icmp ugt i64 %sub.ptr.div.i.i.i.us, %conv.i.i.us.2
   br i1 %cmp.i.i.us.2, label %land.lhs.true.i.i.us.2, label %cond.false.i.i.us.2
 
 land.lhs.true.i.i.us.2:                           ; preds = %invoke.cont51.us.1
   %add.ptr.i.i.i.us.2 = getelementptr inbounds %struct.ContentFeatures, ptr %12, i64 %conv.i.i.us.2
   %_M_string_length.i.i.i.i.us.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.us.2, i64 1456
-  %20 = load i64, ptr %_M_string_length.i.i.i.i.us.2, align 8, !tbaa !14
-  %cmp.i.i.i.us.2 = icmp eq i64 %20, 0
+  %23 = load i64, ptr %_M_string_length.i.i.i.i.us.2, align 8, !tbaa !14
+  %cmp.i.i.i.us.2 = icmp eq i64 %23, 0
   br i1 %cmp.i.i.i.us.2, label %cond.false.i.i.us.2, label %invoke.cont51.us.2
 
 cond.false.i.i.us.2:                              ; preds = %land.lhs.true.i.i.us.2, %invoke.cont51.us.1
@@ -8833,26 +8833,26 @@ cond.false.i.i.us.2:                              ; preds = %land.lhs.true.i.i.u
 invoke.cont51.us.2:                               ; preds = %cond.false.i.i.us.2, %land.lhs.true.i.i.us.2
   %cond-lvalue.i.i.us.2 = phi ptr [ %add.ptr.i14.i.i.us, %cond.false.i.i.us.2 ], [ %add.ptr.i.i.i.us.2, %land.lhs.true.i.i.us.2 ]
   %solidness.us.2 = getelementptr inbounds i8, ptr %cond-lvalue.i.i.us.2, i64 1440
-  %21 = load i8, ptr %solidness.us.2, align 8, !tbaa !469
-  %cmp54.not.us.2 = icmp eq i8 %21, 2
+  %24 = load i8, ptr %solidness.us.2, align 8, !tbaa !469
+  %cmp54.not.us.2 = icmp eq i8 %24, 2
   %conv57.us.2 = select i1 %cmp54.not.us.2, i8 -1, i8 -5
   %result.3.us.2 = and i8 %result.3.us.1, %conv57.us.2
   %mul622.i.i.i.us.3 = add nsw i64 %sub11.i.i.i.us.3, %mul.i.i.i127.us
   %add.i.i.i.us.3 = mul nsw i64 %mul622.i.i.i.us.3, %conv5.i.i.i.us
   %add21.i.i.i.us.3 = add nsw i64 %add.i.i.i.us.3, %sub20.i.i.i.us.2
   %sext.3 = shl i64 %add21.i.i.i.us.3, 32
-  %idxprom.i.us.3 = ashr exact i64 %sext.3, 32
-  %arrayidx.i.us.3 = getelementptr inbounds %struct.MapNode, ptr %5, i64 %idxprom.i.us.3
-  %22 = load i16, ptr %arrayidx.i.us.3, align 4, !tbaa !467
-  %conv.i.i.us.3 = zext i16 %22 to i64
+  %25 = ashr exact i64 %sext.3, 30
+  %arrayidx.i.us.3 = getelementptr inbounds i8, ptr %5, i64 %25
+  %26 = load i16, ptr %arrayidx.i.us.3, align 4, !tbaa !467
+  %conv.i.i.us.3 = zext i16 %26 to i64
   %cmp.i.i.us.3 = icmp ugt i64 %sub.ptr.div.i.i.i.us, %conv.i.i.us.3
   br i1 %cmp.i.i.us.3, label %land.lhs.true.i.i.us.3, label %cond.false.i.i.us.3
 
 land.lhs.true.i.i.us.3:                           ; preds = %invoke.cont51.us.2
   %add.ptr.i.i.i.us.3 = getelementptr inbounds %struct.ContentFeatures, ptr %12, i64 %conv.i.i.us.3
   %_M_string_length.i.i.i.i.us.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.us.3, i64 1456
-  %23 = load i64, ptr %_M_string_length.i.i.i.i.us.3, align 8, !tbaa !14
-  %cmp.i.i.i.us.3 = icmp eq i64 %23, 0
+  %27 = load i64, ptr %_M_string_length.i.i.i.i.us.3, align 8, !tbaa !14
+  %cmp.i.i.i.us.3 = icmp eq i64 %27, 0
   br i1 %cmp.i.i.i.us.3, label %cond.false.i.i.us.3, label %invoke.cont51.us.3
 
 cond.false.i.i.us.3:                              ; preds = %land.lhs.true.i.i.us.3, %invoke.cont51.us.2
@@ -8861,8 +8861,8 @@ cond.false.i.i.us.3:                              ; preds = %land.lhs.true.i.i.u
 invoke.cont51.us.3:                               ; preds = %cond.false.i.i.us.3, %land.lhs.true.i.i.us.3
   %cond-lvalue.i.i.us.3 = phi ptr [ %add.ptr.i14.i.i.us, %cond.false.i.i.us.3 ], [ %add.ptr.i.i.i.us.3, %land.lhs.true.i.i.us.3 ]
   %solidness.us.3 = getelementptr inbounds i8, ptr %cond-lvalue.i.i.us.3, i64 1440
-  %24 = load i8, ptr %solidness.us.3, align 8, !tbaa !469
-  %cmp54.not.us.3 = icmp eq i8 %24, 2
+  %28 = load i8, ptr %solidness.us.3, align 8, !tbaa !469
+  %cmp54.not.us.3 = icmp eq i8 %28, 2
   %conv57.us.3 = select i1 %cmp54.not.us.3, i8 -1, i8 -9
   %result.3.us.3 = and i8 %result.3.us.2, %conv57.us.3
   %add8.i.us.4 = add i16 %j.0145.us, %mul6.i
@@ -8871,18 +8871,18 @@ invoke.cont51.us.3:                               ; preds = %cond.false.i.i.us.3
   %add.i.i.i.us.4 = mul nsw i64 %mul622.i.i.i.us.4, %conv5.i.i.i.us
   %add21.i.i.i.us.4 = add nsw i64 %add.i.i.i.us.4, %sub20.i.i.i.us.2
   %sext.4 = shl i64 %add21.i.i.i.us.4, 32
-  %idxprom.i.us.4 = ashr exact i64 %sext.4, 32
-  %arrayidx.i.us.4 = getelementptr inbounds %struct.MapNode, ptr %5, i64 %idxprom.i.us.4
-  %25 = load i16, ptr %arrayidx.i.us.4, align 4, !tbaa !467
-  %conv.i.i.us.4 = zext i16 %25 to i64
+  %29 = ashr exact i64 %sext.4, 30
+  %arrayidx.i.us.4 = getelementptr inbounds i8, ptr %5, i64 %29
+  %30 = load i16, ptr %arrayidx.i.us.4, align 4, !tbaa !467
+  %conv.i.i.us.4 = zext i16 %30 to i64
   %cmp.i.i.us.4 = icmp ugt i64 %sub.ptr.div.i.i.i.us, %conv.i.i.us.4
   br i1 %cmp.i.i.us.4, label %land.lhs.true.i.i.us.4, label %cond.false.i.i.us.4
 
 land.lhs.true.i.i.us.4:                           ; preds = %invoke.cont51.us.3
   %add.ptr.i.i.i.us.4 = getelementptr inbounds %struct.ContentFeatures, ptr %12, i64 %conv.i.i.us.4
   %_M_string_length.i.i.i.i.us.4 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.us.4, i64 1456
-  %26 = load i64, ptr %_M_string_length.i.i.i.i.us.4, align 8, !tbaa !14
-  %cmp.i.i.i.us.4 = icmp eq i64 %26, 0
+  %31 = load i64, ptr %_M_string_length.i.i.i.i.us.4, align 8, !tbaa !14
+  %cmp.i.i.i.us.4 = icmp eq i64 %31, 0
   br i1 %cmp.i.i.i.us.4, label %cond.false.i.i.us.4, label %invoke.cont51.us.4
 
 cond.false.i.i.us.4:                              ; preds = %land.lhs.true.i.i.us.4, %invoke.cont51.us.3
@@ -8891,26 +8891,26 @@ cond.false.i.i.us.4:                              ; preds = %land.lhs.true.i.i.u
 invoke.cont51.us.4:                               ; preds = %cond.false.i.i.us.4, %land.lhs.true.i.i.us.4
   %cond-lvalue.i.i.us.4 = phi ptr [ %add.ptr.i14.i.i.us, %cond.false.i.i.us.4 ], [ %add.ptr.i.i.i.us.4, %land.lhs.true.i.i.us.4 ]
   %solidness.us.4 = getelementptr inbounds i8, ptr %cond-lvalue.i.i.us.4, i64 1440
-  %27 = load i8, ptr %solidness.us.4, align 8, !tbaa !469
-  %cmp54.not.us.4 = icmp eq i8 %27, 2
+  %32 = load i8, ptr %solidness.us.4, align 8, !tbaa !469
+  %cmp54.not.us.4 = icmp eq i8 %32, 2
   %conv57.us.4 = select i1 %cmp54.not.us.4, i8 -1, i8 -17
   %result.3.us.4 = and i8 %result.3.us.3, %conv57.us.4
   %mul622.i.i.i.us.5 = add nsw i64 %sub11.i.i.i.us.5, %conv7.i.i.i.us.4
   %add.i.i.i.us.5 = mul nsw i64 %mul622.i.i.i.us.5, %conv5.i.i.i.us
   %add21.i.i.i.us.5 = add nsw i64 %add.i.i.i.us.5, %sub20.i.i.i.us.2
   %sext.5 = shl i64 %add21.i.i.i.us.5, 32
-  %idxprom.i.us.5 = ashr exact i64 %sext.5, 32
-  %arrayidx.i.us.5 = getelementptr inbounds %struct.MapNode, ptr %5, i64 %idxprom.i.us.5
-  %28 = load i16, ptr %arrayidx.i.us.5, align 4, !tbaa !467
-  %conv.i.i.us.5 = zext i16 %28 to i64
+  %33 = ashr exact i64 %sext.5, 30
+  %arrayidx.i.us.5 = getelementptr inbounds i8, ptr %5, i64 %33
+  %34 = load i16, ptr %arrayidx.i.us.5, align 4, !tbaa !467
+  %conv.i.i.us.5 = zext i16 %34 to i64
   %cmp.i.i.us.5 = icmp ugt i64 %sub.ptr.div.i.i.i.us, %conv.i.i.us.5
   br i1 %cmp.i.i.us.5, label %land.lhs.true.i.i.us.5, label %cond.false.i.i.us.5
 
 land.lhs.true.i.i.us.5:                           ; preds = %invoke.cont51.us.4
   %add.ptr.i.i.i.us.5 = getelementptr inbounds %struct.ContentFeatures, ptr %12, i64 %conv.i.i.us.5
   %_M_string_length.i.i.i.i.us.5 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.us.5, i64 1456
-  %29 = load i64, ptr %_M_string_length.i.i.i.i.us.5, align 8, !tbaa !14
-  %cmp.i.i.i.us.5 = icmp eq i64 %29, 0
+  %35 = load i64, ptr %_M_string_length.i.i.i.i.us.5, align 8, !tbaa !14
+  %cmp.i.i.i.us.5 = icmp eq i64 %35, 0
   br i1 %cmp.i.i.i.us.5, label %cond.false.i.i.us.5, label %invoke.cont51.us.5
 
 cond.false.i.i.us.5:                              ; preds = %land.lhs.true.i.i.us.5, %invoke.cont51.us.4
@@ -8919,23 +8919,23 @@ cond.false.i.i.us.5:                              ; preds = %land.lhs.true.i.i.u
 invoke.cont51.us.5:                               ; preds = %cond.false.i.i.us.5, %land.lhs.true.i.i.us.5
   %cond-lvalue.i.i.us.5 = phi ptr [ %add.ptr.i14.i.i.us, %cond.false.i.i.us.5 ], [ %add.ptr.i.i.i.us.5, %land.lhs.true.i.i.us.5 ]
   %solidness.us.5 = getelementptr inbounds i8, ptr %cond-lvalue.i.i.us.5, i64 1440
-  %30 = load i8, ptr %solidness.us.5, align 8, !tbaa !469
-  %cmp54.not.us.5 = icmp eq i8 %30, 2
+  %36 = load i8, ptr %solidness.us.5, align 8, !tbaa !469
+  %cmp54.not.us.5 = icmp eq i8 %36, 2
   %conv57.us.5 = select i1 %cmp54.not.us.5, i8 -1, i8 -33
   %result.3.us.5 = and i8 %result.3.us.4, %conv57.us.5
   %inc61.us = add i16 %j.0145.us, 1
   %conv7.us = sext i16 %inc61.us to i32
   %cmp10.us = icmp slt i32 %conv7.us, %conv3
   %cmp13.us = icmp ne i8 %result.3.us.5, 0
-  %31 = select i1 %cmp10.us, i1 %cmp13.us, i1 false
-  br i1 %31, label %for.body16.us, label %for.cond6.for.cond.cleanup15_crit_edge.us, !llvm.loop !488
+  %37 = select i1 %cmp10.us, i1 %cmp13.us, i1 false
+  br i1 %37, label %for.body16.us, label %for.cond6.for.cond.cleanup15_crit_edge.us, !llvm.loop !488
 
 for.cond6.for.cond.cleanup15_crit_edge.us:        ; preds = %invoke.cont51.us.5
   %inc65.us = add i16 %i.0148.us, 1
   %conv.us = sext i16 %inc65.us to i32
   %cmp.us = icmp slt i32 %conv.us, %conv3
-  %32 = select i1 %cmp.us, i1 %cmp13.us, i1 false
-  br i1 %32, label %for.cond6.preheader.us, label %_ZNSt13unordered_mapIN3irr4core8vector3dIsEEhSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_hEEED2Ev.exit, !llvm.loop !489
+  %38 = select i1 %cmp.us, i1 %cmp13.us, i1 false
+  br i1 %38, label %for.cond6.preheader.us, label %_ZNSt13unordered_mapIN3irr4core8vector3dIsEEhSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_hEEED2Ev.exit, !llvm.loop !489
 
 _ZNSt13unordered_mapIN3irr4core8vector3dIsEEhSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_hEEED2Ev.exit: ; preds = %for.cond6.for.cond.cleanup15_crit_edge.us, %invoke.cont2
   %result.0.lcssa = phi i8 [ 63, %invoke.cont2 ], [ %result.3.us.5, %for.cond6.for.cond.cleanup15_crit_edge.us ]

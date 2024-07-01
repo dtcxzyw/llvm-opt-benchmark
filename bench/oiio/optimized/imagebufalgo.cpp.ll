@@ -53669,44 +53669,44 @@ for.body.i:                                       ; preds = %_ZStmlIfESt7complex
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i ]
   %gep.i = getelementptr inbounds %"class.std::complex", ptr %invariant.gep.i, i64 %indvars.iv.i
   %sext.i = mul i64 %conv2.i, %indvars.iv.i
-  %conv.i.i = ashr exact i64 %sext.i, 32
   %6 = load ptr, ptr %_traits.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::complex", ptr %6, i64 %conv.i.i
+  %7 = ashr exact i64 %sext.i, 29
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 %7
   %retval.sroa.0.0.copyload.i.i = load <2 x float>, ptr %add.ptr.i.i.i, align 4
-  %7 = load <2 x float>, ptr %gep.i, align 4
+  %8 = load <2 x float>, ptr %gep.i, align 4
   %ref.tmp.sroa.0.0.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i, i64 0
   %ref.tmp.sroa.0.4.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i, i64 1
-  %8 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %9 = fmul <2 x float> %8, %7
-  %10 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %11 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i, <2 x float> poison, <2 x i32> zeroinitializer
-  %12 = fmul <2 x float> %11, %7
-  %13 = fsub <2 x float> %12, %10
-  %14 = fadd <2 x float> %12, %10
-  %15 = shufflevector <2 x float> %13, <2 x float> %14, <2 x i32> <i32 0, i32 3>
-  %16 = extractelement <2 x float> %13, i64 0
-  %isnan_cmp.i.i.i = fcmp uno float %16, 0.000000e+00
+  %9 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %10 = fmul <2 x float> %9, %8
+  %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %12 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i, <2 x float> poison, <2 x i32> zeroinitializer
+  %13 = fmul <2 x float> %12, %8
+  %14 = fsub <2 x float> %13, %11
+  %15 = fadd <2 x float> %13, %11
+  %16 = shufflevector <2 x float> %14, <2 x float> %15, <2 x i32> <i32 0, i32 3>
+  %17 = extractelement <2 x float> %14, i64 0
+  %isnan_cmp.i.i.i = fcmp uno float %17, 0.000000e+00
   br i1 %isnan_cmp.i.i.i, label %complex_mul_imag_nan.i.i.i, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i, !prof !365
 
 complex_mul_imag_nan.i.i.i:                       ; preds = %for.body.i
-  %17 = extractelement <2 x float> %14, i64 1
-  %isnan_cmp4.i.i.i = fcmp uno float %17, 0.000000e+00
+  %18 = extractelement <2 x float> %15, i64 1
+  %isnan_cmp4.i.i.i = fcmp uno float %18, 0.000000e+00
   br i1 %isnan_cmp4.i.i.i, label %complex_mul_libcall.i.i.i, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i, !prof !365
 
 complex_mul_libcall.i.i.i:                        ; preds = %complex_mul_imag_nan.i.i.i
-  %18 = extractelement <2 x float> %7, i64 0
-  %19 = extractelement <2 x float> %7, i64 1
-  %call5.i.i.i = tail call noundef <2 x float> @__mulsc3(float noundef %18, float noundef %19, float noundef %ref.tmp.sroa.0.0.vec.extract.i, float noundef %ref.tmp.sroa.0.4.vec.extract.i) #23
+  %19 = extractelement <2 x float> %8, i64 0
+  %20 = extractelement <2 x float> %8, i64 1
+  %call5.i.i.i = tail call noundef <2 x float> @__mulsc3(float noundef %19, float noundef %20, float noundef %ref.tmp.sroa.0.0.vec.extract.i, float noundef %ref.tmp.sroa.0.4.vec.extract.i) #23
   br label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i
 
 _ZStmlIfESt7complexIT_ERKS2_S4_.exit.i:           ; preds = %complex_mul_libcall.i.i.i, %complex_mul_imag_nan.i.i.i, %for.body.i
-  %20 = phi <2 x float> [ %15, %for.body.i ], [ %15, %complex_mul_imag_nan.i.i.i ], [ %call5.i.i.i, %complex_mul_libcall.i.i.i ]
+  %21 = phi <2 x float> [ %16, %for.body.i ], [ %16, %complex_mul_imag_nan.i.i.i ], [ %call5.i.i.i, %complex_mul_libcall.i.i.i ]
   %arrayidx7.i = getelementptr inbounds %"class.std::complex", ptr %Fout, i64 %indvars.iv.i
-  %21 = load <2 x float>, ptr %arrayidx7.i, align 4
-  %22 = fsub <2 x float> %21, %20
-  store <2 x float> %22, ptr %gep.i, align 4
-  %23 = fadd <2 x float> %20, %21
-  store <2 x float> %23, ptr %arrayidx7.i, align 4
+  %22 = load <2 x float>, ptr %arrayidx7.i, align 4
+  %23 = fsub <2 x float> %22, %21
+  store <2 x float> %23, ptr %gep.i, align 4
+  %24 = fadd <2 x float> %21, %22
+  store <2 x float> %24, ptr %arrayidx7.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %5
   br i1 %exitcond.not.i, label %sw.epilog, label %for.body.i, !llvm.loop !366
@@ -53715,109 +53715,109 @@ sw.bb17:                                          ; preds = %if.end
   %conv18 = sext i32 %3 to i64
   %_twiddles.i = getelementptr inbounds i8, ptr %this, i64 8
   %mul2.i = mul i64 %conv18, %fstride
-  %24 = load ptr, ptr %_twiddles.i, align 8
-  %add.ptr.i.sroa_idx.i = getelementptr inbounds %"class.std::complex", ptr %24, i64 %mul2.i, i32 0, i32 1
-  %25 = load float, ptr %add.ptr.i.sroa_idx.i, align 4
+  %25 = load ptr, ptr %_twiddles.i, align 8
+  %add.ptr.i.sroa_idx.i = getelementptr inbounds %"class.std::complex", ptr %25, i64 %mul2.i, i32 0, i32 1
+  %26 = load float, ptr %add.ptr.i.sroa_idx.i, align 4
   %arrayidx5.idx.i = shl nsw i64 %conv18, 4
   %add.ptr17.idx.i = shl i64 %fstride, 4
-  %26 = insertelement <2 x float> poison, float %25, i64 0
-  %27 = shufflevector <2 x float> %26, <2 x float> poison, <2 x i32> zeroinitializer
+  %27 = insertelement <2 x float> poison, float %26, i64 0
+  %28 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
   br label %do.body.i
 
 do.body.i:                                        ; preds = %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit52.i, %sw.bb17
   %k.0.i = phi i64 [ %conv18, %sw.bb17 ], [ %dec.i, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit52.i ]
   %Fout.addr.0.i = phi ptr [ %Fout, %sw.bb17 ], [ %incdec.ptr.i, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit52.i ]
-  %tw1.0.i = phi ptr [ %24, %sw.bb17 ], [ %add.ptr.i37, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit52.i ]
-  %tw2.0.i = phi ptr [ %24, %sw.bb17 ], [ %add.ptr17.i, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit52.i ]
+  %tw1.0.i = phi ptr [ %25, %sw.bb17 ], [ %add.ptr.i37, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit52.i ]
+  %tw2.0.i = phi ptr [ %25, %sw.bb17 ], [ %add.ptr17.i, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit52.i ]
   %arrayidx.i = getelementptr inbounds %"class.std::complex", ptr %Fout.addr.0.i, i64 %conv18
   %arrayidx5.i = getelementptr inbounds i8, ptr %Fout.addr.0.i, i64 %arrayidx5.idx.i
-  %28 = load <2 x float>, ptr %arrayidx.i, align 4
+  %29 = load <2 x float>, ptr %arrayidx.i, align 4
   %_M_value.real.i.i.i.i.i = load float, ptr %tw1.0.i, align 4
   %_M_value.imagp.i.i.i.i.i = getelementptr inbounds i8, ptr %tw1.0.i, i64 4
   %_M_value.imag.i.i.i.i.i = load float, ptr %_M_value.imagp.i.i.i.i.i, align 4
-  %29 = insertelement <2 x float> poison, float %_M_value.imag.i.i.i.i.i, i64 0
-  %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> zeroinitializer
-  %31 = fmul <2 x float> %28, %30
-  %32 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %33 = insertelement <2 x float> poison, float %_M_value.real.i.i.i.i.i, i64 0
-  %34 = shufflevector <2 x float> %33, <2 x float> poison, <2 x i32> zeroinitializer
-  %35 = fmul <2 x float> %34, %28
-  %36 = fsub <2 x float> %35, %32
-  %37 = fadd <2 x float> %35, %32
-  %38 = shufflevector <2 x float> %36, <2 x float> %37, <2 x i32> <i32 0, i32 3>
-  %39 = extractelement <2 x float> %36, i64 0
-  %isnan_cmp.i.i.i.i = fcmp uno float %39, 0.000000e+00
+  %30 = insertelement <2 x float> poison, float %_M_value.imag.i.i.i.i.i, i64 0
+  %31 = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> zeroinitializer
+  %32 = fmul <2 x float> %29, %31
+  %33 = shufflevector <2 x float> %32, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %34 = insertelement <2 x float> poison, float %_M_value.real.i.i.i.i.i, i64 0
+  %35 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> zeroinitializer
+  %36 = fmul <2 x float> %35, %29
+  %37 = fsub <2 x float> %36, %33
+  %38 = fadd <2 x float> %36, %33
+  %39 = shufflevector <2 x float> %37, <2 x float> %38, <2 x i32> <i32 0, i32 3>
+  %40 = extractelement <2 x float> %37, i64 0
+  %isnan_cmp.i.i.i.i = fcmp uno float %40, 0.000000e+00
   br i1 %isnan_cmp.i.i.i.i, label %complex_mul_imag_nan.i.i.i.i, label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i, !prof !365
 
 complex_mul_imag_nan.i.i.i.i:                     ; preds = %do.body.i
-  %40 = extractelement <2 x float> %37, i64 1
-  %isnan_cmp4.i.i.i.i = fcmp uno float %40, 0.000000e+00
+  %41 = extractelement <2 x float> %38, i64 1
+  %isnan_cmp4.i.i.i.i = fcmp uno float %41, 0.000000e+00
   br i1 %isnan_cmp4.i.i.i.i, label %complex_mul_libcall.i.i.i.i, label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i, !prof !365
 
 complex_mul_libcall.i.i.i.i:                      ; preds = %complex_mul_imag_nan.i.i.i.i
-  %41 = extractelement <2 x float> %28, i64 0
-  %42 = extractelement <2 x float> %28, i64 1
-  %call5.i.i.i.i = tail call noundef <2 x float> @__mulsc3(float noundef %41, float noundef %42, float noundef %_M_value.real.i.i.i.i.i, float noundef %_M_value.imag.i.i.i.i.i) #23
+  %42 = extractelement <2 x float> %29, i64 0
+  %43 = extractelement <2 x float> %29, i64 1
+  %call5.i.i.i.i = tail call noundef <2 x float> @__mulsc3(float noundef %42, float noundef %43, float noundef %_M_value.real.i.i.i.i.i, float noundef %_M_value.imag.i.i.i.i.i) #23
   br label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i
 
 _ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i: ; preds = %complex_mul_libcall.i.i.i.i, %complex_mul_imag_nan.i.i.i.i, %do.body.i
-  %43 = phi <2 x float> [ %38, %do.body.i ], [ %38, %complex_mul_imag_nan.i.i.i.i ], [ %call5.i.i.i.i, %complex_mul_libcall.i.i.i.i ]
-  %44 = load <2 x float>, ptr %arrayidx5.i, align 4
+  %44 = phi <2 x float> [ %39, %do.body.i ], [ %39, %complex_mul_imag_nan.i.i.i.i ], [ %call5.i.i.i.i, %complex_mul_libcall.i.i.i.i ]
+  %45 = load <2 x float>, ptr %arrayidx5.i, align 4
   %_M_value.real.i.i.i.i30.i = load float, ptr %tw2.0.i, align 4
   %_M_value.imagp.i.i.i.i31.i = getelementptr inbounds i8, ptr %tw2.0.i, i64 4
   %_M_value.imag.i.i.i.i32.i = load float, ptr %_M_value.imagp.i.i.i.i31.i, align 4
-  %45 = insertelement <2 x float> poison, float %_M_value.imag.i.i.i.i32.i, i64 0
-  %46 = shufflevector <2 x float> %45, <2 x float> poison, <2 x i32> zeroinitializer
-  %47 = fmul <2 x float> %44, %46
-  %48 = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %49 = insertelement <2 x float> poison, float %_M_value.real.i.i.i.i30.i, i64 0
-  %50 = shufflevector <2 x float> %49, <2 x float> poison, <2 x i32> zeroinitializer
-  %51 = fmul <2 x float> %50, %44
-  %52 = fsub <2 x float> %51, %48
-  %53 = fadd <2 x float> %51, %48
-  %54 = shufflevector <2 x float> %52, <2 x float> %53, <2 x i32> <i32 0, i32 3>
-  %55 = extractelement <2 x float> %52, i64 0
-  %isnan_cmp.i.i.i41.i = fcmp uno float %55, 0.000000e+00
+  %46 = insertelement <2 x float> poison, float %_M_value.imag.i.i.i.i32.i, i64 0
+  %47 = shufflevector <2 x float> %46, <2 x float> poison, <2 x i32> zeroinitializer
+  %48 = fmul <2 x float> %45, %47
+  %49 = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %50 = insertelement <2 x float> poison, float %_M_value.real.i.i.i.i30.i, i64 0
+  %51 = shufflevector <2 x float> %50, <2 x float> poison, <2 x i32> zeroinitializer
+  %52 = fmul <2 x float> %51, %45
+  %53 = fsub <2 x float> %52, %49
+  %54 = fadd <2 x float> %52, %49
+  %55 = shufflevector <2 x float> %53, <2 x float> %54, <2 x i32> <i32 0, i32 3>
+  %56 = extractelement <2 x float> %53, i64 0
+  %isnan_cmp.i.i.i41.i = fcmp uno float %56, 0.000000e+00
   br i1 %isnan_cmp.i.i.i41.i, label %complex_mul_imag_nan.i.i.i46.i, label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit52.i, !prof !365
 
 complex_mul_imag_nan.i.i.i46.i:                   ; preds = %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i
-  %56 = extractelement <2 x float> %53, i64 1
-  %isnan_cmp4.i.i.i47.i = fcmp uno float %56, 0.000000e+00
+  %57 = extractelement <2 x float> %54, i64 1
+  %isnan_cmp4.i.i.i47.i = fcmp uno float %57, 0.000000e+00
   br i1 %isnan_cmp4.i.i.i47.i, label %complex_mul_libcall.i.i.i48.i, label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit52.i, !prof !365
 
 complex_mul_libcall.i.i.i48.i:                    ; preds = %complex_mul_imag_nan.i.i.i46.i
-  %57 = extractelement <2 x float> %44, i64 0
-  %58 = extractelement <2 x float> %44, i64 1
-  %call5.i.i.i49.i = tail call noundef <2 x float> @__mulsc3(float noundef %57, float noundef %58, float noundef %_M_value.real.i.i.i.i30.i, float noundef %_M_value.imag.i.i.i.i32.i) #23
+  %58 = extractelement <2 x float> %45, i64 0
+  %59 = extractelement <2 x float> %45, i64 1
+  %call5.i.i.i49.i = tail call noundef <2 x float> @__mulsc3(float noundef %58, float noundef %59, float noundef %_M_value.real.i.i.i.i30.i, float noundef %_M_value.imag.i.i.i.i32.i) #23
   br label %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit52.i
 
 _ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit52.i: ; preds = %complex_mul_libcall.i.i.i48.i, %complex_mul_imag_nan.i.i.i46.i, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i
-  %59 = phi <2 x float> [ %54, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i ], [ %54, %complex_mul_imag_nan.i.i.i46.i ], [ %call5.i.i.i49.i, %complex_mul_libcall.i.i.i48.i ]
-  %60 = fadd <2 x float> %43, %59
+  %60 = phi <2 x float> [ %55, %_ZN7kissfftIfN13kissfft_utils6traitsIfEEE5C_MULERSt7complexIfERKS5_S8_.exit.i ], [ %55, %complex_mul_imag_nan.i.i.i46.i ], [ %call5.i.i.i49.i, %complex_mul_libcall.i.i.i48.i ]
+  %61 = fadd <2 x float> %44, %60
   %add.ptr.i37 = getelementptr inbounds %"class.std::complex", ptr %tw1.0.i, i64 %fstride
   %add.ptr17.i = getelementptr inbounds i8, ptr %tw2.0.i, i64 %add.ptr17.idx.i
   %arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  %61 = load <2 x float>, ptr %Fout.addr.0.i, align 4
-  %62 = fmul <2 x float> %60, <float 5.000000e-01, float 5.000000e-01>
-  %63 = fsub <2 x float> %61, %62
-  store <2 x float> %63, ptr %arrayidx.i, align 4
-  %64 = load <2 x float>, ptr %Fout.addr.0.i, align 4
-  %65 = fadd <2 x float> %60, %64
-  store <2 x float> %65, ptr %Fout.addr.0.i, align 4
-  %66 = fsub <2 x float> %43, %59
-  %67 = fmul <2 x float> %27, %66
-  %68 = shufflevector <2 x float> %67, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %69 = load <2 x float>, ptr %arrayidx.i, align 4
-  %70 = fadd <2 x float> %69, %68
-  %71 = fsub <2 x float> %69, %68
-  %72 = shufflevector <2 x float> %70, <2 x float> %71, <2 x i32> <i32 0, i32 3>
-  store <2 x float> %72, ptr %arrayidx5.i, align 4
+  %62 = load <2 x float>, ptr %Fout.addr.0.i, align 4
+  %63 = fmul <2 x float> %61, <float 5.000000e-01, float 5.000000e-01>
+  %64 = fsub <2 x float> %62, %63
+  store <2 x float> %64, ptr %arrayidx.i, align 4
+  %65 = load <2 x float>, ptr %Fout.addr.0.i, align 4
+  %66 = fadd <2 x float> %61, %65
+  store <2 x float> %66, ptr %Fout.addr.0.i, align 4
+  %67 = fsub <2 x float> %44, %60
+  %68 = fmul <2 x float> %28, %67
+  %69 = shufflevector <2 x float> %68, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %70 = load <2 x float>, ptr %arrayidx.i, align 4
+  %71 = fadd <2 x float> %70, %69
+  %72 = fsub <2 x float> %70, %69
+  %73 = shufflevector <2 x float> %71, <2 x float> %72, <2 x i32> <i32 0, i32 3>
+  store <2 x float> %73, ptr %arrayidx5.i, align 4
   %_M_value.real.i.i83.i = load float, ptr %arrayidx.i, align 4
   %_M_value.imag.i.i85.i = load float, ptr %arrayidx.sroa_idx.i, align 4
-  %73 = extractelement <2 x float> %67, i64 1
-  %add.r.i.i86.i = fsub float %_M_value.real.i.i83.i, %73
-  %74 = extractelement <2 x float> %67, i64 0
-  %add.i.i.i87.i = fadd float %74, %_M_value.imag.i.i85.i
+  %74 = extractelement <2 x float> %68, i64 1
+  %add.r.i.i86.i = fsub float %_M_value.real.i.i83.i, %74
+  %75 = extractelement <2 x float> %68, i64 0
+  %add.i.i.i87.i = fadd float %75, %_M_value.imag.i.i85.i
   store float %add.r.i.i86.i, ptr %arrayidx.i, align 4
   store float %add.i.i.i87.i, ptr %arrayidx.sroa_idx.i, align 4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %Fout.addr.0.i, i64 8
@@ -53871,131 +53871,131 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mul4 = mul i64 %k.0149, %fstride
   %conv5 = trunc i64 %mul4 to i32
   %sext = shl i64 %mul4, 32
-  %conv.i = ashr exact i64 %sext, 32
   %5 = load ptr, ptr %_traits, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.std::complex", ptr %5, i64 %conv.i
+  %6 = ashr exact i64 %sext, 29
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %6
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %add.ptr.i.i, align 4
-  %6 = load <2 x float>, ptr %arrayidx, align 4
+  %7 = load <2 x float>, ptr %arrayidx, align 4
   %ref.tmp3.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 0
   %ref.tmp3.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 1
-  %7 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %8 = fmul <2 x float> %7, %6
-  %9 = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %10 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i, <2 x float> poison, <2 x i32> zeroinitializer
-  %11 = fmul <2 x float> %10, %6
-  %12 = fsub <2 x float> %11, %9
-  %13 = fadd <2 x float> %11, %9
-  %14 = shufflevector <2 x float> %12, <2 x float> %13, <2 x i32> <i32 0, i32 3>
-  %15 = extractelement <2 x float> %12, i64 0
-  %isnan_cmp.i.i = fcmp uno float %15, 0.000000e+00
+  %8 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %9 = fmul <2 x float> %8, %7
+  %10 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %11 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i, <2 x float> poison, <2 x i32> zeroinitializer
+  %12 = fmul <2 x float> %11, %7
+  %13 = fsub <2 x float> %12, %10
+  %14 = fadd <2 x float> %12, %10
+  %15 = shufflevector <2 x float> %13, <2 x float> %14, <2 x i32> <i32 0, i32 3>
+  %16 = extractelement <2 x float> %13, i64 0
+  %isnan_cmp.i.i = fcmp uno float %16, 0.000000e+00
   br i1 %isnan_cmp.i.i, label %complex_mul_imag_nan.i.i, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit, !prof !365
 
 complex_mul_imag_nan.i.i:                         ; preds = %for.body
-  %16 = extractelement <2 x float> %13, i64 1
-  %isnan_cmp4.i.i = fcmp uno float %16, 0.000000e+00
+  %17 = extractelement <2 x float> %14, i64 1
+  %isnan_cmp4.i.i = fcmp uno float %17, 0.000000e+00
   br i1 %isnan_cmp4.i.i, label %complex_mul_libcall.i.i, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit, !prof !365
 
 complex_mul_libcall.i.i:                          ; preds = %complex_mul_imag_nan.i.i
-  %17 = extractelement <2 x float> %6, i64 0
-  %18 = extractelement <2 x float> %6, i64 1
-  %call5.i.i = tail call noundef <2 x float> @__mulsc3(float noundef %17, float noundef %18, float noundef %ref.tmp3.sroa.0.0.vec.extract, float noundef %ref.tmp3.sroa.0.4.vec.extract) #23
+  %18 = extractelement <2 x float> %7, i64 0
+  %19 = extractelement <2 x float> %7, i64 1
+  %call5.i.i = tail call noundef <2 x float> @__mulsc3(float noundef %18, float noundef %19, float noundef %ref.tmp3.sroa.0.0.vec.extract, float noundef %ref.tmp3.sroa.0.4.vec.extract) #23
   %.pre = load ptr, ptr %_traits, align 8
   br label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit
 
 _ZStmlIfESt7complexIT_ERKS2_S4_.exit:             ; preds = %for.body, %complex_mul_imag_nan.i.i, %complex_mul_libcall.i.i
-  %19 = phi ptr [ %5, %for.body ], [ %5, %complex_mul_imag_nan.i.i ], [ %.pre, %complex_mul_libcall.i.i ]
-  %20 = phi <2 x float> [ %14, %for.body ], [ %14, %complex_mul_imag_nan.i.i ], [ %call5.i.i, %complex_mul_libcall.i.i ]
+  %20 = phi ptr [ %5, %for.body ], [ %5, %complex_mul_imag_nan.i.i ], [ %.pre, %complex_mul_libcall.i.i ]
+  %21 = phi <2 x float> [ %15, %for.body ], [ %15, %complex_mul_imag_nan.i.i ], [ %call5.i.i, %complex_mul_libcall.i.i ]
   %arrayidx12 = getelementptr i8, ptr %4, i64 %arrayidx12.idx
   %conv17 = shl i32 %conv5, 1
   %conv.i33 = sext i32 %conv17 to i64
-  %add.ptr.i.i34 = getelementptr inbounds %"class.std::complex", ptr %19, i64 %conv.i33
+  %add.ptr.i.i34 = getelementptr inbounds %"class.std::complex", ptr %20, i64 %conv.i33
   %retval.sroa.0.0.copyload.i35 = load <2 x float>, ptr %add.ptr.i.i34, align 4
-  %21 = load <2 x float>, ptr %arrayidx12, align 4
+  %22 = load <2 x float>, ptr %arrayidx12, align 4
   %ref.tmp13.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i35, i64 0
   %ref.tmp13.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i35, i64 1
-  %22 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i35, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %23 = fmul <2 x float> %22, %21
-  %24 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %25 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i35, <2 x float> poison, <2 x i32> zeroinitializer
-  %26 = fmul <2 x float> %25, %21
-  %27 = fsub <2 x float> %26, %24
-  %28 = fadd <2 x float> %26, %24
-  %29 = shufflevector <2 x float> %27, <2 x float> %28, <2 x i32> <i32 0, i32 3>
-  %30 = extractelement <2 x float> %27, i64 0
-  %isnan_cmp.i.i47 = fcmp uno float %30, 0.000000e+00
+  %23 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i35, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %24 = fmul <2 x float> %23, %22
+  %25 = shufflevector <2 x float> %24, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %26 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i35, <2 x float> poison, <2 x i32> zeroinitializer
+  %27 = fmul <2 x float> %26, %22
+  %28 = fsub <2 x float> %27, %25
+  %29 = fadd <2 x float> %27, %25
+  %30 = shufflevector <2 x float> %28, <2 x float> %29, <2 x i32> <i32 0, i32 3>
+  %31 = extractelement <2 x float> %28, i64 0
+  %isnan_cmp.i.i47 = fcmp uno float %31, 0.000000e+00
   br i1 %isnan_cmp.i.i47, label %complex_mul_imag_nan.i.i52, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit58, !prof !365
 
 complex_mul_imag_nan.i.i52:                       ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit
-  %31 = extractelement <2 x float> %28, i64 1
-  %isnan_cmp4.i.i53 = fcmp uno float %31, 0.000000e+00
+  %32 = extractelement <2 x float> %29, i64 1
+  %isnan_cmp4.i.i53 = fcmp uno float %32, 0.000000e+00
   br i1 %isnan_cmp4.i.i53, label %complex_mul_libcall.i.i54, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit58, !prof !365
 
 complex_mul_libcall.i.i54:                        ; preds = %complex_mul_imag_nan.i.i52
-  %32 = extractelement <2 x float> %21, i64 0
-  %33 = extractelement <2 x float> %21, i64 1
-  %call5.i.i55 = tail call noundef <2 x float> @__mulsc3(float noundef %32, float noundef %33, float noundef %ref.tmp13.sroa.0.0.vec.extract, float noundef %ref.tmp13.sroa.0.4.vec.extract) #23
+  %33 = extractelement <2 x float> %22, i64 0
+  %34 = extractelement <2 x float> %22, i64 1
+  %call5.i.i55 = tail call noundef <2 x float> @__mulsc3(float noundef %33, float noundef %34, float noundef %ref.tmp13.sroa.0.0.vec.extract, float noundef %ref.tmp13.sroa.0.4.vec.extract) #23
   %.pre156 = load ptr, ptr %_traits, align 8
   br label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit58
 
 _ZStmlIfESt7complexIT_ERKS2_S4_.exit58:           ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit, %complex_mul_imag_nan.i.i52, %complex_mul_libcall.i.i54
-  %34 = phi ptr [ %19, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit ], [ %19, %complex_mul_imag_nan.i.i52 ], [ %.pre156, %complex_mul_libcall.i.i54 ]
-  %35 = phi <2 x float> [ %29, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit ], [ %29, %complex_mul_imag_nan.i.i52 ], [ %call5.i.i55, %complex_mul_libcall.i.i54 ]
+  %35 = phi ptr [ %20, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit ], [ %20, %complex_mul_imag_nan.i.i52 ], [ %.pre156, %complex_mul_libcall.i.i54 ]
+  %36 = phi <2 x float> [ %30, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit ], [ %30, %complex_mul_imag_nan.i.i52 ], [ %call5.i.i55, %complex_mul_libcall.i.i54 ]
   %arrayidx26 = getelementptr i8, ptr %4, i64 %arrayidx26.idx
   %sext146 = mul i64 %mul4, 12884901888
-  %conv.i59 = ashr exact i64 %sext146, 32
-  %add.ptr.i.i60 = getelementptr inbounds %"class.std::complex", ptr %34, i64 %conv.i59
+  %37 = ashr exact i64 %sext146, 29
+  %add.ptr.i.i60 = getelementptr inbounds i8, ptr %35, i64 %37
   %retval.sroa.0.0.copyload.i61 = load <2 x float>, ptr %add.ptr.i.i60, align 4
-  %36 = load <2 x float>, ptr %arrayidx26, align 4
+  %38 = load <2 x float>, ptr %arrayidx26, align 4
   %ref.tmp27.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i61, i64 0
   %ref.tmp27.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i61, i64 1
-  %37 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i61, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %38 = fmul <2 x float> %37, %36
-  %39 = shufflevector <2 x float> %38, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %40 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i61, <2 x float> poison, <2 x i32> zeroinitializer
-  %41 = fmul <2 x float> %40, %36
-  %42 = fsub <2 x float> %41, %39
-  %43 = fadd <2 x float> %41, %39
-  %44 = shufflevector <2 x float> %42, <2 x float> %43, <2 x i32> <i32 0, i32 3>
-  %45 = extractelement <2 x float> %42, i64 0
-  %isnan_cmp.i.i73 = fcmp uno float %45, 0.000000e+00
+  %39 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i61, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %40 = fmul <2 x float> %39, %38
+  %41 = shufflevector <2 x float> %40, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %42 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i61, <2 x float> poison, <2 x i32> zeroinitializer
+  %43 = fmul <2 x float> %42, %38
+  %44 = fsub <2 x float> %43, %41
+  %45 = fadd <2 x float> %43, %41
+  %46 = shufflevector <2 x float> %44, <2 x float> %45, <2 x i32> <i32 0, i32 3>
+  %47 = extractelement <2 x float> %44, i64 0
+  %isnan_cmp.i.i73 = fcmp uno float %47, 0.000000e+00
   br i1 %isnan_cmp.i.i73, label %complex_mul_imag_nan.i.i78, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit84, !prof !365
 
 complex_mul_imag_nan.i.i78:                       ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit58
-  %46 = extractelement <2 x float> %43, i64 1
-  %isnan_cmp4.i.i79 = fcmp uno float %46, 0.000000e+00
+  %48 = extractelement <2 x float> %45, i64 1
+  %isnan_cmp4.i.i79 = fcmp uno float %48, 0.000000e+00
   br i1 %isnan_cmp4.i.i79, label %complex_mul_libcall.i.i80, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit84, !prof !365
 
 complex_mul_libcall.i.i80:                        ; preds = %complex_mul_imag_nan.i.i78
-  %47 = extractelement <2 x float> %36, i64 0
-  %48 = extractelement <2 x float> %36, i64 1
-  %call5.i.i81 = tail call noundef <2 x float> @__mulsc3(float noundef %47, float noundef %48, float noundef %ref.tmp27.sroa.0.0.vec.extract, float noundef %ref.tmp27.sroa.0.4.vec.extract) #23
+  %49 = extractelement <2 x float> %38, i64 0
+  %50 = extractelement <2 x float> %38, i64 1
+  %call5.i.i81 = tail call noundef <2 x float> @__mulsc3(float noundef %49, float noundef %50, float noundef %ref.tmp27.sroa.0.0.vec.extract, float noundef %ref.tmp27.sroa.0.4.vec.extract) #23
   br label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit84
 
 _ZStmlIfESt7complexIT_ERKS2_S4_.exit84:           ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit58, %complex_mul_imag_nan.i.i78, %complex_mul_libcall.i.i80
-  %49 = phi <2 x float> [ %44, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit58 ], [ %44, %complex_mul_imag_nan.i.i78 ], [ %call5.i.i81, %complex_mul_libcall.i.i80 ]
-  %50 = load <2 x float>, ptr %4, align 4
-  %51 = fadd <2 x float> %35, %50
-  store <2 x float> %51, ptr %4, align 4
-  %52 = fadd <2 x float> %20, %49
-  %53 = fsub <2 x float> %20, %49
-  %sub.r.i.i105 = extractelement <2 x float> %53, i64 0
-  %54 = fsub <2 x float> %20, %49
-  %sub.i.i.i106 = extractelement <2 x float> %54, i64 1
+  %51 = phi <2 x float> [ %46, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit58 ], [ %46, %complex_mul_imag_nan.i.i78 ], [ %call5.i.i81, %complex_mul_libcall.i.i80 ]
+  %52 = load <2 x float>, ptr %4, align 4
+  %53 = fadd <2 x float> %36, %52
+  store <2 x float> %53, ptr %4, align 4
+  %54 = fadd <2 x float> %21, %51
+  %55 = fsub <2 x float> %21, %51
+  %sub.r.i.i105 = extractelement <2 x float> %55, i64 0
+  %56 = fsub <2 x float> %21, %51
+  %sub.i.i.i106 = extractelement <2 x float> %56, i64 1
   %fneg = fneg float %sub.r.i.i105
-  %55 = load <2 x float>, ptr %4, align 4
-  %56 = fsub <2 x float> %55, %52
-  store <2 x float> %56, ptr %arrayidx12, align 4
   %57 = load <2 x float>, ptr %4, align 4
-  %58 = fadd <2 x float> %52, %57
-  store <2 x float> %58, ptr %4, align 4
-  %59 = fsub <2 x float> %50, %35
-  %60 = insertelement <2 x float> poison, float %sub.i.i.i106, i64 0
-  %61 = insertelement <2 x float> %60, float %fneg, i64 1
-  %62 = fmul <2 x float> %61, %3
-  %63 = fadd <2 x float> %59, %62
-  store <2 x float> %63, ptr %arrayidx, align 4
-  %64 = fsub <2 x float> %59, %62
-  store <2 x float> %64, ptr %arrayidx26, align 4
+  %58 = fsub <2 x float> %57, %54
+  store <2 x float> %58, ptr %arrayidx12, align 4
+  %59 = load <2 x float>, ptr %4, align 4
+  %60 = fadd <2 x float> %54, %59
+  store <2 x float> %60, ptr %4, align 4
+  %61 = fsub <2 x float> %52, %36
+  %62 = insertelement <2 x float> poison, float %sub.i.i.i106, i64 0
+  %63 = insertelement <2 x float> %62, float %fneg, i64 1
+  %64 = fmul <2 x float> %63, %3
+  %65 = fadd <2 x float> %61, %64
+  store <2 x float> %65, ptr %arrayidx, align 4
+  %66 = fsub <2 x float> %61, %64
+  store <2 x float> %66, ptr %arrayidx26, align 4
   %inc = add nuw i64 %k.0149, 1
   %exitcond.not = icmp eq i64 %inc, %m
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !368
@@ -69462,8 +69462,8 @@ if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   %7 = getelementptr inbounds i8, ptr %ctx, i64 16
   %8 = load ptr, ptr %7, align 8, !noalias !444
   %sext = shl i64 %4, 32
-  %idxprom.i.i.i = ashr exact i64 %sext, 32
-  %arrayidx.i.i.i = getelementptr inbounds %"class.fmt::v8::basic_format_arg", ptr %8, i64 %idxprom.i.i.i
+  %9 = ashr exact i64 %sext, 27
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %8, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %agg.tmp.i10, ptr noundef nonnull align 16 dereferenceable(20) %arrayidx.i.i.i, i64 20, i1 false)
   br label %.noexc13.invoke
 
@@ -69475,18 +69475,18 @@ if.end7.i.i.i:                                    ; preds = %if.end4.i.i.i
   %mul.i.i.i.i = shl i64 %4, 2
   %sh_prom.i.i.i.i = and i64 %mul.i.i.i.i, 4294967292
   %shr.i.i.i.i = lshr i64 %5, %sh_prom.i.i.i.i
-  %9 = trunc i64 %shr.i.i.i.i to i32
-  %conv2.i.i.i.i = and i32 %9, 15
+  %10 = trunc i64 %shr.i.i.i.i to i32
+  %conv2.i.i.i.i = and i32 %10, 15
   store i32 %conv2.i.i.i.i, ptr %type_.i.i.i.i, align 16, !alias.scope !444
   %cmp10.i.i.i = icmp eq i32 %conv2.i.i.i.i, 0
   br i1 %cmp10.i.i.i, label %.noexc13.invoke, label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end7.i.i.i
-  %10 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %11 = load ptr, ptr %10, align 8, !noalias !444
+  %11 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %12 = load ptr, ptr %11, align 8, !noalias !444
   %sext75 = shl i64 %4, 32
-  %idxprom13.i.i.i = ashr exact i64 %sext75, 32
-  %arrayidx14.i.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %11, i64 %idxprom13.i.i.i
+  %13 = ashr exact i64 %sext75, 28
+  %arrayidx14.i.i.i = getelementptr inbounds i8, ptr %12, i64 %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp.i10, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i.i.i, i64 16, i1 false)
   br label %.noexc13.invoke
 
@@ -69496,12 +69496,12 @@ sw.bb3.i:                                         ; preds = %if.then.i
           to label %.noexc13.invoke unwind label %lpad3
 
 .noexc13.invoke:                                  ; preds = %sw.bb3.i, %if.then.i.i.i, %if.then3.i.i.i, %if.end4.i.i.i, %if.end7.i.i.i, %if.end12.i.i.i
-  %12 = phi ptr [ %agg.tmp.i10, %if.end12.i.i.i ], [ %agg.tmp.i10, %if.end7.i.i.i ], [ %agg.tmp.i10, %if.end4.i.i.i ], [ %agg.tmp.i10, %if.then3.i.i.i ], [ %agg.tmp.i10, %if.then.i.i.i ], [ %agg.tmp4.i, %sw.bb3.i ]
-  %13 = invoke noundef i32 @_ZN3fmt2v86detail16get_dynamic_specINS1_13width_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEENS1_13error_handlerEEEiT0_T1_(ptr noundef nonnull byval(%"class.fmt::v8::basic_format_arg") align 16 %12)
+  %14 = phi ptr [ %agg.tmp.i10, %if.end12.i.i.i ], [ %agg.tmp.i10, %if.end7.i.i.i ], [ %agg.tmp.i10, %if.end4.i.i.i ], [ %agg.tmp.i10, %if.then3.i.i.i ], [ %agg.tmp.i10, %if.then.i.i.i ], [ %agg.tmp4.i, %sw.bb3.i ]
+  %15 = invoke noundef i32 @_ZN3fmt2v86detail16get_dynamic_specINS1_13width_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEENS1_13error_handlerEEEiT0_T1_(ptr noundef nonnull byval(%"class.fmt::v8::basic_format_arg") align 16 %14)
           to label %sw.epilog.sink.split.i unwind label %lpad3
 
 sw.epilog.sink.split.i:                           ; preds = %.noexc13.invoke
-  store i32 %13, ptr %specs.i, align 8
+  store i32 %15, ptr %specs.i, align 8
   br label %.noexc
 
 .noexc:                                           ; preds = %sw.epilog.sink.split.i, %if.then.i
@@ -69522,28 +69522,28 @@ sw.epilog.sink.split.i:                           ; preds = %.noexc13.invoke
   ]
 
 sw.bb1.i18:                                       ; preds = %.noexc
-  %14 = ptrtoint ptr %agg.tmp7.i.sroa.3.0.copyload to i64
-  %agg.tmp7.i15.sroa.474.0.extract.trunc = trunc i64 %14 to i32
+  %16 = ptrtoint ptr %agg.tmp7.i.sroa.3.0.copyload to i64
+  %agg.tmp7.i15.sroa.474.0.extract.trunc = trunc i64 %16 to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !445)
   %args_.i.i20 = getelementptr inbounds i8, ptr %ctx, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !448)
   %type_.i.i.i.i21 = getelementptr inbounds i8, ptr %agg.tmp.i16, i64 16
   store i32 0, ptr %type_.i.i.i.i21, align 16, !alias.scope !451
-  %15 = load i64, ptr %args_.i.i20, align 8, !noalias !451
-  %cmp.i.i.i.i22 = icmp sgt i64 %15, -1
+  %17 = load i64, ptr %args_.i.i20, align 8, !noalias !451
+  %cmp.i.i.i.i22 = icmp sgt i64 %17, -1
   br i1 %cmp.i.i.i.i22, label %if.end4.i.i.i32, label %if.then.i.i.i23
 
 if.then.i.i.i23:                                  ; preds = %sw.bb1.i18
-  %16 = trunc i64 %15 to i32
-  %cmp.i.i.i24 = icmp slt i32 %agg.tmp7.i15.sroa.474.0.extract.trunc, %16
+  %18 = trunc i64 %17 to i32
+  %cmp.i.i.i24 = icmp slt i32 %agg.tmp7.i15.sroa.474.0.extract.trunc, %18
   br i1 %cmp.i.i.i24, label %if.then3.i.i.i29, label %.noexc50.invoke
 
 if.then3.i.i.i29:                                 ; preds = %if.then.i.i.i23
-  %17 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %18 = load ptr, ptr %17, align 8, !noalias !451
-  %sext76 = shl i64 %14, 32
-  %idxprom.i.i.i30 = ashr exact i64 %sext76, 32
-  %arrayidx.i.i.i31 = getelementptr inbounds %"class.fmt::v8::basic_format_arg", ptr %18, i64 %idxprom.i.i.i30
+  %19 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %20 = load ptr, ptr %19, align 8, !noalias !451
+  %sext76 = shl i64 %16, 32
+  %21 = ashr exact i64 %sext76, 27
+  %arrayidx.i.i.i31 = getelementptr inbounds i8, ptr %20, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %agg.tmp.i16, ptr noundef nonnull align 16 dereferenceable(20) %arrayidx.i.i.i31, i64 20, i1 false)
   br label %.noexc50.invoke
 
@@ -69552,21 +69552,21 @@ if.end4.i.i.i32:                                  ; preds = %sw.bb1.i18
   br i1 %cmp5.i.i.i33, label %.noexc50.invoke, label %if.end7.i.i.i34
 
 if.end7.i.i.i34:                                  ; preds = %if.end4.i.i.i32
-  %mul.i.i.i.i35 = shl i64 %14, 2
+  %mul.i.i.i.i35 = shl i64 %16, 2
   %sh_prom.i.i.i.i36 = and i64 %mul.i.i.i.i35, 4294967292
-  %shr.i.i.i.i37 = lshr i64 %15, %sh_prom.i.i.i.i36
-  %19 = trunc i64 %shr.i.i.i.i37 to i32
-  %conv2.i.i.i.i38 = and i32 %19, 15
+  %shr.i.i.i.i37 = lshr i64 %17, %sh_prom.i.i.i.i36
+  %22 = trunc i64 %shr.i.i.i.i37 to i32
+  %conv2.i.i.i.i38 = and i32 %22, 15
   store i32 %conv2.i.i.i.i38, ptr %type_.i.i.i.i21, align 16, !alias.scope !451
   %cmp10.i.i.i39 = icmp eq i32 %conv2.i.i.i.i38, 0
   br i1 %cmp10.i.i.i39, label %.noexc50.invoke, label %if.end12.i.i.i40
 
 if.end12.i.i.i40:                                 ; preds = %if.end7.i.i.i34
-  %20 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %21 = load ptr, ptr %20, align 8, !noalias !451
-  %sext77 = shl i64 %14, 32
-  %idxprom13.i.i.i41 = ashr exact i64 %sext77, 32
-  %arrayidx14.i.i.i42 = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %21, i64 %idxprom13.i.i.i41
+  %23 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %24 = load ptr, ptr %23, align 8, !noalias !451
+  %sext77 = shl i64 %16, 32
+  %25 = ashr exact i64 %sext77, 28
+  %arrayidx14.i.i.i42 = getelementptr inbounds i8, ptr %24, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp.i16, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i.i.i42, i64 16, i1 false)
   br label %.noexc50.invoke
 
@@ -69576,12 +69576,12 @@ sw.bb3.i43:                                       ; preds = %.noexc
           to label %.noexc50.invoke unwind label %lpad3
 
 .noexc50.invoke:                                  ; preds = %sw.bb3.i43, %if.then.i.i.i23, %if.then3.i.i.i29, %if.end4.i.i.i32, %if.end7.i.i.i34, %if.end12.i.i.i40
-  %22 = phi ptr [ %agg.tmp.i16, %if.end12.i.i.i40 ], [ %agg.tmp.i16, %if.end7.i.i.i34 ], [ %agg.tmp.i16, %if.end4.i.i.i32 ], [ %agg.tmp.i16, %if.then3.i.i.i29 ], [ %agg.tmp.i16, %if.then.i.i.i23 ], [ %agg.tmp4.i17, %sw.bb3.i43 ]
-  %23 = invoke noundef i32 @_ZN3fmt2v86detail16get_dynamic_specINS1_17precision_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEENS1_13error_handlerEEEiT0_T1_(ptr noundef nonnull byval(%"class.fmt::v8::basic_format_arg") align 16 %22)
+  %26 = phi ptr [ %agg.tmp.i16, %if.end12.i.i.i40 ], [ %agg.tmp.i16, %if.end7.i.i.i34 ], [ %agg.tmp.i16, %if.end4.i.i.i32 ], [ %agg.tmp.i16, %if.then3.i.i.i29 ], [ %agg.tmp.i16, %if.then.i.i.i23 ], [ %agg.tmp4.i17, %sw.bb3.i43 ]
+  %27 = invoke noundef i32 @_ZN3fmt2v86detail16get_dynamic_specINS1_17precision_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEENS1_13error_handlerEEEiT0_T1_(ptr noundef nonnull byval(%"class.fmt::v8::basic_format_arg") align 16 %26)
           to label %sw.epilog.sink.split.i27 unwind label %lpad3
 
 sw.epilog.sink.split.i27:                         ; preds = %.noexc50.invoke
-  store i32 %23, ptr %precision.i, align 4
+  store i32 %27, ptr %precision.i, align 4
   br label %.noexc15
 
 .noexc15:                                         ; preds = %sw.epilog.sink.split.i27, %.noexc
@@ -69589,9 +69589,9 @@ sw.epilog.sink.split.i27:                         ; preds = %.noexc50.invoke
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp4.i17)
   %retval.sroa.0.0.copyload.i53 = load ptr, ptr %ctx, align 8
   %type.i = getelementptr inbounds i8, ptr %specs.i, i64 8
-  %24 = load i8, ptr %type.i, align 8
-  %25 = and i8 %24, -17
-  %or.cond.not.i.i = icmp eq i8 %25, 0
+  %28 = load i8, ptr %type.i, align 8
+  %29 = and i8 %28, -17
+  %or.cond.not.i.i = icmp eq i8 %29, 0
   br i1 %or.cond.not.i.i, label %_ZN3fmt2v86detail22check_string_type_specINS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit.i66.invoke, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %.noexc15
@@ -69609,9 +69609,9 @@ if.then.i.i:                                      ; preds = %.noexc15
 if.end.i:                                         ; preds = %invoke.cont4
   %retval.sroa.0.0.copyload.i58 = load ptr, ptr %ctx, align 8
   %type.i62 = getelementptr inbounds i8, ptr %this, i64 8
-  %26 = load i8, ptr %type.i62, align 8
-  %27 = and i8 %26, -17
-  %or.cond.not.i.i63 = icmp eq i8 %27, 0
+  %30 = load i8, ptr %type.i62, align 8
+  %31 = and i8 %30, -17
+  %or.cond.not.i.i63 = icmp eq i8 %31, 0
   br i1 %or.cond.not.i.i63, label %_ZN3fmt2v86detail22check_string_type_specINS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit.i66.invoke, label %if.then.i.i64
 
 if.then.i.i64:                                    ; preds = %if.end.i
@@ -69627,29 +69627,29 @@ if.then.i.i64:                                    ; preds = %if.end.i
   br label %_ZN3fmt2v86detail22check_string_type_specINS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit.i66.invoke
 
 _ZN3fmt2v86detail22check_string_type_specINS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit.i66.invoke: ; preds = %if.end.i, %.noexc67, %.noexc15, %.noexc56
-  %28 = phi ptr [ %retval.sroa.0.0.copyload.i53, %.noexc56 ], [ %retval.sroa.0.0.copyload.i53, %.noexc15 ], [ %retval.sroa.0.0.copyload.i58, %.noexc67 ], [ %retval.sroa.0.0.copyload.i58, %if.end.i ]
-  %29 = phi ptr [ %specs.i, %.noexc56 ], [ %specs.i, %.noexc15 ], [ %this, %.noexc67 ], [ %this, %if.end.i ]
-  %30 = invoke ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %28, ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(16) %29)
+  %32 = phi ptr [ %retval.sroa.0.0.copyload.i53, %.noexc56 ], [ %retval.sroa.0.0.copyload.i53, %.noexc15 ], [ %retval.sroa.0.0.copyload.i58, %.noexc67 ], [ %retval.sroa.0.0.copyload.i58, %if.end.i ]
+  %33 = phi ptr [ %specs.i, %.noexc56 ], [ %specs.i, %.noexc15 ], [ %this, %.noexc67 ], [ %this, %if.end.i ]
+  %34 = invoke ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %32, ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(16) %33)
           to label %_ZNK3fmt2v89formatterINS0_17basic_string_viewIcEEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS3_RT_.exit unwind label %lpad3
 
 _ZNK3fmt2v89formatterINS0_17basic_string_viewIcEEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS3_RT_.exit: ; preds = %_ZN3fmt2v86detail22check_string_type_specINS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit.i66.invoke
-  %31 = load ptr, ptr %ptr_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %31, %store_.i
+  %35 = load ptr, ptr %ptr_.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %35, %store_.i
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i70
 
 if.then.i.i70:                                    ; preds = %_ZNK3fmt2v89formatterINS0_17basic_string_viewIcEEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS3_RT_.exit
-  call void @_ZdlPv(ptr noundef %31) #24
+  call void @_ZdlPv(ptr noundef %35) #24
   br label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %_ZNK3fmt2v89formatterINS0_17basic_string_viewIcEEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS3_RT_.exit, %if.then.i.i70
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #23
-  ret ptr %30
+  ret ptr %34
 
 lpad3:                                            ; preds = %.noexc13.invoke, %.noexc50.invoke, %_ZN3fmt2v86detail22check_string_type_specINS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit.i66.invoke, %if.then.i.i64, %if.then.i.i, %sw.bb3.i43, %sw.bb3.i, %entry
-  %32 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #23
-  resume { ptr, i32 } %32
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress uwtable

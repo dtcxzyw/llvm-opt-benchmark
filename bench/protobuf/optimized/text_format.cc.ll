@@ -2296,20 +2296,20 @@ _ZNK6google8protobuf8internal16ReflectionSchema7IsSplitEPKNS0_15FieldDescriptorE
   %sub.ptr.sub14.i.i.i = sub i64 %sub.ptr.lhs.cast12.i.i.i, %sub.ptr.rhs.cast13.i.i.i
   %retval.0.in.i.i.i = sdiv exact i64 %sub.ptr.sub14.i.i.i, 88
   %sext.i.i = shl i64 %retval.0.in.i.i.i, 32
-  %idxprom.i.i = ashr exact i64 %sext.i.i, 32
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %1, i64 %idxprom.i.i
-  %7 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp2.i.i = icmp slt i32 %7, 0
+  %7 = ashr exact i64 %sext.i.i, 30
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 %7
+  %8 = load i32, ptr %arrayidx.i.i, align 4
+  %cmp2.i.i = icmp slt i32 %8, 0
   br i1 %cmp2.i.i, label %if.end9.i, label %_ZNK6google8protobuf10Reflection6GetRawIcEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit
 
 if.end9.i:                                        ; preds = %_ZNK6google8protobuf8internal16ReflectionSchema7IsSplitEPKNS0_15FieldDescriptorE.exit.i
   %idx.ext.i.i7.i = zext i32 %0 to i64
   %add.ptr.i.i8.i = getelementptr inbounds i8, ptr %message, i64 %idx.ext.i.i7.i
-  %8 = load ptr, ptr %add.ptr.i.i8.i, align 8
+  %9 = load ptr, ptr %add.ptr.i.i8.i, align 8
   br label %_ZNK6google8protobuf10Reflection6GetRawIcEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit
 
 _ZNK6google8protobuf10Reflection6GetRawIcEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit: ; preds = %entry, %_ZNK6google8protobuf8internal16ReflectionSchema7IsSplitEPKNS0_15FieldDescriptorE.exit.i, %if.end9.i
-  %.sink.i = phi ptr [ %8, %if.end9.i ], [ %message, %entry ], [ %message, %_ZNK6google8protobuf8internal16ReflectionSchema7IsSplitEPKNS0_15FieldDescriptorE.exit.i ]
+  %.sink.i = phi ptr [ %9, %if.end9.i ], [ %message, %entry ], [ %message, %_ZNK6google8protobuf8internal16ReflectionSchema7IsSplitEPKNS0_15FieldDescriptorE.exit.i ]
   %idx.ext.i9.i = zext i32 %call.i to i64
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %.sink.i, i64 %idx.ext.i9.i
   ret ptr %add.ptr.i10.i
@@ -21068,58 +21068,58 @@ if.then:                                          ; preds = %land.lhs.true.i.i, 
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %sext = shl i64 %sub.ptr.div.i, 32
-  %conv6 = ashr exact i64 %sext, 32
   %offsets_ = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %offsets_, align 8
   %10 = getelementptr i32, ptr %9, i64 %conv
-  %arrayidx = getelementptr i32, ptr %10, i64 %conv6
-  %11 = load i32, ptr %arrayidx, align 4
+  %11 = ashr exact i64 %sext, 30
+  %arrayidx = getelementptr i8, ptr %10, i64 %11
+  %12 = load i32, ptr %arrayidx, align 4
   %type_once_.i = getelementptr inbounds i8, ptr %field, i64 24
-  %12 = load ptr, ptr %type_once_.i, align 8
-  %tobool.not.i = icmp eq ptr %12, null
+  %13 = load ptr, ptr %type_once_.i, align 8
+  %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %13 = load atomic i32, ptr %12 acquire, align 4
-  %cmp.not.i.i = icmp eq i32 %13, 221
+  %14 = load atomic i32, ptr %13 acquire, align 4
+  %cmp.not.i.i = icmp eq i32 %14, 221
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %14 = cmpxchg ptr %12, i32 0, i32 1707250555 monotonic monotonic, align 4
-  %15 = extractvalue { i32, i1 } %14, 1
-  br i1 %15, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
+  %15 = cmpxchg ptr %13, i32 0, i32 1707250555 monotonic monotonic, align 4
+  %16 = extractvalue { i32, i1 } %15, 1
+  br i1 %16, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then.i.i
-  %call1.i.i.i = tail call noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %12, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
+  %call1.i.i.i = tail call noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %13, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
   %cmp.i.i.i6 = icmp eq i32 %call1.i.i.i, 0
   br i1 %cmp.i.i.i6, label %if.then.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %if.then.i.i
   tail call void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull %field)
-  %16 = atomicrmw xchg ptr %12, i32 221 release, align 4
-  %cmp4.i.i.i = icmp eq i32 %16, 94570706
+  %17 = atomicrmw xchg ptr %13, i32 221 release, align 4
+  %cmp4.i.i.i = icmp eq i32 %17, 94570706
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
-  tail call void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull %12, i1 noundef zeroext true)
+  tail call void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull %13, i1 noundef zeroext true)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %if.then, %if.then.i, %lor.lhs.false.i.i.i, %if.then.i.i.i, %if.then5.i.i.i
   %type_.i = getelementptr inbounds i8, ptr %field, i64 2
-  %17 = load i8, ptr %type_.i, align 2
-  %switch.tableidx = add i8 %17, -9
-  %18 = icmp ult i8 %switch.tableidx, 4
-  br i1 %18, label %switch.lookup, label %_ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit
+  %18 = load i8, ptr %type_.i, align 2
+  %switch.tableidx = add i8 %18, -9
+  %19 = icmp ult i8 %switch.tableidx, 4
+  br i1 %19, label %switch.lookup, label %_ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit
 
 switch.lookup:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
-  %19 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK6google8protobuf8internal16ReflectionSchema22GetFieldOffsetNonOneofEPKNS0_15FieldDescriptorE, i64 0, i64 %19
+  %20 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK6google8protobuf8internal16ReflectionSchema22GetFieldOffsetNonOneofEPKNS0_15FieldDescriptorE, i64 0, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit
 
 _ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit: ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %switch.lookup
   %.sink.i = phi i32 [ %switch.load, %switch.lookup ], [ 2147483647, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit ]
-  %and6.i = and i32 %.sink.i, %11
+  %and6.i = and i32 %.sink.i, %12
   br label %return
 
 if.else:                                          ; preds = %entry, %_ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit
@@ -21172,55 +21172,55 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit: ; preds = %if.then.i, %_ZNK6
   %sub.ptr.sub14.i = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i
   %retval.0.in.i = sdiv exact i64 %sub.ptr.sub14.i, 88
   %sext = shl i64 %retval.0.in.i, 32
-  %idxprom = ashr exact i64 %sext, 32
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 %idxprom
-  %6 = load i32, ptr %arrayidx, align 4
+  %6 = ashr exact i64 %sext, 30
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 %6
+  %7 = load i32, ptr %arrayidx, align 4
   %type_once_.i = getelementptr inbounds i8, ptr %field, i64 24
-  %7 = load ptr, ptr %type_once_.i, align 8
-  %tobool.not.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %type_once_.i, align 8
+  %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %if.then.i2
 
 if.then.i2:                                       ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit
-  %8 = load atomic i32, ptr %7 acquire, align 4
-  %cmp.not.i.i = icmp eq i32 %8, 221
+  %9 = load atomic i32, ptr %8 acquire, align 4
+  %cmp.not.i.i = icmp eq i32 %9, 221
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i2
-  %9 = cmpxchg ptr %7, i32 0, i32 1707250555 monotonic monotonic, align 4
-  %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
+  %10 = cmpxchg ptr %8, i32 0, i32 1707250555 monotonic monotonic, align 4
+  %11 = extractvalue { i32, i1 } %10, 1
+  br i1 %11, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then.i.i
-  %call1.i.i.i = tail call noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %7, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
+  %call1.i.i.i = tail call noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %8, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
   %cmp.i.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %if.then.i.i
   tail call void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull %field)
-  %11 = atomicrmw xchg ptr %7, i32 221 release, align 4
-  %cmp4.i.i.i = icmp eq i32 %11, 94570706
+  %12 = atomicrmw xchg ptr %8, i32 221 release, align 4
+  %cmp4.i.i.i = icmp eq i32 %12, 94570706
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
-  tail call void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull %7, i1 noundef zeroext true)
+  tail call void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull %8, i1 noundef zeroext true)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit, %if.then.i2, %lor.lhs.false.i.i.i, %if.then.i.i.i, %if.then5.i.i.i
   %type_.i = getelementptr inbounds i8, ptr %field, i64 2
-  %12 = load i8, ptr %type_.i, align 2
-  %switch.tableidx = add i8 %12, -9
-  %13 = icmp ult i8 %switch.tableidx, 4
-  br i1 %13, label %switch.lookup, label %_ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit
+  %13 = load i8, ptr %type_.i, align 2
+  %switch.tableidx = add i8 %13, -9
+  %14 = icmp ult i8 %switch.tableidx, 4
+  br i1 %14, label %switch.lookup, label %_ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit
 
 switch.lookup:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
-  %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK6google8protobuf8internal16ReflectionSchema22GetFieldOffsetNonOneofEPKNS0_15FieldDescriptorE, i64 0, i64 %14
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK6google8protobuf8internal16ReflectionSchema22GetFieldOffsetNonOneofEPKNS0_15FieldDescriptorE, i64 0, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit
 
 _ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit: ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %switch.lookup
   %.sink.i = phi i32 [ %switch.load, %switch.lookup ], [ 2147483647, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit ]
-  %and6.i = and i32 %.sink.i, %6
+  %and6.i = and i32 %.sink.i, %7
   ret i32 %and6.i
 }
 

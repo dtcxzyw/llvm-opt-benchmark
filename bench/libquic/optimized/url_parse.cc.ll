@@ -1896,9 +1896,9 @@ for.cond18.preheader.i:                           ; preds = %for.end.i
 
 for.body21.preheader.i:                           ; preds = %for.cond18.preheader.i
   %sext.i = shl i64 %2, 32
-  %5 = ashr exact i64 %sext.i, 32
   %wide.trip.count22.i = zext i32 %indvars.iv19.i to i64
-  %invariant.gep.i = getelementptr i16, ptr %url, i64 %5
+  %5 = ashr exact i64 %sext.i, 31
+  %invariant.gep.i = getelementptr i8, ptr %url, i64 %5
   br label %for.body21.i
 
 for.body21.i:                                     ; preds = %if.end28.i, %for.body21.preheader.i

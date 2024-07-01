@@ -305,8 +305,8 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %166 = add nsw i64 %165, -1
   %167 = add i64 %162, %165
   %168 = shl i64 %167, 32
-  %169 = ashr exact i64 %168, 32
-  %170 = getelementptr inbounds double, ptr %18, i64 %169
+  %169 = ashr exact i64 %168, 29
+  %170 = getelementptr inbounds i8, ptr %18, i64 %169
   %171 = load double, ptr %170, align 8, !tbaa !7
   %172 = getelementptr double, ptr %163, i64 %166
   store double %171, ptr %172, align 8, !tbaa !7

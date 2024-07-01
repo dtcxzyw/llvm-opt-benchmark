@@ -295,8 +295,8 @@ thread-pre-split:                                 ; preds = %36, %45, %56, %71
   %126 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv136
   %127 = load ptr, ptr %126, align 8
   %sext = shl i64 %.0119.in, 32
-  %128 = ashr exact i64 %sext, 32
-  %129 = getelementptr inbounds ptr, ptr %1, i64 %128
+  %128 = ashr exact i64 %sext, 29
+  %129 = getelementptr inbounds i8, ptr %1, i64 %128
   store ptr %127, ptr %129, align 8
   %indvars.iv.next137 = add nsw i64 %indvars.iv136, 1
   %130 = icmp slt i64 %indvars.iv.next137, %indvars.iv141
@@ -485,8 +485,8 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   %58 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv271
   %59 = load ptr, ptr %58, align 8
   %sext = shl i64 %.0159245.in, 32
-  %60 = ashr exact i64 %sext, 32
-  %61 = getelementptr inbounds ptr, ptr %1, i64 %60
+  %60 = ashr exact i64 %sext, 29
+  %61 = getelementptr inbounds i8, ptr %1, i64 %60
   store ptr %59, ptr %61, align 8
   %indvars.iv.next272 = add nsw i64 %indvars.iv271, 1
   %62 = icmp slt i64 %indvars.iv.next272, %indvars.iv276

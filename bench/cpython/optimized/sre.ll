@@ -19443,16 +19443,16 @@ sw.bb53.us:                                       ; preds = %for.cond.us
   %add.ptr622.us = getelementptr i8, ptr %set.addr.0.us, i64 264
   %mul.us = shl nuw nsw i64 %conv60.us, 8
   %add.us = or disjoint i64 %mul.us, %conv67
-  %div6843.us = lshr exact i64 %add.us, 5
-  %arrayidx69.us = getelementptr i32, ptr %add.ptr622.us, i64 %div6843.us
-  %4 = load i32, ptr %arrayidx69.us, align 4
-  %and74.us = and i32 %4, %shl73
+  %4 = lshr exact i64 %add.us, 3
+  %arrayidx69.us = getelementptr i8, ptr %add.ptr622.us, i64 %4
+  %5 = load i32, ptr %arrayidx69.us, align 4
+  %and74.us = and i32 %5, %shl73
   %tobool75.not.us = icmp eq i32 %and74.us, 0
   br i1 %tobool75.not.us, label %if.end77.us, label %return
 
 if.end77.us:                                      ; preds = %sw.bb53.us
-  %5 = load i32, ptr %incdec.ptr.us, align 4
-  %conv55.us = zext i32 %5 to i64
+  %6 = load i32, ptr %incdec.ptr.us, align 4
+  %conv55.us = zext i32 %6 to i64
   %add.ptr79.idx.us = shl nuw nsw i64 %conv55.us, 5
   %add.ptr79.us = getelementptr i8, ptr %add.ptr622.us, i64 %add.ptr79.idx.us
   br label %for.cond.us.backedge
@@ -19462,26 +19462,26 @@ sw.bb49.us:                                       ; preds = %for.cond.us
   br label %for.cond.us.outer
 
 sw.bb28.us:                                       ; preds = %for.cond.us
-  %6 = load i32, ptr %incdec.ptr.us, align 4
-  %cmp30.not.us = icmp ugt i32 %6, %ch
+  %7 = load i32, ptr %incdec.ptr.us, align 4
+  %cmp30.not.us = icmp ugt i32 %7, %ch
   br i1 %cmp30.not.us, label %if.end37.us, label %land.lhs.true32.us
 
 land.lhs.true32.us:                               ; preds = %sw.bb28.us
   %arrayidx33.us = getelementptr i8, ptr %set.addr.0.us, i64 8
-  %7 = load i32, ptr %arrayidx33.us, align 4
-  %cmp34.not.us = icmp ult i32 %7, %ch
+  %8 = load i32, ptr %arrayidx33.us, align 4
+  %cmp34.not.us = icmp ult i32 %8, %ch
   br i1 %cmp34.not.us, label %if.end37.us, label %return
 
 if.end37.us:                                      ; preds = %land.lhs.true32.us, %sw.bb28.us
   %call.i.us = tail call i32 @_PyUnicode_ToUppercase(i32 noundef %ch) #14
-  %8 = load i32, ptr %incdec.ptr.us, align 4
-  %cmp40.not.us = icmp ugt i32 %8, %call.i.us
+  %9 = load i32, ptr %incdec.ptr.us, align 4
+  %cmp40.not.us = icmp ugt i32 %9, %call.i.us
   br i1 %cmp40.not.us, label %if.end47.us, label %land.lhs.true42.us
 
 land.lhs.true42.us:                               ; preds = %if.end37.us
   %arrayidx43.us = getelementptr i8, ptr %set.addr.0.us, i64 8
-  %9 = load i32, ptr %arrayidx43.us, align 4
-  %cmp44.not.us = icmp ugt i32 %call.i.us, %9
+  %10 = load i32, ptr %arrayidx43.us, align 4
+  %cmp44.not.us = icmp ugt i32 %call.i.us, %10
   br i1 %cmp44.not.us, label %if.end47.us, label %return
 
 if.end47.us:                                      ; preds = %land.lhs.true42.us, %if.end37.us
@@ -19489,14 +19489,14 @@ if.end47.us:                                      ; preds = %land.lhs.true42.us,
   br label %for.cond.us.backedge
 
 sw.bb17.us:                                       ; preds = %for.cond.us
-  %10 = load i32, ptr %incdec.ptr.us, align 4
-  %cmp19.not.us = icmp ugt i32 %10, %ch
+  %11 = load i32, ptr %incdec.ptr.us, align 4
+  %cmp19.not.us = icmp ugt i32 %11, %ch
   br i1 %cmp19.not.us, label %if.end26.us, label %land.lhs.true21.us
 
 land.lhs.true21.us:                               ; preds = %sw.bb17.us
   %arrayidx22.us = getelementptr i8, ptr %set.addr.0.us, i64 8
-  %11 = load i32, ptr %arrayidx22.us, align 4
-  %cmp23.not.us = icmp ult i32 %11, %ch
+  %12 = load i32, ptr %arrayidx22.us, align 4
+  %cmp23.not.us = icmp ult i32 %12, %ch
   br i1 %cmp23.not.us, label %if.end26.us, label %return
 
 if.end26.us:                                      ; preds = %land.lhs.true21.us, %sw.bb17.us
@@ -19508,8 +19508,8 @@ sw.bb9.us:                                        ; preds = %for.cond.us
 
 land.lhs.true.us:                                 ; preds = %sw.bb9.us
   %arrayidx11.us = getelementptr i32, ptr %incdec.ptr.us, i64 %div44
-  %12 = load i32, ptr %arrayidx11.us, align 4
-  %and13.us = and i32 %12, %shl73
+  %13 = load i32, ptr %arrayidx11.us, align 4
+  %and13.us = and i32 %13, %shl73
   %tobool14.not.us = icmp eq i32 %and13.us, 0
   br i1 %tobool14.not.us, label %if.end16.us, label %return
 
@@ -19518,8 +19518,8 @@ if.end16.us:                                      ; preds = %land.lhs.true.us, %
   br label %for.cond.us.backedge
 
 sw.bb3.us:                                        ; preds = %for.cond.us
-  %13 = load i32, ptr %incdec.ptr.us, align 4
-  %call.us = tail call fastcc i32 @sre_category(i32 noundef %13, i32 noundef %ch)
+  %14 = load i32, ptr %incdec.ptr.us, align 4
+  %call.us = tail call fastcc i32 @sre_category(i32 noundef %14, i32 noundef %ch)
   %tobool5.not.us = icmp eq i32 %call.us, 0
   br i1 %tobool5.not.us, label %if.end7.us, label %return
 
@@ -19528,8 +19528,8 @@ if.end7.us:                                       ; preds = %sw.bb3.us
   br label %for.cond.us.backedge
 
 sw.bb1.us:                                        ; preds = %for.cond.us
-  %14 = load i32, ptr %incdec.ptr.us, align 4
-  %cmp.us = icmp eq i32 %14, %ch
+  %15 = load i32, ptr %incdec.ptr.us, align 4
+  %cmp.us = icmp eq i32 %15, %ch
   br i1 %cmp.us, label %return, label %if.end.us
 
 if.end.us:                                        ; preds = %sw.bb1.us
@@ -19543,8 +19543,8 @@ for.cond.us.backedge:                             ; preds = %if.end.us, %if.end7
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.outer
   %set.addr.0 = phi ptr [ %set.addr.0.ph, %for.cond.outer ], [ %set.addr.0.be, %for.cond.backedge ]
   %incdec.ptr = getelementptr i8, ptr %set.addr.0, i64 4
-  %15 = load i32, ptr %set.addr.0, align 4
-  switch i32 %15, label %return [
+  %16 = load i32, ptr %set.addr.0, align 4
+  switch i32 %16, label %return [
     i32 0, label %sw.bb
     i32 16, label %sw.bb1
     i32 8, label %sw.bb3
@@ -19562,8 +19562,8 @@ sw.bb:                                            ; preds = %for.cond, %for.cond
   br label %return
 
 sw.bb1:                                           ; preds = %for.cond
-  %16 = load i32, ptr %incdec.ptr, align 4
-  %cmp = icmp eq i32 %16, %ch
+  %17 = load i32, ptr %incdec.ptr, align 4
+  %cmp = icmp eq i32 %17, %ch
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb1
@@ -19571,8 +19571,8 @@ if.end:                                           ; preds = %sw.bb1
   br label %for.cond.backedge
 
 sw.bb3:                                           ; preds = %for.cond
-  %17 = load i32, ptr %incdec.ptr, align 4
-  %call = tail call fastcc i32 @sre_category(i32 noundef %17, i32 noundef %ch)
+  %18 = load i32, ptr %incdec.ptr, align 4
+  %call = tail call fastcc i32 @sre_category(i32 noundef %18, i32 noundef %ch)
   %tobool5.not = icmp eq i32 %call, 0
   br i1 %tobool5.not, label %if.end7, label %return
 
@@ -19585,14 +19585,14 @@ sw.bb9:                                           ; preds = %for.cond
   br label %for.cond.backedge
 
 sw.bb17:                                          ; preds = %for.cond
-  %18 = load i32, ptr %incdec.ptr, align 4
-  %cmp19.not = icmp ugt i32 %18, %ch
+  %19 = load i32, ptr %incdec.ptr, align 4
+  %cmp19.not = icmp ugt i32 %19, %ch
   br i1 %cmp19.not, label %if.end26, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %sw.bb17
   %arrayidx22 = getelementptr i8, ptr %set.addr.0, i64 8
-  %19 = load i32, ptr %arrayidx22, align 4
-  %cmp23.not = icmp ult i32 %19, %ch
+  %20 = load i32, ptr %arrayidx22, align 4
+  %cmp23.not = icmp ult i32 %20, %ch
   br i1 %cmp23.not, label %if.end26, label %return
 
 if.end26:                                         ; preds = %land.lhs.true21, %sw.bb17
@@ -19600,26 +19600,26 @@ if.end26:                                         ; preds = %land.lhs.true21, %s
   br label %for.cond.backedge
 
 sw.bb28:                                          ; preds = %for.cond
-  %20 = load i32, ptr %incdec.ptr, align 4
-  %cmp30.not = icmp ugt i32 %20, %ch
+  %21 = load i32, ptr %incdec.ptr, align 4
+  %cmp30.not = icmp ugt i32 %21, %ch
   br i1 %cmp30.not, label %if.end37, label %land.lhs.true32
 
 land.lhs.true32:                                  ; preds = %sw.bb28
   %arrayidx33 = getelementptr i8, ptr %set.addr.0, i64 8
-  %21 = load i32, ptr %arrayidx33, align 4
-  %cmp34.not = icmp ult i32 %21, %ch
+  %22 = load i32, ptr %arrayidx33, align 4
+  %cmp34.not = icmp ult i32 %22, %ch
   br i1 %cmp34.not, label %if.end37, label %return
 
 if.end37:                                         ; preds = %land.lhs.true32, %sw.bb28
   %call.i = tail call i32 @_PyUnicode_ToUppercase(i32 noundef %ch) #14
-  %22 = load i32, ptr %incdec.ptr, align 4
-  %cmp40.not = icmp ugt i32 %22, %call.i
+  %23 = load i32, ptr %incdec.ptr, align 4
+  %cmp40.not = icmp ugt i32 %23, %call.i
   br i1 %cmp40.not, label %if.end47, label %land.lhs.true42
 
 land.lhs.true42:                                  ; preds = %if.end37
   %arrayidx43 = getelementptr i8, ptr %set.addr.0, i64 8
-  %23 = load i32, ptr %arrayidx43, align 4
-  %cmp44.not = icmp ugt i32 %call.i, %23
+  %24 = load i32, ptr %arrayidx43, align 4
+  %cmp44.not = icmp ugt i32 %call.i, %24
   br i1 %cmp44.not, label %if.end47, label %return
 
 if.end47:                                         ; preds = %land.lhs.true42, %if.end37
@@ -19636,11 +19636,11 @@ for.cond.outer:                                   ; preds = %entry, %sw.bb49
   br label %for.cond
 
 sw.bb53:                                          ; preds = %for.cond
-  %24 = load i32, ptr %incdec.ptr, align 4
-  %conv55 = zext i32 %24 to i64
-  %25 = getelementptr i8, ptr %set.addr.0, i64 264
+  %25 = load i32, ptr %incdec.ptr, align 4
+  %conv55 = zext i32 %25 to i64
+  %26 = getelementptr i8, ptr %set.addr.0, i64 264
   %add.ptr79.idx = shl nuw nsw i64 %conv55, 5
-  %add.ptr79 = getelementptr i8, ptr %25, i64 %add.ptr79.idx
+  %add.ptr79 = getelementptr i8, ptr %26, i64 %add.ptr79.idx
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %sw.bb53, %if.end47, %if.end26, %sw.bb9, %if.end7, %if.end
@@ -20069,16 +20069,16 @@ sw.bb53.us:                                       ; preds = %for.cond.us
   %add.ptr622.us = getelementptr i8, ptr %set.addr.0.us, i64 264
   %mul.us = shl nuw nsw i64 %conv60.us, 8
   %add.us = or disjoint i64 %mul.us, %conv67
-  %div6843.us = lshr exact i64 %add.us, 5
-  %arrayidx69.us = getelementptr i32, ptr %add.ptr622.us, i64 %div6843.us
-  %4 = load i32, ptr %arrayidx69.us, align 4
-  %and74.us = and i32 %4, %shl73
+  %4 = lshr exact i64 %add.us, 3
+  %arrayidx69.us = getelementptr i8, ptr %add.ptr622.us, i64 %4
+  %5 = load i32, ptr %arrayidx69.us, align 4
+  %and74.us = and i32 %5, %shl73
   %tobool75.not.us = icmp eq i32 %and74.us, 0
   br i1 %tobool75.not.us, label %if.end77.us, label %return
 
 if.end77.us:                                      ; preds = %sw.bb53.us
-  %5 = load i32, ptr %incdec.ptr.us, align 4
-  %conv55.us = zext i32 %5 to i64
+  %6 = load i32, ptr %incdec.ptr.us, align 4
+  %conv55.us = zext i32 %6 to i64
   %add.ptr79.idx.us = shl nuw nsw i64 %conv55.us, 5
   %add.ptr79.us = getelementptr i8, ptr %add.ptr622.us, i64 %add.ptr79.idx.us
   br label %for.cond.us.backedge
@@ -20088,26 +20088,26 @@ sw.bb49.us:                                       ; preds = %for.cond.us
   br label %for.cond.us.outer
 
 sw.bb28.us:                                       ; preds = %for.cond.us
-  %6 = load i32, ptr %incdec.ptr.us, align 4
-  %cmp30.not.us = icmp ugt i32 %6, %ch
+  %7 = load i32, ptr %incdec.ptr.us, align 4
+  %cmp30.not.us = icmp ugt i32 %7, %ch
   br i1 %cmp30.not.us, label %if.end37.us, label %land.lhs.true32.us
 
 land.lhs.true32.us:                               ; preds = %sw.bb28.us
   %arrayidx33.us = getelementptr i8, ptr %set.addr.0.us, i64 8
-  %7 = load i32, ptr %arrayidx33.us, align 4
-  %cmp34.not.us = icmp ult i32 %7, %ch
+  %8 = load i32, ptr %arrayidx33.us, align 4
+  %cmp34.not.us = icmp ult i32 %8, %ch
   br i1 %cmp34.not.us, label %if.end37.us, label %return
 
 if.end37.us:                                      ; preds = %land.lhs.true32.us, %sw.bb28.us
   %call.i.us = tail call i32 @_PyUnicode_ToUppercase(i32 noundef %ch) #14
-  %8 = load i32, ptr %incdec.ptr.us, align 4
-  %cmp40.not.us = icmp ugt i32 %8, %call.i.us
+  %9 = load i32, ptr %incdec.ptr.us, align 4
+  %cmp40.not.us = icmp ugt i32 %9, %call.i.us
   br i1 %cmp40.not.us, label %if.end47.us, label %land.lhs.true42.us
 
 land.lhs.true42.us:                               ; preds = %if.end37.us
   %arrayidx43.us = getelementptr i8, ptr %set.addr.0.us, i64 8
-  %9 = load i32, ptr %arrayidx43.us, align 4
-  %cmp44.not.us = icmp ugt i32 %call.i.us, %9
+  %10 = load i32, ptr %arrayidx43.us, align 4
+  %cmp44.not.us = icmp ugt i32 %call.i.us, %10
   br i1 %cmp44.not.us, label %if.end47.us, label %return
 
 if.end47.us:                                      ; preds = %land.lhs.true42.us, %if.end37.us
@@ -20115,14 +20115,14 @@ if.end47.us:                                      ; preds = %land.lhs.true42.us,
   br label %for.cond.us.backedge
 
 sw.bb17.us:                                       ; preds = %for.cond.us
-  %10 = load i32, ptr %incdec.ptr.us, align 4
-  %cmp19.not.us = icmp ugt i32 %10, %ch
+  %11 = load i32, ptr %incdec.ptr.us, align 4
+  %cmp19.not.us = icmp ugt i32 %11, %ch
   br i1 %cmp19.not.us, label %if.end26.us, label %land.lhs.true21.us
 
 land.lhs.true21.us:                               ; preds = %sw.bb17.us
   %arrayidx22.us = getelementptr i8, ptr %set.addr.0.us, i64 8
-  %11 = load i32, ptr %arrayidx22.us, align 4
-  %cmp23.not.us = icmp ult i32 %11, %ch
+  %12 = load i32, ptr %arrayidx22.us, align 4
+  %cmp23.not.us = icmp ult i32 %12, %ch
   br i1 %cmp23.not.us, label %if.end26.us, label %return
 
 if.end26.us:                                      ; preds = %land.lhs.true21.us, %sw.bb17.us
@@ -20134,8 +20134,8 @@ sw.bb9.us:                                        ; preds = %for.cond.us
 
 land.lhs.true.us:                                 ; preds = %sw.bb9.us
   %arrayidx11.us = getelementptr i32, ptr %incdec.ptr.us, i64 %div44
-  %12 = load i32, ptr %arrayidx11.us, align 4
-  %and13.us = and i32 %12, %shl73
+  %13 = load i32, ptr %arrayidx11.us, align 4
+  %and13.us = and i32 %13, %shl73
   %tobool14.not.us = icmp eq i32 %and13.us, 0
   br i1 %tobool14.not.us, label %if.end16.us, label %return
 
@@ -20144,8 +20144,8 @@ if.end16.us:                                      ; preds = %land.lhs.true.us, %
   br label %for.cond.us.backedge
 
 sw.bb3.us:                                        ; preds = %for.cond.us
-  %13 = load i32, ptr %incdec.ptr.us, align 4
-  %call.us = tail call fastcc i32 @sre_category(i32 noundef %13, i32 noundef %ch)
+  %14 = load i32, ptr %incdec.ptr.us, align 4
+  %call.us = tail call fastcc i32 @sre_category(i32 noundef %14, i32 noundef %ch)
   %tobool5.not.us = icmp eq i32 %call.us, 0
   br i1 %tobool5.not.us, label %if.end7.us, label %return
 
@@ -20154,8 +20154,8 @@ if.end7.us:                                       ; preds = %sw.bb3.us
   br label %for.cond.us.backedge
 
 sw.bb1.us:                                        ; preds = %for.cond.us
-  %14 = load i32, ptr %incdec.ptr.us, align 4
-  %cmp.us = icmp eq i32 %14, %ch
+  %15 = load i32, ptr %incdec.ptr.us, align 4
+  %cmp.us = icmp eq i32 %15, %ch
   br i1 %cmp.us, label %return, label %if.end.us
 
 if.end.us:                                        ; preds = %sw.bb1.us
@@ -20169,8 +20169,8 @@ for.cond.us.backedge:                             ; preds = %if.end.us, %if.end7
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.outer
   %set.addr.0 = phi ptr [ %set.addr.0.ph, %for.cond.outer ], [ %set.addr.0.be, %for.cond.backedge ]
   %incdec.ptr = getelementptr i8, ptr %set.addr.0, i64 4
-  %15 = load i32, ptr %set.addr.0, align 4
-  switch i32 %15, label %return [
+  %16 = load i32, ptr %set.addr.0, align 4
+  switch i32 %16, label %return [
     i32 0, label %sw.bb
     i32 16, label %sw.bb1
     i32 8, label %sw.bb3
@@ -20188,8 +20188,8 @@ sw.bb:                                            ; preds = %for.cond, %for.cond
   br label %return
 
 sw.bb1:                                           ; preds = %for.cond
-  %16 = load i32, ptr %incdec.ptr, align 4
-  %cmp = icmp eq i32 %16, %ch
+  %17 = load i32, ptr %incdec.ptr, align 4
+  %cmp = icmp eq i32 %17, %ch
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb1
@@ -20197,8 +20197,8 @@ if.end:                                           ; preds = %sw.bb1
   br label %for.cond.backedge
 
 sw.bb3:                                           ; preds = %for.cond
-  %17 = load i32, ptr %incdec.ptr, align 4
-  %call = tail call fastcc i32 @sre_category(i32 noundef %17, i32 noundef %ch)
+  %18 = load i32, ptr %incdec.ptr, align 4
+  %call = tail call fastcc i32 @sre_category(i32 noundef %18, i32 noundef %ch)
   %tobool5.not = icmp eq i32 %call, 0
   br i1 %tobool5.not, label %if.end7, label %return
 
@@ -20211,14 +20211,14 @@ sw.bb9:                                           ; preds = %for.cond
   br label %for.cond.backedge
 
 sw.bb17:                                          ; preds = %for.cond
-  %18 = load i32, ptr %incdec.ptr, align 4
-  %cmp19.not = icmp ugt i32 %18, %ch
+  %19 = load i32, ptr %incdec.ptr, align 4
+  %cmp19.not = icmp ugt i32 %19, %ch
   br i1 %cmp19.not, label %if.end26, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %sw.bb17
   %arrayidx22 = getelementptr i8, ptr %set.addr.0, i64 8
-  %19 = load i32, ptr %arrayidx22, align 4
-  %cmp23.not = icmp ult i32 %19, %ch
+  %20 = load i32, ptr %arrayidx22, align 4
+  %cmp23.not = icmp ult i32 %20, %ch
   br i1 %cmp23.not, label %if.end26, label %return
 
 if.end26:                                         ; preds = %land.lhs.true21, %sw.bb17
@@ -20226,26 +20226,26 @@ if.end26:                                         ; preds = %land.lhs.true21, %s
   br label %for.cond.backedge
 
 sw.bb28:                                          ; preds = %for.cond
-  %20 = load i32, ptr %incdec.ptr, align 4
-  %cmp30.not = icmp ugt i32 %20, %ch
+  %21 = load i32, ptr %incdec.ptr, align 4
+  %cmp30.not = icmp ugt i32 %21, %ch
   br i1 %cmp30.not, label %if.end37, label %land.lhs.true32
 
 land.lhs.true32:                                  ; preds = %sw.bb28
   %arrayidx33 = getelementptr i8, ptr %set.addr.0, i64 8
-  %21 = load i32, ptr %arrayidx33, align 4
-  %cmp34.not = icmp ult i32 %21, %ch
+  %22 = load i32, ptr %arrayidx33, align 4
+  %cmp34.not = icmp ult i32 %22, %ch
   br i1 %cmp34.not, label %if.end37, label %return
 
 if.end37:                                         ; preds = %land.lhs.true32, %sw.bb28
   %call.i = tail call i32 @_PyUnicode_ToUppercase(i32 noundef %ch) #14
-  %22 = load i32, ptr %incdec.ptr, align 4
-  %cmp40.not = icmp ugt i32 %22, %call.i
+  %23 = load i32, ptr %incdec.ptr, align 4
+  %cmp40.not = icmp ugt i32 %23, %call.i
   br i1 %cmp40.not, label %if.end47, label %land.lhs.true42
 
 land.lhs.true42:                                  ; preds = %if.end37
   %arrayidx43 = getelementptr i8, ptr %set.addr.0, i64 8
-  %23 = load i32, ptr %arrayidx43, align 4
-  %cmp44.not = icmp ugt i32 %call.i, %23
+  %24 = load i32, ptr %arrayidx43, align 4
+  %cmp44.not = icmp ugt i32 %call.i, %24
   br i1 %cmp44.not, label %if.end47, label %return
 
 if.end47:                                         ; preds = %land.lhs.true42, %if.end37
@@ -20262,11 +20262,11 @@ for.cond.outer:                                   ; preds = %entry, %sw.bb49
   br label %for.cond
 
 sw.bb53:                                          ; preds = %for.cond
-  %24 = load i32, ptr %incdec.ptr, align 4
-  %conv55 = zext i32 %24 to i64
-  %25 = getelementptr i8, ptr %set.addr.0, i64 264
+  %25 = load i32, ptr %incdec.ptr, align 4
+  %conv55 = zext i32 %25 to i64
+  %26 = getelementptr i8, ptr %set.addr.0, i64 264
   %add.ptr79.idx = shl nuw nsw i64 %conv55, 5
-  %add.ptr79 = getelementptr i8, ptr %25, i64 %add.ptr79.idx
+  %add.ptr79 = getelementptr i8, ptr %26, i64 %add.ptr79.idx
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %sw.bb53, %if.end47, %if.end26, %sw.bb9, %if.end7, %if.end
@@ -20641,16 +20641,16 @@ sw.bb53.us:                                       ; preds = %for.cond.us
   %add.ptr622.us = getelementptr i8, ptr %set.addr.0.us, i64 264
   %mul.us = shl nuw nsw i64 %conv60.us, 8
   %add.us = or disjoint i64 %mul.us, %conv67
-  %div6843.us = lshr exact i64 %add.us, 5
-  %arrayidx69.us = getelementptr i32, ptr %add.ptr622.us, i64 %div6843.us
-  %4 = load i32, ptr %arrayidx69.us, align 4
-  %and74.us = and i32 %4, %shl73
+  %4 = lshr exact i64 %add.us, 3
+  %arrayidx69.us = getelementptr i8, ptr %add.ptr622.us, i64 %4
+  %5 = load i32, ptr %arrayidx69.us, align 4
+  %and74.us = and i32 %5, %shl73
   %tobool75.not.us = icmp eq i32 %and74.us, 0
   br i1 %tobool75.not.us, label %if.end77.us, label %return
 
 if.end77.us:                                      ; preds = %sw.bb53.us
-  %5 = load i32, ptr %incdec.ptr.us, align 4
-  %conv55.us = zext i32 %5 to i64
+  %6 = load i32, ptr %incdec.ptr.us, align 4
+  %conv55.us = zext i32 %6 to i64
   %add.ptr79.idx.us = shl nuw nsw i64 %conv55.us, 5
   %add.ptr79.us = getelementptr i8, ptr %add.ptr622.us, i64 %add.ptr79.idx.us
   br label %for.cond.us.backedge
@@ -20660,26 +20660,26 @@ sw.bb49.us:                                       ; preds = %for.cond.us
   br label %for.cond.us.outer
 
 sw.bb28.us:                                       ; preds = %for.cond.us
-  %6 = load i32, ptr %incdec.ptr.us, align 4
-  %cmp30.not.us = icmp ugt i32 %6, %ch
+  %7 = load i32, ptr %incdec.ptr.us, align 4
+  %cmp30.not.us = icmp ugt i32 %7, %ch
   br i1 %cmp30.not.us, label %if.end37.us, label %land.lhs.true32.us
 
 land.lhs.true32.us:                               ; preds = %sw.bb28.us
   %arrayidx33.us = getelementptr i8, ptr %set.addr.0.us, i64 8
-  %7 = load i32, ptr %arrayidx33.us, align 4
-  %cmp34.not.us = icmp ult i32 %7, %ch
+  %8 = load i32, ptr %arrayidx33.us, align 4
+  %cmp34.not.us = icmp ult i32 %8, %ch
   br i1 %cmp34.not.us, label %if.end37.us, label %return
 
 if.end37.us:                                      ; preds = %land.lhs.true32.us, %sw.bb28.us
   %call.i.us = tail call i32 @_PyUnicode_ToUppercase(i32 noundef %ch) #14
-  %8 = load i32, ptr %incdec.ptr.us, align 4
-  %cmp40.not.us = icmp ugt i32 %8, %call.i.us
+  %9 = load i32, ptr %incdec.ptr.us, align 4
+  %cmp40.not.us = icmp ugt i32 %9, %call.i.us
   br i1 %cmp40.not.us, label %if.end47.us, label %land.lhs.true42.us
 
 land.lhs.true42.us:                               ; preds = %if.end37.us
   %arrayidx43.us = getelementptr i8, ptr %set.addr.0.us, i64 8
-  %9 = load i32, ptr %arrayidx43.us, align 4
-  %cmp44.not.us = icmp ugt i32 %call.i.us, %9
+  %10 = load i32, ptr %arrayidx43.us, align 4
+  %cmp44.not.us = icmp ugt i32 %call.i.us, %10
   br i1 %cmp44.not.us, label %if.end47.us, label %return
 
 if.end47.us:                                      ; preds = %land.lhs.true42.us, %if.end37.us
@@ -20687,14 +20687,14 @@ if.end47.us:                                      ; preds = %land.lhs.true42.us,
   br label %for.cond.us.backedge
 
 sw.bb17.us:                                       ; preds = %for.cond.us
-  %10 = load i32, ptr %incdec.ptr.us, align 4
-  %cmp19.not.us = icmp ugt i32 %10, %ch
+  %11 = load i32, ptr %incdec.ptr.us, align 4
+  %cmp19.not.us = icmp ugt i32 %11, %ch
   br i1 %cmp19.not.us, label %if.end26.us, label %land.lhs.true21.us
 
 land.lhs.true21.us:                               ; preds = %sw.bb17.us
   %arrayidx22.us = getelementptr i8, ptr %set.addr.0.us, i64 8
-  %11 = load i32, ptr %arrayidx22.us, align 4
-  %cmp23.not.us = icmp ult i32 %11, %ch
+  %12 = load i32, ptr %arrayidx22.us, align 4
+  %cmp23.not.us = icmp ult i32 %12, %ch
   br i1 %cmp23.not.us, label %if.end26.us, label %return
 
 if.end26.us:                                      ; preds = %land.lhs.true21.us, %sw.bb17.us
@@ -20706,8 +20706,8 @@ sw.bb9.us:                                        ; preds = %for.cond.us
 
 land.lhs.true.us:                                 ; preds = %sw.bb9.us
   %arrayidx11.us = getelementptr i32, ptr %incdec.ptr.us, i64 %div44
-  %12 = load i32, ptr %arrayidx11.us, align 4
-  %and13.us = and i32 %12, %shl73
+  %13 = load i32, ptr %arrayidx11.us, align 4
+  %and13.us = and i32 %13, %shl73
   %tobool14.not.us = icmp eq i32 %and13.us, 0
   br i1 %tobool14.not.us, label %if.end16.us, label %return
 
@@ -20716,8 +20716,8 @@ if.end16.us:                                      ; preds = %land.lhs.true.us, %
   br label %for.cond.us.backedge
 
 sw.bb3.us:                                        ; preds = %for.cond.us
-  %13 = load i32, ptr %incdec.ptr.us, align 4
-  %call.us = tail call fastcc i32 @sre_category(i32 noundef %13, i32 noundef %ch)
+  %14 = load i32, ptr %incdec.ptr.us, align 4
+  %call.us = tail call fastcc i32 @sre_category(i32 noundef %14, i32 noundef %ch)
   %tobool5.not.us = icmp eq i32 %call.us, 0
   br i1 %tobool5.not.us, label %if.end7.us, label %return
 
@@ -20726,8 +20726,8 @@ if.end7.us:                                       ; preds = %sw.bb3.us
   br label %for.cond.us.backedge
 
 sw.bb1.us:                                        ; preds = %for.cond.us
-  %14 = load i32, ptr %incdec.ptr.us, align 4
-  %cmp.us = icmp eq i32 %14, %ch
+  %15 = load i32, ptr %incdec.ptr.us, align 4
+  %cmp.us = icmp eq i32 %15, %ch
   br i1 %cmp.us, label %return, label %if.end.us
 
 if.end.us:                                        ; preds = %sw.bb1.us
@@ -20741,8 +20741,8 @@ for.cond.us.backedge:                             ; preds = %if.end.us, %if.end7
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.outer
   %set.addr.0 = phi ptr [ %set.addr.0.ph, %for.cond.outer ], [ %set.addr.0.be, %for.cond.backedge ]
   %incdec.ptr = getelementptr i8, ptr %set.addr.0, i64 4
-  %15 = load i32, ptr %set.addr.0, align 4
-  switch i32 %15, label %return [
+  %16 = load i32, ptr %set.addr.0, align 4
+  switch i32 %16, label %return [
     i32 0, label %sw.bb
     i32 16, label %sw.bb1
     i32 8, label %sw.bb3
@@ -20760,8 +20760,8 @@ sw.bb:                                            ; preds = %for.cond, %for.cond
   br label %return
 
 sw.bb1:                                           ; preds = %for.cond
-  %16 = load i32, ptr %incdec.ptr, align 4
-  %cmp = icmp eq i32 %16, %ch
+  %17 = load i32, ptr %incdec.ptr, align 4
+  %cmp = icmp eq i32 %17, %ch
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb1
@@ -20769,8 +20769,8 @@ if.end:                                           ; preds = %sw.bb1
   br label %for.cond.backedge
 
 sw.bb3:                                           ; preds = %for.cond
-  %17 = load i32, ptr %incdec.ptr, align 4
-  %call = tail call fastcc i32 @sre_category(i32 noundef %17, i32 noundef %ch)
+  %18 = load i32, ptr %incdec.ptr, align 4
+  %call = tail call fastcc i32 @sre_category(i32 noundef %18, i32 noundef %ch)
   %tobool5.not = icmp eq i32 %call, 0
   br i1 %tobool5.not, label %if.end7, label %return
 
@@ -20783,14 +20783,14 @@ sw.bb9:                                           ; preds = %for.cond
   br label %for.cond.backedge
 
 sw.bb17:                                          ; preds = %for.cond
-  %18 = load i32, ptr %incdec.ptr, align 4
-  %cmp19.not = icmp ugt i32 %18, %ch
+  %19 = load i32, ptr %incdec.ptr, align 4
+  %cmp19.not = icmp ugt i32 %19, %ch
   br i1 %cmp19.not, label %if.end26, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %sw.bb17
   %arrayidx22 = getelementptr i8, ptr %set.addr.0, i64 8
-  %19 = load i32, ptr %arrayidx22, align 4
-  %cmp23.not = icmp ult i32 %19, %ch
+  %20 = load i32, ptr %arrayidx22, align 4
+  %cmp23.not = icmp ult i32 %20, %ch
   br i1 %cmp23.not, label %if.end26, label %return
 
 if.end26:                                         ; preds = %land.lhs.true21, %sw.bb17
@@ -20798,26 +20798,26 @@ if.end26:                                         ; preds = %land.lhs.true21, %s
   br label %for.cond.backedge
 
 sw.bb28:                                          ; preds = %for.cond
-  %20 = load i32, ptr %incdec.ptr, align 4
-  %cmp30.not = icmp ugt i32 %20, %ch
+  %21 = load i32, ptr %incdec.ptr, align 4
+  %cmp30.not = icmp ugt i32 %21, %ch
   br i1 %cmp30.not, label %if.end37, label %land.lhs.true32
 
 land.lhs.true32:                                  ; preds = %sw.bb28
   %arrayidx33 = getelementptr i8, ptr %set.addr.0, i64 8
-  %21 = load i32, ptr %arrayidx33, align 4
-  %cmp34.not = icmp ult i32 %21, %ch
+  %22 = load i32, ptr %arrayidx33, align 4
+  %cmp34.not = icmp ult i32 %22, %ch
   br i1 %cmp34.not, label %if.end37, label %return
 
 if.end37:                                         ; preds = %land.lhs.true32, %sw.bb28
   %call.i = tail call i32 @_PyUnicode_ToUppercase(i32 noundef %ch) #14
-  %22 = load i32, ptr %incdec.ptr, align 4
-  %cmp40.not = icmp ugt i32 %22, %call.i
+  %23 = load i32, ptr %incdec.ptr, align 4
+  %cmp40.not = icmp ugt i32 %23, %call.i
   br i1 %cmp40.not, label %if.end47, label %land.lhs.true42
 
 land.lhs.true42:                                  ; preds = %if.end37
   %arrayidx43 = getelementptr i8, ptr %set.addr.0, i64 8
-  %23 = load i32, ptr %arrayidx43, align 4
-  %cmp44.not = icmp ugt i32 %call.i, %23
+  %24 = load i32, ptr %arrayidx43, align 4
+  %cmp44.not = icmp ugt i32 %call.i, %24
   br i1 %cmp44.not, label %if.end47, label %return
 
 if.end47:                                         ; preds = %land.lhs.true42, %if.end37
@@ -20834,11 +20834,11 @@ for.cond.outer:                                   ; preds = %entry, %sw.bb49
   br label %for.cond
 
 sw.bb53:                                          ; preds = %for.cond
-  %24 = load i32, ptr %incdec.ptr, align 4
-  %conv55 = zext i32 %24 to i64
-  %25 = getelementptr i8, ptr %set.addr.0, i64 264
+  %25 = load i32, ptr %incdec.ptr, align 4
+  %conv55 = zext i32 %25 to i64
+  %26 = getelementptr i8, ptr %set.addr.0, i64 264
   %add.ptr79.idx = shl nuw nsw i64 %conv55, 5
-  %add.ptr79 = getelementptr i8, ptr %25, i64 %add.ptr79.idx
+  %add.ptr79 = getelementptr i8, ptr %26, i64 %add.ptr79.idx
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %sw.bb53, %if.end47, %if.end26, %sw.bb9, %if.end7, %if.end

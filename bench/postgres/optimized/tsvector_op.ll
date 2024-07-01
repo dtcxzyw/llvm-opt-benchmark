@@ -1605,8 +1605,8 @@ define dso_local i64 @tsvector_unnest(ptr noundef %0) local_unnamed_addr #0 {
   %39 = getelementptr [0 x %struct.WordEntry], ptr %38, i64 0, i64 %35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false)
   %sext = shl i64 %32, 32
-  %40 = ashr exact i64 %sext, 32
-  %41 = getelementptr %struct.WordEntry, ptr %38, i64 %40
+  %40 = ashr exact i64 %sext, 30
+  %41 = getelementptr i8, ptr %38, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = lshr i32 %42, 12
   %44 = zext nneg i32 %43 to i64

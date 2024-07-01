@@ -191,8 +191,8 @@ define i64 @autoinc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %89 = getelementptr i32, ptr %53, i64 %88
   store i32 %62, ptr %89, align 4
   %sext121 = shl i64 %indvars.iv, 32
-  %90 = ashr exact i64 %sext121, 32
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %90
+  %90 = ashr exact i64 %sext121, 29
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %90
   %91 = load ptr, ptr %gep, align 8
   %92 = call ptr @cstring_to_text(ptr noundef %91) #6
   %93 = ptrtoint ptr %92 to i64

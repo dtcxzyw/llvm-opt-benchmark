@@ -32,8 +32,8 @@ define ptr @reoTransferNodesToUnits_rec(ptr noundef %0, ptr noundef %1) local_un
   %21 = getelementptr inbounds i8, ptr %0, i64 200
   %22 = load ptr, ptr %21, align 8
   %sext = shl i64 %19, 32
-  %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds %struct._reo_hash, ptr %22, i64 %23
+  %23 = ashr exact i64 %sext, 27
+  %24 = getelementptr inbounds i8, ptr %22, i64 %23
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, %12
   br i1 %26, label %.lr.ph, label %.loopexit
@@ -219,8 +219,8 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   %22 = getelementptr inbounds i8, ptr %0, i64 200
   %23 = load ptr, ptr %22, align 8
   %sext = shl i64 %20, 32
-  %24 = ashr exact i64 %sext, 32
-  %25 = getelementptr inbounds %struct._reo_hash, ptr %23, i64 %24
+  %24 = ashr exact i64 %sext, 27
+  %25 = getelementptr inbounds i8, ptr %23, i64 %24
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, %13
   br i1 %27, label %.lr.ph, label %.loopexit

@@ -2709,13 +2709,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %0 = load i32, ptr %arrayidx, align 4
   %1 = tail call noundef i32 @llvm.bswap.i32(i32 %0)
   %sext = shl i64 %indvars.iv, 33
-  %idxprom5 = ashr exact i64 %sext, 32
-  %arrayidx6 = getelementptr i32, ptr %call1, i64 %idxprom5
+  %2 = ashr exact i64 %sext, 30
+  %arrayidx6 = getelementptr i8, ptr %call1, i64 %2
   store i32 %1, ptr %arrayidx6, align 4
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %2 = shl i32 %indvars.iv.tr, 1
-  %3 = or disjoint i32 %2, 1
-  %idxprom11 = sext i32 %3 to i64
+  %3 = shl i32 %indvars.iv.tr, 1
+  %4 = or disjoint i32 %3, 1
+  %idxprom11 = sext i32 %4 to i64
   %arrayidx12 = getelementptr i32, ptr %call1, i64 %idxprom11
   store i32 %cond, ptr %arrayidx12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2725,27 +2725,27 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.body, %entry
   %call13 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.138, i64 noundef %aplic_addr) #13
   %fdt = getelementptr inbounds i8, ptr %call.i, i64 40
-  %4 = load ptr, ptr %fdt, align 8
-  %call14 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %4, ptr noundef %call13) #13
   %5 = load ptr, ptr %fdt, align 8
-  %call16 = tail call i32 @qemu_fdt_setprop_string(ptr noundef %5, ptr noundef %call13, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.139) #13
+  %call14 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %5, ptr noundef %call13) #13
   %6 = load ptr, ptr %fdt, align 8
-  %call18 = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %6, ptr noundef %call13, ptr noundef nonnull @.str.112, i32 noundef 2) #13
+  %call16 = tail call i32 @qemu_fdt_setprop_string(ptr noundef %6, ptr noundef %call13, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.139) #13
   %7 = load ptr, ptr %fdt, align 8
-  %call20 = tail call i32 @qemu_fdt_setprop(ptr noundef %7, ptr noundef %call13, ptr noundef nonnull @.str.111, ptr noundef null, i32 noundef 0) #13
+  %call18 = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %7, ptr noundef %call13, ptr noundef nonnull @.str.112, i32 noundef 2) #13
+  %8 = load ptr, ptr %fdt, align 8
+  %call20 = tail call i32 @qemu_fdt_setprop(ptr noundef %8, ptr noundef %call13, ptr noundef nonnull @.str.111, ptr noundef null, i32 noundef 0) #13
   %aia_type = getelementptr inbounds i8, ptr %s, i64 3832
-  %8 = load i32, ptr %aia_type, align 8
-  %cmp21 = icmp eq i32 %8, 1
-  %9 = load ptr, ptr %fdt, align 8
+  %9 = load i32, ptr %aia_type, align 8
+  %cmp21 = icmp eq i32 %9, 1
+  %10 = load ptr, ptr %fdt, align 8
   br i1 %cmp21, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.end
   %mul26 = shl i32 %num_harts, 3
-  %call28 = tail call i32 @qemu_fdt_setprop(ptr noundef %9, ptr noundef %call13, ptr noundef nonnull @.str.118, ptr noundef %call1, i32 noundef %mul26) #13
+  %call28 = tail call i32 @qemu_fdt_setprop(ptr noundef %10, ptr noundef %call13, ptr noundef nonnull @.str.118, ptr noundef %call1, i32 noundef %mul26) #13
   br label %do.body
 
 if.else:                                          ; preds = %for.end
-  %call30 = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %9, ptr noundef %call13, ptr noundef nonnull @.str.140, i32 noundef %msi_phandle) #13
+  %call30 = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %10, ptr noundef %call13, ptr noundef nonnull @.str.140, i32 noundef %msi_phandle) #13
   br label %do.body
 
 do.body:                                          ; preds = %if.then, %if.else
@@ -2762,24 +2762,24 @@ do.body:                                          ; preds = %if.then, %if.else
 for.body38:                                       ; preds = %do.body, %for.body38
   %indvars.iv50 = phi i64 [ 0, %do.body ], [ %indvars.iv.next51, %for.body38 ]
   %arrayidx40 = getelementptr [4 x i32], ptr %qdt_tmp, i64 0, i64 %indvars.iv50
-  %10 = load i32, ptr %arrayidx40, align 4
-  %11 = tail call noundef i32 @llvm.bswap.i32(i32 %10)
-  store i32 %11, ptr %arrayidx40, align 4
+  %11 = load i32, ptr %arrayidx40, align 4
+  %12 = tail call noundef i32 @llvm.bswap.i32(i32 %11)
+  store i32 %12, ptr %arrayidx40, align 4
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 4
   br i1 %exitcond53.not, label %for.end46, label %for.body38, !llvm.loop !38
 
 for.end46:                                        ; preds = %for.body38
-  %12 = load ptr, ptr %fdt, align 8
-  %call48 = call i32 @qemu_fdt_setprop(ptr noundef %12, ptr noundef %call13, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp, i32 noundef 16) #13
   %13 = load ptr, ptr %fdt, align 8
-  %call50 = call i32 @qemu_fdt_setprop_cell(ptr noundef %13, ptr noundef %call13, ptr noundef nonnull @.str.141, i32 noundef 96) #13
+  %call48 = call i32 @qemu_fdt_setprop(ptr noundef %13, ptr noundef %call13, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp, i32 noundef 16) #13
+  %14 = load ptr, ptr %fdt, align 8
+  %call50 = call i32 @qemu_fdt_setprop_cell(ptr noundef %14, ptr noundef %call13, ptr noundef nonnull @.str.141, i32 noundef 96) #13
   %tobool51.not = icmp eq i32 %aplic_child_phandle, 0
   br i1 %tobool51.not, label %if.end78, label %if.then52
 
 if.then52:                                        ; preds = %for.end46
-  %14 = load ptr, ptr %fdt, align 8
-  %call54 = call i32 @qemu_fdt_setprop_cell(ptr noundef %14, ptr noundef %call13, ptr noundef nonnull @.str.142, i32 noundef %aplic_child_phandle) #13
+  %15 = load ptr, ptr %fdt, align 8
+  %call54 = call i32 @qemu_fdt_setprop_cell(ptr noundef %15, ptr noundef %call13, ptr noundef nonnull @.str.142, i32 noundef %aplic_child_phandle) #13
   store i32 %aplic_child_phandle, ptr %qdt_tmp56, align 4
   %arrayinit.element58 = getelementptr inbounds i8, ptr %qdt_tmp56, i64 4
   store i32 1, ptr %arrayinit.element58, align 4
@@ -2790,22 +2790,22 @@ if.then52:                                        ; preds = %for.end46
 for.body65:                                       ; preds = %if.then52, %for.body65
   %indvars.iv54 = phi i64 [ 0, %if.then52 ], [ %indvars.iv.next55, %for.body65 ]
   %arrayidx67 = getelementptr [3 x i32], ptr %qdt_tmp56, i64 0, i64 %indvars.iv54
-  %15 = load i32, ptr %arrayidx67, align 4
-  %16 = call noundef i32 @llvm.bswap.i32(i32 %15)
-  store i32 %16, ptr %arrayidx67, align 4
+  %16 = load i32, ptr %arrayidx67, align 4
+  %17 = call noundef i32 @llvm.bswap.i32(i32 %16)
+  store i32 %17, ptr %arrayidx67, align 4
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 3
   br i1 %exitcond57.not, label %for.end73, label %for.body65, !llvm.loop !39
 
 for.end73:                                        ; preds = %for.body65
-  %17 = load ptr, ptr %fdt, align 8
-  %call76 = call i32 @qemu_fdt_setprop(ptr noundef %17, ptr noundef %call13, ptr noundef nonnull @.str.143, ptr noundef nonnull %qdt_tmp56, i32 noundef 12) #13
+  %18 = load ptr, ptr %fdt, align 8
+  %call76 = call i32 @qemu_fdt_setprop(ptr noundef %18, ptr noundef %call13, ptr noundef nonnull @.str.143, ptr noundef nonnull %qdt_tmp56, i32 noundef 12) #13
   br label %if.end78
 
 if.end78:                                         ; preds = %for.end73, %for.end46
   call void @riscv_socket_fdt_write_id(ptr noundef nonnull %call.i, ptr noundef %call13, i32 noundef %socket) #13
-  %18 = load ptr, ptr %fdt, align 8
-  %call80 = call i32 @qemu_fdt_setprop_cell(ptr noundef %18, ptr noundef %call13, ptr noundef nonnull @.str.108, i32 noundef %aplic_phandle) #13
+  %19 = load ptr, ptr %fdt, align 8
+  %call80 = call i32 @qemu_fdt_setprop_cell(ptr noundef %19, ptr noundef %call13, ptr noundef nonnull @.str.108, i32 noundef %aplic_phandle) #13
   call void @g_free(ptr noundef %call13) #13
   call void @g_free(ptr noundef %call1) #13
   ret void

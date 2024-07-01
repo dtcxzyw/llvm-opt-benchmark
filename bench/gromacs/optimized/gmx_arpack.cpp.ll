@@ -838,8 +838,8 @@ sub_1199:                                         ; preds = %sub_0198
 421:                                              ; preds = %408
   %422 = trunc nsw i64 %indvars.iv615.i.i.i to i32
   %sext640.i.i.i = shl i64 %indvars.iv615.i.i.i, 32
-  %423 = ashr exact i64 %sext640.i.i.i, 32
-  %424 = getelementptr inbounds double, ptr %222, i64 %423
+  %423 = ashr exact i64 %sext640.i.i.i, 29
+  %424 = getelementptr inbounds i8, ptr %222, i64 %423
   store double 0.000000e+00, ptr %424, align 8
   br label %.thread.i.i.i
 
@@ -1032,8 +1032,8 @@ sub_1199:                                         ; preds = %sub_0198
 531:                                              ; preds = %518
   %532 = trunc nsw i64 %indvars.iv609.i.i.i to i32
   %sext.i.i.i = shl i64 %indvars.iv609.i.i.i, 32
-  %533 = ashr exact i64 %sext.i.i.i, 32
-  %gep548.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i, i64 %533
+  %533 = ashr exact i64 %sext.i.i.i, 29
+  %gep548.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %533
   store double 0.000000e+00, ptr %gep548.i.i.i, align 8
   br label %.thread480.i.i.i
 
@@ -4852,8 +4852,8 @@ sub_1199:                                         ; preds = %sub_0198
 421:                                              ; preds = %408
   %422 = trunc nsw i64 %indvars.iv614.i.i.i to i32
   %sext639.i.i.i = shl i64 %indvars.iv614.i.i.i, 32
-  %423 = ashr exact i64 %sext639.i.i.i, 32
-  %424 = getelementptr inbounds float, ptr %222, i64 %423
+  %423 = ashr exact i64 %sext639.i.i.i, 30
+  %424 = getelementptr inbounds i8, ptr %222, i64 %423
   store float 0.000000e+00, ptr %424, align 4
   br label %.thread.i.i.i
 
@@ -5053,8 +5053,8 @@ sub_1199:                                         ; preds = %sub_0198
 538:                                              ; preds = %525
   %539 = trunc nsw i64 %indvars.iv608.i.i.i to i32
   %sext.i.i.i = shl i64 %indvars.iv608.i.i.i, 32
-  %540 = ashr exact i64 %sext.i.i.i, 32
-  %gep547.i.i.i = getelementptr float, ptr %invariant.gep.i.i.i, i64 %540
+  %540 = ashr exact i64 %sext.i.i.i, 30
+  %gep547.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %540
   store float 0.000000e+00, ptr %gep547.i.i.i, align 4
   br label %.thread479.i.i.i
 

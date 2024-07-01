@@ -437,8 +437,8 @@ find_next_mcelem.exit:                            ; preds = %98
 
 109:                                              ; preds = %find_next_mcelem.exit
   %sext = shl i64 %indvars.iv, 32
-  %110 = ashr exact i64 %sext, 32
-  %111 = getelementptr float, ptr %spec.select, i64 %110
+  %110 = ashr exact i64 %sext, 30
+  %111 = getelementptr i8, ptr %spec.select, i64 %110
   %112 = load float, ptr %111, align 4
   %113 = fpext float %112 to double
   %114 = add nsw i32 %107, 1
@@ -934,12 +934,12 @@ calc_distr.exit163:                               ; preds = %._crit_edge87.i, %c
 
 197:                                              ; preds = %.critedge.i
   %sext.i173 = shl i64 %indvars.iv.i170, 32
-  %198 = ashr exact i64 %sext.i173, 32
-  %199 = getelementptr float, ptr %6, i64 %198
+  %198 = ashr exact i64 %sext.i173, 30
+  %199 = getelementptr i8, ptr %6, i64 %198
   %200 = load float, ptr %199, align 4
   %sext68.i = add i64 %sext.i173, -4294967296
-  %201 = ashr exact i64 %sext68.i, 32
-  %202 = getelementptr float, ptr %6, i64 %201
+  %201 = ashr exact i64 %sext68.i, 30
+  %202 = getelementptr i8, ptr %6, i64 %201
   %203 = load float, ptr %202, align 4
   %204 = fsub float %200, %203
   br label %.thread.i

@@ -1088,8 +1088,8 @@ define dso_local i64 @show_all_settings(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %22, %ConfigOptionIsVisible.exit
   %.051.in56 = phi i64 [ %45, %ConfigOptionIsVisible.exit ], [ %26, %22 ]
   %sext = shl i64 %.051.in56, 32
-  %33 = ashr exact i64 %sext, 32
-  %34 = getelementptr ptr, ptr %25, i64 %33
+  %33 = ashr exact i64 %sext, 29
+  %34 = getelementptr i8, ptr %25, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 32
   %37 = load i32, ptr %36, align 8

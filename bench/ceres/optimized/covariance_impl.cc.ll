@@ -30583,13 +30583,13 @@ _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.
   %296 = getelementptr inbounds i64, ptr %295, i64 %indvars.iv
   %297 = load i64, ptr %296, align 8
   %sext94 = shl i64 %297, 32
-  %298 = ashr exact i64 %sext94, 32
-  %299 = load ptr, ptr %286, align 8
-  %300 = getelementptr inbounds i32, ptr %299, i64 %indvars.iv
-  %301 = getelementptr inbounds i32, ptr %299, i64 %298
-  %302 = load i32, ptr %300, align 4
+  %298 = load ptr, ptr %286, align 8
+  %299 = getelementptr inbounds i32, ptr %298, i64 %indvars.iv
+  %300 = ashr exact i64 %sext94, 30
+  %301 = getelementptr inbounds i8, ptr %298, i64 %300
+  %302 = load i32, ptr %299, align 4
   %303 = load i32, ptr %301, align 4
-  store i32 %303, ptr %300, align 4
+  store i32 %303, ptr %299, align 4
   store i32 %302, ptr %301, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next, %.sroa.speculated.i
@@ -51337,13 +51337,13 @@ _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.
   %357 = getelementptr inbounds i64, ptr %356, i64 %indvars.iv
   %358 = load i64, ptr %357, align 8
   %sext94 = shl i64 %358, 32
-  %359 = ashr exact i64 %sext94, 32
-  %360 = load ptr, ptr %347, align 8
-  %361 = getelementptr inbounds i32, ptr %360, i64 %indvars.iv
-  %362 = getelementptr inbounds i32, ptr %360, i64 %359
-  %363 = load i32, ptr %361, align 4
+  %359 = load ptr, ptr %347, align 8
+  %360 = getelementptr inbounds i32, ptr %359, i64 %indvars.iv
+  %361 = ashr exact i64 %sext94, 30
+  %362 = getelementptr inbounds i8, ptr %359, i64 %361
+  %363 = load i32, ptr %360, align 4
   %364 = load i32, ptr %362, align 4
-  store i32 %364, ptr %361, align 4
+  store i32 %364, ptr %360, align 4
   store i32 %363, ptr %362, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next, %.sroa.speculated.i
@@ -75916,9 +75916,9 @@ _ZN5Eigen8internal17CompressedStorageIdiE6appendERKdl.exit: ; preds = %.critedge
 
 .loopexit:                                        ; preds = %114, %103, %_ZN5Eigen8internal17CompressedStorageIdiE6appendERKdl.exit
   %sext = shl i64 %70, 32
-  %116 = ashr exact i64 %sext, 32
-  %117 = load ptr, ptr %59, align 8
-  %118 = getelementptr inbounds double, ptr %117, i64 %116
+  %116 = load ptr, ptr %59, align 8
+  %117 = ashr exact i64 %sext, 29
+  %118 = getelementptr inbounds i8, ptr %116, i64 %117
   br label %241
 
 119:                                              ; preds = %.loopexit84

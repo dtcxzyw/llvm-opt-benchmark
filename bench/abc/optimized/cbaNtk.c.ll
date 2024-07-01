@@ -14054,8 +14054,8 @@ Gia_ObjIsMux.exit.i:                              ; preds = %Cba_NtkInsertGiaLit
   %223 = sub i64 %221, %222
   %224 = sdiv exact i64 %223, 12
   %sext.i.i = shl i64 %224, 32
-  %225 = ashr exact i64 %sext.i.i, 32
-  %226 = getelementptr inbounds i32, ptr %.val60.i, i64 %225
+  %225 = ashr exact i64 %sext.i.i, 30
+  %226 = getelementptr inbounds i8, ptr %.val60.i, i64 %225
   %227 = load i32, ptr %226, align 4
   %.not102.i = icmp eq i32 %227, 0
   br i1 %.not102.i, label %Gia_ObjIsMux.exit.thread.i, label %Gia_ObjFaninLit2.exit.i

@@ -11848,11 +11848,11 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit: ; preds = %if.then.i, %if.th
   %sub.ptr.sub13.i = sub i64 %sub.ptr.lhs.cast11.i, %sub.ptr.rhs.cast12.i
   %retval.0.in.i = sdiv exact i64 %sub.ptr.sub13.i, 152
   %sext = shl i64 %retval.0.in.i, 32
-  %conv = ashr exact i64 %sext, 32
   %5 = load ptr, ptr %field_generators_, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %5, i64 %conv
-  %6 = load ptr, ptr %add.ptr.i, align 8
-  ret ptr %6
+  %6 = ashr exact i64 %sext, 29
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %6
+  %7 = load ptr, ptr %add.ptr.i, align 8
+  ret ptr %7
 }
 
 declare void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef) #0

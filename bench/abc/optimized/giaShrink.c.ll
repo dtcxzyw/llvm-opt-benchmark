@@ -250,8 +250,8 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %125 = getelementptr i8, ptr %113, i64 8
   %.val.i.i.i = load ptr, ptr %125, align 8
   %sext.i = shl i64 %122, 32
-  %126 = ashr exact i64 %sext.i, 32
-  %127 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %126
+  %126 = ashr exact i64 %sext.i, 30
+  %127 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %126
   %128 = load i32, ptr %127, align 4
   %.val144 = load ptr, ptr %49, align 8
   %.val145 = load ptr, ptr %55, align 8
@@ -264,8 +264,8 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %134 = getelementptr i8, ptr %.val145, i64 8
   %.val.i.i.i154 = load ptr, ptr %134, align 8
   %sext.i155 = shl i64 %131, 32
-  %135 = ashr exact i64 %sext.i155, 32
-  %136 = getelementptr inbounds i32, ptr %.val.i.i.i154, i64 %135
+  %135 = ashr exact i64 %sext.i155, 30
+  %136 = getelementptr inbounds i8, ptr %.val.i.i.i154, i64 %135
   store i32 %128, ptr %136, align 4
   br label %352
 

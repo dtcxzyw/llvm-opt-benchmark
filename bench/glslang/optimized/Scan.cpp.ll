@@ -1873,7 +1873,7 @@ define linkonce_odr void @_ZN7glslang13TInputScanner5ungetEv(ptr noundef nonnull
   %28 = getelementptr inbounds %"struct.glslang::TSourceLoc", ptr %25, i64 %27, i32 3
   %29 = load i32, ptr %28, align 8
   %30 = icmp slt i32 %29, 0
-  br i1 %30, label %31, label %57
+  br i1 %30, label %31, label %58
 
 31:                                               ; preds = %12
   %32 = load i64, ptr %6, align 8
@@ -1906,7 +1906,7 @@ define linkonce_odr void @_ZN7glslang13TInputScanner5ungetEv(ptr noundef nonnull
   store i32 %44, ptr %22, align 8
   store i32 %44, ptr %28, align 8
   %.pre21 = load i32, ptr %16, align 8
-  br label %57
+  br label %58
 
 45:                                               ; preds = %.preheader, %48
   %indvars.iv = phi i64 [ %11, %.preheader ], [ %indvars.iv.next, %48 ]
@@ -1926,78 +1926,78 @@ define linkonce_odr void @_ZN7glslang13TInputScanner5ungetEv(ptr noundef nonnull
 
 .critedge:                                        ; preds = %45
   %sext = shl i64 %indvars.iv.next, 32
-  %.phi.trans.insert = ashr exact i64 %sext, 32
-  %.phi.trans.insert19 = getelementptr inbounds i64, ptr %10, i64 %.phi.trans.insert
+  %53 = ashr exact i64 %sext, 29
+  %.phi.trans.insert19 = getelementptr inbounds i8, ptr %10, i64 %53
   %.pre = load i64, ptr %.phi.trans.insert19, align 8
-  %53 = icmp eq i64 %.pre, 0
-  br i1 %53, label %54, label %.critedge.thread
+  %54 = icmp eq i64 %.pre, 0
+  br i1 %54, label %55, label %.critedge.thread
 
-54:                                               ; preds = %.critedge
+55:                                               ; preds = %.critedge
   store i64 0, ptr %6, align 8
-  br label %57
+  br label %58
 
 .critedge.thread:                                 ; preds = %48, %.critedge
-  %55 = phi i64 [ %.pre, %.critedge ], [ %51, %48 ]
-  %56 = add i64 %55, -1
-  store i64 %56, ptr %6, align 8
-  br label %57
+  %56 = phi i64 [ %.pre, %.critedge ], [ %51, %48 ]
+  %57 = add i64 %56, -1
+  store i64 %57, ptr %6, align 8
+  br label %58
 
-57:                                               ; preds = %54, %.critedge.thread, %12, %._crit_edge
-  %58 = phi i32 [ %indvars, %54 ], [ %indvars, %.critedge.thread ], [ %26, %12 ], [ %.pre21, %._crit_edge ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
-  %60 = load i32, ptr %59, align 8
-  %.not.i = icmp slt i32 %58, %60
-  br i1 %.not.i, label %62, label %61
+58:                                               ; preds = %55, %.critedge.thread, %12, %._crit_edge
+  %59 = phi i32 [ %indvars, %55 ], [ %indvars, %.critedge.thread ], [ %26, %12 ], [ %.pre21, %._crit_edge ]
+  %60 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = load i32, ptr %60, align 8
+  %.not.i = icmp slt i32 %59, %61
+  br i1 %.not.i, label %63, label %62
 
-61:                                               ; preds = %57
+62:                                               ; preds = %58
   store i8 1, ptr %2, align 1
   br label %_ZN7glslang13TInputScanner4peekEv.exit.thread
 
-62:                                               ; preds = %57
-  %63 = load i64, ptr %6, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
-  %65 = load ptr, ptr %64, align 8
-  %66 = sext i32 %58 to i64
-  %wide.trip.count.i = sext i32 %60 to i64
-  br label %67
+63:                                               ; preds = %58
+  %64 = load i64, ptr %6, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %66 = load ptr, ptr %65, align 8
+  %67 = sext i32 %59 to i64
+  %wide.trip.count.i = sext i32 %61 to i64
+  br label %68
 
-67:                                               ; preds = %70, %62
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %70 ], [ %66, %62 ]
-  %.0.i = phi i64 [ 0, %70 ], [ %63, %62 ]
-  %68 = getelementptr inbounds i64, ptr %65, i64 %indvars.iv.i
-  %69 = load i64, ptr %68, align 8
-  %.not11.i = icmp ult i64 %.0.i, %69
-  br i1 %.not11.i, label %_ZN7glslang13TInputScanner4peekEv.exit, label %70
+68:                                               ; preds = %71, %63
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %71 ], [ %67, %63 ]
+  %.0.i = phi i64 [ 0, %71 ], [ %64, %63 ]
+  %69 = getelementptr inbounds i64, ptr %66, i64 %indvars.iv.i
+  %70 = load i64, ptr %69, align 8
+  %.not11.i = icmp ult i64 %.0.i, %70
+  br i1 %.not11.i, label %_ZN7glslang13TInputScanner4peekEv.exit, label %71
 
-70:                                               ; preds = %67
+71:                                               ; preds = %68
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN7glslang13TInputScanner4peekEv.exit.thread, label %67, !llvm.loop !4
+  br i1 %exitcond.not.i, label %_ZN7glslang13TInputScanner4peekEv.exit.thread, label %68, !llvm.loop !4
 
-_ZN7glslang13TInputScanner4peekEv.exit:           ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv.i
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 %.0.i
-  %76 = load i8, ptr %75, align 1
-  %77 = icmp eq i8 %76, 10
-  br i1 %77, label %78, label %_ZN7glslang13TInputScanner4peekEv.exit.thread
+_ZN7glslang13TInputScanner4peekEv.exit:           ; preds = %68
+  %72 = getelementptr inbounds i8, ptr %0, i64 16
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv.i
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 %.0.i
+  %77 = load i8, ptr %76, align 1
+  %78 = icmp eq i8 %77, 10
+  br i1 %78, label %79, label %_ZN7glslang13TInputScanner4peekEv.exit.thread
 
-78:                                               ; preds = %_ZN7glslang13TInputScanner4peekEv.exit
-  %79 = getelementptr inbounds i8, ptr %0, i64 48
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds %"struct.glslang::TSourceLoc", ptr %80, i64 %66, i32 2
-  %82 = load i32, ptr %81, align 4
-  %83 = add nsw i32 %82, -1
-  store i32 %83, ptr %81, align 4
-  %84 = getelementptr inbounds i8, ptr %0, i64 76
-  %85 = load i32, ptr %84, align 4
-  %86 = add nsw i32 %85, -1
-  store i32 %86, ptr %84, align 4
+79:                                               ; preds = %_ZN7glslang13TInputScanner4peekEv.exit
+  %80 = getelementptr inbounds i8, ptr %0, i64 48
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds %"struct.glslang::TSourceLoc", ptr %81, i64 %67, i32 2
+  %83 = load i32, ptr %82, align 4
+  %84 = add nsw i32 %83, -1
+  store i32 %84, ptr %82, align 4
+  %85 = getelementptr inbounds i8, ptr %0, i64 76
+  %86 = load i32, ptr %85, align 4
+  %87 = add nsw i32 %86, -1
+  store i32 %87, ptr %85, align 4
   br label %_ZN7glslang13TInputScanner4peekEv.exit.thread
 
-_ZN7glslang13TInputScanner4peekEv.exit.thread:    ; preds = %70, %61, %1, %78, %_ZN7glslang13TInputScanner4peekEv.exit
+_ZN7glslang13TInputScanner4peekEv.exit.thread:    ; preds = %71, %62, %1, %79, %_ZN7glslang13TInputScanner4peekEv.exit
   ret void
 }
 

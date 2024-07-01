@@ -42414,7 +42414,8 @@ for.end38.loopexit.i.i.i:                         ; preds = %for.inc35.i.i.i
   store i64 %retval.sroa.0.0.insert.insert.i14.i.i.i.i, ptr %pMax.i.i.i.i, align 8
   %ptr.i51.i.i.i = getelementptr inbounds i8, ptr %40, i64 128
   %50 = load ptr, ptr %ptr.i51.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds float, ptr %50, i64 %conv.i44.i.i.i
+  %51 = shl nsw i64 %conv.i44.i.i.i, 2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %50, i64 %51
   call void @_ZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEE(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i47.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp57.i.i.i, ptr %add.ptr.i.i.i, i64 %conv54.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp57.i.i.i)
   ret void

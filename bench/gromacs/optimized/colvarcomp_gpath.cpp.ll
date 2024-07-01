@@ -7304,9 +7304,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 153:                                              ; preds = %124
   %154 = getelementptr inbounds i8, ptr %127, i64 72
   %sext = shl i64 %.038, 32
-  %155 = ashr exact i64 %sext, 32
-  %156 = load ptr, ptr %154, align 8
-  %157 = getelementptr inbounds double, ptr %156, i64 %155
+  %155 = load ptr, ptr %154, align 8
+  %156 = ashr exact i64 %sext, 29
+  %157 = getelementptr inbounds i8, ptr %155, i64 %156
   br label %158
 
 158:                                              ; preds = %153, %147, %145, %143, %141, %135, %150
@@ -7392,9 +7392,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 
 178:                                              ; preds = %158
   %sext181 = shl i64 %.038, 32
-  %179 = ashr exact i64 %sext181, 32
-  %180 = load ptr, ptr %41, align 8
-  %181 = getelementptr inbounds double, ptr %180, i64 %179
+  %179 = load ptr, ptr %41, align 8
+  %180 = ashr exact i64 %sext181, 29
+  %181 = getelementptr inbounds i8, ptr %179, i64 %180
   br label %182
 
 182:                                              ; preds = %158, %178, %174, %173, %172, %167, %176
@@ -7496,9 +7496,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i61: 
 214:                                              ; preds = %182
   %215 = getelementptr inbounds i8, ptr %189, i64 72
   %sext182 = shl i64 %.038, 32
-  %216 = ashr exact i64 %sext182, 32
-  %217 = load ptr, ptr %215, align 8
-  %218 = getelementptr inbounds double, ptr %217, i64 %216
+  %216 = load ptr, ptr %215, align 8
+  %217 = ashr exact i64 %sext182, 29
+  %218 = getelementptr inbounds i8, ptr %216, i64 %217
   br label %219
 
 219:                                              ; preds = %214, %208, %206, %204, %202, %196, %211
@@ -7584,9 +7584,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i72: 
 
 239:                                              ; preds = %219
   %sext183 = shl i64 %.038, 32
-  %240 = ashr exact i64 %sext183, 32
-  %241 = load ptr, ptr %47, align 8
-  %242 = getelementptr inbounds double, ptr %241, i64 %240
+  %240 = load ptr, ptr %47, align 8
+  %241 = ashr exact i64 %sext183, 29
+  %242 = getelementptr inbounds i8, ptr %240, i64 %241
   br label %243
 
 243:                                              ; preds = %219, %239, %235, %234, %233, %228, %237
@@ -7612,7 +7612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i72: 
   %255 = icmp eq i32 %128, 2
   %.idx.i.i78.sroa.sel = select i1 %255, ptr %.sroa.gep170, ptr %38
   %sext184 = shl i64 %.038, 32
-  %256 = ashr exact i64 %sext184, 32
+  %256 = ashr exact i64 %sext184, 29
   %.idx.i.i89.sroa.sel = select i1 %255, ptr %.sroa.gep, ptr %44
   br label %.preheader
 
@@ -7853,7 +7853,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i122:
 
 311:                                              ; preds = %.lr.ph
   %312 = load ptr, ptr %41, align 8
-  %313 = getelementptr inbounds double, ptr %312, i64 %256
+  %313 = getelementptr inbounds i8, ptr %312, i64 %256
   br label %314
 
 314:                                              ; preds = %.lr.ph, %282, %287, %288, %289, %.noexc86, %311
@@ -8098,7 +8098,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i135:
 
 379:                                              ; preds = %314
   %380 = load ptr, ptr %47, align 8
-  %381 = getelementptr inbounds double, ptr %380, i64 %256
+  %381 = getelementptr inbounds i8, ptr %380, i64 %256
   br label %382
 
 382:                                              ; preds = %314, %350, %355, %356, %357, %.noexc97, %379
@@ -8693,9 +8693,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i100:
 185:                                              ; preds = %141
   %186 = getelementptr inbounds i8, ptr %144, i64 72
   %sext = shl i64 %.0, 32
-  %187 = ashr exact i64 %sext, 32
-  %188 = load ptr, ptr %186, align 8
-  %189 = getelementptr inbounds double, ptr %188, i64 %187
+  %187 = load ptr, ptr %186, align 8
+  %188 = ashr exact i64 %sext, 29
+  %189 = getelementptr inbounds i8, ptr %187, i64 %188
   br label %190
 
 190:                                              ; preds = %185, %.noexc, %164, %162, %160, %158, %152
@@ -8846,9 +8846,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i108:
 
 222:                                              ; preds = %190
   %sext133 = shl i64 %.0, 32
-  %223 = ashr exact i64 %sext133, 32
-  %224 = load ptr, ptr %38, align 8
-  %225 = getelementptr inbounds double, ptr %224, i64 %223
+  %223 = load ptr, ptr %38, align 8
+  %224 = ashr exact i64 %sext133, 29
+  %225 = getelementptr inbounds i8, ptr %223, i64 %224
   br label %226
 
 226:                                              ; preds = %190, %222, %.noexc43, %206, %205, %204, %199
@@ -9018,9 +9018,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i117:
 273:                                              ; preds = %226
   %274 = getelementptr inbounds i8, ptr %233, i64 72
   %sext134 = shl i64 %.0, 32
-  %275 = ashr exact i64 %sext134, 32
-  %276 = load ptr, ptr %274, align 8
-  %277 = getelementptr inbounds double, ptr %276, i64 %275
+  %275 = load ptr, ptr %274, align 8
+  %276 = ashr exact i64 %sext134, 29
+  %277 = getelementptr inbounds i8, ptr %275, i64 %276
   br label %278
 
 278:                                              ; preds = %273, %.noexc54, %252, %250, %248, %246, %240
@@ -9171,9 +9171,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 
 310:                                              ; preds = %278
   %sext135 = shl i64 %.0, 32
-  %311 = ashr exact i64 %sext135, 32
-  %312 = load ptr, ptr %47, align 8
-  %313 = getelementptr inbounds double, ptr %312, i64 %311
+  %311 = load ptr, ptr %47, align 8
+  %312 = ashr exact i64 %sext135, 29
+  %313 = getelementptr inbounds i8, ptr %311, i64 %312
   br label %314
 
 314:                                              ; preds = %278, %310, %.noexc65, %294, %293, %292, %287
@@ -11942,7 +11942,7 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %106, %105, %104, %1
   %121 = icmp eq i32 %120, 2
   %.idx.i.i.sroa.sel = select i1 %121, ptr %.sroa.gep118, ptr %34
   %sext = shl i64 %.032, 32
-  %122 = ashr exact i64 %sext, 32
+  %122 = ashr exact i64 %sext, 29
   %.idx.i.i39.sroa.sel = select i1 %121, ptr %.sroa.gep, ptr %42
   br label %.preheader
 
@@ -12179,7 +12179,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i72: 
 
 178:                                              ; preds = %.lr.ph
   %179 = load ptr, ptr %37, align 8
-  %180 = getelementptr inbounds double, ptr %179, i64 %122
+  %180 = getelementptr inbounds i8, ptr %179, i64 %122
   br label %181
 
 181:                                              ; preds = %.lr.ph, %149, %154, %155, %156, %.noexc, %178
@@ -12414,7 +12414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i85: 
 
 246:                                              ; preds = %181
   %247 = load ptr, ptr %45, align 8
-  %248 = getelementptr inbounds double, ptr %247, i64 %122
+  %248 = getelementptr inbounds i8, ptr %247, i64 %122
   br label %249
 
 249:                                              ; preds = %181, %217, %222, %223, %224, %.noexc47, %246
@@ -22354,9 +22354,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i243:
 473:                                              ; preds = %.lr.ph406
   %474 = getelementptr inbounds i8, ptr %417, i64 72
   %sext = shl i64 %418, 32
-  %475 = ashr exact i64 %sext, 32
-  %476 = load ptr, ptr %474, align 8
-  %477 = getelementptr inbounds double, ptr %476, i64 %475
+  %475 = load ptr, ptr %474, align 8
+  %476 = ashr exact i64 %sext, 29
+  %477 = getelementptr inbounds i8, ptr %475, i64 %476
   br label %478
 
 478:                                              ; preds = %473, %.noexc195, %445, %443, %441, %439, %433
@@ -22593,9 +22593,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i256:
 534:                                              ; preds = %478
   %535 = getelementptr inbounds i8, ptr %480, i64 72
   %sext300 = shl i64 %418, 32
-  %536 = ashr exact i64 %sext300, 32
-  %537 = load ptr, ptr %535, align 8
-  %538 = getelementptr inbounds double, ptr %537, i64 %536
+  %536 = load ptr, ptr %535, align 8
+  %537 = ashr exact i64 %sext300, 29
+  %538 = getelementptr inbounds i8, ptr %536, i64 %537
   br label %539
 
 539:                                              ; preds = %534, %.noexc205, %506, %504, %502, %500, %494

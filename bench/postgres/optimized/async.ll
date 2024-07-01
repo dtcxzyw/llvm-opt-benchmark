@@ -735,8 +735,8 @@ list_length.exit:                                 ; preds = %8
   %17 = getelementptr i8, ptr %11, i64 16
   %.val = load ptr, ptr %17, align 8
   %sext = shl i64 %10, 32
-  %18 = ashr exact i64 %sext, 32
-  %19 = getelementptr %union.ListCell, ptr %.val, i64 %18
+  %18 = ashr exact i64 %sext, 29
+  %19 = getelementptr i8, ptr %.val, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = add nuw i64 %10, 1
   store i64 %21, ptr %9, align 8

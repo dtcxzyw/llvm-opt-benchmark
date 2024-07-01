@@ -10817,8 +10817,8 @@ _ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEN9__gnu_cxx17__normal_itera
   %541 = getelementptr inbounds [3 x float], ptr %134, i64 %.0102231, i64 %.0230
   %542 = load float, ptr %541, align 4
   %sext130 = shl i64 %540, 32
-  %543 = ashr exact i64 %sext130, 32
-  %544 = getelementptr float, ptr %518, i64 %543
+  %543 = ashr exact i64 %sext130, 30
+  %544 = getelementptr i8, ptr %518, i64 %543
   store float %542, ptr %544, align 4
   %545 = add nuw nsw i64 %.0230, 1
   %exitcond250.not = icmp eq i64 %545, 3

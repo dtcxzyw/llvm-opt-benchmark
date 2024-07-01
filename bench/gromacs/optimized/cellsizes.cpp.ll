@@ -2446,8 +2446,8 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
   %203 = getelementptr inbounds float, ptr %202, i64 %indvars.iv377
   %204 = load float, ptr %203, align 4
   %sext = shl i64 %.0255.in330.in, 32
-  %205 = ashr exact i64 %sext, 32
-  %206 = getelementptr inbounds float, ptr %202, i64 %205
+  %205 = ashr exact i64 %sext, 30
+  %206 = getelementptr inbounds i8, ptr %202, i64 %205
   %207 = load float, ptr %206, align 4
   %208 = fadd float %207, %7
   %209 = fcmp olt float %204, %208

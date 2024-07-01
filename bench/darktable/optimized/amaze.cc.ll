@@ -3001,16 +3001,16 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2416 = load float, ptr %2415, align 8, !tbaa !27
   %2417 = shl i64 %2388, 32
   %2418 = add i64 %2417, 687194767360
-  %2419 = ashr exact i64 %2418, 32
-  %2420 = getelementptr inbounds float, ptr %53, i64 %2419
+  %2419 = ashr exact i64 %2418, 30
+  %2420 = getelementptr inbounds i8, ptr %53, i64 %2419
   %2421 = load float, ptr %2420, align 4, !tbaa !27
   %2422 = fsub reassoc nsz arcp contract afn float %2416, %2421
   %2423 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %2422)
   %2424 = getelementptr inbounds float, ptr %46, i64 %2402
   store float %2423, ptr %2424, align 4, !tbaa !27
   %2425 = add i64 %2417, 695784701952
-  %2426 = ashr exact i64 %2425, 32
-  %2427 = getelementptr inbounds float, ptr %53, i64 %2426
+  %2426 = ashr exact i64 %2425, 30
+  %2427 = getelementptr inbounds i8, ptr %53, i64 %2426
   %2428 = load float, ptr %2427, align 4, !tbaa !27
   %2429 = getelementptr i8, ptr %2390, i64 -640
   %2430 = load float, ptr %2429, align 8, !tbaa !27
@@ -3059,8 +3059,8 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2462 = load float, ptr %2461, align 4, !tbaa !27
   %2463 = shl i64 %2441, 32
   %2464 = add i64 %2463, 687194767360
-  %2465 = ashr exact i64 %2464, 32
-  %2466 = getelementptr inbounds float, ptr %53, i64 %2465
+  %2465 = ashr exact i64 %2464, 30
+  %2466 = getelementptr inbounds i8, ptr %53, i64 %2465
   %2467 = load float, ptr %2466, align 4, !tbaa !27
   %2468 = fsub reassoc nsz arcp contract afn float %2462, %2467
   %2469 = fmul reassoc nsz arcp contract afn float %2468, %2468
@@ -3077,8 +3077,8 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2479 = fsub reassoc nsz arcp contract afn float %2476, %2478
   %2480 = fmul reassoc nsz arcp contract afn float %2479, %2479
   %2481 = add i64 %2463, 695784701952
-  %2482 = ashr exact i64 %2481, 32
-  %2483 = getelementptr inbounds float, ptr %53, i64 %2482
+  %2482 = ashr exact i64 %2481, 30
+  %2483 = getelementptr inbounds i8, ptr %53, i64 %2482
   %2484 = load float, ptr %2483, align 4, !tbaa !27
   %2485 = fsub reassoc nsz arcp contract afn float %2476, %2484
   %2486 = fmul reassoc nsz arcp contract afn float %2485, %2485

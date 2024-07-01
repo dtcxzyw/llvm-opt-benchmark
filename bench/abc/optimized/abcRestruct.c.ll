@@ -2203,8 +2203,8 @@ Abc_NodeEdgeDsdPushOrdered.exit:                  ; preds = %96, %84, %79
   %.0.in.lcssa.i = phi i64 [ 0, %79 ], [ 0, %96 ], [ %indvars.iv.i, %84 ]
   %99 = load ptr, ptr %31, align 8
   %sext = shl i64 %.0.in.lcssa.i, 32
-  %100 = ashr exact i64 %sext, 32
-  %101 = getelementptr inbounds i32, ptr %99, i64 %100
+  %100 = ashr exact i64 %sext, 30
+  %101 = getelementptr inbounds i8, ptr %99, i64 %100
   store i32 %75, ptr %101, align 4
   %102 = add nuw nsw i32 %.0371578, 1
   %103 = tail call i32 @Dsd_NodeReadDecsNum(ptr noundef %11) #19
@@ -2492,8 +2492,8 @@ Abc_NodeEdgeDsdPushOrdered.exit487.thread:        ; preds = %235
 Abc_NodeEdgeDsdPushOrdered.exit487:               ; preds = %254, %242
   %.0.in.lcssa.i480 = phi i64 [ %indvars.iv.i482, %242 ], [ 0, %254 ]
   %sext634 = shl i64 %.0.in.lcssa.i480, 32
-  %257 = ashr exact i64 %sext634, 32
-  %258 = getelementptr inbounds i32, ptr %.pre600, i64 %257
+  %257 = ashr exact i64 %sext634, 30
+  %258 = getelementptr inbounds i8, ptr %.pre600, i64 %257
   store i32 %198, ptr %258, align 4
   br label %115, !llvm.loop !21
 
@@ -3190,8 +3190,8 @@ Abc_NodeEdgeDsdPushOrdered.exit519.thread:        ; preds = %627
 Abc_NodeEdgeDsdPushOrdered.exit519:               ; preds = %646, %634
   %.0.in.lcssa.i512 = phi i64 [ %indvars.iv.i514, %634 ], [ 0, %646 ]
   %sext633 = shl i64 %.0.in.lcssa.i512, 32
-  %649 = ashr exact i64 %sext633, 32
-  %650 = getelementptr inbounds i32, ptr %.pre598, i64 %649
+  %649 = ashr exact i64 %sext633, 30
+  %650 = getelementptr inbounds i8, ptr %.pre598, i64 %649
   store i32 %.sroa.033.0.i, ptr %650, align 4
   br label %267, !llvm.loop !22
 

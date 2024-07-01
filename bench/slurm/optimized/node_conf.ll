@@ -406,8 +406,8 @@ define ptr @bitmap2hostlist(ptr noundef %0) local_unnamed_addr #0 {
   %11 = phi i64 [ %19, %16 ], [ %8, %.preheader.i ]
   %12 = load ptr, ptr @node_record_table_ptr, align 8
   %sext.i = shl i64 %11, 32
-  %13 = ashr exact i64 %sext.i, 32
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %13 = ashr exact i64 %sext.i, 29
+  %14 = getelementptr inbounds i8, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %.not12.i = icmp eq ptr %15, null
   br i1 %.not12.i, label %16, label %next_node_bitmap.exit
@@ -464,8 +464,8 @@ define ptr @next_node_bitmap(ptr noundef %0, ptr nocapture noundef %1) local_unn
   %12 = phi i64 [ %20, %17 ], [ %8, %.preheader ]
   %13 = load ptr, ptr @node_record_table_ptr, align 8
   %sext = shl i64 %12, 32
-  %14 = ashr exact i64 %sext, 32
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %14 = ashr exact i64 %sext, 29
+  %15 = getelementptr inbounds i8, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %.not12 = icmp eq ptr %16, null
   br i1 %.not12, label %17, label %.loopexit

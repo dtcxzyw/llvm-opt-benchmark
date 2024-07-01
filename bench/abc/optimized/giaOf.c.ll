@@ -140,7 +140,8 @@ define void @Of_ManAreaFlow(ptr nocapture noundef readonly %0) local_unnamed_add
   %45 = add i32 %44, %43
   %46 = getelementptr i8, ptr %28, i64 144
   %.val56 = load ptr, ptr %46, align 8
-  %47 = getelementptr inbounds i32, ptr %.val56, i64 %indvars.iv71
+  %sext.i = shl nuw nsw i64 %indvars.iv71, 2
+  %47 = getelementptr inbounds i8, ptr %.val56, i64 %sext.i
   %48 = load i32, ptr %47, align 4
   %49 = udiv i32 %45, %48
   %.val47 = load ptr, ptr %3, align 8
@@ -1476,8 +1477,8 @@ Of_ManPrepareCuts.exit267:                        ; preds = %._crit_edge.i243, %
   %363 = sub i64 %361, %362
   %364 = sdiv exact i64 %363, 12
   %sext.i = shl i64 %364, 32
-  %365 = ashr exact i64 %sext.i, 32
-  %366 = getelementptr inbounds i32, ptr %358, i64 %365
+  %365 = ashr exact i64 %sext.i, 30
+  %366 = getelementptr inbounds i8, ptr %358, i64 %365
   %367 = load i32, ptr %366, align 4
   %368 = and i32 %367, 1
   br label %Gia_ObjFaninC2.exit

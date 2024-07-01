@@ -67,8 +67,6 @@ module asm ".previous"
 %"class.vcg::Point3" = type { [3 x double] }
 %"class.vcg::Color4" = type { %"class.vcg::Point4" }
 %"class.vcg::Point4" = type { [4 x i8] }
-%struct.TexCoordStorage = type { [3 x %"class.vcg::TexCoord2"] }
-%struct.CoordStorage = type { [3 x %"class.vcg::Point3"] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -161,6 +159,8 @@ module asm ".previous"
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %"struct.std::pair.243" = type { i32, ptr }
 %"struct.std::_Rb_tree<vcg::PointerToAttribute, vcg::PointerToAttribute, std::_Identity<vcg::PointerToAttribute>, std::less<vcg::PointerToAttribute>>::_Alloc_node" = type { ptr }
+%struct.CoordStorage = type { [3 x %"class.vcg::Point3"] }
+%struct.TexCoordStorage = type { [3 x %"class.vcg::TexCoord2"] }
 %"class.std::vector.532" = type { %"struct.std::_Vector_base.533" }
 %"struct.std::_Vector_base.533" = type { %"struct.std::_Vector_base<vcg::tri::Hole<Mesh>::Info, std::allocator<vcg::tri::Hole<Mesh>::Info>>::_Vector_impl" }
 %"struct.std::_Vector_base<vcg::tri::Hole<Mesh>::Info, std::allocator<vcg::tri::Hole<Mesh>::Info>>::_Vector_impl" = type { %"struct.std::_Vector_base<vcg::tri::Hole<Mesh>::Info, std::allocator<vcg::tri::Hole<Mesh>::Info>>::_Vector_impl_data" }
@@ -776,9 +776,9 @@ _ZL5BuildR4MeshR9FaceGroup.exit:                  ; preds = %61, %63
   %96 = ptrtoint ptr %93 to i64
   %97 = ptrtoint ptr %95 to i64
   %98 = sub i64 %96, %97
-  %99 = sdiv exact i64 %98, 216
-  %100 = load ptr, ptr %73, align 8
-  %101 = getelementptr inbounds i32, ptr %100, i64 %99
+  %99 = load ptr, ptr %73, align 8
+  %100 = sdiv exact i64 %98, 54
+  %101 = getelementptr inbounds i8, ptr %99, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = zext i32 %102 to i64
   %104 = icmp eq i64 %91, %103
@@ -836,15 +836,15 @@ _ZL5BuildR4MeshR9FaceGroup.exit:                  ; preds = %61, %63
 
 141:                                              ; preds = %.lr.ph169, %377
   %.054167 = phi double [ 0.000000e+00, %.lr.ph169 ], [ %373, %377 ]
-  %.sroa.0145.0166 = phi ptr [ %112, %.lr.ph169 ], [ %405, %377 ]
+  %.sroa.0145.0166 = phi ptr [ %112, %.lr.ph169 ], [ %407, %377 ]
   %142 = load ptr, ptr %121, align 8
   %143 = load ptr, ptr %142, align 8
   %144 = ptrtoint ptr %.sroa.0145.0166 to i64
   %145 = ptrtoint ptr %143 to i64
   %146 = sub i64 %144, %145
-  %147 = sdiv exact i64 %146, 216
-  %148 = load ptr, ptr %120, align 8
-  %149 = getelementptr inbounds i32, ptr %148, i64 %147
+  %147 = load ptr, ptr %120, align 8
+  %148 = sdiv exact i64 %146, 54
+  %149 = getelementptr inbounds i8, ptr %147, i64 %148
   %150 = load i32, ptr %149, align 4
   %151 = sext i32 %150 to i64
   %152 = load ptr, ptr %119, align 8
@@ -854,9 +854,9 @@ _ZL5BuildR4MeshR9FaceGroup.exit:                  ; preds = %61, %63
   %156 = ptrtoint ptr %153 to i64
   %157 = ptrtoint ptr %155 to i64
   %158 = sub i64 %156, %157
-  %159 = sdiv exact i64 %158, 216
-  %160 = load ptr, ptr %122, align 8
-  %161 = getelementptr inbounds %struct.TexCoordStorage, ptr %160, i64 %159
+  %159 = load ptr, ptr %122, align 8
+  %160 = sdiv exact i64 %158, 3
+  %161 = getelementptr inbounds i8, ptr %159, i64 %160
   %162 = getelementptr inbounds i8, ptr %161, i64 24
   %163 = getelementptr inbounds i8, ptr %161, i64 48
   %164 = load <2 x double>, ptr %162, align 8
@@ -1098,9 +1098,9 @@ _Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit: ; preds 
   %345 = load ptr, ptr %344, align 8
   %346 = ptrtoint ptr %345 to i64
   %347 = sub i64 %144, %346
-  %348 = sdiv exact i64 %347, 216
-  %349 = load ptr, ptr %135, align 8
-  %350 = getelementptr inbounds %struct.CoordStorage, ptr %349, i64 %348
+  %348 = load ptr, ptr %135, align 8
+  %349 = sdiv exact i64 %347, 3
+  %350 = getelementptr inbounds i8, ptr %348, i64 %349
   store <2 x double> %341, ptr %350, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %350, i64 16
   store double %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 8
@@ -1151,9 +1151,9 @@ _Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit: ; preds 
   %381 = load ptr, ptr %380, align 8
   %382 = ptrtoint ptr %381 to i64
   %383 = sub i64 %144, %382
-  %384 = sdiv exact i64 %383, 216
-  %385 = load ptr, ptr %137, align 8
-  %386 = getelementptr inbounds %struct.CoordStorage, ptr %385, i64 %384
+  %384 = load ptr, ptr %137, align 8
+  %385 = sdiv exact i64 %383, 3
+  %386 = getelementptr inbounds i8, ptr %384, i64 %385
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %386, ptr noundef nonnull align 8 dereferenceable(24) %379, i64 24, i1 false)
   %387 = getelementptr inbounds i8, ptr %.sroa.0145.0166, i64 16
   %388 = load ptr, ptr %387, align 8
@@ -1161,27 +1161,29 @@ _Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit: ; preds 
   %390 = load ptr, ptr %389, align 8
   %391 = ptrtoint ptr %390 to i64
   %392 = sub i64 %144, %391
-  %393 = sdiv exact i64 %392, 216
-  %394 = load ptr, ptr %137, align 8
-  %395 = getelementptr inbounds %struct.CoordStorage, ptr %394, i64 %393, i32 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %395, ptr noundef nonnull align 8 dereferenceable(24) %388, i64 24, i1 false)
-  %396 = getelementptr inbounds i8, ptr %.sroa.0145.0166, i64 24
-  %397 = load ptr, ptr %396, align 8
-  %398 = load ptr, ptr %138, align 8
-  %399 = load ptr, ptr %398, align 8
-  %400 = ptrtoint ptr %399 to i64
-  %401 = sub i64 %144, %400
-  %402 = sdiv exact i64 %401, 216
+  %393 = load ptr, ptr %137, align 8
+  %394 = sdiv exact i64 %392, 3
+  %395 = getelementptr inbounds i8, ptr %393, i64 %394
+  %396 = getelementptr inbounds i8, ptr %395, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %396, ptr noundef nonnull align 8 dereferenceable(24) %388, i64 24, i1 false)
+  %397 = getelementptr inbounds i8, ptr %.sroa.0145.0166, i64 24
+  %398 = load ptr, ptr %397, align 8
+  %399 = load ptr, ptr %138, align 8
+  %400 = load ptr, ptr %399, align 8
+  %401 = ptrtoint ptr %400 to i64
+  %402 = sub i64 %144, %401
   %403 = load ptr, ptr %137, align 8
-  %404 = getelementptr inbounds %struct.CoordStorage, ptr %403, i64 %402, i32 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %404, ptr noundef nonnull align 8 dereferenceable(24) %397, i64 24, i1 false)
-  %405 = getelementptr inbounds i8, ptr %.sroa.0145.0166, i64 216
-  %.not = icmp eq ptr %405, %114
+  %404 = sdiv exact i64 %402, 3
+  %405 = getelementptr inbounds i8, ptr %403, i64 %404
+  %406 = getelementptr inbounds i8, ptr %405, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %406, ptr noundef nonnull align 8 dereferenceable(24) %398, i64 24, i1 false)
+  %407 = getelementptr inbounds i8, ptr %.sroa.0145.0166, i64 216
+  %.not = icmp eq ptr %407, %114
   br i1 %.not, label %._crit_edge170, label %141
 
 ._crit_edge170:                                   ; preds = %377, %._crit_edge
-  %406 = icmp eq i32 %60, 1
-  ret i1 %406
+  %408 = icmp eq i32 %60, 1
+  ret i1 %408
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5591,12 +5593,12 @@ _ZN3vcg3tri15ResizeAttributeI4MeshSt3setINS_18PointerToAttributeESt4lessIS4_ESaI
   %186 = ptrtoint ptr %184 to i64
   %187 = ptrtoint ptr %185 to i64
   %188 = sub i64 %186, %187
-  %189 = sdiv exact i64 %188, 120
-  %190 = load ptr, ptr %1, align 8
-  %191 = load ptr, ptr %110, align 8
-  %192 = getelementptr inbounds i64, ptr %191, i64 %189
+  %189 = load ptr, ptr %1, align 8
+  %190 = load ptr, ptr %110, align 8
+  %191 = sdiv exact i64 %188, 15
+  %192 = getelementptr inbounds i8, ptr %190, i64 %191
   %193 = load i64, ptr %192, align 8
-  %194 = getelementptr inbounds %class.MeshVertex, ptr %190, i64 %193
+  %194 = getelementptr inbounds %class.MeshVertex, ptr %189, i64 %193
   store ptr %194, ptr %183, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -5638,8 +5640,8 @@ _ZN3vcg3tri15ResizeAttributeI4MeshSt3setINS_18PointerToAttributeESt4lessIS4_ESaI
   %206 = phi ptr [ %_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp.promoted147149, %.preheader ], [ %212, %205 ]
   %207 = ptrtoint ptr %206 to i64
   %208 = sub i64 %207, %202
-  %209 = sdiv exact i64 %208, 120
-  %210 = getelementptr inbounds i64, ptr %204, i64 %209
+  %209 = sdiv exact i64 %208, 15
+  %210 = getelementptr inbounds i8, ptr %204, i64 %209
   %211 = load i64, ptr %210, align 8
   %212 = getelementptr inbounds %class.MeshVertex, ptr %203, i64 %211
   store ptr %212, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI10MeshVertexE12AsVertexTypeENS4_I8MeshFaceE10AsFaceTypeENS4_I8MeshEdgeE10AsEdgeTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
@@ -5698,8 +5700,8 @@ _ZN3vcg3tri15ResizeAttributeI4MeshSt3setINS_18PointerToAttributeESt4lessIS4_ESaI
   %242 = ptrtoint ptr %236 to i64
   %243 = ptrtoint ptr %241 to i64
   %244 = sub i64 %242, %243
-  %245 = sdiv exact i64 %244, 120
-  %246 = getelementptr inbounds i64, ptr %237, i64 %245
+  %245 = sdiv exact i64 %244, 15
+  %246 = getelementptr inbounds i8, ptr %237, i64 %245
   %247 = load i64, ptr %246, align 8
   %248 = getelementptr inbounds %class.MeshVertex, ptr %241, i64 %247
   store ptr %248, ptr %.sroa.0112.0153, align 8
@@ -5732,8 +5734,8 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE6UpdateERS6_.exit: ; 
   %266 = ptrtoint ptr %260 to i64
   %267 = ptrtoint ptr %265 to i64
   %268 = sub i64 %266, %267
-  %269 = sdiv exact i64 %268, 120
-  %270 = getelementptr inbounds i64, ptr %261, i64 %269
+  %269 = sdiv exact i64 %268, 15
+  %270 = getelementptr inbounds i8, ptr %261, i64 %269
   %271 = load i64, ptr %270, align 8
   %272 = getelementptr inbounds %class.MeshVertex, ptr %265, i64 %271
   store ptr %272, ptr %249, align 8
@@ -6445,8 +6447,8 @@ _ZN3vcg18PointerToAttribute6ResizeEm.exit.i:      ; preds = %198
   %235 = ptrtoint ptr %229 to i64
   %236 = ptrtoint ptr %234 to i64
   %237 = sub i64 %235, %236
-  %238 = sdiv exact i64 %237, 72
-  %239 = getelementptr inbounds i64, ptr %230, i64 %238
+  %238 = sdiv exact i64 %237, 9
+  %239 = getelementptr inbounds i8, ptr %230, i64 %238
   %240 = load i64, ptr %239, align 8
   %241 = getelementptr inbounds %class.MeshEdge, ptr %234, i64 %240
   store ptr %241, ptr %218, align 8
@@ -6499,8 +6501,8 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP8MeshEdgeE6UpdateERS6_.exit: ; pre
   %267 = ptrtoint ptr %261 to i64
   %268 = ptrtoint ptr %266 to i64
   %269 = sub i64 %267, %268
-  %270 = sdiv exact i64 %269, 72
-  %271 = getelementptr inbounds i64, ptr %262, i64 %270
+  %270 = sdiv exact i64 %269, 9
+  %271 = getelementptr inbounds i8, ptr %262, i64 %270
   %272 = load i64, ptr %271, align 8
   %273 = getelementptr inbounds %class.MeshEdge, ptr %266, i64 %272
   store ptr %273, ptr %250, align 8
@@ -6533,8 +6535,8 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP8MeshEdgeE6UpdateERS6_.exit137: ; 
   %291 = ptrtoint ptr %285 to i64
   %292 = ptrtoint ptr %290 to i64
   %293 = sub i64 %291, %292
-  %294 = sdiv exact i64 %293, 72
-  %295 = getelementptr inbounds i64, ptr %286, i64 %294
+  %294 = sdiv exact i64 %293, 9
+  %295 = getelementptr inbounds i8, ptr %286, i64 %294
   %296 = load i64, ptr %295, align 8
   %297 = getelementptr inbounds %class.MeshEdge, ptr %290, i64 %296
   store ptr %297, ptr %274, align 8
@@ -6965,9 +6967,9 @@ common.resume:                                    ; preds = %204, %132
 151:                                              ; preds = %148
   %152 = ptrtoint ptr %150 to i64
   %153 = sub i64 %152, %139
-  %154 = sdiv exact i64 %153, 216
-  %155 = load ptr, ptr %19, align 8
-  %156 = getelementptr inbounds i64, ptr %155, i64 %154
+  %154 = load ptr, ptr %19, align 8
+  %155 = sdiv exact i64 %153, 27
+  %156 = getelementptr inbounds i8, ptr %154, i64 %155
   %157 = load i64, ptr %156, align 8
   %158 = getelementptr inbounds %class.MeshFace, ptr %134, i64 %157
   store ptr %158, ptr %149, align 8
@@ -7117,9 +7119,9 @@ _ZN3vcg3tri15ResizeAttributeI4MeshSt3setINS_18PointerToAttributeESt4lessIS4_ESaI
 223:                                              ; preds = %220
   %224 = ptrtoint ptr %222 to i64
   %225 = sub i64 %224, %208
-  %226 = sdiv exact i64 %225, 216
-  %227 = load ptr, ptr %19, align 8
-  %228 = getelementptr inbounds i64, ptr %227, i64 %226
+  %226 = load ptr, ptr %19, align 8
+  %227 = sdiv exact i64 %225, 27
+  %228 = getelementptr inbounds i8, ptr %226, i64 %227
   %229 = load i64, ptr %228, align 8
   %230 = getelementptr inbounds %class.MeshFace, ptr %134, i64 %229
   store ptr %230, ptr %221, align 8
@@ -7140,9 +7142,9 @@ _ZN3vcg3tri15ResizeAttributeI4MeshSt3setINS_18PointerToAttributeESt4lessIS4_ESaI
 235:                                              ; preds = %232
   %236 = ptrtoint ptr %234 to i64
   %237 = sub i64 %236, %208
-  %238 = sdiv exact i64 %237, 216
-  %239 = load ptr, ptr %19, align 8
-  %240 = getelementptr inbounds i64, ptr %239, i64 %238
+  %238 = load ptr, ptr %19, align 8
+  %239 = sdiv exact i64 %237, 27
+  %240 = getelementptr inbounds i8, ptr %238, i64 %239
   %241 = load i64, ptr %240, align 8
   %242 = getelementptr inbounds %class.MeshFace, ptr %134, i64 %241
   store ptr %242, ptr %233, align 8
@@ -11953,8 +11955,8 @@ define void @_Z12CloseHoles3DR4Mesh(ptr noundef nonnull align 8 dereferenceable(
   %21 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %102, %20 ]
   %22 = ptrtoint ptr %.sroa.0100.0117 to i64
   %23 = sub i64 %22, %18
-  %24 = sdiv exact i64 %23, 216
-  %25 = getelementptr inbounds %struct.CoordStorage, ptr %19, i64 %24
+  %24 = sdiv exact i64 %23, 3
+  %25 = getelementptr inbounds i8, ptr %19, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 24
   %27 = load double, ptr %26, align 8, !noalias !175
   %28 = load double, ptr %25, align 8, !noalias !11
@@ -12310,9 +12312,9 @@ _ZN3vcg3tri9AllocatorI4MeshE17CompactFaceVectorERS2_.exit: ; preds = %205, %208
   %239 = load ptr, ptr %238, align 8
   %240 = ptrtoint ptr %239 to i64
   %241 = sub i64 %232, %240
-  %242 = sdiv exact i64 %241, 216
-  %243 = load ptr, ptr %223, align 8
-  %244 = getelementptr inbounds i32, ptr %243, i64 %242
+  %242 = load ptr, ptr %223, align 8
+  %243 = sdiv exact i64 %241, 54
+  %244 = getelementptr inbounds i8, ptr %242, i64 %243
   store i32 -1, ptr %244, align 4
   %245 = getelementptr inbounds i8, ptr %.sroa.082.0130, i64 8
   %246 = getelementptr inbounds i8, ptr %.sroa.082.0130, i64 16
@@ -12371,9 +12373,9 @@ _ZN3vcg3tri9AllocatorI4MeshE17CompactFaceVectorERS2_.exit: ; preds = %205, %208
   %293 = load ptr, ptr %292, align 8
   %294 = ptrtoint ptr %293 to i64
   %295 = sub i64 %232, %294
-  %296 = sdiv exact i64 %295, 216
-  %297 = load ptr, ptr %225, align 8
-  %298 = getelementptr inbounds %struct.CoordStorage, ptr %297, i64 %296
+  %296 = load ptr, ptr %225, align 8
+  %297 = sdiv exact i64 %295, 3
+  %298 = getelementptr inbounds i8, ptr %296, i64 %297
   %299 = getelementptr inbounds [3 x %"class.vcg::Point3"], ptr %298, i64 0, i64 %indvars.iv137
   store <2 x double> %291, ptr %299, align 8
   %.sroa.375.0..sroa_idx.us = getelementptr inbounds i8, ptr %299, i64 16
@@ -12397,9 +12399,9 @@ _ZN3vcg3tri9AllocatorI4MeshE17CompactFaceVectorERS2_.exit: ; preds = %205, %208
   %309 = load ptr, ptr %308, align 8
   %310 = ptrtoint ptr %309 to i64
   %311 = sub i64 %232, %310
-  %312 = sdiv exact i64 %311, 216
-  %313 = load ptr, ptr %225, align 8
-  %314 = getelementptr inbounds %struct.CoordStorage, ptr %313, i64 %312
+  %312 = load ptr, ptr %225, align 8
+  %313 = sdiv exact i64 %311, 3
+  %314 = getelementptr inbounds i8, ptr %312, i64 %313
   %315 = getelementptr inbounds [3 x %"class.vcg::Point3"], ptr %314, i64 0, i64 %indvars.iv
   %316 = load <2 x double>, ptr %301, align 8, !noalias !196
   %317 = fmul <2 x double> %228, %316
@@ -15725,8 +15727,8 @@ define linkonce_odr ptr @_ZN3vcg3tri9AllocatorI4MeshE8AddFacesERS2_mRSt6vectorIP
   %32 = ptrtoint ptr %26 to i64
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
-  %35 = sdiv exact i64 %34, 216
-  %36 = getelementptr inbounds i64, ptr %27, i64 %35
+  %35 = sdiv exact i64 %34, 27
+  %36 = getelementptr inbounds i8, ptr %27, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr inbounds %class.MeshFace, ptr %31, i64 %37
   store ptr %38, ptr %15, align 8
@@ -16617,8 +16619,8 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP8MeshFaceE10NeedUpdateEv.exit.thre
   %110 = ptrtoint ptr %104 to i64
   %111 = ptrtoint ptr %109 to i64
   %112 = sub i64 %110, %111
-  %113 = sdiv exact i64 %112, 216
-  %114 = getelementptr inbounds i64, ptr %105, i64 %113
+  %113 = sdiv exact i64 %112, 27
+  %114 = getelementptr inbounds i8, ptr %105, i64 %113
   %115 = load i64, ptr %114, align 8
   %116 = getelementptr inbounds %class.MeshFace, ptr %109, i64 %115
   store ptr %116, ptr %92, align 8
@@ -16691,8 +16693,8 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP8MeshFaceE6UpdateERS6_.exit: ; pre
   %144 = ptrtoint ptr %138 to i64
   %145 = ptrtoint ptr %143 to i64
   %146 = sub i64 %144, %145
-  %147 = sdiv exact i64 %146, 216
-  %148 = getelementptr inbounds i64, ptr %139, i64 %147
+  %147 = sdiv exact i64 %146, 27
+  %148 = getelementptr inbounds i8, ptr %139, i64 %147
   %149 = load i64, ptr %148, align 8
   %150 = getelementptr inbounds %class.MeshFace, ptr %143, i64 %149
   store ptr %150, ptr %126, align 8
@@ -16759,8 +16761,8 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP8MeshFaceE6UpdateERS6_.exit60: ; p
   %180 = ptrtoint ptr %174 to i64
   %181 = ptrtoint ptr %179 to i64
   %182 = sub i64 %180, %181
-  %183 = sdiv exact i64 %182, 216
-  %184 = getelementptr inbounds i64, ptr %175, i64 %183
+  %183 = sdiv exact i64 %182, 27
+  %184 = getelementptr inbounds i8, ptr %175, i64 %183
   %185 = load i64, ptr %184, align 8
   %186 = getelementptr inbounds %class.MeshFace, ptr %179, i64 %185
   store ptr %186, ptr %162, align 8
@@ -17488,9 +17490,9 @@ define void @_Z15SyncShellWith3DR4Mesh(ptr noundef nonnull align 8 dereferenceab
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %13, %19
-  %21 = sdiv exact i64 %20, 216
-  %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds %struct.CoordStorage, ptr %22, i64 %21
+  %21 = load ptr, ptr %8, align 8
+  %22 = sdiv exact i64 %20, 3
+  %23 = getelementptr inbounds i8, ptr %21, i64 %22
   %24 = getelementptr inbounds [3 x %"class.vcg::Point3"], ptr %23, i64 0, i64 %indvars.iv
   %25 = getelementptr inbounds [3 x ptr], ptr %14, i64 0, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8

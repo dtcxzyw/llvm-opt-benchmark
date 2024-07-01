@@ -1140,8 +1140,8 @@ select.unfold.i94:                                ; preds = %259, %_ZN4Luau7Code
 
 279:                                              ; preds = %274
   %sext.i = shl i64 %.065106.i, 32
-  %280 = ashr exact i64 %sext.i, 32
-  %281 = getelementptr inbounds ptr, ptr %278, i64 %280
+  %280 = ashr exact i64 %sext.i, 29
+  %281 = getelementptr inbounds i8, ptr %278, i64 %280
   %282 = load ptr, ptr %281, align 8
   %.not7.i.i = icmp eq ptr %282, null
   br i1 %.not7.i.i, label %select.unfold94.i, label %_ZN4Luau7CodeGen18tryFindUpvalueNameEPK5Protoi.exit.i
@@ -1356,8 +1356,8 @@ select.unfold.i117:                               ; preds = %356, %_ZN4Luau7Code
 
 376:                                              ; preds = %371
   %sext.i120 = shl i64 %.05087.i, 32
-  %377 = ashr exact i64 %sext.i120, 32
-  %378 = getelementptr inbounds ptr, ptr %375, i64 %377
+  %377 = ashr exact i64 %sext.i120, 29
+  %378 = getelementptr inbounds i8, ptr %375, i64 %377
   %379 = load ptr, ptr %378, align 8
   %.not7.i.i121 = icmp eq ptr %379, null
   br i1 %.not7.i.i121, label %select.unfold76.i, label %_ZN4Luau7CodeGen18tryFindUpvalueNameEPK5Protoi.exit.i122
@@ -2702,8 +2702,8 @@ select.unfold.i94:                                ; preds = %260, %_ZN4Luau7Code
 
 280:                                              ; preds = %275
   %sext.i = shl i64 %.065106.i, 32
-  %281 = ashr exact i64 %sext.i, 32
-  %282 = getelementptr inbounds ptr, ptr %279, i64 %281
+  %281 = ashr exact i64 %sext.i, 29
+  %282 = getelementptr inbounds i8, ptr %279, i64 %281
   %283 = load ptr, ptr %282, align 8
   %.not7.i.i = icmp eq ptr %283, null
   br i1 %.not7.i.i, label %select.unfold94.i, label %_ZN4Luau7CodeGen18tryFindUpvalueNameEPK5Protoi.exit.i
@@ -2918,8 +2918,8 @@ select.unfold.i117:                               ; preds = %357, %_ZN4Luau7Code
 
 377:                                              ; preds = %372
   %sext.i120 = shl i64 %.05087.i, 32
-  %378 = ashr exact i64 %sext.i120, 32
-  %379 = getelementptr inbounds ptr, ptr %376, i64 %378
+  %378 = ashr exact i64 %sext.i120, 29
+  %379 = getelementptr inbounds i8, ptr %376, i64 %378
   %380 = load ptr, ptr %379, align 8
   %.not7.i.i121 = icmp eq ptr %380, null
   br i1 %.not7.i.i121, label %select.unfold76.i, label %_ZN4Luau7CodeGen18tryFindUpvalueNameEPK5Protoi.exit.i122

@@ -11782,10 +11782,10 @@ define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_st
   %16 = sub nsw i32 %15, %11
   %17 = icmp sgt i32 %16, 0
   %sext13 = shl i64 %9, 29
-  %18 = ashr i64 %sext13, 32
   br i1 %17, label %.lr.ph.i, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14DeleteSubrangeEii.exit
 
 .lr.ph.i:                                         ; preds = %3
+  %18 = ashr i64 %sext13, 32
   %wide.trip.count.i = zext nneg i32 %16 to i64
   br label %19
 
@@ -11860,8 +11860,9 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
   %.not.i.i = icmp eq ptr %50, null
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %51
-  %52 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %18
-  ret ptr %52
+  %52 = ashr exact i64 %sext13, 29
+  %53 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %52
+  ret ptr %53
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

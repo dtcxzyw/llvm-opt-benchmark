@@ -122,8 +122,8 @@ define dso_local void @scsi_show_rq(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %67, label %69, label %._crit_edge
 
 69:                                               ; preds = %66
-  %70 = ashr exact i64 %68, 32
-  %71 = getelementptr ptr, ptr @scsi_cmd_flags, i64 %70
+  %70 = ashr exact i64 %68, 29
+  %71 = getelementptr i8, ptr @scsi_cmd_flags, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %._crit_edge, label %74

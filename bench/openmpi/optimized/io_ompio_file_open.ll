@@ -924,8 +924,8 @@ define range(i32 0, 14) i32 @mca_io_ompio_file_get_byte_offset(ptr noundef %0, i
   %44 = getelementptr inbounds i8, ptr %5, i64 192
   %45 = load i64, ptr %44, align 8
   %sext = shl i64 %.1.in, 32
-  %46 = ashr exact i64 %sext, 32
-  %47 = getelementptr inbounds %struct.iovec, ptr %34, i64 %46
+  %46 = ashr exact i64 %sext, 28
+  %47 = getelementptr inbounds i8, ptr %34, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = add i64 %.031, %26

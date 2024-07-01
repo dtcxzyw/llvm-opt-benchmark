@@ -2267,10 +2267,10 @@ if.then2:                                         ; preds = %if.end
   %conv6 = trunc i64 %.sroa.speculated to i32
   store i32 %conv6, ptr %m_next_scanline, align 4
   %sext = shl i64 %.sroa.speculated, 32
-  %conv10 = ashr exact i64 %sext, 32
-  %add.ptr.i = getelementptr inbounds i64, ptr %4, i64 %conv10
-  %5 = load i64, ptr %add.ptr.i, align 8
-  %call13 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_010ImageInput6ioseekEli(ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %5, i32 noundef 0)
+  %5 = ashr exact i64 %sext, 29
+  %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %5
+  %6 = load i64, ptr %add.ptr.i, align 8
+  %call13 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_010ImageInput6ioseekEli(ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %6, i32 noundef 0)
           to label %if.end14 unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %while.body, %if.then26, %cond.true.i.i.i.i
@@ -2289,10 +2289,10 @@ lpad:                                             ; preds = %lpad.loopexit.split
           to label %_ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #25
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #25
   unreachable
 
 _ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit: ; preds = %lpad
@@ -2306,25 +2306,25 @@ if.end14:                                         ; preds = %if.then2, %if.end
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end32, %if.end14
-  %8 = load i32, ptr %m_next_scanline, align 4
-  %cmp16.not = icmp sgt i32 %8, %y
+  %9 = load i32, ptr %m_next_scanline, align 4
+  %cmp16.not = icmp sgt i32 %9, %y
   br i1 %cmp16.not, label %cleanup, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %9 = load i32, ptr %width, align 4
-  %conv17 = sext i32 %9 to i64
+  %10 = load i32, ptr %width, align 4
+  %conv17 = sext i32 %10 to i64
   %call19 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08HdrInput19RGBE_ReadPixels_RLEEPfimi(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %data, i32 noundef %y, i64 noundef %conv17, i32 noundef 1)
           to label %invoke.cont18 unwind label %lpad.loopexit
 
 invoke.cont18:                                    ; preds = %while.body
-  %10 = load i32, ptr %m_next_scanline, align 4
-  %inc = add nsw i32 %10, 1
+  %11 = load i32, ptr %m_next_scanline, align 4
+  %inc = add nsw i32 %11, 1
   store i32 %inc, ptr %m_next_scanline, align 4
   %conv22 = sext i32 %inc to i64
-  %11 = load ptr, ptr %_M_finish.i4, align 8
-  %12 = load ptr, ptr %m_scanline_offsets23, align 8
-  %sub.ptr.lhs.cast.i5 = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i6 = ptrtoint ptr %12 to i64
+  %12 = load ptr, ptr %_M_finish.i4, align 8
+  %13 = load ptr, ptr %m_scanline_offsets23, align 8
+  %sub.ptr.lhs.cast.i5 = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i6 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i7 = sub i64 %sub.ptr.lhs.cast.i5, %sub.ptr.rhs.cast.i6
   %sub.ptr.div.i8 = ashr exact i64 %sub.ptr.sub.i7, 3
   %cmp25 = icmp eq i64 %sub.ptr.div.i8, %conv22
@@ -2335,22 +2335,22 @@ if.then26:                                        ; preds = %invoke.cont18
           to label %invoke.cont29 unwind label %lpad.loopexit
 
 invoke.cont29:                                    ; preds = %if.then26
-  %13 = load ptr, ptr %_M_finish.i4, align 8
-  %14 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %13, %14
+  %14 = load ptr, ptr %_M_finish.i4, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %14, %15
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont29
-  store i64 %call30, ptr %13, align 8
-  %15 = load ptr, ptr %_M_finish.i4, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  store i64 %call30, ptr %14, align 8
+  %16 = load ptr, ptr %_M_finish.i4, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i4, align 8
   br label %if.end32
 
 if.else.i.i:                                      ; preds = %invoke.cont29
-  %16 = load ptr, ptr %m_scanline_offsets23, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %16 to i64
+  %17 = load ptr, ptr %m_scanline_offsets23, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i
@@ -2367,8 +2367,8 @@ _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
   %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
-  %17 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %17
+  %18 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %18
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
@@ -2385,17 +2385,17 @@ _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %16, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %17, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i
 
 _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i.i = icmp eq ptr %16, null
+  %tobool.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
 if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %17) #22
   br label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i.i
@@ -2414,10 +2414,10 @@ cleanup:                                          ; preds = %while.cond, %if.end
           to label %_ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit11 unwind label %terminate.lpad.i10
 
 terminate.lpad.i10:                               ; preds = %cleanup
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #25
+  %20 = extractvalue { ptr, i32 } %19, 0
+  tail call void @__clang_call_terminate(ptr %20) #25
   unreachable
 
 _ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit11: ; preds = %cleanup

@@ -166,14 +166,14 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %14, %18
   %69 = add nuw nsw i32 %67, %68
   %70 = add i64 %59, %indvars.iv927
   %sext = shl i64 %70, 32
-  %71 = ashr exact i64 %sext, 32
-  %72 = and i32 %66, 16777215
-  %73 = zext nneg i32 %72 to i64
-  %74 = zext nneg i32 %69 to i64
+  %71 = and i32 %66, 16777215
+  %72 = zext nneg i32 %71 to i64
+  %73 = zext nneg i32 %69 to i64
+  %74 = ashr exact i64 %sext, 30
   br label %75
 
 75:                                               ; preds = %.lr.ph, %134
-  %indvars.iv = phi i64 [ %73, %.lr.ph ], [ %indvars.iv.next, %134 ]
+  %indvars.iv = phi i64 [ %72, %.lr.ph ], [ %indvars.iv.next, %134 ]
   %.1530800 = phi i8 [ %.0529802, %.lr.ph ], [ %.3, %134 ]
   %76 = load ptr, ptr %48, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 %indvars.iv
@@ -191,7 +191,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %14, %18
 
 85:                                               ; preds = %80
   %86 = load ptr, ptr %47, align 8
-  %87 = getelementptr inbounds %struct.rcCompactCell, ptr %86, i64 %71
+  %87 = getelementptr inbounds i8, ptr %86, i64 %74
   %88 = load i32, ptr %87, align 4
   %89 = and i32 %88, 16777215
   %90 = add nuw nsw i32 %89, %84
@@ -279,7 +279,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %14, %18
 134:                                              ; preds = %75, %132
   %.3 = phi i8 [ %.1530800, %75 ], [ %.2531, %132 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %135 = icmp ult i64 %indvars.iv.next, %74
+  %135 = icmp ult i64 %indvars.iv.next, %73
   br i1 %135, label %75, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %134, %62

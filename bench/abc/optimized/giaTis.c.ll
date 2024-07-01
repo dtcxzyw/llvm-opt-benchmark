@@ -241,8 +241,8 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %116 = sub i64 %114, %115
   %117 = sdiv exact i64 %116, 12
   %sext.i = shl i64 %117, 32
-  %118 = ashr exact i64 %sext.i, 32
-  %119 = getelementptr inbounds i32, ptr %.val85, i64 %118
+  %118 = ashr exact i64 %sext.i, 30
+  %119 = getelementptr inbounds i8, ptr %.val85, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = icmp sgt i32 %120, 1
   br i1 %121, label %122, label %148
@@ -256,8 +256,8 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %128 = sub i64 %127, %115
   %129 = sdiv exact i64 %128, 12
   %sext.i104 = shl i64 %129, 32
-  %130 = ashr exact i64 %sext.i104, 32
-  %131 = getelementptr inbounds i32, ptr %.val85, i64 %130
+  %130 = ashr exact i64 %sext.i104, 30
+  %131 = getelementptr inbounds i8, ptr %.val85, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = icmp sgt i32 %132, 1
   br i1 %133, label %134, label %148

@@ -64890,17 +64890,16 @@ for.body.preheader:                               ; preds = %if.then24
   %div1.i.i79 = lshr i64 %add.i.i78, 6
   %20 = load ptr, ptr %validity.i, align 8, !tbaa !625
   %21 = load ptr, ptr %ignore_nulls17, align 8, !tbaa !625
-  %div1.i.i = lshr exact i64 %input_idx, 6
-  %add.ptr = getelementptr i64, ptr %21, i64 %div1.i.i
+  %22 = lshr exact i64 %input_idx, 3
+  %add.ptr = getelementptr i8, ptr %21, i64 %22
   %min.iters.check = icmp ult i64 %add.i.i78, 640
   br i1 %min.iters.check, label %for.body.preheader113, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %for.body.preheader
-  %22 = ptrtoint ptr %21 to i64
-  %23 = ptrtoint ptr %20 to i64
-  %24 = lshr exact i64 %input_idx, 3
-  %25 = sub i64 %24, %23
-  %26 = add i64 %25, %22
+  %23 = ptrtoint ptr %21 to i64
+  %24 = ptrtoint ptr %20 to i64
+  %25 = sub i64 %22, %24
+  %26 = add i64 %25, %23
   %diff.check = icmp ult i64 %26, 32
   br i1 %diff.check, label %for.body.preheader113, label %vector.ph
 

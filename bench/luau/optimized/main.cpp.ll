@@ -13252,8 +13252,8 @@ _ZNSt6vectorIPKN7doctest6detail8TestCaseESaIS4_EE9push_backEOS4_.exit: ; preds =
   %286 = getelementptr inbounds ptr, ptr %.sroa.0294.1, i64 %.095506
   %287 = load ptr, ptr %286, align 8
   %sext = shl i64 %285, 32
-  %288 = ashr exact i64 %sext, 32
-  %289 = getelementptr inbounds ptr, ptr %.sroa.0294.1, i64 %288
+  %288 = ashr exact i64 %sext, 29
+  %289 = getelementptr inbounds i8, ptr %.sroa.0294.1, i64 %288
   %290 = load ptr, ptr %289, align 8
   store ptr %290, ptr %286, align 8
   store ptr %287, ptr %289, align 8

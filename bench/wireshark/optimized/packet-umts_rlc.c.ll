@@ -3530,8 +3530,8 @@ thread-pre-split:                                 ; preds = %278, %279
   %294 = ptrtoint ptr %293 to i64
   %295 = trunc i64 %294 to i16
   %sext243 = shl i64 %294, 48
-  %296 = ashr exact i64 %sext243, 48
-  %297 = getelementptr ptr, ptr %.0.i265, i64 %296
+  %296 = ashr exact i64 %sext243, 45
+  %297 = getelementptr i8, ptr %.0.i265, i64 %296
   %298 = load ptr, ptr %297, align 8
   %299 = icmp eq ptr %298, null
   br i1 %299, label %300, label %302

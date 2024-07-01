@@ -1162,8 +1162,8 @@ Wlc_ObjFaninId.exit:                              ; preds = %223, %Wlc_ObjHasArr
   %242 = getelementptr i8, ptr %236, i64 8
   %.val890 = load ptr, ptr %242, align 8
   %sext = shl i64 %241, 32
-  %243 = ashr exact i64 %sext, 32
-  %244 = getelementptr inbounds i64, ptr %.val890, i64 %243
+  %243 = ashr exact i64 %sext, 29
+  %244 = getelementptr inbounds i8, ptr %.val890, i64 %243
   %245 = load i64, ptr %244, align 8
   store i64 %245, ptr %5, align 8
   %246 = call i64 @fwrite(ptr nonnull @.str.35, i64 11, i64 1, ptr %0)

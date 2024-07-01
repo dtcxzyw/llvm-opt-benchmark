@@ -22767,10 +22767,10 @@ entry:
   %3 = extractvalue { <2 x float>, <2 x float> } %call11.i.i.i, 0
   %4 = extractvalue { <2 x float>, <2 x float> } %call11.i.i.i, 1
   %sext.i.i = shl i64 %__args.val, 32
-  %conv12.i.i.i = ashr exact i64 %sext.i.i, 32
   %ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.val1, i64 1104
   %5 = load ptr, ptr %ptr.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds %"class.pbrt::Bounds2", ptr %5, i64 %conv12.i.i.i
+  %6 = ashr exact i64 %sext.i.i, 28
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %6
   store <2 x float> %3, ptr %arrayidx.i.i.i.i, align 4
   %ref.tmp.sroa.2.0.call13.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 8
   store <2 x float> %4, ptr %ref.tmp.sroa.2.0.call13.sroa_idx.i.i.i, align 4

@@ -10096,9 +10096,9 @@ define dso_local void @_ZN3tev11ImageViewer15moveImageInListEmm(ptr noundef nonn
   %43 = trunc i64 %1 to i32
   %44 = getelementptr inbounds i8, ptr %42, i64 64
   %sext = shl i64 %1, 32
-  %45 = ashr exact i64 %sext, 32
-  %46 = load ptr, ptr %44, align 8
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %45
+  %45 = load ptr, ptr %44, align 8
+  %46 = ashr exact i64 %sext, 29
+  %47 = getelementptr inbounds i8, ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread128, label %50
@@ -10164,9 +10164,9 @@ define dso_local void @_ZN3tev11ImageViewer15moveImageInListEmm(ptr noundef nonn
   %70 = load ptr, ptr %41, align 16
   %71 = getelementptr inbounds i8, ptr %70, i64 64
   %sext136 = shl i64 %.083138, 32
-  %72 = ashr exact i64 %sext136, 32
-  %73 = load ptr, ptr %71, align 8
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %72
+  %72 = load ptr, ptr %71, align 8
+  %73 = ashr exact i64 %sext136, 29
+  %74 = getelementptr inbounds i8, ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8, !nonnull !10, !noundef !10
   %76 = tail call ptr @__dynamic_cast(ptr nonnull %75, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN3tev11ImageButtonE, i64 0) #39
   %77 = getelementptr inbounds i8, ptr %76, i64 88

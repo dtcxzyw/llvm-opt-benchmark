@@ -3987,8 +3987,8 @@ define internal fastcc noundef zeroext i1 @TriggerEnabled(ptr noundef %0, ptr no
   %43 = getelementptr inbounds i8, ptr %1, i64 104
   %44 = load ptr, ptr %43, align 8
   %sext = shl i64 %42, 32
-  %45 = ashr exact i64 %sext, 32
-  %46 = getelementptr ptr, ptr %44, i64 %45
+  %45 = ashr exact i64 %sext, 29
+  %46 = getelementptr i8, ptr %44, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %56

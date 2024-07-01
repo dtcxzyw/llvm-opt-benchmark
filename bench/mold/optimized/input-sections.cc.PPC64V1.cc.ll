@@ -3565,39 +3565,40 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %symtab_shndx_sec.i = getelementptr inbounds i8, ptr %0, i64 688
   %4 = load ptr, ptr %symtab_shndx_sec.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.mold::BigEndian", ptr %4, i64 %conv
+  %5 = shl nuw nsw i64 %conv, 2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %5
   %x.0.copyload.i3.i = load i32, ptr %add.ptr.i.i, align 1
-  %5 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i3.i)
-  %conv5.i = zext i32 %5 to i64
+  %6 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i3.i)
+  %conv5.i = zext i32 %6 to i64
   br label %_ZN4mold3elf10ObjectFileINS0_7PPC64V1EE9get_shndxERKNS0_6ElfSymIS2_EE.exit
 
 if.end.i:                                         ; preds = %if.then
-  %6 = tail call noundef i16 @llvm.bswap.i16(i16 %x.0.copyload.i.i)
-  %conv8.i = zext i16 %6 to i64
+  %7 = tail call noundef i16 @llvm.bswap.i16(i16 %x.0.copyload.i.i)
+  %conv8.i = zext i16 %7 to i64
   br label %_ZN4mold3elf10ObjectFileINS0_7PPC64V1EE9get_shndxERKNS0_6ElfSymIS2_EE.exit
 
 _ZN4mold3elf10ObjectFileINS0_7PPC64V1EE9get_shndxERKNS0_6ElfSymIS2_EE.exit: ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i64 [ %conv5.i, %if.then.i ], [ %conv8.i, %if.end.i ]
-  %7 = load ptr, ptr %mergeable_sections, align 8
-  %add.ptr.i5 = getelementptr inbounds %"class.std::unique_ptr.329", ptr %7, i64 %retval.0.i
-  %8 = load ptr, ptr %add.ptr.i5, align 8
-  %cmp.i6.not = icmp eq ptr %8, null
+  %8 = load ptr, ptr %mergeable_sections, align 8
+  %add.ptr.i5 = getelementptr inbounds %"class.std::unique_ptr.329", ptr %8, i64 %retval.0.i
+  %9 = load ptr, ptr %add.ptr.i5, align 8
+  %cmp.i6.not = icmp eq ptr %9, null
   br i1 %cmp.i6.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %_ZN4mold3elf10ObjectFileINS0_7PPC64V1EE9get_shndxERKNS0_6ElfSymIS2_EE.exit
   %st_value = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %x.0.copyload.i7 = load i64, ptr %st_value, align 1
-  %9 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i7)
+  %10 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i7)
   %r_addend.i.i = getelementptr inbounds i8, ptr %rel, i64 16
   %x.0.copyload.i.i.i = load i64, ptr %r_addend.i.i, align 1
-  %10 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i.i.i)
-  %add = add i64 %10, %9
-  %frag_offsets.i = getelementptr inbounds i8, ptr %8, i64 64
-  %11 = load ptr, ptr %frag_offsets.i, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %8, i64 72
-  %12 = load ptr, ptr %_M_finish.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %11 to i64
+  %11 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i.i.i)
+  %add = add i64 %11, %10
+  %frag_offsets.i = getelementptr inbounds i8, ptr %9, i64 64
+  %12 = load ptr, ptr %frag_offsets.i, align 8
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %9, i64 72
+  %13 = load ptr, ptr %_M_finish.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 2
   %cmp6.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i, 0
@@ -3605,38 +3606,38 @@ if.then9:                                         ; preds = %_ZN4mold3elf10Objec
 
 while.body.i.i.i:                                 ; preds = %if.then9, %while.body.i.i.i
   %__len.08.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %if.then9 ]
-  %__first.sroa.0.07.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i, %while.body.i.i.i ], [ %11, %if.then9 ]
+  %__first.sroa.0.07.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i, %while.body.i.i.i ], [ %12, %if.then9 ]
   %shr.i.i.i = lshr i64 %__len.08.i.i.i, 1
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.sroa.0.07.i.i.i, i64 %shr.i.i.i
-  %13 = load i32, ptr %add.ptr.i.i.i.i.i.i, align 4
-  %conv.i.i.i.i = zext i32 %13 to i64
+  %14 = load i32, ptr %add.ptr.i.i.i.i.i.i, align 4
+  %conv.i.i.i.i = zext i32 %14 to i64
   %cmp.i.i.i.i = icmp slt i64 %add, %conv.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 4
-  %14 = xor i64 %shr.i.i.i, -1
-  %sub9.i.i.i = add nsw i64 %__len.08.i.i.i, %14
+  %15 = xor i64 %shr.i.i.i, -1
+  %sub9.i.i.i = add nsw i64 %__len.08.i.i.i, %15
   %__first.sroa.0.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__first.sroa.0.07.i.i.i, ptr %incdec.ptr.i.i.i.i
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %shr.i.i.i, i64 %sub9.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN4mold3elf16MergeableSectionINS0_7PPC64V1EE12get_fragmentEl.exit, !llvm.loop !13
 
 _ZN4mold3elf16MergeableSectionINS0_7PPC64V1EE12get_fragmentEl.exit: ; preds = %while.body.i.i.i, %if.then9
-  %__first.sroa.0.0.lcssa.i.i.i = phi ptr [ %11, %if.then9 ], [ %__first.sroa.0.1.i.i.i, %while.body.i.i.i ]
+  %__first.sroa.0.0.lcssa.i.i.i = phi ptr [ %12, %if.then9 ], [ %__first.sroa.0.1.i.i.i, %while.body.i.i.i ]
   %add.ptr.i.i8 = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 -4
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i8 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %fragments.i = getelementptr inbounds i8, ptr %8, i64 88
-  %15 = load ptr, ptr %fragments.i, align 8
-  %add.ptr.i5.i = getelementptr inbounds ptr, ptr %15, i64 %sub.ptr.div.i.i
-  %add.ptr.i6.i = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i.i
-  %16 = load i32, ptr %add.ptr.i6.i, align 4
-  %conv.i = zext i32 %16 to i64
+  %fragments.i = getelementptr inbounds i8, ptr %9, i64 88
+  %16 = load ptr, ptr %fragments.i, align 8
+  %add.ptr.i5.i = getelementptr inbounds ptr, ptr %16, i64 %sub.ptr.div.i.i
+  %add.ptr.i6.i = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub.i.i
+  %17 = load i32, ptr %add.ptr.i6.i, align 4
+  %conv.i = zext i32 %17 to i64
   %sub.i = sub nsw i64 %add, %conv.i
-  %17 = load ptr, ptr %add.ptr.i5.i, align 8
+  %18 = load ptr, ptr %add.ptr.i5.i, align 8
   br label %return
 
 return:                                           ; preds = %entry, %_ZN4mold3elf10ObjectFileINS0_7PPC64V1EE9get_shndxERKNS0_6ElfSymIS2_EE.exit, %_ZN4mold3elf16MergeableSectionINS0_7PPC64V1EE12get_fragmentEl.exit
-  %retval.sroa.0.0 = phi ptr [ %17, %_ZN4mold3elf16MergeableSectionINS0_7PPC64V1EE12get_fragmentEl.exit ], [ null, %_ZN4mold3elf10ObjectFileINS0_7PPC64V1EE9get_shndxERKNS0_6ElfSymIS2_EE.exit ], [ null, %entry ]
+  %retval.sroa.0.0 = phi ptr [ %18, %_ZN4mold3elf16MergeableSectionINS0_7PPC64V1EE12get_fragmentEl.exit ], [ null, %_ZN4mold3elf10ObjectFileINS0_7PPC64V1EE9get_shndxERKNS0_6ElfSymIS2_EE.exit ], [ null, %entry ]
   %retval.sroa.3.0 = phi i64 [ %sub.i, %_ZN4mold3elf16MergeableSectionINS0_7PPC64V1EE12get_fragmentEl.exit ], [ 0, %_ZN4mold3elf10ObjectFileINS0_7PPC64V1EE9get_shndxERKNS0_6ElfSymIS2_EE.exit ], [ 0, %entry ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1

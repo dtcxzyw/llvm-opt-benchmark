@@ -1072,8 +1072,8 @@ define void @Bmc_MnaBuild_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %43 = getelementptr i8, ptr %3, i64 8
   %.val44 = load ptr, ptr %43, align 8
   %sext = shl i64 %42, 32
-  %44 = ashr exact i64 %sext, 32
-  %45 = getelementptr inbounds i32, ptr %.val44, i64 %44
+  %44 = ashr exact i64 %sext, 30
+  %45 = getelementptr inbounds i8, ptr %.val44, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = trunc i64 %30 to i32
   %48 = lshr i32 %47, 29
@@ -1102,8 +1102,8 @@ define void @Bmc_MnaBuild_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %65 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %65, align 8
   %sext67 = shl i64 %64, 32
-  %66 = ashr exact i64 %sext67, 32
-  %67 = getelementptr inbounds i32, ptr %.val, i64 %66
+  %66 = ashr exact i64 %sext67, 30
+  %67 = getelementptr inbounds i8, ptr %.val, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = lshr i64 %30, 61
   %70 = trunc nuw nsw i64 %69 to i32
@@ -1310,8 +1310,8 @@ Gia_ObjIsPi.exit.thread.sink.split:               ; preds = %._crit_edge, %Gia_M
   %173 = getelementptr i8, ptr %3, i64 8
   %.val56 = load ptr, ptr %173, align 8
   %sext71 = shl i64 %.sink83, 32
-  %174 = ashr exact i64 %sext71, 32
-  %175 = getelementptr inbounds i32, ptr %.val56, i64 %174
+  %174 = ashr exact i64 %sext71, 30
+  %175 = getelementptr inbounds i8, ptr %.val56, i64 %174
   store i32 %.sink, ptr %175, align 4
   br label %Gia_ObjIsPi.exit.thread
 
@@ -1361,16 +1361,16 @@ define void @Bmc_MnaBuild(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
   %27 = sub nsw i64 %25, %26
   %.val34 = load ptr, ptr %11, align 8
   %sext = shl i64 %27, 32
-  %28 = ashr exact i64 %sext, 32
-  %29 = getelementptr inbounds i32, ptr %.val34, i64 %28
+  %28 = ashr exact i64 %sext, 30
+  %29 = getelementptr inbounds i8, ptr %.val34, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = trunc i64 %.val3.i to i32
   %32 = lshr i32 %31, 29
   %33 = and i32 %32, 1
   %34 = xor i32 %33, %30
   %sext42 = shl i64 %25, 32
-  %35 = ashr exact i64 %sext42, 32
-  %36 = getelementptr inbounds i32, ptr %.val34, i64 %35
+  %35 = ashr exact i64 %sext42, 30
+  %36 = getelementptr inbounds i8, ptr %.val34, i64 %35
   store i32 %34, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val31 = load i32, ptr %8, align 4
@@ -3683,8 +3683,8 @@ define void @Gia_ManBmcAddCone_rec(ptr noundef %0, ptr noundef %1) local_unnamed
   %20 = getelementptr i8, ptr %19, i64 8
   %.val = load ptr, ptr %20, align 8
   %sext = shl i64 %12, 32
-  %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds i32, ptr %.val, i64 %21
+  %21 = ashr exact i64 %sext, 30
+  %22 = getelementptr inbounds i8, ptr %.val, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %61

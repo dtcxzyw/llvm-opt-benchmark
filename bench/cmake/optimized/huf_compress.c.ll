@@ -3207,8 +3207,8 @@ define internal fastcc void @HUF_simpleQuickSort(ptr noundef %0, i32 noundef %1,
 .critedge:                                        ; preds = %20, %15
   %.046.in.lcssa = phi i64 [ 0, %20 ], [ %indvars.iv57, %15 ]
   %sext = shl i64 %.046.in.lcssa, 32
-  %24 = ashr exact i64 %sext, 32
-  %25 = getelementptr inbounds %struct.nodeElt_s, ptr %9, i64 %24
+  %24 = ashr exact i64 %sext, 29
+  %25 = getelementptr inbounds i8, ptr %9, i64 %24
   store <2 x i32> %13, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

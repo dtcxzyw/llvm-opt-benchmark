@@ -4725,8 +4725,8 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @skx_iio_mapping_
   %15 = getelementptr inbounds i8, ptr %7, i64 232
   %16 = load ptr, ptr %15, align 8
   %17 = shl i64 %14, 32
-  %18 = ashr exact i64 %17, 32
-  %19 = getelementptr ptr, ptr %16, i64 %18
+  %18 = ashr exact i64 %17, 29
+  %19 = getelementptr i8, ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 336
   %22 = load i32, ptr %21, align 8

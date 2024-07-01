@@ -1142,7 +1142,7 @@ define void @_ZN3gmx22ComputeDebyeScattering39computeMonteCarloPairDistancesHist
   br i1 %81, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit
-  %.0127 = phi i64 [ %366, %_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit ], [ 0, %.lr.ph ]
+  %.0127 = phi i64 [ %368, %_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit ], [ 0, %.lr.ph ]
   %.sroa.13.0126 = phi i32 [ %280, %_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit ], [ 0, %.lr.ph ]
   %.sroa.8.0125 = phi i64 [ %277, %_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit ], [ 0, %.lr.ph ]
   br i1 %82, label %101, label %94
@@ -1525,118 +1525,120 @@ _ZNK3gmx17SelectionPosition11atomIndicesEv.exit42: ; preds = %_ZN3gmx22UniformIn
   %282 = load ptr, ptr %84, align 8, !nonnull !19, !noundef !19
   %283 = load ptr, ptr %85, align 8
   %sext = shl i64 %188, 32
-  %284 = ashr exact i64 %sext, 32
-  %285 = getelementptr inbounds i32, ptr %283, i64 %284
+  %284 = ashr exact i64 %sext, 30
+  %285 = getelementptr inbounds i8, ptr %283, i64 %284
   %286 = load i32, ptr %285, align 4
   %287 = sext i32 %286 to i64
   %288 = getelementptr inbounds i32, ptr %282, i64 %287
   %289 = load i32, ptr %288, align 4
   %sext112 = shl i64 %279, 32
-  %290 = ashr exact i64 %sext112, 32
-  %291 = getelementptr inbounds i32, ptr %283, i64 %290
+  %290 = ashr exact i64 %sext112, 30
+  %291 = getelementptr inbounds i8, ptr %283, i64 %290
   %292 = load i32, ptr %291, align 4
   %293 = sext i32 %292 to i64
   %294 = getelementptr inbounds i32, ptr %282, i64 %293
   %295 = load i32, ptr %294, align 4
   %296 = load ptr, ptr %86, align 8
-  %297 = getelementptr inbounds [3 x float], ptr %296, i64 %284
-  %298 = getelementptr inbounds [3 x float], ptr %296, i64 %290
-  br i1 %.not23, label %301, label %299
-
-299:                                              ; preds = %_ZNK3gmx17SelectionPosition11atomIndicesEv.exit42
-  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %1, ptr noundef nonnull %297, ptr noundef nonnull %298, ptr noundef nonnull %13)
-  %300 = load <2 x float>, ptr %13, align 8
-  %.pre141 = load float, ptr %87, align 8
-  br label %310
+  %297 = ashr exact i64 %sext, 32
+  %298 = getelementptr inbounds [3 x float], ptr %296, i64 %297
+  %299 = ashr exact i64 %sext112, 32
+  %300 = getelementptr inbounds [3 x float], ptr %296, i64 %299
+  br i1 %.not23, label %303, label %301
 
 301:                                              ; preds = %_ZNK3gmx17SelectionPosition11atomIndicesEv.exit42
-  %302 = load <2 x float>, ptr %297, align 4
-  %303 = load <2 x float>, ptr %298, align 4
-  %304 = fsub <2 x float> %302, %303
-  %305 = getelementptr inbounds i8, ptr %297, i64 8
-  %306 = load float, ptr %305, align 4
+  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %1, ptr noundef nonnull %298, ptr noundef nonnull %300, ptr noundef nonnull %13)
+  %302 = load <2 x float>, ptr %13, align 8
+  %.pre141 = load float, ptr %87, align 8
+  br label %312
+
+303:                                              ; preds = %_ZNK3gmx17SelectionPosition11atomIndicesEv.exit42
+  %304 = load <2 x float>, ptr %298, align 4
+  %305 = load <2 x float>, ptr %300, align 4
+  %306 = fsub <2 x float> %304, %305
   %307 = getelementptr inbounds i8, ptr %298, i64 8
   %308 = load float, ptr %307, align 4
-  %309 = fsub float %306, %308
-  store <2 x float> %304, ptr %13, align 8
-  store float %309, ptr %87, align 8
-  br label %310
+  %309 = getelementptr inbounds i8, ptr %300, i64 8
+  %310 = load float, ptr %309, align 4
+  %311 = fsub float %308, %310
+  store <2 x float> %306, ptr %13, align 8
+  store float %311, ptr %87, align 8
+  br label %312
 
-310:                                              ; preds = %301, %299
-  %311 = phi float [ %309, %301 ], [ %.pre141, %299 ]
-  %312 = phi <2 x float> [ %304, %301 ], [ %300, %299 ]
-  %313 = fmul <2 x float> %312, %312
-  %314 = extractelement <2 x float> %313, i64 1
-  %315 = extractelement <2 x float> %312, i64 0
-  %316 = call float @llvm.fmuladd.f32(float %315, float %315, float %314)
-  %317 = call noundef float @llvm.fmuladd.f32(float %311, float %311, float %316)
-  %sqrt.i = call noundef float @llvm.sqrt.f32(float %317)
-  %318 = fpext float %sqrt.i to double
-  %319 = load double, ptr %88, align 8
-  %320 = fdiv double %318, %319
-  %321 = call double @llvm.floor.f64(double %320)
-  %322 = fptoui double %321 to i64
-  %323 = load i8, ptr %89, align 8
-  %324 = trunc i8 %323 to i1
-  br i1 %324, label %.preheader.i, label %352
+312:                                              ; preds = %303, %301
+  %313 = phi float [ %311, %303 ], [ %.pre141, %301 ]
+  %314 = phi <2 x float> [ %306, %303 ], [ %302, %301 ]
+  %315 = fmul <2 x float> %314, %314
+  %316 = extractelement <2 x float> %315, i64 1
+  %317 = extractelement <2 x float> %314, i64 0
+  %318 = call float @llvm.fmuladd.f32(float %317, float %317, float %316)
+  %319 = call noundef float @llvm.fmuladd.f32(float %313, float %313, float %318)
+  %sqrt.i = call noundef float @llvm.sqrt.f32(float %319)
+  %320 = fpext float %sqrt.i to double
+  %321 = load double, ptr %88, align 8
+  %322 = fdiv double %320, %321
+  %323 = call double @llvm.floor.f64(double %322)
+  %324 = fptoui double %323 to i64
+  %325 = load i8, ptr %89, align 8
+  %326 = trunc i8 %325 to i1
+  br i1 %326, label %.preheader.i, label %354
 
-.preheader.i:                                     ; preds = %310
-  %325 = load ptr, ptr %92, align 8
-  %326 = load ptr, ptr %91, align 8
-  %.not6.i = icmp eq ptr %325, %326
+.preheader.i:                                     ; preds = %312
+  %327 = load ptr, ptr %92, align 8
+  %328 = load ptr, ptr %91, align 8
+  %.not6.i = icmp eq ptr %327, %328
   br i1 %.not6.i, label %_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %327 = phi ptr [ %347, %.lr.ph.i ], [ %326, %.preheader.i ]
-  %.07.i = phi i64 [ %345, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %328 = getelementptr inbounds double, ptr %327, i64 %.07.i
-  %329 = load double, ptr %328, align 8
-  %330 = load ptr, ptr %0, align 8
-  %331 = getelementptr inbounds i8, ptr %330, i64 16
-  %332 = load ptr, ptr %331, align 8
-  %333 = call noundef double %332(ptr noundef nonnull align 8 dereferenceable(153) %0, i32 noundef %289, double noundef %329)
-  %334 = load ptr, ptr %0, align 8
-  %335 = getelementptr inbounds i8, ptr %334, i64 16
-  %336 = load ptr, ptr %335, align 8
-  %337 = call noundef double %336(ptr noundef nonnull align 8 dereferenceable(153) %0, i32 noundef %295, double noundef %329)
-  %338 = fmul double %333, %337
-  %339 = load ptr, ptr %93, align 8
-  %340 = getelementptr inbounds %"class.std::vector", ptr %339, i64 %.07.i
-  %341 = load ptr, ptr %340, align 8
-  %342 = getelementptr inbounds double, ptr %341, i64 %322
-  %343 = load double, ptr %342, align 8
-  %344 = fadd double %338, %343
-  store double %344, ptr %342, align 8
-  %345 = add i64 %.07.i, 1
-  %346 = load ptr, ptr %92, align 8
-  %347 = load ptr, ptr %91, align 8
-  %348 = ptrtoint ptr %346 to i64
-  %349 = ptrtoint ptr %347 to i64
-  %350 = sub i64 %348, %349
-  %351 = ashr exact i64 %350, 3
-  %.not.i = icmp eq i64 %345, %351
+  %329 = phi ptr [ %349, %.lr.ph.i ], [ %328, %.preheader.i ]
+  %.07.i = phi i64 [ %347, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %330 = getelementptr inbounds double, ptr %329, i64 %.07.i
+  %331 = load double, ptr %330, align 8
+  %332 = load ptr, ptr %0, align 8
+  %333 = getelementptr inbounds i8, ptr %332, i64 16
+  %334 = load ptr, ptr %333, align 8
+  %335 = call noundef double %334(ptr noundef nonnull align 8 dereferenceable(153) %0, i32 noundef %289, double noundef %331)
+  %336 = load ptr, ptr %0, align 8
+  %337 = getelementptr inbounds i8, ptr %336, i64 16
+  %338 = load ptr, ptr %337, align 8
+  %339 = call noundef double %338(ptr noundef nonnull align 8 dereferenceable(153) %0, i32 noundef %295, double noundef %331)
+  %340 = fmul double %335, %339
+  %341 = load ptr, ptr %93, align 8
+  %342 = getelementptr inbounds %"class.std::vector", ptr %341, i64 %.07.i
+  %343 = load ptr, ptr %342, align 8
+  %344 = getelementptr inbounds double, ptr %343, i64 %324
+  %345 = load double, ptr %344, align 8
+  %346 = fadd double %340, %345
+  store double %346, ptr %344, align 8
+  %347 = add i64 %.07.i, 1
+  %348 = load ptr, ptr %92, align 8
+  %349 = load ptr, ptr %91, align 8
+  %350 = ptrtoint ptr %348 to i64
+  %351 = ptrtoint ptr %349 to i64
+  %352 = sub i64 %350, %351
+  %353 = ashr exact i64 %352, 3
+  %.not.i = icmp eq i64 %347, %353
   br i1 %.not.i, label %_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit, label %.lr.ph.i, !llvm.loop !20
 
-352:                                              ; preds = %310
-  %353 = load ptr, ptr %0, align 8
-  %354 = getelementptr inbounds i8, ptr %353, i64 16
-  %355 = load ptr, ptr %354, align 8
-  %356 = call noundef double %355(ptr noundef nonnull align 8 dereferenceable(153) %0, i32 noundef %289, double noundef 0.000000e+00)
-  %357 = load ptr, ptr %0, align 8
-  %358 = getelementptr inbounds i8, ptr %357, i64 16
-  %359 = load ptr, ptr %358, align 8
-  %360 = call noundef double %359(ptr noundef nonnull align 8 dereferenceable(153) %0, i32 noundef %295, double noundef 0.000000e+00)
-  %361 = fmul double %356, %360
-  %362 = load ptr, ptr %90, align 8
-  %363 = getelementptr inbounds double, ptr %362, i64 %322
-  %364 = load double, ptr %363, align 8
-  %365 = fadd double %361, %364
-  store double %365, ptr %363, align 8
+354:                                              ; preds = %312
+  %355 = load ptr, ptr %0, align 8
+  %356 = getelementptr inbounds i8, ptr %355, i64 16
+  %357 = load ptr, ptr %356, align 8
+  %358 = call noundef double %357(ptr noundef nonnull align 8 dereferenceable(153) %0, i32 noundef %289, double noundef 0.000000e+00)
+  %359 = load ptr, ptr %0, align 8
+  %360 = getelementptr inbounds i8, ptr %359, i64 16
+  %361 = load ptr, ptr %360, align 8
+  %362 = call noundef double %361(ptr noundef nonnull align 8 dereferenceable(153) %0, i32 noundef %295, double noundef 0.000000e+00)
+  %363 = fmul double %358, %362
+  %364 = load ptr, ptr %90, align 8
+  %365 = getelementptr inbounds double, ptr %364, i64 %324
+  %366 = load double, ptr %365, align 8
+  %367 = fadd double %363, %366
+  store double %367, ptr %365, align 8
   br label %_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit
 
-_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit: ; preds = %.lr.ph.i, %352, %.preheader.i, %_ZN3gmx22UniformIntDistributionImEclINS_16ThreeFry2x64FastILj64EEEEEmRT_.exit29.loopexit
-  %366 = add nuw i64 %.0127, 1
-  %exitcond.not = icmp eq i64 %366, %80
+_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit: ; preds = %.lr.ph.i, %354, %.preheader.i, %_ZN3gmx22UniformIntDistributionImEclINS_16ThreeFry2x64FastILj64EEEEEmRT_.exit29.loopexit
+  %368 = add nuw i64 %.0127, 1
+  %exitcond.not = icmp eq i64 %368, %80
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZN3gmx22ComputeDebyeScattering13addPairToHistENS_13PairDistValueE.exit, %.lr.ph, %5

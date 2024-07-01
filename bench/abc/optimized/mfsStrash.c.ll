@@ -630,8 +630,8 @@ define noundef ptr @Abc_NtkConstructAig(ptr nocapture noundef readonly %0, ptr n
   %24 = getelementptr i8, ptr %.val98, i64 8
   %.val98.val = load ptr, ptr %24, align 8
   %sext102 = shl i64 %22, 32
-  %25 = ashr exact i64 %sext102, 32
-  %26 = getelementptr inbounds ptr, ptr %.val98.val, i64 %25
+  %25 = ashr exact i64 %sext102, 29
+  %26 = getelementptr inbounds i8, ptr %.val98.val, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %19, i64 312
   %.val97 = load i32, ptr %28, align 8
@@ -663,8 +663,8 @@ define noundef ptr @Abc_NtkConstructAig(ptr nocapture noundef readonly %0, ptr n
   %46 = getelementptr i8, ptr %42, i64 8
   %.val83 = load ptr, ptr %46, align 8
   %sext = shl i64 %45, 32
-  %47 = ashr exact i64 %sext, 32
-  %48 = getelementptr inbounds ptr, ptr %.val83, i64 %47
+  %47 = ashr exact i64 %sext, 29
+  %48 = getelementptr inbounds i8, ptr %.val83, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr i8, ptr %49, i64 4
   %.val99106 = load i32, ptr %50, align 4
@@ -863,8 +863,8 @@ define ptr @Abc_NtkAigForConstraints(ptr nocapture noundef readonly %0, ptr noca
   %23 = getelementptr i8, ptr %.val70, i64 8
   %.val70.val = load ptr, ptr %23, align 8
   %sext73 = shl i64 %21, 32
-  %24 = ashr exact i64 %sext73, 32
-  %25 = getelementptr inbounds ptr, ptr %.val70.val, i64 %24
+  %24 = ashr exact i64 %sext73, 29
+  %25 = getelementptr inbounds i8, ptr %.val70.val, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr i8, ptr %18, i64 312
   %.val69 = load i32, ptr %27, align 8
@@ -906,8 +906,8 @@ define ptr @Abc_NtkAigForConstraints(ptr nocapture noundef readonly %0, ptr noca
   %47 = getelementptr i8, ptr %43, i64 8
   %.val58 = load ptr, ptr %47, align 8
   %sext = shl i64 %46, 32
-  %48 = ashr exact i64 %sext, 32
-  %49 = getelementptr inbounds ptr, ptr %.val58, i64 %48
+  %48 = ashr exact i64 %sext, 29
+  %49 = getelementptr inbounds i8, ptr %.val58, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr i8, ptr %50, i64 4
   %.val7176 = load i32, ptr %51, align 4

@@ -2414,8 +2414,8 @@ define ptr @Gia_ManToIvySimple(ptr nocapture noundef readonly %0) local_unnamed_
   %18 = and i64 %.val45, 536870911
   %19 = sub nsw i64 %indvars.iv, %18
   %sext60 = shl i64 %19, 32
-  %20 = ashr exact i64 %sext60, 32
-  %21 = getelementptr inbounds ptr, ptr %5, i64 %20
+  %20 = ashr exact i64 %sext60, 29
+  %21 = getelementptr inbounds i8, ptr %5, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = lshr i64 %.val45, 29
   %24 = and i64 %23, 1
@@ -2426,8 +2426,8 @@ define ptr @Gia_ManToIvySimple(ptr nocapture noundef readonly %0) local_unnamed_
   %29 = and i64 %28, 536870911
   %30 = sub nsw i64 %indvars.iv, %29
   %sext61 = shl i64 %30, 32
-  %31 = ashr exact i64 %sext61, 32
-  %32 = getelementptr inbounds ptr, ptr %5, i64 %31
+  %31 = ashr exact i64 %sext61, 29
+  %32 = getelementptr inbounds i8, ptr %5, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = lshr i64 %.val45, 61
   %35 = and i64 %34, 1
@@ -2455,8 +2455,8 @@ define ptr @Gia_ManToIvySimple(ptr nocapture noundef readonly %0) local_unnamed_
   %46 = and i64 %.val45, 536870911
   %47 = sub nsw i64 %indvars.iv, %46
   %sext = shl i64 %47, 32
-  %48 = ashr exact i64 %sext, 32
-  %49 = getelementptr inbounds ptr, ptr %5, i64 %48
+  %48 = ashr exact i64 %sext, 29
+  %49 = getelementptr inbounds i8, ptr %5, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = lshr i64 %.val45, 29
   %52 = and i64 %51, 1

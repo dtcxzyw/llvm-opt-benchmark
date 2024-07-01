@@ -4263,8 +4263,8 @@ Extra_Factorial.exit:                             ; preds = %.lr.ph.i, %1
   %22 = load i32, ptr %21, align 4
   %23 = add nsw i32 %19, 2
   %sext92 = shl i64 %indvars.iv.next84, 32
-  %24 = ashr exact i64 %sext92, 32
-  %25 = getelementptr inbounds i32, ptr %8, i64 %24
+  %24 = ashr exact i64 %sext92, 30
+  %25 = getelementptr inbounds i8, ptr %8, i64 %24
   store i32 %22, ptr %25, align 4
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
@@ -4298,8 +4298,8 @@ Extra_Factorial.exit:                             ; preds = %.lr.ph.i, %1
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, 1
   %sext = shl i64 %indvars.iv.next79, 32
-  %36 = ashr exact i64 %sext, 32
-  %37 = getelementptr inbounds i32, ptr %8, i64 %36
+  %36 = ashr exact i64 %sext, 30
+  %37 = getelementptr inbounds i8, ptr %8, i64 %36
   store i32 %35, ptr %37, align 4
   %38 = sext i32 %indvars.iv81 to i64
   br label %.lr.ph50.us

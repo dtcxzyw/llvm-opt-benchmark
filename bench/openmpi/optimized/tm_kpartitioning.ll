@@ -221,14 +221,14 @@ define hidden noalias ptr @tm_kpartition(i32 noundef %0, ptr nocapture noundef r
   %71 = tail call i64 @tm_genrand_int32() #13
   %72 = urem i64 %71, %37
   %sext.i = shl i64 %72, 32
-  %73 = ashr exact i64 %sext.i, 32
-  %74 = getelementptr inbounds i32, ptr %49, i64 %73
+  %73 = ashr exact i64 %sext.i, 30
+  %74 = getelementptr inbounds i8, ptr %49, i64 %73
   %75 = load i32, ptr %74, align 4
   %.not109.i = icmp eq i32 %75, -1
   br i1 %.not109.i, label %76, label %.preheader.i, !llvm.loop !8
 
 76:                                               ; preds = %.preheader.i
-  %77 = getelementptr inbounds i32, ptr %49, i64 %73
+  %77 = getelementptr inbounds i8, ptr %49, i64 %73
   %78 = trunc nuw nsw i64 %indvars.iv161.i to i32
   store i32 %78, ptr %77, align 4
   %79 = add nsw i32 %70, 1

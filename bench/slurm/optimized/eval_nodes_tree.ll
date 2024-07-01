@@ -1348,8 +1348,8 @@ define range(i32 -1, 2037) i32 @eval_nodes_tree(ptr noundef %0) local_unnamed_ad
 .preheader503.i:                                  ; preds = %640
   store i32 0, ptr %30, align 4
   %sext.i = shl i64 %indvars.iv646.i, 32
-  %643 = ashr exact i64 %sext.i, 32
-  %644 = getelementptr inbounds ptr, ptr %632, i64 %643
+  %643 = ashr exact i64 %sext.i, 29
+  %644 = getelementptr inbounds i8, ptr %632, i64 %643
   %645 = load ptr, ptr %644, align 8
   %646 = call ptr @next_node_bitmap(ptr noundef %645, ptr noundef nonnull %30) #7
   %.not412600.i = icmp eq ptr %646, null

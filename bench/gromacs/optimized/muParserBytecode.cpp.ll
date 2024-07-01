@@ -1531,8 +1531,8 @@ define void @_ZN2mu14ParserByteCode6AddFunENS_21generic_callable_typeEib(ptr noc
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %28 = xor i64 %indvars.iv, -1
   %sext = shl i64 %28, 32
-  %29 = ashr exact i64 %sext, 32
-  %30 = getelementptr %"struct.mu::SToken", ptr %25, i64 %29
+  %29 = ashr exact i64 %sext, 27
+  %30 = getelementptr i8, ptr %25, i64 %29
   %31 = load i32, ptr %30, align 8
   %.not = icmp eq i32 %31, 21
   br i1 %.not, label %26, label %.loopexit

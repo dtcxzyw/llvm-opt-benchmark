@@ -302,8 +302,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 137:                                              ; preds = %124
   %138 = trunc nsw i64 %indvars.iv663 to i32
   %sext689 = shl i64 %indvars.iv663, 32
-  %139 = ashr exact i64 %sext689, 32
-  %140 = getelementptr inbounds double, ptr %27, i64 %139
+  %139 = ashr exact i64 %sext689, 29
+  %140 = getelementptr inbounds i8, ptr %27, i64 %139
   store double 0.000000e+00, ptr %140, align 8
   br label %.thread516
 
@@ -515,8 +515,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 251:                                              ; preds = %238
   %252 = trunc nsw i64 %indvars.iv657 to i32
   %sext = shl i64 %indvars.iv657, 32
-  %253 = ashr exact i64 %sext, 32
-  %gep582 = getelementptr double, ptr %invariant.gep, i64 %253
+  %253 = ashr exact i64 %sext, 29
+  %gep582 = getelementptr i8, ptr %invariant.gep, i64 %253
   store double 0.000000e+00, ptr %gep582, align 8
   br label %.thread520
 

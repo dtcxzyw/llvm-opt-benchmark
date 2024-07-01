@@ -557,8 +557,8 @@ define dso_local noundef range(i32 -22, 2) i32 @dmar_insert_dev_scope(ptr nocapt
   %126 = getelementptr inbounds i8, ptr %125, i64 216
   %127 = load i8, ptr %126, align 8
   %128 = shl i64 %122, 32
-  %129 = ashr exact i64 %128, 32
-  %130 = getelementptr %struct.dmar_dev_scope, ptr %4, i64 %129
+  %129 = ashr exact i64 %128, 28
+  %130 = getelementptr i8, ptr %4, i64 %129
   %131 = getelementptr inbounds i8, ptr %130, i64 8
   store i8 %127, ptr %131, align 8
   %132 = load ptr, ptr %0, align 1
@@ -637,8 +637,8 @@ define dso_local noundef range(i32 0, 2) i32 @dmar_remove_dev_scope(ptr nocaptur
 
 26:                                               ; preds = %22
   %27 = shl i64 %13, 32
-  %28 = ashr exact i64 %27, 32
-  %29 = getelementptr %struct.dmar_dev_scope, ptr %2, i64 %28
+  %28 = ashr exact i64 %27, 28
+  %29 = getelementptr i8, ptr %2, i64 %28
   store volatile ptr null, ptr %29, align 8
   tail call void @synchronize_rcu() #19
   tail call void @put_device(ptr noundef nonnull %17) #19
@@ -3895,8 +3895,8 @@ define internal noundef range(i32 0, 2) i32 @dmar_pci_bus_notifier(ptr nocapture
 
 86:                                               ; preds = %82
   %87 = shl i64 %73, 32
-  %88 = ashr exact i64 %87, 32
-  %89 = getelementptr %struct.dmar_dev_scope, ptr %64, i64 %88
+  %88 = ashr exact i64 %87, 28
+  %89 = getelementptr i8, ptr %64, i64 %88
   store volatile ptr null, ptr %89, align 8
   tail call void @synchronize_rcu() #19
   tail call void @put_device(ptr noundef nonnull %77) #19

@@ -33971,9 +33971,9 @@ _ZN5Eigen8internal17CompressedStorageIdiE6appendERKdl.exit: ; preds = %.critedge
 
 .loopexit:                                        ; preds = %114, %103, %_ZN5Eigen8internal17CompressedStorageIdiE6appendERKdl.exit
   %sext = shl i64 %70, 32
-  %116 = ashr exact i64 %sext, 32
-  %117 = load ptr, ptr %59, align 8
-  %118 = getelementptr inbounds double, ptr %117, i64 %116
+  %116 = load ptr, ptr %59, align 8
+  %117 = ashr exact i64 %sext, 29
+  %118 = getelementptr inbounds i8, ptr %116, i64 %117
   br label %241
 
 119:                                              ; preds = %.loopexit84
@@ -69144,9 +69144,9 @@ _ZN5Eigen8internal17CompressedStorageIdiE6appendERKdl.exit: ; preds = %.critedge
 
 .loopexit:                                        ; preds = %114, %103, %_ZN5Eigen8internal17CompressedStorageIdiE6appendERKdl.exit
   %sext = shl i64 %70, 32
-  %116 = ashr exact i64 %sext, 32
-  %117 = load ptr, ptr %59, align 8
-  %118 = getelementptr inbounds double, ptr %117, i64 %116
+  %116 = load ptr, ptr %59, align 8
+  %117 = ashr exact i64 %sext, 29
+  %118 = getelementptr inbounds i8, ptr %116, i64 %117
   br label %241
 
 119:                                              ; preds = %.loopexit84

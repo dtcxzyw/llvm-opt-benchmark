@@ -2501,8 +2501,8 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.e
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
-  %7 = lshr exact i64 %indvars.iv, 6
-  %arrayidx.i43.i.i = getelementptr inbounds i64, ptr %freeNonEmpty_, i64 %7
+  %7 = lshr exact i64 %indvars.iv, 3
+  %arrayidx.i43.i.i = getelementptr inbounds i8, ptr %freeNonEmpty_, i64 %7
   %8 = load i64, ptr %arrayidx.i43.i.i, align 8
   %tobool.not.i44.i.i = icmp eq i64 %8, 0
   br i1 %tobool.not.i44.i.i, label %for.cond.i.i, label %return.sink.split.i.i.loopexit, !llvm.loop !29
@@ -3345,8 +3345,8 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.e
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
-  %7 = lshr exact i64 %indvars.iv, 6
-  %arrayidx.i43.i.i = getelementptr inbounds i64, ptr %freeNonEmpty_, i64 %7
+  %7 = lshr exact i64 %indvars.iv, 3
+  %arrayidx.i43.i.i = getelementptr inbounds i8, ptr %freeNonEmpty_, i64 %7
   %8 = load i64, ptr %arrayidx.i43.i.i, align 8
   %tobool.not.i44.i.i = icmp eq i64 %8, 0
   br i1 %tobool.not.i44.i.i, label %for.cond.i.i, label %if.end8.loopexit, !llvm.loop !29

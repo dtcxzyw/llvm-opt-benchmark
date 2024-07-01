@@ -151,8 +151,8 @@ define void @dlalsd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 92:                                               ; preds = %74
   %93 = shl i64 %75, 33
-  %94 = ashr exact i64 %93, 32
-  %95 = getelementptr double, ptr %67, i64 %94
+  %94 = ashr exact i64 %93, 29
+  %95 = getelementptr i8, ptr %67, i64 %94
   store double %84, ptr %95, align 8, !tbaa !7
   %.idx = shl i64 %75, 4
   %96 = getelementptr inbounds i8, ptr %30, i64 %.idx
@@ -198,8 +198,8 @@ define void @dlalsd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 112:                                              ; preds = %112, %108
   %113 = phi i64 [ 1, %108 ], [ %121, %112 ]
   %114 = shl i64 %113, 33
-  %115 = ashr exact i64 %114, 32
-  %116 = getelementptr double, ptr %67, i64 %115
+  %115 = ashr exact i64 %114, 29
+  %116 = getelementptr i8, ptr %67, i64 %115
   %117 = load double, ptr %116, align 8, !tbaa !7
   store double %117, ptr %20, align 8, !tbaa !7
   %.idx11 = shl i64 %113, 4

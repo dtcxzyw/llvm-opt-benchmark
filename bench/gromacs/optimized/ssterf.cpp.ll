@@ -208,8 +208,8 @@ define void @ssterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 96:                                               ; preds = %84
   %97 = trunc nsw i64 %indvars.iv464 to i32
   %sext488 = shl i64 %indvars.iv464, 32
-  %98 = ashr exact i64 %sext488, 32
-  %99 = getelementptr inbounds float, ptr %16, i64 %98
+  %98 = ashr exact i64 %sext488, 30
+  %99 = getelementptr inbounds i8, ptr %16, i64 %98
   store float 0.000000e+00, ptr %99, align 4
   br label %.thread
 
@@ -385,8 +385,8 @@ define void @ssterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 193:                                              ; preds = %181
   %194 = trunc nsw i64 %indvars.iv473 to i32
   %sext489 = shl i64 %indvars.iv473, 32
-  %195 = ashr exact i64 %sext489, 32
-  %gep433 = getelementptr float, ptr %invariant.gep, i64 %195
+  %195 = ashr exact i64 %sext489, 30
+  %gep433 = getelementptr i8, ptr %invariant.gep, i64 %195
   store float 0.000000e+00, ptr %gep433, align 4
   br label %.thread367
 

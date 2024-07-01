@@ -1230,8 +1230,8 @@ define void @_ZN5faiss9rand_permEPiml(ptr nocapture noundef %0, i64 noundef %1, 
   %13 = add i64 %12, %.01621
   %14 = getelementptr inbounds i32, ptr %0, i64 %.01621
   %sext19 = shl i64 %13, 32
-  %15 = ashr exact i64 %sext19, 32
-  %16 = getelementptr inbounds i32, ptr %0, i64 %15
+  %15 = ashr exact i64 %sext19, 30
+  %16 = getelementptr inbounds i8, ptr %0, i64 %15
   %17 = load i32, ptr %14, align 4
   %18 = load i32, ptr %16, align 4
   store i32 %18, ptr %14, align 4

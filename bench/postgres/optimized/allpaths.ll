@@ -3819,8 +3819,8 @@ list_length.exit.i61:                             ; preds = %714, %.split.i
   %723 = getelementptr i8, ptr %713, i64 16
   %.val43.i = load ptr, ptr %723, align 8
   %sext.i = shl i64 %indvars.iv.i57, 32
-  %724 = ashr exact i64 %sext.i, 32
-  %725 = getelementptr %union.ListCell, ptr %.val43.i, i64 %724
+  %724 = ashr exact i64 %sext.i, 29
+  %725 = getelementptr i8, ptr %.val43.i, i64 %724
   %726 = load i32, ptr %725, align 8
   %727 = icmp slt i32 %726, 1
   br i1 %727, label %728, label %set_cte_pathlist.exit

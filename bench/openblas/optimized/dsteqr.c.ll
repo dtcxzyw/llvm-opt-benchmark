@@ -345,8 +345,8 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 209:                                              ; preds = %206
   %sext42 = shl i64 %183, 32
-  %210 = ashr exact i64 %sext42, 32
-  %211 = getelementptr inbounds double, ptr %22, i64 %210
+  %210 = ashr exact i64 %sext42, 29
+  %211 = getelementptr inbounds i8, ptr %22, i64 %210
   store double 0.000000e+00, ptr %211, align 8, !tbaa !7
   br label %.thread39
 
@@ -568,8 +568,8 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 347:                                              ; preds = %344
   %sext = shl i64 %321, 32
-  %348 = ashr exact i64 %sext, 32
-  %349 = getelementptr double, ptr %69, i64 %348
+  %348 = ashr exact i64 %sext, 29
+  %349 = getelementptr i8, ptr %69, i64 %348
   store double 0.000000e+00, ptr %349, align 8, !tbaa !7
   br label %.thread41
 

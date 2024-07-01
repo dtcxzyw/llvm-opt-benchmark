@@ -240,8 +240,8 @@ opal_obj_run_destructors.exit.i:                  ; preds = %opal_obj_run_destru
   %.090.lcssa.i = phi i64 [ %indvars.iv.i, %64 ], [ %indvars.iv.next39.i, %.lr.ph16.i ]
   %80 = sub i64 %.090.lcssa.i, %indvars.iv.i
   %sext44.i = shl i64 %80, 32
-  %81 = ashr exact i64 %sext44.i, 32
-  %82 = getelementptr inbounds ptr, ptr %70, i64 %81
+  %81 = ashr exact i64 %sext44.i, 29
+  %82 = getelementptr inbounds i8, ptr %70, i64 %81
   store ptr null, ptr %82, align 8
   %83 = load ptr, ptr %70, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 1

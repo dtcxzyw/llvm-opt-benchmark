@@ -2172,8 +2172,8 @@ Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
   %122 = sub i64 %120, %121
   %123 = sdiv exact i64 %122, 12
   %sext.i = shl i64 %123, 32
-  %124 = ashr exact i64 %sext.i, 32
-  %125 = getelementptr inbounds i32, ptr %117, i64 %124
+  %124 = ashr exact i64 %sext.i, 30
+  %125 = getelementptr inbounds i8, ptr %117, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = and i32 %126, 1
   br label %Gia_ObjFaninC2.exit

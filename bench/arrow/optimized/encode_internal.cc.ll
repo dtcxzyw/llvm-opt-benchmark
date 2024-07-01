@@ -1627,7 +1627,7 @@ for.body50:                                       ; preds = %for.body50.lr.ph, %
 
 for.cond16.preheader.i:                           ; preds = %for.body50
   %sext = shl i64 %icol45.0167, 32
-  %21 = ashr exact i64 %sext, 32
+  %21 = ashr exact i64 %sext, 30
   br label %for.body18.i
 
 for.body.i:                                       ; preds = %for.body50, %for.body.i
@@ -1666,7 +1666,7 @@ for.body18.i:                                     ; preds = %for.body18.i, %for.
   %29 = load i32, ptr %varbinary_end_array_offset.i.i23.i, align 8
   %idx.ext.i.i24.i = zext i32 %29 to i64
   %add.ptr.i.i25.i = getelementptr inbounds i8, ptr %add.ptr23.i, i64 %idx.ext.i.i24.i
-  %30 = getelementptr i32, ptr %add.ptr.i.i25.i, i64 %21
+  %30 = getelementptr i8, ptr %add.ptr.i.i25.i, i64 %21
   %arrayidx.i26.i = getelementptr i8, ptr %30, i64 -4
   %31 = load i32, ptr %arrayidx.i26.i, align 4
   %32 = load i32, ptr %string_alignment.i.i, align 4

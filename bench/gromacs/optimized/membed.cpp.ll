@@ -3047,8 +3047,8 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit202.preheader.i: ; preds = %_ZL13gmx_snew
 .critedge.i287:                                   ; preds = %1190, %.lr.ph349.i, %.loopexit.i
   %.1148.in.lcssa.i = phi i64 [ 0, %.loopexit.i ], [ %indvars.iv412.i, %.lr.ph349.i ], [ 0, %1190 ]
   %sext434.i = shl i64 %.1148.in.lcssa.i, 32
-  %1193 = ashr exact i64 %sext434.i, 32
-  %1194 = getelementptr inbounds i32, ptr %1132, i64 %1193
+  %1193 = ashr exact i64 %sext434.i, 30
+  %1194 = getelementptr inbounds i8, ptr %1132, i64 %1193
   store i32 %1181, ptr %1194, align 4
   %indvars.iv.next411.i = add nuw nsw i64 %indvars.iv410.i, 1
   %1195 = load i32, ptr %700, align 8

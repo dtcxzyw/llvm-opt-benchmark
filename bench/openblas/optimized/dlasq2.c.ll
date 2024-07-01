@@ -1018,8 +1018,8 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %643 = getelementptr i8, ptr %642, i64 -24
   %644 = load double, ptr %643, align 8, !tbaa !7
   %645 = shl i64 %638, 33
-  %646 = ashr exact i64 %645, 32
-  %647 = getelementptr double, ptr %339, i64 %646
+  %646 = ashr exact i64 %645, 29
+  %647 = getelementptr i8, ptr %339, i64 %646
   store double %644, ptr %647, align 8, !tbaa !7
   %648 = icmp slt i64 %638, %584
   br i1 %648, label %649, label %652

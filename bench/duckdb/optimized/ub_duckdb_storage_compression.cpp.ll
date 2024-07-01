@@ -11013,7 +11013,6 @@ if.then:                                          ; preds = %entry
   br i1 %cmp939.not, label %if.end19, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %div37 = lshr exact i64 %sub.i, 6
   %2 = load ptr, ptr %validity.i, align 8, !tbaa !8
   %node.i = getelementptr inbounds i8, ptr %call2, i64 24
   %3 = load ptr, ptr %node.i, align 8, !tbaa !207
@@ -11022,17 +11021,18 @@ for.body.lr.ph:                                   ; preds = %if.then
   %offset.i = getelementptr inbounds i8, ptr %segment, i64 200
   %5 = load i64, ptr %offset.i, align 8, !tbaa !212
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %5
-  %6 = getelementptr i64, ptr %add.ptr, i64 %div37
+  %6 = lshr exact i64 %sub.i, 3
+  %7 = getelementptr i8, ptr %add.ptr, i64 %6
   %target_count.i = getelementptr inbounds i8, ptr %result, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %cleanup, %for.body.lr.ph
   %result_data.041 = phi ptr [ %2, %for.body.lr.ph ], [ %result_data.2, %cleanup ]
   %i.040 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cleanup ]
-  %arrayidx = getelementptr i64, ptr %6, i64 %i.040
-  %7 = load i64, ptr %arrayidx, align 8, !tbaa !14
+  %arrayidx = getelementptr i64, ptr %7, i64 %i.040
+  %8 = load i64, ptr %arrayidx, align 8, !tbaa !14
   %tobool = icmp eq ptr %result_data.041, null
-  %cmp11 = icmp eq i64 %7, -1
+  %cmp11 = icmp eq i64 %8, -1
   %or.cond = select i1 %tobool, i1 %cmp11, i1 false
   br i1 %or.cond, label %cleanup, label %if.end
 
@@ -11040,15 +11040,15 @@ if.end:                                           ; preds = %for.body
   br i1 %tobool, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.end
-  %8 = load i64, ptr %target_count.i, align 8, !tbaa !17
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE10InitializeEm(ptr noundef nonnull align 8 dereferenceable(32) %validity.i, i64 noundef %8)
-  %9 = load ptr, ptr %validity.i, align 8, !tbaa !8
+  %9 = load i64, ptr %target_count.i, align 8, !tbaa !17
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE10InitializeEm(ptr noundef nonnull align 8 dereferenceable(32) %validity.i, i64 noundef %9)
+  %10 = load ptr, ptr %validity.i, align 8, !tbaa !8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %if.end
-  %result_data.1 = phi ptr [ %result_data.041, %if.end ], [ %9, %if.then14 ]
+  %result_data.1 = phi ptr [ %result_data.041, %if.end ], [ %10, %if.then14 ]
   %arrayidx17 = getelementptr inbounds i64, ptr %result_data.1, i64 %i.040
-  store i64 %7, ptr %arrayidx17, align 8, !tbaa !14
+  store i64 %8, ptr %arrayidx17, align 8, !tbaa !14
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end16, %for.body

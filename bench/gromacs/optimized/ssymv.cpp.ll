@@ -354,8 +354,8 @@ define void @ssymv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %indvars.iv.next374 = add nsw i64 %indvars.iv373, %125
   %168 = add i64 %166, %indvars.iv365
   %sext = shl i64 %168, 32
-  %169 = ashr exact i64 %sext, 32
-  %170 = getelementptr inbounds float, ptr %3, i64 %169
+  %169 = ashr exact i64 %sext, 30
+  %170 = getelementptr inbounds i8, ptr %3, i64 %169
   %171 = load float, ptr %170, align 4
   %gep284 = getelementptr float, ptr %invariant.gep295, i64 %indvars.iv.next374
   %172 = load float, ptr %gep284, align 4

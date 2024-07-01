@@ -754,9 +754,9 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %56, %58, %60, %62
   %203 = ptrtoint ptr %.sroa.060.0150 to i64
   %204 = ptrtoint ptr %202 to i64
   %205 = sub i64 %203, %204
-  %206 = sdiv exact i64 %205, 48
-  %207 = load ptr, ptr %201, align 8
-  %208 = getelementptr inbounds %"class.vcg::Color4", ptr %207, i64 %206
+  %206 = load ptr, ptr %201, align 8
+  %207 = sdiv exact i64 %205, 12
+  %208 = getelementptr inbounds i8, ptr %206, i64 %207
   %209 = load i32, ptr %208, align 1
   store i32 %209, ptr %.sroa.064.0149, align 1
   %.pre168 = load ptr, ptr %4, align 8
@@ -1899,9 +1899,9 @@ define noundef zeroext i1 @_ZN14MeshModelState5applyEP9MeshModel(ptr nocapture n
   %66 = ptrtoint ptr %.sroa.092.0142 to i64
   %67 = ptrtoint ptr %65 to i64
   %68 = sub i64 %66, %67
-  %69 = sdiv exact i64 %68, 48
-  %70 = load ptr, ptr %64, align 8
-  %71 = getelementptr inbounds %"class.vcg::Color4", ptr %70, i64 %69
+  %69 = load ptr, ptr %64, align 8
+  %70 = sdiv exact i64 %68, 12
+  %71 = getelementptr inbounds i8, ptr %69, i64 %70
   %72 = load i32, ptr %.sroa.096.0143, align 1
   store i32 %72, ptr %71, align 1
   %.pre172 = load ptr, ptr %3, align 8

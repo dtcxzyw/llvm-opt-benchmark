@@ -1061,8 +1061,8 @@ define dso_local i32 @index_getprocid(ptr nocapture noundef readonly %0, i16 nou
   %15 = getelementptr inbounds i8, ptr %0, i64 368
   %16 = load ptr, ptr %15, align 8
   %sext = shl i64 %14, 32
-  %17 = ashr exact i64 %sext, 32
-  %18 = getelementptr i32, ptr %16, i64 %17
+  %17 = ashr exact i64 %sext, 30
+  %18 = getelementptr i8, ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4
   ret i32 %19
 }
@@ -1275,8 +1275,8 @@ define dso_local ptr @index_opclass_options(ptr noundef %0, i16 noundef signext 
   %20 = getelementptr inbounds i8, ptr %0, i64 368
   %21 = load ptr, ptr %20, align 8
   %sext.i = shl i64 %19, 32
-  %22 = ashr exact i64 %sext.i, 32
-  %23 = getelementptr i32, ptr %21, i64 %22
+  %22 = ashr exact i64 %sext.i, 30
+  %23 = getelementptr i8, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.critedge, label %40

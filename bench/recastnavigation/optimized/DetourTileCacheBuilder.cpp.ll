@@ -2927,8 +2927,8 @@ _ZL10mergePolysPtS_ii.exit:                       ; preds = %413, %.preheader.i
   %.06320.i = phi i32 [ 0, %.lr.ph22.preheader.i ], [ %.164.lcssa86.i, %._crit_edge.thread.i ]
   %.07019.i = phi i32 [ 0, %.lr.ph22.preheader.i ], [ %.171.i, %._crit_edge.thread.i ]
   %sext.i = mul i64 %indvars.iv52.i, 51539607552
-  %453 = ashr exact i64 %sext.i, 32
-  %454 = getelementptr inbounds i16, ptr %.val258, i64 %453
+  %453 = ashr exact i64 %sext.i, 31
+  %454 = getelementptr inbounds i8, ptr %.val258, i64 %453
   br label %455
 
 455:                                              ; preds = %459, %.lr.ph22.i
@@ -3005,8 +3005,8 @@ _ZL14countPolyVertsPKt.exit.i292:                 ; preds = %455
   %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %._crit_edge36.i ], [ 0, %._crit_edge23.i ]
   %.07438.i = phi i32 [ %.175.lcssa.i, %._crit_edge36.i ], [ 0, %._crit_edge23.i ]
   %sext77.i = mul i64 %indvars.iv66.i, 51539607552
-  %471 = ashr exact i64 %sext77.i, 32
-  %472 = getelementptr inbounds i16, ptr %.val258, i64 %471
+  %471 = ashr exact i64 %sext77.i, 31
+  %472 = getelementptr inbounds i8, ptr %.val258, i64 %471
   br label %473
 
 473:                                              ; preds = %477, %.lr.ph40.i
@@ -3779,8 +3779,8 @@ _ZL14countPolyVertsPKt.exit289:                   ; preds = %23
   %indvars.iv511 = phi i64 [ 0, %.lr.ph412 ], [ %indvars.iv.next512, %._crit_edge409 ]
   %111 = load ptr, ptr %107, align 8
   %sext = mul i64 %indvars.iv511, 51539607552
-  %112 = ashr exact i64 %sext, 32
-  %113 = getelementptr inbounds i16, ptr %111, i64 %112
+  %112 = ashr exact i64 %sext, 31
+  %113 = getelementptr inbounds i8, ptr %111, i64 %112
   br label %114
 
 114:                                              ; preds = %118, %109
@@ -4659,8 +4659,8 @@ _ZN12dtFixedArrayI6rcEdgeEC2EP16dtTileCacheAlloci.exit: ; preds = %23
   %indvars.iv316 = phi i64 [ 0, %.lr.ph289.preheader ], [ %indvars.iv.next317, %70 ]
   %.0185288 = phi i32 [ 0, %.lr.ph289.preheader ], [ %.1186.lcssa, %70 ]
   %sext = mul i64 %indvars.iv316, 51539607552
-  %36 = ashr exact i64 %sext, 32
-  %37 = getelementptr inbounds i16, ptr %1, i64 %36
+  %36 = ashr exact i64 %sext, 31
+  %37 = getelementptr inbounds i8, ptr %1, i64 %36
   %38 = trunc i64 %indvars.iv316 to i16
   br label %39
 
@@ -4745,8 +4745,8 @@ _ZN12dtFixedArrayI6rcEdgeEC2EP16dtTileCacheAlloci.exit: ; preds = %23
   %indvars.iv324 = phi i64 [ 0, %.lr.ph299.preheader ], [ %indvars.iv.next325, %126 ]
   %.3298 = phi i32 [ %.1186.lcssa, %.lr.ph299.preheader ], [ %.4.lcssa, %126 ]
   %sext350 = mul i64 %indvars.iv324, 51539607552
-  %75 = ashr exact i64 %sext350, 32
-  %76 = getelementptr inbounds i16, ptr %1, i64 %75
+  %75 = ashr exact i64 %sext350, 31
+  %76 = getelementptr inbounds i8, ptr %1, i64 %75
   %77 = trunc i64 %indvars.iv324 to i16
   br label %78
 

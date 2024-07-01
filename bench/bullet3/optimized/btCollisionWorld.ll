@@ -1149,18 +1149,18 @@ _ZNK20btAlignedObjectArrayIP17btCollisionObjectE16findLinearSearchERKS1_.exit.i:
 if.then.i.i:                                      ; preds = %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE16findLinearSearchERKS1_.exit.i
   %sub.i.i = add nsw i32 %9, -1
   %sext.i = shl i64 %indvars.iv.i.i, 32
-  %idxprom.i.i.i = ashr exact i64 %sext.i, 32
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %idxprom.i.i.i
-  %20 = load ptr, ptr %arrayidx.i.i.i, align 8
+  %20 = ashr exact i64 %sext.i, 29
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %17, i64 %20
+  %21 = load ptr, ptr %arrayidx.i.i.i, align 8
   %idxprom3.i.i.i = sext i32 %sub.i.i to i64
   %arrayidx4.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %idxprom3.i.i.i
-  %21 = load ptr, ptr %arrayidx4.i.i.i, align 8
-  store ptr %21, ptr %arrayidx.i.i.i, align 8
-  %22 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx10.i.i.i = getelementptr inbounds ptr, ptr %22, i64 %idxprom3.i.i.i
-  store ptr %20, ptr %arrayidx10.i.i.i, align 8
-  %23 = load i32, ptr %m_size.i.i.i, align 4
-  %dec.i.i.i = add nsw i32 %23, -1
+  %22 = load ptr, ptr %arrayidx4.i.i.i, align 8
+  store ptr %22, ptr %arrayidx.i.i.i, align 8
+  %23 = load ptr, ptr %m_data.i.i, align 8
+  %arrayidx10.i.i.i = getelementptr inbounds ptr, ptr %23, i64 %idxprom3.i.i.i
+  store ptr %21, ptr %arrayidx10.i.i.i, align 8
+  %24 = load i32, ptr %m_size.i.i.i, align 4
+  %dec.i.i.i = add nsw i32 %24, -1
   store i32 %dec.i.i.i, ptr %m_size.i.i.i, align 4
   br label %if.end26
 

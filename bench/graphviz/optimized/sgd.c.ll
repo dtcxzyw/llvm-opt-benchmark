@@ -821,8 +821,8 @@ gv_calloc.exit:                                   ; preds = %363
   %402 = getelementptr inbounds %struct.term_sgd, ptr %35, i64 %indvars.iv.next.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %402, i64 16, i1 false)
   %sext.i = shl i64 %401, 32
-  %403 = ashr exact i64 %sext.i, 32
-  %404 = getelementptr inbounds %struct.term_sgd, ptr %35, i64 %403
+  %403 = ashr exact i64 %sext.i, 28
+  %404 = getelementptr inbounds i8, ptr %35, i64 %403
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %402, ptr noundef nonnull align 4 dereferenceable(16) %404, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %404, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
   %405 = icmp ugt i64 %indvars.iv.i, 2

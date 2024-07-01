@@ -2309,8 +2309,8 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
 123:                                              ; preds = %119, %118
   %124 = phi i64 [ 0, %118 ], [ %spec.select.us, %119 ]
   %sext = shl i64 %124, 32
-  %125 = ashr exact i64 %sext, 32
-  %126 = getelementptr inbounds i16, ptr %110, i64 %125
+  %125 = ashr exact i64 %sext, 31
+  %126 = getelementptr inbounds i8, ptr %110, i64 %125
   %127 = load i16, ptr %126, align 2
   br label %128
 
@@ -2425,8 +2425,8 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %193 = phi i64 [ 0, %187 ], [ %spec.select221.us, %188 ]
   %194 = zext i16 %182 to i32
   %sext291 = shl i64 %193, 32
-  %195 = ashr exact i64 %sext291, 32
-  %196 = getelementptr inbounds i16, ptr %177, i64 %195
+  %195 = ashr exact i64 %sext291, 31
+  %196 = getelementptr inbounds i8, ptr %177, i64 %195
   %197 = load i16, ptr %196, align 2
   %198 = zext i16 %197 to i32
   %199 = and i16 %185, 15

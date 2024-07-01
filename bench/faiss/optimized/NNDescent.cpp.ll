@@ -3121,8 +3121,8 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %203 = xor i64 %202, %201
   %204 = urem i64 %203, %118
   %sext43 = shl i64 %204, 32
-  %205 = ashr exact i64 %sext43, 32
-  %206 = getelementptr inbounds i32, ptr %112, i64 %205
+  %205 = ashr exact i64 %sext43, 30
+  %206 = getelementptr inbounds i8, ptr %112, i64 %205
   store i32 %56, ptr %206, align 4
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit56
 
@@ -3385,8 +3385,8 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %343 = xor i64 %342, %341
   %344 = urem i64 %343, %258
   %sext = shl i64 %344, 32
-  %345 = ashr exact i64 %sext, 32
-  %346 = getelementptr inbounds i32, ptr %252, i64 %345
+  %345 = ashr exact i64 %sext, 30
+  %346 = getelementptr inbounds i8, ptr %252, i64 %345
   store i32 %53, ptr %346, align 4
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit83
 

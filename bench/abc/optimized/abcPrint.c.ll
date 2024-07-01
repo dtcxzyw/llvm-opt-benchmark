@@ -6817,8 +6817,8 @@ define void @Abc_NodePrintSop(ptr nocapture noundef %0, ptr noundef %1, i32 noun
   %74 = sub i64 %73, %67
   %.046.val = load ptr, ptr %43, align 8
   %sext69 = shl i64 %74, 32
-  %75 = ashr exact i64 %sext69, 32
-  %76 = getelementptr inbounds ptr, ptr %.046.val, i64 %75
+  %75 = ashr exact i64 %sext69, 29
+  %76 = getelementptr inbounds i8, ptr %.046.val, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.86, ptr noundef nonnull %72, ptr noundef %77) #19
   br label %79

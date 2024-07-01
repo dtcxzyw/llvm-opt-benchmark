@@ -368,8 +368,8 @@ define internal fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr nounde
   %81 = load ptr, ptr %80, align 8
   %82 = ptrtoint ptr %81 to i64
   %sext = shl i64 %82, 32
-  %83 = ashr exact i64 %sext, 32
-  %84 = getelementptr inbounds i32, ptr %2, i64 %83
+  %83 = ashr exact i64 %sext, 30
+  %84 = getelementptr inbounds i8, ptr %2, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, ptr noundef %78, i32 noundef %85)
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1

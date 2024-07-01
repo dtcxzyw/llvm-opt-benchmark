@@ -1578,8 +1578,8 @@ _ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit: ; preds = %for
 
 if.then7:                                         ; preds = %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit
   %sext = shl i64 %indvars.iv.i, 32
-  %idxprom.i = ashr exact i64 %sext, 32
-  %arrayidx.i5 = getelementptr inbounds %struct.b3Int4, ptr %3, i64 %idxprom.i
+  %8 = ashr exact i64 %sext, 28
+  %arrayidx.i5 = getelementptr inbounds i8, ptr %3, i64 %8
   br label %return
 
 return:                                           ; preds = %for.inc.i, %if.end, %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit, %_ZNK28b3SortedOverlappingPairCache24needsBroadphaseCollisionEii.exit, %if.then7

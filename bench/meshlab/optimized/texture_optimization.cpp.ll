@@ -29,7 +29,6 @@ module asm ".previous"
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 %"class.std::unordered_map.125" = type { %"class.std::_Hashtable.126" }
 %"class.std::_Hashtable.126" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%struct.TexCoordStorage = type { [3 x %"class.vcg::TexCoord2"] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -37,6 +36,7 @@ module asm ".previous"
 %"struct.std::_Rb_tree<vcg::PointerToAttribute, vcg::PointerToAttribute, std::_Identity<vcg::PointerToAttribute>, std::less<vcg::PointerToAttribute>>::_Alloc_node" = type { ptr }
 %"class.vcg::PointerToAttribute" = type { ptr, %"class.std::__cxx11::basic_string", i32, i32, i32, %"struct.std::type_index" }
 %"struct.std::type_index" = type { ptr }
+%struct.TexCoordStorage = type { [3 x %"class.vcg::TexCoord2"] }
 %"class.std::vector.209" = type { %"struct.std::_Vector_base.210" }
 %"struct.std::_Vector_base.210" = type { %"struct.std::_Vector_base<std::vector<MeshFace *>, std::allocator<std::vector<MeshFace *>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<MeshFace *>, std::allocator<std::vector<MeshFace *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<MeshFace *>, std::allocator<std::vector<MeshFace *>>>::_Vector_impl_data" }
@@ -1167,9 +1167,9 @@ _ZNSt10_HashtableIiSt4pairIKiP8MeshFaceESaIS4_ENSt8__detail10_Select1stESt8equal
   %191 = ptrtoint ptr %.0123.lcssa to i64
   %192 = ptrtoint ptr %190 to i64
   %193 = sub i64 %191, %192
-  %194 = sdiv exact i64 %193, 216
-  %195 = load ptr, ptr %187, align 8
-  %196 = getelementptr inbounds %struct.TexCoordStorage, ptr %195, i64 %194
+  %194 = load ptr, ptr %187, align 8
+  %195 = sdiv exact i64 %193, 3
+  %196 = getelementptr inbounds i8, ptr %194, i64 %195
   %.sroa.096.0.copyload = load double, ptr %196, align 8
   %.sroa.297.0..sroa_idx = getelementptr inbounds i8, ptr %196, i64 8
   %.sroa.297.0.copyload = load double, ptr %.sroa.297.0..sroa_idx, align 8

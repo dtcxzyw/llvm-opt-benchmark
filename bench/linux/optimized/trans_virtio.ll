@@ -827,8 +827,8 @@ define internal noundef range(i32 -512, 1) i32 @p9_virtio_request(ptr nocapture 
 
 pack_sg_list.exit7.thread9:                       ; preds = %102
   %sext.i6 = shl i64 %65, 32
-  %105 = ashr exact i64 %sext.i6, 32
-  %106 = getelementptr %struct.scatterlist, ptr %8, i64 %105
+  %105 = ashr exact i64 %sext.i6, 27
+  %106 = getelementptr i8, ptr %8, i64 %105
   %107 = load i64, ptr %106, align 8
   %108 = and i64 %107, -4
   %109 = or disjoint i64 %108, 2
@@ -837,8 +837,8 @@ pack_sg_list.exit7.thread9:                       ; preds = %102
 
 pack_sg_list.exit7:                               ; preds = %58
   %sext.i = shl i64 %21, 32
-  %110 = ashr exact i64 %sext.i, 32
-  %111 = getelementptr %struct.scatterlist, ptr %8, i64 %110
+  %110 = ashr exact i64 %sext.i, 27
+  %111 = getelementptr i8, ptr %8, i64 %110
   %112 = load i64, ptr %111, align 8
   %113 = and i64 %112, -4
   %114 = or disjoint i64 %113, 2
@@ -855,8 +855,8 @@ pack_sg_list.exit7:                               ; preds = %58
   %121 = phi i32 [ 0, %pack_sg_list.exit7.thread9 ], [ 1, %pack_sg_list.exit7 ]
   %122 = phi i64 [ 0, %pack_sg_list.exit7.thread9 ], [ %49, %pack_sg_list.exit7 ]
   %sext = shl i64 %122, 32
-  %123 = ashr exact i64 %sext, 32
-  %124 = getelementptr %struct.scatterlist, ptr %8, i64 %123
+  %123 = ashr exact i64 %sext, 27
+  %124 = getelementptr i8, ptr %8, i64 %123
   %125 = zext nneg i32 %121 to i64
   %126 = getelementptr [2 x ptr], ptr %3, i64 0, i64 %125
   store ptr %124, ptr %126, align 8
@@ -1128,8 +1128,8 @@ define internal i32 @p9_virtio_zc_request(ptr noundef %0, ptr noundef %1, ptr no
 
 121:                                              ; preds = %118
   %sext.i = shl i64 %81, 32
-  %122 = ashr exact i64 %sext.i, 32
-  %123 = getelementptr %struct.scatterlist, ptr %69, i64 %122
+  %122 = ashr exact i64 %sext.i, 27
+  %123 = getelementptr i8, ptr %69, i64 %122
   %124 = load i64, ptr %123, align 8
   %125 = and i64 %124, -4
   %126 = or disjoint i64 %125, 2
@@ -1449,8 +1449,8 @@ define internal fastcc i32 @pack_sg_list(ptr nocapture noundef %0, i32 noundef %
 
 51:                                               ; preds = %48
   %sext = shl i64 %11, 32
-  %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr %struct.scatterlist, ptr %0, i64 %52
+  %52 = ashr exact i64 %sext, 27
+  %53 = getelementptr i8, ptr %0, i64 %52
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %54, -4
   %56 = or disjoint i64 %55, 2
@@ -1746,8 +1746,8 @@ define internal fastcc i32 @pack_sg_list_p(ptr nocapture noundef %0, i32 noundef
 
 51:                                               ; preds = %48
   %sext = shl i64 %18, 32
-  %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr %struct.scatterlist, ptr %0, i64 %52
+  %52 = ashr exact i64 %sext, 27
+  %53 = getelementptr i8, ptr %0, i64 %52
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %54, -4
   %56 = or disjoint i64 %55, 2

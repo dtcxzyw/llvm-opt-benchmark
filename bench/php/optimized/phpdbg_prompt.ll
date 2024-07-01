@@ -2081,8 +2081,8 @@ define hidden noundef i32 @phpdbg_do_generator(ptr noundef readonly %0) #0 {
 15:                                               ; preds = %9
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
   %sext = shl i64 %11, 32
-  %17 = ashr exact i64 %sext, 32
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %17 = ashr exact i64 %sext, 29
+  %18 = getelementptr inbounds i8, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not79 = icmp ne ptr %19, null
   %20 = ptrtoint ptr %19 to i64

@@ -3144,8 +3144,8 @@ define internal i64 @builtin_inline_class_337(ptr nocapture noundef readonly %0,
 rb_num2int_inline.exit:                           ; preds = %11, %13
   %.0.i = phi i64 [ %12, %11 ], [ %14, %13 ]
   %sext = shl i64 %.0.i, 32
-  %15 = ashr exact i64 %sext, 32
-  %16 = getelementptr ptr, ptr %9, i64 %15
+  %15 = ashr exact i64 %sext, 29
+  %16 = getelementptr i8, ptr %9, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = icmp ult ptr %17, inttoptr (i64 4611686018427387904 to ptr)

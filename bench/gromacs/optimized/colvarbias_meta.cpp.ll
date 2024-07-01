@@ -1286,8 +1286,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit166: ;
   %298 = load double, ptr %297, align 8
   %299 = fmul double %298, 2.000000e+00
   %sext213 = shl i64 %.188241, 32
-  %300 = ashr exact i64 %sext213, 32
-  %301 = getelementptr inbounds ptr, ptr %295, i64 %300
+  %300 = ashr exact i64 %sext213, 29
+  %301 = getelementptr inbounds i8, ptr %295, i64 %300
   %302 = load ptr, ptr %301, align 8
   %303 = getelementptr inbounds i8, ptr %302, i64 472
   %304 = load double, ptr %303, align 8
@@ -8638,8 +8638,8 @@ define void @_ZN15colvarbias_meta10calc_hillsESt14_List_iteratorINS_4hillEES2_Rd
   %37 = getelementptr inbounds double, ptr %36, i64 %.030.us.us
   %38 = load double, ptr %37, align 8
   %sext.us.us = shl i64 %.030.us.us, 32
-  %39 = ashr exact i64 %sext.us.us, 32
-  %40 = getelementptr inbounds ptr, ptr %31, i64 %39
+  %39 = ashr exact i64 %sext.us.us, 29
+  %40 = getelementptr inbounds i8, ptr %31, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef double @_ZNK6colvar5dist2ERK11colvarvalueS2_(ptr noundef nonnull align 8 dereferenceable(4624) %41, ptr noundef nonnull align 8 dereferenceable(168) %33, ptr noundef nonnull align 8 dereferenceable(168) %35)
   %43 = fmul double %38, %38
@@ -8691,8 +8691,8 @@ define void @_ZN15colvarbias_meta10calc_hillsESt14_List_iteratorINS_4hillEES2_Rd
   %76 = getelementptr inbounds double, ptr %75, i64 %.030
   %77 = load double, ptr %76, align 8
   %sext = shl i64 %.030, 32
-  %78 = ashr exact i64 %sext, 32
-  %79 = getelementptr inbounds ptr, ptr %71, i64 %78
+  %78 = ashr exact i64 %sext, 29
+  %79 = getelementptr inbounds i8, ptr %71, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = tail call noundef double @_ZNK6colvar5dist2ERK11colvarvalueS2_(ptr noundef nonnull align 8 dereferenceable(4624) %80, ptr noundef nonnull align 8 dereferenceable(168) %72, ptr noundef nonnull align 8 dereferenceable(168) %74)
   %82 = fmul double %77, %77
@@ -8855,9 +8855,9 @@ define void @_ZN15colvarbias_meta16calc_hills_forceERKmSt14_List_iteratorINS_4hi
   %56 = load i64, ptr %55, align 8
   %gep179 = getelementptr i8, ptr %invariant.gep178, i64 %56
   %sext147 = shl i64 %43, 32
-  %57 = ashr exact i64 %sext147, 32
-  %58 = load ptr, ptr %gep179, align 8
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %57
+  %57 = load ptr, ptr %gep179, align 8
+  %58 = ashr exact i64 %sext147, 29
+  %59 = getelementptr inbounds i8, ptr %57, i64 %58
   %60 = load ptr, ptr %59, align 8
   invoke void @_ZNK6colvar11dist2_lgradERK11colvarvalueS2_(ptr dead_on_unwind nonnull writable sret(%class.colvarvalue) align 8 %8, ptr noundef nonnull align 8 dereferenceable(4624) %60, ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) %45)
           to label %61 unwind label %.loopexit148
@@ -8964,9 +8964,9 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %82, %_ZNSt6vectorId
   %111 = load i64, ptr %110, align 8
   %gep174 = getelementptr i8, ptr %invariant.gep173, i64 %111
   %sext145 = shl i64 %98, 32
-  %112 = ashr exact i64 %sext145, 32
-  %113 = load ptr, ptr %gep174, align 8
-  %114 = getelementptr inbounds ptr, ptr %113, i64 %112
+  %112 = load ptr, ptr %gep174, align 8
+  %113 = ashr exact i64 %sext145, 29
+  %114 = getelementptr inbounds i8, ptr %112, i64 %113
   %115 = load ptr, ptr %114, align 8
   invoke void @_ZNK6colvar11dist2_lgradERK11colvarvalueS2_(ptr dead_on_unwind nonnull writable sret(%class.colvarvalue) align 8 %9, ptr noundef nonnull align 8 dereferenceable(4624) %115, ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) %100)
           to label %116 unwind label %.loopexit.split-lp.loopexit
@@ -9082,9 +9082,9 @@ _ZN11colvarvalueD2Ev.exit59:                      ; preds = %145, %_ZNSt6vectorI
   %174 = load i64, ptr %173, align 8
   %gep169 = getelementptr i8, ptr %invariant.gep168, i64 %174
   %sext143 = shl i64 %161, 32
-  %175 = ashr exact i64 %sext143, 32
-  %176 = load ptr, ptr %gep169, align 8
-  %177 = getelementptr inbounds ptr, ptr %176, i64 %175
+  %175 = load ptr, ptr %gep169, align 8
+  %176 = ashr exact i64 %sext143, 29
+  %177 = getelementptr inbounds i8, ptr %175, i64 %176
   %178 = load ptr, ptr %177, align 8
   invoke void @_ZNK6colvar11dist2_lgradERK11colvarvalueS2_(ptr dead_on_unwind nonnull writable sret(%class.colvarvalue) align 8 %10, ptr noundef nonnull align 8 dereferenceable(4624) %178, ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) %163)
           to label %179 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -9185,9 +9185,9 @@ _ZN11colvarvalueD2Ev.exit70:                      ; preds = %208, %_ZNSt6vectorI
   %229 = load i64, ptr %228, align 8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %229
   %sext = shl i64 %216, 32
-  %230 = ashr exact i64 %sext, 32
-  %231 = load ptr, ptr %gep, align 8
-  %232 = getelementptr inbounds ptr, ptr %231, i64 %230
+  %230 = load ptr, ptr %gep, align 8
+  %231 = ashr exact i64 %sext, 29
+  %232 = getelementptr inbounds i8, ptr %230, i64 %231
   %233 = load ptr, ptr %232, align 8
   invoke void @_ZNK6colvar11dist2_lgradERK11colvarvalueS2_(ptr dead_on_unwind nonnull writable sret(%class.colvarvalue) align 8 %12, ptr noundef nonnull align 8 dereferenceable(4624) %233, ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) %218)
           to label %234 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -25180,8 +25180,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %125 = load ptr, ptr %9, align 8
   %126 = getelementptr inbounds %class.colvarvalue, ptr %125, i64 %.093200
   %sext = shl i64 %.093200, 32
-  %127 = ashr exact i64 %sext, 32
-  %128 = getelementptr inbounds ptr, ptr %124, i64 %127
+  %127 = ashr exact i64 %sext, 29
+  %128 = getelementptr inbounds i8, ptr %124, i64 %127
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 672
   invoke void @_ZN11colvarvalue4typeERKS_(ptr noundef nonnull align 8 dereferenceable(168) %126, ptr noundef nonnull align 8 dereferenceable(168) %130)
@@ -26304,8 +26304,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZN15colvar
   %78 = load ptr, ptr %5, align 8
   %79 = getelementptr inbounds %class.colvarvalue, ptr %78, i64 %.086174
   %sext = shl i64 %.086174, 32
-  %80 = ashr exact i64 %sext, 32
-  %81 = getelementptr inbounds ptr, ptr %77, i64 %80
+  %80 = ashr exact i64 %sext, 29
+  %81 = getelementptr inbounds i8, ptr %77, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 672
   invoke void @_ZN11colvarvalue4typeERKS_(ptr noundef nonnull align 8 dereferenceable(168) %79, ptr noundef nonnull align 8 dereferenceable(168) %83)

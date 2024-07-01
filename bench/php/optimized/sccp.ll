@@ -1760,8 +1760,8 @@ get_op1_value.exit1995:                           ; preds = %317, %325, %328
   %507 = ptrtoint ptr %1 to i64
   %508 = ptrtoint ptr %506 to i64
   %509 = sub i64 %507, %508
-  %510 = ashr exact i64 %509, 5
-  %511 = getelementptr inbounds ptr, ptr %502, i64 %510
+  %510 = ashr exact i64 %509, 2
+  %511 = getelementptr inbounds i8, ptr %502, i64 %510
   %512 = load ptr, ptr %511, align 8
   %513 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %514 = load i8, ptr %513, align 8
@@ -4785,8 +4785,8 @@ ct_eval_binary_op.exit2014.thread:                ; preds = %1989, %ct_eval_bina
   %2030 = ptrtoint ptr %.015172033 to i64
   %2031 = ptrtoint ptr %2029 to i64
   %2032 = sub i64 %2030, %2031
-  %2033 = ashr exact i64 %2032, 5
-  %2034 = getelementptr inbounds ptr, ptr %2018, i64 %2033
+  %2033 = ashr exact i64 %2032, 2
+  %2034 = getelementptr inbounds i8, ptr %2018, i64 %2033
   %2035 = load ptr, ptr %2034, align 8
   %2036 = getelementptr inbounds i8, ptr %2027, i64 176
   %2037 = load ptr, ptr %2036, align 8
@@ -5783,8 +5783,8 @@ get_op1_value.exit:                               ; preds = %19, %27, %29
   %169 = getelementptr inbounds i8, ptr %3, i64 %.sink
   %170 = ptrtoint ptr %169 to i64
   %171 = sub i64 %170, %160
-  %172 = ashr exact i64 %171, 5
-  %173 = getelementptr inbounds i32, ptr %157, i64 %172
+  %172 = ashr exact i64 %171, 3
+  %173 = getelementptr inbounds i8, ptr %157, i64 %172
   %.0122 = load i32, ptr %173, align 4
   call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.0122) #13
   br label %.loopexit
@@ -5807,8 +5807,8 @@ get_op1_value.exit:                               ; preds = %19, %27, %29
   %187 = ptrtoint ptr %184 to i64
   %188 = ptrtoint ptr %186 to i64
   %189 = sub i64 %187, %188
-  %190 = ashr exact i64 %189, 5
-  %191 = getelementptr inbounds i32, ptr %180, i64 %190
+  %190 = ashr exact i64 %189, 3
+  %191 = getelementptr inbounds i8, ptr %180, i64 %190
   %192 = load i32, ptr %191, align 4
   call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %192) #13
   br label %.loopexit
@@ -9128,8 +9128,8 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @remove_call(ptr 
   %11 = ptrtoint ptr %1 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
-  %14 = ashr exact i64 %13, 5
-  %15 = getelementptr inbounds ptr, ptr %8, i64 %14
+  %14 = ashr exact i64 %13, 2
+  %15 = getelementptr inbounds i8, ptr %8, i64 %14
   %16 = load ptr, ptr %15, align 8, !nonnull !5, !noundef !5
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8

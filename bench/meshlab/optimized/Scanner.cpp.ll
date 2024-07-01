@@ -740,8 +740,8 @@ define noalias noundef ptr @_Z24coco_string_create_upperPKw(ptr noundef readonly
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %15 = ashr exact i64 %4, 32
-  %16 = getelementptr inbounds i32, ptr %7, i64 %15
+  %15 = ashr exact i64 %4, 30
+  %16 = getelementptr inbounds i8, ptr %7, i64 %15
   store i32 0, ptr %16, align 4
   br label %17
 
@@ -783,8 +783,8 @@ define noalias noundef ptr @_Z24coco_string_create_lowerPKw(ptr noundef readonly
 
 _Z24coco_string_create_lowerPKwii.exit:           ; preds = %.lr.ph.i, %2
   %sext = shl i64 %3, 32
-  %15 = ashr exact i64 %sext, 32
-  %16 = getelementptr inbounds i32, ptr %10, i64 %15
+  %15 = ashr exact i64 %sext, 30
+  %16 = getelementptr inbounds i8, ptr %10, i64 %15
   store i32 0, ptr %16, align 4
   br label %17
 
@@ -965,8 +965,8 @@ define noundef zeroext i1 @_Z20coco_string_endswithPKwS0_(ptr noundef readonly %
 
 7:                                                ; preds = %2
   %sext = shl i64 %3, 32
-  %8 = ashr exact i64 %sext, 32
-  %9 = getelementptr inbounds i32, ptr %0, i64 %8
+  %8 = ashr exact i64 %sext, 30
+  %9 = getelementptr inbounds i8, ptr %0, i64 %8
   %sext8 = shl i64 %5, 32
   %10 = ashr exact i64 %sext8, 32
   %11 = sub nsw i64 0, %10

@@ -6919,8 +6919,8 @@ Gia_ObjLevelId.exit:                              ; preds = %1, %._crit_edge.i.i
   %43 = getelementptr i8, ptr %.160.val, i64 8
   %.val.i.i = load ptr, ptr %43, align 8
   %sext = shl i64 %5, 32
-  %44 = ashr exact i64 %sext, 32
-  %45 = getelementptr inbounds i32, ptr %.val.i.i, i64 %44
+  %44 = ashr exact i64 %sext, 30
+  %45 = getelementptr inbounds i8, ptr %.val.i.i, i64 %44
   %46 = load i32, ptr %45, align 4
   ret i32 %46
 }

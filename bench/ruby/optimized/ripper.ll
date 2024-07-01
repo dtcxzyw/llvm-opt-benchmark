@@ -23051,8 +23051,8 @@ local_id_ref.exit:                                ; preds = %vtable_included.exi
   %51 = load ptr, ptr %.02955.i, align 8
   %52 = shl i64 %indvars.iv.i43.i, 32
   %sext.i = add i64 %52, 4294967296
-  %53 = ashr exact i64 %sext.i, 32
-  %54 = getelementptr i64, ptr %51, i64 %53
+  %53 = ashr exact i64 %sext.i, 29
+  %54 = getelementptr i8, ptr %51, i64 %53
   %55 = getelementptr i8, ptr %54, i64 -8
   %.not36 = icmp eq ptr %55, null
   br i1 %.not36, label %local_id_ref.exit.thread, label %56
@@ -49381,8 +49381,8 @@ vtable_included.exit46:                           ; preds = %38
   %46 = load ptr, ptr %.02955, align 8
   %47 = shl i64 %indvars.iv.i43, 32
   %sext = add i64 %47, 4294967296
-  %48 = ashr exact i64 %sext, 32
-  %49 = getelementptr i64, ptr %46, i64 %48
+  %48 = ashr exact i64 %sext, 29
+  %49 = getelementptr i8, ptr %46, i64 %48
   %50 = getelementptr i8, ptr %49, i64 -8
   store ptr %50, ptr %2, align 8
   br label %vtable_included.exit

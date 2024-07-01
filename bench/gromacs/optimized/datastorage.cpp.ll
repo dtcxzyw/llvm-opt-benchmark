@@ -2503,8 +2503,8 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
 
 26:                                               ; preds = %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit
   %sext = shl i64 %23, 32
-  %27 = ashr exact i64 %sext, 32
-  %28 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %8, i64 %27
+  %27 = ashr exact i64 %sext, 29
+  %28 = getelementptr inbounds i8, ptr %8, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 80
   %31 = load i32, ptr %30, align 8
@@ -2731,8 +2731,8 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
 
 62:                                               ; preds = %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit
   %sext = shl i64 %49, 32
-  %63 = ashr exact i64 %sext, 32
-  %64 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %34, i64 %63
+  %63 = ashr exact i64 %sext, 29
+  %64 = getelementptr inbounds i8, ptr %34, i64 %63
   br label %65
 
 65:                                               ; preds = %62, %24

@@ -52743,7 +52743,8 @@ if.end:                                           ; preds = %lor.lhs.false13
 
 if.then.i.i:                                      ; preds = %if.end
   %10 = load ptr, ptr %symtab_shndx_sec.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.mold::LittleEndian", ptr %10, i64 %i.068
+  %11 = shl nsw i64 %i.068, 2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 %11
   %x.0.copyload.i3.i.i = load i32, ptr %add.ptr.i.i.i, align 1
   %conv5.i.i = zext i32 %x.0.copyload.i3.i.i to i64
   br label %_ZN4mold3elf10ObjectFileINS0_4I386EE11get_sectionERKNS0_6ElfSymIS2_EE.exit
@@ -52754,16 +52755,16 @@ if.end.i.i:                                       ; preds = %if.end
 
 _ZN4mold3elf10ObjectFileINS0_4I386EE11get_sectionERKNS0_6ElfSymIS2_EE.exit: ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi i64 [ %conv5.i.i, %if.then.i.i ], [ %conv8.i.i, %if.end.i.i ]
-  %11 = load ptr, ptr %sections.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.289", ptr %11, i64 %retval.0.i.i
-  %12 = load ptr, ptr %add.ptr.i.i, align 8
-  %tobool.not = icmp eq ptr %12, null
+  %12 = load ptr, ptr %sections.i, align 8
+  %add.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.289", ptr %12, i64 %retval.0.i.i
+  %13 = load ptr, ptr %add.ptr.i.i, align 8
+  %tobool.not = icmp eq ptr %13, null
   br i1 %tobool.not, label %for.inc, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %_ZN4mold3elf10ObjectFileINS0_4I386EE11get_sectionERKNS0_6ElfSymIS2_EE.exit
-  %is_alive = getelementptr inbounds i8, ptr %12, i64 69
-  %13 = load atomic i8, ptr %is_alive seq_cst, align 1
-  %tobool.i.i = trunc i8 %13 to i1
+  %is_alive = getelementptr inbounds i8, ptr %13, i64 69
+  %14 = load atomic i8, ptr %is_alive seq_cst, align 1
+  %tobool.i.i = trunc i8 %14 to i1
   br i1 %tobool.i.i, label %lor.lhs.false18.if.end22_crit_edge, label %for.inc
 
 lor.lhs.false18.if.end22_crit_edge:               ; preds = %lor.lhs.false18
@@ -52771,10 +52772,10 @@ lor.lhs.false18.if.end22_crit_edge:               ; preds = %lor.lhs.false18
   br label %if.end22
 
 if.end22:                                         ; preds = %lor.lhs.false18.if.end22_crit_edge, %if.end
-  %14 = phi ptr [ %.pre, %lor.lhs.false18.if.end22_crit_edge ], [ %7, %if.end ]
-  call void @_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(4568) %14)
-  %15 = load ptr, ptr %ref.tmp, align 8
-  %tobool.not.i.i = icmp eq ptr %15, null
+  %15 = phi ptr [ %.pre, %lor.lhs.false18.if.end22_crit_edge ], [ %7, %if.end ]
+  call void @_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(4568) %15)
+  %16 = load ptr, ptr %ref.tmp, align 8
+  %tobool.not.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i, label %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRNS1_6SymbolIS3_EEEERS5_OT_.exit, label %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRA19_KcEERS5_OT_.exit
 
 _ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRA19_KcEERS5_OT_.exit: ; preds = %if.end22
@@ -52796,8 +52797,8 @@ _ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRA3_KcEERS5_OT_.exit: ; preds = %
   br i1 %tobool.not.i.i35, label %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRNS1_6SymbolIS3_EEEERS5_OT_.exit, label %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRNS1_9InputFileIS3_EEEERS5_OT_.exit
 
 _ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRNS1_9InputFileIS3_EEEERS5_OT_.exit: ; preds = %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRA3_KcEERS5_OT_.exit
-  %16 = load ptr, ptr %5, align 8
-  %call.i.i38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4mold3elflsINS0_4I386EEERSoS3_RKNS0_9InputFileIT_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i26, ptr noundef nonnull align 8 dereferenceable(280) %16) #15
+  %17 = load ptr, ptr %5, align 8
+  %call.i.i38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4mold3elflsINS0_4I386EEERSoS3_RKNS0_9InputFileIT_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i26, ptr noundef nonnull align 8 dereferenceable(280) %17) #15
   %.pr52 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i39 = icmp eq ptr %.pr52, null
   br i1 %tobool.not.i.i39, label %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRNS1_6SymbolIS3_EEEERS5_OT_.exit, label %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRA3_KcEERS5_OT_.exit43
@@ -52809,24 +52810,24 @@ _ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRA3_KcEERS5_OT_.exit43: ; preds =
   br i1 %tobool.not.i.i44, label %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRNS1_6SymbolIS3_EEEERS5_OT_.exit, label %if.then.i.i45
 
 if.then.i.i45:                                    ; preds = %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRA3_KcEERS5_OT_.exit43
-  %17 = load i8, ptr %2, align 1
-  %tobool.i.i.i = trunc i8 %17 to i1
+  %18 = load i8, ptr %2, align 1
+  %tobool.i.i.i = trunc i8 %18 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i45
   %call.i.i.i = call { i64, ptr } @_ZN4mold3elf8demangleINS0_4I386EEESt17basic_string_viewIcSt11char_traitsIcEERKNS0_6SymbolIT_EE(ptr noundef nonnull align 8 dereferenceable(51) %5) #15
-  %18 = extractvalue { i64, ptr } %call.i.i.i, 0
-  %19 = extractvalue { i64, ptr } %call.i.i.i, 1
-  %call2.i.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i26, ptr noundef %19, i64 noundef %18) #15
+  %19 = extractvalue { i64, ptr } %call.i.i.i, 0
+  %20 = extractvalue { i64, ptr } %call.i.i.i, 1
+  %call2.i.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i26, ptr noundef %20, i64 noundef %19) #15
   br label %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRNS1_6SymbolIS3_EEEERS5_OT_.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i45
   %nameptr.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
-  %20 = load ptr, ptr %nameptr.i.i.i.i, align 8
+  %21 = load ptr, ptr %nameptr.i.i.i.i, align 8
   %namelen.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
-  %21 = load i32, ptr %namelen.i.i.i.i, align 8
-  %conv.i.i.i.i = sext i32 %21 to i64
-  %call2.i4.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i26, ptr noundef %20, i64 noundef %conv.i.i.i.i) #15
+  %22 = load i32, ptr %namelen.i.i.i.i, align 8
+  %conv.i.i.i.i = sext i32 %22 to i64
+  %call2.i4.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i26, ptr noundef %21, i64 noundef %conv.i.i.i.i) #15
   br label %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRNS1_6SymbolIS3_EEEERS5_OT_.exit
 
 _ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRNS1_6SymbolIS3_EEEERS5_OT_.exit: ; preds = %if.end22, %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRA19_KcEERS5_OT_.exit, %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRA3_KcEERS5_OT_.exit, %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRNS1_10ObjectFileIS3_EEEERS5_OT_.exit, %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRNS1_9InputFileIS3_EEEERS5_OT_.exit, %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRA3_KcEERS5_OT_.exit43, %if.then.i.i.i, %if.else.i.i.i
@@ -52835,8 +52836,8 @@ _ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRNS1_6SymbolIS3_EEEERS5_OT_.exit:
 
 for.inc:                                          ; preds = %lor.lhs.false9, %lor.lhs.false9, %_ZN4mold3elf10ObjectFileINS0_4I386EE11get_sectionERKNS0_6ElfSymIS2_EE.exit, %lor.lhs.false18, %for.body, %lor.lhs.false, %lor.lhs.false13, %_ZN4mold5ErrorINS_3elf7ContextINS1_4I386EEEElsIRNS1_6SymbolIS3_EEEERS5_OT_.exit
   %inc = add nuw nsw i64 %i.068, 1
-  %22 = load i64, ptr %_M_extent.i, align 8
-  %cmp = icmp ult i64 %inc, %22
+  %23 = load i64, ptr %_M_extent.i, align 8
+  %cmp = icmp ult i64 %inc, %23
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !799
 
 for.end:                                          ; preds = %for.inc, %entry

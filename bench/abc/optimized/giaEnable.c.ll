@@ -283,7 +283,8 @@ define void @Gia_ManPrintSignals(ptr nocapture noundef readonly %0, ptr nocaptur
 22:                                               ; preds = %18
   %23 = add nsw i32 %.241, 1
   %.val34 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds i32, ptr %.val34, i64 %indvars.iv46
+  %sext.i = shl nuw nsw i64 %indvars.iv46, 2
+  %24 = getelementptr inbounds i8, ptr %.val34, i64 %sext.i
   %25 = load i32, ptr %24, align 4
   %26 = trunc nuw nsw i64 %indvars.iv46 to i32
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %23, i32 noundef %26, i32 noundef %25, i32 noundef %20)
@@ -589,8 +590,8 @@ Gia_CollectSuper.exit:                            ; preds = %30
   %114 = sub i64 %.pre-phi, %113
   %115 = sdiv exact i64 %114, 12
   %sext = shl i64 %115, 32
-  %116 = ashr exact i64 %sext, 32
-  %117 = getelementptr inbounds i32, ptr %10, i64 %116
+  %116 = ashr exact i64 %sext, 30
+  %117 = getelementptr inbounds i8, ptr %10, i64 %116
   %118 = load i32, ptr %117, align 4
   %119 = add nsw i32 %118, 1
   store i32 %119, ptr %117, align 4
@@ -1012,8 +1013,8 @@ Gia_CollectSuper.exit:                            ; preds = %30
   %114 = sub i64 %.pre-phi, %113
   %115 = sdiv exact i64 %114, 12
   %sext = shl i64 %115, 32
-  %116 = ashr exact i64 %sext, 32
-  %117 = getelementptr inbounds i32, ptr %10, i64 %116
+  %116 = ashr exact i64 %sext, 30
+  %117 = getelementptr inbounds i8, ptr %10, i64 %116
   %118 = load i32, ptr %117, align 4
   %119 = add nsw i32 %118, 1
   store i32 %119, ptr %117, align 4

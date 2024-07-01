@@ -2896,8 +2896,8 @@ Vec_IntGrow.exit.i.i216:                          ; preds = %Vec_IntGrow.exit.si
 Vec_IntSetEntry.exit226:                          ; preds = %Bac_ObjDup.exit.i, %._crit_edge.i.i223
   %.val.i224 = load ptr, ptr %38, align 8
   %sext = shl i64 %indvars.iv.i, 32
-  %165 = ashr exact i64 %sext, 32
-  %166 = getelementptr inbounds i32, ptr %.val.i224, i64 %165
+  %165 = ashr exact i64 %sext, 30
+  %166 = getelementptr inbounds i8, ptr %.val.i224, i64 %165
   store i32 %.val.i227, ptr %166, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val45.i = load ptr, ptr %30, align 8
@@ -3271,8 +3271,8 @@ Vec_IntGrow.exit.i.i187:                          ; preds = %Vec_IntGrow.exit.si
 Vec_IntSetEntry.exit:                             ; preds = %Bac_ObjDup.exit91.i, %._crit_edge.i.i
   %.val.i193 = load ptr, ptr %38, align 8
   %sext300 = shl i64 %indvars.iv109.i414, 32
-  %302 = ashr exact i64 %sext300, 32
-  %303 = getelementptr inbounds i32, ptr %.val.i193, i64 %302
+  %302 = ashr exact i64 %sext300, 30
+  %303 = getelementptr inbounds i8, ptr %.val.i193, i64 %302
   store i32 %.val.i194, ptr %303, align 4
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i414, 1
   %.val.i139 = load i32, ptr %28, align 4

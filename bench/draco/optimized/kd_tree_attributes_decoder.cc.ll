@@ -1512,9 +1512,9 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %114
   %134 = sub i64 %132, %133
   %135 = sdiv exact i64 %134, 48
   %sext = shl i64 %135, 32
-  %136 = ashr exact i64 %sext, 32
-  %137 = load ptr, ptr %25, align 8
-  %138 = getelementptr inbounds %"class.std::unique_ptr.43", ptr %137, i64 %136
+  %136 = load ptr, ptr %25, align 8
+  %137 = ashr exact i64 %sext, 29
+  %138 = getelementptr inbounds i8, ptr %136, i64 %137
   %139 = load ptr, ptr %138, align 8
   %140 = invoke noundef zeroext i1 @_ZNK5draco18AttributeTransform19TransferToAttributeEPNS_14PointAttributeE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %139)
           to label %141 unwind label %.loopexit208

@@ -2892,8 +2892,8 @@ _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit224.thread273.i: ; preds 
 
 _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit224.i: ; preds = %735
   %sext.i = shl i64 %733, 32
-  %738 = ashr exact i64 %sext.i, 32
-  %739 = getelementptr inbounds float, ptr %223, i64 %738
+  %738 = ashr exact i64 %sext.i, 30
+  %739 = getelementptr inbounds i8, ptr %223, i64 %738
   %740 = load float, ptr %739, align 4
   %741 = fcmp ogt float %740, %721
   %742 = add nuw nsw i32 %723, 1
@@ -2949,8 +2949,8 @@ _ZL6indexniPKiS0_.exit242.i:                      ; preds = %._crit_edge.i233.i
 
 _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit243.i: ; preds = %756
   %sext274.i = shl i64 %753, 32
-  %758 = ashr exact i64 %sext274.i, 32
-  %759 = getelementptr inbounds float, ptr %223, i64 %758
+  %758 = ashr exact i64 %sext274.i, 30
+  %759 = getelementptr inbounds i8, ptr %223, i64 %758
   %760 = load float, ptr %759, align 4
   %761 = fcmp ogt float %760, %721
   store i32 %723, ptr %722, align 4

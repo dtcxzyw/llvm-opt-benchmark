@@ -455,8 +455,8 @@ define range(i32 0, 2) i32 @Lpk_NodeHasChanged(ptr nocapture noundef readonly %0
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %sext = shl i64 %24, 32
-  %25 = ashr exact i64 %sext, 32
-  %26 = getelementptr inbounds ptr, ptr %.val19.val, i64 %25
+  %25 = ashr exact i64 %sext, 29
+  %26 = getelementptr inbounds i8, ptr %.val19.val, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.critedge, label %17
@@ -2394,8 +2394,8 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %159, %155, %152
   %185 = load ptr, ptr %184, align 8
   %186 = ptrtoint ptr %185 to i64
   %sext.i = shl i64 %186, 32
-  %187 = ashr exact i64 %sext.i, 32
-  %188 = getelementptr inbounds ptr, ptr %.val19.val.i, i64 %187
+  %187 = ashr exact i64 %sext.i, 29
+  %188 = getelementptr inbounds i8, ptr %.val19.val.i, i64 %187
   %189 = load ptr, ptr %188, align 8
   %190 = icmp eq ptr %189, null
   br i1 %190, label %Lpk_NodeHasChanged.exit, label %179

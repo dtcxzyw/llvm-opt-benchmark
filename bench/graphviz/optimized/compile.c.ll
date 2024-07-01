@@ -3528,8 +3528,8 @@ agxbfree.exit:                                    ; preds = %690, %680, %679
   %857 = getelementptr inbounds i8, ptr %850, i64 128
   %858 = load ptr, ptr %857, align 8
   %sext = shl i64 %851, 32
-  %859 = ashr exact i64 %sext, 32
-  %860 = getelementptr inbounds ptr, ptr %858, i64 %859
+  %859 = ashr exact i64 %sext, 29
+  %860 = getelementptr inbounds i8, ptr %858, i64 %859
   %861 = load ptr, ptr %860, align 8
   br label %getArg.exit
 

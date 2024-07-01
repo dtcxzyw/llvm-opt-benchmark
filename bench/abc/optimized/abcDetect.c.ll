@@ -7639,8 +7639,8 @@ Abc_NtkFinCheckTypesOk.exit:                      ; preds = %26
 
 31:                                               ; preds = %Abc_NtkFinCheckTypesOk.exit
   %sext = shl i64 %indvars.iv.i, 32
-  %32 = ashr exact i64 %sext, 32
-  %33 = getelementptr inbounds ptr, ptr %.val11.val.i, i64 %32
+  %32 = ashr exact i64 %sext, 29
+  %33 = getelementptr inbounds i8, ptr %.val11.val.i, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @Abc_ObjName(ptr noundef %34) #31
   %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %35)

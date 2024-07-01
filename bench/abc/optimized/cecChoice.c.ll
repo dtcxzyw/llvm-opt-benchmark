@@ -2515,8 +2515,8 @@ define internal fastcc void @Cec_ManCombSpecReduce_rec(ptr noundef %0, ptr nound
   %12 = getelementptr inbounds i8, ptr %1, i64 192
   %13 = load ptr, ptr %12, align 8
   %sext = shl i64 %11, 32
-  %14 = ashr exact i64 %sext, 32
-  %15 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %13, i64 %14
+  %14 = ashr exact i64 %sext, 30
+  %15 = getelementptr inbounds i8, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 268435455
   %18 = icmp eq i32 %17, 268435455

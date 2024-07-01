@@ -2623,8 +2623,8 @@ define noundef i32 @Dar2_LibCutMatch(ptr nocapture noundef readonly %0, ptr noca
   %52 = getelementptr i8, ptr %.val17, i64 8
   %.val.i.i.i = load ptr, ptr %52, align 8
   %sext.i = shl i64 %49, 32
-  %53 = ashr exact i64 %sext.i, 32
-  %54 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %53
+  %53 = ashr exact i64 %sext.i, 30
+  %54 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = load ptr, ptr @s_DarLib, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 16096
@@ -2795,8 +2795,8 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   %107 = getelementptr i8, ptr %.val56, i64 8
   %.val.i.i.i = load ptr, ptr %107, align 8
   %sext.i = shl i64 %104, 32
-  %108 = ashr exact i64 %sext.i, 32
-  %109 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %108
+  %108 = ashr exact i64 %sext.i, 30
+  %109 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %108
   %110 = load i32, ptr %109, align 4
   store i32 %110, ptr %50, align 8
   br label %111
@@ -2931,8 +2931,8 @@ define i32 @Dar2_LibEval(ptr noundef %0, ptr nocapture noundef readonly %1, i32 
   %54 = getelementptr i8, ptr %.val17.i, i64 8
   %.val.i.i.i.i = load ptr, ptr %54, align 8
   %sext.i.i = shl i64 %51, 32
-  %55 = ashr exact i64 %sext.i.i, 32
-  %56 = getelementptr inbounds i32, ptr %.val.i.i.i.i, i64 %55
+  %55 = ashr exact i64 %sext.i.i, 30
+  %56 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = load ptr, ptr @s_DarLib, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 16096
@@ -3255,8 +3255,8 @@ define i32 @Dar2_LibBuildBest_rec(ptr noundef %0, ptr nocapture noundef readonly
   %48 = getelementptr i8, ptr %.val8.i, i64 8
   %.val.i.i.i.i = load ptr, ptr %48, align 8
   %sext.i.i = shl i64 %45, 32
-  %49 = ashr exact i64 %sext.i.i, 32
-  %50 = getelementptr inbounds i32, ptr %.val.i.i.i.i, i64 %49
+  %49 = ashr exact i64 %sext.i.i, 30
+  %50 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = load i64, ptr %34, align 4
   %53 = lshr i64 %52, 32
@@ -3275,8 +3275,8 @@ define i32 @Dar2_LibBuildBest_rec(ptr noundef %0, ptr nocapture noundef readonly
   %63 = getelementptr i8, ptr %.val6.i, i64 8
   %.val.i.i.i11.i = load ptr, ptr %63, align 8
   %sext.i12.i = shl i64 %60, 32
-  %64 = ashr exact i64 %sext.i12.i, 32
-  %65 = getelementptr inbounds i32, ptr %.val.i.i.i11.i, i64 %64
+  %64 = ashr exact i64 %sext.i12.i, 30
+  %65 = getelementptr inbounds i8, ptr %.val.i.i.i11.i, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = tail call noundef i32 @llvm.smax.i32(i32 %51, i32 %66)
   %68 = add nsw i32 %67, 1
@@ -3292,8 +3292,8 @@ define i32 @Dar2_LibBuildBest_rec(ptr noundef %0, ptr nocapture noundef readonly
   %75 = getelementptr i8, ptr %.val10.i, i64 8
   %.val.i.i.i13.i = load ptr, ptr %75, align 8
   %sext.i14.i = shl i64 %72, 32
-  %76 = ashr exact i64 %sext.i14.i, 32
-  %77 = getelementptr inbounds i32, ptr %.val.i.i.i13.i, i64 %76
+  %76 = ashr exact i64 %sext.i14.i, 30
+  %77 = getelementptr inbounds i8, ptr %.val.i.i.i13.i, i64 %76
   store i32 %68, ptr %77, align 4
   br label %78
 

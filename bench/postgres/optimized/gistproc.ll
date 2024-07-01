@@ -658,8 +658,8 @@ float8_lt.exit.thread:                            ; preds = %102, %109, %float8_
 111:                                              ; preds = %97
   %112 = trunc nsw i64 %indvars.iv to i32
   %sext374 = shl i64 %indvars.iv, 32
-  %113 = ashr exact i64 %sext374, 32
-  %114 = getelementptr %struct.SplitInterval, ptr %15, i64 %113
+  %113 = ashr exact i64 %sext374, 28
+  %114 = getelementptr i8, ptr %15, i64 %113
   %115 = load double, ptr %114, align 8
   %116 = icmp slt i32 %.0223327, %11
   br i1 %116, label %.lr.ph321, label %.critedge2

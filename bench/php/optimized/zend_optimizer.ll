@@ -2654,8 +2654,8 @@ define hidden void @zend_optimizer_shift_jump(ptr nocapture noundef readonly %0,
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
-  %16 = ashr exact i64 %15, 5
-  %17 = getelementptr inbounds i32, ptr %2, i64 %16
+  %16 = ashr exact i64 %15, 3
+  %17 = getelementptr inbounds i8, ptr %2, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
   %20 = sub nsw i64 0, %19
@@ -2677,8 +2677,8 @@ define hidden void @zend_optimizer_shift_jump(ptr nocapture noundef readonly %0,
   %33 = ptrtoint ptr %30 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
-  %36 = ashr exact i64 %35, 5
-  %37 = getelementptr inbounds i32, ptr %2, i64 %36
+  %36 = ashr exact i64 %35, 3
+  %37 = getelementptr inbounds i8, ptr %2, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = zext i32 %38 to i64
   %40 = sub nsw i64 0, %39
@@ -2707,8 +2707,8 @@ define hidden void @zend_optimizer_shift_jump(ptr nocapture noundef readonly %0,
   %57 = ptrtoint ptr %54 to i64
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %57, %58
-  %60 = ashr exact i64 %59, 5
-  %61 = getelementptr inbounds i32, ptr %2, i64 %60
+  %60 = ashr exact i64 %59, 3
+  %61 = getelementptr inbounds i8, ptr %2, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = zext i32 %62 to i64
   %64 = sub nsw i64 0, %63

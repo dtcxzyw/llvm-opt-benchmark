@@ -3532,9 +3532,9 @@ _ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit674:    ; preds = %if.then.i673, %if.t
   %227 = load i32, ptr %child1, align 4
   %bf.value.i = and i32 %227, 2147483647
   %sext = shl i64 %180, 32
-  %conv156 = ashr exact i64 %sext, 32
   %228 = load ptr, ptr %ptr.i518, align 8
-  %arrayidx.i676 = getelementptr inbounds %"struct.pbrt::LightBVHNode", ptr %228, i64 %conv156
+  %229 = ashr exact i64 %sext, 27
+  %arrayidx.i676 = getelementptr inbounds i8, ptr %228, i64 %229
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %arrayidx.i676, ptr noundef nonnull align 4 dereferenceable(24) %cb151, i64 24, i1 false)
   %ref.tmp153.sroa.2.0.arrayidx.i676.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i676, i64 24
   store i32 %bf.value.i, ptr %ref.tmp153.sroa.2.0.arrayidx.i676.sroa_idx, align 8

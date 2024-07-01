@@ -335,8 +335,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 156:                                              ; preds = %154
   %sext.us = shl i64 %.295.us101, 32
-  %157 = ashr exact i64 %sext.us, 32
-  %158 = getelementptr inbounds i32, ptr %29, i64 %157
+  %157 = ashr exact i64 %sext.us, 30
+  %158 = getelementptr inbounds i8, ptr %29, i64 %157
   store i32 %48, ptr %158, align 4
   %159 = trunc i64 %.295.us101 to i32
   %160 = and i64 %.295.us101, 63
@@ -357,8 +357,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 171:                                              ; preds = %167
   %sext88.us = shl i64 %169, 32
-  %172 = ashr exact i64 %sext88.us, 32
-  %173 = getelementptr inbounds i32, ptr %29, i64 %172
+  %172 = ashr exact i64 %sext88.us, 30
+  %173 = getelementptr inbounds i8, ptr %29, i64 %172
   store i32 %48, ptr %173, align 4
   %174 = trunc i64 %169 to i32
   %175 = and i64 %169, 63

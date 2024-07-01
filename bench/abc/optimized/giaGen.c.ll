@@ -3667,8 +3667,8 @@ define noalias noundef ptr @Gia_ManSimulateAll(ptr nocapture noundef %0, ptr noc
   store i32 24576, ptr %25, align 4
   %.val = load ptr, ptr %14, align 8
   %sext = mul i64 %indvars.iv, 105553116266496
-  %27 = ashr exact i64 %sext, 32
-  %28 = getelementptr inbounds i64, ptr %.val, i64 %27
+  %27 = ashr exact i64 %sext, 29
+  %28 = getelementptr inbounds i8, ptr %.val, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196608) %calloc, ptr noundef nonnull align 8 dereferenceable(196608) %28, i64 196608, i1 false)
   tail call void @Extra_BitMatrixTransposeP(ptr noundef nonnull %21, i32 noundef 384, ptr noundef nonnull %24, i32 noundef 1) #21
   %29 = load ptr, ptr %23, align 8

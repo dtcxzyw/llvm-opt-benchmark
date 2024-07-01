@@ -31559,20 +31559,20 @@ RSTRING_PTR.exit:                                 ; preds = %2, %11
   %42 = load ptr, ptr %41, align 8
   %43 = call i64 @pm_newline_list_line_column(ptr noundef nonnull %23, ptr noundef %42, i32 noundef 1) #37
   %sext.i.i = shl i64 %43, 32
-  %44 = ashr exact i64 %sext.i.i, 32
-  %45 = getelementptr inbounds i8, ptr %.02633.i, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = call i64 @pm_newline_list_line_column(ptr noundef nonnull %23, ptr noundef %46, i32 noundef 1) #37
-  %sext26.i.i = shl i64 %47, 32
-  %48 = ashr exact i64 %sext26.i.i, 32
-  %49 = load ptr, ptr %24, align 8
-  %50 = load ptr, ptr %25, align 8
-  %51 = getelementptr i64, ptr %50, i64 %44
+  %44 = getelementptr inbounds i8, ptr %.02633.i, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = call i64 @pm_newline_list_line_column(ptr noundef nonnull %23, ptr noundef %45, i32 noundef 1) #37
+  %sext26.i.i = shl i64 %46, 32
+  %47 = ashr exact i64 %sext26.i.i, 32
+  %48 = load ptr, ptr %24, align 8
+  %49 = load ptr, ptr %25, align 8
+  %50 = ashr exact i64 %sext.i.i, 29
+  %51 = getelementptr i8, ptr %49, i64 %50
   %52 = getelementptr i8, ptr %51, i64 -8
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr i8, ptr %49, i64 %53
+  %54 = getelementptr i8, ptr %48, i64 %53
   %55 = load i64, ptr %26, align 8
-  %56 = icmp eq i64 %48, %55
+  %56 = icmp eq i64 %47, %55
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %40
@@ -31580,9 +31580,9 @@ RSTRING_PTR.exit:                                 ; preds = %2, %11
   br label %63
 
 59:                                               ; preds = %40
-  %60 = getelementptr i64, ptr %50, i64 %48
+  %60 = getelementptr i64, ptr %49, i64 %47
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr i8, ptr %49, i64 %61
+  %62 = getelementptr i8, ptr %48, i64 %61
   br label %63
 
 63:                                               ; preds = %59, %57

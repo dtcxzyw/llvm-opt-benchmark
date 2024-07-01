@@ -4837,41 +4837,41 @@ if.then20:                                        ; preds = %nth_bitmap_object_o
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call18 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %mapping.val to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
-  %arrayidx.i32 = getelementptr inbounds i32, ptr %mapping.val21, i64 %sub.ptr.div.i
-  %12 = load i32, ptr %arrayidx.i32, align 4
-  %add = add i32 %12, 1
+  %12 = sdiv exact i64 %sub.ptr.sub.i, 24
+  %arrayidx.i32 = getelementptr inbounds i8, ptr %mapping.val21, i64 %12
+  %13 = load i32, ptr %arrayidx.i32, align 4
+  %add = add i32 %13, 1
   %arrayidx = getelementptr inbounds i32, ptr %call7, i64 %indvars.iv
   store i32 %add, ptr %arrayidx, align 4
-  %13 = load ptr, ptr %hashes, align 8
-  %tobool22.not = icmp eq ptr %13, null
+  %14 = load ptr, ptr %hashes, align 8
+  %tobool22.not = icmp eq ptr %14, null
   br i1 %tobool22.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then20
   %hash = getelementptr inbounds i8, ptr %call18, i64 64
-  %14 = load i32, ptr %hash, align 8
-  %tobool23.not = icmp eq i32 %14, 0
+  %15 = load i32, ptr %hash, align 8
+  %tobool23.not = icmp eq i32 %15, 0
   br i1 %tobool23.not, label %if.then24, label %for.inc
 
 if.then24:                                        ; preds = %land.lhs.true
   %idx.ext = zext i32 %index_pos.0 to i64
-  %add.ptr = getelementptr inbounds i32, ptr %13, i64 %idx.ext
-  %15 = load i8, ptr %add.ptr, align 1
-  %conv.i = zext i8 %15 to i32
+  %add.ptr = getelementptr inbounds i32, ptr %14, i64 %idx.ext
+  %16 = load i8, ptr %add.ptr, align 1
+  %conv.i = zext i8 %16 to i32
   %shl.i = shl nuw i32 %conv.i, 24
   %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
-  %16 = load i8, ptr %arrayidx1.i, align 1
-  %conv2.i = zext i8 %16 to i32
+  %17 = load i8, ptr %arrayidx1.i, align 1
+  %conv2.i = zext i8 %17 to i32
   %shl3.i = shl nuw nsw i32 %conv2.i, 16
   %or.i = or disjoint i32 %shl3.i, %shl.i
   %arrayidx4.i = getelementptr inbounds i8, ptr %add.ptr, i64 2
-  %17 = load i8, ptr %arrayidx4.i, align 1
-  %conv5.i = zext i8 %17 to i32
+  %18 = load i8, ptr %arrayidx4.i, align 1
+  %conv5.i = zext i8 %18 to i32
   %shl6.i = shl nuw nsw i32 %conv5.i, 8
   %or7.i = or disjoint i32 %or.i, %shl6.i
   %arrayidx8.i = getelementptr inbounds i8, ptr %add.ptr, i64 3
-  %18 = load i8, ptr %arrayidx8.i, align 1
-  %conv9.i = zext i8 %18 to i32
+  %19 = load i8, ptr %arrayidx8.i, align 1
+  %conv9.i = zext i8 %19 to i32
   %or11.i = or disjoint i32 %or7.i, %conv9.i
   store i32 %or11.i, ptr %hash, align 8
   br label %for.inc

@@ -2159,8 +2159,8 @@ _ZNK20btAlignedObjectArrayI16btBroadphasePairE16findLinearSearchERKS0_.exit: ; p
 
 if.then5:                                         ; preds = %_ZNK20btAlignedObjectArrayI16btBroadphasePairE16findLinearSearchERKS0_.exit
   %sext = shl i64 %indvars.iv.i, 32
-  %idxprom.i = ashr exact i64 %sext, 32
-  %arrayidx.i5 = getelementptr inbounds %struct.btBroadphasePair, ptr %4, i64 %idxprom.i
+  %9 = ashr exact i64 %sext, 27
+  %arrayidx.i5 = getelementptr inbounds i8, ptr %4, i64 %9
   br label %return
 
 return:                                           ; preds = %for.inc.i, %if.end, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE16findLinearSearchERKS0_.exit, %entry, %if.then5

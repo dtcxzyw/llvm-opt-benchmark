@@ -160,8 +160,8 @@ define void @dlar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %98 = getelementptr double, ptr %93, i64 %67
   %99 = trunc nsw i64 %indvars.iv528 to i32
   %sext = shl i64 %indvars.iv.next529, 32
-  %100 = ashr exact i64 %sext, 32
-  %101 = getelementptr inbounds double, ptr %20, i64 %100
+  %100 = ashr exact i64 %sext, 29
+  %101 = getelementptr inbounds i8, ptr %20, i64 %100
   %102 = load double, ptr %101, align 8
   store double %102, ptr %98, align 8
   %103 = load double, ptr %3, align 8
@@ -292,8 +292,8 @@ define void @dlar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %176 = getelementptr double, ptr %171, i64 %169
   %177 = trunc nsw i64 %indvars.iv539 to i32
   %sext573 = shl i64 %indvars.iv539, 32
-  %178 = ashr exact i64 %sext573, 32
-  %179 = getelementptr double, ptr %23, i64 %178
+  %178 = ashr exact i64 %sext573, 29
+  %179 = getelementptr i8, ptr %23, i64 %178
   %180 = getelementptr i8, ptr %179, i64 8
   %181 = load double, ptr %180, align 8
   %182 = load double, ptr %3, align 8

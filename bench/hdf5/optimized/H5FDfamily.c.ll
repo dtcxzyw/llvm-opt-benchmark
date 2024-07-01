@@ -1656,8 +1656,8 @@ define internal i32 @H5FD__family_get_handle(ptr nocapture noundef readonly %0, 
   %34 = getelementptr inbounds i8, ptr %0, i64 112
   %35 = load ptr, ptr %34, align 8
   %sext = shl i64 %33, 32
-  %36 = ashr exact i64 %sext, 32
-  %37 = getelementptr inbounds ptr, ptr %35, i64 %36
+  %36 = ashr exact i64 %sext, 29
+  %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 @H5FD_get_vfd_handle(ptr noundef %38, i64 noundef %1, ptr noundef %2) #13
   br label %40

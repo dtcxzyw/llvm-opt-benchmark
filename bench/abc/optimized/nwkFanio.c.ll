@@ -551,8 +551,8 @@ Nwk_ObjFindFanin.exit.thread:                     ; preds = %14, %9, %3
 
 Nwk_ObjFindFanin.exit:                            ; preds = %12
   %sext = shl i64 %indvars.iv.i, 32
-  %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds ptr, ptr %8, i64 %21
+  %21 = ashr exact i64 %sext, 29
+  %22 = getelementptr inbounds i8, ptr %8, i64 %21
   store ptr %2, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %1, i64 64
   %24 = load i32, ptr %23, align 8

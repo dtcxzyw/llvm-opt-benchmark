@@ -1781,9 +1781,9 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %_ZNK7nanogui13Tab
 _ZNKSt8functionIFPN7nanogui5PopupEiPNS0_6ScreenEEEclEiS4_.exit: ; preds = %100
   %106 = getelementptr inbounds i8, ptr %0, i64 200
   %sext = shl i64 %.sroa.0.0.i, 32
-  %107 = ashr exact i64 %sext, 32
-  %108 = load ptr, ptr %106, align 8
-  %109 = getelementptr inbounds i32, ptr %108, i64 %107
+  %107 = load ptr, ptr %106, align 8
+  %108 = ashr exact i64 %sext, 30
+  %109 = getelementptr inbounds i8, ptr %107, i64 %108
   %110 = load i32, ptr %109, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)

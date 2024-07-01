@@ -5301,8 +5301,8 @@ list_length.exit.i167:                            ; preds = %661, %.split.i
   %670 = getelementptr i8, ptr %660, i64 16
   %.val76.i = load ptr, ptr %670, align 8
   %sext.i = shl i64 %indvars.iv.i164, 32
-  %671 = ashr exact i64 %sext.i, 32
-  %672 = getelementptr %union.ListCell, ptr %.val76.i, i64 %671
+  %671 = ashr exact i64 %sext.i, 29
+  %672 = getelementptr i8, ptr %.val76.i, i64 %671
   %673 = load i32, ptr %672, align 8
   %674 = icmp slt i32 %673, 1
   br i1 %674, label %675, label %679

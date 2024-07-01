@@ -980,8 +980,8 @@ define internal fastcc i32 @insert_header(ptr noundef %0, ptr nocapture noundef 
   %161 = ptrtoint ptr %155 to i64
   %162 = ptrtoint ptr %160 to i64
   %163 = sub i64 %161, %162
-  %164 = ashr exact i64 %163, 6
-  %165 = getelementptr %struct.ctl_node, ptr %159, i64 %164
+  %164 = ashr exact i64 %163, 1
+  %165 = getelementptr i8, ptr %159, i64 %164
   %166 = load ptr, ptr %25, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 80
   %168 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %156) #18
@@ -1073,8 +1073,8 @@ define internal fastcc i32 @insert_header(ptr noundef %0, ptr nocapture noundef 
   %227 = ptrtoint ptr %221 to i64
   %228 = ptrtoint ptr %226 to i64
   %229 = sub i64 %227, %228
-  %230 = ashr exact i64 %229, 6
-  %231 = getelementptr %struct.ctl_node, ptr %225, i64 %230
+  %230 = ashr exact i64 %229, 1
+  %231 = getelementptr i8, ptr %225, i64 %230
   %232 = load ptr, ptr %25, align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 80
   tail call void @rb_erase(ptr noundef %231, ptr noundef %233) #18
@@ -1179,8 +1179,8 @@ define internal fastcc void @drop_sysctl_table(ptr noundef %0) unnamed_addr #0 a
   %36 = ptrtoint ptr %30 to i64
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
-  %39 = ashr exact i64 %38, 6
-  %40 = getelementptr %struct.ctl_node, ptr %34, i64 %39
+  %39 = ashr exact i64 %38, 1
+  %40 = getelementptr i8, ptr %34, i64 %39
   %41 = load ptr, ptr %3, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 80
   call void @rb_erase(ptr noundef %40, ptr noundef %42) #18
@@ -3394,8 +3394,8 @@ define internal i32 @proc_sys_readdir(ptr nocapture noundef readonly %0, ptr nou
   %106 = ptrtoint ptr %79 to i64
   %107 = ptrtoint ptr %104 to i64
   %108 = sub i64 %106, %107
-  %109 = ashr exact i64 %108, 6
-  %110 = getelementptr %struct.ctl_node, ptr %105, i64 %109
+  %109 = ashr exact i64 %108, 1
+  %110 = getelementptr i8, ptr %105, i64 %109
   tail call void @_raw_spin_lock(ptr noundef nonnull @sysctl_lock) #18
   %111 = getelementptr inbounds i8, ptr %80, i64 12
   %112 = load i32, ptr %111, align 4

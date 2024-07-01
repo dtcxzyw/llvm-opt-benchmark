@@ -2323,8 +2323,8 @@ define weak_odr void @_ZNK7mitsuba8SpecFilmIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
-  %18 = sdiv exact i64 %17, 24
-  %19 = getelementptr float, ptr %3, i64 %18
+  %18 = sdiv exact i64 %17, 6
+  %19 = getelementptr i8, ptr %3, i64 %18
   %20 = getelementptr i8, ptr %19, i64 -4
   store float %4, ptr %20, align 4
   %21 = getelementptr inbounds i8, ptr %8, i64 232

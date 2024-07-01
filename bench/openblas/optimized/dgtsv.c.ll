@@ -528,8 +528,8 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %346 = load double, ptr %345, align 8, !tbaa !7
   %347 = add i64 %338, %342
   %348 = shl i64 %347, 32
-  %349 = ashr exact i64 %348, 32
-  %350 = getelementptr inbounds double, ptr %16, i64 %349
+  %349 = ashr exact i64 %348, 29
+  %350 = getelementptr inbounds i8, ptr %16, i64 %349
   %351 = load double, ptr %350, align 8, !tbaa !7
   %352 = fneg double %346
   %353 = tail call double @llvm.fmuladd.f64(double %352, double %351, double %344)
@@ -537,8 +537,8 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %355 = load double, ptr %354, align 8, !tbaa !7
   %356 = add i64 %339, %342
   %357 = shl i64 %356, 32
-  %358 = ashr exact i64 %357, 32
-  %359 = getelementptr inbounds double, ptr %16, i64 %358
+  %358 = ashr exact i64 %357, 29
+  %359 = getelementptr inbounds i8, ptr %16, i64 %358
   %360 = load double, ptr %359, align 8, !tbaa !7
   %361 = fneg double %355
   %362 = tail call double @llvm.fmuladd.f64(double %361, double %360, double %353)
@@ -612,8 +612,8 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %411 = load double, ptr %410, align 8, !tbaa !7
   %412 = add i64 %403, %407
   %413 = shl i64 %412, 32
-  %414 = ashr exact i64 %413, 32
-  %415 = getelementptr inbounds double, ptr %16, i64 %414
+  %414 = ashr exact i64 %413, 29
+  %415 = getelementptr inbounds i8, ptr %16, i64 %414
   %416 = load double, ptr %415, align 8, !tbaa !7
   %417 = fneg double %411
   %418 = tail call double @llvm.fmuladd.f64(double %417, double %416, double %409)
@@ -621,8 +621,8 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %420 = load double, ptr %419, align 8, !tbaa !7
   %421 = add i64 %404, %407
   %422 = shl i64 %421, 32
-  %423 = ashr exact i64 %422, 32
-  %424 = getelementptr inbounds double, ptr %16, i64 %423
+  %423 = ashr exact i64 %422, 29
+  %424 = getelementptr inbounds i8, ptr %16, i64 %423
   %425 = load double, ptr %424, align 8, !tbaa !7
   %426 = fneg double %420
   %427 = tail call double @llvm.fmuladd.f64(double %426, double %425, double %418)

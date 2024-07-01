@@ -697,8 +697,8 @@ define internal noundef zeroext i1 @_task_readable(ptr nocapture noundef %0) #0 
   %8 = ptrtoint ptr %7 to i64
   %9 = load ptr, ptr @finalized, align 8
   %sext = shl i64 %8, 32
-  %10 = ashr exact i64 %sext, 32
-  %11 = getelementptr inbounds i32, ptr %9, i64 %10
+  %10 = ashr exact i64 %sext, 30
+  %11 = getelementptr inbounds i8, ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %14, label %17

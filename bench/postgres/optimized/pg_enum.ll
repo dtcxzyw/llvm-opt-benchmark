@@ -484,8 +484,8 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 89:                                               ; preds = %.lr.ph137
   %90 = trunc nuw nsw i64 %indvars.iv169 to i32
   %sext = shl i64 %indvars.iv169, 32
-  %91 = ashr exact i64 %sext, 32
-  %92 = getelementptr ptr, ptr %50, i64 %91
+  %91 = ashr exact i64 %sext, 29
+  %92 = getelementptr i8, ptr %50, i64 %91
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8

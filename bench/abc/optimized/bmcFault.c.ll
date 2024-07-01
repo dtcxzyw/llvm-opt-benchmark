@@ -185,8 +185,8 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 
 Gia_ObjIsMux.exit:                                ; preds = %Vec_StrPush.exit
   %sext.i = shl i64 %.pre110, 32
-  %45 = ashr exact i64 %sext.i, 32
-  %46 = getelementptr inbounds i32, ptr %.val52, i64 %45
+  %45 = ashr exact i64 %sext.i, 30
+  %46 = getelementptr inbounds i8, ptr %.val52, i64 %45
   %47 = load i32, ptr %46, align 4
   %.not = icmp eq i32 %47, 0
   br i1 %.not, label %Gia_ObjIsMux.exit.thread, label %48
@@ -357,8 +357,8 @@ Vec_StrPush.exit73:                               ; preds = %.Vec_StrGrow.exit10
   %132 = sub i64 %.pre, %131
   %133 = sdiv exact i64 %132, 12
   %sext.i75 = shl i64 %133, 32
-  %134 = ashr exact i64 %sext.i75, 32
-  %135 = getelementptr inbounds i32, ptr %129, i64 %134
+  %134 = ashr exact i64 %sext.i75, 30
+  %135 = getelementptr inbounds i8, ptr %129, i64 %134
   %136 = load i32, ptr %135, align 4
   %.not7.i = icmp eq i32 %136, 0
   %spec.select.i = select i1 %.not7.i, i32 -1, i32 %136

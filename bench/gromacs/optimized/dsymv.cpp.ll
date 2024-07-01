@@ -353,8 +353,8 @@ define void @dsymv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %indvars.iv.next374 = add nsw i64 %indvars.iv373, %124
   %167 = add i64 %165, %indvars.iv365
   %sext = shl i64 %167, 32
-  %168 = ashr exact i64 %sext, 32
-  %169 = getelementptr inbounds double, ptr %3, i64 %168
+  %168 = ashr exact i64 %sext, 29
+  %169 = getelementptr inbounds i8, ptr %3, i64 %168
   %170 = load double, ptr %169, align 8
   %gep284 = getelementptr double, ptr %invariant.gep295, i64 %indvars.iv.next374
   %171 = load double, ptr %gep284, align 8

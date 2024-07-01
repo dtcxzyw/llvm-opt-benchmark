@@ -5329,7 +5329,8 @@ for.body11:                                       ; preds = %for.body11.lr.ph, %
   %add = add nuw nsw i64 %mul, 1013904223
   %and = and i64 %add, 4294967295
   %rem = urem i64 %and, %conv
-  %arrayidx.i81 = getelementptr inbounds i32, ptr %call.i.i.i.i73, i64 %rem
+  %sext = shl nuw nsw i64 %rem, 2
+  %arrayidx.i81 = getelementptr inbounds i8, ptr %call.i.i.i.i73, i64 %sext
   %8 = load i32, ptr %arrayidx.i78, align 4
   %9 = load i32, ptr %arrayidx.i81, align 4
   store i32 %9, ptr %arrayidx.i78, align 4
@@ -7685,29 +7686,29 @@ _ZNK20btAlignedObjectArrayIP10btSoftBodyE16findLinearSearchERKS1_.exit.i: ; pred
 if.then.i.i:                                      ; preds = %_ZNK20btAlignedObjectArrayIP10btSoftBodyE16findLinearSearchERKS1_.exit.i
   %sub.i.i = add nsw i32 %8, -1
   %sext.i = shl i64 %indvars.iv.i.i, 32
-  %idxprom.i.i.i = ashr exact i64 %sext.i, 32
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %9, i64 %idxprom.i.i.i
-  %12 = load ptr, ptr %arrayidx.i.i.i, align 8
+  %12 = ashr exact i64 %sext.i, 29
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %9, i64 %12
+  %13 = load ptr, ptr %arrayidx.i.i.i, align 8
   %idxprom3.i.i.i = sext i32 %sub.i.i to i64
   %arrayidx4.i.i.i = getelementptr inbounds ptr, ptr %9, i64 %idxprom3.i.i.i
-  %13 = load ptr, ptr %arrayidx4.i.i.i, align 8
-  store ptr %13, ptr %arrayidx.i.i.i, align 8
-  %14 = load ptr, ptr %m_data.i.i1, align 8
-  %arrayidx10.i.i.i = getelementptr inbounds ptr, ptr %14, i64 %idxprom3.i.i.i
-  store ptr %12, ptr %arrayidx10.i.i.i, align 8
-  %15 = load i32, ptr %m_size.i.i.i, align 4
-  %dec.i.i.i = add nsw i32 %15, -1
+  %14 = load ptr, ptr %arrayidx4.i.i.i, align 8
+  store ptr %14, ptr %arrayidx.i.i.i, align 8
+  %15 = load ptr, ptr %m_data.i.i1, align 8
+  %arrayidx10.i.i.i = getelementptr inbounds ptr, ptr %15, i64 %idxprom3.i.i.i
+  store ptr %13, ptr %arrayidx10.i.i.i, align 8
+  %16 = load i32, ptr %m_size.i.i.i, align 4
+  %dec.i.i.i = add nsw i32 %16, -1
   store i32 %dec.i.i.i, ptr %m_size.i.i.i, align 4
   br label %_ZN20btAlignedObjectArrayIP10btSoftBodyE6removeERKS1_.exit
 
 _ZN20btAlignedObjectArrayIP10btSoftBodyE6removeERKS1_.exit: ; preds = %for.inc.i.i, %_ZN34btDeformableMultiBodyDynamicsWorld19removeSoftBodyForceEP10btSoftBody.exit, %_ZNK20btAlignedObjectArrayIP10btSoftBodyE16findLinearSearchERKS1_.exit.i, %if.then.i.i
   %m_softBodies = getelementptr inbounds i8, ptr %this, i64 856
   tail call void @_ZN16btCollisionWorld21removeCollisionObjectEP17btCollisionObject(ptr noundef nonnull align 8 dereferenceable(121) %this, ptr noundef %body)
-  %16 = load ptr, ptr %m_deformableBodySolver.i, align 8
-  %vtable = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %m_deformableBodySolver.i, align 8
+  %vtable = load ptr, ptr %17, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
-  %17 = load ptr, ptr %vfn, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(609) %16, ptr noundef nonnull align 8 dereferenceable(25) %m_softBodies, float noundef -1.000000e+00)
+  %18 = load ptr, ptr %vfn, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(609) %17, ptr noundef nonnull align 8 dereferenceable(25) %m_softBodies, float noundef -1.000000e+00)
   ret void
 }
 

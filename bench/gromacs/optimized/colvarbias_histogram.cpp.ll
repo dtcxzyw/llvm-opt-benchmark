@@ -755,7 +755,7 @@ _ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit: ; preds = %_ZN
 
 .lr.ph:                                           ; preds = %.preheader84
   %sext82 = shl i64 %.01796, 32
-  %233 = ashr exact i64 %sext82, 32
+  %233 = ashr exact i64 %sext82, 29
   br label %234
 
 234:                                              ; preds = %.lr.ph, %_ZNK11colvar_gridIdE18current_bin_scalarEii.exit
@@ -786,7 +786,7 @@ _ZN18colvar_grid_scalar9acc_valueERKSt6vectorIiSaIiEERKdRKm.exit: ; preds = %_ZN
   %..i56 = select i1 %.not.i55, i64 744, i64 576
   %252 = getelementptr inbounds i8, ptr %251, i64 %..i56
   %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds double, ptr %253, i64 %233
+  %254 = getelementptr inbounds i8, ptr %253, i64 %233
   call void @_ZN11colvarvalueC1ERKd(ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(8) %254)
   %255 = load double, ptr %114, align 8
   %256 = getelementptr inbounds i8, ptr %235, i64 504

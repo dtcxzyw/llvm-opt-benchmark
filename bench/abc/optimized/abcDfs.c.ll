@@ -3320,8 +3320,8 @@ Vec_PtrPush.exit75:                               ; preds = %.Vec_PtrGrow.exit11
   %.val44.val = load ptr, ptr %171, align 8
   %172 = getelementptr i8, ptr %.val44.val, i64 8
   %.val44.val.val = load ptr, ptr %172, align 8
-  %173 = ashr exact i64 %139, 32
-  %174 = getelementptr inbounds i32, ptr %.val45, i64 %173
+  %173 = ashr exact i64 %139, 30
+  %174 = getelementptr inbounds i8, ptr %.val45, i64 %173
   %175 = load i32, ptr %174, align 4
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds ptr, ptr %.val44.val.val, i64 %176
@@ -10135,8 +10135,8 @@ Vec_PtrStart.exit:                                ; preds = %2, %6
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %sext = shl i64 %30, 32
-  %31 = ashr exact i64 %sext, 32
-  %32 = getelementptr inbounds ptr, ptr %10, i64 %31
+  %31 = ashr exact i64 %sext, 29
+  %32 = getelementptr inbounds i8, ptr %10, i64 %31
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %28, align 8
   store ptr %22, ptr %32, align 8

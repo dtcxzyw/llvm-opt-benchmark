@@ -13234,8 +13234,8 @@ _ZN3vcg3tri9AllocatorI6CMeshOE13IsValidHandleISt6vectorIZN18FilterCameraPlugin11
   %1777 = ptrtoint ptr %.sroa.01119.01452 to i64
   %1778 = ptrtoint ptr %.val520.val.val to i64
   %1779 = sub i64 %1777, %1778
-  %1780 = sdiv exact i64 %1779, 48
-  %1781 = getelementptr inbounds %"class.std::vector.201", ptr %.val520.val521, i64 %1780
+  %1780 = ashr exact i64 %1779, 1
+  %1781 = getelementptr inbounds i8, ptr %.val520.val521, i64 %1780
   %.val522 = load ptr, ptr %1781, align 8
   %1782 = load i32, ptr %.val522, align 4
   %1783 = call ptr @_ZN12MeshDocument11rasterBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %4)

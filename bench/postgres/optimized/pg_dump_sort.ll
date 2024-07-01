@@ -393,8 +393,8 @@ define dso_local void @sortDumpableObjects(ptr nocapture noundef %0, i32 noundef
   %63 = call ptr @binaryheap_remove_first(ptr noundef nonnull %13) #9
   %64 = ptrtoint ptr %63 to i64
   %sext.i = shl i64 %64, 32
-  %65 = ashr exact i64 %sext.i, 32
-  %66 = getelementptr ptr, ptr %0, i64 %65
+  %65 = ashr exact i64 %sext.i, 29
+  %66 = getelementptr i8, ptr %0, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = add i32 %.278101.i, -1
   %69 = sext i32 %68 to i64

@@ -8544,8 +8544,8 @@ define internal fastcc void @recover_slack(ptr nocapture noundef readonly %0, pt
 30:                                               ; preds = %25
   %31 = trunc nsw i64 %indvars.iv to i32
   %sext = shl i64 %indvars.iv, 32
-  %32 = ashr exact i64 %sext, 32
-  %33 = getelementptr inbounds %struct.boxf, ptr %20, i64 %32
+  %32 = ashr exact i64 %sext, 27
+  %33 = getelementptr inbounds i8, ptr %20, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 24
   %35 = load double, ptr %34, align 8
   %36 = fcmp olt double %35, %23

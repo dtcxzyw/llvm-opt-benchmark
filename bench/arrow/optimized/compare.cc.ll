@@ -37,8 +37,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.arrow::BinaryViewType::c_type" = type { %struct.anon }
 %struct.anon = type { i32, %"struct.std::array" }
 %"struct.std::array" = type { [12 x i8] }
-%"class.std::shared_ptr.3" = type { %"class.std::__shared_ptr.4" }
-%"class.std::__shared_ptr.4" = type { ptr, %"class.std::__shared_count" }
 %"struct.arrow::MonthDayNanoIntervalType::MonthDayNanos" = type { i32, i32, i64 }
 %"struct.arrow::DayTimeIntervalType::DayMilliseconds" = type { i32, i32 }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
@@ -14204,27 +14202,27 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 
 _ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i.i: ; preds = %if.end.i.i.i
   %sext.i.i.i = shl i64 %agg.tmp.sroa.2.0.copyload.i.i, 32
-  %idxprom.i.i.i = ashr exact i64 %sext.i.i.i, 32
-  %arrayidx.i.i.i = getelementptr inbounds %"class.std::shared_ptr.3", ptr %add.ptr6, i64 %idxprom.i.i.i
-  %18 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %is_cpu_.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 9
-  %19 = load i8, ptr %is_cpu_.i.i.i.i, align 1
-  %tobool.i.i.i.i = trunc i8 %19 to i1
-  %data_.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
-  %20 = load ptr, ptr %data_.i.i.i.i, align 8
-  %cond.i2.i.i.i = select i1 %tobool.i.i.i.i, ptr %20, ptr null
+  %18 = ashr exact i64 %sext.i.i.i, 28
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr6, i64 %18
+  %19 = load ptr, ptr %arrayidx.i.i.i, align 8
+  %is_cpu_.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 9
+  %20 = load i8, ptr %is_cpu_.i.i.i.i, align 1
+  %tobool.i.i.i.i = trunc i8 %20 to i1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = load ptr, ptr %data_.i.i.i.i, align 8
+  %cond.i2.i.i.i = select i1 %tobool.i.i.i.i, ptr %21, ptr null
   %idx.ext.i.i.i = ashr i64 %agg.tmp.sroa.2.0.copyload.i.i, 32
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %cond.i2.i.i.i, i64 %idx.ext.i.i.i
   %sext10.i.i.i = shl i64 %agg.tmp2.sroa.2.0.copyload.i.i, 32
-  %idxprom11.i.i.i = ashr exact i64 %sext10.i.i.i, 32
-  %arrayidx12.i.i.i = getelementptr inbounds %"class.std::shared_ptr.3", ptr %add.ptr10, i64 %idxprom11.i.i.i
-  %21 = load ptr, ptr %arrayidx12.i.i.i, align 8
-  %is_cpu_.i3.i.i.i = getelementptr inbounds i8, ptr %21, i64 9
-  %22 = load i8, ptr %is_cpu_.i3.i.i.i, align 1
-  %tobool.i4.i.i.i = trunc i8 %22 to i1
-  %data_.i5.i.i.i = getelementptr inbounds i8, ptr %21, i64 16
-  %23 = load ptr, ptr %data_.i5.i.i.i, align 8
-  %cond.i6.i.i.i = select i1 %tobool.i4.i.i.i, ptr %23, ptr null
+  %22 = ashr exact i64 %sext10.i.i.i, 28
+  %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %add.ptr10, i64 %22
+  %23 = load ptr, ptr %arrayidx12.i.i.i, align 8
+  %is_cpu_.i3.i.i.i = getelementptr inbounds i8, ptr %23, i64 9
+  %24 = load i8, ptr %is_cpu_.i3.i.i.i, align 1
+  %tobool.i4.i.i.i = trunc i8 %24 to i1
+  %data_.i5.i.i.i = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = load ptr, ptr %data_.i5.i.i.i, align 8
+  %cond.i6.i.i.i = select i1 %tobool.i4.i.i.i, ptr %25, ptr null
   %idx.ext16.i.i.i = ashr i64 %agg.tmp2.sroa.2.0.copyload.i.i, 32
   %add.ptr17.i.i.i = getelementptr inbounds i8, ptr %cond.i6.i.i.i, i64 %idx.ext16.i.i.i
   %add.ptr18.i.i.i = getelementptr inbounds i8, ptr %add.ptr9.i.i.i, i64 4
@@ -14242,14 +14240,14 @@ for.inc.i.i:                                      ; preds = %_ZN5arrow4util15Equ
 
 if.end.i:                                         ; preds = %if.then.i.i15
   %offset.i19 = getelementptr inbounds i8, ptr %0, i64 32
-  %24 = load i64, ptr %offset.i19, align 8
-  %add.i = add nsw i64 %24, %6
+  %26 = load i64, ptr %offset.i19, align 8
+  %add.i = add nsw i64 %26, %6
   %range_length_4.i = getelementptr inbounds i8, ptr %this, i64 48
-  %25 = load i64, ptr %range_length_4.i, align 8
+  %27 = load i64, ptr %range_length_4.i, align 8
   %length_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 8
-  store i64 %25, ptr %length_.i.i, align 8
+  store i64 %27, ptr %length_.i.i, align 8
   %remaining_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 16
-  store i64 %25, ptr %remaining_.i.i, align 8
+  store i64 %27, ptr %remaining_.i.i, align 8
   %current_word_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 24
   store i64 0, ptr %current_word_.i.i, align 8
   %current_num_bits_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 32
@@ -14258,13 +14256,13 @@ if.end.i:                                         ; preds = %if.then.i.i15
   %add.ptr.i.i20 = getelementptr inbounds i8, ptr %16, i64 %div.i.i
   store ptr %add.ptr.i.i20, ptr %reader.i, align 8
   %rem.i.i = srem i64 %add.i, 8
-  %cmp.i.i = icmp sgt i64 %25, 0
+  %cmp.i.i = icmp sgt i64 %27, 0
   %tobool.i.i = icmp ne i64 %rem.i.i, 0
   %or.cond.i.i = and i1 %cmp.i.i, %tobool.i.i
   br i1 %or.cond.i.i, label %if.then.i5.i, label %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i
 
 if.then.i5.i:                                     ; preds = %if.end.i
-  %conv4.i.i = trunc i64 %25 to i32
+  %conv4.i.i = trunc i64 %27 to i32
   %conv6.i.i = trunc nsw i64 %rem.i.i to i32
   %sub.i.i = sub nsw i32 8, %conv6.i.i
   %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i, i32 %conv4.i.i)
@@ -14291,21 +14289,21 @@ if.then.i5.i:                                     ; preds = %if.end.i
   br label %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i
 
 _ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i: ; preds = %if.then.i5.i, %if.end.i
-  %call558.i = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i)
-  %26 = extractvalue { i64, i64 } %call558.i, 1
-  %cmp659.i = icmp eq i64 %26, 0
-  br i1 %cmp659.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl14VisitValidRunsIZNS1_5VisitERKNS_14BinaryViewTypeEEUlllE_EEvOT_.exit, label %if.end8.i
+  %call556.i = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i)
+  %28 = extractvalue { i64, i64 } %call556.i, 1
+  %cmp657.i = icmp eq i64 %28, 0
+  br i1 %cmp657.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl14VisitValidRunsIZNS1_5VisitERKNS_14BinaryViewTypeEEUlllE_EEvOT_.exit, label %if.end8.i
 
-if.end8.i:                                        ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i, %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit54.i
-  %27 = phi i64 [ %35, %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit54.i ], [ %26, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i ]
-  %call560.i = phi { i64, i64 } [ %call5.i, %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit54.i ], [ %call558.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i ]
-  %28 = extractvalue { i64, i64 } %call560.i, 0
-  %add.i.i = add nsw i64 %28, %27
-  %cmp6.i7.i = icmp slt i64 %27, 1
-  br i1 %cmp6.i7.i, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit54.i, label %for.body.i9.i
+if.end8.i:                                        ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i, %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit52.i
+  %29 = phi i64 [ %39, %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit52.i ], [ %28, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i ]
+  %call558.i = phi { i64, i64 } [ %call5.i, %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit52.i ], [ %call556.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i ]
+  %30 = extractvalue { i64, i64 } %call558.i, 0
+  %add.i.i = add nsw i64 %30, %29
+  %cmp6.i7.i = icmp slt i64 %29, 1
+  br i1 %cmp6.i7.i, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit52.i, label %for.body.i9.i
 
-for.body.i9.i:                                    ; preds = %if.end8.i, %for.inc.i49.i
-  %i.addr.07.i10.i = phi i64 [ %inc.i50.i, %for.inc.i49.i ], [ %28, %if.end8.i ]
+for.body.i9.i:                                    ; preds = %if.end8.i, %for.inc.i47.i
+  %i.addr.07.i10.i = phi i64 [ %inc.i48.i, %for.inc.i47.i ], [ %30, %if.end8.i ]
   %arrayidx.i11.i = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %add.ptr, i64 %i.addr.07.i10.i
   %agg.tmp.sroa.0.0.copyload.i12.i = load i64, ptr %arrayidx.i11.i, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i13.i = getelementptr inbounds i8, ptr %arrayidx.i11.i, i64 8
@@ -14320,63 +14318,63 @@ for.body.i9.i:                                    ; preds = %if.end8.i, %for.inc
 if.end.i.i21.i:                                   ; preds = %for.body.i9.i
   %l.sroa.0.0.extract.trunc.i.i22.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i12.i to i32
   %cmp.i.i.i23.i = icmp slt i32 %l.sroa.0.0.extract.trunc.i.i22.i, 13
-  br i1 %cmp.i.i.i23.i, label %if.then1.i.i52.i, label %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i24.i
+  br i1 %cmp.i.i.i23.i, label %if.then1.i.i50.i, label %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i24.i
 
-if.then1.i.i52.i:                                 ; preds = %if.end.i.i21.i
-  %cmp5.i.i53.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i14.i, %agg.tmp2.sroa.2.0.copyload.i18.i
-  br i1 %cmp5.i.i53.i, label %for.inc.i49.i, label %return.sink.split.i
+if.then1.i.i50.i:                                 ; preds = %if.end.i.i21.i
+  %cmp5.i.i51.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i14.i, %agg.tmp2.sroa.2.0.copyload.i18.i
+  br i1 %cmp5.i.i51.i, label %for.inc.i47.i, label %return.sink.split.i
 
 _ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i24.i: ; preds = %if.end.i.i21.i
   %sext.i.i25.i = shl i64 %agg.tmp.sroa.2.0.copyload.i14.i, 32
-  %idxprom.i.i26.i = ashr exact i64 %sext.i.i25.i, 32
-  %arrayidx.i.i27.i = getelementptr inbounds %"class.std::shared_ptr.3", ptr %add.ptr6, i64 %idxprom.i.i26.i
-  %29 = load ptr, ptr %arrayidx.i.i27.i, align 8
-  %is_cpu_.i.i.i28.i = getelementptr inbounds i8, ptr %29, i64 9
-  %30 = load i8, ptr %is_cpu_.i.i.i28.i, align 1
-  %tobool.i.i.i29.i = trunc i8 %30 to i1
-  %data_.i.i.i30.i = getelementptr inbounds i8, ptr %29, i64 16
-  %31 = load ptr, ptr %data_.i.i.i30.i, align 8
-  %cond.i2.i.i31.i = select i1 %tobool.i.i.i29.i, ptr %31, ptr null
-  %idx.ext.i.i32.i = ashr i64 %agg.tmp.sroa.2.0.copyload.i14.i, 32
-  %add.ptr9.i.i33.i = getelementptr inbounds i8, ptr %cond.i2.i.i31.i, i64 %idx.ext.i.i32.i
-  %sext10.i.i34.i = shl i64 %agg.tmp2.sroa.2.0.copyload.i18.i, 32
-  %idxprom11.i.i35.i = ashr exact i64 %sext10.i.i34.i, 32
-  %arrayidx12.i.i36.i = getelementptr inbounds %"class.std::shared_ptr.3", ptr %add.ptr10, i64 %idxprom11.i.i35.i
-  %32 = load ptr, ptr %arrayidx12.i.i36.i, align 8
-  %is_cpu_.i3.i.i37.i = getelementptr inbounds i8, ptr %32, i64 9
-  %33 = load i8, ptr %is_cpu_.i3.i.i37.i, align 1
-  %tobool.i4.i.i38.i = trunc i8 %33 to i1
-  %data_.i5.i.i39.i = getelementptr inbounds i8, ptr %32, i64 16
-  %34 = load ptr, ptr %data_.i5.i.i39.i, align 8
-  %cond.i6.i.i40.i = select i1 %tobool.i4.i.i38.i, ptr %34, ptr null
-  %idx.ext16.i.i41.i = ashr i64 %agg.tmp2.sroa.2.0.copyload.i18.i, 32
-  %add.ptr17.i.i42.i = getelementptr inbounds i8, ptr %cond.i6.i.i40.i, i64 %idx.ext16.i.i41.i
-  %add.ptr18.i.i43.i = getelementptr inbounds i8, ptr %add.ptr9.i.i33.i, i64 4
-  %add.ptr19.i.i44.i = getelementptr inbounds i8, ptr %add.ptr17.i.i42.i, i64 4
-  %sub.i.i45.i = add i64 %agg.tmp.sroa.0.0.copyload.i12.i, 4294967292
-  %conv.i.i46.i = and i64 %sub.i.i45.i, 4294967295
-  %bcmp.i.i47.i = call i32 @bcmp(ptr nonnull %add.ptr18.i.i43.i, ptr nonnull %add.ptr19.i.i44.i, i64 %conv.i.i46.i)
-  %cmp22.i.i48.i = icmp eq i32 %bcmp.i.i47.i, 0
-  br i1 %cmp22.i.i48.i, label %for.inc.i49.i, label %return.sink.split.i
+  %31 = ashr exact i64 %sext.i.i25.i, 28
+  %arrayidx.i.i26.i = getelementptr inbounds i8, ptr %add.ptr6, i64 %31
+  %32 = load ptr, ptr %arrayidx.i.i26.i, align 8
+  %is_cpu_.i.i.i27.i = getelementptr inbounds i8, ptr %32, i64 9
+  %33 = load i8, ptr %is_cpu_.i.i.i27.i, align 1
+  %tobool.i.i.i28.i = trunc i8 %33 to i1
+  %data_.i.i.i29.i = getelementptr inbounds i8, ptr %32, i64 16
+  %34 = load ptr, ptr %data_.i.i.i29.i, align 8
+  %cond.i2.i.i30.i = select i1 %tobool.i.i.i28.i, ptr %34, ptr null
+  %idx.ext.i.i31.i = ashr i64 %agg.tmp.sroa.2.0.copyload.i14.i, 32
+  %add.ptr9.i.i32.i = getelementptr inbounds i8, ptr %cond.i2.i.i30.i, i64 %idx.ext.i.i31.i
+  %sext10.i.i33.i = shl i64 %agg.tmp2.sroa.2.0.copyload.i18.i, 32
+  %35 = ashr exact i64 %sext10.i.i33.i, 28
+  %arrayidx12.i.i34.i = getelementptr inbounds i8, ptr %add.ptr10, i64 %35
+  %36 = load ptr, ptr %arrayidx12.i.i34.i, align 8
+  %is_cpu_.i3.i.i35.i = getelementptr inbounds i8, ptr %36, i64 9
+  %37 = load i8, ptr %is_cpu_.i3.i.i35.i, align 1
+  %tobool.i4.i.i36.i = trunc i8 %37 to i1
+  %data_.i5.i.i37.i = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = load ptr, ptr %data_.i5.i.i37.i, align 8
+  %cond.i6.i.i38.i = select i1 %tobool.i4.i.i36.i, ptr %38, ptr null
+  %idx.ext16.i.i39.i = ashr i64 %agg.tmp2.sroa.2.0.copyload.i18.i, 32
+  %add.ptr17.i.i40.i = getelementptr inbounds i8, ptr %cond.i6.i.i38.i, i64 %idx.ext16.i.i39.i
+  %add.ptr18.i.i41.i = getelementptr inbounds i8, ptr %add.ptr9.i.i32.i, i64 4
+  %add.ptr19.i.i42.i = getelementptr inbounds i8, ptr %add.ptr17.i.i40.i, i64 4
+  %sub.i.i43.i = add i64 %agg.tmp.sroa.0.0.copyload.i12.i, 4294967292
+  %conv.i.i44.i = and i64 %sub.i.i43.i, 4294967295
+  %bcmp.i.i45.i = call i32 @bcmp(ptr nonnull %add.ptr18.i.i41.i, ptr nonnull %add.ptr19.i.i42.i, i64 %conv.i.i44.i)
+  %cmp22.i.i46.i = icmp eq i32 %bcmp.i.i45.i, 0
+  br i1 %cmp22.i.i46.i, label %for.inc.i47.i, label %return.sink.split.i
 
-for.inc.i49.i:                                    ; preds = %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i24.i, %if.then1.i.i52.i
-  %inc.i50.i = add nsw i64 %i.addr.07.i10.i, 1
-  %cmp.not.i51.i = icmp slt i64 %inc.i50.i, %add.i.i
-  br i1 %cmp.not.i51.i, label %for.body.i9.i, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit54.i, !llvm.loop !486
+for.inc.i47.i:                                    ; preds = %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i24.i, %if.then1.i.i50.i
+  %inc.i48.i = add nsw i64 %i.addr.07.i10.i, 1
+  %cmp.not.i49.i = icmp slt i64 %inc.i48.i, %add.i.i
+  br i1 %cmp.not.i49.i, label %for.body.i9.i, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit52.i, !llvm.loop !486
 
-_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit54.i: ; preds = %for.inc.i49.i, %if.end8.i
+_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit52.i: ; preds = %for.inc.i47.i, %if.end8.i
   %call5.i = call { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7NextRunEv(ptr noundef nonnull align 8 dereferenceable(36) %reader.i)
-  %35 = extractvalue { i64, i64 } %call5.i, 1
-  %cmp6.i = icmp eq i64 %35, 0
+  %39 = extractvalue { i64, i64 } %call5.i, 1
+  %cmp6.i = icmp eq i64 %39, 0
   br i1 %cmp6.i, label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl14VisitValidRunsIZNS1_5VisitERKNS_14BinaryViewTypeEEUlllE_EEvOT_.exit, label %if.end8.i, !llvm.loop !487
 
-return.sink.split.i:                              ; preds = %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i24.i, %if.then1.i.i52.i, %for.body.i9.i, %for.inc.i.i, %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i.i, %if.then1.i.i.i, %for.body.i.i, %if.then.i
-  %.sink.i = phi i8 [ 1, %if.then.i ], [ 0, %for.body.i.i ], [ 0, %if.then1.i.i.i ], [ 1, %for.inc.i.i ], [ 0, %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i.i ], [ 0, %for.body.i9.i ], [ 0, %if.then1.i.i52.i ], [ 0, %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i24.i ]
+return.sink.split.i:                              ; preds = %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i24.i, %if.then1.i.i50.i, %for.body.i9.i, %for.inc.i.i, %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i.i, %if.then1.i.i.i, %for.body.i.i, %if.then.i
+  %.sink.i = phi i8 [ 1, %if.then.i ], [ 0, %for.body.i.i ], [ 0, %if.then1.i.i.i ], [ 1, %for.inc.i.i ], [ 0, %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i.i ], [ 0, %for.body.i9.i ], [ 0, %if.then1.i.i50.i ], [ 0, %_ZN5arrow4util15EqualBinaryViewISt10shared_ptrINS_6BufferEEEEbNS_14BinaryViewType6c_typeES6_PKT_S9_.exit.i24.i ]
   %result_12.i = getelementptr inbounds i8, ptr %this, i64 56
   store i8 %.sink.i, ptr %result_12.i, align 8
   br label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl14VisitValidRunsIZNS1_5VisitERKNS_14BinaryViewTypeEEUlllE_EEvOT_.exit
 
-_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl14VisitValidRunsIZNS1_5VisitERKNS_14BinaryViewTypeEEUlllE_EEvOT_.exit: ; preds = %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit54.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i, %return.sink.split.i
+_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl14VisitValidRunsIZNS1_5VisitERKNS_14BinaryViewTypeEEUlllE_EEvOT_.exit: ; preds = %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeEENKUlllE_clEll.exit52.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EEC2EPKhll.exit.i, %return.sink.split.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i)
   store ptr null, ptr %agg.result, align 8, !alias.scope !488
   ret void

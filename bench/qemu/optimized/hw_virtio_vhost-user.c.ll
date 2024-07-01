@@ -1834,34 +1834,34 @@ entry:
 fetch_notifier.exit:                              ; preds = %entry
   %7 = load ptr, ptr %.val, align 8
   %sext = shl i64 %1, 32
-  %idxprom.i = ashr exact i64 %sext, 32
-  %arrayidx.i = getelementptr ptr, ptr %7, i64 %idxprom.i
-  %8 = load ptr, ptr %arrayidx.i, align 8
-  %tobool.not = icmp eq ptr %8, null
+  %8 = ashr exact i64 %sext, 29
+  %arrayidx.i = getelementptr i8, ptr %7, i64 %8
+  %9 = load ptr, ptr %arrayidx.i, align 8
+  %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %fetch_notifier.exit
-  %9 = load ptr, ptr %dev, align 8
-  %addr.i = getelementptr inbounds i8, ptr %8, i64 288
-  %10 = load ptr, ptr %addr.i, align 16
-  %tobool.not.i = icmp eq ptr %10, null
+  %10 = load ptr, ptr %dev, align 8
+  %addr.i = getelementptr inbounds i8, ptr %9, i64 288
+  %11 = load ptr, ptr %addr.i, align 16
+  %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %tobool1.not.i = icmp eq ptr %9, null
+  %tobool1.not.i = icmp eq ptr %10, null
   br i1 %tobool1.not.i, label %if.end.i10, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %idx.i = getelementptr inbounds i8, ptr %8, i64 304
-  %11 = load i32, ptr %idx.i, align 16
-  %mr.i = getelementptr inbounds i8, ptr %8, i64 16
-  %call.i = tail call i32 @virtio_queue_set_host_notifier_mr(ptr noundef nonnull %9, i32 noundef %11, ptr noundef nonnull %mr.i, i1 noundef zeroext false) #14
+  %idx.i = getelementptr inbounds i8, ptr %9, i64 304
+  %12 = load i32, ptr %idx.i, align 16
+  %mr.i = getelementptr inbounds i8, ptr %9, i64 16
+  %call.i = tail call i32 @virtio_queue_set_host_notifier_mr(ptr noundef nonnull %10, i32 noundef %12, ptr noundef nonnull %mr.i, i1 noundef zeroext false) #14
   br label %if.end.i10
 
 if.end.i10:                                       ; preds = %if.then2.i, %if.then.i
-  %unmap_addr.i = getelementptr inbounds i8, ptr %8, i64 296
-  %12 = load ptr, ptr %unmap_addr.i, align 8
-  %tobool3.not.i = icmp eq ptr %12, null
+  %unmap_addr.i = getelementptr inbounds i8, ptr %9, i64 296
+  %13 = load ptr, ptr %unmap_addr.i, align 8
+  %tobool3.not.i = icmp eq ptr %13, null
   br i1 %tobool3.not.i, label %if.end5.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i10
@@ -1869,10 +1869,10 @@ if.else.i:                                        ; preds = %if.end.i10
   unreachable
 
 if.end5.i:                                        ; preds = %if.end.i10
-  %13 = load ptr, ptr %addr.i, align 16
-  store ptr %13, ptr %unmap_addr.i, align 8
+  %14 = load ptr, ptr %addr.i, align 16
+  store ptr %14, ptr %unmap_addr.i, align 8
   store ptr null, ptr %addr.i, align 16
-  tail call void @call_rcu1(ptr noundef nonnull %8, ptr noundef nonnull @vhost_user_host_notifier_free) #14
+  tail call void @call_rcu1(ptr noundef nonnull %9, ptr noundef nonnull @vhost_user_host_notifier_free) #14
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.end5.i, %if.then, %fetch_notifier.exit
@@ -1882,25 +1882,25 @@ if.end:                                           ; preds = %entry, %if.end5.i, 
 
 if.end3:                                          ; preds = %if.end
   %dev.val = load ptr, ptr %opaque, align 8
-  %14 = getelementptr i8, ptr %dev.val, i64 8
-  %dev.val.val = load ptr, ptr %14, align 8
+  %15 = getelementptr i8, ptr %dev.val, i64 8
+  %dev.val.val = load ptr, ptr %15, align 8
   %dev.val.val.val = load ptr, ptr %dev.val.val, align 8
   %call4 = call fastcc i32 @vhost_user_read(ptr %dev.val.val.val, ptr noundef nonnull %msg)
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %15 = load i32, ptr %msg, align 4
-  %cmp10.not = icmp eq i32 %15, 11
+  %16 = load i32, ptr %msg, align 4
+  %cmp10.not = icmp eq i32 %16, 11
   br i1 %cmp10.not, label %if.end14, label %if.then11
 
 if.then11:                                        ; preds = %if.end7
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str, i32 noundef 11, i32 noundef %15) #14
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str, i32 noundef 11, i32 noundef %16) #14
   br label %return
 
 if.end14:                                         ; preds = %if.end7
-  %16 = load i32, ptr %size, align 4
-  %cmp17.not = icmp eq i32 %16, 8
+  %17 = load i32, ptr %size, align 4
+  %cmp17.not = icmp eq i32 %17, 8
   br i1 %cmp17.not, label %if.end20, label %if.then19
 
 if.then19:                                        ; preds = %if.end14
@@ -1908,8 +1908,8 @@ if.then19:                                        ; preds = %if.end14
   br label %return
 
 if.end20:                                         ; preds = %if.end14
-  %17 = load i64, ptr %payload, align 4
-  store i64 %17, ptr %ring, align 4
+  %18 = load i64, ptr %payload, align 4
+  store i64 %18, ptr %ring, align 4
   br label %return
 
 return:                                           ; preds = %if.end3, %if.end, %if.end20, %if.then19, %if.then11

@@ -2315,8 +2315,8 @@ define dso_local i32 @kernel_execve(ptr noundef %0, ptr noundef readonly %1, ptr
   %.in = phi i64 [ %104, %.thread32 ], [ %103, %.lr.ph.preheader ]
   %104 = add nsw i64 %.in, -1
   %105 = shl i64 %104, 32
-  %106 = ashr exact i64 %105, 32
-  %107 = getelementptr ptr, ptr %2, i64 %106
+  %106 = ashr exact i64 %105, 29
+  %107 = getelementptr i8, ptr %2, i64 %106
   %108 = load ptr, ptr %107, align 8
   %109 = tail call i32 @copy_string_kernel(ptr noundef %108, ptr noundef %18)
   %110 = icmp slt i32 %109, 0
@@ -2352,8 +2352,8 @@ define dso_local i32 @kernel_execve(ptr noundef %0, ptr noundef readonly %1, ptr
   %.in52 = phi i64 [ %124, %.thread37 ], [ %123, %.lr.ph50.preheader ]
   %124 = add nsw i64 %.in52, -1
   %125 = shl i64 %124, 32
-  %126 = ashr exact i64 %125, 32
-  %127 = getelementptr ptr, ptr %1, i64 %126
+  %126 = ashr exact i64 %125, 29
+  %127 = getelementptr i8, ptr %1, i64 %126
   %128 = load ptr, ptr %127, align 8
   %129 = tail call i32 @copy_string_kernel(ptr noundef %128, ptr noundef %18)
   %130 = icmp slt i32 %129, 0

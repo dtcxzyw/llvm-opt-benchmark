@@ -220,8 +220,8 @@ Npn_ManObj.exit:                                  ; preds = %.lr.ph53
   %35 = sext i32 %.val to i64
   %36 = urem i64 %34, %35
   %sext = shl i64 %36, 32
-  %37 = ashr exact i64 %sext, 32
-  %38 = getelementptr inbounds i32, ptr %28, i64 %37
+  %37 = ashr exact i64 %sext, 30
+  %38 = getelementptr inbounds i8, ptr %28, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = getelementptr inbounds i8, ptr %.050, i64 12
   store i32 %39, ptr %40, align 4
@@ -315,8 +315,8 @@ define noundef ptr @Npn_ManAdd(ptr nocapture noundef %0, i64 noundef %1) local_u
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %sext = shl i64 %10, 32
-  %30 = ashr exact i64 %sext, 32
-  %31 = getelementptr inbounds i32, ptr %29, i64 %30
+  %30 = ashr exact i64 %sext, 30
+  %31 = getelementptr inbounds i8, ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %Npn_ManObj.exit43, label %Npn_ManObj.exit

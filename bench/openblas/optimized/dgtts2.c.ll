@@ -72,8 +72,8 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %60 = load double, ptr %59, align 8, !tbaa !7
   %61 = add i64 %53, %50
   %62 = shl i64 %61, 32
-  %63 = ashr exact i64 %62, 32
-  %64 = getelementptr inbounds double, ptr %19, i64 %63
+  %63 = ashr exact i64 %62, 29
+  %64 = getelementptr inbounds i8, ptr %19, i64 %63
   %65 = load double, ptr %64, align 8, !tbaa !7
   store double %65, ptr %59, align 8, !tbaa !7
   %66 = getelementptr inbounds double, ptr %11, i64 %53
@@ -90,8 +90,8 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %74 = load double, ptr %73, align 8, !tbaa !7
   %75 = add i64 %53, %50
   %76 = shl i64 %75, 32
-  %77 = ashr exact i64 %76, 32
-  %78 = getelementptr inbounds double, ptr %19, i64 %77
+  %77 = ashr exact i64 %76, 29
+  %78 = getelementptr inbounds i8, ptr %19, i64 %77
   %79 = load double, ptr %78, align 8, !tbaa !7
   %80 = fneg double %72
   %81 = tail call double @llvm.fmuladd.f64(double %80, double %74, double %79)
@@ -131,8 +131,8 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %104 = load double, ptr %103, align 8, !tbaa !7
   %105 = add i64 %50, %100
   %106 = shl i64 %105, 32
-  %107 = ashr exact i64 %106, 32
-  %108 = getelementptr inbounds double, ptr %19, i64 %107
+  %107 = ashr exact i64 %106, 29
+  %108 = getelementptr inbounds i8, ptr %19, i64 %107
   %109 = load double, ptr %108, align 8, !tbaa !7
   %110 = fneg double %104
   %111 = tail call double @llvm.fmuladd.f64(double %110, double %109, double %102)
@@ -140,8 +140,8 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %113 = load double, ptr %112, align 8, !tbaa !7
   %114 = add i64 %98, %100
   %115 = shl i64 %114, 32
-  %116 = ashr exact i64 %115, 32
-  %117 = getelementptr inbounds double, ptr %19, i64 %116
+  %116 = ashr exact i64 %115, 29
+  %117 = getelementptr inbounds i8, ptr %19, i64 %116
   %118 = load double, ptr %117, align 8, !tbaa !7
   %119 = fneg double %113
   %120 = tail call double @llvm.fmuladd.f64(double %119, double %118, double %111)
@@ -241,8 +241,8 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %190 = load double, ptr %189, align 8, !tbaa !7
   %191 = add i64 %183, %186
   %192 = shl i64 %191, 32
-  %193 = ashr exact i64 %192, 32
-  %194 = getelementptr inbounds double, ptr %19, i64 %193
+  %193 = ashr exact i64 %192, 29
+  %194 = getelementptr inbounds i8, ptr %19, i64 %193
   %195 = load double, ptr %194, align 8, !tbaa !7
   %196 = fneg double %190
   %197 = tail call double @llvm.fmuladd.f64(double %196, double %195, double %188)
@@ -250,8 +250,8 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %199 = load double, ptr %198, align 8, !tbaa !7
   %200 = add i64 %184, %186
   %201 = shl i64 %200, 32
-  %202 = ashr exact i64 %201, 32
-  %203 = getelementptr inbounds double, ptr %19, i64 %202
+  %202 = ashr exact i64 %201, 29
+  %203 = getelementptr inbounds i8, ptr %19, i64 %202
   %204 = load double, ptr %203, align 8, !tbaa !7
   %205 = fneg double %199
   %206 = tail call double @llvm.fmuladd.f64(double %205, double %204, double %197)

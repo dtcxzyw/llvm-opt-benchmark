@@ -7452,11 +7452,11 @@ entry:
   %metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %conv.i = zext i32 %type to i64
   %sext = shl i64 %conv.i, 56
-  %conv = ashr exact i64 %sext, 56
   %0 = load ptr, ptr %metadata_, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %conv
-  %1 = load ptr, ptr %add.ptr.i, align 8
-  ret ptr %1
+  %1 = ashr exact i64 %sext, 53
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %1
+  %2 = load ptr, ptr %add.ptr.i, align 8
+  ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

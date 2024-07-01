@@ -3144,8 +3144,8 @@ thread-pre-split:                                 ; preds = %79
 
 116:                                              ; preds = %112
   %117 = shl i64 %113, 32
-  %118 = ashr exact i64 %117, 32
-  %119 = getelementptr ptr, ptr %22, i64 %118
+  %118 = ashr exact i64 %117, 29
+  %119 = getelementptr i8, ptr %22, i64 %118
   %120 = load ptr, ptr %119, align 8
   %121 = load ptr, ptr %120, align 8
   %122 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %121) #13, !srcloc !11
@@ -3194,8 +3194,8 @@ thread-pre-split:                                 ; preds = %79
 
 151:                                              ; preds = %147
   %152 = shl i64 %148, 32
-  %153 = ashr exact i64 %152, 32
-  %154 = getelementptr ptr, ptr %22, i64 %153
+  %153 = ashr exact i64 %152, 29
+  %154 = getelementptr i8, ptr %22, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr %155, align 8
   %157 = tail call i32 @xhci_handshake(ptr noundef %156, i32 noundef 4194304, i32 noundef 4194304, i64 noundef 10000) #13

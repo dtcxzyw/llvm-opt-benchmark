@@ -16,7 +16,6 @@ module asm ".previous"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
-%struct.FF = type { [3 x i32], [3 x i32] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -28,6 +27,7 @@ module asm ".previous"
 %"struct.std::_Rb_tree<vcg::PointerToAttribute, vcg::PointerToAttribute, std::_Identity<vcg::PointerToAttribute>, std::less<vcg::PointerToAttribute>>::_Alloc_node" = type { ptr }
 %"class.vcg::PointerToAttribute" = type { ptr, %"class.std::__cxx11::basic_string", i32, i32, i32, %"struct.std::type_index" }
 %"struct.std::type_index" = type { ptr }
+%struct.FF = type { [3 x i32], [3 x i32] }
 %"class.vcg::tri::UpdateTopology<Mesh>::PEdge" = type <{ [2 x ptr], ptr, i32, i8, [3 x i8] }>
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 %"class.vcg::TexCoord2" = type <{ [1 x %"class.vcg::Point2.37"], [1 x i16], [6 x i8] }>
@@ -293,8 +293,8 @@ define void @_Z31Compute3DFaceAdjacencyAttributeR4Mesh(ptr noundef nonnull align
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %40
-  %.sroa.015.022 = phi ptr [ %4, %.preheader.lr.ph ], [ %41, %40 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %42
+  %.sroa.015.022 = phi ptr [ %4, %.preheader.lr.ph ], [ %43, %42 ]
   %10 = getelementptr inbounds i8, ptr %.sroa.015.022, i64 32
   %11 = ptrtoint ptr %.sroa.015.022 to i64
   %12 = getelementptr inbounds i8, ptr %.sroa.015.022, i64 56
@@ -314,9 +314,9 @@ define void @_Z31Compute3DFaceAdjacencyAttributeR4Mesh(ptr noundef nonnull align
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = sub i64 %11, %24
-  %26 = sdiv exact i64 %25, 216
-  %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds %struct.FF, ptr %27, i64 %26
+  %26 = load ptr, ptr %8, align 8
+  %27 = sdiv exact i64 %25, 9
+  %28 = getelementptr inbounds i8, ptr %26, i64 %27
   %29 = getelementptr inbounds [3 x i32], ptr %28, i64 0, i64 %indvars.iv
   store i32 %21, ptr %29, align 4
   %30 = getelementptr inbounds [3 x i8], ptr %12, i64 0, i64 %indvars.iv
@@ -326,20 +326,22 @@ define void @_Z31Compute3DFaceAdjacencyAttributeR4Mesh(ptr noundef nonnull align
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = sub i64 %11, %35
-  %37 = sdiv exact i64 %36, 216
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct.FF, ptr %38, i64 %37, i32 1, i64 %indvars.iv
-  store i32 %32, ptr %39, align 4
+  %37 = load ptr, ptr %8, align 8
+  %38 = sdiv exact i64 %36, 9
+  %39 = getelementptr inbounds i8, ptr %37, i64 %38
+  %40 = getelementptr inbounds i8, ptr %39, i64 12
+  %41 = getelementptr inbounds [3 x i32], ptr %40, i64 0, i64 %indvars.iv
+  store i32 %32, ptr %41, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %40, label %13, !llvm.loop !5
+  br i1 %exitcond.not, label %42, label %13, !llvm.loop !5
 
-40:                                               ; preds = %13
-  %41 = getelementptr inbounds i8, ptr %.sroa.015.022, i64 216
-  %.not = icmp eq ptr %41, %6
+42:                                               ; preds = %13
+  %43 = getelementptr inbounds i8, ptr %.sroa.015.022, i64 216
+  %.not = icmp eq ptr %43, %6
   br i1 %.not, label %._crit_edge, label %.preheader
 
-._crit_edge:                                      ; preds = %40, %1
+._crit_edge:                                      ; preds = %42, %1
   ret void
 }
 
@@ -2722,9 +2724,9 @@ define void @_Z36ComputeWedgeTexCoordStorageAttributeR4Mesh(ptr noundef nonnull 
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = sub i64 %11, %16
-  %18 = sdiv exact i64 %17, 216
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds %struct.TexCoordStorage, ptr %19, i64 %18
+  %18 = load ptr, ptr %8, align 8
+  %19 = sdiv exact i64 %17, 3
+  %20 = getelementptr inbounds i8, ptr %18, i64 %19
   %21 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %20, i64 0, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
   %22 = getelementptr inbounds i8, ptr %13, i64 16
@@ -2733,9 +2735,9 @@ define void @_Z36ComputeWedgeTexCoordStorageAttributeR4Mesh(ptr noundef nonnull 
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %27 = sub i64 %11, %26
-  %28 = sdiv exact i64 %27, 216
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.TexCoordStorage, ptr %29, i64 %28
+  %28 = load ptr, ptr %8, align 8
+  %29 = sdiv exact i64 %27, 3
+  %30 = getelementptr inbounds i8, ptr %28, i64 %29
   %31 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %30, i64 0, i64 %indvars.iv, i32 1
   store i16 %23, ptr %31, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

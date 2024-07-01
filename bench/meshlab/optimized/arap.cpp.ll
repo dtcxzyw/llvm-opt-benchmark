@@ -32,13 +32,13 @@ module asm ".previous"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.CoordStorage = type { [3 x %"class.vcg::Point3"] }
-%"class.vcg::Point3" = type { [3 x double] }
 %"class.vcg::TexCoord2" = type <{ [1 x %"class.vcg::Point2.47"], [1 x i16], [6 x i8] }>
+%"class.vcg::Point3" = type { [3 x double] }
 %"class.std::allocator.49" = type { i8 }
 %"struct.std::_Rb_tree<vcg::PointerToAttribute, vcg::PointerToAttribute, std::_Identity<vcg::PointerToAttribute>, std::less<vcg::PointerToAttribute>>::_Alloc_node" = type { ptr }
 %"class.vcg::PointerToAttribute" = type { ptr, %"class.std::__cxx11::basic_string", i32, i32, i32, %"struct.std::type_index" }
 %"struct.std::type_index" = type { ptr }
+%struct.CoordStorage = type { [3 x %"class.vcg::Point3"] }
 %"struct.Eigen::internal::scalar_sum_op" = type { i8 }
 %"class.__gnu_cxx::__normal_iterator.132" = type { ptr }
 %"struct.ARAP::Cot" = type { [3 x double] }
@@ -1257,8 +1257,8 @@ define noundef range(i32 0, 3) i32 @_ZN4ARAP28FixRandomEdgeWithinToleranceEd(ptr
   %40 = getelementptr inbounds i8, ptr %.sroa.073.0126, i64 96
   %41 = ptrtoint ptr %.sroa.073.0126 to i64
   %42 = sub i64 %41, %33
-  %43 = sdiv exact i64 %42, 216
-  %44 = getelementptr inbounds %struct.CoordStorage, ptr %34, i64 %43
+  %43 = sdiv exact i64 %42, 3
+  %44 = getelementptr inbounds i8, ptr %34, i64 %43
   %45 = getelementptr inbounds i8, ptr %.sroa.073.0126, i64 8
   br label %46
 
@@ -5374,9 +5374,9 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_14CwiseNullaryOpINS_8internal18sc
   %51 = load ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = sub i64 %43, %52
-  %54 = sdiv exact i64 %53, 216
-  %55 = load ptr, ptr %31, align 8
-  %56 = getelementptr inbounds %struct.CoordStorage, ptr %55, i64 %54
+  %54 = load ptr, ptr %31, align 8
+  %55 = sdiv exact i64 %53, 3
+  %56 = getelementptr inbounds i8, ptr %54, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 24
   %58 = load double, ptr %57, align 8, !noalias !75
   %59 = load double, ptr %56, align 8, !noalias !78
@@ -5575,9 +5575,9 @@ _Z13LocalIsometryIN3vcg6Point3IdEEN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEvRKT_S8
   %207 = sub i64 %205, %206
   %208 = sdiv exact i64 %207, 120
   %sext114 = shl i64 %208, 32
-  %209 = ashr exact i64 %sext114, 32
-  %210 = load ptr, ptr %4, align 8
-  %211 = getelementptr inbounds double, ptr %210, i64 %209
+  %209 = load ptr, ptr %4, align 8
+  %210 = ashr exact i64 %sext114, 29
+  %211 = getelementptr inbounds i8, ptr %209, i64 %210
   %212 = load double, ptr %211, align 8
   %213 = fadd double %212, %.sroa.072.0.vec.extract
   store double %213, ptr %211, align 8
@@ -5587,9 +5587,9 @@ _Z13LocalIsometryIN3vcg6Point3IdEEN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEvRKT_S8
   %215 = sub i64 %205, %214
   %216 = sdiv exact i64 %215, 120
   %sext115 = shl i64 %216, 32
-  %217 = ashr exact i64 %sext115, 32
-  %218 = load ptr, ptr %5, align 8
-  %219 = getelementptr inbounds double, ptr %218, i64 %217
+  %217 = load ptr, ptr %5, align 8
+  %218 = ashr exact i64 %sext115, 29
+  %219 = getelementptr inbounds i8, ptr %217, i64 %218
   %220 = load double, ptr %219, align 8
   %221 = fadd double %.sroa.072.8.vec.extract, %220
   store double %221, ptr %219, align 8
@@ -6440,9 +6440,9 @@ define noundef double @_ZN4ARAP30ComputeEnergyFromStoredWedgeTCERKSt6vectorIP8Me
   %26 = ptrtoint ptr %23 to i64
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
-  %29 = sdiv exact i64 %28, 216
-  %30 = load ptr, ptr %13, align 8
-  %31 = getelementptr inbounds %struct.TexCoordStorage, ptr %30, i64 %29
+  %29 = load ptr, ptr %13, align 8
+  %30 = sdiv exact i64 %28, 3
+  %31 = getelementptr inbounds i8, ptr %29, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 24
   %33 = load double, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 32
@@ -7322,9 +7322,9 @@ define noundef double @_ZN4ARAP30ComputeEnergyFromStoredWedgeTCER4MeshPdS2_(ptr 
   %25 = ptrtoint ptr %.sroa.053.064 to i64
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
-  %28 = sdiv exact i64 %27, 216
-  %29 = load ptr, ptr %13, align 8
-  %30 = getelementptr inbounds %struct.TexCoordStorage, ptr %29, i64 %28
+  %28 = load ptr, ptr %13, align 8
+  %29 = sdiv exact i64 %27, 3
+  %30 = getelementptr inbounds i8, ptr %28, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 24
   %32 = load double, ptr %31, align 8
   %33 = load double, ptr %30, align 8
@@ -7475,7 +7475,7 @@ define noundef double @_ZN4ARAP13CurrentEnergyEv(ptr nocapture noundef nonnull r
   br label %22
 
 22:                                               ; preds = %.lr.ph, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit
-  %23 = phi ptr [ %.pre73, %.lr.ph ], [ %159, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit ]
+  %23 = phi ptr [ %.pre73, %.lr.ph ], [ %158, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit ]
   %24 = phi ptr [ %.pre72, %.lr.ph ], [ %155, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit ]
   %.067 = phi double [ 0.000000e+00, %.lr.ph ], [ %202, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit ]
   %.02266 = phi double [ 0.000000e+00, %.lr.ph ], [ %197, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit ]
@@ -7483,8 +7483,8 @@ define noundef double @_ZN4ARAP13CurrentEnergyEv(ptr nocapture noundef nonnull r
   %25 = ptrtoint ptr %.sroa.051.065 to i64
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
-  %28 = sdiv exact i64 %27, 216
-  %29 = getelementptr inbounds %struct.CoordStorage, ptr %23, i64 %28
+  %28 = sdiv exact i64 %27, 3
+  %29 = getelementptr inbounds i8, ptr %23, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 24
   %31 = load double, ptr %30, align 8, !noalias !120
   %32 = load double, ptr %29, align 8, !noalias !78
@@ -7653,9 +7653,9 @@ _Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit: ; preds 
   %155 = load ptr, ptr %154, align 8
   %156 = ptrtoint ptr %155 to i64
   %157 = sub i64 %25, %156
-  %158 = sdiv exact i64 %157, 216
-  %159 = load ptr, ptr %13, align 8
-  %160 = getelementptr inbounds %struct.CoordStorage, ptr %159, i64 %158
+  %158 = load ptr, ptr %13, align 8
+  %159 = sdiv exact i64 %157, 3
+  %160 = getelementptr inbounds i8, ptr %158, i64 %159
   %161 = getelementptr inbounds i8, ptr %160, i64 24
   %162 = load double, ptr %161, align 8, !noalias !129
   %163 = load double, ptr %160, align 8, !noalias !78
@@ -7817,9 +7817,9 @@ _ZNSt6vectorIN4ARAP3CotESaIS1_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_bas
   %60 = load ptr, ptr %59, align 8, !noalias !135
   %61 = ptrtoint ptr %60 to i64
   %62 = sub i64 %55, %61
-  %63 = sdiv exact i64 %62, 216
-  %64 = load ptr, ptr %49, align 8
-  %65 = getelementptr inbounds %struct.CoordStorage, ptr %64, i64 %63
+  %63 = load ptr, ptr %49, align 8
+  %64 = sdiv exact i64 %62, 3
+  %65 = getelementptr inbounds i8, ptr %63, i64 %64
   %.cmp38.not.i = icmp eq i64 %indvars.iv.i, 2
   %66 = select i1 %.cmp38.not.i, i64 0, i64 %indvars.iv.next.i
   %67 = getelementptr inbounds [3 x %"class.vcg::Point3"], ptr %65, i64 0, i64 %66
@@ -8325,9 +8325,9 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEESaIS2_EE7reserveEm.exit.i: ; 
   %298 = ptrtoint ptr %.sroa.055.074.i to i64
   %299 = ptrtoint ptr %297 to i64
   %300 = sub i64 %298, %299
-  %301 = sdiv exact i64 %300, 216
-  %302 = load ptr, ptr %290, align 8
-  %303 = getelementptr inbounds %struct.CoordStorage, ptr %302, i64 %301
+  %301 = load ptr, ptr %290, align 8
+  %302 = sdiv exact i64 %300, 3
+  %303 = getelementptr inbounds i8, ptr %301, i64 %302
   %304 = getelementptr inbounds i8, ptr %303, i64 24
   %305 = load double, ptr %304, align 8, !noalias !148
   %306 = load double, ptr %303, align 8, !noalias !145

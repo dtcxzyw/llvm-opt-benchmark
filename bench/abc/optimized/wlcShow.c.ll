@@ -373,7 +373,8 @@ Wlc_ObjCo2PoFo.exit:                              ; preds = %114, %118
   %.val423 = load ptr, ptr %146, align 8
   %153 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val423, i64 %indvars.iv599
   %.val482 = load ptr, ptr %147, align 8
-  %154 = getelementptr inbounds i32, ptr %.val482, i64 %indvars.iv599
+  %sext.i = shl nuw nsw i64 %indvars.iv599, 2
+  %154 = getelementptr inbounds i8, ptr %.val482, i64 %sext.i
   %155 = load i32, ptr %154, align 4
   %.not404 = icmp eq i32 %155, %.2350564
   br i1 %.not404, label %156, label %270

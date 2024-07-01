@@ -1599,11 +1599,11 @@ if.end26:                                         ; preds = %while.body14
   %sub17 = sub nuw nsw i64 2097152, %rem
   %cond = tail call i64 @llvm.umin.i64(i64 %sub16, i64 %sub17)
   %div1534 = lshr i64 %page.143, 21
-  %shr27 = lshr exact i64 %rem, 6
   %add.ptr = getelementptr i64, ptr %dirty, i64 %dest.142
   %arrayidx29 = getelementptr [0 x ptr], ptr %blocks28, i64 0, i64 %div1534
   %4 = load ptr, ptr %arrayidx29, align 8
-  %add.ptr30 = getelementptr i64, ptr %4, i64 %shr27
+  %5 = lshr exact i64 %rem, 3
+  %add.ptr30 = getelementptr i8, ptr %4, i64 %5
   tail call void @bitmap_copy_and_clear_atomic(ptr noundef %add.ptr, ptr noundef %add.ptr30, i64 noundef %cond) #26
   %add31 = add nuw nsw i64 %cond, %page.143
   %shr32 = lshr exact i64 %cond, 6
@@ -1614,8 +1614,8 @@ if.end26:                                         ; preds = %while.body14
 for.inc:                                          ; preds = %if.end26, %rcu_read_auto_lock.exit
   %call.i.i35 = tail call ptr @get_ptr_rcu_reader() #26
   %depth.i.i36 = getelementptr inbounds i8, ptr %call.i.i35, i64 12
-  %5 = load i32, ptr %depth.i.i36, align 4
-  %cmp.not.i.i37 = icmp eq i32 %5, 0
+  %6 = load i32, ptr %depth.i.i36, align 4
+  %cmp.not.i.i37 = icmp eq i32 %6, 0
   br i1 %cmp.not.i.i37, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %for.inc
@@ -1623,7 +1623,7 @@ if.else.i.i:                                      ; preds = %for.inc
   unreachable
 
 if.end.i.i:                                       ; preds = %for.inc
-  %dec.i.i = add i32 %5, -1
+  %dec.i.i = add i32 %6, -1
   store i32 %dec.i.i, ptr %depth.i.i36, align 4
   %cmp2.not.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %cmp2.not.i.i, label %while.end.i.i38, label %rcu_read_auto_unlock.exit
@@ -1633,8 +1633,8 @@ while.end.i.i38:                                  ; preds = %if.end.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !22
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i35, i64 8
-  %6 = load atomic i8, ptr %waiting.i.i monotonic, align 8
-  %tobool.i.i = trunc i8 %6 to i1
+  %7 = load atomic i8, ptr %waiting.i.i monotonic, align 8
+  %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %while.end21.i.i, label %rcu_read_auto_unlock.exit
 
 while.end21.i.i:                                  ; preds = %while.end.i.i38
@@ -1643,8 +1643,8 @@ while.end21.i.i:                                  ; preds = %while.end.i.i38
   br label %rcu_read_auto_unlock.exit
 
 rcu_read_auto_unlock.exit:                        ; preds = %if.end.i.i, %while.end.i.i38, %while.end21.i.i
-  %7 = load i8, ptr @tcg_allowed, align 1
-  %tobool35 = trunc i8 %7 to i1
+  %8 = load i8, ptr @tcg_allowed, align 1
+  %tobool35 = trunc i8 %8 to i1
   br i1 %tobool35, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %rcu_read_auto_unlock.exit

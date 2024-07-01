@@ -1498,8 +1498,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %1041 = mul nsw i64 %1040, %98
   %1042 = sub nsw i64 %1030, %1040
   %1043 = shl i64 %1042, 32
-  %1044 = ashr exact i64 %1043, 32
-  %1045 = getelementptr double, ptr %30, i64 %1044
+  %1044 = ashr exact i64 %1043, 29
+  %1045 = getelementptr i8, ptr %30, i64 %1044
   %1046 = getelementptr double, ptr %1045, i64 %1041
   %1047 = load double, ptr %1046, align 8, !tbaa !7
   %1048 = sub nsw i64 %1021, %1040
@@ -1555,8 +1555,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %1086 = load double, ptr %1085, align 8, !tbaa !7
   %1087 = sub i64 %1076, %1078
   %1088 = shl i64 %1087, 32
-  %1089 = ashr exact i64 %1088, 32
-  %1090 = getelementptr double, ptr %30, i64 %1089
+  %1089 = ashr exact i64 %1088, 29
+  %1090 = getelementptr i8, ptr %30, i64 %1089
   %1091 = getelementptr double, ptr %1090, i64 %1080
   %1092 = load double, ptr %1091, align 8, !tbaa !7
   %1093 = fneg double %1079
@@ -1623,8 +1623,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %1129 = mul nsw i64 %1120, %98
   %1130 = sub i64 %1118, %1120
   %1131 = shl i64 %1130, 32
-  %1132 = ashr exact i64 %1131, 32
-  %1133 = getelementptr double, ptr %30, i64 %1132
+  %1132 = ashr exact i64 %1131, 29
+  %1133 = getelementptr i8, ptr %30, i64 %1132
   %1134 = getelementptr double, ptr %1133, i64 %1129
   %1135 = load double, ptr %1134, align 8, !tbaa !7
   %1136 = fneg double %1127

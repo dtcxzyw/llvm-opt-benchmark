@@ -4636,9 +4636,9 @@ define linkonce_odr void @_ZN3vcg3tri13UpdateQualityI6CMeshOE14VertexFromFaceERS
   %70 = load ptr, ptr %68, align 8
   %71 = ptrtoint ptr %70 to i64
   %72 = sub i64 %64, %71
-  %73 = sdiv exact i64 %72, 48
-  %74 = load ptr, ptr %69, align 8
-  %75 = getelementptr inbounds float, ptr %74, i64 %73
+  %73 = load ptr, ptr %69, align 8
+  %74 = sdiv exact i64 %72, 12
+  %75 = getelementptr inbounds i8, ptr %73, i64 %74
   %76 = load float, ptr %75, align 4
   %77 = getelementptr inbounds [3 x ptr], ptr %22, i64 0, i64 %indvars.iv60
   %78 = load ptr, ptr %77, align 8
@@ -4647,9 +4647,9 @@ define linkonce_odr void @_ZN3vcg3tri13UpdateQualityI6CMeshOE14VertexFromFaceERS
   %81 = ptrtoint ptr %78 to i64
   %82 = ptrtoint ptr %80 to i64
   %83 = sub i64 %81, %82
-  %84 = sdiv exact i64 %83, 48
-  %85 = load ptr, ptr %13, align 8
-  %86 = getelementptr inbounds float, ptr %85, i64 %84
+  %84 = load ptr, ptr %13, align 8
+  %85 = sdiv exact i64 %83, 12
+  %86 = getelementptr inbounds i8, ptr %84, i64 %85
   %87 = load float, ptr %86, align 4
   %88 = call float @llvm.fmuladd.f32(float %76, float %sqrt.i.i.i.us, float %87)
   store float %88, ptr %86, align 4
@@ -4659,9 +4659,9 @@ define linkonce_odr void @_ZN3vcg3tri13UpdateQualityI6CMeshOE14VertexFromFaceERS
   %92 = ptrtoint ptr %89 to i64
   %93 = ptrtoint ptr %91 to i64
   %94 = sub i64 %92, %93
-  %95 = sdiv exact i64 %94, 48
-  %96 = load ptr, ptr %15, align 8
-  %97 = getelementptr inbounds float, ptr %96, i64 %95
+  %95 = load ptr, ptr %15, align 8
+  %96 = sdiv exact i64 %94, 12
+  %97 = getelementptr inbounds i8, ptr %95, i64 %96
   %98 = load float, ptr %97, align 4
   %99 = fadd float %sqrt.i.i.i.us, %98
   store float %99, ptr %97, align 4
@@ -4701,9 +4701,9 @@ define linkonce_odr void @_ZN3vcg3tri13UpdateQualityI6CMeshOE14VertexFromFaceERS
   %116 = load ptr, ptr %114, align 8
   %117 = ptrtoint ptr %116 to i64
   %118 = sub i64 %105, %117
-  %119 = sdiv exact i64 %118, 48
-  %120 = load ptr, ptr %115, align 8
-  %121 = getelementptr inbounds float, ptr %120, i64 %119
+  %119 = load ptr, ptr %115, align 8
+  %120 = sdiv exact i64 %118, 12
+  %121 = getelementptr inbounds i8, ptr %119, i64 %120
   %122 = load float, ptr %121, align 4
   %123 = getelementptr inbounds [3 x ptr], ptr %106, i64 0, i64 %indvars.iv
   %124 = load ptr, ptr %123, align 8
@@ -4712,9 +4712,9 @@ define linkonce_odr void @_ZN3vcg3tri13UpdateQualityI6CMeshOE14VertexFromFaceERS
   %127 = ptrtoint ptr %124 to i64
   %128 = ptrtoint ptr %126 to i64
   %129 = sub i64 %127, %128
-  %130 = sdiv exact i64 %129, 48
-  %131 = load ptr, ptr %13, align 8
-  %132 = getelementptr inbounds float, ptr %131, i64 %130
+  %130 = load ptr, ptr %13, align 8
+  %131 = sdiv exact i64 %129, 12
+  %132 = getelementptr inbounds i8, ptr %130, i64 %131
   %133 = load float, ptr %132, align 4
   %134 = fadd float %122, %133
   store float %134, ptr %132, align 4
@@ -4724,9 +4724,9 @@ define linkonce_odr void @_ZN3vcg3tri13UpdateQualityI6CMeshOE14VertexFromFaceERS
   %138 = ptrtoint ptr %135 to i64
   %139 = ptrtoint ptr %137 to i64
   %140 = sub i64 %138, %139
-  %141 = sdiv exact i64 %140, 48
-  %142 = load ptr, ptr %15, align 8
-  %143 = getelementptr inbounds float, ptr %142, i64 %141
+  %141 = load ptr, ptr %15, align 8
+  %142 = sdiv exact i64 %140, 12
+  %143 = getelementptr inbounds i8, ptr %141, i64 %142
   %144 = load float, ptr %143, align 4
   %145 = fadd float %144, 1.000000e+00
   store float %145, ptr %143, align 4
@@ -4780,8 +4780,8 @@ define linkonce_odr void @_ZN3vcg3tri13UpdateQualityI6CMeshOE14VertexFromFaceERS
   %165 = ptrtoint ptr %.sroa.032.054 to i64
   %166 = ptrtoint ptr %164 to i64
   %167 = sub i64 %165, %166
-  %168 = sdiv exact i64 %167, 48
-  %169 = getelementptr inbounds float, ptr %153, i64 %168
+  %168 = sdiv exact i64 %167, 12
+  %169 = getelementptr inbounds i8, ptr %153, i64 %168
   %170 = load float, ptr %169, align 4
   %171 = fcmp ogt float %170, 0.000000e+00
   br i1 %171, label %172, label %181
@@ -4790,8 +4790,8 @@ define linkonce_odr void @_ZN3vcg3tri13UpdateQualityI6CMeshOE14VertexFromFaceERS
   %173 = load ptr, ptr %156, align 8
   %174 = ptrtoint ptr %173 to i64
   %175 = sub i64 %165, %174
-  %176 = sdiv exact i64 %175, 48
-  %177 = getelementptr inbounds float, ptr %157, i64 %176
+  %176 = sdiv exact i64 %175, 12
+  %177 = getelementptr inbounds i8, ptr %157, i64 %176
   %178 = load float, ptr %177, align 4
   %179 = fdiv float %178, %170
   %180 = getelementptr inbounds i8, ptr %.sroa.032.054, i64 36
@@ -5046,9 +5046,9 @@ define linkonce_odr void @_ZN3vcg13EmbreeAdaptorI6CMeshOE10computeSDFERS1_if(ptr
   %16 = ptrtoint ptr %.sroa.04.08.i to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
-  %19 = sdiv exact i64 %18, 48
-  %20 = load ptr, ptr %14, align 8
-  %21 = getelementptr inbounds float, ptr %20, i64 %19
+  %19 = load ptr, ptr %14, align 8
+  %20 = sdiv exact i64 %18, 12
+  %21 = getelementptr inbounds i8, ptr %19, i64 %20
   store float 0.000000e+00, ptr %21, align 4
   %22 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 48
   %23 = load ptr, ptr %11, align 8
@@ -5293,9 +5293,9 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit.us: ; preds = %139, %111
   %160 = ptrtoint ptr %156 to i64
   %161 = ptrtoint ptr %159 to i64
   %162 = sub i64 %160, %161
-  %163 = sdiv exact i64 %162, 48
-  %164 = load ptr, ptr %158, align 8
-  %165 = getelementptr inbounds float, ptr %164, i64 %163
+  %163 = load ptr, ptr %158, align 8
+  %164 = sdiv exact i64 %162, 12
+  %165 = getelementptr inbounds i8, ptr %163, i64 %164
   %166 = fdiv float %.150.us, %.1.us
   store float %166, ptr %165, align 4
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
@@ -5350,9 +5350,9 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit.us: ; preds = %139, %111
   %199 = ptrtoint ptr %171 to i64
   %200 = ptrtoint ptr %198 to i64
   %201 = sub i64 %199, %200
-  %202 = sdiv exact i64 %201, 48
-  %203 = load ptr, ptr %197, align 8
-  %204 = getelementptr inbounds float, ptr %203, i64 %202
+  %202 = load ptr, ptr %197, align 8
+  %203 = sdiv exact i64 %201, 12
+  %204 = getelementptr inbounds i8, ptr %202, i64 %203
   store float 0x7FF8000000000000, ptr %204, align 4
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %205 = load i32, ptr %60, align 8
@@ -6825,9 +6825,9 @@ define linkonce_odr void @_ZN3vcg13EmbreeAdaptorI6CMeshOE17computeObscuranceERS1
   %13 = ptrtoint ptr %.sroa.04.08.i to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
-  %16 = sdiv exact i64 %15, 48
-  %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds float, ptr %17, i64 %16
+  %16 = load ptr, ptr %11, align 8
+  %17 = sdiv exact i64 %15, 12
+  %18 = getelementptr inbounds i8, ptr %16, i64 %17
   store float 0.000000e+00, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 48
   %20 = load ptr, ptr %8, align 8
@@ -6868,9 +6868,9 @@ _ZN3vcg3tri13UpdateQualityI6CMeshOE12FaceConstantERS2_f.exit: ; preds = %.lr.ph.
   %35 = ptrtoint ptr %.sroa.021.034.i.i.i to i64
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
-  %38 = sdiv exact i64 %37, 48
-  %39 = load ptr, ptr %33, align 8
-  %40 = getelementptr inbounds float, ptr %39, i64 %38
+  %38 = load ptr, ptr %33, align 8
+  %39 = sdiv exact i64 %37, 12
+  %40 = getelementptr inbounds i8, ptr %38, i64 %39
   %41 = load float, ptr %40, align 4
   %42 = fcmp olt float %41, %31
   %.sroa.0.0.vec.insert8.i.i = insertelement <2 x float> %.sroa.0.0.i.i, float %41, i64 0
@@ -6900,9 +6900,9 @@ _ZN3vcg3tri13UpdateQualityI6CMeshOE12FaceConstantERS2_f.exit: ; preds = %.lr.ph.
   %53 = ptrtoint ptr %.sroa.016.031.i.i.i to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
-  %56 = sdiv exact i64 %55, 48
-  %57 = load ptr, ptr %51, align 8
-  %58 = getelementptr inbounds float, ptr %57, i64 %56
+  %56 = load ptr, ptr %51, align 8
+  %57 = sdiv exact i64 %55, 12
+  %58 = getelementptr inbounds i8, ptr %56, i64 %57
   %59 = load float, ptr %58, align 4
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.0.3.i.i, i64 0
   %60 = fcmp olt float %59, %.sroa.0.0.vec.extract.i.i
@@ -6949,12 +6949,12 @@ _ZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_.exit.i: ; preds = %
   %75 = ptrtoint ptr %.sroa.013.021.i to i64
   %76 = ptrtoint ptr %74 to i64
   %77 = sub i64 %75, %76
-  %78 = sdiv exact i64 %77, 48
-  %79 = load ptr, ptr %73, align 8
-  %80 = getelementptr inbounds %"class.vcg::Color4", ptr %79, i64 %78
+  %78 = load ptr, ptr %73, align 8
+  %79 = sdiv exact i64 %77, 12
+  %80 = getelementptr inbounds i8, ptr %78, i64 %79
   %81 = getelementptr inbounds i8, ptr %72, i64 120
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds float, ptr %82, i64 %78
+  %83 = getelementptr inbounds i8, ptr %82, i64 %79
   %84 = load float, ptr %83, align 4
   %85 = fsub float %84, %.sroa.0.0.vec.extract.i
   %86 = fdiv float %85, %65
@@ -7242,9 +7242,9 @@ define internal void @_ZN3vcg13EmbreeAdaptorI6CMeshOE17computeObscuranceERS1_St6
   %94 = ptrtoint ptr %90 to i64
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
-  %97 = sdiv exact i64 %96, 48
-  %98 = load ptr, ptr %92, align 8
-  %99 = getelementptr inbounds float, ptr %98, i64 %97
+  %97 = load ptr, ptr %92, align 8
+  %98 = sdiv exact i64 %96, 12
+  %99 = getelementptr inbounds i8, ptr %97, i64 %98
   br label %.sink.split
 
 100:                                              ; preds = %85
@@ -7259,9 +7259,9 @@ define internal void @_ZN3vcg13EmbreeAdaptorI6CMeshOE17computeObscuranceERS1_St6
   %109 = ptrtoint ptr %105 to i64
   %110 = ptrtoint ptr %108 to i64
   %111 = sub i64 %109, %110
-  %112 = sdiv exact i64 %111, 48
-  %113 = load ptr, ptr %107, align 8
-  %114 = getelementptr inbounds float, ptr %113, i64 %112
+  %112 = load ptr, ptr %107, align 8
+  %113 = sdiv exact i64 %111, 12
+  %114 = getelementptr inbounds i8, ptr %112, i64 %113
   %115 = fsub float 1.000000e+00, %103
   br label %.sink.split
 
@@ -7838,9 +7838,9 @@ define linkonce_odr void @_ZN3vcg13EmbreeAdaptorI6CMeshOE23computeAmbientOcclusi
   %14 = ptrtoint ptr %.sroa.04.08.i to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
-  %17 = sdiv exact i64 %16, 48
-  %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds float, ptr %18, i64 %17
+  %17 = load ptr, ptr %12, align 8
+  %18 = sdiv exact i64 %16, 12
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
   store float 0.000000e+00, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 48
   %21 = load ptr, ptr %9, align 8
@@ -7897,9 +7897,9 @@ _ZN3vcg3tri13UpdateQualityI6CMeshOE12FaceConstantERS2_f.exit: ; preds = %.lr.ph.
   %42 = ptrtoint ptr %.sroa.021.034.i.i.i to i64
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
-  %45 = sdiv exact i64 %44, 48
-  %46 = load ptr, ptr %40, align 8
-  %47 = getelementptr inbounds float, ptr %46, i64 %45
+  %45 = load ptr, ptr %40, align 8
+  %46 = sdiv exact i64 %44, 12
+  %47 = getelementptr inbounds i8, ptr %45, i64 %46
   %48 = load float, ptr %47, align 4
   %49 = fcmp olt float %48, %38
   %.sroa.0.0.vec.insert8.i.i = insertelement <2 x float> %.sroa.0.0.i.i, float %48, i64 0
@@ -7929,9 +7929,9 @@ _ZN3vcg3tri13UpdateQualityI6CMeshOE12FaceConstantERS2_f.exit: ; preds = %.lr.ph.
   %60 = ptrtoint ptr %.sroa.016.031.i.i.i to i64
   %61 = ptrtoint ptr %59 to i64
   %62 = sub i64 %60, %61
-  %63 = sdiv exact i64 %62, 48
-  %64 = load ptr, ptr %58, align 8
-  %65 = getelementptr inbounds float, ptr %64, i64 %63
+  %63 = load ptr, ptr %58, align 8
+  %64 = sdiv exact i64 %62, 12
+  %65 = getelementptr inbounds i8, ptr %63, i64 %64
   %66 = load float, ptr %65, align 4
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.0.3.i.i, i64 0
   %67 = fcmp olt float %66, %.sroa.0.0.vec.extract.i.i
@@ -7978,12 +7978,12 @@ _ZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_.exit.i: ; preds = %
   %82 = ptrtoint ptr %.sroa.013.021.i to i64
   %83 = ptrtoint ptr %81 to i64
   %84 = sub i64 %82, %83
-  %85 = sdiv exact i64 %84, 48
-  %86 = load ptr, ptr %80, align 8
-  %87 = getelementptr inbounds %"class.vcg::Color4", ptr %86, i64 %85
+  %85 = load ptr, ptr %80, align 8
+  %86 = sdiv exact i64 %84, 12
+  %87 = getelementptr inbounds i8, ptr %85, i64 %86
   %88 = getelementptr inbounds i8, ptr %79, i64 120
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds float, ptr %89, i64 %85
+  %90 = getelementptr inbounds i8, ptr %89, i64 %86
   %91 = load float, ptr %90, align 4
   %92 = fsub float %91, %.sroa.0.0.vec.extract.i
   %93 = fdiv float %92, %72
@@ -8241,9 +8241,9 @@ define internal void @_ZN3vcg13EmbreeAdaptorI6CMeshOE23computeAmbientOcclusionER
   %97 = ptrtoint ptr %93 to i64
   %98 = ptrtoint ptr %96 to i64
   %99 = sub i64 %97, %98
-  %100 = sdiv exact i64 %99, 48
-  %101 = load ptr, ptr %95, align 8
-  %102 = getelementptr inbounds float, ptr %101, i64 %100
+  %100 = load ptr, ptr %95, align 8
+  %101 = sdiv exact i64 %99, 12
+  %102 = getelementptr inbounds i8, ptr %100, i64 %101
   %103 = add nsw i32 %.05482, 1
   %104 = load float, ptr %102, align 4
   %105 = fadd float %83, %104
@@ -9291,9 +9291,9 @@ define linkonce_odr void @_ZN3vcg3tri11UpdateColorI6CMeshOE18PerFaceQualityRampE
   %24 = ptrtoint ptr %.sroa.021.034.i.i to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
-  %27 = sdiv exact i64 %26, 48
-  %28 = load ptr, ptr %22, align 8
-  %29 = getelementptr inbounds float, ptr %28, i64 %27
+  %27 = load ptr, ptr %22, align 8
+  %28 = sdiv exact i64 %26, 12
+  %29 = getelementptr inbounds i8, ptr %27, i64 %28
   %30 = load float, ptr %29, align 4
   %31 = fcmp olt float %30, %20
   %.sroa.0.0.vec.insert8.i = insertelement <2 x float> %.sroa.0.0.i, float %30, i64 0
@@ -9323,9 +9323,9 @@ define linkonce_odr void @_ZN3vcg3tri11UpdateColorI6CMeshOE18PerFaceQualityRampE
   %42 = ptrtoint ptr %.sroa.016.031.i.i to i64
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
-  %45 = sdiv exact i64 %44, 48
-  %46 = load ptr, ptr %40, align 8
-  %47 = getelementptr inbounds float, ptr %46, i64 %45
+  %45 = load ptr, ptr %40, align 8
+  %46 = sdiv exact i64 %44, 12
+  %47 = getelementptr inbounds i8, ptr %45, i64 %46
   %48 = load float, ptr %47, align 4
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.3.i, i64 0
   %49 = fcmp olt float %48, %.sroa.0.0.vec.extract.i
@@ -9380,9 +9380,9 @@ _ZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_.exit: ; preds = %_Z
   %66 = ptrtoint ptr %.sroa.014.026.us to i64
   %67 = ptrtoint ptr %65 to i64
   %68 = sub i64 %66, %67
-  %69 = sdiv exact i64 %68, 48
-  %70 = load ptr, ptr %64, align 8
-  %71 = getelementptr inbounds float, ptr %70, i64 %69
+  %69 = load ptr, ptr %64, align 8
+  %70 = sdiv exact i64 %68, 12
+  %71 = getelementptr inbounds i8, ptr %69, i64 %70
   %72 = load float, ptr %71, align 4
   %73 = fpext float %72 to double
   %74 = tail call i32 @_ZN3vcg15GetColorMappingEdddNS_8ColorMapE(double noundef %73, double noundef %57, double noundef %58, i32 noundef %4)
@@ -9391,9 +9391,9 @@ _ZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_.exit: ; preds = %_Z
   %77 = load ptr, ptr %75, align 8
   %78 = ptrtoint ptr %77 to i64
   %79 = sub i64 %66, %78
-  %80 = sdiv exact i64 %79, 48
-  %81 = load ptr, ptr %76, align 8
-  %82 = getelementptr inbounds %"class.vcg::Color4", ptr %81, i64 %80
+  %80 = load ptr, ptr %76, align 8
+  %81 = sdiv exact i64 %79, 12
+  %82 = getelementptr inbounds i8, ptr %80, i64 %81
   store i32 %74, ptr %82, align 1
   br label %83
 
@@ -9418,9 +9418,9 @@ _ZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_.exit: ; preds = %_Z
   %93 = ptrtoint ptr %.sroa.014.026 to i64
   %94 = ptrtoint ptr %92 to i64
   %95 = sub i64 %93, %94
-  %96 = sdiv exact i64 %95, 48
-  %97 = load ptr, ptr %91, align 8
-  %98 = getelementptr inbounds float, ptr %97, i64 %96
+  %96 = load ptr, ptr %91, align 8
+  %97 = sdiv exact i64 %95, 12
+  %98 = getelementptr inbounds i8, ptr %96, i64 %97
   %99 = load float, ptr %98, align 4
   %100 = fpext float %99 to double
   %101 = tail call i32 @_ZN3vcg15GetColorMappingEdddNS_8ColorMapE(double noundef %100, double noundef %57, double noundef %58, i32 noundef %4)
@@ -9429,9 +9429,9 @@ _ZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_.exit: ; preds = %_Z
   %104 = load ptr, ptr %102, align 8
   %105 = ptrtoint ptr %104 to i64
   %106 = sub i64 %93, %105
-  %107 = sdiv exact i64 %106, 48
-  %108 = load ptr, ptr %103, align 8
-  %109 = getelementptr inbounds %"class.vcg::Color4", ptr %108, i64 %107
+  %107 = load ptr, ptr %103, align 8
+  %108 = sdiv exact i64 %106, 12
+  %109 = getelementptr inbounds i8, ptr %107, i64 %108
   store i32 %101, ptr %109, align 1
   br label %110
 

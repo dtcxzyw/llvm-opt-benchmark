@@ -182,8 +182,8 @@ define hidden i32 @ps_hints_apply(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %82 = getelementptr inbounds %struct.FT_Vector_, ptr %60, i64 %indvars.iv183.i
   %83 = load i64, ptr %82, align 8
   %sext.i = shl i64 %70, 32
-  %84 = ashr exact i64 %sext.i, 32
-  %85 = getelementptr inbounds %struct.FT_Vector_, ptr %60, i64 %84
+  %84 = ashr exact i64 %sext.i, 28
+  %85 = getelementptr inbounds i8, ptr %60, i64 %84
   %86 = load i64, ptr %85, align 8
   %87 = sub nsw i64 %83, %86
   %88 = getelementptr inbounds i8, ptr %82, i64 8
@@ -217,8 +217,8 @@ psh_compute_dir.exit.i:                           ; preds = %103, %100, %97
   %106 = getelementptr inbounds i8, ptr %.0115156.i, i64 32
   store i32 %.0.i.i, ptr %106, align 8
   %sext122.i = shl i64 %75, 32
-  %107 = ashr exact i64 %sext122.i, 32
-  %108 = getelementptr inbounds %struct.FT_Vector_, ptr %60, i64 %107
+  %107 = ashr exact i64 %sext122.i, 28
+  %108 = getelementptr inbounds i8, ptr %60, i64 %107
   %109 = load i64, ptr %108, align 8
   %110 = load i64, ptr %82, align 8
   %111 = sub nsw i64 %109, %110

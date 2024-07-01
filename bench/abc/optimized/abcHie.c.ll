@@ -3217,8 +3217,8 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i103, %Vec_I
 Vec_PtrFind.exit115:                              ; preds = %88, %92, %84
   %.07.i108 = phi i64 [ -1, %84 ], [ %indvars.iv.i111, %88 ], [ -1, %92 ]
   %sext117 = shl i64 %.07.i108, 32
-  %93 = ashr exact i64 %sext117, 32
-  %94 = getelementptr inbounds i32, ptr %.val99, i64 %93
+  %93 = ashr exact i64 %sext117, 30
+  %94 = getelementptr inbounds i8, ptr %.val99, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr %94, align 4

@@ -7070,8 +7070,8 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_StrStart.exit, 
 .critedge4:                                       ; preds = %104, %.critedge4.loopexit.split.loop.exit214, %.critedge4.loopexit.split.loop.exit216, %.critedge4.loopexit.split.loop.exit218, %.preheader
   %.0104.lcssa = phi i32 [ 0, %.preheader ], [ %105, %.critedge4.loopexit.split.loop.exit214 ], [ %106, %.critedge4.loopexit.split.loop.exit216 ], [ %107, %.critedge4.loopexit.split.loop.exit218 ], [ %84, %104 ]
   %sext.i = shl i64 %indvars.iv.next206, 32
-  %108 = ashr exact i64 %sext.i, 32
-  %109 = getelementptr inbounds i32, ptr %.val158.val, i64 %108
+  %108 = ashr exact i64 %sext.i, 30
+  %109 = getelementptr inbounds i8, ptr %.val158.val, i64 %108
   %110 = load i32, ptr %109, align 4
   %111 = icmp slt i32 %.0104.lcssa, %110
   br i1 %111, label %117, label %112

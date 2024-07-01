@@ -22464,8 +22464,8 @@ if.else.i.i.i:                                    ; preds = %while.end.i.i.i
   %reservoirPDF39.i.i.i = getelementptr inbounds i8, ptr %56, i64 384
   %57 = load ptr, ptr %reservoirPDF39.i.i.i, align 8
   %sext1.i.i = shl i64 %__args.val, 32
-  %idxprom40.i.i.i = ashr exact i64 %sext1.i.i, 32
-  %arrayidx41.i.i.i = getelementptr inbounds float, ptr %57, i64 %idxprom40.i.i.i
+  %58 = ashr exact i64 %sext1.i.i, 30
+  %arrayidx41.i.i.i = getelementptr inbounds i8, ptr %57, i64 %58
   store float 0.000000e+00, ptr %arrayidx41.i.i.i, align 4
   br label %"_ZSt10__invoke_rIvRZNK4pbrt12CPUAggregate18IntersectOneRandomEiPNS0_22SubsurfaceScatterQueueEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 

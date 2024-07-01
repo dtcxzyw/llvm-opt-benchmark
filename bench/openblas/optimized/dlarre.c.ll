@@ -183,8 +183,8 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %122 = load double, ptr %121, align 8, !tbaa !7
   %123 = fsub double %122, %120
   %124 = shl i64 %106, 33
-  %125 = ashr exact i64 %124, 32
-  %126 = getelementptr double, ptr %100, i64 %125
+  %125 = ashr exact i64 %124, 29
+  %126 = getelementptr i8, ptr %100, i64 %125
   store double %123, ptr %126, align 8, !tbaa !7
   %127 = fcmp ole double %109, %123
   %128 = select i1 %127, double %109, double %123
@@ -1120,8 +1120,8 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %759 = fneg double %757
   %760 = select i1 %758, double %757, double %759
   %761 = shl i64 %754, 33
-  %762 = ashr exact i64 %761, 32
-  %763 = getelementptr double, ptr %178, i64 %762
+  %762 = ashr exact i64 %761, 29
+  %763 = getelementptr i8, ptr %178, i64 %762
   store double %760, ptr %763, align 8, !tbaa !7
   %764 = getelementptr inbounds double, ptr %54, i64 %755
   %765 = load double, ptr %764, align 8, !tbaa !7

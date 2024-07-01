@@ -11951,9 +11951,9 @@ thread-pre-split4536:                             ; preds = %4240, %select.unfol
   %4327 = getelementptr inbounds i8, ptr %4322, i64 8
   %4328 = shl i64 %4279, 32
   %sext = add i64 %4328, -4294967296
-  %4329 = ashr exact i64 %sext, 32
-  %4330 = load ptr, ptr %4327, align 8
-  %4331 = getelementptr inbounds ptr, ptr %4330, i64 %4329
+  %4329 = load ptr, ptr %4327, align 8
+  %4330 = ashr exact i64 %sext, 29
+  %4331 = getelementptr inbounds i8, ptr %4329, i64 %4330
   %.pre6912 = load ptr, ptr %4331, align 8
   br label %4332
 

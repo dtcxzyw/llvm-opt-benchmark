@@ -4258,8 +4258,8 @@ Vec_PtrFind.exit:                                 ; preds = %219, %223, %.crited
   %.07.i = phi i64 [ -1, %.critedge10 ], [ %indvars.iv.i, %219 ], [ -1, %223 ]
   %.val180 = load ptr, ptr %13, align 8
   %sext = shl i64 %.07.i, 32
-  %224 = ashr exact i64 %sext, 32
-  %225 = getelementptr inbounds i32, ptr %.val180, i64 %224
+  %224 = ashr exact i64 %sext, 30
+  %225 = getelementptr inbounds i8, ptr %.val180, i64 %224
   %226 = load i32, ptr %225, align 4
   store i32 0, ptr %23, align 4
   %.not283 = icmp eq i32 %.val178259, 31

@@ -10244,12 +10244,12 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELi2ELi1ELin1ELi2EEELin1EL
   %218 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv
   %219 = load i64, ptr %218, align 8
   %sext94 = shl i64 %219, 32
-  %220 = ashr exact i64 %sext94, 32
-  %221 = getelementptr inbounds i32, ptr %216, i64 %indvars.iv
-  %222 = getelementptr inbounds i32, ptr %216, i64 %220
-  %223 = load i32, ptr %221, align 4
+  %220 = getelementptr inbounds i32, ptr %216, i64 %indvars.iv
+  %221 = ashr exact i64 %sext94, 30
+  %222 = getelementptr inbounds i8, ptr %216, i64 %221
+  %223 = load i32, ptr %220, align 4
   %224 = load i32, ptr %222, align 4
-  store i32 %224, ptr %221, align 4
+  store i32 %224, ptr %220, align 4
   store i32 %223, ptr %222, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next, %.sroa.speculated.i
@@ -21173,13 +21173,13 @@ _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.
   %253 = getelementptr inbounds i64, ptr %252, i64 %indvars.iv
   %254 = load i64, ptr %253, align 8
   %sext94 = shl i64 %254, 32
-  %255 = ashr exact i64 %sext94, 32
-  %256 = load ptr, ptr %243, align 16
-  %257 = getelementptr inbounds i32, ptr %256, i64 %indvars.iv
-  %258 = getelementptr inbounds i32, ptr %256, i64 %255
-  %259 = load i32, ptr %257, align 4
+  %255 = load ptr, ptr %243, align 16
+  %256 = getelementptr inbounds i32, ptr %255, i64 %indvars.iv
+  %257 = ashr exact i64 %sext94, 30
+  %258 = getelementptr inbounds i8, ptr %255, i64 %257
+  %259 = load i32, ptr %256, align 4
   %260 = load i32, ptr %258, align 4
-  store i32 %260, ptr %257, align 4
+  store i32 %260, ptr %256, align 4
   store i32 %259, ptr %258, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next, %.sroa.speculated.i

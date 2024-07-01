@@ -5962,14 +5962,16 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   br i1 %31, label %32, label %44
 
 32:                                               ; preds = %28, %26
+  %.sroa.0.0.insert.ext = zext i32 %2 to i64
   %33 = getelementptr inbounds i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %1 to i64
   %36 = load ptr, ptr %34, align 8
   %37 = getelementptr inbounds i32, ptr %36, i64 %35
   %38 = load i32, ptr %37, align 4
-  %39 = sext i32 %2 to i64
-  %40 = getelementptr inbounds i32, ptr %36, i64 %39
+  %sext.i.i.i = shl nuw i64 %.sroa.0.0.insert.ext, 32
+  %39 = ashr exact i64 %sext.i.i.i, 30
+  %40 = getelementptr inbounds i8, ptr %36, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq i32 %38, %41
@@ -8151,6 +8153,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %80 = zext i1 %79 to i32
   %81 = add i32 %67, %80
   %82 = add i32 %81, %78
+  %.sroa.041.0.insert.ext = zext i32 %82 to i64
   %83 = load ptr, ptr %72, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
@@ -8158,8 +8161,9 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %87 = load ptr, ptr %85, align 8
   %88 = getelementptr inbounds i32, ptr %87, i64 %86
   %89 = load i32, ptr %88, align 4
-  %90 = sext i32 %82 to i64
-  %91 = getelementptr inbounds i32, ptr %87, i64 %90
+  %sext.i.i.i = shl nuw i64 %.sroa.041.0.insert.ext, 32
+  %90 = ashr exact i64 %sext.i.i.i, 30
+  %91 = getelementptr inbounds i8, ptr %87, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = load ptr, ptr %83, align 8
   %.not4.i.i.i.i = icmp eq i32 %89, %92
@@ -8721,6 +8725,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %122 = zext i1 %121 to i32
   %123 = add i32 %109, %122
   %124 = add i32 %123, %120
+  %.sroa.042.0.insert.ext = zext i32 %124 to i64
   %125 = load ptr, ptr %114, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 8
   %127 = load ptr, ptr %126, align 8
@@ -8728,8 +8733,9 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %129 = load ptr, ptr %127, align 8
   %130 = getelementptr inbounds i32, ptr %129, i64 %128
   %131 = load i32, ptr %130, align 4
-  %132 = sext i32 %124 to i64
-  %133 = getelementptr inbounds i32, ptr %129, i64 %132
+  %sext.i.i.i = shl nuw i64 %.sroa.042.0.insert.ext, 32
+  %132 = ashr exact i64 %sext.i.i.i, 30
+  %133 = getelementptr inbounds i8, ptr %129, i64 %132
   %134 = load i32, ptr %133, align 4
   %135 = load ptr, ptr %125, align 8
   %.not4.i.i.i.i = icmp eq i32 %131, %134
@@ -9439,14 +9445,16 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   br i1 %31, label %32, label %44
 
 32:                                               ; preds = %28, %26
+  %.sroa.0.0.insert.ext = zext i32 %2 to i64
   %33 = getelementptr inbounds i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %1 to i64
   %36 = load ptr, ptr %34, align 8
   %37 = getelementptr inbounds i32, ptr %36, i64 %35
   %38 = load i32, ptr %37, align 4
-  %39 = sext i32 %2 to i64
-  %40 = getelementptr inbounds i32, ptr %36, i64 %39
+  %sext.i.i.i = shl nuw i64 %.sroa.0.0.insert.ext, 32
+  %39 = ashr exact i64 %sext.i.i.i, 30
+  %40 = getelementptr inbounds i8, ptr %36, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq i32 %38, %41
@@ -12031,6 +12039,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %80 = zext i1 %79 to i32
   %81 = add i32 %67, %80
   %82 = add i32 %81, %78
+  %.sroa.050.0.insert.ext = zext i32 %82 to i64
   %83 = load ptr, ptr %72, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
@@ -12038,8 +12047,9 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %87 = load ptr, ptr %85, align 8
   %88 = getelementptr inbounds i32, ptr %87, i64 %86
   %89 = load i32, ptr %88, align 4
-  %90 = sext i32 %82 to i64
-  %91 = getelementptr inbounds i32, ptr %87, i64 %90
+  %sext.i.i.i = shl nuw i64 %.sroa.050.0.insert.ext, 32
+  %90 = ashr exact i64 %sext.i.i.i, 30
+  %91 = getelementptr inbounds i8, ptr %87, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = load ptr, ptr %83, align 8
   %.not4.i.i.i.i = icmp eq i32 %89, %92
@@ -12847,6 +12857,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %122 = zext i1 %121 to i32
   %123 = add i32 %109, %122
   %124 = add i32 %123, %120
+  %.sroa.051.0.insert.ext = zext i32 %124 to i64
   %125 = load ptr, ptr %114, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 8
   %127 = load ptr, ptr %126, align 8
@@ -12854,8 +12865,9 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %129 = load ptr, ptr %127, align 8
   %130 = getelementptr inbounds i32, ptr %129, i64 %128
   %131 = load i32, ptr %130, align 4
-  %132 = sext i32 %124 to i64
-  %133 = getelementptr inbounds i32, ptr %129, i64 %132
+  %sext.i.i.i = shl nuw i64 %.sroa.051.0.insert.ext, 32
+  %132 = ashr exact i64 %sext.i.i.i, 30
+  %133 = getelementptr inbounds i8, ptr %129, i64 %132
   %134 = load i32, ptr %133, align 4
   %135 = load ptr, ptr %125, align 8
   %.not4.i.i.i.i = icmp eq i32 %131, %134
@@ -18764,14 +18776,16 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   br i1 %31, label %32, label %44
 
 32:                                               ; preds = %28, %26
+  %.sroa.0.0.insert.ext = zext i32 %2 to i64
   %33 = getelementptr inbounds i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %1 to i64
   %36 = load ptr, ptr %34, align 8
   %37 = getelementptr inbounds i32, ptr %36, i64 %35
   %38 = load i32, ptr %37, align 4
-  %39 = sext i32 %2 to i64
-  %40 = getelementptr inbounds i32, ptr %36, i64 %39
+  %sext.i.i.i = shl nuw i64 %.sroa.0.0.insert.ext, 32
+  %39 = ashr exact i64 %sext.i.i.i, 30
+  %40 = getelementptr inbounds i8, ptr %36, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq i32 %38, %41
@@ -20818,6 +20832,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %80 = zext i1 %79 to i32
   %81 = add i32 %67, %80
   %82 = add i32 %81, %78
+  %.sroa.041.0.insert.ext = zext i32 %82 to i64
   %83 = load ptr, ptr %72, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
@@ -20825,8 +20840,9 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %87 = load ptr, ptr %85, align 8
   %88 = getelementptr inbounds i32, ptr %87, i64 %86
   %89 = load i32, ptr %88, align 4
-  %90 = sext i32 %82 to i64
-  %91 = getelementptr inbounds i32, ptr %87, i64 %90
+  %sext.i.i.i = shl nuw i64 %.sroa.041.0.insert.ext, 32
+  %90 = ashr exact i64 %sext.i.i.i, 30
+  %91 = getelementptr inbounds i8, ptr %87, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = load ptr, ptr %83, align 8
   %.not4.i.i.i.i = icmp eq i32 %89, %92
@@ -21290,6 +21306,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %122 = zext i1 %121 to i32
   %123 = add i32 %109, %122
   %124 = add i32 %123, %120
+  %.sroa.042.0.insert.ext = zext i32 %124 to i64
   %125 = load ptr, ptr %114, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 8
   %127 = load ptr, ptr %126, align 8
@@ -21297,8 +21314,9 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %129 = load ptr, ptr %127, align 8
   %130 = getelementptr inbounds i32, ptr %129, i64 %128
   %131 = load i32, ptr %130, align 4
-  %132 = sext i32 %124 to i64
-  %133 = getelementptr inbounds i32, ptr %129, i64 %132
+  %sext.i.i.i = shl nuw i64 %.sroa.042.0.insert.ext, 32
+  %132 = ashr exact i64 %sext.i.i.i, 30
+  %133 = getelementptr inbounds i8, ptr %129, i64 %132
   %134 = load i32, ptr %133, align 4
   %135 = load ptr, ptr %125, align 8
   %.not4.i.i.i.i = icmp eq i32 %131, %134
@@ -22541,14 +22559,16 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   br i1 %31, label %32, label %44
 
 32:                                               ; preds = %28, %26
+  %.sroa.0.0.insert.ext = zext i32 %2 to i64
   %33 = getelementptr inbounds i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %1 to i64
   %36 = load ptr, ptr %34, align 8
   %37 = getelementptr inbounds i32, ptr %36, i64 %35
   %38 = load i32, ptr %37, align 4
-  %39 = sext i32 %2 to i64
-  %40 = getelementptr inbounds i32, ptr %36, i64 %39
+  %sext.i.i.i = shl nuw i64 %.sroa.0.0.insert.ext, 32
+  %39 = ashr exact i64 %sext.i.i.i, 30
+  %40 = getelementptr inbounds i8, ptr %36, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq i32 %38, %41
@@ -24491,6 +24511,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %80 = zext i1 %79 to i32
   %81 = add i32 %67, %80
   %82 = add i32 %81, %78
+  %.sroa.041.0.insert.ext = zext i32 %82 to i64
   %83 = load ptr, ptr %72, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
@@ -24498,8 +24519,9 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %87 = load ptr, ptr %85, align 8
   %88 = getelementptr inbounds i32, ptr %87, i64 %86
   %89 = load i32, ptr %88, align 4
-  %90 = sext i32 %82 to i64
-  %91 = getelementptr inbounds i32, ptr %87, i64 %90
+  %sext.i.i.i = shl nuw i64 %.sroa.041.0.insert.ext, 32
+  %90 = ashr exact i64 %sext.i.i.i, 30
+  %91 = getelementptr inbounds i8, ptr %87, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = load ptr, ptr %83, align 8
   %.not4.i.i.i.i = icmp eq i32 %89, %92
@@ -24963,6 +24985,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %122 = zext i1 %121 to i32
   %123 = add i32 %109, %122
   %124 = add i32 %123, %120
+  %.sroa.042.0.insert.ext = zext i32 %124 to i64
   %125 = load ptr, ptr %114, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 8
   %127 = load ptr, ptr %126, align 8
@@ -24970,8 +24993,9 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
   %129 = load ptr, ptr %127, align 8
   %130 = getelementptr inbounds i32, ptr %129, i64 %128
   %131 = load i32, ptr %130, align 4
-  %132 = sext i32 %124 to i64
-  %133 = getelementptr inbounds i32, ptr %129, i64 %132
+  %sext.i.i.i = shl nuw i64 %.sroa.042.0.insert.ext, 32
+  %132 = ashr exact i64 %sext.i.i.i, 30
+  %133 = getelementptr inbounds i8, ptr %129, i64 %132
   %134 = load i32, ptr %133, align 4
   %135 = load ptr, ptr %125, align 8
   %.not4.i.i.i.i = icmp eq i32 %131, %134

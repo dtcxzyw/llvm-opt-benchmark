@@ -9155,8 +9155,8 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3320
   store i32 %3355, ptr %206, align 4
   store i32 %.0.i.i, ptr %.2, align 8
   %sext = shl i64 %.0.in.i.i, 32
-  %3356 = ashr exact i64 %sext, 32
-  %3357 = getelementptr inbounds %"struct.pkpy::Bytecode", ptr %205, i64 %3356
+  %3356 = ashr exact i64 %sext, 30
+  %3357 = getelementptr inbounds i8, ptr %205, i64 %3356
   %.sroa.0623.0.copyload721 = load i8, ptr %3357, align 2
   %.sroa.2932074.0..sroa_idx2269 = getelementptr inbounds i8, ptr %3357, i64 2
   %.sroa.2932074.0.copyload2270 = load i16, ptr %.sroa.2932074.0..sroa_idx2269, align 2

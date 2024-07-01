@@ -351,8 +351,8 @@ define void @Rnm_ManCollect_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %10 = sub i64 %8, %9
   %11 = sdiv exact i64 %10, 12
   %sext.i = shl i64 %11, 32
-  %12 = ashr exact i64 %sext.i, 32
-  %13 = getelementptr inbounds i32, ptr %6, i64 %12
+  %12 = ashr exact i64 %sext.i, 30
+  %13 = getelementptr inbounds i8, ptr %6, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i8, ptr %0, i64 176
   %16 = load i32, ptr %15, align 8
@@ -496,7 +496,7 @@ define void @Rnm_ManCollect(ptr nocapture noundef readonly %0) local_unnamed_add
 
 .lr.ph:                                           ; preds = %1, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %1 ]
-  %15 = phi ptr [ %30, %18 ], [ %12, %1 ]
+  %15 = phi ptr [ %31, %18 ], [ %12, %1 ]
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr i8, ptr %16, i64 32
   %.val45 = load ptr, ptr %17, align 8
@@ -513,111 +513,112 @@ define void @Rnm_ManCollect(ptr nocapture noundef readonly %0) local_unnamed_add
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %16, i64 616
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i32, ptr %26, i64 %22
-  store i32 %24, ptr %27, align 4
+  %27 = shl nsw i64 %22, 2
+  %28 = getelementptr inbounds i8, ptr %26, i64 %27
+  store i32 %24, ptr %28, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val45, i64 %22, i32 1
-  %29 = trunc nuw nsw i64 %indvars.iv.next to i32
-  store i32 %29, ptr %28, align 4
-  %30 = load ptr, ptr %11, align 8
-  %31 = getelementptr i8, ptr %30, i64 4
-  %.val39 = load i32, ptr %31, align 4
-  %32 = sext i32 %.val39 to i64
-  %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %.critedge, !llvm.loop !4
+  %29 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val45, i64 %22, i32 1
+  %30 = trunc nuw nsw i64 %indvars.iv.next to i32
+  store i32 %30, ptr %29, align 4
+  %31 = load ptr, ptr %11, align 8
+  %32 = getelementptr i8, ptr %31, i64 4
+  %.val39 = load i32, ptr %32, align 4
+  %33 = sext i32 %.val39 to i64
+  %34 = icmp slt i64 %indvars.iv.next, %33
+  br i1 %34, label %.lr.ph, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %.lr.ph, %18, %1
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
-  store i32 0, ptr %36, align 4
-  %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr i8, ptr %37, i64 32
-  %.val47 = load ptr, ptr %38, align 8
-  %39 = getelementptr i8, ptr %37, i64 72
-  %.val48 = load ptr, ptr %39, align 8
-  %40 = getelementptr i8, ptr %.val48, i64 8
-  %.val48.val = load ptr, ptr %40, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  store i32 0, ptr %37, align 4
+  %38 = load ptr, ptr %0, align 8
+  %39 = getelementptr i8, ptr %38, i64 32
+  %.val47 = load ptr, ptr %39, align 8
+  %40 = getelementptr i8, ptr %38, i64 72
+  %.val48 = load ptr, ptr %40, align 8
+  %41 = getelementptr i8, ptr %.val48, i64 8
+  %.val48.val = load ptr, ptr %41, align 8
   %.val48.val.val = load i32, ptr %.val48.val, align 4
-  %41 = sext i32 %.val48.val.val to i64
-  %42 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val47, i64 %41
-  %43 = load ptr, ptr %34, align 8
-  %44 = load ptr, ptr %11, align 8
-  %45 = getelementptr i8, ptr %44, i64 4
-  %.val38 = load i32, ptr %45, align 4
-  %46 = add nsw i32 %.val38, 1
-  tail call void @Rnm_ManCollect_rec(ptr noundef %37, ptr noundef %42, ptr noundef %43, i32 noundef %46)
-  %47 = load ptr, ptr %34, align 8
-  %48 = getelementptr i8, ptr %47, i64 4
-  %.val3759 = load i32, ptr %48, align 4
-  %49 = icmp sgt i32 %.val3759, 0
-  br i1 %49, label %.lr.ph61, label %.critedge2
+  %42 = sext i32 %.val48.val.val to i64
+  %43 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val47, i64 %42
+  %44 = load ptr, ptr %35, align 8
+  %45 = load ptr, ptr %11, align 8
+  %46 = getelementptr i8, ptr %45, i64 4
+  %.val38 = load i32, ptr %46, align 4
+  %47 = add nsw i32 %.val38, 1
+  tail call void @Rnm_ManCollect_rec(ptr noundef %38, ptr noundef %43, ptr noundef %44, i32 noundef %47)
+  %48 = load ptr, ptr %35, align 8
+  %49 = getelementptr i8, ptr %48, i64 4
+  %.val3759 = load i32, ptr %49, align 4
+  %50 = icmp sgt i32 %.val3759, 0
+  br i1 %50, label %.lr.ph61, label %.critedge2
 
 .lr.ph61:                                         ; preds = %.critedge, %Gia_ObjIsRo.exit.thread
-  %50 = phi ptr [ %81, %Gia_ObjIsRo.exit.thread ], [ %47, %.critedge ]
+  %51 = phi ptr [ %82, %Gia_ObjIsRo.exit.thread ], [ %48, %.critedge ]
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %Gia_ObjIsRo.exit.thread ], [ 0, %.critedge ]
-  %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr i8, ptr %51, i64 32
-  %.val46 = load ptr, ptr %52, align 8
+  %52 = load ptr, ptr %0, align 8
+  %53 = getelementptr i8, ptr %52, i64 32
+  %.val46 = load ptr, ptr %53, align 8
   %.not35 = icmp eq ptr %.val46, null
-  br i1 %.not35, label %.critedge2, label %53
+  br i1 %.not35, label %.critedge2, label %54
 
-53:                                               ; preds = %.lr.ph61
-  %54 = getelementptr i8, ptr %50, i64 8
-  %.val44 = load ptr, ptr %54, align 8
-  %55 = getelementptr inbounds i32, ptr %.val44, i64 %indvars.iv64
-  %56 = load i32, ptr %55, align 4
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val46, i64 %57
-  %.val40 = load i64, ptr %58, align 4
-  %59 = and i64 %.val40, 2684354559
-  %narrow.i.not.i = icmp eq i64 %59, 2684354559
+54:                                               ; preds = %.lr.ph61
+  %55 = getelementptr i8, ptr %51, i64 8
+  %.val44 = load ptr, ptr %55, align 8
+  %56 = getelementptr inbounds i32, ptr %.val44, i64 %indvars.iv64
+  %57 = load i32, ptr %56, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val46, i64 %58
+  %.val40 = load i64, ptr %59, align 4
+  %60 = and i64 %.val40, 2684354559
+  %narrow.i.not.i = icmp eq i64 %60, 2684354559
   br i1 %narrow.i.not.i, label %Gia_ObjIsRo.exit, label %Gia_ObjIsRo.exit.thread
 
-Gia_ObjIsRo.exit:                                 ; preds = %53
-  %60 = lshr i64 %.val40, 32
-  %61 = trunc nuw i64 %60 to i32
-  %62 = and i32 %61, 536870911
-  %63 = getelementptr i8, ptr %51, i64 16
-  %.val4.i = load i32, ptr %63, align 8
-  %64 = getelementptr i8, ptr %51, i64 64
-  %.val5.i = load ptr, ptr %64, align 8
-  %65 = getelementptr i8, ptr %.val5.i, i64 4
-  %.val5.val.i = load i32, ptr %65, align 4
-  %66 = sub nsw i32 %.val5.val.i, %.val4.i
-  %.not55 = icmp slt i32 %62, %66
-  br i1 %.not55, label %Gia_ObjIsRo.exit.thread, label %67
+Gia_ObjIsRo.exit:                                 ; preds = %54
+  %61 = lshr i64 %.val40, 32
+  %62 = trunc nuw i64 %61 to i32
+  %63 = and i32 %62, 536870911
+  %64 = getelementptr i8, ptr %52, i64 16
+  %.val4.i = load i32, ptr %64, align 8
+  %65 = getelementptr i8, ptr %52, i64 64
+  %.val5.i = load ptr, ptr %65, align 8
+  %66 = getelementptr i8, ptr %.val5.i, i64 4
+  %.val5.val.i = load i32, ptr %66, align 4
+  %67 = sub nsw i32 %.val5.val.i, %.val4.i
+  %.not55 = icmp slt i32 %63, %67
+  br i1 %.not55, label %Gia_ObjIsRo.exit.thread, label %68
 
-67:                                               ; preds = %Gia_ObjIsRo.exit
-  %68 = getelementptr i8, ptr %51, i64 72
-  %.val6.i = load ptr, ptr %68, align 8
-  %69 = getelementptr i8, ptr %.val6.i, i64 4
-  %.val6.val.i = load i32, ptr %69, align 4
-  %70 = add i32 %.val6.val.i, %62
-  %71 = sub i32 %70, %.val5.val.i
-  %72 = getelementptr i8, ptr %.val6.i, i64 8
-  %.val5.val.i53 = load ptr, ptr %72, align 8
-  %73 = sext i32 %71 to i64
-  %74 = getelementptr inbounds i32, ptr %.val5.val.i53, i64 %73
-  %75 = load i32, ptr %74, align 4
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val46, i64 %76
-  %78 = load ptr, ptr %11, align 8
-  %79 = getelementptr i8, ptr %78, i64 4
-  %.val = load i32, ptr %79, align 4
-  %80 = add nsw i32 %.val, 1
-  tail call void @Rnm_ManCollect_rec(ptr noundef nonnull %51, ptr noundef nonnull %77, ptr noundef nonnull %50, i32 noundef %80)
-  %.pre = load ptr, ptr %34, align 8
+68:                                               ; preds = %Gia_ObjIsRo.exit
+  %69 = getelementptr i8, ptr %52, i64 72
+  %.val6.i = load ptr, ptr %69, align 8
+  %70 = getelementptr i8, ptr %.val6.i, i64 4
+  %.val6.val.i = load i32, ptr %70, align 4
+  %71 = add i32 %.val6.val.i, %63
+  %72 = sub i32 %71, %.val5.val.i
+  %73 = getelementptr i8, ptr %.val6.i, i64 8
+  %.val5.val.i53 = load ptr, ptr %73, align 8
+  %74 = sext i32 %72 to i64
+  %75 = getelementptr inbounds i32, ptr %.val5.val.i53, i64 %74
+  %76 = load i32, ptr %75, align 4
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val46, i64 %77
+  %79 = load ptr, ptr %11, align 8
+  %80 = getelementptr i8, ptr %79, i64 4
+  %.val = load i32, ptr %80, align 4
+  %81 = add nsw i32 %.val, 1
+  tail call void @Rnm_ManCollect_rec(ptr noundef nonnull %52, ptr noundef nonnull %78, ptr noundef nonnull %51, i32 noundef %81)
+  %.pre = load ptr, ptr %35, align 8
   br label %Gia_ObjIsRo.exit.thread
 
-Gia_ObjIsRo.exit.thread:                          ; preds = %53, %Gia_ObjIsRo.exit, %67
-  %81 = phi ptr [ %50, %53 ], [ %50, %Gia_ObjIsRo.exit ], [ %.pre, %67 ]
+Gia_ObjIsRo.exit.thread:                          ; preds = %54, %Gia_ObjIsRo.exit, %68
+  %82 = phi ptr [ %51, %54 ], [ %51, %Gia_ObjIsRo.exit ], [ %.pre, %68 ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %82 = getelementptr i8, ptr %81, i64 4
-  %.val37 = load i32, ptr %82, align 4
-  %83 = sext i32 %.val37 to i64
-  %84 = icmp slt i64 %indvars.iv.next65, %83
-  br i1 %84, label %.lr.ph61, label %.critedge2, !llvm.loop !6
+  %83 = getelementptr i8, ptr %82, i64 4
+  %.val37 = load i32, ptr %83, align 4
+  %84 = sext i32 %.val37 to i64
+  %85 = icmp slt i64 %indvars.iv.next65, %84
+  br i1 %85, label %.lr.ph61, label %.critedge2, !llvm.loop !6
 
 .critedge2:                                       ; preds = %.lr.ph61, %Gia_ObjIsRo.exit.thread, %.critedge
   ret void
@@ -1254,8 +1255,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %99 = sub i64 %94, %98
   %100 = sdiv exact i64 %99, 12
   %sext.i174 = shl i64 %100, 32
-  %101 = ashr exact i64 %sext.i174, 32
-  %102 = getelementptr inbounds i32, ptr %.val127.val173, i64 %101
+  %101 = ashr exact i64 %sext.i174, 30
+  %102 = getelementptr inbounds i8, ptr %.val127.val173, i64 %101
   %103 = load i32, ptr %102, align 4
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.lr.ph177, label %.critedge
@@ -1315,7 +1316,7 @@ Gia_ObjIsRi.exit:                                 ; preds = %Gia_ObjIsPo.exit
   %.val129 = load ptr, ptr %135, align 8
   %136 = getelementptr i8, ptr %.val129, i64 8
   %.val129.val = load ptr, ptr %136, align 8
-  %137 = getelementptr inbounds i32, ptr %.val129.val, i64 %133
+  %137 = getelementptr inbounds i8, ptr %.val129.val, i64 %133
   %138 = load i32, ptr %137, align 4
   %139 = add nsw i32 %138, %.0175
   %140 = sext i32 %139 to i64
@@ -1411,8 +1412,8 @@ Gia_ObjIsRi.exit:                                 ; preds = %Gia_ObjIsPo.exit
   %197 = sub i64 %94, %196
   %198 = sdiv exact i64 %197, 12
   %sext.i = shl i64 %198, 32
-  %199 = ashr exact i64 %sext.i, 32
-  %200 = getelementptr inbounds i32, ptr %.val127.val, i64 %199
+  %199 = ashr exact i64 %sext.i, 30
+  %200 = getelementptr inbounds i8, ptr %.val127.val, i64 %199
   %201 = load i32, ptr %200, align 4
   %202 = icmp slt i32 %191, %201
   br i1 %202, label %.lr.ph177, label %.critedge, !llvm.loop !13

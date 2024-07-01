@@ -2264,8 +2264,8 @@ Abc_Clock.exit91.i.i:                             ; preds = %250, %247
   %.val11.i.i.i = load ptr, ptr %274, align 8
   %275 = ptrtoint ptr %.val11.i.i.i to i64
   %sext.i.i.i = shl i64 %275, 32
-  %276 = ashr exact i64 %sext.i.i.i, 32
-  %277 = getelementptr inbounds i32, ptr %273, i64 %276
+  %276 = ashr exact i64 %sext.i.i.i, 30
+  %277 = getelementptr inbounds i8, ptr %273, i64 %276
   %278 = load i32, ptr %277, align 4
   %279 = icmp eq i32 %278, 1
   br i1 %279, label %280, label %290
@@ -2462,8 +2462,8 @@ Abc_Clock.exit101.i.i:                            ; preds = %364, %361
   %.val11.i106.i.i = load ptr, ptr %388, align 8
   %389 = ptrtoint ptr %.val11.i106.i.i to i64
   %sext.i107.i.i = shl i64 %389, 32
-  %390 = ashr exact i64 %sext.i107.i.i, 32
-  %391 = getelementptr inbounds i32, ptr %387, i64 %390
+  %390 = ashr exact i64 %sext.i107.i.i, 30
+  %391 = getelementptr inbounds i8, ptr %387, i64 %390
   %392 = load i32, ptr %391, align 4
   %393 = icmp eq i32 %392, 1
   br i1 %393, label %394, label %404
@@ -3277,8 +3277,8 @@ Abc_Clock.exit41.i..loopexit_crit_edge:           ; preds = %Abc_Clock.exit41.i
   %.val11.i.i = load ptr, ptr %178, align 8
   %179 = ptrtoint ptr %.val11.i.i to i64
   %sext.i.i = shl i64 %179, 32
-  %180 = ashr exact i64 %sext.i.i, 32
-  %181 = getelementptr inbounds i32, ptr %177, i64 %180
+  %180 = ashr exact i64 %sext.i.i, 30
+  %181 = getelementptr inbounds i8, ptr %177, i64 %180
   %182 = load i32, ptr %181, align 4
   %183 = icmp eq i32 %182, 1
   br i1 %183, label %184, label %194
@@ -3405,8 +3405,8 @@ Ivy_FraigNodeIsConst.exit:                        ; preds = %200, %203
   %.val12.i = load ptr, ptr %256, align 8
   %257 = ptrtoint ptr %.val12.i to i64
   %sext.i = shl i64 %257, 32
-  %258 = ashr exact i64 %sext.i, 32
-  %259 = getelementptr inbounds i32, ptr %252, i64 %258
+  %258 = ashr exact i64 %sext.i, 30
+  %259 = getelementptr inbounds i8, ptr %252, i64 %258
   %260 = load i32, ptr %259, align 4
   %261 = icmp eq i32 %260, 1
   %262 = zext i1 %261 to i32
@@ -5735,8 +5735,8 @@ define void @Ivy_FraigSavePattern(ptr nocapture noundef readonly %0) local_unnam
   %.val11 = load ptr, ptr %22, align 8
   %23 = ptrtoint ptr %.val11 to i64
   %sext = shl i64 %23, 32
-  %24 = ashr exact i64 %sext, 32
-  %25 = getelementptr inbounds i32, ptr %21, i64 %24
+  %24 = ashr exact i64 %sext, 30
+  %25 = getelementptr inbounds i8, ptr %21, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %38
@@ -5803,8 +5803,8 @@ define void @Ivy_FraigSavePattern2(ptr nocapture noundef readonly %0) local_unna
   %.val11 = load ptr, ptr %21, align 8
   %22 = ptrtoint ptr %.val11 to i64
   %sext = shl i64 %22, 32
-  %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds i32, ptr %20, i64 %23
+  %23 = ashr exact i64 %sext, 30
+  %24 = getelementptr inbounds i8, ptr %20, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 1
   br i1 %26, label %27, label %38
@@ -5902,8 +5902,8 @@ define void @Ivy_FraigSavePattern3(ptr nocapture noundef readonly %0) local_unna
   %42 = getelementptr i8, ptr %39, i64 328
   %.val17 = load ptr, ptr %42, align 8
   %sext = shl i64 %41, 32
-  %43 = ashr exact i64 %sext, 32
-  %44 = getelementptr inbounds i32, ptr %.val17, i64 %43
+  %43 = ashr exact i64 %sext, 30
+  %44 = getelementptr inbounds i8, ptr %.val17, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = trunc i32 %38 to i1
   %47 = icmp ne i32 %45, 1
@@ -7024,8 +7024,8 @@ define i32 @Ivy_FraigSetActivityFactors_rec(ptr nocapture noundef readonly %0, p
   %.val36 = load ptr, ptr %28, align 8
   %29 = ptrtoint ptr %.val36 to i64
   %sext = shl i64 %29, 32
-  %30 = ashr exact i64 %sext, 32
-  %31 = getelementptr inbounds double, ptr %27, i64 %30
+  %30 = ashr exact i64 %sext, 29
+  %31 = getelementptr inbounds i8, ptr %27, i64 %30
   store double %23, ptr %31, align 8
   %32 = load ptr, ptr %24, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 520

@@ -30134,8 +30134,8 @@ sqlite3BtreeLeave.exit.i.i:                       ; preds = %unlockBtreeMutex.ex
 sqlite3SchemaToIndex.exit:                        ; preds = %.preheader.i, %107
   %.1.i = phi i64 [ -32768, %107 ], [ %indvars.iv.i, %.preheader.i ]
   %sext = shl i64 %.1.i, 32
-  %114 = ashr exact i64 %sext, 32
-  %115 = getelementptr inbounds %struct.Db, ptr %108, i64 %114
+  %114 = ashr exact i64 %sext, 27
+  %115 = getelementptr inbounds i8, ptr %108, i64 %114
   %116 = load ptr, ptr %115, align 8
   store ptr %116, ptr %26, align 8
   %117 = getelementptr inbounds i8, ptr %66, i64 54
@@ -141663,12 +141663,12 @@ sqlite3DbFree.exit:                               ; preds = %.lr.ph.i, %32, %36,
 
 .loopexit.loopexit.i.loopexit:                    ; preds = %.preheader.i
   %70 = shl i64 %indvars.iv.i, 32
-  %71 = ashr exact i64 %70, 32
+  %71 = ashr exact i64 %70, 27
   br label %.loopexit.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %.loopexit.loopexit.i.loopexit, %61
-  %.1.i = phi i64 [ -32768, %61 ], [ %71, %.loopexit.loopexit.i.loopexit ]
-  %72 = getelementptr inbounds %struct.Db, ptr %.pre, i64 %.1.i
+  %.1.i = phi i64 [ -1048576, %61 ], [ %71, %.loopexit.loopexit.i.loopexit ]
+  %72 = getelementptr inbounds i8, ptr %.pre, i64 %.1.i
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %10, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 8
@@ -157639,8 +157639,8 @@ sqlite3FixSrcList.exit:                           ; preds = %111, %106, %sqlite3
 
 sqlite3SchemaToIndex.exit.i:                      ; preds = %149
   %sext.i = shl i64 %indvars.iv.i.i, 32
-  %153 = ashr exact i64 %sext.i, 32
-  %154 = getelementptr inbounds %struct.Db, ptr %148, i64 %153
+  %153 = ashr exact i64 %sext.i, 27
+  %154 = getelementptr inbounds i8, ptr %148, i64 %153
   br label %sqlite3LocateTableItem.exit
 
 155:                                              ; preds = %sqlite3FixSrcList.exit
@@ -160314,8 +160314,8 @@ sqlite3ReadSchema.exit:                           ; preds = %40, %27
 
 sqlite3SchemaToIndex.exit106:                     ; preds = %69
   %sext = shl i64 %indvars.iv.i102, 32
-  %73 = ashr exact i64 %sext, 32
-  %74 = getelementptr inbounds %struct.Db, ptr %68, i64 %73
+  %73 = ashr exact i64 %sext, 27
+  %74 = getelementptr inbounds i8, ptr %68, i64 %73
   br label %sqlite3LocateTableItem.exit
 
 75:                                               ; preds = %63
@@ -170670,8 +170670,8 @@ define internal fastcc void @sqlite3DeleteFrom(ptr noundef %0, ptr noundef %1, p
 
 .loopexit.loopexit.i.i:                           ; preds = %16
   %sext = shl i64 %indvars.iv.i.i, 32
-  %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %struct.Db, ptr %15, i64 %20
+  %20 = ashr exact i64 %sext, 27
+  %21 = getelementptr inbounds i8, ptr %15, i64 %20
   br label %sqlite3LocateTableItem.exit
 
 22:                                               ; preds = %10
@@ -172015,8 +172015,8 @@ define internal fastcc void @sqlite3Update(ptr noundef %0, ptr noundef %1, ptr n
 
 .loopexit.loopexit.i.i:                           ; preds = %25
   %sext = shl i64 %indvars.iv.i.i, 32
-  %29 = ashr exact i64 %sext, 32
-  %30 = getelementptr inbounds %struct.Db, ptr %24, i64 %29
+  %29 = ashr exact i64 %sext, 27
+  %30 = getelementptr inbounds i8, ptr %24, i64 %29
   br label %sqlite3LocateTableItem.exit
 
 31:                                               ; preds = %19
@@ -174602,8 +174602,8 @@ sqlite3SelectDelete.exit:                         ; preds = %22
 
 .loopexit.loopexit.i.i:                           ; preds = %35
   %sext = shl i64 %indvars.iv.i.i, 32
-  %39 = ashr exact i64 %sext, 32
-  %40 = getelementptr inbounds %struct.Db, ptr %34, i64 %39
+  %39 = ashr exact i64 %sext, 27
+  %40 = getelementptr inbounds i8, ptr %34, i64 %39
   br label %sqlite3LocateTableItem.exit
 
 41:                                               ; preds = %28
@@ -186161,8 +186161,8 @@ sqlite3DbFree.exit:                               ; preds = %41, %44
 
 .loopexit.loopexit.i.i:                           ; preds = %52
   %sext = shl i64 %indvars.iv.i.i, 32
-  %56 = ashr exact i64 %sext, 32
-  %57 = getelementptr inbounds %struct.Db, ptr %51, i64 %56
+  %56 = ashr exact i64 %sext, 27
+  %57 = getelementptr inbounds i8, ptr %51, i64 %56
   br label %sqlite3LocateTableItem.exit
 
 58:                                               ; preds = %45
@@ -188983,8 +188983,8 @@ define internal fastcc void @sqlite3AlterRenameTable(ptr noundef %0, ptr noundef
 
 sqlite3SchemaToIndex.exit118:                     ; preds = %12
   %sext = shl i64 %indvars.iv.i114, 32
-  %16 = ashr exact i64 %sext, 32
-  %17 = getelementptr inbounds %struct.Db, ptr %11, i64 %16
+  %16 = ashr exact i64 %sext, 27
+  %17 = getelementptr inbounds i8, ptr %11, i64 %16
   br label %sqlite3LocateTableItem.exit
 
 18:                                               ; preds = %7
@@ -189811,8 +189811,8 @@ define internal fastcc void @sqlite3AlterDropColumn(ptr noundef %0, ptr noundef 
 
 sqlite3SchemaToIndex.exit192:                     ; preds = %12
   %sext = shl i64 %indvars.iv.i188, 32
-  %16 = ashr exact i64 %sext, 32
-  %17 = getelementptr inbounds %struct.Db, ptr %11, i64 %16
+  %16 = ashr exact i64 %sext, 27
+  %17 = getelementptr inbounds i8, ptr %11, i64 %16
   br label %sqlite3LocateTableItem.exit
 
 18:                                               ; preds = %7
@@ -190474,8 +190474,8 @@ define internal fastcc void @sqlite3AlterBeginAddColumn(ptr noundef %0, ptr noun
 
 sqlite3SchemaToIndex.exit80:                      ; preds = %11
   %sext = shl i64 %indvars.iv.i76, 32
-  %15 = ashr exact i64 %sext, 32
-  %16 = getelementptr inbounds %struct.Db, ptr %10, i64 %15
+  %15 = ashr exact i64 %sext, 27
+  %16 = getelementptr inbounds i8, ptr %10, i64 %15
   br label %sqlite3LocateTableItem.exit
 
 17:                                               ; preds = %6
@@ -190797,8 +190797,8 @@ define internal fastcc void @sqlite3AlterRenameColumn(ptr noundef %0, ptr nounde
 
 sqlite3SchemaToIndex.exit96:                      ; preds = %10
   %sext = shl i64 %indvars.iv.i92, 32
-  %14 = ashr exact i64 %sext, 32
-  %15 = getelementptr inbounds %struct.Db, ptr %9, i64 %14
+  %14 = ashr exact i64 %sext, 27
+  %15 = getelementptr inbounds i8, ptr %9, i64 %14
   br label %sqlite3LocateTableItem.exit
 
 16:                                               ; preds = %4
@@ -222155,8 +222155,8 @@ resolveFromTermToCte.exit:                        ; preds = %289, %292
 
 sqlite3SchemaToIndex.exit.i:                      ; preds = %300
   %sext.i = shl i64 %indvars.iv.i.i399, 32
-  %304 = ashr exact i64 %sext.i, 32
-  %305 = getelementptr inbounds %struct.Db, ptr %299, i64 %304
+  %304 = ashr exact i64 %sext.i, 27
+  %305 = getelementptr inbounds i8, ptr %299, i64 %304
   br label %sqlite3LocateTableItem.exit
 
 306:                                              ; preds = %.loopexit578
@@ -224401,8 +224401,8 @@ define internal fastcc ptr @sqlite3LocateTableItem(ptr noundef %0, i32 noundef %
 
 sqlite3SchemaToIndex.exit:                        ; preds = %8
   %sext = shl i64 %indvars.iv.i, 32
-  %12 = ashr exact i64 %sext, 32
-  %13 = getelementptr inbounds %struct.Db, ptr %7, i64 %12
+  %12 = ashr exact i64 %sext, 27
+  %13 = getelementptr inbounds i8, ptr %7, i64 %12
   br label %16
 
 14:                                               ; preds = %3
@@ -227603,8 +227603,8 @@ define internal fastcc ptr @sqlite3SrcListLookup(ptr noundef %0, ptr nocapture n
 
 sqlite3SchemaToIndex.exit:                        ; preds = %8
   %sext = shl i64 %indvars.iv.i, 32
-  %12 = ashr exact i64 %sext, 32
-  %13 = getelementptr inbounds %struct.Db, ptr %7, i64 %12
+  %12 = ashr exact i64 %sext, 27
+  %13 = getelementptr inbounds i8, ptr %7, i64 %12
   br label %sqlite3LocateTableItem.exit
 
 14:                                               ; preds = %2
@@ -311654,8 +311654,8 @@ sqlite3VdbeAddOp2.exit:                           ; preds = %22, %24, %8
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   %sext = shl i64 %49, 48
-  %53 = ashr exact i64 %sext, 48
-  %54 = getelementptr inbounds %struct.Column, ptr %52, i64 %53
+  %53 = ashr exact i64 %sext, 44
+  %54 = getelementptr inbounds i8, ptr %52, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %sqlite3Strlen30.exit.i, label %sqlite3Strlen30.exit.thread.i
@@ -312836,8 +312836,8 @@ sqlite3DbStrDup.exit:                             ; preds = %.split163, %sqlite3
   %251 = getelementptr inbounds i8, ptr %7, i64 32
   %252 = load ptr, ptr %251, align 8
   %sext = shl i64 %.1.i, 32
-  %253 = ashr exact i64 %sext, 32
-  %254 = getelementptr inbounds %struct.Db, ptr %252, i64 %253
+  %253 = ashr exact i64 %sext, 27
+  %254 = getelementptr inbounds i8, ptr %252, i64 %253
   %255 = load ptr, ptr %254, align 8
   %256 = icmp eq ptr %255, null
   br i1 %256, label %sqlite3DbStrDup.exit257, label %sqlite3DbMallocRaw.exit.i253
@@ -349773,8 +349773,8 @@ sqlite3_value_int.exit59:                         ; preds = %62, %66, %69, %71, 
   %86 = getelementptr inbounds i8, ptr %9, i64 32
   %87 = load ptr, ptr %86, align 8
   %sext = shl i64 %.0.i.i, 32
-  %88 = ashr exact i64 %sext, 32
-  %89 = getelementptr inbounds %struct.Db, ptr %87, i64 %88
+  %88 = ashr exact i64 %sext, 27
+  %89 = getelementptr inbounds i8, ptr %87, i64 %88
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %9, i64 504
   %92 = load ptr, ptr %91, align 8
@@ -349809,8 +349809,8 @@ sqlite3_value_int.exit59:                         ; preds = %62, %66, %69, %71, 
   %108 = getelementptr inbounds i8, ptr %99, i64 8
   %109 = load ptr, ptr %108, align 8
   %sext76 = shl i64 %.0.i.i55, 32
-  %110 = ashr exact i64 %sext76, 32
-  %111 = getelementptr inbounds %struct.Column, ptr %109, i64 %110
+  %110 = ashr exact i64 %sext76, 28
+  %111 = getelementptr inbounds i8, ptr %109, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, null
   %114 = getelementptr inbounds i8, ptr %6, i64 416
@@ -350949,12 +350949,12 @@ define internal fastcc i32 @renameResolveTrigger(ptr noundef %0) unnamed_addr #0
 
 sqlite3SchemaToIndex.exit.loopexit:               ; preds = %.preheader.i
   %20 = shl i64 %indvars.iv.i, 32
-  %21 = ashr exact i64 %20, 32
+  %21 = ashr exact i64 %20, 27
   br label %sqlite3SchemaToIndex.exit
 
 sqlite3SchemaToIndex.exit:                        ; preds = %sqlite3SchemaToIndex.exit.loopexit, %1
-  %.1.i = phi i64 [ -32768, %1 ], [ %21, %sqlite3SchemaToIndex.exit.loopexit ]
-  %22 = getelementptr inbounds %struct.Db, ptr %14, i64 %.1.i
+  %.1.i = phi i64 [ -1048576, %1 ], [ %21, %sqlite3SchemaToIndex.exit.loopexit ]
+  %22 = getelementptr inbounds i8, ptr %14, i64 %.1.i
   %23 = load ptr, ptr %22, align 8
   %24 = tail call fastcc ptr @sqlite3FindTable(ptr noundef %7, ptr noundef %12, ptr noundef %23)
   %25 = getelementptr inbounds i8, ptr %0, i64 184

@@ -690,6 +690,7 @@ while.body.lr.ph:                                 ; preds = %entry
   %cmp826.not.i = icmp ult i64 %bytes, 8192
   %add.ptr.i.i = getelementptr inbounds i64, ptr %m, i64 %div124.i
   %cmp321.not.i.i = icmp ult i64 %bytes, 16
+  %0 = lshr exact i64 %bytes, 1
   br i1 %tobool.not, label %while.body.lr.ph.split.us, label %while.body
 
 while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
@@ -706,8 +707,8 @@ while.body.us.us:                                 ; preds = %while.body.lr.ph.sp
 for.body.us.i.us.us:                              ; preds = %while.body.us.us, %for.body.us.i.us.us
   %p.039.us.i.us.us = phi ptr [ %incdec.ptr.us.i.us.us, %for.body.us.i.us.us ], [ %m, %while.body.us.us ]
   %j.038.us.i.us.us = phi i64 [ %inc.us.i.us.us, %for.body.us.i.us.us ], [ 0, %while.body.us.us ]
-  %0 = ptrtoint ptr %p.039.us.i.us.us to i64
-  store i64 %0, ptr %p.039.us.i.us.us, align 8
+  %1 = ptrtoint ptr %p.039.us.i.us.us to i64
+  store i64 %1, ptr %p.039.us.i.us.us, align 8
   %incdec.ptr.us.i.us.us = getelementptr inbounds i8, ptr %p.039.us.i.us.us, i64 8
   %inc.us.i.us.us = add nuw nsw i64 %j.038.us.i.us.us, 1
   %exitcond52.not.i.us.us = icmp eq i64 %inc.us.i.us.us, %div23.i
@@ -716,9 +717,9 @@ for.body.us.i.us.us:                              ; preds = %while.body.us.us, %
 for.body4.us.i.us.us:                             ; preds = %for.body.us.i.us.us, %if.end10.us.i.us.us
   %p.142.us.i.us.us = phi ptr [ %incdec.ptr11.us.i.us.us, %if.end10.us.i.us.us ], [ %m, %for.body.us.i.us.us ]
   %j.141.us.i.us.us = phi i64 [ %inc20.us.i.us.us, %if.end10.us.i.us.us ], [ 0, %for.body.us.i.us.us ]
-  %1 = load i64, ptr %p.142.us.i.us.us, align 8
-  %2 = ptrtoint ptr %p.142.us.i.us.us to i64
-  %cmp5.not.us.i.us.us = icmp eq i64 %1, %2
+  %2 = load i64, ptr %p.142.us.i.us.us, align 8
+  %3 = ptrtoint ptr %p.142.us.i.us.us to i64
+  %cmp5.not.us.i.us.us = icmp eq i64 %2, %3
   br i1 %cmp5.not.us.i.us.us, label %if.end10.us.i.us.us, label %if.end3.split.us.us
 
 if.end10.us.i.us.us:                              ; preds = %for.body4.us.i.us.us
@@ -776,9 +777,9 @@ for.body.us.i.us.i.us.us:                         ; preds = %if.end9.us.i.us.i.u
   %l2.024.us.i.us.i.us.us = phi ptr [ %incdec.ptr10.us.i.us.i.us.us, %if.end9.us.i.us.i.us.us ], [ %add.ptr.i.i, %for.body.us.i52.us.us ]
   %l1.023.us.i.us.i.us.us = phi ptr [ %incdec.ptr.us.i.us.i.us.us, %if.end9.us.i.us.i.us.us ], [ %m, %for.body.us.i52.us.us ]
   %w.022.us.i.us.i.us.us = phi i64 [ %inc.us.i.us.i.us.us, %if.end9.us.i.us.i.us.us ], [ 0, %for.body.us.i52.us.us ]
-  %3 = load i64, ptr %l1.023.us.i.us.i.us.us, align 8
-  %4 = load i64, ptr %l2.024.us.i.us.i.us.us, align 8
-  %cmp5.not.us.i.us.i.us.us = icmp eq i64 %3, %4
+  %4 = load i64, ptr %l1.023.us.i.us.i.us.us, align 8
+  %5 = load i64, ptr %l2.024.us.i.us.i.us.us, align 8
+  %cmp5.not.us.i.us.i.us.us = icmp eq i64 %4, %5
   br i1 %cmp5.not.us.i.us.i.us.us, label %if.end9.us.i.us.i.us.us, label %if.end.us.i.us.us
 
 if.end9.us.i.us.i.us.us:                          ; preds = %for.body.us.i.us.i.us.us
@@ -802,15 +803,15 @@ if.end9.split.us.us:                              ; preds = %if.end.us.i.us.us
 for.body.us.i60.us.us:                            ; preds = %if.end9.split.us.us, %for.cond12.for.inc26_crit_edge.split.us.us.i.us.us
   %off.028.us.i.us.us = phi i64 [ %inc27.us.i.us.us, %for.cond12.for.inc26_crit_edge.split.us.us.i.us.us ], [ 0, %if.end9.split.us.us ]
   %add.ptr.us.i61.us.us = getelementptr inbounds i64, ptr %m, i64 %off.028.us.i.us.us
-  %add.ptr6.us.i62.us.us = getelementptr inbounds i64, ptr %add.ptr.us.i61.us.us, i64 %div124.i
-  %5 = and i64 %off.028.us.i.us.us, 1
-  %sext.us.us = sub nsw i64 0, %5
+  %add.ptr6.us.i62.us.us = getelementptr inbounds i8, ptr %add.ptr.us.i61.us.us, i64 %0
+  %6 = and i64 %off.028.us.i.us.us, 1
+  %sext.us.us = sub nsw i64 0, %6
   %shl.us.i.us.us = shl nsw i64 %sext.us.us, 16
   %shl16.us.i.us.us = shl nsw i64 %sext.us.us, 32
   %shl18.us.i.us.us = shl nsw i64 %sext.us.us, 48
-  %6 = or i64 %shl.us.i.us.us, %shl16.us.i.us.us
-  %7 = or i64 %6, %shl18.us.i.us.us
-  %or19.us.i.us.us = or i64 %7, %sext.us.us
+  %7 = or i64 %shl.us.i.us.us, %shl16.us.i.us.us
+  %8 = or i64 %7, %shl18.us.i.us.us
+  %or19.us.i.us.us = or i64 %8, %sext.us.us
   br label %for.body15.us.us.i.us.us
 
 for.body15.us.us.i.us.us:                         ; preds = %for.body15.us.us.i.us.us, %for.body.us.i60.us.us
@@ -842,9 +843,9 @@ for.body.us.i.us.i75.us.us:                       ; preds = %if.end9.us.i.us.i86
   %l2.024.us.i.us.i76.us.us = phi ptr [ %incdec.ptr10.us.i.us.i88.us.us, %if.end9.us.i.us.i86.us.us ], [ %add.ptr.i.i, %for.body.us.i72.us.us ]
   %l1.023.us.i.us.i77.us.us = phi ptr [ %incdec.ptr.us.i.us.i87.us.us, %if.end9.us.i.us.i86.us.us ], [ %m, %for.body.us.i72.us.us ]
   %w.022.us.i.us.i78.us.us = phi i64 [ %inc.us.i.us.i89.us.us, %if.end9.us.i.us.i86.us.us ], [ 0, %for.body.us.i72.us.us ]
-  %8 = load i64, ptr %l1.023.us.i.us.i77.us.us, align 8
-  %9 = load i64, ptr %l2.024.us.i.us.i76.us.us, align 8
-  %cmp5.not.us.i.us.i79.us.us = icmp eq i64 %8, %9
+  %9 = load i64, ptr %l1.023.us.i.us.i77.us.us, align 8
+  %10 = load i64, ptr %l2.024.us.i.us.i76.us.us, align 8
+  %cmp5.not.us.i.us.i79.us.us = icmp eq i64 %9, %10
   br i1 %cmp5.not.us.i.us.i79.us.us, label %if.end9.us.i.us.i86.us.us, label %if.end.us.i80.us.us
 
 if.end9.us.i.us.i86.us.us:                        ; preds = %for.body.us.i.us.i75.us.us
@@ -868,16 +869,16 @@ if.end17.split.us.us:                             ; preds = %if.end.us.i80.us.us
 for.body.us.i101.us.us:                           ; preds = %if.end17.split.us.us, %for.cond12.for.inc26_crit_edge.split.us.us.i120.us.us
   %off.028.us.i102.us.us = phi i64 [ %inc27.us.i121.us.us, %for.cond12.for.inc26_crit_edge.split.us.us.i120.us.us ], [ 0, %if.end17.split.us.us ]
   %add.ptr.us.i103.us.us = getelementptr inbounds i64, ptr %m, i64 %off.028.us.i102.us.us
-  %add.ptr6.us.i104.us.us = getelementptr inbounds i64, ptr %add.ptr.us.i103.us.us, i64 %div124.i
+  %add.ptr6.us.i104.us.us = getelementptr inbounds i8, ptr %add.ptr.us.i103.us.us, i64 %0
   %and7.us.i105.us.us = and i64 %off.028.us.i102.us.us, 1
   %tobool8.not.us.i106.us.us = icmp eq i64 %and7.us.i105.us.us, 0
   %cond.us.i107.us.us = select i1 %tobool8.not.us.i106.us.us, i64 -6148914691236517206, i64 6148914691236517205
   %shl.us.i108.us.us = shl i64 %cond.us.i107.us.us, 16
   %shl16.us.i109.us.us = shl i64 %cond.us.i107.us.us, 32
   %shl18.us.i110.us.us = shl i64 %cond.us.i107.us.us, 48
-  %10 = or i64 %shl.us.i108.us.us, %shl16.us.i109.us.us
-  %11 = or i64 %10, %shl18.us.i110.us.us
-  %or19.us.i111.us.us = or i64 %11, %cond.us.i107.us.us
+  %11 = or i64 %shl.us.i108.us.us, %shl16.us.i109.us.us
+  %12 = or i64 %11, %shl18.us.i110.us.us
+  %or19.us.i111.us.us = or i64 %12, %cond.us.i107.us.us
   br label %for.body15.us.us.i112.us.us
 
 for.body15.us.us.i112.us.us:                      ; preds = %for.body15.us.us.i112.us.us, %for.body.us.i101.us.us
@@ -909,9 +910,9 @@ for.body.us.i.us.i135.us.us:                      ; preds = %if.end9.us.i.us.i14
   %l2.024.us.i.us.i136.us.us = phi ptr [ %incdec.ptr10.us.i.us.i148.us.us, %if.end9.us.i.us.i146.us.us ], [ %add.ptr.i.i, %for.body.us.i132.us.us ]
   %l1.023.us.i.us.i137.us.us = phi ptr [ %incdec.ptr.us.i.us.i147.us.us, %if.end9.us.i.us.i146.us.us ], [ %m, %for.body.us.i132.us.us ]
   %w.022.us.i.us.i138.us.us = phi i64 [ %inc.us.i.us.i149.us.us, %if.end9.us.i.us.i146.us.us ], [ 0, %for.body.us.i132.us.us ]
-  %12 = load i64, ptr %l1.023.us.i.us.i137.us.us, align 8
-  %13 = load i64, ptr %l2.024.us.i.us.i136.us.us, align 8
-  %cmp5.not.us.i.us.i139.us.us = icmp eq i64 %12, %13
+  %13 = load i64, ptr %l1.023.us.i.us.i137.us.us, align 8
+  %14 = load i64, ptr %l2.024.us.i.us.i136.us.us, align 8
+  %cmp5.not.us.i.us.i139.us.us = icmp eq i64 %13, %14
   br i1 %cmp5.not.us.i.us.i139.us.us, label %if.end9.us.i.us.i146.us.us, label %if.end.us.i140.us.us
 
 if.end9.us.i.us.i146.us.us:                       ; preds = %for.body.us.i.us.i135.us.us
@@ -941,8 +942,8 @@ while.body.us:                                    ; preds = %while.body.lr.ph.sp
 for.body.us.i.us:                                 ; preds = %while.body.us, %for.body.us.i.us
   %p.039.us.i.us = phi ptr [ %incdec.ptr.us.i.us, %for.body.us.i.us ], [ %m, %while.body.us ]
   %j.038.us.i.us = phi i64 [ %inc.us.i.us, %for.body.us.i.us ], [ 0, %while.body.us ]
-  %14 = ptrtoint ptr %p.039.us.i.us to i64
-  store i64 %14, ptr %p.039.us.i.us, align 8
+  %15 = ptrtoint ptr %p.039.us.i.us to i64
+  store i64 %15, ptr %p.039.us.i.us, align 8
   %incdec.ptr.us.i.us = getelementptr inbounds i8, ptr %p.039.us.i.us, i64 8
   %inc.us.i.us = add nuw nsw i64 %j.038.us.i.us, 1
   %exitcond52.not.i.us = icmp eq i64 %inc.us.i.us, %div23.i

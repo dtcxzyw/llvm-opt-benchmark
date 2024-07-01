@@ -240,7 +240,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
   br i1 %exitcond337.not, label %._crit_edge293.us, label %105, !llvm.loop !9
 
 110:                                              ; preds = %.lr.ph.us295, %183
-  %indvars.iv330 = phi i64 [ %192, %.lr.ph.us295 ], [ %indvars.iv.next331, %183 ]
+  %indvars.iv330 = phi i64 [ %191, %.lr.ph.us295 ], [ %indvars.iv.next331, %183 ]
   %111 = load ptr, ptr %99, align 8
   %112 = getelementptr inbounds %struct.rcCompactSpan, ptr %111, i64 %indvars.iv330, i32 2
   %113 = load i32, ptr %112, align 4
@@ -334,7 +334,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
 
 172:                                              ; preds = %166
   %173 = load ptr, ptr %98, align 8
-  %174 = getelementptr inbounds %struct.rcCompactCell, ptr %173, i64 %190
+  %174 = getelementptr inbounds i8, ptr %173, i64 %193
   %175 = load i32, ptr %174, align 4
   %176 = and i32 %175, 16777215
   %177 = add nuw nsw i32 %176, %171
@@ -351,7 +351,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
 
 183:                                              ; preds = %182, %172, %166, %147
   %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
-  %184 = icmp ult i64 %indvars.iv.next331, %193
+  %184 = icmp ult i64 %indvars.iv.next331, %192
   br i1 %184, label %110, label %._crit_edge.us296, !llvm.loop !10
 
 .lr.ph.us295:                                     ; preds = %105
@@ -361,10 +361,10 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
   %188 = add nsw i64 %indvars.iv333, -1
   %189 = add i64 %104, %indvars.iv333
   %sext = shl i64 %189, 32
-  %190 = ashr exact i64 %sext, 32
-  %191 = and i32 %109, 16777215
-  %192 = zext nneg i32 %191 to i64
-  %193 = zext nneg i32 %187 to i64
+  %190 = and i32 %109, 16777215
+  %191 = zext nneg i32 %190 to i64
+  %192 = zext nneg i32 %187 to i64
+  %193 = ashr exact i64 %sext, 30
   br label %110
 
 ._crit_edge293.us:                                ; preds = %._crit_edge.us296
@@ -402,7 +402,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
   br i1 %.not311, label %.loopexit.us, label %.lr.ph.us305
 
 206:                                              ; preds = %.lr.ph.us305, %279
-  %indvars.iv343 = phi i64 [ %288, %.lr.ph.us305 ], [ %indvars.iv.next344, %279 ]
+  %indvars.iv343 = phi i64 [ %287, %.lr.ph.us305 ], [ %indvars.iv.next344, %279 ]
   %207 = load ptr, ptr %195, align 8
   %208 = getelementptr inbounds %struct.rcCompactSpan, ptr %207, i64 %indvars.iv343, i32 2
   %209 = load i32, ptr %208, align 4
@@ -496,7 +496,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
 
 268:                                              ; preds = %263
   %269 = load ptr, ptr %194, align 8
-  %270 = getelementptr inbounds %struct.rcCompactCell, ptr %269, i64 %286
+  %270 = getelementptr inbounds i8, ptr %269, i64 %289
   %271 = load i32, ptr %270, align 4
   %272 = and i32 %271, 16777215
   %273 = add nuw nsw i32 %272, %267
@@ -513,7 +513,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
 
 279:                                              ; preds = %278, %268, %263, %244
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
-  %280 = icmp ult i64 %indvars.iv.next344, %289
+  %280 = icmp ult i64 %indvars.iv.next344, %288
   br i1 %280, label %206, label %.loopexit.us, !llvm.loop !12
 
 .loopexit.us:                                     ; preds = %279, %201
@@ -526,10 +526,10 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
   %284 = add nuw nsw i32 %282, %283
   %285 = add i64 %200, %indvars.iv346
   %sext359 = shl i64 %285, 32
-  %286 = ashr exact i64 %sext359, 32
-  %287 = and i32 %205, 16777215
-  %288 = zext nneg i32 %287 to i64
-  %289 = zext nneg i32 %284 to i64
+  %286 = and i32 %205, 16777215
+  %287 = zext nneg i32 %286 to i64
+  %288 = zext nneg i32 %284 to i64
+  %289 = ashr exact i64 %sext359, 30
   br label %206
 
 ..loopexit278_crit_edge.us:                       ; preds = %.loopexit.us

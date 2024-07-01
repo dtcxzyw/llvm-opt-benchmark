@@ -377,8 +377,8 @@ Vec_IntFind.exit:                                 ; preds = %14
   %23 = getelementptr inbounds i8, ptr %6, i64 16
   %24 = load i32, ptr %23, align 8
   %sext = shl i64 %indvars.iv.i, 32
-  %25 = ashr exact i64 %sext, 32
-  %26 = getelementptr inbounds i32, ptr %13, i64 %25
+  %25 = ashr exact i64 %sext, 30
+  %26 = getelementptr inbounds i8, ptr %13, i64 %25
   store i32 %24, ptr %26, align 4
   %27 = and i64 %4, 1
   %.not = icmp eq i64 %27, 0
@@ -635,13 +635,13 @@ Vec_IntFind.exit33:                               ; preds = %27
   %49 = load i32, ptr %48, align 8
   %.val25 = load ptr, ptr %9, align 8
   %sext = shl i64 %indvars.iv.i, 32
-  %50 = ashr exact i64 %sext, 32
-  %51 = getelementptr inbounds i32, ptr %.val25, i64 %50
+  %50 = ashr exact i64 %sext, 30
+  %51 = getelementptr inbounds i8, ptr %.val25, i64 %50
   store i32 %49, ptr %51, align 4
   %.val = load ptr, ptr %25, align 8
   %sext36 = shl i64 %indvars.iv.i29, 32
-  %52 = ashr exact i64 %sext36, 32
-  %53 = getelementptr inbounds i32, ptr %.val, i64 %52
+  %52 = ashr exact i64 %sext36, 30
+  %53 = getelementptr inbounds i8, ptr %.val, i64 %52
   store i32 %49, ptr %53, align 4
   br label %54
 

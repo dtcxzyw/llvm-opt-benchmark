@@ -1928,8 +1928,8 @@ define void @Iso_ManPrintClasses(ptr nocapture noundef readonly %0, i32 noundef 
   %34 = getelementptr i8, ptr %.val51.val, i64 8
   %.val.i.i = load ptr, ptr %34, align 8
   %sext.i = shl i64 %33, 32
-  %35 = ashr exact i64 %sext.i, 32
-  %36 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %35
+  %35 = ashr exact i64 %sext.i, 29
+  %36 = getelementptr inbounds i8, ptr %.val.i.i, i64 %35
   %37 = load ptr, ptr %36, align 8
   br label %Iso_AigObj.exit
 
@@ -2405,8 +2405,8 @@ define ptr @Iso_ManFindBestObj(ptr nocapture noundef readonly %0, ptr noundef %1
   %17 = getelementptr i8, ptr %.val.val, i64 8
   %.val.i.i = load ptr, ptr %17, align 8
   %sext.i = shl i64 %16, 32
-  %18 = ashr exact i64 %sext.i, 32
-  %19 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %18
+  %18 = ashr exact i64 %sext.i, 29
+  %19 = getelementptr inbounds i8, ptr %.val.i.i, i64 %18
   %20 = load ptr, ptr %19, align 8
   br label %Iso_AigObj.exit
 
@@ -3036,8 +3036,8 @@ define void @Iso_ManDumpOneClass(ptr nocapture noundef readonly %0) local_unname
   %19 = getelementptr i8, ptr %.val11.val, i64 8
   %.val.i.i = load ptr, ptr %19, align 8
   %sext.i = shl i64 %18, 32
-  %20 = ashr exact i64 %sext.i, 32
-  %21 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %20
+  %20 = ashr exact i64 %sext.i, 29
+  %21 = getelementptr inbounds i8, ptr %.val.i.i, i64 %20
   %22 = load ptr, ptr %21, align 8
   br label %Iso_AigObj.exit
 

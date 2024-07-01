@@ -13801,8 +13801,8 @@ assoc_mgr_find_tres_pos.exit:                     ; preds = %.lr.ph.i, %28
   %39 = getelementptr inbounds i8, ptr %17, i64 1
   %40 = call x86_fp80 @strtold(ptr noundef nonnull %39, ptr noundef nonnull %3) #20
   %sext = shl nuw i64 %indvars.iv.i, 32
-  %41 = ashr exact i64 %sext, 32
-  %42 = getelementptr inbounds x86_fp80, ptr %0, i64 %41
+  %41 = ashr exact i64 %sext, 28
+  %42 = getelementptr inbounds i8, ptr %0, i64 %41
   store x86_fp80 %40, ptr %42, align 16
   br label %46
 
@@ -15779,8 +15779,8 @@ define ptr @assoc_mgr_find_tres_rec(ptr nocapture noundef readonly %0) local_unn
 assoc_mgr_find_tres_pos.exit:                     ; preds = %13, %.assoc_mgr_find_tres_pos.exit_crit_edge
   %33 = phi ptr [ %.pre, %.assoc_mgr_find_tres_pos.exit_crit_edge ], [ %.pre.i, %13 ]
   %sext = shl nuw i64 %indvars.iv.i, 32
-  %34 = ashr exact i64 %sext, 32
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %34 = ashr exact i64 %sext, 29
+  %35 = getelementptr inbounds i8, ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   br label %assoc_mgr_find_tres_pos.exit.thread
 

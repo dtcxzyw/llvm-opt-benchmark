@@ -5873,13 +5873,13 @@ _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.
   %296 = getelementptr inbounds i64, ptr %295, i64 %indvars.iv
   %297 = load i64, ptr %296, align 8
   %sext94 = shl i64 %297, 32
-  %298 = ashr exact i64 %sext94, 32
-  %299 = load ptr, ptr %286, align 8
-  %300 = getelementptr inbounds i32, ptr %299, i64 %indvars.iv
-  %301 = getelementptr inbounds i32, ptr %299, i64 %298
-  %302 = load i32, ptr %300, align 4
+  %298 = load ptr, ptr %286, align 8
+  %299 = getelementptr inbounds i32, ptr %298, i64 %indvars.iv
+  %300 = ashr exact i64 %sext94, 30
+  %301 = getelementptr inbounds i8, ptr %298, i64 %300
+  %302 = load i32, ptr %299, align 4
   %303 = load i32, ptr %301, align 4
-  store i32 %303, ptr %300, align 4
+  store i32 %303, ptr %299, align 4
   store i32 %302, ptr %301, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next, %.sroa.speculated.i

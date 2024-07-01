@@ -13086,8 +13086,8 @@ define noundef i64 @_ZNK5ezSAT20vec_model_get_signedERKSt6vectorIiSaIiEERKS0_IbS
   %50 = icmp slt i64 %indvars.iv31, %28
   %51 = select i1 %50, i64 %indvars.iv31, i64 %27
   %sext = shl i64 %51, 32
-  %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds i32, ptr %20, i64 %52
+  %52 = ashr exact i64 %sext, 30
+  %53 = getelementptr inbounds i8, ptr %20, i64 %52
   %54 = load i32, ptr %53, align 4
   br label %55
 

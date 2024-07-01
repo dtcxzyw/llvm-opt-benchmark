@@ -375,8 +375,8 @@ ExecProcNode.exit47:                              ; preds = %64, %75
   %109 = getelementptr inbounds i8, ptr %0, i64 224
   %110 = load ptr, ptr %109, align 8
   %sext48 = shl i64 %108, 32
-  %111 = ashr exact i64 %sext48, 32
-  %112 = getelementptr ptr, ptr %110, i64 %111
+  %111 = ashr exact i64 %sext48, 29
+  %112 = getelementptr i8, ptr %110, i64 %111
   %113 = load ptr, ptr %112, align 8
   br label %114
 
@@ -402,12 +402,12 @@ define internal i32 @heap_compare_slots(i64 noundef %0, i64 noundef %1, ptr noca
   %4 = getelementptr inbounds i8, ptr %2, i64 224
   %5 = load ptr, ptr %4, align 8
   %sext = shl i64 %0, 32
-  %6 = ashr exact i64 %sext, 32
-  %7 = getelementptr ptr, ptr %5, i64 %6
+  %6 = ashr exact i64 %sext, 29
+  %7 = getelementptr i8, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %sext43 = shl i64 %1, 32
-  %9 = ashr exact i64 %sext43, 32
-  %10 = getelementptr ptr, ptr %5, i64 %9
+  %9 = ashr exact i64 %sext43, 29
+  %10 = getelementptr i8, ptr %5, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 212
   %13 = load i32, ptr %12, align 4

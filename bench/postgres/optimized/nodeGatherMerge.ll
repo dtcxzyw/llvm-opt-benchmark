@@ -585,8 +585,8 @@ gather_merge_getnext.exit:                        ; preds = %193
   %232 = getelementptr inbounds i8, ptr %0, i64 256
   %233 = load ptr, ptr %232, align 8
   %sext17.i = shl i64 %231, 32
-  %234 = ashr exact i64 %sext17.i, 32
-  %235 = getelementptr ptr, ptr %233, i64 %234
+  %234 = ashr exact i64 %sext17.i, 29
+  %235 = getelementptr i8, ptr %233, i64 %234
   %236 = load ptr, ptr %235, align 8
   %237 = icmp eq ptr %236, null
   br i1 %237, label %gather_merge_getnext.exit.thread, label %238
@@ -1086,12 +1086,12 @@ define internal i32 @heap_compare_slots(i64 noundef %0, i64 noundef %1, ptr noca
   %4 = getelementptr inbounds i8, ptr %2, i64 256
   %5 = load ptr, ptr %4, align 8
   %sext = shl i64 %0, 32
-  %6 = ashr exact i64 %sext, 32
-  %7 = getelementptr ptr, ptr %5, i64 %6
+  %6 = ashr exact i64 %sext, 29
+  %7 = getelementptr i8, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %sext43 = shl i64 %1, 32
-  %9 = ashr exact i64 %sext43, 32
-  %10 = getelementptr ptr, ptr %5, i64 %9
+  %9 = ashr exact i64 %sext43, 29
+  %10 = getelementptr i8, ptr %5, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 224
   %13 = load i32, ptr %12, align 8

@@ -3981,39 +3981,40 @@ if.then.i:                                        ; preds = %if.end
 if.then.i.i:                                      ; preds = %if.then.i
   %symtab_shndx_sec.i.i = getelementptr inbounds i8, ptr %5, i64 728
   %12 = load ptr, ptr %symtab_shndx_sec.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.mold::BigEndian", ptr %12, i64 %conv
+  %13 = shl nuw nsw i64 %conv, 2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %12, i64 %13
   %x.0.copyload.i3.i.i = load i32, ptr %add.ptr.i.i.i, align 1
-  %13 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i3.i.i)
-  %conv5.i.i = zext i32 %13 to i64
+  %14 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i3.i.i)
+  %conv5.i.i = zext i32 %14 to i64
   br label %_ZN4mold3elf10ObjectFileINS0_6RV64BEEE9get_shndxERKNS0_6ElfSymIS2_EE.exit.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %14 = tail call noundef i16 @llvm.bswap.i16(i16 %x.0.copyload.i.i.i)
-  %conv8.i.i = zext i16 %14 to i64
+  %15 = tail call noundef i16 @llvm.bswap.i16(i16 %x.0.copyload.i.i.i)
+  %conv8.i.i = zext i16 %15 to i64
   br label %_ZN4mold3elf10ObjectFileINS0_6RV64BEEE9get_shndxERKNS0_6ElfSymIS2_EE.exit.i
 
 _ZN4mold3elf10ObjectFileINS0_6RV64BEEE9get_shndxERKNS0_6ElfSymIS2_EE.exit.i: ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i = phi i64 [ %conv5.i.i, %if.then.i.i ], [ %conv8.i.i, %if.end.i.i ]
-  %15 = load ptr, ptr %mergeable_sections.i, align 8
-  %add.ptr.i5.i = getelementptr inbounds %"class.std::unique_ptr.544", ptr %15, i64 %retval.0.i.i
-  %16 = load ptr, ptr %add.ptr.i5.i, align 8
-  %cmp.i6.not.i = icmp eq ptr %16, null
+  %16 = load ptr, ptr %mergeable_sections.i, align 8
+  %add.ptr.i5.i = getelementptr inbounds %"class.std::unique_ptr.544", ptr %16, i64 %retval.0.i.i
+  %17 = load ptr, ptr %add.ptr.i5.i, align 8
+  %cmp.i6.not.i = icmp eq ptr %17, null
   br i1 %cmp.i6.not.i, label %cond.false18, label %if.then9.i
 
 if.then9.i:                                       ; preds = %_ZN4mold3elf10ObjectFileINS0_6RV64BEEE9get_shndxERKNS0_6ElfSymIS2_EE.exit.i
   %st_value.i = getelementptr inbounds i8, ptr %add.ptr.i.i74, i64 8
   %x.0.copyload.i7.i = load i64, ptr %st_value.i, align 1
-  %17 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i7.i)
+  %18 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i7.i)
   %r_addend.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %x.0.copyload.i.i.i.i = load i64, ptr %r_addend.i.i.i, align 1
-  %18 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i.i.i.i)
-  %add.i = add i64 %18, %17
-  %frag_offsets.i.i = getelementptr inbounds i8, ptr %16, i64 64
-  %19 = load ptr, ptr %frag_offsets.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %16, i64 72
-  %20 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %19 to i64
+  %19 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i.i.i.i)
+  %add.i = add i64 %19, %18
+  %frag_offsets.i.i = getelementptr inbounds i8, ptr %17, i64 64
+  %20 = load ptr, ptr %frag_offsets.i.i, align 8
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %17, i64 72
+  %21 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 2
   %cmp6.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i, 0
@@ -4021,62 +4022,62 @@ if.then9.i:                                       ; preds = %_ZN4mold3elf10Objec
 
 while.body.i.i.i.i:                               ; preds = %if.then9.i, %while.body.i.i.i.i
   %__len.08.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i.i, %if.then9.i ]
-  %__first.sroa.0.07.i.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i.i, %while.body.i.i.i.i ], [ %19, %if.then9.i ]
+  %__first.sroa.0.07.i.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i.i, %while.body.i.i.i.i ], [ %20, %if.then9.i ]
   %shr.i.i.i.i = lshr i64 %__len.08.i.i.i.i, 1
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.sroa.0.07.i.i.i.i, i64 %shr.i.i.i.i
-  %21 = load i32, ptr %add.ptr.i.i.i.i.i.i.i, align 4
-  %conv.i.i.i.i.i = zext i32 %21 to i64
+  %22 = load i32, ptr %add.ptr.i.i.i.i.i.i.i, align 4
+  %conv.i.i.i.i.i = zext i32 %22 to i64
   %cmp.i.i.i.i.i = icmp slt i64 %add.i, %conv.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 4
-  %22 = xor i64 %shr.i.i.i.i, -1
-  %sub9.i.i.i.i = add nsw i64 %__len.08.i.i.i.i, %22
+  %23 = xor i64 %shr.i.i.i.i, -1
+  %sub9.i.i.i.i = add nsw i64 %__len.08.i.i.i.i, %23
   %__first.sroa.0.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__first.sroa.0.07.i.i.i.i, ptr %incdec.ptr.i.i.i.i.i
   %__len.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %shr.i.i.i.i, i64 %sub9.i.i.i.i
   %cmp.i.i.i.i = icmp sgt i64 %__len.1.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN4mold3elf12InputSectionINS0_6RV64BEEE12get_fragmentERNS0_7ContextIS2_EERKNS0_6ElfRelIS2_EE.exit, !llvm.loop !12
 
 _ZN4mold3elf12InputSectionINS0_6RV64BEEE12get_fragmentERNS0_7ContextIS2_EERKNS0_6ElfRelIS2_EE.exit: ; preds = %while.body.i.i.i.i, %if.then9.i
-  %__first.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %19, %if.then9.i ], [ %__first.sroa.0.1.i.i.i.i, %while.body.i.i.i.i ]
+  %__first.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %20, %if.then9.i ], [ %__first.sroa.0.1.i.i.i.i, %while.body.i.i.i.i ]
   %add.ptr.i.i8.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i, i64 -4
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i8.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
-  %fragments.i.i = getelementptr inbounds i8, ptr %16, i64 88
-  %23 = load ptr, ptr %fragments.i.i, align 8
-  %add.ptr.i5.i.i = getelementptr inbounds ptr, ptr %23, i64 %sub.ptr.div.i.i.i
-  %24 = load ptr, ptr %add.ptr.i5.i.i, align 8
-  %tobool.not = icmp eq ptr %24, null
+  %fragments.i.i = getelementptr inbounds i8, ptr %17, i64 88
+  %24 = load ptr, ptr %fragments.i.i, align 8
+  %add.ptr.i5.i.i = getelementptr inbounds ptr, ptr %24, i64 %sub.ptr.div.i.i.i
+  %25 = load ptr, ptr %add.ptr.i5.i.i, align 8
+  %tobool.not = icmp eq ptr %25, null
   br i1 %tobool.not, label %cond.false18, label %cond.true17
 
 cond.true17:                                      ; preds = %_ZN4mold3elf12InputSectionINS0_6RV64BEEE12get_fragmentERNS0_7ContextIS2_EERKNS0_6ElfRelIS2_EE.exit
-  %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %19, i64 %sub.ptr.sub.i.i.i
-  %25 = load i32, ptr %add.ptr.i6.i.i, align 4
-  %conv.i.i = zext i32 %25 to i64
+  %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %20, i64 %sub.ptr.sub.i.i.i
+  %26 = load i32, ptr %add.ptr.i6.i.i, align 4
+  %conv.i.i = zext i32 %26 to i64
   %sub.i.i = sub nsw i64 %add.i, %conv.i.i
-  %26 = load ptr, ptr %24, align 8
-  %sh_addr.i = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = load ptr, ptr %25, align 8
+  %sh_addr.i = getelementptr inbounds i8, ptr %27, i64 40
   %x.0.copyload.i.i81 = load i64, ptr %sh_addr.i, align 1
-  %27 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i.i81)
-  %offset.i = getelementptr inbounds i8, ptr %24, i64 8
-  %28 = load i32, ptr %offset.i, align 8
-  %conv.i82 = zext i32 %28 to i64
-  %add.i83 = add i64 %27, %conv.i82
+  %28 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i.i81)
+  %offset.i = getelementptr inbounds i8, ptr %25, i64 8
+  %29 = load i32, ptr %offset.i, align 8
+  %conv.i82 = zext i32 %29 to i64
+  %add.i83 = add i64 %28, %conv.i82
   br label %cond.end20
 
 cond.false18:                                     ; preds = %if.end, %_ZN4mold3elf10ObjectFileINS0_6RV64BEEE9get_shndxERKNS0_6ElfSymIS2_EE.exit.i, %_ZN4mold3elf12InputSectionINS0_6RV64BEEE12get_fragmentERNS0_7ContextIS2_EERKNS0_6ElfRelIS2_EE.exit
   %call15 = tail call noundef i64 @_ZNK4mold3elf6SymbolINS0_6RV64BEEE8get_addrERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(51) %8, ptr noundef nonnull align 8 dereferenceable(4576) %ctx, i64 noundef 0)
   %r_addend = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %x.0.copyload.i84 = load i64, ptr %r_addend, align 1
-  %29 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i84)
+  %30 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i84)
   br label %cond.end20
 
 cond.end20:                                       ; preds = %cond.false18, %cond.true17
   %cond128 = phi i64 [ %add.i83, %cond.true17 ], [ %call15, %cond.false18 ]
-  %retval.sroa.0.0.i76116126 = phi ptr [ %24, %cond.true17 ], [ null, %cond.false18 ]
-  %cond21 = phi i64 [ %sub.i.i, %cond.true17 ], [ %29, %cond.false18 ]
+  %retval.sroa.0.0.i76116126 = phi ptr [ %25, %cond.true17 ], [ null, %cond.false18 ]
+  %cond21 = phi i64 [ %sub.i.i, %cond.true17 ], [ %30, %cond.false18 ]
   %x.0.copyload.i85 = load i32, ptr %r_type, align 1
-  %30 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i85)
-  switch i32 %30, label %sw.default [
+  %31 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i85)
+  switch i32 %31, label %sw.default [
     i32 1, label %sw.bb
     i32 2, label %sw.bb26
     i32 33, label %sw.bb36
@@ -4099,33 +4100,33 @@ cond.end20:                                       ; preds = %cond.false18, %cond
 sw.bb:                                            ; preds = %cond.end20
   %add = add i64 %cond21, %cond128
   %conv24 = trunc i64 %add to i32
-  %31 = tail call noundef i32 @llvm.bswap.i32(i32 %conv24)
-  store i32 %31, ptr %add.ptr, align 1
+  %32 = tail call noundef i32 @llvm.bswap.i32(i32 %conv24)
+  store i32 %32, ptr %add.ptr, align 1
   br label %for.inc
 
 sw.bb26:                                          ; preds = %cond.end20
   %call27 = tail call { i64, i8 } @_ZN4mold3elf12InputSectionINS0_6RV64BEEE13get_tombstoneERNS0_6SymbolIS2_EEPNS0_15SectionFragmentIS2_EE(ptr noundef nonnull align 8 dereferenceable(118) %this, ptr noundef nonnull align 8 dereferenceable(51) %8, ptr noundef %retval.sroa.0.0.i76116126)
-  %32 = extractvalue { i64, i8 } %call27, 1
-  %tobool.i.i = trunc i8 %32 to i1
+  %33 = extractvalue { i64, i8 } %call27, 1
+  %tobool.i.i = trunc i8 %33 to i1
   br i1 %tobool.i.i, label %if.then30, label %if.else
 
 if.then30:                                        ; preds = %sw.bb26
-  %33 = extractvalue { i64, i8 } %call27, 0
-  %34 = tail call noundef i64 @llvm.bswap.i64(i64 %33)
-  store i64 %34, ptr %add.ptr, align 1
+  %34 = extractvalue { i64, i8 } %call27, 0
+  %35 = tail call noundef i64 @llvm.bswap.i64(i64 %34)
+  store i64 %35, ptr %add.ptr, align 1
   br label %for.inc
 
 if.else:                                          ; preds = %sw.bb26
   %add33 = add i64 %cond21, %cond128
-  %35 = tail call noundef i64 @llvm.bswap.i64(i64 %add33)
-  store i64 %35, ptr %add.ptr, align 1
+  %36 = tail call noundef i64 @llvm.bswap.i64(i64 %add33)
+  store i64 %36, ptr %add.ptr, align 1
   br label %for.inc
 
 sw.bb36:                                          ; preds = %cond.end20
   %add37 = add i64 %cond21, %cond128
-  %36 = load i8, ptr %add.ptr, align 1
-  %37 = trunc i64 %add37 to i8
-  %conv40 = add i8 %36, %37
+  %37 = load i8, ptr %add.ptr, align 1
+  %38 = trunc i64 %add37 to i8
+  %conv40 = add i8 %37, %38
   store i8 %conv40, ptr %add.ptr, align 1
   br label %for.inc
 
@@ -4133,36 +4134,36 @@ sw.bb41:                                          ; preds = %cond.end20
   %add42 = add i64 %cond21, %cond128
   %conv43 = trunc i64 %add42 to i16
   %x.0.copyload.i.i86 = load i16, ptr %add.ptr, align 1
-  %38 = tail call noundef i16 @llvm.bswap.i16(i16 %x.0.copyload.i.i86)
-  %add.i87 = add i16 %38, %conv43
-  %39 = tail call noundef i16 @llvm.bswap.i16(i16 %add.i87)
-  store i16 %39, ptr %add.ptr, align 1
+  %39 = tail call noundef i16 @llvm.bswap.i16(i16 %x.0.copyload.i.i86)
+  %add.i87 = add i16 %39, %conv43
+  %40 = tail call noundef i16 @llvm.bswap.i16(i16 %add.i87)
+  store i16 %40, ptr %add.ptr, align 1
   br label %for.inc
 
 sw.bb45:                                          ; preds = %cond.end20
   %add46 = add i64 %cond21, %cond128
   %conv47 = trunc i64 %add46 to i32
   %x.0.copyload.i.i88 = load i32, ptr %add.ptr, align 1
-  %40 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i88)
-  %add.i89 = add i32 %40, %conv47
-  %41 = tail call noundef i32 @llvm.bswap.i32(i32 %add.i89)
-  store i32 %41, ptr %add.ptr, align 1
+  %41 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i88)
+  %add.i89 = add i32 %41, %conv47
+  %42 = tail call noundef i32 @llvm.bswap.i32(i32 %add.i89)
+  store i32 %42, ptr %add.ptr, align 1
   br label %for.inc
 
 sw.bb49:                                          ; preds = %cond.end20
   %add50 = add i64 %cond21, %cond128
   %x.0.copyload.i.i90 = load i64, ptr %add.ptr, align 1
-  %42 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i.i90)
-  %add.i91 = add i64 %add50, %42
-  %43 = tail call noundef i64 @llvm.bswap.i64(i64 %add.i91)
-  store i64 %43, ptr %add.ptr, align 1
+  %43 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i.i90)
+  %add.i91 = add i64 %add50, %43
+  %44 = tail call noundef i64 @llvm.bswap.i64(i64 %add.i91)
+  store i64 %44, ptr %add.ptr, align 1
   br label %for.inc
 
 sw.bb52:                                          ; preds = %cond.end20
   %add53 = add i64 %cond21, %cond128
-  %44 = load i8, ptr %add.ptr, align 1
-  %45 = trunc i64 %add53 to i8
-  %conv55 = sub i8 %44, %45
+  %45 = load i8, ptr %add.ptr, align 1
+  %46 = trunc i64 %add53 to i8
+  %conv55 = sub i8 %45, %46
   store i8 %conv55, ptr %add.ptr, align 1
   br label %for.inc
 
@@ -4170,49 +4171,49 @@ sw.bb56:                                          ; preds = %cond.end20
   %add57 = add i64 %cond21, %cond128
   %conv58 = trunc i64 %add57 to i16
   %x.0.copyload.i.i92 = load i16, ptr %add.ptr, align 1
-  %46 = tail call noundef i16 @llvm.bswap.i16(i16 %x.0.copyload.i.i92)
-  %sub.i = sub i16 %46, %conv58
-  %47 = tail call noundef i16 @llvm.bswap.i16(i16 %sub.i)
-  store i16 %47, ptr %add.ptr, align 1
+  %47 = tail call noundef i16 @llvm.bswap.i16(i16 %x.0.copyload.i.i92)
+  %sub.i = sub i16 %47, %conv58
+  %48 = tail call noundef i16 @llvm.bswap.i16(i16 %sub.i)
+  store i16 %48, ptr %add.ptr, align 1
   br label %for.inc
 
 sw.bb60:                                          ; preds = %cond.end20
   %add61 = add i64 %cond21, %cond128
   %conv62 = trunc i64 %add61 to i32
   %x.0.copyload.i.i93 = load i32, ptr %add.ptr, align 1
-  %48 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i93)
-  %sub.i94 = sub i32 %48, %conv62
-  %49 = tail call noundef i32 @llvm.bswap.i32(i32 %sub.i94)
-  store i32 %49, ptr %add.ptr, align 1
+  %49 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i93)
+  %sub.i94 = sub i32 %49, %conv62
+  %50 = tail call noundef i32 @llvm.bswap.i32(i32 %sub.i94)
+  store i32 %50, ptr %add.ptr, align 1
   br label %for.inc
 
 sw.bb64:                                          ; preds = %cond.end20
   %x.0.copyload.i.i95 = load i64, ptr %add.ptr, align 1
-  %50 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i.i95)
-  %51 = add i64 %cond21, %cond128
-  %sub.i96 = sub i64 %50, %51
-  %52 = tail call noundef i64 @llvm.bswap.i64(i64 %sub.i96)
-  store i64 %52, ptr %add.ptr, align 1
+  %51 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i.i95)
+  %52 = add i64 %cond21, %cond128
+  %sub.i96 = sub i64 %51, %52
+  %53 = tail call noundef i64 @llvm.bswap.i64(i64 %sub.i96)
+  store i64 %53, ptr %add.ptr, align 1
   br label %for.inc
 
 sw.bb67:                                          ; preds = %cond.end20
-  %53 = load i8, ptr %add.ptr, align 1
-  %54 = and i8 %53, -64
-  %55 = add i64 %cond21, %cond128
-  %56 = trunc i64 %55 to i8
-  %57 = sub i8 %53, %56
-  %58 = and i8 %57, 63
-  %conv74 = or disjoint i8 %58, %54
+  %54 = load i8, ptr %add.ptr, align 1
+  %55 = and i8 %54, -64
+  %56 = add i64 %cond21, %cond128
+  %57 = trunc i64 %56 to i8
+  %58 = sub i8 %54, %57
+  %59 = and i8 %58, 63
+  %conv74 = or disjoint i8 %59, %55
   store i8 %conv74, ptr %add.ptr, align 1
   br label %for.inc
 
 sw.bb75:                                          ; preds = %cond.end20
-  %59 = load i8, ptr %add.ptr, align 1
-  %60 = and i8 %59, -64
+  %60 = load i8, ptr %add.ptr, align 1
+  %61 = and i8 %60, -64
   %add79 = add i64 %cond21, %cond128
-  %61 = trunc i64 %add79 to i8
-  %62 = and i8 %61, 63
-  %conv82 = or disjoint i8 %60, %62
+  %62 = trunc i64 %add79 to i8
+  %63 = and i8 %62, 63
+  %conv82 = or disjoint i8 %61, %63
   store i8 %conv82, ptr %add.ptr, align 1
   br label %for.inc
 
@@ -4225,40 +4226,40 @@ sw.bb83:                                          ; preds = %cond.end20
 sw.bb86:                                          ; preds = %cond.end20
   %add87 = add i64 %cond21, %cond128
   %conv88 = trunc i64 %add87 to i16
-  %63 = tail call noundef i16 @llvm.bswap.i16(i16 %conv88)
-  store i16 %63, ptr %add.ptr, align 1
+  %64 = tail call noundef i16 @llvm.bswap.i16(i16 %conv88)
+  store i16 %64, ptr %add.ptr, align 1
   br label %for.inc
 
 sw.bb90:                                          ; preds = %cond.end20
   %add91 = add i64 %cond21, %cond128
   %conv92 = trunc i64 %add91 to i32
-  %64 = tail call noundef i32 @llvm.bswap.i32(i32 %conv92)
-  store i32 %64, ptr %add.ptr, align 1
+  %65 = tail call noundef i32 @llvm.bswap.i32(i32 %conv92)
+  store i32 %65, ptr %add.ptr, align 1
   br label %for.inc
 
 sw.bb94:                                          ; preds = %cond.end20
   %add95 = add i64 %cond21, %cond128
-  %65 = load i8, ptr %add.ptr, align 1
-  %tobool.not5.i = icmp sgt i8 %65, -1
+  %66 = load i8, ptr %add.ptr, align 1
+  %tobool.not5.i = icmp sgt i8 %66, -1
   br i1 %tobool.not5.i, label %_ZN4mold14overwrite_ulebEPhm.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %sw.bb94, %while.body.i
   %val.addr.07.i = phi i64 [ %shr.i, %while.body.i ], [ %add95, %sw.bb94 ]
   %loc.addr.06.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr, %sw.bb94 ]
-  %66 = trunc i64 %val.addr.07.i to i8
-  %conv2.i = or i8 %66, -128
+  %67 = trunc i64 %val.addr.07.i to i8
+  %conv2.i = or i8 %67, -128
   %incdec.ptr.i = getelementptr inbounds i8, ptr %loc.addr.06.i, i64 1
   store i8 %conv2.i, ptr %loc.addr.06.i, align 1
   %shr.i = lshr i64 %val.addr.07.i, 7
-  %67 = load i8, ptr %incdec.ptr.i, align 1
-  %tobool.not.i = icmp sgt i8 %67, -1
+  %68 = load i8, ptr %incdec.ptr.i, align 1
+  %tobool.not.i = icmp sgt i8 %68, -1
   br i1 %tobool.not.i, label %_ZN4mold14overwrite_ulebEPhm.exit, label %while.body.i, !llvm.loop !7
 
 _ZN4mold14overwrite_ulebEPhm.exit:                ; preds = %while.body.i, %sw.bb94
   %loc.addr.0.lcssa.i = phi ptr [ %add.ptr, %sw.bb94 ], [ %incdec.ptr.i, %while.body.i ]
   %val.addr.0.lcssa.i = phi i64 [ %add95, %sw.bb94 ], [ %shr.i, %while.body.i ]
-  %68 = trunc i64 %val.addr.0.lcssa.i to i8
-  %conv4.i = and i8 %68, 127
+  %69 = trunc i64 %val.addr.0.lcssa.i to i8
+  %conv4.i = and i8 %69, 127
   store i8 %conv4.i, ptr %loc.addr.0.lcssa.i, align 1
   br label %for.inc
 
@@ -4267,41 +4268,41 @@ do.body.i.i:                                      ; preds = %cond.end20, %do.bod
   %shift.0.i.i = phi i32 [ %add.i.i, %do.body.i.i ], [ 0, %cond.end20 ]
   %val.0.i.i = phi i64 [ %or.i.i, %do.body.i.i ], [ 0, %cond.end20 ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr4.i.i, i64 1
-  %69 = load i8, ptr %incdec.ptr4.i.i, align 1
-  %70 = and i8 %69, 127
-  %and.i.i = zext nneg i8 %70 to i32
+  %70 = load i8, ptr %incdec.ptr4.i.i, align 1
+  %71 = and i8 %70, 127
+  %and.i.i = zext nneg i8 %71 to i32
   %conv1.i.i = and i32 %shift.0.i.i, 255
   %shl.i.i = shl i32 %and.i.i, %conv1.i.i
   %conv2.i.i = sext i32 %shl.i.i to i64
   %or.i.i = or i64 %val.0.i.i, %conv2.i.i
   %add.i.i = add nuw nsw i32 %conv1.i.i, 7
-  %tobool.not.i.i = icmp sgt i8 %69, -1
+  %tobool.not.i.i = icmp sgt i8 %70, -1
   br i1 %tobool.not.i.i, label %_ZN4mold9read_ulebEPh.exit, label %do.body.i.i, !llvm.loop !8
 
 _ZN4mold9read_ulebEPh.exit:                       ; preds = %do.body.i.i
-  %71 = add i64 %cond21, %cond128
-  %sub99 = sub i64 %or.i.i, %71
-  %72 = load i8, ptr %add.ptr, align 1
-  %tobool.not5.i97 = icmp sgt i8 %72, -1
+  %72 = add i64 %cond21, %cond128
+  %sub99 = sub i64 %or.i.i, %72
+  %73 = load i8, ptr %add.ptr, align 1
+  %tobool.not5.i97 = icmp sgt i8 %73, -1
   br i1 %tobool.not5.i97, label %_ZN4mold14overwrite_ulebEPhm.exit108, label %while.body.i98
 
 while.body.i98:                                   ; preds = %_ZN4mold9read_ulebEPh.exit, %while.body.i98
   %val.addr.07.i99 = phi i64 [ %shr.i103, %while.body.i98 ], [ %sub99, %_ZN4mold9read_ulebEPh.exit ]
   %loc.addr.06.i100 = phi ptr [ %incdec.ptr.i102, %while.body.i98 ], [ %add.ptr, %_ZN4mold9read_ulebEPh.exit ]
-  %73 = trunc i64 %val.addr.07.i99 to i8
-  %conv2.i101 = or i8 %73, -128
+  %74 = trunc i64 %val.addr.07.i99 to i8
+  %conv2.i101 = or i8 %74, -128
   %incdec.ptr.i102 = getelementptr inbounds i8, ptr %loc.addr.06.i100, i64 1
   store i8 %conv2.i101, ptr %loc.addr.06.i100, align 1
   %shr.i103 = lshr i64 %val.addr.07.i99, 7
-  %74 = load i8, ptr %incdec.ptr.i102, align 1
-  %tobool.not.i104 = icmp sgt i8 %74, -1
+  %75 = load i8, ptr %incdec.ptr.i102, align 1
+  %tobool.not.i104 = icmp sgt i8 %75, -1
   br i1 %tobool.not.i104, label %_ZN4mold14overwrite_ulebEPhm.exit108, label %while.body.i98, !llvm.loop !7
 
 _ZN4mold14overwrite_ulebEPhm.exit108:             ; preds = %while.body.i98, %_ZN4mold9read_ulebEPh.exit
   %loc.addr.0.lcssa.i105 = phi ptr [ %add.ptr, %_ZN4mold9read_ulebEPh.exit ], [ %incdec.ptr.i102, %while.body.i98 ]
   %val.addr.0.lcssa.i106 = phi i64 [ %sub99, %_ZN4mold9read_ulebEPh.exit ], [ %shr.i103, %while.body.i98 ]
-  %75 = trunc i64 %val.addr.0.lcssa.i106 to i8
-  %conv4.i107 = and i8 %75, 127
+  %76 = trunc i64 %val.addr.0.lcssa.i106 to i8
+  %conv4.i107 = and i8 %76, 127
   store i8 %conv4.i107, ptr %loc.addr.0.lcssa.i105, align 1
   br label %for.inc
 
@@ -37518,11 +37519,11 @@ while.body.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %_ZNK4mold3elf12Inpu
   %value27.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %value.i.i.i.i.i.i.i.i.i.i.i, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4mold3elf6ElfRelINS3_6RV64BEEEESt4spanIS7_Lm18446744073709551615EEEEmZZNS3_21riscv_resize_sectionsITkNS3_8is_riscvES5_EElRNS3_7ContextIT_EEENK3$_0clEPNS3_10ObjectFileIS5_EEEUlRS7_mE_ESE_SE_SE_RKT0_T1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i.i" ], [ %value.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_6RV64BEEE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %value23.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_6RV64BEEE8get_relsERNS0_7ContextIS2_EE.exit.thread.i.i.i.i.i.i.i.i.i.i.i ]
   %sub.ptr.lhs.cast.i.pre-phi.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.pre.i.i.i.i.i.i.i.i.i.i.i, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4mold3elf6ElfRelINS3_6RV64BEEEESt4spanIS7_Lm18446744073709551615EEEEmZZNS3_21riscv_resize_sectionsITkNS3_8is_riscvES5_EElRNS3_7ContextIT_EEENK3$_0clEPNS3_10ObjectFileIS5_EEEUlRS7_mE_ESE_SE_SE_RKT0_T1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i.i" ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_6RV64BEEE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZNK4mold3elf12InputSectionINS0_6RV64BEEE8get_relsERNS0_7ContextIS2_EE.exit.thread.i.i.i.i.i.i.i.i.i.i.i ]
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i29.i.i.i.i.i.i.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i, 24
   %18 = load ptr, ptr %extra.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %add.ptr.i13.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %18, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i.i.i.i
-  %19 = load i32, ptr %add.ptr.i13.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %conv.i.i.i.i.i.i.i.i.i.i.i = sext i32 %19 to i64
+  %19 = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i, 6
+  %add.ptr.i13.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 %19
+  %20 = load i32, ptr %add.ptr.i13.i.i.i.i.i.i.i.i.i.i.i, align 4
+  %conv.i.i.i.i.i.i.i.i.i.i.i = sext i32 %20 to i64
   %sub.i.i.i.i.i.i.i.i.i.i.i = sub i64 %value.val28.i.i.i.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i.i.i.i
   store i64 %sub.i.i.i.i.i.i.i.i.i.i.i, ptr %value27.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i

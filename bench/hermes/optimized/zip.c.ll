@@ -19682,7 +19682,7 @@ for.end.thread:                                   ; preds = %for.cond.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
   %sext72 = shl i64 %indvars.iv57, 32
-  %26 = ashr exact i64 %sext72, 32
+  %26 = ashr exact i64 %sext72, 30
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -19692,7 +19692,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx41 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv63
   %28 = load i32, ptr %arrayidx41, align 4
   %29 = getelementptr i32, ptr %27, i64 %indvars.iv65
-  %arrayidx45 = getelementptr i32, ptr %29, i64 %26
+  %arrayidx45 = getelementptr i8, ptr %29, i64 %26
   store i32 %28, ptr %arrayidx45, align 4
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, 1

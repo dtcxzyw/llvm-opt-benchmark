@@ -14290,9 +14290,9 @@ define void @_ZN10PacketList16goPreviousPacketEv(ptr noundef nonnull align 8 der
   %29 = getelementptr inbounds i8, ptr %0, i64 452
   store i8 1, ptr %29, align 4
   %sext.i = shl i64 %indvars.iv.next.i.i, 32
-  %30 = ashr exact i64 %sext.i, 32
-  %31 = load ptr, ptr %16, align 8
-  %32 = getelementptr i32, ptr %31, i64 %30
+  %30 = load ptr, ptr %16, align 8
+  %31 = ashr exact i64 %sext.i, 30
+  %32 = getelementptr i8, ptr %30, i64 %31
   %33 = load i32, ptr %32, align 4
   tail call void @_ZN10PacketList10goToPacketEii(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef %33, i32 noundef -1)
   store i8 0, ptr %29, align 4
@@ -14409,9 +14409,9 @@ define void @_ZN10PacketList23goPreviousHistoryPacketEv(ptr noundef nonnull alig
   %23 = getelementptr inbounds i8, ptr %0, i64 452
   store i8 1, ptr %23, align 4
   %sext = shl i64 %indvars.iv.next.i, 32
-  %24 = ashr exact i64 %sext, 32
-  %25 = load ptr, ptr %10, align 8
-  %26 = getelementptr i32, ptr %25, i64 %24
+  %24 = load ptr, ptr %10, align 8
+  %25 = ashr exact i64 %sext, 30
+  %26 = getelementptr i8, ptr %24, i64 %25
   %27 = load i32, ptr %26, align 4
   tail call void @_ZN10PacketList10goToPacketEii(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef %27, i32 noundef -1)
   store i8 0, ptr %23, align 4

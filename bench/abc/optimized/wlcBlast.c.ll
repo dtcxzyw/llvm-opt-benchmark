@@ -6404,8 +6404,8 @@ define i32 @Wlc_BlastAddLevel(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %27 = getelementptr i8, ptr %.val6.i, i64 8
   %.val.i.i.i.i = load ptr, ptr %27, align 8
   %sext.i.i = shl i64 %24, 32
-  %28 = ashr exact i64 %sext.i.i, 32
-  %29 = getelementptr inbounds i32, ptr %.val.i.i.i.i, i64 %28
+  %28 = ashr exact i64 %sext.i.i, 30
+  %29 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = load i64, ptr %14, align 4
   %32 = lshr i64 %31, 32
@@ -6424,8 +6424,8 @@ define i32 @Wlc_BlastAddLevel(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %42 = getelementptr i8, ptr %.val8.i, i64 8
   %.val.i.i.i11.i = load ptr, ptr %42, align 8
   %sext.i12.i = shl i64 %39, 32
-  %43 = ashr exact i64 %sext.i12.i, 32
-  %44 = getelementptr inbounds i32, ptr %.val.i.i.i11.i, i64 %43
+  %43 = ashr exact i64 %sext.i12.i, 30
+  %44 = getelementptr inbounds i8, ptr %.val.i.i.i11.i, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = tail call noundef i32 @llvm.smax.i32(i32 %30, i32 %45)
   %47 = add nsw i32 %46, 1
@@ -6441,8 +6441,8 @@ define i32 @Wlc_BlastAddLevel(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %54 = getelementptr i8, ptr %.val10.i, i64 8
   %.val.i.i.i13.i = load ptr, ptr %54, align 8
   %sext.i14.i = shl i64 %51, 32
-  %55 = ashr exact i64 %sext.i14.i, 32
-  %56 = getelementptr inbounds i32, ptr %.val.i.i.i13.i, i64 %55
+  %55 = ashr exact i64 %sext.i14.i, 30
+  %56 = getelementptr inbounds i8, ptr %.val.i.i.i13.i, i64 %55
   store i32 %47, ptr %56, align 4
   %.val12.pre = load i32, ptr %8, align 8
   br label %57
@@ -7011,8 +7011,8 @@ Vec_IntFillExtra.exit165:                         ; preds = %71, %._crit_edge.i1
   %117 = getelementptr i8, ptr %.val6.i.i, i64 8
   %.val.i.i.i.i.i = load ptr, ptr %117, align 8
   %sext.i.i.i = shl i64 %77, 32
-  %118 = ashr exact i64 %sext.i.i.i, 32
-  %119 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i, i64 %118
+  %118 = ashr exact i64 %sext.i.i.i, 30
+  %119 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = lshr i64 %116, 32
   %122 = and i64 %121, 536870911
@@ -7124,8 +7124,8 @@ Vec_IntFillExtra.exit151:                         ; preds = %Vec_IntFillExtra.ex
   %165 = getelementptr i8, ptr %.val8.i.i, i64 8
   %.val.i.i.i11.i.i = load ptr, ptr %165, align 8
   %sext.i12.i.i = shl i64 %127, 32
-  %166 = ashr exact i64 %sext.i12.i.i, 32
-  %167 = getelementptr inbounds i32, ptr %.val.i.i.i11.i.i, i64 %166
+  %166 = ashr exact i64 %sext.i12.i.i, 30
+  %167 = getelementptr inbounds i8, ptr %.val.i.i.i11.i.i, i64 %166
   %168 = load i32, ptr %167, align 4
   %169 = tail call noundef i32 @llvm.smax.i32(i32 %120, i32 %168)
   %170 = add nsw i32 %169, 1
@@ -7227,8 +7227,8 @@ Vec_IntFillExtra.exit:                            ; preds = %Vec_IntFillExtra.ex
   %210 = getelementptr i8, ptr %.val10.i.i, i64 8
   %.val.i.i.i13.i.i = load ptr, ptr %210, align 8
   %sext.i14.i.i = shl i64 %173, 32
-  %211 = ashr exact i64 %sext.i14.i.i, 32
-  %212 = getelementptr inbounds i32, ptr %.val.i.i.i13.i.i, i64 %211
+  %211 = ashr exact i64 %sext.i14.i.i, 30
+  %212 = getelementptr inbounds i8, ptr %.val.i.i.i13.i.i, i64 %211
   store i32 %170, ptr %212, align 4
   %.val12.pre.i = load i32, ptr %12, align 8
   br label %213
@@ -20958,8 +20958,8 @@ Vec_IntFreeP.exit:                                ; preds = %._crit_edge4926, %4
   %4633 = sdiv exact i64 %4632, 24
   %.val2762 = load ptr, ptr %4112, align 8
   %sext = shl i64 %4633, 32
-  %4634 = ashr exact i64 %sext, 32
-  %4635 = getelementptr inbounds i32, ptr %.val2762, i64 %4634
+  %4634 = ashr exact i64 %sext, 30
+  %4635 = getelementptr inbounds i8, ptr %.val2762, i64 %4634
   %4636 = load i32, ptr %4635, align 4
   %.val2779 = load ptr, ptr %4113, align 8
   %4637 = sext i32 %4636 to i64

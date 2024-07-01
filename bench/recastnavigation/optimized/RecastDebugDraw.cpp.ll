@@ -2455,8 +2455,8 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
 124:                                              ; preds = %120, %119
   %125 = phi i64 [ 0, %119 ], [ %spec.select.us, %120 ]
   %sext = shl i64 %125, 32
-  %126 = ashr exact i64 %sext, 32
-  %127 = getelementptr inbounds i16, ptr %111, i64 %126
+  %126 = ashr exact i64 %sext, 31
+  %127 = getelementptr inbounds i8, ptr %111, i64 %126
   %128 = load i16, ptr %127, align 2
   br label %129
 
@@ -2565,8 +2565,8 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
 188:                                              ; preds = %184, %183
   %189 = phi i64 [ 0, %183 ], [ %spec.select177.us, %184 ]
   %sext248 = shl i64 %189, 32
-  %190 = ashr exact i64 %sext248, 32
-  %191 = getelementptr inbounds i16, ptr %175, i64 %190
+  %190 = ashr exact i64 %sext248, 31
+  %191 = getelementptr inbounds i8, ptr %175, i64 %190
   %192 = load i16, ptr %191, align 2
   %193 = and i16 %181, 15
   %.not174.us = icmp eq i16 %193, 15

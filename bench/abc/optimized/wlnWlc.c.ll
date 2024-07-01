@@ -340,8 +340,8 @@ Wln_NtkCleanNameId.exit:                          ; preds = %79, %Vec_IntGrow.ex
   %119 = sdiv exact i64 %118, 24
   %.val260 = load ptr, ptr %87, align 8
   %sext373 = shl i64 %119, 32
-  %120 = ashr exact i64 %sext373, 32
-  %121 = getelementptr inbounds i32, ptr %.val260, i64 %120
+  %120 = ashr exact i64 %sext373, 30
+  %121 = getelementptr inbounds i8, ptr %.val260, i64 %120
   store i32 %106, ptr %121, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val249 = load i32, ptr %7, align 4
@@ -677,8 +677,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %286 = sdiv exact i64 %285, 24
   %.val261 = load ptr, ptr %128, align 8
   %sext368 = shl i64 %286, 32
-  %287 = ashr exact i64 %sext368, 32
-  %288 = getelementptr inbounds i32, ptr %.val261, i64 %287
+  %287 = ashr exact i64 %sext368, 30
+  %288 = getelementptr inbounds i8, ptr %.val261, i64 %287
   store i32 %273, ptr %288, align 4
   %.val264.pre = load i32, ptr %8, align 4
   br label %.critedge2
@@ -1441,8 +1441,8 @@ Wlc_ObjConstValue.exit:                           ; preds = %.critedge8
   %649 = sdiv exact i64 %648, 24
   %.val301 = load ptr, ptr %295, align 8
   %sext = shl i64 %649, 32
-  %650 = ashr exact i64 %sext, 32
-  %651 = getelementptr inbounds i32, ptr %.val301, i64 %650
+  %650 = ashr exact i64 %sext, 30
+  %651 = getelementptr inbounds i8, ptr %.val301, i64 %650
   %652 = load i32, ptr %651, align 4
   call void @Wln_ObjAddFanin(ptr noundef %24, i32 noundef %645, i32 noundef %652) #13
   %indvars.iv.next466 = add nuw nsw i64 %indvars.iv465, 1

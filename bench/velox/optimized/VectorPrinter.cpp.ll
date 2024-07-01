@@ -379,8 +379,8 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
-  %12 = lshr exact i64 %indvars.iv.i.i, 6
-  %arrayidx.i35.i.i.i.i = getelementptr inbounds i64, ptr %9, i64 %12
+  %12 = lshr exact i64 %indvars.iv.i.i, 3
+  %arrayidx.i35.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %12
   %13 = load i64, ptr %arrayidx.i35.i.i.i.i, align 8
   %cmp.i36.i.i.i.i = icmp eq i64 %13, -1
   br i1 %cmp.i36.i.i.i.i, label %for.cond.i.i.i.i, label %land.end.i.i, !llvm.loop !5
@@ -1009,8 +1009,8 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
-  %13 = lshr exact i64 %indvars.iv.i, 6
-  %arrayidx.i43.i.i.i = getelementptr inbounds i64, ptr %9, i64 %13
+  %13 = lshr exact i64 %indvars.iv.i, 3
+  %arrayidx.i43.i.i.i = getelementptr inbounds i8, ptr %9, i64 %13
   %14 = load i64, ptr %arrayidx.i43.i.i.i, align 8
   %tobool.not.i44.i.i.i = icmp eq i64 %14, 0
   br i1 %tobool.not.i44.i.i.i, label %for.cond.i.i.i, label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i, !llvm.loop !12
@@ -4714,8 +4714,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %indvars.iv1.i = phi i64 [ 0, %for.body.i.i.i.i.preheader.i ], [ %indvars.iv.next2.i, %for.body.i.i.i.i.i ]
   %indvars.iv.i = phi i64 [ 64, %for.body.i.i.i.i.preheader.i ], [ %indvars.iv.next.i, %for.body.i.i.i.i.i ]
   %add.i4057.i.i.i.i.i = phi i32 [ 0, %for.body.i.i.i.i.preheader.i ], [ %add.i40.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %9 = lshr exact i64 %indvars.iv1.i, 6
-  %arrayidx.i38.i.i.i.i.i = getelementptr inbounds i64, ptr %6, i64 %9
+  %9 = lshr exact i64 %indvars.iv1.i, 3
+  %arrayidx.i38.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %9
   %10 = load i64, ptr %arrayidx.i38.i.i.i.i.i, align 8
   %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %cast.i39.i.i.i.i.i = trunc nuw nsw i64 %11 to i32

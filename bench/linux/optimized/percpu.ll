@@ -5587,8 +5587,8 @@ pcpu_next_fit_region.exit:                        ; preds = %51, %92, %86, %.loo
 137:                                              ; preds = %128
   %138 = load ptr, ptr %111, align 16
   %139 = shl i64 %131, 42
-  %140 = ashr exact i64 %139, 42
-  %141 = getelementptr %struct.pcpu_block_md, ptr %138, i64 %140
+  %140 = ashr exact i64 %139, 37
+  %141 = getelementptr i8, ptr %138, i64 %140
   br label %142
 
 142:                                              ; preds = %197, %137

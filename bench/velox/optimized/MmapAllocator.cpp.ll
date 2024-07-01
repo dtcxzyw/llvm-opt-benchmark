@@ -5282,8 +5282,8 @@ for.body.i.i:                                     ; preds = %"_ZZN8facebook5velo
   %indvars.iv = phi i64 [ %indvars.iv.next, %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i" ], [ %10, %if.end ]
   %needed.2 = phi i32 [ %needed.4, %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i" ], [ %needed.148, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
-  %11 = lshr exact i64 %indvars.iv, 6
-  %arrayidx.i66.i.i = getelementptr inbounds i64, ptr %bits, i64 %11
+  %11 = lshr exact i64 %indvars.iv, 3
+  %arrayidx.i66.i.i = getelementptr inbounds i8, ptr %bits, i64 %11
   %12 = load i64, ptr %arrayidx.i66.i.i, align 8
   %tobool4.not.i68.i.i = icmp eq i64 %12, 0
   br i1 %tobool4.not.i68.i.i, label %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i", label %while.body.i72.i.i

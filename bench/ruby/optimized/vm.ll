@@ -40186,8 +40186,8 @@ define internal noundef i64 @vm_call_iseq_setup_normal_opt_start(ptr nocapture n
 vm_push_frame.exit:                               ; preds = %.lr.ph.i, %.preheader.i
   %.0.lcssa.i = phi ptr [ %35, %.preheader.i ], [ %56, %.lr.ph.i ]
   %sext = shl i64 %23, 32
-  %58 = ashr exact i64 %sext, 32
-  %59 = getelementptr i64, ptr %43, i64 %58
+  %58 = ashr exact i64 %sext, 29
+  %59 = getelementptr i8, ptr %43, i64 %58
   %60 = ptrtoint ptr %.val37 to i64
   %61 = getelementptr i8, ptr %.0.lcssa.i, i64 8
   store i64 %60, ptr %.0.lcssa.i, align 8

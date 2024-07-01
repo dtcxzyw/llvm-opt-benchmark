@@ -35299,8 +35299,8 @@ define linkonce_odr hidden ptr @_ZNK3fmt2v99formatterINSt7__cxx1112basic_stringI
   %27 = getelementptr inbounds i8, ptr %2, i64 16
   %28 = load ptr, ptr %27, align 8, !noalias !269
   %sext = shl i64 %18, 32
-  %29 = ashr exact i64 %sext, 32
-  %30 = getelementptr inbounds %"class.fmt::v9::basic_format_arg", ptr %28, i64 %29
+  %29 = ashr exact i64 %sext, 27
+  %30 = getelementptr inbounds i8, ptr %28, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, ptr noundef nonnull align 16 dereferenceable(20) %30, i64 20, i1 false)
   br label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i
 
@@ -35322,8 +35322,8 @@ define linkonce_odr hidden ptr @_ZNK3fmt2v99formatterINSt7__cxx1112basic_stringI
   %41 = getelementptr inbounds i8, ptr %2, i64 16
   %42 = load ptr, ptr %41, align 8, !noalias !269
   %sext47 = shl i64 %18, 32
-  %43 = ashr exact i64 %sext47, 32
-  %44 = getelementptr inbounds %"class.fmt::v9::detail::value", ptr %42, i64 %43
+  %43 = ashr exact i64 %sext47, 28
+  %44 = getelementptr inbounds i8, ptr %42, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %44, i64 16, i1 false)
   br label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i
 
@@ -35380,8 +35380,8 @@ _ZN3fmt2v96detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_co
   %61 = getelementptr inbounds i8, ptr %2, i64 16
   %62 = load ptr, ptr %61, align 8, !noalias !276
   %sext48 = shl i64 %52, 32
-  %63 = ashr exact i64 %sext48, 32
-  %64 = getelementptr inbounds %"class.fmt::v9::basic_format_arg", ptr %62, i64 %63
+  %63 = ashr exact i64 %sext48, 27
+  %64 = getelementptr inbounds i8, ptr %62, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 16 dereferenceable(20) %64, i64 20, i1 false)
   br label %.sink.split.i23
 
@@ -35403,8 +35403,8 @@ _ZN3fmt2v96detail19handle_dynamic_specINS1_13width_checkerENS0_20basic_format_co
   %75 = getelementptr inbounds i8, ptr %2, i64 16
   %76 = load ptr, ptr %75, align 8, !noalias !276
   %sext49 = shl i64 %52, 32
-  %77 = ashr exact i64 %sext49, 32
-  %78 = getelementptr inbounds %"class.fmt::v9::detail::value", ptr %76, i64 %77
+  %77 = ashr exact i64 %sext49, 28
+  %78 = getelementptr inbounds i8, ptr %76, i64 %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %78, i64 16, i1 false)
   br label %.sink.split.i23
 

@@ -155,8 +155,8 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   %96 = ptrtoint ptr %95 to i64
   %97 = ptrtoint ptr %.176 to i64
   %98 = sub i64 %97, %88
-  %99 = ashr exact i64 %98, 4
-  %100 = getelementptr i64, ptr %91, i64 %99
+  %99 = ashr exact i64 %98, 1
+  %100 = getelementptr i8, ptr %91, i64 %99
   store i64 %96, ptr %100, align 8
   %101 = getelementptr i8, ptr %.176, i64 16
   %102 = getelementptr i8, ptr %.176, i64 24
@@ -183,8 +183,8 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   %.278 = phi ptr [ %117, %.lr.ph80 ], [ %.057, %._crit_edge ]
   %110 = ptrtoint ptr %.278 to i64
   %111 = sub i64 %110, %88
-  %112 = ashr exact i64 %111, 4
-  %113 = getelementptr i64, ptr %91, i64 %112
+  %112 = ashr exact i64 %111, 1
+  %113 = getelementptr i8, ptr %91, i64 %112
   %114 = load i64, ptr %113, align 8
   %115 = inttoptr i64 %114 to ptr
   call void @pfree(ptr noundef %115) #3

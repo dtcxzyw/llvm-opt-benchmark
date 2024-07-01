@@ -951,8 +951,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %9 = shl i64 %indvars.iv.i, 32
   %sext.i = add nuw i64 %9, 8589934592
-  %idxprom.i = ashr exact i64 %sext.i, 32
-  %arrayidx62.i = getelementptr %struct.iovec, ptr %call, i64 %idxprom.i
+  %10 = ashr exact i64 %sext.i, 28
+  %arrayidx62.i = getelementptr i8, ptr %call, i64 %10
   %arrayidx64.i = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx62.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %arrayidx64.i, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

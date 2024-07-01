@@ -179,7 +179,6 @@ do.end:                                           ; preds = %if.end, %if.then3
   %l1_table_offset = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load i64, ptr %l1_table_offset, align 8
   %sext = shl i64 %exact_size, 32
-  %conv8 = ashr exact i64 %sext, 32
   %mul = ashr exact i64 %sext, 29
   %add = add i64 %6, %mul
   %sub = sub i32 %4, %conv2
@@ -247,7 +246,7 @@ fail:                                             ; preds = %if.end15, %do.end
   %ret.0 = phi i32 [ %call, %do.end ], [ %call18, %if.end15 ]
   %l1_table48 = getelementptr inbounds i8, ptr %0, i64 72
   %18 = load ptr, ptr %l1_table48, align 8
-  %add.ptr = getelementptr i64, ptr %18, i64 %conv8
+  %add.ptr = getelementptr i8, ptr %18, i64 %mul
   %19 = load i32, ptr %l1_size, align 8
   %sub50 = sub i32 %19, %conv2
   %conv51 = sext i32 %sub50 to i64
@@ -5399,31 +5398,31 @@ if.then45:                                        ; preds = %if.end42
   %l1_table = getelementptr inbounds i8, ptr %0, i64 72
   %26 = load ptr, ptr %l1_table, align 8
   %sext = shl i64 %shr.i168, 32
-  %idxprom = ashr exact i64 %sext, 32
-  %arrayidx = getelementptr i64, ptr %26, i64 %idxprom
-  %27 = load i64, ptr %arrayidx, align 8
-  %and = and i64 %27, 72057594037927424
+  %27 = ashr exact i64 %sext, 29
+  %arrayidx = getelementptr i8, ptr %26, i64 %27
+  %28 = load i64, ptr %arrayidx, align 8
+  %and = and i64 %28, 72057594037927424
   tail call void (ptr, i1, i64, i64, ptr, ...) @qcow2_signal_corruption(ptr noundef %bs, i1 noundef zeroext true, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.71, i64 noundef %and, i32 noundef %add9) #13
   br label %return
 
 for.end.loopexit:                                 ; preds = %for.cond
-  %28 = trunc nuw i8 %skip_cow.1 to i1
-  br i1 %28, label %return, label %if.end51
+  %29 = trunc nuw i8 %skip_cow.1 to i1
+  br i1 %29, label %return, label %if.end51
 
 for.end:                                          ; preds = %for.cond.preheader
   br i1 %keep_old, label %return, label %if.end51
 
 if.end51:                                         ; preds = %for.end.loopexit, %for.end
-  %29 = getelementptr i8, ptr %0, i64 360
-  %.val133 = load i64, ptr %29, align 8
-  %30 = trunc i64 %.val133 to i32
-  %31 = lshr i32 %30, 4
-  %32 = and i32 %31, 1
-  %conv1.i170 = shl i32 %conv1.i, %32
+  %30 = getelementptr i8, ptr %0, i64 360
+  %.val133 = load i64, ptr %30, align 8
+  %31 = trunc i64 %.val133 to i32
+  %32 = lshr i32 %31, 4
+  %33 = and i32 %32, 1
+  %conv1.i170 = shl i32 %conv1.i, %33
   %idxprom.i171 = sext i32 %conv1.i170 to i64
   %arrayidx.i172 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i171
-  %33 = load i64, ptr %arrayidx.i172, align 8
-  %34 = tail call noundef i64 @llvm.bswap.i64(i64 %33)
+  %34 = load i64, ptr %arrayidx.i172, align 8
+  %35 = tail call noundef i64 @llvm.bswap.i64(i64 %34)
   %and.i.i173 = and i64 %.val133, 16
   %tobool.i.not.i174 = icmp eq i64 %and.i.i173, 0
   br i1 %tobool.i.not.i174, label %get_l2_bitmap.exit181, label %if.then.i175
@@ -5433,22 +5432,22 @@ if.then.i175:                                     ; preds = %if.end51
   %add.i177 = or disjoint i32 %conv2.i176, 1
   %idxprom.i178 = sext i32 %add.i177 to i64
   %arrayidx.i179 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i178
-  %35 = load i64, ptr %arrayidx.i179, align 8
-  %36 = tail call noundef i64 @llvm.bswap.i64(i64 %35)
+  %36 = load i64, ptr %arrayidx.i179, align 8
+  %37 = tail call noundef i64 @llvm.bswap.i64(i64 %36)
   br label %get_l2_bitmap.exit181
 
 get_l2_bitmap.exit181:                            ; preds = %if.end51, %if.then.i175
-  %retval.0.i180 = phi i64 [ %36, %if.then.i175 ], [ 0, %if.end51 ]
-  %37 = getelementptr i8, ptr %0, i64 12
-  %.val126 = load i32, ptr %37, align 4
-  %38 = getelementptr i8, ptr %0, i64 20
-  %.val127 = load i32, ptr %38, align 4
+  %retval.0.i180 = phi i64 [ %37, %if.then.i175 ], [ 0, %if.end51 ]
+  %38 = getelementptr i8, ptr %0, i64 12
+  %.val126 = load i32, ptr %38, align 4
+  %39 = getelementptr i8, ptr %0, i64 20
+  %.val127 = load i32, ptr %39, align 4
   %sh_prom.i182 = zext nneg i32 %.val126 to i64
   %shr.i183 = ashr i64 %guest_offset, %sh_prom.i182
   %sub.i184 = add i32 %.val127, -1
-  %39 = trunc i64 %shr.i183 to i32
-  %conv1.i185 = and i32 %sub.i184, %39
-  %call55 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %34, i64 noundef %retval.0.i180, i32 noundef %conv1.i185)
+  %40 = trunc i64 %shr.i183 to i32
+  %conv1.i185 = and i32 %sub.i184, %40
+  %call55 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %35, i64 noundef %retval.0.i180, i32 noundef %conv1.i185)
   br i1 %keep_old, label %if.else77, label %if.then57
 
 if.then57:                                        ; preds = %get_l2_bitmap.exit181
@@ -5462,15 +5461,15 @@ if.then57:                                        ; preds = %get_l2_bitmap.exit1
   ]
 
 sw.bb58:                                          ; preds = %if.then57, %if.then57, %if.then57
-  %.val123 = load i64, ptr %29, align 8
+  %.val123 = load i64, ptr %30, align 8
   %and.i186 = and i64 %.val123, 16
   %tobool.i.not = icmp eq i64 %and.i186, 0
   br i1 %tobool.i.not, label %if.end86, label %if.then60
 
 if.then60:                                        ; preds = %sw.bb58
   %conv62 = trunc i64 %retval.0.i180 to i32
-  %40 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv62, i1 false)
-  %cond70 = tail call i32 @llvm.smin.i32(i32 %conv1.i185, i32 %40)
+  %41 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv62, i1 false)
+  %cond70 = tail call i32 @llvm.smin.i32(i32 %conv1.i185, i32 %41)
   br label %if.end86.sink.split
 
 do.body:                                          ; preds = %if.then57
@@ -5490,23 +5489,23 @@ do.body83:                                        ; preds = %if.else77
 
 if.end86.sink.split:                              ; preds = %if.else77, %if.else77, %if.then57, %if.then57, %if.then60
   %conv1.i185.sink = phi i32 [ %cond70, %if.then60 ], [ %conv1.i185, %if.then57 ], [ %conv1.i185, %if.then57 ], [ %conv1.i185, %if.else77 ], [ %conv1.i185, %if.else77 ]
-  %41 = load i32, ptr %37, align 4
-  %shl81 = shl i32 %conv1.i185.sink, %41
+  %42 = load i32, ptr %38, align 4
+  %shl81 = shl i32 %conv1.i185.sink, %42
   br label %if.end86
 
 if.end86:                                         ; preds = %if.end86.sink.split, %if.else77, %sw.bb58, %if.then57
   %cow_start_from.0 = phi i32 [ 0, %if.then57 ], [ 0, %sw.bb58 ], [ %conv, %if.else77 ], [ %shl81, %if.end86.sink.split ]
   %sub87 = add i32 %conv1.i, -1
   %add88 = add i32 %sub87, %conv4
-  %.val132 = load i64, ptr %29, align 8
-  %42 = trunc i64 %.val132 to i32
-  %43 = lshr i32 %42, 4
-  %44 = and i32 %43, 1
-  %conv1.i187 = shl i32 %add88, %44
+  %.val132 = load i64, ptr %30, align 8
+  %43 = trunc i64 %.val132 to i32
+  %44 = lshr i32 %43, 4
+  %45 = and i32 %44, 1
+  %conv1.i187 = shl i32 %add88, %45
   %idxprom.i188 = sext i32 %conv1.i187 to i64
   %arrayidx.i189 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i188
-  %45 = load i64, ptr %arrayidx.i189, align 8
-  %46 = tail call noundef i64 @llvm.bswap.i64(i64 %45)
+  %46 = load i64, ptr %arrayidx.i189, align 8
+  %47 = tail call noundef i64 @llvm.bswap.i64(i64 %46)
   %and.i.i190 = and i64 %.val132, 16
   %tobool.i.not.i191 = icmp eq i64 %and.i.i190, 0
   br i1 %tobool.i.not.i191, label %get_l2_bitmap.exit198, label %if.then.i192
@@ -5516,23 +5515,23 @@ if.then.i192:                                     ; preds = %if.end86
   %add.i194 = or disjoint i32 %conv2.i193, 1
   %idxprom.i195 = sext i32 %add.i194 to i64
   %arrayidx.i196 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i195
-  %47 = load i64, ptr %arrayidx.i196, align 8
-  %48 = tail call noundef i64 @llvm.bswap.i64(i64 %47)
+  %48 = load i64, ptr %arrayidx.i196, align 8
+  %49 = tail call noundef i64 @llvm.bswap.i64(i64 %48)
   br label %get_l2_bitmap.exit198
 
 get_l2_bitmap.exit198:                            ; preds = %if.end86, %if.then.i192
-  %retval.0.i197 = phi i64 [ %48, %if.then.i192 ], [ 0, %if.end86 ]
+  %retval.0.i197 = phi i64 [ %49, %if.then.i192 ], [ 0, %if.end86 ]
   %conv91 = zext i32 %bytes to i64
   %add92 = add i64 %guest_offset, -1
   %sub93 = add i64 %add92, %conv91
-  %.val124 = load i32, ptr %37, align 4
-  %.val125 = load i32, ptr %38, align 4
+  %.val124 = load i32, ptr %38, align 4
+  %.val125 = load i32, ptr %39, align 4
   %sh_prom.i199 = zext nneg i32 %.val124 to i64
   %shr.i200 = ashr i64 %sub93, %sh_prom.i199
   %sub.i201 = add i32 %.val125, -1
-  %49 = trunc i64 %shr.i200 to i32
-  %conv1.i202 = and i32 %sub.i201, %49
-  %call95 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %46, i64 noundef %retval.0.i197, i32 noundef %conv1.i202)
+  %50 = trunc i64 %shr.i200 to i32
+  %conv1.i202 = and i32 %sub.i201, %50
+  %call95 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %47, i64 noundef %retval.0.i197, i32 noundef %conv1.i202)
   br i1 %keep_old, label %if.else140, label %if.then97
 
 if.then97:                                        ; preds = %get_l2_bitmap.exit198
@@ -5546,42 +5545,42 @@ if.then97:                                        ; preds = %get_l2_bitmap.exit1
   ]
 
 sw.bb98:                                          ; preds = %if.then97
-  %50 = load i32, ptr %3, align 4
+  %51 = load i32, ptr %3, align 4
   %add99 = add i32 %add, -1
-  %sub100 = add i32 %add99, %50
-  %sub102 = sub i32 0, %50
+  %sub100 = add i32 %add99, %51
+  %sub102 = sub i32 0, %51
   %and103 = and i32 %sub100, %sub102
   br label %if.end153
 
 sw.bb104:                                         ; preds = %if.then97, %if.then97, %if.then97
-  %51 = load i32, ptr %3, align 4
+  %52 = load i32, ptr %3, align 4
   %add106 = add i32 %add, -1
-  %sub107 = add i32 %add106, %51
-  %sub109 = sub i32 0, %51
+  %sub107 = add i32 %add106, %52
+  %sub109 = sub i32 0, %52
   %and110 = and i32 %sub107, %sub109
-  %.val122 = load i64, ptr %29, align 8
+  %.val122 = load i64, ptr %30, align 8
   %and.i203 = and i64 %.val122, 16
   %tobool.i204.not = icmp eq i64 %and.i203, 0
   br i1 %tobool.i204.not, label %if.end153, label %if.then112
 
 if.then112:                                       ; preds = %sw.bb104
   %conv115 = trunc i64 %retval.0.i197 to i32
-  %52 = load i32, ptr %38, align 4
-  %53 = xor i32 %conv1.i202, -1
-  %sub117 = add i32 %52, %53
-  %54 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv115, i1 false)
-  %cond125 = tail call i32 @llvm.smin.i32(i32 %sub117, i32 %54)
-  %55 = load i32, ptr %37, align 4
-  %shl127 = shl i32 %cond125, %55
+  %53 = load i32, ptr %39, align 4
+  %54 = xor i32 %conv1.i202, -1
+  %sub117 = add i32 %53, %54
+  %55 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv115, i1 false)
+  %cond125 = tail call i32 @llvm.smin.i32(i32 %sub117, i32 %55)
+  %56 = load i32, ptr %38, align 4
+  %shl127 = shl i32 %cond125, %56
   %sub128 = sub i32 %and110, %shl127
   br label %if.end153
 
 sw.bb130:                                         ; preds = %if.then97, %if.then97
   %subcluster_size = getelementptr inbounds i8, ptr %0, i64 16
-  %56 = load i32, ptr %subcluster_size, align 8
+  %57 = load i32, ptr %subcluster_size, align 8
   %add131 = add i32 %add, -1
-  %sub132 = add i32 %add131, %56
-  %sub134 = sub i32 0, %56
+  %sub132 = add i32 %add131, %57
+  %sub134 = sub i32 0, %57
   %and135 = and i32 %sub132, %sub134
   br label %if.end153
 
@@ -5598,10 +5597,10 @@ if.else140:                                       ; preds = %get_l2_bitmap.exit1
 
 sw.bb142:                                         ; preds = %if.else140, %if.else140
   %subcluster_size143 = getelementptr inbounds i8, ptr %0, i64 16
-  %57 = load i32, ptr %subcluster_size143, align 8
+  %58 = load i32, ptr %subcluster_size143, align 8
   %add144 = add i32 %add, -1
-  %sub145 = add i32 %add144, %57
-  %sub147 = sub i32 0, %57
+  %sub145 = add i32 %add144, %58
+  %sub147 = sub i32 0, %58
   %and148 = and i32 %sub145, %sub147
   br label %if.end153
 
@@ -5651,24 +5650,24 @@ if.end153:                                        ; preds = %if.else140, %sw.bb1
   %dependent_requests165 = getelementptr inbounds i8, ptr %call154, i64 24
   tail call void @qemu_co_queue_init(ptr noundef nonnull %dependent_requests165) #13
   %cluster_allocs = getelementptr inbounds i8, ptr %0, i64 112
-  %58 = load ptr, ptr %cluster_allocs, align 8
-  %59 = load ptr, ptr %m, align 8
-  %next_in_flight167 = getelementptr inbounds i8, ptr %59, i64 88
-  store ptr %58, ptr %next_in_flight167, align 8
-  %cmp168.not = icmp eq ptr %58, null
+  %59 = load ptr, ptr %cluster_allocs, align 8
+  %60 = load ptr, ptr %m, align 8
+  %next_in_flight167 = getelementptr inbounds i8, ptr %60, i64 88
+  store ptr %59, ptr %next_in_flight167, align 8
+  %cmp168.not = icmp eq ptr %59, null
   br i1 %cmp168.not, label %if.end176, label %if.then170
 
 if.then170:                                       ; preds = %if.end153
-  %60 = load ptr, ptr %m, align 8
-  %next_in_flight171 = getelementptr inbounds i8, ptr %60, i64 88
-  %le_prev = getelementptr inbounds i8, ptr %58, i64 96
+  %61 = load ptr, ptr %m, align 8
+  %next_in_flight171 = getelementptr inbounds i8, ptr %61, i64 88
+  %le_prev = getelementptr inbounds i8, ptr %59, i64 96
   store ptr %next_in_flight171, ptr %le_prev, align 8
   br label %if.end176
 
 if.end176:                                        ; preds = %if.then170, %if.end153
-  %61 = load ptr, ptr %m, align 8
-  store ptr %61, ptr %cluster_allocs, align 8
-  %le_prev182 = getelementptr inbounds i8, ptr %61, i64 96
+  %62 = load ptr, ptr %m, align 8
+  store ptr %62, ptr %cluster_allocs, align 8
+  %le_prev182 = getelementptr inbounds i8, ptr %62, i64 96
   store ptr %cluster_allocs, ptr %le_prev182, align 8
   br label %return
 

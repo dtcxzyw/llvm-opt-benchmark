@@ -2296,10 +2296,10 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IilEERKT_RKT0_.exit: ; preds = %_ZN
   %73 = mul i64 %indvars.iv.i, %45
   %74 = add i64 %73, %indvars.iv71.i
   %sext107 = mul i64 %sext, %74
-  %75 = ashr exact i64 %sext107, 32
-  %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr double, ptr %76, i64 %indvars.iv76.i
-  %78 = getelementptr double, ptr %77, i64 %75
+  %75 = load ptr, ptr %8, align 8
+  %76 = getelementptr double, ptr %75, i64 %indvars.iv76.i
+  %77 = ashr exact i64 %sext107, 29
+  %78 = getelementptr i8, ptr %76, i64 %77
   store double %72, ptr %78, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %63

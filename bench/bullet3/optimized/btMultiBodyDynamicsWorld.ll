@@ -224,18 +224,18 @@ _ZNK20btAlignedObjectArrayIP11btMultiBodyE16findLinearSearchERKS1_.exit.i: ; pre
 if.then.i.i:                                      ; preds = %_ZNK20btAlignedObjectArrayIP11btMultiBodyE16findLinearSearchERKS1_.exit.i
   %sub.i.i = add nsw i32 %0, -1
   %sext.i = shl i64 %indvars.iv.i.i, 32
-  %idxprom.i.i.i = ashr exact i64 %sext.i, 32
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i.i.i
-  %4 = load ptr, ptr %arrayidx.i.i.i, align 8
+  %4 = ashr exact i64 %sext.i, 29
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 %4
+  %5 = load ptr, ptr %arrayidx.i.i.i, align 8
   %idxprom3.i.i.i = sext i32 %sub.i.i to i64
   %arrayidx4.i.i.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom3.i.i.i
-  %5 = load ptr, ptr %arrayidx4.i.i.i, align 8
-  store ptr %5, ptr %arrayidx.i.i.i, align 8
-  %6 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx10.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom3.i.i.i
-  store ptr %4, ptr %arrayidx10.i.i.i, align 8
-  %7 = load i32, ptr %m_size.i.i.i, align 4
-  %dec.i.i.i = add nsw i32 %7, -1
+  %6 = load ptr, ptr %arrayidx4.i.i.i, align 8
+  store ptr %6, ptr %arrayidx.i.i.i, align 8
+  %7 = load ptr, ptr %m_data.i.i, align 8
+  %arrayidx10.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom3.i.i.i
+  store ptr %5, ptr %arrayidx10.i.i.i, align 8
+  %8 = load i32, ptr %m_size.i.i.i, align 4
+  %dec.i.i.i = add nsw i32 %8, -1
   store i32 %dec.i.i.i, ptr %m_size.i.i.i, align 4
   br label %_ZN20btAlignedObjectArrayIP11btMultiBodyE6removeERKS1_.exit
 
@@ -5114,18 +5114,18 @@ _ZNK20btAlignedObjectArrayIP21btMultiBodyConstraintE16findLinearSearchERKS1_.exi
 if.then.i.i:                                      ; preds = %_ZNK20btAlignedObjectArrayIP21btMultiBodyConstraintE16findLinearSearchERKS1_.exit.i
   %sub.i.i = add nsw i32 %0, -1
   %sext.i = shl i64 %indvars.iv.i.i, 32
-  %idxprom.i.i.i = ashr exact i64 %sext.i, 32
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i.i.i
-  %4 = load ptr, ptr %arrayidx.i.i.i, align 8
+  %4 = ashr exact i64 %sext.i, 29
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 %4
+  %5 = load ptr, ptr %arrayidx.i.i.i, align 8
   %idxprom3.i.i.i = sext i32 %sub.i.i to i64
   %arrayidx4.i.i.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom3.i.i.i
-  %5 = load ptr, ptr %arrayidx4.i.i.i, align 8
-  store ptr %5, ptr %arrayidx.i.i.i, align 8
-  %6 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx10.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom3.i.i.i
-  store ptr %4, ptr %arrayidx10.i.i.i, align 8
-  %7 = load i32, ptr %m_size.i.i.i, align 4
-  %dec.i.i.i = add nsw i32 %7, -1
+  %6 = load ptr, ptr %arrayidx4.i.i.i, align 8
+  store ptr %6, ptr %arrayidx.i.i.i, align 8
+  %7 = load ptr, ptr %m_data.i.i, align 8
+  %arrayidx10.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom3.i.i.i
+  store ptr %5, ptr %arrayidx10.i.i.i, align 8
+  %8 = load i32, ptr %m_size.i.i.i, align 4
+  %dec.i.i.i = add nsw i32 %8, -1
   store i32 %dec.i.i.i, ptr %m_size.i.i.i, align 4
   br label %_ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE6removeERKS1_.exit
 

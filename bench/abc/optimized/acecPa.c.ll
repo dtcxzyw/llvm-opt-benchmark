@@ -37,8 +37,8 @@ define i32 @Pas_ManVerifyPhaseOne_rec(ptr noundef %0, ptr noundef %1) local_unna
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
   %sext.i = shl i64 %9, 32
-  %10 = ashr exact i64 %sext.i, 32
-  %11 = getelementptr inbounds i32, ptr %4, i64 %10
+  %10 = ashr exact i64 %sext.i, 30
+  %11 = getelementptr inbounds i8, ptr %4, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 176
   %14 = load i32, ptr %13, align 8
@@ -141,8 +141,8 @@ define void @Pas_ManVerifyPhaseOne(ptr noundef %0, ptr nocapture noundef readonl
   %42 = sub i64 %40, %41
   %43 = sdiv exact i64 %42, 12
   %sext.i = shl i64 %43, 32
-  %44 = ashr exact i64 %sext.i, 32
-  %45 = getelementptr inbounds i32, ptr %39, i64 %44
+  %44 = ashr exact i64 %sext.i, 30
+  %45 = getelementptr inbounds i8, ptr %39, i64 %44
   store i32 %38, ptr %45, align 4
   br label %46
 
@@ -254,8 +254,8 @@ define void @Pas_ManPhase_rec(ptr nocapture noundef readonly %0, ptr nocapture n
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 12
   %sext.i = shl i64 %14, 32
-  %15 = ashr exact i64 %sext.i, 32
-  %16 = getelementptr inbounds i32, ptr %9, i64 %15
+  %15 = ashr exact i64 %sext.i, 30
+  %16 = getelementptr inbounds i8, ptr %9, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 176
   %19 = load i32, ptr %18, align 8
@@ -303,8 +303,8 @@ Vec_BitWriteEntry.exit:                           ; preds = %22, %20
   %43 = getelementptr i8, ptr %2, i64 8
   %.val56 = load ptr, ptr %43, align 8
   %sext = shl i64 %42, 32
-  %44 = ashr exact i64 %sext, 32
-  %45 = getelementptr inbounds i32, ptr %.val56, i64 %44
+  %44 = ashr exact i64 %sext, 30
+  %45 = getelementptr inbounds i8, ptr %.val56, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, -1
   br i1 %47, label %Vec_BitWriteEntry.exit61, label %48

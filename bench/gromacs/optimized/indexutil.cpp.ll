@@ -3079,8 +3079,8 @@ define void @_Z26gmx_ana_index_intersectionP15gmx_ana_index_tS0_S0_(ptr nocaptur
 23:                                               ; preds = %18
   %24 = trunc nsw i64 %indvars.iv to i32
   %sext = shl i64 %indvars.iv, 32
-  %25 = ashr exact i64 %sext, 32
-  %26 = getelementptr inbounds i32, ptr %13, i64 %25
+  %25 = ashr exact i64 %sext, 30
+  %26 = getelementptr inbounds i8, ptr %13, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, %16
   br i1 %28, label %29, label %.critedge2

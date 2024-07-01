@@ -88,14 +88,14 @@ define hidden noalias ptr @tm_kPartitioning(ptr nocapture noundef readonly %0, i
   %34 = tail call i64 @tm_genrand_int32() #11
   %35 = urem i64 %34, %11
   %sext.i.i = shl i64 %35, 32
-  %36 = ashr exact i64 %sext.i.i, 32
-  %37 = getelementptr inbounds i32, ptr %23, i64 %36
+  %36 = ashr exact i64 %sext.i.i, 30
+  %37 = getelementptr inbounds i8, ptr %23, i64 %36
   %38 = load i32, ptr %37, align 4
   %.not74.i.i = icmp eq i32 %38, -1
   br i1 %.not74.i.i, label %39, label %.preheader.i.i, !llvm.loop !6
 
 39:                                               ; preds = %.preheader.i.i
-  %40 = getelementptr inbounds i32, ptr %23, i64 %36
+  %40 = getelementptr inbounds i8, ptr %23, i64 %36
   %41 = trunc nuw nsw i64 %indvars.iv101.i.i to i32
   store i32 %41, ptr %40, align 4
   %42 = add nsw i32 %33, 1

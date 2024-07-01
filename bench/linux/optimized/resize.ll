@@ -1511,8 +1511,8 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   call void @__rcu_read_lock() #12
   %498 = load volatile ptr, ptr %476, align 16
   %499 = shl nuw i64 %495, 32
-  %500 = ashr exact i64 %499, 32
-  %501 = getelementptr ptr, ptr %498, i64 %500
+  %500 = ashr exact i64 %499, 29
+  %501 = getelementptr i8, ptr %498, i64 %500
   %502 = load ptr, ptr %501, align 8
   call void @__rcu_read_unlock() #12
   %503 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_add_new_descs, i32 noundef 1280, ptr noundef %447, ptr noundef %0, ptr noundef %502, i32 noundef 1) #12
@@ -2163,8 +2163,8 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   call void @__rcu_read_lock() #12
   %901 = load volatile ptr, ptr %887, align 16
   %902 = shl nuw i64 %900, 32
-  %903 = ashr exact i64 %902, 32
-  %904 = getelementptr ptr, ptr %901, i64 %903
+  %903 = ashr exact i64 %902, 29
+  %904 = getelementptr i8, ptr %901, i64 %903
   %905 = load ptr, ptr %904, align 8
   call void @__rcu_read_unlock() #12
   %906 = getelementptr inbounds i8, ptr %905, i64 40

@@ -1998,8 +1998,8 @@ strip_leading_nops.exit.i:                        ; preds = %510
   %1025 = ptrtoint ptr %1023 to i64
   %1026 = ptrtoint ptr %1024 to i64
   %1027 = sub i64 %1025, %1026
-  %1028 = ashr exact i64 %1027, 5
-  %1029 = getelementptr inbounds i32, ptr %1020, i64 %1028
+  %1028 = ashr exact i64 %1027, 3
+  %1029 = getelementptr inbounds i8, ptr %1020, i64 %1028
   br label %get_const_switch_target.exit.i
 
 get_const_switch_target.exit.i:                   ; preds = %1019, %1011, %999, %992

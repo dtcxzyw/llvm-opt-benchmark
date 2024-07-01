@@ -2608,8 +2608,8 @@ Vec_IntFill.exit:                                 ; preds = %30, %Vec_IntAlloc.e
   %51 = sdiv exact i64 %50, 12
   %.val94 = load ptr, ptr %33, align 8
   %sext = shl i64 %51, 32
-  %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds i32, ptr %.val94, i64 %52
+  %52 = ashr exact i64 %sext, 30
+  %53 = getelementptr inbounds i8, ptr %.val94, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, 7
   br i1 %55, label %56, label %57
@@ -2642,8 +2642,8 @@ Vec_IntFill.exit:                                 ; preds = %30, %Vec_IntAlloc.e
   %71 = sdiv exact i64 %70, 12
   %72 = trunc i64 %71 to i32
   %sext137 = shl i64 %71, 32
-  %73 = ashr exact i64 %sext137, 32
-  %74 = getelementptr inbounds i32, ptr %.val94, i64 %73
+  %73 = ashr exact i64 %sext137, 30
+  %74 = getelementptr inbounds i8, ptr %.val94, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = shl i32 %54, 1
   %77 = or i32 %75, %76
@@ -2659,7 +2659,7 @@ Vec_IntFill.exit:                                 ; preds = %30, %Vec_IntAlloc.e
   br i1 %.not.i.i.i, label %Gia_ObjIsMux.exit.thread.i, label %Gia_ObjIsMux.exit.i
 
 Gia_ObjIsMux.exit.i:                              ; preds = %80
-  %81 = getelementptr inbounds i32, ptr %.val109, i64 %52
+  %81 = getelementptr inbounds i8, ptr %.val109, i64 %52
   %82 = load i32, ptr %81, align 4
   %.not2.i = icmp eq i32 %82, 0
   br i1 %.not2.i, label %Gia_ObjIsMux.exit.thread.i, label %Gia_ObjIsMux.exit.i.Gia_ObjFaninNum.exit.thread_crit_edge
@@ -2682,8 +2682,8 @@ Gia_ObjFaninNum.exit.thread:                      ; preds = %Gia_ObjIsMux.exit.i
   %88 = sdiv exact i64 %87, 12
   %89 = trunc i64 %88 to i32
   %sext138 = shl i64 %88, 32
-  %90 = ashr exact i64 %sext138, 32
-  %91 = getelementptr inbounds i32, ptr %.val94, i64 %90
+  %90 = ashr exact i64 %sext138, 30
+  %91 = getelementptr inbounds i8, ptr %.val94, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = or i32 %92, %54
   tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %6, i32 noundef %89, i32 noundef %93)
@@ -2697,8 +2697,8 @@ Gia_ObjIsMux.exit.i117:                           ; preds = %Gia_ObjFaninNum.exi
   %95 = sub i64 %48, %94
   %96 = sdiv exact i64 %95, 12
   %sext.i.i118 = shl i64 %96, 32
-  %97 = ashr exact i64 %sext.i.i118, 32
-  %98 = getelementptr inbounds i32, ptr %.val111, i64 %97
+  %97 = ashr exact i64 %sext.i.i118, 30
+  %98 = getelementptr inbounds i8, ptr %.val111, i64 %97
   %99 = load i32, ptr %98, align 4
   %.not2.i119 = icmp eq i32 %99, 0
   br i1 %.not2.i119, label %Gia_ObjIsMux.exit.thread.i121, label %Gia_ObjIsMux.exit.i117.Gia_ObjFaninNum.exit128.thread_crit_edge
@@ -2733,8 +2733,8 @@ Gia_ObjFaninNum.exit128.thread:                   ; preds = %Gia_ObjIsMux.exit.t
   %111 = trunc i64 %110 to i32
   %.val91 = load ptr, ptr %33, align 8
   %sext139 = shl i64 %110, 32
-  %112 = ashr exact i64 %sext139, 32
-  %113 = getelementptr inbounds i32, ptr %.val91, i64 %112
+  %112 = ashr exact i64 %sext139, 30
+  %113 = getelementptr inbounds i8, ptr %.val91, i64 %112
   %114 = load i32, ptr %113, align 4
   %115 = or i32 %114, %54
   tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %6, i32 noundef %111, i32 noundef %115)
@@ -2820,8 +2820,8 @@ define range(i32 0, 2) i32 @Bnd_CheckFlagRec(ptr nocapture noundef readonly %0, 
   %9 = getelementptr i8, ptr %2, i64 8
   %.val19 = load ptr, ptr %9, align 8
   %sext = shl i64 %8, 32
-  %10 = ashr exact i64 %sext, 32
-  %11 = getelementptr inbounds i32, ptr %.val19, i64 %10
+  %10 = ashr exact i64 %sext, 30
+  %11 = getelementptr inbounds i8, ptr %.val19, i64 %10
   %12 = load i32, ptr %11, align 4
   switch i32 %12, label %13 [
     i32 1, label %.loopexit
@@ -2846,8 +2846,8 @@ Gia_ObjIsMux.exit.i:                              ; preds = %16
   %18 = sub i64 %5, %17
   %19 = sdiv exact i64 %18, 12
   %sext.i.i = shl i64 %19, 32
-  %20 = ashr exact i64 %sext.i.i, 32
-  %21 = getelementptr inbounds i32, ptr %.val22, i64 %20
+  %20 = ashr exact i64 %sext.i.i, 30
+  %21 = getelementptr inbounds i8, ptr %.val22, i64 %20
   %22 = load i32, ptr %21, align 4
   %.not2.i = icmp eq i32 %22, 0
   br i1 %.not2.i, label %Gia_ObjIsMux.exit.thread.i, label %Gia_ObjFaninNum.exit
@@ -3603,8 +3603,8 @@ thread-pre-split:                                 ; preds = %Vec_PtrPush.exit357
   %264 = sub i64 %250, %263
   %265 = sdiv exact i64 %264, 12
   %sext.i463 = shl i64 %265, 32
-  %266 = ashr exact i64 %sext.i463, 32
-  %267 = getelementptr inbounds i32, ptr %.val309.val462, i64 %266
+  %266 = ashr exact i64 %sext.i463, 30
+  %267 = getelementptr inbounds i8, ptr %.val309.val462, i64 %266
   %268 = load i32, ptr %267, align 4
   %269 = icmp sgt i32 %268, 0
   br i1 %269, label %.lr.ph466, label %thread-pre-split, !llvm.loop !29
@@ -3742,7 +3742,7 @@ Vec_IntPush.exit349:                              ; preds = %.Vec_IntGrow.exit10
   %.val313 = load ptr, ptr %242, align 8
   %327 = getelementptr i8, ptr %.val313, i64 8
   %.val313.val = load ptr, ptr %327, align 8
-  %328 = getelementptr inbounds i32, ptr %.val313.val, i64 %326
+  %328 = getelementptr inbounds i8, ptr %.val313.val, i64 %326
   %329 = load i32, ptr %328, align 4
   %330 = add nsw i32 %329, %.0223464
   %331 = sext i32 %330 to i64
@@ -3820,8 +3820,8 @@ Vec_PtrPush.exit357:                              ; preds = %.Vec_PtrGrow.exit11
   %366 = sub i64 %250, %365
   %367 = sdiv exact i64 %366, 12
   %sext.i = shl i64 %367, 32
-  %368 = ashr exact i64 %sext.i, 32
-  %369 = getelementptr inbounds i32, ptr %.val309.val, i64 %368
+  %368 = ashr exact i64 %sext.i, 30
+  %369 = getelementptr inbounds i8, ptr %.val309.val, i64 %368
   %370 = load i32, ptr %369, align 4
   %371 = icmp slt i32 %363, %370
   br i1 %371, label %.lr.ph466, label %thread-pre-split, !llvm.loop !30
@@ -3990,8 +3990,8 @@ Vec_PtrPush.exit364:                              ; preds = %.Vec_PtrGrow.exit11
   %444 = sdiv exact i64 %443, 12
   %.val286 = load ptr, ptr %63, align 8
   %sext439 = shl i64 %444, 32
-  %445 = ashr exact i64 %sext439, 32
-  %446 = getelementptr inbounds i32, ptr %.val286, i64 %445
+  %445 = ashr exact i64 %sext439, 30
+  %446 = getelementptr inbounds i8, ptr %.val286, i64 %445
   %447 = load i32, ptr %446, align 4
   %448 = icmp eq i32 %447, 1
   br i1 %448, label %.critedge6.backedge, label %450
@@ -4017,8 +4017,8 @@ Vec_PtrPush.exit364:                              ; preds = %.Vec_PtrGrow.exit11
   %454 = sub i64 %441, %453
   %455 = sdiv exact i64 %454, 12
   %sext.i365479 = shl i64 %455, 32
-  %456 = ashr exact i64 %sext.i365479, 32
-  %457 = getelementptr inbounds i32, ptr %.val311.val478, i64 %456
+  %456 = ashr exact i64 %sext.i365479, 30
+  %457 = getelementptr inbounds i8, ptr %.val311.val478, i64 %456
   %458 = load i32, ptr %457, align 4
   %459 = icmp sgt i32 %458, 0
   br i1 %459, label %.lr.ph483, label %.critedge6.backedge, !llvm.loop !33
@@ -4030,7 +4030,7 @@ Vec_PtrPush.exit364:                              ; preds = %.Vec_PtrGrow.exit11
   %.val315 = load ptr, ptr %425, align 8
   %461 = getelementptr i8, ptr %.val315, i64 8
   %.val315.val = load ptr, ptr %461, align 8
-  %462 = getelementptr inbounds i32, ptr %.val315.val, i64 %460
+  %462 = getelementptr inbounds i8, ptr %.val315.val, i64 %460
   %463 = load i32, ptr %462, align 4
   %464 = add nsw i32 %463, %.1224480
   %465 = sext i32 %464 to i64
@@ -4108,8 +4108,8 @@ Vec_PtrPush.exit373:                              ; preds = %.Vec_PtrGrow.exit11
   %500 = sub i64 %441, %499
   %501 = sdiv exact i64 %500, 12
   %sext.i365 = shl i64 %501, 32
-  %502 = ashr exact i64 %sext.i365, 32
-  %503 = getelementptr inbounds i32, ptr %.val311.val, i64 %502
+  %502 = ashr exact i64 %sext.i365, 30
+  %503 = getelementptr inbounds i8, ptr %.val311.val, i64 %502
   %504 = load i32, ptr %503, align 4
   %505 = icmp slt i32 %497, %504
   br i1 %505, label %.lr.ph483, label %.critedge6.backedge.loopexit, !llvm.loop !34
@@ -4573,8 +4573,8 @@ Gia_ObjIsMux.exit.i:                              ; preds = %704
   %706 = sub i64 %634, %705
   %707 = sdiv exact i64 %706, 12
   %sext.i.i = shl i64 %707, 32
-  %708 = ashr exact i64 %sext.i.i, 32
-  %709 = getelementptr inbounds i32, ptr %.val307, i64 %708
+  %708 = ashr exact i64 %sext.i.i, 30
+  %709 = getelementptr inbounds i8, ptr %.val307, i64 %708
   %710 = load i32, ptr %709, align 4
   %.not2.i = icmp eq i32 %710, 0
   br i1 %.not2.i, label %Gia_ObjIsMux.exit.thread.i, label %Gia_ObjFaninNum.exit
@@ -6005,8 +6005,8 @@ Gia_ObjIsMux.exit.i:                              ; preds = %10
   %12 = sub i64 %9, %11
   %13 = sdiv exact i64 %12, 12
   %sext.i.i = shl i64 %13, 32
-  %14 = ashr exact i64 %sext.i.i, 32
-  %15 = getelementptr inbounds i32, ptr %.val30, i64 %14
+  %14 = ashr exact i64 %sext.i.i, 30
+  %15 = getelementptr inbounds i8, ptr %.val30, i64 %14
   %16 = load i32, ptr %15, align 4
   %.not2.i = icmp eq i32 %16, 0
   br i1 %.not2.i, label %Gia_ObjIsMux.exit.thread.i, label %Gia_ObjFaninNum.exit

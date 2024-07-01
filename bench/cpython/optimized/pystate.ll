@@ -5305,8 +5305,8 @@ if.end7.i:                                        ; preds = %if.then4.i, %if.end
   %idxprom.i = zext i1 %cmp10.i to i64
   %arrayidx11.i = getelementptr [1 x ptr], ptr %data9.i, i64 0, i64 %idxprom.i
   %sext12 = shl i64 %size, 32
-  %idx.ext12.i = ashr exact i64 %sext12, 32
-  %add.ptr13.i = getelementptr ptr, ptr %arrayidx11.i, i64 %idx.ext12.i
+  %6 = ashr exact i64 %sext12, 29
+  %add.ptr13.i = getelementptr i8, ptr %arrayidx11.i, i64 %6
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then, %if.end7.i

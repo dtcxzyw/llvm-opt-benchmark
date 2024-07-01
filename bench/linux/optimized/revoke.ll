@@ -511,8 +511,8 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_revoke(ptr noundef 
   %73 = zext nneg i32 %72 to i64
   %74 = lshr i64 %71, %73
   %75 = shl i64 %74, 32
-  %76 = ashr exact i64 %75, 32
-  %77 = getelementptr %struct.list_head, ptr %68, i64 %76
+  %76 = ashr exact i64 %75, 28
+  %77 = getelementptr i8, ptr %68, i64 %76
   %78 = getelementptr inbounds i8, ptr %6, i64 1152
   tail call void @_raw_spin_lock(ptr noundef %78) #8
   %79 = load ptr, ptr %77, align 8
@@ -579,8 +579,8 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_cancel_revoke(ptr noc
   %25 = zext nneg i32 %24 to i64
   %26 = lshr i64 %23, %25
   %27 = shl i64 %26, 32
-  %28 = ashr exact i64 %27, 32
-  %29 = getelementptr %struct.list_head, ptr %20, i64 %28
+  %28 = ashr exact i64 %27, 28
+  %29 = getelementptr i8, ptr %20, i64 %28
   %30 = getelementptr inbounds i8, ptr %4, i64 1152
   tail call void @_raw_spin_lock(ptr noundef %30) #8
   br label %31
@@ -1062,8 +1062,8 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_set_revoke(ptr noun
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %10, %12
   %14 = shl i64 %13, 32
-  %15 = ashr exact i64 %14, 32
-  %16 = getelementptr %struct.list_head, ptr %7, i64 %15
+  %15 = ashr exact i64 %14, 28
+  %16 = getelementptr i8, ptr %7, i64 %15
   %17 = getelementptr inbounds i8, ptr %0, i64 1152
   tail call void @_raw_spin_lock(ptr noundef %17) #8
   br label %18
@@ -1120,8 +1120,8 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_set_revoke(ptr noun
   %47 = zext nneg i32 %46 to i64
   %48 = lshr i64 %10, %47
   %49 = shl i64 %48, 32
-  %50 = ashr exact i64 %49, 32
-  %51 = getelementptr %struct.list_head, ptr %43, i64 %50
+  %50 = ashr exact i64 %49, 28
+  %51 = getelementptr i8, ptr %43, i64 %50
   tail call void @_raw_spin_lock(ptr noundef %17) #8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 8
@@ -1151,8 +1151,8 @@ define dso_local range(i32 0, 2) i32 @jbd2_journal_test_revoke(ptr noundef %0, i
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %10, %12
   %14 = shl i64 %13, 32
-  %15 = ashr exact i64 %14, 32
-  %16 = getelementptr %struct.list_head, ptr %7, i64 %15
+  %15 = ashr exact i64 %14, 28
+  %16 = getelementptr i8, ptr %7, i64 %15
   %17 = getelementptr inbounds i8, ptr %0, i64 1152
   tail call void @_raw_spin_lock(ptr noundef %17) #8
   br label %18

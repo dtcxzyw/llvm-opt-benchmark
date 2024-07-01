@@ -480,8 +480,8 @@ define internal fastcc void @gistunionsubkey(ptr noundef %0, ptr nocapture nound
   %16 = load ptr, ptr %gep.i.us, align 8
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %sext = shl i64 %indvars.iv.i.us, 32
-  %17 = ashr exact i64 %sext, 32
-  %18 = getelementptr ptr, ptr %13, i64 %17
+  %17 = ashr exact i64 %sext, 29
+  %18 = getelementptr i8, ptr %13, i64 %17
   store ptr %16, ptr %18, align 8
   %exitcond44.not = icmp eq i64 %indvars.iv.next.i.us, %15
   br i1 %exitcond44.not, label %gistunionsubkeyvec.exit, label %.lr.ph.i.us, !llvm.loop !12
@@ -540,8 +540,8 @@ gistunionsubkeyvec.exit:                          ; preds = %26, %.lr.ph.i.us, %
   %36 = load ptr, ptr %gep.i24.us, align 8
   %indvars.iv.next.i27.us = add nuw nsw i64 %indvars.iv.i16.us, 1
   %sext48 = shl i64 %indvars.iv.i16.us, 32
-  %37 = ashr exact i64 %sext48, 32
-  %38 = getelementptr ptr, ptr %33, i64 %37
+  %37 = ashr exact i64 %sext48, 29
+  %38 = getelementptr i8, ptr %33, i64 %37
   store ptr %36, ptr %38, align 8
   %exitcond47.not = icmp eq i64 %indvars.iv.next.i27.us, %35
   br i1 %exitcond47.not, label %gistunionsubkeyvec.exit28, label %.lr.ph.i15.us, !llvm.loop !12

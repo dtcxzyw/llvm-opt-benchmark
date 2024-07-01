@@ -2933,8 +2933,8 @@ list_length.exit.i:                               ; preds = %286, %.split.i
   %296 = getelementptr i8, ptr %285, i64 16
   %.val177.i = load ptr, ptr %296, align 8
   %sext.i = shl i64 %indvars.iv.i, 32
-  %297 = ashr exact i64 %sext.i, 32
-  %298 = getelementptr %union.ListCell, ptr %.val177.i, i64 %297
+  %297 = ashr exact i64 %sext.i, 29
+  %298 = getelementptr i8, ptr %.val177.i, i64 %297
   %299 = load i32, ptr %298, align 8
   %300 = icmp slt i32 %299, 1
   br i1 %300, label %301, label %306

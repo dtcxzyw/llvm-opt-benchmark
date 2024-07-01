@@ -918,8 +918,8 @@ define dso_local i64 @mpihelp_divmod_1(ptr nocapture noundef writeonly %0, ptr n
   %74 = or i64 %70, %73
   %75 = shl i64 %27, 32
   %76 = add i64 %75, 4294967296
-  %77 = ashr exact i64 %76, 32
-  %78 = getelementptr i64, ptr %0, i64 %77
+  %77 = ashr exact i64 %76, 29
+  %78 = getelementptr i8, ptr %0, i64 %77
   store i64 %74, ptr %78, align 8
   %79 = add nsw i64 %27, -1
   %80 = icmp sgt i64 %27, 0

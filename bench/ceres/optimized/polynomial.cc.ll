@@ -1301,8 +1301,8 @@ _ZN5Eigen9DenseBaseINS_8DiagonalINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1677721
   %331 = phi i64 [ %.pre35.i, %_ZN5Eigen9DenseBaseINS_8DiagonalINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi16777215EEEE7setOnesEv.exit.loopexit.i ], [ %322, %_ZNK5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_8DiagonalINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi16777215EEEEENS2_INS_14CwiseNullaryOpINS0_18scalar_constant_opIdEENS4_IdLin1ELi1ELi0ELin1ELi1EEEEEEENS0_9assign_opIddEELi0EE4sizeEv.exit.i.i.i.i.i.i.i.i.i.i.i ]
   %332 = phi ptr [ %.pre34.i, %_ZN5Eigen9DenseBaseINS_8DiagonalINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi16777215EEEE7setOnesEv.exit.loopexit.i ], [ %321, %_ZNK5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_8DiagonalINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi16777215EEEEENS2_INS_14CwiseNullaryOpINS0_18scalar_constant_opIdEENS4_IdLin1ELi1ELi0ELin1ELi1EEEEEEENS0_9assign_opIddEELi0EE4sizeEv.exit.i.i.i.i.i.i.i.i.i.i.i ]
   %sext.i = add i64 %300, -8589934592
-  %333 = ashr exact i64 %sext.i, 32
-  %334 = getelementptr inbounds double, ptr %332, i64 %333
+  %333 = ashr exact i64 %sext.i, 29
+  %334 = getelementptr inbounds i8, ptr %332, i64 %333
   %335 = icmp sgt i64 %331, 0
   br i1 %335, label %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i15.i, label %_ZN5ceres8internal12_GLOBAL__N_120BuildCompanionMatrixERKN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEEPNS3_IdLin1ELin1ELi1ELin1ELin1EEE.exit
 

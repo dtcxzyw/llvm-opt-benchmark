@@ -6107,8 +6107,8 @@ define noundef zeroext i1 @zend_inference_propagate_range(ptr noundef %0, ptr no
   %2420 = ptrtoint ptr %2 to i64
   %2421 = ptrtoint ptr %2419 to i64
   %2422 = sub i64 %2420, %2421
-  %2423 = ashr exact i64 %2422, 5
-  %2424 = getelementptr inbounds ptr, ptr %2416, i64 %2423
+  %2423 = ashr exact i64 %2422, 2
+  %2424 = getelementptr inbounds i8, ptr %2416, i64 %2423
   %2425 = load ptr, ptr %2424, align 8
   %.not1850 = icmp eq ptr %2425, null
   br i1 %.not1850, label %.critedge2098, label %2426
@@ -24650,8 +24650,8 @@ zend_fetch_prop_type.exit10185:                   ; preds = %6402, %6403
   %6667 = ptrtoint ptr %.07418 to i64
   %6668 = ptrtoint ptr %6666 to i64
   %6669 = sub i64 %6667, %6668
-  %6670 = ashr exact i64 %6669, 5
-  %6671 = getelementptr inbounds ptr, ptr %6663, i64 %6670
+  %6670 = ashr exact i64 %6669, 2
+  %6671 = getelementptr inbounds i8, ptr %6663, i64 %6670
   %6672 = load ptr, ptr %6671, align 8
   %.not8507 = icmp eq ptr %6672, null
   br i1 %.not8507, label %7538, label %6673
@@ -47982,8 +47982,8 @@ result_may_be_separated.exit.thread:              ; preds = %6457, %6449
   %6696 = ptrtoint ptr %.07654 to i64
   %6697 = ptrtoint ptr %6695 to i64
   %6698 = sub i64 %6696, %6697
-  %6699 = ashr exact i64 %6698, 5
-  %6700 = getelementptr inbounds ptr, ptr %6693, i64 %6699
+  %6699 = ashr exact i64 %6698, 2
+  %6700 = getelementptr inbounds i8, ptr %6693, i64 %6699
   %6701 = load ptr, ptr %6700, align 8
   %.not8760 = icmp eq ptr %6701, null
   br i1 %.not8760, label %7512, label %6702

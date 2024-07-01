@@ -279,8 +279,8 @@ mca_han_algorithm_count.exit.i:                   ; preds = %.preheader.i.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %30 = ashr exact i64 %20, 32
-  %31 = getelementptr %struct.mca_base_var_enum_value_t, ptr %22, i64 %30
+  %30 = ashr exact i64 %20, 28
+  %31 = getelementptr i8, ptr %22, i64 %30
   %32 = getelementptr i8, ptr %31, i64 16
   store i32 0, ptr %32, align 8
   %.sroa.21.0..sroa_idx.i = getelementptr i8, ptr %31, i64 24

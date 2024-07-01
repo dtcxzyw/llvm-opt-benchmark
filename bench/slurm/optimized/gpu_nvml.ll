@@ -825,8 +825,8 @@ _get_index_from_str_arr.exit.i.i:                 ; preds = %.lr.ph.i.i.i
 
 233:                                              ; preds = %_get_index_from_str_arr.exit.i.i
   %sext.i.i = shl i64 %indvars.iv.i.i.i, 32
-  %234 = ashr exact i64 %sext.i.i, 32
-  %235 = getelementptr inbounds i32, ptr %195, i64 %234
+  %234 = ashr exact i64 %sext.i.i, 30
+  %235 = getelementptr inbounds i8, ptr %195, i64 %234
   %236 = load i32, ptr %235, align 4
   %237 = add nsw i32 %236, 1
   store i32 %237, ptr %235, align 4

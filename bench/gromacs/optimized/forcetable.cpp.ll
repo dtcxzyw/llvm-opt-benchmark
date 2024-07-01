@@ -3154,8 +3154,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %34, %37
 79:                                               ; preds = %75
   %80 = shl i64 %58, 32
   %sext = add i64 %80, -4294967296
-  %81 = ashr exact i64 %sext, 32
-  %82 = getelementptr inbounds double, ptr %.sroa.32319.0.copyload, i64 %81
+  %81 = ashr exact i64 %sext, 29
+  %82 = getelementptr inbounds i8, ptr %.sroa.32319.0.copyload, i64 %81
   %83 = load double, ptr %82, align 8
   %84 = fcmp une double %83, 1.800000e+02
   br i1 %84, label %.critedge, label %99
@@ -3172,8 +3172,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %34, %37
   %87 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #22
   %88 = load double, ptr %.sroa.32319.0.copyload, align 8
   %sext488 = shl i64 %58, 32
-  %89 = ashr exact i64 %sext488, 32
-  %90 = getelementptr double, ptr %.sroa.32319.0.copyload, i64 %89
+  %89 = ashr exact i64 %sext488, 29
+  %90 = getelementptr i8, ptr %.sroa.32319.0.copyload, i64 %89
   %91 = getelementptr i8, ptr %90, i64 -8
   %92 = load double, ptr %91, align 8
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %23, i32 noundef 611, ptr noundef nonnull @.str.23, ptr noundef %87, double noundef %., double noundef 1.800000e+02, double noundef %88, double noundef %92) #23

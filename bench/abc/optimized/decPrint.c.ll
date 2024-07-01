@@ -160,8 +160,8 @@ define internal fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef %1, 
   %.not.i = icmp eq i32 %3, 0
   %26 = select i1 %.not.i, ptr @.str.10, ptr @.str.9
   %sext = shl i64 %23, 32
-  %27 = ashr exact i64 %sext, 32
-  %28 = getelementptr inbounds ptr, ptr %4, i64 %27
+  %27 = ashr exact i64 %sext, 29
+  %28 = getelementptr inbounds i8, ptr %4, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Dec_GraphPrintGetLeafName.Buffer, ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %26, ptr noundef %29) #7
   %fputs.i = tail call i32 @fputs(ptr nonnull @Dec_GraphPrintGetLeafName.Buffer, ptr %0)
@@ -298,8 +298,8 @@ define void @Dec_GraphPrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.not.i = icmp eq i32 %3, 0
   %27 = select i1 %.not.i, ptr @.str.10, ptr @.str.9
   %sext = shl i64 %24, 32
-  %28 = ashr exact i64 %sext, 32
-  %29 = getelementptr inbounds ptr, ptr %4, i64 %28
+  %28 = ashr exact i64 %sext, 29
+  %29 = getelementptr inbounds i8, ptr %4, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Dec_GraphPrintGetLeafName.Buffer, ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %27, ptr noundef %30) #7
   %fputs.i = tail call i32 @fputs(ptr nonnull @Dec_GraphPrintGetLeafName.Buffer, ptr %0)

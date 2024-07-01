@@ -555,15 +555,15 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %233 = fptrunc double %232 to float
   %234 = shl i64 %indvars.iv314, 32
   %sext324 = add i64 %234, 8589934592
-  %235 = ashr exact i64 %sext324, 32
-  %236 = getelementptr float, ptr %207, i64 %235
+  %235 = ashr exact i64 %sext324, 30
+  %236 = getelementptr i8, ptr %207, i64 %235
   store float %233, ptr %236, align 4
   %237 = fdiv double %.0218.lcssa, %210
   %238 = fptrunc double %237 to float
   %239 = shl i64 %indvars.iv314, 32
   %sext325 = add i64 %239, 12884901888
-  %240 = ashr exact i64 %sext325, 32
-  %241 = getelementptr float, ptr %207, i64 %240
+  %240 = ashr exact i64 %sext325, 30
+  %241 = getelementptr i8, ptr %207, i64 %240
   store float %238, ptr %241, align 4
   store ptr %201, ptr @CurrentMemoryContext, align 8
   %242 = and i64 %indvars.iv310, 4294967295

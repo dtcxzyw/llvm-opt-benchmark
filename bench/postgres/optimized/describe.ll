@@ -6739,8 +6739,8 @@ define dso_local noundef zeroext i1 @listSchemas(ptr noundef %0, i1 noundef zero
 39:                                               ; preds = %33
   %40 = shl i64 %indvars.iv, 32
   %sext = add i64 %40, 8589934592
-  %41 = ashr exact i64 %sext, 32
-  %42 = getelementptr ptr, ptr %31, i64 %41
+  %41 = ashr exact i64 %sext, 29
+  %42 = getelementptr i8, ptr %31, i64 %41
   store ptr null, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %5, i64 136
   store ptr %31, ptr %43, align 8

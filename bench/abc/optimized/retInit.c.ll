@@ -880,8 +880,8 @@ define void @Abc_NtkRetimeInsertLatchValues(ptr nocapture noundef readonly %0, p
   %52 = ptrtoint ptr %51 to i64
   %.val30 = load ptr, ptr %8, align 8
   %sext = shl i64 %52, 32
-  %53 = ashr exact i64 %sext, 32
-  %54 = getelementptr inbounds i32, ptr %.val30, i64 %53
+  %53 = ashr exact i64 %sext, 30
+  %54 = getelementptr inbounds i8, ptr %.val30, i64 %53
   %55 = load i32, ptr %54, align 4
   %.not27 = icmp eq i32 %55, 0
   %56 = select i1 %.not27, ptr inttoptr (i64 1 to ptr), ptr inttoptr (i64 2 to ptr)

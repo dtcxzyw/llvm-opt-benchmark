@@ -467,8 +467,8 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr nocapture noundef %1) 
 23:                                               ; preds = %.lr.ph, %17, %21
   %.sink = phi i32 [ %22, %21 ], [ 0, %17 ], [ 0, %.lr.ph ]
   %sext = shl i64 %indvars.iv, 33
-  %24 = ashr exact i64 %sext, 32
-  %25 = getelementptr i32, ptr %5, i64 %24
+  %24 = ashr exact i64 %sext, 30
+  %25 = getelementptr i8, ptr %5, i64 %24
   store i32 %.sink, ptr %25, align 4
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %26 = shl i32 %indvars.iv.tr, 1

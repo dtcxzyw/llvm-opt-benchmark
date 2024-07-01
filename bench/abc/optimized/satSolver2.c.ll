@@ -1226,8 +1226,8 @@ define internal fastcc i32 @proof_chain_stop(ptr nocapture noundef %0) unnamed_a
   %76 = load ptr, ptr %75, align 8
   %.val41.i = load i64, ptr %76, align 8
   %sext42.i = shl i64 %.val41.i, 32
-  %77 = ashr exact i64 %sext42.i, 32
-  %78 = getelementptr inbounds i64, ptr %76, i64 %77
+  %77 = ashr exact i64 %sext42.i, 29
+  %78 = getelementptr inbounds i8, ptr %76, i64 %77
   %79 = sext i32 %.val21 to i64
   %80 = shl nsw i64 %79, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %78, ptr nonnull readonly align 4 %.val, i64 %80, i1 false)

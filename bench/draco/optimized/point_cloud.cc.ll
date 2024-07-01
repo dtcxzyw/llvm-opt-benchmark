@@ -354,8 +354,8 @@ _ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj.exit: ; preds = %.lr.ph.i
 
 20:                                               ; preds = %_ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj.exit
   %sext = shl i64 %.08.i, 32
-  %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %"class.std::unique_ptr.7", ptr %6, i64 %21
+  %21 = ashr exact i64 %sext, 29
+  %22 = getelementptr inbounds i8, ptr %6, i64 %21
   %23 = load ptr, ptr %22, align 8
   br label %_ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj.exit.thread
 

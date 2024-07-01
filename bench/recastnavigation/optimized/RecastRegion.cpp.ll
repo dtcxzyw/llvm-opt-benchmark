@@ -308,7 +308,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
   br i1 %exitcond322.not.i, label %._crit_edge278.us.i, label %118, !llvm.loop !10
 
 123:                                              ; preds = %.lr.ph275.us.i, %212
-  %indvars.iv315.i = phi i64 [ %220, %.lr.ph275.us.i ], [ %indvars.iv.next316.i, %212 ]
+  %indvars.iv315.i = phi i64 [ %219, %.lr.ph275.us.i ], [ %indvars.iv.next316.i, %212 ]
   %124 = load ptr, ptr %56, align 8
   %125 = getelementptr inbounds %struct.rcCompactSpan, ptr %124, i64 %indvars.iv315.i, i32 2
   %126 = load i32, ptr %125, align 4
@@ -411,7 +411,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
 
 197:                                              ; preds = %191
   %198 = load ptr, ptr %55, align 8
-  %199 = getelementptr inbounds %struct.rcCompactCell, ptr %198, i64 %219
+  %199 = getelementptr inbounds i8, ptr %198, i64 %221
   %200 = load i32, ptr %199, align 4
   %201 = and i32 %200, 16777215
   %202 = add nuw nsw i32 %201, %196
@@ -431,7 +431,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
 
 212:                                              ; preds = %210, %197, %191, %168
   %indvars.iv.next316.i = add nuw nsw i64 %indvars.iv315.i, 1
-  %213 = icmp ult i64 %indvars.iv.next316.i, %221
+  %213 = icmp ult i64 %indvars.iv.next316.i, %220
   br i1 %213, label %123, label %._crit_edge.us280.i, !llvm.loop !11
 
 .lr.ph275.us.i:                                   ; preds = %118
@@ -441,9 +441,9 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
   %217 = add nsw i64 %indvars.iv318.i, -1
   %218 = add nsw i64 %117, %indvars.iv318.i
   %sext.i = shl i64 %218, 32
-  %219 = ashr exact i64 %sext.i, 32
-  %220 = zext nneg i32 %214 to i64
-  %221 = zext nneg i32 %216 to i64
+  %219 = zext nneg i32 %214 to i64
+  %220 = zext nneg i32 %216 to i64
+  %221 = ashr exact i64 %sext.i, 30
   br label %123
 
 ._crit_edge278.us.i:                              ; preds = %._crit_edge.us280.i
@@ -470,7 +470,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
   br i1 %.not295.i, label %.loopexit.us.i, label %.lr.ph282.us.i
 
 230:                                              ; preds = %.lr.ph282.us.i, %319
-  %indvars.iv328.i = phi i64 [ %327, %.lr.ph282.us.i ], [ %indvars.iv.next329.i, %319 ]
+  %indvars.iv328.i = phi i64 [ %326, %.lr.ph282.us.i ], [ %indvars.iv.next329.i, %319 ]
   %231 = load ptr, ptr %56, align 8
   %232 = getelementptr inbounds %struct.rcCompactSpan, ptr %231, i64 %indvars.iv328.i, i32 2
   %233 = load i32, ptr %232, align 4
@@ -573,7 +573,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
 
 304:                                              ; preds = %299
   %305 = load ptr, ptr %55, align 8
-  %306 = getelementptr inbounds %struct.rcCompactCell, ptr %305, i64 %326
+  %306 = getelementptr inbounds i8, ptr %305, i64 %328
   %307 = load i32, ptr %306, align 4
   %308 = and i32 %307, 16777215
   %309 = add nuw nsw i32 %308, %303
@@ -593,7 +593,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
 
 319:                                              ; preds = %317, %304, %299, %276
   %indvars.iv.next329.i = add nuw nsw i64 %indvars.iv328.i, 1
-  %320 = icmp ult i64 %indvars.iv.next329.i, %328
+  %320 = icmp ult i64 %indvars.iv.next329.i, %327
   br i1 %320, label %230, label %.loopexit.us.i, !llvm.loop !13
 
 .loopexit.us.i:                                   ; preds = %319, %225
@@ -606,9 +606,9 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
   %324 = add nuw nsw i32 %322, %323
   %325 = add i64 %224, %indvars.iv331.i
   %sext344.i = shl i64 %325, 32
-  %326 = ashr exact i64 %sext344.i, 32
-  %327 = zext nneg i32 %322 to i64
-  %328 = zext nneg i32 %324 to i64
+  %326 = zext nneg i32 %322 to i64
+  %327 = zext nneg i32 %324 to i64
+  %328 = ashr exact i64 %sext344.i, 30
   br label %230
 
 ..loopexit259_crit_edge.us.i:                     ; preds = %.loopexit.us.i
@@ -1424,14 +1424,14 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %161, %.sink.split.i
   %203 = add nuw nsw i32 %201, %202
   %204 = add i64 %192, %indvars.iv399
   %sext = shl i64 %204, 32
-  %205 = ashr exact i64 %sext, 32
-  %206 = and i32 %200, 16777215
-  %207 = zext nneg i32 %206 to i64
-  %208 = zext nneg i32 %203 to i64
+  %205 = and i32 %200, 16777215
+  %206 = zext nneg i32 %205 to i64
+  %207 = zext nneg i32 %203 to i64
+  %208 = ashr exact i64 %sext, 30
   br label %209
 
 209:                                              ; preds = %.lr.ph, %282
-  %indvars.iv = phi i64 [ %207, %.lr.ph ], [ %indvars.iv.next, %282 ]
+  %indvars.iv = phi i64 [ %206, %.lr.ph ], [ %indvars.iv.next, %282 ]
   %.1186370 = phi i16 [ %.0185372, %.lr.ph ], [ %.3188, %282 ]
   %210 = load ptr, ptr %152, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 %indvars.iv
@@ -1469,7 +1469,7 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %161, %.sink.split.i
 
 219:                                              ; preds = %214
   %220 = load ptr, ptr %151, align 8
-  %221 = getelementptr inbounds %struct.rcCompactCell, ptr %220, i64 %205
+  %221 = getelementptr inbounds i8, ptr %220, i64 %208
   %222 = load i32, ptr %221, align 4
   %223 = and i32 %222, 16777215
   %224 = add nuw nsw i32 %223, %218
@@ -1580,7 +1580,7 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %161, %.sink.split.i
 282:                                              ; preds = %209, %280
   %.3188 = phi i16 [ %.1186370, %209 ], [ %.2187, %280 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %283 = icmp ult i64 %indvars.iv.next, %208
+  %283 = icmp ult i64 %indvars.iv.next, %207
   br i1 %283, label %209, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %282, %196
@@ -7902,14 +7902,14 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %165, %.sink.split.i
   %207 = add nuw nsw i32 %205, %206
   %208 = add i64 %196, %indvars.iv414
   %sext = shl i64 %208, 32
-  %209 = ashr exact i64 %sext, 32
-  %210 = and i32 %204, 16777215
-  %211 = zext nneg i32 %210 to i64
-  %212 = zext nneg i32 %207 to i64
+  %209 = and i32 %204, 16777215
+  %210 = zext nneg i32 %209 to i64
+  %211 = zext nneg i32 %207 to i64
+  %212 = ashr exact i64 %sext, 30
   br label %213
 
 213:                                              ; preds = %.lr.ph, %286
-  %indvars.iv = phi i64 [ %211, %.lr.ph ], [ %indvars.iv.next, %286 ]
+  %indvars.iv = phi i64 [ %210, %.lr.ph ], [ %indvars.iv.next, %286 ]
   %.1184379 = phi i16 [ %.0183381, %.lr.ph ], [ %.3186, %286 ]
   %214 = load ptr, ptr %156, align 8
   %215 = getelementptr inbounds i8, ptr %214, i64 %indvars.iv
@@ -7947,7 +7947,7 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %165, %.sink.split.i
 
 223:                                              ; preds = %218
   %224 = load ptr, ptr %155, align 8
-  %225 = getelementptr inbounds %struct.rcCompactCell, ptr %224, i64 %209
+  %225 = getelementptr inbounds i8, ptr %224, i64 %212
   %226 = load i32, ptr %225, align 4
   %227 = and i32 %226, 16777215
   %228 = add nuw nsw i32 %227, %222
@@ -8058,7 +8058,7 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %165, %.sink.split.i
 286:                                              ; preds = %213, %284
   %.3186 = phi i16 [ %.1184379, %213 ], [ %.2185, %284 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %287 = icmp ult i64 %indvars.iv.next, %212
+  %287 = icmp ult i64 %indvars.iv.next, %211
   br i1 %287, label %213, label %._crit_edge, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %286, %200

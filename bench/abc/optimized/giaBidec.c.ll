@@ -30,8 +30,8 @@ define ptr @Gia_ManConvertAigToTruth_rec(ptr noundef %0, ptr noundef %1, ptr nou
   %15 = getelementptr i8, ptr %7, i64 8
   %.val.i = load ptr, ptr %15, align 8
   %sext = shl i64 %12, 32
-  %16 = ashr exact i64 %sext, 32
-  %17 = getelementptr inbounds i32, ptr %.val.i, i64 %16
+  %16 = ashr exact i64 %sext, 30
+  %17 = getelementptr inbounds i8, ptr %.val.i, i64 %16
   %18 = load i32, ptr %17, align 4
   %.not = icmp eq i32 %18, -1
   br i1 %.not, label %34, label %19
@@ -48,8 +48,8 @@ define ptr @Gia_ManConvertAigToTruth_rec(ptr noundef %0, ptr noundef %1, ptr nou
   %26 = getelementptr i8, ptr %20, i64 8
   %.val.i88 = load ptr, ptr %26, align 8
   %sext91 = shl i64 %23, 32
-  %27 = ashr exact i64 %sext91, 32
-  %28 = getelementptr inbounds i32, ptr %.val.i88, i64 %27
+  %27 = ashr exact i64 %sext91, 30
+  %28 = getelementptr inbounds i8, ptr %.val.i88, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = mul nsw i32 %29, %3
   %31 = getelementptr i8, ptr %2, i64 8
@@ -205,8 +205,8 @@ Vec_IntFetch.exit:                                ; preds = %34, %47, %53
   %99 = getelementptr i8, ptr %92, i64 8
   %.val.i89 = load ptr, ptr %99, align 8
   %sext92 = shl i64 %95, 32
-  %100 = ashr exact i64 %sext92, 32
-  %101 = getelementptr inbounds i32, ptr %.val.i89, i64 %100
+  %100 = ashr exact i64 %sext92, 30
+  %101 = getelementptr inbounds i8, ptr %.val.i89, i64 %100
   store i32 %.val87, ptr %101, align 4
   %.val79 = load ptr, ptr %8, align 8
   %102 = ptrtoint ptr %.val79 to i64
@@ -518,8 +518,8 @@ Gia_ManTruthCopy.exit:                            ; preds = %select.unfold.i, %s
   %107 = getelementptr i8, ptr %100, i64 8
   %.val.i = load ptr, ptr %107, align 8
   %sext = shl i64 %104, 32
-  %108 = ashr exact i64 %sext, 32
-  %109 = getelementptr inbounds i32, ptr %.val.i, i64 %108
+  %108 = ashr exact i64 %sext, 30
+  %109 = getelementptr inbounds i8, ptr %.val.i, i64 %108
   store i32 %.val78, ptr %109, align 4
   %.val73 = load ptr, ptr %64, align 8
   %110 = ptrtoint ptr %.val73 to i64
@@ -689,8 +689,8 @@ define i32 @Gia_ObjPerformBidec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %15 = getelementptr i8, ptr %.val5974, i64 8
   %.val59.val75 = load ptr, ptr %15, align 8
   %sext76 = shl i64 %14, 32
-  %16 = ashr exact i64 %sext76, 32
-  %17 = getelementptr inbounds i32, ptr %.val59.val75, i64 %16
+  %16 = ashr exact i64 %sext76, 30
+  %17 = getelementptr inbounds i8, ptr %.val59.val75, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i32, ptr %.val59.val75, i64 %19
@@ -779,8 +779,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %59 = getelementptr i8, ptr %.val59, i64 8
   %.val59.val = load ptr, ptr %59, align 8
   %sext = shl i64 %58, 32
-  %60 = ashr exact i64 %sext, 32
-  %61 = getelementptr inbounds i32, ptr %.val59.val, i64 %60
+  %60 = ashr exact i64 %sext, 30
+  %61 = getelementptr inbounds i8, ptr %.val59.val, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i32, ptr %.val59.val, i64 %63

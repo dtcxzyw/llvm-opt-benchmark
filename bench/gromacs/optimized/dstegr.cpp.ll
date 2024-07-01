@@ -412,8 +412,8 @@ define void @dstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %197 = getelementptr i8, ptr %196, i64 -4
   %198 = load i32, ptr %197, align 4
   %sext = shl i64 %indvars.iv308, 33
-  %199 = ashr exact i64 %sext, 32
-  %gep295.us = getelementptr i32, ptr %invariant.gep294, i64 %199
+  %199 = ashr exact i64 %sext, 30
+  %gep295.us = getelementptr i8, ptr %invariant.gep294, i64 %199
   %200 = load i32, ptr %gep295.us, align 4
   store i32 %200, ptr %197, align 4
   store i32 %198, ptr %gep295.us, align 4

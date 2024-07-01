@@ -156,7 +156,8 @@ Vec_IntDup.exit:                                  ; preds = %Abc_Clock.exit, %24
   %.val73.val = load ptr, ptr %60, align 8
   %61 = ptrtoint ptr %56 to i64
   %62 = ptrtoint ptr %.val to i64
-  %63 = getelementptr inbounds i32, ptr %.val73.val, i64 %indvars.iv
+  %sext.i = shl nuw nsw i64 %indvars.iv, 2
+  %63 = getelementptr inbounds i8, ptr %.val73.val, i64 %sext.i
   %64 = load i32, ptr %63, align 4
   %.not65 = icmp eq i32 %64, 0
   br i1 %.not65, label %191, label %65
@@ -190,8 +191,8 @@ Vec_IntDup.exit:                                  ; preds = %Abc_Clock.exit, %24
   %82 = sub i64 %81, %62
   %83 = sdiv exact i64 %82, 12
   %sext.i91 = shl i64 %83, 32
-  %84 = ashr exact i64 %sext.i91, 32
-  %85 = getelementptr inbounds i32, ptr %.val73.val, i64 %84
+  %84 = ashr exact i64 %sext.i91, 30
+  %85 = getelementptr inbounds i8, ptr %.val73.val, i64 %84
   %86 = load i32, ptr %85, align 4
   %.not67 = icmp eq i32 %86, 0
   br i1 %.not67, label %98, label %87
@@ -205,8 +206,8 @@ Vec_IntDup.exit:                                  ; preds = %Abc_Clock.exit, %24
   %93 = sub i64 %92, %62
   %94 = sdiv exact i64 %93, 12
   %sext.i92 = shl i64 %94, 32
-  %95 = ashr exact i64 %sext.i92, 32
-  %96 = getelementptr inbounds i32, ptr %.val73.val, i64 %95
+  %95 = ashr exact i64 %sext.i92, 30
+  %96 = getelementptr inbounds i8, ptr %.val73.val, i64 %95
   %97 = load i32, ptr %96, align 4
   %.not68 = icmp eq i32 %97, 0
   br i1 %.not68, label %98, label %191
@@ -246,8 +247,8 @@ Gia_ObjIsRo.exit:                                 ; preds = %98
   %119 = sub i64 %118, %62
   %120 = sdiv exact i64 %119, 12
   %sext.i93 = shl i64 %120, 32
-  %121 = ashr exact i64 %sext.i93, 32
-  %122 = getelementptr inbounds i32, ptr %.val73.val, i64 %121
+  %121 = ashr exact i64 %sext.i93, 30
+  %122 = getelementptr inbounds i8, ptr %.val73.val, i64 %121
   %123 = load i32, ptr %122, align 4
   %.not70 = icmp eq i32 %123, 0
   br i1 %.not70, label %Gia_ObjIsRo.exit.thread, label %191
@@ -280,8 +281,8 @@ Abc_Clock.exit95:                                 ; preds = %Gia_ObjIsRo.exit.th
   %134 = sub i64 %61, %133
   %135 = sdiv exact i64 %134, 12
   %sext.i96 = shl i64 %135, 32
-  %136 = ashr exact i64 %sext.i96, 32
-  %137 = getelementptr inbounds i32, ptr %.val87.val, i64 %136
+  %136 = ashr exact i64 %sext.i96, 30
+  %137 = getelementptr inbounds i8, ptr %.val87.val, i64 %136
   store i32 0, ptr %137, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   %138 = load ptr, ptr %20, align 8
@@ -308,8 +309,8 @@ Abc_Clock.exit95:                                 ; preds = %Gia_ObjIsRo.exit.th
   %150 = sub i64 %61, %149
   %151 = sdiv exact i64 %150, 12
   %sext.i98 = shl i64 %151, 32
-  %152 = ashr exact i64 %sext.i98, 32
-  %153 = getelementptr inbounds i32, ptr %.val89.val, i64 %152
+  %152 = ashr exact i64 %sext.i98, 30
+  %153 = getelementptr inbounds i8, ptr %.val89.val, i64 %152
   store i32 1, ptr %153, align 4
   %154 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3)
   br label %163

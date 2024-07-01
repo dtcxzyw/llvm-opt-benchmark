@@ -77829,10 +77829,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   %225 = getelementptr inbounds i8, ptr %224, i64 8
   %226 = load ptr, ptr %225, align 8
   %sext142 = shl i64 %.036152, 32
-  %227 = ashr exact i64 %sext142, 32
-  %228 = getelementptr inbounds i8, ptr %226, i64 8
-  %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds %"struct.glslang::TArraySize", ptr %229, i64 %227
+  %227 = getelementptr inbounds i8, ptr %226, i64 8
+  %228 = load ptr, ptr %227, align 8
+  %229 = ashr exact i64 %sext142, 28
+  %230 = getelementptr inbounds i8, ptr %228, i64 %229
   %231 = load i32, ptr %230, align 8
   %232 = icmp slt i32 %220, %231
   br i1 %232, label %._crit_edge155, label %233
@@ -78895,10 +78895,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   %223 = getelementptr inbounds i8, ptr %222, i64 8
   %224 = load ptr, ptr %223, align 8
   %sext143 = shl i64 %.036153, 32
-  %225 = ashr exact i64 %sext143, 32
-  %226 = getelementptr inbounds i8, ptr %224, i64 8
-  %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr inbounds %"struct.glslang::TArraySize", ptr %227, i64 %225
+  %225 = getelementptr inbounds i8, ptr %224, i64 8
+  %226 = load ptr, ptr %225, align 8
+  %227 = ashr exact i64 %sext143, 28
+  %228 = getelementptr inbounds i8, ptr %226, i64 %227
   %229 = load i32, ptr %228, align 8
   %230 = icmp slt i32 %218, %229
   br i1 %230, label %._crit_edge156, label %231

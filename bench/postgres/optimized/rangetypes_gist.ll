@@ -1375,8 +1375,8 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
 98:                                               ; preds = %89
   %99 = trunc nsw i64 %indvars.iv.i to i32
   %sext364.i = shl i64 %indvars.iv.i, 32
-  %100 = ashr exact i64 %sext364.i, 32
-  %101 = getelementptr %struct.NonEmptyRange, ptr %69, i64 %100
+  %100 = ashr exact i64 %sext364.i, 27
+  %101 = getelementptr i8, ptr %69, i64 %100
   %102 = icmp slt i32 %.0190275.i, %65
   br i1 %102, label %.lr.ph264.preheader.i, label %.critedge2.i
 

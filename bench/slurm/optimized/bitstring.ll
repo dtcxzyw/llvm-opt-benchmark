@@ -657,8 +657,8 @@ define i64 @bit_ffs(ptr nocapture noundef readonly %0) #4 {
   %.025.i.ph6 = phi i64 [ %11, %._crit_edge.i.outer ], [ 0, %1 ]
   %3 = shl i64 %.025.i.ph6, 26
   %sext30.i = add i64 %3, 8589934592
-  %4 = ashr exact i64 %sext30.i, 32
-  %5 = getelementptr inbounds i64, ptr %0, i64 %4
+  %4 = ashr exact i64 %sext30.i, 29
+  %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %._crit_edge.i.outer, label %.lr.ph.split
@@ -749,8 +749,8 @@ define void @bit_not(ptr nocapture noundef %0) #3 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.06 = phi i64 [ %8, %.lr.ph ], [ 0, %1 ]
-  %5 = ashr exact i64 %.06, 6
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %5
+  %5 = ashr exact i64 %.06, 3
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %5
   %6 = load i64, ptr %gep, align 8
   %7 = xor i64 %6, -1
   store i64 %7, ptr %gep, align 8
@@ -824,8 +824,8 @@ define i32 @bit_set_count(ptr nocapture noundef readonly %0) #4 {
   %4 = phi i64 [ %10, %.lr.ph ], [ 64, %1 ]
   %.019 = phi i32 [ %9, %.lr.ph ], [ 0, %1 ]
   %.01418 = phi i64 [ %4, %.lr.ph ], [ 0, %1 ]
-  %5 = ashr exact i64 %.01418, 6
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %5
+  %5 = ashr exact i64 %.01418, 3
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %5
   %6 = load i64, ptr %gep, align 8
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %8 = trunc nuw nsw i64 %7 to i32
@@ -844,8 +844,8 @@ define i32 @bit_set_count(ptr nocapture noundef readonly %0) #4 {
   %13 = and i64 %3, 63
   %notmask = shl nsw i64 -1, %13
   %14 = xor i64 %notmask, -1
-  %15 = ashr exact i64 %.014.lcssa, 6
-  %16 = getelementptr i64, ptr %0, i64 %15
+  %15 = ashr exact i64 %.014.lcssa, 3
+  %16 = getelementptr i8, ptr %0, i64 %15
   %17 = getelementptr i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %14
@@ -969,8 +969,8 @@ define i32 @bit_clear_count(ptr nocapture noundef readonly %0) #4 {
   %4 = phi i64 [ %10, %.lr.ph.i ], [ 64, %1 ]
   %.019.i = phi i32 [ %9, %.lr.ph.i ], [ 0, %1 ]
   %.01418.i = phi i64 [ %4, %.lr.ph.i ], [ 0, %1 ]
-  %5 = ashr exact i64 %.01418.i, 6
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %5
+  %5 = ashr exact i64 %.01418.i, 3
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %5
   %6 = load i64, ptr %gep.i, align 8
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %8 = trunc nuw nsw i64 %7 to i32
@@ -989,8 +989,8 @@ define i32 @bit_clear_count(ptr nocapture noundef readonly %0) #4 {
   %13 = and i64 %3, 63
   %notmask.i = shl nsw i64 -1, %13
   %14 = xor i64 %notmask.i, -1
-  %15 = ashr exact i64 %.014.lcssa.i, 6
-  %16 = getelementptr i64, ptr %0, i64 %15
+  %15 = ashr exact i64 %.014.lcssa.i, 3
+  %16 = getelementptr i8, ptr %0, i64 %15
   %17 = getelementptr i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %14
@@ -2108,8 +2108,8 @@ define void @bit_fill_gaps(ptr nocapture noundef %0) #3 {
   %.025.i.ph6.i = phi i64 [ %11, %._crit_edge.i.outer.i ], [ 0, %1 ]
   %3 = shl i64 %.025.i.ph6.i, 26
   %sext30.i.i = add i64 %3, 8589934592
-  %4 = ashr exact i64 %sext30.i.i, 32
-  %5 = getelementptr inbounds i64, ptr %0, i64 %4
+  %4 = ashr exact i64 %sext30.i.i, 29
+  %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %._crit_edge.i.outer.i, label %.lr.ph.split.i
@@ -3624,8 +3624,8 @@ define void @bit_consolidate(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %4 = phi i64 [ %10, %.lr.ph.i ], [ 64, %1 ]
   %.019.i = phi i32 [ %9, %.lr.ph.i ], [ 0, %1 ]
   %.01418.i = phi i64 [ %4, %.lr.ph.i ], [ 0, %1 ]
-  %5 = ashr exact i64 %.01418.i, 6
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %5
+  %5 = ashr exact i64 %.01418.i, 3
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %5
   %6 = load i64, ptr %gep.i, align 8
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %8 = trunc nuw nsw i64 %7 to i32
@@ -3644,8 +3644,8 @@ define void @bit_consolidate(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %13 = and i64 %3, 63
   %notmask.i = shl nsw i64 -1, %13
   %14 = xor i64 %notmask.i, -1
-  %15 = ashr exact i64 %.014.lcssa.i, 6
-  %16 = getelementptr i64, ptr %0, i64 %15
+  %15 = ashr exact i64 %.014.lcssa.i, 3
+  %16 = getelementptr i8, ptr %0, i64 %15
   %17 = getelementptr i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %14

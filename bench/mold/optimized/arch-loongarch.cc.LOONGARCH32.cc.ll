@@ -2556,8 +2556,9 @@ if.then.i:                                        ; preds = %if.end12
 
 if.then.i.i:                                      ; preds = %if.then.i
   %symtab_shndx_sec.i.i = getelementptr inbounds i8, ptr %6, i64 688
+  %add.ptr.i.idx.i = shl nuw nsw i64 %or9.i, 2
   %17 = load ptr, ptr %symtab_shndx_sec.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.mold::LittleEndian", ptr %17, i64 %or9.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 %add.ptr.i.idx.i
   %x.0.copyload.i3.i.i = load i32, ptr %add.ptr.i.i.i, align 1
   %conv5.i.i = zext i32 %x.0.copyload.i3.i.i to i64
   br label %_ZN4mold3elf10ObjectFileINS0_11LOONGARCH32EE9get_shndxERKNS0_6ElfSymIS2_EE.exit.i

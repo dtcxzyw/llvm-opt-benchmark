@@ -208,8 +208,8 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 96:                                               ; preds = %84
   %97 = trunc nsw i64 %indvars.iv464 to i32
   %sext488 = shl i64 %indvars.iv464, 32
-  %98 = ashr exact i64 %sext488, 32
-  %99 = getelementptr inbounds double, ptr %16, i64 %98
+  %98 = ashr exact i64 %sext488, 29
+  %99 = getelementptr inbounds i8, ptr %16, i64 %98
   store double 0.000000e+00, ptr %99, align 8
   br label %.thread
 
@@ -382,8 +382,8 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 190:                                              ; preds = %178
   %191 = trunc nsw i64 %indvars.iv473 to i32
   %sext489 = shl i64 %indvars.iv473, 32
-  %192 = ashr exact i64 %sext489, 32
-  %gep433 = getelementptr double, ptr %invariant.gep, i64 %192
+  %192 = ashr exact i64 %sext489, 29
+  %gep433 = getelementptr i8, ptr %invariant.gep, i64 %192
   store double 0.000000e+00, ptr %gep433, align 8
   br label %.thread367
 

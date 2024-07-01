@@ -6828,8 +6828,8 @@ define internal fastcc void @era_merge_new_dead_list(ptr nocapture noundef reado
 .split.us:                                        ; preds = %.lr.ph.split
   %42 = trunc nsw i64 %indvars.iv120 to i32
   %sext146 = shl i64 %indvars.iv, 32
-  %43 = ashr exact i64 %sext146, 32
-  %44 = getelementptr inbounds i32, ptr %15, i64 %43
+  %43 = ashr exact i64 %sext146, 30
+  %44 = getelementptr inbounds i8, ptr %15, i64 %43
   store i32 %22, ptr %44, align 4
   %45 = add nsw i32 %42, 1
   br label %.outer.backedge
@@ -6851,8 +6851,8 @@ define internal fastcc void @era_merge_new_dead_list(ptr nocapture noundef reado
 .split80.us:                                      ; preds = %49
   %51 = trunc nsw i64 %indvars.iv120 to i32
   %sext = shl i64 %indvars.iv, 32
-  %52 = ashr exact i64 %sext, 32
-  %53 = getelementptr inbounds i32, ptr %15, i64 %52
+  %52 = ashr exact i64 %sext, 30
+  %53 = getelementptr inbounds i8, ptr %15, i64 %52
   store i32 %22, ptr %53, align 4
   br label %.outer.backedge
 

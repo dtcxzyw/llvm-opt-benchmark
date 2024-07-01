@@ -934,8 +934,8 @@ thread-pre-split19:                               ; preds = %322
   %556 = getelementptr i8, ptr %555, i64 -4
   %557 = load i32, ptr %556, align 4, !tbaa !3
   %558 = shl i64 %522, 33
-  %559 = ashr exact i64 %558, 32
-  %560 = getelementptr i32, ptr %516, i64 %559
+  %559 = ashr exact i64 %558, 30
+  %560 = getelementptr i8, ptr %516, i64 %559
   %561 = load i32, ptr %560, align 4, !tbaa !3
   store i32 %561, ptr %556, align 4, !tbaa !3
   store i32 %557, ptr %560, align 4, !tbaa !3

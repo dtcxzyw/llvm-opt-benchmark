@@ -345,9 +345,9 @@ define void @_ZN3gmx27ReferenceTemperatureManager23setReferenceTemperatureENS_8A
   %24 = getelementptr inbounds float, ptr %1, i64 %.017
   %25 = load float, ptr %24, align 4
   %sext16 = shl i64 %.017, 32
-  %26 = ashr exact i64 %sext16, 32
-  %27 = load ptr, ptr %23, align 8
-  %28 = getelementptr inbounds float, ptr %27, i64 %26
+  %26 = load ptr, ptr %23, align 8
+  %27 = ashr exact i64 %sext16, 30
+  %28 = getelementptr inbounds i8, ptr %26, i64 %27
   store float %25, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %23, i64 24
   %30 = load i32, ptr %29, align 8

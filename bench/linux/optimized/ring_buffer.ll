@@ -2166,8 +2166,8 @@ define dso_local ptr @perf_mmap_to_page(ptr nocapture noundef readonly %0, i64 n
   %19 = getelementptr inbounds i8, ptr %0, i64 216
   %20 = load ptr, ptr %19, align 8
   %21 = shl i64 %17, 32
-  %22 = ashr exact i64 %21, 32
-  %23 = getelementptr ptr, ptr %20, i64 %22
+  %22 = ashr exact i64 %21, 29
+  %23 = getelementptr i8, ptr %20, i64 %22
   br label %.sink.split
 
 24:                                               ; preds = %12, %2

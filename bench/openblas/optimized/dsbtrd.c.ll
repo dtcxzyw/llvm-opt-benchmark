@@ -891,8 +891,8 @@ thread-pre-split18:                               ; preds = %thread-pre-split18.
   store i32 %618, ptr %16, align 4, !tbaa !3
   %619 = add i64 %523, %530
   %620 = shl i64 %619, 32
-  %621 = ashr exact i64 %620, 32
-  %622 = getelementptr inbounds double, ptr %29, i64 %621
+  %621 = ashr exact i64 %620, 29
+  %622 = getelementptr inbounds i8, ptr %29, i64 %621
   %623 = getelementptr double, ptr %526, i64 %606
   call void @drot_(ptr noundef nonnull %14, ptr noundef %622, ptr noundef nonnull %15, ptr noundef %623, ptr noundef nonnull %16, ptr noundef nonnull %612, ptr noundef nonnull %613) #6
   br label %624

@@ -206,8 +206,8 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .preheader2:                                      ; preds = %108, %.preheader2
   %112 = phi i64 [ %123, %.preheader2 ], [ 1, %108 ]
   %113 = shl i64 %112, 33
-  %114 = ashr exact i64 %113, 32
-  %115 = getelementptr double, ptr %110, i64 %114
+  %114 = ashr exact i64 %113, 29
+  %115 = getelementptr i8, ptr %110, i64 %114
   %116 = load double, ptr %115, align 8, !tbaa !7
   %117 = call double @sqrt(double noundef %116) #5
   %118 = getelementptr inbounds double, ptr %14, i64 %112

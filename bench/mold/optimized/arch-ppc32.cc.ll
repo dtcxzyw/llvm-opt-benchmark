@@ -1736,8 +1736,9 @@ if.then.i:                                        ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %if.then.i
   %symtab_shndx_sec.i.i = getelementptr inbounds i8, ptr %6, i64 696
+  %add.ptr.i.idx.i = shl nuw nsw i64 %or9.i, 2
   %15 = load ptr, ptr %symtab_shndx_sec.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.mold::BigEndian", ptr %15, i64 %or9.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 %add.ptr.i.idx.i
   %x.0.copyload.i3.i.i = load i32, ptr %add.ptr.i.i.i, align 1
   %16 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i3.i.i)
   %conv5.i.i = zext i32 %16 to i64

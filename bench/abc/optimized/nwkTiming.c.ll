@@ -752,8 +752,8 @@ Nwk_ManWhereIsPin.exit:                           ; preds = %Nwk_ManDelayTraceSo
   %125 = sext i32 %.val97 to i64
   %126 = getelementptr inbounds [33 x [33 x float]], ptr %66, i64 0, i64 %125
   %sext = shl i64 %.08.i, 32
-  %127 = ashr exact i64 %sext, 32
-  %128 = getelementptr inbounds float, ptr %126, i64 %127
+  %127 = ashr exact i64 %sext, 30
+  %128 = getelementptr inbounds i8, ptr %126, i64 %127
   %129 = load float, ptr %128, align 4
   br label %130
 

@@ -9385,8 +9385,8 @@ _ZN4pkpy11is_heap_intEPNS_8PyObjectE.exit.i:      ; preds = %3
   %23 = getelementptr inbounds i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %sext = shl i64 %22, 32
-  %25 = ashr exact i64 %sext, 32
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
+  %25 = ashr exact i64 %sext, 29
+  %26 = getelementptr inbounds i8, ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   br label %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit26
 
@@ -9568,8 +9568,8 @@ _ZN4pkpy11is_heap_intEPNS_8PyObjectE.exit.i:      ; preds = %3
   %24 = tail call noundef i64 @_ZN4pkpy2VM16normalized_indexEli(ptr noundef nonnull align 8 dereferenceable(264913) %0, i64 noundef %.0.ph, i32 noundef %23)
   %25 = load ptr, ptr %10, align 8
   %sext = shl i64 %24, 32
-  %26 = ashr exact i64 %sext, 32
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %26 = ashr exact i64 %sext, 29
+  %27 = getelementptr inbounds i8, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   br label %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit
 
@@ -30488,8 +30488,8 @@ define internal void @"_ZZN4pkpy15__init_builtinsEPNS_2VMEEN5$_1398__invokeES1_P
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   %sext.i = shl i64 %8, 32
-  %11 = ashr exact i64 %sext.i, 32
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %11 = ashr exact i64 %sext.i, 29
+  %12 = getelementptr inbounds i8, ptr %10, i64 %11
   store ptr %3, ptr %12, align 8
   ret void
 }

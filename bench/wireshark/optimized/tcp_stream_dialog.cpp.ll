@@ -12514,8 +12514,8 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE
   %470 = trunc nsw i64 %indvars.iv203.i1006 to i32
   %471 = load ptr, ptr %27, align 8
   %sext.i = shl i64 %467, 29
-  %472 = ashr exact i64 %sext.i, 32
-  %473 = getelementptr %"struct.std::pair", ptr %471, i64 %472
+  %472 = ashr exact i64 %sext.i, 29
+  %473 = getelementptr i8, ptr %471, i64 %472
   %474 = add nsw i32 %470, 1
   %.pre.i = load ptr, ptr %243, align 8
   br label %.outer.backedge.i

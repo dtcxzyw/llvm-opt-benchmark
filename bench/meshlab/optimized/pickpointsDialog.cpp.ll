@@ -6598,9 +6598,9 @@ define linkonce_odr noundef ptr @_ZN3vcg11GridClosestINS_13GridStaticPtrI6CFaceO
   %92 = ptrtoint ptr %75 to i64
   %93 = ptrtoint ptr %91 to i64
   %94 = sub i64 %92, %93
-  %95 = sdiv exact i64 %94, 48
-  %96 = load ptr, ptr %90, align 8
-  %97 = getelementptr inbounds i32, ptr %96, i64 %95
+  %95 = load ptr, ptr %90, align 8
+  %96 = sdiv exact i64 %94, 12
+  %97 = getelementptr inbounds i8, ptr %95, i64 %96
   store i32 %88, ptr %97, align 4
   br label %98
 
@@ -6766,9 +6766,9 @@ _ZN3vcg4Box3IiE9IntersectERKS1_.exit:             ; preds = %139, %109
   %188 = ptrtoint ptr %179 to i64
   %189 = ptrtoint ptr %187 to i64
   %190 = sub i64 %188, %189
-  %191 = sdiv exact i64 %190, 48
-  %192 = load ptr, ptr %186, align 8
-  %193 = getelementptr inbounds i32, ptr %192, i64 %191
+  %191 = load ptr, ptr %186, align 8
+  %192 = sdiv exact i64 %190, 12
+  %193 = getelementptr inbounds i8, ptr %191, i64 %192
   %194 = load i32, ptr %193, align 4
   %195 = getelementptr inbounds i8, ptr %184, i64 1112
   %196 = load i32, ptr %195, align 8
@@ -6810,9 +6810,9 @@ _ZN3vcg4Box3IiE9IntersectERKS1_.exit:             ; preds = %139, %109
   %209 = load ptr, ptr %207, align 8
   %210 = ptrtoint ptr %209 to i64
   %211 = sub i64 %188, %210
-  %212 = sdiv exact i64 %211, 48
-  %213 = load ptr, ptr %208, align 8
-  %214 = getelementptr inbounds i32, ptr %213, i64 %212
+  %212 = load ptr, ptr %208, align 8
+  %213 = sdiv exact i64 %211, 12
+  %214 = getelementptr inbounds i8, ptr %212, i64 %213
   store i32 %206, ptr %214, align 4
   br label %215
 

@@ -12695,9 +12695,9 @@ _ZN3vcg3tri15UpdateSelectionI6CMeshOE11VertexClearERS2_.exit: ; preds = %17, %6,
   %38 = ptrtoint ptr %35 to i64
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
-  %41 = sdiv exact i64 %40, 48
-  %42 = load ptr, ptr %25, align 8
-  %43 = getelementptr inbounds i32, ptr %42, i64 %41
+  %41 = load ptr, ptr %25, align 8
+  %42 = sdiv exact i64 %40, 12
+  %43 = getelementptr inbounds i8, ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4
@@ -12981,9 +12981,9 @@ _ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.i.i:   ; preds = %176, %_ZN3vcg4face3
   %194 = ptrtoint ptr %145 to i64
   %195 = ptrtoint ptr %193 to i64
   %196 = sub i64 %194, %195
-  %197 = sdiv exact i64 %196, 48
-  %198 = load ptr, ptr %128, align 8
-  %199 = getelementptr inbounds i32, ptr %198, i64 %197
+  %197 = load ptr, ptr %128, align 8
+  %198 = sdiv exact i64 %196, 12
+  %199 = getelementptr inbounds i8, ptr %197, i64 %198
   %200 = load i32, ptr %199, align 4
   %.not = icmp eq i32 %.0.i40, %200
   br i1 %.not, label %208, label %201

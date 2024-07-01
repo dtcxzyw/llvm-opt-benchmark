@@ -3573,9 +3573,9 @@ _ZNK12colvarmodule10quaternionixEi.exit:          ; preds = %114, %116, %118, %1
 
 132:                                              ; preds = %.lr.ph
   %sext = shl i64 %87, 32
-  %133 = ashr exact i64 %sext, 32
-  %134 = load ptr, ptr %48, align 8
-  %135 = getelementptr inbounds double, ptr %134, i64 %133
+  %133 = load ptr, ptr %48, align 8
+  %134 = ashr exact i64 %sext, 29
+  %135 = getelementptr inbounds i8, ptr %133, i64 %134
   %136 = load double, ptr %135, align 8
   br label %_ZNK11colvarvalueixEi.exit
 
@@ -3810,9 +3810,9 @@ _ZNK12colvarmodule10quaternionixEi.exit82:        ; preds = %203, %205, %207, %2
 
 221:                                              ; preds = %_ZNK11colvarvalueixEi.exit
   %sext140 = shl i64 %176, 32
-  %222 = ashr exact i64 %sext140, 32
-  %223 = load ptr, ptr %48, align 8
-  %224 = getelementptr inbounds double, ptr %223, i64 %222
+  %222 = load ptr, ptr %48, align 8
+  %223 = ashr exact i64 %sext140, 29
+  %224 = getelementptr inbounds i8, ptr %222, i64 %223
   %225 = load double, ptr %224, align 8
   br label %_ZNK11colvarvalueixEi.exit39
 
@@ -4087,9 +4087,9 @@ _ZNK12colvarmodule10quaternionixEi.exit95:        ; preds = %317, %319, %321, %3
 
 335:                                              ; preds = %.lr.ph150
   %sext141 = shl i64 %290, 32
-  %336 = ashr exact i64 %sext141, 32
-  %337 = load ptr, ptr %58, align 8
-  %338 = getelementptr inbounds double, ptr %337, i64 %336
+  %336 = load ptr, ptr %58, align 8
+  %337 = ashr exact i64 %sext141, 29
+  %338 = getelementptr inbounds i8, ptr %336, i64 %337
   %339 = load double, ptr %338, align 8
   br label %_ZNK11colvarvalueixEi.exit52
 
@@ -4326,9 +4326,9 @@ _ZNK12colvarmodule10quaternionixEi.exit108:       ; preds = %408, %410, %412, %4
 
 426:                                              ; preds = %_ZNK11colvarvalueixEi.exit52
   %sext142 = shl i64 %381, 32
-  %427 = ashr exact i64 %sext142, 32
-  %428 = load ptr, ptr %58, align 8
-  %429 = getelementptr inbounds double, ptr %428, i64 %427
+  %427 = load ptr, ptr %58, align 8
+  %428 = ashr exact i64 %sext142, 29
+  %429 = getelementptr inbounds i8, ptr %427, i64 %428
   %430 = load double, ptr %429, align 8
   br label %_ZNK11colvarvalueixEi.exit65
 

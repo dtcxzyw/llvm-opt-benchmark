@@ -849,8 +849,8 @@ Vec_WrdPush.exit444:                              ; preds = %.Vec_WrdGrow.exit10
   %indvars.iv.next569 = add nsw i64 %indvars.iv568, 1
   %.val352 = load ptr, ptr %129, align 8
   %sext492 = shl i64 %380, 32
-  %381 = ashr exact i64 %sext492, 32
-  %382 = getelementptr inbounds i32, ptr %.val352, i64 %381
+  %381 = ashr exact i64 %sext492, 30
+  %382 = getelementptr inbounds i8, ptr %.val352, i64 %381
   %383 = trunc nsw i64 %indvars.iv568 to i32
   store i32 %383, ptr %382, align 4
   %indvars.iv.next571 = add nuw nsw i64 %indvars.iv570, 1

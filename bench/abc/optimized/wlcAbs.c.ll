@@ -300,8 +300,8 @@ define void @Wlc_NtkAbsGetSupp_rec(ptr nocapture noundef readonly %0, ptr nounde
   %29 = getelementptr i8, ptr %3, i64 8
   %.val29 = load ptr, ptr %29, align 8
   %sext = shl i64 %14, 32
-  %30 = ashr exact i64 %sext, 32
-  %31 = getelementptr inbounds i32, ptr %.val29, i64 %30
+  %30 = ashr exact i64 %sext, 30
+  %31 = getelementptr inbounds i8, ptr %.val29, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %31, align 4

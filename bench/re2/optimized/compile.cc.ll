@@ -468,19 +468,19 @@ entry:
 
 if.end:                                           ; preds = %entry
   %sext = shl i64 %a.coerce0, 32
-  %conv.i = ashr exact i64 %sext, 32
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %12 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %12, i64 %conv.i
-  %13 = load i32, ptr %arrayidx.i.i, align 4
-  %and.i = and i32 %13, 7
+  %13 = ashr exact i64 %sext, 29
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %12, i64 %13
+  %14 = load i32, ptr %arrayidx.i.i, align 4
+  %and.i = and i32 %14, 7
   %cmp = icmp eq i32 %and.i, 6
   br i1 %cmp, label %land.lhs.true, label %if.end19
 
 land.lhs.true:                                    ; preds = %if.end
   %shl = shl i32 %4, 1
   %cmp9 = icmp eq i32 %shl, %6
-  %cmp12 = icmp ult i32 %13, 16
+  %cmp12 = icmp ult i32 %14, 16
   %or.cond57 = and i1 %cmp12, %cmp9
   br i1 %or.cond57, label %if.then13, label %if.end19
 
@@ -505,34 +505,34 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %14 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  %15 = load i32, ptr %14, align 4
-  store i32 %7, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %16 = load i32, ptr %15, align 4
+  store i32 %7, ptr %15, align 4
   br label %if.end.i
 
 if.else.i:                                        ; preds = %while.body.i
-  %16 = load i32, ptr %arrayidx.i, align 4
-  %shr.i.i = lshr i32 %16, 4
-  %17 = and i32 %16, 15
-  %or4.i.i = or disjoint i32 %17, %shl.i.i
+  %17 = load i32, ptr %arrayidx.i, align 4
+  %shr.i.i = lshr i32 %17, 4
+  %18 = and i32 %17, 15
+  %or4.i.i = or disjoint i32 %18, %shl.i.i
   store i32 %or4.i.i, ptr %arrayidx.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %l.sroa.0.1.i = phi i32 [ %15, %if.then.i ], [ %shr.i.i, %if.else.i ]
+  %l.sroa.0.1.i = phi i32 [ %16, %if.then.i ], [ %shr.i.i, %if.else.i ]
   %cmp.not.i = icmp eq i32 %l.sroa.0.1.i, 0
   br i1 %cmp.not.i, label %return, label %while.body.i, !llvm.loop !7
 
 if.end19:                                         ; preds = %land.lhs.true, %if.end
   %reversed_ = getelementptr inbounds i8, ptr %this, i64 112
-  %18 = load i8, ptr %reversed_, align 8
-  %tobool = trunc i8 %18 to i1
+  %19 = load i8, ptr %reversed_, align 8
+  %tobool = trunc i8 %19 to i1
   br i1 %tobool, label %if.then20, label %if.end32
 
 if.then20:                                        ; preds = %if.end19
   %b.sroa.0.4.vec.extract.extract = shufflevector <8 x i8> %0, <8 x i8> poison, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %19 = bitcast <16 x i8> %b.sroa.0.4.vec.extract.extract to <4 x i32>
-  %l.sroa.0.0.extract.trunc.i13 = extractelement <4 x i32> %19, i64 0
+  %20 = bitcast <16 x i8> %b.sroa.0.4.vec.extract.extract to <4 x i32>
+  %l.sroa.0.0.extract.trunc.i13 = extractelement <4 x i32> %20, i64 0
   %cmp.not7.i14 = icmp eq i32 %l.sroa.0.0.extract.trunc.i13, 0
   br i1 %cmp.not7.i14, label %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit31, label %while.body.lr.ph.i15
 
@@ -550,21 +550,21 @@ while.body.i17:                                   ; preds = %if.end.i25, %while.
   br i1 %tobool.not.i23, label %if.else.i28, label %if.then.i24
 
 if.then.i24:                                      ; preds = %while.body.i17
-  %20 = getelementptr inbounds i8, ptr %arrayidx.i21, i64 4
-  %21 = load i32, ptr %20, align 4
-  store i32 %4, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %arrayidx.i21, i64 4
+  %22 = load i32, ptr %21, align 4
+  store i32 %4, ptr %21, align 4
   br label %if.end.i25
 
 if.else.i28:                                      ; preds = %while.body.i17
-  %22 = load i32, ptr %arrayidx.i21, align 4
-  %shr.i.i29 = lshr i32 %22, 4
-  %23 = and i32 %22, 15
-  %or4.i.i30 = or disjoint i32 %23, %shl.i.i16
+  %23 = load i32, ptr %arrayidx.i21, align 4
+  %shr.i.i29 = lshr i32 %23, 4
+  %24 = and i32 %23, 15
+  %or4.i.i30 = or disjoint i32 %24, %shl.i.i16
   store i32 %or4.i.i30, ptr %arrayidx.i21, align 4
   br label %if.end.i25
 
 if.end.i25:                                       ; preds = %if.else.i28, %if.then.i24
-  %l.sroa.0.1.i26 = phi i32 [ %21, %if.then.i24 ], [ %shr.i.i29, %if.else.i28 ]
+  %l.sroa.0.1.i26 = phi i32 [ %22, %if.then.i24 ], [ %shr.i.i29, %if.else.i28 ]
   %cmp.not.i27 = icmp eq i32 %l.sroa.0.1.i26, 0
   br i1 %cmp.not.i27, label %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit31, label %while.body.i17, !llvm.loop !7
 
@@ -572,10 +572,10 @@ _ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit31: ; preds = %if.end.i25, %if.t
   %a.4.a.4.a.4.a.4.end28.sroa_idx = getelementptr inbounds i8, ptr %a, i64 4
   %a.4.a.4.a.4.a.4.agg.tmp27.sroa.0.0.copyload75 = load <8 x i8>, ptr %a.4.a.4.a.4.a.4.end28.sroa_idx, align 4
   %tobool29 = trunc i64 %10 to i1
-  %24 = and i8 %9, 1
-  %frombool.i = select i1 %tobool29, i8 %24, i8 0
-  %25 = bitcast i32 %7 to <4 x i8>
-  %retval.sroa.0.0.vec.expand = shufflevector <4 x i8> %25, <4 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %25 = and i8 %9, 1
+  %frombool.i = select i1 %tobool29, i8 %25, i8 0
+  %26 = bitcast i32 %7 to <4 x i8>
+  %retval.sroa.0.0.vec.expand = shufflevector <4 x i8> %26, <4 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %retval.sroa.0.0.vecblend = shufflevector <16 x i8> %retval.sroa.0.0.vec.expand, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 undef, i8 undef, i8 undef>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 29, i32 30, i32 31>
   %retval.sroa.0.4.vec.expand = shufflevector <8 x i8> %a.4.a.4.a.4.a.4.agg.tmp27.sroa.0.0.copyload75, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
   %retval.sroa.0.4.vecblend = shufflevector <16 x i8> %retval.sroa.0.0.vecblend, <16 x i8> %retval.sroa.0.4.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 poison, i32 13, i32 14, i32 15>
@@ -603,21 +603,21 @@ while.body.i37:                                   ; preds = %if.end.i45, %while.
   br i1 %tobool.not.i43, label %if.else.i48, label %if.then.i44
 
 if.then.i44:                                      ; preds = %while.body.i37
-  %26 = getelementptr inbounds i8, ptr %arrayidx.i41, i64 4
-  %27 = load i32, ptr %26, align 4
-  store i32 %7, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %arrayidx.i41, i64 4
+  %28 = load i32, ptr %27, align 4
+  store i32 %7, ptr %27, align 4
   br label %if.end.i45
 
 if.else.i48:                                      ; preds = %while.body.i37
-  %28 = load i32, ptr %arrayidx.i41, align 4
-  %shr.i.i49 = lshr i32 %28, 4
-  %29 = and i32 %28, 15
-  %or4.i.i50 = or disjoint i32 %29, %shl.i.i36
+  %29 = load i32, ptr %arrayidx.i41, align 4
+  %shr.i.i49 = lshr i32 %29, 4
+  %30 = and i32 %29, 15
+  %or4.i.i50 = or disjoint i32 %30, %shl.i.i36
   store i32 %or4.i.i50, ptr %arrayidx.i41, align 4
   br label %if.end.i45
 
 if.end.i45:                                       ; preds = %if.else.i48, %if.then.i44
-  %l.sroa.0.1.i46 = phi i32 [ %27, %if.then.i44 ], [ %shr.i.i49, %if.else.i48 ]
+  %l.sroa.0.1.i46 = phi i32 [ %28, %if.then.i44 ], [ %shr.i.i49, %if.else.i48 ]
   %cmp.not.i47 = icmp eq i32 %l.sroa.0.1.i46, 0
   br i1 %cmp.not.i47, label %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit51, label %while.body.i37, !llvm.loop !7
 
@@ -626,13 +626,13 @@ _ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit51: ; preds = %if.end.i45, %if.e
   %b.sroa.0.4.vec.extract71.bc = bitcast <16 x i8> %b.sroa.0.4.vec.extract71.extract to <2 x i64>
   %b.sroa.0.4.vec.extract71.extract73 = extractelement <2 x i64> %b.sroa.0.4.vec.extract71.bc, i64 0
   %tobool42 = trunc i64 %8 to i1
-  %30 = and i8 %11, 1
-  %frombool.i52 = select i1 %tobool42, i8 %30, i8 0
-  %31 = bitcast i32 %4 to <4 x i8>
-  %retval.sroa.0.0.vec.expand62 = shufflevector <4 x i8> %31, <4 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %31 = and i8 %11, 1
+  %frombool.i52 = select i1 %tobool42, i8 %31, i8 0
+  %32 = bitcast i32 %4 to <4 x i8>
+  %retval.sroa.0.0.vec.expand62 = shufflevector <4 x i8> %32, <4 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %retval.sroa.0.0.vecblend63 = shufflevector <16 x i8> %retval.sroa.0.0.vec.expand62, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 undef, i8 undef, i8 undef>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 29, i32 30, i32 31>
-  %32 = bitcast i64 %b.sroa.0.4.vec.extract71.extract73 to <8 x i8>
-  %retval.sroa.0.4.vec.expand65 = shufflevector <8 x i8> %32, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
+  %33 = bitcast i64 %b.sroa.0.4.vec.extract71.extract73 to <8 x i8>
+  %retval.sroa.0.4.vec.expand65 = shufflevector <8 x i8> %33, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
   %retval.sroa.0.4.vecblend66 = shufflevector <16 x i8> %retval.sroa.0.0.vecblend63, <16 x i8> %retval.sroa.0.4.vec.expand65, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 poison, i32 13, i32 14, i32 15>
   %retval.sroa.0.12.vec.insert68 = insertelement <16 x i8> %retval.sroa.0.4.vecblend66, i8 %frombool.i52, i64 12
   br label %return
@@ -2003,46 +2003,46 @@ if.else:                                          ; preds = %if.end6
   %and = and i32 %f.sroa.6.0.extract.trunc, 1
   %tobool.not = icmp eq i32 %and, 0
   %sext146 = shl i64 %0, 32
-  %conv.i33 = ashr exact i64 %sext146, 32
   %add.ptr.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %this, i64 128
   %3 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i34, align 8
+  %4 = ashr exact i64 %sext146, 29
+  %arrayidx.i.i35 = getelementptr inbounds i8, ptr %3, i64 %4
   br i1 %tobool.not, label %if.else15, label %if.then11
 
 if.then11:                                        ; preds = %if.else
-  %4 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %3, i64 %conv.i33, i32 1
-  %5 = load i32, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %arrayidx.i.i35, i64 4
+  %6 = load i32, ptr %5, align 4
   br label %if.end21
 
 if.else15:                                        ; preds = %if.else
-  %arrayidx.i.i35 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %3, i64 %conv.i33
-  %6 = load i32, ptr %arrayidx.i.i35, align 4
-  %shr.i = lshr i32 %6, 4
+  %7 = load i32, ptr %arrayidx.i.i35, align 4
+  %shr.i = lshr i32 %7, 4
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end6.if.end21_crit_edge, %if.then11, %if.else15
-  %7 = phi ptr [ %3, %if.then11 ], [ %3, %if.else15 ], [ %.pre, %if.end6.if.end21_crit_edge ]
-  %br.0 = phi i32 [ %5, %if.then11 ], [ %shr.i, %if.else15 ], [ %root, %if.end6.if.end21_crit_edge ]
+  %8 = phi ptr [ %3, %if.then11 ], [ %3, %if.else15 ], [ %.pre, %if.end6.if.end21_crit_edge ]
+  %br.0 = phi i32 [ %6, %if.then11 ], [ %shr.i, %if.else15 ], [ %root, %if.end6.if.end21_crit_edge ]
   %conv.i.i = sext i32 %br.0 to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  %arrayidx.i.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %7, i64 %conv.i.i
-  %8 = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
-  %9 = load i8, ptr %8, align 4
+  %arrayidx.i.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %8, i64 %conv.i.i
+  %9 = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
+  %10 = load i8, ptr %9, align 4
   %hi_.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 5
-  %10 = load i8, ptr %hi_.i, align 1
+  %11 = load i8, ptr %hi_.i, align 1
   %hint_foldcase_.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 6
-  %11 = load i16, ptr %hint_foldcase_.i.i, align 2
-  %12 = and i16 %11, 1
-  %13 = load i32, ptr %arrayidx.i.i.i, align 4
-  %shr.i.i = lshr i32 %13, 4
+  %12 = load i16, ptr %hint_foldcase_.i.i, align 2
+  %13 = and i16 %12, 1
+  %14 = load i32, ptr %arrayidx.i.i.i, align 4
+  %shr.i.i = lshr i32 %14, 4
   %conv.i13.i = zext nneg i32 %shr.i.i to i64
   %shl.i.i = shl nuw nsw i64 %conv.i13.i, 17
-  %conv1.i.i = zext i8 %9 to i64
+  %conv1.i.i = zext i8 %10 to i64
   %shl2.i.i = shl nuw nsw i64 %conv1.i.i, 9
   %or.i.i = or disjoint i64 %shl.i.i, %shl2.i.i
-  %conv3.i.i = zext i8 %10 to i64
+  %conv3.i.i = zext i8 %11 to i64
   %shl4.i.i = shl nuw nsw i64 %conv3.i.i, 1
   %or5.i.i = or disjoint i64 %or.i.i, %shl4.i.i
-  %conv6.i.i = zext nneg i16 %12 to i64
+  %conv6.i.i = zext nneg i16 %13 to i64
   %or7.i.i = or disjoint i64 %or5.i.i, %conv6.i.i
   %rune_cache_.i = getelementptr inbounds i8, ptr %this, i64 152
   %add.i.i.i.i.i = add i64 %or7.i.i, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
@@ -2051,45 +2051,45 @@ if.end21:                                         ; preds = %if.end6.if.end21_cr
   %shr.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i, 64
   %xor.i.i.i.i.i = xor i128 %shr.i.i.i.i.i, %mul.i.i.i.i.i
   %conv1.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i to i64
-  %14 = load ptr, ptr %rune_cache_.i, align 8
+  %15 = load ptr, ptr %rune_cache_.i, align 8
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
-  %15 = load i64, ptr %capacity_.i.i.i, align 8
+  %16 = load i64, ptr %capacity_.i.i.i, align 8
   %shr.i.i.i2.i.i = lshr i64 %conv1.i.i.i.i.i, 7
-  %16 = ptrtoint ptr %14 to i64
-  %shr.i.i.i.i.i.i = lshr i64 %16, 12
+  %17 = ptrtoint ptr %15 to i64
+  %shr.i.i.i.i.i.i = lshr i64 %17, 12
   %xor.i.i.i3.i.i = xor i64 %shr.i.i.i2.i.i, %shr.i.i.i.i.i.i
-  %17 = trunc i128 %xor.i.i.i.i.i to i8
-  %conv.i.i.i.i = and i8 %17, 127
+  %18 = trunc i128 %xor.i.i.i.i.i to i8
+  %conv.i.i.i.i = and i8 %18, 127
   %vecinit.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %slots_.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
-  %18 = load ptr, ptr %slots_.i.i.i, align 8
+  %19 = load ptr, ptr %slots_.i.i.i, align 8
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end29.i.i.i, %if.end21
   %xor.i.i.pn.i.i.i = phi i64 [ %xor.i.i.i3.i.i, %if.end21 ], [ %add3.i.i.i.i, %if.end29.i.i.i ]
   %seq.sroa.10.0.i.i.i = phi i64 [ 0, %if.end21 ], [ %add.i12.i.i.i, %if.end29.i.i.i ]
-  %seq.sroa.4.0.i.i.i = and i64 %xor.i.i.pn.i.i.i, %15
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %14, i64 %seq.sroa.4.0.i.i.i
-  %19 = load <16 x i8>, ptr %add.ptr.i.i.i, align 1
-  %cmp.i.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i.i, %19
-  %20 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
-  %cmp.i.not23.i.i.i = icmp eq i16 %20, 0
+  %seq.sroa.4.0.i.i.i = and i64 %xor.i.i.pn.i.i.i, %16
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 %seq.sroa.4.0.i.i.i
+  %20 = load <16 x i8>, ptr %add.ptr.i.i.i, align 1
+  %cmp.i.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i.i, %20
+  %21 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
+  %cmp.i.not23.i.i.i = icmp eq i16 %21, 0
   br i1 %cmp.i.not23.i.i.i, label %for.end.i.i.i, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %while.body.i.i.i
-  %21 = zext i16 %20 to i32
+  %22 = zext i16 %21 to i32
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.preheader.i.i.i
-  %__begin5.sroa.0.024.i.i.i = phi i32 [ %and.i9.i.i.i, %for.inc.i.i.i ], [ %21, %for.body.preheader.i.i.i ]
-  %22 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i.i, i1 true)
-  %conv.i.i.i = zext nneg i32 %22 to i64
+  %__begin5.sroa.0.024.i.i.i = phi i32 [ %and.i9.i.i.i, %for.inc.i.i.i ], [ %22, %for.body.preheader.i.i.i ]
+  %23 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i.i, i1 true)
+  %conv.i.i.i = zext nneg i32 %23 to i64
   %add.i.i.i.i = add i64 %seq.sroa.4.0.i.i.i, %conv.i.i.i
-  %and.i.i.i.i = and i64 %add.i.i.i.i, %15
-  %add.ptr14.i.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %18, i64 %and.i.i.i.i
-  %23 = load i64, ptr %add.ptr14.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %23, %or7.i.i
+  %and.i.i.i.i = and i64 %add.i.i.i.i, %16
+  %add.ptr14.i.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %19, i64 %and.i.i.i.i
+  %24 = load i64, ptr %add.ptr14.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %24, %or7.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit.i, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -2099,9 +2099,9 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %cmp.i.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %while.body.i.i.i
-  %cmp.i.i.i10.i.i.i = icmp eq <16 x i8> %19, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
-  %24 = bitcast <16 x i1> %cmp.i.i.i10.i.i.i to i16
-  %cmp.i11.not.i.i.i = icmp eq i16 %24, 0
+  %cmp.i.i.i10.i.i.i = icmp eq <16 x i8> %20, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %25 = bitcast <16 x i1> %cmp.i.i.i10.i.i.i to i16
+  %cmp.i11.not.i.i.i = icmp eq i16 %25, 0
   br i1 %cmp.i11.not.i.i.i, label %if.end29.i.i.i, label %if.end61
 
 if.end29.i.i.i:                                   ; preds = %for.end.i.i.i
@@ -2110,13 +2110,13 @@ if.end29.i.i.i:                                   ; preds = %for.end.i.i.i
   br label %while.body.i.i.i, !llvm.loop !8
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit.i: ; preds = %for.body.i.i.i
-  %cmp.i.i.i.i = icmp eq ptr %14, null
+  %cmp.i.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.i.i.i.i, label %if.end61, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 %and.i.i.i.i
-  %25 = load i8, ptr %add.ptr.i.i.i.i, align 1
-  %cmp.i.i.i.i14.i = icmp sgt i8 %25, -1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 %and.i.i.i.i
+  %26 = load i8, ptr %add.ptr.i.i.i.i, align 1
+  %cmp.i.i.i.i14.i = icmp sgt i8 %26, -1
   br i1 %cmp.i.i.i.i14.i, label %if.then23, label %cond.false.i.i.i.i
 
 cond.false.i.i.i.i:                               ; preds = %lor.lhs.false.i.i.i.i
@@ -2130,21 +2130,21 @@ if.then23:                                        ; preds = %lor.lhs.false.i.i.i
 
 if.end27:                                         ; preds = %if.then23
   %conv.i36 = zext nneg i32 %call24 to i64
-  %26 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i38 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %26, i64 %conv.i36
-  %arrayidx.i.i41 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %26, i64 %conv.i.i
-  %27 = getelementptr inbounds i8, ptr %arrayidx.i.i41, i64 4
-  %28 = load i8, ptr %27, align 4
-  %conv.i42 = zext i8 %28 to i32
+  %27 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
+  %arrayidx.i.i38 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %27, i64 %conv.i36
+  %arrayidx.i.i41 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %27, i64 %conv.i.i
+  %28 = getelementptr inbounds i8, ptr %arrayidx.i.i41, i64 4
+  %29 = load i8, ptr %28, align 4
+  %conv.i42 = zext i8 %29 to i32
   %hi_.i46 = getelementptr inbounds i8, ptr %arrayidx.i.i41, i64 5
-  %29 = load i8, ptr %hi_.i46, align 1
-  %conv.i47 = zext i8 %29 to i32
+  %30 = load i8, ptr %hi_.i46, align 1
+  %conv.i47 = zext i8 %30 to i32
   %hint_foldcase_.i = getelementptr inbounds i8, ptr %arrayidx.i.i41, i64 6
-  %30 = load i16, ptr %hint_foldcase_.i, align 2
-  %31 = and i16 %30, 1
-  %and.i = zext nneg i16 %31 to i32
-  %32 = load i32, ptr %arrayidx.i.i41, align 4
-  %shr.i54 = lshr i32 %32, 4
+  %31 = load i16, ptr %hint_foldcase_.i, align 2
+  %32 = and i16 %31, 1
+  %and.i = zext nneg i16 %32 to i32
+  %33 = load i32, ptr %arrayidx.i.i41, align 4
+  %shr.i54 = lshr i32 %33, 4
   tail call void @_ZN3re24Prog4Inst13InitByteRangeEiiij(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i38, i32 noundef %conv.i42, i32 noundef %conv.i47, i32 noundef %and.i, i32 noundef %shr.i54)
   br i1 %cmp7, label %if.end61, label %if.else46
 
@@ -2152,21 +2152,21 @@ if.else46:                                        ; preds = %if.end27
   %and49 = and i32 %f.sroa.6.0.extract.trunc, 1
   %tobool50.not = icmp eq i32 %and49, 0
   %sext148 = shl i64 %0, 32
-  %conv.i58 = ashr exact i64 %sext148, 32
-  %33 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
+  %34 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
+  %35 = ashr exact i64 %sext148, 29
+  %arrayidx.i.i60 = getelementptr inbounds i8, ptr %34, i64 %35
   br i1 %tobool50.not, label %if.else55, label %if.then51
 
 if.then51:                                        ; preds = %if.else46
-  %34 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %33, i64 %conv.i58, i32 1
-  store i32 %call24, ptr %34, align 4
+  %36 = getelementptr inbounds i8, ptr %arrayidx.i.i60, i64 4
+  store i32 %call24, ptr %36, align 4
   br label %if.end61
 
 if.else55:                                        ; preds = %if.else46
-  %arrayidx.i.i60 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %33, i64 %conv.i58
   %shl.i = shl i32 %call24, 4
-  %35 = load i32, ptr %arrayidx.i.i60, align 4
-  %36 = and i32 %35, 15
-  %or4.i = or disjoint i32 %36, %shl.i
+  %37 = load i32, ptr %arrayidx.i.i60, align 4
+  %38 = and i32 %37, 15
+  %or4.i = or disjoint i32 %38, %shl.i
   store i32 %or4.i, ptr %arrayidx.i.i60, align 4
   br label %if.end61
 
@@ -2174,26 +2174,26 @@ if.end61:                                         ; preds = %for.end.i.i.i, %_ZN
   %root.addr.0 = phi i32 [ %root, %if.then51 ], [ %root, %if.else55 ], [ %call24, %if.end27 ], [ %root, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit.i ], [ %root, %for.end.i.i.i ]
   %br.1 = phi i32 [ %call24, %if.then51 ], [ %call24, %if.else55 ], [ %call24, %if.end27 ], [ %br.0, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit.i ], [ %br.0, %for.end.i.i.i ]
   %conv.i61 = sext i32 %id to i64
-  %37 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i63 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %37, i64 %conv.i61
-  %38 = load i32, ptr %arrayidx.i.i63, align 4
-  %shr.i64 = lshr i32 %38, 4
-  %39 = getelementptr inbounds i8, ptr %arrayidx.i.i63, i64 4
-  %40 = load i8, ptr %39, align 4
+  %39 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
+  %arrayidx.i.i63 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %39, i64 %conv.i61
+  %40 = load i32, ptr %arrayidx.i.i63, align 4
+  %shr.i64 = lshr i32 %40, 4
+  %41 = getelementptr inbounds i8, ptr %arrayidx.i.i63, i64 4
+  %42 = load i8, ptr %41, align 4
   %hi_.i68 = getelementptr inbounds i8, ptr %arrayidx.i.i63, i64 5
-  %41 = load i8, ptr %hi_.i68, align 1
+  %43 = load i8, ptr %hi_.i68, align 1
   %hint_foldcase_.i.i69 = getelementptr inbounds i8, ptr %arrayidx.i.i63, i64 6
-  %42 = load i16, ptr %hint_foldcase_.i.i69, align 2
-  %43 = and i16 %42, 1
+  %44 = load i16, ptr %hint_foldcase_.i.i69, align 2
+  %45 = and i16 %44, 1
   %conv.i13.i71 = zext nneg i32 %shr.i64 to i64
   %shl.i.i72 = shl nuw nsw i64 %conv.i13.i71, 17
-  %conv1.i.i73 = zext i8 %40 to i64
+  %conv1.i.i73 = zext i8 %42 to i64
   %shl2.i.i74 = shl nuw nsw i64 %conv1.i.i73, 9
   %or.i.i75 = or disjoint i64 %shl.i.i72, %shl2.i.i74
-  %conv3.i.i76 = zext i8 %41 to i64
+  %conv3.i.i76 = zext i8 %43 to i64
   %shl4.i.i77 = shl nuw nsw i64 %conv3.i.i76, 1
   %or5.i.i78 = or disjoint i64 %or.i.i75, %shl4.i.i77
-  %conv6.i.i79 = zext nneg i16 %43 to i64
+  %conv6.i.i79 = zext nneg i16 %45 to i64
   %or7.i.i80 = or disjoint i64 %or5.i.i78, %conv6.i.i79
   %add.i.i.i.i.i82 = add i64 %or7.i.i80, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
   %conv.i.i.i.i.i83 = zext i64 %add.i.i.i.i.i82 to i128
@@ -2201,43 +2201,43 @@ if.end61:                                         ; preds = %for.end.i.i.i, %_ZN
   %shr.i.i.i.i.i85 = lshr i128 %mul.i.i.i.i.i84, 64
   %xor.i.i.i.i.i86 = xor i128 %shr.i.i.i.i.i85, %mul.i.i.i.i.i84
   %conv1.i.i.i.i.i87 = trunc i128 %xor.i.i.i.i.i86 to i64
-  %44 = load ptr, ptr %rune_cache_.i, align 8
-  %45 = load i64, ptr %capacity_.i.i.i, align 8
+  %46 = load ptr, ptr %rune_cache_.i, align 8
+  %47 = load i64, ptr %capacity_.i.i.i, align 8
   %shr.i.i.i2.i.i89 = lshr i64 %conv1.i.i.i.i.i87, 7
-  %46 = ptrtoint ptr %44 to i64
-  %shr.i.i.i.i.i.i90 = lshr i64 %46, 12
+  %48 = ptrtoint ptr %46 to i64
+  %shr.i.i.i.i.i.i90 = lshr i64 %48, 12
   %xor.i.i.i3.i.i91 = xor i64 %shr.i.i.i2.i.i89, %shr.i.i.i.i.i.i90
-  %47 = trunc i128 %xor.i.i.i.i.i86 to i8
-  %conv.i.i.i.i92 = and i8 %47, 127
+  %49 = trunc i128 %xor.i.i.i.i.i86 to i8
+  %conv.i.i.i.i92 = and i8 %49, 127
   %vecinit.i.i.i.i.i93 = insertelement <16 x i8> poison, i8 %conv.i.i.i.i92, i64 0
   %vecinit15.i.i.i.i.i94 = shufflevector <16 x i8> %vecinit.i.i.i.i.i93, <16 x i8> poison, <16 x i32> zeroinitializer
-  %48 = load ptr, ptr %slots_.i.i.i, align 8
+  %50 = load ptr, ptr %slots_.i.i.i, align 8
   br label %while.body.i.i.i96
 
 while.body.i.i.i96:                               ; preds = %if.end29.i.i.i119, %if.end61
   %xor.i.i.pn.i.i.i97 = phi i64 [ %xor.i.i.i3.i.i91, %if.end61 ], [ %add3.i.i.i.i121, %if.end29.i.i.i119 ]
   %seq.sroa.10.0.i.i.i98 = phi i64 [ 0, %if.end61 ], [ %add.i12.i.i.i120, %if.end29.i.i.i119 ]
-  %seq.sroa.4.0.i.i.i99 = and i64 %xor.i.i.pn.i.i.i97, %45
-  %add.ptr.i.i.i100 = getelementptr inbounds i8, ptr %44, i64 %seq.sroa.4.0.i.i.i99
-  %49 = load <16 x i8>, ptr %add.ptr.i.i.i100, align 1
-  %cmp.i.i.i.i.i101 = icmp eq <16 x i8> %vecinit15.i.i.i.i.i94, %49
-  %50 = bitcast <16 x i1> %cmp.i.i.i.i.i101 to i16
-  %cmp.i.not23.i.i.i102 = icmp eq i16 %50, 0
+  %seq.sroa.4.0.i.i.i99 = and i64 %xor.i.i.pn.i.i.i97, %47
+  %add.ptr.i.i.i100 = getelementptr inbounds i8, ptr %46, i64 %seq.sroa.4.0.i.i.i99
+  %51 = load <16 x i8>, ptr %add.ptr.i.i.i100, align 1
+  %cmp.i.i.i.i.i101 = icmp eq <16 x i8> %vecinit15.i.i.i.i.i94, %51
+  %52 = bitcast <16 x i1> %cmp.i.i.i.i.i101 to i16
+  %cmp.i.not23.i.i.i102 = icmp eq i16 %52, 0
   br i1 %cmp.i.not23.i.i.i102, label %for.end.i.i.i115, label %for.body.preheader.i.i.i103
 
 for.body.preheader.i.i.i103:                      ; preds = %while.body.i.i.i96
-  %51 = zext i16 %50 to i32
+  %53 = zext i16 %52 to i32
   br label %for.body.i.i.i104
 
 for.body.i.i.i104:                                ; preds = %for.inc.i.i.i111, %for.body.preheader.i.i.i103
-  %__begin5.sroa.0.024.i.i.i105 = phi i32 [ %and.i9.i.i.i113, %for.inc.i.i.i111 ], [ %51, %for.body.preheader.i.i.i103 ]
-  %52 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i.i105, i1 true)
-  %conv.i.i.i106 = zext nneg i32 %52 to i64
+  %__begin5.sroa.0.024.i.i.i105 = phi i32 [ %and.i9.i.i.i113, %for.inc.i.i.i111 ], [ %53, %for.body.preheader.i.i.i103 ]
+  %54 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i.i105, i1 true)
+  %conv.i.i.i106 = zext nneg i32 %54 to i64
   %add.i.i.i.i107 = add i64 %seq.sroa.4.0.i.i.i99, %conv.i.i.i106
-  %and.i.i.i.i108 = and i64 %add.i.i.i.i107, %45
-  %add.ptr14.i.i.i109 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %48, i64 %and.i.i.i.i108
-  %53 = load i64, ptr %add.ptr14.i.i.i109, align 8
-  %cmp.i.i.i.i.i.i.i.i.i110 = icmp eq i64 %53, %or7.i.i80
+  %and.i.i.i.i108 = and i64 %add.i.i.i.i107, %47
+  %add.ptr14.i.i.i109 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %50, i64 %and.i.i.i.i108
+  %55 = load i64, ptr %add.ptr14.i.i.i109, align 8
+  %cmp.i.i.i.i.i.i.i.i.i110 = icmp eq i64 %55, %or7.i.i80
   br i1 %cmp.i.i.i.i.i.i.i.i.i110, label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit.i122, label %for.inc.i.i.i111
 
 for.inc.i.i.i111:                                 ; preds = %for.body.i.i.i104
@@ -2247,9 +2247,9 @@ for.inc.i.i.i111:                                 ; preds = %for.body.i.i.i104
   br i1 %cmp.i.not.i.i.i114, label %for.end.i.i.i115, label %for.body.i.i.i104
 
 for.end.i.i.i115:                                 ; preds = %for.inc.i.i.i111, %while.body.i.i.i96
-  %cmp.i.i.i10.i.i.i116 = icmp eq <16 x i8> %49, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
-  %54 = bitcast <16 x i1> %cmp.i.i.i10.i.i.i116 to i16
-  %cmp.i11.not.i.i.i117 = icmp eq i16 %54, 0
+  %cmp.i.i.i10.i.i.i116 = icmp eq <16 x i8> %51, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %56 = bitcast <16 x i1> %cmp.i.i.i10.i.i.i116 to i16
+  %cmp.i11.not.i.i.i117 = icmp eq i16 %56, 0
   br i1 %cmp.i11.not.i.i.i117, label %if.end29.i.i.i119, label %if.then66
 
 if.end29.i.i.i119:                                ; preds = %for.end.i.i.i115
@@ -2258,13 +2258,13 @@ if.end29.i.i.i119:                                ; preds = %for.end.i.i.i115
   br label %while.body.i.i.i96, !llvm.loop !8
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit.i122: ; preds = %for.body.i.i.i104
-  %cmp.i.i.i.i123 = icmp eq ptr %44, null
+  %cmp.i.i.i.i123 = icmp eq ptr %46, null
   br i1 %cmp.i.i.i.i123, label %if.then66, label %lor.lhs.false.i.i.i.i124
 
 lor.lhs.false.i.i.i.i124:                         ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit.i122
-  %add.ptr.i.i.i.i125 = getelementptr inbounds i8, ptr %44, i64 %and.i.i.i.i108
-  %55 = load i8, ptr %add.ptr.i.i.i.i125, align 1
-  %cmp.i.i.i.i14.i126 = icmp sgt i8 %55, -1
+  %add.ptr.i.i.i.i125 = getelementptr inbounds i8, ptr %46, i64 %and.i.i.i.i108
+  %57 = load i8, ptr %add.ptr.i.i.i.i125, align 1
+  %cmp.i.i.i.i14.i126 = icmp sgt i8 %57, -1
   br i1 %cmp.i.i.i.i14.i126, label %if.end71, label %cond.false.i.i.i.i127
 
 cond.false.i.i.i.i127:                            ; preds = %lor.lhs.false.i.i.i.i124
@@ -2273,33 +2273,33 @@ cond.false.i.i.i.i127:                            ; preds = %lor.lhs.false.i.i.i
 
 if.then66:                                        ; preds = %for.end.i.i.i115, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit.i122
   store i32 0, ptr %arrayidx.i.i63, align 4
-  %56 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %57 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %56, i64 %conv.i61, i32 1
-  store i32 0, ptr %57, align 4
+  %58 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
+  %59 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %58, i64 %conv.i61, i32 1
+  store i32 0, ptr %59, align 4
   %ninst_ = getelementptr inbounds i8, ptr %this, i64 136
-  %58 = load i32, ptr %ninst_, align 8
-  %dec = add nsw i32 %58, -1
+  %60 = load i32, ptr %ninst_, align 8
+  %dec = add nsw i32 %60, -1
   store i32 %dec, ptr %ninst_, align 8
   %.pre153 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   br label %if.end71
 
 if.end71:                                         ; preds = %lor.lhs.false.i.i.i.i124, %if.then66
-  %59 = phi ptr [ %37, %lor.lhs.false.i.i.i.i124 ], [ %.pre153, %if.then66 ]
+  %61 = phi ptr [ %39, %lor.lhs.false.i.i.i.i124 ], [ %.pre153, %if.then66 ]
   %conv.i135 = sext i32 %br.1 to i64
-  %arrayidx.i.i137 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %59, i64 %conv.i135
-  %60 = load i32, ptr %arrayidx.i.i137, align 4
-  %shr.i138 = lshr i32 %60, 4
+  %arrayidx.i.i137 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %61, i64 %conv.i135
+  %62 = load i32, ptr %arrayidx.i.i137, align 4
+  %shr.i138 = lshr i32 %62, 4
   %call75 = tail call noundef i32 @_ZN3re28Compiler18AddSuffixRecursiveEii(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef %shr.i138, i32 noundef %shr.i64)
   %cmp76 = icmp eq i32 %call75, 0
   br i1 %cmp76, label %return, label %if.end78
 
 if.end78:                                         ; preds = %if.end71
-  %61 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i141 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %61, i64 %conv.i135
+  %63 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
+  %arrayidx.i.i141 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %63, i64 %conv.i135
   %shl.i142 = shl i32 %call75, 4
-  %62 = load i32, ptr %arrayidx.i.i141, align 4
-  %63 = and i32 %62, 15
-  %or4.i143 = or disjoint i32 %63, %shl.i142
+  %64 = load i32, ptr %arrayidx.i.i141, align 4
+  %65 = and i32 %64, 15
+  %or4.i143 = or disjoint i32 %65, %shl.i142
   store i32 %or4.i143, ptr %arrayidx.i.i141, align 4
   br label %return
 

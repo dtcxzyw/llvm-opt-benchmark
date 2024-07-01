@@ -463,8 +463,8 @@ define dso_local void @free_pgd_range(ptr noundef %0, i64 noundef %1, i64 nounde
   %162 = inttoptr i64 %161 to ptr
   %163 = select i1 %155, i64 4503599627366400, i64 4503599625273344
   %164 = and i64 %163, %150
-  %165 = lshr exact i64 %164, 12
-  %166 = getelementptr %struct.page, ptr %162, i64 %165
+  %165 = lshr exact i64 %164, 6
+  %166 = getelementptr i8, ptr %162, i64 %165
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 0, ptr %10, align 8
   %.0..0..0..0. = load volatile i64, ptr %10, align 8
@@ -12637,8 +12637,8 @@ define dso_local void @clear_huge_page(ptr noundef %0, i64 noundef %1, i32 nound
   %44 = phi i64 [ 0, %41 ], [ %59, %43 ]
   %45 = tail call i32 @__SCT__cond_resched() #18
   %46 = shl i64 %44, 32
-  %47 = ashr exact i64 %46, 32
-  %48 = getelementptr %struct.page, ptr %0, i64 %47
+  %47 = ashr exact i64 %46, 26
+  %48 = getelementptr i8, ptr %0, i64 %47
   %49 = load i64, ptr @vmemmap_base, align 8
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %50, %49

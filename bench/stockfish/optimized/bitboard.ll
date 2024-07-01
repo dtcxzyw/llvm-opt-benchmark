@@ -663,8 +663,8 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit: ; p
   %53 = getelementptr i8, ptr %26, i64 -16
   %54 = load ptr, ptr %53, align 8
   %sext106 = shl i64 %.04492, 32
-  %55 = ashr exact i64 %sext106, 32
-  %56 = getelementptr inbounds i64, ptr %54, i64 %55
+  %55 = ashr exact i64 %sext106, 29
+  %56 = getelementptr inbounds i8, ptr %54, i64 %55
   br label %57
 
 57:                                               ; preds = %_ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit, %52

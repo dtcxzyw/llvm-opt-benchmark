@@ -160,8 +160,8 @@ define void @slar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %98 = getelementptr float, ptr %93, i64 %67
   %99 = trunc nsw i64 %indvars.iv528 to i32
   %sext = shl i64 %indvars.iv.next529, 32
-  %100 = ashr exact i64 %sext, 32
-  %101 = getelementptr inbounds float, ptr %20, i64 %100
+  %100 = ashr exact i64 %sext, 30
+  %101 = getelementptr inbounds i8, ptr %20, i64 %100
   %102 = load float, ptr %101, align 4
   store float %102, ptr %98, align 4
   %103 = load float, ptr %3, align 4
@@ -292,8 +292,8 @@ define void @slar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %176 = getelementptr float, ptr %171, i64 %169
   %177 = trunc nsw i64 %indvars.iv539 to i32
   %sext573 = shl i64 %indvars.iv539, 32
-  %178 = ashr exact i64 %sext573, 32
-  %179 = getelementptr float, ptr %23, i64 %178
+  %178 = ashr exact i64 %sext573, 30
+  %179 = getelementptr i8, ptr %23, i64 %178
   %180 = getelementptr i8, ptr %179, i64 4
   %181 = load float, ptr %180, align 4
   %182 = load float, ptr %3, align 4

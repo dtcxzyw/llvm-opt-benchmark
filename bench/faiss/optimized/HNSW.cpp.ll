@@ -6441,17 +6441,17 @@ thread-pre-split:                                 ; preds = %._crit_edge189
 .thread.thread.i:                                 ; preds = %123
   %.0243846.i = trunc i64 %117 to i32
   %sext47.i = shl i64 %117, 32
-  %125 = ashr exact i64 %sext47.i, 32
-  %126 = load ptr, ptr %70, align 8
-  %127 = getelementptr inbounds float, ptr %126, i64 %125
+  %125 = load ptr, ptr %70, align 8
+  %126 = ashr exact i64 %sext47.i, 30
+  %127 = getelementptr inbounds i8, ptr %125, i64 %126
   %128 = load float, ptr %127, align 4
   br label %._crit_edge.i
 
 .thread.i:                                        ; preds = %120
   %sext.i = shl i64 %117, 32
-  %129 = ashr exact i64 %sext.i, 32
-  %130 = load ptr, ptr %70, align 8
-  %131 = getelementptr inbounds float, ptr %130, i64 %129
+  %129 = load ptr, ptr %70, align 8
+  %130 = ashr exact i64 %sext.i, 30
+  %131 = getelementptr inbounds i8, ptr %129, i64 %130
   %132 = load float, ptr %131, align 4
   %.not52.i = icmp eq i64 %indvars.iv.i, 1
   br i1 %.not52.i, label %._crit_edge.i, label %.lr.ph.i
@@ -6472,7 +6472,7 @@ thread-pre-split:                                 ; preds = %._crit_edge189
   br i1 %.not28.i, label %144, label %138
 
 138:                                              ; preds = %135
-  %139 = getelementptr inbounds float, ptr %130, i64 %indvars.iv43.i
+  %139 = getelementptr inbounds float, ptr %129, i64 %indvars.iv43.i
   %140 = load float, ptr %139, align 4
   %141 = fcmp olt float %140, %.02135.i
   br i1 %141, label %142, label %144
@@ -7166,9 +7166,9 @@ define noundef i32 @_ZN5faiss4HNSW11MinimaxHeap7pop_minEPf(ptr nocapture noundef
   %.0243846 = trunc i64 %9 to i32
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %sext47 = shl i64 %9, 32
-  %18 = ashr exact i64 %sext47, 32
-  %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds float, ptr %19, i64 %18
+  %18 = load ptr, ptr %17, align 8
+  %19 = ashr exact i64 %sext47, 30
+  %20 = getelementptr inbounds i8, ptr %18, i64 %19
   %21 = load float, ptr %20, align 4
   br label %._crit_edge
 
@@ -7176,9 +7176,9 @@ define noundef i32 @_ZN5faiss4HNSW11MinimaxHeap7pop_minEPf(ptr nocapture noundef
   %.02438 = trunc i64 %9 to i32
   %22 = getelementptr inbounds i8, ptr %0, i64 40
   %sext = shl i64 %9, 32
-  %23 = ashr exact i64 %sext, 32
-  %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds float, ptr %24, i64 %23
+  %23 = load ptr, ptr %22, align 8
+  %24 = ashr exact i64 %sext, 30
+  %25 = getelementptr inbounds i8, ptr %23, i64 %24
   %26 = load float, ptr %25, align 4
   %.not52 = icmp eq i64 %indvars.iv, 1
   br i1 %.not52, label %._crit_edge, label %.lr.ph
@@ -7198,7 +7198,7 @@ define noundef i32 @_ZN5faiss4HNSW11MinimaxHeap7pop_minEPf(ptr nocapture noundef
   br i1 %.not28, label %38, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds float, ptr %24, i64 %indvars.iv43
+  %33 = getelementptr inbounds float, ptr %23, i64 %indvars.iv43
   %34 = load float, ptr %33, align 4
   %35 = fcmp olt float %34, %.02135
   br i1 %35, label %36, label %38
@@ -9214,8 +9214,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit67:             ; preds = %_ZSt6fill_nIPimiET_
   %72 = getelementptr inbounds i64, ptr %64, i64 %68
   %73 = load i64, ptr %72, align 8
   %sext46 = add i64 %sext45, 4294967296
-  %74 = ashr exact i64 %sext46, 32
-  %75 = getelementptr inbounds i64, ptr %64, i64 %74
+  %74 = ashr exact i64 %sext46, 29
+  %75 = getelementptr inbounds i8, ptr %64, i64 %74
   %76 = load i64, ptr %75, align 8
   %77 = icmp ult i64 %73, %76
   br i1 %77, label %.lr.ph113, label %._crit_edge114

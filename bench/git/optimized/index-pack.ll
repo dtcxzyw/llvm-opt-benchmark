@@ -5314,106 +5314,106 @@ if.end10:                                         ; preds = %land.rhs
   %inc11 = add nsw i32 %10, 1
   store i32 %inc11, ptr @nr_dispatched, align 4
   %sext = shl i64 %indvars.iv, 32
-  %idxprom12 = ashr exact i64 %sext, 32
-  %arrayidx13 = getelementptr inbounds %struct.object_entry, ptr %5, i64 %idxprom12
+  %11 = ashr exact i64 %sext, 26
+  %arrayidx13 = getelementptr inbounds i8, ptr %5, i64 %11
   br label %if.end56
 
 if.else:                                          ; preds = %lock_mutex.exit57
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 -40
   %ref_first = getelementptr inbounds i8, ptr %3, i64 -24
-  %11 = load i32, ptr %ref_first, align 8
+  %12 = load i32, ptr %ref_first, align 8
   %ref_last = getelementptr inbounds i8, ptr %3, i64 -20
-  %12 = load i32, ptr %ref_last, align 4
-  %cmp14.not = icmp sgt i32 %11, %12
+  %13 = load i32, ptr %ref_last, align 4
+  %cmp14.not = icmp sgt i32 %12, %13
   br i1 %cmp14.not, label %if.else33, label %if.then16
 
 if.then16:                                        ; preds = %if.else
-  %13 = load ptr, ptr @ref_deltas, align 8
-  %inc18 = add nsw i32 %11, 1
+  %14 = load ptr, ptr @ref_deltas, align 8
+  %inc18 = add nsw i32 %12, 1
   store i32 %inc18, ptr %ref_first, align 8
-  %idxprom19 = sext i32 %11 to i64
-  %obj_no = getelementptr inbounds %struct.ref_delta_entry, ptr %13, i64 %idxprom19, i32 1
-  %14 = load i32, ptr %obj_no, align 4
-  %15 = load ptr, ptr @objects, align 8
-  %idx.ext = sext i32 %14 to i64
-  %add.ptr21 = getelementptr inbounds %struct.object_entry, ptr %15, i64 %idx.ext
+  %idxprom19 = sext i32 %12 to i64
+  %obj_no = getelementptr inbounds %struct.ref_delta_entry, ptr %14, i64 %idxprom19, i32 1
+  %15 = load i32, ptr %obj_no, align 4
+  %16 = load ptr, ptr @objects, align 8
+  %idx.ext = sext i32 %15 to i64
+  %add.ptr21 = getelementptr inbounds %struct.object_entry, ptr %16, i64 %idx.ext
   %real_type = getelementptr inbounds i8, ptr %add.ptr21, i64 58
-  %16 = load i8, ptr %real_type, align 2
-  %cmp23.not = icmp eq i8 %16, 7
+  %17 = load i8, ptr %real_type, align 2
+  %cmp23.not = icmp eq i8 %17, 7
   br i1 %cmp23.not, label %if.end29, label %if.then25
 
 if.then25:                                        ; preds = %if.then16
   %offset26 = getelementptr inbounds i8, ptr %add.ptr21, i64 40
-  %17 = load i64, ptr %offset26, align 8
+  %18 = load i64, ptr %offset26, align 8
   %obj = getelementptr inbounds i8, ptr %3, i64 -32
-  %18 = load ptr, ptr %obj, align 8
-  %call28 = call ptr @oid_to_hex(ptr noundef %18) #23
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.87, i64 noundef %17, ptr noundef %call28) #22
+  %19 = load ptr, ptr %obj, align 8
+  %call28 = call ptr @oid_to_hex(ptr noundef %19) #23
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.87, i64 noundef %18, ptr noundef %call28) #22
   unreachable
 
 if.end29:                                         ; preds = %if.then16
   %obj30 = getelementptr inbounds i8, ptr %3, i64 -32
-  %19 = load ptr, ptr %obj30, align 8
-  %real_type31 = getelementptr inbounds i8, ptr %19, i64 58
-  %20 = load i8, ptr %real_type31, align 2
-  store i8 %20, ptr %real_type, align 2
+  %20 = load ptr, ptr %obj30, align 8
+  %real_type31 = getelementptr inbounds i8, ptr %20, i64 58
+  %21 = load i8, ptr %real_type31, align 2
+  store i8 %21, ptr %real_type, align 2
   br label %if.end43
 
 if.else33:                                        ; preds = %if.else
-  %21 = load ptr, ptr @objects, align 8
-  %22 = load ptr, ptr @ofs_deltas, align 8
+  %22 = load ptr, ptr @objects, align 8
+  %23 = load ptr, ptr @ofs_deltas, align 8
   %ofs_first = getelementptr inbounds i8, ptr %3, i64 -16
-  %23 = load i32, ptr %ofs_first, align 8
-  %inc34 = add nsw i32 %23, 1
+  %24 = load i32, ptr %ofs_first, align 8
+  %inc34 = add nsw i32 %24, 1
   store i32 %inc34, ptr %ofs_first, align 8
-  %idxprom35 = sext i32 %23 to i64
-  %obj_no37 = getelementptr inbounds %struct.ofs_delta_entry, ptr %22, i64 %idxprom35, i32 1
-  %24 = load i32, ptr %obj_no37, align 8
-  %idx.ext38 = sext i32 %24 to i64
-  %add.ptr39 = getelementptr inbounds %struct.object_entry, ptr %21, i64 %idx.ext38
+  %idxprom35 = sext i32 %24 to i64
+  %obj_no37 = getelementptr inbounds %struct.ofs_delta_entry, ptr %23, i64 %idxprom35, i32 1
+  %25 = load i32, ptr %obj_no37, align 8
+  %idx.ext38 = sext i32 %25 to i64
+  %add.ptr39 = getelementptr inbounds %struct.object_entry, ptr %22, i64 %idx.ext38
   %obj40 = getelementptr inbounds i8, ptr %3, i64 -32
-  %25 = load ptr, ptr %obj40, align 8
-  %real_type41 = getelementptr inbounds i8, ptr %25, i64 58
-  %26 = load i8, ptr %real_type41, align 2
+  %26 = load ptr, ptr %obj40, align 8
+  %real_type41 = getelementptr inbounds i8, ptr %26, i64 58
+  %27 = load i8, ptr %real_type41, align 2
   %real_type42 = getelementptr inbounds i8, ptr %add.ptr39, i64 58
-  store i8 %26, ptr %real_type42, align 2
+  store i8 %27, ptr %real_type42, align 2
   br label %if.end43
 
 if.end43:                                         ; preds = %if.else33, %if.end29
   %child_obj.0 = phi ptr [ %add.ptr21, %if.end29 ], [ %add.ptr39, %if.else33 ]
-  %27 = load i32, ptr %ref_first, align 8
-  %28 = load i32, ptr %ref_last, align 4
-  %cmp46 = icmp sgt i32 %27, %28
+  %28 = load i32, ptr %ref_first, align 8
+  %29 = load i32, ptr %ref_last, align 4
+  %cmp46 = icmp sgt i32 %28, %29
   br i1 %cmp46, label %land.lhs.true, label %if.end53
 
 land.lhs.true:                                    ; preds = %if.end43
   %ofs_first48 = getelementptr inbounds i8, ptr %3, i64 -16
-  %29 = load i32, ptr %ofs_first48, align 8
+  %30 = load i32, ptr %ofs_first48, align 8
   %ofs_last = getelementptr inbounds i8, ptr %3, i64 -12
-  %30 = load i32, ptr %ofs_last, align 4
-  %cmp49 = icmp sgt i32 %29, %30
+  %31 = load i32, ptr %ofs_last, align 4
+  %cmp49 = icmp sgt i32 %30, %31
   br i1 %cmp49, label %if.then51, label %if.end53
 
 if.then51:                                        ; preds = %land.lhs.true
   %.val = load ptr, ptr %3, align 8
-  %31 = getelementptr i8, ptr %3, i64 8
-  %.val46 = load ptr, ptr %31, align 8
+  %32 = getelementptr i8, ptr %3, i64 8
+  %.val46 = load ptr, ptr %32, align 8
   %prev1.i.i = getelementptr inbounds i8, ptr %.val, i64 8
   store ptr %.val46, ptr %prev1.i.i, align 8
   store ptr %.val, ptr %.val46, align 8
-  %32 = load ptr, ptr @done_head, align 8
-  %prev.i = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = load ptr, ptr @done_head, align 8
+  %prev.i = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %3, ptr %prev.i, align 8
-  store ptr %32, ptr %3, align 8
-  store ptr @done_head, ptr %31, align 8
+  store ptr %33, ptr %3, align 8
+  store ptr @done_head, ptr %32, align 8
   store ptr %3, ptr @done_head, align 8
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then51, %land.lhs.true, %if.end43
   %call54 = call fastcc ptr @get_base_data(ptr noundef nonnull %add.ptr)
   %retain_data = getelementptr inbounds i8, ptr %3, i64 -8
-  %33 = load i32, ptr %retain_data, align 8
-  %inc55 = add nsw i32 %33, 1
+  %34 = load i32, ptr %retain_data, align 8
+  %inc55 = add nsw i32 %34, 1
   store i32 %inc55, ptr %retain_data, align 8
   br label %if.end56
 
@@ -5437,25 +5437,25 @@ if.then58:                                        ; preds = %unlock_mutex.exit65
   br i1 %.b.i66, label %if.then.i67, label %if.end19.i
 
 if.then.i67:                                      ; preds = %if.then58
-  %34 = load ptr, ptr @objects, align 8
+  %35 = load ptr, ptr @objects, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %child_obj.1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %34 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %obj.i = getelementptr inbounds i8, ptr %parent.0, i64 8
-  %35 = load ptr, ptr %obj.i, align 8
-  %sub.ptr.lhs.cast1.i = ptrtoint ptr %35 to i64
+  %36 = load ptr, ptr %obj.i, align 8
+  %sub.ptr.lhs.cast1.i = ptrtoint ptr %36 to i64
   %sub.ptr.sub3.i = sub i64 %sub.ptr.lhs.cast1.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div4.i = lshr exact i64 %sub.ptr.sub3.i, 6
   %conv5.i = trunc i64 %sub.ptr.div4.i to i32
-  %36 = load ptr, ptr @obj_stat, align 8
+  %37 = load ptr, ptr @obj_stat, align 8
   %sext.i = shl i64 %sub.ptr.sub3.i, 26
   %idxprom.i = ashr i64 %sext.i, 32
-  %arrayidx.i = getelementptr inbounds %struct.object_stat, ptr %36, i64 %idxprom.i
-  %37 = load i32, ptr %arrayidx.i, align 4
-  %add.i = add i32 %37, 1
+  %arrayidx.i = getelementptr inbounds %struct.object_stat, ptr %37, i64 %idxprom.i
+  %38 = load i32, ptr %arrayidx.i, align 4
+  %add.i = add i32 %38, 1
   %sext22.i = shl i64 %sub.ptr.sub.i, 26
   %idxprom6.i = ashr i64 %sext22.i, 32
-  %arrayidx7.i = getelementptr inbounds %struct.object_stat, ptr %36, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds %struct.object_stat, ptr %37, i64 %idxprom6.i
   store i32 %add.i, ptr %arrayidx7.i, align 4
   %.b.i.i = load i1, ptr @threads_active, align 4
   br i1 %.b.i.i, label %if.then.i.i, label %lock_mutex.exit.i
@@ -5468,14 +5468,14 @@ if.then.i.i:                                      ; preds = %if.then.i67
   br label %lock_mutex.exit.i
 
 lock_mutex.exit.i:                                ; preds = %if.then.i.i, %if.then.i67
-  %38 = phi i32 [ %add.i, %if.then.i67 ], [ %.pre37.i, %if.then.i.i ]
-  %39 = phi ptr [ %36, %if.then.i67 ], [ %.pre.i, %if.then.i.i ]
-  %40 = load i32, ptr @deepest_delta, align 4
-  %cmp.i68 = icmp ult i32 %40, %38
+  %39 = phi i32 [ %add.i, %if.then.i67 ], [ %.pre37.i, %if.then.i.i ]
+  %40 = phi ptr [ %37, %if.then.i67 ], [ %.pre.i, %if.then.i.i ]
+  %41 = load i32, ptr @deepest_delta, align 4
+  %cmp.i68 = icmp ult i32 %41, %39
   br i1 %cmp.i68, label %if.then13.i, label %if.end.i
 
 if.then13.i:                                      ; preds = %lock_mutex.exit.i
-  store i32 %38, ptr @deepest_delta, align 4
+  store i32 %39, ptr @deepest_delta, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then13.i, %lock_mutex.exit.i
@@ -5488,64 +5488,64 @@ if.then.i24.i:                                    ; preds = %if.end.i
   br label %unlock_mutex.exit.i
 
 unlock_mutex.exit.i:                              ; preds = %if.then.i24.i, %if.end.i
-  %41 = phi ptr [ %39, %if.end.i ], [ %.pre38.i, %if.then.i24.i ]
-  %base_object_no.i = getelementptr inbounds %struct.object_stat, ptr %41, i64 %idxprom6.i, i32 1
+  %42 = phi ptr [ %40, %if.end.i ], [ %.pre38.i, %if.then.i24.i ]
+  %base_object_no.i = getelementptr inbounds %struct.object_stat, ptr %42, i64 %idxprom6.i, i32 1
   store i32 %conv5.i, ptr %base_object_no.i, align 4
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %unlock_mutex.exit.i, %if.then58
   %call.i26.i = call fastcc ptr @unpack_data(ptr noundef readonly %child_obj.1, ptr noundef null, ptr noundef null)
   %data.i = getelementptr inbounds i8, ptr %parent.0, i64 56
-  %42 = load ptr, ptr %data.i, align 8
+  %43 = load ptr, ptr %data.i, align 8
   %size.i = getelementptr inbounds i8, ptr %parent.0, i64 64
-  %43 = load i64, ptr %size.i, align 8
+  %44 = load i64, ptr %size.i, align 8
   %size20.i = getelementptr inbounds i8, ptr %child_obj.1, i64 48
-  %44 = load i64, ptr %size20.i, align 8
-  %call21.i = call ptr @patch_delta(ptr noundef %42, i64 noundef %43, ptr noundef %call.i26.i, i64 noundef %44, ptr noundef nonnull %result_size.i) #23
+  %45 = load i64, ptr %size20.i, align 8
+  %call21.i = call ptr @patch_delta(ptr noundef %43, i64 noundef %44, ptr noundef %call.i26.i, i64 noundef %45, ptr noundef nonnull %result_size.i) #23
   call void @free(ptr noundef %call.i26.i) #23
   %tobool22.not.i = icmp eq ptr %call21.i, null
   br i1 %tobool22.not.i, label %if.then23.i, label %if.end25.i
 
 if.then23.i:                                      ; preds = %if.end19.i
   %offset.i = getelementptr inbounds i8, ptr %child_obj.1, i64 40
-  %45 = load i64, ptr %offset.i, align 8
+  %46 = load i64, ptr %offset.i, align 8
   %call24.i = call fastcc ptr @_(ptr noundef nonnull @.str.88)
-  call void (i64, ptr, ...) @bad_object(i64 noundef %45, ptr noundef %call24.i) #26
+  call void (i64, ptr, ...) @bad_object(i64 noundef %46, ptr noundef %call24.i) #26
   unreachable
 
 if.end25.i:                                       ; preds = %if.end19.i
-  %46 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds i8, ptr %46, i64 256
-  %47 = load ptr, ptr %hash_algo.i, align 8
-  %48 = load i64, ptr %result_size.i, align 8
+  %47 = load ptr, ptr @the_repository, align 8
+  %hash_algo.i = getelementptr inbounds i8, ptr %47, i64 256
+  %48 = load ptr, ptr %hash_algo.i, align 8
+  %49 = load i64, ptr %result_size.i, align 8
   %real_type.i = getelementptr inbounds i8, ptr %child_obj.1, i64 58
-  %49 = load i8, ptr %real_type.i, align 2
-  %conv26.i = sext i8 %49 to i32
-  call void @hash_object_file(ptr noundef %47, ptr noundef nonnull %call21.i, i64 noundef %48, i32 noundef %conv26.i, ptr noundef nonnull %child_obj.1) #23
-  %50 = load i64, ptr %result_size.i, align 8
-  %51 = load i8, ptr %real_type.i, align 2
-  %conv29.i = sext i8 %51 to i32
-  call fastcc void @sha1_object(ptr noundef nonnull %call21.i, ptr noundef null, i64 noundef %50, i32 noundef %conv29.i, ptr noundef nonnull %child_obj.1)
+  %50 = load i8, ptr %real_type.i, align 2
+  %conv26.i = sext i8 %50 to i32
+  call void @hash_object_file(ptr noundef %48, ptr noundef nonnull %call21.i, i64 noundef %49, i32 noundef %conv26.i, ptr noundef nonnull %child_obj.1) #23
+  %51 = load i64, ptr %result_size.i, align 8
+  %52 = load i8, ptr %real_type.i, align 2
+  %conv29.i = sext i8 %52 to i32
+  call fastcc void @sha1_object(ptr noundef nonnull %call21.i, ptr noundef null, i64 noundef %51, i32 noundef %conv29.i, ptr noundef nonnull %child_obj.1)
   %call32.i = call fastcc ptr @make_base(ptr noundef nonnull %child_obj.1, ptr noundef nonnull %parent.0)
   %data33.i = getelementptr inbounds i8, ptr %call32.i, i64 56
   store ptr %call21.i, ptr %data33.i, align 8
-  %52 = load i64, ptr %result_size.i, align 8
+  %53 = load i64, ptr %result_size.i, align 8
   %size34.i = getelementptr inbounds i8, ptr %call32.i, i64 64
-  store i64 %52, ptr %size34.i, align 8
+  store i64 %53, ptr %size34.i, align 8
   %.b.i27.i = load i1, ptr @threads_active, align 4
   br i1 %.b.i27.i, label %lock_mutex.exit30.i, label %lock_mutex.exit30.thread.i
 
 lock_mutex.exit30.thread.i:                       ; preds = %if.end25.i
-  %53 = load i32, ptr @nr_resolved_deltas, align 4
-  %inc36.i = add nsw i32 %53, 1
+  %54 = load i32, ptr @nr_resolved_deltas, align 4
+  %inc36.i = add nsw i32 %54, 1
   store i32 %inc36.i, ptr @nr_resolved_deltas, align 4
   br label %resolve_delta.exit
 
 lock_mutex.exit30.i:                              ; preds = %if.end25.i
   %call.i29.i = call i32 @pthread_mutex_lock(ptr noundef nonnull @counter_mutex) #23
   %.b.i31.pr.i = load i1, ptr @threads_active, align 4
-  %54 = load i32, ptr @nr_resolved_deltas, align 4
-  %inc.i = add nsw i32 %54, 1
+  %55 = load i32, ptr @nr_resolved_deltas, align 4
+  %inc.i = add nsw i32 %55, 1
   store i32 %inc.i, ptr @nr_resolved_deltas, align 4
   br i1 %.b.i31.pr.i, label %if.then.i32.i, label %resolve_delta.exit
 
@@ -5556,21 +5556,21 @@ if.then.i32.i:                                    ; preds = %lock_mutex.exit30.i
 resolve_delta.exit:                               ; preds = %lock_mutex.exit30.thread.i, %lock_mutex.exit30.i, %if.then.i32.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result_size.i)
   %children_remaining = getelementptr inbounds i8, ptr %call32.i, i64 36
-  %55 = load i32, ptr %children_remaining, align 4
-  %tobool60.not = icmp eq i32 %55, 0
+  %56 = load i32, ptr %children_remaining, align 4
+  %tobool60.not = icmp eq i32 %56, 0
   br i1 %tobool60.not, label %do.body, label %if.end74
 
 do.body:                                          ; preds = %resolve_delta.exit
-  %56 = load ptr, ptr %data33.i, align 8
-  call void @free(ptr noundef %56) #23
+  %57 = load ptr, ptr %data33.i, align 8
+  call void @free(ptr noundef %57) #23
   store ptr null, ptr %data33.i, align 8
   br label %if.end74
 
 if.else65:                                        ; preds = %unlock_mutex.exit65
   %call66 = call fastcc ptr @make_base(ptr noundef %child_obj.1, ptr noundef null)
   %children_remaining67 = getelementptr inbounds i8, ptr %call66, i64 36
-  %57 = load i32, ptr %children_remaining67, align 4
-  %tobool68.not = icmp eq i32 %57, 0
+  %58 = load i32, ptr %children_remaining67, align 4
+  %tobool68.not = icmp eq i32 %58, 0
   br i1 %tobool68.not, label %if.end74, label %if.then69
 
 if.then69:                                        ; preds = %if.else65
@@ -5578,9 +5578,9 @@ if.then69:                                        ; preds = %if.else65
   %data71 = getelementptr inbounds i8, ptr %call66, i64 56
   store ptr %call.i69, ptr %data71, align 8
   %size = getelementptr inbounds i8, ptr %child_obj.1, i64 48
-  %58 = load i64, ptr %size, align 8
+  %59 = load i64, ptr %size, align 8
   %size72 = getelementptr inbounds i8, ptr %call66, i64 64
-  store i64 %58, ptr %size72, align 8
+  store i64 %59, ptr %size72, align 8
   br label %if.end74
 
 if.end74:                                         ; preds = %if.else65, %if.then69, %resolve_delta.exit, %do.body
@@ -5597,85 +5597,85 @@ lock_mutex.exit74:                                ; preds = %if.end74, %if.then.
 
 if.end78:                                         ; preds = %lock_mutex.exit74
   %data79 = getelementptr inbounds i8, ptr %child.0, i64 56
-  %59 = load ptr, ptr %data79, align 8
-  %tobool80.not = icmp eq ptr %59, null
+  %60 = load ptr, ptr %data79, align 8
+  %tobool80.not = icmp eq ptr %60, null
   br i1 %tobool80.not, label %do.body96, label %if.then81
 
 if.end78.thread:                                  ; preds = %lock_mutex.exit74
   %retain_data77 = getelementptr inbounds i8, ptr %parent.0, i64 32
-  %60 = load i32, ptr %retain_data77, align 8
-  %dec = add nsw i32 %60, -1
+  %61 = load i32, ptr %retain_data77, align 8
+  %dec = add nsw i32 %61, -1
   store i32 %dec, ptr %retain_data77, align 8
   %data79113 = getelementptr inbounds i8, ptr %child.0, i64 56
-  %61 = load ptr, ptr %data79113, align 8
-  %tobool80.not114 = icmp eq ptr %61, null
+  %62 = load ptr, ptr %data79113, align 8
+  %tobool80.not114 = icmp eq ptr %62, null
   br i1 %tobool80.not114, label %while.body87, label %if.then81
 
 if.then81:                                        ; preds = %if.end78.thread, %if.end78
   %data79115 = phi ptr [ %data79113, %if.end78.thread ], [ %data79, %if.end78 ]
   %list82 = getelementptr inbounds i8, ptr %child.0, i64 40
-  %62 = load ptr, ptr @work_head, align 8
-  %prev.i75 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = load ptr, ptr @work_head, align 8
+  %prev.i75 = getelementptr inbounds i8, ptr %63, i64 8
   store ptr %list82, ptr %prev.i75, align 8
-  store ptr %62, ptr %list82, align 8
+  store ptr %63, ptr %list82, align 8
   %prev3.i76 = getelementptr inbounds i8, ptr %child.0, i64 48
   store ptr @work_head, ptr %prev3.i76, align 8
   store ptr %list82, ptr @work_head, align 8
   %size83 = getelementptr inbounds i8, ptr %child.0, i64 64
-  %63 = load i64, ptr %size83, align 8
-  %64 = load i64, ptr @base_cache_used, align 8
-  %add = add i64 %64, %63
+  %64 = load i64, ptr %size83, align 8
+  %65 = load i64, ptr @base_cache_used, align 8
+  %add = add i64 %65, %64
   store i64 %add, ptr @base_cache_used, align 8
   call fastcc void @prune_base_data(ptr noundef null)
-  %65 = load ptr, ptr %data79115, align 8
-  %tobool.not.i = icmp eq ptr %65, null
+  %66 = load ptr, ptr %data79115, align 8
+  %tobool.not.i = icmp eq ptr %66, null
   br i1 %tobool.not.i, label %if.end98, label %do.body.i
 
 do.body.i:                                        ; preds = %if.then81
-  call void @free(ptr noundef nonnull %65) #23
+  call void @free(ptr noundef nonnull %66) #23
   store ptr null, ptr %data79115, align 8
-  %66 = load i64, ptr %size83, align 8
-  %67 = load i64, ptr @base_cache_used, align 8
-  %sub.i = sub i64 %67, %66
+  %67 = load i64, ptr %size83, align 8
+  %68 = load i64, ptr @base_cache_used, align 8
+  %sub.i = sub i64 %68, %67
   store i64 %sub.i, ptr @base_cache_used, align 8
   br label %if.end98
 
 while.body87:                                     ; preds = %if.end78.thread, %free_base_data.exit86
-  %p.0101 = phi ptr [ %69, %free_base_data.exit86 ], [ %parent.0, %if.end78.thread ]
+  %p.0101 = phi ptr [ %70, %free_base_data.exit86 ], [ %parent.0, %if.end78.thread ]
   %children_remaining88 = getelementptr inbounds i8, ptr %p.0101, i64 36
-  %68 = load i32, ptr %children_remaining88, align 4
-  %dec89 = add nsw i32 %68, -1
+  %69 = load i32, ptr %children_remaining88, align 4
+  %dec89 = add nsw i32 %69, -1
   store i32 %dec89, ptr %children_remaining88, align 4
   %tobool91.not = icmp eq i32 %dec89, 0
   br i1 %tobool91.not, label %if.end93, label %do.body96
 
 if.end93:                                         ; preds = %while.body87
-  %69 = load ptr, ptr %p.0101, align 8
+  %70 = load ptr, ptr %p.0101, align 8
   %data.i80 = getelementptr inbounds i8, ptr %p.0101, i64 56
-  %70 = load ptr, ptr %data.i80, align 8
-  %tobool.not.i81 = icmp eq ptr %70, null
+  %71 = load ptr, ptr %data.i80, align 8
+  %tobool.not.i81 = icmp eq ptr %71, null
   br i1 %tobool.not.i81, label %free_base_data.exit86, label %do.body.i82
 
 do.body.i82:                                      ; preds = %if.end93
-  call void @free(ptr noundef nonnull %70) #23
+  call void @free(ptr noundef nonnull %71) #23
   store ptr null, ptr %data.i80, align 8
   %size.i83 = getelementptr inbounds i8, ptr %p.0101, i64 64
-  %71 = load i64, ptr %size.i83, align 8
-  %72 = load i64, ptr @base_cache_used, align 8
-  %sub.i84 = sub i64 %72, %71
+  %72 = load i64, ptr %size.i83, align 8
+  %73 = load i64, ptr @base_cache_used, align 8
+  %sub.i84 = sub i64 %73, %72
   store i64 %sub.i84, ptr @base_cache_used, align 8
   br label %free_base_data.exit86
 
 free_base_data.exit86:                            ; preds = %if.end93, %do.body.i82
   %list94 = getelementptr inbounds i8, ptr %p.0101, i64 40
   %list94.val = load ptr, ptr %list94, align 8
-  %73 = getelementptr i8, ptr %p.0101, i64 48
-  %list94.val47 = load ptr, ptr %73, align 8
+  %74 = getelementptr i8, ptr %p.0101, i64 48
+  %list94.val47 = load ptr, ptr %74, align 8
   %prev1.i.i87 = getelementptr inbounds i8, ptr %list94.val, i64 8
   store ptr %list94.val47, ptr %prev1.i.i87, align 8
   store ptr %list94.val, ptr %list94.val47, align 8
   call void @free(ptr noundef nonnull %p.0101) #23
-  %tobool86.not = icmp eq ptr %69, null
+  %tobool86.not = icmp eq ptr %70, null
   br i1 %tobool86.not, label %do.body96, label %while.body87, !llvm.loop !34
 
 do.body96:                                        ; preds = %while.body87, %free_base_data.exit86, %if.end78

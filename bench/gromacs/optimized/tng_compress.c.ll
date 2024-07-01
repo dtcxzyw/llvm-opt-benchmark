@@ -1437,8 +1437,8 @@ define noundef ptr @tng_compress_pos(ptr nocapture noundef readonly %0, i32 noun
   %indvars.iv26.i.i = phi i64 [ 0, %.preheader18.us.i.i ], [ %indvars.iv.next27.i.i, %36 ]
   %43 = add nuw nsw i64 %indvars.iv26.i.i, %34
   %sext.i.i = mul i64 %43, 12884901888
-  %44 = ashr exact i64 %sext.i.i, 32
-  %invariant.gep.i.i = getelementptr double, ptr %0, i64 %44
+  %44 = ashr exact i64 %sext.i.i, 29
+  %invariant.gep.i.i = getelementptr i8, ptr %0, i64 %44
   br label %37
 
 ._crit_edge.us.i.i:                               ; preds = %36
@@ -1555,8 +1555,8 @@ define noundef ptr @tng_compress_pos_float(ptr nocapture noundef readonly %0, i3
   %indvars.iv26.i.i = phi i64 [ 0, %.preheader18.us.i.i ], [ %indvars.iv.next27.i.i, %39 ]
   %47 = add nuw nsw i64 %indvars.iv26.i.i, %37
   %sext.i.i = mul i64 %47, 12884901888
-  %48 = ashr exact i64 %sext.i.i, 32
-  %invariant.gep.i.i = getelementptr float, ptr %0, i64 %48
+  %48 = ashr exact i64 %sext.i.i, 30
+  %invariant.gep.i.i = getelementptr i8, ptr %0, i64 %48
   br label %40
 
 ._crit_edge.us.i.i:                               ; preds = %39
@@ -2829,8 +2829,8 @@ define noundef ptr @tng_compress_vel(ptr nocapture noundef readonly %0, i32 noun
   %indvars.iv26.i.i = phi i64 [ 0, %.preheader18.us.i.i ], [ %indvars.iv.next27.i.i, %36 ]
   %43 = add nuw nsw i64 %indvars.iv26.i.i, %34
   %sext.i.i = mul i64 %43, 12884901888
-  %44 = ashr exact i64 %sext.i.i, 32
-  %invariant.gep.i.i = getelementptr double, ptr %0, i64 %44
+  %44 = ashr exact i64 %sext.i.i, 29
+  %invariant.gep.i.i = getelementptr i8, ptr %0, i64 %44
   br label %37
 
 ._crit_edge.us.i.i:                               ; preds = %36
@@ -2943,8 +2943,8 @@ define noundef ptr @tng_compress_vel_float(ptr nocapture noundef readonly %0, i3
   %indvars.iv26.i.i = phi i64 [ 0, %.preheader18.us.i.i ], [ %indvars.iv.next27.i.i, %39 ]
   %47 = add nuw nsw i64 %indvars.iv26.i.i, %37
   %sext.i.i = mul i64 %47, 12884901888
-  %48 = ashr exact i64 %sext.i.i, 32
-  %invariant.gep.i.i = getelementptr float, ptr %0, i64 %48
+  %48 = ashr exact i64 %sext.i.i, 30
+  %invariant.gep.i.i = getelementptr i8, ptr %0, i64 %48
   br label %40
 
 ._crit_edge.us.i.i:                               ; preds = %39

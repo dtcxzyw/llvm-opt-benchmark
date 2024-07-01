@@ -992,8 +992,8 @@ dsdKernelCheckContainment.exit.thread:            ; preds = %240
   %402 = getelementptr inbounds i8, ptr %..i, i64 24
   %403 = load ptr, ptr %402, align 8
   %sext = shl i64 %.0556, 32
-  %404 = ashr exact i64 %sext, 32
-  %405 = getelementptr inbounds ptr, ptr %403, i64 %404
+  %404 = ashr exact i64 %sext, 29
+  %405 = getelementptr inbounds i8, ptr %403, i64 %404
   %406 = load ptr, ptr %405, align 8
   %.not630 = icmp eq ptr %406, null
   br i1 %.not630, label %.thread834, label %.thread838

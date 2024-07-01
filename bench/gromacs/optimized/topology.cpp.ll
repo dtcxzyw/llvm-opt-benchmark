@@ -10700,9 +10700,9 @@ _ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_25HarmonicBondTypeParameterEEE
   %84 = ashr exact i64 %83, 3
   %85 = add nsw i64 %84, -1
   %sext = shl i64 %78, 32
-  %86 = ashr exact i64 %sext, 32
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds i64, ptr %87, i64 %86
+  %86 = load ptr, ptr %3, align 8
+  %87 = ashr exact i64 %sext, 29
+  %88 = getelementptr inbounds i8, ptr %86, i64 %87
   store i64 %85, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %.sroa.051.173, i64 16
   %.not70 = icmp eq ptr %89, %.sroa.050.076
@@ -12704,9 +12704,9 @@ _ZNSt6vectorIN5nblib11G96BondTypeESaIS1_EE9push_backERKS1_.exit: ; preds = %50, 
   %84 = ashr exact i64 %83, 3
   %85 = add nsw i64 %84, -1
   %sext = shl i64 %78, 32
-  %86 = ashr exact i64 %sext, 32
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds i64, ptr %87, i64 %86
+  %86 = load ptr, ptr %3, align 8
+  %87 = ashr exact i64 %sext, 29
+  %88 = getelementptr inbounds i8, ptr %86, i64 %87
   store i64 %85, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %.sroa.051.173, i64 16
   %.not70 = icmp eq ptr %89, %.sroa.050.076
@@ -14607,9 +14607,9 @@ _ZNSt6vectorIN5nblib13CubicBondTypeESaIS1_EE9push_backERKS1_.exit: ; preds = %49
   %80 = sdiv exact i64 %79, 12
   %81 = add nsw i64 %80, -1
   %sext = shl i64 %74, 32
-  %82 = ashr exact i64 %sext, 32
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds i64, ptr %83, i64 %82
+  %82 = load ptr, ptr %3, align 8
+  %83 = ashr exact i64 %sext, 29
+  %84 = getelementptr inbounds i8, ptr %82, i64 %83
   store i64 %81, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %.sroa.050.173, i64 24
   %.not70 = icmp eq ptr %85, %.sroa.049.076
@@ -16809,9 +16809,9 @@ _ZNSt6vectorIN5nblib13MorseBondTypeESaIS1_EE9push_backERKS1_.exit: ; preds = %49
   %80 = sdiv exact i64 %79, 12
   %81 = add nsw i64 %80, -1
   %sext = shl i64 %74, 32
-  %82 = ashr exact i64 %sext, 32
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds i64, ptr %83, i64 %82
+  %82 = load ptr, ptr %3, align 8
+  %83 = ashr exact i64 %sext, 29
+  %84 = getelementptr inbounds i8, ptr %82, i64 %83
   store i64 %81, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %.sroa.050.173, i64 24
   %.not70 = icmp eq ptr %85, %.sroa.049.076
@@ -18998,9 +18998,9 @@ _ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_21FENEBondTypeParameterEEESaIS
   %84 = ashr exact i64 %83, 3
   %85 = add nsw i64 %84, -1
   %sext = shl i64 %78, 32
-  %86 = ashr exact i64 %sext, 32
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds i64, ptr %87, i64 %86
+  %86 = load ptr, ptr %3, align 8
+  %87 = ashr exact i64 %sext, 29
+  %88 = getelementptr inbounds i8, ptr %86, i64 %87
   store i64 %85, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %.sroa.051.173, i64 16
   %.not70 = icmp eq ptr %89, %.sroa.050.076
@@ -20888,9 +20888,9 @@ _ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_38HalfAttractiveQuarticBondTyp
   %84 = ashr exact i64 %83, 3
   %85 = add nsw i64 %84, -1
   %sext = shl i64 %78, 32
-  %86 = ashr exact i64 %sext, 32
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds i64, ptr %87, i64 %86
+  %86 = load ptr, ptr %3, align 8
+  %87 = ashr exact i64 %sext, 29
+  %88 = getelementptr inbounds i8, ptr %86, i64 %87
   store i64 %85, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %.sroa.051.173, i64 16
   %.not70 = icmp eq ptr %89, %.sroa.050.076
@@ -22794,9 +22794,9 @@ _ZNSt6vectorIN5nblib10PairLJTypeESaIS1_EE9push_backERKS1_.exit: ; preds = %50, %
   %84 = ashr exact i64 %83, 3
   %85 = add nsw i64 %84, -1
   %sext = shl i64 %78, 32
-  %86 = ashr exact i64 %sext, 32
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds i64, ptr %87, i64 %86
+  %86 = load ptr, ptr %3, align 8
+  %87 = ashr exact i64 %sext, 29
+  %88 = getelementptr inbounds i8, ptr %86, i64 %87
   store i64 %85, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %.sroa.052.174, i64 16
   %.not71 = icmp eq ptr %89, %.sroa.051.077
@@ -24687,9 +24687,9 @@ _ZNSt6vectorIN5nblib20AngleInteractionTypeINS0_22HarmonicAngleParameterEEESaIS3_
   %84 = ashr exact i64 %83, 3
   %85 = add nsw i64 %84, -1
   %sext = shl i64 %78, 32
-  %86 = ashr exact i64 %sext, 32
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds i64, ptr %87, i64 %86
+  %86 = load ptr, ptr %3, align 8
+  %87 = ashr exact i64 %sext, 29
+  %88 = getelementptr inbounds i8, ptr %86, i64 %87
   store i64 %85, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %.sroa.051.173, i64 16
   %.not70 = icmp eq ptr %89, %.sroa.050.076
@@ -26694,9 +26694,9 @@ _ZNSt6vectorIN5nblib16CosineParamAngleINS0_17G96AngleParameterEEESaIS3_EE9push_b
   %84 = ashr exact i64 %83, 3
   %85 = add nsw i64 %84, -1
   %sext = shl i64 %78, 32
-  %86 = ashr exact i64 %sext, 32
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds i64, ptr %87, i64 %86
+  %86 = load ptr, ptr %3, align 8
+  %87 = ashr exact i64 %sext, 29
+  %88 = getelementptr inbounds i8, ptr %86, i64 %87
   store i64 %85, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %.sroa.051.173, i64 16
   %.not70 = icmp eq ptr %89, %.sroa.050.076
@@ -28619,9 +28619,9 @@ _ZNSt6vectorIN5nblib12QuarticAngleESaIS1_EE9push_backERKS1_.exit: ; preds = %51,
   %81 = sdiv exact i64 %80, 24
   %82 = add nsw i64 %81, -1
   %sext = shl i64 %75, 32
-  %83 = ashr exact i64 %sext, 32
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds i64, ptr %84, i64 %83
+  %83 = load ptr, ptr %3, align 8
+  %84 = ashr exact i64 %sext, 29
+  %85 = getelementptr inbounds i8, ptr %83, i64 %84
   store i64 %82, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %.sroa.052.174, i64 32
   %.not71 = icmp eq ptr %86, %.sroa.051.077
@@ -30801,9 +30801,9 @@ _ZNSt6vectorIN5nblib16CosineParamAngleINS0_24RestrictedAngleParameterEEESaIS3_EE
   %84 = ashr exact i64 %83, 3
   %85 = add nsw i64 %84, -1
   %sext = shl i64 %78, 32
-  %86 = ashr exact i64 %sext, 32
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds i64, ptr %87, i64 %86
+  %86 = load ptr, ptr %3, align 8
+  %87 = ashr exact i64 %sext, 29
+  %88 = getelementptr inbounds i8, ptr %86, i64 %87
   store i64 %85, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %.sroa.051.173, i64 16
   %.not70 = icmp eq ptr %89, %.sroa.050.076
@@ -32714,9 +32714,9 @@ _ZNSt6vectorIN5nblib13CrossBondBondESaIS1_EE9push_backERKS1_.exit: ; preds = %49
   %80 = sdiv exact i64 %79, 12
   %81 = add nsw i64 %80, -1
   %sext = shl i64 %74, 32
-  %82 = ashr exact i64 %sext, 32
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds i64, ptr %83, i64 %82
+  %82 = load ptr, ptr %3, align 8
+  %83 = ashr exact i64 %sext, 29
+  %84 = getelementptr inbounds i8, ptr %82, i64 %83
   store i64 %81, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %.sroa.050.173, i64 24
   %.not70 = icmp eq ptr %85, %.sroa.049.076
@@ -34922,9 +34922,9 @@ _ZNSt6vectorIN5nblib14CrossBondAngleESaIS1_EE9push_backERKS1_.exit: ; preds = %4
   %78 = ashr exact i64 %77, 4
   %79 = add nsw i64 %78, -1
   %sext = shl i64 %72, 32
-  %80 = ashr exact i64 %sext, 32
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds i64, ptr %81, i64 %80
+  %80 = load ptr, ptr %3, align 8
+  %81 = ashr exact i64 %sext, 29
+  %82 = getelementptr inbounds i8, ptr %80, i64 %81
   store i64 %79, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %.sroa.050.172, i64 24
   %.not69 = icmp eq ptr %83, %.sroa.049.075
@@ -37193,9 +37193,9 @@ _ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_20LinearAngleParameterEEESaIS3
   %84 = ashr exact i64 %83, 3
   %85 = add nsw i64 %84, -1
   %sext = shl i64 %78, 32
-  %86 = ashr exact i64 %sext, 32
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds i64, ptr %87, i64 %86
+  %86 = load ptr, ptr %3, align 8
+  %87 = ashr exact i64 %sext, 29
+  %88 = getelementptr inbounds i8, ptr %86, i64 %87
   store i64 %85, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %.sroa.051.173, i64 16
   %.not70 = icmp eq ptr %89, %.sroa.050.076
@@ -39106,9 +39106,9 @@ _ZNSt6vectorIN5nblib14ProperDihedralESaIS1_EE9push_backERKS1_.exit: ; preds = %4
   %80 = sdiv exact i64 %79, 12
   %81 = add nsw i64 %80, -1
   %sext = shl i64 %74, 32
-  %82 = ashr exact i64 %sext, 32
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds i64, ptr %83, i64 %82
+  %82 = load ptr, ptr %3, align 8
+  %83 = ashr exact i64 %sext, 29
+  %84 = getelementptr inbounds i8, ptr %82, i64 %83
   store i64 %81, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %.sroa.050.173, i64 24
   %.not70 = icmp eq ptr %85, %.sroa.049.076
@@ -41420,9 +41420,9 @@ _ZNSt6vectorIN5nblib16ImproperDihedralESaIS1_EE9push_backERKS1_.exit: ; preds = 
   %84 = ashr exact i64 %83, 3
   %85 = add nsw i64 %84, -1
   %sext = shl i64 %78, 32
-  %86 = ashr exact i64 %sext, 32
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds i64, ptr %87, i64 %86
+  %86 = load ptr, ptr %3, align 8
+  %87 = ashr exact i64 %sext, 29
+  %88 = getelementptr inbounds i8, ptr %86, i64 %87
   store i64 %85, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %.sroa.051.173, i64 16
   %.not70 = icmp eq ptr %89, %.sroa.050.076
@@ -43343,9 +43343,9 @@ _ZNSt6vectorIN5nblib24RyckaertBellemanDihedralESaIS1_EE9push_backERKS1_.exit: ; 
   %82 = sdiv exact i64 %81, 24
   %83 = add nsw i64 %82, -1
   %sext = shl i64 %76, 32
-  %84 = ashr exact i64 %sext, 32
-  %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr inbounds i64, ptr %85, i64 %84
+  %84 = load ptr, ptr %3, align 8
+  %85 = ashr exact i64 %sext, 29
+  %86 = getelementptr inbounds i8, ptr %84, i64 %85
   store i64 %83, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %.sroa.051.173, i64 32
   %.not70 = icmp eq ptr %87, %.sroa.050.076
@@ -45389,9 +45389,9 @@ _ZNSt6vectorIN5nblib14Default5CenterESaIS1_EE9push_backERKS1_.exit: ; preds = %4
   %77 = ashr exact i64 %76, 4
   %78 = add nsw i64 %77, -1
   %sext = shl i64 %71, 32
-  %79 = ashr exact i64 %sext, 32
-  %80 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds i64, ptr %80, i64 %79
+  %79 = load ptr, ptr %3, align 8
+  %80 = ashr exact i64 %sext, 29
+  %81 = getelementptr inbounds i8, ptr %79, i64 %80
   store i64 %78, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %.sroa.051.173, i64 24
   %.not70 = icmp eq ptr %82, %.sroa.050.076

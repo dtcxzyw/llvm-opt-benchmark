@@ -3356,8 +3356,8 @@ define void @Gia_ManDupCones2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %11 = sub i64 %9, %10
   %12 = sdiv exact i64 %11, 12
   %sext.i.i = shl i64 %12, 32
-  %13 = ashr exact i64 %sext.i.i, 32
-  %14 = getelementptr inbounds i32, ptr %7, i64 %13
+  %13 = ashr exact i64 %sext.i.i, 30
+  %14 = getelementptr inbounds i8, ptr %7, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds i8, ptr %1, i64 176
   %17 = load i32, ptr %16, align 8

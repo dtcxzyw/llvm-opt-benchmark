@@ -1264,10 +1264,10 @@ if.then12:                                        ; preds = %land.lhs.true
   %10 = load ptr, ptr %7, align 8
   %sub = shl i64 %8, 32
   %sext = add i64 %sub, -4294967296
-  %idxprom = ashr exact i64 %sext, 32
-  %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %10, i64 %idxprom
-  %11 = load ptr, ptr %arrayidx, align 8
-  %call18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, ptr noundef %11)
+  %11 = ashr exact i64 %sext, 28
+  %arrayidx = getelementptr inbounds i8, ptr %10, i64 %11
+  %12 = load ptr, ptr %arrayidx, align 8
+  %call18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, ptr noundef %12)
   %cmp1939 = icmp sgt i32 %conv, 0
   br i1 %cmp1939, label %for.body.preheader, label %for.end
 
@@ -1277,27 +1277,27 @@ for.body.preheader:                               ; preds = %if.then12
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %12 = load ptr, ptr %file, align 8
+  %13 = load ptr, ptr %file, align 8
   %cmp23.not = icmp eq i64 %indvars.iv, 0
   %cond25 = select i1 %cmp23.not, ptr @.str.20, ptr @.str.19
-  %13 = load ptr, ptr %ref_message_ids, align 8
-  %14 = load ptr, ptr %13, align 8
-  %arrayidx29 = getelementptr inbounds %struct.string_list_item, ptr %14, i64 %indvars.iv
-  %15 = load ptr, ptr %arrayidx29, align 8
-  %call31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.18, ptr noundef nonnull %cond25, ptr noundef %15)
+  %14 = load ptr, ptr %ref_message_ids, align 8
+  %15 = load ptr, ptr %14, align 8
+  %arrayidx29 = getelementptr inbounds %struct.string_list_item, ptr %15, i64 %indvars.iv
+  %16 = load ptr, ptr %arrayidx29, align 8
+  %call31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.18, ptr noundef nonnull %cond25, ptr noundef %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body, %if.then12
-  %16 = load ptr, ptr %graph, align 8
-  tail call void @graph_show_oneline(ptr noundef %16) #12
+  %17 = load ptr, ptr %graph, align 8
+  tail call void @graph_show_oneline(ptr noundef %17) #12
   br label %if.end33
 
 if.end33:                                         ; preds = %for.end, %land.lhs.true, %if.end
   %mime_boundary = getelementptr inbounds i8, ptr %opt, i64 352
-  %17 = load ptr, ptr %mime_boundary, align 8
-  %tobool34 = icmp ne ptr %17, null
+  %18 = load ptr, ptr %mime_boundary, align 8
+  %tobool34 = icmp ne ptr %18, null
   %tobool36 = icmp ne i32 %maybe_multipart, 0
   %or.cond = and i1 %tobool36, %tobool34
   br i1 %or.cond, label %if.then37, label %if.end54
@@ -1306,39 +1306,39 @@ if.then37:                                        ; preds = %if.end33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %filename, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_remerge_diff.parent2_desc, i64 24, i1 false)
   store i32 -1, ptr %need_8bit_cte_p, align 4
   store i64 0, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.subject_buffer, i64 8), align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.subject_buffer, i64 16), align 8
-  %cmp3.not.i = icmp eq ptr %18, @strbuf_slopbuf
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.subject_buffer, i64 16), align 8
+  %cmp3.not.i = icmp eq ptr %19, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then37
-  store i8 0, ptr %18, align 1
+  store i8 0, ptr %19, align 1
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %if.then37, %if.then4.i
   store i64 0, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.buffer, i64 8), align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.buffer, i64 16), align 8
-  %cmp3.not.i36 = icmp eq ptr %19, @strbuf_slopbuf
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.buffer, i64 16), align 8
+  %cmp3.not.i36 = icmp eq ptr %20, @strbuf_slopbuf
   br i1 %cmp3.not.i36, label %strbuf_setlen.exit38, label %if.then4.i37
 
 if.then4.i37:                                     ; preds = %strbuf_setlen.exit
-  store i8 0, ptr %19, align 1
+  store i8 0, ptr %20, align 1
   br label %strbuf_setlen.exit38
 
 strbuf_setlen.exit38:                             ; preds = %strbuf_setlen.exit, %if.then4.i37
   %tobool38.not = icmp eq ptr %0, null
   %cond42 = select i1 %tobool38.not, ptr @.str.12, ptr %0
-  %20 = load ptr, ptr %mime_boundary, align 8
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @log_write_email_headers.subject_buffer, ptr noundef nonnull @.str.21, ptr noundef nonnull %cond42, ptr noundef nonnull @mime_boundary_leader, ptr noundef %20, ptr noundef nonnull @mime_boundary_leader, ptr noundef %20) #12
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.subject_buffer, i64 16), align 8
+  %21 = load ptr, ptr %mime_boundary, align 8
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @log_write_email_headers.subject_buffer, ptr noundef nonnull @.str.21, ptr noundef nonnull %cond42, ptr noundef nonnull @mime_boundary_leader, ptr noundef %21, ptr noundef nonnull @mime_boundary_leader, ptr noundef %21) #12
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.subject_buffer, i64 16), align 8
   %numbered_files = getelementptr inbounds i8, ptr %opt, i64 368
-  %22 = load i32, ptr %numbered_files, align 8
-  %tobool45.not = icmp eq i32 %22, 0
+  %23 = load i32, ptr %numbered_files, align 8
+  %tobool45.not = icmp eq i32 %23, 0
   br i1 %tobool45.not, label %if.else, label %if.then46
 
 if.then46:                                        ; preds = %strbuf_setlen.exit38
   %nr47 = getelementptr inbounds i8, ptr %opt, i64 344
-  %23 = load i32, ptr %nr47, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %filename, ptr noundef nonnull @.str.22, i32 noundef %23) #12
+  %24 = load i32, ptr %nr47, align 8
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %filename, ptr noundef nonnull @.str.22, i32 noundef %24) #12
   br label %if.end48
 
 if.else:                                          ; preds = %strbuf_setlen.exit38
@@ -1346,33 +1346,33 @@ if.else:                                          ; preds = %strbuf_setlen.exit3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %subject.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %ctx.i, i8 0, i64 184, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %subject.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_remerge_diff.parent2_desc, i64 24, i1 false)
-  %24 = load ptr, ptr @the_repository, align 8
-  call void @repo_format_commit_message(ptr noundef %24, ptr noundef %commit, ptr noundef nonnull @.str.9, ptr noundef nonnull %subject.i, ptr noundef nonnull %ctx.i) #12
+  %25 = load ptr, ptr @the_repository, align 8
+  call void @repo_format_commit_message(ptr noundef %25, ptr noundef %commit, ptr noundef nonnull @.str.9, ptr noundef nonnull %subject.i, ptr noundef nonnull %ctx.i) #12
   %buf.i = getelementptr inbounds i8, ptr %subject.i, i64 16
-  %25 = load ptr, ptr %buf.i, align 8
-  call void @fmt_output_subject(ptr noundef nonnull %filename, ptr noundef %25, ptr noundef nonnull readonly %opt)
+  %26 = load ptr, ptr %buf.i, align 8
+  call void @fmt_output_subject(ptr noundef nonnull %filename, ptr noundef %26, ptr noundef nonnull readonly %opt)
   call void @strbuf_release(ptr noundef nonnull %subject.i) #12
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %ctx.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %subject.i)
   br label %if.end48
 
 if.end48:                                         ; preds = %if.else, %if.then46
-  %26 = load ptr, ptr %mime_boundary, align 8
+  %27 = load ptr, ptr %mime_boundary, align 8
   %buf = getelementptr inbounds i8, ptr %filename, i64 16
-  %27 = load ptr, ptr %buf, align 8
+  %28 = load ptr, ptr %buf, align 8
   %no_inline = getelementptr inbounds i8, ptr %opt, i64 500
-  %28 = load i32, ptr %no_inline, align 4
-  %tobool50.not = icmp eq i32 %28, 0
+  %29 = load i32, ptr %no_inline, align 4
+  %tobool50.not = icmp eq i32 %29, 0
   %cond51 = select i1 %tobool50.not, ptr @.str.25, ptr @.str.24
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @log_write_email_headers.buffer, ptr noundef nonnull @.str.23, ptr noundef nonnull @mime_boundary_leader, ptr noundef %26, ptr noundef %27, ptr noundef nonnull %cond51, ptr noundef %27) #12
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.buffer, i64 16), align 8
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @log_write_email_headers.buffer, ptr noundef nonnull @.str.23, ptr noundef nonnull @mime_boundary_leader, ptr noundef %27, ptr noundef %28, ptr noundef nonnull %cond51, ptr noundef %28) #12
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @log_write_email_headers.buffer, i64 16), align 8
   %stat_sep = getelementptr inbounds i8, ptr %opt, i64 1824
-  store ptr %29, ptr %stat_sep, align 8
+  store ptr %30, ptr %stat_sep, align 8
   call void @strbuf_release(ptr noundef nonnull %filename) #12
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end48, %if.end33
-  %extra_headers.0 = phi ptr [ %21, %if.end48 ], [ %0, %if.end33 ]
+  %extra_headers.0 = phi ptr [ %22, %if.end48 ], [ %0, %if.end33 ]
   store ptr %extra_headers.0, ptr %extra_headers_p, align 8
   ret void
 }
