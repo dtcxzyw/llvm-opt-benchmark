@@ -38,19 +38,19 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
   %3 = load i64, ptr %0, align 8, !range !14, !alias.scope !15, !noalias !16, !noundef !17
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 8
-  %6 = xor i64 %3, -9223372036854775808
+  %6 = and i64 %3, 15
   %7 = select i1 %5, i64 %6, i64 0
   %8 = load i64, ptr %1, align 8, !range !14, !alias.scope !16, !noalias !15, !noundef !17
   %9 = add i64 %8, 9223372036854775807
   %10 = icmp ult i64 %9, 8
-  %11 = xor i64 %8, -9223372036854775808
+  %11 = and i64 %8, 15
   %12 = select i1 %10, i64 %11, i64 0
   %13 = or i64 %12, %7
   %or.cond.i.i = icmp eq i64 %13, 0
   br i1 %or.cond.i.i, label %17, label %14
 
 14:                                               ; preds = %2
-  %15 = icmp slt i64 %7, %12
+  %15 = icmp ult i64 %7, %12
   %16 = icmp ne i64 %7, %12
   %..i.i = zext i1 %16 to i8
   %.04.i.i = select i1 %15, i8 -1, i8 %..i.i
@@ -2196,19 +2196,19 @@ _ZN4core5slice4sort20provide_sorted_batch17hc7a5229d5ab0b3c2E.exit: ; preds = %.
   %188 = load i64, ptr %186, align 8, !range !14, !alias.scope !447, !noalias !448, !noundef !17
   %189 = add i64 %188, 9223372036854775807
   %190 = icmp ult i64 %189, 8
-  %191 = xor i64 %188, -9223372036854775808
+  %191 = and i64 %188, 15
   %192 = select i1 %190, i64 %191, i64 0
   %193 = load i64, ptr %187, align 8, !range !14, !alias.scope !448, !noalias !447, !noundef !17
   %194 = add i64 %193, 9223372036854775807
   %195 = icmp ult i64 %194, 8
-  %196 = xor i64 %193, -9223372036854775808
+  %196 = and i64 %193, 15
   %197 = select i1 %195, i64 %196, i64 0
   %198 = or i64 %197, %192
   %or.cond.i.i.i59 = icmp eq i64 %198, 0
   br i1 %or.cond.i.i.i59, label %202, label %199
 
 199:                                              ; preds = %.lr.ph24.i
-  %200 = icmp slt i64 %192, %197
+  %200 = icmp ult i64 %192, %197
   %201 = icmp ne i64 %192, %197
   %..i.i.i60 = zext i1 %201 to i8
   %.04.i.i.i61 = select i1 %200, i8 -1, i8 %..i.i.i60
@@ -2321,19 +2321,19 @@ _ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit84: ; preds = %199,
   %252 = load i64, ptr %.02818.i, align 8, !range !14, !alias.scope !488, !noalias !489, !noundef !17
   %253 = add i64 %252, 9223372036854775807
   %254 = icmp ult i64 %253, 8
-  %255 = xor i64 %252, -9223372036854775808
+  %255 = and i64 %252, 15
   %256 = select i1 %254, i64 %255, i64 0
   %257 = load i64, ptr %.sroa.0.217.i, align 8, !range !14, !alias.scope !489, !noalias !488, !noundef !17
   %258 = add i64 %257, 9223372036854775807
   %259 = icmp ult i64 %258, 8
-  %260 = xor i64 %257, -9223372036854775808
+  %260 = and i64 %257, 15
   %261 = select i1 %259, i64 %260, i64 0
   %262 = or i64 %261, %256
   %or.cond.i.i.i = icmp eq i64 %262, 0
   br i1 %or.cond.i.i.i, label %266, label %263
 
 263:                                              ; preds = %.lr.ph.i54
-  %264 = icmp slt i64 %256, %261
+  %264 = icmp ult i64 %256, %261
   %265 = icmp ne i64 %256, %261
   %..i.i.i = zext i1 %265 to i8
   %.04.i.i.i = select i1 %264, i8 -1, i8 %..i.i.i
@@ -6934,7 +6934,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h05
   %13 = icmp ne ptr %.sroa.5.0.copyload, null
   %14 = add i64 %.sroa.01.0.copyload.fr, 9223372036854775807
   %15 = icmp ult i64 %14, 8
-  %16 = xor i64 %.sroa.01.0.copyload.fr, -9223372036854775808
+  %16 = and i64 %.sroa.01.0.copyload.fr, 15
   %17 = select i1 %15, i64 %16, i64 0
   %.not = icmp eq i64 %.sroa.01.0.copyload.fr, -9223372036854775808
   %18 = icmp ne ptr %.sroa.7.0.copyload, null
@@ -6950,11 +6950,13 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h05
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1003)
   %21 = load i64, ptr %20, align 8, !range !14, !alias.scope !1006, !noalias !1007, !noundef !17
   %22 = icmp ult i64 %21, -9223372036854775807
-  br i1 %22, label %26, label %23
+  %23 = and i64 %21, 15
+  %or.cond.i.i.i.us23 = icmp eq i64 %23, 0
+  %or.cond.i.i.i.us = or i1 %22, %or.cond.i.i.i.us23
+  br i1 %or.cond.i.i.i.us, label %26, label %24
 
-23:                                               ; preds = %.lr.ph.i.us
-  %24 = and i64 %21, 9223372036854775807
-  %25 = icmp slt i64 %17, %24
+24:                                               ; preds = %.lr.ph.i.us
+  %25 = icmp ult i64 %17, %23
   br i1 %25, label %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit.thread.us, label %.thread.i
 
 26:                                               ; preds = %.lr.ph.i.us
@@ -6962,13 +6964,13 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h05
   %.not24 = icmp eq i64 %21, -9223372036854775808
   br i1 %.not24, label %.thread.i, label %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit.thread.us
 
-_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit.thread.us: ; preds = %26, %23
+_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit.thread.us: ; preds = %26, %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5.07.i.us, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !alias.scope !994
   %.not.i6.us = icmp eq i64 %19, 0
   br i1 %.not.i6.us, label %.thread.i, label %.lr.ph.i.us
 
-.thread.i:                                        ; preds = %37, %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit, %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit.thread, %35, %58, %23, %26, %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit.thread.us, %11
-  %.sroa.5.0.lcssa.i = phi ptr [ %9, %11 ], [ %.sroa.5.07.i.us, %26 ], [ %.sroa.5.07.i.us, %23 ], [ %0, %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit.thread.us ], [ %.sroa.5.07.i, %58 ], [ %.sroa.5.07.i, %35 ], [ %.sroa.5.07.i, %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit ], [ %0, %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit.thread ], [ %.sroa.5.07.i, %37 ]
+.thread.i:                                        ; preds = %37, %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit, %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit.thread, %35, %58, %24, %26, %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit.thread.us, %11
+  %.sroa.5.0.lcssa.i = phi ptr [ %9, %11 ], [ %.sroa.5.07.i.us, %26 ], [ %.sroa.5.07.i.us, %24 ], [ %0, %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit.thread.us ], [ %.sroa.5.07.i, %58 ], [ %.sroa.5.07.i, %35 ], [ %.sroa.5.07.i, %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit ], [ %0, %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit.thread ], [ %.sroa.5.07.i, %37 ]
   store i64 %.sroa.01.0.copyload.fr, ptr %.sroa.5.0.lcssa.i, align 8
   %.sroa.5.0..sroa.5.0.lcssa.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.5.0.lcssa.i, i64 8
   store ptr %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa.5.0.lcssa.i.sroa_idx, align 8
@@ -6998,14 +7000,14 @@ _ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit.thread.us: ; preds
   %29 = load i64, ptr %28, align 8, !range !14, !alias.scope !1006, !noalias !1007, !noundef !17
   %30 = add i64 %29, 9223372036854775807
   %31 = icmp ult i64 %30, 8
-  %32 = xor i64 %29, -9223372036854775808
+  %32 = and i64 %29, 15
   %33 = select i1 %31, i64 %32, i64 0
   %34 = or i64 %33, %17
   %or.cond.i.i.i = icmp eq i64 %34, 0
   br i1 %or.cond.i.i.i, label %37, label %35
 
 35:                                               ; preds = %.lr.ph.i
-  %36 = icmp slt i64 %17, %33
+  %36 = icmp ult i64 %17, %33
   br i1 %36, label %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit.thread, label %.thread.i
 
 37:                                               ; preds = %.lr.ph.i

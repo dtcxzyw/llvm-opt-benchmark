@@ -9487,7 +9487,8 @@ define linkonce_odr dso_local void @_ZN12VInFilterImp10readBlocksEiiRNSt7__cxx11
   %12 = sext i32 %2 to i64
   %13 = add i32 %2, -1
   %or.cond = icmp ult i32 %13, 65535
-  %.018 = select i1 %or.cond, i64 %12, i64 65536
+  %narrow = select i1 %or.cond, i32 %2, i32 65536
+  %.018 = zext nneg i32 %narrow to i64
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   br i1 %11, label %.lr.ph.lr.ph.split.us, label %.lr.ph
 

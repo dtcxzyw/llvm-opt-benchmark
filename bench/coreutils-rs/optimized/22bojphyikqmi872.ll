@@ -1838,7 +1838,7 @@ define { i64, i64 } @_ZN6uucore8features6format10num_parser4Base5digit17hdc0d5ad
 14:                                               ; preds = %2
   %15 = add i32 %1, -65
   %.012 = icmp ult i32 %15, 26
-  %16 = xor i32 %1, 32
+  %16 = or disjoint i32 %1, 32
   %.0 = select i1 %.012, i32 %16, i32 %1
   %17 = add nsw i32 %.0, -48
   %or.cond = icmp ult i32 %17, 10
@@ -2896,7 +2896,7 @@ _ZN4core3str7pattern7Pattern15strip_prefix_of17h5618b54020e83efeE.exit291: ; pre
 271:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit.thread523"
   %272 = add nsw i32 %261, -65
   %.012.i = icmp ult i32 %272, 26
-  %273 = xor i32 %261, 32
+  %273 = or disjoint i32 %261, 32
   %.0.i = select i1 %.012.i, i32 %273, i32 %261
   %274 = add nsw i32 %.0.i, -48
   %or.cond.i = icmp ult i32 %274, 10
@@ -3047,7 +3047,7 @@ _ZN4core3str7pattern7Pattern15strip_prefix_of17h5618b54020e83efeE.exit291: ; pre
 339:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit320.thread545"
   %340 = add nsw i32 %329, -65
   %.012.i321 = icmp ult i32 %340, 26
-  %341 = xor i32 %329, 32
+  %341 = or disjoint i32 %329, 32
   %.0.i322 = select i1 %.012.i321, i32 %341, i32 %329
   %342 = add nsw i32 %.0.i322, -48
   %or.cond.i323 = icmp ult i32 %342, 10

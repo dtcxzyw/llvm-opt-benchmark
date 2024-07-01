@@ -207,8 +207,7 @@ trace_target_mprotect.exit:                       ; preds = %entry, %land.lhs.tr
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %trace_target_mprotect.exit
-  %and.i = and i32 %target_prot, 7
-  %or.i = or disjoint i32 %and.i, 8
+  %or.i = or i32 %target_prot, 8
   %tobool.not.i = icmp ugt i32 %target_prot, 15
   %cond.i = select i1 %tobool.not.i, i32 0, i32 %or.i
   br i1 %tobool.not.i, label %return, label %if.end2
@@ -258,33 +257,33 @@ mmap_lock.exit:                                   ; preds = %if.end9, %if.then.i
   %12 = phi i64 [ %9, %if.end9 ], [ %.pre, %if.then.i ]
   %sub18 = sub i64 %sub17, %and12
   %cmp19 = icmp ult i64 %sub18, %12
-  %cmp2189.not = icmp eq i64 %and12, %start
+  %cmp2188.not = icmp eq i64 %and12, %start
   br i1 %cmp19, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %mmap_lock.exit
-  br i1 %cmp2189.not, label %for.cond25.preheader, label %for.body
+  br i1 %cmp2188.not, label %for.cond25.preheader, label %for.body
 
 for.cond25.preheader:                             ; preds = %for.body, %for.cond.preheader
   %prot1.0.lcssa = phi i32 [ %target_prot, %for.cond.preheader ], [ %or, %for.body ]
-  %cmp2693 = icmp ult i64 %sub11, %sub17
-  br i1 %cmp2693, label %for.body27, label %if.end98.thread
+  %cmp2692 = icmp ult i64 %sub11, %sub17
+  br i1 %cmp2692, label %for.body27, label %if.end98.thread
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %a.091 = phi i64 [ %add23, %for.body ], [ %and12, %for.cond.preheader ]
-  %prot1.090 = phi i32 [ %or, %for.body ], [ %target_prot, %for.cond.preheader ]
-  %call22 = tail call i32 @page_get_flags(i64 noundef %a.091) #13
-  %or = or i32 %call22, %prot1.090
-  %add23 = add i64 %a.091, 4096
+  %a.090 = phi i64 [ %add23, %for.body ], [ %and12, %for.cond.preheader ]
+  %prot1.089 = phi i32 [ %or, %for.body ], [ %target_prot, %for.cond.preheader ]
+  %call22 = tail call i32 @page_get_flags(i64 noundef %a.090) #13
+  %or = or i32 %call22, %prot1.089
+  %add23 = add i64 %a.090, 4096
   %cmp21 = icmp ult i64 %add23, %start
   br i1 %cmp21, label %for.body, label %for.cond25.preheader, !llvm.loop !5
 
 for.body27:                                       ; preds = %for.cond25.preheader, %for.body27
-  %a24.095 = phi i64 [ %add32, %for.body27 ], [ %sub11, %for.cond25.preheader ]
-  %prot1.194 = phi i32 [ %or30, %for.body27 ], [ %prot1.0.lcssa, %for.cond25.preheader ]
-  %add28 = add nuw i64 %a24.095, 1
+  %a24.094 = phi i64 [ %add32, %for.body27 ], [ %sub11, %for.cond25.preheader ]
+  %prot1.193 = phi i32 [ %or30, %for.body27 ], [ %prot1.0.lcssa, %for.cond25.preheader ]
+  %add28 = add nuw i64 %a24.094, 1
   %call29 = tail call i32 @page_get_flags(i64 noundef %add28) #13
-  %or30 = or i32 %call29, %prot1.194
-  %add32 = add i64 %a24.095, 4096
+  %or30 = or i32 %call29, %prot1.193
+  %add32 = add i64 %a24.094, 4096
   %cmp26 = icmp ult i64 %add32, %sub17
   br i1 %cmp26, label %for.body27, label %if.end98.thread, !llvm.loop !7
 
@@ -297,14 +296,14 @@ if.end98.thread:                                  ; preds = %for.body27, %for.co
   br label %for.body101.preheader
 
 if.else:                                          ; preds = %mmap_lock.exit
-  br i1 %cmp2189.not, label %if.end60, label %for.body43
+  br i1 %cmp2188.not, label %if.end60, label %for.body43
 
 for.body43:                                       ; preds = %if.else, %for.body43
-  %a40.086 = phi i64 [ %add47, %for.body43 ], [ %and12, %if.else ]
-  %prot1.285 = phi i32 [ %or45, %for.body43 ], [ %target_prot, %if.else ]
-  %call44 = tail call i32 @page_get_flags(i64 noundef %a40.086) #13
-  %or45 = or i32 %call44, %prot1.285
-  %add47 = add i64 %a40.086, 4096
+  %a40.085 = phi i64 [ %add47, %for.body43 ], [ %and12, %if.else ]
+  %prot1.284 = phi i32 [ %or45, %for.body43 ], [ %target_prot, %if.else ]
+  %call44 = tail call i32 @page_get_flags(i64 noundef %a40.085) #13
+  %or45 = or i32 %call44, %prot1.284
+  %add47 = add i64 %a40.085, 4096
   %cmp42 = icmp ult i64 %add47, %start
   br i1 %cmp42, label %for.body43, label %for.end48, !llvm.loop !8
 
@@ -327,12 +326,12 @@ if.end60:                                         ; preds = %for.end48, %if.then
   br i1 %cmp61, label %for.body66, label %if.end85
 
 for.body66:                                       ; preds = %if.end60, %for.body66
-  %a63.088 = phi i64 [ %add71, %for.body66 ], [ %sub11, %if.end60 ]
-  %prot1.387 = phi i32 [ %or69, %for.body66 ], [ %target_prot, %if.end60 ]
-  %add67 = add nuw i64 %a63.088, 1
+  %a63.087 = phi i64 [ %add71, %for.body66 ], [ %sub11, %if.end60 ]
+  %prot1.386 = phi i32 [ %or69, %for.body66 ], [ %target_prot, %if.end60 ]
+  %add67 = add nuw i64 %a63.087, 1
   %call68 = tail call i32 @page_get_flags(i64 noundef %add67) #13
-  %or69 = or i32 %call68, %prot1.387
-  %add71 = add i64 %a63.088, 4096
+  %or69 = or i32 %call68, %prot1.386
+  %add71 = add i64 %a63.087, 4096
   %cmp65 = icmp ult i64 %add71, %sub17
   br i1 %cmp65, label %for.body66, label %for.end72, !llvm.loop !9
 
@@ -364,8 +363,8 @@ if.then87:                                        ; preds = %if.end85
   %idxprom88 = zext nneg i32 %nranges.1 to i64
   %arrayidx89 = getelementptr [3 x i64], ptr %starts, i64 0, i64 %idxprom88
   store i64 %host_start.0, ptr %arrayidx89, align 8
-  %reass.sub99 = sub i64 %host_last.0, %host_start.0
-  %add91 = add i64 %reass.sub99, 1
+  %reass.sub98 = sub i64 %host_last.0, %host_start.0
+  %add91 = add i64 %reass.sub98, 1
   %arrayidx93 = getelementptr [3 x i64], ptr %lens, i64 0, i64 %idxprom88
   store i64 %add91, ptr %arrayidx93, align 8
   %arrayidx95 = getelementptr [3 x i32], ptr %prots, i64 0, i64 %idxprom88
@@ -375,12 +374,12 @@ if.then87:                                        ; preds = %if.end85
 
 if.end98:                                         ; preds = %if.end85, %if.then87
   %nranges.2 = phi i32 [ %inc96, %if.then87 ], [ %nranges.1, %if.end85 ]
-  %cmp10097 = icmp sgt i32 %nranges.2, 0
-  br i1 %cmp10097, label %for.body101.preheader, label %for.end116
+  %cmp10096 = icmp sgt i32 %nranges.2, 0
+  br i1 %cmp10096, label %for.body101.preheader, label %for.end116
 
 for.body101.preheader:                            ; preds = %if.end98.thread, %if.end98
-  %nranges.2104 = phi i32 [ 1, %if.end98.thread ], [ %nranges.2, %if.end98 ]
-  %wide.trip.count = zext nneg i32 %nranges.2104 to i64
+  %nranges.2103 = phi i32 [ 1, %if.end98.thread ], [ %nranges.2, %if.end98 ]
+  %wide.trip.count = zext nneg i32 %nranges.2103 to i64
   br label %for.body101
 
 for.cond99:                                       ; preds = %for.body101
@@ -399,11 +398,11 @@ for.body101:                                      ; preds = %for.body101.prehead
   %19 = load i64, ptr %arrayidx106, align 8
   %arrayidx108 = getelementptr [3 x i32], ptr %prots, i64 0, i64 %indvars.iv
   %20 = load i32, ptr %arrayidx108, align 4
-  %and.i80 = and i32 %20, 3
+  %and.i = and i32 %20, 3
   %and1.i = lshr i32 %20, 2
   %and1.lobit.i = and i32 %and1.i, 1
-  %or.i81 = or i32 %and1.lobit.i, %and.i80
-  %call110 = tail call i32 @mprotect(ptr noundef %18, i64 noundef %19, i32 noundef %or.i81) #13
+  %or.i80 = or i32 %and1.lobit.i, %and.i
+  %call110 = tail call i32 @mprotect(ptr noundef %18, i64 noundef %19, i32 noundef %or.i80) #13
   %cmp111.not = icmp eq i32 %call110, 0
   br i1 %cmp111.not, label %for.cond99, label %error
 
@@ -414,8 +413,8 @@ for.end116:                                       ; preds = %for.cond99, %if.end
 error:                                            ; preds = %for.body101, %for.end116
   %ret.0 = phi i32 [ 0, %for.end116 ], [ %call110, %for.body101 ]
   %21 = load i32, ptr %10, align 4
-  %cmp.i82 = icmp sgt i32 %21, 0
-  br i1 %cmp.i82, label %if.end.i, label %if.else.i
+  %cmp.i81 = icmp sgt i32 %21, 0
+  br i1 %cmp.i81, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %error
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #14
@@ -428,7 +427,7 @@ if.end.i:                                         ; preds = %error
   br i1 %cmp1.i, label %if.then2.i, label %return
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call.i83 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i82 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #13
   br label %return
 
 return:                                           ; preds = %if.then2.i, %if.end.i, %if.end5, %if.end2, %if.end, %trace_target_mprotect.exit
@@ -673,8 +672,7 @@ if.then:                                          ; preds = %trace_target_mmap.e
   br label %fail
 
 if.end:                                           ; preds = %trace_target_mmap.exit
-  %and.i = and i32 %target_prot, 7
-  %or.i = or disjoint i32 %and.i, 8
+  %or.i = or i32 %target_prot, 8
   %tobool.not.i = icmp ugt i32 %target_prot, 15
   br i1 %tobool.not.i, label %if.then3, label %if.end5
 
@@ -792,16 +790,16 @@ if.then64:                                        ; preds = %if.end61
   %sub68 = add i64 %add67, %15
   %sub69 = sub i64 0, %15
   %and70 = and i64 %sub68, %sub69
-  %and.i158 = and i32 %target_prot, 3
+  %and.i = and i32 %target_prot, 3
   %and1.i = lshr i32 %target_prot, 2
   %and1.lobit.i = and i32 %and1.i, 1
-  %or.i159 = or i32 %and1.lobit.i, %and.i158
+  %or.i158 = or i32 %and1.lobit.i, %and.i
   %17 = load i64, ptr @guest_base, align 8
   %add.i = add i64 %17, %start.addr.0
   %18 = inttoptr i64 %add.i to ptr
   %or73 = or disjoint i32 %flags, 16
   %or74 = or i32 %flags, 48
-  %call75 = tail call ptr @mmap64(ptr noundef %18, i64 noundef %and70, i32 noundef %or.i159, i32 noundef %or74, i32 noundef -1, i64 noundef 0) #13
+  %call75 = tail call ptr @mmap64(ptr noundef %18, i64 noundef %and70, i32 noundef %or.i158, i32 noundef %or74, i32 noundef -1, i64 noundef 0) #13
   %cmp76 = icmp eq ptr %call75, inttoptr (i64 -1 to ptr)
   br i1 %cmp76, label %fail, label %if.end78
 
@@ -811,16 +809,16 @@ if.end78:                                         ; preds = %if.then64
 
 if.then81:                                        ; preds = %if.end78
   %20 = load i64, ptr @guest_base, align 8
-  %add.i160 = add i64 %20, %start.addr.0
-  %21 = inttoptr i64 %add.i160 to ptr
-  %call84 = tail call ptr @mmap64(ptr noundef %21, i64 noundef %len.addr.0, i32 noundef %or.i159, i32 noundef %or73, i32 noundef %fd, i64 noundef %and25) #13
+  %add.i159 = add i64 %20, %start.addr.0
+  %21 = inttoptr i64 %add.i159 to ptr
+  %call84 = tail call ptr @mmap64(ptr noundef %21, i64 noundef %len.addr.0, i32 noundef %or.i158, i32 noundef %or73, i32 noundef %fd, i64 noundef %and25) #13
   %cmp85 = icmp eq ptr %call84, inttoptr (i64 -1 to ptr)
   br i1 %cmp85, label %if.then86, label %if.end89
 
 if.then86:                                        ; preds = %if.then81
   %22 = load i64, ptr @guest_base, align 8
-  %add.i161 = add i64 %22, %start.addr.0
-  %23 = inttoptr i64 %add.i161 to ptr
+  %add.i160 = add i64 %22, %start.addr.0
+  %23 = inttoptr i64 %add.i160 to ptr
   %call88 = tail call i32 @munmap(ptr noundef %23, i64 noundef %and70) #13
   br label %fail
 
@@ -873,12 +871,12 @@ if.end107:                                        ; preds = %if.else102
 lor.lhs.false:                                    ; preds = %if.end107
   %sub.i = add i64 %len.addr.0, -1
   %27 = load i64, ptr @reserved_va, align 8
-  %tobool.not.i162 = icmp eq i64 %27, 0
-  %..i = select i1 %tobool.not.i162, i64 -1, i64 %27
+  %tobool.not.i161 = icmp eq i64 %27, 0
+  %..i = select i1 %tobool.not.i161, i64 -1, i64 %27
   %cmp.not.i = icmp ule i64 %sub.i, %..i
   %reass.sub = sub i64 %..i, %len.addr.0
-  %add.i163 = add i64 %reass.sub, 1
-  %cmp7.i = icmp uge i64 %add.i163, %start.addr.0
+  %add.i162 = add i64 %reass.sub, 1
+  %cmp7.i = icmp uge i64 %add.i162, %start.addr.0
   %28 = select i1 %cmp.not.i, i1 %cmp7.i, i1 false
   br i1 %28, label %if.end119, label %if.then117
 
@@ -948,8 +946,8 @@ if.end148:                                        ; preds = %if.then140
 
 if.end156:                                        ; preds = %if.end148
   %33 = load i64, ptr @guest_base, align 8
-  %add.i164 = add i64 %33, %start.addr.0
-  %34 = inttoptr i64 %add.i164 to ptr
+  %add.i163 = add i64 %33, %start.addr.0
+  %34 = inttoptr i64 %add.i163 to ptr
   %call158 = tail call i64 @pread64(i32 noundef %fd, ptr noundef %34, i64 noundef %len.addr.0, i64 noundef %offset) #13
   %cmp159 = icmp eq i64 %call158, -1
   br i1 %cmp159, label %fail, label %if.end161
@@ -1021,13 +1019,13 @@ if.then206:                                       ; preds = %if.end203
   %sub215 = sub i64 %real_last.0, %real_start.0
   %add216 = add i64 %sub215, 1
   %39 = load i64, ptr @guest_base, align 8
-  %add.i165 = add i64 %39, %real_start.0
-  %40 = inttoptr i64 %add.i165 to ptr
-  %and.i166 = and i32 %target_prot, 3
-  %and1.i167 = lshr i32 %target_prot, 2
-  %and1.lobit.i168 = and i32 %and1.i167, 1
-  %or.i169 = or i32 %and1.lobit.i168, %and.i166
-  %call219 = tail call ptr @mmap64(ptr noundef %40, i64 noundef %add216, i32 noundef %or.i169, i32 noundef %flags.addr.0, i32 noundef %fd, i64 noundef %offset1.0) #13
+  %add.i164 = add i64 %39, %real_start.0
+  %40 = inttoptr i64 %add.i164 to ptr
+  %and.i165 = and i32 %target_prot, 3
+  %and1.i166 = lshr i32 %target_prot, 2
+  %and1.lobit.i167 = and i32 %and1.i166, 1
+  %or.i168 = or i32 %and1.lobit.i167, %and.i165
+  %call219 = tail call ptr @mmap64(ptr noundef %40, i64 noundef %add216, i32 noundef %or.i168, i32 noundef %flags.addr.0, i32 noundef %fd, i64 noundef %offset1.0) #13
   %cmp220.not = icmp eq ptr %call219, %40
   br i1 %cmp220.not, label %the_end1, label %if.then222
 
@@ -1042,10 +1040,10 @@ if.then225:                                       ; preds = %if.then222
   br label %fail
 
 the_end1.thread:                                  ; preds = %if.then180, %if.end203
-  %and232179 = shl i32 %flags.addr.0, 2
-  %41 = and i32 %and232179, 128
-  %spec.select182 = or disjoint i32 %or.i, %41
-  %or237183 = or disjoint i32 %spec.select182, 64
+  %and232178 = shl i32 %flags.addr.0, 2
+  %41 = and i32 %and232178, 128
+  %spec.select181 = or disjoint i32 %or.i, %41
+  %or237182 = or disjoint i32 %spec.select181, 64
   br label %if.then240
 
 the_end1:                                         ; preds = %if.then206, %if.end97
@@ -1062,10 +1060,10 @@ the_end1:                                         ; preds = %if.then206, %if.end
   br i1 %cmp238, label %if.then240, label %if.else241
 
 if.then240:                                       ; preds = %the_end1.thread, %the_end1
-  %or237189 = phi i32 [ %or237183, %the_end1.thread ], [ %or237, %the_end1 ]
-  %start.addr.1187 = phi i64 [ %start.addr.0, %the_end1.thread ], [ %start.addr.1, %the_end1 ]
-  %last.0185 = phi i64 [ %sub109, %the_end1.thread ], [ %last.0, %the_end1 ]
-  tail call void @page_set_flags(i64 noundef %start.addr.1187, i64 noundef %last.0185, i32 noundef %or237189) #13
+  %or237188 = phi i32 [ %or237182, %the_end1.thread ], [ %or237, %the_end1 ]
+  %start.addr.1186 = phi i64 [ %start.addr.0, %the_end1.thread ], [ %start.addr.1, %the_end1 ]
+  %last.0184 = phi i64 [ %sub109, %the_end1.thread ], [ %last.0, %the_end1 ]
+  tail call void @page_set_flags(i64 noundef %start.addr.1186, i64 noundef %last.0184, i32 noundef %or237188) #13
   br label %if.end253
 
 if.else241:                                       ; preds = %the_end1
@@ -1089,18 +1087,18 @@ if.then250:                                       ; preds = %if.end246
   br label %if.end253
 
 if.end253:                                        ; preds = %if.end246, %if.then250, %if.then240
-  %start.addr.1188 = phi i64 [ %start.addr.1, %if.end246 ], [ %start.addr.1, %if.then250 ], [ %start.addr.1187, %if.then240 ]
-  %last.0186 = phi i64 [ %last.0, %if.end246 ], [ %last.0, %if.then250 ], [ %last.0185, %if.then240 ]
-  tail call fastcc void @shm_region_rm_complete(i64 noundef %start.addr.1188, i64 noundef %last.0186)
+  %start.addr.1187 = phi i64 [ %start.addr.1, %if.end246 ], [ %start.addr.1, %if.then250 ], [ %start.addr.1186, %if.then240 ]
+  %last.0185 = phi i64 [ %last.0, %if.end246 ], [ %last.0, %if.then250 ], [ %last.0184, %if.then240 ]
+  tail call fastcc void @shm_region_rm_complete(i64 noundef %start.addr.1187, i64 noundef %last.0185)
   br label %the_end
 
 the_end:                                          ; preds = %if.end161, %if.then164, %if.end253
-  %start.addr.2 = phi i64 [ %start.addr.1188, %if.end253 ], [ %start.addr.0, %if.end161 ], [ %start.addr.0, %if.then164 ]
+  %start.addr.2 = phi i64 [ %start.addr.1187, %if.end253 ], [ %start.addr.0, %if.end161 ], [ %start.addr.0, %if.then164 ]
   tail call fastcc void @trace_target_mmap_complete(i64 noundef %start.addr.2)
   %43 = load i32, ptr @qemu_loglevel, align 4
-  %and.i170 = and i32 %43, 16384
-  %cmp.i171.not = icmp eq i32 %and.i170, 0
-  br i1 %cmp.i171.not, label %if.end261, label %if.then255
+  %and.i169 = and i32 %43, 16384
+  %cmp.i170.not = icmp eq i32 %and.i169, 0
+  br i1 %cmp.i170.not, label %if.end261, label %if.then255
 
 if.then255:                                       ; preds = %the_end
   %call256 = tail call ptr @qemu_log_trylock() #13
@@ -1119,8 +1117,8 @@ if.end261:                                        ; preds = %if.then255, %if.the
 
 fail:                                             ; preds = %if.then222, %if.then225, %if.then194, %if.end184, %if.then180, %if.end156, %if.end148, %if.then64, %if.then44, %if.then146, %if.then124, %if.then117, %if.then105, %if.then86, %if.then36, %if.then12, %if.then7, %if.then3, %if.then
   %45 = load i32, ptr %0, align 4
-  %cmp.i172 = icmp sgt i32 %45, 0
-  br i1 %cmp.i172, label %if.end.i, label %if.else.i
+  %cmp.i171 = icmp sgt i32 %45, 0
+  br i1 %cmp.i171, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %fail
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #14
@@ -1133,7 +1131,7 @@ if.end.i:                                         ; preds = %fail
   br i1 %cmp1.i, label %if.then2.i, label %return
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call.i173 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i172 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #13
   br label %return
 
 return:                                           ; preds = %if.then2.i, %if.end.i, %if.end261

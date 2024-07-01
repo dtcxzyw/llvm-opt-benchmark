@@ -4869,66 +4869,65 @@ define internal void @add_error_token_at(ptr nocapture noundef %0, ptr noundef %
   %.sroa.3.0.insert.shift = select i1 %17, i64 0, i64 %20
   %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.4.0.insert.shift
   %21 = shl nuw nsw i32 %2, 16
-  %22 = and i32 %21, 16711680
-  %23 = select i1 %8, i32 0, i32 %22
-  %.sroa.2.0.insert.shift = zext nneg i32 %23 to i64
-  %.sroa.2.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.2.0.insert.shift
-  %.sroa.0.0.insert.ext = zext i16 %11 to i64
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.insert, %.sroa.0.0.insert.ext
+  %22 = select i1 %8, i32 0, i32 %21
+  %23 = zext i16 %11 to i32
+  %24 = or disjoint i32 %22, %23
+  %.sroa.2.0.insert.insert = zext nneg i32 %24 to i64
+  %.sroa.0.0.insert.insert = or i64 %.sroa.3.0.insert.insert, %.sroa.2.0.insert.insert
   call void @sema_verror_range(i64 %.sroa.0.0.insert.insert, ptr noundef %3, ptr noundef nonnull %5) #10
   call void @llvm.va_end.p0(ptr nonnull %5)
-  %24 = getelementptr inbounds i8, ptr %0, i64 112
-  store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %26 to i64
-  %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 64
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
-  store i64 %31, ptr %33, align 8
-  store ptr %28, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 36
-  %35 = load i32, ptr %34, align 4
-  %36 = load i32, ptr %6, align 8
-  %37 = icmp eq i32 %35, %36
-  br i1 %37, label %38, label %48
+  %25 = getelementptr inbounds i8, ptr %0, i64 112
+  store i32 0, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = ptrtoint ptr %27 to i64
+  %31 = ptrtoint ptr %29 to i64
+  %32 = sub i64 %30, %31
+  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = getelementptr inbounds i8, ptr %0, i64 72
+  store i64 %32, ptr %34, align 8
+  store ptr %29, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 36
+  %36 = load i32, ptr %35, align 4
+  %37 = load i32, ptr %6, align 8
+  %38 = icmp eq i32 %36, %37
+  br i1 %38, label %39, label %49
 
-38:                                               ; preds = %4
-  %39 = load ptr, ptr %12, align 8
-  %40 = ptrtoint ptr %39 to i64
-  %41 = sub i64 %30, %40
-  %42 = icmp sgt i64 %41, 254
-  %43 = trunc i64 %41 to i8
-  %44 = add i8 %43, 1
-  %.0.i.i = select i1 %42, i8 0, i8 %44
-  %45 = icmp sgt i64 %31, 255
-  %46 = trunc i64 %31 to i8
-  %47 = select i1 %45, i8 0, i8 %46
+39:                                               ; preds = %4
+  %40 = load ptr, ptr %12, align 8
+  %41 = ptrtoint ptr %40 to i64
+  %42 = sub i64 %31, %41
+  %43 = icmp sgt i64 %42, 254
+  %44 = trunc i64 %42 to i8
+  %45 = add i8 %44, 1
+  %.0.i.i = select i1 %43, i8 0, i8 %45
+  %46 = icmp sgt i64 %32, 255
+  %47 = trunc i64 %32 to i8
+  %48 = select i1 %46, i8 0, i8 %47
   br label %set_generic_token.exit
 
-48:                                               ; preds = %4
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
-  %50 = load ptr, ptr %49, align 8
-  %51 = ptrtoint ptr %50 to i64
-  %52 = sub i64 %30, %51
-  %53 = icmp sgt i64 %52, 254
-  %54 = trunc i64 %52 to i8
-  %55 = add i8 %54, 1
-  %.0.i26.i = select i1 %53, i8 0, i8 %55
+49:                                               ; preds = %4
+  %50 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = load ptr, ptr %50, align 8
+  %52 = ptrtoint ptr %51 to i64
+  %53 = sub i64 %31, %52
+  %54 = icmp sgt i64 %53, 254
+  %55 = trunc i64 %53 to i8
+  %56 = add i8 %55, 1
+  %.0.i26.i = select i1 %54, i8 0, i8 %56
   br label %set_generic_token.exit
 
-set_generic_token.exit:                           ; preds = %38, %48
-  %.024.in.i = phi i8 [ %.0.i.i, %38 ], [ %.0.i26.i, %48 ]
-  %.0.i9 = phi i8 [ %47, %38 ], [ 1, %48 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 106
-  store i8 %.0.i9, ptr %56, align 2
-  %57 = getelementptr inbounds i8, ptr %0, i64 107
-  store i8 %.024.in.i, ptr %57, align 1
-  %58 = getelementptr inbounds i8, ptr %0, i64 108
-  store i32 %35, ptr %58, align 4
+set_generic_token.exit:                           ; preds = %39, %49
+  %.024.in.i = phi i8 [ %.0.i.i, %39 ], [ %.0.i26.i, %49 ]
+  %.0.i9 = phi i8 [ %48, %39 ], [ 1, %49 ]
+  %57 = getelementptr inbounds i8, ptr %0, i64 106
+  store i8 %.0.i9, ptr %57, align 2
+  %58 = getelementptr inbounds i8, ptr %0, i64 107
+  store i8 %.024.in.i, ptr %58, align 1
+  %59 = getelementptr inbounds i8, ptr %0, i64 108
+  store i32 %36, ptr %59, align 4
   ret void
 }
 

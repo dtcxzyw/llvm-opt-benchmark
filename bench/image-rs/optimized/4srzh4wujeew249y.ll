@@ -27775,7 +27775,7 @@ define void @"_ZN5image6codecs4jpeg7decoder42_$LT$impl$u20$image..error..ImageEr
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
   br label %46
 
-29:                                               ; preds = %51, %40
+29:                                               ; preds = %55, %40
   %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #25
@@ -27833,7 +27833,7 @@ define void @"_ZN5image6codecs4jpeg7decoder42_$LT$impl$u20$image..error..ImageEr
   %41 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.86838146618072286"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #24
-          to label %49 unwind label %29
+          to label %51 unwind label %29
 
 42:                                               ; preds = %2
   %43 = getelementptr inbounds i8, ptr %1, i64 8
@@ -27847,28 +27847,34 @@ define void @"_ZN5image6codecs4jpeg7decoder42_$LT$impl$u20$image..error..ImageEr
   store i8 4, ptr %0, align 8
   br label %.critedge
 
-46:                                               ; preds = %.critedge, %27, %48
+46:                                               ; preds = %.critedge, %27, %50
   ret void
 
 .critedge:                                        ; preds = %42, %15, %39
   %47 = phi i64 [ %10, %42 ], [ %10, %15 ], [ %.pre, %39 ]
-  %switch37 = icmp slt i64 %47, -9223372036854775805
-  br i1 %switch37, label %46, label %48
+  %48 = icmp slt i64 %47, -9223372036854775805
+  %49 = and i64 %47, 3
+  %switch37 = icmp ne i64 %49, 3
+  %switch = and i1 %48, %switch37
+  br i1 %switch, label %46, label %50
 
-48:                                               ; preds = %.critedge
+50:                                               ; preds = %.critedge
   call fastcc void @"_ZN4core3ptr47drop_in_place$LT$jpeg_decoder..error..Error$GT$17habd25b08f00d446eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %46
 
-.body:                                            ; preds = %.body.i, %49, %51
-  %.pn34 = phi { ptr, i32 } [ %41, %49 ], [ %41, %51 ], [ %22, %.body.i ]
+.body:                                            ; preds = %.body.i, %51, %55
+  %.pn34 = phi { ptr, i32 } [ %41, %51 ], [ %41, %55 ], [ %22, %.body.i ]
   resume { ptr, i32 } %.pn34
 
-49:                                               ; preds = %40
-  %50 = load i64, ptr %1, align 8, !range !2180, !noundef !9
-  %switch1136 = icmp slt i64 %50, -9223372036854775805
-  br i1 %switch1136, label %.body, label %51
+51:                                               ; preds = %40
+  %52 = load i64, ptr %1, align 8, !range !2180, !noundef !9
+  %53 = icmp slt i64 %52, -9223372036854775805
+  %54 = and i64 %52, 3
+  %switch1136 = icmp ne i64 %54, 3
+  %switch11 = and i1 %53, %switch1136
+  br i1 %switch11, label %.body, label %55
 
-51:                                               ; preds = %49
+55:                                               ; preds = %51
   invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$jpeg_decoder..error..Error$GT$17habd25b08f00d446eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #24
           to label %.body unwind label %29
 }

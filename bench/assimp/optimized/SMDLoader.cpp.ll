@@ -2784,7 +2784,7 @@ if.end:                                           ; preds = %if.then.if.end_crit
   %6 = load ptr, ptr %pScene, align 8
   %mNumAnimations = getelementptr inbounds i8, ptr %6, i64 48
   store i32 1, ptr %mNumAnimations, align 8
-  %7 = ashr exact i64 %sub.ptr.sub.i, 29
+  %7 = lshr exact i64 %sub.ptr.sub.i, 29
   %.inv = icmp sgt i64 %sub.ptr.sub.i, -1
   %8 = select i1 %.inv, i64 %7, i64 -1
   %call4 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %8) #27
@@ -2797,7 +2797,8 @@ invoke.cont3:                                     ; preds = %if.end
   %10 = load ptr, ptr %pScene, align 8
   %mAnimations7 = getelementptr inbounds i8, ptr %10, i64 56
   %11 = load ptr, ptr %mAnimations7, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %7, i1 false)
+  %mul = ashr exact i64 %sub.ptr.sub.i, 29
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %mul, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #24
   %call.i8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i.noexc unwind label %lpad10

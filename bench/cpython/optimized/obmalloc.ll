@@ -10644,8 +10644,6 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp1.i.i = icmp eq i64 %count, 0
-  %notmask.i.i = shl nsw i64 -1, %count
-  %sub.i.i = xor i64 %notmask.i.i, -1
   %sub.i = sub i64 64, %count
   %cmp8.i = icmp eq i64 %count, 1
   br i1 %cmp8.i, label %for.body.us, label %for.body.lr.ph.split
@@ -10819,7 +10817,7 @@ if.end.i:                                         ; preds = %for.body
   br i1 %cmp2.not22.i, label %for.inc, label %while.cond.outer.split.lr.ph.i
 
 while.cond.outer.split.lr.ph.i:                   ; preds = %if.end.i
-  %shl.i = shl i64 %sub.i.i, %18
+  %shl.i = shl nuw i64 1, %18
   br label %while.cond.outer.split.i
 
 while.cond.outer.split.i:                         ; preds = %while.cond.outer.split.lr.ph.i, %if.else7.i
@@ -10879,12 +10877,12 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp.i.i = icmp ugt i64 %count, 63
-  %notmask.i.i = shl nsw i64 -1, %count
-  %sub.i.i = xor i64 %notmask.i.i, -1
   %sub.i = sub i64 64, %count
   %cmp8.i = icmp eq i64 %count, 1
   %cmp3 = icmp eq ptr %pred_fun, null
   %cmp1.i.i13 = icmp eq i64 %count, 0
+  %notmask.i.i15 = shl nsw i64 -1, %count
+  %sub.i.i16 = xor i64 %notmask.i.i15, -1
   br i1 %cmp8.i, label %for.body.us, label %for.body.lr.ph.split
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
@@ -10940,7 +10938,7 @@ lor.lhs.false.us:                                 ; preds = %if.then2.loopexit.u
 if.end6.us:                                       ; preds = %lor.lhs.false.us
   %5 = load i64, ptr %bitmap_idx, align 8
   %rem.i.i.us = and i64 %5, 63
-  %shl4.i.i.us = shl nuw i64 %sub.i.i, %rem.i.i.us
+  %shl4.i.i.us = shl nuw i64 %sub.i.i16, %rem.i.i.us
   %6 = xor i64 %shl4.i.i.us, -1
   %7 = select i1 %cmp1.i.i13, i64 -1, i64 %6
   %div1.i.i.us = lshr i64 %5, 6
@@ -10966,7 +10964,7 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   br i1 %cmp3, label %for.body.lr.ph.split.split.us, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.lr.ph.split
-  %retval.0.i.i = select i1 %cmp.i.i, i64 -1, i64 %sub.i.i
+  %retval.0.i.i = select i1 %cmp.i.i, i64 -1, i64 1
   br label %for.body
 
 for.body.lr.ph.split.split.us:                    ; preds = %for.body.lr.ph.split
@@ -11046,7 +11044,7 @@ if.end.i.us48:                                    ; preds = %for.body.us40
   br i1 %cmp2.not22.i.us54, label %for.inc.us57, label %while.cond.outer.split.lr.ph.i.us55
 
 while.cond.outer.split.lr.ph.i.us55:              ; preds = %if.end.i.us48
-  %shl.i.us56 = shl i64 %sub.i.i, %17
+  %shl.i.us56 = shl nuw i64 1, %17
   br label %while.cond.outer.split.i.us
 
 while.cond.outer.split.i.us:                      ; preds = %if.else7.i.us, %while.cond.outer.split.lr.ph.i.us55
@@ -11152,7 +11150,7 @@ if.then2.loopexit25:                              ; preds = %if.then4.i
 if.end6:                                          ; preds = %if.then2.loopexit25
   %30 = load i64, ptr %bitmap_idx, align 8
   %rem.i.i = and i64 %30, 63
-  %shl4.i.i = shl i64 %sub.i.i, %rem.i.i
+  %shl4.i.i = shl i64 %sub.i.i16, %rem.i.i
   %31 = xor i64 %shl4.i.i, -1
   %32 = select i1 %cmp1.i.i13, i64 -1, i64 %31
   %div1.i.i = lshr i64 %30, 6

@@ -9317,9 +9317,9 @@ _ZNK5Gluco6Solver12withinBudgetEv.exit.thread:    ; preds = %109, %93, %_ZNK5Glu
 181:                                              ; preds = %180
   %182 = getelementptr inbounds i8, ptr %0, i64 736
   %183 = load i32, ptr %182, align 8
-  %184 = sext i32 %183 to i64
+  %184 = zext i32 %183 to i64
   %185 = icmp slt i32 %183, 0
-  %186 = shl nsw i64 %184, 2
+  %186 = shl nuw nsw i64 %184, 2
   %187 = select i1 %185, i64 -1, i64 %186
   %188 = call noalias noundef nonnull ptr @_Znam(i64 noundef %187) #34
   %189 = icmp sgt i32 %183, 0
@@ -9327,7 +9327,6 @@ _ZNK5Gluco6Solver12withinBudgetEv.exit.thread:    ; preds = %109, %93, %_ZNK5Glu
 
 .lr.ph79:                                         ; preds = %181
   %190 = load ptr, ptr %13, align 8
-  %wide.trip.count = zext nneg i32 %183 to i64
   br label %191
 
 191:                                              ; preds = %.lr.ph79, %191
@@ -9339,7 +9338,7 @@ _ZNK5Gluco6Solver12withinBudgetEv.exit.thread:    ; preds = %109, %93, %_ZNK5Glu
   %196 = getelementptr inbounds i32, ptr %188, i64 %indvars.iv82
   store i32 %195, ptr %196, align 4
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next83, %184
   br i1 %exitcond.not, label %.loopexit, label %191, !llvm.loop !68
 
 .loopexit:                                        ; preds = %191, %181, %180

@@ -741,7 +741,7 @@ define dso_local i64 @_copy_mc_to_iter(ptr noundef %0, i64 noundef %1, ptr nocap
   tail call void asm sideeffect "415: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 415b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 415) #15, !srcloc !36
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 237, i32 2307, i64 12) #15, !srcloc !37
   tail call void asm sideeffect "416: nop\0A\09.pushsection .discard.instr_end\0A\09.long 416b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 416) #15, !srcloc !38
-  br label %296
+  br label %295
 
 9:                                                ; preds = %3
   %10 = load i8, ptr %2, align 8
@@ -756,10 +756,10 @@ define dso_local i64 @_copy_mc_to_iter(ptr noundef %0, i64 noundef %1, ptr nocap
 15:                                               ; preds = %14, %9
   %16 = phi i64 [ %12, %14 ], [ %1, %9 ]
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %296, label %18, !prof !9
+  br i1 %17, label %295, label %18, !prof !9
 
 18:                                               ; preds = %15
-  switch i8 %10, label %294 [
+  switch i8 %10, label %293 [
     i8 0, label %19
     i8 1, label %40
     i8 2, label %93
@@ -796,7 +796,7 @@ define dso_local i64 @_copy_mc_to_iter(ptr noundef %0, i64 noundef %1, ptr nocap
   store i64 %38, ptr %22, align 8
   %39 = sub i64 %34, %37
   store i64 %39, ptr %11, align 8
-  br label %296
+  br label %295
 
 40:                                               ; preds = %18
   %41 = getelementptr inbounds i8, ptr %2, i64 16
@@ -869,7 +869,7 @@ define dso_local i64 @_copy_mc_to_iter(ptr noundef %0, i64 noundef %1, ptr nocap
   %91 = load i64, ptr %11, align 8
   %92 = sub i64 %91, %81
   store i64 %92, ptr %11, align 8
-  br label %296
+  br label %295
 
 93:                                               ; preds = %18
   %94 = getelementptr inbounds i8, ptr %2, i64 16
@@ -939,7 +939,7 @@ define dso_local i64 @_copy_mc_to_iter(ptr noundef %0, i64 noundef %1, ptr nocap
   %151 = load i64, ptr %11, align 8
   %152 = sub i64 %151, %131
   store i64 %152, ptr %11, align 8
-  br label %296
+  br label %295
 
 153:                                              ; preds = %18
   %154 = getelementptr inbounds i8, ptr %2, i64 16
@@ -999,7 +999,7 @@ define dso_local i64 @_copy_mc_to_iter(ptr noundef %0, i64 noundef %1, ptr nocap
   %196 = load i64, ptr %11, align 8
   %197 = sub i64 %196, %186
   store i64 %197, ptr %11, align 8
-  br label %296
+  br label %295
 
 198:                                              ; preds = %18
   %199 = getelementptr inbounds i8, ptr %2, i64 32
@@ -1027,7 +1027,7 @@ define dso_local i64 @_copy_mc_to_iter(ptr noundef %0, i64 noundef %1, ptr nocap
 
 .preheader:                                       ; preds = %198, %.loopexit
   %213 = phi i64 [ %.ph15, %.loopexit ], [ %16, %198 ]
-  %214 = phi ptr [ %287, %.loopexit ], [ %211, %198 ]
+  %214 = phi ptr [ %286, %.loopexit ], [ %211, %198 ]
   %215 = phi i64 [ %.ph14, %.loopexit ], [ 0, %198 ]
   %216 = ptrtoint ptr %214 to i64
   switch i64 %216, label %218 [
@@ -1106,10 +1106,10 @@ define dso_local i64 @_copy_mc_to_iter(ptr noundef %0, i64 noundef %1, ptr nocap
   br label %258
 
 258:                                              ; preds = %264, %253
-  %259 = phi i64 [ %257, %253 ], [ %285, %264 ]
-  %260 = phi i64 [ %245, %253 ], [ %286, %264 ]
-  %261 = phi i64 [ %215, %253 ], [ %279, %264 ]
-  %262 = phi i64 [ %213, %253 ], [ %280, %264 ]
+  %259 = phi i64 [ %257, %253 ], [ %284, %264 ]
+  %260 = phi i64 [ %245, %253 ], [ %285, %264 ]
+  %261 = phi i64 [ %215, %253 ], [ %278, %264 ]
+  %262 = phi i64 [ %213, %253 ], [ %279, %264 ]
   %263 = icmp eq i64 %259, 0
   br i1 %263, label %.loopexit, label %264
 
@@ -1127,44 +1127,43 @@ define dso_local i64 @_copy_mc_to_iter(ptr noundef %0, i64 noundef %1, ptr nocap
   %275 = getelementptr i8, ptr %0, i64 %261
   %276 = trunc nuw nsw i64 %274 to i32
   %277 = call i64 @copy_mc_to_kernel(ptr noundef %271, ptr noundef %275, i32 noundef %276) #15
-  %278 = sub i64 %274, %277
-  %279 = add i64 %278, %261
-  %280 = sub i64 %262, %278
-  %281 = icmp eq i64 %277, 0
-  %282 = icmp ne i64 %280, 0
-  %283 = select i1 %281, i1 %282, i1 false
-  %284 = select i1 %283, i64 %278, i64 0
-  %285 = sub i64 %259, %284
-  %286 = add i64 %284, %260
-  br i1 %283, label %258, label %.loopexit17, !llvm.loop !34
+  %278 = add i64 %274, %261
+  %279 = sub i64 %262, %274
+  %280 = icmp eq i64 %277, 0
+  %281 = icmp ne i64 %279, 0
+  %282 = select i1 %280, i1 %281, i1 false
+  %283 = select i1 %282, i64 %274, i64 0
+  %284 = sub i64 %259, %283
+  %285 = add i64 %283, %260
+  br i1 %282, label %258, label %.loopexit17, !llvm.loop !34
 
 .loopexit:                                        ; preds = %258, %.preheader, %217
   %.ph14 = phi i64 [ %215, %217 ], [ %215, %.preheader ], [ %261, %258 ]
   %.ph15 = phi i64 [ %213, %217 ], [ %213, %.preheader ], [ %262, %258 ]
-  %287 = call fastcc ptr @xas_next_entry(ptr noundef nonnull %4)
-  %288 = icmp eq ptr %287, null
-  br i1 %288, label %.loopexit17, label %.preheader, !llvm.loop !35
+  %286 = call fastcc ptr @xas_next_entry(ptr noundef nonnull %4)
+  %287 = icmp eq ptr %286, null
+  br i1 %287, label %.loopexit17, label %.preheader, !llvm.loop !35
 
 .loopexit17:                                      ; preds = %.loopexit, %264, %198, %231, %221
-  %289 = phi i64 [ 0, %198 ], [ %215, %221 ], [ %215, %231 ], [ %279, %264 ], [ %.ph14, %.loopexit ]
+  %288 = phi i64 [ 0, %198 ], [ %215, %221 ], [ %215, %231 ], [ %278, %264 ], [ %.ph14, %.loopexit ]
   call void @__rcu_read_unlock() #15
-  %290 = load i64, ptr %201, align 8
-  %291 = add i64 %290, %289
-  store i64 %291, ptr %201, align 8
-  %292 = load i64, ptr %11, align 8
-  %293 = sub i64 %292, %289
-  store i64 %293, ptr %11, align 8
+  %289 = load i64, ptr %201, align 8
+  %290 = add i64 %289, %288
+  store i64 %290, ptr %201, align 8
+  %291 = load i64, ptr %11, align 8
+  %292 = sub i64 %291, %288
+  store i64 %292, ptr %11, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #15
-  br label %296
+  br label %295
 
-294:                                              ; preds = %18
-  %295 = sub i64 %12, %16
-  store i64 %295, ptr %11, align 8
-  br label %296
+293:                                              ; preds = %18
+  %294 = sub i64 %12, %16
+  store i64 %294, ptr %11, align 8
+  br label %295
 
-296:                                              ; preds = %294, %.loopexit17, %.thread13, %142, %.thread, %33, %15, %8
-  %297 = phi i64 [ 0, %8 ], [ %37, %33 ], [ %81, %.thread ], [ %131, %142 ], [ %186, %.thread13 ], [ %289, %.loopexit17 ], [ %16, %294 ], [ 0, %15 ]
-  ret i64 %297
+295:                                              ; preds = %293, %.loopexit17, %.thread13, %142, %.thread, %33, %15, %8
+  %296 = phi i64 [ 0, %8 ], [ %37, %33 ], [ %81, %.thread ], [ %131, %142 ], [ %186, %.thread13 ], [ %288, %.loopexit17 ], [ %16, %293 ], [ 0, %15 ]
+  ret i64 %296
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

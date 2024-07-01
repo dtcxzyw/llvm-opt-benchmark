@@ -2925,9 +2925,9 @@ define noundef zeroext i1 @"_ZN87_$LT$uu_seq..extendedbigdecimal..ExtendedBigDec
   switch i64 %6, label %7 [
     i64 0, label %8
     i64 1, label %11
-    i64 2, label %13
-    i64 3, label %15
-    i64 4, label %19
+    i64 2, label %15
+    i64 3, label %17
+    i64 4, label %21
   ]
 
 7:                                                ; preds = %2
@@ -2936,29 +2936,32 @@ define noundef zeroext i1 @"_ZN87_$LT$uu_seq..extendedbigdecimal..ExtendedBigDec
 8:                                                ; preds = %2
   %9 = load i64, ptr %1, align 8, !range !241, !noundef !5
   %10 = icmp sgt i64 %9, -9223372036854775805
-  br i1 %10, label %17, label %19
+  br i1 %10, label %19, label %21
 
 11:                                               ; preds = %2
   %12 = load i64, ptr %1, align 8, !range !241, !noundef !5
-  %switch113 = icmp eq i64 %12, -9223372036854775808
-  br label %19
-
-13:                                               ; preds = %2
-  %14 = load i64, ptr %1, align 8, !range !241, !noundef !5
-  %switch412 = icmp eq i64 %14, -9223372036854775807
-  br label %19
+  %13 = icmp slt i64 %12, -9223372036854775804
+  %14 = and i64 %12, 3
+  %switch113 = icmp eq i64 %14, 0
+  %switch1 = and i1 %13, %switch113
+  br label %21
 
 15:                                               ; preds = %2
   %16 = load i64, ptr %1, align 8, !range !241, !noundef !5
-  %switch811 = icmp eq i64 %16, -9223372036854775806
-  br label %19
+  %switch412 = icmp eq i64 %16, -9223372036854775807
+  br label %21
 
-17:                                               ; preds = %8
-  %18 = tail call noundef zeroext i1 @"_ZN63_$LT$bigdecimal..BigDecimal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8caa5bc484dacf9eE.llvm.15755512314762197099"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1)
-  br label %19
+17:                                               ; preds = %2
+  %18 = load i64, ptr %1, align 8, !range !241, !noundef !5
+  %switch811 = icmp eq i64 %18, -9223372036854775806
+  br label %21
 
-19:                                               ; preds = %15, %13, %11, %8, %2, %17
-  %.0 = phi i1 [ %18, %17 ], [ false, %2 ], [ false, %8 ], [ %switch113, %11 ], [ %switch412, %13 ], [ %switch811, %15 ]
+19:                                               ; preds = %8
+  %20 = tail call noundef zeroext i1 @"_ZN63_$LT$bigdecimal..BigDecimal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8caa5bc484dacf9eE.llvm.15755512314762197099"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1)
+  br label %21
+
+21:                                               ; preds = %17, %15, %11, %8, %2, %19
+  %.0 = phi i1 [ %20, %19 ], [ false, %2 ], [ false, %8 ], [ %switch1, %11 ], [ %switch412, %15 ], [ %switch811, %17 ]
   ret i1 %.0
 }
 

@@ -21167,7 +21167,7 @@ define hidden void @"_ZN4core3ptr479drop_in_place$LT$tokio..runtime..task..core.
   %2 = load i64, ptr %0, align 8, !range !7709, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr438drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_write..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9738f08e4e3f76a6E.exit" [
     i64 0, label %7
@@ -23869,7 +23869,7 @@ define hidden void @"_ZN4core3ptr514drop_in_place$LT$tokio..runtime..task..core.
   %2 = load i64, ptr %0, align 8, !range !7709, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr473drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$wasmtime_wasi..preview1..types..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6f9fbdfe117f43a1E.exit" [
     i64 0, label %7
@@ -24010,7 +24010,7 @@ define hidden void @"_ZN4core3ptr518drop_in_place$LT$tokio..runtime..task..core.
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !9201, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr563drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$wasmtime_wasi..preview1..types..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h51e29e02cfa3286bE.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -24672,7 +24672,7 @@ define hidden void @"_ZN4core3ptr527drop_in_place$LT$tokio..runtime..task..core.
   %2 = load i64, ptr %0, align 8, !range !7709, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr486drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6a4da4d8d87e26faE.exit" [
     i64 0, label %7
@@ -24803,7 +24803,7 @@ define hidden void @"_ZN4core3ptr529drop_in_place$LT$tokio..runtime..task..core.
   %2 = load i64, ptr %0, align 8, !range !7709, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr488drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7acc1cded5a4011aE.exit" [
     i64 0, label %7
@@ -25042,7 +25042,7 @@ define hidden void @"_ZN4core3ptr530drop_in_place$LT$tokio..runtime..task..core.
   %2 = load i64, ptr %0, align 8, !range !7709, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr489drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17haabab2d4c9a1521dE.exit" [
     i64 0, label %7
@@ -25153,7 +25153,7 @@ define hidden void @"_ZN4core3ptr531drop_in_place$LT$tokio..runtime..task..core.
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !9751, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr576drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h82e9f6619ad3ab03E.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -25340,7 +25340,7 @@ define hidden void @"_ZN4core3ptr532drop_in_place$LT$tokio..runtime..task..core.
   %2 = load i64, ptr %0, align 8, !range !7709, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr491drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h95616539bf3e8516E.exit" [
     i64 0, label %7
@@ -25397,7 +25397,7 @@ define hidden void @"_ZN4core3ptr532drop_in_place$LT$tokio..runtime..task..core.
   %2 = load i64, ptr %0, align 8, !range !7709, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr491drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0127aa0f2577831cE.exit" [
     i64 0, label %7
@@ -25520,7 +25520,7 @@ define hidden void @"_ZN4core3ptr533drop_in_place$LT$tokio..runtime..task..core.
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !9940, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr578drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hc5434f48026b23afE.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -25748,7 +25748,7 @@ define hidden void @"_ZN4core3ptr534drop_in_place$LT$tokio..runtime..task..core.
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !10028, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr579drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h3ef988e70bf88e22E.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -25919,7 +25919,7 @@ define hidden void @"_ZN4core3ptr536drop_in_place$LT$tokio..runtime..task..core.
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !10155, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr581drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hb2698ff7d7d76925E.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -25979,7 +25979,7 @@ define hidden void @"_ZN4core3ptr536drop_in_place$LT$tokio..runtime..task..core.
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !10202, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr581drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17he70c317b97f4146fE.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -26931,7 +26931,7 @@ define hidden void @"_ZN4core3ptr544drop_in_place$LT$core..cell..UnsafeCell$LT$t
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !10768, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr514drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$wasmtime_wasi..preview1..types..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h57c2aa51f64412abE.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -28126,7 +28126,7 @@ define hidden void @"_ZN4core3ptr557drop_in_place$LT$core..cell..UnsafeCell$LT$t
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !11473, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr527drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h216fe2d252f8b37dE.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -28349,7 +28349,7 @@ define hidden void @"_ZN4core3ptr559drop_in_place$LT$core..cell..UnsafeCell$LT$t
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !11593, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr529drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hd72629ec5352a8a4E.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -28813,7 +28813,7 @@ define hidden void @"_ZN4core3ptr560drop_in_place$LT$core..cell..UnsafeCell$LT$t
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !11766, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr530drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h346b26c5b625d6cbE.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -29139,7 +29139,7 @@ define hidden void @"_ZN4core3ptr562drop_in_place$LT$core..cell..UnsafeCell$LT$t
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !11974, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr532drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfce7cec927eb43e7E.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -29197,7 +29197,7 @@ define hidden void @"_ZN4core3ptr562drop_in_place$LT$core..cell..UnsafeCell$LT$t
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !12014, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr532drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf2f3117842361332E.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -29262,7 +29262,7 @@ define hidden void @"_ZN4core3ptr563drop_in_place$LT$tokio..loom..std..unsafe_ce
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !12060, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr544drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$wasmtime_wasi..preview1..types..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hc7f40ebf91f6087eE.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -29444,7 +29444,7 @@ define hidden void @"_ZN4core3ptr568drop_in_place$LT$tokio..runtime..task..core.
   %3 = load i64, ptr %2, align 8, !range !7709, !alias.scope !12189, !noundef !4
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 2
-  %6 = xor i64 %3, -9223372036854775808
+  %6 = and i64 %3, 3
   %7 = select i1 %5, i64 %6, i64 0
   switch i64 %7, label %"_ZN4core3ptr568drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$wasmtime_wasi..preview1..types..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he4792c8fe62c5c03E.llvm.10377456559187600216.exit" [
     i64 0, label %8
@@ -29554,7 +29554,7 @@ define hidden void @"_ZN4core3ptr568drop_in_place$LT$tokio..runtime..task..core.
   %3 = load i64, ptr %2, align 8, !range !7709, !alias.scope !12270, !noundef !4
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 2
-  %6 = xor i64 %3, -9223372036854775808
+  %6 = and i64 %3, 3
   %7 = select i1 %5, i64 %6, i64 0
   switch i64 %7, label %"_ZN4core3ptr518drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$wasmtime_wasi..preview1..types..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h52f9e7b961f421aaE.llvm.10377456559187600216.exit" [
     i64 0, label %8
@@ -30049,7 +30049,7 @@ define hidden void @"_ZN4core3ptr576drop_in_place$LT$tokio..loom..std..unsafe_ce
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !12542, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr557drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h508274484d3682e5E.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -30117,7 +30117,7 @@ define hidden void @"_ZN4core3ptr578drop_in_place$LT$tokio..loom..std..unsafe_ce
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !12568, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr559drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h3b2444fc1611d2ffE.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -30192,7 +30192,7 @@ define hidden void @"_ZN4core3ptr579drop_in_place$LT$tokio..loom..std..unsafe_ce
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !12602, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr560drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h56c62ec72b94020bE.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -30787,7 +30787,7 @@ define hidden void @"_ZN4core3ptr581drop_in_place$LT$tokio..loom..std..unsafe_ce
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !12889, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr562drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h61fd60f6e82984d7E.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -30846,7 +30846,7 @@ define hidden void @"_ZN4core3ptr581drop_in_place$LT$tokio..loom..std..unsafe_ce
   %2 = load i64, ptr %0, align 8, !range !7709, !alias.scope !12933, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr562drop_in_place$LT$core..cell..UnsafeCell$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbb548e505444bd3eE.llvm.10377456559187600216.exit" [
     i64 0, label %7
@@ -30904,7 +30904,7 @@ define hidden void @"_ZN4core3ptr581drop_in_place$LT$tokio..runtime..task..core.
   %3 = load i64, ptr %2, align 8, !range !7709, !alias.scope !12971, !noundef !4
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 2
-  %6 = xor i64 %3, -9223372036854775808
+  %6 = and i64 %3, 3
   %7 = select i1 %5, i64 %6, i64 0
   switch i64 %7, label %"_ZN4core3ptr581drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hd234d337f201f91bE.llvm.10377456559187600216.exit" [
     i64 0, label %8
@@ -31075,7 +31075,7 @@ define hidden void @"_ZN4core3ptr581drop_in_place$LT$tokio..runtime..task..core.
   %3 = load i64, ptr %2, align 8, !range !7709, !alias.scope !13080, !noundef !4
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 2
-  %6 = xor i64 %3, -9223372036854775808
+  %6 = and i64 %3, 3
   %7 = select i1 %5, i64 %6, i64 0
   switch i64 %7, label %"_ZN4core3ptr531drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hede2f1ccc35c1d39E.llvm.10377456559187600216.exit" [
     i64 0, label %8
@@ -31210,7 +31210,7 @@ define hidden void @"_ZN4core3ptr583drop_in_place$LT$tokio..runtime..task..core.
   %3 = load i64, ptr %2, align 8, !range !7709, !alias.scope !13161, !noundef !4
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 2
-  %6 = xor i64 %3, -9223372036854775808
+  %6 = and i64 %3, 3
   %7 = select i1 %5, i64 %6, i64 0
   switch i64 %7, label %"_ZN4core3ptr583drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17ha884f5ec8937501aE.llvm.10377456559187600216.exit" [
     i64 0, label %8
@@ -31386,7 +31386,7 @@ define hidden void @"_ZN4core3ptr583drop_in_place$LT$tokio..runtime..task..core.
   %3 = load i64, ptr %2, align 8, !range !7709, !alias.scope !13272, !noundef !4
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 2
-  %6 = xor i64 %3, -9223372036854775808
+  %6 = and i64 %3, 3
   %7 = select i1 %5, i64 %6, i64 0
   switch i64 %7, label %"_ZN4core3ptr533drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h47cf6199921cd3eaE.llvm.10377456559187600216.exit" [
     i64 0, label %8
@@ -31506,7 +31506,7 @@ define hidden void @"_ZN4core3ptr584drop_in_place$LT$tokio..runtime..task..core.
   %3 = load i64, ptr %2, align 8, !range !7709, !alias.scope !13342, !noundef !4
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 2
-  %6 = xor i64 %3, -9223372036854775808
+  %6 = and i64 %3, 3
   %7 = select i1 %5, i64 %6, i64 0
   switch i64 %7, label %"_ZN4core3ptr584drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h5e892feb9fa36f5cE.llvm.10377456559187600216.exit" [
     i64 0, label %8
@@ -31633,7 +31633,7 @@ define hidden void @"_ZN4core3ptr584drop_in_place$LT$tokio..runtime..task..core.
   %3 = load i64, ptr %2, align 8, !range !7709, !alias.scope !13444, !noundef !4
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 2
-  %6 = xor i64 %3, -9223372036854775808
+  %6 = and i64 %3, 3
   %7 = select i1 %5, i64 %6, i64 0
   switch i64 %7, label %"_ZN4core3ptr534drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h5d96a2106bf9948dE.llvm.10377456559187600216.exit" [
     i64 0, label %8
@@ -31846,7 +31846,7 @@ define hidden void @"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core.
   %3 = load i64, ptr %2, align 8, !range !7709, !alias.scope !13606, !noundef !4
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 2
-  %6 = xor i64 %3, -9223372036854775808
+  %6 = and i64 %3, 3
   %7 = select i1 %5, i64 %6, i64 0
   switch i64 %7, label %"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h281fd20d8debf9d0E.llvm.10377456559187600216.exit" [
     i64 0, label %8
@@ -31958,7 +31958,7 @@ define hidden void @"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core.
   %3 = load i64, ptr %2, align 8, !range !7709, !alias.scope !13693, !noundef !4
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 2
-  %6 = xor i64 %3, -9223372036854775808
+  %6 = and i64 %3, 3
   %7 = select i1 %5, i64 %6, i64 0
   switch i64 %7, label %"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core..Core$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h11c5a80c50a2cd55E.llvm.10377456559187600216.exit" [
     i64 0, label %8
@@ -32069,7 +32069,7 @@ define hidden void @"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core.
   %3 = load i64, ptr %2, align 8, !range !7709, !alias.scope !13777, !noundef !4
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 2
-  %6 = xor i64 %3, -9223372036854775808
+  %6 = and i64 %3, 3
   %7 = select i1 %5, i64 %6, i64 0
   switch i64 %7, label %"_ZN4core3ptr536drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h197feadd5d782e10E.llvm.10377456559187600216.exit" [
     i64 0, label %8
@@ -32131,7 +32131,7 @@ define hidden void @"_ZN4core3ptr586drop_in_place$LT$tokio..runtime..task..core.
   %3 = load i64, ptr %2, align 8, !range !7709, !alias.scope !13827, !noundef !4
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 2
-  %6 = xor i64 %3, -9223372036854775808
+  %6 = and i64 %3, 3
   %7 = select i1 %5, i64 %6, i64 0
   switch i64 %7, label %"_ZN4core3ptr536drop_in_place$LT$tokio..runtime..task..core..CoreStage$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h4eafe03dc00115e8E.llvm.10377456559187600216.exit" [
     i64 0, label %8
@@ -37499,7 +37499,7 @@ define hidden void @"_ZN4core3ptr707drop_in_place$LT$tokio..runtime..task..core.
   %2 = load i64, ptr %0, align 8, !range !7709, !noundef !4
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 3
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %"_ZN4core3ptr666drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38c86d2dceac0449E.exit" [
     i64 0, label %7

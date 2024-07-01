@@ -12733,10 +12733,10 @@ define hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17hb3a523cd
   %45 = phi i32 [ %43, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i" ], [ %23, %22 ], [ %32, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit15.i.i.i.i.i" ], [ %20, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit13.i.i.i.i.i" ]
   %46 = add nsw i32 %45, -65
   %.0.i.i.i.i.i = icmp ult i32 %46, 26
-  %47 = xor i32 %45, 32
+  %47 = or disjoint i32 %45, 32
   %.07.i.i.i.i.i = select i1 %.0.i.i.i.i.i, i32 %47, i32 %45
   %48 = icmp eq ptr %.sroa.06.0, %3
-  br i1 %48, label %.loopexit, label %49
+  br i1 %48, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit", label %49
 
 49:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i.i"
   %50 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 1
@@ -12789,17 +12789,17 @@ define hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17hb3a523cd
   %83 = or disjoint i32 %80, %82
   %84 = or disjoint i32 %83, %79
   %85 = icmp eq i32 %84, 1114112
-  br i1 %85, label %.loopexit, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.i.i.i.i.i.i"
+  br i1 %85, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.i.i.i.i.i.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.i.i.i.i.i.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit15.i.i.i.i.i.i.i.i.i", %63, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit13.i.i.i.i.i.i.i.i.i"
   %.sroa.06.1 = phi ptr [ %50, %63 ], [ %76, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i.i.i" ], [ %66, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit15.i.i.i.i.i.i.i.i.i" ], [ %56, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit13.i.i.i.i.i.i.i.i.i" ]
   %86 = phi i32 [ %64, %63 ], [ %84, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i.i.i" ], [ %73, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit15.i.i.i.i.i.i.i.i.i" ], [ %61, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit13.i.i.i.i.i.i.i.i.i" ]
   %87 = add nsw i32 %86, -65
   %.0.i.i.i.i.i.i.i.i.i = icmp ult i32 %87, 26
-  %88 = xor i32 %86, 32
+  %88 = or disjoint i32 %86, 32
   %.07.i.i.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i.i.i, i32 %88, i32 %86
   %89 = icmp eq i32 %.07.i.i.i.i.i.i.i.i.i, 1114112
-  br i1 %89, label %.loopexit, label %90
+  br i1 %89, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit", label %90
 
 90:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.i.i.i.i.i.i"
   %91 = icmp ugt i32 %.07.i.i.i.i.i.i.i.i.i, %.07.i.i.i.i.i
@@ -12807,7 +12807,7 @@ define hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17hb3a523cd
   %..i.i.i.i.i.i.i.i.i = zext i1 %92 to i8
   %.0.i.i.i7.i.i.i.i.i.i = select i1 %91, i8 -1, i8 %..i.i.i.i.i.i.i.i.i
   %93 = icmp eq i8 %.0.i.i.i7.i.i.i.i.i.i, 0
-  br i1 %93, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcdd9293affd9e335E.exit.i.i.i", label %.loopexit
+  br i1 %93, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcdd9293affd9e335E.exit.i.i.i", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit"
 
 94:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcdd9293affd9e335E.exit.i.i.i"
   %95 = icmp ne ptr %3, null
@@ -12818,74 +12818,55 @@ define hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17hb3a523cd
 97:                                               ; preds = %94
   %98 = load i8, ptr %.sroa.06.0, align 1, !noalias !5323, !noundef !4
   %99 = icmp sgt i8 %98, -1
-  br i1 %99, label %110, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit13.i.i.i"
+  br i1 %99, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit13.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit13.i.i.i": ; preds = %97
   %100 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 1
-  %101 = and i8 %98, 31
-  %102 = zext nneg i8 %101 to i32
-  %103 = icmp ne ptr %100, %3
-  tail call void @llvm.assume(i1 %103)
-  %104 = load i8, ptr %100, align 1, !noalias !5323, !noundef !4
-  %105 = shl nuw nsw i32 %102, 6
-  %106 = and i8 %104, 63
-  %107 = zext nneg i8 %106 to i32
-  %108 = or disjoint i32 %105, %107
-  %109 = icmp ugt i8 %98, -33
-  br i1 %109, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit15.i.i.i", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit"
-
-110:                                              ; preds = %97
-  %111 = zext nneg i8 %98 to i32
-  br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit"
+  %101 = zext i8 %98 to i32
+  %102 = icmp ne ptr %100, %3
+  tail call void @llvm.assume(i1 %102)
+  %103 = load i8, ptr %100, align 1, !noalias !5323, !noundef !4
+  %104 = and i8 %103, 63
+  %105 = zext nneg i8 %104 to i32
+  %106 = icmp ugt i8 %98, -33
+  br i1 %106, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit15.i.i.i", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit15.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit13.i.i.i"
-  %112 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 2
-  %113 = icmp ne ptr %112, %3
-  tail call void @llvm.assume(i1 %113)
-  %114 = load i8, ptr %112, align 1, !noalias !5323, !noundef !4
-  %115 = shl nuw nsw i32 %107, 6
-  %116 = and i8 %114, 63
-  %117 = zext nneg i8 %116 to i32
-  %118 = or disjoint i32 %115, %117
-  %119 = shl nuw nsw i32 %102, 12
-  %120 = or disjoint i32 %118, %119
-  %121 = icmp ugt i8 %98, -17
-  br i1 %121, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit"
+  %107 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 2
+  %108 = icmp ne ptr %107, %3
+  tail call void @llvm.assume(i1 %108)
+  %109 = icmp ugt i8 %98, -17
+  br i1 %109, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit15.i.i.i"
-  %122 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 3
-  %123 = icmp ne ptr %122, %3
-  tail call void @llvm.assume(i1 %123)
-  %124 = load i8, ptr %122, align 1, !noalias !5323, !noundef !4
-  %125 = shl nuw nsw i32 %102, 18
-  %126 = and i32 %125, 1835008
-  %127 = shl nuw nsw i32 %118, 6
-  %128 = and i8 %124, 63
-  %129 = zext nneg i8 %128 to i32
-  %130 = or disjoint i32 %127, %129
-  %131 = or disjoint i32 %130, %126
-  %132 = icmp eq i32 %131, 1114112
-  br i1 %132, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.thread", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit"
+  %110 = load i8, ptr %107, align 1, !noalias !5323, !noundef !4
+  %111 = and i8 %110, 63
+  %112 = zext nneg i8 %111 to i32
+  %113 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 3
+  %114 = icmp ne ptr %113, %3
+  tail call void @llvm.assume(i1 %114)
+  %115 = load i8, ptr %113, align 1, !noalias !5323, !noundef !4
+  %116 = shl nuw nsw i32 %101, 18
+  %117 = and i32 %116, 1835008
+  %118 = shl nuw nsw i32 %105, 12
+  %119 = shl nuw nsw i32 %112, 6
+  %120 = or disjoint i32 %119, %118
+  %121 = and i8 %115, 63
+  %122 = zext nneg i8 %121 to i32
+  %123 = or disjoint i32 %120, %122
+  %124 = or disjoint i32 %123, %117
+  %125 = icmp eq i32 %124, 1114112
+  br i1 %125, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.thread", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit13.i.i.i", %110, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit15.i.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i"
-  %133 = phi i32 [ %131, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i" ], [ %111, %110 ], [ %120, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit15.i.i.i" ], [ %108, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit13.i.i.i" ]
-  %134 = add nsw i32 %133, -65
-  %.0.i.i.i = icmp ult i32 %134, 26
-  %135 = xor i32 %133, 32
-  %.07.i.i.i = select i1 %.0.i.i.i, i32 %135, i32 %133
-  %.07.i.i.i.fr = freeze i32 %.07.i.i.i
-  %136 = icmp eq i32 %.07.i.i.i.fr, 1114112
-  br i1 %136, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.thread", label %.loopexit
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.thread": ; preds = %94, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i"
+  br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.thread": ; preds = %94, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit"
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.i.i.i.i.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i.i", %90, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.thread", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit"
-  %.sroa.3.0 = phi i8 [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.thread" ], [ -1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit" ], [ %.0.i.i.i7.i.i.i.i.i.i, %90 ], [ 1, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i.i" ], [ 1, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i.i.i" ], [ 1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.i.i.i.i.i.i" ]
-  %.sroa.0.0 = phi i1 [ false, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.thread" ], [ false, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit" ], [ true, %90 ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i.i" ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i.i.i" ], [ false, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.i.i.i.i.i.i" ]
-  %137 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
-  %138 = insertvalue { i1, i8 } %137, i8 %.sroa.3.0, 1
-  ret { i1, i8 } %138
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.i.i.i.i.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i.i", %90, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit15.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit13.i.i.i", %97, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.thread"
+  %.sroa.3.0 = phi i8 [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.thread" ], [ -1, %97 ], [ -1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit13.i.i.i" ], [ -1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit15.i.i.i" ], [ -1, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i" ], [ %.0.i.i.i7.i.i.i.i.i.i, %90 ], [ 1, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i.i" ], [ 1, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i.i.i" ], [ 1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.i.i.i.i.i.i" ]
+  %.sroa.0.0 = phi i1 [ false, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.thread" ], [ false, %97 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit13.i.i.i" ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f95ffa0e4a6a85E.exit15.i.i.i" ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i" ], [ true, %90 ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i.i" ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i.i.i" ], [ false, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf00c2ab7df39b54eE.exit.i.i.i.i.i.i" ]
+  %126 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
+  %127 = insertvalue { i1, i8 } %126, i8 %.sroa.3.0, 1
+  ret { i1, i8 } %127
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -14464,7 +14464,10 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 define hidden noundef align 8 dereferenceable_or_null(104) ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8fc3ecd293aca552E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef readonly align 8 dereferenceable(104) %1) unnamed_addr #8 {
   %3 = load i64, ptr %1, align 8, !range !477, !alias.scope !2793, !noundef !4
   %4 = icmp ult i64 %3, -9223372036854775807
-  %..i.i.i.i.i = select i1 %4, ptr %1, ptr null
+  %5 = and i64 %3, 7
+  %6 = icmp eq i64 %5, 0
+  %7 = or i1 %4, %6
+  %..i.i.i.i.i = select i1 %7, ptr %1, ptr null
   ret ptr %..i.i.i.i.i
 }
 
@@ -14766,7 +14769,10 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 define hidden noundef align 8 dereferenceable_or_null(104) ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17ha62c5fe86cf9cd89E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef readonly align 8 dereferenceable(104) %1) unnamed_addr #8 {
   %3 = load i64, ptr %1, align 8, !range !477, !alias.scope !2931, !noundef !4
   %4 = icmp ult i64 %3, -9223372036854775807
-  %..i.i.i.i = select i1 %4, ptr %1, ptr null
+  %5 = and i64 %3, 7
+  %6 = icmp eq i64 %5, 0
+  %7 = or i1 %4, %6
+  %..i.i.i.i = select i1 %7, ptr %1, ptr null
   ret ptr %..i.i.i.i
 }
 
@@ -23583,7 +23589,10 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN4core4iter6tr
 define hidden noundef align 8 dereferenceable_or_null(104) ptr @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h6b2b61bd0dda2af1E.llvm.16978709814855407318"(ptr noalias nocapture noundef readnone align 8 dereferenceable(8) %0, ptr noalias noundef readonly align 8 dereferenceable(104) %1) unnamed_addr #17 {
   %3 = load i64, ptr %1, align 8, !range !477, !alias.scope !5034, !noundef !4
   %4 = icmp ult i64 %3, -9223372036854775807
-  %..i.i.i = select i1 %4, ptr %1, ptr null
+  %5 = and i64 %3, 7
+  %6 = icmp eq i64 %5, 0
+  %7 = or i1 %4, %6
+  %..i.i.i = select i1 %7, ptr %1, ptr null
   ret ptr %..i.i.i
 }
 

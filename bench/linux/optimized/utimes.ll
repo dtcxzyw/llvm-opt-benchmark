@@ -204,25 +204,25 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @do_utimes(i32 noundef %
 
 9:                                                ; preds = %4
   %10 = icmp eq i32 %3, 0
-  br i1 %10, label %11, label %45
+  br i1 %10, label %11, label %44
 
 11:                                               ; preds = %9
   %12 = tail call i64 @__fdget(i32 noundef %0) #7
   %13 = and i64 %12, -4
   %14 = inttoptr i64 %13 to ptr
   %15 = icmp eq i64 %13, 0
-  br i1 %15, label %45, label %16
+  br i1 %15, label %44, label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %14, i64 152
   %18 = tail call i32 @vfs_utimes(ptr noundef %17, ptr noundef %2)
   %19 = and i64 %12, 1
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %45, label %21
+  br i1 %20, label %44, label %21
 
 21:                                               ; preds = %16
   tail call void @fput(ptr noundef nonnull %14) #7
-  br label %45
+  br label %44
 
 22:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
@@ -233,41 +233,40 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @do_utimes(i32 noundef %
 
 25:                                               ; preds = %22
   %26 = lshr exact i32 %3, 8
-  %27 = and i32 %26, 1
-  %28 = xor i32 %27, 1
-  %29 = icmp ult i32 %3, 4096
-  %30 = or disjoint i32 %28, 16384
-  %31 = select i1 %29, i32 %28, i32 %30
-  %32 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %31, ptr noundef nonnull %5, ptr noundef null) #7
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %.loopexit
+  %27 = xor i32 %26, 1
+  %28 = icmp ult i32 %3, 4096
+  %29 = or disjoint i32 %27, 16384
+  %30 = select i1 %28, i32 %27, i32 %29
+  %31 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %30, ptr noundef nonnull %5, ptr noundef null) #7
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %.loopexit
 
-34:                                               ; preds = %25
-  %35 = or disjoint i32 %31, 32
-  br label %39
+33:                                               ; preds = %25
+  %34 = or disjoint i32 %30, 32
+  br label %38
 
-36:                                               ; preds = %39
-  %37 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %35, ptr noundef nonnull %5, ptr noundef null) #7
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %.loopexit
+35:                                               ; preds = %38
+  %36 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %34, ptr noundef nonnull %5, ptr noundef null) #7
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %.loopexit
 
-39:                                               ; preds = %36, %34
-  %40 = phi i1 [ true, %34 ], [ false, %36 ]
-  %41 = call i32 @vfs_utimes(ptr noundef nonnull %5, ptr noundef %2)
+38:                                               ; preds = %35, %33
+  %39 = phi i1 [ true, %33 ], [ false, %35 ]
+  %40 = call i32 @vfs_utimes(ptr noundef nonnull %5, ptr noundef %2)
   call void @path_put(ptr noundef nonnull %5) #7
-  %42 = icmp eq i32 %41, -116
-  %43 = and i1 %40, %42
-  br i1 %43, label %36, label %.loopexit
+  %41 = icmp eq i32 %40, -116
+  %42 = and i1 %39, %41
+  br i1 %42, label %35, label %.loopexit
 
-.loopexit:                                        ; preds = %39, %36, %25, %22
-  %44 = phi i32 [ -22, %22 ], [ %32, %25 ], [ %37, %36 ], [ %41, %39 ]
+.loopexit:                                        ; preds = %38, %35, %25, %22
+  %43 = phi i32 [ -22, %22 ], [ %31, %25 ], [ %36, %35 ], [ %40, %38 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.loopexit, %21, %16, %11, %9
-  %46 = phi i32 [ %44, %.loopexit ], [ -22, %9 ], [ -9, %11 ], [ %18, %16 ], [ %18, %21 ]
-  %47 = sext i32 %46 to i64
-  ret i64 %47
+44:                                               ; preds = %.loopexit, %21, %16, %11, %9
+  %45 = phi i32 [ %43, %.loopexit ], [ -22, %9 ], [ -9, %11 ], [ %18, %16 ], [ %18, %21 ]
+  %46 = sext i32 %45 to i64
+  ret i64 %46
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

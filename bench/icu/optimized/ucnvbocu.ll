@@ -1261,19 +1261,20 @@ cond.end120:                                      ; preds = %cond.false118, %con
 if.else125:                                       ; preds = %if.else91
   %call126 = tail call fastcc noundef i32 @_ZL8packDiffi(i32 noundef %sub75)
   %cmp127 = icmp ult i32 %call126, 67108864
-  %shr = ashr i32 %call126, 24
+  %shr = lshr i32 %call126, 24
   %cond131 = select i1 %cmp127, i32 %shr, i32 4
-  %cmp132.not = icmp sgt i32 %cond131, %targetCapacity.5
+  %cmp132.not = icmp ugt i32 %cond131, %targetCapacity.5
   br i1 %cmp132.not, label %if.else147, label %if.then133
 
 if.then133:                                       ; preds = %if.else125
-  switch i32 %cond131, label %sw.epilog [
-    i32 4, label %sw.bb
-    i32 3, label %sw.bb137
+  %trunc = trunc nuw i32 %cond131 to i8
+  switch i8 %trunc, label %sw.epilog [
+    i8 4, label %sw.bb
+    i8 3, label %sw.bb137
   ]
 
 sw.bb:                                            ; preds = %if.then133
-  %conv135 = trunc nsw i32 %shr to i8
+  %conv135 = trunc nuw i32 %shr to i8
   %incdec.ptr136 = getelementptr inbounds i8, ptr %target.5, i64 1
   store i8 %conv135, ptr %target.5, align 1
   br label %sw.bb137
@@ -1720,20 +1721,21 @@ cond.end132:                                      ; preds = %cond.false130, %con
 if.else139:                                       ; preds = %if.else103
   %call140 = tail call fastcc noundef i32 @_ZL8packDiffi(i32 noundef %sub85)
   %cmp141 = icmp ult i32 %call140, 67108864
-  %shr = ashr i32 %call140, 24
+  %shr = lshr i32 %call140, 24
   %cond145 = select i1 %cmp141, i32 %shr, i32 4
-  %cmp146.not = icmp sgt i32 %cond145, %targetCapacity.6
+  %cmp146.not = icmp ugt i32 %cond145, %targetCapacity.6
   br i1 %cmp146.not, label %if.else166, label %if.then147
 
 if.then147:                                       ; preds = %if.else139
-  switch i32 %cond145, label %sw.epilog [
-    i32 4, label %sw.bb
-    i32 3, label %sw.bb152
-    i32 2, label %sw.bb157
+  %trunc = trunc nuw i32 %cond145 to i8
+  switch i8 %trunc, label %sw.epilog [
+    i8 4, label %sw.bb
+    i8 3, label %sw.bb152
+    i8 2, label %sw.bb157
   ]
 
 sw.bb:                                            ; preds = %if.then147
-  %conv149 = trunc nsw i32 %shr to i8
+  %conv149 = trunc nuw i32 %shr to i8
   %incdec.ptr150 = getelementptr inbounds i8, ptr %target.5, i64 1
   store i8 %conv149, ptr %target.5, align 1
   %incdec.ptr151 = getelementptr inbounds i8, ptr %offsets.5, i64 4

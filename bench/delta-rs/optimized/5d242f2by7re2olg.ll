@@ -14596,7 +14596,7 @@ define internal void @"_ZN4core3ptr72drop_in_place$LT$aws_sdk_dynamodb..operatio
   %9 = load i64, ptr %0, align 8, !range !2017, !noundef !5
   %10 = add i64 %9, 9223372036854775807
   %11 = icmp ult i64 %10, 8
-  %12 = xor i64 %9, -9223372036854775808
+  %12 = and i64 %9, 15
   %13 = select i1 %11, i64 %12, i64 0
   switch i64 %13, label %14 [
     i64 0, label %30
@@ -15305,7 +15305,7 @@ define internal void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_dynamodb..operatio
   %9 = load i64, ptr %0, align 8, !range !2017, !noundef !5
   %10 = add i64 %9, 9223372036854775807
   %11 = icmp ult i64 %10, 8
-  %12 = xor i64 %9, -9223372036854775808
+  %12 = and i64 %9, 15
   %13 = select i1 %11, i64 %12, i64 0
   switch i64 %13, label %14 [
     i64 0, label %30
@@ -19265,7 +19265,7 @@ define internal { ptr, ptr } @_ZN4core5error5Error5cause17h7c50fe35320f8b09E(ptr
   %2 = load i64, ptr %0, align 8, !range !2017, !alias.scope !2925, !noundef !5
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 8
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 15
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %7 [
     i64 0, label %"_ZN96_$LT$aws_sdk_dynamodb..operation..update_item..UpdateItemError$u20$as$u20$core..error..Error$GT$6source17h4b51e0ba5ffd91d9E.exit"
@@ -19516,12 +19516,15 @@ default.unreachable:                              ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hac34b842fd58f942E(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !37, !alias.scope !2934, !noundef !5
-  %switch1.i = icmp eq i64 %2, -9223372036854775808
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select.i = select i1 %switch1.i, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %spec.select.i, 0
-  %5 = insertvalue { ptr, ptr } %4, ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.544, 1
-  ret { ptr, ptr } %5
+  %3 = icmp slt i64 %2, -9223372036854775806
+  %4 = and i64 %2, 1
+  %switch1.i = icmp eq i64 %4, 0
+  %switch.i = and i1 %3, %switch1.i
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %spec.select.i = select i1 %switch.i, ptr %5, ptr null
+  %6 = insertvalue { ptr, ptr } poison, ptr %spec.select.i, 0
+  %7 = insertvalue { ptr, ptr } %6, ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.544, 1
+  ret { ptr, ptr } %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -19579,7 +19582,7 @@ define internal { ptr, ptr } @_ZN4core5error5Error5cause17hb7fd9f860bfc039dE(ptr
   %2 = load i64, ptr %0, align 8, !range !2017, !alias.scope !2940, !noundef !5
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 8
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 15
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %7 [
     i64 0, label %"_ZN90_$LT$aws_sdk_dynamodb..operation..put_item..PutItemError$u20$as$u20$core..error..Error$GT$6source17h4cb37dbd74d1c058E.exit"
@@ -24250,7 +24253,7 @@ define internal noundef zeroext i1 @"_ZN88_$LT$aws_sdk_dynamodb..operation..put_
   %12 = load i64, ptr %0, align 8, !range !2017, !noundef !5
   %13 = add i64 %12, 9223372036854775807
   %14 = icmp ult i64 %13, 8
-  %15 = xor i64 %12, -9223372036854775808
+  %15 = and i64 %12, 15
   %16 = select i1 %14, i64 %15, i64 0
   switch i64 %16, label %17 [
     i64 0, label %18
@@ -24647,7 +24650,7 @@ define internal { ptr, ptr } @"_ZN90_$LT$aws_sdk_dynamodb..operation..put_item..
   %2 = load i64, ptr %0, align 8, !range !2017, !noundef !5
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 8
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 15
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %7 [
     i64 0, label %27
@@ -25351,7 +25354,7 @@ define internal noundef zeroext i1 @"_ZN94_$LT$aws_sdk_dynamodb..operation..upda
   %12 = load i64, ptr %0, align 8, !range !2017, !noundef !5
   %13 = add i64 %12, 9223372036854775807
   %14 = icmp ult i64 %13, 8
-  %15 = xor i64 %12, -9223372036854775808
+  %15 = and i64 %12, 15
   %16 = select i1 %14, i64 %15, i64 0
   switch i64 %16, label %17 [
     i64 0, label %18
@@ -25717,7 +25720,7 @@ define internal { ptr, ptr } @"_ZN96_$LT$aws_sdk_dynamodb..operation..update_ite
   %2 = load i64, ptr %0, align 8, !range !2017, !noundef !5
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ult i64 %3, 8
-  %5 = xor i64 %2, -9223372036854775808
+  %5 = and i64 %2, 15
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %7 [
     i64 0, label %27
@@ -27196,7 +27199,7 @@ define void @"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core.
   %8 = load i64, ptr %1, align 8, !range !2017, !noundef !5
   %9 = add i64 %8, 9223372036854775807
   %10 = icmp ult i64 %9, 8
-  %11 = xor i64 %8, -9223372036854775808
+  %11 = and i64 %8, 15
   %12 = select i1 %10, i64 %11, i64 0
   switch i64 %12, label %13 [
     i64 0, label %25
@@ -27315,7 +27318,7 @@ define void @"_ZN143_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core.
   %9 = load i64, ptr %1, align 8, !range !2017, !noundef !5
   %10 = add i64 %9, 9223372036854775807
   %11 = icmp ult i64 %10, 8
-  %12 = xor i64 %9, -9223372036854775808
+  %12 = and i64 %9, 15
   %13 = select i1 %11, i64 %12, i64 0
   switch i64 %13, label %14 [
     i64 0, label %27
@@ -27440,12 +27443,15 @@ define internal noundef zeroext i1 @"_ZN80_$LT$deltalake_aws..credentials..NoOpC
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, ptr } @"_ZN81_$LT$deltalake_aws..errors..DynamoDbConfigError$u20$as$u20$core..error..Error$GT$6source17h5b252328eea633cbE"(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !37, !noundef !5
-  %switch1 = icmp eq i64 %2, -9223372036854775808
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %switch1, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
-  %5 = insertvalue { ptr, ptr } %4, ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.544, 1
-  ret { ptr, ptr } %5
+  %3 = icmp slt i64 %2, -9223372036854775806
+  %4 = and i64 %2, 1
+  %switch1 = icmp eq i64 %4, 0
+  %switch = and i1 %3, %switch1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %spec.select = select i1 %switch, ptr %5, ptr null
+  %6 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
+  %7 = insertvalue { ptr, ptr } %6, ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.544, 1
+  ret { ptr, ptr } %7
 }
 
 ; Function Attrs: nonlazybind uwtable

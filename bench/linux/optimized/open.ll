@@ -1634,37 +1634,36 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_fchmodat2(ptr
 17:                                               ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !6
   %18 = lshr exact i32 %14, 8
-  %19 = and i32 %18, 1
-  %20 = xor i32 %19, 1
-  %21 = icmp ult i32 %14, 4096
-  %22 = or disjoint i32 %20, 16384
-  %23 = select i1 %21, i32 %20, i32 %22
-  %24 = call i32 @user_path_at_empty(i32 noundef %11, ptr noundef %12, i32 noundef %23, ptr noundef nonnull %2, ptr noundef null) #14
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %do_fchmodat.exit
+  %19 = xor i32 %18, 1
+  %20 = icmp ult i32 %14, 4096
+  %21 = or disjoint i32 %19, 16384
+  %22 = select i1 %20, i32 %19, i32 %21
+  %23 = call i32 @user_path_at_empty(i32 noundef %11, ptr noundef %12, i32 noundef %22, ptr noundef nonnull %2, ptr noundef null) #14
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %do_fchmodat.exit
 
-26:                                               ; preds = %17
-  %27 = or disjoint i32 %23, 32
-  br label %31
+25:                                               ; preds = %17
+  %26 = or disjoint i32 %22, 32
+  br label %30
 
-28:                                               ; preds = %31
-  %29 = call i32 @user_path_at_empty(i32 noundef %11, ptr noundef %12, i32 noundef %27, ptr noundef nonnull %2, ptr noundef null) #14
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %do_fchmodat.exit
+27:                                               ; preds = %30
+  %28 = call i32 @user_path_at_empty(i32 noundef %11, ptr noundef %12, i32 noundef %26, ptr noundef nonnull %2, ptr noundef null) #14
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %do_fchmodat.exit
 
-31:                                               ; preds = %28, %26
-  %32 = phi i1 [ true, %26 ], [ false, %28 ]
-  %33 = call i32 @chmod_common(ptr noundef nonnull %2, i16 noundef zeroext %13)
+30:                                               ; preds = %27, %25
+  %31 = phi i1 [ true, %25 ], [ false, %27 ]
+  %32 = call i32 @chmod_common(ptr noundef nonnull %2, i16 noundef zeroext %13)
   call void @path_put(ptr noundef nonnull %2) #14
-  %34 = icmp eq i32 %33, -116
-  %35 = and i1 %32, %34
-  br i1 %35, label %28, label %do_fchmodat.exit
+  %33 = icmp eq i32 %32, -116
+  %34 = and i1 %31, %33
+  br i1 %34, label %27, label %do_fchmodat.exit
 
-do_fchmodat.exit:                                 ; preds = %28, %31, %1, %17
-  %36 = phi i32 [ -22, %1 ], [ %24, %17 ], [ %29, %28 ], [ %33, %31 ]
+do_fchmodat.exit:                                 ; preds = %27, %30, %1, %17
+  %35 = phi i32 [ -22, %1 ], [ %23, %17 ], [ %28, %27 ], [ %32, %30 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
-  %37 = sext i32 %36 to i64
-  ret i64 %37
+  %36 = sext i32 %35 to i64
+  ret i64 %36
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1691,37 +1690,36 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_fchmodat2(pt
 18:                                               ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !6
   %19 = lshr exact i32 %15, 8
-  %20 = and i32 %19, 1
-  %21 = xor i32 %20, 1
-  %22 = icmp ult i32 %15, 4096
-  %23 = or disjoint i32 %21, 16384
-  %24 = select i1 %22, i32 %21, i32 %23
-  %25 = call i32 @user_path_at_empty(i32 noundef %12, ptr noundef %13, i32 noundef %24, ptr noundef nonnull %2, ptr noundef null) #14
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %do_fchmodat.exit
+  %20 = xor i32 %19, 1
+  %21 = icmp ult i32 %15, 4096
+  %22 = or disjoint i32 %20, 16384
+  %23 = select i1 %21, i32 %20, i32 %22
+  %24 = call i32 @user_path_at_empty(i32 noundef %12, ptr noundef %13, i32 noundef %23, ptr noundef nonnull %2, ptr noundef null) #14
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %do_fchmodat.exit
 
-27:                                               ; preds = %18
-  %28 = or disjoint i32 %24, 32
-  br label %32
+26:                                               ; preds = %18
+  %27 = or disjoint i32 %23, 32
+  br label %31
 
-29:                                               ; preds = %32
-  %30 = call i32 @user_path_at_empty(i32 noundef %12, ptr noundef %13, i32 noundef %28, ptr noundef nonnull %2, ptr noundef null) #14
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %do_fchmodat.exit
+28:                                               ; preds = %31
+  %29 = call i32 @user_path_at_empty(i32 noundef %12, ptr noundef %13, i32 noundef %27, ptr noundef nonnull %2, ptr noundef null) #14
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %do_fchmodat.exit
 
-32:                                               ; preds = %29, %27
-  %33 = phi i1 [ true, %27 ], [ false, %29 ]
-  %34 = call i32 @chmod_common(ptr noundef nonnull %2, i16 noundef zeroext %14)
+31:                                               ; preds = %28, %26
+  %32 = phi i1 [ true, %26 ], [ false, %28 ]
+  %33 = call i32 @chmod_common(ptr noundef nonnull %2, i16 noundef zeroext %14)
   call void @path_put(ptr noundef nonnull %2) #14
-  %35 = icmp eq i32 %34, -116
-  %36 = and i1 %33, %35
-  br i1 %36, label %29, label %do_fchmodat.exit
+  %34 = icmp eq i32 %33, -116
+  %35 = and i1 %32, %34
+  br i1 %35, label %28, label %do_fchmodat.exit
 
-do_fchmodat.exit:                                 ; preds = %29, %32, %1, %18
-  %37 = phi i32 [ -22, %1 ], [ %25, %18 ], [ %30, %29 ], [ %34, %32 ]
+do_fchmodat.exit:                                 ; preds = %28, %31, %1, %18
+  %36 = phi i32 [ -22, %1 ], [ %24, %18 ], [ %29, %28 ], [ %33, %31 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
-  %38 = sext i32 %37 to i64
-  ret i64 %38
+  %37 = sext i32 %36 to i64
+  ret i64 %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2005,48 +2003,47 @@ define dso_local i32 @do_fchownat(i32 noundef %0, ptr noundef %1, i32 noundef %2
 9:                                                ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !6
   %10 = lshr exact i32 %4, 8
-  %11 = and i32 %10, 1
-  %12 = xor i32 %11, 1
-  %13 = icmp ult i32 %4, 4096
-  %14 = or disjoint i32 %12, 16384
-  %15 = select i1 %13, i32 %12, i32 %14
-  %16 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %15, ptr noundef nonnull %6, ptr noundef null) #14
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %.loopexit
+  %11 = xor i32 %10, 1
+  %12 = icmp ult i32 %4, 4096
+  %13 = or disjoint i32 %11, 16384
+  %14 = select i1 %12, i32 %11, i32 %13
+  %15 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %14, ptr noundef nonnull %6, ptr noundef null) #14
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %.loopexit
 
-18:                                               ; preds = %9
-  %19 = or disjoint i32 %15, 32
-  br label %23
+17:                                               ; preds = %9
+  %18 = or disjoint i32 %14, 32
+  br label %22
 
-20:                                               ; preds = %31
-  %21 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %19, ptr noundef nonnull %6, ptr noundef null) #14
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %.loopexit
+19:                                               ; preds = %30
+  %20 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %18, ptr noundef nonnull %6, ptr noundef null) #14
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %.loopexit
 
-23:                                               ; preds = %20, %18
-  %24 = phi i1 [ true, %18 ], [ false, %20 ]
-  %25 = load ptr, ptr %6, align 8
-  %26 = call i32 @mnt_want_write(ptr noundef %25) #14
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %31
+22:                                               ; preds = %19, %17
+  %23 = phi i1 [ true, %17 ], [ false, %19 ]
+  %24 = load ptr, ptr %6, align 8
+  %25 = call i32 @mnt_want_write(ptr noundef %24) #14
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %30
 
-28:                                               ; preds = %23
-  %29 = call i32 @chown_common(ptr noundef nonnull %6, i32 noundef %2, i32 noundef %3)
-  %30 = load ptr, ptr %6, align 8
-  call void @mnt_drop_write(ptr noundef %30) #14
-  br label %31
+27:                                               ; preds = %22
+  %28 = call i32 @chown_common(ptr noundef nonnull %6, i32 noundef %2, i32 noundef %3)
+  %29 = load ptr, ptr %6, align 8
+  call void @mnt_drop_write(ptr noundef %29) #14
+  br label %30
 
-31:                                               ; preds = %28, %23
-  %32 = phi i32 [ %26, %23 ], [ %29, %28 ]
+30:                                               ; preds = %27, %22
+  %31 = phi i32 [ %25, %22 ], [ %28, %27 ]
   call void @path_put(ptr noundef nonnull %6) #14
-  %33 = icmp eq i32 %32, -116
-  %34 = and i1 %24, %33
-  br i1 %34, label %20, label %.loopexit
+  %32 = icmp eq i32 %31, -116
+  %33 = and i1 %23, %32
+  br i1 %33, label %19, label %.loopexit
 
-.loopexit:                                        ; preds = %31, %20, %9, %5
-  %35 = phi i32 [ -22, %5 ], [ %16, %9 ], [ %21, %20 ], [ %32, %31 ]
+.loopexit:                                        ; preds = %30, %19, %9, %5
+  %34 = phi i32 [ -22, %5 ], [ %15, %9 ], [ %20, %19 ], [ %31, %30 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
-  ret i32 %35
+  ret i32 %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

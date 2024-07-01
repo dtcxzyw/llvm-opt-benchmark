@@ -2041,9 +2041,9 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit284: ; preds = %_ZNSt6vect
   %769 = sub i64 %.sroa.13.0.lcssa, %768
   %770 = lshr i64 %769, 3
   %771 = trunc i64 %770 to i32
-  %sext = shl i64 %769, 29
-  %772 = ashr exact i64 %sext, 29
-  %.inv = icmp sgt i64 %sext, -1
+  %772 = and i64 %769, 34359738367
+  %sext.mask = and i64 %769, 17179869184
+  %.inv = icmp eq i64 %sext.mask, 0
   %773 = select i1 %.inv, i64 %772, i64 -1
   %774 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %773) #23
           to label %775 unwind label %.loopexit.split-lp402.loopexit.split-lp.loopexit.split-lp
@@ -3553,9 +3553,9 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit118: ; preds = %_ZNSt6vect
   %301 = sub i64 %.sroa.9.0.lcssa, %300
   %302 = lshr i64 %301, 3
   %303 = trunc i64 %302 to i32
-  %sext = shl i64 %301, 29
-  %304 = ashr exact i64 %sext, 29
-  %.inv = icmp sgt i64 %sext, -1
+  %304 = and i64 %301, 34359738367
+  %sext.mask = and i64 %301, 17179869184
+  %.inv = icmp eq i64 %sext.mask, 0
   %305 = select i1 %.inv, i64 %304, i64 -1
   %306 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %305) #23
           to label %307 unwind label %.loopexit.split-lp

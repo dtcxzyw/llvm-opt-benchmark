@@ -358,12 +358,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %rem = urem i64 %ser_len, 56
-  %sub = sub nuw i64 %ser_len, %rem
   %cmp1 = icmp eq i64 %rem, 0
-  %sub3 = add i64 %sub, -56
-  %spec.select = select i1 %cmp1, i64 %sub3, i64 %sub
+  %0 = sub nsw i64 0, %rem
+  %spec.select.p = select i1 %cmp1, i64 -56, i64 %0
+  %spec.select = add i64 %spec.select.p, %ser_len
   %arrayidx = getelementptr inbounds i8, ptr %ser, i64 %spec.select
-  %sub5 = sub i64 %ser_len, %spec.select
+  %sub5 = sub nsw i64 0, %spec.select.p
   br label %for.cond1.preheader.i
 
 for.cond1.preheader.i:                            ; preds = %for.end.i, %if.end
@@ -377,8 +377,8 @@ for.body4.i:                                      ; preds = %for.cond1.preheader
   %k.110.i = phi i64 [ %inc5.i, %for.body4.i ], [ %k.014.i, %for.cond1.preheader.i ]
   %j.09.i = phi i64 [ %inc.i, %for.body4.i ], [ 0, %for.cond1.preheader.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %arrayidx, i64 %k.110.i
-  %0 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %0 to i64
+  %1 = load i8, ptr %arrayidx.i, align 1
+  %conv.i = zext i8 %1 to i64
   %mul.i = shl nuw nsw i64 %j.09.i, 3
   %shl.i = shl nuw i64 %conv.i, %mul.i
   %or.i = or i64 %shl.i, %out.011.i
@@ -386,8 +386,8 @@ for.body4.i:                                      ; preds = %for.cond1.preheader
   %inc5.i = add nuw i64 %k.110.i, 1
   %cmp2.i = icmp ult i64 %j.09.i, 7
   %cmp3.i = icmp ult i64 %inc5.i, %sub5
-  %1 = select i1 %cmp2.i, i1 %cmp3.i, i1 false
-  br i1 %1, label %for.body4.i, label %for.end.i, !llvm.loop !11
+  %2 = select i1 %cmp2.i, i1 %cmp3.i, i1 false
+  br i1 %2, label %for.body4.i, label %for.end.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.body4.i, %for.cond1.preheader.i
   %k.1.lcssa.i = phi i64 [ %k.014.i, %for.cond1.preheader.i ], [ %inc5.i, %for.body4.i ]
@@ -430,8 +430,8 @@ for.body4.i.i:                                    ; preds = %for.cond1.preheader
   %k.110.i.i = phi i64 [ %inc5.i.i, %for.body4.i.i ], [ %k.014.i.i, %for.cond1.preheader.i.i ]
   %j.09.i.i = phi i64 [ %inc.i.i, %for.body4.i.i ], [ 0, %for.cond1.preheader.i.i ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %k.110.i.i
-  %2 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i = zext i8 %2 to i64
+  %3 = load i8, ptr %arrayidx.i.i, align 1
+  %conv.i.i = zext i8 %3 to i64
   %mul.i.i = shl nuw nsw i64 %j.09.i.i, 3
   %shl.i.i = shl nuw i64 %conv.i.i, %mul.i.i
   %or.i.i = or i64 %shl.i.i, %out.011.i.i
@@ -439,8 +439,8 @@ for.body4.i.i:                                    ; preds = %for.cond1.preheader
   %inc5.i.i = add nuw nsw i64 %k.110.i.i, 1
   %cmp2.i.i = icmp ult i64 %j.09.i.i, 7
   %cmp3.i.i = icmp ult i64 %k.110.i.i, 55
-  %3 = and i1 %cmp3.i.i, %cmp2.i.i
-  br i1 %3, label %for.body4.i.i, label %for.end.i.i, !llvm.loop !11
+  %4 = and i1 %cmp3.i.i, %cmp2.i.i
+  br i1 %4, label %for.body4.i.i, label %for.end.i.i, !llvm.loop !11
 
 for.end.i.i:                                      ; preds = %for.body4.i.i, %for.cond1.preheader.i.i
   %k.1.lcssa.i.i = phi i64 [ %k.014.i.i, %for.cond1.preheader.i.i ], [ %inc5.i.i, %for.body4.i.i ]
@@ -460,12 +460,12 @@ for.body.i19:                                     ; preds = %for.body.i19, %for.
   %indvars.iv.i20 = phi i64 [ 0, %for.body.i.preheader ], [ %indvars.iv.next.i25, %for.body.i19 ]
   %chain.010.i = phi i128 [ 0, %for.body.i.preheader ], [ %shr.i24, %for.body.i19 ]
   %arrayidx.i21 = getelementptr inbounds [7 x i64], ptr %t1, i64 0, i64 %indvars.iv.i20
-  %4 = load i64, ptr %arrayidx.i21, align 8
-  %conv.i22 = zext i64 %4 to i128
+  %5 = load i64, ptr %arrayidx.i21, align 8
+  %conv.i22 = zext i64 %5 to i128
   %add.i23 = add nuw nsw i128 %chain.010.i, %conv.i22
   %arrayidx3.i = getelementptr inbounds [7 x i64], ptr %t2, i64 0, i64 %indvars.iv.i20
-  %5 = load i64, ptr %arrayidx3.i, align 8
-  %conv4.i = zext i64 %5 to i128
+  %6 = load i64, ptr %arrayidx3.i, align 8
+  %conv4.i = zext i64 %6 to i128
   %add5.i = add nuw nsw i128 %add.i23, %conv4.i
   %conv6.i = trunc i128 %add5.i to i64
   store i64 %conv6.i, ptr %arrayidx.i21, align 8
@@ -478,12 +478,12 @@ for.body.i.i:                                     ; preds = %for.body.i19, %for.
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i19 ]
   %chain.02.i.i = phi i128 [ %shr.i.i, %for.body.i.i ], [ 0, %for.body.i19 ]
   %arrayidx.i.i28 = getelementptr inbounds i64, ptr %t1, i64 %indvars.iv.i.i
-  %6 = load i64, ptr %arrayidx.i.i28, align 8
-  %conv.i.i29 = zext i64 %6 to i128
+  %7 = load i64, ptr %arrayidx.i.i28, align 8
+  %conv.i.i29 = zext i64 %7 to i128
   %add.i.i = add nsw i128 %chain.02.i.i, %conv.i.i29
   %arrayidx2.i.i = getelementptr inbounds [7 x i64], ptr @sc_p, i64 0, i64 %indvars.iv.i.i
-  %7 = load i64, ptr %arrayidx2.i.i, align 8
-  %conv3.i.i = zext i64 %7 to i128
+  %8 = load i64, ptr %arrayidx2.i.i, align 8
+  %conv3.i.i = zext i64 %8 to i128
   %sub4.i.i = sub nsw i128 %add.i.i, %conv3.i.i
   %conv5.i.i = trunc i128 %sub4.i.i to i64
   store i64 %conv5.i.i, ptr %arrayidx.i.i28, align 8
@@ -502,12 +502,12 @@ for.body14.i.i:                                   ; preds = %for.body14.i.i, %fo
   %indvars.iv6.i.i = phi i64 [ 0, %for.end.i.i31 ], [ %indvars.iv.next7.i.i, %for.body14.i.i ]
   %chain.14.i.i = phi i128 [ 0, %for.end.i.i31 ], [ %shr29.i.i, %for.body14.i.i ]
   %arrayidx17.i.i = getelementptr inbounds [7 x i64], ptr %t1, i64 0, i64 %indvars.iv6.i.i
-  %8 = load i64, ptr %arrayidx17.i.i, align 8
-  %conv18.i.i = zext i64 %8 to i128
+  %9 = load i64, ptr %arrayidx17.i.i, align 8
+  %conv18.i.i = zext i64 %9 to i128
   %add19.i.i = add nuw nsw i128 %chain.14.i.i, %conv18.i.i
   %arrayidx22.i.i = getelementptr inbounds [7 x i64], ptr @sc_p, i64 0, i64 %indvars.iv6.i.i
-  %9 = load i64, ptr %arrayidx22.i.i, align 8
-  %and.i.i = and i64 %9, %add10.i.i
+  %10 = load i64, ptr %arrayidx22.i.i, align 8
+  %and.i.i = and i64 %10, %add10.i.i
   %conv23.i.i = zext i64 %and.i.i to i128
   %add24.i.i = add nuw nsw i128 %add19.i.i, %conv23.i.i
   %conv25.i.i = trunc i128 %add24.i.i to i64

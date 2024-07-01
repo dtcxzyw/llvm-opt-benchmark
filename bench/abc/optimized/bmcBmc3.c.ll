@@ -3747,8 +3747,8 @@ Saig_ManBmcReduceTruth.exit:                      ; preds = %132
 146:                                              ; preds = %136
   %147 = and i32 %137, 1
   %.not97 = icmp eq i32 %147, 0
-  %148 = and i32 %137, 65535
-  %149 = xor i32 %148, 65535
+  %148 = and i32 %137, 65534
+  %149 = xor i32 %148, 65534
   %150 = select i1 %.not97, i32 %137, i32 %149
   %151 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 %150, ptr %151, align 16

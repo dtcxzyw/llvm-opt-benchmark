@@ -3653,21 +3653,25 @@ define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN4core3ops8fun
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1079)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1082)
   %4 = load i64, ptr %1, align 8, !range !1084, !alias.scope !1082, !noalias !1079, !noundef !9
-  %5 = icmp eq i64 %4, -9223372036854775803
-  br i1 %5, label %6, label %"_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler23translate_resource_drop28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he2e5a719c0545446E.llvm.12599983639457799574.exit"
+  %5 = add i64 %4, 9223372036854775807
+  %6 = icmp ult i64 %5, 5
+  %7 = and i64 %4, 7
+  %8 = icmp eq i64 %7, 5
+  %9 = and i1 %6, %8
+  br i1 %9, label %10, label %"_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler23translate_resource_drop28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he2e5a719c0545446E.llvm.12599983639457799574.exit"
 
-6:                                                ; preds = %2
-  %7 = load ptr, ptr %3, align 8, !alias.scope !1079, !noalias !1082, !nonnull !9, !align !1085, !noundef !9
-  %8 = getelementptr inbounds i8, ptr %1, i64 52
-  %9 = load i32, ptr %8, align 4, !alias.scope !1082, !noalias !1079, !noundef !9
-  %10 = load i32, ptr %7, align 4, !noalias !1086, !noundef !9
-  %11 = icmp eq i32 %9, %10
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %spec.select.i = select i1 %11, ptr %12, ptr null
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %3, align 8, !alias.scope !1079, !noalias !1082, !nonnull !9, !align !1085, !noundef !9
+  %12 = getelementptr inbounds i8, ptr %1, i64 52
+  %13 = load i32, ptr %12, align 4, !alias.scope !1082, !noalias !1079, !noundef !9
+  %14 = load i32, ptr %11, align 4, !noalias !1086, !noundef !9
+  %15 = icmp eq i32 %13, %14
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %spec.select.i = select i1 %15, ptr %16, ptr null
   br label %"_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler23translate_resource_drop28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he2e5a719c0545446E.llvm.12599983639457799574.exit"
 
-"_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler23translate_resource_drop28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he2e5a719c0545446E.llvm.12599983639457799574.exit": ; preds = %2, %6
-  %.0.i = phi ptr [ null, %2 ], [ %spec.select.i, %6 ]
+"_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler23translate_resource_drop28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he2e5a719c0545446E.llvm.12599983639457799574.exit": ; preds = %2, %10
+  %.0.i = phi ptr [ null, %2 ], [ %spec.select.i, %10 ]
   ret ptr %.0.i
 }
 
@@ -9206,21 +9210,25 @@ _ZN18wasmtime_cranelift17compiled_function20collect_address_maps3cvt17h2f35d1067
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler23translate_resource_drop28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he2e5a719c0545446E.llvm.12599983639457799574"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %1) unnamed_addr #19 {
   %3 = load i64, ptr %1, align 8, !range !1084, !noundef !9
-  %4 = icmp eq i64 %3, -9223372036854775803
-  br i1 %4, label %5, label %12
+  %4 = add i64 %3, 9223372036854775807
+  %5 = icmp ult i64 %4, 5
+  %6 = and i64 %3, 7
+  %7 = icmp eq i64 %6, 5
+  %8 = and i1 %5, %7
+  br i1 %8, label %9, label %16
 
-5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !nonnull !9, !align !1085, !noundef !9
-  %7 = getelementptr inbounds i8, ptr %1, i64 52
-  %8 = load i32, ptr %7, align 4, !noundef !9
-  %9 = load i32, ptr %6, align 4, !noundef !9
-  %10 = icmp eq i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %spec.select = select i1 %10, ptr %11, ptr null
-  br label %12
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %0, align 8, !nonnull !9, !align !1085, !noundef !9
+  %11 = getelementptr inbounds i8, ptr %1, i64 52
+  %12 = load i32, ptr %11, align 4, !noundef !9
+  %13 = load i32, ptr %10, align 4, !noundef !9
+  %14 = icmp eq i32 %12, %13
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %spec.select = select i1 %14, ptr %15, ptr null
+  br label %16
 
-12:                                               ; preds = %5, %2
-  %.0 = phi ptr [ null, %2 ], [ %spec.select, %5 ]
+16:                                               ; preds = %9, %2
+  %.0 = phi ptr [ null, %2 ], [ %spec.select, %9 ]
   ret ptr %.0
 }
 

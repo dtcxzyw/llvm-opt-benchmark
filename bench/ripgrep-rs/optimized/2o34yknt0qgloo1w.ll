@@ -369,29 +369,32 @@ define hidden void @_ZN10grep_regex5error5Error5regex17h793efd7e76319135E(ptr no
   %10 = alloca i64, align 8
   %11 = load i64, ptr %1, align 8, !range !36, !noundef !4
   %12 = icmp eq i64 %11, -9223372036854775807
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
-  %14 = load i64, ptr %13, align 8, !range !37
-  %15 = icmp eq i64 %14, -9223372036854775803
-  %or.cond = select i1 %12, i1 %15, i1 false
-  br i1 %or.cond, label %17, label %16
+  br i1 %12, label %13, label %25
 
-16:                                               ; preds = %2
-  br i1 %12, label %34, label %21
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = load i64, ptr %14, align 8, !range !37, !noundef !4
+  %16 = add i64 %15, 9223372036854775807
+  %17 = icmp ult i64 %16, 7
+  %18 = and i64 %15, 7
+  %19 = icmp eq i64 %18, 5
+  %20 = and i1 %17, %19
+  br i1 %20, label %21, label %38
 
-.body.thread16:                                   ; preds = %17
+.body.thread15:                                   ; preds = %21
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
-  %19 = load i64, ptr %18, align 8
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = load i64, ptr %22, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  store i64 %19, ptr %10, align 8
+  store i64 %23, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %10, ptr %8, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17he756d3674ca19dc2E", ptr %20, align 8
+  %24 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17he756d3674ca19dc2E", ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !38
   store ptr @anon.a4f79ad12e064e7bfefb591ecc2ffa41.28, ptr %6, align 8, !noalias !49
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
@@ -403,9 +406,9 @@ define hidden void @_ZN10grep_regex5error5Error5regex17h793efd7e76319135E(ptr no
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !49
   invoke void @_ZN5alloc3fmt6format12format_inner17h8acc7e10788d82b9E(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
-          to label %.critedge unwind label %.body.thread16
+          to label %.critedge unwind label %.body.thread15
 
-.critedge:                                        ; preds = %17
+.critedge:                                        ; preds = %21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %.sroa.2.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.2, i64 7
@@ -414,9 +417,9 @@ define hidden void @_ZN10grep_regex5error5Error5regex17h793efd7e76319135E(ptr no
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2, i64 31, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %36
+  br label %40
 
-21:                                               ; preds = %16
+25:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.4.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i)
@@ -427,46 +430,46 @@ define hidden void @_ZN10grep_regex5error5Error5regex17h793efd7e76319135E(ptr no
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !53
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !53
-  %22 = getelementptr inbounds i8, ptr %4, i64 52
-  store i32 0, ptr %22, align 4, !noalias !53
-  %23 = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 32, ptr %23, align 8, !noalias !53
-  %24 = getelementptr inbounds i8, ptr %4, i64 56
-  store i8 3, ptr %24, align 8, !noalias !53
+  %26 = getelementptr inbounds i8, ptr %4, i64 52
+  store i32 0, ptr %26, align 4, !noalias !53
+  %27 = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 32, ptr %27, align 8, !noalias !53
+  %28 = getelementptr inbounds i8, ptr %4, i64 56
+  store i8 3, ptr %28, align 8, !noalias !53
   store i64 0, ptr %4, align 8, !noalias !53
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 0, ptr %25, align 8, !noalias !53
-  %26 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %5, ptr %26, align 8, !noalias !53
-  %27 = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr @anon.3c71ad614f1aca72cb4077cd0008e097.3.llvm.33321315554386762, ptr %27, align 8, !noalias !53
-  %28 = invoke noundef zeroext i1 @"_ZN65_$LT$regex_syntax..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h2e486e3db68d396eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %1, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
-          to label %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h75176720e04ffaaaE.exit.i.i" unwind label %29, !noalias !53
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 0, ptr %29, align 8, !noalias !53
+  %30 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %5, ptr %30, align 8, !noalias !53
+  %31 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr @anon.3c71ad614f1aca72cb4077cd0008e097.3.llvm.33321315554386762, ptr %31, align 8, !noalias !53
+  %32 = invoke noundef zeroext i1 @"_ZN65_$LT$regex_syntax..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h2e486e3db68d396eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %1, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
+          to label %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h75176720e04ffaaaE.exit.i.i" unwind label %33, !noalias !53
 
-29:                                               ; preds = %31, %21
-  %30 = landingpad { ptr, i32 }
+33:                                               ; preds = %35, %25
+  %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd7ba341d4f3346b7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #11
-          to label %.body.thread unwind label %32, !noalias !53
+          to label %.body.thread unwind label %36, !noalias !53
 
-"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h75176720e04ffaaaE.exit.i.i": ; preds = %21
+"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h75176720e04ffaaaE.exit.i.i": ; preds = %25
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !53
-  br i1 %28, label %31, label %.thread
+  br i1 %32, label %35, label %.thread18
 
-31:                                               ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h75176720e04ffaaaE.exit.i.i"
+35:                                               ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h75176720e04ffaaaE.exit.i.i"
   invoke void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.3c71ad614f1aca72cb4077cd0008e097.5.llvm.33321315554386762, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3c71ad614f1aca72cb4077cd0008e097.23.llvm.33321315554386762, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3c71ad614f1aca72cb4077cd0008e097.7.llvm.33321315554386762) #12
-          to label %.noexc.i.i unwind label %29, !noalias !53
+          to label %.noexc.i.i unwind label %33, !noalias !53
 
-.noexc.i.i:                                       ; preds = %31
+.noexc.i.i:                                       ; preds = %35
   unreachable
 
-32:                                               ; preds = %29
-  %33 = landingpad { ptr, i32 }
+36:                                               ; preds = %33
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #13, !noalias !53
   unreachable
 
-.thread:                                          ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h75176720e04ffaaaE.exit.i.i"
+.thread18:                                        ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h75176720e04ffaaaE.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !58
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !53
@@ -478,32 +481,32 @@ define hidden void @_ZN10grep_regex5error5Error5regex17h793efd7e76319135E(ptr no
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.i, i64 31, i1 false), !noalias !60
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.4.i)
-  br label %36
+  br label %40
 
-34:                                               ; preds = %16
+38:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false)
   call void @_ZN10grep_regex5error5Error7generic17hcff57281da312df0E(ptr noalias nocapture noundef nonnull sret({ { i8, [31 x i8] } }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %7)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7)
-  br label %35
+  br label %39
 
-35:                                               ; preds = %34, %36
+39:                                               ; preds = %38, %40
   ret void
 
-36:                                               ; preds = %.thread, %.critedge
+40:                                               ; preds = %.thread18, %.critedge
   call void @"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..error..BuildErrorKind$GT$17h3c3a32abb36cd0efE.llvm.8519985026491776260"(ptr noalias noundef nonnull align 8 dereferenceable(136) %1)
-  br label %35
+  br label %39
 
 "_ZN4core3ptr60drop_in_place$LT$regex_automata..meta..error..BuildError$GT$17h5777ba8215d729f7E.exit": ; preds = %.body.thread
-  resume { ptr, i32 } %eh.lpad-body15
+  resume { ptr, i32 } %eh.lpad-body14
 
-.body.thread:                                     ; preds = %29, %.body.thread16
-  %eh.lpad-body15 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread16 ], [ %30, %29 ]
+.body.thread:                                     ; preds = %33, %.body.thread15
+  %eh.lpad-body14 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread15 ], [ %34, %33 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..error..BuildErrorKind$GT$17h3c3a32abb36cd0efE.llvm.8519985026491776260"(ptr noalias noundef nonnull align 8 dereferenceable(136) %1)
-          to label %"_ZN4core3ptr60drop_in_place$LT$regex_automata..meta..error..BuildError$GT$17h5777ba8215d729f7E.exit" unwind label %37
+          to label %"_ZN4core3ptr60drop_in_place$LT$regex_automata..meta..error..BuildError$GT$17h5777ba8215d729f7E.exit" unwind label %41
 
-37:                                               ; preds = %.body.thread
-  %38 = landingpad { ptr, i32 }
+41:                                               ; preds = %.body.thread
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #13
   unreachable

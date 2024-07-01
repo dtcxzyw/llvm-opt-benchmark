@@ -3121,31 +3121,30 @@ io_buffer_validate.exit:                          ; preds = %io_buffer_validate_
   %33 = load ptr, ptr %7, align 8
   %34 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %32, ptr noundef %33, i64 noundef %.val)
   %.not = icmp eq i32 %34, 0
-  br i1 %.not, label %48, label %io_buffer_validate.exit.thread
+  br i1 %.not, label %46, label %io_buffer_validate.exit.thread
 
 io_buffer_validate.exit.thread:                   ; preds = %io_buffer_validate_range.exit, %io_buffer_validate.exit
   %35 = load ptr, ptr %7, align 8
   %.not14 = icmp eq ptr %35, null
-  br i1 %.not14, label %48, label %36
+  br i1 %.not14, label %46, label %36
 
 36:                                               ; preds = %io_buffer_validate.exit.thread
-  %37 = udiv i64 %25, %.013
-  %38 = urem i64 %25, %.013
-  %.not.i16 = icmp ne i64 %38, 0
-  %39 = zext i1 %.not.i16 to i64
-  %40 = add i64 %37, %39
-  %41 = mul i64 %.013, 3
-  %42 = add i64 %41, 13
-  %43 = mul i64 %40, %42
-  %44 = tail call i64 @llvm.usub.sat.i64(i64 %25, i64 1)
-  %spec.select.i = add i64 %43, %44
-  %45 = tail call i64 @rb_str_buf_new(i64 noundef %spec.select.i) #20
-  %46 = load ptr, ptr %7, align 8
-  %47 = tail call fastcc i64 @io_buffer_hexdump(i64 noundef %45, i64 noundef %.013, ptr noundef %46, i64 noundef %27, i64 noundef %24, i32 noundef 1)
-  br label %48
+  %37 = urem i64 %25, %.013
+  %.not.not.i = icmp eq i64 %37, 0
+  %38 = mul i64 %.013, 3
+  %39 = add i64 %38, 13
+  %40 = select i1 %.not.not.i, i64 0, i64 %39
+  %.not14.i = icmp eq i64 %25, 0
+  %41 = add i64 %25, -1
+  %42 = add i64 %41, %40
+  %spec.select.i = select i1 %.not14.i, i64 0, i64 %42
+  %43 = tail call i64 @rb_str_buf_new(i64 noundef %spec.select.i) #20
+  %44 = load ptr, ptr %7, align 8
+  %45 = tail call fastcc i64 @io_buffer_hexdump(i64 noundef %43, i64 noundef %.013, ptr noundef %44, i64 noundef %27, i64 noundef %24, i32 noundef 1)
+  br label %46
 
-48:                                               ; preds = %36, %io_buffer_validate.exit.thread, %io_buffer_validate.exit
-  %.0 = phi i64 [ %45, %36 ], [ 4, %io_buffer_validate.exit.thread ], [ 4, %io_buffer_validate.exit ]
+46:                                               ; preds = %36, %io_buffer_validate.exit.thread, %io_buffer_validate.exit
+  %.0 = phi i64 [ %43, %36 ], [ 4, %io_buffer_validate.exit.thread ], [ 4, %io_buffer_validate.exit ]
   ret i64 %.0
 }
 
@@ -7435,9 +7434,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #18
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

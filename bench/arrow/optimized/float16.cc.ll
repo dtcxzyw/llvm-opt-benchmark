@@ -74,7 +74,7 @@ entry:
   %conv.i = and i16 %1, -32768
   %and1.i = and i32 %0, 2139095040
   %shr2.i = lshr exact i32 %and1.i, 23
-  %and8.i = and i32 %0, 8388607
+  %and8.i = and i32 %0, 8376320
   %cmp.i = icmp ugt i32 %and1.i, 1191182336
   br i1 %cmp.i, label %if.then.i, label %if.end26.i
 
@@ -133,7 +133,7 @@ if.end52.i:                                       ; preds = %if.end26.i
   %conv64.i = and i32 %shr.i, 32768
   %conv65.i = and i32 %shl.i, 64512
   %add66.i = add nuw nsw i32 %conv65.i, %conv64.i
-  %add68.i = add nuw nsw i32 %add66.i, %shr62.i
+  %add68.i = or disjoint i32 %add66.i, %shr62.i
   %conv69.i = trunc i32 %add68.i to i16
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE10ToBinary16Ej.exit
 
@@ -216,7 +216,7 @@ entry:
   %and1.i = and i64 %0, 9218868437227405312
   %shr2.i = lshr exact i64 %and1.i, 52
   %conv3.i = trunc nuw nsw i64 %shr2.i to i16
-  %and8.i = and i64 %0, 4503599627370495
+  %and8.i = and i64 %0, 4497002557603840
   %cmp.i = icmp ugt i64 %and1.i, 4674736413210574848
   br i1 %cmp.i, label %if.then.i, label %if.end26.i
 
@@ -274,7 +274,7 @@ if.end52.i:                                       ; preds = %if.end26.i
   %conv63.i = trunc nuw nsw i64 %shr62.i to i16
   %shl.i = or disjoint i16 %conv.i, 16384
   %add66.i = add i16 %shl.i, %add.i
-  %add68.i = add i16 %add66.i, %conv63.i
+  %add68.i = or disjoint i16 %add66.i, %conv63.i
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterImE10ToBinary16Em.exit
 
 _ZN5arrow4util12_GLOBAL__N_115BinaryConverterImE10ToBinary16Em.exit: ; preds = %if.then12.i, %if.end22.i, %if.then29.i, %if.end33.i, %if.end52.i

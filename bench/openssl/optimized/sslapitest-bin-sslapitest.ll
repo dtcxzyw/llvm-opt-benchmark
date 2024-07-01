@@ -3430,22 +3430,23 @@ entry:
   store ptr null, ptr %sctx, align 8
   store ptr null, ptr %clientssl, align 8
   store ptr null, ptr %serverssl, align 8
-  %conv = sext i32 %idx to i64
-  %call = tail call i32 @test_size_t_le(ptr noundef nonnull @.str.14, i32 noundef 3138, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, i64 noundef %conv, i64 noundef 28) #23
+  %0 = sext i32 %idx to i64
+  %call = tail call i32 @test_size_t_le(ptr noundef nonnull @.str.14, i32 noundef 3138, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, i64 noundef %0, i64 noundef 28) #23
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %conv = zext nneg i32 %idx to i64
   %cmp = icmp ult i32 %idx, 14
-  %sub = add nsw i64 %conv, -14
+  %sub = add nsw i64 %0, -14
   %conv.pn = select i1 %cmp, i64 %conv, i64 %sub
   %cond = getelementptr inbounds [14 x %struct.sigalgs_list], ptr @testsigalgs, i64 0, i64 %conv.pn
-  %0 = load ptr, ptr @libctx, align 8
+  %1 = load ptr, ptr @libctx, align 8
   %call6 = tail call ptr @TLS_server_method() #23
   %call7 = tail call ptr @TLS_client_method() #23
-  %1 = load ptr, ptr @cert, align 8
-  %2 = load ptr, ptr @privkey, align 8
-  %call8 = call i32 @create_ssl_ctx_pair(ptr noundef %0, ptr noundef %call6, ptr noundef %call7, i32 noundef 769, i32 noundef 0, ptr noundef nonnull %sctx, ptr noundef nonnull %cctx, ptr noundef %1, ptr noundef %2) #23
+  %2 = load ptr, ptr @cert, align 8
+  %3 = load ptr, ptr @privkey, align 8
+  %call8 = call i32 @create_ssl_ctx_pair(ptr noundef %1, ptr noundef %call6, ptr noundef %call7, i32 noundef 769, i32 noundef 0, ptr noundef nonnull %sctx, ptr noundef nonnull %cctx, ptr noundef %2, ptr noundef %3) #23
   %cmp9 = icmp ne i32 %call8, 0
   %conv10 = zext i1 %cmp9 to i32
   %call11 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 3147, ptr noundef nonnull @.str.197, i32 noundef %conv10) #23
@@ -3453,35 +3454,35 @@ if.end:                                           ; preds = %entry
   br i1 %tobool12.not, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %3 = load ptr, ptr %cctx, align 8
-  %call15 = call i64 @SSL_CTX_ctrl(ptr noundef %3, i32 noundef 124, i64 noundef 771, ptr noundef null) #23
+  %4 = load ptr, ptr %cctx, align 8
+  %call15 = call i64 @SSL_CTX_ctrl(ptr noundef %4, i32 noundef 124, i64 noundef 771, ptr noundef null) #23
   br i1 %cmp, label %if.then17, label %if.end38
 
 if.then17:                                        ; preds = %if.end14
-  %4 = load ptr, ptr %cond, align 16
-  %cmp18.not = icmp eq ptr %4, null
-  %5 = load ptr, ptr %cctx, align 8
+  %5 = load ptr, ptr %cond, align 16
+  %cmp18.not = icmp eq ptr %5, null
+  %6 = load ptr, ptr %cctx, align 8
   br i1 %cmp18.not, label %if.else, label %if.then20
 
 if.then20:                                        ; preds = %if.then17
   %listlen = getelementptr inbounds i8, ptr %cond, i64 8
-  %6 = load i64, ptr %listlen, align 8
-  %call22 = call i64 @SSL_CTX_ctrl(ptr noundef %5, i32 noundef 97, i64 noundef %6, ptr noundef nonnull %4) #23
+  %7 = load i64, ptr %listlen, align 8
+  %call22 = call i64 @SSL_CTX_ctrl(ptr noundef %6, i32 noundef 97, i64 noundef %7, ptr noundef nonnull %5) #23
   br label %if.end26
 
 if.else:                                          ; preds = %if.then17
   %liststr = getelementptr inbounds i8, ptr %cond, i64 16
-  %7 = load ptr, ptr %liststr, align 16
-  %call24 = call i64 @SSL_CTX_ctrl(ptr noundef %5, i32 noundef 98, i64 noundef 0, ptr noundef %7) #23
+  %8 = load ptr, ptr %liststr, align 16
+  %call24 = call i64 @SSL_CTX_ctrl(ptr noundef %6, i32 noundef 98, i64 noundef 0, ptr noundef %8) #23
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else, %if.then20
   %ret.0.in = phi i64 [ %call22, %if.then20 ], [ %call24, %if.else ]
-  %8 = and i64 %ret.0.in, 4294967295
-  %tobool27.not = icmp eq i64 %8, 0
+  %9 = and i64 %ret.0.in, 4294967295
+  %tobool27.not = icmp eq i64 %9, 0
   %valid = getelementptr inbounds i8, ptr %cond, i64 24
-  %9 = load i32, ptr %valid, align 8
-  %tobool29.not = icmp eq i32 %9, 0
+  %10 = load i32, ptr %valid, align 8
+  %tobool29.not = icmp eq i32 %10, 0
   br i1 %tobool27.not, label %if.then28, label %if.end33
 
 if.then28:                                        ; preds = %if.end26
@@ -3499,9 +3500,9 @@ if.then36:                                        ; preds = %if.end33
   br label %end
 
 if.end38:                                         ; preds = %if.end33, %if.end14
-  %10 = load ptr, ptr %sctx, align 8
-  %11 = load ptr, ptr %cctx, align 8
-  %call39 = call i32 @create_ssl_objects(ptr noundef %10, ptr noundef %11, ptr noundef nonnull %serverssl, ptr noundef nonnull %clientssl, ptr noundef null, ptr noundef null) #23
+  %11 = load ptr, ptr %sctx, align 8
+  %12 = load ptr, ptr %cctx, align 8
+  %call39 = call i32 @create_ssl_objects(ptr noundef %11, ptr noundef %12, ptr noundef nonnull %serverssl, ptr noundef nonnull %clientssl, ptr noundef null, ptr noundef null) #23
   %cmp40 = icmp ne i32 %call39, 0
   %conv41 = zext i1 %cmp40 to i32
   %call42 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 3174, ptr noundef nonnull @.str.148, i32 noundef %conv41) #23
@@ -3512,30 +3513,30 @@ if.end45:                                         ; preds = %if.end38
   br i1 %cmp, label %if.end74, label %if.then47
 
 if.then47:                                        ; preds = %if.end45
-  %12 = load ptr, ptr %cond, align 16
-  %cmp50.not = icmp eq ptr %12, null
-  %13 = load ptr, ptr %clientssl, align 8
+  %13 = load ptr, ptr %cond, align 16
+  %cmp50.not = icmp eq ptr %13, null
+  %14 = load ptr, ptr %clientssl, align 8
   br i1 %cmp50.not, label %if.else57, label %if.then52
 
 if.then52:                                        ; preds = %if.then47
   %listlen53 = getelementptr inbounds i8, ptr %cond, i64 8
-  %14 = load i64, ptr %listlen53, align 8
-  %call55 = call i64 @SSL_ctrl(ptr noundef %13, i32 noundef 97, i64 noundef %14, ptr noundef nonnull %12) #23
+  %15 = load i64, ptr %listlen53, align 8
+  %call55 = call i64 @SSL_ctrl(ptr noundef %14, i32 noundef 97, i64 noundef %15, ptr noundef nonnull %13) #23
   br label %if.end61
 
 if.else57:                                        ; preds = %if.then47
   %liststr58 = getelementptr inbounds i8, ptr %cond, i64 16
-  %15 = load ptr, ptr %liststr58, align 16
-  %call59 = call i64 @SSL_ctrl(ptr noundef %13, i32 noundef 98, i64 noundef 0, ptr noundef %15) #23
+  %16 = load ptr, ptr %liststr58, align 16
+  %call59 = call i64 @SSL_ctrl(ptr noundef %14, i32 noundef 98, i64 noundef 0, ptr noundef %16) #23
   br label %if.end61
 
 if.end61:                                         ; preds = %if.else57, %if.then52
   %ret48.0.in = phi i64 [ %call55, %if.then52 ], [ %call59, %if.else57 ]
-  %16 = and i64 %ret48.0.in, 4294967295
-  %tobool62.not = icmp eq i64 %16, 0
+  %17 = and i64 %ret48.0.in, 4294967295
+  %tobool62.not = icmp eq i64 %17, 0
   %valid64 = getelementptr inbounds i8, ptr %cond, i64 24
-  %17 = load i32, ptr %valid64, align 8
-  %tobool65.not = icmp eq i32 %17, 0
+  %18 = load i32, ptr %valid64, align 8
+  %tobool65.not = icmp eq i32 %18, 0
   br i1 %tobool62.not, label %if.then63, label %if.end69
 
 if.then63:                                        ; preds = %if.end61
@@ -3549,26 +3550,26 @@ if.end69:                                         ; preds = %if.end61
   br i1 %tobool65.not, label %end, label %if.end74
 
 if.end74:                                         ; preds = %if.end69, %if.end45
-  %18 = load ptr, ptr %serverssl, align 8
-  %19 = load ptr, ptr %clientssl, align 8
-  %call75 = call i32 @create_ssl_connection(ptr noundef %18, ptr noundef %19, i32 noundef 0) #23
+  %19 = load ptr, ptr %serverssl, align 8
+  %20 = load ptr, ptr %clientssl, align 8
+  %call75 = call i32 @create_ssl_connection(ptr noundef %19, ptr noundef %20, i32 noundef 0) #23
   %connsuccess = getelementptr inbounds i8, ptr %cond, i64 28
-  %20 = load i32, ptr %connsuccess, align 4
-  %call76 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 3197, ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.286, i32 noundef %call75, i32 noundef %20) #23
+  %21 = load i32, ptr %connsuccess, align 4
+  %call76 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 3197, ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.286, i32 noundef %call75, i32 noundef %21) #23
   %tobool77.not = icmp ne i32 %call76, 0
   %spec.select = zext i1 %tobool77.not to i32
   br label %end
 
 end:                                              ; preds = %if.end74, %if.then63, %if.then28, %if.end69, %if.then66, %if.end38, %if.then30, %if.then36
   %testresult.0 = phi i32 [ 0, %if.end69 ], [ 0, %if.then66 ], [ 0, %if.end38 ], [ 0, %if.then36 ], [ 0, %if.then30 ], [ 1, %if.then28 ], [ 1, %if.then63 ], [ %spec.select, %if.end74 ]
-  %21 = load ptr, ptr %serverssl, align 8
-  call void @SSL_free(ptr noundef %21) #23
-  %22 = load ptr, ptr %clientssl, align 8
+  %22 = load ptr, ptr %serverssl, align 8
   call void @SSL_free(ptr noundef %22) #23
-  %23 = load ptr, ptr %sctx, align 8
-  call void @SSL_CTX_free(ptr noundef %23) #23
-  %24 = load ptr, ptr %cctx, align 8
+  %23 = load ptr, ptr %clientssl, align 8
+  call void @SSL_free(ptr noundef %23) #23
+  %24 = load ptr, ptr %sctx, align 8
   call void @SSL_CTX_free(ptr noundef %24) #23
+  %25 = load ptr, ptr %cctx, align 8
+  call void @SSL_CTX_free(ptr noundef %25) #23
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %end

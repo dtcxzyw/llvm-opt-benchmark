@@ -232,7 +232,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as
   store i64 %51, ptr %3, align 8, !alias.scope !94, !noalias !95
   %52 = add nsw i32 %50, -65
   %.0.i.i.i.i.i.i.i = icmp ult i32 %52, 26
-  %53 = xor i32 %50, 32
+  %53 = or disjoint i32 %50, 32
   %.07.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i, i32 %53, i32 %50
   tail call void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.07.i.i.i.i.i.i.i), !noalias !96
   %.not.i.i.i = icmp eq i64 %51, 0
@@ -443,7 +443,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %48 = add i64 %7, -1
   %49 = add nsw i32 %47, -65
   %.0.i.i.i.i.i.i.i.i = icmp ult i32 %49, 26
-  %50 = xor i32 %47, 32
+  %50 = or disjoint i32 %47, 32
   %.07.i.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i.i, i32 %50, i32 %47
   tail call void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.07.i.i.i.i.i.i.i.i), !noalias !184
   %.not.i.i.i.i = icmp eq i64 %48, 0
@@ -2733,7 +2733,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17hd4f77d4683
   %48 = add i64 %7, -1
   %49 = add nsw i32 %47, -65
   %.0.i.i.i.i.i.i.i.i.i = icmp ult i32 %49, 26
-  %50 = xor i32 %47, 32
+  %50 = or disjoint i32 %47, 32
   %.07.i.i.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i.i.i, i32 %50, i32 %47
   tail call void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.07.i.i.i.i.i.i.i.i.i), !noalias !786
   %.not.i.i.i.i.i = icmp eq i64 %48, 0
@@ -4008,7 +4008,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %58 = add i64 %17, -1
   %59 = add nsw i32 %57, -65
   %.0.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %59, 26
-  %60 = xor i32 %57, 32
+  %60 = or disjoint i32 %57, 32
   %.07.i.i.i.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i.i.i.i, i32 %60, i32 %57
   tail call void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %.07.i.i.i.i.i.i.i.i.i.i), !noalias !1069
   %.not.i.i.i.i.i.i = icmp eq i64 %58, 0
@@ -4747,7 +4747,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$
   store i64 %51, ptr %3, align 8, !alias.scope !1229, !noalias !1230
   %52 = add nsw i32 %50, -65
   %.0.i.i.i.i.i.i = icmp ult i32 %52, 26
-  %53 = xor i32 %50, 32
+  %53 = or disjoint i32 %50, 32
   %.07.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i, i32 %53, i32 %50
   tail call void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.07.i.i.i.i.i.i), !noalias !1231
   %.not.i.i = icmp eq i64 %51, 0

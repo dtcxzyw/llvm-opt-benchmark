@@ -1158,9 +1158,9 @@ define void @_ZNK5Ipopt14IndexSchurData6GetRowEiRNS_14IteratesVectorE(ptr nocapt
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
-  %8 = sext i32 %7 to i64
+  %8 = zext i32 %7 to i64
   %9 = icmp slt i32 %7, 0
-  %10 = shl nsw i64 %8, 2
+  %10 = shl nuw nsw i64 %8, 2
   %11 = select i1 %9, i64 -1, i64 %10
   %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #19
   %13 = getelementptr inbounds i8, ptr %2, i64 208
@@ -1203,7 +1203,6 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit.i:      ; preds = %27, %_ZNK5Ipopt14Co
 
 .lr.ph.i:                                         ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit.i
   %32 = getelementptr inbounds i8, ptr %2, i64 232
-  %wide.trip.count.i = zext nneg i32 %7 to i64
   br label %33
 
 33:                                               ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27.i, %.lr.ph.i
@@ -1248,7 +1247,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i20.i: ; preds = %_ZNK5Ipopt1
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27.i:    ; preds = %52, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i20.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %8
   br i1 %exitcond.not.i, label %_ZNK5Ipopt14IndexSchurData16GetVectorLengthsERKNS_14IteratesVectorE.exit, label %33, !llvm.loop !16
 
 _ZNK5Ipopt14IndexSchurData16GetVectorLengthsERKNS_14IteratesVectorE.exit: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27.i, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit.i
@@ -1433,9 +1432,9 @@ define noundef ptr @_ZNK5Ipopt14IndexSchurData16GetVectorLengthsERKNS_14Iterates
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
-  %7 = sext i32 %6 to i64
+  %7 = zext i32 %6 to i64
   %8 = icmp slt i32 %6, 0
-  %9 = shl nsw i64 %7, 2
+  %9 = shl nuw nsw i64 %7, 2
   %10 = select i1 %8, i64 -1, i64 %9
   %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #19
   %12 = getelementptr inbounds i8, ptr %1, i64 208
@@ -1478,7 +1477,6 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %_ZNK5Ipopt14Compoun
 
 .lr.ph:                                           ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit
   %31 = getelementptr inbounds i8, ptr %1, i64 232
-  %wide.trip.count = zext nneg i32 %6 to i64
   br label %32
 
 32:                                               ; preds = %.lr.ph, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27
@@ -1523,7 +1521,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i20: ; preds = %_ZNK5Ipopt14C
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27:      ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i20, %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %7
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit
@@ -1749,9 +1747,9 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %15, %_ZNK5Ipopt16De
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 8
-  %35 = sext i32 %34 to i64
+  %35 = zext i32 %34 to i64
   %36 = icmp slt i32 %34, 0
-  %37 = shl nsw i64 %35, 2
+  %37 = shl nuw nsw i64 %35, 2
   %38 = select i1 %36, i64 -1, i64 %37
   %39 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %38) #19
   %40 = getelementptr inbounds i8, ptr %1, i64 208
@@ -1794,7 +1792,6 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit.i:      ; preds = %54, %_ZNK5Ipopt14Co
 
 .lr.ph.i:                                         ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit.i
   %59 = getelementptr inbounds i8, ptr %1, i64 232
-  %wide.trip.count.i = zext nneg i32 %34 to i64
   br label %60
 
 60:                                               ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27.i, %.lr.ph.i
@@ -1839,7 +1836,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i20.i: ; preds = %_ZNK5Ipopt1
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27.i:    ; preds = %79, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i20.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %35
   br i1 %exitcond.not.i, label %_ZNK5Ipopt14IndexSchurData16GetVectorLengthsERKNS_14IteratesVectorE.exit, label %60, !llvm.loop !16
 
 _ZNK5Ipopt14IndexSchurData16GetVectorLengthsERKNS_14IteratesVectorE.exit: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27.i, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit.i
