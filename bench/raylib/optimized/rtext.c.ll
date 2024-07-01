@@ -2219,8 +2219,8 @@ TextToLower.exit:                                 ; preds = %.preheader.i, %28, 
 
 .preheader124.lr.ph.i:                            ; preds = %.loopexit125.i
   %.not109.i = icmp eq ptr %56, null
-  %smax148.i = call i32 @llvm.smax.i32(i32 %34, i32 1)
-  %wide.trip.count149.i = zext nneg i32 %smax148.i to i64
+  %umax148.i = call i32 @llvm.umax.i32(i32 %34, i32 1)
+  %wide.trip.count149.i = zext nneg i32 %umax148.i to i64
   br label %.preheader124.i
 
 .preheader124.i:                                  ; preds = %.backedge.i, %.preheader124.lr.ph.i
@@ -7692,7 +7692,7 @@ define void @GenImageFontAtlas(ptr dead_on_unwind noalias nocapture writable wri
 .preheader:                                       ; preds = %53
   %56 = trunc nuw nsw i64 %indvars.iv278 to i32
   %.0198235 = add nuw nsw i32 %56, 1
-  %57 = icmp slt i32 %.0198235, %12
+  %57 = icmp ult i32 %.0198235, %12
   br i1 %57, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -7768,7 +7768,7 @@ define void @GenImageFontAtlas(ptr dead_on_unwind noalias nocapture writable wri
   %88 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #45
   %89 = tail call noalias ptr @malloc(i64 noundef %14) #45
   %90 = add nsw i32 %12, -1
-  %91 = icmp sgt i32 %12, 1
+  %91 = icmp ugt i32 %12, 1
   br i1 %91, label %.lr.ph.preheader.i, label %stbrp_init_target.exit
 
 .lr.ph.preheader.i:                               ; preds = %87
@@ -15168,6 +15168,9 @@ declare i64 @llvm.smax.i64(i64, i64) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.copysign.f32(float, float) #39
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #41
