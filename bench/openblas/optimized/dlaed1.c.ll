@@ -38,9 +38,9 @@ define void @dlaed1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 28:                                               ; preds = %24
   %29 = lshr i32 %22, 1
   %30 = icmp ugt i32 %22, 1
-  %31 = select i1 %30, i32 1, i32 %29
+  %31 = zext i1 %30 to i32
   %32 = load i32, ptr %6, align 4, !tbaa !3
-  %33 = icmp sgt i32 %31, %32
+  %33 = icmp slt i32 %32, %31
   %34 = icmp slt i32 %29, %32
   %35 = or i1 %33, %34
   br i1 %35, label %36, label %40

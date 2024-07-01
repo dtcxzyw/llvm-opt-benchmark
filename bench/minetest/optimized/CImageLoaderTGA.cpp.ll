@@ -394,12 +394,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call6 = call noundef i64 %53(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %chunkheader, i64 noundef 1) #13
   %54 = load i8, ptr %chunkheader, align 1, !tbaa !11
   %cmp8 = icmp sgt i8 %54, -1
-  %inc = add nuw i8 %54, 1
-  %narrow = mul nuw nsw i8 %inc, %1
-  %conv13 = zext nneg i8 %narrow to i64
-  %sub = add i8 %54, -127
-  %sub.sink = select i1 %cmp8, i8 %inc, i8 %sub
-  %conv29.sink = select i1 %cmp8, i64 %conv13, i64 %conv29
+  %sub.sink.v = select i1 %cmp8, i8 1, i8 -127
+  %sub.sink = add i8 %54, %sub.sink.v
+  %conv29.sink = select i1 %cmp8, i64 0, i64 %conv29
   store i8 %sub.sink, ptr %chunkheader, align 1
   %vtable30 = load ptr, ptr %file, align 8, !tbaa !18
   %55 = load ptr, ptr %vtable30, align 8

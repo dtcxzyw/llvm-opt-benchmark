@@ -17,18 +17,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN6Square20AntipodalCornerIndexEi(i32 noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = and i32 %0, 1
-  %3 = lshr i32 %0, 1
-  %4 = and i32 %3, 1
-  %.urem = add nsw i32 %2, -1
-  %.cmp.not.not = icmp eq i32 %2, 0
-  %5 = select i1 %.cmp.not.not, i32 1, i32 %.urem
-  %.cmp3.not.not = icmp eq i32 %4, 0
-  %.urem2 = shl nuw nsw i32 %4, 1
-  %6 = add nsw i32 %.urem2, -2
-  %7 = select i1 %.cmp3.not.not, i32 2, i32 %6
-  %8 = or i32 %7, %5
-  ret i32 %8
+  %2 = and i32 %0, 3
+  %3 = xor i32 %2, 3
+  ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -169,32 +160,23 @@ _ZN6Square9EdgeIndexEii.exit:                     ; preds = %_ZN6Square15FactorE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN6Square18ReflectCornerIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = srem i32 %1, 2
-  %4 = and i32 %0, 1
-  %5 = lshr i32 %0, 1
-  %6 = and i32 %5, 1
-  switch i32 %3, label %15 [
-    i32 0, label %7
-    i32 1, label %11
+  switch i32 %3, label %9 [
+    i32 0, label %4
+    i32 1, label %7
   ]
 
+4:                                                ; preds = %2
+  %5 = and i32 %0, 3
+  %6 = xor i32 %5, 1
+  br label %9
+
 7:                                                ; preds = %2
-  %.urem = add nsw i32 %4, -1
-  %.cmp.not.not = icmp eq i32 %4, 0
-  %8 = select i1 %.cmp.not.not, i32 1, i32 %.urem
-  %9 = shl nuw nsw i32 %6, 1
-  %10 = or i32 %9, %8
-  br label %15
+  %urem = and i32 %0, 3
+  %8 = xor i32 %urem, 2
+  br label %9
 
-11:                                               ; preds = %2
-  %.cmp8.not.not = icmp eq i32 %6, 0
-  %.urem7 = shl nuw nsw i32 %6, 1
-  %12 = add nsw i32 %.urem7, -2
-  %13 = select i1 %.cmp8.not.not, i32 2, i32 %12
-  %14 = or disjoint i32 %13, %4
-  br label %15
-
-15:                                               ; preds = %2, %11, %7
-  %.0 = phi i32 [ %14, %11 ], [ %10, %7 ], [ -1, %2 ]
+9:                                                ; preds = %2, %7, %4
+  %.0 = phi i32 [ %8, %7 ], [ %6, %4 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -599,25 +581,9 @@ define void @_ZN4Cube11FaceCornersEiRiS0_S0_S0_(i32 noundef %0, ptr nocapture no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN4Cube20AntipodalCornerIndexEi(i32 noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = and i32 %0, 1
-  %3 = lshr i32 %0, 1
-  %4 = and i32 %3, 1
-  %5 = lshr i32 %0, 2
-  %6 = and i32 %5, 1
-  %.urem = add nsw i32 %2, -1
-  %.cmp.not.not = icmp eq i32 %2, 0
-  %7 = select i1 %.cmp.not.not, i32 1, i32 %.urem
-  %.cmp4.not.not = icmp eq i32 %4, 0
-  %.urem3 = shl nuw nsw i32 %4, 1
-  %8 = add nsw i32 %.urem3, -2
-  %.cmp6.not.not = icmp eq i32 %6, 0
-  %.urem5 = shl nuw nsw i32 %6, 2
-  %9 = add nsw i32 %.urem5, -4
-  %10 = select i1 %.cmp6.not.not, i32 4, i32 %9
-  %11 = select i1 %.cmp4.not.not, i32 2, i32 %8
-  %12 = or i32 %11, %7
-  %13 = or i32 %12, %10
-  ret i32 %13
+  %2 = and i32 %0, 7
+  %3 = xor i32 %2, 7
+  ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -649,190 +615,119 @@ define noundef i32 @_ZN4Cube20FaceReflectFaceIndexEii(i32 noundef %0, i32 nounde
 define noundef i32 @_ZN4Cube20FaceReflectEdgeIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = sdiv i32 %1, 2
   %4 = ashr i32 %0, 2
-  %5 = and i32 %0, 1
-  %6 = lshr i32 %0, 1
-  %7 = and i32 %6, 1
-  %8 = icmp eq i32 %4, %3
-  br i1 %8, label %33, label %9
+  %5 = lshr i32 %0, 1
+  %6 = and i32 %5, 1
+  %7 = icmp eq i32 %4, %3
+  br i1 %7, label %30, label %8
 
-9:                                                ; preds = %2
-  switch i32 %3, label %33 [
-    i32 0, label %10
-    i32 1, label %16
-    i32 2, label %28
+8:                                                ; preds = %2
+  switch i32 %3, label %30 [
+    i32 0, label %9
+    i32 1, label %14
+    i32 2, label %25
   ]
 
-10:                                               ; preds = %9
-  %.urem = add nsw i32 %5, -1
-  %.cmp.not.not = icmp eq i32 %5, 0
-  %11 = select i1 %.cmp.not.not, i32 1, i32 %.urem
-  %12 = shl nuw nsw i32 %7, 1
-  %13 = and i32 %0, -4
-  %14 = or i32 %11, %13
-  %15 = or i32 %14, %12
-  br label %33
+9:                                                ; preds = %8
+  %10 = shl nuw nsw i32 %6, 1
+  %11 = and i32 %0, -3
+  %12 = or disjoint i32 %10, %11
+  %13 = xor i32 %12, 1
+  br label %30
 
-16:                                               ; preds = %9
-  switch i32 %4, label %28 [
-    i32 0, label %17
-    i32 2, label %23
+14:                                               ; preds = %8
+  switch i32 %4, label %25 [
+    i32 0, label %15
+    i32 2, label %20
   ]
 
-17:                                               ; preds = %16
-  %.urem19 = add nsw i32 %5, -1
-  %.cmp20.not.not = icmp eq i32 %5, 0
-  %18 = select i1 %.cmp20.not.not, i32 1, i32 %.urem19
-  %19 = shl nuw nsw i32 %7, 1
-  %20 = and i32 %0, -4
-  %21 = or i32 %18, %20
-  %22 = or i32 %21, %19
-  br label %33
+15:                                               ; preds = %14
+  %16 = shl nuw nsw i32 %6, 1
+  %17 = and i32 %0, -3
+  %18 = or disjoint i32 %16, %17
+  %19 = xor i32 %18, 1
+  br label %30
 
-23:                                               ; preds = %16
-  %.cmp22.not.not = icmp eq i32 %7, 0
-  %.urem21 = shl nuw nsw i32 %7, 1
-  %24 = add nsw i32 %.urem21, -2
-  %25 = select i1 %.cmp22.not.not, i32 2, i32 %24
-  %26 = and i32 %0, -3
-  %27 = or i32 %25, %26
-  br label %33
+20:                                               ; preds = %14
+  %21 = shl nuw nsw i32 %6, 1
+  %22 = and i32 %0, -3
+  %23 = or disjoint i32 %21, %22
+  %24 = xor i32 %23, 2
+  br label %30
 
-28:                                               ; preds = %16, %9
-  %.cmp18.not.not = icmp eq i32 %7, 0
-  %.urem17 = shl nuw nsw i32 %7, 1
-  %29 = add nsw i32 %.urem17, -2
-  %30 = select i1 %.cmp18.not.not, i32 2, i32 %29
-  %31 = and i32 %0, -3
-  %32 = or i32 %30, %31
-  br label %33
+25:                                               ; preds = %14, %8
+  %26 = shl nuw nsw i32 %6, 1
+  %27 = and i32 %0, -3
+  %28 = or disjoint i32 %26, %27
+  %29 = xor i32 %28, 2
+  br label %30
 
-33:                                               ; preds = %9, %2, %28, %23, %17, %10
-  %.0 = phi i32 [ %32, %28 ], [ %27, %23 ], [ %22, %17 ], [ %15, %10 ], [ %0, %2 ], [ -1, %9 ]
+30:                                               ; preds = %8, %2, %25, %20, %15, %9
+  %.0 = phi i32 [ %29, %25 ], [ %24, %20 ], [ %19, %15 ], [ %13, %9 ], [ %0, %2 ], [ -1, %8 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN4Cube22FaceReflectCornerIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = sdiv i32 %1, 2
-  %4 = and i32 %0, 1
-  %5 = lshr i32 %0, 1
-  %6 = and i32 %5, 1
-  %7 = lshr i32 %0, 2
-  %8 = and i32 %7, 1
-  switch i32 %3, label %25 [
-    i32 0, label %9
-    i32 1, label %15
-    i32 2, label %21
+  switch i32 %3, label %11 [
+    i32 0, label %4
+    i32 1, label %7
+    i32 2, label %9
   ]
 
+4:                                                ; preds = %2
+  %5 = and i32 %0, 7
+  %6 = xor i32 %5, 1
+  br label %11
+
+7:                                                ; preds = %2
+  %urem17 = and i32 %0, 7
+  %8 = xor i32 %urem17, 2
+  br label %11
+
 9:                                                ; preds = %2
-  %.urem = add nsw i32 %4, -1
-  %.cmp.not.not = icmp eq i32 %4, 0
-  %10 = select i1 %.cmp.not.not, i32 1, i32 %.urem
-  %11 = shl nuw nsw i32 %8, 2
-  %12 = shl nuw nsw i32 %6, 1
-  %13 = or i32 %12, %10
-  %14 = or i32 %13, %11
-  br label %25
+  %urem16 = and i32 %0, 7
+  %10 = xor i32 %urem16, 4
+  br label %11
 
-15:                                               ; preds = %2
-  %.cmp13.not.not = icmp eq i32 %6, 0
-  %.urem12 = shl nuw nsw i32 %6, 1
-  %16 = add nsw i32 %.urem12, -2
-  %17 = shl nuw nsw i32 %8, 2
-  %18 = select i1 %.cmp13.not.not, i32 2, i32 %16
-  %19 = or i32 %17, %18
-  %20 = or disjoint i32 %19, %4
-  br label %25
-
-21:                                               ; preds = %2
-  %.cmp15.not.not = icmp eq i32 %8, 0
-  %.urem14 = shl nuw nsw i32 %8, 2
-  %22 = add nsw i32 %.urem14, -4
-  %23 = select i1 %.cmp15.not.not, i32 4, i32 %22
-  %urem = and i32 %0, 3
-  %24 = or disjoint i32 %23, %urem
-  br label %25
-
-25:                                               ; preds = %2, %21, %15, %9
-  %.0 = phi i32 [ %24, %21 ], [ %20, %15 ], [ %14, %9 ], [ -1, %2 ]
+11:                                               ; preds = %2, %9, %7, %4
+  %.0 = phi i32 [ %10, %9 ], [ %8, %7 ], [ %6, %4 ], [ -1, %2 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN4Cube22EdgeReflectCornerIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = ashr i32 %1, 2
-  %4 = and i32 %0, 1
-  %5 = lshr i32 %0, 1
-  %6 = and i32 %5, 1
-  %7 = lshr i32 %0, 2
-  %8 = and i32 %7, 1
-  switch i32 %3, label %30 [
-    i32 0, label %9
-    i32 1, label %16
-    i32 2, label %23
+  switch i32 %3, label %11 [
+    i32 0, label %4
+    i32 1, label %7
+    i32 2, label %9
   ]
 
+4:                                                ; preds = %2
+  %5 = and i32 %0, 7
+  %6 = xor i32 %5, 6
+  br label %11
+
+7:                                                ; preds = %2
+  %urem23 = and i32 %0, 7
+  %8 = xor i32 %urem23, 5
+  br label %11
+
 9:                                                ; preds = %2
-  %.cmp.not.not = icmp eq i32 %6, 0
-  %.urem = shl nuw nsw i32 %6, 1
-  %10 = add nsw i32 %.urem, -2
-  %.cmp13.not.not = icmp eq i32 %8, 0
-  %.urem12 = shl nuw nsw i32 %8, 2
-  %11 = add nsw i32 %.urem12, -4
-  %12 = select i1 %.cmp13.not.not, i32 4, i32 %11
-  %13 = select i1 %.cmp.not.not, i32 2, i32 %10
-  %14 = or i32 %12, %13
-  %15 = or disjoint i32 %14, %4
-  br label %30
+  %urem22 = and i32 %0, 7
+  %10 = xor i32 %urem22, 3
+  br label %11
 
-16:                                               ; preds = %2
-  %.urem14 = add nsw i32 %4, -1
-  %.cmp15.not.not = icmp eq i32 %4, 0
-  %17 = select i1 %.cmp15.not.not, i32 1, i32 %.urem14
-  %.cmp17.not.not = icmp eq i32 %8, 0
-  %.urem16 = shl nuw nsw i32 %8, 2
-  %18 = add nsw i32 %.urem16, -4
-  %19 = select i1 %.cmp17.not.not, i32 4, i32 %18
-  %20 = shl nuw nsw i32 %6, 1
-  %21 = or i32 %20, %17
-  %22 = or i32 %21, %19
-  br label %30
-
-23:                                               ; preds = %2
-  %.urem18 = add nsw i32 %4, -1
-  %.cmp19.not.not = icmp eq i32 %4, 0
-  %24 = select i1 %.cmp19.not.not, i32 1, i32 %.urem18
-  %.cmp21.not.not = icmp eq i32 %6, 0
-  %.urem20 = shl nuw nsw i32 %6, 1
-  %25 = add nsw i32 %.urem20, -2
-  %26 = shl nuw nsw i32 %8, 2
-  %27 = select i1 %.cmp21.not.not, i32 2, i32 %25
-  %28 = or i32 %26, %24
-  %29 = or i32 %28, %27
-  br label %30
-
-30:                                               ; preds = %2, %23, %16, %9
-  %.0 = phi i32 [ %29, %23 ], [ %22, %16 ], [ %15, %9 ], [ -1, %2 ]
+11:                                               ; preds = %2, %9, %7, %4
+  %.0 = phi i32 [ %10, %9 ], [ %8, %7 ], [ %6, %4 ], [ -1, %2 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN4Cube20EdgeReflectEdgeIndexEi(i32 noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = and i32 %0, 1
-  %3 = lshr i32 %0, 1
-  %4 = and i32 %3, 1
-  %.urem = add nsw i32 %2, -1
-  %.cmp.not.not = icmp eq i32 %2, 0
-  %5 = select i1 %.cmp.not.not, i32 1, i32 %.urem
-  %.cmp4.not.not = icmp eq i32 %4, 0
-  %.urem3 = shl nuw nsw i32 %4, 1
-  %6 = add nsw i32 %.urem3, -2
-  %7 = select i1 %.cmp4.not.not, i32 2, i32 %6
-  %8 = and i32 %0, -4
-  %9 = or i32 %5, %8
-  %10 = or i32 %9, %7
-  ret i32 %10
+  %2 = xor i32 %0, 3
+  ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

@@ -146,7 +146,7 @@ define { i64, i64 } @f128_roundToInt(i64 %0, i64 %1, i8 noundef zeroext %2, i1 n
 
 74:                                               ; preds = %63
   %.not101 = icmp eq i64 %64, 0
-  %spec.select110 = select i1 %.not101, i64 4611404543450677248, i64 %64
+  %spec.select110 = select i1 %.not101, i64 4611404543450677248, i64 -9223372036854775808
   br label %107
 
 75:                                               ; preds = %54

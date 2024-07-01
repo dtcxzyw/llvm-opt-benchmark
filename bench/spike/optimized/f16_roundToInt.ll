@@ -59,7 +59,7 @@ define i16 @f16_roundToInt(i16 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
 
 24:                                               ; preds = %14
   %.not55 = icmp eq i64 %15, 0
-  %spec.store.select1 = select i1 %.not55, i64 15360, i64 %15
+  %spec.store.select1 = select i1 %.not55, i64 15360, i64 32768
   br label %58
 
 25:                                               ; preds = %3

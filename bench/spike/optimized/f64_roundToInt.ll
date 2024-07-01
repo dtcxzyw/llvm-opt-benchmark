@@ -57,7 +57,7 @@ define i64 @f64_roundToInt(i64 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
 
 23:                                               ; preds = %13
   %.not54 = icmp eq i64 %14, 0
-  %spec.store.select1 = select i1 %.not54, i64 4607182418800017408, i64 %14
+  %spec.store.select1 = select i1 %.not54, i64 4607182418800017408, i64 -9223372036854775808
   br label %56
 
 24:                                               ; preds = %3
