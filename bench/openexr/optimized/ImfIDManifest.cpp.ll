@@ -792,7 +792,7 @@ lpad.i:                                           ; preds = %if.then2.i
 if.end.i:                                         ; preds = %for.body130
   %b.i.i.sroa.0.0.copyload = load i32, ptr %41, align 1
   store ptr %add.ptr.i146, ptr %data.addr, align 8
-  %conv.i = sext i32 %b.i.i.sroa.0.0.copyload to i64
+  %conv.i = zext i32 %b.i.i.sroa.0.0.copyload to i64
   %cmp.i.i.i = icmp slt i32 %b.i.i.sroa.0.0.copyload, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -816,17 +816,16 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorImSaImE
 call5.i.i.i.i2.i.i20.i.noexc:                     ; preds = %if.then.i.i.i.i.i.i
   store i64 0, ptr %call5.i.i.i.i2.i.i20.i153, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %b.i.i.sroa.0.0.copyload, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.preheader.i, label %if.end.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.preheader, label %if.end.i.i.i.i.i.i.i.i
+
+for.body.i.preheader:                             ; preds = %if.end.i.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i20.i.noexc
+  br label %for.body.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %call5.i.i.i.i2.i.i20.i.noexc
   %incdec.ptr.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i20.i153, i64 8
   %45 = add nsw i64 %mul.i.i.i.i.i.i.i, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %45, i1 false)
-  br label %for.body.preheader.i
-
-for.body.preheader.i:                             ; preds = %if.end.i.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i20.i.noexc
-  %wide.trip.count.i = zext nneg i32 %b.i.i.sroa.0.0.copyload to i64
-  br label %for.body.i
+  br label %for.body.i.preheader
 
 for.body14.lr.ph.i:                               ; preds = %invoke.cont8.i
   %add.ptr.i.i.i150 = getelementptr inbounds i8, ptr %add.ptr.i145, i64 8
@@ -835,9 +834,9 @@ for.body14.lr.ph.i:                               ; preds = %invoke.cont8.i
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %add.ptr.i145, i64 40
   br label %for.body14.i
 
-for.body.i:                                       ; preds = %invoke.cont8.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %invoke.cont8.i ]
-  %incdec.ptr.i4648.i = phi ptr [ %add.ptr.i146, %for.body.preheader.i ], [ %incdec.ptr.i.i, %invoke.cont8.i ]
+for.body.i:                                       ; preds = %for.body.i.preheader, %invoke.cont8.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %invoke.cont8.i ], [ 0, %for.body.i.preheader ]
+  %incdec.ptr.i4648.i = phi ptr [ %incdec.ptr.i.i, %invoke.cont8.i ], [ %add.ptr.i146, %for.body.i.preheader ]
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.end.i.i, %for.body.i
@@ -882,7 +881,7 @@ invoke.cont8.i:                                   ; preds = %if.end.i.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i20.i153, i64 %indvars.iv.i
   store i64 %or.i.i, ptr %add.ptr.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv.i
   br i1 %exitcond.not.i, label %for.body14.lr.ph.i, label %for.body.i, !llvm.loop !14
 
 lpad7.i:                                          ; preds = %invoke.cont.i.invoke.i
@@ -1779,7 +1778,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 _ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_Ri.exit: ; preds = %while.body.i.i.i
   %3 = load i32, ptr %b.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i)
-  %conv = sext i32 %3 to i64
+  %conv = zext i32 %3 to i64
   %cmp.i.i = icmp slt i32 %3, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
 

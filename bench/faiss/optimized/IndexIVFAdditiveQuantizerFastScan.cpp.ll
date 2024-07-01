@@ -735,7 +735,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %63, %.noexc40, %_ZN
 
 73:                                               ; preds = %68
   %74 = load i32, ptr %43, align 8
-  %75 = sext i32 %74 to i64
+  %75 = zext i32 %74 to i64
   %76 = icmp slt i32 %74, 0
   br i1 %76, label %77, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i41
 
@@ -2638,7 +2638,7 @@ define internal void @_ZNK5faiss33IndexIVFAdditiveQuantizerFastScan11compute_LUT
   %13 = alloca i32, align 4
   %14 = getelementptr inbounds i8, ptr %2, i64 8
   %15 = load i32, ptr %14, align 8
-  %16 = sext i32 %15 to i64
+  %16 = zext i32 %15 to i64
   %17 = icmp slt i32 %15, 0
   br i1 %17, label %18, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 

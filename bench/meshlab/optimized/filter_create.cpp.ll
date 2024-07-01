@@ -11549,7 +11549,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %64, %67
 118:                                              ; preds = %111
   %119 = getelementptr inbounds i8, ptr %0, i64 264
   %120 = load i32, ptr %119, align 8
-  %121 = sext i32 %120 to i64
+  %121 = zext i32 %120 to i64
   %122 = icmp slt i32 %120, 0
   br i1 %122, label %.noexc, label %_ZNSt6vectorIP8CVertexOSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 

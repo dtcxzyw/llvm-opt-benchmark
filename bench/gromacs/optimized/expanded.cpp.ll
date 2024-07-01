@@ -4094,7 +4094,7 @@ define noundef i32 @_Z24ExpandedEnsembleDynamicsP8_IO_FILERK10t_inputrecRK14gmx_
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %1, i64 720
   %24 = load i32, ptr %23, align 8
-  %25 = sext i32 %24 to i64
+  %25 = zext i32 %24 to i64
   %26 = icmp slt i32 %24, 0
   br i1 %26, label %.noexc.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
 

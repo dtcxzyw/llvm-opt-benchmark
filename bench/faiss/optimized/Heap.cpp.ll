@@ -7448,7 +7448,7 @@ define internal void @_ZN5faiss17merge_knn_resultsIlNS_4CMinIfiEEEEvmmNT0_2TIEPK
   %14 = alloca i32, align 4
   %15 = load i32, ptr %2, align 4
   %16 = shl nsw i32 %15, 1
-  %17 = sext i32 %16 to i64
+  %17 = zext i32 %16 to i64
   %18 = icmp slt i32 %15, 0
   br i1 %18, label %19, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -7913,7 +7913,7 @@ define internal void @_ZN5faiss17merge_knn_resultsIlNS_4CMaxIfiEEEEvmmNT0_2TIEPK
   %14 = alloca i32, align 4
   %15 = load i32, ptr %2, align 4
   %16 = shl nsw i32 %15, 1
-  %17 = sext i32 %16 to i64
+  %17 = zext i32 %16 to i64
   %18 = icmp slt i32 %15, 0
   br i1 %18, label %19, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -8366,7 +8366,7 @@ define internal void @_ZN5faiss17merge_knn_resultsIlNS_4CMinIiiEEEEvmmNT0_2TIEPK
   %14 = alloca i32, align 4
   %15 = load i32, ptr %2, align 4
   %16 = shl nsw i32 %15, 1
-  %17 = sext i32 %16 to i64
+  %17 = zext i32 %16 to i64
   %18 = icmp slt i32 %15, 0
   br i1 %18, label %19, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -8819,7 +8819,7 @@ define internal void @_ZN5faiss17merge_knn_resultsIlNS_4CMaxIiiEEEEvmmNT0_2TIEPK
   %14 = alloca i32, align 4
   %15 = load i32, ptr %2, align 4
   %16 = shl nsw i32 %15, 1
-  %17 = sext i32 %16 to i64
+  %17 = zext i32 %16 to i64
   %18 = icmp slt i32 %15, 0
   br i1 %18, label %19, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 

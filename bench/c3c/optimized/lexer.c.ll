@@ -2224,8 +2224,8 @@ backtrack.exit:                                   ; preds = %55, %58
   %99 = and i64 %98, 4294967295
   %100 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %99
   %101 = load i8, ptr %100, align 1
-  %102 = sext i8 %101 to i64
-  %103 = add nsw i64 %102, 4294967295
+  %102 = zext i8 %101 to i64
+  %103 = add nuw nsw i64 %102, 4294967295
   %104 = icmp slt i8 %101, 1
   br i1 %104, label %scan_hex_literal.exit.thread, label %105
 
@@ -2287,8 +2287,8 @@ scan_hex_literal.exit.thread:                     ; preds = %scan_hex_literal.ex
   %134 = and i64 %133, 4294967295
   %135 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %134
   %136 = load i8, ptr %135, align 1
-  %137 = sext i8 %136 to i64
-  %138 = add nsw i64 %137, 4294967295
+  %137 = zext i8 %136 to i64
+  %138 = add nuw nsw i64 %137, 4294967295
   %139 = icmp slt i8 %136, 1
   br i1 %139, label %scan_hex_literal.exit113.thread, label %140
 
@@ -2794,7 +2794,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %67 = and i64 %66, 4294967295
   %68 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %67
   %69 = load i8, ptr %68, align 1, !noalias !28
-  %70 = sext i8 %69 to i32
+  %70 = zext i8 %69 to i32
   %71 = icmp slt i8 %69, 1
   br i1 %71, label %272, label %72
 
@@ -2822,7 +2822,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %89 = and i64 %88, 4294967295
   %90 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %89
   %91 = load i8, ptr %90, align 1, !noalias !28
-  %92 = sext i8 %91 to i32
+  %92 = zext i8 %91 to i32
   %93 = icmp slt i8 %91, 1
   br i1 %93, label %272, label %94
 
@@ -2833,7 +2833,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %98 = and i64 %97, 4294967295
   %99 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %98
   %100 = load i8, ptr %99, align 1, !noalias !28
-  %101 = sext i8 %100 to i32
+  %101 = zext i8 %100 to i32
   %102 = icmp slt i8 %100, 1
   br i1 %102, label %272, label %103
 
@@ -2844,7 +2844,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %107 = and i64 %106, 4294967295
   %108 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %107
   %109 = load i8, ptr %108, align 1, !noalias !28
-  %110 = sext i8 %109 to i32
+  %110 = zext i8 %109 to i32
   %111 = icmp slt i8 %109, 1
   br i1 %111, label %272, label %112
 
@@ -2898,7 +2898,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %151 = and i64 %150, 4294967295
   %152 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %151
   %153 = load i8, ptr %152, align 1, !noalias !28
-  %154 = sext i8 %153 to i32
+  %154 = zext i8 %153 to i32
   %155 = icmp slt i8 %153, 1
   br i1 %155, label %272, label %156
 
@@ -2909,7 +2909,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %160 = and i64 %159, 4294967295
   %161 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %160
   %162 = load i8, ptr %161, align 1, !noalias !28
-  %163 = sext i8 %162 to i32
+  %163 = zext i8 %162 to i32
   %164 = icmp slt i8 %162, 1
   br i1 %164, label %272, label %165
 
@@ -2920,7 +2920,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %169 = and i64 %168, 4294967295
   %170 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %169
   %171 = load i8, ptr %170, align 1, !noalias !28
-  %172 = sext i8 %171 to i32
+  %172 = zext i8 %171 to i32
   %173 = icmp slt i8 %171, 1
   br i1 %173, label %272, label %174
 
@@ -2931,7 +2931,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %178 = and i64 %177, 4294967295
   %179 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %178
   %180 = load i8, ptr %179, align 1, !noalias !28
-  %181 = sext i8 %180 to i32
+  %181 = zext i8 %180 to i32
   %182 = icmp slt i8 %180, 1
   br i1 %182, label %272, label %183
 
@@ -2942,7 +2942,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %187 = and i64 %186, 4294967295
   %188 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %187
   %189 = load i8, ptr %188, align 1, !noalias !28
-  %190 = sext i8 %189 to i32
+  %190 = zext i8 %189 to i32
   %191 = icmp slt i8 %189, 1
   br i1 %191, label %272, label %192
 

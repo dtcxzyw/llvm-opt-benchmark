@@ -3397,15 +3397,15 @@ if.end:                                           ; preds = %entry
   %fC = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN6icu_7515RBBIRuleScanner8nextCharERNS0_12RBBIRuleCharE(ptr noundef nonnull align 8 dereferenceable(3192) %this, ptr noundef nonnull align 4 dereferenceable(5) %fC)
   %3 = load ptr, ptr %fRB, align 8
-  %fStatus389 = getelementptr inbounds i8, ptr %3, i64 16
-  %4 = load ptr, ptr %fStatus389, align 8
+  %fStatus388 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = load ptr, ptr %fStatus388, align 8
   %5 = load i32, ptr %4, align 4
-  %cmp.i2490 = icmp sgt i32 %5, 0
-  br i1 %cmp.i2490, label %if.end150, label %if.end9.lr.ph
+  %cmp.i2489 = icmp sgt i32 %5, 0
+  br i1 %cmp.i2489, label %if.end150, label %if.end9.lr.ph
 
 if.end9.lr.ph:                                    ; preds = %if.end
-  %fEscaped = getelementptr inbounds i8, ptr %this, i64 44
   %fRuleSets = getelementptr inbounds i8, ptr %this, i64 1152
+  %fEscaped = getelementptr inbounds i8, ptr %this, i64 44
   %fStackPtr = getelementptr inbounds i8, ptr %this, i64 320
   %fLineNum.i = getelementptr inbounds i8, ptr %this, i64 28
   %fCharNum.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -3413,38 +3413,38 @@ if.end9.lr.ph:                                    ; preds = %if.end
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.lr.ph, %if.end139
-  %state.091 = phi i16 [ 1, %if.end9.lr.ph ], [ %state.1, %if.end139 ]
-  %idxprom = zext i16 %state.091 to i64
+  %state.090 = phi i16 [ 1, %if.end9.lr.ph ], [ %state.1, %if.end139 ]
+  %idxprom = zext i16 %state.090 to i64
   %arrayidx = getelementptr inbounds [104 x %"struct.icu_75::RBBIRuleTableEl"], ptr @_ZN6icu_75L20gRuleParseStateTableE, i64 0, i64 %idxprom
-  %fCharClass73 = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %6 = load i8, ptr %fCharClass73, align 4
-  %conv1174 = zext i8 %6 to i32
-  %cmp1275 = icmp ult i8 %6, 127
+  %fCharClass72 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %6 = load i8, ptr %fCharClass72, align 4
+  %conv1173 = zext i8 %6 to i32
+  %cmp1274 = icmp ult i8 %6, 127
   %7 = load i8, ptr %fEscaped, align 4
-  %cmp1576 = icmp eq i8 %7, 0
-  %or.cond1877 = select i1 %cmp1275, i1 %cmp1576, i1 false
+  %cmp1575 = icmp eq i8 %7, 0
+  %or.cond1876 = select i1 %cmp1274, i1 %cmp1575, i1 false
   %8 = load i32, ptr %fC, align 8
-  %cmp2078 = icmp eq i32 %8, %conv1174
-  %or.cond1979 = select i1 %or.cond1877, i1 %cmp2078, i1 false
-  br i1 %or.cond1979, label %for.end, label %if.end22
+  %cmp2077 = icmp eq i32 %8, %conv1173
+  %or.cond1978 = select i1 %or.cond1876, i1 %cmp2077, i1 false
+  br i1 %or.cond1978, label %for.end, label %if.end22
 
 if.end22:                                         ; preds = %if.end9, %if.end89
-  %9 = phi i32 [ %12, %if.end89 ], [ %8, %if.end9 ]
-  %10 = phi i8 [ %13, %if.end89 ], [ %7, %if.end9 ]
-  %cmp1581 = phi i1 [ %cmp15, %if.end89 ], [ %cmp1576, %if.end9 ]
-  %11 = phi i8 [ %14, %if.end89 ], [ %6, %if.end9 ]
-  %tableEl.080 = phi ptr [ %incdec.ptr, %if.end89 ], [ %arrayidx, %if.end9 ]
+  %9 = phi i32 [ %13, %if.end89 ], [ %8, %if.end9 ]
+  %10 = phi i8 [ %14, %if.end89 ], [ %7, %if.end9 ]
+  %cmp1580 = phi i1 [ %cmp15, %if.end89 ], [ %cmp1575, %if.end9 ]
+  %11 = phi i8 [ %15, %if.end89 ], [ %6, %if.end9 ]
+  %tableEl.079 = phi ptr [ %incdec.ptr, %if.end89 ], [ %arrayidx, %if.end9 ]
   switch i8 %11, label %if.end36 [
     i8 -1, label %for.end
     i8 -2, label %land.lhs.true31
   ]
 
 land.lhs.true31:                                  ; preds = %if.end22
-  br i1 %cmp1581, label %if.end89, label %for.end
+  br i1 %cmp1580, label %if.end89, label %for.end
 
 if.end36:                                         ; preds = %if.end22
   %cmp39 = icmp ne i8 %11, -3
-  %or.cond20 = select i1 %cmp39, i1 true, i1 %cmp1581
+  %or.cond20 = select i1 %cmp39, i1 true, i1 %cmp1580
   br i1 %or.cond20, label %if.end52, label %land.lhs.true44
 
 land.lhs.true44:                                  ; preds = %if.end36
@@ -3461,15 +3461,14 @@ if.end52:                                         ; preds = %if.end36
 
 if.end61:                                         ; preds = %if.end52
   %or.cond22 = icmp slt i8 %11, -16
-  %or.cond23 = select i1 %or.cond22, i1 %cmp1581, i1 false
+  %or.cond23 = select i1 %or.cond22, i1 %cmp1580, i1 false
   %or.cond23.not = xor i1 %or.cond23, true
   %brmerge = select i1 %or.cond23.not, i1 true, i1 %cmp59
   br i1 %brmerge, label %if.end89, label %if.then78
 
 if.then78:                                        ; preds = %if.end61
-  %conv63 = zext i8 %11 to i64
-  %sub = add nuw nsw i64 %conv63, 4294967168
-  %idxprom81 = and i64 %sub, 4294967295
+  %12 = and i8 %11, 127
+  %idxprom81 = zext nneg i8 %12 to i64
   %arrayidx82 = getelementptr inbounds [10 x %"class.icu_75::UnicodeSet"], ptr %fRuleSets, i64 0, i64 %idxprom81
   %call85 = tail call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx82, i32 noundef %9)
   %tobool86.not = icmp eq i8 %call85, 0
@@ -3477,105 +3476,105 @@ if.then78:                                        ; preds = %if.end61
 
 if.then78.if.end89_crit_edge:                     ; preds = %if.then78
   %.pre = load i8, ptr %fEscaped, align 4
-  %.pre92 = load i32, ptr %fC, align 8
+  %.pre91 = load i32, ptr %fC, align 8
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then78.if.end89_crit_edge, %if.end61, %land.lhs.true44, %land.lhs.true31
-  %12 = phi i32 [ %.pre92, %if.then78.if.end89_crit_edge ], [ %9, %if.end61 ], [ %9, %land.lhs.true44 ], [ %9, %land.lhs.true31 ]
-  %13 = phi i8 [ %.pre, %if.then78.if.end89_crit_edge ], [ %10, %if.end61 ], [ %10, %land.lhs.true44 ], [ %10, %land.lhs.true31 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %tableEl.080, i64 8
-  %fCharClass = getelementptr inbounds i8, ptr %tableEl.080, i64 12
-  %14 = load i8, ptr %fCharClass, align 4
-  %conv11 = zext i8 %14 to i32
-  %cmp12 = icmp ult i8 %14, 127
-  %cmp15 = icmp eq i8 %13, 0
+  %13 = phi i32 [ %.pre91, %if.then78.if.end89_crit_edge ], [ %9, %if.end61 ], [ %9, %land.lhs.true44 ], [ %9, %land.lhs.true31 ]
+  %14 = phi i8 [ %.pre, %if.then78.if.end89_crit_edge ], [ %10, %if.end61 ], [ %10, %land.lhs.true44 ], [ %10, %land.lhs.true31 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %tableEl.079, i64 8
+  %fCharClass = getelementptr inbounds i8, ptr %tableEl.079, i64 12
+  %15 = load i8, ptr %fCharClass, align 4
+  %conv11 = zext i8 %15 to i32
+  %cmp12 = icmp ult i8 %15, 127
+  %cmp15 = icmp eq i8 %14, 0
   %or.cond18 = select i1 %cmp12, i1 %cmp15, i1 false
-  %cmp20 = icmp eq i32 %12, %conv11
+  %cmp20 = icmp eq i32 %13, %conv11
   %or.cond19 = select i1 %or.cond18, i1 %cmp20, i1 false
   br i1 %or.cond19, label %for.end, label %if.end22, !llvm.loop !11
 
 for.end:                                          ; preds = %land.lhs.true31, %if.then78, %if.end89, %if.end22, %land.lhs.true44, %land.lhs.true44, %if.end52, %if.end9
-  %tableEl.0.lcssa = phi ptr [ %arrayidx, %if.end9 ], [ %tableEl.080, %if.end52 ], [ %tableEl.080, %land.lhs.true44 ], [ %tableEl.080, %land.lhs.true44 ], [ %tableEl.080, %if.end22 ], [ %incdec.ptr, %if.end89 ], [ %tableEl.080, %if.then78 ], [ %tableEl.080, %land.lhs.true31 ]
-  %15 = load i32, ptr %tableEl.0.lcssa, align 4
-  %call99 = tail call noundef signext i8 @_ZN6icu_7515RBBIRuleScanner14doParseActionsEi(ptr noundef nonnull align 8 dereferenceable(3192) %this, i32 noundef %15)
+  %tableEl.0.lcssa = phi ptr [ %arrayidx, %if.end9 ], [ %tableEl.079, %if.end52 ], [ %tableEl.079, %land.lhs.true44 ], [ %tableEl.079, %land.lhs.true44 ], [ %tableEl.079, %if.end22 ], [ %incdec.ptr, %if.end89 ], [ %tableEl.079, %if.then78 ], [ %tableEl.079, %land.lhs.true31 ]
+  %16 = load i32, ptr %tableEl.0.lcssa, align 4
+  %call99 = tail call noundef signext i8 @_ZN6icu_7515RBBIRuleScanner14doParseActionsEi(ptr noundef nonnull align 8 dereferenceable(3192) %this, i32 noundef %16)
   %cmp101 = icmp eq i8 %call99, 0
   br i1 %cmp101, label %for.end.for.end140.loopexit_crit_edge, label %if.end103
 
 for.end.for.end140.loopexit_crit_edge:            ; preds = %for.end
-  %.pre93.pre = load ptr, ptr %fRB, align 8
-  %fStatus142.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %.pre93.pre, i64 16
-  %.pre94.pre = load ptr, ptr %fStatus142.phi.trans.insert.phi.trans.insert, align 8
-  %.pre95.pre = load i32, ptr %.pre94.pre, align 4
+  %.pre92.pre = load ptr, ptr %fRB, align 8
+  %fStatus142.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %.pre92.pre, i64 16
+  %.pre93.pre = load ptr, ptr %fStatus142.phi.trans.insert.phi.trans.insert, align 8
+  %.pre94.pre = load i32, ptr %.pre93.pre, align 4
   br label %for.end140
 
 if.end103:                                        ; preds = %for.end
   %fPushState = getelementptr inbounds i8, ptr %tableEl.0.lcssa, i64 6
-  %16 = load i8, ptr %fPushState, align 2
-  %cmp105.not = icmp eq i8 %16, 0
+  %17 = load i8, ptr %fPushState, align 2
+  %cmp105.not = icmp eq i8 %17, 0
   br i1 %cmp105.not, label %if.end117, label %if.then106
 
 if.then106:                                       ; preds = %if.end103
-  %17 = load i32, ptr %fStackPtr, align 8
-  %inc = add nsw i32 %17, 1
+  %18 = load i32, ptr %fStackPtr, align 8
+  %inc = add nsw i32 %18, 1
   store i32 %inc, ptr %fStackPtr, align 8
-  %cmp108 = icmp sgt i32 %17, 98
+  %cmp108 = icmp sgt i32 %18, 98
   br i1 %cmp108, label %if.then109, label %if.end111
 
 if.then109:                                       ; preds = %if.then106
-  %18 = load ptr, ptr %fRB, align 8
-  %fStatus.i = getelementptr inbounds i8, ptr %18, i64 16
-  %19 = load ptr, ptr %fStatus.i, align 8
-  %20 = load i32, ptr %19, align 4
-  %cmp.i.i = icmp sgt i32 %20, 0
+  %19 = load ptr, ptr %fRB, align 8
+  %fStatus.i = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = load ptr, ptr %fStatus.i, align 8
+  %21 = load i32, ptr %20, align 4
+  %cmp.i.i = icmp sgt i32 %21, 0
   br i1 %cmp.i.i, label %_ZN6icu_7515RBBIRuleScanner5errorE10UErrorCode.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then109
-  store i32 66048, ptr %19, align 4
-  %21 = load ptr, ptr %fRB, align 8
-  %fParseError.i = getelementptr inbounds i8, ptr %21, i64 24
-  %22 = load ptr, ptr %fParseError.i, align 8
-  %tobool5.not.i = icmp eq ptr %22, null
+  store i32 66048, ptr %20, align 4
+  %22 = load ptr, ptr %fRB, align 8
+  %fParseError.i = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = load ptr, ptr %fParseError.i, align 8
+  %tobool5.not.i = icmp eq ptr %23, null
   br i1 %tobool5.not.i, label %_ZN6icu_7515RBBIRuleScanner5errorE10UErrorCode.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i
-  %23 = load i32, ptr %fLineNum.i, align 4
-  store i32 %23, ptr %22, align 4
-  %24 = load i32, ptr %fCharNum.i, align 8
-  %25 = load ptr, ptr %fRB, align 8
-  %fParseError10.i = getelementptr inbounds i8, ptr %25, i64 24
-  %26 = load ptr, ptr %fParseError10.i, align 8
-  %offset.i = getelementptr inbounds i8, ptr %26, i64 4
-  store i32 %24, ptr %offset.i, align 4
-  %27 = load ptr, ptr %fRB, align 8
-  %fParseError12.i = getelementptr inbounds i8, ptr %27, i64 24
-  %28 = load ptr, ptr %fParseError12.i, align 8
-  %preContext.i = getelementptr inbounds i8, ptr %28, i64 8
+  %24 = load i32, ptr %fLineNum.i, align 4
+  store i32 %24, ptr %23, align 4
+  %25 = load i32, ptr %fCharNum.i, align 8
+  %26 = load ptr, ptr %fRB, align 8
+  %fParseError10.i = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = load ptr, ptr %fParseError10.i, align 8
+  %offset.i = getelementptr inbounds i8, ptr %27, i64 4
+  store i32 %25, ptr %offset.i, align 4
+  %28 = load ptr, ptr %fRB, align 8
+  %fParseError12.i = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = load ptr, ptr %fParseError12.i, align 8
+  %preContext.i = getelementptr inbounds i8, ptr %29, i64 8
   store i16 0, ptr %preContext.i, align 4
-  %29 = load ptr, ptr %fRB, align 8
-  %fParseError14.i = getelementptr inbounds i8, ptr %29, i64 24
-  %30 = load ptr, ptr %fParseError14.i, align 8
-  %postContext.i = getelementptr inbounds i8, ptr %30, i64 40
+  %30 = load ptr, ptr %fRB, align 8
+  %fParseError14.i = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = load ptr, ptr %fParseError14.i, align 8
+  %postContext.i = getelementptr inbounds i8, ptr %31, i64 40
   store i16 0, ptr %postContext.i, align 4
   br label %_ZN6icu_7515RBBIRuleScanner5errorE10UErrorCode.exit
 
 _ZN6icu_7515RBBIRuleScanner5errorE10UErrorCode.exit: ; preds = %if.then109, %if.then.i, %if.then6.i
-  %31 = load i32, ptr %fStackPtr, align 8
-  %dec = add nsw i32 %31, -1
+  %32 = load i32, ptr %fStackPtr, align 8
+  %dec = add nsw i32 %32, -1
   store i32 %dec, ptr %fStackPtr, align 8
   br label %if.end111
 
 if.end111:                                        ; preds = %_ZN6icu_7515RBBIRuleScanner5errorE10UErrorCode.exit, %if.then106
-  %32 = phi i32 [ %dec, %_ZN6icu_7515RBBIRuleScanner5errorE10UErrorCode.exit ], [ %inc, %if.then106 ]
-  %conv113 = zext i8 %16 to i16
-  %idxprom115 = sext i32 %32 to i64
+  %33 = phi i32 [ %dec, %_ZN6icu_7515RBBIRuleScanner5errorE10UErrorCode.exit ], [ %inc, %if.then106 ]
+  %conv113 = zext i8 %17 to i16
+  %idxprom115 = sext i32 %33 to i64
   %arrayidx116 = getelementptr inbounds [100 x i16], ptr %fStack, i64 0, i64 %idxprom115
   store i16 %conv113, ptr %arrayidx116, align 2
   br label %if.end117
 
 if.end117:                                        ; preds = %if.end111, %if.end103
   %fNextChar = getelementptr inbounds i8, ptr %tableEl.0.lcssa, i64 7
-  %33 = load i8, ptr %fNextChar, align 1
-  %tobool118.not = icmp eq i8 %33, 0
+  %34 = load i8, ptr %fNextChar, align 1
+  %tobool118.not = icmp eq i8 %34, 0
   br i1 %tobool118.not, label %if.end121, label %if.then119
 
 if.then119:                                       ; preds = %if.end117
@@ -3584,119 +3583,119 @@ if.then119:                                       ; preds = %if.end117
 
 if.end121:                                        ; preds = %if.then119, %if.end117
   %fNextState = getelementptr inbounds i8, ptr %tableEl.0.lcssa, i64 5
-  %34 = load i8, ptr %fNextState, align 1
-  %cmp123.not = icmp eq i8 %34, -1
+  %35 = load i8, ptr %fNextState, align 1
+  %cmp123.not = icmp eq i8 %35, -1
   br i1 %cmp123.not, label %if.else, label %if.then124
 
 if.then124:                                       ; preds = %if.end121
-  %conv126 = zext i8 %34 to i16
+  %conv126 = zext i8 %35 to i16
   br label %if.end139
 
 if.else:                                          ; preds = %if.end121
-  %35 = load i32, ptr %fStackPtr, align 8
-  %idxprom129 = sext i32 %35 to i64
+  %36 = load i32, ptr %fStackPtr, align 8
+  %idxprom129 = sext i32 %36 to i64
   %arrayidx130 = getelementptr inbounds [100 x i16], ptr %fStack, i64 0, i64 %idxprom129
-  %36 = load i16, ptr %arrayidx130, align 2
-  %dec132 = add nsw i32 %35, -1
+  %37 = load i16, ptr %arrayidx130, align 2
+  %dec132 = add nsw i32 %36, -1
   store i32 %dec132, ptr %fStackPtr, align 8
-  %cmp134 = icmp slt i32 %35, 1
+  %cmp134 = icmp slt i32 %36, 1
   br i1 %cmp134, label %if.then135, label %if.end139
 
 if.then135:                                       ; preds = %if.else
-  %37 = load ptr, ptr %fRB, align 8
-  %fStatus.i27 = getelementptr inbounds i8, ptr %37, i64 16
-  %38 = load ptr, ptr %fStatus.i27, align 8
-  %39 = load i32, ptr %38, align 4
-  %cmp.i.i28 = icmp sgt i32 %39, 0
+  %38 = load ptr, ptr %fRB, align 8
+  %fStatus.i27 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = load ptr, ptr %fStatus.i27, align 8
+  %40 = load i32, ptr %39, align 4
+  %cmp.i.i28 = icmp sgt i32 %40, 0
   br i1 %cmp.i.i28, label %_ZN6icu_7515RBBIRuleScanner5errorE10UErrorCode.exit41, label %if.then.i29
 
 if.then.i29:                                      ; preds = %if.then135
-  store i32 66048, ptr %38, align 4
-  %40 = load ptr, ptr %fRB, align 8
-  %fParseError.i30 = getelementptr inbounds i8, ptr %40, i64 24
-  %41 = load ptr, ptr %fParseError.i30, align 8
-  %tobool5.not.i31 = icmp eq ptr %41, null
+  store i32 66048, ptr %39, align 4
+  %41 = load ptr, ptr %fRB, align 8
+  %fParseError.i30 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = load ptr, ptr %fParseError.i30, align 8
+  %tobool5.not.i31 = icmp eq ptr %42, null
   br i1 %tobool5.not.i31, label %_ZN6icu_7515RBBIRuleScanner5errorE10UErrorCode.exit41, label %if.then6.i32
 
 if.then6.i32:                                     ; preds = %if.then.i29
-  %42 = load i32, ptr %fLineNum.i, align 4
-  store i32 %42, ptr %41, align 4
-  %43 = load i32, ptr %fCharNum.i, align 8
-  %44 = load ptr, ptr %fRB, align 8
-  %fParseError10.i35 = getelementptr inbounds i8, ptr %44, i64 24
-  %45 = load ptr, ptr %fParseError10.i35, align 8
-  %offset.i36 = getelementptr inbounds i8, ptr %45, i64 4
-  store i32 %43, ptr %offset.i36, align 4
-  %46 = load ptr, ptr %fRB, align 8
-  %fParseError12.i37 = getelementptr inbounds i8, ptr %46, i64 24
-  %47 = load ptr, ptr %fParseError12.i37, align 8
-  %preContext.i38 = getelementptr inbounds i8, ptr %47, i64 8
+  %43 = load i32, ptr %fLineNum.i, align 4
+  store i32 %43, ptr %42, align 4
+  %44 = load i32, ptr %fCharNum.i, align 8
+  %45 = load ptr, ptr %fRB, align 8
+  %fParseError10.i35 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = load ptr, ptr %fParseError10.i35, align 8
+  %offset.i36 = getelementptr inbounds i8, ptr %46, i64 4
+  store i32 %44, ptr %offset.i36, align 4
+  %47 = load ptr, ptr %fRB, align 8
+  %fParseError12.i37 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = load ptr, ptr %fParseError12.i37, align 8
+  %preContext.i38 = getelementptr inbounds i8, ptr %48, i64 8
   store i16 0, ptr %preContext.i38, align 4
-  %48 = load ptr, ptr %fRB, align 8
-  %fParseError14.i39 = getelementptr inbounds i8, ptr %48, i64 24
-  %49 = load ptr, ptr %fParseError14.i39, align 8
-  %postContext.i40 = getelementptr inbounds i8, ptr %49, i64 40
+  %49 = load ptr, ptr %fRB, align 8
+  %fParseError14.i39 = getelementptr inbounds i8, ptr %49, i64 24
+  %50 = load ptr, ptr %fParseError14.i39, align 8
+  %postContext.i40 = getelementptr inbounds i8, ptr %50, i64 40
   store i16 0, ptr %postContext.i40, align 4
   br label %_ZN6icu_7515RBBIRuleScanner5errorE10UErrorCode.exit41
 
 _ZN6icu_7515RBBIRuleScanner5errorE10UErrorCode.exit41: ; preds = %if.then135, %if.then.i29, %if.then6.i32
-  %50 = load i32, ptr %fStackPtr, align 8
-  %inc137 = add nsw i32 %50, 1
+  %51 = load i32, ptr %fStackPtr, align 8
+  %inc137 = add nsw i32 %51, 1
   store i32 %inc137, ptr %fStackPtr, align 8
   br label %if.end139
 
 if.end139:                                        ; preds = %if.else, %_ZN6icu_7515RBBIRuleScanner5errorE10UErrorCode.exit41, %if.then124
-  %state.1 = phi i16 [ %conv126, %if.then124 ], [ %36, %_ZN6icu_7515RBBIRuleScanner5errorE10UErrorCode.exit41 ], [ %36, %if.else ]
-  %51 = load ptr, ptr %fRB, align 8
-  %fStatus3 = getelementptr inbounds i8, ptr %51, i64 16
-  %52 = load ptr, ptr %fStatus3, align 8
-  %53 = load i32, ptr %52, align 4
-  %cmp.i24 = icmp sgt i32 %53, 0
+  %state.1 = phi i16 [ %conv126, %if.then124 ], [ %37, %_ZN6icu_7515RBBIRuleScanner5errorE10UErrorCode.exit41 ], [ %37, %if.else ]
+  %52 = load ptr, ptr %fRB, align 8
+  %fStatus3 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = load ptr, ptr %fStatus3, align 8
+  %54 = load i32, ptr %53, align 4
+  %cmp.i24 = icmp sgt i32 %54, 0
   %cmp = icmp eq i16 %state.1, 0
   %or.cond = select i1 %cmp.i24, i1 true, i1 %cmp
   br i1 %or.cond, label %for.end140, label %if.end9, !llvm.loop !12
 
 for.end140:                                       ; preds = %if.end139, %for.end.for.end140.loopexit_crit_edge
-  %.pre95 = phi i32 [ %.pre95.pre, %for.end.for.end140.loopexit_crit_edge ], [ %53, %if.end139 ]
-  %.pre94 = phi ptr [ %.pre94.pre, %for.end.for.end140.loopexit_crit_edge ], [ %52, %if.end139 ]
-  %.pre93 = phi ptr [ %.pre93.pre, %for.end.for.end140.loopexit_crit_edge ], [ %51, %if.end139 ]
-  %54 = icmp sgt i32 %.pre95, 0
-  br i1 %54, label %if.end150, label %if.end146
+  %.pre94 = phi i32 [ %.pre94.pre, %for.end.for.end140.loopexit_crit_edge ], [ %54, %if.end139 ]
+  %.pre93 = phi ptr [ %.pre93.pre, %for.end.for.end140.loopexit_crit_edge ], [ %53, %if.end139 ]
+  %.pre92 = phi ptr [ %.pre92.pre, %for.end.for.end140.loopexit_crit_edge ], [ %52, %if.end139 ]
+  %55 = icmp sgt i32 %.pre94, 0
+  br i1 %55, label %if.end150, label %if.end146
 
 if.end146:                                        ; preds = %for.end140
-  %fForwardTree = getelementptr inbounds i8, ptr %.pre93, i64 112
-  %55 = load ptr, ptr %fForwardTree, align 8
-  %cmp148.not = icmp eq ptr %55, null
+  %fForwardTree = getelementptr inbounds i8, ptr %.pre92, i64 112
+  %56 = load ptr, ptr %fForwardTree, align 8
+  %cmp148.not = icmp eq ptr %56, null
   br i1 %cmp148.not, label %if.then.i47, label %if.end150
 
 if.then.i47:                                      ; preds = %if.end146
-  store i32 66051, ptr %.pre94, align 4
-  %56 = load ptr, ptr %fRB, align 8
-  %fParseError.i48 = getelementptr inbounds i8, ptr %56, i64 24
-  %57 = load ptr, ptr %fParseError.i48, align 8
-  %tobool5.not.i49 = icmp eq ptr %57, null
+  store i32 66051, ptr %.pre93, align 4
+  %57 = load ptr, ptr %fRB, align 8
+  %fParseError.i48 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = load ptr, ptr %fParseError.i48, align 8
+  %tobool5.not.i49 = icmp eq ptr %58, null
   br i1 %tobool5.not.i49, label %if.end150, label %if.then6.i50
 
 if.then6.i50:                                     ; preds = %if.then.i47
   %fLineNum.i51 = getelementptr inbounds i8, ptr %this, i64 28
-  %58 = load i32, ptr %fLineNum.i51, align 4
-  store i32 %58, ptr %57, align 4
+  %59 = load i32, ptr %fLineNum.i51, align 4
+  store i32 %59, ptr %58, align 4
   %fCharNum.i52 = getelementptr inbounds i8, ptr %this, i64 32
-  %59 = load i32, ptr %fCharNum.i52, align 8
-  %60 = load ptr, ptr %fRB, align 8
-  %fParseError10.i53 = getelementptr inbounds i8, ptr %60, i64 24
-  %61 = load ptr, ptr %fParseError10.i53, align 8
-  %offset.i54 = getelementptr inbounds i8, ptr %61, i64 4
-  store i32 %59, ptr %offset.i54, align 4
-  %62 = load ptr, ptr %fRB, align 8
-  %fParseError12.i55 = getelementptr inbounds i8, ptr %62, i64 24
-  %63 = load ptr, ptr %fParseError12.i55, align 8
-  %preContext.i56 = getelementptr inbounds i8, ptr %63, i64 8
+  %60 = load i32, ptr %fCharNum.i52, align 8
+  %61 = load ptr, ptr %fRB, align 8
+  %fParseError10.i53 = getelementptr inbounds i8, ptr %61, i64 24
+  %62 = load ptr, ptr %fParseError10.i53, align 8
+  %offset.i54 = getelementptr inbounds i8, ptr %62, i64 4
+  store i32 %60, ptr %offset.i54, align 4
+  %63 = load ptr, ptr %fRB, align 8
+  %fParseError12.i55 = getelementptr inbounds i8, ptr %63, i64 24
+  %64 = load ptr, ptr %fParseError12.i55, align 8
+  %preContext.i56 = getelementptr inbounds i8, ptr %64, i64 8
   store i16 0, ptr %preContext.i56, align 4
-  %64 = load ptr, ptr %fRB, align 8
-  %fParseError14.i57 = getelementptr inbounds i8, ptr %64, i64 24
-  %65 = load ptr, ptr %fParseError14.i57, align 8
-  %postContext.i58 = getelementptr inbounds i8, ptr %65, i64 40
+  %65 = load ptr, ptr %fRB, align 8
+  %fParseError14.i57 = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = load ptr, ptr %fParseError14.i57, align 8
+  %postContext.i58 = getelementptr inbounds i8, ptr %66, i64 40
   store i16 0, ptr %postContext.i58, align 4
   br label %if.end150
 

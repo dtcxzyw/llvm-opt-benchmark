@@ -90181,7 +90181,7 @@ define linkonce_odr void @_ZN3vcg3tri21VoronoiVolumeSamplingI6CMeshOE30Barycentr
 18:                                               ; preds = %_ZNSt6vectorISt4pairIiN3vcg6Point3IfEEESaIS4_EED2Ev.exit, %.lr.ph108
   %.023106 = phi i32 [ 0, %.lr.ph108 ], [ %338, %_ZNSt6vectorISt4pairIiN3vcg6Point3IfEEESaIS4_EED2Ev.exit ]
   %19 = load i32, ptr %7, align 8
-  %20 = sext i32 %19 to i64
+  %20 = zext i32 %19 to i64
   %21 = icmp slt i32 %19, 0
   br i1 %21, label %.noexc, label %_ZNSt6vectorISt4pairIiN3vcg6Point3IfEEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
 

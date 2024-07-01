@@ -3823,7 +3823,7 @@ if.then55:                                        ; preds = %if.end53
 
 invoke.cont57:                                    ; preds = %if.then55
   %mul = mul nsw i32 %spec.store.select3, 3
-  %conv = sext i32 %mul to i64
+  %conv = zext i32 %mul to i64
   %cmp.i.not = icmp eq i32 %spec.store.select3, 0
   br i1 %cmp.i.not, label %invoke.cont58, label %if.else.i315
 
@@ -3978,7 +3978,7 @@ if.then74:                                        ; preds = %if.end53, %if.end71
   %mul75 = mul nsw i32 %spec.store.select, %spec.store.select
   %mul76 = mul nsw i32 %mul75, %spec.store.select
   %mul77 = mul nsw i32 %mul76, 3
-  %conv78 = sext i32 %mul77 to i64
+  %conv78 = zext i32 %mul77 to i64
   %cmp.i122.not = icmp eq i32 %mul76, 0
   br i1 %cmp.i122.not, label %invoke.cont80, label %if.else.i344
 
@@ -4228,7 +4228,7 @@ if.then103:                                       ; preds = %invoke.cont39
   store float 0.000000e+00, ptr %fromInStart, align 4
   store float 1.000000e+00, ptr %fromInEnd, align 4
   %mul104 = mul nsw i32 %spec.store.select1, 3
-  %conv105 = sext i32 %mul104 to i64
+  %conv105 = zext i32 %mul104 to i64
   %cmp.i237.not = icmp eq i32 %spec.store.select1, 0
   br i1 %cmp.i237.not, label %invoke.cont107, label %if.else.i390
 

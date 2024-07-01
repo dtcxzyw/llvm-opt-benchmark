@@ -72,7 +72,7 @@ if.then28:                                        ; preds = %land.lhs.true20
   %shl33 = and i32 %and32, 258048
   %or = or disjoint i32 %shl33, %shl30
   %shl35 = shl nuw nsw i32 %conv15, 6
-  %or36 = or i32 %shl35, %or
+  %or36 = or disjoint i32 %shl35, %or
   %or38 = or disjoint i32 %or36, %conv26
   %cmp40 = icmp sgt i8 %strict, 0
   %cmp42 = icmp ugt i32 %or38, 64975
@@ -186,7 +186,7 @@ if.then132:                                       ; preds = %land.lhs.true124
   store i32 %add, ptr %pi, align 4
   %shl133 = shl nuw nsw i32 %and55, 12
   %shl135 = shl nuw nsw i32 %conv114, 6
-  %or136 = or i32 %shl135, %shl133
+  %or136 = or disjoint i32 %shl135, %shl133
   %or138 = or disjoint i32 %or136, %conv130
   br label %return
 

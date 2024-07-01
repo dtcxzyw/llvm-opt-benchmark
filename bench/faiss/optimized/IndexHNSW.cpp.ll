@@ -5634,7 +5634,7 @@ define internal void @_ZN5faiss9IndexHNSW26init_level_0_from_knngraphEiPKfPKl.om
 _ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit: ; preds = %42, %46
   %.0.i = phi ptr [ %37, %42 ], [ %50, %46 ]
   %51 = load i32, ptr %26, align 8
-  %52 = sext i32 %51 to i64
+  %52 = zext i32 %51 to i64
   %53 = icmp slt i32 %51, 0
   br i1 %53, label %.invoke, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -6167,7 +6167,7 @@ _ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit: ; preds = 
   %47 = load ptr, ptr %28, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8
-  %50 = sext i32 %49 to i64
+  %50 = zext i32 %49 to i64
   %51 = icmp slt i32 %49, 0
   br i1 %51, label %.noexc.i.invoke, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 

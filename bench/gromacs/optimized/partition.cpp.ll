@@ -7688,7 +7688,7 @@ _ZL17add_dd_statisticsP12gmx_domdec_t.exit:       ; preds = %_ZNK12DDAtomRanges5
   br i1 %3344, label %3345, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
 3345:                                             ; preds = %3336
-  %3346 = sext i32 %3338 to i64
+  %3346 = zext i32 %3338 to i64
   %3347 = icmp slt i32 %3338, 0
   br i1 %3347, label %.noexc.i606, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -7765,7 +7765,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread.i:      ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %._crit_edge.i601, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread.i, %3336
-  %3376 = sext i32 %3341 to i64
+  %3376 = zext i32 %3341 to i64
   %3377 = icmp slt i32 %3341, 0
   br i1 %3377, label %.noexc86.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i81.i
 

@@ -4859,7 +4859,7 @@ _ZL10nint_ftypeP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEi.exit253.i: 
 
 1257:                                             ; preds = %1256
   %1258 = load i32, ptr %132, align 8
-  %1259 = sext i32 %1258 to i64
+  %1259 = zext i32 %1258 to i64
   %1260 = icmp slt i32 %1258, 0
   br i1 %1260, label %1261, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -7339,7 +7339,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i502:     ; preds = %2216, %2213
   br i1 %2239, label %_ZL20checkForUnboundAtomsPK13gmx_moltype_tbP14WarningHandlerRKN3gmx8MDLoggerE.exit.i, label %2240
 
 2240:                                             ; preds = %2236
-  %2241 = sext i32 %2238 to i64
+  %2241 = zext i32 %2238 to i64
   %2242 = icmp slt i32 %2238, 0
   br i1 %2242, label %.invoke1097, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 

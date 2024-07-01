@@ -379,7 +379,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit246:       ; preds = %70, %73
   %141 = load i32, ptr %140, align 4
   %.fr497 = freeze i32 %141
   %142 = mul nsw i32 %139, %.fr497
-  %143 = sext i32 %142 to i64
+  %143 = zext i32 %142 to i64
   %144 = icmp slt i32 %142, 0
   br i1 %144, label %145, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 

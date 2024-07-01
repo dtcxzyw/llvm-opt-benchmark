@@ -14733,7 +14733,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19QwpWorker5solveEb(ptr nocapture n
   %22 = trunc i64 %21 to i32
   %23 = add nsw i32 %22, 1
   %24 = mul nsw i32 %23, %22
-  %25 = sext i32 %24 to i64
+  %25 = zext i32 %24 to i64
   %26 = icmp slt i32 %24, 0
   br i1 %26, label %.noexc, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
 

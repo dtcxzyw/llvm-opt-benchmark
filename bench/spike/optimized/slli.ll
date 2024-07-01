@@ -408,7 +408,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32e_slliP11pro
 31:                                               ; preds = %30
   %32 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %13
   %33 = load i64, ptr %32, align 8
-  %34 = and i64 %4, 63
+  %34 = and i64 %4, 31
   %35 = shl i64 %33, %34
   %36 = shl i64 %35, 32
   %37 = ashr exact i64 %36, 32
@@ -521,7 +521,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32e_slliP11p
   %21 = getelementptr inbounds i8, ptr %0, i64 120
   %22 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %13
   %23 = load i64, ptr %22, align 8
-  %24 = and i64 %4, 63
+  %24 = and i64 %4, 31
   %25 = shl i64 %23, %24
   %26 = shl i64 %25, 32
   %27 = ashr exact i64 %26, 32

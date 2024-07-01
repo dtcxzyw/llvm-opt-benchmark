@@ -323,7 +323,7 @@ define hidden void @_ZNK8rawspeed20SonyArw2Decompressor13decompressRowEi(ptr noc
   %35 = zext i32 %33 to i64
   %36 = zext i32 %34 to i64
   %37 = add nuw nsw i64 %35, %36
-  %38 = and i64 %30, 4294967295
+  %38 = and i64 %30, 2147483647
   %39 = icmp ugt i64 %37, %38
   br i1 %39, label %40, label %41
 

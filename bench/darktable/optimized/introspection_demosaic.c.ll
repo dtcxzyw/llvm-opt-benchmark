@@ -22406,7 +22406,7 @@ define internal fastcc void @demosaic_ppg(ptr nocapture noundef %0, ptr noundef 
   %18 = getelementptr inbounds i8, ptr %2, i64 4
   %19 = getelementptr inbounds i8, ptr %3, i64 12
   %20 = getelementptr inbounds i8, ptr %3, i64 8
-  %21 = sext i32 %15 to i64
+  %21 = zext i32 %15 to i64
   br i1 %16, label %22, label %.loopexit209
 
 22:                                               ; preds = %13
@@ -22939,7 +22939,7 @@ define internal fastcc void @demosaic_ppg(ptr nocapture noundef %0, ptr noundef 
   %417 = lshr i32 %4, %416
   %418 = and i32 %417, 3
   %419 = getelementptr float, ptr %1, i64 %413
-  %420 = add nsw i64 %41, %413
+  %420 = add i64 %41, %413
   %421 = shl i64 %420, 2
   %422 = icmp eq i32 %418, 0
   br i1 %422, label %160, label %154

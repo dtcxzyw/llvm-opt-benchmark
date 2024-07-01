@@ -850,7 +850,7 @@ define void @_ZNK5faiss23IndexIVFScalarQuantizer23reconstruct_from_offsetEllPf(p
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = sext i32 %16 to i64
+  %17 = zext i32 %16 to i64
   %18 = icmp slt i32 %16, 0
   br i1 %18, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -1658,7 +1658,7 @@ define internal void @_ZNK5faiss23IndexIVFScalarQuantizer14encode_vectorsElPKfPK
   %13 = alloca i32, align 4
   %14 = getelementptr inbounds i8, ptr %2, i64 8
   %15 = load i32, ptr %14, align 8
-  %16 = sext i32 %15 to i64
+  %16 = zext i32 %15 to i64
   %17 = icmp slt i32 %15, 0
   br i1 %17, label %18, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -1844,7 +1844,7 @@ define internal void @_ZNK5faiss23IndexIVFScalarQuantizer9sa_decodeElPKhPf.omp_o
   %12 = alloca i32, align 4
   %13 = getelementptr inbounds i8, ptr %2, i64 8
   %14 = load i32, ptr %13, align 8
-  %15 = sext i32 %14 to i64
+  %15 = zext i32 %14 to i64
   %16 = icmp slt i32 %14, 0
   br i1 %16, label %17, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -2007,7 +2007,7 @@ declare void @_ZN5faiss12DirectMapAddC1ERNS_9DirectMapEmPKl(ptr noundef nonnull 
 define internal void @_ZN5faiss23IndexIVFScalarQuantizer8add_coreElPKfPKlS4_Pv.omp_outlined(ptr noalias nocapture readnone %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(64) %9) #9 personality ptr @__gxx_personality_v0 {
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = sext i32 %12 to i64
+  %13 = zext i32 %12 to i64
   %14 = icmp slt i32 %12, 0
   br i1 %14, label %.invoke54, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 

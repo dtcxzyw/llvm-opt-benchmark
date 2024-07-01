@@ -55326,7 +55326,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
 
 .split740.us:                                     ; preds = %.split.us, %.split
   %.us-phi747 = phi i32 [ %111, %.split ], [ %100, %.split.us ]
-  %170 = sext i8 %98 to i32
+  %170 = zext i8 %98 to i32
   %171 = icmp eq i8 %98, 0
   %172 = load i16, ptr %10, align 2
   br i1 %171, label %173, label %176, !prof !226
@@ -55374,7 +55374,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   %199 = shl nuw nsw i32 %198, 16
   %200 = shl nuw nsw i32 %183, 8
   %201 = or disjoint i32 %199, %200
-  %202 = or i32 %201, %170
+  %202 = or disjoint i32 %201, %170
   switch i32 %202, label %260 [
     i32 196949, label %203
     i32 196929, label %206

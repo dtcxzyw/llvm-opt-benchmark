@@ -276,7 +276,7 @@ _ZL19is_overlapped_wideniiii.exit:                ; preds = %._crit_edge.i, %90,
 _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overlapped_wideniiii.exit, %78
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
-  %108 = or i64 %107, %26
+  %108 = or disjoint i64 %107, %26
   %109 = icmp ult i64 %25, 65
   br i1 %109, label %115, label %110
 
@@ -770,7 +770,7 @@ _ZL19is_overlapped_wideniiii.exit:                ; preds = %._crit_edge.i, %90,
 _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overlapped_wideniiii.exit, %78
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
-  %108 = or i64 %107, %26
+  %108 = or disjoint i64 %107, %26
   %109 = icmp ult i64 %25, 65
   br i1 %109, label %115, label %110
 
@@ -1233,7 +1233,7 @@ _ZL19is_overlapped_wideniiii.exit:                ; preds = %._crit_edge.i, %90,
 _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overlapped_wideniiii.exit, %78
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
-  %108 = or i64 %107, %26
+  %108 = or disjoint i64 %107, %26
   %109 = icmp ult i64 %25, 65
   br i1 %109, label %115, label %110
 
@@ -1698,7 +1698,7 @@ _ZL19is_overlapped_wideniiii.exit:                ; preds = %._crit_edge.i, %90,
 _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overlapped_wideniiii.exit, %78
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
-  %108 = or i64 %107, %26
+  %108 = or disjoint i64 %107, %26
   %109 = icmp ult i64 %25, 65
   br i1 %109, label %115, label %110
 
@@ -2161,7 +2161,7 @@ _ZL19is_overlapped_wideniiii.exit:                ; preds = %._crit_edge.i, %90,
 _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overlapped_wideniiii.exit, %78
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
-  %108 = or i64 %107, %26
+  %108 = or disjoint i64 %107, %26
   %109 = icmp ult i64 %25, 65
   br i1 %109, label %115, label %110
 
@@ -2626,7 +2626,7 @@ _ZL19is_overlapped_wideniiii.exit:                ; preds = %._crit_edge.i, %90,
 _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overlapped_wideniiii.exit, %78
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
-  %108 = or i64 %107, %26
+  %108 = or disjoint i64 %107, %26
   %109 = icmp ult i64 %25, 65
   br i1 %109, label %115, label %110
 
@@ -3089,7 +3089,7 @@ _ZL19is_overlapped_wideniiii.exit:                ; preds = %._crit_edge.i, %90,
 _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overlapped_wideniiii.exit, %78
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
-  %108 = or i64 %107, %26
+  %108 = or disjoint i64 %107, %26
   %109 = icmp ult i64 %25, 65
   br i1 %109, label %115, label %110
 
@@ -3554,7 +3554,7 @@ _ZL19is_overlapped_wideniiii.exit:                ; preds = %._crit_edge.i, %90,
 _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overlapped_wideniiii.exit, %78
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
-  %108 = or i64 %107, %26
+  %108 = or disjoint i64 %107, %26
   %109 = icmp ult i64 %25, 65
   br i1 %109, label %115, label %110
 

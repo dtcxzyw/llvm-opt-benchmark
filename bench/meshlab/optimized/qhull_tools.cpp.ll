@@ -1494,7 +1494,7 @@ _ZNSt6vectorIPdSaIS0_EE9push_backERKS0_.exit323:  ; preds = %_ZNSt6vectorIPdSaIS
 318:                                              ; preds = %312, %309
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   %319 = load i32, ptr %304, align 4
-  %320 = sext i32 %319 to i64
+  %320 = zext i32 %319 to i64
   %321 = icmp slt i32 %319, 0
   br i1 %321, label %322, label %_ZNSt6vectorIP8CVertexOSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
@@ -5289,7 +5289,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %47, %50
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   %55 = getelementptr inbounds i8, ptr %0, i64 2572
   %56 = load i32, ptr %55, align 4
-  %57 = sext i32 %56 to i64
+  %57 = zext i32 %56 to i64
   %58 = icmp slt i32 %56, 0
   br i1 %58, label %.noexc, label %_ZNSt6vectorIP8CVertexOSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 

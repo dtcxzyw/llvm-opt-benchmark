@@ -1615,7 +1615,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %_ZN5faiss15Bitstrin
 68:                                               ; preds = %64
   %69 = getelementptr inbounds i8, ptr %0, i64 8
   %70 = load i32, ptr %69, align 8
-  %71 = sext i32 %70 to i64
+  %71 = zext i32 %70 to i64
   %72 = icmp slt i32 %70, 0
   br i1 %72, label %73, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 

@@ -9146,8 +9146,8 @@ if.then21.i:                                      ; preds = %land.lhs.true16.i
   %and.i = zext nneg i8 %83 to i32
   %shl.i = shl nuw nsw i32 %and.i, 12
   %shl24.i = shl nuw nsw i32 %conv7.i, 6
-  %or.i = or i32 %shl24.i, %shl.i
-  %or26.i = or i32 %or.i, %conv14.i
+  %or.i = or disjoint i32 %shl24.i, %shl.i
+  %or26.i = or disjoint i32 %or.i, %conv14.i
   br label %_ZN6icu_7512_GLOBAL__N_120previousHangulOrJamoEPKhS2_.exit
 
 _ZN6icu_7512_GLOBAL__N_120previousHangulOrJamoEPKhS2_.exit: ; preds = %if.then213, %if.then.i293, %land.lhs.true4.i, %land.lhs.true9.i, %land.lhs.true16.i, %if.then21.i

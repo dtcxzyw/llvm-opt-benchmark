@@ -5165,7 +5165,7 @@ sw.epilog:                                        ; preds = %for.inc264, %for.co
   %79 = load i32, ptr %lineOrder, align 8
   %cmp272 = icmp eq i32 %79, 2
   %cond = select i1 %cmp272, i32 %numAllTiles.3, i32 1
-  %conv = sext i32 %cond to i64
+  %conv = zext i32 %cond to i64
   %cmp.i.i130 = icmp slt i32 %cond, 0
   br i1 %cmp.i.i130, label %if.then.i.i132, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 

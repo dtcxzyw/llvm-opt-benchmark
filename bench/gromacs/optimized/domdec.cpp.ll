@@ -9504,7 +9504,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %385, %383, %381, %.
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit90.i.i:         ; preds = %447, %453, %451, %449
   %454 = load i32, ptr %308, align 8
-  %455 = sext i32 %454 to i64
+  %455 = zext i32 %454 to i64
   %456 = icmp slt i32 %454, 0
   br i1 %456, label %.noexc.i.i.invoke, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
@@ -9787,7 +9787,7 @@ _ZL20make_pp_communicatorRKN3gmx8MDLoggerEP12gmx_domdec_tP9t_commrecb.exit.i: ; 
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i27.i:         ; preds = %589, %595, %593, %591
   %596 = load i32, ptr %308, align 8
-  %597 = sext i32 %596 to i64
+  %597 = zext i32 %596 to i64
   %598 = icmp slt i32 %596, 0
   br i1 %598, label %.noexc.i.i.invoke, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i28.i
 

@@ -3242,7 +3242,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %227 = load float, ptr %12, align 4
   %228 = fptosi float %227 to i32
   store i32 %228, ptr %5, align 4
-  %229 = sext i32 %228 to i64
+  %229 = zext i32 %228 to i64
   %230 = icmp slt i32 %228, 0
   br i1 %230, label %231, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i132
 

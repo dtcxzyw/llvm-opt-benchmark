@@ -335,7 +335,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 
 .noexc57:                                         ; preds = %.noexc56
   %90 = load i32, ptr %5, align 4, !noalias !7
-  %91 = sext i32 %90 to i64
+  %91 = zext i32 %90 to i64
   %92 = icmp slt i32 %90, 0
   br i1 %92, label %.noexc.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 

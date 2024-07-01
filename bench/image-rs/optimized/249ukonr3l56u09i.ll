@@ -34755,18 +34755,18 @@ define hidden void @_ZN5image6codecs4webp8extended20read_extended_header17hbd612
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !4532
   %32 = call noundef i64 @_ZN4core3cmp6min_by17h6b2cb4f484bc335cE.llvm.98706352026558795(i64 noundef %28, i64 noundef %19), !noalias !4534
   %33 = icmp ugt i64 %32, %19
-  br i1 %33, label %34, label %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i99"
+  br i1 %33, label %34, label %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i100"
 
 34:                                               ; preds = %27
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %32, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.39.llvm.98706352026558795) #33, !noalias !4534
   unreachable
 
-"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i99": ; preds = %27
+"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i100": ; preds = %27
   %35 = sub nuw i64 %19, %32
   %36 = getelementptr inbounds i8, ptr %17, i64 %32
   store ptr %36, ptr %8, align 8, !noalias !4532
-  %.fca.1.gep.i.i100 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %35, ptr %.fca.1.gep.i.i100, align 8, !noalias !4532
+  %.fca.1.gep.i.i101 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %35, ptr %.fca.1.gep.i.i101, align 8, !noalias !4532
   %37 = call noundef ptr @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$10read_exact17h7eff25b31aa7ae42E.llvm.98706352026558795"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 1 %9, i64 noundef 3), !noalias !4537
   %38 = icmp eq ptr %37, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !4532
@@ -34775,11 +34775,11 @@ define hidden void @_ZN5image6codecs4webp8extended20read_extended_header17hbd612
 39:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11), !noalias !4511
   store i8 9, ptr %0, align 8
-  %.sroa.4146.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %25, ptr %.sroa.4146.0..sroa_idx, align 8
-  br label %112
+  %.sroa.4147.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %25, ptr %.sroa.4147.0..sroa_idx, align 8
+  br label %111
 
-40:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i99"
+40:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i100"
   %41 = add i64 %15, 4
   store i64 %41, ptr %14, align 8, !alias.scope !4538, !noalias !4539
   %42 = getelementptr inbounds i8, ptr %9, i64 1
@@ -34796,12 +34796,12 @@ define hidden void @_ZN5image6codecs4webp8extended20read_extended_header17hbd612
   %or.cond2 = select i1 %or.cond, i1 %50, i1 false
   br i1 %or.cond2, label %65, label %52
 
-51:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i99"
+51:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i100"
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %9), !noalias !4527
   store i8 9, ptr %0, align 8
   %.sroa.463.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %37, ptr %.sroa.463.0..sroa_idx, align 8
-  br label %112
+  br label %111
 
 52:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !4540
@@ -34842,23 +34842,23 @@ define hidden void @_ZN5image6codecs4webp8extended20read_extended_header17hbd612
   %64 = zext i8 %30 to i32
   %.0 = select i1 %62, i32 %spec.select, i32 %64
   store i32 0, ptr %54, align 8, !noalias !4556
-  %.sroa.4129.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 4
-  store i32 %.0, ptr %.sroa.4129.0..sroa_idx, align 4, !noalias !4556
-  %.sroa.5130.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 8
-  store ptr @anon.1f4c41b43b6b1ec3b0d7299236cb1468.263, ptr %.sroa.5130.0..sroa_idx, align 8, !noalias !4556
-  %.sroa.6131.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 16
-  store i64 8, ptr %.sroa.6131.0..sroa_idx, align 8, !noalias !4556
+  %.sroa.4130.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 4
+  store i32 %.0, ptr %.sroa.4130.0..sroa_idx, align 4, !noalias !4556
+  %.sroa.5131.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 8
+  store ptr @anon.1f4c41b43b6b1ec3b0d7299236cb1468.263, ptr %.sroa.5131.0..sroa_idx, align 8, !noalias !4556
+  %.sroa.6132.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 16
+  store i64 8, ptr %.sroa.6132.0..sroa_idx, align 8, !noalias !4556
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !4540
   store i8 4, ptr %0, align 8
-  %.sroa.4122.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 0, ptr %.sroa.4122.0..sroa_idx, align 8
-  %.sroa.5123.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
-  store i8 3, ptr %.sroa.5123.0..sroa_idx, align 1
-  %.sroa.6125.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %54, ptr %.sroa.6125.0..sroa_idx, align 8
-  %.sroa.7126.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr @anon.1f4c41b43b6b1ec3b0d7299236cb1468.22.llvm.9742654456972663382, ptr %.sroa.7126.0..sroa_idx, align 8
-  br label %112
+  %.sroa.4123.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 0, ptr %.sroa.4123.0..sroa_idx, align 8
+  %.sroa.5124.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
+  store i8 3, ptr %.sroa.5124.0..sroa_idx, align 1
+  %.sroa.6126.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %54, ptr %.sroa.6126.0..sroa_idx, align 8
+  %.sroa.7127.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr @anon.1f4c41b43b6b1ec3b0d7299236cb1468.22.llvm.9742654456972663382, ptr %.sroa.7127.0..sroa_idx, align 8
+  br label %111
 
 65:                                               ; preds = %40
   call void @llvm.experimental.noalias.scope.decl(metadata !4557)
@@ -34868,24 +34868,24 @@ define hidden void @_ZN5image6codecs4webp8extended20read_extended_header17hbd612
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !4565
   %66 = call noundef i64 @_ZN4core3cmp6min_by17h6b2cb4f484bc335cE.llvm.98706352026558795(i64 noundef %41, i64 noundef %19), !noalias !4567
   %67 = icmp ugt i64 %66, %19
-  br i1 %67, label %68, label %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i103"
+  br i1 %67, label %68, label %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i104"
 
 68:                                               ; preds = %65
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %66, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.39.llvm.98706352026558795) #33, !noalias !4567
   unreachable
 
-"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i103": ; preds = %65
+"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i104": ; preds = %65
   %69 = sub nuw i64 %19, %66
   %70 = getelementptr inbounds i8, ptr %17, i64 %66
   store ptr %70, ptr %5, align 8, !noalias !4565
-  %.fca.1.gep.i.i104 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %69, ptr %.fca.1.gep.i.i104, align 8, !noalias !4565
+  %.fca.1.gep.i.i105 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %69, ptr %.fca.1.gep.i.i105, align 8, !noalias !4565
   %71 = call noundef ptr @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$10read_exact17h7eff25b31aa7ae42E.llvm.98706352026558795"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %6, i64 noundef 3), !noalias !4570
   %72 = icmp eq ptr %71, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !4565
   br i1 %72, label %73, label %90
 
-73:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i103"
+73:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i104"
   %74 = add i64 %15, 7
   store i64 %74, ptr %14, align 8, !alias.scope !4571, !noalias !4572
   %75 = getelementptr inbounds i8, ptr %6, i64 1
@@ -34904,31 +34904,31 @@ define hidden void @_ZN5image6codecs4webp8extended20read_extended_header17hbd612
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !4581
   %83 = call noundef i64 @_ZN4core3cmp6min_by17h6b2cb4f484bc335cE.llvm.98706352026558795(i64 noundef %74, i64 noundef %19), !noalias !4583
   %84 = icmp ugt i64 %83, %19
-  br i1 %84, label %85, label %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i109"
+  br i1 %84, label %85, label %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i110"
 
 85:                                               ; preds = %73
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %83, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.39.llvm.98706352026558795) #33, !noalias !4583
   unreachable
 
-"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i109": ; preds = %73
+"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i110": ; preds = %73
   %86 = sub nuw i64 %19, %83
   %87 = getelementptr inbounds i8, ptr %17, i64 %83
   store ptr %87, ptr %3, align 8, !noalias !4581
-  %.fca.1.gep.i.i110 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %86, ptr %.fca.1.gep.i.i110, align 8, !noalias !4581
+  %.fca.1.gep.i.i111 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %86, ptr %.fca.1.gep.i.i111, align 8, !noalias !4581
   %88 = call noundef ptr @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$10read_exact17h7eff25b31aa7ae42E.llvm.98706352026558795"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %4, i64 noundef 3), !noalias !4586
   %89 = icmp eq ptr %88, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !4581
   br i1 %89, label %91, label %103
 
-90:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i103"
+90:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i104"
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6), !noalias !4560
   store i8 9, ptr %0, align 8
   %.sroa.475.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %71, ptr %.sroa.475.0..sroa_idx, align 8
-  br label %112
+  br label %111
 
-91:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i109"
+91:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i110"
   %92 = add i64 %15, 10
   store i64 %92, ptr %14, align 8, !alias.scope !4587, !noalias !4588
   %93 = getelementptr inbounds i8, ptr %4, i64 1
@@ -34942,45 +34942,45 @@ define hidden void @_ZN5image6codecs4webp8extended20read_extended_header17hbd612
   %100 = add nuw nsw i32 %99, 1
   %101 = call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %82, i32 %100)
   %102 = extractvalue { i32, i1 } %101, 1
-  br i1 %102, label %111, label %104
+  br i1 %102, label %110, label %104
 
-103:                                              ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i109"
+103:                                              ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h208001ea1f86d57aE.llvm.98706352026558795.exit.i.i110"
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4), !noalias !4576
   store i8 9, ptr %0, align 8
   %.sroa.487.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %88, ptr %.sroa.487.0..sroa_idx, align 8
-  br label %112
+  br label %111
 
 104:                                              ; preds = %91
-  %105 = lshr i8 %29, 5
-  %106 = lshr i8 %29, 4
-  %.lobit = and i8 %106, 1
-  %107 = lshr i8 %29, 3
-  %.lobit95 = and i8 %107, 1
-  %108 = lshr i8 %29, 2
-  %.lobit96 = and i8 %108, 1
-  %109 = lshr exact i8 %29, 1
-  %.lobit97 = and i8 %109, 1
-  %110 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 -9223372036854775808, ptr %110, align 8
+  %.lobit = lshr i8 %29, 5
+  %105 = lshr i8 %29, 4
+  %.lobit95 = and i8 %105, 1
+  %106 = lshr i8 %29, 3
+  %.lobit96 = and i8 %106, 1
+  %107 = lshr i8 %29, 2
+  %.lobit97 = and i8 %107, 1
+  %108 = lshr exact i8 %29, 1
+  %.lobit98 = and i8 %108, 1
+  %109 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 -9223372036854775808, ptr %109, align 8
   %.sroa.242.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %82, ptr %.sroa.242.0..sroa_idx, align 8
   %.sroa.343.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %100, ptr %.sroa.343.0..sroa_idx, align 4
   %.sroa.444.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 %105, ptr %.sroa.444.0..sroa_idx, align 8
+  store i8 %.lobit, ptr %.sroa.444.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 41
-  store i8 %.lobit, ptr %.sroa.5.0..sroa_idx, align 1
+  store i8 %.lobit95, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.645.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 42
-  store i8 %.lobit95, ptr %.sroa.645.0..sroa_idx, align 2
+  store i8 %.lobit96, ptr %.sroa.645.0..sroa_idx, align 2
   %.sroa.746.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 43
-  store i8 %.lobit96, ptr %.sroa.746.0..sroa_idx, align 1
+  store i8 %.lobit97, ptr %.sroa.746.0..sroa_idx, align 1
   %.sroa.847.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 44
-  store i8 %.lobit97, ptr %.sroa.847.0..sroa_idx, align 4
+  store i8 %.lobit98, ptr %.sroa.847.0..sroa_idx, align 4
   store i8 10, ptr %0, align 8
-  br label %112
+  br label %111
 
-111:                                              ; preds = %91
+110:                                              ; preds = %91
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   store i32 2, ptr %12, align 8
@@ -34988,9 +34988,9 @@ define hidden void @_ZN5image6codecs4webp8extended20read_extended_header17hbd612
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
-  br label %112
+  br label %111
 
-112:                                              ; preds = %"_ZN5image6codecs4webp8extended125_$LT$impl$u20$core..convert..From$LT$image..codecs..webp..extended..DecoderError$GT$$u20$for$u20$image..error..ImageError$GT$4from17h0590f256f5f76fdaE.exit", %111, %104, %103, %90, %51, %39
+111:                                              ; preds = %"_ZN5image6codecs4webp8extended125_$LT$impl$u20$core..convert..From$LT$image..codecs..webp..extended..DecoderError$GT$$u20$for$u20$image..error..ImageError$GT$4from17h0590f256f5f76fdaE.exit", %110, %104, %103, %90, %51, %39
   ret void
 }
 

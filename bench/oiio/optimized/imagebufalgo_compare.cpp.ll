@@ -91243,7 +91243,7 @@ entry:
   %sub.i.i.i = fsub float %4, %7
   %div.i.i.i = fdiv float %conv.i.i.i, %sub.i.i.i
   %sub2.i.i.i = add nsw i32 %1, -1
-  %conv3.i.i.i = sext i32 %1 to i64
+  %conv3.i.i.i = zext i32 %1 to i64
   %cmp.i.i.i.i.i = icmp slt i32 %1, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
@@ -91658,7 +91658,7 @@ entry:
   %sub.i.i.i = fsub float %4, %7
   %div.i.i.i = fdiv float %conv.i.i.i, %sub.i.i.i
   %sub2.i.i.i = add nsw i32 %1, -1
-  %conv3.i.i.i = sext i32 %1 to i64
+  %conv3.i.i.i = zext i32 %1 to i64
   %cmp.i.i.i.i.i = icmp slt i32 %1, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
@@ -92068,7 +92068,7 @@ entry:
   %sub.i.i.i = fsub float %4, %7
   %div.i.i.i = fdiv float %conv.i.i.i, %sub.i.i.i
   %sub2.i.i.i = add nsw i32 %1, -1
-  %conv3.i.i.i = sext i32 %1 to i64
+  %conv3.i.i.i = zext i32 %1 to i64
   %cmp.i.i.i.i.i = icmp slt i32 %1, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
@@ -92480,7 +92480,7 @@ entry:
   %sub.i.i.i = fsub float %4, %7
   %div.i.i.i = fdiv float %conv.i.i.i, %sub.i.i.i
   %sub2.i.i.i = add nsw i32 %1, -1
-  %conv3.i.i.i = sext i32 %1 to i64
+  %conv3.i.i.i = zext i32 %1 to i64
   %cmp.i.i.i.i.i = icmp slt i32 %1, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
@@ -92890,7 +92890,7 @@ entry:
   %sub.i.i.i = fsub float %4, %7
   %div.i.i.i = fdiv float %conv.i.i.i, %sub.i.i.i
   %sub2.i.i.i = add nsw i32 %1, -1
-  %conv3.i.i.i = sext i32 %1 to i64
+  %conv3.i.i.i = zext i32 %1 to i64
   %cmp.i.i.i.i.i = icmp slt i32 %1, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
@@ -93300,7 +93300,7 @@ entry:
   %sub.i.i.i = fsub float %4, %7
   %div.i.i.i = fdiv float %conv.i.i.i, %sub.i.i.i
   %sub2.i.i.i = add nsw i32 %1, -1
-  %conv3.i.i.i = sext i32 %1 to i64
+  %conv3.i.i.i = zext i32 %1 to i64
   %cmp.i.i.i.i.i = icmp slt i32 %1, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
@@ -93710,7 +93710,7 @@ entry:
   %sub.i.i.i = fsub float %4, %7
   %div.i.i.i = fdiv float %conv.i.i.i, %sub.i.i.i
   %sub2.i.i.i = add nsw i32 %1, -1
-  %conv3.i.i.i = sext i32 %1 to i64
+  %conv3.i.i.i = zext i32 %1 to i64
   %cmp.i.i.i.i.i = icmp slt i32 %1, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
@@ -94120,7 +94120,7 @@ entry:
   %sub.i.i.i = fsub float %4, %7
   %div.i.i.i = fdiv float %conv.i.i.i, %sub.i.i.i
   %sub2.i.i.i = add nsw i32 %1, -1
-  %conv3.i.i.i = sext i32 %1 to i64
+  %conv3.i.i.i = zext i32 %1 to i64
   %cmp.i.i.i.i.i = icmp slt i32 %1, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
@@ -94530,7 +94530,7 @@ entry:
   %sub.i.i.i = fsub float %4, %7
   %div.i.i.i = fdiv float %conv.i.i.i, %sub.i.i.i
   %sub2.i.i.i = add nsw i32 %1, -1
-  %conv3.i.i.i = sext i32 %1 to i64
+  %conv3.i.i.i = zext i32 %1 to i64
   %cmp.i.i.i.i.i = icmp slt i32 %1, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 

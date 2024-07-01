@@ -3096,7 +3096,7 @@ if.then102:                                       ; preds = %land.lhs.true94
   %conv100 = zext nneg i8 %sub98 to i32
   %shl = shl nuw nsw i32 %conv77, 12
   %shl104 = shl nuw nsw i32 %conv92, 6
-  %or = or i32 %shl104, %shl
+  %or = or disjoint i32 %shl104, %shl
   %or106 = or disjoint i32 %or, %conv100
   %conv107 = trunc i32 %or106 to i16
   store i16 %conv107, ptr %pDest.5, align 2
@@ -3229,7 +3229,7 @@ if.then188:                                       ; preds = %land.lhs.true179
   %conv186 = zext nneg i8 %sub184 to i32
   %shl189 = shl nuw nsw i32 %conv158, 12
   %shl191 = shl nuw nsw i32 %conv177, 6
-  %or192 = or i32 %shl191, %shl189
+  %or192 = or disjoint i32 %shl191, %shl189
   %or194 = or disjoint i32 %or192, %conv186
   %conv195 = trunc i32 %or194 to i16
   store i16 %conv195, ptr %pDest.8183, align 2

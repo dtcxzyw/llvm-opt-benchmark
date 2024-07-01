@@ -980,7 +980,7 @@ define void @_ZN5faiss9matrix_qrEiiPf(i32 noundef %0, i32 noundef %1, ptr nounde
   store i32 %0, ptr %5, align 4
   store i32 %1, ptr %6, align 4
   store i32 %1, ptr %7, align 4
-  %28 = sext i32 %1 to i64
+  %28 = zext i32 %1 to i64
   %29 = icmp slt i32 %1, 0
   br i1 %29, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -2260,7 +2260,7 @@ define noundef double @_ZN5faiss16imbalance_factorEiPKi(i32 noundef %0, ptr noca
 
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZN5faiss16imbalance_factorEiiPKl(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %4 = sext i32 %1 to i64
+  %4 = zext i32 %1 to i64
   %5 = icmp slt i32 %1, 0
   br i1 %5, label %.noexc, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 

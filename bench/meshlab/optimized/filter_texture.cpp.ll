@@ -67664,7 +67664,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg10RectPackerIfE7PackIntERKSt6vect
   br label %_ZNSt6vectorIN3vcg6Point2IiEESaIS2_EE6resizeEmRKS2_.exit
 
 _ZNSt6vectorIN3vcg6Point2IiEESaIS2_EE6resizeEmRKS2_.exit: ; preds = %28, %30, %32, %34
-  %35 = sext i32 %17 to i64
+  %35 = zext i32 %17 to i64
   %36 = icmp slt i32 %17, 0
   br i1 %36, label %.noexc, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 

@@ -1084,7 +1084,7 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   br i1 %367, label %368, label %481
 
 368:                                              ; preds = %363
-  %369 = and i32 %365, -8235
+  %369 = and i32 %365, -10479
   switch i16 %2, label %479 [
     i16 2, label %370
     i16 8, label %410

@@ -4373,7 +4373,7 @@ invoke.cont78:                                    ; preds = %if.then.i.i204.invo
   store i32 0, ptr %end_.i205, align 8
   store i16 256, ptr %allSelected_.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %conv83 = sext i32 %151 to i64
+  %conv83 = zext i32 %151 to i64
   %cmp.i.i208 = icmp slt i32 %151, 0
   br i1 %cmp.i.i208, label %if.then.i.i211, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 

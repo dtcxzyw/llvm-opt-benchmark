@@ -2705,7 +2705,7 @@ entry:
   %ref.tmp18 = alloca %"class.std::allocator.12", align 1
   %height = getelementptr inbounds i8, ptr %spec, i64 16
   %0 = load i32, ptr %height, align 8
-  %conv = sext i32 %0 to i64
+  %conv = zext i32 %0 to i64
   %cmp.i.i = icmp slt i32 %0, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIPhSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
 

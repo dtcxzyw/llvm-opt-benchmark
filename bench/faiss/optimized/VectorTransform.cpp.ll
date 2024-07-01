@@ -4685,7 +4685,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit216.thread:          ; preds = %167
   %280 = load float, ptr %19, align 4
   %281 = fptosi float %280 to i32
   store i32 %281, ptr %17, align 4
-  %282 = sext i32 %281 to i64
+  %282 = zext i32 %281 to i64
   %283 = icmp slt i32 %281, 0
   br i1 %283, label %284, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i182
 
@@ -7058,7 +7058,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %63, %65, %67, %69
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit85:             ; preds = %._ZNSt6vectorIfSaIfEE6resizeEm.exit85_crit_edge, %123
   %129 = phi i32 [ %.pre, %._ZNSt6vectorIfSaIfEE6resizeEm.exit85_crit_edge ], [ %101, %123 ]
-  %130 = sext i32 %129 to i64
+  %130 = zext i32 %129 to i64
   %131 = icmp slt i32 %129, 0
   br i1 %131, label %132, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 

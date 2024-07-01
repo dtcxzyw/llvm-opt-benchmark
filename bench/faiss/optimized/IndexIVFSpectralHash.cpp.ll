@@ -260,7 +260,7 @@ define void @_ZNK5faiss20IndexIVFSpectralHash14encode_vectorsElPKfPKlPhb(ptr nou
   %64 = tail call noundef ptr @_ZNK5faiss15VectorTransform5applyElPKf(ptr noundef nonnull align 8 dereferenceable(17) %63, i64 noundef %1, ptr noundef %2)
   %65 = getelementptr inbounds i8, ptr %0, i64 276
   %66 = load i32, ptr %65, align 4
-  %67 = sext i32 %66 to i64
+  %67 = zext i32 %66 to i64
   %68 = icmp slt i32 %66, 0
   br i1 %68, label %69, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 

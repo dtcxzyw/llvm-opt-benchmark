@@ -6965,7 +6965,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL7SigSpecENS0_4poolIiNS0_8hash_opsIiEEEENS5_IS3_E
 
 2920:                                             ; preds = %._crit_edge9199
   %2921 = load i32, ptr %65, align 8
-  %2922 = sext i32 %2921 to i64
+  %2922 = zext i32 %2921 to i64
   %2923 = icmp slt i32 %2921, 0
   br i1 %2923, label %2924, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 

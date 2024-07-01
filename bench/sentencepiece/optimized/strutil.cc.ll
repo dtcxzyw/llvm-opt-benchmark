@@ -3593,12 +3593,12 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf17safe_int_internalIl
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   store i64 0, ptr %1, align 8
   %5 = call noundef zeroext i1 @_ZN6google8protobuf15safe_parse_signEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr noundef %0, ptr noundef nonnull %3)
-  br i1 %5, label %6, label %49
+  br i1 %5, label %6, label %47
 
 6:                                                ; preds = %2
   %7 = load i8, ptr %3, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %29, label %9
+  br i1 %8, label %28, label %9
 
 9:                                                ; preds = %6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -3608,82 +3608,80 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf17safe_int_internalIl
   %13 = icmp slt i64 %11, 1
   br i1 %13, label %_ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %9, %25
-  %.02536.i = phi i64 [ %26, %25 ], [ 0, %9 ]
-  %.02635.i = phi ptr [ %27, %25 ], [ %10, %9 ]
+.lr.ph.i:                                         ; preds = %9, %24
+  %.02536.i = phi i64 [ %25, %24 ], [ 0, %9 ]
+  %.02635.i = phi ptr [ %26, %24 ], [ %10, %9 ]
   %14 = load i8, ptr %.02635.i, align 1
-  %15 = zext i8 %14 to i64
-  %16 = add nuw nsw i64 %15, 4294967248
-  %17 = add i8 %14, -58
-  %or.cond.i = icmp ult i8 %17, -10
-  br i1 %or.cond.i, label %_ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %18
+  %15 = add i8 %14, -58
+  %or.cond.i = icmp ult i8 %15, -10
+  br i1 %or.cond.i, label %_ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %16
 
-18:                                               ; preds = %.lr.ph.i
-  %19 = icmp sgt i64 %.02536.i, 922337203685477580
-  br i1 %19, label %_ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %20
+16:                                               ; preds = %.lr.ph.i
+  %17 = icmp sgt i64 %.02536.i, 922337203685477580
+  br i1 %17, label %_ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %18
 
-20:                                               ; preds = %18
-  %21 = mul nsw i64 %.02536.i, 10
-  %22 = and i64 %16, 4294967295
-  %23 = xor i64 %22, 9223372036854775807
-  %24 = icmp sgt i64 %21, %23
-  br i1 %24, label %_ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %25
+18:                                               ; preds = %16
+  %19 = mul nsw i64 %.02536.i, 10
+  %20 = and i8 %14, 15
+  %21 = zext nneg i8 %20 to i64
+  %22 = xor i64 %21, 9223372036854775807
+  %23 = icmp sgt i64 %19, %22
+  br i1 %23, label %_ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %24
 
-25:                                               ; preds = %20
-  %26 = add nsw i64 %22, %21
-  %27 = getelementptr inbounds i8, ptr %.02635.i, i64 1
-  %.not.i = icmp ult ptr %27, %12
+24:                                               ; preds = %18
+  %25 = add nsw i64 %19, %21
+  %26 = getelementptr inbounds i8, ptr %.02635.i, i64 1
+  %.not.i = icmp ult ptr %26, %12
   br i1 %.not.i, label %.lr.ph.i, label %_ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, !llvm.loop !36
 
-_ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit: ; preds = %.lr.ph.i, %18, %20, %25, %9
-  %.025.lcssa.sink.i = phi i64 [ 0, %9 ], [ %26, %25 ], [ 9223372036854775807, %20 ], [ 9223372036854775807, %18 ], [ %.02536.i, %.lr.ph.i ]
-  %28 = phi i1 [ true, %9 ], [ true, %25 ], [ false, %20 ], [ false, %18 ], [ false, %.lr.ph.i ]
+_ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit: ; preds = %.lr.ph.i, %16, %18, %24, %9
+  %.025.lcssa.sink.i = phi i64 [ 0, %9 ], [ %25, %24 ], [ 9223372036854775807, %18 ], [ 9223372036854775807, %16 ], [ %.02536.i, %.lr.ph.i ]
+  %27 = phi i1 [ true, %9 ], [ true, %24 ], [ false, %18 ], [ false, %16 ], [ false, %.lr.ph.i ]
   store i64 %.025.lcssa.sink.i, ptr %1, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
-  br label %49
+  br label %47
 
-29:                                               ; preds = %6
-  %30 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
-  %31 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
-  %32 = getelementptr inbounds i8, ptr %30, i64 %31
-  %33 = icmp slt i64 %31, 1
-  br i1 %33, label %_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %.lr.ph.i4
+28:                                               ; preds = %6
+  %29 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
+  %30 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
+  %31 = getelementptr inbounds i8, ptr %29, i64 %30
+  %32 = icmp slt i64 %30, 1
+  br i1 %32, label %_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %.lr.ph.i4
 
-.lr.ph.i4:                                        ; preds = %29, %45
-  %.02941.i = phi i64 [ %46, %45 ], [ 0, %29 ]
-  %.03140.i = phi ptr [ %47, %45 ], [ %30, %29 ]
-  %34 = load i8, ptr %.03140.i, align 1
-  %35 = zext i8 %34 to i64
-  %36 = add nuw nsw i64 %35, 4294967248
-  %37 = add i8 %34, -58
-  %or.cond.i5 = icmp ult i8 %37, -10
-  br i1 %or.cond.i5, label %_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %38
+.lr.ph.i4:                                        ; preds = %28, %43
+  %.02941.i = phi i64 [ %44, %43 ], [ 0, %28 ]
+  %.03140.i = phi ptr [ %45, %43 ], [ %29, %28 ]
+  %33 = load i8, ptr %.03140.i, align 1
+  %34 = add i8 %33, -58
+  %or.cond.i5 = icmp ult i8 %34, -10
+  br i1 %or.cond.i5, label %_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %35
 
-38:                                               ; preds = %.lr.ph.i4
-  %39 = icmp slt i64 %.02941.i, -922337203685477580
-  br i1 %39, label %_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %40
+35:                                               ; preds = %.lr.ph.i4
+  %36 = icmp slt i64 %.02941.i, -922337203685477580
+  br i1 %36, label %_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %37
 
-40:                                               ; preds = %38
-  %41 = mul nsw i64 %.02941.i, 10
-  %42 = and i64 %36, 4294967295
-  %43 = or disjoint i64 %42, -9223372036854775808
-  %44 = icmp slt i64 %41, %43
-  br i1 %44, label %_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %45
+37:                                               ; preds = %35
+  %38 = mul nsw i64 %.02941.i, 10
+  %39 = and i8 %33, 15
+  %40 = zext nneg i8 %39 to i64
+  %41 = or disjoint i64 %40, -9223372036854775808
+  %42 = icmp slt i64 %38, %41
+  br i1 %42, label %_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %43
 
-45:                                               ; preds = %40
-  %46 = sub nsw i64 %41, %42
-  %47 = getelementptr inbounds i8, ptr %.03140.i, i64 1
-  %.not.i6 = icmp ult ptr %47, %32
+43:                                               ; preds = %37
+  %44 = sub nsw i64 %38, %40
+  %45 = getelementptr inbounds i8, ptr %.03140.i, i64 1
+  %.not.i6 = icmp ult ptr %45, %31
   br i1 %.not.i6, label %.lr.ph.i4, label %_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, !llvm.loop !37
 
-_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit: ; preds = %.lr.ph.i4, %38, %40, %45, %29
-  %.029.lcssa.sink.i = phi i64 [ 0, %29 ], [ %46, %45 ], [ -9223372036854775808, %40 ], [ -9223372036854775808, %38 ], [ %.02941.i, %.lr.ph.i4 ]
-  %48 = phi i1 [ true, %29 ], [ true, %45 ], [ false, %40 ], [ false, %38 ], [ false, %.lr.ph.i4 ]
+_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit: ; preds = %.lr.ph.i4, %35, %37, %43, %28
+  %.029.lcssa.sink.i = phi i64 [ 0, %28 ], [ %44, %43 ], [ -9223372036854775808, %37 ], [ -9223372036854775808, %35 ], [ %.02941.i, %.lr.ph.i4 ]
+  %46 = phi i1 [ true, %28 ], [ true, %43 ], [ false, %37 ], [ false, %35 ], [ false, %.lr.ph.i4 ]
   store i64 %.029.lcssa.sink.i, ptr %1, align 8
-  br label %49
+  br label %47
 
-49:                                               ; preds = %2, %_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, %_ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit
-  %.0 = phi i1 [ %48, %_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit ], [ %28, %_ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit ], [ false, %2 ]
+47:                                               ; preds = %2, %_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, %_ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit
+  %.0 = phi i1 [ %46, %_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit ], [ %27, %_ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -3711,12 +3709,12 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf18safe_uint_internalI
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   store i64 0, ptr %1, align 8
   %5 = call noundef zeroext i1 @_ZN6google8protobuf15safe_parse_signEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr noundef %0, ptr noundef nonnull %3)
-  br i1 %5, label %6, label %29
+  br i1 %5, label %6, label %28
 
 6:                                                ; preds = %2
   %7 = load i8, ptr %3, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %29, label %9
+  br i1 %8, label %28, label %9
 
 9:                                                ; preds = %6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -3726,42 +3724,41 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf18safe_uint_internalI
   %13 = icmp slt i64 %11, 1
   br i1 %13, label %_ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %9, %25
-  %.02536.i = phi i64 [ %26, %25 ], [ 0, %9 ]
-  %.02635.i = phi ptr [ %27, %25 ], [ %10, %9 ]
+.lr.ph.i:                                         ; preds = %9, %24
+  %.02536.i = phi i64 [ %25, %24 ], [ 0, %9 ]
+  %.02635.i = phi ptr [ %26, %24 ], [ %10, %9 ]
   %14 = load i8, ptr %.02635.i, align 1
-  %15 = zext i8 %14 to i64
-  %16 = add nuw nsw i64 %15, 4294967248
-  %17 = add i8 %14, -58
-  %or.cond.i = icmp ult i8 %17, -10
-  br i1 %or.cond.i, label %_ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %18
+  %15 = add i8 %14, -58
+  %or.cond.i = icmp ult i8 %15, -10
+  br i1 %or.cond.i, label %_ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %16
 
-18:                                               ; preds = %.lr.ph.i
-  %19 = icmp ugt i64 %.02536.i, 1844674407370955161
-  br i1 %19, label %_ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %20
+16:                                               ; preds = %.lr.ph.i
+  %17 = icmp ugt i64 %.02536.i, 1844674407370955161
+  br i1 %17, label %_ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %18
 
-20:                                               ; preds = %18
-  %21 = mul nuw i64 %.02536.i, 10
-  %22 = and i64 %16, 4294967295
-  %23 = xor i64 %22, -1
-  %24 = icmp ugt i64 %21, %23
-  br i1 %24, label %_ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %25
+18:                                               ; preds = %16
+  %19 = mul nuw i64 %.02536.i, 10
+  %20 = and i8 %14, 15
+  %21 = zext nneg i8 %20 to i64
+  %22 = xor i64 %21, -1
+  %23 = icmp ugt i64 %19, %22
+  br i1 %23, label %_ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, label %24
 
-25:                                               ; preds = %20
-  %26 = add i64 %22, %21
-  %27 = getelementptr inbounds i8, ptr %.02635.i, i64 1
-  %.not.i = icmp ult ptr %27, %12
+24:                                               ; preds = %18
+  %25 = add i64 %19, %21
+  %26 = getelementptr inbounds i8, ptr %.02635.i, i64 1
+  %.not.i = icmp ult ptr %26, %12
   br i1 %.not.i, label %.lr.ph.i, label %_ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, !llvm.loop !38
 
-_ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit: ; preds = %.lr.ph.i, %18, %20, %25, %9
-  %.025.lcssa.sink.i = phi i64 [ 0, %9 ], [ %26, %25 ], [ -1, %20 ], [ -1, %18 ], [ %.02536.i, %.lr.ph.i ]
-  %28 = phi i1 [ true, %9 ], [ true, %25 ], [ false, %20 ], [ false, %18 ], [ false, %.lr.ph.i ]
+_ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit: ; preds = %.lr.ph.i, %16, %18, %24, %9
+  %.025.lcssa.sink.i = phi i64 [ 0, %9 ], [ %25, %24 ], [ -1, %18 ], [ -1, %16 ], [ %.02536.i, %.lr.ph.i ]
+  %27 = phi i1 [ true, %9 ], [ true, %24 ], [ false, %18 ], [ false, %16 ], [ false, %.lr.ph.i ]
   store i64 %.025.lcssa.sink.i, ptr %1, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
-  br label %29
+  br label %28
 
-29:                                               ; preds = %2, %6, %_ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit
-  %.0 = phi i1 [ %28, %_ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit ], [ false, %6 ], [ false, %2 ]
+28:                                               ; preds = %2, %6, %_ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit
+  %.0 = phi i1 [ %27, %_ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit ], [ false, %6 ], [ false, %2 ]
   ret i1 %.0
 }
 

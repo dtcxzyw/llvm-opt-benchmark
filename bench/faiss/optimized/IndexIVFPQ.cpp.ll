@@ -922,7 +922,7 @@ define void @_ZNK5faiss10IndexIVFPQ23reconstruct_from_offsetEllPf(ptr noundef no
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = sext i32 %16 to i64
+  %17 = zext i32 %16 to i64
   %18 = icmp slt i32 %16, 0
   br i1 %18, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -1134,7 +1134,7 @@ define void @_ZNK5faiss10IndexIVFPQ6encodeElPKfPh(ptr noundef nonnull align 8 de
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = sext i32 %10 to i64
+  %11 = zext i32 %10 to i64
   %12 = icmp slt i32 %10, 0
   br i1 %12, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -1245,7 +1245,7 @@ define void @_ZNK5faiss10IndexIVFPQ15decode_multipleEmPKlPKhPf(ptr noundef nonnu
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = sext i32 %12 to i64
+  %13 = zext i32 %12 to i64
   %14 = icmp slt i32 %12, 0
   br i1 %14, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -1827,7 +1827,7 @@ define internal void @_ZNK5faiss10IndexIVFPQ9sa_decodeElPKhPf.omp_outlined(ptr n
   %11 = alloca i32, align 4
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8
-  %14 = sext i32 %13 to i64
+  %14 = zext i32 %13 to i64
   %15 = icmp slt i32 %13, 0
   br i1 %15, label %16, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 

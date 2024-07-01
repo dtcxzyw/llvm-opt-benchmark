@@ -2969,7 +2969,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_open_flags(ptr nocapture n
   %5 = getelementptr [5 x i8], ptr @.str.1, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
-  %8 = and i64 %3, -67633153
+  %8 = and i64 %3, 7864259
   %9 = and i64 %3, -75497412
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %108
@@ -3039,7 +3039,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_open_flags(ptr nocapture n
   %52 = lshr i64 %3, 8
   %53 = and i64 %52, 4096
   %54 = or i64 %53, %8
-  %55 = trunc nuw i64 %54 to i32
+  %55 = trunc nuw nsw i64 %54 to i32
   store i32 %55, ptr %1, align 4
   %56 = trunc nuw i64 %3 to i32
   %57 = lshr i32 %56, 8
@@ -3070,7 +3070,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_open_flags(ptr nocapture n
   %75 = or disjoint i32 %66, 1536
   store i32 %75, ptr %67, align 4
   %76 = or i64 %54, 131072
-  %.pre = trunc nuw i64 %76 to i32
+  %.pre = trunc nuw nsw i64 %76 to i32
   br label %77
 
 77:                                               ; preds = %74, %70, %50

@@ -1275,7 +1275,7 @@ define internal void @_ZNK5faiss11Index2Layer9sa_decodeElPKhPf.omp_outlined(ptr 
   %10 = alloca i32, align 4
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = sext i32 %12 to i64
+  %13 = zext i32 %12 to i64
   %14 = icmp slt i32 %12, 0
   br i1 %14, label %15, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 

@@ -2541,7 +2541,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal31ReorderProgramForSparseCho
           to label %26 unwind label %44
 
 26:                                               ; preds = %24
-  %27 = sext i32 %25 to i64
+  %27 = zext i32 %25 to i64
   %28 = icmp slt i32 %25, 0
   br i1 %28, label %29, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 

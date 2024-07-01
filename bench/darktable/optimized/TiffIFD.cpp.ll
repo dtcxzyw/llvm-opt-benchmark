@@ -1176,7 +1176,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
   %86 = load i32, ptr %85, align 8
   %87 = zext i32 %86 to i64
   %88 = add nuw nsw i64 %87, 4
-  %89 = and i64 %82, 4294967295
+  %89 = and i64 %82, 2147483647
   %90 = icmp ugt i64 %88, %89
   br i1 %90, label %141, label %91
 
@@ -2452,8 +2452,8 @@ define hidden void @_ZN8rawspeed7TiffIFDC2EPS0_PNS_11NORangesSetINS_6BufferEEENS
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.loopexit, label %25, !llvm.loop !109
 
-33:                                               ; preds = %124, %35
-  %34 = phi { ptr, i32 } [ %36, %35 ], [ %125, %124 ]
+33:                                               ; preds = %123, %35
+  %34 = phi { ptr, i32 } [ %36, %35 ], [ %124, %123 ]
   resume { ptr, i32 } %34
 
 35:                                               ; preds = %6
@@ -2466,11 +2466,11 @@ define hidden void @_ZN8rawspeed7TiffIFDC2EPS0_PNS_11NORangesSetINS_6BufferEEENS
 
 .loopexit:                                        ; preds = %25, %18
   %38 = icmp eq i32 %5, -1
-  br i1 %38, label %121, label %39
+  br i1 %38, label %120, label %39
 
 39:                                               ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #28
-  %40 = and i64 %4, 4294967295
+  %40 = and i64 %4, 2147483647
   store ptr %3, ptr %7, align 8
   %41 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %4, ptr %41, align 8
@@ -2480,7 +2480,7 @@ define hidden void @_ZN8rawspeed7TiffIFDC2EPS0_PNS_11NORangesSetINS_6BufferEEENS
 
 44:                                               ; preds = %39
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.24, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj) #29
-          to label %45 unwind label %82
+          to label %45 unwind label %81
 
 45:                                               ; preds = %44
   unreachable
@@ -2492,155 +2492,154 @@ define hidden void @_ZN8rawspeed7TiffIFDC2EPS0_PNS_11NORangesSetINS_6BufferEEENS
   tail call void @llvm.assume(i1 %48)
   %49 = zext nneg i32 %5 to i64
   %50 = add nuw nsw i64 %49, 2
-  %51 = and i64 %4, 2147483647
-  %52 = icmp ugt i64 %50, %51
-  br i1 %52, label %53, label %55
+  %51 = icmp ugt i64 %50, %40
+  br i1 %51, label %52, label %54
 
-53:                                               ; preds = %46
+52:                                               ; preds = %46
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.26, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #29
-          to label %54 unwind label %84
+          to label %53 unwind label %83
 
-54:                                               ; preds = %53
+53:                                               ; preds = %52
   unreachable
 
-55:                                               ; preds = %46
-  %56 = getelementptr inbounds i8, ptr %7, i64 12
-  %57 = and i64 %4, -4294967296
-  %58 = icmp eq i64 %57, 244834610708480
-  %59 = add nuw nsw i32 %5, 2
-  %60 = icmp ule i32 %59, %9
-  tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds i8, ptr %3, i64 %49
-  %62 = load i16, ptr %61, align 1
-  %63 = tail call i16 @llvm.bswap.i16(i16 %62)
-  %64 = select i1 %58, i16 %62, i16 %63
-  store i32 %59, ptr %42, align 8, !tbaa !12
-  %65 = zext i16 %64 to i32
-  %66 = mul nuw nsw i32 %65, 12
-  %67 = add nuw nsw i32 %66, 6
+54:                                               ; preds = %46
+  %55 = getelementptr inbounds i8, ptr %7, i64 12
+  %56 = and i64 %4, -4294967296
+  %57 = icmp eq i64 %56, 244834610708480
+  %58 = add nuw nsw i32 %5, 2
+  %59 = icmp ule i32 %58, %9
+  tail call void @llvm.assume(i1 %59)
+  %60 = getelementptr inbounds i8, ptr %3, i64 %49
+  %61 = load i16, ptr %60, align 1
+  %62 = tail call i16 @llvm.bswap.i16(i16 %61)
+  %63 = select i1 %57, i16 %61, i16 %62
+  store i32 %58, ptr %42, align 8, !tbaa !12
+  %64 = zext i16 %63 to i32
+  %65 = mul nuw nsw i32 %64, 12
+  %66 = add nuw nsw i32 %65, 6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #28
-  %68 = add nuw i32 %67, %5
-  %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %40, %69
-  br i1 %70, label %71, label %73
+  %67 = add nuw i32 %66, %5
+  %68 = zext i32 %67 to i64
+  %69 = icmp ult i64 %40, %68
+  br i1 %69, label %70, label %72
 
-71:                                               ; preds = %55
+70:                                               ; preds = %54
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.26, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #29
-          to label %72 unwind label %86
+          to label %71 unwind label %85
 
-72:                                               ; preds = %71
+71:                                               ; preds = %70
   unreachable
 
-73:                                               ; preds = %55
-  %74 = icmp ule i32 %68, %9
-  tail call void @llvm.assume(i1 %74)
-  store ptr %61, ptr %8, align 8
-  %75 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %67, ptr %75, align 8
-  %76 = invoke noundef zeroext i1 @_ZNK8rawspeed11NORangesSetINS_6BufferEE44rangeIsOverlappingExistingElementOfSortedSetERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(12) %8)
-          to label %77 unwind label %86
+72:                                               ; preds = %54
+  %73 = icmp ule i32 %67, %9
+  tail call void @llvm.assume(i1 %73)
+  store ptr %60, ptr %8, align 8
+  %74 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %66, ptr %74, align 8
+  %75 = invoke noundef zeroext i1 @_ZNK8rawspeed11NORangesSetINS_6BufferEE44rangeIsOverlappingExistingElementOfSortedSetERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(12) %8)
+          to label %76 unwind label %85
 
-77:                                               ; preds = %73
-  br i1 %76, label %80, label %78
+76:                                               ; preds = %72
+  br i1 %75, label %79, label %77
 
-78:                                               ; preds = %77
-  %79 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIN8rawspeed6BufferES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE16_M_insert_uniqueIRKS1_EESt4pairISt17_Rb_tree_iteratorIS1_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(12) %8)
-          to label %88 unwind label %86
+77:                                               ; preds = %76
+  %78 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIN8rawspeed6BufferES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE16_M_insert_uniqueIRKS1_EESt4pairISt17_Rb_tree_iteratorIS1_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(12) %8)
+          to label %87 unwind label %85
 
-80:                                               ; preds = %77
+79:                                               ; preds = %76
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed7TiffIFDC2EPS0_PNS_11NORangesSetINS_6BufferEEENS_10DataBufferEj) #29
-          to label %81 unwind label %86
+          to label %80 unwind label %85
 
-81:                                               ; preds = %80
+80:                                               ; preds = %79
   unreachable
 
-82:                                               ; preds = %44
-  %83 = landingpad { ptr, i32 }
+81:                                               ; preds = %44
+  %82 = landingpad { ptr, i32 }
           cleanup
-  br label %124
+  br label %123
 
-84:                                               ; preds = %53
-  %85 = landingpad { ptr, i32 }
+83:                                               ; preds = %52
+  %84 = landingpad { ptr, i32 }
           cleanup
-  br label %124
+  br label %123
 
-86:                                               ; preds = %80, %78, %73, %71
-  %87 = landingpad { ptr, i32 }
+85:                                               ; preds = %79, %77, %72, %70
+  %86 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #28
-  br label %124
+  br label %123
 
-88:                                               ; preds = %78
+87:                                               ; preds = %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #28
-  %89 = icmp eq i16 %64, 0
-  br i1 %89, label %94, label %.preheader
+  %88 = icmp eq i16 %63, 0
+  br i1 %88, label %93, label %.preheader
 
-90:                                               ; preds = %104
-  %91 = load i32, ptr %42, align 8, !tbaa !12
-  %92 = load i32, ptr %41, align 8, !tbaa !6
-  %93 = zext i32 %92 to i64
-  br label %94
+89:                                               ; preds = %103
+  %90 = load i32, ptr %42, align 8, !tbaa !12
+  %91 = load i32, ptr %41, align 8, !tbaa !6
+  %92 = zext i32 %91 to i64
+  br label %93
 
-94:                                               ; preds = %90, %88
-  %95 = phi i64 [ %93, %90 ], [ %51, %88 ]
-  %96 = phi i32 [ %92, %90 ], [ %9, %88 ]
-  %97 = phi i32 [ %91, %90 ], [ %59, %88 ]
-  %98 = zext i32 %97 to i64
-  %99 = add nuw nsw i64 %98, 4
-  %100 = icmp ugt i64 %99, %95
-  br i1 %100, label %101, label %109
+93:                                               ; preds = %89, %87
+  %94 = phi i64 [ %92, %89 ], [ %40, %87 ]
+  %95 = phi i32 [ %91, %89 ], [ %9, %87 ]
+  %96 = phi i32 [ %90, %89 ], [ %58, %87 ]
+  %97 = zext i32 %96 to i64
+  %98 = add nuw nsw i64 %97, 4
+  %99 = icmp ugt i64 %98, %94
+  br i1 %99, label %100, label %108
 
-101:                                              ; preds = %94
+100:                                              ; preds = %93
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.26, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #29
-          to label %102 unwind label %122
+          to label %101 unwind label %121
 
-102:                                              ; preds = %101
+101:                                              ; preds = %100
   unreachable
 
-.preheader:                                       ; preds = %88, %104
-  %103 = phi i32 [ %105, %104 ], [ 0, %88 ]
+.preheader:                                       ; preds = %87, %103
+  %102 = phi i32 [ %104, %103 ], [ 0, %87 ]
   invoke void @_ZN8rawspeed7TiffIFD13parseIFDEntryEPNS_11NORangesSetINS_6BufferEEERNS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %104 unwind label %107
+          to label %103 unwind label %106
 
-104:                                              ; preds = %.preheader
-  %105 = add nuw nsw i32 %103, 1
-  %106 = icmp eq i32 %105, %65
-  br i1 %106, label %90, label %.preheader, !llvm.loop !110
+103:                                              ; preds = %.preheader
+  %104 = add nuw nsw i32 %102, 1
+  %105 = icmp eq i32 %104, %64
+  br i1 %105, label %89, label %.preheader, !llvm.loop !110
 
-107:                                              ; preds = %.preheader
-  %108 = landingpad { ptr, i32 }
+106:                                              ; preds = %.preheader
+  %107 = landingpad { ptr, i32 }
           cleanup
-  br label %124
+  br label %123
 
-109:                                              ; preds = %94
-  %110 = load i32, ptr %56, align 4, !tbaa !111
-  %111 = icmp eq i32 %110, 57005
-  %112 = load ptr, ptr %7, align 8, !tbaa !112, !nonnull !113, !noundef !113
-  %113 = icmp sgt i32 %96, -1
-  call void @llvm.assume(i1 %113)
-  %114 = add nuw nsw i32 %97, 4
-  %115 = icmp ule i32 %114, %96
+108:                                              ; preds = %93
+  %109 = load i32, ptr %55, align 4, !tbaa !111
+  %110 = icmp eq i32 %109, 57005
+  %111 = load ptr, ptr %7, align 8, !tbaa !112, !nonnull !113, !noundef !113
+  %112 = icmp sgt i32 %95, -1
+  call void @llvm.assume(i1 %112)
+  %113 = add nuw nsw i32 %96, 4
+  %114 = icmp ule i32 %113, %95
+  call void @llvm.assume(i1 %114)
+  %115 = icmp sgt i32 %96, -1
   call void @llvm.assume(i1 %115)
-  %116 = icmp sgt i32 %97, -1
-  call void @llvm.assume(i1 %116)
-  %117 = getelementptr inbounds i8, ptr %112, i64 %98
-  %118 = load i32, ptr %117, align 1
-  %119 = call i32 @llvm.bswap.i32(i32 %118)
-  %120 = select i1 %111, i32 %118, i32 %119
-  store i32 %120, ptr %10, align 8, !tbaa !98
+  %116 = getelementptr inbounds i8, ptr %111, i64 %97
+  %117 = load i32, ptr %116, align 1
+  %118 = call i32 @llvm.bswap.i32(i32 %117)
+  %119 = select i1 %110, i32 %117, i32 %118
+  store i32 %119, ptr %10, align 8, !tbaa !98
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #28
-  br label %121
+  br label %120
 
-121:                                              ; preds = %109, %.loopexit
+120:                                              ; preds = %108, %.loopexit
   ret void
 
-122:                                              ; preds = %101
-  %123 = landingpad { ptr, i32 }
+121:                                              ; preds = %100
+  %122 = landingpad { ptr, i32 }
           cleanup
-  br label %124
+  br label %123
 
-124:                                              ; preds = %122, %107, %86, %84, %82
-  %125 = phi { ptr, i32 } [ %83, %82 ], [ %85, %84 ], [ %108, %107 ], [ %123, %122 ], [ %87, %86 ]
+123:                                              ; preds = %121, %106, %85, %83, %81
+  %124 = phi { ptr, i32 } [ %82, %81 ], [ %84, %83 ], [ %107, %106 ], [ %122, %121 ], [ %86, %85 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #28
   call void @_ZN8rawspeed7TiffIFDD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #28
   br label %33

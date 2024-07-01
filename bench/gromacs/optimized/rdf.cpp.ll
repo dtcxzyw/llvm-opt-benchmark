@@ -3102,7 +3102,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf14finishAnalysis
 25:                                               ; preds = %2
   %26 = getelementptr inbounds i8, ptr %24, i64 112
   %27 = load i32, ptr %26, align 4
-  %28 = sext i32 %27 to i64
+  %28 = zext i32 %27 to i64
   %.not100 = icmp eq i32 %27, 0
   br i1 %.not100, label %._crit_edge, label %29
 
@@ -3139,7 +3139,6 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc89
   %39 = getelementptr inbounds i8, ptr %0, i64 261
   %40 = load i8, ptr %39, align 1
   %41 = trunc i8 %40 to i1
-  %wide.trip.count132 = zext nneg i32 %27 to i64
   br i1 %41, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -3159,7 +3158,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc89
   %53 = getelementptr inbounds float, ptr %33, i64 %indvars.iv129
   store float %52, ptr %53, align 4
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
+  %exitcond133.not = icmp eq i64 %indvars.iv.next130, %28
   br i1 %exitcond133.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -3180,7 +3179,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc89
   %66 = getelementptr inbounds float, ptr %33, i64 %indvars.iv
   store float %65, ptr %66, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count132
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
 
 .thread:                                          ; preds = %31, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i

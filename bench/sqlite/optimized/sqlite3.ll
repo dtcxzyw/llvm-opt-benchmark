@@ -159128,8 +159128,8 @@ define internal fastcc void @sqlite3CreateForeignKey(ptr nocapture noundef %0, p
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %8, i64 54
   %18 = load i16, ptr %17, align 2
-  %19 = sext i16 %18 to i64
-  %20 = add nsw i64 %19, 4294967295
+  %19 = zext i16 %18 to i64
+  %20 = add nuw nsw i64 %19, 4294967295
   %21 = icmp slt i16 %18, 1
   br i1 %21, label %sqlite3ExprListDelete.exit, label %22
 

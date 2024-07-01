@@ -14,59 +14,58 @@ define dso_local noundef i32 @local2local(ptr noundef %0, ptr nocapture noundef 
   %8 = icmp sgt i32 %2, 0
   br i1 %8, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %7, %22
-  %.040 = phi ptr [ %23, %22 ], [ %0, %7 ]
-  %.02539 = phi ptr [ %.1, %22 ], [ %1, %7 ]
-  %.02638 = phi i32 [ %24, %22 ], [ %2, %7 ]
+.lr.ph:                                           ; preds = %7, %21
+  %.040 = phi ptr [ %22, %21 ], [ %0, %7 ]
+  %.02539 = phi ptr [ %.1, %21 ], [ %1, %7 ]
+  %.02638 = phi i32 [ %23, %21 ], [ %2, %7 ]
   %9 = load i8, ptr %.040, align 1
-  %10 = zext i8 %9 to i64
-  %11 = icmp eq i8 %9, 0
-  br i1 %11, label %12, label %14
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %11, label %13
 
-12:                                               ; preds = %.lr.ph
-  br i1 %6, label %.loopexit, label %13
+11:                                               ; preds = %.lr.ph
+  br i1 %6, label %.loopexit, label %12
 
-13:                                               ; preds = %12
+12:                                               ; preds = %11
   tail call void @report_invalid_encoding(i32 noundef %3, ptr noundef nonnull %.040, i32 noundef %.02638) #7
   unreachable
 
-14:                                               ; preds = %.lr.ph
+13:                                               ; preds = %.lr.ph
   %.not = icmp sgt i8 %9, -1
-  br i1 %.not, label %22, label %15
+  br i1 %.not, label %21, label %14
 
-15:                                               ; preds = %14
-  %16 = add nuw nsw i64 %10, 4294967168
-  %17 = and i64 %16, 4294967295
-  %18 = getelementptr i8, ptr %5, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %.not29 = icmp eq i8 %19, 0
-  br i1 %.not29, label %20, label %22
+14:                                               ; preds = %13
+  %15 = and i8 %9, 127
+  %16 = zext nneg i8 %15 to i64
+  %17 = getelementptr i8, ptr %5, i64 %16
+  %18 = load i8, ptr %17, align 1
+  %.not29 = icmp eq i8 %18, 0
+  br i1 %.not29, label %19, label %21
 
-20:                                               ; preds = %15
-  br i1 %6, label %.loopexit, label %21
+19:                                               ; preds = %14
+  br i1 %6, label %.loopexit, label %20
 
-21:                                               ; preds = %20
+20:                                               ; preds = %19
   tail call void @report_untranslatable_char(i32 noundef %3, i32 noundef %4, ptr noundef nonnull %.040, i32 noundef %.02638) #7
   unreachable
 
-22:                                               ; preds = %15, %14
-  %storemerge = phi i8 [ %9, %14 ], [ %19, %15 ]
+21:                                               ; preds = %14, %13
+  %storemerge = phi i8 [ %9, %13 ], [ %18, %14 ]
   %.1 = getelementptr i8, ptr %.02539, i64 1
   store i8 %storemerge, ptr %.02539, align 1
-  %23 = getelementptr i8, ptr %.040, i64 1
-  %24 = add nsw i32 %.02638, -1
-  %25 = icmp sgt i32 %.02638, 1
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !5
+  %22 = getelementptr i8, ptr %.040, i64 1
+  %23 = add nsw i32 %.02638, -1
+  %24 = icmp sgt i32 %.02638, 1
+  br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
-.loopexit:                                        ; preds = %22, %7, %20, %12
-  %.02535 = phi ptr [ %.02539, %20 ], [ %.02539, %12 ], [ %1, %7 ], [ %.1, %22 ]
-  %.032 = phi ptr [ %.040, %20 ], [ %.040, %12 ], [ %0, %7 ], [ %23, %22 ]
+.loopexit:                                        ; preds = %21, %7, %19, %11
+  %.02535 = phi ptr [ %.02539, %19 ], [ %.02539, %11 ], [ %1, %7 ], [ %.1, %21 ]
+  %.032 = phi ptr [ %.040, %19 ], [ %.040, %11 ], [ %0, %7 ], [ %22, %21 ]
   store i8 0, ptr %.02535, align 1
-  %26 = ptrtoint ptr %.032 to i64
-  %27 = ptrtoint ptr %0 to i64
-  %28 = sub i64 %26, %27
-  %29 = trunc i64 %28 to i32
-  ret i32 %29
+  %25 = ptrtoint ptr %.032 to i64
+  %26 = ptrtoint ptr %0 to i64
+  %27 = sub i64 %25, %26
+  %28 = trunc i64 %27 to i32
+  ret i32 %28
 }
 
 ; Function Attrs: noreturn
@@ -217,69 +216,68 @@ define dso_local noundef i32 @latin2mic_with_table(ptr noundef %0, ptr nocapture
   %9 = trunc i32 %3 to i8
   br label %10
 
-10:                                               ; preds = %.lr.ph, %29
-  %.041 = phi ptr [ %0, %.lr.ph ], [ %30, %29 ]
-  %.02640 = phi ptr [ %1, %.lr.ph ], [ %.1, %29 ]
-  %.02739 = phi i32 [ %2, %.lr.ph ], [ %31, %29 ]
+10:                                               ; preds = %.lr.ph, %28
+  %.041 = phi ptr [ %0, %.lr.ph ], [ %29, %28 ]
+  %.02640 = phi ptr [ %1, %.lr.ph ], [ %.1, %28 ]
+  %.02739 = phi i32 [ %2, %.lr.ph ], [ %30, %28 ]
   %11 = load i8, ptr %.041, align 1
-  %12 = zext i8 %11 to i64
-  %13 = icmp eq i8 %11, 0
-  br i1 %13, label %14, label %16
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %13, label %15
 
-14:                                               ; preds = %10
-  br i1 %6, label %.loopexit, label %15
+13:                                               ; preds = %10
+  br i1 %6, label %.loopexit, label %14
 
-15:                                               ; preds = %14
+14:                                               ; preds = %13
   tail call void @report_invalid_encoding(i32 noundef %4, ptr noundef nonnull %.041, i32 noundef %.02739) #7
   unreachable
 
-16:                                               ; preds = %10
+15:                                               ; preds = %10
   %.not = icmp sgt i8 %11, -1
-  br i1 %.not, label %17, label %19
+  br i1 %.not, label %16, label %18
 
-17:                                               ; preds = %16
-  %18 = getelementptr i8, ptr %.02640, i64 1
+16:                                               ; preds = %15
+  %17 = getelementptr i8, ptr %.02640, i64 1
   store i8 %11, ptr %.02640, align 1
-  br label %29
+  br label %28
 
-19:                                               ; preds = %16
-  %20 = add nuw nsw i64 %12, 4294967168
-  %21 = and i64 %20, 4294967295
-  %22 = getelementptr i8, ptr %5, i64 %21
-  %23 = load i8, ptr %22, align 1
-  %.not30 = icmp eq i8 %23, 0
-  br i1 %.not30, label %27, label %24
+18:                                               ; preds = %15
+  %19 = and i8 %11, 127
+  %20 = zext nneg i8 %19 to i64
+  %21 = getelementptr i8, ptr %5, i64 %20
+  %22 = load i8, ptr %21, align 1
+  %.not30 = icmp eq i8 %22, 0
+  br i1 %.not30, label %26, label %23
 
-24:                                               ; preds = %19
-  %25 = getelementptr i8, ptr %.02640, i64 1
+23:                                               ; preds = %18
+  %24 = getelementptr i8, ptr %.02640, i64 1
   store i8 %9, ptr %.02640, align 1
-  %26 = getelementptr i8, ptr %.02640, i64 2
-  store i8 %23, ptr %25, align 1
-  br label %29
+  %25 = getelementptr i8, ptr %.02640, i64 2
+  store i8 %22, ptr %24, align 1
+  br label %28
 
-27:                                               ; preds = %19
-  br i1 %6, label %.loopexit, label %28
+26:                                               ; preds = %18
+  br i1 %6, label %.loopexit, label %27
 
-28:                                               ; preds = %27
+27:                                               ; preds = %26
   tail call void @report_untranslatable_char(i32 noundef %4, i32 noundef 7, ptr noundef nonnull %.041, i32 noundef %.02739) #7
   unreachable
 
-29:                                               ; preds = %24, %17
-  %.1 = phi ptr [ %26, %24 ], [ %18, %17 ]
-  %30 = getelementptr i8, ptr %.041, i64 1
-  %31 = add nsw i32 %.02739, -1
-  %32 = icmp sgt i32 %.02739, 1
-  br i1 %32, label %10, label %.loopexit, !llvm.loop !9
+28:                                               ; preds = %23, %16
+  %.1 = phi ptr [ %25, %23 ], [ %17, %16 ]
+  %29 = getelementptr i8, ptr %.041, i64 1
+  %30 = add nsw i32 %.02739, -1
+  %31 = icmp sgt i32 %.02739, 1
+  br i1 %31, label %10, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %29, %7, %27, %14
-  %.02636 = phi ptr [ %.02640, %27 ], [ %.02640, %14 ], [ %1, %7 ], [ %.1, %29 ]
-  %.033 = phi ptr [ %.041, %27 ], [ %.041, %14 ], [ %0, %7 ], [ %30, %29 ]
+.loopexit:                                        ; preds = %28, %7, %26, %13
+  %.02636 = phi ptr [ %.02640, %26 ], [ %.02640, %13 ], [ %1, %7 ], [ %.1, %28 ]
+  %.033 = phi ptr [ %.041, %26 ], [ %.041, %13 ], [ %0, %7 ], [ %29, %28 ]
   store i8 0, ptr %.02636, align 1
-  %33 = ptrtoint ptr %.033 to i64
-  %34 = ptrtoint ptr %0 to i64
-  %35 = sub i64 %33, %34
-  %36 = trunc i64 %35 to i32
-  ret i32 %36
+  %32 = ptrtoint ptr %.033 to i64
+  %33 = ptrtoint ptr %0 to i64
+  %34 = sub i64 %32, %33
+  %35 = trunc i64 %34 to i32
+  ret i32 %35
 }
 
 ; Function Attrs: nounwind uwtable

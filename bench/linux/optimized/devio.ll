@@ -5912,7 +5912,7 @@ default.unreachable57:                            ; preds = %182
 
 287:                                              ; preds = %285, %282
   %288 = phi i32 [ %286, %285 ], [ 0, %282 ]
-  %289 = sext i32 %284 to i64
+  %289 = zext i32 %284 to i64
   %290 = shl nsw i32 %284, 5
   %291 = add nuw i32 %258, 288
   %292 = add i32 %291, %290

@@ -7106,7 +7106,7 @@ define void @_ZN3gmx9BiasState17sampleCoordAndPmfERKSt6vectorINS_9DimParamsESaIS
 
 23:                                               ; preds = %12
   %24 = tail call noundef i32 @_ZNK3gmx8BiasGrid18numFepLambdaStatesEv(ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !70
-  %25 = sext i32 %24 to i64
+  %25 = zext i32 %24 to i64
   %26 = icmp slt i32 %24, 0
   br i1 %26, label %.noexc.i, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i
 

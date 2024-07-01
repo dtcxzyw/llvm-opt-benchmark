@@ -41707,7 +41707,7 @@ invoke.cont48.i.i.i:                              ; preds = %invoke.cont.i.i.i
   %conv.i49.i.i.i = trunc i64 %27 to i32
   %mul50.i.i.i = mul i32 %sub4.i.i.i.i.i, %sub32.i.i.i
   %mul51.i.i.i = mul i32 %mul50.i.i.i, %conv.i49.i.i.i
-  %conv52.i.i.i = sext i32 %mul51.i.i.i to i64
+  %conv52.i.i.i = zext i32 %mul51.i.i.i to i64
   %cmp.i.i50.i.i.i = icmp slt i32 %mul51.i.i.i, 0
   br i1 %cmp.i.i50.i.i.i, label %if.then.i.i63.i.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i51.i.i.i
 

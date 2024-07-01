@@ -1942,7 +1942,7 @@ define internal void @_ZNK5faiss25IndexIVFAdditiveQuantizer9sa_decodeElPKhPf.omp
   %11 = alloca i32, align 4
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8
-  %14 = sext i32 %13 to i64
+  %14 = zext i32 %13 to i64
   %15 = icmp slt i32 %13, 0
   br i1 %15, label %16, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 

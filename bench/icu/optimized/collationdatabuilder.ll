@@ -3808,11 +3808,11 @@ land.lhs.true25:                                  ; preds = %if.then21
 if.then30:                                        ; preds = %land.lhs.true25
   %conv31 = trunc i64 %4 to i32
   %and32 = shl i32 %conv31, 8
+  %or = or disjoint i32 %and32, %conv
   %shr33 = lshr i64 %5, 16
   %conv34 = trunc nuw i64 %shr33 to i32
-  %or = or i32 %and32, %conv
-  %or35 = or i32 %or, %conv34
-  %or37 = or i32 %or35, 196
+  %or35 = or disjoint i32 %or, %conv34
+  %or37 = or disjoint i32 %or35, 196
   br label %return
 
 if.end45.preheader:                               ; preds = %land.lhs.true, %land.lhs.true25, %if.then21, %if.end11

@@ -1921,7 +1921,7 @@ add_new_filter.exit.i:                            ; preds = %is_valid_filter_blo
   br label %parse_filter.exit.thread.i.i
 
 756:                                              ; preds = %742, %733
-  %757 = and i32 %709, 7
+  %757 = and i32 %709, 3
   store i32 %757, ptr %732, align 8
   %758 = getelementptr inbounds i8, ptr %.val.val.i.i.i, i64 112
   %759 = load i64, ptr %758, align 8

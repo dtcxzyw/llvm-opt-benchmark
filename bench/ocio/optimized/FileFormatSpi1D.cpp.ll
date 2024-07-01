@@ -1970,7 +1970,7 @@ invoke.cont22:                                    ; preds = %invoke.cont18
   store float 0.000000e+00, ptr %fromInStart, align 4
   store float 1.000000e+00, ptr %fromInEnd, align 4
   %mul = mul nsw i32 %spec.store.select, 3
-  %conv = sext i32 %mul to i64
+  %conv = zext i32 %mul to i64
   %cmp.i.not = icmp eq i32 %spec.store.select, 0
   br i1 %cmp.i.not, label %invoke.cont25, label %if.else.i81
 

@@ -8411,7 +8411,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit7.i151:              ; preds = %321, %_ZNSt6vectorI
 
 _ZN11UIestimator8n_vectorIiED2Ev.exit153:         ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit7.i151, %323
   %324 = load i32, ptr %88, align 8
-  %325 = sext i32 %324 to i64
+  %325 = zext i32 %324 to i64
   %326 = icmp slt i32 %324, 0
   br i1 %326, label %327, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i154
 
@@ -22584,7 +22584,7 @@ define linkonce_odr void @_ZN11UIestimator11UIestimator8calc_pmfEv(ptr noundef n
   %4 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 376
   %6 = load i32, ptr %5, align 8
-  %7 = sext i32 %6 to i64
+  %7 = zext i32 %6 to i64
   %8 = icmp slt i32 %6, 0
   br i1 %8, label %.noexc, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -23432,7 +23432,7 @@ _ZN11UIestimator8n_vectorIdE9set_valueERKSt6vectorIdSaIdEEd.exit267: ; preds = %
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %434
   %442 = phi i32 [ %418, %434 ], [ %440, %._crit_edge ]
-  %443 = sext i32 %442 to i64
+  %443 = zext i32 %442 to i64
   %444 = icmp slt i32 %442, 0
   br i1 %444, label %445, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i268
 
@@ -25372,7 +25372,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit103: ;
 
 94:                                               ; preds = %._crit_edge480, %76
   %95 = phi i32 [ %.pre481, %._crit_edge480 ], [ %78, %76 ]
-  %96 = sext i32 %95 to i64
+  %96 = zext i32 %95 to i64
   %97 = icmp slt i32 %95, 0
   br i1 %97, label %98, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
 

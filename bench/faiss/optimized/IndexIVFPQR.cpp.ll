@@ -723,7 +723,7 @@ define void @_ZNK5faiss11IndexIVFPQR23reconstruct_from_offsetEllPf(ptr noundef n
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(25) %6, i64 noundef %1, i64 noundef %2)
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = sext i32 %12 to i64
+  %13 = zext i32 %12 to i64
   %14 = icmp slt i32 %12, 0
   br i1 %14, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 

@@ -5090,7 +5090,7 @@ _ZNK12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE10CountN
   tail call void @Gia_ManHashAlloc(ptr noundef %44)
   %45 = getelementptr inbounds i8, ptr %0, i64 20
   %46 = load i32, ptr %45, align 4
-  %47 = sext i32 %46 to i64
+  %47 = zext i32 %46 to i64
   %48 = icmp slt i32 %46, 0
   br i1 %48, label %.noexc, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -10458,7 +10458,7 @@ _ZNK12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE10CountNo
   tail call void @Gia_ManHashAlloc(ptr noundef %44)
   %45 = getelementptr inbounds i8, ptr %0, i64 20
   %46 = load i32, ptr %45, align 4
-  %47 = sext i32 %46 to i64
+  %47 = zext i32 %46 to i64
   %48 = icmp slt i32 %46, 0
   br i1 %48, label %.noexc, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -13636,7 +13636,7 @@ _ZNK12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE5PrintEN
 26:                                               ; preds = %_ZNK12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE5PrintENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, %3
   %27 = getelementptr inbounds i8, ptr %1, i64 24
   %28 = load i32, ptr %27, align 8
-  %29 = sext i32 %28 to i64
+  %29 = zext i32 %28 to i64
   %30 = icmp slt i32 %28, 0
   br i1 %30, label %.noexc125, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -38720,7 +38720,7 @@ _ZNK12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE5PrintENS
 26:                                               ; preds = %_ZNK12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE5PrintENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, %3
   %27 = getelementptr inbounds i8, ptr %1, i64 24
   %28 = load i32, ptr %27, align 8
-  %29 = sext i32 %28 to i64
+  %29 = zext i32 %28 to i64
   %30 = icmp slt i32 %28, 0
   br i1 %30, label %.noexc125, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 

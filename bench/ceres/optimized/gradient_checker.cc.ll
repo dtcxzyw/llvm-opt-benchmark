@@ -7812,7 +7812,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit:       ; preds = %_ZN6google22MakeChe
   br i1 %.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit, label %.lr.ph.i, !llvm.loop !215
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit: ; preds = %.lr.ph.i
-  %60 = sext i32 %58 to i64
+  %60 = zext i32 %58 to i64
   %61 = icmp slt i32 %58, 0
   br i1 %61, label %.noexc, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
 

@@ -2006,48 +2006,48 @@ define internal fastcc void @ExecHashIncreaseNumBatches(ptr noundef %0) unnamed_
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  %9 = sext i32 %3 to i64
-  %10 = icmp ult i32 %3, 67108864
-  %or.cond.not = select i1 %8, i1 %10, i1 false
-  br i1 %or.cond.not, label %11, label %154
+  %9 = icmp ult i32 %3, 67108864
+  %or.cond.not = select i1 %8, i1 %9, i1 false
+  br i1 %or.cond.not, label %10, label %154
 
-11:                                               ; preds = %1
-  %12 = shl nuw nsw i32 %3, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %25
+10:                                               ; preds = %1
+  %11 = shl nuw nsw i32 %3, 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %24
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 216
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr @CurrentMemoryContext, align 8
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds i8, ptr %0, i64 216
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %17, ptr @CurrentMemoryContext, align 8
+  %19 = shl nuw nsw i32 %3, 4
+  %20 = zext nneg i32 %19 to i64
+  %21 = tail call ptr @palloc0(i64 noundef %20) #16
+  store ptr %21, ptr %12, align 8
+  %22 = tail call ptr @palloc0(i64 noundef %20) #16
+  %23 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %22, ptr %23, align 8
   store ptr %18, ptr @CurrentMemoryContext, align 8
-  %20 = shl nuw nsw i32 %3, 4
-  %21 = zext nneg i32 %20 to i64
-  %22 = tail call ptr @palloc0(i64 noundef %21) #16
-  store ptr %22, ptr %13, align 8
-  %23 = tail call ptr @palloc0(i64 noundef %21) #16
-  %24 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr %23, ptr %24, align 8
-  store ptr %19, ptr @CurrentMemoryContext, align 8
   tail call void @PrepareTempTablespaces() #16
   br label %33
 
-25:                                               ; preds = %11
-  %26 = shl nuw nsw i64 %9, 3
+24:                                               ; preds = %10
+  %25 = shl nuw nsw i32 %3, 3
+  %26 = zext nneg i32 %25 to i64
   %27 = shl nuw nsw i32 %3, 4
   %28 = zext nneg i32 %27 to i64
-  %29 = tail call ptr @repalloc0(ptr noundef nonnull %14, i64 noundef %26, i64 noundef %28) #16
-  store ptr %29, ptr %13, align 8
+  %29 = tail call ptr @repalloc0(ptr noundef nonnull %13, i64 noundef %26, i64 noundef %28) #16
+  store ptr %29, ptr %12, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @repalloc0(ptr noundef %31, i64 noundef %26, i64 noundef %28) #16
   store ptr %32, ptr %30, align 8
   br label %33
 
-33:                                               ; preds = %25, %16
-  store i32 %12, ptr %2, align 8
+33:                                               ; preds = %24, %15
+  store i32 %11, ptr %2, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = load i32, ptr %0, align 8
@@ -2234,7 +2234,7 @@ dense_alloc.exit:                                 ; preds = %104, %116, %124
   br label %145
 
 137:                                              ; preds = %ExecHashGetBucketAndBatch.exit
-  %138 = load ptr, ptr %13, align 8
+  %138 = load ptr, ptr %12, align 8
   %139 = sext i32 %storemerge.i to i64
   %140 = getelementptr ptr, ptr %138, i64 %139
   tail call void @ExecHashJoinSaveTuple(ptr noundef nonnull %65, i32 noundef %70, ptr noundef %140, ptr noundef nonnull %0) #16

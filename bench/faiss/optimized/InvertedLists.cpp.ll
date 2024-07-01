@@ -1613,7 +1613,7 @@ define noundef ptr @_ZNK5faiss19VStackInvertedLists15get_single_codeEmm(ptr noca
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5faiss19VStackInvertedLists14prefetch_listsEPKli(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = sext i32 %2 to i64
+  %4 = zext i32 %2 to i64
   %5 = icmp slt i32 %2, 0
   br i1 %5, label %.noexc, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -1781,7 +1781,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit78:          ; preds = %.noexc77, %_ZNSt6ve
 ._crit_edge132:                                   ; preds = %.lr.ph131, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit78
   %57 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i74, i64 -4
   %58 = load i32, ptr %57, align 4
-  %59 = sext i32 %58 to i64
+  %59 = zext i32 %58 to i64
   %60 = icmp slt i32 %58, 0
   br i1 %60, label %61, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
 

@@ -171,7 +171,7 @@ define noundef double @_ZNK5faiss20PermutationObjective11cost_updateEPKiii(ptr n
   %7 = tail call noundef double %6(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1)
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = sext i32 %9 to i64
+  %10 = zext i32 %9 to i64
   %11 = icmp slt i32 %9, 0
   br i1 %11, label %.noexc, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -719,7 +719,7 @@ define noundef double @_ZN5faiss27SimulatedAnnealingOptimizer16run_optimizationE
   %.054 = phi double [ 1.000000e+30, %.lr.ph56 ], [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit34 ]
   %.02353 = phi i32 [ 0, %.lr.ph56 ], [ %61, %_ZNSt6vectorIiSaIiEED2Ev.exit34 ]
   %12 = load i32, ptr %6, align 8
-  %13 = sext i32 %12 to i64
+  %13 = zext i32 %12 to i64
   %14 = icmp slt i32 %12, 0
   br i1 %14, label %.noexc, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -1755,7 +1755,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
   %.sroa.676.1.lcssa = phi ptr [ null, %44 ], [ %.sroa.676.2.lcssa, %._crit_edge ]
   %.sroa.072.1.lcssa = phi ptr [ null, %44 ], [ %.sroa.072.2.lcssa, %._crit_edge ]
   %.lcssa = phi i32 [ %51, %44 ], [ %91, %._crit_edge ]
-  %94 = sext i32 %.lcssa to i64
+  %94 = zext i32 %.lcssa to i64
   %95 = icmp slt i32 %.lcssa, 0
   br i1 %95, label %.invoke168, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 

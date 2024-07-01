@@ -425,87 +425,87 @@ define dso_local i64 @pg_snapshot_recv(ptr nocapture noundef readonly %0) local_
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #10
-  %6 = sext i32 %5 to i64
-  %7 = icmp ugt i32 %5, 134217724
-  br i1 %7, label %.loopexit, label %8
+  %6 = icmp ugt i32 %5, 134217724
+  br i1 %6, label %.loopexit, label %7
 
-8:                                                ; preds = %1
+7:                                                ; preds = %1
+  %8 = tail call i64 @pq_getmsgint64(ptr noundef %4) #10
   %9 = tail call i64 @pq_getmsgint64(ptr noundef %4) #10
-  %10 = tail call i64 @pq_getmsgint64(ptr noundef %4) #10
-  %11 = and i64 %9, 4294967295
-  %12 = icmp eq i64 %11, 0
-  %13 = and i64 %10, 4294967295
-  %14 = icmp eq i64 %13, 0
-  %or.cond6.not52 = select i1 %12, i1 true, i1 %14
-  %15 = icmp ult i64 %10, %9
-  %or.cond = select i1 %or.cond6.not52, i1 true, i1 %15
-  br i1 %or.cond, label %.loopexit, label %16
+  %10 = and i64 %8, 4294967295
+  %11 = icmp eq i64 %10, 0
+  %12 = and i64 %9, 4294967295
+  %13 = icmp eq i64 %12, 0
+  %or.cond6.not52 = select i1 %11, i1 true, i1 %13
+  %14 = icmp ult i64 %9, %8
+  %or.cond = select i1 %or.cond6.not52, i1 true, i1 %14
+  br i1 %or.cond, label %.loopexit, label %15
 
-16:                                               ; preds = %8
-  %17 = shl nuw nsw i64 %6, 3
-  %18 = add nuw nsw i64 %17, 24
-  %19 = tail call ptr @palloc(i64 noundef %18) #10
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+15:                                               ; preds = %7
+  %16 = shl nuw nsw i32 %5, 3
+  %narrow = add nuw nsw i32 %16, 24
+  %17 = zext nneg i32 %narrow to i64
+  %18 = tail call ptr @palloc(i64 noundef %17) #10
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  store i64 %8, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %18, i64 16
   store i64 %9, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
-  store i64 %10, ptr %21, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
-  br label %23
+.lr.ph:                                           ; preds = %15
+  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  br label %22
 
-23:                                               ; preds = %.lr.ph, %36
-  %.sroa.029.056 = phi i64 [ 0, %.lr.ph ], [ %.sroa.029.1, %36 ]
-  %.055 = phi i32 [ %5, %.lr.ph ], [ %.1, %36 ]
-  %.04254 = phi i32 [ 0, %.lr.ph ], [ %37, %36 ]
-  %24 = tail call i64 @pq_getmsgint64(ptr noundef %4) #10
-  %25 = icmp ult i64 %24, %.sroa.029.056
-  %26 = icmp ult i64 %24, %9
-  %or.cond49 = select i1 %25, i1 true, i1 %26
-  %27 = icmp ult i64 %10, %24
-  %or.cond50 = select i1 %or.cond49, i1 true, i1 %27
-  br i1 %or.cond50, label %.loopexit, label %28
+22:                                               ; preds = %.lr.ph, %35
+  %.sroa.029.056 = phi i64 [ 0, %.lr.ph ], [ %.sroa.029.1, %35 ]
+  %.055 = phi i32 [ %5, %.lr.ph ], [ %.1, %35 ]
+  %.04254 = phi i32 [ 0, %.lr.ph ], [ %36, %35 ]
+  %23 = tail call i64 @pq_getmsgint64(ptr noundef %4) #10
+  %24 = icmp ult i64 %23, %.sroa.029.056
+  %25 = icmp ult i64 %23, %8
+  %or.cond49 = select i1 %24, i1 true, i1 %25
+  %26 = icmp ult i64 %9, %23
+  %or.cond50 = select i1 %or.cond49, i1 true, i1 %26
+  br i1 %or.cond50, label %.loopexit, label %27
 
-28:                                               ; preds = %23
-  %29 = icmp eq i64 %24, %.sroa.029.056
-  br i1 %29, label %30, label %33
+27:                                               ; preds = %22
+  %28 = icmp eq i64 %23, %.sroa.029.056
+  br i1 %28, label %29, label %32
 
-30:                                               ; preds = %28
-  %31 = add i32 %.04254, -1
-  %32 = add nsw i32 %.055, -1
-  br label %36
+29:                                               ; preds = %27
+  %30 = add i32 %.04254, -1
+  %31 = add nsw i32 %.055, -1
+  br label %35
 
-33:                                               ; preds = %28
-  %34 = sext i32 %.04254 to i64
-  %35 = getelementptr [0 x %struct.FullTransactionId], ptr %22, i64 0, i64 %34
-  store i64 %24, ptr %35, align 8
-  br label %36
+32:                                               ; preds = %27
+  %33 = sext i32 %.04254 to i64
+  %34 = getelementptr [0 x %struct.FullTransactionId], ptr %21, i64 0, i64 %33
+  store i64 %23, ptr %34, align 8
+  br label %35
 
-36:                                               ; preds = %33, %30
-  %.143 = phi i32 [ %31, %30 ], [ %.04254, %33 ]
-  %.1 = phi i32 [ %32, %30 ], [ %.055, %33 ]
-  %.sroa.029.1 = phi i64 [ %.sroa.029.056, %30 ], [ %24, %33 ]
-  %37 = add i32 %.143, 1
-  %38 = icmp slt i32 %37, %.1
-  br i1 %38, label %23, label %._crit_edge, !llvm.loop !10
+35:                                               ; preds = %32, %29
+  %.143 = phi i32 [ %30, %29 ], [ %.04254, %32 ]
+  %.1 = phi i32 [ %31, %29 ], [ %.055, %32 ]
+  %.sroa.029.1 = phi i64 [ %.sroa.029.056, %29 ], [ %23, %32 ]
+  %36 = add i32 %.143, 1
+  %37 = icmp slt i32 %36, %.1
+  br i1 %37, label %22, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %36, %16
-  %.0.lcssa = phi i32 [ 0, %16 ], [ %.1, %36 ]
-  %39 = getelementptr inbounds i8, ptr %19, i64 4
-  store i32 %.0.lcssa, ptr %39, align 4
-  %40 = shl i32 %.0.lcssa, 5
-  %41 = add i32 %40, 96
-  store i32 %41, ptr %19, align 4
-  %42 = ptrtoint ptr %19 to i64
-  ret i64 %42
+._crit_edge:                                      ; preds = %35, %15
+  %.0.lcssa = phi i32 [ 0, %15 ], [ %.1, %35 ]
+  %38 = getelementptr inbounds i8, ptr %18, i64 4
+  store i32 %.0.lcssa, ptr %38, align 4
+  %39 = shl i32 %.0.lcssa, 5
+  %40 = add i32 %39, 96
+  store i32 %40, ptr %18, align 4
+  %41 = ptrtoint ptr %18 to i64
+  ret i64 %41
 
-.loopexit:                                        ; preds = %23, %8, %1
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call i32 @errcode(i32 noundef 50462850) #10
-  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #10
+.loopexit:                                        ; preds = %22, %7, %1
+  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %42)
+  %43 = tail call i32 @errcode(i32 noundef 50462850) #10
+  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 555, ptr noundef nonnull @__func__.pg_snapshot_recv) #10
   unreachable
 }

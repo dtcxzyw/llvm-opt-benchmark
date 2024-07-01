@@ -5617,7 +5617,7 @@ define internal void @_ZN5faiss9NNDescent10init_graphERNS_16DistanceComputerE.om
 39:                                               ; preds = %.lr.ph55, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %indvars.iv58 = phi i64 [ %38, %.lr.ph55 ], [ %indvars.iv.next59, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %40 = load i32, ptr %35, align 4
-  %41 = sext i32 %40 to i64
+  %41 = zext i32 %40 to i64
   %42 = icmp slt i32 %40, 0
   br i1 %42, label %.invoke, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 

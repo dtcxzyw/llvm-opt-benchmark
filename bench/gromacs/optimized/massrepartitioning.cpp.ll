@@ -95,7 +95,7 @@ _ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit:   ; preds = %._crit_edge.i, %4
   %.sroa.0191.0265 = phi ptr [ %28, %27 ], [ %25, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit ]
   %29 = getelementptr inbounds i8, ptr %.sroa.0191.0265, i64 8
   %30 = load i32, ptr %29, align 8
-  %31 = sext i32 %30 to i64
+  %31 = zext i32 %30 to i64
   %32 = icmp slt i32 %30, 0
   br i1 %32, label %.noexc, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -267,7 +267,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc143, %_ZNSt6v
 
 ._crit_edge:                                      ; preds = %107, %76
   %112 = load i32, ptr %29, align 8
-  %113 = sext i32 %112 to i64
+  %113 = zext i32 %112 to i64
   %114 = icmp slt i32 %112, 0
   br i1 %114, label %115, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 

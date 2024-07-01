@@ -661,7 +661,7 @@ define noundef i64 @_ZNK5faiss16ZnSphereCodecAlt6encodeEPKf(ptr nocapture nounde
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = sext i32 %10 to i64
+  %11 = zext i32 %10 to i64
   %12 = icmp slt i32 %10, 0
   br i1 %12, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -2161,7 +2161,7 @@ define void @_ZN5faiss17EnumeratedVectors7find_nnEmPKmmPKfPlPf(ptr noundef nonnu
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = sext i32 %12 to i64
+  %13 = zext i32 %12 to i64
   %14 = icmp slt i32 %12, 0
   br i1 %14, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -2794,7 +2794,7 @@ declare double @llvm.ceil.f64(double) #9
 define noundef float @_ZNK5faiss14ZnSphereSearch6searchEPKfPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %0, align 8
   %5 = shl nsw i32 %4, 1
-  %6 = sext i32 %5 to i64
+  %6 = zext i32 %5 to i64
   %7 = icmp slt i32 %4, 0
   br i1 %7, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -4356,7 +4356,7 @@ define noundef i64 @_ZNK5faiss13ZnSphereCodec17search_and_encodeEPKf(ptr nocaptu
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = shl nsw i32 %5, 1
-  %7 = sext i32 %6 to i64
+  %7 = zext i32 %6 to i64
   %8 = icmp slt i32 %5, 0
   br i1 %8, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -4415,7 +4415,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit43:             ; preds = %_ZNSt6vectorIfSaIfE
 
 26:                                               ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit43
   %27 = load i32, ptr %4, align 8
-  %28 = sext i32 %27 to i64
+  %28 = zext i32 %27 to i64
   %29 = icmp slt i32 %27, 0
   br i1 %29, label %30, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i44
 

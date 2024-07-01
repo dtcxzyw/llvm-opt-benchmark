@@ -760,38 +760,37 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen30getBytecodeTypeName_DEPRECATEDEh
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc(i8 noundef zeroext %0, ptr noundef readonly %1) local_unnamed_addr #5 {
-  %3 = and i8 %0, 127
-  %4 = zext nneg i8 %3 to i64
-  %5 = and i8 %0, 96
-  %or.cond = icmp eq i8 %5, 64
-  br i1 %or.cond, label %6, label %11
+  %3 = and i8 %0, 96
+  %or.cond = icmp eq i8 %3, 64
+  br i1 %or.cond, label %4, label %9
 
-6:                                                ; preds = %2
+4:                                                ; preds = %2
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %14, label %7
+  br i1 %.not, label %13, label %5
 
-7:                                                ; preds = %6
-  %8 = add nuw nsw i64 %4, 4294967232
-  %9 = and i64 %8, 4294967295
-  %10 = getelementptr inbounds ptr, ptr %1, i64 %9
+5:                                                ; preds = %4
+  %6 = and i8 %0, 31
+  %7 = zext nneg i8 %6 to i64
+  %8 = getelementptr inbounds ptr, ptr %1, i64 %7
   br label %.sink.split
 
-11:                                               ; preds = %2
-  %12 = icmp ult i8 %3, 16
-  br i1 %12, label %switch.lookup, label %14
+9:                                                ; preds = %2
+  %10 = and i8 %0, 127
+  %11 = icmp ult i8 %10, 16
+  br i1 %11, label %switch.lookup, label %13
 
-switch.lookup:                                    ; preds = %11
-  %13 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %13
+switch.lookup:                                    ; preds = %9
+  %12 = zext nneg i8 %10 to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %12
   br label %.sink.split
 
-.sink.split:                                      ; preds = %7, %switch.lookup
-  %switch.gep.sink = phi ptr [ %switch.gep, %switch.lookup ], [ %10, %7 ]
+.sink.split:                                      ; preds = %5, %switch.lookup
+  %switch.gep.sink = phi ptr [ %switch.gep, %switch.lookup ], [ %8, %5 ]
   %switch.load = load ptr, ptr %switch.gep.sink, align 8
-  br label %14
+  br label %13
 
-14:                                               ; preds = %.sink.split, %11, %6
-  %.0 = phi ptr [ @.str.180, %6 ], [ null, %11 ], [ %switch.load, %.sink.split ]
+13:                                               ; preds = %.sink.split, %9, %4
+  %.0 = phi ptr [ @.str.180, %4 ], [ null, %9 ], [ %switch.load, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1329,163 +1328,159 @@ _ZN4Luau7CodeGen30getBytecodeTypeName_DEPRECATEDEh.exit87: ; preds = %_ZN4Luau7C
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %1, ptr noundef readonly %2) local_unnamed_addr #1 {
   %4 = load i8, ptr %1, align 1
-  %5 = and i8 %4, 127
-  %6 = zext nneg i8 %5 to i64
-  %7 = and i8 %4, 96
-  %or.cond.i = icmp eq i8 %7, 64
-  br i1 %or.cond.i, label %8, label %13
+  %5 = and i8 %4, 96
+  %or.cond.i = icmp eq i8 %5, 64
+  br i1 %or.cond.i, label %6, label %11
 
-8:                                                ; preds = %3
+6:                                                ; preds = %3
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit, label %9
+  br i1 %.not.i, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit, label %7
 
-9:                                                ; preds = %8
-  %10 = add nuw nsw i64 %6, 4294967232
-  %11 = and i64 %10, 4294967295
-  %12 = getelementptr inbounds ptr, ptr %2, i64 %11
+7:                                                ; preds = %6
+  %8 = and i8 %4, 31
+  %9 = zext nneg i8 %8 to i64
+  %10 = getelementptr inbounds ptr, ptr %2, i64 %9
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit.sink.split
 
-13:                                               ; preds = %3
-  %14 = icmp ult i8 %5, 16
-  br i1 %14, label %switch.lookup, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
+11:                                               ; preds = %3
+  %12 = and i8 %4, 127
+  %13 = icmp ult i8 %12, 16
+  br i1 %13, label %switch.lookup, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
 
-switch.lookup:                                    ; preds = %13
-  %15 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %15
+switch.lookup:                                    ; preds = %11
+  %14 = zext nneg i8 %12 to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %14
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit.sink.split
 
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit.sink.split: ; preds = %9, %switch.lookup
-  %switch.gep.sink = phi ptr [ %switch.gep, %switch.lookup ], [ %12, %9 ]
+_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit.sink.split: ; preds = %7, %switch.lookup
+  %switch.gep.sink = phi ptr [ %switch.gep, %switch.lookup ], [ %10, %7 ]
   %switch.load = load ptr, ptr %switch.gep.sink, align 8
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
 
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit: ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit.sink.split, %13, %8
-  %.0.i = phi ptr [ @.str.180, %8 ], [ null, %13 ], [ %switch.load, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit.sink.split ]
+_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit: ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit.sink.split, %11, %6
+  %.0.i = phi ptr [ @.str.180, %6 ], [ null, %11 ], [ %switch.load, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit.sink.split ]
   %.not = icmp sgt i8 %4, -1
-  %16 = select i1 %.not, ptr @.str.191, ptr @.str.190
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i, ptr noundef nonnull %16)
+  %15 = select i1 %.not, ptr @.str.191, ptr @.str.190
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i, ptr noundef nonnull %15)
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.192)
-  %17 = getelementptr inbounds i8, ptr %1, i64 1
-  %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 127
-  %20 = zext nneg i8 %19 to i64
-  %21 = and i8 %18, 96
-  %or.cond.i24 = icmp eq i8 %21, 64
-  br i1 %or.cond.i24, label %22, label %27
+  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = and i8 %17, 96
+  %or.cond.i24 = icmp eq i8 %18, 64
+  br i1 %or.cond.i24, label %19, label %24
 
-22:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
+19:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
   %.not.i26 = icmp eq ptr %2, null
-  br i1 %.not.i26, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27, label %23
+  br i1 %.not.i26, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27, label %20
 
-23:                                               ; preds = %22
-  %24 = add nuw nsw i64 %20, 4294967232
-  %25 = and i64 %24, 4294967295
-  %26 = getelementptr inbounds ptr, ptr %2, i64 %25
+20:                                               ; preds = %19
+  %21 = and i8 %17, 31
+  %22 = zext nneg i8 %21 to i64
+  %23 = getelementptr inbounds ptr, ptr %2, i64 %22
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27.sink.split
 
-27:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
-  %28 = icmp ult i8 %19, 16
-  br i1 %28, label %switch.lookup36, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
+24:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
+  %25 = and i8 %17, 127
+  %26 = icmp ult i8 %25, 16
+  br i1 %26, label %switch.lookup36, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
 
-switch.lookup36:                                  ; preds = %27
-  %29 = zext nneg i8 %19 to i64
-  %switch.gep37 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %29
+switch.lookup36:                                  ; preds = %24
+  %27 = zext nneg i8 %25 to i64
+  %switch.gep37 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %27
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27.sink.split
 
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27.sink.split: ; preds = %23, %switch.lookup36
-  %switch.gep37.sink = phi ptr [ %switch.gep37, %switch.lookup36 ], [ %26, %23 ]
+_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27.sink.split: ; preds = %20, %switch.lookup36
+  %switch.gep37.sink = phi ptr [ %switch.gep37, %switch.lookup36 ], [ %23, %20 ]
   %switch.load38 = load ptr, ptr %switch.gep37.sink, align 8
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
 
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27: ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27.sink.split, %27, %22
-  %.0.i25 = phi ptr [ @.str.180, %22 ], [ null, %27 ], [ %switch.load38, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27.sink.split ]
-  %.not20 = icmp sgt i8 %18, -1
-  %30 = select i1 %.not20, ptr @.str.191, ptr @.str.190
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i25, ptr noundef nonnull %30)
+_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27: ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27.sink.split, %24, %19
+  %.0.i25 = phi ptr [ @.str.180, %19 ], [ null, %24 ], [ %switch.load38, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27.sink.split ]
+  %.not20 = icmp sgt i8 %17, -1
+  %28 = select i1 %.not20, ptr @.str.191, ptr @.str.190
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i25, ptr noundef nonnull %28)
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.152)
-  %31 = getelementptr inbounds i8, ptr %1, i64 2
-  %32 = load i8, ptr %31, align 1
-  %33 = and i8 %32, 127
-  %34 = zext nneg i8 %33 to i64
-  %35 = and i8 %32, 96
-  %or.cond.i28 = icmp eq i8 %35, 64
-  br i1 %or.cond.i28, label %36, label %41
+  %29 = getelementptr inbounds i8, ptr %1, i64 2
+  %30 = load i8, ptr %29, align 1
+  %31 = and i8 %30, 96
+  %or.cond.i28 = icmp eq i8 %31, 64
+  br i1 %or.cond.i28, label %32, label %37
 
-36:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
+32:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
   %.not.i30 = icmp eq ptr %2, null
-  br i1 %.not.i30, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31, label %37
+  br i1 %.not.i30, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31, label %33
 
-37:                                               ; preds = %36
-  %38 = add nuw nsw i64 %34, 4294967232
-  %39 = and i64 %38, 4294967295
-  %40 = getelementptr inbounds ptr, ptr %2, i64 %39
+33:                                               ; preds = %32
+  %34 = and i8 %30, 31
+  %35 = zext nneg i8 %34 to i64
+  %36 = getelementptr inbounds ptr, ptr %2, i64 %35
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31.sink.split
 
-41:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
-  %42 = icmp ult i8 %33, 16
-  br i1 %42, label %switch.lookup39, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
+37:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
+  %38 = and i8 %30, 127
+  %39 = icmp ult i8 %38, 16
+  br i1 %39, label %switch.lookup39, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
 
-switch.lookup39:                                  ; preds = %41
-  %43 = zext nneg i8 %33 to i64
-  %switch.gep40 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %43
+switch.lookup39:                                  ; preds = %37
+  %40 = zext nneg i8 %38 to i64
+  %switch.gep40 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %40
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31.sink.split
 
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31.sink.split: ; preds = %37, %switch.lookup39
-  %switch.gep40.sink = phi ptr [ %switch.gep40, %switch.lookup39 ], [ %40, %37 ]
+_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31.sink.split: ; preds = %33, %switch.lookup39
+  %switch.gep40.sink = phi ptr [ %switch.gep40, %switch.lookup39 ], [ %36, %33 ]
   %switch.load41 = load ptr, ptr %switch.gep40.sink, align 8
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
 
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31: ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31.sink.split, %41, %36
-  %.0.i29 = phi ptr [ @.str.180, %36 ], [ null, %41 ], [ %switch.load41, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31.sink.split ]
-  %.not21 = icmp sgt i8 %32, -1
-  %44 = select i1 %.not21, ptr @.str.191, ptr @.str.190
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i29, ptr noundef nonnull %44)
-  %45 = getelementptr inbounds i8, ptr %1, i64 3
-  %46 = load i8, ptr %45, align 1
-  %.not22 = icmp eq i8 %46, 15
-  br i1 %.not22, label %61, label %47
+_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31: ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31.sink.split, %37, %32
+  %.0.i29 = phi ptr [ @.str.180, %32 ], [ null, %37 ], [ %switch.load41, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31.sink.split ]
+  %.not21 = icmp sgt i8 %30, -1
+  %41 = select i1 %.not21, ptr @.str.191, ptr @.str.190
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i29, ptr noundef nonnull %41)
+  %42 = getelementptr inbounds i8, ptr %1, i64 3
+  %43 = load i8, ptr %42, align 1
+  %.not22 = icmp eq i8 %43, 15
+  br i1 %.not22, label %57, label %44
 
-47:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
+44:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.152)
-  %48 = load i8, ptr %45, align 1
-  %49 = and i8 %48, 127
-  %50 = zext nneg i8 %49 to i64
-  %51 = and i8 %48, 96
-  %or.cond.i32 = icmp eq i8 %51, 64
-  br i1 %or.cond.i32, label %52, label %57
+  %45 = load i8, ptr %42, align 1
+  %46 = and i8 %45, 96
+  %or.cond.i32 = icmp eq i8 %46, 64
+  br i1 %or.cond.i32, label %47, label %52
 
-52:                                               ; preds = %47
+47:                                               ; preds = %44
   %.not.i34 = icmp eq ptr %2, null
-  br i1 %.not.i34, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35, label %53
+  br i1 %.not.i34, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35, label %48
 
-53:                                               ; preds = %52
-  %54 = add nuw nsw i64 %50, 4294967232
-  %55 = and i64 %54, 4294967295
-  %56 = getelementptr inbounds ptr, ptr %2, i64 %55
+48:                                               ; preds = %47
+  %49 = and i8 %45, 31
+  %50 = zext nneg i8 %49 to i64
+  %51 = getelementptr inbounds ptr, ptr %2, i64 %50
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35.sink.split
 
-57:                                               ; preds = %47
-  %58 = icmp ult i8 %49, 16
-  br i1 %58, label %switch.lookup42, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35
+52:                                               ; preds = %44
+  %53 = and i8 %45, 127
+  %54 = icmp ult i8 %53, 16
+  br i1 %54, label %switch.lookup42, label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35
 
-switch.lookup42:                                  ; preds = %57
-  %59 = zext nneg i8 %49 to i64
-  %switch.gep43 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %59
+switch.lookup42:                                  ; preds = %52
+  %55 = zext nneg i8 %53 to i64
+  %switch.gep43 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc.6, i64 0, i64 %55
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35.sink.split
 
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35.sink.split: ; preds = %53, %switch.lookup42
-  %switch.gep43.sink = phi ptr [ %switch.gep43, %switch.lookup42 ], [ %56, %53 ]
+_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35.sink.split: ; preds = %48, %switch.lookup42
+  %switch.gep43.sink = phi ptr [ %switch.gep43, %switch.lookup42 ], [ %51, %48 ]
   %switch.load44 = load ptr, ptr %switch.gep43.sink, align 8
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35
 
-_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35: ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35.sink.split, %57, %52
-  %.0.i33 = phi ptr [ @.str.180, %52 ], [ null, %57 ], [ %switch.load44, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35.sink.split ]
-  %.not23 = icmp sgt i8 %48, -1
-  %60 = select i1 %.not23, ptr @.str.191, ptr @.str.190
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i33, ptr noundef nonnull %60)
-  br label %61
+_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35: ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35.sink.split, %52, %47
+  %.0.i33 = phi ptr [ @.str.180, %47 ], [ null, %52 ], [ %switch.load44, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35.sink.split ]
+  %.not23 = icmp sgt i8 %45, -1
+  %56 = select i1 %.not23, ptr @.str.191, ptr @.str.190
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.189, ptr noundef %.0.i33, ptr noundef nonnull %56)
+  br label %57
 
-61:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
+57:                                               ; preds = %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35, %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
   ret void
 }
 

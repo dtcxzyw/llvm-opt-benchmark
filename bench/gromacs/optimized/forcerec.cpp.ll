@@ -3483,7 +3483,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i: ; preds = %_ZSt6fill_
 
 _ZNSt6vectorIlSaIlEE6resizeEm.exit.i:             ; preds = %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i, %._crit_edge.i360
   %948 = phi i32 [ %.pre.i361, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %936, %._crit_edge.i360 ]
-  %949 = sext i32 %948 to i64
+  %949 = zext i32 %948 to i64
   %950 = icmp slt i32 %948, 0
   br i1 %950, label %951, label %_ZNSt6vectorI21ConstraintTypeForAtomSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i
 

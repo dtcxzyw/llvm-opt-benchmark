@@ -16294,7 +16294,7 @@ if.end:                                           ; preds = %entry
   %schema_.i = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load ptr, ptr %schema_.i, align 8
   %call2.i = tail call noundef i32 @_ZNK5arrow6Schema10num_fieldsEv(ptr noundef nonnull align 8 dereferenceable(32) %15)
-  %conv = sext i32 %call2.i to i64
+  %conv = zext i32 %call2.i to i64
   %cmp.i.i = icmp slt i32 %call2.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
 

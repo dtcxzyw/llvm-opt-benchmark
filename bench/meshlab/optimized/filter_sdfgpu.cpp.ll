@@ -4394,7 +4394,7 @@ _ZN11GLLogStream4logfIJmEEEviPKcDpOT_.exit.i111:  ; preds = %223, %.noexc112
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit: ; preds = %_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit, %_ZNK19MeshLabPluginLogger3logIJmEEEvN11GLLogStream6LevelsEPKcDpOT_.exit, %_ZN11GLLogStream4logfIJmEEEviPKcDpOT_.exit.i111
-  %224 = sext i32 %56 to i64
+  %224 = zext i32 %56 to i64
   %225 = icmp slt i32 %56, 0
   br i1 %225, label %226, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
