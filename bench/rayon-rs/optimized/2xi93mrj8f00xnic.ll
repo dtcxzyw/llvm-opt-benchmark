@@ -1040,8 +1040,8 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$5steal17h7ac07
 
 .lr.ph.i24:                                       ; preds = %.lr.ph.i24.preheader, %83
   %.sroa.5.010.i = phi i64 [ %73, %83 ], [ %.lcssa29, %.lr.ph.i24.preheader ]
-  %73 = add nsw i64 %.sroa.5.010.i, -1
-  %74 = icmp ult i64 %.sroa.5.010.i, 64
+  %73 = add i64 %.sroa.5.010.i, -1
+  %74 = icmp ne i64 %73, 63
   tail call void @llvm.assume(i1 %74)
   %75 = getelementptr inbounds { { ptr, ptr }, { i64 } }, ptr %52, i64 %73, i32 1
   %76 = load atomic i64, ptr %75 acquire, align 8

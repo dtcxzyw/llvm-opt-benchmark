@@ -24,28 +24,26 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %.not.i4.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf94debe7a81e1611E.llvm.11397385890863205864.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
-  %6 = phi i64 [ %16, %.lr.ph.i.i ], [ %.sroa.4.0.copyload, %2 ]
+  %6 = phi i64 [ %15, %.lr.ph.i.i ], [ %.sroa.4.0.copyload, %2 ]
   %7 = phi i64 [ %8, %.lr.ph.i.i ], [ %.promoted.i.i, %2 ]
   %8 = add nuw nsw i64 %7, 1
-  %9 = icmp ult i64 %7, 2
-  tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds { [2 x i64] }, ptr %0, i64 %7
-  %11 = load ptr, ptr %10, align 8, !alias.scope !19, !noalias !20, !nonnull !18, !align !21, !noundef !18
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = load i64, ptr %12, align 8, !alias.scope !19, !noalias !20, !noundef !18
-  %14 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %.sroa.7.0.copyload, i64 %6
-  store ptr %11, ptr %14, align 8, !noalias !22
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
-  store i64 %13, ptr %15, align 8, !noalias !32
-  %16 = add i64 %6, 1
+  %9 = getelementptr inbounds { [2 x i64] }, ptr %0, i64 %7
+  %10 = load ptr, ptr %9, align 8, !alias.scope !19, !noalias !20, !nonnull !18, !align !21, !noundef !18
+  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = load i64, ptr %11, align 8, !alias.scope !19, !noalias !20, !noundef !18
+  %13 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %.sroa.7.0.copyload, i64 %6
+  store ptr %10, ptr %13, align 8, !noalias !22
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  store i64 %12, ptr %14, align 8, !noalias !32
+  %15 = add i64 %6, 1
   %.not.i.i.i = icmp eq i64 %5, %8
   br i1 %.not.i.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf94debe7a81e1611E.llvm.11397385890863205864.exit", label %.lr.ph.i.i
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf94debe7a81e1611E.llvm.11397385890863205864.exit": ; preds = %.lr.ph.i.i, %2
-  %17 = phi i64 [ %.sroa.4.0.copyload, %2 ], [ %16, %.lr.ph.i.i ]
-  %18 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %18)
-  store i64 %17, ptr %.sroa.0.0.copyload, align 8, !noalias !33
+  %16 = phi i64 [ %.sroa.4.0.copyload, %2 ], [ %15, %.lr.ph.i.i ]
+  %17 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %17)
+  store i64 %16, ptr %.sroa.0.0.copyload, align 8, !noalias !33
   ret void
 }
 
@@ -621,7 +619,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h50464fa68e
   %5 = load i64, ptr %4, align 8, !alias.scope !206, !noundef !18
   %.promoted = load i64, ptr %0, align 8, !alias.scope !206
   %.not.i4 = icmp eq i64 %5, %.promoted
-  br i1 %.not.i4, label %21, label %.lr.ph
+  br i1 %.not.i4, label %20, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -631,32 +629,30 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h50464fa68e
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
-  %10 = phi i64 [ %.promoted5, %.lr.ph ], [ %20, %9 ]
+  %10 = phi i64 [ %.promoted5, %.lr.ph ], [ %19, %9 ]
   %11 = phi i64 [ %.promoted, %.lr.ph ], [ %12, %9 ]
   %12 = add nuw nsw i64 %11, 1
-  %13 = icmp ult i64 %11, 2
-  tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds { [2 x i64] }, ptr %2, i64 %11
-  %15 = load ptr, ptr %14, align 8, !nonnull !18, !align !21, !noundef !18
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
-  %17 = load i64, ptr %16, align 8, !noundef !18
+  %13 = getelementptr inbounds { [2 x i64] }, ptr %2, i64 %11
+  %14 = load ptr, ptr %13, align 8, !nonnull !18, !align !21, !noundef !18
+  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = load i64, ptr %15, align 8, !noundef !18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
-  %18 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %7, i64 %10
-  store ptr %15, ptr %18, align 8, !noalias !223
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  store i64 %17, ptr %19, align 8, !noalias !209
-  %20 = add i64 %10, 1
+  %17 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %7, i64 %10
+  store ptr %14, ptr %17, align 8, !noalias !223
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  store i64 %16, ptr %18, align 8, !noalias !209
+  %19 = add i64 %10, 1
   %.not.i = icmp eq i64 %5, %12
   br i1 %.not.i, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %9
   store i64 %5, ptr %0, align 8, !alias.scope !206
-  store i64 %20, ptr %8, align 8, !alias.scope !209, !noalias !216
-  br label %21
+  store i64 %19, ptr %8, align 8, !alias.scope !209, !noalias !216
+  br label %20
 
-21:                                               ; preds = %._crit_edge, %3
+20:                                               ; preds = %._crit_edge, %3
   ret void
 }
 
@@ -836,7 +832,7 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !alias.scope !279
-  br label %21
+  br label %20
 
 .lr.ph.i:                                         ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -846,40 +842,38 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   br label %9
 
 9:                                                ; preds = %9, %.lr.ph.i
-  %10 = phi i64 [ %.promoted5.i, %.lr.ph.i ], [ %20, %9 ]
+  %10 = phi i64 [ %.promoted5.i, %.lr.ph.i ], [ %19, %9 ]
   %11 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %12, %9 ]
   %12 = add nuw nsw i64 %11, 1
-  %13 = icmp ult i64 %11, 2
-  tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds { [2 x i64] }, ptr %0, i64 %11
-  %15 = load ptr, ptr %14, align 8, !alias.scope !273, !noalias !301, !nonnull !18, !align !21, !noundef !18
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
-  %17 = load i64, ptr %16, align 8, !alias.scope !273, !noalias !301, !noundef !18
+  %13 = getelementptr inbounds { [2 x i64] }, ptr %0, i64 %11
+  %14 = load ptr, ptr %13, align 8, !alias.scope !273, !noalias !301, !nonnull !18, !align !21, !noundef !18
+  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = load i64, ptr %15, align 8, !alias.scope !273, !noalias !301, !noundef !18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !303)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !304)
-  %18 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %7, i64 %10
-  store ptr %15, ptr %18, align 8, !noalias !305
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  store i64 %17, ptr %19, align 8, !noalias !306
-  %20 = add i64 %10, 1
+  %17 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %7, i64 %10
+  store ptr %14, ptr %17, align 8, !noalias !305
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  store i64 %16, ptr %18, align 8, !noalias !306
+  %19 = add i64 %10, 1
   %.not.i.i = icmp eq i64 %5, %12
   br i1 %.not.i.i, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %9
   store i64 %5, ptr %3, align 8, !alias.scope !275, !noalias !278
-  store i64 %20, ptr %8, align 8, !alias.scope !290, !noalias !297
-  br label %21
+  store i64 %19, ptr %8, align 8, !alias.scope !290, !noalias !297
+  br label %20
 
-21:                                               ; preds = %._crit_edge, %._crit_edge.i
-  %22 = phi i64 [ %.pre, %._crit_edge ], [ %20, %._crit_edge.i ]
+20:                                               ; preds = %._crit_edge, %._crit_edge.i
+  %21 = phi i64 [ %.pre, %._crit_edge ], [ %19, %._crit_edge.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !308)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !309)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !310)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
-  %23 = load ptr, ptr %1, align 8, !alias.scope !279, !nonnull !18, !align !99, !noundef !18
-  store i64 %22, ptr %23, align 8, !noalias !279
+  %22 = load ptr, ptr %1, align 8, !alias.scope !279, !nonnull !18, !align !99, !noundef !18
+  store i64 %21, ptr %22, align 8, !noalias !279
   ret void
 }
 

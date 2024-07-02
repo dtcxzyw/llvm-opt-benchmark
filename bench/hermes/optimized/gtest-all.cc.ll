@@ -19915,8 +19915,6 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @llvm.assume(i1 %cmp1.not.i.i)
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
   %24 = load i32, ptr %add.ptr.i.i.i, align 4
-  %cmp.i9 = icmp sgt i32 %24, -1
-  tail call void @llvm.assume(i1 %cmp.i9)
   %conv.i11 = zext nneg i32 %24 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %20, i64 %conv.i11
   %25 = load ptr, ptr %add.ptr.i.i, align 8
@@ -28850,8 +28848,6 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.assume(i1 %cmp1.not.i.i)
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %60, i64 %indvars.iv
   %62 = load i32, ptr %add.ptr.i.i.i, align 4
-  %cmp.i206 = icmp sgt i32 %62, -1
-  call void @llvm.assume(i1 %cmp.i206)
   %conv.i208 = zext nneg i32 %62 to i64
   %add.ptr.i.i209 = getelementptr inbounds ptr, ptr %57, i64 %conv.i208
   %63 = load ptr, ptr %add.ptr.i.i209, align 8
@@ -28873,8 +28869,6 @@ if.then:                                          ; preds = %for.body
   call void @llvm.assume(i1 %cmp1.not.i.i219)
   %add.ptr.i.i.i223 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv
   %68 = load i32, ptr %add.ptr.i.i.i223, align 4
-  %cmp.i224 = icmp sgt i32 %68, -1
-  call void @llvm.assume(i1 %cmp.i224)
   %conv.i227 = zext nneg i32 %68 to i64
   %69 = load ptr, ptr %test_info_list_.i, align 8
   %add.ptr.i.i228 = getelementptr inbounds ptr, ptr %69, i64 %conv.i227
@@ -31845,8 +31839,6 @@ for.body54:                                       ; preds = %for.cond51.preheade
   tail call void @llvm.assume(i1 %cmp1.not.i.i)
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %69, i64 %indvars.iv
   %71 = load i32, ptr %add.ptr.i.i.i, align 4
-  %cmp.i44 = icmp sgt i32 %71, -1
-  tail call void @llvm.assume(i1 %cmp.i44)
   %conv.i46 = zext nneg i32 %71 to i64
   %add.ptr.i.i47 = getelementptr inbounds ptr, ptr %67, i64 %conv.i46
   %72 = load ptr, ptr %add.ptr.i.i47, align 8

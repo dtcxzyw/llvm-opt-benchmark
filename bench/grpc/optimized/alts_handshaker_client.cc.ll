@@ -3270,8 +3270,6 @@ define linkonce_odr ptr @upb_Message_GetOrCreateMutableArray(ptr noundef %msg, p
 entry:
   %mode.i.i = getelementptr inbounds i8, ptr %field, i64 11
   %0 = load i8, ptr %mode.i.i, align 1
-  %cmp.i = icmp ugt i8 %0, -65
-  tail call void @llvm.assume(i1 %cmp.i)
   %1 = and i8 %0, 3
   %cmp2.i = icmp eq i8 %1, 1
   tail call void @llvm.assume(i1 %cmp2.i)
@@ -3282,52 +3280,86 @@ entry:
   %3 = and i8 %0, 8
   %tobool.i.not.i.i = icmp eq i8 %3, 0
   tail call void @llvm.assume(i1 %tobool.i.not.i.i)
+  %4 = lshr i8 %0, 6
+  %switch.i.i = icmp ne i8 %4, 2
+  tail call void @llvm.assume(i1 %switch.i.i)
   %offset.i.i.i = getelementptr inbounds i8, ptr %field, i64 4
-  %4 = load i16, ptr %offset.i.i.i, align 4
-  %idx.ext.i.i.i = zext i16 %4 to i64
+  %5 = load i16, ptr %offset.i.i.i, align 4
+  %idx.ext.i.i.i = zext i16 %5 to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %msg, i64 %idx.ext.i.i.i
-  %5 = load i64, ptr %add.ptr.i.i.i, align 1
-  %6 = inttoptr i64 %5 to ptr
-  %tobool.not = icmp eq i64 %5, 0
+  switch i8 %4, label %default.unreachable [
+    i8 0, label %sw.bb.i25.i.i
+    i8 1, label %sw.bb1.i24.i.i
+    i8 3, label %sw.bb2.i23.i.i
+    i8 2, label %sw.bb3.i22.i.i
+  ]
+
+default.unreachable:                              ; preds = %_upb_Message_SetPresence.exit.i.i, %if.end.i.i12, %entry
+  unreachable
+
+sw.bb.i25.i.i:                                    ; preds = %entry
+  %6 = load i8, ptr %add.ptr.i.i.i, align 1
+  %ret.0.insert.ext37.i.i = zext i8 %6 to i64
+  %7 = inttoptr i64 %ret.0.insert.ext37.i.i to ptr
+  br label %upb_Message_GetMutableArray.exit
+
+sw.bb1.i24.i.i:                                   ; preds = %entry
+  %8 = load i32, ptr %add.ptr.i.i.i, align 1
+  %ret.0.insert.ext29.i.i = zext i32 %8 to i64
+  %9 = inttoptr i64 %ret.0.insert.ext29.i.i to ptr
+  br label %upb_Message_GetMutableArray.exit
+
+sw.bb2.i23.i.i:                                   ; preds = %entry
+  %10 = load i64, ptr %add.ptr.i.i.i, align 1
+  %11 = inttoptr i64 %10 to ptr
+  br label %upb_Message_GetMutableArray.exit
+
+sw.bb3.i22.i.i:                                   ; preds = %entry
+  %ret.0.copyload40.i.i = load ptr, ptr %add.ptr.i.i.i, align 1
+  br label %upb_Message_GetMutableArray.exit
+
+upb_Message_GetMutableArray.exit:                 ; preds = %sw.bb.i25.i.i, %sw.bb1.i24.i.i, %sw.bb2.i23.i.i, %sw.bb3.i22.i.i
+  %ret.2.i.i = phi ptr [ %ret.0.copyload40.i.i, %sw.bb3.i22.i.i ], [ %11, %sw.bb2.i23.i.i ], [ %9, %sw.bb1.i24.i.i ], [ %7, %sw.bb.i25.i.i ]
+  %tobool.not = icmp eq ptr %ret.2.i.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %entry
+if.then:                                          ; preds = %upb_Message_GetMutableArray.exit
   %descriptortype_dont_copy_me__upb_internal_use_only.i = getelementptr inbounds i8, ptr %field, i64 10
-  %7 = load i8, ptr %descriptortype_dont_copy_me__upb_internal_use_only.i, align 2
-  %idxprom.i = zext i8 %7 to i64
+  %12 = load i8, ptr %descriptortype_dont_copy_me__upb_internal_use_only.i, align 2
+  %idxprom.i = zext i8 %12 to i64
   %arrayidx.i = getelementptr inbounds [19 x i8], ptr @__const._upb_MiniTable_ElementSizeLg2.table, i64 0, i64 %idxprom.i
-  %8 = load i8, ptr %arrayidx.i, align 1
-  %sh_prom.i = zext i8 %8 to i64
+  %13 = load i8, ptr %arrayidx.i, align 1
+  %sh_prom.i = zext i8 %13 to i64
   %shl.i = shl i64 4, %sh_prom.i
   %sub.i.i = add nuw i64 %shl.i, 31
   %div7.i.i = and i64 %sub.i.i, -8
   %end.i.i.i = getelementptr inbounds i8, ptr %arena, i64 8
-  %9 = load ptr, ptr %end.i.i.i, align 8
-  %10 = load ptr, ptr %arena, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %10 to i64
+  %14 = load ptr, ptr %end.i.i.i, align 8
+  %15 = load ptr, ptr %arena, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i7 = icmp ult i64 %sub.ptr.sub.i.i.i, %div7.i.i
-  br i1 %cmp.i.i7, label %if.then.i.i, label %if.end.i.i
+  %cmp.i.i = icmp ult i64 %sub.ptr.sub.i.i.i, %div7.i.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then
   %call2.i.i = tail call ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %arena, i64 noundef %div7.i.i)
   br label %upb_Arena_Malloc.exit.i
 
 if.end.i.i:                                       ; preds = %if.then
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 %div7.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 %div7.i.i
   store ptr %add.ptr.i.i, ptr %arena, align 8
   br label %upb_Arena_Malloc.exit.i
 
 upb_Arena_Malloc.exit.i:                          ; preds = %if.end.i.i, %if.then.i.i
-  %retval.0.i.i = phi ptr [ %call2.i.i, %if.then.i.i ], [ %10, %if.end.i.i ]
+  %retval.0.i.i = phi ptr [ %call2.i.i, %if.then.i.i ], [ %15, %if.end.i.i ]
   %tobool.not.i = icmp eq ptr %retval.0.i.i, null
   br i1 %tobool.not.i, label %_upb_Array_New.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %upb_Arena_Malloc.exit.i
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 24
-  %11 = ptrtoint ptr %add.ptr.i to i64
-  %or.i.i = or i64 %11, %sh_prom.i
+  %16 = ptrtoint ptr %add.ptr.i to i64
+  %or.i.i = or i64 %16, %sh_prom.i
   store i64 %or.i.i, ptr %retval.0.i.i, align 8
   %size.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store i64 0, ptr %size.i, align 8
@@ -3336,69 +3368,89 @@ if.end.i:                                         ; preds = %upb_Arena_Malloc.ex
   br label %_upb_Array_New.exit
 
 _upb_Array_New.exit:                              ; preds = %upb_Arena_Malloc.exit.i, %if.end.i
-  %12 = load i8, ptr %mode.i.i, align 1
-  %cmp.i9 = icmp ugt i8 %12, -65
-  tail call void @llvm.assume(i1 %cmp.i9)
-  %13 = and i8 %12, 3
-  %cmp2.i10 = icmp eq i8 %13, 1
-  tail call void @llvm.assume(i1 %cmp2.i10)
-  %14 = load i16, ptr %presence.i, align 2
-  %cmp5.i12 = icmp eq i16 %14, 0
-  tail call void @llvm.assume(i1 %cmp5.i12)
-  %15 = and i8 %12, 8
-  %tobool.i.not.i = icmp eq i8 %15, 0
-  br i1 %tobool.i.not.i, label %sw.bb2.i.i6.i, label %if.then.i
+  %17 = load i8, ptr %mode.i.i, align 1
+  %18 = and i8 %17, 3
+  %cmp2.i8 = icmp eq i8 %18, 1
+  tail call void @llvm.assume(i1 %cmp2.i8)
+  %19 = load i16, ptr %presence.i, align 2
+  %cmp5.i10 = icmp eq i16 %19, 0
+  tail call void @llvm.assume(i1 %cmp5.i10)
+  %20 = and i8 %17, 8
+  %tobool.i.not.i = icmp eq i8 %20, 0
+  br i1 %tobool.i.not.i, label %_upb_Message_SetPresence.exit.i.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_upb_Array_New.exit
   %call.i.i = tail call ptr @_upb_Message_GetOrCreateExtension(ptr noundef nonnull %msg, ptr noundef nonnull %field, ptr noundef nonnull %arena)
   %tobool.not.i.not.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.not.i, label %if.end, label %if.end.i.i14
+  br i1 %tobool.not.i.not.i, label %if.end, label %if.end.i.i12
 
-if.end.i.i14:                                     ; preds = %if.then.i
+if.end.i.i12:                                     ; preds = %if.then.i
   %data.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  %16 = load i8, ptr %mode.i.i, align 1
-  %17 = lshr i8 %16, 6
-  switch i8 %17, label %default.unreachable [
+  %21 = load i8, ptr %mode.i.i, align 1
+  %22 = lshr i8 %21, 6
+  switch i8 %22, label %default.unreachable [
     i8 0, label %sw.bb.i.i.i
     i8 1, label %sw.bb1.i.i.i
     i8 3, label %sw.bb2.i.i.i
     i8 2, label %sw.bb3.i.i.i
   ]
 
-sw.bb.i.i.i:                                      ; preds = %if.end.i.i14
-  %18 = ptrtoint ptr %retval.0.i.i to i64
-  %array.0.extract.trunc21 = trunc i64 %18 to i8
-  store i8 %array.0.extract.trunc21, ptr %data.i.i, align 1
+sw.bb.i.i.i:                                      ; preds = %if.end.i.i12
+  %23 = ptrtoint ptr %retval.0.i.i to i64
+  %array.0.extract.trunc20 = trunc i64 %23 to i8
+  store i8 %array.0.extract.trunc20, ptr %data.i.i, align 1
   br label %if.end
 
-sw.bb1.i.i.i:                                     ; preds = %if.end.i.i14
-  %19 = ptrtoint ptr %retval.0.i.i to i64
-  %array.0.extract.trunc = trunc i64 %19 to i32
+sw.bb1.i.i.i:                                     ; preds = %if.end.i.i12
+  %24 = ptrtoint ptr %retval.0.i.i to i64
+  %array.0.extract.trunc = trunc i64 %24 to i32
   store i32 %array.0.extract.trunc, ptr %data.i.i, align 1
   br label %if.end
 
-sw.bb2.i.i.i:                                     ; preds = %if.end.i.i14
-  %20 = ptrtoint ptr %retval.0.i.i to i64
-  store i64 %20, ptr %data.i.i, align 1
+sw.bb2.i.i.i:                                     ; preds = %if.end.i.i12
+  %25 = ptrtoint ptr %retval.0.i.i to i64
+  store i64 %25, ptr %data.i.i, align 1
   br label %if.end
 
-sw.bb3.i.i.i:                                     ; preds = %if.end.i.i14
+sw.bb3.i.i.i:                                     ; preds = %if.end.i.i12
   store ptr %retval.0.i.i, ptr %data.i.i, align 1
   br label %if.end
 
-default.unreachable:                              ; preds = %if.end.i.i14
-  unreachable
+_upb_Message_SetPresence.exit.i.i:                ; preds = %_upb_Array_New.exit
+  %26 = load i16, ptr %offset.i.i.i, align 4
+  %idx.ext.i.i.i15 = zext i16 %26 to i64
+  %add.ptr.i.i.i16 = getelementptr inbounds i8, ptr %msg, i64 %idx.ext.i.i.i15
+  %27 = lshr i8 %17, 6
+  switch i8 %27, label %default.unreachable [
+    i8 0, label %sw.bb.i.i8.i
+    i8 1, label %sw.bb1.i.i7.i
+    i8 3, label %sw.bb2.i.i6.i
+    i8 2, label %sw.bb3.i.i5.i
+  ]
 
-sw.bb2.i.i6.i:                                    ; preds = %_upb_Array_New.exit
-  %21 = load i16, ptr %offset.i.i.i, align 4
-  %idx.ext.i.i.i16 = zext i16 %21 to i64
-  %add.ptr.i.i.i17 = getelementptr inbounds i8, ptr %msg, i64 %idx.ext.i.i.i16
-  %22 = ptrtoint ptr %retval.0.i.i to i64
-  store i64 %22, ptr %add.ptr.i.i.i17, align 1
+sw.bb.i.i8.i:                                     ; preds = %_upb_Message_SetPresence.exit.i.i
+  %28 = ptrtoint ptr %retval.0.i.i to i64
+  %array.0.extract.trunc22 = trunc i64 %28 to i8
+  store i8 %array.0.extract.trunc22, ptr %add.ptr.i.i.i16, align 1
   br label %if.end
 
-if.end:                                           ; preds = %sw.bb2.i.i6.i, %sw.bb3.i.i.i, %sw.bb2.i.i.i, %sw.bb1.i.i.i, %sw.bb.i.i.i, %if.then.i, %entry
-  %array.0 = phi ptr [ %6, %entry ], [ %retval.0.i.i, %if.then.i ], [ %retval.0.i.i, %sw.bb.i.i.i ], [ %retval.0.i.i, %sw.bb1.i.i.i ], [ %retval.0.i.i, %sw.bb2.i.i.i ], [ %retval.0.i.i, %sw.bb3.i.i.i ], [ %retval.0.i.i, %sw.bb2.i.i6.i ]
+sw.bb1.i.i7.i:                                    ; preds = %_upb_Message_SetPresence.exit.i.i
+  %29 = ptrtoint ptr %retval.0.i.i to i64
+  %array.0.extract.trunc18 = trunc i64 %29 to i32
+  store i32 %array.0.extract.trunc18, ptr %add.ptr.i.i.i16, align 1
+  br label %if.end
+
+sw.bb2.i.i6.i:                                    ; preds = %_upb_Message_SetPresence.exit.i.i
+  %30 = ptrtoint ptr %retval.0.i.i to i64
+  store i64 %30, ptr %add.ptr.i.i.i16, align 1
+  br label %if.end
+
+sw.bb3.i.i5.i:                                    ; preds = %_upb_Message_SetPresence.exit.i.i
+  store ptr %retval.0.i.i, ptr %add.ptr.i.i.i16, align 1
+  br label %if.end
+
+if.end:                                           ; preds = %sw.bb3.i.i5.i, %sw.bb2.i.i6.i, %sw.bb1.i.i7.i, %sw.bb.i.i8.i, %sw.bb3.i.i.i, %sw.bb2.i.i.i, %sw.bb1.i.i.i, %sw.bb.i.i.i, %if.then.i, %upb_Message_GetMutableArray.exit
+  %array.0 = phi ptr [ %ret.2.i.i, %upb_Message_GetMutableArray.exit ], [ %retval.0.i.i, %if.then.i ], [ %retval.0.i.i, %sw.bb.i.i.i ], [ %retval.0.i.i, %sw.bb1.i.i.i ], [ %retval.0.i.i, %sw.bb2.i.i.i ], [ %retval.0.i.i, %sw.bb3.i.i.i ], [ %retval.0.i.i, %sw.bb.i.i8.i ], [ %retval.0.i.i, %sw.bb1.i.i7.i ], [ %retval.0.i.i, %sw.bb2.i.i6.i ], [ %retval.0.i.i, %sw.bb3.i.i5.i ]
   ret ptr %array.0
 }
 

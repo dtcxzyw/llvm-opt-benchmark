@@ -1117,8 +1117,6 @@ _ZN3ue211upperStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.
 
 if.then.i.i35:                                    ; preds = %_ZN3ue211upperStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   %30 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !noalias !19
-  %cmp3.i.i.i = icmp ult i64 %30, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i36 = add nuw nsw i64 %30, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %add.i.i36, i1 false)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -1426,8 +1424,6 @@ invoke.cont12.thread.i:                           ; preds = %invoke.cont
 
 if.then15.i:                                      ; preds = %invoke.cont12.thread.i, %invoke.cont12.i
   %13 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8
-  %cmp3.i58.i = icmp ult i64 %13, 16
-  call void @llvm.assume(i1 %cmp3.i58.i)
   %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then16.i, !prof !29
 

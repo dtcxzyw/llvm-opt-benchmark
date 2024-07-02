@@ -138,12 +138,12 @@ define dso_local noundef i32 @scsi_complete_async_scans() local_unnamed_addr #2 
 
 .preheader:                                       ; preds = %0, %6
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
-  %4 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 56) #16
+  %4 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 56) #15
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %.preheader
-  tail call void @msleep(i32 noundef 1) #17
+  tail call void @msleep(i32 noundef 1) #16
   %7 = load volatile ptr, ptr @scanning_hosts, align 8
   %8 = icmp eq ptr %7, @scanning_hosts
   br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !5
@@ -154,8 +154,8 @@ define dso_local noundef i32 @scsi_complete_async_scans() local_unnamed_addr #2 
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 32
-  tail call void @__init_swait_queue_head(ptr noundef %12, ptr noundef nonnull @.str.6, ptr noundef nonnull @init_completion.__key) #17
-  tail call void @_raw_spin_lock(ptr noundef nonnull @async_scan_lock) #17
+  tail call void @__init_swait_queue_head(ptr noundef %12, ptr noundef nonnull @.str.6, ptr noundef nonnull @init_completion.__key) #16
+  tail call void @_raw_spin_lock(ptr noundef nonnull @async_scan_lock) #16
   %13 = load volatile ptr, ptr @scanning_hosts, align 8
   %14 = icmp eq ptr %13, @scanning_hosts
   br i1 %14, label %26, label %15
@@ -167,10 +167,10 @@ define dso_local noundef i32 @scsi_complete_async_scans() local_unnamed_addr #2 
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %16, ptr %17, align 8
   store volatile ptr %4, ptr %16, align 8
-  tail call void @_raw_spin_unlock(ptr noundef nonnull @async_scan_lock) #17
-  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #18
-  tail call void @wait_for_completion(ptr noundef %11) #17
-  tail call void @_raw_spin_lock(ptr noundef nonnull @async_scan_lock) #17
+  tail call void @_raw_spin_unlock(ptr noundef nonnull @async_scan_lock) #16
+  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #17
+  tail call void @wait_for_completion(ptr noundef %11) #16
+  tail call void @_raw_spin_lock(ptr noundef nonnull @async_scan_lock) #16
   %19 = load ptr, ptr %17, align 8
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
@@ -184,12 +184,12 @@ define dso_local noundef i32 @scsi_complete_async_scans() local_unnamed_addr #2 
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds i8, ptr %22, i64 24
-  tail call void @complete(ptr noundef %25) #17
+  tail call void @complete(ptr noundef %25) #16
   br label %26
 
 26:                                               ; preds = %24, %15, %9
-  tail call void @_raw_spin_unlock(ptr noundef nonnull @async_scan_lock) #17
-  tail call void @kfree(ptr noundef nonnull %4) #17
+  tail call void @_raw_spin_unlock(ptr noundef nonnull @async_scan_lock) #16
+  tail call void @kfree(ptr noundef nonnull %4) #16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %26, %0
@@ -234,13 +234,13 @@ define dso_local void @scsi_target_reap(ptr noundef %0) local_unnamed_addr #2 al
   br i1 %4, label %5, label %6, !prof !8
 
 5:                                                ; preds = %1
-  tail call void asm sideeffect "438: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 438b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 438) #17, !srcloc !9
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 597, i32 0, i64 12) #17, !srcloc !10
+  tail call void asm sideeffect "438: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 438b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 438) #16, !srcloc !9
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 597, i32 0, i64 12) #16, !srcloc !10
   unreachable
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 768
-  %8 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7, i32 -1, ptr elementtype(i32) %7) #17, !srcloc !11
+  %8 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7, i32 -1, ptr elementtype(i32) %7) #16, !srcloc !11
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %13, label %10
 
@@ -249,11 +249,11 @@ define dso_local void @scsi_target_reap(ptr noundef %0) local_unnamed_addr #2 al
   br i1 %11, label %.thread, label %12, !prof !12
 
 12:                                               ; preds = %10
-  tail call void @refcount_warn_saturate(ptr noundef %7, i32 noundef 3) #17
+  tail call void @refcount_warn_saturate(ptr noundef %7, i32 noundef 3) #16
   br label %.thread
 
 13:                                               ; preds = %6
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !13
   %14 = load i32, ptr %2, align 4
   switch i32 %14, label %15 [
     i32 1, label %17
@@ -262,8 +262,8 @@ define dso_local void @scsi_target_reap(ptr noundef %0) local_unnamed_addr #2 al
 
 15:                                               ; preds = %13
   %16 = getelementptr i8, ptr %0, i64 40
-  tail call void @transport_remove_device(ptr noundef %16) #17
-  tail call void @device_del(ptr noundef %16) #17
+  tail call void @transport_remove_device(ptr noundef %16) #16
+  tail call void @device_del(ptr noundef %16) #16
   br label %17
 
 17:                                               ; preds = %15, %13, %13
@@ -309,7 +309,7 @@ define dso_local void @scsi_sanitize_inquiry_string(ptr nocapture noundef %0, i3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @__scsi_add_device(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #2 align 16 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   store ptr inttoptr (i64 -19 to ptr), ptr %6, align 8
   %7 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @scsi_scan_type, ptr noundef nonnull dereferenceable(4) @.str.3, i64 4)
   %8 = icmp eq i32 %7, 0
@@ -322,9 +322,9 @@ define dso_local ptr @__scsi_add_device(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %12, label %48, label %13
 
 13:                                               ; preds = %9
-  tail call void @scsi_autopm_get_target(ptr noundef nonnull %11) #17
+  tail call void @scsi_autopm_get_target(ptr noundef nonnull %11) #16
   %14 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @mutex_lock(ptr noundef %14) #17
+  tail call void @mutex_lock(ptr noundef %14) #16
   %15 = getelementptr inbounds i8, ptr %0, i64 504
   %16 = load i16, ptr %15, align 8
   %17 = and i16 %16, 32
@@ -344,31 +344,31 @@ define dso_local ptr @__scsi_add_device(ptr noundef %0, i32 noundef %1, i32 noun
   ]
 
 24:                                               ; preds = %21, %21
-  %25 = tail call i32 @scsi_autopm_get_host(ptr noundef %0) #17
+  %25 = tail call i32 @scsi_autopm_get_host(ptr noundef %0) #16
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %24
   %28 = call fastcc i32 @scsi_probe_and_add_lun(ptr noundef nonnull %11, i64 noundef %3, ptr noundef null, ptr noundef nonnull %6, i32 noundef 1, ptr noundef %4)
-  call void @scsi_autopm_put_host(ptr noundef %0) #17
+  call void @scsi_autopm_put_host(ptr noundef %0) #16
   br label %29
 
 29:                                               ; preds = %27, %24, %21
-  call void @mutex_unlock(ptr noundef %14) #17
-  call void @scsi_autopm_put_target(ptr noundef nonnull %11) #17
+  call void @mutex_unlock(ptr noundef %14) #16
+  call void @scsi_autopm_put_target(ptr noundef nonnull %11) #16
   %30 = getelementptr inbounds i8, ptr %11, i64 804
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 5
   br i1 %32, label %33, label %34, !prof !8
 
 33:                                               ; preds = %29
-  call void asm sideeffect "438: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 438b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 438) #17, !srcloc !9
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 597, i32 0, i64 12) #17, !srcloc !10
+  call void asm sideeffect "438: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 438b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 438) #16, !srcloc !9
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 597, i32 0, i64 12) #16, !srcloc !10
   unreachable
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds i8, ptr %11, i64 768
-  %36 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %35, i32 -1, ptr elementtype(i32) %35) #17, !srcloc !11
+  %36 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %35, i32 -1, ptr elementtype(i32) %35) #16, !srcloc !11
   %37 = icmp eq i32 %36, 1
   br i1 %37, label %41, label %38
 
@@ -377,11 +377,11 @@ define dso_local ptr @__scsi_add_device(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %39, label %scsi_target_reap.exit, label %40, !prof !12
 
 40:                                               ; preds = %38
-  call void @refcount_warn_saturate(ptr noundef %35, i32 noundef 3) #17
+  call void @refcount_warn_saturate(ptr noundef %35, i32 noundef 3) #16
   br label %scsi_target_reap.exit
 
 41:                                               ; preds = %34
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !13
   %42 = load i32, ptr %30, align 4
   switch i32 %42, label %43 [
     i32 1, label %45
@@ -390,8 +390,8 @@ define dso_local ptr @__scsi_add_device(ptr noundef %0, i32 noundef %1, i32 noun
 
 43:                                               ; preds = %41
   %44 = getelementptr i8, ptr %11, i64 40
-  call void @transport_remove_device(ptr noundef %44) #17
-  call void @device_del(ptr noundef %44) #17
+  call void @transport_remove_device(ptr noundef %44) #16
+  call void @device_del(ptr noundef %44) #16
   br label %45
 
 45:                                               ; preds = %43, %41, %41
@@ -400,13 +400,13 @@ define dso_local ptr @__scsi_add_device(ptr noundef %0, i32 noundef %1, i32 noun
 
 scsi_target_reap.exit:                            ; preds = %38, %40, %45
   %46 = getelementptr inbounds i8, ptr %11, i64 40
-  call void @put_device(ptr noundef %46) #17
+  call void @put_device(ptr noundef %46) #16
   %47 = load ptr, ptr %6, align 8
   br label %48
 
 48:                                               ; preds = %scsi_target_reap.exit, %9, %5
   %49 = phi ptr [ %47, %scsi_target_reap.exit ], [ inttoptr (i64 -19 to ptr), %5 ], [ inttoptr (i64 -12 to ptr), %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   ret ptr %49
 }
 
@@ -416,7 +416,7 @@ define internal fastcc ptr @scsi_alloc_target(ptr noundef %0, i32 noundef %1, i3
 
 4:                                                ; preds = %8, %3
   %5 = phi ptr [ %0, %3 ], [ %10, %8 ]
-  %6 = tail call i32 @scsi_is_host_device(ptr noundef %5) #17
+  %6 = tail call i32 @scsi_is_host_device(ptr noundef %5) #16
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %12
 
@@ -438,25 +438,25 @@ define internal fastcc ptr @scsi_alloc_target(ptr noundef %0, i32 noundef %1, i3
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, 816
   %20 = sext i32 %19 to i64
-  %21 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %20, i32 noundef 3520) #19
+  %21 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %20, i32 noundef 3520) #18
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %.loopexit12
-  %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.scsi_alloc_target) #18
-  br label %126
+  %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.scsi_alloc_target) #17
+  br label %125
 
 25:                                               ; preds = %.loopexit12
   %26 = getelementptr inbounds i8, ptr %21, i64 40
-  tail call void @device_initialize(ptr noundef %26) #17
+  tail call void @device_initialize(ptr noundef %26) #16
   %27 = getelementptr inbounds i8, ptr %21, i64 768
   store volatile i32 1, ptr %27, align 8
-  %28 = tail call ptr @get_device(ptr noundef %0) #17
+  %28 = tail call ptr @get_device(ptr noundef %0) #16
   %29 = getelementptr inbounds i8, ptr %21, i64 104
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %14, i64 404
   %31 = load i32, ptr %30, align 4
-  %32 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %26, ptr noundef nonnull @.str.9, i32 noundef %31, i32 noundef %1, i32 noundef %2) #17
+  %32 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %26, ptr noundef nonnull @.str.9, i32 noundef %31, i32 noundef %1, i32 noundef %2) #16
   %33 = getelementptr inbounds i8, ptr %21, i64 136
   store ptr @scsi_bus_type, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %21, i64 128
@@ -501,14 +501,14 @@ define internal fastcc ptr @scsi_alloc_target(ptr noundef %0, i32 noundef %1, i3
   %55 = getelementptr inbounds i8, ptr %14, i64 56
   br label %56
 
-56:                                               ; preds = %125, %44
+56:                                               ; preds = %124, %44
   %57 = load ptr, ptr %55, align 8
-  %58 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %57) #17
+  %58 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %57) #16
   br label %59
 
 59:                                               ; preds = %63, %56
   %60 = phi ptr [ %0, %56 ], [ %65, %63 ]
-  %61 = tail call i32 @scsi_is_host_device(ptr noundef %60) #17
+  %61 = tail call i32 @scsi_is_host_device(ptr noundef %60) #16
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %67
 
@@ -554,7 +554,7 @@ define internal fastcc ptr @scsi_alloc_target(ptr noundef %0, i32 noundef %1, i3
 
 87:                                               ; preds = %84
   %88 = getelementptr i8, ptr %73, i64 32
-  %89 = tail call ptr @get_device(ptr noundef %88) #17
+  %89 = tail call ptr @get_device(ptr noundef %88) #16
   %90 = getelementptr i8, ptr %73, i64 760
   %91 = load volatile i32, ptr %90, align 4
   %92 = icmp eq i32 %91, 0
@@ -569,8 +569,8 @@ define internal fastcc ptr @scsi_alloc_target(ptr noundef %0, i32 noundef %1, i3
   store ptr %95, ptr %49, align 8
   store volatile ptr %48, ptr %95, align 8
   %96 = load ptr, ptr %55, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %96, i64 noundef %58) #17
-  tail call void @transport_setup_device(ptr noundef %26) #17
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %96, i64 noundef %58) #16
+  tail call void @transport_setup_device(ptr noundef %26) #16
   %97 = getelementptr inbounds i8, ptr %14, i64 168
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 144
@@ -579,68 +579,66 @@ define internal fastcc ptr @scsi_alloc_target(ptr noundef %0, i32 noundef %1, i3
   br i1 %101, label %106, label %102
 
 102:                                              ; preds = %.thread
-  %103 = tail call i32 %100(ptr noundef nonnull %21) #17
+  %103 = tail call i32 %100(ptr noundef nonnull %21) #16
   switch i32 %103, label %104 [
     i32 0, label %106
     i32 -6, label %105
   ]
 
 104:                                              ; preds = %102
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %26, ptr noundef nonnull @.str.10, i32 noundef %103) #18
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %26, ptr noundef nonnull @.str.10, i32 noundef %103) #17
   br label %105
 
 105:                                              ; preds = %104, %102
   tail call fastcc void @scsi_target_destroy(ptr noundef nonnull %21)
-  br label %126
+  br label %125
 
 106:                                              ; preds = %102, %.thread
-  %107 = tail call ptr @get_device(ptr noundef %26) #17
-  br label %126
+  %107 = tail call ptr @get_device(ptr noundef %26) #16
+  br label %125
 
-.preheader:                                       ; preds = %87, %113
-  %108 = phi i32 [ %114, %113 ], [ %91, %87 ]
+.preheader:                                       ; preds = %87, %112
+  %108 = phi i32 [ %113, %112 ], [ %91, %87 ]
   %109 = add i32 %108, 1
-  %110 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %90, i32 %109, ptr elementtype(i32) %90, i32 %108) #17, !srcloc !17
+  %110 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %90, i32 %109, ptr elementtype(i32) %90, i32 %108) #16, !srcloc !17
   %111 = extractvalue { i8, i32 } %110, 0
-  %112 = icmp ult i8 %111, 2
-  tail call void @llvm.assume(i1 %112)
   %.not = icmp eq i8 %111, 0
-  br i1 %.not, label %113, label %.thread9, !prof !8
+  br i1 %.not, label %112, label %.thread9, !prof !8
 
-113:                                              ; preds = %.preheader
-  %114 = extractvalue { i8, i32 } %110, 1
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %.thread9, label %.preheader, !llvm.loop !18
+112:                                              ; preds = %.preheader
+  %113 = extractvalue { i8, i32 } %110, 1
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %.thread9, label %.preheader, !llvm.loop !18
 
-.thread9:                                         ; preds = %.preheader, %113, %87
-  %116 = phi i32 [ 0, %87 ], [ %108, %.preheader ], [ 0, %113 ]
-  %117 = add i32 %116, 1
-  %118 = or i32 %117, %116
-  %119 = icmp sgt i32 %118, -1
-  br i1 %119, label %121, label %120, !prof !12
+.thread9:                                         ; preds = %.preheader, %112, %87
+  %115 = phi i32 [ 0, %87 ], [ %108, %.preheader ], [ 0, %112 ]
+  %116 = add i32 %115, 1
+  %117 = or i32 %116, %115
+  %118 = icmp sgt i32 %117, -1
+  br i1 %118, label %120, label %119, !prof !12
 
-120:                                              ; preds = %.thread9
-  tail call void @refcount_warn_saturate(ptr noundef %90, i32 noundef 0) #17
-  br label %121
+119:                                              ; preds = %.thread9
+  tail call void @refcount_warn_saturate(ptr noundef %90, i32 noundef 0) #16
+  br label %120
 
-121:                                              ; preds = %120, %.thread9
-  %122 = icmp eq i32 %116, 0
-  %123 = load ptr, ptr %55, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %123, i64 noundef %58) #17
-  br i1 %122, label %125, label %124
+120:                                              ; preds = %119, %.thread9
+  %121 = icmp eq i32 %115, 0
+  %122 = load ptr, ptr %55, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %122, i64 noundef %58) #16
+  br i1 %121, label %124, label %123
 
-124:                                              ; preds = %121
-  tail call void @put_device(ptr noundef %26) #17
-  br label %126
+123:                                              ; preds = %120
+  tail call void @put_device(ptr noundef %26) #16
+  br label %125
 
-125:                                              ; preds = %121
-  tail call void @put_device(ptr noundef %88) #17
-  tail call void @msleep(i32 noundef 1) #17
+124:                                              ; preds = %120
+  tail call void @put_device(ptr noundef %88) #16
+  tail call void @msleep(i32 noundef 1) #16
   br label %56
 
-126:                                              ; preds = %124, %106, %105, %23
-  %127 = phi ptr [ %85, %124 ], [ null, %105 ], [ %21, %106 ], [ null, %23 ]
-  ret ptr %127
+125:                                              ; preds = %123, %106, %105, %23
+  %126 = phi ptr [ %85, %123 ], [ null, %105 ], [ %21, %106 ], [ null, %23 ]
+  ret ptr %126
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -664,7 +662,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 
 13:                                               ; preds = %17, %6
   %14 = phi ptr [ %12, %6 ], [ %19, %17 ]
-  %15 = tail call i32 @scsi_is_host_device(ptr noundef %14) #17
+  %15 = tail call i32 @scsi_is_host_device(ptr noundef %14) #16
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %21
 
@@ -680,7 +678,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 
 .loopexit29:                                      ; preds = %17, %21
   %23 = phi ptr [ %22, %21 ], [ null, %17 ]
-  %24 = tail call ptr @scsi_device_lookup_by_target(ptr noundef %0, i64 noundef %1) #17
+  %24 = tail call ptr @scsi_device_lookup_by_target(ptr noundef %0, i64 noundef %1) #16
   %25 = icmp eq ptr %24, null
   br i1 %25, label %45, label %26
 
@@ -704,7 +702,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   br label %37
 
 36:                                               ; preds = %33
-  tail call void @scsi_device_put(ptr noundef nonnull %24) #17
+  tail call void @scsi_device_put(ptr noundef nonnull %24) #16
   br label %37
 
 37:                                               ; preds = %36, %35
@@ -716,12 +714,12 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %24, i64 240
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call i64 @scsi_get_device_flags(ptr noundef nonnull %24, ptr noundef %41, ptr noundef %43) #17
+  %44 = tail call i64 @scsi_get_device_flags(ptr noundef nonnull %24, ptr noundef %41, ptr noundef %43) #16
   store i64 %44, ptr %2, align 8
   br label %543
 
 .thread:                                          ; preds = %28
-  tail call void @scsi_device_put(ptr noundef nonnull %24) #17
+  tail call void @scsi_device_put(ptr noundef nonnull %24) #16
   br label %48
 
 45:                                               ; preds = %.loopexit29
@@ -732,18 +730,18 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 48:                                               ; preds = %.thread, %45
   %49 = phi ptr [ %24, %.thread ], [ %46, %45 ]
   %50 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
-  %51 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %50, i32 noundef 3264, i64 noundef 256) #16
+  %51 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %50, i32 noundef 3264, i64 noundef 256) #15
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.thread24, label %53
 
 53:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
   store i32 0, ptr %8, align 4, !annotation !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
   store i64 0, ptr %9, align 8, !annotation !19
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #16
   %54 = getelementptr inbounds i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 16, i1 false)
   store ptr %9, ptr %54, align 8
@@ -786,7 +784,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %80 = load i32, ptr @scsi_inq_timeout, align 4
   %81 = mul i32 %80, 1000
   %82 = add i32 %81, 500
-  %83 = call i32 @scsi_execute_cmd(ptr noundef nonnull %49, ptr noundef nonnull %7, i32 noundef 34, ptr noundef nonnull %51, i32 noundef %75, i32 noundef %82, i32 noundef 3, ptr noundef nonnull %10) #17
+  %83 = call i32 @scsi_execute_cmd(ptr noundef nonnull %49, ptr noundef nonnull %7, i32 noundef 34, ptr noundef nonnull %51, i32 noundef %75, i32 noundef %82, i32 noundef 3, ptr noundef nonnull %10) #16
   %84 = icmp sgt i32 %83, 0
   br i1 %84, label %85, label %104
 
@@ -905,7 +903,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %160 = add nuw nsw i32 %159, 5
   %161 = icmp ugt i8 %158, -6
   %162 = select i1 %161, i32 %62, i32 %160
-  %163 = call i64 @scsi_get_device_flags(ptr noundef nonnull %49, ptr noundef %67, ptr noundef %68) #17
+  %163 = call i64 @scsi_get_device_flags(ptr noundef nonnull %49, ptr noundef %67, ptr noundef %68) #16
   br i1 %74, label %164, label %183
 
 164:                                              ; preds = %157
@@ -939,7 +937,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   br i1 %73, label %182, label %534
 
 182:                                              ; preds = %181
-  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.18, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef %75) #17
+  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.18, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef %75) #16
   br label %.backedge
 
 .backedge:                                        ; preds = %182, %178
@@ -965,7 +963,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 
 194:                                              ; preds = %188
   %195 = getelementptr inbounds i8, ptr %189, i64 592
-  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.18, ptr noundef %195, ptr noundef nonnull @.str.20, i32 noundef %186) #18
+  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.18, ptr noundef %195, ptr noundef nonnull @.str.20, i32 noundef %186) #17
   %196 = load ptr, ptr %49, align 8
   %197 = getelementptr inbounds i8, ptr %196, i64 504
   %198 = load i16, ptr %197, align 8
@@ -1030,10 +1028,10 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   br label %234
 
 234:                                              ; preds = %232, %226, %215
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
   %235 = icmp eq ptr %2, null
   br i1 %235, label %237, label %236
 
@@ -1075,7 +1073,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %257 = load i8, ptr %58, align 8
   %258 = call i8 @llvm.umax.i8(i8 %257, i8 36)
   %259 = zext i8 %258 to i64
-  %260 = call ptr @kmemdup(ptr noundef nonnull %51, i64 noundef %259, i32 noundef 3264) #20
+  %260 = call ptr @kmemdup(ptr noundef nonnull %51, i64 noundef %259, i32 noundef 3264) #19
   %261 = getelementptr inbounds i8, ptr %49, i64 224
   store ptr %260, ptr %261, align 8
   %262 = icmp eq ptr %260, null
@@ -1091,7 +1089,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %268 = getelementptr i8, ptr %260, i64 32
   %269 = getelementptr inbounds i8, ptr %49, i64 248
   store ptr %268, ptr %269, align 8
-  %270 = call i32 @strncmp(ptr noundef %264, ptr noundef nonnull dereferenceable(9) @.str.21, i64 noundef 8) #17
+  %270 = call i32 @strncmp(ptr noundef %264, ptr noundef nonnull dereferenceable(9) @.str.21, i64 noundef 8) #16
   %271 = icmp eq i32 %270, 0
   br i1 %271, label %272, label %275
 
@@ -1139,7 +1137,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 .thread44:                                        ; preds = %281
   %299 = zext nneg i8 %283 to i32
   %300 = trunc i64 %294 to i32
-  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.22, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__.scsi_add_lun, i32 noundef %299, i32 noundef %300) #17
+  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.22, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__.scsi_add_lun, i32 noundef %299, i32 noundef %300) #16
   store i8 30, ptr %284, align 8
   br label %308
 
@@ -1238,7 +1236,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 
 357:                                              ; preds = %355, %350
   %358 = zext nneg i8 %309 to i32
-  %359 = call ptr @scsi_device_type(i32 noundef %358) #17
+  %359 = call ptr @scsi_device_type(i32 noundef %358) #16
   %360 = load ptr, ptr %265, align 8
   %361 = load ptr, ptr %267, align 8
   %362 = load ptr, ptr %269, align 8
@@ -1252,7 +1250,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %370 = and i8 %369, 15
   %371 = icmp eq i8 %370, 1
   %372 = select i1 %371, ptr @.str.26, ptr @.str.27
-  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.24, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef %359, ptr noundef %360, ptr noundef %361, ptr noundef %362, i32 noundef %364, i32 noundef %367, ptr noundef nonnull %372) #17
+  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.24, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef %359, ptr noundef %360, ptr noundef %361, ptr noundef %362, i32 noundef %364, i32 noundef %367, ptr noundef nonnull %372) #16
   %373 = load i8, ptr %204, align 1
   %374 = icmp ugt i8 %373, 2
   br i1 %374, label %375, label %385
@@ -1319,7 +1317,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %410 = phi i32 [ 512, %403 ], [ 1024, %406 ]
   %411 = getelementptr inbounds i8, ptr %49, i64 8
   %412 = load ptr, ptr %411, align 8
-  call void @blk_queue_max_hw_sectors(ptr noundef %412, i32 noundef %410) #17
+  call void @blk_queue_max_hw_sectors(ptr noundef %412, i32 noundef %410) #16
   br label %413
 
 413:                                              ; preds = %409, %406
@@ -1355,26 +1353,26 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %433 = or i64 %429, %432
   store i64 %433, ptr %220, align 4
   %434 = getelementptr inbounds i8, ptr %49, i64 1984
-  call void @mutex_lock(ptr noundef %434) #17
-  %435 = call i32 @scsi_device_set_state(ptr noundef nonnull %49, i32 noundef 2) #17
+  call void @mutex_lock(ptr noundef %434) #16
+  %435 = call i32 @scsi_device_set_state(ptr noundef nonnull %49, i32 noundef 2) #16
   %436 = icmp eq i32 %435, 0
   br i1 %436, label %444, label %437
 
 437:                                              ; preds = %428
-  %438 = call i32 @scsi_device_set_state(ptr noundef nonnull %49, i32 noundef 8) #17
+  %438 = call i32 @scsi_device_set_state(ptr noundef nonnull %49, i32 noundef 8) #16
   %439 = icmp eq i32 %438, 0
-  call void @mutex_unlock(ptr noundef %434) #17
+  call void @mutex_unlock(ptr noundef %434) #16
   br i1 %439, label %445, label %440
 
 440:                                              ; preds = %437
   %441 = getelementptr inbounds i8, ptr %49, i64 2016
   %442 = load i32, ptr %441, align 8
-  %443 = call ptr @scsi_device_state_name(i32 noundef %442) #17
-  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.28, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef %443) #17
+  %443 = call ptr @scsi_device_state_name(i32 noundef %442) #16
+  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.28, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef %443) #16
   br label %.thread26
 
 444:                                              ; preds = %428
-  call void @mutex_unlock(ptr noundef %434) #17
+  call void @mutex_unlock(ptr noundef %434) #16
   br label %445
 
 445:                                              ; preds = %444, %437
@@ -1464,7 +1462,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 
 492:                                              ; preds = %489, %486
   %493 = getelementptr inbounds i8, ptr %49, i64 440
-  call void @transport_configure_device(ptr noundef %493) #17
+  call void @transport_configure_device(ptr noundef %493) #16
   %494 = load ptr, ptr %49, align 8
   %495 = getelementptr inbounds i8, ptr %494, i64 168
   %496 = load ptr, ptr %495, align 8
@@ -1474,14 +1472,14 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   br i1 %499, label %508, label %500
 
 500:                                              ; preds = %492
-  %501 = call i32 %498(ptr noundef nonnull %49) #17
+  %501 = call i32 %498(ptr noundef nonnull %49) #16
   switch i32 %501, label %502 [
     i32 0, label %503
     i32 -6, label %.thread26
   ]
 
 502:                                              ; preds = %500
-  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.28, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.30) #17
+  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.28, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.30) #16
   br label %.thread26
 
 503:                                              ; preds = %500
@@ -1497,11 +1495,11 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   br i1 %510, label %511, label %512
 
 511:                                              ; preds = %508
-  call void @scsi_attach_vpd(ptr noundef nonnull %49) #17
+  call void @scsi_attach_vpd(ptr noundef nonnull %49) #16
   br label %512
 
 512:                                              ; preds = %511, %508
-  call void @scsi_cdl_check(ptr noundef nonnull %49) #17
+  call void @scsi_cdl_check(ptr noundef nonnull %49) #16
   %513 = getelementptr inbounds i8, ptr %49, i64 112
   %514 = load i16, ptr %513, align 8
   %515 = getelementptr inbounds i8, ptr %49, i64 114
@@ -1513,9 +1511,9 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   br i1 %519, label %520, label %521, !prof !8
 
 520:                                              ; preds = %512
-  call void asm sideeffect "444: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 444b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 444) #17, !srcloc !21
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1093, i32 2307, i64 12) #17, !srcloc !22
-  call void asm sideeffect "445: nop\0A\09.pushsection .discard.instr_end\0A\09.long 445b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 445) #17, !srcloc !23
+  call void asm sideeffect "444: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 444b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 444) #16, !srcloc !21
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1093, i32 2307, i64 12) #16, !srcloc !22
+  call void asm sideeffect "445: nop\0A\09.pushsection .discard.instr_end\0A\09.long 445b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 445) #16, !srcloc !23
   br label %521
 
 521:                                              ; preds = %520, %512
@@ -1526,7 +1524,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   br i1 %524, label %525, label %528
 
 525:                                              ; preds = %521
-  %526 = call i32 @scsi_sysfs_add_sdev(ptr noundef nonnull %49) #17
+  %526 = call i32 @scsi_sysfs_add_sdev(ptr noundef nonnull %49) #16
   %527 = icmp eq i32 %526, 0
   br i1 %527, label %528, label %.thread26
 
@@ -1543,24 +1541,24 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   br label %535
 
 534:                                              ; preds = %181
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
   br label %.thread26
 
 .thread26:                                        ; preds = %237, %251, %534, %254, %525, %502, %500, %440
   %.ph = phi i32 [ 0, %534 ], [ 1, %251 ], [ 1, %237 ], [ 0, %254 ], [ 0, %525 ], [ 0, %502 ], [ 0, %500 ], [ 0, %440 ]
-  call void @kfree(ptr noundef nonnull %51) #17
+  call void @kfree(ptr noundef nonnull %51) #16
   br label %.thread24
 
 535:                                              ; preds = %531, %528
-  call void @kfree(ptr noundef nonnull %51) #17
+  call void @kfree(ptr noundef nonnull %51) #16
   %536 = icmp eq ptr %3, null
   br i1 %536, label %543, label %537
 
 537:                                              ; preds = %535
-  %538 = call i32 @scsi_device_get(ptr noundef nonnull %49) #17
+  %538 = call i32 @scsi_device_get(ptr noundef nonnull %49) #16
   %539 = icmp eq i32 %538, 0
   br i1 %539, label %540, label %541
 
@@ -1569,12 +1567,12 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   br label %543
 
 541:                                              ; preds = %537
-  call void @__scsi_remove_device(ptr noundef nonnull %49) #17
+  call void @__scsi_remove_device(ptr noundef nonnull %49) #16
   br label %543
 
 .thread24:                                        ; preds = %48, %.thread26
   %542 = phi i32 [ %.ph, %.thread26 ], [ 0, %48 ]
-  call void @__scsi_remove_device(ptr noundef nonnull %49) #17
+  call void @__scsi_remove_device(ptr noundef nonnull %49) #16
   br label %543
 
 543:                                              ; preds = %.thread24, %541, %540, %535, %45, %39, %37
@@ -1606,7 +1604,7 @@ define dso_local i32 @scsi_add_device(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %11
 
 10:                                               ; preds = %4
-  tail call void @scsi_device_put(ptr noundef %5) #17
+  tail call void @scsi_device_put(ptr noundef %5) #16
   br label %11
 
 11:                                               ; preds = %10, %7
@@ -1621,7 +1619,7 @@ declare dso_local void @scsi_device_put(ptr noundef) local_unnamed_addr #4
 define dso_local noundef range(i32 -11, 1) i32 @scsi_rescan_device(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 440
   %3 = getelementptr inbounds i8, ptr %0, i64 568
-  tail call void @mutex_lock(ptr noundef %3) #17
+  tail call void @mutex_lock(ptr noundef %3) #16
   %4 = getelementptr inbounds i8, ptr %0, i64 2016
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 2
@@ -1636,8 +1634,8 @@ define dso_local noundef range(i32 -11, 1) i32 @scsi_rescan_device(ptr noundef %
   br i1 %12, label %13, label %40
 
 13:                                               ; preds = %7
-  tail call void @scsi_attach_vpd(ptr noundef %0) #17
-  tail call void @scsi_cdl_check(ptr noundef %0) #17
+  tail call void @scsi_attach_vpd(ptr noundef %0) #16
+  tail call void @scsi_cdl_check(ptr noundef %0) #16
   %14 = getelementptr inbounds i8, ptr %0, i64 1928
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -1650,7 +1648,7 @@ define dso_local noundef range(i32 -11, 1) i32 @scsi_rescan_device(ptr noundef %
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %17
-  tail call void %19(ptr noundef %0) #17
+  tail call void %19(ptr noundef %0) #16
   br label %22
 
 22:                                               ; preds = %21, %17, %13
@@ -1662,7 +1660,7 @@ define dso_local noundef range(i32 -11, 1) i32 @scsi_rescan_device(ptr noundef %
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %24, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call zeroext i1 @try_module_get(ptr noundef %28) #17
+  %29 = tail call zeroext i1 @try_module_get(ptr noundef %28) #16
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %26
@@ -1673,7 +1671,7 @@ define dso_local noundef range(i32 -11, 1) i32 @scsi_rescan_device(ptr noundef %
   br i1 %34, label %36, label %35
 
 35:                                               ; preds = %30
-  tail call void %33(ptr noundef %2) #17
+  tail call void %33(ptr noundef %2) #16
   %.pre = load ptr, ptr %23, align 8
   br label %36
 
@@ -1681,12 +1679,12 @@ define dso_local noundef range(i32 -11, 1) i32 @scsi_rescan_device(ptr noundef %
   %37 = phi ptr [ %.pre, %35 ], [ %31, %30 ]
   %38 = getelementptr inbounds i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  tail call void @module_put(ptr noundef %39) #17
+  tail call void @module_put(ptr noundef %39) #16
   br label %40
 
 40:                                               ; preds = %36, %26, %22, %7, %1
   %41 = phi i32 [ 0, %36 ], [ 0, %26 ], [ 0, %22 ], [ -11, %7 ], [ -11, %1 ]
-  tail call void @mutex_unlock(ptr noundef %3) #17
+  tail call void @mutex_unlock(ptr noundef %3) #16
   ret i32 %41
 }
 
@@ -1708,7 +1706,7 @@ define dso_local void @scsi_scan_target(ptr noundef %0, i32 noundef %1, i32 noun
 
 6:                                                ; preds = %10, %5
   %7 = phi ptr [ %0, %5 ], [ %12, %10 ]
-  %8 = tail call i32 @scsi_is_host_device(ptr noundef %7) #17
+  %8 = tail call i32 @scsi_is_host_device(ptr noundef %7) #16
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %14
 
@@ -1739,7 +1737,7 @@ define dso_local void @scsi_scan_target(ptr noundef %0, i32 noundef %1, i32 noun
 
 24:                                               ; preds = %21, %19
   %25 = getelementptr inbounds i8, ptr %16, i64 64
-  tail call void @mutex_lock(ptr noundef %25) #17
+  tail call void @mutex_lock(ptr noundef %25) #16
   %26 = getelementptr inbounds i8, ptr %16, i64 504
   %27 = load i16, ptr %26, align 8
   %28 = and i16 %27, 32
@@ -1759,17 +1757,17 @@ define dso_local void @scsi_scan_target(ptr noundef %0, i32 noundef %1, i32 noun
   ]
 
 35:                                               ; preds = %32, %32
-  %36 = tail call i32 @scsi_autopm_get_host(ptr noundef %16) #17
+  %36 = tail call i32 @scsi_autopm_get_host(ptr noundef %16) #16
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %35
   tail call fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4)
-  tail call void @scsi_autopm_put_host(ptr noundef %16) #17
+  tail call void @scsi_autopm_put_host(ptr noundef %16) #16
   br label %39
 
 39:                                               ; preds = %38, %35, %32
-  tail call void @mutex_unlock(ptr noundef %25) #17
+  tail call void @mutex_unlock(ptr noundef %25) #16
   br label %40
 
 40:                                               ; preds = %39, %21, %.loopexit
@@ -1786,7 +1784,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
 
 10:                                               ; preds = %14, %5
   %11 = phi ptr [ %0, %5 ], [ %16, %14 ]
-  %12 = tail call i32 @scsi_is_host_device(ptr noundef %11) #17
+  %12 = tail call i32 @scsi_is_host_device(ptr noundef %11) #16
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %18
 
@@ -1802,7 +1800,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
 
 .loopexit18:                                      ; preds = %14, %18
   %20 = phi ptr [ %19, %18 ], [ null, %14 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
   store i64 0, ptr %9, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 448
   %22 = load i32, ptr %21, align 8
@@ -1815,7 +1813,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   br i1 %26, label %220, label %27
 
 27:                                               ; preds = %24
-  tail call void @scsi_autopm_get_target(ptr noundef nonnull %25) #17
+  tail call void @scsi_autopm_get_target(ptr noundef nonnull %25) #16
   %28 = icmp eq i64 %3, -1
   br i1 %28, label %31, label %29
 
@@ -1831,16 +1829,16 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
 
 35:                                               ; preds = %31
   %36 = load i64, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
   store i64 0, ptr %7, align 8, !annotation !19
   %37 = getelementptr inbounds i8, ptr %25, i64 40
   br label %38
 
 38:                                               ; preds = %42, %35
   %39 = phi ptr [ %37, %35 ], [ %44, %42 ]
-  %40 = call i32 @scsi_is_host_device(ptr noundef %39) #17
+  %40 = call i32 @scsi_is_host_device(ptr noundef %39) #16
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %46
 
@@ -1856,7 +1854,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
 
 .loopexit17:                                      ; preds = %42, %46
   %48 = phi ptr [ %47, %46 ], [ null, %42 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #16
   %49 = getelementptr inbounds i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   store ptr %7, ptr %49, align 8
@@ -1899,7 +1897,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   br i1 %73, label %74, label %151
 
 74:                                               ; preds = %69
-  %75 = call ptr @scsi_device_lookup_by_target(ptr noundef nonnull %25, i64 noundef 0) #17
+  %75 = call ptr @scsi_device_lookup_by_target(ptr noundef nonnull %25, i64 noundef 0) #16
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %84
 
@@ -1909,12 +1907,12 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   br i1 %79, label %202, label %80
 
 80:                                               ; preds = %77
-  %81 = call i32 @scsi_device_get(ptr noundef nonnull %78) #17
+  %81 = call i32 @scsi_device_get(ptr noundef nonnull %78) #16
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %84, label %83
 
 83:                                               ; preds = %80
-  call void @__scsi_remove_device(ptr noundef nonnull %78) #17
+  call void @__scsi_remove_device(ptr noundef nonnull %78) #16
   br label %202
 
 84:                                               ; preds = %80, %74
@@ -1924,12 +1922,12 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   %88 = getelementptr inbounds i8, ptr %6, i64 10
   %89 = getelementptr inbounds i8, ptr %6, i64 11
   %90 = getelementptr inbounds i8, ptr %7, i64 1
-  %91 = call noalias align 8 dereferenceable_or_null(4096) ptr @__kmalloc(i64 noundef 4096, i32 noundef 3264) #19
+  %91 = call noalias align 8 dereferenceable_or_null(4096) ptr @__kmalloc(i64 noundef 4096, i32 noundef 3264) #18
   %92 = icmp eq ptr %91, null
   br i1 %92, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %118, %84
-  %93 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.scsi_report_lun_scan) #18
+  %93 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.scsi_report_lun_scan) #17
   br label %143
 
 .lr.ph:                                           ; preds = %84, %118
@@ -1946,7 +1944,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
 
 98:                                               ; preds = %102, %.lr.ph
   %99 = phi i32 [ 0, %.lr.ph ], [ %109, %102 ]
-  %100 = call i32 @scsi_execute_cmd(ptr noundef nonnull %85, ptr noundef nonnull %6, i32 noundef 34, ptr noundef nonnull %94, i32 noundef %96, i32 noundef 30000, i32 noundef 3, ptr noundef nonnull %8) #17
+  %100 = call i32 @scsi_execute_cmd(ptr noundef nonnull %85, ptr noundef nonnull %6, i32 noundef 34, ptr noundef nonnull %94, i32 noundef %96, i32 noundef 30000, i32 noundef 3, ptr noundef nonnull %8) #16
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %112, label %102
 
@@ -1972,9 +1970,9 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
 
 118:                                              ; preds = %112
   %119 = add i32 %114, 8
-  call void @kfree(ptr noundef nonnull %94) #17
+  call void @kfree(ptr noundef nonnull %94) #16
   %120 = zext i32 %119 to i64
-  %121 = call noalias align 8 ptr @__kmalloc(i64 noundef %120, i32 noundef 3264) #19
+  %121 = call noalias align 8 ptr @__kmalloc(i64 noundef %120, i32 noundef 3264) #18
   %122 = icmp eq ptr %121, null
   br i1 %122, label %._crit_edge, label %.lr.ph
 
@@ -1988,7 +1986,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
 
 .preheader14:                                     ; preds = %123, %140
   %129 = phi ptr [ %141, %140 ], [ %127, %123 ]
-  %130 = call i64 @scsilun_to_int(ptr noundef %129) #17
+  %130 = call i64 @scsilun_to_int(ptr noundef %129) #16
   %131 = load ptr, ptr %85, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 432
   %133 = load i64, ptr %132, align 8
@@ -1996,7 +1994,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   br i1 %134, label %135, label %136
 
 135:                                              ; preds = %.preheader14
-  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.22, ptr noundef nonnull %85, ptr noundef null, ptr noundef nonnull @.str.32, i64 noundef %130) #17
+  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.22, ptr noundef nonnull %85, ptr noundef null, ptr noundef nonnull @.str.32, i64 noundef %130) #16
   br label %140
 
 136:                                              ; preds = %.preheader14
@@ -2005,7 +2003,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   br i1 %138, label %139, label %140
 
 139:                                              ; preds = %136
-  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.28, ptr noundef nonnull %85, ptr noundef null, ptr noundef nonnull @.str.33, i64 noundef %130) #17
+  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.28, ptr noundef nonnull %85, ptr noundef null, ptr noundef nonnull @.str.33, i64 noundef %130) #16
   br label %.loopexit15
 
 140:                                              ; preds = %136, %135
@@ -2014,7 +2012,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   br i1 %142, label %.loopexit15, label %.preheader14, !llvm.loop !25
 
 .loopexit15:                                      ; preds = %102, %140, %139, %123
-  call void @kfree(ptr noundef nonnull %94) #17
+  call void @kfree(ptr noundef nonnull %94) #16
   br label %143
 
 143:                                              ; preds = %.loopexit15, %._crit_edge
@@ -2026,20 +2024,20 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   br i1 %148, label %149, label %150
 
 149:                                              ; preds = %143
-  call void @__scsi_remove_device(ptr noundef nonnull %85) #17
+  call void @__scsi_remove_device(ptr noundef nonnull %85) #16
   br label %150
 
 150:                                              ; preds = %149, %143
-  call void @scsi_device_put(ptr noundef nonnull %85) #17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
+  call void @scsi_device_put(ptr noundef nonnull %85) #16
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   br i1 %144, label %.loopexit, label %152
 
 151:                                              ; preds = %69, %62, %59, %52, %.loopexit17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   br label %152
 
 152:                                              ; preds = %151, %150
@@ -2052,7 +2050,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
 
 158:                                              ; preds = %162, %152
   %159 = phi ptr [ %157, %152 ], [ %164, %162 ]
-  %160 = call i32 @scsi_is_host_device(ptr noundef %159) #17
+  %160 = call i32 @scsi_is_host_device(ptr noundef %159) #16
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %162, label %166
 
@@ -2113,26 +2111,26 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   br i1 %201, label %.loopexit, label %.preheader, !llvm.loop !26
 
 202:                                              ; preds = %83, %77, %66
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %202, %191, %150, %31, %29
-  call void @scsi_autopm_put_target(ptr noundef nonnull %25) #17
+  call void @scsi_autopm_put_target(ptr noundef nonnull %25) #16
   %203 = getelementptr inbounds i8, ptr %25, i64 804
   %204 = load i32, ptr %203, align 4
   %205 = icmp eq i32 %204, 5
   br i1 %205, label %206, label %207, !prof !8
 
 206:                                              ; preds = %.loopexit
-  call void asm sideeffect "438: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 438b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 438) #17, !srcloc !9
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 597, i32 0, i64 12) #17, !srcloc !10
+  call void asm sideeffect "438: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 438b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 438) #16, !srcloc !9
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 597, i32 0, i64 12) #16, !srcloc !10
   unreachable
 
 207:                                              ; preds = %.loopexit
   %208 = getelementptr inbounds i8, ptr %25, i64 768
-  %209 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %208, i32 -1, ptr elementtype(i32) %208) #17, !srcloc !11
+  %209 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %208, i32 -1, ptr elementtype(i32) %208) #16, !srcloc !11
   %210 = icmp eq i32 %209, 1
   br i1 %210, label %214, label %211
 
@@ -2141,11 +2139,11 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   br i1 %212, label %scsi_target_reap.exit, label %213, !prof !12
 
 213:                                              ; preds = %211
-  call void @refcount_warn_saturate(ptr noundef %208, i32 noundef 3) #17
+  call void @refcount_warn_saturate(ptr noundef %208, i32 noundef 3) #16
   br label %scsi_target_reap.exit
 
 214:                                              ; preds = %207
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !13
   %215 = load i32, ptr %203, align 4
   switch i32 %215, label %216 [
     i32 1, label %218
@@ -2154,8 +2152,8 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
 
 216:                                              ; preds = %214
   %217 = getelementptr i8, ptr %25, i64 40
-  call void @transport_remove_device(ptr noundef %217) #17
-  call void @device_del(ptr noundef %217) #17
+  call void @transport_remove_device(ptr noundef %217) #16
+  call void @device_del(ptr noundef %217) #16
   br label %218
 
 218:                                              ; preds = %216, %214, %214
@@ -2164,11 +2162,11 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
 
 scsi_target_reap.exit:                            ; preds = %211, %213, %218
   %219 = getelementptr inbounds i8, ptr %25, i64 40
-  call void @put_device(ptr noundef %219) #17
+  call void @put_device(ptr noundef %219) #16
   br label %220
 
 220:                                              ; preds = %scsi_target_reap.exit, %24, %.loopexit18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
   ret void
 }
 
@@ -2205,7 +2203,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_scan_host_selected(ptr noun
 
 23:                                               ; preds = %19, %17
   %24 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @mutex_lock(ptr noundef %24) #17
+  tail call void @mutex_lock(ptr noundef %24) #16
   %25 = getelementptr inbounds i8, ptr %0, i64 504
   %26 = load i16, ptr %25, align 8
   %27 = and i16 %26, 32
@@ -2225,7 +2223,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_scan_host_selected(ptr noun
   ]
 
 34:                                               ; preds = %31, %31
-  %35 = tail call i32 @scsi_autopm_get_host(ptr noundef %0) #17
+  %35 = tail call i32 @scsi_autopm_get_host(ptr noundef %0) #16
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %87
 
@@ -2313,11 +2311,11 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_scan_host_selected(ptr noun
   br label %.loopexit7
 
 .loopexit7:                                       ; preds = %73, %.split, %.loopexit.us, %.split.us, %85, %67
-  tail call void @scsi_autopm_put_host(ptr noundef %0) #17
+  tail call void @scsi_autopm_put_host(ptr noundef %0) #16
   br label %87
 
 87:                                               ; preds = %.loopexit7, %34, %31
-  tail call void @mutex_unlock(ptr noundef %24) #17
+  tail call void @mutex_unlock(ptr noundef %24) #16
   br label %88
 
 88:                                               ; preds = %87, %19, %13, %7
@@ -2337,7 +2335,7 @@ define dso_local void @scsi_scan_host(ptr noundef %0) #2 align 16 {
   br i1 %6, label %74, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @scsi_autopm_get_host(ptr noundef %0) #17
+  %8 = tail call i32 @scsi_autopm_get_host(ptr noundef %0) #16
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %74, label %10
 
@@ -2348,7 +2346,7 @@ define dso_local void @scsi_scan_host(ptr noundef %0) #2 align 16 {
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @mutex_lock(ptr noundef %14) #17
+  tail call void @mutex_lock(ptr noundef %14) #16
   %15 = getelementptr inbounds i8, ptr %0, i64 504
   %16 = load i16, ptr %15, align 8
   %17 = and i16 %16, 32
@@ -2357,17 +2355,17 @@ define dso_local void @scsi_scan_host(ptr noundef %0) #2 align 16 {
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %0, i64 592
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.35, ptr noundef %20, ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.scsi_prep_async_scan) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.35, ptr noundef %20, ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.scsi_prep_async_scan) #17
   br label %41
 
 21:                                               ; preds = %13
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
-  %23 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3264, i64 noundef 56) #16
+  %23 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3264, i64 noundef 56) #15
   %24 = icmp eq ptr %23, null
   br i1 %24, label %41, label %25
 
 25:                                               ; preds = %21
-  %26 = tail call ptr @scsi_host_get(ptr noundef %0) #17
+  %26 = tail call ptr @scsi_host_get(ptr noundef %0) #16
   %27 = getelementptr inbounds i8, ptr %23, i64 16
   store ptr %26, ptr %27, align 8
   %28 = icmp eq ptr %26, null
@@ -2377,29 +2375,29 @@ define dso_local void @scsi_scan_host(ptr noundef %0) #2 align 16 {
   %30 = getelementptr inbounds i8, ptr %23, i64 24
   store i32 0, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %23, i64 32
-  tail call void @__init_swait_queue_head(ptr noundef %31, ptr noundef nonnull @.str.6, ptr noundef nonnull @init_completion.__key) #17
+  tail call void @__init_swait_queue_head(ptr noundef %31, ptr noundef nonnull @.str.6, ptr noundef nonnull @init_completion.__key) #16
   %32 = getelementptr inbounds i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %33) #17
+  %34 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %33) #16
   %35 = load i16, ptr %15, align 8
   %36 = or i16 %35, 32
   store i16 %36, ptr %15, align 8
   %37 = load ptr, ptr %32, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %37, i64 noundef %34) #17
-  tail call void @mutex_unlock(ptr noundef %14) #17
-  tail call void @_raw_spin_lock(ptr noundef nonnull @async_scan_lock) #17
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %37, i64 noundef %34) #16
+  tail call void @mutex_unlock(ptr noundef %14) #16
+  tail call void @_raw_spin_lock(ptr noundef nonnull @async_scan_lock) #16
   %38 = load volatile ptr, ptr @scanning_hosts, align 8
   %39 = icmp eq ptr %38, @scanning_hosts
   br i1 %39, label %40, label %70
 
 40:                                               ; preds = %29
-  tail call void @complete(ptr noundef %30) #17
+  tail call void @complete(ptr noundef %30) #16
   br label %70
 
 41:                                               ; preds = %25, %21, %19
   %42 = phi ptr [ null, %19 ], [ %23, %25 ], [ null, %21 ]
-  tail call void @mutex_unlock(ptr noundef %14) #17
-  tail call void @kfree(ptr noundef %42) #17
+  tail call void @mutex_unlock(ptr noundef %14) #16
+  tail call void @kfree(ptr noundef %42) #16
   br label %43
 
 43:                                               ; preds = %41, %10
@@ -2418,7 +2416,7 @@ define dso_local void @scsi_scan_host(ptr noundef %0) #2 align 16 {
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %49
-  tail call void %52(ptr noundef %0) #17
+  tail call void %52(ptr noundef %0) #16
   %.pre = load ptr, ptr %44, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 160
   %.pre3 = load ptr, ptr %.phi.trans.insert, align 8
@@ -2428,18 +2426,18 @@ define dso_local void @scsi_scan_host(ptr noundef %0) #2 align 16 {
   %56 = phi ptr [ %.pre3, %54 ], [ %47, %49 ]
   %57 = load volatile i64, ptr @jiffies, align 64
   %58 = sub i64 %57, %50
-  %59 = tail call i32 %56(ptr noundef %0, i64 noundef %58) #17
+  %59 = tail call i32 %56(ptr noundef %0, i64 noundef %58) #16
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %55, %.preheader
-  tail call void @msleep(i32 noundef 10) #17
+  tail call void @msleep(i32 noundef 10) #16
   %61 = load ptr, ptr %44, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 160
   %63 = load ptr, ptr %62, align 8
   %64 = load volatile i64, ptr @jiffies, align 64
   %65 = sub i64 %64, %50
-  %66 = tail call i32 %63(ptr noundef %0, i64 noundef %65) #17
+  %66 = tail call i32 %63(ptr noundef %0, i64 noundef %65) #16
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %.preheader, label %.loopexit, !llvm.loop !31
 
@@ -2448,7 +2446,7 @@ define dso_local void @scsi_scan_host(ptr noundef %0) #2 align 16 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %68, %55
-  tail call void @scsi_autopm_put_host(ptr noundef %0) #17
+  tail call void @scsi_autopm_put_host(ptr noundef %0) #16
   br label %74
 
 70:                                               ; preds = %40, %29
@@ -2458,8 +2456,8 @@ define dso_local void @scsi_scan_host(ptr noundef %0) #2 align 16 {
   %72 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %71, ptr %72, align 8
   store volatile ptr %23, ptr %71, align 8
-  tail call void @_raw_spin_unlock(ptr noundef nonnull @async_scan_lock) #17
-  %73 = tail call i64 @async_schedule_node(ptr noundef nonnull @do_scan_async, ptr noundef nonnull %23, i32 noundef -1) #17
+  tail call void @_raw_spin_unlock(ptr noundef nonnull @async_scan_lock) #16
+  %73 = tail call i64 @async_schedule_node(ptr noundef nonnull @do_scan_async, ptr noundef nonnull %23, i32 noundef -1) #16
   br label %74
 
 74:                                               ; preds = %70, %.loopexit, %7, %4, %1
@@ -2485,7 +2483,7 @@ define internal void @do_scan_async(ptr noundef %0, i64 %1) #2 align 16 {
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %10
-  tail call void %13(ptr noundef %4) #17
+  tail call void %13(ptr noundef %4) #16
   %.pre = load ptr, ptr %5, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 160
   %.pre6 = load ptr, ptr %.phi.trans.insert, align 8
@@ -2495,18 +2493,18 @@ define internal void @do_scan_async(ptr noundef %0, i64 %1) #2 align 16 {
   %17 = phi ptr [ %.pre6, %15 ], [ %8, %10 ]
   %18 = load volatile i64, ptr @jiffies, align 64
   %19 = sub i64 %18, %11
-  %20 = tail call i32 %17(ptr noundef %4, i64 noundef %19) #17
+  %20 = tail call i32 %17(ptr noundef %4, i64 noundef %19) #16
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.preheader, label %.loopexit5
 
 .preheader:                                       ; preds = %16, %.preheader
-  tail call void @msleep(i32 noundef 10) #17
+  tail call void @msleep(i32 noundef 10) #16
   %22 = load ptr, ptr %5, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 160
   %24 = load ptr, ptr %23, align 8
   %25 = load volatile i64, ptr @jiffies, align 64
   %26 = sub i64 %25, %11
-  %27 = tail call i32 %24(ptr noundef %4, i64 noundef %26) #17
+  %27 = tail call i32 %24(ptr noundef %4, i64 noundef %26) #16
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %.preheader, label %.loopexit5, !llvm.loop !31
 
@@ -2521,7 +2519,7 @@ define internal void @do_scan_async(ptr noundef %0, i64 %1) #2 align 16 {
 32:                                               ; preds = %.loopexit5
   %33 = load ptr, ptr %3, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 64
-  tail call void @mutex_lock(ptr noundef %34) #17
+  tail call void @mutex_lock(ptr noundef %34) #16
   %35 = getelementptr inbounds i8, ptr %33, i64 504
   %36 = load i16, ptr %35, align 8
   %37 = and i16 %36, 32
@@ -2530,15 +2528,15 @@ define internal void @do_scan_async(ptr noundef %0, i64 %1) #2 align 16 {
 
 39:                                               ; preds = %32
   %40 = getelementptr inbounds i8, ptr %33, i64 592
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.18, ptr noundef %40, ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.scsi_finish_async_scan) #18
-  tail call void @dump_stack() #18
-  tail call void @mutex_unlock(ptr noundef %34) #17
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.18, ptr noundef %40, ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.scsi_finish_async_scan) #17
+  tail call void @dump_stack() #17
+  tail call void @mutex_unlock(ptr noundef %34) #16
   br label %81
 
 41:                                               ; preds = %32
   %42 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @wait_for_completion(ptr noundef %42) #17
-  %43 = tail call ptr @__scsi_iterate_devices(ptr noundef %33, ptr noundef null) #17
+  tail call void @wait_for_completion(ptr noundef %42) #16
+  %43 = tail call ptr @__scsi_iterate_devices(ptr noundef %33, ptr noundef null) #16
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.loopexit, label %45
 
@@ -2568,30 +2566,30 @@ define internal void @do_scan_async(ptr noundef %0, i64 %1) #2 align 16 {
   ]
 
 59:                                               ; preds = %57, %57
-  %60 = tail call i32 @scsi_sysfs_add_sdev(ptr noundef nonnull %48) #17
+  %60 = tail call i32 @scsi_sysfs_add_sdev(ptr noundef nonnull %48) #16
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %59, %57
-  tail call void @__scsi_remove_device(ptr noundef nonnull %48) #17
+  tail call void @__scsi_remove_device(ptr noundef nonnull %48) #16
   br label %63
 
 63:                                               ; preds = %62, %59, %52, %47
-  %64 = tail call ptr @__scsi_iterate_devices(ptr noundef %33, ptr noundef nonnull %48) #17
+  %64 = tail call ptr @__scsi_iterate_devices(ptr noundef %33, ptr noundef nonnull %48) #16
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.loopexit, label %47, !llvm.loop !33
 
 .loopexit:                                        ; preds = %63, %41
   %66 = getelementptr inbounds i8, ptr %33, i64 56
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %67) #17
+  %68 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %67) #16
   %69 = load i16, ptr %35, align 8
   %70 = and i16 %69, -33
   store i16 %70, ptr %35, align 8
   %71 = load ptr, ptr %66, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %71, i64 noundef %68) #17
-  tail call void @mutex_unlock(ptr noundef %34) #17
-  tail call void @_raw_spin_lock(ptr noundef nonnull @async_scan_lock) #17
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %71, i64 noundef %68) #16
+  tail call void @mutex_unlock(ptr noundef %34) #16
+  tail call void @_raw_spin_lock(ptr noundef nonnull @async_scan_lock) #16
   %72 = getelementptr inbounds i8, ptr %0, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %0, align 8
@@ -2606,14 +2604,14 @@ define internal void @do_scan_async(ptr noundef %0, i64 %1) #2 align 16 {
 
 78:                                               ; preds = %.loopexit
   %79 = getelementptr inbounds i8, ptr %76, i64 24
-  tail call void @complete(ptr noundef %79) #17
+  tail call void @complete(ptr noundef %79) #16
   br label %80
 
 80:                                               ; preds = %78, %.loopexit
-  tail call void @_raw_spin_unlock(ptr noundef nonnull @async_scan_lock) #17
-  tail call void @scsi_autopm_put_host(ptr noundef %33) #17
-  tail call void @scsi_host_put(ptr noundef %33) #17
-  tail call void @kfree(ptr noundef nonnull %0) #17
+  tail call void @_raw_spin_unlock(ptr noundef nonnull @async_scan_lock) #16
+  tail call void @scsi_autopm_put_host(ptr noundef %33) #16
+  tail call void @scsi_host_put(ptr noundef %33) #16
+  tail call void @kfree(ptr noundef nonnull %0) #16
   br label %81
 
 81:                                               ; preds = %80, %39, %.loopexit5
@@ -2627,7 +2625,7 @@ define dso_local void @scsi_forget_host(ptr noundef readonly %0) local_unnamed_a
 
 3:                                                ; preds = %14, %1
   %4 = load ptr, ptr %2, align 8
-  %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #17
+  %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #16
   br label %6
 
 6:                                                ; preds = %10, %3
@@ -2645,13 +2643,13 @@ define dso_local void @scsi_forget_host(ptr noundef readonly %0) local_unnamed_a
 14:                                               ; preds = %10
   %15 = getelementptr i8, ptr %8, i64 -16
   %16 = load ptr, ptr %2, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %16, i64 noundef %5) #17
-  tail call void @__scsi_remove_device(ptr noundef %15) #17
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %16, i64 noundef %5) #16
+  tail call void @__scsi_remove_device(ptr noundef %15) #16
   br label %3
 
 17:                                               ; preds = %6
   %18 = load ptr, ptr %2, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %18, i64 noundef %5) #17
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %18, i64 noundef %5) #16
   ret void
 }
 
@@ -2681,8 +2679,8 @@ define internal void @scsi_target_dev_release(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 -40
-  tail call void @kfree(ptr noundef %4) #17
-  tail call void @put_device(ptr noundef %3) #17
+  tail call void @kfree(ptr noundef %4) #16
+  tail call void @put_device(ptr noundef %3) #16
   ret void
 }
 
@@ -2704,7 +2702,7 @@ define internal fastcc void @scsi_target_destroy(ptr noundef %0) unnamed_addr #2
 
 5:                                                ; preds = %9, %1
   %6 = phi ptr [ %4, %1 ], [ %11, %9 ]
-  %7 = tail call i32 @scsi_is_host_device(ptr noundef %6) #17
+  %7 = tail call i32 @scsi_is_host_device(ptr noundef %6) #16
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %13
 
@@ -2726,16 +2724,16 @@ define internal fastcc void @scsi_target_destroy(ptr noundef %0) unnamed_addr #2
   br i1 %18, label %19, label %20, !prof !8
 
 19:                                               ; preds = %.loopexit
-  tail call void asm sideeffect "436: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 436b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 436) #17, !srcloc !35
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 395, i32 0, i64 12) #17, !srcloc !36
+  tail call void asm sideeffect "436: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 436b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 436) #16, !srcloc !35
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 395, i32 0, i64 12) #16, !srcloc !36
   unreachable
 
 20:                                               ; preds = %.loopexit
   store i32 5, ptr %16, align 4
-  tail call void @transport_destroy_device(ptr noundef %2) #17
+  tail call void @transport_destroy_device(ptr noundef %2) #16
   %21 = getelementptr inbounds i8, ptr %15, i64 56
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %22) #17
+  %23 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %22) #16
   %24 = getelementptr inbounds i8, ptr %15, i64 168
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 152
@@ -2744,7 +2742,7 @@ define internal fastcc void @scsi_target_destroy(ptr noundef %0) unnamed_addr #2
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %20
-  tail call void %27(ptr noundef %0) #17
+  tail call void %27(ptr noundef %0) #16
   br label %30
 
 30:                                               ; preds = %29, %20
@@ -2758,8 +2756,8 @@ define internal fastcc void @scsi_target_destroy(ptr noundef %0) unnamed_addr #2
   store volatile ptr %31, ptr %31, align 8
   store volatile ptr %31, ptr %32, align 8
   %36 = load ptr, ptr %21, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %36, i64 noundef %23) #17
-  tail call void @put_device(ptr noundef %2) #17
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %36, i64 noundef %23) #16
+  tail call void @put_device(ptr noundef %2) #16
   ret void
 }
 
@@ -2781,9 +2779,6 @@ declare dso_local void @transport_setup_device(ptr noundef) local_unnamed_addr #
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
-
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @scsi_device_lookup_by_target(ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -2799,7 +2794,7 @@ define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr 
 
 7:                                                ; preds = %11, %3
   %8 = phi ptr [ %6, %3 ], [ %13, %11 ]
-  %9 = tail call i32 @scsi_is_host_device(ptr noundef %8) #17
+  %9 = tail call i32 @scsi_is_host_device(ptr noundef %8) #16
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %15
 
@@ -2821,7 +2816,7 @@ define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr 
   %21 = load i32, ptr %20, align 8
   %22 = sext i32 %21 to i64
   %23 = add nsw i64 %22, 2032
-  %24 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %23, i32 noundef 3520) #19
+  %24 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %23, i32 noundef 3520) #18
   %25 = icmp eq ptr %24, null
   br i1 %25, label %106, label %26
 
@@ -2846,7 +2841,7 @@ define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr 
   %37 = getelementptr inbounds i8, ptr %24, i64 148
   store i32 %36, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %24, i64 1984
-  tail call void @__mutex_init(ptr noundef %38, ptr noundef nonnull @.str.11, ptr noundef nonnull @scsi_alloc_sdev.__key) #17
+  tail call void @__mutex_init(ptr noundef %38, ptr noundef nonnull @.str.11, ptr noundef nonnull @scsi_alloc_sdev.__key) #16
   %39 = getelementptr inbounds i8, ptr %24, i64 2016
   store i32 1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %24, i64 16
@@ -2868,7 +2863,7 @@ define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr 
   %48 = getelementptr inbounds i8, ptr %24, i64 88
   store i32 0, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %24, i64 184
-  tail call void @__mutex_init(ptr noundef %49, ptr noundef nonnull @.str.13, ptr noundef nonnull @scsi_alloc_sdev.__key.12) #17
+  tail call void @__mutex_init(ptr noundef %49, ptr noundef nonnull @.str.13, ptr noundef nonnull @scsi_alloc_sdev.__key.12) #16
   %50 = getelementptr inbounds i8, ptr %24, i64 384
   store i64 68719476704, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %24, i64 392
@@ -2885,7 +2880,7 @@ define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr 
   store volatile ptr %55, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %24, i64 1920
   store ptr @scsi_requeue_run_queue, ptr %57, align 8
-  %58 = tail call ptr @get_device(ptr noundef %4) #17
+  %58 = tail call ptr @get_device(ptr noundef %4) #16
   %59 = getelementptr inbounds i8, ptr %24, i64 504
   store ptr %58, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %24, i64 312
@@ -2904,14 +2899,14 @@ define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr 
   store i32 2147483647, ptr %67, align 4
   %68 = load ptr, ptr %24, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 224
-  %70 = tail call ptr @blk_mq_init_queue(ptr noundef %69) #17
+  %70 = tail call ptr @blk_mq_init_queue(ptr noundef %69) #16
   %71 = icmp ugt ptr %70, inttoptr (i64 -4096 to ptr)
   br i1 %71, label %105, label %72
 
 72:                                               ; preds = %26
   %73 = load ptr, ptr %24, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 184
-  %75 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %74, i32 1, ptr elementtype(i32) %74) #17, !srcloc !37
+  %75 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %74, i32 1, ptr elementtype(i32) %74) #16, !srcloc !37
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %81, label %77, !prof !8
 
@@ -2923,7 +2918,7 @@ define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr 
 
 81:                                               ; preds = %77, %72
   %82 = phi i32 [ 2, %72 ], [ 1, %77 ]
-  tail call void @refcount_warn_saturate(ptr noundef %74, i32 noundef %82) #17
+  tail call void @refcount_warn_saturate(ptr noundef %74, i32 noundef %82) #16
   br label %83
 
 83:                                               ; preds = %81, %77
@@ -2931,7 +2926,7 @@ define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr 
   store ptr %70, ptr %84, align 8
   store ptr %24, ptr %70, align 8
   %85 = load ptr, ptr %24, align 8
-  tail call void @__scsi_init_queue(ptr noundef %85, ptr noundef %70) #17
+  tail call void @__scsi_init_queue(ptr noundef %85, ptr noundef %70) #16
   %86 = load ptr, ptr %24, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 456
   %88 = load i16, ptr %87, align 8
@@ -2942,8 +2937,8 @@ define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %92, label %93, label %105
 
 93:                                               ; preds = %83
-  %94 = tail call i32 @scsi_change_queue_depth(ptr noundef nonnull %24, i32 noundef %90) #17
-  tail call void @scsi_sysfs_device_initialize(ptr noundef nonnull %24) #17
+  %94 = tail call i32 @scsi_change_queue_depth(ptr noundef nonnull %24, i32 noundef %90) #16
+  tail call void @scsi_sysfs_device_initialize(ptr noundef nonnull %24) #16
   %95 = getelementptr inbounds i8, ptr %17, i64 168
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 120
@@ -2952,22 +2947,22 @@ define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %99, label %108, label %100
 
 100:                                              ; preds = %93
-  %101 = tail call i32 %98(ptr noundef nonnull %24) #17
+  %101 = tail call i32 %98(ptr noundef nonnull %24) #16
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %108, label %103
 
 103:                                              ; preds = %100
   %104 = icmp eq i32 %101, -6
-  tail call void @__scsi_remove_device(ptr noundef nonnull %24) #17
+  tail call void @__scsi_remove_device(ptr noundef nonnull %24) #16
   br i1 %104, label %108, label %106
 
 105:                                              ; preds = %83, %26
-  tail call void @put_device(ptr noundef %4) #17
-  tail call void @kfree(ptr noundef nonnull %24) #17
+  tail call void @put_device(ptr noundef %4) #16
+  tail call void @kfree(ptr noundef nonnull %24) #16
   br label %106
 
 106:                                              ; preds = %105, %103, %.loopexit
-  %107 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.scsi_alloc_sdev) #18
+  %107 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.scsi_alloc_sdev) #17
   br label %108
 
 108:                                              ; preds = %106, %103, %100, %93
@@ -2978,9 +2973,9 @@ define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @scsi_unlock_floptical(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !19
-  tail call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.24, ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.31) #17
+  tail call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.24, ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.31) #16
   store i8 26, ptr %3, align 16
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 0, ptr %4, align 1
@@ -2992,8 +2987,8 @@ define internal fastcc void @scsi_unlock_floptical(ptr noundef %0, ptr noundef %
   store i8 42, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %3, i64 5
   store i8 0, ptr %8, align 1
-  %9 = call i32 @scsi_execute_cmd(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 34, ptr noundef %1, i32 noundef 42, i32 noundef 2000, i32 noundef 3, ptr noundef null) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
+  %9 = call i32 @scsi_execute_cmd(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 34, ptr noundef %1, i32 noundef 42, i32 noundef 2000, i32 noundef 3, ptr noundef null) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
   ret void
 }
 
@@ -3004,7 +2999,7 @@ declare dso_local i32 @scsi_device_get(ptr noundef) local_unnamed_addr #4
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @scsi_evt_thread(ptr noundef) #4
@@ -3039,7 +3034,7 @@ define internal fastcc i32 @scsi_realloc_sdev_budget_map(ptr noundef %0, i32 nou
   %.not4 = icmp eq ptr %12, null
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %13 = tail call i32 @scsi_device_max_queue_depth(ptr noundef %0) #17
+  %13 = tail call i32 @scsi_device_max_queue_depth(ptr noundef %0) #16
   %14 = tail call i32 @llvm.umin.i32(i32 %13, i32 %1)
   br i1 %.not4, label %24, label %15
 
@@ -3052,7 +3047,7 @@ define internal fastcc i32 @scsi_realloc_sdev_budget_map(ptr noundef %0, i32 nou
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
-  tail call void @blk_mq_freeze_queue(ptr noundef %20) #17
+  tail call void @blk_mq_freeze_queue(ptr noundef %20) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef align 8 dereferenceable(16) %10, i64 16, i1 false)
   %21 = load ptr, ptr %11, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3062,17 +3057,17 @@ define internal fastcc i32 @scsi_realloc_sdev_budget_map(ptr noundef %0, i32 nou
 24:                                               ; preds = %.loopexit, %18
   %25 = phi ptr [ %21, %18 ], [ null, %.loopexit ]
   %26 = phi ptr [ %23, %18 ], [ null, %.loopexit ]
-  %27 = tail call i32 @scsi_device_max_queue_depth(ptr noundef %0) #17
+  %27 = tail call i32 @scsi_device_max_queue_depth(ptr noundef %0) #16
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 488
   %31 = load i32, ptr %30, align 8
-  %32 = tail call i32 @sbitmap_init_node(ptr noundef %10, i32 noundef %27, i32 noundef %9, i32 noundef 3264, i32 noundef %31, i1 noundef zeroext false, i1 noundef zeroext true) #17
+  %32 = tail call i32 @sbitmap_init_node(ptr noundef %10, i32 noundef %27, i32 noundef %9, i32 noundef 3264, i32 noundef %31, i1 noundef zeroext false, i1 noundef zeroext true) #16
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %.thread2
 
 34:                                               ; preds = %24
-  tail call void @sbitmap_resize(ptr noundef %10, i32 noundef %14) #17
+  tail call void @sbitmap_resize(ptr noundef %10, i32 noundef %14) #16
   br i1 %.not4, label %39, label %36
 
 .thread2:                                         ; preds = %24
@@ -3086,13 +3081,13 @@ define internal fastcc i32 @scsi_realloc_sdev_budget_map(ptr noundef %0, i32 nou
   br label %37
 
 36:                                               ; preds = %34
-  tail call void @free_percpu(ptr noundef %26) #17
-  tail call void @kvfree(ptr noundef %25) #17
+  tail call void @free_percpu(ptr noundef %26) #16
+  tail call void @kvfree(ptr noundef %25) #16
   br label %37
 
 37:                                               ; preds = %36, %.thread3
   %38 = load ptr, ptr %28, align 8
-  tail call void @blk_mq_unfreeze_queue(ptr noundef %38) #17
+  tail call void @blk_mq_unfreeze_queue(ptr noundef %38) #16
   br label %39
 
 39:                                               ; preds = %.thread2, %37, %34, %15
@@ -3108,7 +3103,7 @@ declare dso_local i32 @scsi_change_queue_depth(ptr noundef, i32 noundef) local_u
 declare dso_local void @scsi_sysfs_device_initialize(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @scsi_device_max_queue_depth(ptr noundef) local_unnamed_addr #4
@@ -3141,7 +3136,7 @@ declare dso_local void @sdev_prefix_printk(ptr noundef, ptr noundef, ptr noundef
 declare dso_local void @_dev_printk(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #13
+declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @scsi_device_type(i32 noundef) local_unnamed_addr #4
@@ -3168,7 +3163,7 @@ declare dso_local i32 @scsi_is_host_device(ptr noundef) local_unnamed_addr #4
 declare dso_local i64 @scsilun_to_int(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #14
+declare i32 @llvm.bswap.i32(i32) #13
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @scsi_host_get(ptr noundef) local_unnamed_addr #4
@@ -3189,22 +3184,22 @@ declare dso_local ptr @__scsi_iterate_devices(ptr noundef, ptr noundef) local_un
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #4 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #14
+declare i16 @llvm.umax.i16(i16, i16) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #14
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #14
+declare i8 @llvm.umax.i8(i8, i8) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #14
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #14
+declare i64 @llvm.umin.i64(i64, i64) #13
 
 attributes #0 = { fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -3216,17 +3211,16 @@ attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounw
 attributes #7 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #8 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #9 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
-attributes #16 = { nounwind allocsize(2) }
-attributes #17 = { nounwind }
-attributes #18 = { cold nounwind }
-attributes #19 = { nounwind allocsize(0) }
-attributes #20 = { nounwind allocsize(1) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
+attributes #15 = { nounwind allocsize(2) }
+attributes #16 = { nounwind }
+attributes #17 = { cold nounwind }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

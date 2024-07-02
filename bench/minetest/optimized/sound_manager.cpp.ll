@@ -1298,8 +1298,6 @@ if.then28:                                        ; preds = %invoke.cont26
 
 if.then.i:                                        ; preds = %if.then28
   %10 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !86
-  %cmp3.i.i = icmp ult i64 %10, 16
-  call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = add nuw nsw i64 %10, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %add.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -1360,8 +1358,6 @@ if.then14.i:                                      ; preds = %if.end.thread.i, %i
   %24 = phi ptr [ %22, %if.end.thread.i ], [ %21, %if.end.i ]
   %_M_string_length.i55.i = getelementptr inbounds i8, ptr %15, i64 -24
   %25 = load i64, ptr %_M_string_length.i55.i, align 8, !tbaa !86
-  %cmp3.i56.i = icmp ult i64 %25, 16
-  call void @llvm.assume(i1 %cmp3.i56.i)
   %cmp.not.i = icmp eq ptr %add.ptr.i.i, %add.ptr.i80
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then15.i, !prof !78
 
@@ -5292,8 +5288,6 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %filedata, i64 8
   %3 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !86, !noalias !188
-  %cmp3.i.i.i.i = icmp ult i64 %3, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
   %add.i.i.i = add nuw nsw i64 %3, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %add.i.i.i, i1 false), !noalias !188
   br label %_ZSt11make_uniqueIN5sound21SoundDataUnopenBufferEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
@@ -11877,8 +11871,6 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 8
   %14 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !86, !alias.scope !325, !noalias !322
-  %cmp3.i.i.i.i.i.i.i.i = icmp ult i64 %14, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i = add nuw nsw i64 %14, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(1) %12, i64 %add.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
@@ -11925,8 +11917,6 @@ for.body.i.i.i50:                                 ; preds = %_ZNSt6vectorINSt7__
 if.then.i.i.i.i.i.i.i64:                          ; preds = %for.body.i.i.i50
   %_M_string_length.i.i.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i52, i64 8
   %20 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i65, align 8, !tbaa !86, !alias.scope !331, !noalias !328
-  %cmp3.i.i.i.i.i.i.i.i66 = icmp ult i64 %20, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i66)
   %add.i.i.i.i.i.i.i67 = add nuw nsw i64 %20, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(1) %18, i64 %add.i.i.i.i.i.i.i67, i1 false)
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i57
@@ -12905,8 +12895,6 @@ entry:
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %entry
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__vars, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !86
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %4, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %4, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
@@ -12937,8 +12925,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
 if.then.i9.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %_M_string_length.i.i10.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__vars, i64 40
   %10 = load i64, ptr %_M_string_length.i.i10.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !86
-  %cmp3.i.i11.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %10, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i11.i.i.i.i.i.i.i.i.i.i.i.i)
   %add.i12.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %10, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(1) %8, i64 %add.i12.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt8__invokeIZNSt8__detail9__variant15_Move_ctor_baseILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEEC1EOSJ_EUlOT_T0_E_JSA_St17integral_constantImLm5EEEENSt15__invoke_resultISL_JDpT0_EE4typeESM_DpOSS_.exit
@@ -12974,8 +12960,6 @@ entry:
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %entry
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__vars, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !86
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %4, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %4, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -13006,8 +12990,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
 if.then.i9.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
   %_M_string_length.i.i10.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__vars, i64 40
   %10 = load i64, ptr %_M_string_length.i.i10.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !86
-  %cmp3.i.i11.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %10, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i11.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %add.i12.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %10, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(1) %8, i64 %add.i12.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt8__invokeIZNSt8__detail9__variant15_Move_ctor_baseILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEEC1EOSJ_EUlOT_T0_E_JSB_St17integral_constantImLm6EEEENSt15__invoke_resultISL_JDpT0_EE4typeESM_DpOSS_.exit
@@ -13043,8 +13025,6 @@ entry:
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %entry
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__vars, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !86
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %4, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %4, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -13075,8 +13055,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
 if.then.i9.i.i.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %_M_string_length.i.i10.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__vars, i64 40
   %10 = load i64, ptr %_M_string_length.i.i10.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !86
-  %cmp3.i.i11.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %10, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i11.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %add.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %10, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(1) %8, i64 %add.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt8__invokeIZNSt8__detail9__variant15_Move_ctor_baseILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEEC1EOSJ_EUlOT_T0_E_JSC_St17integral_constantImLm7EEEENSt15__invoke_resultISL_JDpT0_EE4typeESM_DpOSS_.exit
@@ -13116,8 +13094,6 @@ entry:
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %entry
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__vars, i64 16
   %5 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !86
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %5, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %5, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(1) %3, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt8__invokeIZNSt8__detail9__variant15_Move_ctor_baseILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEEC1EOSJ_EUlOT_T0_E_JSD_St17integral_constantImLm8EEEENSt15__invoke_resultISL_JDpT0_EE4typeESM_DpOSS_.exit
@@ -13160,8 +13136,6 @@ entry:
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:      ; preds = %entry
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__vars, i64 16
   %5 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !86
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %5, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %5, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(1) %3, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt8__invokeIZNSt8__detail9__variant15_Move_ctor_baseILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEEC1EOSJ_EUlOT_T0_E_JSE_St17integral_constantImLm9EEEENSt15__invoke_resultISL_JDpT0_EE4typeESM_DpOSS_.exit

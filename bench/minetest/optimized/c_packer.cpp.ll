@@ -3305,8 +3305,6 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 24
   %7 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !17, !alias.scope !85, !noalias !82
-  %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %7, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %7, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %5, i64 %add.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt19__relocate_object_aI11PackedInstrS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
@@ -3356,8 +3354,6 @@ for.body.i.i.i49:                                 ; preds = %_ZNSt6vectorI11Pack
 if.then.i.i.i.i.i.i.i.i65:                        ; preds = %for.body.i.i.i49
   %_M_string_length.i.i.i.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i51, i64 24
   %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i66, align 8, !tbaa !17, !alias.scope !92, !noalias !89
-  %cmp3.i.i.i.i.i.i.i.i.i67 = icmp ult i64 %13, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i67)
   %add.i.i.i.i.i.i.i.i68 = add nuw nsw i64 %13, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %add.i.i.i.i.i.i.i.i68, i1 false)
   br label %_ZSt19__relocate_object_aI11PackedInstrS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i58

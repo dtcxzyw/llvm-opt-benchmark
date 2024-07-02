@@ -2479,25 +2479,25 @@ define internal noundef range(i32 -11, 1) i32 @nfs_server_reap_expired_delegatio
   %15 = load volatile i64, ptr %14, align 8
   %16 = and i64 %15, 128
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %101
+  br i1 %17, label %18, label %100
 
 18:                                               ; preds = %12
   %19 = load volatile i64, ptr %14, align 8
   %20 = and i64 %19, 16
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %22, label %101
+  br i1 %21, label %22, label %100
 
 22:                                               ; preds = %18
   %23 = load volatile i64, ptr %14, align 8
   %24 = and i64 %23, 64
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %101, label %26
+  br i1 %25, label %100, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %13, i64 72
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, %6
-  br i1 %29, label %101, label %30
+  br i1 %29, label %100, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %13, i64 92
@@ -2532,131 +2532,129 @@ define internal noundef range(i32 -11, 1) i32 @nfs_server_reap_expired_delegatio
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %get_cred_rcu.exit, label %.lr.ph.i, !prof !63
 
-.lr.ph.i:                                         ; preds = %44, %53
-  %47 = phi i64 [ %54, %53 ], [ %45, %44 ]
+.lr.ph.i:                                         ; preds = %44, %52
+  %47 = phi i64 [ %53, %52 ], [ %45, %44 ]
   %48 = add i64 %47, 1
   %49 = call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %42, i64 %48, ptr nonnull elementtype(i64) %42, i64 %47) #12, !srcloc !64
   %50 = extractvalue { i8, i64 } %49, 0
-  %51 = icmp ult i8 %50, 2
-  call void @llvm.assume(i1 %51)
-  %52 = icmp eq i8 %50, 0
-  br i1 %52, label %53, label %56, !prof !48
+  %51 = icmp eq i8 %50, 0
+  br i1 %51, label %52, label %55, !prof !48
 
-53:                                               ; preds = %.lr.ph.i
-  %54 = extractvalue { i8, i64 } %49, 1
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %get_cred_rcu.exit, label %.lr.ph.i, !prof !65, !llvm.loop !66
+52:                                               ; preds = %.lr.ph.i
+  %53 = extractvalue { i8, i64 } %49, 1
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %get_cred_rcu.exit, label %.lr.ph.i, !prof !65, !llvm.loop !66
 
-56:                                               ; preds = %.lr.ph.i
-  %57 = getelementptr inbounds i8, ptr %42, i64 168
-  store i32 0, ptr %57, align 8
+55:                                               ; preds = %.lr.ph.i
+  %56 = getelementptr inbounds i8, ptr %42, i64 168
+  store i32 0, ptr %56, align 8
   br label %get_cred_rcu.exit
 
-get_cred_rcu.exit:                                ; preds = %53, %40, %44, %56
-  %58 = phi ptr [ %42, %56 ], [ null, %40 ], [ null, %44 ], [ null, %53 ]
-  %59 = getelementptr inbounds i8, ptr %13, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef align 4 dereferenceable(16) %59, i64 16, i1 false)
-  %60 = getelementptr inbounds i8, ptr %13, i64 48
-  %61 = load i32, ptr %60, align 4
-  store i32 %61, ptr %11, align 4
+get_cred_rcu.exit:                                ; preds = %52, %40, %44, %55
+  %57 = phi ptr [ %42, %55 ], [ null, %40 ], [ null, %44 ], [ null, %52 ]
+  %58 = getelementptr inbounds i8, ptr %13, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef align 4 dereferenceable(16) %58, i64 16, i1 false)
+  %59 = getelementptr inbounds i8, ptr %13, i64 48
+  %60 = load i32, ptr %59, align 4
+  store i32 %60, ptr %11, align 4
   call void @_raw_spin_unlock(ptr noundef %31) #12
   store i64 %6, ptr %27, align 8
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %14, i32 -65, ptr elementtype(i8) %14) #12, !srcloc !8
   call void @__rcu_read_unlock() #12
-  %62 = icmp eq ptr %58, null
-  br i1 %62, label %nfs_delegation_test_free_expired.exit, label %63
+  %61 = icmp eq ptr %57, null
+  br i1 %61, label %nfs_delegation_test_free_expired.exit, label %62
 
-63:                                               ; preds = %get_cred_rcu.exit
-  %64 = getelementptr inbounds i8, ptr %36, i64 40
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 872
+62:                                               ; preds = %get_cred_rcu.exit
+  %63 = getelementptr inbounds i8, ptr %36, i64 40
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 872
+  %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %66, align 8
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 664
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 48
-  %72 = load ptr, ptr %71, align 8
-  %73 = call i32 %72(ptr noundef %67, ptr noundef nonnull %3, ptr noundef nonnull %58) #12
-  switch i32 %73, label %75 [
-    i32 -10011, label %74
-    i32 -10025, label %74
+  %68 = getelementptr inbounds i8, ptr %67, i64 664
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 48
+  %71 = load ptr, ptr %70, align 8
+  %72 = call i32 %71(ptr noundef %66, ptr noundef nonnull %3, ptr noundef nonnull %57) #12
+  switch i32 %72, label %74 [
+    i32 -10011, label %73
+    i32 -10025, label %73
   ]
 
-74:                                               ; preds = %63, %63
+73:                                               ; preds = %62, %62
   call void @nfs_remove_bad_delegation(ptr noundef nonnull %36, ptr noundef nonnull %3)
-  br label %75
+  br label %74
 
-75:                                               ; preds = %63, %74
-  %76 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %58, i64 1, ptr nonnull elementtype(i64) %58) #12, !srcloc !11
-  %77 = icmp ult i8 %76, 2
-  call void @llvm.assume(i1 %77)
-  %78 = icmp eq i8 %76, 0
-  br i1 %78, label %nfs_delegation_test_free_expired.exit, label %79
+74:                                               ; preds = %62, %73
+  %75 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %57, i64 1, ptr nonnull elementtype(i64) %57) #12, !srcloc !11
+  %76 = icmp ult i8 %75, 2
+  call void @llvm.assume(i1 %76)
+  %77 = icmp eq i8 %75, 0
+  br i1 %77, label %nfs_delegation_test_free_expired.exit, label %78
 
-79:                                               ; preds = %75
-  call void @__put_cred(ptr noundef nonnull %58) #12
+78:                                               ; preds = %74
+  call void @__put_cred(ptr noundef nonnull %57) #12
   br label %nfs_delegation_test_free_expired.exit
 
-nfs_delegation_test_free_expired.exit:            ; preds = %get_cred_rcu.exit, %79, %75
-  %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 320
-  %82 = load i64, ptr %81, align 8
-  %83 = and i64 %82, 70
-  %84 = icmp eq i64 %83, 0
-  br i1 %84, label %85, label %89
+nfs_delegation_test_free_expired.exit:            ; preds = %get_cred_rcu.exit, %78, %74
+  %79 = load ptr, ptr %0, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 320
+  %81 = load i64, ptr %80, align 8
+  %82 = and i64 %81, 70
+  %83 = icmp eq i64 %82, 0
+  br i1 %83, label %84, label %88
 
-85:                                               ; preds = %nfs_delegation_test_free_expired.exit
+84:                                               ; preds = %nfs_delegation_test_free_expired.exit
   call void @iput(ptr noundef nonnull %36) #12
-  %86 = call i32 @__SCT__cond_resched() #12
+  %85 = call i32 @__SCT__cond_resched() #12
   call void @__rcu_read_lock() #12
-  %87 = load volatile ptr, ptr %7, align 8
-  %88 = icmp eq ptr %87, %7
-  br i1 %88, label %.loopexit, label %.backedge
+  %86 = load volatile ptr, ptr %7, align 8
+  %87 = icmp eq ptr %86, %7
+  br i1 %87, label %.loopexit, label %.backedge
 
-89:                                               ; preds = %nfs_delegation_test_free_expired.exit
+88:                                               ; preds = %nfs_delegation_test_free_expired.exit
   call void @__rcu_read_lock() #12
-  %90 = getelementptr i8, ptr %36, i64 -72
-  %91 = load volatile ptr, ptr %90, align 8
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %nfs_inode_mark_test_expired_delegation.exit, label %93
+  %89 = getelementptr i8, ptr %36, i64 -72
+  %90 = load volatile ptr, ptr %89, align 8
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %nfs_inode_mark_test_expired_delegation.exit, label %92
 
-93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %91, i64 48
-  %95 = load i32, ptr %94, align 8
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %nfs_inode_mark_test_expired_delegation.exit, label %97
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds i8, ptr %90, i64 48
+  %94 = load i32, ptr %93, align 8
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %nfs_inode_mark_test_expired_delegation.exit, label %96
 
-97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %91, i64 80
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %98, i32 -2, ptr elementtype(i8) %98) #12, !srcloc !8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %98, i32 64, ptr elementtype(i8) %98) #12, !srcloc !6
-  %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr i8, ptr %99, i64 321
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %100, i32 32, ptr elementtype(i8) %100) #12, !srcloc !6
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds i8, ptr %90, i64 80
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %97, i32 -2, ptr elementtype(i8) %97) #12, !srcloc !8
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %97, i32 64, ptr elementtype(i8) %97) #12, !srcloc !6
+  %98 = load ptr, ptr %0, align 8
+  %99 = getelementptr i8, ptr %98, i64 321
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %99, i32 32, ptr elementtype(i8) %99) #12, !srcloc !6
   br label %nfs_inode_mark_test_expired_delegation.exit
 
-nfs_inode_mark_test_expired_delegation.exit:      ; preds = %89, %93, %97
+nfs_inode_mark_test_expired_delegation.exit:      ; preds = %88, %92, %96
   call void @__rcu_read_unlock() #12
   call void @iput(ptr noundef nonnull %36) #12
-  br label %104
+  br label %103
 
-101:                                              ; preds = %26, %22, %18, %12
-  %102 = load volatile ptr, ptr %13, align 8
-  %103 = icmp eq ptr %102, %7
-  br i1 %103, label %.loopexit, label %.backedge
+100:                                              ; preds = %26, %22, %18, %12
+  %101 = load volatile ptr, ptr %13, align 8
+  %102 = icmp eq ptr %101, %7
+  br i1 %102, label %.loopexit, label %.backedge
 
-.backedge:                                        ; preds = %101, %85, %.thread
-  %.be = phi ptr [ %102, %101 ], [ %38, %.thread ], [ %87, %85 ]
+.backedge:                                        ; preds = %100, %84, %.thread
+  %.be = phi ptr [ %101, %100 ], [ %38, %.thread ], [ %86, %84 ]
   br label %12, !llvm.loop !67
 
-.loopexit:                                        ; preds = %101, %85, %.thread, %2
+.loopexit:                                        ; preds = %100, %84, %.thread, %2
   call void @__rcu_read_unlock() #12
-  br label %104
+  br label %103
 
-104:                                              ; preds = %.loopexit, %nfs_inode_mark_test_expired_delegation.exit
-  %105 = phi i32 [ -11, %nfs_inode_mark_test_expired_delegation.exit ], [ 0, %.loopexit ]
+103:                                              ; preds = %.loopexit, %nfs_inode_mark_test_expired_delegation.exit
+  %104 = phi i32 [ -11, %nfs_inode_mark_test_expired_delegation.exit ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #12
-  ret i32 %105
+  ret i32 %104
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

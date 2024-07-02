@@ -1755,26 +1755,26 @@ invoke.cont7:                                     ; preds = %if.end.i.i, %upb_Ar
   %_M_left.i.i = getelementptr inbounds i8, ptr %cluster_load_report_map, i64 24
   %7 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i27 = getelementptr inbounds i8, ptr %cluster_load_report_map, i64 8
-  %cmp.i.not377 = icmp eq ptr %7, %add.ptr.i.i27
-  br i1 %cmp.i.not377, label %for.end90, label %for.body.lr.ph
+  %cmp.i.not414 = icmp eq ptr %7, %add.ptr.i.i27
+  br i1 %cmp.i.not414, label %for.end90, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont7
   %mode.i.i.i = getelementptr inbounds i8, ptr %field.i62, i64 11
   %presence.i.i = getelementptr inbounds i8, ptr %field.i62, i64 6
   %offset.i.i.i.i = getelementptr inbounds i8, ptr %field.i62, i64 4
   %mode.i.i.i224 = getelementptr inbounds i8, ptr %field.i.i, i64 11
-  %presence.i.i227 = getelementptr inbounds i8, ptr %field.i.i, i64 6
+  %presence.i.i226 = getelementptr inbounds i8, ptr %field.i.i, i64 6
   %offset.i.i.i.i230 = getelementptr inbounds i8, ptr %field.i.i, i64 4
-  %mode.i.i.i284 = getelementptr inbounds i8, ptr %field.i115, i64 11
-  %presence.i.i287 = getelementptr inbounds i8, ptr %field.i115, i64 6
-  %offset.i.i.i.i290 = getelementptr inbounds i8, ptr %field.i115, i64 4
+  %mode.i.i.i298 = getelementptr inbounds i8, ptr %field.i115, i64 11
+  %presence.i.i300 = getelementptr inbounds i8, ptr %field.i115, i64 6
+  %offset.i.i.i.i304 = getelementptr inbounds i8, ptr %field.i115, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc88
-  %__begin1.sroa.0.0378 = phi ptr [ %7, %for.body.lr.ph ], [ %call.i181, %for.inc88 ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0378, i64 32
-  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.0378, i64 64
-  %second16 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0378, i64 96
+  %__begin1.sroa.0.0415 = phi ptr [ %7, %for.body.lr.ph ], [ %call.i181, %for.inc88 ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0415, i64 32
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.0415, i64 64
+  %second16 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0415, i64 96
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %field.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %field.i, ptr noundef nonnull align 4 dereferenceable(12) @__const.envoy_service_load_stats_v3_LoadStatsRequest_add_cluster_stats.field, i64 12, i1 false)
   %call.i45 = invoke ptr @upb_Message_GetOrCreateMutableArray(ptr noundef %retval.0.i.i, ptr noundef nonnull %field.i, ptr noundef %call.i.i)
@@ -1863,33 +1863,33 @@ if.then:                                          ; preds = %invoke.cont23
   store i64 %call1.i51, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i55, align 1
   br label %if.end
 
-lpad.loopexit:                                    ; preds = %_upb_array_reserve.exit.i.i.i, %if.then.i.i.i60.i, %if.then.i.i.i278, %if.then.i.i264
-  %lpad.loopexit359 = landingpad { ptr, i32 }
+lpad.loopexit:                                    ; preds = %_upb_array_reserve.exit.i.i.i, %if.then.i.i.i60.i, %if.then.i.i.i287, %if.then.i.i267
+  %lpad.loopexit396 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
-lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i.i324, %if.then.i.i.i338, %if.then.i.i.i144, %_upb_array_reserve.exit.i.i145
-  %lpad.loopexit361 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i.i341, %if.then.i.i.i361, %if.then.i.i.i144, %_upb_array_reserve.exit.i.i145
+  %lpad.loopexit398 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_upb_array_reserve.exit.i.i92, %if.then.i.i.i91, %if.then.i.i.i.i, %if.then.i.i.i219, %if.then.i.i218
-  %lpad.loopexit364 = landingpad { ptr, i32 }
+  %lpad.loopexit401 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then.i.i.i177, %if.then.i.i.i44, %_upb_array_reserve.exit.i.i, %for.body, %invoke.cont78
-  %lpad.loopexit367 = landingpad { ptr, i32 }
+  %lpad.loopexit404 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.cont91, %call3.i.noexc, %call1.i.i187.noexc, %call.i.i186.noexc, %if.then.i185, %land.lhs.true.i, %if.then.i.i.i
-  %lpad.loopexit.split-lp368 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp405 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %125, %lpad.i ], [ %lpad.loopexit359, %lpad.loopexit ], [ %lpad.loopexit361, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit364, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit367, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp368, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %134, %lpad.i ], [ %lpad.loopexit396, %lpad.loopexit ], [ %lpad.loopexit398, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit401, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit404, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp405, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %cmp.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i.i, label %_ZN3upb5ArenaD2Ev.exit, label %if.then.i.i
 
@@ -1908,41 +1908,44 @@ _ZN3upb5ArenaD2Ev.exit:                           ; preds = %lpad.body, %if.then
   resume { ptr, i32 } %eh.lpad-body
 
 if.end:                                           ; preds = %if.then, %invoke.cont23
-  %_M_left.i.i57 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0378, i64 176
+  %_M_left.i.i57 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0415, i64 176
   %19 = load ptr, ptr %_M_left.i.i57, align 8
-  %add.ptr.i.i58 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0378, i64 160
-  %cmp.i59.not372 = icmp eq ptr %19, %add.ptr.i.i58
-  br i1 %cmp.i59.not372, label %for.end, label %for.body35.preheader
+  %add.ptr.i.i58 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0415, i64 160
+  %cmp.i59.not409 = icmp eq ptr %19, %add.ptr.i.i58
+  br i1 %cmp.i59.not409, label %for.end, label %for.body35.preheader
 
 for.body35.preheader:                             ; preds = %if.end
-  %add.ptr.i.i.i.i200 = getelementptr inbounds i8, ptr %retval.0.i, i64 24
-  br label %for.body35
+  %add.ptr.i.i.i.i199 = getelementptr inbounds i8, ptr %retval.0.i, i64 24
+  br label %upb_Message_GetMutableArray.exit.i
 
-for.body35:                                       ; preds = %for.body35.preheader, %for.inc
-  %__begin2.sroa.0.0373 = phi ptr [ %call.i109, %for.inc ], [ %19, %for.body35.preheader ]
-  %_M_storage.i.i60 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0373, i64 32
+default.unreachable:                              ; preds = %_upb_Message_SetPresence.exit.i.i.i, %if.end.i.i12.i, %_upb_Message_SetPresence.exit.i.i.i352, %if.end.i.i12.i343, %_upb_Message_SetPresence.exit.i.i.i278, %if.end.i.i12.i269
+  unreachable
+
+upb_Message_GetMutableArray.exit.i:               ; preds = %for.body35.preheader, %for.inc
+  %__begin2.sroa.0.0410 = phi ptr [ %call.i109, %for.inc ], [ %19, %for.body35.preheader ]
+  %_M_storage.i.i60 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0410, i64 32
   %20 = load ptr, ptr %_M_storage.i.i60, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %field.i62)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %field.i62, ptr noundef nonnull align 4 dereferenceable(12) @__const.envoy_config_endpoint_v3_ClusterStats_add_upstream_locality_stats.field, i64 12, i1 false)
-  %21 = load i64, ptr %add.ptr.i.i.i.i200, align 1
+  %21 = load i64, ptr %add.ptr.i.i.i.i199, align 1
   %22 = inttoptr i64 %21 to ptr
-  %tobool.not.i201 = icmp eq i64 %21, 0
-  br i1 %tobool.not.i201, label %if.then.i203, label %call.i63.noexc
+  %tobool.not.i200 = icmp eq i64 %21, 0
+  br i1 %tobool.not.i200, label %if.then.i202, label %lor.lhs.false.i65
 
-if.then.i203:                                     ; preds = %for.body35
+if.then.i202:                                     ; preds = %upb_Message_GetMutableArray.exit.i
   %23 = load ptr, ptr %end.i.i.i.i, align 8
   %24 = load ptr, ptr %call.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i207 = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast.i.i.i.i208 = ptrtoint ptr %24 to i64
-  %sub.ptr.sub.i.i.i.i209 = sub i64 %sub.ptr.lhs.cast.i.i.i.i207, %sub.ptr.rhs.cast.i.i.i.i208
-  %cmp.i.i7.i = icmp ult i64 %sub.ptr.sub.i.i.i.i209, 56
-  br i1 %cmp.i.i7.i, label %if.then.i.i.i219, label %if.end.i.i.i210
+  %sub.ptr.lhs.cast.i.i.i.i206 = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast.i.i.i.i207 = ptrtoint ptr %24 to i64
+  %sub.ptr.sub.i.i.i.i208 = sub i64 %sub.ptr.lhs.cast.i.i.i.i206, %sub.ptr.rhs.cast.i.i.i.i207
+  %cmp.i.i.i209 = icmp ult i64 %sub.ptr.sub.i.i.i.i208, 56
+  br i1 %cmp.i.i.i209, label %if.then.i.i.i219, label %if.end.i.i.i210
 
-if.then.i.i.i219:                                 ; preds = %if.then.i203
+if.then.i.i.i219:                                 ; preds = %if.then.i202
   %call2.i.i.i221 = invoke ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %call.i.i, i64 noundef 56)
           to label %upb_Arena_Malloc.exit.i.i212 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
-if.end.i.i.i210:                                  ; preds = %if.then.i203
+if.end.i.i.i210:                                  ; preds = %if.then.i202
   %add.ptr.i.i.i211 = getelementptr inbounds i8, ptr %24, i64 56
   store ptr %add.ptr.i.i.i211, ptr %call.i.i, align 8
   br label %upb_Arena_Malloc.exit.i.i212
@@ -1965,17 +1968,15 @@ if.end.i.i215:                                    ; preds = %upb_Arena_Malloc.ex
 
 _upb_Array_New.exit.i:                            ; preds = %if.end.i.i215, %upb_Arena_Malloc.exit.i.i212
   %26 = load i8, ptr %mode.i.i.i, align 1
-  %cmp.i9.i = icmp ugt i8 %26, -65
-  call void @llvm.assume(i1 %cmp.i9.i)
   %27 = and i8 %26, 3
-  %cmp2.i10.i = icmp eq i8 %27, 1
-  call void @llvm.assume(i1 %cmp2.i10.i)
+  %cmp2.i8.i = icmp eq i8 %27, 1
+  call void @llvm.assume(i1 %cmp2.i8.i)
   %28 = load i16, ptr %presence.i.i, align 2
-  %cmp5.i12.i = icmp eq i16 %28, 0
-  call void @llvm.assume(i1 %cmp5.i12.i)
+  %cmp5.i10.i = icmp eq i16 %28, 0
+  call void @llvm.assume(i1 %cmp5.i10.i)
   %29 = and i8 %26, 8
   %tobool.i.not.i.i = icmp eq i8 %29, 0
-  br i1 %tobool.i.not.i.i, label %sw.bb2.i.i6.i.i, label %if.then.i.i218
+  br i1 %tobool.i.not.i.i, label %_upb_Message_SetPresence.exit.i.i.i, label %if.then.i.i218
 
 if.then.i.i218:                                   ; preds = %_upb_Array_New.exit.i
   %call.i.i.i223 = invoke ptr @_upb_Message_GetOrCreateExtension(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %field.i62, ptr noundef nonnull %call.i.i)
@@ -1983,70 +1984,88 @@ if.then.i.i218:                                   ; preds = %_upb_Array_New.exit
 
 call.i.i.i.noexc222:                              ; preds = %if.then.i.i218
   %tobool.not.i.not.i.i = icmp eq ptr %call.i.i.i223, null
-  br i1 %tobool.not.i.not.i.i, label %call.i63.noexc, label %if.end.i.i14.i
+  br i1 %tobool.not.i.not.i.i, label %call.i63.noexc, label %if.end.i.i12.i
 
-if.end.i.i14.i:                                   ; preds = %call.i.i.i.noexc222
+if.end.i.i12.i:                                   ; preds = %call.i.i.i.noexc222
   %data.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i223, i64 8
   %30 = load i8, ptr %mode.i.i.i, align 1
   %31 = lshr i8 %30, 6
-  switch i8 %31, label %if.end.i.i14.i.unreachabledefault [
+  switch i8 %31, label %default.unreachable [
     i8 0, label %sw.bb.i.i.i.i
     i8 1, label %sw.bb1.i.i.i.i
     i8 3, label %sw.bb2.i.i.i.i
     i8 2, label %sw.bb3.i.i.i.i
   ]
 
-sw.bb.i.i.i.i:                                    ; preds = %if.end.i.i14.i
+sw.bb.i.i.i.i:                                    ; preds = %if.end.i.i12.i
   %32 = ptrtoint ptr %retval.0.i.i.i213 to i64
-  %array.0.extract.trunc21.i = trunc i64 %32 to i8
-  store i8 %array.0.extract.trunc21.i, ptr %data.i.i.i, align 1
+  %array.0.extract.trunc20.i = trunc i64 %32 to i8
+  store i8 %array.0.extract.trunc20.i, ptr %data.i.i.i, align 1
   br label %call.i63.noexc
 
-sw.bb1.i.i.i.i:                                   ; preds = %if.end.i.i14.i
+sw.bb1.i.i.i.i:                                   ; preds = %if.end.i.i12.i
   %33 = ptrtoint ptr %retval.0.i.i.i213 to i64
   %array.0.extract.trunc.i = trunc i64 %33 to i32
   store i32 %array.0.extract.trunc.i, ptr %data.i.i.i, align 1
   br label %call.i63.noexc
 
-sw.bb2.i.i.i.i:                                   ; preds = %if.end.i.i14.i
+sw.bb2.i.i.i.i:                                   ; preds = %if.end.i.i12.i
   %34 = ptrtoint ptr %retval.0.i.i.i213 to i64
   store i64 %34, ptr %data.i.i.i, align 1
   br label %call.i63.noexc
 
-sw.bb3.i.i.i.i:                                   ; preds = %if.end.i.i14.i
+sw.bb3.i.i.i.i:                                   ; preds = %if.end.i.i12.i
   store ptr %retval.0.i.i.i213, ptr %data.i.i.i, align 1
   br label %call.i63.noexc
 
-if.end.i.i14.i.unreachabledefault:                ; preds = %if.end.i.i14.i
-  unreachable
-
-default.unreachable:                              ; preds = %if.end.i.i14.i326, %if.end.i.i14.i266
-  unreachable
-
-sw.bb2.i.i6.i.i:                                  ; preds = %_upb_Array_New.exit.i
+_upb_Message_SetPresence.exit.i.i.i:              ; preds = %_upb_Array_New.exit.i
   %35 = load i16, ptr %offset.i.i.i.i, align 4
-  %idx.ext.i.i.i16.i = zext i16 %35 to i64
-  %add.ptr.i.i.i17.i = getelementptr inbounds i8, ptr %retval.0.i, i64 %idx.ext.i.i.i16.i
-  %36 = ptrtoint ptr %retval.0.i.i.i213 to i64
-  store i64 %36, ptr %add.ptr.i.i.i17.i, align 1
+  %idx.ext.i.i.i15.i = zext i16 %35 to i64
+  %add.ptr.i.i.i16.i = getelementptr inbounds i8, ptr %retval.0.i, i64 %idx.ext.i.i.i15.i
+  %36 = lshr i8 %26, 6
+  switch i8 %36, label %default.unreachable [
+    i8 0, label %sw.bb.i.i8.i.i
+    i8 1, label %sw.bb1.i.i7.i.i
+    i8 3, label %sw.bb2.i.i6.i.i
+    i8 2, label %sw.bb3.i.i5.i.i
+  ]
+
+sw.bb.i.i8.i.i:                                   ; preds = %_upb_Message_SetPresence.exit.i.i.i
+  %37 = ptrtoint ptr %retval.0.i.i.i213 to i64
+  %array.0.extract.trunc22.i = trunc i64 %37 to i8
+  store i8 %array.0.extract.trunc22.i, ptr %add.ptr.i.i.i16.i, align 1
   br label %call.i63.noexc
 
-call.i63.noexc:                                   ; preds = %sw.bb2.i.i6.i.i, %sw.bb3.i.i.i.i, %sw.bb2.i.i.i.i, %sw.bb1.i.i.i.i, %sw.bb.i.i.i.i, %call.i.i.i.noexc222, %for.body35
-  %array.0.i = phi ptr [ %22, %for.body35 ], [ %retval.0.i.i.i213, %call.i.i.i.noexc222 ], [ %retval.0.i.i.i213, %sw.bb.i.i.i.i ], [ %retval.0.i.i.i213, %sw.bb1.i.i.i.i ], [ %retval.0.i.i.i213, %sw.bb2.i.i.i.i ], [ %retval.0.i.i.i213, %sw.bb3.i.i.i.i ], [ %retval.0.i.i.i213, %sw.bb2.i.i6.i.i ]
-  %tobool.not.i64 = icmp eq ptr %array.0.i, null
-  br i1 %tobool.not.i64, label %invoke.cont45, label %lor.lhs.false.i65
+sw.bb1.i.i7.i.i:                                  ; preds = %_upb_Message_SetPresence.exit.i.i.i
+  %38 = ptrtoint ptr %retval.0.i.i.i213 to i64
+  %array.0.extract.trunc18.i = trunc i64 %38 to i32
+  store i32 %array.0.extract.trunc18.i, ptr %add.ptr.i.i.i16.i, align 1
+  br label %call.i63.noexc
 
-lor.lhs.false.i65:                                ; preds = %call.i63.noexc
-  %size.i66 = getelementptr inbounds i8, ptr %array.0.i, i64 8
-  %37 = load i64, ptr %size.i66, align 8
-  %add.i67 = add i64 %37, 1
-  %capacity.i.i.i68 = getelementptr inbounds i8, ptr %array.0.i, i64 16
-  %38 = load i64, ptr %capacity.i.i.i68, align 8
-  %cmp.i.i.i69 = icmp ult i64 %38, %add.i67
+sw.bb2.i.i6.i.i:                                  ; preds = %_upb_Message_SetPresence.exit.i.i.i
+  %39 = ptrtoint ptr %retval.0.i.i.i213 to i64
+  store i64 %39, ptr %add.ptr.i.i.i16.i, align 1
+  br label %call.i63.noexc
+
+sw.bb3.i.i5.i.i:                                  ; preds = %_upb_Message_SetPresence.exit.i.i.i
+  store ptr %retval.0.i.i.i213, ptr %add.ptr.i.i.i16.i, align 1
+  br label %call.i63.noexc
+
+call.i63.noexc:                                   ; preds = %sw.bb3.i.i5.i.i, %sw.bb2.i.i6.i.i, %sw.bb1.i.i7.i.i, %sw.bb.i.i8.i.i, %sw.bb3.i.i.i.i, %sw.bb2.i.i.i.i, %sw.bb1.i.i.i.i, %sw.bb.i.i.i.i, %call.i.i.i.noexc222
+  br i1 %tobool.not.i.i214, label %invoke.cont45, label %lor.lhs.false.i65
+
+lor.lhs.false.i65:                                ; preds = %upb_Message_GetMutableArray.exit.i, %call.i63.noexc
+  %array.0.i389 = phi ptr [ %retval.0.i.i.i213, %call.i63.noexc ], [ %22, %upb_Message_GetMutableArray.exit.i ]
+  %size.i66 = getelementptr inbounds i8, ptr %array.0.i389, i64 8
+  %40 = load i64, ptr %size.i66, align 8
+  %add.i67 = add i64 %40, 1
+  %capacity.i.i.i68 = getelementptr inbounds i8, ptr %array.0.i389, i64 16
+  %41 = load i64, ptr %capacity.i.i.i68, align 8
+  %cmp.i.i.i69 = icmp ult i64 %41, %add.i67
   br i1 %cmp.i.i.i69, label %_upb_array_reserve.exit.i.i92, label %if.end.i70
 
 _upb_array_reserve.exit.i.i92:                    ; preds = %lor.lhs.false.i65
-  %call.i.i.i95 = invoke zeroext i1 @_upb_array_realloc(ptr noundef nonnull %array.0.i, i64 noundef %add.i67, ptr noundef %call.i.i)
+  %call.i.i.i95 = invoke zeroext i1 @_upb_array_realloc(ptr noundef nonnull %array.0.i389, i64 noundef %add.i67, ptr noundef %call.i.i)
           to label %call.i.i.i.noexc94 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc94:                               ; preds = %_upb_array_reserve.exit.i.i92
@@ -2054,15 +2073,15 @@ call.i.i.i.noexc94:                               ; preds = %_upb_array_reserve.
 
 if.end.i70:                                       ; preds = %call.i.i.i.noexc94, %lor.lhs.false.i65
   store i64 %add.i67, ptr %size.i66, align 8
-  %39 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__endpoint__v3__UpstreamLocalityStats_msg_init, i64 16), align 8
-  %conv.i.i.i71 = zext i16 %39 to i64
+  %42 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__endpoint__v3__UpstreamLocalityStats_msg_init, i64 16), align 8
+  %conv.i.i.i71 = zext i16 %42 to i64
   %add.i.i.i72 = add nuw nsw i64 %conv.i.i.i71, 8
   %sub.i.i.i73 = add nuw nsw i64 %conv.i.i.i71, 23
   %div7.i.i.i74 = and i64 %sub.i.i.i73, 131064
-  %40 = load ptr, ptr %end.i.i.i.i, align 8
-  %41 = load ptr, ptr %call.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i76 = ptrtoint ptr %40 to i64
-  %sub.ptr.rhs.cast.i.i.i.i77 = ptrtoint ptr %41 to i64
+  %43 = load ptr, ptr %end.i.i.i.i, align 8
+  %44 = load ptr, ptr %call.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i76 = ptrtoint ptr %43 to i64
+  %sub.ptr.rhs.cast.i.i.i.i77 = ptrtoint ptr %44 to i64
   %sub.ptr.sub.i.i.i.i78 = sub i64 %sub.ptr.lhs.cast.i.i.i.i76, %sub.ptr.rhs.cast.i.i.i.i77
   %cmp.i.i8.i79 = icmp ult i64 %sub.ptr.sub.i.i.i.i78, %div7.i.i.i74
   br i1 %cmp.i.i8.i79, label %if.then.i.i.i91, label %if.end.i.i.i80
@@ -2072,48 +2091,48 @@ if.then.i.i.i91:                                  ; preds = %if.end.i70
           to label %upb_Arena_Malloc.exit.i.i82 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i.i.i80:                                   ; preds = %if.end.i70
-  %add.ptr.i.i.i81 = getelementptr inbounds i8, ptr %41, i64 %div7.i.i.i74
+  %add.ptr.i.i.i81 = getelementptr inbounds i8, ptr %44, i64 %div7.i.i.i74
   store ptr %add.ptr.i.i.i81, ptr %call.i.i, align 8
   br label %upb_Arena_Malloc.exit.i.i82
 
 upb_Arena_Malloc.exit.i.i82:                      ; preds = %if.then.i.i.i91, %if.end.i.i.i80
-  %retval.0.i.i.i83 = phi ptr [ %41, %if.end.i.i.i80 ], [ %call2.i.i.i97, %if.then.i.i.i91 ]
+  %retval.0.i.i.i83 = phi ptr [ %44, %if.end.i.i.i80 ], [ %call2.i.i.i97, %if.then.i.i.i91 ]
   %tobool.not.i.i84 = icmp eq ptr %retval.0.i.i.i83, null
   br i1 %tobool.not.i.i84, label %invoke.cont45, label %if.end7.i85
 
 if.end7.i85:                                      ; preds = %upb_Arena_Malloc.exit.i.i82
   %add.ptr.i.i86 = getelementptr inbounds i8, ptr %retval.0.i.i.i83, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i83, i8 0, i64 %add.i.i.i72, i1 false)
-  %42 = load i64, ptr %size.i66, align 8
-  %43 = load i64, ptr %array.0.i, align 8
-  %and.i.i.i.i87 = and i64 %43, -8
-  %44 = inttoptr i64 %and.i.i.i.i87 to ptr
-  %sub9.i88 = shl i64 %42, 3
-  %45 = getelementptr i8, ptr %44, i64 %sub9.i88
-  %add.ptr.i10.i89 = getelementptr i8, ptr %45, i64 -8
+  %45 = load i64, ptr %size.i66, align 8
+  %46 = load i64, ptr %array.0.i389, align 8
+  %and.i.i.i.i87 = and i64 %46, -8
+  %47 = inttoptr i64 %and.i.i.i.i87 to ptr
+  %sub9.i88 = shl i64 %45, 3
+  %48 = getelementptr i8, ptr %47, i64 %sub9.i88
+  %add.ptr.i10.i89 = getelementptr i8, ptr %48, i64 -8
   store ptr %add.ptr.i.i86, ptr %add.ptr.i10.i89, align 8
   br label %invoke.cont45
 
 invoke.cont45:                                    ; preds = %if.end7.i85, %upb_Arena_Malloc.exit.i.i82, %call.i.i.i.noexc94, %call.i63.noexc
   %retval.0.i90 = phi ptr [ %add.ptr.i.i86, %if.end7.i85 ], [ null, %call.i63.noexc ], [ null, %call.i.i.i.noexc94 ], [ null, %upb_Arena_Malloc.exit.i.i82 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %field.i62)
-  %second41 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0373, i64 40
+  %second41 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0410, i64 40
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i90, i64 8
-  %46 = load i64, ptr %add.ptr.i.i.i.i, align 1
-  %47 = inttoptr i64 %46 to ptr
-  %cmp.i.i = icmp eq i64 %46, 0
+  %49 = load i64, ptr %add.ptr.i.i.i.i, align 1
+  %50 = inttoptr i64 %49 to ptr
+  %cmp.i.i = icmp eq i64 %49, 0
   br i1 %cmp.i.i, label %if.then.i.i103, label %envoy_config_endpoint_v3_UpstreamLocalityStats_mutable_locality.exit.i
 
 if.then.i.i103:                                   ; preds = %invoke.cont45
-  %48 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__core__v3__Locality_msg_init, i64 16), align 8
-  %conv.i.i.i.i = zext i16 %48 to i64
+  %51 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__core__v3__Locality_msg_init, i64 16), align 8
+  %conv.i.i.i.i = zext i16 %51 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
   %div7.i.i.i.i = and i64 %sub.i.i.i.i, 131064
-  %49 = load ptr, ptr %end.i.i.i.i, align 8
-  %50 = load ptr, ptr %call.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %49 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %50 to i64
+  %52 = load ptr, ptr %end.i.i.i.i, align 8
+  %53 = load ptr, ptr %call.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %52 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %53 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp ult i64 %sub.ptr.sub.i.i.i.i.i, %div7.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
@@ -2123,27 +2142,27 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i103
           to label %upb_Arena_Malloc.exit.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i103
-  %add.ptr.i.i5.i.i = getelementptr inbounds i8, ptr %50, i64 %div7.i.i.i.i
+  %add.ptr.i.i5.i.i = getelementptr inbounds i8, ptr %53, i64 %div7.i.i.i.i
   store ptr %add.ptr.i.i5.i.i, ptr %call.i.i, align 8
   br label %upb_Arena_Malloc.exit.i.i.i
 
 upb_Arena_Malloc.exit.i.i.i:                      ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %50, %if.end.i.i.i.i ], [ %call2.i.i.i.i105, %if.then.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %53, %if.end.i.i.i.i ], [ %call2.i.i.i.i105, %if.then.i.i.i.i ]
   %tobool.not.i.i.i = icmp eq ptr %retval.0.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %envoy_config_endpoint_v3_UpstreamLocalityStats_mutable_locality.exit.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %upb_Arena_Malloc.exit.i.i.i
   %add.ptr.i.i.i104 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i.i, i1 false)
-  %51 = load i8, ptr %retval.0.i90, align 1
-  %or2.i.i.i.i.i.i.i = or i8 %51, 2
+  %54 = load i8, ptr %retval.0.i90, align 1
+  %or2.i.i.i.i.i.i.i = or i8 %54, 2
   store i8 %or2.i.i.i.i.i.i.i, ptr %retval.0.i90, align 1
-  %52 = ptrtoint ptr %add.ptr.i.i.i104 to i64
-  store i64 %52, ptr %add.ptr.i.i.i.i, align 1
+  %55 = ptrtoint ptr %add.ptr.i.i.i104 to i64
+  store i64 %55, ptr %add.ptr.i.i.i.i, align 1
   br label %envoy_config_endpoint_v3_UpstreamLocalityStats_mutable_locality.exit.i
 
 envoy_config_endpoint_v3_UpstreamLocalityStats_mutable_locality.exit.i: ; preds = %if.then2.i.i, %upb_Arena_Malloc.exit.i.i.i, %invoke.cont45
-  %sub.0.i.i = phi ptr [ %add.ptr.i.i.i104, %if.then2.i.i ], [ %47, %invoke.cont45 ], [ null, %upb_Arena_Malloc.exit.i.i.i ]
+  %sub.0.i.i = phi ptr [ %add.ptr.i.i.i104, %if.then2.i.i ], [ %50, %invoke.cont45 ], [ null, %upb_Arena_Malloc.exit.i.i.i ]
   %region_.i.i = getelementptr inbounds i8, ptr %20, i64 16
   %call2.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %region_.i.i) #18
   br i1 %call2.i, label %if.end.i99, label %if.then.i
@@ -2185,154 +2204,176 @@ if.then14.i:                                      ; preds = %if.end11.i
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then14.i, %if.end11.i
-  %53 = load i64, ptr %second41, align 8
+  %56 = load i64, ptr %second41, align 8
   %add.ptr.i.i.i38.i = getelementptr inbounds i8, ptr %retval.0.i90, i64 16
-  store i64 %53, ptr %add.ptr.i.i.i38.i, align 1
-  %total_requests_in_progress.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0373, i64 48
-  %54 = load i64, ptr %total_requests_in_progress.i, align 8
+  store i64 %56, ptr %add.ptr.i.i.i38.i, align 1
+  %total_requests_in_progress.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0410, i64 48
+  %57 = load i64, ptr %total_requests_in_progress.i, align 8
   %add.ptr.i.i.i39.i = getelementptr inbounds i8, ptr %retval.0.i90, i64 24
-  store i64 %54, ptr %add.ptr.i.i.i39.i, align 1
-  %total_error_requests.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0373, i64 56
-  %55 = load i64, ptr %total_error_requests.i, align 8
+  store i64 %57, ptr %add.ptr.i.i.i39.i, align 1
+  %total_error_requests.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0410, i64 56
+  %58 = load i64, ptr %total_error_requests.i, align 8
   %add.ptr.i.i.i40.i = getelementptr inbounds i8, ptr %retval.0.i90, i64 32
-  store i64 %55, ptr %add.ptr.i.i.i40.i, align 1
-  %total_issued_requests.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0373, i64 64
-  %56 = load i64, ptr %total_issued_requests.i, align 8
+  store i64 %58, ptr %add.ptr.i.i.i40.i, align 1
+  %total_issued_requests.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0410, i64 64
+  %59 = load i64, ptr %total_issued_requests.i, align 8
   %add.ptr.i.i.i41.i = getelementptr inbounds i8, ptr %retval.0.i90, i64 56
-  store i64 %56, ptr %add.ptr.i.i.i41.i, align 1
-  %_M_left.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0373, i64 96
-  %57 = load ptr, ptr %_M_left.i.i.i, align 8
-  %add.ptr.i.i42.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0373, i64 80
-  %cmp.i43.not72.i = icmp eq ptr %57, %add.ptr.i.i42.i
+  store i64 %59, ptr %add.ptr.i.i.i41.i, align 1
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0410, i64 96
+  %60 = load ptr, ptr %_M_left.i.i.i, align 8
+  %add.ptr.i.i42.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0410, i64 80
+  %cmp.i43.not72.i = icmp eq ptr %60, %add.ptr.i.i42.i
   br i1 %cmp.i43.not72.i, label %for.inc, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end18.i
   %add.ptr.i.i.i.i232 = getelementptr inbounds i8, ptr %retval.0.i90, i64 40
-  br label %for.body.i
+  br label %upb_Message_GetMutableArray.exit.i235
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %envoy_config_endpoint_v3_UpstreamLocalityStats_add_load_metric_stats.exit.i
-  %__begin2.sroa.0.073.i = phi ptr [ %call.i69.i, %envoy_config_endpoint_v3_UpstreamLocalityStats_add_load_metric_stats.exit.i ], [ %57, %for.body.i.preheader ]
+upb_Message_GetMutableArray.exit.i235:            ; preds = %for.body.i.preheader, %envoy_config_endpoint_v3_UpstreamLocalityStats_add_load_metric_stats.exit.i
+  %__begin2.sroa.0.073.i = phi ptr [ %call.i69.i, %envoy_config_endpoint_v3_UpstreamLocalityStats_add_load_metric_stats.exit.i ], [ %60, %for.body.i.preheader ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.073.i, i64 32
   %second.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.073.i, i64 64
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %field.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %field.i.i, ptr noundef nonnull align 4 dereferenceable(12) @__const.envoy_config_endpoint_v3_UpstreamLocalityStats_add_load_metric_stats.field, i64 12, i1 false)
-  %58 = load i64, ptr %add.ptr.i.i.i.i232, align 1
-  %59 = inttoptr i64 %58 to ptr
-  %tobool.not.i233 = icmp eq i64 %58, 0
-  br i1 %tobool.not.i233, label %if.then.i236, label %call.i44.i.noexc
+  %61 = load i64, ptr %add.ptr.i.i.i.i232, align 1
+  %62 = inttoptr i64 %61 to ptr
+  %tobool.not.i237 = icmp eq i64 %61, 0
+  br i1 %tobool.not.i237, label %if.then.i240, label %lor.lhs.false.i.i
 
-if.then.i236:                                     ; preds = %for.body.i
-  %60 = load ptr, ptr %end.i.i.i.i, align 8
-  %61 = load ptr, ptr %call.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i245 = ptrtoint ptr %60 to i64
-  %sub.ptr.rhs.cast.i.i.i.i246 = ptrtoint ptr %61 to i64
-  %sub.ptr.sub.i.i.i.i247 = sub i64 %sub.ptr.lhs.cast.i.i.i.i245, %sub.ptr.rhs.cast.i.i.i.i246
-  %cmp.i.i7.i248 = icmp ult i64 %sub.ptr.sub.i.i.i.i247, 56
-  br i1 %cmp.i.i7.i248, label %if.then.i.i.i278, label %if.end.i.i.i249
+if.then.i240:                                     ; preds = %upb_Message_GetMutableArray.exit.i235
+  %63 = load ptr, ptr %end.i.i.i.i, align 8
+  %64 = load ptr, ptr %call.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i249 = ptrtoint ptr %63 to i64
+  %sub.ptr.rhs.cast.i.i.i.i250 = ptrtoint ptr %64 to i64
+  %sub.ptr.sub.i.i.i.i251 = sub i64 %sub.ptr.lhs.cast.i.i.i.i249, %sub.ptr.rhs.cast.i.i.i.i250
+  %cmp.i.i.i252 = icmp ult i64 %sub.ptr.sub.i.i.i.i251, 56
+  br i1 %cmp.i.i.i252, label %if.then.i.i.i287, label %if.end.i.i.i253
 
-if.then.i.i.i278:                                 ; preds = %if.then.i236
-  %call2.i.i.i280 = invoke ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %call.i.i, i64 noundef 56)
-          to label %upb_Arena_Malloc.exit.i.i251 unwind label %lpad.loopexit
+if.then.i.i.i287:                                 ; preds = %if.then.i240
+  %call2.i.i.i294 = invoke ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %call.i.i, i64 noundef 56)
+          to label %upb_Arena_Malloc.exit.i.i255 unwind label %lpad.loopexit
 
-if.end.i.i.i249:                                  ; preds = %if.then.i236
-  %add.ptr.i.i.i250 = getelementptr inbounds i8, ptr %61, i64 56
-  store ptr %add.ptr.i.i.i250, ptr %call.i.i, align 8
-  br label %upb_Arena_Malloc.exit.i.i251
+if.end.i.i.i253:                                  ; preds = %if.then.i240
+  %add.ptr.i.i.i254 = getelementptr inbounds i8, ptr %64, i64 56
+  store ptr %add.ptr.i.i.i254, ptr %call.i.i, align 8
+  br label %upb_Arena_Malloc.exit.i.i255
 
-upb_Arena_Malloc.exit.i.i251:                     ; preds = %if.then.i.i.i278, %if.end.i.i.i249
-  %retval.0.i.i.i252 = phi ptr [ %61, %if.end.i.i.i249 ], [ %call2.i.i.i280, %if.then.i.i.i278 ]
-  %tobool.not.i.i253 = icmp eq ptr %retval.0.i.i.i252, null
-  br i1 %tobool.not.i.i253, label %_upb_Array_New.exit.i259, label %if.end.i.i254
+upb_Arena_Malloc.exit.i.i255:                     ; preds = %if.then.i.i.i287, %if.end.i.i.i253
+  %retval.0.i.i.i256 = phi ptr [ %64, %if.end.i.i.i253 ], [ %call2.i.i.i294, %if.then.i.i.i287 ]
+  %tobool.not.i.i257 = icmp eq ptr %retval.0.i.i.i256, null
+  br i1 %tobool.not.i.i257, label %_upb_Array_New.exit.i263, label %if.end.i.i258
 
-if.end.i.i254:                                    ; preds = %upb_Arena_Malloc.exit.i.i251
-  %add.ptr.i.i255 = getelementptr inbounds i8, ptr %retval.0.i.i.i252, i64 24
-  %62 = ptrtoint ptr %add.ptr.i.i255 to i64
-  %or.i.i.i256 = or i64 %62, 3
-  store i64 %or.i.i.i256, ptr %retval.0.i.i.i252, align 8
-  %size.i.i257 = getelementptr inbounds i8, ptr %retval.0.i.i.i252, i64 8
-  store i64 0, ptr %size.i.i257, align 8
-  %capacity.i.i258 = getelementptr inbounds i8, ptr %retval.0.i.i.i252, i64 16
-  store i64 4, ptr %capacity.i.i258, align 8
-  br label %_upb_Array_New.exit.i259
+if.end.i.i258:                                    ; preds = %upb_Arena_Malloc.exit.i.i255
+  %add.ptr.i.i259 = getelementptr inbounds i8, ptr %retval.0.i.i.i256, i64 24
+  %65 = ptrtoint ptr %add.ptr.i.i259 to i64
+  %or.i.i.i260 = or i64 %65, 3
+  store i64 %or.i.i.i260, ptr %retval.0.i.i.i256, align 8
+  %size.i.i261 = getelementptr inbounds i8, ptr %retval.0.i.i.i256, i64 8
+  store i64 0, ptr %size.i.i261, align 8
+  %capacity.i.i262 = getelementptr inbounds i8, ptr %retval.0.i.i.i256, i64 16
+  store i64 4, ptr %capacity.i.i262, align 8
+  br label %_upb_Array_New.exit.i263
 
-_upb_Array_New.exit.i259:                         ; preds = %if.end.i.i254, %upb_Arena_Malloc.exit.i.i251
-  %63 = load i8, ptr %mode.i.i.i224, align 1
-  %cmp.i9.i260 = icmp ugt i8 %63, -65
-  call void @llvm.assume(i1 %cmp.i9.i260)
-  %64 = and i8 %63, 3
-  %cmp2.i10.i261 = icmp eq i8 %64, 1
-  call void @llvm.assume(i1 %cmp2.i10.i261)
-  %65 = load i16, ptr %presence.i.i227, align 2
-  %cmp5.i12.i262 = icmp eq i16 %65, 0
-  call void @llvm.assume(i1 %cmp5.i12.i262)
-  %66 = and i8 %63, 8
-  %tobool.i.not.i.i263 = icmp eq i8 %66, 0
-  br i1 %tobool.i.not.i.i263, label %sw.bb2.i.i6.i.i275, label %if.then.i.i264
+_upb_Array_New.exit.i263:                         ; preds = %if.end.i.i258, %upb_Arena_Malloc.exit.i.i255
+  %66 = load i8, ptr %mode.i.i.i224, align 1
+  %67 = and i8 %66, 3
+  %cmp2.i8.i264 = icmp eq i8 %67, 1
+  call void @llvm.assume(i1 %cmp2.i8.i264)
+  %68 = load i16, ptr %presence.i.i226, align 2
+  %cmp5.i10.i265 = icmp eq i16 %68, 0
+  call void @llvm.assume(i1 %cmp5.i10.i265)
+  %69 = and i8 %66, 8
+  %tobool.i.not.i.i266 = icmp eq i8 %69, 0
+  br i1 %tobool.i.not.i.i266, label %_upb_Message_SetPresence.exit.i.i.i278, label %if.then.i.i267
 
-if.then.i.i264:                                   ; preds = %_upb_Array_New.exit.i259
-  %call.i.i.i282 = invoke ptr @_upb_Message_GetOrCreateExtension(ptr noundef nonnull %retval.0.i90, ptr noundef nonnull %field.i.i, ptr noundef nonnull %call.i.i)
-          to label %call.i.i.i.noexc281 unwind label %lpad.loopexit
+if.then.i.i267:                                   ; preds = %_upb_Array_New.exit.i263
+  %call.i.i.i296 = invoke ptr @_upb_Message_GetOrCreateExtension(ptr noundef nonnull %retval.0.i90, ptr noundef nonnull %field.i.i, ptr noundef nonnull %call.i.i)
+          to label %call.i.i.i.noexc295 unwind label %lpad.loopexit
 
-call.i.i.i.noexc281:                              ; preds = %if.then.i.i264
-  %tobool.not.i.not.i.i265 = icmp eq ptr %call.i.i.i282, null
-  br i1 %tobool.not.i.not.i.i265, label %call.i44.i.noexc, label %if.end.i.i14.i266
+call.i.i.i.noexc295:                              ; preds = %if.then.i.i267
+  %tobool.not.i.not.i.i268 = icmp eq ptr %call.i.i.i296, null
+  br i1 %tobool.not.i.not.i.i268, label %call.i44.i.noexc, label %if.end.i.i12.i269
 
-if.end.i.i14.i266:                                ; preds = %call.i.i.i.noexc281
-  %data.i.i.i267 = getelementptr inbounds i8, ptr %call.i.i.i282, i64 8
-  %67 = load i8, ptr %mode.i.i.i224, align 1
-  %68 = lshr i8 %67, 6
-  switch i8 %68, label %default.unreachable [
-    i8 0, label %sw.bb.i.i.i.i272
-    i8 1, label %sw.bb1.i.i.i.i270
-    i8 3, label %sw.bb2.i.i.i.i269
-    i8 2, label %sw.bb3.i.i.i.i268
+if.end.i.i12.i269:                                ; preds = %call.i.i.i.noexc295
+  %data.i.i.i270 = getelementptr inbounds i8, ptr %call.i.i.i296, i64 8
+  %70 = load i8, ptr %mode.i.i.i224, align 1
+  %71 = lshr i8 %70, 6
+  switch i8 %71, label %default.unreachable [
+    i8 0, label %sw.bb.i.i.i.i275
+    i8 1, label %sw.bb1.i.i.i.i273
+    i8 3, label %sw.bb2.i.i.i.i272
+    i8 2, label %sw.bb3.i.i.i.i271
   ]
 
-sw.bb.i.i.i.i272:                                 ; preds = %if.end.i.i14.i266
-  %69 = ptrtoint ptr %retval.0.i.i.i252 to i64
-  %array.0.extract.trunc21.i273 = trunc i64 %69 to i8
-  store i8 %array.0.extract.trunc21.i273, ptr %data.i.i.i267, align 1
+sw.bb.i.i.i.i275:                                 ; preds = %if.end.i.i12.i269
+  %72 = ptrtoint ptr %retval.0.i.i.i256 to i64
+  %array.0.extract.trunc20.i276 = trunc i64 %72 to i8
+  store i8 %array.0.extract.trunc20.i276, ptr %data.i.i.i270, align 1
   br label %call.i44.i.noexc
 
-sw.bb1.i.i.i.i270:                                ; preds = %if.end.i.i14.i266
-  %70 = ptrtoint ptr %retval.0.i.i.i252 to i64
-  %array.0.extract.trunc.i271 = trunc i64 %70 to i32
-  store i32 %array.0.extract.trunc.i271, ptr %data.i.i.i267, align 1
+sw.bb1.i.i.i.i273:                                ; preds = %if.end.i.i12.i269
+  %73 = ptrtoint ptr %retval.0.i.i.i256 to i64
+  %array.0.extract.trunc.i274 = trunc i64 %73 to i32
+  store i32 %array.0.extract.trunc.i274, ptr %data.i.i.i270, align 1
   br label %call.i44.i.noexc
 
-sw.bb2.i.i.i.i269:                                ; preds = %if.end.i.i14.i266
-  %71 = ptrtoint ptr %retval.0.i.i.i252 to i64
-  store i64 %71, ptr %data.i.i.i267, align 1
+sw.bb2.i.i.i.i272:                                ; preds = %if.end.i.i12.i269
+  %74 = ptrtoint ptr %retval.0.i.i.i256 to i64
+  store i64 %74, ptr %data.i.i.i270, align 1
   br label %call.i44.i.noexc
 
-sw.bb3.i.i.i.i268:                                ; preds = %if.end.i.i14.i266
-  store ptr %retval.0.i.i.i252, ptr %data.i.i.i267, align 1
+sw.bb3.i.i.i.i271:                                ; preds = %if.end.i.i12.i269
+  store ptr %retval.0.i.i.i256, ptr %data.i.i.i270, align 1
   br label %call.i44.i.noexc
 
-sw.bb2.i.i6.i.i275:                               ; preds = %_upb_Array_New.exit.i259
-  %72 = load i16, ptr %offset.i.i.i.i230, align 4
-  %idx.ext.i.i.i16.i276 = zext i16 %72 to i64
-  %add.ptr.i.i.i17.i277 = getelementptr inbounds i8, ptr %retval.0.i90, i64 %idx.ext.i.i.i16.i276
-  %73 = ptrtoint ptr %retval.0.i.i.i252 to i64
-  store i64 %73, ptr %add.ptr.i.i.i17.i277, align 1
+_upb_Message_SetPresence.exit.i.i.i278:           ; preds = %_upb_Array_New.exit.i263
+  %75 = load i16, ptr %offset.i.i.i.i230, align 4
+  %idx.ext.i.i.i15.i279 = zext i16 %75 to i64
+  %add.ptr.i.i.i16.i280 = getelementptr inbounds i8, ptr %retval.0.i90, i64 %idx.ext.i.i.i15.i279
+  %76 = lshr i8 %66, 6
+  switch i8 %76, label %default.unreachable [
+    i8 0, label %sw.bb.i.i8.i.i285
+    i8 1, label %sw.bb1.i.i7.i.i283
+    i8 3, label %sw.bb2.i.i6.i.i282
+    i8 2, label %sw.bb3.i.i5.i.i281
+  ]
+
+sw.bb.i.i8.i.i285:                                ; preds = %_upb_Message_SetPresence.exit.i.i.i278
+  %77 = ptrtoint ptr %retval.0.i.i.i256 to i64
+  %array.0.extract.trunc22.i286 = trunc i64 %77 to i8
+  store i8 %array.0.extract.trunc22.i286, ptr %add.ptr.i.i.i16.i280, align 1
   br label %call.i44.i.noexc
 
-call.i44.i.noexc:                                 ; preds = %sw.bb2.i.i6.i.i275, %sw.bb3.i.i.i.i268, %sw.bb2.i.i.i.i269, %sw.bb1.i.i.i.i270, %sw.bb.i.i.i.i272, %call.i.i.i.noexc281, %for.body.i
-  %array.0.i235 = phi ptr [ %59, %for.body.i ], [ %retval.0.i.i.i252, %call.i.i.i.noexc281 ], [ %retval.0.i.i.i252, %sw.bb.i.i.i.i272 ], [ %retval.0.i.i.i252, %sw.bb1.i.i.i.i270 ], [ %retval.0.i.i.i252, %sw.bb2.i.i.i.i269 ], [ %retval.0.i.i.i252, %sw.bb3.i.i.i.i268 ], [ %retval.0.i.i.i252, %sw.bb2.i.i6.i.i275 ]
-  %tobool.not.i.i100 = icmp eq ptr %array.0.i235, null
-  br i1 %tobool.not.i.i100, label %envoy_config_endpoint_v3_UpstreamLocalityStats_add_load_metric_stats.exit.i, label %lor.lhs.false.i.i
+sw.bb1.i.i7.i.i283:                               ; preds = %_upb_Message_SetPresence.exit.i.i.i278
+  %78 = ptrtoint ptr %retval.0.i.i.i256 to i64
+  %array.0.extract.trunc18.i284 = trunc i64 %78 to i32
+  store i32 %array.0.extract.trunc18.i284, ptr %add.ptr.i.i.i16.i280, align 1
+  br label %call.i44.i.noexc
 
-lor.lhs.false.i.i:                                ; preds = %call.i44.i.noexc
-  %size.i.i = getelementptr inbounds i8, ptr %array.0.i235, i64 8
-  %74 = load i64, ptr %size.i.i, align 8
-  %add.i.i = add i64 %74, 1
-  %capacity.i.i.i.i = getelementptr inbounds i8, ptr %array.0.i235, i64 16
-  %75 = load i64, ptr %capacity.i.i.i.i, align 8
-  %cmp.i.i.i45.i = icmp ult i64 %75, %add.i.i
+sw.bb2.i.i6.i.i282:                               ; preds = %_upb_Message_SetPresence.exit.i.i.i278
+  %79 = ptrtoint ptr %retval.0.i.i.i256 to i64
+  store i64 %79, ptr %add.ptr.i.i.i16.i280, align 1
+  br label %call.i44.i.noexc
+
+sw.bb3.i.i5.i.i281:                               ; preds = %_upb_Message_SetPresence.exit.i.i.i278
+  store ptr %retval.0.i.i.i256, ptr %add.ptr.i.i.i16.i280, align 1
+  br label %call.i44.i.noexc
+
+call.i44.i.noexc:                                 ; preds = %sw.bb3.i.i5.i.i281, %sw.bb2.i.i6.i.i282, %sw.bb1.i.i7.i.i283, %sw.bb.i.i8.i.i285, %sw.bb3.i.i.i.i271, %sw.bb2.i.i.i.i272, %sw.bb1.i.i.i.i273, %sw.bb.i.i.i.i275, %call.i.i.i.noexc295
+  br i1 %tobool.not.i.i257, label %envoy_config_endpoint_v3_UpstreamLocalityStats_add_load_metric_stats.exit.i, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %upb_Message_GetMutableArray.exit.i235, %call.i44.i.noexc
+  %array.0.i239392 = phi ptr [ %retval.0.i.i.i256, %call.i44.i.noexc ], [ %62, %upb_Message_GetMutableArray.exit.i235 ]
+  %size.i.i = getelementptr inbounds i8, ptr %array.0.i239392, i64 8
+  %80 = load i64, ptr %size.i.i, align 8
+  %add.i.i = add i64 %80, 1
+  %capacity.i.i.i.i = getelementptr inbounds i8, ptr %array.0.i239392, i64 16
+  %81 = load i64, ptr %capacity.i.i.i.i, align 8
+  %cmp.i.i.i45.i = icmp ult i64 %81, %add.i.i
   br i1 %cmp.i.i.i45.i, label %_upb_array_reserve.exit.i.i.i, label %if.end.i.i101
 
 _upb_array_reserve.exit.i.i.i:                    ; preds = %lor.lhs.false.i.i
-  %call.i.i.i.i107 = invoke zeroext i1 @_upb_array_realloc(ptr noundef nonnull %array.0.i235, i64 noundef %add.i.i, ptr noundef %call.i.i)
+  %call.i.i.i.i107 = invoke zeroext i1 @_upb_array_realloc(ptr noundef nonnull %array.0.i239392, i64 noundef %add.i.i, ptr noundef %call.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.i.noexc:                               ; preds = %_upb_array_reserve.exit.i.i.i
@@ -2340,15 +2381,15 @@ call.i.i.i.i.noexc:                               ; preds = %_upb_array_reserve.
 
 if.end.i.i101:                                    ; preds = %call.i.i.i.i.noexc, %lor.lhs.false.i.i
   store i64 %add.i.i, ptr %size.i.i, align 8
-  %76 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__endpoint__v3__EndpointLoadMetricStats_msg_init, i64 16), align 8
-  %conv.i.i.i46.i = zext i16 %76 to i64
+  %82 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__endpoint__v3__EndpointLoadMetricStats_msg_init, i64 16), align 8
+  %conv.i.i.i46.i = zext i16 %82 to i64
   %add.i.i.i47.i = add nuw nsw i64 %conv.i.i.i46.i, 8
   %sub.i.i.i48.i = add nuw nsw i64 %conv.i.i.i46.i, 23
   %div7.i.i.i49.i = and i64 %sub.i.i.i48.i, 131064
-  %77 = load ptr, ptr %end.i.i.i.i, align 8
-  %78 = load ptr, ptr %call.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i51.i = ptrtoint ptr %77 to i64
-  %sub.ptr.rhs.cast.i.i.i.i52.i = ptrtoint ptr %78 to i64
+  %83 = load ptr, ptr %end.i.i.i.i, align 8
+  %84 = load ptr, ptr %call.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i51.i = ptrtoint ptr %83 to i64
+  %sub.ptr.rhs.cast.i.i.i.i52.i = ptrtoint ptr %84 to i64
   %sub.ptr.sub.i.i.i.i53.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i51.i, %sub.ptr.rhs.cast.i.i.i.i52.i
   %cmp.i.i8.i.i = icmp ult i64 %sub.ptr.sub.i.i.i.i53.i, %div7.i.i.i49.i
   br i1 %cmp.i.i8.i.i, label %if.then.i.i.i60.i, label %if.end.i.i.i54.i
@@ -2358,25 +2399,25 @@ if.then.i.i.i60.i:                                ; preds = %if.end.i.i101
           to label %upb_Arena_Malloc.exit.i.i56.i unwind label %lpad.loopexit
 
 if.end.i.i.i54.i:                                 ; preds = %if.end.i.i101
-  %add.ptr.i.i.i55.i = getelementptr inbounds i8, ptr %78, i64 %div7.i.i.i49.i
+  %add.ptr.i.i.i55.i = getelementptr inbounds i8, ptr %84, i64 %div7.i.i.i49.i
   store ptr %add.ptr.i.i.i55.i, ptr %call.i.i, align 8
   br label %upb_Arena_Malloc.exit.i.i56.i
 
 upb_Arena_Malloc.exit.i.i56.i:                    ; preds = %if.then.i.i.i60.i, %if.end.i.i.i54.i
-  %retval.0.i.i.i57.i = phi ptr [ %78, %if.end.i.i.i54.i ], [ %call2.i.i.i61.i108, %if.then.i.i.i60.i ]
+  %retval.0.i.i.i57.i = phi ptr [ %84, %if.end.i.i.i54.i ], [ %call2.i.i.i61.i108, %if.then.i.i.i60.i ]
   %tobool.not.i.i58.i = icmp eq ptr %retval.0.i.i.i57.i, null
   br i1 %tobool.not.i.i58.i, label %envoy_config_endpoint_v3_UpstreamLocalityStats_add_load_metric_stats.exit.i, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %upb_Arena_Malloc.exit.i.i56.i
   %add.ptr.i.i59.i = getelementptr inbounds i8, ptr %retval.0.i.i.i57.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i57.i, i8 0, i64 %add.i.i.i47.i, i1 false)
-  %79 = load i64, ptr %size.i.i, align 8
-  %80 = load i64, ptr %array.0.i235, align 8
-  %and.i.i.i.i.i = and i64 %80, -8
-  %81 = inttoptr i64 %and.i.i.i.i.i to ptr
-  %sub9.i.i = shl i64 %79, 3
-  %82 = getelementptr i8, ptr %81, i64 %sub9.i.i
-  %add.ptr.i10.i.i = getelementptr i8, ptr %82, i64 -8
+  %85 = load i64, ptr %size.i.i, align 8
+  %86 = load i64, ptr %array.0.i239392, align 8
+  %and.i.i.i.i.i = and i64 %86, -8
+  %87 = inttoptr i64 %and.i.i.i.i.i to ptr
+  %sub9.i.i = shl i64 %85, 3
+  %88 = getelementptr i8, ptr %87, i64 %sub9.i.i
+  %add.ptr.i10.i.i = getelementptr i8, ptr %88, i64 -8
   store ptr %add.ptr.i.i59.i, ptr %add.ptr.i10.i.i, align 8
   br label %envoy_config_endpoint_v3_UpstreamLocalityStats_add_load_metric_stats.exit.i
 
@@ -2388,158 +2429,180 @@ envoy_config_endpoint_v3_UpstreamLocalityStats_add_load_metric_stats.exit.i: ; p
   store ptr %call.i62.i, ptr %retval.0.i.i102, align 1
   %value.sroa.5.0.add.ptr.i.i.sroa_idx.i66.i = getelementptr inbounds i8, ptr %retval.0.i.i102, i64 8
   store i64 %call1.i63.i, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i66.i, align 1
-  %83 = load i64, ptr %second.i, align 8
+  %89 = load i64, ptr %second.i, align 8
   %add.ptr.i.i.i67.i = getelementptr inbounds i8, ptr %retval.0.i.i102, i64 16
-  store i64 %83, ptr %add.ptr.i.i.i67.i, align 1
+  store i64 %89, ptr %add.ptr.i.i.i67.i, align 1
   %total_metric_value.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.073.i, i64 72
-  %84 = load double, ptr %total_metric_value.i, align 8
+  %90 = load double, ptr %total_metric_value.i, align 8
   %add.ptr.i.i.i68.i = getelementptr inbounds i8, ptr %retval.0.i.i102, i64 24
-  store double %84, ptr %add.ptr.i.i.i68.i, align 1
+  store double %90, ptr %add.ptr.i.i.i68.i, align 1
   %call.i69.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.073.i) #20
   %cmp.i43.not.i = icmp eq ptr %call.i69.i, %add.ptr.i.i42.i
-  br i1 %cmp.i43.not.i, label %for.inc, label %for.body.i
+  br i1 %cmp.i43.not.i, label %for.inc, label %upb_Message_GetMutableArray.exit.i235
 
 for.inc:                                          ; preds = %envoy_config_endpoint_v3_UpstreamLocalityStats_add_load_metric_stats.exit.i, %if.end18.i
-  %call.i109 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.0373) #20
+  %call.i109 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.0410) #20
   %cmp.i59.not = icmp eq ptr %call.i109, %add.ptr.i.i58
-  br i1 %cmp.i59.not, label %for.end, label %for.body35
+  br i1 %cmp.i59.not, label %for.end, label %upb_Message_GetMutableArray.exit.i
 
 for.end:                                          ; preds = %for.inc, %if.end
-  %_M_left.i.i110 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0378, i64 128
-  %85 = load ptr, ptr %_M_left.i.i110, align 8
-  %add.ptr.i.i111 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0378, i64 112
-  %cmp.i112.not374 = icmp eq ptr %85, %add.ptr.i.i111
-  br i1 %cmp.i112.not374, label %invoke.cont78, label %for.body58.preheader
+  %_M_left.i.i110 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0415, i64 128
+  %91 = load ptr, ptr %_M_left.i.i110, align 8
+  %add.ptr.i.i111 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0415, i64 112
+  %cmp.i112.not411 = icmp eq ptr %91, %add.ptr.i.i111
+  br i1 %cmp.i112.not411, label %invoke.cont78, label %for.body58.preheader
 
 for.body58.preheader:                             ; preds = %for.end
-  %add.ptr.i.i.i.i292 = getelementptr inbounds i8, ptr %retval.0.i, i64 48
-  br label %for.body58
+  %add.ptr.i.i.i.i306 = getelementptr inbounds i8, ptr %retval.0.i, i64 48
+  br label %upb_Message_GetMutableArray.exit.i309
 
-for.body58:                                       ; preds = %for.body58.preheader, %invoke.cont72
-  %total_dropped_requests.0376 = phi i64 [ %add, %invoke.cont72 ], [ 0, %for.body58.preheader ]
-  %__begin250.sroa.0.0375 = phi ptr [ %call.i157, %invoke.cont72 ], [ %85, %for.body58.preheader ]
-  %_M_storage.i.i113 = getelementptr inbounds i8, ptr %__begin250.sroa.0.0375, i64 32
-  %second62 = getelementptr inbounds i8, ptr %__begin250.sroa.0.0375, i64 64
-  %86 = load i64, ptr %second62, align 8
+upb_Message_GetMutableArray.exit.i309:            ; preds = %for.body58.preheader, %invoke.cont72
+  %total_dropped_requests.0413 = phi i64 [ %add, %invoke.cont72 ], [ 0, %for.body58.preheader ]
+  %__begin250.sroa.0.0412 = phi ptr [ %call.i157, %invoke.cont72 ], [ %91, %for.body58.preheader ]
+  %_M_storage.i.i113 = getelementptr inbounds i8, ptr %__begin250.sroa.0.0412, i64 32
+  %second62 = getelementptr inbounds i8, ptr %__begin250.sroa.0.0412, i64 64
+  %92 = load i64, ptr %second62, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %field.i115)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %field.i115, ptr noundef nonnull align 4 dereferenceable(12) @__const.envoy_config_endpoint_v3_ClusterStats_add_dropped_requests.field, i64 12, i1 false)
-  %87 = load i64, ptr %add.ptr.i.i.i.i292, align 1
-  %88 = inttoptr i64 %87 to ptr
-  %tobool.not.i293 = icmp eq i64 %87, 0
-  br i1 %tobool.not.i293, label %if.then.i296, label %call.i116.noexc
+  %93 = load i64, ptr %add.ptr.i.i.i.i306, align 1
+  %94 = inttoptr i64 %93 to ptr
+  %tobool.not.i311 = icmp eq i64 %93, 0
+  br i1 %tobool.not.i311, label %if.then.i314, label %lor.lhs.false.i118
 
-if.then.i296:                                     ; preds = %for.body58
-  %89 = load ptr, ptr %end.i.i.i.i, align 8
-  %90 = load ptr, ptr %call.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i305 = ptrtoint ptr %89 to i64
-  %sub.ptr.rhs.cast.i.i.i.i306 = ptrtoint ptr %90 to i64
-  %sub.ptr.sub.i.i.i.i307 = sub i64 %sub.ptr.lhs.cast.i.i.i.i305, %sub.ptr.rhs.cast.i.i.i.i306
-  %cmp.i.i7.i308 = icmp ult i64 %sub.ptr.sub.i.i.i.i307, 56
-  br i1 %cmp.i.i7.i308, label %if.then.i.i.i338, label %if.end.i.i.i309
+if.then.i314:                                     ; preds = %upb_Message_GetMutableArray.exit.i309
+  %95 = load ptr, ptr %end.i.i.i.i, align 8
+  %96 = load ptr, ptr %call.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i323 = ptrtoint ptr %95 to i64
+  %sub.ptr.rhs.cast.i.i.i.i324 = ptrtoint ptr %96 to i64
+  %sub.ptr.sub.i.i.i.i325 = sub i64 %sub.ptr.lhs.cast.i.i.i.i323, %sub.ptr.rhs.cast.i.i.i.i324
+  %cmp.i.i.i326 = icmp ult i64 %sub.ptr.sub.i.i.i.i325, 56
+  br i1 %cmp.i.i.i326, label %if.then.i.i.i361, label %if.end.i.i.i327
 
-if.then.i.i.i338:                                 ; preds = %if.then.i296
-  %call2.i.i.i340 = invoke ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %call.i.i, i64 noundef 56)
-          to label %upb_Arena_Malloc.exit.i.i311 unwind label %lpad.loopexit.split-lp.loopexit
+if.then.i.i.i361:                                 ; preds = %if.then.i314
+  %call2.i.i.i368 = invoke ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %call.i.i, i64 noundef 56)
+          to label %upb_Arena_Malloc.exit.i.i329 unwind label %lpad.loopexit.split-lp.loopexit
 
-if.end.i.i.i309:                                  ; preds = %if.then.i296
-  %add.ptr.i.i.i310 = getelementptr inbounds i8, ptr %90, i64 56
-  store ptr %add.ptr.i.i.i310, ptr %call.i.i, align 8
-  br label %upb_Arena_Malloc.exit.i.i311
+if.end.i.i.i327:                                  ; preds = %if.then.i314
+  %add.ptr.i.i.i328 = getelementptr inbounds i8, ptr %96, i64 56
+  store ptr %add.ptr.i.i.i328, ptr %call.i.i, align 8
+  br label %upb_Arena_Malloc.exit.i.i329
 
-upb_Arena_Malloc.exit.i.i311:                     ; preds = %if.then.i.i.i338, %if.end.i.i.i309
-  %retval.0.i.i.i312 = phi ptr [ %90, %if.end.i.i.i309 ], [ %call2.i.i.i340, %if.then.i.i.i338 ]
-  %tobool.not.i.i313 = icmp eq ptr %retval.0.i.i.i312, null
-  br i1 %tobool.not.i.i313, label %_upb_Array_New.exit.i319, label %if.end.i.i314
+upb_Arena_Malloc.exit.i.i329:                     ; preds = %if.then.i.i.i361, %if.end.i.i.i327
+  %retval.0.i.i.i330 = phi ptr [ %96, %if.end.i.i.i327 ], [ %call2.i.i.i368, %if.then.i.i.i361 ]
+  %tobool.not.i.i331 = icmp eq ptr %retval.0.i.i.i330, null
+  br i1 %tobool.not.i.i331, label %_upb_Array_New.exit.i337, label %if.end.i.i332
 
-if.end.i.i314:                                    ; preds = %upb_Arena_Malloc.exit.i.i311
-  %add.ptr.i.i315 = getelementptr inbounds i8, ptr %retval.0.i.i.i312, i64 24
-  %91 = ptrtoint ptr %add.ptr.i.i315 to i64
-  %or.i.i.i316 = or i64 %91, 3
-  store i64 %or.i.i.i316, ptr %retval.0.i.i.i312, align 8
-  %size.i.i317 = getelementptr inbounds i8, ptr %retval.0.i.i.i312, i64 8
-  store i64 0, ptr %size.i.i317, align 8
-  %capacity.i.i318 = getelementptr inbounds i8, ptr %retval.0.i.i.i312, i64 16
-  store i64 4, ptr %capacity.i.i318, align 8
-  br label %_upb_Array_New.exit.i319
+if.end.i.i332:                                    ; preds = %upb_Arena_Malloc.exit.i.i329
+  %add.ptr.i.i333 = getelementptr inbounds i8, ptr %retval.0.i.i.i330, i64 24
+  %97 = ptrtoint ptr %add.ptr.i.i333 to i64
+  %or.i.i.i334 = or i64 %97, 3
+  store i64 %or.i.i.i334, ptr %retval.0.i.i.i330, align 8
+  %size.i.i335 = getelementptr inbounds i8, ptr %retval.0.i.i.i330, i64 8
+  store i64 0, ptr %size.i.i335, align 8
+  %capacity.i.i336 = getelementptr inbounds i8, ptr %retval.0.i.i.i330, i64 16
+  store i64 4, ptr %capacity.i.i336, align 8
+  br label %_upb_Array_New.exit.i337
 
-_upb_Array_New.exit.i319:                         ; preds = %if.end.i.i314, %upb_Arena_Malloc.exit.i.i311
-  %92 = load i8, ptr %mode.i.i.i284, align 1
-  %cmp.i9.i320 = icmp ugt i8 %92, -65
-  call void @llvm.assume(i1 %cmp.i9.i320)
-  %93 = and i8 %92, 3
-  %cmp2.i10.i321 = icmp eq i8 %93, 1
-  call void @llvm.assume(i1 %cmp2.i10.i321)
-  %94 = load i16, ptr %presence.i.i287, align 2
-  %cmp5.i12.i322 = icmp eq i16 %94, 0
-  call void @llvm.assume(i1 %cmp5.i12.i322)
-  %95 = and i8 %92, 8
-  %tobool.i.not.i.i323 = icmp eq i8 %95, 0
-  br i1 %tobool.i.not.i.i323, label %sw.bb2.i.i6.i.i335, label %if.then.i.i324
+_upb_Array_New.exit.i337:                         ; preds = %if.end.i.i332, %upb_Arena_Malloc.exit.i.i329
+  %98 = load i8, ptr %mode.i.i.i298, align 1
+  %99 = and i8 %98, 3
+  %cmp2.i8.i338 = icmp eq i8 %99, 1
+  call void @llvm.assume(i1 %cmp2.i8.i338)
+  %100 = load i16, ptr %presence.i.i300, align 2
+  %cmp5.i10.i339 = icmp eq i16 %100, 0
+  call void @llvm.assume(i1 %cmp5.i10.i339)
+  %101 = and i8 %98, 8
+  %tobool.i.not.i.i340 = icmp eq i8 %101, 0
+  br i1 %tobool.i.not.i.i340, label %_upb_Message_SetPresence.exit.i.i.i352, label %if.then.i.i341
 
-if.then.i.i324:                                   ; preds = %_upb_Array_New.exit.i319
-  %call.i.i.i342 = invoke ptr @_upb_Message_GetOrCreateExtension(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %field.i115, ptr noundef nonnull %call.i.i)
-          to label %call.i.i.i.noexc341 unwind label %lpad.loopexit.split-lp.loopexit
+if.then.i.i341:                                   ; preds = %_upb_Array_New.exit.i337
+  %call.i.i.i370 = invoke ptr @_upb_Message_GetOrCreateExtension(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %field.i115, ptr noundef nonnull %call.i.i)
+          to label %call.i.i.i.noexc369 unwind label %lpad.loopexit.split-lp.loopexit
 
-call.i.i.i.noexc341:                              ; preds = %if.then.i.i324
-  %tobool.not.i.not.i.i325 = icmp eq ptr %call.i.i.i342, null
-  br i1 %tobool.not.i.not.i.i325, label %call.i116.noexc, label %if.end.i.i14.i326
+call.i.i.i.noexc369:                              ; preds = %if.then.i.i341
+  %tobool.not.i.not.i.i342 = icmp eq ptr %call.i.i.i370, null
+  br i1 %tobool.not.i.not.i.i342, label %call.i116.noexc, label %if.end.i.i12.i343
 
-if.end.i.i14.i326:                                ; preds = %call.i.i.i.noexc341
-  %data.i.i.i327 = getelementptr inbounds i8, ptr %call.i.i.i342, i64 8
-  %96 = load i8, ptr %mode.i.i.i284, align 1
-  %97 = lshr i8 %96, 6
-  switch i8 %97, label %default.unreachable [
-    i8 0, label %sw.bb.i.i.i.i332
-    i8 1, label %sw.bb1.i.i.i.i330
-    i8 3, label %sw.bb2.i.i.i.i329
-    i8 2, label %sw.bb3.i.i.i.i328
+if.end.i.i12.i343:                                ; preds = %call.i.i.i.noexc369
+  %data.i.i.i344 = getelementptr inbounds i8, ptr %call.i.i.i370, i64 8
+  %102 = load i8, ptr %mode.i.i.i298, align 1
+  %103 = lshr i8 %102, 6
+  switch i8 %103, label %default.unreachable [
+    i8 0, label %sw.bb.i.i.i.i349
+    i8 1, label %sw.bb1.i.i.i.i347
+    i8 3, label %sw.bb2.i.i.i.i346
+    i8 2, label %sw.bb3.i.i.i.i345
   ]
 
-sw.bb.i.i.i.i332:                                 ; preds = %if.end.i.i14.i326
-  %98 = ptrtoint ptr %retval.0.i.i.i312 to i64
-  %array.0.extract.trunc21.i333 = trunc i64 %98 to i8
-  store i8 %array.0.extract.trunc21.i333, ptr %data.i.i.i327, align 1
+sw.bb.i.i.i.i349:                                 ; preds = %if.end.i.i12.i343
+  %104 = ptrtoint ptr %retval.0.i.i.i330 to i64
+  %array.0.extract.trunc20.i350 = trunc i64 %104 to i8
+  store i8 %array.0.extract.trunc20.i350, ptr %data.i.i.i344, align 1
   br label %call.i116.noexc
 
-sw.bb1.i.i.i.i330:                                ; preds = %if.end.i.i14.i326
-  %99 = ptrtoint ptr %retval.0.i.i.i312 to i64
-  %array.0.extract.trunc.i331 = trunc i64 %99 to i32
-  store i32 %array.0.extract.trunc.i331, ptr %data.i.i.i327, align 1
+sw.bb1.i.i.i.i347:                                ; preds = %if.end.i.i12.i343
+  %105 = ptrtoint ptr %retval.0.i.i.i330 to i64
+  %array.0.extract.trunc.i348 = trunc i64 %105 to i32
+  store i32 %array.0.extract.trunc.i348, ptr %data.i.i.i344, align 1
   br label %call.i116.noexc
 
-sw.bb2.i.i.i.i329:                                ; preds = %if.end.i.i14.i326
-  %100 = ptrtoint ptr %retval.0.i.i.i312 to i64
-  store i64 %100, ptr %data.i.i.i327, align 1
+sw.bb2.i.i.i.i346:                                ; preds = %if.end.i.i12.i343
+  %106 = ptrtoint ptr %retval.0.i.i.i330 to i64
+  store i64 %106, ptr %data.i.i.i344, align 1
   br label %call.i116.noexc
 
-sw.bb3.i.i.i.i328:                                ; preds = %if.end.i.i14.i326
-  store ptr %retval.0.i.i.i312, ptr %data.i.i.i327, align 1
+sw.bb3.i.i.i.i345:                                ; preds = %if.end.i.i12.i343
+  store ptr %retval.0.i.i.i330, ptr %data.i.i.i344, align 1
   br label %call.i116.noexc
 
-sw.bb2.i.i6.i.i335:                               ; preds = %_upb_Array_New.exit.i319
-  %101 = load i16, ptr %offset.i.i.i.i290, align 4
-  %idx.ext.i.i.i16.i336 = zext i16 %101 to i64
-  %add.ptr.i.i.i17.i337 = getelementptr inbounds i8, ptr %retval.0.i, i64 %idx.ext.i.i.i16.i336
-  %102 = ptrtoint ptr %retval.0.i.i.i312 to i64
-  store i64 %102, ptr %add.ptr.i.i.i17.i337, align 1
+_upb_Message_SetPresence.exit.i.i.i352:           ; preds = %_upb_Array_New.exit.i337
+  %107 = load i16, ptr %offset.i.i.i.i304, align 4
+  %idx.ext.i.i.i15.i353 = zext i16 %107 to i64
+  %add.ptr.i.i.i16.i354 = getelementptr inbounds i8, ptr %retval.0.i, i64 %idx.ext.i.i.i15.i353
+  %108 = lshr i8 %98, 6
+  switch i8 %108, label %default.unreachable [
+    i8 0, label %sw.bb.i.i8.i.i359
+    i8 1, label %sw.bb1.i.i7.i.i357
+    i8 3, label %sw.bb2.i.i6.i.i356
+    i8 2, label %sw.bb3.i.i5.i.i355
+  ]
+
+sw.bb.i.i8.i.i359:                                ; preds = %_upb_Message_SetPresence.exit.i.i.i352
+  %109 = ptrtoint ptr %retval.0.i.i.i330 to i64
+  %array.0.extract.trunc22.i360 = trunc i64 %109 to i8
+  store i8 %array.0.extract.trunc22.i360, ptr %add.ptr.i.i.i16.i354, align 1
   br label %call.i116.noexc
 
-call.i116.noexc:                                  ; preds = %sw.bb2.i.i6.i.i335, %sw.bb3.i.i.i.i328, %sw.bb2.i.i.i.i329, %sw.bb1.i.i.i.i330, %sw.bb.i.i.i.i332, %call.i.i.i.noexc341, %for.body58
-  %array.0.i295 = phi ptr [ %88, %for.body58 ], [ %retval.0.i.i.i312, %call.i.i.i.noexc341 ], [ %retval.0.i.i.i312, %sw.bb.i.i.i.i332 ], [ %retval.0.i.i.i312, %sw.bb1.i.i.i.i330 ], [ %retval.0.i.i.i312, %sw.bb2.i.i.i.i329 ], [ %retval.0.i.i.i312, %sw.bb3.i.i.i.i328 ], [ %retval.0.i.i.i312, %sw.bb2.i.i6.i.i335 ]
-  %tobool.not.i117 = icmp eq ptr %array.0.i295, null
-  br i1 %tobool.not.i117, label %invoke.cont72, label %lor.lhs.false.i118
+sw.bb1.i.i7.i.i357:                               ; preds = %_upb_Message_SetPresence.exit.i.i.i352
+  %110 = ptrtoint ptr %retval.0.i.i.i330 to i64
+  %array.0.extract.trunc18.i358 = trunc i64 %110 to i32
+  store i32 %array.0.extract.trunc18.i358, ptr %add.ptr.i.i.i16.i354, align 1
+  br label %call.i116.noexc
 
-lor.lhs.false.i118:                               ; preds = %call.i116.noexc
-  %size.i119 = getelementptr inbounds i8, ptr %array.0.i295, i64 8
-  %103 = load i64, ptr %size.i119, align 8
-  %add.i120 = add i64 %103, 1
-  %capacity.i.i.i121 = getelementptr inbounds i8, ptr %array.0.i295, i64 16
-  %104 = load i64, ptr %capacity.i.i.i121, align 8
-  %cmp.i.i.i122 = icmp ult i64 %104, %add.i120
+sw.bb2.i.i6.i.i356:                               ; preds = %_upb_Message_SetPresence.exit.i.i.i352
+  %111 = ptrtoint ptr %retval.0.i.i.i330 to i64
+  store i64 %111, ptr %add.ptr.i.i.i16.i354, align 1
+  br label %call.i116.noexc
+
+sw.bb3.i.i5.i.i355:                               ; preds = %_upb_Message_SetPresence.exit.i.i.i352
+  store ptr %retval.0.i.i.i330, ptr %add.ptr.i.i.i16.i354, align 1
+  br label %call.i116.noexc
+
+call.i116.noexc:                                  ; preds = %sw.bb3.i.i5.i.i355, %sw.bb2.i.i6.i.i356, %sw.bb1.i.i7.i.i357, %sw.bb.i.i8.i.i359, %sw.bb3.i.i.i.i345, %sw.bb2.i.i.i.i346, %sw.bb1.i.i.i.i347, %sw.bb.i.i.i.i349, %call.i.i.i.noexc369
+  br i1 %tobool.not.i.i331, label %invoke.cont72, label %lor.lhs.false.i118
+
+lor.lhs.false.i118:                               ; preds = %upb_Message_GetMutableArray.exit.i309, %call.i116.noexc
+  %array.0.i313395 = phi ptr [ %retval.0.i.i.i330, %call.i116.noexc ], [ %94, %upb_Message_GetMutableArray.exit.i309 ]
+  %size.i119 = getelementptr inbounds i8, ptr %array.0.i313395, i64 8
+  %112 = load i64, ptr %size.i119, align 8
+  %add.i120 = add i64 %112, 1
+  %capacity.i.i.i121 = getelementptr inbounds i8, ptr %array.0.i313395, i64 16
+  %113 = load i64, ptr %capacity.i.i.i121, align 8
+  %cmp.i.i.i122 = icmp ult i64 %113, %add.i120
   br i1 %cmp.i.i.i122, label %_upb_array_reserve.exit.i.i145, label %if.end.i123
 
 _upb_array_reserve.exit.i.i145:                   ; preds = %lor.lhs.false.i118
-  %call.i.i.i148 = invoke zeroext i1 @_upb_array_realloc(ptr noundef nonnull %array.0.i295, i64 noundef %add.i120, ptr noundef %call.i.i)
+  %call.i.i.i148 = invoke zeroext i1 @_upb_array_realloc(ptr noundef nonnull %array.0.i313395, i64 noundef %add.i120, ptr noundef %call.i.i)
           to label %call.i.i.i.noexc147 unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc147:                              ; preds = %_upb_array_reserve.exit.i.i145
@@ -2547,15 +2610,15 @@ call.i.i.i.noexc147:                              ; preds = %_upb_array_reserve.
 
 if.end.i123:                                      ; preds = %call.i.i.i.noexc147, %lor.lhs.false.i118
   store i64 %add.i120, ptr %size.i119, align 8
-  %105 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__endpoint__v3__ClusterStats__DroppedRequests_msg_init, i64 16), align 8
-  %conv.i.i.i124 = zext i16 %105 to i64
+  %114 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__config__endpoint__v3__ClusterStats__DroppedRequests_msg_init, i64 16), align 8
+  %conv.i.i.i124 = zext i16 %114 to i64
   %add.i.i.i125 = add nuw nsw i64 %conv.i.i.i124, 8
   %sub.i.i.i126 = add nuw nsw i64 %conv.i.i.i124, 23
   %div7.i.i.i127 = and i64 %sub.i.i.i126, 131064
-  %106 = load ptr, ptr %end.i.i.i.i, align 8
-  %107 = load ptr, ptr %call.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i129 = ptrtoint ptr %106 to i64
-  %sub.ptr.rhs.cast.i.i.i.i130 = ptrtoint ptr %107 to i64
+  %115 = load ptr, ptr %end.i.i.i.i, align 8
+  %116 = load ptr, ptr %call.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i129 = ptrtoint ptr %115 to i64
+  %sub.ptr.rhs.cast.i.i.i.i130 = ptrtoint ptr %116 to i64
   %sub.ptr.sub.i.i.i.i131 = sub i64 %sub.ptr.lhs.cast.i.i.i.i129, %sub.ptr.rhs.cast.i.i.i.i130
   %cmp.i.i8.i132 = icmp ult i64 %sub.ptr.sub.i.i.i.i131, %div7.i.i.i127
   br i1 %cmp.i.i8.i132, label %if.then.i.i.i144, label %if.end.i.i.i133
@@ -2565,25 +2628,25 @@ if.then.i.i.i144:                                 ; preds = %if.end.i123
           to label %upb_Arena_Malloc.exit.i.i135 unwind label %lpad.loopexit.split-lp.loopexit
 
 if.end.i.i.i133:                                  ; preds = %if.end.i123
-  %add.ptr.i.i.i134 = getelementptr inbounds i8, ptr %107, i64 %div7.i.i.i127
+  %add.ptr.i.i.i134 = getelementptr inbounds i8, ptr %116, i64 %div7.i.i.i127
   store ptr %add.ptr.i.i.i134, ptr %call.i.i, align 8
   br label %upb_Arena_Malloc.exit.i.i135
 
 upb_Arena_Malloc.exit.i.i135:                     ; preds = %if.then.i.i.i144, %if.end.i.i.i133
-  %retval.0.i.i.i136 = phi ptr [ %107, %if.end.i.i.i133 ], [ %call2.i.i.i150, %if.then.i.i.i144 ]
+  %retval.0.i.i.i136 = phi ptr [ %116, %if.end.i.i.i133 ], [ %call2.i.i.i150, %if.then.i.i.i144 ]
   %tobool.not.i.i137 = icmp eq ptr %retval.0.i.i.i136, null
   br i1 %tobool.not.i.i137, label %invoke.cont72, label %if.end7.i138
 
 if.end7.i138:                                     ; preds = %upb_Arena_Malloc.exit.i.i135
   %add.ptr.i.i139 = getelementptr inbounds i8, ptr %retval.0.i.i.i136, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i136, i8 0, i64 %add.i.i.i125, i1 false)
-  %108 = load i64, ptr %size.i119, align 8
-  %109 = load i64, ptr %array.0.i295, align 8
-  %and.i.i.i.i140 = and i64 %109, -8
-  %110 = inttoptr i64 %and.i.i.i.i140 to ptr
-  %sub9.i141 = shl i64 %108, 3
-  %111 = getelementptr i8, ptr %110, i64 %sub9.i141
-  %add.ptr.i10.i142 = getelementptr i8, ptr %111, i64 -8
+  %117 = load i64, ptr %size.i119, align 8
+  %118 = load i64, ptr %array.0.i313395, align 8
+  %and.i.i.i.i140 = and i64 %118, -8
+  %119 = inttoptr i64 %and.i.i.i.i140 to ptr
+  %sub9.i141 = shl i64 %117, 3
+  %120 = getelementptr i8, ptr %119, i64 %sub9.i141
+  %add.ptr.i10.i142 = getelementptr i8, ptr %120, i64 -8
   store ptr %add.ptr.i.i139, ptr %add.ptr.i10.i142, align 8
   br label %invoke.cont72
 
@@ -2596,41 +2659,41 @@ invoke.cont72:                                    ; preds = %if.end7.i138, %upb_
   %value.sroa.5.0.add.ptr.i.i.sroa_idx.i155 = getelementptr inbounds i8, ptr %retval.0.i143, i64 8
   store i64 %call1.i152, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i155, align 1
   %add.ptr.i.i.i156 = getelementptr inbounds i8, ptr %retval.0.i143, i64 16
-  store i64 %86, ptr %add.ptr.i.i.i156, align 1
-  %add = add i64 %86, %total_dropped_requests.0376
-  %call.i157 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin250.sroa.0.0375) #20
+  store i64 %92, ptr %add.ptr.i.i.i156, align 1
+  %add = add i64 %92, %total_dropped_requests.0413
+  %call.i157 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin250.sroa.0.0412) #20
   %cmp.i112.not = icmp eq ptr %call.i157, %add.ptr.i.i111
-  br i1 %cmp.i112.not, label %invoke.cont78, label %for.body58
+  br i1 %cmp.i112.not, label %invoke.cont78, label %upb_Message_GetMutableArray.exit.i309
 
 invoke.cont78:                                    ; preds = %invoke.cont72, %for.end
   %total_dropped_requests.0.lcssa = phi i64 [ 0, %for.end ], [ %add, %invoke.cont72 ]
-  %112 = load i64, ptr %second16, align 8
-  %add77 = add i64 %112, %total_dropped_requests.0.lcssa
+  %121 = load i64, ptr %second16, align 8
+  %add77 = add i64 %121, %total_dropped_requests.0.lcssa
   %add.ptr.i.i.i158 = getelementptr inbounds i8, ptr %retval.0.i, i64 32
   store i64 %add77, ptr %add.ptr.i.i.i158, align 1
-  %load_report_interval = getelementptr inbounds i8, ptr %__begin1.sroa.0.0378, i64 200
+  %load_report_interval = getelementptr inbounds i8, ptr %__begin1.sroa.0.0415, i64 200
   %call80 = invoke { i64, i64 } @_ZNK9grpc_core8Duration11as_timespecEv(ptr noundef nonnull align 8 dereferenceable(8) %load_report_interval)
           to label %invoke.cont79 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont79:                                    ; preds = %invoke.cont78
-  %113 = extractvalue { i64, i64 } %call80, 1
-  %timespec.sroa.2.8.extract.trunc = trunc i64 %113 to i32
+  %122 = extractvalue { i64, i64 } %call80, 1
+  %timespec.sroa.2.8.extract.trunc = trunc i64 %122 to i32
   %add.ptr.i.i.i160 = getelementptr inbounds i8, ptr %retval.0.i, i64 40
-  %114 = load i64, ptr %add.ptr.i.i.i160, align 1
-  %115 = inttoptr i64 %114 to ptr
-  %cmp.i161 = icmp eq i64 %114, 0
+  %123 = load i64, ptr %add.ptr.i.i.i160, align 1
+  %124 = inttoptr i64 %123 to ptr
+  %cmp.i161 = icmp eq i64 %123, 0
   br i1 %cmp.i161, label %if.then.i162, label %for.inc88
 
 if.then.i162:                                     ; preds = %invoke.cont79
-  %116 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Duration_msg_init, i64 16), align 8
-  %conv.i.i.i163 = zext i16 %116 to i64
+  %125 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Duration_msg_init, i64 16), align 8
+  %conv.i.i.i163 = zext i16 %125 to i64
   %add.i.i.i164 = add nuw nsw i64 %conv.i.i.i163, 8
   %sub.i.i.i165 = add nuw nsw i64 %conv.i.i.i163, 23
   %div7.i.i.i166 = and i64 %sub.i.i.i165, 131064
-  %117 = load ptr, ptr %end.i.i.i.i, align 8
-  %118 = load ptr, ptr %call.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i168 = ptrtoint ptr %117 to i64
-  %sub.ptr.rhs.cast.i.i.i.i169 = ptrtoint ptr %118 to i64
+  %126 = load ptr, ptr %end.i.i.i.i, align 8
+  %127 = load ptr, ptr %call.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i168 = ptrtoint ptr %126 to i64
+  %sub.ptr.rhs.cast.i.i.i.i169 = ptrtoint ptr %127 to i64
   %sub.ptr.sub.i.i.i.i170 = sub i64 %sub.ptr.lhs.cast.i.i.i.i168, %sub.ptr.rhs.cast.i.i.i.i169
   %cmp.i.i.i171 = icmp ult i64 %sub.ptr.sub.i.i.i.i170, %div7.i.i.i166
   br i1 %cmp.i.i.i171, label %if.then.i.i.i177, label %if.end.i.i.i172
@@ -2640,38 +2703,38 @@ if.then.i.i.i177:                                 ; preds = %if.then.i162
           to label %upb_Arena_Malloc.exit.i.i173 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i.i.i172:                                  ; preds = %if.then.i162
-  %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %118, i64 %div7.i.i.i166
+  %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %127, i64 %div7.i.i.i166
   store ptr %add.ptr.i.i5.i, ptr %call.i.i, align 8
   br label %upb_Arena_Malloc.exit.i.i173
 
 upb_Arena_Malloc.exit.i.i173:                     ; preds = %if.then.i.i.i177, %if.end.i.i.i172
-  %retval.0.i.i.i174 = phi ptr [ %118, %if.end.i.i.i172 ], [ %call2.i.i.i179, %if.then.i.i.i177 ]
+  %retval.0.i.i.i174 = phi ptr [ %127, %if.end.i.i.i172 ], [ %call2.i.i.i179, %if.then.i.i.i177 ]
   %tobool.not.i.i175 = icmp ne ptr %retval.0.i.i.i174, null
   call void @llvm.assume(i1 %tobool.not.i.i175)
   %add.ptr.i.i176 = getelementptr inbounds i8, ptr %retval.0.i.i.i174, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i174, i8 0, i64 %add.i.i.i164, i1 false)
-  %119 = load i8, ptr %retval.0.i, align 1
-  %or2.i.i.i.i.i.i = or i8 %119, 2
+  %128 = load i8, ptr %retval.0.i, align 1
+  %or2.i.i.i.i.i.i = or i8 %128, 2
   store i8 %or2.i.i.i.i.i.i, ptr %retval.0.i, align 1
-  %120 = ptrtoint ptr %add.ptr.i.i176 to i64
-  store i64 %120, ptr %add.ptr.i.i.i160, align 1
+  %129 = ptrtoint ptr %add.ptr.i.i176 to i64
+  store i64 %129, ptr %add.ptr.i.i.i160, align 1
   br label %for.inc88
 
 for.inc88:                                        ; preds = %upb_Arena_Malloc.exit.i.i173, %invoke.cont79
-  %sub.0.i = phi ptr [ %add.ptr.i.i176, %upb_Arena_Malloc.exit.i.i173 ], [ %115, %invoke.cont79 ]
-  %121 = extractvalue { i64, i64 } %call80, 0
+  %sub.0.i = phi ptr [ %add.ptr.i.i176, %upb_Arena_Malloc.exit.i.i173 ], [ %124, %invoke.cont79 ]
+  %130 = extractvalue { i64, i64 } %call80, 0
   %add.ptr.i.i.i180 = getelementptr inbounds i8, ptr %sub.0.i, i64 8
-  store i64 %121, ptr %add.ptr.i.i.i180, align 1
+  store i64 %130, ptr %add.ptr.i.i.i180, align 1
   store i32 %timespec.sroa.2.8.extract.trunc, ptr %sub.0.i, align 1
-  %call.i181 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.0378) #20
+  %call.i181 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.0415) #20
   %cmp.i.not = icmp eq ptr %call.i181, %add.ptr.i.i27
   br i1 %cmp.i.not, label %for.end90, label %for.body
 
 for.end90:                                        ; preds = %for.inc88, %invoke.cont7
   call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %buf.i)
   %value_.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %122 = load atomic i8, ptr %value_.i.i monotonic, align 1
-  %tobool.i.i.i.i = trunc i8 %122 to i1
+  %131 = load atomic i8, ptr %value_.i.i monotonic, align 1
+  %tobool.i.i.i.i = trunc i8 %131 to i1
   br i1 %tobool.i.i.i.i, label %land.lhs.true.i, label %invoke.cont91
 
 land.lhs.true.i:                                  ; preds = %for.end90
@@ -2707,15 +2770,15 @@ invoke.cont91:                                    ; preds = %call1.i183.noexc, %
           to label %call.i.i192.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i192.noexc:                                ; preds = %invoke.cont91
-  %123 = load ptr, ptr %ptr.i.i, align 8, !noalias !21
+  %132 = load ptr, ptr %ptr.i.i, align 8, !noalias !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i.i), !noalias !21
-  %124 = load i64, ptr %output_length.i, align 8, !noalias !21
+  %133 = load i64, ptr %output_length.i, align 8, !noalias !21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #18, !noalias !21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %123, i64 noundef %124, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %132, i64 noundef %133, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont92 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %call.i.i192.noexc
-  %125 = landingpad { ptr, i32 }
+  %134 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #18
   br label %lpad.body
@@ -2732,10 +2795,10 @@ if.then.i.i196:                                   ; preds = %invoke.cont92
           to label %_ZN3upb5ArenaD2Ev.exit198 unwind label %terminate.lpad.i.i197
 
 terminate.lpad.i.i197:                            ; preds = %if.then.i.i196
-  %126 = landingpad { ptr, i32 }
+  %135 = landingpad { ptr, i32 }
           catch ptr null
-  %127 = extractvalue { ptr, i32 } %126, 0
-  call void @__clang_call_terminate(ptr %127) #19
+  %136 = extractvalue { ptr, i32 } %135, 0
+  call void @__clang_call_terminate(ptr %136) #19
   unreachable
 
 _ZN3upb5ArenaD2Ev.exit198:                        ; preds = %invoke.cont92, %if.then.i.i196
@@ -3093,8 +3156,8 @@ invoke.cont13:                                    ; preds = %invoke.cont6
   %_M_left.i.i = getelementptr inbounds i8, ptr %resource_type_metadata_map, i64 24
   %14 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i50 = getelementptr inbounds i8, ptr %resource_type_metadata_map, i64 8
-  %cmp.i51.not250 = icmp eq ptr %14, %add.ptr.i.i50
-  br i1 %cmp.i51.not250, label %for.end99, label %invoke.cont21.lr.ph
+  %cmp.i51.not254 = icmp eq ptr %14, %add.ptr.i.i50
+  br i1 %cmp.i51.not254, label %for.end99, label %invoke.cont21.lr.ph
 
 invoke.cont21.lr.ph:                              ; preds = %invoke.cont13
   %15 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
@@ -3108,10 +3171,10 @@ invoke.cont21.lr.ph:                              ; preds = %invoke.cont13
   br label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %invoke.cont21.lr.ph, %for.inc97
-  %__begin1.sroa.0.0251 = phi ptr [ %14, %invoke.cont21.lr.ph ], [ %call.i199, %for.inc97 ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0251, i64 32
+  %__begin1.sroa.0.0255 = phi ptr [ %14, %invoke.cont21.lr.ph ], [ %call.i199, %for.inc97 ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0255, i64 32
   %type_url.sroa.0.0.copyload = load i64, ptr %_M_storage.i.i, align 8
-  %type_url.sroa.2.0.first.sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.0251, i64 40
+  %type_url.sroa.2.0.first.sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.0255, i64 40
   %type_url.sroa.2.0.copyload = load ptr, ptr %type_url.sroa.2.0.first.sroa_idx, align 8
   store i64 20, ptr %ref.tmp19, align 8
   store ptr @.str, ptr %15, align 8
@@ -3139,19 +3202,22 @@ if.else.i:                                        ; preds = %invoke.cont24
 
 invoke.cont26:                                    ; preds = %if.else.i, %if.then.i52
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
-  %_M_left.i.i54 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0251, i64 72
+  %_M_left.i.i54 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0255, i64 72
   %19 = load ptr, ptr %_M_left.i.i54, align 8
-  %add.ptr.i.i55 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0251, i64 56
-  %cmp.i56.not248 = icmp eq ptr %19, %add.ptr.i.i55
-  br i1 %cmp.i56.not248, label %for.inc97, label %for.body34
+  %add.ptr.i.i55 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0255, i64 56
+  %cmp.i56.not252 = icmp eq ptr %19, %add.ptr.i.i55
+  br i1 %cmp.i56.not252, label %for.inc97, label %upb_Message_GetMutableArray.exit.i
 
-for.body34:                                       ; preds = %invoke.cont26, %for.inc
-  %__begin2.sroa.0.0249 = phi ptr [ %call.i198, %for.inc ], [ %19, %invoke.cont26 ]
-  %_M_storage.i.i57 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0249, i64 32
+default.unreachable:                              ; preds = %_upb_Message_SetPresence.exit.i.i.i, %if.end.i.i12.i
+  unreachable
+
+upb_Message_GetMutableArray.exit.i:               ; preds = %invoke.cont26, %for.inc
+  %__begin2.sroa.0.0253 = phi ptr [ %call.i198, %for.inc ], [ %19, %invoke.cont26 ]
+  %_M_storage.i.i57 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0253, i64 32
   %call37 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i57) #18
   %20 = extractvalue { i64, ptr } %call37, 0
   %21 = extractvalue { i64, ptr } %call37, 1
-  %second38 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0249, i64 64
+  %second38 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0253, i64 64
   %22 = load ptr, ptr %second38, align 8
   %23 = load ptr, ptr %arena10, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %field.i)
@@ -3159,67 +3225,65 @@ for.body34:                                       ; preds = %invoke.cont26, %for
   %24 = load i64, ptr %add.ptr.i.i.i.i212, align 1
   %25 = inttoptr i64 %24 to ptr
   %tobool.not.i213 = icmp eq i64 %24, 0
-  br i1 %tobool.not.i213, label %if.then.i215, label %call.i.noexc
+  br i1 %tobool.not.i213, label %if.then.i215, label %lor.lhs.false.i
 
-if.then.i215:                                     ; preds = %for.body34
+if.then.i215:                                     ; preds = %upb_Message_GetMutableArray.exit.i
   %end.i.i.i.i218 = getelementptr inbounds i8, ptr %23, i64 8
   %26 = load ptr, ptr %end.i.i.i.i218, align 8
   %27 = load ptr, ptr %23, align 8
   %sub.ptr.lhs.cast.i.i.i.i219 = ptrtoint ptr %26 to i64
   %sub.ptr.rhs.cast.i.i.i.i220 = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i.i.i.i221 = sub i64 %sub.ptr.lhs.cast.i.i.i.i219, %sub.ptr.rhs.cast.i.i.i.i220
-  %cmp.i.i7.i = icmp ult i64 %sub.ptr.sub.i.i.i.i221, 56
-  br i1 %cmp.i.i7.i, label %if.then.i.i.i230, label %if.end.i.i.i222
+  %cmp.i.i.i222 = icmp ult i64 %sub.ptr.sub.i.i.i.i221, 56
+  br i1 %cmp.i.i.i222, label %if.then.i.i.i231, label %if.end.i.i.i223
 
-if.then.i.i.i230:                                 ; preds = %if.then.i215
-  %call2.i.i.i232 = invoke ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %23, i64 noundef 56)
-          to label %upb_Arena_Malloc.exit.i.i224 unwind label %lpad20.loopexit
+if.then.i.i.i231:                                 ; preds = %if.then.i215
+  %call2.i.i.i233 = invoke ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %23, i64 noundef 56)
+          to label %upb_Arena_Malloc.exit.i.i225 unwind label %lpad20.loopexit
 
-if.end.i.i.i222:                                  ; preds = %if.then.i215
-  %add.ptr.i.i.i223 = getelementptr inbounds i8, ptr %27, i64 56
-  store ptr %add.ptr.i.i.i223, ptr %23, align 8
-  br label %upb_Arena_Malloc.exit.i.i224
+if.end.i.i.i223:                                  ; preds = %if.then.i215
+  %add.ptr.i.i.i224 = getelementptr inbounds i8, ptr %27, i64 56
+  store ptr %add.ptr.i.i.i224, ptr %23, align 8
+  br label %upb_Arena_Malloc.exit.i.i225
 
-upb_Arena_Malloc.exit.i.i224:                     ; preds = %if.then.i.i.i230, %if.end.i.i.i222
-  %retval.0.i.i.i225 = phi ptr [ %27, %if.end.i.i.i222 ], [ %call2.i.i.i232, %if.then.i.i.i230 ]
-  %tobool.not.i.i226 = icmp eq ptr %retval.0.i.i.i225, null
-  br i1 %tobool.not.i.i226, label %_upb_Array_New.exit.i, label %if.end.i.i227
+upb_Arena_Malloc.exit.i.i225:                     ; preds = %if.then.i.i.i231, %if.end.i.i.i223
+  %retval.0.i.i.i226 = phi ptr [ %27, %if.end.i.i.i223 ], [ %call2.i.i.i233, %if.then.i.i.i231 ]
+  %tobool.not.i.i227 = icmp eq ptr %retval.0.i.i.i226, null
+  br i1 %tobool.not.i.i227, label %_upb_Array_New.exit.i, label %if.end.i.i228
 
-if.end.i.i227:                                    ; preds = %upb_Arena_Malloc.exit.i.i224
-  %add.ptr.i.i228 = getelementptr inbounds i8, ptr %retval.0.i.i.i225, i64 24
-  %28 = ptrtoint ptr %add.ptr.i.i228 to i64
+if.end.i.i228:                                    ; preds = %upb_Arena_Malloc.exit.i.i225
+  %add.ptr.i.i229 = getelementptr inbounds i8, ptr %retval.0.i.i.i226, i64 24
+  %28 = ptrtoint ptr %add.ptr.i.i229 to i64
   %or.i.i.i = or i64 %28, 3
-  store i64 %or.i.i.i, ptr %retval.0.i.i.i225, align 8
-  %size.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i225, i64 8
+  store i64 %or.i.i.i, ptr %retval.0.i.i.i226, align 8
+  %size.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i226, i64 8
   store i64 0, ptr %size.i.i, align 8
-  %capacity.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i225, i64 16
+  %capacity.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i226, i64 16
   store i64 4, ptr %capacity.i.i, align 8
   br label %_upb_Array_New.exit.i
 
-_upb_Array_New.exit.i:                            ; preds = %if.end.i.i227, %upb_Arena_Malloc.exit.i.i224
+_upb_Array_New.exit.i:                            ; preds = %if.end.i.i228, %upb_Arena_Malloc.exit.i.i225
   %29 = load i8, ptr %mode.i.i.i, align 1
-  %cmp.i9.i = icmp ugt i8 %29, -65
-  call void @llvm.assume(i1 %cmp.i9.i)
   %30 = and i8 %29, 3
-  %cmp2.i10.i = icmp eq i8 %30, 1
-  call void @llvm.assume(i1 %cmp2.i10.i)
+  %cmp2.i8.i = icmp eq i8 %30, 1
+  call void @llvm.assume(i1 %cmp2.i8.i)
   %31 = load i16, ptr %presence.i.i, align 2
-  %cmp5.i12.i = icmp eq i16 %31, 0
-  call void @llvm.assume(i1 %cmp5.i12.i)
+  %cmp5.i10.i = icmp eq i16 %31, 0
+  call void @llvm.assume(i1 %cmp5.i10.i)
   %32 = and i8 %29, 8
   %tobool.i.not.i.i = icmp eq i8 %32, 0
-  br i1 %tobool.i.not.i.i, label %sw.bb2.i.i6.i.i, label %if.then.i.i229
+  br i1 %tobool.i.not.i.i, label %_upb_Message_SetPresence.exit.i.i.i, label %if.then.i.i230
 
-if.then.i.i229:                                   ; preds = %_upb_Array_New.exit.i
-  %call.i.i.i234 = invoke ptr @_upb_Message_GetOrCreateExtension(ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull %field.i, ptr noundef nonnull %23)
-          to label %call.i.i.i.noexc233 unwind label %lpad20.loopexit
+if.then.i.i230:                                   ; preds = %_upb_Array_New.exit.i
+  %call.i.i.i235 = invoke ptr @_upb_Message_GetOrCreateExtension(ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull %field.i, ptr noundef nonnull %23)
+          to label %call.i.i.i.noexc234 unwind label %lpad20.loopexit
 
-call.i.i.i.noexc233:                              ; preds = %if.then.i.i229
-  %tobool.not.i.not.i.i = icmp eq ptr %call.i.i.i234, null
-  br i1 %tobool.not.i.not.i.i, label %call.i.noexc, label %if.end.i.i14.i
+call.i.i.i.noexc234:                              ; preds = %if.then.i.i230
+  %tobool.not.i.not.i.i = icmp eq ptr %call.i.i.i235, null
+  br i1 %tobool.not.i.not.i.i, label %call.i.noexc, label %if.end.i.i12.i
 
-if.end.i.i14.i:                                   ; preds = %call.i.i.i.noexc233
-  %data.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i234, i64 8
+if.end.i.i12.i:                                   ; preds = %call.i.i.i.noexc234
+  %data.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i235, i64 8
   %33 = load i8, ptr %mode.i.i.i, align 1
   %34 = lshr i8 %33, 6
   switch i8 %34, label %default.unreachable [
@@ -3229,54 +3293,75 @@ if.end.i.i14.i:                                   ; preds = %call.i.i.i.noexc233
     i8 2, label %sw.bb3.i.i.i.i
   ]
 
-sw.bb.i.i.i.i:                                    ; preds = %if.end.i.i14.i
-  %35 = ptrtoint ptr %retval.0.i.i.i225 to i64
-  %array.0.extract.trunc21.i = trunc i64 %35 to i8
-  store i8 %array.0.extract.trunc21.i, ptr %data.i.i.i, align 1
+sw.bb.i.i.i.i:                                    ; preds = %if.end.i.i12.i
+  %35 = ptrtoint ptr %retval.0.i.i.i226 to i64
+  %array.0.extract.trunc20.i = trunc i64 %35 to i8
+  store i8 %array.0.extract.trunc20.i, ptr %data.i.i.i, align 1
   br label %call.i.noexc
 
-sw.bb1.i.i.i.i:                                   ; preds = %if.end.i.i14.i
-  %36 = ptrtoint ptr %retval.0.i.i.i225 to i64
+sw.bb1.i.i.i.i:                                   ; preds = %if.end.i.i12.i
+  %36 = ptrtoint ptr %retval.0.i.i.i226 to i64
   %array.0.extract.trunc.i = trunc i64 %36 to i32
   store i32 %array.0.extract.trunc.i, ptr %data.i.i.i, align 1
   br label %call.i.noexc
 
-sw.bb2.i.i.i.i:                                   ; preds = %if.end.i.i14.i
-  %37 = ptrtoint ptr %retval.0.i.i.i225 to i64
+sw.bb2.i.i.i.i:                                   ; preds = %if.end.i.i12.i
+  %37 = ptrtoint ptr %retval.0.i.i.i226 to i64
   store i64 %37, ptr %data.i.i.i, align 1
   br label %call.i.noexc
 
-sw.bb3.i.i.i.i:                                   ; preds = %if.end.i.i14.i
-  store ptr %retval.0.i.i.i225, ptr %data.i.i.i, align 1
+sw.bb3.i.i.i.i:                                   ; preds = %if.end.i.i12.i
+  store ptr %retval.0.i.i.i226, ptr %data.i.i.i, align 1
   br label %call.i.noexc
 
-default.unreachable:                              ; preds = %if.end.i.i14.i
-  unreachable
-
-sw.bb2.i.i6.i.i:                                  ; preds = %_upb_Array_New.exit.i
+_upb_Message_SetPresence.exit.i.i.i:              ; preds = %_upb_Array_New.exit.i
   %38 = load i16, ptr %offset.i.i.i.i, align 4
-  %idx.ext.i.i.i16.i = zext i16 %38 to i64
-  %add.ptr.i.i.i17.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %idx.ext.i.i.i16.i
-  %39 = ptrtoint ptr %retval.0.i.i.i225 to i64
-  store i64 %39, ptr %add.ptr.i.i.i17.i, align 1
+  %idx.ext.i.i.i15.i = zext i16 %38 to i64
+  %add.ptr.i.i.i16.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %idx.ext.i.i.i15.i
+  %39 = lshr i8 %29, 6
+  switch i8 %39, label %default.unreachable [
+    i8 0, label %sw.bb.i.i8.i.i
+    i8 1, label %sw.bb1.i.i7.i.i
+    i8 3, label %sw.bb2.i.i6.i.i
+    i8 2, label %sw.bb3.i.i5.i.i
+  ]
+
+sw.bb.i.i8.i.i:                                   ; preds = %_upb_Message_SetPresence.exit.i.i.i
+  %40 = ptrtoint ptr %retval.0.i.i.i226 to i64
+  %array.0.extract.trunc22.i = trunc i64 %40 to i8
+  store i8 %array.0.extract.trunc22.i, ptr %add.ptr.i.i.i16.i, align 1
   br label %call.i.noexc
 
-call.i.noexc:                                     ; preds = %sw.bb2.i.i6.i.i, %sw.bb3.i.i.i.i, %sw.bb2.i.i.i.i, %sw.bb1.i.i.i.i, %sw.bb.i.i.i.i, %call.i.i.i.noexc233, %for.body34
-  %array.0.i = phi ptr [ %25, %for.body34 ], [ %retval.0.i.i.i225, %call.i.i.i.noexc233 ], [ %retval.0.i.i.i225, %sw.bb.i.i.i.i ], [ %retval.0.i.i.i225, %sw.bb1.i.i.i.i ], [ %retval.0.i.i.i225, %sw.bb2.i.i.i.i ], [ %retval.0.i.i.i225, %sw.bb3.i.i.i.i ], [ %retval.0.i.i.i225, %sw.bb2.i.i6.i.i ]
-  %tobool.not.i = icmp eq ptr %array.0.i, null
-  br i1 %tobool.not.i, label %invoke.cont52, label %lor.lhs.false.i
+sw.bb1.i.i7.i.i:                                  ; preds = %_upb_Message_SetPresence.exit.i.i.i
+  %41 = ptrtoint ptr %retval.0.i.i.i226 to i64
+  %array.0.extract.trunc18.i = trunc i64 %41 to i32
+  store i32 %array.0.extract.trunc18.i, ptr %add.ptr.i.i.i16.i, align 1
+  br label %call.i.noexc
 
-lor.lhs.false.i:                                  ; preds = %call.i.noexc
-  %size.i = getelementptr inbounds i8, ptr %array.0.i, i64 8
-  %40 = load i64, ptr %size.i, align 8
-  %add.i = add i64 %40, 1
-  %capacity.i.i.i = getelementptr inbounds i8, ptr %array.0.i, i64 16
-  %41 = load i64, ptr %capacity.i.i.i, align 8
-  %cmp.i.i.i58 = icmp ult i64 %41, %add.i
+sw.bb2.i.i6.i.i:                                  ; preds = %_upb_Message_SetPresence.exit.i.i.i
+  %42 = ptrtoint ptr %retval.0.i.i.i226 to i64
+  store i64 %42, ptr %add.ptr.i.i.i16.i, align 1
+  br label %call.i.noexc
+
+sw.bb3.i.i5.i.i:                                  ; preds = %_upb_Message_SetPresence.exit.i.i.i
+  store ptr %retval.0.i.i.i226, ptr %add.ptr.i.i.i16.i, align 1
+  br label %call.i.noexc
+
+call.i.noexc:                                     ; preds = %sw.bb3.i.i5.i.i, %sw.bb2.i.i6.i.i, %sw.bb1.i.i7.i.i, %sw.bb.i.i8.i.i, %sw.bb3.i.i.i.i, %sw.bb2.i.i.i.i, %sw.bb1.i.i.i.i, %sw.bb.i.i.i.i, %call.i.i.i.noexc234
+  br i1 %tobool.not.i.i227, label %invoke.cont52, label %lor.lhs.false.i
+
+lor.lhs.false.i:                                  ; preds = %upb_Message_GetMutableArray.exit.i, %call.i.noexc
+  %array.0.i248 = phi ptr [ %retval.0.i.i.i226, %call.i.noexc ], [ %25, %upb_Message_GetMutableArray.exit.i ]
+  %size.i = getelementptr inbounds i8, ptr %array.0.i248, i64 8
+  %43 = load i64, ptr %size.i, align 8
+  %add.i = add i64 %43, 1
+  %capacity.i.i.i = getelementptr inbounds i8, ptr %array.0.i248, i64 16
+  %44 = load i64, ptr %capacity.i.i.i, align 8
+  %cmp.i.i.i58 = icmp ult i64 %44, %add.i
   br i1 %cmp.i.i.i58, label %_upb_array_reserve.exit.i.i, label %if.end.i
 
 _upb_array_reserve.exit.i.i:                      ; preds = %lor.lhs.false.i
-  %call.i.i.i75 = invoke zeroext i1 @_upb_array_realloc(ptr noundef nonnull %array.0.i, i64 noundef %add.i, ptr noundef %23)
+  %call.i.i.i75 = invoke zeroext i1 @_upb_array_realloc(ptr noundef nonnull %array.0.i248, i64 noundef %add.i, ptr noundef %23)
           to label %call.i.i.i.noexc unwind label %lpad20.loopexit
 
 call.i.i.i.noexc:                                 ; preds = %_upb_array_reserve.exit.i.i
@@ -3284,16 +3369,16 @@ call.i.i.i.noexc:                                 ; preds = %_upb_array_reserve.
 
 if.end.i:                                         ; preds = %call.i.i.i.noexc, %lor.lhs.false.i
   store i64 %add.i, ptr %size.i, align 8
-  %42 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__service__status__v3__ClientConfig__GenericXdsConfig_msg_init, i64 16), align 8
-  %conv.i.i.i59 = zext i16 %42 to i64
+  %45 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__service__status__v3__ClientConfig__GenericXdsConfig_msg_init, i64 16), align 8
+  %conv.i.i.i59 = zext i16 %45 to i64
   %add.i.i.i60 = add nuw nsw i64 %conv.i.i.i59, 8
   %sub.i.i.i61 = add nuw nsw i64 %conv.i.i.i59, 23
   %div7.i.i.i62 = and i64 %sub.i.i.i61, 131064
   %end.i.i.i.i63 = getelementptr inbounds i8, ptr %23, i64 8
-  %43 = load ptr, ptr %end.i.i.i.i63, align 8
-  %44 = load ptr, ptr %23, align 8
-  %sub.ptr.lhs.cast.i.i.i.i64 = ptrtoint ptr %43 to i64
-  %sub.ptr.rhs.cast.i.i.i.i65 = ptrtoint ptr %44 to i64
+  %46 = load ptr, ptr %end.i.i.i.i63, align 8
+  %47 = load ptr, ptr %23, align 8
+  %sub.ptr.lhs.cast.i.i.i.i64 = ptrtoint ptr %46 to i64
+  %sub.ptr.rhs.cast.i.i.i.i65 = ptrtoint ptr %47 to i64
   %sub.ptr.sub.i.i.i.i66 = sub i64 %sub.ptr.lhs.cast.i.i.i.i64, %sub.ptr.rhs.cast.i.i.i.i65
   %cmp.i.i8.i = icmp ult i64 %sub.ptr.sub.i.i.i.i66, %div7.i.i.i62
   br i1 %cmp.i.i8.i, label %if.then.i.i.i73, label %if.end.i.i.i67
@@ -3303,33 +3388,33 @@ if.then.i.i.i73:                                  ; preds = %if.end.i
           to label %upb_Arena_Malloc.exit.i.i69 unwind label %lpad20.loopexit
 
 if.end.i.i.i67:                                   ; preds = %if.end.i
-  %add.ptr.i.i.i68 = getelementptr inbounds i8, ptr %44, i64 %div7.i.i.i62
+  %add.ptr.i.i.i68 = getelementptr inbounds i8, ptr %47, i64 %div7.i.i.i62
   store ptr %add.ptr.i.i.i68, ptr %23, align 8
   br label %upb_Arena_Malloc.exit.i.i69
 
 upb_Arena_Malloc.exit.i.i69:                      ; preds = %if.then.i.i.i73, %if.end.i.i.i67
-  %retval.0.i.i.i70 = phi ptr [ %44, %if.end.i.i.i67 ], [ %call2.i.i.i77, %if.then.i.i.i73 ]
+  %retval.0.i.i.i70 = phi ptr [ %47, %if.end.i.i.i67 ], [ %call2.i.i.i77, %if.then.i.i.i73 ]
   %tobool.not.i.i71 = icmp eq ptr %retval.0.i.i.i70, null
   br i1 %tobool.not.i.i71, label %invoke.cont52, label %if.end7.i
 
 if.end7.i:                                        ; preds = %upb_Arena_Malloc.exit.i.i69
   %add.ptr.i.i72 = getelementptr inbounds i8, ptr %retval.0.i.i.i70, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i70, i8 0, i64 %add.i.i.i60, i1 false)
-  %45 = load i64, ptr %size.i, align 8
-  %46 = load i64, ptr %array.0.i, align 8
-  %and.i.i.i.i = and i64 %46, -8
-  %47 = inttoptr i64 %and.i.i.i.i to ptr
-  %sub9.i = shl i64 %45, 3
-  %48 = getelementptr i8, ptr %47, i64 %sub9.i
-  %add.ptr.i10.i = getelementptr i8, ptr %48, i64 -8
+  %48 = load i64, ptr %size.i, align 8
+  %49 = load i64, ptr %array.0.i248, align 8
+  %and.i.i.i.i = and i64 %49, -8
+  %50 = inttoptr i64 %and.i.i.i.i to ptr
+  %sub9.i = shl i64 %48, 3
+  %51 = getelementptr i8, ptr %50, i64 %sub9.i
+  %add.ptr.i10.i = getelementptr i8, ptr %51, i64 -8
   store ptr %add.ptr.i.i72, ptr %add.ptr.i10.i, align 8
   br label %invoke.cont52
 
 invoke.cont52:                                    ; preds = %call.i.noexc, %call.i.i.i.noexc, %upb_Arena_Malloc.exit.i.i69, %if.end7.i
   %retval.0.i = phi ptr [ %add.ptr.i.i72, %if.end7.i ], [ null, %call.i.noexc ], [ null, %call.i.i.i.noexc ], [ null, %upb_Arena_Malloc.exit.i.i69 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %field.i)
-  %49 = load ptr, ptr %_M_finish.i, align 8
-  %add.ptr.i.i78 = getelementptr inbounds i8, ptr %49, i64 -32
+  %52 = load ptr, ptr %_M_finish.i, align 8
+  %add.ptr.i.i78 = getelementptr inbounds i8, ptr %52, i64 -32
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i78) #18
   %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i78) #18
   %add.ptr.i.i.i79 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
@@ -3340,9 +3425,9 @@ invoke.cont52:                                    ; preds = %call.i.noexc, %call
   store ptr %21, ptr %add.ptr.i.i.i82, align 1
   %value.sroa.5.0.add.ptr.i.i.sroa_idx.i83 = getelementptr inbounds i8, ptr %retval.0.i, i64 40
   store i64 %20, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i83, align 1
-  %50 = load i32, ptr %22, align 8
+  %53 = load i32, ptr %22, align 8
   %add.ptr.i.i.i84 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
-  store i32 %50, ptr %add.ptr.i.i.i84, align 1
+  store i32 %53, ptr %add.ptr.i.i.i84, align 1
   %serialized_proto = getelementptr inbounds i8, ptr %22, i64 8
   %call53 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %serialized_proto) #18
   br i1 %call53, label %if.end, label %invoke.cont57
@@ -3360,16 +3445,16 @@ invoke.cont57:                                    ; preds = %invoke.cont52
   %context.val = load ptr, ptr %arena10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   store i64 %agg.tmp58.sroa.0.0.copyload, ptr %value.i, align 8
-  %51 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Timestamp_msg_init, i64 16), align 8
-  %conv.i.i.i.i = zext i16 %51 to i64
+  %54 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Timestamp_msg_init, i64 16), align 8
+  %conv.i.i.i.i = zext i16 %54 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
   %div7.i.i.i.i = and i64 %sub.i.i.i.i, 131064
   %end.i.i.i.i.i = getelementptr inbounds i8, ptr %context.val, i64 8
-  %52 = load ptr, ptr %end.i.i.i.i.i, align 8
-  %53 = load ptr, ptr %context.val, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %52 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %53 to i64
+  %55 = load ptr, ptr %end.i.i.i.i.i, align 8
+  %56 = load ptr, ptr %context.val, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %55 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %56 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp ult i64 %sub.ptr.sub.i.i.i.i.i, %div7.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
@@ -3379,12 +3464,12 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont57
           to label %upb_Arena_Malloc.exit.i.i.i unwind label %lpad20.loopexit
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont57
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %53, i64 %div7.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 %div7.i.i.i.i
   store ptr %add.ptr.i.i.i.i, ptr %context.val, align 8
   br label %upb_Arena_Malloc.exit.i.i.i
 
 upb_Arena_Malloc.exit.i.i.i:                      ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %53, %if.end.i.i.i.i ], [ %call2.i.i.i.i95, %if.then.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %56, %if.end.i.i.i.i ], [ %call2.i.i.i.i95, %if.then.i.i.i.i ]
   %tobool.not.i.i.i = icmp eq ptr %retval.0.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %google_protobuf_Timestamp_new.exit.i, label %if.end.i.i.i91
 
@@ -3399,69 +3484,69 @@ google_protobuf_Timestamp_new.exit.i:             ; preds = %if.end.i.i.i91, %up
           to label %invoke.cont62 unwind label %lpad20.loopexit
 
 invoke.cont62:                                    ; preds = %google_protobuf_Timestamp_new.exit.i
-  %54 = extractvalue { i64, i64 } %call1.i9496, 0
-  %55 = extractvalue { i64, i64 } %call1.i9496, 1
-  %timespec.sroa.2.8.extract.trunc.i = trunc i64 %55 to i32
+  %57 = extractvalue { i64, i64 } %call1.i9496, 0
+  %58 = extractvalue { i64, i64 } %call1.i9496, 1
+  %timespec.sroa.2.8.extract.trunc.i = trunc i64 %58 to i32
   %add.ptr.i.i.i3.i = getelementptr inbounds i8, ptr %retval.0.i.i.i93, i64 8
-  store i64 %54, ptr %add.ptr.i.i.i3.i, align 1
+  store i64 %57, ptr %add.ptr.i.i.i3.i, align 1
   store i32 %timespec.sroa.2.8.extract.trunc.i, ptr %retval.0.i.i.i93, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
-  %56 = load i8, ptr %retval.0.i, align 1
-  %or2.i.i.i.i.i = or i8 %56, 4
+  %59 = load i8, ptr %retval.0.i, align 1
+  %or2.i.i.i.i.i = or i8 %59, 4
   store i8 %or2.i.i.i.i.i, ptr %retval.0.i, align 1
   %add.ptr.i.i.i97 = getelementptr inbounds i8, ptr %retval.0.i, i64 72
-  %57 = ptrtoint ptr %retval.0.i.i.i93 to i64
-  store i64 %57, ptr %add.ptr.i.i.i97, align 1
-  %58 = load ptr, ptr %arena10, align 8
+  %60 = ptrtoint ptr %retval.0.i.i.i93 to i64
+  store i64 %60, ptr %add.ptr.i.i.i97, align 1
+  %61 = load ptr, ptr %arena10, align 8
   %add.ptr.i.i.i98 = getelementptr inbounds i8, ptr %retval.0.i, i64 64
-  %59 = load i64, ptr %add.ptr.i.i.i98, align 1
-  %60 = inttoptr i64 %59 to ptr
-  %cmp.i99 = icmp eq i64 %59, 0
+  %62 = load i64, ptr %add.ptr.i.i.i98, align 1
+  %63 = inttoptr i64 %62 to ptr
+  %cmp.i99 = icmp eq i64 %62, 0
   br i1 %cmp.i99, label %if.then.i101, label %invoke.cont70
 
 if.then.i101:                                     ; preds = %invoke.cont62
-  %61 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Any_msg_init, i64 16), align 8
-  %conv.i.i.i102 = zext i16 %61 to i64
+  %64 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Any_msg_init, i64 16), align 8
+  %conv.i.i.i102 = zext i16 %64 to i64
   %add.i.i.i103 = add nuw nsw i64 %conv.i.i.i102, 8
   %sub.i.i.i104 = add nuw nsw i64 %conv.i.i.i102, 23
   %div7.i.i.i105 = and i64 %sub.i.i.i104, 131064
-  %end.i.i.i.i106 = getelementptr inbounds i8, ptr %58, i64 8
-  %62 = load ptr, ptr %end.i.i.i.i106, align 8
-  %63 = load ptr, ptr %58, align 8
-  %sub.ptr.lhs.cast.i.i.i.i107 = ptrtoint ptr %62 to i64
-  %sub.ptr.rhs.cast.i.i.i.i108 = ptrtoint ptr %63 to i64
+  %end.i.i.i.i106 = getelementptr inbounds i8, ptr %61, i64 8
+  %65 = load ptr, ptr %end.i.i.i.i106, align 8
+  %66 = load ptr, ptr %61, align 8
+  %sub.ptr.lhs.cast.i.i.i.i107 = ptrtoint ptr %65 to i64
+  %sub.ptr.rhs.cast.i.i.i.i108 = ptrtoint ptr %66 to i64
   %sub.ptr.sub.i.i.i.i109 = sub i64 %sub.ptr.lhs.cast.i.i.i.i107, %sub.ptr.rhs.cast.i.i.i.i108
   %cmp.i.i.i110 = icmp ult i64 %sub.ptr.sub.i.i.i.i109, %div7.i.i.i105
   br i1 %cmp.i.i.i110, label %if.then.i.i.i119, label %if.end.i.i.i111
 
 if.then.i.i.i119:                                 ; preds = %if.then.i101
-  %call2.i.i.i121 = invoke ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %58, i64 noundef %div7.i.i.i105)
+  %call2.i.i.i121 = invoke ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %61, i64 noundef %div7.i.i.i105)
           to label %upb_Arena_Malloc.exit.i.i113 unwind label %lpad20.loopexit
 
 if.end.i.i.i111:                                  ; preds = %if.then.i101
-  %add.ptr.i.i5.i112 = getelementptr inbounds i8, ptr %63, i64 %div7.i.i.i105
-  store ptr %add.ptr.i.i5.i112, ptr %58, align 8
+  %add.ptr.i.i5.i112 = getelementptr inbounds i8, ptr %66, i64 %div7.i.i.i105
+  store ptr %add.ptr.i.i5.i112, ptr %61, align 8
   br label %upb_Arena_Malloc.exit.i.i113
 
 upb_Arena_Malloc.exit.i.i113:                     ; preds = %if.then.i.i.i119, %if.end.i.i.i111
-  %retval.0.i.i.i114 = phi ptr [ %63, %if.end.i.i.i111 ], [ %call2.i.i.i121, %if.then.i.i.i119 ]
+  %retval.0.i.i.i114 = phi ptr [ %66, %if.end.i.i.i111 ], [ %call2.i.i.i121, %if.then.i.i.i119 ]
   %tobool.not.i.i115 = icmp eq ptr %retval.0.i.i.i114, null
   br i1 %tobool.not.i.i115, label %invoke.cont70, label %if.then2.i116
 
 if.then2.i116:                                    ; preds = %upb_Arena_Malloc.exit.i.i113
   %add.ptr.i.i117 = getelementptr inbounds i8, ptr %retval.0.i.i.i114, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i114, i8 0, i64 %add.i.i.i103, i1 false)
-  %64 = load i8, ptr %retval.0.i, align 1
-  %or2.i.i.i.i.i.i118 = or i8 %64, 2
+  %67 = load i8, ptr %retval.0.i, align 1
+  %or2.i.i.i.i.i.i118 = or i8 %67, 2
   store i8 %or2.i.i.i.i.i.i118, ptr %retval.0.i, align 1
-  %65 = ptrtoint ptr %add.ptr.i.i117 to i64
-  store i64 %65, ptr %add.ptr.i.i.i98, align 1
+  %68 = ptrtoint ptr %add.ptr.i.i117 to i64
+  store i64 %68, ptr %add.ptr.i.i.i98, align 1
   br label %invoke.cont70
 
 invoke.cont70:                                    ; preds = %invoke.cont62, %upb_Arena_Malloc.exit.i.i113, %if.then2.i116
-  %sub.0.i100 = phi ptr [ %add.ptr.i.i117, %if.then2.i116 ], [ %60, %invoke.cont62 ], [ null, %upb_Arena_Malloc.exit.i.i113 ]
-  %66 = load ptr, ptr %_M_finish.i, align 8
-  %add.ptr.i.i123 = getelementptr inbounds i8, ptr %66, i64 -32
+  %sub.0.i100 = phi ptr [ %add.ptr.i.i117, %if.then2.i116 ], [ %63, %invoke.cont62 ], [ null, %upb_Arena_Malloc.exit.i.i113 ]
+  %69 = load ptr, ptr %_M_finish.i, align 8
+  %add.ptr.i.i123 = getelementptr inbounds i8, ptr %69, i64 -32
   %call.i124 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i123) #18
   %call1.i125 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i123) #18
   store ptr %call.i124, ptr %sub.0.i100, align 1
@@ -3476,63 +3561,63 @@ invoke.cont70:                                    ; preds = %invoke.cont62, %upb
   br label %if.end
 
 lpad:                                             ; preds = %if.then.i.i.i45, %if.then.i.i.i, %invoke.cont6
-  %67 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i209
 
-lpad20.loopexit:                                  ; preds = %_upb_array_reserve.exit.i.i, %if.then.i.i.i73, %if.then.i.i.i.i, %google_protobuf_Timestamp_new.exit.i, %if.then.i.i.i119, %if.then.i.i.i152, %if.then.i.i.i.i189, %google_protobuf_Timestamp_new.exit.i184, %if.then.i.i.i230, %if.then.i.i229
+lpad20.loopexit:                                  ; preds = %_upb_array_reserve.exit.i.i, %if.then.i.i.i73, %if.then.i.i.i.i, %google_protobuf_Timestamp_new.exit.i, %if.then.i.i.i119, %if.then.i.i.i152, %if.then.i.i.i.i189, %google_protobuf_Timestamp_new.exit.i184, %if.then.i.i.i231, %if.then.i.i230
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad20.loopexit.split-lp.loopexit:                ; preds = %invoke.cont21
-  %lpad.loopexit245 = landingpad { ptr, i32 }
+  %lpad.loopexit249 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad20.loopexit.split-lp.loopexit.split-lp:       ; preds = %for.end99
-  %lpad.loopexit.split-lp246 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp250 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad25:                                           ; preds = %if.else.i
-  %68 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont70, %invoke.cont52
-  %69 = load i32, ptr %22, align 8
-  %cmp = icmp eq i32 %69, 4
+  %72 = load i32, ptr %22, align 8
+  %cmp = icmp eq i32 %72, 4
   br i1 %cmp, label %if.then77, label %for.inc
 
 if.then77:                                        ; preds = %if.end
-  %70 = load ptr, ptr %arena10, align 8
-  %71 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__admin__v3__UpdateFailureState_msg_init, i64 16), align 8
-  %conv.i.i.i135 = zext i16 %71 to i64
+  %73 = load ptr, ptr %arena10, align 8
+  %74 = load i16, ptr getelementptr inbounds (i8, ptr @envoy__admin__v3__UpdateFailureState_msg_init, i64 16), align 8
+  %conv.i.i.i135 = zext i16 %74 to i64
   %add.i.i.i136 = add nuw nsw i64 %conv.i.i.i135, 8
   %sub.i.i.i137 = add nuw nsw i64 %conv.i.i.i135, 23
   %div7.i.i.i138 = and i64 %sub.i.i.i137, 131064
-  %end.i.i.i.i139 = getelementptr inbounds i8, ptr %70, i64 8
-  %72 = load ptr, ptr %end.i.i.i.i139, align 8
-  %73 = load ptr, ptr %70, align 8
-  %sub.ptr.lhs.cast.i.i.i.i140 = ptrtoint ptr %72 to i64
-  %sub.ptr.rhs.cast.i.i.i.i141 = ptrtoint ptr %73 to i64
+  %end.i.i.i.i139 = getelementptr inbounds i8, ptr %73, i64 8
+  %75 = load ptr, ptr %end.i.i.i.i139, align 8
+  %76 = load ptr, ptr %73, align 8
+  %sub.ptr.lhs.cast.i.i.i.i140 = ptrtoint ptr %75 to i64
+  %sub.ptr.rhs.cast.i.i.i.i141 = ptrtoint ptr %76 to i64
   %sub.ptr.sub.i.i.i.i142 = sub i64 %sub.ptr.lhs.cast.i.i.i.i140, %sub.ptr.rhs.cast.i.i.i.i141
   %cmp.i.i.i143 = icmp ult i64 %sub.ptr.sub.i.i.i.i142, %div7.i.i.i138
   br i1 %cmp.i.i.i143, label %if.then.i.i.i152, label %if.end.i.i.i144
 
 if.then.i.i.i152:                                 ; preds = %if.then77
-  %call2.i.i.i154 = invoke ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %70, i64 noundef %div7.i.i.i138)
+  %call2.i.i.i154 = invoke ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %73, i64 noundef %div7.i.i.i138)
           to label %upb_Arena_Malloc.exit.i.i146 unwind label %lpad20.loopexit
 
 if.end.i.i.i144:                                  ; preds = %if.then77
-  %add.ptr.i.i.i145 = getelementptr inbounds i8, ptr %73, i64 %div7.i.i.i138
-  store ptr %add.ptr.i.i.i145, ptr %70, align 8
+  %add.ptr.i.i.i145 = getelementptr inbounds i8, ptr %76, i64 %div7.i.i.i138
+  store ptr %add.ptr.i.i.i145, ptr %73, align 8
   br label %upb_Arena_Malloc.exit.i.i146
 
 upb_Arena_Malloc.exit.i.i146:                     ; preds = %if.then.i.i.i152, %if.end.i.i.i144
-  %retval.0.i.i.i147 = phi ptr [ %73, %if.end.i.i.i144 ], [ %call2.i.i.i154, %if.then.i.i.i152 ]
+  %retval.0.i.i.i147 = phi ptr [ %76, %if.end.i.i.i144 ], [ %call2.i.i.i154, %if.then.i.i.i152 ]
   %tobool.not.i.i148 = icmp eq ptr %retval.0.i.i.i147, null
   br i1 %tobool.not.i.i148, label %invoke.cont88, label %if.end.i.i149
 
@@ -3561,30 +3646,30 @@ invoke.cont88:                                    ; preds = %if.end.i.i149, %upb
   %agg.tmp89.sroa.0.0.copyload = load i64, ptr %failed_update_time, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i167)
   store i64 %agg.tmp89.sroa.0.0.copyload, ptr %value.i167, align 8
-  %74 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Timestamp_msg_init, i64 16), align 8
-  %conv.i.i.i.i168 = zext i16 %74 to i64
+  %77 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Timestamp_msg_init, i64 16), align 8
+  %conv.i.i.i.i168 = zext i16 %77 to i64
   %add.i.i.i.i169 = add nuw nsw i64 %conv.i.i.i.i168, 8
   %sub.i.i.i.i170 = add nuw nsw i64 %conv.i.i.i.i168, 23
   %div7.i.i.i.i171 = and i64 %sub.i.i.i.i170, 131064
-  %75 = load ptr, ptr %end.i.i.i.i139, align 8
-  %76 = load ptr, ptr %70, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i173 = ptrtoint ptr %75 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i174 = ptrtoint ptr %76 to i64
+  %78 = load ptr, ptr %end.i.i.i.i139, align 8
+  %79 = load ptr, ptr %73, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i173 = ptrtoint ptr %78 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i174 = ptrtoint ptr %79 to i64
   %sub.ptr.sub.i.i.i.i.i175 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i173, %sub.ptr.rhs.cast.i.i.i.i.i174
   %cmp.i.i.i.i176 = icmp ult i64 %sub.ptr.sub.i.i.i.i.i175, %div7.i.i.i.i171
   br i1 %cmp.i.i.i.i176, label %if.then.i.i.i.i189, label %if.end.i.i.i.i177
 
 if.then.i.i.i.i189:                               ; preds = %invoke.cont88
-  %call2.i.i.i.i191 = invoke ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %70, i64 noundef %div7.i.i.i.i171)
+  %call2.i.i.i.i191 = invoke ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %73, i64 noundef %div7.i.i.i.i171)
           to label %upb_Arena_Malloc.exit.i.i.i179 unwind label %lpad20.loopexit
 
 if.end.i.i.i.i177:                                ; preds = %invoke.cont88
-  %add.ptr.i.i.i.i178 = getelementptr inbounds i8, ptr %76, i64 %div7.i.i.i.i171
-  store ptr %add.ptr.i.i.i.i178, ptr %70, align 8
+  %add.ptr.i.i.i.i178 = getelementptr inbounds i8, ptr %79, i64 %div7.i.i.i.i171
+  store ptr %add.ptr.i.i.i.i178, ptr %73, align 8
   br label %upb_Arena_Malloc.exit.i.i.i179
 
 upb_Arena_Malloc.exit.i.i.i179:                   ; preds = %if.then.i.i.i.i189, %if.end.i.i.i.i177
-  %retval.0.i.i.i.i180 = phi ptr [ %76, %if.end.i.i.i.i177 ], [ %call2.i.i.i.i191, %if.then.i.i.i.i189 ]
+  %retval.0.i.i.i.i180 = phi ptr [ %79, %if.end.i.i.i.i177 ], [ %call2.i.i.i.i191, %if.then.i.i.i.i189 ]
   %tobool.not.i.i.i181 = icmp eq ptr %retval.0.i.i.i.i180, null
   br i1 %tobool.not.i.i.i181, label %google_protobuf_Timestamp_new.exit.i184, label %if.end.i.i.i182
 
@@ -3599,34 +3684,34 @@ google_protobuf_Timestamp_new.exit.i184:          ; preds = %if.end.i.i.i182, %u
           to label %invoke.cont93 unwind label %lpad20.loopexit
 
 invoke.cont93:                                    ; preds = %google_protobuf_Timestamp_new.exit.i184
-  %77 = extractvalue { i64, i64 } %call1.i186192, 0
-  %78 = extractvalue { i64, i64 } %call1.i186192, 1
-  %timespec.sroa.2.8.extract.trunc.i187 = trunc i64 %78 to i32
+  %80 = extractvalue { i64, i64 } %call1.i186192, 0
+  %81 = extractvalue { i64, i64 } %call1.i186192, 1
+  %timespec.sroa.2.8.extract.trunc.i187 = trunc i64 %81 to i32
   %add.ptr.i.i.i3.i188 = getelementptr inbounds i8, ptr %retval.0.i.i.i185, i64 8
-  store i64 %77, ptr %add.ptr.i.i.i3.i188, align 1
+  store i64 %80, ptr %add.ptr.i.i.i3.i188, align 1
   store i32 %timespec.sroa.2.8.extract.trunc.i187, ptr %retval.0.i.i.i185, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i167)
-  %79 = load i8, ptr %retval.0.i.i151, align 1
-  %or2.i.i.i.i.i194 = or i8 %79, 4
+  %82 = load i8, ptr %retval.0.i.i151, align 1
+  %or2.i.i.i.i.i194 = or i8 %82, 4
   store i8 %or2.i.i.i.i.i194, ptr %retval.0.i.i151, align 1
   %add.ptr.i.i.i195 = getelementptr inbounds i8, ptr %retval.0.i.i151, i64 16
-  %80 = ptrtoint ptr %retval.0.i.i.i185 to i64
-  store i64 %80, ptr %add.ptr.i.i.i195, align 1
-  %81 = load i8, ptr %retval.0.i, align 1
-  %or2.i.i.i.i.i196 = or i8 %81, 8
+  %83 = ptrtoint ptr %retval.0.i.i.i185 to i64
+  store i64 %83, ptr %add.ptr.i.i.i195, align 1
+  %84 = load i8, ptr %retval.0.i, align 1
+  %or2.i.i.i.i.i196 = or i8 %84, 8
   store i8 %or2.i.i.i.i.i196, ptr %retval.0.i, align 1
   %add.ptr.i.i.i197 = getelementptr inbounds i8, ptr %retval.0.i, i64 80
-  %82 = ptrtoint ptr %retval.0.i.i151 to i64
-  store i64 %82, ptr %add.ptr.i.i.i197, align 1
+  %85 = ptrtoint ptr %retval.0.i.i151 to i64
+  store i64 %85, ptr %add.ptr.i.i.i197, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont93, %if.end
-  %call.i198 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.0249) #20
+  %call.i198 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.0253) #20
   %cmp.i56.not = icmp eq ptr %call.i198, %add.ptr.i.i55
-  br i1 %cmp.i56.not, label %for.inc97, label %for.body34
+  br i1 %cmp.i56.not, label %for.inc97, label %upb_Message_GetMutableArray.exit.i
 
 for.inc97:                                        ; preds = %for.inc, %invoke.cont26
-  %call.i199 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.0251) #20
+  %call.i199 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.0255) #20
   %cmp.i51.not = icmp eq ptr %call.i199, %add.ptr.i.i50
   br i1 %cmp.i51.not, label %for.end99, label %invoke.cont21
 
@@ -3636,26 +3721,26 @@ for.end99:                                        ; preds = %for.inc97, %invoke.
           to label %invoke.cont102 unwind label %lpad20.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont102:                                   ; preds = %for.end99
-  %83 = load ptr, ptr %ptr.i, align 8
+  %86 = load ptr, ptr %ptr.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i)
-  %84 = load i64, ptr %output_length, align 8
+  %87 = load i64, ptr %output_length, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp104) #18
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %83, i64 noundef %84, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp104)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %86, i64 noundef %87, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp104)
           to label %invoke.cont106 unwind label %lpad105
 
 invoke.cont106:                                   ; preds = %invoke.cont102
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp104) #18
-  %85 = load ptr, ptr %type_url_storage, align 8
+  %88 = load ptr, ptr %type_url_storage, align 8
   %_M_finish.i203 = getelementptr inbounds i8, ptr %type_url_storage, i64 8
-  %86 = load ptr, ptr %_M_finish.i203, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %85, %86
+  %89 = load ptr, ptr %_M_finish.i203, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %88, %89
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %invoke.cont106, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %85, %invoke.cont106 ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %88, %invoke.cont106 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #18
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %86
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %89
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !31
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
@@ -3663,12 +3748,12 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %invoke.cont106
-  %87 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %85, %invoke.cont106 ]
-  %tobool.not.i.i.i204 = icmp eq ptr %87, null
+  %90 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %88, %invoke.cont106 ]
+  %tobool.not.i.i.i204 = icmp eq ptr %90, null
   br i1 %tobool.not.i.i.i204, label %if.then.i.i, label %if.then.i.i.i205
 
 if.then.i.i.i205:                                 ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %87) #21
+  call void @_ZdlPv(ptr noundef nonnull %90) #21
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i.i.i205, %invoke.cont.i
@@ -3676,36 +3761,36 @@ if.then.i.i:                                      ; preds = %if.then.i.i.i205, %
           to label %_ZN3upb5ArenaD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %88 = landingpad { ptr, i32 }
+  %91 = landingpad { ptr, i32 }
           catch ptr null
-  %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #19
+  %92 = extractvalue { ptr, i32 } %91, 0
+  call void @__clang_call_terminate(ptr %92) #19
   unreachable
 
 _ZN3upb5ArenaD2Ev.exit:                           ; preds = %if.then.i.i
   ret void
 
 lpad105:                                          ; preds = %invoke.cont102
-  %90 = landingpad { ptr, i32 }
+  %93 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp104) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad20.loopexit, %lpad20.loopexit.split-lp.loopexit.split-lp, %lpad20.loopexit.split-lp.loopexit, %lpad105, %lpad25
-  %.pn = phi { ptr, i32 } [ %68, %lpad25 ], [ %90, %lpad105 ], [ %lpad.loopexit, %lpad20.loopexit ], [ %lpad.loopexit245, %lpad20.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp246, %lpad20.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %71, %lpad25 ], [ %93, %lpad105 ], [ %lpad.loopexit, %lpad20.loopexit ], [ %lpad.loopexit249, %lpad20.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp250, %lpad20.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %type_url_storage) #18
   br label %if.then.i.i209
 
 if.then.i.i209:                                   ; preds = %lpad, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %67, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %70, %lpad ]
   invoke void @upb_Arena_Free(ptr noundef nonnull %call.i.i)
           to label %_ZN3upb5ArenaD2Ev.exit211 unwind label %terminate.lpad.i.i210
 
 terminate.lpad.i.i210:                            ; preds = %if.then.i.i209
-  %91 = landingpad { ptr, i32 }
+  %94 = landingpad { ptr, i32 }
           catch ptr null
-  %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #19
+  %95 = extractvalue { ptr, i32 } %94, 0
+  call void @__clang_call_terminate(ptr %95) #19
   unreachable
 
 _ZN3upb5ArenaD2Ev.exit211:                        ; preds = %if.then.i.i209
@@ -4193,8 +4278,6 @@ define linkonce_odr ptr @upb_Message_GetOrCreateMutableArray(ptr noundef %msg, p
 entry:
   %mode.i.i = getelementptr inbounds i8, ptr %field, i64 11
   %0 = load i8, ptr %mode.i.i, align 1
-  %cmp.i = icmp ugt i8 %0, -65
-  tail call void @llvm.assume(i1 %cmp.i)
   %1 = and i8 %0, 3
   %cmp2.i = icmp eq i8 %1, 1
   tail call void @llvm.assume(i1 %cmp2.i)
@@ -4205,52 +4288,86 @@ entry:
   %3 = and i8 %0, 8
   %tobool.i.not.i.i = icmp eq i8 %3, 0
   tail call void @llvm.assume(i1 %tobool.i.not.i.i)
+  %4 = lshr i8 %0, 6
+  %switch.i.i = icmp ne i8 %4, 2
+  tail call void @llvm.assume(i1 %switch.i.i)
   %offset.i.i.i = getelementptr inbounds i8, ptr %field, i64 4
-  %4 = load i16, ptr %offset.i.i.i, align 4
-  %idx.ext.i.i.i = zext i16 %4 to i64
+  %5 = load i16, ptr %offset.i.i.i, align 4
+  %idx.ext.i.i.i = zext i16 %5 to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %msg, i64 %idx.ext.i.i.i
-  %5 = load i64, ptr %add.ptr.i.i.i, align 1
-  %6 = inttoptr i64 %5 to ptr
-  %tobool.not = icmp eq i64 %5, 0
+  switch i8 %4, label %default.unreachable [
+    i8 0, label %sw.bb.i25.i.i
+    i8 1, label %sw.bb1.i24.i.i
+    i8 3, label %sw.bb2.i23.i.i
+    i8 2, label %sw.bb3.i22.i.i
+  ]
+
+default.unreachable:                              ; preds = %_upb_Message_SetPresence.exit.i.i, %if.end.i.i12, %entry
+  unreachable
+
+sw.bb.i25.i.i:                                    ; preds = %entry
+  %6 = load i8, ptr %add.ptr.i.i.i, align 1
+  %ret.0.insert.ext37.i.i = zext i8 %6 to i64
+  %7 = inttoptr i64 %ret.0.insert.ext37.i.i to ptr
+  br label %upb_Message_GetMutableArray.exit
+
+sw.bb1.i24.i.i:                                   ; preds = %entry
+  %8 = load i32, ptr %add.ptr.i.i.i, align 1
+  %ret.0.insert.ext29.i.i = zext i32 %8 to i64
+  %9 = inttoptr i64 %ret.0.insert.ext29.i.i to ptr
+  br label %upb_Message_GetMutableArray.exit
+
+sw.bb2.i23.i.i:                                   ; preds = %entry
+  %10 = load i64, ptr %add.ptr.i.i.i, align 1
+  %11 = inttoptr i64 %10 to ptr
+  br label %upb_Message_GetMutableArray.exit
+
+sw.bb3.i22.i.i:                                   ; preds = %entry
+  %ret.0.copyload40.i.i = load ptr, ptr %add.ptr.i.i.i, align 1
+  br label %upb_Message_GetMutableArray.exit
+
+upb_Message_GetMutableArray.exit:                 ; preds = %sw.bb.i25.i.i, %sw.bb1.i24.i.i, %sw.bb2.i23.i.i, %sw.bb3.i22.i.i
+  %ret.2.i.i = phi ptr [ %ret.0.copyload40.i.i, %sw.bb3.i22.i.i ], [ %11, %sw.bb2.i23.i.i ], [ %9, %sw.bb1.i24.i.i ], [ %7, %sw.bb.i25.i.i ]
+  %tobool.not = icmp eq ptr %ret.2.i.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %entry
+if.then:                                          ; preds = %upb_Message_GetMutableArray.exit
   %descriptortype_dont_copy_me__upb_internal_use_only.i = getelementptr inbounds i8, ptr %field, i64 10
-  %7 = load i8, ptr %descriptortype_dont_copy_me__upb_internal_use_only.i, align 2
-  %idxprom.i = zext i8 %7 to i64
+  %12 = load i8, ptr %descriptortype_dont_copy_me__upb_internal_use_only.i, align 2
+  %idxprom.i = zext i8 %12 to i64
   %arrayidx.i = getelementptr inbounds [19 x i8], ptr @__const._upb_MiniTable_ElementSizeLg2.table, i64 0, i64 %idxprom.i
-  %8 = load i8, ptr %arrayidx.i, align 1
-  %sh_prom.i = zext i8 %8 to i64
+  %13 = load i8, ptr %arrayidx.i, align 1
+  %sh_prom.i = zext i8 %13 to i64
   %shl.i = shl i64 4, %sh_prom.i
   %sub.i.i = add nuw i64 %shl.i, 31
   %div7.i.i = and i64 %sub.i.i, -8
   %end.i.i.i = getelementptr inbounds i8, ptr %arena, i64 8
-  %9 = load ptr, ptr %end.i.i.i, align 8
-  %10 = load ptr, ptr %arena, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %10 to i64
+  %14 = load ptr, ptr %end.i.i.i, align 8
+  %15 = load ptr, ptr %arena, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp.i.i7 = icmp ult i64 %sub.ptr.sub.i.i.i, %div7.i.i
-  br i1 %cmp.i.i7, label %if.then.i.i, label %if.end.i.i
+  %cmp.i.i = icmp ult i64 %sub.ptr.sub.i.i.i, %div7.i.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then
   %call2.i.i = tail call ptr @_upb_Arena_SlowMalloc(ptr noundef nonnull %arena, i64 noundef %div7.i.i)
   br label %upb_Arena_Malloc.exit.i
 
 if.end.i.i:                                       ; preds = %if.then
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 %div7.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 %div7.i.i
   store ptr %add.ptr.i.i, ptr %arena, align 8
   br label %upb_Arena_Malloc.exit.i
 
 upb_Arena_Malloc.exit.i:                          ; preds = %if.end.i.i, %if.then.i.i
-  %retval.0.i.i = phi ptr [ %call2.i.i, %if.then.i.i ], [ %10, %if.end.i.i ]
+  %retval.0.i.i = phi ptr [ %call2.i.i, %if.then.i.i ], [ %15, %if.end.i.i ]
   %tobool.not.i = icmp eq ptr %retval.0.i.i, null
   br i1 %tobool.not.i, label %_upb_Array_New.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %upb_Arena_Malloc.exit.i
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 24
-  %11 = ptrtoint ptr %add.ptr.i to i64
-  %or.i.i = or i64 %11, %sh_prom.i
+  %16 = ptrtoint ptr %add.ptr.i to i64
+  %or.i.i = or i64 %16, %sh_prom.i
   store i64 %or.i.i, ptr %retval.0.i.i, align 8
   %size.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store i64 0, ptr %size.i, align 8
@@ -4259,69 +4376,89 @@ if.end.i:                                         ; preds = %upb_Arena_Malloc.ex
   br label %_upb_Array_New.exit
 
 _upb_Array_New.exit:                              ; preds = %upb_Arena_Malloc.exit.i, %if.end.i
-  %12 = load i8, ptr %mode.i.i, align 1
-  %cmp.i9 = icmp ugt i8 %12, -65
-  tail call void @llvm.assume(i1 %cmp.i9)
-  %13 = and i8 %12, 3
-  %cmp2.i10 = icmp eq i8 %13, 1
-  tail call void @llvm.assume(i1 %cmp2.i10)
-  %14 = load i16, ptr %presence.i, align 2
-  %cmp5.i12 = icmp eq i16 %14, 0
-  tail call void @llvm.assume(i1 %cmp5.i12)
-  %15 = and i8 %12, 8
-  %tobool.i.not.i = icmp eq i8 %15, 0
-  br i1 %tobool.i.not.i, label %sw.bb2.i.i6.i, label %if.then.i
+  %17 = load i8, ptr %mode.i.i, align 1
+  %18 = and i8 %17, 3
+  %cmp2.i8 = icmp eq i8 %18, 1
+  tail call void @llvm.assume(i1 %cmp2.i8)
+  %19 = load i16, ptr %presence.i, align 2
+  %cmp5.i10 = icmp eq i16 %19, 0
+  tail call void @llvm.assume(i1 %cmp5.i10)
+  %20 = and i8 %17, 8
+  %tobool.i.not.i = icmp eq i8 %20, 0
+  br i1 %tobool.i.not.i, label %_upb_Message_SetPresence.exit.i.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_upb_Array_New.exit
   %call.i.i = tail call ptr @_upb_Message_GetOrCreateExtension(ptr noundef nonnull %msg, ptr noundef nonnull %field, ptr noundef nonnull %arena)
   %tobool.not.i.not.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.not.i, label %if.end, label %if.end.i.i14
+  br i1 %tobool.not.i.not.i, label %if.end, label %if.end.i.i12
 
-if.end.i.i14:                                     ; preds = %if.then.i
+if.end.i.i12:                                     ; preds = %if.then.i
   %data.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  %16 = load i8, ptr %mode.i.i, align 1
-  %17 = lshr i8 %16, 6
-  switch i8 %17, label %default.unreachable [
+  %21 = load i8, ptr %mode.i.i, align 1
+  %22 = lshr i8 %21, 6
+  switch i8 %22, label %default.unreachable [
     i8 0, label %sw.bb.i.i.i
     i8 1, label %sw.bb1.i.i.i
     i8 3, label %sw.bb2.i.i.i
     i8 2, label %sw.bb3.i.i.i
   ]
 
-sw.bb.i.i.i:                                      ; preds = %if.end.i.i14
-  %18 = ptrtoint ptr %retval.0.i.i to i64
-  %array.0.extract.trunc21 = trunc i64 %18 to i8
-  store i8 %array.0.extract.trunc21, ptr %data.i.i, align 1
+sw.bb.i.i.i:                                      ; preds = %if.end.i.i12
+  %23 = ptrtoint ptr %retval.0.i.i to i64
+  %array.0.extract.trunc20 = trunc i64 %23 to i8
+  store i8 %array.0.extract.trunc20, ptr %data.i.i, align 1
   br label %if.end
 
-sw.bb1.i.i.i:                                     ; preds = %if.end.i.i14
-  %19 = ptrtoint ptr %retval.0.i.i to i64
-  %array.0.extract.trunc = trunc i64 %19 to i32
+sw.bb1.i.i.i:                                     ; preds = %if.end.i.i12
+  %24 = ptrtoint ptr %retval.0.i.i to i64
+  %array.0.extract.trunc = trunc i64 %24 to i32
   store i32 %array.0.extract.trunc, ptr %data.i.i, align 1
   br label %if.end
 
-sw.bb2.i.i.i:                                     ; preds = %if.end.i.i14
-  %20 = ptrtoint ptr %retval.0.i.i to i64
-  store i64 %20, ptr %data.i.i, align 1
+sw.bb2.i.i.i:                                     ; preds = %if.end.i.i12
+  %25 = ptrtoint ptr %retval.0.i.i to i64
+  store i64 %25, ptr %data.i.i, align 1
   br label %if.end
 
-sw.bb3.i.i.i:                                     ; preds = %if.end.i.i14
+sw.bb3.i.i.i:                                     ; preds = %if.end.i.i12
   store ptr %retval.0.i.i, ptr %data.i.i, align 1
   br label %if.end
 
-default.unreachable:                              ; preds = %if.end.i.i14
-  unreachable
+_upb_Message_SetPresence.exit.i.i:                ; preds = %_upb_Array_New.exit
+  %26 = load i16, ptr %offset.i.i.i, align 4
+  %idx.ext.i.i.i15 = zext i16 %26 to i64
+  %add.ptr.i.i.i16 = getelementptr inbounds i8, ptr %msg, i64 %idx.ext.i.i.i15
+  %27 = lshr i8 %17, 6
+  switch i8 %27, label %default.unreachable [
+    i8 0, label %sw.bb.i.i8.i
+    i8 1, label %sw.bb1.i.i7.i
+    i8 3, label %sw.bb2.i.i6.i
+    i8 2, label %sw.bb3.i.i5.i
+  ]
 
-sw.bb2.i.i6.i:                                    ; preds = %_upb_Array_New.exit
-  %21 = load i16, ptr %offset.i.i.i, align 4
-  %idx.ext.i.i.i16 = zext i16 %21 to i64
-  %add.ptr.i.i.i17 = getelementptr inbounds i8, ptr %msg, i64 %idx.ext.i.i.i16
-  %22 = ptrtoint ptr %retval.0.i.i to i64
-  store i64 %22, ptr %add.ptr.i.i.i17, align 1
+sw.bb.i.i8.i:                                     ; preds = %_upb_Message_SetPresence.exit.i.i
+  %28 = ptrtoint ptr %retval.0.i.i to i64
+  %array.0.extract.trunc22 = trunc i64 %28 to i8
+  store i8 %array.0.extract.trunc22, ptr %add.ptr.i.i.i16, align 1
   br label %if.end
 
-if.end:                                           ; preds = %sw.bb2.i.i6.i, %sw.bb3.i.i.i, %sw.bb2.i.i.i, %sw.bb1.i.i.i, %sw.bb.i.i.i, %if.then.i, %entry
-  %array.0 = phi ptr [ %6, %entry ], [ %retval.0.i.i, %if.then.i ], [ %retval.0.i.i, %sw.bb.i.i.i ], [ %retval.0.i.i, %sw.bb1.i.i.i ], [ %retval.0.i.i, %sw.bb2.i.i.i ], [ %retval.0.i.i, %sw.bb3.i.i.i ], [ %retval.0.i.i, %sw.bb2.i.i6.i ]
+sw.bb1.i.i7.i:                                    ; preds = %_upb_Message_SetPresence.exit.i.i
+  %29 = ptrtoint ptr %retval.0.i.i to i64
+  %array.0.extract.trunc18 = trunc i64 %29 to i32
+  store i32 %array.0.extract.trunc18, ptr %add.ptr.i.i.i16, align 1
+  br label %if.end
+
+sw.bb2.i.i6.i:                                    ; preds = %_upb_Message_SetPresence.exit.i.i
+  %30 = ptrtoint ptr %retval.0.i.i to i64
+  store i64 %30, ptr %add.ptr.i.i.i16, align 1
+  br label %if.end
+
+sw.bb3.i.i5.i:                                    ; preds = %_upb_Message_SetPresence.exit.i.i
+  store ptr %retval.0.i.i, ptr %add.ptr.i.i.i16, align 1
+  br label %if.end
+
+if.end:                                           ; preds = %sw.bb3.i.i5.i, %sw.bb2.i.i6.i, %sw.bb1.i.i7.i, %sw.bb.i.i8.i, %sw.bb3.i.i.i, %sw.bb2.i.i.i, %sw.bb1.i.i.i, %sw.bb.i.i.i, %if.then.i, %upb_Message_GetMutableArray.exit
+  %array.0 = phi ptr [ %ret.2.i.i, %upb_Message_GetMutableArray.exit ], [ %retval.0.i.i, %if.then.i ], [ %retval.0.i.i, %sw.bb.i.i.i ], [ %retval.0.i.i, %sw.bb1.i.i.i ], [ %retval.0.i.i, %sw.bb2.i.i.i ], [ %retval.0.i.i, %sw.bb3.i.i.i ], [ %retval.0.i.i, %sw.bb.i.i8.i ], [ %retval.0.i.i, %sw.bb1.i.i7.i ], [ %retval.0.i.i, %sw.bb2.i.i6.i ], [ %retval.0.i.i, %sw.bb3.i.i5.i ]
   ret ptr %array.0
 }
 

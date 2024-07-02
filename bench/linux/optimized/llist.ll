@@ -18,98 +18,85 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_llist_revers
 define dso_local zeroext i1 @llist_add_batch(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 align 16 {
   %4 = load volatile ptr, ptr %2, align 8
   store ptr %4, ptr %1, align 8
-  %5 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, ptr %0, ptr elementtype(i64) %2, ptr %4) #3, !srcloc !5
+  %5 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, ptr %0, ptr elementtype(i64) %2, ptr %4) #2, !srcloc !5
   %6 = extractvalue { i8, ptr } %5, 0
-  %7 = icmp ult i8 %6, 2
-  tail call void @llvm.assume(i1 %7)
-  %8 = icmp eq i8 %6, 0
-  br i1 %8, label %.preheader, label %.loopexit, !prof !6
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %.preheader, label %.loopexit, !prof !6
 
 .preheader:                                       ; preds = %3, %.preheader
-  %9 = phi { i8, ptr } [ %11, %.preheader ], [ %5, %3 ]
-  %10 = extractvalue { i8, ptr } %9, 1
-  store ptr %10, ptr %1, align 8
-  %11 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, ptr %0, ptr elementtype(i64) %2, ptr %10) #3, !srcloc !5
-  %12 = extractvalue { i8, ptr } %11, 0
-  %13 = icmp ult i8 %12, 2
-  tail call void @llvm.assume(i1 %13)
-  %14 = icmp eq i8 %12, 0
-  br i1 %14, label %.preheader, label %.loopexit, !prof !7, !llvm.loop !8
+  %8 = phi { i8, ptr } [ %10, %.preheader ], [ %5, %3 ]
+  %9 = extractvalue { i8, ptr } %8, 1
+  store ptr %9, ptr %1, align 8
+  %10 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, ptr %0, ptr elementtype(i64) %2, ptr %9) #2, !srcloc !5
+  %11 = extractvalue { i8, ptr } %10, 0
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %.preheader, label %.loopexit, !prof !7, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %3
-  %15 = phi ptr [ %4, %3 ], [ %10, %.preheader ]
-  %16 = icmp eq ptr %15, null
-  ret i1 %16
+  %13 = phi ptr [ %4, %3 ], [ %9, %.preheader ]
+  %14 = icmp eq ptr %13, null
+  ret i1 %14
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @llist_del_first(ptr noundef %0) #0 align 16 {
   %2 = load volatile ptr, ptr %0, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !11
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %1, %10
-  %4 = phi ptr [ %11, %10 ], [ %2, %1 ]
+.preheader:                                       ; preds = %1, %9
+  %4 = phi ptr [ %10, %9 ], [ %2, %1 ]
   %5 = load volatile ptr, ptr %4, align 8
-  %6 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %5, ptr elementtype(i64) %0, ptr nonnull %4) #3, !srcloc !12
+  %6 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %5, ptr elementtype(i64) %0, ptr nonnull %4) #2, !srcloc !12
   %7 = extractvalue { i8, ptr } %6, 0
-  %8 = icmp ult i8 %7, 2
-  tail call void @llvm.assume(i1 %8)
-  %9 = icmp eq i8 %7, 0
-  br i1 %9, label %10, label %.loopexit, !prof !13
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %9, label %.loopexit, !prof !13
 
-10:                                               ; preds = %.preheader
-  %11 = extractvalue { i8, ptr } %6, 1
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !14
+9:                                                ; preds = %.preheader
+  %10 = extractvalue { i8, ptr } %6, 1
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !14
 
-.loopexit:                                        ; preds = %10, %.preheader, %1
-  %13 = phi ptr [ null, %1 ], [ %4, %.preheader ], [ null, %10 ]
-  ret ptr %13
+.loopexit:                                        ; preds = %9, %.preheader, %1
+  %12 = phi ptr [ null, %1 ], [ %4, %.preheader ], [ null, %9 ]
+  ret ptr %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @llist_del_first_this(ptr noundef %0, ptr noundef readnone %1) #0 align 16 {
   %3 = load volatile ptr, ptr %0, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !15
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %5, label %.loopexit
 
 5:                                                ; preds = %2
   %6 = load volatile ptr, ptr %3, align 8
-  %7 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %6, ptr elementtype(i64) %0, ptr %3) #3, !srcloc !16
+  %7 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %6, ptr elementtype(i64) %0, ptr %3) #2, !srcloc !16
   %8 = extractvalue { i8, ptr } %7, 0
-  %9 = icmp ult i8 %8, 2
-  tail call void @llvm.assume(i1 %9)
-  %10 = icmp eq i8 %8, 0
-  br i1 %10, label %.preheader, label %.loopexit, !prof !6
+  %9 = icmp eq i8 %8, 0
+  br i1 %9, label %.preheader, label %.loopexit, !prof !6
 
-11:                                               ; preds = %.preheader
-  %12 = load volatile ptr, ptr %18, align 8
-  %13 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %12, ptr elementtype(i64) %0, ptr %18) #3, !srcloc !16
-  %14 = extractvalue { i8, ptr } %13, 0
-  %15 = icmp ult i8 %14, 2
-  tail call void @llvm.assume(i1 %15)
-  %16 = icmp eq i8 %14, 0
-  br i1 %16, label %.preheader, label %.loopexit, !prof !7, !llvm.loop !17
+10:                                               ; preds = %.preheader
+  %11 = load volatile ptr, ptr %16, align 8
+  %12 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %11, ptr elementtype(i64) %0, ptr %16) #2, !srcloc !16
+  %13 = extractvalue { i8, ptr } %12, 0
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %.preheader, label %.loopexit, !prof !7, !llvm.loop !17
 
-.preheader:                                       ; preds = %5, %11
-  %17 = phi { i8, ptr } [ %13, %11 ], [ %7, %5 ]
-  %18 = extractvalue { i8, ptr } %17, 1
-  %19 = icmp eq ptr %18, %1
-  br i1 %19, label %11, label %.loopexit, !llvm.loop !17
+.preheader:                                       ; preds = %5, %10
+  %15 = phi { i8, ptr } [ %12, %10 ], [ %7, %5 ]
+  %16 = extractvalue { i8, ptr } %15, 1
+  %17 = icmp eq ptr %16, %1
+  br i1 %17, label %10, label %.loopexit, !llvm.loop !17
 
-.loopexit:                                        ; preds = %.preheader, %11, %5, %2
-  %20 = phi i1 [ false, %2 ], [ true, %5 ], [ %19, %11 ], [ %19, %.preheader ]
-  ret i1 %20
+.loopexit:                                        ; preds = %.preheader, %10, %5, %2
+  %18 = phi i1 [ false, %2 ], [ true, %5 ], [ %17, %10 ], [ %17, %.preheader ]
+  ret i1 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef ptr @llist_reverse_order(ptr noundef %0) #2 align 16 {
+define dso_local noundef ptr @llist_reverse_order(ptr noundef %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -127,9 +114,8 @@ define dso_local noundef ptr @llist_reverse_order(ptr noundef %0) #2 align 16 {
 }
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #2 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #1 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #2 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

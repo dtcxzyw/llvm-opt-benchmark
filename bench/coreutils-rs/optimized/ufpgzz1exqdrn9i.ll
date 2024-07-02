@@ -602,7 +602,7 @@ default.unreachable1:                             ; preds = %3
 
 "_ZN3std4sync4mpmc4list16Channel$LT$T$GT$5write17h84e05a1f945a0b71E.llvm.10441209453365693937.exit.thread.i": ; preds = %20
   %23 = load i64, ptr %16, align 8, !alias.scope !88, !noalias !91, !noundef !4
-  %24 = icmp ult i64 %23, 31
+  %24 = icmp ne i64 %23, 31
   call void @llvm.assume(i1 %24)
   %25 = getelementptr inbounds { { { [20 x i64] } }, { i64 }, [1 x i64] }, ptr %21, i64 %23
   store i128 %.sroa.011.0.copyload.i, ptr %25, align 16, !noalias !94

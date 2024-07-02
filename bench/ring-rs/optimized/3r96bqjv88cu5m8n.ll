@@ -197,18 +197,16 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 1 ptr @"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E"(ptr noundef nonnull align 1 %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load atomic i8, ptr %0 acquire, align 1
-  %3 = icmp ult i8 %2, 4
-  tail call void @llvm.assume(i1 %3)
   %.not = icmp eq i8 %2, 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
-  br i1 %.not, label %7, label %5
+  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  br i1 %.not, label %6, label %4
 
-5:                                                ; preds = %1
-  %6 = tail call noundef nonnull align 1 ptr @"_ZN4spin4once17Once$LT$T$C$R$GT$18try_call_once_slow17hb9410bc6acb2ef26E.llvm.8403485840513791397"(ptr noundef nonnull align 1 %0)
-  br label %7
+4:                                                ; preds = %1
+  %5 = tail call noundef nonnull align 1 ptr @"_ZN4spin4once17Once$LT$T$C$R$GT$18try_call_once_slow17hb9410bc6acb2ef26E.llvm.8403485840513791397"(ptr noundef nonnull align 1 %0)
+  br label %6
 
-7:                                                ; preds = %1, %5
-  %.0 = phi ptr [ %6, %5 ], [ %4, %1 ]
+6:                                                ; preds = %1, %4
+  %.0 = phi ptr [ %5, %4 ], [ %3, %1 ]
   ret ptr %.0
 }
 
@@ -224,90 +222,84 @@ define hidden noundef nonnull align 1 ptr @"_ZN4spin4once17Once$LT$T$C$R$GT$18tr
   unreachable
 
 ._crit_edge:                                      ; preds = %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread", %1
-  %.lcssa = phi i8 [ %5, %1 ], [ %17, %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread" ]
+  %.lcssa = phi i8 [ %5, %1 ], [ %16, %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread" ]
   %7 = icmp ult i8 %.lcssa, 4
   tail call void @llvm.assume(i1 %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   invoke void @ring_core_0_17_8__OPENSSL_cpuid_setup()
-          to label %10 unwind label %11
+          to label %9 unwind label %10
 
 .lr.ph:                                           ; preds = %1, %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread"
-  %8 = phi i8 [ %17, %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread" ], [ %5, %1 ]
-  %9 = icmp ult i8 %8, 4
-  tail call void @llvm.assume(i1 %9)
+  %8 = phi i8 [ %16, %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread" ], [ %5, %1 ]
   switch i8 %8, label %6 [
     i8 0, label %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread"
     i8 1, label %.preheader
     i8 2, label %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit"
-    i8 3, label %22
+    i8 3, label %20
   ]
 
-10:                                               ; preds = %._crit_edge
+9:                                                ; preds = %._crit_edge
   store atomic i8 2, ptr %0 release, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit"
 
-"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit": ; preds = %.lr.ph, %.preheader, %10
+"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit": ; preds = %.lr.ph, %.preheader, %9
   %.0 = getelementptr inbounds i8, ptr %0, i64 1
   ret ptr %.0
 
-11:                                               ; preds = %._crit_edge
-  %12 = landingpad { ptr, i32 }
+10:                                               ; preds = %._crit_edge
+  %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN60_$LT$spin..once..Finish$u20$as$u20$core..ops..drop..Drop$GT$4drop17h662f8b205b615727E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %"_ZN4core3ptr39drop_in_place$LT$spin..once..Finish$GT$17hbe9a70826f92ee99E.exit" unwind label %13
+          to label %"_ZN4core3ptr39drop_in_place$LT$spin..once..Finish$GT$17hbe9a70826f92ee99E.exit" unwind label %12
 
-13:                                               ; preds = %11
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #27
   unreachable
 
 "_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread": ; preds = %.preheader, %.lr.ph
-  %15 = cmpxchg ptr %0, i8 0, i8 1 acquire acquire, align 1
-  %16 = extractvalue { i8, i1 } %15, 1
-  %17 = extractvalue { i8, i1 } %15, 0
-  br i1 %16, label %._crit_edge, label %.lr.ph
+  %14 = cmpxchg ptr %0, i8 0, i8 1 acquire acquire, align 1
+  %15 = extractvalue { i8, i1 } %14, 1
+  %16 = extractvalue { i8, i1 } %14, 0
+  br i1 %15, label %._crit_edge, label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph, %20
-  %18 = load atomic i8, ptr %0 acquire, align 1
-  %19 = icmp ult i8 %18, 4
-  tail call void @llvm.assume(i1 %19)
-  switch i8 %18, label %default.unreachable.i [
+.preheader:                                       ; preds = %.lr.ph, %18
+  %17 = load atomic i8, ptr %0 acquire, align 1
+  switch i8 %17, label %default.unreachable.i [
     i8 0, label %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread"
-    i8 1, label %20
+    i8 1, label %18
     i8 2, label %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit"
-    i8 3, label %21
+    i8 3, label %19
   ]
 
 default.unreachable.i:                            ; preds = %.preheader
   unreachable
 
-20:                                               ; preds = %.preheader
+18:                                               ; preds = %.preheader
   tail call void @llvm.x86.sse2.pause() #18
   br label %.preheader
 
-21:                                               ; preds = %.preheader
+19:                                               ; preds = %.preheader
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a08cbc0fed5954eef0273385eb99bffc.27, i64 noundef 38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a08cbc0fed5954eef0273385eb99bffc.28) #26
   unreachable
 
-22:                                               ; preds = %.lr.ph
+20:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a08cbc0fed5954eef0273385eb99bffc.24, i64 noundef 13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a08cbc0fed5954eef0273385eb99bffc.26) #26
   unreachable
 
-"_ZN4core3ptr39drop_in_place$LT$spin..once..Finish$GT$17hbe9a70826f92ee99E.exit": ; preds = %11
-  resume { ptr, i32 } %12
+"_ZN4core3ptr39drop_in_place$LT$spin..once..Finish$GT$17hbe9a70826f92ee99E.exit": ; preds = %10
+  resume { ptr, i32 } %11
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef align 1 ptr @"_ZN4spin4once17Once$LT$T$C$R$GT$3get17h5bf82025144effe4E.llvm.8403485840513791397"(ptr noundef nonnull readonly align 1 %0) unnamed_addr #4 {
   %2 = load atomic i8, ptr %0 acquire, align 1
-  %3 = icmp ult i8 %2, 4
-  tail call void @llvm.assume(i1 %3)
-  %4 = icmp eq i8 %2, 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
-  %.0 = select i1 %4, ptr %5, ptr null
+  %3 = icmp eq i8 %2, 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %.0 = select i1 %3, ptr %4, ptr null
   ret ptr %.0
 }
 
@@ -1788,16 +1780,14 @@ define hidden void @_ZN4ring3rsa7keypair7KeyPair15from_components17hcabd923a430a
   %46 = getelementptr inbounds i8, ptr %3, i64 120
   store i64 %34, ptr %46, align 8
   %47 = load atomic i8, ptr @_ZN4ring3cpu8features4INIT17hdec16924e286df23E acquire, align 1
-  %48 = icmp ult i8 %47, 4
-  tail call void @llvm.assume(i1 %48)
   %.not.i = icmp eq i8 %47, 2
-  br i1 %.not.i, label %"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit", label %49
+  br i1 %.not.i, label %"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit", label %48
 
-49:                                               ; preds = %2
-  %50 = tail call noundef nonnull align 1 ptr @"_ZN4spin4once17Once$LT$T$C$R$GT$18try_call_once_slow17hb9410bc6acb2ef26E.llvm.8403485840513791397"(ptr noundef nonnull align 1 @_ZN4ring3cpu8features4INIT17hdec16924e286df23E)
+48:                                               ; preds = %2
+  %49 = tail call noundef nonnull align 1 ptr @"_ZN4spin4once17Once$LT$T$C$R$GT$18try_call_once_slow17hb9410bc6acb2ef26E.llvm.8403485840513791397"(ptr noundef nonnull align 1 @_ZN4ring3cpu8features4INIT17hdec16924e286df23E)
   br label %"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit"
 
-"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit": ; preds = %2, %49
+"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit": ; preds = %2, %48
   call void @_ZN4ring3rsa7keypair7KeyPair16from_components_17h4ff4502bb2b5f3b2E(ptr noalias nocapture noundef nonnull sret({ ptr, [29 x i64] }) align 8 dereferenceable(240) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %3)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   ret void
@@ -2575,7 +2565,7 @@ attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "tar
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

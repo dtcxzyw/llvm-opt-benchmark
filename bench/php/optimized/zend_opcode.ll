@@ -1362,11 +1362,11 @@ define void @destroy_zend_class(ptr nocapture noundef readonly %0) local_unnamed
 62:                                               ; preds = %10
   %63 = getelementptr inbounds i8, ptr %2, i64 24
   %64 = load i32, ptr %63, align 8
-  %65 = icmp sgt i32 %64, 0
+  %65 = icmp ne i32 %64, 0
   tail call void @llvm.assume(i1 %65)
   %66 = add nsw i32 %64, -1
   store i32 %66, ptr %63, align 8
-  %67 = icmp ugt i32 %64, 1
+  %67 = icmp sgt i32 %64, 1
   br i1 %67, label %.loopexit594, label %68
 
 68:                                               ; preds = %62

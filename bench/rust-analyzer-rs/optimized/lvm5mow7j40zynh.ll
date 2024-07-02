@@ -29124,7 +29124,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3896)
   %45 = add nuw nsw i64 %42, 1
   store i64 %45, ptr %4, align 8, !alias.scope !3899, !noalias !3896
-  %46 = icmp ult i64 %42, 3
+  %46 = icmp ne i64 %42, 3
   tail call void @llvm.assume(i1 %46)
   %47 = getelementptr inbounds { [3 x i64] }, ptr %43, i64 %42
   %.sroa.037.0.copyload38120 = load i8, ptr %47, align 8, !alias.scope !3901
@@ -29132,7 +29132,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   br i1 %48, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h846d3221aa18770fE.exit13.thread", label %.lr.ph122.preheader
 
 .lr.ph122.preheader:                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h846d3221aa18770fE.exit13.lr.ph"
-  %invariant.gep = getelementptr inbounds i8, ptr %43, i64 1
+  %invariant.gep = getelementptr i8, ptr %43, i64 1
   br label %.lr.ph122
 
 .body17:                                          ; preds = %83
@@ -29143,7 +29143,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3902)
   %49 = add nuw nsw i64 %97, 1
   store i64 %49, ptr %4, align 8, !alias.scope !3899, !noalias !3902
-  %50 = icmp ult i64 %97, 3
+  %50 = icmp ne i64 %97, 3
   tail call void @llvm.assume(i1 %50)
   %51 = getelementptr inbounds { [3 x i64] }, ptr %43, i64 %97
   %.sroa.037.0.copyload38 = load i8, ptr %51, align 8, !alias.scope !3904
@@ -29221,7 +29221,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h846d3221aa18770fE.exit13"
   %.sroa.037.0.copyload38121 = phi i8 [ %.sroa.037.0.copyload38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h846d3221aa18770fE.exit13" ], [ %.sroa.037.0.copyload38120, %.lr.ph122.preheader ]
   %77 = phi i64 [ %97, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h846d3221aa18770fE.exit13" ], [ %42, %.lr.ph122.preheader ]
-  %gep = getelementptr inbounds { [3 x i64] }, ptr %invariant.gep, i64 %77
+  %gep = getelementptr { [3 x i64] }, ptr %invariant.gep, i64 %77
   store i8 %.sroa.037.0.copyload38121, ptr %3, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.739.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %gep, i64 23, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3932)

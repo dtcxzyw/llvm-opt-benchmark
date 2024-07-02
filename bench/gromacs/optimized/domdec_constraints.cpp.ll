@@ -679,16 +679,16 @@ _ZN15InteractionList5clearEv.exit65.thread:       ; preds = %_ZNSt6vectorIiSaIiE
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %._crit_edge86
   %indvars.iv109 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next110, %._crit_edge86 ]
-  %168 = phi ptr [ %159, %.lr.ph85.preheader ], [ %198, %._crit_edge86 ]
+  %168 = phi ptr [ %159, %.lr.ph85.preheader ], [ %197, %._crit_edge86 ]
   %169 = getelementptr inbounds i32, ptr %168, i64 %indvars.iv109
   br label %170
 
-170:                                              ; preds = %.lr.ph85, %194
-  %indvars.iv106 = phi i64 [ 1, %.lr.ph85 ], [ %indvars.iv.next107, %194 ]
+170:                                              ; preds = %.lr.ph85, %193
+  %indvars.iv106 = phi i64 [ 1, %.lr.ph85 ], [ %indvars.iv.next107, %193 ]
   %171 = getelementptr inbounds i32, ptr %169, i64 %indvars.iv106
   %172 = load i32, ptr %171, align 4
   %173 = icmp slt i32 %172, 0
-  br i1 %173, label %174, label %194
+  br i1 %173, label %174, label %193
 
 174:                                              ; preds = %170
   %175 = xor i32 %172, -1
@@ -702,130 +702,126 @@ _ZN15InteractionList5clearEv.exit65.thread:       ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %182, label %_ZN3gmx9HashedMapIiE4findEi.exit, label %.lr.ph81
 
 _ZN3gmx9HashedMapIiE4findEi.exit:                 ; preds = %.lr.ph81, %174
-  %183 = phi i64 [ %179, %174 ], [ %190, %.lr.ph81 ]
+  %183 = phi i64 [ %179, %174 ], [ %189, %.lr.ph81 ]
   %184 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %178, i64 %183, i32 1
   %185 = load i32, ptr %184, align 4
   store i32 %185, ptr %171, align 4
-  br label %194
+  br label %193
 
 .lr.ph81:                                         ; preds = %174, %.lr.ph81
-  %186 = phi i64 [ %190, %.lr.ph81 ], [ %179, %174 ]
+  %186 = phi i64 [ %189, %.lr.ph81 ], [ %179, %174 ]
   %187 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %178, i64 %186, i32 2
   %188 = load i32, ptr %187, align 4
-  %189 = icmp sgt i32 %188, -1
-  call void @llvm.assume(i1 %189)
-  %190 = zext nneg i32 %188 to i64
-  %191 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %178, i64 %190
-  %192 = load i32, ptr %191, align 4
-  %193 = icmp eq i32 %192, %175
-  br i1 %193, label %_ZN3gmx9HashedMapIiE4findEi.exit, label %.lr.ph81
+  %189 = zext nneg i32 %188 to i64
+  %190 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %178, i64 %189
+  %191 = load i32, ptr %190, align 4
+  %192 = icmp eq i32 %191, %175
+  br i1 %192, label %_ZN3gmx9HashedMapIiE4findEi.exit, label %.lr.ph81
 
-194:                                              ; preds = %170, %_ZN3gmx9HashedMapIiE4findEi.exit
+193:                                              ; preds = %170, %_ZN3gmx9HashedMapIiE4findEi.exit
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next107, %167
   br i1 %exitcond.not, label %._crit_edge86, label %170, !llvm.loop !14
 
-._crit_edge86:                                    ; preds = %194
+._crit_edge86:                                    ; preds = %193
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, %167
-  %195 = load ptr, ptr %13, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 8
-  %197 = load ptr, ptr %196, align 8
-  %198 = load ptr, ptr %195, align 8
+  %194 = load ptr, ptr %13, align 8
+  %195 = getelementptr inbounds i8, ptr %194, i64 8
+  %196 = load ptr, ptr %195, align 8
+  %197 = load ptr, ptr %194, align 8
+  %198 = ptrtoint ptr %196 to i64
   %199 = ptrtoint ptr %197 to i64
-  %200 = ptrtoint ptr %198 to i64
-  %201 = sub i64 %199, %200
-  %202 = lshr exact i64 %201, 2
-  %203 = trunc i64 %202 to i32
-  %204 = trunc nuw i64 %indvars.iv.next110 to i32
-  %205 = icmp slt i32 %204, %203
-  br i1 %205, label %.lr.ph85, label %._crit_edge90, !llvm.loop !15
+  %200 = sub i64 %198, %199
+  %201 = lshr exact i64 %200, 2
+  %202 = trunc i64 %201 to i32
+  %203 = trunc nuw i64 %indvars.iv.next110 to i32
+  %204 = icmp slt i32 %203, %202
+  br i1 %204, label %.lr.ph85, label %._crit_edge90, !llvm.loop !15
 
 ._crit_edge90:                                    ; preds = %._crit_edge86, %.lr.ph89, %142
-  %206 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2064), align 16
-  %207 = add i32 %206, 1
-  %208 = load ptr, ptr %14, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 8
-  %210 = load ptr, ptr %209, align 8
-  %211 = load ptr, ptr %208, align 8
+  %205 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2064), align 16
+  %206 = add i32 %205, 1
+  %207 = load ptr, ptr %14, align 8
+  %208 = getelementptr inbounds i8, ptr %207, i64 8
+  %209 = load ptr, ptr %208, align 8
+  %210 = load ptr, ptr %207, align 8
+  %211 = ptrtoint ptr %209 to i64
   %212 = ptrtoint ptr %210 to i64
-  %213 = ptrtoint ptr %211 to i64
-  %214 = sub i64 %212, %213
-  %215 = lshr exact i64 %214, 2
-  %216 = trunc i64 %215 to i32
-  %217 = icmp sgt i32 %216, 0
-  br i1 %217, label %.lr.ph101, label %.loopexit
+  %213 = sub i64 %211, %212
+  %214 = lshr exact i64 %213, 2
+  %215 = trunc i64 %214 to i32
+  %216 = icmp sgt i32 %215, 0
+  br i1 %216, label %.lr.ph101, label %.loopexit
 
 .lr.ph101:                                        ; preds = %._crit_edge90
-  %.not6294 = icmp slt i32 %206, 1
-  %218 = getelementptr inbounds i8, ptr %153, i64 24
+  %.not6294 = icmp slt i32 %205, 1
+  %217 = getelementptr inbounds i8, ptr %153, i64 24
   br i1 %.not6294, label %.loopexit, label %.lr.ph97.preheader
 
 .lr.ph97.preheader:                               ; preds = %.lr.ph101
-  %219 = zext i32 %207 to i64
+  %218 = zext i32 %206 to i64
   br label %.lr.ph97
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %._crit_edge98
   %indvars.iv117 = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next118, %._crit_edge98 ]
-  %220 = phi ptr [ %211, %.lr.ph97.preheader ], [ %250, %._crit_edge98 ]
-  %221 = getelementptr inbounds i32, ptr %220, i64 %indvars.iv117
-  br label %222
+  %219 = phi ptr [ %210, %.lr.ph97.preheader ], [ %248, %._crit_edge98 ]
+  %220 = getelementptr inbounds i32, ptr %219, i64 %indvars.iv117
+  br label %221
 
-222:                                              ; preds = %.lr.ph97, %246
-  %indvars.iv112 = phi i64 [ 1, %.lr.ph97 ], [ %indvars.iv.next113, %246 ]
-  %223 = getelementptr inbounds i32, ptr %221, i64 %indvars.iv112
-  %224 = load i32, ptr %223, align 4
-  %225 = icmp slt i32 %224, 0
-  br i1 %225, label %226, label %246
+221:                                              ; preds = %.lr.ph97, %244
+  %indvars.iv112 = phi i64 [ 1, %.lr.ph97 ], [ %indvars.iv.next113, %244 ]
+  %222 = getelementptr inbounds i32, ptr %220, i64 %indvars.iv112
+  %223 = load i32, ptr %222, align 4
+  %224 = icmp slt i32 %223, 0
+  br i1 %224, label %225, label %244
 
-226:                                              ; preds = %222
-  %227 = xor i32 %224, -1
-  %228 = load i32, ptr %218, align 8
-  %229 = and i32 %228, %227
-  %230 = load ptr, ptr %153, align 8
-  %231 = zext nneg i32 %229 to i64
-  %232 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %230, i64 %231
-  %233 = load i32, ptr %232, align 4
-  %234 = icmp eq i32 %233, %227
-  br i1 %234, label %_ZN3gmx9HashedMapIiE4findEi.exit70, label %.lr.ph92
+225:                                              ; preds = %221
+  %226 = xor i32 %223, -1
+  %227 = load i32, ptr %217, align 8
+  %228 = and i32 %227, %226
+  %229 = load ptr, ptr %153, align 8
+  %230 = zext nneg i32 %228 to i64
+  %231 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %229, i64 %230
+  %232 = load i32, ptr %231, align 4
+  %233 = icmp eq i32 %232, %226
+  br i1 %233, label %_ZN3gmx9HashedMapIiE4findEi.exit70, label %.lr.ph92
 
-_ZN3gmx9HashedMapIiE4findEi.exit70:               ; preds = %.lr.ph92, %226
-  %235 = phi i64 [ %231, %226 ], [ %242, %.lr.ph92 ]
-  %236 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %230, i64 %235, i32 1
-  %237 = load i32, ptr %236, align 4
-  store i32 %237, ptr %223, align 4
-  br label %246
+_ZN3gmx9HashedMapIiE4findEi.exit70:               ; preds = %.lr.ph92, %225
+  %234 = phi i64 [ %230, %225 ], [ %240, %.lr.ph92 ]
+  %235 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %229, i64 %234, i32 1
+  %236 = load i32, ptr %235, align 4
+  store i32 %236, ptr %222, align 4
+  br label %244
 
-.lr.ph92:                                         ; preds = %226, %.lr.ph92
-  %238 = phi i64 [ %242, %.lr.ph92 ], [ %231, %226 ]
-  %239 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %230, i64 %238, i32 2
-  %240 = load i32, ptr %239, align 4
-  %241 = icmp sgt i32 %240, -1
-  call void @llvm.assume(i1 %241)
-  %242 = zext nneg i32 %240 to i64
-  %243 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %230, i64 %242
-  %244 = load i32, ptr %243, align 4
-  %245 = icmp eq i32 %244, %227
-  br i1 %245, label %_ZN3gmx9HashedMapIiE4findEi.exit70, label %.lr.ph92
+.lr.ph92:                                         ; preds = %225, %.lr.ph92
+  %237 = phi i64 [ %240, %.lr.ph92 ], [ %230, %225 ]
+  %238 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %229, i64 %237, i32 2
+  %239 = load i32, ptr %238, align 4
+  %240 = zext nneg i32 %239 to i64
+  %241 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %229, i64 %240
+  %242 = load i32, ptr %241, align 4
+  %243 = icmp eq i32 %242, %226
+  br i1 %243, label %_ZN3gmx9HashedMapIiE4findEi.exit70, label %.lr.ph92
 
-246:                                              ; preds = %222, %_ZN3gmx9HashedMapIiE4findEi.exit70
+244:                                              ; preds = %221, %_ZN3gmx9HashedMapIiE4findEi.exit70
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %exitcond116.not = icmp eq i64 %indvars.iv.next113, %219
-  br i1 %exitcond116.not, label %._crit_edge98, label %222, !llvm.loop !16
+  %exitcond116.not = icmp eq i64 %indvars.iv.next113, %218
+  br i1 %exitcond116.not, label %._crit_edge98, label %221, !llvm.loop !16
 
-._crit_edge98:                                    ; preds = %246
-  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, %219
-  %247 = load ptr, ptr %14, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 8
-  %249 = load ptr, ptr %248, align 8
-  %250 = load ptr, ptr %247, align 8
-  %251 = ptrtoint ptr %249 to i64
-  %252 = ptrtoint ptr %250 to i64
-  %253 = sub i64 %251, %252
-  %254 = lshr exact i64 %253, 2
-  %255 = trunc i64 %254 to i32
-  %256 = trunc nuw i64 %indvars.iv.next118 to i32
-  %257 = icmp slt i32 %256, %255
-  br i1 %257, label %.lr.ph97, label %.loopexit, !llvm.loop !17
+._crit_edge98:                                    ; preds = %244
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, %218
+  %245 = load ptr, ptr %14, align 8
+  %246 = getelementptr inbounds i8, ptr %245, i64 8
+  %247 = load ptr, ptr %246, align 8
+  %248 = load ptr, ptr %245, align 8
+  %249 = ptrtoint ptr %247 to i64
+  %250 = ptrtoint ptr %248 to i64
+  %251 = sub i64 %249, %250
+  %252 = lshr exact i64 %251, 2
+  %253 = trunc i64 %252 to i32
+  %254 = trunc nuw i64 %indvars.iv.next118 to i32
+  %255 = icmp slt i32 %254, %253
+  br i1 %255, label %.lr.ph97, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %._crit_edge98, %.lr.ph101, %._crit_edge90, %138
   %.051 = phi i32 [ %1, %138 ], [ %148, %._crit_edge90 ], [ %148, %.lr.ph101 ], [ %148, %._crit_edge98 ]

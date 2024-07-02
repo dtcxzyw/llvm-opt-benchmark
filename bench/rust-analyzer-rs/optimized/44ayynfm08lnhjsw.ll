@@ -9638,50 +9638,48 @@ define hidden noundef nonnull ptr @_ZN4core4iter6traits8iterator8Iterator8try_fo
   br i1 %.not.i9, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h83b7175e9aeda5b9E.exit._crit_edge", label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i"
-  %storemerge10 = phi ptr [ %24, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i" ], [ %1, %4 ]
+  %storemerge10 = phi ptr [ %23, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i" ], [ %1, %4 ]
   %7 = phi i64 [ %8, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i" ], [ %.promoted, %4 ]
   %8 = add nuw nsw i64 %7, 1
   store i64 %8, ptr %0, align 8, !alias.scope !2697
-  %9 = icmp ult i64 %7, 4
-  tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds { [2 x i64] }, ptr %3, i64 %7
-  %11 = load ptr, ptr %10, align 8, !nonnull !11, !align !224, !noundef !11
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = load i64, ptr %12, align 8, !noundef !11
-  %14 = invoke noundef nonnull ptr @_ZN6syntax3ast4make3ext10ident_path17h61779d27f0850dafE(ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %13)
-          to label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i" unwind label %15
+  %9 = getelementptr inbounds { [2 x i64] }, ptr %3, i64 %7
+  %10 = load ptr, ptr %9, align 8, !nonnull !11, !align !224, !noundef !11
+  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = load i64, ptr %11, align 8, !noundef !11
+  %13 = invoke noundef nonnull ptr @_ZN6syntax3ast4make3ext10ident_path17h61779d27f0850dafE(ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
+          to label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i" unwind label %14
 
-15:                                               ; preds = %.lr.ph
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %.lr.ph
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %17 = getelementptr inbounds i8, ptr %storemerge10, i64 48
-  %18 = load i32, ptr %17, align 4, !noalias !2700, !noundef !11
-  %19 = add i32 %18, -1
-  store i32 %19, ptr %17, align 4, !noalias !2700
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %.body
+  %16 = getelementptr inbounds i8, ptr %storemerge10, i64 48
+  %17 = load i32, ptr %16, align 4, !noalias !2700, !noundef !11
+  %18 = add i32 %17, -1
+  store i32 %18, ptr %16, align 4, !noalias !2700
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %.body
 
-21:                                               ; preds = %15
+20:                                               ; preds = %14
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %storemerge10)
-          to label %.body unwind label %22
+          to label %.body unwind label %21
 
-22:                                               ; preds = %21
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %20
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #60
   unreachable
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i": ; preds = %.lr.ph
-  %24 = tail call noundef nonnull ptr @_ZN6syntax3ast4make11path_concat17hedf5b24418d45c45E(ptr noundef nonnull %storemerge10, ptr noundef nonnull %14)
+  %23 = tail call noundef nonnull ptr @_ZN6syntax3ast4make11path_concat17hedf5b24418d45c45E(ptr noundef nonnull %storemerge10, ptr noundef nonnull %13)
   %.not.i = icmp eq i64 %6, %8
   br i1 %.not.i, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h83b7175e9aeda5b9E.exit._crit_edge", label %.lr.ph
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h83b7175e9aeda5b9E.exit._crit_edge": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i", %4
-  %storemerge.lcssa = phi ptr [ %1, %4 ], [ %24, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i" ]
+  %storemerge.lcssa = phi ptr [ %1, %4 ], [ %23, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i" ]
   ret ptr %storemerge.lcssa
 
-.body:                                            ; preds = %21, %15
-  resume { ptr, i32 } %16
+.body:                                            ; preds = %20, %14
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -9693,50 +9691,48 @@ define hidden noundef nonnull ptr @_ZN4core4iter6traits8iterator8Iterator8try_fo
   br i1 %.not.i9, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h67bc8c731e2294a7E.exit._crit_edge", label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i"
-  %storemerge10 = phi ptr [ %24, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i" ], [ %1, %4 ]
+  %storemerge10 = phi ptr [ %23, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i" ], [ %1, %4 ]
   %7 = phi i64 [ %8, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i" ], [ %.promoted, %4 ]
   %8 = add nuw nsw i64 %7, 1
   store i64 %8, ptr %0, align 8, !alias.scope !2711
-  %9 = icmp ult i64 %7, 2
-  tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds { [2 x i64] }, ptr %3, i64 %7
-  %11 = load ptr, ptr %10, align 8, !nonnull !11, !align !224, !noundef !11
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = load i64, ptr %12, align 8, !noundef !11
-  %14 = invoke noundef nonnull ptr @_ZN6syntax3ast4make3ext10ident_path17h61779d27f0850dafE(ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %13)
-          to label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i" unwind label %15
+  %9 = getelementptr inbounds { [2 x i64] }, ptr %3, i64 %7
+  %10 = load ptr, ptr %9, align 8, !nonnull !11, !align !224, !noundef !11
+  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = load i64, ptr %11, align 8, !noundef !11
+  %13 = invoke noundef nonnull ptr @_ZN6syntax3ast4make3ext10ident_path17h61779d27f0850dafE(ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
+          to label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i" unwind label %14
 
-15:                                               ; preds = %.lr.ph
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %.lr.ph
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %17 = getelementptr inbounds i8, ptr %storemerge10, i64 48
-  %18 = load i32, ptr %17, align 4, !noalias !2714, !noundef !11
-  %19 = add i32 %18, -1
-  store i32 %19, ptr %17, align 4, !noalias !2714
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %.body
+  %16 = getelementptr inbounds i8, ptr %storemerge10, i64 48
+  %17 = load i32, ptr %16, align 4, !noalias !2714, !noundef !11
+  %18 = add i32 %17, -1
+  store i32 %18, ptr %16, align 4, !noalias !2714
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %.body
 
-21:                                               ; preds = %15
+20:                                               ; preds = %14
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %storemerge10)
-          to label %.body unwind label %22
+          to label %.body unwind label %21
 
-22:                                               ; preds = %21
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %20
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #60
   unreachable
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i": ; preds = %.lr.ph
-  %24 = tail call noundef nonnull ptr @_ZN6syntax3ast4make11path_concat17hedf5b24418d45c45E(ptr noundef nonnull %storemerge10, ptr noundef nonnull %14)
+  %23 = tail call noundef nonnull ptr @_ZN6syntax3ast4make11path_concat17hedf5b24418d45c45E(ptr noundef nonnull %storemerge10, ptr noundef nonnull %13)
   %.not.i = icmp eq i64 %6, %8
   br i1 %.not.i, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h67bc8c731e2294a7E.exit._crit_edge", label %.lr.ph
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h67bc8c731e2294a7E.exit._crit_edge": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i", %4
-  %storemerge.lcssa = phi ptr [ %1, %4 ], [ %24, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i" ]
+  %storemerge.lcssa = phi ptr [ %1, %4 ], [ %23, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i" ]
   ret ptr %storemerge.lcssa
 
-.body:                                            ; preds = %21, %15
-  resume { ptr, i32 } %16
+.body:                                            ; preds = %20, %14
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -9823,7 +9819,7 @@ define hidden noundef nonnull ptr @_ZN4core4iter6traits8iterator8Iterator8try_fo
   %7 = phi i64 [ %8, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha181fe2af7749999E.exit.i" ], [ %.promoted, %4 ]
   %8 = add nuw nsw i64 %7, 1
   store i64 %8, ptr %0, align 8, !alias.scope !2739
-  %9 = icmp ult i64 %7, 3
+  %9 = icmp ne i64 %7, 3
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds { [2 x i64] }, ptr %3, i64 %7
   %11 = load ptr, ptr %10, align 8, !nonnull !11, !align !224, !noundef !11
@@ -21133,54 +21129,56 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make3ext16path_from_idents17h3
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6.0..sroa_idx20, i64 48, i1 false)
   %2 = tail call noundef nonnull ptr @_ZN6syntax3ast4make3ext10ident_path17h61779d27f0850dafE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload17, i64 noundef %.sroa.5.0.copyload19)
+  %.sroa.621.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 64
+  store i64 1, ptr %.sroa.621.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 72
+  store i64 4, ptr %.sroa.8.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5999)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6002)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i.i"
-  %storemerge10.i.i = phi ptr [ %20, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i.i" ], [ %2, %.lr.ph.i.i.preheader ]
-  %3 = phi i64 [ %19, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i.i" ], [ 1, %.lr.ph.i.i.preheader ]
-  %4 = icmp ult i64 %3, 4
-  tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds { [2 x i64] }, ptr %1, i64 %3
-  %6 = load ptr, ptr %5, align 8, !alias.scope !6005, !noalias !6006, !nonnull !11, !align !224, !noundef !11
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !alias.scope !6005, !noalias !6006, !noundef !11
-  %9 = invoke noundef nonnull ptr @_ZN6syntax3ast4make3ext10ident_path17h61779d27f0850dafE(ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8)
-          to label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i.i" unwind label %10, !noalias !6008
+  %storemerge10.i.i = phi ptr [ %19, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i.i" ], [ %2, %.lr.ph.i.i.preheader ]
+  %3 = phi i64 [ %18, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i.i" ], [ 1, %.lr.ph.i.i.preheader ]
+  %4 = getelementptr inbounds { [2 x i64] }, ptr %1, i64 %3
+  %5 = load ptr, ptr %4, align 8, !alias.scope !6005, !noalias !6006, !nonnull !11, !align !224, !noundef !11
+  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = load i64, ptr %6, align 8, !alias.scope !6005, !noalias !6006, !noundef !11
+  %8 = invoke noundef nonnull ptr @_ZN6syntax3ast4make3ext10ident_path17h61779d27f0850dafE(ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %7)
+          to label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i.i" unwind label %9, !noalias !6008
 
-10:                                               ; preds = %.lr.ph.i.i
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %.lr.ph.i.i
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = getelementptr inbounds i8, ptr %storemerge10.i.i, i64 48
-  %13 = load i32, ptr %12, align 4, !noalias !6009, !noundef !11
-  %14 = add i32 %13, -1
-  store i32 %14, ptr %12, align 4, !noalias !6009
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %.body.thread
+  %11 = getelementptr inbounds i8, ptr %storemerge10.i.i, i64 48
+  %12 = load i32, ptr %11, align 4, !noalias !6009, !noundef !11
+  %13 = add i32 %12, -1
+  store i32 %13, ptr %11, align 4, !noalias !6009
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %.body.thread
 
-16:                                               ; preds = %10
+15:                                               ; preds = %9
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %storemerge10.i.i)
-          to label %.body.thread unwind label %17, !noalias !6008
+          to label %.body.thread unwind label %16, !noalias !6008
 
-17:                                               ; preds = %16
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %15
+  %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #60, !noalias !6008
   unreachable
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i.i": ; preds = %.lr.ph.i.i
-  %19 = add nuw nsw i64 %3, 1
-  %20 = tail call noundef nonnull ptr @_ZN6syntax3ast4make11path_concat17hedf5b24418d45c45E(ptr noundef nonnull %storemerge10.i.i, ptr noundef nonnull %9)
-  %.not.i.i.i = icmp eq i64 %19, 4
-  br i1 %.not.i.i.i, label %21, label %.lr.ph.i.i
+  %18 = add nuw nsw i64 %3, 1
+  %19 = tail call noundef nonnull ptr @_ZN6syntax3ast4make11path_concat17hedf5b24418d45c45E(ptr noundef nonnull %storemerge10.i.i, ptr noundef nonnull %8)
+  %.not.i.i.i = icmp eq i64 %18, 4
+  br i1 %.not.i.i.i, label %20, label %.lr.ph.i.i
 
-21:                                               ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i.i"
+20:                                               ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i.i"
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %1)
-  ret ptr %20
+  ret ptr %19
 
-.body.thread:                                     ; preds = %16, %10
-  resume { ptr, i32 } %11
+.body.thread:                                     ; preds = %15, %9
+  resume { ptr, i32 } %10
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -21195,54 +21193,56 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make3ext16path_from_idents17hc
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx20, i64 32, i1 false)
   %2 = tail call noundef nonnull ptr @_ZN6syntax3ast4make3ext10ident_path17h61779d27f0850dafE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload17, i64 noundef %.sroa.5.0.copyload19)
+  %.sroa.621.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
+  store i64 1, ptr %.sroa.621.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 56
+  store i64 3, ptr %.sroa.8.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6024)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6027)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha181fe2af7749999E.exit.i.i.i"
-  %storemerge10.i.i = phi ptr [ %20, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha181fe2af7749999E.exit.i.i.i" ], [ %2, %.lr.ph.i.i.preheader ]
-  %3 = phi i64 [ %19, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha181fe2af7749999E.exit.i.i.i" ], [ 1, %.lr.ph.i.i.preheader ]
-  %4 = icmp ult i64 %3, 3
-  tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds { [2 x i64] }, ptr %1, i64 %3
-  %6 = load ptr, ptr %5, align 8, !alias.scope !6030, !noalias !6031, !nonnull !11, !align !224, !noundef !11
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !alias.scope !6030, !noalias !6031, !noundef !11
-  %9 = invoke noundef nonnull ptr @_ZN6syntax3ast4make3ext10ident_path17h61779d27f0850dafE(ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8)
-          to label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha181fe2af7749999E.exit.i.i.i" unwind label %10, !noalias !6033
+  %storemerge10.i.i = phi ptr [ %19, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha181fe2af7749999E.exit.i.i.i" ], [ %2, %.lr.ph.i.i.preheader ]
+  %3 = phi i64 [ %18, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha181fe2af7749999E.exit.i.i.i" ], [ 1, %.lr.ph.i.i.preheader ]
+  %4 = getelementptr inbounds { [2 x i64] }, ptr %1, i64 %3
+  %5 = load ptr, ptr %4, align 8, !alias.scope !6030, !noalias !6031, !nonnull !11, !align !224, !noundef !11
+  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = load i64, ptr %6, align 8, !alias.scope !6030, !noalias !6031, !noundef !11
+  %8 = invoke noundef nonnull ptr @_ZN6syntax3ast4make3ext10ident_path17h61779d27f0850dafE(ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %7)
+          to label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha181fe2af7749999E.exit.i.i.i" unwind label %9, !noalias !6033
 
-10:                                               ; preds = %.lr.ph.i.i
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %.lr.ph.i.i
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = getelementptr inbounds i8, ptr %storemerge10.i.i, i64 48
-  %13 = load i32, ptr %12, align 4, !noalias !6034, !noundef !11
-  %14 = add i32 %13, -1
-  store i32 %14, ptr %12, align 4, !noalias !6034
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %.body.thread
+  %11 = getelementptr inbounds i8, ptr %storemerge10.i.i, i64 48
+  %12 = load i32, ptr %11, align 4, !noalias !6034, !noundef !11
+  %13 = add i32 %12, -1
+  store i32 %13, ptr %11, align 4, !noalias !6034
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %.body.thread
 
-16:                                               ; preds = %10
+15:                                               ; preds = %9
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %storemerge10.i.i)
-          to label %.body.thread unwind label %17, !noalias !6033
+          to label %.body.thread unwind label %16, !noalias !6033
 
-17:                                               ; preds = %16
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %15
+  %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #60, !noalias !6033
   unreachable
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha181fe2af7749999E.exit.i.i.i": ; preds = %.lr.ph.i.i
-  %19 = add nuw nsw i64 %3, 1
-  %20 = tail call noundef nonnull ptr @_ZN6syntax3ast4make11path_concat17hedf5b24418d45c45E(ptr noundef nonnull %storemerge10.i.i, ptr noundef nonnull %9)
-  %.not.i.i.i = icmp eq i64 %19, 3
-  br i1 %.not.i.i.i, label %21, label %.lr.ph.i.i
+  %18 = add nuw nsw i64 %3, 1
+  %19 = tail call noundef nonnull ptr @_ZN6syntax3ast4make11path_concat17hedf5b24418d45c45E(ptr noundef nonnull %storemerge10.i.i, ptr noundef nonnull %8)
+  %.not.i.i.i = icmp eq i64 %18, 3
+  br i1 %.not.i.i.i, label %20, label %.lr.ph.i.i
 
-21:                                               ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha181fe2af7749999E.exit.i.i.i"
+20:                                               ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha181fe2af7749999E.exit.i.i.i"
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1)
-  ret ptr %20
+  ret ptr %19
 
-.body.thread:                                     ; preds = %16, %10
-  resume { ptr, i32 } %11
+.body.thread:                                     ; preds = %15, %9
+  resume { ptr, i32 } %10
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -34597,50 +34597,48 @@ define hidden noundef nonnull ptr @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C
   br i1 %.not.i9.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h155e652a6686dbc1E.llvm.6977743830891006301.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i"
-  %storemerge10.i = phi ptr [ %23, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i" ], [ %1, %2 ]
+  %storemerge10.i = phi ptr [ %22, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i" ], [ %1, %2 ]
   %6 = phi i64 [ %7, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i" ], [ %.promoted.i, %2 ]
   %7 = add nuw nsw i64 %6, 1
   store i64 %7, ptr %3, align 8, !alias.scope !8724, !noalias !8722
-  %8 = icmp ult i64 %6, 4
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds { [2 x i64] }, ptr %0, i64 %6
-  %10 = load ptr, ptr %9, align 8, !alias.scope !8722, !noalias !8719, !nonnull !11, !align !224, !noundef !11
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
-  %12 = load i64, ptr %11, align 8, !alias.scope !8722, !noalias !8719, !noundef !11
-  %13 = invoke noundef nonnull ptr @_ZN6syntax3ast4make3ext10ident_path17h61779d27f0850dafE(ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
-          to label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i" unwind label %14, !noalias !8727
+  %8 = getelementptr inbounds { [2 x i64] }, ptr %0, i64 %6
+  %9 = load ptr, ptr %8, align 8, !alias.scope !8722, !noalias !8719, !nonnull !11, !align !224, !noundef !11
+  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = load i64, ptr %10, align 8, !alias.scope !8722, !noalias !8719, !noundef !11
+  %12 = invoke noundef nonnull ptr @_ZN6syntax3ast4make3ext10ident_path17h61779d27f0850dafE(ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %11)
+          to label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i" unwind label %13, !noalias !8727
 
-14:                                               ; preds = %.lr.ph.i
-  %15 = landingpad { ptr, i32 }
+13:                                               ; preds = %.lr.ph.i
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %16 = getelementptr inbounds i8, ptr %storemerge10.i, i64 48
-  %17 = load i32, ptr %16, align 4, !noalias !8728, !noundef !11
-  %18 = add i32 %17, -1
-  store i32 %18, ptr %16, align 4, !noalias !8728
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %.body
+  %15 = getelementptr inbounds i8, ptr %storemerge10.i, i64 48
+  %16 = load i32, ptr %15, align 4, !noalias !8728, !noundef !11
+  %17 = add i32 %16, -1
+  store i32 %17, ptr %15, align 4, !noalias !8728
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %.body
 
-20:                                               ; preds = %14
+19:                                               ; preds = %13
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %storemerge10.i)
-          to label %.body unwind label %21, !noalias !8727
+          to label %.body unwind label %20, !noalias !8727
 
-21:                                               ; preds = %20
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %19
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #60, !noalias !8727
   unreachable
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i": ; preds = %.lr.ph.i
-  %23 = tail call noundef nonnull ptr @_ZN6syntax3ast4make11path_concat17hedf5b24418d45c45E(ptr noundef nonnull %storemerge10.i, ptr noundef nonnull %13)
+  %22 = tail call noundef nonnull ptr @_ZN6syntax3ast4make11path_concat17hedf5b24418d45c45E(ptr noundef nonnull %storemerge10.i, ptr noundef nonnull %12)
   %.not.i.i = icmp eq i64 %5, %7
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h155e652a6686dbc1E.llvm.6977743830891006301.exit, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h155e652a6686dbc1E.llvm.6977743830891006301.exit: ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i", %2
-  %storemerge.lcssa.i = phi ptr [ %1, %2 ], [ %23, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i" ]
+  %storemerge.lcssa.i = phi ptr [ %1, %2 ], [ %22, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8bf6775e89a6c6E.exit.i.i" ]
   ret ptr %storemerge.lcssa.i
 
-.body:                                            ; preds = %20, %14
-  resume { ptr, i32 } %15
+.body:                                            ; preds = %19, %13
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -34655,50 +34653,48 @@ define hidden noundef nonnull ptr @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C
   br i1 %.not.i9.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h5fc804f876217897E.llvm.6977743830891006301.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i.i"
-  %storemerge10.i = phi ptr [ %23, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i.i" ], [ %1, %2 ]
+  %storemerge10.i = phi ptr [ %22, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i.i" ], [ %1, %2 ]
   %6 = phi i64 [ %7, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i.i" ], [ %.promoted.i, %2 ]
   %7 = add nuw nsw i64 %6, 1
   store i64 %7, ptr %3, align 8, !alias.scope !8744, !noalias !8742
-  %8 = icmp ult i64 %6, 2
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds { [2 x i64] }, ptr %0, i64 %6
-  %10 = load ptr, ptr %9, align 8, !alias.scope !8742, !noalias !8739, !nonnull !11, !align !224, !noundef !11
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
-  %12 = load i64, ptr %11, align 8, !alias.scope !8742, !noalias !8739, !noundef !11
-  %13 = invoke noundef nonnull ptr @_ZN6syntax3ast4make3ext10ident_path17h61779d27f0850dafE(ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
-          to label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i.i" unwind label %14, !noalias !8747
+  %8 = getelementptr inbounds { [2 x i64] }, ptr %0, i64 %6
+  %9 = load ptr, ptr %8, align 8, !alias.scope !8742, !noalias !8739, !nonnull !11, !align !224, !noundef !11
+  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = load i64, ptr %10, align 8, !alias.scope !8742, !noalias !8739, !noundef !11
+  %12 = invoke noundef nonnull ptr @_ZN6syntax3ast4make3ext10ident_path17h61779d27f0850dafE(ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %11)
+          to label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i.i" unwind label %13, !noalias !8747
 
-14:                                               ; preds = %.lr.ph.i
-  %15 = landingpad { ptr, i32 }
+13:                                               ; preds = %.lr.ph.i
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %16 = getelementptr inbounds i8, ptr %storemerge10.i, i64 48
-  %17 = load i32, ptr %16, align 4, !noalias !8748, !noundef !11
-  %18 = add i32 %17, -1
-  store i32 %18, ptr %16, align 4, !noalias !8748
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %.body
+  %15 = getelementptr inbounds i8, ptr %storemerge10.i, i64 48
+  %16 = load i32, ptr %15, align 4, !noalias !8748, !noundef !11
+  %17 = add i32 %16, -1
+  store i32 %17, ptr %15, align 4, !noalias !8748
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %.body
 
-20:                                               ; preds = %14
+19:                                               ; preds = %13
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %storemerge10.i)
-          to label %.body unwind label %21, !noalias !8747
+          to label %.body unwind label %20, !noalias !8747
 
-21:                                               ; preds = %20
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %19
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #60, !noalias !8747
   unreachable
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i.i": ; preds = %.lr.ph.i
-  %23 = tail call noundef nonnull ptr @_ZN6syntax3ast4make11path_concat17hedf5b24418d45c45E(ptr noundef nonnull %storemerge10.i, ptr noundef nonnull %13)
+  %22 = tail call noundef nonnull ptr @_ZN6syntax3ast4make11path_concat17hedf5b24418d45c45E(ptr noundef nonnull %storemerge10.i, ptr noundef nonnull %12)
   %.not.i.i = icmp eq i64 %5, %7
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h5fc804f876217897E.llvm.6977743830891006301.exit, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h5fc804f876217897E.llvm.6977743830891006301.exit: ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i.i", %2
-  %storemerge.lcssa.i = phi ptr [ %1, %2 ], [ %23, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i.i" ]
+  %storemerge.lcssa.i = phi ptr [ %1, %2 ], [ %22, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h0077175cbfc20279E.exit.i.i" ]
   ret ptr %storemerge.lcssa.i
 
-.body:                                            ; preds = %20, %14
-  resume { ptr, i32 } %15
+.body:                                            ; preds = %19, %13
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -34791,7 +34787,7 @@ define hidden noundef nonnull ptr @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C
   %6 = phi i64 [ %7, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha181fe2af7749999E.exit.i.i" ], [ %.promoted.i, %2 ]
   %7 = add nuw nsw i64 %6, 1
   store i64 %7, ptr %3, align 8, !alias.scope !8784, !noalias !8782
-  %8 = icmp ult i64 %6, 3
+  %8 = icmp ne i64 %6, 3
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { [2 x i64] }, ptr %0, i64 %6
   %10 = load ptr, ptr %9, align 8, !alias.scope !8782, !noalias !8779, !nonnull !11, !align !224, !noundef !11

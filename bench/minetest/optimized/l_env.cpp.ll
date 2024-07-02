@@ -9545,8 +9545,6 @@ if.then15.i:                                      ; preds = %if.end.thread.i, %i
   %22 = phi ptr [ %20, %if.end.thread.i ], [ %19, %if.end.i70 ]
   %_M_string_length.i58.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %23 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !14
-  %cmp3.i59.i = icmp ult i64 %23, 16
-  call void @llvm.assume(i1 %cmp3.i59.i)
   switch i64 %23, label %if.end.i.i.i [
     i64 0, label %if.end24.i
     i64 1, label %if.then.i63.i

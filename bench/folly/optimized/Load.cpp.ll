@@ -1584,8 +1584,6 @@ sw.bb12:                                          ; preds = %_ZN5folly2io6detail
 if.then.i.i:                                      ; preds = %sw.bb12
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %34 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !48
-  %cmp3.i.i.i = icmp ult i64 %34, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %34, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %31, ptr noundef nonnull align 8 dereferenceable(1) %32, i64 %add.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit

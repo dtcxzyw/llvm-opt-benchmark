@@ -6631,24 +6631,22 @@ define hidden noundef double @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$L
   %.010.i.i = phi double [ %.0.sroa.speculated.i.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i.i" ], [ %1, %2 ]
   %6 = phi i64 [ %7, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i.i" ], [ %.promoted.i.i, %2 ]
   %7 = add nuw nsw i64 %6, 1
-  %8 = icmp ult i64 %6, 4
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds ptr, ptr %0, i64 %6
-  %10 = load ptr, ptr %9, align 8, !alias.scope !1299, !noalias !1291, !nonnull !4, !align !226, !noundef !4
-  %.val.i.i.i.i = load double, ptr %10, align 8, !noalias !1300, !noundef !4
-  %11 = fcmp ult double %.val.i.i.i.i, %.010.i.i
-  br i1 %11, label %12, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i.i"
+  %8 = getelementptr inbounds ptr, ptr %0, i64 %6
+  %9 = load ptr, ptr %8, align 8, !alias.scope !1299, !noalias !1291, !nonnull !4, !align !226, !noundef !4
+  %.val.i.i.i.i = load double, ptr %9, align 8, !noalias !1300, !noundef !4
+  %10 = fcmp ult double %.val.i.i.i.i, %.010.i.i
+  br i1 %10, label %11, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i.i"
 
-12:                                               ; preds = %.lr.ph.i.i
-  %13 = fcmp ugt double %.val.i.i.i.i, %.010.i.i
-  br i1 %13, label %.noexc.i, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i.i"
+11:                                               ; preds = %.lr.ph.i.i
+  %12 = fcmp ugt double %.val.i.i.i.i, %.010.i.i
+  br i1 %12, label %.noexc.i, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i.i"
 
-.noexc.i:                                         ; preds = %12
+.noexc.i:                                         ; preds = %11
   tail call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #75, !noalias !1288
   unreachable
 
-"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i.i": ; preds = %12, %.lr.ph.i.i
-  %.0.sroa.speculated.i.i.i.i.i.i.i = phi double [ %.val.i.i.i.i, %12 ], [ %.010.i.i, %.lr.ph.i.i ]
+"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i.i": ; preds = %11, %.lr.ph.i.i
+  %.0.sroa.speculated.i.i.i.i.i.i.i = phi double [ %.val.i.i.i.i, %11 ], [ %.010.i.i, %.lr.ph.i.i ]
   %.not.i.i.i = icmp eq i64 %5, %7
   br i1 %.not.i.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0d6b056e24bc7575E.llvm.4930786928582598558.exit", label %.lr.ph.i.i
 
@@ -25695,39 +25693,37 @@ define hidden noundef double @_ZN4core4iter6traits8iterator8Iterator8try_fold17h
   %6 = load i64, ptr %5, align 8, !alias.scope !9554, !noundef !4
   %.promoted = load i64, ptr %0, align 8, !alias.scope !9554
   %.not.i9 = icmp eq i64 %6, %.promoted
-  br i1 %.not.i9, label %16, label %.lr.ph
+  br i1 %.not.i9, label %15, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit"
   %.010 = phi double [ %.0.sroa.speculated.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit" ], [ %1, %4 ]
   %7 = phi i64 [ %8, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit" ], [ %.promoted, %4 ]
   %8 = add nuw nsw i64 %7, 1
-  %9 = icmp ult i64 %7, 4
-  tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds ptr, ptr %3, i64 %7
-  %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !226, !noundef !4
-  %.val.i.i = load double, ptr %11, align 8, !noundef !4
-  %12 = fcmp ult double %.val.i.i, %.010
-  br i1 %12, label %13, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit"
+  %9 = getelementptr inbounds ptr, ptr %3, i64 %7
+  %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !226, !noundef !4
+  %.val.i.i = load double, ptr %10, align 8, !noundef !4
+  %11 = fcmp ult double %.val.i.i, %.010
+  br i1 %11, label %12, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit"
 
-13:                                               ; preds = %.lr.ph
-  %14 = fcmp ugt double %.val.i.i, %.010
-  br i1 %14, label %15, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit"
+12:                                               ; preds = %.lr.ph
+  %13 = fcmp ugt double %.val.i.i, %.010
+  br i1 %13, label %14, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit"
 
-15:                                               ; preds = %13
+14:                                               ; preds = %12
   store i64 %8, ptr %0, align 8, !alias.scope !9554
   tail call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #75, !noalias !9557
   unreachable
 
-"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit": ; preds = %.lr.ph, %13
-  %.0.sroa.speculated.i.i.i.i.i = phi double [ %.val.i.i, %13 ], [ %.010, %.lr.ph ]
+"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit": ; preds = %.lr.ph, %12
+  %.0.sroa.speculated.i.i.i.i.i = phi double [ %.val.i.i, %12 ], [ %.010, %.lr.ph ]
   %.not.i = icmp eq i64 %6, %8
   br i1 %.not.i, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit"
   store i64 %6, ptr %0, align 8, !alias.scope !9554
-  br label %16
+  br label %15
 
-16:                                               ; preds = %._crit_edge, %4
+15:                                               ; preds = %._crit_edge, %4
   %.0.lcssa = phi double [ %.0.sroa.speculated.i.i.i.i.i, %._crit_edge ], [ %1, %4 ]
   ret double %.0.lcssa
 }
@@ -61770,6 +61766,9 @@ define hidden void @"_ZN91_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter.
   %4 = sub nuw i64 %.sroa.5.0.copyload6, %.sroa.0.0.copyload4
   tail call fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$7reserve17h133a97561903aeb6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  store i64 %.sroa.0.0.copyload4, ptr %3, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %.sroa.5.0.copyload6, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx7, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -61780,7 +61779,7 @@ define hidden void @"_ZN91_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter.
   %7 = phi i64 [ %.pre, %.lr.ph ], [ %21, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17heda6adf07045f700E.exit.i" ]
   %8 = phi i64 [ %.sroa.0.0.copyload4, %.lr.ph ], [ %9, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17heda6adf07045f700E.exit.i" ]
   %9 = add nuw nsw i64 %8, 1
-  %10 = icmp ult i64 %8, 3
+  %10 = icmp ne i64 %8, 3
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds i32, ptr %.sroa.3.0..sroa_idx, i64 %8
   %12 = load i32, ptr %11, align 4, !alias.scope !17276, !noundef !4
@@ -84597,25 +84596,23 @@ define hidden noundef double @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT
   %.010.i = phi double [ %.0.sroa.speculated.i.i.i.i.i.i, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i" ], [ %1, %2 ]
   %6 = phi i64 [ %7, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i" ], [ %.promoted.i, %2 ]
   %7 = add nuw nsw i64 %6, 1
-  %8 = icmp ult i64 %6, 4
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds ptr, ptr %0, i64 %6
-  %10 = load ptr, ptr %9, align 8, !alias.scope !22194, !noalias !22191, !nonnull !4, !align !226, !noundef !4
-  %.val.i.i.i = load double, ptr %10, align 8, !noalias !22199, !noundef !4
-  %11 = fcmp ult double %.val.i.i.i, %.010.i
-  br i1 %11, label %12, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i"
+  %8 = getelementptr inbounds ptr, ptr %0, i64 %6
+  %9 = load ptr, ptr %8, align 8, !alias.scope !22194, !noalias !22191, !nonnull !4, !align !226, !noundef !4
+  %.val.i.i.i = load double, ptr %9, align 8, !noalias !22199, !noundef !4
+  %10 = fcmp ult double %.val.i.i.i, %.010.i
+  br i1 %10, label %11, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i"
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = fcmp ugt double %.val.i.i.i, %.010.i
-  br i1 %13, label %.noexc, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i"
+11:                                               ; preds = %.lr.ph.i
+  %12 = fcmp ugt double %.val.i.i.i, %.010.i
+  br i1 %12, label %.noexc, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i"
 
-.noexc:                                           ; preds = %12
+.noexc:                                           ; preds = %11
   store i64 %7, ptr %3, align 8, !alias.scope !22196, !noalias !22194
   tail call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #75
   unreachable
 
-"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i": ; preds = %12, %.lr.ph.i
-  %.0.sroa.speculated.i.i.i.i.i.i = phi double [ %.val.i.i.i, %12 ], [ %.010.i, %.lr.ph.i ]
+"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hb1056e4b8856f9cfE.exit.i": ; preds = %11, %.lr.ph.i
+  %.0.sroa.speculated.i.i.i.i.i.i = phi double [ %.val.i.i.i, %11 ], [ %.010.i, %.lr.ph.i ]
   %.not.i.i = icmp eq i64 %5, %7
   br i1 %.not.i.i, label %._crit_edge.i, label %.lr.ph.i
 

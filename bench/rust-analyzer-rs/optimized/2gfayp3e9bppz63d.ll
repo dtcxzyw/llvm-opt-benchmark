@@ -4845,7 +4845,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1951)
   %13 = add nuw nsw i64 %12, 1
   store i64 %13, ptr %9, align 8, !alias.scope !1946, !noalias !1949
-  %14 = icmp ult i64 %12, 3
+  %14 = icmp ne i64 %12, 3
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds { [8 x i64] }, ptr %7, i64 %12
   %.sroa.0.0.copyload8.i = load i32, ptr %15, align 8, !alias.scope !1952, !noalias !1953
@@ -14076,7 +14076,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h06edb9e891
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5549)
   %13 = add nuw nsw i64 %12, 1
   store i64 %13, ptr %9, align 8, !alias.scope !5546, !noalias !5549
-  %14 = icmp ult i64 %12, 3
+  %14 = icmp ne i64 %12, 3
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds { [8 x i64] }, ptr %1, i64 %12
   %.sroa.0.0.copyload8 = load i32, ptr %15, align 8, !alias.scope !5551

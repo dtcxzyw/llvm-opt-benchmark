@@ -5737,22 +5737,18 @@ define internal fastcc void @call_timer_fn(ptr noundef %0, ptr noundef %1, i64 n
   %59 = or disjoint i32 %58, %5
   %60 = tail call { i8, i32 } asm "cmpxchgl $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,r,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 %59, i32 %57, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !140
   %61 = extractvalue { i8, i32 } %60, 0
-  %62 = icmp ult i8 %61, 2
-  tail call void @llvm.assume(i1 %62)
-  %63 = icmp eq i8 %61, 0
-  br i1 %63, label %.lr.ph, label %.thread, !prof !141
+  %62 = icmp eq i8 %61, 0
+  br i1 %62, label %.lr.ph, label %.thread, !prof !141
 
 .lr.ph:                                           ; preds = %56, %.lr.ph
-  %64 = phi { i8, i32 } [ %68, %.lr.ph ], [ %60, %56 ]
-  %65 = extractvalue { i8, i32 } %64, 1
-  %66 = and i32 %65, -2147483648
-  %67 = or disjoint i32 %66, %5
-  %68 = tail call { i8, i32 } asm "cmpxchgl $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,r,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 %67, i32 %65, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !140
-  %69 = extractvalue { i8, i32 } %68, 0
-  %70 = icmp ult i8 %69, 2
-  tail call void @llvm.assume(i1 %70)
-  %71 = icmp eq i8 %69, 0
-  br i1 %71, label %.lr.ph, label %.thread, !prof !142, !llvm.loop !143
+  %63 = phi { i8, i32 } [ %67, %.lr.ph ], [ %60, %56 ]
+  %64 = extractvalue { i8, i32 } %63, 1
+  %65 = and i32 %64, -2147483648
+  %66 = or disjoint i32 %65, %5
+  %67 = tail call { i8, i32 } asm "cmpxchgl $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,r,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 %66, i32 %64, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !140
+  %68 = extractvalue { i8, i32 } %67, 0
+  %69 = icmp eq i8 %68, 0
+  br i1 %69, label %.lr.ph, label %.thread, !prof !142, !llvm.loop !143
 
 .thread:                                          ; preds = %.lr.ph, %56, %47
   ret void

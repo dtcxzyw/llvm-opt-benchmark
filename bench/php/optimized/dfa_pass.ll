@@ -6195,7 +6195,7 @@ define internal fastcc void @zend_ssa_unlink_block(ptr noundef %0, ptr noundef %
   %249 = getelementptr inbounds i32, ptr %245, i64 %248
   %250 = getelementptr inbounds i8, ptr %244, i64 24
   %251 = load i32, ptr %250, align 8
-  %252 = icmp sgt i32 %251, 0
+  %252 = icmp ne i32 %251, 0
   tail call void @llvm.assume(i1 %252)
   %wide.trip.count.i.i = zext nneg i32 %251 to i64
   br label %.lr.ph.i.i

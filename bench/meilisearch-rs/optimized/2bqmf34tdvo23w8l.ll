@@ -12977,7 +12977,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send1
 
 "_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$5write17h675b2786a3c21a39E.llvm.14059259217783387920.exit.thread": ; preds = %12
   %16 = load i64, ptr %8, align 8, !alias.scope !2427, !noalias !2430, !noundef !9
-  %17 = icmp ult i64 %16, 31
+  %17 = icmp ne i64 %16, 31
   tail call void @llvm.assume(i1 %17)
   %18 = getelementptr inbounds { { { [31 x i64] } }, { i64 } }, ptr %14, i64 %16
   store i64 %.sroa.04.0.copyload, ptr %18, align 8, !noalias !2433
@@ -13041,7 +13041,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$5write
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %2, i64 24
   %11 = load i64, ptr %10, align 8, !noundef !9
-  %12 = icmp ult i64 %11, 31
+  %12 = icmp ne i64 %11, 31
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds { { { [31 x i64] } }, { i64 } }, ptr %6, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %13, ptr noundef nonnull align 8 dereferenceable(248) %3, i64 248, i1 false)

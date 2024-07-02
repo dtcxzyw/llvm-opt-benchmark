@@ -2847,7 +2847,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4read1
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %2, i64 24
   %11 = load i64, ptr %10, align 8, !noundef !4
-  %12 = icmp ult i64 %11, 31
+  %12 = icmp ne i64 %11, 31
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds { { { [39 x i64] } }, { i64 } }, ptr %6, i64 %11
   %14 = getelementptr inbounds i8, ptr %13, i64 312
@@ -2922,7 +2922,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4read1
 
 .lr.ph.i6:                                        ; preds = %44, %55
   %.sroa.01.09.i7 = phi i64 [ %46, %55 ], [ %27, %44 ]
-  %46 = add nuw nsw i64 %.sroa.01.09.i7, 1
+  %46 = add i64 %.sroa.01.09.i7, 1
   %47 = getelementptr inbounds { { { [39 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i7, i32 1
   %48 = load atomic i64, ptr %47 acquire, align 8
   %49 = and i64 %48, 2
@@ -2965,7 +2965,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4read1
   %11 = getelementptr inbounds i8, ptr %2, i64 24
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = icmp ult i64 %12, 31
+  %14 = icmp ne i64 %12, 31
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds { { { [6 x i64] } }, { i64 } }, ptr %13, i64 %12
   %16 = getelementptr inbounds i8, ptr %15, i64 48
@@ -3040,7 +3040,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4read1
 
 .lr.ph.i6:                                        ; preds = %46, %57
   %.sroa.01.09.i7 = phi i64 [ %48, %57 ], [ %29, %46 ]
-  %48 = add nuw nsw i64 %.sroa.01.09.i7, 1
+  %48 = add i64 %.sroa.01.09.i7, 1
   %49 = getelementptr inbounds { { { [6 x i64] } }, { i64 } }, ptr %13, i64 %.sroa.01.09.i7, i32 1
   %50 = load atomic i64, ptr %49 acquire, align 8
   %51 = and i64 %50, 2

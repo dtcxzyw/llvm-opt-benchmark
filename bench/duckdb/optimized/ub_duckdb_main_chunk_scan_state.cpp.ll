@@ -519,8 +519,6 @@ if.then15.i:                                      ; preds = %invoke.cont12.threa
   %9 = phi ptr [ %7, %invoke.cont12.thread.i ], [ %6, %invoke.cont12.i ]
   %_M_string_length.i58.i = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !50
-  %cmp3.i59.i = icmp ult i64 %10, 16
-  tail call void @llvm.assume(i1 %cmp3.i59.i)
   %cmp.not.i = icmp eq ptr %0, %this
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then16.i, !prof !56
 
@@ -612,8 +610,6 @@ if.then15.i21:                                    ; preds = %invoke.cont12.threa
   %28 = phi ptr [ %26, %invoke.cont12.thread.i12 ], [ %25, %invoke.cont12.i32 ]
   %_M_string_length.i58.i22 = getelementptr inbounds i8, ptr %0, i64 48
   %29 = load i64, ptr %_M_string_length.i58.i22, align 8, !tbaa !50
-  %cmp3.i59.i23 = icmp ult i64 %29, 16
-  tail call void @llvm.assume(i1 %cmp3.i59.i23)
   %cmp.not.i24 = icmp eq ptr %0, %this
   br i1 %cmp.not.i24, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit40, label %if.then16.i25, !prof !56
 

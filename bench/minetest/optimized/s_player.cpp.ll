@@ -1125,8 +1125,6 @@ if.then17.i.i:                                    ; preds = %if.end.thread.i.i, 
   %11 = phi ptr [ %9, %if.end.thread.i.i ], [ %8, %if.end.i.i ]
   %_M_string_length.i66.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %12 = load i64, ptr %_M_string_length.i66.i.i, align 8, !tbaa !26
-  %cmp3.i67.i.i = icmp ult i64 %12, 16
-  call void @llvm.assume(i1 %cmp3.i67.i.i)
   %cmp.not.i.i = icmp eq ptr %ref.tmp, %reason
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEOS4_.exit, label %if.then18.i.i, !prof !27
 

@@ -118242,16 +118242,14 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hc8e65180ffe99af3E.exit.threa
   %.09.i.i.i.i.i.i = phi double [ %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %44, %42 ]
   %48 = phi i64 [ %49, %.lr.ph.i.i.i.i.i.i ], [ %.promoted.i.i.i.i.i.i, %42 ]
   %49 = add nuw nsw i64 %48, 1
-  %50 = icmp ult i64 %48, 2
-  tail call void @llvm.assume(i1 %50)
-  %51 = getelementptr inbounds { [2 x i64] }, ptr %2, i64 %48
-  %52 = load i64, ptr %51, align 8, !range !26, !alias.scope !22095, !noalias !22096, !noundef !4
-  %53 = getelementptr inbounds i8, ptr %51, i64 8
-  %54 = load double, ptr %53, align 8, !alias.scope !22095, !noalias !22096
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %52, 0
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp olt double %54, %.09.i.i.i.i.i.i
-  %55 = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = select i1 %55, double %.09.i.i.i.i.i.i, double %54
+  %50 = getelementptr inbounds { [2 x i64] }, ptr %2, i64 %48
+  %51 = load i64, ptr %50, align 8, !range !26, !alias.scope !22095, !noalias !22096, !noundef !4
+  %52 = getelementptr inbounds i8, ptr %50, i64 8
+  %53 = load double, ptr %52, align 8, !alias.scope !22095, !noalias !22096
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %51, 0
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i = fcmp olt double %53, %.09.i.i.i.i.i.i
+  %54 = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = select i1 %54, double %.09.i.i.i.i.i.i, double %53
   %.not.i.i.i.i.i.i.i = icmp eq i64 %47, %49
   br i1 %.not.i.i.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -118263,10 +118261,10 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hc8e65180ffe99af3E.exit.threa
 _ZN4core4iter6traits8iterator8Iterator6reduce17h92e7ef125a166775E.exit: ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17hc8e65180ffe99af3E.exit.thread.us.i.i.i, %.loopexit.i.i.i
   %.sroa.3.0.i = phi double [ %.0.i.i.i.i, %.loopexit.i.i.i ], [ undef, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hc8e65180ffe99af3E.exit.thread.us.i.i.i ]
   %.sroa.0.0.i26 = phi i64 [ 1, %.loopexit.i.i.i ], [ 0, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hc8e65180ffe99af3E.exit.thread.us.i.i.i ]
-  %56 = insertvalue { i64, double } poison, i64 %.sroa.0.0.i26, 0
-  %57 = insertvalue { i64, double } %56, double %.sroa.3.0.i, 1
+  %55 = insertvalue { i64, double } poison, i64 %.sroa.0.0.i26, 0
+  %56 = insertvalue { i64, double } %55, double %.sroa.3.0.i, 1
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
-  ret { i64, double } %57
+  ret { i64, double } %56
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable

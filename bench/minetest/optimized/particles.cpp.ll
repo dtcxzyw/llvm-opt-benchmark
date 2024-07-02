@@ -2808,8 +2808,6 @@ if.then15.i:                                      ; preds = %if.end.thread.i, %i
   %11 = phi ptr [ %9, %if.end.thread.i ], [ %8, %if.end.i ]
   %_M_string_length.i58.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %12 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !70
-  %cmp3.i59.i = icmp ult i64 %12, 16
-  call void @llvm.assume(i1 %cmp3.i59.i)
   %cmp.not.i = icmp eq ptr %ref.tmp, %string
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then16.i, !prof !71
 
@@ -3274,8 +3272,6 @@ if.then15.i:                                      ; preds = %if.end.thread.i, %i
   %8 = phi ptr [ %6, %if.end.thread.i ], [ %5, %if.end.i ]
   %_M_string_length.i58.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   %9 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !70
-  %cmp3.i59.i = icmp ult i64 %9, 16
-  call void @llvm.assume(i1 %cmp3.i59.i)
   %cmp.not.i = icmp eq ptr %ref.tmp11, %string
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then16.i, !prof !71
 

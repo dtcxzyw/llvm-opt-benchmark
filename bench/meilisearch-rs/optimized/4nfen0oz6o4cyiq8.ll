@@ -133,7 +133,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %6 = phi i64 [ %7, %.lr.ph.i.i ], [ %.promoted.i.i, %2 ]
   %7 = add nuw nsw i64 %6, 1
-  %8 = icmp ult i64 %6, 3
+  %8 = icmp ne i64 %6, 3
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds i8, ptr %3, i64 %6
   %10 = load i8, ptr %9, align 1, !range !60, !alias.scope !61, !noalias !62, !noundef !27
@@ -1377,7 +1377,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4b09a18957
   %7 = phi i64 [ %.promoted, %.lr.ph ], [ %8, %6 ]
   %8 = add nuw nsw i64 %7, 1
   store i64 %8, ptr %0, align 8, !alias.scope !361
-  %9 = icmp ult i64 %7, 3
+  %9 = icmp ne i64 %7, 3
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds i8, ptr %2, i64 %7
   %11 = load i8, ptr %10, align 1, !range !60, !noundef !27
@@ -1749,7 +1749,7 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %6 = phi i64 [ %7, %.lr.ph.i ], [ %.promoted.i, %2 ]
   %7 = add nuw nsw i64 %6, 1
   store i64 %7, ptr %0, align 8, !alias.scope !432, !noalias !435
-  %8 = icmp ult i64 %6, 3
+  %8 = icmp ne i64 %6, 3
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds i8, ptr %3, i64 %6
   %10 = load i8, ptr %9, align 1, !range !60, !alias.scope !430, !noalias !437, !noundef !27

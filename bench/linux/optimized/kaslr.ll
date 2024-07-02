@@ -28,130 +28,124 @@ define dso_local i64 @kaslr_get_random_long(ptr noundef %0) local_unnamed_addr #
   br i1 %6, label %.thread13, label %.preheader
 
 .thread:                                          ; preds = %1
-  tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull %0) #3
-  tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
+  tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull %0) #2
+  tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
   %7 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
   %8 = and i64 %7, 1073741824
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %.thread2, label %10
 
 10:                                               ; preds = %.thread
-  tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #3
+  tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #2
   br label %.preheader
 
 .preheader:                                       ; preds = %3, %10
   br label %11
 
 11:                                               ; preds = %.preheader, %11
-  %12 = phi i32 [ %17, %11 ], [ 10, %.preheader ]
-  %13 = tail call { i8, i64 } asm sideeffect "rdrand $1\0A\09/* output condition code c*/\0A", "={@ccc},=r,~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !5
+  %12 = phi i32 [ %16, %11 ], [ 10, %.preheader ]
+  %13 = tail call { i8, i64 } asm sideeffect "rdrand $1\0A\09/* output condition code c*/\0A", "={@ccc},=r,~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !5
   %14 = extractvalue { i8, i64 } %13, 0
-  %15 = icmp ult i8 %14, 2
-  tail call void @llvm.assume(i1 %15)
-  %16 = icmp ne i8 %14, 0
-  %17 = add nsw i32 %12, -1
-  %18 = icmp eq i32 %17, 0
-  %19 = select i1 %16, i1 true, i1 %18
-  br i1 %19, label %20, label %11, !llvm.loop !6
+  %15 = icmp ne i8 %14, 0
+  %16 = add nsw i32 %12, -1
+  %17 = icmp eq i32 %16, 0
+  %18 = select i1 %15, i1 true, i1 %17
+  br i1 %18, label %19, label %11, !llvm.loop !6
 
-20:                                               ; preds = %11
-  %21 = extractvalue { i8, i64 } %13, 1
-  %22 = xor i64 %21, sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432)
-  %23 = select i1 %16, i64 %22, i64 sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432)
-  %24 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
-  %25 = and i64 %24, 16
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %42, label %33
+19:                                               ; preds = %11
+  %20 = extractvalue { i8, i64 } %13, 1
+  %21 = xor i64 %20, sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432)
+  %22 = select i1 %15, i64 %21, i64 sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432)
+  %23 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
+  %24 = and i64 %23, 16
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %41, label %32
 
 .thread13:                                        ; preds = %3
-  %27 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
-  %28 = and i64 %27, 16
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %.thread16, label %.thread5
+  %26 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
+  %27 = and i64 %26, 16
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %.thread16, label %.thread5
 
 .thread2:                                         ; preds = %.thread
-  %30 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
-  %31 = and i64 %30, 16
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %.thread6, label %.thread3
+  %29 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
+  %30 = and i64 %29, 16
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %.thread6, label %.thread3
 
-33:                                               ; preds = %20
+32:                                               ; preds = %19
   br i1 %2, label %.thread5, label %.thread3
 
-.thread3:                                         ; preds = %.thread2, %33
-  %34 = phi i64 [ %23, %33 ], [ sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432), %.thread2 ]
-  tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #3
+.thread3:                                         ; preds = %.thread2, %32
+  %33 = phi i64 [ %22, %32 ], [ sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432), %.thread2 ]
+  tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #2
   br label %.thread5
 
-.thread5:                                         ; preds = %.thread13, %33, %.thread3
-  %35 = phi i64 [ %34, %.thread3 ], [ %23, %33 ], [ sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432), %.thread13 ]
-  %36 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
-  %37 = extractvalue { i64, i64 } %36, 0
-  %38 = extractvalue { i64, i64 } %36, 1
-  %39 = shl i64 %38, 32
-  %40 = or i64 %39, %37
-  %41 = xor i64 %40, %35
-  br label %58
+.thread5:                                         ; preds = %.thread13, %32, %.thread3
+  %34 = phi i64 [ %33, %.thread3 ], [ %22, %32 ], [ sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432), %.thread13 ]
+  %35 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !9
+  %36 = extractvalue { i64, i64 } %35, 0
+  %37 = extractvalue { i64, i64 } %35, 1
+  %38 = shl i64 %37, 32
+  %39 = or i64 %38, %36
+  %40 = xor i64 %39, %34
+  br label %57
 
-42:                                               ; preds = %20
-  br i1 %16, label %58, label %43
+41:                                               ; preds = %19
+  br i1 %15, label %57, label %42
 
-43:                                               ; preds = %42
+42:                                               ; preds = %41
   br i1 %2, label %.thread16, label %.thread6
 
-.thread6:                                         ; preds = %.thread2, %43
-  %44 = phi i64 [ %23, %43 ], [ sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432), %.thread2 ]
-  tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #3
+.thread6:                                         ; preds = %.thread2, %42
+  %43 = phi i64 [ %22, %42 ], [ sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432), %.thread2 ]
+  tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #2
   br label %.thread16
 
-.thread16:                                        ; preds = %.thread13, %.thread6, %43
-  %45 = phi i64 [ %44, %.thread6 ], [ %23, %43 ], [ sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432), %.thread13 ]
-  br label %46
+.thread16:                                        ; preds = %.thread13, %.thread6, %42
+  %44 = phi i64 [ %43, %.thread6 ], [ %22, %42 ], [ sub (i64 ptrtoint (ptr @_text to i64), i64 -2130706432), %.thread13 ]
+  br label %45
 
-46:                                               ; preds = %46, %.thread16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -62, i16 67) #3, !srcloc !10
-  %47 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 64) #3, !srcloc !11
-  %48 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 64) #3, !srcloc !11
-  %49 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 64) #3, !srcloc !11
-  %50 = and i8 %47, 64
-  %51 = icmp eq i8 %50, 0
-  br i1 %51, label %52, label %46, !llvm.loop !12
+45:                                               ; preds = %45, %.thread16
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -62, i16 67) #2, !srcloc !10
+  %46 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 64) #2, !srcloc !11
+  %47 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 64) #2, !srcloc !11
+  %48 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 64) #2, !srcloc !11
+  %49 = and i8 %46, 64
+  %50 = icmp eq i8 %49, 0
+  br i1 %50, label %51, label %45, !llvm.loop !12
 
-52:                                               ; preds = %46
-  %53 = zext i8 %49 to i64
-  %54 = shl nuw nsw i64 %53, 8
-  %55 = zext i8 %48 to i64
-  %56 = or disjoint i64 %54, %55
-  %57 = xor i64 %56, %45
-  br label %58
+51:                                               ; preds = %45
+  %52 = zext i8 %48 to i64
+  %53 = shl nuw nsw i64 %52, 8
+  %54 = zext i8 %47 to i64
+  %55 = or disjoint i64 %53, %54
+  %56 = xor i64 %55, %44
+  br label %57
 
-58:                                               ; preds = %.thread5, %52, %42
-  %59 = phi i64 [ %57, %52 ], [ %23, %42 ], [ %41, %.thread5 ]
-  %60 = tail call { i64, i64 } asm " mulq $3", "={ax},={dx},{ax},rm,~{dirflag},~{fpsr},~{flags}"(i64 %59, i64 6728387515348454867) #4, !srcloc !13
-  br i1 %2, label %62, label %61
+57:                                               ; preds = %.thread5, %51, %41
+  %58 = phi i64 [ %56, %51 ], [ %22, %41 ], [ %40, %.thread5 ]
+  %59 = tail call { i64, i64 } asm " mulq $3", "={ax},={dx},{ax},rm,~{dirflag},~{fpsr},~{flags}"(i64 %58, i64 6728387515348454867) #3, !srcloc !13
+  br i1 %2, label %61, label %60
 
-61:                                               ; preds = %58
-  tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #3
-  br label %62
+60:                                               ; preds = %57
+  tail call void (ptr, ...) @early_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #2
+  br label %61
 
-62:                                               ; preds = %61, %58
-  %63 = extractvalue { i64, i64 } %60, 1
-  %64 = extractvalue { i64, i64 } %60, 0
-  %65 = add i64 %64, %63
-  ret i64 %65
+61:                                               ; preds = %60, %57
+  %62 = extractvalue { i64, i64 } %59, 1
+  %63 = extractvalue { i64, i64 } %59, 0
+  %64 = add i64 %63, %62
+  ret i64 %64
 }
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @early_printk(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #2
-
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #3 = { nounwind }
-attributes #4 = { nounwind memory(read) }
+attributes #2 = { nounwind }
+attributes #3 = { nounwind memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

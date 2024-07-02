@@ -5251,8 +5251,9 @@ Of_ObjUpdateRequired.exit:                        ; preds = %35, %41
   %57 = getelementptr inbounds i32, ptr %54, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 4
   %59 = load i32, ptr %57, align 4
-  %60 = icmp sgt i32 %59, 0
+  %60 = icmp ne i32 %59, 0
   tail call void @llvm.assume(i1 %60)
+  %smax = tail call i32 @llvm.smax.i32(i32 %59, i32 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %48, %82
@@ -5316,7 +5317,7 @@ Of_ManComputeBackwardCut.exit:                    ; preds = %.lr.ph.i, %80, %67
   %84 = add nuw nsw i32 %61, 4
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds i32, ptr %.05892, i64 %85
-  %exitcond.not = icmp eq i32 %83, %59
+  %exitcond.not = icmp eq i32 %83, %smax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %82
@@ -5850,7 +5851,7 @@ define void @Of_ManComputeBackward3(ptr nocapture noundef %0) local_unnamed_addr
   %66 = getelementptr inbounds i32, ptr %63, i64 %65
   %67 = getelementptr inbounds i8, ptr %66, i64 4
   %68 = load i32, ptr %66, align 4
-  %69 = icmp sgt i32 %68, 0
+  %69 = icmp ne i32 %68, 0
   tail call void @llvm.assume(i1 %69)
   br label %.lr.ph
 

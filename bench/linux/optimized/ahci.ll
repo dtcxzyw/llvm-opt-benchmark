@@ -149,13 +149,13 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @ahci_pci_driver_init() #0 section ".init.text" align 16 {
-  %1 = tail call i32 @__pci_register_driver(ptr noundef nonnull @ahci_pci_driver, ptr noundef null, ptr noundef nonnull @.str.1) #12
+  %1 = tail call i32 @__pci_register_driver(ptr noundef nonnull @ahci_pci_driver, ptr noundef null, ptr noundef nonnull @.str.1) #11
   ret i32 %1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @ahci_pci_driver_exit() #0 section ".exit.text" align 16 {
-  tail call void @pci_unregister_driver(ptr noundef nonnull @ahci_pci_driver) #12
+  tail call void @pci_unregister_driver(ptr noundef nonnull @ahci_pci_driver) #11
   ret void
 }
 
@@ -188,11 +188,11 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %18 = getelementptr inbounds i8, ptr %1, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15) #12
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15) #11
   %21 = and i64 %19, 4294967295
   %22 = getelementptr [19 x %struct.ata_port_info], ptr @ahci_port_info, i64 0, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef align 16 dereferenceable(48) %22, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #11
   store ptr %15, ptr %16, align 16
   %23 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr null, ptr %23, align 8
@@ -202,7 +202,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
 
 26:                                               ; preds = %2
   store i1 true, ptr @ahci_init_one.__print_once, align 1
-  call void @ata_print_version(ptr noundef %24, ptr noundef nonnull @.str.2) #12
+  call void @ata_print_version(ptr noundef %24, ptr noundef nonnull @.str.2) #11
   br label %27
 
 27:                                               ; preds = %26, %2
@@ -247,7 +247,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %49
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.4) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.4) #12
   %.pr = load i16, ptr %28, align 4
   br label %53
 
@@ -292,7 +292,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
 
 .thread43:                                        ; preds = %44, %40, %36, %59, %55, %70, %63, %53
   %75 = phi i32 [ %74, %70 ], [ %69, %63 ], [ 5, %53 ], [ %spec.select, %55 ], [ %spec.select35, %59 ], [ 5, %36 ], [ 5, %40 ], [ 5, %44 ]
-  %76 = call i32 @pcim_enable_device(ptr noundef %0) #12
+  %76 = call i32 @pcim_enable_device(ptr noundef %0) #11
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %.thread34
 
@@ -309,37 +309,37 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %85, label %86, label %93
 
 86:                                               ; preds = %81
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #11
   store i8 0, ptr %17, align 1, !annotation !5
-  %87 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef 144, ptr noundef nonnull %17) #12
+  %87 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef 144, ptr noundef nonnull %17) #11
   %88 = load i8, ptr %17, align 1
   %89 = and i8 %88, 3
   %90 = icmp eq i8 %89, 0
   br i1 %90, label %92, label %91
 
 91:                                               ; preds = %86
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.5) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #12
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.5) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #11
   br label %.thread34
 
 92:                                               ; preds = %86
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #11
   br label %93
 
 93:                                               ; preds = %92, %81, %78
   %94 = shl nuw nsw i32 1, %75
-  %95 = call i32 @pcim_iomap_regions_request_all(ptr noundef %0, i32 noundef %94, ptr noundef nonnull @.str.1) #12
+  %95 = call i32 @pcim_iomap_regions_request_all(ptr noundef %0, i32 noundef %94, ptr noundef nonnull @.str.1) #11
   switch i32 %95, label %.thread34 [
     i32 -16, label %96
     i32 0, label %97
   ]
 
 96:                                               ; preds = %93
-  call void @pcim_pin_device(ptr noundef %0) #12
+  call void @pcim_pin_device(ptr noundef %0) #11
   br label %.thread34
 
 97:                                               ; preds = %93
-  %98 = call noalias noundef dereferenceable_or_null(312) ptr @devm_kmalloc(ptr noundef %24, i64 noundef 312, i32 noundef 3520) #14
+  %98 = call noalias noundef dereferenceable_or_null(312) ptr @devm_kmalloc(ptr noundef %24, i64 noundef 312, i32 noundef 3520) #13
   %99 = icmp eq ptr %98, null
   br i1 %99, label %.thread34, label %100
 
@@ -383,15 +383,15 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br label %120
 
 120:                                              ; preds = %.sink.split, %107, %114, %100
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #11
   store i32 0, ptr %11, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #11
   store i32 0, ptr %12, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #11
   store i32 0, ptr %13, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %14) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %14, i8 0, i64 9, i1 false), !annotation !5
-  %121 = call ptr @dmi_first_match(ptr noundef nonnull @ahci_sb600_enable_64bit.sysids) #12
+  %121 = call ptr @dmi_first_match(ptr noundef nonnull @ahci_sb600_enable_64bit.sysids) #11
   %122 = getelementptr inbounds i8, ptr %0, i64 16
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 216
@@ -414,44 +414,44 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %136, label %149, label %137
 
 137:                                              ; preds = %133
-  %138 = call zeroext i1 @dmi_get_date(i32 noundef 3, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #12
+  %138 = call zeroext i1 @dmi_get_date(i32 noundef 3, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #11
   %139 = load i32, ptr %11, align 4
   %140 = load i32, ptr %12, align 4
   %141 = load i32, ptr %13, align 4
-  %142 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 9, ptr noundef nonnull @.str.21, i32 noundef %139, i32 noundef %140, i32 noundef %141) #12
+  %142 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 9, ptr noundef nonnull @.str.21, i32 noundef %139, i32 noundef %140, i32 noundef %141) #11
   %143 = load ptr, ptr %134, align 8
-  %144 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef %143) #12
+  %144 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef %143) #11
   %145 = icmp sgt i32 %144, -1
   br i1 %145, label %149, label %146
 
 146:                                              ; preds = %137
   %147 = getelementptr inbounds i8, ptr %121, i64 8
   %148 = load ptr, ptr %147, align 8
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.22, ptr noundef %148) #13
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.22, ptr noundef %148) #12
   br label %154
 
 149:                                              ; preds = %137, %133
   %150 = getelementptr inbounds i8, ptr %121, i64 8
   %151 = load ptr, ptr %150, align 8
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.23, ptr noundef %151) #13
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.23, ptr noundef %151) #12
+  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
   %152 = load i32, ptr %98, align 8
   %153 = and i32 %152, -9
   store i32 %153, ptr %98, align 8
   br label %155
 
 154:                                              ; preds = %146, %127, %120
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
   br label %155
 
 155:                                              ; preds = %154, %149
-  %156 = call ptr @pcim_iomap_table(ptr noundef %0) #12
+  %156 = call ptr @pcim_iomap_table(ptr noundef %0) #11
   %157 = zext nneg i32 %75 to i64
   %158 = getelementptr ptr, ptr %156, i64 %157
   %159 = load ptr, ptr %158, align 8
@@ -480,7 +480,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
 
 176:                                              ; preds = %169
   %177 = getelementptr i8, ptr %159, i64 164
-  %178 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %177) #12, !srcloc !6
+  %178 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %177) #11, !srcloc !6
   %179 = and i32 %178, 1
   %180 = icmp eq i32 %179, 0
   br i1 %180, label %.thread, label %181
@@ -488,7 +488,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
 181:                                              ; preds = %176
   %182 = load ptr, ptr %160, align 8
   %183 = getelementptr i8, ptr %182, i64 2048
-  %184 = call i64 asm sideeffect "movq $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %183) #12, !srcloc !7
+  %184 = call i64 asm sideeffect "movq $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %183) #11, !srcloc !7
   %185 = trunc i64 %184 to i32
   %186 = getelementptr inbounds i8, ptr %98, i64 184
   br label %187
@@ -506,7 +506,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %195 = shl nuw nsw i64 %188, 7
   %196 = getelementptr i8, ptr %194, i64 %195
   %197 = getelementptr i8, ptr %196, i64 2176
-  %198 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %197) #12, !srcloc !6
+  %198 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %197) #11, !srcloc !6
   %199 = icmp eq i32 %198, 67586
   br i1 %199, label %200, label %203
 
@@ -527,16 +527,16 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %208, label %.thread, label %209
 
 209:                                              ; preds = %206
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.24, i32 noundef %207) #13
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.25) #13
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.24, i32 noundef %207) #12
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.25) #12
   %210 = load i32, ptr %98, align 8
   %211 = or i32 %210, 32
   store i32 %211, ptr %98, align 8
   br label %.thread
 
 .thread:                                          ; preds = %163, %209, %206, %176, %169, %155
-  %212 = call i32 @sysfs_add_file_to_group(ptr noundef %24, ptr noundef nonnull @dev_attr_remapped_nvme, ptr noundef null) #12
-  %213 = call ptr @pci_match_id(ptr noundef nonnull @ahci_broken_devslp.ids, ptr noundef %0) #12
+  %212 = call i32 @sysfs_add_file_to_group(ptr noundef %24, ptr noundef nonnull @dev_attr_remapped_nvme, ptr noundef null) #11
+  %213 = call ptr @pci_match_id(ptr noundef nonnull @ahci_broken_devslp.ids, ptr noundef %0) #11
   %214 = icmp eq ptr %213, null
   br i1 %214, label %218, label %215
 
@@ -565,7 +565,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
 225:                                              ; preds = %224, %221
   %226 = phi ptr [ @.str.29, %224 ], [ @.str.28, %221 ]
   %227 = phi i32 [ 15, %224 ], [ 63, %221 ]
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull %226) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull %226) #12
   %228 = getelementptr inbounds i8, ptr %98, i64 40
   store i32 %227, ptr %228, align 8
   %.pr28 = load i16, ptr %28, align 4
@@ -583,7 +583,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %235, label %236, label %.thread29
 
 236:                                              ; preds = %232
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.30) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.30) #12
   %237 = getelementptr inbounds i8, ptr %98, i64 40
   store i32 1, ptr %237, align 8
   br label %.thread29
@@ -601,11 +601,11 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %245 = getelementptr inbounds i8, ptr %98, i64 4
   %246 = select i1 %244, i32 3, i32 15
   store i32 %246, ptr %245, align 4
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.31) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.31) #12
   br label %247
 
 247:                                              ; preds = %241, %.thread29
-  call void @ahci_save_initial_config(ptr noundef %24, ptr noundef nonnull %98) #12
+  call void @ahci_save_initial_config(ptr noundef %24, ptr noundef nonnull %98) #11
   %248 = getelementptr inbounds i8, ptr %98, i64 16
   %249 = load i32, ptr %248, align 8
   %250 = and i32 %249, 1073741824
@@ -635,8 +635,8 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br label %264
 
 264:                                              ; preds = %261, %258
-  call void @ahci_set_em_messages(ptr noundef nonnull %98, ptr noundef nonnull %15) #12
-  %265 = call ptr @dmi_first_match(ptr noundef nonnull @ahci_broken_system_poweroff.broken_systems) #12
+  call void @ahci_set_em_messages(ptr noundef nonnull %98, ptr noundef nonnull %15) #11
+  %265 = call ptr @dmi_first_match(ptr noundef nonnull @ahci_broken_system_poweroff.broken_systems) #11
   %266 = icmp eq ptr %265, null
   br i1 %266, label %280, label %267
 
@@ -656,61 +656,61 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %278 = load i64, ptr %15, align 8
   %279 = or i64 %278, 2048
   store i64 %279, ptr %15, align 8
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.6) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.6) #12
   br label %280
 
 280:                                              ; preds = %277, %267, %264
-  %281 = call ptr @dmi_first_match(ptr noundef nonnull @ahci_broken_lpm.sysids) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  %281 = call ptr @dmi_first_match(ptr noundef nonnull @ahci_broken_lpm.sysids) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   store i32 0, ptr %7, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
   store i32 0, ptr %8, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
   store i32 0, ptr %9, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %10) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %10, i8 0, i64 9, i1 false), !annotation !5
   %282 = icmp eq ptr %281, null
   br i1 %282, label %296, label %283
 
 283:                                              ; preds = %280
-  %284 = call zeroext i1 @dmi_get_date(i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #12
+  %284 = call zeroext i1 @dmi_get_date(i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
   %285 = load i32, ptr %7, align 4
   %286 = load i32, ptr %8, align 4
   %287 = load i32, ptr %9, align 4
-  %288 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 9, ptr noundef nonnull @.str.21, i32 noundef %285, i32 noundef %286, i32 noundef %287) #12
+  %288 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 9, ptr noundef nonnull @.str.21, i32 noundef %285, i32 noundef %286, i32 noundef %287) #11
   %289 = getelementptr inbounds i8, ptr %281, i64 336
   %290 = load ptr, ptr %289, align 8
-  %291 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef %290) #12
+  %291 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef %290) #11
   %292 = icmp slt i32 %291, 0
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
   br i1 %292, label %293, label %297
 
 293:                                              ; preds = %283
   %294 = load i64, ptr %15, align 8
   %295 = or i64 %294, 4
   store i64 %295, ptr %15, align 8
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.7) #13
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.7) #12
   br label %297
 
 296:                                              ; preds = %280
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
   br label %297
 
 297:                                              ; preds = %296, %293, %283
-  %298 = call ptr @dmi_first_match(ptr noundef nonnull @ahci_broken_suspend.sysids) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  %298 = call ptr @dmi_first_match(ptr noundef nonnull @ahci_broken_suspend.sysids) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 0, ptr %4, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   store i32 0, ptr %5, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, i8 0, i64 9, i1 false), !annotation !5
   %299 = icmp eq ptr %298, null
   br i1 %299, label %322, label %300
@@ -729,37 +729,37 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %308, label %309, label %322
 
 309:                                              ; preds = %305
-  %310 = call zeroext i1 @dmi_get_date(i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
+  %310 = call zeroext i1 @dmi_get_date(i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %311 = load i32, ptr %3, align 4
   %312 = load i32, ptr %4, align 4
   %313 = load i32, ptr %5, align 4
-  %314 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 9, ptr noundef nonnull @.str.21, i32 noundef %311, i32 noundef %312, i32 noundef %313) #12
+  %314 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 9, ptr noundef nonnull @.str.21, i32 noundef %311, i32 noundef %312, i32 noundef %313) #11
   %315 = getelementptr inbounds i8, ptr %298, i64 336
   %316 = load ptr, ptr %315, align 8
-  %317 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef %316) #12
+  %317 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef %316) #11
   %318 = icmp slt i32 %317, 0
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
   br i1 %318, label %319, label %323
 
 319:                                              ; preds = %309
   %320 = load i32, ptr %98, align 8
   %321 = or i32 %320, 1024
   store i32 %321, ptr %98, align 8
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.8) #13
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.8) #12
   br label %323
 
 322:                                              ; preds = %305, %300, %297
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
   br label %323
 
 323:                                              ; preds = %322, %319, %309
-  %324 = call ptr @dmi_first_match(ptr noundef nonnull @ahci_broken_online.sysids) #12
+  %324 = call ptr @dmi_first_match(ptr noundef nonnull @ahci_broken_online.sysids) #11
   %325 = icmp eq ptr %324, null
   br i1 %325, label %345, label %326
 
@@ -787,16 +787,16 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %343 = load i32, ptr %98, align 8
   %344 = or i32 %343, 2048
   store i32 %344, ptr %98, align 8
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.9) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.9) #12
   br label %345
 
 345:                                              ; preds = %342, %337, %326, %323
-  %346 = call i32 @dmi_check_system(ptr noundef nonnull @acer_sa5_271_workaround.sysids) #12
+  %346 = call i32 @dmi_check_system(ptr noundef nonnull @acer_sa5_271_workaround.sysids) #11
   %347 = icmp eq i32 %346, 0
   br i1 %347, label %355, label %348
 
 348:                                              ; preds = %345
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.51) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.51) #12
   %349 = getelementptr inbounds i8, ptr %98, i64 32
   %350 = load i32, ptr %349, align 8
   %351 = and i32 %350, -952828160
@@ -815,10 +815,10 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %358 = add nuw nsw i32 %357, 1
   %359 = getelementptr inbounds i8, ptr %98, i64 28
   %360 = load i32, ptr %359, align 4
-  %361 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %360, i32 -1) #15, !srcloc !11
+  %361 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %360, i32 -1) #14, !srcloc !11
   %362 = add i32 %361, 1
   %363 = call i32 @llvm.smax.i32(i32 %358, i32 %362)
-  %364 = call ptr @ata_host_alloc_pinfo(ptr noundef %24, ptr noundef nonnull %16, i32 noundef %363) #12
+  %364 = call ptr @ata_host_alloc_pinfo(ptr noundef %24, ptr noundef nonnull %16, i32 noundef %363) #11
   %365 = icmp eq ptr %364, null
   br i1 %365, label %.thread34, label %366
 
@@ -835,14 +835,14 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %372, label %373, label %388
 
 373:                                              ; preds = %371
-  %374 = call i32 @pci_alloc_irq_vectors(ptr noundef %0, i32 noundef %363, i32 noundef 2147483647, i32 noundef 6) #12
+  %374 = call i32 @pci_alloc_irq_vectors(ptr noundef %0, i32 noundef %363, i32 noundef 2147483647, i32 noundef 6) #11
   %375 = icmp sgt i32 %374, 0
   br i1 %375, label %376, label %388
 
 376:                                              ; preds = %373
   %377 = load ptr, ptr %160, align 8
   %378 = getelementptr i8, ptr %377, i64 4
-  %379 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %378) #12, !srcloc !6
+  %379 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %378) #11, !srcloc !6
   %380 = and i32 %379, 4
   %381 = icmp eq i32 %380, 0
   br i1 %381, label %382, label %386
@@ -856,26 +856,26 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br label %.thread30
 
 386:                                              ; preds = %376
-  %387 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52) #13
-  call void @pci_free_irq_vectors(ptr noundef %0) #12
+  %387 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52) #12
+  call void @pci_free_irq_vectors(ptr noundef %0) #11
   br label %388
 
 388:                                              ; preds = %386, %373, %371
-  %389 = call i32 @pci_alloc_irq_vectors(ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 2) #12
+  %389 = call i32 @pci_alloc_irq_vectors(ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 2) #11
   %390 = icmp eq i32 %389, 1
   br i1 %390, label %.thread30, label %391
 
 391:                                              ; preds = %388
-  %392 = call i32 @pci_alloc_irq_vectors(ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 4) #12
+  %392 = call i32 @pci_alloc_irq_vectors(ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 4) #11
   %393 = icmp slt i32 %392, 0
   br i1 %393, label %.thread31, label %.thread30
 
 .thread31:                                        ; preds = %366, %391
-  call void @pci_intx(ptr noundef %0, i32 noundef 1) #12
+  call void @pci_intx(ptr noundef %0, i32 noundef 1) #11
   br label %.thread30
 
 .thread30:                                        ; preds = %388, %382, %.thread31, %391
-  %394 = call i32 @pci_irq_vector(ptr noundef %0, i32 noundef 0) #12
+  %394 = call i32 @pci_irq_vector(ptr noundef %0, i32 noundef 0) #11
   %395 = getelementptr inbounds i8, ptr %98, i64 272
   store i32 %394, ptr %395, align 8
   %396 = load i32, ptr %248, align 8
@@ -894,7 +894,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br label %407
 
 406:                                              ; preds = %.thread30
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.10) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.10) #12
   br label %407
 
 407:                                              ; preds = %406, %402
@@ -945,7 +945,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %435, label %438, label %436
 
 436:                                              ; preds = %432
-  %437 = call i32 @ahci_reset_em(ptr noundef nonnull %364) #12
+  %437 = call i32 @ahci_reset_em(ptr noundef nonnull %364) #11
   br label %438
 
 438:                                              ; preds = %436, %432
@@ -964,13 +964,13 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %447 = sext i32 %446 to i64
   %448 = getelementptr [0 x ptr], ptr %443, i64 0, i64 %447
   %449 = load ptr, ptr %448, align 8
-  call void @ata_port_pbar_desc(ptr noundef %449, i32 noundef %75, i64 noundef -1, ptr noundef nonnull @.str.11) #12
+  call void @ata_port_pbar_desc(ptr noundef %449, i32 noundef %75, i64 noundef -1, ptr noundef nonnull @.str.11) #11
   %450 = getelementptr inbounds i8, ptr %449, i64 44
   %451 = load i32, ptr %450, align 4
   %452 = shl i32 %451, 7
   %453 = add i32 %452, 256
   %454 = zext i32 %453 to i64
-  call void @ata_port_pbar_desc(ptr noundef %449, i32 noundef %75, i64 noundef %454, ptr noundef nonnull @.str.12) #12
+  call void @ata_port_pbar_desc(ptr noundef %449, i32 noundef %75, i64 noundef %454, ptr noundef nonnull @.str.12) #11
   %455 = getelementptr inbounds i8, ptr %449, i64 24
   %456 = load i64, ptr %455, align 8
   %457 = and i64 %456, 2097152
@@ -1036,14 +1036,14 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %494, label %495, label %505
 
 495:                                              ; preds = %491
-  %496 = call i32 @dmi_check_system(ptr noundef nonnull @ahci_p5wdh_workaround.sysids) #12
+  %496 = call i32 @dmi_check_system(ptr noundef nonnull @ahci_p5wdh_workaround.sysids) #11
   %497 = icmp eq i32 %496, 0
   br i1 %497, label %505, label %498
 
 498:                                              ; preds = %495
   %499 = getelementptr i8, ptr %364, i64 120
   %500 = load ptr, ptr %499, align 8
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %485, ptr noundef nonnull @.str.54) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %485, ptr noundef nonnull @.str.54) #12
   %501 = getelementptr inbounds i8, ptr %500, i64 8
   store ptr @ahci_p5wdh_ops, ptr %501, align 8
   %502 = getelementptr inbounds i8, ptr %500, i64 9008
@@ -1053,7 +1053,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br label %505
 
 505:                                              ; preds = %498, %495, %491, %.loopexit39
-  %506 = call ptr @dmi_first_match(ptr noundef nonnull @ahci_gtf_filter_workaround.sysids) #12
+  %506 = call ptr @dmi_first_match(ptr noundef nonnull @ahci_gtf_filter_workaround.sysids) #11
   %507 = icmp eq ptr %506, null
   br i1 %507, label %.loopexit38, label %508
 
@@ -1065,7 +1065,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %513 = load ptr, ptr %484, align 8
   %514 = getelementptr inbounds i8, ptr %506, i64 8
   %515 = load ptr, ptr %514, align 8
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %513, ptr noundef nonnull @.str.56, i32 noundef %512, ptr noundef %515) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %513, ptr noundef nonnull @.str.56, i32 noundef %512, ptr noundef %515) #12
   %516 = load i32, ptr %439, align 8
   %517 = icmp eq i32 %516, 0
   br i1 %517, label %.loopexit38, label %518
@@ -1079,13 +1079,13 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %522 = sext i32 %521 to i64
   %523 = getelementptr [0 x ptr], ptr %519, i64 0, i64 %522
   %524 = load ptr, ptr %523, align 8
-  %525 = call ptr @ata_link_next(ptr noundef null, ptr noundef %524, i32 noundef 0) #12
+  %525 = call ptr @ata_link_next(ptr noundef null, ptr noundef %524, i32 noundef 0) #11
   %526 = icmp eq ptr %525, null
   br i1 %526, label %.loopexit37, label %.preheader36
 
 .preheader36:                                     ; preds = %520, %.loopexit
   %527 = phi ptr [ %536, %.loopexit ], [ %525, %520 ]
-  %528 = call ptr @ata_dev_next(ptr noundef null, ptr noundef nonnull %527, i32 noundef 2) #12
+  %528 = call ptr @ata_dev_next(ptr noundef null, ptr noundef nonnull %527, i32 noundef 2) #11
   %529 = icmp eq ptr %528, null
   br i1 %529, label %.loopexit, label %.preheader
 
@@ -1095,12 +1095,12 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %532 = load i32, ptr %531, align 16
   %533 = or i32 %532, %512
   store i32 %533, ptr %531, align 16
-  %534 = call ptr @ata_dev_next(ptr noundef nonnull %530, ptr noundef nonnull %527, i32 noundef 2) #12
+  %534 = call ptr @ata_dev_next(ptr noundef nonnull %530, ptr noundef nonnull %527, i32 noundef 2) #11
   %535 = icmp eq ptr %534, null
   br i1 %535, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %.preheader36
-  %536 = call ptr @ata_link_next(ptr noundef nonnull %527, ptr noundef %524, i32 noundef 0) #12
+  %536 = call ptr @ata_link_next(ptr noundef nonnull %527, ptr noundef %524, i32 noundef 0) #11
   %537 = icmp eq ptr %536, null
   br i1 %537, label %.loopexit37, label %.preheader36, !llvm.loop !14
 
@@ -1136,16 +1136,16 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %557 = shl nsw i64 -1, %556
   %558 = xor i64 %557, -1
   %559 = select i1 %555, i64 -1, i64 %558
-  %560 = call i32 @dma_set_mask(ptr noundef %24, i64 noundef %559) #12
+  %560 = call i32 @dma_set_mask(ptr noundef %24, i64 noundef %559) #11
   %561 = icmp eq i32 %560, 0
   br i1 %561, label %562, label %564
 
 562:                                              ; preds = %554
-  %563 = call i32 @dma_set_coherent_mask(ptr noundef %24, i64 noundef %559) #12
+  %563 = call i32 @dma_set_coherent_mask(ptr noundef %24, i64 noundef %559) #11
   br label %565
 
 564:                                              ; preds = %554
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %24, ptr noundef nonnull @.str.57) #13
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %24, ptr noundef nonnull @.str.57) #12
   br label %.thread34
 
 565:                                              ; preds = %548, %562
@@ -1156,8 +1156,8 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
 568:                                              ; preds = %565
   call fastcc void @ahci_pci_init_controller(ptr noundef nonnull %364)
   call fastcc void @ahci_pci_print_info(ptr noundef nonnull %364)
-  call void @pci_set_master(ptr noundef %0) #12
-  %569 = call i32 @ahci_host_activate(ptr noundef nonnull %364, ptr noundef nonnull @ahci_sht) #12
+  call void @pci_set_master(ptr noundef %0) #11
+  %569 = call i32 @ahci_host_activate(ptr noundef nonnull %364, ptr noundef nonnull @ahci_sht) #11
   %570 = icmp eq i32 %569, 0
   br i1 %570, label %571, label %.thread34
 
@@ -1167,41 +1167,39 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %574 = icmp eq i32 %573, 0
   br i1 %574, label %.thread34, label %.lr.ph, !prof !16
 
-.lr.ph:                                           ; preds = %571, %581
-  %575 = phi i32 [ %582, %581 ], [ %573, %571 ]
+.lr.ph:                                           ; preds = %571, %580
+  %575 = phi i32 [ %581, %580 ], [ %573, %571 ]
   %576 = add i32 %575, -1
-  %577 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %572, i32 %576, ptr elementtype(i32) %572, i32 %575) #12, !srcloc !17
+  %577 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %572, i32 %576, ptr elementtype(i32) %572, i32 %575) #11, !srcloc !17
   %578 = extractvalue { i8, i32 } %577, 0
-  %579 = icmp ult i8 %578, 2
-  call void @llvm.assume(i1 %579)
-  %580 = icmp eq i8 %578, 0
-  br i1 %580, label %581, label %.thread34, !prof !18
+  %579 = icmp eq i8 %578, 0
+  br i1 %579, label %580, label %.thread34, !prof !18
 
-581:                                              ; preds = %.lr.ph
-  %582 = extractvalue { i8, i32 } %577, 1
-  %583 = icmp eq i32 %582, 0
-  br i1 %583, label %.thread34, label %.lr.ph, !prof !19, !llvm.loop !20
+580:                                              ; preds = %.lr.ph
+  %581 = extractvalue { i8, i32 } %577, 1
+  %582 = icmp eq i32 %581, 0
+  br i1 %582, label %.thread34, label %.lr.ph, !prof !19, !llvm.loop !20
 
-.thread34:                                        ; preds = %581, %.lr.ph, %571, %564, %568, %565, %355, %97, %96, %93, %91, %.thread43, %27
-  %584 = phi i32 [ -19, %91 ], [ -19, %27 ], [ %76, %.thread43 ], [ %95, %93 ], [ -16, %96 ], [ -12, %97 ], [ -12, %355 ], [ %560, %564 ], [ %566, %565 ], [ %569, %568 ], [ 0, %571 ], [ 0, %.lr.ph ], [ 0, %581 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15) #12
-  ret i32 %584
+.thread34:                                        ; preds = %580, %.lr.ph, %571, %564, %568, %565, %355, %97, %96, %93, %91, %.thread43, %27
+  %583 = phi i32 [ -19, %91 ], [ -19, %27 ], [ %76, %.thread43 ], [ %95, %93 ], [ -16, %96 ], [ -12, %97 ], [ -12, %355 ], [ %560, %564 ], [ %566, %565 ], [ %569, %568 ], [ 0, %571 ], [ 0, %.lr.ph ], [ 0, %580 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15) #11
+  ret i32 %583
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ahci_remove_one(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @sysfs_remove_file_from_group(ptr noundef %2, ptr noundef nonnull @dev_attr_remapped_nvme, ptr noundef null) #12
+  tail call void @sysfs_remove_file_from_group(ptr noundef %2, ptr noundef nonnull @dev_attr_remapped_nvme, ptr noundef null) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, ptr elementtype(i32) %3) #12, !srcloc !21
-  tail call void @ata_pci_remove_one(ptr noundef %0) #12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, ptr elementtype(i32) %3) #11, !srcloc !21
+  tail call void @ata_pci_remove_one(ptr noundef %0) #11
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ahci_shutdown_one(ptr noundef %0) #2 align 16 {
-  tail call void @ata_pci_shutdown_one(ptr noundef %0) #12
+  tail call void @ata_pci_shutdown_one(ptr noundef %0) #11
   ret void
 }
 
@@ -1223,36 +1221,36 @@ declare dso_local void @ata_print_version(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @ahci_mcp89_apple_enable(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
   store i32 0, ptr %2, align 4, !annotation !5
-  %3 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15) #13
-  %4 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 248, ptr noundef nonnull %2) #12
+  %3 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15) #12
+  %4 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 248, ptr noundef nonnull %2) #11
   %5 = load i32, ptr %2, align 4
   %6 = or i32 %5, 134217728
   store i32 %6, ptr %2, align 4
-  %7 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 248, i32 noundef %6) #12
-  %8 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 1356, ptr noundef nonnull %2) #12
+  %7 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 248, i32 noundef %6) #11
+  %8 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 1356, ptr noundef nonnull %2) #11
   %9 = load i32, ptr %2, align 4
   %10 = or i32 %9, 4096
   store i32 %10, ptr %2, align 4
-  %11 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 1356, i32 noundef %10) #12
-  %12 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 1188, ptr noundef nonnull %2) #12
+  %11 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 1356, i32 noundef %10) #11
+  %12 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 1188, ptr noundef nonnull %2) #11
   %13 = load i32, ptr %2, align 4
   %14 = and i32 %13, 255
   %15 = or disjoint i32 %14, 17170688
   store i32 %15, ptr %2, align 4
-  %16 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 1188, i32 noundef %15) #12
-  %17 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 1356, ptr noundef nonnull %2) #12
+  %16 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 1188, i32 noundef %15) #11
+  %17 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 1356, ptr noundef nonnull %2) #11
   %18 = load i32, ptr %2, align 4
   %19 = and i32 %18, -4097
   store i32 %19, ptr %2, align 4
-  %20 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 1356, i32 noundef %19) #12
-  %21 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 248, ptr noundef nonnull %2) #12
+  %20 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 1356, i32 noundef %19) #11
+  %21 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 248, ptr noundef nonnull %2) #11
   %22 = load i32, ptr %2, align 4
   %23 = and i32 %22, -134217729
   store i32 %23, ptr %2, align 4
-  %24 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 248, i32 noundef %23) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
+  %24 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 248, i32 noundef %23) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
   ret void
 }
 
@@ -1305,14 +1303,14 @@ define internal fastcc i32 @ahci_pci_reset_controller(ptr noundef %0) unnamed_ad
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @ahci_reset_controller(ptr noundef %0) #12
+  %7 = tail call i32 @ahci_reset_controller(ptr noundef %0) #11
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %34
 
 9:                                                ; preds = %1
   %10 = getelementptr i8, ptr %4, i64 -184
-  %11 = tail call ptr @pci_match_id(ptr noundef nonnull @ahci_pci_tbl, ptr noundef %10) #12
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #12
+  %11 = tail call ptr @pci_match_id(ptr noundef nonnull @ahci_pci_tbl, ptr noundef %10) #11
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #11
   store i16 0, ptr %2, align 2, !annotation !5
   %12 = icmp eq ptr %11, null
   br i1 %12, label %33, label %13
@@ -1330,7 +1328,7 @@ define internal fastcc i32 @ahci_pci_reset_controller(ptr noundef %0) unnamed_ad
   br i1 %20, label %33, label %21
 
 21:                                               ; preds = %16
-  %22 = call i32 @pci_read_config_word(ptr noundef %10, i32 noundef 146, ptr noundef nonnull %2) #12
+  %22 = call i32 @pci_read_config_word(ptr noundef %10, i32 noundef 146, ptr noundef nonnull %2) #11
   %23 = load i16, ptr %2, align 2
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds i8, ptr %6, i64 28
@@ -1343,11 +1341,11 @@ define internal fastcc i32 @ahci_pci_reset_controller(ptr noundef %0) unnamed_ad
   %30 = trunc i32 %26 to i16
   %31 = or i16 %23, %30
   store i16 %31, ptr %2, align 2
-  %32 = call i32 @pci_write_config_word(ptr noundef %10, i32 noundef 146, i16 noundef zeroext %31) #12
+  %32 = call i32 @pci_write_config_word(ptr noundef %10, i32 noundef 146, i16 noundef zeroext %31) #11
   br label %33
 
 33:                                               ; preds = %29, %21, %16, %13, %9
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #11
   br label %34
 
 34:                                               ; preds = %33, %1
@@ -1375,18 +1373,18 @@ define internal fastcc void @ahci_pci_init_controller(ptr noundef %0) unnamed_ad
   %16 = select i1 %12, i64 256, i64 512
   %17 = getelementptr i8, ptr %15, i64 %16
   %18 = getelementptr i8, ptr %17, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %18) #12, !srcloc !22
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %18) #11, !srcloc !22
   %19 = getelementptr i8, ptr %17, i64 16
-  %20 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19) #12, !srcloc !6
+  %20 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19) #11, !srcloc !6
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %7
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %20, ptr elementtype(i32) %19) #12, !srcloc !22
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %20, ptr elementtype(i32) %19) #11, !srcloc !22
   br label %23
 
 23:                                               ; preds = %22, %7, %1
-  tail call void @ahci_init_controller(ptr noundef %0) #12
+  tail call void @ahci_init_controller(ptr noundef %0) #11
   ret void
 }
 
@@ -1396,9 +1394,9 @@ define internal fastcc void @ahci_pci_print_info(ptr noundef %0) unnamed_addr #2
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -184
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #11
   store i16 0, ptr %2, align 2, !annotation !5
-  %6 = call i32 @pci_read_config_word(ptr noundef %5, i32 noundef 10, ptr noundef nonnull %2) #12
+  %6 = call i32 @pci_read_config_word(ptr noundef %5, i32 noundef 10, ptr noundef nonnull %2) #11
   %7 = load i16, ptr %2, align 2
   switch i16 %7, label %10 [
     i16 257, label %11
@@ -1417,8 +1415,8 @@ define internal fastcc void @ahci_pci_print_info(ptr noundef %0) unnamed_addr #2
 
 11:                                               ; preds = %10, %9, %8, %1
   %12 = phi ptr [ @.str.59, %8 ], [ @.str.60, %9 ], [ @.str.61, %10 ], [ @.str.58, %1 ]
-  call void @ahci_print_info(ptr noundef %0, ptr noundef nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #12
+  call void @ahci_print_info(ptr noundef %0, ptr noundef nonnull %12) #11
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #11
   ret void
 }
 
@@ -1451,13 +1449,13 @@ define internal i32 @ahci_avn_hardreset(ptr noundef %0, ptr nocapture noundef wr
   %22 = getelementptr i8, ptr %21, i64 64
   %23 = load volatile i64, ptr @jiffies, align 64
   %24 = sub i64 %2, %23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
   store i8 0, ptr %5, align 1, !annotation !5
   %25 = getelementptr inbounds i8, ptr %19, i64 288
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef %13) #12
+  %27 = tail call i32 %26(ptr noundef %13) #11
   %28 = getelementptr inbounds i8, ptr %13, i64 44
   %29 = getelementptr inbounds i8, ptr %0, i64 1152
   %30 = getelementptr inbounds i8, ptr %4, i64 9
@@ -1470,9 +1468,9 @@ define internal i32 @ahci_avn_hardreset(ptr noundef %0, ptr nocapture noundef wr
 35:                                               ; preds = %74, %3
   %36 = phi i64 [ %2, %3 ], [ %85, %74 ]
   %37 = phi i1 [ true, %3 ], [ false, %74 ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #11
   store i16 0, ptr %6, align 2, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   store i32 0, ptr %7, align 4, !annotation !5
   %38 = load i32, ptr %28, align 4
   %39 = load ptr, ptr %16, align 8
@@ -1490,9 +1488,9 @@ define internal i32 @ahci_avn_hardreset(ptr noundef %0, ptr nocapture noundef wr
   %. = select i1 %48, i8 -96, i8 -80
   store i8 %., ptr %32, align 4
   store i8 -128, ptr %33, align 1
-  call void @ata_tf_to_fis(ptr noundef nonnull %4, i8 noundef zeroext 0, i32 noundef 0, ptr noundef %22) #12
-  %49 = call i32 @sata_link_hardreset(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %36, ptr noundef nonnull %5, ptr noundef nonnull @ahci_check_ready) #12
-  %50 = call i32 @sata_scr_read(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %7) #12
+  call void @ata_tf_to_fis(ptr noundef nonnull %4, i8 noundef zeroext 0, i32 noundef 0, ptr noundef %22) #11
+  %49 = call i32 @sata_link_hardreset(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %36, ptr noundef nonnull %5, ptr noundef nonnull @ahci_check_ready) #11
+  %50 = call i32 @sata_scr_read(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %7) #11
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %.thread
 
@@ -1519,55 +1517,55 @@ define internal i32 @ahci_avn_hardreset(ptr noundef %0, ptr nocapture noundef wr
   %66 = getelementptr inbounds i8, ptr %57, i64 36
   %67 = load i32, ptr %66, align 4
   %68 = load i32, ptr %34, align 8
-  %69 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, i32 noundef %67, i32 noundef %68, i32 noundef %38) #13
+  %69 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, i32 noundef %67, i32 noundef %68, i32 noundef %38) #12
   br label %74
 
 70:                                               ; preds = %61
   %71 = getelementptr inbounds i8, ptr %57, i64 36
   %72 = load i32, ptr %71, align 4
-  %73 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, i32 noundef %72, i32 noundef %38) #13
+  %73 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, i32 noundef %72, i32 noundef %38) #12
   br label %74
 
 .thread:                                          ; preds = %52, %35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #11
   br label %.loopexit
 
 74:                                               ; preds = %65, %70
-  %75 = call i32 @pci_read_config_word(ptr noundef %42, i32 noundef 146, ptr noundef nonnull %6) #12
+  %75 = call i32 @pci_read_config_word(ptr noundef %42, i32 noundef 146, ptr noundef nonnull %6) #11
   %76 = shl nuw i32 1, %38
   %77 = load i16, ptr %6, align 2
   %78 = trunc i32 %76 to i16
   %79 = xor i16 %78, -1
   %80 = and i16 %77, %79
   store i16 %80, ptr %6, align 2
-  %81 = call i32 @pci_write_config_word(ptr noundef %42, i32 noundef 146, i16 noundef zeroext %80) #12
-  call void @ata_msleep(ptr noundef %13, i32 noundef 1000) #12
+  %81 = call i32 @pci_write_config_word(ptr noundef %42, i32 noundef 146, i16 noundef zeroext %80) #11
+  call void @ata_msleep(ptr noundef %13, i32 noundef 1000) #11
   %82 = load i16, ptr %6, align 2
   %83 = or i16 %82, %78
   store i16 %83, ptr %6, align 2
-  %84 = call i32 @pci_write_config_word(ptr noundef %42, i32 noundef 146, i16 noundef zeroext %83) #12
+  %84 = call i32 @pci_write_config_word(ptr noundef %42, i32 noundef 146, i16 noundef zeroext %83) #11
   %85 = add i64 %24, %36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #11
   br i1 %37, label %35, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %74, %.thread
   %86 = getelementptr inbounds i8, ptr %19, i64 280
   %87 = load ptr, ptr %86, align 8
-  call void %87(ptr noundef %13) #12
+  call void %87(ptr noundef %13) #11
   %88 = load i8, ptr %5, align 1, !range !24, !noundef !25
   %89 = icmp eq i8 %88, 0
   br i1 %89, label %92, label %90
 
 90:                                               ; preds = %.loopexit
-  %91 = call i32 @ahci_dev_classify(ptr noundef %13) #12
+  %91 = call i32 @ahci_dev_classify(ptr noundef %13) #11
   store i32 %91, ptr %1, align 4
   br label %92
 
 92:                                               ; preds = %90, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
   ret i32 %49
 }
 
@@ -1606,24 +1604,24 @@ define internal i32 @ahci_vt8251_hardreset(ptr noundef %0, ptr nocapture readnon
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #11
   store i8 0, ptr %4, align 1, !annotation !5
   %10 = getelementptr inbounds i8, ptr %9, i64 288
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %5) #12
+  %12 = tail call i32 %11(ptr noundef %5) #11
   %13 = getelementptr inbounds i8, ptr %0, i64 924
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 1
   %16 = icmp eq i32 %15, 0
   %17 = select i1 %16, ptr @sata_deb_timing_normal, ptr @sata_deb_timing_hotplug
-  %18 = call i32 @sata_link_hardreset(ptr noundef %0, ptr noundef nonnull %17, i64 noundef %2, ptr noundef nonnull %4, ptr noundef null) #12
+  %18 = call i32 @sata_link_hardreset(ptr noundef %0, ptr noundef nonnull %17, i64 noundef %2, ptr noundef nonnull %4, ptr noundef null) #11
   %19 = getelementptr inbounds i8, ptr %9, i64 280
   %20 = load ptr, ptr %19, align 8
-  call void %20(ptr noundef %5) #12
+  call void %20(ptr noundef %5) #11
   %21 = load i8, ptr %4, align 1, !range !24, !noundef !25
   %22 = icmp eq i8 %21, 0
   %23 = select i1 %22, i32 %18, i32 -11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #11
   ret i32 %23
 }
 
@@ -1656,7 +1654,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @remapped_nvme_show(ptr n
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 184
   %9 = load i32, ptr %8, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.27, i32 noundef %9) #12
+  %10 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.27, i32 noundef %9) #11
   %11 = sext i32 %10 to i64
   ret i64 %11
 }
@@ -1681,7 +1679,7 @@ define internal i32 @ahci_get_irq_vector(ptr nocapture noundef readonly %0, i32 
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -184
-  %6 = tail call i32 @pci_irq_vector(ptr noundef %5, i32 noundef %1) #12
+  %6 = tail call i32 @pci_irq_vector(ptr noundef %5, i32 noundef %1) #11
   ret i32 %6
 }
 
@@ -1702,12 +1700,12 @@ define internal i32 @ahci_p5wdh_hardreset(ptr noundef %0, ptr nocapture readnone
   %13 = getelementptr inbounds i8, ptr %8, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
   store i8 0, ptr %5, align 1, !annotation !5
   %16 = getelementptr inbounds i8, ptr %12, i64 288
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %17(ptr noundef %6) #12
+  %18 = tail call i32 %17(ptr noundef %6) #11
   %19 = getelementptr inbounds i8, ptr %0, i64 1152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %20 = load ptr, ptr %19, align 64
@@ -1724,16 +1722,16 @@ define internal i32 @ahci_p5wdh_hardreset(ptr noundef %0, ptr nocapture readnone
   store i8 %29, ptr %28, align 4
   %30 = getelementptr inbounds i8, ptr %4, i64 21
   store i8 -128, ptr %30, align 1
-  call void @ata_tf_to_fis(ptr noundef nonnull %4, i8 noundef zeroext 0, i32 noundef 0, ptr noundef %15) #12
+  call void @ata_tf_to_fis(ptr noundef nonnull %4, i8 noundef zeroext 0, i32 noundef 0, ptr noundef %15) #11
   %31 = getelementptr inbounds i8, ptr %0, i64 924
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, 1
   %34 = icmp eq i32 %33, 0
   %35 = select i1 %34, ptr @sata_deb_timing_normal, ptr @sata_deb_timing_hotplug
-  %36 = call i32 @sata_link_hardreset(ptr noundef %0, ptr noundef nonnull %35, i64 noundef %2, ptr noundef nonnull %5, ptr noundef null) #12
+  %36 = call i32 @sata_link_hardreset(ptr noundef %0, ptr noundef nonnull %35, i64 noundef %2, ptr noundef nonnull %5, ptr noundef null) #11
   %37 = getelementptr inbounds i8, ptr %12, i64 280
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef %6) #12
+  call void %38(ptr noundef %6) #11
   %39 = load i8, ptr %5, align 1, !range !24, !noundef !25
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %48, label %41
@@ -1741,18 +1739,18 @@ define internal i32 @ahci_p5wdh_hardreset(ptr noundef %0, ptr nocapture readnone
 41:                                               ; preds = %3
   %42 = load volatile i64, ptr @jiffies, align 64
   %43 = add i64 %42, 2000
-  %44 = call i32 @ata_wait_after_reset(ptr noundef %0, i64 noundef %43, ptr noundef nonnull @ahci_check_ready) #12
+  %44 = call i32 @ata_wait_after_reset(ptr noundef %0, i64 noundef %43, ptr noundef nonnull @ahci_check_ready) #11
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %48, label %46
 
 46:                                               ; preds = %41
-  %47 = call i32 @ahci_kick_engine(ptr noundef %6) #12
+  %47 = call i32 @ahci_kick_engine(ptr noundef %6) #11
   br label %48
 
 48:                                               ; preds = %46, %41, %3
   %49 = phi i32 [ %44, %46 ], [ 0, %41 ], [ %36, %3 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
   ret i32 %49
 }
 
@@ -1813,9 +1811,6 @@ declare dso_local i32 @ata_std_bios_param(ptr noundef, ptr noundef, i64 noundef,
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ata_scsi_unlock_native_capacity(ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
-
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @sysfs_remove_file_from_group(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1837,18 +1832,18 @@ define internal noundef range(i32 -5, 1) i32 @ahci_pci_device_suspend(ptr nounde
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %1
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.8) #13
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.8) #12
   br label %17
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 4
-  %14 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13) #12, !srcloc !6
+  %14 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13) #11, !srcloc !6
   %15 = and i32 %14, -3
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %15, ptr elementtype(i32) %13) #12, !srcloc !22
-  %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13) #12, !srcloc !6
-  tail call void @ata_host_suspend(ptr noundef %3, i32 2) #12
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %15, ptr elementtype(i32) %13) #11, !srcloc !22
+  %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13) #11, !srcloc !6
+  tail call void @ata_host_suspend(ptr noundef %3, i32 2) #11
   br label %17
 
 17:                                               ; preds = %10, %9
@@ -1900,14 +1895,14 @@ define internal i32 @ahci_pci_device_resume(ptr noundef %0) #2 align 16 {
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %5, i64 32
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 @ahci_reset_controller(ptr noundef %5) #12
+  %31 = tail call i32 @ahci_reset_controller(ptr noundef %5) #11
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %ahci_pci_reset_controller.exit
 
 33:                                               ; preds = %26
   %34 = getelementptr i8, ptr %28, i64 -184
-  %35 = tail call ptr @pci_match_id(ptr noundef nonnull @ahci_pci_tbl, ptr noundef %34) #12
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #12
+  %35 = tail call ptr @pci_match_id(ptr noundef nonnull @ahci_pci_tbl, ptr noundef %34) #11
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #11
   store i16 0, ptr %2, align 2, !annotation !5
   %36 = icmp eq ptr %35, null
   br i1 %36, label %57, label %37
@@ -1925,7 +1920,7 @@ define internal i32 @ahci_pci_device_resume(ptr noundef %0) #2 align 16 {
   br i1 %44, label %57, label %45
 
 45:                                               ; preds = %40
-  %46 = call i32 @pci_read_config_word(ptr noundef %34, i32 noundef 146, ptr noundef nonnull %2) #12
+  %46 = call i32 @pci_read_config_word(ptr noundef %34, i32 noundef 146, ptr noundef nonnull %2) #11
   %47 = load i16, ptr %2, align 2
   %48 = zext i16 %47 to i32
   %49 = getelementptr inbounds i8, ptr %30, i64 28
@@ -1938,11 +1933,11 @@ define internal i32 @ahci_pci_device_resume(ptr noundef %0) #2 align 16 {
   %54 = trunc i32 %50 to i16
   %55 = or i16 %47, %54
   store i16 %55, ptr %2, align 2
-  %56 = call i32 @pci_write_config_word(ptr noundef %34, i32 noundef 146, i16 noundef zeroext %55) #12
+  %56 = call i32 @pci_write_config_word(ptr noundef %34, i32 noundef 146, i16 noundef zeroext %55) #11
   br label %57
 
 57:                                               ; preds = %33, %37, %40, %45, %53
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #11
   %58 = load ptr, ptr %29, align 8
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 16
@@ -1960,22 +1955,22 @@ define internal i32 @ahci_pci_device_resume(ptr noundef %0) #2 align 16 {
   %70 = select i1 %66, i64 256, i64 512
   %71 = getelementptr i8, ptr %69, i64 %70
   %72 = getelementptr i8, ptr %71, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %72) #12, !srcloc !22
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %72) #11, !srcloc !22
   %73 = getelementptr i8, ptr %71, i64 16
-  %74 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %73) #12, !srcloc !6
+  %74 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %73) #11, !srcloc !6
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %77, label %76
 
 76:                                               ; preds = %62
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %74, ptr elementtype(i32) %73) #12, !srcloc !22
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %74, ptr elementtype(i32) %73) #11, !srcloc !22
   br label %77
 
 77:                                               ; preds = %76, %62, %57
-  tail call void @ahci_init_controller(ptr noundef %5) #12
+  tail call void @ahci_init_controller(ptr noundef %5) #11
   br label %78
 
 78:                                               ; preds = %77, %22
-  tail call void @ata_host_resume(ptr noundef %5) #12
+  tail call void @ata_host_resume(ptr noundef %5) #11
   br label %ahci_pci_reset_controller.exit
 
 ahci_pci_reset_controller.exit:                   ; preds = %26, %78
@@ -1992,10 +1987,10 @@ define internal noundef i32 @ahci_pci_device_runtime_suspend(ptr nocapture nound
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
-  %9 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8) #12, !srcloc !6
+  %9 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8) #11, !srcloc !6
   %10 = and i32 %9, -3
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %10, ptr elementtype(i32) %8) #12, !srcloc !22
-  %11 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8) #12, !srcloc !6
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %10, ptr elementtype(i32) %8) #11, !srcloc !22
+  %11 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8) #11, !srcloc !6
   ret i32 0
 }
 
@@ -2008,14 +2003,14 @@ define internal i32 @ahci_pci_device_runtime_resume(ptr nocapture noundef readon
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @ahci_reset_controller(ptr noundef %4) #12
+  %9 = tail call i32 @ahci_reset_controller(ptr noundef %4) #11
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %ahci_pci_reset_controller.exit
 
 11:                                               ; preds = %1
   %12 = getelementptr i8, ptr %6, i64 -184
-  %13 = tail call ptr @pci_match_id(ptr noundef nonnull @ahci_pci_tbl, ptr noundef %12) #12
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #12
+  %13 = tail call ptr @pci_match_id(ptr noundef nonnull @ahci_pci_tbl, ptr noundef %12) #11
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #11
   store i16 0, ptr %2, align 2, !annotation !5
   %14 = icmp eq ptr %13, null
   br i1 %14, label %35, label %15
@@ -2033,7 +2028,7 @@ define internal i32 @ahci_pci_device_runtime_resume(ptr nocapture noundef readon
   br i1 %22, label %35, label %23
 
 23:                                               ; preds = %18
-  %24 = call i32 @pci_read_config_word(ptr noundef %12, i32 noundef 146, ptr noundef nonnull %2) #12
+  %24 = call i32 @pci_read_config_word(ptr noundef %12, i32 noundef 146, ptr noundef nonnull %2) #11
   %25 = load i16, ptr %2, align 2
   %26 = zext i16 %25 to i32
   %27 = getelementptr inbounds i8, ptr %8, i64 28
@@ -2046,11 +2041,11 @@ define internal i32 @ahci_pci_device_runtime_resume(ptr nocapture noundef readon
   %32 = trunc i32 %28 to i16
   %33 = or i16 %25, %32
   store i16 %33, ptr %2, align 2
-  %34 = call i32 @pci_write_config_word(ptr noundef %12, i32 noundef 146, i16 noundef zeroext %33) #12
+  %34 = call i32 @pci_write_config_word(ptr noundef %12, i32 noundef 146, i16 noundef zeroext %33) #11
   br label %35
 
 35:                                               ; preds = %11, %15, %18, %23, %31
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #11
   %36 = load ptr, ptr %7, align 8
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 16
@@ -2068,18 +2063,18 @@ define internal i32 @ahci_pci_device_runtime_resume(ptr nocapture noundef readon
   %48 = select i1 %44, i64 256, i64 512
   %49 = getelementptr i8, ptr %47, i64 %48
   %50 = getelementptr i8, ptr %49, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %50) #12, !srcloc !22
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %50) #11, !srcloc !22
   %51 = getelementptr i8, ptr %49, i64 16
-  %52 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %51) #12, !srcloc !6
+  %52 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %51) #11, !srcloc !6
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %40
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %52, ptr elementtype(i32) %51) #12, !srcloc !22
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %52, ptr elementtype(i32) %51) #11, !srcloc !22
   br label %55
 
 55:                                               ; preds = %54, %40, %35
-  tail call void @ahci_init_controller(ptr noundef %4) #12
+  tail call void @ahci_init_controller(ptr noundef %4) #11
   br label %ahci_pci_reset_controller.exit
 
 ahci_pci_reset_controller.exit:                   ; preds = %1, %55
@@ -2093,7 +2088,7 @@ declare dso_local void @ata_host_suspend(ptr noundef, i32) local_unnamed_addr #1
 declare dso_local void @ata_host_resume(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -2105,12 +2100,11 @@ attributes #6 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-pr
 attributes #7 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { cold nounwind }
-attributes #14 = { nounwind allocsize(1) }
-attributes #15 = { nounwind memory(read) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { nounwind allocsize(1) }
+attributes #14 = { nounwind memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

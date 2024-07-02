@@ -11629,7 +11629,7 @@ str_limit_to_length.exit.i96.thread:              ; preds = %sbuf_len.exit.i.cri
   %260 = add nuw nsw i64 %257, 6
   %.not.i32.i98 = icmp slt i64 %259, %260
   call void @llvm.assume(i1 %.not.i32.i98)
-  %261 = icmp sgt i64 %259, 0
+  %261 = icmp ne i64 %259, 0
   call void @llvm.assume(i1 %261)
   %262 = icmp ugt i64 %259, 1000
   %263 = shl nuw nsw i64 %259, 1

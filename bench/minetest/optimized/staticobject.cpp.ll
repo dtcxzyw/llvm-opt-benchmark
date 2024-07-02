@@ -266,8 +266,6 @@ if.then15.i:                                      ; preds = %if.end.thread.i, %i
   %12 = phi ptr [ %10, %if.end.thread.i ], [ %9, %if.end.i ]
   %_M_string_length.i58.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %13 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !19
-  %cmp3.i59.i = icmp ult i64 %13, 16
-  call void @llvm.assume(i1 %cmp3.i59.i)
   %cmp.not.i = icmp eq ptr %ref.tmp3, %data
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then16.i, !prof !22
 
@@ -1549,8 +1547,6 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 24
   %14 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !19, !alias.scope !73, !noalias !70
-  %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %14, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %14, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(1) %12, i64 %add.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt19__relocate_object_aI12StaticObjectS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
@@ -1600,8 +1596,6 @@ for.body.i.i.i50:                                 ; preds = %_ZNSt6vectorI12Stat
 if.then.i.i.i.i.i.i.i.i66:                        ; preds = %for.body.i.i.i50
   %_M_string_length.i.i.i.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i52, i64 24
   %20 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i67, align 8, !tbaa !19, !alias.scope !80, !noalias !77
-  %cmp3.i.i.i.i.i.i.i.i.i68 = icmp ult i64 %20, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i68)
   %add.i.i.i.i.i.i.i.i69 = add nuw nsw i64 %20, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(1) %18, i64 %add.i.i.i.i.i.i.i.i69, i1 false)
   br label %_ZSt19__relocate_object_aI12StaticObjectS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i59
@@ -1856,8 +1850,6 @@ if.then16.i.i.i.i.i.i.i:                          ; preds = %if.end.thread.i.i.i
   %8 = phi ptr [ %6, %if.end.thread.i.i.i.i.i.i.i ], [ %5, %if.end.i.i.i.i.i.i.i ]
   %_M_string_length.i58.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i, i64 24
   %9 = load i64, ptr %_M_string_length.i58.i.i.i.i.i.i.i, align 8, !tbaa !19
-  %cmp3.i59.i.i.i.i.i.i.i = icmp ult i64 %9, 16
-  tail call void @llvm.assume(i1 %cmp3.i59.i.i.i.i.i.i.i)
   switch i64 %9, label %if.end.i.i.i.i.i.i.i.i.i [
     i64 0, label %if.end24.i.i.i.i.i.i.i
     i64 1, label %if.then.i63.i.i.i.i.i.i.i

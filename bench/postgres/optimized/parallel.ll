@@ -54,7 +54,7 @@ define internal void @archive_close_connection(i32 %0, ptr nocapture noundef rea
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %78, label %5
+  br i1 %.not, label %76, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %4, align 8
@@ -85,7 +85,7 @@ GetMyPSlot.exit:                                  ; preds = %13
   %19 = load ptr, ptr %8, align 8
   %20 = getelementptr %struct.ParallelSlot, ptr %19, i64 %indvars.iv.i
   %.not16 = icmp eq ptr %20, null
-  br i1 %.not16, label %GetMyPSlot.exit.thread, label %74
+  br i1 %.not16, label %GetMyPSlot.exit.thread, label %72
 
 GetMyPSlot.exit.thread:                           ; preds = %9, %5, %GetMyPSlot.exit
   %21 = load ptr, ptr %1, align 8
@@ -114,7 +114,7 @@ GetMyPSlot.exit.thread:                           ; preds = %9, %5, %GetMyPSlot.
   br i1 %33, label %26, label %.preheader.i, !llvm.loop !7
 
 .lr.ph21.i:                                       ; preds = %.preheader.i, %39
-  %.pr31.i = phi i32 [ %.pr.i, %39 ], [ %31, %.preheader.i ]
+  %.pr32.i = phi i32 [ %.pr.i, %39 ], [ %31, %.preheader.i ]
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %39 ], [ 0, %.preheader.i ]
   %34 = load ptr, ptr %24, align 8
   %35 = getelementptr %struct.ParallelSlot, ptr %34, i64 %indvars.iv28.i, i32 8
@@ -128,7 +128,7 @@ GetMyPSlot.exit.thread:                           ; preds = %9, %5, %GetMyPSlot.
   br label %39
 
 39:                                               ; preds = %37, %.lr.ph21.i
-  %.pr.i = phi i32 [ %.pr31.i, %.lr.ph21.i ], [ %.pr.pre.i, %37 ]
+  %.pr.i = phi i32 [ %.pr32.i, %.lr.ph21.i ], [ %.pr.pre.i, %37 ]
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %40 = sext i32 %.pr.i to i64
   %41 = icmp slt i64 %indvars.iv.next29.i, %40
@@ -148,7 +148,7 @@ GetMyPSlot.exit.thread:                           ; preds = %9, %5, %GetMyPSlot.
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.loopexit.i.i, %.lr.ph.i.lr.ph.i.i
-  %44 = phi i32 [ %.pr.i, %.lr.ph.i.lr.ph.i.i ], [ %69, %.loopexit.i.i ]
+  %44 = phi i32 [ %.pr.i, %.lr.ph.i.lr.ph.i.i ], [ %67, %.loopexit.i.i ]
   %45 = load ptr, ptr %24, align 8
   %46 = zext nneg i32 %44 to i64
   %47 = load i32, ptr %45, align 8
@@ -176,78 +176,78 @@ HasEveryWorkerTerminated.exit.i.i:                ; preds = %48
 .critedge.i.i:                                    ; preds = %HasEveryWorkerTerminated.exit.i.i, %.lr.ph.i.i.i
   %51 = call i32 @wait(ptr noundef nonnull %3) #18
   %52 = load i32, ptr %21, align 8
-  %53 = icmp sgt i32 %52, 0
+  %53 = icmp ne i32 %52, 0
   call void @llvm.assume(i1 %53)
   %54 = load ptr, ptr %24, align 8
-  %55 = add nsw i32 %52, -1
-  %56 = zext nneg i32 %55 to i64
-  %57 = mul nuw nsw i64 %56, 56
-  %scevgep.i.i = getelementptr i8, ptr %54, i64 %57
-  %wide.trip.count.i.i = zext nneg i32 %52 to i64
-  br label %58
+  %smax.i.i = call i32 @llvm.smax.i32(i32 %52, i32 1)
+  %wide.trip.count.i.i = zext nneg i32 %smax.i.i to i64
+  %scevgep.i = getelementptr i8, ptr %54, i64 -56
+  %55 = mul nuw nsw i64 %wide.trip.count.i.i, 56
+  %scevgep31.i = getelementptr i8, ptr %scevgep.i, i64 %55
+  br label %56
 
-58:                                               ; preds = %65, %.critedge.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.critedge.i.i ], [ %indvars.iv.next.i.i, %65 ]
-  %59 = getelementptr %struct.ParallelSlot, ptr %54, i64 %indvars.iv.i.i
-  %60 = getelementptr inbounds i8, ptr %59, i64 48
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp eq i32 %61, %51
-  br i1 %62, label %63, label %65
+56:                                               ; preds = %63, %.critedge.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.critedge.i.i ], [ %indvars.iv.next.i.i, %63 ]
+  %57 = getelementptr %struct.ParallelSlot, ptr %54, i64 %indvars.iv.i.i
+  %58 = getelementptr inbounds i8, ptr %57, i64 48
+  %59 = load i32, ptr %58, align 8
+  %60 = icmp eq i32 %59, %51
+  br i1 %60, label %61, label %63
 
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %59, i64 48
-  store i32 0, ptr %64, align 8
+61:                                               ; preds = %56
+  %62 = getelementptr inbounds i8, ptr %57, i64 48
+  store i32 0, ptr %62, align 8
   %.pre.i = and i64 %indvars.iv.i.i, 4294967295
   br label %.loopexit.i.i
 
-65:                                               ; preds = %58
+63:                                               ; preds = %56
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %58, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %56, !llvm.loop !10
 
-.loopexit.i.i:                                    ; preds = %65, %63
-  %.pre-phi.i = phi i64 [ %.pre.i, %63 ], [ %wide.trip.count.i.i, %65 ]
-  %66 = phi ptr [ %59, %63 ], [ %scevgep.i.i, %65 ]
-  store i32 3, ptr %66, align 8
-  %67 = load ptr, ptr %43, align 8
-  %68 = getelementptr ptr, ptr %67, i64 %.pre-phi.i
-  store ptr null, ptr %68, align 8
-  %69 = load i32, ptr %21, align 8
-  %70 = icmp slt i32 %69, 1
-  br i1 %70, label %ShutdownWorkersHard.exit, label %.lr.ph.i.i.i, !llvm.loop !11
+.loopexit.i.i:                                    ; preds = %63, %61
+  %.pre-phi.i = phi i64 [ %.pre.i, %61 ], [ %wide.trip.count.i.i, %63 ]
+  %64 = phi ptr [ %57, %61 ], [ %scevgep31.i, %63 ]
+  store i32 3, ptr %64, align 8
+  %65 = load ptr, ptr %43, align 8
+  %66 = getelementptr ptr, ptr %65, i64 %.pre-phi.i
+  store ptr null, ptr %66, align 8
+  %67 = load i32, ptr %21, align 8
+  %68 = icmp slt i32 %67, 1
+  br i1 %68, label %ShutdownWorkersHard.exit, label %.lr.ph.i.i.i, !llvm.loop !11
 
 ShutdownWorkersHard.exit:                         ; preds = %HasEveryWorkerTerminated.exit.i.i, %.loopexit.i.i, %.lr.ph.i.i, %._crit_edge.thread.i, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
-  %72 = load ptr, ptr %71, align 8
-  %.not17 = icmp eq ptr %72, null
-  br i1 %.not17, label %82, label %73
+  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %.not17 = icmp eq ptr %70, null
+  br i1 %.not17, label %80, label %71
 
-73:                                               ; preds = %ShutdownWorkersHard.exit
-  call void @DisconnectDatabase(ptr noundef nonnull %72) #18
-  br label %82
+71:                                               ; preds = %ShutdownWorkersHard.exit
+  call void @DisconnectDatabase(ptr noundef nonnull %70) #18
+  br label %80
 
-74:                                               ; preds = %GetMyPSlot.exit
-  %75 = getelementptr inbounds i8, ptr %20, i64 24
-  %76 = load ptr, ptr %75, align 8
-  %.not18 = icmp eq ptr %76, null
-  br i1 %.not18, label %82, label %77
+72:                                               ; preds = %GetMyPSlot.exit
+  %73 = getelementptr inbounds i8, ptr %20, i64 24
+  %74 = load ptr, ptr %73, align 8
+  %.not18 = icmp eq ptr %74, null
+  br i1 %.not18, label %80, label %75
 
-77:                                               ; preds = %74
-  tail call void @DisconnectDatabase(ptr noundef nonnull %76) #18
-  br label %82
+75:                                               ; preds = %72
+  tail call void @DisconnectDatabase(ptr noundef nonnull %74) #18
+  br label %80
 
-78:                                               ; preds = %2
-  %79 = getelementptr inbounds i8, ptr %1, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %.not15 = icmp eq ptr %80, null
-  br i1 %.not15, label %82, label %81
+76:                                               ; preds = %2
+  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %.not15 = icmp eq ptr %78, null
+  br i1 %.not15, label %80, label %79
 
-81:                                               ; preds = %78
-  tail call void @DisconnectDatabase(ptr noundef nonnull %80) #18
-  br label %82
+79:                                               ; preds = %76
+  tail call void @DisconnectDatabase(ptr noundef nonnull %78) #18
+  br label %80
 
-82:                                               ; preds = %78, %81, %73, %ShutdownWorkersHard.exit, %77, %74
+80:                                               ; preds = %76, %79, %71, %ShutdownWorkersHard.exit, %75, %72
   ret void
 }
 
@@ -716,7 +716,7 @@ define dso_local void @ParallelBackupEnd(ptr nocapture noundef readnone %0, ptr 
   %3 = alloca i32, align 4
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %4, 1
-  br i1 %5, label %53, label %.preheader
+  br i1 %5, label %51, label %.preheader
 
 .preheader:                                       ; preds = %2
   %6 = icmp sgt i32 %4, 0
@@ -757,7 +757,7 @@ define dso_local void @ParallelBackupEnd(ptr nocapture noundef readnone %0, ptr 
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.loopexit.i, %.lr.ph.i.lr.ph.i
-  %22 = phi i32 [ %.pr, %.lr.ph.i.lr.ph.i ], [ %47, %.loopexit.i ]
+  %22 = phi i32 [ %.pr, %.lr.ph.i.lr.ph.i ], [ %45, %.loopexit.i ]
   %23 = load ptr, ptr %20, align 8
   %24 = zext nneg i32 %22 to i64
   %25 = load i32, ptr %23, align 8
@@ -785,60 +785,60 @@ HasEveryWorkerTerminated.exit.i:                  ; preds = %26
 .critedge.i:                                      ; preds = %HasEveryWorkerTerminated.exit.i, %.lr.ph.i.i
   %29 = call i32 @wait(ptr noundef nonnull %3) #18
   %30 = load i32, ptr %1, align 8
-  %31 = icmp sgt i32 %30, 0
+  %31 = icmp ne i32 %30, 0
   call void @llvm.assume(i1 %31)
   %32 = load ptr, ptr %20, align 8
-  %33 = add nsw i32 %30, -1
-  %34 = zext nneg i32 %33 to i64
-  %35 = mul nuw nsw i64 %34, 56
-  %scevgep.i = getelementptr i8, ptr %32, i64 %35
-  %wide.trip.count.i = zext nneg i32 %30 to i64
-  br label %36
+  %smax.i = call i32 @llvm.smax.i32(i32 %30, i32 1)
+  %wide.trip.count.i = zext nneg i32 %smax.i to i64
+  %scevgep = getelementptr i8, ptr %32, i64 -56
+  %33 = mul nuw nsw i64 %wide.trip.count.i, 56
+  %scevgep21 = getelementptr i8, ptr %scevgep, i64 %33
+  br label %34
 
-36:                                               ; preds = %43, %.critedge.i
-  %indvars.iv.i = phi i64 [ 0, %.critedge.i ], [ %indvars.iv.next.i, %43 ]
-  %37 = getelementptr %struct.ParallelSlot, ptr %32, i64 %indvars.iv.i
-  %38 = getelementptr inbounds i8, ptr %37, i64 48
-  %39 = load i32, ptr %38, align 8
-  %40 = icmp eq i32 %39, %29
-  br i1 %40, label %41, label %43
+34:                                               ; preds = %41, %.critedge.i
+  %indvars.iv.i = phi i64 [ 0, %.critedge.i ], [ %indvars.iv.next.i, %41 ]
+  %35 = getelementptr %struct.ParallelSlot, ptr %32, i64 %indvars.iv.i
+  %36 = getelementptr inbounds i8, ptr %35, i64 48
+  %37 = load i32, ptr %36, align 8
+  %38 = icmp eq i32 %37, %29
+  br i1 %38, label %39, label %41
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %37, i64 48
-  store i32 0, ptr %42, align 8
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds i8, ptr %35, i64 48
+  store i32 0, ptr %40, align 8
   %.pre = and i64 %indvars.iv.i, 4294967295
   br label %.loopexit.i
 
-43:                                               ; preds = %36
+41:                                               ; preds = %34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %36, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.loopexit.i, label %34, !llvm.loop !10
 
-.loopexit.i:                                      ; preds = %43, %41
-  %.pre-phi = phi i64 [ %.pre, %41 ], [ %wide.trip.count.i, %43 ]
-  %44 = phi ptr [ %37, %41 ], [ %scevgep.i, %43 ]
-  store i32 3, ptr %44, align 8
-  %45 = load ptr, ptr %21, align 8
-  %46 = getelementptr ptr, ptr %45, i64 %.pre-phi
-  store ptr null, ptr %46, align 8
-  %47 = load i32, ptr %1, align 8
-  %48 = icmp slt i32 %47, 1
-  br i1 %48, label %WaitForTerminatingWorkers.exit, label %.lr.ph.i.i, !llvm.loop !11
+.loopexit.i:                                      ; preds = %41, %39
+  %.pre-phi = phi i64 [ %.pre, %39 ], [ %wide.trip.count.i, %41 ]
+  %42 = phi ptr [ %35, %39 ], [ %scevgep21, %41 ]
+  store i32 3, ptr %42, align 8
+  %43 = load ptr, ptr %21, align 8
+  %44 = getelementptr ptr, ptr %43, i64 %.pre-phi
+  store ptr null, ptr %44, align 8
+  %45 = load i32, ptr %1, align 8
+  %46 = icmp slt i32 %45, 1
+  br i1 %46, label %WaitForTerminatingWorkers.exit, label %.lr.ph.i.i, !llvm.loop !11
 
 WaitForTerminatingWorkers.exit:                   ; preds = %HasEveryWorkerTerminated.exit.i, %.loopexit.i, %.lr.ph.i, %._crit_edge.thread, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   store ptr null, ptr @shutdown_info, align 8
   store volatile ptr null, ptr getelementptr inbounds (i8, ptr @signal_info, i64 8), align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = load ptr, ptr %47, align 8
+  call void @free(ptr noundef %48) #18
+  %49 = getelementptr inbounds i8, ptr %1, i64 16
   %50 = load ptr, ptr %49, align 8
   call void @free(ptr noundef %50) #18
-  %51 = getelementptr inbounds i8, ptr %1, i64 16
-  %52 = load ptr, ptr %51, align 8
-  call void @free(ptr noundef %52) #18
   call void @free(ptr noundef %1) #18
-  br label %53
+  br label %51
 
-53:                                               ; preds = %2, %WaitForTerminatingWorkers.exit
+51:                                               ; preds = %2, %WaitForTerminatingWorkers.exit
   ret void
 }
 
@@ -1471,14 +1471,14 @@ declare ptr @__errno_location() local_unnamed_addr #14
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
+declare i32 @llvm.smax.i32(i32, i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1496,8 +1496,8 @@ attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nounwind }
 attributes #19 = { noreturn nounwind }
 attributes #20 = { nounwind willreturn memory(read) }

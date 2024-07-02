@@ -379,8 +379,6 @@ if.then.i:                                        ; preds = %_ZN12_GLOBAL__N_116
 if.then.i.i:                                      ; preds = %if.then.i
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !38, !noalias !30
-  %cmp3.i.i.i = icmp ult i64 %12, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %12, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(1) %10, i64 %add.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i

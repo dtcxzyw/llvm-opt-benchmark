@@ -9223,12 +9223,10 @@ _ZN4absl13cord_internal18CordRepBtreeReader4NextEv.exit: ; preds = %if.then3, %_
 if.else:                                          ; preds = %if.then
   %navigator_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %22 = load i32, ptr %navigator_.i.i, align 8
-  %cmp.i.i.i2 = icmp sgt i32 %22, -1
-  tail call void @llvm.assume(i1 %cmp.i.i.i2)
   %node_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %idxprom.i.i.i = zext nneg i32 %22 to i64
-  %arrayidx.i.i.i3 = getelementptr inbounds [12 x ptr], ptr %node_.i.i.i, i64 0, i64 %idxprom.i.i.i
-  %23 = load ptr, ptr %arrayidx.i.i.i3, align 8
+  %arrayidx.i.i.i2 = getelementptr inbounds [12 x ptr], ptr %node_.i.i.i, i64 0, i64 %idxprom.i.i.i
+  %23 = load ptr, ptr %arrayidx.i.i.i2, align 8
   %24 = load i64, ptr %23, align 8
   %sub9 = sub i64 %24, %sub
   %call12 = tail call { i64, ptr } @_ZN4absl13cord_internal18CordRepBtreeReader4SeekEm(ptr noundef nonnull align 8 dereferenceable(120) %btree_reader_, i64 noundef %sub9)
@@ -9395,8 +9393,6 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZN4ab
   %sub.i = sub i64 %18, %offset.addr.0.lcssa.i.pn.lcssa.i
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.3.0.i4, i64 %offset.addr.0.lcssa.i.pn.lcssa.i
   %24 = load i32, ptr %navigator_, align 8
-  %cmp.i.i.i = icmp sgt i32 %24, -1
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %idxprom.i.i.i = zext nneg i32 %24 to i64
   %arrayidx.i.i.i10 = getelementptr inbounds [12 x ptr], ptr %node_.i, i64 0, i64 %idxprom.i.i.i
   %25 = load ptr, ptr %arrayidx.i.i.i10, align 8

@@ -5498,8 +5498,6 @@ if.then15.i:                                      ; preds = %if.end.thread.i, %i
   %9 = phi ptr [ %7, %if.end.thread.i ], [ %5, %if.end.i ]
   %_M_string_length.i19.i = getelementptr inbounds i8, ptr %__rhs_mem, i64 8
   %10 = load i64, ptr %_M_string_length.i19.i, align 8
-  %cmp3.i20.i = icmp ult i64 %10, 16
-  tail call void @llvm.assume(i1 %cmp3.i20.i)
   %cmp.not.i = icmp eq ptr %0, %__rhs_mem
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then16.i
 
@@ -5582,8 +5580,6 @@ if.else:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.else
   %_M_string_length.i.i.i.i2 = getelementptr inbounds i8, ptr %__rhs_mem, i64 8
   %24 = load i64, ptr %_M_string_length.i.i.i.i2, align 8
-  %cmp3.i.i.i.i = icmp ult i64 %24, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i)
   %add.i.i.i = add nuw nsw i64 %24, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(1) %23, i64 %add.i.i.i, i1 false)
   br label %_ZNSt8__detail9__variant9__emplaceILm3ELb0EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS4_6StructESt14default_deleteISD_EESC_INS4_9ListValueESE_ISH_EEEJSB_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit
@@ -5844,8 +5840,6 @@ sw.bb4.i.i.i.i.i.i.i.i.i.i:                       ; preds = %entry
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %sw.bb4.i.i.i.i.i.i.i.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 8
   %6 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %6, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %6, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %5, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS7_6StructESt14default_deleteISG_EESF_INS7_9ListValueESH_ISK_EEEEC1EOSN_EUlOT_T0_E_OSt7variantIJS5_S8_dSE_bSJ_SM_EEEJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeEST_SW_.exit.i.i.i.i.i.i.i.i.i.i

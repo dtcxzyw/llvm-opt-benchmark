@@ -5735,8 +5735,6 @@ invoke.cont12.thread.i:                           ; preds = %invoke.cont22
 
 if.then15.i:                                      ; preds = %invoke.cont12.thread.i, %invoke.cont12.i
   %33 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8
-  %cmp3.i59.i = icmp ult i64 %33, 16
-  call void @llvm.assume(i1 %cmp3.i59.i)
   switch i64 %33, label %if.end.i.i.i122 [
     i64 0, label %if.end24.i
     i64 1, label %if.then.i63.i
@@ -6788,8 +6786,6 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i.i4.i.i:                         ; preds = %if.then.i.i.i.i
   %7 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8
-  %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %7, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %7, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i.i.i.i.i.i.i.i, i1 false)
   br label %invoke.cont.thread.i.i
@@ -6875,8 +6871,6 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNSt16allocator_tr
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %for.body.i.i.i.i.i.i.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i.i, i64 8
   %18 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !70, !noalias !67
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %18, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %18, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(1) %16, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorIN12_GLOBAL__N_113expected_infoEEEvEESF_SaISF_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i

@@ -7039,7 +7039,7 @@ Cba_ObjNtkId.exit.i.i:                            ; preds = %62
   %67 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i, i64 %indvars.iv188
   %68 = load i32, ptr %67, align 4
   %.val.i.i = load ptr, ptr %0, align 8
-  %69 = icmp sgt i32 %68, 0
+  %69 = icmp ne i32 %68, 0
   tail call void @llvm.assume(i1 %69)
   %70 = getelementptr i8, ptr %.val.i.i, i64 1564
   %.val.i.i.i2.i.i = load i32, ptr %70, align 4
@@ -7407,7 +7407,7 @@ Cba_ObjNtkId.exit.i.i:                            ; preds = %40
   %47 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i, i64 %41
   %48 = load i32, ptr %47, align 4
   %.val.i.i36 = load ptr, ptr %0, align 8
-  %49 = icmp sgt i32 %48, 0
+  %49 = icmp ne i32 %48, 0
   tail call void @llvm.assume(i1 %49)
   %50 = getelementptr i8, ptr %.val.i.i36, i64 1564
   %.val.i.i.i2.i.i = load i32, ptr %50, align 4
@@ -7552,7 +7552,7 @@ Cba_ObjNtkId.exit.i.i:                            ; preds = %34
   %39 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
   %.val.i.i = load ptr, ptr %0, align 8
-  %41 = icmp sgt i32 %40, 0
+  %41 = icmp ne i32 %40, 0
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr i8, ptr %.val.i.i, i64 1564
   %.val.i.i.i2.i.i = load i32, ptr %42, align 4

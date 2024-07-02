@@ -1906,8 +1906,6 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %__a, i64 16
   %4 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !16
-  %cmp3.i.i.i = icmp ult i64 %4, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %4, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i.i, i1 false)
   br label %if.end.i.i
@@ -1942,8 +1940,6 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
 if.then15.i.i:                                    ; preds = %if.end.i.i
   %_M_string_length.i58.i.i = getelementptr inbounds i8, ptr %__b, i64 16
   %10 = load i64, ptr %_M_string_length.i58.i.i, align 8, !tbaa !16
-  %cmp3.i59.i.i = icmp ult i64 %10, 16
-  call void @llvm.assume(i1 %cmp3.i59.i.i)
   %cmp.not.i.i = icmp eq ptr %__b, %__a
   br i1 %cmp.not.i.i, label %_ZN17InventoryLocationaSEOS_.exit, label %if.then16.i.i, !prof !68
 
@@ -2008,8 +2004,6 @@ if.end.thread.i.i14:                              ; preds = %_ZN17InventoryLocat
 
 if.then15.i.i25:                                  ; preds = %if.end.thread.i.i14, %if.end.i.i36
   %21 = load i64, ptr %_M_string_length.i24.i.i, align 8, !tbaa !16
-  %cmp3.i59.i.i27 = icmp ult i64 %21, 16
-  call void @llvm.assume(i1 %cmp3.i59.i.i27)
   %cmp.not.i.i28 = icmp eq ptr %__tmp, %__b
   br i1 %cmp.not.i.i28, label %_ZN17InventoryLocationaSEOS_.exit42, label %if.then16.i.i29, !prof !68
 
@@ -8209,8 +8203,6 @@ if.end.thread.i:                                  ; preds = %invoke.cont273
 
 if.then15.i:                                      ; preds = %if.end.thread.i, %if.end.i
   %183 = load i64, ptr %_M_string_length.i.i.i.i.i672, align 8, !tbaa !16
-  %cmp3.i59.i = icmp ult i64 %183, 16
-  call void @llvm.assume(i1 %cmp3.i59.i)
   switch i64 %183, label %if.end.i.i.i679 [
     i64 0, label %if.end24.i
     i64 1, label %if.then.i63.i

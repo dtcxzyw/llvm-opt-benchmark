@@ -369,8 +369,6 @@ if.then15.i.i.i:                                  ; preds = %if.end.thread.i.i.i
   %7 = phi ptr [ %5, %if.end.thread.i.i.i ], [ %4, %if.end.i.i.i ]
   %_M_string_length.i58.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %8 = load i64, ptr %_M_string_length.i58.i.i.i, align 8, !tbaa !35
-  %cmp3.i59.i.i.i = icmp ult i64 %8, 16
-  call void @llvm.assume(i1 %cmp3.i59.i.i.i)
   %cmp.not.i.i.i = icmp eq ptr %ref.tmp, %it
   br i1 %cmp.not.i.i.i, label %_ZN5boost10filesystem11path_detail13path_iteratoraSEOS2_.exit, label %if.then16.i.i.i, !prof !36
 
@@ -1077,8 +1075,6 @@ _ZN5boost10filesystemdvENS0_4pathERKS1_.exit:     ; preds = %invoke.cont3
 if.then.i.i:                                      ; preds = %_ZN5boost10filesystemdvENS0_4pathERKS1_.exit
   %_M_string_length.i.i.i13 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i13, align 8, !tbaa !35
-  %cmp3.i.i.i = icmp ult i64 %12, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %12, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %add.i.i, i1 false)
   br label %invoke.cont5

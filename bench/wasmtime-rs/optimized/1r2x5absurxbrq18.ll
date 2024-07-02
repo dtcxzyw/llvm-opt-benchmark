@@ -16295,36 +16295,41 @@ _ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7variant17hb325ce6ede282fd5E.llvm.3269599604001853466(ptr noalias nocapture noundef writeonly sret({ i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }) align 4 dereferenceable(20) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+  %3 = alloca { [2 x ptr], { i64, i64 } }, align 8
   %.sroa.4.0..sroa_idx39 = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.copyload40 = load i64, ptr %.sroa.4.0..sroa_idx39, align 8, !alias.scope !3858
   %.sroa.5.0..sroa_idx41 = getelementptr inbounds i8, ptr %1, i64 24
   %.sroa.5.0.copyload42 = load i64, ptr %.sroa.5.0..sroa_idx41, align 8, !alias.scope !3858
-  %3 = sub nuw i64 %.sroa.5.0.copyload42, %.sroa.4.0.copyload40
-  %4 = tail call noundef i8 @_ZN23wasmtime_component_util16DiscriminantSize10from_count17hc579e41a5ccb5eddE(i64 noundef %3), !range !3833
-  %5 = icmp eq i8 %4, 3
-  br i1 %5, label %6, label %7
+  %4 = sub nuw i64 %.sroa.5.0.copyload42, %.sroa.4.0.copyload40
+  %5 = tail call noundef i8 @_ZN23wasmtime_component_util16DiscriminantSize10from_count17hc579e41a5ccb5eddE(i64 noundef %4), !range !3833
+  %6 = icmp eq i8 %5, 3
+  br i1 %6, label %7, label %8
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.64e0b166545cb150698404bfd60a5e37.60) #49
   unreachable
 
-7:                                                ; preds = %2
-  %8 = tail call noundef i32 @"_ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17hada47da6ba9180b0E"(i8 noundef %4)
+8:                                                ; preds = %2
+  %9 = tail call noundef i32 @"_ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17hada47da6ba9180b0E"(i8 noundef %5)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 %.sroa.4.0.copyload40, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 %.sroa.5.0.copyload42, ptr %.sroa.3.0..sroa_idx, align 8
   %.not.not.i55 = icmp eq i64 %.sroa.5.0.copyload42, %.sroa.4.0.copyload40
   br i1 %.not.not.i55, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7, %49
-  %.sroa.4.061 = phi i8 [ %.sroa.4.1, %49 ], [ 0, %7 ]
-  %.02060 = phi i32 [ %.121, %49 ], [ 0, %7 ]
-  %.02259 = phi i32 [ %.123, %49 ], [ %8, %7 ]
-  %.02458 = phi i32 [ %.125, %49 ], [ 0, %7 ]
-  %.02657 = phi i32 [ %.127, %49 ], [ %8, %7 ]
-  %.sroa.015.056 = phi i8 [ %.sroa.015.1, %49 ], [ 1, %7 ]
-  %9 = phi i64 [ %10, %49 ], [ %.sroa.4.0.copyload40, %7 ]
-  %10 = add nuw nsw i64 %9, 1
-  %11 = icmp ult i64 %9, 2
-  tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %9
+.lr.ph:                                           ; preds = %8, %49
+  %.sroa.4.061 = phi i8 [ %.sroa.4.1, %49 ], [ 0, %8 ]
+  %.02060 = phi i32 [ %.121, %49 ], [ 0, %8 ]
+  %.02259 = phi i32 [ %.123, %49 ], [ %9, %8 ]
+  %.02458 = phi i32 [ %.125, %49 ], [ 0, %8 ]
+  %.02657 = phi i32 [ %.127, %49 ], [ %9, %8 ]
+  %.sroa.015.056 = phi i8 [ %.sroa.015.1, %49 ], [ 1, %8 ]
+  %10 = phi i64 [ %11, %49 ], [ %.sroa.4.0.copyload40, %8 ]
+  %11 = add nuw nsw i64 %10, 1
+  %12 = getelementptr inbounds ptr, ptr %3, i64 %10
   %13 = load ptr, ptr %12, align 8, !alias.scope !3862, !align !822, !noundef !16
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %49, label %50
@@ -16333,13 +16338,14 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
   %14 = trunc nuw i8 %.sroa.015.1 to i1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
-  %.sroa.015.0.lcssa = phi i1 [ true, %7 ], [ %14, %._crit_edge.loopexit ]
-  %.026.lcssa = phi i32 [ %8, %7 ], [ %.127, %._crit_edge.loopexit ]
-  %.024.lcssa = phi i32 [ 0, %7 ], [ %.125, %._crit_edge.loopexit ]
-  %.022.lcssa = phi i32 [ %8, %7 ], [ %.123, %._crit_edge.loopexit ]
-  %.020.lcssa = phi i32 [ 0, %7 ], [ %.121, %._crit_edge.loopexit ]
-  %.sroa.4.0.lcssa = phi i8 [ 0, %7 ], [ %.sroa.4.1, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
+  %.sroa.015.0.lcssa = phi i1 [ true, %8 ], [ %14, %._crit_edge.loopexit ]
+  %.026.lcssa = phi i32 [ %9, %8 ], [ %.127, %._crit_edge.loopexit ]
+  %.024.lcssa = phi i32 [ 0, %8 ], [ %.125, %._crit_edge.loopexit ]
+  %.022.lcssa = phi i32 [ %9, %8 ], [ %.123, %._crit_edge.loopexit ]
+  %.020.lcssa = phi i32 [ 0, %8 ], [ %.121, %._crit_edge.loopexit ]
+  %.sroa.4.0.lcssa = phi i8 [ 0, %8 ], [ %.sroa.4.1, %._crit_edge.loopexit ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.022.lcssa)
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %17, label %.noexc
@@ -16374,7 +16380,7 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
 28:                                               ; preds = %24, %21, %20
   %.sroa.03.0.i = phi i8 [ 0, %20 ], [ 0, %21 ], [ %27, %24 ]
   %.sroa.5.0.i = phi i8 [ undef, %20 ], [ undef, %21 ], [ %25, %24 ]
-  %29 = add i32 %8, -1
+  %29 = add i32 %9, -1
   %30 = add i32 %.026.lcssa, %29
   %31 = sub i32 0, %.026.lcssa
   %32 = and i32 %30, %31
@@ -16409,7 +16415,7 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
   %.123 = phi i32 [ %.0.sroa.speculated.i36, %50 ], [ %.02259, %.lr.ph ]
   %.121 = phi i32 [ %.0.sroa.speculated.i, %50 ], [ %.02060, %.lr.ph ]
   %.sroa.4.1 = phi i8 [ %.sroa.4.0.i, %50 ], [ %.sroa.4.061, %.lr.ph ]
-  %.not.not.i = icmp eq i64 %.sroa.5.0.copyload42, %10
+  %.not.not.i = icmp eq i64 %.sroa.5.0.copyload42, %11
   br i1 %.not.not.i, label %._crit_edge.loopexit, label %.lr.ph
 
 50:                                               ; preds = %.lr.ph
@@ -18191,7 +18197,7 @@ define hidden void @_ZN16wasmtime_environ9component5types15TypeInformation13buil
   br i1 %.not.not.i97, label %.outer._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.loopexit
-  %.lcssa93114117 = phi i64 [ 0, %.lr.ph.lr.ph ], [ 1, %.loopexit ]
+  %.lcssa93114117 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %27, %.loopexit ]
   %.promoted125 = load i32, ptr %0, align 4
   %.promoted103 = load i8, ptr %21, align 1
   %.promoted104 = load i8, ptr %9, align 4
@@ -18200,7 +18206,7 @@ define hidden void @_ZN16wasmtime_environ9component5types15TypeInformation13buil
 23:                                               ; preds = %.lr.ph, %31
   %24 = phi i8 [ %.promoted104, %.lr.ph ], [ %32, %31 ]
   %25 = phi i8 [ %.promoted103, %.lr.ph ], [ %33, %31 ]
-  %26 = phi i64 [ %.lcssa93114117, %.lr.ph ], [ 1, %31 ]
+  %26 = phi i64 [ %.lcssa93114117, %.lr.ph ], [ %27, %31 ]
   %.0.sroa.speculated.i9698 = phi i32 [ %.promoted125, %.lr.ph ], [ %.0.sroa.speculated.i95, %31 ]
   %27 = add nuw nsw i64 %26, 1
   %28 = getelementptr inbounds ptr, ptr %7, i64 %26

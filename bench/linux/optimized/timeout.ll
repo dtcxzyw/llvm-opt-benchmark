@@ -1218,37 +1218,35 @@ define internal noundef i32 @io_link_timeout_fn(ptr nocapture noundef readonly %
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.loopexit, label %.lr.ph, !prof !39
 
-.lr.ph:                                           ; preds = %21, %31
-  %25 = phi i32 [ %32, %31 ], [ %23, %21 ]
+.lr.ph:                                           ; preds = %21, %30
+  %25 = phi i32 [ %31, %30 ], [ %23, %21 ]
   %26 = add i32 %25, 1
   %27 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22, i32 %26, ptr elementtype(i32) %22, i32 %25) #8, !srcloc !40
   %28 = extractvalue { i8, i32 } %27, 0
-  %29 = icmp ult i8 %28, 2
-  tail call void @llvm.assume(i1 %29)
-  %30 = icmp eq i8 %28, 0
-  br i1 %30, label %31, label %.loopexit, !prof !9
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %30, label %.loopexit, !prof !9
 
-31:                                               ; preds = %.lr.ph
-  %32 = extractvalue { i8, i32 } %27, 1
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.loopexit, label %.lr.ph, !prof !41, !llvm.loop !42
+30:                                               ; preds = %.lr.ph
+  %31 = extractvalue { i8, i32 } %27, 1
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %.loopexit, label %.lr.ph, !prof !41, !llvm.loop !42
 
-.loopexit:                                        ; preds = %31, %.lr.ph, %21, %1
-  %34 = phi ptr [ null, %1 ], [ null, %21 ], [ null, %31 ], [ %9, %.lr.ph ]
-  %35 = getelementptr inbounds i8, ptr %3, i64 24
-  %36 = getelementptr inbounds i8, ptr %3, i64 32
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %35, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  store ptr %37, ptr %39, align 8
-  store volatile ptr %38, ptr %37, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %35, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %36, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr %34, ptr %40, align 8
+.loopexit:                                        ; preds = %30, %.lr.ph, %21, %1
+  %33 = phi ptr [ null, %1 ], [ null, %21 ], [ null, %30 ], [ %9, %.lr.ph ]
+  %34 = getelementptr inbounds i8, ptr %3, i64 24
+  %35 = getelementptr inbounds i8, ptr %3, i64 32
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %34, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %36, ptr %38, align 8
+  store volatile ptr %37, ptr %36, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %34, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %35, align 8
+  %39 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr %33, ptr %39, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %6, i64 noundef %7) #8
-  %41 = getelementptr inbounds i8, ptr %3, i64 144
-  store ptr @io_req_task_link_timeout, ptr %41, align 8
+  %40 = getelementptr inbounds i8, ptr %3, i64 144
+  store ptr @io_req_task_link_timeout, ptr %40, align 8
   tail call void @__io_req_task_work_add(ptr noundef %3, i32 noundef 0) #8
   ret i32 0
 }

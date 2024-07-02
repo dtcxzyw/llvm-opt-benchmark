@@ -992,12 +992,12 @@ define internal fastcc i64 @cpu_clock_sample_group(i32 noundef %0, ptr noundef %
   %8 = load volatile i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   %10 = getelementptr inbounds i8, ptr %6, i64 256
-  br i1 %9, label %11, label %52
+  br i1 %9, label %11, label %49
 
 11:                                               ; preds = %2
   %12 = load volatile i32, ptr %7, align 8
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %52
+  br i1 %13, label %14, label %49
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
@@ -1009,85 +1009,79 @@ define internal fastcc i64 @cpu_clock_sample_group(i32 noundef %0, ptr noundef %
   %18 = icmp ult i64 %17, %16
   br i1 %18, label %.preheader9, label %.thread
 
-.preheader9:                                      ; preds = %14, %24
-  %19 = phi i64 [ %25, %24 ], [ %17, %14 ]
+.preheader9:                                      ; preds = %14, %23
+  %19 = phi i64 [ %24, %23 ], [ %17, %14 ]
   %20 = call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 %16, ptr elementtype(i64) %10, i64 %19) #11, !srcloc !24
   %21 = extractvalue { i8, i64 } %20, 0
-  %22 = icmp ult i8 %21, 2
-  call void @llvm.assume(i1 %22)
-  %23 = icmp eq i8 %21, 0
-  br i1 %23, label %24, label %.thread, !prof !7
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %23, label %.thread, !prof !7
 
-24:                                               ; preds = %.preheader9
-  %25 = extractvalue { i8, i64 } %20, 1
-  %26 = icmp ult i64 %25, %16
-  br i1 %26, label %.preheader9, label %.thread, !llvm.loop !25
+23:                                               ; preds = %.preheader9
+  %24 = extractvalue { i8, i64 } %20, 1
+  %25 = icmp ult i64 %24, %16
+  br i1 %25, label %.preheader9, label %.thread, !llvm.loop !25
 
-.thread:                                          ; preds = %.preheader9, %24, %14
-  %27 = getelementptr inbounds i8, ptr %6, i64 264
-  %28 = load i64, ptr %3, align 8
-  %29 = load volatile i64, ptr %27, align 8
-  %30 = icmp ult i64 %29, %28
-  br i1 %30, label %.preheader8, label %.thread6
+.thread:                                          ; preds = %.preheader9, %23, %14
+  %26 = getelementptr inbounds i8, ptr %6, i64 264
+  %27 = load i64, ptr %3, align 8
+  %28 = load volatile i64, ptr %26, align 8
+  %29 = icmp ult i64 %28, %27
+  br i1 %29, label %.preheader8, label %.thread6
 
-.preheader8:                                      ; preds = %.thread, %36
-  %31 = phi i64 [ %37, %36 ], [ %29, %.thread ]
-  %32 = call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %27, i64 %28, ptr elementtype(i64) %27, i64 %31) #11, !srcloc !24
-  %33 = extractvalue { i8, i64 } %32, 0
-  %34 = icmp ult i8 %33, 2
-  call void @llvm.assume(i1 %34)
-  %35 = icmp eq i8 %33, 0
-  br i1 %35, label %36, label %.thread6, !prof !7
+.preheader8:                                      ; preds = %.thread, %34
+  %30 = phi i64 [ %35, %34 ], [ %28, %.thread ]
+  %31 = call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %26, i64 %27, ptr elementtype(i64) %26, i64 %30) #11, !srcloc !24
+  %32 = extractvalue { i8, i64 } %31, 0
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %34, label %.thread6, !prof !7
 
-36:                                               ; preds = %.preheader8
-  %37 = extractvalue { i8, i64 } %32, 1
-  %38 = icmp ult i64 %37, %28
-  br i1 %38, label %.preheader8, label %.thread6, !llvm.loop !25
+34:                                               ; preds = %.preheader8
+  %35 = extractvalue { i8, i64 } %31, 1
+  %36 = icmp ult i64 %35, %27
+  br i1 %36, label %.preheader8, label %.thread6, !llvm.loop !25
 
-.thread6:                                         ; preds = %.preheader8, %36, %.thread
-  %39 = getelementptr inbounds i8, ptr %6, i64 272
-  %40 = getelementptr inbounds i8, ptr %3, i64 16
-  %41 = load i64, ptr %40, align 8
-  %42 = load volatile i64, ptr %39, align 8
-  %43 = icmp ult i64 %42, %41
-  br i1 %43, label %.preheader, label %.thread7
+.thread6:                                         ; preds = %.preheader8, %34, %.thread
+  %37 = getelementptr inbounds i8, ptr %6, i64 272
+  %38 = getelementptr inbounds i8, ptr %3, i64 16
+  %39 = load i64, ptr %38, align 8
+  %40 = load volatile i64, ptr %37, align 8
+  %41 = icmp ult i64 %40, %39
+  br i1 %41, label %.preheader, label %.thread7
 
-.preheader:                                       ; preds = %.thread6, %49
-  %44 = phi i64 [ %50, %49 ], [ %42, %.thread6 ]
-  %45 = call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %39, i64 %41, ptr elementtype(i64) %39, i64 %44) #11, !srcloc !24
-  %46 = extractvalue { i8, i64 } %45, 0
-  %47 = icmp ult i8 %46, 2
-  call void @llvm.assume(i1 %47)
-  %48 = icmp eq i8 %46, 0
-  br i1 %48, label %49, label %.thread7, !prof !7
+.preheader:                                       ; preds = %.thread6, %46
+  %42 = phi i64 [ %47, %46 ], [ %40, %.thread6 ]
+  %43 = call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %37, i64 %39, ptr elementtype(i64) %37, i64 %42) #11, !srcloc !24
+  %44 = extractvalue { i8, i64 } %43, 0
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %46, label %.thread7, !prof !7
 
-49:                                               ; preds = %.preheader
-  %50 = extractvalue { i8, i64 } %45, 1
-  %51 = icmp ult i64 %50, %41
-  br i1 %51, label %.preheader, label %.thread7, !llvm.loop !25
+46:                                               ; preds = %.preheader
+  %47 = extractvalue { i8, i64 } %43, 1
+  %48 = icmp ult i64 %47, %39
+  br i1 %48, label %.preheader, label %.thread7, !llvm.loop !25
 
-.thread7:                                         ; preds = %.preheader, %49, %.thread6
+.thread7:                                         ; preds = %.preheader, %46, %.thread6
   store volatile i32 1, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
-  br label %52
+  br label %49
 
-52:                                               ; preds = %2, %11, %.thread7
-  %53 = load volatile i64, ptr %10, align 8
-  %54 = getelementptr inbounds i8, ptr %6, i64 264
-  %55 = load volatile i64, ptr %54, align 8
-  %56 = add i64 %55, %53
+49:                                               ; preds = %2, %11, %.thread7
+  %50 = load volatile i64, ptr %10, align 8
+  %51 = getelementptr inbounds i8, ptr %6, i64 264
+  %52 = load volatile i64, ptr %51, align 8
+  %53 = add i64 %52, %50
   %.sink.in = getelementptr inbounds i8, ptr %6, i64 272
   %.sink = load volatile i64, ptr %.sink.in, align 8
-  store i64 %56, ptr %4, align 16
-  %57 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %53, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 %.sink, ptr %58, align 16
-  %59 = zext nneg i32 %0 to i64
-  %60 = getelementptr [3 x i64], ptr %4, i64 0, i64 %59
-  %61 = load i64, ptr %60, align 8
+  store i64 %53, ptr %4, align 16
+  %54 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %50, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %.sink, ptr %55, align 16
+  %56 = zext nneg i32 %0 to i64
+  %57 = getelementptr [3 x i64], ptr %4, i64 0, i64 %56
+  %58 = load i64, ptr %57, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
-  ret i64 %61
+  ret i64 %58
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

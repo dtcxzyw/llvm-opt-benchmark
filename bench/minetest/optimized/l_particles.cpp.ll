@@ -1918,8 +1918,6 @@ if.then15.i:                                      ; preds = %if.end.thread.i, %i
   %56 = phi ptr [ %54, %if.end.thread.i ], [ %53, %if.end.i ]
   %_M_string_length.i58.i = getelementptr inbounds i8, ptr %ref.tmp200, i64 8
   %57 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !14
-  %cmp3.i59.i = icmp ult i64 %57, 16
-  call void @llvm.assume(i1 %cmp3.i59.i)
   switch i64 %57, label %if.end.i.i.i [
     i64 0, label %if.end24.i
     i64 1, label %if.then.i63.i
@@ -3542,8 +3540,6 @@ if.then15.i:                                      ; preds = %if.end.thread.i, %i
   %47 = phi ptr [ %45, %if.end.thread.i ], [ %44, %if.end.i ]
   %_M_string_length.i58.i = getelementptr inbounds i8, ptr %ref.tmp258, i64 8
   %48 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !14
-  %cmp3.i59.i = icmp ult i64 %48, 16
-  call void @llvm.assume(i1 %cmp3.i59.i)
   switch i64 %48, label %if.end.i.i.i [
     i64 0, label %if.end24.i
     i64 1, label %if.then.i63.i
@@ -4622,8 +4618,6 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 112
   %12 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !114, !noalias !111
-  %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %12, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %12, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(1) %10, i64 %add.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
@@ -5642,8 +5636,6 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 112
   %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !122, !noalias !119
-  %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %13, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %13, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %add.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
@@ -5725,8 +5717,6 @@ for.body.i.i.i49:                                 ; preds = %_ZNSt6vectorI21Serv
 if.then.i.i.i.i.i.i.i.i81:                        ; preds = %for.body.i.i.i49
   %_M_string_length.i.i.i.i.i.i.i.i.i82 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i51, i64 112
   %25 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i82, align 8, !tbaa !14, !alias.scope !128, !noalias !125
-  %cmp3.i.i.i.i.i.i.i.i.i83 = icmp ult i64 %25, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i83)
   %add.i.i.i.i.i.i.i.i84 = add nuw nsw i64 %25, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %23, i64 %add.i.i.i.i.i.i.i.i84, i1 false)
   br label %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i74

@@ -3355,8 +3355,6 @@ if.end.thread.i:                                  ; preds = %_ZNSt7__cxx119to_st
 if.then16.i:                                      ; preds = %if.end.thread.i, %if.end.i
   %_M_string_length.i64.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %16 = load i64, ptr %_M_string_length.i64.i, align 8, !tbaa !101
-  %cmp3.i65.i = icmp ult i64 %16, 16
-  call void @llvm.assume(i1 %cmp3.i65.i)
   %cmp.not.i = icmp eq ptr %ref.tmp, %this
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then17.i, !prof !170
 

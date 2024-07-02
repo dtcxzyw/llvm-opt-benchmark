@@ -1630,30 +1630,30 @@ define dso_local ptr @__inet_lookup_established(ptr noundef readonly %0, ptr noc
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %.preheader7, label %.loopexit
 
-.preheader7:                                      ; preds = %24, %92
-  %29 = phi ptr [ %93, %92 ], [ %25, %24 ]
+.preheader7:                                      ; preds = %24, %91
+  %29 = phi ptr [ %92, %91 ], [ %25, %24 ]
   %30 = getelementptr i8, ptr %29, i64 -104
   %31 = getelementptr i8, ptr %29, i64 -96
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, %17
-  br i1 %33, label %34, label %92
+  br i1 %33, label %34, label %91
 
 34:                                               ; preds = %.preheader7
   %35 = getelementptr i8, ptr %29, i64 -56
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, %0
-  br i1 %37, label %38, label %92
+  br i1 %37, label %38, label %91
 
 38:                                               ; preds = %34
   %39 = getelementptr i8, ptr %29, i64 -92
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, %16
-  br i1 %41, label %42, label %92
+  br i1 %41, label %42, label %91
 
 42:                                               ; preds = %38
   %43 = load i64, ptr %30, align 8
   %44 = icmp eq i64 %43, %12
-  br i1 %44, label %45, label %92
+  br i1 %44, label %45, label %91
 
 45:                                               ; preds = %42
   %46 = getelementptr i8, ptr %29, i64 -84
@@ -1665,7 +1665,7 @@ define dso_local ptr @__inet_lookup_established(ptr noundef readonly %0, ptr noc
   %50 = icmp eq i32 %47, %6
   %51 = icmp eq i32 %47, %7
   %52 = or i1 %50, %51
-  br i1 %52, label %53, label %92, !prof !16
+  br i1 %52, label %53, label %91, !prof !16
 
 53:                                               ; preds = %49, %45
   %54 = getelementptr i8, ptr %29, i64 -56
@@ -1676,85 +1676,83 @@ define dso_local ptr @__inet_lookup_established(ptr noundef readonly %0, ptr noc
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %53, %65
-  %60 = phi i32 [ %66, %65 ], [ %58, %53 ]
+.preheader:                                       ; preds = %53, %64
+  %60 = phi i32 [ %65, %64 ], [ %58, %53 ]
   %61 = add i32 %60, 1
   %62 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %57, i32 %61, ptr elementtype(i32) %57, i32 %60) #16, !srcloc !33
   %63 = extractvalue { i8, i32 } %62, 0
-  %64 = icmp ult i8 %63, 2
-  tail call void @llvm.assume(i1 %64)
   %.not = icmp eq i8 %63, 0
-  br i1 %.not, label %65, label %.thread, !prof !7
+  br i1 %.not, label %64, label %.thread, !prof !7
 
-65:                                               ; preds = %.preheader
-  %66 = extractvalue { i8, i32 } %62, 1
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %.thread, label %.preheader, !llvm.loop !34
+64:                                               ; preds = %.preheader
+  %65 = extractvalue { i8, i32 } %62, 1
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %.thread, label %.preheader, !llvm.loop !34
 
-.thread:                                          ; preds = %.preheader, %65, %53
-  %68 = phi i32 [ 0, %53 ], [ %60, %.preheader ], [ 0, %65 ]
-  %69 = add i32 %68, 1
-  %70 = or i32 %69, %68
-  %71 = icmp sgt i32 %70, -1
-  br i1 %71, label %73, label %72, !prof !16
+.thread:                                          ; preds = %.preheader, %64, %53
+  %67 = phi i32 [ 0, %53 ], [ %60, %.preheader ], [ 0, %64 ]
+  %68 = add i32 %67, 1
+  %69 = or i32 %68, %67
+  %70 = icmp sgt i32 %69, -1
+  br i1 %70, label %72, label %71, !prof !16
 
-72:                                               ; preds = %.thread
+71:                                               ; preds = %.thread
   tail call void @refcount_warn_saturate(ptr noundef %57, i32 noundef 0) #16
-  br label %73
+  br label %72
 
-73:                                               ; preds = %72, %.thread
-  %74 = icmp eq i32 %68, 0
-  br i1 %74, label %100, label %75, !prof !7
+72:                                               ; preds = %71, %.thread
+  %73 = icmp eq i32 %67, 0
+  br i1 %73, label %99, label %74, !prof !7
 
-75:                                               ; preds = %73
-  %76 = load ptr, ptr %54, align 8
-  %77 = icmp eq ptr %76, %0
-  br i1 %77, label %78, label %91
+74:                                               ; preds = %72
+  %75 = load ptr, ptr %54, align 8
+  %76 = icmp eq ptr %75, %0
+  br i1 %76, label %77, label %90
 
-78:                                               ; preds = %75
-  %79 = load i32, ptr %55, align 4
-  %80 = icmp eq i32 %79, %16
-  br i1 %80, label %81, label %91
+77:                                               ; preds = %74
+  %78 = load i32, ptr %55, align 4
+  %79 = icmp eq i32 %78, %16
+  br i1 %79, label %80, label %90
 
-81:                                               ; preds = %78
-  %82 = load i64, ptr %30, align 8
-  %83 = icmp eq i64 %82, %12
-  br i1 %83, label %84, label %91
+80:                                               ; preds = %77
+  %81 = load i64, ptr %30, align 8
+  %82 = icmp eq i64 %81, %12
+  br i1 %82, label %83, label %90
 
-84:                                               ; preds = %81
-  %85 = load volatile i32, ptr %56, align 4
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %100, label %87
+83:                                               ; preds = %80
+  %84 = load volatile i32, ptr %56, align 4
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %99, label %86
 
-87:                                               ; preds = %84
-  %88 = icmp eq i32 %85, %6
-  %89 = icmp eq i32 %85, %7
-  %90 = or i1 %88, %89
-  br i1 %90, label %100, label %91, !prof !16
+86:                                               ; preds = %83
+  %87 = icmp eq i32 %84, %6
+  %88 = icmp eq i32 %84, %7
+  %89 = or i1 %87, %88
+  br i1 %89, label %99, label %90, !prof !16
 
-91:                                               ; preds = %87, %81, %78, %75
+90:                                               ; preds = %86, %80, %77, %74
   tail call void @sock_gen_put(ptr noundef %30)
   br label %.backedge
 
-92:                                               ; preds = %49, %42, %38, %34, %.preheader7
-  %93 = load volatile ptr, ptr %29, align 8
-  %94 = ptrtoint ptr %93 to i64
-  %95 = and i64 %94, 1
-  %96 = icmp eq i64 %95, 0
-  br i1 %96, label %.preheader7, label %.loopexit, !llvm.loop !35
+91:                                               ; preds = %49, %42, %38, %34, %.preheader7
+  %92 = load volatile ptr, ptr %29, align 8
+  %93 = ptrtoint ptr %92 to i64
+  %94 = and i64 %93, 1
+  %95 = icmp eq i64 %94, 0
+  br i1 %95, label %.preheader7, label %.loopexit, !llvm.loop !35
 
-.loopexit:                                        ; preds = %92, %24
-  %97 = phi i64 [ %26, %24 ], [ %94, %92 ]
-  %98 = lshr i64 %97, 1
-  %99 = icmp eq i64 %98, %22
-  br i1 %99, label %100, label %.backedge
+.loopexit:                                        ; preds = %91, %24
+  %96 = phi i64 [ %26, %24 ], [ %93, %91 ]
+  %97 = lshr i64 %96, 1
+  %98 = icmp eq i64 %97, %22
+  br i1 %98, label %99, label %.backedge
 
-.backedge:                                        ; preds = %.loopexit, %91
+.backedge:                                        ; preds = %.loopexit, %90
   br label %24
 
-100:                                              ; preds = %.loopexit, %87, %84, %73
-  %101 = phi ptr [ %30, %87 ], [ null, %.loopexit ], [ null, %73 ], [ %30, %84 ]
-  ret ptr %101
+99:                                               ; preds = %.loopexit, %86, %83, %72
+  %100 = phi ptr [ %30, %86 ], [ null, %.loopexit ], [ null, %72 ], [ %30, %83 ]
+  ret ptr %100
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

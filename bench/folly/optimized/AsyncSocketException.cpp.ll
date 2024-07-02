@@ -288,8 +288,6 @@ _ZN5folly20AsyncSocketException22getExceptionTypeStringENS0_24AsyncSocketExcepti
 if.then.i.i.i.i.i:                                ; preds = %_ZN5folly20AsyncSocketException22getExceptionTypeStringENS0_24AsyncSocketExceptionTypeE.exit
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   %8 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !21, !noalias !11
-  %cmp3.i.i.i.i.i.i = icmp ult i64 %8, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
   %add.i.i.i.i.i = add nuw nsw i64 %8, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %6, i64 %add.i.i.i.i.i, i1 false), !noalias !11
   br label %_ZN5folly9FormatterILb0EJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEERiS6_EECI2NS_17BaseFormatterImplISE_Lb0ESt16integer_sequenceImJLm0ELm1ELm2ELm3EEEJS8_SC_SD_S6_EEEESC_S8_OSC_SD_OS6_.exit.i

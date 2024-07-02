@@ -2010,8 +2010,6 @@ call3.i.i.i.noexc:                                ; preds = %entry
 if.then.i.i:                                      ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i15, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !30
-  %cmp3.i.i.i = icmp ult i64 %4, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %4, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i.i, i1 false)
   br label %invoke.cont
@@ -2048,8 +2046,6 @@ call3.i.i.i.noexc27:                              ; preds = %invoke.cont
 if.then.i.i23:                                    ; preds = %call3.i.i.i.noexc27
   %_M_string_length.i.i.i24 = getelementptr inbounds i8, ptr %call3.i.i.i28, i64 8
   %10 = load i64, ptr %_M_string_length.i.i.i24, align 8, !tbaa !30
-  %cmp3.i.i.i25 = icmp ult i64 %10, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i25)
   %add.i.i26 = add nuw nsw i64 %10, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(1) %8, i64 %add.i.i26, i1 false)
   br label %invoke.cont5
@@ -2817,8 +2813,6 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 16
   %7 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !30, !alias.scope !157, !noalias !154
-  %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %7, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %7, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %5, i64 %add.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt19__relocate_object_aIN5folly15debugger_detail24GlobalThreadPoolListImpl8PoolInfoES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i
@@ -2887,8 +2881,6 @@ for.body.i.i.i49:                                 ; preds = %_ZNSt6vectorIN5foll
 if.then.i.i.i.i.i.i.i.i77:                        ; preds = %for.body.i.i.i49
   %_M_string_length.i.i.i.i.i.i.i.i.i78 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i51, i64 16
   %18 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i78, align 8, !tbaa !30, !alias.scope !163, !noalias !160
-  %cmp3.i.i.i.i.i.i.i.i.i79 = icmp ult i64 %18, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i79)
   %add.i.i.i.i.i.i.i.i80 = add nuw nsw i64 %18, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(1) %16, i64 %add.i.i.i.i.i.i.i.i80, i1 false)
   br label %_ZSt19__relocate_object_aIN5folly15debugger_detail24GlobalThreadPoolListImpl8PoolInfoES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i58
@@ -3419,8 +3411,6 @@ if.then15.i:                                      ; preds = %if.end.thread.i, %i
   %9 = phi ptr [ %7, %if.end.thread.i ], [ %6, %if.end.i ]
   %_M_string_length.i58.i = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !30
-  %cmp3.i59.i = icmp ult i64 %10, 16
-  tail call void @llvm.assume(i1 %cmp3.i59.i)
   %cmp.not.i = icmp eq ptr %0, %this
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then16.i, !prof !53
 

@@ -271,40 +271,38 @@ define dso_local range(i32 -2147483648, 1) i32 @rtl8168_led_mod_ctrl(ptr noundef
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.thread, label %.lr.ph, !prof !5
 
-.lr.ph:                                           ; preds = %9, %19
-  %13 = phi i32 [ %20, %19 ], [ %11, %9 ]
+.lr.ph:                                           ; preds = %9, %18
+  %13 = phi i32 [ %19, %18 ], [ %11, %9 ]
   %14 = add i32 %13, -1
   %15 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, i32 %14, ptr elementtype(i32) %10, i32 %13) #19, !srcloc !6
   %16 = extractvalue { i8, i32 } %15, 0
-  %17 = icmp ult i8 %16, 2
-  tail call void @llvm.assume(i1 %17)
-  %18 = icmp eq i8 %16, 0
-  br i1 %18, label %19, label %.thread, !prof !7
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %18, label %.thread, !prof !7
 
-19:                                               ; preds = %.lr.ph
-  %20 = extractvalue { i8, i32 } %15, 1
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.thread, label %.lr.ph, !prof !8, !llvm.loop !9
+18:                                               ; preds = %.lr.ph
+  %19 = extractvalue { i8, i32 } %15, 1
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %.thread, label %.lr.ph, !prof !8, !llvm.loop !9
 
 .thread3:                                         ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %0, i64 6704
-  tail call void @mutex_lock(ptr noundef %22) #19
-  %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr i8, ptr %23, i64 24
-  %25 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %24) #19, !srcloc !12
-  %26 = xor i16 %1, -1
-  %27 = and i16 %25, %26
-  %28 = or i16 %27, %2
-  %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr i8, ptr %29, i64 24
-  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %28, ptr elementtype(i16) %30) #19, !srcloc !13
-  tail call void @mutex_unlock(ptr noundef %22) #19
-  %31 = tail call i32 @__pm_runtime_idle(ptr noundef %6, i32 noundef 4) #19
+  %21 = getelementptr inbounds i8, ptr %0, i64 6704
+  tail call void @mutex_lock(ptr noundef %21) #19
+  %22 = load ptr, ptr %0, align 8
+  %23 = getelementptr i8, ptr %22, i64 24
+  %24 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %23) #19, !srcloc !12
+  %25 = xor i16 %1, -1
+  %26 = and i16 %24, %25
+  %27 = or i16 %26, %2
+  %28 = load ptr, ptr %0, align 8
+  %29 = getelementptr i8, ptr %28, i64 24
+  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %27, ptr elementtype(i16) %29) #19, !srcloc !13
+  tail call void @mutex_unlock(ptr noundef %21) #19
+  %30 = tail call i32 @__pm_runtime_idle(ptr noundef %6, i32 noundef 4) #19
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %19, %9, %.thread3
-  %32 = phi i32 [ 0, %.thread3 ], [ %7, %9 ], [ %7, %19 ], [ %7, %.lr.ph ]
-  ret i32 %32
+.thread:                                          ; preds = %.lr.ph, %18, %9, %.thread3
+  %31 = phi i32 [ 0, %.thread3 ], [ %7, %9 ], [ %7, %18 ], [ %7, %.lr.ph ]
+  ret i32 %31
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -334,32 +332,30 @@ define dso_local range(i32 -2147483648, 65536) i32 @rtl8168_get_led_mode(ptr noc
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.thread, label %.lr.ph, !prof !5
 
-.lr.ph:                                           ; preds = %7, %17
-  %11 = phi i32 [ %18, %17 ], [ %9, %7 ]
+.lr.ph:                                           ; preds = %7, %16
+  %11 = phi i32 [ %17, %16 ], [ %9, %7 ]
   %12 = add i32 %11, -1
   %13 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8, i32 %12, ptr elementtype(i32) %8, i32 %11) #19, !srcloc !6
   %14 = extractvalue { i8, i32 } %13, 0
-  %15 = icmp ult i8 %14, 2
-  tail call void @llvm.assume(i1 %15)
-  %16 = icmp eq i8 %14, 0
-  br i1 %16, label %17, label %.thread, !prof !7
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %16, label %.thread, !prof !7
 
-17:                                               ; preds = %.lr.ph
-  %18 = extractvalue { i8, i32 } %13, 1
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.thread, label %.lr.ph, !prof !8, !llvm.loop !9
+16:                                               ; preds = %.lr.ph
+  %17 = extractvalue { i8, i32 } %13, 1
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %.thread, label %.lr.ph, !prof !8, !llvm.loop !9
 
 .thread3:                                         ; preds = %1
-  %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr i8, ptr %20, i64 24
-  %22 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %21) #19, !srcloc !12
-  %23 = zext i16 %22 to i32
-  %24 = tail call i32 @__pm_runtime_idle(ptr noundef %4, i32 noundef 4) #19
+  %19 = load ptr, ptr %0, align 8
+  %20 = getelementptr i8, ptr %19, i64 24
+  %21 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %20) #19, !srcloc !12
+  %22 = zext i16 %21 to i32
+  %23 = tail call i32 @__pm_runtime_idle(ptr noundef %4, i32 noundef 4) #19
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %17, %7, %.thread3
-  %25 = phi i32 [ %23, %.thread3 ], [ %5, %7 ], [ %5, %17 ], [ %5, %.lr.ph ]
-  ret i32 %25
+.thread:                                          ; preds = %.lr.ph, %16, %7, %.thread3
+  %24 = phi i32 [ %22, %.thread3 ], [ %5, %7 ], [ %5, %16 ], [ %5, %.lr.ph ]
+  ret i32 %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
@@ -4827,22 +4823,20 @@ rtl8169_do_counters.exit:                         ; preds = %44, %57, %54, %20, 
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %.thread, label %.lr.ph, !prof !5
 
-.lr.ph:                                           ; preds = %rtl8169_do_counters.exit, %97
-  %91 = phi i32 [ %98, %97 ], [ %89, %rtl8169_do_counters.exit ]
+.lr.ph:                                           ; preds = %rtl8169_do_counters.exit, %96
+  %91 = phi i32 [ %97, %96 ], [ %89, %rtl8169_do_counters.exit ]
   %92 = add i32 %91, -1
   %93 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8, i32 %92, ptr elementtype(i32) %8, i32 %91) #19, !srcloc !6
   %94 = extractvalue { i8, i32 } %93, 0
-  %95 = icmp ult i8 %94, 2
-  tail call void @llvm.assume(i1 %95)
-  %96 = icmp eq i8 %94, 0
-  br i1 %96, label %97, label %.thread, !prof !7
+  %95 = icmp eq i8 %94, 0
+  br i1 %95, label %96, label %.thread, !prof !7
 
-97:                                               ; preds = %.lr.ph
-  %98 = extractvalue { i8, i32 } %93, 1
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %.thread, label %.lr.ph, !prof !8, !llvm.loop !9
+96:                                               ; preds = %.lr.ph
+  %97 = extractvalue { i8, i32 } %93, 1
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %.thread, label %.lr.ph, !prof !8, !llvm.loop !9
 
-.thread:                                          ; preds = %97, %.lr.ph, %rtl8169_do_counters.exit
+.thread:                                          ; preds = %96, %.lr.ph, %rtl8169_do_counters.exit
   ret void
 }
 

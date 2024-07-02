@@ -28,7 +28,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %3 = load i32, ptr %scale_, align 4
   %raw_.i5 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %raw_.i5, align 8
-  %switch = icmp ult i32 %3, 3
+  %switch = icmp ne i32 %3, 3
   tail call void @llvm.assume(i1 %switch)
   %wide.trip.count143 = zext i32 %2 to i64
   switch i32 %.fr, label %for.body [

@@ -2006,8 +2006,8 @@ define internal void @kvm_flush_tlb_multi(ptr nocapture noundef readonly %0, ptr
   store i64 %5, ptr %4, align 8
   br label %6
 
-6:                                                ; preds = %2, %33
-  %7 = phi i64 [ 0, %2 ], [ %35, %33 ]
+6:                                                ; preds = %2, %32
+  %7 = phi i64 [ 0, %2 ], [ %34, %32 ]
   %8 = load i64, ptr %4, align 8
   %9 = shl nsw i64 -1, %7
   %10 = and i64 %8, %9
@@ -2030,28 +2030,26 @@ define internal void @kvm_flush_tlb_multi(ptr nocapture noundef readonly %0, ptr
   %23 = load volatile i8, ptr %22, align 8
   %24 = and i8 %23, 1
   %25 = icmp eq i8 %24, 0
-  br i1 %25, label %33, label %26
+  br i1 %25, label %32, label %26
 
 26:                                               ; preds = %16
   %27 = or i8 %23, 2
   %28 = tail call { i8, i8 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgb $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},q,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22, i8 %27, ptr elementtype(i8) %22, i8 %23) #17, !srcloc !79
   %29 = extractvalue { i8, i8 } %28, 0
-  %30 = icmp ult i8 %29, 2
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp eq i8 %29, 0
-  br i1 %31, label %33, label %32, !prof !25
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %32, label %31, !prof !25
 
-32:                                               ; preds = %26
+31:                                               ; preds = %26
   tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %4, i64 %17) #17, !srcloc !80
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %26, %16
-  %34 = add nuw nsw i64 %13, 1
-  %35 = and i64 %34, 127
-  %36 = icmp ugt i64 %35, 63
-  br i1 %36, label %.thread, label %6, !prof !50, !llvm.loop !81
+32:                                               ; preds = %31, %26, %16
+  %33 = add nuw nsw i64 %13, 1
+  %34 = and i64 %33, 127
+  %35 = icmp ugt i64 %34, 63
+  br i1 %35, label %.thread, label %6, !prof !50, !llvm.loop !81
 
-.thread:                                          ; preds = %6, %33, %12
+.thread:                                          ; preds = %6, %32, %12
   tail call void @native_flush_tlb_multi(ptr noundef %4, ptr noundef %1) #17
   ret void
 }

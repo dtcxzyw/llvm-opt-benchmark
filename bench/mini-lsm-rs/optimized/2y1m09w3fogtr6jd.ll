@@ -1212,7 +1212,7 @@ define hidden noundef { ptr, ptr } @"_ZN18crossbeam_skiplist4base21SkipList$LT$K
   store atomic i64 %26, ptr %19 monotonic, align 128
   %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %26, i1 false)
   %.0.sroa.speculated.i.i = add nuw nsw i64 %27, 1
-  %28 = icmp ult i64 %27, 3
+  %28 = icmp ne i64 %27, 3
   tail call void @llvm.assume(i1 %28)
   %29 = load atomic i64, ptr %17 monotonic, align 16
   br label %30

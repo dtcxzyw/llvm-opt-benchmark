@@ -2466,7 +2466,7 @@ define hidden i32 @nvglImageHandleGL3(ptr noundef %0, i32 noundef %1) local_unna
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
-  %6 = icmp sgt i32 %5, 0
+  %6 = icmp ne i32 %5, 0
   tail call void @llvm.assume(i1 %6)
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   %8 = load ptr, ptr %7, align 8

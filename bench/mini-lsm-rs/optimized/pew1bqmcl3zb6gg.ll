@@ -1937,7 +1937,7 @@ default.unreachable7:                             ; preds = %1
 19:                                               ; preds = %15
   %20 = load i64, ptr %10, align 8, !alias.scope !205, !noundef !5
   %21 = getelementptr inbounds i8, ptr %17, i64 8
-  %22 = icmp ult i64 %20, 31
+  %22 = icmp ne i64 %20, 31
   call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds { { i64 }, { { [0 x i8] } } }, ptr %21, i64 %20
   %24 = atomicrmw or ptr %23, i64 1 release, align 8, !noalias !205
@@ -2026,7 +2026,7 @@ default.unreachable12:                            ; preds = %2
   %19 = getelementptr inbounds i8, ptr %1, i64 24
   %20 = load i64, ptr %19, align 8, !alias.scope !211, !noundef !5
   %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = icmp ult i64 %20, 31
+  %22 = icmp ne i64 %20, 31
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds { { i64 }, { { [0 x i8] } } }, ptr %21, i64 %20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !211
@@ -2138,7 +2138,7 @@ default.unreachable33:                            ; preds = %2
   %23 = getelementptr inbounds i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8, !alias.scope !218, !noundef !5
   %25 = getelementptr inbounds i8, ptr %20, i64 8
-  %26 = icmp ult i64 %24, 31
+  %26 = icmp ne i64 %24, 31
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds { { i64, i32 }, { i64 } }, ptr %25, i64 %24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !218

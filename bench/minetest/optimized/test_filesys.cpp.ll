@@ -877,8 +877,6 @@ entry:
 if.then.i:                                        ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %in_message, i64 8
   %3 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !13
-  %cmp3.i.i = icmp ult i64 %3, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = add nuw nsw i64 %3, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %add.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -3632,8 +3630,6 @@ if.then14.i658:                                   ; preds = %if.end.thread.i649,
   %47 = phi ptr [ %45, %if.end.thread.i649 ], [ %44, %if.end.i667 ]
   %_M_string_length.i55.i659 = getelementptr inbounds i8, ptr %ref.tmp33, i64 8
   %48 = load i64, ptr %_M_string_length.i55.i659, align 8, !tbaa !13
-  %cmp3.i56.i660 = icmp ult i64 %48, 16
-  call void @llvm.assume(i1 %cmp3.i56.i660)
   switch i64 %48, label %if.end.i.i.i666 [
     i64 0, label %if.end22.i662
     i64 1, label %if.then.i60.i661
@@ -3882,8 +3878,6 @@ if.then14.i716:                                   ; preds = %if.end.thread.i707,
   %86 = phi ptr [ %84, %if.end.thread.i707 ], [ %83, %if.end.i725 ]
   %_M_string_length.i55.i717 = getelementptr inbounds i8, ptr %ref.tmp76, i64 8
   %87 = load i64, ptr %_M_string_length.i55.i717, align 8, !tbaa !13
-  %cmp3.i56.i718 = icmp ult i64 %87, 16
-  call void @llvm.assume(i1 %cmp3.i56.i718)
   switch i64 %87, label %if.end.i.i.i724 [
     i64 0, label %if.end22.i720
     i64 1, label %if.then.i60.i719
@@ -4364,8 +4358,6 @@ if.then14.i884:                                   ; preds = %if.end.thread.i875,
   %152 = phi ptr [ %150, %if.end.thread.i875 ], [ %149, %if.end.i893 ]
   %_M_string_length.i55.i885 = getelementptr inbounds i8, ptr %ref.tmp141, i64 8
   %153 = load i64, ptr %_M_string_length.i55.i885, align 8, !tbaa !13
-  %cmp3.i56.i886 = icmp ult i64 %153, 16
-  call void @llvm.assume(i1 %cmp3.i56.i886)
   switch i64 %153, label %if.end.i.i.i892 [
     i64 0, label %if.end22.i888
     i64 1, label %if.then.i60.i887
@@ -4847,8 +4839,6 @@ if.then14.i1052:                                  ; preds = %if.end.thread.i1043
   %219 = phi ptr [ %217, %if.end.thread.i1043 ], [ %216, %if.end.i1061 ]
   %_M_string_length.i55.i1053 = getelementptr inbounds i8, ptr %ref.tmp206, i64 8
   %220 = load i64, ptr %_M_string_length.i55.i1053, align 8, !tbaa !13
-  %cmp3.i56.i1054 = icmp ult i64 %220, 16
-  call void @llvm.assume(i1 %cmp3.i56.i1054)
   switch i64 %220, label %if.end.i.i.i1060 [
     i64 0, label %if.end22.i1056
     i64 1, label %if.then.i60.i1055
@@ -5350,8 +5340,6 @@ if.then14.i1220:                                  ; preds = %if.end.thread.i1211
   %291 = phi ptr [ %289, %if.end.thread.i1211 ], [ %288, %if.end.i1229 ]
   %_M_string_length.i55.i1221 = getelementptr inbounds i8, ptr %ref.tmp271, i64 8
   %292 = load i64, ptr %_M_string_length.i55.i1221, align 8, !tbaa !13
-  %cmp3.i56.i1222 = icmp ult i64 %292, 16
-  call void @llvm.assume(i1 %cmp3.i56.i1222)
   switch i64 %292, label %if.end.i.i.i1228 [
     i64 0, label %if.end22.i1224
     i64 1, label %if.then.i60.i1223
@@ -5853,8 +5841,6 @@ if.then14.i1388:                                  ; preds = %if.end.thread.i1379
   %363 = phi ptr [ %361, %if.end.thread.i1379 ], [ %360, %if.end.i1397 ]
   %_M_string_length.i55.i1389 = getelementptr inbounds i8, ptr %ref.tmp336, i64 8
   %364 = load i64, ptr %_M_string_length.i55.i1389, align 8, !tbaa !13
-  %cmp3.i56.i1390 = icmp ult i64 %364, 16
-  call void @llvm.assume(i1 %cmp3.i56.i1390)
   switch i64 %364, label %if.end.i.i.i1396 [
     i64 0, label %if.end22.i1392
     i64 1, label %if.then.i60.i1391
@@ -6336,8 +6322,6 @@ if.then14.i1556:                                  ; preds = %if.end.thread.i1547
   %430 = phi ptr [ %428, %if.end.thread.i1547 ], [ %427, %if.end.i1565 ]
   %_M_string_length.i55.i1557 = getelementptr inbounds i8, ptr %ref.tmp401, i64 8
   %431 = load i64, ptr %_M_string_length.i55.i1557, align 8, !tbaa !13
-  %cmp3.i56.i1558 = icmp ult i64 %431, 16
-  call void @llvm.assume(i1 %cmp3.i56.i1558)
   switch i64 %431, label %if.end.i.i.i1564 [
     i64 0, label %if.end22.i1560
     i64 1, label %if.then.i60.i1559
@@ -6818,8 +6802,6 @@ if.then14.i1724:                                  ; preds = %if.end.thread.i1715
   %496 = phi ptr [ %494, %if.end.thread.i1715 ], [ %493, %if.end.i1733 ]
   %_M_string_length.i55.i1725 = getelementptr inbounds i8, ptr %ref.tmp466, i64 8
   %497 = load i64, ptr %_M_string_length.i55.i1725, align 8, !tbaa !13
-  %cmp3.i56.i1726 = icmp ult i64 %497, 16
-  call void @llvm.assume(i1 %cmp3.i56.i1726)
   switch i64 %497, label %if.end.i.i.i1732 [
     i64 0, label %if.end22.i1728
     i64 1, label %if.then.i60.i1727
@@ -7559,8 +7541,6 @@ if.then14.i583:                                   ; preds = %if.end.thread.i574,
   %33 = phi ptr [ %31, %if.end.thread.i574 ], [ %30, %if.end.i592 ]
   %_M_string_length.i55.i584 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %34 = load i64, ptr %_M_string_length.i55.i584, align 8, !tbaa !13
-  %cmp3.i56.i585 = icmp ult i64 %34, 16
-  call void @llvm.assume(i1 %cmp3.i56.i585)
   switch i64 %34, label %if.end.i.i.i591 [
     i64 0, label %if.end22.i587
     i64 1, label %if.then.i60.i586
@@ -7809,8 +7789,6 @@ if.then14.i640:                                   ; preds = %if.end.thread.i631,
   %72 = phi ptr [ %70, %if.end.thread.i631 ], [ %69, %if.end.i649 ]
   %_M_string_length.i55.i641 = getelementptr inbounds i8, ptr %ref.tmp43, i64 8
   %73 = load i64, ptr %_M_string_length.i55.i641, align 8, !tbaa !13
-  %cmp3.i56.i642 = icmp ult i64 %73, 16
-  call void @llvm.assume(i1 %cmp3.i56.i642)
   switch i64 %73, label %if.end.i.i.i648 [
     i64 0, label %if.end22.i644
     i64 1, label %if.then.i60.i643
@@ -8291,8 +8269,6 @@ if.then14.i808:                                   ; preds = %if.end.thread.i799,
   %138 = phi ptr [ %136, %if.end.thread.i799 ], [ %135, %if.end.i817 ]
   %_M_string_length.i55.i809 = getelementptr inbounds i8, ptr %ref.tmp107, i64 8
   %139 = load i64, ptr %_M_string_length.i55.i809, align 8, !tbaa !13
-  %cmp3.i56.i810 = icmp ult i64 %139, 16
-  call void @llvm.assume(i1 %cmp3.i56.i810)
   switch i64 %139, label %if.end.i.i.i816 [
     i64 0, label %if.end22.i812
     i64 1, label %if.then.i60.i811
@@ -8774,8 +8750,6 @@ if.then14.i976:                                   ; preds = %if.end.thread.i967,
   %205 = phi ptr [ %203, %if.end.thread.i967 ], [ %202, %if.end.i985 ]
   %_M_string_length.i55.i977 = getelementptr inbounds i8, ptr %ref.tmp172, i64 8
   %206 = load i64, ptr %_M_string_length.i55.i977, align 8, !tbaa !13
-  %cmp3.i56.i978 = icmp ult i64 %206, 16
-  call void @llvm.assume(i1 %cmp3.i56.i978)
   switch i64 %206, label %if.end.i.i.i984 [
     i64 0, label %if.end22.i980
     i64 1, label %if.then.i60.i979
@@ -9277,8 +9251,6 @@ if.then14.i1144:                                  ; preds = %if.end.thread.i1135
   %277 = phi ptr [ %275, %if.end.thread.i1135 ], [ %274, %if.end.i1153 ]
   %_M_string_length.i55.i1145 = getelementptr inbounds i8, ptr %ref.tmp237, i64 8
   %278 = load i64, ptr %_M_string_length.i55.i1145, align 8, !tbaa !13
-  %cmp3.i56.i1146 = icmp ult i64 %278, 16
-  call void @llvm.assume(i1 %cmp3.i56.i1146)
   switch i64 %278, label %if.end.i.i.i1152 [
     i64 0, label %if.end22.i1148
     i64 1, label %if.then.i60.i1147
@@ -9780,8 +9752,6 @@ if.then14.i1312:                                  ; preds = %if.end.thread.i1303
   %349 = phi ptr [ %347, %if.end.thread.i1303 ], [ %346, %if.end.i1321 ]
   %_M_string_length.i55.i1313 = getelementptr inbounds i8, ptr %ref.tmp302, i64 8
   %350 = load i64, ptr %_M_string_length.i55.i1313, align 8, !tbaa !13
-  %cmp3.i56.i1314 = icmp ult i64 %350, 16
-  call void @llvm.assume(i1 %cmp3.i56.i1314)
   switch i64 %350, label %if.end.i.i.i1320 [
     i64 0, label %if.end22.i1316
     i64 1, label %if.then.i60.i1315
@@ -10263,8 +10233,6 @@ if.then14.i1480:                                  ; preds = %if.end.thread.i1471
   %416 = phi ptr [ %414, %if.end.thread.i1471 ], [ %413, %if.end.i1489 ]
   %_M_string_length.i55.i1481 = getelementptr inbounds i8, ptr %ref.tmp367, i64 8
   %417 = load i64, ptr %_M_string_length.i55.i1481, align 8, !tbaa !13
-  %cmp3.i56.i1482 = icmp ult i64 %417, 16
-  call void @llvm.assume(i1 %cmp3.i56.i1482)
   switch i64 %417, label %if.end.i.i.i1488 [
     i64 0, label %if.end22.i1484
     i64 1, label %if.then.i60.i1483
@@ -10745,8 +10713,6 @@ if.then14.i1648:                                  ; preds = %if.end.thread.i1639
   %482 = phi ptr [ %480, %if.end.thread.i1639 ], [ %479, %if.end.i1657 ]
   %_M_string_length.i55.i1649 = getelementptr inbounds i8, ptr %ref.tmp432, i64 8
   %483 = load i64, ptr %_M_string_length.i55.i1649, align 8, !tbaa !13
-  %cmp3.i56.i1650 = icmp ult i64 %483, 16
-  call void @llvm.assume(i1 %cmp3.i56.i1650)
   switch i64 %483, label %if.end.i.i.i1656 [
     i64 0, label %if.end22.i1652
     i64 1, label %if.then.i60.i1651
@@ -11504,8 +11470,6 @@ if.then14.i392:                                   ; preds = %if.end.thread.i383,
   %41 = phi ptr [ %39, %if.end.thread.i383 ], [ %38, %if.end.i401 ]
   %_M_string_length.i55.i393 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %42 = load i64, ptr %_M_string_length.i55.i393, align 8, !tbaa !13
-  %cmp3.i56.i394 = icmp ult i64 %42, 16
-  call void @llvm.assume(i1 %cmp3.i56.i394)
   switch i64 %42, label %if.end.i.i.i400 [
     i64 0, label %if.end22.i396
     i64 1, label %if.then.i60.i395
@@ -11956,8 +11920,6 @@ if.then14.i541:                                   ; preds = %if.end.thread.i532,
   %112 = phi ptr [ %110, %if.end.thread.i532 ], [ %109, %if.end.i550 ]
   %_M_string_length.i55.i542 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
   %113 = load i64, ptr %_M_string_length.i55.i542, align 8, !tbaa !13
-  %cmp3.i56.i543 = icmp ult i64 %113, 16
-  call void @llvm.assume(i1 %cmp3.i56.i543)
   switch i64 %113, label %if.end.i.i.i549 [
     i64 0, label %if.end22.i545
     i64 1, label %if.then.i60.i544
@@ -12541,8 +12503,6 @@ if.then14.i747:                                   ; preds = %if.end.thread.i738,
   %198 = phi ptr [ %196, %if.end.thread.i738 ], [ %195, %if.end.i756 ]
   %_M_string_length.i55.i748 = getelementptr inbounds i8, ptr %ref.tmp89, i64 8
   %199 = load i64, ptr %_M_string_length.i55.i748, align 8, !tbaa !13
-  %cmp3.i56.i749 = icmp ult i64 %199, 16
-  call void @llvm.assume(i1 %cmp3.i56.i749)
   switch i64 %199, label %if.end.i.i.i755 [
     i64 0, label %if.end22.i751
     i64 1, label %if.then.i60.i750
@@ -13113,8 +13073,6 @@ if.then14.i953:                                   ; preds = %if.end.thread.i944,
   %281 = phi ptr [ %279, %if.end.thread.i944 ], [ %278, %if.end.i962 ]
   %_M_string_length.i55.i954 = getelementptr inbounds i8, ptr %ref.tmp140, i64 8
   %282 = load i64, ptr %_M_string_length.i55.i954, align 8, !tbaa !13
-  %cmp3.i56.i955 = icmp ult i64 %282, 16
-  call void @llvm.assume(i1 %cmp3.i56.i955)
   switch i64 %282, label %if.end.i.i.i961 [
     i64 0, label %if.end22.i957
     i64 1, label %if.then.i60.i956
@@ -13534,8 +13492,6 @@ if.then14.i1099:                                  ; preds = %if.end.thread.i1090
   %343 = phi ptr [ %341, %if.end.thread.i1090 ], [ %340, %if.end.i1108 ]
   %_M_string_length.i55.i1100 = getelementptr inbounds i8, ptr %ref.tmp181, i64 8
   %344 = load i64, ptr %_M_string_length.i55.i1100, align 8, !tbaa !13
-  %cmp3.i56.i1101 = icmp ult i64 %344, 16
-  call void @llvm.assume(i1 %cmp3.i56.i1101)
   switch i64 %344, label %if.end.i.i.i1107 [
     i64 0, label %if.end22.i1103
     i64 1, label %if.then.i60.i1102
@@ -13955,8 +13911,6 @@ if.then14.i1246:                                  ; preds = %if.end.thread.i1237
   %405 = phi ptr [ %403, %if.end.thread.i1237 ], [ %402, %if.end.i1255 ]
   %_M_string_length.i55.i1247 = getelementptr inbounds i8, ptr %ref.tmp221, i64 8
   %406 = load i64, ptr %_M_string_length.i55.i1247, align 8, !tbaa !13
-  %cmp3.i56.i1248 = icmp ult i64 %406, 16
-  call void @llvm.assume(i1 %cmp3.i56.i1248)
   switch i64 %406, label %if.end.i.i.i1254 [
     i64 0, label %if.end22.i1250
     i64 1, label %if.then.i60.i1249
@@ -14389,8 +14343,6 @@ if.then14.i1393:                                  ; preds = %if.end.thread.i1384
   %470 = phi ptr [ %468, %if.end.thread.i1384 ], [ %467, %if.end.i1402 ]
   %_M_string_length.i55.i1394 = getelementptr inbounds i8, ptr %ref.tmp261, i64 8
   %471 = load i64, ptr %_M_string_length.i55.i1394, align 8, !tbaa !13
-  %cmp3.i56.i1395 = icmp ult i64 %471, 16
-  call void @llvm.assume(i1 %cmp3.i56.i1395)
   switch i64 %471, label %if.end.i.i.i1401 [
     i64 0, label %if.end22.i1397
     i64 1, label %if.then.i60.i1396

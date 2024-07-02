@@ -636,43 +636,41 @@ define internal void @pci_device_remove(ptr noundef %0) #0 align 16 {
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.thread, label %.lr.ph, !prof !14
 
-.lr.ph:                                           ; preds = %8, %20
-  %14 = phi i32 [ %21, %20 ], [ %12, %8 ]
+.lr.ph:                                           ; preds = %8, %19
+  %14 = phi i32 [ %20, %19 ], [ %12, %8 ]
   %15 = add i32 %14, -1
   %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 %15, ptr elementtype(i32) %11, i32 %14) #15, !srcloc !15
   %17 = extractvalue { i8, i32 } %16, 0
-  %18 = icmp ult i8 %17, 2
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp eq i8 %17, 0
-  br i1 %19, label %20, label %.thread, !prof !16
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %19, label %.thread, !prof !16
 
-20:                                               ; preds = %.lr.ph
-  %21 = extractvalue { i8, i32 } %16, 1
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.thread, label %.lr.ph, !prof !17, !llvm.loop !18
+19:                                               ; preds = %.lr.ph
+  %20 = extractvalue { i8, i32 } %16, 1
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %.thread, label %.lr.ph, !prof !17, !llvm.loop !18
 
-.thread:                                          ; preds = %20, %.lr.ph, %8, %1
+.thread:                                          ; preds = %19, %.lr.ph, %8, %1
   tail call void @pcibios_free_irq(ptr noundef %2)
   store ptr null, ptr %3, align 8
-  %23 = tail call i32 @__pm_runtime_idle(ptr noundef %0, i32 noundef 4) #15
-  %24 = getelementptr i8, ptr %0, i64 -32
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %28
+  %22 = tail call i32 @__pm_runtime_idle(ptr noundef %0, i32 noundef 4) #15
+  %23 = getelementptr i8, ptr %0, i64 -32
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %27
 
-27:                                               ; preds = %.thread
-  store i32 5, ptr %24, align 8
-  br label %28
+26:                                               ; preds = %.thread
+  store i32 5, ptr %23, align 8
+  br label %27
 
-28:                                               ; preds = %27, %.thread
-  %29 = icmp eq ptr %2, null
-  br i1 %29, label %31, label %30
+27:                                               ; preds = %26, %.thread
+  %28 = icmp eq ptr %2, null
+  br i1 %28, label %30, label %29
 
-30:                                               ; preds = %28
+29:                                               ; preds = %27
   tail call void @put_device(ptr noundef %0) #15
-  br label %31
+  br label %30
 
-31:                                               ; preds = %30, %28
+30:                                               ; preds = %29, %27
   ret void
 }
 

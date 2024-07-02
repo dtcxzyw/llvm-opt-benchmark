@@ -3845,7 +3845,7 @@ default.unreachable1:                             ; preds = %3
 
 "_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$5write17h675b2786a3c21a39E.llvm.14059259217783387920.exit.thread.i": ; preds = %20
   %23 = load i64, ptr %14, align 8, !alias.scope !1502, !noalias !1505, !noundef !4
-  %24 = icmp ult i64 %23, 31
+  %24 = icmp ne i64 %23, 31
   call void @llvm.assume(i1 %24)
   %25 = getelementptr inbounds { { { [31 x i64] } }, { i64 } }, ptr %21, i64 %23
   store i64 %.sroa.04.0.copyload.i, ptr %25, align 8, !noalias !1508

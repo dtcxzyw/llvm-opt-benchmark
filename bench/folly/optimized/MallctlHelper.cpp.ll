@@ -225,8 +225,6 @@ invoke.cont3:                                     ; preds = %entry
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont3
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !21, !noalias !13
-  %cmp3.i.i.i.i.i.i = icmp ult i64 %5, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
   %add.i.i.i.i.i = add nuw nsw i64 %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(1) %3, i64 %add.i.i.i.i.i, i1 false), !noalias !13
   br label %_ZN5folly9FormatterILb0EJRPKcS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiEECI2NS_17BaseFormatterImplISB_Lb0ESt16integer_sequenceImJLm0ELm1ELm2ELm3EEEJS3_S3_S9_SA_EEEENS_5RangeIS2_EES3_S3_OS9_SA_.exit.i

@@ -889,8 +889,8 @@ define internal void @cstate_pmu_event_del(ptr noundef %0, i32 %1) #3 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 384
   br label %6
 
-6:                                                ; preds = %21, %2
-  %7 = phi i64 [ %4, %2 ], [ %22, %21 ]
+6:                                                ; preds = %20, %2
+  %7 = phi i64 [ %4, %2 ], [ %21, %20 ]
   %8 = load i64, ptr %5, align 8
   %9 = trunc i64 %8 to i32
   %10 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %9) #7, !srcloc !17
@@ -908,19 +908,17 @@ define internal void @cstate_pmu_event_del(ptr noundef %0, i32 %1) #3 align 16 {
 16:                                               ; preds = %15, %6
   %17 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, i64 %14, ptr elementtype(i64) %3, i64 %7) #7, !srcloc !19
   %18 = extractvalue { i8, i64 } %17, 0
-  %19 = icmp ult i8 %18, 2
-  tail call void @llvm.assume(i1 %19)
-  %20 = icmp eq i8 %18, 0
-  br i1 %20, label %21, label %23, !prof !12
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %20, label %22, !prof !12
 
-21:                                               ; preds = %16
-  %22 = extractvalue { i8, i64 } %17, 1
+20:                                               ; preds = %16
+  %21 = extractvalue { i8, i64 } %17, 1
   br label %6, !llvm.loop !20
 
-23:                                               ; preds = %16
-  %24 = sub i64 %14, %7
-  %25 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %25, i64 %24, ptr elementtype(i64) %25) #7, !srcloc !21
+22:                                               ; preds = %16
+  %23 = sub i64 %14, %7
+  %24 = getelementptr inbounds i8, ptr %0, i64 176
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %24, i64 %23, ptr elementtype(i64) %24) #7, !srcloc !21
   ret void
 }
 
@@ -954,8 +952,8 @@ define internal void @cstate_pmu_event_stop(ptr noundef %0, i32 %1) #3 align 16 
   %5 = getelementptr inbounds i8, ptr %0, i64 384
   br label %6
 
-6:                                                ; preds = %21, %2
-  %7 = phi i64 [ %4, %2 ], [ %22, %21 ]
+6:                                                ; preds = %20, %2
+  %7 = phi i64 [ %4, %2 ], [ %21, %20 ]
   %8 = load i64, ptr %5, align 8
   %9 = trunc i64 %8 to i32
   %10 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %9) #7, !srcloc !17
@@ -973,19 +971,17 @@ define internal void @cstate_pmu_event_stop(ptr noundef %0, i32 %1) #3 align 16 
 16:                                               ; preds = %15, %6
   %17 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, i64 %14, ptr elementtype(i64) %3, i64 %7) #7, !srcloc !19
   %18 = extractvalue { i8, i64 } %17, 0
-  %19 = icmp ult i8 %18, 2
-  tail call void @llvm.assume(i1 %19)
-  %20 = icmp eq i8 %18, 0
-  br i1 %20, label %21, label %23, !prof !12
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %20, label %22, !prof !12
 
-21:                                               ; preds = %16
-  %22 = extractvalue { i8, i64 } %17, 1
+20:                                               ; preds = %16
+  %21 = extractvalue { i8, i64 } %17, 1
   br label %6, !llvm.loop !20
 
-23:                                               ; preds = %16
-  %24 = sub i64 %14, %7
-  %25 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %25, i64 %24, ptr elementtype(i64) %25) #7, !srcloc !21
+22:                                               ; preds = %16
+  %23 = sub i64 %14, %7
+  %24 = getelementptr inbounds i8, ptr %0, i64 176
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %24, i64 %23, ptr elementtype(i64) %24) #7, !srcloc !21
   ret void
 }
 
@@ -996,8 +992,8 @@ define internal void @cstate_pmu_event_update(ptr noundef %0) #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 384
   br label %5
 
-5:                                                ; preds = %20, %1
-  %6 = phi i64 [ %3, %1 ], [ %21, %20 ]
+5:                                                ; preds = %19, %1
+  %6 = phi i64 [ %3, %1 ], [ %20, %19 ]
   %7 = load i64, ptr %4, align 8
   %8 = trunc i64 %7 to i32
   %9 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %8) #7, !srcloc !17
@@ -1015,19 +1011,17 @@ define internal void @cstate_pmu_event_update(ptr noundef %0) #3 align 16 {
 15:                                               ; preds = %14, %5
   %16 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %13, ptr elementtype(i64) %2, i64 %6) #7, !srcloc !19
   %17 = extractvalue { i8, i64 } %16, 0
-  %18 = icmp ult i8 %17, 2
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp eq i8 %17, 0
-  br i1 %19, label %20, label %22, !prof !12
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %19, label %21, !prof !12
 
-20:                                               ; preds = %15
-  %21 = extractvalue { i8, i64 } %16, 1
+19:                                               ; preds = %15
+  %20 = extractvalue { i8, i64 } %16, 1
   br label %5, !llvm.loop !20
 
-22:                                               ; preds = %15
-  %23 = sub i64 %13, %6
-  %24 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %24, i64 %23, ptr elementtype(i64) %24) #7, !srcloc !21
+21:                                               ; preds = %15
+  %22 = sub i64 %13, %6
+  %23 = getelementptr inbounds i8, ptr %0, i64 176
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %23, i64 %22, ptr elementtype(i64) %23) #7, !srcloc !21
   ret void
 }
 

@@ -2492,37 +2492,33 @@ define internal fastcc zeroext i1 @io_poll_get_ownership_slowpath(ptr noundef %0
   %4 = or i32 %3, 1073741824
   %5 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %4, ptr elementtype(i32) %2, i32 %3) #10, !srcloc !46
   %6 = extractvalue { i8, i32 } %5, 0
-  %7 = icmp ult i8 %6, 2
-  tail call void @llvm.assume(i1 %7)
-  %8 = icmp eq i8 %6, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge, !prof !47
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %.lr.ph, label %._crit_edge, !prof !47
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %9 = phi { i8, i32 } [ %12, %.lr.ph ], [ %5, %1 ]
-  %10 = extractvalue { i8, i32 } %9, 1
-  %11 = or i32 %10, 1073741824
-  %12 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %11, ptr elementtype(i32) %2, i32 %10) #10, !srcloc !46
-  %13 = extractvalue { i8, i32 } %12, 0
-  %14 = icmp ult i8 %13, 2
-  tail call void @llvm.assume(i1 %14)
-  %15 = icmp eq i8 %13, 0
-  br i1 %15, label %.lr.ph, label %._crit_edge, !prof !48, !llvm.loop !49
+  %8 = phi { i8, i32 } [ %11, %.lr.ph ], [ %5, %1 ]
+  %9 = extractvalue { i8, i32 } %8, 1
+  %10 = or i32 %9, 1073741824
+  %11 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %10, ptr elementtype(i32) %2, i32 %9) #10, !srcloc !46
+  %12 = extractvalue { i8, i32 } %11, 0
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %.lr.ph, label %._crit_edge, !prof !48, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.lcssa = phi i32 [ %3, %1 ], [ %10, %.lr.ph ]
-  %16 = and i32 %.lcssa, 1073741823
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %22
+  %.lcssa = phi i32 [ %3, %1 ], [ %9, %.lr.ph ]
+  %14 = and i32 %.lcssa, 1073741823
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %20
 
-18:                                               ; preds = %._crit_edge
-  %19 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 1, ptr elementtype(i32) %2) #10, !srcloc !34
-  %20 = and i32 %19, 1073741823
-  %21 = icmp eq i32 %20, 0
-  br label %22
+16:                                               ; preds = %._crit_edge
+  %17 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 1, ptr elementtype(i32) %2) #10, !srcloc !34
+  %18 = and i32 %17, 1073741823
+  %19 = icmp eq i32 %18, 0
+  br label %20
 
-22:                                               ; preds = %18, %._crit_edge
-  %23 = phi i1 [ %21, %18 ], [ false, %._crit_edge ]
-  ret i1 %23
+20:                                               ; preds = %16, %._crit_edge
+  %21 = phi i1 [ %19, %16 ], [ false, %._crit_edge ]
+  ret i1 %21
 }
 
 ; Function Attrs: null_pointer_is_valid

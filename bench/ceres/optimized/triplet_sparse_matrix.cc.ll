@@ -3109,7 +3109,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.lr.ph:          ; preds = %62
   %78 = getelementptr inbounds i8, ptr %17, i64 16
   %79 = getelementptr inbounds i8, ptr %18, i64 16
   %80 = load i32, ptr %1, align 8
-  %81 = icmp sgt i32 %80, 0
+  %81 = icmp ne i32 %80, 0
   call void @llvm.assume(i1 %81)
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 

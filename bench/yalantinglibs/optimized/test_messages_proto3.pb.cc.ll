@@ -77457,8 +77457,6 @@ if.then15.i:                                      ; preds = %if.end.thread.i, %i
   %10 = phi ptr [ %8, %if.end.thread.i ], [ %6, %if.end.i1 ]
   %_M_string_length.i19.i = getelementptr inbounds i8, ptr %val, i64 8
   %11 = load i64, ptr %_M_string_length.i19.i, align 8
-  %cmp3.i20.i = icmp ult i64 %11, 16
-  call void @llvm.assume(i1 %cmp3.i20.i)
   %cmp.not.i = icmp eq ptr %val, %this
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then16.i
 
@@ -143619,8 +143617,6 @@ if.end.thread.i.i:                                ; preds = %_ZN6google8protobuf
 if.then15.i.i:                                    ; preds = %if.end.thread.i.i, %if.end.i.i32
   %53 = phi ptr [ %51, %if.end.thread.i.i ], [ %49, %if.end.i.i32 ]
   %54 = load i64, ptr %_M_string_length.i.i, align 8
-  %cmp3.i20.i.i = icmp ult i64 %54, 16
-  call void @llvm.assume(i1 %cmp3.i20.i.i)
   %cmp.not.i.i31 = icmp eq ptr %key_, %call1.i.i
   br i1 %cmp.not.i.i31, label %_ZN6google8protobuf8internal10MoveHelperILb0ELb0ELb1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4MoveEPS8_SA_.exit, label %if.then16.i.i
 
@@ -143928,8 +143924,6 @@ if.then15.i:                                      ; preds = %if.end.thread.i, %i
   %7 = phi ptr [ %5, %if.end.thread.i ], [ %3, %if.end.i ]
   %_M_string_length.i19.i = getelementptr inbounds i8, ptr %src, i64 8
   %8 = load i64, ptr %_M_string_length.i19.i, align 8
-  %cmp3.i20.i = icmp ult i64 %8, 16
-  tail call void @llvm.assume(i1 %cmp3.i20.i)
   %cmp.not.i = icmp eq ptr %src, %dest
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then16.i
 
@@ -144089,8 +144083,6 @@ if.then15.i.i:                                    ; preds = %if.end.thread.i.i, 
   %22 = phi ptr [ %20, %if.end.thread.i.i ], [ %18, %if.end.i.i ]
   %_M_string_length.i19.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 8
   %23 = load i64, ptr %_M_string_length.i19.i.i, align 8
-  %cmp3.i20.i.i = icmp ult i64 %23, 16
-  call void @llvm.assume(i1 %cmp3.i20.i.i)
   %cmp.not.i.i = icmp eq ptr %call1.i.i, %14
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf8internal10MoveHelperILb0ELb0ELb1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4MoveEPS8_SA_.exit, label %if.then16.i.i
 
@@ -144851,8 +144843,6 @@ if.end.thread.i.i:                                ; preds = %_ZN6google8protobuf
 if.then15.i.i:                                    ; preds = %if.end.thread.i.i, %if.end.i.i29
   %50 = phi ptr [ %48, %if.end.thread.i.i ], [ %46, %if.end.i.i29 ]
   %51 = load i64, ptr %_M_string_length.i.i, align 8
-  %cmp3.i20.i.i = icmp ult i64 %51, 16
-  call void @llvm.assume(i1 %cmp3.i20.i.i)
   %cmp.not.i.i28 = icmp eq ptr %key_, %call1.i.i
   br i1 %cmp.not.i.i28, label %_ZN6google8protobuf8internal10MoveHelperILb0ELb0ELb1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4MoveEPS8_SA_.exit, label %if.then16.i.i
 
@@ -145224,8 +145214,6 @@ if.then15.i.i:                                    ; preds = %if.end.thread.i.i, 
   %22 = phi ptr [ %20, %if.end.thread.i.i ], [ %18, %if.end.i.i ]
   %_M_string_length.i19.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 8
   %23 = load i64, ptr %_M_string_length.i19.i.i, align 8
-  %cmp3.i20.i.i = icmp ult i64 %23, 16
-  call void @llvm.assume(i1 %cmp3.i20.i.i)
   %cmp.not.i.i = icmp eq ptr %call1.i.i, %14
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf8internal10MoveHelperILb0ELb0ELb1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4MoveEPS8_SA_.exit, label %if.then16.i.i
 
@@ -145584,8 +145572,6 @@ if.end.thread.i.i:                                ; preds = %_ZN6google8protobuf
 if.then15.i.i:                                    ; preds = %if.end.thread.i.i, %if.end.i.i29
   %54 = phi ptr [ %52, %if.end.thread.i.i ], [ %50, %if.end.i.i29 ]
   %55 = load i64, ptr %_M_string_length.i.i, align 8
-  %cmp3.i20.i.i = icmp ult i64 %55, 16
-  call void @llvm.assume(i1 %cmp3.i20.i.i)
   %cmp.not.i.i28 = icmp eq ptr %key_, %call1.i.i
   br i1 %cmp.not.i.i28, label %_ZN6google8protobuf8internal10MoveHelperILb0ELb0ELb1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4MoveEPS8_SA_.exit, label %if.then16.i.i
 
@@ -146418,8 +146404,6 @@ if.end.thread.i.i:                                ; preds = %_ZN6google8protobuf
 if.then15.i.i:                                    ; preds = %if.end.thread.i.i, %if.end.i.i29
   %50 = phi ptr [ %48, %if.end.thread.i.i ], [ %46, %if.end.i.i29 ]
   %51 = load i64, ptr %_M_string_length.i.i, align 8
-  %cmp3.i20.i.i = icmp ult i64 %51, 16
-  call void @llvm.assume(i1 %cmp3.i20.i.i)
   %cmp.not.i.i28 = icmp eq ptr %key_, %call1.i.i
   br i1 %cmp.not.i.i28, label %_ZN6google8protobuf8internal10MoveHelperILb0ELb0ELb1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4MoveEPS8_SA_.exit, label %if.then16.i.i
 
@@ -147292,8 +147276,6 @@ if.end.thread.i.i:                                ; preds = %_ZN6google8protobuf
 if.then15.i.i:                                    ; preds = %if.end.thread.i.i, %if.end.i.i31
   %52 = phi ptr [ %50, %if.end.thread.i.i ], [ %48, %if.end.i.i31 ]
   %53 = load i64, ptr %_M_string_length.i.i, align 8
-  %cmp3.i20.i.i = icmp ult i64 %53, 16
-  call void @llvm.assume(i1 %cmp3.i20.i.i)
   %cmp.not.i.i30 = icmp eq ptr %key_, %call1.i.i
   br i1 %cmp.not.i.i30, label %_ZN6google8protobuf8internal10MoveHelperILb0ELb0ELb1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4MoveEPS8_SA_.exit, label %if.then16.i.i
 
@@ -147984,8 +147966,6 @@ if.end.thread.i.i:                                ; preds = %_ZN6google8protobuf
 if.then15.i.i:                                    ; preds = %if.end.thread.i.i, %if.end.i.i31
   %52 = phi ptr [ %50, %if.end.thread.i.i ], [ %48, %if.end.i.i31 ]
   %53 = load i64, ptr %_M_string_length.i.i, align 8
-  %cmp3.i20.i.i = icmp ult i64 %53, 16
-  call void @llvm.assume(i1 %cmp3.i20.i.i)
   %cmp.not.i.i30 = icmp eq ptr %key_, %call1.i.i
   br i1 %cmp.not.i.i30, label %_ZN6google8protobuf8internal10MoveHelperILb0ELb0ELb1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4MoveEPS8_SA_.exit, label %if.then16.i.i
 

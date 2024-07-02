@@ -35402,8 +35402,6 @@ if.end.i43:
   store i64 %hasbits, ptr %hasbits4, align 8
   call void asm "", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.Spill) %spill, ptr nonnull elementtype(%struct.Spill) %spill) #25, !srcloc !169
   %0 = load i8, ptr %ptr, align 1
-  %cmp = icmp slt i8 %0, 0
-  call void @llvm.assume(i1 %cmp)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %conv.i41 = sext i8 %0 to i64
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %ptr, i64 2
@@ -35595,8 +35593,6 @@ if.end.i44:
   store i64 %hasbits, ptr %hasbits4, align 8
   call void asm "", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.Spill.132) %spill, ptr nonnull elementtype(%struct.Spill.132) %spill) #25, !srcloc !169
   %0 = load i8, ptr %ptr, align 1
-  %cmp = icmp slt i8 %0, 0
-  call void @llvm.assume(i1 %cmp)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %conv.i42 = sext i8 %0 to i64
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %ptr, i64 2
@@ -35787,8 +35783,6 @@ if.end.i43:
   store i64 %hasbits, ptr %hasbits4, align 8
   call void asm "", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.Spill.135) %spill, ptr nonnull elementtype(%struct.Spill.135) %spill) #25, !srcloc !169
   %0 = load i8, ptr %ptr, align 1
-  %cmp = icmp slt i8 %0, 0
-  call void @llvm.assume(i1 %cmp)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %conv.i41 = sext i8 %0 to i64
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %ptr, i64 2
@@ -35978,8 +35972,6 @@ if.end.i44:
   store i64 %hasbits, ptr %hasbits4, align 8
   call void asm "", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.Spill.136) %spill, ptr nonnull elementtype(%struct.Spill.136) %spill) #25, !srcloc !169
   %0 = load i8, ptr %ptr, align 1
-  %cmp = icmp slt i8 %0, 0
-  call void @llvm.assume(i1 %cmp)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %conv.i42 = sext i8 %0 to i64
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %ptr, i64 2
@@ -36174,8 +36166,6 @@ if.end.i44:
   store i64 %hasbits, ptr %hasbits4, align 8
   call void asm "", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.Spill.137) %spill, ptr nonnull elementtype(%struct.Spill.137) %spill) #25, !srcloc !169
   %0 = load i8, ptr %ptr, align 1
-  %cmp = icmp slt i8 %0, 0
-  call void @llvm.assume(i1 %cmp)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %conv.i42 = sext i8 %0 to i64
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %ptr, i64 2
@@ -36370,8 +36360,6 @@ if.end.i43:
   store i64 %hasbits, ptr %hasbits4, align 8
   call void asm "", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.Spill.138) %spill, ptr nonnull elementtype(%struct.Spill.138) %spill) #25, !srcloc !169
   %0 = load i8, ptr %ptr, align 1
-  %cmp = icmp slt i8 %0, 0
-  call void @llvm.assume(i1 %cmp)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %conv.i41 = sext i8 %0 to i64
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %ptr, i64 2
@@ -36565,8 +36553,6 @@ if.end.i43:
   store i64 %hasbits, ptr %hasbits4, align 8
   call void asm "", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.Spill.139) %spill, ptr nonnull elementtype(%struct.Spill.139) %spill) #25, !srcloc !169
   %0 = load i8, ptr %ptr, align 1
-  %cmp = icmp slt i8 %0, 0
-  call void @llvm.assume(i1 %cmp)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %conv.i41 = sext i8 %0 to i64
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %ptr, i64 2

@@ -455,22 +455,20 @@ define dso_local void @usb_hcd_end_port_resume(ptr nocapture noundef %0, i32 nou
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.thread, label %.lr.ph, !prof !13
 
-.lr.ph:                                           ; preds = %8, %22
-  %16 = phi i32 [ %23, %22 ], [ %14, %8 ]
+.lr.ph:                                           ; preds = %8, %21
+  %16 = phi i32 [ %22, %21 ], [ %14, %8 ]
   %17 = add i32 %16, -1
   %18 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13, i32 %17, ptr elementtype(i32) %13, i32 %16) #17, !srcloc !14
   %19 = extractvalue { i8, i32 } %18, 0
-  %20 = icmp ult i8 %19, 2
-  tail call void @llvm.assume(i1 %20)
-  %21 = icmp eq i8 %19, 0
-  br i1 %21, label %22, label %.thread, !prof !5
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %21, label %.thread, !prof !5
 
-22:                                               ; preds = %.lr.ph
-  %23 = extractvalue { i8, i32 } %18, 1
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread, label %.lr.ph, !prof !15, !llvm.loop !16
+21:                                               ; preds = %.lr.ph
+  %22 = extractvalue { i8, i32 } %18, 1
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %.thread, label %.lr.ph, !prof !15, !llvm.loop !16
 
-.thread:                                          ; preds = %22, %.lr.ph, %8, %2
+.thread:                                          ; preds = %21, %.lr.ph, %8, %2
   ret void
 }
 

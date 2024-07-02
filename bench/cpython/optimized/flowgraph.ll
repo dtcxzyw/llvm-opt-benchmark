@@ -2582,7 +2582,7 @@ for.body.i98.i:                                   ; preds = %for.end59.i, %for.i
   %b.015.i.i = phi ptr [ %b.0.i109.i, %for.inc.i108.i ], [ %b.013.i.i, %for.end59.i ]
   %b_iused.i.i99.i = getelementptr inbounds i8, ptr %b.015.i.i, i64 40
   %230 = load i32, ptr %b_iused.i.i99.i, align 8
-  %cmp.i.i100.i = icmp sgt i32 %230, 0
+  %cmp.i.i100.i = icmp ne i32 %230, 0
   tail call void @llvm.assume(i1 %cmp.i.i100.i)
   %b_instr.i.i101.i = getelementptr inbounds i8, ptr %b.015.i.i, i64 24
   %231 = load ptr, ptr %b_instr.i.i101.i, align 8
@@ -3720,7 +3720,7 @@ basicblock_addop.exit.i:                          ; preds = %if.end.i54.i, %basi
   store ptr %373, ptr %b_next39.i, align 8
   store ptr %call.i.i157, ptr %b_next10.i, align 8
   %374 = load i32, ptr %b_iused.i.i48.i, align 8
-  %cmp.i59.i = icmp sgt i32 %374, 0
+  %cmp.i59.i = icmp ne i32 %374, 0
   tail call void @llvm.assume(i1 %cmp.i59.i)
   %375 = load ptr, ptr %b_instr.i.i49.i, align 8
   %376 = zext nneg i32 %374 to i64
@@ -3815,7 +3815,7 @@ for.body.i64.i:                                   ; preds = %if.then92.i, %for.i
   %b.015.i.i172 = phi ptr [ %b.0.i.i177, %for.inc.i.i175 ], [ %b.013.i.i170, %if.then92.i ]
   %b_iused.i.i65.i = getelementptr inbounds i8, ptr %b.015.i.i172, i64 40
   %386 = load i32, ptr %b_iused.i.i65.i, align 8
-  %cmp.i.i66.i = icmp sgt i32 %386, 0
+  %cmp.i.i66.i = icmp ne i32 %386, 0
   tail call void @llvm.assume(i1 %cmp.i.i66.i)
   %b_instr.i.i67.i = getelementptr inbounds i8, ptr %b.015.i.i172, i64 24
   %387 = load ptr, ptr %b_instr.i.i67.i, align 8

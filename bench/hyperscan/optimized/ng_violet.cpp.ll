@@ -37684,8 +37684,6 @@ lor.end:                                          ; preds = %land.rhs.i.i, %lor.
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %lor.end
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__v, i64 8
   %6 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8
-  %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %6, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %6, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %add.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNKSt8_Rb_treeISt4pairIN3ue211ue2_literalEbES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_Alloc_nodeclIS3_EEPSt13_Rb_tree_nodeIS3_EOT_.exit
@@ -59063,8 +59061,6 @@ if.then:                                          ; preds = %invoke.cont6
 
 if.then.i.i.i:                                    ; preds = %if.then
   %7 = load i64, ptr %_M_string_length.i.i.i.i, align 8
-  %cmp3.i.i.i.i = icmp ult i64 %7, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i)
   %add.i.i.i = add nuw nsw i64 %7, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %add.i.i.i, i1 false)
   br label %_ZN3ue211ue2_literalD2Ev.exit
@@ -59218,8 +59214,6 @@ while.end:                                        ; preds = %invoke.cont44, %inv
 
 if.then.i.i.i126:                                 ; preds = %while.end
   %33 = load i64, ptr %_M_string_length.i.i.i.i, align 8
-  %cmp3.i.i.i.i128 = icmp ult i64 %33, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i128)
   %add.i.i.i129 = add nuw nsw i64 %33, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %31, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %add.i.i.i129, i1 false)
   br label %_ZN3ue211ue2_literalD2Ev.exit

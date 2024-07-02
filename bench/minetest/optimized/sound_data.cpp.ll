@@ -491,8 +491,6 @@ if.end.i:                                         ; preds = %entry
 if.then15.i:                                      ; preds = %if.end.i
   %_M_string_length.i58.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !31
-  %cmp3.i59.i = icmp ult i64 %4, 16
-  tail call void @llvm.assume(i1 %cmp3.i59.i)
   %cmp.not.i = icmp eq ptr %m_buffer, %call.i3233
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then16.i, !prof !65
 

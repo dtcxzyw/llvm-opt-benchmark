@@ -3928,72 +3928,70 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_
   %35 = phi ptr [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread29.i ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i ]
   %36 = getelementptr inbounds i8, ptr %1, i64 32
   %37 = load i64, ptr %36, align 8
-  %38 = icmp ult i64 %37, 16
-  tail call void @llvm.assume(i1 %38)
   %.not22.i = icmp eq ptr %1, %0
-  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit, label %39
+  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit, label %38
 
-39:                                               ; preds = %34
-  switch i64 %37, label %42 [
+38:                                               ; preds = %34
+  switch i64 %37, label %41 [
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i
-    i64 1, label %40
+    i64 1, label %39
   ]
 
-40:                                               ; preds = %39
-  %41 = load i8, ptr %35, align 1
-  store i8 %41, ptr %22, align 1
+39:                                               ; preds = %38
+  %40 = load i8, ptr %35, align 1
+  store i8 %40, ptr %22, align 1
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i
 
-42:                                               ; preds = %39
+41:                                               ; preds = %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %35, i64 %37, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i: ; preds = %42, %40, %39
-  %43 = load i64, ptr %36, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %43, ptr %44, align 8
-  %45 = load ptr, ptr %20, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 %43
-  store i8 0, ptr %46, align 1
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i: ; preds = %41, %39, %38
+  %42 = load i64, ptr %36, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %42, ptr %43, align 8
+  %44 = load ptr, ptr %20, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 %42
+  store i8 0, ptr %45, align 1
   %.pre.i = load ptr, ptr %21, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit
 
 .thread.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i
   store ptr %28, ptr %20, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 32
-  %48 = load i64, ptr %47, align 8
-  store i64 %48, ptr %25, align 8
-  %49 = load i64, ptr %29, align 8
-  store i64 %49, ptr %23, align 8
-  br label %56
+  %46 = getelementptr inbounds i8, ptr %1, i64 32
+  %47 = load i64, ptr %46, align 8
+  store i64 %47, ptr %25, align 8
+  %48 = load i64, ptr %29, align 8
+  store i64 %48, ptr %23, align 8
+  br label %55
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread29.i
-  %50 = load i64, ptr %23, align 8
+  %49 = load i64, ptr %23, align 8
   store ptr %31, ptr %20, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 32
-  %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %52, ptr %53, align 8
-  %54 = load i64, ptr %32, align 8
-  store i64 %54, ptr %23, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 32
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %51, ptr %52, align 8
+  %53 = load i64, ptr %32, align 8
+  store i64 %53, ptr %23, align 8
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %56, label %55
+  br i1 %.not.i, label %55, label %54
 
-55:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i
+54:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i
   store ptr %22, ptr %21, align 8
-  store i64 %50, ptr %32, align 8
+  store i64 %49, ptr %32, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit
 
-56:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i, %.thread.i
-  %57 = phi ptr [ %29, %.thread.i ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i ]
-  store ptr %57, ptr %21, align 8
+55:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i, %.thread.i
+  %56 = phi ptr [ %29, %.thread.i ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i ]
+  store ptr %56, ptr %21, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit: ; preds = %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i, %55, %56
-  %58 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i ], [ %22, %55 ], [ %57, %56 ], [ %35, %34 ]
-  %59 = getelementptr inbounds i8, ptr %1, i64 32
-  store i64 0, ptr %59, align 8
-  store i8 0, ptr %58, align 1
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit: ; preds = %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i, %54, %55
+  %57 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i ], [ %22, %54 ], [ %56, %55 ], [ %35, %34 ]
+  %58 = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 0, ptr %58, align 8
+  store i8 0, ptr %57, align 1
   ret ptr %0
 }
 
@@ -4804,72 +4802,70 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_
   %35 = phi ptr [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread29.i ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i ]
   %36 = getelementptr inbounds i8, ptr %1, i64 32
   %37 = load i64, ptr %36, align 8
-  %38 = icmp ult i64 %37, 16
-  tail call void @llvm.assume(i1 %38)
   %.not22.i = icmp eq ptr %1, %0
-  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit, label %39
+  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit, label %38
 
-39:                                               ; preds = %34
-  switch i64 %37, label %42 [
+38:                                               ; preds = %34
+  switch i64 %37, label %41 [
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i
-    i64 1, label %40
+    i64 1, label %39
   ]
 
-40:                                               ; preds = %39
-  %41 = load i8, ptr %35, align 1
-  store i8 %41, ptr %22, align 1
+39:                                               ; preds = %38
+  %40 = load i8, ptr %35, align 1
+  store i8 %40, ptr %22, align 1
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i
 
-42:                                               ; preds = %39
+41:                                               ; preds = %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %35, i64 %37, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i: ; preds = %42, %40, %39
-  %43 = load i64, ptr %36, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %43, ptr %44, align 8
-  %45 = load ptr, ptr %20, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 %43
-  store i8 0, ptr %46, align 1
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i: ; preds = %41, %39, %38
+  %42 = load i64, ptr %36, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %42, ptr %43, align 8
+  %44 = load ptr, ptr %20, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 %42
+  store i8 0, ptr %45, align 1
   %.pre.i = load ptr, ptr %21, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit
 
 .thread.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i
   store ptr %28, ptr %20, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 32
-  %48 = load i64, ptr %47, align 8
-  store i64 %48, ptr %25, align 8
-  %49 = load i64, ptr %29, align 8
-  store i64 %49, ptr %23, align 8
-  br label %56
+  %46 = getelementptr inbounds i8, ptr %1, i64 32
+  %47 = load i64, ptr %46, align 8
+  store i64 %47, ptr %25, align 8
+  %48 = load i64, ptr %29, align 8
+  store i64 %48, ptr %23, align 8
+  br label %55
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread29.i
-  %50 = load i64, ptr %23, align 8
+  %49 = load i64, ptr %23, align 8
   store ptr %31, ptr %20, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 32
-  %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %52, ptr %53, align 8
-  %54 = load i64, ptr %32, align 8
-  store i64 %54, ptr %23, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 32
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %51, ptr %52, align 8
+  %53 = load i64, ptr %32, align 8
+  store i64 %53, ptr %23, align 8
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %56, label %55
+  br i1 %.not.i, label %55, label %54
 
-55:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i
+54:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i
   store ptr %22, ptr %21, align 8
-  store i64 %50, ptr %32, align 8
+  store i64 %49, ptr %32, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit
 
-56:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i, %.thread.i
-  %57 = phi ptr [ %29, %.thread.i ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i ]
-  store ptr %57, ptr %21, align 8
+55:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i, %.thread.i
+  %56 = phi ptr [ %29, %.thread.i ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i ]
+  store ptr %56, ptr %21, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit: ; preds = %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i, %55, %56
-  %58 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i ], [ %22, %55 ], [ %57, %56 ], [ %35, %34 ]
-  %59 = getelementptr inbounds i8, ptr %1, i64 32
-  store i64 0, ptr %59, align 8
-  store i8 0, ptr %58, align 1
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit: ; preds = %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i, %54, %55
+  %57 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i ], [ %22, %54 ], [ %56, %55 ], [ %35, %34 ]
+  %58 = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 0, ptr %58, align 8
+  store i8 0, ptr %57, align 1
   ret ptr %0
 }
 
@@ -5189,72 +5185,70 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_
   %35 = phi ptr [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread29.i ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i ]
   %36 = getelementptr inbounds i8, ptr %1, i64 32
   %37 = load i64, ptr %36, align 8
-  %38 = icmp ult i64 %37, 16
-  tail call void @llvm.assume(i1 %38)
   %.not22.i = icmp eq ptr %1, %0
-  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit, label %39
+  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit, label %38
 
-39:                                               ; preds = %34
-  switch i64 %37, label %42 [
+38:                                               ; preds = %34
+  switch i64 %37, label %41 [
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i
-    i64 1, label %40
+    i64 1, label %39
   ]
 
-40:                                               ; preds = %39
-  %41 = load i8, ptr %35, align 1
-  store i8 %41, ptr %22, align 1
+39:                                               ; preds = %38
+  %40 = load i8, ptr %35, align 1
+  store i8 %40, ptr %22, align 1
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i
 
-42:                                               ; preds = %39
+41:                                               ; preds = %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %35, i64 %37, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i: ; preds = %42, %40, %39
-  %43 = load i64, ptr %36, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %43, ptr %44, align 8
-  %45 = load ptr, ptr %20, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 %43
-  store i8 0, ptr %46, align 1
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i: ; preds = %41, %39, %38
+  %42 = load i64, ptr %36, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %42, ptr %43, align 8
+  %44 = load ptr, ptr %20, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 %42
+  store i8 0, ptr %45, align 1
   %.pre.i = load ptr, ptr %21, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit
 
 .thread.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i
   store ptr %28, ptr %20, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 32
-  %48 = load i64, ptr %47, align 8
-  store i64 %48, ptr %25, align 8
-  %49 = load i64, ptr %29, align 8
-  store i64 %49, ptr %23, align 8
-  br label %56
+  %46 = getelementptr inbounds i8, ptr %1, i64 32
+  %47 = load i64, ptr %46, align 8
+  store i64 %47, ptr %25, align 8
+  %48 = load i64, ptr %29, align 8
+  store i64 %48, ptr %23, align 8
+  br label %55
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread29.i
-  %50 = load i64, ptr %23, align 8
+  %49 = load i64, ptr %23, align 8
   store ptr %31, ptr %20, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 32
-  %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %52, ptr %53, align 8
-  %54 = load i64, ptr %32, align 8
-  store i64 %54, ptr %23, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 32
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %51, ptr %52, align 8
+  %53 = load i64, ptr %32, align 8
+  store i64 %53, ptr %23, align 8
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %56, label %55
+  br i1 %.not.i, label %55, label %54
 
-55:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i
+54:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i
   store ptr %22, ptr %21, align 8
-  store i64 %50, ptr %32, align 8
+  store i64 %49, ptr %32, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit
 
-56:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i, %.thread.i
-  %57 = phi ptr [ %29, %.thread.i ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i ]
-  store ptr %57, ptr %21, align 8
+55:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i, %.thread.i
+  %56 = phi ptr [ %29, %.thread.i ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i ]
+  store ptr %56, ptr %21, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit: ; preds = %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i, %55, %56
-  %58 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i ], [ %22, %55 ], [ %57, %56 ], [ %35, %34 ]
-  %59 = getelementptr inbounds i8, ptr %1, i64 32
-  store i64 0, ptr %59, align 8
-  store i8 0, ptr %58, align 1
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit: ; preds = %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i, %54, %55
+  %57 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i ], [ %22, %54 ], [ %56, %55 ], [ %35, %34 ]
+  %58 = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 0, ptr %58, align 8
+  store i8 0, ptr %57, align 1
   ret ptr %0
 }
 
@@ -5574,72 +5568,70 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_
   %35 = phi ptr [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread29.i ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i ]
   %36 = getelementptr inbounds i8, ptr %1, i64 32
   %37 = load i64, ptr %36, align 8
-  %38 = icmp ult i64 %37, 16
-  tail call void @llvm.assume(i1 %38)
   %.not22.i = icmp eq ptr %1, %0
-  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit, label %39
+  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit, label %38
 
-39:                                               ; preds = %34
-  switch i64 %37, label %42 [
+38:                                               ; preds = %34
+  switch i64 %37, label %41 [
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i
-    i64 1, label %40
+    i64 1, label %39
   ]
 
-40:                                               ; preds = %39
-  %41 = load i8, ptr %35, align 1
-  store i8 %41, ptr %22, align 1
+39:                                               ; preds = %38
+  %40 = load i8, ptr %35, align 1
+  store i8 %40, ptr %22, align 1
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i
 
-42:                                               ; preds = %39
+41:                                               ; preds = %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %35, i64 %37, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i: ; preds = %42, %40, %39
-  %43 = load i64, ptr %36, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %43, ptr %44, align 8
-  %45 = load ptr, ptr %20, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 %43
-  store i8 0, ptr %46, align 1
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i: ; preds = %41, %39, %38
+  %42 = load i64, ptr %36, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %42, ptr %43, align 8
+  %44 = load ptr, ptr %20, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 %42
+  store i8 0, ptr %45, align 1
   %.pre.i = load ptr, ptr %21, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit
 
 .thread.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i
   store ptr %28, ptr %20, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 32
-  %48 = load i64, ptr %47, align 8
-  store i64 %48, ptr %25, align 8
-  %49 = load i64, ptr %29, align 8
-  store i64 %49, ptr %23, align 8
-  br label %56
+  %46 = getelementptr inbounds i8, ptr %1, i64 32
+  %47 = load i64, ptr %46, align 8
+  store i64 %47, ptr %25, align 8
+  %48 = load i64, ptr %29, align 8
+  store i64 %48, ptr %23, align 8
+  br label %55
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread29.i
-  %50 = load i64, ptr %23, align 8
+  %49 = load i64, ptr %23, align 8
   store ptr %31, ptr %20, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 32
-  %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %52, ptr %53, align 8
-  %54 = load i64, ptr %32, align 8
-  store i64 %54, ptr %23, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 32
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %51, ptr %52, align 8
+  %53 = load i64, ptr %32, align 8
+  store i64 %53, ptr %23, align 8
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %56, label %55
+  br i1 %.not.i, label %55, label %54
 
-55:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i
+54:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i
   store ptr %22, ptr %21, align 8
-  store i64 %50, ptr %32, align 8
+  store i64 %49, ptr %32, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit
 
-56:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i, %.thread.i
-  %57 = phi ptr [ %29, %.thread.i ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i ]
-  store ptr %57, ptr %21, align 8
+55:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i, %.thread.i
+  %56 = phi ptr [ %29, %.thread.i ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i ]
+  store ptr %56, ptr %21, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit: ; preds = %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i, %55, %56
-  %58 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i ], [ %22, %55 ], [ %57, %56 ], [ %35, %34 ]
-  %59 = getelementptr inbounds i8, ptr %1, i64 32
-  store i64 0, ptr %59, align 8
-  store i8 0, ptr %58, align 1
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit: ; preds = %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i, %54, %55
+  %57 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i ], [ %22, %54 ], [ %56, %55 ], [ %35, %34 ]
+  %58 = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 0, ptr %58, align 8
+  store i8 0, ptr %57, align 1
   ret ptr %0
 }
 
@@ -5959,72 +5951,70 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_
   %35 = phi ptr [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread29.i ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i ]
   %36 = getelementptr inbounds i8, ptr %1, i64 32
   %37 = load i64, ptr %36, align 8
-  %38 = icmp ult i64 %37, 16
-  tail call void @llvm.assume(i1 %38)
   %.not22.i = icmp eq ptr %1, %0
-  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit, label %39
+  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit, label %38
 
-39:                                               ; preds = %34
-  switch i64 %37, label %42 [
+38:                                               ; preds = %34
+  switch i64 %37, label %41 [
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i
-    i64 1, label %40
+    i64 1, label %39
   ]
 
-40:                                               ; preds = %39
-  %41 = load i8, ptr %35, align 1
-  store i8 %41, ptr %22, align 1
+39:                                               ; preds = %38
+  %40 = load i8, ptr %35, align 1
+  store i8 %40, ptr %22, align 1
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i
 
-42:                                               ; preds = %39
+41:                                               ; preds = %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %35, i64 %37, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i: ; preds = %42, %40, %39
-  %43 = load i64, ptr %36, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %43, ptr %44, align 8
-  %45 = load ptr, ptr %20, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 %43
-  store i8 0, ptr %46, align 1
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i: ; preds = %41, %39, %38
+  %42 = load i64, ptr %36, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %42, ptr %43, align 8
+  %44 = load ptr, ptr %20, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 %42
+  store i8 0, ptr %45, align 1
   %.pre.i = load ptr, ptr %21, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit
 
 .thread.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i
   store ptr %28, ptr %20, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 32
-  %48 = load i64, ptr %47, align 8
-  store i64 %48, ptr %25, align 8
-  %49 = load i64, ptr %29, align 8
-  store i64 %49, ptr %23, align 8
-  br label %56
+  %46 = getelementptr inbounds i8, ptr %1, i64 32
+  %47 = load i64, ptr %46, align 8
+  store i64 %47, ptr %25, align 8
+  %48 = load i64, ptr %29, align 8
+  store i64 %48, ptr %23, align 8
+  br label %55
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread29.i
-  %50 = load i64, ptr %23, align 8
+  %49 = load i64, ptr %23, align 8
   store ptr %31, ptr %20, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 32
-  %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %52, ptr %53, align 8
-  %54 = load i64, ptr %32, align 8
-  store i64 %54, ptr %23, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 32
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %51, ptr %52, align 8
+  %53 = load i64, ptr %32, align 8
+  store i64 %53, ptr %23, align 8
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %56, label %55
+  br i1 %.not.i, label %55, label %54
 
-55:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i
+54:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i
   store ptr %22, ptr %21, align 8
-  store i64 %50, ptr %32, align 8
+  store i64 %49, ptr %32, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit
 
-56:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i, %.thread.i
-  %57 = phi ptr [ %29, %.thread.i ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i ]
-  store ptr %57, ptr %21, align 8
+55:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i, %.thread.i
+  %56 = phi ptr [ %29, %.thread.i ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit24.thread.i ]
+  store ptr %56, ptr %21, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit: ; preds = %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i, %55, %56
-  %58 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i ], [ %22, %55 ], [ %57, %56 ], [ %35, %34 ]
-  %59 = getelementptr inbounds i8, ptr %1, i64 32
-  store i64 0, ptr %59, align 8
-  store i8 0, ptr %58, align 1
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEaSEOS6_.exit: ; preds = %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i, %54, %55
+  %57 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit.i ], [ %22, %54 ], [ %56, %55 ], [ %35, %34 ]
+  %58 = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 0, ptr %58, align 8
+  store i8 0, ptr %57, align 1
   ret ptr %0
 }
 

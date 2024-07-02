@@ -2216,8 +2216,6 @@ if.end.thread.i.i:                                ; preds = %invoke.cont
 
 if.then15.i.i:                                    ; preds = %if.end.thread.i.i, %if.end.i.i10
   %12 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !20
-  %cmp3.i59.i.i = icmp ult i64 %12, 16
-  call void @llvm.assume(i1 %cmp3.i59.i.i)
   %cmp.not.i.i = icmp eq ptr %ref.tmp1, %agg.result
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEOS4_.exit, label %if.then16.i.i, !prof !25
 

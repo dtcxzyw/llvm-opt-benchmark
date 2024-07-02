@@ -3917,7 +3917,7 @@ Cba_ObjNtkId.exit.i.i:                            ; preds = %Cba_ObjRangeSize.ex
   %114 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1039, i64 %indvars.iv1966
   %115 = load i32, ptr %114, align 4
   %.val.i.i1040 = load ptr, ptr %0, align 8
-  %116 = icmp sgt i32 %115, 0
+  %116 = icmp ne i32 %115, 0
   tail call void @llvm.assume(i1 %116)
   %117 = getelementptr i8, ptr %.val.i.i1040, i64 1564
   %.val.i.i.i2.i.i = load i32, ptr %117, align 4

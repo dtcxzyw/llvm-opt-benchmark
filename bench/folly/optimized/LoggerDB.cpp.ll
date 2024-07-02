@@ -12419,8 +12419,6 @@ invoke.cont2.i.i:                                 ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i9.i.i:                                 ; preds = %invoke.cont2.i.i
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %__y, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !28
-  %cmp3.i.i.i.i.i = icmp ult i64 %12, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
   %add.i.i.i.i = add nuw nsw i64 %12, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(1) %10, i64 %add.i.i.i.i, i1 false)
   br label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIJS6_EEEvDpOT_.exit.i.i
@@ -13072,8 +13070,6 @@ invoke.cont2.i.i:                                 ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i9.i.i:                                 ; preds = %invoke.cont2.i.i
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %__y, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !28
-  %cmp3.i.i.i.i.i = icmp ult i64 %12, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
   %add.i.i.i.i = add nuw nsw i64 %12, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(1) %10, i64 %add.i.i.i.i, i1 false)
   br label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIJS6_EEEvDpOT_.exit.i.i
@@ -13257,8 +13253,6 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 8
   %14 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !28, !alias.scope !328, !noalias !325
-  %cmp3.i.i.i.i.i.i.i.i = icmp ult i64 %14, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i = add nuw nsw i64 %14, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(1) %12, i64 %add.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
@@ -13305,8 +13299,6 @@ for.body.i.i.i50:                                 ; preds = %_ZNSt6vectorINSt7__
 if.then.i.i.i.i.i.i.i64:                          ; preds = %for.body.i.i.i50
   %_M_string_length.i.i.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i52, i64 8
   %20 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i65, align 8, !tbaa !28, !alias.scope !334, !noalias !331
-  %cmp3.i.i.i.i.i.i.i.i66 = icmp ult i64 %20, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i66)
   %add.i.i.i.i.i.i.i67 = add nuw nsw i64 %20, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(1) %18, i64 %add.i.i.i.i.i.i.i67, i1 false)
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i57
@@ -14246,8 +14238,6 @@ if.end.thread.i.i:                                ; preds = %if.then.i
 
 if.then15.i.i:                                    ; preds = %if.end.thread.i.i, %if.end.i.i616
   %55 = load i64, ptr %_M_string_length.i71.i.i, align 8, !tbaa !28
-  %cmp3.i59.i.i = icmp ult i64 %55, 16
-  call void @llvm.assume(i1 %cmp3.i59.i.i)
   switch i64 %55, label %if.end.i.i.i.i615 [
     i64 0, label %if.end24.i.i
     i64 1, label %if.then.i63.i.i
@@ -14302,8 +14292,6 @@ if.else.i:                                        ; preds = %_ZNR5folly8Optional
 
 if.then.i.i.i621:                                 ; preds = %if.else.i
   %63 = load i64, ptr %_M_string_length.i71.i.i, align 8, !tbaa !28
-  %cmp3.i.i.i.i = icmp ult i64 %63, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i)
   %add.i.i.i = add nuw nsw i64 %63, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i.i.i, i1 false)
   br label %if.then.i.i11.i.i.i.thread
@@ -14334,9 +14322,9 @@ _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6assignE
   br i1 %tobool.not.i.i10.i.i.i, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_.exit.i, label %if.then.i.i11.i.i.i
 
 if.then.i.i11.i.i.i:                              ; preds = %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6assignEOS6_.exit
-  %.pre179 = load ptr, ptr %ref.tmp61, align 8, !tbaa !25
+  %.pre178 = load ptr, ptr %ref.tmp61, align 8, !tbaa !25
   store i8 0, ptr %hasValue.i.i.i.i.i, align 8, !tbaa !70
-  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %.pre179, %2
+  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %.pre178, %2
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %if.then.i.i11.i.i.i.thread, %if.then.i.i11.i.i.i
@@ -14346,7 +14334,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_.exit.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i11.i.i.i
-  call void @_ZdlPv(ptr noundef %.pre179) #27
+  call void @_ZdlPv(ptr noundef %.pre178) #27
   br label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_.exit.i
 
 if.else.i.i.i:                                    ; preds = %invoke.cont64
@@ -15658,8 +15646,8 @@ lpad.i:                                           ; preds = %.noexc.i, %if.then2
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %lpad.i
   %257 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !28, !alias.scope !355
-  %cmp3.i.i.i.i51 = icmp ult i64 %257, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i51)
+  %cmp3.i.i.i.i = icmp ult i64 %257, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %ehcleanup262.thread.body
 
 if.then.i.i.i50:                                  ; preds = %lpad.i
@@ -22577,8 +22565,6 @@ cleanup.cont:                                     ; preds = %lor.lhs.false.i.i, 
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %cleanup.cont
   %21 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !28
-  %cmp3.i.i.i.i.i.i.i.i = icmp ult i64 %21, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i = add nuw nsw i64 %21, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(1) %.pre, i64 %add.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN5folly17LogHandlerFactoryESt14default_deleteISA_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJOS5_EESX_IJEEEEEPNSG_16_Hashtable_allocISaINSG_10_Hash_nodeISE_Lb1EEEEEEDpOT_.exit
@@ -22891,8 +22877,6 @@ entry:
 if.then.i.i.i.i.i.i:                              ; preds = %entry
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %3 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !28
-  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %3, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nuw nsw i64 %3, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %add.i.i.i.i.i.i, i1 false)
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN5folly17LogHandlerFactoryESt14default_deleteISA_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJS5_SD_EEEPNSG_16_Hashtable_allocISaINSG_10_Hash_nodeISE_Lb1EEEEEEDpOT_.exit
