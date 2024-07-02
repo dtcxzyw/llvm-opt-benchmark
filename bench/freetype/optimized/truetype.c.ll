@@ -21561,25 +21561,26 @@ define internal i64 @Round_To_Grid(ptr nocapture noundef readonly %0, i64 nounde
   %6 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = icmp sgt i64 %1, -1
-  br i1 %8, label %9, label %13
+  br i1 %8, label %9, label %14
 
 9:                                                ; preds = %3
   %10 = add nuw i64 %1, 32
   %11 = add i64 %10, %7
   %12 = and i64 %11, -64
-  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %12, i64 0)
-  br label %17
+  %13 = icmp slt i64 %11, 0
+  %spec.store.select = select i1 %13, i64 0, i64 %12
+  br label %18
 
-13:                                               ; preds = %3
+14:                                               ; preds = %3
   %reass.sub = sub i64 %7, %1
-  %14 = add i64 %reass.sub, 32
-  %15 = and i64 %14, -64
-  %16 = sub i64 0, %15
-  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %16, i64 0)
-  br label %17
+  %15 = add i64 %reass.sub, 32
+  %16 = and i64 %15, -64
+  %17 = sub i64 0, %16
+  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %17, i64 0)
+  br label %18
 
-17:                                               ; preds = %13, %9
-  %.0 = phi i64 [ %spec.store.select, %9 ], [ %spec.store.select1, %13 ]
+18:                                               ; preds = %14, %9
+  %.0 = phi i64 [ %spec.store.select, %9 ], [ %spec.store.select1, %14 ]
   ret i64 %.0
 }
 
@@ -21590,25 +21591,26 @@ define internal i64 @Round_Up_To_Grid(ptr nocapture noundef readonly %0, i64 nou
   %6 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = icmp sgt i64 %1, -1
-  br i1 %8, label %9, label %13
+  br i1 %8, label %9, label %14
 
 9:                                                ; preds = %3
   %10 = add nuw i64 %1, 63
   %11 = add i64 %10, %7
   %12 = and i64 %11, -64
-  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %12, i64 0)
-  br label %17
+  %13 = icmp slt i64 %11, 0
+  %spec.store.select = select i1 %13, i64 0, i64 %12
+  br label %18
 
-13:                                               ; preds = %3
+14:                                               ; preds = %3
   %reass.sub = sub i64 %7, %1
-  %14 = add i64 %reass.sub, 63
-  %15 = and i64 %14, -64
-  %16 = sub i64 0, %15
-  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %16, i64 0)
-  br label %17
+  %15 = add i64 %reass.sub, 63
+  %16 = and i64 %15, -64
+  %17 = sub i64 0, %16
+  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %17, i64 0)
+  br label %18
 
-17:                                               ; preds = %13, %9
-  %.0 = phi i64 [ %spec.store.select, %9 ], [ %spec.store.select1, %13 ]
+18:                                               ; preds = %14, %9
+  %.0 = phi i64 [ %spec.store.select, %9 ], [ %spec.store.select1, %14 ]
   ret i64 %.0
 }
 
@@ -21619,23 +21621,24 @@ define internal i64 @Round_Down_To_Grid(ptr nocapture noundef readonly %0, i64 n
   %6 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = icmp sgt i64 %1, -1
-  br i1 %8, label %9, label %12
+  br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
   %10 = add i64 %7, %1
   %11 = and i64 %10, -64
-  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %11, i64 0)
-  br label %16
+  %12 = icmp slt i64 %10, 0
+  %spec.store.select = select i1 %12, i64 0, i64 %11
+  br label %17
 
-12:                                               ; preds = %3
-  %13 = sub i64 %7, %1
-  %14 = and i64 %13, -64
-  %15 = sub i64 0, %14
-  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %15, i64 0)
-  br label %16
+13:                                               ; preds = %3
+  %14 = sub i64 %7, %1
+  %15 = and i64 %14, -64
+  %16 = sub i64 0, %15
+  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %16, i64 0)
+  br label %17
 
-16:                                               ; preds = %12, %9
-  %.0 = phi i64 [ %spec.store.select, %9 ], [ %spec.store.select1, %12 ]
+17:                                               ; preds = %13, %9
+  %.0 = phi i64 [ %spec.store.select, %9 ], [ %spec.store.select1, %13 ]
   ret i64 %.0
 }
 
@@ -21652,7 +21655,7 @@ define internal range(i64 32, -31) i64 @Round_To_Half_Grid(ptr nocapture noundef
   %10 = add i64 %7, %1
   %11 = and i64 %10, -64
   %12 = or disjoint i64 %11, 32
-  %13 = icmp slt i64 %11, 0
+  %13 = icmp slt i64 %10, 0
   %spec.store.select = select i1 %13, i64 32, i64 %12
   br label %18
 
@@ -21676,25 +21679,26 @@ define internal i64 @Round_To_Double_Grid(ptr nocapture noundef readonly %0, i64
   %6 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = icmp sgt i64 %1, -1
-  br i1 %8, label %9, label %13
+  br i1 %8, label %9, label %14
 
 9:                                                ; preds = %3
   %10 = add nuw i64 %1, 16
   %11 = add i64 %10, %7
   %12 = and i64 %11, -32
-  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %12, i64 0)
-  br label %17
+  %13 = icmp slt i64 %11, 0
+  %spec.store.select = select i1 %13, i64 0, i64 %12
+  br label %18
 
-13:                                               ; preds = %3
+14:                                               ; preds = %3
   %reass.sub = sub i64 %7, %1
-  %14 = add i64 %reass.sub, 16
-  %15 = and i64 %14, -32
-  %16 = sub i64 0, %15
-  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %16, i64 0)
-  br label %17
+  %15 = add i64 %reass.sub, 16
+  %16 = and i64 %15, -32
+  %17 = sub i64 0, %16
+  %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %17, i64 0)
+  br label %18
 
-17:                                               ; preds = %13, %9
-  %.0 = phi i64 [ %spec.store.select, %9 ], [ %spec.store.select1, %13 ]
+18:                                               ; preds = %14, %9
+  %.0 = phi i64 [ %spec.store.select, %9 ], [ %spec.store.select1, %14 ]
   ret i64 %.0
 }
 
@@ -22398,16 +22402,16 @@ define internal fastcc i32 @tt_face_load_hdmx(ptr noundef %0, ptr noundef %1) un
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i64
   %41 = shl nuw nsw i64 %40, 8
-  %42 = or disjoint i64 %37, %41
-  %43 = getelementptr inbounds i8, ptr %17, i64 7
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i64
-  %46 = or disjoint i64 %42, %45
-  %47 = icmp ugt i64 %46, 4294901759
-  %48 = and i64 %46, 65535
-  %spec.select = select i1 %47, i64 %48, i64 %46
-  %49 = add nsw i32 %27, -256
-  %or.cond3 = icmp ult i32 %49, -255
+  %42 = getelementptr inbounds i8, ptr %17, i64 7
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i64
+  %45 = or disjoint i64 %41, %44
+  %46 = icmp eq i64 %37, 4294901760
+  %47 = select i1 %46, i64 0, i64 %37
+  %spec.select = or disjoint i64 %45, %47
+  %48 = icmp ne i8 %21, 0
+  %49 = icmp eq i32 %27, 0
+  %or.cond3 = select i1 %48, i1 true, i1 %49
   br i1 %or.cond3, label %72, label %50
 
 50:                                               ; preds = %16
@@ -22425,11 +22429,15 @@ define internal fastcc i32 @tt_face_load_hdmx(ptr noundef %0, ptr noundef %1) un
   store ptr %57, ptr %58, align 8
   %59 = load i32, ptr %3, align 4
   %.not58 = icmp eq i32 %59, 0
-  br i1 %.not58, label %.lr.ph, label %72
+  br i1 %.not58, label %.lr.ph.preheader, label %72
 
-.lr.ph:                                           ; preds = %55, %62
-  %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %55 ]
-  %.05060 = phi ptr [ %60, %62 ], [ %28, %55 ]
+.lr.ph.preheader:                                 ; preds = %55
+  %wide.trip.count = zext i8 %25 to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %62
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %62 ]
+  %.05060 = phi ptr [ %28, %.lr.ph.preheader ], [ %60, %62 ]
   %60 = getelementptr inbounds i8, ptr %.05060, i64 %spec.select
   %61 = icmp ugt ptr %60, %19
   %.pre.pre65 = load ptr, ptr %58, align 8
@@ -22439,7 +22447,7 @@ define internal fastcc i32 @tt_face_load_hdmx(ptr noundef %0, ptr noundef %1) un
   %63 = getelementptr inbounds ptr, ptr %.pre.pre65, i64 %indvars.iv
   store ptr %.05060, ptr %63, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %56
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !150
 
 .._crit_edge.loopexit_crit_edge:                  ; preds = %62
@@ -22452,7 +22460,7 @@ define internal fastcc i32 @tt_face_load_hdmx(ptr noundef %0, ptr noundef %1) un
 
 ._crit_edge:                                      ; preds = %.._crit_edge.loopexit_crit_edge, %._crit_edge.loopexitsplit
   %.pre = phi ptr [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %.pre.pre65, %._crit_edge.loopexitsplit ]
-  %.052.lcssa.ph = phi i32 [ %27, %.._crit_edge.loopexit_crit_edge ], [ %64, %._crit_edge.loopexitsplit ]
+  %.052.lcssa.ph = phi i32 [ %26, %.._crit_edge.loopexit_crit_edge ], [ %64, %._crit_edge.loopexitsplit ]
   %65 = zext nneg i32 %.052.lcssa.ph to i64
   call void @qsort(ptr noundef %.pre, i64 noundef %65, i64 noundef 8, ptr noundef nonnull @compare_ppem) #22
   %66 = getelementptr inbounds i8, ptr %0, i64 1304

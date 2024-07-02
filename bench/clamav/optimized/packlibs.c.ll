@@ -156,7 +156,7 @@ doubledl.exit230:                                 ; preds = %.preheader356, %54
   %60 = zext nneg i8 %59 to i32
   %61 = shl nuw nsw i32 %.0145399, 1
   %62 = or disjoint i32 %61, %60
-  %63 = icmp ult i32 %62, 256
+  %63 = icmp ult i32 %.0145399, 128
   br i1 %63, label %.preheader356, label %64
 
 64:                                               ; preds = %doubledl.exit230
@@ -375,9 +375,9 @@ doubledl.exit272:                                 ; preds = %doubledl.exit265, %
   br i1 %cond349, label %156, label %133
 
 156:                                              ; preds = %doubledl.exit272
-  %157 = icmp ugt i32 %131, 31999
+  %157 = icmp ugt i32 %130, 31999
   %158 = zext i1 %157 to i32
-  %159 = icmp ugt i32 %131, 1279
+  %159 = icmp ugt i32 %130, 1279
   %160 = zext i1 %159 to i32
   %spec.select = add nuw nsw i32 %160, %158
   %.4 = add i32 %spec.select, %146
@@ -623,7 +623,7 @@ doubledl.exit301:                                 ; preds = %.preheader432, %52
   %58 = zext nneg i8 %57 to i32
   %59 = shl nuw nsw i32 %.0199485, 1
   %60 = or disjoint i32 %59, %58
-  %61 = icmp ult i32 %60, 256
+  %61 = icmp ult i32 %.0199485, 128
   br i1 %61, label %.preheader432, label %62
 
 62:                                               ; preds = %doubledl.exit301
@@ -842,9 +842,9 @@ doubledl.exit343:                                 ; preds = %doubledl.exit336, %
   br i1 %cond423, label %154, label %131
 
 154:                                              ; preds = %doubledl.exit343
-  %155 = icmp ugt i32 %129, 31999
+  %155 = icmp ugt i32 %128, 31999
   %156 = zext i1 %155 to i32
-  %157 = icmp ugt i32 %129, 1279
+  %157 = icmp ugt i32 %128, 1279
   %158 = zext i1 %157 to i32
   %spec.select = add nuw nsw i32 %158, %156
   %.4 = add i32 %spec.select, %144

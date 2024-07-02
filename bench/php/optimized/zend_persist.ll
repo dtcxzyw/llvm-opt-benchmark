@@ -3497,7 +3497,7 @@ define internal fastcc void @zend_hash_persist(ptr nocapture noundef %0) unnamed
   %114 = sub i32 0, %111
   %115 = zext i32 %114 to i64
   %116 = shl nuw nsw i64 %115, 2
-  %117 = icmp ugt i32 %114, 15
+  %117 = icmp ne i32 %111, 0
   tail call void @llvm.assume(i1 %117)
   %118 = and i64 %115, 15
   %119 = icmp eq i64 %118, 0

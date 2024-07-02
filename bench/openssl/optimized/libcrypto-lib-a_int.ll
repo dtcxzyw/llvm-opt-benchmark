@@ -582,7 +582,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
 
 if.end.i:                                         ; preds = %for.body.i.i
   %tobool.not.i = icmp eq i32 %and5, 0
-  %cmp11.i = icmp sgt i64 %or.i.i, -1
+  %cmp11.i = icmp sgt i64 %shl.i.i, -1
   br i1 %tobool.not.i, label %if.else10.i, label %if.then1.i
 
 if.end.thread.i:                                  ; preds = %for.cond.preheader.i.i

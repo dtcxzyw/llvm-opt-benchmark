@@ -193966,7 +193966,7 @@ string_get.exit:                                  ; preds = %46, %50
   br label %.thread87
 
 90:                                               ; preds = %._crit_edge
-  %91 = icmp ugt i32 %82, 65535
+  %91 = icmp ugt i32 %80, 65535
   br i1 %91, label %92, label %.thread87
 
 92:                                               ; preds = %90

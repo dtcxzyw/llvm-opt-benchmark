@@ -744,13 +744,13 @@ define dso_local ptr @inet_frag_find(ptr noundef %0, ptr noundef %1) #0 align 16
   %5 = alloca %struct.rhashtable_compare_arg, align 8
   %6 = load volatile i64, ptr %0, align 64
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %395, label %8
+  br i1 %7, label %396, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 256
   %10 = load volatile i64, ptr %9, align 8
   %11 = icmp sgt i64 %10, %6
-  br i1 %11, label %395, label %12
+  br i1 %11, label %396, label %12
 
 12:                                               ; preds = %8
   tail call void @__rcu_read_lock() #11
@@ -1363,43 +1363,45 @@ define dso_local ptr @inet_frag_find(ptr noundef %0, ptr noundef %1) #0 align 16
   %378 = icmp eq i32 %377, 0
   br i1 %378, label %.thread25, label %.preheader
 
-.preheader:                                       ; preds = %375, %383
-  %379 = phi i32 [ %384, %383 ], [ %377, %375 ]
+.preheader:                                       ; preds = %375, %384
+  %379 = phi i32 [ %385, %384 ], [ %377, %375 ]
   %380 = add i32 %379, 1
   %381 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %376, i32 %380, ptr elementtype(i32) %376, i32 %379) #11, !srcloc !60
   %382 = extractvalue { i8, i32 } %381, 0
+  %383 = icmp ult i8 %382, 2
+  call void @llvm.assume(i1 %383)
   %.not = icmp eq i8 %382, 0
-  br i1 %.not, label %383, label %.thread25, !prof !10
+  br i1 %.not, label %384, label %.thread25, !prof !10
 
-383:                                              ; preds = %.preheader
-  %384 = extractvalue { i8, i32 } %381, 1
-  %385 = icmp eq i32 %384, 0
-  br i1 %385, label %.thread25, label %.preheader, !llvm.loop !61
+384:                                              ; preds = %.preheader
+  %385 = extractvalue { i8, i32 } %381, 1
+  %386 = icmp eq i32 %385, 0
+  br i1 %386, label %.thread25, label %.preheader, !llvm.loop !61
 
-.thread25:                                        ; preds = %.preheader, %383, %375
-  %386 = phi i32 [ 0, %375 ], [ %379, %.preheader ], [ 0, %383 ]
-  %387 = add i32 %386, 1
-  %388 = or i32 %387, %386
-  %389 = icmp sgt i32 %388, -1
-  br i1 %389, label %391, label %390, !prof !7
+.thread25:                                        ; preds = %.preheader, %384, %375
+  %387 = phi i32 [ 0, %375 ], [ %379, %.preheader ], [ 0, %384 ]
+  %388 = add i32 %387, 1
+  %389 = or i32 %388, %387
+  %390 = icmp sgt i32 %389, -1
+  br i1 %390, label %392, label %391, !prof !7
 
-390:                                              ; preds = %.thread25
+391:                                              ; preds = %.thread25
   call void @refcount_warn_saturate(ptr noundef %376, i32 noundef 0) #11
-  br label %391
+  br label %392
 
-391:                                              ; preds = %390, %.thread25
-  %392 = icmp eq i32 %386, 0
-  %393 = select i1 %392, ptr null, ptr %373
+392:                                              ; preds = %391, %.thread25
+  %393 = icmp eq i32 %387, 0
+  %394 = select i1 %393, ptr null, ptr %373
   br label %.thread24
 
-.thread24:                                        ; preds = %.thread18, %365, %391, %372
-  %394 = phi ptr [ null, %372 ], [ %393, %391 ], [ %140, %365 ], [ null, %.thread18 ]
+.thread24:                                        ; preds = %.thread18, %365, %392, %372
+  %395 = phi ptr [ null, %372 ], [ %394, %392 ], [ %140, %365 ], [ null, %.thread18 ]
   call void @__rcu_read_unlock() #11
-  br label %395
+  br label %396
 
-395:                                              ; preds = %.thread24, %8, %2
-  %396 = phi ptr [ %394, %.thread24 ], [ null, %8 ], [ null, %2 ]
-  ret ptr %396
+396:                                              ; preds = %.thread24, %8, %2
+  %397 = phi ptr [ %395, %.thread24 ], [ null, %8 ], [ null, %2 ]
+  ret ptr %397
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

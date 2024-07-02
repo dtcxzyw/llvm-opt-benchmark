@@ -890,7 +890,7 @@ if.end18.if.end31_crit_edge:                      ; preds = %if.end18
 if.else.i:                                        ; preds = %if.end18
   %div10.i = lshr i64 %sub, 9
   %cond.i = call i64 @llvm.umin.i64(i64 %div10.i, i64 267382800)
-  %cmp410.not.i = icmp eq i64 %and, 0
+  %cmp410.not.i = icmp ult i64 %sub, 512
   br i1 %cmp410.not.i, label %if.end28, label %for.body.i
 
 for.body.i:                                       ; preds = %if.else.i, %calculate_geometry.exit.i
@@ -958,7 +958,7 @@ if.end.i:                                         ; preds = %calculate_geometry.
 
 if.then14.i:                                      ; preds = %if.end.i
   %div1511.i = lshr i64 %sub, 9
-  %cmp16.i = icmp ugt i64 %and, 2190433321471
+  %cmp16.i = icmp ugt i64 %sub, 2190433321471
   br i1 %cmp16.i, label %calculate_rounded_image_size.exit, label %if.end28
 
 calculate_rounded_image_size.exit:                ; preds = %if.then14.i

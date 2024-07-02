@@ -38802,7 +38802,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h5f0b4ff9ec8a7b6fE.exit: ; preds = 
 
 145:                                              ; preds = %129, %136
   %146 = xor i64 %.sroa.7.0.i.ph, 1
-  %147 = icmp ult i64 %146, 10
+  %147 = icmp ult i64 %.sroa.7.0.i.ph, 10
   br i1 %147, label %148, label %157, !prof !4029
 
 148:                                              ; preds = %145

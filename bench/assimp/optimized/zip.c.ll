@@ -2860,7 +2860,7 @@ if.then787:                                       ; preds = %for.end784
   %50 = trunc nuw i64 %indvars.iv925 to i32
   %or789 = or i32 %shl788, %50
   %conv790 = trunc i32 %or789 to i16
-  %cmp792878 = icmp ult i32 %or780, 1024
+  %cmp792878 = icmp ult i32 %shl778, 1024
   br i1 %cmp792878, label %while.body794.lr.ph, label %for.inc859
 
 while.body794.lr.ph:                              ; preds = %if.then787
@@ -17585,7 +17585,7 @@ if.end67.i:                                       ; preds = %if.then62.i, %while
 do.end73.i:                                       ; preds = %if.end67.i, %do.body36.i
   %153 = phi i32 [ %or50.i, %do.body36.i ], [ %shr69.i, %if.end67.i ]
   %storemerge101.lcssa.i = phi i32 [ %add52.i, %do.body36.i ], [ %sub71.i, %if.end67.i ]
-  %cmp74.i = icmp ult i32 %or8.i, 512
+  %cmp74.i = icmp ult i8 %134, 2
   %idxprom77.i = zext nneg i32 %or8.i to i64
   %arrayidx78.i = getelementptr inbounds [512 x i8], ptr @s_tdefl_small_dist_sym, i64 0, i64 %idxprom77.i
   %arrayidx81.i = getelementptr inbounds [512 x i8], ptr @s_tdefl_small_dist_extra, i64 0, i64 %idxprom77.i

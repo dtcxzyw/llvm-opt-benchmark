@@ -5805,7 +5805,7 @@ get_refblock_offset.exit.thread:                  ; preds = %entry, %if.end.i
   br label %if.then
 
 get_refblock_offset.exit:                         ; preds = %if.end.i
-  %cmp = icmp slt i64 %and.i, 0
+  %cmp = icmp slt i64 %7, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %get_refblock_offset.exit.thread, %get_refblock_offset.exit

@@ -4812,7 +4812,7 @@ if.end.i28:                                       ; preds = %if.end.i
   %conv.i57 = sext i8 %2 to i64
   %shl.i58 = shl nsw i64 %conv.i57, 7
   %or.i60 = or disjoint i64 %shl.i58, 127
-  %cmp.i37 = icmp sgt i64 %or.i60, -1
+  %cmp.i37 = icmp sgt i8 %2, -1
   br i1 %cmp.i37, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i28
@@ -4821,7 +4821,7 @@ if.end6.i:                                        ; preds = %if.end.i28
   %conv.i63 = sext i8 %3 to i64
   %shl.i64 = shl nsw i64 %conv.i63, 14
   %or.i66 = or disjoint i64 %shl.i64, 16383
-  %cmp.i42 = icmp sgt i64 %or.i66, -1
+  %cmp.i42 = icmp sgt i8 %3, -1
   br i1 %cmp.i42, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -5051,7 +5051,7 @@ if.end.i28:                                       ; preds = %if.end.i
   %conv.i.i29 = sext i8 %2 to i64
   %shl.i.i = shl nsw i64 %conv.i.i29, 7
   %or.i.i30 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i30, -1
+  %cmp.i.i = icmp sgt i8 %2, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i28
@@ -5060,7 +5060,7 @@ if.end6.i:                                        ; preds = %if.end.i28
   %conv.i86.i = sext i8 %3 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %3, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -5645,7 +5645,7 @@ if.then6.i:                                       ; preds = %if.end.i45
   %incdec.ptr8.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 3
   %4 = load i8, ptr %incdec.ptr.i, align 1
   %or.i = or i8 %4, %sub.i
-  %tobool13.i.not = icmp sgt i8 %or.i, -1
+  %tobool13.i.not = icmp sgt i8 %4, -1
   br i1 %tobool13.i.not, label %if.end114.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.then6.i
@@ -5653,7 +5653,7 @@ if.then15.i:                                      ; preds = %if.then6.i
   %incdec.ptr18.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 4
   %5 = load i8, ptr %incdec.ptr8.i, align 1
   %or20.i = or i8 %5, %sub17.i
-  %tobool24.i.not = icmp sgt i8 %or20.i, -1
+  %tobool24.i.not = icmp sgt i8 %5, -1
   br i1 %tobool24.i.not, label %if.end114.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.then15.i
@@ -5661,7 +5661,7 @@ if.then26.i:                                      ; preds = %if.then15.i
   %incdec.ptr29.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 5
   %6 = load i8, ptr %incdec.ptr18.i, align 1
   %or31.i = or i8 %6, %sub28.i
-  %tobool35.i.not = icmp sgt i8 %or31.i, -1
+  %tobool35.i.not = icmp sgt i8 %6, -1
   br i1 %tobool35.i.not, label %if.end114.i, label %if.then37.i
 
 if.then37.i:                                      ; preds = %if.then26.i
@@ -5669,7 +5669,7 @@ if.then37.i:                                      ; preds = %if.then26.i
   %incdec.ptr40.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 6
   %7 = load i8, ptr %incdec.ptr29.i, align 1
   %or42.i = or i8 %7, %sub39.i
-  %tobool46.i.not = icmp sgt i8 %or42.i, -1
+  %tobool46.i.not = icmp sgt i8 %7, -1
   br i1 %tobool46.i.not, label %if.end114.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %if.then37.i
@@ -5677,7 +5677,7 @@ if.then48.i:                                      ; preds = %if.then37.i
   %incdec.ptr51.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 7
   %8 = load i8, ptr %incdec.ptr40.i, align 1
   %or53.i = or i8 %8, %sub50.i
-  %tobool57.i.not = icmp sgt i8 %or53.i, -1
+  %tobool57.i.not = icmp sgt i8 %8, -1
   br i1 %tobool57.i.not, label %if.end114.i, label %if.then59.i
 
 if.then59.i:                                      ; preds = %if.then48.i
@@ -5685,7 +5685,7 @@ if.then59.i:                                      ; preds = %if.then48.i
   %incdec.ptr62.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 8
   %9 = load i8, ptr %incdec.ptr51.i, align 1
   %or64.i = or i8 %9, %sub61.i
-  %tobool68.i.not = icmp sgt i8 %or64.i, -1
+  %tobool68.i.not = icmp sgt i8 %9, -1
   br i1 %tobool68.i.not, label %if.end114.i, label %if.then70.i
 
 if.then70.i:                                      ; preds = %if.then59.i
@@ -5693,7 +5693,7 @@ if.then70.i:                                      ; preds = %if.then59.i
   %incdec.ptr73.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 9
   %10 = load i8, ptr %incdec.ptr62.i, align 1
   %or75.i = or i8 %10, %sub72.i
-  %tobool79.i.not = icmp sgt i8 %or75.i, -1
+  %tobool79.i.not = icmp sgt i8 %10, -1
   br i1 %tobool79.i.not, label %if.end114.i, label %if.then81.i
 
 if.then81.i:                                      ; preds = %if.then70.i
@@ -5701,7 +5701,7 @@ if.then81.i:                                      ; preds = %if.then70.i
   %incdec.ptr84.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 10
   %11 = load i8, ptr %incdec.ptr73.i, align 1
   %or86.i = or i8 %11, %sub83.i
-  %tobool90.i.not = icmp sgt i8 %or86.i, -1
+  %tobool90.i.not = icmp sgt i8 %11, -1
   br i1 %tobool90.i.not, label %if.end114.i, label %if.then92.i
 
 if.then92.i:                                      ; preds = %if.then81.i
@@ -5846,7 +5846,7 @@ if.then6.i:                                       ; preds = %if.end.i45
   %incdec.ptr8.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 4
   %3 = load i8, ptr %incdec.ptr.i, align 1
   %or.i = or i8 %3, %sub.i
-  %tobool13.i.not = icmp sgt i8 %or.i, -1
+  %tobool13.i.not = icmp sgt i8 %3, -1
   br i1 %tobool13.i.not, label %if.end114.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.then6.i
@@ -5854,7 +5854,7 @@ if.then15.i:                                      ; preds = %if.then6.i
   %incdec.ptr18.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 5
   %4 = load i8, ptr %incdec.ptr8.i, align 1
   %or20.i = or i8 %4, %sub17.i
-  %tobool24.i.not = icmp sgt i8 %or20.i, -1
+  %tobool24.i.not = icmp sgt i8 %4, -1
   br i1 %tobool24.i.not, label %if.end114.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.then15.i
@@ -5862,7 +5862,7 @@ if.then26.i:                                      ; preds = %if.then15.i
   %incdec.ptr29.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 6
   %5 = load i8, ptr %incdec.ptr18.i, align 1
   %or31.i = or i8 %5, %sub28.i
-  %tobool35.i.not = icmp sgt i8 %or31.i, -1
+  %tobool35.i.not = icmp sgt i8 %5, -1
   br i1 %tobool35.i.not, label %if.end114.i, label %if.then37.i
 
 if.then37.i:                                      ; preds = %if.then26.i
@@ -5870,7 +5870,7 @@ if.then37.i:                                      ; preds = %if.then26.i
   %incdec.ptr40.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 7
   %6 = load i8, ptr %incdec.ptr29.i, align 1
   %or42.i = or i8 %6, %sub39.i
-  %tobool46.i.not = icmp sgt i8 %or42.i, -1
+  %tobool46.i.not = icmp sgt i8 %6, -1
   br i1 %tobool46.i.not, label %if.end114.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %if.then37.i
@@ -5878,7 +5878,7 @@ if.then48.i:                                      ; preds = %if.then37.i
   %incdec.ptr51.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 8
   %7 = load i8, ptr %incdec.ptr40.i, align 1
   %or53.i = or i8 %7, %sub50.i
-  %tobool57.i.not = icmp sgt i8 %or53.i, -1
+  %tobool57.i.not = icmp sgt i8 %7, -1
   br i1 %tobool57.i.not, label %if.end114.i, label %if.then59.i
 
 if.then59.i:                                      ; preds = %if.then48.i
@@ -5886,7 +5886,7 @@ if.then59.i:                                      ; preds = %if.then48.i
   %incdec.ptr62.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 9
   %8 = load i8, ptr %incdec.ptr51.i, align 1
   %or64.i = or i8 %8, %sub61.i
-  %tobool68.i.not = icmp sgt i8 %or64.i, -1
+  %tobool68.i.not = icmp sgt i8 %8, -1
   br i1 %tobool68.i.not, label %if.end114.i, label %if.then70.i
 
 if.then70.i:                                      ; preds = %if.then59.i
@@ -5894,7 +5894,7 @@ if.then70.i:                                      ; preds = %if.then59.i
   %incdec.ptr73.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 10
   %9 = load i8, ptr %incdec.ptr62.i, align 1
   %or75.i = or i8 %9, %sub72.i
-  %tobool79.i.not = icmp sgt i8 %or75.i, -1
+  %tobool79.i.not = icmp sgt i8 %9, -1
   br i1 %tobool79.i.not, label %if.end114.i, label %if.then81.i
 
 if.then81.i:                                      ; preds = %if.then70.i
@@ -5902,7 +5902,7 @@ if.then81.i:                                      ; preds = %if.then70.i
   %incdec.ptr84.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 11
   %10 = load i8, ptr %incdec.ptr73.i, align 1
   %or86.i = or i8 %10, %sub83.i
-  %tobool90.i.not = icmp sgt i8 %or86.i, -1
+  %tobool90.i.not = icmp sgt i8 %10, -1
   br i1 %tobool90.i.not, label %if.end114.i, label %if.then92.i
 
 if.then92.i:                                      ; preds = %if.then81.i
@@ -6044,7 +6044,7 @@ if.end.i.i45:                                     ; preds = %do.body.i
   %conv.i22.i = sext i8 %3 to i64
   %shl.i.i = shl nsw i64 %conv.i22.i, 7
   %or.i.i46 = or disjoint i64 %shl.i.i, 127
-  %cmp.i2.i = icmp sgt i64 %or.i.i46, -1
+  %cmp.i2.i = icmp sgt i8 %3, -1
   br i1 %cmp.i2.i, label %done1.i.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i45
@@ -6053,7 +6053,7 @@ if.end6.i.i:                                      ; preds = %if.end.i.i45
   %conv.i25.i = sext i8 %4 to i64
   %shl.i26.i = shl nsw i64 %conv.i25.i, 14
   %or.i28.i = or disjoint i64 %shl.i26.i, 16383
-  %cmp.i7.i = icmp sgt i64 %or.i28.i, -1
+  %cmp.i7.i = icmp sgt i8 %4, -1
   br i1 %cmp.i7.i, label %done2.i.i, label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.end6.i.i
@@ -6244,7 +6244,7 @@ if.end.i.i45:                                     ; preds = %do.body.i
   %conv.i22.i = sext i8 %2 to i64
   %shl.i.i = shl nsw i64 %conv.i22.i, 7
   %or.i.i46 = or disjoint i64 %shl.i.i, 127
-  %cmp.i2.i = icmp sgt i64 %or.i.i46, -1
+  %cmp.i2.i = icmp sgt i8 %2, -1
   br i1 %cmp.i2.i, label %done1.i.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i45
@@ -6253,7 +6253,7 @@ if.end6.i.i:                                      ; preds = %if.end.i.i45
   %conv.i25.i = sext i8 %3 to i64
   %shl.i26.i = shl nsw i64 %conv.i25.i, 14
   %or.i28.i = or disjoint i64 %shl.i26.i, 16383
-  %cmp.i7.i = icmp sgt i64 %or.i28.i, -1
+  %cmp.i7.i = icmp sgt i8 %3, -1
   br i1 %cmp.i7.i, label %done2.i.i, label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.end6.i.i
@@ -6443,7 +6443,7 @@ if.end.i48:                                       ; preds = %do.body.i
   %conv.i.i49 = sext i8 %3 to i64
   %shl.i.i = shl nsw i64 %conv.i.i49, 7
   %or.i.i50 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i50, -1
+  %cmp.i.i = icmp sgt i8 %3, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i48
@@ -6452,7 +6452,7 @@ if.end6.i:                                        ; preds = %if.end.i48
   %conv.i86.i = sext i8 %4 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %4, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -6671,7 +6671,7 @@ if.end.i48:                                       ; preds = %do.body.i
   %conv.i.i49 = sext i8 %2 to i64
   %shl.i.i = shl nsw i64 %conv.i.i49, 7
   %or.i.i50 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i50, -1
+  %cmp.i.i = icmp sgt i8 %2, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i48
@@ -6680,7 +6680,7 @@ if.end6.i:                                        ; preds = %if.end.i48
   %conv.i86.i = sext i8 %3 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %3, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -6898,7 +6898,7 @@ if.end.i49:                                       ; preds = %do.body.i
   %conv.i.i50 = sext i8 %3 to i64
   %shl.i.i = shl nsw i64 %conv.i.i50, 7
   %or.i.i51 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i51, -1
+  %cmp.i.i = icmp sgt i8 %3, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i49
@@ -6907,7 +6907,7 @@ if.end6.i:                                        ; preds = %if.end.i49
   %conv.i91.i = sext i8 %4 to i64
   %shl.i92.i = shl nsw i64 %conv.i91.i, 14
   %or.i94.i = or disjoint i64 %shl.i92.i, 16383
-  %cmp.i75.i = icmp sgt i64 %or.i94.i, -1
+  %cmp.i75.i = icmp sgt i8 %4, -1
   br i1 %cmp.i75.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -7102,7 +7102,7 @@ if.end.i49:                                       ; preds = %do.body.i
   %conv.i.i50 = sext i8 %2 to i64
   %shl.i.i = shl nsw i64 %conv.i.i50, 7
   %or.i.i51 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i51, -1
+  %cmp.i.i = icmp sgt i8 %2, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i49
@@ -7111,7 +7111,7 @@ if.end6.i:                                        ; preds = %if.end.i49
   %conv.i91.i = sext i8 %3 to i64
   %shl.i92.i = shl nsw i64 %conv.i91.i, 14
   %or.i94.i = or disjoint i64 %shl.i92.i, 16383
-  %cmp.i75.i = icmp sgt i64 %or.i94.i, -1
+  %cmp.i75.i = icmp sgt i8 %3, -1
   br i1 %cmp.i75.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -7305,7 +7305,7 @@ if.end.i48:                                       ; preds = %do.body.i
   %conv.i.i49 = sext i8 %3 to i64
   %shl.i.i = shl nsw i64 %conv.i.i49, 7
   %or.i.i50 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i50, -1
+  %cmp.i.i = icmp sgt i8 %3, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i48
@@ -7314,7 +7314,7 @@ if.end6.i:                                        ; preds = %if.end.i48
   %conv.i86.i = sext i8 %4 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %4, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -7537,7 +7537,7 @@ if.end.i48:                                       ; preds = %do.body.i
   %conv.i.i49 = sext i8 %2 to i64
   %shl.i.i = shl nsw i64 %conv.i.i49, 7
   %or.i.i50 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i50, -1
+  %cmp.i.i = icmp sgt i8 %2, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i48
@@ -7546,7 +7546,7 @@ if.end6.i:                                        ; preds = %if.end.i48
   %conv.i86.i = sext i8 %3 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %3, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -8128,7 +8128,7 @@ if.end.i39:                                       ; preds = %if.end
   %conv.i.i40 = sext i8 %7 to i64
   %shl.i.i = shl nsw i64 %conv.i.i40, 7
   %or.i.i41 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i41, -1
+  %cmp.i.i = icmp sgt i8 %7, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i39
@@ -8137,7 +8137,7 @@ if.end6.i:                                        ; preds = %if.end.i39
   %conv.i86.i = sext i8 %8 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %8, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -8307,7 +8307,7 @@ if.end.i31:                                       ; preds = %entry
   %conv.i.i32 = sext i8 %1 to i64
   %shl.i.i = shl nsw i64 %conv.i.i32, 7
   %or.i.i33 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i33, -1
+  %cmp.i.i = icmp sgt i8 %1, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i31
@@ -8316,7 +8316,7 @@ if.end6.i:                                        ; preds = %if.end.i31
   %conv.i86.i = sext i8 %2 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %2, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -8508,7 +8508,7 @@ if.end.i56:                                       ; preds = %if.end.i
   %conv.i.i57 = sext i8 %6 to i64
   %shl.i.i = shl nsw i64 %conv.i.i57, 7
   %or.i.i58 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i58, -1
+  %cmp.i.i = icmp sgt i8 %6, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i56
@@ -8517,7 +8517,7 @@ if.end6.i:                                        ; preds = %if.end.i56
   %conv.i86.i = sext i8 %7 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %7, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -8727,7 +8727,7 @@ if.end.i56:                                       ; preds = %if.end.i
   %conv.i.i57 = sext i8 %6 to i64
   %shl.i.i = shl nsw i64 %conv.i.i57, 7
   %or.i.i58 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i58, -1
+  %cmp.i.i = icmp sgt i8 %6, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i56
@@ -8736,7 +8736,7 @@ if.end6.i:                                        ; preds = %if.end.i56
   %conv.i86.i = sext i8 %7 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %7, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -8946,7 +8946,7 @@ if.end.i56:                                       ; preds = %if.end.i
   %conv.i.i57 = sext i8 %6 to i64
   %shl.i.i = shl nsw i64 %conv.i.i57, 7
   %or.i.i58 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i58, -1
+  %cmp.i.i = icmp sgt i8 %6, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i56
@@ -8955,7 +8955,7 @@ if.end6.i:                                        ; preds = %if.end.i56
   %conv.i86.i = sext i8 %7 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %7, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -9213,7 +9213,7 @@ if.end.i56:                                       ; preds = %if.end.i
   %conv.i.i57 = sext i8 %6 to i64
   %shl.i.i = shl nsw i64 %conv.i.i57, 7
   %or.i.i58 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i58, -1
+  %cmp.i.i = icmp sgt i8 %6, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i56
@@ -9222,7 +9222,7 @@ if.end6.i:                                        ; preds = %if.end.i56
   %conv.i86.i = sext i8 %7 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %7, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -9504,7 +9504,7 @@ if.end.i71:                                       ; preds = %do.body.i
   %conv.i.i72 = sext i8 %9 to i64
   %shl.i.i = shl nsw i64 %conv.i.i72, 7
   %or.i.i73 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i73, -1
+  %cmp.i.i = icmp sgt i8 %9, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i71
@@ -9513,7 +9513,7 @@ if.end6.i:                                        ; preds = %if.end.i71
   %conv.i86.i = sext i8 %10 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %10, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -9759,7 +9759,7 @@ if.end.i71:                                       ; preds = %do.body.i
   %conv.i.i72 = sext i8 %8 to i64
   %shl.i.i = shl nsw i64 %conv.i.i72, 7
   %or.i.i73 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i73, -1
+  %cmp.i.i = icmp sgt i8 %8, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i71
@@ -9768,7 +9768,7 @@ if.end6.i:                                        ; preds = %if.end.i71
   %conv.i86.i = sext i8 %9 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %9, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -10009,7 +10009,7 @@ if.end.i71:                                       ; preds = %do.body.i
   %conv.i.i72 = sext i8 %7 to i64
   %shl.i.i = shl nsw i64 %conv.i.i72, 7
   %or.i.i73 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i73, -1
+  %cmp.i.i = icmp sgt i8 %7, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i71
@@ -10018,7 +10018,7 @@ if.end6.i:                                        ; preds = %if.end.i71
   %conv.i86.i = sext i8 %8 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %8, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -10311,7 +10311,7 @@ if.end.i71:                                       ; preds = %do.body.i
   %conv.i.i72 = sext i8 %6 to i64
   %shl.i.i = shl nsw i64 %conv.i.i72, 7
   %or.i.i73 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i73, -1
+  %cmp.i.i = icmp sgt i8 %6, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i71
@@ -10320,7 +10320,7 @@ if.end6.i:                                        ; preds = %if.end.i71
   %conv.i86.i = sext i8 %7 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %7, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -15431,7 +15431,7 @@ if.end.i:                                         ; preds = %sw.bb
   %conv.i.i = sext i8 %21 to i64
   %shl.i.i = shl nsw i64 %conv.i.i, 7
   %or.i.i = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i, -1
+  %cmp.i.i = icmp sgt i8 %21, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
@@ -15440,7 +15440,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %conv.i86.i = sext i8 %22 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %22, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -16405,7 +16405,7 @@ if.end.i153:                                      ; preds = %if.end19
   %conv.i.i154 = sext i8 %3 to i64
   %shl.i.i = shl nsw i64 %conv.i.i154, 7
   %or.i.i155 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i155, -1
+  %cmp.i.i = icmp sgt i8 %3, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i153
@@ -16414,7 +16414,7 @@ if.end6.i:                                        ; preds = %if.end.i153
   %conv.i86.i = sext i8 %4 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %4, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -18394,7 +18394,7 @@ if.end.i153:                                      ; preds = %if.end19
   %conv.i.i154 = sext i8 %3 to i64
   %shl.i.i = shl nsw i64 %conv.i.i154, 7
   %or.i.i155 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i155, -1
+  %cmp.i.i = icmp sgt i8 %3, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i153
@@ -18403,7 +18403,7 @@ if.end6.i:                                        ; preds = %if.end.i153
   %conv.i86.i = sext i8 %4 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %4, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -20806,7 +20806,7 @@ if.end.i:                                         ; preds = %do.body
   %conv.i.i31 = sext i8 %2 to i64
   %shl.i.i = shl nsw i64 %conv.i.i31, 7
   %or.i.i32 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i32, -1
+  %cmp.i.i = icmp sgt i8 %2, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
@@ -20815,7 +20815,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %conv.i86.i = sext i8 %3 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %3, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -21038,7 +21038,7 @@ if.end.i:                                         ; preds = %do.body
   %conv.i.i32 = sext i8 %2 to i64
   %shl.i.i = shl nsw i64 %conv.i.i32, 7
   %or.i.i33 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i33, -1
+  %cmp.i.i = icmp sgt i8 %2, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
@@ -21047,7 +21047,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %conv.i86.i = sext i8 %3 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %3, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -21274,7 +21274,7 @@ if.end.i:                                         ; preds = %do.body
   %conv.i.i32 = sext i8 %2 to i64
   %shl.i.i = shl nsw i64 %conv.i.i32, 7
   %or.i.i33 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i33, -1
+  %cmp.i.i = icmp sgt i8 %2, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
@@ -21283,7 +21283,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %conv.i86.i = sext i8 %3 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %3, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -21507,7 +21507,7 @@ if.end.i:                                         ; preds = %do.body
   %conv.i.i35 = sext i8 %2 to i64
   %shl.i.i = shl nsw i64 %conv.i.i35, 7
   %or.i.i36 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i36, -1
+  %cmp.i.i = icmp sgt i8 %2, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
@@ -21516,7 +21516,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %conv.i86.i = sext i8 %3 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %3, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -21758,7 +21758,7 @@ if.end.i60:                                       ; preds = %do.body
   %conv.i.i61 = sext i8 %8 to i64
   %shl.i.i = shl nsw i64 %conv.i.i61, 7
   %or.i.i62 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i62, -1
+  %cmp.i.i = icmp sgt i8 %8, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i60
@@ -21767,7 +21767,7 @@ if.end6.i:                                        ; preds = %if.end.i60
   %conv.i86.i = sext i8 %9 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %9, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -22068,7 +22068,7 @@ if.end.i60:                                       ; preds = %do.body
   %conv.i.i61 = sext i8 %8 to i64
   %shl.i.i = shl nsw i64 %conv.i.i61, 7
   %or.i.i62 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i62, -1
+  %cmp.i.i = icmp sgt i8 %8, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i60
@@ -22077,7 +22077,7 @@ if.end6.i:                                        ; preds = %if.end.i60
   %conv.i86.i = sext i8 %9 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %9, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -22311,7 +22311,7 @@ if.end.i:                                         ; preds = %do.body
   %conv.i.i31 = sext i8 %2 to i64
   %shl.i.i = shl nsw i64 %conv.i.i31, 7
   %or.i.i32 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i32, -1
+  %cmp.i.i = icmp sgt i8 %2, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
@@ -22320,7 +22320,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %conv.i86.i = sext i8 %3 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %3, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -29957,7 +29957,7 @@ if.end.i76:                                       ; preds = %do.body
   %conv.i.i77 = sext i8 %29 to i64
   %shl.i.i = shl nsw i64 %conv.i.i77, 7
   %or.i.i78 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i78, -1
+  %cmp.i.i = icmp sgt i8 %29, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i76
@@ -29966,7 +29966,7 @@ if.end6.i:                                        ; preds = %if.end.i76
   %conv.i86.i = sext i8 %30 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %30, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -30359,7 +30359,7 @@ if.end.i79:                                       ; preds = %do.body
   %conv.i.i80 = sext i8 %29 to i64
   %shl.i.i = shl nsw i64 %conv.i.i80, 7
   %or.i.i81 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i81, -1
+  %cmp.i.i = icmp sgt i8 %29, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i79
@@ -30368,7 +30368,7 @@ if.end6.i:                                        ; preds = %if.end.i79
   %conv.i86.i = sext i8 %30 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %30, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -30764,7 +30764,7 @@ if.end.i79:                                       ; preds = %do.body
   %conv.i.i80 = sext i8 %29 to i64
   %shl.i.i = shl nsw i64 %conv.i.i80, 7
   %or.i.i81 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i81, -1
+  %cmp.i.i = icmp sgt i8 %29, -1
   br i1 %cmp.i.i, label %done1.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i79
@@ -30773,7 +30773,7 @@ if.end6.i:                                        ; preds = %if.end.i79
   %conv.i86.i = sext i8 %30 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %30, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -35402,6 +35402,8 @@ if.end.i43:
   store i64 %hasbits, ptr %hasbits4, align 8
   call void asm "", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.Spill) %spill, ptr nonnull elementtype(%struct.Spill) %spill) #25, !srcloc !169
   %0 = load i8, ptr %ptr, align 1
+  %cmp = icmp slt i8 %0, 0
+  call void @llvm.assume(i1 %cmp)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %conv.i41 = sext i8 %0 to i64
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %ptr, i64 2
@@ -35409,7 +35411,7 @@ if.end.i43:
   %conv.i.i44 = sext i8 %1 to i64
   %shl.i.i = shl nsw i64 %conv.i.i44, 7
   %or.i.i45 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i45, -1
+  %cmp.i.i = icmp sgt i8 %1, -1
   br i1 %cmp.i.i, label %if.end, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i43
@@ -35418,7 +35420,7 @@ if.end6.i:                                        ; preds = %if.end.i43
   %conv.i86.i = sext i8 %2 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %2, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -35593,6 +35595,8 @@ if.end.i44:
   store i64 %hasbits, ptr %hasbits4, align 8
   call void asm "", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.Spill.132) %spill, ptr nonnull elementtype(%struct.Spill.132) %spill) #25, !srcloc !169
   %0 = load i8, ptr %ptr, align 1
+  %cmp = icmp slt i8 %0, 0
+  call void @llvm.assume(i1 %cmp)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %conv.i42 = sext i8 %0 to i64
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %ptr, i64 2
@@ -35600,7 +35604,7 @@ if.end.i44:
   %conv.i.i45 = sext i8 %1 to i64
   %shl.i.i = shl nsw i64 %conv.i.i45, 7
   %or.i.i46 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i46, -1
+  %cmp.i.i = icmp sgt i8 %1, -1
   br i1 %cmp.i.i, label %if.end, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i44
@@ -35609,7 +35613,7 @@ if.end6.i:                                        ; preds = %if.end.i44
   %conv.i86.i = sext i8 %2 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %2, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -35783,6 +35787,8 @@ if.end.i43:
   store i64 %hasbits, ptr %hasbits4, align 8
   call void asm "", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.Spill.135) %spill, ptr nonnull elementtype(%struct.Spill.135) %spill) #25, !srcloc !169
   %0 = load i8, ptr %ptr, align 1
+  %cmp = icmp slt i8 %0, 0
+  call void @llvm.assume(i1 %cmp)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %conv.i41 = sext i8 %0 to i64
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %ptr, i64 2
@@ -35790,7 +35796,7 @@ if.end.i43:
   %conv.i.i44 = sext i8 %1 to i64
   %shl.i.i = shl nsw i64 %conv.i.i44, 7
   %or.i.i45 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i45, -1
+  %cmp.i.i = icmp sgt i8 %1, -1
   br i1 %cmp.i.i, label %if.end, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i43
@@ -35799,7 +35805,7 @@ if.end6.i:                                        ; preds = %if.end.i43
   %conv.i86.i = sext i8 %2 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %2, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -35972,6 +35978,8 @@ if.end.i44:
   store i64 %hasbits, ptr %hasbits4, align 8
   call void asm "", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.Spill.136) %spill, ptr nonnull elementtype(%struct.Spill.136) %spill) #25, !srcloc !169
   %0 = load i8, ptr %ptr, align 1
+  %cmp = icmp slt i8 %0, 0
+  call void @llvm.assume(i1 %cmp)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %conv.i42 = sext i8 %0 to i64
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %ptr, i64 2
@@ -35979,7 +35987,7 @@ if.end.i44:
   %conv.i.i45 = sext i8 %1 to i64
   %shl.i.i = shl nsw i64 %conv.i.i45, 7
   %or.i.i46 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i46, -1
+  %cmp.i.i = icmp sgt i8 %1, -1
   br i1 %cmp.i.i, label %if.end, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i44
@@ -35988,7 +35996,7 @@ if.end6.i:                                        ; preds = %if.end.i44
   %conv.i86.i = sext i8 %2 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %2, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -36166,6 +36174,8 @@ if.end.i44:
   store i64 %hasbits, ptr %hasbits4, align 8
   call void asm "", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.Spill.137) %spill, ptr nonnull elementtype(%struct.Spill.137) %spill) #25, !srcloc !169
   %0 = load i8, ptr %ptr, align 1
+  %cmp = icmp slt i8 %0, 0
+  call void @llvm.assume(i1 %cmp)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %conv.i42 = sext i8 %0 to i64
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %ptr, i64 2
@@ -36173,7 +36183,7 @@ if.end.i44:
   %conv.i.i45 = sext i8 %1 to i64
   %shl.i.i = shl nsw i64 %conv.i.i45, 7
   %or.i.i46 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i46, -1
+  %cmp.i.i = icmp sgt i8 %1, -1
   br i1 %cmp.i.i, label %if.end, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i44
@@ -36182,7 +36192,7 @@ if.end6.i:                                        ; preds = %if.end.i44
   %conv.i86.i = sext i8 %2 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %2, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -36360,6 +36370,8 @@ if.end.i43:
   store i64 %hasbits, ptr %hasbits4, align 8
   call void asm "", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.Spill.138) %spill, ptr nonnull elementtype(%struct.Spill.138) %spill) #25, !srcloc !169
   %0 = load i8, ptr %ptr, align 1
+  %cmp = icmp slt i8 %0, 0
+  call void @llvm.assume(i1 %cmp)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %conv.i41 = sext i8 %0 to i64
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %ptr, i64 2
@@ -36367,7 +36379,7 @@ if.end.i43:
   %conv.i.i44 = sext i8 %1 to i64
   %shl.i.i = shl nsw i64 %conv.i.i44, 7
   %or.i.i45 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i45, -1
+  %cmp.i.i = icmp sgt i8 %1, -1
   br i1 %cmp.i.i, label %if.end, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i43
@@ -36376,7 +36388,7 @@ if.end6.i:                                        ; preds = %if.end.i43
   %conv.i86.i = sext i8 %2 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %2, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -36553,6 +36565,8 @@ if.end.i43:
   store i64 %hasbits, ptr %hasbits4, align 8
   call void asm "", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.Spill.139) %spill, ptr nonnull elementtype(%struct.Spill.139) %spill) #25, !srcloc !169
   %0 = load i8, ptr %ptr, align 1
+  %cmp = icmp slt i8 %0, 0
+  call void @llvm.assume(i1 %cmp)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   %conv.i41 = sext i8 %0 to i64
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %ptr, i64 2
@@ -36560,7 +36574,7 @@ if.end.i43:
   %conv.i.i44 = sext i8 %1 to i64
   %shl.i.i = shl nsw i64 %conv.i.i44, 7
   %or.i.i45 = or disjoint i64 %shl.i.i, 127
-  %cmp.i.i = icmp sgt i64 %or.i.i45, -1
+  %cmp.i.i = icmp sgt i8 %1, -1
   br i1 %cmp.i.i, label %if.end, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i43
@@ -36569,7 +36583,7 @@ if.end6.i:                                        ; preds = %if.end.i43
   %conv.i86.i = sext i8 %2 to i64
   %shl.i87.i = shl nsw i64 %conv.i86.i, 14
   %or.i89.i = or disjoint i64 %shl.i87.i, 16383
-  %cmp.i70.i = icmp sgt i64 %or.i89.i, -1
+  %cmp.i70.i = icmp sgt i8 %2, -1
   br i1 %cmp.i70.i, label %done2.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i

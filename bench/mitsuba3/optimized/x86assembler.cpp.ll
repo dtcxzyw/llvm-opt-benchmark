@@ -2434,7 +2434,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1452 = add i64 %1451, %1443
   %1453 = sub i64 %1452, %1447
   %1454 = icmp ult i64 %1453, -4294967296
-  %1455 = icmp ugt i64 %1419, 4294967295
+  %1455 = icmp ne i32 %1416, 0
   %1456 = select i1 %1454, i1 %1455, i1 false
   br i1 %1456, label %1460, label %1463
 
@@ -2586,7 +2586,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1569 = add i64 %1568, %1560
   %1570 = sub i64 %1569, %1564
   %1571 = icmp ult i64 %1570, -4294967296
-  %1572 = icmp ugt i64 %1536, 4294967295
+  %1572 = icmp ne i32 %1533, 0
   %1573 = select i1 %1571, i1 %1572, i1 false
   br i1 %1573, label %1577, label %1580
 

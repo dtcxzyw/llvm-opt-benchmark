@@ -114,7 +114,7 @@ if.then8:                                         ; preds = %if.then5
   %add.i = add i64 %div15, 24
   %add1.i = add i64 %4, %add.i
   store i64 %add1.i, ptr %pool_alloc.i18, align 8
-  %cmp.i.i = icmp ugt i64 %div15, -25
+  %cmp.i.i = icmp ugt i64 %sub, -25
   br i1 %cmp.i.i, label %if.then.i.i, label %mem_pool_alloc_block.exit
 
 if.then.i.i:                                      ; preds = %if.then8

@@ -670,11 +670,11 @@ Cmd_Argv_length.exit147.i:                        ; preds = %163
 
 .critedge2.us.i.i:                                ; preds = %220, %220
   %224 = getelementptr i8, ptr %219, i64 %221
-  %.not77.i.i = icmp eq i8 %223, 0
+  %.not87.i.i = icmp eq i8 %223, 0
   store i8 61, ptr %218, align 1
   store i8 0, ptr %224, align 1
   %225 = getelementptr i8, ptr %224, i64 1
-  br i1 %.not77.i.i, label %dissect_id_infostring.exit.i, label %.split.us.i.i, !llvm.loop !10
+  br i1 %.not87.i.i, label %dissect_id_infostring.exit.i, label %.split.us.i.i, !llvm.loop !10
 
 226:                                              ; preds = %220
   %227 = add i32 %.058.us.i.i, 1

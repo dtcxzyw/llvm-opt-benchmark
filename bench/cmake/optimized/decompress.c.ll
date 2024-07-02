@@ -2441,7 +2441,7 @@ define dso_local noundef i32 @BZ2_decompress(ptr noundef %0) local_unnamed_addr 
   %1716 = and i32 %1712, 255
   %1717 = or disjoint i32 %1715, %1716
   store i32 %1717, ptr %1713, align 8
-  %1718 = icmp slt i32 %1717, 0
+  %1718 = icmp slt i32 %1715, 0
   br i1 %1718, label %.loopexit, label %1754
 
 1719:                                             ; preds = %.lr.ph2209, %1751

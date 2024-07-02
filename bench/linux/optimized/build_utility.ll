@@ -607,12 +607,14 @@ define dso_local i64 @local_clock_noinstr() local_unnamed_addr #4 section ".noin
   %38 = select i1 %37, i64 %35, i64 %32
   %39 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %11, i64 %38, ptr elementtype(i64) %11, i64 %21) #42, !srcloc !13
   %40 = extractvalue { i8, i64 } %39, 0
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %13, label %.loopexit
+  %41 = icmp ult i8 %40, 2
+  tail call void @llvm.assume(i1 %41)
+  %42 = icmp eq i8 %40, 0
+  br i1 %42, label %13, label %.loopexit
 
 .loopexit:                                        ; preds = %19, %6, %2
-  %42 = phi i64 [ %5, %2 ], [ %7, %6 ], [ %38, %19 ]
-  ret i64 %42
+  %43 = phi i64 [ %5, %2 ], [ %7, %6 ], [ %38, %19 ]
+  ret i64 %43
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -659,11 +661,11 @@ define dso_local i64 @sched_clock_cpu(i32 noundef %0) #0 align 16 {
   %4 = tail call i64 @sched_clock()
   %5 = load i64, ptr @__sched_clock_offset, align 8
   %6 = add i64 %5, %4
-  br label %103
+  br label %106
 
 7:                                                ; preds = %2
   %8 = tail call i64 @sched_clock()
-  br label %103
+  br label %106
 
 9:                                                ; preds = %2
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #42, !srcloc !14
@@ -680,7 +682,7 @@ define dso_local i64 @sched_clock_cpu(i32 noundef %0) #0 align 16 {
 17:                                               ; preds = %9
   %18 = getelementptr inbounds i8, ptr %14, i64 16
   %19 = getelementptr inbounds i8, ptr %14, i64 8
-  br label %67
+  br label %69
 
 20:                                               ; preds = %9
   %21 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @sched_clock_data) #43, !srcloc !9
@@ -721,79 +723,85 @@ define dso_local i64 @sched_clock_cpu(i32 noundef %0) #0 align 16 {
   %50 = select i1 %49, i64 %47, i64 %44
   %51 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %23, i64 %50, ptr elementtype(i64) %23, i64 %33) #42, !srcloc !13
   %52 = extractvalue { i8, i64 } %51, 0
-  %53 = icmp eq i8 %52, 0
-  br i1 %53, label %25, label %54
+  %53 = icmp ult i8 %52, 2
+  tail call void @llvm.assume(i1 %53)
+  %54 = icmp eq i8 %52, 0
+  br i1 %54, label %25, label %55
 
-54:                                               ; preds = %31
-  %55 = getelementptr inbounds i8, ptr %14, i64 16
-  br label %56
+55:                                               ; preds = %31
+  %56 = getelementptr inbounds i8, ptr %14, i64 16
+  br label %57
 
-56:                                               ; preds = %56, %54
-  %57 = load i64, ptr %23, align 8
-  %58 = load i64, ptr %55, align 8
-  %59 = sub i64 %58, %57
-  %60 = icmp slt i64 %59, 0
-  %61 = select i1 %60, i64 %58, i64 %57, !prof !18
-  %62 = select i1 %60, i64 %57, i64 %58, !prof !18
-  %63 = select i1 %60, ptr %55, ptr %23, !prof !18
-  %64 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %63, i64 %62, ptr elementtype(i64) %63, i64 %61) #42, !srcloc !22
-  %65 = extractvalue { i8, i64 } %64, 0
-  %66 = icmp eq i8 %65, 0
-  br i1 %66, label %56, label %.loopexit, !prof !12
+57:                                               ; preds = %57, %55
+  %58 = load i64, ptr %23, align 8
+  %59 = load i64, ptr %56, align 8
+  %60 = sub i64 %59, %58
+  %61 = icmp slt i64 %60, 0
+  %62 = select i1 %61, i64 %59, i64 %58, !prof !18
+  %63 = select i1 %61, i64 %58, i64 %59, !prof !18
+  %64 = select i1 %61, ptr %56, ptr %23, !prof !18
+  %65 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %64, i64 %63, ptr elementtype(i64) %64, i64 %62) #42, !srcloc !22
+  %66 = extractvalue { i8, i64 } %65, 0
+  %67 = icmp ult i8 %66, 2
+  tail call void @llvm.assume(i1 %67)
+  %68 = icmp eq i8 %66, 0
+  br i1 %68, label %57, label %.loopexit, !prof !12
 
-67:                                               ; preds = %73, %17
-  %68 = tail call i64 @sched_clock_noinstr() #42
-  %69 = load i64, ptr %14, align 8
-  %70 = sub i64 %68, %69
-  %71 = icmp slt i64 %70, 0
-  br i1 %71, label %72, label %73, !prof !12
+69:                                               ; preds = %75, %17
+  %70 = tail call i64 @sched_clock_noinstr() #42
+  %71 = load i64, ptr %14, align 8
+  %72 = sub i64 %70, %71
+  %73 = icmp slt i64 %72, 0
+  br i1 %73, label %74, label %75, !prof !12
 
-72:                                               ; preds = %67
-  br label %73
+74:                                               ; preds = %69
+  br label %75
 
-73:                                               ; preds = %72, %67
-  %74 = phi i64 [ 0, %72 ], [ %70, %67 ]
-  %75 = load i64, ptr %18, align 8
-  %76 = load i64, ptr %19, align 8
-  %77 = load i64, ptr @__gtod_offset, align 8
-  %78 = add i64 %77, %76
-  %79 = add i64 %78, %74
-  %80 = sub i64 %78, %75
-  %81 = icmp sgt i64 %80, 0
-  %82 = select i1 %81, i64 %78, i64 %75
-  %83 = add i64 %78, 1000000
-  %84 = sub i64 %75, %83
-  %85 = icmp sgt i64 %84, 0
-  %86 = select i1 %85, i64 %75, i64 %83
-  %87 = sub i64 %79, %82
-  %88 = icmp sgt i64 %87, 0
-  %89 = select i1 %88, i64 %79, i64 %82
-  %90 = sub i64 %89, %86
-  %91 = icmp slt i64 %90, 0
-  %92 = select i1 %91, i64 %89, i64 %86
-  %93 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %18, i64 %92, ptr elementtype(i64) %18, i64 %75) #42, !srcloc !13
-  %94 = extractvalue { i8, i64 } %93, 0
-  %95 = icmp eq i8 %94, 0
-  br i1 %95, label %67, label %.loopexit
+75:                                               ; preds = %74, %69
+  %76 = phi i64 [ 0, %74 ], [ %72, %69 ]
+  %77 = load i64, ptr %18, align 8
+  %78 = load i64, ptr %19, align 8
+  %79 = load i64, ptr @__gtod_offset, align 8
+  %80 = add i64 %79, %78
+  %81 = add i64 %80, %76
+  %82 = sub i64 %80, %77
+  %83 = icmp sgt i64 %82, 0
+  %84 = select i1 %83, i64 %80, i64 %77
+  %85 = add i64 %80, 1000000
+  %86 = sub i64 %77, %85
+  %87 = icmp sgt i64 %86, 0
+  %88 = select i1 %87, i64 %77, i64 %85
+  %89 = sub i64 %81, %84
+  %90 = icmp sgt i64 %89, 0
+  %91 = select i1 %90, i64 %81, i64 %84
+  %92 = sub i64 %91, %88
+  %93 = icmp slt i64 %92, 0
+  %94 = select i1 %93, i64 %91, i64 %88
+  %95 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %18, i64 %94, ptr elementtype(i64) %18, i64 %77) #42, !srcloc !13
+  %96 = extractvalue { i8, i64 } %95, 0
+  %97 = icmp ult i8 %96, 2
+  tail call void @llvm.assume(i1 %97)
+  %98 = icmp eq i8 %96, 0
+  br i1 %98, label %69, label %.loopexit
 
-.loopexit:                                        ; preds = %56, %73
-  %96 = phi i64 [ %92, %73 ], [ %62, %56 ]
+.loopexit:                                        ; preds = %57, %75
+  %99 = phi i64 [ %94, %75 ], [ %63, %57 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #42, !srcloc !23
-  %97 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #42, !srcloc !17
-  %98 = icmp ult i8 %97, 2
-  tail call void @llvm.assume(i1 %98)
-  %99 = icmp eq i8 %97, 0
-  br i1 %99, label %103, label %100, !prof !18
+  %100 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #42, !srcloc !17
+  %101 = icmp ult i8 %100, 2
+  tail call void @llvm.assume(i1 %101)
+  %102 = icmp eq i8 %100, 0
+  br i1 %102, label %106, label %103, !prof !18
 
-100:                                              ; preds = %.loopexit
-  %101 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %102 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %101) #42, !srcloc !24
-  tail call void @llvm.write_register.i64(metadata !0, i64 %102)
-  br label %103
+103:                                              ; preds = %.loopexit
+  %104 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %105 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %104) #42, !srcloc !24
+  tail call void @llvm.write_register.i64(metadata !0, i64 %105)
+  br label %106
 
-103:                                              ; preds = %100, %.loopexit, %7, %3
-  %104 = phi i64 [ %6, %3 ], [ %8, %7 ], [ %96, %100 ], [ %96, %.loopexit ]
-  ret i64 %104
+106:                                              ; preds = %103, %.loopexit, %7, %3
+  %107 = phi i64 [ %6, %3 ], [ %8, %7 ], [ %99, %103 ], [ %99, %.loopexit ]
+  ret i64 %107
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -848,8 +856,10 @@ define dso_local void @sched_clock_tick() local_unnamed_addr #0 align 16 {
   %34 = select i1 %33, i64 %31, i64 %28
   %35 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %8, i64 %34, ptr elementtype(i64) %8, i64 %17) #42, !srcloc !13
   %36 = extractvalue { i8, i64 } %35, 0
-  %37 = icmp eq i8 %36, 0
-  br i1 %37, label %9, label %.loopexit
+  %37 = icmp ult i8 %36, 2
+  tail call void @llvm.assume(i1 %37)
+  %38 = icmp eq i8 %36, 0
+  br i1 %38, label %9, label %.loopexit
 
 .loopexit:                                        ; preds = %15, %1, %0
   ret void

@@ -3890,119 +3890,118 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
   %55 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %56 = trunc i64 %55 to i32
   %57 = shl i32 %1, 3
-  %58 = or disjoint i32 %57, 2
-  %59 = icmp ult i32 %58, 128
-  br i1 %59, label %60, label %63
+  %58 = icmp ult i32 %57, 128
+  %59 = trunc i32 %57 to i8
+  br i1 %58, label %60, label %63
 
 60:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
-  %61 = trunc nuw nsw i32 %58 to i8
+  %61 = or disjoint i8 %59, 2
   store i8 %61, ptr %.0.i, align 1
   %62 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  br label %83
+  br label %82
 
 63:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
-  %64 = trunc i32 %57 to i8
-  %65 = or i8 %64, -126
-  store i8 %65, ptr %.0.i, align 1
-  %66 = lshr i32 %57, 7
-  %67 = icmp ult i32 %57, 16384
-  br i1 %67, label %68, label %72
+  %64 = or i8 %59, -126
+  store i8 %64, ptr %.0.i, align 1
+  %65 = lshr i32 %57, 7
+  %66 = icmp ult i32 %57, 16384
+  br i1 %66, label %67, label %71
 
-68:                                               ; preds = %63
-  %69 = trunc nuw nsw i32 %66 to i8
-  %70 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  store i8 %69, ptr %70, align 1
-  %71 = getelementptr inbounds i8, ptr %.0.i, i64 2
-  br label %83
+67:                                               ; preds = %63
+  %68 = trunc nuw nsw i32 %65 to i8
+  %69 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  store i8 %68, ptr %69, align 1
+  %70 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  br label %82
 
-72:                                               ; preds = %63
-  %73 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  br label %74
+71:                                               ; preds = %63
+  %72 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  br label %73
 
-74:                                               ; preds = %74, %72
-  %.046 = phi ptr [ %73, %72 ], [ %78, %74 ]
-  %.045 = phi i32 [ %66, %72 ], [ %77, %74 ]
-  %75 = trunc i32 %.045 to i8
-  %76 = or i8 %75, -128
-  store i8 %76, ptr %.046, align 1
-  %77 = lshr i32 %.045, 7
-  %78 = getelementptr inbounds i8, ptr %.046, i64 1
-  %79 = icmp ugt i32 %.045, 16383
-  br i1 %79, label %74, label %80, !llvm.loop !25
+73:                                               ; preds = %73, %71
+  %.046 = phi ptr [ %72, %71 ], [ %77, %73 ]
+  %.045 = phi i32 [ %65, %71 ], [ %76, %73 ]
+  %74 = trunc i32 %.045 to i8
+  %75 = or i8 %74, -128
+  store i8 %75, ptr %.046, align 1
+  %76 = lshr i32 %.045, 7
+  %77 = getelementptr inbounds i8, ptr %.046, i64 1
+  %78 = icmp ugt i32 %.045, 16383
+  br i1 %78, label %73, label %79, !llvm.loop !25
 
-80:                                               ; preds = %74
-  %81 = trunc nuw nsw i32 %77 to i8
-  %82 = getelementptr inbounds i8, ptr %.046, i64 2
-  store i8 %81, ptr %78, align 1
-  br label %83
+79:                                               ; preds = %73
+  %80 = trunc nuw nsw i32 %76 to i8
+  %81 = getelementptr inbounds i8, ptr %.046, i64 2
+  store i8 %80, ptr %77, align 1
+  br label %82
 
-83:                                               ; preds = %80, %68, %60
-  %.0 = phi ptr [ %62, %60 ], [ %71, %68 ], [ %82, %80 ]
-  %84 = icmp ugt i32 %56, 127
-  br i1 %84, label %.lr.ph, label %._crit_edge
+82:                                               ; preds = %79, %67, %60
+  %.0 = phi ptr [ %62, %60 ], [ %70, %67 ], [ %81, %79 ]
+  %83 = icmp ugt i32 %56, 127
+  br i1 %83, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %83, %.lr.ph
-  %.04758 = phi i32 [ %87, %.lr.ph ], [ %56, %83 ]
-  %.04857 = phi ptr [ %88, %.lr.ph ], [ %.0, %83 ]
-  %85 = trunc i32 %.04758 to i8
-  %86 = or i8 %85, -128
-  store i8 %86, ptr %.04857, align 1
-  %87 = lshr i32 %.04758, 7
-  %88 = getelementptr inbounds i8, ptr %.04857, i64 1
-  %89 = icmp ugt i32 %.04758, 16383
-  br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+.lr.ph:                                           ; preds = %82, %.lr.ph
+  %.04758 = phi i32 [ %86, %.lr.ph ], [ %56, %82 ]
+  %.04857 = phi ptr [ %87, %.lr.ph ], [ %.0, %82 ]
+  %84 = trunc i32 %.04758 to i8
+  %85 = or i8 %84, -128
+  store i8 %85, ptr %.04857, align 1
+  %86 = lshr i32 %.04758, 7
+  %87 = getelementptr inbounds i8, ptr %.04857, i64 1
+  %88 = icmp ugt i32 %.04758, 16383
+  br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %.lr.ph, %83
-  %.048.lcssa = phi ptr [ %.0, %83 ], [ %88, %.lr.ph ]
-  %.047.lcssa = phi i32 [ %56, %83 ], [ %87, %.lr.ph ]
-  %90 = trunc nuw nsw i32 %.047.lcssa to i8
-  %91 = getelementptr inbounds i8, ptr %.048.lcssa, i64 1
-  store i8 %90, ptr %.048.lcssa, align 1
-  %92 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
-  %93 = getelementptr inbounds i8, ptr %0, i64 57
-  %94 = load i8, ptr %93, align 1
-  %95 = trunc i8 %94 to i1
-  br i1 %95, label %96, label %118
+._crit_edge:                                      ; preds = %.lr.ph, %82
+  %.048.lcssa = phi ptr [ %.0, %82 ], [ %87, %.lr.ph ]
+  %.047.lcssa = phi i32 [ %56, %82 ], [ %86, %.lr.ph ]
+  %89 = trunc nuw nsw i32 %.047.lcssa to i8
+  %90 = getelementptr inbounds i8, ptr %.048.lcssa, i64 1
+  store i8 %89, ptr %.048.lcssa, align 1
+  %91 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
+  %92 = getelementptr inbounds i8, ptr %0, i64 57
+  %93 = load i8, ptr %92, align 1
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %95, label %117
 
-96:                                               ; preds = %._crit_edge
+95:                                               ; preds = %._crit_edge
   %sext = shl i64 %55, 32
-  %97 = ashr exact i64 %sext, 32
-  %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 16
-  %100 = ptrtoint ptr %99 to i64
-  %101 = ptrtoint ptr %91 to i64
-  %102 = sub i64 %100, %101
-  %103 = icmp sgt i64 %102, %97
-  br i1 %103, label %104, label %106
+  %96 = ashr exact i64 %sext, 32
+  %97 = load ptr, ptr %0, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %99 = ptrtoint ptr %98 to i64
+  %100 = ptrtoint ptr %90 to i64
+  %101 = sub i64 %99, %100
+  %102 = icmp sgt i64 %101, %96
+  br i1 %102, label %103, label %105
 
-104:                                              ; preds = %96
-  %105 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %92, i32 noundef %56, ptr noundef nonnull %91)
+103:                                              ; preds = %95
+  %104 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %91, i32 noundef %56, ptr noundef nonnull %90)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream20WriteRawMaybeAliasedEPKviPh.exit
 
-106:                                              ; preds = %96
-  %107 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef nonnull %91)
-  %108 = getelementptr inbounds i8, ptr %0, i64 48
+105:                                              ; preds = %95
+  %106 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef nonnull %90)
+  %107 = getelementptr inbounds i8, ptr %0, i64 48
+  %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %108, align 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 40
-  %112 = load ptr, ptr %111, align 8
-  %113 = call noundef zeroext i1 %112(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef %92, i32 noundef %56)
-  br i1 %113, label %_ZN6google8protobuf2io19EpsCopyOutputStream20WriteRawMaybeAliasedEPKviPh.exit, label %114
+  %110 = getelementptr inbounds i8, ptr %109, i64 40
+  %111 = load ptr, ptr %110, align 8
+  %112 = call noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef %91, i32 noundef %56)
+  br i1 %112, label %_ZN6google8protobuf2io19EpsCopyOutputStream20WriteRawMaybeAliasedEPKviPh.exit, label %113
 
-114:                                              ; preds = %106
-  %115 = getelementptr inbounds i8, ptr %0, i64 56
-  store i8 1, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 16
-  %117 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %117, ptr %0, align 8
+113:                                              ; preds = %105
+  %114 = getelementptr inbounds i8, ptr %0, i64 56
+  store i8 1, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %0, i64 16
+  %116 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %116, ptr %0, align 8
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream20WriteRawMaybeAliasedEPKviPh.exit
 
-118:                                              ; preds = %._crit_edge
-  %119 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %92, i32 noundef %56, ptr noundef nonnull %91)
+117:                                              ; preds = %._crit_edge
+  %118 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %91, i32 noundef %56, ptr noundef nonnull %90)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream20WriteRawMaybeAliasedEPKviPh.exit
 
-_ZN6google8protobuf2io19EpsCopyOutputStream20WriteRawMaybeAliasedEPKviPh.exit: ; preds = %104, %106, %114, %118
-  %.0.i53 = phi ptr [ %119, %118 ], [ %105, %104 ], [ %116, %114 ], [ %107, %106 ]
+_ZN6google8protobuf2io19EpsCopyOutputStream20WriteRawMaybeAliasedEPKviPh.exit: ; preds = %103, %105, %113, %117
+  %.0.i53 = phi ptr [ %118, %117 ], [ %104, %103 ], [ %115, %113 ], [ %106, %105 ]
   ret ptr %.0.i53
 }
 
@@ -4124,77 +4123,76 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
   %55 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %56 = trunc i64 %55 to i32
   %57 = shl i32 %1, 3
-  %58 = or disjoint i32 %57, 2
-  %59 = icmp ult i32 %58, 128
-  br i1 %59, label %60, label %63
+  %58 = icmp ult i32 %57, 128
+  %59 = trunc i32 %57 to i8
+  br i1 %58, label %60, label %63
 
 60:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
-  %61 = trunc nuw nsw i32 %58 to i8
+  %61 = or disjoint i8 %59, 2
   store i8 %61, ptr %.0.i, align 1
   %62 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  br label %83
+  br label %82
 
 63:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
-  %64 = trunc i32 %57 to i8
-  %65 = or i8 %64, -126
-  store i8 %65, ptr %.0.i, align 1
-  %66 = lshr i32 %57, 7
-  %67 = icmp ult i32 %57, 16384
-  br i1 %67, label %68, label %72
+  %64 = or i8 %59, -126
+  store i8 %64, ptr %.0.i, align 1
+  %65 = lshr i32 %57, 7
+  %66 = icmp ult i32 %57, 16384
+  br i1 %66, label %67, label %71
 
-68:                                               ; preds = %63
-  %69 = trunc nuw nsw i32 %66 to i8
-  %70 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  store i8 %69, ptr %70, align 1
-  %71 = getelementptr inbounds i8, ptr %.0.i, i64 2
-  br label %83
+67:                                               ; preds = %63
+  %68 = trunc nuw nsw i32 %65 to i8
+  %69 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  store i8 %68, ptr %69, align 1
+  %70 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  br label %82
 
-72:                                               ; preds = %63
-  %73 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  br label %74
+71:                                               ; preds = %63
+  %72 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  br label %73
 
-74:                                               ; preds = %74, %72
-  %.046 = phi ptr [ %73, %72 ], [ %78, %74 ]
-  %.045 = phi i32 [ %66, %72 ], [ %77, %74 ]
-  %75 = trunc i32 %.045 to i8
-  %76 = or i8 %75, -128
-  store i8 %76, ptr %.046, align 1
-  %77 = lshr i32 %.045, 7
-  %78 = getelementptr inbounds i8, ptr %.046, i64 1
-  %79 = icmp ugt i32 %.045, 16383
-  br i1 %79, label %74, label %80, !llvm.loop !25
+73:                                               ; preds = %73, %71
+  %.046 = phi ptr [ %72, %71 ], [ %77, %73 ]
+  %.045 = phi i32 [ %65, %71 ], [ %76, %73 ]
+  %74 = trunc i32 %.045 to i8
+  %75 = or i8 %74, -128
+  store i8 %75, ptr %.046, align 1
+  %76 = lshr i32 %.045, 7
+  %77 = getelementptr inbounds i8, ptr %.046, i64 1
+  %78 = icmp ugt i32 %.045, 16383
+  br i1 %78, label %73, label %79, !llvm.loop !25
 
-80:                                               ; preds = %74
-  %81 = trunc nuw nsw i32 %77 to i8
-  %82 = getelementptr inbounds i8, ptr %.046, i64 2
-  store i8 %81, ptr %78, align 1
-  br label %83
+79:                                               ; preds = %73
+  %80 = trunc nuw nsw i32 %76 to i8
+  %81 = getelementptr inbounds i8, ptr %.046, i64 2
+  store i8 %80, ptr %77, align 1
+  br label %82
 
-83:                                               ; preds = %80, %68, %60
-  %.0 = phi ptr [ %62, %60 ], [ %71, %68 ], [ %82, %80 ]
-  %84 = icmp ugt i32 %56, 127
-  br i1 %84, label %.lr.ph, label %._crit_edge
+82:                                               ; preds = %79, %67, %60
+  %.0 = phi ptr [ %62, %60 ], [ %70, %67 ], [ %81, %79 ]
+  %83 = icmp ugt i32 %56, 127
+  br i1 %83, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %83, %.lr.ph
-  %.04757 = phi i32 [ %87, %.lr.ph ], [ %56, %83 ]
-  %.04856 = phi ptr [ %88, %.lr.ph ], [ %.0, %83 ]
-  %85 = trunc i32 %.04757 to i8
-  %86 = or i8 %85, -128
-  store i8 %86, ptr %.04856, align 1
-  %87 = lshr i32 %.04757, 7
-  %88 = getelementptr inbounds i8, ptr %.04856, i64 1
-  %89 = icmp ugt i32 %.04757, 16383
-  br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+.lr.ph:                                           ; preds = %82, %.lr.ph
+  %.04757 = phi i32 [ %86, %.lr.ph ], [ %56, %82 ]
+  %.04856 = phi ptr [ %87, %.lr.ph ], [ %.0, %82 ]
+  %84 = trunc i32 %.04757 to i8
+  %85 = or i8 %84, -128
+  store i8 %85, ptr %.04856, align 1
+  %86 = lshr i32 %.04757, 7
+  %87 = getelementptr inbounds i8, ptr %.04856, i64 1
+  %88 = icmp ugt i32 %.04757, 16383
+  br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %.lr.ph, %83
-  %.048.lcssa = phi ptr [ %.0, %83 ], [ %88, %.lr.ph ]
-  %.047.lcssa = phi i32 [ %56, %83 ], [ %87, %.lr.ph ]
-  %90 = trunc nuw nsw i32 %.047.lcssa to i8
-  %91 = getelementptr inbounds i8, ptr %.048.lcssa, i64 1
-  store i8 %90, ptr %.048.lcssa, align 1
-  %92 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
-  %93 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %92, i32 noundef %56, ptr noundef nonnull %91)
-  ret ptr %93
+._crit_edge:                                      ; preds = %.lr.ph, %82
+  %.048.lcssa = phi ptr [ %.0, %82 ], [ %87, %.lr.ph ]
+  %.047.lcssa = phi i32 [ %56, %82 ], [ %86, %.lr.ph ]
+  %89 = trunc nuw nsw i32 %.047.lcssa to i8
+  %90 = getelementptr inbounds i8, ptr %.048.lcssa, i64 1
+  store i8 %89, ptr %.048.lcssa, align 1
+  %91 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
+  %92 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %91, i32 noundef %56, ptr noundef nonnull %90)
+  ret ptr %92
 }
 
 ; Function Attrs: mustprogress uwtable

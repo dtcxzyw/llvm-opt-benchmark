@@ -403,7 +403,7 @@ define hidden i32 @mbedtls_psa_rsa_generate_key(ptr nocapture noundef readonly %
   br i1 %exitcond.not.i, label %21, label %.preheader.i, !llvm.loop !4
 
 21:                                               ; preds = %.preheader.i
-  %22 = icmp slt i32 %19, 0
+  %22 = icmp slt i32 %15, 0
   br i1 %22, label %psa_rsa_read_exponent.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %21, %4

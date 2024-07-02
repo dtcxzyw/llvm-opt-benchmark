@@ -4944,8 +4944,7 @@ for.cond8.preheader.lr.ph:                        ; preds = %entry
   %arrayidx38.i = getelementptr inbounds i8, ptr %v1, i64 4
   %arrayidx43.i = getelementptr inbounds i8, ptr %v1, i64 28
   %arrayidx47.i = getelementptr inbounds i8, ptr %v1, i64 20
-  %add49.i = or disjoint i32 %mul.i, 1
-  %cmp.i76.i = icmp ult i32 %add49.i, 16
+  %rem55.i = or disjoint i32 %mul.i, 1
   %arrayidx81.i = getelementptr inbounds i8, ptr %v1, i64 8
   %arrayidx85.i = getelementptr inbounds i8, ptr %v1, i64 24
   %arrayidx87.i = getelementptr inbounds i8, ptr %v1, i64 16
@@ -5042,7 +5041,7 @@ gg_j.exit.i:                                      ; preds = %cond.false.i66.i, %
   %27 = xor i32 %or.i3.i.i, %or.i.i74.i
   %xor2.i.i = xor i32 %27, %add30.i
   store i32 %xor2.i.i, ptr %arrayidx47.i, align 4
-  br i1 %cmp.i76.i, label %cond.true.i99.i, label %cond.false.i93.i
+  br i1 %cmp.i.i, label %cond.true.i99.i, label %cond.false.i93.i
 
 cond.true.i99.i:                                  ; preds = %gg_j.exit.i
   %xor.i.i89.i = xor i32 %or.i72.i, %13
@@ -5069,7 +5068,7 @@ sm3c.exit:                                        ; preds = %cond.true.i99.i, %c
   %xor4.i = xor i32 %12, %11
   %or.i75.i = tail call noundef i32 @llvm.fshl.i32(i32 %add21117.i, i32 %add21117.i, i32 12)
   %add53.i = add i32 %xor2.i.i, %or.i75.i
-  %or.i78.i = tail call noundef i32 @llvm.fshl.i32(i32 %cond.i77.i, i32 %cond.i77.i, i32 %add49.i)
+  %or.i78.i = tail call noundef i32 @llvm.fshl.i32(i32 %cond.i77.i, i32 %cond.i77.i, i32 %rem55.i)
   %add57.i = add i32 %add53.i, %or.i78.i
   %or.i79.i = tail call noundef i32 @llvm.fshl.i32(i32 %add57.i, i32 %add57.i, i32 7)
   %xor61.i = xor i32 %or.i79.i, %or.i75.i

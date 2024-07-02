@@ -2155,8 +2155,8 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit:     ; preds = %3
   store i32 %30, ptr %24, align 4
   %31 = load i32, ptr %9, align 8
   %32 = shl i32 %31, 5
-  %33 = or disjoint i32 %32, %28
-  %34 = or disjoint i32 %33, %26
+  %33 = or disjoint i32 %28, %26
+  %34 = or disjoint i32 %33, %32
   store i32 %34, ptr %24, align 4
   %35 = load i32, ptr %9, align 8
   %36 = icmp sgt i32 %35, 0
@@ -2195,7 +2195,7 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit:     ; preds = %3
 
 52:                                               ; preds = %46
   %53 = and i32 %31, 134217727
-  %.not.i.i = icmp ult i32 %34, 32
+  %.not.i.i = icmp eq i32 %32, 0
   br i1 %.not.i.i, label %.._crit_edge_crit_edge.i.i, label %.lr.ph.i.i
 
 .._crit_edge_crit_edge.i.i:                       ; preds = %52

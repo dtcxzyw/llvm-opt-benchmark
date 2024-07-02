@@ -6206,7 +6206,9 @@ if.then8:                                         ; preds = %if.end5
 
 if.end10:                                         ; preds = %if.end5
   %and11 = and i32 %event_set, -98305
-  %or.cond = icmp ugt i32 %and11, 1023
+  %cmp12 = icmp slt i32 %event_set, 0
+  %cmp13 = icmp sgt i32 %and11, 1023
+  %or.cond = or i1 %cmp12, %cmp13
   br i1 %or.cond, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.end10

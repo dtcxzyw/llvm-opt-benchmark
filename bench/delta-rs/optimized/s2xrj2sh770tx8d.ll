@@ -44105,7 +44105,7 @@ define hidden { i64, i64 } @_ZN11arrow_arith9aggregate9aggregate17h7e9296e13cb60
   %38 = getelementptr inbounds i8, ptr %3, i64 24
   %39 = load i64, ptr %38, align 8, !noalias !13811, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13812)
-  %40 = icmp eq i64 %27, 0
+  %40 = icmp ult i64 %14, 512
   br i1 %40, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hea26178ca196f382E.exit.i, label %.lr.ph.split.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %25
@@ -44120,7 +44120,7 @@ define hidden { i64, i64 } @_ZN11arrow_arith9aggregate9aggregate17h7e9296e13cb60
   %46 = phi i64 [ %49, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hd8018ad50dd76834E.exit.loopexit.us.i.i" ], [ %27, %.lr.ph.split.i.i ]
   %47 = phi ptr [ %48, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hd8018ad50dd76834E.exit.loopexit.us.i.i" ], [ %12, %.lr.ph.split.i.i ]
   %48 = getelementptr inbounds i8, ptr %47, i64 512
-  %49 = add i64 %46, -64
+  %49 = add nsw i64 %46, -64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13815)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13818)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13821)
@@ -44181,7 +44181,7 @@ define hidden { i64, i64 } @_ZN11arrow_arith9aggregate9aggregate17h7e9296e13cb60
   %71 = phi i64 [ %74, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hd8018ad50dd76834E.exit.loopexit.i.i" ], [ %27, %.lr.ph.split.i.i ]
   %72 = phi ptr [ %73, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17hd8018ad50dd76834E.exit.loopexit.i.i" ], [ %12, %.lr.ph.split.i.i ]
   %73 = getelementptr inbounds i8, ptr %72, i64 512
-  %74 = add i64 %71, -64
+  %74 = add nsw i64 %71, -64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13815)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13818)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13821)
@@ -44384,12 +44384,12 @@ _ZN11arrow_arith9aggregate24aggregate_nullable_lanes17he1adf4d6edb93fa5E.exit: ;
   %163 = and i64 %15, 2305843009213693948
   %164 = getelementptr inbounds i64, ptr %12, i64 %163
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13884)
-  %165 = icmp eq i64 %163, 0
+  %165 = icmp ult i64 %14, 32
   br i1 %165, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc1002eb05aba4f86E.exit.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hebc6100356c6ca5eE.exit.i.i.i.i.i"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h9fdb2f03b37d3392E.exit.loopexit.i.i": ; preds = %171
   %166 = getelementptr inbounds i8, ptr %170, i64 32
-  %167 = add i64 %169, -4
+  %167 = add nsw i64 %169, -4
   %168 = icmp eq i64 %167, 0
   br i1 %168, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc1002eb05aba4f86E.exit.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hebc6100356c6ca5eE.exit.i.i.i.i.i"
 

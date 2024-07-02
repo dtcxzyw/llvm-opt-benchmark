@@ -2306,8 +2306,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_header(ptr noundef %0
   %101 = zext i32 %.sroa.3.0.copyload to i64
   %102 = or disjoint i64 %100, %101
   store i64 %102, ptr %38, align 8
-  %103 = icmp slt i64 %98, 0
-  %104 = icmp slt i64 %102, 0
+  %103 = icmp slt i64 %96, 0
+  %104 = icmp slt i64 %100, 0
   %or.cond = select i1 %103, i1 true, i1 %104
   br i1 %or.cond, label %105, label %106
 

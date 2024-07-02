@@ -4739,18 +4739,18 @@ define internal fastcc void @_ZN6uucore8features6format10num_format31strip_fract
   br i1 %45, label %_ZN5alloc6string6String8truncate17ha32b28e51c269527E.exit, label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.llvm.6156886373160849111.exit"
 
 "_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.llvm.6156886373160849111.exit": ; preds = %40
-  %46 = icmp ult i32 %44, 128
+  %46 = icmp ult i32 %.013.i.i, 2
   br i1 %46, label %51, label %47
 
 _ZN5alloc6string6String8truncate17ha32b28e51c269527E.exit: ; preds = %40, %65, %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8a8861d81afed50fE.exit.i", %58
   ret void
 
 47:                                               ; preds = %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.llvm.6156886373160849111.exit"
-  %48 = icmp ult i32 %44, 2048
+  %48 = icmp ult i32 %.013.i.i, 32
   br i1 %48, label %51, label %49
 
 49:                                               ; preds = %47
-  %50 = icmp ult i32 %44, 65536
+  %50 = icmp ult i32 %.013.i.i, 1024
   %. = select i1 %50, i64 3, i64 4
   br label %51
 

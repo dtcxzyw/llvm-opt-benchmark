@@ -3687,7 +3687,7 @@ Cba_ManNtkIsOk.exit.i.i.i.i:                      ; preds = %Cba_NtkBoxUserNum.e
   %.val10.i.i = load ptr, ptr %269, align 8
   %270 = load i32, ptr %.val10.i.i, align 4
   %.val11.i.i = load ptr, ptr %226, align 8
-  %271 = icmp ne i32 %270, 0
+  %271 = icmp sgt i32 %270, 0
   tail call void @llvm.assume(i1 %271)
   %272 = getelementptr i8, ptr %.val11.i.i, i64 1564
   %.val.i.i.i.i27.i = load i32, ptr %272, align 4

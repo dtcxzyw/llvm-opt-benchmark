@@ -1120,12 +1120,11 @@ if.end:                                           ; preds = %_ZNK4YAML6Stream11G
   %idxprom = zext i1 %cmp to i64
   %arrayidx5 = getelementptr inbounds [2 x i8], ptr %bytes, i64 0, i64 %idxprom
   %17 = load i8, ptr %arrayidx5, align 1
-  %conv = zext i8 %17 to i64
   %18 = xor i1 %cmp, true
   %idxprom6 = zext i1 %18 to i64
   %arrayidx7 = getelementptr inbounds [2 x i8], ptr %bytes, i64 0, i64 %idxprom6
-  %19 = and i64 %conv, 252
-  %or.cond = icmp eq i64 %19, 220
+  %19 = and i8 %17, -4
+  %or.cond = icmp eq i8 %19, -36
   br i1 %or.cond, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end
@@ -1134,11 +1133,12 @@ if.then11:                                        ; preds = %if.end
   br label %return
 
 if.end12:                                         ; preds = %if.end
+  %conv = zext i8 %17 to i64
   %shl = shl nuw nsw i64 %conv, 8
   %20 = load i8, ptr %arrayidx7, align 1
   %conv8 = zext i8 %20 to i64
   %or = or disjoint i64 %shl, %conv8
-  %or.cond1 = icmp eq i64 %19, 216
+  %or.cond1 = icmp eq i8 %19, -40
   br i1 %or.cond1, label %for.cond.preheader, label %if.end53
 
 for.cond.preheader:                               ; preds = %if.end12
@@ -1255,13 +1255,13 @@ if.end29:                                         ; preds = %_ZNK4YAML6Stream11G
   %38 = load i8, ptr %arrayidx7, align 1
   %conv37 = zext i8 %38 to i64
   %or38 = or disjoint i64 %shl33, %conv37
-  %39 = add nsw i64 %shl33, -57344
-  %or.cond2 = icmp ult i64 %39, -1024
+  %39 = add i8 %37, 32
+  %or.cond2 = icmp ult i8 %39, -4
   br i1 %or.cond2, label %if.then41, label %if.end49
 
 if.then41:                                        ; preds = %if.end29
   tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %m_readahead42, i64 noundef 65533)
-  %or.cond3 = icmp ult i64 %39, -2048
+  %or.cond3 = icmp ult i8 %39, -8
   br i1 %or.cond3, label %if.then46, label %for.cond, !llvm.loop !20
 
 if.then46:                                        ; preds = %if.then41

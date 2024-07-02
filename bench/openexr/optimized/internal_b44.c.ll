@@ -1040,7 +1040,7 @@ if.then45.us:                                     ; preds = %if.end41.us
   %or.i.us = or disjoint i16 %shl.i.us, %conv5.i.us
   %not.i.us = xor i16 %or.i.us, -1
   %57 = and i16 %or.i.us, 32767
-  %tobool.not1.i.us = icmp slt i16 %or.i.us, 0
+  %tobool.not1.i.us = icmp slt i16 %shl.i.us, 0
   %storemerge.i.us = select i1 %tobool.not1.i.us, i16 %57, i16 %not.i.us
   store i16 %storemerge.i.us, ptr %s, align 16
   br label %for.body.i.us

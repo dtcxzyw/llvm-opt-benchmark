@@ -18824,7 +18824,7 @@ ptr_register_glob_fixedid.exit11894:              ; preds = %56, %._crit_edge.i1
   br label %8931
 
 8920:                                             ; preds = %8907, %8898
-  %8921 = icmp ugt i32 %8904, 65535
+  %8921 = icmp ugt i32 %8903, 65535
   br i1 %8921, label %8922, label %8923
 
 8922:                                             ; preds = %8920

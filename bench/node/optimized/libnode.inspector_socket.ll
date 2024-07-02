@@ -2364,7 +2364,7 @@ for.body.i.i:                                     ; preds = %if.then46.i.i, %for
 if.end68.i.i:                                     ; preds = %for.body.i.i
   %8 = getelementptr i8, ptr %1, i64 %conv58.i.i
   %scevgep.i = getelementptr i8, ptr %8, i64 2
-  %cmp69.i.i = icmp slt i64 %or.i.i, 0
+  %cmp69.i.i = icmp slt i64 %shl.i.i, 0
   br i1 %cmp69.i.i, label %if.then.i, label %if.end73.i.i
 
 if.end73.i.i:                                     ; preds = %if.end68.i.i, %if.end41.if.end73_crit_edge.i.i
@@ -2454,7 +2454,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 
 _ZNSt6vectorIcSaIcEE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKcS1_EEOc.exit.i: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, %if.then9.i.i
   %16 = phi ptr [ %incdec.ptr.i.i, %if.then9.i.i ], [ %incdec.ptr.i9.i.i, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i ]
-  %inc97.i.i = add nuw nsw i64 %i80.059.i.i, 1
+  %inc97.i.i = add nuw i64 %i80.059.i.i, 1
   %exitcond60.not.i.i = icmp eq i64 %inc97.i.i, %payload_length64.153.i.i
   br i1 %exitcond60.not.i.i, label %for.end98.loopexit.i.i, label %for.body83.i.i, !llvm.loop !22
 

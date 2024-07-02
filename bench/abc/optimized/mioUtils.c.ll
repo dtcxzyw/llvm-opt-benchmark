@@ -2934,7 +2934,7 @@ define noundef ptr @Mio_CollectRootsNew2(ptr noundef %0, i32 noundef %1, ptr nou
 
 ._crit_edge.i:                                    ; preds = %50, %21
   %62 = phi i32 [ 0, %21 ], [ %60, %50 ]
-  %.not30.i = icmp ult i32 %45, 268435456
+  %.not30.i = icmp eq i32 %43, 0
   br i1 %.not30.i, label %Mio_CollectCopy2.exit, label %63
 
 63:                                               ; preds = %._crit_edge.i

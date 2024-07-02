@@ -8242,7 +8242,7 @@ define internal fastcc noundef i32 @_ZL42stbtt__CompareUTF8toUTF16_bigendian_pre
   br i1 %.not82, label %107, label %._crit_edge
 
 20:                                               ; preds = %.lr.ph
-  %21 = icmp ult i32 %11, 2048
+  %21 = icmp ult i8 %5, 8
   br i1 %21, label %22, label %39
 
 22:                                               ; preds = %20
@@ -8272,8 +8272,8 @@ define internal fastcc noundef i32 @_ZL42stbtt__CompareUTF8toUTF16_bigendian_pre
   br i1 %.not80, label %107, label %._crit_edge
 
 39:                                               ; preds = %20
-  %40 = and i32 %6, 252
-  %or.cond = icmp eq i32 %40, 216
+  %40 = and i8 %5, -4
+  %or.cond = icmp eq i8 %40, -40
   br i1 %or.cond, label %41, label %84
 
 41:                                               ; preds = %39
@@ -8337,7 +8337,7 @@ define internal fastcc noundef i32 @_ZL42stbtt__CompareUTF8toUTF16_bigendian_pre
   br label %107
 
 84:                                               ; preds = %39
-  %or.cond5 = icmp ne i32 %40, 220
+  %or.cond5 = icmp ne i8 %40, -36
   %85 = add nsw i32 %.06485, 2
   %.not69 = icmp slt i32 %85, %1
   %or.cond83 = select i1 %or.cond5, i1 %.not69, i1 false

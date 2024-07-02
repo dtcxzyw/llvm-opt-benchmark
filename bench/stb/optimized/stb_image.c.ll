@@ -22637,7 +22637,7 @@ sw.bb:                                            ; preds = %for.cond
   br i1 %cmp.i, label %sw.epilog, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb
-  %cmp1.i = icmp slt i32 %add.i.i, 0
+  %cmp1.i = icmp slt i32 %shl.i.i, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -23850,7 +23850,7 @@ if.end491:                                        ; preds = %if.end464
   br i1 %cmp.i482, label %sw.epilog, label %if.end.i483
 
 if.end.i483:                                      ; preds = %if.end491
-  %cmp1.i484 = icmp slt i32 %add.i.i, 0
+  %cmp1.i484 = icmp slt i32 %shl.i.i, 0
   br i1 %cmp1.i484, label %if.then2.i507, label %if.end3.i485
 
 if.then2.i507:                                    ; preds = %if.end.i483

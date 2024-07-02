@@ -17896,15 +17896,15 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly5lists17has_extra_newline17h69b2f
   unreachable
 
 53:                                               ; preds = %47
-  %54 = icmp ult i32 %51, 128
+  %54 = icmp ult i32 %.013.i, 2
   br i1 %54, label %.thread70, label %55
 
 55:                                               ; preds = %53
-  %56 = icmp ult i32 %51, 2048
+  %56 = icmp ult i32 %.013.i, 32
   br i1 %56, label %.thread70, label %57
 
 57:                                               ; preds = %55
-  %58 = icmp ult i32 %51, 65536
+  %58 = icmp ult i32 %.013.i, 1024
   %. = select i1 %58, i64 -3, i64 -4
   br label %.thread70
 

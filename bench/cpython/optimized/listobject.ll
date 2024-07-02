@@ -2233,7 +2233,7 @@ if.end.i17:                                       ; preds = %if.end
 if.then6.i:                                       ; preds = %if.end.i17
   %add.i.i = add i64 %cond.i, 1
   %and.i.i = and i64 %add.i.i, -2
-  %cmp.i.i = icmp ugt i64 %and.i.i, 1152921504606846975
+  %cmp.i.i = icmp ugt i64 %add.i.i, 1152921504606846975
   br i1 %cmp.i.i, label %return.sink.split.i, label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %if.then6.i
@@ -2393,7 +2393,7 @@ if.then10.i:                                      ; preds = %if.else.i20
 land.lhs.true.i:                                  ; preds = %if.then10.i
   %add.i.i45 = add nuw i64 %call2.i, 1
   %and.i.i46 = and i64 %add.i.i45, -2
-  %cmp.i41.i = icmp ugt i64 %and.i.i46, 1152921504606846975
+  %cmp.i41.i = icmp ugt i64 %call2.i, 1152921504606846974
   br i1 %cmp.i41.i, label %error.sink.split.i, label %cond.end.i.i47
 
 cond.end.i.i47:                                   ; preds = %land.lhs.true.i

@@ -13395,7 +13395,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h454b7e920355a17fE.exit778: ; preds = %806
   %.sroa.027.0.insert.ext = zext i8 %869 to i16
   %.sroa.027.0.insert.insert = or disjoint i16 %.sroa.428.0.insert.shift, %.sroa.027.0.insert.ext
   %872 = add nuw i64 %.sroa.023.01064, 3
-  %873 = icmp sgt i16 %.sroa.027.0.insert.insert, -1
+  %873 = icmp sgt i16 %.sroa.428.0.insert.shift, -1
   br i1 %873, label %876, label %879
 
 .invoke1211:                                      ; preds = %864, %862, %.lr.ph

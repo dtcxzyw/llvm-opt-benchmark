@@ -52271,12 +52271,12 @@ _ZN5Catch12_GLOBAL__N_111headerValueEh.exit:      ; preds = %_ZN5Catch12_GLOBAL_
   br i1 %exitcond.not, label %113, label %102, !llvm.loop !823
 
 113:                                              ; preds = %102
-  %114 = icmp ugt i32 %111, 127
+  %114 = icmp ugt i32 %109, 127
   %or.cond10.not = select i1 %108, i1 %114, i1 false
   br i1 %or.cond10.not, label %115, label %122
 
 115:                                              ; preds = %113
-  %116 = icmp ult i32 %111, 2048
+  %116 = icmp ult i32 %109, 2048
   %117 = icmp ugt i64 %.06.i9698, 2
   %or.cond14 = and i1 %117, %116
   br i1 %or.cond14, label %122, label %118
@@ -52286,7 +52286,7 @@ _ZN5Catch12_GLOBAL__N_111headerValueEh.exit:      ; preds = %_ZN5Catch12_GLOBAL_
   %or.cond16 = icmp ult i32 %119, 63487
   %120 = icmp ugt i64 %.06.i9698, 3
   %or.cond18 = and i1 %120, %or.cond16
-  %121 = icmp ugt i32 %111, 1114111
+  %121 = icmp ugt i32 %109, 1114111
   %or.cond20 = select i1 %or.cond18, i1 true, i1 %121
   br i1 %or.cond20, label %122, label %.preheader
 
@@ -52317,8 +52317,8 @@ _ZN5Catch12_GLOBAL__N_111headerValueEh.exit:      ; preds = %_ZN5Catch12_GLOBAL_
   %139 = load i8, ptr %138, align 1
   %140 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext %139)
   %141 = add nuw nsw i64 %.0103, 1
-  %exitcond121.not = icmp eq i64 %141, %.06.i9698
-  br i1 %exitcond121.not, label %142, label %.preheader, !llvm.loop !824
+  %exitcond122.not = icmp eq i64 %141, %.06.i9698
+  br i1 %exitcond122.not, label %142, label %.preheader, !llvm.loop !824
 
 142:                                              ; preds = %.preheader
   %143 = add i64 %.082118, -1

@@ -169,11 +169,11 @@ _ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit: ; preds = %63
   %75 = load i8, ptr %70, align 1
   %76 = zext i8 %75 to i32
   %.masked.i = and i32 %74, 4194048
-  %77 = or disjoint i32 %.masked.i, %76
-  %78 = getelementptr inbounds i8, ptr %0, i64 12
-  %79 = add nuw nsw i32 %77, 4096
-  store i32 %79, ptr %78, align 4
-  %80 = icmp ult i32 %77, 1044480
+  %77 = getelementptr inbounds i8, ptr %0, i64 12
+  %78 = or disjoint i32 %76, 4096
+  %79 = add nuw nsw i32 %78, %.masked.i
+  store i32 %79, ptr %77, align 4
+  %80 = icmp ult i32 %.masked.i, 1044480
   br i1 %80, label %81, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 81:                                               ; preds = %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread12, %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit

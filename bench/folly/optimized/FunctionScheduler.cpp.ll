@@ -10136,6 +10136,8 @@ if.end.thread.i:                                  ; preds = %invoke.cont
 
 if.then15.i:                                      ; preds = %if.end.thread.i, %if.end.i
   %12 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !37
+  %cmp3.i59.i = icmp ult i64 %12, 16
+  call void @llvm.assume(i1 %cmp3.i59.i)
   %cmp.not.i = icmp eq ptr %ref.tmp, %threadName_
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then16.i, !prof !71
 

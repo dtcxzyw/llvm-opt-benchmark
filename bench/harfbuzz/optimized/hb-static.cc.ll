@@ -6050,7 +6050,7 @@ if.end51:                                         ; preds = %_ZN9hb_iter_tI10hb_
   br i1 %or.cond49, label %for.inc, label %lor.lhs.false64
 
 lor.lhs.false64:                                  ; preds = %if.end51
-  %cmp65 = icmp slt i16 %add.i.i84, 0
+  %cmp65 = icmp slt i16 %shl.i.i81, 0
   %cmp66 = icmp sgt i16 %add.i.i89, 0
   %or.cond = and i1 %cmp65, %cmp66
   br i1 %or.cond, label %for.inc, label %if.end70

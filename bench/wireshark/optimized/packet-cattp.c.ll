@@ -228,11 +228,11 @@ define internal i32 @dissect_cattp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %47 = zext i16 %45 to i32
   %48 = tail call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %46, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef %47) #3
   %49 = zext i8 %16 to i32
-  %.not = icmp sgt i8 %16, -1
+  %.not = icmp sgt i8 %15, -1
   br i1 %.not, label %50, label %53
 
 50:                                               ; preds = %4
-  %.not120 = icmp ult i8 %16, 64
+  %.not120 = icmp ult i8 %15, 64
   br i1 %.not120, label %51, label %53
 
 51:                                               ; preds = %50

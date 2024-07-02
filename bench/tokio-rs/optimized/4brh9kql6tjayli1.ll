@@ -11108,7 +11108,7 @@ define hidden void @"_ZN5tokio7runtime4task5state5State18transition_to_idle28_$u
   br label %22
 
 12:                                               ; preds = %8
-  %.not.i = icmp ult i64 %9, 64
+  %.not.i = icmp ult i64 %2, 64
   br i1 %.not.i, label %13, label %_ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit
 
 13:                                               ; preds = %12
@@ -11122,7 +11122,7 @@ _ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit: ; preds 
   br label %20
 
 16:                                               ; preds = %8
-  %17 = icmp sgt i64 %9, -1
+  %17 = icmp sgt i64 %2, -1
   br i1 %17, label %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit, label %18
 
 18:                                               ; preds = %16
@@ -11161,16 +11161,16 @@ define hidden void @"_ZN5tokio7runtime4task5state5State29transition_to_notified_
   br i1 %or.cond.not, label %11, label %15
 
 7:                                                ; preds = %3
-  %8 = or i64 %2, 4
-  %.not.i = icmp ult i64 %8, 64
-  br i1 %.not.i, label %9, label %_ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit
+  %.not.i = icmp ult i64 %2, 64
+  br i1 %.not.i, label %8, label %_ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit
 
-9:                                                ; preds = %7
+8:                                                ; preds = %7
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.155.llvm.5542961546488995764, i64 noundef 38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.156.llvm.5542961546488995764) #34, !noalias !1874
   unreachable
 
 _ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit: ; preds = %7
-  %10 = add i64 %8, -64
+  %9 = or i64 %2, 4
+  %10 = add i64 %9, -64
   %.not = icmp ult i64 %10, 64
   br i1 %.not, label %22, label %19
 
@@ -11488,16 +11488,16 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5tokio7runtime4task5state5State19fet
   br i1 %or.cond.not.i, label %11, label %15
 
 7:                                                ; preds = %3
-  %8 = or i64 %.07, 4
-  %.not.i.i = icmp ult i64 %8, 64
-  br i1 %.not.i.i, label %9, label %_ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit.i
+  %.not.i.i = icmp ult i64 %.07, 64
+  br i1 %.not.i.i, label %8, label %_ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit.i
 
-9:                                                ; preds = %7
+8:                                                ; preds = %7
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.155.llvm.5542961546488995764, i64 noundef 38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.156.llvm.5542961546488995764) #34, !noalias !1895
   unreachable
 
 _ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit.i: ; preds = %7
-  %10 = add i64 %8, -64
+  %9 = or i64 %.07, 4
+  %10 = add i64 %9, -64
   %.not.i = icmp ult i64 %10, 64
   br i1 %.not.i, label %19, label %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_val28_$u7b$$u7b$closure$u7d$$u7d$17h192db68864f41b3fE.llvm.3285439092171202888.exit"
 
@@ -11575,7 +11575,7 @@ define hidden noundef range(i8 0, 4) i8 @_ZN5tokio7runtime4task5state5State19fet
   br i1 %.not10.i, label %11, label %15
 
 11:                                               ; preds = %8
-  %.not.i.i = icmp ult i64 %9, 64
+  %.not.i.i = icmp ult i64 %.07, 64
   br i1 %.not.i.i, label %12, label %_ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit.i
 
 12:                                               ; preds = %11
@@ -11589,7 +11589,7 @@ _ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit.i: ; pred
   br label %19
 
 15:                                               ; preds = %8
-  %16 = icmp sgt i64 %9, -1
+  %16 = icmp sgt i64 %.07, -1
   br i1 %16, label %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i, label %17
 
 17:                                               ; preds = %15

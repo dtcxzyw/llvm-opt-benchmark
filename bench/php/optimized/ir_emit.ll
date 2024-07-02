@@ -21108,7 +21108,7 @@ ir_ref_spill_slot.exit.i.i1209:                   ; preds = %7554, %7537
   br i1 %or.cond7.i, label %7687, label %7698
 
 7685:                                             ; preds = %7682
-  %7686 = icmp ult i64 %.sroa.0.0.insert.insert131.i, 4294967296
+  %7686 = icmp eq i32 %.sroa.55.1.lcssa.i, 0
   br i1 %7686, label %7687, label %7698
 
 7687:                                             ; preds = %7685, %7683
@@ -21166,12 +21166,12 @@ ir_ref_spill_slot.exit.i.i1209:                   ; preds = %7554, %7537
   br i1 %or.cond13.i, label %7707, label %7725
 
 7705:                                             ; preds = %7702, %.thread1198.i
-  %7706 = icmp ult i64 %.sroa.0532.0.insert.insert553.i, 4294967296
+  %7706 = icmp eq i32 %.sroa.57.1.lcssa.i, 0
   br i1 %7706, label %7707, label %7725
 
 7707:                                             ; preds = %7705, %7703
-  %.neg.i = mul nsw i64 %.sroa.0532.0.insert.insert553.i, -8
-  %7708 = add nsw i64 %.neg.i, 2147483648
+  %.neg.i = mul i64 %.sroa.0532.0.insert.insert553.i, -8
+  %7708 = add i64 %.neg.i, 2147483648
   %or.cond15.i = icmp ult i64 %7708, 4294967296
   %.phi.trans.insert.i1249 = zext i8 %.fr1246.i to i64
   %.phi.trans.insert1252.i = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %.phi.trans.insert.i1249
@@ -38540,7 +38540,7 @@ ir_vreg_spill_slot.exit104:                       ; preds = %136, %153
   %269 = add i64 %260, -1
   %270 = and i64 %269, %260
   store i64 %270, ptr %263, align 8
-  %271 = icmp sgt i32 %268, -1
+  %271 = icmp sgt i32 %265, -1
   br i1 %271, label %272, label %.lr.ph612.preheader.i
 
 272:                                              ; preds = %262
@@ -38644,27 +38644,27 @@ ir_vreg_spill_slot.exit104:                       ; preds = %136, %153
 323:                                              ; preds = %.lr.ph615.i
   %324 = trunc nuw nsw i64 %indvars.iv684.i to i32
   %325 = shl nuw i32 %324, 6
-  %326 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %321, i1 true)
-  %327 = trunc nuw nsw i64 %326 to i32
-  %328 = or disjoint i32 %325, %327
-  %329 = icmp sgt i32 %328, -1
-  br i1 %329, label %330, label %.lr.ph635.preheader.i
+  %326 = icmp sgt i32 %325, -1
+  br i1 %326, label %327, label %.lr.ph635.preheader.i
 
-330:                                              ; preds = %323
+327:                                              ; preds = %323
+  %328 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %321, i1 true)
+  %329 = trunc nuw nsw i64 %328 to i32
+  %330 = or disjoint i32 %325, %329
   tail call void @llvm.memset.p0.i64(ptr align 8 %305, i8 0, i64 %228, i1 false)
-  %331 = shl nuw i64 1, %326
+  %331 = shl nuw i64 1, %328
   %332 = and i64 %indvars.iv684.i, 4294967295
   %333 = getelementptr inbounds i64, ptr %305, i64 %332
   %334 = load i64, ptr %333, align 8
   %335 = or i64 %334, %331
   store i64 %335, ptr %333, align 8
-  %336 = zext nneg i32 %328 to i64
+  %336 = zext nneg i32 %330 to i64
   %337 = getelementptr inbounds i32, ptr %192, i64 %336
   %338 = load i32, ptr %337, align 4
   %339 = icmp slt i32 %338, 0
   br i1 %339, label %.critedge.i.preheader, label %.lr.ph620.i.preheader
 
-.lr.ph620.i.preheader:                            ; preds = %330
+.lr.ph620.i.preheader:                            ; preds = %327
   %340 = lshr i32 %338, 6
   %341 = zext nneg i32 %340 to i64
   %342 = getelementptr inbounds i64, ptr %226, i64 %341
@@ -39105,7 +39105,7 @@ ir_emit_load_mem.exit.i:                          ; preds = %548, %547, %._crit_
   %.not552.i = icmp eq i64 %561, 0
   br i1 %.not552.i, label %.critedge.i.preheader, label %.lr.ph35
 
-.critedge.i.preheader:                            ; preds = %.lr.ph620.i, %.lr.ph620.i.preheader, %ir_emit_load_mem.exit.i, %ir_emit_swap.exit.i, %.thread723.i, %330
+.critedge.i.preheader:                            ; preds = %.lr.ph620.i, %.lr.ph620.i.preheader, %ir_emit_load_mem.exit.i, %ir_emit_swap.exit.i, %.thread723.i, %327
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %.critedge.i
@@ -39169,7 +39169,7 @@ ir_emit_load_mem.exit.i:                          ; preds = %548, %547, %._crit_
   %585 = add i64 %576, -1
   %586 = and i64 %585, %576
   store i64 %586, ptr %579, align 8
-  %587 = icmp sgt i32 %584, -1
+  %587 = icmp sgt i32 %581, -1
   br i1 %587, label %588, label %.thread581.i
 
 588:                                              ; preds = %578

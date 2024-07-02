@@ -1791,7 +1791,7 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
 .lr.ph:                                           ; preds = %81, %92
   %.1139180 = phi i32 [ %93, %92 ], [ %.0138, %81 ]
   %reass.add = shl i32 %.1139180, 1
-  %87 = icmp ugt i32 %reass.add, 268435454
+  %87 = icmp ugt i32 %reass.add, 268435455
   br i1 %87, label %88, label %92
 
 88:                                               ; preds = %.lr.ph

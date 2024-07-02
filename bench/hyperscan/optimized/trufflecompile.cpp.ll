@@ -47,7 +47,7 @@ do.end.preheader:                                 ; preds = %_ZNK3ue29CharReach1
   %6 = trunc nuw i32 %shl40 to i8
   %conv642 = or i8 %5, %6
   store i8 %conv642, ptr %arrayidx41, align 1
-  %cmp.not.i.i43 = icmp ult i64 %add.i.i, 256
+  %cmp.not.i.i43 = icmp ult i64 %i.06.i.i, 4
   br i1 %cmp.not.i.i43, label %if.end.i.i, label %for.end
 
 if.end.i.i:                                       ; preds = %do.end.preheader, %_ZNK3ue29CharReach9find_nextEm.exit

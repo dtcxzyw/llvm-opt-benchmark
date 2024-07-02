@@ -3146,6 +3146,8 @@ if.then.i.i.i.i:                                  ; preds = %_ZN5folly7parseToEN
 
 if.then.i.i.i.i22.i.i:                            ; preds = %if.then.i.i.i.i
   %24 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !35, !noalias !184
+  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %24, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nuw nsw i64 %24, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %21, i64 %add.i.i.i.i.i.i, i1 false)
   br label %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EENSt9enable_ifIXaasr12IsSomeStringIT0_EE5valuentsr3std7is_sameINS_5RangeIPKcEET_EE5valueESD_E4typeERKS8_.exit

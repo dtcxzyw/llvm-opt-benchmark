@@ -399,7 +399,7 @@ define internal i32 @dissect_mpls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %or.cond = select i1 %47, i1 %48, i1 false
   %.str.99..str.100 = select i1 %or.cond, ptr @.str.99, ptr @.str.100
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef nonnull %.str.99..str.100, i32 noundef %31) #3
-  %49 = icmp ult i32 %31, 16
+  %49 = icmp eq i32 %28, 0
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %41

@@ -845,7 +845,7 @@ entry:
 
 for.cond.preheader.i.i:                           ; preds = %entry
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
-  %cmp5.i.i = icmp ne i32 %2, 0
+  %cmp5.i.i = icmp sgt i32 %2, 0
   tail call void @llvm.assume(i1 %cmp5.i.i)
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i = zext nneg i32 %2 to i64
@@ -890,7 +890,7 @@ while.body2.i:                                    ; preds = %if.then, %while.end
 
 for.cond.preheader.i.i.i:                         ; preds = %while.body2.i
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
-  %cmp5.i.i.i = icmp ne i32 %9, 0
+  %cmp5.i.i.i = icmp sgt i32 %9, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i)
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i = zext nneg i32 %9 to i64
@@ -1203,7 +1203,7 @@ entry:
 
 for.cond.preheader.i.i:                           ; preds = %entry
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
-  %cmp5.i.i = icmp ne i32 %0, 0
+  %cmp5.i.i = icmp sgt i32 %0, 0
   tail call void @llvm.assume(i1 %cmp5.i.i)
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i = zext nneg i32 %0 to i64
@@ -2304,7 +2304,7 @@ if.then7:                                         ; preds = %gdb_process_breakpo
 
 for.cond.preheader.i.i.i:                         ; preds = %if.then7
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
-  %cmp5.i.i.i = icmp ne i32 %15, 0
+  %cmp5.i.i.i = icmp sgt i32 %15, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i)
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i = zext nneg i32 %15 to i64
@@ -2349,7 +2349,7 @@ while.body2.i.i11:                                ; preds = %if.then.i7, %while.
 
 for.cond.preheader.i.i.i.i:                       ; preds = %while.body2.i.i11
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
-  %cmp5.i.i.i.i = icmp ne i32 %22, 0
+  %cmp5.i.i.i.i = icmp sgt i32 %22, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i.i)
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i.i = zext nneg i32 %22 to i64
@@ -2406,7 +2406,7 @@ if.then13:                                        ; preds = %if.end9
 
 for.cond.preheader.i.i.i21:                       ; preds = %if.then13
   %31 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
-  %cmp5.i.i.i22 = icmp ne i32 %31, 0
+  %cmp5.i.i.i22 = icmp sgt i32 %31, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i22)
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i23 = zext nneg i32 %31 to i64
@@ -2451,7 +2451,7 @@ while.body2.i.i39:                                ; preds = %if.then.i35, %while
 
 for.cond.preheader.i.i.i.i43:                     ; preds = %while.body2.i.i39
   %38 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
-  %cmp5.i.i.i.i44 = icmp ne i32 %38, 0
+  %cmp5.i.i.i.i44 = icmp sgt i32 %38, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i.i44)
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i.i45 = zext nneg i32 %38 to i64
@@ -4239,7 +4239,7 @@ sw.bb59.i:                                        ; preds = %if.end58.thread85.i
 
 for.cond.preheader.i.i.i.i:                       ; preds = %sw.bb59.i
   %23 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
-  %cmp5.i.i.i.i = icmp ne i32 %23, 0
+  %cmp5.i.i.i.i = icmp sgt i32 %23, 0
   call void @llvm.assume(i1 %cmp5.i.i.i.i)
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i.i = zext nneg i32 %23 to i64
@@ -4284,7 +4284,7 @@ while.body2.i.i.i:                                ; preds = %if.then.i31.i, %whi
 
 for.cond.preheader.i.i.i.i.i:                     ; preds = %while.body2.i.i.i
   %30 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
-  %cmp5.i.i.i.i.i = icmp ne i32 %30, 0
+  %cmp5.i.i.i.i.i = icmp sgt i32 %30, 0
   call void @llvm.assume(i1 %cmp5.i.i.i.i.i)
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i.i.i = zext nneg i32 %30 to i64
@@ -4361,7 +4361,7 @@ while.body2.i.i:                                  ; preds = %if.end74.i, %while.
 
 for.cond.preheader.i.i.i35.i:                     ; preds = %while.body2.i.i
   %40 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
-  %cmp5.i.i.i36.i = icmp ne i32 %40, 0
+  %cmp5.i.i.i36.i = icmp sgt i32 %40, 0
   call void @llvm.assume(i1 %cmp5.i.i.i36.i)
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i37.i = zext nneg i32 %40 to i64
@@ -4772,7 +4772,7 @@ if.then:                                          ; preds = %entry
 
 for.cond.preheader.i.i.i:                         ; preds = %if.then
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
-  %cmp5.i.i.i = icmp ne i32 %3, 0
+  %cmp5.i.i.i = icmp sgt i32 %3, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i)
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i = zext nneg i32 %3 to i64
@@ -4817,7 +4817,7 @@ while.body2.i.i:                                  ; preds = %if.then.i, %while.e
 
 for.cond.preheader.i.i.i.i:                       ; preds = %while.body2.i.i
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
-  %cmp5.i.i.i.i = icmp ne i32 %10, 0
+  %cmp5.i.i.i.i = icmp sgt i32 %10, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i.i)
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i.i = zext nneg i32 %10 to i64
@@ -5210,7 +5210,7 @@ while.body2.i:                                    ; preds = %gdb_append_thread_i
 
 for.cond.preheader.i.i.i:                         ; preds = %while.body2.i
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
-  %cmp5.i.i.i = icmp ne i32 %9, 0
+  %cmp5.i.i.i = icmp sgt i32 %9, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i)
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i = zext nneg i32 %9 to i64
@@ -5268,7 +5268,7 @@ entry:
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
-  %cmp5.i.i.i = icmp ne i32 %2, 0
+  %cmp5.i.i.i = icmp sgt i32 %2, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i)
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i = zext nneg i32 %2 to i64
@@ -5313,7 +5313,7 @@ while.body2.i.i:                                  ; preds = %if.then.i, %while.e
 
 for.cond.preheader.i.i.i.i:                       ; preds = %while.body2.i.i
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
-  %cmp5.i.i.i.i = icmp ne i32 %9, 0
+  %cmp5.i.i.i.i = icmp sgt i32 %9, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i.i)
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i.i = zext nneg i32 %9 to i64

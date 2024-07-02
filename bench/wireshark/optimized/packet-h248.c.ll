@@ -4958,7 +4958,7 @@ define internal fastcc noundef i32 @dissect_h248_trx_id(i1 noundef zeroext %0, p
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %27 = icmp ugt i64 %23, 4294967295
+  %27 = icmp ugt i64 %20, 4294967295
   %28 = sub i32 %24, %26
   br i1 %27, label %29, label %33
 
@@ -5049,7 +5049,7 @@ define internal noundef i32 @dissect_h248_ContextId(i1 noundef zeroext %0, ptr n
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %29 = icmp ugt i64 %25, 4294967295
+  %29 = icmp ugt i64 %22, 4294967295
   %30 = sub i32 %26, %28
   br i1 %29, label %31, label %35
 

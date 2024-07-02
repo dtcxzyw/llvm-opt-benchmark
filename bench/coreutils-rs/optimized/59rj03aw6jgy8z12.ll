@@ -3506,7 +3506,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %.noexc44
   %271 = lshr i64 %265, 6
   %272 = and i64 %271, 127
   %273 = or disjoint i64 %270, %272
-  %274 = icmp ult i64 %273, 2432
+  %274 = icmp ult i8 %268, 19
   br i1 %274, label %275, label %.invoke541, !prof !614
 
 275:                                              ; preds = %264
@@ -3517,7 +3517,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %.noexc44
   %280 = lshr i64 %265, 2
   %281 = and i64 %280, 15
   %282 = or disjoint i64 %279, %281
-  %283 = icmp ult i64 %282, 3888
+  %283 = icmp ult i8 %277, -13
   br i1 %283, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i, label %.invoke541, !prof !614
 
 .invoke541:                                       ; preds = %338, %275, %264

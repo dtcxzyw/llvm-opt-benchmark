@@ -387,7 +387,7 @@ define dso_local noundef i32 @string_unescape(ptr noundef %0, ptr noundef %1, i6
   %64 = and i8 %55, 7
   %65 = or disjoint i8 %64, %63
   %66 = getelementptr i8, ptr %53, i64 1
-  %67 = icmp ult i8 %65, 32
+  %67 = icmp ult i8 %54, 4
   br i1 %67, label %52, label %68, !llvm.loop !13
 
 68:                                               ; preds = %52, %62

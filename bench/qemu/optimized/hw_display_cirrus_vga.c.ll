@@ -2998,7 +2998,7 @@ if.else180:                                       ; preds = %if.else
   br i1 %tobool184.not, label %if.else234, label %if.then185
 
 if.then185:                                       ; preds = %if.else180
-  %tobool189.not = icmp sgt i8 %31, -1
+  %tobool189.not = icmp sgt i8 %28, -1
   br i1 %tobool189.not, label %if.else223, label %if.then190
 
 if.then190:                                       ; preds = %if.then185
@@ -3204,7 +3204,7 @@ if.end.i202:                                      ; preds = %blit_is_unsafe.exit
   store ptr %cirrus_bltbuf.i, ptr %cirrus_srcptr_end.i, align 8
   %114 = and i8 %106, 64
   %tobool.not.i = icmp eq i8 %114, 0
-  %tobool20.not.i = icmp sgt i8 %113, -1
+  %tobool20.not.i = icmp sgt i8 %106, -1
   br i1 %tobool.not.i, label %if.else16.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i202

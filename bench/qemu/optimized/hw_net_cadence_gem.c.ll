@@ -2185,19 +2185,20 @@ if.end:                                           ; preds = %gem_mac_address_fil
 if.then3:                                         ; preds = %if.end
   %arrayidx4 = getelementptr i8, ptr %buf, i64 12
   %22 = load i8, ptr %arrayidx4, align 1
-  %conv = zext i8 %22 to i32
-  %shl = shl nuw nsw i32 %conv, 8
+  %cmp7 = icmp ult i8 %22, 6
+  br i1 %cmp7, label %if.then9, label %if.end16
+
+if.then9:                                         ; preds = %if.then3
+  %conv = zext nneg i8 %22 to i64
+  %shl = shl nuw nsw i64 %conv, 8
   %arrayidx5 = getelementptr i8, ptr %buf, i64 13
   %23 = load i8, ptr %arrayidx5, align 1
-  %conv6 = zext i8 %23 to i32
-  %or = or disjoint i32 %shl, %conv6
-  %cmp7 = icmp ult i32 %or, 1536
-  %conv10 = zext nneg i32 %or to i64
-  %cmp11 = icmp ugt i64 %conv10, %size
-  %or.cond = select i1 %cmp7, i1 %cmp11, i1 false
-  br i1 %or.cond, label %return, label %if.end16
+  %conv6 = zext i8 %23 to i64
+  %or = or disjoint i64 %shl, %conv6
+  %cmp11 = icmp ugt i64 %or, %size
+  br i1 %cmp11, label %return, label %if.end16
 
-if.end16:                                         ; preds = %if.then3, %if.end
+if.end16:                                         ; preds = %if.then3, %if.then9, %if.end
   %shr.i128 = lshr i32 %0, 14
   %and.i129 = and i32 %shr.i128, 3
   %arrayidx21 = getelementptr i8, ptr %call, i64 9500
@@ -2915,8 +2916,8 @@ for.body.i247:                                    ; preds = %gem_receive_updates
   %cmp.i250 = icmp ult i64 %indvars.iv.next.i249, %105
   br i1 %cmp.i250, label %for.body.i247, label %return, !llvm.loop !9
 
-return:                                           ; preds = %for.inc.i, %for.body.i247, %if.then19.i, %if.then24.i, %if.then.i166, %if.then3.i168, %if.then3.i, %gem_receive_updatestats.exit, %if.then3, %do.end72
-  %retval.0 = phi i64 [ -1, %do.end72 ], [ -1, %if.then3 ], [ %size.addr.0, %gem_receive_updatestats.exit ], [ %size, %if.then3.i ], [ -1, %if.then3.i168 ], [ -1, %if.then.i166 ], [ -1, %if.then24.i ], [ -1, %if.then19.i ], [ %size.addr.0, %for.body.i247 ], [ %size, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %for.body.i247, %if.then19.i, %if.then24.i, %if.then.i166, %if.then3.i168, %if.then3.i, %gem_receive_updatestats.exit, %if.then9, %do.end72
+  %retval.0 = phi i64 [ -1, %do.end72 ], [ -1, %if.then9 ], [ %size.addr.0, %gem_receive_updatestats.exit ], [ %size, %if.then3.i ], [ -1, %if.then3.i168 ], [ -1, %if.then.i166 ], [ -1, %if.then24.i ], [ -1, %if.then19.i ], [ %size.addr.0, %for.body.i247 ], [ %size, %for.inc.i ]
   ret i64 %retval.0
 }
 

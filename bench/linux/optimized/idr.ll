@@ -776,7 +776,7 @@ define dso_local i32 @ida_alloc_range(ptr noundef %0, i32 noundef %1, i32 nounde
 64:                                               ; preds = %61
   %65 = shl nuw i64 1, %58
   %66 = or i64 %65, %45
-  %67 = icmp slt i64 %66, 0
+  %67 = icmp eq i64 %58, 63
   br i1 %67, label %68, label %69, !prof !5
 
 68:                                               ; preds = %64

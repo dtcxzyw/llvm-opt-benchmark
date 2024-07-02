@@ -1865,7 +1865,7 @@ if.then.i44:                                      ; preds = %sw.bb4
 if.end.i41:                                       ; preds = %sw.bb4
   %sub.i = add nuw i64 %call.i39, 1048575
   %and.i42 = and i64 %sub.i, -1048576
-  %cmp2.i = icmp slt i64 %and.i42, 0
+  %cmp2.i = icmp slt i64 %sub.i, 0
   br i1 %cmp2.i, label %exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i41
@@ -2899,7 +2899,7 @@ if.end:                                           ; preds = %entry
   %sub = add nuw i64 %call, 1048575
   %and = and i64 %sub, -1048576
   store i64 %and, ptr %new_offset, align 8
-  %cmp2 = icmp slt i64 %and, 0
+  %cmp2 = icmp slt i64 %sub, 0
   br i1 %cmp2, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end

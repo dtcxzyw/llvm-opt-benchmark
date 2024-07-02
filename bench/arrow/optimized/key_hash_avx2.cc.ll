@@ -579,7 +579,7 @@ _ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit: ; p
 
 for.end:                                          ; preds = %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit
   %sub = and i32 %num_rows_to_process.060, -2
-  %cmp22.not.i = icmp ult i32 %sub, 8
+  %cmp22.not.i = icmp ult i32 %num_rows_to_process.060, 8
   br i1 %cmp22.not.i, label %for.end.i48, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -849,7 +849,7 @@ _ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit: ; p
 
 for.end:                                          ; preds = %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit
   %sub = and i32 %num_rows_to_process.059, -2
-  %cmp15.not.i = icmp ult i32 %sub, 8
+  %cmp15.not.i = icmp ult i32 %num_rows_to_process.059, 8
   br i1 %cmp15.not.i, label %for.end.i47, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1123,7 +1123,7 @@ _ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit: ; p
 
 for.end:                                          ; preds = %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit
   %sub = and i32 %num_rows_to_process.051, -2
-  %cmp22.not.i = icmp ult i32 %sub, 8
+  %cmp22.not.i = icmp ult i32 %num_rows_to_process.051, 8
   br i1 %cmp22.not.i, label %for.end.i48, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %for.end
@@ -1397,7 +1397,7 @@ _ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit: ; p
 
 for.end:                                          ; preds = %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit
   %sub = and i32 %num_rows_to_process.050, -2
-  %cmp15.not.i = icmp ult i32 %sub, 8
+  %cmp15.not.i = icmp ult i32 %num_rows_to_process.050, 8
   br i1 %cmp15.not.i, label %for.end.i47, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %for.end

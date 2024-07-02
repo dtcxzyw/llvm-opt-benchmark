@@ -734,7 +734,7 @@ for.body142.i.i:                                  ; preds = %for.body142.i.i.pre
   br i1 %exitcond259.not.i.i, label %for.end149.i.i, label %for.body142.i.i, !llvm.loop !8
 
 for.end149.i.i:                                   ; preds = %for.body142.i.i
-  %cmp150.i.i = icmp ult i32 %or.i.i, 55296
+  %cmp150.i.i = icmp ult i32 %shl.i.i, 55296
   %126 = add i32 %or.i.i, -57344
   %or.cond.i33.i = icmp ult i32 %126, 1056767
   %or.cond60.i.i = or i1 %cmp150.i.i, %or.cond.i33.i

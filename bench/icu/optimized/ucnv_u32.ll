@@ -804,27 +804,27 @@ if.end8:                                          ; preds = %if.end
   %6 = load i8, ptr %arrayidx13, align 1
   %conv14 = zext i8 %6 to i32
   %shl15 = shl nuw nsw i32 %conv14, 8
-  %or16 = or disjoint i32 %or, %shl15
   %arrayidx17 = getelementptr inbounds i8, ptr %0, i64 3
   %7 = load i8, ptr %arrayidx17, align 1
   %conv18 = zext i8 %7 to i32
-  %or19 = or disjoint i32 %or16, %conv18
+  %8 = or disjoint i32 %shl15, %conv18
+  %or19 = or disjoint i32 %8, %or
   %add.ptr20 = getelementptr inbounds i8, ptr %0, i64 4
   store ptr %add.ptr20, ptr %source, align 8
-  %cmp22 = icmp ugt i32 %or19, 1114111
-  %and = and i32 %or16, 2095104
+  %cmp22 = icmp ugt i32 %or, 1114111
+  %and = and i32 %or19, 2095104
   %cmp23 = icmp eq i32 %and, 55296
-  %or.cond = or i1 %cmp22, %cmp23
+  %or.cond = select i1 %cmp22, i1 true, i1 %cmp23
   br i1 %or.cond, label %do.body26, label %return
 
 do.body26:                                        ; preds = %if.end8
   %converter27 = getelementptr inbounds i8, ptr %args, i64 8
-  %8 = load ptr, ptr %converter27, align 8
-  %toUBytes28 = getelementptr inbounds i8, ptr %8, i64 65
-  %9 = load i32, ptr %0, align 1
-  store i32 %9, ptr %toUBytes28, align 1
-  %10 = load ptr, ptr %converter27, align 8
-  %toULength32 = getelementptr inbounds i8, ptr %10, i64 64
+  %9 = load ptr, ptr %converter27, align 8
+  %toUBytes28 = getelementptr inbounds i8, ptr %9, i64 65
+  %10 = load i32, ptr %0, align 1
+  store i32 %10, ptr %toUBytes28, align 1
+  %11 = load ptr, ptr %converter27, align 8
+  %toULength32 = getelementptr inbounds i8, ptr %11, i64 64
   store i8 4, ptr %toULength32, align 8
   br label %return.sink.split
 
@@ -1618,34 +1618,34 @@ do.body:                                          ; preds = %if.end
   br label %return.sink.split
 
 if.end8:                                          ; preds = %if.end
-  %4 = getelementptr i8, ptr %0, i64 2
-  %5 = load i16, ptr %4, align 1
-  %6 = zext i16 %5 to i32
-  %7 = shl nuw i32 %6, 16
-  %arrayidx13 = getelementptr inbounds i8, ptr %0, i64 1
-  %8 = load i8, ptr %arrayidx13, align 1
-  %conv14 = zext i8 %8 to i32
-  %shl15 = shl nuw nsw i32 %conv14, 8
-  %or16 = or disjoint i32 %shl15, %7
-  %9 = load i8, ptr %0, align 1
-  %conv18 = zext i8 %9 to i32
-  %or19 = or disjoint i32 %or16, %conv18
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 3
+  %4 = load i8, ptr %arrayidx, align 1
+  %conv9 = zext i8 %4 to i32
+  %shl = shl nuw i32 %conv9, 24
+  %arrayidx10 = getelementptr inbounds i8, ptr %0, i64 2
+  %5 = load i8, ptr %arrayidx10, align 1
+  %conv11 = zext i8 %5 to i32
+  %shl12 = shl nuw nsw i32 %conv11, 16
+  %or = or disjoint i32 %shl12, %shl
+  %6 = load i16, ptr %0, align 1
+  %7 = zext i16 %6 to i32
+  %or19 = or disjoint i32 %or, %7
   %add.ptr20 = getelementptr inbounds i8, ptr %0, i64 4
   store ptr %add.ptr20, ptr %source, align 8
-  %cmp22 = icmp ugt i32 %or19, 1114111
-  %and = and i32 %or16, 2095104
+  %cmp22 = icmp ugt i32 %or, 1114111
+  %and = and i32 %or19, 2095104
   %cmp23 = icmp eq i32 %and, 55296
-  %or.cond = or i1 %cmp22, %cmp23
+  %or.cond = select i1 %cmp22, i1 true, i1 %cmp23
   br i1 %or.cond, label %do.body26, label %return
 
 do.body26:                                        ; preds = %if.end8
   %converter27 = getelementptr inbounds i8, ptr %args, i64 8
+  %8 = load ptr, ptr %converter27, align 8
+  %toUBytes28 = getelementptr inbounds i8, ptr %8, i64 65
+  %9 = load i32, ptr %0, align 1
+  store i32 %9, ptr %toUBytes28, align 1
   %10 = load ptr, ptr %converter27, align 8
-  %toUBytes28 = getelementptr inbounds i8, ptr %10, i64 65
-  %11 = load i32, ptr %0, align 1
-  store i32 %11, ptr %toUBytes28, align 1
-  %12 = load ptr, ptr %converter27, align 8
-  %toULength32 = getelementptr inbounds i8, ptr %12, i64 64
+  %toULength32 = getelementptr inbounds i8, ptr %10, i64 64
   store i8 4, ptr %toULength32, align 8
   br label %return.sink.split
 
@@ -1979,94 +1979,94 @@ if.end8.i:                                        ; preds = %if.end.i
   %7 = load i8, ptr %arrayidx13.i, align 1
   %conv14.i = zext i8 %7 to i32
   %shl15.i = shl nuw nsw i32 %conv14.i, 8
-  %or16.i = or disjoint i32 %or.i, %shl15.i
   %arrayidx17.i = getelementptr inbounds i8, ptr %2, i64 3
   %8 = load i8, ptr %arrayidx17.i, align 1
   %conv18.i = zext i8 %8 to i32
-  %or19.i = or disjoint i32 %or16.i, %conv18.i
+  %9 = or disjoint i32 %shl15.i, %conv18.i
+  %or19.i = or disjoint i32 %9, %or.i
   %add.ptr20.i = getelementptr inbounds i8, ptr %2, i64 4
   store ptr %add.ptr20.i, ptr %source.i, align 8
-  %cmp22.i = icmp ugt i32 %or19.i, 1114111
-  %and.i = and i32 %or16.i, 2095104
+  %cmp22.i = icmp ugt i32 %or.i, 1114111
+  %and.i = and i32 %or19.i, 2095104
   %cmp23.i = icmp eq i32 %and.i, 55296
-  %or.cond.i = or i1 %cmp22.i, %cmp23.i
+  %or.cond.i = select i1 %cmp22.i, i1 true, i1 %cmp23.i
   br i1 %or.cond.i, label %do.body26.i, label %return
 
 do.body26.i:                                      ; preds = %if.end8.i
   %toUBytes28.i = getelementptr inbounds i8, ptr %0, i64 65
-  %9 = load i32, ptr %2, align 1
-  store i32 %9, ptr %toUBytes28.i, align 1
-  %10 = load ptr, ptr %converter, align 8
-  %toULength32.i = getelementptr inbounds i8, ptr %10, i64 64
+  %10 = load i32, ptr %2, align 1
+  store i32 %10, ptr %toUBytes28.i, align 1
+  %11 = load ptr, ptr %converter, align 8
+  %toULength32.i = getelementptr inbounds i8, ptr %11, i64 64
   store i8 4, ptr %toULength32.i, align 8
   br label %return.sink.split
 
 sw.bb1:                                           ; preds = %entry
   %source.i4 = getelementptr inbounds i8, ptr %pArgs, i64 16
-  %11 = load ptr, ptr %source.i4, align 8
+  %12 = load ptr, ptr %source.i4, align 8
   %sourceLimit.i5 = getelementptr inbounds i8, ptr %pArgs, i64 24
-  %12 = load ptr, ptr %sourceLimit.i5, align 8
-  %cmp.not.i6 = icmp ult ptr %11, %12
+  %13 = load ptr, ptr %sourceLimit.i5, align 8
+  %cmp.not.i6 = icmp ult ptr %12, %13
   br i1 %cmp.not.i6, label %if.end.i10, label %return.sink.split
 
 if.end.i10:                                       ; preds = %sw.bb1
-  %sub.ptr.lhs.cast.i11 = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i12 = ptrtoint ptr %11 to i64
+  %sub.ptr.lhs.cast.i11 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i12 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i13 = sub i64 %sub.ptr.lhs.cast.i11, %sub.ptr.rhs.cast.i12
   %conv.i14 = trunc i64 %sub.ptr.sub.i13 to i32
   %cmp2.i15 = icmp slt i32 %conv.i14, 4
-  br i1 %cmp2.i15, label %do.body.i32, label %if.end8.i16
+  br i1 %cmp2.i15, label %do.body.i33, label %if.end8.i16
 
-do.body.i32:                                      ; preds = %if.end.i10
-  %toUBytes.i34 = getelementptr inbounds i8, ptr %0, i64 65
-  %sext.i35 = shl i64 %sub.ptr.sub.i13, 32
-  %conv4.i36 = ashr exact i64 %sext.i35, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %toUBytes.i34, ptr align 1 %11, i64 %conv4.i36, i1 false)
-  %conv5.i37 = trunc i64 %sub.ptr.sub.i13 to i8
-  %13 = load ptr, ptr %converter, align 8
-  %toULength.i38 = getelementptr inbounds i8, ptr %13, i64 64
-  store i8 %conv5.i37, ptr %toULength.i38, align 8
-  %add.ptr.i39 = getelementptr inbounds i8, ptr %11, i64 %conv4.i36
-  store ptr %add.ptr.i39, ptr %source.i4, align 8
+do.body.i33:                                      ; preds = %if.end.i10
+  %toUBytes.i35 = getelementptr inbounds i8, ptr %0, i64 65
+  %sext.i36 = shl i64 %sub.ptr.sub.i13, 32
+  %conv4.i37 = ashr exact i64 %sext.i36, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %toUBytes.i35, ptr align 1 %12, i64 %conv4.i37, i1 false)
+  %conv5.i38 = trunc i64 %sub.ptr.sub.i13 to i8
+  %14 = load ptr, ptr %converter, align 8
+  %toULength.i39 = getelementptr inbounds i8, ptr %14, i64 64
+  store i8 %conv5.i38, ptr %toULength.i39, align 8
+  %add.ptr.i40 = getelementptr inbounds i8, ptr %12, i64 %conv4.i37
+  store ptr %add.ptr.i40, ptr %source.i4, align 8
   br label %return.sink.split
 
 if.end8.i16:                                      ; preds = %if.end.i10
-  %14 = getelementptr i8, ptr %11, i64 2
-  %15 = load i16, ptr %14, align 1
-  %16 = zext i16 %15 to i32
-  %17 = shl nuw i32 %16, 16
-  %arrayidx13.i17 = getelementptr inbounds i8, ptr %11, i64 1
-  %18 = load i8, ptr %arrayidx13.i17, align 1
-  %conv14.i18 = zext i8 %18 to i32
-  %shl15.i19 = shl nuw nsw i32 %conv14.i18, 8
-  %or16.i20 = or disjoint i32 %shl15.i19, %17
-  %19 = load i8, ptr %11, align 1
-  %conv18.i21 = zext i8 %19 to i32
-  %or19.i22 = or disjoint i32 %or16.i20, %conv18.i21
-  %add.ptr20.i23 = getelementptr inbounds i8, ptr %11, i64 4
-  store ptr %add.ptr20.i23, ptr %source.i4, align 8
-  %cmp22.i24 = icmp ugt i32 %or19.i22, 1114111
-  %and.i25 = and i32 %or16.i20, 2095104
-  %cmp23.i26 = icmp eq i32 %and.i25, 55296
-  %or.cond.i27 = or i1 %cmp22.i24, %cmp23.i26
-  br i1 %or.cond.i27, label %do.body26.i28, label %return
+  %arrayidx.i = getelementptr inbounds i8, ptr %12, i64 3
+  %15 = load i8, ptr %arrayidx.i, align 1
+  %conv9.i17 = zext i8 %15 to i32
+  %shl.i18 = shl nuw i32 %conv9.i17, 24
+  %arrayidx10.i19 = getelementptr inbounds i8, ptr %12, i64 2
+  %16 = load i8, ptr %arrayidx10.i19, align 1
+  %conv11.i20 = zext i8 %16 to i32
+  %shl12.i21 = shl nuw nsw i32 %conv11.i20, 16
+  %or.i22 = or disjoint i32 %shl12.i21, %shl.i18
+  %17 = load i16, ptr %12, align 1
+  %18 = zext i16 %17 to i32
+  %or19.i23 = or disjoint i32 %or.i22, %18
+  %add.ptr20.i24 = getelementptr inbounds i8, ptr %12, i64 4
+  store ptr %add.ptr20.i24, ptr %source.i4, align 8
+  %cmp22.i25 = icmp ugt i32 %or.i22, 1114111
+  %and.i26 = and i32 %or19.i23, 2095104
+  %cmp23.i27 = icmp eq i32 %and.i26, 55296
+  %or.cond.i28 = select i1 %cmp22.i25, i1 true, i1 %cmp23.i27
+  br i1 %or.cond.i28, label %do.body26.i29, label %return
 
-do.body26.i28:                                    ; preds = %if.end8.i16
-  %toUBytes28.i30 = getelementptr inbounds i8, ptr %0, i64 65
-  %20 = load i32, ptr %11, align 1
-  store i32 %20, ptr %toUBytes28.i30, align 1
-  %21 = load ptr, ptr %converter, align 8
-  %toULength32.i31 = getelementptr inbounds i8, ptr %21, i64 64
-  store i8 4, ptr %toULength32.i31, align 8
+do.body26.i29:                                    ; preds = %if.end8.i16
+  %toUBytes28.i31 = getelementptr inbounds i8, ptr %0, i64 65
+  %19 = load i32, ptr %12, align 1
+  store i32 %19, ptr %toUBytes28.i31, align 1
+  %20 = load ptr, ptr %converter, align 8
+  %toULength32.i32 = getelementptr inbounds i8, ptr %20, i64 64
+  store i8 4, ptr %toULength32.i32, align 8
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %sw.bb1, %do.body.i32, %do.body26.i28, %sw.bb, %do.body.i, %do.body26.i
-  %.sink.i8.sink = phi i32 [ 12, %do.body26.i ], [ 11, %do.body.i ], [ 8, %sw.bb ], [ 12, %do.body26.i28 ], [ 11, %do.body.i32 ], [ 8, %sw.bb1 ]
+return.sink.split:                                ; preds = %sw.bb1, %do.body.i33, %do.body26.i29, %sw.bb, %do.body.i, %do.body26.i
+  %.sink.i8.sink = phi i32 [ 12, %do.body26.i ], [ 11, %do.body.i ], [ 8, %sw.bb ], [ 12, %do.body26.i29 ], [ 11, %do.body.i33 ], [ 8, %sw.bb1 ]
   store i32 %.sink.i8.sink, ptr %pErrorCode, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end8.i16, %if.end8.i, %entry
-  %retval.0 = phi i32 [ -9, %entry ], [ %or19.i, %if.end8.i ], [ %or19.i22, %if.end8.i16 ], [ 65535, %return.sink.split ]
+  %retval.0 = phi i32 [ -9, %entry ], [ %or19.i, %if.end8.i ], [ %or19.i23, %if.end8.i16 ], [ 65535, %return.sink.split ]
   ret i32 %retval.0
 }
 

@@ -12545,7 +12545,7 @@ if.end.i:                                         ; preds = %cond.end
   br i1 %or.cond23.i, label %if.end22, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end.i
-  %cmp12.i = icmp slt i16 %add.i.i29.i, 0
+  %cmp12.i = icmp slt i16 %shl.i.i26.i, 0
   %cmp13.i = icmp sgt i16 %add.i.i34.i, 0
   %or.cond.i = and i1 %cmp12.i, %cmp13.i
   br i1 %or.cond.i, label %if.end22, label %if.end17.i

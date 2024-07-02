@@ -246,7 +246,7 @@ define internal void @vmware_platform_setup() #1 section ".init.text" align 16 {
   %17 = shl nuw i64 %16, 32
   %18 = or disjoint i64 %17, %15
   %19 = udiv i64 %18, 1000
-  %20 = icmp ult i64 %18, 4294967296000
+  %20 = icmp ult i32 %10, 1000
   br i1 %20, label %22, label %21, !prof !12
 
 21:                                               ; preds = %13

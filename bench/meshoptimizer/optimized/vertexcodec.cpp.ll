@@ -45,7 +45,8 @@ if.end3:                                          ; preds = %if.then2, %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_vertex, ptr nonnull align 16 %first_vertex, i64 %vertex_size, i1 false)
   %div.i = udiv i64 8192, %vertex_size
   %and.i = and i64 %div.i, 16368
-  %cond.i = tail call noundef range(i64 0, 8193) i64 @llvm.umin.i64(i64 %and.i, i64 256)
+  %cmp.i = icmp ugt i64 %vertex_size, 32
+  %cond.i = select i1 %cmp.i, i64 %and.i, i64 256
   br i1 %cmp1.not, label %while.end, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end3, %if.end13
@@ -405,7 +406,8 @@ define dso_local i64 @meshopt_encodeVertexBufferBound(i64 noundef %vertex_count,
 entry:
   %div.i = udiv i64 8192, %vertex_size
   %and.i = and i64 %div.i, 16368
-  %cond.i = tail call noundef range(i64 0, 8193) i64 @llvm.umin.i64(i64 %and.i, i64 256)
+  %cmp.i = icmp ugt i64 %vertex_size, 32
+  %cond.i = select i1 %cmp.i, i64 %and.i, i64 256
   %add = add i64 %vertex_count, -1
   %sub = add i64 %add, %cond.i
   %div = udiv i64 %sub, %cond.i
@@ -414,7 +416,7 @@ entry:
   %div38 = lshr i64 %add2, 2
   %cond = tail call i64 @llvm.umax.i64(i64 %vertex_size, i64 32)
   %mul = mul i64 %div, %vertex_size
-  %add4 = or disjoint i64 %div38, %cond.i
+  %add4 = add nuw nsw i64 %div38, %cond.i
   %mul5 = mul i64 %mul, %add4
   %add6 = add i64 %cond, 1
   %add7 = add i64 %add6, %mul5
@@ -454,7 +456,8 @@ if.end9:                                          ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_vertex, ptr nonnull align 1 %add.ptr10, i64 %vertex_size, i1 false)
   %div.i = udiv i64 8192, %vertex_size
   %and.i = and i64 %div.i, 16368
-  %cond.i = tail call noundef range(i64 0, 8193) i64 @llvm.umin.i64(i64 %and.i, i64 256)
+  %cmp.i = icmp ugt i64 %vertex_size, 32
+  %cond.i = select i1 %cmp.i, i64 %and.i, i64 256
   %cmp1126.not = icmp eq i64 %vertex_count, 0
   br i1 %cmp1126.not, label %while.end, label %while.body
 
@@ -505,7 +508,7 @@ for.cond1.preheader.lr.ph:                        ; preds = %entry
   %add.i116 = add nuw nsw i64 %div35.i, 3
   %div136.i = lshr i64 %add.i116, 2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %data_end to i64
-  %cmp3337.i = icmp ugt i64 %and, 63
+  %cmp3337.i = icmp ugt i64 %sub, 63
   %cmp10157.not = icmp eq i64 %and, 0
   %mul24 = shl i64 %and, 1
   %mul29 = mul i64 %and, 3
@@ -1982,10 +1985,10 @@ __cxx_global_var_init.exit:                       ; preds = %for.end.i.i
 declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #9
+declare i8 @llvm.umin.i8(i8, i8) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #9
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10

@@ -203,23 +203,25 @@ define dso_local void @nmi_panic(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !9
   %4 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @panic_cpu, i32 %3, ptr nonnull elementtype(i32) @panic_cpu, i32 -1) #17, !srcloc !10
   %5 = extractvalue { i8, i32 } %4, 0
-  %6 = icmp eq i8 %5, 0
-  br i1 %6, label %8, label %7, !prof !11
+  %6 = icmp ult i8 %5, 2
+  tail call void @llvm.assume(i1 %6)
+  %7 = icmp eq i8 %5, 0
+  br i1 %7, label %9, label %8, !prof !11
 
-7:                                                ; preds = %2
+8:                                                ; preds = %2
   tail call void (ptr, ...) @panic(ptr noundef nonnull @.str, ptr noundef %1) #19
   unreachable
 
-8:                                                ; preds = %2
-  %9 = extractvalue { i8, i32 } %4, 1
-  %10 = icmp eq i32 %9, %3
-  br i1 %10, label %12, label %11
+9:                                                ; preds = %2
+  %10 = extractvalue { i8, i32 } %4, 1
+  %11 = icmp eq i32 %10, %3
+  br i1 %11, label %13, label %12
 
-11:                                               ; preds = %8
+12:                                               ; preds = %9
   tail call void @nmi_panic_self_stop(ptr noundef %0) #18
   unreachable
 
-12:                                               ; preds = %8
+13:                                               ; preds = %9
   ret void
 }
 
@@ -250,221 +252,223 @@ define dso_local void @panic(ptr noundef %0, ...) #4 align 16 {
   %9 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !17
   %10 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @panic_cpu, i32 %9, ptr nonnull elementtype(i32) @panic_cpu, i32 -1) #17, !srcloc !10
   %11 = extractvalue { i8, i32 } %10, 0
+  %12 = icmp ult i8 %11, 2
+  tail call void @llvm.assume(i1 %12)
   %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %12, label %.thread, !prof !11
+  br i1 %.not, label %13, label %.thread, !prof !11
 
-12:                                               ; preds = %8
-  %13 = extractvalue { i8, i32 } %10, 1
-  %14 = icmp eq i32 %13, %9
-  br i1 %14, label %.thread, label %15
+13:                                               ; preds = %8
+  %14 = extractvalue { i8, i32 } %10, 1
+  %15 = icmp eq i32 %14, %9
+  br i1 %15, label %.thread, label %16
 
-15:                                               ; preds = %12
+16:                                               ; preds = %13
   tail call void @panic_smp_self_stop() #18
   unreachable
 
-.thread:                                          ; preds = %8, %12
+.thread:                                          ; preds = %8, %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, i8 0, i64 24, i1 false), !annotation !18
   tail call void @console_verbose() #17
   tail call void @bust_spinlocks(i32 noundef 1) #17
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %16 = call i32 @vscnprintf(ptr noundef nonnull @panic.buf, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %2) #17
+  %17 = call i32 @vscnprintf(ptr noundef nonnull @panic.buf, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %2) #17
   call void @llvm.va_end.p0(ptr nonnull %2)
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %25, label %18
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %26, label %19
 
-18:                                               ; preds = %.thread
-  %19 = sext i32 %16 to i64
-  %20 = add nsw i64 %19, -1
-  %21 = getelementptr [1024 x i8], ptr @panic.buf, i64 0, i64 %20
-  %22 = load i8, ptr %21, align 1
-  %23 = icmp eq i8 %22, 10
-  br i1 %23, label %24, label %25
+19:                                               ; preds = %.thread
+  %20 = sext i32 %17 to i64
+  %21 = add nsw i64 %20, -1
+  %22 = getelementptr [1024 x i8], ptr @panic.buf, i64 0, i64 %21
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %23, 10
+  br i1 %24, label %25, label %26
 
-24:                                               ; preds = %18
-  store i8 0, ptr %21, align 1
-  br label %25
+25:                                               ; preds = %19
+  store i8 0, ptr %22, align 1
+  br label %26
 
-25:                                               ; preds = %24, %18, %.thread
-  %26 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef nonnull @panic.buf) #20
-  %27 = load volatile i64, ptr @tainted_mask, align 8
-  %28 = and i64 %27, 128
-  %29 = icmp eq i64 %28, 0
-  %30 = load i32, ptr @oops_in_progress, align 4
-  %31 = icmp slt i32 %30, 2
-  %32 = select i1 %29, i1 %31, i1 false
-  br i1 %32, label %33, label %34
+26:                                               ; preds = %25, %19, %.thread
+  %27 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef nonnull @panic.buf) #20
+  %28 = load volatile i64, ptr @tainted_mask, align 8
+  %29 = and i64 %28, 128
+  %30 = icmp eq i64 %29, 0
+  %31 = load i32, ptr @oops_in_progress, align 4
+  %32 = icmp slt i32 %31, 2
+  %33 = select i1 %30, i1 %32, i1 false
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %25
+34:                                               ; preds = %26
   call void @dump_stack() #20
-  br label %34
+  br label %35
 
-34:                                               ; preds = %33, %25
-  br i1 %4, label %35, label %42
+35:                                               ; preds = %34, %26
+  br i1 %4, label %36, label %43
 
-35:                                               ; preds = %34
+36:                                               ; preds = %35
   call void @__crash_kexec(ptr noundef null) #17
-  %36 = load i64, ptr @panic_print, align 8
-  %37 = and i64 %36, 64
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %panic_other_cpus_shutdown.exit, label %39
+  %37 = load i64, ptr @panic_print, align 8
+  %38 = and i64 %37, 64
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %panic_other_cpus_shutdown.exit, label %40
 
-39:                                               ; preds = %35
+40:                                               ; preds = %36
   call void @arch_trigger_cpumask_backtrace(ptr noundef nonnull @__cpu_online_mask, i32 noundef -1) #17
   br label %panic_other_cpus_shutdown.exit
 
-panic_other_cpus_shutdown.exit:                   ; preds = %35, %39
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @smp_ops, i64 24), align 8
-  call void %40(i32 noundef 0) #17
-  %41 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @panic_notifier_list, i64 noundef 0, ptr noundef nonnull @panic.buf) #17
+panic_other_cpus_shutdown.exit:                   ; preds = %36, %40
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @smp_ops, i64 24), align 8
+  call void %41(i32 noundef 0) #17
+  %42 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @panic_notifier_list, i64 noundef 0, ptr noundef nonnull @panic.buf) #17
   call fastcc void @panic_print_sys_info()
   call void @kmsg_dump(i32 noundef 1) #17
-  br label %48
+  br label %49
 
-42:                                               ; preds = %34
-  %43 = load i64, ptr @panic_print, align 8
-  %44 = and i64 %43, 64
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %panic_other_cpus_shutdown.exit9, label %46
+43:                                               ; preds = %35
+  %44 = load i64, ptr @panic_print, align 8
+  %45 = and i64 %44, 64
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %panic_other_cpus_shutdown.exit9, label %47
 
-46:                                               ; preds = %42
+47:                                               ; preds = %43
   call void @arch_trigger_cpumask_backtrace(ptr noundef nonnull @__cpu_online_mask, i32 noundef -1) #17
   br label %panic_other_cpus_shutdown.exit9
 
-panic_other_cpus_shutdown.exit9:                  ; preds = %42, %46
+panic_other_cpus_shutdown.exit9:                  ; preds = %43, %47
   call void @crash_smp_send_stop()
-  %47 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @panic_notifier_list, i64 noundef 0, ptr noundef nonnull @panic.buf) #17
+  %48 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @panic_notifier_list, i64 noundef 0, ptr noundef nonnull @panic.buf) #17
   call fastcc void @panic_print_sys_info()
   call void @kmsg_dump(i32 noundef 1) #17
   call void @__crash_kexec(ptr noundef null) #17
-  br label %48
+  br label %49
 
-48:                                               ; preds = %panic_other_cpus_shutdown.exit9, %panic_other_cpus_shutdown.exit
+49:                                               ; preds = %panic_other_cpus_shutdown.exit9, %panic_other_cpus_shutdown.exit
   call void @console_unblank() #17
-  %49 = call i32 @debug_locks_off() #17
+  %50 = call i32 @debug_locks_off() #17
   call void @console_flush_on_panic(i32 noundef 0) #17
-  %50 = load i64, ptr @panic_print, align 8
-  %51 = and i64 %50, 32
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %54, label %53
+  %51 = load i64, ptr @panic_print, align 8
+  %52 = and i64 %51, 32
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %55, label %54
 
-53:                                               ; preds = %48
+54:                                               ; preds = %49
   call void @console_flush_on_panic(i32 noundef 1) #17
-  br label %54
+  br label %55
 
-54:                                               ; preds = %53, %48
-  %55 = load ptr, ptr @panic_blink, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %57, label %58
+55:                                               ; preds = %54, %49
+  %56 = load ptr, ptr @panic_blink, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %59
 
-57:                                               ; preds = %54
+58:                                               ; preds = %55
   store ptr @no_blink, ptr @panic_blink, align 8
-  br label %58
+  br label %59
 
-58:                                               ; preds = %57, %54
-  %59 = load i32, ptr @panic_timeout, align 4
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %61, label %.loopexit
+59:                                               ; preds = %58, %55
+  %60 = load i32, ptr @panic_timeout, align 4
+  %61 = icmp sgt i32 %60, 0
+  br i1 %61, label %62, label %.loopexit
 
-61:                                               ; preds = %58
-  %62 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i32 noundef %59) #20
-  %63 = load i32, ptr @panic_timeout, align 4
-  %64 = mul i32 %63, 1000
-  %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %.preheader, label %.loopexit
+62:                                               ; preds = %59
+  %63 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i32 noundef %60) #20
+  %64 = load i32, ptr @panic_timeout, align 4
+  %65 = mul i32 %64, 1000
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %61, %84
-  %66 = phi i64 [ %85, %84 ], [ 0, %61 ]
-  %67 = phi i64 [ %78, %84 ], [ 0, %61 ]
-  %68 = phi i32 [ %77, %84 ], [ 0, %61 ]
-  %69 = icmp slt i64 %66, %67
-  br i1 %69, label %76, label %70
+.preheader:                                       ; preds = %62, %85
+  %67 = phi i64 [ %86, %85 ], [ 0, %62 ]
+  %68 = phi i64 [ %79, %85 ], [ 0, %62 ]
+  %69 = phi i32 [ %78, %85 ], [ 0, %62 ]
+  %70 = icmp slt i64 %67, %68
+  br i1 %70, label %77, label %71
 
-70:                                               ; preds = %.preheader
-  %71 = load ptr, ptr @panic_blink, align 8
-  %72 = xor i32 %68, 1
-  %73 = call i64 %71(i32 noundef %72) #17
-  %74 = add i64 %73, %66
-  %75 = add i64 %74, 200
-  br label %76
+71:                                               ; preds = %.preheader
+  %72 = load ptr, ptr @panic_blink, align 8
+  %73 = xor i32 %69, 1
+  %74 = call i64 %72(i32 noundef %73) #17
+  %75 = add i64 %74, %67
+  %76 = add i64 %75, 200
+  br label %77
 
-76:                                               ; preds = %70, %.preheader
-  %77 = phi i32 [ %72, %70 ], [ %68, %.preheader ]
-  %78 = phi i64 [ %75, %70 ], [ %67, %.preheader ]
-  %79 = phi i64 [ %74, %70 ], [ %66, %.preheader ]
-  br label %80
+77:                                               ; preds = %71, %.preheader
+  %78 = phi i32 [ %73, %71 ], [ %69, %.preheader ]
+  %79 = phi i64 [ %76, %71 ], [ %68, %.preheader ]
+  %80 = phi i64 [ %75, %71 ], [ %67, %.preheader ]
+  br label %81
 
-80:                                               ; preds = %80, %76
-  %81 = phi i64 [ 100, %76 ], [ %82, %80 ]
-  %82 = add nsw i64 %81, -1
+81:                                               ; preds = %81, %77
+  %82 = phi i64 [ 100, %77 ], [ %83, %81 ]
+  %83 = add nsw i64 %82, -1
   call void @__const_udelay(i64 noundef 4295000) #17
-  %83 = icmp eq i64 %82, 0
-  br i1 %83, label %84, label %80, !llvm.loop !19
+  %84 = icmp eq i64 %83, 0
+  br i1 %84, label %85, label %81, !llvm.loop !19
 
-84:                                               ; preds = %80
-  %85 = add i64 %79, 100
-  %86 = load i32, ptr @panic_timeout, align 4
-  %87 = mul i32 %86, 1000
-  %88 = sext i32 %87 to i64
-  %89 = icmp slt i64 %85, %88
-  br i1 %89, label %.preheader, label %.loopexit, !llvm.loop !21
+85:                                               ; preds = %81
+  %86 = add i64 %80, 100
+  %87 = load i32, ptr @panic_timeout, align 4
+  %88 = mul i32 %87, 1000
+  %89 = sext i32 %88 to i64
+  %90 = icmp slt i64 %86, %89
+  br i1 %90, label %.preheader, label %.loopexit, !llvm.loop !21
 
-.loopexit:                                        ; preds = %84, %61, %58
-  %90 = phi i32 [ %63, %61 ], [ %59, %58 ], [ %86, %84 ]
-  %91 = phi i32 [ 0, %61 ], [ 0, %58 ], [ %77, %84 ]
-  %92 = phi i64 [ 0, %61 ], [ 0, %58 ], [ %78, %84 ]
-  %93 = icmp eq i32 %90, 0
-  br i1 %93, label %99, label %94
+.loopexit:                                        ; preds = %85, %62, %59
+  %91 = phi i32 [ %64, %62 ], [ %60, %59 ], [ %87, %85 ]
+  %92 = phi i32 [ 0, %62 ], [ 0, %59 ], [ %78, %85 ]
+  %93 = phi i64 [ 0, %62 ], [ 0, %59 ], [ %79, %85 ]
+  %94 = icmp eq i32 %91, 0
+  br i1 %94, label %100, label %95
 
-94:                                               ; preds = %.loopexit
-  %95 = load i32, ptr @panic_reboot_mode, align 4
-  %96 = icmp eq i32 %95, -1
-  br i1 %96, label %98, label %97
+95:                                               ; preds = %.loopexit
+  %96 = load i32, ptr @panic_reboot_mode, align 4
+  %97 = icmp eq i32 %96, -1
+  br i1 %97, label %99, label %98
 
-97:                                               ; preds = %94
-  store i32 %95, ptr @reboot_mode, align 4
-  br label %98
-
-98:                                               ; preds = %97, %94
-  call void @emergency_restart() #17
+98:                                               ; preds = %95
+  store i32 %96, ptr @reboot_mode, align 4
   br label %99
 
-99:                                               ; preds = %98, %.loopexit
-  %100 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef nonnull @panic.buf) #20
+99:                                               ; preds = %98, %95
+  call void @emergency_restart() #17
+  br label %100
+
+100:                                              ; preds = %99, %.loopexit
+  %101 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef nonnull @panic.buf) #20
   store i32 1, ptr @suppress_printk, align 4
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
-  br label %101
+  br label %102
 
-101:                                              ; preds = %120, %99
-  %102 = phi i32 [ %91, %99 ], [ %113, %120 ]
-  %103 = phi i64 [ %92, %99 ], [ %114, %120 ]
-  %104 = phi i64 [ 0, %99 ], [ %121, %120 ]
-  %105 = icmp slt i64 %104, %103
-  br i1 %105, label %112, label %106
+102:                                              ; preds = %121, %100
+  %103 = phi i32 [ %92, %100 ], [ %114, %121 ]
+  %104 = phi i64 [ %93, %100 ], [ %115, %121 ]
+  %105 = phi i64 [ 0, %100 ], [ %122, %121 ]
+  %106 = icmp slt i64 %105, %104
+  br i1 %106, label %113, label %107
 
-106:                                              ; preds = %101
-  %107 = load ptr, ptr @panic_blink, align 8
-  %108 = xor i32 %102, 1
-  %109 = call i64 %107(i32 noundef %108) #17
-  %110 = add i64 %109, %104
-  %111 = add i64 %110, 200
-  br label %112
+107:                                              ; preds = %102
+  %108 = load ptr, ptr @panic_blink, align 8
+  %109 = xor i32 %103, 1
+  %110 = call i64 %108(i32 noundef %109) #17
+  %111 = add i64 %110, %105
+  %112 = add i64 %111, 200
+  br label %113
 
-112:                                              ; preds = %106, %101
-  %113 = phi i32 [ %108, %106 ], [ %102, %101 ]
-  %114 = phi i64 [ %111, %106 ], [ %103, %101 ]
-  %115 = phi i64 [ %110, %106 ], [ %104, %101 ]
-  br label %116
+113:                                              ; preds = %107, %102
+  %114 = phi i32 [ %109, %107 ], [ %103, %102 ]
+  %115 = phi i64 [ %112, %107 ], [ %104, %102 ]
+  %116 = phi i64 [ %111, %107 ], [ %105, %102 ]
+  br label %117
 
-116:                                              ; preds = %116, %112
-  %117 = phi i64 [ 100, %112 ], [ %118, %116 ]
-  %118 = add nsw i64 %117, -1
+117:                                              ; preds = %117, %113
+  %118 = phi i64 [ 100, %113 ], [ %119, %117 ]
+  %119 = add nsw i64 %118, -1
   call void @__const_udelay(i64 noundef 4295000) #17
-  %119 = icmp eq i64 %118, 0
-  br i1 %119, label %120, label %116, !llvm.loop !23
+  %120 = icmp eq i64 %119, 0
+  br i1 %120, label %121, label %117, !llvm.loop !23
 
-120:                                              ; preds = %116
-  %121 = add i64 %115, 100
-  br label %101, !llvm.loop !24
+121:                                              ; preds = %117
+  %122 = add i64 %116, 100
+  br label %102, !llvm.loop !24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -693,15 +693,15 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit: ; preds = %132, %.noexc
   br i1 %224, label %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit, label %225
 
 225:                                              ; preds = %219
-  %226 = icmp ult i32 %223, 128
+  %226 = icmp ult i32 %.013.i.i, 2
   br i1 %226, label %.thread23.i, label %227
 
 227:                                              ; preds = %225
-  %228 = icmp ult i32 %223, 2048
+  %228 = icmp ult i32 %.013.i.i, 32
   br i1 %228, label %.thread23.i, label %229
 
 229:                                              ; preds = %227
-  %230 = icmp ult i32 %223, 65536
+  %230 = icmp ult i32 %.013.i.i, 1024
   %..i = select i1 %230, i64 -3, i64 -4
   br label %.thread23.i
 

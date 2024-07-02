@@ -867,8 +867,8 @@ define internal fastcc i64 @__se_sys_mbind(i64 noundef %0, i64 noundef %1, i64 n
   %17 = and i16 %16, -8192
   %18 = and i32 %15, -57345
   %19 = icmp ugt i32 %18, 5
-  %20 = icmp ugt i16 %17, -16385
-  %21 = or i1 %19, %20
+  %20 = icmp ugt i16 %16, -16385
+  %21 = or i1 %20, %19
   br i1 %21, label %207, label %22
 
 22:                                               ; preds = %6
@@ -1288,8 +1288,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_set_mempolicy
   %12 = and i16 %11, -8192
   %13 = and i32 %9, -57345
   %14 = icmp ugt i32 %13, 5
-  %15 = icmp ugt i16 %12, -16385
-  %16 = or i1 %14, %15
+  %15 = icmp ugt i16 %11, -16385
+  %16 = or i1 %15, %14
   br i1 %16, label %30, label %17
 
 17:                                               ; preds = %1
@@ -1342,8 +1342,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_set_mempolic
   %14 = and i16 %13, -8192
   %15 = and i32 %11, -57345
   %16 = icmp ugt i32 %15, 5
-  %17 = icmp ugt i16 %14, -16385
-  %18 = or i1 %16, %17
+  %17 = icmp ugt i16 %13, -16385
+  %18 = or i1 %17, %16
   br i1 %18, label %32, label %19
 
 19:                                               ; preds = %1
@@ -5921,7 +5921,7 @@ define internal range(i32 -5, 1) i32 @queue_folios_hugetlb(ptr noundef %0, i64 %
   %29 = ptrtoint ptr %0 to i64
   %30 = and i64 %29, -4096
   %31 = add i64 %30, 2147483648
-  %32 = icmp ugt i64 %30, -2147483649
+  %32 = icmp ugt ptr %0, inttoptr (i64 -2147483649 to ptr)
   %33 = load i64, ptr @phys_base, align 8
   %34 = load i64, ptr @page_offset_base, align 8
   %35 = sub i64 -2147483648, %34

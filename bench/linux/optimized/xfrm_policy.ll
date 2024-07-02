@@ -5500,7 +5500,7 @@ define internal fastcc ptr @xfrm_sk_policy_lookup(ptr noundef %0, i32 noundef %1
   %9 = getelementptr inbounds i8, ptr %0, i64 452
   br label %10
 
-10:                                               ; preds = %48, %5
+10:                                               ; preds = %49, %5
   %11 = load volatile ptr, ptr %8, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread5, label %13
@@ -5538,38 +5538,40 @@ define internal fastcc ptr @xfrm_sk_policy_lookup(ptr noundef %0, i32 noundef %1
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %32, %40
-  %36 = phi i32 [ %41, %40 ], [ %34, %32 ]
+.preheader:                                       ; preds = %32, %41
+  %36 = phi i32 [ %42, %41 ], [ %34, %32 ]
   %37 = add i32 %36, 1
   %38 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33, i32 %37, ptr elementtype(i32) %33, i32 %36) #23, !srcloc !56
   %39 = extractvalue { i8, i32 } %38, 0
+  %40 = icmp ult i8 %39, 2
+  tail call void @llvm.assume(i1 %40)
   %.not = icmp eq i8 %39, 0
-  br i1 %.not, label %40, label %.thread, !prof !6
+  br i1 %.not, label %41, label %.thread, !prof !6
 
-40:                                               ; preds = %.preheader
-  %41 = extractvalue { i8, i32 } %38, 1
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.thread, label %.preheader, !llvm.loop !57
+41:                                               ; preds = %.preheader
+  %42 = extractvalue { i8, i32 } %38, 1
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %.thread, label %.preheader, !llvm.loop !57
 
-.thread:                                          ; preds = %.preheader, %40, %32
-  %43 = phi i32 [ 0, %32 ], [ %36, %.preheader ], [ 0, %40 ]
-  %44 = add i32 %43, 1
-  %45 = or i32 %44, %43
-  %46 = icmp sgt i32 %45, -1
-  br i1 %46, label %48, label %47, !prof !7
+.thread:                                          ; preds = %.preheader, %41, %32
+  %44 = phi i32 [ 0, %32 ], [ %36, %.preheader ], [ 0, %41 ]
+  %45 = add i32 %44, 1
+  %46 = or i32 %45, %44
+  %47 = icmp sgt i32 %46, -1
+  br i1 %47, label %49, label %48, !prof !7
 
-47:                                               ; preds = %.thread
+48:                                               ; preds = %.thread
   tail call void @refcount_warn_saturate(ptr noundef %33, i32 noundef 0) #23
-  br label %48
+  br label %49
 
-48:                                               ; preds = %47, %.thread
-  %49 = icmp eq i32 %43, 0
-  br i1 %49, label %10, label %.thread5
+49:                                               ; preds = %48, %.thread
+  %50 = icmp eq i32 %44, 0
+  br i1 %50, label %10, label %.thread5
 
-.thread5:                                         ; preds = %48, %17, %20, %28, %13, %10
-  %50 = phi ptr [ null, %10 ], [ %11, %48 ], [ null, %17 ], [ null, %20 ], [ null, %28 ], [ null, %13 ]
+.thread5:                                         ; preds = %49, %17, %20, %28, %13, %10
+  %51 = phi ptr [ null, %10 ], [ %11, %49 ], [ null, %17 ], [ null, %20 ], [ null, %28 ], [ null, %13 ]
   tail call void @__rcu_read_unlock() #23
-  ret ptr %50
+  ret ptr %51
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -7828,7 +7830,7 @@ define internal fastcc ptr @xfrm_policy_lookup(ptr noundef %0, ptr noundef reado
 .thread38:                                        ; preds = %184, %189
   %191 = phi ptr [ %186, %189 ], [ %.ph, %184 ]
   %192 = icmp ugt ptr %191, inttoptr (i64 -4096 to ptr)
-  br i1 %192, label %217, label %193
+  br i1 %192, label %218, label %193
 
 193:                                              ; preds = %.thread38, %189, %.thread29, %91
   %194 = phi ptr [ %61, %91 ], [ %191, %.thread38 ], [ %96, %189 ], [ %96, %.thread29 ]
@@ -7839,7 +7841,7 @@ define internal fastcc ptr @xfrm_policy_lookup(ptr noundef %0, ptr noundef reado
 
 197:                                              ; preds = %193
   %198 = icmp eq ptr %194, null
-  br i1 %198, label %217, label %199
+  br i1 %198, label %218, label %199
 
 199:                                              ; preds = %197
   %200 = getelementptr inbounds i8, ptr %194, i64 48
@@ -7847,46 +7849,48 @@ define internal fastcc ptr @xfrm_policy_lookup(ptr noundef %0, ptr noundef reado
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %.thread39, label %.preheader
 
-.preheader:                                       ; preds = %199, %207
-  %203 = phi i32 [ %208, %207 ], [ %201, %199 ]
+.preheader:                                       ; preds = %199, %208
+  %203 = phi i32 [ %209, %208 ], [ %201, %199 ]
   %204 = add i32 %203, 1
   %205 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %200, i32 %204, ptr elementtype(i32) %200, i32 %203) #23, !srcloc !56
   %206 = extractvalue { i8, i32 } %205, 0
+  %207 = icmp ult i8 %206, 2
+  call void @llvm.assume(i1 %207)
   %.not = icmp eq i8 %206, 0
-  br i1 %.not, label %207, label %.thread39, !prof !6
+  br i1 %.not, label %208, label %.thread39, !prof !6
 
-207:                                              ; preds = %.preheader
-  %208 = extractvalue { i8, i32 } %205, 1
-  %209 = icmp eq i32 %208, 0
-  br i1 %209, label %.thread39, label %.preheader, !llvm.loop !57
+208:                                              ; preds = %.preheader
+  %209 = extractvalue { i8, i32 } %205, 1
+  %210 = icmp eq i32 %209, 0
+  br i1 %210, label %.thread39, label %.preheader, !llvm.loop !57
 
-.thread39:                                        ; preds = %.preheader, %207, %199
-  %210 = phi i32 [ 0, %199 ], [ %203, %.preheader ], [ 0, %207 ]
-  %211 = add i32 %210, 1
-  %212 = or i32 %211, %210
-  %213 = icmp sgt i32 %212, -1
-  br i1 %213, label %215, label %214, !prof !7
+.thread39:                                        ; preds = %.preheader, %208, %199
+  %211 = phi i32 [ 0, %199 ], [ %203, %.preheader ], [ 0, %208 ]
+  %212 = add i32 %211, 1
+  %213 = or i32 %212, %211
+  %214 = icmp sgt i32 %213, -1
+  br i1 %214, label %216, label %215, !prof !7
 
-214:                                              ; preds = %.thread39
+215:                                              ; preds = %.thread39
   call void @refcount_warn_saturate(ptr noundef %200, i32 noundef 0) #23
-  br label %215
+  br label %216
 
-215:                                              ; preds = %214, %.thread39
-  %216 = icmp eq i32 %210, 0
-  br i1 %216, label %.backedge, label %217
+216:                                              ; preds = %215, %.thread39
+  %217 = icmp eq i32 %211, 0
+  br i1 %217, label %.backedge, label %218
 
-.backedge:                                        ; preds = %215, %193, %46
+.backedge:                                        ; preds = %216, %193, %46
   br label %31, !llvm.loop !78
 
-217:                                              ; preds = %215, %197, %.thread38
-  %218 = phi ptr [ %194, %215 ], [ null, %197 ], [ %191, %.thread38 ]
+218:                                              ; preds = %216, %197, %.thread38
+  %219 = phi ptr [ %194, %216 ], [ null, %197 ], [ %191, %.thread38 ]
   call void @__rcu_read_unlock() #23
   br label %.thread26
 
-.thread26:                                        ; preds = %5, %217, %.thread
-  %219 = phi ptr [ %218, %217 ], [ null, %.thread ], [ null, %5 ]
+.thread26:                                        ; preds = %5, %218, %.thread
+  %220 = phi ptr [ %219, %218 ], [ null, %.thread ], [ null, %5 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23
-  ret ptr %219
+  ret ptr %220
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

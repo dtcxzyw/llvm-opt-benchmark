@@ -635,7 +635,7 @@ get_index_pos.exit:                               ; preds = %.lr.ph.i, %.prehead
   %44 = add i32 %43, 32
   %45 = lshr i32 %40, 5
   %46 = or disjoint i32 %45, %44
-  %47 = icmp slt i32 %46, 0
+  %47 = icmp slt i32 %44, 0
   br i1 %47, label %get_index_pos.exit.thread, label %get_index_pos.exit.thread41
 
 get_index_pos.exit.thread41:                      ; preds = %4, %get_index_pos.exit
@@ -1355,7 +1355,7 @@ get_index_pos.exit.i.i:                           ; preds = %.lr.ph.i.i.i
   %63 = add i32 %62, 32
   %64 = lshr i32 %59, 5
   %65 = or disjoint i32 %64, %63
-  %66 = icmp slt i32 %65, 0
+  %66 = icmp slt i32 %63, 0
   br i1 %66, label %unicode_get_cc.exit.thread.i, label %get_index_pos.exit.thread41.i.i
 
 get_index_pos.exit.thread41.i.i:                  ; preds = %get_index_pos.exit.i.i, %.lr.ph72.i
@@ -1503,7 +1503,7 @@ get_index_pos.exit.i45.i:                         ; preds = %.lr.ph.i.i37.i
   %141 = add i32 %140, 32
   %142 = lshr i32 %137, 5
   %143 = or disjoint i32 %142, %141
-  %144 = icmp slt i32 %143, 0
+  %144 = icmp slt i32 %141, 0
   br i1 %144, label %unicode_get_cc.exit59.i, label %get_index_pos.exit.thread41.i49.i
 
 get_index_pos.exit.thread41.i49.i:                ; preds = %get_index_pos.exit.i45.i, %.lr.ph.i
@@ -1947,7 +1947,7 @@ get_index_pos.exit:                               ; preds = %.lr.ph.i
   %26 = add i32 %25, 32
   %27 = lshr i32 %22, 5
   %28 = or disjoint i32 %27, %26
-  %29 = icmp slt i32 %28, 0
+  %29 = icmp slt i32 %26, 0
   br i1 %29, label %get_index_pos.exit.thread, label %get_index_pos.exit.thread41
 
 get_index_pos.exit.thread41:                      ; preds = %1, %get_index_pos.exit

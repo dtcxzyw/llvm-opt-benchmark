@@ -4827,7 +4827,7 @@ cond.true.i39:                                    ; preds = %for.body57
   br label %_ZN6icu_7516CollationBuilder10ceStrengthEl.exit50
 
 cond.false.i43:                                   ; preds = %for.body57
-  %cmp.not.i44 = icmp ult i64 %and62, 72057594037927936
+  %cmp.not.i44 = icmp ult i64 %19, 72057594037927936
   br i1 %cmp.not.i44, label %cond.false3.i45, label %if.then65
 
 cond.false3.i45:                                  ; preds = %cond.false.i43

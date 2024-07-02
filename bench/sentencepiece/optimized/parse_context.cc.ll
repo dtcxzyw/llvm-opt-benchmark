@@ -1128,7 +1128,7 @@ define void @_ZN6google8protobuf8internal20WriteLengthDelimitedEjNS0_11StringPie
   %5 = shl i32 %0, 3
   %6 = or disjoint i32 %5, 2
   %7 = zext i32 %6 to i64
-  %8 = icmp ugt i32 %6, 127
+  %8 = icmp ugt i32 %5, 127
   br i1 %8, label %.lr.ph.i, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
@@ -2153,7 +2153,7 @@ _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_
   %63 = shl i32 %10, 3
   %64 = or disjoint i32 %63, 1
   %65 = zext i32 %64 to i64
-  %66 = icmp ugt i32 %63, 126
+  %66 = icmp ugt i32 %63, 127
   br i1 %66, label %.lr.ph.i.i40, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i38
 
 .lr.ph.i.i40:                                     ; preds = %62, %.lr.ph.i.i40
@@ -2219,7 +2219,7 @@ _ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed64Ejm.exit: 
   %89 = shl i32 %10, 3
   %90 = or disjoint i32 %89, 5
   %91 = zext i32 %90 to i64
-  %92 = icmp ugt i32 %90, 127
+  %92 = icmp ugt i32 %89, 127
   br i1 %92, label %.lr.ph.i.i45, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i43
 
 .lr.ph.i.i45:                                     ; preds = %88, %.lr.ph.i.i45
@@ -5497,7 +5497,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i: ; pre
   %82 = shl i32 %1, 3
   %83 = or disjoint i32 %82, 2
   %84 = zext i32 %83 to i64
-  %85 = icmp ugt i32 %83, 127
+  %85 = icmp ugt i32 %82, 127
   br i1 %85, label %.lr.ph.i, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 .lr.ph.i:                                         ; preds = %81, %.lr.ph.i
@@ -5565,7 +5565,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal28UnknownFieldLiteP
 6:                                                ; preds = %4
   %7 = or disjoint i32 %.pre, 3
   %8 = zext i32 %7 to i64
-  %9 = icmp ugt i32 %7, 127
+  %9 = icmp ugt i32 %.pre, 127
   br i1 %9, label %.lr.ph.i, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
@@ -5617,7 +5617,7 @@ _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_
 32:                                               ; preds = %30
   %33 = or disjoint i32 %.pre, 4
   %34 = zext i32 %33 to i64
-  %35 = icmp ugt i32 %33, 127
+  %35 = icmp ugt i32 %.pre, 127
   br i1 %35, label %.lr.ph.i20, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22
 
 .lr.ph.i20:                                       ; preds = %32, %.lr.ph.i20

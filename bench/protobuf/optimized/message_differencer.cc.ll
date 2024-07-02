@@ -17208,7 +17208,7 @@ _ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.
   %div.neg567.i.i.i.i = lshr i32 %div.neg5.lhs.trunc.i.i.i.i, 2
   %narrow.i.i.i.i = sub nuw nsw i32 16, %div.neg567.i.i.i.i
   %sub3.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %cmp.not.i.i.i = icmp ult i64 %or.i.i.i.i, 268435456
+  %cmp.not.i.i.i = icmp ult i32 %6, 268435456
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %_ZN4absl12lts_2023080216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i
 
 if.else.i.i.i:                                    ; preds = %_ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i
@@ -17277,12 +17277,12 @@ for.body.i.i.i.i19:                               ; preds = %for.body.i.i.i.i19,
   br i1 %exitcond.not.i.i.i.i27, label %_ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i28, label %for.body.i.i.i.i19, !llvm.loop !299
 
 _ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i28: ; preds = %for.body.i.i.i.i19
-  %or.i.i.i.i30 = or i64 %17, 1
-  %cmp.not.i.i.i36.not = icmp ugt i64 %or.i.i.i.i30, 1152921504606846975
+  %cmp.not.i.i.i36.not = icmp ugt i64 %17, 1152921504606846975
   br i1 %cmp.not.i.i.i36.not, label %_ZN4absl12lts_2023080216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i37, label %if.else.i.i.i42
 
 if.else.i.i.i42:                                  ; preds = %_ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i28
   %arrayidx.i.i.i29 = getelementptr inbounds i8, ptr %buffer.i.i.i14, i64 32
+  %or.i.i.i.i30 = or i64 %17, 1
   %22 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i30, i1 true)
   %div.neg5.lhs.trunc.i.i.i.i31 = trunc nuw nsw i64 %22 to i32
   %div.neg567.i.i.i.i32 = lshr i32 %div.neg5.lhs.trunc.i.i.i.i31, 2

@@ -369,7 +369,7 @@ rb_array_const_ptr.exit:                          ; preds = %81, %84
   %narrow = or disjoint i32 %reass.add, 1
   %106 = zext i32 %narrow to i64
   %107 = shl nuw nsw i64 %106, 3
-  %108 = icmp ult i32 %narrow, 128
+  %108 = icmp ult i32 %.0113, 64
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %104

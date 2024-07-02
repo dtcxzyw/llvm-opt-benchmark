@@ -3281,7 +3281,7 @@ if.then.i:                                        ; preds = %float16a_unpack_can
   %add.i = add nsw i32 %6, %14
   %add15.i = add nsw i32 %add.i, 1
   store i32 %add15.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %tobool16.i.not = icmp sgt i64 %or.i75, -1
+  %tobool16.i.not = icmp sgt i128 %mul.i.i, -1
   br i1 %tobool16.i.not, label %if.then17.i, label %if.end.i
 
 if.then17.i:                                      ; preds = %if.then.i
@@ -3460,7 +3460,7 @@ if.then:                                          ; preds = %entry
   %add = add i32 %8, %7
   %add15 = add i32 %add, 1
   store i32 %add15, ptr %exp14, align 4
-  %tobool16.not = icmp sgt i64 %or.i, -1
+  %tobool16.not = icmp sgt i128 %mul.i.i, -1
   br i1 %tobool16.not, label %if.then17, label %if.end
 
 if.then17:                                        ; preds = %if.then
@@ -3887,7 +3887,7 @@ if.then.i.i8:                                     ; preds = %parts64_canonicaliz
   %add.i.i = add nsw i32 %30, %23
   %add15.i.i = add nsw i32 %add.i.i, 1
   store i32 %add15.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %tobool16.i.not.i = icmp sgt i64 %or.i88.i, -1
+  %tobool16.i.not.i = icmp sgt i128 %mul.i.i.i, -1
   br i1 %tobool16.i.not.i, label %if.then17.i.i, label %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.then.i.i8
@@ -4321,7 +4321,7 @@ if.then.i.i9:                                     ; preds = %parts64_canonicaliz
   %add.i.i = add nsw i32 %28, %21
   %add15.i.i = add nsw i32 %add.i.i, 1
   store i32 %add15.i.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
-  %tobool16.i.not.i = icmp sgt i64 %or.i89.i, -1
+  %tobool16.i.not.i = icmp sgt i128 %mul.i.i.i, -1
   br i1 %tobool16.i.not.i, label %if.then17.i.i, label %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.then.i.i9
@@ -4901,7 +4901,7 @@ if.then.i:                                        ; preds = %parts64_canonicaliz
   %add.i = add nsw i32 %6, %14
   %add15.i = add nsw i32 %add.i, 1
   store i32 %add15.i, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i, align 4
-  %tobool16.i.not = icmp sgt i64 %or.i88, -1
+  %tobool16.i.not = icmp sgt i128 %mul.i.i, -1
   br i1 %tobool16.i.not, label %if.then17.i, label %if.end.i
 
 if.then17.i:                                      ; preds = %if.then.i

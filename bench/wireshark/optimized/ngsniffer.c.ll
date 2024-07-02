@@ -2219,7 +2219,7 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
   %14 = zext i8 %.val to i16
   %15 = or disjoint i16 %13, %14
   %16 = sext i16 %15 to i32
-  %17 = icmp sgt i16 %15, -1
+  %17 = icmp sgt i16 %13, -1
   %18 = sub nsw i32 0, %16
   %.033 = select i1 %17, i32 %16, i32 %18
   %19 = call noalias dereferenceable_or_null(65536) ptr @g_malloc(i64 noundef 65536) #15

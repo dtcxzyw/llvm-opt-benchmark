@@ -931,13 +931,13 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EEC2Emmm(ptr n
   store i64 %1, ptr %0, align 8, !tbaa !98
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8, !tbaa !100
-  %6 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znam(i64 noundef 20) #28
-  %7 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znam(i64 noundef 144) #28
+  %6 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znam(i64 noundef 20) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znam(i64 noundef 144) #29
   %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 52)
   %9 = extractvalue { i64, i1 } %8, 1
   %10 = extractvalue { i64, i1 } %8, 0
   %11 = select i1 %9, i64 -1, i64 %10
-  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #28
+  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #29
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %12, ptr %13, align 8, !tbaa !101
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, i8 0, i64 24, i1 false), !tbaa !102
@@ -977,7 +977,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EEC2Emmm(ptr n
   %38 = extractvalue { i64, i1 } %36, 0
   %39 = or disjoint i64 %38, 8
   %40 = select i1 %37, i64 -1, i64 %39
-  %41 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %40) #28
+  %41 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %40) #29
   store i64 %2, ptr %41, align 16
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = icmp eq i64 %2, 0
@@ -1508,7 +1508,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi5ELi4EE5splatEPfS1
 353:                                              ; preds = %.loopexit, %243
   %354 = phi ptr [ %342, %243 ], [ %452, %.loopexit ]
   %355 = phi ptr [ %351, %243 ], [ %453, %.loopexit ]
-  %356 = phi i64 [ 0, %243 ], [ %490, %.loopexit ]
+  %356 = phi i64 [ 0, %243 ], [ %491, %.loopexit ]
   %357 = load ptr, ptr %344, align 8, !tbaa !103
   %358 = trunc i64 %356 to i32
   %359 = mul i32 %358, 6
@@ -1638,49 +1638,51 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi5ELi4EE5splatEPfS1
   %453 = phi ptr [ %433, %424 ], [ %355, %442 ]
   %454 = phi i32 [ %429, %424 ], [ %436, %442 ]
   %455 = freeze i32 %454
-  %456 = getelementptr inbounds i8, ptr %398, i64 8
-  %457 = load ptr, ptr %456, align 8
-  %458 = zext nneg i32 %455 to i64
-  %459 = getelementptr inbounds %struct.HashTablePermutohedralValue, ptr %457, i64 %458
-  %460 = getelementptr inbounds [7 x float], ptr %6, i64 0, i64 %356
-  %461 = load float, ptr %460, align 4, !tbaa !28
-  %462 = load float, ptr %2, align 4, !tbaa !28
-  %463 = fmul reassoc nsz arcp contract afn float %462, %461
-  %464 = load float, ptr %459, align 4, !tbaa !28
-  %465 = fadd reassoc nsz arcp contract afn float %464, %463
-  store float %465, ptr %459, align 4, !tbaa !28
-  %466 = load float, ptr %348, align 4, !tbaa !28
-  %467 = fmul reassoc nsz arcp contract afn float %466, %461
-  %468 = getelementptr inbounds i8, ptr %459, i64 4
-  %469 = load float, ptr %468, align 4, !tbaa !28
-  %470 = fadd reassoc nsz arcp contract afn float %469, %467
-  store float %470, ptr %468, align 4, !tbaa !28
-  %471 = load float, ptr %349, align 4, !tbaa !28
-  %472 = fmul reassoc nsz arcp contract afn float %471, %461
-  %473 = getelementptr inbounds i8, ptr %459, i64 8
-  %474 = load float, ptr %473, align 4, !tbaa !28
-  %475 = fadd reassoc nsz arcp contract afn float %474, %472
-  store float %475, ptr %473, align 4, !tbaa !28
-  %476 = load float, ptr %350, align 4, !tbaa !28
-  %477 = fmul reassoc nsz arcp contract afn float %476, %461
-  %478 = getelementptr inbounds i8, ptr %459, i64 12
-  %479 = load float, ptr %478, align 4, !tbaa !28
-  %480 = fadd reassoc nsz arcp contract afn float %479, %477
-  store float %480, ptr %478, align 4, !tbaa !28
-  %481 = getelementptr inbounds %class.HashTablePermutohedral, ptr %453, i64 %347, i32 1
-  %482 = load ptr, ptr %481, align 8, !tbaa !125
-  %483 = ptrtoint ptr %459 to i64
-  %484 = ptrtoint ptr %482 to i64
-  %485 = sub i64 %483, %484
-  %486 = lshr exact i64 %485, 4
-  %487 = trunc i64 %486 to i32
-  %488 = getelementptr inbounds %"struct.PermutohedralLattice<5, 4>::ReplayEntry", ptr %452, i64 %3, i32 1, i64 %356
-  store i32 %487, ptr %488, align 4, !tbaa !102
-  %489 = getelementptr inbounds %"struct.PermutohedralLattice<5, 4>::ReplayEntry", ptr %452, i64 %3, i32 2, i64 %356
-  store float %461, ptr %489, align 4, !tbaa !28
-  %490 = add nuw nsw i64 %356, 1
-  %491 = icmp eq i64 %490, 6
-  br i1 %491, label %408, label %353, !llvm.loop !126
+  %456 = icmp sgt i32 %455, -1
+  %457 = getelementptr inbounds i8, ptr %398, i64 8
+  %458 = load ptr, ptr %457, align 8
+  %459 = zext nneg i32 %455 to i64
+  %460 = getelementptr inbounds %struct.HashTablePermutohedralValue, ptr %458, i64 %459
+  tail call void @llvm.assume(i1 %456)
+  %461 = getelementptr inbounds [7 x float], ptr %6, i64 0, i64 %356
+  %462 = load float, ptr %461, align 4, !tbaa !28
+  %463 = load float, ptr %2, align 4, !tbaa !28
+  %464 = fmul reassoc nsz arcp contract afn float %463, %462
+  %465 = load float, ptr %460, align 4, !tbaa !28
+  %466 = fadd reassoc nsz arcp contract afn float %465, %464
+  store float %466, ptr %460, align 4, !tbaa !28
+  %467 = load float, ptr %348, align 4, !tbaa !28
+  %468 = fmul reassoc nsz arcp contract afn float %467, %462
+  %469 = getelementptr inbounds i8, ptr %460, i64 4
+  %470 = load float, ptr %469, align 4, !tbaa !28
+  %471 = fadd reassoc nsz arcp contract afn float %470, %468
+  store float %471, ptr %469, align 4, !tbaa !28
+  %472 = load float, ptr %349, align 4, !tbaa !28
+  %473 = fmul reassoc nsz arcp contract afn float %472, %462
+  %474 = getelementptr inbounds i8, ptr %460, i64 8
+  %475 = load float, ptr %474, align 4, !tbaa !28
+  %476 = fadd reassoc nsz arcp contract afn float %475, %473
+  store float %476, ptr %474, align 4, !tbaa !28
+  %477 = load float, ptr %350, align 4, !tbaa !28
+  %478 = fmul reassoc nsz arcp contract afn float %477, %462
+  %479 = getelementptr inbounds i8, ptr %460, i64 12
+  %480 = load float, ptr %479, align 4, !tbaa !28
+  %481 = fadd reassoc nsz arcp contract afn float %480, %478
+  store float %481, ptr %479, align 4, !tbaa !28
+  %482 = getelementptr inbounds %class.HashTablePermutohedral, ptr %453, i64 %347, i32 1
+  %483 = load ptr, ptr %482, align 8, !tbaa !125
+  %484 = ptrtoint ptr %460 to i64
+  %485 = ptrtoint ptr %483 to i64
+  %486 = sub i64 %484, %485
+  %487 = lshr exact i64 %486, 4
+  %488 = trunc i64 %487 to i32
+  %489 = getelementptr inbounds %"struct.PermutohedralLattice<5, 4>::ReplayEntry", ptr %452, i64 %3, i32 1, i64 %356
+  store i32 %488, ptr %489, align 4, !tbaa !102
+  %490 = getelementptr inbounds %"struct.PermutohedralLattice<5, 4>::ReplayEntry", ptr %452, i64 %3, i32 2, i64 %356
+  store float %462, ptr %490, align 4, !tbaa !28
+  %491 = add nuw nsw i64 %356, 1
+  %492 = icmp eq i64 %491, 6
+  br i1 %492, label %408, label %353, !llvm.loop !126
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1688,7 +1690,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EE19merge_spla
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !100
   %4 = icmp ult i64 %3, 2
-  br i1 %4, label %416, label %5
+  br i1 %4, label %417, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1803,7 +1805,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EE19merge_spla
   %96 = icmp ugt i64 %95, 2305843009213693951
   %97 = shl i64 %95, 3
   %98 = select i1 %96, i64 -1, i64 %97
-  %99 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %98) #28
+  %99 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %98) #29
   %100 = icmp ugt i64 %95, 1
   br i1 %100, label %.preheader23, label %.loopexit24
 
@@ -1839,7 +1841,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EE19merge_spla
   %127 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !131
   %128 = and i32 %127, 512
   %129 = icmp eq i32 %128, 0
-  br i1 %129, label %355, label %255
+  br i1 %129, label %356, label %256
 
 .preheader23:                                     ; preds = %.loopexit25, %150
   %130 = phi i64 [ %151, %150 ], [ %95, %.loopexit25 ]
@@ -1856,7 +1858,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EE19merge_spla
   %141 = icmp ugt i64 %140, 4611686018427387903
   %142 = shl i64 %140, 2
   %143 = select i1 %141, i64 -1, i64 %142
-  %144 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %143) #28
+  %144 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %143) #29
   %145 = getelementptr inbounds ptr, ptr %99, i64 %133
   store ptr %144, ptr %145, align 8, !tbaa !138
   %146 = add i64 %142, %134
@@ -1880,7 +1882,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EE19merge_spla
   %157 = phi ptr [ %218, %.loopexit20 ], [ %144, %.preheader23 ]
   %158 = phi ptr [ %219, %.loopexit20 ], [ %131, %.preheader23 ]
   %159 = phi ptr [ %219, %.loopexit20 ], [ %132, %.preheader23 ]
-  %160 = phi i64 [ %253, %.loopexit20 ], [ 0, %.preheader23 ]
+  %160 = phi i64 [ %254, %.loopexit20 ], [ 0, %.preheader23 ]
   %161 = getelementptr inbounds %"struct.HashTablePermutohedral<5, 4>::Key", ptr %136, i64 %160
   %162 = load i32, ptr %161, align 4, !tbaa !114
   %163 = zext i32 %162 to i64
@@ -1965,277 +1967,279 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EE19merge_spla
   %219 = phi ptr [ %199, %189 ], [ %158, %207 ]
   %220 = phi i32 [ %195, %189 ], [ %201, %207 ]
   %221 = freeze i32 %220
-  %222 = getelementptr inbounds i8, ptr %159, i64 8
-  %223 = load ptr, ptr %222, align 8
-  %224 = zext nneg i32 %221 to i64
-  %225 = getelementptr inbounds %struct.HashTablePermutohedralValue, ptr %223, i64 %224
-  %226 = getelementptr inbounds %struct.HashTablePermutohedralValue, ptr %138, i64 %160
-  %227 = load float, ptr %226, align 4, !tbaa !28
-  %228 = load float, ptr %225, align 4, !tbaa !28
-  %229 = fadd reassoc nsz arcp contract afn float %228, %227
-  store float %229, ptr %225, align 4, !tbaa !28
-  %230 = getelementptr inbounds i8, ptr %226, i64 4
-  %231 = load float, ptr %230, align 4, !tbaa !28
-  %232 = getelementptr inbounds i8, ptr %225, i64 4
-  %233 = load float, ptr %232, align 4, !tbaa !28
-  %234 = fadd reassoc nsz arcp contract afn float %233, %231
-  store float %234, ptr %232, align 4, !tbaa !28
-  %235 = getelementptr inbounds i8, ptr %226, i64 8
-  %236 = load float, ptr %235, align 4, !tbaa !28
-  %237 = getelementptr inbounds i8, ptr %225, i64 8
-  %238 = load float, ptr %237, align 4, !tbaa !28
-  %239 = fadd reassoc nsz arcp contract afn float %238, %236
-  store float %239, ptr %237, align 4, !tbaa !28
-  %240 = getelementptr inbounds i8, ptr %226, i64 12
-  %241 = load float, ptr %240, align 4, !tbaa !28
-  %242 = getelementptr inbounds i8, ptr %225, i64 12
-  %243 = load float, ptr %242, align 4, !tbaa !28
-  %244 = fadd reassoc nsz arcp contract afn float %243, %241
-  store float %244, ptr %242, align 4, !tbaa !28
-  %245 = getelementptr inbounds i8, ptr %219, i64 8
-  %246 = load ptr, ptr %245, align 8, !tbaa !125
-  %247 = ptrtoint ptr %225 to i64
-  %248 = ptrtoint ptr %246 to i64
-  %249 = sub i64 %247, %248
-  %250 = lshr exact i64 %249, 4
-  %251 = trunc i64 %250 to i32
-  %252 = getelementptr inbounds i32, ptr %218, i64 %160
-  store i32 %251, ptr %252, align 4, !tbaa !102
-  %253 = add nuw i64 %160, 1
-  %254 = icmp eq i64 %253, %140
-  br i1 %254, label %148, label %.preheader22, !llvm.loop !141
+  %222 = icmp sgt i32 %221, -1
+  %223 = getelementptr inbounds i8, ptr %159, i64 8
+  %224 = load ptr, ptr %223, align 8
+  %225 = zext nneg i32 %221 to i64
+  %226 = getelementptr inbounds %struct.HashTablePermutohedralValue, ptr %224, i64 %225
+  tail call void @llvm.assume(i1 %222)
+  %227 = getelementptr inbounds %struct.HashTablePermutohedralValue, ptr %138, i64 %160
+  %228 = load float, ptr %227, align 4, !tbaa !28
+  %229 = load float, ptr %226, align 4, !tbaa !28
+  %230 = fadd reassoc nsz arcp contract afn float %229, %228
+  store float %230, ptr %226, align 4, !tbaa !28
+  %231 = getelementptr inbounds i8, ptr %227, i64 4
+  %232 = load float, ptr %231, align 4, !tbaa !28
+  %233 = getelementptr inbounds i8, ptr %226, i64 4
+  %234 = load float, ptr %233, align 4, !tbaa !28
+  %235 = fadd reassoc nsz arcp contract afn float %234, %232
+  store float %235, ptr %233, align 4, !tbaa !28
+  %236 = getelementptr inbounds i8, ptr %227, i64 8
+  %237 = load float, ptr %236, align 4, !tbaa !28
+  %238 = getelementptr inbounds i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !28
+  %240 = fadd reassoc nsz arcp contract afn float %239, %237
+  store float %240, ptr %238, align 4, !tbaa !28
+  %241 = getelementptr inbounds i8, ptr %227, i64 12
+  %242 = load float, ptr %241, align 4, !tbaa !28
+  %243 = getelementptr inbounds i8, ptr %226, i64 12
+  %244 = load float, ptr %243, align 4, !tbaa !28
+  %245 = fadd reassoc nsz arcp contract afn float %244, %242
+  store float %245, ptr %243, align 4, !tbaa !28
+  %246 = getelementptr inbounds i8, ptr %219, i64 8
+  %247 = load ptr, ptr %246, align 8, !tbaa !125
+  %248 = ptrtoint ptr %226 to i64
+  %249 = ptrtoint ptr %247 to i64
+  %250 = sub i64 %248, %249
+  %251 = lshr exact i64 %250, 4
+  %252 = trunc i64 %251 to i32
+  %253 = getelementptr inbounds i32, ptr %218, i64 %160
+  store i32 %252, ptr %253, align 4, !tbaa !102
+  %254 = add nuw i64 %160, 1
+  %255 = icmp eq i64 %254, %140
+  br i1 %255, label %148, label %.preheader22, !llvm.loop !141
 
-255:                                              ; preds = %.loopexit24
-  %256 = uitofp i64 %87 to float
-  %257 = fmul reassoc nsz arcp contract afn float %256, 1.000000e+02
-  %258 = uitofp i64 %86 to float
-  %259 = fdiv reassoc nsz arcp contract afn float %257, %258
-  %260 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.25, i64 noundef 28)
-  %261 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %94)
-  %262 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef nonnull @.str.26, i64 noundef 8)
-  %263 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %261, i64 noundef %88)
-  %264 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %263, ptr noundef nonnull @.str.27, i64 noundef 13)
-  %265 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %263, i64 noundef %87)
-  %266 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %265, ptr noundef nonnull @.str.28, i64 noundef 8)
-  %267 = load ptr, ptr %265, align 8, !tbaa !142
-  %268 = getelementptr i8, ptr %267, i64 -24
-  %269 = load i64, ptr %268, align 8
-  %270 = getelementptr inbounds i8, ptr %265, i64 %269
-  %271 = getelementptr inbounds i8, ptr %270, i64 240
-  %272 = load ptr, ptr %271, align 8, !tbaa !144
-  %273 = icmp eq ptr %272, null
-  br i1 %273, label %274, label %275
+256:                                              ; preds = %.loopexit24
+  %257 = uitofp i64 %87 to float
+  %258 = fmul reassoc nsz arcp contract afn float %257, 1.000000e+02
+  %259 = uitofp i64 %86 to float
+  %260 = fdiv reassoc nsz arcp contract afn float %258, %259
+  %261 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.25, i64 noundef 28)
+  %262 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %94)
+  %263 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %262, ptr noundef nonnull @.str.26, i64 noundef 8)
+  %264 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %262, i64 noundef %88)
+  %265 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %264, ptr noundef nonnull @.str.27, i64 noundef 13)
+  %266 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %264, i64 noundef %87)
+  %267 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %266, ptr noundef nonnull @.str.28, i64 noundef 8)
+  %268 = load ptr, ptr %266, align 8, !tbaa !142
+  %269 = getelementptr i8, ptr %268, i64 -24
+  %270 = load i64, ptr %269, align 8
+  %271 = getelementptr inbounds i8, ptr %266, i64 %270
+  %272 = getelementptr inbounds i8, ptr %271, i64 240
+  %273 = load ptr, ptr %272, align 8, !tbaa !144
+  %274 = icmp eq ptr %273, null
+  br i1 %274, label %275, label %276
 
-274:                                              ; preds = %255
-  tail call void @_ZSt16__throw_bad_castv() #29
+275:                                              ; preds = %256
+  tail call void @_ZSt16__throw_bad_castv() #30
   unreachable
 
-275:                                              ; preds = %255
-  %276 = getelementptr inbounds i8, ptr %272, i64 56
-  %277 = load i8, ptr %276, align 8, !tbaa !152
-  %278 = icmp eq i8 %277, 0
-  br i1 %278, label %282, label %279
+276:                                              ; preds = %256
+  %277 = getelementptr inbounds i8, ptr %273, i64 56
+  %278 = load i8, ptr %277, align 8, !tbaa !152
+  %279 = icmp eq i8 %278, 0
+  br i1 %279, label %283, label %280
 
-279:                                              ; preds = %275
-  %280 = getelementptr inbounds i8, ptr %272, i64 67
-  %281 = load i8, ptr %280, align 1, !tbaa !63
-  br label %287
+280:                                              ; preds = %276
+  %281 = getelementptr inbounds i8, ptr %273, i64 67
+  %282 = load i8, ptr %281, align 1, !tbaa !63
+  br label %288
 
-282:                                              ; preds = %275
-  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %272)
-  %283 = load ptr, ptr %272, align 8, !tbaa !142
-  %284 = getelementptr inbounds i8, ptr %283, i64 48
-  %285 = load ptr, ptr %284, align 8
-  %286 = tail call noundef signext i8 %285(ptr noundef nonnull align 8 dereferenceable(570) %272, i8 noundef signext 10)
-  br label %287
+283:                                              ; preds = %276
+  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %273)
+  %284 = load ptr, ptr %273, align 8, !tbaa !142
+  %285 = getelementptr inbounds i8, ptr %284, i64 48
+  %286 = load ptr, ptr %285, align 8
+  %287 = tail call noundef signext i8 %286(ptr noundef nonnull align 8 dereferenceable(570) %273, i8 noundef signext 10)
+  br label %288
 
-287:                                              ; preds = %282, %279
-  %288 = phi i8 [ %281, %279 ], [ %286, %282 ]
-  %289 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %265, i8 noundef signext %288)
-  %290 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %289)
-  %291 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %290, ptr noundef nonnull @.str.29, i64 noundef 28)
-  %292 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %290, i64 noundef %90)
-  %293 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %292, ptr noundef nonnull @.str.30, i64 noundef 21)
-  %294 = load i64, ptr %0, align 8, !tbaa !98
-  %295 = mul i64 %294, 52
-  %296 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %292, i64 noundef %295)
-  %297 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %296, ptr noundef nonnull @.str.31, i64 noundef 11)
-  %298 = load i64, ptr %0, align 8, !tbaa !98
-  %299 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %296, i64 noundef %298)
-  %300 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %299, ptr noundef nonnull @.str.32, i64 noundef 7)
-  %301 = load ptr, ptr %299, align 8, !tbaa !142
-  %302 = getelementptr i8, ptr %301, i64 -24
-  %303 = load i64, ptr %302, align 8
-  %304 = getelementptr inbounds i8, ptr %299, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 240
-  %306 = load ptr, ptr %305, align 8, !tbaa !144
-  %307 = icmp eq ptr %306, null
-  br i1 %307, label %308, label %309
+288:                                              ; preds = %283, %280
+  %289 = phi i8 [ %282, %280 ], [ %287, %283 ]
+  %290 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %266, i8 noundef signext %289)
+  %291 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %290)
+  %292 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %291, ptr noundef nonnull @.str.29, i64 noundef 28)
+  %293 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %291, i64 noundef %90)
+  %294 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %293, ptr noundef nonnull @.str.30, i64 noundef 21)
+  %295 = load i64, ptr %0, align 8, !tbaa !98
+  %296 = mul i64 %295, 52
+  %297 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %293, i64 noundef %296)
+  %298 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %297, ptr noundef nonnull @.str.31, i64 noundef 11)
+  %299 = load i64, ptr %0, align 8, !tbaa !98
+  %300 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %297, i64 noundef %299)
+  %301 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %300, ptr noundef nonnull @.str.32, i64 noundef 7)
+  %302 = load ptr, ptr %300, align 8, !tbaa !142
+  %303 = getelementptr i8, ptr %302, i64 -24
+  %304 = load i64, ptr %303, align 8
+  %305 = getelementptr inbounds i8, ptr %300, i64 %304
+  %306 = getelementptr inbounds i8, ptr %305, i64 240
+  %307 = load ptr, ptr %306, align 8, !tbaa !144
+  %308 = icmp eq ptr %307, null
+  br i1 %308, label %309, label %310
 
-308:                                              ; preds = %287
-  tail call void @_ZSt16__throw_bad_castv() #29
+309:                                              ; preds = %288
+  tail call void @_ZSt16__throw_bad_castv() #30
   unreachable
 
-309:                                              ; preds = %287
-  %310 = getelementptr inbounds i8, ptr %306, i64 56
-  %311 = load i8, ptr %310, align 8, !tbaa !152
-  %312 = icmp eq i8 %311, 0
-  br i1 %312, label %316, label %313
+310:                                              ; preds = %288
+  %311 = getelementptr inbounds i8, ptr %307, i64 56
+  %312 = load i8, ptr %311, align 8, !tbaa !152
+  %313 = icmp eq i8 %312, 0
+  br i1 %313, label %317, label %314
 
-313:                                              ; preds = %309
-  %314 = getelementptr inbounds i8, ptr %306, i64 67
-  %315 = load i8, ptr %314, align 1, !tbaa !63
-  br label %321
+314:                                              ; preds = %310
+  %315 = getelementptr inbounds i8, ptr %307, i64 67
+  %316 = load i8, ptr %315, align 1, !tbaa !63
+  br label %322
 
-316:                                              ; preds = %309
-  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %306)
-  %317 = load ptr, ptr %306, align 8, !tbaa !142
-  %318 = getelementptr inbounds i8, ptr %317, i64 48
-  %319 = load ptr, ptr %318, align 8
-  %320 = tail call noundef signext i8 %319(ptr noundef nonnull align 8 dereferenceable(570) %306, i8 noundef signext 10)
-  br label %321
+317:                                              ; preds = %310
+  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %307)
+  %318 = load ptr, ptr %307, align 8, !tbaa !142
+  %319 = getelementptr inbounds i8, ptr %318, i64 48
+  %320 = load ptr, ptr %319, align 8
+  %321 = tail call noundef signext i8 %320(ptr noundef nonnull align 8 dereferenceable(570) %307, i8 noundef signext 10)
+  br label %322
 
-321:                                              ; preds = %316, %313
-  %322 = phi i8 [ %315, %313 ], [ %320, %316 ]
-  %323 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %299, i8 noundef signext %322)
-  %324 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %323)
-  %325 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %324, ptr noundef nonnull @.str.33, i64 noundef 28)
-  %326 = fpext float %259 to double
-  %327 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %324, double noundef %326)
-  %328 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %327, ptr noundef nonnull @.str.34, i64 noundef 15)
-  %329 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %327, i64 noundef %126)
-  %330 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %329, ptr noundef nonnull @.str.35, i64 noundef 7)
-  %331 = load ptr, ptr %329, align 8, !tbaa !142
-  %332 = getelementptr i8, ptr %331, i64 -24
-  %333 = load i64, ptr %332, align 8
-  %334 = getelementptr inbounds i8, ptr %329, i64 %333
-  %335 = getelementptr inbounds i8, ptr %334, i64 240
-  %336 = load ptr, ptr %335, align 8, !tbaa !144
-  %337 = icmp eq ptr %336, null
-  br i1 %337, label %338, label %339
+322:                                              ; preds = %317, %314
+  %323 = phi i8 [ %316, %314 ], [ %321, %317 ]
+  %324 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %300, i8 noundef signext %323)
+  %325 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %324)
+  %326 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %325, ptr noundef nonnull @.str.33, i64 noundef 28)
+  %327 = fpext float %260 to double
+  %328 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %325, double noundef %327)
+  %329 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %328, ptr noundef nonnull @.str.34, i64 noundef 15)
+  %330 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %328, i64 noundef %126)
+  %331 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %330, ptr noundef nonnull @.str.35, i64 noundef 7)
+  %332 = load ptr, ptr %330, align 8, !tbaa !142
+  %333 = getelementptr i8, ptr %332, i64 -24
+  %334 = load i64, ptr %333, align 8
+  %335 = getelementptr inbounds i8, ptr %330, i64 %334
+  %336 = getelementptr inbounds i8, ptr %335, i64 240
+  %337 = load ptr, ptr %336, align 8, !tbaa !144
+  %338 = icmp eq ptr %337, null
+  br i1 %338, label %339, label %340
 
-338:                                              ; preds = %321
-  tail call void @_ZSt16__throw_bad_castv() #29
+339:                                              ; preds = %322
+  tail call void @_ZSt16__throw_bad_castv() #30
   unreachable
 
-339:                                              ; preds = %321
-  %340 = getelementptr inbounds i8, ptr %336, i64 56
-  %341 = load i8, ptr %340, align 8, !tbaa !152
-  %342 = icmp eq i8 %341, 0
-  br i1 %342, label %346, label %343
+340:                                              ; preds = %322
+  %341 = getelementptr inbounds i8, ptr %337, i64 56
+  %342 = load i8, ptr %341, align 8, !tbaa !152
+  %343 = icmp eq i8 %342, 0
+  br i1 %343, label %347, label %344
 
-343:                                              ; preds = %339
-  %344 = getelementptr inbounds i8, ptr %336, i64 67
-  %345 = load i8, ptr %344, align 1, !tbaa !63
-  br label %351
+344:                                              ; preds = %340
+  %345 = getelementptr inbounds i8, ptr %337, i64 67
+  %346 = load i8, ptr %345, align 1, !tbaa !63
+  br label %352
 
-346:                                              ; preds = %339
-  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %336)
-  %347 = load ptr, ptr %336, align 8, !tbaa !142
-  %348 = getelementptr inbounds i8, ptr %347, i64 48
-  %349 = load ptr, ptr %348, align 8
-  %350 = tail call noundef signext i8 %349(ptr noundef nonnull align 8 dereferenceable(570) %336, i8 noundef signext 10)
-  br label %351
+347:                                              ; preds = %340
+  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %337)
+  %348 = load ptr, ptr %337, align 8, !tbaa !142
+  %349 = getelementptr inbounds i8, ptr %348, i64 48
+  %350 = load ptr, ptr %349, align 8
+  %351 = tail call noundef signext i8 %350(ptr noundef nonnull align 8 dereferenceable(570) %337, i8 noundef signext 10)
+  br label %352
 
-351:                                              ; preds = %346, %343
-  %352 = phi i8 [ %345, %343 ], [ %350, %346 ]
-  %353 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %329, i8 noundef signext %352)
-  %354 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %353)
-  br label %355
+352:                                              ; preds = %347, %344
+  %353 = phi i8 [ %346, %344 ], [ %351, %347 ]
+  %354 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %330, i8 noundef signext %353)
+  %355 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %354)
+  br label %356
 
-355:                                              ; preds = %351, %.loopexit24
-  %356 = load i64, ptr %0, align 8, !tbaa !98
-  %357 = icmp eq i64 %356, 0
-  br i1 %357, label %.loopexit19, label %358
+356:                                              ; preds = %352, %.loopexit24
+  %357 = load i64, ptr %0, align 8, !tbaa !98
+  %358 = icmp eq i64 %357, 0
+  br i1 %358, label %.loopexit19, label %359
 
-358:                                              ; preds = %355
-  %359 = getelementptr inbounds i8, ptr %0, i64 32
-  %360 = load ptr, ptr %359, align 8, !tbaa !101
-  br label %363
+359:                                              ; preds = %356
+  %360 = getelementptr inbounds i8, ptr %0, i64 32
+  %361 = load ptr, ptr %360, align 8, !tbaa !101
+  br label %364
 
-.loopexit19:                                      ; preds = %402, %355
-  %361 = load i64, ptr %2, align 8, !tbaa !100
-  %362 = icmp ugt i64 %361, 1
-  br i1 %362, label %.preheader, label %.loopexit
+.loopexit19:                                      ; preds = %403, %356
+  %362 = load i64, ptr %2, align 8, !tbaa !100
+  %363 = icmp ugt i64 %362, 1
+  br i1 %363, label %.preheader, label %.loopexit
 
-363:                                              ; preds = %402, %358
-  %364 = phi i64 [ 0, %358 ], [ %403, %402 ]
-  %365 = getelementptr inbounds %"struct.PermutohedralLattice<5, 4>::ReplayEntry", ptr %360, i64 %364
-  %366 = load i32, ptr %365, align 4, !tbaa !111
-  %367 = icmp sgt i32 %366, 0
-  br i1 %367, label %368, label %402
+364:                                              ; preds = %403, %359
+  %365 = phi i64 [ 0, %359 ], [ %404, %403 ]
+  %366 = getelementptr inbounds %"struct.PermutohedralLattice<5, 4>::ReplayEntry", ptr %361, i64 %365
+  %367 = load i32, ptr %366, align 4, !tbaa !111
+  %368 = icmp sgt i32 %367, 0
+  br i1 %368, label %369, label %403
 
-368:                                              ; preds = %363
-  %369 = getelementptr inbounds i8, ptr %365, i64 4
-  %370 = zext nneg i32 %366 to i64
-  %371 = getelementptr inbounds ptr, ptr %99, i64 %370
-  %372 = load ptr, ptr %371, align 8, !tbaa !138
-  %373 = load i32, ptr %369, align 4, !tbaa !102
-  %374 = sext i32 %373 to i64
-  %375 = getelementptr inbounds i32, ptr %372, i64 %374
-  %376 = load i32, ptr %375, align 4, !tbaa !102
-  store i32 %376, ptr %369, align 4, !tbaa !102
-  %377 = getelementptr inbounds i8, ptr %365, i64 8
-  %378 = load i32, ptr %377, align 4, !tbaa !102
-  %379 = sext i32 %378 to i64
-  %380 = getelementptr inbounds i32, ptr %372, i64 %379
-  %381 = load i32, ptr %380, align 4, !tbaa !102
-  store i32 %381, ptr %377, align 4, !tbaa !102
-  %382 = getelementptr inbounds i8, ptr %365, i64 12
-  %383 = load i32, ptr %382, align 4, !tbaa !102
-  %384 = sext i32 %383 to i64
-  %385 = getelementptr inbounds i32, ptr %372, i64 %384
-  %386 = load i32, ptr %385, align 4, !tbaa !102
-  store i32 %386, ptr %382, align 4, !tbaa !102
-  %387 = getelementptr inbounds i8, ptr %365, i64 16
-  %388 = load i32, ptr %387, align 4, !tbaa !102
-  %389 = sext i32 %388 to i64
-  %390 = getelementptr inbounds i32, ptr %372, i64 %389
-  %391 = load i32, ptr %390, align 4, !tbaa !102
-  store i32 %391, ptr %387, align 4, !tbaa !102
-  %392 = getelementptr inbounds i8, ptr %365, i64 20
-  %393 = load i32, ptr %392, align 4, !tbaa !102
-  %394 = sext i32 %393 to i64
-  %395 = getelementptr inbounds i32, ptr %372, i64 %394
-  %396 = load i32, ptr %395, align 4, !tbaa !102
-  store i32 %396, ptr %392, align 4, !tbaa !102
-  %397 = getelementptr inbounds i8, ptr %365, i64 24
-  %398 = load i32, ptr %397, align 4, !tbaa !102
-  %399 = sext i32 %398 to i64
-  %400 = getelementptr inbounds i32, ptr %372, i64 %399
-  %401 = load i32, ptr %400, align 4, !tbaa !102
-  store i32 %401, ptr %397, align 4, !tbaa !102
-  br label %402
+369:                                              ; preds = %364
+  %370 = getelementptr inbounds i8, ptr %366, i64 4
+  %371 = zext nneg i32 %367 to i64
+  %372 = getelementptr inbounds ptr, ptr %99, i64 %371
+  %373 = load ptr, ptr %372, align 8, !tbaa !138
+  %374 = load i32, ptr %370, align 4, !tbaa !102
+  %375 = sext i32 %374 to i64
+  %376 = getelementptr inbounds i32, ptr %373, i64 %375
+  %377 = load i32, ptr %376, align 4, !tbaa !102
+  store i32 %377, ptr %370, align 4, !tbaa !102
+  %378 = getelementptr inbounds i8, ptr %366, i64 8
+  %379 = load i32, ptr %378, align 4, !tbaa !102
+  %380 = sext i32 %379 to i64
+  %381 = getelementptr inbounds i32, ptr %373, i64 %380
+  %382 = load i32, ptr %381, align 4, !tbaa !102
+  store i32 %382, ptr %378, align 4, !tbaa !102
+  %383 = getelementptr inbounds i8, ptr %366, i64 12
+  %384 = load i32, ptr %383, align 4, !tbaa !102
+  %385 = sext i32 %384 to i64
+  %386 = getelementptr inbounds i32, ptr %373, i64 %385
+  %387 = load i32, ptr %386, align 4, !tbaa !102
+  store i32 %387, ptr %383, align 4, !tbaa !102
+  %388 = getelementptr inbounds i8, ptr %366, i64 16
+  %389 = load i32, ptr %388, align 4, !tbaa !102
+  %390 = sext i32 %389 to i64
+  %391 = getelementptr inbounds i32, ptr %373, i64 %390
+  %392 = load i32, ptr %391, align 4, !tbaa !102
+  store i32 %392, ptr %388, align 4, !tbaa !102
+  %393 = getelementptr inbounds i8, ptr %366, i64 20
+  %394 = load i32, ptr %393, align 4, !tbaa !102
+  %395 = sext i32 %394 to i64
+  %396 = getelementptr inbounds i32, ptr %373, i64 %395
+  %397 = load i32, ptr %396, align 4, !tbaa !102
+  store i32 %397, ptr %393, align 4, !tbaa !102
+  %398 = getelementptr inbounds i8, ptr %366, i64 24
+  %399 = load i32, ptr %398, align 4, !tbaa !102
+  %400 = sext i32 %399 to i64
+  %401 = getelementptr inbounds i32, ptr %373, i64 %400
+  %402 = load i32, ptr %401, align 4, !tbaa !102
+  store i32 %402, ptr %398, align 4, !tbaa !102
+  br label %403
 
-402:                                              ; preds = %368, %363
-  %403 = add nuw i64 %364, 1
-  %404 = icmp eq i64 %403, %356
-  br i1 %404, label %.loopexit19, label %363, !llvm.loop !155
+403:                                              ; preds = %369, %364
+  %404 = add nuw i64 %365, 1
+  %405 = icmp eq i64 %404, %357
+  br i1 %405, label %.loopexit19, label %364, !llvm.loop !155
 
-.preheader:                                       ; preds = %.loopexit19, %412
-  %405 = phi i64 [ %413, %412 ], [ %361, %.loopexit19 ]
-  %406 = phi i64 [ %414, %412 ], [ 1, %.loopexit19 ]
-  %407 = getelementptr inbounds ptr, ptr %99, i64 %406
-  %408 = load ptr, ptr %407, align 8, !tbaa !138
-  %409 = icmp eq ptr %408, null
-  br i1 %409, label %412, label %410
+.preheader:                                       ; preds = %.loopexit19, %413
+  %406 = phi i64 [ %414, %413 ], [ %362, %.loopexit19 ]
+  %407 = phi i64 [ %415, %413 ], [ 1, %.loopexit19 ]
+  %408 = getelementptr inbounds ptr, ptr %99, i64 %407
+  %409 = load ptr, ptr %408, align 8, !tbaa !138
+  %410 = icmp eq ptr %409, null
+  br i1 %410, label %413, label %411
 
-410:                                              ; preds = %.preheader
-  tail call void @_ZdaPv(ptr noundef nonnull %408) #30
-  %411 = load i64, ptr %2, align 8, !tbaa !100
-  br label %412
+411:                                              ; preds = %.preheader
+  tail call void @_ZdaPv(ptr noundef nonnull %409) #31
+  %412 = load i64, ptr %2, align 8, !tbaa !100
+  br label %413
 
-412:                                              ; preds = %410, %.preheader
-  %413 = phi i64 [ %405, %.preheader ], [ %411, %410 ]
-  %414 = add nuw i64 %406, 1
-  %415 = icmp ult i64 %414, %413
-  br i1 %415, label %.preheader, label %.loopexit, !llvm.loop !156
+413:                                              ; preds = %411, %.preheader
+  %414 = phi i64 [ %406, %.preheader ], [ %412, %411 ]
+  %415 = add nuw i64 %407, 1
+  %416 = icmp ult i64 %415, %414
+  br i1 %416, label %.preheader, label %.loopexit, !llvm.loop !156
 
-.loopexit:                                        ; preds = %412, %.loopexit19
-  tail call void @_ZdaPv(ptr noundef nonnull %99) #30
-  br label %416
+.loopexit:                                        ; preds = %413, %.loopexit19
+  tail call void @_ZdaPv(ptr noundef nonnull %99) #31
+  br label %417
 
-416:                                              ; preds = %.loopexit, %1
+417:                                              ; preds = %.loopexit, %1
   ret void
 }
 
@@ -2250,7 +2254,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi5ELi4EE4blurEv(ptr
   %8 = icmp ugt i64 %7, 1152921504606846975
   %9 = shl i64 %7, 4
   %10 = select i1 %8, i64 -1, i64 %9
-  %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #28
+  %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #29
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !125
   %14 = load ptr, ptr %5, align 8, !tbaa !117
@@ -2277,7 +2281,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi5ELi4EE4blurEv(ptr
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %18
-  tail call void @_ZSt16__throw_bad_castv() #29
+  tail call void @_ZSt16__throw_bad_castv() #30
   unreachable
 
 34:                                               ; preds = %18
@@ -2629,7 +2633,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi5ELi4EE4blurEv(ptr
 
 281:                                              ; preds = %278, %276, %53
   %282 = phi ptr [ %75, %278 ], [ %76, %276 ], [ %11, %53 ]
-  tail call void @_ZdaPv(ptr noundef nonnull %282) #30
+  tail call void @_ZdaPv(ptr noundef nonnull %282) #31
   ret void
 }
 
@@ -2803,7 +2807,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EED2Ev(ptr nou
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #30
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #31
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -2813,7 +2817,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EED2Ev(ptr nou
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #30
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #31
   br label %11
 
 11:                                               ; preds = %10, %6
@@ -2823,7 +2827,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EED2Ev(ptr nou
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %11
-  tail call void @_ZdaPv(ptr noundef nonnull %13) #30
+  tail call void @_ZdaPv(ptr noundef nonnull %13) #31
   br label %16
 
 16:                                               ; preds = %15, %11
@@ -2851,7 +2855,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EED2Ev(ptr nou
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %26
-  tail call void @_ZdaPv(ptr noundef nonnull %30) #30
+  tail call void @_ZdaPv(ptr noundef nonnull %30) #31
   br label %33
 
 33:                                               ; preds = %32, %26
@@ -2860,7 +2864,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EED2Ev(ptr nou
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %33
-  tail call void @_ZdaPv(ptr noundef nonnull %34) #30
+  tail call void @_ZdaPv(ptr noundef nonnull %34) #31
   br label %37
 
 37:                                               ; preds = %36, %33
@@ -2870,7 +2874,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EED2Ev(ptr nou
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %37
-  tail call void @_ZdaPv(ptr noundef nonnull %39) #30
+  tail call void @_ZdaPv(ptr noundef nonnull %39) #31
   br label %42
 
 42:                                               ; preds = %41, %37
@@ -2878,7 +2882,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EED2Ev(ptr nou
   br i1 %43, label %.loopexit, label %26
 
 .loopexit:                                        ; preds = %42, %20
-  tail call void @_ZdaPv(ptr noundef nonnull %21) #30
+  tail call void @_ZdaPv(ptr noundef nonnull %21) #31
   br label %44
 
 44:                                               ; preds = %.loopexit, %16
@@ -2910,7 +2914,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #11 {
-  %4 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #31
+  %4 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #32
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !25
   ret void
@@ -3041,7 +3045,7 @@ define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture no
   br i1 %98, label %99, label %100
 
 99:                                               ; preds = %83
-  tail call void @_ZSt16__throw_bad_castv() #29
+  tail call void @_ZSt16__throw_bad_castv() #30
   unreachable
 
 100:                                              ; preds = %83
@@ -3179,12 +3183,12 @@ define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 nound
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #16 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.12) #32
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.12) #33
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %25, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.20) #32
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.20) #33
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %10
 
@@ -3193,7 +3197,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
   br label %25
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.14) #32
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.14) #33
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
 
@@ -3202,7 +3206,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
   br label %25
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.16) #32
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.16) #33
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %20
 
@@ -3211,7 +3215,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
   br label %25
 
 20:                                               ; preds = %15
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.18) #32
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.18) #33
   %22 = icmp eq i32 %21, 0
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = select i1 %22, ptr %23, ptr null
@@ -3304,7 +3308,7 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi5ELi4EE7setSizeEm
   store i64 16384, ptr %13, align 8, !tbaa !119
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %14, align 8, !tbaa !118
-  %15 = tail call noalias noundef nonnull dereferenceable(131072) ptr @_Znam(i64 noundef 131072) #28
+  %15 = tail call noalias noundef nonnull dereferenceable(131072) ptr @_Znam(i64 noundef 131072) #29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(131072) %15, i8 -1, i64 131072, i1 false), !tbaa !122
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !116
@@ -3334,7 +3338,7 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi5ELi4EE7setSizeEm
 29:                                               ; preds = %23, %9
   %30 = phi i64 [ 131072, %9 ], [ %27, %23 ]
   %31 = phi i64 [ 131072, %9 ], [ %28, %23 ]
-  %32 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %31) #28
+  %32 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %31) #29
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %32, i8 -1, i64 %30, i1 false), !tbaa !122
   %33 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %32, ptr %33, align 8, !tbaa !116
@@ -3348,9 +3352,9 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi5ELi4EE7setSizeEm
   %39 = phi i64 [ 131072, %12 ], [ %30, %29 ]
   %40 = phi i64 [ 524288, %12 ], [ %37, %29 ]
   %41 = phi i64 [ 262144, %12 ], [ %36, %29 ]
-  %42 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %41) #28
+  %42 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %41) #29
   store ptr %42, ptr %0, align 8, !tbaa !117
-  %43 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %41) #28
+  %43 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %41) #29
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %43, ptr %44, align 8, !tbaa !125
   %45 = add i64 %40, %39
@@ -3403,7 +3407,7 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi5ELi4EE9growExact
   %20 = icmp ugt i64 %1, 1152921504606846975
   %21 = shl i64 %1, 4
   %22 = select i1 %20, i64 -1, i64 %21
-  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #28
+  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #29
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !125
   %26 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3421,7 +3425,7 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi5ELi4EE9growExact
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %31
-  tail call void @_ZdaPv(ptr noundef nonnull %25) #30
+  tail call void @_ZdaPv(ptr noundef nonnull %25) #31
   %34 = load i64, ptr %19, align 8, !tbaa !119
   %35 = load i64, ptr %26, align 8, !tbaa !118
   %36 = shl i64 %34, 4
@@ -3434,7 +3438,7 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi5ELi4EE9growExact
   store ptr %23, ptr %24, align 8, !tbaa !125
   %41 = icmp ugt i64 %40, 1152921504606846975
   %42 = select i1 %41, i64 -1, i64 %38
-  %43 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %42) #28
+  %43 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %42) #29
   %44 = load ptr, ptr %0, align 8, !tbaa !117
   %45 = icmp eq i64 %39, 0
   br i1 %45, label %48, label %46
@@ -3449,7 +3453,7 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi5ELi4EE9growExact
   br i1 %49, label %51, label %50
 
 50:                                               ; preds = %48
-  tail call void @_ZdaPv(ptr noundef nonnull %44) #30
+  tail call void @_ZdaPv(ptr noundef nonnull %44) #31
   br label %51
 
 51:                                               ; preds = %50, %48
@@ -3458,7 +3462,7 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi5ELi4EE9growExact
   %53 = icmp ugt i64 %52, 4611686018427387903
   %54 = shl i64 %52, 2
   %55 = select i1 %53, i64 -1, i64 %54
-  %56 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %55) #28
+  %56 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %55) #29
   %57 = icmp eq i64 %52, 0
   br i1 %57, label %59, label %58
 
@@ -3596,7 +3600,7 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi5ELi4EE9growExact
   br i1 %141, label %70, label %95, !llvm.loop !191
 
 .thread12:                                        ; preds = %.thread, %93
-  tail call void @_ZdaPv(ptr noundef nonnull %62) #30
+  tail call void @_ZdaPv(ptr noundef nonnull %62) #31
   %142 = load i64, ptr %3, align 8, !tbaa !106
   %143 = shl i64 %142, 2
   br label %144
@@ -3646,20 +3650,23 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #25
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <8 x float> @llvm.exp.v8f32(<8 x float>) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v8f32.p0(<8 x float>, ptr nocapture, i32 immarg, <8 x i1>) #25
+declare void @llvm.masked.store.v8f32.p0(<8 x float>, ptr nocapture, i32 immarg, <8 x i1>) #26
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.vector.reduce.fadd.v8f32(float, <8 x float>) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <8 x float> @llvm.masked.load.v8f32.p0(ptr nocapture, i32 immarg, <8 x i1>, <8 x float>) #26
+declare <8 x float> @llvm.masked.load.v8f32.p0(ptr nocapture, i32 immarg, <8 x i1>, <8 x float>) #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr>, i32 immarg, <4 x i1>, <4 x i32>) #27
+declare <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr>, i32 immarg, <4 x i1>, <4 x i32>) #28
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x float> @llvm.ceil.v4f32(<4 x float>) #8
@@ -3674,7 +3681,7 @@ declare <2 x float> @llvm.ceil.v2f32(<2 x float>) #8
 declare <2 x float> @llvm.floor.v2f32(<2 x float>) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr>, i32 immarg, <4 x i1>, <4 x i64>) #27
+declare <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr>, i32 immarg, <4 x i1>, <4 x i64>) #28
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #8
@@ -3704,14 +3711,15 @@ attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #22 = { noreturn "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
 attributes #23 = { uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
 attributes #24 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
-attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
-attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
-attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #28 = { builtin allocsize(0) }
-attributes #29 = { noreturn }
-attributes #30 = { builtin nounwind }
-attributes #31 = { nounwind allocsize(0) }
-attributes #32 = { nounwind willreturn memory(read) }
+attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
+attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
+attributes #29 = { builtin allocsize(0) }
+attributes #30 = { noreturn }
+attributes #31 = { builtin nounwind }
+attributes #32 = { nounwind allocsize(0) }
+attributes #33 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

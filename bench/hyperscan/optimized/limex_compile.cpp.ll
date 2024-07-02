@@ -15921,7 +15921,7 @@ if.end.i41.i:                                     ; preds = %if.end7.i.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
   %8 = add nuw nsw i64 %mul.i.i, 83
   %9 = and i64 %8, 34359738360
-  %cmp.not.i.i.i.i = icmp ult i64 %9, 4294967296
+  %cmp.not.i.i.i.i = icmp ult i32 %add.i.i.i, 536870902
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType0EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i41.i
@@ -15947,7 +15947,7 @@ _ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType0EE15repeatAllocSizeERKNS_17Bounde
   %len.015.i.i = phi i64 [ %9, %if.end.i41.i ], [ 80, %for.body.i ]
   %conv.i.i.i.i = trunc nuw i64 %len.015.i.i to i32
   %add8.i.i = add nuw nsw i64 %len.015.i.i, 67
-  %and9.i.i = and i64 %add8.i.i, 8589934528
+  %and9.i.i = and i64 %add8.i.i, 68719476672
   invoke void @_ZN3ue212bytecode_ptrI13NFARepeatInfoEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %info.i, i64 noundef %and9.i.i, i64 noundef 4)
           to label %.noexc77 unwind label %lpad.loopexit1965
 
@@ -16182,7 +16182,8 @@ if.end.i61.i:                                     ; preds = %if.then61.i
   br label %if.end65.i
 
 if.end65.i:                                       ; preds = %if.end.i61.i, %if.then61.i, %invoke.cont46.i
-  %add.ptr67.i = getelementptr inbounds i8, ptr %12, i64 %len.015.i.i
+  %idx.ext66.i = and i64 %len.015.i.i, 4294967288
+  %add.ptr67.i = getelementptr inbounds i8, ptr %12, i64 %idx.ext66.i
   %tug_triggers.i = getelementptr inbounds i8, ptr %it.sroa.0.0136.i, i64 48
   %50 = load ptr, ptr %tug_triggers.i, align 8
   %_M_finish.i65.i = getelementptr inbounds i8, ptr %it.sroa.0.0136.i, i64 56
@@ -25034,7 +25035,7 @@ for.body74.preheader:                             ; preds = %_ZNK3ue29CharReach1
   %64 = load ptr, ptr %reachMap, align 8
   %add.ptr.i119324 = getelementptr inbounds i8, ptr %64, i64 %add.i.i
   store i8 %num.0251, ptr %add.ptr.i119324, align 1
-  %cmp.not.i.i325 = icmp ult i64 %add.i.i, 256
+  %cmp.not.i.i325 = icmp ult i64 %i.06.i.i, 4
   br i1 %cmp.not.i.i325, label %if.end.i.i, label %for.inc80
 
 if.end.i.i:                                       ; preds = %for.body74.preheader, %_ZNK3ue29CharReach9find_nextEm.exit
@@ -42519,7 +42520,7 @@ for.body20.preheader:                             ; preds = %_ZNK3ue29CharReach1
   %17 = load i32, ptr %add.ptr.i77, align 4
   %inc78 = add i32 %17, 1
   store i32 %inc78, ptr %add.ptr.i77, align 4
-  %cmp.not.i.i79 = icmp ult i64 %add.i.i, 256
+  %cmp.not.i.i79 = icmp ult i64 %i.06.i.i, 4
   br i1 %cmp.not.i.i79, label %if.end.i.i, label %for.inc24
 
 if.end.i.i:                                       ; preds = %for.body20.preheader, %_ZNK3ue29CharReach9find_nextEm.exit
@@ -43151,7 +43152,7 @@ if.end.i41.i:                                     ; preds = %if.end7.i.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
   %8 = add nuw nsw i64 %mul.i.i, 87
   %9 = and i64 %8, 34359738360
-  %cmp.not.i.i.i.i = icmp ult i64 %9, 4294967296
+  %cmp.not.i.i.i.i = icmp ult i32 %add.i.i.i, 536870902
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType1EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i41.i
@@ -43177,7 +43178,7 @@ _ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType1EE15repeatAllocSizeERKNS_17Bounde
   %len.015.i.i = phi i64 [ %9, %if.end.i41.i ], [ 80, %for.body.i ]
   %conv.i.i.i.i = trunc nuw i64 %len.015.i.i to i32
   %add8.i.i = add nuw nsw i64 %len.015.i.i, 71
-  %and9.i.i = and i64 %add8.i.i, 8589934528
+  %and9.i.i = and i64 %add8.i.i, 68719476672
   invoke void @_ZN3ue212bytecode_ptrI13NFARepeatInfoEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %info.i, i64 noundef %and9.i.i, i64 noundef 4)
           to label %.noexc77 unwind label %lpad.loopexit1963
 
@@ -43412,7 +43413,8 @@ if.end.i61.i:                                     ; preds = %if.then54.i
   br label %if.end58.i
 
 if.end58.i:                                       ; preds = %if.end.i61.i, %if.then54.i, %invoke.cont39.i
-  %add.ptr60.i = getelementptr inbounds i8, ptr %12, i64 %len.015.i.i
+  %idx.ext59.i = and i64 %len.015.i.i, 4294967288
+  %add.ptr60.i = getelementptr inbounds i8, ptr %12, i64 %idx.ext59.i
   %tug_triggers.i = getelementptr inbounds i8, ptr %it.sroa.0.0136.i, i64 48
   %50 = load ptr, ptr %tug_triggers.i, align 8
   %_M_finish.i65.i = getelementptr inbounds i8, ptr %it.sroa.0.0136.i, i64 56
@@ -49398,7 +49400,7 @@ if.end.i41.i:                                     ; preds = %if.end7.i.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
   %8 = add nuw nsw i64 %mul.i.i, 95
   %9 = and i64 %8, 34359738352
-  %cmp.not.i.i.i.i = icmp ult i64 %9, 4294967296
+  %cmp.not.i.i.i.i = icmp ult i32 %add.i.i.i, 536870901
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType2EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i41.i
@@ -49424,7 +49426,7 @@ _ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType2EE15repeatAllocSizeERKNS_17Bounde
   %len.015.i.i = phi i64 [ %9, %if.end.i41.i ], [ 80, %for.body.i ]
   %conv.i.i.i.i = trunc nuw i64 %len.015.i.i to i32
   %add8.i.i = add nuw nsw i64 %len.015.i.i, 79
-  %and9.i.i = and i64 %add8.i.i, 8589934528
+  %and9.i.i = and i64 %add8.i.i, 68719476672
   invoke void @_ZN3ue212bytecode_ptrI13NFARepeatInfoEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %info.i, i64 noundef %and9.i.i, i64 noundef 4)
           to label %.noexc77 unwind label %lpad.loopexit2143
 
@@ -49659,7 +49661,8 @@ if.end.i61.i:                                     ; preds = %if.then54.i
   br label %if.end58.i
 
 if.end58.i:                                       ; preds = %if.end.i61.i, %if.then54.i, %invoke.cont39.i
-  %add.ptr60.i = getelementptr inbounds i8, ptr %12, i64 %len.015.i.i
+  %idx.ext59.i = and i64 %len.015.i.i, 4294967280
+  %add.ptr60.i = getelementptr inbounds i8, ptr %12, i64 %idx.ext59.i
   %tug_triggers.i = getelementptr inbounds i8, ptr %it.sroa.0.0136.i, i64 48
   %50 = load ptr, ptr %tug_triggers.i, align 8
   %_M_finish.i65.i = getelementptr inbounds i8, ptr %it.sroa.0.0136.i, i64 56
@@ -56008,7 +56011,7 @@ if.end.i41.i:                                     ; preds = %if.end7.i.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
   %8 = add nuw nsw i64 %mul.i.i, 111
   %9 = and i64 %8, 34359738336
-  %cmp.not.i.i.i.i = icmp ult i64 %9, 4294967296
+  %cmp.not.i.i.i.i = icmp ult i32 %add.i.i.i, 536870899
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType3EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i41.i
@@ -56034,7 +56037,7 @@ _ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType3EE15repeatAllocSizeERKNS_17Bounde
   %len.015.i.i = phi i64 [ %9, %if.end.i41.i ], [ 96, %for.body.i ]
   %conv.i.i.i.i = trunc nuw i64 %len.015.i.i to i32
   %add8.i.i = add nuw nsw i64 %len.015.i.i, 95
-  %and9.i.i = and i64 %add8.i.i, 8589934528
+  %and9.i.i = and i64 %add8.i.i, 68719476672
   invoke void @_ZN3ue212bytecode_ptrI13NFARepeatInfoEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %info.i, i64 noundef %and9.i.i, i64 noundef 4)
           to label %.noexc77 unwind label %lpad.loopexit2143
 
@@ -56269,7 +56272,8 @@ if.end.i61.i:                                     ; preds = %if.then54.i
   br label %if.end58.i
 
 if.end58.i:                                       ; preds = %if.end.i61.i, %if.then54.i, %invoke.cont39.i
-  %add.ptr60.i = getelementptr inbounds i8, ptr %12, i64 %len.015.i.i
+  %idx.ext59.i = and i64 %len.015.i.i, 4294967264
+  %add.ptr60.i = getelementptr inbounds i8, ptr %12, i64 %idx.ext59.i
   %tug_triggers.i = getelementptr inbounds i8, ptr %it.sroa.0.0136.i, i64 48
   %50 = load ptr, ptr %tug_triggers.i, align 8
   %_M_finish.i65.i = getelementptr inbounds i8, ptr %it.sroa.0.0136.i, i64 56
@@ -62615,7 +62619,7 @@ if.end.i41.i:                                     ; preds = %if.end7.i.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
   %8 = add nuw nsw i64 %mul.i.i, 95
   %9 = and i64 %8, 34359738352
-  %cmp.not.i.i.i.i = icmp ult i64 %9, 4294967296
+  %cmp.not.i.i.i.i = icmp ult i32 %add.i.i.i, 536870901
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType4EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i41.i
@@ -62641,7 +62645,7 @@ _ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType4EE15repeatAllocSizeERKNS_17Bounde
   %len.015.i.i = phi i64 [ %9, %if.end.i41.i ], [ 80, %for.body.i ]
   %conv.i.i.i.i = trunc nuw i64 %len.015.i.i to i32
   %add8.i.i = add nuw nsw i64 %len.015.i.i, 111
-  %and9.i.i = and i64 %add8.i.i, 8589934528
+  %and9.i.i = and i64 %add8.i.i, 68719476672
   invoke void @_ZN3ue212bytecode_ptrI13NFARepeatInfoEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %info.i, i64 noundef %and9.i.i, i64 noundef 4)
           to label %.noexc77 unwind label %lpad.loopexit2143
 
@@ -62876,7 +62880,8 @@ if.end.i61.i:                                     ; preds = %if.then54.i
   br label %if.end58.i
 
 if.end58.i:                                       ; preds = %if.end.i61.i, %if.then54.i, %invoke.cont39.i
-  %add.ptr60.i = getelementptr inbounds i8, ptr %12, i64 %len.015.i.i
+  %idx.ext59.i = and i64 %len.015.i.i, 4294967280
+  %add.ptr60.i = getelementptr inbounds i8, ptr %12, i64 %idx.ext59.i
   %tug_triggers.i = getelementptr inbounds i8, ptr %it.sroa.0.0136.i, i64 48
   %50 = load ptr, ptr %tug_triggers.i, align 8
   %_M_finish.i65.i = getelementptr inbounds i8, ptr %it.sroa.0.0136.i, i64 56
@@ -69224,7 +69229,7 @@ if.end.i41.i:                                     ; preds = %if.end7.i.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
   %8 = add nuw nsw i64 %mul.i.i, 143
   %9 = and i64 %8, 34359738304
-  %cmp.not.i.i.i.i = icmp ult i64 %9, 4294967296
+  %cmp.not.i.i.i.i = icmp ult i32 %add.i.i.i, 536870895
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType5EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i41.i
@@ -69250,7 +69255,7 @@ _ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType5EE15repeatAllocSizeERKNS_17Bounde
   %len.015.i.i = phi i64 [ %9, %if.end.i41.i ], [ 128, %for.body.i ]
   %conv.i.i.i.i = trunc nuw i64 %len.015.i.i to i32
   %add8.i.i = add nuw nsw i64 %len.015.i.i, 127
-  %and9.i.i = and i64 %add8.i.i, 8589934528
+  %and9.i.i = and i64 %add8.i.i, 68719476672
   invoke void @_ZN3ue212bytecode_ptrI13NFARepeatInfoEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %info.i, i64 noundef %and9.i.i, i64 noundef 4)
           to label %.noexc77 unwind label %lpad.loopexit2143
 
@@ -69485,7 +69490,8 @@ if.end.i61.i:                                     ; preds = %if.then54.i
   br label %if.end58.i
 
 if.end58.i:                                       ; preds = %if.end.i61.i, %if.then54.i, %invoke.cont39.i
-  %add.ptr60.i = getelementptr inbounds i8, ptr %12, i64 %len.015.i.i
+  %idx.ext59.i = and i64 %len.015.i.i, 4294967232
+  %add.ptr60.i = getelementptr inbounds i8, ptr %12, i64 %idx.ext59.i
   %tug_triggers.i = getelementptr inbounds i8, ptr %it.sroa.0.0136.i, i64 48
   %50 = load ptr, ptr %tug_triggers.i, align 8
   %_M_finish.i65.i = getelementptr inbounds i8, ptr %it.sroa.0.0136.i, i64 56

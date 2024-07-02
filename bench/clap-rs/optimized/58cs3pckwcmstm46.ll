@@ -59,8 +59,10 @@ define hidden void @"_ZN105_$LT$core..slice..sort..merge_sort..BufGuard$LT$T$C$E
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = shl nuw nsw i64 %4, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28
+  %5 = icmp ult i64 %4, 288230376151711744
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28
   ret void
 }
 
@@ -69,8 +71,10 @@ define hidden void @"_ZN105_$LT$core..slice..sort..merge_sort..BufGuard$LT$T$C$E
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = shl nuw nsw i64 %4, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28
+  %5 = icmp ult i64 %4, 288230376151711744
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28
   ret void
 }
 
@@ -79,8 +83,10 @@ define hidden void @"_ZN105_$LT$core..slice..sort..merge_sort..BufGuard$LT$T$C$E
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = shl nuw nsw i64 %4, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28
+  %5 = icmp ult i64 %4, 288230376151711744
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28
   ret void
 }
 
@@ -89,8 +95,10 @@ define hidden void @"_ZN105_$LT$core..slice..sort..merge_sort..BufGuard$LT$T$C$E
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = shl nuw nsw i64 %4, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28
+  %5 = icmp ult i64 %4, 288230376151711744
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28
   ret void
 }
 
@@ -99,8 +107,10 @@ define hidden void @"_ZN105_$LT$core..slice..sort..merge_sort..BufGuard$LT$T$C$E
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = shl nuw nsw i64 %4, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28
+  %5 = icmp ult i64 %4, 288230376151711744
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28
   ret void
 }
 
@@ -109,8 +119,10 @@ define hidden void @"_ZN110_$LT$core..slice..sort..merge_sort..RunVec$LT$RunAllo
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = shl nuw nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28
+  %5 = icmp ult i64 %4, 576460752303423488
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28
   ret void
 }
 
@@ -119,8 +131,10 @@ define hidden void @"_ZN110_$LT$core..slice..sort..merge_sort..RunVec$LT$RunAllo
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = shl nuw nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28
+  %5 = icmp ult i64 %4, 576460752303423488
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28
   ret void
 }
 
@@ -129,8 +143,10 @@ define hidden void @"_ZN110_$LT$core..slice..sort..merge_sort..RunVec$LT$RunAllo
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = shl nuw nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28
+  %5 = icmp ult i64 %4, 576460752303423488
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28
   ret void
 }
 
@@ -139,8 +155,10 @@ define hidden void @"_ZN110_$LT$core..slice..sort..merge_sort..RunVec$LT$RunAllo
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = shl nuw nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28
+  %5 = icmp ult i64 %4, 576460752303423488
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28
   ret void
 }
 
@@ -149,8 +167,10 @@ define hidden void @"_ZN110_$LT$core..slice..sort..merge_sort..RunVec$LT$RunAllo
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = shl nuw nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28
+  %5 = icmp ult i64 %4, 576460752303423488
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28
   ret void
 }
 
@@ -159,8 +179,10 @@ define hidden void @"_ZN110_$LT$core..slice..sort..merge_sort..RunVec$LT$RunAllo
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = shl nuw nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28
+  %5 = icmp ult i64 %4, 576460752303423488
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28
   ret void
 }
 
@@ -169,8 +191,10 @@ define hidden void @"_ZN110_$LT$core..slice..sort..merge_sort..RunVec$LT$RunAllo
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = shl nuw nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28
+  %5 = icmp ult i64 %4, 576460752303423488
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28
   ret void
 }
 
@@ -695,8 +719,10 @@ define hidden void @"_ZN4core3ptr1055drop_in_place$LT$core..slice..sort..merge_s
   %2 = load ptr, ptr %0, align 8, !alias.scope !232, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !232, !noundef !4
-  %5 = shl nuw nsw i64 %4, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28, !noalias !232
+  %5 = icmp ult i64 %4, 288230376151711744
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28, !noalias !232
   ret void
 }
 
@@ -843,8 +869,10 @@ define hidden void @"_ZN4core3ptr1077drop_in_place$LT$core..slice..sort..merge_s
   %2 = load ptr, ptr %0, align 8, !alias.scope !279, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !279, !noundef !4
-  %5 = shl nuw nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28, !noalias !279
+  %5 = icmp ult i64 %4, 576460752303423488
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28, !noalias !279
   ret void
 }
 
@@ -2299,8 +2327,10 @@ define hidden void @"_ZN4core3ptr1733drop_in_place$LT$core..slice..sort..merge_s
   %2 = load ptr, ptr %0, align 8, !alias.scope !1135, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !1135, !noundef !4
-  %5 = shl nuw nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28, !noalias !1135
+  %5 = icmp ult i64 %4, 576460752303423488
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28, !noalias !1135
   ret void
 }
 
@@ -2392,8 +2422,10 @@ define hidden void @"_ZN4core3ptr1967drop_in_place$LT$core..slice..sort..merge_s
   %2 = load ptr, ptr %0, align 8, !alias.scope !1170, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !1170, !noundef !4
-  %5 = shl nuw nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28, !noalias !1170
+  %5 = icmp ult i64 %4, 576460752303423488
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28, !noalias !1170
   ret void
 }
 
@@ -3569,8 +3601,10 @@ define hidden void @"_ZN4core3ptr502drop_in_place$LT$core..slice..sort..merge_so
   %2 = load ptr, ptr %0, align 8, !alias.scope !2020, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !2020, !noundef !4
-  %5 = shl nuw nsw i64 %4, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28, !noalias !2020
+  %5 = icmp ult i64 %4, 288230376151711744
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28, !noalias !2020
   ret void
 }
 
@@ -4372,8 +4406,10 @@ define hidden void @"_ZN4core3ptr532drop_in_place$LT$core..slice..sort..merge_so
   %2 = load ptr, ptr %0, align 8, !alias.scope !2648, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !2648, !noundef !4
-  %5 = shl nuw nsw i64 %4, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28, !noalias !2648
+  %5 = icmp ult i64 %4, 288230376151711744
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28, !noalias !2648
   ret void
 }
 
@@ -5259,8 +5295,10 @@ define hidden void @"_ZN4core3ptr610drop_in_place$LT$core..slice..sort..merge_so
   %2 = load ptr, ptr %0, align 8, !alias.scope !3264, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !3264, !noundef !4
-  %5 = shl nuw nsw i64 %4, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28, !noalias !3264
+  %5 = icmp ult i64 %4, 288230376151711744
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28, !noalias !3264
   ret void
 }
 
@@ -8257,8 +8295,10 @@ define hidden void @"_ZN4core3ptr853drop_in_place$LT$core..slice..sort..merge_so
   %2 = load ptr, ptr %0, align 8, !alias.scope !4915, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !4915, !noundef !4
-  %5 = shl nuw nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28, !noalias !4915
+  %5 = icmp ult i64 %4, 576460752303423488
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28, !noalias !4915
   ret void
 }
 
@@ -8349,8 +8389,10 @@ define hidden void @"_ZN4core3ptr861drop_in_place$LT$core..slice..sort..merge_so
   %2 = load ptr, ptr %0, align 8, !alias.scope !4942, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !4942, !noundef !4
-  %5 = shl nuw nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28, !noalias !4942
+  %5 = icmp ult i64 %4, 576460752303423488
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28, !noalias !4942
   ret void
 }
 
@@ -8739,8 +8781,10 @@ define hidden void @"_ZN4core3ptr885drop_in_place$LT$core..slice..sort..merge_so
   %2 = load ptr, ptr %0, align 8, !alias.scope !5212, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !5212, !noundef !4
-  %5 = shl nuw nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28, !noalias !5212
+  %5 = icmp ult i64 %4, 576460752303423488
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28, !noalias !5212
   ret void
 }
 
@@ -9240,8 +9284,10 @@ define hidden void @"_ZN4core3ptr938drop_in_place$LT$core..slice..sort..merge_so
   %2 = load ptr, ptr %0, align 8, !alias.scope !5495, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !5495, !noundef !4
-  %5 = shl nuw nsw i64 %4, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28, !noalias !5495
+  %5 = icmp ult i64 %4, 288230376151711744
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28, !noalias !5495
   ret void
 }
 
@@ -9880,8 +9926,10 @@ define hidden void @"_ZN4core3ptr991drop_in_place$LT$core..slice..sort..merge_so
   %2 = load ptr, ptr %0, align 8, !alias.scope !5862, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !5862, !noundef !4
-  %5 = shl nuw nsw i64 %4, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 8) #28, !noalias !5862
+  %5 = icmp ult i64 %4, 576460752303423488
+  tail call void @llvm.assume(i1 %5)
+  %6 = shl nuw nsw i64 %4, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef 8) #28, !noalias !5862
   ret void
 }
 

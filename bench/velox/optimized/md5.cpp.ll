@@ -1288,7 +1288,7 @@ if.then:                                          ; preds = %entry
   %0 = mul i128 %div, 10000000000000000000
   %rem2.decomposed = sub i128 %x.sroa.0.0.insert.insert, %0
   %conv = trunc nuw i128 %rem2.decomposed to i64
-  %cmp4.not = icmp ult i128 %x.sroa.0.0.insert.insert, -155814926183842947303374607431768211456
+  %cmp4.not = icmp ult i64 %x.coerce1, -8446744073709551616
   br i1 %cmp4.not, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %if.then

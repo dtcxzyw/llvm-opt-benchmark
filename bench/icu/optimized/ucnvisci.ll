@@ -2036,7 +2036,7 @@ if.then480:                                       ; preds = %_ZL14isPNJConsonant
   br i1 %cmp492, label %if.else502, label %if.else561
 
 if.else502:                                       ; preds = %if.then480
-  %cmp503 = icmp ugt i32 %or482, 65535
+  %cmp503 = icmp ugt i32 %or, 65535
   br i1 %cmp503, label %if.then504, label %if.end513
 
 if.then504:                                       ; preds = %if.else502

@@ -73,7 +73,7 @@ define void @_ZN7glslang14TPoolAllocatorC2Eii(ptr nocapture noundef nonnull alig
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %9, ptr %10, align 8
   %11 = and i32 %2, -8
-  %12 = icmp eq i32 %11, 0
+  %12 = icmp ult i32 %2, 8
   %narrow = select i1 %12, i32 8, i32 %11
   %spec.select = sext i32 %narrow to i64
   br label %13

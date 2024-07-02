@@ -262,7 +262,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %115 = fmul reassoc nsz arcp contract afn float %114, 5.000000e-01
   %116 = fadd reassoc nsz arcp contract afn float %115, -1.000000e+00
   %117 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %116
-  %118 = icmp ult i32 %29, 8
+  %118 = icmp ult i32 %28, 8
   %119 = and i64 %30, -8
   %120 = insertelement <8 x float> poison, float %117, i64 0
   %121 = shufflevector <8 x float> %120, <8 x float> poison, <8 x i32> zeroinitializer

@@ -2535,8 +2535,8 @@ while.end.i:                                      ; preds = %land.rhs.i
   br i1 %cmp2.not.i, label %land.lhs.true.i, label %if.else.i
 
 while.end.thread.i:                               ; preds = %while.cond.i
-  %cmp2.not12.i = icmp ult i64 %or.i, 8
-  br i1 %cmp2.not12.i, label %if.then.i, label %if.end5.sink.split.i
+  %cmp2.not12.i = icmp eq i64 %shl.i, 0
+  br i1 %cmp2.not12.i, label %land.lhs.true.i, label %if.end5.sink.split.i
 
 if.else.i:                                        ; preds = %while.end.i
   %shl.i.i45 = shl nuw i64 %i.0.i, 3
@@ -2548,15 +2548,14 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %while.e
   store i64 %.sink.i, ptr %long_value.i.i, align 8
   br label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %while.end.i, %if.end5.sink.split.i
-  %v.val.i48 = phi i64 [ %.sink.i, %if.end5.sink.split.i ], [ %or.i, %while.end.i ]
+land.lhs.true.i:                                  ; preds = %while.end.thread.i, %while.end.i, %if.end5.sink.split.i
+  %v.val.i48 = phi i64 [ %.sink.i, %if.end5.sink.split.i ], [ %or.i, %while.end.i ], [ %or.i, %while.end.thread.i ]
   %cmp.i.i = icmp ugt i64 %v.val.i48, 15
   br i1 %cmp.i.i, label %return, label %if.then.i
 
-if.then.i:                                        ; preds = %while.end.thread.i, %land.lhs.true.i
-  %v.val.i4881 = phi i64 [ %v.val.i48, %land.lhs.true.i ], [ %or.i, %while.end.thread.i ]
+if.then.i:                                        ; preds = %land.lhs.true.i
   %v.val8.i = load i32, ptr %ob_digit.i, align 8
-  %and.i.i49 = and i64 %v.val.i4881, 3
+  %and.i.i49 = and i64 %v.val.i48, 3
   %sub.i.i = sub nsw i64 1, %and.i.i49
   %conv.i9.i = zext i32 %v.val8.i to i64
   %mul.i.i = mul nsw i64 %sub.i.i, %conv.i9.i

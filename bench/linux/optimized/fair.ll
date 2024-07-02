@@ -2396,39 +2396,43 @@ define dso_local void @nohz_run_idle_balance(i32 noundef %0) local_unnamed_addr 
   %9 = and i32 %8, -5
   %10 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7, i32 %9, ptr elementtype(i32) %7, i32 %8) #27, !srcloc !48
   %11 = extractvalue { i8, i32 } %10, 0
-  %12 = icmp eq i8 %11, 0
-  br i1 %12, label %.lr.ph, label %._crit_edge, !prof !49
+  %12 = icmp ult i8 %11, 2
+  tail call void @llvm.assume(i1 %12)
+  %13 = icmp eq i8 %11, 0
+  br i1 %13, label %.lr.ph, label %._crit_edge, !prof !49
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %13 = phi { i8, i32 } [ %16, %.lr.ph ], [ %10, %1 ]
-  %14 = extractvalue { i8, i32 } %13, 1
-  %15 = and i32 %14, -5
-  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7, i32 %15, ptr elementtype(i32) %7, i32 %14) #27, !srcloc !48
-  %17 = extractvalue { i8, i32 } %16, 0
-  %18 = icmp eq i8 %17, 0
-  br i1 %18, label %.lr.ph, label %._crit_edge, !prof !50, !llvm.loop !51
+  %14 = phi { i8, i32 } [ %17, %.lr.ph ], [ %10, %1 ]
+  %15 = extractvalue { i8, i32 } %14, 1
+  %16 = and i32 %15, -5
+  %17 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7, i32 %16, ptr elementtype(i32) %7, i32 %15) #27, !srcloc !48
+  %18 = extractvalue { i8, i32 } %17, 0
+  %19 = icmp ult i8 %18, 2
+  tail call void @llvm.assume(i1 %19)
+  %20 = icmp eq i8 %18, 0
+  br i1 %20, label %.lr.ph, label %._crit_edge, !prof !50, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.lcssa = phi i32 [ %8, %1 ], [ %14, %.lr.ph ]
-  %19 = icmp eq i32 %.lcssa, 4
-  br i1 %19, label %20, label %30
+  %.lcssa = phi i32 [ %8, %1 ], [ %15, %.lr.ph ]
+  %21 = icmp eq i32 %.lcssa, 4
+  br i1 %21, label %22, label %32
 
-20:                                               ; preds = %._crit_edge
-  %21 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #30, !srcloc !52
-  %22 = inttoptr i64 %21 to ptr
-  %23 = load volatile i64, ptr %22, align 8
-  %24 = and i64 %23, 8
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %30
+22:                                               ; preds = %._crit_edge
+  %23 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #30, !srcloc !52
+  %24 = inttoptr i64 %23 to ptr
+  %25 = load volatile i64, ptr %24, align 8
+  %26 = and i64 %25, 8
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %32
 
-26:                                               ; preds = %20
-  %27 = load i64, ptr %3, align 8
-  %28 = add i64 %27, ptrtoint (ptr @runqueues to i64)
-  %29 = inttoptr i64 %28 to ptr
-  tail call fastcc void @_nohz_idle_balance(ptr noundef %29, i32 noundef 2)
-  br label %30
+28:                                               ; preds = %22
+  %29 = load i64, ptr %3, align 8
+  %30 = add i64 %29, ptrtoint (ptr @runqueues to i64)
+  %31 = inttoptr i64 %30 to ptr
+  tail call fastcc void @_nohz_idle_balance(ptr noundef %31, i32 noundef 2)
+  br label %32
 
-30:                                               ; preds = %26, %20, %._crit_edge
+32:                                               ; preds = %28, %22, %._crit_edge
   ret void
 }
 
@@ -13497,33 +13501,37 @@ define internal fastcc void @kick_ilb(i32 noundef %0) unnamed_addr #1 align 16 {
   %40 = or i32 %39, %0
   %41 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38, i32 %40, ptr elementtype(i32) %38, i32 %39) #27, !srcloc !48
   %42 = extractvalue { i8, i32 } %41, 0
-  %43 = icmp eq i8 %42, 0
-  br i1 %43, label %.lr.ph, label %._crit_edge, !prof !49
+  %43 = icmp ult i8 %42, 2
+  tail call void @llvm.assume(i1 %43)
+  %44 = icmp eq i8 %42, 0
+  br i1 %44, label %.lr.ph, label %._crit_edge, !prof !49
 
 .lr.ph:                                           ; preds = %32, %.lr.ph
-  %44 = phi { i8, i32 } [ %47, %.lr.ph ], [ %41, %32 ]
-  %45 = extractvalue { i8, i32 } %44, 1
-  %46 = or i32 %45, %0
-  %47 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38, i32 %46, ptr elementtype(i32) %38, i32 %45) #27, !srcloc !48
-  %48 = extractvalue { i8, i32 } %47, 0
-  %49 = icmp eq i8 %48, 0
-  br i1 %49, label %.lr.ph, label %._crit_edge, !prof !50, !llvm.loop !166
+  %45 = phi { i8, i32 } [ %48, %.lr.ph ], [ %41, %32 ]
+  %46 = extractvalue { i8, i32 } %45, 1
+  %47 = or i32 %46, %0
+  %48 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38, i32 %47, ptr elementtype(i32) %38, i32 %46) #27, !srcloc !48
+  %49 = extractvalue { i8, i32 } %48, 0
+  %50 = icmp ult i8 %49, 2
+  tail call void @llvm.assume(i1 %50)
+  %51 = icmp eq i8 %49, 0
+  br i1 %51, label %.lr.ph, label %._crit_edge, !prof !50, !llvm.loop !166
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
-  %.lcssa = phi i32 [ %39, %32 ], [ %45, %.lr.ph ]
-  %50 = and i32 %.lcssa, 11
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %.thread5
+  %.lcssa = phi i32 [ %39, %32 ], [ %46, %.lr.ph ]
+  %52 = and i32 %.lcssa, 11
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %.thread5
 
-52:                                               ; preds = %._crit_edge
-  %53 = load i64, ptr %34, align 8
-  %54 = add i64 %53, ptrtoint (ptr @runqueues to i64)
-  %55 = inttoptr i64 %54 to ptr
-  %56 = getelementptr inbounds i8, ptr %55, i64 32
-  %57 = tail call i32 @smp_call_function_single_async(i32 noundef %19, ptr noundef %56) #27
+54:                                               ; preds = %._crit_edge
+  %55 = load i64, ptr %34, align 8
+  %56 = add i64 %55, ptrtoint (ptr @runqueues to i64)
+  %57 = inttoptr i64 %56 to ptr
+  %58 = getelementptr inbounds i8, ptr %57, i64 32
+  %59 = tail call i32 @smp_call_function_single_async(i32 noundef %19, ptr noundef %58) #27
   br label %.thread5
 
-.thread5:                                         ; preds = %9, %27, %17, %52, %._crit_edge
+.thread5:                                         ; preds = %9, %27, %17, %54, %._crit_edge
   ret void
 }
 

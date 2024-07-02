@@ -359,7 +359,7 @@ ginVacuumEntryPage.exit.thread:                   ; preds = %BufferGetPage.exit.
   %150 = shl nuw i32 %149, 16
   %151 = zext i16 %.val79.i to i32
   %152 = or disjoint i32 %150, %151
-  %.not69.i = icmp slt i32 %152, 0
+  %.not69.i = icmp slt i32 %150, 0
   br i1 %.not69.i, label %156, label %.thread.i
 
 .thread.i:                                        ; preds = %147

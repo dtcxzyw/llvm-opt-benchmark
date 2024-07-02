@@ -17,11 +17,11 @@ define range(i64 -1, 2147483648) i64 @msgrcv(i32 noundef %0, ptr noundef writeon
 
 8:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #6, !srcloc !6
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #7, !srcloc !6
   %9 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !7
-  %10 = call ptr @nxmsg_lookup(i32 noundef %0) #6
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !7
+  %10 = call ptr @nxmsg_lookup(i32 noundef %0) #7
   %11 = icmp eq ptr %10, null
   br i1 %11, label %msgrcv_wait.exit.thread, label %12
 
@@ -68,15 +68,15 @@ define range(i64 -1, 2147483648) i64 @msgrcv(i32 noundef %0, ptr noundef writeon
   store i16 %31, ptr %27, align 2
   %32 = getelementptr inbounds i8, ptr %28, i64 68
   store i16 0, ptr %32, align 4
-  %33 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %28, i1 noundef zeroext true) #6
+  %33 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %28, i1 noundef zeroext true) #7
   %34 = getelementptr inbounds i8, ptr %28, i64 48
   store i8 7, ptr %34, align 16
-  %35 = call zeroext i1 @nxsched_add_prioritized(ptr noundef %28, ptr noundef nonnull %10) #6
+  %35 = call zeroext i1 @nxsched_add_prioritized(ptr noundef %28, ptr noundef nonnull %10) #7
   br i1 %33, label %36, label %38
 
 36:                                               ; preds = %._crit_edge56.split.us.us.us.thread.i
   %37 = load ptr, ptr @g_readytorun, align 8
-  call void @up_switch_context(ptr noundef %37, ptr noundef nonnull %28) #6
+  call void @up_switch_context(ptr noundef %37, ptr noundef nonnull %28) #7
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge56.split.us.us.us.thread.i
@@ -163,15 +163,15 @@ define range(i64 -1, 2147483648) i64 @msgrcv(i32 noundef %0, ptr noundef writeon
   store i16 %64, ptr %27, align 2
   %65 = getelementptr inbounds i8, ptr %61, i64 68
   store i16 0, ptr %65, align 4
-  %66 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %61, i1 noundef zeroext true) #6
+  %66 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %61, i1 noundef zeroext true) #7
   %67 = getelementptr inbounds i8, ptr %61, i64 48
   store i8 7, ptr %67, align 16
-  %68 = call zeroext i1 @nxsched_add_prioritized(ptr noundef %61, ptr noundef nonnull %10) #6
+  %68 = call zeroext i1 @nxsched_add_prioritized(ptr noundef %61, ptr noundef nonnull %10) #7
   br i1 %66, label %69, label %71
 
 69:                                               ; preds = %60
   %70 = load ptr, ptr @g_readytorun, align 8
-  call void @up_switch_context(ptr noundef %70, ptr noundef nonnull %61) #6
+  call void @up_switch_context(ptr noundef %70, ptr noundef nonnull %61) #7
   br label %71
 
 71:                                               ; preds = %69, %60
@@ -207,15 +207,15 @@ define range(i64 -1, 2147483648) i64 @msgrcv(i32 noundef %0, ptr noundef writeon
   store i16 %82, ptr %27, align 2
   %83 = getelementptr inbounds i8, ptr %79, i64 68
   store i16 0, ptr %83, align 4
-  %84 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %79, i1 noundef zeroext true) #6
+  %84 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %79, i1 noundef zeroext true) #7
   %85 = getelementptr inbounds i8, ptr %79, i64 48
   store i8 7, ptr %85, align 16
-  %86 = call zeroext i1 @nxsched_add_prioritized(ptr noundef %79, ptr noundef nonnull %10) #6
+  %86 = call zeroext i1 @nxsched_add_prioritized(ptr noundef %79, ptr noundef nonnull %10) #7
   br i1 %84, label %87, label %89
 
 87:                                               ; preds = %._crit_edge56.split.us.i
   %88 = load ptr, ptr @g_readytorun, align 8
-  call void @up_switch_context(ptr noundef %88, ptr noundef nonnull %79) #6
+  call void @up_switch_context(ptr noundef %88, ptr noundef nonnull %79) #7
   br label %89
 
 89:                                               ; preds = %87, %._crit_edge56.split.us.i
@@ -282,68 +282,70 @@ msgrcv_wait.exit.thread50:                        ; preds = %.lr.ph.split.split.
   %115 = getelementptr inbounds i8, ptr %10, i64 32
   %116 = load i16, ptr %115, align 8
   %117 = icmp sgt i16 %116, 0
-  br i1 %117, label %120, label %msgrcv_wait.exit.thread
+  br i1 %117, label %121, label %msgrcv_wait.exit.thread
 
 msgrcv_wait.exit:                                 ; preds = %89, %71, %38
   %.us-phi63.i = phi i16 [ %39, %38 ], [ %72, %71 ], [ %90, %89 ]
   %118 = zext nneg i16 %.us-phi63.i to i32
   %119 = sub nsw i32 0, %118
+  %120 = icmp sgt i16 %.us-phi63.i, 0
+  call void @llvm.assume(i1 %120)
   br label %msgrcv_wait.exit.thread
 
-120:                                              ; preds = %msgrcv_wait.exit.thread50
-  %121 = load ptr, ptr @g_readytorun, align 8
-  %122 = getelementptr inbounds i8, ptr %10, i64 16
-  %123 = call ptr @dq_remfirst(ptr noundef nonnull %122) #6
-  %124 = getelementptr inbounds i8, ptr %123, i64 88
-  %125 = load ptr, ptr %124, align 8
-  %.not = icmp eq ptr %125, null
-  br i1 %.not, label %129, label %126
+121:                                              ; preds = %msgrcv_wait.exit.thread50
+  %122 = load ptr, ptr @g_readytorun, align 8
+  %123 = getelementptr inbounds i8, ptr %10, i64 16
+  %124 = call ptr @dq_remfirst(ptr noundef nonnull %123) #7
+  %125 = getelementptr inbounds i8, ptr %124, i64 88
+  %126 = load ptr, ptr %125, align 8
+  %.not = icmp eq ptr %126, null
+  br i1 %.not, label %130, label %127
 
-126:                                              ; preds = %120
-  %127 = getelementptr inbounds i8, ptr %123, i64 72
-  %128 = call i32 @wd_cancel(ptr noundef nonnull %127) #6
-  br label %129
+127:                                              ; preds = %121
+  %128 = getelementptr inbounds i8, ptr %124, i64 72
+  %129 = call i32 @wd_cancel(ptr noundef nonnull %128) #7
+  br label %130
 
-129:                                              ; preds = %126, %120
-  %130 = load i16, ptr %115, align 8
-  %131 = add i16 %130, -1
-  store i16 %131, ptr %115, align 8
-  %132 = getelementptr inbounds i8, ptr %123, i64 128
-  store ptr null, ptr %132, align 16
-  %133 = call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %123) #6
-  br i1 %133, label %134, label %msgrcv_wait.exit.thread
+130:                                              ; preds = %127, %121
+  %131 = load i16, ptr %115, align 8
+  %132 = add i16 %131, -1
+  store i16 %132, ptr %115, align 8
+  %133 = getelementptr inbounds i8, ptr %124, i64 128
+  store ptr null, ptr %133, align 16
+  %134 = call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %124) #7
+  br i1 %134, label %135, label %msgrcv_wait.exit.thread
 
-134:                                              ; preds = %129
-  call void @up_switch_context(ptr noundef nonnull %123, ptr noundef %121) #6
+135:                                              ; preds = %130
+  call void @up_switch_context(ptr noundef nonnull %124, ptr noundef %122) #7
   br label %msgrcv_wait.exit.thread
 
-msgrcv_wait.exit.thread:                          ; preds = %95, %msgrcv_wait.exit, %.split.us.split.i, %._crit_edge56.split.us.us.i, %.lr.ph.split.split.us.i, %12, %8, %msgrcv_wait.exit.thread50, %134, %129
-  %.037 = phi i32 [ %119, %msgrcv_wait.exit ], [ %108, %134 ], [ %108, %129 ], [ %108, %msgrcv_wait.exit.thread50 ], [ -22, %8 ], [ -90, %12 ], [ -11, %.lr.ph.split.split.us.i ], [ -11, %._crit_edge56.split.us.us.i ], [ -11, %.split.us.split.i ], [ -11, %95 ]
-  %135 = and i64 %9, 512
-  %.not.i44 = icmp eq i64 %135, 0
-  br i1 %.not.i44, label %up_irq_restore.exit, label %136
+msgrcv_wait.exit.thread:                          ; preds = %95, %msgrcv_wait.exit, %.split.us.split.i, %._crit_edge56.split.us.us.i, %.lr.ph.split.split.us.i, %12, %8, %msgrcv_wait.exit.thread50, %135, %130
+  %.037 = phi i32 [ %119, %msgrcv_wait.exit ], [ %108, %135 ], [ %108, %130 ], [ %108, %msgrcv_wait.exit.thread50 ], [ -22, %8 ], [ -90, %12 ], [ -11, %.lr.ph.split.split.us.i ], [ -11, %._crit_edge56.split.us.us.i ], [ -11, %.split.us.split.i ], [ -11, %95 ]
+  %136 = and i64 %9, 512
+  %.not.i44 = icmp eq i64 %136, 0
+  br i1 %.not.i44, label %up_irq_restore.exit, label %137
 
-136:                                              ; preds = %msgrcv_wait.exit.thread
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !10
+137:                                              ; preds = %msgrcv_wait.exit.thread
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
   br label %up_irq_restore.exit
 
-up_irq_restore.exit:                              ; preds = %136, %msgrcv_wait.exit.thread
-  %137 = icmp slt i32 %.037, 0
-  br i1 %137, label %up_irq_restore.exit.thread, label %140
+up_irq_restore.exit:                              ; preds = %137, %msgrcv_wait.exit.thread
+  %138 = icmp slt i32 %.037, 0
+  br i1 %138, label %up_irq_restore.exit.thread, label %141
 
 up_irq_restore.exit.thread:                       ; preds = %5, %up_irq_restore.exit
   %.155 = phi i32 [ %.037, %up_irq_restore.exit ], [ -14, %5 ]
-  %138 = sub nsw i32 0, %.155
-  %139 = call ptr @__errno() #6
-  store i32 %138, ptr %139, align 4
-  br label %142
+  %139 = sub nsw i32 0, %.155
+  %140 = call ptr @__errno() #7
+  store i32 %139, ptr %140, align 4
+  br label %143
 
-140:                                              ; preds = %up_irq_restore.exit
-  %141 = zext nneg i32 %.037 to i64
-  br label %142
+141:                                              ; preds = %up_irq_restore.exit
+  %142 = zext nneg i32 %.037 to i64
+  br label %143
 
-142:                                              ; preds = %140, %up_irq_restore.exit.thread
-  %.0 = phi i64 [ -1, %up_irq_restore.exit.thread ], [ %141, %140 ]
+143:                                              ; preds = %141, %up_irq_restore.exit.thread
+  %.0 = phi i64 [ -1, %up_irq_restore.exit.thread ], [ %142, %141 ]
   ret i64 %.0
 }
 
@@ -375,16 +377,20 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #5
+declare i64 @llvm.umin.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

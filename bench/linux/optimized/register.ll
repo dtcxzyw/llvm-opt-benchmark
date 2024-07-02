@@ -37,7 +37,7 @@ define dso_local noundef range(i32 -6, 1) i32 @io_eventfd_unregister(ptr noundef
   %2 = getelementptr inbounds i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %24, label %5
+  br i1 %4, label %26, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 4
@@ -50,31 +50,35 @@ define dso_local noundef range(i32 -6, 1) i32 @io_eventfd_unregister(ptr noundef
   %11 = or i32 %10, 2
   %12 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 %11, ptr elementtype(i32) %9, i32 %10) #11, !srcloc !6
   %13 = extractvalue { i8, i32 } %12, 0
-  %14 = icmp eq i8 %13, 0
-  br i1 %14, label %.lr.ph, label %._crit_edge, !prof !7
+  %14 = icmp ult i8 %13, 2
+  tail call void @llvm.assume(i1 %14)
+  %15 = icmp eq i8 %13, 0
+  br i1 %15, label %.lr.ph, label %._crit_edge, !prof !7
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %15 = phi { i8, i32 } [ %18, %.lr.ph ], [ %12, %5 ]
-  %16 = extractvalue { i8, i32 } %15, 1
-  %17 = or i32 %16, 2
-  %18 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 %17, ptr elementtype(i32) %9, i32 %16) #11, !srcloc !6
-  %19 = extractvalue { i8, i32 } %18, 0
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %.lr.ph, label %._crit_edge, !prof !8, !llvm.loop !9
+  %16 = phi { i8, i32 } [ %19, %.lr.ph ], [ %12, %5 ]
+  %17 = extractvalue { i8, i32 } %16, 1
+  %18 = or i32 %17, 2
+  %19 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 %18, ptr elementtype(i32) %9, i32 %17) #11, !srcloc !6
+  %20 = extractvalue { i8, i32 } %19, 0
+  %21 = icmp ult i8 %20, 2
+  tail call void @llvm.assume(i1 %21)
+  %22 = icmp eq i8 %20, 0
+  br i1 %22, label %.lr.ph, label %._crit_edge, !prof !8, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %.lcssa = phi i32 [ %10, %5 ], [ %16, %.lr.ph ]
-  %21 = icmp eq i32 %.lcssa, 0
-  br i1 %21, label %22, label %24
+  %.lcssa = phi i32 [ %10, %5 ], [ %17, %.lr.ph ]
+  %23 = icmp eq i32 %.lcssa, 0
+  br i1 %23, label %24, label %26
 
-22:                                               ; preds = %._crit_edge
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
-  tail call void @call_rcu(ptr noundef %23, ptr noundef nonnull @io_eventfd_ops) #11
-  br label %24
+24:                                               ; preds = %._crit_edge
+  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  tail call void @call_rcu(ptr noundef %25, ptr noundef nonnull @io_eventfd_ops) #11
+  br label %26
 
-24:                                               ; preds = %22, %._crit_edge, %1
-  %25 = phi i32 [ 0, %22 ], [ 0, %._crit_edge ], [ -6, %1 ]
-  ret i32 %25
+26:                                               ; preds = %24, %._crit_edge, %1
+  %27 = phi i32 [ 0, %24 ], [ 0, %._crit_edge ], [ -6, %1 ]
+  ret i32 %27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

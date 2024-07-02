@@ -64,17 +64,17 @@ RSTRING_PTR.exit.i:                               ; preds = %10, %2
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %10 ], [ %9, %2 ]
   %11 = getelementptr inbounds i8, ptr %6, i64 16
   %12 = load i64, ptr %11, align 8
-  %13 = or i64 %12, 1
-  %14 = icmp ugt i64 %13, 3074457345618258601
-  br i1 %14, label %15, label %17
+  %13 = icmp ugt i64 %12, 3074457345618258601
+  br i1 %13, label %14, label %16
 
-15:                                               ; preds = %RSTRING_PTR.exit.i
-  %16 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %16, ptr noundef nonnull @.str.5) #5
+14:                                               ; preds = %RSTRING_PTR.exit.i
+  %15 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.5) #5
   unreachable
 
-17:                                               ; preds = %RSTRING_PTR.exit.i
-  %18 = mul nuw nsw i64 %13, 3
+16:                                               ; preds = %RSTRING_PTR.exit.i
+  %17 = or i64 %12, 1
+  %18 = mul nuw nsw i64 %17, 3
   %19 = add nuw nsw i64 %18, 2
   %20 = call i64 @rb_str_new(ptr noundef null, i64 noundef %19) #4, !callees !9
   %21 = inttoptr i64 %20 to ptr
@@ -84,12 +84,12 @@ RSTRING_PTR.exit.i:                               ; preds = %10, %2
   %24 = getelementptr inbounds i8, ptr %21, i64 24
   br i1 %.not.i.i52.i, label %RSTRING_PTR.exit55.i, label %25
 
-25:                                               ; preds = %17
+25:                                               ; preds = %16
   %.sroa.2.0.copyload.i53.i = load ptr, ptr %24, align 8
   br label %RSTRING_PTR.exit55.i
 
-RSTRING_PTR.exit55.i:                             ; preds = %25, %17
-  %.sroa.2.0.i54.i = phi ptr [ %.sroa.2.0.copyload.i53.i, %25 ], [ %24, %17 ]
+RSTRING_PTR.exit55.i:                             ; preds = %25, %16
+  %.sroa.2.0.i54.i = phi ptr [ %.sroa.2.0.copyload.i53.i, %25 ], [ %24, %16 ]
   store i8 120, ptr %.sroa.2.0.i54.i, align 1
   %.not58.not.i = icmp eq i64 %12, 0
   br i1 %.not58.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -218,17 +218,17 @@ RSTRING_PTR.exit.i:                               ; preds = %13, %3
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %13 ], [ %12, %3 ]
   %14 = getelementptr inbounds i8, ptr %9, i64 16
   %15 = load i64, ptr %14, align 8
-  %16 = or i64 %15, 1
-  %17 = icmp ugt i64 %16, 3074457345618258601
-  br i1 %17, label %18, label %20
+  %16 = icmp ugt i64 %15, 3074457345618258601
+  br i1 %16, label %17, label %19
 
-18:                                               ; preds = %RSTRING_PTR.exit.i
-  %19 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %19, ptr noundef nonnull @.str.5) #5
+17:                                               ; preds = %RSTRING_PTR.exit.i
+  %18 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %18, ptr noundef nonnull @.str.5) #5
   unreachable
 
-20:                                               ; preds = %RSTRING_PTR.exit.i
-  %21 = mul nuw nsw i64 %16, 3
+19:                                               ; preds = %RSTRING_PTR.exit.i
+  %20 = or i64 %15, 1
+  %21 = mul nuw nsw i64 %20, 3
   %22 = add nuw nsw i64 %21, 2
   %23 = call i64 @rb_str_new(ptr noundef null, i64 noundef %22) #4, !callees !9
   %24 = inttoptr i64 %23 to ptr
@@ -238,12 +238,12 @@ RSTRING_PTR.exit.i:                               ; preds = %13, %3
   %27 = getelementptr inbounds i8, ptr %24, i64 24
   br i1 %.not.i.i52.i, label %RSTRING_PTR.exit55.i, label %28
 
-28:                                               ; preds = %20
+28:                                               ; preds = %19
   %.sroa.2.0.copyload.i53.i = load ptr, ptr %27, align 8
   br label %RSTRING_PTR.exit55.i
 
-RSTRING_PTR.exit55.i:                             ; preds = %28, %20
-  %.sroa.2.0.i54.i = phi ptr [ %.sroa.2.0.copyload.i53.i, %28 ], [ %27, %20 ]
+RSTRING_PTR.exit55.i:                             ; preds = %28, %19
+  %.sroa.2.0.i54.i = phi ptr [ %.sroa.2.0.copyload.i53.i, %28 ], [ %27, %19 ]
   store i8 120, ptr %.sroa.2.0.i54.i, align 1
   %.not58.not.i = icmp eq i64 %15, 0
   br i1 %.not58.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -372,17 +372,17 @@ RSTRING_PTR.exit.i:                               ; preds = %11, %1
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %11 ], [ %10, %1 ]
   %12 = getelementptr inbounds i8, ptr %7, i64 16
   %13 = load i64, ptr %12, align 8
-  %14 = or i64 %13, 1
-  %15 = icmp ugt i64 %14, 3074457345618258601
-  br i1 %15, label %16, label %18
+  %14 = icmp ugt i64 %13, 3074457345618258601
+  br i1 %14, label %15, label %17
 
-16:                                               ; preds = %RSTRING_PTR.exit.i
-  %17 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.5) #5
+15:                                               ; preds = %RSTRING_PTR.exit.i
+  %16 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %16, ptr noundef nonnull @.str.5) #5
   unreachable
 
-18:                                               ; preds = %RSTRING_PTR.exit.i
-  %19 = mul nuw nsw i64 %14, 3
+17:                                               ; preds = %RSTRING_PTR.exit.i
+  %18 = or i64 %13, 1
+  %19 = mul nuw nsw i64 %18, 3
   %20 = add nuw nsw i64 %19, 2
   %21 = call i64 @rb_str_new(ptr noundef null, i64 noundef %20) #4, !callees !9
   %22 = inttoptr i64 %21 to ptr
@@ -392,12 +392,12 @@ RSTRING_PTR.exit.i:                               ; preds = %11, %1
   %25 = getelementptr inbounds i8, ptr %22, i64 24
   br i1 %.not.i.i52.i, label %RSTRING_PTR.exit55.i, label %26
 
-26:                                               ; preds = %18
+26:                                               ; preds = %17
   %.sroa.2.0.copyload.i53.i = load ptr, ptr %25, align 8
   br label %RSTRING_PTR.exit55.i
 
-RSTRING_PTR.exit55.i:                             ; preds = %26, %18
-  %.sroa.2.0.i54.i = phi ptr [ %.sroa.2.0.copyload.i53.i, %26 ], [ %25, %18 ]
+RSTRING_PTR.exit55.i:                             ; preds = %26, %17
+  %.sroa.2.0.i54.i = phi ptr [ %.sroa.2.0.copyload.i53.i, %26 ], [ %25, %17 ]
   store i8 120, ptr %.sroa.2.0.i54.i, align 1
   %.not58.not.i = icmp eq i64 %13, 0
   br i1 %.not58.not.i, label %._crit_edge.i, label %.lr.ph.i

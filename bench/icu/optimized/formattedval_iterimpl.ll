@@ -717,10 +717,9 @@ _ZNK6icu_759UVector3210elementAtiEi.exit27:       ; preds = %_ZNK6icu_759UVector
 
 if.then:                                          ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit27
   %add11 = or disjoint i32 %mul, 2
-  %cmp.i28 = icmp sgt i32 %add11, -1
   %8 = load i32, ptr %count.i, align 8
   %cmp5.i30 = icmp sgt i32 %8, %add11
-  %or.cond.i31 = select i1 %cmp.i28, i1 %cmp5.i30, i1 false
+  %or.cond.i31 = select i1 %cmp.i, i1 %cmp5.i30, i1 false
   br i1 %or.cond.i31, label %cond.true.i33, label %_ZNK6icu_759UVector3210elementAtiEi.exit37
 
 cond.true.i33:                                    ; preds = %if.then
@@ -733,9 +732,8 @@ cond.true.i33:                                    ; preds = %if.then
 _ZNK6icu_759UVector3210elementAtiEi.exit37:       ; preds = %if.then, %cond.true.i33
   %cond.i32 = phi i32 [ %10, %cond.true.i33 ], [ 0, %if.then ]
   %add15 = or disjoint i32 %mul, 3
-  %cmp.i38 = icmp sgt i32 %add15, -1
   %cmp5.i40 = icmp sgt i32 %8, %add15
-  %or.cond.i41 = select i1 %cmp.i38, i1 %cmp5.i40, i1 false
+  %or.cond.i41 = select i1 %cmp.i, i1 %cmp5.i40, i1 false
   br i1 %or.cond.i41, label %cond.true.i43, label %_ZNK6icu_759UVector3210elementAtiEi.exit47
 
 cond.true.i43:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit37

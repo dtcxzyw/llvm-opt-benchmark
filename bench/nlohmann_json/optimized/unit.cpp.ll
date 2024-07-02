@@ -23358,9 +23358,9 @@ for.body62.i:                                     ; preds = %for.body62.i, %if.e
   br i1 %exitcond.not.i, label %for.end.i, label %for.body62.i, !llvm.loop !180
 
 for.end.i:                                        ; preds = %for.body62.i
-  %cmp76.i = icmp ult i32 %or.i, 128
+  %cmp76.i = icmp ult i32 %shl.i, 128
   %not.and7060.i = xor i1 %and7060.i, true
-  %cmp78.i = icmp ult i32 %or.i, 2048
+  %cmp78.i = icmp ult i32 %shl.i, 2048
   %or.cond4.i = and i1 %cmp.i.i, %cmp78.i
   %10 = or i1 %cmp76.i, %or.cond4.i
   %or.cond121.i = select i1 %not.and7060.i, i1 true, i1 %10
@@ -23371,7 +23371,7 @@ lor.lhs.false81.i:                                ; preds = %for.end.i
   %or.cond5.i = icmp ult i32 %11, 63487
   %cmp86.i = icmp ugt i64 %retval.0.i.i, 3
   %or.cond6.i = and i1 %cmp86.i, %or.cond5.i
-  %cmp88.i = icmp ugt i32 %or.i, 1114111
+  %cmp88.i = icmp ugt i32 %shl.i, 1114111
   %or.cond7.i = select i1 %or.cond6.i, i1 true, i1 %cmp88.i
   br i1 %or.cond7.i, label %if.then89.i, label %for.body94.i
 

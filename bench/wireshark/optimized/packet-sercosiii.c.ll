@@ -823,7 +823,7 @@ define internal i32 @dissect_siii(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %27 = load ptr, ptr %6, align 8
   call void @col_set_str(ptr noundef %27, i32 noundef 34, ptr noundef nonnull @.str.587) #4
   %28 = zext i8 %23 to i32
-  %.not.i = icmp sgt i8 %23, -1
+  %.not.i = icmp sgt i8 %22, -1
   %29 = load ptr, ptr %6, align 8
   br i1 %.not.i, label %32, label %30
 
@@ -959,7 +959,7 @@ dissect_siii_at_cp3_4.exit.i:                     ; preds = %94, %91
   %115 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %116 = and i8 %115, 15
   %117 = zext nneg i8 %116 to i32
-  %.not.i29 = icmp sgt i8 %113, -1
+  %.not.i29 = icmp sgt i8 %112, -1
   %118 = load ptr, ptr %6, align 8
   br i1 %.not.i29, label %121, label %119
 

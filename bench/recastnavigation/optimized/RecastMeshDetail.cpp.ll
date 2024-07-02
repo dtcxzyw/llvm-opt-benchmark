@@ -4198,7 +4198,7 @@ _ZL13distToTriMeshPKfS0_iPKii.exit.i:             ; preds = %_ZL9distPtTriPKfS0_
   br i1 %1934, label %_ZN10rcIntArrayixEi.exit309.i, label %1935
 
 1935:                                             ; preds = %.noexc408
-  %1936 = icmp sgt i32 %1931, -1
+  %1936 = icmp sgt i32 %.1227.i, -1
   %1937 = load i64, ptr %35, align 8
   %1938 = icmp sgt i64 %1937, %1932
   %or.cond.i.i308.i = select i1 %1936, i1 %1938, i1 false

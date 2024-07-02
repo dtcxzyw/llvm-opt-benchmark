@@ -53,7 +53,7 @@ define dso_local void @reuseport_has_conns_set(ptr noundef %0) #0 align 16 {
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %1
-  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #8
   %6 = load ptr, ptr %2, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %12, label %8, !prof !5
@@ -66,7 +66,7 @@ define dso_local void @reuseport_has_conns_set(ptr noundef %0) #0 align 16 {
   br label %12
 
 12:                                               ; preds = %8, %5
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #8
   br label %13
 
 13:                                               ; preds = %12, %1
@@ -92,7 +92,7 @@ define dso_local void @reuseport_update_incoming_cpu(ptr noundef %0, i32 noundef
   br label %27
 
 8:                                                ; preds = %2
-  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #8
   %9 = getelementptr inbounds i8, ptr %0, i64 124
   %10 = load i32, ptr %9, align 4
   store volatile i32 %1, ptr %9, align 4
@@ -121,7 +121,7 @@ define dso_local void @reuseport_update_incoming_cpu(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %17, %8
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #8
   br label %27
 
 27:                                               ; preds = %26, %6
@@ -130,7 +130,7 @@ define dso_local void @reuseport_update_incoming_cpu(ptr noundef %0, i32 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @reuseport_alloc(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
-  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #8
   %3 = getelementptr inbounds i8, ptr %0, i64 720
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -158,7 +158,7 @@ define dso_local i32 @reuseport_alloc(ptr noundef %0, i1 noundef zeroext %1) #0 
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
-  %19 = tail call noalias align 8 dereferenceable_or_null(1072) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 2336, i64 noundef 1072) #8
+  %19 = tail call noalias align 8 dereferenceable_or_null(1072) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 2336, i64 noundef 1072) #9
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread, label %21
 
@@ -167,12 +167,12 @@ define dso_local i32 @reuseport_alloc(ptr noundef %0, i1 noundef zeroext %1) #0 
   store i16 128, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 40
   store volatile ptr null, ptr %23, align 8
-  %24 = tail call i32 @ida_alloc_range(ptr noundef nonnull @reuseport_ida, i32 noundef 0, i32 noundef -1, i32 noundef 2080) #7
+  %24 = tail call i32 @ida_alloc_range(ptr noundef nonnull @reuseport_ida, i32 noundef 0, i32 noundef -1, i32 noundef 2080) #8
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %21
-  tail call void @kfree(ptr noundef nonnull %19) #7
+  tail call void @kfree(ptr noundef nonnull %19) #8
   br label %.thread
 
 27:                                               ; preds = %21
@@ -201,13 +201,13 @@ define dso_local i32 @reuseport_alloc(ptr noundef %0, i1 noundef zeroext %1) #0 
   br label %43
 
 43:                                               ; preds = %39, %27
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   store volatile ptr %19, ptr %3, align 8
   br label %.thread
 
 .thread:                                          ; preds = %17, %43, %26, %13, %12, %10
   %44 = phi i32 [ %11, %10 ], [ 0, %13 ], [ 0, %12 ], [ %24, %26 ], [ 0, %43 ], [ -12, %17 ]
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #8
   ret i32 %44
 }
 
@@ -276,7 +276,7 @@ define internal fastcc i32 @reuseport_resurrect(ptr noundef %0, ptr noundef %1, 
   %44 = zext i16 %43 to i64
   %45 = getelementptr [0 x ptr], ptr %9, i64 0, i64 %44
   store ptr %0, ptr %45, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
   %46 = load i16, ptr %42, align 2
   %47 = add i16 %46, 1
   store i16 %47, ptr %42, align 2
@@ -298,7 +298,7 @@ define internal fastcc i32 @reuseport_resurrect(ptr noundef %0, ptr noundef %1, 
 
 57:                                               ; preds = %55
   %58 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
-  %59 = tail call noalias align 8 dereferenceable_or_null(1072) ptr @kmalloc_trace(ptr noundef %58, i32 noundef 2336, i64 noundef 1072) #8
+  %59 = tail call noalias align 8 dereferenceable_or_null(1072) ptr @kmalloc_trace(ptr noundef %58, i32 noundef 2336, i64 noundef 1072) #9
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.thread16, label %61
 
@@ -307,12 +307,12 @@ define internal fastcc i32 @reuseport_resurrect(ptr noundef %0, ptr noundef %1, 
   store i16 128, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %59, i64 40
   store volatile ptr null, ptr %63, align 8
-  %64 = tail call i32 @ida_alloc_range(ptr noundef nonnull @reuseport_ida, i32 noundef 0, i32 noundef -1, i32 noundef 2080) #7
+  %64 = tail call i32 @ida_alloc_range(ptr noundef nonnull @reuseport_ida, i32 noundef 0, i32 noundef -1, i32 noundef 2080) #8
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %61
-  tail call void @kfree(ptr noundef nonnull %59) #7
+  tail call void @kfree(ptr noundef nonnull %59) #8
   br label %.thread16
 
 67:                                               ; preds = %61
@@ -407,7 +407,7 @@ define internal fastcc i32 @reuseport_resurrect(ptr noundef %0, ptr noundef %1, 
   %129 = zext i16 %128 to i64
   %130 = getelementptr [0 x ptr], ptr %126, i64 0, i64 %129
   store ptr %0, ptr %130, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
   %131 = load i16, ptr %127, align 2
   %132 = add i16 %131, 1
   store i16 %132, ptr %127, align 2
@@ -424,7 +424,7 @@ define internal fastcc i32 @reuseport_resurrect(ptr noundef %0, ptr noundef %1, 
   br label %140
 
 140:                                              ; preds = %136, %.thread18
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   %141 = getelementptr inbounds i8, ptr %0, i64 720
   store volatile ptr %90, ptr %141, align 8
   %142 = getelementptr inbounds i8, ptr %1, i64 18
@@ -437,7 +437,7 @@ define internal fastcc i32 @reuseport_resurrect(ptr noundef %0, ptr noundef %1, 
   br i1 %148, label %149, label %.thread16
 
 149:                                              ; preds = %140
-  tail call void @call_rcu(ptr noundef %1, ptr noundef nonnull @reuseport_free_rcu) #7
+  tail call void @call_rcu(ptr noundef %1, ptr noundef nonnull @reuseport_free_rcu) #8
   br label %.thread16
 
 .thread16:                                        ; preds = %57, %66, %149, %140, %86, %51, %.thread
@@ -461,7 +461,7 @@ define dso_local i32 @reuseport_add_sock(ptr noundef %0, ptr noundef %1, i1 noun
   br i1 %9, label %10, label %64
 
 10:                                               ; preds = %7, %3
-  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #8
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 720
   %13 = load ptr, ptr %12, align 8
@@ -480,7 +480,7 @@ define dso_local i32 @reuseport_add_sock(ptr noundef %0, ptr noundef %1, i1 noun
   %22 = and i8 %21, 1
   %23 = icmp ne i8 %22, 0
   %24 = tail call fastcc i32 @reuseport_resurrect(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %11, i1 noundef zeroext %23)
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #8
   br label %64
 
 25:                                               ; preds = %15
@@ -490,7 +490,7 @@ define dso_local i32 @reuseport_add_sock(ptr noundef %0, ptr noundef %1, i1 noun
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %25
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #8
   br label %64
 
 30:                                               ; preds = %25, %10
@@ -518,7 +518,7 @@ define dso_local i32 @reuseport_add_sock(ptr noundef %0, ptr noundef %1, i1 noun
   br label %46
 
 45:                                               ; preds = %42
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #8
   br label %64
 
 46:                                               ; preds = %._crit_edge, %30
@@ -529,7 +529,7 @@ define dso_local i32 @reuseport_add_sock(ptr noundef %0, ptr noundef %1, i1 noun
   %51 = zext i16 %47 to i64
   %52 = getelementptr [0 x ptr], ptr %49, i64 0, i64 %51
   store ptr %0, ptr %52, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
   %53 = load i16, ptr %50, align 2
   %54 = add i16 %53, 1
   store i16 %54, ptr %50, align 2
@@ -546,13 +546,13 @@ define dso_local i32 @reuseport_add_sock(ptr noundef %0, ptr noundef %1, i1 noun
   br label %62
 
 62:                                               ; preds = %58, %46
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
   store volatile ptr %48, ptr %12, align 8
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #8
   br i1 %14, label %64, label %63
 
 63:                                               ; preds = %62
-  tail call void @call_rcu(ptr noundef nonnull %13, ptr noundef nonnull @reuseport_free_rcu) #7
+  tail call void @call_rcu(ptr noundef nonnull %13, ptr noundef nonnull @reuseport_free_rcu) #8
   br label %64
 
 64:                                               ; preds = %63, %62, %45, %29, %19, %7
@@ -637,7 +637,7 @@ define internal fastcc ptr @reuseport_grow(ptr noundef %0) unnamed_addr #0 align
   %51 = shl nuw nsw i32 %4, 4
   %52 = add nuw nsw i32 %51, 48
   %53 = zext nneg i32 %52 to i64
-  %54 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %53, i32 noundef 2336) #9
+  %54 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %53, i32 noundef 2336) #10
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.thread, label %56
 
@@ -698,7 +698,7 @@ define internal fastcc ptr @reuseport_grow(ptr noundef %0) unnamed_addr #0 align
 
 .preheader:                                       ; preds = %56, %.preheader
   %98 = phi i64 [ %102, %.preheader ], [ 0, %56 ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
   %99 = getelementptr [0 x ptr], ptr %82, i64 0, i64 %98
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 720
@@ -714,7 +714,7 @@ define internal fastcc ptr @reuseport_grow(ptr noundef %0) unnamed_addr #0 align
   br i1 %106, label %.thread, label %107
 
 107:                                              ; preds = %.loopexit
-  tail call void @kvfree_call_rcu(ptr noundef nonnull %0, ptr noundef nonnull %0) #7
+  tail call void @kvfree_call_rcu(ptr noundef nonnull %0, ptr noundef nonnull %0) #8
   br label %.thread
 
 .thread:                                          ; preds = %30, %50, %10, %107, %.loopexit, %46, %36, %33, %6
@@ -729,17 +729,17 @@ declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal void @reuseport_free_rcu(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  tail call void @sk_reuseport_prog_free(ptr noundef %3) #7
+  tail call void @sk_reuseport_prog_free(ptr noundef %3) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
-  tail call void @ida_free(ptr noundef nonnull @reuseport_ida, i32 noundef %5) #7
-  tail call void @kfree(ptr noundef %0) #7
+  tail call void @ida_free(ptr noundef nonnull @reuseport_ida, i32 noundef %5) #8
+  tail call void @kfree(ptr noundef %0) #8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @reuseport_detach_sock(ptr noundef %0) #0 align 16 {
-  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #8
   %2 = getelementptr inbounds i8, ptr %0, i64 720
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -854,11 +854,11 @@ define dso_local void @reuseport_detach_sock(ptr noundef %0) #0 align 16 {
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %.thread8
-  tail call void @call_rcu(ptr noundef nonnull %3, ptr noundef nonnull @reuseport_free_rcu) #7
+  tail call void @call_rcu(ptr noundef nonnull %3, ptr noundef nonnull @reuseport_free_rcu) #8
   br label %75
 
 75:                                               ; preds = %74, %.thread8, %1
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #8
   ret void
 }
 
@@ -870,7 +870,7 @@ define dso_local void @reuseport_stop_listen_sock(ptr noundef %0) #0 align 16 {
   br i1 %4, label %5, label %74
 
 5:                                                ; preds = %1
-  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #8
   %6 = getelementptr inbounds i8, ptr %0, i64 720
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 40
@@ -970,11 +970,11 @@ define dso_local void @reuseport_stop_listen_sock(ptr noundef %0) #0 align 16 {
   br label %72
 
 72:                                               ; preds = %68, %.thread
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #8
   br label %75
 
 73:                                               ; preds = %17, %15
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #8
   br label %74
 
 74:                                               ; preds = %73, %1
@@ -988,7 +988,7 @@ define dso_local void @reuseport_stop_listen_sock(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @reuseport_select_sock(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca [20 x i8], align 16
-  tail call void @__rcu_read_lock() #7
+  tail call void @__rcu_read_lock() #8
   %6 = getelementptr inbounds i8, ptr %0, i64 720
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -1003,7 +1003,7 @@ define dso_local ptr @reuseport_select_sock(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %14, label %.thread11, label %15, !prof !5
 
 15:                                               ; preds = %9
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !15
   %16 = icmp ne ptr %11, null
   %17 = icmp ne ptr %2, null
   %18 = and i1 %17, %16
@@ -1016,7 +1016,7 @@ define dso_local ptr @reuseport_select_sock(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %19
-  %24 = tail call ptr @bpf_run_sk_reuseport(ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %2, ptr noundef null, i32 noundef %1) #7
+  %24 = tail call ptr @bpf_run_sk_reuseport(ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %2, ptr noundef null, i32 noundef %1) #8
   br label %101
 
 25:                                               ; preds = %19
@@ -1026,7 +1026,7 @@ define dso_local ptr @reuseport_select_sock(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %25
-  %30 = tail call ptr @skb_clone(ptr noundef nonnull %2, i32 noundef 2080) #7
+  %30 = tail call ptr @skb_clone(ptr noundef nonnull %2, i32 noundef 2080) #8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread, label %32
 
@@ -1047,7 +1047,7 @@ define dso_local ptr @reuseport_select_sock(ptr noundef %0, i32 noundef %1, ptr 
 
 43:                                               ; preds = %41
   %44 = sub i32 %3, %39
-  %45 = tail call ptr @__pskb_pull_tail(ptr noundef nonnull %33, i32 noundef %44) #7
+  %45 = tail call ptr @__pskb_pull_tail(ptr noundef nonnull %33, i32 noundef %44) #8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %55, label %._crit_edge
 
@@ -1068,11 +1068,11 @@ define dso_local ptr @reuseport_select_sock(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %47, %43, %41
-  tail call void @kfree_skb_reason(ptr noundef %34, i32 noundef 2) #7
+  tail call void @kfree_skb_reason(ptr noundef %34, i32 noundef 2) #8
   br label %.thread
 
 56:                                               ; preds = %47
-  tail call void @migrate_disable() #7
+  tail call void @migrate_disable() #8
   %57 = getelementptr inbounds i8, ptr %33, i64 48
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, i8 0, i64 20, i1 false)
@@ -1088,31 +1088,31 @@ define dso_local ptr @reuseport_select_sock(ptr noundef %0, i32 noundef %1, ptr 
   br label %63
 
 63:                                               ; preds = %62, %56
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @bpf_stats_enabled_key, i32 2) #7
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @bpf_stats_enabled_key, i32 2) #8
           to label %77 [label %64], !srcloc !17
 
 64:                                               ; preds = %63
-  %65 = tail call i64 @sched_clock() #7
+  %65 = tail call i64 @sched_clock() #8
   %66 = getelementptr inbounds i8, ptr %11, i64 72
   %67 = getelementptr inbounds i8, ptr %11, i64 48
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call i32 %68(ptr noundef nonnull %33, ptr noundef %66) #7
+  %69 = tail call i32 %68(ptr noundef nonnull %33, ptr noundef %66) #8
   %70 = getelementptr inbounds i8, ptr %11, i64 32
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %71) #10, !srcloc !18
+  %72 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %71) #11, !srcloc !18
   %73 = inttoptr i64 %72 to ptr
-  tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %73, ptr elementtype(i64) %73) #7, !srcloc !19
+  tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %73, ptr elementtype(i64) %73) #8, !srcloc !19
   %74 = getelementptr inbounds i8, ptr %73, i64 8
-  %75 = tail call i64 @sched_clock() #7
+  %75 = tail call i64 @sched_clock() #8
   %76 = sub i64 %75, %65
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %74, i64 %76, ptr elementtype(i64) %74) #7, !srcloc !20
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %74, i64 %76, ptr elementtype(i64) %74) #8, !srcloc !20
   br label %82
 
 77:                                               ; preds = %63
   %78 = getelementptr inbounds i8, ptr %11, i64 72
   %79 = getelementptr inbounds i8, ptr %11, i64 48
   %80 = load ptr, ptr %79, align 8
-  %81 = tail call i32 %80(ptr noundef nonnull %33, ptr noundef %78) #7
+  %81 = tail call i32 %80(ptr noundef nonnull %33, ptr noundef %78) #8
   br label %82
 
 82:                                               ; preds = %77, %64
@@ -1128,7 +1128,7 @@ define dso_local ptr @reuseport_select_sock(ptr noundef %0, i32 noundef %1, ptr 
 
 88:                                               ; preds = %87, %82
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
-  tail call void @migrate_enable() #7
+  tail call void @migrate_enable() #8
   %89 = load ptr, ptr %50, align 8
   %90 = sub nsw i64 0, %52
   %91 = getelementptr i8, ptr %89, i64 %90
@@ -1136,7 +1136,7 @@ define dso_local ptr @reuseport_select_sock(ptr noundef %0, i32 noundef %1, ptr 
   %92 = load i32, ptr %35, align 8
   %93 = add i32 %92, %3
   store i32 %93, ptr %35, align 8
-  tail call void @consume_skb(ptr noundef %34) #7
+  tail call void @consume_skb(ptr noundef %34) #8
   %94 = zext i16 %13 to i32
   %95 = icmp ult i32 %83, %94
   br i1 %95, label %96, label %.thread
@@ -1183,7 +1183,7 @@ define dso_local ptr @reuseport_select_sock(ptr noundef %0, i32 noundef %1, ptr 
 124:                                              ; preds = %121
   %125 = getelementptr inbounds i8, ptr %117, i64 124
   %126 = load volatile i32, ptr %125, align 4
-  %127 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !21
+  %127 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !21
   %128 = icmp eq i32 %126, %127
   br i1 %128, label %.thread11, label %129
 
@@ -1202,7 +1202,7 @@ define dso_local ptr @reuseport_select_sock(ptr noundef %0, i32 noundef %1, ptr 
 
 .thread11:                                        ; preds = %124, %121, %132, %101, %9, %4
   %138 = phi ptr [ %102, %101 ], [ null, %9 ], [ null, %4 ], [ %117, %124 ], [ %117, %121 ], [ %133, %132 ]
-  tail call void @__rcu_read_unlock() #7
+  tail call void @__rcu_read_unlock() #8
   ret ptr %138
 }
 
@@ -1211,20 +1211,20 @@ declare dso_local ptr @bpf_run_sk_reuseport(ptr noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @reuseport_migrate_sock(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
-  tail call void @__rcu_read_lock() #7
+  tail call void @__rcu_read_lock() #8
   %4 = getelementptr inbounds i8, ptr %0, i64 720
   %5 = load volatile ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %95, label %7
+  br i1 %6, label %96, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 18
   %9 = load volatile i16, ptr %8, align 2
   %10 = icmp eq i16 %9, 0
-  br i1 %10, label %97, label %11, !prof !5
+  br i1 %10, label %98, label %11, !prof !5
 
 11:                                               ; preds = %7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !23
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 40
@@ -1244,24 +1244,24 @@ define dso_local ptr @reuseport_migrate_sock(ptr noundef %0, ptr noundef %1, ptr
   %24 = getelementptr inbounds i8, ptr %23, i64 1152
   %25 = load volatile i8, ptr %24, align 64
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %97, label %.thread10
+  br i1 %26, label %98, label %.thread10
 
 27:                                               ; preds = %17
   %28 = icmp eq ptr %2, null
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %27
-  %30 = tail call ptr @__alloc_skb(i32 noundef 0, i32 noundef 2080, i32 noundef 0, i32 noundef -1) #7
+  %30 = tail call ptr @__alloc_skb(i32 noundef 0, i32 noundef 2080, i32 noundef 0, i32 noundef -1) #8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %97, label %34
+  br i1 %31, label %98, label %34
 
 32:                                               ; preds = %27
-  %33 = tail call ptr @bpf_run_sk_reuseport(ptr noundef nonnull %5, ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %2, ptr noundef %1, i32 noundef %13) #7
+  %33 = tail call ptr @bpf_run_sk_reuseport(ptr noundef nonnull %5, ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %2, ptr noundef %1, i32 noundef %13) #8
   br label %36
 
 34:                                               ; preds = %29
-  %35 = tail call ptr @bpf_run_sk_reuseport(ptr noundef nonnull %5, ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %30, ptr noundef %1, i32 noundef %13) #7
-  tail call void @kfree_skb_reason(ptr noundef nonnull %30, i32 noundef 2) #7
+  %35 = tail call ptr @bpf_run_sk_reuseport(ptr noundef nonnull %5, ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %30, ptr noundef %1, i32 noundef %13) #8
+  tail call void @kfree_skb_reason(ptr noundef nonnull %30, i32 noundef 2) #8
   br label %36
 
 36:                                               ; preds = %32, %34
@@ -1299,7 +1299,7 @@ define dso_local ptr @reuseport_migrate_sock(ptr noundef %0, ptr noundef %1, ptr
 59:                                               ; preds = %56
   %60 = getelementptr inbounds i8, ptr %52, i64 124
   %61 = load volatile i32, ptr %60, align 4
-  %62 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !21
+  %62 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !21
   %63 = icmp eq i32 %61, %62
   br i1 %63, label %.thread11, label %64
 
@@ -1321,7 +1321,7 @@ define dso_local ptr @reuseport_migrate_sock(ptr noundef %0, ptr noundef %1, ptr
   %74 = icmp eq ptr %73, null
   %75 = icmp ugt ptr %73, inttoptr (i64 -4096 to ptr)
   %76 = or i1 %74, %75
-  br i1 %76, label %97, label %77
+  br i1 %76, label %98, label %77
 
 77:                                               ; preds = %.thread11
   %78 = getelementptr inbounds i8, ptr %73, i64 128
@@ -1329,47 +1329,49 @@ define dso_local ptr @reuseport_migrate_sock(ptr noundef %0, ptr noundef %1, ptr
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %.thread12, label %.preheader
 
-.preheader:                                       ; preds = %77, %85
-  %81 = phi i32 [ %86, %85 ], [ %79, %77 ]
+.preheader:                                       ; preds = %77, %86
+  %81 = phi i32 [ %87, %86 ], [ %79, %77 ]
   %82 = add i32 %81, 1
-  %83 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %78, i32 %82, ptr elementtype(i32) %78, i32 %81) #7, !srcloc !24
+  %83 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %78, i32 %82, ptr elementtype(i32) %78, i32 %81) #8, !srcloc !24
   %84 = extractvalue { i8, i32 } %83, 0
+  %85 = icmp ult i8 %84, 2
+  tail call void @llvm.assume(i1 %85)
   %.not = icmp eq i8 %84, 0
-  br i1 %.not, label %85, label %.thread12, !prof !5
+  br i1 %.not, label %86, label %.thread12, !prof !5
 
-85:                                               ; preds = %.preheader
-  %86 = extractvalue { i8, i32 } %83, 1
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %.thread12, label %.preheader, !llvm.loop !25
+86:                                               ; preds = %.preheader
+  %87 = extractvalue { i8, i32 } %83, 1
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %.thread12, label %.preheader, !llvm.loop !25
 
-.thread12:                                        ; preds = %.preheader, %85, %77
-  %88 = phi i32 [ 0, %77 ], [ %81, %.preheader ], [ 0, %85 ]
-  %89 = add i32 %88, 1
-  %90 = or i32 %89, %88
-  %91 = icmp sgt i32 %90, -1
-  br i1 %91, label %93, label %92, !prof !16
+.thread12:                                        ; preds = %.preheader, %86, %77
+  %89 = phi i32 [ 0, %77 ], [ %81, %.preheader ], [ 0, %86 ]
+  %90 = add i32 %89, 1
+  %91 = or i32 %90, %89
+  %92 = icmp sgt i32 %91, -1
+  br i1 %92, label %94, label %93, !prof !16
 
-92:                                               ; preds = %.thread12
-  tail call void @refcount_warn_saturate(ptr noundef %78, i32 noundef 0) #7
-  br label %93
+93:                                               ; preds = %.thread12
+  tail call void @refcount_warn_saturate(ptr noundef %78, i32 noundef 0) #8
+  br label %94
 
-93:                                               ; preds = %92, %.thread12
-  %94 = icmp eq i32 %88, 0
-  br i1 %94, label %97, label %95, !prof !5
+94:                                               ; preds = %93, %.thread12
+  %95 = icmp eq i32 %89, 0
+  br i1 %95, label %98, label %96, !prof !5
 
-95:                                               ; preds = %97, %93, %3
-  %96 = phi ptr [ null, %97 ], [ %73, %93 ], [ null, %3 ]
-  tail call void @__rcu_read_unlock() #7
-  ret ptr %96
+96:                                               ; preds = %98, %94, %3
+  %97 = phi ptr [ null, %98 ], [ %73, %94 ], [ null, %3 ]
+  tail call void @__rcu_read_unlock() #8
+  ret ptr %97
 
-97:                                               ; preds = %93, %.thread11, %29, %21, %7
-  %98 = getelementptr inbounds i8, ptr %0, i64 48
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 432
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr i8, ptr %101, i64 1000
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %102, ptr elementtype(i64) %102) #7, !srcloc !26
-  br label %95
+98:                                               ; preds = %94, %.thread11, %29, %21, %7
+  %99 = getelementptr inbounds i8, ptr %0, i64 48
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 432
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr i8, ptr %102, i64 1000
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %103, ptr elementtype(i64) %103) #8, !srcloc !26
+  br label %96
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1398,15 +1400,15 @@ define dso_local i32 @reuseport_attach_prog(ptr noundef %0, ptr noundef %1) #0 a
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %14, %11
-  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #8
   %19 = getelementptr inbounds i8, ptr %0, i64 720
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !27
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !27
   store volatile ptr %1, ptr %21, align 8
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #7
-  tail call void @sk_reuseport_prog_free(ptr noundef %22) #7
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #8
+  tail call void @sk_reuseport_prog_free(ptr noundef %22) #8
   br label %.thread
 
 .thread:                                          ; preds = %6, %18, %14, %11
@@ -1419,14 +1421,14 @@ declare dso_local void @sk_reuseport_prog_free(ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -22, 1) i32 @reuseport_detach_prog(ptr nocapture noundef readonly %0) #0 align 16 {
-  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_lock_bh(ptr noundef nonnull @reuseport_lock) #8
   %2 = getelementptr inbounds i8, ptr %0, i64 720
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #8
   %6 = getelementptr inbounds i8, ptr %0, i64 19
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 16
@@ -1447,20 +1449,20 @@ define dso_local range(i32 -22, 1) i32 @reuseport_detach_prog(ptr nocapture noun
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %15
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #8
   br label %25
 
 20:                                               ; preds = %15, %11
   %21 = getelementptr inbounds i8, ptr %3, i64 40
   %22 = load ptr, ptr %21, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !28
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !28
   store volatile ptr null, ptr %21, align 8
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #7
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @reuseport_lock) #8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %20
-  tail call void @sk_reuseport_prog_free(ptr noundef nonnull %22) #7
+  tail call void @sk_reuseport_prog_free(ptr noundef nonnull %22) #8
   br label %25
 
 25:                                               ; preds = %24, %20, %19, %5
@@ -1528,6 +1530,9 @@ declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #7
+
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -1535,10 +1540,11 @@ attributes #3 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "
 attributes #4 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind allocsize(2) }
-attributes #9 = { nounwind allocsize(0) }
-attributes #10 = { nounwind memory(read) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(2) }
+attributes #10 = { nounwind allocsize(0) }
+attributes #11 = { nounwind memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

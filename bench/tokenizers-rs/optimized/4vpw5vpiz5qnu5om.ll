@@ -23924,7 +23924,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hbbf497669
   %19 = phi i64 [ %29, %.lr.ph.i.i.i ], [ %13, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5bc73df385935ad5E.exit" ]
   %20 = phi i64 [ %21, %.lr.ph.i.i.i ], [ %.promoted.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5bc73df385935ad5E.exit" ]
   %21 = add nuw nsw i64 %20, 1
-  %22 = icmp ne i64 %20, 3
+  %22 = icmp ult i64 %20, 3
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds { [2 x i64] }, ptr %3, i64 %20
   %24 = load i32, ptr %23, align 8, !range !6430, !alias.scope !6431, !noalias !6432, !noundef !11

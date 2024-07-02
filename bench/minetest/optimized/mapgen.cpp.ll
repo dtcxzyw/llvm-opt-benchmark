@@ -7355,6 +7355,8 @@ call3.i.i.i.noexc:                                ; preds = %_Z4itosB5cxx11i.exi
 if.then.i.i:                                      ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i57, i64 8
   %15 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
+  %cmp3.i.i.i56 = icmp ult i64 %15, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i56)
   %add.i.i = add nuw nsw i64 %15, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %13, i64 %add.i.i, i1 false)
   br label %cond.end

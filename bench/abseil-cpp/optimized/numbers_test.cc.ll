@@ -7139,7 +7139,7 @@ _ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i: ; preds = %
   %div.neg567.i.i.i.i = lshr i32 %div.neg5.lhs.trunc.i.i.i.i, 2
   %narrow.i.i.i.i = sub nuw nsw i32 16, %div.neg567.i.i.i.i
   %sub3.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %cmp.not.i.i.i.not = icmp ugt i64 %or.i.i.i.i, 1152921504606846975
+  %cmp.not.i.i.i.not = icmp ugt i64 %v, 1152921504606846975
   br i1 %cmp.not.i.i.i.not, label %_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i
@@ -73695,7 +73695,7 @@ invoke.cont17.thread:                             ; preds = %if.then3.i
   br label %_ZN7testing15AssertionResultD2Ev.exit
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
-  %cmp.i33.i = icmp slt i128 %coerce.sroa.0.0.insert.insert.i.i, 0
+  %cmp.i33.i = icmp slt i128 %coerce.sroa.2.0.insert.shift.i.i, 0
   %coerce2.sroa.0.0.insert.ext.i49.i = zext nneg i32 %call.i31 to i128
   br label %while.body.i
 

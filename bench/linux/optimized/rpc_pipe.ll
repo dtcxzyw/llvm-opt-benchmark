@@ -147,7 +147,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_gssd_running
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @rpc_pipefs_notifier_register(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 @blocking_notifier_chain_register(ptr noundef nonnull @rpc_pipefs_notifier_list, ptr noundef %0) #13
+  %2 = tail call i32 @blocking_notifier_chain_register(ptr noundef nonnull @rpc_pipefs_notifier_list, ptr noundef %0) #14
   ret i32 %2
 }
 
@@ -156,7 +156,7 @@ declare dso_local i32 @blocking_notifier_chain_register(ptr noundef, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rpc_pipefs_notifier_unregister(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 @blocking_notifier_chain_unregister(ptr noundef nonnull @rpc_pipefs_notifier_list, ptr noundef %0) #13
+  %2 = tail call i32 @blocking_notifier_chain_unregister(ptr noundef nonnull @rpc_pipefs_notifier_list, ptr noundef %0) #14
   ret void
 }
 
@@ -175,16 +175,16 @@ define dso_local i64 @rpc_pipe_generic_upcall(ptr nocapture readnone %0, ptr noc
   br i1 %11, label %.thread, label %12, !prof !6
 
 .thread:                                          ; preds = %4
-  tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #13, !srcloc !7
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 249, i32 2307, i64 12) #13, !srcloc !8
-  tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #13, !srcloc !9
+  tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #14, !srcloc !7
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 249, i32 2307, i64 12) #14, !srcloc !8
+  tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #14, !srcloc !9
   br label %22
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 %6
-  %16 = tail call i64 @_copy_to_user(ptr noundef %2, ptr noundef %15, i64 noundef %10) #13
+  %16 = tail call i64 @_copy_to_user(ptr noundef %2, ptr noundef %15, i64 noundef %10) #14
   %17 = icmp eq i64 %16, %10
   br i1 %17, label %22, label %18
 
@@ -212,7 +212,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -32, 1) i32 @rpc_queue_upcall(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
-  tail call void @_raw_spin_lock(ptr noundef %3) #13
+  tail call void @_raw_spin_lock(ptr noundef %3) #14
   %4 = getelementptr inbounds i8, ptr %0, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -233,7 +233,7 @@ define dso_local noundef range(i32 -32, 1) i32 @rpc_queue_upcall(ptr noundef %0,
 15:                                               ; preds = %12
   %16 = load ptr, ptr @rpciod_workqueue, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 64
-  %18 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %16, ptr noundef %17, i64 noundef 30000) #13
+  %18 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %16, ptr noundef %17, i64 noundef 30000) #14
   br label %19
 
 19:                                               ; preds = %15, %12, %2
@@ -262,17 +262,17 @@ define dso_local noundef range(i32 -32, 1) i32 @rpc_queue_upcall(ptr noundef %0,
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds i8, ptr %32, i64 96
-  tail call void @lockref_get(ptr noundef %35) #13
-  tail call void @_raw_spin_unlock(ptr noundef %3) #13
+  tail call void @lockref_get(ptr noundef %35) #14
+  tail call void @_raw_spin_unlock(ptr noundef %3) #14
   %36 = getelementptr inbounds i8, ptr %32, i64 48
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 616
-  %39 = tail call i32 @__wake_up(ptr noundef %38, i32 noundef 3, i32 noundef 1, ptr noundef null) #13
-  tail call void @dput(ptr noundef nonnull %32) #13
+  %39 = tail call i32 @__wake_up(ptr noundef %38, i32 noundef 3, i32 noundef 1, ptr noundef null) #14
+  tail call void @dput(ptr noundef nonnull %32) #14
   br label %41
 
 40:                                               ; preds = %29
-  tail call void @_raw_spin_unlock(ptr noundef %3) #13
+  tail call void @_raw_spin_unlock(ptr noundef %3) #14
   br label %41
 
 41:                                               ; preds = %40, %34
@@ -287,7 +287,7 @@ declare dso_local void @dput(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rpc_destroy_pipe_data(ptr noundef %0) #0 align 16 {
-  tail call void @kfree(ptr noundef %0) #13
+  tail call void @kfree(ptr noundef %0) #14
   ret void
 }
 
@@ -297,7 +297,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @rpc_mkpipe_data(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
-  %4 = tail call noalias noundef align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 176) #14
+  %4 = tail call noalias noundef align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 176) #15
   %5 = icmp eq ptr %4, null
   br i1 %5, label %24, label %6
 
@@ -328,7 +328,7 @@ define dso_local noundef ptr @rpc_mkpipe_data(ptr noundef %0, i32 noundef %1) #0
   %18 = getelementptr inbounds i8, ptr %4, i64 88
   store ptr @rpc_timeout_upcall_queue, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %4, i64 96
-  tail call void @init_timer_key(ptr noundef %19, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #13
+  tail call void @init_timer_key(ptr noundef %19, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #14
   %20 = getelementptr inbounds i8, ptr %4, i64 152
   %21 = getelementptr inbounds i8, ptr %4, i64 160
   store i32 0, ptr %21, align 8
@@ -360,21 +360,21 @@ define dso_local ptr @rpc_mkpipe_dentry(ptr noundef %0, ptr noundef %1, ptr noun
   %16 = and i16 %12, 4352
   %17 = select i1 %15, i16 %16, i16 %12
   %18 = getelementptr inbounds i8, ptr %7, i64 160
-  tail call void @down_write(ptr noundef %18) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
+  tail call void @down_write(ptr noundef %18) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
   %19 = getelementptr inbounds i8, ptr %5, i64 4
   store i64 0, ptr %5, align 8
-  %20 = tail call i64 @strlen(ptr noundef %1) #13
+  %20 = tail call i64 @strlen(ptr noundef %1) #14
   %21 = trunc i64 %20 to i32
   store i32 %21, ptr %19, align 4
   %22 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %1, ptr %22, align 8
-  %23 = call ptr @d_hash_and_lookup(ptr noundef %0, ptr noundef nonnull %5) #13
+  %23 = call ptr @d_hash_and_lookup(ptr noundef %0, ptr noundef nonnull %5) #14
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %4
-  %26 = call ptr @d_alloc(ptr noundef %0, ptr noundef nonnull %5) #13
+  %26 = call ptr @d_alloc(ptr noundef %0, ptr noundef nonnull %5) #14
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.thread, label %28
 
@@ -386,16 +386,16 @@ define dso_local ptr @rpc_mkpipe_dentry(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %32, label %34, label %33
 
 33:                                               ; preds = %28
-  call void @dput(ptr noundef nonnull %29) #13
+  call void @dput(ptr noundef nonnull %29) #14
   br label %.thread
 
 .thread:                                          ; preds = %33, %25
   %.ph = phi ptr [ inttoptr (i64 -12 to ptr), %25 ], [ inttoptr (i64 -17 to ptr), %33 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   br label %.thread7
 
 34:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   %35 = icmp ugt ptr %29, inttoptr (i64 -4096 to ptr)
   br i1 %35, label %.thread7, label %36
 
@@ -410,7 +410,7 @@ define dso_local ptr @rpc_mkpipe_dentry(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %2, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %40, i64 608
   store ptr %3, ptr %42, align 8
-  %43 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !11
+  %43 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !11
   %44 = inttoptr i64 %43 to ptr
   %45 = getelementptr inbounds i8, ptr %44, i64 1976
   %46 = load ptr, ptr %45, align 8
@@ -423,7 +423,7 @@ define dso_local ptr @rpc_mkpipe_dentry(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %50, label %51, label %52, !prof !6
 
 51:                                               ; preds = %48
-  call void @__audit_inode_child(ptr noundef %7, ptr noundef nonnull %29, i8 noundef zeroext 4) #13
+  call void @__audit_inode_child(ptr noundef %7, ptr noundef nonnull %29, i8 noundef zeroext 4) #14
   br label %52
 
 52:                                               ; preds = %51, %48, %39
@@ -436,18 +436,18 @@ define dso_local ptr @rpc_mkpipe_dentry(ptr noundef %0, ptr noundef %1, ptr noun
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds i8, ptr %29, i64 32
-  %60 = call i32 @fsnotify(i32 noundef 256, ptr noundef nonnull %29, i32 noundef 3, ptr noundef %7, ptr noundef %59, ptr noundef null, i32 noundef 0) #13
+  %60 = call i32 @fsnotify(i32 noundef 256, ptr noundef nonnull %29, i32 noundef 3, ptr noundef %7, ptr noundef %59, ptr noundef null, i32 noundef 0) #14
   br label %.thread7
 
 .thread7:                                         ; preds = %58, %52, %.thread, %62, %34
   %61 = phi ptr [ %29, %34 ], [ %64, %62 ], [ %.ph, %.thread ], [ %29, %52 ], [ %29, %58 ]
-  call void @up_write(ptr noundef %18) #13
+  call void @up_write(ptr noundef %18) #14
   ret ptr %61
 
 62:                                               ; preds = %36
   %63 = sext i32 %37 to i64
   %64 = inttoptr i64 %63 to ptr
-  %65 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.rpc_mkpipe_dentry, ptr noundef %0, ptr noundef %1, i32 noundef %37) #16
+  %65 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.rpc_mkpipe_dentry, ptr noundef %0, ptr noundef %1, i32 noundef %37) #17
   br label %.thread7
 }
 
@@ -456,14 +456,14 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @rpc_unlink(ptr noundef %0) #0 align 16 {
-  %2 = tail call ptr @dget_parent(ptr noundef %0) #13
+  %2 = tail call ptr @dget_parent(ptr noundef %0) #14
   %3 = getelementptr inbounds i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 160
-  tail call void @down_write(ptr noundef %5) #13
+  tail call void @down_write(ptr noundef %5) #14
   %6 = tail call fastcc i32 @__rpc_rmpipe(ptr noundef %4, ptr noundef %0)
-  tail call void @up_write(ptr noundef %5) #13
-  tail call void @dput(ptr noundef %2) #13
+  tail call void @up_write(ptr noundef %5) #14
+  tail call void @dput(ptr noundef %2) #14
   ret i32 %6
 }
 
@@ -477,14 +477,14 @@ define internal fastcc i32 @__rpc_rmpipe(ptr noundef %0, ptr noundef %1) unnamed
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 608
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   store ptr %3, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %3, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 160
-  call void @down_write(ptr noundef %9) #13
+  call void @down_write(ptr noundef %9) #14
   %10 = getelementptr inbounds i8, ptr %7, i64 160
-  call void @_raw_spin_lock(ptr noundef %10) #13
+  call void @_raw_spin_lock(ptr noundef %10) #14
   %11 = getelementptr inbounds i8, ptr %7, i64 52
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
@@ -542,7 +542,7 @@ define internal fastcc i32 @__rpc_rmpipe(ptr noundef %0, ptr noundef %1) unnamed
   store i32 0, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %7, i64 168
   store ptr null, ptr %40, align 8
-  call void @_raw_spin_unlock(ptr noundef %10) #13
+  call void @_raw_spin_unlock(ptr noundef %10) #14
   %41 = getelementptr inbounds i8, ptr %5, i64 616
   %42 = getelementptr inbounds i8, ptr %7, i64 152
   %43 = load ptr, ptr %42, align 8
@@ -564,7 +564,7 @@ define internal fastcc i32 @__rpc_rmpipe(ptr noundef %0, ptr noundef %1) unnamed
   store volatile ptr %48, ptr %49, align 8
   %53 = getelementptr inbounds i8, ptr %48, i64 40
   store i32 -32, ptr %53, align 8
-  call void %45(ptr noundef %48) #13
+  call void %45(ptr noundef %48) #14
   %54 = load volatile ptr, ptr %3, align 8
   %55 = icmp eq ptr %54, %3
   br i1 %55, label %56, label %.preheader, !llvm.loop !12
@@ -574,7 +574,7 @@ define internal fastcc i32 @__rpc_rmpipe(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %57, label %60, label %58
 
 58:                                               ; preds = %56
-  %59 = call i32 @__wake_up(ptr noundef nonnull %41, i32 noundef 3, i32 noundef 1, ptr noundef null) #13
+  %59 = call i32 @__wake_up(ptr noundef nonnull %41, i32 noundef 3, i32 noundef 1, ptr noundef null) #14
   br label %60
 
 60:                                               ; preds = %58, %56, %38
@@ -590,16 +590,16 @@ define internal fastcc i32 @__rpc_rmpipe(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %66, label %68, label %67
 
 67:                                               ; preds = %62
-  call void %65(ptr noundef %5) #13
+  call void %65(ptr noundef %5) #14
   br label %68
 
 68:                                               ; preds = %67, %62, %60
   %69 = getelementptr inbounds i8, ptr %7, i64 64
-  %70 = call zeroext i1 @cancel_delayed_work_sync(ptr noundef %69) #13
+  %70 = call zeroext i1 @cancel_delayed_work_sync(ptr noundef %69) #14
   %71 = getelementptr inbounds i8, ptr %5, i64 600
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
-  call void @up_write(ptr noundef %9) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
+  call void @up_write(ptr noundef %9) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   %72 = call fastcc i32 @__rpc_unlink(ptr noundef %0, ptr noundef %1)
   ret i32 %72
 }
@@ -634,15 +634,15 @@ define dso_local i32 @rpc_add_pipe_dir_object(ptr noundef %0, ptr noundef %1, pt
 
 6:                                                ; preds = %3
   %7 = load i32, ptr @sunrpc_net_id, align 4
-  tail call void @__rcu_read_lock() #13
+  tail call void @__rcu_read_lock() #14
   %8 = getelementptr inbounds i8, ptr %0, i64 2536
   %9 = load volatile ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
   %11 = getelementptr [0 x ptr], ptr %9, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
-  tail call void @__rcu_read_unlock() #13
+  tail call void @__rcu_read_unlock() #14
   %13 = getelementptr inbounds i8, ptr %12, i64 56
-  tail call void @mutex_lock(ptr noundef %13) #13
+  tail call void @mutex_lock(ptr noundef %13) #14
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -652,7 +652,7 @@ define dso_local i32 @rpc_add_pipe_dir_object(ptr noundef %0, ptr noundef %1, pt
   %18 = getelementptr inbounds i8, ptr %2, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %20(ptr noundef nonnull %15, ptr noundef %2) #13
+  %21 = tail call i32 %20(ptr noundef nonnull %15, ptr noundef %2) #14
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.thread, label %26
 
@@ -668,7 +668,7 @@ define dso_local i32 @rpc_add_pipe_dir_object(ptr noundef %0, ptr noundef %1, pt
 
 26:                                               ; preds = %.thread, %17
   %27 = phi i32 [ 0, %.thread ], [ %21, %17 ]
-  tail call void @mutex_unlock(ptr noundef %13) #13
+  tail call void @mutex_unlock(ptr noundef %13) #14
   br label %28
 
 28:                                               ; preds = %26, %3
@@ -690,15 +690,15 @@ define dso_local void @rpc_remove_pipe_dir_object(ptr noundef %0, ptr nocapture 
 
 6:                                                ; preds = %3
   %7 = load i32, ptr @sunrpc_net_id, align 4
-  tail call void @__rcu_read_lock() #13
+  tail call void @__rcu_read_lock() #14
   %8 = getelementptr inbounds i8, ptr %0, i64 2536
   %9 = load volatile ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
   %11 = getelementptr [0 x ptr], ptr %9, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
-  tail call void @__rcu_read_unlock() #13
+  tail call void @__rcu_read_unlock() #14
   %13 = getelementptr inbounds i8, ptr %12, i64 56
-  tail call void @mutex_lock(ptr noundef %13) #13
+  tail call void @mutex_lock(ptr noundef %13) #14
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -709,7 +709,7 @@ define dso_local void @rpc_remove_pipe_dir_object(ptr noundef %0, ptr nocapture 
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull %15, ptr noundef %2) #13
+  tail call void %21(ptr noundef nonnull %15, ptr noundef %2) #14
   br label %22
 
 22:                                               ; preds = %17, %6
@@ -721,7 +721,7 @@ define dso_local void @rpc_remove_pipe_dir_object(ptr noundef %0, ptr nocapture 
   store volatile ptr %25, ptr %24, align 8
   store volatile ptr %2, ptr %2, align 8
   store volatile ptr %2, ptr %23, align 8
-  tail call void @mutex_unlock(ptr noundef %13) #13
+  tail call void @mutex_unlock(ptr noundef %13) #14
   br label %27
 
 27:                                               ; preds = %22, %3
@@ -731,15 +731,15 @@ define dso_local void @rpc_remove_pipe_dir_object(ptr noundef %0, ptr nocapture 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @rpc_find_or_alloc_pipe_dir_object(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) #0 align 16 {
   %6 = load i32, ptr @sunrpc_net_id, align 4
-  tail call void @__rcu_read_lock() #13
+  tail call void @__rcu_read_lock() #14
   %7 = getelementptr inbounds i8, ptr %0, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
   %10 = getelementptr [0 x ptr], ptr %8, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
-  tail call void @__rcu_read_unlock() #13
+  tail call void @__rcu_read_unlock() #14
   %12 = getelementptr inbounds i8, ptr %11, i64 56
-  tail call void @mutex_lock(ptr noundef %12) #13
+  tail call void @mutex_lock(ptr noundef %12) #14
   br label %13
 
 13:                                               ; preds = %17, %5
@@ -749,12 +749,12 @@ define dso_local ptr @rpc_find_or_alloc_pipe_dir_object(ptr noundef %0, ptr noun
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call i32 %2(ptr noundef %15, ptr noundef %4) #13
+  %18 = tail call i32 %2(ptr noundef %15, ptr noundef %4) #14
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %13, label %.loopexit, !llvm.loop !15
 
 20:                                               ; preds = %13
-  %21 = tail call ptr %3(ptr noundef %4) #13
+  %21 = tail call ptr %3(ptr noundef %4) #14
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit, label %23
 
@@ -768,7 +768,7 @@ define dso_local ptr @rpc_find_or_alloc_pipe_dir_object(ptr noundef %0, ptr noun
   %28 = getelementptr inbounds i8, ptr %21, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 %30(ptr noundef nonnull %25, ptr noundef nonnull %21) #13
+  %31 = tail call i32 %30(ptr noundef nonnull %25, ptr noundef nonnull %21) #14
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %.loopexit
 
@@ -784,7 +784,7 @@ define dso_local ptr @rpc_find_or_alloc_pipe_dir_object(ptr noundef %0, ptr noun
 
 .loopexit:                                        ; preds = %17, %33, %27, %20
   %37 = phi ptr [ null, %20 ], [ %21, %27 ], [ %21, %33 ], [ %15, %17 ]
-  tail call void @mutex_unlock(ptr noundef %12) #13
+  tail call void @mutex_unlock(ptr noundef %12) #14
   ret ptr %37
 }
 
@@ -807,7 +807,7 @@ define dso_local ptr @rpc_create_client_dir(ptr noundef %0, ptr noundef %1, ptr 
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %4, ptr noundef %11) #13
+  %15 = tail call i32 %14(ptr noundef %4, ptr noundef %11) #14
   %16 = load ptr, ptr %11, align 8
   %17 = icmp eq ptr %16, %7
   br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !16
@@ -822,21 +822,21 @@ define internal fastcc ptr @rpc_mkdir_populate(ptr noundef %0, ptr noundef %1, i
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 160
-  tail call void @down_write(ptr noundef %9) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
+  tail call void @down_write(ptr noundef %9) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
   %10 = getelementptr inbounds i8, ptr %6, i64 4
   store i64 0, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef %1) #13
+  %11 = tail call i64 @strlen(ptr noundef %1) #14
   %12 = trunc i64 %11 to i32
   store i32 %12, ptr %10, align 4
   %13 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %13, align 8
-  %14 = call ptr @d_hash_and_lookup(ptr noundef %0, ptr noundef nonnull %6) #13
+  %14 = call ptr @d_hash_and_lookup(ptr noundef %0, ptr noundef nonnull %6) #14
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %5
-  %17 = call ptr @d_alloc(ptr noundef %0, ptr noundef nonnull %6) #13
+  %17 = call ptr @d_alloc(ptr noundef %0, ptr noundef nonnull %6) #14
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %19
 
@@ -848,16 +848,16 @@ define internal fastcc ptr @rpc_mkdir_populate(ptr noundef %0, ptr noundef %1, i
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %19
-  call void @dput(ptr noundef nonnull %20) #13
+  call void @dput(ptr noundef nonnull %20) #14
   br label %.thread
 
 .thread:                                          ; preds = %24, %16
   %.ph = phi ptr [ inttoptr (i64 -12 to ptr), %16 ], [ inttoptr (i64 -17 to ptr), %24 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
   br label %55
 
 25:                                               ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
   %26 = icmp ugt ptr %20, inttoptr (i64 -4096 to ptr)
   br i1 %26, label %55, label %27
 
@@ -868,8 +868,8 @@ define internal fastcc ptr @rpc_mkdir_populate(ptr noundef %0, ptr noundef %1, i
   br i1 %30, label %31, label %59
 
 31:                                               ; preds = %27
-  call void @inc_nlink(ptr noundef %8) #13
-  %32 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !11
+  call void @inc_nlink(ptr noundef %8) #14
+  %32 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !11
   %33 = inttoptr i64 %32 to ptr
   %34 = getelementptr inbounds i8, ptr %33, i64 1976
   %35 = load ptr, ptr %34, align 8
@@ -882,7 +882,7 @@ define internal fastcc ptr @rpc_mkdir_populate(ptr noundef %0, ptr noundef %1, i
   br i1 %39, label %40, label %41, !prof !6
 
 40:                                               ; preds = %37
-  call void @__audit_inode_child(ptr noundef %8, ptr noundef nonnull %20, i8 noundef zeroext 4) #13
+  call void @__audit_inode_child(ptr noundef %8, ptr noundef nonnull %20, i8 noundef zeroext 4) #14
   br label %41
 
 41:                                               ; preds = %40, %37, %31
@@ -895,7 +895,7 @@ define internal fastcc ptr @rpc_mkdir_populate(ptr noundef %0, ptr noundef %1, i
 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds i8, ptr %20, i64 32
-  %49 = call i32 @fsnotify(i32 noundef 1073742080, ptr noundef nonnull %20, i32 noundef 3, ptr noundef %8, ptr noundef %48, ptr noundef null, i32 noundef 0) #13
+  %49 = call i32 @fsnotify(i32 noundef 1073742080, ptr noundef nonnull %20, i32 noundef 3, ptr noundef %8, ptr noundef %48, ptr noundef null, i32 noundef 0) #14
   br label %50
 
 50:                                               ; preds = %41, %47
@@ -903,13 +903,13 @@ define internal fastcc ptr @rpc_mkdir_populate(ptr noundef %0, ptr noundef %1, i
   br i1 %51, label %55, label %52
 
 52:                                               ; preds = %50
-  %53 = call i32 %3(ptr noundef nonnull %20, ptr noundef %4) #13, !callees !17
+  %53 = call i32 %3(ptr noundef nonnull %20, ptr noundef %4) #14, !callees !17
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %.thread, %59, %52, %50, %25
   %56 = phi ptr [ %20, %25 ], [ %62, %59 ], [ %20, %52 ], [ %20, %50 ], [ %.ph, %.thread ]
-  call void @up_write(ptr noundef %9) #13
+  call void @up_write(ptr noundef %9) #14
   ret ptr %56
 
 57:                                               ; preds = %52
@@ -948,27 +948,27 @@ define dso_local i32 @rpc_remove_client_dir(ptr noundef %0) local_unnamed_addr #
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull %3, ptr noundef %9) #13
+  tail call void %13(ptr noundef nonnull %3, ptr noundef %9) #14
   %14 = load ptr, ptr %9, align 8
   %15 = icmp eq ptr %14, %6
   br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %5
   store ptr null, ptr %2, align 8
-  %16 = tail call ptr @dget_parent(ptr noundef nonnull %3) #13
+  %16 = tail call ptr @dget_parent(ptr noundef nonnull %3) #14
   %17 = getelementptr inbounds i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 160
-  tail call void @down_write(ptr noundef %19) #13
+  tail call void @down_write(ptr noundef %19) #14
   %20 = getelementptr inbounds i8, ptr %3, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 160
-  tail call void @down_write(ptr noundef %22) #13
+  tail call void @down_write(ptr noundef %22) #14
   tail call fastcc void @__rpc_depopulate(ptr noundef nonnull %3, ptr noundef nonnull @authfiles, i32 noundef 1)
-  tail call void @up_write(ptr noundef %22) #13
+  tail call void @up_write(ptr noundef %22) #14
   %23 = tail call fastcc i32 @__rpc_rmdir(ptr noundef %18, ptr noundef nonnull %3)
-  tail call void @up_write(ptr noundef %19) #13
-  tail call void @dput(ptr noundef %16) #13
+  tail call void @up_write(ptr noundef %19) #14
+  tail call void @dput(ptr noundef %16) #14
   br label %24
 
 24:                                               ; preds = %.loopexit, %1
@@ -990,38 +990,38 @@ define internal i32 @rpc_cachedir_populate(ptr noundef %0, ptr noundef %1) #0 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rpc_remove_cache_dir(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = tail call ptr @dget_parent(ptr noundef %0) #13
+  %2 = tail call ptr @dget_parent(ptr noundef %0) #14
   %3 = getelementptr inbounds i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 160
-  tail call void @down_write(ptr noundef %5) #13
+  tail call void @down_write(ptr noundef %5) #14
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 160
-  tail call void @down_write(ptr noundef %8) #13
+  tail call void @down_write(ptr noundef %8) #14
   tail call fastcc void @__rpc_depopulate(ptr noundef %0, ptr noundef nonnull @cache_pipefs_files, i32 noundef 3)
-  tail call void @up_write(ptr noundef %8) #13
+  tail call void @up_write(ptr noundef %8) #14
   %9 = tail call fastcc i32 @__rpc_rmdir(ptr noundef %4, ptr noundef %0)
-  tail call void @up_write(ptr noundef %5) #13
-  tail call void @dput(ptr noundef %2) #13
+  tail call void @up_write(ptr noundef %5) #14
+  tail call void @dput(ptr noundef %2) #14
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @rpc_d_lookup_sb(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.qstr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   store i64 0, ptr %3, align 8
-  %5 = tail call i64 @strlen(ptr noundef %1) #13
+  %5 = tail call i64 @strlen(ptr noundef %1) #14
   %6 = trunc i64 %5 to i32
   store i32 %6, ptr %4, align 4
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
-  %10 = call ptr @d_hash_and_lookup(ptr noundef %9, ptr noundef nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
+  %10 = call ptr @d_hash_and_lookup(ptr noundef %9, ptr noundef nonnull %3) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   ret ptr %10
 }
 
@@ -1037,15 +1037,15 @@ declare dso_local ptr @d_hash_and_lookup(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @rpc_pipefs_init_net(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr @sunrpc_net_id, align 4
-  tail call void @__rcu_read_lock() #13
+  tail call void @__rcu_read_lock() #14
   %3 = getelementptr inbounds i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
   %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
-  tail call void @__rcu_read_unlock() #13
+  tail call void @__rcu_read_unlock() #14
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
-  %9 = tail call noalias noundef align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 176) #14
+  %9 = tail call noalias noundef align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 176) #15
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread, label %12
 
@@ -1081,7 +1081,7 @@ define dso_local noundef i32 @rpc_pipefs_init_net(ptr noundef %0) local_unnamed_
   %24 = getelementptr inbounds i8, ptr %9, i64 88
   store ptr @rpc_timeout_upcall_queue, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %9, i64 96
-  tail call void @init_timer_key(ptr noundef %25, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #13
+  tail call void @init_timer_key(ptr noundef %25, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #14
   %26 = getelementptr inbounds i8, ptr %9, i64 152
   %27 = getelementptr inbounds i8, ptr %9, i64 160
   store i32 0, ptr %27, align 8
@@ -1103,7 +1103,7 @@ define dso_local noundef i32 @rpc_pipefs_init_net(ptr noundef %0) local_unnamed_
 
 36:                                               ; preds = %12
   %37 = getelementptr inbounds i8, ptr %7, i64 56
-  tail call void @__mutex_init(ptr noundef %37, ptr noundef nonnull @.str.2, ptr noundef nonnull @rpc_pipefs_init_net.__key) #13
+  tail call void @__mutex_init(ptr noundef %37, ptr noundef nonnull @.str.2, ptr noundef nonnull @rpc_pipefs_init_net.__key) #14
   %38 = getelementptr inbounds i8, ptr %7, i64 188
   store i32 -1, ptr %38, align 4
   br label %39
@@ -1119,38 +1119,38 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rpc_pipefs_exit_net(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr @sunrpc_net_id, align 4
-  tail call void @__rcu_read_lock() #13
+  tail call void @__rcu_read_lock() #14
   %3 = getelementptr inbounds i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
   %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
-  tail call void @__rcu_read_unlock() #13
+  tail call void @__rcu_read_unlock() #14
   %8 = getelementptr inbounds i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
-  tail call void @kfree(ptr noundef %9) #13
+  tail call void @kfree(ptr noundef %9) #14
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @rpc_get_sb_net(ptr noundef %0) #0 align 16 {
   %2 = load i32, ptr @sunrpc_net_id, align 4
-  tail call void @__rcu_read_lock() #13
+  tail call void @__rcu_read_lock() #14
   %3 = getelementptr inbounds i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
   %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
-  tail call void @__rcu_read_unlock() #13
+  tail call void @__rcu_read_unlock() #14
   %8 = getelementptr inbounds i8, ptr %7, i64 56
-  tail call void @mutex_lock(ptr noundef %8) #13
+  tail call void @mutex_lock(ptr noundef %8) #14
   %9 = getelementptr inbounds i8, ptr %7, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %1
-  tail call void @mutex_unlock(ptr noundef %8) #13
+  tail call void @mutex_unlock(ptr noundef %8) #14
   br label %13
 
 13:                                               ; preds = %12, %1
@@ -1160,40 +1160,40 @@ define dso_local ptr @rpc_get_sb_net(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rpc_put_sb_net(ptr noundef %0) #0 align 16 {
   %2 = load i32, ptr @sunrpc_net_id, align 4
-  tail call void @__rcu_read_lock() #13
+  tail call void @__rcu_read_lock() #14
   %3 = getelementptr inbounds i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
   %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
-  tail call void @__rcu_read_unlock() #13
+  tail call void @__rcu_read_unlock() #14
   %8 = getelementptr inbounds i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12, !prof !6
 
 11:                                               ; preds = %1
-  tail call void asm sideeffect "764: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 764b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 764) #13, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1241, i32 2305, i64 12) #13, !srcloc !20
-  tail call void asm sideeffect "765: nop\0A\09.pushsection .discard.instr_end\0A\09.long 765b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 765) #13, !srcloc !21
+  tail call void asm sideeffect "764: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 764b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 764) #14, !srcloc !19
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1241, i32 2305, i64 12) #14, !srcloc !20
+  tail call void asm sideeffect "765: nop\0A\09.pushsection .discard.instr_end\0A\09.long 765b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 765) #14, !srcloc !21
   br label %12
 
 12:                                               ; preds = %11, %1
   %13 = getelementptr inbounds i8, ptr %7, i64 56
-  tail call void @mutex_unlock(ptr noundef %13) #13
+  tail call void @mutex_unlock(ptr noundef %13) #14
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @gssd_running(ptr noundef %0) #0 align 16 {
   %2 = load i32, ptr @sunrpc_net_id, align 4
-  tail call void @__rcu_read_lock() #13
+  tail call void @__rcu_read_lock() #14
   %3 = getelementptr inbounds i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
   %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
-  tail call void @__rcu_read_unlock() #13
+  tail call void @__rcu_read_unlock() #14
   %8 = getelementptr inbounds i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 52
@@ -1214,29 +1214,29 @@ define dso_local zeroext i1 @gssd_running(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @register_rpc_pipefs() local_unnamed_addr #0 align 16 {
-  %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.3, i32 noundef 640, i32 noundef 0, i32 noundef 1187840, ptr noundef nonnull @init_once) #13
+  %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.3, i32 noundef 640, i32 noundef 0, i32 noundef 1187840, ptr noundef nonnull @init_once) #14
   store ptr %1, ptr @rpc_inode_cachep, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %13, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @rpc_clients_notifier_register() #13
+  %4 = tail call i32 @rpc_clients_notifier_register() #14
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @register_filesystem(ptr noundef nonnull @rpc_pipe_fs_type) #13
+  %7 = tail call i32 @register_filesystem(ptr noundef nonnull @rpc_pipe_fs_type) #14
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %6
-  tail call void @rpc_clients_notifier_unregister() #13
+  tail call void @rpc_clients_notifier_unregister() #14
   br label %10
 
 10:                                               ; preds = %9, %3
   %11 = phi i32 [ %4, %3 ], [ %7, %9 ]
   %12 = load ptr, ptr @rpc_inode_cachep, align 8
-  tail call void @kmem_cache_destroy(ptr noundef %12) #13
+  tail call void @kmem_cache_destroy(ptr noundef %12) #14
   br label %13
 
 13:                                               ; preds = %10, %6, %0
@@ -1249,11 +1249,11 @@ declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @init_once(ptr noundef %0) #0 align 16 {
-  tail call void @inode_init_once(ptr noundef %0) #13
+  tail call void @inode_init_once(ptr noundef %0) #14
   %2 = getelementptr inbounds i8, ptr %0, i64 600
   %3 = getelementptr inbounds i8, ptr %0, i64 616
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  tail call void @__init_waitqueue_head(ptr noundef %3, ptr noundef nonnull @.str.18, ptr noundef nonnull @init_once.__key) #13
+  tail call void @__init_waitqueue_head(ptr noundef %3, ptr noundef nonnull @.str.18, ptr noundef nonnull @init_once.__key) #14
   ret void
 }
 
@@ -1271,10 +1271,10 @@ declare dso_local void @kmem_cache_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @unregister_rpc_pipefs() local_unnamed_addr #0 align 16 {
-  tail call void @rpc_clients_notifier_unregister() #13
-  %1 = tail call i32 @unregister_filesystem(ptr noundef nonnull @rpc_pipe_fs_type) #13
+  tail call void @rpc_clients_notifier_unregister() #14
+  %1 = tail call i32 @unregister_filesystem(ptr noundef nonnull @rpc_pipe_fs_type) #14
   %2 = load ptr, ptr @rpc_inode_cachep, align 8
-  tail call void @kmem_cache_destroy(ptr noundef %2) #13
+  tail call void @kmem_cache_destroy(ptr noundef %2) #14
   ret void
 }
 
@@ -1302,12 +1302,12 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @rpc_timeout_upcall_queue(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.list_head, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
   store ptr %2, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %2, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 96
-  call void @_raw_spin_lock(ptr noundef %4) #13
+  call void @_raw_spin_lock(ptr noundef %4) #14
   %5 = getelementptr i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 32
@@ -1350,15 +1350,15 @@ define internal void @rpc_timeout_upcall_queue(ptr noundef %0) #0 align 16 {
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %26, i64 96
-  call void @lockref_get(ptr noundef %29) #13
-  call void @_raw_spin_unlock(ptr noundef %4) #13
+  call void @lockref_get(ptr noundef %29) #14
+  call void @_raw_spin_unlock(ptr noundef %4) #14
   %30 = getelementptr inbounds i8, ptr %26, i64 48
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 616
   br label %34
 
 33:                                               ; preds = %24
-  call void @_raw_spin_unlock(ptr noundef %4) #13
+  call void @_raw_spin_unlock(ptr noundef %4) #14
   br label %34
 
 34:                                               ; preds = %33, %28
@@ -1379,7 +1379,7 @@ define internal void @rpc_timeout_upcall_queue(ptr noundef %0) #0 align 16 {
   store volatile ptr %38, ptr %39, align 8
   %43 = getelementptr inbounds i8, ptr %38, i64 40
   store i32 -110, ptr %43, align 8
-  call void %8(ptr noundef %38) #13
+  call void %8(ptr noundef %38) #14
   %44 = load volatile ptr, ptr %2, align 8
   %45 = icmp eq ptr %44, %2
   br i1 %45, label %46, label %.preheader, !llvm.loop !12
@@ -1389,12 +1389,12 @@ define internal void @rpc_timeout_upcall_queue(ptr noundef %0) #0 align 16 {
   br i1 %47, label %50, label %48
 
 48:                                               ; preds = %46
-  %49 = call i32 @__wake_up(ptr noundef nonnull %35, i32 noundef 3, i32 noundef 1, ptr noundef null) #13
+  %49 = call i32 @__wake_up(ptr noundef nonnull %35, i32 noundef 3, i32 noundef 1, ptr noundef null) #14
   br label %50
 
 50:                                               ; preds = %48, %46, %34
-  call void @dput(ptr noundef %26) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #13
+  call void @dput(ptr noundef %26) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
   ret void
 }
 
@@ -1412,20 +1412,20 @@ declare dso_local ptr @d_alloc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -12, 1) i32 @__rpc_create_common(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
-  tail call void @d_drop(ptr noundef %1) #13
+  tail call void @d_drop(ptr noundef %1) #14
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @new_inode(ptr noundef %7) #13
+  %8 = tail call ptr @new_inode(ptr noundef %7) #14
   %9 = icmp eq ptr %8, null
   br i1 %9, label %31, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @get_next_ino() #13
+  %11 = tail call i32 @get_next_ino() #14
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %8, i64 64
   store i64 %12, ptr %13, align 8
   store i16 %2, ptr %8, align 8
-  %14 = tail call { i64, i64 } @simple_inode_init_ts(ptr noundef nonnull %8) #13
+  %14 = tail call { i64, i64 } @simple_inode_init_ts(ptr noundef nonnull %8) #14
   %15 = and i16 %2, -4096
   %16 = icmp eq i16 %15, 16384
   br i1 %16, label %17, label %20
@@ -1435,12 +1435,12 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__rpc_create_common(ptr no
   store ptr @simple_dir_operations, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr @simple_dir_inode_operations, ptr %19, align 8
-  tail call void @inc_nlink(ptr noundef nonnull %8) #13
+  tail call void @inc_nlink(ptr noundef nonnull %8) #14
   br label %20
 
 20:                                               ; preds = %10, %17
   %21 = load ptr, ptr %6, align 8
-  %22 = tail call i64 @iunique(ptr noundef %21, i64 noundef 100) #13
+  %22 = tail call i64 @iunique(ptr noundef %21, i64 noundef 100) #14
   store i64 %22, ptr %13, align 8
   %23 = icmp eq ptr %3, null
   br i1 %23, label %26, label %24
@@ -1460,12 +1460,12 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__rpc_create_common(ptr no
   br label %30
 
 30:                                               ; preds = %28, %26
-  tail call void @d_add(ptr noundef %1, ptr noundef nonnull %8) #13
+  tail call void @d_add(ptr noundef %1, ptr noundef nonnull %8) #14
   br label %33
 
 31:                                               ; preds = %5
-  %32 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.__rpc_create_common, ptr noundef %1) #16
-  tail call void @dput(ptr noundef %1) #13
+  %32 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.__rpc_create_common, ptr noundef %1) #17
+  tail call void @dput(ptr noundef %1) #14
   br label %33
 
 33:                                               ; preds = %31, %30
@@ -1505,7 +1505,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rpc_pipe_read(ptr nounde
   %5 = getelementptr inbounds i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 160
-  tail call void @down_write(ptr noundef %7) #13
+  tail call void @down_write(ptr noundef %7) #14
   %8 = getelementptr inbounds i8, ptr %6, i64 608
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -1519,13 +1519,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @rpc_pipe_read(ptr nounde
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %9, i64 160
-  tail call void @_raw_spin_lock(ptr noundef %16) #13
+  tail call void @_raw_spin_lock(ptr noundef %16) #14
   %17 = load volatile ptr, ptr %9, align 8
   %18 = icmp eq ptr %17, %9
   br i1 %18, label %.thread, label %19
 
 .thread:                                          ; preds = %15
-  tail call void @_raw_spin_unlock(ptr noundef %16) #13
+  tail call void @_raw_spin_unlock(ptr noundef %16) #14
   br label %58
 
 19:                                               ; preds = %15
@@ -1552,7 +1552,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rpc_pipe_read(ptr nounde
   store ptr %17, ptr %12, align 8
   %33 = getelementptr inbounds i8, ptr %17, i64 32
   store i64 0, ptr %33, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %16) #13
+  tail call void @_raw_spin_unlock(ptr noundef %16) #14
   %34 = icmp eq ptr %17, null
   br i1 %34, label %58, label %35
 
@@ -1561,7 +1561,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rpc_pipe_read(ptr nounde
   %37 = getelementptr inbounds i8, ptr %9, i64 152
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i64 %39(ptr noundef %0, ptr noundef nonnull %36, ptr noundef %1, i64 noundef %2) #13
+  %40 = tail call i64 %39(ptr noundef %0, ptr noundef nonnull %36, ptr noundef %1, i64 noundef %2) #14
   %41 = and i64 %40, 2147483648
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %43, label %49
@@ -1577,7 +1577,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rpc_pipe_read(ptr nounde
 49:                                               ; preds = %43, %35
   store ptr null, ptr %12, align 8
   %50 = getelementptr inbounds i8, ptr %9, i64 160
-  tail call void @_raw_spin_lock(ptr noundef %50) #13
+  tail call void @_raw_spin_lock(ptr noundef %50) #14
   %51 = getelementptr inbounds i8, ptr %36, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %36, align 8
@@ -1586,16 +1586,16 @@ define internal range(i64 -2147483648, 2147483648) i64 @rpc_pipe_read(ptr nounde
   store volatile ptr %53, ptr %52, align 8
   store volatile ptr %36, ptr %36, align 8
   store volatile ptr %36, ptr %51, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %50) #13
+  tail call void @_raw_spin_unlock(ptr noundef %50) #14
   %55 = load ptr, ptr %37, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 32
   %57 = load ptr, ptr %56, align 8
-  tail call void %57(ptr noundef nonnull %36) #13
+  tail call void %57(ptr noundef nonnull %36) #14
   br label %58
 
 58:                                               ; preds = %.thread, %49, %43, %19, %4
   %59 = phi i64 [ 0, %19 ], [ %40, %49 ], [ %40, %43 ], [ -32, %4 ], [ 0, %.thread ]
-  tail call void @up_write(ptr noundef %7) #13
+  tail call void @up_write(ptr noundef %7) #14
   %60 = shl i64 %59, 32
   %61 = ashr exact i64 %60, 32
   ret i64 %61
@@ -1606,7 +1606,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rpc_pipe_write(ptr nound
   %5 = getelementptr inbounds i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 160
-  tail call void @down_write(ptr noundef %7) #13
+  tail call void @down_write(ptr noundef %7) #14
   %8 = getelementptr inbounds i8, ptr %6, i64 608
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -1617,14 +1617,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @rpc_pipe_write(ptr nound
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i64 %15(ptr noundef %0, ptr noundef %1, i64 noundef %2) #13
+  %16 = tail call i64 %15(ptr noundef %0, ptr noundef %1, i64 noundef %2) #14
   %17 = shl i64 %16, 32
   %18 = ashr exact i64 %17, 32
   br label %19
 
 19:                                               ; preds = %11, %4
   %20 = phi i64 [ %18, %11 ], [ -32, %4 ]
-  tail call void @up_write(ptr noundef %7) #13
+  tail call void @up_write(ptr noundef %7) #14
   ret i64 %20
 }
 
@@ -1644,12 +1644,12 @@ define internal noundef range(i32 260, 326) i32 @rpc_pipe_poll(ptr noundef %0, p
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %7
-  tail call void %8(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %1) #13
+  tail call void %8(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %1) #14
   br label %13
 
 13:                                               ; preds = %12, %7, %2
   %14 = getelementptr inbounds i8, ptr %4, i64 160
-  tail call void @down_write(ptr noundef %14) #13
+  tail call void @down_write(ptr noundef %14) #14
   %15 = getelementptr inbounds i8, ptr %4, i64 608
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
@@ -1671,7 +1671,7 @@ define internal noundef range(i32 260, 326) i32 @rpc_pipe_poll(ptr noundef %0, p
 
 26:                                               ; preds = %25, %22, %13
   %27 = phi i32 [ 325, %25 ], [ 260, %22 ], [ 284, %13 ]
-  tail call void @up_write(ptr noundef %14) #13
+  tail call void @up_write(ptr noundef %14) #14
   ret i32 %27
 }
 
@@ -1684,19 +1684,19 @@ define internal range(i64 -2147483648, 2147483648) i64 @rpc_pipe_ioctl(ptr nocap
   %6 = getelementptr inbounds i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 160
-  tail call void @down_write(ptr noundef %8) #13
+  tail call void @down_write(ptr noundef %8) #14
   %9 = getelementptr inbounds i8, ptr %7, i64 608
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %5
-  tail call void @up_write(ptr noundef %8) #13
+  tail call void @up_write(ptr noundef %8) #14
   br label %38
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %10, i64 160
-  tail call void @_raw_spin_lock(ptr noundef %14) #13
+  tail call void @_raw_spin_lock(ptr noundef %14) #14
   %15 = getelementptr inbounds i8, ptr %10, i64 48
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 200
@@ -1716,11 +1716,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @rpc_pipe_ioctl(ptr nocap
 
 28:                                               ; preds = %20, %13
   %29 = phi i32 [ %27, %20 ], [ %16, %13 ]
-  tail call void @_raw_spin_unlock(ptr noundef %14) #13
-  tail call void @up_write(ptr noundef %8) #13
+  tail call void @_raw_spin_unlock(ptr noundef %14) #14
+  tail call void @up_write(ptr noundef %8) #14
   %30 = inttoptr i64 %2 to ptr
   %31 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %32 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %30, i32 %29, i64 4, i64 %31) #13, !srcloc !22
+  %32 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %30, i32 %29, i64 4, i64 %31) #14, !srcloc !22
   %33 = extractvalue { ptr, i64 } %32, 0
   %34 = extractvalue { ptr, i64 } %32, 1
   %35 = ptrtoint ptr %33 to i64
@@ -1737,7 +1737,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rpc_pipe_ioctl(ptr nocap
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rpc_pipe_open(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
-  tail call void @down_write(ptr noundef %3) #13
+  tail call void @down_write(ptr noundef %3) #14
   %4 = getelementptr inbounds i8, ptr %0, i64 608
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1764,7 +1764,7 @@ define internal i32 @rpc_pipe_open(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %15
-  %22 = tail call i32 %19(ptr noundef %0) #13
+  %22 = tail call i32 %19(ptr noundef %0) #14
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %40
 
@@ -1797,7 +1797,7 @@ define internal i32 @rpc_pipe_open(ptr noundef %0, ptr nocapture noundef readonl
 
 40:                                               ; preds = %36, %32, %21, %2
   %41 = phi i32 [ -6, %2 ], [ %22, %21 ], [ 0, %36 ], [ 0, %32 ]
-  tail call void @up_write(ptr noundef %3) #13
+  tail call void @up_write(ptr noundef %3) #14
   ret i32 %41
 }
 
@@ -1805,7 +1805,7 @@ define internal i32 @rpc_pipe_open(ptr noundef %0, ptr nocapture noundef readonl
 define internal noundef i32 @rpc_pipe_release(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.list_head, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 160
-  tail call void @down_write(ptr noundef %4) #13
+  tail call void @down_write(ptr noundef %4) #14
   %5 = getelementptr inbounds i8, ptr %0, i64 608
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -1819,7 +1819,7 @@ define internal noundef i32 @rpc_pipe_release(ptr noundef %0, ptr nocapture noun
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %6, i64 160
-  tail call void @_raw_spin_lock(ptr noundef %13) #13
+  tail call void @_raw_spin_lock(ptr noundef %13) #14
   %14 = getelementptr inbounds i8, ptr %10, i64 40
   store i32 -11, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %10, i64 8
@@ -1830,12 +1830,12 @@ define internal noundef i32 @rpc_pipe_release(ptr noundef %0, ptr nocapture noun
   store volatile ptr %17, ptr %16, align 8
   store volatile ptr %10, ptr %10, align 8
   store volatile ptr %10, ptr %15, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %13) #13
+  tail call void @_raw_spin_unlock(ptr noundef %13) #14
   %19 = getelementptr inbounds i8, ptr %6, i64 152
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull %10) #13
+  tail call void %22(ptr noundef nonnull %10) #14
   br label %23
 
 23:                                               ; preds = %12, %8
@@ -1868,12 +1868,12 @@ define internal noundef i32 @rpc_pipe_release(ptr noundef %0, ptr nocapture noun
   br i1 %40, label %41, label %72
 
 41:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   store ptr %3, ptr %3, align 8
   %42 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %3, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %6, i64 160
-  call void @_raw_spin_lock(ptr noundef %43) #13
+  call void @_raw_spin_lock(ptr noundef %43) #14
   %44 = load volatile ptr, ptr %6, align 8
   %45 = icmp eq ptr %44, %6
   br i1 %45, label %52, label %46
@@ -1895,7 +1895,7 @@ define internal noundef i32 @rpc_pipe_release(ptr noundef %0, ptr nocapture noun
 52:                                               ; preds = %46, %41
   %53 = getelementptr inbounds i8, ptr %6, i64 48
   store i32 0, ptr %53, align 8
-  call void @_raw_spin_unlock(ptr noundef %43) #13
+  call void @_raw_spin_unlock(ptr noundef %43) #14
   %54 = getelementptr inbounds i8, ptr %0, i64 616
   %55 = getelementptr inbounds i8, ptr %6, i64 152
   %56 = load ptr, ptr %55, align 8
@@ -1917,17 +1917,17 @@ define internal noundef i32 @rpc_pipe_release(ptr noundef %0, ptr nocapture noun
   store volatile ptr %61, ptr %62, align 8
   %66 = getelementptr inbounds i8, ptr %61, i64 40
   store i32 -11, ptr %66, align 8
-  call void %58(ptr noundef %61) #13
+  call void %58(ptr noundef %61) #14
   %67 = load volatile ptr, ptr %3, align 8
   %68 = icmp eq ptr %67, %3
   br i1 %68, label %69, label %.preheader, !llvm.loop !12
 
 69:                                               ; preds = %.preheader
-  %70 = call i32 @__wake_up(ptr noundef nonnull %54, i32 noundef 3, i32 noundef 1, ptr noundef null) #13
+  %70 = call i32 @__wake_up(ptr noundef nonnull %54, i32 noundef 3, i32 noundef 1, ptr noundef null) #14
   br label %71
 
 71:                                               ; preds = %69, %52
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   br label %72
 
 72:                                               ; preds = %71, %36, %32
@@ -1951,11 +1951,11 @@ define internal noundef i32 @rpc_pipe_release(ptr noundef %0, ptr nocapture noun
   br i1 %85, label %87, label %86
 
 86:                                               ; preds = %80
-  call void %84(ptr noundef %0) #13
+  call void %84(ptr noundef %0) #14
   br label %87
 
 87:                                               ; preds = %86, %80, %76, %72, %2
-  call void @up_write(ptr noundef %4) #13
+  call void @up_write(ptr noundef %4) #14
   ret i32 0
 }
 
@@ -1975,12 +1975,12 @@ define internal fastcc i32 @__rpc_unlink(ptr noundef %0, ptr noundef %1) unnamed
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 96
-  tail call void @lockref_get(ptr noundef %5) #13
+  tail call void @lockref_get(ptr noundef %5) #14
   br label %6
 
 6:                                                ; preds = %4, %2
-  %7 = tail call i32 @simple_unlink(ptr noundef %0, ptr noundef %1) #13
-  tail call void @d_drop(ptr noundef %1) #13
+  %7 = tail call i32 @simple_unlink(ptr noundef %0, ptr noundef %1) #14
+  tail call void @d_drop(ptr noundef %1) #14
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %29
 
@@ -1991,9 +1991,9 @@ define internal fastcc i32 @__rpc_unlink(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %12, label %13, label %14, !prof !6
 
 13:                                               ; preds = %9
-  tail call void asm sideeffect "403: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 403b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 403) #13, !srcloc !23
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 311, i32 2307, i64 12) #13, !srcloc !24
-  tail call void asm sideeffect "404: nop\0A\09.pushsection .discard.instr_end\0A\09.long 404b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 404) #13, !srcloc !25
+  tail call void asm sideeffect "403: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 403b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 403) #14, !srcloc !23
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 311, i32 2307, i64 12) #14, !srcloc !24
+  tail call void asm sideeffect "404: nop\0A\09.pushsection .discard.instr_end\0A\09.long 404b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 404) #14, !srcloc !25
   br label %29
 
 14:                                               ; preds = %9
@@ -2012,11 +2012,11 @@ define internal fastcc i32 @__rpc_unlink(ptr noundef %0, ptr noundef %1) unnamed
   %25 = and i16 %17, -4096
   %26 = icmp eq i16 %25, 16384
   %27 = select i1 %26, i32 1073742336, i32 512
-  %28 = tail call i32 @fsnotify(i32 noundef %27, ptr noundef %16, i32 noundef 2, ptr noundef %0, ptr noundef %24, ptr noundef null, i32 noundef 0) #13
+  %28 = tail call i32 @fsnotify(i32 noundef %27, ptr noundef %16, i32 noundef 2, ptr noundef %0, ptr noundef %24, ptr noundef null, i32 noundef 0) #14
   br label %29
 
 29:                                               ; preds = %23, %14, %13, %6
-  tail call void @dput(ptr noundef %1) #13
+  tail call void @dput(ptr noundef %1) #14
   ret i32 %7
 }
 
@@ -2039,12 +2039,12 @@ define internal fastcc i32 @__rpc_rmdir(ptr noundef %0, ptr noundef %1) unnamed_
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 96
-  tail call void @lockref_get(ptr noundef %5) #13
+  tail call void @lockref_get(ptr noundef %5) #14
   br label %6
 
 6:                                                ; preds = %4, %2
-  %7 = tail call i32 @simple_rmdir(ptr noundef %0, ptr noundef %1) #13
-  tail call void @d_drop(ptr noundef %1) #13
+  %7 = tail call i32 @simple_rmdir(ptr noundef %0, ptr noundef %1) #14
+  tail call void @d_drop(ptr noundef %1) #14
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %29
 
@@ -2055,9 +2055,9 @@ define internal fastcc i32 @__rpc_rmdir(ptr noundef %0, ptr noundef %1) unnamed_
   br i1 %12, label %13, label %14, !prof !6
 
 13:                                               ; preds = %9
-  tail call void asm sideeffect "405: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 405b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 405) #13, !srcloc !26
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 338, i32 2307, i64 12) #13, !srcloc !27
-  tail call void asm sideeffect "406: nop\0A\09.pushsection .discard.instr_end\0A\09.long 406b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 406) #13, !srcloc !28
+  tail call void asm sideeffect "405: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 405b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 405) #14, !srcloc !26
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 338, i32 2307, i64 12) #14, !srcloc !27
+  tail call void asm sideeffect "406: nop\0A\09.pushsection .discard.instr_end\0A\09.long 406b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 406) #14, !srcloc !28
   br label %29
 
 14:                                               ; preds = %9
@@ -2076,11 +2076,11 @@ define internal fastcc i32 @__rpc_rmdir(ptr noundef %0, ptr noundef %1) unnamed_
   %25 = and i16 %17, -4096
   %26 = icmp eq i16 %25, 16384
   %27 = select i1 %26, i32 1073742336, i32 512
-  %28 = tail call i32 @fsnotify(i32 noundef %27, ptr noundef %16, i32 noundef 2, ptr noundef %0, ptr noundef %24, ptr noundef null, i32 noundef 0) #13
+  %28 = tail call i32 @fsnotify(i32 noundef %27, ptr noundef %16, i32 noundef 2, ptr noundef %0, ptr noundef %24, ptr noundef null, i32 noundef 0) #14
   br label %29
 
 29:                                               ; preds = %23, %14, %13, %6
-  tail call void @dput(ptr noundef %1) #13
+  tail call void @dput(ptr noundef %1) #14
   ret i32 %7
 }
 
@@ -2093,7 +2093,7 @@ define internal fastcc i32 @rpc_populate(ptr noundef %0, ptr nocapture noundef r
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 160
-  tail call void @down_write(ptr noundef %8) #13
+  tail call void @down_write(ptr noundef %8) #14
   %9 = getelementptr inbounds i8, ptr %5, i64 4
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = getelementptr inbounds i8, ptr %7, i64 40
@@ -2109,18 +2109,18 @@ define internal fastcc i32 @rpc_populate(ptr noundef %0, ptr nocapture noundef r
   %17 = phi i64 [ 0, %4 ], [ %14, %13 ]
   %18 = getelementptr %struct.rpc_filelist, ptr %1, i64 %17
   %19 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %20 = call i64 @strlen(ptr noundef %19) #13
+  %20 = call i64 @strlen(ptr noundef %19) #14
   %21 = trunc i64 %20 to i32
   store i32 %21, ptr %9, align 4
   store ptr %19, ptr %10, align 8
-  %22 = call ptr @d_hash_and_lookup(ptr noundef %0, ptr noundef nonnull %5) #13
+  %22 = call ptr @d_hash_and_lookup(ptr noundef %0, ptr noundef nonnull %5) #14
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %16
-  %25 = call ptr @d_alloc(ptr noundef %0, ptr noundef nonnull %5) #13
+  %25 = call ptr @d_alloc(ptr noundef %0, ptr noundef nonnull %5) #14
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
 
@@ -2132,16 +2132,16 @@ define internal fastcc i32 @rpc_populate(ptr noundef %0, ptr nocapture noundef r
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %27
-  call void @dput(ptr noundef nonnull %28) #13
+  call void @dput(ptr noundef nonnull %28) #14
   br label %.thread
 
 .thread:                                          ; preds = %24, %32
   %.ph = phi ptr [ inttoptr (i64 -17 to ptr), %32 ], [ inttoptr (i64 -12 to ptr), %24 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   br label %.loopexit
 
 33:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   %34 = icmp ugt ptr %28, inttoptr (i64 -4096 to ptr)
   br i1 %34, label %.loopexit, label %35
 
@@ -2155,8 +2155,8 @@ define internal fastcc i32 @rpc_populate(ptr noundef %0, ptr nocapture noundef r
   ]
 
 39:                                               ; preds = %35
-  call void asm sideeffect "754: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 754b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 754) #13, !srcloc !30
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 710, i32 0, i64 12) #13, !srcloc !31
+  call void asm sideeffect "754: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 754b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 754) #14, !srcloc !30
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 710, i32 0, i64 12) #14, !srcloc !31
   unreachable
 
 40:                                               ; preds = %35
@@ -2168,7 +2168,7 @@ define internal fastcc i32 @rpc_populate(ptr noundef %0, ptr nocapture noundef r
   br i1 %45, label %46, label %.loopexit12
 
 46:                                               ; preds = %40
-  %47 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !11
+  %47 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !11
   %48 = inttoptr i64 %47 to ptr
   %49 = getelementptr inbounds i8, ptr %48, i64 1976
   %50 = load ptr, ptr %49, align 8
@@ -2181,7 +2181,7 @@ define internal fastcc i32 @rpc_populate(ptr noundef %0, ptr nocapture noundef r
   br i1 %54, label %55, label %56, !prof !6
 
 55:                                               ; preds = %52
-  call void @__audit_inode_child(ptr noundef %7, ptr noundef nonnull %28, i8 noundef zeroext 4) #13
+  call void @__audit_inode_child(ptr noundef %7, ptr noundef nonnull %28, i8 noundef zeroext 4) #14
   br label %56
 
 56:                                               ; preds = %55, %52, %46
@@ -2198,8 +2198,8 @@ define internal fastcc i32 @rpc_populate(ptr noundef %0, ptr nocapture noundef r
   br i1 %64, label %65, label %.loopexit12
 
 65:                                               ; preds = %61
-  call void @inc_nlink(ptr noundef %7) #13
-  %66 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !11
+  call void @inc_nlink(ptr noundef %7) #14
+  %66 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !11
   %67 = inttoptr i64 %66 to ptr
   %68 = getelementptr inbounds i8, ptr %67, i64 1976
   %69 = load ptr, ptr %68, align 8
@@ -2212,7 +2212,7 @@ define internal fastcc i32 @rpc_populate(ptr noundef %0, ptr nocapture noundef r
   br i1 %73, label %74, label %75, !prof !6
 
 74:                                               ; preds = %71
-  call void @__audit_inode_child(ptr noundef %7, ptr noundef nonnull %28, i8 noundef zeroext 4) #13
+  call void @__audit_inode_child(ptr noundef %7, ptr noundef nonnull %28, i8 noundef zeroext 4) #14
   br label %75
 
 75:                                               ; preds = %74, %71, %65
@@ -2225,11 +2225,11 @@ define internal fastcc i32 @rpc_populate(ptr noundef %0, ptr nocapture noundef r
 80:                                               ; preds = %75, %56
   %81 = phi i32 [ 256, %56 ], [ 1073742080, %75 ]
   %82 = getelementptr inbounds i8, ptr %28, i64 32
-  %83 = call i32 @fsnotify(i32 noundef %81, ptr noundef nonnull %28, i32 noundef 3, ptr noundef %7, ptr noundef %82, ptr noundef null, i32 noundef 0) #13
+  %83 = call i32 @fsnotify(i32 noundef %81, ptr noundef nonnull %28, i32 noundef 3, ptr noundef %7, ptr noundef %82, ptr noundef null, i32 noundef 0) #14
   br label %13
 
 84:                                               ; preds = %13
-  call void @up_write(ptr noundef %8) #13
+  call void @up_write(ptr noundef %8) #14
   br label %90
 
 .loopexit:                                        ; preds = %33, %.thread
@@ -2241,8 +2241,8 @@ define internal fastcc i32 @rpc_populate(ptr noundef %0, ptr nocapture noundef r
 .loopexit12:                                      ; preds = %40, %61, %.loopexit
   %88 = phi i32 [ %87, %.loopexit ], [ %63, %61 ], [ %44, %40 ]
   call fastcc void @__rpc_depopulate(ptr noundef %0, ptr noundef %1, i32 noundef %2)
-  call void @up_write(ptr noundef %8) #13
-  %89 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.rpc_populate, ptr noundef %0) #16
+  call void @up_write(ptr noundef %8) #14
+  %89 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.rpc_populate, ptr noundef %0) #17
   br label %90
 
 90:                                               ; preds = %.loopexit12, %84
@@ -2255,7 +2255,7 @@ define internal fastcc void @__rpc_depopulate(ptr noundef %0, ptr nocapture noun
   %4 = alloca %struct.qstr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
   store i64 0, ptr %4, align 8, !annotation !32
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = getelementptr inbounds i8, ptr %4, i64 4
@@ -2267,10 +2267,10 @@ define internal fastcc void @__rpc_depopulate(ptr noundef %0, ptr nocapture noun
   %12 = getelementptr %struct.rpc_filelist, ptr %1, i64 %11
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %7, align 8
-  %14 = call i64 @strlen(ptr noundef %13) #13
+  %14 = call i64 @strlen(ptr noundef %13) #14
   %15 = trunc i64 %14 to i32
   store i32 %15, ptr %8, align 4
-  %16 = call ptr @d_hash_and_lookup(ptr noundef %0, ptr noundef nonnull %4) #13
+  %16 = call ptr @d_hash_and_lookup(ptr noundef %0, ptr noundef nonnull %4) #14
   %17 = icmp eq ptr %16, null
   br i1 %17, label %31, label %18
 
@@ -2289,8 +2289,8 @@ define internal fastcc void @__rpc_depopulate(ptr noundef %0, ptr nocapture noun
   ]
 
 25:                                               ; preds = %22
-  call void asm sideeffect "753: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 753b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 753) #13, !srcloc !33
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 670, i32 0, i64 12) #13, !srcloc !34
+  call void asm sideeffect "753: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 753b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 753) #14, !srcloc !33
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 670, i32 0, i64 12) #14, !srcloc !34
   unreachable
 
 26:                                               ; preds = %22
@@ -2302,7 +2302,7 @@ define internal fastcc void @__rpc_depopulate(ptr noundef %0, ptr nocapture noun
   br label %30
 
 30:                                               ; preds = %28, %26, %18
-  call void @dput(ptr noundef nonnull %16) #13
+  call void @dput(ptr noundef nonnull %16) #14
   br label %31
 
 31:                                               ; preds = %30, %10
@@ -2311,7 +2311,7 @@ define internal fastcc void @__rpc_depopulate(ptr noundef %0, ptr nocapture noun
   br i1 %33, label %34, label %10, !llvm.loop !35
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
   ret void
 }
 
@@ -2323,9 +2323,9 @@ declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rpc_info_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @rpc_show_info, ptr noundef null) #13
+  %3 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @rpc_show_info, ptr noundef null) #14
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %42
+  br i1 %4, label %5, label %43
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 200
@@ -2333,7 +2333,7 @@ define internal i32 @rpc_info_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %1, i64 160
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 96
-  tail call void @_raw_spin_lock(ptr noundef %10) #13
+  tail call void @_raw_spin_lock(ptr noundef %10) #14
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -2351,52 +2351,54 @@ define internal i32 @rpc_info_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.thread4, label %.preheader
 
-.preheader:                                       ; preds = %19, %26
-  %22 = phi i32 [ %27, %26 ], [ %20, %19 ]
+.preheader:                                       ; preds = %19, %27
+  %22 = phi i32 [ %28, %27 ], [ %20, %19 ]
   %23 = add i32 %22, 1
-  %24 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %17, i32 %23, ptr nonnull elementtype(i32) %17, i32 %22) #13, !srcloc !36
+  %24 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %17, i32 %23, ptr nonnull elementtype(i32) %17, i32 %22) #14, !srcloc !36
   %25 = extractvalue { i8, i32 } %24, 0
+  %26 = icmp ult i8 %25, 2
+  tail call void @llvm.assume(i1 %26)
   %.not = icmp eq i8 %25, 0
-  br i1 %.not, label %26, label %.thread4, !prof !6
+  br i1 %.not, label %27, label %.thread4, !prof !6
 
-26:                                               ; preds = %.preheader
-  %27 = extractvalue { i8, i32 } %24, 1
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.thread4, label %.preheader, !llvm.loop !37
+27:                                               ; preds = %.preheader
+  %28 = extractvalue { i8, i32 } %24, 1
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %.thread4, label %.preheader, !llvm.loop !37
 
-.thread4:                                         ; preds = %.preheader, %26, %19
-  %29 = phi i32 [ 0, %19 ], [ %22, %.preheader ], [ 0, %26 ]
-  %30 = add i32 %29, 1
-  %31 = or i32 %30, %29
-  %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %34, label %33, !prof !38
+.thread4:                                         ; preds = %.preheader, %27, %19
+  %30 = phi i32 [ 0, %19 ], [ %22, %.preheader ], [ 0, %27 ]
+  %31 = add i32 %30, 1
+  %32 = or i32 %31, %30
+  %33 = icmp sgt i32 %32, -1
+  br i1 %33, label %35, label %34, !prof !38
 
-33:                                               ; preds = %.thread4
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %17, i32 noundef 0) #13
-  br label %34
+34:                                               ; preds = %.thread4
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %17, i32 noundef 0) #14
+  br label %35
 
-34:                                               ; preds = %33, %.thread4
-  %35 = icmp eq i32 %29, 0
+35:                                               ; preds = %34, %.thread4
+  %36 = icmp eq i32 %30, 0
   %.pre = load ptr, ptr %8, align 8
-  br i1 %35, label %.thread, label %36
+  br i1 %36, label %.thread, label %37
 
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.pre, i64 96
-  tail call void @_raw_spin_unlock(ptr noundef %37) #13
-  %38 = getelementptr inbounds i8, ptr %7, i64 112
-  store ptr %17, ptr %38, align 8
-  br label %42
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds i8, ptr %.pre, i64 96
+  tail call void @_raw_spin_unlock(ptr noundef %38) #14
+  %39 = getelementptr inbounds i8, ptr %7, i64 112
+  store ptr %17, ptr %39, align 8
+  br label %43
 
-.thread:                                          ; preds = %5, %34, %15
-  %39 = phi ptr [ %11, %5 ], [ %.pre, %34 ], [ %11, %15 ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
-  tail call void @_raw_spin_unlock(ptr noundef %40) #13
-  %41 = tail call i32 @single_release(ptr noundef %0, ptr noundef %1) #13
-  br label %42
+.thread:                                          ; preds = %5, %35, %15
+  %40 = phi ptr [ %11, %5 ], [ %.pre, %35 ], [ %11, %15 ]
+  %41 = getelementptr inbounds i8, ptr %40, i64 96
+  tail call void @_raw_spin_unlock(ptr noundef %41) #14
+  %42 = tail call i32 @single_release(ptr noundef %0, ptr noundef %1) #14
+  br label %43
 
-42:                                               ; preds = %.thread, %36, %2
-  %43 = phi i32 [ %3, %2 ], [ 0, %36 ], [ -22, %.thread ]
-  ret i32 %43
+43:                                               ; preds = %.thread, %37, %2
+  %44 = phi i32 [ %3, %2 ], [ 0, %37 ], [ -22, %.thread ]
+  ret i32 %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2409,11 +2411,11 @@ define internal i32 @rpc_info_release(ptr noundef %0, ptr noundef %1) #0 align 1
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %2
-  tail call void @rpc_release_client(ptr noundef nonnull %6) #13
+  tail call void @rpc_release_client(ptr noundef nonnull %6) #14
   br label %9
 
 9:                                                ; preds = %8, %2
-  %10 = tail call i32 @single_release(ptr noundef %0, ptr noundef %1) #13
+  %10 = tail call i32 @single_release(ptr noundef %0, ptr noundef %1) #14
   ret i32 %10
 }
 
@@ -2424,12 +2426,12 @@ declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_
 define internal noundef i32 @rpc_show_info(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  tail call void @__rcu_read_lock() #13
+  tail call void @__rcu_read_lock() #14
   %5 = getelementptr inbounds i8, ptr %4, i64 48
   %6 = load volatile ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 1384
   %8 = load ptr, ptr %7, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %8) #13
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %8) #14
   %9 = getelementptr inbounds i8, ptr %4, i64 392
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -2437,14 +2439,14 @@ define internal noundef i32 @rpc_show_info(ptr noundef %0, ptr nocapture readnon
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 68
   %15 = load i32, ptr %14, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %11, i32 noundef %13, i32 noundef %15) #13
-  %16 = tail call ptr @rpc_peeraddr2str(ptr noundef %4, i32 noundef 0) #13
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %16) #13
-  %17 = tail call ptr @rpc_peeraddr2str(ptr noundef %4, i32 noundef 2) #13
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %17) #13
-  %18 = tail call ptr @rpc_peeraddr2str(ptr noundef %4, i32 noundef 1) #13
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef %18) #13
-  tail call void @__rcu_read_unlock() #13
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %11, i32 noundef %13, i32 noundef %15) #14
+  %16 = tail call ptr @rpc_peeraddr2str(ptr noundef %4, i32 noundef 0) #14
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %16) #14
+  %17 = tail call ptr @rpc_peeraddr2str(ptr noundef %4, i32 noundef 2) #14
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %17) #14
+  %18 = tail call ptr @rpc_peeraddr2str(ptr noundef %4, i32 noundef 1) #14
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef %18) #14
+  tail call void @__rcu_read_unlock() #14
   ret i32 0
 }
 
@@ -2460,11 +2462,14 @@ declare dso_local ptr @rpc_peeraddr2str(ptr noundef, i32 noundef) local_unnamed_
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #10
+
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @rpc_release_client(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @dummy_downcall(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2) #10 align 16 {
+define internal noundef i64 @dummy_downcall(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2) #11 align 16 {
   ret i64 -22
 }
 
@@ -2475,7 +2480,7 @@ declare dso_local void @inode_init_once(ptr noundef) local_unnamed_addr #1
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @rpc_init_fs_context(ptr nocapture noundef writeonly %0) #11 align 16 {
+define internal noundef i32 @rpc_init_fs_context(ptr nocapture noundef writeonly %0) #12 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr @init_user_ns, ptr %2, align 8
   store ptr @rpc_fs_context_ops, ptr %0, align 8
@@ -2487,15 +2492,15 @@ define internal void @rpc_kill_sb(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @sunrpc_net_id, align 4
-  tail call void @__rcu_read_lock() #13
+  tail call void @__rcu_read_lock() #14
   %5 = getelementptr inbounds i8, ptr %3, i64 2536
   %6 = load volatile ptr, ptr %5, align 8
   %7 = zext i32 %4 to i64
   %8 = getelementptr [0 x ptr], ptr %6, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
-  tail call void @__rcu_read_unlock() #13
+  tail call void @__rcu_read_unlock() #14
   %10 = getelementptr inbounds i8, ptr %9, i64 56
-  tail call void @mutex_lock(ptr noundef %10) #13
+  tail call void @mutex_lock(ptr noundef %10) #14
   %11 = getelementptr inbounds i8, ptr %9, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %0
@@ -2503,14 +2508,14 @@ define internal void @rpc_kill_sb(ptr noundef %0) #0 align 16 {
 
 14:                                               ; preds = %1
   store ptr null, ptr %11, align 8
-  %15 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @rpc_pipefs_notifier_list, i64 noundef 1, ptr noundef %0) #13
+  %15 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @rpc_pipefs_notifier_list, i64 noundef 1, ptr noundef %0) #14
   br label %16
 
 16:                                               ; preds = %14, %1
-  tail call void @mutex_unlock(ptr noundef %10) #13
-  tail call void @kill_litter_super(ptr noundef %0) #13
+  tail call void @mutex_unlock(ptr noundef %10) #14
+  tail call void @kill_litter_super(ptr noundef %0) #14
   %17 = getelementptr inbounds i8, ptr %3, i64 140
-  %18 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %17, i32 -1, ptr elementtype(i32) %17) #13, !srcloc !39
+  %18 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %17, i32 -1, ptr elementtype(i32) %17) #14, !srcloc !39
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %23, label %20
 
@@ -2519,12 +2524,12 @@ define internal void @rpc_kill_sb(ptr noundef %0) #0 align 16 {
   br i1 %21, label %.thread, label %22, !prof !38
 
 22:                                               ; preds = %20
-  tail call void @refcount_warn_saturate(ptr noundef %17, i32 noundef 3) #13
+  tail call void @refcount_warn_saturate(ptr noundef %17, i32 noundef 3) #14
   br label %.thread
 
 23:                                               ; preds = %16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !40
-  tail call void @__put_net(ptr noundef %3) #13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !40
+  tail call void @__put_net(ptr noundef %3) #14
   br label %.thread
 
 .thread:                                          ; preds = %20, %22, %23
@@ -2540,7 +2545,7 @@ define internal void @rpc_fs_free_fc(ptr nocapture noundef readonly %0) #0 align
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 140
-  %7 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6, i32 -1, ptr elementtype(i32) %6) #13, !srcloc !39
+  %7 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6, i32 -1, ptr elementtype(i32) %6) #14, !srcloc !39
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %12, label %9
 
@@ -2549,12 +2554,12 @@ define internal void @rpc_fs_free_fc(ptr nocapture noundef readonly %0) #0 align
   br i1 %10, label %.thread, label %11, !prof !38
 
 11:                                               ; preds = %9
-  tail call void @refcount_warn_saturate(ptr noundef %6, i32 noundef 3) #13
+  tail call void @refcount_warn_saturate(ptr noundef %6, i32 noundef 3) #14
   br label %.thread
 
 12:                                               ; preds = %5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !40
-  tail call void @__put_net(ptr noundef nonnull %3) #13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !40
+  tail call void @__put_net(ptr noundef nonnull %3) #14
   br label %.thread
 
 .thread:                                          ; preds = %9, %11, %12, %1
@@ -2566,7 +2571,7 @@ define internal i32 @rpc_fs_get_tree(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 140
-  %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 1, ptr elementtype(i32) %4) #13, !srcloc !41
+  %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 1, ptr elementtype(i32) %4) #14, !srcloc !41
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %11, label %7, !prof !6
 
@@ -2578,11 +2583,11 @@ define internal i32 @rpc_fs_get_tree(ptr noundef %0) #0 align 16 {
 
 11:                                               ; preds = %7, %1
   %12 = phi i32 [ 2, %1 ], [ 1, %7 ]
-  tail call void @refcount_warn_saturate(ptr noundef %4, i32 noundef %12) #13
+  tail call void @refcount_warn_saturate(ptr noundef %4, i32 noundef %12) #14
   br label %13
 
 13:                                               ; preds = %11, %7
-  %14 = tail call i32 @get_tree_keyed(ptr noundef %0, ptr noundef nonnull @rpc_fill_super, ptr noundef %3) #13
+  %14 = tail call i32 @get_tree_keyed(ptr noundef %0, ptr noundef nonnull @rpc_fill_super, ptr noundef %3) #14
   ret i32 %14
 }
 
@@ -2598,13 +2603,13 @@ define internal i32 @rpc_fill_super(ptr noundef %0, ptr nocapture readnone %1) #
   %4 = getelementptr inbounds i8, ptr %0, i64 872
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr @sunrpc_net_id, align 4
-  tail call void @__rcu_read_lock() #13
+  tail call void @__rcu_read_lock() #14
   %7 = getelementptr inbounds i8, ptr %5, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
   %10 = getelementptr [0 x ptr], ptr %8, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
-  tail call void @__rcu_read_unlock() #13
+  tail call void @__rcu_read_unlock() #14
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 4096, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 20
@@ -2617,26 +2622,26 @@ define internal i32 @rpc_fill_super(ptr noundef %0, ptr nocapture readnone %1) #
   store ptr @simple_dentry_operations, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 880
   store i32 1, ptr %17, align 16
-  %18 = tail call ptr @new_inode(ptr noundef %0) #13
+  %18 = tail call ptr @new_inode(ptr noundef %0) #14
   %19 = icmp eq ptr %18, null
   br i1 %19, label %27, label %20
 
 20:                                               ; preds = %2
-  %21 = tail call i32 @get_next_ino() #13
+  %21 = tail call i32 @get_next_ino() #14
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %18, i64 64
   store i64 %22, ptr %23, align 8
   store i16 16749, ptr %18, align 8
-  %24 = tail call { i64, i64 } @simple_inode_init_ts(ptr noundef nonnull %18) #13
+  %24 = tail call { i64, i64 } @simple_inode_init_ts(ptr noundef nonnull %18) #14
   %25 = getelementptr inbounds i8, ptr %18, i64 344
   store ptr @simple_dir_operations, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %18, i64 32
   store ptr @simple_dir_inode_operations, ptr %26, align 8
-  tail call void @inc_nlink(ptr noundef nonnull %18) #13
+  tail call void @inc_nlink(ptr noundef nonnull %18) #14
   br label %27
 
 27:                                               ; preds = %20, %2
-  %28 = tail call ptr @d_make_root(ptr noundef %18) #13
+  %28 = tail call ptr @d_make_root(ptr noundef %18) #14
   %29 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %28, ptr %29, align 8
   %30 = icmp eq ptr %28, null
@@ -2650,18 +2655,18 @@ define internal i32 @rpc_fill_super(ptr noundef %0, ptr nocapture readnone %1) #
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %11, i64 48
   %36 = load ptr, ptr %35, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   store i32 0, ptr %3, align 8
   %37 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 4, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @.str.28, ptr %38, align 8
-  %39 = call ptr @d_hash_and_lookup(ptr noundef nonnull %28, ptr noundef nonnull %3) #13
+  %39 = call ptr @d_hash_and_lookup(ptr noundef nonnull %28, ptr noundef nonnull %3) #14
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.thread, label %41
 
 .thread:                                          ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   br label %65
 
 41:                                               ; preds = %34
@@ -2677,7 +2682,7 @@ define internal i32 @rpc_fill_super(ptr noundef %0, ptr nocapture readnone %1) #
 47:                                               ; preds = %41
   store ptr @.str.29, ptr %38, align 8
   store i32 6, ptr %37, align 4
-  %48 = call ptr @d_hash_and_lookup(ptr noundef nonnull %39, ptr noundef nonnull %3) #13
+  %48 = call ptr @d_hash_and_lookup(ptr noundef nonnull %39, ptr noundef nonnull %3) #14
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %51
 
@@ -2709,9 +2714,9 @@ define internal i32 @rpc_fill_super(ptr noundef %0, ptr nocapture readnone %1) #
 61:                                               ; preds = %44, %50, %54, %57, %60
   %62 = phi ptr [ null, %44 ], [ %48, %54 ], [ %48, %60 ], [ %48, %57 ], [ null, %50 ]
   %63 = phi ptr [ %46, %44 ], [ %56, %54 ], [ %58, %60 ], [ %58, %57 ], [ inttoptr (i64 -2 to ptr), %50 ]
-  call void @dput(ptr noundef %62) #13
-  call void @dput(ptr noundef nonnull %39) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
+  call void @dput(ptr noundef %62) #14
+  call void @dput(ptr noundef nonnull %39) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   %64 = icmp ugt ptr %63, inttoptr (i64 -4096 to ptr)
   br i1 %64, label %65, label %69
 
@@ -2724,15 +2729,15 @@ define internal i32 @rpc_fill_super(ptr noundef %0, ptr nocapture readnone %1) #
 
 69:                                               ; preds = %61
   %70 = getelementptr inbounds i8, ptr %11, i64 56
-  call void @mutex_lock(ptr noundef %70) #13
+  call void @mutex_lock(ptr noundef %70) #14
   %71 = getelementptr inbounds i8, ptr %11, i64 40
   store ptr %0, ptr %71, align 8
-  %72 = call i32 @blocking_notifier_call_chain(ptr noundef nonnull @rpc_pipefs_notifier_list, i64 noundef 0, ptr noundef %0) #13
+  %72 = call i32 @blocking_notifier_call_chain(ptr noundef nonnull @rpc_pipefs_notifier_list, i64 noundef 0, ptr noundef %0) #14
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %69
-  call void @mutex_unlock(ptr noundef %70) #13
+  call void @mutex_unlock(ptr noundef %70) #14
   br label %90
 
 75:                                               ; preds = %69
@@ -2751,7 +2756,7 @@ define internal i32 @rpc_fill_super(ptr noundef %0, ptr nocapture readnone %1) #
 
 .split2:                                          ; preds = %75
   %84 = getelementptr inbounds i8, ptr %63, i64 96
-  call void @lockref_get(ptr noundef %84) #13
+  call void @lockref_get(ptr noundef %84) #14
   %85 = getelementptr inbounds i8, ptr %77, i64 48
   %86 = load ptr, ptr %85, align 8
   %87 = call fastcc i32 @__rpc_rmpipe(ptr noundef %86, ptr noundef nonnull %63)
@@ -2760,11 +2765,11 @@ define internal i32 @rpc_fill_super(ptr noundef %0, ptr nocapture readnone %1) #
 88:                                               ; preds = %.split, %.split2
   call fastcc void @__rpc_depopulate(ptr noundef %77, ptr noundef nonnull @gssd_dummy_info_file, i32 noundef 1)
   call fastcc void @__rpc_depopulate(ptr noundef %79, ptr noundef nonnull @gssd_dummy_clnt_dir, i32 noundef 1)
-  call void @dput(ptr noundef %63) #13
-  %89 = call i32 @blocking_notifier_call_chain(ptr noundef nonnull @rpc_pipefs_notifier_list, i64 noundef 1, ptr noundef %0) #13
+  call void @dput(ptr noundef %63) #14
+  %89 = call i32 @blocking_notifier_call_chain(ptr noundef nonnull @rpc_pipefs_notifier_list, i64 noundef 1, ptr noundef %0) #14
   store ptr null, ptr %71, align 8
   call fastcc void @__rpc_depopulate(ptr noundef nonnull %28, ptr noundef nonnull @files, i32 noundef 9)
-  call void @mutex_unlock(ptr noundef %70) #13
+  call void @mutex_unlock(ptr noundef %70) #14
   br label %90
 
 90:                                               ; preds = %88, %74, %65, %31, %27
@@ -2782,14 +2787,14 @@ declare dso_local i32 @blocking_notifier_call_chain(ptr noundef, i64 noundef, pt
 define internal noalias ptr @rpc_alloc_inode(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr @rpc_inode_cachep, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1088
-  %4 = tail call noalias align 8 ptr @kmem_cache_alloc_lru(ptr noundef %2, ptr noundef %3, i32 noundef 3264) #13
+  %4 = tail call noalias align 8 ptr @kmem_cache_alloc_lru(ptr noundef %2, ptr noundef %3, i32 noundef 3264) #14
   ret ptr %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @rpc_free_inode(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr @rpc_inode_cachep, align 8
-  tail call void @kmem_cache_free(ptr noundef %2, ptr noundef %0) #13
+  tail call void @kmem_cache_free(ptr noundef %2, ptr noundef %0) #14
   ret void
 }
 
@@ -2806,24 +2811,24 @@ declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_
 define internal i32 @rpc_dummy_info_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @rpc_dummy_info_show, ptr noundef %4) #13
+  %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @rpc_dummy_info_show, ptr noundef %4) #14
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @rpc_dummy_info_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !11
+  %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !11
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 1872
   %6 = load ptr, ptr %5, align 16
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 65
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %9) #13
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.30) #13
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.31) #13
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.32) #13
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.33) #13
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %9) #14
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.30) #14
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.31) #14
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.32) #14
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.33) #14
   ret i32 0
 }
 
@@ -2831,7 +2836,7 @@ define internal noundef i32 @rpc_dummy_info_show(ptr noundef %0, ptr nocapture r
 declare dso_local void @kill_litter_super(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
+declare i64 @llvm.umin.i64(i64, i64) #13
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -2843,13 +2848,14 @@ attributes #6 = { mustprogress nofree nounwind null_pointer_is_valid willreturn 
 attributes #7 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
 attributes #9 = { nocallback nounwind }
-attributes #10 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind allocsize(2) }
-attributes #15 = { nounwind memory(none) }
-attributes #16 = { cold nounwind }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #12 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind allocsize(2) }
+attributes #16 = { nounwind memory(none) }
+attributes #17 = { cold nounwind }
 
 !llvm.named.register.rsp = !{!0}
 !llvm.module.flags = !{!1, !2, !3, !4, !5}

@@ -3303,7 +3303,7 @@ ra_alloc1.exit.i.i4212:                           ; preds = %if.then99.i.i.ra_al
   %arrayidx95.val79.i.i = load i8, ptr %s.i.i4208, align 1
   %conv.i6363 = zext i8 %arrayidx95.val79.i.i to i32
   %mul.i6364 = shl nuw nsw i32 %conv.i6363, 2
-  %cmp.i.i6365 = icmp ult i32 %xor87.i.i, 16
+  %cmp.i.i6365 = icmp ugt i32 %366, 65535
   %393 = and i8 %arrayidx95.val.i.i, 31
   br i1 %cmp.i.i6365, label %if.then.i.i6400, label %if.else.i.i6366
 
@@ -8762,7 +8762,7 @@ if.end15.thread.i171.i.i:                         ; preds = %if.then.i160.i.i
 
 if.else.i162.i.i:                                 ; preds = %if.then.i160.i.i
   %and3.i163.i.i = and i32 %r.0.i.i.i326, 7
-  %cmp8.i168.i.i = icmp ult i16 %1192, 88
+  %cmp8.i168.i.i = icmp ult i16 %1190, 2816
   br i1 %cmp8.i168.i.i, label %if.then10.i.i.i336, label %if.else12.i.i.i331
 
 if.then10.i.i.i336:                               ; preds = %if.else.i162.i.i
@@ -18505,7 +18505,7 @@ if.then.i170.i:                                   ; preds = %if.then221.i
   br i1 %cmp2.i.i.not.i, label %if.end15.i.i.i435, label %if.else6.i.i.i431
 
 if.else6.i.i.i431:                                ; preds = %if.then.i170.i
-  %cmp8.i.i.i432 = icmp ult i16 %2572, 128
+  %cmp8.i.i.i432 = icmp ult i16 %2570, 8192
   br i1 %cmp8.i.i.i432, label %if.then10.i.i.i446, label %if.else12.i.i.i433
 
 if.then10.i.i.i446:                               ; preds = %if.else6.i.i.i431
@@ -18555,7 +18555,7 @@ if.else.i168.i:                                   ; preds = %if.then221.i
   br i1 %cmp2.i.not.i, label %if.end15.i.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.else.i168.i
-  %cmp8.i.i = icmp ult i16 %2572, 128
+  %cmp8.i.i = icmp ult i16 %2570, 8192
   br i1 %cmp8.i.i, label %if.then10.i.i, label %if.else12.i.i
 
 if.then10.i.i:                                    ; preds = %if.else6.i.i

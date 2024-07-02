@@ -52617,30 +52617,32 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   ret i1 %50
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6e96b765b3811e82E.llvm.2510282452699860474(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readnone align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %3) unnamed_addr #20 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !10861, !noundef !9
   %.promoted = load i64, ptr %0, align 8, !alias.scope !10861
   %.not.i8 = icmp eq i64 %6, %.promoted
-  br i1 %.not.i8, label %12, label %.lr.ph
+  br i1 %.not.i8, label %13, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.09 = phi i64 [ %11, %.lr.ph ], [ %1, %4 ]
+  %.09 = phi i64 [ %12, %.lr.ph ], [ %1, %4 ]
   %7 = phi i64 [ %8, %.lr.ph ], [ %.promoted, %4 ]
   %8 = add nuw nsw i64 %7, 1
-  %9 = getelementptr inbounds i64, ptr %3, i64 %7
-  %10 = load i64, ptr %9, align 8, !noundef !9
-  %11 = add i64 %10, %.09
+  %9 = icmp ult i64 %7, 2
+  tail call void @llvm.assume(i1 %9)
+  %10 = getelementptr inbounds i64, ptr %3, i64 %7
+  %11 = load i64, ptr %10, align 8, !noundef !9
+  %12 = add i64 %11, %.09
   %.not.i = icmp eq i64 %6, %8
   br i1 %.not.i, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store i64 %6, ptr %0, align 8, !alias.scope !10861
-  br label %12
+  br label %13
 
-12:                                               ; preds = %._crit_edge, %4
-  %.0.lcssa = phi i64 [ %11, %._crit_edge ], [ %1, %4 ]
+13:                                               ; preds = %._crit_edge, %4
+  %.0.lcssa = phi i64 [ %12, %._crit_edge ], [ %1, %4 ]
   ret i64 %.0.lcssa
 }
 
@@ -58712,12 +58714,14 @@ define hidden noundef i64 @"_ZN56_$LT$usize$u20$as$u20$core..iter..traits..accum
   br i1 %.not.i8.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h50ba17836b576b35E.llvm.2510282452699860474.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
-  %.09.i.i = phi i64 [ %9, %.lr.ph.i.i ], [ 0, %1 ]
+  %.09.i.i = phi i64 [ %10, %.lr.ph.i.i ], [ 0, %1 ]
   %5 = phi i64 [ %6, %.lr.ph.i.i ], [ %.promoted.i.i, %1 ]
   %6 = add nuw nsw i64 %5, 1
-  %7 = getelementptr inbounds i64, ptr %0, i64 %5
-  %8 = load i64, ptr %7, align 8, !alias.scope !12175, !noalias !12165, !noundef !9
-  %9 = add i64 %8, %.09.i.i
+  %7 = icmp ult i64 %5, 2
+  tail call void @llvm.assume(i1 %7)
+  %8 = getelementptr inbounds i64, ptr %0, i64 %5
+  %9 = load i64, ptr %8, align 8, !alias.scope !12175, !noalias !12165, !noundef !9
+  %10 = add i64 %9, %.09.i.i
   %.not.i.i.i = icmp eq i64 %4, %6
   br i1 %.not.i.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -58726,7 +58730,7 @@ define hidden noundef i64 @"_ZN56_$LT$usize$u20$as$u20$core..iter..traits..accum
   br label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h50ba17836b576b35E.llvm.2510282452699860474.exit"
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h50ba17836b576b35E.llvm.2510282452699860474.exit": ; preds = %1, %._crit_edge.i.i
-  %.0.lcssa.i.i = phi i64 [ %9, %._crit_edge.i.i ], [ 0, %1 ]
+  %.0.lcssa.i.i = phi i64 [ %10, %._crit_edge.i.i ], [ 0, %1 ]
   ret i64 %.0.lcssa.i.i
 }
 
@@ -67982,12 +67986,14 @@ define hidden noundef i64 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u
   br i1 %.not.i8.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6e96b765b3811e82E.llvm.2510282452699860474.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %.09.i = phi i64 [ %10, %.lr.ph.i ], [ %1, %2 ]
+  %.09.i = phi i64 [ %11, %.lr.ph.i ], [ %1, %2 ]
   %6 = phi i64 [ %7, %.lr.ph.i ], [ %.promoted.i, %2 ]
   %7 = add nuw nsw i64 %6, 1
-  %8 = getelementptr inbounds i64, ptr %0, i64 %6
-  %9 = load i64, ptr %8, align 8, !alias.scope !14155, !noalias !14152, !noundef !9
-  %10 = add i64 %9, %.09.i
+  %8 = icmp ult i64 %6, 2
+  tail call void @llvm.assume(i1 %8)
+  %9 = getelementptr inbounds i64, ptr %0, i64 %6
+  %10 = load i64, ptr %9, align 8, !alias.scope !14155, !noalias !14152, !noundef !9
+  %11 = add i64 %10, %.09.i
   %.not.i.i = icmp eq i64 %5, %7
   br i1 %.not.i.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -67996,7 +68002,7 @@ define hidden noundef i64 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6e96b765b3811e82E.llvm.2510282452699860474.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h6e96b765b3811e82E.llvm.2510282452699860474.exit: ; preds = %._crit_edge.i, %2
-  %.0.lcssa.i = phi i64 [ %10, %._crit_edge.i ], [ %1, %2 ]
+  %.0.lcssa.i = phi i64 [ %11, %._crit_edge.i ], [ %1, %2 ]
   ret i64 %.0.lcssa.i
 }
 
@@ -115630,7 +115636,7 @@ attributes #16 = { inlinehint nofree norecurse nosync nounwind nonlazybind memor
 attributes #17 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #18 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #19 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #20 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #20 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #21 = { inlinehint nofree norecurse nosync nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #22 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #23 = { mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

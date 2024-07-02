@@ -2713,7 +2713,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %334 = trunc nuw i64 %indvars.iv1890 to i32
   %335 = or i32 %333, %334
   %336 = trunc i32 %335 to i16
-  %337 = icmp ult i32 %327, 1024
+  %337 = icmp ult i32 %325, 1024
   br i1 %337, label %.lr.ph1789, label %.loopexit1720
 
 .lr.ph1789:                                       ; preds = %332

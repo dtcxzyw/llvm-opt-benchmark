@@ -1955,7 +1955,7 @@ if.else50.i:                                      ; preds = %if.then.i209
 
 lor.lhs.false54.i:                                ; preds = %if.else50.i
   %cmp57.i = icmp ne i16 %36, 0
-  %or.cond.i = and i1 %cmp56.i, %cmp57.i
+  %or.cond.i = select i1 %cmp56.i, i1 %cmp57.i, i1 false
   br i1 %or.cond.i, label %if.then58.i, label %if.end62.i
 
 land.lhs.true.i:                                  ; preds = %if.else50.i
@@ -2147,7 +2147,7 @@ if.else50.i256:                                   ; preds = %if.then.i230
 
 lor.lhs.false54.i261:                             ; preds = %if.else50.i256
   %cmp57.i264 = icmp ne i16 %58, 0
-  %or.cond.i265 = and i1 %cmp56.i, %cmp57.i264
+  %or.cond.i265 = select i1 %cmp56.i, i1 %cmp57.i264, i1 false
   br i1 %or.cond.i265, label %if.then58.i271, label %if.end62.i266
 
 land.lhs.true.i273:                               ; preds = %if.else50.i256
@@ -2936,11 +2936,11 @@ if.else19:                                        ; preds = %if.then
   %9 = load i8, ptr %arrayidx32, align 1
   %conv33 = zext i8 %9 to i32
   %or34 = or disjoint i32 %or, %conv33
-  %cmp35 = icmp ult i32 %or34, 256
+  %cmp35 = icmp eq i32 %or, 0
   br i1 %cmp35, label %if.end43, label %if.else37
 
 if.else37:                                        ; preds = %if.else19
-  %cmp38 = icmp ult i32 %or34, 65536
+  %cmp38 = icmp eq i8 %7, 0
   %.29 = select i1 %cmp38, i32 2, i32 3
   br label %if.end43
 
@@ -2967,7 +2967,7 @@ lor.lhs.false54:                                  ; preds = %if.else50
   %sub55 = add nsw i32 %c, -983040
   %cmp56 = icmp ult i32 %sub55, 131072
   %cmp57 = icmp ne i32 %myValue.0, 0
-  %or.cond = and i1 %cmp56, %cmp57
+  %or.cond = select i1 %cmp56, i1 %cmp57, i1 false
   br i1 %or.cond, label %if.then58, label %if.end62
 
 land.lhs.true:                                    ; preds = %if.else50
@@ -4796,7 +4796,7 @@ if.else50.i:                                      ; preds = %if.then.i
 
 lor.lhs.false54.i:                                ; preds = %if.else50.i
   %cmp57.i = icmp ne i16 %27, 0
-  %or.cond.i = and i1 %cmp56.i, %cmp57.i
+  %or.cond.i = select i1 %cmp56.i, i1 %cmp57.i, i1 false
   br i1 %or.cond.i, label %if.then58.i, label %if.end62.i
 
 land.lhs.true.i:                                  ; preds = %if.else50.i

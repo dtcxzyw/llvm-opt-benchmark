@@ -179,7 +179,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
 if.end23.i:                                       ; preds = %while.body.i
   %7 = getelementptr i8, ptr %p.132, i64 %conv5.i
   %scevgep.i = getelementptr i8, ptr %7, i64 1
-  %cmp24.i = icmp slt i64 %or.i, 0
+  %cmp24.i = icmp slt i64 %shl.i, 0
   br i1 %cmp24.i, label %err, label %if.end54.thread
 
 if.end54.thread:                                  ; preds = %if.else.i, %while.cond.preheader.i, %if.end23.i

@@ -780,8 +780,7 @@ define internal noundef i32 @H5O__link_encode(ptr noundef %0, i1 zeroext %1, i64
 
 50:                                               ; preds = %48, %36
   %51 = phi ptr [ %49, %48 ], [ %37, %36 ]
-  %.not75 = icmp ult i8 %28, 16
-  br i1 %.not75, label %56, label %52
+  br i1 %.not73, label %56, label %52
 
 52:                                               ; preds = %50
   %53 = load i32, ptr %25, align 8

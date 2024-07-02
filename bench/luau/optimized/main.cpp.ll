@@ -25313,9 +25313,9 @@ _ZN7doctest12_GLOBAL__N_112_GLOBAL__N_111headerValueEh.exit.i: ; preds = %_ZN7do
   br i1 %exitcond.not.i, label %111, label %99, !llvm.loop !207
 
 111:                                              ; preds = %99
-  %112 = icmp ult i32 %109, 128
+  %112 = icmp ult i32 %107, 128
   %not..i = xor i1 %106, true
-  %113 = icmp ult i32 %109, 2048
+  %113 = icmp ult i32 %107, 2048
   %or.cond12.i = and i1 %78, %113
   %114 = or i1 %112, %or.cond12.i
   %or.cond88.i = select i1 %not..i, i1 true, i1 %114
@@ -25326,7 +25326,7 @@ _ZN7doctest12_GLOBAL__N_112_GLOBAL__N_111headerValueEh.exit.i: ; preds = %_ZN7do
   %or.cond14.i = icmp ult i32 %116, 63487
   %117 = icmp ugt i64 %.0.i.i, 3
   %or.cond16.i = and i1 %117, %or.cond14.i
-  %118 = icmp ugt i32 %109, 1114111
+  %118 = icmp ugt i32 %107, 1114111
   %or.cond18.i = select i1 %or.cond16.i, i1 true, i1 %118
   br i1 %or.cond18.i, label %119, label %.preheader.i
 
@@ -25356,8 +25356,8 @@ _ZN7doctest12_GLOBAL__N_112_GLOBAL__N_111headerValueEh.exit.i: ; preds = %_ZN7do
   %135 = load i8, ptr %134, align 1
   %136 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %135)
   %137 = add nuw nsw i64 %.092.i, 1
-  %exitcond110.not.i = icmp eq i64 %137, %.0.i.i
-  br i1 %exitcond110.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !208
+  %exitcond111.not.i = icmp eq i64 %137, %.0.i.i
+  br i1 %exitcond111.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !208
 
 .loopexit.i:                                      ; preds = %.preheader.i, %119, %84, %61, %57, %40, %33, %31, %26, %24, %10, %8
   %.1.i = phi i64 [ %.079107.i, %40 ], [ %.079107.i, %57 ], [ %.079107.i, %61 ], [ %.079107.i, %84 ], [ %.079107.i, %119 ], [ %.079107.i, %31 ], [ %.079107.i, %33 ], [ %.079107.i, %24 ], [ %.079107.i, %26 ], [ %.079107.i, %10 ], [ %.079107.i, %8 ], [ %82, %.preheader.i ]

@@ -1331,11 +1331,11 @@ if.end128:                                        ; preds = %if.then116
   br i1 %tobool129.not, label %if.else141, label %if.then130
 
 if.then130:                                       ; preds = %if.end128
-  %cmp131 = icmp ult i32 %or113, 4096
+  %cmp131 = icmp ult i8 %25, 16
   br i1 %cmp131, label %return, label %if.end134
 
 if.end134:                                        ; preds = %if.then130
-  %cmp135 = icmp ugt i32 %or113, 8191
+  %cmp135 = icmp ugt i8 %25, 31
   br i1 %cmp135, label %land.lhs.true, label %if.end151
 
 land.lhs.true:                                    ; preds = %if.end134

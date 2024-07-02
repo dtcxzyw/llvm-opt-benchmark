@@ -11610,7 +11610,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 "_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$$LP$$LP$usize$C$cargo_metadata..PackageId$RP$$C$cargo_metadata..PackageId$RP$$GT$$GT$$GT$17hf8add76fa7b46227E.exit.i.i.i.i.i.i": ; preds = %.noexc.i.i.i, %644, %.noexc397.i
   %.pre112.i.i.i.i.i.i = load i64, ptr %35, align 8, !range !390, !alias.scope !2659, !noalias !2662
-  store i64 -9223372036854775807, ptr %603, align 8, !alias.scope !2612, !noalias !2613
   call void @llvm.experimental.noalias.scope.decl(metadata !2665)
   call void @llvm.experimental.noalias.scope.decl(metadata !2666)
   %.not.i.i.i.i.i.i395.i = icmp eq i64 %.pre112.i.i.i.i.i.i, 0
@@ -11629,7 +11628,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.experimental.noalias.scope.decl(metadata !2679)
   %652 = add nuw nsw i64 %651, 1
   store i64 %652, ptr %605, align 8, !alias.scope !2672, !noalias !2675
-  %653 = icmp ne i64 %651, 3
+  %653 = icmp ult i64 %651, 3
   call void @llvm.assume(i1 %653)
   %654 = getelementptr inbounds { [7 x i64] }, ptr %607, i64 %651
   %.sroa.0.0.copyload21.i.i.i.i.i.i.i.i = load i64, ptr %654, align 8, !alias.scope !2680, !noalias !2681

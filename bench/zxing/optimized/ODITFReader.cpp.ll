@@ -303,7 +303,7 @@ _ZNK5ZXing11PatternView7isValidEv.exit53thread-pre-split: ; preds = %_ZN5ZXing11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.5)
   store i32 %.sroa.089.0.insert.insert, ptr %12, align 4
   %.not.i = icmp ne i16 %.sroa.089.0..sroa.089.0..sroa.089.0..sroa.089.0..sroa.0.0.copyload.i, 0
-  %98 = icmp ugt i32 %.sroa.089.0.insert.insert, 65535
+  %98 = icmp ne i16 %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0..sroa.0.0.copyload.i, 0
   %99 = and i1 %.not.i, %98
   br i1 %99, label %100, label %_ZNK5ZXing11PatternView7isValidEv.exit53.thread
 

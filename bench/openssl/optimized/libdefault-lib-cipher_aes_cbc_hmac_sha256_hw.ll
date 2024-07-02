@@ -1337,11 +1337,11 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool14.not, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %if.end
-  %cmp16 = icmp ult i32 %or, 4096
+  %cmp16 = icmp ult i8 %1, 16
   br i1 %cmp16, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.then15
-  %cmp20 = icmp ugt i32 %or, 8191
+  %cmp20 = icmp ugt i8 %1, 31
   br i1 %cmp20, label %land.lhs.true, label %if.end33
 
 land.lhs.true:                                    ; preds = %if.end19

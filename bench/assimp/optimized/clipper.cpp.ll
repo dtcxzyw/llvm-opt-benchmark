@@ -19594,7 +19594,7 @@ if.end49:                                         ; preds = %if.then46, %if.end3
   %31 = shl i64 %sub.ptr.sub.i.i130, 30
   %sext817 = ashr i64 %31, 32
   %conv54 = and i64 %sext817, -2
-  %cmp.i133 = icmp ugt i64 %conv54, 384307168202282325
+  %cmp.i133 = icmp ugt i64 %sext817, 384307168202282325
   br i1 %cmp.i133, label %if.then.i166, label %if.end.i134
 
 if.then.i166:                                     ; preds = %if.end49

@@ -34,7 +34,7 @@ define noalias noundef ptr @Aig_ManCutStart(ptr noundef %0, i32 noundef %1, i32 
   %11 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %11, align 4
   %12 = sext i32 %.val.val to i64
-  %13 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 8) #18
+  %13 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 8) #17
   %14 = getelementptr inbounds i8, ptr %calloc, i64 8
   store ptr %13, ptr %14, align 8
   %15 = icmp slt i32 %2, 6
@@ -52,7 +52,7 @@ define noalias noundef ptr @Aig_ManCutStart(ptr noundef %0, i32 noundef %1, i32 
   %26 = getelementptr inbounds i8, ptr %calloc, i64 32
   store i32 %25, ptr %26, align 8
   %27 = mul nsw i32 %25, %1
-  %28 = tail call ptr @Aig_MmFixedStart(i32 noundef %27, i32 noundef 512) #19
+  %28 = tail call ptr @Aig_MmFixedStart(i32 noundef %27, i32 noundef 512) #18
   %29 = getelementptr inbounds i8, ptr %calloc, i64 40
   store ptr %28, ptr %29, align 8
   %.not = icmp eq i32 %3, 0
@@ -62,7 +62,7 @@ define noalias noundef ptr @Aig_ManCutStart(ptr noundef %0, i32 noundef %1, i32 
   %31 = shl nsw i32 %18, 2
   %32 = sext i32 %31 to i64
   %33 = shl nsw i64 %32, 2
-  %34 = tail call noalias ptr @malloc(i64 noundef %33) #20
+  %34 = tail call noalias ptr @malloc(i64 noundef %33) #19
   %35 = getelementptr inbounds i8, ptr %calloc, i64 48
   store ptr %34, ptr %35, align 8
   %36 = sext i32 %18 to i64
@@ -96,14 +96,14 @@ declare ptr @Aig_MmFixedStart(i32 noundef, i32 noundef) local_unnamed_addr #4
 define void @Aig_ManCutStop(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  tail call void @Aig_MmFixedStop(ptr noundef %3, i32 noundef 0) #19
+  tail call void @Aig_MmFixedStop(ptr noundef %3, i32 noundef 0) #18
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %5) #19
+  tail call void @free(ptr noundef nonnull %5) #18
   store ptr null, ptr %4, align 8
   br label %7
 
@@ -114,11 +114,11 @@ define void @Aig_ManCutStop(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %.not11, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void @free(ptr noundef nonnull %9) #19
+  tail call void @free(ptr noundef nonnull %9) #18
   br label %11
 
 11:                                               ; preds = %7, %10
-  tail call void @free(ptr noundef nonnull %0) #19
+  tail call void @free(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -429,7 +429,7 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %s
 
 Aig_CutTruthPhase.exit:                           ; preds = %47, %49, %Kit_TruthNot.exit
   %.013.lcssa.i = phi i32 [ 0, %Kit_TruthNot.exit ], [ %.114.i, %49 ], [ %.01315.i, %47 ]
-  tail call void @Kit_TruthStretch(ptr noundef %35, ptr noundef %36, i32 noundef %39, i32 noundef %41, i32 noundef %.013.lcssa.i, i32 noundef 0) #19
+  tail call void @Kit_TruthStretch(ptr noundef %35, ptr noundef %36, i32 noundef %39, i32 noundef %41, i32 noundef %.013.lcssa.i, i32 noundef 0) #18
   %.not30 = icmp eq i32 %5, 0
   %60 = getelementptr inbounds i8, ptr %0, i64 56
   %61 = load ptr, ptr %60, align 8
@@ -526,7 +526,7 @@ Kit_TruthNot.exit43:                              ; preds = %select.unfold.i40, 
 
 Aig_CutTruthPhase.exit60:                         ; preds = %97, %99, %Kit_TruthNot.exit43
   %.013.lcssa.i50 = phi i32 [ 0, %Kit_TruthNot.exit43 ], [ %.114.i56, %99 ], [ %.01315.i55, %97 ]
-  tail call void @Kit_TruthStretch(ptr noundef %86, ptr noundef %88, i32 noundef %91, i32 noundef %92, i32 noundef %.013.lcssa.i50, i32 noundef 0) #19
+  tail call void @Kit_TruthStretch(ptr noundef %86, ptr noundef %88, i32 noundef %91, i32 noundef %92, i32 noundef %.013.lcssa.i50, i32 noundef 0) #18
   %110 = getelementptr inbounds i8, ptr %1, i64 24
   %111 = getelementptr inbounds i8, ptr %1, i64 22
   %112 = load i8, ptr %111, align 2
@@ -581,7 +581,7 @@ define range(i32 0, 65811) i32 @Aig_CutSupportMinimize(ptr nocapture noundef rea
   %7 = getelementptr inbounds i32, ptr %3, i64 %6
   %8 = getelementptr inbounds i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
-  %10 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %7, i32 noundef %9) #19
+  %10 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %7, i32 noundef %9) #18
   %11 = and i32 %10, 1431655765
   %12 = lshr i32 %10, 1
   %13 = and i32 %12, 1431655765
@@ -611,7 +611,7 @@ define range(i32 0, 65811) i32 @Aig_CutSupportMinimize(ptr nocapture noundef rea
   %35 = getelementptr inbounds i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr %8, align 4
-  tail call void @Kit_TruthShrink(ptr noundef %36, ptr noundef nonnull %7, i32 noundef %29, i32 noundef %37, i32 noundef %10, i32 noundef 1) #19
+  tail call void @Kit_TruthShrink(ptr noundef %36, ptr noundef nonnull %7, i32 noundef %29, i32 noundef %37, i32 noundef %10, i32 noundef 1) #18
   %38 = load i8, ptr %30, align 1
   %39 = icmp sgt i8 %38, 0
   br i1 %39, label %.lr.ph, label %._crit_edge
@@ -1076,7 +1076,7 @@ define internal fastcc range(i32 0, 2) i32 @Aig_CutMergeOrdered(ptr nocapture no
 define ptr @Aig_ObjPrepareCuts(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @Aig_MmFixedEntryFetch(ptr noundef %5) #19
+  %6 = tail call ptr @Aig_MmFixedEntryFetch(ptr noundef %5) #18
   %7 = getelementptr i8, ptr %0, i64 8
   %.val33 = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %1, i64 36
@@ -1178,7 +1178,7 @@ define void @Aig_ObjComputeCuts(ptr nocapture noundef readonly %0, ptr nocapture
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr @Aig_MmFixedEntryFetch(ptr noundef %13) #19
+  %14 = tail call ptr @Aig_MmFixedEntryFetch(ptr noundef %13) #18
   %15 = getelementptr i8, ptr %0, i64 8
   %.val33.i = load ptr, ptr %15, align 8
   %16 = getelementptr i8, ptr %1, i64 36
@@ -1341,9 +1341,8 @@ Aig_ObjPrepareCuts.exit:                          ; preds = %._crit_edge.i, %42,
   %115 = sext i32 %.val50 to i64
   %116 = getelementptr inbounds ptr, ptr %.val.i53, i64 %115
   %117 = load ptr, ptr %116, align 8
-  %118 = icmp ne i32 %84, 0
+  %118 = icmp sgt i32 %84, 0
   tail call void @llvm.assume(i1 %118)
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %84, i32 1)
   br label %.lr.ph.i54
 
 .lr.ph.i54:                                       ; preds = %131, %114
@@ -1377,7 +1376,7 @@ Aig_ObjPrepareCuts.exit:                          ; preds = %._crit_edge.i, %42,
   %134 = load i16, ptr %133, align 4
   %135 = sext i16 %134 to i64
   %136 = getelementptr inbounds i8, ptr %.0153.i, i64 %135
-  %exitcond.not.i = icmp eq i32 %132, %smax.i
+  %exitcond.not.i = icmp eq i32 %132, %84
   br i1 %exitcond.not.i, label %._crit_edge.i55, label %.lr.ph.i54, !llvm.loop !24
 
 ._crit_edge.i55:                                  ; preds = %131
@@ -2017,7 +2016,7 @@ define noundef ptr @Aig_ComputeCuts(ptr noundef %0, i32 noundef %1, i32 noundef 
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #19
+  %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #18
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %Abc_Clock.exit, label %10
 
@@ -2067,7 +2066,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   %.val38 = load ptr, ptr %32, align 8
   %33 = getelementptr inbounds ptr, ptr %.val38, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
-  %35 = call ptr @Aig_MmFixedEntryFetch(ptr noundef %.pre) #19
+  %35 = call ptr @Aig_MmFixedEntryFetch(ptr noundef %.pre) #18
   %.val33.i = load ptr, ptr %20, align 8
   %36 = getelementptr i8, ptr %34, i64 36
   %.val34.i = load i32, ptr %36, align 4
@@ -2285,13 +2284,13 @@ Aig_ManCutCount.exit:                             ; preds = %.loopexit.i, %93
   %141 = shl nsw i32 %140, 2
   %142 = getelementptr inbounds i8, ptr %14, i64 40
   %143 = load ptr, ptr %142, align 8
-  %144 = call i32 @Aig_MmFixedReadMemUsage(ptr noundef %143) #19
+  %144 = call i32 @Aig_MmFixedReadMemUsage(ptr noundef %143) #18
   %145 = sitofp i32 %144 to double
   %146 = fmul double %145, 0x3EB0000000000000
   %147 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %138, i32 noundef %141, double noundef %146)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %148 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #19
+  %148 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #18
   %149 = icmp slt i32 %148, 0
   br i1 %149, label %Abc_Clock.exit48, label %150
 
@@ -2329,23 +2328,23 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #19
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #18
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #19
+  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #18
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #19
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #18
   %10 = load ptr, ptr @stdout, align 8
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #21
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #20
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #19
-  call void @free(ptr noundef %9) #19
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #18
+  call void @free(ptr noundef %9) #18
   br label %16
 
 14:                                               ; preds = %5
-  %15 = call i32 @vprintf(ptr noundef %1, ptr noundef nonnull %3) #19
+  %15 = call i32 @vprintf(ptr noundef %1, ptr noundef nonnull %3) #18
   br label %16
 
 16:                                               ; preds = %14, %8
@@ -2386,14 +2385,11 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2411,12 +2407,11 @@ attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nofree nounwind }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind allocsize(0,1) }
-attributes #19 = { nounwind }
-attributes #20 = { nounwind allocsize(0) }
-attributes #21 = { nounwind willreturn memory(read) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind allocsize(0,1) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind allocsize(0) }
+attributes #20 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

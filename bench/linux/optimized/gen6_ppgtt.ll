@@ -85,46 +85,48 @@ define dso_local i32 @gen6_ppgtt_pin(ptr noundef %0, ptr noundef %1) local_unnam
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %._crit_edge, label %.lr.ph, !prof !5
 
-.lr.ph:                                           ; preds = %2, %11
-  %6 = phi i32 [ %12, %11 ], [ %4, %2 ]
+.lr.ph:                                           ; preds = %2, %12
+  %6 = phi i32 [ %13, %12 ], [ %4, %2 ]
   %7 = add i32 %6, 1
   %8 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 %7, ptr elementtype(i32) %3, i32 %6) #7, !srcloc !6
   %9 = extractvalue { i8, i32 } %8, 0
-  %10 = icmp eq i8 %9, 0
-  br i1 %10, label %11, label %.loopexit, !prof !7
+  %10 = icmp ult i8 %9, 2
+  tail call void @llvm.assume(i1 %10)
+  %11 = icmp eq i8 %9, 0
+  br i1 %11, label %12, label %.loopexit, !prof !7
 
-11:                                               ; preds = %.lr.ph
-  %12 = extractvalue { i8, i32 } %8, 1
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %._crit_edge, label %.lr.ph, !prof !8, !llvm.loop !9
+12:                                               ; preds = %.lr.ph
+  %13 = extractvalue { i8, i32 } %8, 1
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %._crit_edge, label %.lr.ph, !prof !8, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %11, %2
-  %14 = tail call i32 @i915_vm_lock_objects(ptr noundef %0, ptr noundef %1) #7
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %.loopexit
+._crit_edge:                                      ; preds = %12, %2
+  %15 = tail call i32 @i915_vm_lock_objects(ptr noundef %0, ptr noundef %1) #7
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %.loopexit
 
-16:                                               ; preds = %._crit_edge
-  %17 = load volatile i32, ptr %3, align 4
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %.thread5
+17:                                               ; preds = %._crit_edge
+  %18 = load volatile i32, ptr %3, align 4
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %.thread5
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 720
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 @i915_ggtt_pin(ptr noundef %21, ptr noundef %1, i32 noundef 65536, i32 noundef 32) #7
-  %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr i8, ptr %23, i64 269
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %24, i32 -65, ptr elementtype(i8) %24) #7, !srcloc !12
-  %25 = icmp eq i32 %22, 0
-  br i1 %25, label %.thread5, label %.loopexit
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds i8, ptr %0, i64 720
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call i32 @i915_ggtt_pin(ptr noundef %22, ptr noundef %1, i32 noundef 65536, i32 noundef 32) #7
+  %24 = load ptr, ptr %21, align 8
+  %25 = getelementptr i8, ptr %24, i64 269
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %25, i32 -65, ptr elementtype(i8) %25) #7, !srcloc !12
+  %26 = icmp eq i32 %23, 0
+  br i1 %26, label %.thread5, label %.loopexit
 
-.thread5:                                         ; preds = %16, %19
+.thread5:                                         ; preds = %17, %20
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, ptr elementtype(i32) %3) #7, !srcloc !13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.thread5, %19, %._crit_edge
-  %26 = phi i32 [ %14, %._crit_edge ], [ 0, %.thread5 ], [ %22, %19 ], [ 0, %.lr.ph ]
-  ret i32 %26
+.loopexit:                                        ; preds = %.lr.ph, %.thread5, %20, %._crit_edge
+  %27 = phi i32 [ %15, %._crit_edge ], [ 0, %.thread5 ], [ %23, %20 ], [ 0, %.lr.ph ]
+  ret i32 %27
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -1532,7 +1532,7 @@ get_signature_ts.exit.i:                          ; preds = %240, %find_signatur
   %441 = getelementptr i8, ptr %11, i64 6
   %.val.i43 = load i8, ptr %441, align 1
   %442 = getelementptr i8, ptr %11, i64 7
-  %.val457478.i = load i8, ptr %442, align 1
+  %.val457480.i = load i8, ptr %442, align 1
   %.not.i44 = icmp eq i32 %5, 0
   %443 = getelementptr i8, ptr %11, i64 2
   %444 = load i8, ptr %443, align 1
@@ -1623,7 +1623,7 @@ get_signature_ts.exit.i:                          ; preds = %240, %find_signatur
   %519 = zext i8 %.val459.i to i16
   %520 = or disjoint i16 %518, %519
   %521 = zext i16 %520 to i32
-  %.not439.i = icmp ult i16 %520, 1024
+  %.not439.i = icmp ult i8 %.val458.i, 4
   br i1 %.not439.i, label %527, label %522
 
 522:                                              ; preds = %453
@@ -1673,12 +1673,12 @@ get_signature_ts.exit.i:                          ; preds = %240, %find_signatur
   %550 = and i16 %545, 256
   %.not.i.i65 = icmp eq i16 %550, 0
   %..i.i66 = select i1 %.not.i.i65, float 4.000000e+00, float 0x400CCCCCC0000000
-  %.not10.i.i = icmp ult i16 %545, 512
   %551 = and i8 %428, 7
   %552 = zext nneg i8 %551 to i64
   %553 = getelementptr [8 x i32], ptr @get_ht_rate.canonical_ndbps_40_ht, i64 0, i64 %552
   %554 = getelementptr [8 x i32], ptr @get_ht_rate.canonical_ndbps_20_ht, i64 0, i64 %552
-  %.0.in.i.i = select i1 %.not10.i.i, ptr %554, ptr %553
+  %.not10.i479.i = icmp slt i8 %539, 0
+  %.0.in.i.i = select i1 %.not10.i479.i, ptr %553, ptr %554
   %.0.i462.i = load i32, ptr %.0.in.i.i, align 4
   %555 = lshr i8 %537, 3
   %narrow.i.i = add nuw nsw i8 %555, 1
@@ -1704,12 +1704,12 @@ get_signature_ts.exit.i:                          ; preds = %240, %find_signatur
   %573 = and i16 %568, 256
   %.not.i463.i = icmp eq i16 %573, 0
   %..i464.i = select i1 %.not.i463.i, float 4.000000e+00, float 0x400CCCCCC0000000
-  %.not10.i465.i = icmp ult i16 %568, 512
   %574 = and i8 %428, 7
   %575 = zext nneg i8 %574 to i64
   %576 = getelementptr [8 x i32], ptr @get_ht_rate.canonical_ndbps_40_ht, i64 0, i64 %575
   %577 = getelementptr [8 x i32], ptr @get_ht_rate.canonical_ndbps_20_ht, i64 0, i64 %575
-  %.0.in.i466.i = select i1 %.not10.i465.i, ptr %577, ptr %576
+  %.not10.i465478.i = icmp slt i8 %562, 0
+  %.0.in.i466.i = select i1 %.not10.i465478.i, ptr %576, ptr %577
   %.0.i467.i = load i32, ptr %.0.in.i466.i, align 4
   %578 = lshr i8 %561, 3
   %narrow.i468.i = add nuw nsw i8 %578, 1
@@ -2088,7 +2088,7 @@ get_signature_ts.exit.i47:                        ; preds = %778, %776, %find_si
   %817 = getelementptr i8, ptr %811, i64 9
   store i8 0, ptr %817, align 1
   %818 = getelementptr i8, ptr %811, i64 10
-  store i8 %.val457478.i, ptr %818, align 1
+  store i8 %.val457480.i, ptr %818, align 1
   %819 = getelementptr i8, ptr %811, i64 11
   store i8 %.val.i43, ptr %819, align 1
   %820 = getelementptr i8, ptr %811, i64 12
@@ -2110,16 +2110,16 @@ get_signature_ts.exit.i47:                        ; preds = %778, %776, %find_si
   br label %831
 
 831:                                              ; preds = %823, %795
-  %.sink481.i = phi i8 [ %824, %823 ], [ 0, %795 ]
-  %.sink480.i = phi i8 [ %826, %823 ], [ 0, %795 ]
-  %.sink479.i = phi i8 [ %828, %823 ], [ 0, %795 ]
+  %.sink483.i = phi i8 [ %824, %823 ], [ 0, %795 ]
+  %.sink482.i = phi i8 [ %826, %823 ], [ 0, %795 ]
+  %.sink481.i = phi i8 [ %828, %823 ], [ 0, %795 ]
   %.sink.i49 = phi i8 [ %830, %823 ], [ 0, %795 ]
   %832 = getelementptr i8, ptr %811, i64 14
-  store i8 %.sink481.i, ptr %832, align 1
+  store i8 %.sink483.i, ptr %832, align 1
   %833 = getelementptr i8, ptr %811, i64 15
-  store i8 %.sink480.i, ptr %833, align 1
+  store i8 %.sink482.i, ptr %833, align 1
   %834 = getelementptr i8, ptr %811, i64 16
-  store i8 %.sink479.i, ptr %834, align 1
+  store i8 %.sink481.i, ptr %834, align 1
   %835 = getelementptr i8, ptr %811, i64 17
   store i8 %.sink.i49, ptr %835, align 1
   %836 = trunc i64 %.0422.i to i8

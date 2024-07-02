@@ -2761,6 +2761,8 @@ if.then15.i:                                      ; preds = %if.end.thread.i, %i
   %18 = phi ptr [ %16, %if.end.thread.i ], [ %15, %if.end.i ]
   %_M_string_length.i58.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %19 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !14
+  %cmp3.i59.i = icmp ult i64 %19, 16
+  call void @llvm.assume(i1 %cmp3.i59.i)
   %cmp.not.i = icmp eq ptr %ref.tmp, %m_name
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then16.i, !prof !197
 
@@ -15997,6 +15999,8 @@ if.then15.i:                                      ; preds = %if.end.thread.i, %i
   %18 = phi ptr [ %16, %if.end.thread.i ], [ %15, %if.end.i ]
   %_M_string_length.i58.i = getelementptr inbounds i8, ptr %0, i64 104
   %19 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !14
+  %cmp3.i59.i = icmp ult i64 %19, 16
+  tail call void @llvm.assume(i1 %cmp3.i59.i)
   %cmp.not.i = icmp eq ptr %0, %this
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then16.i, !prof !197
 
@@ -16088,6 +16092,8 @@ if.then15.i44:                                    ; preds = %if.end.thread.i35, 
   %37 = phi ptr [ %35, %if.end.thread.i35 ], [ %34, %if.end.i55 ]
   %_M_string_length.i58.i45 = getelementptr inbounds i8, ptr %0, i64 136
   %38 = load i64, ptr %_M_string_length.i58.i45, align 8, !tbaa !14
+  %cmp3.i59.i46 = icmp ult i64 %38, 16
+  tail call void @llvm.assume(i1 %cmp3.i59.i46)
   %cmp.not.i47 = icmp eq ptr %0, %this
   br i1 %cmp.not.i47, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit63, label %if.then16.i48, !prof !197
 
@@ -16179,6 +16185,8 @@ if.then15.i74:                                    ; preds = %if.end.thread.i65, 
   %56 = phi ptr [ %54, %if.end.thread.i65 ], [ %53, %if.end.i85 ]
   %_M_string_length.i58.i75 = getelementptr inbounds i8, ptr %0, i64 168
   %57 = load i64, ptr %_M_string_length.i58.i75, align 8, !tbaa !14
+  %cmp3.i59.i76 = icmp ult i64 %57, 16
+  tail call void @llvm.assume(i1 %cmp3.i59.i76)
   %cmp.not.i77 = icmp eq ptr %0, %this
   br i1 %cmp.not.i77, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit93, label %if.then16.i78, !prof !197
 
@@ -16270,6 +16278,8 @@ if.then15.i104:                                   ; preds = %if.end.thread.i95, 
   %75 = phi ptr [ %73, %if.end.thread.i95 ], [ %72, %if.end.i115 ]
   %_M_string_length.i58.i105 = getelementptr inbounds i8, ptr %0, i64 200
   %76 = load i64, ptr %_M_string_length.i58.i105, align 8, !tbaa !14
+  %cmp3.i59.i106 = icmp ult i64 %76, 16
+  tail call void @llvm.assume(i1 %cmp3.i59.i106)
   %cmp.not.i107 = icmp eq ptr %0, %this
   br i1 %cmp.not.i107, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit123, label %if.then16.i108, !prof !197
 
@@ -16361,6 +16371,8 @@ if.then15.i134:                                   ; preds = %if.end.thread.i125,
   %94 = phi ptr [ %92, %if.end.thread.i125 ], [ %91, %if.end.i145 ]
   %_M_string_length.i58.i135 = getelementptr inbounds i8, ptr %0, i64 232
   %95 = load i64, ptr %_M_string_length.i58.i135, align 8, !tbaa !14
+  %cmp3.i59.i136 = icmp ult i64 %95, 16
+  tail call void @llvm.assume(i1 %cmp3.i59.i136)
   %cmp.not.i137 = icmp eq ptr %0, %this
   br i1 %cmp.not.i137, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit153, label %if.then16.i138, !prof !197
 
@@ -16452,6 +16464,8 @@ if.then15.i164:                                   ; preds = %if.end.thread.i155,
   %113 = phi ptr [ %111, %if.end.thread.i155 ], [ %110, %if.end.i175 ]
   %_M_string_length.i58.i165 = getelementptr inbounds i8, ptr %0, i64 264
   %114 = load i64, ptr %_M_string_length.i58.i165, align 8, !tbaa !14
+  %cmp3.i59.i166 = icmp ult i64 %114, 16
+  tail call void @llvm.assume(i1 %cmp3.i59.i166)
   %cmp.not.i167 = icmp eq ptr %0, %this
   br i1 %cmp.not.i167, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit183, label %if.then16.i168, !prof !197
 

@@ -419,24 +419,24 @@ define internal i32 @dissect_h263_data(ptr noundef %0, ptr nocapture noundef rea
 
 18:                                               ; preds = %14
   %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %20 = and i8 %19, -2
-  %.not = icmp sgt i8 %20, -1
-  br i1 %.not, label %31, label %21
+  %.not = icmp sgt i8 %19, -1
+  br i1 %.not, label %31, label %20
 
-21:                                               ; preds = %18
-  switch i8 %20, label %25 [
+20:                                               ; preds = %18
+  %21 = and i8 %19, -2
+  switch i8 %21, label %25 [
     i8 -8, label %31
     i8 -128, label %22
     i8 -126, label %22
   ]
 
-22:                                               ; preds = %21, %21
+22:                                               ; preds = %20, %20
   %23 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.107) #2
   %24 = tail call i32 @dissect_h263_picture_layer(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef 0, i32 poison, i32 noundef 0)
   br label %31
 
-25:                                               ; preds = %21
+25:                                               ; preds = %20
   %26 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.108) #2
   %27 = load i32, ptr @hf_h263_gbsc, align 4
@@ -445,8 +445,8 @@ define internal i32 @dissect_h263_data(ptr noundef %0, ptr nocapture noundef rea
   %30 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %29, ptr noundef %0, i32 noundef 17, i32 noundef 5, i32 noundef 0) #2
   br label %31
 
-31:                                               ; preds = %21, %25, %22, %18, %14
-  %.033 = phi i32 [ 2, %25 ], [ %24, %22 ], [ 0, %21 ], [ 0, %18 ], [ 0, %14 ]
+31:                                               ; preds = %20, %25, %22, %18, %14
+  %.033 = phi i32 [ 2, %25 ], [ %24, %22 ], [ 0, %20 ], [ 0, %18 ], [ 0, %14 ]
   %.not34 = icmp eq ptr %2, null
   br i1 %.not34, label %34, label %.sink.split
 

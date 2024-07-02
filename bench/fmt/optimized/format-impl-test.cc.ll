@@ -17076,8 +17076,8 @@ _ZN7testing8internal11CmpHelperNEIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit1
   %add.ptr.i146 = getelementptr inbounds i8, ptr %buf4, i64 4
   store ptr %add.ptr.i146, ptr %end, align 8
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar80)
-  %.pre247 = load i8, ptr %gtest_ar80, align 8
-  %tobool.i189 = trunc i8 %.pre247 to i1
+  %.pre245 = load i8, ptr %gtest_ar80, align 8
+  %tobool.i189 = trunc i8 %.pre245 to i1
   br i1 %tobool.i189, label %if.end98, label %if.else86
 
 lpad82:                                           ; preds = %if.else86

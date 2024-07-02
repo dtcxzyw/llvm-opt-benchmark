@@ -78557,7 +78557,7 @@ _ZN5typst6layout6inline9linebreak14linebreak_link17he81800f6b52ee163E.exit: ; pr
   br i1 %.not.i113, label %433, label %435
 
 433:                                              ; preds = %431
-  %434 = icmp ult i32 %430, 1114112
+  %434 = icmp ult i32 %.013.i161, 17408
   br i1 %434, label %454, label %450
 
 435:                                              ; preds = %.thread229, %431
@@ -79622,7 +79622,7 @@ _ZN5typst6layout6inline9linebreak14linebreak_link17hfbf82a66d0850e2eE.exit: ; pr
   br i1 %.not.i113, label %433, label %435
 
 433:                                              ; preds = %431
-  %434 = icmp ult i32 %430, 1114112
+  %434 = icmp ult i32 %.013.i161, 17408
   br i1 %434, label %454, label %450
 
 435:                                              ; preds = %.thread229, %431

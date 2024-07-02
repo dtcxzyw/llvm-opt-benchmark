@@ -18016,16 +18016,16 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %88
   %154 = zext nneg i8 %153 to i32
   %155 = or disjoint i32 %152, %154
   %156 = icmp eq i32 %155, 1114112
-  %157 = icmp ult i32 %155, 128
-  %or.cond.i = or i1 %156, %157
+  %157 = icmp ult i32 %.0.i.i, 2
+  %or.cond.i = or i1 %157, %156
   br i1 %or.cond.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h727ea82af525e7b1E.exit", label %158
 
 158:                                              ; preds = %"_ZN96_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h25eccb8f3b92f263E.exit"
-  %159 = icmp ult i32 %155, 2048
+  %159 = icmp ult i32 %.0.i.i, 32
   br i1 %159, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h727ea82af525e7b1E.exit", label %160
 
 160:                                              ; preds = %158
-  %161 = icmp ult i32 %155, 65536
+  %161 = icmp ult i32 %.0.i.i, 1024
   %..i.i.neg = select i1 %161, i64 -3, i64 -4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h727ea82af525e7b1E.exit"
 

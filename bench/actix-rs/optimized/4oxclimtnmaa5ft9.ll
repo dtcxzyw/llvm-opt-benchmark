@@ -197,7 +197,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
   %33 = shl nuw i8 %32, 4
   %34 = trunc nuw i32 %.sroa.4.1.i2793 to i8
   %35 = or disjoint i8 %33, %34
-  %36 = icmp sgt i8 %35, -1
+  %36 = icmp sgt i8 %33, -1
   br i1 %36, label %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i", label %44
 
 "_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i": ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit29.thread"
@@ -351,7 +351,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
   %97 = shl nuw i8 %96, 4
   %98 = trunc nuw i32 %.sroa.4.1.i45114 to i8
   %99 = or disjoint i8 %97, %98
-  %100 = icmp sgt i8 %99, -1
+  %100 = icmp sgt i8 %97, -1
   br i1 %100, label %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i50", label %108
 
 "_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i50": ; preds = %.noexc23.thread

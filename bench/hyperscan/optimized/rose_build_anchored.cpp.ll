@@ -8169,7 +8169,7 @@ for.inc.i64.preheader:                            ; preds = %_ZNK3ue29CharReach1
   %83 = load i64, ptr %arrayidx.i.i.i.i18.i117, align 8, !noalias !364
   %or.i.i.i118 = or i64 %shl.i.i.i.i115, %83
   store i64 %or.i.i.i118, ptr %arrayidx.i.i.i.i18.i117, align 8, !noalias !364
-  %cmp.not.i.i.i66119 = icmp ult i64 %add.i.i.i63, 256
+  %cmp.not.i.i.i66119 = icmp ult i64 %i.06.i.i.i, 4
   br i1 %cmp.not.i.i.i66119, label %if.end.i.i.i, label %for.inc16.i
 
 if.end.i.i.i:                                     ; preds = %for.inc.i64.preheader, %_ZNK3ue29CharReach9find_nextEm.exit.i
@@ -9793,7 +9793,7 @@ for.body57.lr.ph.i:                               ; preds = %_ZNK3ue29CharReach1
   %172 = load i64, ptr %gep.i80, align 8
   %or.i89.i81 = or i64 %172, %shl.i.i86.i
   store i64 %or.i89.i81, ptr %gep.i80, align 8
-  %cmp.not.i.i.i82 = icmp ult i64 %add.i.i.i, 256
+  %cmp.not.i.i.i82 = icmp ult i64 %i.06.i.i.i, 4
   br i1 %cmp.not.i.i.i82, label %if.end.i.i91.i, label %for.inc63.i
 
 if.end.i.i91.i:                                   ; preds = %for.body57.lr.ph.i, %_ZNK3ue29CharReach9find_nextEm.exit.i

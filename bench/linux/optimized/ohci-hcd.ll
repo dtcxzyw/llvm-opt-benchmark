@@ -5661,7 +5661,7 @@ define internal fastcc void @update_done_list(ptr nocapture noundef %0) unnamed_
   %30 = load i32, ptr %20, align 32
   %31 = or i32 %30, 131072
   store i32 %31, ptr %20, align 32
-  %32 = icmp ult i32 %31, 268435456
+  %32 = icmp ult i32 %30, 268435456
   br i1 %32, label %.loopexit12, label %33
 
 33:                                               ; preds = %29

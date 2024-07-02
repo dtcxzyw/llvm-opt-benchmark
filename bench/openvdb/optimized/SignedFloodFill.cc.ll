@@ -7203,13 +7203,13 @@ for.inc.i:                                        ; preds = %land.rhs.i
 
 _ZNK7openvdb5v11_04util8NodeMaskILj3EE11findFirstOnEv.exit: ; preds = %land.rhs.i
   %shl.i = shl i32 %n.011.i, 6
-  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
-  %6 = trunc nuw nsw i64 %5 to i32
-  %add.i = or disjoint i32 %shl.i, %6
-  %cmp7 = icmp ult i32 %add.i, 512
+  %cmp7 = icmp ult i32 %shl.i, 512
   br i1 %cmp7, label %if.then8, label %if.else56
 
 if.then8:                                         ; preds = %_ZNK7openvdb5v11_04util8NodeMaskILj3EE11findFirstOnEv.exit
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
+  %6 = trunc nuw nsw i64 %5 to i32
+  %add.i = or disjoint i32 %shl.i, %6
   %idxprom = zext nneg i32 %add.i to i64
   %arrayidx = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %idxprom
   %7 = load float, ptr %arrayidx, align 4
@@ -9686,13 +9686,13 @@ for.inc.i:                                        ; preds = %land.rhs.i
 
 _ZNK7openvdb5v11_04util8NodeMaskILj4EE11findFirstOnEv.exit: ; preds = %land.rhs.i
   %shl.i = shl i32 %n.011.i, 6
-  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
-  %3 = trunc nuw nsw i64 %2 to i32
-  %add.i = or disjoint i32 %shl.i, %3
-  %cmp4 = icmp ult i32 %add.i, 4096
+  %cmp4 = icmp ult i32 %shl.i, 4096
   br i1 %cmp4, label %if.then5, label %if.else61
 
 if.then5:                                         ; preds = %_ZNK7openvdb5v11_04util8NodeMaskILj4EE11findFirstOnEv.exit
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
+  %3 = trunc nuw nsw i64 %2 to i32
+  %add.i = or disjoint i32 %shl.i, %3
   %idxprom = zext nneg i32 %add.i to i64
   %arrayidx = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.125", ptr %node, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
@@ -10565,13 +10565,13 @@ for.inc.i:                                        ; preds = %land.rhs.i
 
 _ZNK7openvdb5v11_04util8NodeMaskILj5EE11findFirstOnEv.exit: ; preds = %land.rhs.i
   %shl.i = shl i32 %n.011.i, 6
-  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
-  %3 = trunc nuw nsw i64 %2 to i32
-  %add.i = or disjoint i32 %shl.i, %3
-  %cmp4 = icmp ult i32 %add.i, 32768
+  %cmp4 = icmp ult i32 %shl.i, 32768
   br i1 %cmp4, label %if.then5, label %if.else61
 
 if.then5:                                         ; preds = %_ZNK7openvdb5v11_04util8NodeMaskILj5EE11findFirstOnEv.exit
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
+  %3 = trunc nuw nsw i64 %2 to i32
+  %add.i = or disjoint i32 %shl.i, %3
   %idxprom = zext nneg i32 %add.i to i64
   %arrayidx = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion", ptr %node, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
@@ -18060,13 +18060,13 @@ for.inc.i:                                        ; preds = %land.rhs.i
 
 _ZNK7openvdb5v11_04util8NodeMaskILj3EE11findFirstOnEv.exit: ; preds = %land.rhs.i
   %shl.i = shl i32 %n.011.i, 6
-  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
-  %6 = trunc nuw nsw i64 %5 to i32
-  %add.i = or disjoint i32 %shl.i, %6
-  %cmp7 = icmp ult i32 %add.i, 512
+  %cmp7 = icmp ult i32 %shl.i, 512
   br i1 %cmp7, label %if.then8, label %if.else56
 
 if.then8:                                         ; preds = %_ZNK7openvdb5v11_04util8NodeMaskILj3EE11findFirstOnEv.exit
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
+  %6 = trunc nuw nsw i64 %5 to i32
+  %add.i = or disjoint i32 %shl.i, %6
   %idxprom = zext nneg i32 %add.i to i64
   %arrayidx = getelementptr inbounds double, ptr %retval.0.i.i.i, i64 %idxprom
   %7 = load double, ptr %arrayidx, align 8
@@ -20080,13 +20080,13 @@ for.inc.i:                                        ; preds = %land.rhs.i
 
 _ZNK7openvdb5v11_04util8NodeMaskILj4EE11findFirstOnEv.exit: ; preds = %land.rhs.i
   %shl.i = shl i32 %n.011.i, 6
-  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
-  %3 = trunc nuw nsw i64 %2 to i32
-  %add.i = or disjoint i32 %shl.i, %3
-  %cmp4 = icmp ult i32 %add.i, 4096
+  %cmp4 = icmp ult i32 %shl.i, 4096
   br i1 %cmp4, label %if.then5, label %if.else61
 
 if.then5:                                         ; preds = %_ZNK7openvdb5v11_04util8NodeMaskILj4EE11findFirstOnEv.exit
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
+  %3 = trunc nuw nsw i64 %2 to i32
+  %add.i = or disjoint i32 %shl.i, %3
   %idxprom = zext nneg i32 %add.i to i64
   %arrayidx = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.314", ptr %node, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
@@ -20959,13 +20959,13 @@ for.inc.i:                                        ; preds = %land.rhs.i
 
 _ZNK7openvdb5v11_04util8NodeMaskILj5EE11findFirstOnEv.exit: ; preds = %land.rhs.i
   %shl.i = shl i32 %n.011.i, 6
-  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
-  %3 = trunc nuw nsw i64 %2 to i32
-  %add.i = or disjoint i32 %shl.i, %3
-  %cmp4 = icmp ult i32 %add.i, 32768
+  %cmp4 = icmp ult i32 %shl.i, 32768
   br i1 %cmp4, label %if.then5, label %if.else61
 
 if.then5:                                         ; preds = %_ZNK7openvdb5v11_04util8NodeMaskILj5EE11findFirstOnEv.exit
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
+  %3 = trunc nuw nsw i64 %2 to i32
+  %add.i = or disjoint i32 %shl.i, %3
   %idxprom = zext nneg i32 %add.i to i64
   %arrayidx = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.303", ptr %node, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
@@ -24218,13 +24218,13 @@ for.inc.i:                                        ; preds = %land.rhs.i
 
 _ZNK7openvdb5v11_04util8NodeMaskILj3EE11findFirstOnEv.exit: ; preds = %land.rhs.i
   %shl.i = shl i32 %n.011.i, 6
-  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
-  %6 = trunc nuw nsw i64 %5 to i32
-  %add.i = or disjoint i32 %shl.i, %6
-  %cmp7 = icmp ult i32 %add.i, 512
+  %cmp7 = icmp ult i32 %shl.i, 512
   br i1 %cmp7, label %if.then8, label %if.else56
 
 if.then8:                                         ; preds = %_ZNK7openvdb5v11_04util8NodeMaskILj3EE11findFirstOnEv.exit
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
+  %6 = trunc nuw nsw i64 %5 to i32
+  %add.i = or disjoint i32 %shl.i, %6
   %idxprom = zext nneg i32 %add.i to i64
   %arrayidx = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %idxprom
   %7 = load float, ptr %arrayidx, align 4
@@ -25061,13 +25061,13 @@ for.inc.i:                                        ; preds = %land.rhs.i
 
 _ZNK7openvdb5v11_04util8NodeMaskILj4EE11findFirstOnEv.exit: ; preds = %land.rhs.i
   %shl.i = shl i32 %n.011.i, 6
-  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
-  %3 = trunc nuw nsw i64 %2 to i32
-  %add.i = or disjoint i32 %shl.i, %3
-  %cmp4 = icmp ult i32 %add.i, 4096
+  %cmp4 = icmp ult i32 %shl.i, 4096
   br i1 %cmp4, label %if.then5, label %if.else61
 
 if.then5:                                         ; preds = %_ZNK7openvdb5v11_04util8NodeMaskILj4EE11findFirstOnEv.exit
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
+  %3 = trunc nuw nsw i64 %2 to i32
+  %add.i = or disjoint i32 %shl.i, %3
   %idxprom = zext nneg i32 %add.i to i64
   %arrayidx = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.125", ptr %node, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
@@ -25940,13 +25940,13 @@ for.inc.i:                                        ; preds = %land.rhs.i
 
 _ZNK7openvdb5v11_04util8NodeMaskILj5EE11findFirstOnEv.exit: ; preds = %land.rhs.i
   %shl.i = shl i32 %n.011.i, 6
-  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
-  %3 = trunc nuw nsw i64 %2 to i32
-  %add.i = or disjoint i32 %shl.i, %3
-  %cmp4 = icmp ult i32 %add.i, 32768
+  %cmp4 = icmp ult i32 %shl.i, 32768
   br i1 %cmp4, label %if.then5, label %if.else61
 
 if.then5:                                         ; preds = %_ZNK7openvdb5v11_04util8NodeMaskILj5EE11findFirstOnEv.exit
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
+  %3 = trunc nuw nsw i64 %2 to i32
+  %add.i = or disjoint i32 %shl.i, %3
   %idxprom = zext nneg i32 %add.i to i64
   %arrayidx = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion", ptr %node, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
@@ -27505,13 +27505,13 @@ for.inc.i:                                        ; preds = %land.rhs.i
 
 _ZNK7openvdb5v11_04util8NodeMaskILj3EE11findFirstOnEv.exit: ; preds = %land.rhs.i
   %shl.i = shl i32 %n.011.i, 6
-  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
-  %6 = trunc nuw nsw i64 %5 to i32
-  %add.i = or disjoint i32 %shl.i, %6
-  %cmp7 = icmp ult i32 %add.i, 512
+  %cmp7 = icmp ult i32 %shl.i, 512
   br i1 %cmp7, label %if.then8, label %if.else56
 
 if.then8:                                         ; preds = %_ZNK7openvdb5v11_04util8NodeMaskILj3EE11findFirstOnEv.exit
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
+  %6 = trunc nuw nsw i64 %5 to i32
+  %add.i = or disjoint i32 %shl.i, %6
   %idxprom = zext nneg i32 %add.i to i64
   %arrayidx = getelementptr inbounds double, ptr %retval.0.i.i.i, i64 %idxprom
   %7 = load double, ptr %arrayidx, align 8
@@ -28348,13 +28348,13 @@ for.inc.i:                                        ; preds = %land.rhs.i
 
 _ZNK7openvdb5v11_04util8NodeMaskILj4EE11findFirstOnEv.exit: ; preds = %land.rhs.i
   %shl.i = shl i32 %n.011.i, 6
-  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
-  %3 = trunc nuw nsw i64 %2 to i32
-  %add.i = or disjoint i32 %shl.i, %3
-  %cmp4 = icmp ult i32 %add.i, 4096
+  %cmp4 = icmp ult i32 %shl.i, 4096
   br i1 %cmp4, label %if.then5, label %if.else61
 
 if.then5:                                         ; preds = %_ZNK7openvdb5v11_04util8NodeMaskILj4EE11findFirstOnEv.exit
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
+  %3 = trunc nuw nsw i64 %2 to i32
+  %add.i = or disjoint i32 %shl.i, %3
   %idxprom = zext nneg i32 %add.i to i64
   %arrayidx = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.314", ptr %node, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
@@ -29227,13 +29227,13 @@ for.inc.i:                                        ; preds = %land.rhs.i
 
 _ZNK7openvdb5v11_04util8NodeMaskILj5EE11findFirstOnEv.exit: ; preds = %land.rhs.i
   %shl.i = shl i32 %n.011.i, 6
-  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
-  %3 = trunc nuw nsw i64 %2 to i32
-  %add.i = or disjoint i32 %shl.i, %3
-  %cmp4 = icmp ult i32 %add.i, 32768
+  %cmp4 = icmp ult i32 %shl.i, 32768
   br i1 %cmp4, label %if.then5, label %if.else61
 
 if.then5:                                         ; preds = %_ZNK7openvdb5v11_04util8NodeMaskILj5EE11findFirstOnEv.exit
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
+  %3 = trunc nuw nsw i64 %2 to i32
+  %add.i = or disjoint i32 %shl.i, %3
   %idxprom = zext nneg i32 %add.i to i64
   %arrayidx = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.303", ptr %node, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8

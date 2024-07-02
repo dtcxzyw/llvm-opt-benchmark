@@ -2167,7 +2167,7 @@ _ZN5uu_df7columns6Column9alignment17h111dd4d8f0b27676E.exit.i: ; preds = %270, %
   %351 = lshr i64 %345, 6
   %352 = and i64 %351, 127
   %353 = or disjoint i64 %350, %352
-  %354 = icmp ult i64 %353, 2432
+  %354 = icmp ult i8 %348, 19
   br i1 %354, label %355, label %.invoke, !prof !234
 
 355:                                              ; preds = %344
@@ -2178,7 +2178,7 @@ _ZN5uu_df7columns6Column9alignment17h111dd4d8f0b27676E.exit.i: ; preds = %270, %
   %360 = lshr i64 %345, 2
   %361 = and i64 %360, 15
   %362 = or disjoint i64 %359, %361
-  %363 = icmp ult i64 %362, 3888
+  %363 = icmp ult i8 %357, -13
   br i1 %363, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i.i, label %.invoke, !prof !234
 
 _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i.i: ; preds = %355
@@ -2296,7 +2296,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit: ; preds = 
   %430 = lshr i64 %424, 6
   %431 = and i64 %430, 127
   %432 = or disjoint i64 %429, %431
-  %433 = icmp ult i64 %432, 2432
+  %433 = icmp ult i8 %427, 19
   br i1 %433, label %434, label %.invoke, !prof !234
 
 434:                                              ; preds = %423
@@ -2307,7 +2307,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit: ; preds = 
   %439 = lshr i64 %424, 2
   %440 = and i64 %439, 15
   %441 = or disjoint i64 %438, %440
-  %442 = icmp ult i64 %441, 3888
+  %442 = icmp ult i8 %436, -13
   br i1 %442, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i.i110, label %.invoke, !prof !234
 
 .invoke:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit, %355, %344, %434, %423

@@ -277,12 +277,12 @@ do.body50:                                        ; preds = %for.cond
   %sh_prom52 = zext nneg i32 %and51 to i64
   %shr53 = lshr i64 %hold.0, %sh_prom52
   %sub55 = and i32 %bits.0, -8
-  %cmp59857 = icmp ult i32 %sub55, 32
+  %cmp59857 = icmp ult i32 %bits.0, 32
   br i1 %cmp59857, label %do.body63.preheader, label %do.end83
 
 do.body63.preheader:                              ; preds = %do.body50
-  %11 = and i32 %bits.0, -8
-  %12 = zext i32 %11 to i64
+  %11 = and i32 %bits.0, 24
+  %12 = zext nneg i32 %11 to i64
   br label %do.body63
 
 do.body63:                                        ; preds = %do.body63.preheader, %do.end73
@@ -316,7 +316,7 @@ do.end73:                                         ; preds = %do.body63, %if.then
   br i1 %cmp59, label %do.body63, label %do.end83.loopexit, !llvm.loop !4
 
 do.end83.loopexit:                                ; preds = %do.end73
-  %15 = trunc nuw nsw i64 %indvars.iv.next1062 to i32
+  %15 = trunc nuw i64 %indvars.iv.next1062 to i32
   br label %do.end83
 
 do.end83:                                         ; preds = %do.end83.loopexit, %do.body50

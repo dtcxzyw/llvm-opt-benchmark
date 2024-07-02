@@ -781,21 +781,21 @@ define internal fastcc void @cmos_irq_disable(ptr nocapture noundef readonly %0,
 
 34:                                               ; preds = %27
   %35 = and i8 %5, 112
-  %36 = or disjoint i8 %35, -128
-  %37 = and i8 %28, %36
-  %38 = and i8 %28, %35
-  %39 = icmp sgt i8 %37, -1
-  %40 = icmp eq i8 %38, 0
-  %41 = or i1 %39, %40
-  br i1 %41, label %45, label %42
+  %36 = and i8 %28, %35
+  %37 = icmp sgt i8 %28, -1
+  %38 = icmp eq i8 %36, 0
+  %39 = or i1 %37, %38
+  br i1 %39, label %45, label %40
 
-42:                                               ; preds = %34
+40:                                               ; preds = %34
+  %41 = or disjoint i8 %35, -128
+  %42 = and i8 %28, %41
   %43 = load ptr, ptr %0, align 8
-  %44 = zext i8 %37 to i64
+  %44 = zext i8 %42 to i64
   tail call void @rtc_update_irq(ptr noundef %43, i64 noundef 1, i64 noundef %44) #9
   br label %45
 
-45:                                               ; preds = %42, %34, %27
+45:                                               ; preds = %40, %34, %27
   ret void
 }
 
@@ -856,9 +856,9 @@ define internal noundef range(i32 0, 2) i32 @cmos_interrupt(i32 noundef %0, ptr 
 32:                                               ; preds = %30, %2
   tail call void @_raw_spin_unlock(ptr noundef nonnull @rtc_lock) #9
   %33 = and i8 %15, %11
-  %34 = icmp sgt i8 %17, -1
+  %34 = icmp sgt i8 %11, -1
   %35 = icmp eq i8 %33, 0
-  %36 = or i1 %35, %34
+  %36 = or i1 %34, %35
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %32
@@ -1584,21 +1584,21 @@ define internal fastcc void @cmos_irq_enable(ptr nocapture noundef readonly %0) 
 
 9:                                                ; preds = %1
   %10 = and i8 %2, 112
-  %11 = or disjoint i8 %10, -128
-  %12 = and i8 %11, %3
-  %13 = and i8 %3, %10
-  %14 = icmp sgt i8 %12, -1
-  %15 = icmp eq i8 %13, 0
-  %16 = or i1 %15, %14
-  br i1 %16, label %20, label %17
+  %11 = and i8 %3, %10
+  %12 = icmp sgt i8 %3, -1
+  %13 = icmp eq i8 %11, 0
+  %14 = or i1 %12, %13
+  br i1 %14, label %20, label %15
 
-17:                                               ; preds = %9
+15:                                               ; preds = %9
+  %16 = or disjoint i8 %10, -128
+  %17 = and i8 %16, %3
   %18 = load ptr, ptr %0, align 8
-  %19 = zext i8 %12 to i64
+  %19 = zext i8 %17 to i64
   tail call void @rtc_update_irq(ptr noundef %18, i64 noundef 1, i64 noundef %19) #9
   br label %20
 
-20:                                               ; preds = %17, %9, %1
+20:                                               ; preds = %15, %9, %1
   %21 = or i8 %2, 32
   tail call void @rtc_cmos_write(i8 noundef zeroext %21, i8 noundef zeroext 11) #9
   %22 = tail call i32 @is_hpet_enabled() #9
@@ -1641,21 +1641,21 @@ define internal fastcc void @cmos_irq_enable(ptr nocapture noundef readonly %0) 
 
 46:                                               ; preds = %39
   %47 = and i8 %21, 112
-  %48 = or disjoint i8 %47, -128
-  %49 = and i8 %40, %48
-  %50 = and i8 %40, %47
-  %51 = icmp sgt i8 %49, -1
-  %52 = icmp eq i8 %50, 0
-  %53 = or i1 %51, %52
-  br i1 %53, label %57, label %54
+  %48 = and i8 %40, %47
+  %49 = icmp sgt i8 %40, -1
+  %50 = icmp eq i8 %48, 0
+  %51 = or i1 %49, %50
+  br i1 %51, label %57, label %52
 
-54:                                               ; preds = %46
+52:                                               ; preds = %46
+  %53 = or disjoint i8 %47, -128
+  %54 = and i8 %40, %53
   %55 = load ptr, ptr %0, align 8
-  %56 = zext i8 %49 to i64
+  %56 = zext i8 %54 to i64
   tail call void @rtc_update_irq(ptr noundef %55, i64 noundef 1, i64 noundef %56) #9
   br label %57
 
-57:                                               ; preds = %54, %46, %39
+57:                                               ; preds = %52, %46, %39
   ret void
 }
 
@@ -1998,22 +1998,22 @@ define internal noundef i32 @cmos_suspend(ptr noundef %0) #3 align 16 {
 
 37:                                               ; preds = %30
   %38 = and i8 %21, 32
-  %39 = or disjoint i8 %38, -128
-  %40 = and i8 %31, %39
-  %41 = and i8 %31, %38
-  %42 = icmp sgt i8 %40, -1
-  %43 = icmp eq i8 %41, 0
-  %44 = or i1 %42, %43
-  br i1 %44, label %48, label %45
+  %39 = and i8 %31, %38
+  %40 = icmp sgt i8 %31, -1
+  %41 = icmp eq i8 %39, 0
+  %42 = or i1 %40, %41
+  br i1 %42, label %48, label %43
 
-45:                                               ; preds = %37
+43:                                               ; preds = %37
+  %44 = or disjoint i8 %38, -128
+  %45 = and i8 %31, %44
   %46 = load ptr, ptr %3, align 8
-  %47 = zext i8 %40 to i64
+  %47 = zext i8 %45 to i64
   tail call void @rtc_update_irq(ptr noundef %46, i64 noundef 1, i64 noundef %47) #9
   br label %48
 
-48:                                               ; preds = %45, %37, %30, %1
-  %49 = phi i8 [ %4, %1 ], [ %21, %30 ], [ %21, %37 ], [ %21, %45 ]
+48:                                               ; preds = %43, %37, %30, %1
+  %49 = phi i8 [ %4, %1 ], [ %21, %30 ], [ %21, %37 ], [ %21, %43 ]
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @rtc_lock) #9
   %50 = and i8 %49, 32
   %51 = icmp ne i8 %50, 0
@@ -2226,7 +2226,7 @@ define internal noundef i32 @cmos_resume(ptr noundef %0) #3 align 16 {
 
 106:                                              ; preds = %._crit_edge
   %107 = and i8 %98, %.pre2
-  %108 = icmp sgt i8 %100, -1
+  %108 = icmp sgt i8 %98, -1
   %109 = icmp eq i8 %107, 0
   %110 = or i1 %108, %109
   br i1 %110, label %117, label %111

@@ -1775,7 +1775,7 @@ for.body.i:                                       ; preds = %for.body, %for.body
   br i1 %cmp.not.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit, label %for.body.i, !llvm.loop !30
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit: ; preds = %for.body.i
-  %cmp1.i = icmp ult i64 %or.i, 2147483648
+  %cmp1.i = icmp ult i64 %shl.i, 2147483648
   %sub4.i = add i64 %or.i, -4294967296
   %retval.0.i = select i1 %cmp1.i, i64 %or.i, i64 %sub4.i
   br label %cond.end
@@ -2273,7 +2273,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %cmp.not.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit, label %for.body.i, !llvm.loop !30
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit: ; preds = %for.body.i
-  %cmp1.i = icmp ult i64 %or.i, 2147483648
+  %cmp1.i = icmp ult i64 %shl.i, 2147483648
   %sub4.i = add i64 %or.i, -4294967296
   %retval.0.i = select i1 %cmp1.i, i64 %or.i, i64 %sub4.i
   %cmp = icmp slt i64 %retval.0.i, 0
@@ -2298,7 +2298,7 @@ for.body.i11:                                     ; preds = %for.body.i11, %if.e
   br i1 %cmp.not.i21, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit25, label %for.body.i11, !llvm.loop !30
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit25: ; preds = %for.body.i11
-  %cmp1.i22 = icmp ult i64 %or.i19, 2147483648
+  %cmp1.i22 = icmp ult i64 %shl.i15, 2147483648
   %sub4.i23 = add i64 %or.i19, -4294967296
   %retval.0.i24 = select i1 %cmp1.i22, i64 %or.i19, i64 %sub4.i23
   %cmp4 = icmp slt i64 %retval.0.i24, 0
@@ -2324,7 +2324,7 @@ for.body.i26:                                     ; preds = %for.body.i26, %if.e
   br i1 %cmp.not.i36, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit40, label %for.body.i26, !llvm.loop !30
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit40: ; preds = %for.body.i26
-  %cmp1.i37 = icmp ult i64 %or.i34, 2147483648
+  %cmp1.i37 = icmp ult i64 %shl.i30, 2147483648
   %sub4.i38 = add i64 %or.i34, -4294967296
   %retval.0.i39 = select i1 %cmp1.i37, i64 %or.i34, i64 %sub4.i38
   %cmp9 = icmp slt i64 %retval.0.i39, 0
@@ -2350,7 +2350,7 @@ for.body.i41:                                     ; preds = %for.body.i41, %if.e
   br i1 %cmp.not.i51, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit55, label %for.body.i41, !llvm.loop !30
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit55: ; preds = %for.body.i41
-  %cmp1.i52 = icmp ult i64 %or.i49, 2147483648
+  %cmp1.i52 = icmp ult i64 %shl.i45, 2147483648
   %sub4.i53 = add i64 %or.i49, -4294967296
   %retval.0.i54 = select i1 %cmp1.i52, i64 %or.i49, i64 %sub4.i53
   %cmp14 = icmp slt i64 %retval.0.i54, 0
@@ -2376,7 +2376,7 @@ for.body.i56:                                     ; preds = %for.body.i56, %if.e
   br i1 %cmp.not.i66, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit70, label %for.body.i56, !llvm.loop !30
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit70: ; preds = %for.body.i56
-  %cmp1.i67 = icmp ult i64 %or.i64, 2147483648
+  %cmp1.i67 = icmp ult i64 %shl.i60, 2147483648
   %sub4.i68 = add i64 %or.i64, -4294967296
   %retval.0.i69 = select i1 %cmp1.i67, i64 %or.i64, i64 %sub4.i68
   %cmp19 = icmp slt i64 %retval.0.i69, 0
@@ -2402,7 +2402,7 @@ for.body.i71:                                     ; preds = %for.body.i71, %if.e
   br i1 %cmp.not.i81, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit85, label %for.body.i71, !llvm.loop !30
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_18Decode32EPKc.exit85: ; preds = %for.body.i71
-  %cmp1.i82 = icmp ult i64 %or.i79, 2147483648
+  %cmp1.i82 = icmp ult i64 %shl.i75, 2147483648
   %sub4.i83 = add i64 %or.i79, -4294967296
   %retval.0.i84 = select i1 %cmp1.i82, i64 %or.i79, i64 %sub4.i83
   %cmp24 = icmp slt i64 %retval.0.i84, 0
@@ -6297,9 +6297,9 @@ for.body.i16.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i,
 
 invoke.cont26.i.i.i.i:                            ; preds = %for.body.i16.i.i.i.i
   %sub4.i.i.i.i.i = add i64 %or.i.i.i.i.i, -4294967296
-  %cmp1.i.i.i.i.i = icmp ult i64 %or.i.i.i.i.i, 2147483648
+  %cmp1.i.i.i.i.i = icmp ult i64 %shl.i.i.i.i.i, 2147483648
   %retval.0.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i, i64 %or.i.i.i.i.i, i64 %sub4.i.i.i.i.i
-  %cmp1.i27.i.i.i.i = icmp ult i64 %or.i24.i.i.i.i, 2147483648
+  %cmp1.i27.i.i.i.i = icmp ult i64 %shl.i20.i.i.i.i, 2147483648
   %sub4.i28.i.i.i.i = add i64 %or.i24.i.i.i.i, -4294967296
   %retval.0.i29.i.i.i.i = select i1 %cmp1.i27.i.i.i.i, i64 %or.i24.i.i.i.i, i64 %sub4.i28.i.i.i.i
   %cmp28.i.i.i.i = icmp slt i64 %retval.0.i.i.i.i.i, 0
@@ -6360,10 +6360,10 @@ for.body.i48.i.i.i.i:                             ; preds = %for.body.i33.i.i.i.
 
 invoke.cont57.i.i.i.i:                            ; preds = %for.body.i48.i.i.i.i
   %sub4.i45.i.i.i.i = add i64 %or.i41.i.i.i.i, -4294967296
-  %cmp1.i44.i.i.i.i = icmp ult i64 %or.i41.i.i.i.i, 2147483648
+  %cmp1.i44.i.i.i.i = icmp ult i64 %shl.i37.i.i.i.i, 2147483648
   %retval.0.i46.i.i.i.i = select i1 %cmp1.i44.i.i.i.i, i64 %or.i41.i.i.i.i, i64 %sub4.i45.i.i.i.i
   %add.i.i.i.i = add nsw i64 %retval.0.i46.i.i.i.i, %retval.0.i29.i.i.i.i
-  %cmp1.i59.i.i.i.i = icmp ult i64 %or.i56.i.i.i.i, 2147483648
+  %cmp1.i59.i.i.i.i = icmp ult i64 %shl.i52.i.i.i.i, 2147483648
   %sub4.i60.i.i.i.i = add i64 %or.i56.i.i.i.i, -4294967296
   %retval.0.i61.i.i.i.i = select i1 %cmp1.i59.i.i.i.i, i64 %or.i56.i.i.i.i, i64 %sub4.i60.i.i.i.i
   %8 = or i64 %retval.0.i61.i.i.i.i, %add.i.i.i.i

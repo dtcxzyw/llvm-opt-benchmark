@@ -2744,13 +2744,13 @@ define internal i32 @dissect_spotlight(ptr noundef %0, ptr noundef %1, ptr nound
   %14 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef 8, i32 noundef %.) #7
   %15 = lshr i64 %14, 29
   %16 = and i64 %15, 34359738360
-  %17 = icmp eq i64 %16, 0
+  %17 = icmp ult i64 %14, 4294967296
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %4
   %19 = load i32, ptr @hf_afp_toc_offset, align 4
-  %20 = tail call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 8, i32 noundef 8, i64 noundef 0) #7
-  %21 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %20, ptr noundef nonnull @ei_afp_toc_offset, ptr noundef nonnull @.str.1092, i64 noundef 0) #7
+  %20 = tail call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 8, i32 noundef 8, i64 noundef %16) #7
+  %21 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %20, ptr noundef nonnull @ei_afp_toc_offset, ptr noundef nonnull @.str.1092, i64 noundef %16) #7
   %22 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   br label %.loopexit
 

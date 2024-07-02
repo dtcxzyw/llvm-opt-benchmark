@@ -2363,22 +2363,26 @@ define internal i32 @compare_file_type_subtypes_by_name(ptr nocapture noundef re
 wtap_file_type_subtype_name.exit:
   %2 = load i32, ptr %0, align 4
   %3 = load i32, ptr %1, align 4
-  %4 = load ptr, ptr @file_type_subtype_table_arr, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = load i32, ptr %5, align 8
-  %.not.i = icmp sgt i32 %6, %2
+  %4 = icmp sgt i32 %2, -1
+  tail call void @llvm.assume(i1 %4)
+  %5 = load ptr, ptr @file_type_subtype_table_arr, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = load i32, ptr %6, align 8
+  %.not.i = icmp sgt i32 %7, %2
   tail call void @llvm.assume(i1 %.not.i)
-  %7 = load ptr, ptr @file_type_subtype_table, align 8
-  %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr %struct.file_type_subtype_info, ptr %7, i64 %8, i32 1
-  %10 = load ptr, ptr %9, align 8
-  %.not.i3 = icmp sgt i32 %6, %3
+  %8 = load ptr, ptr @file_type_subtype_table, align 8
+  %9 = zext nneg i32 %2 to i64
+  %10 = getelementptr %struct.file_type_subtype_info, ptr %8, i64 %9, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp sgt i32 %3, -1
+  tail call void @llvm.assume(i1 %12)
+  %.not.i3 = icmp sgt i32 %7, %3
   tail call void @llvm.assume(i1 %.not.i3)
-  %11 = zext nneg i32 %3 to i64
-  %12 = getelementptr %struct.file_type_subtype_info, ptr %7, i64 %11, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %13) #24
-  ret i32 %14
+  %13 = zext nneg i32 %3 to i64
+  %14 = getelementptr %struct.file_type_subtype_info, ptr %8, i64 %13, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %15) #24
+  ret i32 %16
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -2386,22 +2390,26 @@ define internal i32 @compare_file_type_subtypes_by_description(ptr nocapture nou
 wtap_file_type_subtype_description.exit:
   %2 = load i32, ptr %0, align 4
   %3 = load i32, ptr %1, align 4
-  %4 = load ptr, ptr @file_type_subtype_table_arr, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = load i32, ptr %5, align 8
-  %.not.i = icmp sgt i32 %6, %2
+  %4 = icmp sgt i32 %2, -1
+  tail call void @llvm.assume(i1 %4)
+  %5 = load ptr, ptr @file_type_subtype_table_arr, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = load i32, ptr %6, align 8
+  %.not.i = icmp sgt i32 %7, %2
   tail call void @llvm.assume(i1 %.not.i)
-  %7 = load ptr, ptr @file_type_subtype_table, align 8
-  %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr %struct.file_type_subtype_info, ptr %7, i64 %8
-  %10 = load ptr, ptr %9, align 8
-  %.not.i3 = icmp sgt i32 %6, %3
+  %8 = load ptr, ptr @file_type_subtype_table, align 8
+  %9 = zext nneg i32 %2 to i64
+  %10 = getelementptr %struct.file_type_subtype_info, ptr %8, i64 %9
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp sgt i32 %3, -1
+  tail call void @llvm.assume(i1 %12)
+  %.not.i3 = icmp sgt i32 %7, %3
   tail call void @llvm.assume(i1 %.not.i3)
-  %11 = zext nneg i32 %3 to i64
-  %12 = getelementptr %struct.file_type_subtype_info, ptr %7, i64 %11
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %13) #24
-  ret i32 %14
+  %13 = zext nneg i32 %3 to i64
+  %14 = getelementptr %struct.file_type_subtype_info, ptr %8, i64 %13
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %15) #24
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable

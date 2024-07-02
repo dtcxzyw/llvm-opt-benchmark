@@ -695,12 +695,12 @@ iov_to_buf.exit:                                  ; preds = %sw.bb22, %land.lhs.
 lor.lhs.false25:                                  ; preds = %iov_to_buf.exit.thread, %iov_to_buf.exit
   %th_off = getelementptr inbounds i8, ptr %l4hdr, i64 12
   %bf.load = load i8, ptr %th_off, align 4
-  %11 = lshr i8 %bf.load, 2
-  %12 = and i8 %11, 60
-  %cmp27 = icmp ult i8 %12, 20
+  %cmp27 = icmp ult i8 %bf.load, 80
   br i1 %cmp27, label %return, label %if.end30
 
 if.end30:                                         ; preds = %lor.lhs.false25
+  %11 = lshr i8 %bf.load, 2
+  %12 = and i8 %11, 60
   %mul = zext nneg i8 %12 to i16
   %hdr_len31 = getelementptr inbounds i8, ptr %pkt, i64 65616
   %13 = load i16, ptr %hdr_len31, align 8

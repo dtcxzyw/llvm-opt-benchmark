@@ -1349,7 +1349,7 @@ Bac_BoxAlloc.exit404:                             ; preds = %Bac_ObjAlloc.exit48
   %361 = getelementptr i32, ptr %.val351, i64 %360
   %362 = getelementptr i8, ptr %361, i64 4
   %363 = load i32, ptr %362, align 4
-  %364 = icmp ne i32 %363, 0
+  %364 = icmp sgt i32 %363, 0
   tail call void @llvm.assume(i1 %364)
   %365 = getelementptr i8, ptr %357, i64 36
   %.val.i.i = load i32, ptr %365, align 4

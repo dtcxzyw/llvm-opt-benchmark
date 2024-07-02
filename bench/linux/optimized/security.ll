@@ -900,7 +900,7 @@ define dso_local range(i32 -14, 1) i32 @lsm_fill_user_ctx(ptr noundef %0, ptr no
   store i64 %3, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %13, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 1 %2, i64 %3, i1 false)
-  %20 = icmp ugt i64 %9, 2147483647
+  %20 = icmp ugt i64 %8, 2147483647
   br i1 %20, label %21, label %22, !prof !16
 
 21:                                               ; preds = %15

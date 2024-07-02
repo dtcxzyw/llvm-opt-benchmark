@@ -384,7 +384,7 @@ _ZNK3ue29CharReach10find_firstEv.exit30:          ; preds = %for.body.i.i19
 for.body8.preheader:                              ; preds = %_ZNK3ue29CharReach10find_firstEv.exit30
   %arrayidx.i.i87 = getelementptr inbounds [257 x i16], ptr %alpha, i64 0, i64 %add.i.i25
   store i16 %i.052, ptr %arrayidx.i.i87, align 2
-  %cmp.not.i.i88 = icmp ult i64 %add.i.i25, 256
+  %cmp.not.i.i88 = icmp ult i64 %i.06.i.i20, 4
   br i1 %cmp.not.i.i88, label %if.end.i.i, label %for.end
 
 if.end.i.i:                                       ; preds = %for.body8.preheader, %_ZNK3ue29CharReach9find_nextEm.exit
@@ -753,7 +753,7 @@ for.body8.i.preheader:                            ; preds = %_ZNK3ue29CharReach1
   %arrayidx.i.i.i115 = getelementptr inbounds [257 x i16], ptr %alpha, i64 0, i64 %add.i.i25.i
   %26 = trunc nuw i64 %indvars.iv to i16
   store i16 %26, ptr %arrayidx.i.i.i115, align 2
-  %cmp.not.i.i.i41116 = icmp ult i64 %add.i.i25.i, 256
+  %cmp.not.i.i.i41116 = icmp ult i64 %i.06.i.i20.i, 4
   br i1 %cmp.not.i.i.i41116, label %if.end.i.i.i, label %for.end.i
 
 if.end.i.i.i:                                     ; preds = %for.body8.i.preheader, %_ZNK3ue29CharReach9find_nextEm.exit.i
@@ -4027,7 +4027,7 @@ for.body54.lr.ph.i.i.i:                           ; preds = %_ZNK3ue29CharReach1
   %229 = load i64, ptr %gep.i36.i.i, align 8
   %or.i115.i37.i.i = or i64 %229, %shl.i.i112.i.i.i
   store i64 %or.i115.i37.i.i, ptr %gep.i36.i.i, align 8
-  %cmp.not.i.i116.i38.i.i = icmp ult i64 %add.i.i.i.i.i64, 256
+  %cmp.not.i.i116.i38.i.i = icmp ult i64 %i.06.i.i.i.i.i, 4
   br i1 %cmp.not.i.i116.i38.i.i, label %if.end.i.i.i.i.i, label %for.inc59.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %for.body54.lr.ph.i.i.i, %_ZNK3ue29CharReach9find_nextEm.exit.i.i.i
@@ -8061,7 +8061,7 @@ for.inc78.lr.ph.i.i.i:                            ; preds = %_ZNK3ue29CharReach1
   %675 = load i64, ptr %add.ptr.i.i122.i33.i.i, align 8
   %or.i123.i34.i.i = or i64 %675, %shl.i.i120.i.i.i
   store i64 %or.i123.i34.i.i, ptr %add.ptr.i.i122.i33.i.i, align 8
-  %cmp.not.i.i.i35.i.i = icmp ult i64 %add.i.i.i.i.i545, 256
+  %cmp.not.i.i.i35.i.i = icmp ult i64 %i.06.i.i.i.i.i540, 4
   br i1 %cmp.not.i.i.i35.i.i, label %if.end.i.i.i.i.i546, label %for.inc82.i.i.i
 
 if.end.i.i.i.i.i546:                              ; preds = %for.inc78.lr.ph.i.i.i, %_ZNK3ue29CharReach9find_nextEm.exit.i.i.i550
@@ -10855,7 +10855,7 @@ for.body11.preheader:                             ; preds = %_ZNK3ue29CharReach1
   %7 = load i64, ptr %arrayidx.i.i.i.i1839, align 8
   %or.i.i40 = or i64 %shl.i.i.i37, %7
   store i64 %or.i.i40, ptr %arrayidx.i.i.i.i1839, align 8
-  %cmp.not.i.i41 = icmp ult i64 %add.i.i, 256
+  %cmp.not.i.i41 = icmp ult i64 %i.06.i.i, 4
   br i1 %cmp.not.i.i41, label %if.end.i.i, label %for.inc16
 
 if.end.i.i:                                       ; preds = %for.body11.preheader, %_ZNK3ue29CharReach9find_nextEm.exit

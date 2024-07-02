@@ -805,7 +805,7 @@ Bac_ManNtkIsOk.exit.i.i:                          ; preds = %15
   %.val91 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds i32, ptr %.val91, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
-  %19 = icmp ne i32 %18, 0
+  %19 = icmp sgt i32 %18, 0
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr i8, ptr %.val90, i64 36
   %.val.i.i.i = load i32, ptr %20, align 4

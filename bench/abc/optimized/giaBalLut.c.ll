@@ -1501,7 +1501,7 @@ Bal_SetAddCut.exit.us.us.us:                      ; preds = %400, %443, %475, %4
   %582 = lshr i32 %581, 27
   %583 = or i32 %582, %579
   %584 = icmp ne i32 %12, 0
-  %585 = icmp sgt i32 %583, -1
+  %585 = icmp sgt i32 %579, -1
   %or.cond = select i1 %584, i1 %585, i1 false
   br i1 %or.cond, label %586, label %.loopexit.thread
 

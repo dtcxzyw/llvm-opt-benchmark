@@ -4099,7 +4099,7 @@ Lf_ObjArrival_rec.exit:                           ; preds = %Lf_ObjArrival_rec.e
 ._crit_edge:                                      ; preds = %Lf_ObjArrival_rec.exit, %4
   %96 = phi float [ 0.000000e+00, %4 ], [ %94, %Lf_ObjArrival_rec.exit ]
   %97 = phi i32 [ 0, %4 ], [ %95, %Lf_ObjArrival_rec.exit ]
-  %98 = icmp ugt i32 %7, 33554431
+  %98 = icmp ugt i32 %6, 33554431
   %99 = zext i1 %98 to i32
   %100 = add nuw nsw i32 %97, %99
   store i32 %100, ptr %8, align 8

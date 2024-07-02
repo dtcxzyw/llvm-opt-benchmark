@@ -649,14 +649,14 @@ _upb_Message_New.exit:                            ; preds = %upb_Arena_Malloc.ex
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @grpc_gcp_Identity_attributes_nextmutable(ptr noundef %msg, ptr noundef %iter) local_unnamed_addr #3 comdat {
-upb_Message_GetMap.exit:
+entry:
   %it.i = alloca %struct.upb_strtable_iter, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 24
   %0 = load i64, ptr %add.ptr.i.i, align 1
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %upb_Message_GetMap.exit
+if.end:                                           ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %it.i)
   %table.i = getelementptr inbounds i8, ptr %1, i64 8
@@ -683,8 +683,8 @@ _upb_map_next.exit:                               ; preds = %if.end, %if.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %it.i)
   br label %return
 
-return:                                           ; preds = %upb_Message_GetMap.exit, %_upb_map_next.exit
-  %retval.0 = phi ptr [ %retval.0.i, %_upb_map_next.exit ], [ null, %upb_Message_GetMap.exit ]
+return:                                           ; preds = %entry, %_upb_map_next.exit
+  %retval.0 = phi ptr [ %retval.0.i, %_upb_map_next.exit ], [ null, %entry ]
   ret ptr %retval.0
 }
 

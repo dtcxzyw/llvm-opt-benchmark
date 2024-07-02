@@ -12474,47 +12474,47 @@ define internal fastcc void @escape_read(ptr noundef %0, ptr noundef %1, i8 noun
   br i1 %6, label %peek.exit, label %escape_write_escape_encoded.exit
 
 peek.exit:                                        ; preds = %3, %tailrecurse.backedge
-  %.tr430639 = phi i8 [ %488, %tailrecurse.backedge ], [ %2, %3 ]
-  %7 = phi ptr [ %487, %tailrecurse.backedge ], [ %.promoted, %3 ]
+  %.tr422631 = phi i8 [ %496, %tailrecurse.backedge ], [ %2, %3 ]
+  %7 = phi ptr [ %495, %tailrecurse.backedge ], [ %.promoted, %3 ]
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %peek_offset.exit.thread [
     i8 92, label %9
     i8 39, label %32
     i8 97, label %55
-    i8 98, label %76
-    i8 101, label %97
-    i8 102, label %118
-    i8 110, label %139
-    i8 114, label %160
-    i8 115, label %181
-    i8 116, label %206
-    i8 118, label %227
-    i8 48, label %248
-    i8 49, label %248
-    i8 50, label %248
-    i8 51, label %248
-    i8 52, label %248
-    i8 53, label %248
-    i8 54, label %248
-    i8 55, label %248
-    i8 120, label %293
-    i8 117, label %336
-    i8 99, label %464
-    i8 67, label %505
-    i8 77, label %551
-    i8 13, label %592
+    i8 98, label %77
+    i8 101, label %99
+    i8 102, label %121
+    i8 110, label %143
+    i8 114, label %165
+    i8 115, label %187
+    i8 116, label %212
+    i8 118, label %234
+    i8 48, label %256
+    i8 49, label %256
+    i8 50, label %256
+    i8 51, label %256
+    i8 52, label %256
+    i8 53, label %256
+    i8 54, label %256
+    i8 55, label %256
+    i8 120, label %301
+    i8 117, label %344
+    i8 99, label %472
+    i8 67, label %513
+    i8 77, label %559
+    i8 13, label %600
   ]
 
 9:                                                ; preds = %peek.exit
   %10 = getelementptr i8, ptr %7, i64 1
   store ptr %10, ptr %5, align 8
-  %11 = and i8 %.tr430639, 1
+  %11 = and i8 %.tr422631, 1
   %.not.i = icmp eq i8 %11, 0
   %spec.select.i = select i1 %.not.i, i8 92, i8 28
-  %12 = shl i8 %.tr430639, 6
+  %12 = shl i8 %.tr422631, 6
   %13 = and i8 %12, -128
   %.1.i = or disjoint i8 %spec.select.i, %13
-  %14 = icmp slt i8 %.1.i, 0
+  %14 = icmp slt i8 %12, 0
   br i1 %14, label %15, label %escape_write_byte_encoded.exit
 
 15:                                               ; preds = %9
@@ -12551,13 +12551,13 @@ escape_write_byte_encoded.exit:                   ; preds = %9, %29
 32:                                               ; preds = %peek.exit
   %33 = getelementptr i8, ptr %7, i64 1
   store ptr %33, ptr %5, align 8
-  %34 = and i8 %.tr430639, 1
+  %34 = and i8 %.tr422631, 1
   %.not.i287 = icmp eq i8 %34, 0
   %spec.select.i288 = select i1 %.not.i287, i8 39, i8 7
-  %35 = shl i8 %.tr430639, 6
+  %35 = shl i8 %.tr422631, 6
   %36 = and i8 %35, -128
   %.1.i289 = or disjoint i8 %spec.select.i288, %36
-  %37 = icmp slt i8 %.1.i289, 0
+  %37 = icmp slt i8 %35, 0
   br i1 %37, label %38, label %escape_write_byte_encoded.exit291
 
 38:                                               ; preds = %32
@@ -12594,1137 +12594,1137 @@ escape_write_byte_encoded.exit291:                ; preds = %32, %52
 55:                                               ; preds = %peek.exit
   %56 = getelementptr i8, ptr %7, i64 1
   store ptr %56, ptr %5, align 8
-  %57 = shl i8 %.tr430639, 6
+  %57 = shl i8 %.tr422631, 6
   %58 = and i8 %57, -128
   %.1.i294 = or disjoint i8 %58, 7
-  %.not428 = icmp eq i8 %58, 0
-  br i1 %.not428, label %escape_write_byte_encoded.exit296, label %59
+  %59 = icmp slt i8 %57, 0
+  br i1 %59, label %60, label %escape_write_byte_encoded.exit296
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %0, i64 624
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, @pm_encodings
-  br i1 %62, label %63, label %73
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds i8, ptr %0, i64 624
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp eq ptr %62, @pm_encodings
+  br i1 %63, label %64, label %74
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %0, i64 472
-  %65 = load ptr, ptr %64, align 8
-  %.not12.i295 = icmp eq ptr %65, @pm_encodings
-  br i1 %.not12.i295, label %73, label %66
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds i8, ptr %0, i64 472
+  %66 = load ptr, ptr %65, align 8
+  %.not12.i295 = icmp eq ptr %66, @pm_encodings
+  br i1 %.not12.i295, label %74, label %67
 
-66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %0, i64 432
-  %68 = getelementptr inbounds i8, ptr %0, i64 312
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %65, i64 32
-  %71 = load ptr, ptr %70, align 8
-  %72 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %67, ptr noundef %69, ptr noundef %56, i32 noundef 145, ptr noundef %71) #26
-  br label %73
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds i8, ptr %0, i64 432
+  %69 = getelementptr inbounds i8, ptr %0, i64 312
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %66, i64 32
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %68, ptr noundef %70, ptr noundef %56, i32 noundef 145, ptr noundef %72) #26
+  br label %74
 
-73:                                               ; preds = %66, %63, %59
-  %74 = getelementptr inbounds i8, ptr %0, i64 472
-  %75 = load ptr, ptr %74, align 8
-  store ptr %75, ptr %60, align 8
+74:                                               ; preds = %67, %64, %60
+  %75 = getelementptr inbounds i8, ptr %0, i64 472
+  %76 = load ptr, ptr %75, align 8
+  store ptr %76, ptr %61, align 8
   br label %escape_write_byte_encoded.exit296
 
-escape_write_byte_encoded.exit296:                ; preds = %55, %73
+escape_write_byte_encoded.exit296:                ; preds = %55, %74
   tail call void @pm_buffer_append_byte(ptr noundef %1, i8 noundef zeroext %.1.i294) #26
   br label %escape_write_escape_encoded.exit
 
-76:                                               ; preds = %peek.exit
-  %77 = getelementptr i8, ptr %7, i64 1
-  store ptr %77, ptr %5, align 8
-  %78 = shl i8 %.tr430639, 6
-  %79 = and i8 %78, -128
-  %.1.i299 = or disjoint i8 %79, 8
-  %.not427 = icmp eq i8 %79, 0
-  br i1 %.not427, label %escape_write_byte_encoded.exit301, label %80
+77:                                               ; preds = %peek.exit
+  %78 = getelementptr i8, ptr %7, i64 1
+  store ptr %78, ptr %5, align 8
+  %79 = shl i8 %.tr422631, 6
+  %80 = and i8 %79, -128
+  %.1.i299 = or disjoint i8 %80, 8
+  %81 = icmp slt i8 %79, 0
+  br i1 %81, label %82, label %escape_write_byte_encoded.exit301
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %0, i64 624
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %82, @pm_encodings
-  br i1 %83, label %84, label %94
+82:                                               ; preds = %77
+  %83 = getelementptr inbounds i8, ptr %0, i64 624
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, @pm_encodings
+  br i1 %85, label %86, label %96
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %0, i64 472
-  %86 = load ptr, ptr %85, align 8
-  %.not12.i300 = icmp eq ptr %86, @pm_encodings
-  br i1 %.not12.i300, label %94, label %87
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds i8, ptr %0, i64 472
+  %88 = load ptr, ptr %87, align 8
+  %.not12.i300 = icmp eq ptr %88, @pm_encodings
+  br i1 %.not12.i300, label %96, label %89
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %0, i64 432
-  %89 = getelementptr inbounds i8, ptr %0, i64 312
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %86, i64 32
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds i8, ptr %0, i64 432
+  %91 = getelementptr inbounds i8, ptr %0, i64 312
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %88, ptr noundef %90, ptr noundef %77, i32 noundef 145, ptr noundef %92) #26
-  br label %94
+  %93 = getelementptr inbounds i8, ptr %88, i64 32
+  %94 = load ptr, ptr %93, align 8
+  %95 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %90, ptr noundef %92, ptr noundef %78, i32 noundef 145, ptr noundef %94) #26
+  br label %96
 
-94:                                               ; preds = %87, %84, %80
-  %95 = getelementptr inbounds i8, ptr %0, i64 472
-  %96 = load ptr, ptr %95, align 8
-  store ptr %96, ptr %81, align 8
+96:                                               ; preds = %89, %86, %82
+  %97 = getelementptr inbounds i8, ptr %0, i64 472
+  %98 = load ptr, ptr %97, align 8
+  store ptr %98, ptr %83, align 8
   br label %escape_write_byte_encoded.exit301
 
-escape_write_byte_encoded.exit301:                ; preds = %76, %94
+escape_write_byte_encoded.exit301:                ; preds = %77, %96
   tail call void @pm_buffer_append_byte(ptr noundef %1, i8 noundef zeroext %.1.i299) #26
   br label %escape_write_escape_encoded.exit
 
-97:                                               ; preds = %peek.exit
-  %98 = getelementptr i8, ptr %7, i64 1
-  store ptr %98, ptr %5, align 8
-  %99 = shl i8 %.tr430639, 6
-  %100 = and i8 %99, -128
-  %.1.i304 = or disjoint i8 %100, 27
-  %.not426 = icmp eq i8 %100, 0
-  br i1 %.not426, label %escape_write_byte_encoded.exit306, label %101
+99:                                               ; preds = %peek.exit
+  %100 = getelementptr i8, ptr %7, i64 1
+  store ptr %100, ptr %5, align 8
+  %101 = shl i8 %.tr422631, 6
+  %102 = and i8 %101, -128
+  %.1.i304 = or disjoint i8 %102, 27
+  %103 = icmp slt i8 %101, 0
+  br i1 %103, label %104, label %escape_write_byte_encoded.exit306
 
-101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %0, i64 624
-  %103 = load ptr, ptr %102, align 8
-  %104 = icmp eq ptr %103, @pm_encodings
-  br i1 %104, label %105, label %115
+104:                                              ; preds = %99
+  %105 = getelementptr inbounds i8, ptr %0, i64 624
+  %106 = load ptr, ptr %105, align 8
+  %107 = icmp eq ptr %106, @pm_encodings
+  br i1 %107, label %108, label %118
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %0, i64 472
-  %107 = load ptr, ptr %106, align 8
-  %.not12.i305 = icmp eq ptr %107, @pm_encodings
-  br i1 %.not12.i305, label %115, label %108
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds i8, ptr %0, i64 472
+  %110 = load ptr, ptr %109, align 8
+  %.not12.i305 = icmp eq ptr %110, @pm_encodings
+  br i1 %.not12.i305, label %118, label %111
 
-108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %0, i64 432
-  %110 = getelementptr inbounds i8, ptr %0, i64 312
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %107, i64 32
-  %113 = load ptr, ptr %112, align 8
-  %114 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %109, ptr noundef %111, ptr noundef %98, i32 noundef 145, ptr noundef %113) #26
-  br label %115
+111:                                              ; preds = %108
+  %112 = getelementptr inbounds i8, ptr %0, i64 432
+  %113 = getelementptr inbounds i8, ptr %0, i64 312
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %110, i64 32
+  %116 = load ptr, ptr %115, align 8
+  %117 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %112, ptr noundef %114, ptr noundef %100, i32 noundef 145, ptr noundef %116) #26
+  br label %118
 
-115:                                              ; preds = %108, %105, %101
-  %116 = getelementptr inbounds i8, ptr %0, i64 472
-  %117 = load ptr, ptr %116, align 8
-  store ptr %117, ptr %102, align 8
+118:                                              ; preds = %111, %108, %104
+  %119 = getelementptr inbounds i8, ptr %0, i64 472
+  %120 = load ptr, ptr %119, align 8
+  store ptr %120, ptr %105, align 8
   br label %escape_write_byte_encoded.exit306
 
-escape_write_byte_encoded.exit306:                ; preds = %97, %115
+escape_write_byte_encoded.exit306:                ; preds = %99, %118
   tail call void @pm_buffer_append_byte(ptr noundef %1, i8 noundef zeroext %.1.i304) #26
   br label %escape_write_escape_encoded.exit
 
-118:                                              ; preds = %peek.exit
-  %119 = getelementptr i8, ptr %7, i64 1
-  store ptr %119, ptr %5, align 8
-  %120 = shl i8 %.tr430639, 6
-  %121 = and i8 %120, -128
-  %.1.i309 = or disjoint i8 %121, 12
-  %.not425 = icmp eq i8 %121, 0
-  br i1 %.not425, label %escape_write_byte_encoded.exit311, label %122
+121:                                              ; preds = %peek.exit
+  %122 = getelementptr i8, ptr %7, i64 1
+  store ptr %122, ptr %5, align 8
+  %123 = shl i8 %.tr422631, 6
+  %124 = and i8 %123, -128
+  %.1.i309 = or disjoint i8 %124, 12
+  %125 = icmp slt i8 %123, 0
+  br i1 %125, label %126, label %escape_write_byte_encoded.exit311
 
-122:                                              ; preds = %118
-  %123 = getelementptr inbounds i8, ptr %0, i64 624
-  %124 = load ptr, ptr %123, align 8
-  %125 = icmp eq ptr %124, @pm_encodings
-  br i1 %125, label %126, label %136
-
-126:                                              ; preds = %122
-  %127 = getelementptr inbounds i8, ptr %0, i64 472
+126:                                              ; preds = %121
+  %127 = getelementptr inbounds i8, ptr %0, i64 624
   %128 = load ptr, ptr %127, align 8
-  %.not12.i310 = icmp eq ptr %128, @pm_encodings
-  br i1 %.not12.i310, label %136, label %129
+  %129 = icmp eq ptr %128, @pm_encodings
+  br i1 %129, label %130, label %140
 
-129:                                              ; preds = %126
-  %130 = getelementptr inbounds i8, ptr %0, i64 432
-  %131 = getelementptr inbounds i8, ptr %0, i64 312
+130:                                              ; preds = %126
+  %131 = getelementptr inbounds i8, ptr %0, i64 472
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %128, i64 32
-  %134 = load ptr, ptr %133, align 8
-  %135 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %130, ptr noundef %132, ptr noundef %119, i32 noundef 145, ptr noundef %134) #26
-  br label %136
+  %.not12.i310 = icmp eq ptr %132, @pm_encodings
+  br i1 %.not12.i310, label %140, label %133
 
-136:                                              ; preds = %129, %126, %122
-  %137 = getelementptr inbounds i8, ptr %0, i64 472
+133:                                              ; preds = %130
+  %134 = getelementptr inbounds i8, ptr %0, i64 432
+  %135 = getelementptr inbounds i8, ptr %0, i64 312
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds i8, ptr %132, i64 32
   %138 = load ptr, ptr %137, align 8
-  store ptr %138, ptr %123, align 8
+  %139 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %134, ptr noundef %136, ptr noundef %122, i32 noundef 145, ptr noundef %138) #26
+  br label %140
+
+140:                                              ; preds = %133, %130, %126
+  %141 = getelementptr inbounds i8, ptr %0, i64 472
+  %142 = load ptr, ptr %141, align 8
+  store ptr %142, ptr %127, align 8
   br label %escape_write_byte_encoded.exit311
 
-escape_write_byte_encoded.exit311:                ; preds = %118, %136
+escape_write_byte_encoded.exit311:                ; preds = %121, %140
   tail call void @pm_buffer_append_byte(ptr noundef %1, i8 noundef zeroext %.1.i309) #26
   br label %escape_write_escape_encoded.exit
 
-139:                                              ; preds = %peek.exit
-  %140 = getelementptr i8, ptr %7, i64 1
-  store ptr %140, ptr %5, align 8
-  %141 = shl i8 %.tr430639, 6
-  %142 = and i8 %141, -128
-  %.1.i314 = or disjoint i8 %142, 10
-  %.not424 = icmp eq i8 %142, 0
-  br i1 %.not424, label %escape_write_byte_encoded.exit316, label %143
+143:                                              ; preds = %peek.exit
+  %144 = getelementptr i8, ptr %7, i64 1
+  store ptr %144, ptr %5, align 8
+  %145 = shl i8 %.tr422631, 6
+  %146 = and i8 %145, -128
+  %.1.i314 = or disjoint i8 %146, 10
+  %147 = icmp slt i8 %145, 0
+  br i1 %147, label %148, label %escape_write_byte_encoded.exit316
 
-143:                                              ; preds = %139
-  %144 = getelementptr inbounds i8, ptr %0, i64 624
-  %145 = load ptr, ptr %144, align 8
-  %146 = icmp eq ptr %145, @pm_encodings
-  br i1 %146, label %147, label %157
+148:                                              ; preds = %143
+  %149 = getelementptr inbounds i8, ptr %0, i64 624
+  %150 = load ptr, ptr %149, align 8
+  %151 = icmp eq ptr %150, @pm_encodings
+  br i1 %151, label %152, label %162
 
-147:                                              ; preds = %143
-  %148 = getelementptr inbounds i8, ptr %0, i64 472
-  %149 = load ptr, ptr %148, align 8
-  %.not12.i315 = icmp eq ptr %149, @pm_encodings
-  br i1 %.not12.i315, label %157, label %150
+152:                                              ; preds = %148
+  %153 = getelementptr inbounds i8, ptr %0, i64 472
+  %154 = load ptr, ptr %153, align 8
+  %.not12.i315 = icmp eq ptr %154, @pm_encodings
+  br i1 %.not12.i315, label %162, label %155
 
-150:                                              ; preds = %147
-  %151 = getelementptr inbounds i8, ptr %0, i64 432
-  %152 = getelementptr inbounds i8, ptr %0, i64 312
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %149, i64 32
-  %155 = load ptr, ptr %154, align 8
-  %156 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %151, ptr noundef %153, ptr noundef %140, i32 noundef 145, ptr noundef %155) #26
-  br label %157
+155:                                              ; preds = %152
+  %156 = getelementptr inbounds i8, ptr %0, i64 432
+  %157 = getelementptr inbounds i8, ptr %0, i64 312
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds i8, ptr %154, i64 32
+  %160 = load ptr, ptr %159, align 8
+  %161 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %156, ptr noundef %158, ptr noundef %144, i32 noundef 145, ptr noundef %160) #26
+  br label %162
 
-157:                                              ; preds = %150, %147, %143
-  %158 = getelementptr inbounds i8, ptr %0, i64 472
-  %159 = load ptr, ptr %158, align 8
-  store ptr %159, ptr %144, align 8
+162:                                              ; preds = %155, %152, %148
+  %163 = getelementptr inbounds i8, ptr %0, i64 472
+  %164 = load ptr, ptr %163, align 8
+  store ptr %164, ptr %149, align 8
   br label %escape_write_byte_encoded.exit316
 
-escape_write_byte_encoded.exit316:                ; preds = %139, %157
+escape_write_byte_encoded.exit316:                ; preds = %143, %162
   tail call void @pm_buffer_append_byte(ptr noundef %1, i8 noundef zeroext %.1.i314) #26
   br label %escape_write_escape_encoded.exit
 
-160:                                              ; preds = %peek.exit
-  %161 = getelementptr i8, ptr %7, i64 1
-  store ptr %161, ptr %5, align 8
-  %162 = shl i8 %.tr430639, 6
-  %163 = and i8 %162, -128
-  %.1.i319 = or disjoint i8 %163, 13
-  %.not423 = icmp eq i8 %163, 0
-  br i1 %.not423, label %escape_write_byte_encoded.exit321, label %164
+165:                                              ; preds = %peek.exit
+  %166 = getelementptr i8, ptr %7, i64 1
+  store ptr %166, ptr %5, align 8
+  %167 = shl i8 %.tr422631, 6
+  %168 = and i8 %167, -128
+  %.1.i319 = or disjoint i8 %168, 13
+  %169 = icmp slt i8 %167, 0
+  br i1 %169, label %170, label %escape_write_byte_encoded.exit321
 
-164:                                              ; preds = %160
-  %165 = getelementptr inbounds i8, ptr %0, i64 624
-  %166 = load ptr, ptr %165, align 8
-  %167 = icmp eq ptr %166, @pm_encodings
-  br i1 %167, label %168, label %178
+170:                                              ; preds = %165
+  %171 = getelementptr inbounds i8, ptr %0, i64 624
+  %172 = load ptr, ptr %171, align 8
+  %173 = icmp eq ptr %172, @pm_encodings
+  br i1 %173, label %174, label %184
 
-168:                                              ; preds = %164
-  %169 = getelementptr inbounds i8, ptr %0, i64 472
-  %170 = load ptr, ptr %169, align 8
-  %.not12.i320 = icmp eq ptr %170, @pm_encodings
-  br i1 %.not12.i320, label %178, label %171
-
-171:                                              ; preds = %168
-  %172 = getelementptr inbounds i8, ptr %0, i64 432
-  %173 = getelementptr inbounds i8, ptr %0, i64 312
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %170, i64 32
+174:                                              ; preds = %170
+  %175 = getelementptr inbounds i8, ptr %0, i64 472
   %176 = load ptr, ptr %175, align 8
-  %177 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %172, ptr noundef %174, ptr noundef %161, i32 noundef 145, ptr noundef %176) #26
-  br label %178
+  %.not12.i320 = icmp eq ptr %176, @pm_encodings
+  br i1 %.not12.i320, label %184, label %177
 
-178:                                              ; preds = %171, %168, %164
-  %179 = getelementptr inbounds i8, ptr %0, i64 472
+177:                                              ; preds = %174
+  %178 = getelementptr inbounds i8, ptr %0, i64 432
+  %179 = getelementptr inbounds i8, ptr %0, i64 312
   %180 = load ptr, ptr %179, align 8
-  store ptr %180, ptr %165, align 8
+  %181 = getelementptr inbounds i8, ptr %176, i64 32
+  %182 = load ptr, ptr %181, align 8
+  %183 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %178, ptr noundef %180, ptr noundef %166, i32 noundef 145, ptr noundef %182) #26
+  br label %184
+
+184:                                              ; preds = %177, %174, %170
+  %185 = getelementptr inbounds i8, ptr %0, i64 472
+  %186 = load ptr, ptr %185, align 8
+  store ptr %186, ptr %171, align 8
   br label %escape_write_byte_encoded.exit321
 
-escape_write_byte_encoded.exit321:                ; preds = %160, %178
+escape_write_byte_encoded.exit321:                ; preds = %165, %184
   tail call void @pm_buffer_append_byte(ptr noundef %1, i8 noundef zeroext %.1.i319) #26
   br label %escape_write_escape_encoded.exit
 
-181:                                              ; preds = %peek.exit
-  %182 = getelementptr i8, ptr %7, i64 1
-  store ptr %182, ptr %5, align 8
-  %183 = shl i8 %.tr430639, 5
-  %184 = and i8 %183, 32
-  %185 = shl i8 %.tr430639, 6
-  %186 = and i8 %185, -128
-  %187 = or disjoint i8 %184, %186
-  %.1.i324 = xor i8 %187, 32
-  %188 = icmp slt i8 %187, 0
-  br i1 %188, label %189, label %escape_write_byte_encoded.exit326
+187:                                              ; preds = %peek.exit
+  %188 = getelementptr i8, ptr %7, i64 1
+  store ptr %188, ptr %5, align 8
+  %189 = shl i8 %.tr422631, 5
+  %190 = and i8 %189, 32
+  %191 = shl i8 %.tr422631, 6
+  %192 = and i8 %191, -128
+  %193 = or disjoint i8 %190, %192
+  %.1.i324 = xor i8 %193, 32
+  %194 = icmp slt i8 %191, 0
+  br i1 %194, label %195, label %escape_write_byte_encoded.exit326
 
-189:                                              ; preds = %181
-  %190 = getelementptr inbounds i8, ptr %0, i64 624
-  %191 = load ptr, ptr %190, align 8
-  %192 = icmp eq ptr %191, @pm_encodings
-  br i1 %192, label %193, label %203
+195:                                              ; preds = %187
+  %196 = getelementptr inbounds i8, ptr %0, i64 624
+  %197 = load ptr, ptr %196, align 8
+  %198 = icmp eq ptr %197, @pm_encodings
+  br i1 %198, label %199, label %209
 
-193:                                              ; preds = %189
-  %194 = getelementptr inbounds i8, ptr %0, i64 472
-  %195 = load ptr, ptr %194, align 8
-  %.not12.i325 = icmp eq ptr %195, @pm_encodings
-  br i1 %.not12.i325, label %203, label %196
-
-196:                                              ; preds = %193
-  %197 = getelementptr inbounds i8, ptr %0, i64 432
-  %198 = getelementptr inbounds i8, ptr %0, i64 312
-  %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %195, i64 32
+199:                                              ; preds = %195
+  %200 = getelementptr inbounds i8, ptr %0, i64 472
   %201 = load ptr, ptr %200, align 8
-  %202 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %197, ptr noundef %199, ptr noundef %182, i32 noundef 145, ptr noundef %201) #26
-  br label %203
+  %.not12.i325 = icmp eq ptr %201, @pm_encodings
+  br i1 %.not12.i325, label %209, label %202
 
-203:                                              ; preds = %196, %193, %189
-  %204 = getelementptr inbounds i8, ptr %0, i64 472
+202:                                              ; preds = %199
+  %203 = getelementptr inbounds i8, ptr %0, i64 432
+  %204 = getelementptr inbounds i8, ptr %0, i64 312
   %205 = load ptr, ptr %204, align 8
-  store ptr %205, ptr %190, align 8
+  %206 = getelementptr inbounds i8, ptr %201, i64 32
+  %207 = load ptr, ptr %206, align 8
+  %208 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %203, ptr noundef %205, ptr noundef %188, i32 noundef 145, ptr noundef %207) #26
+  br label %209
+
+209:                                              ; preds = %202, %199, %195
+  %210 = getelementptr inbounds i8, ptr %0, i64 472
+  %211 = load ptr, ptr %210, align 8
+  store ptr %211, ptr %196, align 8
   br label %escape_write_byte_encoded.exit326
 
-escape_write_byte_encoded.exit326:                ; preds = %181, %203
+escape_write_byte_encoded.exit326:                ; preds = %187, %209
   tail call void @pm_buffer_append_byte(ptr noundef %1, i8 noundef zeroext %.1.i324) #26
   br label %escape_write_escape_encoded.exit
 
-206:                                              ; preds = %peek.exit
-  %207 = getelementptr i8, ptr %7, i64 1
-  store ptr %207, ptr %5, align 8
-  %208 = shl i8 %.tr430639, 6
-  %209 = and i8 %208, -128
-  %.1.i329 = or disjoint i8 %209, 9
-  %.not422 = icmp eq i8 %209, 0
-  br i1 %.not422, label %escape_write_byte_encoded.exit331, label %210
+212:                                              ; preds = %peek.exit
+  %213 = getelementptr i8, ptr %7, i64 1
+  store ptr %213, ptr %5, align 8
+  %214 = shl i8 %.tr422631, 6
+  %215 = and i8 %214, -128
+  %.1.i329 = or disjoint i8 %215, 9
+  %216 = icmp slt i8 %214, 0
+  br i1 %216, label %217, label %escape_write_byte_encoded.exit331
 
-210:                                              ; preds = %206
-  %211 = getelementptr inbounds i8, ptr %0, i64 624
-  %212 = load ptr, ptr %211, align 8
-  %213 = icmp eq ptr %212, @pm_encodings
-  br i1 %213, label %214, label %224
+217:                                              ; preds = %212
+  %218 = getelementptr inbounds i8, ptr %0, i64 624
+  %219 = load ptr, ptr %218, align 8
+  %220 = icmp eq ptr %219, @pm_encodings
+  br i1 %220, label %221, label %231
 
-214:                                              ; preds = %210
-  %215 = getelementptr inbounds i8, ptr %0, i64 472
-  %216 = load ptr, ptr %215, align 8
-  %.not12.i330 = icmp eq ptr %216, @pm_encodings
-  br i1 %.not12.i330, label %224, label %217
+221:                                              ; preds = %217
+  %222 = getelementptr inbounds i8, ptr %0, i64 472
+  %223 = load ptr, ptr %222, align 8
+  %.not12.i330 = icmp eq ptr %223, @pm_encodings
+  br i1 %.not12.i330, label %231, label %224
 
-217:                                              ; preds = %214
-  %218 = getelementptr inbounds i8, ptr %0, i64 432
-  %219 = getelementptr inbounds i8, ptr %0, i64 312
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %216, i64 32
-  %222 = load ptr, ptr %221, align 8
-  %223 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %218, ptr noundef %220, ptr noundef %207, i32 noundef 145, ptr noundef %222) #26
-  br label %224
+224:                                              ; preds = %221
+  %225 = getelementptr inbounds i8, ptr %0, i64 432
+  %226 = getelementptr inbounds i8, ptr %0, i64 312
+  %227 = load ptr, ptr %226, align 8
+  %228 = getelementptr inbounds i8, ptr %223, i64 32
+  %229 = load ptr, ptr %228, align 8
+  %230 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %225, ptr noundef %227, ptr noundef %213, i32 noundef 145, ptr noundef %229) #26
+  br label %231
 
-224:                                              ; preds = %217, %214, %210
-  %225 = getelementptr inbounds i8, ptr %0, i64 472
-  %226 = load ptr, ptr %225, align 8
-  store ptr %226, ptr %211, align 8
+231:                                              ; preds = %224, %221, %217
+  %232 = getelementptr inbounds i8, ptr %0, i64 472
+  %233 = load ptr, ptr %232, align 8
+  store ptr %233, ptr %218, align 8
   br label %escape_write_byte_encoded.exit331
 
-escape_write_byte_encoded.exit331:                ; preds = %206, %224
+escape_write_byte_encoded.exit331:                ; preds = %212, %231
   tail call void @pm_buffer_append_byte(ptr noundef %1, i8 noundef zeroext %.1.i329) #26
   br label %escape_write_escape_encoded.exit
 
-227:                                              ; preds = %peek.exit
-  %228 = getelementptr i8, ptr %7, i64 1
-  store ptr %228, ptr %5, align 8
-  %229 = shl i8 %.tr430639, 6
-  %230 = and i8 %229, -128
-  %.1.i334 = or disjoint i8 %230, 11
-  %.not421 = icmp eq i8 %230, 0
-  br i1 %.not421, label %escape_write_byte_encoded.exit336, label %231
+234:                                              ; preds = %peek.exit
+  %235 = getelementptr i8, ptr %7, i64 1
+  store ptr %235, ptr %5, align 8
+  %236 = shl i8 %.tr422631, 6
+  %237 = and i8 %236, -128
+  %.1.i334 = or disjoint i8 %237, 11
+  %238 = icmp slt i8 %236, 0
+  br i1 %238, label %239, label %escape_write_byte_encoded.exit336
 
-231:                                              ; preds = %227
-  %232 = getelementptr inbounds i8, ptr %0, i64 624
-  %233 = load ptr, ptr %232, align 8
-  %234 = icmp eq ptr %233, @pm_encodings
-  br i1 %234, label %235, label %245
-
-235:                                              ; preds = %231
-  %236 = getelementptr inbounds i8, ptr %0, i64 472
-  %237 = load ptr, ptr %236, align 8
-  %.not12.i335 = icmp eq ptr %237, @pm_encodings
-  br i1 %.not12.i335, label %245, label %238
-
-238:                                              ; preds = %235
-  %239 = getelementptr inbounds i8, ptr %0, i64 432
-  %240 = getelementptr inbounds i8, ptr %0, i64 312
+239:                                              ; preds = %234
+  %240 = getelementptr inbounds i8, ptr %0, i64 624
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %237, i64 32
-  %243 = load ptr, ptr %242, align 8
-  %244 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %239, ptr noundef %241, ptr noundef %228, i32 noundef 145, ptr noundef %243) #26
-  br label %245
+  %242 = icmp eq ptr %241, @pm_encodings
+  br i1 %242, label %243, label %253
 
-245:                                              ; preds = %238, %235, %231
-  %246 = getelementptr inbounds i8, ptr %0, i64 472
-  %247 = load ptr, ptr %246, align 8
-  store ptr %247, ptr %232, align 8
+243:                                              ; preds = %239
+  %244 = getelementptr inbounds i8, ptr %0, i64 472
+  %245 = load ptr, ptr %244, align 8
+  %.not12.i335 = icmp eq ptr %245, @pm_encodings
+  br i1 %.not12.i335, label %253, label %246
+
+246:                                              ; preds = %243
+  %247 = getelementptr inbounds i8, ptr %0, i64 432
+  %248 = getelementptr inbounds i8, ptr %0, i64 312
+  %249 = load ptr, ptr %248, align 8
+  %250 = getelementptr inbounds i8, ptr %245, i64 32
+  %251 = load ptr, ptr %250, align 8
+  %252 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %247, ptr noundef %249, ptr noundef %235, i32 noundef 145, ptr noundef %251) #26
+  br label %253
+
+253:                                              ; preds = %246, %243, %239
+  %254 = getelementptr inbounds i8, ptr %0, i64 472
+  %255 = load ptr, ptr %254, align 8
+  store ptr %255, ptr %240, align 8
   br label %escape_write_byte_encoded.exit336
 
-escape_write_byte_encoded.exit336:                ; preds = %227, %245
+escape_write_byte_encoded.exit336:                ; preds = %234, %253
   tail call void @pm_buffer_append_byte(ptr noundef %1, i8 noundef zeroext %.1.i334) #26
   br label %escape_write_escape_encoded.exit
 
-248:                                              ; preds = %peek.exit, %peek.exit, %peek.exit, %peek.exit, %peek.exit, %peek.exit, %peek.exit, %peek.exit
-  %249 = add nsw i8 %8, -48
-  %250 = getelementptr i8, ptr %7, i64 1
-  store ptr %250, ptr %5, align 8
-  %251 = icmp ugt ptr %.val283, %250
-  br i1 %251, label %252, label %peek.exit338
+256:                                              ; preds = %peek.exit, %peek.exit, %peek.exit, %peek.exit, %peek.exit, %peek.exit, %peek.exit, %peek.exit
+  %257 = add nsw i8 %8, -48
+  %258 = getelementptr i8, ptr %7, i64 1
+  store ptr %258, ptr %5, align 8
+  %259 = icmp ugt ptr %.val283, %258
+  br i1 %259, label %260, label %peek.exit338
 
-252:                                              ; preds = %248
-  %253 = load i8, ptr %250, align 1
+260:                                              ; preds = %256
+  %261 = load i8, ptr %258, align 1
   br label %peek.exit338
 
-peek.exit338:                                     ; preds = %248, %252
-  %.0.i.i337 = phi i8 [ %253, %252 ], [ 0, %248 ]
-  %254 = tail call zeroext i1 @pm_char_is_octal_digit(i8 noundef zeroext %.0.i.i337) #26
-  br i1 %254, label %255, label %escape_write_byte_encoded.exit342
+peek.exit338:                                     ; preds = %256, %260
+  %.0.i.i337 = phi i8 [ %261, %260 ], [ 0, %256 ]
+  %262 = tail call zeroext i1 @pm_char_is_octal_digit(i8 noundef zeroext %.0.i.i337) #26
+  br i1 %262, label %263, label %escape_write_byte_encoded.exit342
 
-255:                                              ; preds = %peek.exit338
-  %256 = shl nuw nsw i8 %249, 3
-  %257 = load ptr, ptr %5, align 8
-  %258 = load i8, ptr %257, align 1
-  %259 = add i8 %258, -48
-  %260 = or i8 %259, %256
-  %261 = getelementptr i8, ptr %257, i64 1
-  store ptr %261, ptr %5, align 8
+263:                                              ; preds = %peek.exit338
+  %264 = shl nuw nsw i8 %257, 3
+  %265 = load ptr, ptr %5, align 8
+  %266 = load i8, ptr %265, align 1
+  %267 = add i8 %266, -48
+  %268 = or i8 %267, %264
+  %269 = getelementptr i8, ptr %265, i64 1
+  store ptr %269, ptr %5, align 8
   %.val279 = load ptr, ptr %4, align 8
-  %262 = icmp ugt ptr %.val279, %261
-  br i1 %262, label %263, label %peek.exit340
+  %270 = icmp ugt ptr %.val279, %269
+  br i1 %270, label %271, label %peek.exit340
 
-263:                                              ; preds = %255
-  %264 = load i8, ptr %261, align 1
+271:                                              ; preds = %263
+  %272 = load i8, ptr %269, align 1
   br label %peek.exit340
 
-peek.exit340:                                     ; preds = %255, %263
-  %.0.i.i339 = phi i8 [ %264, %263 ], [ 0, %255 ]
-  %265 = tail call zeroext i1 @pm_char_is_octal_digit(i8 noundef zeroext %.0.i.i339) #26
-  br i1 %265, label %266, label %273
+peek.exit340:                                     ; preds = %263, %271
+  %.0.i.i339 = phi i8 [ %272, %271 ], [ 0, %263 ]
+  %273 = tail call zeroext i1 @pm_char_is_octal_digit(i8 noundef zeroext %.0.i.i339) #26
+  br i1 %273, label %274, label %281
 
-266:                                              ; preds = %peek.exit340
-  %267 = shl i8 %260, 3
-  %268 = load ptr, ptr %5, align 8
-  %269 = load i8, ptr %268, align 1
-  %270 = add i8 %269, -48
-  %271 = or i8 %270, %267
-  %272 = getelementptr i8, ptr %268, i64 1
-  store ptr %272, ptr %5, align 8
-  br label %273
+274:                                              ; preds = %peek.exit340
+  %275 = shl i8 %268, 3
+  %276 = load ptr, ptr %5, align 8
+  %277 = load i8, ptr %276, align 1
+  %278 = add i8 %277, -48
+  %279 = or i8 %278, %275
+  %280 = getelementptr i8, ptr %276, i64 1
+  store ptr %280, ptr %5, align 8
+  br label %281
 
-273:                                              ; preds = %peek.exit340, %266
-  %.0 = phi i8 [ %271, %266 ], [ %260, %peek.exit340 ]
-  %274 = icmp slt i8 %.0, 0
-  br i1 %274, label %275, label %escape_write_byte_encoded.exit342
+281:                                              ; preds = %peek.exit340, %274
+  %.0 = phi i8 [ %279, %274 ], [ %268, %peek.exit340 ]
+  %282 = icmp slt i8 %.0, 0
+  br i1 %282, label %283, label %escape_write_byte_encoded.exit342
 
-275:                                              ; preds = %273
-  %276 = getelementptr inbounds i8, ptr %0, i64 624
-  %277 = load ptr, ptr %276, align 8
-  %278 = icmp eq ptr %277, @pm_encodings
-  br i1 %278, label %279, label %290
-
-279:                                              ; preds = %275
-  %280 = getelementptr inbounds i8, ptr %0, i64 472
-  %281 = load ptr, ptr %280, align 8
-  %.not12.i341 = icmp eq ptr %281, @pm_encodings
-  br i1 %.not12.i341, label %290, label %282
-
-282:                                              ; preds = %279
-  %283 = getelementptr inbounds i8, ptr %0, i64 432
-  %284 = getelementptr inbounds i8, ptr %0, i64 312
+283:                                              ; preds = %281
+  %284 = getelementptr inbounds i8, ptr %0, i64 624
   %285 = load ptr, ptr %284, align 8
-  %286 = load ptr, ptr %5, align 8
-  %287 = getelementptr inbounds i8, ptr %281, i64 32
-  %288 = load ptr, ptr %287, align 8
-  %289 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %283, ptr noundef %285, ptr noundef %286, i32 noundef 145, ptr noundef %288) #26
-  br label %290
+  %286 = icmp eq ptr %285, @pm_encodings
+  br i1 %286, label %287, label %298
 
-290:                                              ; preds = %282, %279, %275
-  %291 = getelementptr inbounds i8, ptr %0, i64 472
-  %292 = load ptr, ptr %291, align 8
-  store ptr %292, ptr %276, align 8
+287:                                              ; preds = %283
+  %288 = getelementptr inbounds i8, ptr %0, i64 472
+  %289 = load ptr, ptr %288, align 8
+  %.not12.i341 = icmp eq ptr %289, @pm_encodings
+  br i1 %.not12.i341, label %298, label %290
+
+290:                                              ; preds = %287
+  %291 = getelementptr inbounds i8, ptr %0, i64 432
+  %292 = getelementptr inbounds i8, ptr %0, i64 312
+  %293 = load ptr, ptr %292, align 8
+  %294 = load ptr, ptr %5, align 8
+  %295 = getelementptr inbounds i8, ptr %289, i64 32
+  %296 = load ptr, ptr %295, align 8
+  %297 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %291, ptr noundef %293, ptr noundef %294, i32 noundef 145, ptr noundef %296) #26
+  br label %298
+
+298:                                              ; preds = %290, %287, %283
+  %299 = getelementptr inbounds i8, ptr %0, i64 472
+  %300 = load ptr, ptr %299, align 8
+  store ptr %300, ptr %284, align 8
   br label %escape_write_byte_encoded.exit342
 
-escape_write_byte_encoded.exit342:                ; preds = %peek.exit338, %273, %290
-  %.0765 = phi i8 [ %.0, %273 ], [ %.0, %290 ], [ %249, %peek.exit338 ]
-  tail call void @pm_buffer_append_byte(ptr noundef %1, i8 noundef zeroext %.0765) #26
+escape_write_byte_encoded.exit342:                ; preds = %peek.exit338, %281, %298
+  %.0757 = phi i8 [ %.0, %281 ], [ %.0, %298 ], [ %257, %peek.exit338 ]
+  tail call void @pm_buffer_append_byte(ptr noundef %1, i8 noundef zeroext %.0757) #26
   br label %escape_write_escape_encoded.exit
 
-293:                                              ; preds = %peek.exit
-  %294 = getelementptr i8, ptr %7, i64 -1
-  %295 = getelementptr i8, ptr %7, i64 1
-  store ptr %295, ptr %5, align 8
-  %296 = icmp ugt ptr %.val283, %295
-  br i1 %296, label %297, label %peek.exit344
+301:                                              ; preds = %peek.exit
+  %302 = getelementptr i8, ptr %7, i64 -1
+  %303 = getelementptr i8, ptr %7, i64 1
+  store ptr %303, ptr %5, align 8
+  %304 = icmp ugt ptr %.val283, %303
+  br i1 %304, label %305, label %peek.exit344
 
-297:                                              ; preds = %293
-  %298 = load i8, ptr %295, align 1
+305:                                              ; preds = %301
+  %306 = load i8, ptr %303, align 1
   br label %peek.exit344
 
-peek.exit344:                                     ; preds = %293, %297
-  %.0.i.i343 = phi i8 [ %298, %297 ], [ 0, %293 ]
-  %299 = tail call zeroext i1 @pm_char_is_hexadecimal_digit(i8 noundef zeroext %.0.i.i343) #26
-  br i1 %299, label %300, label %330
+peek.exit344:                                     ; preds = %301, %305
+  %.0.i.i343 = phi i8 [ %306, %305 ], [ 0, %301 ]
+  %307 = tail call zeroext i1 @pm_char_is_hexadecimal_digit(i8 noundef zeroext %.0.i.i343) #26
+  br i1 %307, label %308, label %338
 
-300:                                              ; preds = %peek.exit344
-  %301 = icmp ult i8 %.0.i.i343, 58
-  %302 = add nsw i8 %.0.i.i343, -48
-  %303 = and i8 %.0.i.i343, 7
-  %304 = add nuw nsw i8 %303, 9
-  %305 = select i1 %301, i8 %302, i8 %304
-  %306 = load ptr, ptr %5, align 8
-  %307 = getelementptr i8, ptr %306, i64 1
-  store ptr %307, ptr %5, align 8
+308:                                              ; preds = %peek.exit344
+  %309 = icmp ult i8 %.0.i.i343, 58
+  %310 = add nsw i8 %.0.i.i343, -48
+  %311 = and i8 %.0.i.i343, 7
+  %312 = add nuw nsw i8 %311, 9
+  %313 = select i1 %309, i8 %310, i8 %312
+  %314 = load ptr, ptr %5, align 8
+  %315 = getelementptr i8, ptr %314, i64 1
+  store ptr %315, ptr %5, align 8
   %.val275 = load ptr, ptr %4, align 8
-  %308 = icmp ugt ptr %.val275, %307
-  br i1 %308, label %309, label %peek.exit346
+  %316 = icmp ugt ptr %.val275, %315
+  br i1 %316, label %317, label %peek.exit346
 
-309:                                              ; preds = %300
-  %310 = load i8, ptr %307, align 1
+317:                                              ; preds = %308
+  %318 = load i8, ptr %315, align 1
   br label %peek.exit346
 
-peek.exit346:                                     ; preds = %300, %309
-  %.0.i.i345 = phi i8 [ %310, %309 ], [ 0, %300 ]
-  %311 = tail call zeroext i1 @pm_char_is_hexadecimal_digit(i8 noundef zeroext %.0.i.i345) #26
-  br i1 %311, label %312, label %322
+peek.exit346:                                     ; preds = %308, %317
+  %.0.i.i345 = phi i8 [ %318, %317 ], [ 0, %308 ]
+  %319 = tail call zeroext i1 @pm_char_is_hexadecimal_digit(i8 noundef zeroext %.0.i.i345) #26
+  br i1 %319, label %320, label %330
 
-312:                                              ; preds = %peek.exit346
-  %313 = shl i8 %305, 4
-  %314 = icmp ult i8 %.0.i.i345, 58
-  %315 = add nsw i8 %.0.i.i345, -48
-  %316 = and i8 %.0.i.i345, 7
-  %317 = add nuw nsw i8 %316, 9
-  %318 = select i1 %314, i8 %315, i8 %317
-  %319 = or i8 %318, %313
-  %320 = load ptr, ptr %5, align 8
-  %321 = getelementptr i8, ptr %320, i64 1
-  store ptr %321, ptr %5, align 8
-  br label %322
+320:                                              ; preds = %peek.exit346
+  %321 = shl i8 %313, 4
+  %322 = icmp ult i8 %.0.i.i345, 58
+  %323 = add nsw i8 %.0.i.i345, -48
+  %324 = and i8 %.0.i.i345, 7
+  %325 = add nuw nsw i8 %324, 9
+  %326 = select i1 %322, i8 %323, i8 %325
+  %327 = or i8 %326, %321
+  %328 = load ptr, ptr %5, align 8
+  %329 = getelementptr i8, ptr %328, i64 1
+  store ptr %329, ptr %5, align 8
+  br label %330
 
-322:                                              ; preds = %312, %peek.exit346
-  %.0245 = phi i8 [ %319, %312 ], [ %305, %peek.exit346 ]
-  %323 = and i8 %.tr430639, 8
-  %.not261 = icmp eq i8 %323, 0
-  br i1 %.not261, label %329, label %324
+330:                                              ; preds = %320, %peek.exit346
+  %.0245 = phi i8 [ %327, %320 ], [ %313, %peek.exit346 ]
+  %331 = and i8 %.tr422631, 8
+  %.not261 = icmp eq i8 %331, 0
+  br i1 %.not261, label %337, label %332
 
-324:                                              ; preds = %322
-  %325 = load ptr, ptr %5, align 8
-  %326 = ptrtoint ptr %325 to i64
-  %327 = ptrtoint ptr %294 to i64
-  %328 = sub i64 %326, %327
-  tail call void @pm_buffer_append_bytes(ptr noundef %1, ptr noundef %294, i64 noundef %328) #26
+332:                                              ; preds = %330
+  %333 = load ptr, ptr %5, align 8
+  %334 = ptrtoint ptr %333 to i64
+  %335 = ptrtoint ptr %302 to i64
+  %336 = sub i64 %334, %335
+  tail call void @pm_buffer_append_bytes(ptr noundef %1, ptr noundef %302, i64 noundef %336) #26
   br label %escape_write_escape_encoded.exit
 
-329:                                              ; preds = %322
+337:                                              ; preds = %330
   tail call fastcc void @escape_write_byte_encoded(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %.0245)
   br label %escape_write_escape_encoded.exit
 
-330:                                              ; preds = %peek.exit344
-  %331 = getelementptr inbounds i8, ptr %0, i64 312
-  %332 = load ptr, ptr %331, align 8
-  %333 = load ptr, ptr %5, align 8
-  %334 = getelementptr inbounds i8, ptr %0, i64 432
-  %335 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %334, ptr noundef %332, ptr noundef %333, i32 noundef 72) #26
+338:                                              ; preds = %peek.exit344
+  %339 = getelementptr inbounds i8, ptr %0, i64 312
+  %340 = load ptr, ptr %339, align 8
+  %341 = load ptr, ptr %5, align 8
+  %342 = getelementptr inbounds i8, ptr %0, i64 432
+  %343 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %342, ptr noundef %340, ptr noundef %341, i32 noundef 72) #26
   br label %escape_write_escape_encoded.exit
 
-336:                                              ; preds = %peek.exit
-  %337 = getelementptr i8, ptr %7, i64 -1
-  %338 = getelementptr i8, ptr %7, i64 1
-  store ptr %338, ptr %5, align 8
-  %339 = getelementptr i8, ptr %7, i64 5
-  %.not256 = icmp ugt ptr %339, %.val283
-  br i1 %.not256, label %376, label %340
+344:                                              ; preds = %peek.exit
+  %345 = getelementptr i8, ptr %7, i64 -1
+  %346 = getelementptr i8, ptr %7, i64 1
+  store ptr %346, ptr %5, align 8
+  %347 = getelementptr i8, ptr %7, i64 5
+  %.not256 = icmp ugt ptr %347, %.val283
+  br i1 %.not256, label %384, label %348
 
-340:                                              ; preds = %336
-  %341 = load i8, ptr %338, align 1
-  %342 = tail call zeroext i1 @pm_char_is_hexadecimal_digit(i8 noundef zeroext %341) #26
-  %.val274.pre755 = load ptr, ptr %5, align 8
-  br i1 %342, label %343, label %376
-
-343:                                              ; preds = %340
-  %344 = getelementptr i8, ptr %.val274.pre755, i64 1
-  %345 = load i8, ptr %344, align 1
-  %346 = tail call zeroext i1 @pm_char_is_hexadecimal_digit(i8 noundef zeroext %345) #26
-  %.val274.pre754 = load ptr, ptr %5, align 8
-  br i1 %346, label %347, label %376
-
-347:                                              ; preds = %343
-  %348 = getelementptr i8, ptr %.val274.pre754, i64 2
-  %349 = load i8, ptr %348, align 1
+348:                                              ; preds = %344
+  %349 = load i8, ptr %346, align 1
   %350 = tail call zeroext i1 @pm_char_is_hexadecimal_digit(i8 noundef zeroext %349) #26
-  %.val274.pre753 = load ptr, ptr %5, align 8
-  br i1 %350, label %351, label %376
+  %.val274.pre747 = load ptr, ptr %5, align 8
+  br i1 %350, label %351, label %384
 
-351:                                              ; preds = %347
-  %352 = getelementptr i8, ptr %.val274.pre753, i64 3
+351:                                              ; preds = %348
+  %352 = getelementptr i8, ptr %.val274.pre747, i64 1
   %353 = load i8, ptr %352, align 1
   %354 = tail call zeroext i1 @pm_char_is_hexadecimal_digit(i8 noundef zeroext %353) #26
-  %.val274.pre = load ptr, ptr %5, align 8
-  br i1 %354, label %.lr.ph.i, label %376
+  %.val274.pre746 = load ptr, ptr %5, align 8
+  br i1 %354, label %355, label %384
 
-.lr.ph.i:                                         ; preds = %351, %.lr.ph.i
-  %.010.i = phi i64 [ %365, %.lr.ph.i ], [ 0, %351 ]
-  %.089.i = phi i32 [ %364, %.lr.ph.i ], [ 0, %351 ]
-  %.not.i347 = icmp eq i64 %.010.i, 0
-  %355 = shl i32 %.089.i, 4
-  %spec.select.i348 = select i1 %.not.i347, i32 %.089.i, i32 %355
-  %356 = getelementptr i8, ptr %.val274.pre, i64 %.010.i
+355:                                              ; preds = %351
+  %356 = getelementptr i8, ptr %.val274.pre746, i64 2
   %357 = load i8, ptr %356, align 1
-  %358 = icmp ult i8 %357, 58
-  %359 = add nsw i8 %357, -48
-  %360 = and i8 %357, 7
-  %361 = add nuw nsw i8 %360, 9
-  %362 = select i1 %358, i8 %359, i8 %361
-  %363 = zext i8 %362 to i32
-  %364 = or i32 %spec.select.i348, %363
-  %365 = add nuw nsw i64 %.010.i, 1
-  %exitcond.not.i = icmp eq i64 %365, 4
+  %358 = tail call zeroext i1 @pm_char_is_hexadecimal_digit(i8 noundef zeroext %357) #26
+  %.val274.pre745 = load ptr, ptr %5, align 8
+  br i1 %358, label %359, label %384
+
+359:                                              ; preds = %355
+  %360 = getelementptr i8, ptr %.val274.pre745, i64 3
+  %361 = load i8, ptr %360, align 1
+  %362 = tail call zeroext i1 @pm_char_is_hexadecimal_digit(i8 noundef zeroext %361) #26
+  %.val274.pre = load ptr, ptr %5, align 8
+  br i1 %362, label %.lr.ph.i, label %384
+
+.lr.ph.i:                                         ; preds = %359, %.lr.ph.i
+  %.010.i = phi i64 [ %373, %.lr.ph.i ], [ 0, %359 ]
+  %.089.i = phi i32 [ %372, %.lr.ph.i ], [ 0, %359 ]
+  %.not.i347 = icmp eq i64 %.010.i, 0
+  %363 = shl i32 %.089.i, 4
+  %spec.select.i348 = select i1 %.not.i347, i32 %.089.i, i32 %363
+  %364 = getelementptr i8, ptr %.val274.pre, i64 %.010.i
+  %365 = load i8, ptr %364, align 1
+  %366 = icmp ult i8 %365, 58
+  %367 = add nsw i8 %365, -48
+  %368 = and i8 %365, 7
+  %369 = add nuw nsw i8 %368, 9
+  %370 = select i1 %366, i8 %367, i8 %369
+  %371 = zext i8 %370 to i32
+  %372 = or i32 %spec.select.i348, %371
+  %373 = add nuw nsw i64 %.010.i, 1
+  %exitcond.not.i = icmp eq i64 %373, 4
   br i1 %exitcond.not.i, label %escape_unicode.exit, label %.lr.ph.i, !llvm.loop !51
 
 escape_unicode.exit:                              ; preds = %.lr.ph.i
-  %366 = and i8 %.tr430639, 8
-  %.not260 = icmp eq i8 %366, 0
-  %367 = getelementptr i8, ptr %.val274.pre, i64 4
-  br i1 %.not260, label %372, label %368
+  %374 = and i8 %.tr422631, 8
+  %.not260 = icmp eq i8 %374, 0
+  %375 = getelementptr i8, ptr %.val274.pre, i64 4
+  br i1 %.not260, label %380, label %376
 
-368:                                              ; preds = %escape_unicode.exit
-  %369 = ptrtoint ptr %367 to i64
-  %370 = ptrtoint ptr %337 to i64
-  %371 = sub i64 %369, %370
-  tail call void @pm_buffer_append_bytes(ptr noundef %1, ptr noundef %337, i64 noundef %371) #26
-  br label %373
+376:                                              ; preds = %escape_unicode.exit
+  %377 = ptrtoint ptr %375 to i64
+  %378 = ptrtoint ptr %345 to i64
+  %379 = sub i64 %377, %378
+  tail call void @pm_buffer_append_bytes(ptr noundef %1, ptr noundef %345, i64 noundef %379) #26
+  br label %381
 
-372:                                              ; preds = %escape_unicode.exit
-  tail call fastcc void @escape_write_unicode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %.tr430639, ptr noundef %337, ptr noundef %367, i32 noundef %364)
-  br label %373
+380:                                              ; preds = %escape_unicode.exit
+  tail call fastcc void @escape_write_unicode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %.tr422631, ptr noundef %345, ptr noundef %375, i32 noundef %372)
+  br label %381
 
-373:                                              ; preds = %372, %368
-  %374 = load ptr, ptr %5, align 8
-  %375 = getelementptr i8, ptr %374, i64 4
-  store ptr %375, ptr %5, align 8
+381:                                              ; preds = %380, %376
+  %382 = load ptr, ptr %5, align 8
+  %383 = getelementptr i8, ptr %382, i64 4
+  store ptr %383, ptr %5, align 8
   br label %escape_write_escape_encoded.exit
 
-376:                                              ; preds = %351, %347, %343, %340, %336
-  %.val274 = phi ptr [ %.val274.pre, %351 ], [ %.val274.pre753, %347 ], [ %.val274.pre754, %343 ], [ %.val274.pre755, %340 ], [ %338, %336 ]
+384:                                              ; preds = %359, %355, %351, %348, %344
+  %.val274 = phi ptr [ %.val274.pre, %359 ], [ %.val274.pre745, %355 ], [ %.val274.pre746, %351 ], [ %.val274.pre747, %348 ], [ %346, %344 ]
   %.val273 = load ptr, ptr %4, align 8
-  %377 = icmp ugt ptr %.val273, %.val274
-  br i1 %377, label %peek.exit350, label %peek.exit350.thread
+  %385 = icmp ugt ptr %.val273, %.val274
+  br i1 %385, label %peek.exit350, label %peek.exit350.thread
 
-peek.exit350:                                     ; preds = %376
-  %378 = load i8, ptr %.val274, align 1
-  %379 = icmp eq i8 %378, 123
-  br i1 %379, label %380, label %peek.exit350.thread
+peek.exit350:                                     ; preds = %384
+  %386 = load i8, ptr %.val274, align 1
+  %387 = icmp eq i8 %386, 123
+  br i1 %387, label %388, label %peek.exit350.thread
 
-380:                                              ; preds = %peek.exit350
-  %381 = getelementptr i8, ptr %.val274, i64 -2
-  %382 = getelementptr i8, ptr %.val274, i64 1
-  store ptr %382, ptr %5, align 8
-  %383 = ptrtoint ptr %.val273 to i64
-  %384 = ptrtoint ptr %382 to i64
-  %385 = sub i64 %383, %384
-  %386 = tail call i64 @pm_strspn_whitespace(ptr noundef %382, i64 noundef %385) #26
-  %387 = load ptr, ptr %5, align 8
-  %388 = getelementptr i8, ptr %387, i64 %386
-  store ptr %388, ptr %5, align 8
-  %389 = load ptr, ptr %4, align 8
-  %390 = icmp ult ptr %388, %389
-  br i1 %390, label %.lr.ph, label %.critedge.thread
+388:                                              ; preds = %peek.exit350
+  %389 = getelementptr i8, ptr %.val274, i64 -2
+  %390 = getelementptr i8, ptr %.val274, i64 1
+  store ptr %390, ptr %5, align 8
+  %391 = ptrtoint ptr %.val273 to i64
+  %392 = ptrtoint ptr %390 to i64
+  %393 = sub i64 %391, %392
+  %394 = tail call i64 @pm_strspn_whitespace(ptr noundef %390, i64 noundef %393) #26
+  %395 = load ptr, ptr %5, align 8
+  %396 = getelementptr i8, ptr %395, i64 %394
+  store ptr %396, ptr %5, align 8
+  %397 = load ptr, ptr %4, align 8
+  %398 = icmp ult ptr %396, %397
+  br i1 %398, label %.lr.ph, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %380
-  %.pre761 = zext nneg i8 %.tr430639 to i32
-  br label %445
+.critedge.thread:                                 ; preds = %388
+  %.pre753 = zext nneg i8 %.tr422631 to i32
+  br label %453
 
-.lr.ph:                                           ; preds = %380
-  %391 = getelementptr inbounds i8, ptr %0, i64 432
-  %392 = zext nneg i8 %.tr430639 to i32
-  %393 = and i32 %392, 4
-  %394 = icmp ne i32 %393, 0
-  %395 = and i32 %392, 8
-  %.not259 = icmp eq i32 %395, 0
-  br label %396
+.lr.ph:                                           ; preds = %388
+  %399 = getelementptr inbounds i8, ptr %0, i64 432
+  %400 = zext nneg i8 %.tr422631 to i32
+  %401 = and i32 %400, 4
+  %402 = icmp ne i32 %401, 0
+  %403 = and i32 %400, 8
+  %.not259 = icmp eq i32 %403, 0
+  br label %404
 
-396:                                              ; preds = %.lr.ph, %428
-  %397 = phi ptr [ %389, %.lr.ph ], [ %437, %428 ]
-  %.0246642 = phi ptr [ null, %.lr.ph ], [ %spec.select, %428 ]
-  %.0247641 = phi i32 [ 0, %.lr.ph ], [ %415, %428 ]
-  %storemerge640 = phi ptr [ %388, %.lr.ph ], [ %436, %428 ]
-  %398 = load i8, ptr %storemerge640, align 1
-  %.not257 = icmp eq i8 %398, 125
-  br i1 %.not257, label %.critedge, label %399
+404:                                              ; preds = %.lr.ph, %436
+  %405 = phi ptr [ %397, %.lr.ph ], [ %445, %436 ]
+  %.0246634 = phi ptr [ null, %.lr.ph ], [ %spec.select, %436 ]
+  %.0247633 = phi i32 [ 0, %.lr.ph ], [ %423, %436 ]
+  %storemerge632 = phi ptr [ %396, %.lr.ph ], [ %444, %436 ]
+  %406 = load i8, ptr %storemerge632, align 1
+  %.not257 = icmp eq i8 %406, 125
+  br i1 %.not257, label %.critedge, label %407
 
-399:                                              ; preds = %396
-  %400 = ptrtoint ptr %397 to i64
-  %401 = ptrtoint ptr %storemerge640 to i64
-  %402 = sub i64 %400, %401
-  %403 = tail call i64 @pm_strspn_hexadecimal_digit(ptr noundef nonnull %storemerge640, i64 noundef %402) #26
-  %404 = icmp ugt i64 %403, 6
-  br i1 %404, label %405, label %408
+407:                                              ; preds = %404
+  %408 = ptrtoint ptr %405 to i64
+  %409 = ptrtoint ptr %storemerge632 to i64
+  %410 = sub i64 %408, %409
+  %411 = tail call i64 @pm_strspn_hexadecimal_digit(ptr noundef nonnull %storemerge632, i64 noundef %410) #26
+  %412 = icmp ugt i64 %411, 6
+  br i1 %412, label %413, label %416
 
-405:                                              ; preds = %399
-  %406 = getelementptr i8, ptr %storemerge640, i64 %403
-  %407 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %391, ptr noundef nonnull %storemerge640, ptr noundef %406, i32 noundef 78) #26
-  br label %412
+413:                                              ; preds = %407
+  %414 = getelementptr i8, ptr %storemerge632, i64 %411
+  %415 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %399, ptr noundef nonnull %storemerge632, ptr noundef %414, i32 noundef 78) #26
+  br label %420
 
-408:                                              ; preds = %399
-  %409 = icmp eq i64 %403, 0
-  br i1 %409, label %410, label %412
+416:                                              ; preds = %407
+  %417 = icmp eq i64 %411, 0
+  br i1 %417, label %418, label %420
 
-410:                                              ; preds = %408
-  %411 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %391, ptr noundef nonnull %storemerge640, ptr noundef nonnull %storemerge640, i32 noundef 75) #26
+418:                                              ; preds = %416
+  %419 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %399, ptr noundef nonnull %storemerge632, ptr noundef nonnull %storemerge632, i32 noundef 75) #26
   br label %escape_write_escape_encoded.exit
 
-412:                                              ; preds = %408, %405
-  %413 = load ptr, ptr %5, align 8
-  %414 = getelementptr i8, ptr %413, i64 %403
-  store ptr %414, ptr %5, align 8
-  %415 = add i32 %.0247641, 1
-  %416 = icmp eq i32 %415, 2
-  %or.cond = select i1 %394, i1 %416, i1 false
-  %spec.select = select i1 %or.cond, ptr %storemerge640, ptr %.0246642
-  br i1 %.not259, label %.lr.ph.i351, label %428
+420:                                              ; preds = %416, %413
+  %421 = load ptr, ptr %5, align 8
+  %422 = getelementptr i8, ptr %421, i64 %411
+  store ptr %422, ptr %5, align 8
+  %423 = add i32 %.0247633, 1
+  %424 = icmp eq i32 %423, 2
+  %or.cond = select i1 %402, i1 %424, i1 false
+  %spec.select = select i1 %or.cond, ptr %storemerge632, ptr %.0246634
+  br i1 %.not259, label %.lr.ph.i351, label %436
 
-.lr.ph.i351:                                      ; preds = %412, %.lr.ph.i351
-  %.010.i352 = phi i64 [ %427, %.lr.ph.i351 ], [ 0, %412 ]
-  %.089.i353 = phi i32 [ %426, %.lr.ph.i351 ], [ 0, %412 ]
+.lr.ph.i351:                                      ; preds = %420, %.lr.ph.i351
+  %.010.i352 = phi i64 [ %435, %.lr.ph.i351 ], [ 0, %420 ]
+  %.089.i353 = phi i32 [ %434, %.lr.ph.i351 ], [ 0, %420 ]
   %.not.i354 = icmp eq i64 %.010.i352, 0
-  %417 = shl i32 %.089.i353, 4
-  %spec.select.i355 = select i1 %.not.i354, i32 %.089.i353, i32 %417
-  %418 = getelementptr i8, ptr %storemerge640, i64 %.010.i352
-  %419 = load i8, ptr %418, align 1
-  %420 = icmp ult i8 %419, 58
-  %421 = add nsw i8 %419, -48
-  %422 = and i8 %419, 7
-  %423 = add nuw nsw i8 %422, 9
-  %424 = select i1 %420, i8 %421, i8 %423
-  %425 = zext i8 %424 to i32
-  %426 = or i32 %spec.select.i355, %425
-  %427 = add nuw i64 %.010.i352, 1
-  %exitcond.not.i356 = icmp eq i64 %427, %403
+  %425 = shl i32 %.089.i353, 4
+  %spec.select.i355 = select i1 %.not.i354, i32 %.089.i353, i32 %425
+  %426 = getelementptr i8, ptr %storemerge632, i64 %.010.i352
+  %427 = load i8, ptr %426, align 1
+  %428 = icmp ult i8 %427, 58
+  %429 = add nsw i8 %427, -48
+  %430 = and i8 %427, 7
+  %431 = add nuw nsw i8 %430, 9
+  %432 = select i1 %428, i8 %429, i8 %431
+  %433 = zext i8 %432 to i32
+  %434 = or i32 %spec.select.i355, %433
+  %435 = add nuw i64 %.010.i352, 1
+  %exitcond.not.i356 = icmp eq i64 %435, %411
   br i1 %exitcond.not.i356, label %escape_unicode.exit357, label %.lr.ph.i351, !llvm.loop !51
 
 escape_unicode.exit357:                           ; preds = %.lr.ph.i351
-  tail call fastcc void @escape_write_unicode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %.tr430639, ptr noundef nonnull %storemerge640, ptr noundef %414, i32 noundef %426)
+  tail call fastcc void @escape_write_unicode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %.tr422631, ptr noundef nonnull %storemerge632, ptr noundef %422, i32 noundef %434)
   %.pre = load ptr, ptr %5, align 8
-  br label %428
+  br label %436
 
-428:                                              ; preds = %escape_unicode.exit357, %412
-  %429 = phi ptr [ %.pre, %escape_unicode.exit357 ], [ %414, %412 ]
-  %430 = load ptr, ptr %4, align 8
-  %431 = ptrtoint ptr %430 to i64
-  %432 = ptrtoint ptr %429 to i64
-  %433 = sub i64 %431, %432
-  %434 = tail call i64 @pm_strspn_whitespace(ptr noundef %429, i64 noundef %433) #26
-  %435 = load ptr, ptr %5, align 8
-  %436 = getelementptr i8, ptr %435, i64 %434
-  store ptr %436, ptr %5, align 8
-  %437 = load ptr, ptr %4, align 8
-  %438 = icmp ult ptr %436, %437
-  br i1 %438, label %396, label %.critedge, !llvm.loop !52
+436:                                              ; preds = %escape_unicode.exit357, %420
+  %437 = phi ptr [ %.pre, %escape_unicode.exit357 ], [ %422, %420 ]
+  %438 = load ptr, ptr %4, align 8
+  %439 = ptrtoint ptr %438 to i64
+  %440 = ptrtoint ptr %437 to i64
+  %441 = sub i64 %439, %440
+  %442 = tail call i64 @pm_strspn_whitespace(ptr noundef %437, i64 noundef %441) #26
+  %443 = load ptr, ptr %5, align 8
+  %444 = getelementptr i8, ptr %443, i64 %442
+  store ptr %444, ptr %5, align 8
+  %445 = load ptr, ptr %4, align 8
+  %446 = icmp ult ptr %444, %445
+  br i1 %446, label %404, label %.critedge, !llvm.loop !52
 
-.critedge:                                        ; preds = %396, %428
-  %.val271759 = phi ptr [ %397, %396 ], [ %437, %428 ]
-  %storemerge.lcssa.ph = phi ptr [ %storemerge640, %396 ], [ %436, %428 ]
-  %.0247.lcssa.ph = phi i32 [ %.0247641, %396 ], [ %415, %428 ]
-  %.0246.lcssa.ph = phi ptr [ %.0246642, %396 ], [ %spec.select, %428 ]
-  %439 = icmp sgt i32 %.0247.lcssa.ph, 1
-  %440 = icmp ne i32 %393, 0
-  %or.cond3 = select i1 %440, i1 %439, i1 false
-  br i1 %or.cond3, label %441, label %445
+.critedge:                                        ; preds = %404, %436
+  %.val271751 = phi ptr [ %405, %404 ], [ %445, %436 ]
+  %storemerge.lcssa.ph = phi ptr [ %storemerge632, %404 ], [ %444, %436 ]
+  %.0247.lcssa.ph = phi i32 [ %.0247633, %404 ], [ %423, %436 ]
+  %.0246.lcssa.ph = phi ptr [ %.0246634, %404 ], [ %spec.select, %436 ]
+  %447 = icmp sgt i32 %.0247.lcssa.ph, 1
+  %448 = icmp ne i32 %401, 0
+  %or.cond3 = select i1 %448, i1 %447, i1 false
+  br i1 %or.cond3, label %449, label %453
 
-441:                                              ; preds = %.critedge
-  %442 = getelementptr i8, ptr %storemerge.lcssa.ph, i64 -1
-  %443 = getelementptr inbounds i8, ptr %0, i64 432
-  %444 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %443, ptr noundef %.0246.lcssa.ph, ptr noundef %442, i32 noundef 77) #26
+449:                                              ; preds = %.critedge
+  %450 = getelementptr i8, ptr %storemerge.lcssa.ph, i64 -1
+  %451 = getelementptr inbounds i8, ptr %0, i64 432
+  %452 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %451, ptr noundef %.0246.lcssa.ph, ptr noundef %450, i32 noundef 77) #26
   %.val271.pre = load ptr, ptr %4, align 8
   %.val272.pre = load ptr, ptr %5, align 8
-  br label %445
-
-445:                                              ; preds = %.critedge.thread, %441, %.critedge
-  %.pre-phi773 = phi i32 [ %392, %441 ], [ %392, %.critedge ], [ %.pre761, %.critedge.thread ]
-  %.val272 = phi ptr [ %.val272.pre, %441 ], [ %storemerge.lcssa.ph, %.critedge ], [ %388, %.critedge.thread ]
-  %.val271 = phi ptr [ %.val271.pre, %441 ], [ %.val271759, %.critedge ], [ %389, %.critedge.thread ]
-  %446 = icmp ugt ptr %.val271, %.val272
-  br i1 %446, label %peek.exit359, label %peek.exit359.thread
-
-peek.exit359:                                     ; preds = %445
-  %447 = load i8, ptr %.val272, align 1
-  %448 = icmp eq i8 %447, 125
-  br i1 %448, label %449, label %peek.exit359.thread
-
-449:                                              ; preds = %peek.exit359
-  %450 = getelementptr i8, ptr %.val272, i64 1
-  store ptr %450, ptr %5, align 8
   br label %453
 
-peek.exit359.thread:                              ; preds = %445, %peek.exit359
-  %451 = getelementptr inbounds i8, ptr %0, i64 432
-  %452 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %451, ptr noundef %381, ptr noundef %.val272, i32 noundef 79) #26
-  br label %453
+453:                                              ; preds = %.critedge.thread, %449, %.critedge
+  %.pre-phi765 = phi i32 [ %400, %449 ], [ %400, %.critedge ], [ %.pre753, %.critedge.thread ]
+  %.val272 = phi ptr [ %.val272.pre, %449 ], [ %storemerge.lcssa.ph, %.critedge ], [ %396, %.critedge.thread ]
+  %.val271 = phi ptr [ %.val271.pre, %449 ], [ %.val271751, %.critedge ], [ %397, %.critedge.thread ]
+  %454 = icmp ugt ptr %.val271, %.val272
+  br i1 %454, label %peek.exit359, label %peek.exit359.thread
 
-453:                                              ; preds = %peek.exit359.thread, %449
-  %454 = and i32 %.pre-phi773, 8
-  %.not258 = icmp eq i32 %454, 0
-  br i1 %.not258, label %escape_write_escape_encoded.exit, label %455
+peek.exit359:                                     ; preds = %453
+  %455 = load i8, ptr %.val272, align 1
+  %456 = icmp eq i8 %455, 125
+  br i1 %456, label %457, label %peek.exit359.thread
 
-455:                                              ; preds = %453
-  %456 = load ptr, ptr %5, align 8
-  %457 = ptrtoint ptr %456 to i64
-  %458 = ptrtoint ptr %381 to i64
-  %459 = sub i64 %457, %458
-  tail call void @pm_buffer_append_bytes(ptr noundef %1, ptr noundef %381, i64 noundef %459) #26
+457:                                              ; preds = %peek.exit359
+  %458 = getelementptr i8, ptr %.val272, i64 1
+  store ptr %458, ptr %5, align 8
+  br label %461
+
+peek.exit359.thread:                              ; preds = %453, %peek.exit359
+  %459 = getelementptr inbounds i8, ptr %0, i64 432
+  %460 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %459, ptr noundef %389, ptr noundef %.val272, i32 noundef 79) #26
+  br label %461
+
+461:                                              ; preds = %peek.exit359.thread, %457
+  %462 = and i32 %.pre-phi765, 8
+  %.not258 = icmp eq i32 %462, 0
+  br i1 %.not258, label %escape_write_escape_encoded.exit, label %463
+
+463:                                              ; preds = %461
+  %464 = load ptr, ptr %5, align 8
+  %465 = ptrtoint ptr %464 to i64
+  %466 = ptrtoint ptr %389 to i64
+  %467 = sub i64 %465, %466
+  tail call void @pm_buffer_append_bytes(ptr noundef %1, ptr noundef %389, i64 noundef %467) #26
   br label %escape_write_escape_encoded.exit
 
-peek.exit350.thread:                              ; preds = %376, %peek.exit350
-  %460 = getelementptr inbounds i8, ptr %0, i64 312
-  %461 = load ptr, ptr %460, align 8
-  %462 = getelementptr inbounds i8, ptr %0, i64 432
-  %463 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %462, ptr noundef %461, ptr noundef %.val274, i32 noundef 75) #26
-  br label %escape_write_escape_encoded.exit
-
-464:                                              ; preds = %peek.exit
-  %465 = getelementptr i8, ptr %7, i64 1
-  store ptr %465, ptr %5, align 8
-  %466 = icmp eq ptr %465, %.val283
-  br i1 %466, label %467, label %472
-
-467:                                              ; preds = %464
+peek.exit350.thread:                              ; preds = %384, %peek.exit350
   %468 = getelementptr inbounds i8, ptr %0, i64 312
   %469 = load ptr, ptr %468, align 8
   %470 = getelementptr inbounds i8, ptr %0, i64 432
-  %471 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %470, ptr noundef %469, ptr noundef %465, i32 noundef 70) #26
+  %471 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %470, ptr noundef %469, ptr noundef %.val274, i32 noundef 75) #26
   br label %escape_write_escape_encoded.exit
 
-472:                                              ; preds = %464
-  %473 = icmp ugt ptr %.val283, %465
-  br i1 %473, label %peek.exit361, label %char_is_ascii_printable.exit
+472:                                              ; preds = %peek.exit
+  %473 = getelementptr i8, ptr %7, i64 1
+  store ptr %473, ptr %5, align 8
+  %474 = icmp eq ptr %473, %.val283
+  br i1 %474, label %475, label %480
 
-peek.exit361:                                     ; preds = %472
-  %474 = load i8, ptr %465, align 1
-  switch i8 %474, label %490 [
-    i8 63, label %475
-    i8 92, label %480
+475:                                              ; preds = %472
+  %476 = getelementptr inbounds i8, ptr %0, i64 312
+  %477 = load ptr, ptr %476, align 8
+  %478 = getelementptr inbounds i8, ptr %0, i64 432
+  %479 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %478, ptr noundef %477, ptr noundef %473, i32 noundef 70) #26
+  br label %escape_write_escape_encoded.exit
+
+480:                                              ; preds = %472
+  %481 = icmp ugt ptr %.val283, %473
+  br i1 %481, label %peek.exit361, label %char_is_ascii_printable.exit
+
+peek.exit361:                                     ; preds = %480
+  %482 = load i8, ptr %473, align 1
+  switch i8 %482, label %498 [
+    i8 63, label %483
+    i8 92, label %488
   ]
 
-475:                                              ; preds = %peek.exit361
-  %476 = getelementptr i8, ptr %7, i64 2
-  store ptr %476, ptr %5, align 8
-  %477 = and i8 %.tr430639, 1
-  %.not.i362 = icmp eq i8 %477, 0
+483:                                              ; preds = %peek.exit361
+  %484 = getelementptr i8, ptr %7, i64 2
+  store ptr %484, ptr %5, align 8
+  %485 = and i8 %.tr422631, 1
+  %.not.i362 = icmp eq i8 %485, 0
   %spec.select.i363 = select i1 %.not.i362, i8 127, i8 31
-  %478 = shl i8 %.tr430639, 6
-  %479 = and i8 %478, -128
-  %.1.i364 = or disjoint i8 %spec.select.i363, %479
-  tail call fastcc void @escape_write_byte(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %.tr430639, i8 noundef zeroext %.1.i364)
+  %486 = shl i8 %.tr422631, 6
+  %487 = and i8 %486, -128
+  %.1.i364 = or disjoint i8 %spec.select.i363, %487
+  tail call fastcc void @escape_write_byte(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %.tr422631, i8 noundef zeroext %.1.i364)
   br label %escape_write_escape_encoded.exit
 
-480:                                              ; preds = %peek.exit361
-  %481 = and i8 %.tr430639, 1
-  %.not255 = icmp eq i8 %481, 0
-  br i1 %.not255, label %tailrecurse.backedge, label %482
+488:                                              ; preds = %peek.exit361
+  %489 = and i8 %.tr422631, 1
+  %.not255 = icmp eq i8 %489, 0
+  br i1 %.not255, label %tailrecurse.backedge, label %490
 
-482:                                              ; preds = %480
-  %483 = getelementptr inbounds i8, ptr %0, i64 312
-  %484 = load ptr, ptr %483, align 8
-  %485 = getelementptr inbounds i8, ptr %0, i64 432
-  %486 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %485, ptr noundef %484, ptr noundef nonnull %465, i32 noundef 71) #26
+490:                                              ; preds = %488
+  %491 = getelementptr inbounds i8, ptr %0, i64 312
+  %492 = load ptr, ptr %491, align 8
+  %493 = getelementptr inbounds i8, ptr %0, i64 432
+  %494 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %493, ptr noundef %492, ptr noundef nonnull %473, i32 noundef 71) #26
   br label %escape_write_escape_encoded.exit
 
-tailrecurse.backedge:                             ; preds = %480, %571, %529
-  %.sink912 = phi i64 [ 3, %529 ], [ 3, %571 ], [ 2, %480 ]
-  %.sink = phi i8 [ 1, %529 ], [ 2, %571 ], [ 1, %480 ]
-  %487 = getelementptr i8, ptr %7, i64 %.sink912
-  store ptr %487, ptr %5, align 8
-  %488 = or disjoint i8 %.tr430639, %.sink
-  %489 = icmp ugt ptr %.val283, %487
-  br i1 %489, label %peek.exit, label %escape_write_escape_encoded.exit
+tailrecurse.backedge:                             ; preds = %488, %579, %537
+  %.sink904 = phi i64 [ 3, %537 ], [ 3, %579 ], [ 2, %488 ]
+  %.sink = phi i8 [ 1, %537 ], [ 2, %579 ], [ 1, %488 ]
+  %495 = getelementptr i8, ptr %7, i64 %.sink904
+  store ptr %495, ptr %5, align 8
+  %496 = or disjoint i8 %.tr422631, %.sink
+  %497 = icmp ugt ptr %.val283, %495
+  br i1 %497, label %peek.exit, label %escape_write_escape_encoded.exit
 
-490:                                              ; preds = %peek.exit361
-  %491 = icmp sgt i8 %474, -1
-  br i1 %491, label %char_is_ascii_printable.exit, label %char_is_ascii_printable.exit.thread
+498:                                              ; preds = %peek.exit361
+  %499 = icmp sgt i8 %482, -1
+  br i1 %499, label %char_is_ascii_printable.exit, label %char_is_ascii_printable.exit.thread
 
-char_is_ascii_printable.exit:                     ; preds = %472, %490
-  %.0.i.i360396398 = phi i8 [ %474, %490 ], [ 0, %472 ]
-  %492 = zext nneg i8 %.0.i.i360396398 to i64
-  %493 = getelementptr [128 x i8], ptr @ascii_printable_chars, i64 0, i64 %492
-  %494 = load i8, ptr %493, align 1
-  %495 = trunc i8 %494 to i1
-  br i1 %495, label %500, label %char_is_ascii_printable.exit.thread
+char_is_ascii_printable.exit:                     ; preds = %480, %498
+  %.0.i.i360396398 = phi i8 [ %482, %498 ], [ 0, %480 ]
+  %500 = zext nneg i8 %.0.i.i360396398 to i64
+  %501 = getelementptr [128 x i8], ptr @ascii_printable_chars, i64 0, i64 %500
+  %502 = load i8, ptr %501, align 1
+  %503 = trunc i8 %502 to i1
+  br i1 %503, label %508, label %char_is_ascii_printable.exit.thread
 
-char_is_ascii_printable.exit.thread:              ; preds = %490, %char_is_ascii_printable.exit
-  %496 = getelementptr inbounds i8, ptr %0, i64 312
-  %497 = load ptr, ptr %496, align 8
-  %498 = getelementptr inbounds i8, ptr %0, i64 432
-  %499 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %498, ptr noundef %497, ptr noundef %465, i32 noundef 70) #26
+char_is_ascii_printable.exit.thread:              ; preds = %498, %char_is_ascii_printable.exit
+  %504 = getelementptr inbounds i8, ptr %0, i64 312
+  %505 = load ptr, ptr %504, align 8
+  %506 = getelementptr inbounds i8, ptr %0, i64 432
+  %507 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %506, ptr noundef %505, ptr noundef %473, i32 noundef 70) #26
   br label %escape_write_escape_encoded.exit
 
-500:                                              ; preds = %char_is_ascii_printable.exit
-  %501 = getelementptr i8, ptr %7, i64 2
-  store ptr %501, ptr %5, align 8
-  %502 = and i8 %.0.i.i360396398, 31
-  %503 = shl i8 %.tr430639, 6
-  %504 = and i8 %503, -128
-  %.1.i367 = or disjoint i8 %502, %504
-  tail call fastcc void @escape_write_byte(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %.tr430639, i8 noundef zeroext %.1.i367)
+508:                                              ; preds = %char_is_ascii_printable.exit
+  %509 = getelementptr i8, ptr %7, i64 2
+  store ptr %509, ptr %5, align 8
+  %510 = and i8 %.0.i.i360396398, 31
+  %511 = shl i8 %.tr422631, 6
+  %512 = and i8 %511, -128
+  %.1.i367 = or disjoint i8 %510, %512
+  tail call fastcc void @escape_write_byte(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %.tr422631, i8 noundef zeroext %.1.i367)
   br label %escape_write_escape_encoded.exit
 
-505:                                              ; preds = %peek.exit
-  %506 = getelementptr i8, ptr %7, i64 1
-  store ptr %506, ptr %5, align 8
-  %507 = icmp ugt ptr %.val283, %506
-  br i1 %507, label %peek.exit369, label %peek.exit369.thread
-
-peek.exit369:                                     ; preds = %505
-  %508 = load i8, ptr %506, align 1
-  %.not253 = icmp eq i8 %508, 45
-  br i1 %.not253, label %513, label %peek.exit369.thread
-
-peek.exit369.thread:                              ; preds = %505, %peek.exit369
-  %509 = getelementptr inbounds i8, ptr %0, i64 312
-  %510 = load ptr, ptr %509, align 8
-  %511 = getelementptr inbounds i8, ptr %0, i64 432
-  %512 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %511, ptr noundef %510, ptr noundef %506, i32 noundef 70) #26
-  br label %escape_write_escape_encoded.exit
-
-513:                                              ; preds = %peek.exit369
-  %514 = getelementptr i8, ptr %7, i64 2
+513:                                              ; preds = %peek.exit
+  %514 = getelementptr i8, ptr %7, i64 1
   store ptr %514, ptr %5, align 8
-  %515 = icmp eq ptr %514, %.val283
-  br i1 %515, label %516, label %521
+  %515 = icmp ugt ptr %.val283, %514
+  br i1 %515, label %peek.exit369, label %peek.exit369.thread
 
-516:                                              ; preds = %513
+peek.exit369:                                     ; preds = %513
+  %516 = load i8, ptr %514, align 1
+  %.not253 = icmp eq i8 %516, 45
+  br i1 %.not253, label %521, label %peek.exit369.thread
+
+peek.exit369.thread:                              ; preds = %513, %peek.exit369
   %517 = getelementptr inbounds i8, ptr %0, i64 312
   %518 = load ptr, ptr %517, align 8
   %519 = getelementptr inbounds i8, ptr %0, i64 432
   %520 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %519, ptr noundef %518, ptr noundef %514, i32 noundef 70) #26
   br label %escape_write_escape_encoded.exit
 
-521:                                              ; preds = %513
-  %522 = icmp ugt ptr %.val283, %514
-  br i1 %522, label %peek.exit371, label %char_is_ascii_printable.exit375
+521:                                              ; preds = %peek.exit369
+  %522 = getelementptr i8, ptr %7, i64 2
+  store ptr %522, ptr %5, align 8
+  %523 = icmp eq ptr %522, %.val283
+  br i1 %523, label %524, label %529
 
-peek.exit371:                                     ; preds = %521
-  %523 = load i8, ptr %514, align 1
-  switch i8 %523, label %536 [
-    i8 63, label %524
-    i8 92, label %529
+524:                                              ; preds = %521
+  %525 = getelementptr inbounds i8, ptr %0, i64 312
+  %526 = load ptr, ptr %525, align 8
+  %527 = getelementptr inbounds i8, ptr %0, i64 432
+  %528 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %527, ptr noundef %526, ptr noundef %522, i32 noundef 70) #26
+  br label %escape_write_escape_encoded.exit
+
+529:                                              ; preds = %521
+  %530 = icmp ugt ptr %.val283, %522
+  br i1 %530, label %peek.exit371, label %char_is_ascii_printable.exit375
+
+peek.exit371:                                     ; preds = %529
+  %531 = load i8, ptr %522, align 1
+  switch i8 %531, label %544 [
+    i8 63, label %532
+    i8 92, label %537
   ]
 
-524:                                              ; preds = %peek.exit371
-  %525 = getelementptr i8, ptr %7, i64 3
-  store ptr %525, ptr %5, align 8
-  %526 = and i8 %.tr430639, 1
-  %.not.i372 = icmp eq i8 %526, 0
+532:                                              ; preds = %peek.exit371
+  %533 = getelementptr i8, ptr %7, i64 3
+  store ptr %533, ptr %5, align 8
+  %534 = and i8 %.tr422631, 1
+  %.not.i372 = icmp eq i8 %534, 0
   %spec.select.i373 = select i1 %.not.i372, i8 127, i8 31
-  %527 = shl i8 %.tr430639, 6
-  %528 = and i8 %527, -128
-  %.1.i374 = or disjoint i8 %spec.select.i373, %528
-  tail call fastcc void @escape_write_byte(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %.tr430639, i8 noundef zeroext %.1.i374)
+  %535 = shl i8 %.tr422631, 6
+  %536 = and i8 %535, -128
+  %.1.i374 = or disjoint i8 %spec.select.i373, %536
+  tail call fastcc void @escape_write_byte(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %.tr422631, i8 noundef zeroext %.1.i374)
   br label %escape_write_escape_encoded.exit
 
-529:                                              ; preds = %peek.exit371
-  %530 = and i8 %.tr430639, 1
-  %.not254 = icmp eq i8 %530, 0
-  br i1 %.not254, label %tailrecurse.backedge, label %531
+537:                                              ; preds = %peek.exit371
+  %538 = and i8 %.tr422631, 1
+  %.not254 = icmp eq i8 %538, 0
+  br i1 %.not254, label %tailrecurse.backedge, label %539
 
-531:                                              ; preds = %529
-  %532 = getelementptr inbounds i8, ptr %0, i64 312
-  %533 = load ptr, ptr %532, align 8
-  %534 = getelementptr inbounds i8, ptr %0, i64 432
-  %535 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %534, ptr noundef %533, ptr noundef nonnull %514, i32 noundef 71) #26
+539:                                              ; preds = %537
+  %540 = getelementptr inbounds i8, ptr %0, i64 312
+  %541 = load ptr, ptr %540, align 8
+  %542 = getelementptr inbounds i8, ptr %0, i64 432
+  %543 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %542, ptr noundef %541, ptr noundef nonnull %522, i32 noundef 71) #26
   br label %escape_write_escape_encoded.exit
 
-536:                                              ; preds = %peek.exit371
-  %537 = icmp sgt i8 %523, -1
-  br i1 %537, label %char_is_ascii_printable.exit375, label %char_is_ascii_printable.exit375.thread
+544:                                              ; preds = %peek.exit371
+  %545 = icmp sgt i8 %531, -1
+  br i1 %545, label %char_is_ascii_printable.exit375, label %char_is_ascii_printable.exit375.thread
 
-char_is_ascii_printable.exit375:                  ; preds = %521, %536
-  %.0.i.i370404407 = phi i8 [ %523, %536 ], [ 0, %521 ]
-  %538 = zext nneg i8 %.0.i.i370404407 to i64
-  %539 = getelementptr [128 x i8], ptr @ascii_printable_chars, i64 0, i64 %538
-  %540 = load i8, ptr %539, align 1
-  %541 = trunc i8 %540 to i1
-  br i1 %541, label %546, label %char_is_ascii_printable.exit375.thread
+char_is_ascii_printable.exit375:                  ; preds = %529, %544
+  %.0.i.i370404407 = phi i8 [ %531, %544 ], [ 0, %529 ]
+  %546 = zext nneg i8 %.0.i.i370404407 to i64
+  %547 = getelementptr [128 x i8], ptr @ascii_printable_chars, i64 0, i64 %546
+  %548 = load i8, ptr %547, align 1
+  %549 = trunc i8 %548 to i1
+  br i1 %549, label %554, label %char_is_ascii_printable.exit375.thread
 
-char_is_ascii_printable.exit375.thread:           ; preds = %536, %char_is_ascii_printable.exit375
-  %542 = getelementptr inbounds i8, ptr %0, i64 312
-  %543 = load ptr, ptr %542, align 8
-  %544 = getelementptr inbounds i8, ptr %0, i64 432
-  %545 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %544, ptr noundef %543, ptr noundef %514, i32 noundef 70) #26
+char_is_ascii_printable.exit375.thread:           ; preds = %544, %char_is_ascii_printable.exit375
+  %550 = getelementptr inbounds i8, ptr %0, i64 312
+  %551 = load ptr, ptr %550, align 8
+  %552 = getelementptr inbounds i8, ptr %0, i64 432
+  %553 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %552, ptr noundef %551, ptr noundef %522, i32 noundef 70) #26
   br label %escape_write_escape_encoded.exit
 
-546:                                              ; preds = %char_is_ascii_printable.exit375
-  %547 = getelementptr i8, ptr %7, i64 3
-  store ptr %547, ptr %5, align 8
-  %548 = and i8 %.0.i.i370404407, 31
-  %549 = shl i8 %.tr430639, 6
-  %550 = and i8 %549, -128
-  %.1.i378 = or disjoint i8 %548, %550
-  tail call fastcc void @escape_write_byte(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %.tr430639, i8 noundef zeroext %.1.i378)
+554:                                              ; preds = %char_is_ascii_printable.exit375
+  %555 = getelementptr i8, ptr %7, i64 3
+  store ptr %555, ptr %5, align 8
+  %556 = and i8 %.0.i.i370404407, 31
+  %557 = shl i8 %.tr422631, 6
+  %558 = and i8 %557, -128
+  %.1.i378 = or disjoint i8 %556, %558
+  tail call fastcc void @escape_write_byte(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %.tr422631, i8 noundef zeroext %.1.i378)
   br label %escape_write_escape_encoded.exit
 
-551:                                              ; preds = %peek.exit
-  %552 = getelementptr i8, ptr %7, i64 1
-  store ptr %552, ptr %5, align 8
-  %553 = icmp ugt ptr %.val283, %552
-  br i1 %553, label %peek.exit380, label %peek.exit380.thread
-
-peek.exit380:                                     ; preds = %551
-  %554 = load i8, ptr %552, align 1
-  %.not = icmp eq i8 %554, 45
-  br i1 %.not, label %559, label %peek.exit380.thread
-
-peek.exit380.thread:                              ; preds = %551, %peek.exit380
-  %555 = getelementptr inbounds i8, ptr %0, i64 312
-  %556 = load ptr, ptr %555, align 8
-  %557 = getelementptr inbounds i8, ptr %0, i64 432
-  %558 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %557, ptr noundef %556, ptr noundef %552, i32 noundef 73) #26
-  br label %escape_write_escape_encoded.exit
-
-559:                                              ; preds = %peek.exit380
-  %560 = getelementptr i8, ptr %7, i64 2
+559:                                              ; preds = %peek.exit
+  %560 = getelementptr i8, ptr %7, i64 1
   store ptr %560, ptr %5, align 8
-  %561 = icmp eq ptr %560, %.val283
-  br i1 %561, label %562, label %567
+  %561 = icmp ugt ptr %.val283, %560
+  br i1 %561, label %peek.exit380, label %peek.exit380.thread
 
-562:                                              ; preds = %559
+peek.exit380:                                     ; preds = %559
+  %562 = load i8, ptr %560, align 1
+  %.not = icmp eq i8 %562, 45
+  br i1 %.not, label %567, label %peek.exit380.thread
+
+peek.exit380.thread:                              ; preds = %559, %peek.exit380
   %563 = getelementptr inbounds i8, ptr %0, i64 312
   %564 = load ptr, ptr %563, align 8
   %565 = getelementptr inbounds i8, ptr %0, i64 432
   %566 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %565, ptr noundef %564, ptr noundef %560, i32 noundef 73) #26
   br label %escape_write_escape_encoded.exit
 
-567:                                              ; preds = %559
-  %568 = icmp ugt ptr %.val283, %560
-  br i1 %568, label %peek.exit382, label %char_is_ascii_printable.exit383
+567:                                              ; preds = %peek.exit380
+  %568 = getelementptr i8, ptr %7, i64 2
+  store ptr %568, ptr %5, align 8
+  %569 = icmp eq ptr %568, %.val283
+  br i1 %569, label %570, label %575
 
-peek.exit382:                                     ; preds = %567
-  %569 = load i8, ptr %560, align 1
-  %570 = icmp eq i8 %569, 92
-  br i1 %570, label %571, label %578
-
-571:                                              ; preds = %peek.exit382
-  %572 = and i8 %.tr430639, 2
-  %.not252 = icmp eq i8 %572, 0
-  br i1 %.not252, label %tailrecurse.backedge, label %573
-
-573:                                              ; preds = %571
-  %574 = getelementptr inbounds i8, ptr %0, i64 312
-  %575 = load ptr, ptr %574, align 8
-  %576 = getelementptr inbounds i8, ptr %0, i64 432
-  %577 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %576, ptr noundef %575, ptr noundef nonnull %560, i32 noundef 74) #26
+570:                                              ; preds = %567
+  %571 = getelementptr inbounds i8, ptr %0, i64 312
+  %572 = load ptr, ptr %571, align 8
+  %573 = getelementptr inbounds i8, ptr %0, i64 432
+  %574 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %573, ptr noundef %572, ptr noundef %568, i32 noundef 73) #26
   br label %escape_write_escape_encoded.exit
 
-578:                                              ; preds = %peek.exit382
-  %579 = icmp sgt i8 %569, -1
-  br i1 %579, label %char_is_ascii_printable.exit383, label %char_is_ascii_printable.exit383.thread
+575:                                              ; preds = %567
+  %576 = icmp ugt ptr %.val283, %568
+  br i1 %576, label %peek.exit382, label %char_is_ascii_printable.exit383
 
-char_is_ascii_printable.exit383:                  ; preds = %567, %578
-  %.0.i.i381413416 = phi i8 [ %569, %578 ], [ 0, %567 ]
-  %580 = zext nneg i8 %.0.i.i381413416 to i64
-  %581 = getelementptr [128 x i8], ptr @ascii_printable_chars, i64 0, i64 %580
-  %582 = load i8, ptr %581, align 1
-  %583 = trunc i8 %582 to i1
-  br i1 %583, label %588, label %char_is_ascii_printable.exit383.thread
+peek.exit382:                                     ; preds = %575
+  %577 = load i8, ptr %568, align 1
+  %578 = icmp eq i8 %577, 92
+  br i1 %578, label %579, label %586
 
-char_is_ascii_printable.exit383.thread:           ; preds = %578, %char_is_ascii_printable.exit383
-  %584 = getelementptr inbounds i8, ptr %0, i64 312
-  %585 = load ptr, ptr %584, align 8
-  %586 = getelementptr inbounds i8, ptr %0, i64 432
-  %587 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %586, ptr noundef %585, ptr noundef %560, i32 noundef 73) #26
+579:                                              ; preds = %peek.exit382
+  %580 = and i8 %.tr422631, 2
+  %.not252 = icmp eq i8 %580, 0
+  br i1 %.not252, label %tailrecurse.backedge, label %581
+
+581:                                              ; preds = %579
+  %582 = getelementptr inbounds i8, ptr %0, i64 312
+  %583 = load ptr, ptr %582, align 8
+  %584 = getelementptr inbounds i8, ptr %0, i64 432
+  %585 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %584, ptr noundef %583, ptr noundef nonnull %568, i32 noundef 74) #26
   br label %escape_write_escape_encoded.exit
 
-588:                                              ; preds = %char_is_ascii_printable.exit383
-  %589 = getelementptr i8, ptr %7, i64 3
-  store ptr %589, ptr %5, align 8
-  %590 = and i8 %.tr430639, 1
-  %.not.i384 = icmp eq i8 %590, 0
-  %591 = and i8 %.0.i.i381413416, 31
-  %spec.select.i385 = select i1 %.not.i384, i8 %.0.i.i381413416, i8 %591
+586:                                              ; preds = %peek.exit382
+  %587 = icmp sgt i8 %577, -1
+  br i1 %587, label %char_is_ascii_printable.exit383, label %char_is_ascii_printable.exit383.thread
+
+char_is_ascii_printable.exit383:                  ; preds = %575, %586
+  %.0.i.i381413416 = phi i8 [ %577, %586 ], [ 0, %575 ]
+  %588 = zext nneg i8 %.0.i.i381413416 to i64
+  %589 = getelementptr [128 x i8], ptr @ascii_printable_chars, i64 0, i64 %588
+  %590 = load i8, ptr %589, align 1
+  %591 = trunc i8 %590 to i1
+  br i1 %591, label %596, label %char_is_ascii_printable.exit383.thread
+
+char_is_ascii_printable.exit383.thread:           ; preds = %586, %char_is_ascii_printable.exit383
+  %592 = getelementptr inbounds i8, ptr %0, i64 312
+  %593 = load ptr, ptr %592, align 8
+  %594 = getelementptr inbounds i8, ptr %0, i64 432
+  %595 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %594, ptr noundef %593, ptr noundef %568, i32 noundef 73) #26
+  br label %escape_write_escape_encoded.exit
+
+596:                                              ; preds = %char_is_ascii_printable.exit383
+  %597 = getelementptr i8, ptr %7, i64 3
+  store ptr %597, ptr %5, align 8
+  %598 = and i8 %.tr422631, 1
+  %.not.i384 = icmp eq i8 %598, 0
+  %599 = and i8 %.0.i.i381413416, 31
+  %spec.select.i385 = select i1 %.not.i384, i8 %.0.i.i381413416, i8 %599
   %.1.i386 = or disjoint i8 %spec.select.i385, -128
-  tail call fastcc void @escape_write_byte(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %.tr430639, i8 noundef zeroext %.1.i386)
+  tail call fastcc void @escape_write_byte(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %.tr422631, i8 noundef zeroext %.1.i386)
   br label %escape_write_escape_encoded.exit
 
-592:                                              ; preds = %peek.exit
-  %593 = getelementptr i8, ptr %7, i64 1
-  %594 = icmp ult ptr %593, %.val283
-  br i1 %594, label %peek_offset.exit, label %peek_offset.exit.thread
+600:                                              ; preds = %peek.exit
+  %601 = getelementptr i8, ptr %7, i64 1
+  %602 = icmp ult ptr %601, %.val283
+  br i1 %602, label %peek_offset.exit, label %peek_offset.exit.thread
 
-peek_offset.exit:                                 ; preds = %592
-  %595 = load i8, ptr %593, align 1
-  %596 = icmp eq i8 %595, 10
-  br i1 %596, label %597, label %peek_offset.exit.thread
+peek_offset.exit:                                 ; preds = %600
+  %603 = load i8, ptr %601, align 1
+  %604 = icmp eq i8 %603, 10
+  br i1 %604, label %605, label %peek_offset.exit.thread
 
-597:                                              ; preds = %peek_offset.exit
-  %598 = getelementptr i8, ptr %7, i64 2
-  store ptr %598, ptr %5, align 8
-  %599 = shl i8 %.tr430639, 6
-  %600 = and i8 %599, -128
-  %.1.i390 = or disjoint i8 %600, 10
+605:                                              ; preds = %peek_offset.exit
+  %606 = getelementptr i8, ptr %7, i64 2
+  store ptr %606, ptr %5, align 8
+  %607 = shl i8 %.tr422631, 6
+  %608 = and i8 %607, -128
+  %.1.i390 = or disjoint i8 %608, 10
   tail call fastcc void @escape_write_byte_encoded(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %.1.i390)
   br label %escape_write_escape_encoded.exit
 
-peek_offset.exit.thread:                          ; preds = %peek.exit, %592, %peek_offset.exit
-  %601 = getelementptr inbounds i8, ptr %0, i64 643
-  %602 = load i8, ptr %601, align 1
-  %603 = trunc i8 %602 to i1
-  br i1 %603, label %604, label %612
-
-604:                                              ; preds = %peek_offset.exit.thread
-  %605 = getelementptr inbounds i8, ptr %0, i64 472
-  %606 = load ptr, ptr %605, align 8
-  %607 = load ptr, ptr %606, align 8
-  %608 = ptrtoint ptr %.val283 to i64
-  %609 = ptrtoint ptr %7 to i64
-  %610 = sub i64 %608, %609
-  %611 = tail call i64 %607(ptr noundef nonnull %7, i64 noundef %610) #26
-  br label %617
+peek_offset.exit.thread:                          ; preds = %peek.exit, %600, %peek_offset.exit
+  %609 = getelementptr inbounds i8, ptr %0, i64 643
+  %610 = load i8, ptr %609, align 1
+  %611 = trunc i8 %610 to i1
+  br i1 %611, label %612, label %620
 
 612:                                              ; preds = %peek_offset.exit.thread
-  %613 = ptrtoint ptr %.val283 to i64
-  %614 = ptrtoint ptr %7 to i64
-  %615 = sub i64 %613, %614
-  %616 = tail call i64 @pm_encoding_utf_8_char_width(ptr noundef nonnull %7, i64 noundef %615) #26
-  br label %617
+  %613 = getelementptr inbounds i8, ptr %0, i64 472
+  %614 = load ptr, ptr %613, align 8
+  %615 = load ptr, ptr %614, align 8
+  %616 = ptrtoint ptr %.val283 to i64
+  %617 = ptrtoint ptr %7 to i64
+  %618 = sub i64 %616, %617
+  %619 = tail call i64 %615(ptr noundef nonnull %7, i64 noundef %618) #26
+  br label %625
 
-617:                                              ; preds = %612, %604
-  %.016.i = phi i64 [ %611, %604 ], [ %616, %612 ]
-  %618 = getelementptr inbounds i8, ptr %0, i64 624
-  %619 = getelementptr inbounds i8, ptr %0, i64 472
-  %620 = getelementptr inbounds i8, ptr %0, i64 432
-  %621 = getelementptr inbounds i8, ptr %0, i64 312
+620:                                              ; preds = %peek_offset.exit.thread
+  %621 = ptrtoint ptr %.val283 to i64
+  %622 = ptrtoint ptr %7 to i64
+  %623 = sub i64 %621, %622
+  %624 = tail call i64 @pm_encoding_utf_8_char_width(ptr noundef nonnull %7, i64 noundef %623) #26
+  br label %625
+
+625:                                              ; preds = %620, %612
+  %.016.i = phi i64 [ %619, %612 ], [ %624, %620 ]
+  %626 = getelementptr inbounds i8, ptr %0, i64 624
+  %627 = getelementptr inbounds i8, ptr %0, i64 472
+  %628 = getelementptr inbounds i8, ptr %0, i64 432
+  %629 = getelementptr inbounds i8, ptr %0, i64 312
   %umax.i = tail call i64 @llvm.umax.i64(i64 %.016.i, i64 1)
   %.pre.i = load ptr, ptr %5, align 8
-  br label %622
+  br label %630
 
-622:                                              ; preds = %escape_write_byte_encoded.exit.i, %617
-  %623 = phi ptr [ %.pre.i, %617 ], [ %638, %escape_write_byte_encoded.exit.i ]
-  %.017.i = phi i64 [ 0, %617 ], [ %639, %escape_write_byte_encoded.exit.i ]
-  %624 = load i8, ptr %623, align 1
-  %625 = icmp slt i8 %624, 0
-  br i1 %625, label %626, label %escape_write_byte_encoded.exit.i
+630:                                              ; preds = %escape_write_byte_encoded.exit.i, %625
+  %631 = phi ptr [ %.pre.i, %625 ], [ %646, %escape_write_byte_encoded.exit.i ]
+  %.017.i = phi i64 [ 0, %625 ], [ %647, %escape_write_byte_encoded.exit.i ]
+  %632 = load i8, ptr %631, align 1
+  %633 = icmp slt i8 %632, 0
+  br i1 %633, label %634, label %escape_write_byte_encoded.exit.i
 
-626:                                              ; preds = %622
-  %627 = load ptr, ptr %618, align 8
-  %628 = icmp eq ptr %627, @pm_encodings
-  %.pre19.i = load ptr, ptr %619, align 8
-  br i1 %628, label %629, label %635
+634:                                              ; preds = %630
+  %635 = load ptr, ptr %626, align 8
+  %636 = icmp eq ptr %635, @pm_encodings
+  %.pre19.i = load ptr, ptr %627, align 8
+  br i1 %636, label %637, label %643
 
-629:                                              ; preds = %626
+637:                                              ; preds = %634
   %.not12.i.i = icmp eq ptr %.pre19.i, @pm_encodings
-  br i1 %.not12.i.i, label %635, label %630
+  br i1 %.not12.i.i, label %643, label %638
 
-630:                                              ; preds = %629
-  %631 = load ptr, ptr %621, align 8
-  %632 = getelementptr inbounds i8, ptr %.pre19.i, i64 32
-  %633 = load ptr, ptr %632, align 8
-  %634 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %620, ptr noundef %631, ptr noundef nonnull %623, i32 noundef 145, ptr noundef %633) #26
-  %.pre18.i = load ptr, ptr %619, align 8
-  br label %635
+638:                                              ; preds = %637
+  %639 = load ptr, ptr %629, align 8
+  %640 = getelementptr inbounds i8, ptr %.pre19.i, i64 32
+  %641 = load ptr, ptr %640, align 8
+  %642 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %628, ptr noundef %639, ptr noundef nonnull %631, i32 noundef 145, ptr noundef %641) #26
+  %.pre18.i = load ptr, ptr %627, align 8
+  br label %643
 
-635:                                              ; preds = %630, %629, %626
-  %636 = phi ptr [ %.pre18.i, %630 ], [ @pm_encodings, %629 ], [ %.pre19.i, %626 ]
-  store ptr %636, ptr %618, align 8
+643:                                              ; preds = %638, %637, %634
+  %644 = phi ptr [ %.pre18.i, %638 ], [ @pm_encodings, %637 ], [ %.pre19.i, %634 ]
+  store ptr %644, ptr %626, align 8
   br label %escape_write_byte_encoded.exit.i
 
-escape_write_byte_encoded.exit.i:                 ; preds = %635, %622
-  tail call void @pm_buffer_append_byte(ptr noundef %1, i8 noundef zeroext %624) #26
-  %637 = load ptr, ptr %5, align 8
-  %638 = getelementptr i8, ptr %637, i64 1
-  store ptr %638, ptr %5, align 8
-  %639 = add nuw i64 %.017.i, 1
-  %exitcond.not.i391 = icmp eq i64 %639, %umax.i
-  br i1 %exitcond.not.i391, label %escape_write_escape_encoded.exit, label %622, !llvm.loop !53
+escape_write_byte_encoded.exit.i:                 ; preds = %643, %630
+  tail call void @pm_buffer_append_byte(ptr noundef %1, i8 noundef zeroext %632) #26
+  %645 = load ptr, ptr %5, align 8
+  %646 = getelementptr i8, ptr %645, i64 1
+  store ptr %646, ptr %5, align 8
+  %647 = add nuw i64 %.017.i, 1
+  %exitcond.not.i391 = icmp eq i64 %647, %umax.i
+  br i1 %exitcond.not.i391, label %escape_write_escape_encoded.exit, label %630, !llvm.loop !53
 
-escape_write_escape_encoded.exit:                 ; preds = %tailrecurse.backedge, %escape_write_byte_encoded.exit.i, %3, %373, %453, %455, %peek.exit350.thread, %330, %329, %324, %597, %588, %char_is_ascii_printable.exit383.thread, %573, %562, %peek.exit380.thread, %546, %char_is_ascii_printable.exit375.thread, %531, %524, %516, %peek.exit369.thread, %500, %char_is_ascii_printable.exit.thread, %482, %475, %467, %410, %escape_write_byte_encoded.exit342, %escape_write_byte_encoded.exit336, %escape_write_byte_encoded.exit331, %escape_write_byte_encoded.exit326, %escape_write_byte_encoded.exit321, %escape_write_byte_encoded.exit316, %escape_write_byte_encoded.exit311, %escape_write_byte_encoded.exit306, %escape_write_byte_encoded.exit301, %escape_write_byte_encoded.exit296, %escape_write_byte_encoded.exit291, %escape_write_byte_encoded.exit
+escape_write_escape_encoded.exit:                 ; preds = %tailrecurse.backedge, %escape_write_byte_encoded.exit.i, %3, %381, %461, %463, %peek.exit350.thread, %338, %337, %332, %605, %596, %char_is_ascii_printable.exit383.thread, %581, %570, %peek.exit380.thread, %554, %char_is_ascii_printable.exit375.thread, %539, %532, %524, %peek.exit369.thread, %508, %char_is_ascii_printable.exit.thread, %490, %483, %475, %418, %escape_write_byte_encoded.exit342, %escape_write_byte_encoded.exit336, %escape_write_byte_encoded.exit331, %escape_write_byte_encoded.exit326, %escape_write_byte_encoded.exit321, %escape_write_byte_encoded.exit316, %escape_write_byte_encoded.exit311, %escape_write_byte_encoded.exit306, %escape_write_byte_encoded.exit301, %escape_write_byte_encoded.exit296, %escape_write_byte_encoded.exit291, %escape_write_byte_encoded.exit
   ret void
 }
 

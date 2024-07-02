@@ -2054,76 +2054,78 @@ define linkonce_odr void @_ZN5ZXing10DataMatrix14EncoderContextC2EONSt7__cxx1112
   %4 = load ptr, ptr %1, align 8, !tbaa !3
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = icmp eq ptr %4, %5
-  br i1 %6, label %7, label %11
+  br i1 %6, label %7, label %12
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !10
-  %10 = add nuw nsw i64 %9, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %10, i1 false)
-  br label %13
+  %10 = icmp ult i64 %9, 16
+  tail call void @llvm.assume(i1 %10)
+  %11 = add nuw nsw i64 %9, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %11, i1 false)
+  br label %14
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   store ptr %4, ptr %0, align 8, !tbaa !3
-  %12 = load i64, ptr %5, align 8, !tbaa !30
-  store i64 %12, ptr %3, align 8, !tbaa !30
-  br label %13
+  %13 = load i64, ptr %5, align 8, !tbaa !30
+  store i64 %13, ptr %3, align 8, !tbaa !30
+  br label %14
 
-13:                                               ; preds = %11, %7
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !10
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %15, ptr %16, align 8, !tbaa !10
+14:                                               ; preds = %12, %7
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load i64, ptr %15, align 8, !tbaa !10
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %16, ptr %17, align 8, !tbaa !10
   store ptr %5, ptr %1, align 8, !tbaa !3
-  store i64 0, ptr %14, align 8, !tbaa !10
+  store i64 0, ptr %15, align 8, !tbaa !10
   store i8 0, ptr %5, align 8, !tbaa !30
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 0, ptr %17, align 8, !tbaa !11
-  %18 = getelementptr inbounds i8, ptr %0, i64 36
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, i8 -1, i64 16, i1 false)
-  %20 = getelementptr inbounds i8, ptr %0, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %19, i8 0, i64 28, i1 false)
-  store i32 -1, ptr %20, align 4, !tbaa !39
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr null, ptr %21, align 8, !tbaa !45
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
-  store i32 0, ptr %22, align 8, !tbaa !28
-  %23 = load i64, ptr %16, align 8, !tbaa !10
-  invoke void @_ZNSt6vectorIhSaIhEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %23) #17
-          to label %24 unwind label %25
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 0, ptr %18, align 8, !tbaa !11
+  %19 = getelementptr inbounds i8, ptr %0, i64 36
+  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %19, i8 -1, i64 16, i1 false)
+  %21 = getelementptr inbounds i8, ptr %0, i64 84
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %20, i8 0, i64 28, i1 false)
+  store i32 -1, ptr %21, align 4, !tbaa !39
+  %22 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr null, ptr %22, align 8, !tbaa !45
+  %23 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 0, ptr %23, align 8, !tbaa !28
+  %24 = load i64, ptr %17, align 8, !tbaa !10
+  invoke void @_ZNSt6vectorIhSaIhEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %24) #17
+          to label %25 unwind label %26
 
-24:                                               ; preds = %13
+25:                                               ; preds = %14
   ret void
 
-25:                                               ; preds = %13
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %14
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = load ptr, ptr %19, align 8, !tbaa !41
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %30, label %29
+  %28 = load ptr, ptr %20, align 8, !tbaa !41
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %31, label %30
 
-29:                                               ; preds = %25
-  tail call void @_ZdlPv(ptr noundef nonnull %27) #19
-  br label %30
+30:                                               ; preds = %26
+  tail call void @_ZdlPv(ptr noundef nonnull %28) #19
+  br label %31
 
-30:                                               ; preds = %29, %25
-  %31 = load ptr, ptr %0, align 8, !tbaa !3
-  %32 = icmp eq ptr %31, %3
-  br i1 %32, label %33, label %36
+31:                                               ; preds = %30, %26
+  %32 = load ptr, ptr %0, align 8, !tbaa !3
+  %33 = icmp eq ptr %32, %3
+  br i1 %33, label %34, label %37
 
-33:                                               ; preds = %30
-  %34 = load i64, ptr %16, align 8, !tbaa !10
-  %35 = icmp ult i64 %34, 16
-  tail call void @llvm.assume(i1 %35)
-  br label %37
+34:                                               ; preds = %31
+  %35 = load i64, ptr %17, align 8, !tbaa !10
+  %36 = icmp ult i64 %35, 16
+  tail call void @llvm.assume(i1 %36)
+  br label %38
 
-36:                                               ; preds = %30
-  tail call void @_ZdlPv(ptr noundef %31) #19
-  br label %37
+37:                                               ; preds = %31
+  tail call void @_ZdlPv(ptr noundef %32) #19
+  br label %38
 
-37:                                               ; preds = %36, %33
-  resume { ptr, i32 } %26
+38:                                               ; preds = %37, %34
+  resume { ptr, i32 } %27
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -3915,30 +3917,32 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
   %7 = load ptr, ptr %5, align 8, !tbaa !3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = icmp eq ptr %7, %8
-  br i1 %9, label %10, label %14
+  br i1 %9, label %10, label %15
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !10
-  %13 = add nuw nsw i64 %12, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(1) %7, i64 %13, i1 false)
-  br label %18
+  %13 = icmp ult i64 %12, 16
+  tail call void @llvm.assume(i1 %13)
+  %14 = add nuw nsw i64 %12, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(1) %7, i64 %14, i1 false)
+  br label %19
 
-14:                                               ; preds = %3
+15:                                               ; preds = %3
   store ptr %7, ptr %0, align 8, !tbaa !3
-  %15 = load i64, ptr %8, align 8, !tbaa !30
-  store i64 %15, ptr %6, align 8, !tbaa !30
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !10
-  br label %18
+  %16 = load i64, ptr %8, align 8, !tbaa !30
+  store i64 %16, ptr %6, align 8, !tbaa !30
+  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = load i64, ptr %17, align 8, !tbaa !10
+  br label %19
 
-18:                                               ; preds = %14, %10
-  %19 = phi i64 [ %12, %10 ], [ %17, %14 ]
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %19, ptr %21, align 8, !tbaa !10
+19:                                               ; preds = %15, %10
+  %20 = phi i64 [ %12, %10 ], [ %18, %15 ]
+  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %20, ptr %22, align 8, !tbaa !10
   store ptr %8, ptr %5, align 8, !tbaa !3
-  store i64 0, ptr %20, align 8, !tbaa !10
+  store i64 0, ptr %21, align 8, !tbaa !10
   store i8 0, ptr %8, align 8, !tbaa !30
   ret void
 }

@@ -5795,11 +5795,11 @@ _ZN6brotli3enc7command18CombineLengthCodes17he28c5563882f5f20E.exit.thread: ; pr
   %253 = and i32 %252, 192
   %254 = add nuw nsw i32 %249, %253
   %255 = trunc i32 %254 to i16
-  %256 = or disjoint i16 %245, %255
-  %257 = icmp ult i16 %256, 128
-  %.141 = select i1 %257, float %139, float %198
-  %258 = zext i16 %256 to i64
-  %259 = icmp ult i16 %256, 704
+  %256 = icmp ult i16 %255, 128
+  %.141 = select i1 %256, float %139, float %198
+  %257 = or disjoint i16 %245, %255
+  %258 = zext i16 %257 to i64
+  %259 = icmp ult i16 %255, 704
   br i1 %259, label %261, label %273, !prof !606
 
 260:                                              ; preds = %_ZN6brotli3enc7command18CombineLengthCodes17he28c5563882f5f20E.exit
@@ -6007,7 +6007,7 @@ _ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit145: ; preds =
   %365 = trunc i32 %364 to i16
   %366 = or disjoint i16 %355, %365
   %367 = zext i16 %366 to i64
-  %368 = icmp ult i16 %366, 704
+  %368 = icmp ult i16 %365, 704
   br i1 %368, label %370, label %380, !prof !217
 
 369:                                              ; preds = %_ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit145

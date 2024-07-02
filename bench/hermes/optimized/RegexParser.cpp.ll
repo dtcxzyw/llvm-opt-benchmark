@@ -9969,8 +9969,8 @@ if.then.i36:                                      ; preds = %if.then40
 
 if.end41:                                         ; preds = %if.end35
   %23 = load ptr, ptr %bracket, align 8
-  %reass.sub = sub i32 %15, %20
-  %add.i = add i32 %reass.sub, 1
+  %sub.i = sub i32 %15, %20
+  %add.i = add i32 %sub.i, 1
   %codePointSet_.i = getelementptr inbounds i8, ptr %23, i64 16
   %agg.tmp.sroa.2.0.insert.ext.i = zext i32 %add.i to i64
   %agg.tmp.sroa.2.0.insert.shift.i = shl nuw i64 %agg.tmp.sroa.2.0.insert.ext.i, 32
@@ -9978,7 +9978,7 @@ if.end41:                                         ; preds = %if.end35
   %agg.tmp.sroa.0.0.insert.insert.i = or disjoint i64 %agg.tmp.sroa.2.0.insert.shift.i, %agg.tmp.sroa.0.0.insert.ext.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %r.i.i)
   store i64 %agg.tmp.sroa.0.0.insert.insert.i, ptr %r.i.i, align 8
-  %cmp.i.i = icmp ult i64 %agg.tmp.sroa.0.0.insert.insert.i, 4294967296
+  %cmp.i.i = icmp eq i32 %add.i, 0
   br i1 %cmp.i.i, label %_ZN6hermes5regex11BracketNodeINS0_16UTF16RegexTraitsEE8addRangeEjj.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end41

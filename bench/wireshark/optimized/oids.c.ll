@@ -1498,7 +1498,7 @@ define ptr @rel_oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef 
 
 18:                                               ; preds = %.lr.ph78.i
   %19 = icmp uge ptr %.05775.i, %11
-  %20 = icmp ugt i64 %17, 4294967295
+  %20 = icmp ugt i64 %14, 4294967295
   %or.cond5.i = select i1 %19, i1 true, i1 %20
   br i1 %or.cond5.i, label %21, label %22
 
@@ -1851,7 +1851,7 @@ define ptr @rel_oid_encoded2string(ptr noundef %0, ptr nocapture noundef readonl
 
 18:                                               ; preds = %.lr.ph78.i
   %19 = icmp uge ptr %.05775.i, %11
-  %20 = icmp ugt i64 %17, 4294967295
+  %20 = icmp ugt i64 %14, 4294967295
   %or.cond5.i = select i1 %19, i1 true, i1 %20
   br i1 %or.cond5.i, label %oid_encoded2subid_sub.exit.thread, label %21
 

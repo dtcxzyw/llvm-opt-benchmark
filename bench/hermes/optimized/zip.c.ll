@@ -2881,7 +2881,7 @@ if.then787:                                       ; preds = %for.end784
   %50 = trunc nuw i64 %indvars.iv943 to i32
   %or789 = or i32 %shl788, %50
   %conv790 = trunc i32 %or789 to i16
-  %cmp792896 = icmp ult i32 %or780, 1024
+  %cmp792896 = icmp ult i32 %shl778, 1024
   br i1 %cmp792896, label %while.body794.lr.ph, label %for.inc859
 
 while.body794.lr.ph:                              ; preds = %if.then787

@@ -60121,12 +60121,12 @@ emit_cmov_generic.exit.thread68:                  ; preds = %67
   %79 = load i64, ptr %78, align 8
   %80 = add i64 %79, 2
   store i64 %80, ptr %78, align 8
-  %81 = xor i32 %.049, 1
-  %82 = icmp ult i32 %81, 36
-  br i1 %82, label %switch.lookup1, label %get_jump_code.exit.i
+  %81 = icmp ult i32 %.049, 36
+  br i1 %81, label %switch.lookup1, label %get_jump_code.exit.i
 
 switch.lookup1:                                   ; preds = %76
-  %83 = zext nneg i32 %81 to i64
+  %82 = xor i32 %.049, 1
+  %83 = zext nneg i32 %82 to i64
   %switch.gep2 = getelementptr inbounds [36 x i8], ptr @switch.table.generate_far_jump_code, i64 0, i64 %83
   %switch.load3 = load i8, ptr %switch.gep2, align 1
   br label %get_jump_code.exit.i
@@ -108368,73 +108368,65 @@ define internal fastcc nonnull ptr @generate_far_jump_code(ptr nocapture noundef
 11:                                               ; preds = %7, %2
   %12 = phi i1 [ false, %2 ], [ %10, %7 ]
   %13 = icmp ult i64 %4, 294912
-  br i1 %13, label %14, label %20
+  br i1 %13, label %switch.lookup, label %18
 
-14:                                               ; preds = %11
-  %15 = xor i64 %5, 1
-  %16 = icmp ult i64 %15, 36
-  br i1 %16, label %switch.lookup, label %get_jump_code.exit
-
-switch.lookup:                                    ; preds = %14
-  %switch.gep = getelementptr inbounds [36 x i8], ptr @switch.table.generate_far_jump_code, i64 0, i64 %15
+switch.lookup:                                    ; preds = %11
+  %14 = xor i64 %5, 1
+  %switch.gep = getelementptr inbounds [36 x i8], ptr @switch.table.generate_far_jump_code, i64 0, i64 %14
   %switch.load = load i8, ptr %switch.gep, align 1
-  br label %get_jump_code.exit
+  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 %switch.load, ptr %1, align 1
+  %16 = select i1 %12, i8 9, i8 13
+  %17 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 %16, ptr %15, align 1
+  br label %18
 
-get_jump_code.exit:                               ; preds = %14, %switch.lookup
-  %.0.i = phi i8 [ %switch.load, %switch.lookup ], [ -16, %14 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 %.0.i, ptr %1, align 1
-  %18 = select i1 %12, i8 9, i8 13
-  %19 = getelementptr inbounds i8, ptr %1, i64 2
-  store i8 %18, ptr %17, align 1
-  br label %20
+18:                                               ; preds = %switch.lookup, %11
+  %.0 = phi ptr [ %17, %switch.lookup ], [ %1, %11 ]
+  %19 = select i1 %12, i8 65, i8 73
+  %20 = getelementptr inbounds i8, ptr %.0, i64 1
+  store i8 %19, ptr %.0, align 1
+  %21 = getelementptr inbounds i8, ptr %.0, i64 2
+  store i8 -71, ptr %20, align 1
+  %22 = ptrtoint ptr %21 to i64
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %22, ptr %23, align 8
+  %24 = load i64, ptr %3, align 8
+  %25 = and i64 %24, 1
+  %.not29 = icmp eq i64 %25, 0
+  br i1 %.not29, label %28, label %26
 
-20:                                               ; preds = %get_jump_code.exit, %11
-  %.0 = phi ptr [ %19, %get_jump_code.exit ], [ %1, %11 ]
-  %21 = select i1 %12, i8 65, i8 73
-  %22 = getelementptr inbounds i8, ptr %.0, i64 1
-  store i8 %21, ptr %.0, align 1
-  %23 = getelementptr inbounds i8, ptr %.0, i64 2
-  store i8 -71, ptr %22, align 1
-  %24 = ptrtoint ptr %23 to i64
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %24, ptr %25, align 8
-  %26 = load i64, ptr %3, align 8
-  %27 = and i64 %26, 1
-  %.not29 = icmp eq i64 %27, 0
-  br i1 %.not29, label %30, label %28
+26:                                               ; preds = %18
+  %27 = or i64 %24, 16
+  store i64 %27, ptr %3, align 8
+  br label %34
 
-28:                                               ; preds = %20
-  %29 = or i64 %26, 16
-  store i64 %29, ptr %3, align 8
-  br label %36
+28:                                               ; preds = %18
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = load i64, ptr %29, align 8
+  br i1 %12, label %31, label %33
 
-30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
-  %32 = load i64, ptr %31, align 8
-  br i1 %12, label %33, label %35
+31:                                               ; preds = %28
+  %32 = trunc i64 %30 to i32
+  store i32 %32, ptr %21, align 1
+  br label %34
 
-33:                                               ; preds = %30
-  %34 = trunc i64 %32 to i32
-  store i32 %34, ptr %23, align 1
-  br label %36
+33:                                               ; preds = %28
+  store i64 %30, ptr %21, align 1
+  br label %34
 
-35:                                               ; preds = %30
-  store i64 %32, ptr %23, align 1
-  br label %36
-
-36:                                               ; preds = %33, %35, %28
-  %37 = select i1 %12, i64 4, i64 8
-  %38 = getelementptr inbounds i8, ptr %23, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 1
-  store i8 65, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %38, i64 2
-  store i8 -1, ptr %39, align 1
-  %41 = icmp ugt i64 %4, 303103
-  %42 = select i1 %41, i8 -47, i8 -31
-  %43 = getelementptr inbounds i8, ptr %38, i64 3
-  store i8 %42, ptr %40, align 1
-  ret ptr %43
+34:                                               ; preds = %31, %33, %26
+  %35 = select i1 %12, i64 4, i64 8
+  %36 = getelementptr inbounds i8, ptr %21, i64 %35
+  %37 = getelementptr inbounds i8, ptr %36, i64 1
+  store i8 65, ptr %36, align 1
+  %38 = getelementptr inbounds i8, ptr %36, i64 2
+  store i8 -1, ptr %37, align 1
+  %39 = icmp ugt i64 %4, 303103
+  %40 = select i1 %39, i8 -47, i8 -31
+  %41 = getelementptr inbounds i8, ptr %36, i64 3
+  store i8 %40, ptr %38, align 1
+  ret ptr %41
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

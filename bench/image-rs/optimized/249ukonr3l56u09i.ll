@@ -26114,7 +26114,7 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   %10 = and i64 %2, 7
   %11 = and i64 %2, -8
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
-  %13 = icmp eq i64 %11, 0
+  %13 = icmp ult i64 %2, 8
   br i1 %13, label %._crit_edge.thread, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb29b93d0fcb093b0E.exit.lr.ph"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb29b93d0fcb093b0E.exit.lr.ph": ; preds = %3

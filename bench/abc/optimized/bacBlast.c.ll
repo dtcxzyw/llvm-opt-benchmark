@@ -2253,7 +2253,7 @@ Bac_ManNtkIsOk.exit.i:                            ; preds = %Bac_ManNtkIsOk.exit
   %.val36 = load ptr, ptr %14, align 8
   %27 = getelementptr inbounds i32, ptr %.val36, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
-  %29 = icmp ne i32 %28, 0
+  %29 = icmp sgt i32 %28, 0
   tail call void @llvm.assume(i1 %29)
   %.val.i.i = load i32, ptr %15, align 4
   %.not4.i = icmp sge i32 %.val.i.i, %28
@@ -2282,7 +2282,7 @@ Bac_ManNtkIsOk.exit.i42:                          ; preds = %Bac_ManNtkIsOk.exit
   %.val34 = load ptr, ptr %21, align 8
   %41 = getelementptr inbounds i32, ptr %.val34, i64 %indvars.iv51
   %42 = load i32, ptr %41, align 4
-  %43 = icmp ne i32 %42, 0
+  %43 = icmp sgt i32 %42, 0
   tail call void @llvm.assume(i1 %43)
   %.val.i.i43 = load i32, ptr %22, align 4
   %.not4.i44 = icmp sge i32 %.val.i.i43, %42
@@ -5749,7 +5749,7 @@ Bac_ManNtkIsOk.exit.i.i61:                        ; preds = %Bac_ManNtkIsOk.exit
   %743 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %741, i64 %742
   %744 = getelementptr i8, ptr %734, i64 12
   %.val43 = load i32, ptr %744, align 4
-  %745 = icmp ne i32 %.val43, 0
+  %745 = icmp sgt i32 %.val43, 0
   call void @llvm.assume(i1 %745)
   %.val.i.i.i62 = load i32, ptr %26, align 4
   %.not4.i.i63 = icmp sge i32 %.val.i.i.i62, %.val43

@@ -88,7 +88,7 @@ define i32 @f32_mul(i32 %0, i32 %1) local_unnamed_addr #0 {
   %45 = icmp ne i64 %44, 0
   %46 = zext i1 %45 to i64
   %47 = or i64 %43, %46
-  %48 = icmp ult i64 %47, 1073741824
+  %48 = icmp ult i64 %42, 4611686018427387904
   %.059.v = select i1 %48, i64 -128, i64 -127
   %.059 = add nsw i64 %37, %.059.v
   %49 = zext i1 %48 to i64

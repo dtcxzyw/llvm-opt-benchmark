@@ -2223,50 +2223,54 @@ define dso_local void @make_task_dead(i32 noundef %0) local_unnamed_addr #4 alig
   %31 = and i32 %30, -2147483648
   %32 = call { i8, i32 } asm "cmpxchgl $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,r,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 %31, i32 %30, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !67
   %33 = extractvalue { i8, i32 } %32, 0
-  %34 = icmp eq i8 %33, 0
-  br i1 %34, label %.lr.ph, label %.thread, !prof !68
+  %34 = icmp ult i8 %33, 2
+  call void @llvm.assume(i1 %34)
+  %35 = icmp eq i8 %33, 0
+  br i1 %35, label %.lr.ph, label %.thread, !prof !68
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
-  %35 = phi { i8, i32 } [ %38, %.lr.ph ], [ %32, %26 ]
-  %36 = extractvalue { i8, i32 } %35, 1
-  %37 = and i32 %36, -2147483648
-  %38 = call { i8, i32 } asm "cmpxchgl $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,r,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 %37, i32 %36, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !67
-  %39 = extractvalue { i8, i32 } %38, 0
-  %40 = icmp eq i8 %39, 0
-  br i1 %40, label %.lr.ph, label %.thread, !prof !69, !llvm.loop !70
+  %36 = phi { i8, i32 } [ %39, %.lr.ph ], [ %32, %26 ]
+  %37 = extractvalue { i8, i32 } %36, 1
+  %38 = and i32 %37, -2147483648
+  %39 = call { i8, i32 } asm "cmpxchgl $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,r,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 %38, i32 %37, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !67
+  %40 = extractvalue { i8, i32 } %39, 0
+  %41 = icmp ult i8 %40, 2
+  call void @llvm.assume(i1 %41)
+  %42 = icmp eq i8 %40, 0
+  br i1 %42, label %.lr.ph, label %.thread, !prof !69, !llvm.loop !70
 
 .thread:                                          ; preds = %.lr.ph, %26, %22
-  %41 = load volatile i32, ptr @oops_limit, align 4
-  %42 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @oops_count, i32 1, ptr nonnull elementtype(i32) @oops_count) #15, !srcloc !71
-  %43 = add i32 %42, 1
-  %44 = add i32 %41, -1
-  %45 = icmp ult i32 %44, %43
-  br i1 %45, label %46, label %47
+  %43 = load volatile i32, ptr @oops_limit, align 4
+  %44 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @oops_count, i32 1, ptr nonnull elementtype(i32) @oops_count) #15, !srcloc !71
+  %45 = add i32 %44, 1
+  %46 = add i32 %43, -1
+  %47 = icmp ult i32 %46, %45
+  br i1 %47, label %48, label %49
 
-46:                                               ; preds = %.thread
-  call void (ptr, ...) @panic(ptr noundef nonnull @.str.7, i32 noundef %41) #17
+48:                                               ; preds = %.thread
+  call void (ptr, ...) @panic(ptr noundef nonnull @.str.7, i32 noundef %43) #17
   unreachable
 
-47:                                               ; preds = %.thread
-  %48 = getelementptr inbounds i8, ptr %4, i64 44
-  %49 = load i32, ptr %48, align 4
-  %50 = and i32 %49, 4
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %56, label %52, !prof !7
+49:                                               ; preds = %.thread
+  %50 = getelementptr inbounds i8, ptr %4, i64 44
+  %51 = load i32, ptr %50, align 4
+  %52 = and i32 %51, 4
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %58, label %54, !prof !7
 
-52:                                               ; preds = %47
-  %53 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8) #18
+54:                                               ; preds = %49
+  %55 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8) #18
   call void @futex_exit_recursive(ptr noundef %4) #15
-  %54 = getelementptr inbounds i8, ptr %4, i64 1216
-  store i32 16, ptr %54, align 64
-  %55 = getelementptr inbounds i8, ptr %4, i64 2624
-  call fastcc void @refcount_inc(ptr noundef %55)
+  %56 = getelementptr inbounds i8, ptr %4, i64 1216
+  store i32 16, ptr %56, align 64
+  %57 = getelementptr inbounds i8, ptr %4, i64 2624
+  call fastcc void @refcount_inc(ptr noundef %57)
   call void @do_task_dead() #19
   unreachable
 
-56:                                               ; preds = %47
-  %57 = sext i32 %0 to i64
-  call void @do_exit(i64 noundef %57) #21
+58:                                               ; preds = %49
+  %59 = sext i32 %0 to i64
+  call void @do_exit(i64 noundef %59) #21
   unreachable
 }
 

@@ -92,7 +92,7 @@ define hidden void @_ZN8rawspeed23PanasonicV7DecompressorC2ENS_8RawImageENS_10By
 25:                                               ; preds = %38, %23
   %26 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %83
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds i8, ptr %11, i64 40
@@ -125,68 +125,72 @@ define hidden void @_ZN8rawspeed23PanasonicV7DecompressorC2ENS_8RawImageENS_10By
   %48 = load i32, ptr %47, align 8, !tbaa !21
   %49 = icmp uge i32 %46, %48
   tail call void @llvm.assume(i1 %49)
-  %50 = sub nsw i32 %46, %48
-  %51 = lshr i32 %50, 4
-  %52 = zext nneg i32 %51 to i64
-  %53 = icmp ugt i64 %44, %52
-  br i1 %53, label %54, label %58
+  %50 = icmp sgt i32 %46, -1
+  tail call void @llvm.assume(i1 %50)
+  %51 = icmp sgt i32 %48, -1
+  tail call void @llvm.assume(i1 %51)
+  %52 = sub nsw i32 %46, %48
+  %53 = lshr i32 %52, 4
+  %54 = zext nneg i32 %53 to i64
+  %55 = icmp ugt i64 %44, %54
+  br i1 %55, label %56, label %60
 
-54:                                               ; preds = %40
+56:                                               ; preds = %40
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed23PanasonicV7DecompressorC2ENS_8RawImageENS_10ByteStreamE) #14
-          to label %55 unwind label %56
+          to label %57 unwind label %58
 
-55:                                               ; preds = %54
+57:                                               ; preds = %56
   unreachable
 
-56:                                               ; preds = %54
-  %57 = landingpad { ptr, i32 }
+58:                                               ; preds = %56
+  %59 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %83
 
-58:                                               ; preds = %40
-  %59 = trunc nuw nsw i64 %44 to i32
-  %60 = shl nuw i32 %59, 4
-  %61 = zext nneg i32 %48 to i64
-  %62 = zext i32 %60 to i64
-  %63 = add nuw nsw i64 %61, %62
-  %64 = zext nneg i32 %46 to i64
-  %65 = icmp ugt i64 %63, %64
-  br i1 %65, label %66, label %68
+60:                                               ; preds = %40
+  %61 = trunc nuw nsw i64 %44 to i32
+  %62 = shl nuw i32 %61, 4
+  %63 = zext nneg i32 %48 to i64
+  %64 = zext i32 %62 to i64
+  %65 = add nuw nsw i64 %63, %64
+  %66 = zext nneg i32 %46 to i64
+  %67 = icmp ugt i64 %65, %66
+  br i1 %67, label %68, label %70
 
-66:                                               ; preds = %58
+68:                                               ; preds = %60
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.5, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #14
-          to label %67 unwind label %79
+          to label %69 unwind label %81
 
-67:                                               ; preds = %66
+69:                                               ; preds = %68
   unreachable
 
-68:                                               ; preds = %58
-  %69 = load ptr, ptr %2, align 8, !tbaa !14, !noalias !87, !nonnull !94, !noundef !94
-  %70 = add nuw nsw i32 %48, %60
-  %71 = icmp ule i32 %70, %46
-  tail call void @llvm.assume(i1 %71)
-  %72 = icmp sgt i32 %60, -1
-  tail call void @llvm.assume(i1 %72)
-  %73 = getelementptr inbounds i8, ptr %69, i64 %61
-  %74 = getelementptr inbounds i8, ptr %2, i64 12
-  %75 = load i32, ptr %74, align 4, !tbaa !18, !noalias !87
-  %76 = zext i32 %75 to i64
-  %77 = shl nuw i64 %76, 32
-  %78 = or disjoint i64 %77, %62
-  store ptr %73, ptr %7, align 8
-  store i64 %78, ptr %8, align 8
+70:                                               ; preds = %60
+  %71 = load ptr, ptr %2, align 8, !tbaa !14, !noalias !87, !nonnull !94, !noundef !94
+  %72 = add nuw nsw i32 %48, %62
+  %73 = icmp ule i32 %72, %46
+  tail call void @llvm.assume(i1 %73)
+  %74 = icmp sgt i32 %62, -1
+  tail call void @llvm.assume(i1 %74)
+  %75 = getelementptr inbounds i8, ptr %71, i64 %63
+  %76 = getelementptr inbounds i8, ptr %2, i64 12
+  %77 = load i32, ptr %76, align 4, !tbaa !18, !noalias !87
+  %78 = zext i32 %77 to i64
+  %79 = shl nuw i64 %78, 32
+  %80 = or disjoint i64 %79, %64
+  store ptr %75, ptr %7, align 8
+  store i64 %80, ptr %8, align 8
   store i32 0, ptr %10, align 8
   ret void
 
-79:                                               ; preds = %66
-  %80 = landingpad { ptr, i32 }
+81:                                               ; preds = %68
+  %82 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %83
 
-81:                                               ; preds = %79, %56, %25
-  %82 = phi { ptr, i32 } [ %26, %25 ], [ %57, %56 ], [ %80, %79 ]
+83:                                               ; preds = %81, %58, %25
+  %84 = phi { ptr, i32 } [ %26, %25 ], [ %59, %58 ], [ %82, %81 ]
   tail call void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
-  resume { ptr, i32 } %82
+  resume { ptr, i32 } %84
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -293,486 +297,490 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   %14 = load i32, ptr %13, align 8, !tbaa !109, !noalias !104
   %15 = ashr i32 %14, 1
   %16 = mul nuw nsw i32 %15, %12
-  %17 = icmp ugt i32 %14, 1
+  %17 = icmp sgt i32 %10, -1
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp sgt i32 %15, -1
+  %18 = icmp sgt i32 %12, -1
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp uge i32 %15, %10
+  %19 = icmp ugt i32 %14, 1
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ne i32 %10, 0
+  %20 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %20)
-  %21 = icmp sgt i32 %1, -1
+  %21 = icmp uge i32 %15, %10
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp ugt i32 %12, %1
+  %22 = icmp ne i32 %10, 0
   tail call void @llvm.assume(i1 %22)
-  %23 = mul nuw nsw i32 %15, %1
-  %24 = add nuw nsw i32 %23, %10
-  %25 = icmp ule i32 %24, %16
-  tail call void @llvm.assume(i1 %25)
-  %26 = zext nneg i32 %23 to i64
-  %27 = getelementptr i16, ptr %5, i64 %26
-  %28 = urem i32 %10, 9
-  %29 = icmp eq i32 %28, 0
-  tail call void @llvm.assume(i1 %29)
-  %30 = udiv i32 %10, 9
-  %31 = shl nuw nsw i32 %30, 4
-  %32 = mul nuw nsw i32 %31, %1
-  %33 = add nuw i32 %32, %31
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !17, !noalias !110
-  %36 = icmp ugt i32 %33, %35
-  br i1 %36, label %.loopexit, label %37
+  %23 = icmp sgt i32 %1, -1
+  tail call void @llvm.assume(i1 %23)
+  %24 = icmp ugt i32 %12, %1
+  tail call void @llvm.assume(i1 %24)
+  %25 = mul nuw nsw i32 %15, %1
+  %26 = add nuw nsw i32 %25, %10
+  %27 = icmp ule i32 %26, %16
+  tail call void @llvm.assume(i1 %27)
+  %28 = zext nneg i32 %25 to i64
+  %29 = getelementptr i16, ptr %5, i64 %28
+  %30 = urem i32 %10, 9
+  %31 = icmp eq i32 %30, 0
+  tail call void @llvm.assume(i1 %31)
+  %32 = udiv i32 %10, 9
+  %33 = shl nuw nsw i32 %32, 4
+  %34 = mul nuw nsw i32 %33, %1
+  %35 = add nuw i32 %34, %33
+  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = load i32, ptr %36, align 8, !tbaa !17, !noalias !110
+  %38 = icmp ugt i32 %35, %37
+  br i1 %38, label %.loopexit, label %39
 
-37:                                               ; preds = %2
-  %38 = zext nneg i32 %32 to i64
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !14, !noalias !110, !nonnull !94, !noundef !94
-  %41 = icmp sgt i32 %35, -1
-  tail call void @llvm.assume(i1 %41)
-  %42 = getelementptr i8, ptr %40, i64 %38
-  %43 = icmp ult i32 %10, 9
-  br i1 %43, label %.loopexit6, label %44
+39:                                               ; preds = %2
+  %40 = zext nneg i32 %34 to i64
+  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !14, !noalias !110, !nonnull !94, !noundef !94
+  %43 = icmp sgt i32 %37, -1
+  tail call void @llvm.assume(i1 %43)
+  %44 = getelementptr i8, ptr %42, i64 %40
+  %45 = icmp ult i32 %10, 9
+  br i1 %45, label %.loopexit6, label %46
 
-44:                                               ; preds = %37
-  %45 = zext nneg i32 %10 to i64
-  %46 = zext nneg i32 %30 to i64
-  %47 = tail call i32 @llvm.umax.i32(i32 %30, i32 1)
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr i8, ptr %27, i64 2
-  %50 = getelementptr i8, ptr %27, i64 4
-  %51 = getelementptr i8, ptr %27, i64 6
-  %52 = getelementptr i8, ptr %27, i64 8
-  %53 = getelementptr i8, ptr %27, i64 10
-  %54 = getelementptr i8, ptr %27, i64 12
-  %55 = getelementptr i8, ptr %27, i64 14
-  %56 = getelementptr i8, ptr %27, i64 16
-  %57 = add nsw i64 %48, -1
-  %58 = tail call i64 @llvm.umin.i64(i64 %46, i64 %57)
-  %59 = add nuw nsw i64 %58, 1
-  %60 = icmp ult i64 %58, 8
-  br i1 %60, label %.loopexit7.preheader, label %62
+46:                                               ; preds = %39
+  %47 = zext nneg i32 %10 to i64
+  %48 = zext nneg i32 %32 to i64
+  %49 = tail call i32 @llvm.umax.i32(i32 %32, i32 1)
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr i8, ptr %29, i64 2
+  %52 = getelementptr i8, ptr %29, i64 4
+  %53 = getelementptr i8, ptr %29, i64 6
+  %54 = getelementptr i8, ptr %29, i64 8
+  %55 = getelementptr i8, ptr %29, i64 10
+  %56 = getelementptr i8, ptr %29, i64 12
+  %57 = getelementptr i8, ptr %29, i64 14
+  %58 = getelementptr i8, ptr %29, i64 16
+  %59 = add nsw i64 %50, -1
+  %60 = tail call i64 @llvm.umin.i64(i64 %48, i64 %59)
+  %61 = add nuw nsw i64 %60, 1
+  %62 = icmp ult i64 %60, 8
+  br i1 %62, label %.loopexit7.preheader, label %64
 
-.loopexit7.preheader:                             ; preds = %.loopexit7.loopexit, %62, %44
-  %.ph = phi i64 [ %61, %.loopexit7.loopexit ], [ 0, %44 ], [ 0, %62 ]
-  %.ph8 = phi i64 [ %79, %.loopexit7.loopexit ], [ 0, %44 ], [ 0, %62 ]
+.loopexit7.preheader:                             ; preds = %.loopexit7.loopexit, %64, %46
+  %.ph = phi i64 [ %63, %.loopexit7.loopexit ], [ 0, %46 ], [ 0, %64 ]
+  %.ph8 = phi i64 [ %81, %.loopexit7.loopexit ], [ 0, %46 ], [ 0, %64 ]
   br label %.loopexit7
 
-.loopexit7.loopexit:                              ; preds = %82
-  %61 = shl nuw nsw i64 %79, 4
+.loopexit7.loopexit:                              ; preds = %84
+  %63 = shl nuw nsw i64 %81, 4
   br label %.loopexit7.preheader
 
-62:                                               ; preds = %44
-  %63 = mul nuw nsw i64 %58, 18
-  %64 = shl nuw nsw i64 %26, 1
-  %65 = getelementptr i8, ptr %5, i64 %63
-  %66 = getelementptr i8, ptr %65, i64 %64
-  %67 = getelementptr i8, ptr %66, i64 18
-  %68 = shl nuw nsw i64 %58, 4
-  %69 = getelementptr i8, ptr %40, i64 %68
-  %70 = getelementptr i8, ptr %69, i64 %38
-  %71 = getelementptr i8, ptr %70, i64 16
-  %72 = icmp ult ptr %27, %71
-  %73 = icmp ult ptr %42, %67
-  %74 = and i1 %73, %72
-  br i1 %74, label %.loopexit7.preheader, label %75
+64:                                               ; preds = %46
+  %65 = mul nuw nsw i64 %60, 18
+  %66 = shl nuw nsw i64 %28, 1
+  %67 = getelementptr i8, ptr %5, i64 %65
+  %68 = getelementptr i8, ptr %67, i64 %66
+  %69 = getelementptr i8, ptr %68, i64 18
+  %70 = shl nuw nsw i64 %60, 4
+  %71 = getelementptr i8, ptr %42, i64 %70
+  %72 = getelementptr i8, ptr %71, i64 %40
+  %73 = getelementptr i8, ptr %72, i64 16
+  %74 = icmp ult ptr %29, %73
+  %75 = icmp ult ptr %44, %69
+  %76 = and i1 %75, %74
+  br i1 %76, label %.loopexit7.preheader, label %77
 
-75:                                               ; preds = %62
-  %76 = and i64 %59, 7
-  %77 = icmp eq i64 %76, 0
-  %78 = select i1 %77, i64 8, i64 %76
-  %79 = sub nuw nsw i64 %59, %78
-  %80 = insertelement <8 x i64> poison, i64 %45, i64 0
-  %81 = shufflevector <8 x i64> %80, <8 x i64> poison, <8 x i32> zeroinitializer
-  br label %82
+77:                                               ; preds = %64
+  %78 = and i64 %61, 7
+  %79 = icmp eq i64 %78, 0
+  %80 = select i1 %79, i64 8, i64 %78
+  %81 = sub nuw nsw i64 %61, %80
+  %82 = insertelement <8 x i64> poison, i64 %47, i64 0
+  %83 = shufflevector <8 x i64> %82, <8 x i64> poison, <8 x i32> zeroinitializer
+  br label %84
 
-82:                                               ; preds = %82, %75
-  %83 = phi i64 [ 0, %75 ], [ %291, %82 ]
-  %84 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %75 ], [ %292, %82 ]
-  %85 = shl i64 %83, 4
-  %86 = getelementptr i8, ptr %42, i64 %85
-  %87 = icmp ule <8 x i64> %84, %81
-  %88 = extractelement <8 x i1> %87, i64 0
-  tail call void @llvm.assume(i1 %88)
-  %89 = extractelement <8 x i1> %87, i64 1
-  tail call void @llvm.assume(i1 %89)
-  %90 = extractelement <8 x i1> %87, i64 2
+84:                                               ; preds = %84, %77
+  %85 = phi i64 [ 0, %77 ], [ %293, %84 ]
+  %86 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %77 ], [ %294, %84 ]
+  %87 = shl i64 %85, 4
+  %88 = getelementptr i8, ptr %44, i64 %87
+  %89 = icmp ule <8 x i64> %86, %83
+  %90 = extractelement <8 x i1> %89, i64 0
   tail call void @llvm.assume(i1 %90)
-  %91 = extractelement <8 x i1> %87, i64 3
+  %91 = extractelement <8 x i1> %89, i64 1
   tail call void @llvm.assume(i1 %91)
-  %92 = extractelement <8 x i1> %87, i64 4
+  %92 = extractelement <8 x i1> %89, i64 2
   tail call void @llvm.assume(i1 %92)
-  %93 = extractelement <8 x i1> %87, i64 5
+  %93 = extractelement <8 x i1> %89, i64 3
   tail call void @llvm.assume(i1 %93)
-  %94 = extractelement <8 x i1> %87, i64 6
+  %94 = extractelement <8 x i1> %89, i64 4
   tail call void @llvm.assume(i1 %94)
-  %95 = extractelement <8 x i1> %87, i64 7
+  %95 = extractelement <8 x i1> %89, i64 5
   tail call void @llvm.assume(i1 %95)
-  %96 = mul nuw nsw <8 x i64> %84, <i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9>
-  %97 = add nuw nsw <8 x i64> %96, <i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9>
-  %98 = icmp ule <8 x i64> %97, %81
-  %99 = extractelement <8 x i1> %98, i64 0
-  tail call void @llvm.assume(i1 %99)
-  %100 = extractelement <8 x i1> %98, i64 1
-  tail call void @llvm.assume(i1 %100)
-  %101 = extractelement <8 x i1> %98, i64 2
+  %96 = extractelement <8 x i1> %89, i64 6
+  tail call void @llvm.assume(i1 %96)
+  %97 = extractelement <8 x i1> %89, i64 7
+  tail call void @llvm.assume(i1 %97)
+  %98 = mul nuw nsw <8 x i64> %86, <i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9>
+  %99 = add nuw nsw <8 x i64> %98, <i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9>
+  %100 = icmp ule <8 x i64> %99, %83
+  %101 = extractelement <8 x i1> %100, i64 0
   tail call void @llvm.assume(i1 %101)
-  %102 = extractelement <8 x i1> %98, i64 3
+  %102 = extractelement <8 x i1> %100, i64 1
   tail call void @llvm.assume(i1 %102)
-  %103 = extractelement <8 x i1> %98, i64 4
+  %103 = extractelement <8 x i1> %100, i64 2
   tail call void @llvm.assume(i1 %103)
-  %104 = extractelement <8 x i1> %98, i64 5
+  %104 = extractelement <8 x i1> %100, i64 3
   tail call void @llvm.assume(i1 %104)
-  %105 = extractelement <8 x i1> %98, i64 6
+  %105 = extractelement <8 x i1> %100, i64 4
   tail call void @llvm.assume(i1 %105)
-  %106 = extractelement <8 x i1> %98, i64 7
+  %106 = extractelement <8 x i1> %100, i64 5
   tail call void @llvm.assume(i1 %106)
-  %107 = load <32 x i32>, ptr %86, align 1
-  %108 = shufflevector <32 x i32> %107, <32 x i32> poison, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>
-  %109 = shufflevector <32 x i32> %107, <32 x i32> poison, <8 x i32> <i32 1, i32 5, i32 9, i32 13, i32 17, i32 21, i32 25, i32 29>
-  %110 = shufflevector <32 x i32> %107, <32 x i32> poison, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 18, i32 22, i32 26, i32 30>
-  %111 = shufflevector <32 x i32> %107, <32 x i32> poison, <8 x i32> <i32 3, i32 7, i32 11, i32 15, i32 19, i32 23, i32 27, i32 31>
-  %112 = trunc <8 x i32> %108 to <8 x i16>
-  %113 = and <8 x i16> %112, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
-  %114 = extractelement <8 x i64> %96, i64 0
-  %115 = getelementptr inbounds i16, ptr %27, i64 %114
-  %116 = extractelement <8 x i64> %96, i64 1
-  %117 = getelementptr inbounds i16, ptr %27, i64 %116
-  %118 = extractelement <8 x i64> %96, i64 2
-  %119 = getelementptr inbounds i16, ptr %27, i64 %118
-  %120 = extractelement <8 x i64> %96, i64 3
-  %121 = getelementptr inbounds i16, ptr %27, i64 %120
-  %122 = extractelement <8 x i64> %96, i64 4
-  %123 = getelementptr inbounds i16, ptr %27, i64 %122
-  %124 = extractelement <8 x i64> %96, i64 5
-  %125 = getelementptr inbounds i16, ptr %27, i64 %124
-  %126 = extractelement <8 x i64> %96, i64 6
-  %127 = getelementptr inbounds i16, ptr %27, i64 %126
-  %128 = extractelement <8 x i64> %96, i64 7
-  %129 = getelementptr inbounds i16, ptr %27, i64 %128
-  %130 = extractelement <8 x i16> %113, i64 0
-  store i16 %130, ptr %115, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %131 = extractelement <8 x i16> %113, i64 1
-  store i16 %131, ptr %117, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %132 = extractelement <8 x i16> %113, i64 2
-  store i16 %132, ptr %119, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %133 = extractelement <8 x i16> %113, i64 3
-  store i16 %133, ptr %121, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %134 = extractelement <8 x i16> %113, i64 4
-  store i16 %134, ptr %123, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %135 = extractelement <8 x i16> %113, i64 5
-  store i16 %135, ptr %125, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %136 = extractelement <8 x i16> %113, i64 6
-  store i16 %136, ptr %127, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %137 = extractelement <8 x i16> %113, i64 7
-  store i16 %137, ptr %129, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %138 = lshr <8 x i32> %108, <i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14>
-  %139 = trunc <8 x i32> %138 to <8 x i16>
-  %140 = and <8 x i16> %139, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
-  %141 = getelementptr i16, ptr %49, i64 %114
-  %142 = getelementptr i16, ptr %49, i64 %116
-  %143 = getelementptr i16, ptr %49, i64 %118
-  %144 = getelementptr i16, ptr %49, i64 %120
-  %145 = getelementptr i16, ptr %49, i64 %122
-  %146 = getelementptr i16, ptr %49, i64 %124
-  %147 = getelementptr i16, ptr %49, i64 %126
-  %148 = getelementptr i16, ptr %49, i64 %128
-  %149 = extractelement <8 x i16> %140, i64 0
-  store i16 %149, ptr %141, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %150 = extractelement <8 x i16> %140, i64 1
-  store i16 %150, ptr %142, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %151 = extractelement <8 x i16> %140, i64 2
+  %107 = extractelement <8 x i1> %100, i64 6
+  tail call void @llvm.assume(i1 %107)
+  %108 = extractelement <8 x i1> %100, i64 7
+  tail call void @llvm.assume(i1 %108)
+  %109 = load <32 x i32>, ptr %88, align 1
+  %110 = shufflevector <32 x i32> %109, <32 x i32> poison, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>
+  %111 = shufflevector <32 x i32> %109, <32 x i32> poison, <8 x i32> <i32 1, i32 5, i32 9, i32 13, i32 17, i32 21, i32 25, i32 29>
+  %112 = shufflevector <32 x i32> %109, <32 x i32> poison, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 18, i32 22, i32 26, i32 30>
+  %113 = shufflevector <32 x i32> %109, <32 x i32> poison, <8 x i32> <i32 3, i32 7, i32 11, i32 15, i32 19, i32 23, i32 27, i32 31>
+  %114 = trunc <8 x i32> %110 to <8 x i16>
+  %115 = and <8 x i16> %114, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
+  %116 = extractelement <8 x i64> %98, i64 0
+  %117 = getelementptr inbounds i16, ptr %29, i64 %116
+  %118 = extractelement <8 x i64> %98, i64 1
+  %119 = getelementptr inbounds i16, ptr %29, i64 %118
+  %120 = extractelement <8 x i64> %98, i64 2
+  %121 = getelementptr inbounds i16, ptr %29, i64 %120
+  %122 = extractelement <8 x i64> %98, i64 3
+  %123 = getelementptr inbounds i16, ptr %29, i64 %122
+  %124 = extractelement <8 x i64> %98, i64 4
+  %125 = getelementptr inbounds i16, ptr %29, i64 %124
+  %126 = extractelement <8 x i64> %98, i64 5
+  %127 = getelementptr inbounds i16, ptr %29, i64 %126
+  %128 = extractelement <8 x i64> %98, i64 6
+  %129 = getelementptr inbounds i16, ptr %29, i64 %128
+  %130 = extractelement <8 x i64> %98, i64 7
+  %131 = getelementptr inbounds i16, ptr %29, i64 %130
+  %132 = extractelement <8 x i16> %115, i64 0
+  store i16 %132, ptr %117, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %133 = extractelement <8 x i16> %115, i64 1
+  store i16 %133, ptr %119, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %134 = extractelement <8 x i16> %115, i64 2
+  store i16 %134, ptr %121, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %135 = extractelement <8 x i16> %115, i64 3
+  store i16 %135, ptr %123, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %136 = extractelement <8 x i16> %115, i64 4
+  store i16 %136, ptr %125, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %137 = extractelement <8 x i16> %115, i64 5
+  store i16 %137, ptr %127, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %138 = extractelement <8 x i16> %115, i64 6
+  store i16 %138, ptr %129, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %139 = extractelement <8 x i16> %115, i64 7
+  store i16 %139, ptr %131, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %140 = lshr <8 x i32> %110, <i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14>
+  %141 = trunc <8 x i32> %140 to <8 x i16>
+  %142 = and <8 x i16> %141, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
+  %143 = getelementptr i16, ptr %51, i64 %116
+  %144 = getelementptr i16, ptr %51, i64 %118
+  %145 = getelementptr i16, ptr %51, i64 %120
+  %146 = getelementptr i16, ptr %51, i64 %122
+  %147 = getelementptr i16, ptr %51, i64 %124
+  %148 = getelementptr i16, ptr %51, i64 %126
+  %149 = getelementptr i16, ptr %51, i64 %128
+  %150 = getelementptr i16, ptr %51, i64 %130
+  %151 = extractelement <8 x i16> %142, i64 0
   store i16 %151, ptr %143, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %152 = extractelement <8 x i16> %140, i64 3
+  %152 = extractelement <8 x i16> %142, i64 1
   store i16 %152, ptr %144, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %153 = extractelement <8 x i16> %140, i64 4
+  %153 = extractelement <8 x i16> %142, i64 2
   store i16 %153, ptr %145, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %154 = extractelement <8 x i16> %140, i64 5
+  %154 = extractelement <8 x i16> %142, i64 3
   store i16 %154, ptr %146, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %155 = extractelement <8 x i16> %140, i64 6
+  %155 = extractelement <8 x i16> %142, i64 4
   store i16 %155, ptr %147, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %156 = extractelement <8 x i16> %140, i64 7
+  %156 = extractelement <8 x i16> %142, i64 5
   store i16 %156, ptr %148, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %157 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %109, <8 x i32> %108, <8 x i32> <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>)
-  %158 = trunc <8 x i32> %157 to <8 x i16>
-  %159 = and <8 x i16> %158, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
-  %160 = getelementptr i16, ptr %50, i64 %114
-  %161 = getelementptr i16, ptr %50, i64 %116
-  %162 = getelementptr i16, ptr %50, i64 %118
-  %163 = getelementptr i16, ptr %50, i64 %120
-  %164 = getelementptr i16, ptr %50, i64 %122
-  %165 = getelementptr i16, ptr %50, i64 %124
-  %166 = getelementptr i16, ptr %50, i64 %126
-  %167 = getelementptr i16, ptr %50, i64 %128
-  %168 = extractelement <8 x i16> %159, i64 0
-  store i16 %168, ptr %160, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %169 = extractelement <8 x i16> %159, i64 1
-  store i16 %169, ptr %161, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %170 = extractelement <8 x i16> %159, i64 2
+  %157 = extractelement <8 x i16> %142, i64 6
+  store i16 %157, ptr %149, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %158 = extractelement <8 x i16> %142, i64 7
+  store i16 %158, ptr %150, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %159 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %111, <8 x i32> %110, <8 x i32> <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>)
+  %160 = trunc <8 x i32> %159 to <8 x i16>
+  %161 = and <8 x i16> %160, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
+  %162 = getelementptr i16, ptr %52, i64 %116
+  %163 = getelementptr i16, ptr %52, i64 %118
+  %164 = getelementptr i16, ptr %52, i64 %120
+  %165 = getelementptr i16, ptr %52, i64 %122
+  %166 = getelementptr i16, ptr %52, i64 %124
+  %167 = getelementptr i16, ptr %52, i64 %126
+  %168 = getelementptr i16, ptr %52, i64 %128
+  %169 = getelementptr i16, ptr %52, i64 %130
+  %170 = extractelement <8 x i16> %161, i64 0
   store i16 %170, ptr %162, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %171 = extractelement <8 x i16> %159, i64 3
+  %171 = extractelement <8 x i16> %161, i64 1
   store i16 %171, ptr %163, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %172 = extractelement <8 x i16> %159, i64 4
+  %172 = extractelement <8 x i16> %161, i64 2
   store i16 %172, ptr %164, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %173 = extractelement <8 x i16> %159, i64 5
+  %173 = extractelement <8 x i16> %161, i64 3
   store i16 %173, ptr %165, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %174 = extractelement <8 x i16> %159, i64 6
+  %174 = extractelement <8 x i16> %161, i64 4
   store i16 %174, ptr %166, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %175 = extractelement <8 x i16> %159, i64 7
+  %175 = extractelement <8 x i16> %161, i64 5
   store i16 %175, ptr %167, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %176 = lshr <8 x i32> %109, <i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10>
-  %177 = trunc <8 x i32> %176 to <8 x i16>
-  %178 = and <8 x i16> %177, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
-  %179 = getelementptr i16, ptr %51, i64 %114
-  %180 = getelementptr i16, ptr %51, i64 %116
-  %181 = getelementptr i16, ptr %51, i64 %118
-  %182 = getelementptr i16, ptr %51, i64 %120
-  %183 = getelementptr i16, ptr %51, i64 %122
-  %184 = getelementptr i16, ptr %51, i64 %124
-  %185 = getelementptr i16, ptr %51, i64 %126
-  %186 = getelementptr i16, ptr %51, i64 %128
-  %187 = extractelement <8 x i16> %178, i64 0
-  store i16 %187, ptr %179, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %188 = extractelement <8 x i16> %178, i64 1
-  store i16 %188, ptr %180, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %189 = extractelement <8 x i16> %178, i64 2
+  %176 = extractelement <8 x i16> %161, i64 6
+  store i16 %176, ptr %168, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %177 = extractelement <8 x i16> %161, i64 7
+  store i16 %177, ptr %169, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %178 = lshr <8 x i32> %111, <i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10>
+  %179 = trunc <8 x i32> %178 to <8 x i16>
+  %180 = and <8 x i16> %179, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
+  %181 = getelementptr i16, ptr %53, i64 %116
+  %182 = getelementptr i16, ptr %53, i64 %118
+  %183 = getelementptr i16, ptr %53, i64 %120
+  %184 = getelementptr i16, ptr %53, i64 %122
+  %185 = getelementptr i16, ptr %53, i64 %124
+  %186 = getelementptr i16, ptr %53, i64 %126
+  %187 = getelementptr i16, ptr %53, i64 %128
+  %188 = getelementptr i16, ptr %53, i64 %130
+  %189 = extractelement <8 x i16> %180, i64 0
   store i16 %189, ptr %181, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %190 = extractelement <8 x i16> %178, i64 3
+  %190 = extractelement <8 x i16> %180, i64 1
   store i16 %190, ptr %182, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %191 = extractelement <8 x i16> %178, i64 4
+  %191 = extractelement <8 x i16> %180, i64 2
   store i16 %191, ptr %183, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %192 = extractelement <8 x i16> %178, i64 5
+  %192 = extractelement <8 x i16> %180, i64 3
   store i16 %192, ptr %184, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %193 = extractelement <8 x i16> %178, i64 6
+  %193 = extractelement <8 x i16> %180, i64 4
   store i16 %193, ptr %185, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %194 = extractelement <8 x i16> %178, i64 7
+  %194 = extractelement <8 x i16> %180, i64 5
   store i16 %194, ptr %186, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %195 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %110, <8 x i32> %109, <8 x i32> <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>)
-  %196 = trunc <8 x i32> %195 to <8 x i16>
-  %197 = and <8 x i16> %196, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
-  %198 = getelementptr i16, ptr %52, i64 %114
-  %199 = getelementptr i16, ptr %52, i64 %116
-  %200 = getelementptr i16, ptr %52, i64 %118
-  %201 = getelementptr i16, ptr %52, i64 %120
-  %202 = getelementptr i16, ptr %52, i64 %122
-  %203 = getelementptr i16, ptr %52, i64 %124
-  %204 = getelementptr i16, ptr %52, i64 %126
-  %205 = getelementptr i16, ptr %52, i64 %128
-  %206 = extractelement <8 x i16> %197, i64 0
-  store i16 %206, ptr %198, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %207 = extractelement <8 x i16> %197, i64 1
-  store i16 %207, ptr %199, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %208 = extractelement <8 x i16> %197, i64 2
+  %195 = extractelement <8 x i16> %180, i64 6
+  store i16 %195, ptr %187, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %196 = extractelement <8 x i16> %180, i64 7
+  store i16 %196, ptr %188, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %197 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %112, <8 x i32> %111, <8 x i32> <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>)
+  %198 = trunc <8 x i32> %197 to <8 x i16>
+  %199 = and <8 x i16> %198, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
+  %200 = getelementptr i16, ptr %54, i64 %116
+  %201 = getelementptr i16, ptr %54, i64 %118
+  %202 = getelementptr i16, ptr %54, i64 %120
+  %203 = getelementptr i16, ptr %54, i64 %122
+  %204 = getelementptr i16, ptr %54, i64 %124
+  %205 = getelementptr i16, ptr %54, i64 %126
+  %206 = getelementptr i16, ptr %54, i64 %128
+  %207 = getelementptr i16, ptr %54, i64 %130
+  %208 = extractelement <8 x i16> %199, i64 0
   store i16 %208, ptr %200, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %209 = extractelement <8 x i16> %197, i64 3
+  %209 = extractelement <8 x i16> %199, i64 1
   store i16 %209, ptr %201, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %210 = extractelement <8 x i16> %197, i64 4
+  %210 = extractelement <8 x i16> %199, i64 2
   store i16 %210, ptr %202, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %211 = extractelement <8 x i16> %197, i64 5
+  %211 = extractelement <8 x i16> %199, i64 3
   store i16 %211, ptr %203, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %212 = extractelement <8 x i16> %197, i64 6
+  %212 = extractelement <8 x i16> %199, i64 4
   store i16 %212, ptr %204, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %213 = extractelement <8 x i16> %197, i64 7
+  %213 = extractelement <8 x i16> %199, i64 5
   store i16 %213, ptr %205, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %214 = lshr <8 x i32> %110, <i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6>
-  %215 = trunc <8 x i32> %214 to <8 x i16>
-  %216 = and <8 x i16> %215, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
-  %217 = lshr <8 x i32> %110, <i32 20, i32 20, i32 20, i32 20, i32 20, i32 20, i32 20, i32 20>
-  %218 = trunc nuw nsw <8 x i32> %217 to <8 x i16>
-  %219 = getelementptr i16, ptr %53, i64 %114
-  %220 = getelementptr i16, ptr %53, i64 %116
-  %221 = getelementptr i16, ptr %53, i64 %118
-  %222 = getelementptr i16, ptr %53, i64 %120
-  %223 = getelementptr i16, ptr %53, i64 %122
-  %224 = getelementptr i16, ptr %53, i64 %124
-  %225 = getelementptr i16, ptr %53, i64 %126
-  %226 = getelementptr i16, ptr %53, i64 %128
-  %227 = extractelement <8 x i16> %216, i64 0
-  store i16 %227, ptr %219, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %228 = extractelement <8 x i16> %216, i64 1
-  store i16 %228, ptr %220, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %229 = extractelement <8 x i16> %216, i64 2
+  %214 = extractelement <8 x i16> %199, i64 6
+  store i16 %214, ptr %206, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %215 = extractelement <8 x i16> %199, i64 7
+  store i16 %215, ptr %207, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %216 = lshr <8 x i32> %112, <i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6>
+  %217 = trunc <8 x i32> %216 to <8 x i16>
+  %218 = and <8 x i16> %217, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
+  %219 = lshr <8 x i32> %112, <i32 20, i32 20, i32 20, i32 20, i32 20, i32 20, i32 20, i32 20>
+  %220 = trunc nuw nsw <8 x i32> %219 to <8 x i16>
+  %221 = getelementptr i16, ptr %55, i64 %116
+  %222 = getelementptr i16, ptr %55, i64 %118
+  %223 = getelementptr i16, ptr %55, i64 %120
+  %224 = getelementptr i16, ptr %55, i64 %122
+  %225 = getelementptr i16, ptr %55, i64 %124
+  %226 = getelementptr i16, ptr %55, i64 %126
+  %227 = getelementptr i16, ptr %55, i64 %128
+  %228 = getelementptr i16, ptr %55, i64 %130
+  %229 = extractelement <8 x i16> %218, i64 0
   store i16 %229, ptr %221, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %230 = extractelement <8 x i16> %216, i64 3
+  %230 = extractelement <8 x i16> %218, i64 1
   store i16 %230, ptr %222, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %231 = extractelement <8 x i16> %216, i64 4
+  %231 = extractelement <8 x i16> %218, i64 2
   store i16 %231, ptr %223, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %232 = extractelement <8 x i16> %216, i64 5
+  %232 = extractelement <8 x i16> %218, i64 3
   store i16 %232, ptr %224, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %233 = extractelement <8 x i16> %216, i64 6
+  %233 = extractelement <8 x i16> %218, i64 4
   store i16 %233, ptr %225, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %234 = extractelement <8 x i16> %216, i64 7
+  %234 = extractelement <8 x i16> %218, i64 5
   store i16 %234, ptr %226, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %235 = trunc <8 x i32> %111 to <8 x i16>
-  %236 = shl <8 x i16> %235, <i16 12, i16 12, i16 12, i16 12, i16 12, i16 12, i16 12, i16 12>
-  %237 = and <8 x i16> %236, <i16 12288, i16 12288, i16 12288, i16 12288, i16 12288, i16 12288, i16 12288, i16 12288>
-  %238 = or disjoint <8 x i16> %237, %218
-  %239 = getelementptr i16, ptr %54, i64 %114
-  %240 = getelementptr i16, ptr %54, i64 %116
-  %241 = getelementptr i16, ptr %54, i64 %118
-  %242 = getelementptr i16, ptr %54, i64 %120
-  %243 = getelementptr i16, ptr %54, i64 %122
-  %244 = getelementptr i16, ptr %54, i64 %124
-  %245 = getelementptr i16, ptr %54, i64 %126
-  %246 = getelementptr i16, ptr %54, i64 %128
-  %247 = extractelement <8 x i16> %238, i64 0
-  store i16 %247, ptr %239, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %248 = extractelement <8 x i16> %238, i64 1
-  store i16 %248, ptr %240, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %249 = extractelement <8 x i16> %238, i64 2
+  %235 = extractelement <8 x i16> %218, i64 6
+  store i16 %235, ptr %227, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %236 = extractelement <8 x i16> %218, i64 7
+  store i16 %236, ptr %228, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %237 = trunc <8 x i32> %113 to <8 x i16>
+  %238 = shl <8 x i16> %237, <i16 12, i16 12, i16 12, i16 12, i16 12, i16 12, i16 12, i16 12>
+  %239 = and <8 x i16> %238, <i16 12288, i16 12288, i16 12288, i16 12288, i16 12288, i16 12288, i16 12288, i16 12288>
+  %240 = or disjoint <8 x i16> %239, %220
+  %241 = getelementptr i16, ptr %56, i64 %116
+  %242 = getelementptr i16, ptr %56, i64 %118
+  %243 = getelementptr i16, ptr %56, i64 %120
+  %244 = getelementptr i16, ptr %56, i64 %122
+  %245 = getelementptr i16, ptr %56, i64 %124
+  %246 = getelementptr i16, ptr %56, i64 %126
+  %247 = getelementptr i16, ptr %56, i64 %128
+  %248 = getelementptr i16, ptr %56, i64 %130
+  %249 = extractelement <8 x i16> %240, i64 0
   store i16 %249, ptr %241, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %250 = extractelement <8 x i16> %238, i64 3
+  %250 = extractelement <8 x i16> %240, i64 1
   store i16 %250, ptr %242, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %251 = extractelement <8 x i16> %238, i64 4
+  %251 = extractelement <8 x i16> %240, i64 2
   store i16 %251, ptr %243, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %252 = extractelement <8 x i16> %238, i64 5
+  %252 = extractelement <8 x i16> %240, i64 3
   store i16 %252, ptr %244, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %253 = extractelement <8 x i16> %238, i64 6
+  %253 = extractelement <8 x i16> %240, i64 4
   store i16 %253, ptr %245, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %254 = extractelement <8 x i16> %238, i64 7
+  %254 = extractelement <8 x i16> %240, i64 5
   store i16 %254, ptr %246, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %255 = lshr <8 x i16> %235, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
-  %256 = getelementptr i16, ptr %55, i64 %114
-  %257 = getelementptr i16, ptr %55, i64 %116
-  %258 = getelementptr i16, ptr %55, i64 %118
-  %259 = getelementptr i16, ptr %55, i64 %120
-  %260 = getelementptr i16, ptr %55, i64 %122
-  %261 = getelementptr i16, ptr %55, i64 %124
-  %262 = getelementptr i16, ptr %55, i64 %126
-  %263 = getelementptr i16, ptr %55, i64 %128
-  %264 = extractelement <8 x i16> %255, i64 0
-  store i16 %264, ptr %256, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %265 = extractelement <8 x i16> %255, i64 1
-  store i16 %265, ptr %257, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %266 = extractelement <8 x i16> %255, i64 2
+  %255 = extractelement <8 x i16> %240, i64 6
+  store i16 %255, ptr %247, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %256 = extractelement <8 x i16> %240, i64 7
+  store i16 %256, ptr %248, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %257 = lshr <8 x i16> %237, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %258 = getelementptr i16, ptr %57, i64 %116
+  %259 = getelementptr i16, ptr %57, i64 %118
+  %260 = getelementptr i16, ptr %57, i64 %120
+  %261 = getelementptr i16, ptr %57, i64 %122
+  %262 = getelementptr i16, ptr %57, i64 %124
+  %263 = getelementptr i16, ptr %57, i64 %126
+  %264 = getelementptr i16, ptr %57, i64 %128
+  %265 = getelementptr i16, ptr %57, i64 %130
+  %266 = extractelement <8 x i16> %257, i64 0
   store i16 %266, ptr %258, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %267 = extractelement <8 x i16> %255, i64 3
+  %267 = extractelement <8 x i16> %257, i64 1
   store i16 %267, ptr %259, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %268 = extractelement <8 x i16> %255, i64 4
+  %268 = extractelement <8 x i16> %257, i64 2
   store i16 %268, ptr %260, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %269 = extractelement <8 x i16> %255, i64 5
+  %269 = extractelement <8 x i16> %257, i64 3
   store i16 %269, ptr %261, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %270 = extractelement <8 x i16> %255, i64 6
+  %270 = extractelement <8 x i16> %257, i64 4
   store i16 %270, ptr %262, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %271 = extractelement <8 x i16> %255, i64 7
+  %271 = extractelement <8 x i16> %257, i64 5
   store i16 %271, ptr %263, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %272 = lshr <8 x i32> %111, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %273 = trunc nuw <8 x i32> %272 to <8 x i16>
-  %274 = and <8 x i16> %273, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
-  %275 = getelementptr i16, ptr %56, i64 %114
-  %276 = getelementptr i16, ptr %56, i64 %116
-  %277 = getelementptr i16, ptr %56, i64 %118
-  %278 = getelementptr i16, ptr %56, i64 %120
-  %279 = getelementptr i16, ptr %56, i64 %122
-  %280 = getelementptr i16, ptr %56, i64 %124
-  %281 = getelementptr i16, ptr %56, i64 %126
-  %282 = getelementptr i16, ptr %56, i64 %128
-  %283 = extractelement <8 x i16> %274, i64 0
-  store i16 %283, ptr %275, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %284 = extractelement <8 x i16> %274, i64 1
-  store i16 %284, ptr %276, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %285 = extractelement <8 x i16> %274, i64 2
+  %272 = extractelement <8 x i16> %257, i64 6
+  store i16 %272, ptr %264, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %273 = extractelement <8 x i16> %257, i64 7
+  store i16 %273, ptr %265, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %274 = lshr <8 x i32> %113, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %275 = trunc nuw <8 x i32> %274 to <8 x i16>
+  %276 = and <8 x i16> %275, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
+  %277 = getelementptr i16, ptr %58, i64 %116
+  %278 = getelementptr i16, ptr %58, i64 %118
+  %279 = getelementptr i16, ptr %58, i64 %120
+  %280 = getelementptr i16, ptr %58, i64 %122
+  %281 = getelementptr i16, ptr %58, i64 %124
+  %282 = getelementptr i16, ptr %58, i64 %126
+  %283 = getelementptr i16, ptr %58, i64 %128
+  %284 = getelementptr i16, ptr %58, i64 %130
+  %285 = extractelement <8 x i16> %276, i64 0
   store i16 %285, ptr %277, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %286 = extractelement <8 x i16> %274, i64 3
+  %286 = extractelement <8 x i16> %276, i64 1
   store i16 %286, ptr %278, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %287 = extractelement <8 x i16> %274, i64 4
+  %287 = extractelement <8 x i16> %276, i64 2
   store i16 %287, ptr %279, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %288 = extractelement <8 x i16> %274, i64 5
+  %288 = extractelement <8 x i16> %276, i64 3
   store i16 %288, ptr %280, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %289 = extractelement <8 x i16> %274, i64 6
+  %289 = extractelement <8 x i16> %276, i64 4
   store i16 %289, ptr %281, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %290 = extractelement <8 x i16> %274, i64 7
+  %290 = extractelement <8 x i16> %276, i64 5
   store i16 %290, ptr %282, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %291 = add nuw i64 %83, 8
-  %292 = add <8 x i64> %84, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
-  %293 = icmp eq i64 %291, %79
-  br i1 %293, label %.loopexit7.loopexit, label %82, !llvm.loop !120
+  %291 = extractelement <8 x i16> %276, i64 6
+  store i16 %291, ptr %283, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %292 = extractelement <8 x i16> %276, i64 7
+  store i16 %292, ptr %284, align 2, !tbaa !113, !alias.scope !115, !noalias !118
+  %293 = add nuw i64 %85, 8
+  %294 = add <8 x i64> %86, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %295 = icmp eq i64 %293, %81
+  br i1 %295, label %.loopexit7.loopexit, label %84, !llvm.loop !120
 
-.loopexit6:                                       ; preds = %298, %37
+.loopexit6:                                       ; preds = %300, %39
   ret void
 
-.loopexit7:                                       ; preds = %.loopexit7.preheader, %298
-  %294 = phi i64 [ %299, %298 ], [ %.ph, %.loopexit7.preheader ]
-  %295 = phi i64 [ %348, %298 ], [ %.ph8, %.loopexit7.preheader ]
-  %296 = icmp eq i64 %295, %46
-  br i1 %296, label %.loopexit, label %298
+.loopexit7:                                       ; preds = %.loopexit7.preheader, %300
+  %296 = phi i64 [ %301, %300 ], [ %.ph, %.loopexit7.preheader ]
+  %297 = phi i64 [ %350, %300 ], [ %.ph8, %.loopexit7.preheader ]
+  %298 = icmp eq i64 %297, %48
+  br i1 %298, label %.loopexit, label %300
 
 .loopexit:                                        ; preds = %.loopexit7, %2
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.5, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #14
-          to label %297 unwind label %350
+          to label %299 unwind label %352
 
-297:                                              ; preds = %.loopexit
+299:                                              ; preds = %.loopexit
   unreachable
 
-298:                                              ; preds = %.loopexit7
-  %299 = add nuw nsw i64 %294, 16
-  %300 = getelementptr i8, ptr %42, i64 %294
-  %301 = icmp ule i64 %295, %45
-  tail call void @llvm.assume(i1 %301)
-  %302 = mul nuw nsw i64 %295, 9
-  %303 = add nuw nsw i64 %302, 9
-  %304 = icmp ule i64 %303, %45
-  tail call void @llvm.assume(i1 %304)
-  %305 = load i32, ptr %300, align 1
-  %306 = trunc i32 %305 to i16
-  %307 = and i16 %306, 16383
-  %308 = getelementptr inbounds i16, ptr %27, i64 %302
-  store i16 %307, ptr %308, align 2, !tbaa !113
-  %309 = lshr i32 %305, 14
-  %310 = trunc i32 %309 to i16
-  %311 = and i16 %310, 16383
-  %312 = getelementptr i16, ptr %49, i64 %302
-  store i16 %311, ptr %312, align 2, !tbaa !113
-  %313 = getelementptr inbounds i8, ptr %300, i64 4
-  %314 = load i32, ptr %313, align 1
-  %315 = tail call i32 @llvm.fshl.i32(i32 %314, i32 %305, i32 4)
-  %316 = trunc i32 %315 to i16
-  %317 = and i16 %316, 16383
-  %318 = getelementptr i16, ptr %50, i64 %302
-  store i16 %317, ptr %318, align 2, !tbaa !113
-  %319 = lshr i32 %314, 10
-  %320 = trunc i32 %319 to i16
-  %321 = and i16 %320, 16383
-  %322 = getelementptr i16, ptr %51, i64 %302
-  store i16 %321, ptr %322, align 2, !tbaa !113
-  %323 = getelementptr inbounds i8, ptr %300, i64 8
-  %324 = load i32, ptr %323, align 1
-  %325 = tail call i32 @llvm.fshl.i32(i32 %324, i32 %314, i32 8)
-  %326 = trunc i32 %325 to i16
-  %327 = and i16 %326, 16383
-  %328 = getelementptr i16, ptr %52, i64 %302
-  store i16 %327, ptr %328, align 2, !tbaa !113
-  %329 = lshr i32 %324, 6
-  %330 = trunc i32 %329 to i16
-  %331 = and i16 %330, 16383
-  %332 = lshr i32 %324, 20
-  %333 = trunc nuw nsw i32 %332 to i16
-  %334 = getelementptr i16, ptr %53, i64 %302
-  store i16 %331, ptr %334, align 2, !tbaa !113
-  %335 = getelementptr inbounds i8, ptr %300, i64 12
-  %336 = load i32, ptr %335, align 1
-  %337 = trunc i32 %336 to i16
-  %338 = shl i16 %337, 12
-  %339 = and i16 %338, 12288
-  %340 = or disjoint i16 %339, %333
-  %341 = getelementptr i16, ptr %54, i64 %302
-  store i16 %340, ptr %341, align 2, !tbaa !113
-  %342 = lshr i16 %337, 2
-  %343 = getelementptr i16, ptr %55, i64 %302
+300:                                              ; preds = %.loopexit7
+  %301 = add nuw nsw i64 %296, 16
+  %302 = getelementptr i8, ptr %44, i64 %296
+  %303 = icmp ule i64 %297, %47
+  tail call void @llvm.assume(i1 %303)
+  %304 = mul nuw nsw i64 %297, 9
+  %305 = add nuw nsw i64 %304, 9
+  %306 = icmp ule i64 %305, %47
+  tail call void @llvm.assume(i1 %306)
+  %307 = load i32, ptr %302, align 1
+  %308 = trunc i32 %307 to i16
+  %309 = and i16 %308, 16383
+  %310 = getelementptr inbounds i16, ptr %29, i64 %304
+  store i16 %309, ptr %310, align 2, !tbaa !113
+  %311 = lshr i32 %307, 14
+  %312 = trunc i32 %311 to i16
+  %313 = and i16 %312, 16383
+  %314 = getelementptr i16, ptr %51, i64 %304
+  store i16 %313, ptr %314, align 2, !tbaa !113
+  %315 = getelementptr inbounds i8, ptr %302, i64 4
+  %316 = load i32, ptr %315, align 1
+  %317 = tail call i32 @llvm.fshl.i32(i32 %316, i32 %307, i32 4)
+  %318 = trunc i32 %317 to i16
+  %319 = and i16 %318, 16383
+  %320 = getelementptr i16, ptr %52, i64 %304
+  store i16 %319, ptr %320, align 2, !tbaa !113
+  %321 = lshr i32 %316, 10
+  %322 = trunc i32 %321 to i16
+  %323 = and i16 %322, 16383
+  %324 = getelementptr i16, ptr %53, i64 %304
+  store i16 %323, ptr %324, align 2, !tbaa !113
+  %325 = getelementptr inbounds i8, ptr %302, i64 8
+  %326 = load i32, ptr %325, align 1
+  %327 = tail call i32 @llvm.fshl.i32(i32 %326, i32 %316, i32 8)
+  %328 = trunc i32 %327 to i16
+  %329 = and i16 %328, 16383
+  %330 = getelementptr i16, ptr %54, i64 %304
+  store i16 %329, ptr %330, align 2, !tbaa !113
+  %331 = lshr i32 %326, 6
+  %332 = trunc i32 %331 to i16
+  %333 = and i16 %332, 16383
+  %334 = lshr i32 %326, 20
+  %335 = trunc nuw nsw i32 %334 to i16
+  %336 = getelementptr i16, ptr %55, i64 %304
+  store i16 %333, ptr %336, align 2, !tbaa !113
+  %337 = getelementptr inbounds i8, ptr %302, i64 12
+  %338 = load i32, ptr %337, align 1
+  %339 = trunc i32 %338 to i16
+  %340 = shl i16 %339, 12
+  %341 = and i16 %340, 12288
+  %342 = or disjoint i16 %341, %335
+  %343 = getelementptr i16, ptr %56, i64 %304
   store i16 %342, ptr %343, align 2, !tbaa !113
-  %344 = lshr i32 %336, 16
-  %345 = trunc nuw i32 %344 to i16
-  %346 = and i16 %345, 16383
-  %347 = getelementptr i16, ptr %56, i64 %302
-  store i16 %346, ptr %347, align 2, !tbaa !113
-  %348 = add nuw nsw i64 %295, 1
-  %349 = icmp eq i64 %348, %48
-  br i1 %349, label %.loopexit6, label %.loopexit7, !llvm.loop !124
+  %344 = lshr i16 %339, 2
+  %345 = getelementptr i16, ptr %57, i64 %304
+  store i16 %344, ptr %345, align 2, !tbaa !113
+  %346 = lshr i32 %338, 16
+  %347 = trunc nuw i32 %346 to i16
+  %348 = and i16 %347, 16383
+  %349 = getelementptr i16, ptr %58, i64 %304
+  store i16 %348, ptr %349, align 2, !tbaa !113
+  %350 = add nuw nsw i64 %297, 1
+  %351 = icmp eq i64 %350, %50
+  br i1 %351, label %.loopexit6, label %.loopexit7, !llvm.loop !124
 
-350:                                              ; preds = %.loopexit
-  %351 = landingpad { ptr, i32 }
+352:                                              ; preds = %.loopexit
+  %353 = landingpad { ptr, i32 }
           catch ptr null
-  %352 = extractvalue { ptr, i32 } %351, 0
-  tail call void @__clang_call_terminate(ptr %352) #17
+  %354 = extractvalue { ptr, i32 } %353, 0
+  tail call void @__clang_call_terminate(ptr %354) #17
   unreachable
 }
 

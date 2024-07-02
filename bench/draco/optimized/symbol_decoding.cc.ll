@@ -341,7 +341,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19DecodeTaggedSymbolsINS_17RAns
   %41 = zext i8 %40 to i32
   %42 = or disjoint i32 %37, %41
   store i32 %42, ptr %21, align 4
-  %43 = icmp ult i32 %42, 16384
+  %43 = icmp ult i32 %36, 64
   %44 = icmp sgt i32 %indvars.i.i.us, 0
   %or.cond60 = and i1 %43, %44
   br i1 %or.cond60, label %.lr.ph, label %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit.us, !llvm.loop !4
@@ -474,7 +474,7 @@ _ZN5draco13DecoderBuffer10BitDecoder6GetBitEv.exit.i.i.us.us: ; preds = %69, %64
   %101 = zext i8 %100 to i32
   %102 = or disjoint i32 %97, %101
   store i32 %102, ptr %21, align 4
-  %103 = icmp ult i32 %102, 16384
+  %103 = icmp ult i32 %93, 64
   br i1 %103, label %92, label %_ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit, !llvm.loop !4
 
 _ZN5draco17RAnsSymbolDecoderILi5EE12DecodeSymbolEv.exit: ; preds = %92, %96, %.lr.ph37.split
@@ -1528,7 +1528,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 16384
+  %39 = icmp ult i32 %29, 64
   br i1 %39, label %28, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -1667,7 +1667,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 16384
+  %39 = icmp ult i32 %29, 64
   br i1 %39, label %28, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -1806,7 +1806,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 16384
+  %39 = icmp ult i32 %29, 64
   br i1 %39, label %28, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -1945,7 +1945,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 16384
+  %39 = icmp ult i32 %29, 64
   br i1 %39, label %28, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -2084,7 +2084,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 16384
+  %39 = icmp ult i32 %29, 64
   br i1 %39, label %28, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -2223,7 +2223,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 16384
+  %39 = icmp ult i32 %29, 64
   br i1 %39, label %28, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -2362,7 +2362,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 16384
+  %39 = icmp ult i32 %29, 64
   br i1 %39, label %28, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -2501,7 +2501,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 16384
+  %39 = icmp ult i32 %29, 64
   br i1 %39, label %28, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -2640,7 +2640,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 32768
+  %39 = icmp ult i32 %29, 128
   br i1 %39, label %28, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -2779,7 +2779,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 131072
+  %39 = icmp ult i32 %29, 512
   br i1 %39, label %28, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -2918,7 +2918,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 262144
+  %39 = icmp ult i32 %29, 1024
   br i1 %39, label %28, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -3057,7 +3057,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 1048576
+  %39 = icmp ult i32 %29, 4096
   br i1 %39, label %28, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -3196,7 +3196,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 2097152
+  %39 = icmp ult i32 %29, 8192
   br i1 %39, label %28, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -3335,7 +3335,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 4194304
+  %39 = icmp ult i32 %29, 16384
   br i1 %39, label %28, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -3474,7 +3474,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 4194304
+  %39 = icmp ult i32 %29, 16384
   br i1 %39, label %28, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -3613,7 +3613,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 4194304
+  %39 = icmp ult i32 %29, 16384
   br i1 %39, label %28, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -3752,7 +3752,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 4194304
+  %39 = icmp ult i32 %29, 16384
   br i1 %39, label %28, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %32, %28, %24
@@ -3891,7 +3891,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco24DecodeRawSymbolsInternalINS_1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %33, %37
   store i32 %38, ptr %18, align 4
-  %39 = icmp ult i32 %38, 4194304
+  %39 = icmp ult i32 %29, 16384
   br i1 %39, label %28, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %32, %28, %24

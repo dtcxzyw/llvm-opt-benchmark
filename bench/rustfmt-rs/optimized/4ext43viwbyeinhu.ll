@@ -25872,15 +25872,15 @@ _ZN15rustfmt_nightly5shape6Indent22to_string_with_newline17hc9d98988aba3e87dE.ex
   br i1 %154, label %162, label %155
 
 155:                                              ; preds = %149
-  %156 = icmp ult i32 %153, 128
+  %156 = icmp ult i32 %.013.i.i, 2
   br i1 %156, label %.thread23.i, label %157
 
 157:                                              ; preds = %155
-  %158 = icmp ult i32 %153, 2048
+  %158 = icmp ult i32 %.013.i.i, 32
   br i1 %158, label %.thread23.i, label %159
 
 159:                                              ; preds = %157
-  %160 = icmp ult i32 %153, 65536
+  %160 = icmp ult i32 %.013.i.i, 1024
   %..i = select i1 %160, i64 -3, i64 -4
   br label %.thread23.i
 

@@ -40636,7 +40636,7 @@ sqlite3EndBenignMalloc.exit:                      ; preds = %sqlite3BeginBenignM
 75:                                               ; preds = %63, %71, %sqlite3EndBenignMalloc.exit
   %.087 = phi ptr [ %68, %71 ], [ null, %sqlite3EndBenignMalloc.exit ], [ %1, %63 ]
   %.086 = phi i64 [ %74, %71 ], [ %7, %sqlite3EndBenignMalloc.exit ], [ %7, %63 ]
-  %76 = icmp ugt i32 %57, 383
+  %76 = icmp ugt i32 %2, 383
   br i1 %76, label %77, label %87
 
 77:                                               ; preds = %75
@@ -40652,7 +40652,7 @@ sqlite3EndBenignMalloc.exit:                      ; preds = %sqlite3BeginBenignM
   br label %103
 
 87:                                               ; preds = %75
-  %88 = icmp ugt i32 %57, 255
+  %88 = icmp ugt i32 %2, 255
   br i1 %88, label %89, label %99
 
 89:                                               ; preds = %87
@@ -89873,8 +89873,8 @@ sqlite3DbMallocRaw.exit:                          ; preds = %106, %108
   %233 = zext i8 %232 to i32
   %234 = shl nuw nsw i32 %233, 8
   %235 = or disjoint i32 %234, %230
-  %236 = and i32 %233, 248
-  %or.cond6 = icmp eq i32 %236, 216
+  %236 = and i8 %232, -8
+  %or.cond6 = icmp eq i8 %236, -40
   %237 = icmp ult ptr %231, %103
   %or.cond237 = select i1 %or.cond6, i1 %237, i1 false
   br i1 %or.cond237, label %252, label %238
@@ -89889,7 +89889,7 @@ sqlite3DbMallocRaw.exit:                          ; preds = %106, %108
   br label %296
 
 242:                                              ; preds = %238
-  %243 = icmp ult i32 %235, 2048
+  %243 = icmp ult i8 %232, 8
   br i1 %243, label %244, label %.thread281
 
 244:                                              ; preds = %242
@@ -89978,8 +89978,8 @@ sqlite3DbMallocRaw.exit:                          ; preds = %106, %108
   %303 = load i8, ptr %298, align 1
   %304 = zext i8 %303 to i32
   %305 = or disjoint i32 %301, %304
-  %306 = and i32 %300, 248
-  %or.cond8 = icmp eq i32 %306, 216
+  %306 = and i8 %299, -8
+  %or.cond8 = icmp eq i8 %306, -40
   %307 = icmp ult ptr %302, %103
   %or.cond238 = select i1 %or.cond8, i1 %307, i1 false
   br i1 %or.cond238, label %322, label %308
@@ -89994,7 +89994,7 @@ sqlite3DbMallocRaw.exit:                          ; preds = %106, %108
   br label %366
 
 312:                                              ; preds = %308
-  %313 = icmp ult i32 %305, 2048
+  %313 = icmp ult i8 %299, 8
   br i1 %313, label %314, label %.thread297
 
 314:                                              ; preds = %312

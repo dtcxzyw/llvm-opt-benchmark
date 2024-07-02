@@ -14202,7 +14202,7 @@ _m3dstbi__get_chunk_header.exit.i.i:              ; preds = %82, %_m3dstbi__get8
   ]
 
 93:                                               ; preds = %_m3dstbi__get_chunk_header.exit.i.i
-  %94 = icmp slt i32 %.sroa.0.0.insert.ext.i.i.i, 0
+  %94 = icmp slt i32 %89, 0
   br i1 %94, label %95, label %96
 
 95:                                               ; preds = %93
@@ -14854,7 +14854,7 @@ _m3dstbi__getn.exit.i.i:                          ; preds = %330
   br i1 %381, label %_m3dstbi__parse_png_file.exit.thread.sink.split.i, label %382
 
 382:                                              ; preds = %379
-  %383 = icmp slt i32 %.sroa.0.0.insert.ext.i.i.i, 0
+  %383 = icmp slt i32 %89, 0
   br i1 %383, label %384, label %385
 
 384:                                              ; preds = %382

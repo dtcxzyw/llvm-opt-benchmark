@@ -98896,15 +98896,15 @@ define hidden void @_ZN6hir_ty3mir6pretty12MirPrettyCtx10with_block17h5085a3d2cb
   br i1 %79, label %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit, label %80
 
 80:                                               ; preds = %74
-  %81 = icmp ult i32 %78, 128
+  %81 = icmp ult i32 %.013.i.i, 2
   br i1 %81, label %.thread23.i, label %82
 
 82:                                               ; preds = %80
-  %83 = icmp ult i32 %78, 2048
+  %83 = icmp ult i32 %.013.i.i, 32
   br i1 %83, label %.thread23.i, label %84
 
 84:                                               ; preds = %82
-  %85 = icmp ult i32 %78, 65536
+  %85 = icmp ult i32 %.013.i.i, 1024
   %..i = select i1 %85, i64 -3, i64 -4
   br label %.thread23.i
 
@@ -98978,15 +98978,15 @@ _ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit: ; preds = %38, %74, %.thre
   br i1 %125, label %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit16, label %126
 
 126:                                              ; preds = %120
-  %127 = icmp ult i32 %124, 128
+  %127 = icmp ult i32 %.013.i.i7, 2
   br i1 %127, label %.thread23.i15, label %128
 
 128:                                              ; preds = %126
-  %129 = icmp ult i32 %124, 2048
+  %129 = icmp ult i32 %.013.i.i7, 32
   br i1 %129, label %.thread23.i15, label %130
 
 130:                                              ; preds = %128
-  %131 = icmp ult i32 %124, 65536
+  %131 = icmp ult i32 %.013.i.i7, 1024
   %..i8 = select i1 %131, i64 -3, i64 -4
   br label %.thread23.i15
 
@@ -99670,15 +99670,15 @@ common.resume.i:                                  ; preds = %819, %800, %515, %2
   br i1 %356, label %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i.i, label %357
 
 357:                                              ; preds = %351
-  %358 = icmp ult i32 %355, 128
+  %358 = icmp ult i32 %.013.i.i.i.i, 2
   br i1 %358, label %.thread23.i.i.i, label %359
 
 359:                                              ; preds = %357
-  %360 = icmp ult i32 %355, 2048
+  %360 = icmp ult i32 %.013.i.i.i.i, 32
   br i1 %360, label %.thread23.i.i.i, label %361
 
 361:                                              ; preds = %359
-  %362 = icmp ult i32 %355, 65536
+  %362 = icmp ult i32 %.013.i.i.i.i, 1024
   %..i.i.i = select i1 %362, i64 -3, i64 -4
   br label %.thread23.i.i.i
 
@@ -99752,15 +99752,15 @@ _ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i.i: ; preds = %.thread23.i
   br i1 %402, label %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit16.i.i, label %403
 
 403:                                              ; preds = %397
-  %404 = icmp ult i32 %401, 128
+  %404 = icmp ult i32 %.013.i.i7.i.i, 2
   br i1 %404, label %.thread23.i15.i.i, label %405
 
 405:                                              ; preds = %403
-  %406 = icmp ult i32 %401, 2048
+  %406 = icmp ult i32 %.013.i.i7.i.i, 32
   br i1 %406, label %.thread23.i15.i.i, label %407
 
 407:                                              ; preds = %405
-  %408 = icmp ult i32 %401, 65536
+  %408 = icmp ult i32 %.013.i.i7.i.i, 1024
   %..i8.i.i = select i1 %408, i64 -3, i64 -4
   br label %.thread23.i15.i.i
 
@@ -100182,15 +100182,15 @@ _ZN6hir_ty3mir6pretty12MirPrettyCtx5place17hca11f5be752155c6E.exit.i.i.i: ; pred
   br i1 %592, label %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i25.i, label %593
 
 593:                                              ; preds = %587
-  %594 = icmp ult i32 %591, 128
+  %594 = icmp ult i32 %.013.i.i.i21.i, 2
   br i1 %594, label %.thread23.i.i23.i, label %595
 
 595:                                              ; preds = %593
-  %596 = icmp ult i32 %591, 2048
+  %596 = icmp ult i32 %.013.i.i.i21.i, 32
   br i1 %596, label %.thread23.i.i23.i, label %597
 
 597:                                              ; preds = %595
-  %598 = icmp ult i32 %591, 65536
+  %598 = icmp ult i32 %.013.i.i.i21.i, 1024
   %..i.i22.i = select i1 %598, i64 -3, i64 -4
   br label %.thread23.i.i23.i
 
@@ -100264,15 +100264,15 @@ _ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i25.i: ; preds = %.thread23
   br i1 %638, label %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit16.i31.i, label %639
 
 639:                                              ; preds = %633
-  %640 = icmp ult i32 %637, 128
+  %640 = icmp ult i32 %.013.i.i7.i27.i, 2
   br i1 %640, label %.thread23.i15.i29.i, label %641
 
 641:                                              ; preds = %639
-  %642 = icmp ult i32 %637, 2048
+  %642 = icmp ult i32 %.013.i.i7.i27.i, 32
   br i1 %642, label %.thread23.i15.i29.i, label %643
 
 643:                                              ; preds = %641
-  %644 = icmp ult i32 %637, 65536
+  %644 = icmp ult i32 %.013.i.i7.i27.i, 1024
   %..i8.i28.i = select i1 %644, i64 -3, i64 -4
   br label %.thread23.i15.i29.i
 
@@ -100951,15 +100951,15 @@ default.unreachable:                              ; preds = %778, %738
   br i1 %887, label %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit, label %888
 
 888:                                              ; preds = %882
-  %889 = icmp ult i32 %886, 128
+  %889 = icmp ult i32 %.013.i.i, 2
   br i1 %889, label %.thread23.i, label %890
 
 890:                                              ; preds = %888
-  %891 = icmp ult i32 %886, 2048
+  %891 = icmp ult i32 %.013.i.i, 32
   br i1 %891, label %.thread23.i, label %892
 
 892:                                              ; preds = %890
-  %893 = icmp ult i32 %886, 65536
+  %893 = icmp ult i32 %.013.i.i, 1024
   %..i = select i1 %893, i64 -3, i64 -4
   br label %.thread23.i
 
@@ -101033,15 +101033,15 @@ _ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit: ; preds = %846, %882, %.th
   br i1 %933, label %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit16, label %934
 
 934:                                              ; preds = %928
-  %935 = icmp ult i32 %932, 128
+  %935 = icmp ult i32 %.013.i.i7, 2
   br i1 %935, label %.thread23.i15, label %936
 
 936:                                              ; preds = %934
-  %937 = icmp ult i32 %932, 2048
+  %937 = icmp ult i32 %.013.i.i7, 32
   br i1 %937, label %.thread23.i15, label %938
 
 938:                                              ; preds = %936
-  %939 = icmp ult i32 %932, 65536
+  %939 = icmp ult i32 %.013.i.i7, 1024
   %..i8 = select i1 %939, i64 -3, i64 -4
   br label %.thread23.i15
 
@@ -101200,15 +101200,15 @@ define hidden void @_ZN6hir_ty3mir6pretty12MirPrettyCtx10with_block17hdb1bc4ae75
   br i1 %79, label %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit, label %80
 
 80:                                               ; preds = %74
-  %81 = icmp ult i32 %78, 128
+  %81 = icmp ult i32 %.013.i.i, 2
   br i1 %81, label %.thread23.i, label %82
 
 82:                                               ; preds = %80
-  %83 = icmp ult i32 %78, 2048
+  %83 = icmp ult i32 %.013.i.i, 32
   br i1 %83, label %.thread23.i, label %84
 
 84:                                               ; preds = %82
-  %85 = icmp ult i32 %78, 65536
+  %85 = icmp ult i32 %.013.i.i, 1024
   %..i = select i1 %85, i64 -3, i64 -4
   br label %.thread23.i
 
@@ -101282,15 +101282,15 @@ _ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit: ; preds = %38, %74, %.thre
   br i1 %125, label %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit16, label %126
 
 126:                                              ; preds = %120
-  %127 = icmp ult i32 %124, 128
+  %127 = icmp ult i32 %.013.i.i7, 2
   br i1 %127, label %.thread23.i15, label %128
 
 128:                                              ; preds = %126
-  %129 = icmp ult i32 %124, 2048
+  %129 = icmp ult i32 %.013.i.i7, 32
   br i1 %129, label %.thread23.i15, label %130
 
 130:                                              ; preds = %128
-  %131 = icmp ult i32 %124, 65536
+  %131 = icmp ult i32 %.013.i.i7, 1024
   %..i8 = select i1 %131, i64 -3, i64 -4
   br label %.thread23.i15
 

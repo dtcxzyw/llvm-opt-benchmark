@@ -640,7 +640,7 @@ if.end155:                                        ; preds = %land.lhs.true132
   %inc144 = add nsw i32 %i.1, 1
   %conv156 = sext i32 %inc144 to i64
   %sub157 = sub i64 %conv156, %storemerge78
-  %cmp158 = icmp ult i32 %or143, 65536
+  %cmp158 = icmp ult i32 %c.1, 1024
   br i1 %cmp158, label %if.then159, label %if.else161
 
 if.then159:                                       ; preds = %if.end155.thread, %if.end155

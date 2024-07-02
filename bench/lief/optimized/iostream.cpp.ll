@@ -497,10 +497,9 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %5, %15
   %19 = add nsw i64 %18, 1
   store i64 %19, ptr %0, align 8
   %20 = lshr i64 %.0, 7
-  %21 = icmp slt i8 %storemerge, 0
-  br i1 %21, label %5, label %22, !llvm.loop !8
+  br i1 %.not, label %21, label %5, !llvm.loop !8
 
-22:                                               ; preds = %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit
+21:                                               ; preds = %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit
   ret ptr %0
 }
 

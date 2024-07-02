@@ -11082,15 +11082,15 @@ _ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i: ; preds = %_ZN5alloc6str
   br i1 %295, label %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i.backedge, label %296
 
 296:                                              ; preds = %290
-  %297 = icmp ult i32 %294, 128
+  %297 = icmp ult i32 %.013.i.i.i, 2
   br i1 %297, label %.thread23.i.i, label %298
 
 298:                                              ; preds = %296
-  %299 = icmp ult i32 %294, 2048
+  %299 = icmp ult i32 %.013.i.i.i, 32
   br i1 %299, label %.thread23.i.i, label %300
 
 300:                                              ; preds = %298
-  %301 = icmp ult i32 %294, 65536
+  %301 = icmp ult i32 %.013.i.i.i, 1024
   %..i.i = select i1 %301, i64 -3, i64 -4
   br label %.thread23.i.i
 
@@ -16243,7 +16243,7 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   %465 = lshr i64 %459, 6
   %466 = and i64 %465, 127
   %467 = or disjoint i64 %464, %466
-  %468 = icmp ult i64 %467, 2432
+  %468 = icmp ult i8 %462, 19
   br i1 %468, label %469, label %.invoke, !prof !702
 
 469:                                              ; preds = %458
@@ -16254,7 +16254,7 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   %474 = lshr i64 %459, 2
   %475 = and i64 %474, 15
   %476 = or disjoint i64 %473, %475
-  %477 = icmp ult i64 %476, 3888
+  %477 = icmp ult i8 %471, -13
   br i1 %477, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i, label %.invoke, !prof !702
 
 .invoke:                                          ; preds = %511, %500, %469, %458
@@ -16321,7 +16321,7 @@ _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i: ; 
   %507 = lshr i64 %501, 6
   %508 = and i64 %507, 127
   %509 = or disjoint i64 %506, %508
-  %510 = icmp ult i64 %509, 2432
+  %510 = icmp ult i8 %504, 19
   br i1 %510, label %511, label %.invoke, !prof !702
 
 511:                                              ; preds = %500
@@ -16332,7 +16332,7 @@ _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i: ; 
   %516 = lshr i64 %501, 2
   %517 = and i64 %516, 15
   %518 = or disjoint i64 %515, %517
-  %519 = icmp ult i64 %518, 3888
+  %519 = icmp ult i8 %513, -13
   br i1 %519, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i456, label %.invoke, !prof !702
 
 _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i456: ; preds = %511

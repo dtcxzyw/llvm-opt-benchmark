@@ -510,7 +510,9 @@ if.then11:                                        ; preds = %if.then9
   %fDateStyle = getelementptr inbounds i8, ptr %this, i64 496
   %1 = load i32, ptr %fDateStyle, align 8
   %and = and i32 %1, -129
-  %or.cond = icmp ult i32 %and, 132
+  %cmp12 = icmp sgt i32 %1, -1
+  %cmp13 = icmp slt i32 %and, 132
+  %or.cond = and i1 %cmp12, %cmp13
   %add = add nuw nsw i32 %and, 9
   %spec.select = select i1 %or.cond, i32 %add, i32 8
   br label %if.end15

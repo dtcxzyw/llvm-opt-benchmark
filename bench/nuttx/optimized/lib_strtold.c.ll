@@ -434,7 +434,7 @@ scanexp.exit.i:                                   ; preds = %.lr.ph.i.i, %111
   %.pn.i = select i1 %143, x86_fp80 %144, x86_fp80 %.392214.i
   %.493.i = fadd x86_fp80 %.392214.i, %.pn.i
   %146 = add nsw i64 %.1215.i, -1
-  %147 = icmp sgt i32 %.599.i, -1
+  %147 = icmp sgt i32 %reass.add.i, -1
   br i1 %147, label %.lr.ph216.i, label %._crit_edge217.i, !llvm.loop !15
 
 ._crit_edge217.i:                                 ; preds = %.lr.ph216.i, %.preheader.i

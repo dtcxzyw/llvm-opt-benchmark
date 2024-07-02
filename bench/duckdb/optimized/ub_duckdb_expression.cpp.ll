@@ -783,6 +783,8 @@ call3.i.i.i.noexc:                                ; preds = %entry
 if.then.i.i:                                      ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i55, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i = icmp ult i64 %4, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %4, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i.i, i1 false)
   br label %invoke.cont
@@ -829,6 +831,8 @@ call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i63:                                    ; preds = %call2.i.i.noexc
   %_M_string_length.i.i.i64 = getelementptr inbounds i8, ptr %call2.i.i67, i64 8
   %11 = load i64, ptr %_M_string_length.i.i.i64, align 8, !tbaa !15
+  %cmp3.i.i.i65 = icmp ult i64 %11, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i65)
   %add.i.i66 = add nuw nsw i64 %11, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(1) %9, i64 %add.i.i66, i1 false)
   br label %invoke.cont8
@@ -914,6 +918,8 @@ call3.i.i.i.noexc77:                              ; preds = %if.then5.i
 if.then.i.i73:                                    ; preds = %call3.i.i.i.noexc77
   %_M_string_length.i.i26.i = getelementptr inbounds i8, ptr %call3.i.i.i78, i64 8
   %25 = load i64, ptr %_M_string_length.i.i26.i, align 8, !tbaa !15
+  %cmp3.i.i27.i = icmp ult i64 %25, 16
+  call void @llvm.assume(i1 %cmp3.i.i27.i)
   %add.i.i74 = add nuw nsw i64 %25, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %23, i64 %add.i.i74, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
@@ -960,6 +966,8 @@ call.i.i.i69.noexc:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i34.i:                                    ; preds = %call.i.i.i69.noexc
   %_M_string_length.i.i35.i = getelementptr inbounds i8, ptr %call.i.i.i6980, i64 8
   %32 = load i64, ptr %_M_string_length.i.i35.i, align 8, !tbaa !15
+  %cmp3.i.i36.i = icmp ult i64 %32, 16
+  call void @llvm.assume(i1 %cmp3.i.i36.i)
   %add.i37.i = add nuw nsw i64 %32, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(1) %30, i64 %add.i37.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38.i
@@ -1012,6 +1020,8 @@ call2.i.i.noexc99:                                ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i93:                                    ; preds = %call2.i.i.noexc99
   %_M_string_length.i.i.i94 = getelementptr inbounds i8, ptr %call2.i.i100, i64 8
   %40 = load i64, ptr %_M_string_length.i.i.i94, align 8, !tbaa !15
+  %cmp3.i.i.i95 = icmp ult i64 %40, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i95)
   %add.i.i96 = add nuw nsw i64 %40, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %37, ptr noundef nonnull align 8 dereferenceable(1) %38, i64 %add.i.i96, i1 false)
   br label %invoke.cont19
@@ -1097,6 +1107,8 @@ call3.i.i.i.noexc145:                             ; preds = %if.then5.i131
 if.then.i.i137:                                   ; preds = %call3.i.i.i.noexc145
   %_M_string_length.i.i26.i138 = getelementptr inbounds i8, ptr %call3.i.i.i146, i64 8
   %54 = load i64, ptr %_M_string_length.i.i26.i138, align 8, !tbaa !15
+  %cmp3.i.i27.i139 = icmp ult i64 %54, 16
+  call void @llvm.assume(i1 %cmp3.i.i27.i139)
   %add.i.i140 = add nuw nsw i64 %54, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %51, ptr noundef nonnull align 8 dereferenceable(1) %52, i64 %add.i.i140, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i134
@@ -1143,6 +1155,8 @@ call.i.i.i113.noexc:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i34.i121:                                 ; preds = %call.i.i.i113.noexc
   %_M_string_length.i.i35.i122 = getelementptr inbounds i8, ptr %call.i.i.i113148, i64 8
   %61 = load i64, ptr %_M_string_length.i.i35.i122, align 8, !tbaa !15
+  %cmp3.i.i36.i123 = icmp ult i64 %61, 16
+  call void @llvm.assume(i1 %cmp3.i.i36.i123)
   %add.i37.i124 = add nuw nsw i64 %61, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %58, ptr noundef nonnull align 8 dereferenceable(1) %59, i64 %add.i37.i124, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38.i116
@@ -1194,6 +1208,8 @@ call2.i.i.noexc168:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i162:                                   ; preds = %call2.i.i.noexc168
   %_M_string_length.i.i.i163 = getelementptr inbounds i8, ptr %call2.i.i169, i64 8
   %68 = load i64, ptr %_M_string_length.i.i.i163, align 8, !tbaa !15
+  %cmp3.i.i.i164 = icmp ult i64 %68, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i164)
   %add.i.i165 = add nuw nsw i64 %68, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %65, ptr noundef nonnull align 8 dereferenceable(1) %66, i64 %add.i.i165, i1 false)
   br label %invoke.cont30
@@ -2189,6 +2205,8 @@ call3.i.i.i.noexc:                                ; preds = %invoke.cont12
 if.then.i.i90:                                    ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i91, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i = icmp ult i64 %12, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %12, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %10, i64 %add.i.i, i1 false)
   br label %invoke.cont14
@@ -2234,6 +2252,8 @@ call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i100:                                   ; preds = %call2.i.i.noexc
   %_M_string_length.i.i.i101 = getelementptr inbounds i8, ptr %call2.i.i104, i64 8
   %18 = load i64, ptr %_M_string_length.i.i.i101, align 8, !tbaa !15
+  %cmp3.i.i.i102 = icmp ult i64 %18, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i102)
   %add.i.i103 = add nuw nsw i64 %18, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %16, i64 %add.i.i103, i1 false)
   br label %invoke.cont16
@@ -2348,6 +2368,8 @@ call3.i.i.i.noexc137:                             ; preds = %invoke.cont32
 if.then.i.i133:                                   ; preds = %call3.i.i.i.noexc137
   %_M_string_length.i.i.i134 = getelementptr inbounds i8, ptr %call3.i.i.i138, i64 8
   %33 = load i64, ptr %_M_string_length.i.i.i134, align 8, !tbaa !15
+  %cmp3.i.i.i135 = icmp ult i64 %33, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i135)
   %add.i.i136 = add nuw nsw i64 %33, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(1) %31, i64 %add.i.i136, i1 false)
   br label %invoke.cont34
@@ -2393,6 +2415,8 @@ call2.i.i.noexc157:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i151:                                   ; preds = %call2.i.i.noexc157
   %_M_string_length.i.i.i152 = getelementptr inbounds i8, ptr %call2.i.i158, i64 8
   %39 = load i64, ptr %_M_string_length.i.i.i152, align 8, !tbaa !15
+  %cmp3.i.i.i153 = icmp ult i64 %39, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i153)
   %add.i.i154 = add nuw nsw i64 %39, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(1) %37, i64 %add.i.i154, i1 false)
   br label %invoke.cont36
@@ -2675,6 +2699,8 @@ call3.i.i.i.noexc235:                             ; preds = %invoke.cont58
 if.then.i.i231:                                   ; preds = %call3.i.i.i.noexc235
   %_M_string_length.i.i.i232 = getelementptr inbounds i8, ptr %call3.i.i.i236, i64 8
   %71 = load i64, ptr %_M_string_length.i.i.i232, align 8, !tbaa !15
+  %cmp3.i.i.i233 = icmp ult i64 %71, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i233)
   %add.i.i234 = add nuw nsw i64 %71, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %68, ptr noundef nonnull align 8 dereferenceable(1) %69, i64 %add.i.i234, i1 false)
   br label %invoke.cont60
@@ -3553,6 +3579,8 @@ call3.i.i.i.noexc:                                ; preds = %entry
 if.then.i.i:                                      ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i29, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i = icmp ult i64 %5, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(1) %3, i64 %add.i.i, i1 false)
   br label %invoke.cont
@@ -3599,6 +3627,8 @@ call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i37:                                    ; preds = %call2.i.i.noexc
   %_M_string_length.i.i.i38 = getelementptr inbounds i8, ptr %call2.i.i41, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i38, align 8, !tbaa !15
+  %cmp3.i.i.i39 = icmp ult i64 %12, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i39)
   %add.i.i40 = add nuw nsw i64 %12, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(1) %10, i64 %add.i.i40, i1 false)
   br label %invoke.cont6
@@ -3677,6 +3707,8 @@ call3.i.i.i.noexc51:                              ; preds = %if.then5.i
 if.then.i.i47:                                    ; preds = %call3.i.i.i.noexc51
   %_M_string_length.i.i26.i = getelementptr inbounds i8, ptr %call3.i.i.i52, i64 8
   %25 = load i64, ptr %_M_string_length.i.i26.i, align 8, !tbaa !15
+  %cmp3.i.i27.i = icmp ult i64 %25, 16
+  call void @llvm.assume(i1 %cmp3.i.i27.i)
   %add.i.i48 = add nuw nsw i64 %25, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %23, i64 %add.i.i48, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
@@ -3723,6 +3755,8 @@ call.i.i.i43.noexc:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i34.i:                                    ; preds = %call.i.i.i43.noexc
   %_M_string_length.i.i35.i = getelementptr inbounds i8, ptr %call.i.i.i4354, i64 8
   %32 = load i64, ptr %_M_string_length.i.i35.i, align 8, !tbaa !15
+  %cmp3.i.i36.i = icmp ult i64 %32, 16
+  call void @llvm.assume(i1 %cmp3.i.i36.i)
   %add.i37.i = add nuw nsw i64 %32, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(1) %30, i64 %add.i37.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38.i
@@ -3774,6 +3808,8 @@ call2.i.i.noexc73:                                ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i67:                                    ; preds = %call2.i.i.noexc73
   %_M_string_length.i.i.i68 = getelementptr inbounds i8, ptr %call2.i.i74, i64 8
   %39 = load i64, ptr %_M_string_length.i.i.i68, align 8, !tbaa !15
+  %cmp3.i.i.i69 = icmp ult i64 %39, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i69)
   %add.i.i70 = add nuw nsw i64 %39, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %36, ptr noundef nonnull align 8 dereferenceable(1) %37, i64 %add.i.i70, i1 false)
   br label %invoke.cont13
@@ -4287,6 +4323,8 @@ entry:
 if.then.i:                                        ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %collation_p, i64 8
   %4 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !15
+  %cmp3.i.i = icmp ult i64 %4, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = add nuw nsw i64 %4, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -5514,6 +5552,8 @@ call3.i.i.i.noexc:                                ; preds = %entry
 if.then.i.i:                                      ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i56, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i = icmp ult i64 %4, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %4, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i.i, i1 false)
   br label %invoke.cont
@@ -5699,6 +5739,8 @@ call3.i.i.i.noexc82:                              ; preds = %invoke.cont10
 if.then.i.i78:                                    ; preds = %call3.i.i.i.noexc82
   %_M_string_length.i.i.i79 = getelementptr inbounds i8, ptr %call3.i.i.i83, i64 8
   %36 = load i64, ptr %_M_string_length.i.i.i79, align 8, !tbaa !15
+  %cmp3.i.i.i80 = icmp ult i64 %36, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i80)
   %add.i.i81 = add nuw nsw i64 %36, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(1) %34, i64 %add.i.i81, i1 false)
   br label %invoke.cont12
@@ -5744,6 +5786,8 @@ call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i93:                                    ; preds = %call2.i.i.noexc
   %_M_string_length.i.i.i94 = getelementptr inbounds i8, ptr %call2.i.i98, i64 8
   %42 = load i64, ptr %_M_string_length.i.i.i94, align 8, !tbaa !15
+  %cmp3.i.i.i95 = icmp ult i64 %42, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i95)
   %add.i.i96 = add nuw nsw i64 %42, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(1) %40, i64 %add.i.i96, i1 false)
   br label %invoke.cont14
@@ -5828,6 +5872,8 @@ call3.i.i.i.noexc109:                             ; preds = %if.then5.i
 if.then.i.i105:                                   ; preds = %call3.i.i.i.noexc109
   %_M_string_length.i.i26.i = getelementptr inbounds i8, ptr %call3.i.i.i110, i64 8
   %54 = load i64, ptr %_M_string_length.i.i26.i, align 8, !tbaa !15
+  %cmp3.i.i27.i = icmp ult i64 %54, 16
+  call void @llvm.assume(i1 %cmp3.i.i27.i)
   %add.i.i106 = add nuw nsw i64 %54, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(1) %52, i64 %add.i.i106, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
@@ -5872,6 +5918,8 @@ call.i.i.i101.noexc:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i34.i:                                    ; preds = %call.i.i.i101.noexc
   %_M_string_length.i.i35.i = getelementptr inbounds i8, ptr %call.i.i.i101112, i64 8
   %60 = load i64, ptr %_M_string_length.i.i35.i, align 8, !tbaa !15
+  %cmp3.i.i36.i = icmp ult i64 %60, 16
+  call void @llvm.assume(i1 %cmp3.i.i36.i)
   %add.i37.i = add nuw nsw i64 %60, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(1) %58, i64 %add.i37.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38.i
@@ -6684,6 +6732,8 @@ cond.true:                                        ; preds = %entry
 if.then.i:                                        ; preds = %cond.true
   %_M_string_length.i.i100 = getelementptr inbounds i8, ptr %column_name, i64 8
   %4 = load i64, ptr %_M_string_length.i.i100, align 8, !tbaa !15
+  %cmp3.i.i = icmp ult i64 %4, 16
+  call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = add nuw nsw i64 %4, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %3, i64 %add.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -6768,6 +6818,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit109: ; preds = 
 if.then.i114:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit109
   %_M_string_length.i.i115 = getelementptr inbounds i8, ptr %column_name, i64 8
   %17 = load i64, ptr %_M_string_length.i.i115, align 8, !tbaa !15
+  %cmp3.i.i116 = icmp ult i64 %17, 16
+  call void @llvm.assume(i1 %cmp3.i.i116)
   %add.i117 = add nuw nsw i64 %17, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %15, i64 %add.i117, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit118
@@ -7052,6 +7104,8 @@ entry:
 if.then.i:                                        ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %column_name, i64 8
   %3 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !15
+  %cmp3.i.i = icmp ult i64 %3, 16
+  call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = add nuw nsw i64 %3, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %add.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -9046,6 +9100,8 @@ entry:
 if.then.i:                                        ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %catalog, i64 8
   %4 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !15
+  %cmp3.i.i = icmp ult i64 %4, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = add nuw nsw i64 %4, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -9075,6 +9131,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
 if.then.i28:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
   %_M_string_length.i.i29 = getelementptr inbounds i8, ptr %schema, i64 8
   %10 = load i64, ptr %_M_string_length.i.i29, align 8, !tbaa !15
+  %cmp3.i.i30 = icmp ult i64 %10, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i30)
   %add.i31 = add nuw nsw i64 %10, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(1) %8, i64 %add.i31, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit32
@@ -9551,6 +9609,8 @@ call3.i.i.i.noexc:                                ; preds = %if.then12
 if.then.i.i311:                                   ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i.i312 = getelementptr inbounds i8, ptr %call3.i.i.i314, i64 8
   %9 = load i64, ptr %_M_string_length.i.i.i312, align 8, !tbaa !15
+  %cmp3.i.i.i313 = icmp ult i64 %9, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i313)
   %add.i.i = add nuw nsw i64 %9, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(1) %7, i64 %add.i.i, i1 false)
   br label %invoke.cont21
@@ -9598,6 +9658,8 @@ call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i323:                                   ; preds = %call2.i.i.noexc
   %_M_string_length.i.i.i324 = getelementptr inbounds i8, ptr %call2.i.i327, i64 8
   %16 = load i64, ptr %_M_string_length.i.i.i324, align 8, !tbaa !15
+  %cmp3.i.i.i325 = icmp ult i64 %16, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i325)
   %add.i.i326 = add nuw nsw i64 %16, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(1) %14, i64 %add.i.i326, i1 false)
   br label %invoke.cont23
@@ -9733,6 +9795,8 @@ call3.i.i.i.noexc372:                             ; preds = %if.then5.i
 if.then.i.i368:                                   ; preds = %call3.i.i.i.noexc372
   %_M_string_length.i.i26.i = getelementptr inbounds i8, ptr %call3.i.i.i373, i64 8
   %39 = load i64, ptr %_M_string_length.i.i26.i, align 8, !tbaa !15
+  %cmp3.i.i27.i = icmp ult i64 %39, 16
+  call void @llvm.assume(i1 %cmp3.i.i27.i)
   %add.i.i369 = add nuw nsw i64 %39, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %36, ptr noundef nonnull align 8 dereferenceable(1) %37, i64 %add.i.i369, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
@@ -9779,6 +9843,8 @@ call.i.i.i363.noexc:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i34.i:                                    ; preds = %call.i.i.i363.noexc
   %_M_string_length.i.i35.i = getelementptr inbounds i8, ptr %call.i.i.i363375, i64 8
   %46 = load i64, ptr %_M_string_length.i.i35.i, align 8, !tbaa !15
+  %cmp3.i.i36.i = icmp ult i64 %46, 16
+  call void @llvm.assume(i1 %cmp3.i.i36.i)
   %add.i37.i = add nuw nsw i64 %46, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %43, ptr noundef nonnull align 8 dereferenceable(1) %44, i64 %add.i37.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38.i
@@ -9830,6 +9896,8 @@ call2.i.i.noexc394:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i388:                                   ; preds = %call2.i.i.noexc394
   %_M_string_length.i.i.i389 = getelementptr inbounds i8, ptr %call2.i.i395, i64 8
   %53 = load i64, ptr %_M_string_length.i.i.i389, align 8, !tbaa !15
+  %cmp3.i.i.i390 = icmp ult i64 %53, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i390)
   %add.i.i391 = add nuw nsw i64 %53, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %50, ptr noundef nonnull align 8 dereferenceable(1) %51, i64 %add.i.i391, i1 false)
   br label %invoke.cont40
@@ -10320,6 +10388,8 @@ call3.i.i.i.noexc548:                             ; preds = %if.then5.i534
 if.then.i.i540:                                   ; preds = %call3.i.i.i.noexc548
   %_M_string_length.i.i26.i541 = getelementptr inbounds i8, ptr %call3.i.i.i549, i64 8
   %126 = load i64, ptr %_M_string_length.i.i26.i541, align 8, !tbaa !15
+  %cmp3.i.i27.i542 = icmp ult i64 %126, 16
+  call void @llvm.assume(i1 %cmp3.i.i27.i542)
   %add.i.i543 = add nuw nsw i64 %126, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %123, ptr noundef nonnull align 8 dereferenceable(1) %124, i64 %add.i.i543, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i537
@@ -10366,6 +10436,8 @@ call.i.i.i516.noexc:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i34.i524:                                 ; preds = %call.i.i.i516.noexc
   %_M_string_length.i.i35.i525 = getelementptr inbounds i8, ptr %call.i.i.i516551, i64 8
   %133 = load i64, ptr %_M_string_length.i.i35.i525, align 8, !tbaa !15
+  %cmp3.i.i36.i526 = icmp ult i64 %133, 16
+  call void @llvm.assume(i1 %cmp3.i.i36.i526)
   %add.i37.i527 = add nuw nsw i64 %133, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %130, ptr noundef nonnull align 8 dereferenceable(1) %131, i64 %add.i37.i527, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38.i519
@@ -10417,6 +10489,8 @@ call2.i.i.noexc571:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i565:                                   ; preds = %call2.i.i.noexc571
   %_M_string_length.i.i.i566 = getelementptr inbounds i8, ptr %call2.i.i572, i64 8
   %140 = load i64, ptr %_M_string_length.i.i.i566, align 8, !tbaa !15
+  %cmp3.i.i.i567 = icmp ult i64 %140, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i567)
   %add.i.i568 = add nuw nsw i64 %140, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %137, ptr noundef nonnull align 8 dereferenceable(1) %138, i64 %add.i.i568, i1 false)
   br label %invoke.cont75
@@ -10835,6 +10909,8 @@ call2.i.i.noexc708:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i702:                                   ; preds = %call2.i.i.noexc708
   %_M_string_length.i.i.i703 = getelementptr inbounds i8, ptr %call2.i.i709, i64 8
   %203 = load i64, ptr %_M_string_length.i.i.i703, align 8, !tbaa !15
+  %cmp3.i.i.i704 = icmp ult i64 %203, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i704)
   %add.i.i705 = add nuw nsw i64 %203, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %200, ptr noundef nonnull align 8 dereferenceable(1) %201, i64 %add.i.i705, i1 false)
   br label %invoke.cont131
@@ -11000,6 +11076,8 @@ call2.i.i.noexc764:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i758:                                   ; preds = %call2.i.i.noexc764
   %_M_string_length.i.i.i759 = getelementptr inbounds i8, ptr %call2.i.i765, i64 8
   %227 = load i64, ptr %_M_string_length.i.i.i759, align 8, !tbaa !15
+  %cmp3.i.i.i760 = icmp ult i64 %227, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i760)
   %add.i.i761 = add nuw nsw i64 %227, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %224, ptr noundef nonnull align 8 dereferenceable(1) %225, i64 %add.i.i761, i1 false)
   br label %invoke.cont147
@@ -11541,6 +11619,8 @@ call3.i.i.i.noexc963:                             ; preds = %invoke.cont229
 if.then.i.i959:                                   ; preds = %call3.i.i.i.noexc963
   %_M_string_length.i.i.i960 = getelementptr inbounds i8, ptr %call3.i.i.i964, i64 8
   %305 = load i64, ptr %_M_string_length.i.i.i960, align 8, !tbaa !15
+  %cmp3.i.i.i961 = icmp ult i64 %305, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i961)
   %add.i.i962 = add nuw nsw i64 %305, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %302, ptr noundef nonnull align 8 dereferenceable(1) %303, i64 %add.i.i962, i1 false)
   br label %invoke.cont231
@@ -11588,6 +11668,8 @@ call2.i.i.noexc984:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i978:                                   ; preds = %call2.i.i.noexc984
   %_M_string_length.i.i.i979 = getelementptr inbounds i8, ptr %call2.i.i985, i64 8
   %312 = load i64, ptr %_M_string_length.i.i.i979, align 8, !tbaa !15
+  %cmp3.i.i.i980 = icmp ult i64 %312, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i980)
   %add.i.i981 = add nuw nsw i64 %312, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %309, ptr noundef nonnull align 8 dereferenceable(1) %310, i64 %add.i.i981, i1 false)
   br label %invoke.cont233
@@ -13060,6 +13142,8 @@ call3.i.i.i.noexc:                                ; preds = %entry
 if.then.i.i:                                      ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i31, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i = icmp ult i64 %4, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %4, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i.i, i1 false)
   br label %invoke.cont
@@ -13106,6 +13190,8 @@ call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i39:                                    ; preds = %call2.i.i.noexc
   %_M_string_length.i.i.i40 = getelementptr inbounds i8, ptr %call2.i.i43, i64 8
   %11 = load i64, ptr %_M_string_length.i.i.i40, align 8, !tbaa !15
+  %cmp3.i.i.i41 = icmp ult i64 %11, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i41)
   %add.i.i42 = add nuw nsw i64 %11, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(1) %9, i64 %add.i.i42, i1 false)
   br label %invoke.cont6
@@ -13191,6 +13277,8 @@ call3.i.i.i.noexc53:                              ; preds = %if.then5.i
 if.then.i.i49:                                    ; preds = %call3.i.i.i.noexc53
   %_M_string_length.i.i26.i = getelementptr inbounds i8, ptr %call3.i.i.i54, i64 8
   %25 = load i64, ptr %_M_string_length.i.i26.i, align 8, !tbaa !15
+  %cmp3.i.i27.i = icmp ult i64 %25, 16
+  call void @llvm.assume(i1 %cmp3.i.i27.i)
   %add.i.i50 = add nuw nsw i64 %25, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %23, i64 %add.i.i50, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
@@ -13237,6 +13325,8 @@ call.i.i.i45.noexc:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i34.i:                                    ; preds = %call.i.i.i45.noexc
   %_M_string_length.i.i35.i = getelementptr inbounds i8, ptr %call.i.i.i4556, i64 8
   %32 = load i64, ptr %_M_string_length.i.i35.i, align 8, !tbaa !15
+  %cmp3.i.i36.i = icmp ult i64 %32, 16
+  call void @llvm.assume(i1 %cmp3.i.i36.i)
   %add.i37.i = add nuw nsw i64 %32, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(1) %30, i64 %add.i37.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38.i
@@ -13288,6 +13378,8 @@ call2.i.i.noexc75:                                ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i69:                                    ; preds = %call2.i.i.noexc75
   %_M_string_length.i.i.i70 = getelementptr inbounds i8, ptr %call2.i.i76, i64 8
   %39 = load i64, ptr %_M_string_length.i.i.i70, align 8, !tbaa !15
+  %cmp3.i.i.i71 = icmp ult i64 %39, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i71)
   %add.i.i72 = add nuw nsw i64 %39, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %36, ptr noundef nonnull align 8 dereferenceable(1) %37, i64 %add.i.i72, i1 false)
   br label %invoke.cont17
@@ -13561,6 +13653,8 @@ if.then5:                                         ; preds = %_ZNKSt7__cxx1112bas
 if.then.i:                                        ; preds = %if.then5
   %_M_string_length.i.i26 = getelementptr inbounds i8, ptr %call3.i.i, i64 8
   %11 = load i64, ptr %_M_string_length.i.i26, align 8, !tbaa !15
+  %cmp3.i.i27 = icmp ult i64 %11, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i27)
   %add.i = add nuw nsw i64 %11, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(1) %9, i64 %add.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -13601,6 +13695,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
 if.then.i34:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
   %_M_string_length.i.i35 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %18 = load i64, ptr %_M_string_length.i.i35, align 8, !tbaa !15
+  %cmp3.i.i36 = icmp ult i64 %18, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i36)
   %add.i37 = add nuw nsw i64 %18, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(1) %16, i64 %add.i37, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38
@@ -13992,6 +14088,8 @@ entry:
 if.then.i:                                        ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %column_name_p, i64 8
   %4 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !15
+  %cmp3.i.i = icmp ult i64 %4, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = add nuw nsw i64 %4, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -14558,6 +14656,8 @@ call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i:                                      ; preds = %call2.i.i.noexc
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call2.i.i608, i64 8
   %7 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i = icmp ult i64 %7, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %7, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %5, i64 %add.i.i, i1 false)
   br label %invoke.cont10
@@ -14608,6 +14708,8 @@ call.i.i.i610.noexc:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i617:                                   ; preds = %call.i.i.i610.noexc
   %_M_string_length.i.i1.i = getelementptr inbounds i8, ptr %call.i.i.i610621, i64 8
   %16 = load i64, ptr %_M_string_length.i.i1.i, align 8, !tbaa !15
+  %cmp3.i.i.i618 = icmp ult i64 %16, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i618)
   %add.i.i619 = add nuw nsw i64 %16, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(1) %14, i64 %add.i.i619, i1 false)
   br label %invoke.cont12
@@ -14655,6 +14757,8 @@ call2.i.i.noexc639:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i633:                                   ; preds = %call2.i.i.noexc639
   %_M_string_length.i.i.i634 = getelementptr inbounds i8, ptr %call2.i.i640, i64 8
   %23 = load i64, ptr %_M_string_length.i.i.i634, align 8, !tbaa !15
+  %cmp3.i.i.i635 = icmp ult i64 %23, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i635)
   %add.i.i636 = add nuw nsw i64 %23, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %20, ptr noundef nonnull align 8 dereferenceable(1) %21, i64 %add.i.i636, i1 false)
   br label %invoke.cont14
@@ -15212,6 +15316,8 @@ call.i.i.i761.noexc:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i768:                                   ; preds = %call.i.i.i761.noexc
   %_M_string_length.i.i1.i769 = getelementptr inbounds i8, ptr %call.i.i.i761774, i64 8
   %91 = load i64, ptr %_M_string_length.i.i1.i769, align 8, !tbaa !15
+  %cmp3.i.i.i770 = icmp ult i64 %91, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i770)
   %add.i.i771 = add nuw nsw i64 %91, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %88, ptr noundef nonnull align 8 dereferenceable(1) %89, i64 %add.i.i771, i1 false)
   br label %invoke.cont90
@@ -15262,6 +15368,8 @@ call.i.i.i781.noexc:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i788:                                   ; preds = %call.i.i.i781.noexc
   %_M_string_length.i.i1.i789 = getelementptr inbounds i8, ptr %call.i.i.i781794, i64 8
   %100 = load i64, ptr %_M_string_length.i.i1.i789, align 8, !tbaa !15
+  %cmp3.i.i.i790 = icmp ult i64 %100, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i790)
   %add.i.i791 = add nuw nsw i64 %100, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %97, ptr noundef nonnull align 8 dereferenceable(1) %98, i64 %add.i.i791, i1 false)
   br label %invoke.cont92
@@ -15309,6 +15417,8 @@ call2.i.i.noexc813:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i807:                                   ; preds = %call2.i.i.noexc813
   %_M_string_length.i.i.i808 = getelementptr inbounds i8, ptr %call2.i.i814, i64 8
   %107 = load i64, ptr %_M_string_length.i.i.i808, align 8, !tbaa !15
+  %cmp3.i.i.i809 = icmp ult i64 %107, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i809)
   %add.i.i810 = add nuw nsw i64 %107, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %104, ptr noundef nonnull align 8 dereferenceable(1) %105, i64 %add.i.i810, i1 false)
   br label %invoke.cont94
@@ -16011,6 +16121,8 @@ call3.i.i.i.noexc:                                ; preds = %invoke.cont192
 if.then.i.i1083:                                  ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i.i1084 = getelementptr inbounds i8, ptr %call3.i.i.i1087, i64 8
   %207 = load i64, ptr %_M_string_length.i.i.i1084, align 8, !tbaa !15
+  %cmp3.i.i.i1085 = icmp ult i64 %207, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1085)
   %add.i.i1086 = add nuw nsw i64 %207, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %204, ptr noundef nonnull align 8 dereferenceable(1) %205, i64 %add.i.i1086, i1 false)
   br label %invoke.cont194
@@ -16059,6 +16171,8 @@ call2.i.i.noexc1105:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1099:                                  ; preds = %call2.i.i.noexc1105
   %_M_string_length.i.i.i1100 = getelementptr inbounds i8, ptr %call2.i.i1106, i64 8
   %215 = load i64, ptr %_M_string_length.i.i.i1100, align 8, !tbaa !15
+  %cmp3.i.i.i1101 = icmp ult i64 %215, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1101)
   %add.i.i1102 = add nuw nsw i64 %215, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %212, ptr noundef nonnull align 8 dereferenceable(1) %213, i64 %add.i.i1102, i1 false)
   br label %invoke.cont196
@@ -16199,6 +16313,8 @@ call3.i.i.i.noexc1143:                            ; preds = %invoke.cont212
 if.then.i.i1139:                                  ; preds = %call3.i.i.i.noexc1143
   %_M_string_length.i.i.i1140 = getelementptr inbounds i8, ptr %call3.i.i.i1144, i64 8
   %235 = load i64, ptr %_M_string_length.i.i.i1140, align 8, !tbaa !15
+  %cmp3.i.i.i1141 = icmp ult i64 %235, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1141)
   %add.i.i1142 = add nuw nsw i64 %235, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %232, ptr noundef nonnull align 8 dereferenceable(1) %233, i64 %add.i.i1142, i1 false)
   br label %invoke.cont214
@@ -16247,6 +16363,8 @@ call2.i.i.noexc1163:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1157:                                  ; preds = %call2.i.i.noexc1163
   %_M_string_length.i.i.i1158 = getelementptr inbounds i8, ptr %call2.i.i1164, i64 8
   %243 = load i64, ptr %_M_string_length.i.i.i1158, align 8, !tbaa !15
+  %cmp3.i.i.i1159 = icmp ult i64 %243, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1159)
   %add.i.i1160 = add nuw nsw i64 %243, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %240, ptr noundef nonnull align 8 dereferenceable(1) %241, i64 %add.i.i1160, i1 false)
   br label %invoke.cont216
@@ -16402,6 +16520,8 @@ call2.i.i.noexc1207:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1201:                                  ; preds = %call2.i.i.noexc1207
   %_M_string_length.i.i.i1202 = getelementptr inbounds i8, ptr %call2.i.i1208, i64 8
   %264 = load i64, ptr %_M_string_length.i.i.i1202, align 8, !tbaa !15
+  %cmp3.i.i.i1203 = icmp ult i64 %264, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1203)
   %add.i.i1204 = add nuw nsw i64 %264, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %261, ptr noundef nonnull align 8 dereferenceable(1) %262, i64 %add.i.i1204, i1 false)
   br label %invoke.cont235
@@ -16490,6 +16610,8 @@ call3.i.i.i.noexc1225:                            ; preds = %if.then5.i
 if.then.i.i1221:                                  ; preds = %call3.i.i.i.noexc1225
   %_M_string_length.i.i26.i = getelementptr inbounds i8, ptr %call3.i.i.i1226, i64 8
   %278 = load i64, ptr %_M_string_length.i.i26.i, align 8, !tbaa !15
+  %cmp3.i.i27.i = icmp ult i64 %278, 16
+  call void @llvm.assume(i1 %cmp3.i.i27.i)
   %add.i.i1222 = add nuw nsw i64 %278, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %275, ptr noundef nonnull align 8 dereferenceable(1) %276, i64 %add.i.i1222, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
@@ -16536,6 +16658,8 @@ call.i.i.i1216.noexc:                             ; preds = %_ZNSt7__cxx1112basi
 if.then.i34.i:                                    ; preds = %call.i.i.i1216.noexc
   %_M_string_length.i.i35.i = getelementptr inbounds i8, ptr %call.i.i.i12161228, i64 8
   %285 = load i64, ptr %_M_string_length.i.i35.i, align 8, !tbaa !15
+  %cmp3.i.i36.i = icmp ult i64 %285, 16
+  call void @llvm.assume(i1 %cmp3.i.i36.i)
   %add.i37.i = add nuw nsw i64 %285, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %282, ptr noundef nonnull align 8 dereferenceable(1) %283, i64 %add.i37.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38.i
@@ -16587,6 +16711,8 @@ call2.i.i.noexc1247:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1241:                                  ; preds = %call2.i.i.noexc1247
   %_M_string_length.i.i.i1242 = getelementptr inbounds i8, ptr %call2.i.i1248, i64 8
   %292 = load i64, ptr %_M_string_length.i.i.i1242, align 8, !tbaa !15
+  %cmp3.i.i.i1243 = icmp ult i64 %292, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1243)
   %add.i.i1244 = add nuw nsw i64 %292, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %289, ptr noundef nonnull align 8 dereferenceable(1) %290, i64 %add.i.i1244, i1 false)
   br label %invoke.cont249
@@ -16914,6 +17040,8 @@ call2.i.i.noexc1332:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1326:                                  ; preds = %call2.i.i.noexc1332
   %_M_string_length.i.i.i1327 = getelementptr inbounds i8, ptr %call2.i.i1333, i64 8
   %340 = load i64, ptr %_M_string_length.i.i.i1327, align 8, !tbaa !15
+  %cmp3.i.i.i1328 = icmp ult i64 %340, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1328)
   %add.i.i1329 = add nuw nsw i64 %340, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %337, ptr noundef nonnull align 8 dereferenceable(1) %338, i64 %add.i.i1329, i1 false)
   br label %invoke.cont319
@@ -16965,6 +17093,8 @@ call.i.i.i1340.noexc:                             ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1348:                                  ; preds = %call.i.i.i1340.noexc
   %_M_string_length.i.i1.i1349 = getelementptr inbounds i8, ptr %call.i.i.i13401354, i64 8
   %349 = load i64, ptr %_M_string_length.i.i1.i1349, align 8, !tbaa !15
+  %cmp3.i.i.i1350 = icmp ult i64 %349, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1350)
   %add.i.i1351 = add nuw nsw i64 %349, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %346, ptr noundef nonnull align 8 dereferenceable(1) %347, i64 %add.i.i1351, i1 false)
   br label %invoke.cont321
@@ -17012,6 +17142,8 @@ call2.i.i.noexc1374:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1368:                                  ; preds = %call2.i.i.noexc1374
   %_M_string_length.i.i.i1369 = getelementptr inbounds i8, ptr %call2.i.i1375, i64 8
   %356 = load i64, ptr %_M_string_length.i.i.i1369, align 8, !tbaa !15
+  %cmp3.i.i.i1370 = icmp ult i64 %356, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1370)
   %add.i.i1371 = add nuw nsw i64 %356, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %353, ptr noundef nonnull align 8 dereferenceable(1) %354, i64 %add.i.i1371, i1 false)
   br label %invoke.cont323
@@ -17063,6 +17195,8 @@ call.i.i.i1382.noexc:                             ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1390:                                  ; preds = %call.i.i.i1382.noexc
   %_M_string_length.i.i1.i1391 = getelementptr inbounds i8, ptr %call.i.i.i13821396, i64 8
   %365 = load i64, ptr %_M_string_length.i.i1.i1391, align 8, !tbaa !15
+  %cmp3.i.i.i1392 = icmp ult i64 %365, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1392)
   %add.i.i1393 = add nuw nsw i64 %365, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %362, ptr noundef nonnull align 8 dereferenceable(1) %363, i64 %add.i.i1393, i1 false)
   br label %invoke.cont325
@@ -17110,6 +17244,8 @@ call2.i.i.noexc1416:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1410:                                  ; preds = %call2.i.i.noexc1416
   %_M_string_length.i.i.i1411 = getelementptr inbounds i8, ptr %call2.i.i1417, i64 8
   %372 = load i64, ptr %_M_string_length.i.i.i1411, align 8, !tbaa !15
+  %cmp3.i.i.i1412 = icmp ult i64 %372, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1412)
   %add.i.i1413 = add nuw nsw i64 %372, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %369, ptr noundef nonnull align 8 dereferenceable(1) %370, i64 %add.i.i1413, i1 false)
   br label %invoke.cont327
@@ -17198,6 +17334,8 @@ call3.i.i.i.noexc1462:                            ; preds = %if.then5.i1448
 if.then.i.i1454:                                  ; preds = %call3.i.i.i.noexc1462
   %_M_string_length.i.i26.i1455 = getelementptr inbounds i8, ptr %call3.i.i.i1463, i64 8
   %386 = load i64, ptr %_M_string_length.i.i26.i1455, align 8, !tbaa !15
+  %cmp3.i.i27.i1456 = icmp ult i64 %386, 16
+  call void @llvm.assume(i1 %cmp3.i.i27.i1456)
   %add.i.i1457 = add nuw nsw i64 %386, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %383, ptr noundef nonnull align 8 dereferenceable(1) %384, i64 %add.i.i1457, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i1451
@@ -17244,6 +17382,8 @@ call.i.i.i1430.noexc:                             ; preds = %_ZNSt7__cxx1112basi
 if.then.i34.i1438:                                ; preds = %call.i.i.i1430.noexc
   %_M_string_length.i.i35.i1439 = getelementptr inbounds i8, ptr %call.i.i.i14301465, i64 8
   %393 = load i64, ptr %_M_string_length.i.i35.i1439, align 8, !tbaa !15
+  %cmp3.i.i36.i1440 = icmp ult i64 %393, 16
+  call void @llvm.assume(i1 %cmp3.i.i36.i1440)
   %add.i37.i1441 = add nuw nsw i64 %393, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %390, ptr noundef nonnull align 8 dereferenceable(1) %391, i64 %add.i37.i1441, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38.i1433
@@ -17295,6 +17435,8 @@ call2.i.i.noexc1485:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1479:                                  ; preds = %call2.i.i.noexc1485
   %_M_string_length.i.i.i1480 = getelementptr inbounds i8, ptr %call2.i.i1486, i64 8
   %400 = load i64, ptr %_M_string_length.i.i.i1480, align 8, !tbaa !15
+  %cmp3.i.i.i1481 = icmp ult i64 %400, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1481)
   %add.i.i1482 = add nuw nsw i64 %400, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %397, ptr noundef nonnull align 8 dereferenceable(1) %398, i64 %add.i.i1482, i1 false)
   br label %invoke.cont341
@@ -17681,6 +17823,8 @@ call2.i.i.noexc1602:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1596:                                  ; preds = %call2.i.i.noexc1602
   %_M_string_length.i.i.i1597 = getelementptr inbounds i8, ptr %call2.i.i1603, i64 8
   %455 = load i64, ptr %_M_string_length.i.i.i1597, align 8, !tbaa !15
+  %cmp3.i.i.i1598 = icmp ult i64 %455, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1598)
   %add.i.i1599 = add nuw nsw i64 %455, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %452, ptr noundef nonnull align 8 dereferenceable(1) %453, i64 %add.i.i1599, i1 false)
   br label %invoke.cont374
@@ -17732,6 +17876,8 @@ call.i.i.i1610.noexc:                             ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1618:                                  ; preds = %call.i.i.i1610.noexc
   %_M_string_length.i.i1.i1619 = getelementptr inbounds i8, ptr %call.i.i.i16101624, i64 8
   %464 = load i64, ptr %_M_string_length.i.i1.i1619, align 8, !tbaa !15
+  %cmp3.i.i.i1620 = icmp ult i64 %464, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1620)
   %add.i.i1621 = add nuw nsw i64 %464, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %461, ptr noundef nonnull align 8 dereferenceable(1) %462, i64 %add.i.i1621, i1 false)
   br label %invoke.cont376
@@ -17779,6 +17925,8 @@ call2.i.i.noexc1644:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1638:                                  ; preds = %call2.i.i.noexc1644
   %_M_string_length.i.i.i1639 = getelementptr inbounds i8, ptr %call2.i.i1645, i64 8
   %471 = load i64, ptr %_M_string_length.i.i.i1639, align 8, !tbaa !15
+  %cmp3.i.i.i1640 = icmp ult i64 %471, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1640)
   %add.i.i1641 = add nuw nsw i64 %471, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %468, ptr noundef nonnull align 8 dereferenceable(1) %469, i64 %add.i.i1641, i1 false)
   br label %invoke.cont378
@@ -17830,6 +17978,8 @@ call.i.i.i1652.noexc:                             ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1660:                                  ; preds = %call.i.i.i1652.noexc
   %_M_string_length.i.i1.i1661 = getelementptr inbounds i8, ptr %call.i.i.i16521666, i64 8
   %480 = load i64, ptr %_M_string_length.i.i1.i1661, align 8, !tbaa !15
+  %cmp3.i.i.i1662 = icmp ult i64 %480, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1662)
   %add.i.i1663 = add nuw nsw i64 %480, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %477, ptr noundef nonnull align 8 dereferenceable(1) %478, i64 %add.i.i1663, i1 false)
   br label %invoke.cont380
@@ -17877,6 +18027,8 @@ call2.i.i.noexc1686:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1680:                                  ; preds = %call2.i.i.noexc1686
   %_M_string_length.i.i.i1681 = getelementptr inbounds i8, ptr %call2.i.i1687, i64 8
   %487 = load i64, ptr %_M_string_length.i.i.i1681, align 8, !tbaa !15
+  %cmp3.i.i.i1682 = icmp ult i64 %487, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1682)
   %add.i.i1683 = add nuw nsw i64 %487, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %484, ptr noundef nonnull align 8 dereferenceable(1) %485, i64 %add.i.i1683, i1 false)
   br label %invoke.cont382
@@ -19707,6 +19859,8 @@ call3.i.i.i.noexc:                                ; preds = %_ZNSt7__cxx119to_st
 if.then.i.i4:                                     ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i6, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i = icmp ult i64 %12, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i5 = add nuw nsw i64 %12, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(1) %10, i64 %add.i.i5, i1 false)
   br label %invoke.cont
@@ -19930,7 +20084,7 @@ entry:
 
 declare noundef i64 @_ZN6duckdb4HashImEEmT_(i64 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define void @_ZN6duckdb14StarExpressionC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(209) %this, ptr noundef %relation_name_p) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type2.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -19957,6 +20111,8 @@ entry:
 if.then.i:                                        ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %relation_name_p, i64 8
   %4 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !15
+  %cmp3.i.i = icmp ult i64 %4, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = add nuw nsw i64 %4, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -20035,6 +20191,8 @@ call3.i.i.i.noexc:                                ; preds = %if.then
 invoke.cont.thread:                               ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i148, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i = icmp ult i64 %5, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(1) %3, i64 %add.i.i, i1 false)
   %_M_string_length.i29.i.i388 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -20080,6 +20238,8 @@ call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i156:                                   ; preds = %call2.i.i.noexc
   %_M_string_length.i.i.i157 = getelementptr inbounds i8, ptr %call2.i.i160, i64 8
   %10 = load i64, ptr %_M_string_length.i.i.i157, align 8, !tbaa !15
+  %cmp3.i.i.i158 = icmp ult i64 %10, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i158)
   %add.i.i159 = add nuw nsw i64 %10, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(1) %8, i64 %add.i.i159, i1 false)
   br label %invoke.cont6
@@ -21508,6 +21668,8 @@ call3.i.i.i.noexc:                                ; preds = %sw.bb
 if.then.i.i:                                      ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i114, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i = icmp ult i64 %5, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(1) %3, i64 %add.i.i, i1 false)
   br label %invoke.cont
@@ -21555,6 +21717,8 @@ call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i122:                                   ; preds = %call2.i.i.noexc
   %_M_string_length.i.i.i123 = getelementptr inbounds i8, ptr %call2.i.i126, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i123, align 8, !tbaa !15
+  %cmp3.i.i.i124 = icmp ult i64 %12, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i124)
   %add.i.i125 = add nuw nsw i64 %12, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(1) %10, i64 %add.i.i125, i1 false)
   br label %invoke.cont8
@@ -21634,6 +21798,8 @@ call3.i.i.i.noexc136:                             ; preds = %if.then5.i
 if.then.i.i132:                                   ; preds = %call3.i.i.i.noexc136
   %_M_string_length.i.i26.i = getelementptr inbounds i8, ptr %call3.i.i.i137, i64 8
   %26 = load i64, ptr %_M_string_length.i.i26.i, align 8, !tbaa !15
+  %cmp3.i.i27.i = icmp ult i64 %26, 16
+  call void @llvm.assume(i1 %cmp3.i.i27.i)
   %add.i.i133 = add nuw nsw i64 %26, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(1) %24, i64 %add.i.i133, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
@@ -21680,6 +21846,8 @@ call.i.i.i128.noexc:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i34.i:                                    ; preds = %call.i.i.i128.noexc
   %_M_string_length.i.i35.i = getelementptr inbounds i8, ptr %call.i.i.i128139, i64 8
   %33 = load i64, ptr %_M_string_length.i.i35.i, align 8, !tbaa !15
+  %cmp3.i.i36.i = icmp ult i64 %33, 16
+  call void @llvm.assume(i1 %cmp3.i.i36.i)
   %add.i37.i = add nuw nsw i64 %33, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %30, ptr noundef nonnull align 8 dereferenceable(1) %31, i64 %add.i37.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38.i
@@ -21732,6 +21900,8 @@ call2.i.i.noexc158:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i152:                                   ; preds = %call2.i.i.noexc158
   %_M_string_length.i.i.i153 = getelementptr inbounds i8, ptr %call2.i.i159, i64 8
   %41 = load i64, ptr %_M_string_length.i.i.i153, align 8, !tbaa !15
+  %cmp3.i.i.i154 = icmp ult i64 %41, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i154)
   %add.i.i155 = add nuw nsw i64 %41, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %38, ptr noundef nonnull align 8 dereferenceable(1) %39, i64 %add.i.i155, i1 false)
   br label %invoke.cont15
@@ -21817,6 +21987,8 @@ call3.i.i.i.noexc204:                             ; preds = %if.then5.i190
 if.then.i.i196:                                   ; preds = %call3.i.i.i.noexc204
   %_M_string_length.i.i26.i197 = getelementptr inbounds i8, ptr %call3.i.i.i205, i64 8
   %55 = load i64, ptr %_M_string_length.i.i26.i197, align 8, !tbaa !15
+  %cmp3.i.i27.i198 = icmp ult i64 %55, 16
+  call void @llvm.assume(i1 %cmp3.i.i27.i198)
   %add.i.i199 = add nuw nsw i64 %55, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %52, ptr noundef nonnull align 8 dereferenceable(1) %53, i64 %add.i.i199, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i193
@@ -21863,6 +22035,8 @@ call.i.i.i172.noexc:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i34.i180:                                 ; preds = %call.i.i.i172.noexc
   %_M_string_length.i.i35.i181 = getelementptr inbounds i8, ptr %call.i.i.i172207, i64 8
   %62 = load i64, ptr %_M_string_length.i.i35.i181, align 8, !tbaa !15
+  %cmp3.i.i36.i182 = icmp ult i64 %62, 16
+  call void @llvm.assume(i1 %cmp3.i.i36.i182)
   %add.i37.i183 = add nuw nsw i64 %62, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %59, ptr noundef nonnull align 8 dereferenceable(1) %60, i64 %add.i37.i183, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38.i175
@@ -21915,6 +22089,8 @@ call2.i.i.noexc227:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i221:                                   ; preds = %call2.i.i.noexc227
   %_M_string_length.i.i.i222 = getelementptr inbounds i8, ptr %call2.i.i228, i64 8
   %70 = load i64, ptr %_M_string_length.i.i.i222, align 8, !tbaa !15
+  %cmp3.i.i.i223 = icmp ult i64 %70, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i223)
   %add.i.i224 = add nuw nsw i64 %70, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %67, ptr noundef nonnull align 8 dereferenceable(1) %68, i64 %add.i.i224, i1 false)
   br label %invoke.cont26
@@ -22275,6 +22451,8 @@ call3.i.i.i.noexc336:                             ; preds = %sw.bb41
 invoke.cont49.thread:                             ; preds = %call3.i.i.i.noexc336
   %_M_string_length.i.i.i333 = getelementptr inbounds i8, ptr %call3.i.i.i337, i64 8
   %127 = load i64, ptr %_M_string_length.i.i.i333, align 8, !tbaa !15
+  %cmp3.i.i.i334 = icmp ult i64 %127, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i334)
   %add.i.i335 = add nuw nsw i64 %127, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %124, ptr noundef nonnull align 8 dereferenceable(1) %125, i64 %add.i.i335, i1 false)
   %_M_string_length.i29.i.i331514 = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
@@ -22320,6 +22498,8 @@ call2.i.i.noexc357:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i351:                                   ; preds = %call2.i.i.noexc357
   %_M_string_length.i.i.i352 = getelementptr inbounds i8, ptr %call2.i.i358, i64 8
   %132 = load i64, ptr %_M_string_length.i.i.i352, align 8, !tbaa !15
+  %cmp3.i.i.i353 = icmp ult i64 %132, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i353)
   %add.i.i354 = add nuw nsw i64 %132, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %129, ptr noundef nonnull align 8 dereferenceable(1) %130, i64 %add.i.i354, i1 false)
   br label %invoke.cont51
@@ -22445,6 +22625,8 @@ call3.i.i.i.noexc396:                             ; preds = %sw.bb56
 invoke.cont64.thread:                             ; preds = %call3.i.i.i.noexc396
   %_M_string_length.i.i.i393 = getelementptr inbounds i8, ptr %call3.i.i.i397, i64 8
   %151 = load i64, ptr %_M_string_length.i.i.i393, align 8, !tbaa !15
+  %cmp3.i.i.i394 = icmp ult i64 %151, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i394)
   %add.i.i395 = add nuw nsw i64 %151, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %148, ptr noundef nonnull align 8 dereferenceable(1) %149, i64 %add.i.i395, i1 false)
   %_M_string_length.i29.i.i391519 = getelementptr inbounds i8, ptr %ref.tmp57, i64 8
@@ -22490,6 +22672,8 @@ call2.i.i.noexc417:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i411:                                   ; preds = %call2.i.i.noexc417
   %_M_string_length.i.i.i412 = getelementptr inbounds i8, ptr %call2.i.i418, i64 8
   %156 = load i64, ptr %_M_string_length.i.i.i412, align 8, !tbaa !15
+  %cmp3.i.i.i413 = icmp ult i64 %156, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i413)
   %add.i.i414 = add nuw nsw i64 %156, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %153, ptr noundef nonnull align 8 dereferenceable(1) %154, i64 %add.i.i414, i1 false)
   br label %invoke.cont66
@@ -22615,6 +22799,8 @@ call3.i.i.i.noexc456:                             ; preds = %sw.bb71
 invoke.cont79.thread:                             ; preds = %call3.i.i.i.noexc456
   %_M_string_length.i.i.i453 = getelementptr inbounds i8, ptr %call3.i.i.i457, i64 8
   %175 = load i64, ptr %_M_string_length.i.i.i453, align 8, !tbaa !15
+  %cmp3.i.i.i454 = icmp ult i64 %175, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i454)
   %add.i.i455 = add nuw nsw i64 %175, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %172, ptr noundef nonnull align 8 dereferenceable(1) %173, i64 %add.i.i455, i1 false)
   %_M_string_length.i29.i.i451524 = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
@@ -22660,6 +22846,8 @@ call2.i.i.noexc477:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i471:                                   ; preds = %call2.i.i.noexc477
   %_M_string_length.i.i.i472 = getelementptr inbounds i8, ptr %call2.i.i478, i64 8
   %180 = load i64, ptr %_M_string_length.i.i.i472, align 8, !tbaa !15
+  %cmp3.i.i.i473 = icmp ult i64 %180, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i473)
   %add.i.i474 = add nuw nsw i64 %180, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %177, ptr noundef nonnull align 8 dereferenceable(1) %178, i64 %add.i.i474, i1 false)
   br label %invoke.cont81
@@ -23406,6 +23594,8 @@ entry:
 if.then.i:                                        ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %catalog_name, i64 8
   %4 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !15
+  %cmp3.i.i = icmp ult i64 %4, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = add nuw nsw i64 %4, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -23435,6 +23625,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
 if.then.i39:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
   %_M_string_length.i.i40 = getelementptr inbounds i8, ptr %schema, i64 8
   %10 = load i64, ptr %_M_string_length.i.i40, align 8, !tbaa !15
+  %cmp3.i.i41 = icmp ult i64 %10, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i41)
   %add.i42 = add nuw nsw i64 %10, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(1) %8, i64 %add.i42, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit43
@@ -24217,6 +24409,8 @@ call.i.i.i446.noexc:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i448:                                   ; preds = %call.i.i.i446.noexc
   %_M_string_length.i.i1.i = getelementptr inbounds i8, ptr %call.i.i.i446450, i64 8
   %26 = load i64, ptr %_M_string_length.i.i1.i, align 8, !tbaa !15
+  %cmp3.i.i.i = icmp ult i64 %26, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %26, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(1) %24, i64 %add.i.i, i1 false)
   br label %cleanup.action
@@ -24658,6 +24852,8 @@ call3.i.i.i.noexc:                                ; preds = %invoke.cont84
 if.then.i.i594:                                   ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i.i595 = getelementptr inbounds i8, ptr %call3.i.i.i598, i64 8
   %92 = load i64, ptr %_M_string_length.i.i.i595, align 8, !tbaa !15
+  %cmp3.i.i.i596 = icmp ult i64 %92, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i596)
   %add.i.i597 = add nuw nsw i64 %92, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %89, ptr noundef nonnull align 8 dereferenceable(1) %90, i64 %add.i.i597, i1 false)
   br label %invoke.cont86
@@ -25212,6 +25408,8 @@ call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i818:                                   ; preds = %call2.i.i.noexc
   %_M_string_length.i.i.i819 = getelementptr inbounds i8, ptr %call2.i.i824, i64 8
   %178 = load i64, ptr %_M_string_length.i.i.i819, align 8, !tbaa !15
+  %cmp3.i.i.i820 = icmp ult i64 %178, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i820)
   %add.i.i821 = add nuw nsw i64 %178, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %175, ptr noundef nonnull align 8 dereferenceable(1) %176, i64 %add.i.i821, i1 false)
   br label %invoke.cont181
@@ -25251,6 +25449,8 @@ invoke.cont11.thread.i:                           ; preds = %invoke.cont181
 
 if.then14.i:                                      ; preds = %invoke.cont11.thread.i, %invoke.cont11.i
   %185 = load i64, ptr %_M_string_length.i29.i.i817, align 8, !tbaa !15
+  %cmp3.i56.i = icmp ult i64 %185, 16
+  call void @llvm.assume(i1 %cmp3.i56.i)
   switch i64 %185, label %if.end.i.i.i828 [
     i64 0, label %if.end22.i
     i64 1, label %if.then.i60.i
@@ -25414,6 +25614,8 @@ call2.i.i.noexc869:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i863:                                   ; preds = %call2.i.i.noexc869
   %_M_string_length.i.i.i864 = getelementptr inbounds i8, ptr %call2.i.i870, i64 8
   %211 = load i64, ptr %_M_string_length.i.i.i864, align 8, !tbaa !15
+  %cmp3.i.i.i865 = icmp ult i64 %211, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i865)
   %add.i.i866 = add nuw nsw i64 %211, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %208, ptr noundef nonnull align 8 dereferenceable(1) %209, i64 %add.i.i866, i1 false)
   br label %invoke.cont202
@@ -25453,6 +25655,8 @@ invoke.cont11.thread.i873:                        ; preds = %invoke.cont202
 
 if.then14.i882:                                   ; preds = %invoke.cont11.thread.i873, %invoke.cont11.i891
   %218 = load i64, ptr %_M_string_length.i29.i.i862, align 8, !tbaa !15
+  %cmp3.i56.i884 = icmp ult i64 %218, 16
+  call void @llvm.assume(i1 %cmp3.i56.i884)
   switch i64 %218, label %if.end.i.i.i890 [
     i64 0, label %if.end22.i886
     i64 1, label %if.then.i60.i885
@@ -25729,6 +25933,8 @@ call2.i.i.noexc970:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i964:                                   ; preds = %call2.i.i.noexc970
   %_M_string_length.i.i.i965 = getelementptr inbounds i8, ptr %call2.i.i971, i64 8
   %261 = load i64, ptr %_M_string_length.i.i.i965, align 8, !tbaa !15
+  %cmp3.i.i.i966 = icmp ult i64 %261, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i966)
   %add.i.i967 = add nuw nsw i64 %261, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %258, ptr noundef nonnull align 8 dereferenceable(1) %259, i64 %add.i.i967, i1 false)
   br label %invoke.cont258
@@ -25768,6 +25974,8 @@ invoke.cont11.thread.i974:                        ; preds = %invoke.cont258
 
 if.then14.i983:                                   ; preds = %invoke.cont11.thread.i974, %invoke.cont11.i992
   %268 = load i64, ptr %_M_string_length.i29.i.i963, align 8, !tbaa !15
+  %cmp3.i56.i985 = icmp ult i64 %268, 16
+  call void @llvm.assume(i1 %cmp3.i56.i985)
   switch i64 %268, label %if.end.i.i.i991 [
     i64 0, label %if.end22.i987
     i64 1, label %if.then.i60.i986
@@ -25931,6 +26139,8 @@ call2.i.i.noexc1040:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i1034:                                  ; preds = %call2.i.i.noexc1040
   %_M_string_length.i.i.i1035 = getelementptr inbounds i8, ptr %call2.i.i1041, i64 8
   %294 = load i64, ptr %_M_string_length.i.i.i1035, align 8, !tbaa !15
+  %cmp3.i.i.i1036 = icmp ult i64 %294, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i1036)
   %add.i.i1037 = add nuw nsw i64 %294, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %291, ptr noundef nonnull align 8 dereferenceable(1) %292, i64 %add.i.i1037, i1 false)
   br label %invoke.cont279
@@ -25970,6 +26180,8 @@ invoke.cont11.thread.i1044:                       ; preds = %invoke.cont279
 
 if.then14.i1053:                                  ; preds = %invoke.cont11.thread.i1044, %invoke.cont11.i1062
   %301 = load i64, ptr %_M_string_length.i29.i.i1033, align 8, !tbaa !15
+  %cmp3.i56.i1055 = icmp ult i64 %301, 16
+  call void @llvm.assume(i1 %cmp3.i56.i1055)
   switch i64 %301, label %if.end.i.i.i1061 [
     i64 0, label %if.end22.i1057
     i64 1, label %if.then.i60.i1056
@@ -31344,6 +31556,8 @@ if.then.i.i:                                      ; preds = %entry
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %5 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %5, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nuw nsw i64 %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(1) %3, i64 %add.i.i.i.i.i.i, i1 false)
   br label %invoke.cont.thread
@@ -31498,6 +31712,8 @@ if.then.i.i:                                      ; preds = %entry
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %5 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %5, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nuw nsw i64 %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(1) %3, i64 %add.i.i.i.i.i.i, i1 false)
   br label %invoke.cont.thread
@@ -31625,6 +31841,8 @@ _ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE11_M_allocateEm.exit:
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE11_M_allocateEm.exit
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   %6 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i.i.i = icmp ult i64 %6, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
   %add.i.i.i.i = add nuw nsw i64 %6, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %add.i.i.i.i, i1 false)
   br label %_ZNSt16allocator_traitsISaIN6duckdb20ExceptionFormatValueEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
@@ -31666,6 +31884,8 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt16allocator_tr
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i, i64 32
   %12 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !15, !alias.scope !550, !noalias !547
+  %cmp3.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %12, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %12, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(1) %10, i64 %add.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i
@@ -31715,6 +31935,8 @@ for.body.i.i.i.i33:                               ; preds = %_ZNSt6vectorIN6duck
 if.then.i.i.i.i.i.i.i.i.i49:                      ; preds = %for.body.i.i.i.i33
   %_M_string_length.i.i.i.i.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i35, i64 32
   %18 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i50, align 8, !tbaa !15, !alias.scope !557, !noalias !554
+  %cmp3.i.i.i.i.i.i.i.i.i.i51 = icmp ult i64 %18, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i51)
   %add.i.i.i.i.i.i.i.i.i52 = add nuw nsw i64 %18, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(1) %16, i64 %add.i.i.i.i.i.i.i.i.i52, i1 false)
   br label %_ZSt19__relocate_object_aIN6duckdb20ExceptionFormatValueES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i42
@@ -32165,6 +32387,8 @@ if.then.i.i13:                                    ; preds = %invoke.cont
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i13
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %13, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nuw nsw i64 %13, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %add.i.i.i.i.i.i, i1 false)
   br label %invoke.cont2.thread
@@ -32437,6 +32661,8 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %13, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nuw nsw i64 %13, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %add.i.i.i.i.i.i, i1 false)
   br label %invoke.cont2.thread
@@ -33511,6 +33737,8 @@ if.then.i.i20:                                    ; preds = %invoke.cont
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i20
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %13, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nuw nsw i64 %13, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %add.i.i.i.i.i.i, i1 false)
   br label %invoke.cont4.thread
@@ -33863,6 +34091,8 @@ if.then.i.i13:                                    ; preds = %invoke.cont
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i13
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %13, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nuw nsw i64 %13, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %add.i.i.i.i.i.i, i1 false)
   br label %invoke.cont2.thread
@@ -34133,6 +34363,8 @@ if.then.i.i7:                                     ; preds = %invoke.cont
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i7
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %13, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nuw nsw i64 %13, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %add.i.i.i.i.i.i, i1 false)
   br label %invoke.cont2.thread
@@ -34386,6 +34618,8 @@ call3.i.i.i.noexc:                                ; preds = %invoke.cont11
 if.then.i.i44:                                    ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i1.i = getelementptr inbounds i8, ptr %call3.i.i.i46, i64 8
   %18 = load i64, ptr %_M_string_length.i.i1.i, align 8, !tbaa !15
+  %cmp3.i.i.i45 = icmp ult i64 %18, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i45)
   %add.i.i = add nuw nsw i64 %18, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(1) %16, i64 %add.i.i, i1 false)
   br label %invoke.cont13
@@ -35308,6 +35542,8 @@ if.then.i.i:                                      ; preds = %invoke.cont
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %13, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nuw nsw i64 %13, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %add.i.i.i.i.i.i, i1 false)
   br label %invoke.cont2.thread
@@ -35647,6 +35883,8 @@ call3.i.i.i.noexc:                                ; preds = %invoke.cont11
 if.then.i.i51:                                    ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i1.i = getelementptr inbounds i8, ptr %call3.i.i.i53, i64 8
   %20 = load i64, ptr %_M_string_length.i.i1.i, align 8, !tbaa !15
+  %cmp3.i.i.i52 = icmp ult i64 %20, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i52)
   %add.i.i = add nuw nsw i64 %20, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(1) %18, i64 %add.i.i, i1 false)
   br label %invoke.cont13
@@ -35944,6 +36182,8 @@ call3.i.i.i.noexc:                                ; preds = %invoke.cont11
 if.then.i.i51:                                    ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i1.i = getelementptr inbounds i8, ptr %call3.i.i.i53, i64 8
   %20 = load i64, ptr %_M_string_length.i.i1.i, align 8, !tbaa !15
+  %cmp3.i.i.i52 = icmp ult i64 %20, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i52)
   %add.i.i = add nuw nsw i64 %20, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(1) %18, i64 %add.i.i, i1 false)
   br label %invoke.cont13
@@ -36244,6 +36484,8 @@ call3.i.i.i.noexc:                                ; preds = %invoke.cont11
 if.then.i.i51:                                    ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i1.i = getelementptr inbounds i8, ptr %call3.i.i.i53, i64 8
   %20 = load i64, ptr %_M_string_length.i.i1.i, align 8, !tbaa !15
+  %cmp3.i.i.i52 = icmp ult i64 %20, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i52)
   %add.i.i = add nuw nsw i64 %20, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(1) %18, i64 %add.i.i, i1 false)
   br label %invoke.cont13
@@ -36850,6 +37092,8 @@ if.then.i.i:                                      ; preds = %entry
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %5 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !15
+  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %5, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nuw nsw i64 %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(1) %3, i64 %add.i.i.i.i.i.i, i1 false)
   br label %invoke.cont.thread
@@ -37074,6 +37318,8 @@ call3.i.i.i.noexc:                                ; preds = %invoke.cont11
 if.then.i.i51:                                    ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i1.i = getelementptr inbounds i8, ptr %call3.i.i.i53, i64 8
   %20 = load i64, ptr %_M_string_length.i.i1.i, align 8, !tbaa !15
+  %cmp3.i.i.i52 = icmp ult i64 %20, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i52)
   %add.i.i = add nuw nsw i64 %20, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(1) %18, i64 %add.i.i, i1 false)
   br label %invoke.cont13
@@ -37371,6 +37617,8 @@ call3.i.i.i.noexc:                                ; preds = %invoke.cont11
 if.then.i.i51:                                    ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i1.i = getelementptr inbounds i8, ptr %call3.i.i.i53, i64 8
   %20 = load i64, ptr %_M_string_length.i.i1.i, align 8, !tbaa !15
+  %cmp3.i.i.i52 = icmp ult i64 %20, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i52)
   %add.i.i = add nuw nsw i64 %20, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(1) %18, i64 %add.i.i, i1 false)
   br label %invoke.cont13
@@ -37654,6 +37902,8 @@ call3.i.i.i.noexc:                                ; preds = %invoke.cont11
 if.then.i.i46:                                    ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i1.i = getelementptr inbounds i8, ptr %call3.i.i.i48, i64 8
   %18 = load i64, ptr %_M_string_length.i.i1.i, align 8, !tbaa !15
+  %cmp3.i.i.i47 = icmp ult i64 %18, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i47)
   %add.i.i = add nuw nsw i64 %18, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(1) %16, i64 %add.i.i, i1 false)
   br label %invoke.cont13
@@ -38039,7 +38289,7 @@ attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

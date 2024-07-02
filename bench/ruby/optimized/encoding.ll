@@ -1392,41 +1392,43 @@ enc_registered.exit:                              ; preds = %rb_vm_lock_enter.ex
   %19 = load i64, ptr %3, align 8
   %20 = trunc i64 %19 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
-  %22 = and i32 %20, 16777215
-  %23 = icmp sgt i32 %21, %22
-  call void @llvm.assume(i1 %23)
-  %24 = and i64 %19, 16777215
-  %25 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %24, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %.0.i
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !nonnull !14, !noundef !14
-  %30 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %26, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %26, i64 128
-  %32 = load i32, ptr %31, align 8
-  %33 = and i32 %32, 16777216
-  %.not.i11 = icmp eq i32 %33, 0
-  br i1 %.not.i11, label %set_base_encoding.exit, label %34
+  %21 = icmp sgt i32 %20, -1
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %23 = and i32 %20, 16777215
+  %24 = icmp sgt i32 %22, %23
+  call void @llvm.assume(i1 %21)
+  call void @llvm.assume(i1 %24)
+  %25 = and i64 %19, 16777215
+  %26 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %25, i32 1
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %.0.i
+  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8, !nonnull !14, !noundef !14
+  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  store ptr %27, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %27, i64 128
+  %33 = load i32, ptr %32, align 8
+  %34 = and i32 %33, 16777216
+  %.not.i11 = icmp eq i32 %34, 0
+  br i1 %.not.i11, label %set_base_encoding.exit, label %35
 
-34:                                               ; preds = %enc_registered.exit
-  %35 = getelementptr inbounds i8, ptr %29, i64 128
-  %36 = load i32, ptr %35, align 8
-  %37 = or i32 %36, 16777216
-  store i32 %37, ptr %35, align 8
+35:                                               ; preds = %enc_registered.exit
+  %36 = getelementptr inbounds i8, ptr %30, i64 128
+  %37 = load i32, ptr %36, align 8
+  %38 = or i32 %37, 16777216
+  store i32 %38, ptr %36, align 8
   br label %set_base_encoding.exit
 
-set_base_encoding.exit:                           ; preds = %enc_registered.exit, %34
-  %38 = load ptr, ptr @ruby_single_main_ractor, align 8
-  %.not.i.i12 = icmp eq ptr %38, null
-  br i1 %.not.i.i12, label %39, label %rb_vm_lock_leave.exit
+set_base_encoding.exit:                           ; preds = %enc_registered.exit, %35
+  %39 = load ptr, ptr @ruby_single_main_ractor, align 8
+  %.not.i.i12 = icmp eq ptr %39, null
+  br i1 %.not.i.i12, label %40, label %rb_vm_lock_leave.exit
 
-39:                                               ; preds = %set_base_encoding.exit
+40:                                               ; preds = %set_base_encoding.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #20
   br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %set_base_encoding.exit, %39
+rb_vm_lock_leave.exit:                            ; preds = %set_base_encoding.exit, %40
   ret void
 }
 

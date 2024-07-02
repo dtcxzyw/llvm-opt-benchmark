@@ -164,7 +164,7 @@ define internal ptr @H5O__linfo_decode(ptr noundef %0, ptr nocapture readnone %1
   store i64 %68, ptr %59, align 8
   %71 = getelementptr inbounds i8, ptr %63, i64 7
   store ptr %71, ptr %7, align 8
-  %72 = icmp slt i64 %68, 0
+  %72 = icmp slt i64 %64, 0
   br i1 %72, label %73, label %79
 
 73:                                               ; preds = %70
@@ -190,8 +190,8 @@ define internal ptr @H5O__linfo_decode(ptr noundef %0, ptr nocapture readnone %1
   %85 = ptrtoint ptr %80 to i64
   %86 = sub i64 %14, %85
   %87 = icmp ult i64 %86, %83
-  %or.cond89 = select i1 %84, i1 true, i1 %87
-  br i1 %or.cond89, label %88, label %92
+  %or.cond90 = select i1 %84, i1 true, i1 %87
+  br i1 %or.cond90, label %88, label %92
 
 88:                                               ; preds = %82
   %89 = load i64, ptr @H5E_OHDR_g, align 8
@@ -217,8 +217,8 @@ define internal ptr @H5O__linfo_decode(ptr noundef %0, ptr nocapture readnone %1
   %101 = ptrtoint ptr %99 to i64
   %102 = sub i64 %14, %101
   %103 = icmp ult i64 %102, %81
-  %or.cond92 = select i1 %100, i1 true, i1 %103
-  br i1 %or.cond92, label %104, label %108
+  %or.cond93 = select i1 %100, i1 true, i1 %103
+  br i1 %or.cond93, label %104, label %108
 
 104:                                              ; preds = %98
   %105 = load i64, ptr @H5E_OHDR_g, align 8

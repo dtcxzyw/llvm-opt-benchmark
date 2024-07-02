@@ -12619,7 +12619,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   %20 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 %17, ptr %20, align 4, !alias.scope !3219, !noalias !3222
   %21 = zext i32 %12 to i64
-  %22 = icmp ult i32 %12, 4
+  %22 = icmp ult i32 %11, 4
   br i1 %22, label %_ZN11rand_chacha4guts16get_stream_param9impl_sse217hf8805e56ac12e674E.llvm.17720110283109806325.exit, label %23, !prof !160
 
 23:                                               ; preds = %9
@@ -12681,7 +12681,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17h08b
   %15 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 %12, ptr %15, align 4, !alias.scope !3235, !noalias !3238
   %16 = zext i32 %7 to i64
-  %17 = icmp ult i32 %7, 4
+  %17 = icmp ult i32 %6, 4
   br i1 %17, label %"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..NoS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$7extract17h6d7c99b9e8014e9cE.llvm.17720110283109806325.exit", label %18, !prof !160
 
 18:                                               ; preds = %2
@@ -12741,7 +12741,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17hb06
   store i32 %15, ptr %18, align 4, !alias.scope !3251, !noalias !3256
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %19 = zext i32 %9 to i64
-  %20 = icmp ult i32 %9, 4
+  %20 = icmp ult i32 %8, 4
   br i1 %20, label %"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$7extract17he520c4f4cca03427E.llvm.17720110283109806325.exit", label %21, !prof !160
 
 21:                                               ; preds = %2
@@ -12803,7 +12803,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param8impl_avx17h55
   %15 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 %12, ptr %15, align 4, !alias.scope !3271, !noalias !3274
   %16 = zext i32 %7 to i64
-  %17 = icmp ult i32 %7, 4
+  %17 = icmp ult i32 %6, 4
   br i1 %17, label %_ZN11rand_chacha4guts16get_stream_param7fn_impl17hb061ba77decb59a1E.llvm.17720110283109806325.exit, label %18, !prof !160
 
 18:                                               ; preds = %2
@@ -12857,7 +12857,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param9impl_sse217hf
   %15 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 %12, ptr %15, align 4, !alias.scope !3289, !noalias !3292
   %16 = zext i32 %7 to i64
-  %17 = icmp ult i32 %7, 4
+  %17 = icmp ult i32 %6, 4
   br i1 %17, label %_ZN11rand_chacha4guts16get_stream_param7fn_impl17h08baf2e4c3103d25E.llvm.17720110283109806325.exit, label %18, !prof !160
 
 18:                                               ; preds = %2

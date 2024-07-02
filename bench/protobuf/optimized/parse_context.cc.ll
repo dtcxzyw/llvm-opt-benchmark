@@ -1417,7 +1417,7 @@ entry:
   %shl = shl i32 %num, 3
   %add = or disjoint i32 %shl, 2
   %conv = zext i32 %add to i64
-  %cmp5.i = icmp ugt i32 %add, 127
+  %cmp5.i = icmp ugt i32 %shl, 127
   br i1 %cmp5.i, label %while.body.i, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 while.body.i:                                     ; preds = %entry, %while.body.i
@@ -2439,7 +2439,7 @@ if.end.i24:                                       ; preds = %sw.bb3
   %mul.i25 = shl i32 %conv, 3
   %add.i = or disjoint i32 %mul.i25, 1
   %conv.i26 = zext i32 %add.i to i64
-  %cmp5.i.i27 = icmp ugt i32 %mul.i25, 126
+  %cmp5.i.i27 = icmp ugt i32 %mul.i25, 127
   br i1 %cmp5.i.i27, label %while.body.i.i31, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i28
 
 while.body.i.i31:                                 ; preds = %if.end.i24, %while.body.i.i31
@@ -2501,7 +2501,7 @@ if.end.i39:                                       ; preds = %sw.bb20
   %mul.i40 = shl i32 %conv, 3
   %add.i41 = or disjoint i32 %mul.i40, 5
   %conv.i42 = zext i32 %add.i41 to i64
-  %cmp5.i.i43 = icmp ugt i32 %add.i41, 127
+  %cmp5.i.i43 = icmp ugt i32 %mul.i40, 127
   br i1 %cmp5.i.i43, label %while.body.i.i48, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i44
 
 while.body.i.i48:                                 ; preds = %if.end.i39, %while.body.i.i48
@@ -7614,7 +7614,7 @@ if.end4:                                          ; preds = %if.end
   %mul = shl i32 %num, 3
   %add = or disjoint i32 %mul, 2
   %conv = zext i32 %add to i64
-  %cmp5.i = icmp ugt i32 %add, 127
+  %cmp5.i = icmp ugt i32 %mul, 127
   br i1 %cmp5.i, label %while.body.i, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 while.body.i:                                     ; preds = %if.end4, %while.body.i
@@ -7683,7 +7683,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add = or disjoint i32 %.pre, 3
   %conv = zext i32 %add to i64
-  %cmp5.i = icmp ugt i32 %add, 127
+  %cmp5.i = icmp ugt i32 %.pre, 127
   br i1 %cmp5.i, label %while.body.i, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 while.body.i:                                     ; preds = %if.then, %while.body.i
@@ -7735,7 +7735,7 @@ if.end7:                                          ; preds = %if.end.i
 if.then10:                                        ; preds = %if.end7
   %add12 = or disjoint i32 %.pre, 4
   %conv13 = zext i32 %add12 to i64
-  %cmp5.i11 = icmp ugt i32 %add12, 127
+  %cmp5.i11 = icmp ugt i32 %.pre, 127
   br i1 %cmp5.i11, label %while.body.i14, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit19
 
 while.body.i14:                                   ; preds = %if.then10, %while.body.i14

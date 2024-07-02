@@ -4195,7 +4195,7 @@ define dso_local i64 @__ia32_compat_sys_preadv(ptr nocapture noundef readonly %0
   %18 = or disjoint i64 %17, %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 %18, ptr %2, align 8
-  %19 = icmp slt i64 %18, 0
+  %19 = icmp slt i64 %17, 0
   br i1 %19, label %52, label %20
 
 20:                                               ; preds = %1
@@ -4363,7 +4363,7 @@ define dso_local i64 @__ia32_compat_sys_preadv2(ptr nocapture noundef readonly %
 27:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 %22, ptr %2, align 8
-  %28 = icmp slt i64 %22, 0
+  %28 = icmp slt i64 %21, 0
   br i1 %28, label %60, label %29
 
 29:                                               ; preds = %27
@@ -4518,7 +4518,7 @@ define dso_local i64 @__ia32_compat_sys_pwritev(ptr nocapture noundef readonly %
   %18 = or disjoint i64 %17, %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 %18, ptr %2, align 8
-  %19 = icmp slt i64 %18, 0
+  %19 = icmp slt i64 %17, 0
   br i1 %19, label %52, label %20
 
 20:                                               ; preds = %1
@@ -4686,7 +4686,7 @@ define dso_local i64 @__ia32_compat_sys_pwritev2(ptr nocapture noundef readonly 
 27:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 %22, ptr %2, align 8
-  %28 = icmp slt i64 %22, 0
+  %28 = icmp slt i64 %21, 0
   br i1 %28, label %60, label %29
 
 29:                                               ; preds = %27

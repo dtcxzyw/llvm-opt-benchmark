@@ -4812,7 +4812,7 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4read
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = icmp ne i64 %8, 31
+  %10 = icmp ult i64 %8, 31
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds { { i64 }, { { [0 x i8] } } }, ptr %9, i64 %8
   %12 = load atomic i64, ptr %11 acquire, align 8
@@ -4891,7 +4891,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17h08f5cd562da91181E.llvm.14413389980
 
 .lr.ph.i6:                                        ; preds = %40, %51
   %.sroa.01.010.i7 = phi i64 [ %42, %51 ], [ %24, %40 ]
-  %42 = add i64 %.sroa.01.010.i7, 1
+  %42 = add nuw nsw i64 %.sroa.01.010.i7, 1
   %43 = getelementptr inbounds { { i64 }, { { [0 x i8] } } }, ptr %9, i64 %.sroa.01.010.i7
   %44 = load atomic i64, ptr %43 acquire, align 8
   %45 = and i64 %44, 2
@@ -4925,7 +4925,7 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4read17hb634cbb24ec
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %2, i64 24
   %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = icmp ne i64 %12, 31
+  %13 = icmp ult i64 %12, 31
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds { { { [7 x i64] } }, { i64 } }, ptr %6, i64 %12
   %15 = getelementptr inbounds i8, ptr %14, i64 56
@@ -5002,7 +5002,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17h08f5cd562da91181E.llvm.14413389980
 
 .lr.ph.i6:                                        ; preds = %45, %56
   %.sroa.01.010.i7 = phi i64 [ %47, %56 ], [ %28, %45 ]
-  %47 = add i64 %.sroa.01.010.i7, 1
+  %47 = add nuw nsw i64 %.sroa.01.010.i7, 1
   %48 = getelementptr inbounds { { { [7 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.010.i7, i32 1
   %49 = load atomic i64, ptr %48 acquire, align 8
   %50 = and i64 %49, 2
@@ -5044,7 +5044,7 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4read17hcedb1607cf3
   %10 = getelementptr inbounds i8, ptr %2, i64 24
   %11 = load i64, ptr %10, align 8, !noundef !4
   %12 = getelementptr inbounds i8, ptr %6, i64 8
-  %13 = icmp ne i64 %11, 31
+  %13 = icmp ult i64 %11, 31
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds { { { [6 x i64] } }, { i64 } }, ptr %12, i64 %11
   %15 = getelementptr inbounds i8, ptr %14, i64 48
@@ -5121,7 +5121,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17h08f5cd562da91181E.llvm.14413389980
 
 .lr.ph.i6:                                        ; preds = %45, %56
   %.sroa.01.010.i7 = phi i64 [ %47, %56 ], [ %28, %45 ]
-  %47 = add i64 %.sroa.01.010.i7, 1
+  %47 = add nuw nsw i64 %.sroa.01.010.i7, 1
   %48 = getelementptr inbounds { { { [6 x i64] } }, { i64 } }, ptr %12, i64 %.sroa.01.010.i7, i32 1
   %49 = load atomic i64, ptr %48 acquire, align 8
   %50 = and i64 %49, 2
@@ -5806,7 +5806,7 @@ define hidden noundef range(i8 1, 3) i8 @"_ZN3std4sync4mpmc4list16Channel$LT$T$G
   %10 = getelementptr inbounds i8, ptr %4, i64 24
   %11 = load i64, ptr %10, align 8, !alias.scope !600, !noundef !4
   %12 = getelementptr inbounds i8, ptr %7, i64 8
-  %13 = icmp ne i64 %11, 31
+  %13 = icmp ult i64 %11, 31
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds { { i64 }, { { [0 x i8] } } }, ptr %12, i64 %11
   %15 = atomicrmw or ptr %14, i64 1 release, align 8, !noalias !600
@@ -5844,7 +5844,7 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4send17hf1354962431
 
 "_ZN3std4sync4mpmc4list16Channel$LT$T$GT$5write17h7a7a70c65484bd18E.llvm.14413389980263760380.exit.thread": ; preds = %9
   %13 = load i64, ptr %7, align 8, !alias.scope !603, !noalias !606, !noundef !4
-  %14 = icmp ne i64 %13, 31
+  %14 = icmp ult i64 %13, 31
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds { { { [7 x i64] } }, { i64 } }, ptr %11, i64 %13
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
@@ -5907,7 +5907,7 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$5writ
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = icmp ne i64 %8, 31
+  %10 = icmp ult i64 %8, 31
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds { { i64 }, { { [0 x i8] } } }, ptr %9, i64 %8
   %12 = atomicrmw or ptr %11, i64 1 release, align 8
@@ -5933,7 +5933,7 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$5write17h7a7a70c654
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %2, i64 24
   %11 = load i64, ptr %10, align 8, !noundef !4
-  %12 = icmp ne i64 %11, 31
+  %12 = icmp ult i64 %11, 31
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds { { { [7 x i64] } }, { i64 } }, ptr %6, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)

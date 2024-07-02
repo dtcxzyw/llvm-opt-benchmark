@@ -1020,7 +1020,7 @@ define internal fastcc noundef i32 @fib_insert_alias(ptr noundef %0, ptr noundef
   %61 = getelementptr inbounds i8, ptr %42, i64 40
   %62 = getelementptr [0 x ptr], ptr %61, i64 0, i64 %60
   %63 = load ptr, ptr %62, align 8
-  %64 = icmp ult i64 %60, 2
+  %64 = icmp ult i64 %59, 2
   br i1 %64, label %66, label %65, !prof !24
 
 65:                                               ; preds = %44

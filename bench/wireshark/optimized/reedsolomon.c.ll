@@ -813,7 +813,7 @@ modnn.exit277:                                    ; preds = %.lr.ph.i275, %._cri
   br label %.preheader300
 
 .preheader300:                                    ; preds = %.preheader300.preheader, %250
-  %indvars.iv478 = phi i64 [ 0, %.preheader300.preheader ], [ %indvars.iv.next479.pre-phi509, %250 ]
+  %indvars.iv478 = phi i64 [ 0, %.preheader300.preheader ], [ %indvars.iv.next479.pre-phi510, %250 ]
   %.0211366 = phi i32 [ 0, %.preheader300.preheader ], [ %251, %250 ]
   %224 = trunc nuw nsw i64 %indvars.iv478 to i32
   %225 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %224)
@@ -877,19 +877,19 @@ modnn.exit281:                                    ; preds = %.lr.ph.i279, %236
 
 ._crit_edge364:                                   ; preds = %248
   %.not234 = icmp eq i32 %.1194.fr, 0
-  %spec.select534 = select i1 %.not234, i32 %.0211366, i32 %224
+  %spec.select535 = select i1 %.not234, i32 %.0211366, i32 %224
   br label %250
 
 250:                                              ; preds = %._crit_edge364, %._crit_edge364.thread
-  %.0193.lcssa511 = phi i32 [ 0, %._crit_edge364.thread ], [ %.1194.fr, %._crit_edge364 ]
-  %indvars.iv.next479.pre-phi509 = phi i64 [ %.pre, %._crit_edge364.thread ], [ %227, %._crit_edge364 ]
-  %251 = phi i32 [ %.0211366, %._crit_edge364.thread ], [ %spec.select534, %._crit_edge364 ]
-  %252 = sext i32 %.0193.lcssa511 to i64
+  %.0193.lcssa512 = phi i32 [ 0, %._crit_edge364.thread ], [ %.1194.fr, %._crit_edge364 ]
+  %indvars.iv.next479.pre-phi510 = phi i64 [ %.pre, %._crit_edge364.thread ], [ %227, %._crit_edge364 ]
+  %251 = phi i32 [ %.0211366, %._crit_edge364.thread ], [ %spec.select535, %._crit_edge364 ]
+  %252 = sext i32 %.0193.lcssa512 to i64
   %253 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %252
   %254 = load i32, ptr %253, align 4
   %255 = getelementptr [49 x i32], ptr %8, i64 0, i64 %indvars.iv478
   store i32 %254, ptr %255, align 4
-  %exitcond484.not = icmp eq i64 %indvars.iv.next479.pre-phi509, 48
+  %exitcond484.not = icmp eq i64 %indvars.iv.next479.pre-phi510, 48
   br i1 %exitcond484.not, label %256, label %.preheader300, !llvm.loop !28
 
 256:                                              ; preds = %250
@@ -971,11 +971,15 @@ modnn.exit285:                                    ; preds = %.lr.ph.i283, %273
   %292 = getelementptr [49 x i32], ptr %4, i64 0, i64 %291
   %293 = load i32, ptr %292, align 4
   %.not232 = icmp eq i32 %293, 255
-  br i1 %.not232, label %309, label %294
+  br i1 %.not232, label %.lr.ph375._crit_edge, label %294
+
+.lr.ph375._crit_edge:                             ; preds = %.lr.ph375
+  %.pre501 = trunc nuw i64 %indvars.iv489 to i32
+  br label %309
 
 294:                                              ; preds = %.lr.ph375
   %295 = load i32, ptr %290, align 4
-  %296 = trunc nuw nsw i64 %indvars.iv489 to i32
+  %296 = trunc nuw i64 %indvars.iv489 to i32
   %297 = mul i32 %295, %296
   %298 = add i32 %297, %293
   %299 = icmp sgt i32 %298, 254
@@ -998,10 +1002,11 @@ modnn.exit293:                                    ; preds = %.lr.ph.i291, %294
   %308 = xor i32 %307, %.0187374
   br label %309
 
-309:                                              ; preds = %.lr.ph375, %modnn.exit293
-  %.1188 = phi i32 [ %308, %modnn.exit293 ], [ %.0187374, %.lr.ph375 ]
+309:                                              ; preds = %.lr.ph375._crit_edge, %modnn.exit293
+  %.pre-phi = phi i32 [ %.pre501, %.lr.ph375._crit_edge ], [ %296, %modnn.exit293 ]
+  %.1188 = phi i32 [ %.0187374, %.lr.ph375._crit_edge ], [ %308, %modnn.exit293 ]
+  %310 = icmp sgt i32 %.pre-phi, 1
   %indvars.iv.next490 = add nsw i64 %indvars.iv489, -2
-  %310 = icmp sgt i64 %indvars.iv489, 1
   br i1 %310, label %.lr.ph375, label %._crit_edge376, !llvm.loop !30
 
 ._crit_edge376:                                   ; preds = %309
@@ -1078,8 +1083,8 @@ modnn.exit297:                                    ; preds = %.lr.ph.i295, %313
   br i1 %exitcond500.not, label %.loopexit, label %.lr.ph384, !llvm.loop !32
 
 .loopexit:                                        ; preds = %._crit_edge371, %._crit_edge376, %.lr.ph384, %256, %222, %49, %.loopexit299
-  %.3517 = phi i32 [ %spec.select, %.loopexit299 ], [ %spec.select, %256 ], [ -1, %222 ], [ 0, %49 ], [ %spec.select, %.lr.ph384 ], [ -1, %._crit_edge376 ], [ -1, %._crit_edge371 ]
-  ret i32 %.3517
+  %.3518 = phi i32 [ %spec.select, %.loopexit299 ], [ %spec.select, %256 ], [ -1, %222 ], [ 0, %49 ], [ %spec.select, %.lr.ph384 ], [ -1, %._crit_edge376 ], [ -1, %._crit_edge371 ]
+  ret i32 %.3518
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

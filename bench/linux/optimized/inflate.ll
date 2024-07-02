@@ -531,7 +531,7 @@ default.unreachable978:                           ; preds = %199
   %217 = zext nneg i32 %216 to i64
   %218 = lshr i64 %70, %217
   %219 = and i32 %71, -8
-  %220 = icmp ult i32 %219, 32
+  %220 = icmp ult i32 %71, 32
   br i1 %220, label %221, label %240
 
 221:                                              ; preds = %215

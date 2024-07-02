@@ -186,7 +186,7 @@ _ZL12printspecialPcim.exit:                       ; preds = %13, %19
   %145 = zext i1 %144 to i64
   %146 = or i64 %143, %145
   %147 = lshr i64 %127, 2
-  %148 = icmp ugt i64 %130, 39
+  %148 = icmp ugt i64 %127, 39
   br i1 %148, label %149, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %39

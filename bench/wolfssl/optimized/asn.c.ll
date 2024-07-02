@@ -7355,7 +7355,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
 
 GetShortInt.exit:                                 ; preds = %while.body.i
   store i32 %add13.i, ptr %inOutIdx, align 4
-  %cmp50 = icmp slt i32 %or.i, 0
+  %cmp50 = icmp slt i32 %shl.i, 0
   br i1 %cmp50, label %return, label %if.end53
 
 if.end53:                                         ; preds = %GetShortInt.exit.thread206, %GetShortInt.exit

@@ -3311,7 +3311,7 @@ unescape_unicode.exit:                            ; preds = %68
   br label %172
 
 147:                                              ; preds = %unescape_unicode.exit
-  %148 = icmp ult i64 %85, 128
+  %148 = icmp ult i64 %82, 8
   br i1 %148, label %149, label %151
 
 149:                                              ; preds = %147
@@ -3320,7 +3320,7 @@ unescape_unicode.exit:                            ; preds = %68
   br label %convert_UTF32_to_UTF8.exit
 
 151:                                              ; preds = %147
-  %152 = icmp ult i64 %85, 2048
+  %152 = icmp ult i64 %80, 128
   br i1 %152, label %153, label %.thread103
 
 153:                                              ; preds = %151
@@ -3335,14 +3335,14 @@ unescape_unicode.exit:                            ; preds = %68
   br label %convert_UTF32_to_UTF8.exit
 
 .thread103:                                       ; preds = %151
-  %160 = icmp ult i64 %85, 65536
+  %160 = icmp ult i8 %52, 16
   br i1 %160, label %161, label %172
 
 161:                                              ; preds = %.thread103.thread, %.thread103
   %.072102106111 = phi i64 [ 65533, %.thread103.thread ], [ %85, %.thread103 ]
   %.179101107110 = phi ptr [ %75, %.thread103.thread ], [ %69, %.thread103 ]
   %162 = lshr i64 %.072102106111, 12
-  %163 = trunc nuw nsw i64 %162 to i8
+  %163 = trunc nuw i64 %162 to i8
   %164 = or disjoint i8 %163, -32
   store i8 %164, ptr %5, align 1
   %165 = lshr i64 %.072102106111, 6

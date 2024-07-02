@@ -2140,15 +2140,15 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.3712155024907033177.ex
   br i1 %294, label %320, label %295
 
 295:                                              ; preds = %289
-  %296 = icmp ult i32 %293, 128
+  %296 = icmp ult i32 %.013.i.i, 2
   br i1 %296, label %.thread23.i, label %297
 
 297:                                              ; preds = %295
-  %298 = icmp ult i32 %293, 2048
+  %298 = icmp ult i32 %.013.i.i, 32
   br i1 %298, label %.thread23.i, label %299
 
 299:                                              ; preds = %297
-  %300 = icmp ult i32 %293, 65536
+  %300 = icmp ult i32 %.013.i.i, 1024
   %..i = select i1 %300, i64 -3, i64 -4
   br label %.thread23.i
 

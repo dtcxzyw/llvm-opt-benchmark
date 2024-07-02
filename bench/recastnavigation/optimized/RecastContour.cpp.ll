@@ -1874,7 +1874,7 @@ _ZN10rcIntArrayixEi.exit382.i.us:                 ; preds = %883, %879, %.noexc4
   br i1 %890, label %_ZN10rcIntArrayixEi.exit384.i.us, label %891
 
 891:                                              ; preds = %.noexc412.us
-  %892 = icmp sgt i32 %887, -1
+  %892 = icmp sgt i32 %.0304588.i.us, -1
   %893 = load i64, ptr %22, align 8
   %894 = icmp sgt i64 %893, %888
   %or.cond.i.i383.i.us = select i1 %892, i1 %894, i1 false
@@ -1898,7 +1898,7 @@ _ZN10rcIntArrayixEi.exit384.i.us:                 ; preds = %895, %891, %.noexc4
   br i1 %902, label %_ZN10rcIntArrayixEi.exit386.i.us, label %903
 
 903:                                              ; preds = %.noexc414.us
-  %904 = icmp sgt i32 %899, -1
+  %904 = icmp sgt i32 %.0304588.i.us, -1
   %905 = load i64, ptr %22, align 8
   %906 = icmp sgt i64 %905, %900
   %or.cond.i.i385.i.us = select i1 %904, i1 %906, i1 false
@@ -1946,7 +1946,7 @@ _ZN10rcIntArrayixEi.exit388.i.us:                 ; preds = %919, %915, %.noexc4
   br i1 %926, label %_ZN10rcIntArrayixEi.exit390.i.us, label %927
 
 927:                                              ; preds = %.noexc418.us
-  %928 = icmp sgt i32 %923, -1
+  %928 = icmp sgt i32 %874, -1
   %929 = load i64, ptr %22, align 8
   %930 = icmp sgt i64 %929, %924
   %or.cond.i.i389.i.us = select i1 %928, i1 %930, i1 false
@@ -1970,7 +1970,7 @@ _ZN10rcIntArrayixEi.exit390.i.us:                 ; preds = %931, %927, %.noexc4
   br i1 %938, label %_ZN10rcIntArrayixEi.exit392.i.us, label %939
 
 939:                                              ; preds = %.noexc420.us
-  %940 = icmp sgt i32 %935, -1
+  %940 = icmp sgt i32 %874, -1
   %941 = load i64, ptr %22, align 8
   %942 = icmp sgt i64 %941, %936
   %or.cond.i.i391.i.us = select i1 %940, i1 %942, i1 false
@@ -2021,7 +2021,7 @@ _ZN10rcIntArrayixEi.exit392.i.us:                 ; preds = %943, %939, %.noexc4
   br i1 %960, label %_ZN10rcIntArrayixEi.exit394.i.us, label %961
 
 961:                                              ; preds = %.noexc422.us
-  %962 = icmp sgt i32 %957, -1
+  %962 = icmp sgt i32 %.0314.i.us, -1
   %963 = load i64, ptr %21, align 8
   %964 = icmp sgt i64 %963, %958
   %or.cond.i.i393.i.us = select i1 %962, i1 %964, i1 false
@@ -2048,7 +2048,7 @@ _ZN10rcIntArrayixEi.exit394.i.us:                 ; preds = %965, %961, %.noexc4
   br i1 %973, label %_ZN10rcIntArrayixEi.exit396.i.us, label %974
 
 974:                                              ; preds = %.noexc424.us
-  %975 = icmp sgt i32 %957, -1
+  %975 = icmp sgt i32 %.0314.i.us, -1
   %976 = load i64, ptr %21, align 8
   %977 = icmp sgt i64 %976, %958
   %or.cond.i.i395.i.us = select i1 %975, i1 %977, i1 false
@@ -2122,7 +2122,7 @@ _ZN10rcIntArrayixEi.exit398.i.us:                 ; preds = %1002, %998, %.noexc
   br i1 %1009, label %_ZN10rcIntArrayixEi.exit400.i.us, label %1010
 
 1010:                                             ; preds = %.noexc428.us
-  %1011 = icmp sgt i32 %1006, -1
+  %1011 = icmp sgt i32 %.1315574.i.us, -1
   %1012 = load i64, ptr %21, align 8
   %1013 = icmp sgt i64 %1012, %1007
   %or.cond.i.i399.i.us = select i1 %1011, i1 %1013, i1 false
@@ -2407,7 +2407,7 @@ _ZN10rcIntArrayixEi.exit410.i.us:                 ; preds = %1130, %1126, %.noex
   br i1 %1136, label %_ZN10rcIntArrayixEi.exit412.i.us, label %1137
 
 1137:                                             ; preds = %.noexc441.us
-  %1138 = icmp sgt i64 %1134, -1
+  %1138 = icmp sgt i64 %indvars.iv616.i.us, 0
   %1139 = load i64, ptr %22, align 8
   %1140 = icmp sgt i64 %1139, %1134
   %or.cond.i.i411.i.us = select i1 %1138, i1 %1140, i1 false
@@ -2454,7 +2454,7 @@ _ZN10rcIntArrayixEi.exit414.i.us:                 ; preds = %1152, %1148, %.noex
   br i1 %1158, label %_ZN10rcIntArrayixEi.exit416.i.us, label %1159
 
 1159:                                             ; preds = %.noexc445.us
-  %1160 = icmp sgt i64 %1156, -1
+  %1160 = icmp sgt i64 %indvars.iv616.i.us, 0
   %1161 = load i64, ptr %22, align 8
   %1162 = icmp sgt i64 %1161, %1156
   %or.cond.i.i415.i.us = select i1 %1160, i1 %1162, i1 false
@@ -2580,7 +2580,7 @@ _ZN10rcIntArrayixEi.exit424.i.us:                 ; preds = %1210, %1206, %.noex
   br i1 %1216, label %_ZN10rcIntArrayixEi.exit426.i.us, label %1217
 
 1217:                                             ; preds = %.noexc455.us
-  %1218 = icmp sgt i32 %1213, -1
+  %1218 = icmp sgt i32 %.1312.i.us, -1
   %1219 = load i64, ptr %21, align 8
   %1220 = icmp sgt i64 %1219, %1214
   %or.cond.i.i425.i.us = select i1 %1218, i1 %1220, i1 false
@@ -2604,7 +2604,7 @@ _ZN10rcIntArrayixEi.exit426.i.us:                 ; preds = %1221, %1217, %.noex
   br i1 %1228, label %_ZN10rcIntArrayixEi.exit428.i.us, label %1229
 
 1229:                                             ; preds = %.noexc457.us
-  %1230 = icmp sgt i32 %1225, -1
+  %1230 = icmp sgt i32 %.0304588.i.us, -2
   %1231 = load i64, ptr %22, align 8
   %1232 = icmp sgt i64 %1231, %1226
   %or.cond.i.i427.i.us = select i1 %1230, i1 %1232, i1 false
@@ -2628,7 +2628,7 @@ _ZN10rcIntArrayixEi.exit428.i.us:                 ; preds = %1233, %1229, %.noex
   br i1 %1239, label %_ZN10rcIntArrayixEi.exit430.i.us, label %1240
 
 1240:                                             ; preds = %.noexc459.us
-  %1241 = icmp sgt i32 %1236, -1
+  %1241 = icmp sgt i32 %.0304588.i.us, -2
   %1242 = load i64, ptr %22, align 8
   %1243 = icmp sgt i64 %1242, %1237
   %or.cond.i.i429.i.us = select i1 %1241, i1 %1243, i1 false
@@ -2704,7 +2704,7 @@ _ZN10rcIntArrayixEi.exit432.i.us:                 ; preds = %1266, %1262, %.noex
   br i1 %1273, label %_ZN10rcIntArrayixEi.exit434.i.us, label %1274
 
 1274:                                             ; preds = %.noexc463.us
-  %1275 = icmp sgt i32 %1270, -1
+  %1275 = icmp sgt i32 %.0308598.i.us, -1
   %1276 = load i64, ptr %22, align 8
   %1277 = icmp sgt i64 %1276, %1271
   %or.cond.i.i433.i.us = select i1 %1275, i1 %1277, i1 false
@@ -2728,7 +2728,7 @@ _ZN10rcIntArrayixEi.exit434.i.us:                 ; preds = %1278, %1274, %.noex
   br i1 %1285, label %_ZN10rcIntArrayixEi.exit436.i.us, label %1286
 
 1286:                                             ; preds = %.noexc465.us
-  %1287 = icmp sgt i32 %1282, -1
+  %1287 = icmp sgt i32 %.0308598.i.us, -1
   %1288 = load i64, ptr %22, align 8
   %1289 = icmp sgt i64 %1288, %1283
   %or.cond.i.i435.i.us = select i1 %1287, i1 %1289, i1 false
@@ -2776,7 +2776,7 @@ _ZN10rcIntArrayixEi.exit438.i.us:                 ; preds = %1302, %1298, %.noex
   br i1 %1309, label %_ZN10rcIntArrayixEi.exit440.i.us, label %1310
 
 1310:                                             ; preds = %.noexc469.us
-  %1311 = icmp sgt i32 %1306, -1
+  %1311 = icmp sgt i32 %1257, -1
   %1312 = load i64, ptr %22, align 8
   %1313 = icmp sgt i64 %1312, %1307
   %or.cond.i.i439.i.us = select i1 %1311, i1 %1313, i1 false
@@ -2800,7 +2800,7 @@ _ZN10rcIntArrayixEi.exit440.i.us:                 ; preds = %1314, %1310, %.noex
   br i1 %1321, label %_ZN10rcIntArrayixEi.exit442.i.us, label %1322
 
 1322:                                             ; preds = %.noexc471.us
-  %1323 = icmp sgt i32 %1318, -1
+  %1323 = icmp sgt i32 %1257, -1
   %1324 = load i64, ptr %22, align 8
   %1325 = icmp sgt i64 %1324, %1319
   %or.cond.i.i441.i.us = select i1 %1323, i1 %1325, i1 false
@@ -2830,7 +2830,7 @@ _ZN10rcIntArrayixEi.exit442.i.us:                 ; preds = %1326, %1322, %.noex
   br i1 %1337, label %1343, label %1338
 
 1338:                                             ; preds = %.noexc473.us
-  %1339 = icmp sgt i32 %1334, -1
+  %1339 = icmp sgt i32 %1331, -1
   %1340 = load i64, ptr %21, align 8
   %1341 = icmp sgt i64 %1340, %1335
   %or.cond.i.i443.i.us = select i1 %1339, i1 %1341, i1 false
@@ -2862,7 +2862,6 @@ _ZN10rcIntArrayixEi.exit442.i.us:                 ; preds = %1326, %1322, %.noex
 
 1350:                                             ; preds = %.thread.us._crit_edge, %1343
   %.pre-phi981 = phi i64 [ %.pre980, %.thread.us._crit_edge ], [ %1335, %1343 ]
-  %.pre-phi979 = phi i32 [ %.pre978, %.thread.us._crit_edge ], [ %1334, %1343 ]
   %.0290.i743.us = phi i1 [ false, %.thread.us._crit_edge ], [ %1348, %1343 ]
   %1351 = invoke noundef ptr @_Z21rcAssertFailGetCustomv()
           to label %.noexc475.us unwind label %.loopexit.split-lp763.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
@@ -2872,7 +2871,7 @@ _ZN10rcIntArrayixEi.exit442.i.us:                 ; preds = %1326, %1322, %.noex
   br i1 %1352, label %_ZN10rcIntArrayixEi.exit446.i.us, label %1353
 
 1353:                                             ; preds = %.noexc475.us
-  %1354 = icmp sgt i32 %.pre-phi979, -1
+  %1354 = icmp sgt i32 %1331, -1
   %1355 = load i64, ptr %21, align 8
   %1356 = icmp sgt i64 %1355, %.pre-phi981
   %or.cond.i.i445.i.us = select i1 %1354, i1 %1356, i1 false
@@ -3157,7 +3156,7 @@ _ZN10rcIntArrayixEi.exit456.i.us:                 ; preds = %1470, %1466, %.noex
   br i1 %1476, label %_ZN10rcIntArrayixEi.exit458.i.us, label %1477
 
 1477:                                             ; preds = %.noexc488.us
-  %1478 = icmp sgt i64 %1474, -1
+  %1478 = icmp sgt i64 %indvars.iv623.i.us, 0
   %1479 = load i64, ptr %22, align 8
   %1480 = icmp sgt i64 %1479, %1474
   %or.cond.i.i457.i.us = select i1 %1478, i1 %1480, i1 false
@@ -3204,7 +3203,7 @@ _ZN10rcIntArrayixEi.exit460.i.us:                 ; preds = %1492, %1488, %.noex
   br i1 %1498, label %_ZN10rcIntArrayixEi.exit462.i.us, label %1499
 
 1499:                                             ; preds = %.noexc492.us
-  %1500 = icmp sgt i64 %1496, -1
+  %1500 = icmp sgt i64 %indvars.iv623.i.us, 0
   %1501 = load i64, ptr %22, align 8
   %1502 = icmp sgt i64 %1501, %1496
   %or.cond.i.i461.i.us = select i1 %1500, i1 %1502, i1 false
@@ -3330,7 +3329,7 @@ _ZN10rcIntArrayixEi.exit470.i.us:                 ; preds = %1550, %1546, %.noex
   br i1 %1556, label %_ZN10rcIntArrayixEi.exit472.i.us, label %1557
 
 1557:                                             ; preds = %.noexc502.us
-  %1558 = icmp sgt i32 %1553, -1
+  %1558 = icmp sgt i32 %.0294.i.us, -1
   %1559 = load i64, ptr %21, align 8
   %1560 = icmp sgt i64 %1559, %1554
   %or.cond.i.i471.i.us = select i1 %1558, i1 %1560, i1 false
@@ -3354,7 +3353,7 @@ _ZN10rcIntArrayixEi.exit472.i.us:                 ; preds = %1561, %1557, %.noex
   br i1 %1568, label %_ZN10rcIntArrayixEi.exit474.i.us, label %1569
 
 1569:                                             ; preds = %.noexc504.us
-  %1570 = icmp sgt i32 %1565, -1
+  %1570 = icmp sgt i32 %.0308598.i.us, -2
   %1571 = load i64, ptr %22, align 8
   %1572 = icmp sgt i64 %1571, %1566
   %or.cond.i.i473.i.us = select i1 %1570, i1 %1572, i1 false
@@ -3378,7 +3377,7 @@ _ZN10rcIntArrayixEi.exit474.i.us:                 ; preds = %1573, %1569, %.noex
   br i1 %1579, label %_ZN10rcIntArrayixEi.exit476.i.us, label %1580
 
 1580:                                             ; preds = %.noexc506.us
-  %1581 = icmp sgt i32 %1576, -1
+  %1581 = icmp sgt i32 %.0308598.i.us, -2
   %1582 = load i64, ptr %22, align 8
   %1583 = icmp sgt i64 %1582, %1577
   %or.cond.i.i475.i.us = select i1 %1581, i1 %1583, i1 false
@@ -3465,7 +3464,7 @@ _ZN10rcIntArrayixEi.exit480.i.us:                 ; preds = %1609, %.noexc510.us
   br i1 %1617, label %_ZN10rcIntArrayixEi.exit482.i.us, label %1618
 
 1618:                                             ; preds = %.noexc512.us
-  %1619 = icmp sgt i32 %1614, -1
+  %1619 = icmp sgt i32 %1604, -1
   %1620 = load i64, ptr %21, align 8
   %1621 = icmp sgt i64 %1620, %1615
   %or.cond.i.i481.i.us = select i1 %1619, i1 %1621, i1 false
@@ -3491,7 +3490,7 @@ _ZN10rcIntArrayixEi.exit482.i.us:                 ; preds = %1622, %1618, %.noex
   br i1 %1631, label %_ZN10rcIntArrayixEi.exit484.i.us, label %1632
 
 1632:                                             ; preds = %.noexc514.us
-  %1633 = icmp sgt i32 %1628, -1
+  %1633 = icmp sgt i32 %1612, -1
   %1634 = load i64, ptr %21, align 8
   %1635 = icmp sgt i64 %1634, %1629
   %or.cond.i.i483.i.us = select i1 %1633, i1 %1635, i1 false

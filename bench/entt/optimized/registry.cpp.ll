@@ -54599,40 +54599,27 @@ entry:
   %0 = and i16 %version, 4095
   %and1.i = zext nneg i16 %0 to i32
   %shl.i = shl nuw i32 %and1.i, 20
-  %or.i = or disjoint i32 %shl.i, %and.i
-  %cmp.i.i = icmp ugt i32 %or.i, -1048577
-  br i1 %cmp.i.i, label %cond.true, label %cond.end
-
-cond.true:                                        ; preds = %entry
-  %add.i = add nuw nsw i32 %and1.i, 1
-  %cmp.i = icmp eq i32 %add.i, 4095
-  %1 = shl i32 %add.i, 20
-  %and1.i.i = select i1 %cmp.i, i32 0, i32 %1
-  %or.i.i = or disjoint i32 %and1.i.i, %and.i
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.true, %entry
-  %cond = phi i32 [ %or.i.i, %cond.true ], [ %or.i, %entry ]
-  %and.i.i.i = and i32 %cond, 1048575
-  %conv.i.i = zext nneg i32 %and.i.i.i to i64
+  %cmp.i.i = icmp eq i16 %0, 4095
+  %or.i = select i1 %cmp.i.i, i32 0, i32 %shl.i
+  %spec.select = or disjoint i32 %or.i, %and.i
+  %conv.i.i = zext nneg i32 %and.i to i64
   %sparse.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %div5.i.i = lshr i64 %conv.i.i, 12
-  %2 = load ptr, ptr %sparse.i.i, align 8, !tbaa !88
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %div5.i.i
-  %3 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !24
+  %1 = load ptr, ptr %sparse.i.i, align 8, !tbaa !88
+  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %1, i64 %div5.i.i
+  %2 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !24
   %and.i6.i.i = and i64 %conv.i.i, 4095
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %3, i64 %and.i6.i.i
-  %4 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !182
-  %and.i.i = and i32 %4, 1048575
-  %and1.i.i10 = and i32 %cond, -1048576
-  %or.i.i11 = or disjoint i32 %and.i.i, %and1.i.i10
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %2, i64 %and.i6.i.i
+  %3 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !182
+  %and.i.i = and i32 %3, 1048575
+  %or.i.i11 = or disjoint i32 %and.i.i, %or.i
   store i32 %or.i.i11, ptr %arrayidx.i.i, align 4, !tbaa !182
   %packed.i = getelementptr inbounds i8, ptr %this, i64 200
   %conv.i = zext nneg i32 %and.i.i to i64
-  %5 = load ptr, ptr %packed.i, align 8, !tbaa !86
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %5, i64 %conv.i
-  store i32 %cond, ptr %add.ptr.i.i, align 4, !tbaa !182
-  %shr.i.i = lshr i32 %cond, 20
+  %4 = load ptr, ptr %packed.i, align 8, !tbaa !86
+  %add.ptr.i.i = getelementptr inbounds i32, ptr %4, i64 %conv.i
+  store i32 %spec.select, ptr %add.ptr.i.i, align 4, !tbaa !182
+  %shr.i.i = lshr exact i32 %or.i, 20
   %conv2.i.i = trunc nuw nsw i32 %shr.i.i to i16
   ret i16 %conv2.i.i
 }

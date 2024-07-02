@@ -436,12 +436,12 @@ default.unreachable2189:                          ; preds = %134
   %147 = zext nneg i32 %146 to i64
   %148 = lshr i64 %.0599, %147
   %149 = and i32 %.0590, -8
-  %150 = icmp ult i32 %149, 32
+  %150 = icmp ult i32 %.0590, 32
   br i1 %150, label %.lr.ph1524.preheader, label %._crit_edge1525
 
 .lr.ph1524.preheader:                             ; preds = %145
-  %151 = and i32 %.0590, -8
-  %152 = zext i32 %151 to i64
+  %151 = and i32 %.0590, 24
+  %152 = zext nneg i32 %151 to i64
   br label %.lr.ph1524
 
 .lr.ph1524:                                       ; preds = %.lr.ph1524.preheader, %154
@@ -464,7 +464,7 @@ default.unreachable2189:                          ; preds = %134
   br i1 %161, label %.lr.ph1524, label %._crit_edge1525.loopexit
 
 ._crit_edge1525.loopexit:                         ; preds = %154
-  %162 = trunc nuw nsw i64 %indvars.iv.next2165 to i32
+  %162 = trunc nuw i64 %indvars.iv.next2165 to i32
   br label %._crit_edge1525
 
 ._crit_edge1525:                                  ; preds = %._crit_edge1525.loopexit, %145
@@ -1738,7 +1738,7 @@ default.unreachable2189:                          ; preds = %134
   br label %.loopexit
 
 .loopexit.loopexit1784:                           ; preds = %.lr.ph1524
-  %663 = trunc nuw nsw i64 %indvars.iv2164 to i32
+  %663 = trunc nuw i64 %indvars.iv2164 to i32
   br label %.loopexit
 
 .loopexit.loopexit1792:                           ; preds = %.lr.ph1206

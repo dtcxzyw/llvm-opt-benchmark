@@ -74011,7 +74011,7 @@ _ZL22stbi__check_png_headerP13stbi__context.exit: ; preds = %22
   br i1 %72, label %_ZL10stbi__skipP13stbi__contexti.exit, label %73
 
 73:                                               ; preds = %71
-  %74 = icmp slt i32 %66, 0
+  %74 = icmp slt i32 %64, 0
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %73
@@ -75234,7 +75234,7 @@ _ZL10stbi__getnP13stbi__contextPhi.exit.thread:   ; preds = %545, %_ZL10stbi__ge
   br i1 %643, label %_ZL10stbi__skipP13stbi__contexti.exit, label %644
 
 644:                                              ; preds = %642
-  %645 = icmp slt i32 %66, 0
+  %645 = icmp slt i32 %64, 0
   br i1 %645, label %646, label %648
 
 646:                                              ; preds = %644

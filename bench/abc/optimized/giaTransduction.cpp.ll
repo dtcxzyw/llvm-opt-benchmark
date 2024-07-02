@@ -19542,7 +19542,7 @@ tailrecurse:                                      ; preds = %6
   %27 = getelementptr inbounds i32, ptr %26, i64 %25
   %28 = load i32, ptr %27, align 4
   %29 = xor i32 %28, %22
-  %30 = icmp ult i32 %29, 2
+  %30 = icmp ult i32 %28, 2
   br i1 %30, label %tailrecurse._crit_edge, label %6
 
 tailrecurse._crit_edge:                           ; preds = %6, %tailrecurse, %2
@@ -19592,7 +19592,7 @@ tailrecurse:                                      ; preds = %6
   %28 = getelementptr inbounds i32, ptr %27, i64 %26
   %29 = load i32, ptr %28, align 4
   %30 = xor i32 %29, %23
-  %31 = icmp ult i32 %30, 2
+  %31 = icmp ult i32 %29, 2
   br i1 %31, label %tailrecurse._crit_edge, label %6
 
 tailrecurse._crit_edge:                           ; preds = %6, %tailrecurse, %2
@@ -20413,7 +20413,7 @@ tailrecurse:                                      ; preds = %7
   %33 = getelementptr inbounds i32, ptr %32, i64 %31
   %34 = load i32, ptr %33, align 4
   %35 = xor i32 %34, %28
-  %36 = icmp ult i32 %35, 2
+  %36 = icmp ult i32 %34, 2
   br i1 %36, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %tailrecurse, %7, %2
@@ -21145,7 +21145,7 @@ tailrecurse:                                      ; preds = %6
   %30 = xor i32 %29, %22
   %31 = add i32 %accumulator.tr9, 1
   %32 = add i32 %31, %24
-  %33 = icmp ult i32 %30, 2
+  %33 = icmp ult i32 %29, 2
   br i1 %33, label %tailrecurse._crit_edge, label %6
 
 tailrecurse._crit_edge:                           ; preds = %6, %tailrecurse, %2

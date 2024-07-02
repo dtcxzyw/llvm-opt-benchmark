@@ -203,7 +203,7 @@ _ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.5)
   store i32 %.sroa.0.0.insert.insert, ptr %4, align 4
   %.not.i = icmp ne i16 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i, 0
-  %44 = icmp ugt i32 %.sroa.0.0.insert.insert, 65535
+  %44 = icmp ne i16 %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0..sroa.0.0.copyload.i, 0
   %45 = and i1 %.not.i, %44
   br i1 %45, label %.preheader, label %.loopexit
 

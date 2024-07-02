@@ -205,7 +205,7 @@ while.body28.i:                                   ; preds = %while.cond25.prehea
 while.end32.i:                                    ; preds = %while.body28.i
   %11 = zext nneg i32 %i.022.i to i64
   %scevgep32.i = getelementptr i8, ptr %p.021.i, i64 %11
-  %cmp33.i = icmp slt i64 %or.i, 0
+  %cmp33.i = icmp slt i64 %shl.i, 0
   br i1 %cmp33.i, label %err, label %if.end48.thread
 
 if.else37.i:                                      ; preds = %if.else.i

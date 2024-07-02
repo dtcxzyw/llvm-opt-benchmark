@@ -43,7 +43,7 @@ if.then21.i:                                      ; preds = %land.lhs.true15.i
   %shl.i = and i32 %and24.i, 1984
   %and27.i = and i32 %conv17.i, 63
   %or.i = or disjoint i32 %and27.i, %shl.i
-  %cmp28.i = icmp ugt i32 %or.i, 127
+  %cmp28.i = icmp ugt i32 %shl.i, 127
   br i1 %cmp28.i, label %BrotliParseAsUTF8.exit, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.then21.i, %land.lhs.true15.i, %land.lhs.true.i
@@ -78,8 +78,8 @@ if.then53.i:                                      ; preds = %land.lhs.true47.i
   %shl61.i = and i32 %and60.i, 4032
   %or62.i = or disjoint i32 %shl61.i, %shl57.i
   %and65.i = and i32 %conv49.i, 63
-  %or66.i = or disjoint i32 %or62.i, %and65.i
-  %cmp67.i = icmp ugt i32 %or66.i, 2047
+  %or66.i = or disjoint i32 %and65.i, %or62.i
+  %cmp67.i = icmp ugt i32 %or62.i, 2047
   br i1 %cmp67.i, label %BrotliParseAsUTF8.exit, label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.then53.i, %land.lhs.true47.i, %land.lhs.true41.i, %land.lhs.true35.i

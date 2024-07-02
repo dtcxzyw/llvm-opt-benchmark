@@ -315,73 +315,75 @@ define internal fastcc ptr @try_get_folio(ptr noundef %0, i32 noundef %1) unname
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.thread3, label %.lr.ph, !prof !16
 
-.lr.ph:                                           ; preds = %31, %39
-  %34 = phi i32 [ %40, %39 ], [ %32, %31 ]
+.lr.ph:                                           ; preds = %31, %40
+  %34 = phi i32 [ %41, %40 ], [ %32, %31 ]
   %35 = add i32 %34, %1
   %36 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27, i32 %35, ptr elementtype(i32) %27, i32 %34) #9, !srcloc !17
   %37 = extractvalue { i8, i32 } %36, 0
-  %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %42, !prof !5
+  %38 = icmp ult i8 %37, 2
+  tail call void @llvm.assume(i1 %38)
+  %39 = icmp eq i8 %37, 0
+  br i1 %39, label %40, label %43, !prof !5
 
-39:                                               ; preds = %.lr.ph
-  %40 = extractvalue { i8, i32 } %36, 1
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %.thread3, label %.lr.ph, !prof !18, !llvm.loop !19
+40:                                               ; preds = %.lr.ph
+  %41 = extractvalue { i8, i32 } %36, 1
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %.thread3, label %.lr.ph, !prof !18, !llvm.loop !19
 
-42:                                               ; preds = %.lr.ph
-  %43 = load volatile i64, ptr %3, align 8
-  %44 = and i64 %43, 1
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %48, label %46, !prof !9
+43:                                               ; preds = %.lr.ph
+  %44 = load volatile i64, ptr %3, align 8
+  %45 = and i64 %44, 1
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %49, label %47, !prof !9
 
-46:                                               ; preds = %42
-  %47 = add nsw i64 %43, -1
+47:                                               ; preds = %43
+  %48 = add nsw i64 %44, -1
   br label %._crit_edge
 
-48:                                               ; preds = %42
+49:                                               ; preds = %43
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #9
-          to label %._crit_edge [label %49], !srcloc !10
-
-49:                                               ; preds = %48
-  br i1 %6, label %50, label %._crit_edge
+          to label %._crit_edge [label %50], !srcloc !10
 
 50:                                               ; preds = %49
-  %51 = load volatile i64, ptr %0, align 8
-  %52 = and i64 %51, 64
-  %53 = icmp eq i64 %52, 0
-  br i1 %53, label %._crit_edge, label %54
+  br i1 %6, label %51, label %._crit_edge
 
-54:                                               ; preds = %50
-  %55 = load volatile i64, ptr %7, align 8
-  %56 = and i64 %55, 1
-  %57 = icmp eq i64 %56, 0
-  %58 = add nsw i64 %55, -1
-  %spec.select13 = select i1 %57, i64 %4, i64 %58
+51:                                               ; preds = %50
+  %52 = load volatile i64, ptr %0, align 8
+  %53 = and i64 %52, 64
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %._crit_edge, label %55
+
+55:                                               ; preds = %51
+  %56 = load volatile i64, ptr %7, align 8
+  %57 = and i64 %56, 1
+  %58 = icmp eq i64 %57, 0
+  %59 = add nsw i64 %56, -1
+  %spec.select13 = select i1 %58, i64 %4, i64 %59
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %54, %48, %50, %49, %46
-  %59 = phi i64 [ %47, %46 ], [ %4, %48 ], [ %4, %50 ], [ %4, %49 ], [ %spec.select13, %54 ]
-  %60 = inttoptr i64 %59 to ptr
-  %61 = icmp eq ptr %60, %26
-  br i1 %61, label %.thread3, label %62, !prof !9
+._crit_edge:                                      ; preds = %55, %49, %51, %50, %47
+  %60 = phi i64 [ %48, %47 ], [ %4, %49 ], [ %4, %51 ], [ %4, %50 ], [ %spec.select13, %55 ]
+  %61 = inttoptr i64 %60 to ptr
+  %62 = icmp eq ptr %61, %26
+  br i1 %62, label %.thread3, label %63, !prof !9
 
-62:                                               ; preds = %._crit_edge
-  %63 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27, i32 %1, ptr elementtype(i32) %27) #9, !srcloc !11
-  %64 = icmp ult i8 %63, 2
-  tail call void @llvm.assume(i1 %64)
-  %65 = icmp eq i8 %63, 0
-  br i1 %65, label %.backedge, label %66
+63:                                               ; preds = %._crit_edge
+  %64 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27, i32 %1, ptr elementtype(i32) %27) #9, !srcloc !11
+  %65 = icmp ult i8 %64, 2
+  tail call void @llvm.assume(i1 %65)
+  %66 = icmp eq i8 %64, 0
+  br i1 %66, label %.backedge, label %67
 
-66:                                               ; preds = %62
+67:                                               ; preds = %63
   tail call void @__folio_put(ptr noundef %26) #9
   br label %.backedge
 
-.backedge:                                        ; preds = %66, %62
+.backedge:                                        ; preds = %67, %63
   br label %8
 
-.thread3:                                         ; preds = %._crit_edge, %31, %39, %30
-  %67 = phi ptr [ null, %30 ], [ null, %39 ], [ null, %31 ], [ %26, %._crit_edge ]
-  ret ptr %67
+.thread3:                                         ; preds = %._crit_edge, %31, %40, %30
+  %68 = phi ptr [ null, %30 ], [ null, %40 ], [ null, %31 ], [ %26, %._crit_edge ]
+  ret ptr %68
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid

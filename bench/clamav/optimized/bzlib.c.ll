@@ -1180,7 +1180,7 @@ unRLE_obuf_to_output_SMALL.exit:                  ; preds = %85, %.backedge.i, %
   %591 = and i32 %588, 255
   %592 = or disjoint i32 %590, %591
   store i32 %592, ptr %26, align 8
-  %593 = icmp slt i32 %592, 0
+  %593 = icmp slt i32 %590, 0
   br i1 %593, label %BZ2_decompress.exit, label %628
 
 .lr.ph1524.i:                                     ; preds = %559, %625

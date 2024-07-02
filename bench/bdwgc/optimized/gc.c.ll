@@ -26201,7 +26201,7 @@ GC_scratch_recycle_inner.exit.i:                  ; preds = %35, %34, %18
   br i1 %.not32.i.i, label %.lr.ph.i.i, label %GC_scratch_alloc.exit.i
 
 .lr.ph.i.i:                                       ; preds = %40
-  %48 = icmp ugt i64 %43, 65535
+  %48 = icmp ugt i64 %42, 65535
   %49 = load i64, ptr @GC_page_size, align 8
   br i1 %48, label %85, label %.preheader.preheader.i
 
@@ -36987,7 +36987,7 @@ define internal fastcc ptr @GC_scratch_alloc(i64 noundef %0) unnamed_addr #1 {
   br i1 %.not32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %9 = icmp ugt i64 %4, 65535
+  %9 = icmp ugt i64 %3, 65535
   br i1 %9, label %19, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %54, %1

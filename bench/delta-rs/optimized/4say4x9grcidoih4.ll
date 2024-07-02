@@ -23623,14 +23623,14 @@ define internal fastcc void @_ZN11flatbuffers8verifier8Verifier11visit_table17hd
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4771)
   %4 = and i64 %2, 3
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %69
+  br i1 %5, label %6, label %70
 
 6:                                                ; preds = %3
   %7 = tail call i64 @llvm.uadd.sat.i64(i64 %2, i64 4)
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !noalias !24, !noundef !24
   %10 = icmp ugt i64 %7, %9
-  br i1 %10, label %69, label %11
+  br i1 %10, label %70, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 40
@@ -23642,7 +23642,7 @@ define internal fastcc void @_ZN11flatbuffers8verifier8Verifier11visit_table17hd
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8, !noalias !24, !noundef !24
   %19 = icmp ugt i64 %14, %18
-  br i1 %19, label %69, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17hf31647a42f449af7E.exit.i
+  br i1 %19, label %70, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17hf31647a42f449af7E.exit.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17hf31647a42f449af7E.exit.i: ; preds = %11
   %20 = icmp ugt i64 %9, %2
@@ -23674,7 +23674,7 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17hf31647a42f449af7E.exit.i: ; preds
 34:                                               ; preds = %28
   %35 = or disjoint i64 %2, 3
   %36 = icmp ult i64 %35, %9
-  br i1 %36, label %38, label %44, !prof !230
+  br i1 %36, label %38, label %45, !prof !230
 
 37:                                               ; preds = %28
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %31, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78e2cf43c31d963ada85e9db6aba8ffd.81) #43, !noalias !4783
@@ -23693,69 +23693,71 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17hf31647a42f449af7E.exit.i: ; preds
   %.sroa.4.0.insert.shift.i = shl nuw nsw i32 %.sroa.4.0.insert.ext.i, 8
   %.sroa.04.0.insert.ext.i = zext i8 %24 to i32
   %.sroa.5.0.insert.insert.i = or disjoint i32 %.sroa.4.0.insert.shift.i, %.sroa.04.0.insert.ext.i
-  %.sroa.4.0.insert.insert.i = or disjoint i32 %.sroa.5.0.insert.insert.i, %.sroa.5.0.insert.shift.i
-  %.sroa.04.0.insert.insert.i = or disjoint i32 %.sroa.4.0.insert.insert.i, %.sroa.6.0.insert.shift.i
-  %43 = icmp sgt i32 %.sroa.04.0.insert.insert.i, 0
-  br i1 %43, label %51, label %45
+  %43 = or disjoint i32 %.sroa.5.0.insert.insert.i, %.sroa.5.0.insert.shift.i
+  %.sroa.04.0.insert.insert.i = or disjoint i32 %43, %.sroa.6.0.insert.shift.i
+  %44 = icmp sgt i32 %.sroa.04.0.insert.insert.i, 0
+  br i1 %44, label %52, label %46
 
-44:                                               ; preds = %34
+45:                                               ; preds = %34
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %35, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78e2cf43c31d963ada85e9db6aba8ffd.82) #43, !noalias !4783
   unreachable
 
-45:                                               ; preds = %38
-  %46 = sub i32 0, %.sroa.04.0.insert.insert.i
-  %47 = zext i32 %46 to i64
-  %48 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %2, i64 %47)
-  %49 = extractvalue { i64, i1 } %48, 1
-  %50 = extractvalue { i64, i1 } %48, 0
-  %not..i = xor i1 %49, true
-  br label %55
+46:                                               ; preds = %38
+  %47 = icmp slt i32 %.sroa.6.0.insert.shift.i, 0
+  %48 = sub i32 0, %.sroa.04.0.insert.insert.i
+  %narrow.i = select i1 %47, i32 %48, i32 0
+  %.0.i = zext i32 %narrow.i to i64
+  %49 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %2, i64 %.0.i)
+  %50 = extractvalue { i64, i1 } %49, 1
+  %51 = extractvalue { i64, i1 } %49, 0
+  %not..i = xor i1 %50, true
+  br label %56
 
-51:                                               ; preds = %38
-  %52 = zext nneg i32 %.sroa.04.0.insert.insert.i to i64
-  %53 = icmp ule i64 %52, %2
-  %54 = sub i64 %2, %52
-  br label %55
+52:                                               ; preds = %38
+  %53 = zext nneg i32 %.sroa.04.0.insert.insert.i to i64
+  %54 = icmp ule i64 %53, %2
+  %55 = sub i64 %2, %53
+  br label %56
 
-55:                                               ; preds = %51, %45
-  %56 = phi i1 [ %53, %51 ], [ %not..i, %45 ]
-  %.sroa.8.0.i = phi i64 [ %54, %51 ], [ %50, %45 ]
-  %57 = icmp ult i64 %.sroa.8.0.i, %9
-  %or.cond.i = select i1 %56, i1 %57, i1 false
-  br i1 %or.cond.i, label %_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit, label %69
+56:                                               ; preds = %52, %46
+  %57 = phi i1 [ %54, %52 ], [ %not..i, %46 ]
+  %.sroa.8.0.i = phi i64 [ %55, %52 ], [ %51, %46 ]
+  %58 = icmp ult i64 %.sroa.8.0.i, %9
+  %or.cond.i = select i1 %57, i1 %58, i1 false
+  br i1 %or.cond.i, label %_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit, label %70
 
-_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit: ; preds = %55
+_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit: ; preds = %56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4784)
-  %58 = and i64 %.sroa.8.0.i, 1
-  %59 = icmp eq i64 %58, 0
-  br i1 %59, label %60, label %79
+  %59 = and i64 %.sroa.8.0.i, 1
+  %60 = icmp eq i64 %59, 0
+  br i1 %60, label %61, label %80
 
-60:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit
-  %61 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.8.0.i, i64 2)
-  %62 = icmp ugt i64 %61, %9
-  br i1 %62, label %79, label %63
+61:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit
+  %62 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.8.0.i, i64 2)
+  %63 = icmp ugt i64 %62, %9
+  br i1 %63, label %80, label %64
 
-63:                                               ; preds = %60
-  %64 = add i64 %13, 6
-  store i64 %64, ptr %12, align 8, !alias.scope !4787, !noalias !4792
-  %65 = icmp ugt i64 %64, %18
-  br i1 %65, label %79, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17hc54b44184d4cda9fE.exit.i
+64:                                               ; preds = %61
+  %65 = add i64 %13, 6
+  store i64 %65, ptr %12, align 8, !alias.scope !4787, !noalias !4792
+  %66 = icmp ugt i64 %65, %18
+  br i1 %66, label %80, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17hc54b44184d4cda9fE.exit.i
 
-_ZN11flatbuffers8verifier8Verifier9in_buffer17hc54b44184d4cda9fE.exit.i: ; preds = %63
-  %66 = or disjoint i64 %.sroa.8.0.i, 1
-  %67 = icmp ult i64 %66, %9
-  br i1 %67, label %71, label %68, !prof !230
+_ZN11flatbuffers8verifier8Verifier9in_buffer17hc54b44184d4cda9fE.exit.i: ; preds = %64
+  %67 = or disjoint i64 %.sroa.8.0.i, 1
+  %68 = icmp ult i64 %67, %9
+  br i1 %68, label %72, label %69, !prof !230
 
-68:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17hc54b44184d4cda9fE.exit.i
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %66, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78e2cf43c31d963ada85e9db6aba8ffd.84) #43, !noalias !4796
+69:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17hc54b44184d4cda9fE.exit.i
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %67, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78e2cf43c31d963ada85e9db6aba8ffd.84) #43, !noalias !4796
   unreachable
 
-69:                                               ; preds = %55, %11, %3, %6
-  %.sroa.6.0141.ph = phi i32 [ undef, %11 ], [ undef, %6 ], [ undef, %3 ], [ %.sroa.04.0.insert.insert.i, %55 ]
-  %.sroa.13.0137.ph = phi i64 [ undef, %11 ], [ %7, %6 ], [ ptrtoint (ptr @anon.78e2cf43c31d963ada85e9db6aba8ffd.68 to i64), %3 ], [ 0, %55 ]
-  %.sroa.20.0131.ph = phi i64 [ undef, %11 ], [ 0, %6 ], [ 8, %3 ], [ undef, %55 ]
-  %.sroa.0.0.ph = phi i32 [ 8, %11 ], [ 5, %6 ], [ 4, %3 ], [ 6, %55 ]
-  %70 = phi <2 x i64> [ undef, %11 ], [ <i64 0, i64 8>, %6 ], [ <i64 3, i64 0>, %3 ], [ <i64 8, i64 0>, %55 ]
+70:                                               ; preds = %56, %11, %3, %6
+  %.sroa.6.0141.ph = phi i32 [ undef, %11 ], [ undef, %6 ], [ undef, %3 ], [ %.sroa.04.0.insert.insert.i, %56 ]
+  %.sroa.13.0137.ph = phi i64 [ undef, %11 ], [ %7, %6 ], [ ptrtoint (ptr @anon.78e2cf43c31d963ada85e9db6aba8ffd.68 to i64), %3 ], [ 0, %56 ]
+  %.sroa.20.0131.ph = phi i64 [ undef, %11 ], [ 0, %6 ], [ 8, %3 ], [ undef, %56 ]
+  %.sroa.0.0.ph = phi i32 [ 8, %11 ], [ 5, %6 ], [ 4, %3 ], [ 6, %56 ]
+  %71 = phi <2 x i64> [ undef, %11 ], [ <i64 0, i64 8>, %6 ], [ <i64 3, i64 0>, %3 ], [ <i64 8, i64 0>, %56 ]
   store i32 %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.250.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.6.0141.ph, ptr %.sroa.250.0..sroa_idx, align 4
@@ -23764,59 +23766,59 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17hc54b44184d4cda9fE.exit.i: ; preds
   %.sroa.452.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.13.0137.ph, ptr %.sroa.452.0..sroa_idx, align 8
   %.sroa.452.sroa.2.0..sroa.452.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store <2 x i64> %70, ptr %.sroa.452.sroa.2.0..sroa.452.0..sroa_idx.sroa_idx, align 8
+  store <2 x i64> %71, ptr %.sroa.452.sroa.2.0..sroa.452.0..sroa_idx.sroa_idx, align 8
   %.sroa.452.sroa.4.0..sroa.452.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %.sroa.20.0131.ph, ptr %.sroa.452.sroa.4.0..sroa.452.0..sroa_idx.sroa_idx, align 8
   %.sroa.452.sroa.5.0..sroa.452.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store i64 0, ptr %.sroa.452.sroa.5.0..sroa.452.0..sroa_idx.sroa_idx, align 8
-  br label %105
+  br label %106
 
-71:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17hc54b44184d4cda9fE.exit.i
-  %72 = getelementptr inbounds [0 x i8], ptr %22, i64 0, i64 %.sroa.8.0.i
-  %73 = load i8, ptr %72, align 1, !noalias !4796, !noundef !24
-  %74 = getelementptr inbounds [0 x i8], ptr %22, i64 0, i64 %66
-  %75 = load i8, ptr %74, align 1, !noalias !4796, !noundef !24
-  %.sroa.4.0.insert.ext.i105 = zext i8 %75 to i64
+72:                                               ; preds = %_ZN11flatbuffers8verifier8Verifier9in_buffer17hc54b44184d4cda9fE.exit.i
+  %73 = getelementptr inbounds [0 x i8], ptr %22, i64 0, i64 %.sroa.8.0.i
+  %74 = load i8, ptr %73, align 1, !noalias !4796, !noundef !24
+  %75 = getelementptr inbounds [0 x i8], ptr %22, i64 0, i64 %67
+  %76 = load i8, ptr %75, align 1, !noalias !4796, !noundef !24
+  %.sroa.4.0.insert.ext.i105 = zext i8 %76 to i64
   %.sroa.4.0.insert.shift.i106 = shl nuw nsw i64 %.sroa.4.0.insert.ext.i105, 8
-  %.sroa.04.0.insert.ext.i107 = zext i8 %73 to i64
+  %.sroa.04.0.insert.ext.i107 = zext i8 %74 to i64
   %.sroa.04.0.insert.insert.i108 = or disjoint i64 %.sroa.4.0.insert.shift.i106, %.sroa.04.0.insert.ext.i107
-  %76 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.8.0.i, i64 %.sroa.04.0.insert.insert.i108)
-  %77 = and i64 %76, 1
-  %78 = icmp eq i64 %77, 0
-  br i1 %78, label %81, label %86
+  %77 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.8.0.i, i64 %.sroa.04.0.insert.insert.i108)
+  %78 = and i64 %77, 1
+  %79 = icmp eq i64 %78, 0
+  br i1 %79, label %82, label %87
 
-79:                                               ; preds = %63, %_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit, %60
-  %.sroa.10.0172.ph = phi i64 [ %61, %60 ], [ ptrtoint (ptr @anon.78e2cf43c31d963ada85e9db6aba8ffd.78 to i64), %_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit ], [ undef, %63 ]
-  %.sroa.13114.0166.ph = phi i64 [ 0, %60 ], [ 8, %_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit ], [ undef, %63 ]
-  %.sroa.09.0.ph = phi i32 [ 5, %60 ], [ 4, %_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit ], [ 8, %63 ]
-  %80 = phi <2 x i64> [ <i64 0, i64 8>, %60 ], [ <i64 3, i64 0>, %_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit ], [ undef, %63 ]
+80:                                               ; preds = %64, %_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit, %61
+  %.sroa.10.0172.ph = phi i64 [ %62, %61 ], [ ptrtoint (ptr @anon.78e2cf43c31d963ada85e9db6aba8ffd.78 to i64), %_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit ], [ undef, %64 ]
+  %.sroa.13114.0166.ph = phi i64 [ 0, %61 ], [ 8, %_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit ], [ undef, %64 ]
+  %.sroa.09.0.ph = phi i32 [ 5, %61 ], [ 4, %_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit ], [ 8, %64 ]
+  %81 = phi <2 x i64> [ <i64 0, i64 8>, %61 ], [ <i64 3, i64 0>, %_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit ], [ undef, %64 ]
   store i32 %.sroa.09.0.ph, ptr %0, align 8
   %.sroa.361.sroa.2.0..sroa.361.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.8.0.i, ptr %.sroa.361.sroa.2.0..sroa.361.0..sroa_idx.sroa_idx, align 8
   %.sroa.361.sroa.3.0..sroa.361.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10.0172.ph, ptr %.sroa.361.sroa.3.0..sroa.361.0..sroa_idx.sroa_idx, align 8
   %.sroa.361.sroa.4.0..sroa.361.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store <2 x i64> %80, ptr %.sroa.361.sroa.4.0..sroa.361.0..sroa_idx.sroa_idx, align 8
+  store <2 x i64> %81, ptr %.sroa.361.sroa.4.0..sroa.361.0..sroa_idx.sroa_idx, align 8
   %.sroa.361.sroa.6.0..sroa.361.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %.sroa.13114.0166.ph, ptr %.sroa.361.sroa.6.0..sroa.361.0..sroa_idx.sroa_idx, align 8
   %.sroa.361.sroa.7.0..sroa.361.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store i64 0, ptr %.sroa.361.sroa.7.0..sroa.361.0..sroa_idx.sroa_idx, align 8
-  br label %105
+  br label %106
 
-81:                                               ; preds = %71
-  %82 = icmp ugt i64 %76, %9
-  br i1 %82, label %94, label %83
+82:                                               ; preds = %72
+  %83 = icmp ugt i64 %77, %9
+  br i1 %83, label %95, label %84
 
-83:                                               ; preds = %81
-  %84 = add i64 %64, %.sroa.04.0.insert.insert.i108
-  store i64 %84, ptr %12, align 8, !alias.scope !4797, !noalias !4800
-  %85 = icmp ugt i64 %84, %18
-  br i1 %85, label %94, label %87
+84:                                               ; preds = %82
+  %85 = add i64 %65, %.sroa.04.0.insert.insert.i108
+  store i64 %85, ptr %12, align 8, !alias.scope !4797, !noalias !4800
+  %86 = icmp ugt i64 %85, %18
+  br i1 %86, label %95, label %88
 
-86:                                               ; preds = %71
+87:                                               ; preds = %72
   store i32 4, ptr %0, align 8
   %.sroa.387.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %76, ptr %.sroa.387.0..sroa_idx, align 8
+  store i64 %77, ptr %.sroa.387.0..sroa_idx, align 8
   %.sroa.488.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @anon.78e2cf43c31d963ada85e9db6aba8ffd.78, ptr %.sroa.488.0..sroa_idx, align 8
   %.sroa.589.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -23827,49 +23829,49 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17hc54b44184d4cda9fE.exit.i: ; preds
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.791.0..sroa_idx, align 8
   %.sroa.892.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store i64 0, ptr %.sroa.892.0..sroa_idx, align 8
-  br label %105
+  br label %106
 
-87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %1, i64 32
-  %89 = load i64, ptr %88, align 8, !noundef !24
-  %90 = add i64 %89, 1
-  store i64 %90, ptr %88, align 8
-  %91 = getelementptr inbounds i8, ptr %16, i64 8
-  %92 = load i64, ptr %91, align 8, !noundef !24
-  %93 = icmp ugt i64 %90, %92
-  br i1 %93, label %101, label %95
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds i8, ptr %1, i64 32
+  %90 = load i64, ptr %89, align 8, !noundef !24
+  %91 = add i64 %90, 1
+  store i64 %91, ptr %89, align 8
+  %92 = getelementptr inbounds i8, ptr %16, i64 8
+  %93 = load i64, ptr %92, align 8, !noundef !24
+  %94 = icmp ugt i64 %91, %93
+  br i1 %94, label %102, label %96
 
-94:                                               ; preds = %83, %81
-  %.sroa.0115.0.ph = phi i32 [ 5, %81 ], [ 8, %83 ]
+95:                                               ; preds = %84, %82
+  %.sroa.0115.0.ph = phi i32 [ 5, %82 ], [ 8, %84 ]
   store i32 %.sroa.0115.0.ph, ptr %0, align 8
   %.sroa.299.sroa.2.0..sroa.299.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.8.0.i, ptr %.sroa.299.sroa.2.0..sroa.299.0..sroa_idx.sroa_idx, align 8
   %.sroa.299.sroa.3.0..sroa.299.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %76, ptr %.sroa.299.sroa.3.0..sroa.299.0..sroa_idx.sroa_idx, align 8
+  store i64 %77, ptr %.sroa.299.sroa.3.0..sroa.299.0..sroa_idx.sroa_idx, align 8
   %.sroa.299.sroa.4.0..sroa.299.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.299.sroa.4.0..sroa.299.0..sroa_idx.sroa_idx, align 8
   %.sroa.299.sroa.5.0..sroa.299.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.299.sroa.5.0..sroa.299.0..sroa_idx.sroa_idx, align 8
   %.sroa.299.sroa.6.0..sroa.299.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i64 0, ptr %.sroa.299.sroa.6.0..sroa.299.0..sroa_idx.sroa_idx, align 8
-  br label %105
+  br label %106
 
-95:                                               ; preds = %87
-  %96 = getelementptr inbounds i8, ptr %1, i64 24
-  %97 = load i64, ptr %96, align 8, !noundef !24
-  %98 = add i64 %97, 1
-  store i64 %98, ptr %96, align 8
-  %99 = load i64, ptr %16, align 8, !noundef !24
-  %100 = icmp ugt i64 %98, %99
-  br i1 %100, label %104, label %102
+96:                                               ; preds = %88
+  %97 = getelementptr inbounds i8, ptr %1, i64 24
+  %98 = load i64, ptr %97, align 8, !noundef !24
+  %99 = add i64 %98, 1
+  store i64 %99, ptr %97, align 8
+  %100 = load i64, ptr %16, align 8, !noundef !24
+  %101 = icmp ugt i64 %99, %100
+  br i1 %101, label %105, label %103
 
-101:                                              ; preds = %87
+102:                                              ; preds = %88
   store i32 7, ptr %0, align 8
-  br label %105
+  br label %106
 
-102:                                              ; preds = %95
-  %103 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %103, align 8
+103:                                              ; preds = %96
+  %104 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %104, align 8
   %.sroa.439.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.439.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -23877,13 +23879,13 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17hc54b44184d4cda9fE.exit.i: ; preds
   %.sroa.640.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.sroa.04.0.insert.insert.i108, ptr %.sroa.640.0..sroa_idx, align 8
   store i32 10, ptr %0, align 8
-  br label %105
+  br label %106
 
-104:                                              ; preds = %95
+105:                                              ; preds = %96
   store i32 9, ptr %0, align 8
-  br label %105
+  br label %106
 
-105:                                              ; preds = %104, %102, %101, %94, %86, %79, %69
+106:                                              ; preds = %105, %103, %102, %95, %87, %80, %70
   ret void
 }
 

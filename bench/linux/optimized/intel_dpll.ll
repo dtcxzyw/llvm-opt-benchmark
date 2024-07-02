@@ -700,12 +700,12 @@ define internal fastcc zeroext i1 @chv_find_best_dpll(ptr nocapture noundef read
   %44 = mul i32 %43, 5
   %45 = zext i32 %44 to i64
   %46 = mul i64 %13, %45
-  %47 = or disjoint i64 %46, 99968
-  %48 = icmp ugt i64 %47, 214748364799999
-  br i1 %48, label %intel_pll_is_valid.exit.thread, label %49
+  %47 = icmp ugt i64 %46, 214748364799999
+  br i1 %47, label %intel_pll_is_valid.exit.thread, label %48
 
-49:                                               ; preds = %.preheader
-  %50 = udiv i64 %47, 200000
+48:                                               ; preds = %.preheader
+  %49 = or disjoint i64 %46, 99968
+  %50 = udiv i64 %49, 200000
   %51 = trunc nuw nsw i64 %50 to i32
   %52 = shl nuw nsw i32 %51, 1
   %53 = zext nneg i32 %52 to i64
@@ -716,8 +716,8 @@ define internal fastcc zeroext i1 @chv_find_best_dpll(ptr nocapture noundef read
   %58 = icmp eq i32 %43, 0
   br i1 %58, label %67, label %59
 
-59:                                               ; preds = %49
-  %60 = icmp ugt i64 %47, 2199999
+59:                                               ; preds = %48
+  %60 = icmp ugt i64 %49, 2199999
   %61 = icmp slt i32 %44, 1
   %62 = xor i1 %61, %60
   %63 = select i1 %62, i32 2, i32 -2
@@ -726,8 +726,8 @@ define internal fastcc zeroext i1 @chv_find_best_dpll(ptr nocapture noundef read
   %66 = sdiv i32 %65, %44
   br label %67
 
-67:                                               ; preds = %59, %49
-  %68 = phi i32 [ %66, %59 ], [ 0, %49 ]
+67:                                               ; preds = %59, %48
+  %68 = phi i32 [ %66, %59 ], [ 0, %48 ]
   %69 = load i32, ptr %14, align 4
   %70 = icmp sgt i32 %69, 1
   br i1 %70, label %intel_pll_is_valid.exit.thread, label %71
@@ -779,7 +779,7 @@ define internal fastcc zeroext i1 @chv_find_best_dpll(ptr nocapture noundef read
 
 100:                                              ; preds = %92
   %101 = icmp ne i64 %99, 0
-  %102 = icmp ult i64 %47, 400000
+  %102 = icmp ult i64 %49, 400000
   %103 = or i1 %102, %101
   br i1 %103, label %._crit_edge.i, label %intel_pll_is_valid.exit.thread
 

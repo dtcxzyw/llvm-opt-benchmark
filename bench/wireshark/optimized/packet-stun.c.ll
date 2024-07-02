@@ -941,7 +941,7 @@ dissect_stun_message_channel_data.exit:           ; preds = %._crit_edge.i, %73
   %90 = and i16 %89, 3968
   %91 = or disjoint i16 %88, %90
   %92 = zext nneg i16 %91 to i32
-  %93 = icmp ugt i16 %91, 255
+  %93 = icmp ugt i16 %90, 255
   br i1 %93, label %848, label %94
 
 94:                                               ; preds = %79
@@ -2308,7 +2308,7 @@ proto_item_set_generated.exit872:                 ; preds = %536, %545, %548
   %839 = load i32, ptr %838, align 8
   %840 = icmp eq i32 %839, 2
   %841 = icmp eq i16 %91, 11
-  %or.cond21 = and i1 %841, %840
+  %or.cond21 = select i1 %840, i1 %841, i1 false
   %842 = icmp eq i16 %84, 2
   %or.cond24 = select i1 %or.cond21, i1 %842, i1 false
   br i1 %or.cond24, label %843, label %848

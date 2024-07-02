@@ -16649,7 +16649,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb11fa4a6ce3893b8E.exit: ; pred
   %683 = lshr i64 %677, 6
   %684 = and i64 %683, 127
   %685 = or disjoint i64 %682, %684
-  %686 = icmp ult i64 %685, 2432
+  %686 = icmp ult i8 %680, 19
   br i1 %686, label %687, label %.invoke831, !prof !37
 
 687:                                              ; preds = %676
@@ -16660,7 +16660,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb11fa4a6ce3893b8E.exit: ; pred
   %692 = lshr i64 %677, 2
   %693 = and i64 %692, 15
   %694 = or disjoint i64 %691, %693
-  %695 = icmp ult i64 %694, 3888
+  %695 = icmp ult i8 %689, -13
   br i1 %695, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i.i, label %.invoke831, !prof !37
 
 .invoke831:                                       ; preds = %687, %676
@@ -16863,7 +16863,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit324: ; preds = %.lr.ph599
   %774 = lshr i64 %768, 6
   %775 = and i64 %774, 127
   %776 = or disjoint i64 %773, %775
-  %777 = icmp ult i64 %776, 2432
+  %777 = icmp ult i8 %771, 19
   br i1 %777, label %778, label %.invoke833, !prof !37
 
 778:                                              ; preds = %767
@@ -16874,7 +16874,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit324: ; preds = %.lr.ph599
   %783 = lshr i64 %768, 2
   %784 = and i64 %783, 15
   %785 = or disjoint i64 %782, %784
-  %786 = icmp ult i64 %785, 3888
+  %786 = icmp ult i8 %780, -13
   br i1 %786, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i.i333, label %.invoke833, !prof !37
 
 .invoke833:                                       ; preds = %778, %767

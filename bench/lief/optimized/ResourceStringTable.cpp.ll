@@ -276,27 +276,29 @@ define void @_ZN4LIEF2PE19ResourceStringTableC2EsNSt7__cxx1112basic_stringIDsSt1
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = shl nuw nsw i64 %11, 1
-  %13 = add nuw nsw i64 %12, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %7, i64 %13, i1 false)
+  %12 = icmp ult i64 %11, 8
+  tail call void @llvm.assume(i1 %12)
+  %13 = shl nuw nsw i64 %11, 1
+  %14 = add nuw nsw i64 %13, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %7, i64 %14, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2EOS4_.exit
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.i: ; preds = %3
   store ptr %6, ptr %4, align 8
-  %14 = load i64, ptr %7, align 8
-  store i64 %14, ptr %5, align 8
+  %15 = load i64, ptr %7, align 8
+  store i64 %15, ptr %5, align 8
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2EOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEC2EOS4_.exit: ; preds = %9, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.i
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %16, ptr %17, align 8
+  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %17, ptr %18, align 8
   store ptr %7, ptr %2, align 8
-  store i64 0, ptr %15, align 8
+  store i64 0, ptr %16, align 8
   store i16 0, ptr %7, align 2
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
-  store i16 %1, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  store i16 %1, ptr %19, align 8
   ret void
 }
 

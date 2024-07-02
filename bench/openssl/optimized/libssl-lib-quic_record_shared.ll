@@ -337,7 +337,7 @@ if.then117:                                       ; preds = %if.end115
 
 ossl_qrl_enc_level_set_get.exit.i.i78:            ; preds = %if.then117
   %cmp.i12.i81 = icmp ne ptr %els, null
-  %cmp1.i.i82 = icmp ult i64 %lnot.ext120, 2
+  %cmp1.i.i82 = icmp ult i64 %cond, 2
   %8 = and i1 %cmp.i12.i81, %cmp1.i.i82
   br i1 %8, label %if.end.i13.i83, label %if.end122
 

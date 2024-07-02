@@ -5980,6 +5980,8 @@ if.then21.i.i:                                    ; preds = %if.end.thread.i.i, 
   %14 = phi ptr [ %12, %if.end.thread.i.i ], [ %11, %if.end.i.i ]
   %_M_string_length.i70.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %15 = load i64, ptr %_M_string_length.i70.i.i, align 8, !tbaa !48
+  %cmp3.i71.i.i = icmp ult i64 %15, 16
+  call void @llvm.assume(i1 %cmp3.i71.i.i)
   switch i64 %15, label %if.end.i.i.i.i [
     i64 0, label %if.end30.i.i
     i64 1, label %if.then.i75.i.i
@@ -6792,6 +6794,8 @@ if.end.i:
 if.then15.i:                                      ; preds = %if.end.i
   %_M_string_length.i58.i = getelementptr inbounds i8, ptr %button_name, i64 8
   %5 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !52
+  %cmp3.i59.i = icmp ult i64 %5, 4
+  tail call void @llvm.assume(i1 %cmp3.i59.i)
   %cmp.not.i = icmp eq ptr %button_name.i, %button_name
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEaSEOS4_.exit, label %if.then16.i, !prof !128
 
@@ -6865,6 +6869,8 @@ if.then22.i.i:                                    ; preds = %if.end.thread.i.i, 
   %19 = phi ptr [ %17, %if.end.thread.i.i ], [ %16, %if.end.i.i ]
   %_M_string_length.i70.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %20 = load i64, ptr %_M_string_length.i70.i.i, align 8, !tbaa !48
+  %cmp3.i71.i.i = icmp ult i64 %20, 16
+  call void @llvm.assume(i1 %cmp3.i71.i.i)
   switch i64 %20, label %if.end.i.i.i.i [
     i64 0, label %if.end30.i.i
     i64 1, label %if.then.i75.i.i

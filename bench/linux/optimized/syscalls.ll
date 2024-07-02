@@ -172,99 +172,99 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @do_futex(ptr noundef %0
   %13 = and i32 %12, 32
   %14 = or disjoint i32 %11, %13
   %15 = and i32 %1, -385
-  %16 = icmp ult i32 %14, 32
-  br i1 %16, label %22, label %17
+  %.not.not = icmp eq i32 %13, 0
+  br i1 %.not.not, label %21, label %16
 
-17:                                               ; preds = %7
-  %18 = and i32 %1, -387
-  %19 = icmp ne i32 %18, 9
-  %20 = icmp ne i32 %15, 13
-  %21 = and i1 %19, %20
-  br i1 %21, label %60, label %22
+16:                                               ; preds = %7
+  %17 = and i32 %1, -387
+  %18 = icmp ne i32 %17, 9
+  %19 = icmp ne i32 %15, 13
+  %20 = and i1 %18, %19
+  br i1 %20, label %59, label %21
 
-22:                                               ; preds = %17, %7
-  switch i32 %15, label %60 [
-    i32 0, label %23
-    i32 9, label %24
-    i32 1, label %28
-    i32 10, label %29
-    i32 3, label %33
-    i32 4, label %36
-    i32 5, label %39
-    i32 6, label %42
-    i32 13, label %44
-    i32 7, label %48
-    i32 8, label %51
-    i32 11, label %54
-    i32 12, label %57
+21:                                               ; preds = %16, %7
+  switch i32 %15, label %59 [
+    i32 0, label %22
+    i32 9, label %23
+    i32 1, label %27
+    i32 10, label %28
+    i32 3, label %32
+    i32 4, label %35
+    i32 5, label %38
+    i32 6, label %41
+    i32 13, label %43
+    i32 7, label %47
+    i32 8, label %50
+    i32 11, label %53
+    i32 12, label %56
   ]
 
-23:                                               ; preds = %22
-  br label %24
+22:                                               ; preds = %21
+  br label %23
 
-24:                                               ; preds = %23, %22
-  %25 = phi i32 [ -1, %23 ], [ %6, %22 ]
-  %26 = tail call i32 @futex_wait(ptr noundef %0, i32 noundef %14, i32 noundef %2, ptr noundef %3, i32 noundef %25) #10
-  %27 = sext i32 %26 to i64
-  br label %60
+23:                                               ; preds = %22, %21
+  %24 = phi i32 [ -1, %22 ], [ %6, %21 ]
+  %25 = tail call i32 @futex_wait(ptr noundef %0, i32 noundef %14, i32 noundef %2, ptr noundef %3, i32 noundef %24) #10
+  %26 = sext i32 %25 to i64
+  br label %59
 
-28:                                               ; preds = %22
-  br label %29
+27:                                               ; preds = %21
+  br label %28
 
-29:                                               ; preds = %28, %22
-  %30 = phi i32 [ -1, %28 ], [ %6, %22 ]
-  %31 = tail call i32 @futex_wake(ptr noundef %0, i32 noundef %14, i32 noundef %2, i32 noundef %30) #10
-  %32 = sext i32 %31 to i64
-  br label %60
+28:                                               ; preds = %27, %21
+  %29 = phi i32 [ -1, %27 ], [ %6, %21 ]
+  %30 = tail call i32 @futex_wake(ptr noundef %0, i32 noundef %14, i32 noundef %2, i32 noundef %29) #10
+  %31 = sext i32 %30 to i64
+  br label %59
 
-33:                                               ; preds = %22
-  %34 = tail call i32 @futex_requeue(ptr noundef %0, i32 noundef %14, ptr noundef %4, i32 noundef %14, i32 noundef %2, i32 noundef %5, ptr noundef null, i32 noundef 0) #10
-  %35 = sext i32 %34 to i64
-  br label %60
+32:                                               ; preds = %21
+  %33 = tail call i32 @futex_requeue(ptr noundef %0, i32 noundef %14, ptr noundef %4, i32 noundef %14, i32 noundef %2, i32 noundef %5, ptr noundef null, i32 noundef 0) #10
+  %34 = sext i32 %33 to i64
+  br label %59
 
-36:                                               ; preds = %22
-  %37 = call i32 @futex_requeue(ptr noundef %0, i32 noundef %14, ptr noundef %4, i32 noundef %14, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %8, i32 noundef 0) #10
-  %38 = sext i32 %37 to i64
-  br label %60
+35:                                               ; preds = %21
+  %36 = call i32 @futex_requeue(ptr noundef %0, i32 noundef %14, ptr noundef %4, i32 noundef %14, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %8, i32 noundef 0) #10
+  %37 = sext i32 %36 to i64
+  br label %59
 
-39:                                               ; preds = %22
-  %40 = tail call i32 @futex_wake_op(ptr noundef %0, i32 noundef %14, ptr noundef %4, i32 noundef %2, i32 noundef %5, i32 noundef %6) #10
-  %41 = sext i32 %40 to i64
-  br label %60
+38:                                               ; preds = %21
+  %39 = tail call i32 @futex_wake_op(ptr noundef %0, i32 noundef %14, ptr noundef %4, i32 noundef %2, i32 noundef %5, i32 noundef %6) #10
+  %40 = sext i32 %39 to i64
+  br label %59
 
-42:                                               ; preds = %22
-  %43 = or disjoint i32 %11, 32
-  br label %44
+41:                                               ; preds = %21
+  %42 = or disjoint i32 %11, 32
+  br label %43
 
-44:                                               ; preds = %42, %22
-  %45 = phi i32 [ %14, %22 ], [ %43, %42 ]
-  %46 = tail call i32 @futex_lock_pi(ptr noundef %0, i32 noundef %45, ptr noundef %3, i32 noundef 0) #10
-  %47 = sext i32 %46 to i64
-  br label %60
+43:                                               ; preds = %41, %21
+  %44 = phi i32 [ %14, %21 ], [ %42, %41 ]
+  %45 = tail call i32 @futex_lock_pi(ptr noundef %0, i32 noundef %44, ptr noundef %3, i32 noundef 0) #10
+  %46 = sext i32 %45 to i64
+  br label %59
 
-48:                                               ; preds = %22
-  %49 = tail call i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %14) #10
-  %50 = sext i32 %49 to i64
-  br label %60
+47:                                               ; preds = %21
+  %48 = tail call i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %14) #10
+  %49 = sext i32 %48 to i64
+  br label %59
 
-51:                                               ; preds = %22
-  %52 = tail call i32 @futex_lock_pi(ptr noundef %0, i32 noundef %14, ptr noundef null, i32 noundef 1) #10
-  %53 = sext i32 %52 to i64
-  br label %60
+50:                                               ; preds = %21
+  %51 = tail call i32 @futex_lock_pi(ptr noundef %0, i32 noundef %14, ptr noundef null, i32 noundef 1) #10
+  %52 = sext i32 %51 to i64
+  br label %59
 
-54:                                               ; preds = %22
-  %55 = tail call i32 @futex_wait_requeue_pi(ptr noundef %0, i32 noundef %14, i32 noundef %2, ptr noundef %3, i32 noundef -1, ptr noundef %4) #10
-  %56 = sext i32 %55 to i64
-  br label %60
+53:                                               ; preds = %21
+  %54 = tail call i32 @futex_wait_requeue_pi(ptr noundef %0, i32 noundef %14, i32 noundef %2, ptr noundef %3, i32 noundef -1, ptr noundef %4) #10
+  %55 = sext i32 %54 to i64
+  br label %59
 
-57:                                               ; preds = %22
-  %58 = call i32 @futex_requeue(ptr noundef %0, i32 noundef %14, ptr noundef %4, i32 noundef %14, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %8, i32 noundef 1) #10
-  %59 = sext i32 %58 to i64
-  br label %60
+56:                                               ; preds = %21
+  %57 = call i32 @futex_requeue(ptr noundef %0, i32 noundef %14, ptr noundef %4, i32 noundef %14, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %8, i32 noundef 1) #10
+  %58 = sext i32 %57 to i64
+  br label %59
 
-60:                                               ; preds = %57, %54, %51, %48, %44, %39, %36, %33, %29, %24, %22, %17
-  %61 = phi i64 [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %44 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %29 ], [ %27, %24 ], [ -38, %17 ], [ -38, %22 ]
-  ret i64 %61
+59:                                               ; preds = %56, %53, %50, %47, %43, %38, %35, %32, %28, %23, %21, %16
+  %60 = phi i64 [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %43 ], [ %40, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %28 ], [ %26, %23 ], [ -38, %16 ], [ -38, %21 ]
+  ret i64 %60
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

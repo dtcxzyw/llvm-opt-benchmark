@@ -964,6 +964,8 @@ call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i:                                      ; preds = %call2.i.i.noexc
   %_M_string_length.i.i.i467 = getelementptr inbounds i8, ptr %call2.i.i469, i64 8
   %17 = load i64, ptr %_M_string_length.i.i.i467, align 8, !tbaa !14
+  %cmp3.i.i.i = icmp ult i64 %17, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %17, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %15, i64 %add.i.i, i1 false)
   br label %invoke.cont4
@@ -1269,6 +1271,8 @@ call2.i.i.noexc531:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i525:                                   ; preds = %call2.i.i.noexc531
   %_M_string_length.i.i.i526 = getelementptr inbounds i8, ptr %call2.i.i532, i64 8
   %56 = load i64, ptr %_M_string_length.i.i.i526, align 8, !tbaa !14
+  %cmp3.i.i.i527 = icmp ult i64 %56, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i527)
   %add.i.i528 = add nuw nsw i64 %56, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %53, ptr noundef nonnull align 8 dereferenceable(1) %54, i64 %add.i.i528, i1 false)
   br label %invoke.cont20
@@ -1814,6 +1818,8 @@ call2.i.i.noexc711:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i705:                                   ; preds = %call2.i.i.noexc711
   %_M_string_length.i.i.i706 = getelementptr inbounds i8, ptr %call2.i.i712, i64 8
   %130 = load i64, ptr %_M_string_length.i.i.i706, align 8, !tbaa !14
+  %cmp3.i.i.i707 = icmp ult i64 %130, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i707)
   %add.i.i708 = add nuw nsw i64 %130, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %127, ptr noundef nonnull align 8 dereferenceable(1) %128, i64 %add.i.i708, i1 false)
   br label %invoke.cont115
@@ -3682,6 +3688,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds =
 if.then.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %4 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !14
+  %cmp3.i.i = icmp ult i64 %4, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = add nuw nsw i64 %4, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %add.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -8125,6 +8133,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
 if.then.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
   %_M_string_length.i.i1 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %6 = load i64, ptr %_M_string_length.i.i1, align 8, !tbaa !14
+  %cmp3.i.i = icmp ult i64 %6, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = add nuw nsw i64 %6, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %add.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -11295,6 +11305,8 @@ if.end.thread.i:                                  ; preds = %invoke.cont423
 
 if.then15.i:                                      ; preds = %if.end.thread.i, %if.end.i1190
   %136 = load i64, ptr %_M_string_length.i71.i, align 8, !tbaa !14
+  %cmp3.i59.i = icmp ult i64 %136, 16
+  call void @llvm.assume(i1 %cmp3.i59.i)
   switch i64 %136, label %if.end.i.i.i [
     i64 0, label %if.end24.i
     i64 1, label %if.then.i63.i
@@ -11656,7 +11668,7 @@ invoke.cont477:                                   ; preds = %if.else470, %_ZN18R
   %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
-  %cmp9.i17.i.i = icmp slt i48 %p0.sroa.0.0.insert.insert2008, 0
+  %cmp9.i17.i.i = icmp slt i48 %p0.sroa.21.0.insert.shift2085, 0
   %cond.i18.i.i = select i1 %cmp9.i17.i.i, i32 %add.i16.i.i, i32 %conv.i13.i.i
   %div.i19.i.i = sdiv i32 %cond.i18.i.i, 16
   %conv5.i20.mask.i.i = and i32 %div.i19.i.i, 65535
@@ -12729,9 +12741,9 @@ if.end705.thread:                                 ; preds = %if.else699
   br label %land.lhs.true716
 
 if.end705:                                        ; preds = %if.else699
-  %.pre509 = load i64, ptr %m_inc_trending_up_start_time, align 8
+  %.pre521 = load i64, ptr %m_inc_trending_up_start_time, align 8
   store i8 1, ptr %m_queue_size_timer_started700, align 8, !tbaa !77
-  %cmp710 = icmp ugt i64 %.pre509, %add.i1402
+  %cmp710 = icmp ugt i64 %.pre521, %add.i1402
   br i1 %cmp710, label %if.end713.thread, label %land.lhs.true716
 
 if.end713.thread:                                 ; preds = %if.end705
@@ -12743,7 +12755,7 @@ if.end713:                                        ; preds = %invoke.cont693
   br label %cleanup752
 
 land.lhs.true716:                                 ; preds = %if.end705.thread, %if.end705
-  %312 = phi i64 [ %add.i1402, %if.end705.thread ], [ %.pre509, %if.end705 ]
+  %312 = phi i64 [ %add.i1402, %if.end705.thread ], [ %.pre521, %if.end705 ]
   %sub718 = sub i64 %add.i1402, %312
   %conv719 = zext i16 %mul to i64
   %cmp720 = icmp ugt i64 %sub718, %conv719
@@ -13044,6 +13056,8 @@ if.then15.i:                                      ; preds = %if.end.thread.i, %i
   %8 = phi ptr [ %6, %if.end.thread.i ], [ %5, %if.end.i ]
   %_M_string_length.i58.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %9 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !14
+  %cmp3.i59.i = icmp ult i64 %9, 16
+  call void @llvm.assume(i1 %cmp3.i59.i)
   %cmp.not.i = icmp eq ptr %ref.tmp, %old_actor
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %if.then16.i, !prof !158
 

@@ -1603,7 +1603,7 @@ sw.bb31:                                          ; preds = %entry
   %10 = load i8, ptr %arrayidx38, align 4
   %11 = and i8 %10, -17
   store i8 %11, ptr %arrayidx38, align 4
-  %tobool.not.i = icmp sgt i8 %11, -1
+  %tobool.not.i = icmp sgt i8 %10, -1
   br i1 %tobool.not.i, label %sw.epilog, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb31

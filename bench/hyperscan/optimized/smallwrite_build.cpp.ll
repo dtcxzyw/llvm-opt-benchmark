@@ -6455,7 +6455,7 @@ _ZNK3ue29CharReach10find_firstEv.exit30.i:        ; preds = %for.body.i.i19.i
 for.body9.i.preheader:                            ; preds = %_ZNK3ue29CharReach10find_firstEv.exit30.i
   %arrayidx.i.i.i407 = getelementptr inbounds [257 x i16], ptr %alpha_remap, i64 0, i64 %add.i.i25.i
   store i16 %i.061.i, ptr %arrayidx.i.i.i407, align 2
-  %cmp.not.i.i31.i408 = icmp ult i64 %add.i.i25.i, 256
+  %cmp.not.i.i31.i408 = icmp ult i64 %i.06.i.i20.i, 4
   br i1 %cmp.not.i.i31.i408, label %if.end.i.i.i, label %for.end.i51
 
 if.end.i.i.i:                                     ; preds = %for.body9.i.preheader, %_ZNK3ue29CharReach9find_nextEm.exit.i

@@ -1300,10 +1300,9 @@ _ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit61.i: ; preds = %if.end16
 if.end17.i:                                       ; preds = %_ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit61.i
   %conv18.i = trunc i64 %cond.i40 to i32
   %and19.i = and i32 %conv18.i, 49152
-  %cmp20.i = icmp ugt i32 %miniCE.0.i, 4095
   %and21.i = and i32 %miniCE.0.i, 992
   %cmp22.i = icmp eq i32 %and21.i, 160
-  %or.cond.i47 = and i1 %cmp20.i, %cmp22.i
+  %or.cond.i47 = and i1 %cmp8.i, %cmp22.i
   br i1 %or.cond.i47, label %if.then23.i, label %if.end35.i
 
 if.then23.i:                                      ; preds = %if.end17.i
@@ -2546,10 +2545,9 @@ _ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit61: ; preds = %if.end16.i
 if.end17:                                         ; preds = %_ZNK6icu_7525CollationFastLatinBuilder9getMiniCEEl.exit61
   %conv18 = trunc i64 %second to i32
   %and19 = and i32 %conv18, 49152
-  %cmp20 = icmp ugt i32 %miniCE.0, 4095
   %and21 = and i32 %miniCE.0, 992
   %cmp22 = icmp eq i32 %and21, 160
-  %or.cond = and i1 %cmp20, %cmp22
+  %or.cond = and i1 %cmp8, %cmp22
   br i1 %or.cond, label %if.then23, label %if.end35
 
 if.then23:                                        ; preds = %if.end17

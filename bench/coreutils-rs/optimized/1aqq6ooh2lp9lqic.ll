@@ -464,7 +464,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   %88 = lshr i64 %82, 6
   %89 = and i64 %88, 127
   %90 = or disjoint i64 %87, %89
-  %91 = icmp ult i64 %90, 2432
+  %91 = icmp ult i8 %85, 19
   br i1 %91, label %92, label %101, !prof !56
 
 92:                                               ; preds = %81
@@ -475,7 +475,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   %97 = lshr i64 %82, 2
   %98 = and i64 %97, 15
   %99 = or disjoint i64 %96, %98
-  %100 = icmp ult i64 %99, 3888
+  %100 = icmp ult i8 %94, -13
   br i1 %100, label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.i, label %102, !prof !56
 
 101:                                              ; preds = %81
@@ -2616,7 +2616,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i: ;
   %201 = lshr i64 %195, 6
   %202 = and i64 %201, 127
   %203 = or disjoint i64 %200, %202
-  %204 = icmp ult i64 %203, 2432
+  %204 = icmp ult i8 %198, 19
   br i1 %204, label %205, label %214, !prof !56
 
 205:                                              ; preds = %194
@@ -2627,7 +2627,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i: ;
   %210 = lshr i64 %195, 2
   %211 = and i64 %210, 15
   %212 = or disjoint i64 %209, %211
-  %213 = icmp ult i64 %212, 3888
+  %213 = icmp ult i8 %207, -13
   br i1 %213, label %_ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.i.i.i.i.i.i, label %215, !prof !56
 
 214:                                              ; preds = %194

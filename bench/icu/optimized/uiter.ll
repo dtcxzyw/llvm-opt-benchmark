@@ -1915,11 +1915,8 @@ land.lhs.true167:                                 ; preds = %land.lhs.true165, %
   br i1 %cmp174, label %do.end, label %if.end197
 
 do.end:                                           ; preds = %land.lhs.true167
-  %conv173 = zext nneg i8 %sub171 to i32
-  %shl176 = shl nuw nsw i32 %c.1, 6
-  %or178 = or disjoint i32 %shl176, %conv173
   %inc179 = add nsw i32 %inc179169, 1
-  %cmp184 = icmp ult i32 %or178, 65536
+  %cmp184 = icmp ult i32 %c.1, 1024
   br i1 %cmp184, label %if.end197, label %if.else188
 
 if.else188:                                       ; preds = %do.end
@@ -1927,7 +1924,10 @@ if.else188:                                       ; preds = %do.end
   br i1 %cmp189, label %if.end197, label %if.else193
 
 if.else193:                                       ; preds = %if.else188
-  store i32 %or178, ptr %reservedField100, align 8
+  %conv173.le = zext nneg i8 %sub171 to i32
+  %shl176.le = shl nuw nsw i32 %c.1, 6
+  %or178.le = or disjoint i32 %shl176.le, %conv173.le
+  store i32 %or178.le, ptr %reservedField100, align 8
   %inc195 = add nsw i32 %pos.2178, 1
   br label %while.end
 
@@ -2231,7 +2231,7 @@ do.end:                                           ; preds = %land.lhs.true66
   %conv72 = zext nneg i8 %sub70 to i32
   %shl75 = shl nuw nsw i32 %c.1, 6
   %or77 = or disjoint i32 %shl75, %conv72
-  %cmp82 = icmp ult i32 %or77, 65536
+  %cmp82 = icmp ult i32 %c.1, 1024
   br i1 %cmp82, label %return, label %if.else84
 
 if.else84:                                        ; preds = %do.end

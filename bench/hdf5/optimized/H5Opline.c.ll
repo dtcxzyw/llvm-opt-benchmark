@@ -259,7 +259,7 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   store i32 %109, ptr %.017015.i, align 8
   %110 = getelementptr inbounds i8, ptr %.118.i, i64 2
   %111 = icmp ugt i32 %93, 1
-  %112 = icmp ult i32 %109, 256
+  %112 = icmp eq i8 %106, 0
   %or.cond193.i = select i1 %111, i1 %112, i1 false
   br i1 %or.cond193.i, label %137, label %113
 

@@ -995,7 +995,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %12 = add nsw i64 %10, -1
   %arrayidx28.i = getelementptr inbounds [4 x i32], ptr %words_23.i, i64 0, i64 %12
   %13 = load i32, ptr %arrayidx28.i, align 4
-  %or.i = tail call i32 @llvm.fshl.i32(i32 %11, i32 %13, i32 %rem.i)
+  %or.i = tail call i32 @llvm.fshl.i32(i32 %11, i32 %13, i32 %n)
   %arrayidx32.i = getelementptr inbounds [4 x i32], ptr %words_23.i, i64 0, i64 %indvars.iv.i
   store i32 %or.i, ptr %arrayidx32.i, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -1246,7 +1246,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = add nsw i64 %6, -1
   %arrayidx28 = getelementptr inbounds [4 x i32], ptr %words_23, i64 0, i64 %8
   %9 = load i32, ptr %arrayidx28, align 4
-  %or = tail call i32 @llvm.fshl.i32(i32 %7, i32 %9, i32 %rem)
+  %or = tail call i32 @llvm.fshl.i32(i32 %7, i32 %9, i32 %count)
   %arrayidx32 = getelementptr inbounds [4 x i32], ptr %words_23, i64 0, i64 %indvars.iv
   store i32 %or, ptr %arrayidx32, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -3280,7 +3280,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %12 = add nsw i64 %10, -1
   %arrayidx28.i = getelementptr inbounds [84 x i32], ptr %words_23.i, i64 0, i64 %12
   %13 = load i32, ptr %arrayidx28.i, align 4
-  %or.i = tail call i32 @llvm.fshl.i32(i32 %11, i32 %13, i32 %rem.i)
+  %or.i = tail call i32 @llvm.fshl.i32(i32 %11, i32 %13, i32 %n)
   %arrayidx32.i = getelementptr inbounds [84 x i32], ptr %words_23.i, i64 0, i64 %indvars.iv.i
   store i32 %or.i, ptr %arrayidx32.i, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -3531,7 +3531,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = add nsw i64 %6, -1
   %arrayidx28 = getelementptr inbounds [84 x i32], ptr %words_23, i64 0, i64 %8
   %9 = load i32, ptr %arrayidx28, align 4
-  %or = tail call i32 @llvm.fshl.i32(i32 %7, i32 %9, i32 %rem)
+  %or = tail call i32 @llvm.fshl.i32(i32 %7, i32 %9, i32 %count)
   %arrayidx32 = getelementptr inbounds [84 x i32], ptr %words_23, i64 0, i64 %indvars.iv
   store i32 %or, ptr %arrayidx32, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1

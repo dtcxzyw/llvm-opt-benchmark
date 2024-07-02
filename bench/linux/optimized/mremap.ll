@@ -817,7 +817,7 @@ define internal fastcc noundef zeroext i1 @move_pgt_entry(i32 noundef %0, ptr no
   %34 = ptrtoint ptr %3 to i64
   %35 = and i64 %34, -4096
   %36 = add i64 %35, 2147483648
-  %37 = icmp ugt i64 %35, -2147483649
+  %37 = icmp ugt ptr %3, inttoptr (i64 -2147483649 to ptr)
   %38 = load i64, ptr @phys_base, align 8
   %39 = load i64, ptr @page_offset_base, align 8
   %40 = sub i64 -2147483648, %39
@@ -831,7 +831,7 @@ define internal fastcc noundef zeroext i1 @move_pgt_entry(i32 noundef %0, ptr no
   %47 = ptrtoint ptr %4 to i64
   %48 = and i64 %47, -4096
   %49 = add i64 %48, 2147483648
-  %50 = icmp ugt i64 %48, -2147483649
+  %50 = icmp ugt ptr %4, inttoptr (i64 -2147483649 to ptr)
   %51 = load i64, ptr @phys_base, align 8
   %52 = load i64, ptr @page_offset_base, align 8
   %53 = sub i64 -2147483648, %52

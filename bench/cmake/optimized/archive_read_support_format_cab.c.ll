@@ -2400,7 +2400,7 @@ define internal fastcc i64 @cab_minimum_consume_cfdata(ptr noundef %0, i64 nound
 
 74:                                               ; preds = %.lr.ph.i.i, %._crit_edge.i
   %.not39.i = icmp eq i64 %.035.lcssa.i, 0
-  br i1 %.not39.i, label %94, label %.thread66
+  br i1 %.not39.i, label %95, label %.thread66
 
 .thread66:                                        ; preds = %52, %74
   %.1.i71 = phi ptr [ %.0.lcssa.i, %74 ], [ %50, %52 ]
@@ -2410,242 +2410,247 @@ define internal fastcc i64 @cab_minimum_consume_cfdata(ptr noundef %0, i64 nound
   %77 = and i64 %.136.i70, 3
   %78 = and i32 %75, -4
   %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %.lr.ph.preheader.i.i, label %87
+  br i1 %79, label %80, label %88
 
-.lr.ph.preheader.i.i:                             ; preds = %.thread66
-  %80 = getelementptr inbounds i8, ptr %.val.val.val, i64 40
-  %81 = load i32, ptr %80, align 8
-  %82 = lshr i32 %75, 2
+80:                                               ; preds = %.thread66
+  %81 = getelementptr inbounds i8, ptr %.val.val.val, i64 40
+  %82 = load i32, ptr %81, align 8
+  %.not10.i.i = icmp ult i32 %75, 4
+  br i1 %.not10.i.i, label %cab_checksum_cfdata_4.exit46.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %80
+  %83 = lshr i32 %75, 2
   br label %.lr.ph.i41.i
 
 .lr.ph.i41.i:                                     ; preds = %.lr.ph.i41.i, %.lr.ph.preheader.i.i
-  %.013.i42.i = phi i32 [ %84, %.lr.ph.i41.i ], [ %81, %.lr.ph.preheader.i.i ]
-  %.0812.i43.i = phi i32 [ %86, %.lr.ph.i41.i ], [ %82, %.lr.ph.preheader.i.i ]
-  %.0911.i44.i = phi ptr [ %85, %.lr.ph.i41.i ], [ %.1.i71, %.lr.ph.preheader.i.i ]
-  %83 = load i32, ptr %.0911.i44.i, align 1
-  %84 = xor i32 %83, %.013.i42.i
-  %85 = getelementptr inbounds i8, ptr %.0911.i44.i, i64 4
-  %86 = add nsw i32 %.0812.i43.i, -1
-  %.not.i45.i = icmp eq i32 %86, 0
+  %.013.i42.i = phi i32 [ %85, %.lr.ph.i41.i ], [ %82, %.lr.ph.preheader.i.i ]
+  %.0812.i43.i = phi i32 [ %87, %.lr.ph.i41.i ], [ %83, %.lr.ph.preheader.i.i ]
+  %.0911.i44.i = phi ptr [ %86, %.lr.ph.i41.i ], [ %.1.i71, %.lr.ph.preheader.i.i ]
+  %84 = load i32, ptr %.0911.i44.i, align 1
+  %85 = xor i32 %84, %.013.i42.i
+  %86 = getelementptr inbounds i8, ptr %.0911.i44.i, i64 4
+  %87 = add nsw i32 %.0812.i43.i, -1
+  %.not.i45.i = icmp eq i32 %87, 0
   br i1 %.not.i45.i, label %cab_checksum_cfdata_4.exit46.i, label %.lr.ph.i41.i, !llvm.loop !20
 
-cab_checksum_cfdata_4.exit46.i:                   ; preds = %.lr.ph.i41.i
-  store i32 %84, ptr %80, align 8
-  br label %87
+cab_checksum_cfdata_4.exit46.i:                   ; preds = %.lr.ph.i41.i, %80
+  %.0.lcssa.i.i = phi i32 [ %82, %80 ], [ %85, %.lr.ph.i41.i ]
+  store i32 %.0.lcssa.i.i, ptr %81, align 8
+  br label %88
 
-87:                                               ; preds = %cab_checksum_cfdata_4.exit46.i, %.thread66
+88:                                               ; preds = %cab_checksum_cfdata_4.exit46.i, %.thread66
   %.not40.i = icmp eq i32 %76, 0
-  br i1 %.not40.i, label %93, label %88
+  br i1 %.not40.i, label %94, label %89
 
-88:                                               ; preds = %87
-  %89 = getelementptr inbounds i8, ptr %.val.val.val, i64 44
-  %90 = getelementptr inbounds i8, ptr %.1.i71, i64 %.136.i70
-  %91 = sub nsw i64 0, %77
-  %92 = getelementptr inbounds i8, ptr %90, i64 %91
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %89, ptr nonnull align 1 %92, i64 %77, i1 false)
-  br label %93
-
-93:                                               ; preds = %88, %87
-  store i32 %76, ptr %53, align 8
+89:                                               ; preds = %88
+  %90 = getelementptr inbounds i8, ptr %.val.val.val, i64 44
+  %91 = getelementptr inbounds i8, ptr %.1.i71, i64 %.136.i70
+  %92 = sub nsw i64 0, %77
+  %93 = getelementptr inbounds i8, ptr %91, i64 %92
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %90, ptr nonnull align 1 %93, i64 %77, i1 false)
   br label %94
 
-94:                                               ; preds = %93, %74
+94:                                               ; preds = %89, %88
+  store i32 %76, ptr %53, align 8
+  br label %95
+
+95:                                               ; preds = %94, %74
   store ptr null, ptr %49, align 8
   br label %cab_checksum_update.exit
 
-cab_checksum_update.exit:                         ; preds = %44, %48, %94
-  %95 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.264) #18
-  %96 = getelementptr inbounds i8, ptr %5, i64 64
-  %97 = load i64, ptr %96, align 8
-  %98 = add nsw i64 %97, %.264
-  store i64 %98, ptr %96, align 8
-  %99 = trunc i64 %.264 to i16
-  %100 = getelementptr inbounds i8, ptr %7, i64 6
-  %101 = load i16, ptr %100, align 2
-  %102 = sub i16 %101, %99
-  store i16 %102, ptr %100, align 2
-  %103 = icmp eq i16 %101, %99
-  br i1 %103, label %104, label %.thread
+cab_checksum_update.exit:                         ; preds = %44, %48, %95
+  %96 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.264) #18
+  %97 = getelementptr inbounds i8, ptr %5, i64 64
+  %98 = load i64, ptr %97, align 8
+  %99 = add nsw i64 %98, %.264
+  store i64 %99, ptr %97, align 8
+  %100 = trunc i64 %.264 to i16
+  %101 = getelementptr inbounds i8, ptr %7, i64 6
+  %102 = load i16, ptr %101, align 2
+  %103 = sub i16 %102, %100
+  store i16 %103, ptr %101, align 2
+  %104 = icmp eq i16 %102, %100
+  br i1 %104, label %105, label %.thread
 
-104:                                              ; preds = %cab_checksum_update.exit
-  %105 = load ptr, ptr %3, align 8
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 56
-  %108 = load ptr, ptr %107, align 8
-  %109 = load i32, ptr %108, align 8
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %.thread, label %111
+105:                                              ; preds = %cab_checksum_update.exit
+  %106 = load ptr, ptr %3, align 8
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 56
+  %109 = load ptr, ptr %108, align 8
+  %110 = load i32, ptr %109, align 8
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %.thread, label %112
 
-111:                                              ; preds = %104
-  %112 = getelementptr inbounds i8, ptr %108, i64 48
-  %113 = load i32, ptr %112, align 8
-  %.not.i56 = icmp eq i32 %113, 0
-  br i1 %.not.i56, label %143, label %114
+112:                                              ; preds = %105
+  %113 = getelementptr inbounds i8, ptr %109, i64 48
+  %114 = load i32, ptr %113, align 8
+  %.not.i56 = icmp eq i32 %114, 0
+  br i1 %.not.i56, label %144, label %115
 
-114:                                              ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %108, i64 44
-  %116 = sext i32 %113 to i64
-  %117 = getelementptr inbounds i8, ptr %108, i64 40
-  %118 = load i32, ptr %117, align 8
-  %.not10.i.i.i = icmp ult i32 %113, 4
+115:                                              ; preds = %112
+  %116 = getelementptr inbounds i8, ptr %109, i64 44
+  %117 = sext i32 %114 to i64
+  %118 = getelementptr inbounds i8, ptr %109, i64 40
+  %119 = load i32, ptr %118, align 8
+  %.not10.i.i.i = icmp ult i32 %114, 4
   br i1 %.not10.i.i.i, label %cab_checksum_cfdata_4.exit.i.i, label %.lr.ph.preheader.i.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %114
-  %119 = lshr i32 %113, 2
+.lr.ph.preheader.i.i.i:                           ; preds = %115
+  %120 = lshr i32 %114, 2
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
-  %.013.i.i.i = phi i32 [ %121, %.lr.ph.i.i.i ], [ %118, %.lr.ph.preheader.i.i.i ]
-  %.0812.i.i.i = phi i32 [ %123, %.lr.ph.i.i.i ], [ %119, %.lr.ph.preheader.i.i.i ]
-  %.0911.i.i.i = phi ptr [ %122, %.lr.ph.i.i.i ], [ %115, %.lr.ph.preheader.i.i.i ]
-  %120 = load i32, ptr %.0911.i.i.i, align 1
-  %121 = xor i32 %120, %.013.i.i.i
-  %122 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 4
-  %123 = add nsw i32 %.0812.i.i.i, -1
-  %.not.i.i.i = icmp eq i32 %123, 0
+  %.013.i.i.i = phi i32 [ %122, %.lr.ph.i.i.i ], [ %119, %.lr.ph.preheader.i.i.i ]
+  %.0812.i.i.i = phi i32 [ %124, %.lr.ph.i.i.i ], [ %120, %.lr.ph.preheader.i.i.i ]
+  %.0911.i.i.i = phi ptr [ %123, %.lr.ph.i.i.i ], [ %116, %.lr.ph.preheader.i.i.i ]
+  %121 = load i32, ptr %.0911.i.i.i, align 1
+  %122 = xor i32 %121, %.013.i.i.i
+  %123 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 4
+  %124 = add nsw i32 %.0812.i.i.i, -1
+  %.not.i.i.i = icmp eq i32 %124, 0
   br i1 %.not.i.i.i, label %cab_checksum_cfdata_4.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !20
 
-cab_checksum_cfdata_4.exit.i.i:                   ; preds = %.lr.ph.i.i.i, %114
-  %.0.lcssa.i.i.i = phi i32 [ %118, %114 ], [ %121, %.lr.ph.i.i.i ]
-  %124 = and i64 %116, -4
-  %125 = getelementptr inbounds i8, ptr %115, i64 %124
-  %126 = and i64 %116, 3
-  switch i64 %126, label %default.unreachable [
-    i64 3, label %127
-    i64 2, label %132
-    i64 1, label %138
+cab_checksum_cfdata_4.exit.i.i:                   ; preds = %.lr.ph.i.i.i, %115
+  %.0.lcssa.i.i.i = phi i32 [ %119, %115 ], [ %122, %.lr.ph.i.i.i ]
+  %125 = and i64 %117, -4
+  %126 = getelementptr inbounds i8, ptr %116, i64 %125
+  %127 = and i64 %117, 3
+  switch i64 %127, label %default.unreachable [
+    i64 3, label %128
+    i64 2, label %133
+    i64 1, label %139
     i64 0, label %cab_checksum_cfdata.exit.i
   ]
 
-127:                                              ; preds = %cab_checksum_cfdata_4.exit.i.i
-  %128 = getelementptr inbounds i8, ptr %125, i64 1
-  %129 = load i8, ptr %125, align 1
-  %130 = zext i8 %129 to i32
-  %131 = shl nuw nsw i32 %130, 16
-  br label %132
+128:                                              ; preds = %cab_checksum_cfdata_4.exit.i.i
+  %129 = getelementptr inbounds i8, ptr %126, i64 1
+  %130 = load i8, ptr %126, align 1
+  %131 = zext i8 %130 to i32
+  %132 = shl nuw nsw i32 %131, 16
+  br label %133
 
-132:                                              ; preds = %127, %cab_checksum_cfdata_4.exit.i.i
-  %.015.i.i = phi ptr [ %125, %cab_checksum_cfdata_4.exit.i.i ], [ %128, %127 ]
-  %.0.i.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i.i ], [ %131, %127 ]
-  %133 = getelementptr inbounds i8, ptr %.015.i.i, i64 1
-  %134 = load i8, ptr %.015.i.i, align 1
-  %135 = zext i8 %134 to i32
-  %136 = shl nuw nsw i32 %135, 8
-  %137 = or disjoint i32 %136, %.0.i.i
-  br label %138
+133:                                              ; preds = %128, %cab_checksum_cfdata_4.exit.i.i
+  %.015.i.i = phi ptr [ %126, %cab_checksum_cfdata_4.exit.i.i ], [ %129, %128 ]
+  %.0.i.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i.i ], [ %132, %128 ]
+  %134 = getelementptr inbounds i8, ptr %.015.i.i, i64 1
+  %135 = load i8, ptr %.015.i.i, align 1
+  %136 = zext i8 %135 to i32
+  %137 = shl nuw nsw i32 %136, 8
+  %138 = or disjoint i32 %137, %.0.i.i
+  br label %139
 
-138:                                              ; preds = %132, %cab_checksum_cfdata_4.exit.i.i
-  %.116.i.i = phi ptr [ %125, %cab_checksum_cfdata_4.exit.i.i ], [ %133, %132 ]
-  %.1.i.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i.i ], [ %137, %132 ]
-  %139 = load i8, ptr %.116.i.i, align 1
-  %140 = zext i8 %139 to i32
-  %141 = or i32 %.1.i.i, %140
+139:                                              ; preds = %133, %cab_checksum_cfdata_4.exit.i.i
+  %.116.i.i = phi ptr [ %126, %cab_checksum_cfdata_4.exit.i.i ], [ %134, %133 ]
+  %.1.i.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i.i ], [ %138, %133 ]
+  %140 = load i8, ptr %.116.i.i, align 1
+  %141 = zext i8 %140 to i32
+  %142 = or i32 %.1.i.i, %141
   br label %cab_checksum_cfdata.exit.i
 
 default.unreachable:                              ; preds = %cab_checksum_cfdata_4.exit.i36.i, %cab_checksum_cfdata_4.exit.i.i
   unreachable
 
-cab_checksum_cfdata.exit.i:                       ; preds = %138, %cab_checksum_cfdata_4.exit.i.i
-  %.2.i.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i.i ], [ %141, %138 ]
-  %142 = xor i32 %.2.i.i, %.0.lcssa.i.i.i
-  store i32 %142, ptr %117, align 8
-  store i32 0, ptr %112, align 8
-  br label %143
+cab_checksum_cfdata.exit.i:                       ; preds = %139, %cab_checksum_cfdata_4.exit.i.i
+  %.2.i.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i.i ], [ %142, %139 ]
+  %143 = xor i32 %.2.i.i, %.0.lcssa.i.i.i
+  store i32 %143, ptr %118, align 8
+  store i32 0, ptr %113, align 8
+  br label %144
 
-143:                                              ; preds = %cab_checksum_cfdata.exit.i, %111
-  %144 = getelementptr inbounds i8, ptr %106, i64 84
-  %145 = load i16, ptr %144, align 4
-  %146 = and i16 %145, 4
-  %.not27.i = icmp eq i16 %146, 0
-  br i1 %.not27.i, label %.lr.ph.preheader.i.i30.i, label %147
+144:                                              ; preds = %cab_checksum_cfdata.exit.i, %112
+  %145 = getelementptr inbounds i8, ptr %107, i64 84
+  %146 = load i16, ptr %145, align 4
+  %147 = and i16 %146, 4
+  %.not27.i = icmp eq i16 %147, 0
+  br i1 %.not27.i, label %.lr.ph.preheader.i.i30.i, label %148
 
-147:                                              ; preds = %143
-  %148 = getelementptr inbounds i8, ptr %106, i64 93
-  %149 = load i8, ptr %148, align 1
-  %150 = zext i8 %149 to i64
-  %151 = add nuw nsw i64 %150, 4
-  %152 = trunc nuw nsw i64 %151 to i32
-  %153 = lshr i32 %152, 2
+148:                                              ; preds = %144
+  %149 = getelementptr inbounds i8, ptr %107, i64 93
+  %150 = load i8, ptr %149, align 1
+  %151 = zext i8 %150 to i64
+  %152 = add nuw nsw i64 %151, 4
+  %153 = trunc nuw nsw i64 %152 to i32
+  %154 = lshr i32 %153, 2
   br label %.lr.ph.preheader.i.i30.i
 
-.lr.ph.preheader.i.i30.i:                         ; preds = %147, %143
-  %154 = phi i32 [ %153, %147 ], [ 1, %143 ]
-  %.047.i = phi i64 [ %151, %147 ], [ 4, %143 ]
-  %.pn.in.i = getelementptr inbounds i8, ptr %108, i64 32
+.lr.ph.preheader.i.i30.i:                         ; preds = %148, %144
+  %155 = phi i32 [ %154, %148 ], [ 1, %144 ]
+  %.047.i = phi i64 [ %152, %148 ], [ 4, %144 ]
+  %.pn.in.i = getelementptr inbounds i8, ptr %109, i64 32
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
-  %155 = getelementptr inbounds i8, ptr %.pn.i, i64 4
-  %156 = getelementptr inbounds i8, ptr %108, i64 40
-  %157 = load i32, ptr %156, align 8
+  %156 = getelementptr inbounds i8, ptr %.pn.i, i64 4
+  %157 = getelementptr inbounds i8, ptr %109, i64 40
+  %158 = load i32, ptr %157, align 8
   br label %.lr.ph.i.i31.i
 
 .lr.ph.i.i31.i:                                   ; preds = %.lr.ph.i.i31.i, %.lr.ph.preheader.i.i30.i
-  %.013.i.i32.i = phi i32 [ %159, %.lr.ph.i.i31.i ], [ %157, %.lr.ph.preheader.i.i30.i ]
-  %.0812.i.i33.i = phi i32 [ %161, %.lr.ph.i.i31.i ], [ %154, %.lr.ph.preheader.i.i30.i ]
-  %.0911.i.i34.i = phi ptr [ %160, %.lr.ph.i.i31.i ], [ %155, %.lr.ph.preheader.i.i30.i ]
-  %158 = load i32, ptr %.0911.i.i34.i, align 1
-  %159 = xor i32 %158, %.013.i.i32.i
-  %160 = getelementptr inbounds i8, ptr %.0911.i.i34.i, i64 4
-  %161 = add nsw i32 %.0812.i.i33.i, -1
-  %.not.i.i35.i = icmp eq i32 %161, 0
+  %.013.i.i32.i = phi i32 [ %160, %.lr.ph.i.i31.i ], [ %158, %.lr.ph.preheader.i.i30.i ]
+  %.0812.i.i33.i = phi i32 [ %162, %.lr.ph.i.i31.i ], [ %155, %.lr.ph.preheader.i.i30.i ]
+  %.0911.i.i34.i = phi ptr [ %161, %.lr.ph.i.i31.i ], [ %156, %.lr.ph.preheader.i.i30.i ]
+  %159 = load i32, ptr %.0911.i.i34.i, align 1
+  %160 = xor i32 %159, %.013.i.i32.i
+  %161 = getelementptr inbounds i8, ptr %.0911.i.i34.i, i64 4
+  %162 = add nsw i32 %.0812.i.i33.i, -1
+  %.not.i.i35.i = icmp eq i32 %162, 0
   br i1 %.not.i.i35.i, label %cab_checksum_cfdata_4.exit.i36.i, label %.lr.ph.i.i31.i, !llvm.loop !20
 
 cab_checksum_cfdata_4.exit.i36.i:                 ; preds = %.lr.ph.i.i31.i
-  %162 = and i64 %.047.i, -4
-  %163 = getelementptr inbounds i8, ptr %155, i64 %162
-  %164 = and i64 %.047.i, 3
-  switch i64 %164, label %default.unreachable [
-    i64 3, label %165
-    i64 2, label %170
-    i64 1, label %176
+  %163 = and i64 %.047.i, -4
+  %164 = getelementptr inbounds i8, ptr %156, i64 %163
+  %165 = and i64 %.047.i, 3
+  switch i64 %165, label %default.unreachable [
+    i64 3, label %166
+    i64 2, label %171
+    i64 1, label %177
     i64 0, label %cab_checksum_cfdata.exit44.i
   ]
 
-165:                                              ; preds = %cab_checksum_cfdata_4.exit.i36.i
-  %166 = getelementptr inbounds i8, ptr %163, i64 1
-  %167 = load i8, ptr %163, align 1
-  %168 = zext i8 %167 to i32
-  %169 = shl nuw nsw i32 %168, 16
-  br label %170
+166:                                              ; preds = %cab_checksum_cfdata_4.exit.i36.i
+  %167 = getelementptr inbounds i8, ptr %164, i64 1
+  %168 = load i8, ptr %164, align 1
+  %169 = zext i8 %168 to i32
+  %170 = shl nuw nsw i32 %169, 16
+  br label %171
 
-170:                                              ; preds = %165, %cab_checksum_cfdata_4.exit.i36.i
-  %.015.i41.i = phi ptr [ %163, %cab_checksum_cfdata_4.exit.i36.i ], [ %166, %165 ]
-  %.0.i42.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i36.i ], [ %169, %165 ]
-  %171 = getelementptr inbounds i8, ptr %.015.i41.i, i64 1
-  %172 = load i8, ptr %.015.i41.i, align 1
-  %173 = zext i8 %172 to i32
-  %174 = shl nuw nsw i32 %173, 8
-  %175 = or disjoint i32 %174, %.0.i42.i
-  br label %176
+171:                                              ; preds = %166, %cab_checksum_cfdata_4.exit.i36.i
+  %.015.i41.i = phi ptr [ %164, %cab_checksum_cfdata_4.exit.i36.i ], [ %167, %166 ]
+  %.0.i42.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i36.i ], [ %170, %166 ]
+  %172 = getelementptr inbounds i8, ptr %.015.i41.i, i64 1
+  %173 = load i8, ptr %.015.i41.i, align 1
+  %174 = zext i8 %173 to i32
+  %175 = shl nuw nsw i32 %174, 8
+  %176 = or disjoint i32 %175, %.0.i42.i
+  br label %177
 
-176:                                              ; preds = %170, %cab_checksum_cfdata_4.exit.i36.i
-  %.116.i39.i = phi ptr [ %163, %cab_checksum_cfdata_4.exit.i36.i ], [ %171, %170 ]
-  %.1.i40.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i36.i ], [ %175, %170 ]
-  %177 = load i8, ptr %.116.i39.i, align 1
-  %178 = zext i8 %177 to i32
-  %179 = or i32 %.1.i40.i, %178
+177:                                              ; preds = %171, %cab_checksum_cfdata_4.exit.i36.i
+  %.116.i39.i = phi ptr [ %164, %cab_checksum_cfdata_4.exit.i36.i ], [ %172, %171 ]
+  %.1.i40.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i36.i ], [ %176, %171 ]
+  %178 = load i8, ptr %.116.i39.i, align 1
+  %179 = zext i8 %178 to i32
+  %180 = or i32 %.1.i40.i, %179
   br label %cab_checksum_cfdata.exit44.i
 
-cab_checksum_cfdata.exit44.i:                     ; preds = %176, %cab_checksum_cfdata_4.exit.i36.i
-  %.2.i38.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i36.i ], [ %179, %176 ]
-  %180 = xor i32 %.2.i38.i, %159
-  store i32 %180, ptr %156, align 8
-  %.not28.i = icmp eq i32 %180, %109
-  br i1 %.not28.i, label %.thread, label %181
+cab_checksum_cfdata.exit44.i:                     ; preds = %177, %cab_checksum_cfdata_4.exit.i36.i
+  %.2.i38.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i36.i ], [ %180, %177 ]
+  %181 = xor i32 %.2.i38.i, %160
+  store i32 %181, ptr %157, align 8
+  %.not28.i = icmp eq i32 %181, %110
+  br i1 %.not28.i, label %.thread, label %182
 
-181:                                              ; preds = %cab_checksum_cfdata.exit44.i
-  %182 = getelementptr inbounds i8, ptr %106, i64 40
-  %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 88
-  %185 = load i32, ptr %184, align 8
-  %186 = add nsw i32 %185, -1
-  %187 = getelementptr inbounds i8, ptr %108, i64 4
-  %188 = load i16, ptr %187, align 4
-  %189 = zext i16 %188 to i32
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.25, i32 noundef %186, i32 noundef %109, i32 noundef %180, i32 noundef %189) #18
+182:                                              ; preds = %cab_checksum_cfdata.exit44.i
+  %183 = getelementptr inbounds i8, ptr %107, i64 40
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds i8, ptr %184, i64 88
+  %186 = load i32, ptr %185, align 8
+  %187 = add nsw i32 %186, -1
+  %188 = getelementptr inbounds i8, ptr %109, i64 4
+  %189 = load i16, ptr %188, align 4
+  %190 = zext i16 %189 to i32
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.25, i32 noundef %187, i32 noundef %110, i32 noundef %181, i32 noundef %190) #18
   br label %.thread
 
-.thread:                                          ; preds = %cab_checksum_cfdata.exit44.i, %104, %29, %181, %32, %cab_checksum_update.exit
-  %.0 = phi i64 [ %.165, %cab_checksum_update.exit ], [ %35, %32 ], [ -25, %181 ], [ %.045, %29 ], [ %.165, %104 ], [ %.165, %cab_checksum_cfdata.exit44.i ]
+.thread:                                          ; preds = %cab_checksum_cfdata.exit44.i, %105, %29, %182, %32, %cab_checksum_update.exit
+  %.0 = phi i64 [ %.165, %cab_checksum_update.exit ], [ %35, %32 ], [ -25, %182 ], [ %.045, %29 ], [ %.165, %105 ], [ %.165, %cab_checksum_cfdata.exit44.i ]
   ret i64 %.0
 }
 

@@ -922,7 +922,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %ent
   %retval.0.i = phi ptr [ %call.i9, %if.then.i ], [ %ptr, %entry ]
   %shl.i = shl i32 %field_number, 3
   %or.i = or disjoint i32 %shl.i, 2
-  %cmp.i7.i = icmp ugt i32 %or.i, 127
+  %cmp.i7.i = icmp ugt i32 %shl.i, 127
   br i1 %cmp.i7.i, label %while.body.i.i, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
 
 while.body.i.i:                                   ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, %while.body.i.i

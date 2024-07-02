@@ -60,47 +60,45 @@ define dso_local ptr @workingset_eviction(ptr noundef %0, ptr nocapture noundef 
   %7 = getelementptr inbounds i8, ptr %6, i64 13544
   %8 = load volatile i64, ptr %7, align 8
   %9 = load i32, ptr @bucket_order, align 4
-  %10 = zext nneg i32 %9 to i64
-  %11 = lshr i64 %8, %10
-  %12 = load volatile i64, ptr %0, align 8
-  %13 = and i64 %12, 64
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %19, label %15
+  %10 = load volatile i64, ptr %0, align 8
+  %11 = and i64 %10, 64
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %17, label %13
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 100
-  %17 = load i32, ptr %16, align 4
-  %18 = zext i32 %17 to i64
-  br label %19
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %0, i64 100
+  %15 = load i32, ptr %14, align 4
+  %16 = zext i32 %15 to i64
+  br label %17
 
-19:                                               ; preds = %15, %2
-  %20 = phi i64 [ %18, %15 ], [ 1, %2 ]
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %7, i64 %20, ptr elementtype(i64) %7) #6, !srcloc !5
-  %21 = load volatile i64, ptr %0, align 8
-  %22 = shl i64 %11, 6
-  %23 = and i64 %22, 4611686018427387840
-  %24 = getelementptr inbounds i8, ptr %6, i64 13120
-  %25 = load i32, ptr %24, align 64
-  %26 = sext i32 %25 to i64
-  %27 = or i64 %23, %26
-  %28 = shl nsw i64 %27, 1
-  %29 = lshr i64 %21, 9
-  %30 = and i64 %29, 1
-  %31 = or disjoint i64 %28, %30
-  %32 = icmp slt i64 %31, 0
-  br i1 %32, label %33, label %34, !prof !6
+17:                                               ; preds = %13, %2
+  %18 = phi i64 [ %16, %13 ], [ 1, %2 ]
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %7, i64 %18, ptr elementtype(i64) %7) #6, !srcloc !5
+  %19 = load volatile i64, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %6, i64 13120
+  %21 = load i32, ptr %20, align 64
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %23, label %24, !prof !6
 
-33:                                               ; preds = %19
+23:                                               ; preds = %17
   tail call void asm sideeffect "208: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 208b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 208) #6, !srcloc !7
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 56, i32 2305, i64 12) #6, !srcloc !8
   tail call void asm sideeffect "209: nop\0A\09.pushsection .discard.instr_end\0A\09.long 209b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 209) #6, !srcloc !9
-  br label %34
+  br label %24
 
-34:                                               ; preds = %33, %19
-  %35 = shl i64 %31, 1
-  %36 = or disjoint i64 %35, 1
-  %37 = inttoptr i64 %36 to ptr
-  ret ptr %37
+24:                                               ; preds = %23, %17
+  %25 = sext i32 %21 to i64
+  %26 = zext nneg i32 %9 to i64
+  %27 = lshr i64 %8, %26
+  %28 = shl i64 %27, 8
+  %29 = shl nsw i64 %25, 2
+  %30 = lshr i64 %19, 8
+  %31 = and i64 %30, 2
+  %32 = or disjoint i64 %28, %31
+  %33 = or i64 %32, %29
+  %34 = or disjoint i64 %33, 1
+  %35 = inttoptr i64 %34 to ptr
+  ret ptr %35
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -1106,7 +1106,7 @@ define internal fastcc range(i32 0, 3) i32 @pcapng_read_section_header_block(ptr
   %29 = add i32 %27, 3
   %30 = and i32 %29, -4
   store i32 %30, ptr %28, align 4
-  %31 = icmp ult i32 %30, 28
+  %31 = icmp ult i32 %29, 28
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %26

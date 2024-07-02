@@ -4022,32 +4022,24 @@ entry:
   %sub.i = sub i16 %blockpos.sroa.0.0.extract.trunc, %0
   %sub8.i = sub i16 %blockpos.sroa.2.0.extract.trunc, %0
   %sub13.i = sub i16 %blockpos.sroa.3.0.extract.trunc, %0
-  %retval.sroa.3.0.insert.ext.i = zext i16 %sub13.i to i48
-  %retval.sroa.3.0.insert.shift.i = shl nuw i48 %retval.sroa.3.0.insert.ext.i, 32
-  %retval.sroa.2.0.insert.ext.i = zext i16 %sub8.i to i48
-  %retval.sroa.2.0.insert.shift.i = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i, 16
-  %retval.sroa.2.0.insert.insert.i = or disjoint i48 %retval.sroa.3.0.insert.shift.i, %retval.sroa.2.0.insert.shift.i
-  %p.sroa.2.0.extract.shift.i = lshr exact i48 %retval.sroa.2.0.insert.insert.i, 16
-  %p.sroa.2.0.extract.trunc.i = trunc i48 %p.sroa.2.0.extract.shift.i to i16
   %conv.i.i = sext i16 %sub.i to i32
   %conv3.i.i = sext i16 %chunksize to i32
-  %reass.sub1 = sub nsw i32 %conv.i.i, %conv3.i.i
-  %add.i.i = add nsw i32 %reass.sub1, 1
+  %reass.sub2 = sub nsw i32 %conv.i.i, %conv3.i.i
+  %add.i.i = add nsw i32 %reass.sub2, 1
   %cmp9.i.i = icmp slt i16 %sub.i, 0
   %cond.i.i = select i1 %cmp9.i.i, i32 %add.i.i, i32 %conv.i.i
   %div.i.i = sdiv i32 %cond.i.i, %conv3.i.i
-  %conv.i5.i = sext i16 %p.sroa.2.0.extract.trunc.i to i32
+  %conv.i5.i = sext i16 %sub8.i to i32
   %reass.sub = sub nsw i32 %conv.i5.i, %conv3.i.i
   %add.i8.i = add nsw i32 %reass.sub, 1
-  %cmp9.i9.i = icmp slt i16 %p.sroa.2.0.extract.trunc.i, 0
+  %cmp9.i9.i = icmp slt i16 %sub8.i, 0
   %cond.i10.i = select i1 %cmp9.i9.i, i32 %add.i8.i, i32 %conv.i5.i
   %div.i11.i = sdiv i32 %cond.i10.i, %conv3.i.i
-  %tr.sh.diff.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i to i32
-  %conv.i13.i = ashr i32 %tr.sh.diff.i, 16
-  %reass.sub2 = sub nsw i32 %conv.i13.i, %conv3.i.i
-  %add.i16.i = add nsw i32 %reass.sub2, 1
-  %cmp9.i17.i = icmp slt i48 %retval.sroa.2.0.insert.insert.i, 0
-  %cond.i18.i = select i1 %cmp9.i17.i, i32 %add.i16.i, i32 %conv.i13.i
+  %conv.i13.i = sext i16 %sub13.i to i32
+  %reass.sub3 = sub nsw i32 %conv.i13.i, %conv3.i.i
+  %add.i16.i = add nsw i32 %reass.sub3, 1
+  %cmp9.i17.i.not1 = icmp slt i16 %sub13.i, 0
+  %cond.i18.i = select i1 %cmp9.i17.i.not1, i32 %add.i16.i, i32 %conv.i13.i
   %div.i19.i = sdiv i32 %cond.i18.i, %conv3.i.i
   %ref.tmp2.sroa.0.0.extract.trunc = trunc i32 %div.i.i to i16
   %ref.tmp2.sroa.4.0.extract.trunc = trunc i32 %div.i11.i to i16
@@ -4554,6 +4546,8 @@ call3.i.i.i.noexc:                                ; preds = %_Z4itosB5cxx11i.exi
 if.then.i.i34:                                    ; preds = %call3.i.i.i.noexc
   %_M_string_length.i.i.i35 = getelementptr inbounds i8, ptr %call3.i.i.i37, i64 8
   %16 = load i64, ptr %_M_string_length.i.i.i35, align 8, !tbaa !14
+  %cmp3.i.i.i36 = icmp ult i64 %16, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i36)
   %add.i.i = add nuw nsw i64 %16, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(1) %14, i64 %add.i.i, i1 false)
   br label %invoke.cont14
@@ -5805,6 +5799,8 @@ call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i17:                                    ; preds = %call2.i.i.noexc
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call2.i.i18, i64 8
   %6 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
+  %cmp3.i.i.i = icmp ult i64 %6, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %6, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %add.i.i, i1 false)
   br label %invoke.cont5
@@ -6024,6 +6020,8 @@ call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i:                                      ; preds = %call2.i.i.noexc
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call2.i.i128, i64 8
   %8 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
+  %cmp3.i.i.i = icmp ult i64 %8, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %8, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %6, i64 %add.i.i, i1 false)
   br label %invoke.cont9
@@ -6072,6 +6070,8 @@ call2.i.i.noexc146:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i140:                                   ; preds = %call2.i.i.noexc146
   %_M_string_length.i.i.i141 = getelementptr inbounds i8, ptr %call2.i.i147, i64 8
   %16 = load i64, ptr %_M_string_length.i.i.i141, align 8, !tbaa !14
+  %cmp3.i.i.i142 = icmp ult i64 %16, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i142)
   %add.i.i143 = add nuw nsw i64 %16, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(1) %14, i64 %add.i.i143, i1 false)
   br label %invoke.cont11

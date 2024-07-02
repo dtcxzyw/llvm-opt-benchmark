@@ -36,36 +36,35 @@ define hidden i32 @Keccak_HashUpdate(ptr noundef %0, ptr noundef %1, i64 noundef
   %8 = tail call i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %0, ptr noundef %1, i64 noundef %7) #2
   %9 = icmp eq i32 %8, 0
   %or.cond = select i1 %6, i1 %9, i1 false
-  br i1 %or.cond, label %10, label %26
+  br i1 %or.cond, label %10, label %25
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %1, i64 %7
   %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i16
-  %14 = getelementptr inbounds i8, ptr %0, i64 216
-  %15 = load i8, ptr %14, align 8
-  %16 = zext i8 %15 to i16
-  %17 = trunc nuw nsw i64 %5 to i16
-  %18 = shl nuw nsw i16 %16, %17
-  %19 = or i16 %18, %13
-  %20 = icmp ult i16 %19, 256
-  %21 = trunc i16 %19 to i8
-  br i1 %20, label %.sink.split, label %22
+  %13 = getelementptr inbounds i8, ptr %0, i64 216
+  %14 = load i8, ptr %13, align 8
+  %15 = zext i8 %14 to i16
+  %16 = trunc nuw nsw i64 %5 to i16
+  %17 = shl nuw nsw i16 %15, %16
+  %18 = icmp ult i16 %17, 256
+  %19 = trunc i16 %17 to i8
+  %20 = or i8 %12, %19
+  br i1 %18, label %.sink.split, label %21
 
-22:                                               ; preds = %10
-  store i8 %21, ptr %4, align 1
-  %23 = call i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 1) #2
-  %24 = lshr i16 %18, 8
-  %25 = trunc nuw nsw i16 %24 to i8
+21:                                               ; preds = %10
+  store i8 %20, ptr %4, align 1
+  %22 = call i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 1) #2
+  %23 = lshr i16 %17, 8
+  %24 = trunc nuw nsw i16 %23 to i8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %10, %22
-  %.sink = phi i8 [ %25, %22 ], [ %21, %10 ]
-  %.0.ph = phi i32 [ %23, %22 ], [ 0, %10 ]
-  store i8 %.sink, ptr %14, align 8
-  br label %26
+.sink.split:                                      ; preds = %10, %21
+  %.sink = phi i8 [ %24, %21 ], [ %20, %10 ]
+  %.0.ph = phi i32 [ %22, %21 ], [ 0, %10 ]
+  store i8 %.sink, ptr %13, align 8
+  br label %25
 
-26:                                               ; preds = %.sink.split, %3
+25:                                               ; preds = %.sink.split, %3
   %.0 = phi i32 [ %8, %3 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

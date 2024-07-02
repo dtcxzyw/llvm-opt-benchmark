@@ -1105,241 +1105,245 @@ define hidden void @_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii(ptr nounde
   %10 = getelementptr inbounds i8, ptr %0, i64 604
   %11 = load i32, ptr %10, align 4, !tbaa !116
   %12 = mul nuw nsw i32 %11, %9
-  %13 = icmp ne i32 %9, 0
+  %13 = icmp sgt i32 %11, -1
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ne i32 %11, 0
+  %14 = icmp ne i32 %9, 0
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp slt i32 %1, %2
-  %16 = icmp sgt i32 %5, 16
-  %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %18, label %.loopexit5
+  %15 = icmp sgt i32 %9, -1
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ne i32 %11, 0
+  tail call void @llvm.assume(i1 %16)
+  %17 = icmp slt i32 %1, %2
+  %18 = icmp sgt i32 %5, 16
+  %19 = select i1 %17, i1 %18, i1 false
+  br i1 %19, label %20, label %.loopexit5
 
-18:                                               ; preds = %3
-  %19 = add nuw nsw i32 %5, 15
-  %20 = lshr i32 %19, 5
-  %21 = zext nneg i32 %9 to i64
-  %22 = zext nneg i32 %1 to i64
-  %23 = zext nneg i32 %11 to i64
-  %24 = icmp sgt i32 %1, -1
-  tail call void @llvm.assume(i1 %24)
-  %25 = zext nneg i32 %20 to i64
-  br label %26
+20:                                               ; preds = %3
+  %21 = add nuw nsw i32 %5, 15
+  %22 = lshr i32 %21, 5
+  %23 = zext nneg i32 %9 to i64
+  %24 = zext nneg i32 %1 to i64
+  %25 = zext nneg i32 %11 to i64
+  %26 = icmp sgt i32 %1, -1
+  tail call void @llvm.assume(i1 %26)
+  %27 = zext nneg i32 %22 to i64
+  br label %28
 
-26:                                               ; preds = %169, %18
-  %27 = phi i64 [ %22, %18 ], [ %170, %169 ]
-  %28 = icmp ult i64 %27, %23
-  tail call void @llvm.assume(i1 %28)
-  %29 = trunc nuw nsw i64 %27 to i32
-  %30 = mul nsw i32 %9, %29
-  %31 = add nuw nsw i32 %30, %9
-  %32 = icmp ule i32 %31, %12
-  tail call void @llvm.assume(i1 %32)
-  %33 = zext nneg i32 %30 to i64
-  %34 = getelementptr inbounds i8, ptr %7, i64 %33
-  br label %35
+28:                                               ; preds = %171, %20
+  %29 = phi i64 [ %24, %20 ], [ %172, %171 ]
+  %30 = icmp ult i64 %29, %25
+  tail call void @llvm.assume(i1 %30)
+  %31 = trunc nuw nsw i64 %29 to i32
+  %32 = mul nsw i32 %9, %31
+  %33 = add nuw nsw i32 %32, %9
+  %34 = icmp ule i32 %33, %12
+  tail call void @llvm.assume(i1 %34)
+  %35 = zext nneg i32 %32 to i64
+  %36 = getelementptr inbounds i8, ptr %7, i64 %35
+  br label %37
 
-35:                                               ; preds = %.loopexit, %26
-  %36 = phi i64 [ 0, %26 ], [ %153, %.loopexit ]
-  %37 = icmp ule i64 %36, %21
-  tail call void @llvm.assume(i1 %37)
-  %38 = shl nuw nsw i64 %36, 2
-  %39 = add nuw nsw i64 %38, 4
-  %40 = icmp ule i64 %39, %21
-  tail call void @llvm.assume(i1 %40)
-  %41 = getelementptr inbounds i8, ptr %34, i64 %38
-  %42 = getelementptr inbounds i8, ptr %34, i64 %39
-  %43 = load i8, ptr %41, align 1, !tbaa !88
-  %44 = icmp eq i8 %43, 0
-  br i1 %44, label %45, label %57
+37:                                               ; preds = %.loopexit, %28
+  %38 = phi i64 [ 0, %28 ], [ %155, %.loopexit ]
+  %39 = icmp ule i64 %38, %23
+  tail call void @llvm.assume(i1 %39)
+  %40 = shl nuw nsw i64 %38, 2
+  %41 = add nuw nsw i64 %40, 4
+  %42 = icmp ule i64 %41, %23
+  tail call void @llvm.assume(i1 %42)
+  %43 = getelementptr inbounds i8, ptr %36, i64 %40
+  %44 = getelementptr inbounds i8, ptr %36, i64 %41
+  %45 = load i8, ptr %43, align 1, !tbaa !88
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %47, label %59
 
-45:                                               ; preds = %35
-  %46 = getelementptr inbounds i8, ptr %41, i64 1
-  %47 = load i8, ptr %46, align 1, !tbaa !88
-  %48 = icmp eq i8 %47, 0
-  br i1 %48, label %49, label %57
+47:                                               ; preds = %37
+  %48 = getelementptr inbounds i8, ptr %43, i64 1
+  %49 = load i8, ptr %48, align 1, !tbaa !88
+  %50 = icmp eq i8 %49, 0
+  br i1 %50, label %51, label %59
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %41, i64 2
-  %51 = load i8, ptr %50, align 1, !tbaa !88
-  %52 = icmp eq i8 %51, 0
-  br i1 %52, label %53, label %57
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds i8, ptr %43, i64 2
+  %53 = load i8, ptr %52, align 1, !tbaa !88
+  %54 = icmp eq i8 %53, 0
+  br i1 %54, label %55, label %59
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %41, i64 3
-  %55 = load i8, ptr %54, align 1, !tbaa !88
-  %56 = icmp eq i8 %55, 0
-  br i1 %56, label %.loopexit, label %57
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds i8, ptr %43, i64 3
+  %57 = load i8, ptr %56, align 1, !tbaa !88
+  %58 = icmp eq i8 %57, 0
+  br i1 %58, label %.loopexit, label %59
 
-57:                                               ; preds = %53, %49, %45, %35
-  %58 = phi ptr [ %41, %35 ], [ %46, %45 ], [ %50, %49 ], [ %54, %53 ]
-  %59 = icmp eq ptr %58, %42
-  br i1 %59, label %.loopexit, label %167
+59:                                               ; preds = %55, %51, %47, %37
+  %60 = phi ptr [ %43, %37 ], [ %48, %47 ], [ %52, %51 ], [ %56, %55 ]
+  %61 = icmp eq ptr %60, %44
+  br i1 %61, label %.loopexit, label %169
 
-60:                                               ; preds = %155
-  %61 = load ptr, ptr %0, align 8, !tbaa !6
-  %62 = getelementptr inbounds i8, ptr %61, i64 64
-  %63 = load ptr, ptr %62, align 8
-  %64 = trunc i64 %162 to i32
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %64, i32 noundef %29, i32 noundef 0)
-  %65 = load i8, ptr %160, align 1, !tbaa !88
-  %66 = zext i8 %65 to i32
-  br label %67
+62:                                               ; preds = %157
+  %63 = load ptr, ptr %0, align 8, !tbaa !6
+  %64 = getelementptr inbounds i8, ptr %63, i64 64
+  %65 = load ptr, ptr %64, align 8
+  %66 = trunc i64 %164 to i32
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %66, i32 noundef %31, i32 noundef 0)
+  %67 = load i8, ptr %162, align 1, !tbaa !88
+  %68 = zext i8 %67 to i32
+  br label %69
 
-67:                                               ; preds = %155, %60
-  %68 = phi i32 [ %66, %60 ], [ %164, %155 ]
-  %69 = and i32 %68, 2
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %79, label %71
+69:                                               ; preds = %157, %62
+  %70 = phi i32 [ %68, %62 ], [ %166, %157 ]
+  %71 = and i32 %70, 2
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %81, label %73
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr %0, align 8, !tbaa !6
-  %73 = getelementptr inbounds i8, ptr %72, i64 64
-  %74 = load ptr, ptr %73, align 8
-  %75 = trunc i64 %162 to i32
-  %76 = or disjoint i32 %75, 1
-  tail call void %74(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %76, i32 noundef %29, i32 noundef 0)
-  %77 = load i8, ptr %160, align 1, !tbaa !88
-  %78 = zext i8 %77 to i32
-  br label %79
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %0, align 8, !tbaa !6
+  %75 = getelementptr inbounds i8, ptr %74, i64 64
+  %76 = load ptr, ptr %75, align 8
+  %77 = trunc i64 %164 to i32
+  %78 = or disjoint i32 %77, 1
+  tail call void %76(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %78, i32 noundef %31, i32 noundef 0)
+  %79 = load i8, ptr %162, align 1, !tbaa !88
+  %80 = zext i8 %79 to i32
+  br label %81
 
-79:                                               ; preds = %71, %67
-  %80 = phi i32 [ %78, %71 ], [ %68, %67 ]
-  %81 = and i32 %80, 4
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %91, label %83
+81:                                               ; preds = %73, %69
+  %82 = phi i32 [ %80, %73 ], [ %70, %69 ]
+  %83 = and i32 %82, 4
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %93, label %85
 
-83:                                               ; preds = %79
-  %84 = load ptr, ptr %0, align 8, !tbaa !6
-  %85 = getelementptr inbounds i8, ptr %84, i64 64
-  %86 = load ptr, ptr %85, align 8
-  %87 = trunc i64 %162 to i32
-  %88 = or disjoint i32 %87, 2
-  tail call void %86(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %88, i32 noundef %29, i32 noundef 0)
-  %89 = load i8, ptr %160, align 1, !tbaa !88
-  %90 = zext i8 %89 to i32
-  br label %91
+85:                                               ; preds = %81
+  %86 = load ptr, ptr %0, align 8, !tbaa !6
+  %87 = getelementptr inbounds i8, ptr %86, i64 64
+  %88 = load ptr, ptr %87, align 8
+  %89 = trunc i64 %164 to i32
+  %90 = or disjoint i32 %89, 2
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %90, i32 noundef %31, i32 noundef 0)
+  %91 = load i8, ptr %162, align 1, !tbaa !88
+  %92 = zext i8 %91 to i32
+  br label %93
 
-91:                                               ; preds = %83, %79
-  %92 = phi i32 [ %90, %83 ], [ %80, %79 ]
-  %93 = and i32 %92, 8
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %103, label %95
+93:                                               ; preds = %85, %81
+  %94 = phi i32 [ %92, %85 ], [ %82, %81 ]
+  %95 = and i32 %94, 8
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %105, label %97
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr %0, align 8, !tbaa !6
-  %97 = getelementptr inbounds i8, ptr %96, i64 64
-  %98 = load ptr, ptr %97, align 8
-  %99 = trunc i64 %162 to i32
-  %100 = or disjoint i32 %99, 3
-  tail call void %98(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %100, i32 noundef %29, i32 noundef 0)
-  %101 = load i8, ptr %160, align 1, !tbaa !88
-  %102 = zext i8 %101 to i32
-  br label %103
+97:                                               ; preds = %93
+  %98 = load ptr, ptr %0, align 8, !tbaa !6
+  %99 = getelementptr inbounds i8, ptr %98, i64 64
+  %100 = load ptr, ptr %99, align 8
+  %101 = trunc i64 %164 to i32
+  %102 = or disjoint i32 %101, 3
+  tail call void %100(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %102, i32 noundef %31, i32 noundef 0)
+  %103 = load i8, ptr %162, align 1, !tbaa !88
+  %104 = zext i8 %103 to i32
+  br label %105
 
-103:                                              ; preds = %95, %91
-  %104 = phi i32 [ %102, %95 ], [ %92, %91 ]
-  %105 = and i32 %104, 16
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %115, label %107
+105:                                              ; preds = %97, %93
+  %106 = phi i32 [ %104, %97 ], [ %94, %93 ]
+  %107 = and i32 %106, 16
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %117, label %109
 
-107:                                              ; preds = %103
-  %108 = load ptr, ptr %0, align 8, !tbaa !6
-  %109 = getelementptr inbounds i8, ptr %108, i64 64
-  %110 = load ptr, ptr %109, align 8
-  %111 = trunc i64 %162 to i32
-  %112 = or disjoint i32 %111, 4
-  tail call void %110(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %112, i32 noundef %29, i32 noundef 0)
-  %113 = load i8, ptr %160, align 1, !tbaa !88
-  %114 = zext i8 %113 to i32
-  br label %115
+109:                                              ; preds = %105
+  %110 = load ptr, ptr %0, align 8, !tbaa !6
+  %111 = getelementptr inbounds i8, ptr %110, i64 64
+  %112 = load ptr, ptr %111, align 8
+  %113 = trunc i64 %164 to i32
+  %114 = or disjoint i32 %113, 4
+  tail call void %112(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %114, i32 noundef %31, i32 noundef 0)
+  %115 = load i8, ptr %162, align 1, !tbaa !88
+  %116 = zext i8 %115 to i32
+  br label %117
 
-115:                                              ; preds = %107, %103
-  %116 = phi i32 [ %114, %107 ], [ %104, %103 ]
-  %117 = and i32 %116, 32
-  %118 = icmp eq i32 %117, 0
-  br i1 %118, label %127, label %119
+117:                                              ; preds = %109, %105
+  %118 = phi i32 [ %116, %109 ], [ %106, %105 ]
+  %119 = and i32 %118, 32
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %129, label %121
 
-119:                                              ; preds = %115
-  %120 = load ptr, ptr %0, align 8, !tbaa !6
-  %121 = getelementptr inbounds i8, ptr %120, i64 64
-  %122 = load ptr, ptr %121, align 8
-  %123 = trunc i64 %162 to i32
-  %124 = or disjoint i32 %123, 5
-  tail call void %122(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %124, i32 noundef %29, i32 noundef 0)
-  %125 = load i8, ptr %160, align 1, !tbaa !88
-  %126 = zext i8 %125 to i32
-  br label %127
+121:                                              ; preds = %117
+  %122 = load ptr, ptr %0, align 8, !tbaa !6
+  %123 = getelementptr inbounds i8, ptr %122, i64 64
+  %124 = load ptr, ptr %123, align 8
+  %125 = trunc i64 %164 to i32
+  %126 = or disjoint i32 %125, 5
+  tail call void %124(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %126, i32 noundef %31, i32 noundef 0)
+  %127 = load i8, ptr %162, align 1, !tbaa !88
+  %128 = zext i8 %127 to i32
+  br label %129
 
-127:                                              ; preds = %119, %115
-  %128 = phi i32 [ %126, %119 ], [ %116, %115 ]
-  %129 = and i32 %128, 64
-  %130 = icmp eq i32 %129, 0
-  br i1 %130, label %139, label %131
+129:                                              ; preds = %121, %117
+  %130 = phi i32 [ %128, %121 ], [ %118, %117 ]
+  %131 = and i32 %130, 64
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %141, label %133
 
-131:                                              ; preds = %127
-  %132 = load ptr, ptr %0, align 8, !tbaa !6
-  %133 = getelementptr inbounds i8, ptr %132, i64 64
-  %134 = load ptr, ptr %133, align 8
-  %135 = trunc i64 %162 to i32
-  %136 = or disjoint i32 %135, 6
-  tail call void %134(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %136, i32 noundef %29, i32 noundef 0)
-  %137 = load i8, ptr %160, align 1, !tbaa !88
-  %138 = zext i8 %137 to i32
-  br label %139
+133:                                              ; preds = %129
+  %134 = load ptr, ptr %0, align 8, !tbaa !6
+  %135 = getelementptr inbounds i8, ptr %134, i64 64
+  %136 = load ptr, ptr %135, align 8
+  %137 = trunc i64 %164 to i32
+  %138 = or disjoint i32 %137, 6
+  tail call void %136(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %138, i32 noundef %31, i32 noundef 0)
+  %139 = load i8, ptr %162, align 1, !tbaa !88
+  %140 = zext i8 %139 to i32
+  br label %141
 
-139:                                              ; preds = %131, %127
-  %140 = phi i32 [ %138, %131 ], [ %128, %127 ]
-  %141 = and i32 %140, 128
-  %142 = icmp eq i32 %141, 0
-  br i1 %142, label %149, label %143
+141:                                              ; preds = %133, %129
+  %142 = phi i32 [ %140, %133 ], [ %130, %129 ]
+  %143 = and i32 %142, 128
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %151, label %145
 
-143:                                              ; preds = %139
-  %144 = load ptr, ptr %0, align 8, !tbaa !6
-  %145 = getelementptr inbounds i8, ptr %144, i64 64
-  %146 = load ptr, ptr %145, align 8
-  %147 = trunc i64 %162 to i32
-  %148 = or disjoint i32 %147, 7
-  tail call void %146(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %148, i32 noundef %29, i32 noundef 0)
-  br label %149
+145:                                              ; preds = %141
+  %146 = load ptr, ptr %0, align 8, !tbaa !6
+  %147 = getelementptr inbounds i8, ptr %146, i64 64
+  %148 = load ptr, ptr %147, align 8
+  %149 = trunc i64 %164 to i32
+  %150 = or disjoint i32 %149, 7
+  tail call void %148(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %150, i32 noundef %31, i32 noundef 0)
+  br label %151
 
-149:                                              ; preds = %143, %139
-  %150 = add nuw nsw i64 %156, 1
-  %151 = icmp ult i64 %156, 3
-  %152 = icmp eq i64 %150, 4
-  br i1 %152, label %.loopexit, label %155, !llvm.loop !127
+151:                                              ; preds = %145, %141
+  %152 = add nuw nsw i64 %158, 1
+  %153 = icmp ult i64 %158, 3
+  %154 = icmp eq i64 %152, 4
+  br i1 %154, label %.loopexit, label %157, !llvm.loop !127
 
-.loopexit:                                        ; preds = %149, %53, %57
-  %153 = add nuw nsw i64 %36, 1
-  %154 = icmp eq i64 %153, %25
-  br i1 %154, label %169, label %35, !llvm.loop !128
+.loopexit:                                        ; preds = %151, %55, %59
+  %155 = add nuw nsw i64 %38, 1
+  %156 = icmp eq i64 %155, %27
+  br i1 %156, label %171, label %37, !llvm.loop !128
 
-155:                                              ; preds = %167, %149
-  %156 = phi i64 [ 0, %167 ], [ %150, %149 ]
-  %157 = phi i1 [ true, %167 ], [ %151, %149 ]
-  tail call void @llvm.assume(i1 %157)
-  %158 = or disjoint i64 %156, %38
-  %159 = icmp ule i64 %158, %21
+157:                                              ; preds = %169, %151
+  %158 = phi i64 [ 0, %169 ], [ %152, %151 ]
+  %159 = phi i1 [ true, %169 ], [ %153, %151 ]
   tail call void @llvm.assume(i1 %159)
-  %160 = getelementptr inbounds i8, ptr %34, i64 %158
-  %161 = shl nuw nsw i64 %156, 3
-  %162 = add nuw nsw i64 %161, %168
-  %163 = load i8, ptr %160, align 1, !tbaa !88
-  %164 = zext i8 %163 to i32
-  %165 = and i32 %164, 1
-  %166 = icmp eq i32 %165, 0
-  br i1 %166, label %67, label %60
+  %160 = or disjoint i64 %158, %40
+  %161 = icmp ule i64 %160, %23
+  tail call void @llvm.assume(i1 %161)
+  %162 = getelementptr inbounds i8, ptr %36, i64 %160
+  %163 = shl nuw nsw i64 %158, 3
+  %164 = add nuw nsw i64 %163, %170
+  %165 = load i8, ptr %162, align 1, !tbaa !88
+  %166 = zext i8 %165 to i32
+  %167 = and i32 %166, 1
+  %168 = icmp eq i32 %167, 0
+  br i1 %168, label %69, label %62
 
-167:                                              ; preds = %57
-  %168 = shl nuw nsw i64 %36, 5
-  br label %155
+169:                                              ; preds = %59
+  %170 = shl nuw nsw i64 %38, 5
+  br label %157
 
-169:                                              ; preds = %.loopexit
-  %170 = add nuw nsw i64 %27, 1
-  %171 = trunc nuw nsw i64 %170 to i32
-  %172 = icmp slt i32 %171, %2
-  br i1 %172, label %26, label %.loopexit5, !llvm.loop !129
+171:                                              ; preds = %.loopexit
+  %172 = add nuw nsw i64 %29, 1
+  %173 = trunc nuw nsw i64 %172 to i32
+  %174 = icmp slt i32 %173, %2
+  br i1 %174, label %28, label %.loopexit5, !llvm.loop !129
 
-.loopexit5:                                       ; preds = %169, %3
+.loopexit5:                                       ; preds = %171, %3
   ret void
 }
 
@@ -1384,173 +1388,183 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %38 = load i32, ptr %37, align 8, !tbaa !13, !noalias !130
   %39 = ashr i32 %38, 1
   %40 = mul nuw nsw i32 %39, %36
-  %41 = icmp ugt i32 %38, 1
+  %41 = icmp sgt i32 %34, -1
   tail call void @llvm.assume(i1 %41)
-  %42 = icmp sgt i32 %39, -1
+  %42 = icmp sgt i32 %36, -1
   tail call void @llvm.assume(i1 %42)
-  %43 = icmp uge i32 %39, %34
+  %43 = icmp ugt i32 %38, 1
   tail call void @llvm.assume(i1 %43)
-  %44 = icmp eq i32 %34, 0
-  %45 = icmp ne i32 %36, 0
-  %46 = xor i1 %44, %45
-  tail call void @llvm.assume(i1 %46)
-  %47 = getelementptr inbounds i8, ptr %0, i64 592
-  %48 = load i32, ptr %47, align 8, !tbaa !135, !noalias !136
-  %49 = mul nsw i32 %48, %31
-  %50 = getelementptr inbounds i8, ptr %0, i64 596
-  %51 = load i32, ptr %50, align 4, !tbaa !137, !noalias !136
-  %52 = mul nsw i32 %31, %14
-  %53 = icmp sgt i64 %11, -1
-  tail call void @llvm.assume(i1 %53)
-  %54 = add nuw nsw i32 %49, %52
-  %55 = icmp ule i32 %54, %34
+  %44 = icmp sgt i32 %39, -1
+  tail call void @llvm.assume(i1 %44)
+  %45 = icmp uge i32 %39, %34
+  tail call void @llvm.assume(i1 %45)
+  %46 = icmp eq i32 %34, 0
+  %47 = icmp ne i32 %36, 0
+  %48 = xor i1 %46, %47
+  tail call void @llvm.assume(i1 %48)
+  %49 = getelementptr inbounds i8, ptr %0, i64 592
+  %50 = load i32, ptr %49, align 8, !tbaa !135, !noalias !136
+  %51 = mul nsw i32 %50, %31
+  %52 = getelementptr inbounds i8, ptr %0, i64 596
+  %53 = load i32, ptr %52, align 4, !tbaa !137, !noalias !136
+  %54 = mul nsw i32 %31, %14
+  %55 = icmp sgt i32 %51, -1
   tail call void @llvm.assume(i1 %55)
-  %56 = add nuw nsw i32 %51, %16
-  %57 = icmp ule i32 %56, %36
+  %56 = icmp sgt i32 %53, -1
+  tail call void @llvm.assume(i1 %56)
+  %57 = icmp sgt i32 %54, -1
   tail call void @llvm.assume(i1 %57)
-  %58 = icmp eq i32 %52, 0
-  %59 = icmp ugt i64 %11, 4294967295
-  %60 = xor i1 %59, %58
+  %58 = icmp sgt i64 %11, -1
+  tail call void @llvm.assume(i1 %58)
+  %59 = add nuw nsw i32 %51, %54
+  %60 = icmp ule i32 %59, %34
   tail call void @llvm.assume(i1 %60)
-  %61 = icmp slt i32 %18, %20
-  br i1 %61, label %62, label %.loopexit
-
-62:                                               ; preds = %27
-  %63 = mul nsw i32 %31, %21
-  %64 = icmp slt i32 %17, %63
-  %65 = icmp ne i32 %34, 0
-  br i1 %64, label %66, label %.loopexit
-
-66:                                               ; preds = %62
+  %61 = add nuw nsw i32 %53, %16
+  %62 = icmp ule i32 %61, %36
+  tail call void @llvm.assume(i1 %62)
+  %63 = icmp eq i32 %54, 0
+  %64 = icmp ugt i64 %11, 4294967295
+  %65 = xor i1 %64, %63
   tail call void @llvm.assume(i1 %65)
-  %67 = add nuw i32 %49, %17
-  %68 = zext i32 %67 to i64
-  %69 = shl nuw nsw i64 %68, 1
-  %70 = getelementptr i8, ptr %29, i64 %69
-  %71 = add nuw i32 %51, %18
-  %72 = xor i32 %17, -1
-  %73 = add nsw i32 %63, %72
-  %74 = zext i32 %73 to i64
-  %75 = shl nuw nsw i64 %74, 1
-  %76 = add nuw nsw i64 %75, 2
-  %77 = and i32 %22, 3
-  %78 = sub nsw i32 %18, %20
-  %79 = icmp ugt i32 %78, -4
-  br i1 %79, label %.loopexit4, label %80
+  %66 = icmp slt i32 %18, %20
+  br i1 %66, label %67, label %.loopexit
 
-80:                                               ; preds = %66
-  %81 = and i32 %22, -4
-  %82 = add i32 %71, 1
-  %83 = add i32 %71, 2
-  %84 = add i32 %71, 3
-  br label %85
+67:                                               ; preds = %27
+  %68 = mul nsw i32 %31, %21
+  %69 = icmp slt i32 %17, %68
+  %70 = icmp ne i32 %34, 0
+  br i1 %69, label %71, label %.loopexit
 
-85:                                               ; preds = %85, %80
-  %86 = phi i64 [ 0, %80 ], [ %137, %85 ]
-  %87 = phi i32 [ %18, %80 ], [ %136, %85 ]
-  %88 = trunc i64 %86 to i32
-  %89 = add i32 %71, %88
-  %90 = mul i32 %89, %39
-  %91 = zext i32 %90 to i64
-  %92 = shl nuw nsw i64 %91, 1
-  %93 = getelementptr i8, ptr %70, i64 %92
-  %94 = icmp ult i32 %87, %16
-  tail call void @llvm.assume(i1 %94)
-  %95 = add nuw nsw i32 %87, %51
-  %96 = icmp ugt i32 %36, %95
-  tail call void @llvm.assume(i1 %96)
-  %97 = mul nsw i32 %95, %39
-  %98 = add nuw nsw i32 %97, %34
-  %99 = icmp ule i32 %98, %40
+71:                                               ; preds = %67
+  tail call void @llvm.assume(i1 %70)
+  %72 = add nuw i32 %51, %17
+  %73 = zext i32 %72 to i64
+  %74 = shl nuw nsw i64 %73, 1
+  %75 = getelementptr i8, ptr %29, i64 %74
+  %76 = add nuw i32 %53, %18
+  %77 = xor i32 %17, -1
+  %78 = add nsw i32 %68, %77
+  %79 = zext i32 %78 to i64
+  %80 = shl nuw nsw i64 %79, 1
+  %81 = add nuw nsw i64 %80, 2
+  %82 = and i32 %22, 3
+  %83 = sub nsw i32 %18, %20
+  %84 = icmp ugt i32 %83, -4
+  br i1 %84, label %.loopexit4, label %85
+
+85:                                               ; preds = %71
+  %86 = and i32 %22, -4
+  %87 = add nuw i32 %76, 1
+  %88 = add nuw i32 %76, 2
+  %89 = add i32 %76, 3
+  br label %90
+
+90:                                               ; preds = %90, %85
+  %91 = phi i64 [ 0, %85 ], [ %142, %90 ]
+  %92 = phi i32 [ %18, %85 ], [ %141, %90 ]
+  %93 = trunc i64 %91 to i32
+  %94 = add i32 %76, %93
+  %95 = mul i32 %94, %39
+  %96 = zext i32 %95 to i64
+  %97 = shl nuw nsw i64 %96, 1
+  %98 = getelementptr i8, ptr %75, i64 %97
+  %99 = icmp ult i32 %92, %16
   tail call void @llvm.assume(i1 %99)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %93, i8 0, i64 %76, i1 false), !tbaa !138
-  %100 = add nuw nsw i32 %87, 1
-  %101 = add i32 %82, %88
-  %102 = mul i32 %101, %39
-  %103 = zext i32 %102 to i64
-  %104 = shl nuw nsw i64 %103, 1
-  %105 = getelementptr i8, ptr %70, i64 %104
-  %106 = icmp ult i32 %100, %16
-  tail call void @llvm.assume(i1 %106)
-  %107 = add nuw nsw i32 %100, %51
-  %108 = icmp ugt i32 %36, %107
-  tail call void @llvm.assume(i1 %108)
-  %109 = mul nsw i32 %107, %39
-  %110 = add nuw nsw i32 %109, %34
-  %111 = icmp ule i32 %110, %40
+  %100 = add nuw nsw i32 %92, %53
+  %101 = icmp ugt i32 %36, %100
+  tail call void @llvm.assume(i1 %101)
+  %102 = mul nuw nsw i32 %100, %39
+  %103 = add nuw nsw i32 %102, %34
+  %104 = icmp ule i32 %103, %40
+  tail call void @llvm.assume(i1 %104)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %98, i8 0, i64 %81, i1 false), !tbaa !138
+  %105 = add nuw nsw i32 %92, 1
+  %106 = add i32 %87, %93
+  %107 = mul i32 %106, %39
+  %108 = zext i32 %107 to i64
+  %109 = shl nuw nsw i64 %108, 1
+  %110 = getelementptr i8, ptr %75, i64 %109
+  %111 = icmp ult i32 %105, %16
   tail call void @llvm.assume(i1 %111)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %105, i8 0, i64 %76, i1 false), !tbaa !138
-  %112 = add nuw nsw i32 %87, 2
-  %113 = add i32 %83, %88
-  %114 = mul i32 %113, %39
-  %115 = zext i32 %114 to i64
-  %116 = shl nuw nsw i64 %115, 1
-  %117 = getelementptr i8, ptr %70, i64 %116
-  %118 = icmp ult i32 %112, %16
-  tail call void @llvm.assume(i1 %118)
-  %119 = add nuw nsw i32 %112, %51
-  %120 = icmp ugt i32 %36, %119
-  tail call void @llvm.assume(i1 %120)
-  %121 = mul nsw i32 %119, %39
-  %122 = add nuw nsw i32 %121, %34
-  %123 = icmp ule i32 %122, %40
+  %112 = add nuw nsw i32 %105, %53
+  %113 = icmp ugt i32 %36, %112
+  tail call void @llvm.assume(i1 %113)
+  %114 = mul nuw nsw i32 %112, %39
+  %115 = add nuw nsw i32 %114, %34
+  %116 = icmp ule i32 %115, %40
+  tail call void @llvm.assume(i1 %116)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %110, i8 0, i64 %81, i1 false), !tbaa !138
+  %117 = add nuw nsw i32 %92, 2
+  %118 = add i32 %88, %93
+  %119 = mul i32 %118, %39
+  %120 = zext i32 %119 to i64
+  %121 = shl nuw nsw i64 %120, 1
+  %122 = getelementptr i8, ptr %75, i64 %121
+  %123 = icmp ult i32 %117, %16
   tail call void @llvm.assume(i1 %123)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %117, i8 0, i64 %76, i1 false), !tbaa !138
-  %124 = add nuw nsw i32 %87, 3
-  %125 = add i32 %84, %88
-  %126 = mul i32 %125, %39
-  %127 = zext i32 %126 to i64
-  %128 = shl nuw nsw i64 %127, 1
-  %129 = getelementptr i8, ptr %70, i64 %128
-  %130 = icmp ult i32 %124, %16
-  tail call void @llvm.assume(i1 %130)
-  %131 = add nuw nsw i32 %124, %51
-  %132 = icmp ugt i32 %36, %131
-  tail call void @llvm.assume(i1 %132)
-  %133 = mul nsw i32 %131, %39
-  %134 = add nuw nsw i32 %133, %34
-  %135 = icmp ule i32 %134, %40
+  %124 = add nuw nsw i32 %117, %53
+  %125 = icmp ugt i32 %36, %124
+  tail call void @llvm.assume(i1 %125)
+  %126 = mul nuw nsw i32 %124, %39
+  %127 = add nuw nsw i32 %126, %34
+  %128 = icmp ule i32 %127, %40
+  tail call void @llvm.assume(i1 %128)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %122, i8 0, i64 %81, i1 false), !tbaa !138
+  %129 = add nuw nsw i32 %92, 3
+  %130 = add i32 %89, %93
+  %131 = mul i32 %130, %39
+  %132 = zext i32 %131 to i64
+  %133 = shl nuw nsw i64 %132, 1
+  %134 = getelementptr i8, ptr %75, i64 %133
+  %135 = icmp ult i32 %129, %16
   tail call void @llvm.assume(i1 %135)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %129, i8 0, i64 %76, i1 false), !tbaa !138
-  %136 = add nuw nsw i32 %87, 4
-  %137 = add nuw nsw i64 %86, 4
-  %indvars = trunc i64 %137 to i32
-  %138 = icmp eq i32 %81, %indvars
-  br i1 %138, label %.loopexit4, label %85, !llvm.loop !140
+  %136 = add nuw nsw i32 %129, %53
+  %137 = icmp ugt i32 %36, %136
+  tail call void @llvm.assume(i1 %137)
+  %138 = mul nuw nsw i32 %136, %39
+  %139 = add nuw nsw i32 %138, %34
+  %140 = icmp ule i32 %139, %40
+  tail call void @llvm.assume(i1 %140)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %134, i8 0, i64 %81, i1 false), !tbaa !138
+  %141 = add nuw nsw i32 %92, 4
+  %142 = add nuw nsw i64 %91, 4
+  %indvars = trunc i64 %142 to i32
+  %143 = icmp eq i32 %86, %indvars
+  br i1 %143, label %.loopexit4, label %90, !llvm.loop !140
 
-.loopexit4:                                       ; preds = %85, %66
-  %139 = phi i64 [ 0, %66 ], [ %137, %85 ]
-  %140 = phi i32 [ %18, %66 ], [ %136, %85 ]
-  %141 = icmp eq i32 %77, 0
-  br i1 %141, label %.loopexit, label %.preheader
+.loopexit4:                                       ; preds = %90, %71
+  %144 = phi i64 [ 0, %71 ], [ %142, %90 ]
+  %145 = phi i32 [ %18, %71 ], [ %141, %90 ]
+  %146 = icmp eq i32 %82, 0
+  br i1 %146, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit4, %.preheader
-  %142 = phi i64 [ %158, %.preheader ], [ %139, %.loopexit4 ]
-  %143 = phi i32 [ %157, %.preheader ], [ %140, %.loopexit4 ]
-  %144 = phi i32 [ %159, %.preheader ], [ 0, %.loopexit4 ]
-  %145 = trunc i64 %142 to i32
-  %146 = add i32 %71, %145
-  %147 = mul i32 %146, %39
-  %148 = zext i32 %147 to i64
-  %149 = shl nuw nsw i64 %148, 1
-  %150 = getelementptr i8, ptr %70, i64 %149
-  %151 = icmp ult i32 %143, %16
-  tail call void @llvm.assume(i1 %151)
-  %152 = add nuw nsw i32 %143, %51
-  %153 = icmp ugt i32 %36, %152
-  tail call void @llvm.assume(i1 %153)
-  %154 = mul nsw i32 %152, %39
-  %155 = add nuw nsw i32 %154, %34
-  %156 = icmp ule i32 %155, %40
+  %147 = phi i64 [ %163, %.preheader ], [ %144, %.loopexit4 ]
+  %148 = phi i32 [ %162, %.preheader ], [ %145, %.loopexit4 ]
+  %149 = phi i32 [ %164, %.preheader ], [ 0, %.loopexit4 ]
+  %150 = trunc i64 %147 to i32
+  %151 = add i32 %76, %150
+  %152 = mul i32 %151, %39
+  %153 = zext i32 %152 to i64
+  %154 = shl nuw nsw i64 %153, 1
+  %155 = getelementptr i8, ptr %75, i64 %154
+  %156 = icmp ult i32 %148, %16
   tail call void @llvm.assume(i1 %156)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %150, i8 0, i64 %76, i1 false), !tbaa !138
-  %157 = add nuw nsw i32 %143, 1
-  %158 = add nuw nsw i64 %142, 1
-  %159 = add nuw nsw i32 %144, 1
-  %160 = icmp eq i32 %159, %77
-  br i1 %160, label %.loopexit, label %.preheader, !llvm.loop !141
+  %157 = add nuw nsw i32 %148, %53
+  %158 = icmp ugt i32 %36, %157
+  tail call void @llvm.assume(i1 %158)
+  %159 = mul nsw i32 %157, %39
+  %160 = add nuw nsw i32 %159, %34
+  %161 = icmp ule i32 %160, %40
+  tail call void @llvm.assume(i1 %161)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %155, i8 0, i64 %81, i1 false), !tbaa !138
+  %162 = add nuw nsw i32 %148, 1
+  %163 = add nuw nsw i64 %147, 1
+  %164 = add nuw nsw i32 %149, 1
+  %165 = icmp eq i32 %164, %82
+  br i1 %165, label %.loopexit, label %.preheader, !llvm.loop !141
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit4, %62, %27, %3
+.loopexit:                                        ; preds = %.preheader, %.loopexit4, %67, %27, %3
   ret void
 }
 

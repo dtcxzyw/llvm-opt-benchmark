@@ -3169,18 +3169,18 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %1362, label %.lr.ph3085, label %.loopexit1458
 
 1363:                                             ; preds = %.lr.ph3085
-  %1364 = getelementptr i8, ptr %.010063082, i64 3
-  %1365 = load i16, ptr %1364, align 1
-  %1366 = zext i16 %1365 to i32
-  %1367 = shl nuw i32 %1366, 16
-  %1368 = getelementptr inbounds i8, ptr %.010063082, i64 2
+  %1364 = getelementptr inbounds i8, ptr %.010063082, i64 4
+  %1365 = load i8, ptr %1364, align 1
+  %1366 = zext i8 %1365 to i32
+  %1367 = shl nuw i32 %1366, 24
+  %1368 = getelementptr inbounds i8, ptr %.010063082, i64 3
   %1369 = load i8, ptr %1368, align 1
   %1370 = zext i8 %1369 to i32
-  %1371 = shl nuw nsw i32 %1370, 8
-  %1372 = or disjoint i32 %1371, %1367
-  %1373 = load i8, ptr %1359, align 1
-  %1374 = zext i8 %1373 to i32
-  %1375 = or disjoint i32 %1372, %1374
+  %1371 = shl nuw nsw i32 %1370, 16
+  %1372 = load i16, ptr %1359, align 1
+  %1373 = zext i16 %1372 to i32
+  %1374 = or disjoint i32 %1371, %1373
+  %1375 = or disjoint i32 %1374, %1367
   %1376 = sub i32 0, %.09203083
   %.not1250 = icmp sge i32 %1375, %1376
   %1377 = icmp slt i32 %1375, %1342
@@ -3188,21 +3188,21 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %or.cond1341, label %1378, label %1389
 
 1378:                                             ; preds = %1363
-  %1379 = getelementptr inbounds i8, ptr %.010063082, i64 4
-  %1380 = icmp slt i32 %1375, 0
+  %1379 = getelementptr inbounds i8, ptr %.010063082, i64 2
+  %1380 = icmp slt i32 %1367, 0
   %.p = select i1 %1380, i32 %1342, i32 %1376
-  %1381 = add i32 %.p, %1375
+  %1381 = add i32 %1375, %.p
   %1382 = trunc i32 %1381 to i8
   store i8 %1382, ptr %1359, align 1
   %1383 = lshr i32 %1381, 8
   %1384 = trunc i32 %1383 to i8
-  store i8 %1384, ptr %1368, align 1
+  store i8 %1384, ptr %1379, align 1
   %1385 = lshr i32 %1381, 16
   %1386 = trunc i32 %1385 to i8
-  store i8 %1386, ptr %1364, align 1
+  store i8 %1386, ptr %1368, align 1
   %1387 = lshr i32 %1381, 24
   %1388 = trunc nuw i32 %1387 to i8
-  store i8 %1388, ptr %1379, align 1
+  store i8 %1388, ptr %1364, align 1
   br label %1389
 
 1389:                                             ; preds = %1378, %1363

@@ -2273,7 +2273,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie14update_link_idEmm.exit: ; preds = %78, %80
 98:                                               ; preds = %_ZNK6marisa8grimoire4trie9LoudsTrie14update_link_idEmm.exit
   %99 = getelementptr inbounds i8, ptr %94, i64 8
   %100 = load i64, ptr %99, align 8
-  %101 = tail call i64 @llvm.fshr.i64(i64 %100, i64 %95, i64 %90)
+  %101 = tail call i64 @llvm.fshr.i64(i64 %100, i64 %95, i64 %88)
   br label %_ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEmm.exit
 
 _ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEmm.exit: ; preds = %96, %98
@@ -2466,7 +2466,7 @@ _ZN6marisa8grimoire4trie5State19reverse_lookup_initEv.exit: ; preds = %13, %.pre
 75:                                               ; preds = %58
   %76 = getelementptr inbounds i8, ptr %71, i64 8
   %77 = load i64, ptr %76, align 8
-  %78 = tail call i64 @llvm.fshr.i64(i64 %77, i64 %72, i64 %67)
+  %78 = tail call i64 @llvm.fshr.i64(i64 %77, i64 %72, i64 %65)
   br label %_ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEm.exit
 
 _ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEm.exit: ; preds = %73, %75
@@ -3068,7 +3068,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie14update_link_idEmm.exit: ; preds = %167, %16
 189:                                              ; preds = %_ZNK6marisa8grimoire4trie9LoudsTrie14update_link_idEmm.exit
   %190 = getelementptr inbounds i8, ptr %185, i64 8
   %191 = load i64, ptr %190, align 8
-  %192 = tail call i64 @llvm.fshr.i64(i64 %191, i64 %186, i64 %181)
+  %192 = tail call i64 @llvm.fshr.i64(i64 %191, i64 %186, i64 %179)
   br label %_ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEmm.exit
 
 _ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEmm.exit: ; preds = %187, %189
@@ -3546,7 +3546,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie14update_link_idEmm.exit: ; preds = %108, %11
 128:                                              ; preds = %_ZNK6marisa8grimoire4trie9LoudsTrie14update_link_idEmm.exit
   %129 = getelementptr inbounds i8, ptr %124, i64 8
   %130 = load i64, ptr %129, align 8
-  %131 = tail call i64 @llvm.fshr.i64(i64 %130, i64 %125, i64 %120)
+  %131 = tail call i64 @llvm.fshr.i64(i64 %130, i64 %125, i64 %118)
   br label %_ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEmm.exit
 
 _ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEmm.exit: ; preds = %126, %128
@@ -5375,7 +5375,7 @@ define void @_ZN6marisa8grimoire4trie9LoudsTrie10fill_cacheEv(ptr noundef nonnul
 47:                                               ; preds = %34
   %48 = getelementptr inbounds i8, ptr %43, i64 8
   %49 = load i64, ptr %48, align 8
-  %50 = tail call i64 @llvm.fshr.i64(i64 %49, i64 %44, i64 %39)
+  %50 = tail call i64 @llvm.fshr.i64(i64 %49, i64 %44, i64 %37)
   br label %_ZNK6marisa8grimoire6vector10FlatVectorixEm.exit
 
 _ZNK6marisa8grimoire6vector10FlatVectorixEm.exit: ; preds = %45, %47
@@ -6066,7 +6066,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie7restoreERNS_5AgentEm.exit: ; preds = %36, %3
 90:                                               ; preds = %77
   %91 = getelementptr inbounds i8, ptr %86, i64 8
   %92 = load i64, ptr %91, align 8
-  %93 = tail call i64 @llvm.fshr.i64(i64 %92, i64 %87, i64 %82)
+  %93 = tail call i64 @llvm.fshr.i64(i64 %92, i64 %87, i64 %80)
   br label %_ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEm.exit
 
 _ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEm.exit: ; preds = %88, %90
@@ -6285,7 +6285,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie5matchERNS_5AgentEm.exit: ; preds = %30
 82:                                               ; preds = %79
   %83 = getelementptr inbounds i8, ptr %77, i64 8
   %84 = load i64, ptr %83, align 8
-  %85 = tail call i64 @llvm.fshr.i64(i64 %84, i64 %78, i64 %73)
+  %85 = tail call i64 @llvm.fshr.i64(i64 %84, i64 %78, i64 %71)
   br label %_ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEm.exit
 
 _ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEm.exit: ; preds = %80, %82
@@ -6319,7 +6319,7 @@ _ZNK6marisa8grimoire4trie9LoudsTrie5matchERNS_5AgentEm.exit40: ; preds = %_ZNK6m
 100:                                              ; preds = %97
   %101 = getelementptr inbounds i8, ptr %77, i64 8
   %102 = load i64, ptr %101, align 8
-  %103 = tail call i64 @llvm.fshr.i64(i64 %102, i64 %78, i64 %73)
+  %103 = tail call i64 @llvm.fshr.i64(i64 %102, i64 %78, i64 %71)
   br label %_ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEm.exit42
 
 _ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEm.exit42: ; preds = %98, %100
@@ -6546,7 +6546,7 @@ _ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit: ; preds = %49, %.prehea
 104:                                              ; preds = %91
   %105 = getelementptr inbounds i8, ptr %100, i64 8
   %106 = load i64, ptr %105, align 8
-  %107 = tail call i64 @llvm.fshr.i64(i64 %106, i64 %101, i64 %96)
+  %107 = tail call i64 @llvm.fshr.i64(i64 %106, i64 %101, i64 %94)
   br label %_ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEm.exit
 
 _ZNK6marisa8grimoire4trie9LoudsTrie8get_linkEm.exit: ; preds = %102, %104

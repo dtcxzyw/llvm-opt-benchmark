@@ -86,7 +86,7 @@ define i64 @f64_mul(i64 %0, i64 %1) local_unnamed_addr #0 {
   %43 = icmp ne i64 %41, 0
   %44 = zext i1 %43 to i64
   %45 = or i64 %42, %44
-  %46 = icmp ult i64 %45, 4611686018427387904
+  %46 = icmp ult i64 %42, 4611686018427387904
   %.064.v = select i1 %46, i64 -1024, i64 -1023
   %.064 = add nsw i64 %35, %.064.v
   %47 = zext i1 %46 to i64

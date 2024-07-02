@@ -999,8 +999,8 @@ define void @wtap_add_generated_idb(ptr nocapture noundef readonly %0) local_unn
   %spec.store.select.i = select i1 %or.cond.i, i32 6, i32 %6
   %12 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 1, ptr %12, align 8
-  %.not30.i = icmp eq i32 %spec.store.select.i, 0
-  br i1 %.not30.i, label %.thread.i, label %.lr.ph.i
+  %.not29.i = icmp eq i32 %spec.store.select.i, 0
+  br i1 %.not29.i, label %.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %13 = phi i64 [ %14, %.lr.ph.i ], [ 1, %1 ]
@@ -1674,8 +1674,8 @@ define hidden noundef ptr @wtap_dump_params_generate_idb(ptr nocapture noundef r
   %spec.store.select.i = select i1 %or.cond.i, i32 6, i32 %4
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 1, ptr %10, align 8
-  %.not30.i = icmp eq i32 %spec.store.select.i, 0
-  br i1 %.not30.i, label %.thread.i, label %.lr.ph.i
+  %.not29.i = icmp eq i32 %spec.store.select.i, 0
+  br i1 %.not29.i, label %.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %11 = phi i64 [ %12, %.lr.ph.i ], [ 1, %1 ]
@@ -2433,8 +2433,8 @@ define hidden noundef ptr @wtap_rec_generate_idb(ptr nocapture noundef readonly 
 
 16:                                               ; preds = %9
   store i64 1, ptr %15, align 8
-  %.not30.i = icmp eq i32 %.0, 0
-  br i1 %.not30.i, label %.thread.i, label %.lr.ph.i.preheader
+  %.not29.i = icmp eq i32 %.0, 0
+  br i1 %.not29.i, label %.thread.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %9, %16
   %17 = phi i32 [ %.0, %16 ], [ 6, %9 ]

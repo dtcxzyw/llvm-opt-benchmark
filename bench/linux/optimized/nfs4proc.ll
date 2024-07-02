@@ -11528,7 +11528,7 @@ define internal void @nfs4_setclientid_done(ptr nocapture noundef readonly %0, p
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %34
+  br i1 %5, label %6, label %35
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 184
@@ -11536,7 +11536,7 @@ define internal void @nfs4_setclientid_done(ptr nocapture noundef readonly %0, p
   %9 = getelementptr inbounds i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %30, label %12
+  br i1 %11, label %31, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %10, i64 80
@@ -11544,44 +11544,46 @@ define internal void @nfs4_setclientid_done(ptr nocapture noundef readonly %0, p
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %12, %20
-  %16 = phi i32 [ %21, %20 ], [ %14, %12 ]
+.preheader:                                       ; preds = %12, %21
+  %16 = phi i32 [ %22, %21 ], [ %14, %12 ]
   %17 = add i32 %16, 1
   %18 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13, i32 %17, ptr elementtype(i32) %13, i32 %16) #22, !srcloc !175
   %19 = extractvalue { i8, i32 } %18, 0
+  %20 = icmp ult i8 %19, 2
+  tail call void @llvm.assume(i1 %20)
   %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %20, label %.thread, !prof !28
+  br i1 %.not, label %21, label %.thread, !prof !28
 
-20:                                               ; preds = %.preheader
-  %21 = extractvalue { i8, i32 } %18, 1
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.thread, label %.preheader, !llvm.loop !176
+21:                                               ; preds = %.preheader
+  %22 = extractvalue { i8, i32 } %18, 1
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %.thread, label %.preheader, !llvm.loop !176
 
-.thread:                                          ; preds = %.preheader, %20, %12
-  %23 = phi i32 [ 0, %12 ], [ %16, %.preheader ], [ 0, %20 ]
-  %24 = add i32 %23, 1
-  %25 = or i32 %24, %23
-  %26 = icmp sgt i32 %25, -1
-  br i1 %26, label %28, label %27, !prof !8
+.thread:                                          ; preds = %.preheader, %21, %12
+  %24 = phi i32 [ 0, %12 ], [ %16, %.preheader ], [ 0, %21 ]
+  %25 = add i32 %24, 1
+  %26 = or i32 %25, %24
+  %27 = icmp sgt i32 %26, -1
+  br i1 %27, label %29, label %28, !prof !8
 
-27:                                               ; preds = %.thread
+28:                                               ; preds = %.thread
   tail call void @refcount_warn_saturate(ptr noundef %13, i32 noundef 0) #22
-  br label %28
+  br label %29
 
-28:                                               ; preds = %27, %.thread
-  %29 = icmp eq i32 %23, 0
-  br i1 %29, label %30, label %31
+29:                                               ; preds = %28, %.thread
+  %30 = icmp eq i32 %24, 0
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %28, %6
-  br label %31
+31:                                               ; preds = %29, %6
+  br label %32
 
-31:                                               ; preds = %30, %28
-  %32 = phi ptr [ null, %30 ], [ %10, %28 ]
-  %33 = getelementptr inbounds i8, ptr %1, i64 96
-  store ptr %32, ptr %33, align 8
-  br label %34
+32:                                               ; preds = %31, %29
+  %33 = phi ptr [ null, %31 ], [ %10, %29 ]
+  %34 = getelementptr inbounds i8, ptr %1, i64 96
+  store ptr %33, ptr %34, align 8
+  br label %35
 
-34:                                               ; preds = %31, %2
+35:                                               ; preds = %32, %2
   ret void
 }
 
@@ -13964,65 +13966,67 @@ define internal i32 @nfs4_proc_async_renew(ptr noundef %0, ptr noundef %1, i32 n
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %1, ptr %7, align 8
   %8 = icmp eq i32 %2, 0
-  br i1 %8, label %37, label %9
+  br i1 %8, label %38, label %9
 
 9:                                                ; preds = %3
   %10 = load volatile i32, ptr %0, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %9, %16
-  %12 = phi i32 [ %17, %16 ], [ %10, %9 ]
+.preheader:                                       ; preds = %9, %17
+  %12 = phi i32 [ %18, %17 ], [ %10, %9 ]
   %13 = add i32 %12, 1
   %14 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 %13, ptr elementtype(i32) %0, i32 %12) #22, !srcloc !175
   %15 = extractvalue { i8, i32 } %14, 0
+  %16 = icmp ult i8 %15, 2
+  tail call void @llvm.assume(i1 %16)
   %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %16, label %.thread, !prof !28
+  br i1 %.not, label %17, label %.thread, !prof !28
 
-16:                                               ; preds = %.preheader
-  %17 = extractvalue { i8, i32 } %14, 1
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.thread, label %.preheader, !llvm.loop !176
+17:                                               ; preds = %.preheader
+  %18 = extractvalue { i8, i32 } %14, 1
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %.thread, label %.preheader, !llvm.loop !176
 
-.thread:                                          ; preds = %.preheader, %16, %9
-  %19 = phi i32 [ 0, %9 ], [ %12, %.preheader ], [ 0, %16 ]
-  %20 = add i32 %19, 1
-  %21 = or i32 %20, %19
-  %22 = icmp sgt i32 %21, -1
-  br i1 %22, label %24, label %23, !prof !8
+.thread:                                          ; preds = %.preheader, %17, %9
+  %20 = phi i32 [ 0, %9 ], [ %12, %.preheader ], [ 0, %17 ]
+  %21 = add i32 %20, 1
+  %22 = or i32 %21, %20
+  %23 = icmp sgt i32 %22, -1
+  br i1 %23, label %25, label %24, !prof !8
 
-23:                                               ; preds = %.thread
+24:                                               ; preds = %.thread
   tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef 0) #22
-  br label %24
+  br label %25
 
-24:                                               ; preds = %23, %.thread
-  %25 = icmp eq i32 %19, 0
-  br i1 %25, label %37, label %26
+25:                                               ; preds = %24, %.thread
+  %26 = icmp eq i32 %20, 0
+  br i1 %26, label %38, label %27
 
-26:                                               ; preds = %24
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
-  %28 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 3136, i64 noundef 16) #25
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %31
+27:                                               ; preds = %25
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %29 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 3136, i64 noundef 16) #25
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %26
+31:                                               ; preds = %27
   tail call void @nfs_put_client(ptr noundef %0) #22
-  br label %37
+  br label %38
 
-31:                                               ; preds = %26
-  store ptr %0, ptr %28, align 8
-  %32 = load volatile i64, ptr @jiffies, align 64
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
-  store i64 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 216
-  %35 = load ptr, ptr %34, align 8
-  %36 = call i32 @rpc_call_async(ptr noundef %35, ptr noundef nonnull %4, i32 noundef 4096, ptr noundef nonnull @nfs4_renew_ops, ptr noundef nonnull %28) #22
-  br label %37
+32:                                               ; preds = %27
+  store ptr %0, ptr %29, align 8
+  %33 = load volatile i64, ptr @jiffies, align 64
+  %34 = getelementptr inbounds i8, ptr %29, i64 8
+  store i64 %33, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 216
+  %36 = load ptr, ptr %35, align 8
+  %37 = call i32 @rpc_call_async(ptr noundef %36, ptr noundef nonnull %4, i32 noundef 4096, ptr noundef nonnull @nfs4_renew_ops, ptr noundef nonnull %29) #22
+  br label %38
 
-37:                                               ; preds = %31, %30, %24, %3
-  %38 = phi i32 [ -12, %30 ], [ %36, %31 ], [ 0, %3 ], [ -5, %24 ]
+38:                                               ; preds = %32, %31, %25, %3
+  %39 = phi i32 [ -12, %31 ], [ %37, %32 ], [ 0, %3 ], [ -5, %25 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
-  ret i32 %38
+  ret i32 %39
 }
 
 ; Function Attrs: null_pointer_is_valid

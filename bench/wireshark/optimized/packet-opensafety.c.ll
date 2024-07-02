@@ -4217,7 +4217,7 @@ dissect_opensafety_ssdo_payload.exit.i:           ; preds = %.loopexit213.i.i, %
   %1390 = load ptr, ptr %1387, align 8
   %1391 = getelementptr inbounds i8, ptr %1390, i64 28
   store i32 0, ptr %1391, align 4
-  %.not184.i = icmp ult i8 %1366, 32
+  %.not184.i = icmp sgt i8 %1364, -1
   br i1 %.not184.i, label %1395, label %1392
 
 1392:                                             ; preds = %1314

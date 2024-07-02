@@ -75,7 +75,7 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly %0, ptr noun
   %36 = and i32 %.02941, 67108832
   %or.cond = icmp eq i32 %36, 864
   %or.cond34 = or i1 %or.cond, %35
-  %37 = icmp ugt i32 %27, 1114111
+  %37 = icmp ugt i32 %24, 1114111
   %or.cond35 = or i1 %37, %or.cond34
   br i1 %or.cond35, label %.loopexit, label %.loopexit.sink.split
 
@@ -98,13 +98,13 @@ define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly %0) 
 2:                                                ; preds = %1
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #3
   %4 = getelementptr inbounds i8, ptr %0, i64 %3
-  %.not1523 = icmp eq i64 %3, 0
-  br i1 %.not1523, label %.critedge, label %.lr.ph
+  %.not1524 = icmp eq i64 %3, 0
+  br i1 %.not1524, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %cm_utf8_decode_character.exit
-  %.024 = phi ptr [ %.030.ph.i, %cm_utf8_decode_character.exit ], [ %0, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.024, i64 1
-  %6 = load i8, ptr %.024, align 1
+  %.025 = phi ptr [ %.030.ph.i, %cm_utf8_decode_character.exit ], [ %0, %2 ]
+  %5 = getelementptr inbounds i8, ptr %.025, i64 1
+  %6 = load i8, ptr %.025, align 1
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds [256 x i8], ptr @cm_utf8_ones, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
@@ -161,7 +161,7 @@ define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly %0) 
   %33 = and i32 %.02941.i, 67108832
   %or.cond.i = icmp eq i32 %33, 864
   %or.cond34.i = or i1 %or.cond.i, %32
-  %34 = icmp ugt i32 %24, 1114111
+  %34 = icmp ugt i32 %21, 1114111
   %or.cond35.i = or i1 %34, %or.cond34.i
   br i1 %or.cond35.i, label %.critedge, label %cm_utf8_decode_character.exit
 

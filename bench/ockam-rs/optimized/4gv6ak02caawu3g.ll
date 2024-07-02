@@ -3652,36 +3652,38 @@ _ZN10ockam_core3env3env5error17he21a8f2b71a71cacE.exit: ; preds = %29
 define void @"_ZN65_$LT$char$u20$as$u20$ockam_core..env..from_string..FromString$GT$11from_string17h2e635bc28248080eE"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, i64 }, i64 } }, align 8
   %5 = icmp eq i64 %2, 1
-  br i1 %5, label %_ZN4core3str11validations15next_code_point17hb669598ea1ee2031E.exit, label %6
-
-6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %7 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5d4dcbe078451b82E"(i64 noundef 31, i1 noundef zeroext false), !noalias !704
-  %8 = extractvalue { ptr, i64 } %7, 0
-  %9 = extractvalue { ptr, i64 } %7, 1
-  %10 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %8, ptr noundef nonnull readonly align 1 dereferenceable(31) @anon.6a0f52975b2d5d105a52dfd87a792a1e.116, i64 31, i1 false)
-  store ptr %8, ptr %4, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %9, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 31, ptr %.sroa.5.0..sroa_idx, align 8
-  %11 = call noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17h7200c44af595ba44E(i8 noundef 10, i8 noundef 1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7cda709a2d3aa590b9f7be75a6dca6ba.24.llvm.17048215454070662348)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %11, ptr %12, align 8
-  br label %16
+  br i1 %5, label %_ZN4core3str11validations15next_code_point17hb669598ea1ee2031E.exit, label %10
 
 _ZN4core3str11validations15next_code_point17hb669598ea1ee2031E.exit: ; preds = %3
-  %13 = load i8, ptr %1, align 1, !noalias !708, !noundef !16
-  %14 = zext nneg i8 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %14, ptr %15, align 4
-  br label %16
+  %6 = load i8, ptr %1, align 1, !noalias !704, !noundef !16
+  %7 = icmp sgt i8 %6, -1
+  tail call void @llvm.assume(i1 %7)
+  %8 = zext nneg i8 %6 to i32
+  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %8, ptr %9, align 4
+  br label %17
 
-16:                                               ; preds = %_ZN4core3str11validations15next_code_point17hb669598ea1ee2031E.exit, %6
-  %storemerge = phi i32 [ 1, %6 ], [ 0, %_ZN4core3str11validations15next_code_point17hb669598ea1ee2031E.exit ]
+10:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  %11 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5d4dcbe078451b82E"(i64 noundef 31, i1 noundef zeroext false), !noalias !707
+  %12 = extractvalue { ptr, i64 } %11, 0
+  %13 = extractvalue { ptr, i64 } %11, 1
+  %14 = icmp ne ptr %12, null
+  tail call void @llvm.assume(i1 %14)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %12, ptr noundef nonnull readonly align 1 dereferenceable(31) @anon.6a0f52975b2d5d105a52dfd87a792a1e.116, i64 31, i1 false)
+  store ptr %12, ptr %4, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %13, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 31, ptr %.sroa.5.0..sroa_idx, align 8
+  %15 = call noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17h7200c44af595ba44E(i8 noundef 10, i8 noundef 1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7cda709a2d3aa590b9f7be75a6dca6ba.24.llvm.17048215454070662348)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %15, ptr %16, align 8
+  br label %17
+
+17:                                               ; preds = %_ZN4core3str11validations15next_code_point17hb669598ea1ee2031E.exit, %10
+  %storemerge = phi i32 [ 1, %10 ], [ 0, %_ZN4core3str11validations15next_code_point17hb669598ea1ee2031E.exit ]
   store i32 %storemerge, ptr %0, align 8
   ret void
 }
@@ -5889,13 +5891,13 @@ attributes #27 = { nounwind }
 !701 = distinct !{!701, !"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h85cd473741054449E"}
 !702 = distinct !{!702, !703, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00954e4bb2577eb1E: argument 0"}
 !703 = distinct !{!703, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00954e4bb2577eb1E"}
-!704 = !{!705, !707}
-!705 = distinct !{!705, !706, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hf3b0d58b4e499d3dE: argument 0"}
-!706 = distinct !{!706, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hf3b0d58b4e499d3dE"}
-!707 = distinct !{!707, !706, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hf3b0d58b4e499d3dE: argument 1"}
-!708 = !{!709}
-!709 = distinct !{!709, !710, !"_ZN4core3str11validations15next_code_point17hb669598ea1ee2031E: argument 0"}
-!710 = distinct !{!710, !"_ZN4core3str11validations15next_code_point17hb669598ea1ee2031E"}
+!704 = !{!705}
+!705 = distinct !{!705, !706, !"_ZN4core3str11validations15next_code_point17hb669598ea1ee2031E: argument 0"}
+!706 = distinct !{!706, !"_ZN4core3str11validations15next_code_point17hb669598ea1ee2031E"}
+!707 = !{!708, !710}
+!708 = distinct !{!708, !709, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hf3b0d58b4e499d3dE: argument 0"}
+!709 = distinct !{!709, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hf3b0d58b4e499d3dE"}
+!710 = distinct !{!710, !709, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hf3b0d58b4e499d3dE: argument 1"}
 !711 = !{!712}
 !712 = distinct !{!712, !713, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc564b8ed700e1ce4E: argument 0"}
 !713 = distinct !{!713, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc564b8ed700e1ce4E"}

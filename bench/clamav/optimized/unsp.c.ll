@@ -533,7 +533,7 @@ getbit_from_table.exit452:                        ; preds = %161, %168, %get_byt
   %202 = phi i32 [ %152, %161 ], [ %183, %get_byte.exit.i450 ], [ %166, %168 ], [ %199, %get_byte.exit57.i447 ], [ %185, %184 ]
   %.0.i445 = phi i32 [ 255, %161 ], [ 0, %get_byte.exit.i450 ], [ 0, %168 ], [ 1, %get_byte.exit57.i447 ], [ 1, %184 ]
   %203 = or i32 %.0.i445, %153
-  %204 = icmp ult i32 %203, 256
+  %204 = icmp ult i32 %.05.i, 128
   br i1 %204, label %149, label %205
 
 205:                                              ; preds = %getbit_from_table.exit452
@@ -1888,8 +1888,8 @@ define range(i32 0, 256) i32 @get_100_bits_from_tablesize(ptr noundef %0, ptr no
   %21 = shl nuw nsw i32 %.02326, 1
   %22 = or i32 %20, %21
   %23 = icmp ne i32 %14, %20
-  %24 = icmp ult i32 %22, 256
-  %or.cond = select i1 %23, i1 %24, i1 false
+  %24 = icmp ult i32 %.02326, 128
+  %or.cond = and i1 %24, %23
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %11
@@ -1903,9 +1903,9 @@ define range(i32 0, 256) i32 @get_100_bits_from_tablesize(ptr noundef %0, ptr no
 
 getbit_from_table.exit.us:                        ; preds = %getbit_from_table.exit.us, %.preheader.split.us
   %.1.us = phi i32 [ %28, %getbit_from_table.exit.us ], [ %22, %.preheader.split.us ]
-  %27 = shl nuw nsw i32 %.1.us, 1
+  %27 = shl i32 %.1.us, 1
   %28 = or i32 %27, 255
-  %.old1.us = icmp ult i32 %.1.us, 128
+  %.old1.us = icmp ult i32 %27, 256
   br i1 %.old1.us, label %getbit_from_table.exit.us, label %.loopexit
 
 .preheader.splitthread-pre-split:                 ; preds = %getbit_from_table.exit
@@ -1915,8 +1915,8 @@ getbit_from_table.exit.us:                        ; preds = %getbit_from_table.e
 .preheader.split:                                 ; preds = %.preheader, %.preheader.splitthread-pre-split
   %29 = phi i32 [ %.pr, %.preheader.splitthread-pre-split ], [ %25, %.preheader ]
   %.1 = phi i32 [ %93, %.preheader.splitthread-pre-split ], [ %22, %.preheader ]
-  %30 = shl nuw nsw i32 %.1, 1
-  %31 = zext nneg i32 %.1 to i64
+  %30 = shl i32 %.1, 1
+  %31 = zext i32 %.1 to i64
   %32 = getelementptr inbounds i16, ptr %0, i64 %31
   %33 = zext i32 %29 to i64
   %switch.i = icmp ult i32 %29, 2
@@ -2036,18 +2036,17 @@ get_byte.exit57.i:                                ; preds = %87, %86
 getbit_from_table.exit:                           ; preds = %43, %52, %get_byte.exit.i, %73, %get_byte.exit57.i
   %.0.i = phi i32 [ 255, %43 ], [ 0, %get_byte.exit.i ], [ 0, %52 ], [ 1, %get_byte.exit57.i ], [ 1, %73 ]
   %93 = or i32 %.0.i, %30
-  %.old1 = icmp ult i32 %93, 256
-  br i1 %.old1, label %.preheader.splitthread-pre-split, label %.loopexit.thread, !llvm.loop !4
+  %.old1 = icmp ult i32 %30, 256
+  br i1 %.old1, label %.preheader.splitthread-pre-split, label %.loopexit, !llvm.loop !4
 
-.loopexit:                                        ; preds = %getbit_from_table.exit.us, %11
-  %.2 = phi i32 [ %22, %11 ], [ %28, %getbit_from_table.exit.us ]
+.loopexit:                                        ; preds = %getbit_from_table.exit, %getbit_from_table.exit.us, %11
+  %.2 = phi i32 [ %22, %11 ], [ %28, %getbit_from_table.exit.us ], [ %93, %getbit_from_table.exit ]
   %94 = icmp ult i32 %.2, 256
-  br i1 %94, label %11, label %.loopexit.thread
+  br i1 %94, label %11, label %95
 
-.loopexit.thread:                                 ; preds = %.loopexit, %getbit_from_table.exit
-  %.231 = phi i32 [ %93, %getbit_from_table.exit ], [ %.2, %.loopexit ]
-  %95 = and i32 %.231, 255
-  ret i32 %95
+95:                                               ; preds = %.loopexit
+  %96 = and i32 %.2, 255
+  ret i32 %96
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -2061,7 +2060,7 @@ define range(i32 0, 256) i32 @get_100_bits_from_table(ptr noundef %0, ptr nocapt
   %6 = getelementptr inbounds i16, ptr %0, i64 %5
   %7 = tail call i32 @getbit_from_table(ptr noundef %6, ptr noundef %1)
   %8 = or i32 %7, %4
-  %9 = icmp ult i32 %8, 256
+  %9 = icmp ult i32 %.05, 128
   br i1 %9, label %3, label %10
 
 10:                                               ; preds = %3

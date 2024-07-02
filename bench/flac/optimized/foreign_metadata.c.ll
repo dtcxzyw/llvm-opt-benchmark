@@ -902,8 +902,10 @@ if.end218.i:                                      ; preds = %if.end209.i
   %shl25.i142.i = shl nuw i64 %conv24.i141.i, 56
   %add26.i143.i = or disjoint i64 %add22.i139.i, %shl25.i142.i
   %add221.i = add nuw nsw i64 %add26.i143.i, 8
-  %cmp224.i = icmp slt i64 %add26.i143.i, 0
-  br i1 %cmp224.i, label %if.then229.i, label %if.end266.i
+  %cmp224.i = icmp slt i64 %shl25.i142.i, 0
+  %cmp227.i = icmp slt i64 %add26.i143.i, -8
+  %or.cond.i = select i1 %cmp224.i, i1 true, i1 %cmp227.i
+  br i1 %or.cond.i, label %if.then229.i, label %if.end266.i
 
 if.then229.i:                                     ; preds = %if.end218.i
   %tobool230.not.i = icmp eq ptr %error, null

@@ -2591,15 +2591,15 @@ _ZN8unscanny7Scanner5scout17hc0e6999a885248fbE.exit.i.i: ; preds = %539, %531
   br i1 %.not.i.i.i48, label %_ZN8unscanny7Scanner5uneat17hc43822bbc77f5fbbE.exit.i.i, label %589
 
 589:                                              ; preds = %584
-  %590 = icmp ult i32 %588, 128
+  %590 = icmp ult i32 %.013.i.i4.i.i, 2
   br i1 %590, label %.thread19.i.i.i, label %591
 
 591:                                              ; preds = %589
-  %592 = icmp ult i32 %588, 2048
+  %592 = icmp ult i32 %.013.i.i4.i.i, 32
   br i1 %592, label %.thread19.i.i.i, label %593
 
 593:                                              ; preds = %591
-  %594 = icmp ult i32 %588, 65536
+  %594 = icmp ult i32 %.013.i.i4.i.i, 1024
   %..i.i.i49 = select i1 %594, i64 -3, i64 -4
   br label %.thread19.i.i.i
 
@@ -10407,15 +10407,15 @@ _ZN8unscanny7Scanner5scout17hc0e6999a885248fbE.exit: ; preds = %111, %103
   br i1 %.not.i, label %_ZN8unscanny7Scanner5uneat17hc43822bbc77f5fbbE.exit, label %161
 
 161:                                              ; preds = %156
-  %162 = icmp ult i32 %160, 128
+  %162 = icmp ult i32 %.013.i.i8, 2
   br i1 %162, label %.thread19.i, label %163
 
 163:                                              ; preds = %161
-  %164 = icmp ult i32 %160, 2048
+  %164 = icmp ult i32 %.013.i.i8, 32
   br i1 %164, label %.thread19.i, label %165
 
 165:                                              ; preds = %163
-  %166 = icmp ult i32 %160, 65536
+  %166 = icmp ult i32 %.013.i.i8, 1024
   %..i = select i1 %166, i64 -3, i64 -4
   br label %.thread19.i
 

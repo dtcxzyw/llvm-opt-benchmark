@@ -24,7 +24,7 @@ define void @Cnf_CutAssignAreaFlow(ptr nocapture noundef readonly %0, ptr nocapt
   %18 = add nsw i32 %17, %12
   %19 = mul nsw i32 %18, 10
   store i32 %19, ptr %1, align 4
-  %.not = icmp ult i32 %6, 536870912
+  %.not = icmp ult i32 %5, 536870912
   br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -234,7 +234,7 @@ define void @Cnf_DeriveMapping(ptr nocapture noundef readonly %0) local_unnamed_
   %46 = add nsw i32 %45, %40
   %47 = mul nsw i32 %46, 10
   store i32 %47, ptr %.058, align 4
-  %.not.i = icmp ult i32 %35, 536870912
+  %.not.i = icmp ult i32 %28, 536870912
   br i1 %.not.i, label %Cnf_CutAssignAreaFlow.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %34

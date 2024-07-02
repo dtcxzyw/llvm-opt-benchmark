@@ -7309,7 +7309,7 @@ _ZN7testing15AssertionResultD2Ev.exit185:         ; preds = %if.end226, %_ZNKSt1
   %mul = shl i64 %82, 1
   %add230 = or disjoint i64 %mul, 1
   store i64 %add230, ptr %capacity143, align 8
-  %cmp145 = icmp ult i64 %add230, 10000
+  %cmp145 = icmp ult i64 %mul, 10000
   br i1 %cmp145, label %invoke.cont160, label %for.end231, !llvm.loop !65
 
 ehcleanup227:                                     ; preds = %_ZN7testing7MessageD2Ev.exit181, %lpad215

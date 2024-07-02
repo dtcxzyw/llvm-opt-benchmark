@@ -563,7 +563,7 @@ define dso_local void @intel_dsb_commit(ptr noundef %0, i1 noundef zeroext %1) l
   br label %112
 
 112:                                              ; preds = %109, %105, %92, %85
-  %113 = icmp ult i32 %90, 262144
+  %113 = icmp ult i32 %89, 262144
   br i1 %113, label %114, label %118
 
 114:                                              ; preds = %112
@@ -690,7 +690,7 @@ define dso_local void @intel_dsb_commit(ptr noundef %0, i1 noundef zeroext %1) l
   br label %189
 
 189:                                              ; preds = %186, %182, %169, %161
-  %190 = icmp ult i32 %166, 262144
+  %190 = icmp ult i32 %165, 262144
   br i1 %190, label %191, label %195
 
 191:                                              ; preds = %189
@@ -754,7 +754,7 @@ define dso_local void @intel_dsb_commit(ptr noundef %0, i1 noundef zeroext %1) l
   br label %229
 
 229:                                              ; preds = %226, %222, %209, %195
-  %230 = icmp ult i32 %205, 262144
+  %230 = icmp ult i32 %204, 262144
   br i1 %230, label %231, label %235
 
 231:                                              ; preds = %229
@@ -819,7 +819,7 @@ define dso_local void @intel_dsb_commit(ptr noundef %0, i1 noundef zeroext %1) l
   br label %268
 
 268:                                              ; preds = %265, %261, %248, %240
-  %269 = icmp ult i32 %244, 262144
+  %269 = icmp ult i32 %243, 262144
   br i1 %269, label %270, label %274
 
 270:                                              ; preds = %268
@@ -982,7 +982,7 @@ define dso_local void @intel_dsb_wait(ptr noundef %0) local_unnamed_addr #0 alig
   br label %89
 
 89:                                               ; preds = %86, %82, %69, %61
-  %90 = icmp ult i32 %68, 262144
+  %90 = icmp ult i32 %67, 262144
   br i1 %90, label %91, label %94
 
 91:                                               ; preds = %89
@@ -1014,7 +1014,7 @@ define dso_local void @intel_dsb_wait(ptr noundef %0) local_unnamed_addr #0 alig
   %110 = shl i32 %109, 8
   %111 = add i32 %110, %64
   %112 = or disjoint i32 %111, 44
-  %113 = icmp ult i32 %112, 262144
+  %113 = icmp ult i32 %111, 262144
   br i1 %113, label %114, label %117
 
 114:                                              ; preds = %103
@@ -1133,7 +1133,7 @@ define dso_local void @intel_dsb_wait(ptr noundef %0) local_unnamed_addr #0 alig
   %183 = shl i32 %182, 8
   %184 = add i32 %183, %64
   %185 = or disjoint i32 %184, 4
-  %186 = icmp ult i32 %185, 262144
+  %186 = icmp ult i32 %184, 262144
   br i1 %186, label %187, label %190
 
 187:                                              ; preds = %180

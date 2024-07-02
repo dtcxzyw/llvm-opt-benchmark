@@ -231112,7 +231112,7 @@ sw.bb2.i:                                         ; preds = %_ZZN3fmt3v106detail
   %ref.tmp57.sroa.0.sroa.0.sroa.0.sroa.10.0.insert.shift = and i32 %ref.tmp57.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in.in, -256
   %ref.tmp57.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i8 %ref.tmp57.sroa.0.sroa.0.sroa.0.sroa.0.0 to i32
   %ref.tmp57.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %ref.tmp57.sroa.0.sroa.0.sroa.0.sroa.10.0.insert.shift, %ref.tmp57.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext
-  %cmp.i.i236 = icmp sgt i32 %ref.tmp57.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert, -1
+  %cmp.i.i236 = icmp sgt i32 %ref.tmp57.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in.in, -1
   br i1 %cmp.i.i236, label %if.end64.sink.split, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb2.i
@@ -233402,7 +233402,7 @@ sw.bb1.i:                                         ; preds = %_ZZN3fmt3v106detail
   %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in = and i32 %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in.in, -256
   %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext180 = zext i8 %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.0.0 to i32
   %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert182 = or disjoint i32 %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in, %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext180
-  %cmp.i.i99 = icmp slt i32 %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert182, 0
+  %cmp.i.i99 = icmp slt i32 %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in.in, 0
   br i1 %cmp.i.i99, label %if.end.i100, label %return.sink.split
 
 if.end.i100:                                      ; preds = %sw.bb1.i
@@ -233423,7 +233423,7 @@ sw.bb2.i:                                         ; preds = %_ZZN3fmt3v106detail
   %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.10.0.insert.shift = and i32 %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in.in, -256
   %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i8 %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.0.0 to i32
   %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.10.0.insert.shift, %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext
-  %cmp.i106 = icmp slt i32 %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert, 0
+  %cmp.i106 = icmp slt i32 %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in.in, 0
   br i1 %cmp.i106, label %if.then3.i107, label %return.sink.split
 
 if.then3.i107:                                    ; preds = %sw.bb2.i
@@ -233438,7 +233438,7 @@ sw.bb5.i:                                         ; preds = %_ZZN3fmt3v106detail
   %ref.tmp41.sroa.0.sroa.0.sroa.10.0.insert.shift167 = shl nuw i64 %ref.tmp41.sroa.0.sroa.0.sroa.10.0.insert.ext166, 32
   %ref.tmp41.sroa.0.sroa.0.sroa.0.0.insert.ext156 = zext i32 %ref.tmp41.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert188 to i64
   %ref.tmp41.sroa.0.sroa.0.sroa.0.0.insert.insert158 = or disjoint i64 %ref.tmp41.sroa.0.sroa.0.sroa.10.0.insert.shift167, %ref.tmp41.sroa.0.sroa.0.sroa.0.0.insert.ext156
-  %cmp.i.i108 = icmp slt i64 %ref.tmp41.sroa.0.sroa.0.sroa.0.0.insert.insert158, 0
+  %cmp.i.i108 = icmp slt i64 %ref.tmp41.sroa.0.sroa.0.sroa.10.0.insert.shift167, 0
   br i1 %cmp.i.i108, label %if.then.i112, label %if.end.i109
 
 if.then.i112:                                     ; preds = %sw.bb5.i
@@ -250741,7 +250741,7 @@ sw.bb2.i:                                         ; preds = %_ZZN3fmt3v106detail
   %ref.tmp46.sroa.0.sroa.0.sroa.0.sroa.10.0.insert.shift900 = and i32 %ref.tmp46.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in.in, -256
   %ref.tmp46.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext880 = zext i8 %ref.tmp46.sroa.0.sroa.0.sroa.0.sroa.0.0 to i32
   %ref.tmp46.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert882 = or disjoint i32 %ref.tmp46.sroa.0.sroa.0.sroa.0.sroa.10.0.insert.shift900, %ref.tmp46.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext880
-  %cmp.i.i224 = icmp sgt i32 %ref.tmp46.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert882, -1
+  %cmp.i.i224 = icmp sgt i32 %ref.tmp46.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in.in, -1
   br i1 %cmp.i.i224, label %if.end53.sink.split, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb2.i
@@ -252963,7 +252963,7 @@ sw.bb1.i:                                         ; preds = %_ZZN3fmt3v106detail
   %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in = and i32 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in.in, -256
   %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext192 = zext i8 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0 to i32
   %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert194 = or disjoint i32 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in, %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext192
-  %cmp.i.i97 = icmp slt i32 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert194, 0
+  %cmp.i.i97 = icmp slt i32 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in.in, 0
   br i1 %cmp.i.i97, label %if.end.i98, label %return.sink.split
 
 if.end.i98:                                       ; preds = %sw.bb1.i
@@ -252984,7 +252984,7 @@ sw.bb2.i:                                         ; preds = %_ZZN3fmt3v106detail
   %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.10.0.insert.shift209 = and i32 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in.in, -256
   %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext189 = zext i8 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0 to i32
   %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert191 = or disjoint i32 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.10.0.insert.shift209, %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext189
-  %cmp.i104 = icmp slt i32 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert191, 0
+  %cmp.i104 = icmp slt i32 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in.in, 0
   br i1 %cmp.i104, label %if.then3.i105, label %return.sink.split
 
 if.then3.i105:                                    ; preds = %sw.bb2.i
@@ -252999,7 +252999,7 @@ sw.bb5.i:                                         ; preds = %_ZZN3fmt3v106detail
   %ref.tmp35.sroa.0.sroa.0.sroa.10.0.insert.shift176 = shl nuw i64 %ref.tmp35.sroa.0.sroa.0.sroa.10.0.insert.ext175, 32
   %ref.tmp35.sroa.0.sroa.0.sroa.0.0.insert.ext165 = zext i32 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert200 to i64
   %ref.tmp35.sroa.0.sroa.0.sroa.0.0.insert.insert167 = or disjoint i64 %ref.tmp35.sroa.0.sroa.0.sroa.10.0.insert.shift176, %ref.tmp35.sroa.0.sroa.0.sroa.0.0.insert.ext165
-  %cmp.i.i106 = icmp slt i64 %ref.tmp35.sroa.0.sroa.0.sroa.0.0.insert.insert167, 0
+  %cmp.i.i106 = icmp slt i64 %ref.tmp35.sroa.0.sroa.0.sroa.10.0.insert.shift176, 0
   br i1 %cmp.i.i106, label %if.then.i110, label %if.end.i107
 
 if.then.i110:                                     ; preds = %sw.bb5.i
@@ -253078,7 +253078,7 @@ sw.bb27.i:                                        ; preds = %_ZZN3fmt3v106detail
   %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.10.0.insert.shift = and i32 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in.in, -256
   %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i8 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0 to i32
   %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.10.0.insert.shift, %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext
-  %cmp.i.i126 = icmp slt i32 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert, 0
+  %cmp.i.i126 = icmp slt i32 %ref.tmp35.sroa.0.sroa.0.sroa.0.sroa.10.sroa.0.0.in.in, 0
   br i1 %cmp.i.i126, label %if.end.i128, label %return.sink.split
 
 if.end.i128:                                      ; preds = %sw.bb27.i

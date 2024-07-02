@@ -28,7 +28,7 @@ entry:
 entry.split.us:                                   ; preds = %entry
   %1 = load i32, ptr %scale_.i.i, align 4
   %2 = load ptr, ptr %raw_.i.i, align 8
-  %switch = icmp ne i32 %1, 3
+  %switch = icmp ult i32 %1, 3
   tail call void @llvm.assume(i1 %switch)
   %idxprom.i.i.i.us181 = zext i32 %and to i64
   switch i32 %1, label %entry.split.us.split.split [
@@ -421,7 +421,7 @@ entry:
 entry.split.us:                                   ; preds = %entry
   %1 = load i32, ptr %scale_.i.i, align 4
   %2 = load ptr, ptr %raw_.i.i, align 8
-  %switch = icmp ne i32 %1, 3
+  %switch = icmp ult i32 %1, 3
   tail call void @llvm.assume(i1 %switch)
   %idxprom.i.i.i.us182 = zext i32 %and to i64
   switch i32 %1, label %entry.split.us.split.split [
@@ -1142,8 +1142,8 @@ if.end:                                           ; preds = %entry
   %raw_4.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %raw_4.i.i, align 8
   store ptr %call.i.i, ptr %raw_4.i.i, align 8
-  %cmp599.not = icmp eq i32 %2, 0
-  br i1 %cmp599.not, label %for.end, label %for.body.lr.ph
+  %cmp598.not = icmp eq i32 %2, 0
+  br i1 %cmp598.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %identifierTable_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1243,7 +1243,7 @@ if.then17:                                        ; preds = %if.else
   %and.i = and i32 %sub.i37, %13
   %18 = load i32, ptr %scale_.i, align 4
   %19 = load ptr, ptr %raw_4.i.i, align 8
-  %switch.i = icmp ne i32 %18, 3
+  %switch.i = icmp ult i32 %18, 3
   tail call void @llvm.assume(i1 %switch.i)
   %idxprom.i.i.i.us181.i = zext i32 %and.i to i64
   switch i32 %18, label %entry.split.us.split.split.i [
@@ -1341,7 +1341,7 @@ if.then22:                                        ; preds = %if.else20
   %and.i49 = and i32 %sub.i48, %13
   %31 = load i32, ptr %scale_.i, align 4
   %32 = load ptr, ptr %raw_4.i.i, align 8
-  %switch.i53 = icmp ne i32 %31, 3
+  %switch.i53 = icmp ult i32 %31, 3
   tail call void @llvm.assume(i1 %switch.i53)
   %idxprom.i.i.i.us182.i = zext i32 %and.i49 to i64
   switch i32 %31, label %entry.split.us.split.split.i72 [
@@ -1401,30 +1401,30 @@ entry.split.us.split.split.i72:                   ; preds = %if.then22
   %arrayidx.i7.i.i.us183.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i.i.us182.i
   %39 = load i32, ptr %arrayidx.i7.i.i.us183.i, align 4
   %cmp.i.us184.i = icmp eq i32 %39, 0
-  br i1 %cmp.i.us184.i, label %if.end28, label %if.else.us.i74
+  br i1 %cmp.i.us184.i, label %if.end28, label %if.else.us.i73
 
-if.else.us.i74:                                   ; preds = %entry.split.us.split.split.i72, %if.else.us.i74
-  %40 = phi i32 [ %41, %if.else.us.i74 ], [ %39, %entry.split.us.split.split.i72 ]
-  %base.0.us188.i = phi i32 [ %inc.us.i80, %if.else.us.i74 ], [ 1, %entry.split.us.split.split.i72 ]
-  %idx.0.us187.i = phi i32 [ %and55.us.i79, %if.else.us.i74 ], [ %and.i49, %entry.split.us.split.split.i72 ]
-  %deletedIndex.sroa.0.0.us186.i = phi i32 [ %idx.0.mux.us.i77, %if.else.us.i74 ], [ 0, %entry.split.us.split.split.i72 ]
-  %deletedIndex.sroa.3.0.us185.i = phi i1 [ %.mux.us.i76, %if.else.us.i74 ], [ false, %entry.split.us.split.split.i72 ]
-  %cmp.i21.us.i75 = icmp eq i32 %40, 1
-  %.mux.us.i76 = select i1 %cmp.i21.us.i75, i1 true, i1 %deletedIndex.sroa.3.0.us185.i
-  %idx.0.mux.us.i77 = select i1 %cmp.i21.us.i75, i32 %idx.0.us187.i, i32 %deletedIndex.sroa.0.0.us186.i
-  %add.us.i78 = add i32 %idx.0.us187.i, %base.0.us188.i
-  %and55.us.i79 = and i32 %add.us.i78, %sub.i48
-  %inc.us.i80 = add i32 %base.0.us188.i, 1
-  %idxprom.i.i.i.us.i81 = zext i32 %and55.us.i79 to i64
-  %arrayidx.i7.i.i.us.i82 = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i.i.us.i81
-  %41 = load i32, ptr %arrayidx.i7.i.i.us.i82, align 4
-  %cmp.i.us.i83 = icmp eq i32 %41, 0
-  br i1 %cmp.i.us.i83, label %if.then.i55, label %if.else.us.i74, !llvm.loop !7
+if.else.us.i73:                                   ; preds = %entry.split.us.split.split.i72, %if.else.us.i73
+  %40 = phi i32 [ %41, %if.else.us.i73 ], [ %39, %entry.split.us.split.split.i72 ]
+  %base.0.us188.i = phi i32 [ %inc.us.i79, %if.else.us.i73 ], [ 1, %entry.split.us.split.split.i72 ]
+  %idx.0.us187.i = phi i32 [ %and55.us.i78, %if.else.us.i73 ], [ %and.i49, %entry.split.us.split.split.i72 ]
+  %deletedIndex.sroa.0.0.us186.i = phi i32 [ %idx.0.mux.us.i76, %if.else.us.i73 ], [ 0, %entry.split.us.split.split.i72 ]
+  %deletedIndex.sroa.3.0.us185.i = phi i1 [ %.mux.us.i75, %if.else.us.i73 ], [ false, %entry.split.us.split.split.i72 ]
+  %cmp.i21.us.i74 = icmp eq i32 %40, 1
+  %.mux.us.i75 = select i1 %cmp.i21.us.i74, i1 true, i1 %deletedIndex.sroa.3.0.us185.i
+  %idx.0.mux.us.i76 = select i1 %cmp.i21.us.i74, i32 %idx.0.us187.i, i32 %deletedIndex.sroa.0.0.us186.i
+  %add.us.i77 = add i32 %idx.0.us187.i, %base.0.us188.i
+  %and55.us.i78 = and i32 %add.us.i77, %sub.i48
+  %inc.us.i79 = add i32 %base.0.us188.i, 1
+  %idxprom.i.i.i.us.i80 = zext i32 %and55.us.i78 to i64
+  %arrayidx.i7.i.i.us.i81 = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i.i.us.i80
+  %41 = load i32, ptr %arrayidx.i7.i.i.us.i81, align 4
+  %cmp.i.us.i82 = icmp eq i32 %41, 0
+  br i1 %cmp.i.us.i82, label %if.then.i55, label %if.else.us.i73, !llvm.loop !7
 
-if.then.i55:                                      ; preds = %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62, %if.else.us.i74
-  %.us-phi.i56 = phi i1 [ %.mux.us.i76, %if.else.us.i74 ], [ %.mux.us.us.i64, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62 ], [ %.mux.us.us171.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ]
-  %.us-phi144.i57 = phi i32 [ %idx.0.mux.us.i77, %if.else.us.i74 ], [ %idx.0.mux.us.us.i65, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62 ], [ %idx.0.mux.us.us172.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ]
-  %.us-phi145.i = phi i32 [ %and55.us.i79, %if.else.us.i74 ], [ %and55.us.us.i67, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62 ], [ %and55.us.us174.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ]
+if.then.i55:                                      ; preds = %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62, %if.else.us.i73
+  %.us-phi.i56 = phi i1 [ %.mux.us.i75, %if.else.us.i73 ], [ %.mux.us.us.i64, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62 ], [ %.mux.us.us171.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ]
+  %.us-phi144.i57 = phi i32 [ %idx.0.mux.us.i76, %if.else.us.i73 ], [ %idx.0.mux.us.us.i65, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62 ], [ %idx.0.mux.us.us172.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ]
+  %.us-phi145.i = phi i32 [ %and55.us.i78, %if.else.us.i73 ], [ %and55.us.us.i67, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us.i62 ], [ %and55.us.us174.i, %_ZNK6hermes12CompactTable9isDeletedEj.exit.us.us168.i ]
   %cond.fr.i58 = freeze i1 %.us-phi.i56
   %spec.select.i59 = select i1 %cond.fr.i58, i32 %.us-phi144.i57, i32 %.us-phi145.i
   br label %if.end28

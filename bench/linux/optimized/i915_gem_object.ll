@@ -1540,34 +1540,36 @@ define internal fastcc range(i32 0, 2) i32 @kref_get_unless_zero(ptr noundef %0)
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %1, %8
-  %4 = phi i32 [ %9, %8 ], [ %2, %1 ]
+.preheader:                                       ; preds = %1, %9
+  %4 = phi i32 [ %10, %9 ], [ %2, %1 ]
   %5 = add i32 %4, 1
   %6 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 %5, ptr elementtype(i32) %0, i32 %4) #18, !srcloc !41
   %7 = extractvalue { i8, i32 } %6, 0
+  %8 = icmp ult i8 %7, 2
+  tail call void @llvm.assume(i1 %8)
   %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %.thread, !prof !6
+  br i1 %.not, label %9, label %.thread, !prof !6
 
-8:                                                ; preds = %.preheader
-  %9 = extractvalue { i8, i32 } %6, 1
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.thread, label %.preheader, !llvm.loop !42
+9:                                                ; preds = %.preheader
+  %10 = extractvalue { i8, i32 } %6, 1
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %.thread, label %.preheader, !llvm.loop !42
 
-.thread:                                          ; preds = %.preheader, %8, %1
-  %11 = phi i32 [ 0, %1 ], [ %4, %.preheader ], [ 0, %8 ]
-  %12 = add i32 %11, 1
-  %13 = or i32 %12, %11
-  %14 = icmp sgt i32 %13, -1
-  br i1 %14, label %16, label %15, !prof !18
+.thread:                                          ; preds = %.preheader, %9, %1
+  %12 = phi i32 [ 0, %1 ], [ %4, %.preheader ], [ 0, %9 ]
+  %13 = add i32 %12, 1
+  %14 = or i32 %13, %12
+  %15 = icmp sgt i32 %14, -1
+  br i1 %15, label %17, label %16, !prof !18
 
-15:                                               ; preds = %.thread
+16:                                               ; preds = %.thread
   tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef 0) #18
-  br label %16
+  br label %17
 
-16:                                               ; preds = %15, %.thread
-  %17 = icmp ne i32 %11, 0
-  %18 = zext i1 %17 to i32
-  ret i32 %18
+17:                                               ; preds = %16, %.thread
+  %18 = icmp ne i32 %12, 0
+  %19 = zext i1 %18 to i32
+  ret i32 %19
 }
 
 ; Function Attrs: null_pointer_is_valid

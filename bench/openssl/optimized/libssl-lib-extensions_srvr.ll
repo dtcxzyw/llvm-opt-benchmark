@@ -214,8 +214,8 @@ land.lhs.true:                                    ; preds = %lor.lhs.false12
   br i1 %or.cond18, label %if.else, label %if.then22
 
 if.then22:                                        ; preds = %land.lhs.true, %if.end10
-  %cmp24 = icmp ugt i64 %or.i.i.i34, 255
-  br i1 %cmp24, label %if.then25, label %if.end26
+  %cmp24.not = icmp eq i8 %3, 0
+  br i1 %cmp24.not, label %if.end26, label %if.then25
 
 if.then25:                                        ; preds = %if.then22
   tail call void @ERR_new() #10

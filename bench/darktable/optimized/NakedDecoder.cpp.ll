@@ -1210,30 +1210,32 @@ define linkonce_odr hidden void @_ZNK8rawspeed5Hints3getINSt7__cxx1112basic_stri
   %95 = load ptr, ptr %3, align 8, !tbaa !34
   %96 = getelementptr inbounds i8, ptr %3, i64 16
   %97 = icmp eq ptr %95, %96
-  br i1 %97, label %98, label %102
+  br i1 %97, label %98, label %103
 
 98:                                               ; preds = %93
   %99 = getelementptr inbounds i8, ptr %3, i64 8
   %100 = load i64, ptr %99, align 8, !tbaa !39
-  %101 = add nuw nsw i64 %100, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %94, ptr noundef nonnull align 8 dereferenceable(1) %95, i64 %101, i1 false)
-  br label %106
+  %101 = icmp ult i64 %100, 16
+  call void @llvm.assume(i1 %101)
+  %102 = add nuw nsw i64 %100, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %94, ptr noundef nonnull align 8 dereferenceable(1) %95, i64 %102, i1 false)
+  br label %107
 
-102:                                              ; preds = %93
+103:                                              ; preds = %93
   store ptr %95, ptr %0, align 8, !tbaa !34
-  %103 = load i64, ptr %96, align 8, !tbaa !40
-  store i64 %103, ptr %94, align 8, !tbaa !40
-  %104 = getelementptr inbounds i8, ptr %3, i64 8
-  %105 = load i64, ptr %104, align 8, !tbaa !39
-  br label %106
+  %104 = load i64, ptr %96, align 8, !tbaa !40
+  store i64 %104, ptr %94, align 8, !tbaa !40
+  %105 = getelementptr inbounds i8, ptr %3, i64 8
+  %106 = load i64, ptr %105, align 8, !tbaa !39
+  br label %107
 
-106:                                              ; preds = %102, %98
-  %107 = phi i64 [ %100, %98 ], [ %105, %102 ]
-  %108 = getelementptr inbounds i8, ptr %3, i64 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %107, ptr %109, align 8, !tbaa !39
+107:                                              ; preds = %103, %98
+  %108 = phi i64 [ %100, %98 ], [ %106, %103 ]
+  %109 = getelementptr inbounds i8, ptr %3, i64 8
+  %110 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %108, ptr %110, align 8, !tbaa !39
   store ptr %96, ptr %3, align 8, !tbaa !34
-  store i64 0, ptr %108, align 8, !tbaa !39
+  store i64 0, ptr %109, align 8, !tbaa !39
   store i8 0, ptr %96, align 1, !tbaa !40
   ret void
 }

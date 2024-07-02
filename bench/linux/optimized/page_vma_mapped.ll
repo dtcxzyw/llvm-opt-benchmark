@@ -530,7 +530,7 @@ define internal fastcc noundef ptr @huge_pte_lock(i32 %.40.val, ptr noundef %0, 
   %7 = ptrtoint ptr %1 to i64
   %8 = and i64 %7, -4096
   %9 = add i64 %8, 2147483648
-  %10 = icmp ugt i64 %8, -2147483649
+  %10 = icmp ugt ptr %1, inttoptr (i64 -2147483649 to ptr)
   %11 = load i64, ptr @phys_base, align 8
   %12 = load i64, ptr @page_offset_base, align 8
   %13 = sub i64 -2147483648, %12

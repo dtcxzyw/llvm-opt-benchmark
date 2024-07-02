@@ -491,7 +491,7 @@ define { ptr, i64 } @_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369ad
   %47 = load i8, ptr %45, align 1, !noalias !55, !noundef !33
   %48 = zext i8 %47 to i64
   %49 = or disjoint i64 %44, %48
-  %50 = icmp ult i64 %49, 256
+  %50 = icmp eq i8 %41, 0
   br i1 %50, label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread, label %23
 
 51:                                               ; preds = %23
@@ -644,7 +644,7 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72: ; preds = %39
   %61 = load i8, ptr %59, align 1, !noalias !71, !noundef !33
   %62 = zext i8 %61 to i64
   %63 = or disjoint i64 %58, %62
-  %64 = icmp ult i64 %63, 256
+  %64 = icmp eq i8 %54, 0
   br i1 %64, label %67, label %30
 
 65:                                               ; preds = %51
@@ -775,7 +775,7 @@ define { ptr, i64 } @_ZN4ring2io3der19nonnegative_integer17h72e0271b2fa3d71cE(pt
   %46 = load i8, ptr %44, align 1, !noalias !110, !noundef !33
   %47 = zext i8 %46 to i64
   %48 = or disjoint i64 %43, %47
-  %49 = icmp ult i64 %48, 256
+  %49 = icmp eq i8 %40, 0
   br i1 %49, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread, label %22
 
 50:                                               ; preds = %22

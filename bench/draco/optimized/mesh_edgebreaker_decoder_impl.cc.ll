@@ -2089,7 +2089,7 @@ _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE5clearEv.exit: ;
   br i1 %31, label %32, label %49
 
 32:                                               ; preds = %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE5clearEv.exit
-  %33 = icmp ult i16 %30, 512
+  %33 = icmp ult i8 %24, 2
   %34 = getelementptr inbounds i8, ptr %22, i64 64
   %35 = load ptr, ptr %34, align 8
   br i1 %33, label %36, label %45
@@ -2456,7 +2456,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE5clearEv.e
   br i1 %225, label %226, label %277
 
 226:                                              ; preds = %211
-  %227 = icmp ult i16 %224, 512
+  %227 = icmp ult i8 %218, 2
   %228 = getelementptr inbounds i8, ptr %216, i64 64
   %229 = load ptr, ptr %228, align 8
   br i1 %227, label %230, label %239
@@ -3554,36 +3554,36 @@ _ZN5draco13DecoderBuffer28DecodeLeastSignificantBits32EjPj.exit: ; preds = %_ZN5
   %205 = load ptr, ptr %7, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 72
   %207 = load i8, ptr %206, align 8
-  %208 = zext i8 %207 to i16
-  %209 = shl nuw i16 %208, 8
-  %210 = getelementptr inbounds i8, ptr %205, i64 73
-  %211 = load i8, ptr %210, align 1
-  %212 = zext i8 %211 to i16
-  %213 = or disjoint i16 %209, %212
-  %214 = icmp ult i16 %213, 512
-  br i1 %214, label %215, label %224
+  %208 = icmp ult i8 %207, 2
+  br i1 %208, label %209, label %218
 
-215:                                              ; preds = %.loopexit124
-  %216 = getelementptr inbounds i8, ptr %1, i64 8
-  %217 = load i64, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %1, i64 16
-  %219 = load i64, ptr %218, align 8
-  %220 = add i64 %219, 4
-  %.not118 = icmp slt i64 %217, %220
+209:                                              ; preds = %.loopexit124
+  %210 = getelementptr inbounds i8, ptr %1, i64 8
+  %211 = load i64, ptr %210, align 8
+  %212 = getelementptr inbounds i8, ptr %1, i64 16
+  %213 = load i64, ptr %212, align 8
+  %214 = add i64 %213, 4
+  %.not118 = icmp slt i64 %211, %214
   br i1 %.not118, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread: ; preds = %215
-  %221 = load ptr, ptr %1, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 %219
-  %223 = load i32, ptr %222, align 1
-  store i64 %220, ptr %218, align 8
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread: ; preds = %209
+  %215 = load ptr, ptr %1, align 8
+  %216 = getelementptr inbounds i8, ptr %215, i64 %213
+  %217 = load i32, ptr %216, align 1
+  store i64 %214, ptr %212, align 8
   br label %thread-pre-split110
 
-224:                                              ; preds = %.loopexit124
-  %225 = icmp eq i16 %213, 512
+218:                                              ; preds = %.loopexit124
+  %219 = zext i8 %207 to i16
+  %220 = shl nuw i16 %219, 8
+  %221 = getelementptr inbounds i8, ptr %205, i64 73
+  %222 = load i8, ptr %221, align 1
+  %223 = zext i8 %222 to i16
+  %224 = or disjoint i16 %220, %223
+  %225 = icmp ult i16 %224, 513
   br i1 %225, label %226, label %.loopexit
 
-226:                                              ; preds = %224
+226:                                              ; preds = %218
   %227 = call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %5, ptr noundef %1)
   br i1 %227, label %.thread-pre-split110_crit_edge, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -3592,7 +3592,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread: ; preds = %215
   br label %thread-pre-split110
 
 thread-pre-split110:                              ; preds = %.thread-pre-split110_crit_edge, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread
-  %228 = phi i32 [ %223, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread ], [ %.pr111.pre, %.thread-pre-split110_crit_edge ]
+  %228 = phi i32 [ %217, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread ], [ %.pr111.pre, %.thread-pre-split110_crit_edge ]
   %.not41 = icmp eq i32 %228, 0
   br i1 %.not41, label %.loopexit, label %229
 
@@ -3805,14 +3805,14 @@ _ZNSt6vectorIN5draco13HoleEventDataESaIS1_EE9push_backERKS1_.exit80: ; preds = %
   %exitcond151.not = icmp eq i32 %318, %228
   br i1 %exitcond151.not, label %.loopexit, label %285, !llvm.loop !32
 
-.loopexit:                                        ; preds = %_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EE9push_backERKS1_.exit80, %_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EE9push_backERKS1_.exit, %224, %thread-pre-split110
+.loopexit:                                        ; preds = %_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EE9push_backERKS1_.exit80, %_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EE9push_backERKS1_.exit, %218, %thread-pre-split110
   %319 = getelementptr inbounds i8, ptr %1, i64 16
   %320 = load i64, ptr %319, align 8
   %321 = trunc i64 %320 to i32
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %109, %105, %103, %66, %61, %57, %285, %248, %215, %12, %226, %25, %21, %.loopexit
-  %.033 = phi i32 [ %321, %.loopexit ], [ -1, %21 ], [ -1, %25 ], [ -1, %226 ], [ -1, %12 ], [ -1, %215 ], [ -1, %248 ], [ -1, %285 ], [ -1, %57 ], [ -1, %61 ], [ -1, %66 ], [ -1, %103 ], [ -1, %105 ], [ -1, %109 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %109, %105, %103, %66, %61, %57, %285, %248, %209, %12, %226, %25, %21, %.loopexit
+  %.033 = phi i32 [ %321, %.loopexit ], [ -1, %21 ], [ -1, %25 ], [ -1, %226 ], [ -1, %12 ], [ -1, %209 ], [ -1, %248 ], [ -1, %285 ], [ -1, %57 ], [ -1, %61 ], [ -1, %66 ], [ -1, %103 ], [ -1, %105 ], [ -1, %109 ]
   ret i32 %.033
 }
 
@@ -8907,7 +8907,7 @@ _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE5clearEv.exit: ;
   br i1 %31, label %32, label %49
 
 32:                                               ; preds = %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE5clearEv.exit
-  %33 = icmp ult i16 %30, 512
+  %33 = icmp ult i8 %24, 2
   %34 = getelementptr inbounds i8, ptr %22, i64 64
   %35 = load ptr, ptr %34, align 8
   br i1 %33, label %36, label %45
@@ -9274,7 +9274,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE5clearEv.e
   br i1 %225, label %226, label %277
 
 226:                                              ; preds = %211
-  %227 = icmp ult i16 %224, 512
+  %227 = icmp ult i8 %218, 2
   %228 = getelementptr inbounds i8, ptr %216, i64 64
   %229 = load ptr, ptr %228, align 8
   br i1 %227, label %230, label %239
@@ -10217,36 +10217,36 @@ _ZN5draco13DecoderBuffer28DecodeLeastSignificantBits32EjPj.exit: ; preds = %_ZN5
   %205 = load ptr, ptr %7, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 72
   %207 = load i8, ptr %206, align 8
-  %208 = zext i8 %207 to i16
-  %209 = shl nuw i16 %208, 8
-  %210 = getelementptr inbounds i8, ptr %205, i64 73
-  %211 = load i8, ptr %210, align 1
-  %212 = zext i8 %211 to i16
-  %213 = or disjoint i16 %209, %212
-  %214 = icmp ult i16 %213, 512
-  br i1 %214, label %215, label %224
+  %208 = icmp ult i8 %207, 2
+  br i1 %208, label %209, label %218
 
-215:                                              ; preds = %.loopexit124
-  %216 = getelementptr inbounds i8, ptr %1, i64 8
-  %217 = load i64, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %1, i64 16
-  %219 = load i64, ptr %218, align 8
-  %220 = add i64 %219, 4
-  %.not118 = icmp slt i64 %217, %220
+209:                                              ; preds = %.loopexit124
+  %210 = getelementptr inbounds i8, ptr %1, i64 8
+  %211 = load i64, ptr %210, align 8
+  %212 = getelementptr inbounds i8, ptr %1, i64 16
+  %213 = load i64, ptr %212, align 8
+  %214 = add i64 %213, 4
+  %.not118 = icmp slt i64 %211, %214
   br i1 %.not118, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread: ; preds = %215
-  %221 = load ptr, ptr %1, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 %219
-  %223 = load i32, ptr %222, align 1
-  store i64 %220, ptr %218, align 8
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread: ; preds = %209
+  %215 = load ptr, ptr %1, align 8
+  %216 = getelementptr inbounds i8, ptr %215, i64 %213
+  %217 = load i32, ptr %216, align 1
+  store i64 %214, ptr %212, align 8
   br label %thread-pre-split110
 
-224:                                              ; preds = %.loopexit124
-  %225 = icmp eq i16 %213, 512
+218:                                              ; preds = %.loopexit124
+  %219 = zext i8 %207 to i16
+  %220 = shl nuw i16 %219, 8
+  %221 = getelementptr inbounds i8, ptr %205, i64 73
+  %222 = load i8, ptr %221, align 1
+  %223 = zext i8 %222 to i16
+  %224 = or disjoint i16 %220, %223
+  %225 = icmp ult i16 %224, 513
   br i1 %225, label %226, label %.loopexit
 
-226:                                              ; preds = %224
+226:                                              ; preds = %218
   %227 = call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %5, ptr noundef %1)
   br i1 %227, label %.thread-pre-split110_crit_edge, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -10255,7 +10255,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread: ; preds = %215
   br label %thread-pre-split110
 
 thread-pre-split110:                              ; preds = %.thread-pre-split110_crit_edge, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread
-  %228 = phi i32 [ %223, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread ], [ %.pr111.pre, %.thread-pre-split110_crit_edge ]
+  %228 = phi i32 [ %217, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread ], [ %.pr111.pre, %.thread-pre-split110_crit_edge ]
   %.not41 = icmp eq i32 %228, 0
   br i1 %.not41, label %.loopexit, label %229
 
@@ -10468,14 +10468,14 @@ _ZNSt6vectorIN5draco13HoleEventDataESaIS1_EE9push_backERKS1_.exit80: ; preds = %
   %exitcond151.not = icmp eq i32 %318, %228
   br i1 %exitcond151.not, label %.loopexit, label %285, !llvm.loop !117
 
-.loopexit:                                        ; preds = %_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EE9push_backERKS1_.exit80, %_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EE9push_backERKS1_.exit, %224, %thread-pre-split110
+.loopexit:                                        ; preds = %_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EE9push_backERKS1_.exit80, %_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EE9push_backERKS1_.exit, %218, %thread-pre-split110
   %319 = getelementptr inbounds i8, ptr %1, i64 16
   %320 = load i64, ptr %319, align 8
   %321 = trunc i64 %320 to i32
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %109, %105, %103, %66, %61, %57, %285, %248, %215, %12, %226, %25, %21, %.loopexit
-  %.033 = phi i32 [ %321, %.loopexit ], [ -1, %21 ], [ -1, %25 ], [ -1, %226 ], [ -1, %12 ], [ -1, %215 ], [ -1, %248 ], [ -1, %285 ], [ -1, %57 ], [ -1, %61 ], [ -1, %66 ], [ -1, %103 ], [ -1, %105 ], [ -1, %109 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %109, %105, %103, %66, %61, %57, %285, %248, %209, %12, %226, %25, %21, %.loopexit
+  %.033 = phi i32 [ %321, %.loopexit ], [ -1, %21 ], [ -1, %25 ], [ -1, %226 ], [ -1, %12 ], [ -1, %209 ], [ -1, %248 ], [ -1, %285 ], [ -1, %57 ], [ -1, %61 ], [ -1, %66 ], [ -1, %103 ], [ -1, %105 ], [ -1, %109 ]
   ret i32 %.033
 }
 
@@ -15489,7 +15489,7 @@ _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE5clearEv.exit: ;
   br i1 %31, label %32, label %49
 
 32:                                               ; preds = %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE5clearEv.exit
-  %33 = icmp ult i16 %30, 512
+  %33 = icmp ult i8 %24, 2
   %34 = getelementptr inbounds i8, ptr %22, i64 64
   %35 = load ptr, ptr %34, align 8
   br i1 %33, label %36, label %45
@@ -15856,7 +15856,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE5clearEv.e
   br i1 %225, label %226, label %277
 
 226:                                              ; preds = %211
-  %227 = icmp ult i16 %224, 512
+  %227 = icmp ult i8 %218, 2
   %228 = getelementptr inbounds i8, ptr %216, i64 64
   %229 = load ptr, ptr %228, align 8
   br i1 %227, label %230, label %239
@@ -16799,36 +16799,36 @@ _ZN5draco13DecoderBuffer28DecodeLeastSignificantBits32EjPj.exit: ; preds = %_ZN5
   %205 = load ptr, ptr %7, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 72
   %207 = load i8, ptr %206, align 8
-  %208 = zext i8 %207 to i16
-  %209 = shl nuw i16 %208, 8
-  %210 = getelementptr inbounds i8, ptr %205, i64 73
-  %211 = load i8, ptr %210, align 1
-  %212 = zext i8 %211 to i16
-  %213 = or disjoint i16 %209, %212
-  %214 = icmp ult i16 %213, 512
-  br i1 %214, label %215, label %224
+  %208 = icmp ult i8 %207, 2
+  br i1 %208, label %209, label %218
 
-215:                                              ; preds = %.loopexit124
-  %216 = getelementptr inbounds i8, ptr %1, i64 8
-  %217 = load i64, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %1, i64 16
-  %219 = load i64, ptr %218, align 8
-  %220 = add i64 %219, 4
-  %.not118 = icmp slt i64 %217, %220
+209:                                              ; preds = %.loopexit124
+  %210 = getelementptr inbounds i8, ptr %1, i64 8
+  %211 = load i64, ptr %210, align 8
+  %212 = getelementptr inbounds i8, ptr %1, i64 16
+  %213 = load i64, ptr %212, align 8
+  %214 = add i64 %213, 4
+  %.not118 = icmp slt i64 %211, %214
   br i1 %.not118, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread: ; preds = %215
-  %221 = load ptr, ptr %1, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 %219
-  %223 = load i32, ptr %222, align 1
-  store i64 %220, ptr %218, align 8
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread: ; preds = %209
+  %215 = load ptr, ptr %1, align 8
+  %216 = getelementptr inbounds i8, ptr %215, i64 %213
+  %217 = load i32, ptr %216, align 1
+  store i64 %214, ptr %212, align 8
   br label %thread-pre-split110
 
-224:                                              ; preds = %.loopexit124
-  %225 = icmp eq i16 %213, 512
+218:                                              ; preds = %.loopexit124
+  %219 = zext i8 %207 to i16
+  %220 = shl nuw i16 %219, 8
+  %221 = getelementptr inbounds i8, ptr %205, i64 73
+  %222 = load i8, ptr %221, align 1
+  %223 = zext i8 %222 to i16
+  %224 = or disjoint i16 %220, %223
+  %225 = icmp ult i16 %224, 513
   br i1 %225, label %226, label %.loopexit
 
-226:                                              ; preds = %224
+226:                                              ; preds = %218
   %227 = call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %5, ptr noundef %1)
   br i1 %227, label %.thread-pre-split110_crit_edge, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -16837,7 +16837,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread: ; preds = %215
   br label %thread-pre-split110
 
 thread-pre-split110:                              ; preds = %.thread-pre-split110_crit_edge, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread
-  %228 = phi i32 [ %223, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread ], [ %.pr111.pre, %.thread-pre-split110_crit_edge ]
+  %228 = phi i32 [ %217, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit62.thread ], [ %.pr111.pre, %.thread-pre-split110_crit_edge ]
   %.not41 = icmp eq i32 %228, 0
   br i1 %.not41, label %.loopexit, label %229
 
@@ -17050,14 +17050,14 @@ _ZNSt6vectorIN5draco13HoleEventDataESaIS1_EE9push_backERKS1_.exit80: ; preds = %
   %exitcond151.not = icmp eq i32 %318, %228
   br i1 %exitcond151.not, label %.loopexit, label %285, !llvm.loop !187
 
-.loopexit:                                        ; preds = %_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EE9push_backERKS1_.exit80, %_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EE9push_backERKS1_.exit, %224, %thread-pre-split110
+.loopexit:                                        ; preds = %_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EE9push_backERKS1_.exit80, %_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EE9push_backERKS1_.exit, %218, %thread-pre-split110
   %319 = getelementptr inbounds i8, ptr %1, i64 16
   %320 = load i64, ptr %319, align 8
   %321 = trunc i64 %320 to i32
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %109, %105, %103, %66, %61, %57, %285, %248, %215, %12, %226, %25, %21, %.loopexit
-  %.033 = phi i32 [ %321, %.loopexit ], [ -1, %21 ], [ -1, %25 ], [ -1, %226 ], [ -1, %12 ], [ -1, %215 ], [ -1, %248 ], [ -1, %285 ], [ -1, %57 ], [ -1, %61 ], [ -1, %66 ], [ -1, %103 ], [ -1, %105 ], [ -1, %109 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %109, %105, %103, %66, %61, %57, %285, %248, %209, %12, %226, %25, %21, %.loopexit
+  %.033 = phi i32 [ %321, %.loopexit ], [ -1, %21 ], [ -1, %25 ], [ -1, %226 ], [ -1, %12 ], [ -1, %209 ], [ -1, %248 ], [ -1, %285 ], [ -1, %57 ], [ -1, %61 ], [ -1, %66 ], [ -1, %103 ], [ -1, %105 ], [ -1, %109 ]
   ret i32 %.033
 }
 

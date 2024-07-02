@@ -1673,12 +1673,12 @@ default.unreachable2829:                          ; preds = %444
   %460 = zext nneg i32 %459 to i64
   %461 = lshr i64 %.0912, %460
   %462 = and i32 %.0901, -8
-  %463 = icmp ult i32 %462, 32
+  %463 = icmp ult i32 %.0901, 32
   br i1 %463, label %.lr.ph2067.preheader, label %._crit_edge2068
 
 .lr.ph2067.preheader:                             ; preds = %458
-  %464 = and i32 %.0901, -8
-  %465 = zext i32 %464 to i64
+  %464 = and i32 %.0901, 24
+  %465 = zext nneg i32 %464 to i64
   br label %.lr.ph2067
 
 .lr.ph2067:                                       ; preds = %.lr.ph2067.preheader, %467
@@ -1701,7 +1701,7 @@ default.unreachable2829:                          ; preds = %444
   br i1 %474, label %.lr.ph2067, label %._crit_edge2068.loopexit, !llvm.loop !14
 
 ._crit_edge2068.loopexit:                         ; preds = %467
-  %475 = trunc nuw nsw i64 %indvars.iv.next2780 to i32
+  %475 = trunc nuw i64 %indvars.iv.next2780 to i32
   br label %._crit_edge2068
 
 ._crit_edge2068:                                  ; preds = %._crit_edge2068.loopexit, %458
@@ -3140,7 +3140,7 @@ default.unreachable2829:                          ; preds = %444
   br label %.loopexit1246
 
 .loopexit1246.loopexit2312:                       ; preds = %.lr.ph2067
-  %1028 = trunc nuw nsw i64 %indvars.iv2779 to i32
+  %1028 = trunc nuw i64 %indvars.iv2779 to i32
   br label %.loopexit1246
 
 .loopexit1246.loopexit2320:                       ; preds = %.lr.ph1735

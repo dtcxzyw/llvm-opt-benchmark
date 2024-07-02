@@ -42,10 +42,6 @@ if.then17.i:                                      ; preds = %if.end15.i
   %and.i2 = and i64 %inlen, -16
   %arrayidx9.i = getelementptr inbounds i8, ptr %state, i64 32
   %arrayidx11.i = getelementptr inbounds i8, ptr %state, i64 40
-  %cmp56.i.not = icmp eq i64 %and.i2, 0
-  br i1 %cmp56.i.not, label %poly1305_blocks.exit, label %while.body.lr.ph.i
-
-while.body.lr.ph.i:                               ; preds = %if.then17.i
   %mul12.i = mul nuw nsw i64 %and8.i, 20
   %mul.i = mul nuw nsw i64 %and4.i, 20
   %conv24.i = zext nneg i64 %and.i to i128
@@ -55,12 +51,12 @@ while.body.lr.ph.i:                               ; preds = %if.then17.i
   %conv46.i = zext nneg i64 %and8.i to i128
   br label %while.body.i
 
-while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %m.addr.061.i = phi ptr [ %m, %while.body.lr.ph.i ], [ %add.ptr.i10, %while.body.i ]
-  %bytes.addr.060.i = phi i64 [ %and.i2, %while.body.lr.ph.i ], [ %sub.i11, %while.body.i ]
-  %h0.059.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %and75.i, %while.body.i ]
-  %h1.058.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %add76.i, %while.body.i ]
-  %h2.057.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %and71.i, %while.body.i ]
+while.body.i:                                     ; preds = %while.body.i, %if.then17.i
+  %m.addr.061.i = phi ptr [ %m, %if.then17.i ], [ %add.ptr.i10, %while.body.i ]
+  %bytes.addr.060.i = phi i64 [ %and.i2, %if.then17.i ], [ %sub.i11, %while.body.i ]
+  %h0.059.i = phi i64 [ 0, %if.then17.i ], [ %and75.i, %while.body.i ]
+  %h1.058.i = phi i64 [ 0, %if.then17.i ], [ %add76.i, %while.body.i ]
+  %h2.057.i = phi i64 [ 0, %if.then17.i ], [ %and71.i, %while.body.i ]
   %m.addr.0.val.i = load i64, ptr %m.addr.061.i, align 1
   %arrayidx15.i = getelementptr i8, ptr %m.addr.061.i, i64 8
   %arrayidx15.val.i = load i64, ptr %arrayidx15.i, align 1
@@ -114,13 +110,10 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %cmp.i.not = icmp eq i64 %sub.i11, 0
   br i1 %cmp.i.not, label %poly1305_blocks.exit, label %while.body.i, !llvm.loop !4
 
-poly1305_blocks.exit:                             ; preds = %while.body.i, %if.then17.i
-  %h2.0.lcssa.i = phi i64 [ 0, %if.then17.i ], [ %and71.i, %while.body.i ]
-  %h1.0.lcssa.i = phi i64 [ 0, %if.then17.i ], [ %add76.i, %while.body.i ]
-  %h0.0.lcssa.i = phi i64 [ 0, %if.then17.i ], [ %and75.i, %while.body.i ]
-  store i64 %h0.0.lcssa.i, ptr %h.i, align 8
-  store i64 %h1.0.lcssa.i, ptr %arrayidx9.i, align 32
-  store i64 %h2.0.lcssa.i, ptr %arrayidx11.i, align 8
+poly1305_blocks.exit:                             ; preds = %while.body.i
+  store i64 %and75.i, ptr %h.i, align 8
+  store i64 %add76.i, ptr %arrayidx9.i, align 32
+  store i64 %and71.i, ptr %arrayidx11.i, align 8
   %add.ptr19.i = getelementptr i8, ptr %m, i64 %and.i2
   %sub20.i = and i64 %inlen, 15
   br label %if.end21.i

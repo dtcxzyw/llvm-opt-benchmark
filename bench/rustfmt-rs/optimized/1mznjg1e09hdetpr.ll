@@ -8185,15 +8185,15 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN5alloc6string6String3pop17hd
   br i1 %44, label %.thread, label %45
 
 45:                                               ; preds = %39
-  %46 = icmp ult i32 %43, 128
+  %46 = icmp ult i32 %.013.i, 2
   br i1 %46, label %51, label %47
 
 47:                                               ; preds = %45
-  %48 = icmp ult i32 %43, 2048
+  %48 = icmp ult i32 %.013.i, 32
   br i1 %48, label %51, label %49
 
 49:                                               ; preds = %47
-  %50 = icmp ult i32 %43, 65536
+  %50 = icmp ult i32 %.013.i, 1024
   %. = select i1 %50, i64 -3, i64 -4
   br label %51
 
@@ -15595,15 +15595,15 @@ _ZN5alloc6string6String3pop17hdad2d31967b342a0E.llvm.17476841346288807550.exit.i
   br i1 %770, label %_ZN5alloc6string6String3pop17hdad2d31967b342a0E.llvm.17476841346288807550.exit.i, label %771
 
 771:                                              ; preds = %765
-  %772 = icmp ult i32 %769, 128
+  %772 = icmp ult i32 %.013.i.i.i, 2
   br i1 %772, label %.thread23.i.i, label %773
 
 773:                                              ; preds = %771
-  %774 = icmp ult i32 %769, 2048
+  %774 = icmp ult i32 %.013.i.i.i, 32
   br i1 %774, label %.thread23.i.i, label %775
 
 775:                                              ; preds = %773
-  %776 = icmp ult i32 %769, 65536
+  %776 = icmp ult i32 %.013.i.i.i, 1024
   %..i.i = select i1 %776, i64 -3, i64 -4
   br label %.thread23.i.i
 
@@ -17650,15 +17650,15 @@ _ZN15rustfmt_nightly7comment18CodeBlockAttribute3new17h8d707a7a5ddda6ccE.exit.i:
   br i1 %1484, label %_ZN5alloc6string6String3pop17hdad2d31967b342a0E.llvm.17476841346288807550.exit.i.i.i, label %1485
 
 1485:                                             ; preds = %1479
-  %1486 = icmp ult i32 %1483, 128
+  %1486 = icmp ult i32 %.013.i.i.i.i.i, 2
   br i1 %1486, label %.thread23.i.i.i.i, label %1487
 
 1487:                                             ; preds = %1485
-  %1488 = icmp ult i32 %1483, 2048
+  %1488 = icmp ult i32 %.013.i.i.i.i.i, 32
   br i1 %1488, label %.thread23.i.i.i.i, label %1489
 
 1489:                                             ; preds = %1487
-  %1490 = icmp ult i32 %1483, 65536
+  %1490 = icmp ult i32 %.013.i.i.i.i.i, 1024
   %..i.i.i.i = select i1 %1490, i64 -3, i64 -4
   br label %.thread23.i.i.i.i
 

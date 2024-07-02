@@ -6320,7 +6320,7 @@ Abc_Clock.exit:                                   ; preds = %17, %20
   %56 = mul nuw nsw i32 %28, 8147
   %57 = add nuw nsw i32 %56, %55
   %58 = add nuw nsw i32 %57, %54
-  %.not.i.i = icmp ult i64 %51, 576460752303423488
+  %.not.i.i = icmp eq i32 %35, 0
   br i1 %.not.i.i, label %Dss_ManCacheHashKey.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %Abc_Clock.exit
@@ -6386,7 +6386,7 @@ Dss_ManCacheLookup.exit:                          ; preds = %83, %85, %Dss_ManCa
   %.sink.i = phi i64 [ 104, %Dss_ManCacheHashKey.exit.i ], [ 104, %85 ], [ 96, %83 ]
   %.029.i = phi ptr [ %72, %Dss_ManCacheHashKey.exit.i ], [ %86, %85 ], [ %.031.i, %83 ]
   %88 = getelementptr inbounds i8, ptr %0, i64 %.sink.i
-  %89 = icmp ugt i64 %51, 576460752303423487
+  %89 = icmp ne i32 %35, 0
   %90 = zext i1 %89 to i64
   %91 = getelementptr inbounds [2 x i32], ptr %88, i64 0, i64 %90
   %92 = load i32, ptr %91, align 4

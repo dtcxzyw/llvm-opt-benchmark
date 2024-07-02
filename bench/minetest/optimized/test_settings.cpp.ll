@@ -844,6 +844,8 @@ call.i.i.i205.noexc:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i207:                                   ; preds = %call.i.i.i205.noexc
   %_M_string_length.i.i1.i = getelementptr inbounds i8, ptr %call.i.i.i205209, i64 8
   %47 = load i64, ptr %_M_string_length.i.i1.i, align 8, !tbaa !13
+  %cmp3.i.i.i208 = icmp ult i64 %47, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i208)
   %add.i.i = add nuw nsw i64 %47, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(1) %45, i64 %add.i.i, i1 false)
   br label %invoke.cont20
@@ -1131,6 +1133,8 @@ call.i.i.i277.noexc:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i284:                                   ; preds = %call.i.i.i277.noexc
   %_M_string_length.i.i1.i285 = getelementptr inbounds i8, ptr %call.i.i.i277290, i64 8
   %83 = load i64, ptr %_M_string_length.i.i1.i285, align 8, !tbaa !13
+  %cmp3.i.i.i286 = icmp ult i64 %83, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i286)
   %add.i.i287 = add nuw nsw i64 %83, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %81, i64 %add.i.i287, i1 false)
   br label %invoke.cont54
@@ -1176,6 +1180,8 @@ call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i300:                                   ; preds = %call2.i.i.noexc
   %_M_string_length.i.i.i301 = getelementptr inbounds i8, ptr %call2.i.i306, i64 8
   %89 = load i64, ptr %_M_string_length.i.i.i301, align 8, !tbaa !13
+  %cmp3.i.i.i302 = icmp ult i64 %89, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i302)
   %add.i.i303 = add nuw nsw i64 %89, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(1) %87, i64 %add.i.i303, i1 false)
   br label %invoke.cont56
@@ -1224,6 +1230,8 @@ call.i.i.i312.noexc:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i319:                                   ; preds = %call.i.i.i312.noexc
   %_M_string_length.i.i1.i320 = getelementptr inbounds i8, ptr %call.i.i.i312325, i64 8
   %97 = load i64, ptr %_M_string_length.i.i1.i320, align 8, !tbaa !13
+  %cmp3.i.i.i321 = icmp ult i64 %97, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i321)
   %add.i.i322 = add nuw nsw i64 %97, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(1) %95, i64 %add.i.i322, i1 false)
   br label %invoke.cont58
@@ -1262,6 +1270,8 @@ if.end.thread.i:                                  ; preds = %invoke.cont58
 
 if.then14.i:                                      ; preds = %if.end.thread.i, %if.end.i
   %104 = load i64, ptr %_M_string_length.i33.i.i318, align 8, !tbaa !13
+  %cmp3.i56.i = icmp ult i64 %104, 16
+  call void @llvm.assume(i1 %cmp3.i56.i)
   switch i64 %104, label %if.end.i.i.i329 [
     i64 0, label %if.end22.i
     i64 1, label %if.then.i60.i
@@ -1494,6 +1504,8 @@ call.i.i.i390.noexc:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i397:                                   ; preds = %call.i.i.i390.noexc
   %_M_string_length.i.i1.i398 = getelementptr inbounds i8, ptr %call.i.i.i390403, i64 8
   %136 = load i64, ptr %_M_string_length.i.i1.i398, align 8, !tbaa !13
+  %cmp3.i.i.i399 = icmp ult i64 %136, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i399)
   %add.i.i400 = add nuw nsw i64 %136, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(1) %134, i64 %add.i.i400, i1 false)
   br label %invoke.cont74
@@ -1539,6 +1551,8 @@ call2.i.i.noexc422:                               ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i416:                                   ; preds = %call2.i.i.noexc422
   %_M_string_length.i.i.i417 = getelementptr inbounds i8, ptr %call2.i.i423, i64 8
   %142 = load i64, ptr %_M_string_length.i.i.i417, align 8, !tbaa !13
+  %cmp3.i.i.i418 = icmp ult i64 %142, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i418)
   %add.i.i419 = add nuw nsw i64 %142, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(1) %140, i64 %add.i.i419, i1 false)
   br label %invoke.cont76
@@ -1592,6 +1606,8 @@ call.i.i.i430.noexc:                              ; preds = %_ZNSt7__cxx1112basi
 if.then.i.i437:                                   ; preds = %call.i.i.i430.noexc
   %_M_string_length.i.i1.i438 = getelementptr inbounds i8, ptr %call.i.i.i430443, i64 8
   %150 = load i64, ptr %_M_string_length.i.i1.i438, align 8, !tbaa !13
+  %cmp3.i.i.i439 = icmp ult i64 %150, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i439)
   %add.i.i440 = add nuw nsw i64 %150, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(1) %148, i64 %add.i.i440, i1 false)
   br label %invoke.cont80
@@ -1630,6 +1646,8 @@ if.end.thread.i446:                               ; preds = %invoke.cont80
 
 if.then14.i455:                                   ; preds = %if.end.thread.i446, %if.end.i464
   %157 = load i64, ptr %_M_string_length.i33.i.i436, align 8, !tbaa !13
+  %cmp3.i56.i457 = icmp ult i64 %157, 16
+  call void @llvm.assume(i1 %cmp3.i56.i457)
   switch i64 %157, label %if.end.i.i.i463 [
     i64 0, label %if.end22.i459
     i64 1, label %if.then.i60.i458
@@ -2272,6 +2290,8 @@ entry:
 if.then.i:                                        ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %in_message, i64 8
   %3 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !13
+  %cmp3.i.i = icmp ult i64 %3, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = add nuw nsw i64 %3, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %add.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit

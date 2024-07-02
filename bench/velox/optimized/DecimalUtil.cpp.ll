@@ -125,20 +125,20 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i2
   br label %eh.resume.i
 
 if.end5.i:                                        ; preds = %entry
-  %cmp6.i = icmp slt i128 %unscaledValue.sroa.0.0.insert.insert.i, 0
-  %spec.select.i = tail call i128 @llvm.abs.i128(i128 %unscaledValue.sroa.0.0.insert.insert.i, i1 true)
+  %cmp6.i = icmp slt i128 %unscaledValue.sroa.2.0.insert.shift.i, 0
+  %add.i = sub nsw i128 0, %unscaledValue.sroa.0.0.insert.insert.i
+  %spec.select.i = select i1 %cmp6.i, i128 %add.i, i128 %unscaledValue.sroa.0.0.insert.insert.i
   %idxprom.i = and i64 %.sroa.1.0.extract.shift, 255
   %arrayidx.i = getelementptr inbounds [39 x i128], ptr @_ZN8facebook5velox11DecimalUtil12kPowersOfTenE, i64 0, i64 %idxprom.i
   %6 = load i128, ptr %arrayidx.i, align 16, !noalias !7
-  %spec.select.i.frozen = freeze i128 %spec.select.i
   %.frozen = freeze i128 %6
-  %div.i = sdiv i128 %spec.select.i.frozen, %.frozen
+  %div.i = sdiv i128 %spec.select.i, %.frozen
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fractionString.i) #14, !noalias !7
   br i1 %cmp.not.i, label %.noexc.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end5.i
   %7 = mul i128 %div.i, %.frozen
-  %rem.i.decomposed = sub i128 %spec.select.i.frozen, %7
+  %rem.i.decomposed = sub i128 %spec.select.i, %7
   %coerce.sroa.0.0.extract.trunc.i = trunc i128 %rem.i.decomposed to i64
   %coerce.sroa.2.0.extract.shift.i = lshr i128 %rem.i.decomposed, 64
   %coerce.sroa.2.0.extract.trunc.i = trunc nuw nsw i128 %coerce.sroa.2.0.extract.shift.i to i64
@@ -272,9 +272,9 @@ define noundef range(i32 -268435446, 268435457) i32 @_ZN8facebook5velox11Decimal
 entry:
   %value.sroa.2.0.insert.ext = zext i64 %value.coerce1 to i128
   %value.sroa.2.0.insert.shift = shl nuw i128 %value.sroa.2.0.insert.ext, 64
+  %cmp = icmp slt i128 %value.sroa.2.0.insert.shift, 0
   %value.sroa.0.0.insert.ext = zext i64 %value.coerce0 to i128
   %value.sroa.0.0.insert.insert = or disjoint i128 %value.sroa.2.0.insert.shift, %value.sroa.0.0.insert.ext
-  %cmp = icmp slt i128 %value.sroa.0.0.insert.insert, 0
   %not = xor i128 %value.sroa.0.0.insert.insert, -1
   %extract.t = trunc i128 %not to i64
   %extract = lshr i128 %not, 64
@@ -314,9 +314,9 @@ entry:
   %highBig = alloca i64, align 8
   %value.sroa.2.0.insert.ext.i = zext i64 %value.coerce1 to i128
   %value.sroa.2.0.insert.shift.i = shl nuw i128 %value.sroa.2.0.insert.ext.i, 64
+  %cmp.i = icmp slt i128 %value.sroa.2.0.insert.shift.i, 0
   %value.sroa.0.0.insert.ext.i = zext i64 %value.coerce0 to i128
   %value.sroa.0.0.insert.insert.i = or disjoint i128 %value.sroa.2.0.insert.shift.i, %value.sroa.0.0.insert.ext.i
-  %cmp.i = icmp slt i128 %value.sroa.0.0.insert.insert.i, 0
   %not.i = xor i128 %value.sroa.0.0.insert.insert.i, -1
   %extract.t.i = trunc i128 %not.i to i64
   %extract.i = lshr i128 %not.i, 64
@@ -573,9 +573,6 @@ declare void @llvm.trap() #10
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i128 @llvm.abs.i128(i128, i1 immarg) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -583,6 +580,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i128 @llvm.abs.i128(i128, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #12

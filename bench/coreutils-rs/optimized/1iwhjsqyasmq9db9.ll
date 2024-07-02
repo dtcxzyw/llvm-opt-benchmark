@@ -1432,7 +1432,7 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4send17h634e7d80019
 "_ZN3std4sync4mpmc4list16Channel$LT$T$GT$5write17hdd3d229248959676E.llvm.16206055717341411407.exit.thread": ; preds = %5
   %11 = getelementptr inbounds i8, ptr %6, i64 24
   %12 = load i64, ptr %11, align 8, !alias.scope !138, !noalias !141, !noundef !8
-  %13 = icmp ne i64 %12, 31
+  %13 = icmp ult i64 %12, 31
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds { { { [12 x i64] } }, { i64 }, [1 x i64] }, ptr %9, i64 %12
   store i64 %.sroa.012.0.copyload, ptr %14, align 16, !noalias !144
@@ -1481,7 +1481,7 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$5write17hdd3d229248
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %2, i64 24
   %11 = load i64, ptr %10, align 8, !noundef !8
-  %12 = icmp ne i64 %11, 31
+  %12 = icmp ult i64 %11, 31
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds { { { [12 x i64] } }, { i64 }, [1 x i64] }, ptr %6, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %13, ptr noundef nonnull align 16 dereferenceable(96) %3, i64 96, i1 false)

@@ -217,7 +217,7 @@ softfloat_shiftRightJam64.exit.thread:            ; preds = %79
   %115 = icmp ne i64 %.sink260, 0
   %116 = zext i1 %115 to i64
   %117 = or i64 %.sink, %116
-  %118 = icmp ult i64 %117, 4611686018427387904
+  %118 = icmp ult i64 %.sink, 4611686018427387904
   br i1 %118, label %119, label %171
 
 119:                                              ; preds = %114

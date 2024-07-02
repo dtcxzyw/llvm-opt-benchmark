@@ -456,7 +456,7 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   call void @MuxImageInit(ptr noundef nonnull %4) #7
   %27 = call fastcc i32 @SetAlphaAndImageChunks(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %4)
   %.not49 = icmp eq i32 %27, 1
-  br i1 %.not49, label %28, label %53
+  br i1 %.not49, label %28, label %56
 
 28:                                               ; preds = %26
   %29 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 36), align 4
@@ -469,48 +469,52 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, -2
   store i32 %35, ptr %33, align 4
-  %or.cond4 = icmp ult i32 %32, 16777216
-  %36 = icmp ult i32 %35, 16777216
-  %or.cond10.not59 = select i1 %or.cond4, i1 %36, i1 false
-  %37 = getelementptr inbounds i8, ptr %6, i64 24
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp ult i32 %38, 16777216
-  %or.cond16.not57 = select i1 %or.cond10.not59, i1 %39, i1 false
-  %40 = getelementptr inbounds i8, ptr %6, i64 32
+  %36 = icmp sgt i32 %31, -1
+  %37 = icmp slt i32 %32, 16777216
+  %or.cond4.not62 = and i1 %36, %37
+  %38 = icmp sgt i32 %34, -1
+  %39 = icmp slt i32 %35, 16777216
+  %.not65 = and i1 %38, %39
+  %or.cond10.not59 = select i1 %or.cond4.not62, i1 %.not65, i1 false
+  %40 = getelementptr inbounds i8, ptr %6, i64 24
   %41 = load i32, ptr %40, align 8
-  %.not50 = icmp ult i32 %41, 2
-  %or.cond55 = select i1 %or.cond16.not57, i1 %.not50, i1 false
-  br i1 %or.cond55, label %42, label %53
-
-42:                                               ; preds = %28
-  %43 = getelementptr inbounds i8, ptr %4, i64 32
+  %42 = icmp ult i32 %41, 16777216
+  %or.cond16.not57 = select i1 %or.cond10.not59, i1 %42, i1 false
+  %43 = getelementptr inbounds i8, ptr %6, i64 32
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 36
-  %46 = load i32, ptr %45, align 4
-  %47 = call fastcc i32 @CreateFrameData(i32 noundef %44, i32 noundef %46, ptr noundef nonnull %6, ptr noundef nonnull %5)
-  %.not51 = icmp eq i32 %47, 1
-  br i1 %.not51, label %48, label %53
+  %.not50 = icmp ult i32 %44, 2
+  %or.cond55 = select i1 %or.cond16.not57, i1 %.not50, i1 false
+  br i1 %or.cond55, label %45, label %56
 
-48:                                               ; preds = %42
-  %49 = call fastcc i32 @AddDataToChunkList(ptr noundef nonnull %5, i32 noundef 1, i32 noundef %29, ptr noundef nonnull %4)
-  %50 = load ptr, ptr %5, align 8
-  call void @WebPFree(ptr noundef %50) #7
+45:                                               ; preds = %28
+  %46 = getelementptr inbounds i8, ptr %4, i64 32
+  %47 = load i32, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %4, i64 36
+  %49 = load i32, ptr %48, align 4
+  %50 = call fastcc i32 @CreateFrameData(i32 noundef %47, i32 noundef %49, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %.not51 = icmp eq i32 %50, 1
+  br i1 %.not51, label %51, label %56
+
+51:                                               ; preds = %45
+  %52 = call fastcc i32 @AddDataToChunkList(ptr noundef nonnull %5, i32 noundef 1, i32 noundef %29, ptr noundef nonnull %4)
+  %53 = load ptr, ptr %5, align 8
+  call void @WebPFree(ptr noundef %53) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %.not52 = icmp eq i32 %49, 1
-  br i1 %.not52, label %51, label %53
+  %.not52 = icmp eq i32 %52, 1
+  br i1 %.not52, label %54, label %56
 
-51:                                               ; preds = %48
-  %52 = call i32 @MuxImagePush(ptr noundef nonnull %4, ptr noundef nonnull %0) #7
-  %.not53 = icmp eq i32 %52, 1
-  br i1 %.not53, label %.thread, label %53
+54:                                               ; preds = %51
+  %55 = call i32 @MuxImagePush(ptr noundef nonnull %4, ptr noundef nonnull %0) #7
+  %.not53 = icmp eq i32 %55, 1
+  br i1 %.not53, label %.thread, label %56
 
-53:                                               ; preds = %28, %51, %48, %42, %26
-  %.037 = phi i32 [ %27, %26 ], [ %47, %42 ], [ %49, %48 ], [ %52, %51 ], [ -1, %28 ]
-  %54 = call ptr @MuxImageRelease(ptr noundef nonnull %4) #7
+56:                                               ; preds = %28, %54, %51, %45, %26
+  %.037 = phi i32 [ %27, %26 ], [ %50, %45 ], [ %52, %51 ], [ %55, %54 ], [ -1, %28 ]
+  %57 = call ptr @MuxImageRelease(ptr noundef nonnull %4) #7
   br label %.thread
 
-.thread:                                          ; preds = %21, %51, %23, %12, %15, %9, %3, %53
-  %.0 = phi i32 [ %.037, %53 ], [ -1, %3 ], [ -1, %9 ], [ -1, %15 ], [ -1, %12 ], [ -1, %23 ], [ 1, %51 ], [ -1, %21 ]
+.thread:                                          ; preds = %21, %54, %23, %12, %15, %9, %3, %56
+  %.0 = phi i32 [ %.037, %56 ], [ -1, %3 ], [ -1, %9 ], [ -1, %15 ], [ -1, %12 ], [ -1, %23 ], [ 1, %54 ], [ -1, %21 ]
   ret i32 %.0
 }
 

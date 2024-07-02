@@ -2347,7 +2347,7 @@ if.then11:                                        ; preds = %if.end8
   %0 = load i64, ptr %dlen, align 8
   %cmp13 = icmp ugt i64 %0, 12
   %1 = load ptr, ptr %data, align 8
-  br i1 %cmp13, label %if.then14, label %if.else17
+  br i1 %cmp13, label %if.then14, label %if.end.i
 
 if.then14:                                        ; preds = %if.then11
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %0
@@ -2378,17 +2378,17 @@ while.body.i:                                     ; preds = %while.body.i, %if.t
   %cmp11.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp11.not.i, label %if.end19, label %while.body.i, !llvm.loop !18
 
-if.else17:                                        ; preds = %if.then11
+if.end.i:                                         ; preds = %if.then11
   %mul.i = shl nuw nsw i64 %0, 1
   %add.i = or disjoint i64 %mul.i, 1
   %call10.i14 = call ptr @app_malloc(i64 noundef %add.i, ptr noundef nonnull @.str.258) #6
   %cmp11.not11.i = icmp eq i64 %0, 0
   br i1 %cmp11.not11.i, label %if.end19, label %while.body.i15
 
-while.body.i15:                                   ; preds = %if.else17, %while.body.i15
-  %data.addr.014.i16 = phi ptr [ %incdec.ptr14.i23, %while.body.i15 ], [ %1, %if.else17 ]
-  %len.addr.013.i17 = phi i64 [ %dec.i19, %while.body.i15 ], [ %0, %if.else17 ]
-  %cp.012.i18 = phi ptr [ %incdec.ptr19.i26, %while.body.i15 ], [ %call10.i14, %if.else17 ]
+while.body.i15:                                   ; preds = %if.end.i, %while.body.i15
+  %data.addr.014.i16 = phi ptr [ %incdec.ptr14.i23, %while.body.i15 ], [ %1, %if.end.i ]
+  %len.addr.013.i17 = phi i64 [ %dec.i19, %while.body.i15 ], [ %0, %if.end.i ]
+  %cp.012.i18 = phi ptr [ %incdec.ptr19.i26, %while.body.i15 ], [ %call10.i14, %if.end.i ]
   %dec.i19 = add i64 %len.addr.013.i17, -1
   %8 = load i8, ptr %data.addr.014.i16, align 1
   %9 = lshr i8 %8, 4
@@ -2408,9 +2408,9 @@ while.body.i15:                                   ; preds = %if.else17, %while.b
   %cmp11.not.i27 = icmp eq i64 %dec.i19, 0
   br i1 %cmp11.not.i27, label %if.end19, label %while.body.i15, !llvm.loop !18
 
-if.end19:                                         ; preds = %while.body.i15, %while.body.i, %if.else17
-  %cp.0.lcssa.i.sink = phi ptr [ %call10.i14, %if.else17 ], [ %incdec.ptr19.i, %while.body.i ], [ %incdec.ptr19.i26, %while.body.i15 ]
-  %hexdata.0 = phi ptr [ %call10.i14, %if.else17 ], [ %call10.i, %while.body.i ], [ %call10.i14, %while.body.i15 ]
+if.end19:                                         ; preds = %while.body.i15, %while.body.i, %if.end.i
+  %cp.0.lcssa.i.sink = phi ptr [ %call10.i14, %if.end.i ], [ %incdec.ptr19.i, %while.body.i ], [ %incdec.ptr19.i26, %while.body.i15 ]
+  %hexdata.0 = phi ptr [ %call10.i14, %if.end.i ], [ %call10.i, %while.body.i ], [ %call10.i14, %while.body.i15 ]
   store i8 0, ptr %cp.0.lcssa.i.sink, align 1
   %14 = load i8, ptr %usage, align 1
   %conv = zext i8 %14 to i32

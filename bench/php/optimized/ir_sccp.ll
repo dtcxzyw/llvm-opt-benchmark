@@ -81,7 +81,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   %44 = add i64 %35, -1
   %45 = and i64 %44, %35
   store i64 %45, ptr %.0574, align 8
-  %46 = icmp sgt i32 %43, -1
+  %46 = icmp sgt i32 %40, -1
   br i1 %46, label %49, label %.preheader801
 
 .preheader801:                                    ; preds = %.loopexit929, %36
@@ -1952,7 +1952,7 @@ ir_sccp_remove_insn.exit:                         ; preds = %855, %964, %967, %.
   %1004 = add i64 %995, -1
   %1005 = and i64 %1004, %995
   store i64 %1005, ptr %.0579, align 8
-  %1006 = icmp sgt i32 %1003, -1
+  %1006 = icmp sgt i32 %1000, -1
   br i1 %1006, label %1008, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit920, %996
@@ -2386,7 +2386,7 @@ ir_sccp_remove_insn2.exit:                        ; preds = %ir_sccp_remove_insn
   %1214 = and i64 %1213, %1202
   store i64 %1214, ptr %.0588, align 8
   store i32 %.0587, ptr %14, align 4
-  %1215 = icmp sgt i32 %1212, -1
+  %1215 = icmp sgt i32 %1209, -1
   br i1 %1215, label %1216, label %.loopexit
 
 1216:                                             ; preds = %1208

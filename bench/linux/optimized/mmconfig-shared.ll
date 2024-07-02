@@ -1203,7 +1203,7 @@ define internal noundef ptr @pci_mmcfg_intel_945() #0 section ".init.text" align
   %16 = and i32 %14, %5
   %17 = and i32 %16, 201326592
   %18 = icmp ne i32 %17, 0
-  %19 = icmp ugt i32 %16, -268435457
+  %19 = icmp ugt i32 %5, -268435457
   %20 = or i1 %19, %18
   br i1 %20, label %26, label %21
 

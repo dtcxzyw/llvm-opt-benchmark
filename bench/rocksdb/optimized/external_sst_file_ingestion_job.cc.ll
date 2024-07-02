@@ -7085,11 +7085,10 @@ for.body31:                                       ; preds = %for.cond27.preheade
   %add.ptr.i.i = getelementptr i8, ptr %25, i64 -256
   %retval.0.i = select i1 %cmp.i49, ptr %arrayidx.i51, ptr %add.ptr.i.i
   %add = or disjoint i64 %mul, 1
-  %cmp.i53 = icmp ult i64 %add, 8
   %arrayidx.i55 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %23, i64 %add
   %26 = getelementptr %"class.std::__cxx11::basic_string", ptr %24, i64 %add
   %add.ptr.i.i57 = getelementptr i8, ptr %26, i64 -256
-  %retval.0.i58 = select i1 %cmp.i53, ptr %arrayidx.i55, ptr %add.ptr.i.i57
+  %retval.0.i58 = select i1 %cmp.i49, ptr %arrayidx.i55, ptr %add.ptr.i.i57
   invoke void @_ZN7rocksdb10autovectorINS_5RangeELm8EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(296) %ranges, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i58)
           to label %for.inc38 unwind label %lpad2.loopexit
 

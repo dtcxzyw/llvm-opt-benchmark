@@ -1087,7 +1087,7 @@ if.then3:                                         ; preds = %call1.i.noexc
   %bf.clear.i16 = and i32 %bf.load.i15, 2147483647
   %bf.set.i = or disjoint i32 %bf.clear.i16, %bf.shl.i
   store i32 %bf.set.i, ptr %copy.sroa.2.0.parse_state.sroa_idx, align 4
-  %tobool.not.i = icmp sgt i32 %bf.set.i, -1
+  %tobool.not.i = icmp sgt i32 %copy.sroa.2.0.copyload, -1
   br i1 %tobool.not.i, label %cleanup, label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %if.then3
@@ -2263,7 +2263,7 @@ if.then8:                                         ; preds = %if.end.i25
   %bf.clear.i37 = and i32 %bf.load.i36, 2147483647
   %bf.set.i = or disjoint i32 %bf.clear.i37, %bf.shl.i
   store i32 %bf.set.i, ptr %copy.sroa.2.0.parse_state.sroa_idx, align 4
-  %tobool.not.i = icmp sgt i32 %bf.set.i, -1
+  %tobool.not.i = icmp sgt i32 %copy.sroa.2.0.copyload, -1
   br i1 %tobool.not.i, label %cleanup, label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %if.then8

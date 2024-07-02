@@ -47882,7 +47882,7 @@ if.end17:                                         ; preds = %if.end.i.i37, %if.e
   %div7.i = lshr i64 %sub.i39, 3
   %conv.i40 = trunc i64 %div7.i to i16
   store i16 %conv.i40, ptr %retval.0.i.ph.i, align 2
-  %cmp.i41 = icmp ult i64 %and.i33, 524288
+  %cmp.i41 = icmp ult i64 %add2.i, 524288
   %div48.i = lshr i64 %add2.i, 3
   %32 = trunc i64 %div48.i to i16
   %conv5.i = select i1 %cmp.i41, i16 %32, i16 0
@@ -51969,19 +51969,17 @@ if.else:                                          ; preds = %while.body
 land.lhs.true26:                                  ; preds = %if.else
   %arrayidx27 = getelementptr inbounds i8, ptr %data.addr.066, i64 1
   %8 = load i8, ptr %arrayidx27, align 1
-  %conv28 = zext i8 %8 to i32
-  %and29 = and i32 %conv28, 192
-  %cmp30 = icmp eq i32 %and29, 128
+  %9 = and i8 %8, -64
+  %cmp30 = icmp eq i8 %9, -128
   br i1 %cmp30, label %if.then31, label %if.else40
 
 if.then31:                                        ; preds = %land.lhs.true26
-  %and33 = shl nuw nsw i32 %conv, 6
-  %shl = and i32 %and33, 1984
-  %and36 = and i32 %conv28, 63
-  %or = or disjoint i32 %and36, %shl
-  %cmp.i = icmp ugt i32 %or, 255
-  %9 = trunc i32 %or to i8
-  %conv.i = select i1 %cmp.i, i8 63, i8 %9
+  %and33 = shl i8 %0, 6
+  %and36 = and i8 %8, 63
+  %or = or disjoint i8 %and36, %and33
+  %10 = and i32 %conv, 28
+  %cmp.i.not = icmp eq i32 %10, 0
+  %conv.i = select i1 %cmp.i.not, i8 %or, i8 63
   store i8 %conv.i, ptr %result.addr.064, align 1
   %add.ptr.i58 = getelementptr inbounds i8, ptr %result.addr.064, i64 1
   %add.ptr38 = getelementptr inbounds i8, ptr %data.addr.066, i64 2
@@ -51989,24 +51987,24 @@ if.then31:                                        ; preds = %land.lhs.true26
   br label %if.end120
 
 if.else40:                                        ; preds = %land.lhs.true26, %if.else
-  %10 = and i32 %conv, 240
-  %cmp43 = icmp eq i32 %10, 224
+  %11 = and i32 %conv, 240
+  %cmp43 = icmp eq i32 %11, 224
   %cmp45 = icmp ugt i64 %size.addr.065, 2
   %or.cond1 = and i1 %cmp45, %cmp43
   br i1 %or.cond1, label %land.lhs.true46, label %if.else72
 
 land.lhs.true46:                                  ; preds = %if.else40
   %arrayidx47 = getelementptr inbounds i8, ptr %data.addr.066, i64 1
-  %11 = load i8, ptr %arrayidx47, align 1
-  %conv48 = zext i8 %11 to i32
+  %12 = load i8, ptr %arrayidx47, align 1
+  %conv48 = zext i8 %12 to i32
   %and49 = and i32 %conv48, 192
   %cmp50 = icmp eq i32 %and49, 128
   br i1 %cmp50, label %land.lhs.true51, label %if.else72
 
 land.lhs.true51:                                  ; preds = %land.lhs.true46
   %arrayidx52 = getelementptr inbounds i8, ptr %data.addr.066, i64 2
-  %12 = load i8, ptr %arrayidx52, align 1
-  %conv53 = zext i8 %12 to i32
+  %13 = load i8, ptr %arrayidx52, align 1
+  %conv53 = zext i8 %13 to i32
   %and54 = and i32 %conv53, 192
   %cmp55 = icmp eq i32 %and54, 128
   br i1 %cmp55, label %if.then56, label %if.else72
@@ -52015,13 +52013,13 @@ if.then56:                                        ; preds = %land.lhs.true51
   %and58 = shl nuw nsw i32 %conv, 12
   %shl59 = and i32 %and58, 61440
   %and62 = shl nuw nsw i32 %conv48, 6
-  %shl63 = and i32 %and62, 4032
+  %shl63 = and i32 %and62, 3840
   %or64 = or disjoint i32 %shl63, %shl59
   %and67 = and i32 %conv53, 63
-  %or68 = or disjoint i32 %or64, %and67
-  %cmp.i59 = icmp ugt i32 %or68, 255
-  %13 = trunc i32 %or68 to i8
-  %conv.i60 = select i1 %cmp.i59, i8 63, i8 %13
+  %or68 = or disjoint i32 %and67, %and62
+  %cmp.i59.not = icmp eq i32 %or64, 0
+  %14 = trunc i32 %or68 to i8
+  %conv.i60 = select i1 %cmp.i59.not, i8 %14, i8 63
   store i8 %conv.i60, ptr %result.addr.064, align 1
   %add.ptr.i61 = getelementptr inbounds i8, ptr %result.addr.064, i64 1
   %add.ptr70 = getelementptr inbounds i8, ptr %data.addr.066, i64 3
@@ -52029,31 +52027,31 @@ if.then56:                                        ; preds = %land.lhs.true51
   br label %if.end120
 
 if.else72:                                        ; preds = %land.lhs.true51, %land.lhs.true46, %if.else40
-  %14 = and i32 %conv, 248
-  %cmp75 = icmp eq i32 %14, 240
+  %15 = and i32 %conv, 248
+  %cmp75 = icmp eq i32 %15, 240
   %cmp77 = icmp ugt i64 %size.addr.065, 3
   %or.cond2 = and i1 %cmp77, %cmp75
   br i1 %or.cond2, label %land.lhs.true78, label %if.else114
 
 land.lhs.true78:                                  ; preds = %if.else72
   %arrayidx79 = getelementptr inbounds i8, ptr %data.addr.066, i64 1
-  %15 = load i8, ptr %arrayidx79, align 1
-  %16 = and i8 %15, -64
-  %cmp82 = icmp eq i8 %16, -128
+  %16 = load i8, ptr %arrayidx79, align 1
+  %17 = and i8 %16, -64
+  %cmp82 = icmp eq i8 %17, -128
   br i1 %cmp82, label %land.lhs.true83, label %if.else114
 
 land.lhs.true83:                                  ; preds = %land.lhs.true78
   %arrayidx84 = getelementptr inbounds i8, ptr %data.addr.066, i64 2
-  %17 = load i8, ptr %arrayidx84, align 1
-  %18 = and i8 %17, -64
-  %cmp87 = icmp eq i8 %18, -128
+  %18 = load i8, ptr %arrayidx84, align 1
+  %19 = and i8 %18, -64
+  %cmp87 = icmp eq i8 %19, -128
   br i1 %cmp87, label %land.lhs.true88, label %if.else114
 
 land.lhs.true88:                                  ; preds = %land.lhs.true83
   %arrayidx89 = getelementptr inbounds i8, ptr %data.addr.066, i64 3
-  %19 = load i8, ptr %arrayidx89, align 1
-  %20 = and i8 %19, -64
-  %cmp92 = icmp eq i8 %20, -128
+  %20 = load i8, ptr %arrayidx89, align 1
+  %21 = and i8 %20, -64
+  %cmp92 = icmp eq i8 %21, -128
   br i1 %cmp92, label %if.then93, label %if.else114
 
 if.then93:                                        ; preds = %land.lhs.true88

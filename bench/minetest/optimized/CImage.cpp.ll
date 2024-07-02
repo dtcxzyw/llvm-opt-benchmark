@@ -4550,7 +4550,7 @@ for.cond.cleanup6.loopexit:                       ; preds = %_ZN3irr12PixelBlend
 
 for.cond.cleanup6:                                ; preds = %for.cond.cleanup6.loopexit, %for.body
   %13 = phi i32 [ %.pre, %for.cond.cleanup6.loopexit ], [ %10, %for.body ]
-  %14 = phi i32 [ %21, %for.cond.cleanup6.loopexit ], [ 0, %for.body ]
+  %14 = phi i32 [ %20, %for.cond.cleanup6.loopexit ], [ 0, %for.body ]
   %15 = load i32, ptr %dstPitch, align 4, !tbaa !47
   %idx.ext14 = zext i32 %15 to i64
   %add.ptr15 = getelementptr inbounds i8, ptr %dst.047, i64 %idx.ext14
@@ -4575,38 +4575,32 @@ for.body7:                                        ; preds = %for.body, %_ZN3irr1
   %shr2.i = and i32 %and1.i, 65280
   %mul.i = mul nuw i32 %shr2.i, %shr.i
   %and3.i = and i32 %mul.i, -16777216
-  %and4.i = lshr i32 %17, 12
-  %shr5.i = and i32 %and4.i, 4080
+  %cmp.i = icmp eq i32 %and3.i, 0
+  br i1 %cmp.i, label %_ZN3irr12PixelBlend32Ejj.exit, label %if.end3.i
+
+if.end3.i:                                        ; preds = %for.body7
   %and6.i = lshr i32 %18, 12
   %shr7.i = and i32 %and6.i, 4080
+  %and4.i = lshr i32 %17, 12
+  %shr5.i = and i32 %and4.i, 4080
   %mul8.i = mul nuw nsw i32 %shr7.i, %shr5.i
   %and9.i = and i32 %mul8.i, 16711680
-  %and10.i = and i32 %17, 65280
+  %and17.i = and i32 %18, 255
+  %and16.i = and i32 %17, 255
+  %mul18.i = mul nuw nsw i32 %and17.i, %and16.i
+  %shr19.i = lshr i32 %mul18.i, 8
   %and11.i = and i32 %18, 65280
+  %and10.i = and i32 %17, 65280
   %mul12.i = mul nuw i32 %and11.i, %and10.i
   %shr13.i = lshr exact i32 %mul12.i, 16
   %and14.i = and i32 %shr13.i, 65280
-  %and16.i = and i32 %17, 255
-  %and17.i = and i32 %18, 255
-  %mul18.i = mul nuw nsw i32 %and17.i, %and16.i
-  %shr19.i = lshr i32 %mul18.i, 8
-  %or.i = or disjoint i32 %and9.i, %shr19.i
-  %cmp.i = icmp eq i32 %and3.i, 0
-  br i1 %cmp.i, label %_ZN3irr12PixelBlend32Ejj.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %for.body7
-  %19 = or disjoint i32 %and3.i, %and14.i
-  %or21.i = or disjoint i32 %19, %or.i
-  %cmp1.i = icmp ugt i32 %or21.i, -16777217
-  br i1 %cmp1.i, label %_ZN3irr12PixelBlend32Ejj.exit, label %if.end3.i
-
-if.end3.i:                                        ; preds = %if.end.i
   %shr.i37 = lshr i32 %mul.i, 24
   %shr4.i = lshr i32 %mul.i, 31
   %add.i = add nuw nsw i32 %shr.i37, %shr4.i
   %and7.i = and i32 %16, 16711935
   %and8.i = and i32 %16, 65280
-  %sub.i = sub nsw i32 %or.i, %and7.i
+  %or.i = sub nsw i32 %shr19.i, %and7.i
+  %sub.i = add nsw i32 %or.i, %and9.i
   %sub9.i = sub nsw i32 %and14.i, %and8.i
   %mul.i39 = mul i32 %sub.i, %add.i
   %mul10.i = mul nsw i32 %sub9.i, %add.i
@@ -4616,18 +4610,18 @@ if.end3.i:                                        ; preds = %if.end.i
   %add14.i = add nuw nsw i32 %shr12.i, %and8.i
   %and15.i = and i32 %add13.i, 16711935
   %and16.i40 = and i32 %add14.i, 65280
-  %20 = or disjoint i32 %and16.i40, %and15.i
-  %or18.i = or disjoint i32 %20, %and3.i
+  %19 = or disjoint i32 %and15.i, %and16.i40
+  %or18.i = or disjoint i32 %19, %and3.i
   br label %_ZN3irr12PixelBlend32Ejj.exit
 
-_ZN3irr12PixelBlend32Ejj.exit:                    ; preds = %if.end3.i, %if.end.i, %for.body7
-  %retval.0.i = phi i32 [ %or18.i, %if.end3.i ], [ %16, %for.body7 ], [ %or21.i, %if.end.i ]
+_ZN3irr12PixelBlend32Ejj.exit:                    ; preds = %if.end3.i, %for.body7
+  %retval.0.i = phi i32 [ %or18.i, %if.end3.i ], [ %16, %for.body7 ]
   store i32 %retval.0.i, ptr %arrayidx, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add = add nsw i32 %src_x.042, %conv
-  %21 = load i32, ptr %width, align 8, !tbaa !74
-  %22 = zext i32 %21 to i64
-  %cmp5 = icmp ult i64 %indvars.iv.next, %22
+  %20 = load i32, ptr %width, align 8, !tbaa !74
+  %21 = zext i32 %20 to i64
+  %cmp5 = icmp ult i64 %indvars.iv.next, %21
   br i1 %cmp5, label %for.body7, label %for.cond.cleanup6.loopexit, !llvm.loop !131
 }
 
@@ -5481,39 +5475,33 @@ for.body6:                                        ; preds = %for.cond3.preheader
   %and1.i = lshr i32 %13, 16
   %shr2.i = and i32 %and1.i, 65280
   %mul.i = mul nuw i32 %shr2.i, %shr.i
-  %and3.i = and i32 %mul.i, -16777216
-  %and4.i = lshr i32 %12, 12
-  %shr5.i = and i32 %and4.i, 4080
+  %cmp.i = icmp ult i32 %mul.i, 16777216
+  br i1 %cmp.i, label %_ZN3irr14PixelCombine32Ejj.exit, label %if.end3.i
+
+if.end3.i:                                        ; preds = %for.body6
   %and6.i = lshr i32 %13, 12
   %shr7.i = and i32 %and6.i, 4080
+  %and4.i = lshr i32 %12, 12
+  %shr5.i = and i32 %and4.i, 4080
   %mul8.i = mul nuw nsw i32 %shr7.i, %shr5.i
   %and9.i = and i32 %mul8.i, 16711680
-  %and10.i = and i32 %12, 65280
+  %and17.i = and i32 %13, 255
+  %and16.i = and i32 %12, 255
+  %mul18.i = mul nuw nsw i32 %and17.i, %and16.i
+  %shr19.i = lshr i32 %mul18.i, 8
   %and11.i = and i32 %13, 65280
+  %and10.i = and i32 %12, 65280
   %mul12.i = mul nuw i32 %and11.i, %and10.i
   %shr13.i = lshr exact i32 %mul12.i, 16
   %and14.i = and i32 %shr13.i, 65280
-  %and16.i = and i32 %12, 255
-  %and17.i = and i32 %13, 255
-  %mul18.i = mul nuw nsw i32 %and17.i, %and16.i
-  %shr19.i = lshr i32 %mul18.i, 8
-  %or.i = or disjoint i32 %and9.i, %shr19.i
-  %14 = or disjoint i32 %and14.i, %and3.i
-  %or21.i = or disjoint i32 %14, %or.i
-  %cmp.i = icmp ult i32 %or21.i, 16777216
-  br i1 %cmp.i, label %_ZN3irr14PixelCombine32Ejj.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %for.body6
-  %cmp1.i = icmp ugt i32 %or21.i, -16777217
-  br i1 %cmp1.i, label %_ZN3irr14PixelCombine32Ejj.exit, label %if.end3.i
-
-if.end3.i:                                        ; preds = %if.end.i
+  %and3.i = and i32 %mul.i, -16777216
   %shr.i31 = lshr i32 %mul.i, 24
   %shr4.i = lshr i32 %mul.i, 31
   %add.i = add nuw nsw i32 %shr.i31, %shr4.i
   %and7.i = and i32 %11, 16711935
   %and8.i = and i32 %11, 65280
-  %sub.i = sub nsw i32 %or.i, %and7.i
+  %or.i = sub nsw i32 %shr19.i, %and7.i
+  %sub.i = add nsw i32 %or.i, %and9.i
   %sub9.i = sub nsw i32 %and14.i, %and8.i
   %mul.i33 = mul i32 %sub.i, %add.i
   %mul10.i = mul nsw i32 %sub9.i, %add.i
@@ -5524,21 +5512,21 @@ if.end3.i:                                        ; preds = %if.end.i
   %and15.i = and i32 %add13.i, 16711935
   %and16.i34 = and i32 %add14.i, 65280
   %sub20.i = sub nuw nsw i32 256, %add.i
-  %15 = lshr i32 %11, 8
-  %mul21.i = and i32 %15, 16711680
+  %14 = lshr i32 %11, 8
+  %mul21.i = and i32 %14, 16711680
   %add2249.i = mul nuw i32 %sub20.i, %mul21.i
-  %16 = add i32 %add2249.i, %and3.i
-  %shl.i = and i32 %16, -16777216
+  %15 = add i32 %add2249.i, %and3.i
+  %shl.i = and i32 %15, -16777216
   %or.i35 = or disjoint i32 %and16.i34, %shl.i
   %or24.i = or disjoint i32 %or.i35, %and15.i
   br label %_ZN3irr14PixelCombine32Ejj.exit
 
-_ZN3irr14PixelCombine32Ejj.exit:                  ; preds = %if.end3.i, %if.end.i, %for.body6
-  %retval.0.i = phi i32 [ %or24.i, %if.end3.i ], [ %11, %for.body6 ], [ %or21.i, %if.end.i ]
+_ZN3irr14PixelCombine32Ejj.exit:                  ; preds = %if.end3.i, %for.body6
+  %retval.0.i = phi i32 [ %or24.i, %if.end3.i ], [ %11, %for.body6 ]
   store i32 %retval.0.i, ptr %arrayidx, align 4, !tbaa !15
   %inc = add i32 %dx.037, 1
-  %17 = load i32, ptr %width, align 8, !tbaa !74
-  %cmp4.not = icmp eq i32 %inc, %17
+  %16 = load i32, ptr %width, align 8, !tbaa !74
+  %cmp4.not = icmp eq i32 %inc, %16
   br i1 %cmp4.not, label %for.cond.cleanup5.loopexit, label %for.body6, !llvm.loop !145
 }
 
@@ -5619,37 +5607,30 @@ for.body9.us:                                     ; preds = %_ZN3irr14PixelCombi
   %and1.i.us = lshr i32 %14, 16
   %shr2.i.us = and i32 %and1.i.us, 65280
   %mul.i.us = mul nuw i32 %shr2.i.us, %shr.i.us
-  %and3.i.us = and i32 %mul.i.us, -16777216
-  %and4.i.us = lshr i32 %9, 12
-  %shr5.i.us = and i32 %and4.i.us, 4080
+  %cmp.i.us = icmp ult i32 %mul.i.us, 16777216
+  br i1 %cmp.i.us, label %_ZN3irr14PixelCombine32Ejj.exit.us, label %if.end3.i.us
+
+if.end3.i.us:                                     ; preds = %for.body9.us
   %and6.i.us = lshr i32 %14, 12
   %shr7.i.us = and i32 %and6.i.us, 4080
+  %and4.i.us = lshr i32 %9, 12
+  %shr5.i.us = and i32 %and4.i.us, 4080
   %mul8.i.us = mul nuw nsw i32 %shr7.i.us, %shr5.i.us
   %and9.i.us = and i32 %mul8.i.us, 16711680
-  %and10.i.us = and i32 %9, 65280
+  %and17.i.us = and i32 %14, 255
+  %and16.i.us = and i32 %9, 255
+  %mul18.i.us = mul nuw nsw i32 %and17.i.us, %and16.i.us
+  %shr19.i.us = lshr i32 %mul18.i.us, 8
   %and11.i.us = and i32 %14, 65280
+  %and10.i.us = and i32 %9, 65280
   %mul12.i.us = mul nuw i32 %and11.i.us, %and10.i.us
   %shr13.i.us = lshr exact i32 %mul12.i.us, 16
   %and14.i.us = and i32 %shr13.i.us, 65280
-  %and16.i.us = and i32 %9, 255
-  %and17.i.us = and i32 %14, 255
-  %mul18.i.us = mul nuw nsw i32 %and17.i.us, %and16.i.us
-  %shr19.i.us = lshr i32 %mul18.i.us, 8
-  %or.i.us = or disjoint i32 %and9.i.us, %shr19.i.us
-  %15 = or disjoint i32 %and14.i.us, %and3.i.us
-  %or21.i.us = or disjoint i32 %15, %or.i.us
-  %cmp.i.us = icmp ult i32 %or21.i.us, 16777216
-  br i1 %cmp.i.us, label %_ZN3irr14PixelCombine32Ejj.exit.us, label %if.end.i.us
-
-if.end.i.us:                                      ; preds = %for.body9.us
-  %cmp1.i.us = icmp ugt i32 %or21.i.us, -16777217
-  br i1 %cmp1.i.us, label %_ZN3irr14PixelCombine32Ejj.exit.us, label %if.end3.i.us
-
-if.end3.i.us:                                     ; preds = %if.end.i.us
   %shr.i137.us = lshr i32 %mul.i.us, 24
   %shr4.i.us = lshr i32 %mul.i.us, 31
   %add.i.us = add nuw nsw i32 %shr.i137.us, %shr4.i.us
-  %sub.i.us = sub nsw i32 %or.i.us, %13
+  %or.i.us = sub nsw i32 %shr19.i.us, %13
+  %sub.i.us = add nsw i32 %or.i.us, %and9.i.us
   %sub9.i.us = sub nsw i32 %and14.i.us, %shl20.us
   %mul.i139.us = mul i32 %sub.i.us, %add.i.us
   %mul10.i.us = mul nsw i32 %sub9.i.us, %add.i.us
@@ -5659,13 +5640,13 @@ if.end3.i.us:                                     ; preds = %if.end.i.us
   %add14.i.us = add nuw nsw i32 %shr12.i.us, %shl20.us
   %and15.i.us = and i32 %add13.i.us, 16711935
   %and16.i140.us = and i32 %add14.i.us, 65280
-  %or24.i.us = or disjoint i32 %and15.i.us, %and16.i140.us
+  %or24.i.us = or disjoint i32 %and16.i140.us, %and15.i.us
   br label %_ZN3irr14PixelCombine32Ejj.exit.us
 
-_ZN3irr14PixelCombine32Ejj.exit.us:               ; preds = %if.end3.i.us, %if.end.i.us, %for.body9.us
-  %retval.0.i.us = phi i32 [ %or24.i.us, %if.end3.i.us ], [ %or21.us, %for.body9.us ], [ %or21.i.us, %if.end.i.us ]
+_ZN3irr14PixelCombine32Ejj.exit.us:               ; preds = %if.end3.i.us, %for.body9.us
+  %retval.0.i.us = phi i32 [ %or24.i.us, %if.end3.i.us ], [ %or21.us, %for.body9.us ]
   %shr.us = lshr i32 %retval.0.i.us, 16
-  %conv26.us = trunc i32 %shr.us to i8
+  %conv26.us = trunc nuw i32 %shr.us to i8
   store i8 %conv26.us, ptr %arrayidx15.us, align 1, !tbaa !29
   %shr27.us = lshr i32 %retval.0.i.us, 8
   %conv29.us = trunc i32 %shr27.us to i8
@@ -5677,8 +5658,8 @@ _ZN3irr14PixelCombine32Ejj.exit.us:               ; preds = %if.end3.i.us, %if.e
   br i1 %exitcond.not, label %for.cond6.for.cond.cleanup8_crit_edge.us, label %for.body9.us, !llvm.loop !146
 
 for.cond6.for.cond.cleanup8_crit_edge.us:         ; preds = %_ZN3irr14PixelCombine32Ejj.exit.us
-  %16 = load i32, ptr %dstPitch, align 4, !tbaa !47
-  %idx.ext34.us = zext i32 %16 to i64
+  %15 = load i32, ptr %dstPitch, align 4, !tbaa !47
+  %idx.ext34.us = zext i32 %15 to i64
   %add.ptr35.us = getelementptr inbounds i8, ptr %dst.0201.us, i64 %idx.ext34.us
   %inc37.us = add nuw i32 %dy.0200.us, 1
   %exitcond212.not = icmp eq i32 %inc37.us, %1
@@ -5696,22 +5677,22 @@ for.cond45.preheader.lr.ph:                       ; preds = %if.else
   br i1 %cmp46.not202, label %if.end, label %for.cond45.preheader.preheader
 
 for.cond45.preheader.preheader:                   ; preds = %for.cond45.preheader.lr.ph
-  %17 = load ptr, ptr %src1, align 8, !tbaa !46
-  %18 = zext i32 %0 to i64
+  %16 = load ptr, ptr %src1, align 8, !tbaa !46
+  %17 = zext i32 %0 to i64
   br label %for.cond45.preheader
 
 for.cond45.preheader:                             ; preds = %for.cond45.for.cond.cleanup47_crit_edge, %for.cond45.preheader.preheader
-  %src.0207 = phi ptr [ %add.ptr87, %for.cond45.for.cond.cleanup47_crit_edge ], [ %17, %for.cond45.preheader.preheader ]
+  %src.0207 = phi ptr [ %add.ptr87, %for.cond45.for.cond.cleanup47_crit_edge ], [ %16, %for.cond45.preheader.preheader ]
   %dst.1206 = phi ptr [ %add.ptr90, %for.cond45.for.cond.cleanup47_crit_edge ], [ %2, %for.cond45.preheader.preheader ]
   %dy39.0205 = phi i32 [ %inc92, %for.cond45.for.cond.cleanup47_crit_edge ], [ 0, %for.cond45.preheader.preheader ]
   br label %for.body48
 
 for.cond45.for.cond.cleanup47_crit_edge:          ; preds = %_ZN3irr14PixelCombine32Ejj.exit195
-  %19 = load i32, ptr %srcPitch85, align 8, !tbaa !75
-  %idx.ext86 = sext i32 %19 to i64
+  %18 = load i32, ptr %srcPitch85, align 8, !tbaa !75
+  %idx.ext86 = sext i32 %18 to i64
   %add.ptr87 = getelementptr inbounds i8, ptr %src.0207, i64 %idx.ext86
-  %20 = load i32, ptr %dstPitch88, align 4, !tbaa !47
-  %idx.ext89 = zext i32 %20 to i64
+  %19 = load i32, ptr %dstPitch88, align 4, !tbaa !47
+  %idx.ext89 = zext i32 %19 to i64
   %add.ptr90 = getelementptr inbounds i8, ptr %dst.1206, i64 %idx.ext89
   %inc92 = add nuw i32 %dy39.0205, 1
   %cmp41.not = icmp eq i32 %inc92, %1
@@ -5722,73 +5703,66 @@ for.body48:                                       ; preds = %_ZN3irr14PixelCombi
   %mul50 = mul nuw nsw i64 %indvars.iv213, 3
   %idxprom51 = and i64 %mul50, 4294967295
   %arrayidx52 = getelementptr inbounds i8, ptr %dst.1206, i64 %idxprom51
-  %21 = load i8, ptr %arrayidx52, align 1, !tbaa !29
-  %conv55 = zext i8 %21 to i32
+  %20 = load i8, ptr %arrayidx52, align 1, !tbaa !29
+  %conv55 = zext i8 %20 to i32
   %shl56 = shl nuw nsw i32 %conv55, 16
   %arrayidx58 = getelementptr inbounds i8, ptr %arrayidx52, i64 1
-  %22 = load i8, ptr %arrayidx58, align 1, !tbaa !29
-  %conv59 = zext i8 %22 to i32
+  %21 = load i8, ptr %arrayidx58, align 1, !tbaa !29
+  %conv59 = zext i8 %21 to i32
   %shl60 = shl nuw nsw i32 %conv59, 8
   %arrayidx62 = getelementptr inbounds i8, ptr %arrayidx52, i64 2
-  %23 = load i8, ptr %arrayidx62, align 1, !tbaa !29
-  %conv63 = zext i8 %23 to i32
-  %24 = or disjoint i32 %shl56, %conv63
-  %or61 = or disjoint i32 %24, %shl60
+  %22 = load i8, ptr %arrayidx62, align 1, !tbaa !29
+  %conv63 = zext i8 %22 to i32
+  %23 = or disjoint i32 %shl56, %conv63
+  %or61 = or disjoint i32 %23, %shl60
   %arrayidx67 = getelementptr inbounds i32, ptr %src.0207, i64 %indvars.iv213
-  %25 = load i32, ptr %arrayidx67, align 4, !tbaa !15
-  %26 = load i32, ptr %argb68, align 8, !tbaa !39
-  %and.i142 = lshr i32 %25, 16
+  %24 = load i32, ptr %arrayidx67, align 4, !tbaa !15
+  %25 = load i32, ptr %argb68, align 8, !tbaa !39
+  %and.i142 = lshr i32 %24, 16
   %shr.i143 = and i32 %and.i142, 65280
-  %and1.i144 = lshr i32 %26, 16
+  %and1.i144 = lshr i32 %25, 16
   %shr2.i145 = and i32 %and1.i144, 65280
   %mul.i146 = mul nuw i32 %shr2.i145, %shr.i143
-  %and3.i147 = and i32 %mul.i146, -16777216
-  %and4.i148 = lshr i32 %25, 12
-  %shr5.i149 = and i32 %and4.i148, 4080
-  %and6.i150 = lshr i32 %26, 12
+  %cmp.i166 = icmp ult i32 %mul.i146, 16777216
+  br i1 %cmp.i166, label %_ZN3irr14PixelCombine32Ejj.exit195, label %if.end3.i169
+
+if.end3.i169:                                     ; preds = %for.body48
+  %and6.i150 = lshr i32 %25, 12
   %shr7.i151 = and i32 %and6.i150, 4080
+  %and4.i148 = lshr i32 %24, 12
+  %shr5.i149 = and i32 %and4.i148, 4080
   %mul8.i152 = mul nuw nsw i32 %shr7.i151, %shr5.i149
   %and9.i153 = and i32 %mul8.i152, 16711680
-  %and10.i154 = and i32 %25, 65280
-  %and11.i155 = and i32 %26, 65280
+  %and17.i160 = and i32 %25, 255
+  %and16.i159 = and i32 %24, 255
+  %mul18.i161 = mul nuw nsw i32 %and17.i160, %and16.i159
+  %shr19.i162 = lshr i32 %mul18.i161, 8
+  %and11.i155 = and i32 %25, 65280
+  %and10.i154 = and i32 %24, 65280
   %mul12.i156 = mul nuw i32 %and11.i155, %and10.i154
   %shr13.i157 = lshr exact i32 %mul12.i156, 16
   %and14.i158 = and i32 %shr13.i157, 65280
-  %and16.i159 = and i32 %25, 255
-  %and17.i160 = and i32 %26, 255
-  %mul18.i161 = mul nuw nsw i32 %and17.i160, %and16.i159
-  %shr19.i162 = lshr i32 %mul18.i161, 8
-  %or.i163 = or disjoint i32 %and9.i153, %shr19.i162
-  %27 = or disjoint i32 %and14.i158, %and3.i147
-  %or21.i165 = or disjoint i32 %27, %or.i163
-  %cmp.i166 = icmp ult i32 %or21.i165, 16777216
-  br i1 %cmp.i166, label %_ZN3irr14PixelCombine32Ejj.exit195, label %if.end.i167
-
-if.end.i167:                                      ; preds = %for.body48
-  %cmp1.i168 = icmp ugt i32 %or21.i165, -16777217
-  br i1 %cmp1.i168, label %_ZN3irr14PixelCombine32Ejj.exit195, label %if.end3.i169
-
-if.end3.i169:                                     ; preds = %if.end.i167
   %shr.i170 = lshr i32 %mul.i146, 24
   %shr4.i171 = lshr i32 %mul.i146, 31
   %add.i172 = add nuw nsw i32 %shr.i170, %shr4.i171
-  %sub.i177 = sub nsw i32 %or.i163, %24
+  %or.i163 = sub nsw i32 %shr19.i162, %23
+  %sub.i177 = add nsw i32 %or.i163, %and9.i153
   %sub9.i178 = sub nsw i32 %and14.i158, %shl60
   %mul.i179 = mul i32 %sub.i177, %add.i172
   %mul10.i180 = mul nsw i32 %sub9.i178, %add.i172
   %shr11.i181 = lshr i32 %mul.i179, 8
   %shr12.i182 = lshr exact i32 %mul10.i180, 8
-  %add13.i183 = add nuw nsw i32 %shr11.i181, %24
+  %add13.i183 = add nuw nsw i32 %shr11.i181, %23
   %add14.i184 = add nuw nsw i32 %shr12.i182, %shl60
   %and15.i185 = and i32 %add13.i183, 16711935
   %and16.i186 = and i32 %add14.i184, 65280
-  %or24.i193 = or disjoint i32 %and15.i185, %and16.i186
+  %or24.i193 = or disjoint i32 %and16.i186, %and15.i185
   br label %_ZN3irr14PixelCombine32Ejj.exit195
 
-_ZN3irr14PixelCombine32Ejj.exit195:               ; preds = %if.end3.i169, %if.end.i167, %for.body48
-  %retval.0.i194 = phi i32 [ %or24.i193, %if.end3.i169 ], [ %or61, %for.body48 ], [ %or21.i165, %if.end.i167 ]
+_ZN3irr14PixelCombine32Ejj.exit195:               ; preds = %if.end3.i169, %for.body48
+  %retval.0.i194 = phi i32 [ %or24.i193, %if.end3.i169 ], [ %or61, %for.body48 ]
   %shr71 = lshr i32 %retval.0.i194, 16
-  %conv73 = trunc i32 %shr71 to i8
+  %conv73 = trunc nuw i32 %shr71 to i8
   store i8 %conv73, ptr %arrayidx52, align 1, !tbaa !29
   %shr75 = lshr i32 %retval.0.i194, 8
   %conv77 = trunc i32 %shr75 to i8
@@ -5796,7 +5770,7 @@ _ZN3irr14PixelCombine32Ejj.exit195:               ; preds = %if.end3.i169, %if.e
   %conv80 = trunc i32 %retval.0.i194 to i8
   store i8 %conv80, ptr %arrayidx62, align 1, !tbaa !29
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
-  %cmp46.not = icmp eq i64 %indvars.iv.next214, %18
+  %cmp46.not = icmp eq i64 %indvars.iv.next214, %17
   br i1 %cmp46.not, label %for.cond45.for.cond.cleanup47_crit_edge, label %for.body48, !llvm.loop !149
 
 if.end:                                           ; preds = %for.cond6.for.cond.cleanup8_crit_edge.us, %for.cond45.for.cond.cleanup47_crit_edge, %for.cond45.preheader.lr.ph, %if.else, %for.body.lr.ph, %if.then

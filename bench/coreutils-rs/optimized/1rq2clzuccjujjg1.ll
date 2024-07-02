@@ -3577,7 +3577,7 @@ _ZN11uu_unexpand14next_char_info17hf51ded0aee89c199E.exit.thread21.i: ; preds = 
   %252 = lshr i64 %246, 6
   %253 = and i64 %252, 127
   %254 = or disjoint i64 %251, %253
-  %255 = icmp ult i64 %254, 2432
+  %255 = icmp ult i8 %249, 19
   br i1 %255, label %256, label %.invoke458, !prof !658
 
 256:                                              ; preds = %245
@@ -3588,7 +3588,7 @@ _ZN11uu_unexpand14next_char_info17hf51ded0aee89c199E.exit.thread21.i: ; preds = 
   %261 = lshr i64 %246, 2
   %262 = and i64 %261, 15
   %263 = or disjoint i64 %260, %262
-  %264 = icmp ult i64 %263, 3888
+  %264 = icmp ult i8 %258, -13
   br i1 %264, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i, label %.invoke458, !prof !658
 
 .invoke458:                                       ; preds = %256, %245

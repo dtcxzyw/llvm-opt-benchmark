@@ -7912,7 +7912,7 @@ define ptr @computeCofactor(ptr noundef %0, ptr nocapture noundef readonly %1, p
   br i1 %86, label %.thread341.sink.split, label %87
 
 87:                                               ; preds = %83
-  %switch346 = icmp ult i64 %84, 2
+  %switch346 = icmp ult ptr %73, inttoptr (i64 2 to ptr)
   br i1 %switch346, label %.thread341, label %.thread341.sink.split
 
 88:                                               ; preds = %.lr.ph360
@@ -7925,12 +7925,12 @@ define ptr @computeCofactor(ptr noundef %0, ptr nocapture noundef readonly %1, p
   br i1 %92, label %.thread341.sink.split, label %93
 
 93:                                               ; preds = %89
-  %switch347 = icmp ult i64 %90, 2
+  %switch347 = icmp ult ptr %73, inttoptr (i64 2 to ptr)
   br i1 %switch347, label %.thread341, label %94
 
 94:                                               ; preds = %93
   %95 = load ptr, ptr %30, align 8
-  %96 = tail call ptr @Abc_AigAnd(ptr noundef %95, ptr noundef %67, ptr noundef nonnull %91) #12
+  %96 = tail call ptr @Abc_AigAnd(ptr noundef %95, ptr noundef %67, ptr noundef %91) #12
   br label %.thread341.sink.split
 
 .thread341.sink.split:                            ; preds = %89, %88, %87, %83, %82, %78, %94

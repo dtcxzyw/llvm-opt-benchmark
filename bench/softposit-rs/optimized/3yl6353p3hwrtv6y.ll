@@ -255,7 +255,7 @@ define void @_ZN9softposit7quire163ops7fdp_one17hdf0004494d585a1dE(ptr noalias n
 
 7:                                                ; preds = %3
   %8 = icmp eq i16 %1, 0
-  br i1 %8, label %34, label %9
+  br i1 %8, label %25, label %9
 
 9:                                                ; preds = %7
   %10 = and i16 %1, -32768
@@ -270,7 +270,7 @@ define void @_ZN9softposit7quire163ops7fdp_one17hdf0004494d585a1dE(ptr noalias n
   br i1 %16, label %.preheader.i, label %.preheader12.i
 
 .preheader12.i:                                   ; preds = %9
-  br i1 %17, label %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit, label %.lr.ph.i
+  br i1 %17, label %.loopexit, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %9
   br i1 %17, label %.lr.ph18.i, label %._crit_edge.i
@@ -287,7 +287,7 @@ define void @_ZN9softposit7quire163ops7fdp_one17hdf0004494d585a1dE(ptr noalias n
   %.09.lcssa.i = phi i8 [ -1, %.preheader.i ], [ %18, %.lr.ph18.i ]
   %.0.lcssa.i = phi i16 [ %14, %.preheader.i ], [ %19, %.lr.ph18.i ]
   %21 = and i16 %.0.lcssa.i, 32764
-  br label %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit
+  br label %.loopexit
 
 .lr.ph.i:                                         ; preds = %.preheader12.i, %.lr.ph.i
   %.214.i = phi i16 [ %23, %.lr.ph.i ], [ %14, %.preheader12.i ]
@@ -295,41 +295,41 @@ define void @_ZN9softposit7quire163ops7fdp_one17hdf0004494d585a1dE(ptr noalias n
   %22 = add nuw nsw i8 %.21113.i, 1
   %23 = shl i16 %.214.i, 1
   %24 = icmp sgt i16 %23, -1
-  br i1 %24, label %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit, label %.lr.ph.i
-
-_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit: ; preds = %.lr.ph.i, %.preheader12.i, %._crit_edge.i
-  %.110.i = phi i8 [ %.09.lcssa.i, %._crit_edge.i ], [ 0, %.preheader12.i ], [ %22, %.lr.ph.i ]
-  %.1.i = phi i16 [ %21, %._crit_edge.i ], [ %14, %.preheader12.i ], [ %23, %.lr.ph.i ]
-  %25 = lshr i16 %.1.i, 14
-  %26 = or i16 %.1.i, 16384
-  %27 = zext nneg i16 %26 to i32
-  %28 = shl nuw nsw i32 %27, 14
-  %29 = sext i8 %.110.i to i16
-  %30 = shl nsw i16 %29, 1
-  %31 = add nsw i16 %30, 28
-  %32 = or disjoint i16 %31, %25
-  %33 = icmp sgt i16 %32, 0
-  br i1 %33, label %41, label %35
+  br i1 %24, label %.loopexit, label %.lr.ph.i
 
 .sink.split:                                      ; preds = %3, %46
   %.sink = phi i128 [ %.027, %46 ], [ -170141183460469231731687303715884105728, %3 ]
   store i128 %.sink, ptr %0, align 16
-  br label %34
+  br label %25
 
-34:                                               ; preds = %.sink.split, %7
+25:                                               ; preds = %.sink.split, %7
   ret void
 
-35:                                               ; preds = %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit
-  %36 = sub nsw i16 0, %32
-  %37 = zext nneg i32 %28 to i128
+.loopexit:                                        ; preds = %.lr.ph.i, %._crit_edge.i, %.preheader12.i
+  %.110.i = phi i8 [ %.09.lcssa.i, %._crit_edge.i ], [ 0, %.preheader12.i ], [ %22, %.lr.ph.i ]
+  %.1.i = phi i16 [ %21, %._crit_edge.i ], [ %14, %.preheader12.i ], [ %23, %.lr.ph.i ]
+  %26 = lshr i16 %.1.i, 14
+  %27 = or i16 %.1.i, 16384
+  %28 = zext nneg i16 %27 to i32
+  %29 = shl nuw nsw i32 %28, 14
+  %30 = sext i8 %.110.i to i16
+  %31 = shl nsw i16 %30, 1
+  %32 = add nsw i16 %31, 28
+  %33 = or disjoint i16 %32, %26
+  %34 = icmp sgt i16 %33, 0
+  br i1 %34, label %41, label %35
+
+35:                                               ; preds = %.loopexit
+  %36 = sub nsw i16 0, %33
+  %37 = zext nneg i32 %29 to i128
   %38 = and i16 %36, 127
   %39 = zext nneg i16 %38 to i128
   %40 = lshr i128 %37, %39
   br label %46
 
-41:                                               ; preds = %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit
-  %42 = zext nneg i32 %28 to i128
-  %43 = and i16 %32, 127
+41:                                               ; preds = %.loopexit
+  %42 = zext nneg i32 %29 to i128
+  %43 = and i16 %33, 127
   %44 = zext nneg i16 %43 to i128
   %45 = shl i128 %42, %44
   br label %46

@@ -115,7 +115,7 @@ define dso_local i32 @snd_hdac_device_init(ptr noundef %0, ptr noundef %1, ptr n
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  tail call void @device_initialize(ptr noundef %0) #8
+  tail call void @device_initialize(ptr noundef %0) #9
   %12 = load ptr, ptr %1, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %12, ptr %13, align 8
@@ -125,7 +125,7 @@ define dso_local i32 @snd_hdac_device_init(ptr noundef %0, ptr noundef %1, ptr n
   store ptr @default_release, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 680
   store ptr @hdac_dev_attr_groups, ptr %16, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %2) #8
+  %17 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %2) #9
   %18 = getelementptr inbounds i8, ptr %0, i64 220
   %19 = load i16, ptr %18, align 4
   %20 = and i16 %19, 8
@@ -145,67 +145,67 @@ define dso_local i32 @snd_hdac_device_init(ptr noundef %0, ptr noundef %1, ptr n
   %27 = getelementptr inbounds i8, ptr %0, i64 728
   store i32 0, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 840
-  tail call void @__mutex_init(ptr noundef %28, ptr noundef nonnull @.str.1, ptr noundef nonnull @snd_hdac_device_init.__key) #8
+  tail call void @__mutex_init(ptr noundef %28, ptr noundef nonnull @.str.1, ptr noundef nonnull @snd_hdac_device_init.__key) #9
   %29 = getelementptr inbounds i8, ptr %0, i64 888
-  tail call void @__mutex_init(ptr noundef %29, ptr noundef nonnull @.str.3, ptr noundef nonnull @snd_hdac_device_init.__key.2) #8
-  %30 = tail call i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef 0) #8
+  tail call void @__mutex_init(ptr noundef %29, ptr noundef nonnull @.str.3, ptr noundef nonnull @snd_hdac_device_init.__key.2) #9
+  %30 = tail call i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef 0) #9
   %31 = getelementptr inbounds i8, ptr %0, i64 432
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31, ptr elementtype(i32) %31) #8, !srcloc !5
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31, ptr elementtype(i32) %31) #9, !srcloc !5
   %32 = getelementptr inbounds i8, ptr %0, i64 832
   store volatile i32 0, ptr %32, align 4
-  %33 = tail call i32 @snd_hdac_bus_add_device(ptr noundef %1, ptr noundef %0) #8
+  %33 = tail call i32 @snd_hdac_bus_add_device(ptr noundef %1, ptr noundef %0) #9
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %176, label %35
 
 35:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
   store i32 0, ptr %11, align 4, !annotation !6
-  %36 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef 983040, ptr noundef nonnull %11) #8
+  %36 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef 983040, ptr noundef nonnull %11) #9
   %37 = load i32, ptr %11, align 4
   %38 = icmp sgt i32 %36, -1
   %39 = select i1 %38, i32 %37, i32 -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
   %40 = getelementptr inbounds i8, ptr %0, i64 772
   store i32 %39, ptr %40, align 4
   %41 = icmp eq i32 %39, -1
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
   store i32 0, ptr %10, align 4, !annotation !6
-  %43 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef 983040, ptr noundef nonnull %10) #8
+  %43 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef 983040, ptr noundef nonnull %10) #9
   %44 = load i32, ptr %10, align 4
   %45 = icmp sgt i32 %43, -1
   %46 = select i1 %45, i32 %44, i32 -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
   store i32 %46, ptr %40, align 4
   br label %47
 
 47:                                               ; preds = %42, %35
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
   store i32 0, ptr %9, align 4, !annotation !6
-  %48 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef 983041, ptr noundef nonnull %9) #8
+  %48 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef 983041, ptr noundef nonnull %9) #9
   %49 = load i32, ptr %9, align 4
   %50 = icmp sgt i32 %48, -1
   %51 = select i1 %50, i32 %49, i32 -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
   %52 = getelementptr inbounds i8, ptr %0, i64 776
   store i32 %51, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
   store i32 0, ptr %8, align 4, !annotation !6
-  %53 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef 983042, ptr noundef nonnull %8) #8
+  %53 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef 983042, ptr noundef nonnull %8) #9
   %54 = load i32, ptr %8, align 4
   %55 = icmp sgt i32 %53, -1
   %56 = select i1 %55, i32 %54, i32 -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
   %57 = getelementptr inbounds i8, ptr %0, i64 780
   store i32 %56, ptr %57, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
   store i32 0, ptr %7, align 4, !annotation !6
-  %58 = call i32 @snd_hdac_regmap_read_raw_uncached(ptr noundef %0, i32 noundef 983044, ptr noundef nonnull %7) #8
+  %58 = call i32 @snd_hdac_regmap_read_raw_uncached(ptr noundef %0, i32 noundef 983044, ptr noundef nonnull %7) #9
   %59 = load i32, ptr %7, align 4
   %60 = icmp sgt i32 %58, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   %61 = icmp ne i32 %59, -1
   %62 = and i32 %59, 32767
   %63 = icmp ne i32 %62, 0
@@ -226,15 +226,15 @@ define dso_local i32 @snd_hdac_device_init(ptr noundef %0, ptr noundef %1, ptr n
 74:                                               ; preds = %102, %66
   %75 = phi i32 [ %73, %66 ], [ %104, %102 ]
   %76 = phi i32 [ 0, %66 ], [ %103, %102 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
   store i32 0, ptr %6, align 4, !annotation !6
   %77 = shl i32 %75, 20
   %78 = or disjoint i32 %77, 983045
-  %79 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %78, ptr noundef nonnull %6) #8
+  %79 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %78, ptr noundef nonnull %6) #9
   %80 = load i32, ptr %6, align 4
   %81 = icmp sgt i32 %79, -1
   %82 = select i1 %81, i32 %80, i32 -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
   %83 = trunc i32 %82 to i8
   switch i8 %83, label %102 [
     i8 1, label %84
@@ -289,7 +289,7 @@ define dso_local i32 @snd_hdac_device_init(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %112, label %113, label %114
 
 113:                                              ; preds = %109
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.4) #9
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.4) #10
   br label %176
 
 114:                                              ; preds = %109, %.loopexit
@@ -299,16 +299,16 @@ define dso_local i32 @snd_hdac_device_init(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %117, label %176, label %118
 
 118:                                              ; preds = %114
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
   store i32 0, ptr %5, align 4, !annotation !6
   %119 = zext i16 %115 to i32
   %120 = shl i32 %119, 20
   %121 = or disjoint i32 %120, 983055
-  %122 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %121, ptr noundef nonnull %5) #8
+  %122 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %121, ptr noundef nonnull %5) #9
   %123 = load i32, ptr %5, align 4
   %124 = icmp sgt i32 %122, -1
   %125 = select i1 %124, i32 %123, i32 -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   %126 = getelementptr inbounds i8, ptr %0, i64 796
   store i32 %125, ptr %126, align 4
   %127 = load i32, ptr %52, align 8
@@ -325,7 +325,7 @@ define dso_local i32 @snd_hdac_device_init(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %132, label %134, label %133
 
 133:                                              ; preds = %128
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %129, i32 noundef %119, i32 noundef 3872, i32 noundef 0) #9
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %129, i32 noundef %119, i32 noundef 3872, i32 noundef 0) #10
   br label %138
 
 134:                                              ; preds = %128
@@ -342,13 +342,13 @@ define dso_local i32 @snd_hdac_device_init(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %142, label %145, label %143
 
 143:                                              ; preds = %138
-  %144 = call i32 %141(ptr noundef %0, i32 noundef %139, i32 noundef 0, ptr noundef %52) #8
+  %144 = call i32 %141(ptr noundef %0, i32 noundef %139, i32 noundef 0, ptr noundef %52) #9
   br label %149
 
 145:                                              ; preds = %138
   %146 = load ptr, ptr %25, align 8
   %147 = load i32, ptr %26, align 8
-  %148 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %146, i32 noundef %147, i32 noundef %139, ptr noundef %52) #8
+  %148 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %146, i32 noundef %147, i32 noundef %139, ptr noundef %52) #9
   br label %149
 
 149:                                              ; preds = %145, %143, %118
@@ -365,7 +365,7 @@ define dso_local i32 @snd_hdac_device_init(ptr noundef %0, ptr noundef %1, ptr n
 156:                                              ; preds = %152
   %157 = getelementptr inbounds i8, ptr %154, i64 8
   %158 = load ptr, ptr %157, align 8
-  %159 = call noalias ptr @kstrdup(ptr noundef %158, i32 noundef 3264) #8
+  %159 = call noalias ptr @kstrdup(ptr noundef %158, i32 noundef 3264) #9
   br label %166
 
 160:                                              ; preds = %152
@@ -375,7 +375,7 @@ define dso_local i32 @snd_hdac_device_init(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %163, label %164, label %152, !llvm.loop !10
 
 164:                                              ; preds = %160
-  %165 = call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.12, i32 noundef %151) #8
+  %165 = call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.12, i32 noundef %151) #9
   br label %166
 
 166:                                              ; preds = %164, %156
@@ -388,7 +388,7 @@ define dso_local i32 @snd_hdac_device_init(ptr noundef %0, ptr noundef %1, ptr n
 170:                                              ; preds = %166
   %171 = load i32, ptr %40, align 4
   %172 = and i32 %171, 65535
-  %173 = call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.5, i32 noundef %172) #8
+  %173 = call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.5, i32 noundef %172) #9
   %174 = getelementptr inbounds i8, ptr %0, i64 808
   store ptr %173, ptr %174, align 8
   %175 = icmp eq ptr %173, null
@@ -396,7 +396,7 @@ define dso_local i32 @snd_hdac_device_init(ptr noundef %0, ptr noundef %1, ptr n
 
 176:                                              ; preds = %170, %166, %114, %113, %24
   %177 = phi i32 [ %33, %24 ], [ %116, %114 ], [ -12, %166 ], [ -19, %113 ], [ -12, %170 ]
-  call void @put_device(ptr noundef %0) #8
+  call void @put_device(ptr noundef %0) #9
   br label %178
 
 178:                                              ; preds = %176, %170
@@ -417,30 +417,32 @@ define internal void @default_release(ptr noundef %0) #0 align 16 {
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.thread, label %.lr.ph, !prof !11
 
-.lr.ph:                                           ; preds = %1, %10
-  %5 = phi i32 [ %11, %10 ], [ %3, %1 ]
+.lr.ph:                                           ; preds = %1, %11
+  %5 = phi i32 [ %12, %11 ], [ %3, %1 ]
   %6 = add i32 %5, -1
-  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %5) #8, !srcloc !12
+  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %5) #9, !srcloc !12
   %8 = extractvalue { i8, i32 } %7, 0
-  %9 = icmp eq i8 %8, 0
-  br i1 %9, label %10, label %.thread, !prof !13
+  %9 = icmp ult i8 %8, 2
+  tail call void @llvm.assume(i1 %9)
+  %10 = icmp eq i8 %8, 0
+  br i1 %10, label %11, label %.thread, !prof !13
 
-10:                                               ; preds = %.lr.ph
-  %11 = extractvalue { i8, i32 } %7, 1
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread, label %.lr.ph, !prof !14, !llvm.loop !15
+11:                                               ; preds = %.lr.ph
+  %12 = extractvalue { i8, i32 } %7, 1
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %.thread, label %.lr.ph, !prof !14, !llvm.loop !15
 
-.thread:                                          ; preds = %10, %.lr.ph, %1
-  %13 = tail call i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef 2) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 736
-  %15 = load ptr, ptr %14, align 8
-  tail call void @snd_hdac_bus_remove_device(ptr noundef %15, ptr noundef %0) #8
-  %16 = getelementptr inbounds i8, ptr %0, i64 800
-  %17 = load ptr, ptr %16, align 8
-  tail call void @kfree(ptr noundef %17) #8
-  %18 = getelementptr inbounds i8, ptr %0, i64 808
-  %19 = load ptr, ptr %18, align 8
-  tail call void @kfree(ptr noundef %19) #8
+.thread:                                          ; preds = %11, %.lr.ph, %1
+  %14 = tail call i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef 2) #9
+  %15 = getelementptr inbounds i8, ptr %0, i64 736
+  %16 = load ptr, ptr %15, align 8
+  tail call void @snd_hdac_bus_remove_device(ptr noundef %16, ptr noundef %0) #9
+  %17 = getelementptr inbounds i8, ptr %0, i64 800
+  %18 = load ptr, ptr %17, align 8
+  tail call void @kfree(ptr noundef %18) #9
+  %19 = getelementptr inbounds i8, ptr %0, i64 808
+  %20 = load ptr, ptr %19, align 8
+  tail call void @kfree(ptr noundef %20) #9
   ret void
 }
 
@@ -460,18 +462,18 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 define dso_local i32 @snd_hdac_refresh_widgets(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 840
-  tail call void @mutex_lock(ptr noundef %3) #8
+  tail call void @mutex_lock(ptr noundef %3) #9
   %4 = getelementptr inbounds i8, ptr %0, i64 768
   %5 = load i16, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
   store i32 0, ptr %2, align 4, !annotation !6
   %6 = zext i16 %5 to i32
   %7 = shl i32 %6, 20
   %8 = or disjoint i32 %7, 983044
-  %9 = call i32 @snd_hdac_regmap_read_raw_uncached(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %2) #8
+  %9 = call i32 @snd_hdac_regmap_read_raw_uncached(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %2) #9
   %10 = load i32, ptr %2, align 4
   %11 = icmp slt i32 %9, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
   %12 = icmp eq i32 %10, -1
   %13 = select i1 %11, i1 true, i1 %12
   %14 = lshr i32 %10, 16
@@ -489,11 +491,11 @@ define dso_local i32 @snd_hdac_refresh_widgets(ptr noundef %0) #0 align 16 {
 24:                                               ; preds = %1
   %25 = load i16, ptr %4, align 8
   %26 = zext i16 %25 to i32
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %26) #9
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %26) #10
   br label %36
 
 27:                                               ; preds = %1
-  %28 = call i32 @hda_widget_sysfs_reinit(ptr noundef %0, i16 noundef zeroext %18, i32 noundef %19) #8
+  %28 = call i32 @hda_widget_sysfs_reinit(ptr noundef %0, i16 noundef zeroext %18, i32 noundef %19) #9
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %36, label %30
 
@@ -510,7 +512,7 @@ define dso_local i32 @snd_hdac_refresh_widgets(ptr noundef %0) #0 align 16 {
 
 36:                                               ; preds = %30, %27, %24
   %37 = phi i32 [ -22, %24 ], [ %28, %27 ], [ %28, %30 ]
-  call void @mutex_unlock(ptr noundef %3) #8
+  call void @mutex_unlock(ptr noundef %3) #9
   ret i32 %37
 }
 
@@ -531,7 +533,7 @@ define dso_local i32 @snd_hdac_read(ptr noundef %0, i16 noundef zeroext %1, i32 
 
 15:                                               ; preds = %9, %5
   %16 = zext i16 %1 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %7, i32 noundef %16, i32 noundef %2, i32 noundef %3) #9
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %7, i32 noundef %16, i32 noundef %2, i32 noundef %3) #10
   br label %25
 
 17:                                               ; preds = %9
@@ -552,14 +554,14 @@ define dso_local i32 @snd_hdac_read(ptr noundef %0, i16 noundef zeroext %1, i32 
   br i1 %29, label %32, label %30
 
 30:                                               ; preds = %25
-  %31 = tail call i32 %28(ptr noundef %0, i32 noundef %26, i32 noundef 0, ptr noundef %4) #8
+  %31 = tail call i32 %28(ptr noundef %0, i32 noundef %26, i32 noundef 0, ptr noundef %4) #9
   br label %37
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds i8, ptr %0, i64 736
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %6, align 8
-  %36 = tail call i32 @snd_hdac_bus_exec_verb(ptr noundef %34, i32 noundef %35, i32 noundef %26, ptr noundef %4) #8
+  %36 = tail call i32 @snd_hdac_bus_exec_verb(ptr noundef %34, i32 noundef %35, i32 noundef %26, ptr noundef %4) #9
   br label %37
 
 37:                                               ; preds = %32, %30
@@ -583,30 +585,32 @@ define dso_local void @snd_hdac_device_exit(ptr noundef %0) #0 align 16 {
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.thread, label %.lr.ph, !prof !11
 
-.lr.ph:                                           ; preds = %1, %10
-  %5 = phi i32 [ %11, %10 ], [ %3, %1 ]
+.lr.ph:                                           ; preds = %1, %11
+  %5 = phi i32 [ %12, %11 ], [ %3, %1 ]
   %6 = add i32 %5, -1
-  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %5) #8, !srcloc !12
+  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %5) #9, !srcloc !12
   %8 = extractvalue { i8, i32 } %7, 0
-  %9 = icmp eq i8 %8, 0
-  br i1 %9, label %10, label %.thread, !prof !13
+  %9 = icmp ult i8 %8, 2
+  tail call void @llvm.assume(i1 %9)
+  %10 = icmp eq i8 %8, 0
+  br i1 %10, label %11, label %.thread, !prof !13
 
-10:                                               ; preds = %.lr.ph
-  %11 = extractvalue { i8, i32 } %7, 1
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread, label %.lr.ph, !prof !14, !llvm.loop !15
+11:                                               ; preds = %.lr.ph
+  %12 = extractvalue { i8, i32 } %7, 1
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %.thread, label %.lr.ph, !prof !14, !llvm.loop !15
 
-.thread:                                          ; preds = %10, %.lr.ph, %1
-  %13 = tail call i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef 2) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 736
-  %15 = load ptr, ptr %14, align 8
-  tail call void @snd_hdac_bus_remove_device(ptr noundef %15, ptr noundef %0) #8
-  %16 = getelementptr inbounds i8, ptr %0, i64 800
-  %17 = load ptr, ptr %16, align 8
-  tail call void @kfree(ptr noundef %17) #8
-  %18 = getelementptr inbounds i8, ptr %0, i64 808
-  %19 = load ptr, ptr %18, align 8
-  tail call void @kfree(ptr noundef %19) #8
+.thread:                                          ; preds = %11, %.lr.ph, %1
+  %14 = tail call i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef 2) #9
+  %15 = getelementptr inbounds i8, ptr %0, i64 736
+  %16 = load ptr, ptr %15, align 8
+  tail call void @snd_hdac_bus_remove_device(ptr noundef %16, ptr noundef %0) #9
+  %17 = getelementptr inbounds i8, ptr %0, i64 800
+  %18 = load ptr, ptr %17, align 8
+  tail call void @kfree(ptr noundef %18) #9
+  %19 = getelementptr inbounds i8, ptr %0, i64 808
+  %20 = load ptr, ptr %19, align 8
+  tail call void @kfree(ptr noundef %20) #9
   ret void
 }
 
@@ -618,20 +622,20 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_register(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 @device_add(ptr noundef %0) #8
+  %2 = tail call i32 @device_add(ptr noundef %0) #9
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 840
-  tail call void @mutex_lock(ptr noundef %5) #8
-  %6 = tail call i32 @hda_widget_sysfs_init(ptr noundef %0) #8
-  tail call void @mutex_unlock(ptr noundef %5) #8
+  tail call void @mutex_lock(ptr noundef %5) #9
+  %6 = tail call i32 @hda_widget_sysfs_init(ptr noundef %0) #9
+  tail call void @mutex_unlock(ptr noundef %5) #9
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %4
-  tail call void @device_del(ptr noundef %0) #8
+  tail call void @device_del(ptr noundef %0) #9
   br label %9
 
 9:                                                ; preds = %8, %4, %1
@@ -664,13 +668,13 @@ define dso_local void @snd_hdac_device_unregister(ptr noundef %0) #0 align 16 {
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 840
-  tail call void @mutex_lock(ptr noundef %7) #8
-  tail call void @hda_widget_sysfs_exit(ptr noundef %0) #8
-  tail call void @mutex_unlock(ptr noundef %7) #8
-  tail call void @device_del(ptr noundef %0) #8
+  tail call void @mutex_lock(ptr noundef %7) #9
+  tail call void @hda_widget_sysfs_exit(ptr noundef %0) #9
+  tail call void @mutex_unlock(ptr noundef %7) #9
+  tail call void @device_del(ptr noundef %0) #9
   %8 = getelementptr inbounds i8, ptr %0, i64 736
   %9 = load ptr, ptr %8, align 8
-  tail call void @snd_hdac_bus_remove_device(ptr noundef %9, ptr noundef %0) #8
+  tail call void @snd_hdac_bus_remove_device(ptr noundef %9, ptr noundef %0) #9
   br label %10
 
 10:                                               ; preds = %6, %1
@@ -686,14 +690,14 @@ define dso_local noundef range(i32 -12, 1) i32 @snd_hdac_device_set_chip_name(pt
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call noalias ptr @kstrdup(ptr noundef nonnull %1, i32 noundef 3264) #8
+  %5 = tail call noalias ptr @kstrdup(ptr noundef nonnull %1, i32 noundef 3264) #9
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 808
   %9 = load ptr, ptr %8, align 8
-  tail call void @kfree(ptr noundef %9) #8
+  tail call void @kfree(ptr noundef %9) #9
   store ptr %5, ptr %8, align 8
   br label %10
 
@@ -713,7 +717,7 @@ define dso_local i32 @snd_hdac_codec_modalias(ptr nocapture noundef readonly %0,
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 728
   %9 = load i32, ptr %8, align 8
-  %10 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.6, i32 noundef %5, i32 noundef %7, i32 noundef %9) #8
+  %10 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.6, i32 noundef %5, i32 noundef %7, i32 noundef %9) #9
   ret i32 %10
 }
 
@@ -728,7 +732,7 @@ define dso_local i32 @snd_hdac_exec_verb(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call i32 %6(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #8
+  %9 = tail call i32 %6(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #9
   br label %16
 
 10:                                               ; preds = %4
@@ -736,7 +740,7 @@ define dso_local i32 @snd_hdac_exec_verb(ptr noundef %0, i32 noundef %1, i32 nou
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 744
   %14 = load i32, ptr %13, align 8
-  %15 = tail call i32 @snd_hdac_bus_exec_verb(ptr noundef %12, i32 noundef %14, i32 noundef %1, ptr noundef %3) #8
+  %15 = tail call i32 @snd_hdac_bus_exec_verb(ptr noundef %12, i32 noundef %14, i32 noundef %1, ptr noundef %3) #9
   br label %16
 
 16:                                               ; preds = %10, %8
@@ -753,7 +757,7 @@ define dso_local i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1
   %6 = shl i32 %5, 20
   %7 = or i32 %6, %2
   %8 = or i32 %7, 983040
-  %9 = tail call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %8, ptr noundef %3) #8
+  %9 = tail call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %8, ptr noundef %3) #9
   ret i32 %9
 }
 
@@ -763,17 +767,17 @@ declare dso_local i32 @snd_hdac_regmap_read_raw(ptr noundef, i32 noundef, ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_read_parm_uncached(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !6
   %5 = zext i16 %1 to i32
   %6 = shl i32 %5, 20
   %7 = or i32 %6, %2
   %8 = or i32 %7, 983040
-  %9 = call i32 @snd_hdac_regmap_read_raw_uncached(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %4) #8
+  %9 = call i32 @snd_hdac_regmap_read_raw_uncached(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %4) #9
   %10 = load i32, ptr %4, align 4
   %11 = icmp sgt i32 %9, -1
   %12 = select i1 %11, i32 %10, i32 -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   ret i32 %12
 }
 
@@ -796,7 +800,7 @@ define dso_local i32 @snd_hdac_override_parm(ptr noundef %0, i16 noundef zeroext
   %14 = load i8, ptr %13, align 8
   %15 = or i8 %14, 2
   store i8 %15, ptr %13, align 8
-  %16 = tail call i32 @snd_hdac_regmap_write_raw(ptr noundef %0, i32 noundef %12, i32 noundef %3) #8
+  %16 = tail call i32 @snd_hdac_regmap_write_raw(ptr noundef %0, i32 noundef %12, i32 noundef %3) #9
   %17 = load i8, ptr %13, align 8
   %18 = and i8 %17, -3
   store i8 %18, ptr %13, align 8
@@ -813,15 +817,15 @@ declare dso_local i32 @snd_hdac_regmap_write_raw(ptr noundef, i32 noundef, i32 n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 32768) i32 @snd_hdac_get_sub_nodes(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !6
   %5 = zext i16 %1 to i32
   %6 = shl i32 %5, 20
   %7 = or disjoint i32 %6, 983044
-  %8 = call i32 @snd_hdac_regmap_read_raw_uncached(ptr noundef %0, i32 noundef %7, ptr noundef nonnull %4) #8
+  %8 = call i32 @snd_hdac_regmap_read_raw_uncached(ptr noundef %0, i32 noundef %7, ptr noundef nonnull %4) #9
   %9 = load i32, ptr %4, align 4
   %10 = icmp slt i32 %8, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   %11 = icmp eq i32 %9, -1
   %12 = select i1 %10, i1 true, i1 %11
   %13 = lshr i32 %9, 16
@@ -842,17 +846,17 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
   store i32 0, ptr %6, align 4, !annotation !6
   %8 = zext i16 %1 to i32
   %9 = shl i32 %8, 20
   %10 = or disjoint i32 %9, 983049
-  %11 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %6) #8
+  %11 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %6) #9
   %12 = load i32, ptr %6, align 4
   %13 = icmp sgt i32 %11, -1
   %14 = select i1 %13, i32 %12, i32 -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
   %15 = and i32 %14, 256
   %16 = icmp ne i32 %15, 0
   %17 = and i32 %14, 15728640
@@ -861,13 +865,13 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   br i1 %19, label %20, label %.thread18
 
 20:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
   store i32 0, ptr %5, align 4, !annotation !6
   %21 = or disjoint i32 %9, 983054
-  %22 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %21, ptr noundef nonnull %5) #8
+  %22 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %21, ptr noundef nonnull %5) #9
   %23 = load i32, ptr %5, align 4
   %24 = icmp slt i32 %22, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   %25 = icmp eq i32 %23, -1
   %26 = select i1 %24, i1 true, i1 %25
   br i1 %26, label %.thread18, label %27
@@ -908,7 +912,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   br i1 %49, label %51, label %50
 
 50:                                               ; preds = %44
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %46, i32 noundef %8, i32 noundef 3842, i32 noundef 0) #9
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %46, i32 noundef %8, i32 noundef 3842, i32 noundef 0) #10
   br label %55
 
 51:                                               ; preds = %44
@@ -925,14 +929,14 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   br i1 %59, label %62, label %60
 
 60:                                               ; preds = %55
-  %61 = call i32 %58(ptr noundef %0, i32 noundef %56, i32 noundef 0, ptr noundef nonnull %7) #8
+  %61 = call i32 %58(ptr noundef %0, i32 noundef %56, i32 noundef 0, ptr noundef nonnull %7) #9
   br label %67
 
 62:                                               ; preds = %55
   %63 = getelementptr inbounds i8, ptr %0, i64 736
   %64 = load ptr, ptr %63, align 8
   %65 = load i32, ptr %45, align 8
-  %66 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %64, i32 noundef %65, i32 noundef %56, ptr noundef nonnull %7) #8
+  %66 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %64, i32 noundef %65, i32 noundef %56, ptr noundef nonnull %7) #9
   br label %67
 
 67:                                               ; preds = %62, %60
@@ -967,7 +971,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   br i1 %86, label %88, label %87
 
 87:                                               ; preds = %83
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %84, i32 noundef %8, i32 noundef 3842, i32 noundef %80) #9
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %84, i32 noundef %8, i32 noundef 3842, i32 noundef %80) #10
   br label %93
 
 88:                                               ; preds = %83
@@ -984,13 +988,13 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   br i1 %96, label %99, label %97
 
 97:                                               ; preds = %93
-  %98 = call i32 %95(ptr noundef %0, i32 noundef %94, i32 noundef 0, ptr noundef nonnull %7) #8
+  %98 = call i32 %95(ptr noundef %0, i32 noundef %94, i32 noundef 0, ptr noundef nonnull %7) #9
   br label %103
 
 99:                                               ; preds = %93
   %100 = load ptr, ptr %42, align 8
   %101 = load i32, ptr %39, align 8
-  %102 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %100, i32 noundef %101, i32 noundef %94, ptr noundef nonnull %7) #8
+  %102 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %100, i32 noundef %101, i32 noundef %94, ptr noundef nonnull %7) #9
   br label %103
 
 103:                                              ; preds = %99, %97
@@ -1045,7 +1049,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   br i1 %131, label %.loopexit, label %.preheader.split.us, !llvm.loop !16
 
 132:                                              ; preds = %119
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %121, i32 noundef %112) #9
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %121, i32 noundef %112) #10
   br label %.loopexit
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %134
@@ -1093,7 +1097,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
 
 .thread18:                                        ; preds = %140, %114, %103, %.loopexit, %.preheader.split, %20, %4, %72, %70, %67, %29, %27
   %152 = phi i32 [ 0, %27 ], [ %34, %29 ], [ %68, %67 ], [ 1, %72 ], [ 1, %70 ], [ 0, %4 ], [ 0, %20 ], [ -28, %.preheader.split ], [ -5, %103 ], [ 0, %114 ], [ -28, %140 ], [ %148, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   ret i32 %152
 }
 
@@ -1102,16 +1106,16 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_power_up(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 4) #8
+  %2 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 4) #9
   ret i32 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_power_down(ptr noundef %0) #0 align 16 {
-  %2 = tail call i64 @ktime_get_mono_fast_ns() #8
+  %2 = tail call i64 @ktime_get_mono_fast_ns() #9
   %3 = getelementptr inbounds i8, ptr %0, i64 472
   store volatile i64 %2, ptr %3, align 8
-  %4 = tail call i32 @__pm_runtime_suspend(ptr noundef %0, i32 noundef 13) #8
+  %4 = tail call i32 @__pm_runtime_suspend(ptr noundef %0, i32 noundef 13) #9
   ret i32 %4
 }
 
@@ -1122,26 +1126,28 @@ define dso_local i32 @snd_hdac_power_up_pm(ptr noundef %0) #0 align 16 {
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %._crit_edge, label %.lr.ph, !prof !11
 
-.lr.ph:                                           ; preds = %1, %10
-  %5 = phi i32 [ %11, %10 ], [ %3, %1 ]
+.lr.ph:                                           ; preds = %1, %11
+  %5 = phi i32 [ %12, %11 ], [ %3, %1 ]
   %6 = add i32 %5, 1
-  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %5) #8, !srcloc !12
+  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %5) #9, !srcloc !12
   %8 = extractvalue { i8, i32 } %7, 0
-  %9 = icmp eq i8 %8, 0
-  br i1 %9, label %10, label %.loopexit, !prof !13
+  %9 = icmp ult i8 %8, 2
+  tail call void @llvm.assume(i1 %9)
+  %10 = icmp eq i8 %8, 0
+  br i1 %10, label %11, label %.loopexit, !prof !13
 
-10:                                               ; preds = %.lr.ph
-  %11 = extractvalue { i8, i32 } %7, 1
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %._crit_edge, label %.lr.ph, !prof !14, !llvm.loop !15
+11:                                               ; preds = %.lr.ph
+  %12 = extractvalue { i8, i32 } %7, 1
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %._crit_edge, label %.lr.ph, !prof !14, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %10, %1
-  %13 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 4) #8
+._crit_edge:                                      ; preds = %11, %1
+  %14 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 4) #9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
-  %14 = phi i32 [ %13, %._crit_edge ], [ 0, %.lr.ph ]
-  ret i32 %14
+  %15 = phi i32 [ %14, %._crit_edge ], [ 0, %.lr.ph ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1151,32 +1157,34 @@ define dso_local range(i32 -1, 2) i32 @snd_hdac_keep_power_up(ptr noundef %0) lo
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %._crit_edge, label %.lr.ph, !prof !11
 
-.lr.ph:                                           ; preds = %1, %10
-  %5 = phi i32 [ %11, %10 ], [ %3, %1 ]
+.lr.ph:                                           ; preds = %1, %11
+  %5 = phi i32 [ %12, %11 ], [ %3, %1 ]
   %6 = add i32 %5, 1
-  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %5) #8, !srcloc !12
+  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %5) #9, !srcloc !12
   %8 = extractvalue { i8, i32 } %7, 0
-  %9 = icmp eq i8 %8, 0
-  br i1 %9, label %10, label %.loopexit, !prof !13
+  %9 = icmp ult i8 %8, 2
+  tail call void @llvm.assume(i1 %9)
+  %10 = icmp eq i8 %8, 0
+  br i1 %10, label %11, label %.loopexit, !prof !13
 
-10:                                               ; preds = %.lr.ph
-  %11 = extractvalue { i8, i32 } %7, 1
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %._crit_edge, label %.lr.ph, !prof !14, !llvm.loop !15
+11:                                               ; preds = %.lr.ph
+  %12 = extractvalue { i8, i32 } %7, 1
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %._crit_edge, label %.lr.ph, !prof !14, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %10, %1
-  %13 = tail call i32 @pm_runtime_get_if_active(ptr noundef %0, i1 noundef zeroext true) #8
-  %14 = icmp eq i32 %13, 0
-  %15 = sext i1 %14 to i32
-  %16 = icmp sgt i32 %13, 0
-  br i1 %16, label %.loopexit, label %17
+._crit_edge:                                      ; preds = %11, %1
+  %14 = tail call i32 @pm_runtime_get_if_active(ptr noundef %0, i1 noundef zeroext true) #9
+  %15 = icmp eq i32 %14, 0
+  %16 = sext i1 %15 to i32
+  %17 = icmp sgt i32 %14, 0
+  br i1 %17, label %.loopexit, label %18
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
-  br label %17
+  br label %18
 
-17:                                               ; preds = %.loopexit, %._crit_edge
-  %18 = phi i32 [ 1, %.loopexit ], [ %15, %._crit_edge ]
-  ret i32 %18
+18:                                               ; preds = %.loopexit, %._crit_edge
+  %19 = phi i32 [ 1, %.loopexit ], [ %16, %._crit_edge ]
+  ret i32 %19
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1190,36 +1198,38 @@ define dso_local i32 @snd_hdac_power_down_pm(ptr noundef %0) #0 align 16 {
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %._crit_edge, label %.lr.ph, !prof !11
 
-.lr.ph:                                           ; preds = %1, %11
-  %6 = phi i32 [ %13, %11 ], [ %4, %1 ]
-  %7 = phi i32 [ %12, %11 ], [ %3, %1 ]
-  %8 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %7) #8, !srcloc !12
+.lr.ph:                                           ; preds = %1, %12
+  %6 = phi i32 [ %14, %12 ], [ %4, %1 ]
+  %7 = phi i32 [ %13, %12 ], [ %3, %1 ]
+  %8 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %7) #9, !srcloc !12
   %9 = extractvalue { i8, i32 } %8, 0
-  %10 = icmp eq i8 %9, 0
-  br i1 %10, label %11, label %.thread, !prof !13
+  %10 = icmp ult i8 %9, 2
+  tail call void @llvm.assume(i1 %10)
+  %11 = icmp eq i8 %9, 0
+  br i1 %11, label %12, label %.thread, !prof !13
 
-11:                                               ; preds = %.lr.ph
-  %12 = extractvalue { i8, i32 } %8, 1
-  %13 = add i32 %12, -1
-  %14 = icmp slt i32 %13, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph, !prof !14, !llvm.loop !18
+12:                                               ; preds = %.lr.ph
+  %13 = extractvalue { i8, i32 } %8, 1
+  %14 = add i32 %13, -1
+  %15 = icmp slt i32 %14, 0
+  br i1 %15, label %._crit_edge, label %.lr.ph, !prof !14, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %11, %1
-  %15 = tail call i64 @ktime_get_mono_fast_ns() #8
-  %16 = getelementptr inbounds i8, ptr %0, i64 472
-  store volatile i64 %15, ptr %16, align 8
-  %17 = tail call i32 @__pm_runtime_suspend(ptr noundef %0, i32 noundef 13) #8
+._crit_edge:                                      ; preds = %12, %1
+  %16 = tail call i64 @ktime_get_mono_fast_ns() #9
+  %17 = getelementptr inbounds i8, ptr %0, i64 472
+  store volatile i64 %16, ptr %17, align 8
+  %18 = tail call i32 @__pm_runtime_suspend(ptr noundef %0, i32 noundef 13) #9
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge
-  %18 = phi i32 [ %17, %._crit_edge ], [ 0, %.lr.ph ]
-  ret i32 %18
+  %19 = phi i32 [ %18, %._crit_edge ], [ 0, %.lr.ph ]
+  ret i32 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_stream_format_bits(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.snd_pcm_hw_params, align 8
-  call void @llvm.lifetime.start.p0(i64 608, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 608, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %4, i8 0, i64 608, i1 false)
   switch i32 %0, label %8 [
     i32 25, label %9
@@ -1264,11 +1274,11 @@ define dso_local i32 @snd_hdac_stream_format_bits(i32 noundef %0, i32 noundef %1
   %25 = load i32, ptr %24, align 4
   %26 = or i32 %25, %21
   store i32 %26, ptr %24, align 4
-  %27 = call i32 @snd_pcm_hw_params_bits(ptr noundef nonnull %4) #8
+  %27 = call i32 @snd_pcm_hw_params_bits(ptr noundef nonnull %4) #9
   %28 = icmp eq i32 %2, 0
   %29 = call i32 @llvm.umin.i32(i32 %27, i32 %2)
   %30 = select i1 %28, i32 %27, i32 %29
-  call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %4) #9
   ret i32 %30
 }
 
@@ -1448,16 +1458,16 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
   store i32 0, ptr %9, align 4, !annotation !6
   %10 = zext i16 %1 to i32
   %11 = shl i32 %10, 20
   %12 = or disjoint i32 %11, 983049
-  %13 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %12, ptr noundef nonnull %9) #8
+  %13 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %12, ptr noundef nonnull %9) #9
   %14 = load i32, ptr %9, align 4
   %15 = icmp sgt i32 %13, -1
   %16 = select i1 %15, i32 %14, i32 -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
   %17 = call fastcc i32 @query_pcm_param(ptr noundef %0, i16 noundef zeroext %1), !range !20
   %18 = icmp eq ptr %2, null
   br i1 %18, label %38, label %.preheader
@@ -1490,7 +1500,7 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
 .thread:                                          ; preds = %33
   %35 = lshr i32 %16, 4
   %36 = and i32 %35, 1
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %10, i32 noundef %17, i32 noundef %36) #9
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %10, i32 noundef %17, i32 noundef %36) #10
   br label %114
 
 37:                                               ; preds = %33
@@ -1506,13 +1516,13 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   br i1 %43, label %44, label %114
 
 44:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
   store i32 0, ptr %8, align 4, !annotation !6
   %45 = or disjoint i32 %11, 983051
-  %46 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %45, ptr noundef nonnull %8) #8
+  %46 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %45, ptr noundef nonnull %8) #9
   %47 = load i32, ptr %8, align 4
   %48 = add i32 %47, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
   %.inv = icmp slt i32 %46, 0
   %49 = icmp ult i32 %48, 2
   %50 = select i1 %.inv, i1 true, i1 %49
@@ -1521,15 +1531,15 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
 51:                                               ; preds = %44
   %52 = getelementptr inbounds i8, ptr %0, i64 768
   %53 = load i16, ptr %52, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
   store i32 0, ptr %7, align 4, !annotation !6
   %54 = zext i16 %53 to i32
   %55 = shl i32 %54, 20
   %56 = or disjoint i32 %55, 983051
-  %57 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %56, ptr noundef nonnull %7) #8
+  %57 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %56, ptr noundef nonnull %7) #9
   %58 = load i32, ptr %7, align 4
   %59 = add i32 %58, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   %.inv8 = icmp slt i32 %57, 0
   %60 = icmp ult i32 %59, 2
   %61 = select i1 %.inv8, i1 true, i1 %60
@@ -1594,7 +1604,7 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
 105:                                              ; preds = %96
   %106 = lshr i32 %16, 4
   %107 = and i32 %106, 1
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %10, i32 noundef %17, i32 noundef %107, i32 noundef %62) #9
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %10, i32 noundef %17, i32 noundef %107, i32 noundef %62) #10
   br label %114
 
 108:                                              ; preds = %96
@@ -1634,28 +1644,28 @@ define internal fastcc i32 @query_pcm_param(ptr noundef %0, i16 noundef zeroext 
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
   store i32 0, ptr %5, align 4, !annotation !6
   %10 = zext i16 %1 to i32
   %11 = shl i32 %10, 20
   %12 = or disjoint i32 %11, 983049
-  %13 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %12, ptr noundef nonnull %5) #8
+  %13 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %12, ptr noundef nonnull %5) #9
   %14 = load i32, ptr %5, align 4
   %15 = icmp sgt i32 %13, -1
   %16 = and i32 %14, 16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   %17 = icmp eq i32 %16, 0
   %18 = select i1 %15, i1 %17, i1 false
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !6
   %20 = or disjoint i32 %11, 983050
-  %21 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %20, ptr noundef nonnull %4) #8
+  %21 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %20, ptr noundef nonnull %4) #9
   %22 = load i32, ptr %4, align 4
   %23 = add i32 %22, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   %.inv = icmp slt i32 %21, 0
   %24 = icmp ult i32 %23, 2
   %25 = select i1 %.inv, i1 true, i1 %24
@@ -1663,16 +1673,16 @@ define internal fastcc i32 @query_pcm_param(ptr noundef %0, i16 noundef zeroext 
 
 .thread:                                          ; preds = %2, %9, %19
   %26 = load i16, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   store i32 0, ptr %3, align 4, !annotation !6
   %27 = zext i16 %26 to i32
   %28 = shl i32 %27, 20
   %29 = or disjoint i32 %28, 983050
-  %30 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %29, ptr noundef nonnull %3) #8
+  %30 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %29, ptr noundef nonnull %3) #9
   %31 = load i32, ptr %3, align 4
   %32 = icmp sgt i32 %30, -1
   %33 = select i1 %32, i32 %31, i32 -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   %.pre = add i32 %33, 1
   %34 = icmp ult i32 %.pre, 2
   %35 = select i1 %34, i32 0, i32 %33
@@ -1715,15 +1725,15 @@ define dso_local noundef zeroext i1 @snd_hdac_is_supported_format(ptr noundef %0
   br i1 %22, label %.loopexit, label %10, !llvm.loop !22
 
 23:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
   store i32 0, ptr %5, align 4, !annotation !6
   %24 = zext i16 %1 to i32
   %25 = shl i32 %24, 20
   %26 = or disjoint i32 %25, 983051
-  %27 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %26, ptr noundef nonnull %5) #8
+  %27 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %26, ptr noundef nonnull %5) #9
   %28 = load i32, ptr %5, align 4
   %29 = add i32 %28, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   %.inv = icmp slt i32 %27, 0
   %30 = icmp ult i32 %29, 2
   %31 = select i1 %.inv, i1 true, i1 %30
@@ -1732,15 +1742,15 @@ define dso_local noundef zeroext i1 @snd_hdac_is_supported_format(ptr noundef %0
 32:                                               ; preds = %23
   %33 = getelementptr inbounds i8, ptr %0, i64 768
   %34 = load i16, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !6
   %35 = zext i16 %34 to i32
   %36 = shl i32 %35, 20
   %37 = or disjoint i32 %36, 983051
-  %38 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %37, ptr noundef nonnull %4) #8
+  %38 = call i32 @snd_hdac_regmap_read_raw(ptr noundef %0, i32 noundef %37, ptr noundef nonnull %4) #9
   %39 = load i32, ptr %4, align 4
   %40 = add i32 %39, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   %.inv6 = icmp slt i32 %38, 0
   %41 = icmp ult i32 %40, 2
   %42 = select i1 %.inv6, i1 true, i1 %41
@@ -1814,7 +1824,7 @@ define dso_local i32 @snd_hdac_codec_read(ptr noundef %0, i16 noundef zeroext %1
 
 16:                                               ; preds = %10, %5
   %17 = zext i16 %1 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %8, i32 noundef %17, i32 noundef %3, i32 noundef %4) #9
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %8, i32 noundef %17, i32 noundef %3, i32 noundef %4) #10
   br label %26
 
 18:                                               ; preds = %10
@@ -1829,7 +1839,7 @@ define dso_local i32 @snd_hdac_codec_read(ptr noundef %0, i16 noundef zeroext %1
 
 26:                                               ; preds = %18, %16
   %27 = phi i32 [ -1, %16 ], [ %25, %18 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
   store i32 0, ptr %6, align 4, !annotation !6
   %28 = getelementptr inbounds i8, ptr %0, i64 816
   %29 = load ptr, ptr %28, align 8
@@ -1837,14 +1847,14 @@ define dso_local i32 @snd_hdac_codec_read(ptr noundef %0, i16 noundef zeroext %1
   br i1 %30, label %33, label %31
 
 31:                                               ; preds = %26
-  %32 = call i32 %29(ptr noundef %0, i32 noundef %27, i32 noundef %2, ptr noundef nonnull %6) #8
+  %32 = call i32 %29(ptr noundef %0, i32 noundef %27, i32 noundef %2, ptr noundef nonnull %6) #9
   br label %38
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds i8, ptr %0, i64 736
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %7, align 8
-  %37 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %35, i32 noundef %36, i32 noundef %27, ptr noundef nonnull %6) #8
+  %37 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %35, i32 noundef %36, i32 noundef %27, ptr noundef nonnull %6) #9
   br label %38
 
 38:                                               ; preds = %33, %31
@@ -1852,7 +1862,7 @@ define dso_local i32 @snd_hdac_codec_read(ptr noundef %0, i16 noundef zeroext %1
   %40 = icmp eq i32 %39, 0
   %41 = load i32, ptr %6, align 4
   %42 = select i1 %40, i32 %41, i32 -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
   ret i32 %42
 }
 
@@ -1873,7 +1883,7 @@ define dso_local i32 @snd_hdac_codec_write(ptr noundef %0, i16 noundef zeroext %
 
 15:                                               ; preds = %9, %5
   %16 = zext i16 %1 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %7, i32 noundef %16, i32 noundef %3, i32 noundef %4) #9
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %7, i32 noundef %16, i32 noundef %3, i32 noundef %4) #10
   br label %25
 
 17:                                               ; preds = %9
@@ -1894,14 +1904,14 @@ define dso_local i32 @snd_hdac_codec_write(ptr noundef %0, i16 noundef zeroext %
   br i1 %29, label %32, label %30
 
 30:                                               ; preds = %25
-  %31 = tail call i32 %28(ptr noundef %0, i32 noundef %26, i32 noundef %2, ptr noundef null) #8
+  %31 = tail call i32 %28(ptr noundef %0, i32 noundef %26, i32 noundef %2, ptr noundef null) #9
   br label %37
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds i8, ptr %0, i64 736
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %6, align 8
-  %36 = tail call i32 @snd_hdac_bus_exec_verb(ptr noundef %34, i32 noundef %35, i32 noundef %26, ptr noundef null) #8
+  %36 = tail call i32 @snd_hdac_bus_exec_verb(ptr noundef %34, i32 noundef %35, i32 noundef %26, ptr noundef null) #9
   br label %37
 
 37:                                               ; preds = %32, %30
@@ -1921,7 +1931,7 @@ define dso_local zeroext i1 @snd_hdac_check_power_state(ptr noundef %0, i16 noun
   br i1 %9, label %12, label %11
 
 11:                                               ; preds = %3
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %6, i32 noundef %10, i32 noundef 3845, i32 noundef 0) #9
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %6, i32 noundef %10, i32 noundef 3845, i32 noundef 0) #10
   br label %17
 
 12:                                               ; preds = %3
@@ -1933,7 +1943,7 @@ define dso_local zeroext i1 @snd_hdac_check_power_state(ptr noundef %0, i16 noun
 
 17:                                               ; preds = %12, %11
   %18 = phi i32 [ -1, %11 ], [ %16, %12 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !6
   %19 = getelementptr inbounds i8, ptr %0, i64 816
   %20 = load ptr, ptr %19, align 8
@@ -1941,14 +1951,14 @@ define dso_local zeroext i1 @snd_hdac_check_power_state(ptr noundef %0, i16 noun
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %17
-  %23 = call i32 %20(ptr noundef %0, i32 noundef %18, i32 noundef 0, ptr noundef nonnull %4) #8
+  %23 = call i32 %20(ptr noundef %0, i32 noundef %18, i32 noundef 0, ptr noundef nonnull %4) #9
   br label %29
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds i8, ptr %0, i64 736
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %5, align 8
-  %28 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %26, i32 noundef %27, i32 noundef %18, ptr noundef nonnull %4) #8
+  %28 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %26, i32 noundef %27, i32 noundef %18, ptr noundef nonnull %4) #9
   br label %29
 
 29:                                               ; preds = %24, %22
@@ -1956,7 +1966,7 @@ define dso_local zeroext i1 @snd_hdac_check_power_state(ptr noundef %0, i16 noun
   %31 = icmp eq i32 %30, 0
   %32 = load i32, ptr %4, align 4
   %33 = select i1 %31, i32 %32, i32 -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   %34 = and i32 %33, 256
   %35 = icmp ne i32 %34, 0
   %36 = lshr i32 %33, 4
@@ -1982,21 +1992,21 @@ define dso_local i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zero
 .split.us:                                        ; preds = %3, %38
   %13 = phi i32 [ %39, %38 ], [ 0, %3 ]
   %14 = load i32, ptr %6, align 8
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %14, i32 noundef %8, i32 noundef 3845, i32 noundef 0) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %14, i32 noundef %8, i32 noundef 3845, i32 noundef 0) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !6
   %15 = load ptr, ptr %10, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %.split.us
-  %18 = call i32 %15(ptr noundef %0, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %4) #8
+  %18 = call i32 %15(ptr noundef %0, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %4) #9
   br label %23
 
 19:                                               ; preds = %.split.us
   %20 = load ptr, ptr %11, align 8
   %21 = load i32, ptr %6, align 8
-  %22 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %20, i32 noundef %21, i32 noundef -1, ptr noundef nonnull %4) #8
+  %22 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %20, i32 noundef %21, i32 noundef -1, ptr noundef nonnull %4) #9
   br label %23
 
 23:                                               ; preds = %19, %17
@@ -2004,7 +2014,7 @@ define dso_local i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zero
   %25 = icmp eq i32 %24, 0
   %26 = load i32, ptr %4, align 4
   %27 = select i1 %25, i32 %26, i32 -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   %28 = and i32 %27, 256
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %.split5.us
@@ -2022,7 +2032,7 @@ define dso_local i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zero
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %34
-  call void @msleep(i32 noundef 1) #8
+  call void @msleep(i32 noundef 1) #9
   %39 = add nuw nsw i32 %13, 1
   %40 = icmp eq i32 %39, 500
   br i1 %40, label %.loopexit, label %.split.us, !llvm.loop !23
@@ -2034,7 +2044,7 @@ define dso_local i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zero
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %.split
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %42, i32 noundef %8, i32 noundef 3845, i32 noundef 0) #9
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %42, i32 noundef %8, i32 noundef 3845, i32 noundef 0) #10
   br label %49
 
 45:                                               ; preds = %.split
@@ -2045,20 +2055,20 @@ define dso_local i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zero
 
 49:                                               ; preds = %45, %44
   %50 = phi i32 [ -1, %44 ], [ %48, %45 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !6
   %51 = load ptr, ptr %10, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %55, label %53
 
 53:                                               ; preds = %49
-  %54 = call i32 %51(ptr noundef %0, i32 noundef %50, i32 noundef 0, ptr noundef nonnull %4) #8
+  %54 = call i32 %51(ptr noundef %0, i32 noundef %50, i32 noundef 0, ptr noundef nonnull %4) #9
   br label %59
 
 55:                                               ; preds = %49
   %56 = load ptr, ptr %11, align 8
   %57 = load i32, ptr %6, align 8
-  %58 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %56, i32 noundef %57, i32 noundef %50, ptr noundef nonnull %4) #8
+  %58 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %56, i32 noundef %57, i32 noundef %50, ptr noundef nonnull %4) #9
   br label %59
 
 59:                                               ; preds = %55, %53
@@ -2066,14 +2076,14 @@ define dso_local i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zero
   %61 = icmp eq i32 %60, 0
   %62 = load i32, ptr %4, align 4
   %63 = select i1 %61, i32 %62, i32 -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   %64 = and i32 %63, 256
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %.split5.us
 
 .split5.us:                                       ; preds = %23, %59
   %.us-phi = phi i32 [ %63, %59 ], [ %27, %23 ]
-  call void @msleep(i32 noundef 20) #8
+  call void @msleep(i32 noundef 20) #9
   br label %.loopexit
 
 66:                                               ; preds = %59
@@ -2089,7 +2099,7 @@ define dso_local i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zero
   br i1 %73, label %.loopexit, label %74
 
 74:                                               ; preds = %70
-  call void @msleep(i32 noundef 1) #8
+  call void @msleep(i32 noundef 1) #9
   %75 = add nuw nsw i32 %41, 1
   %76 = icmp eq i32 %75, 500
   br i1 %76, label %.loopexit, label %.split, !llvm.loop !23
@@ -2105,6 +2115,9 @@ declare dso_local void @msleep(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__pm_runtime_set_status(ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
+
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__pm_runtime_resume(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -2115,13 +2128,13 @@ declare dso_local i64 @ktime_get_mono_fast_ns() local_unnamed_addr #2
 declare dso_local i32 @__pm_runtime_suspend(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #6
+declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #6
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -2129,10 +2142,11 @@ attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 attributes #3 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -573,9 +573,9 @@ define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   br label %32
 
 32:                                               ; preds = %.lr.ph108, %.loopexit
-  %33 = phi i64 [ %13, %.lr.ph108 ], [ %377, %.loopexit ]
-  %.058107 = phi i32 [ 0, %.lr.ph108 ], [ %378, %.loopexit ]
-  %.061105 = phi ptr [ %.val66, %.lr.ph108 ], [ %379, %.loopexit ]
+  %33 = phi i64 [ %13, %.lr.ph108 ], [ %376, %.loopexit ]
+  %.058107 = phi i32 [ 0, %.lr.ph108 ], [ %377, %.loopexit ]
+  %.061105 = phi ptr [ %.val66, %.lr.ph108 ], [ %378, %.loopexit ]
   %34 = getelementptr inbounds i8, ptr %.061105, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 268435456
@@ -593,8 +593,8 @@ define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   br label %41
 
 41:                                               ; preds = %.lr.ph, %Dar_CutMerge.exit.thread
-  %.057104 = phi i32 [ 0, %.lr.ph ], [ %371, %Dar_CutMerge.exit.thread ]
-  %.060102 = phi ptr [ %.val65, %.lr.ph ], [ %372, %Dar_CutMerge.exit.thread ]
+  %.057104 = phi i32 [ 0, %.lr.ph ], [ %370, %Dar_CutMerge.exit.thread ]
+  %.060102 = phi ptr [ %.val65, %.lr.ph ], [ %371, %Dar_CutMerge.exit.thread ]
   %42 = getelementptr inbounds i8, ptr %.060102, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = and i32 %43, 268435456
@@ -1024,8 +1024,7 @@ Dar_CutTruth.exit:                                ; preds = %254
 
 260:                                              ; preds = %Dar_CutTruth.exit
   %261 = lshr i32 %155, 29
-  %.not52.i = icmp ult i32 %259, 536870912
-  br i1 %.not52.i, label %Dar_CutFindValue.exit, label %.lr.ph.preheader.i
+  br i1 %.not.i.i, label %thread-pre-split, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %260
   %wide.trip.count.i = zext nneg i32 %261 to i64
@@ -1178,8 +1177,8 @@ Dar_CutTruthSwapAdjacentVars.exit.i.i85:          ; preds = %293, %285, %277, %.
   %.pr.pre = load i32, ptr %143, align 4
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %327, %._crit_edge.i73, %Dar_CutTruth.exit
-  %332 = phi i32 [ %259, %Dar_CutTruth.exit ], [ %259, %._crit_edge.i73 ], [ %.pr.pre, %327 ]
+thread-pre-split:                                 ; preds = %327, %._crit_edge.i73, %260, %Dar_CutTruth.exit
+  %332 = phi i32 [ %259, %Dar_CutTruth.exit ], [ %259, %260 ], [ %259, %._crit_edge.i73 ], [ %.pr.pre, %327 ]
   %333 = lshr i32 %332, 29
   %.not.i87 = icmp ult i32 %332, 536870912
   br i1 %.not.i87, label %Dar_CutFindValue.exit, label %.lr.ph.i88
@@ -1234,99 +1233,98 @@ Aig_ManObj.exit.i:                                ; preds = %344, %.lr.ph.split.
   %spec.select.i = select i1 %355, i32 %356, i32 %spec.store.select.i
   br label %Dar_CutFindValue.exit
 
-Dar_CutFindValue.exit:                            ; preds = %Aig_ManObj.exit.i, %260, %thread-pre-split, %.lr.ph.i88, %.critedge.i, %354
-  %357 = phi i32 [ %332, %354 ], [ %332, %.critedge.i ], [ %332, %.lr.ph.i88 ], [ %332, %thread-pre-split ], [ %259, %260 ], [ %332, %Aig_ManObj.exit.i ]
-  %.018.i = phi i32 [ %spec.select.i, %354 ], [ 1001, %.critedge.i ], [ 0, %.lr.ph.i88 ], [ 1001, %thread-pre-split ], [ 1001, %260 ], [ 0, %Aig_ManObj.exit.i ]
-  %358 = shl i32 %.018.i, 16
-  %359 = and i32 %358, 134152192
-  %360 = and i32 %357, -134152193
-  %361 = or disjoint i32 %359, %360
-  store i32 %361, ptr %143, align 4
-  %362 = and i32 %.018.i, 2047
-  %363 = icmp eq i32 %362, 0
-  br i1 %363, label %364, label %369
+Dar_CutFindValue.exit:                            ; preds = %Aig_ManObj.exit.i, %thread-pre-split, %.lr.ph.i88, %.critedge.i, %354
+  %.018.i = phi i32 [ %spec.select.i, %354 ], [ 1001, %.critedge.i ], [ 0, %.lr.ph.i88 ], [ 1001, %thread-pre-split ], [ 0, %Aig_ManObj.exit.i ]
+  %357 = shl i32 %.018.i, 16
+  %358 = and i32 %357, 134152192
+  %359 = and i32 %332, -134152193
+  %360 = or disjoint i32 %358, %359
+  store i32 %360, ptr %143, align 4
+  %361 = and i32 %.018.i, 2047
+  %362 = icmp eq i32 %361, 0
+  br i1 %362, label %363, label %368
 
-364:                                              ; preds = %Dar_CutFindValue.exit
-  %365 = load i32, ptr %31, align 8
-  %366 = add nsw i32 %365, 1
-  store i32 %366, ptr %31, align 8
-  %367 = load i32, ptr %143, align 4
-  %368 = and i32 %367, -268435457
-  store i32 %368, ptr %143, align 4
+363:                                              ; preds = %Dar_CutFindValue.exit
+  %364 = load i32, ptr %31, align 8
+  %365 = add nsw i32 %364, 1
+  store i32 %365, ptr %31, align 8
+  %366 = load i32, ptr %143, align 4
+  %367 = and i32 %366, -268435457
+  store i32 %367, ptr %143, align 4
   br label %Dar_CutMerge.exit.thread
 
-369:                                              ; preds = %Dar_CutFindValue.exit
-  %370 = icmp ult i32 %357, 1073741824
-  br i1 %370, label %.loopexit98, label %Dar_CutMerge.exit.thread
+368:                                              ; preds = %Dar_CutFindValue.exit
+  %369 = icmp ult i32 %332, 1073741824
+  br i1 %369, label %.loopexit98, label %Dar_CutMerge.exit.thread
 
-Dar_CutMerge.exit.thread:                         ; preds = %137, %135, %41, %369, %364, %139, %46
-  %371 = add nuw nsw i32 %.057104, 1
-  %372 = getelementptr inbounds i8, ptr %.060102, i64 24
-  %373 = load i64, ptr %19, align 8
-  %374 = lshr i64 %373, 56
-  %375 = trunc nuw nsw i64 %374 to i32
-  %376 = icmp ult i32 %371, %375
-  br i1 %376, label %41, label %.loopexit.loopexit, !llvm.loop !24
+Dar_CutMerge.exit.thread:                         ; preds = %137, %135, %41, %368, %363, %139, %46
+  %370 = add nuw nsw i32 %.057104, 1
+  %371 = getelementptr inbounds i8, ptr %.060102, i64 24
+  %372 = load i64, ptr %19, align 8
+  %373 = lshr i64 %372, 56
+  %374 = trunc nuw nsw i64 %373 to i32
+  %375 = icmp ult i32 %370, %374
+  br i1 %375, label %41, label %.loopexit.loopexit, !llvm.loop !24
 
 .loopexit.loopexit:                               ; preds = %Dar_CutMerge.exit.thread
   %.pre = load i64, ptr %12, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %38, %32
-  %377 = phi i64 [ %.pre, %.loopexit.loopexit ], [ %33, %38 ], [ %33, %32 ]
-  %378 = add nuw nsw i32 %.058107, 1
-  %379 = getelementptr inbounds i8, ptr %.061105, i64 24
-  %380 = lshr i64 %377, 56
-  %381 = trunc nuw nsw i64 %380 to i32
-  %382 = icmp ult i32 %378, %381
-  br i1 %382, label %32, label %._crit_edge, !llvm.loop !25
+  %376 = phi i64 [ %.pre, %.loopexit.loopexit ], [ %33, %38 ], [ %33, %32 ]
+  %377 = add nuw nsw i32 %.058107, 1
+  %378 = getelementptr inbounds i8, ptr %.061105, i64 24
+  %379 = lshr i64 %376, 56
+  %380 = trunc nuw nsw i64 %379 to i32
+  %381 = icmp ult i32 %377, %380
+  br i1 %381, label %32, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
-  %383 = getelementptr inbounds i8, ptr %1, i64 24
-  %384 = load i64, ptr %383, align 8
-  %.not117 = icmp ult i64 %384, 72057594037927936
+  %382 = getelementptr inbounds i8, ptr %1, i64 24
+  %383 = load i64, ptr %382, align 8
+  %.not117 = icmp ult i64 %383, 72057594037927936
   br i1 %.not117, label %._crit_edge113, label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %._crit_edge
-  %385 = getelementptr i8, ptr %1, i64 40
-  %.val = load ptr, ptr %385, align 8
-  %386 = getelementptr inbounds i8, ptr %0, i64 2756
-  br label %387
+  %384 = getelementptr i8, ptr %1, i64 40
+  %.val = load ptr, ptr %384, align 8
+  %385 = getelementptr inbounds i8, ptr %0, i64 2756
+  br label %386
 
-387:                                              ; preds = %.lr.ph112, %396
-  %388 = phi i64 [ %384, %.lr.ph112 ], [ %397, %396 ]
-  %.1110 = phi i32 [ 0, %.lr.ph112 ], [ %398, %396 ]
-  %.059109 = phi ptr [ %.val, %.lr.ph112 ], [ %399, %396 ]
-  %389 = getelementptr inbounds i8, ptr %.059109, i64 4
-  %390 = load i32, ptr %389, align 4
-  %391 = and i32 %390, 268435456
-  %392 = icmp eq i32 %391, 0
-  br i1 %392, label %396, label %393
+386:                                              ; preds = %.lr.ph112, %395
+  %387 = phi i64 [ %383, %.lr.ph112 ], [ %396, %395 ]
+  %.1110 = phi i32 [ 0, %.lr.ph112 ], [ %397, %395 ]
+  %.059109 = phi ptr [ %.val, %.lr.ph112 ], [ %398, %395 ]
+  %388 = getelementptr inbounds i8, ptr %.059109, i64 4
+  %389 = load i32, ptr %388, align 4
+  %390 = and i32 %389, 268435456
+  %391 = icmp eq i32 %390, 0
+  br i1 %391, label %395, label %392
 
-393:                                              ; preds = %387
-  %394 = load i32, ptr %386, align 4
-  %395 = add nsw i32 %394, 1
-  store i32 %395, ptr %386, align 4
-  %.pre122 = load i64, ptr %383, align 8
-  br label %396
+392:                                              ; preds = %386
+  %393 = load i32, ptr %385, align 4
+  %394 = add nsw i32 %393, 1
+  store i32 %394, ptr %385, align 4
+  %.pre122 = load i64, ptr %382, align 8
+  br label %395
 
-396:                                              ; preds = %393, %387
-  %397 = phi i64 [ %.pre122, %393 ], [ %388, %387 ]
-  %398 = add nuw nsw i32 %.1110, 1
-  %399 = getelementptr inbounds i8, ptr %.059109, i64 24
-  %400 = lshr i64 %397, 56
-  %401 = trunc nuw nsw i64 %400 to i32
-  %402 = icmp ult i32 %398, %401
-  br i1 %402, label %387, label %._crit_edge113, !llvm.loop !26
+395:                                              ; preds = %392, %386
+  %396 = phi i64 [ %.pre122, %392 ], [ %387, %386 ]
+  %397 = add nuw nsw i32 %.1110, 1
+  %398 = getelementptr inbounds i8, ptr %.059109, i64 24
+  %399 = lshr i64 %396, 56
+  %400 = trunc nuw nsw i64 %399 to i32
+  %401 = icmp ult i32 %397, %400
+  br i1 %401, label %386, label %._crit_edge113, !llvm.loop !26
 
-._crit_edge113:                                   ; preds = %396, %._crit_edge
-  %403 = getelementptr inbounds i8, ptr %0, i64 2756
-  %404 = load i32, ptr %403, align 4
-  %405 = add nsw i32 %404, -1
-  store i32 %405, ptr %403, align 4
+._crit_edge113:                                   ; preds = %395, %._crit_edge
+  %402 = getelementptr inbounds i8, ptr %0, i64 2756
+  %403 = load i32, ptr %402, align 4
+  %404 = add nsw i32 %403, -1
+  store i32 %404, ptr %402, align 4
   br label %.loopexit98
 
-.loopexit98:                                      ; preds = %369, %._crit_edge113
+.loopexit98:                                      ; preds = %368, %._crit_edge113
   ret ptr %11
 }
 

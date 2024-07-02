@@ -924,7 +924,7 @@ define dso_local void @CompleteCachedPlan(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @llvm.assume(i1 %.not.i.i)
   %65 = getelementptr inbounds i8, ptr %.0, i64 4
   %66 = load i32, ptr %65, align 4
-  %67 = icmp ne i32 %66, 0
+  %67 = icmp sgt i32 %66, 0
   tail call void @llvm.assume(i1 %67)
   %68 = getelementptr inbounds i8, ptr %.0, i64 16
   %69 = load ptr, ptr %68, align 8
@@ -1857,7 +1857,7 @@ ReleaseGenericPlan.exit:                          ; preds = %94, %97, %102, %106
   tail call void @llvm.assume(i1 %.not.i.i)
   %141 = getelementptr inbounds i8, ptr %.077, i64 4
   %142 = load i32, ptr %141, align 4
-  %143 = icmp ne i32 %142, 0
+  %143 = icmp sgt i32 %142, 0
   tail call void @llvm.assume(i1 %143)
   %144 = getelementptr inbounds i8, ptr %.077, i64 16
   %145 = load ptr, ptr %144, align 8

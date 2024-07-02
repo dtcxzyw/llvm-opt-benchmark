@@ -84519,8 +84519,8 @@ define hidden range(i32 0, 9) i32 @qoa_decode_header(ptr nocapture noundef reado
   %55 = getelementptr inbounds i8, ptr %0, i64 11
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
-  %58 = or disjoint i32 %50, %57
-  %59 = or disjoint i32 %58, %54
+  %58 = or disjoint i32 %50, %54
+  %59 = or disjoint i32 %58, %57
   %60 = zext i8 %46 to i32
   store i32 %60, ptr %2, align 4
   %61 = getelementptr inbounds i8, ptr %2, i64 4
@@ -84936,8 +84936,8 @@ define hidden noalias noundef ptr @qoa_decode(ptr nocapture noundef readonly %0,
   %56 = getelementptr inbounds i8, ptr %0, i64 11
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
-  %59 = or disjoint i32 %51, %58
-  %60 = or disjoint i32 %59, %55
+  %59 = or disjoint i32 %55, %51
+  %60 = or disjoint i32 %59, %58
   %61 = zext i8 %47 to i32
   store i32 %61, ptr %2, align 4
   %62 = getelementptr inbounds i8, ptr %2, i64 4
@@ -85132,8 +85132,8 @@ define hidden noundef ptr @qoaplay_open(ptr nocapture noundef readonly %0) local
   %56 = getelementptr inbounds i8, ptr %2, i64 11
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
-  %59 = or disjoint i32 %51, %58
-  %60 = or disjoint i32 %59, %55
+  %59 = or disjoint i32 %55, %51
+  %60 = or disjoint i32 %59, %58
   %61 = icmp eq i8 %47, 0
   %62 = icmp eq i32 %60, 0
   %or.cond = select i1 %61, i1 true, i1 %62
@@ -85237,8 +85237,8 @@ define hidden noundef ptr @qoaplay_open_memory(ptr nocapture noundef readonly %0
   %28 = zext i8 %.sroa.11.0.copyload to i32
   %29 = shl nuw nsw i32 %28, 8
   %30 = zext i8 %.sroa.12.0.copyload to i32
-  %31 = or disjoint i32 %27, %30
-  %32 = or disjoint i32 %31, %29
+  %31 = or disjoint i32 %29, %27
+  %32 = or disjoint i32 %31, %30
   %33 = icmp eq i8 %.sroa.9.0.copyload, 0
   %34 = icmp eq i32 %32, 0
   %or.cond = select i1 %33, i1 true, i1 %34
@@ -91800,8 +91800,8 @@ define internal fastcc void @worknote(ptr nocapture noundef readonly %0, ptr nou
   br i1 %or.cond, label %30, label %89
 
 30:                                               ; preds = %3
-  %31 = add nsw i32 %11, -1
-  %or.cond5 = icmp ult i32 %31, 31
+  %31 = icmp ult i8 %4, 32
+  %or.cond5 = and i1 %31, %29
   br i1 %or.cond5, label %32, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %30

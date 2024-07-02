@@ -712,16 +712,16 @@ _ZN3gmx9HashedMapIiE4findEi.exit:                 ; preds = %50, %39, %_ZN3gmx9H
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %._crit_edge93
   %indvars.iv116 = phi i64 [ 0, %.lr.ph92.preheader ], [ %indvars.iv.next117, %._crit_edge93 ]
-  %183 = phi ptr [ %172, %.lr.ph92.preheader ], [ %210, %._crit_edge93 ]
+  %183 = phi ptr [ %172, %.lr.ph92.preheader ], [ %211, %._crit_edge93 ]
   %184 = getelementptr inbounds i32, ptr %183, i64 %indvars.iv116
   br label %185
 
-185:                                              ; preds = %.lr.ph92, %208
-  %indvars.iv111 = phi i64 [ 1, %.lr.ph92 ], [ %indvars.iv.next112, %208 ]
+185:                                              ; preds = %.lr.ph92, %209
+  %indvars.iv111 = phi i64 [ 1, %.lr.ph92 ], [ %indvars.iv.next112, %209 ]
   %186 = getelementptr inbounds i32, ptr %184, i64 %indvars.iv111
   %187 = load i32, ptr %186, align 4
   %188 = icmp slt i32 %187, 0
-  br i1 %188, label %189, label %208
+  br i1 %188, label %189, label %209
 
 189:                                              ; preds = %185
   %190 = xor i32 %187, -1
@@ -735,46 +735,48 @@ _ZN3gmx9HashedMapIiE4findEi.exit:                 ; preds = %50, %39, %_ZN3gmx9H
   br i1 %197, label %_ZN3gmx9HashedMapIiE4findEi.exit68, label %.lr.ph88
 
 _ZN3gmx9HashedMapIiE4findEi.exit68:               ; preds = %.lr.ph88, %189
-  %198 = phi i64 [ %194, %189 ], [ %204, %.lr.ph88 ]
+  %198 = phi i64 [ %194, %189 ], [ %205, %.lr.ph88 ]
   %199 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %193, i64 %198, i32 1
   %200 = load i32, ptr %199, align 4
   store i32 %200, ptr %186, align 4
-  br label %208
+  br label %209
 
 .lr.ph88:                                         ; preds = %189, %.lr.ph88
-  %201 = phi i64 [ %204, %.lr.ph88 ], [ %194, %189 ]
+  %201 = phi i64 [ %205, %.lr.ph88 ], [ %194, %189 ]
   %202 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %193, i64 %201, i32 2
   %203 = load i32, ptr %202, align 4
-  %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %193, i64 %204
-  %206 = load i32, ptr %205, align 4
-  %207 = icmp eq i32 %206, %190
-  br i1 %207, label %_ZN3gmx9HashedMapIiE4findEi.exit68, label %.lr.ph88
+  %204 = icmp sgt i32 %203, -1
+  tail call void @llvm.assume(i1 %204)
+  %205 = zext nneg i32 %203 to i64
+  %206 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %193, i64 %205
+  %207 = load i32, ptr %206, align 4
+  %208 = icmp eq i32 %207, %190
+  br i1 %208, label %_ZN3gmx9HashedMapIiE4findEi.exit68, label %.lr.ph88
 
-208:                                              ; preds = %185, %_ZN3gmx9HashedMapIiE4findEi.exit68
+209:                                              ; preds = %185, %_ZN3gmx9HashedMapIiE4findEi.exit68
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %182
   br i1 %exitcond115.not, label %._crit_edge93, label %185, !llvm.loop !24
 
-._crit_edge93:                                    ; preds = %208
+._crit_edge93:                                    ; preds = %209
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, %182
-  %209 = load ptr, ptr %170, align 8
-  %210 = load ptr, ptr %169, align 8
-  %211 = ptrtoint ptr %209 to i64
+  %210 = load ptr, ptr %170, align 8
+  %211 = load ptr, ptr %169, align 8
   %212 = ptrtoint ptr %210 to i64
-  %213 = sub i64 %211, %212
-  %214 = lshr exact i64 %213, 2
-  %215 = trunc i64 %214 to i32
-  %216 = trunc nuw i64 %indvars.iv.next117 to i32
-  %217 = icmp slt i32 %216, %215
-  br i1 %217, label %.lr.ph92, label %.loopexit, !llvm.loop !25
+  %213 = ptrtoint ptr %211 to i64
+  %214 = sub i64 %212, %213
+  %215 = lshr exact i64 %214, 2
+  %216 = trunc i64 %215 to i32
+  %217 = trunc nuw i64 %indvars.iv.next117 to i32
+  %218 = icmp slt i32 %217, %216
+  br i1 %218, label %.lr.ph92, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %._crit_edge93, %.lr.ph96, %168, %164
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next120, 94
-  br i1 %exitcond122.not, label %218, label %164, !llvm.loop !26
+  br i1 %exitcond122.not, label %219, label %164, !llvm.loop !26
 
-218:                                              ; preds = %.loopexit
+219:                                              ; preds = %.loopexit
   ret i32 %163
 }
 

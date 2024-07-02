@@ -1149,7 +1149,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_panel_fitting(ptr noundef 
   %217 = shl i32 %216, 29
   %218 = and i32 %217, 1610612736
   %219 = or disjoint i32 %218, %206
-  %220 = icmp sgt i32 %219, -1
+  %220 = icmp sgt i32 %206, -1
   %221 = select i1 %220, i32 0, i32 %219
   %222 = select i1 %220, i32 0, i32 %207
   br label %234

@@ -4466,47 +4466,49 @@ declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @xprt_get(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %20, label %3
+  br i1 %2, label %21, label %3
 
 3:                                                ; preds = %1
   %4 = load volatile i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %3, %10
-  %6 = phi i32 [ %11, %10 ], [ %4, %3 ]
+.preheader:                                       ; preds = %3, %11
+  %6 = phi i32 [ %12, %11 ], [ %4, %3 ]
   %7 = add i32 %6, 1
   %8 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 %7, ptr nonnull elementtype(i32) %0, i32 %6) #17, !srcloc !110
   %9 = extractvalue { i8, i32 } %8, 0
+  %10 = icmp ult i8 %9, 2
+  tail call void @llvm.assume(i1 %10)
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %.thread, !prof !96
+  br i1 %.not, label %11, label %.thread, !prof !96
 
-10:                                               ; preds = %.preheader
-  %11 = extractvalue { i8, i32 } %8, 1
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread, label %.preheader, !llvm.loop !111
+11:                                               ; preds = %.preheader
+  %12 = extractvalue { i8, i32 } %8, 1
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %.thread, label %.preheader, !llvm.loop !111
 
-.thread:                                          ; preds = %.preheader, %10, %3
-  %13 = phi i32 [ 0, %3 ], [ %6, %.preheader ], [ 0, %10 ]
-  %14 = add i32 %13, 1
-  %15 = or i32 %14, %13
-  %16 = icmp sgt i32 %15, -1
-  br i1 %16, label %18, label %17, !prof !20
+.thread:                                          ; preds = %.preheader, %11, %3
+  %14 = phi i32 [ 0, %3 ], [ %6, %.preheader ], [ 0, %11 ]
+  %15 = add i32 %14, 1
+  %16 = or i32 %15, %14
+  %17 = icmp sgt i32 %16, -1
+  br i1 %17, label %19, label %18, !prof !20
 
-17:                                               ; preds = %.thread
+18:                                               ; preds = %.thread
   tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef 0) #17
-  br label %18
+  br label %19
 
-18:                                               ; preds = %17, %.thread
-  %19 = icmp eq i32 %13, 0
-  br i1 %19, label %20, label %21
+19:                                               ; preds = %18, %.thread
+  %20 = icmp eq i32 %14, 0
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %18, %1
-  br label %21
+21:                                               ; preds = %19, %1
+  br label %22
 
-21:                                               ; preds = %20, %18
-  %22 = phi ptr [ null, %20 ], [ %0, %18 ]
-  ret ptr %22
+22:                                               ; preds = %21, %19
+  %23 = phi ptr [ null, %21 ], [ %0, %19 ]
+  ret ptr %23
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

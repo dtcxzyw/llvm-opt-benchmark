@@ -377,12 +377,12 @@ define dso_local noundef i32 @_ZN5vcpkg7Unicode22utf8_decode_code_pointERPKcS2_R
   %101 = and i8 %85, 63
   %102 = zext nneg i8 %101 to i32
   %103 = shl nuw nsw i32 %102, 6
-  %104 = or disjoint i32 %103, %100
-  %105 = and i8 %90, 63
-  %106 = zext nneg i8 %105 to i32
-  %107 = or disjoint i32 %104, %106
+  %104 = and i8 %90, 63
+  %105 = zext nneg i8 %104 to i32
+  %106 = or disjoint i32 %103, %105
+  %107 = or disjoint i32 %106, %100
   store i32 %107, ptr %2, align 4
-  %108 = icmp ugt i32 %107, 1114111
+  %108 = icmp ugt i32 %100, 1114111
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %94

@@ -9221,7 +9221,7 @@ for.body116:                                      ; preds = %for.body116.lr.ph, 
   br i1 %cmp.i.i, label %if.then.i53, label %if.else8.i
 
 if.then.i53:                                      ; preds = %for.body116
-  %cmp.i54 = icmp ult i16 %and130, 128
+  %cmp.i54 = icmp ult i16 %22, 128
   br i1 %cmp.i54, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i53
@@ -9325,7 +9325,7 @@ for.body144:                                      ; preds = %for.body144.lr.ph, 
   br i1 %cmp.i.i62, label %if.then.i80, label %if.else8.i63
 
 if.then.i80:                                      ; preds = %for.body144
-  %cmp.i81 = icmp ult i16 %or157, 128
+  %cmp.i81 = icmp ult i16 %31, 128
   br i1 %cmp.i81, label %if.then3.i83, label %if.else.i82
 
 if.then3.i83:                                     ; preds = %if.then.i80
@@ -10245,7 +10245,7 @@ if.end9:                                          ; preds = %if.end
   %bf.set.i.i = or disjoint i32 %bf.value.i.i, %bf.clear3.i.i
   %retval.sroa.2.12.insert.ext.i.i = zext i32 %sub.i to i64
   %7 = extractvalue { ptr, i64 } %call12, 0
-  %tobool.i.i = icmp slt i32 %bf.set.i.i, 0
+  %tobool.i.i = icmp slt i32 %retval.sroa.2.8.extract.trunc.i.i, 0
   br i1 %tobool.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end9
@@ -10291,7 +10291,7 @@ if.else13.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %if.end.i.i43
 
 if.end.i:                                         ; preds = %if.end9
-  %tobool.not.i4.i = icmp ult i32 %bf.set.i.i, 1073741824
+  %tobool.not.i4.i = icmp ult i32 %retval.sroa.2.8.extract.trunc.i.i, 1073741824
   br i1 %tobool.not.i4.i, label %if.end.i12, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %if.end.i
@@ -10671,7 +10671,7 @@ if.else13.i.i.i268:                               ; preds = %if.else.i.i.i250
   br label %_ZNK6hermes2vm10StringView3endEv.exit277
 
 if.end.i211:                                      ; preds = %_ZNK6hermes2vm10StringView3endEv.exit206
-  %tobool.not.i4.i212 = icmp ult i32 %bf.set.i.i, 1073741824
+  %tobool.not.i4.i212 = icmp ult i32 %retval.sroa.2.8.extract.trunc.i.i, 1073741824
   br i1 %tobool.not.i4.i212, label %_ZNK6hermes2vm10StringView3endEv.exit277.thread.thread, label %if.end.i5.i213
 
 if.end.i5.i213:                                   ; preds = %if.end.i211

@@ -72,8 +72,8 @@ if.then28:                                        ; preds = %land.lhs.true20
   %shl33 = and i32 %and32, 258048
   %or = or disjoint i32 %shl33, %shl30
   %shl35 = shl nuw nsw i32 %conv15, 6
-  %or36 = or disjoint i32 %shl35, %or
-  %or38 = or disjoint i32 %or36, %conv26
+  %5 = or disjoint i32 %shl35, %conv26
+  %or38 = or disjoint i32 %5, %or
   %cmp40 = icmp sgt i8 %strict, 0
   %cmp42 = icmp ugt i32 %or38, 64975
   %or.cond1 = select i1 %cmp40, i1 %cmp42, i1 false
@@ -86,8 +86,8 @@ land.lhs.true43:                                  ; preds = %if.then28
 lor.lhs.false45:                                  ; preds = %land.lhs.true43
   %and46 = and i32 %or38, 65534
   %cmp47 = icmp eq i32 %and46, 65534
-  %cmp49 = icmp ult i32 %or38, 1114112
-  %or.cond2 = and i1 %cmp49, %cmp47
+  %cmp49 = icmp ult i32 %or, 1114112
+  %or.cond2 = select i1 %cmp47, i1 %cmp49, i1 false
   br i1 %or.cond2, label %if.then.i, label %if.then50
 
 if.then50:                                        ; preds = %lor.lhs.false45, %if.then28
@@ -103,15 +103,15 @@ if.then54:                                        ; preds = %if.else52
   %cmp57.not = icmp eq i8 %strict, -2
   %idxprom108 = sext i32 %0 to i64
   %arrayidx109 = getelementptr inbounds i8, ptr %s, i64 %idxprom108
-  %5 = load i8, ptr %arrayidx109, align 1
+  %6 = load i8, ptr %arrayidx109, align 1
   br i1 %cmp57.not, label %if.else106, label %if.then58
 
 if.then58:                                        ; preds = %if.then54
   %idxprom64 = zext nneg i32 %and55 to i64
   %arrayidx65 = getelementptr inbounds [17 x i8], ptr @.str.1, i64 0, i64 %idxprom64
-  %6 = load i8, ptr %arrayidx65, align 1
-  %conv6694 = zext i8 %6 to i32
-  %conv67 = zext i8 %5 to i32
+  %7 = load i8, ptr %arrayidx65, align 1
+  %conv6694 = zext i8 %7 to i32
+  %conv67 = zext i8 %6 to i32
   %shr68 = lshr i32 %conv67, 5
   %shl69 = shl nuw nsw i32 1, %shr68
   %and70 = and i32 %shl69, %conv6694
@@ -126,8 +126,8 @@ land.lhs.true72:                                  ; preds = %if.then58
 land.lhs.true75:                                  ; preds = %land.lhs.true72
   %idxprom76 = sext i32 %inc73 to i64
   %arrayidx77 = getelementptr inbounds i8, ptr %s, i64 %idxprom76
-  %7 = load i8, ptr %arrayidx77, align 1
-  %sub79 = xor i8 %7, -128
+  %8 = load i8, ptr %arrayidx77, align 1
+  %sub79 = xor i8 %8, -128
   %cmp82 = icmp ult i8 %sub79, 64
   br i1 %cmp82, label %if.then83, label %if.end162
 
@@ -156,7 +156,7 @@ if.then103:                                       ; preds = %land.lhs.true96, %i
   br label %return
 
 if.else106:                                       ; preds = %if.then54
-  %sub111 = xor i8 %5, -128
+  %sub111 = xor i8 %6, -128
   %conv114 = zext i8 %sub111 to i32
   %cmp115 = icmp ult i8 %sub111, 64
   br i1 %cmp115, label %land.lhs.true116, label %if.else.i
@@ -175,8 +175,8 @@ land.lhs.true121:                                 ; preds = %land.lhs.true116
 land.lhs.true124:                                 ; preds = %land.lhs.true121
   %idxprom125 = sext i32 %inc122 to i64
   %arrayidx126 = getelementptr inbounds i8, ptr %s, i64 %idxprom125
-  %8 = load i8, ptr %arrayidx126, align 1
-  %sub128 = xor i8 %8, -128
+  %9 = load i8, ptr %arrayidx126, align 1
+  %sub128 = xor i8 %9, -128
   %cmp131 = icmp ult i8 %sub128, 64
   br i1 %cmp131, label %if.then132, label %if.else.i
 
@@ -197,8 +197,8 @@ if.else141:                                       ; preds = %if.else52
 if.then143:                                       ; preds = %if.else141
   %idxprom145 = sext i32 %0 to i64
   %arrayidx146 = getelementptr inbounds i8, ptr %s, i64 %idxprom145
-  %9 = load i8, ptr %arrayidx146, align 1
-  %sub148 = xor i8 %9, -128
+  %10 = load i8, ptr %arrayidx146, align 1
+  %sub148 = xor i8 %10, -128
   %cmp151 = icmp ult i8 %sub148, 64
   br i1 %cmp151, label %if.then152, label %if.end162
 
@@ -221,7 +221,7 @@ if.then.i:                                        ; preds = %lor.lhs.false45, %l
   %sub16392 = sub nsw i32 %i.091, %0
   %idxprom.i = sext i32 %sub16392 to i64
   %arrayidx.i = getelementptr inbounds [6 x i32], ptr @_ZL15utf8_errorValue, i64 0, i64 %idxprom.i
-  %10 = load i32, ptr %arrayidx.i, align 4
+  %11 = load i32, ptr %arrayidx.i, align 4
   br label %_ZL10errorValueia.exit
 
 if.else.i:                                        ; preds = %if.else106, %land.lhs.true121, %land.lhs.true124, %land.lhs.true116, %if.end162
@@ -232,7 +232,7 @@ if.else.i:                                        ; preds = %if.else106, %land.l
 
 _ZL10errorValueia.exit:                           ; preds = %if.then.i, %if.else.i
   %i.083 = phi i32 [ %i.091, %if.then.i ], [ %i.084, %if.else.i ]
-  %retval.0.i = phi i32 [ %10, %if.then.i ], [ %..i, %if.else.i ]
+  %retval.0.i = phi i32 [ %11, %if.then.i ], [ %..i, %if.else.i ]
   store i32 %i.083, ptr %pi, align 4
   br label %return
 
@@ -614,8 +614,8 @@ if.then154:                                       ; preds = %if.then140
   %or160 = or disjoint i32 %shl156, %shl159
   %and162 = shl nuw nsw i32 %conv3, 6
   %shl163 = and i32 %and162, 4032
-  %or164 = or disjoint i32 %or160, %shl163
-  %or165 = or disjoint i32 %or164, %and42
+  %or164 = or disjoint i32 %shl163, %and42
+  %or165 = or disjoint i32 %or164, %or160
   %cmp167 = icmp sgt i8 %strict, 0
   %cmp169 = icmp ugt i32 %or165, 64975
   %or.cond8 = select i1 %cmp167, i1 %cmp169, i1 false
@@ -628,8 +628,8 @@ land.lhs.true170:                                 ; preds = %if.then154
 lor.lhs.false172:                                 ; preds = %land.lhs.true170
   %and173 = and i32 %or165, 65534
   %cmp174 = icmp eq i32 %and173, 65534
-  %cmp176 = icmp ult i32 %or165, 1114112
-  %or.cond10 = and i1 %cmp176, %cmp174
+  %cmp176 = icmp ult i32 %or160, 1114112
+  %or.cond10 = select i1 %cmp174, i1 %cmp176, i1 false
   br i1 %or.cond10, label %_ZL10errorValueia.exit110, label %return
 
 _ZL10errorValueia.exit110:                        ; preds = %land.lhs.true170, %lor.lhs.false172

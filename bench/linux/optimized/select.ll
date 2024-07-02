@@ -378,7 +378,7 @@ define dso_local i32 @core_sys_select(i32 noundef %0, ptr noundef %1, ptr nounde
   br i1 %43, label %50, label %44
 
 44:                                               ; preds = %27
-  %45 = icmp ugt i64 %21, 2147483647
+  %45 = icmp ugt i64 %19, 17179869183
   br i1 %45, label %46, label %47, !prof !14
 
 46:                                               ; preds = %44
@@ -401,7 +401,7 @@ select.unfold:                                    ; preds = %47, %50
   br i1 %51, label %58, label %52
 
 52:                                               ; preds = %select.unfold
-  %53 = icmp ugt i64 %21, 2147483647
+  %53 = icmp ugt i64 %19, 17179869183
   br i1 %53, label %54, label %55, !prof !14
 
 54:                                               ; preds = %52
@@ -429,7 +429,7 @@ select.unfold15:                                  ; preds = %.select.unfold15_cr
   br i1 %60, label %67, label %61
 
 61:                                               ; preds = %select.unfold15
-  %62 = icmp ugt i64 %21, 2147483647
+  %62 = icmp ugt i64 %19, 17179869183
   br i1 %62, label %63, label %64, !prof !14
 
 63:                                               ; preds = %61

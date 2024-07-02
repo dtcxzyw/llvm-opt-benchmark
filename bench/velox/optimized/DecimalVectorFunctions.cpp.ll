@@ -78763,7 +78763,7 @@ if.then.i.i160:                                   ; preds = %_ZNK8facebook5velox
 for.body.lr.ph.i.i163:                            ; preds = %if.then.i.i160
   %aRescale_.i.i.i164 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not.i.i.i.i.i170 = icmp eq i128 %coerce.sroa.0.0.insert.insert, 0
-  %cmp4.i.i.i.i.i177 = icmp slt i128 %coerce.sroa.0.0.insert.insert, 0
+  %cmp4.i.i.i.i.i177 = icmp slt i128 %coerce.sroa.2.0.insert.shift, 0
   %unsignedDivisor.0.i.i.i.i.i182 = tail call i128 @llvm.abs.i128(i128 %coerce.sroa.0.0.insert.insert, i1 true)
   br i1 %cmp.not.i.i.i.i.i170, label %if.then.i3.i.i.i.i195, label %for.body.i.i165.preheader
 
@@ -78861,7 +78861,7 @@ if.then3.i.i.i.i.i113:                            ; preds = %if.end.i.i.i24.i.i5
 while.body.preheader.i.i.i.i.i.i:                 ; preds = %if.then3.i.i.i.i.i113
   %aRescale_.i.i.i.i.i.i.i129 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i136 = icmp eq i128 %coerce.sroa.0.0.insert.insert, 0
-  %cmp4.i.i.i.i.i.i.i.i.i143 = icmp slt i128 %coerce.sroa.0.0.insert.insert, 0
+  %cmp4.i.i.i.i.i.i.i.i.i143 = icmp slt i128 %coerce.sroa.2.0.insert.shift, 0
   %unsignedDivisor.0.i.i.i.i.i.i.i.i.i148 = tail call i128 @llvm.abs.i128(i128 %coerce.sroa.0.0.insert.insert, i1 true)
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i136, label %if.then.i3.i.i.i.i.i.i.i.i159, label %while.body.i.i.i.i.i.i130
 
@@ -78941,7 +78941,7 @@ while.body.preheader.i40.i.i.i.i.i:               ; preds = %if.then10.i.i.i.i.i
   %mul.i41.i.i.i.i.i = shl nsw i32 %div11.i.i.i.i.i60, 6
   %aRescale_.i.i52.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not.i.i.i.i50.i.i.i.i.i = icmp eq i128 %coerce.sroa.0.0.insert.insert, 0
-  %cmp4.i.i.i.i59.i.i.i.i.i = icmp slt i128 %coerce.sroa.0.0.insert.insert, 0
+  %cmp4.i.i.i.i59.i.i.i.i.i = icmp slt i128 %coerce.sroa.2.0.insert.shift, 0
   %unsignedDivisor.0.i.i.i.i64.i.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %coerce.sroa.0.0.insert.insert, i1 true)
   br i1 %cmp.not.i.i.i.i50.i.i.i.i.i, label %if.then.i3.i.i.i78.i.i.i.i.i, label %while.body.i42.i.i.i.i.i
 
@@ -79005,7 +79005,7 @@ if.end14.i.i.i.i.i62:                             ; preds = %_ZZNK8facebook5velo
 for.body.lr.ph.i.i.i.i.i63:                       ; preds = %if.end14.i.i.i.i.i62
   %aRescale_.i.i88.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not.i.i.i.i86.i.i.i.i.i = icmp eq i128 %coerce.sroa.0.0.insert.insert, 0
-  %cmp4.i.i.i.i94.i.i.i.i.i = icmp slt i128 %coerce.sroa.0.0.insert.insert, 0
+  %cmp4.i.i.i.i94.i.i.i.i.i = icmp slt i128 %coerce.sroa.2.0.insert.shift, 0
   %unsignedDivisor.0.i.i.i.i99.i.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %coerce.sroa.0.0.insert.insert, i1 true)
   br label %for.body.i.i.i26.i.i
 
@@ -79164,7 +79164,7 @@ if.then19.i.i.i.i.i68:                            ; preds = %for.end.i.i.i27.i.i
 while.body.preheader.i128.i.i.i.i.i:              ; preds = %if.then19.i.i.i.i.i68
   %aRescale_.i.i140.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not.i.i.i.i138.i.i.i.i.i = icmp eq i128 %coerce.sroa.0.0.insert.insert, 0
-  %cmp4.i.i.i.i147.i.i.i.i.i = icmp slt i128 %coerce.sroa.0.0.insert.insert, 0
+  %cmp4.i.i.i.i147.i.i.i.i.i = icmp slt i128 %coerce.sroa.2.0.insert.shift, 0
   %unsignedDivisor.0.i.i.i.i152.i.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %coerce.sroa.0.0.insert.insert, i1 true)
   br i1 %cmp.not.i.i.i.i138.i.i.i.i.i, label %if.then.i3.i.i.i166.i.i.i.i.i, label %while.body.i130.i.i.i.i.i
 
@@ -83530,7 +83530,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
   %29 = sext i32 %27 to i64
   %aRescale_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %spec.select.i.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %coerce.sroa.0.0.insert.insert, i1 true)
-  %cmp1.i.i.i.i.i = icmp slt i128 %coerce.sroa.0.0.insert.insert, 0
+  %cmp1.i.i.i.i.i = icmp slt i128 %coerce.sroa.2.0.insert.shift, 0
   %spec.select11.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i, i32 -1, i32 1
   %mul6.i.i.i.i.i = sub nsw i32 0, %spec.select11.i.i.i.i.i
   br label %for.body.i.i
@@ -83635,7 +83635,7 @@ if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i24.i.i
 while.body.preheader.i67.i.i.i.i:                 ; preds = %if.then3.i.i.i.i.i
   %aRescale_.i.i80.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %spec.select.i.i.i.i81.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %coerce.sroa.0.0.insert.insert, i1 true)
-  %cmp1.i.i.i.i86.i.i.i.i = icmp slt i128 %coerce.sroa.0.0.insert.insert, 0
+  %cmp1.i.i.i.i86.i.i.i.i = icmp slt i128 %coerce.sroa.2.0.insert.shift, 0
   %spec.select11.i.i.i.i87.i.i.i.i = select i1 %cmp1.i.i.i.i86.i.i.i.i, i32 -1, i32 1
   %mul6.i.i.i.i88.i.i.i.i = sub nsw i32 0, %spec.select11.i.i.i.i87.i.i.i.i
   br label %while.body.i69.i.i.i.i
@@ -83726,7 +83726,7 @@ while.body.preheader.i19.i.i.i.i:                 ; preds = %if.then10.i.i.i.i.i
   %mul.i20.i.i.i.i = shl nsw i32 %div11.i.i.i.i.i, 6
   %aRescale_.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %spec.select.i.i.i.i33.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %coerce.sroa.0.0.insert.insert, i1 true)
-  %cmp1.i.i.i.i38.i.i.i.i = icmp slt i128 %coerce.sroa.0.0.insert.insert, 0
+  %cmp1.i.i.i.i38.i.i.i.i = icmp slt i128 %coerce.sroa.2.0.insert.shift, 0
   %spec.select11.i.i.i.i39.i.i.i.i = select i1 %cmp1.i.i.i.i38.i.i.i.i, i32 -1, i32 1
   %mul6.i.i.i.i40.i.i.i.i = sub nsw i32 0, %spec.select11.i.i.i.i39.i.i.i.i
   br label %while.body.i21.i.i.i.i
@@ -83801,7 +83801,7 @@ if.end14.i.i.i.i.i:                               ; preds = %_ZZN8facebook5velox
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.end14.i.i.i.i.i
   %aRescale_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %spec.select.i.i.i.i.i.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %coerce.sroa.0.0.insert.insert, i1 true)
-  %cmp1.i.i.i.i.i.i.i.i.i = icmp slt i128 %coerce.sroa.0.0.insert.insert, 0
+  %cmp1.i.i.i.i.i.i.i.i.i = icmp slt i128 %coerce.sroa.2.0.insert.shift, 0
   %spec.select11.i.i.i.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i.i.i, i32 -1, i32 1
   %mul6.i.i.i.i.i.i.i.i.i = sub nsw i32 0, %spec.select11.i.i.i.i.i.i.i.i.i
   br label %for.body.i.i.i25.i.i
@@ -83978,7 +83978,7 @@ if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i26.i.i
 while.body.preheader.i.i.i.i.i:                   ; preds = %if.then19.i.i.i.i.i
   %aRescale_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %spec.select.i.i.i.i.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %coerce.sroa.0.0.insert.insert, i1 true)
-  %cmp1.i.i.i.i.i.i.i.i = icmp slt i128 %coerce.sroa.0.0.insert.insert, 0
+  %cmp1.i.i.i.i.i.i.i.i = icmp slt i128 %coerce.sroa.2.0.insert.shift, 0
   %spec.select11.i.i.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i.i, i32 -1, i32 1
   %mul6.i.i.i.i.i.i.i.i = sub nsw i32 0, %spec.select11.i.i.i.i.i.i.i.i
   br label %while.body.i.i.i.i.i
@@ -86429,7 +86429,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
   %29 = sext i32 %27 to i64
   %aRescale_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %spec.select.i.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %coerce.sroa.0.0.insert.insert, i1 true)
-  %cmp1.i.i.i.i.i = icmp slt i128 %coerce.sroa.0.0.insert.insert, 0
+  %cmp1.i.i.i.i.i = icmp slt i128 %coerce.sroa.2.0.insert.shift, 0
   %spec.select11.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i, i32 -1, i32 1
   %mul6.i.i.i.i.i = sub nsw i32 0, %spec.select11.i.i.i.i.i
   br label %for.body.i.i
@@ -86532,7 +86532,7 @@ if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i24.i.i
 while.body.preheader.i65.i.i.i.i:                 ; preds = %if.then3.i.i.i.i.i
   %aRescale_.i.i78.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %spec.select.i.i.i.i79.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %coerce.sroa.0.0.insert.insert, i1 true)
-  %cmp1.i.i.i.i84.i.i.i.i = icmp slt i128 %coerce.sroa.0.0.insert.insert, 0
+  %cmp1.i.i.i.i84.i.i.i.i = icmp slt i128 %coerce.sroa.2.0.insert.shift, 0
   %spec.select11.i.i.i.i85.i.i.i.i = select i1 %cmp1.i.i.i.i84.i.i.i.i, i32 -1, i32 1
   %mul6.i.i.i.i86.i.i.i.i = sub nsw i32 0, %spec.select11.i.i.i.i85.i.i.i.i
   br label %while.body.i67.i.i.i.i
@@ -86621,7 +86621,7 @@ while.body.preheader.i19.i.i.i.i:                 ; preds = %if.then10.i.i.i.i.i
   %mul.i20.i.i.i.i = shl nsw i32 %div11.i.i.i.i.i, 6
   %aRescale_.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %spec.select.i.i.i.i33.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %coerce.sroa.0.0.insert.insert, i1 true)
-  %cmp1.i.i.i.i38.i.i.i.i = icmp slt i128 %coerce.sroa.0.0.insert.insert, 0
+  %cmp1.i.i.i.i38.i.i.i.i = icmp slt i128 %coerce.sroa.2.0.insert.shift, 0
   %spec.select11.i.i.i.i39.i.i.i.i = select i1 %cmp1.i.i.i.i38.i.i.i.i, i32 -1, i32 1
   %mul6.i.i.i.i40.i.i.i.i = sub nsw i32 0, %spec.select11.i.i.i.i39.i.i.i.i
   br label %while.body.i21.i.i.i.i
@@ -86694,7 +86694,7 @@ if.end14.i.i.i.i.i:                               ; preds = %_ZZN8facebook5velox
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.end14.i.i.i.i.i
   %aRescale_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %spec.select.i.i.i.i.i.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %coerce.sroa.0.0.insert.insert, i1 true)
-  %cmp1.i.i.i.i.i.i.i.i.i = icmp slt i128 %coerce.sroa.0.0.insert.insert, 0
+  %cmp1.i.i.i.i.i.i.i.i.i = icmp slt i128 %coerce.sroa.2.0.insert.shift, 0
   %spec.select11.i.i.i.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i.i.i, i32 -1, i32 1
   %mul6.i.i.i.i.i.i.i.i.i = sub nsw i32 0, %spec.select11.i.i.i.i.i.i.i.i.i
   br label %for.body.i.i.i25.i.i
@@ -86867,7 +86867,7 @@ if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i26.i.i
 while.body.preheader.i.i.i.i.i:                   ; preds = %if.then19.i.i.i.i.i
   %aRescale_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %spec.select.i.i.i.i.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %coerce.sroa.0.0.insert.insert, i1 true)
-  %cmp1.i.i.i.i.i.i.i.i = icmp slt i128 %coerce.sroa.0.0.insert.insert, 0
+  %cmp1.i.i.i.i.i.i.i.i = icmp slt i128 %coerce.sroa.2.0.insert.shift, 0
   %spec.select11.i.i.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i.i, i32 -1, i32 1
   %mul6.i.i.i.i.i.i.i.i = sub nsw i32 0, %spec.select11.i.i.i.i.i.i.i.i
   br label %while.body.i.i.i.i.i
@@ -87041,7 +87041,7 @@ if.then.i.i300:                                   ; preds = %_ZNK8facebook5velox
 for.body.lr.ph.i.i304:                            ; preds = %if.then.i.i300
   %aRescale_.i.i.i305 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not.i.i.i.i.i312 = icmp eq i128 %coerce35.sroa.0.0.insert.insert, 0
-  %cmp4.i.i.i.i.i318 = icmp slt i128 %coerce35.sroa.0.0.insert.insert, 0
+  %cmp4.i.i.i.i.i318 = icmp slt i128 %coerce35.sroa.2.0.insert.shift, 0
   %unsignedDivisor.0.i.i.i.i.i323 = tail call i128 @llvm.abs.i128(i128 %coerce35.sroa.0.0.insert.insert, i1 true)
   br i1 %cmp.not.i.i.i.i.i312, label %if.then.i3.i.i.i.i337, label %for.body.i.i306.preheader
 
@@ -87145,7 +87145,7 @@ if.then3.i.i.i.i.i247:                            ; preds = %if.end.i.i.i24.i.i5
 while.body.preheader.i65.i.i.i.i265:              ; preds = %if.then3.i.i.i.i.i247
   %aRescale_.i.i78.i.i.i.i266 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not.i.i.i.i76.i.i.i.i274 = icmp eq i128 %coerce35.sroa.0.0.insert.insert, 0
-  %cmp4.i.i.i.i83.i.i.i.i280 = icmp slt i128 %coerce35.sroa.0.0.insert.insert, 0
+  %cmp4.i.i.i.i83.i.i.i.i280 = icmp slt i128 %coerce35.sroa.2.0.insert.shift, 0
   %unsignedDivisor.0.i.i.i.i88.i.i.i.i285 = tail call i128 @llvm.abs.i128(i128 %coerce35.sroa.0.0.insert.insert, i1 true)
   br i1 %cmp.not.i.i.i.i76.i.i.i.i274, label %if.then.i3.i.i.i103.i.i.i.i299, label %while.body.i67.i.i.i.i267
 
@@ -87231,7 +87231,7 @@ while.body.preheader.i19.i.i.i.i72:               ; preds = %if.then10.i.i.i.i.i
   %mul.i20.i.i.i.i73 = shl nsw i32 %div11.i.i.i.i.i60, 6
   %aRescale_.i.i32.i.i.i.i74 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not.i.i.i.i30.i.i.i.i82 = icmp eq i128 %coerce35.sroa.0.0.insert.insert, 0
-  %cmp4.i.i.i.i37.i.i.i.i88 = icmp slt i128 %coerce35.sroa.0.0.insert.insert, 0
+  %cmp4.i.i.i.i37.i.i.i.i88 = icmp slt i128 %coerce35.sroa.2.0.insert.shift, 0
   %unsignedDivisor.0.i.i.i.i42.i.i.i.i93 = tail call i128 @llvm.abs.i128(i128 %coerce35.sroa.0.0.insert.insert, i1 true)
   br i1 %cmp.not.i.i.i.i30.i.i.i.i82, label %if.then.i3.i.i.i57.i.i.i.i246, label %while.body.i21.i.i.i.i75
 
@@ -87301,7 +87301,7 @@ if.end14.i.i.i.i.i105:                            ; preds = %_ZZN8facebook5velox
 for.body.lr.ph.i.i.i.i.i108:                      ; preds = %if.end14.i.i.i.i.i105
   %aRescale_.i.i.i.i.i.i.i109 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i181 = icmp eq i128 %coerce35.sroa.0.0.insert.insert, 0
-  %cmp4.i.i.i.i.i.i.i.i.i187 = icmp slt i128 %coerce35.sroa.0.0.insert.insert, 0
+  %cmp4.i.i.i.i.i.i.i.i.i187 = icmp slt i128 %coerce35.sroa.2.0.insert.shift, 0
   %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192 = tail call i128 @llvm.abs.i128(i128 %coerce35.sroa.0.0.insert.insert, i1 true)
   br label %for.body.i.i.i25.i.i110
 
@@ -87472,7 +87472,7 @@ if.then19.i.i.i.i.i120:                           ; preds = %for.end.i.i.i26.i.i
 while.body.preheader.i.i.i.i.i130:                ; preds = %if.then19.i.i.i.i.i120
   %aRescale_.i.i.i.i.i.i131 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not.i.i.i.i.i.i.i.i141 = icmp eq i128 %coerce35.sroa.0.0.insert.insert, 0
-  %cmp4.i.i.i.i.i.i.i.i147 = icmp slt i128 %coerce35.sroa.0.0.insert.insert, 0
+  %cmp4.i.i.i.i.i.i.i.i147 = icmp slt i128 %coerce35.sroa.2.0.insert.shift, 0
   %unsignedDivisor.0.i.i.i.i.i.i.i.i152 = tail call i128 @llvm.abs.i128(i128 %coerce35.sroa.0.0.insert.insert, i1 true)
   br i1 %cmp.not.i.i.i.i.i.i.i.i141, label %if.then.i3.i.i.i.i.i.i.i166, label %while.body.i.i.i.i.i132
 

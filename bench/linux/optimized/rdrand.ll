@@ -11,54 +11,56 @@ define dso_local void @x86_init_rdrand(ptr noundef %0) local_unnamed_addr #0 ali
   %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 1073741824
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %36, label %.preheader
+  br i1 %5, label %37, label %.preheader
 
-.preheader:                                       ; preds = %1, %19
-  %6 = phi i1 [ %27, %19 ], [ true, %1 ]
-  %7 = phi i64 [ %20, %19 ], [ 0, %1 ]
-  %8 = phi i64 [ %25, %19 ], [ 0, %1 ]
-  %9 = phi i64 [ %26, %19 ], [ 0, %1 ]
+.preheader:                                       ; preds = %1, %20
+  %6 = phi i1 [ %28, %20 ], [ true, %1 ]
+  %7 = phi i64 [ %21, %20 ], [ 0, %1 ]
+  %8 = phi i64 [ %26, %20 ], [ 0, %1 ]
+  %9 = phi i64 [ %27, %20 ], [ 0, %1 ]
   br label %10
 
 10:                                               ; preds = %10, %.preheader
-  %11 = phi i32 [ %15, %10 ], [ 10, %.preheader ]
-  %12 = tail call { i8, i64 } asm sideeffect "rdrand $1\0A\09/* output condition code c*/\0A", "={@ccc},=r,~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !5
+  %11 = phi i32 [ %16, %10 ], [ 10, %.preheader ]
+  %12 = tail call { i8, i64 } asm sideeffect "rdrand $1\0A\09/* output condition code c*/\0A", "={@ccc},=r,~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   %13 = extractvalue { i8, i64 } %12, 0
-  %14 = icmp ne i8 %13, 0
-  %15 = add nsw i32 %11, -1
-  %16 = icmp eq i32 %15, 0
-  %17 = select i1 %14, i1 true, i1 %16
-  br i1 %17, label %18, label %10, !llvm.loop !6
+  %14 = icmp ult i8 %13, 2
+  tail call void @llvm.assume(i1 %14)
+  %15 = icmp ne i8 %13, 0
+  %16 = add nsw i32 %11, -1
+  %17 = icmp eq i32 %16, 0
+  %18 = select i1 %15, i1 true, i1 %17
+  br i1 %18, label %19, label %10, !llvm.loop !6
 
-18:                                               ; preds = %10
-  br i1 %14, label %19, label %29
+19:                                               ; preds = %10
+  br i1 %15, label %20, label %30
 
-19:                                               ; preds = %18
-  %20 = extractvalue { i8, i64 } %12, 1
-  %21 = icmp ne i64 %9, 0
-  %22 = icmp ne i64 %20, %7
-  %23 = select i1 %21, i1 %22, i1 false
-  %24 = zext i1 %23 to i64
-  %25 = add i64 %8, %24
-  %26 = add nuw nsw i64 %9, 1
-  %27 = icmp ult i64 %9, 7
-  %28 = icmp eq i64 %26, 8
-  br i1 %28, label %29, label %.preheader, !llvm.loop !9
+20:                                               ; preds = %19
+  %21 = extractvalue { i8, i64 } %12, 1
+  %22 = icmp ne i64 %9, 0
+  %23 = icmp ne i64 %21, %7
+  %24 = select i1 %22, i1 %23, i1 false
+  %25 = zext i1 %24 to i64
+  %26 = add i64 %8, %25
+  %27 = add nuw nsw i64 %9, 1
+  %28 = icmp ult i64 %9, 7
+  %29 = icmp eq i64 %27, 8
+  br i1 %29, label %30, label %.preheader, !llvm.loop !9
 
-29:                                               ; preds = %19, %18
-  %30 = phi i64 [ %8, %18 ], [ %25, %19 ]
-  %31 = phi i1 [ %6, %18 ], [ %27, %19 ]
-  %32 = icmp ult i64 %30, 5
-  %33 = or i1 %31, %32
-  br i1 %33, label %34, label %36
+30:                                               ; preds = %20, %19
+  %31 = phi i64 [ %8, %19 ], [ %26, %20 ]
+  %32 = phi i1 [ %6, %19 ], [ %28, %20 ]
+  %33 = icmp ult i64 %31, 5
+  %34 = or i1 %32, %33
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %29
-  tail call void @clear_cpu_cap(ptr noundef %0, i32 noundef 158) #3
-  tail call void @clear_cpu_cap(ptr noundef %0, i32 noundef 306) #3
-  %35 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #4
-  br label %36
+35:                                               ; preds = %30
+  tail call void @clear_cpu_cap(ptr noundef %0, i32 noundef 158) #4
+  tail call void @clear_cpu_cap(ptr noundef %0, i32 noundef 306) #4
+  %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #5
+  br label %37
 
-36:                                               ; preds = %34, %29, %1
+37:                                               ; preds = %35, %30, %1
   ret void
 }
 
@@ -68,11 +70,15 @@ declare dso_local void @clear_cpu_cap(ptr noundef, i32 noundef) local_unnamed_ad
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #3
+
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
-attributes #4 = { cold nounwind }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #4 = { nounwind }
+attributes #5 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

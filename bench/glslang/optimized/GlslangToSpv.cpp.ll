@@ -6593,10 +6593,6 @@ _ZNSt13unordered_mapIxjSt4hashIxESt8equal_toIxESaISt4pairIKxjEEE4findERS5_.exit.
 _ZN12_GLOBAL__N_122TGlslangToSpvTraverser13getForcedTypeEN7glslang16TBuiltInVariableERKNS1_5TTypeE.exit: ; preds = %_ZNSt13unordered_mapIxjSt4hashIxESt8equal_toIxESaISt4pairIKxjEEE4findERS5_.exit.thread, %86, %91, %96
   %.sroa.0.0.i = phi i32 [ %99, %96 ], [ %94, %91 ], [ 0, %_ZNSt13unordered_mapIxjSt4hashIxESt8equal_toIxESaISt4pairIKxjEEE4findERS5_.exit.thread ], [ 0, %86 ]
   %.sroa.4.0.i = phi i32 [ %101, %96 ], [ %95, %91 ], [ 0, %_ZNSt13unordered_mapIxjSt4hashIxESt8equal_toIxESaISt4pairIKxjEEE4findERS5_.exit.thread ], [ 0, %86 ]
-  %.sroa.4.0.insert.ext.i = zext i32 %.sroa.4.0.i to i64
-  %.sroa.4.0.insert.shift.i = shl nuw i64 %.sroa.4.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %.sroa.0.0.i to i64
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %102 = and i32 %72, -2
   %103 = icmp eq i32 %102, 5330
   br i1 %103, label %104, label %.critedge
@@ -6672,7 +6668,7 @@ _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit:
   store i64 %141, ptr %25, align 8
   %142 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIxSt4pairIKxjESaIS3_ENS_10_Select1stESt8equal_toIxESt4hashIxENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOx(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(8) %25)
   store i32 %137, ptr %142, align 4
-  %.not92 = icmp ult i64 %.sroa.0.0.insert.insert.i, 4294967296
+  %.not92 = icmp eq i32 %.sroa.4.0.i, 0
   br i1 %.not92, label %1068, label %143
 
 143:                                              ; preds = %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
@@ -6705,7 +6701,7 @@ _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.
   store i64 %155, ptr %27, align 8
   %156 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIxSt4pairIKxjESaIS3_ENS_10_Select1stESt8equal_toIxESt4hashIxENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOx(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(8) %27)
   store i32 %151, ptr %156, align 4
-  %.not = icmp ult i64 %.sroa.0.0.insert.insert.i, 4294967296
+  %.not = icmp eq i32 %.sroa.4.0.i, 0
   br i1 %.not, label %160, label %157
 
 157:                                              ; preds = %150

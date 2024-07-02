@@ -63364,7 +63364,7 @@ invoke.cont5:                                     ; preds = %entry
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !noalias !1089
   store i32 0, ptr %2, align 8, !noalias !1089
-  %cmp.i = icmp ne i64 %1, 1152921504606846975
+  %cmp.i = icmp ult i64 %1, 1152921504606846975
   call void @llvm.assume(i1 %cmp.i)
   %3 = load ptr, ptr %ptr_.i.i, align 8, !noalias !1089
   %4 = getelementptr inbounds i8, ptr %agg.result, i64 16

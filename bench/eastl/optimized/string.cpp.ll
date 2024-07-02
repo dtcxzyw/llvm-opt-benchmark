@@ -135,7 +135,7 @@ if.then13:                                        ; preds = %if.then10
   %or = or disjoint i32 %and17, %shl
   %and19 = and i32 %conv16, 192
   %cmp20 = icmp eq i32 %and19, 128
-  %cmp21 = icmp ugt i32 %or, 127
+  %cmp21 = icmp ugt i32 %shl, 127
   %or.cond = select i1 %cmp20, i1 %cmp21, i1 false
   br i1 %or.cond, label %Failure.thread76, label %.thread
 
@@ -167,10 +167,10 @@ lor.lhs.false50:                                  ; preds = %if.then34
   %4 = load i8, ptr %arrayidx43, align 1
   %conv44 = zext i8 %4 to i32
   %and45 = and i32 %conv44, 63
-  %or46 = or disjoint i32 %or42, %and45
+  %or46 = or disjoint i32 %and45, %or42
   %and52 = and i32 %conv44, 192
   %cmp53 = icmp eq i32 %and52, 128
-  %cmp55 = icmp ugt i32 %or46, 2047
+  %cmp55 = icmp ugt i32 %or42, 2047
   %or.cond2 = select i1 %cmp53, i1 %cmp55, i1 false
   br i1 %or.cond2, label %Failure.thread76, label %.thread
 

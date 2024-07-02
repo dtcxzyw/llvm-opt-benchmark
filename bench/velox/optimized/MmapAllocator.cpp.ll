@@ -436,7 +436,8 @@ call.i.noexc26:                                   ; preds = %if.then
   %div30 = udiv i64 %mul.i, %conv29
   %add.i21 = add nuw i64 %div30, 4095
   %mul.i22 = and i64 %add.i21, -4096
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %mul.i22, i64 134217728)
+  %cmp.i23 = icmp ult i64 %div30, 134213633
+  %.sroa.speculated = select i1 %cmp.i23, i64 134217728, i64 %mul.i22
   invoke void @_ZN8facebook5velox6memory17ManagedMmapArenasC1Em(ptr noundef nonnull align 8 dereferenceable(72) %call.i27, i64 noundef %.sroa.speculated)
           to label %invoke.cont37 unwind label %lpad.i24, !noalias !15
 

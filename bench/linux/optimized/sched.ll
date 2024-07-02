@@ -20655,13 +20655,13 @@ define dso_local noundef ptr @rpc_new_task(ptr nocapture noundef readonly %0) lo
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %99, label %25
+  br i1 %24, label %100, label %25
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8
   tail call void %23(ptr noundef %27) #18
-  br label %99
+  br label %100
 
 .thread:                                          ; preds = %1, %4, %15
   %28 = phi ptr [ %17, %15 ], [ %13, %4 ], [ %2, %1 ]
@@ -20711,7 +20711,7 @@ define dso_local noundef ptr @rpc_new_task(ptr nocapture noundef readonly %0) lo
   %61 = getelementptr inbounds i8, ptr %0, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %82, label %64
+  br i1 %63, label %83, label %64
 
 64:                                               ; preds = %.thread
   %65 = getelementptr inbounds i8, ptr %62, i64 80
@@ -20719,67 +20719,69 @@ define dso_local noundef ptr @rpc_new_task(ptr nocapture noundef readonly %0) lo
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %.thread7, label %.preheader
 
-.preheader:                                       ; preds = %64, %72
-  %68 = phi i32 [ %73, %72 ], [ %66, %64 ]
+.preheader:                                       ; preds = %64, %73
+  %68 = phi i32 [ %74, %73 ], [ %66, %64 ]
   %69 = add i32 %68, 1
   %70 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %65, i32 %69, ptr elementtype(i32) %65, i32 %68) #18, !srcloc !286
   %71 = extractvalue { i8, i32 } %70, 0
+  %72 = icmp ult i8 %71, 2
+  tail call void @llvm.assume(i1 %72)
   %.not = icmp eq i8 %71, 0
-  br i1 %.not, label %72, label %.thread7, !prof !145
+  br i1 %.not, label %73, label %.thread7, !prof !145
 
-72:                                               ; preds = %.preheader
-  %73 = extractvalue { i8, i32 } %70, 1
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.thread7, label %.preheader, !llvm.loop !287
+73:                                               ; preds = %.preheader
+  %74 = extractvalue { i8, i32 } %70, 1
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %.thread7, label %.preheader, !llvm.loop !287
 
-.thread7:                                         ; preds = %.preheader, %72, %64
-  %75 = phi i32 [ 0, %64 ], [ %68, %.preheader ], [ 0, %72 ]
-  %76 = add i32 %75, 1
-  %77 = or i32 %76, %75
-  %78 = icmp sgt i32 %77, -1
-  br i1 %78, label %80, label %79, !prof !144
+.thread7:                                         ; preds = %.preheader, %73, %64
+  %76 = phi i32 [ 0, %64 ], [ %68, %.preheader ], [ 0, %73 ]
+  %77 = add i32 %76, 1
+  %78 = or i32 %77, %76
+  %79 = icmp sgt i32 %78, -1
+  br i1 %79, label %81, label %80, !prof !144
 
-79:                                               ; preds = %.thread7
+80:                                               ; preds = %.thread7
   tail call void @refcount_warn_saturate(ptr noundef %65, i32 noundef 0) #18
-  br label %80
+  br label %81
 
-80:                                               ; preds = %79, %.thread7
-  %81 = icmp eq i32 %75, 0
-  br i1 %81, label %82, label %83
+81:                                               ; preds = %80, %.thread7
+  %82 = icmp eq i32 %76, 0
+  br i1 %82, label %83, label %84
 
-82:                                               ; preds = %80, %.thread
-  br label %83
+83:                                               ; preds = %81, %.thread
+  br label %84
 
-83:                                               ; preds = %82, %80
-  %84 = phi ptr [ null, %82 ], [ %62, %80 ]
-  %85 = getelementptr inbounds i8, ptr %28, i64 176
-  store ptr %84, ptr %85, align 8
-  %86 = load ptr, ptr %35, align 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %91, label %89
+84:                                               ; preds = %83, %81
+  %85 = phi ptr [ null, %83 ], [ %62, %81 ]
+  %86 = getelementptr inbounds i8, ptr %28, i64 176
+  store ptr %85, ptr %86, align 8
+  %87 = load ptr, ptr %35, align 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %92, label %90
 
-89:                                               ; preds = %83
-  %90 = getelementptr inbounds i8, ptr %28, i64 32
-  store ptr @rpc_prepare_task, ptr %90, align 8
-  br label %91
+90:                                               ; preds = %84
+  %91 = getelementptr inbounds i8, ptr %28, i64 32
+  store ptr @rpc_prepare_task, ptr %91, align 8
+  br label %92
 
-91:                                               ; preds = %89, %83
-  %92 = load i8, ptr %44, align 2
-  %93 = and i8 %92, -61
-  %94 = or disjoint i8 %93, 40
-  store i8 %94, ptr %44, align 2
-  %95 = tail call i64 @ktime_get() #18
-  %96 = getelementptr inbounds i8, ptr %28, i64 200
-  store i64 %95, ptr %96, align 8
-  %97 = load i16, ptr %32, align 8
-  %98 = or i16 %97, %29
-  store i16 %98, ptr %32, align 8
-  br label %99
+92:                                               ; preds = %90, %84
+  %93 = load i8, ptr %44, align 2
+  %94 = and i8 %93, -61
+  %95 = or disjoint i8 %94, 40
+  store i8 %95, ptr %44, align 2
+  %96 = tail call i64 @ktime_get() #18
+  %97 = getelementptr inbounds i8, ptr %28, i64 200
+  store i64 %96, ptr %97, align 8
+  %98 = load i16, ptr %32, align 8
+  %99 = or i16 %98, %29
+  store i16 %99, ptr %32, align 8
+  br label %100
 
-99:                                               ; preds = %91, %25, %19
-  %100 = phi ptr [ %28, %91 ], [ inttoptr (i64 -12 to ptr), %19 ], [ inttoptr (i64 -12 to ptr), %25 ]
-  ret ptr %100
+100:                                              ; preds = %92, %25, %19
+  %101 = phi ptr [ %28, %92 ], [ inttoptr (i64 -12 to ptr), %19 ], [ inttoptr (i64 -12 to ptr), %25 ]
+  ret ptr %101
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

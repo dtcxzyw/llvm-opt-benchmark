@@ -11992,7 +11992,7 @@ Cba_ManNtk.exit.i:                                ; preds = %.critedge2, %Cba_Nt
 
 Cba_ObjNtkId.exit.i.i.i.i:                        ; preds = %422
   %.val5.i.i.i.i.i = load i32, ptr %411, align 4
-  %424 = icmp ne i32 %.val5.i.i.i.i.i, 0
+  %424 = icmp sgt i32 %.val5.i.i.i.i.i, 0
   call void @llvm.assume(i1 %424)
   %425 = trunc i64 %indvars.iv.i.i to i32
   %426 = add i32 %425, 1
@@ -12008,8 +12008,8 @@ Cba_ObjNtkId.exit.i.i.i.i:                        ; preds = %422
 431:                                              ; preds = %427
   %432 = load ptr, ptr %413, align 8
   %.not9.i.i.i65 = icmp eq ptr %432, null
-  %433 = sext i32 %426 to i64
-  %434 = shl nsw i64 %433, 2
+  %433 = zext nneg i32 %426 to i64
+  %434 = shl nuw nsw i64 %433, 2
   br i1 %.not9.i.i.i65, label %437, label %435
 
 435:                                              ; preds = %431
@@ -12027,8 +12027,8 @@ Cba_ObjNtkId.exit.i.i.i.i:                        ; preds = %422
 440:                                              ; preds = %439
   %441 = load ptr, ptr %413, align 8
   %.not9.i21.i.i = icmp eq ptr %441, null
-  %442 = sext i32 %429 to i64
-  %443 = shl nsw i64 %442, 2
+  %442 = zext nneg i32 %429 to i64
+  %443 = shl nuw nsw i64 %442, 2
   br i1 %.not9.i21.i.i, label %446, label %444
 
 444:                                              ; preds = %440
@@ -12054,7 +12054,7 @@ Vec_IntGrow.exit.i.i64:                           ; preds = %Vec_IntGrow.exit.si
 
 .lr.ph.i8.i:                                      ; preds = %Vec_IntGrow.exit.i.i64
   %450 = sext i32 %448 to i64
-  %wide.trip.count.i.i = sext i32 %426 to i64
+  %wide.trip.count.i.i = zext nneg i32 %426 to i64
   br label %451
 
 451:                                              ; preds = %451, %.lr.ph.i8.i
@@ -12075,7 +12075,7 @@ Vec_IntFillExtra.exit.i:                          ; preds = %._crit_edge.i.i, %C
   %454 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i.i, i64 %indvars.iv.i.i
   %455 = load i32, ptr %454, align 4
   %.val.i.i.i.i = load ptr, ptr %406, align 8
-  %456 = icmp ne i32 %455, 0
+  %456 = icmp sgt i32 %455, 0
   call void @llvm.assume(i1 %456)
   %457 = getelementptr i8, ptr %.val.i.i.i.i, i64 1564
   %.val.i.i.i2.i.i.i.i = load i32, ptr %457, align 4

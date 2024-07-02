@@ -731,7 +731,7 @@ aeron_frame_info_add.exit:                        ; preds = %132, %107, %105
   %141 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0101170) #9
   %142 = add i32 %141, 31
   %143 = and i32 %142, -32
-  %144 = icmp slt i32 %143, 0
+  %144 = icmp slt i32 %142, 0
   br i1 %144, label %dissect_aeron_pad.exit, label %145
 
 145:                                              ; preds = %140
@@ -745,7 +745,7 @@ aeron_frame_info_add.exit:                        ; preds = %132, %107, %105
   %153 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %152) #9
   %154 = add i32 %.0101170, 20
   %155 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %154) #9
-  %156 = add i32 %141, -24
+  %156 = add nsw i32 %141, -24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %93, i8 0, i64 32, i1 false)
   store i32 %153, ptr %94, align 4
   store i32 %155, ptr %95, align 8
@@ -994,18 +994,18 @@ dissect_aeron_heartbeat.exit:                     ; preds = %217, %proto_item_se
 
 287:                                              ; preds = %284
   %288 = add i32 %285, 31
-  %289 = and i32 %288, -32
-  %290 = icmp slt i32 %289, 0
-  br i1 %290, label %dissect_aeron_data.exit, label %291
+  %289 = icmp slt i32 %288, 0
+  br i1 %289, label %dissect_aeron_data.exit, label %290
 
-291:                                              ; preds = %287
-  %292 = add i32 %285, -32
+290:                                              ; preds = %287
+  %291 = and i32 %288, 2147483616
+  %292 = add nsw i32 %285, -32
   br label %293
 
-293:                                              ; preds = %291, %284
-  %.0129.i = phi i32 [ %292, %291 ], [ 0, %284 ]
-  %.0128.i = phi i32 [ %289, %291 ], [ 32, %284 ]
-  %.0127.i = phi i32 [ %289, %291 ], [ 0, %284 ]
+293:                                              ; preds = %290, %284
+  %.0129.i = phi i32 [ %292, %290 ], [ 0, %284 ]
+  %.0128.i = phi i32 [ %291, %290 ], [ 32, %284 ]
+  %.0127.i = phi i32 [ %291, %290 ], [ 0, %284 ]
   %294 = add i32 %.0101170, 8
   %295 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %294) #9
   %296 = add i32 %.0101170, 12

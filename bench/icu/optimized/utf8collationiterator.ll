@@ -1782,15 +1782,15 @@ land.lhs.true71:                                  ; preds = %land.lhs.true69, %l
   br i1 %cmp79, label %do.end, label %land.lhs.true.i
 
 do.end:                                           ; preds = %land.lhs.true71
+  %c.1.fr = freeze i32 %c.1
   %conv78 = zext nneg i8 %sub76 to i32
-  %shl81 = shl nuw nsw i32 %c.1, 6
+  %shl81 = shl nuw nsw i32 %c.1.fr, 6
   %or83 = or disjoint i32 %shl81, %conv78
-  %or83.fr = freeze i32 %or83
-  %cmp88 = icmp ugt i32 %or83.fr, 65535
-  %shr90 = lshr i32 %c.1, 4
+  %cmp88 = icmp ugt i32 %c.1.fr, 1023
+  %shr90 = lshr i32 %c.1.fr, 4
   %conv91 = add nuw nsw i32 %shr90, 55232
   %conv92 = and i32 %conv91, 65535
-  %spec.select = select i1 %cmp88, i32 %conv92, i32 %or83.fr
+  %spec.select = select i1 %cmp88, i32 %conv92, i32 %or83
   %cmp.i = icmp ugt i32 %spec.select, 767
   br i1 %cmp.i, label %land.lhs.true.i, label %return
 
@@ -2583,24 +2583,24 @@ land.lhs.true86:                                  ; preds = %land.lhs.true84, %l
   br i1 %cmp95, label %do.end, label %land.lhs.true.i
 
 do.end:                                           ; preds = %land.lhs.true86
+  %c.1.fr = freeze i32 %c.1
   %conv94 = zext nneg i8 %sub92 to i32
-  %shl97 = shl nuw nsw i32 %c.1, 6
+  %shl97 = shl nuw nsw i32 %c.1.fr, 6
   %or99 = or disjoint i32 %shl97, %conv94
-  %or99.fr = freeze i32 %or99
   %inc101 = add nsw i32 %13, 1
   store i32 %inc101, ptr %pos.i, align 8
-  %cmp105 = icmp ult i32 %or99.fr, 65536
-  %shr108 = lshr i32 %c.1, 4
+  %cmp105 = icmp ult i32 %c.1.fr, 1024
+  %shr108 = lshr i32 %c.1.fr, 4
   %conv109 = add nuw nsw i32 %shr108, 55232
   %conv110 = and i32 %conv109, 65535
-  %spec.select = select i1 %cmp105, i32 %or99.fr, i32 %conv110
+  %spec.select = select i1 %cmp105, i32 %or99, i32 %conv110
   br label %do.end.thread
 
 do.end.thread:                                    ; preds = %do.end, %do.body
   %15 = phi i32 [ %inc14, %do.body ], [ %inc101, %do.end ]
-  %c.256 = phi i32 [ %conv17, %do.body ], [ %or99.fr, %do.end ]
+  %c.256 = phi i32 [ %conv17, %do.body ], [ %or99, %do.end ]
   %16 = phi i32 [ %conv17, %do.body ], [ %spec.select, %do.end ]
-  %cmp.i = icmp ugt i32 %16, 191
+  %cmp.i = icmp sgt i32 %16, 191
   br i1 %cmp.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true86, %cond.false82, %land.lhs.true74, %land.lhs.true64, %land.lhs.true56, %land.lhs.true43, %cond.false, %cond.true27, %if.then20, %do.end.thread

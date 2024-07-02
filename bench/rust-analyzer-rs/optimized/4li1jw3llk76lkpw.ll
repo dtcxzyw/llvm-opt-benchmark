@@ -16315,11 +16315,13 @@ define internal fastcc void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$
   %7 = phi i64 [ %8, %.lr.ph.i ], [ %.promoted.i, %3 ]
   %8 = add nuw nsw i64 %7, 1
   store i64 %8, ptr %4, align 8, !alias.scope !3044, !noalias !3047
-  %9 = getelementptr inbounds { [2 x i64] }, ptr %0, i64 %7
-  %10 = load ptr, ptr %9, align 8, !alias.scope !3042, !noalias !3049, !nonnull !12, !align !101, !noundef !12
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
-  %12 = load i64, ptr %11, align 8, !alias.scope !3042, !noalias !3049, !noundef !12
-  tail call fastcc void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hd1f73cf8616d871aE"(ptr %1, ptr nonnull %2, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
+  %9 = icmp ult i64 %7, 2
+  tail call void @llvm.assume(i1 %9)
+  %10 = getelementptr inbounds { [2 x i64] }, ptr %0, i64 %7
+  %11 = load ptr, ptr %10, align 8, !alias.scope !3042, !noalias !3049, !nonnull !12, !align !101, !noundef !12
+  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = load i64, ptr %12, align 8, !alias.scope !3042, !noalias !3049, !noundef !12
+  tail call fastcc void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hd1f73cf8616d871aE"(ptr %1, ptr nonnull %2, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %13)
   %.not.i.i = icmp eq i64 %6, %8
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hbb44fefa33a3793cE.exit, label %.lr.ph.i
 

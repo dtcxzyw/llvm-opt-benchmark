@@ -14183,14 +14183,17 @@ default.unreachable125:                           ; preds = %4
   %56 = getelementptr inbounds i8, ptr %1, i64 40
   store i64 %55, ptr %56, align 8, !alias.scope !2166, !noalias !2169
   %57 = icmp ne i64 %.0.i.i, 4
-  %58 = and i64 %3, -4
-  %59 = icmp eq i64 %58, 0
-  %or.cond.i = or i1 %59, %57
-  br i1 %or.cond.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h5d3e97ea8bb3de04E.exit.i, label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc630307f0cfefaf4E.exit.us.i.i.i"
+  %58 = icmp ult i64 %3, 4
+  %or.cond.i = or i1 %58, %57
+  br i1 %or.cond.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h5d3e97ea8bb3de04E.exit.i, label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc630307f0cfefaf4E.exit.us.i.i.preheader.i"
 
-"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc630307f0cfefaf4E.exit.us.i.i.i": ; preds = %51, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc630307f0cfefaf4E.exit.us.i.i.i"
-  %60 = phi ptr [ %63, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc630307f0cfefaf4E.exit.us.i.i.i" ], [ %2, %51 ]
-  %61 = phi i64 [ %62, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc630307f0cfefaf4E.exit.us.i.i.i" ], [ %58, %51 ]
+"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc630307f0cfefaf4E.exit.us.i.i.preheader.i": ; preds = %51
+  %59 = and i64 %3, -4
+  br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc630307f0cfefaf4E.exit.us.i.i.i"
+
+"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc630307f0cfefaf4E.exit.us.i.i.i": ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc630307f0cfefaf4E.exit.us.i.i.i", %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc630307f0cfefaf4E.exit.us.i.i.preheader.i"
+  %60 = phi ptr [ %63, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc630307f0cfefaf4E.exit.us.i.i.i" ], [ %2, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc630307f0cfefaf4E.exit.us.i.i.preheader.i" ]
+  %61 = phi i64 [ %62, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc630307f0cfefaf4E.exit.us.i.i.i" ], [ %59, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc630307f0cfefaf4E.exit.us.i.i.preheader.i" ]
   %62 = add i64 %61, -4
   %63 = getelementptr inbounds i8, ptr %60, i64 4
   %64 = getelementptr inbounds i8, ptr %60, i64 3
@@ -14881,14 +14884,17 @@ default.unreachable126:                           ; preds = %4
 65:                                               ; preds = %61
   %66 = load i64, ptr %30, align 8, !noalias !2274, !noundef !4
   %67 = icmp ne i64 %66, 4
-  %68 = and i64 %3, -4
-  %69 = icmp eq i64 %68, 0
-  %or.cond.i = or i1 %69, %67
-  br i1 %or.cond.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hda526fce825a2de6E.exit.i, label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h90d1a13a8b2c7603E.exit.us.i.i.i"
+  %68 = icmp ult i64 %3, 4
+  %or.cond.i = or i1 %68, %67
+  br i1 %or.cond.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hda526fce825a2de6E.exit.i, label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h90d1a13a8b2c7603E.exit.us.i.i.preheader.i"
 
-"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h90d1a13a8b2c7603E.exit.us.i.i.i": ; preds = %65, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h90d1a13a8b2c7603E.exit.us.i.i.i"
-  %70 = phi ptr [ %73, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h90d1a13a8b2c7603E.exit.us.i.i.i" ], [ %2, %65 ]
-  %71 = phi i64 [ %72, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h90d1a13a8b2c7603E.exit.us.i.i.i" ], [ %68, %65 ]
+"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h90d1a13a8b2c7603E.exit.us.i.i.preheader.i": ; preds = %65
+  %69 = and i64 %3, -4
+  br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h90d1a13a8b2c7603E.exit.us.i.i.i"
+
+"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h90d1a13a8b2c7603E.exit.us.i.i.i": ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h90d1a13a8b2c7603E.exit.us.i.i.i", %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h90d1a13a8b2c7603E.exit.us.i.i.preheader.i"
+  %70 = phi ptr [ %73, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h90d1a13a8b2c7603E.exit.us.i.i.i" ], [ %2, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h90d1a13a8b2c7603E.exit.us.i.i.preheader.i" ]
+  %71 = phi i64 [ %72, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h90d1a13a8b2c7603E.exit.us.i.i.i" ], [ %69, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h90d1a13a8b2c7603E.exit.us.i.i.preheader.i" ]
   %72 = add i64 %71, -4
   %73 = getelementptr inbounds i8, ptr %70, i64 4
   %74 = getelementptr inbounds i8, ptr %70, i64 3
@@ -26312,13 +26318,16 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h85136a553483e9daE.exit: ; pred
   br label %65
 
 56:                                               ; preds = %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
-  %57 = and i64 %3, -2
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h85136a553483e9daE.exit, label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha23eadbfcc62b74aE.exit.i.i"
+  %57 = icmp ult i64 %3, 2
+  br i1 %57, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h85136a553483e9daE.exit, label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha23eadbfcc62b74aE.exit.i.i.preheader"
 
-"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha23eadbfcc62b74aE.exit.i.i": ; preds = %56, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha23eadbfcc62b74aE.exit.i.i"
-  %59 = phi ptr [ %62, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha23eadbfcc62b74aE.exit.i.i" ], [ %2, %56 ]
-  %60 = phi i64 [ %61, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha23eadbfcc62b74aE.exit.i.i" ], [ %57, %56 ]
+"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha23eadbfcc62b74aE.exit.i.i.preheader": ; preds = %56
+  %58 = and i64 %3, -2
+  br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha23eadbfcc62b74aE.exit.i.i"
+
+"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha23eadbfcc62b74aE.exit.i.i": ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha23eadbfcc62b74aE.exit.i.i.preheader", %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha23eadbfcc62b74aE.exit.i.i"
+  %59 = phi ptr [ %62, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha23eadbfcc62b74aE.exit.i.i" ], [ %2, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha23eadbfcc62b74aE.exit.i.i.preheader" ]
+  %60 = phi i64 [ %61, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha23eadbfcc62b74aE.exit.i.i" ], [ %58, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha23eadbfcc62b74aE.exit.i.i.preheader" ]
   %61 = add i64 %60, -2
   %62 = getelementptr inbounds i8, ptr %59, i64 2
   %.val.i.i.i.i.i.i = load i16, ptr %59, align 1, !alias.scope !4113, !noalias !4122
@@ -26541,13 +26550,16 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h5af0a51e5559baefE.exit: ; pred
   br label %65
 
 56:                                               ; preds = %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit
-  %57 = and i64 %3, -2
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h5af0a51e5559baefE.exit, label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he668c19e3c847e25E.exit.i.i"
+  %57 = icmp ult i64 %3, 2
+  br i1 %57, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h5af0a51e5559baefE.exit, label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he668c19e3c847e25E.exit.i.i.preheader"
 
-"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he668c19e3c847e25E.exit.i.i": ; preds = %56, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he668c19e3c847e25E.exit.i.i"
-  %59 = phi ptr [ %62, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he668c19e3c847e25E.exit.i.i" ], [ %2, %56 ]
-  %60 = phi i64 [ %61, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he668c19e3c847e25E.exit.i.i" ], [ %57, %56 ]
+"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he668c19e3c847e25E.exit.i.i.preheader": ; preds = %56
+  %58 = and i64 %3, -2
+  br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he668c19e3c847e25E.exit.i.i"
+
+"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he668c19e3c847e25E.exit.i.i": ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he668c19e3c847e25E.exit.i.i.preheader", %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he668c19e3c847e25E.exit.i.i"
+  %59 = phi ptr [ %62, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he668c19e3c847e25E.exit.i.i" ], [ %2, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he668c19e3c847e25E.exit.i.i.preheader" ]
+  %60 = phi i64 [ %61, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he668c19e3c847e25E.exit.i.i" ], [ %58, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he668c19e3c847e25E.exit.i.i.preheader" ]
   %61 = add i64 %60, -2
   %62 = getelementptr inbounds i8, ptr %59, i64 2
   %.val.i.i.i.i.i.i = load i16, ptr %59, align 1, !alias.scope !4153, !noalias !4162

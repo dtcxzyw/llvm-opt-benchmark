@@ -11207,15 +11207,15 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr nocapture noundef readonly
   %83 = shl nuw nsw i32 %60, 12
   %84 = and i32 %83, 258048
   %85 = or disjoint i32 %84, %82
+  %.fr = freeze i32 %85
   %86 = shl nuw nsw i32 %65, 6
   %87 = and i32 %86, 4032
-  %88 = or disjoint i32 %85, %87
-  %89 = and i32 %70, 63
-  %90 = or disjoint i32 %88, %89
-  %.fr = freeze i32 %90
+  %88 = and i32 %70, 63
+  %89 = or disjoint i32 %87, %88
+  %90 = or i32 %89, %.fr
   store i32 4, ptr %1, align 4
   %91 = icmp ugt i32 %.fr, 1114111
-  %spec.select = select i1 %91, i32 63, i32 %.fr
+  %spec.select = select i1 %91, i32 63, i32 %90
   br label %.thread
 
 .thread:                                          ; preds = %80, %53, %78, %43, %45, %17, %19, %6, %77, %71, %66, %61, %42, %36, %31, %16
@@ -12696,7 +12696,7 @@ stbtt__close_shape.exit:                          ; preds = %339, %356, %360
   br label %.loopexit
 
 364:                                              ; preds = %85
-  %365 = icmp slt i16 %92, 0
+  %365 = icmp slt i16 %90, 0
   br i1 %365, label %366, label %.loopexit
 
 366:                                              ; preds = %364

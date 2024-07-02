@@ -652,7 +652,7 @@ for.body54.lr.ph:                                 ; preds = %_ZNK3ue29CharReach1
   %25 = load i8, ptr %add.ptr.i3097, align 1
   %conv5898 = or i8 %25, %24
   store i8 %conv5898, ptr %add.ptr.i3097, align 1
-  %cmp.not.i.i99 = icmp ult i64 %add.i.i, 256
+  %cmp.not.i.i99 = icmp ult i64 %i.06.i.i, 4
   br i1 %cmp.not.i.i99, label %if.end.i.i, label %for.inc63
 
 if.end.i.i:                                       ; preds = %for.body54.lr.ph, %_ZNK3ue29CharReach9find_nextEm.exit
@@ -821,7 +821,7 @@ for.body.preheader:                               ; preds = %_ZNK3ue29CharReach1
   %4 = load i8, ptr %add.ptr.i39, align 1
   %or440 = or i8 %4, %conv.i.i
   store i8 %or440, ptr %add.ptr.i39, align 1
-  %cmp.not.i.i941 = icmp ult i64 %add.i.i, 256
+  %cmp.not.i.i941 = icmp ult i64 %i.06.i.i, 4
   br i1 %cmp.not.i.i941, label %if.end.i.i, label %nrvo.skipdtor
 
 if.end.i.i:                                       ; preds = %for.body.preheader, %_ZNK3ue29CharReach9find_nextEm.exit

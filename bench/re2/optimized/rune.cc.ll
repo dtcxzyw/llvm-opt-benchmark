@@ -51,9 +51,12 @@ if.then22:                                        ; preds = %if.end20
   %6 = shl nuw nsw i32 %xor, 6
   %.masked = and i32 %5, 61440
   %shl25.masked = or disjoint i32 %6, %.masked
+  %cmp28 = icmp ult i32 %shl25.masked, 2048
+  br i1 %cmp28, label %bad, label %if.end30
+
+if.end30:                                         ; preds = %if.then22
   %and27 = or disjoint i32 %shl25.masked, %xor16
-  %cmp28 = icmp ult i32 %and27, 2048
-  br i1 %cmp28, label %bad, label %return
+  br label %return
 
 if.end31:                                         ; preds = %if.end20
   %add.ptr32 = getelementptr inbounds i8, ptr %str, i64 3
@@ -65,23 +68,26 @@ if.end31:                                         ; preds = %if.end20
   br i1 %or.cond, label %if.then40, label %bad
 
 if.then40:                                        ; preds = %if.end31
-  %xor34 = zext nneg i8 %8 to i32
   %9 = shl nuw nsw i32 %conv, 12
   %10 = shl nuw nsw i32 %xor, 6
   %shl43 = or disjoint i32 %10, %9
   %or44 = or disjoint i32 %shl43, %xor16
   %shl45 = shl nuw nsw i32 %or44, 6
   %shl45.masked = and i32 %shl45, 2097088
+  %cmp48 = icmp ult i32 %shl45.masked, 65536
+  br i1 %cmp48, label %bad, label %if.end50
+
+if.end50:                                         ; preds = %if.then40
+  %xor34 = zext nneg i8 %8 to i32
   %and47 = or disjoint i32 %shl45.masked, %xor34
-  %cmp48 = icmp ult i32 %and47, 65536
-  br i1 %cmp48, label %bad, label %return
+  br label %return
 
 bad:                                              ; preds = %if.then40, %if.end31, %if.then22, %if.end13, %if.end8, %if.then5, %if.end
   br label %return
 
-return:                                           ; preds = %if.then40, %if.then22, %if.end8, %entry, %bad
-  %.sink = phi i32 [ 65533, %bad ], [ %conv, %entry ], [ %and9, %if.end8 ], [ %and27, %if.then22 ], [ %and47, %if.then40 ]
-  %retval.0 = phi i32 [ 1, %bad ], [ 1, %entry ], [ 2, %if.end8 ], [ 3, %if.then22 ], [ 4, %if.then40 ]
+return:                                           ; preds = %if.end8, %entry, %bad, %if.end50, %if.end30
+  %.sink = phi i32 [ 65533, %bad ], [ %and47, %if.end50 ], [ %and27, %if.end30 ], [ %conv, %entry ], [ %and9, %if.end8 ]
+  %retval.0 = phi i32 [ 1, %bad ], [ 4, %if.end50 ], [ 3, %if.end30 ], [ 1, %entry ], [ 2, %if.end8 ]
   store i32 %.sink, ptr %rune, align 4
   ret i32 %retval.0
 }
@@ -304,7 +310,7 @@ if.then40.i:                                      ; preds = %if.end31.i
 bad.i:                                            ; preds = %if.then40.i, %if.end31.i, %if.then22.i, %if.end13.i, %if.end8.i, %if.then5.i, %if.end.i
   br label %if.end3
 
-if.end3:                                          ; preds = %bad.i, %if.then40.i, %if.then22.i, %if.end8.i, %if.then
+if.end3:                                          ; preds = %bad.i, %if.end8.i, %if.then22.i, %if.then40.i, %if.then
   %retval.0.i.sink = phi i64 [ 1, %if.then ], [ 1, %bad.i ], [ 2, %if.end8.i ], [ 3, %if.then22.i ], [ 4, %if.then40.i ]
   %add.ptr = getelementptr inbounds i8, ptr %s.addr.0, i64 %retval.0.i.sink
   %inc = add nuw nsw i32 %n.0, 1
@@ -381,9 +387,12 @@ if.then22.i:                                      ; preds = %if.end20.i
   %6 = shl nuw nsw i32 %xor.i, 6
   %.masked.i = and i32 %5, 61440
   %shl25.masked.i = or disjoint i32 %6, %.masked.i
+  %cmp28.i = icmp ult i32 %shl25.masked.i, 2048
+  br i1 %cmp28.i, label %bad.i, label %if.end30.i
+
+if.end30.i:                                       ; preds = %if.then22.i
   %and27.i = or disjoint i32 %shl25.masked.i, %xor16.i
-  %cmp28.i = icmp ult i32 %and27.i, 2048
-  br i1 %cmp28.i, label %bad.i, label %_ZN3re210chartoruneEPiPKc.exit
+  br label %_ZN3re210chartoruneEPiPKc.exit
 
 if.end31.i:                                       ; preds = %if.end20.i
   %add.ptr32.i = getelementptr inbounds i8, ptr %s.addr.0, i64 3
@@ -395,23 +404,26 @@ if.end31.i:                                       ; preds = %if.end20.i
   br i1 %or.cond.i, label %if.then40.i, label %bad.i
 
 if.then40.i:                                      ; preds = %if.end31.i
-  %xor34.i = zext nneg i8 %8 to i32
   %9 = shl nuw nsw i32 %conv, 12
   %10 = shl nuw nsw i32 %xor.i, 6
   %shl43.i = or disjoint i32 %10, %9
   %or44.i = or disjoint i32 %shl43.i, %xor16.i
   %shl45.i = shl nuw nsw i32 %or44.i, 6
   %shl45.masked.i = and i32 %shl45.i, 2097088
+  %cmp48.i = icmp ult i32 %shl45.masked.i, 65536
+  br i1 %cmp48.i, label %bad.i, label %if.end50.i
+
+if.end50.i:                                       ; preds = %if.then40.i
+  %xor34.i = zext nneg i8 %8 to i32
   %and47.i = or disjoint i32 %shl45.masked.i, %xor34.i
-  %cmp48.i = icmp ult i32 %and47.i, 65536
-  br i1 %cmp48.i, label %bad.i, label %_ZN3re210chartoruneEPiPKc.exit
+  br label %_ZN3re210chartoruneEPiPKc.exit
 
 bad.i:                                            ; preds = %if.then40.i, %if.end31.i, %if.then22.i, %if.end13.i, %if.end8.i, %if.then5.i, %if.end.i
   br label %_ZN3re210chartoruneEPiPKc.exit
 
-_ZN3re210chartoruneEPiPKc.exit:                   ; preds = %if.end8.i, %if.then22.i, %if.then40.i, %bad.i
-  %.sink.i = phi i32 [ 65533, %bad.i ], [ %and9.i, %if.end8.i ], [ %and27.i, %if.then22.i ], [ %and47.i, %if.then40.i ]
-  %retval.0.i = phi i64 [ 1, %bad.i ], [ 2, %if.end8.i ], [ 3, %if.then22.i ], [ 4, %if.then40.i ]
+_ZN3re210chartoruneEPiPKc.exit:                   ; preds = %if.end8.i, %if.end30.i, %if.end50.i, %bad.i
+  %.sink.i = phi i32 [ 65533, %bad.i ], [ %and47.i, %if.end50.i ], [ %and27.i, %if.end30.i ], [ %and9.i, %if.end8.i ]
+  %retval.0.i = phi i64 [ 1, %bad.i ], [ 4, %if.end50.i ], [ 3, %if.end30.i ], [ 2, %if.end8.i ]
   %cmp11 = icmp eq i32 %.sink.i, %c
   br i1 %cmp11, label %return, label %for.cond.backedge
 

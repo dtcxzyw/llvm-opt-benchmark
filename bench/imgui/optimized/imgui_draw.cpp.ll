@@ -20024,39 +20024,31 @@ _ZN8ImVectorItE5clearEv.exit:                     ; preds = %_ZN8ImVectorIfE5cle
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z31ImFontAtlasBuildPackCustomRectsP11ImFontAtlasPv(ptr nocapture noundef %atlas, ptr noundef %stbrp_context_opaque) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
-entry:
+_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i:
   %pack_rects = alloca %struct.ImVector.12, align 8
   %CustomRects = getelementptr inbounds i8, ptr %atlas, i64 104
   %0 = load i32, ptr %CustomRects, align 8
-  %cmp = icmp ne i32 %0, 0
+  %cmp = icmp sgt i32 %0, 0
   tail call void @llvm.assume(i1 %cmp)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pack_rects, i8 0, i64 16, i1 false)
-  %Capacity.i = getelementptr inbounds i8, ptr %pack_rects, i64 4
-  %cmp.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i, label %_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i, label %invoke.cont
-
-_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i: ; preds = %entry
   %1 = tail call i32 @llvm.umax.i32(i32 %0, i32 8)
   %conv.i.i = zext nneg i32 %1 to i64
   %mul.i.i = mul nuw nsw i64 %conv.i.i, 24
   %call.i.i22 = invoke noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i)
-          to label %if.end7.i.i unwind label %lpad
+          to label %invoke.cont unwind label %lpad
 
-if.end7.i.i:                                      ; preds = %_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i
+invoke.cont:                                      ; preds = %_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i
+  %Capacity.i = getelementptr inbounds i8, ptr %pack_rects, i64 4
   %Data.i.i = getelementptr inbounds i8, ptr %pack_rects, i64 8
   store ptr %call.i.i22, ptr %Data.i.i, align 8
   store i32 %1, ptr %Capacity.i, align 4
-  br label %invoke.cont
-
-invoke.cont:                                      ; preds = %if.end7.i.i, %entry
-  %2 = phi ptr [ %call.i.i22, %if.end7.i.i ], [ null, %entry ]
   store i32 %0, ptr %pack_rects, align 8
   %Data = getelementptr inbounds i8, ptr %pack_rects, i64 8
-  %mul.i = mul nsw i32 %0, 24
+  %mul.i = mul nuw nsw i32 %0, 24
   %conv = zext nneg i32 %mul.i to i64
-  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %conv, i1 false)
-  %3 = load i32, ptr %CustomRects, align 8
-  %cmp457 = icmp sgt i32 %3, 0
+  tail call void @llvm.memset.p0.i64(ptr align 4 %call.i.i22, i8 0, i64 %conv, i1 false)
+  %2 = load i32, ptr %CustomRects, align 8
+  %cmp457 = icmp sgt i32 %2, 0
   br i1 %cmp457, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
@@ -20064,90 +20056,90 @@ for.body.lr.ph:                                   ; preds = %invoke.cont
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %4 = phi ptr [ %2, %for.body.lr.ph ], [ %9, %for.body ]
+  %3 = phi ptr [ %call.i.i22, %for.body.lr.ph ], [ %8, %for.body ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %5 = load ptr, ptr %Data.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.ImFontAtlasCustomRect, ptr %5, i64 %indvars.iv
-  %6 = load i16, ptr %arrayidx.i, align 8
-  %conv7 = zext i16 %6 to i32
-  %w = getelementptr inbounds %struct.stbrp_rect, ptr %4, i64 %indvars.iv, i32 1
+  %4 = load ptr, ptr %Data.i, align 8
+  %arrayidx.i = getelementptr inbounds %struct.ImFontAtlasCustomRect, ptr %4, i64 %indvars.iv
+  %5 = load i16, ptr %arrayidx.i, align 8
+  %conv7 = zext i16 %5 to i32
+  %w = getelementptr inbounds %struct.stbrp_rect, ptr %3, i64 %indvars.iv, i32 1
   store i32 %conv7, ptr %w, align 4
-  %7 = load ptr, ptr %Data.i, align 8
-  %Height = getelementptr inbounds %struct.ImFontAtlasCustomRect, ptr %7, i64 %indvars.iv, i32 1
-  %8 = load i16, ptr %Height, align 2
-  %conv12 = zext i16 %8 to i32
-  %9 = load ptr, ptr %Data, align 8
-  %h = getelementptr inbounds %struct.stbrp_rect, ptr %9, i64 %indvars.iv, i32 2
+  %6 = load ptr, ptr %Data.i, align 8
+  %Height = getelementptr inbounds %struct.ImFontAtlasCustomRect, ptr %6, i64 %indvars.iv, i32 1
+  %7 = load i16, ptr %Height, align 2
+  %conv12 = zext i16 %7 to i32
+  %8 = load ptr, ptr %Data, align 8
+  %h = getelementptr inbounds %struct.stbrp_rect, ptr %8, i64 %indvars.iv, i32 2
   store i32 %conv12, ptr %h, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = load i32, ptr %CustomRects, align 8
-  %11 = sext i32 %10 to i64
-  %cmp4 = icmp slt i64 %indvars.iv.next, %11
+  %9 = load i32, ptr %CustomRects, align 8
+  %10 = sext i32 %9 to i64
+  %cmp4 = icmp slt i64 %indvars.iv.next, %10
   br i1 %cmp4, label %for.body, label %for.end.loopexit, !llvm.loop !105
 
 lpad:                                             ; preds = %for.end, %_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %pack_rects) #38
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %11
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre = load i32, ptr %pack_rects, align 8
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %invoke.cont
-  %13 = phi i32 [ %.pre, %for.end.loopexit ], [ %0, %invoke.cont ]
-  %14 = phi ptr [ %9, %for.end.loopexit ], [ %2, %invoke.cont ]
-  invoke fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef %stbrp_context_opaque, ptr noundef nonnull %14, i32 noundef %13)
+  %12 = phi i32 [ %.pre, %for.end.loopexit ], [ %0, %invoke.cont ]
+  %13 = phi ptr [ %8, %for.end.loopexit ], [ %call.i.i22, %invoke.cont ]
+  invoke fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef %stbrp_context_opaque, ptr noundef nonnull %13, i32 noundef %12)
           to label %for.cond21.preheader unwind label %lpad
 
 for.cond21.preheader:                             ; preds = %for.end
-  %15 = load i32, ptr %pack_rects, align 8
-  %cmp2359 = icmp sgt i32 %15, 0
+  %14 = load i32, ptr %pack_rects, align 8
+  %cmp2359 = icmp sgt i32 %14, 0
   %.pre66 = load ptr, ptr %Data, align 8
   br i1 %cmp2359, label %for.body24.lr.ph, label %for.end50
 
 for.body24.lr.ph:                                 ; preds = %for.cond21.preheader
   %Data.i40 = getelementptr inbounds i8, ptr %atlas, i64 112
   %TexHeight = getelementptr inbounds i8, ptr %atlas, i64 68
-  %16 = zext nneg i32 %15 to i64
+  %15 = zext nneg i32 %14 to i64
   br label %for.body24
 
 for.body24:                                       ; preds = %for.body24.lr.ph, %for.inc48
   %indvars.iv62 = phi i64 [ 0, %for.body24.lr.ph ], [ %indvars.iv.next63, %for.inc48 ]
   %arrayidx.i36 = getelementptr inbounds %struct.stbrp_rect, ptr %.pre66, i64 %indvars.iv62
   %was_packed = getelementptr inbounds i8, ptr %arrayidx.i36, i64 20
-  %17 = load i32, ptr %was_packed, align 4
-  %tobool.not = icmp eq i32 %17, 0
+  %16 = load i32, ptr %was_packed, align 4
+  %tobool.not = icmp eq i32 %16, 0
   br i1 %tobool.not, label %for.inc48, label %if.then27
 
 if.then27:                                        ; preds = %for.body24
   %x = getelementptr inbounds i8, ptr %arrayidx.i36, i64 12
-  %18 = load i32, ptr %x, align 4
-  %conv30 = trunc i32 %18 to i16
-  %19 = load ptr, ptr %Data.i40, align 8
-  %X = getelementptr inbounds %struct.ImFontAtlasCustomRect, ptr %19, i64 %indvars.iv62, i32 2
+  %17 = load i32, ptr %x, align 4
+  %conv30 = trunc i32 %17 to i16
+  %18 = load ptr, ptr %Data.i40, align 8
+  %X = getelementptr inbounds %struct.ImFontAtlasCustomRect, ptr %18, i64 %indvars.iv62, i32 2
   store i16 %conv30, ptr %X, align 4
   %y = getelementptr inbounds %struct.stbrp_rect, ptr %.pre66, i64 %indvars.iv62, i32 4
-  %20 = load i32, ptr %y, align 4
-  %conv35 = trunc i32 %20 to i16
-  %21 = load ptr, ptr %Data.i40, align 8
-  %Y = getelementptr inbounds %struct.ImFontAtlasCustomRect, ptr %21, i64 %indvars.iv62, i32 3
+  %19 = load i32, ptr %y, align 4
+  %conv35 = trunc i32 %19 to i16
+  %20 = load ptr, ptr %Data.i40, align 8
+  %Y = getelementptr inbounds %struct.ImFontAtlasCustomRect, ptr %20, i64 %indvars.iv62, i32 3
   store i16 %conv35, ptr %Y, align 2
-  %22 = load i32, ptr %TexHeight, align 4
+  %21 = load i32, ptr %TexHeight, align 4
   %arrayidx.i51 = getelementptr inbounds %struct.stbrp_rect, ptr %.pre66, i64 %indvars.iv62
   %y40 = getelementptr inbounds i8, ptr %arrayidx.i51, i64 16
-  %23 = load i32, ptr %y40, align 4
+  %22 = load i32, ptr %y40, align 4
   %h43 = getelementptr inbounds i8, ptr %arrayidx.i51, i64 8
-  %24 = load i32, ptr %h43, align 4
-  %add = add nsw i32 %24, %23
-  %cond.i = tail call noundef i32 @llvm.smax.i32(i32 %22, i32 %add)
+  %23 = load i32, ptr %h43, align 4
+  %add = add nsw i32 %23, %22
+  %cond.i = tail call noundef i32 @llvm.smax.i32(i32 %21, i32 %add)
   store i32 %cond.i, ptr %TexHeight, align 4
   br label %for.inc48
 
 for.inc48:                                        ; preds = %for.body24, %if.then27
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %cmp23 = icmp ult i64 %indvars.iv.next63, %16
+  %cmp23 = icmp ult i64 %indvars.iv.next63, %15
   br i1 %cmp23, label %for.body24, label %if.then.i56, !llvm.loop !106
 
 for.end50:                                        ; preds = %for.cond21.preheader
@@ -20159,10 +20151,10 @@ if.then.i56:                                      ; preds = %for.inc48, %for.end
           to label %_ZN8ImVectorI10stbrp_rectED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i56
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #40
+  %25 = extractvalue { ptr, i32 } %24, 0
+  tail call void @__clang_call_terminate(ptr %25) #40
   unreachable
 
 _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %for.end50, %if.then.i56
@@ -29029,7 +29021,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit: ; preds = %if.end.i58, %if
   br label %if.end484.i
 
 if.else258.i:                                     ; preds = %if.end.i
-  %cmp260.i = icmp slt i16 %add.i142, 0
+  %cmp260.i = icmp slt i16 %mul.i140, 0
   br i1 %cmp260.i, label %if.then261.i, label %if.end484.i
 
 if.then261.i:                                     ; preds = %if.else258.i

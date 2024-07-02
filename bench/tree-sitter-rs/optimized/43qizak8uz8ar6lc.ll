@@ -3400,7 +3400,7 @@ default.unreachable8:                             ; preds = %1
 16:                                               ; preds = %12
   %17 = load i64, ptr %9, align 8, !alias.scope !1026, !noundef !9
   %18 = getelementptr inbounds i8, ptr %14, i64 8
-  %19 = icmp ne i64 %17, 31
+  %19 = icmp ult i64 %17, 31
   call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds { { i64 }, { { [0 x i8] } } }, ptr %18, i64 %17
   %21 = atomicrmw or ptr %20, i64 1 release, align 8, !noalias !1026

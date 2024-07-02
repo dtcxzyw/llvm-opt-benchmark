@@ -1781,6 +1781,8 @@ invoke.cont:                                      ; preds = %entry
 if.then:                                          ; preds = %invoke.cont
   %_M_string_length.i = getelementptr inbounds i8, ptr %__str, i64 8
   %3 = load i64, ptr %_M_string_length.i, align 8
+  %cmp3.i = icmp ult i64 %3, 8
+  tail call void @llvm.assume(i1 %cmp3.i)
   %add = shl nuw nsw i64 %3, 1
   %mul.i.i = add nuw nsw i64 %add, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull readonly align 8 dereferenceable(1) %2, i64 %mul.i.i, i1 false)
@@ -1942,6 +1944,8 @@ invoke.cont:                                      ; preds = %entry
 if.then:                                          ; preds = %invoke.cont
   %_M_string_length.i = getelementptr inbounds i8, ptr %__str, i64 8
   %3 = load i64, ptr %_M_string_length.i, align 8
+  %cmp3.i = icmp ult i64 %3, 8
+  tail call void @llvm.assume(i1 %cmp3.i)
   %add = shl nuw nsw i64 %3, 1
   %mul.i.i = add nuw nsw i64 %add, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, ptr noundef nonnull readonly align 8 dereferenceable(1) %2, i64 %mul.i.i, i1 false)
@@ -2399,6 +2403,8 @@ if.then13:                                        ; preds = %if.end.thread, %if.
   %7 = phi ptr [ %5, %if.end.thread ], [ %3, %if.end ]
   %_M_string_length.i19 = getelementptr inbounds i8, ptr %__str, i64 8
   %8 = load i64, ptr %_M_string_length.i19, align 8
+  %cmp3.i20 = icmp ult i64 %8, 8
+  tail call void @llvm.assume(i1 %cmp3.i20)
   %cmp.not = icmp eq ptr %__str, %this
   br i1 %cmp.not, label %if.end35, label %if.then14
 
@@ -2414,7 +2420,7 @@ if.then.i25:                                      ; preds = %if.then14
   br label %if.end21
 
 if.else.i:                                        ; preds = %if.then14
-  %mul.i.i.i = shl i64 %8, 1
+  %mul.i.i.i = shl nuw nsw i64 %8, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %0, ptr readonly align 2 %7, i64 %mul.i.i.i, i1 false)
   br label %if.end21
 
@@ -3959,6 +3965,8 @@ if.then13.i:                                      ; preds = %if.end.thread.i, %i
   %7 = phi ptr [ %5, %if.end.thread.i ], [ %3, %if.end.i ]
   %_M_string_length.i19.i = getelementptr inbounds i8, ptr %__str, i64 8
   %8 = load i64, ptr %_M_string_length.i19.i, align 8
+  %cmp3.i20.i = icmp ult i64 %8, 8
+  tail call void @llvm.assume(i1 %cmp3.i20.i)
   %cmp.not.i = icmp eq ptr %__str, %this
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEaSEOS4_.exit, label %if.then14.i
 
@@ -3974,7 +3982,7 @@ if.then.i25.i:                                    ; preds = %if.then14.i
   br label %if.end21.i
 
 if.else.i.i:                                      ; preds = %if.then14.i
-  %mul.i.i.i.i = shl i64 %8, 1
+  %mul.i.i.i.i = shl nuw nsw i64 %8, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %0, ptr readonly align 2 %7, i64 %mul.i.i.i.i, i1 false)
   br label %if.end21.i
 
@@ -5662,6 +5670,8 @@ invoke.cont:                                      ; preds = %entry
 if.then4:                                         ; preds = %invoke.cont
   %_M_string_length.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_string_length.i, align 8
+  %cmp3.i = icmp ult i64 %2, 8
+  tail call void @llvm.assume(i1 %cmp3.i)
   %3 = load ptr, ptr %__s, align 8
   %4 = getelementptr inbounds i8, ptr %__s, i64 16
   %cmp.i30 = icmp eq ptr %3, %4
@@ -5670,6 +5680,8 @@ if.then4:                                         ; preds = %invoke.cont
 if.then6:                                         ; preds = %if.then4
   %_M_string_length.i32 = getelementptr inbounds i8, ptr %__s, i64 8
   %5 = load i64, ptr %_M_string_length.i32, align 8
+  %cmp3.i33 = icmp ult i64 %5, 8
+  tail call void @llvm.assume(i1 %cmp3.i33)
   %tobool.not = icmp eq i64 %2, 0
   %tobool28.not = icmp eq i64 %5, 0
   br i1 %tobool.not, label %if.else, label %land.lhs.true
@@ -5678,22 +5690,22 @@ land.lhs.true:                                    ; preds = %if.then6
   br i1 %tobool28.not, label %if.then41, label %if.then10
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add = shl i64 %5, 1
-  %mul.i.i = add i64 %add, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %__tmp_data, ptr nonnull readonly align 8 %4, i64 %mul.i.i, i1 false)
-  %add18 = shl i64 %2, 1
-  %mul.i.i39 = add i64 %add18, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 8 %1, i64 %mul.i.i39, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1, ptr nonnull readonly align 16 %__tmp_data, i64 %mul.i.i, i1 false)
+  %add = shl nuw nsw i64 %5, 1
+  %mul.i.i = add nuw nsw i64 %add, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %__tmp_data, ptr noundef nonnull readonly align 8 dereferenceable(1) %4, i64 %mul.i.i, i1 false)
+  %add18 = shl nuw nsw i64 %2, 1
+  %mul.i.i39 = add nuw nsw i64 %add18, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull readonly align 8 dereferenceable(1) %1, i64 %mul.i.i39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull readonly align 16 dereferenceable(1) %__tmp_data, i64 %mul.i.i, i1 false)
   br label %if.end79
 
 if.else:                                          ; preds = %if.then6
   br i1 %tobool28.not, label %if.end79, label %if.then29
 
 if.then29:                                        ; preds = %if.else
-  %add33 = shl i64 %5, 1
-  %mul.i.i44 = add i64 %add33, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1, ptr nonnull readonly align 8 %4, i64 %mul.i.i44, i1 false)
+  %add33 = shl nuw nsw i64 %5, 1
+  %mul.i.i44 = add nuw nsw i64 %add33, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull readonly align 8 dereferenceable(1) %4, i64 %mul.i.i44, i1 false)
   %6 = load i64, ptr %_M_string_length.i32, align 8
   store i64 %6, ptr %_M_string_length.i, align 8
   store i64 0, ptr %_M_string_length.i32, align 8
@@ -5702,9 +5714,9 @@ if.then29:                                        ; preds = %if.else
   br label %return
 
 if.then41:                                        ; preds = %land.lhs.true
-  %add45 = shl i64 %2, 1
-  %mul.i.i49 = add i64 %add45, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 8 %1, i64 %mul.i.i49, i1 false)
+  %add45 = shl nuw nsw i64 %2, 1
+  %mul.i.i49 = add nuw nsw i64 %add45, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull readonly align 8 dereferenceable(1) %1, i64 %mul.i.i49, i1 false)
   %8 = load i64, ptr %_M_string_length.i, align 8
   store i64 %8, ptr %_M_string_length.i32, align 8
   store i64 0, ptr %_M_string_length.i, align 8
@@ -5714,9 +5726,9 @@ if.then41:                                        ; preds = %land.lhs.true
 
 if.else53:                                        ; preds = %if.then4
   %10 = load i64, ptr %4, align 8
-  %add57 = shl i64 %2, 1
-  %mul.i.i54 = add i64 %add57, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 8 %1, i64 %mul.i.i54, i1 false)
+  %add57 = shl nuw nsw i64 %2, 1
+  %mul.i.i54 = add nuw nsw i64 %add57, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull readonly align 8 dereferenceable(1) %1, i64 %mul.i.i54, i1 false)
   store ptr %3, ptr %this, align 8
   store ptr %4, ptr %__s, align 8
   store i64 %10, ptr %1, align 8
@@ -5732,6 +5744,8 @@ if.else63:                                        ; preds = %invoke.cont
 if.then66:                                        ; preds = %if.else63
   %_M_string_length.i57 = getelementptr inbounds i8, ptr %__s, i64 8
   %14 = load i64, ptr %_M_string_length.i57, align 8
+  %cmp3.i58 = icmp ult i64 %14, 8
+  tail call void @llvm.assume(i1 %cmp3.i58)
   %add70 = shl nuw nsw i64 %14, 1
   %mul.i.i61 = add nuw nsw i64 %add70, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, ptr noundef nonnull readonly align 8 dereferenceable(1) %13, i64 %mul.i.i61, i1 false)

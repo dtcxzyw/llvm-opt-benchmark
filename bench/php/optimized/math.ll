@@ -2765,7 +2765,7 @@ define hidden void @zif_decbin(ptr noundef %0, ptr nocapture noundef writeonly %
   %.0130157 = phi ptr [ null, %.thread151 ], [ %7, %12 ]
   %.0131156 = phi i32 [ 0, %.thread151 ], [ 1, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0126158, i32 noundef %.0131156, ptr noundef null, i32 noundef 0, ptr noundef %.0130157) #15
-  br label %37
+  br label %34
 
 15:                                               ; preds = %._crit_edge, %.thread146
   %16 = phi i64 [ %.pre, %._crit_edge ], [ %11, %.thread146 ]
@@ -2791,7 +2791,7 @@ define hidden void @zif_decbin(ptr noundef %0, ptr nocapture noundef writeonly %
 26:                                               ; preds = %26, %15
   %.0128.idx = phi i64 [ %.add, %15 ], [ %.0128.add, %26 ]
   %.0125 = phi i64 [ %16, %15 ], [ %31, %26 ]
-  %27 = icmp ugt i64 %.0128.idx, 24
+  %27 = icmp sgt i64 %.0128.idx, 24
   call void @llvm.assume(i1 %27)
   %28 = and i64 %.0125, 1
   %29 = getelementptr inbounds [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %28
@@ -2805,15 +2805,11 @@ define hidden void @zif_decbin(ptr noundef %0, ptr nocapture noundef writeonly %
 
 32:                                               ; preds = %26
   store ptr %22, ptr %1, align 8
-  %33 = load i32, ptr %23, align 4
-  %34 = and i32 %33, 64
-  %.not140 = icmp eq i32 %34, 0
-  %35 = select i1 %.not140, i32 262, i32 6
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %35, ptr %36, align 8
-  br label %37
+  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %33, align 8
+  br label %34
 
-37:                                               ; preds = %32, %14
+34:                                               ; preds = %32, %14
   ret void
 }
 
@@ -2851,7 +2847,7 @@ define hidden void @zif_decoct(ptr noundef %0, ptr nocapture noundef writeonly %
   %.0130162 = phi ptr [ null, %.thread156 ], [ %7, %12 ]
   %.0131161 = phi i32 [ 0, %.thread156 ], [ 1, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0126163, i32 noundef %.0131161, ptr noundef null, i32 noundef 0, ptr noundef %.0130162) #15
-  br label %39
+  br label %36
 
 .thread164thread-pre-split:                       ; preds = %12
   %.pr = load i64, ptr %3, align 8
@@ -2890,7 +2886,7 @@ define hidden void @zif_decoct(ptr noundef %0, ptr nocapture noundef writeonly %
 28:                                               ; preds = %28, %21
   %.0128.idx = phi i64 [ %.add, %21 ], [ %.0128.add, %28 ]
   %.0125 = phi i64 [ %15, %21 ], [ %33, %28 ]
-  %29 = icmp ugt i64 %.0128.idx, 24
+  %29 = icmp sgt i64 %.0128.idx, 24
   call void @llvm.assume(i1 %29)
   %30 = and i64 %.0125, 7
   %31 = getelementptr inbounds [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %30
@@ -2904,15 +2900,11 @@ define hidden void @zif_decoct(ptr noundef %0, ptr nocapture noundef writeonly %
 
 34:                                               ; preds = %28
   store ptr %24, ptr %1, align 8
-  %35 = load i32, ptr %25, align 4
-  %36 = and i32 %35, 64
-  %.not140 = icmp eq i32 %36, 0
-  %37 = select i1 %.not140, i32 262, i32 6
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %37, ptr %38, align 8
-  br label %39
+  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %35, align 8
+  br label %36
 
-39:                                               ; preds = %34, %14
+36:                                               ; preds = %34, %14
   ret void
 }
 
@@ -2954,7 +2946,7 @@ define hidden void @zif_dechex(ptr noundef %0, ptr nocapture noundef writeonly %
   %.0130162 = phi ptr [ null, %.thread156 ], [ %7, %12 ]
   %.0131161 = phi i32 [ 0, %.thread156 ], [ 1, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0126163, i32 noundef %.0131161, ptr noundef null, i32 noundef 0, ptr noundef %.0130162) #15
-  br label %37
+  br label %34
 
 .thread164:                                       ; preds = %..thread164_crit_edge, %.thread146
   %15 = phi i64 [ %.pre, %..thread164_crit_edge ], [ %11, %.thread146 ]
@@ -2981,7 +2973,7 @@ define hidden void @zif_dechex(ptr noundef %0, ptr nocapture noundef writeonly %
 26:                                               ; preds = %26, %.thread164
   %.0128.idx = phi i64 [ %.add, %.thread164 ], [ %.0128.add, %26 ]
   %.0125 = phi i64 [ %15, %.thread164 ], [ %31, %26 ]
-  %27 = icmp ugt i64 %.0128.idx, 24
+  %27 = icmp sgt i64 %.0128.idx, 24
   call void @llvm.assume(i1 %27)
   %28 = and i64 %.0125, 15
   %29 = getelementptr inbounds [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %28
@@ -2995,15 +2987,11 @@ define hidden void @zif_dechex(ptr noundef %0, ptr nocapture noundef writeonly %
 
 32:                                               ; preds = %26
   store ptr %22, ptr %1, align 8
-  %33 = load i32, ptr %23, align 4
-  %34 = and i32 %33, 64
-  %.not140 = icmp eq i32 %34, 0
-  %35 = select i1 %.not140, i32 262, i32 6
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %35, ptr %36, align 8
-  br label %37
+  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %33, align 8
+  br label %34
 
-37:                                               ; preds = %32, %14
+34:                                               ; preds = %32, %14
   ret void
 }
 
@@ -3030,7 +3018,7 @@ define hidden void @zflf_dechex_1(ptr nocapture noundef writeonly %0, ptr nounde
 
 10:                                               ; preds = %8
   call void @zend_wrong_parameter_type_error(i32 noundef 1, i32 noundef 0, ptr noundef nonnull %1) #15
-  br label %34
+  br label %31
 
 11:                                               ; preds = %._crit_edge, %.critedge
   %12 = phi i64 [ %.pre, %._crit_edge ], [ %7, %.critedge ]
@@ -3057,7 +3045,7 @@ define hidden void @zflf_dechex_1(ptr nocapture noundef writeonly %0, ptr nounde
 23:                                               ; preds = %23, %11
   %.093.idx = phi i64 [ %.add, %11 ], [ %.093.add, %23 ]
   %.091 = phi i64 [ %12, %11 ], [ %28, %23 ]
-  %24 = icmp ugt i64 %.093.idx, 24
+  %24 = icmp sgt i64 %.093.idx, 24
   call void @llvm.assume(i1 %24)
   %25 = and i64 %.091, 15
   %26 = getelementptr inbounds [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %25
@@ -3071,15 +3059,11 @@ define hidden void @zflf_dechex_1(ptr nocapture noundef writeonly %0, ptr nounde
 
 29:                                               ; preds = %23
   store ptr %19, ptr %0, align 8
-  %30 = load i32, ptr %20, align 4
-  %31 = and i32 %30, 64
-  %.not99 = icmp eq i32 %31, 0
-  %32 = select i1 %.not99, i32 262, i32 6
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %32, ptr %33, align 8
-  br label %34
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 262, ptr %30, align 8
+  br label %31
 
-34:                                               ; preds = %29, %10
+31:                                               ; preds = %29, %10
   ret void
 }
 

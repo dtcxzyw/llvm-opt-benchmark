@@ -2562,7 +2562,8 @@ _ZN12unicode_bidi14InitialInfoExt20new_with_data_source17hc09f56411e5f175eE.exit
   %462 = add i8 %451, 1
   %463 = or i8 %462, 1
   %.sroa.8.0.i.i = select i1 %switch78.i.i, i8 %463, i8 %461
-  %.sroa.0.0.i.i = icmp ult i8 %.sroa.8.0.i.i, 126
+  %.sroa.0.0.in.i.i = select i1 %switch78.i.i, i8 %462, i8 %461
+  %.sroa.0.0.i.i = icmp ult i8 %.sroa.0.0.in.i.i, 126
   %464 = icmp eq i32 %.0175.i.i, 0
   %or.cond7.i.i = select i1 %.sroa.0.0.i.i, i1 %464, i1 false
   %465 = icmp eq i32 %.044174.i.i, 0
@@ -29762,13 +29763,16 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hb84ddd0c75d8e6a0E.exit: ; preds = 
   br label %318
 
 309:                                              ; preds = %304
-  %310 = and i64 %3, -2
-  %311 = icmp eq i64 %310, 0
-  br i1 %311, label %_ZN4core4iter6traits8iterator8Iterator4fold17hb84ddd0c75d8e6a0E.exit, label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4a316cac31657109E.exit.i"
+  %310 = icmp ult i64 %3, 2
+  br i1 %310, label %_ZN4core4iter6traits8iterator8Iterator4fold17hb84ddd0c75d8e6a0E.exit, label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4a316cac31657109E.exit.i.preheader"
 
-"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4a316cac31657109E.exit.i": ; preds = %309, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4a316cac31657109E.exit.i"
-  %312 = phi ptr [ %314, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4a316cac31657109E.exit.i" ], [ %2, %309 ]
-  %313 = phi i64 [ %315, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4a316cac31657109E.exit.i" ], [ %310, %309 ]
+"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4a316cac31657109E.exit.i.preheader": ; preds = %309
+  %311 = and i64 %3, -2
+  br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4a316cac31657109E.exit.i"
+
+"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4a316cac31657109E.exit.i": ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4a316cac31657109E.exit.i.preheader", %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4a316cac31657109E.exit.i"
+  %312 = phi ptr [ %314, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4a316cac31657109E.exit.i" ], [ %2, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4a316cac31657109E.exit.i.preheader" ]
+  %313 = phi i64 [ %315, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4a316cac31657109E.exit.i" ], [ %311, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4a316cac31657109E.exit.i.preheader" ]
   %314 = getelementptr inbounds i8, ptr %312, i64 2
   %315 = add i64 %313, -2
   %.val.i.i.i.i.i = load i16, ptr %312, align 1, !alias.scope !5712, !noalias !5721

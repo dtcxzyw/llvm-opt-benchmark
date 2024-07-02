@@ -1038,7 +1038,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   br i1 %654, label %.loopexit21, label %.preheader20, !llvm.loop !55
 
 .preheader16:                                     ; preds = %.loopexit19, %.preheader16
-  %655 = phi i32 [ %687, %.preheader16 ], [ %594, %.loopexit19 ]
+  %655 = phi i32 [ %688, %.preheader16 ], [ %594, %.loopexit19 ]
   %656 = load i16, ptr %404, align 2, !tbaa !18
   %657 = shl nsw i32 %655, 1
   %658 = zext nneg i32 %657 to i64
@@ -1050,39 +1050,41 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   store i16 0, ptr %662, align 2, !tbaa !18
   %663 = load i16, ptr %404, align 2, !tbaa !18
   %664 = add nuw nsw i32 %657, 2
-  %665 = zext nneg i32 %664 to i64
-  %666 = getelementptr inbounds i16, ptr %31, i64 %665
-  store i16 %663, ptr %666, align 2, !tbaa !18
-  %667 = or disjoint i32 %664, 1
-  %668 = zext nneg i32 %667 to i64
-  %669 = getelementptr inbounds i16, ptr %31, i64 %668
-  store i16 0, ptr %669, align 2, !tbaa !18
-  %670 = load i16, ptr %404, align 2, !tbaa !18
-  %671 = add nuw nsw i32 %657, 4
-  %672 = icmp ult i32 %657, 131068
-  tail call void @llvm.assume(i1 %672)
-  %673 = zext nneg i32 %671 to i64
-  %674 = getelementptr inbounds i16, ptr %31, i64 %673
-  store i16 %670, ptr %674, align 2, !tbaa !18
-  %675 = or disjoint i32 %671, 1
-  %676 = zext nneg i32 %675 to i64
-  %677 = getelementptr inbounds i16, ptr %31, i64 %676
-  store i16 0, ptr %677, align 2, !tbaa !18
-  %678 = add i32 %655, 3
-  %679 = load i16, ptr %404, align 2, !tbaa !18
-  %680 = shl nsw i32 %678, 1
-  %681 = icmp ult i32 %680, 131072
-  tail call void @llvm.assume(i1 %681)
-  %682 = zext nneg i32 %680 to i64
-  %683 = getelementptr inbounds i16, ptr %31, i64 %682
-  store i16 %679, ptr %683, align 2, !tbaa !18
-  %684 = or disjoint i32 %680, 1
-  %685 = zext nneg i32 %684 to i64
-  %686 = getelementptr inbounds i16, ptr %31, i64 %685
-  store i16 0, ptr %686, align 2, !tbaa !18
-  %687 = add i32 %655, 4
-  %688 = icmp eq i32 %678, %405
-  br i1 %688, label %.loopexit, label %.preheader16, !llvm.loop !56
+  %665 = icmp ne i32 %655, 65535
+  tail call void @llvm.assume(i1 %665)
+  %666 = zext nneg i32 %664 to i64
+  %667 = getelementptr inbounds i16, ptr %31, i64 %666
+  store i16 %663, ptr %667, align 2, !tbaa !18
+  %668 = or disjoint i32 %664, 1
+  %669 = zext nneg i32 %668 to i64
+  %670 = getelementptr inbounds i16, ptr %31, i64 %669
+  store i16 0, ptr %670, align 2, !tbaa !18
+  %671 = load i16, ptr %404, align 2, !tbaa !18
+  %672 = add nuw nsw i32 %657, 4
+  %673 = icmp ult i32 %657, 131068
+  tail call void @llvm.assume(i1 %673)
+  %674 = zext nneg i32 %672 to i64
+  %675 = getelementptr inbounds i16, ptr %31, i64 %674
+  store i16 %671, ptr %675, align 2, !tbaa !18
+  %676 = or disjoint i32 %672, 1
+  %677 = zext nneg i32 %676 to i64
+  %678 = getelementptr inbounds i16, ptr %31, i64 %677
+  store i16 0, ptr %678, align 2, !tbaa !18
+  %679 = add i32 %655, 3
+  %680 = load i16, ptr %404, align 2, !tbaa !18
+  %681 = shl nsw i32 %679, 1
+  %682 = icmp ult i32 %681, 131072
+  tail call void @llvm.assume(i1 %682)
+  %683 = zext nneg i32 %681 to i64
+  %684 = getelementptr inbounds i16, ptr %31, i64 %683
+  store i16 %680, ptr %684, align 2, !tbaa !18
+  %685 = or disjoint i32 %681, 1
+  %686 = zext nneg i32 %685 to i64
+  %687 = getelementptr inbounds i16, ptr %31, i64 %686
+  store i16 0, ptr %687, align 2, !tbaa !18
+  %688 = add i32 %655, 4
+  %689 = icmp eq i32 %679, %405
+  br i1 %689, label %.loopexit, label %.preheader16, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.preheader16, %280, %.preheader, %.loopexit19, %572, %534, %.loopexit21
   ret void

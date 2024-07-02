@@ -2342,12 +2342,12 @@ define internal fastcc i32 @compare(ptr noundef readonly %0, ptr noundef readonl
   %60 = and i8 %59, 63
   %61 = zext nneg i8 %60 to i32
   %62 = shl nuw nsw i32 %61, 6
-  %63 = or disjoint i32 %57, %62
-  %64 = load i8, ptr %48, align 1
-  %65 = and i8 %64, 63
-  %66 = zext nneg i8 %65 to i32
-  %67 = or disjoint i32 %63, %66
-  %68 = icmp ugt i32 %67, 1114111
+  %63 = load i8, ptr %48, align 1
+  %64 = and i8 %63, 63
+  %65 = zext nneg i8 %64 to i32
+  %66 = or disjoint i32 %62, %65
+  %67 = or disjoint i32 %66, %57
+  %68 = icmp ugt i32 %57, 1114111
   %spec.store.select = select i1 %68, i32 65533, i32 %67
   %69 = getelementptr inbounds i8, ptr %.092118, i64 4
   br label %.thread
@@ -2426,12 +2426,12 @@ define internal fastcc i32 @compare(ptr noundef readonly %0, ptr noundef readonl
   %118 = and i8 %117, 63
   %119 = zext nneg i8 %118 to i32
   %120 = shl nuw nsw i32 %119, 6
-  %121 = or disjoint i32 %115, %120
-  %122 = load i8, ptr %106, align 1
-  %123 = and i8 %122, 63
-  %124 = zext nneg i8 %123 to i32
-  %125 = or disjoint i32 %121, %124
-  %126 = icmp ugt i32 %125, 1114111
+  %121 = load i8, ptr %106, align 1
+  %122 = and i8 %121, 63
+  %123 = zext nneg i8 %122 to i32
+  %124 = or disjoint i32 %120, %123
+  %125 = or disjoint i32 %124, %115
+  %126 = icmp ugt i32 %115, 1114111
   %spec.store.select18 = select i1 %126, i32 65533, i32 %125
   %127 = getelementptr inbounds i8, ptr %.095117, i64 4
   br label %.thread114

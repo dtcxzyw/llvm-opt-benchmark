@@ -701,7 +701,7 @@ define internal fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcmb(ptr de
 .body:                                            ; preds = %12, %14
   %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %13, %12 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
-  br label %183
+  br label %195
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %1, i64 %2
@@ -736,12 +736,12 @@ switch.early.test.i.i.i.i.i.i.i.i:                ; preds = %.lr.ph.i.i.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 1
   %.val.i.i.i.i.i.i = load i8, ptr %25, align 1
   %26 = icmp ult i8 %.val.i.i.i.i.i.i, 32
-  br i1 %26, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124, label %switch.early.test.i.i33.i.i.i.i.i.i
+  br i1 %26, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120, label %switch.early.test.i.i33.i.i.i.i.i.i
 
 switch.early.test.i.i33.i.i.i.i.i.i:              ; preds = %24
   switch i8 %.val.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit34.i.i.i.i.i.i" [
-    i8 92, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122
-    i8 34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122
+    i8 92, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118
+    i8 34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118
   ]
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit34.i.i.i.i.i.i": ; preds = %switch.early.test.i.i33.i.i.i.i.i.i
@@ -752,33 +752,33 @@ switch.early.test.i.i33.i.i.i.i.i.i:              ; preds = %24
   %29 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 2
   %.val30.i.i.i.i.i.i = load i8, ptr %29, align 1
   %30 = icmp ult i8 %.val30.i.i.i.i.i.i, 32
-  br i1 %30, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128, label %switch.early.test.i.i35.i.i.i.i.i.i
+  br i1 %30, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124, label %switch.early.test.i.i35.i.i.i.i.i.i
 
 switch.early.test.i.i35.i.i.i.i.i.i:              ; preds = %28
   switch i8 %.val30.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit36.i.i.i.i.i.i" [
-    i8 92, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126
-    i8 34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126
+    i8 92, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122
+    i8 34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122
   ]
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit36.i.i.i.i.i.i": ; preds = %switch.early.test.i.i35.i.i.i.i.i.i
   %31 = icmp slt i8 %.val30.i.i.i.i.i.i, 0
-  br i1 %31, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118, label %32
+  br i1 %31, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit114, label %32
 
 32:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit36.i.i.i.i.i.i"
   %33 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 3
   %.val31.i.i.i.i.i.i = load i8, ptr %33, align 1
   %34 = icmp ult i8 %.val31.i.i.i.i.i.i, 32
-  br i1 %34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit132, label %switch.early.test.i.i37.i.i.i.i.i.i
+  br i1 %34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128, label %switch.early.test.i.i37.i.i.i.i.i.i
 
 switch.early.test.i.i37.i.i.i.i.i.i:              ; preds = %32
   switch i8 %.val31.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit38.i.i.i.i.i.i" [
-    i8 92, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit130
-    i8 34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit130
+    i8 92, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126
+    i8 34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126
   ]
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit38.i.i.i.i.i.i": ; preds = %switch.early.test.i.i37.i.i.i.i.i.i
   %35 = icmp slt i8 %.val31.i.i.i.i.i.i, 0
-  br i1 %35, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120, label %36
+  br i1 %35, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit116, label %36
 
 36:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit38.i.i.i.i.i.i"
   %37 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 4
@@ -855,42 +855,42 @@ _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit: ; pred
   %54 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 1
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
-_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit36.i.i.i.i.i.i"
+_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit114: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit36.i.i.i.i.i.i"
   %55 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 2
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
-_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit38.i.i.i.i.i.i"
+_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit116: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit38.i.i.i.i.i.i"
   %56 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 3
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
-_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122: ; preds = %switch.early.test.i.i33.i.i.i.i.i.i, %switch.early.test.i.i33.i.i.i.i.i.i
+_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118: ; preds = %switch.early.test.i.i33.i.i.i.i.i.i, %switch.early.test.i.i33.i.i.i.i.i.i
   %57 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 1
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
-_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124: ; preds = %24
+_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120: ; preds = %24
   %58 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 1
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
-_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126: ; preds = %switch.early.test.i.i35.i.i.i.i.i.i, %switch.early.test.i.i35.i.i.i.i.i.i
+_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122: ; preds = %switch.early.test.i.i35.i.i.i.i.i.i, %switch.early.test.i.i35.i.i.i.i.i.i
   %59 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 2
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
-_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128: ; preds = %28
+_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124: ; preds = %28
   %60 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 2
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
-_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit130: ; preds = %switch.early.test.i.i37.i.i.i.i.i.i, %switch.early.test.i.i37.i.i.i.i.i.i
+_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126: ; preds = %switch.early.test.i.i37.i.i.i.i.i.i, %switch.early.test.i.i37.i.i.i.i.i.i
   %61 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 3
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
-_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit132: ; preds = %32
+_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128: ; preds = %32
   %62 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 3
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
-_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit:  ; preds = %.lr.ph.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit.i.i.i.i.i.i", %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit130, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit132, %41, %switch.early.test.i.i39.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit40.i.i.i.i.i.i", %46, %switch.early.test.i.i41.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit42.i.i.i.i.i.i", %51, %switch.early.test.i.i43.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit40.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit42.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.1.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %46 ], [ %.2.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %51 ], [ %54, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit ], [ %55, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118 ], [ %56, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120 ], [ %57, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122 ], [ %58, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124 ], [ %59, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126 ], [ %60, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128 ], [ %61, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit130 ], [ %62, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit132 ], [ %.02977.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit.i.i.i.i.i.i" ], [ %.02977.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i ], [ %.02977.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i ], [ %.02977.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %.not73 = icmp eq ptr %.028.i.i.i.i.i.i, %17
-  br i1 %.not73, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.thread, label %77
+_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit:  ; preds = %.lr.ph.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit.i.i.i.i.i.i", %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit114, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit116, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128, %41, %switch.early.test.i.i39.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit40.i.i.i.i.i.i", %46, %switch.early.test.i.i41.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit42.i.i.i.i.i.i", %51, %switch.early.test.i.i43.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit40.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit42.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.1.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %46 ], [ %.2.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %51 ], [ %54, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit ], [ %55, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit114 ], [ %56, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit116 ], [ %57, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118 ], [ %58, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120 ], [ %59, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122 ], [ %60, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124 ], [ %61, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126 ], [ %62, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128 ], [ %.02977.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit.i.i.i.i.i.i" ], [ %.02977.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i ], [ %.02977.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i ], [ %.02977.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.not69 = icmp eq ptr %.028.i.i.i.i.i.i, %17
+  br i1 %.not69, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.thread, label %77
 
 _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.thread: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
@@ -950,7 +950,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45: ; 
 .body43:                                          ; preds = %70, %64, %76
   %.pn.pn = phi { ptr, i32 } [ %.pn, %76 ], [ %71, %70 ], [ %65, %64 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
-  br label %183
+  br label %195
 
 77:                                               ; preds = %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
   %78 = shl i64 %2, 1
@@ -964,15 +964,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45: ; 
           to label %.preheader unwind label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %80
-  %.not104 = icmp eq i64 %2, 0
-  br i1 %.not104, label %._crit_edge, label %.lr.ph
+  %.not100 = icmp eq i64 %2, 0
+  br i1 %.not100, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.us
-  %storemerge105.us = phi ptr [ %97, %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.us ], [ %1, %.lr.ph ]
-  %82 = load i8, ptr %storemerge105.us, align 1
+  %storemerge101.us = phi ptr [ %97, %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.us ], [ %1, %.lr.ph ]
+  %82 = load i8, ptr %storemerge101.us, align 1
   switch i8 %82, label %91 [
     i8 34, label %88
     i8 92, label %87
@@ -1020,7 +1020,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45: ; 
           to label %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.us unwind label %.loopexit.split.us
 
 _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.us: ; preds = %.invoke, %95, %93
-  %97 = getelementptr inbounds i8, ptr %storemerge105.us, i64 1
+  %97 = getelementptr inbounds i8, ptr %storemerge101.us, i64 1
   %.not.us = icmp eq ptr %97, %17
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
@@ -1030,10 +1030,10 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit
-  %storemerge105 = phi ptr [ %180, %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit ], [ %1, %.lr.ph ]
-  %98 = load i8, ptr %storemerge105, align 1
+  %storemerge101 = phi ptr [ %192, %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit ], [ %1, %.lr.ph ]
+  %98 = load i8, ptr %storemerge101, align 1
   switch i8 %98, label %107 [
-    i8 34, label %.invoke148
+    i8 34, label %.invoke144
     i8 92, label %101
     i8 8, label %102
     i8 12, label %103
@@ -1042,7 +1042,7 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
     i8 9, label %106
   ]
 
-.loopexit.split:                                  ; preds = %.invoke148, %164, %.thread64, %172, %177, %165
+.loopexit.split:                                  ; preds = %.invoke145, %.invoke144, %.thread64, %184, %179
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -1055,30 +1055,30 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
 .loopexit:                                        ; preds = %.loopexit.split, %.loopexit.split.us, %.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
-  br label %183
+  br label %195
 
-.invoke148:                                       ; preds = %.lr.ph.split, %106, %105, %104, %103, %102, %101
+.invoke144:                                       ; preds = %.lr.ph.split, %106, %105, %104, %103, %102, %101
   %99 = phi ptr [ @.str.44, %101 ], [ @.str.45, %102 ], [ @.str.46, %103 ], [ @.str.47, %104 ], [ @.str.48, %105 ], [ @.str.49, %106 ], [ @.str.43, %.lr.ph.split ]
   %100 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %99)
           to label %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit unwind label %.loopexit.split
 
 101:                                              ; preds = %.lr.ph.split
-  br label %.invoke148
+  br label %.invoke144
 
 102:                                              ; preds = %.lr.ph.split
-  br label %.invoke148
+  br label %.invoke144
 
 103:                                              ; preds = %.lr.ph.split
-  br label %.invoke148
+  br label %.invoke144
 
 104:                                              ; preds = %.lr.ph.split
-  br label %.invoke148
+  br label %.invoke144
 
 105:                                              ; preds = %.lr.ph.split
-  br label %.invoke148
+  br label %.invoke144
 
 106:                                              ; preds = %.lr.ph.split
-  br label %.invoke148
+  br label %.invoke144
 
 107:                                              ; preds = %.lr.ph.split
   %108 = zext i8 %98 to i32
@@ -1087,10 +1087,10 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
 
 110:                                              ; preds = %107
   %111 = icmp ult i8 %98, -32
-  br i1 %111, label %112, label %120
+  br i1 %111, label %112, label %125
 
 112:                                              ; preds = %110
-  %113 = ptrtoint ptr %storemerge105 to i64
+  %113 = ptrtoint ptr %storemerge101 to i64
   %114 = sub i64 %18, %113
   %115 = icmp slt i64 %114, 2
   br i1 %115, label %.thread64, label %116
@@ -1098,127 +1098,140 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
 116:                                              ; preds = %112
   %117 = shl nuw nsw i32 %108, 6
   %118 = and i32 %117, 1984
-  %119 = getelementptr inbounds i8, ptr %storemerge105, i64 1
-  br label %.thread64.sink.split
+  %119 = getelementptr inbounds i8, ptr %storemerge101, i64 1
+  %120 = load i8, ptr %119, align 1
+  %121 = and i8 %120, 63
+  %122 = zext nneg i8 %121 to i32
+  %123 = or disjoint i32 %118, %122
+  %124 = icmp ult i32 %118, 128
+  br i1 %124, label %.thread64, label %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
 
-120:                                              ; preds = %110
-  %121 = icmp ult i8 %98, -16
-  br i1 %121, label %122, label %137
+125:                                              ; preds = %110
+  %126 = icmp ult i8 %98, -16
+  br i1 %126, label %127, label %149
 
-122:                                              ; preds = %120
-  %123 = ptrtoint ptr %storemerge105 to i64
-  %124 = sub i64 %18, %123
-  %125 = icmp slt i64 %124, 3
-  br i1 %125, label %.thread64, label %126
+127:                                              ; preds = %125
+  %128 = ptrtoint ptr %storemerge101 to i64
+  %129 = sub i64 %18, %128
+  %130 = icmp slt i64 %129, 3
+  br i1 %130, label %.thread64, label %131
 
-126:                                              ; preds = %122
-  %127 = shl nuw nsw i32 %108, 12
-  %128 = and i32 %127, 61440
-  %129 = getelementptr inbounds i8, ptr %storemerge105, i64 1
-  %130 = load i8, ptr %129, align 1
-  %131 = and i8 %130, 63
-  %132 = zext nneg i8 %131 to i32
-  %133 = shl nuw nsw i32 %132, 6
-  %134 = or disjoint i32 %133, %128
-  %135 = getelementptr inbounds i8, ptr %storemerge105, i64 2
-  %136 = and i32 %134, 63488
-  %or.cond.i = icmp eq i32 %136, 55296
-  br i1 %or.cond.i, label %.thread64, label %.thread64.sink.split
+131:                                              ; preds = %127
+  %132 = shl nuw nsw i32 %108, 12
+  %133 = and i32 %132, 61440
+  %134 = getelementptr inbounds i8, ptr %storemerge101, i64 1
+  %135 = load i8, ptr %134, align 1
+  %136 = and i8 %135, 63
+  %137 = zext nneg i8 %136 to i32
+  %138 = shl nuw nsw i32 %137, 6
+  %139 = or disjoint i32 %138, %133
+  %140 = getelementptr inbounds i8, ptr %storemerge101, i64 2
+  %141 = icmp ugt i32 %139, 55295
+  %142 = icmp ult i32 %133, 57344
+  %or.cond.i = and i1 %142, %141
+  br i1 %or.cond.i, label %.thread64, label %143
 
-137:                                              ; preds = %120
-  %138 = icmp ugt i8 %98, -9
-  %139 = ptrtoint ptr %storemerge105 to i64
-  %140 = sub i64 %18, %139
-  %141 = icmp slt i64 %140, 4
-  %or.cond37.i = or i1 %141, %138
-  br i1 %or.cond37.i, label %.thread64, label %142
+143:                                              ; preds = %131
+  %144 = load i8, ptr %140, align 1
+  %145 = and i8 %144, 63
+  %146 = zext nneg i8 %145 to i32
+  %147 = or disjoint i32 %139, %146
+  %148 = icmp ult i32 %139, 2048
+  br i1 %148, label %.thread64, label %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
 
-142:                                              ; preds = %137
-  %143 = shl nuw nsw i32 %108, 18
-  %144 = and i32 %143, 1835008
-  %145 = getelementptr inbounds i8, ptr %storemerge105, i64 1
-  %146 = load i8, ptr %145, align 1
-  %147 = and i8 %146, 63
-  %148 = zext nneg i8 %147 to i32
-  %149 = shl nuw nsw i32 %148, 12
-  %150 = or disjoint i32 %149, %144
-  %151 = getelementptr inbounds i8, ptr %storemerge105, i64 2
-  %152 = load i8, ptr %151, align 1
-  %153 = and i8 %152, 63
-  %154 = zext nneg i8 %153 to i32
-  %155 = shl nuw nsw i32 %154, 6
-  %156 = or disjoint i32 %150, %155
-  %157 = getelementptr inbounds i8, ptr %storemerge105, i64 3
+149:                                              ; preds = %125
+  %150 = icmp ugt i8 %98, -9
+  %151 = ptrtoint ptr %storemerge101 to i64
+  %152 = sub i64 %18, %151
+  %153 = icmp slt i64 %152, 4
+  %or.cond37.i = or i1 %153, %150
+  br i1 %or.cond37.i, label %.thread64, label %154
+
+154:                                              ; preds = %149
+  %155 = shl nuw nsw i32 %108, 18
+  %156 = and i32 %155, 1835008
+  %157 = getelementptr inbounds i8, ptr %storemerge101, i64 1
   %158 = load i8, ptr %157, align 1
   %159 = and i8 %158, 63
   %160 = zext nneg i8 %159 to i32
-  %161 = or disjoint i32 %156, %160
-  %162 = icmp ult i32 %161, 65536
-  br i1 %162, label %.thread64, label %172
+  %161 = shl nuw nsw i32 %160, 12
+  %162 = or disjoint i32 %161, %156
+  %163 = getelementptr inbounds i8, ptr %storemerge101, i64 2
+  %164 = load i8, ptr %163, align 1
+  %165 = and i8 %164, 63
+  %166 = zext nneg i8 %165 to i32
+  %167 = shl nuw nsw i32 %166, 6
+  %168 = getelementptr inbounds i8, ptr %storemerge101, i64 3
+  %169 = load i8, ptr %168, align 1
+  %170 = and i8 %169, 63
+  %171 = zext nneg i8 %170 to i32
+  %172 = or disjoint i32 %167, %171
+  %173 = or disjoint i32 %172, %162
+  %174 = icmp ult i32 %162, 65536
+  br i1 %174, label %.thread64, label %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
 
-_ZN4JsonL15utf8ToCodepointERPKcS1_.exit:          ; preds = %107
-  %163 = icmp ult i8 %98, 32
-  br i1 %163, label %164, label %165
+_ZN4JsonL15utf8ToCodepointERPKcS1_.exit:          ; preds = %154, %143, %116, %107
+  %.0 = phi ptr [ %storemerge101, %107 ], [ %119, %116 ], [ %140, %143 ], [ %168, %154 ]
+  %.0.i = phi i32 [ %108, %107 ], [ %123, %116 ], [ %147, %143 ], [ %173, %154 ]
+  %175 = icmp ult i32 %.0.i, 32
+  br i1 %175, label %.invoke145, label %177
 
-164:                                              ; preds = %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
-  invoke fastcc void @_ZN4JsonL9appendHexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %108)
+.invoke145:                                       ; preds = %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit, %189
+  %176 = phi i32 [ %191, %189 ], [ %.0.i, %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit ]
+  invoke fastcc void @_ZN4JsonL9appendHexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %176)
           to label %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit unwind label %.loopexit.split
 
-165:                                              ; preds = %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
-  %166 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %98)
+177:                                              ; preds = %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
+  %178 = icmp ult i32 %.0.i, 128
+  br i1 %178, label %179, label %182
+
+179:                                              ; preds = %177
+  %180 = trunc nuw i32 %.0.i to i8
+  %181 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %180)
           to label %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit unwind label %.loopexit.split
 
-.thread64.sink.split:                             ; preds = %126, %116
-  %.sink155 = phi ptr [ %119, %116 ], [ %135, %126 ]
-  %.sink = phi i32 [ %118, %116 ], [ %134, %126 ]
-  %.sink151 = phi i32 [ 128, %116 ], [ 2048, %126 ]
-  %167 = load i8, ptr %.sink155, align 1
-  %168 = and i8 %167, 63
-  %169 = zext nneg i8 %168 to i32
-  %170 = or disjoint i32 %.sink, %169
-  %171 = icmp ult i32 %170, %.sink151
-  %spec.select72 = select i1 %171, i32 65533, i32 %170
-  br label %.thread64
+182:                                              ; preds = %177
+  %183 = icmp ult i32 %.0.i, 65536
+  br i1 %183, label %.thread64, label %184
 
-.thread64:                                        ; preds = %.thread64.sink.split, %142, %112, %122, %126, %137
-  %.0.i596268 = phi i32 [ 65533, %112 ], [ 65533, %122 ], [ 65533, %126 ], [ 65533, %137 ], [ 65533, %142 ], [ %spec.select72, %.thread64.sink.split ]
-  %.0586367 = phi ptr [ %storemerge105, %112 ], [ %storemerge105, %122 ], [ %135, %126 ], [ %storemerge105, %137 ], [ %157, %142 ], [ %.sink155, %.thread64.sink.split ]
+.thread64:                                        ; preds = %154, %143, %116, %149, %131, %127, %112, %182
+  %.0.i596268 = phi i32 [ %.0.i, %182 ], [ 65533, %112 ], [ 65533, %127 ], [ 65533, %131 ], [ 65533, %149 ], [ 65533, %116 ], [ 65533, %143 ], [ 65533, %154 ]
+  %.0586367 = phi ptr [ %.0, %182 ], [ %storemerge101, %112 ], [ %storemerge101, %127 ], [ %140, %131 ], [ %storemerge101, %149 ], [ %119, %116 ], [ %140, %143 ], [ %168, %154 ]
   invoke fastcc void @_ZN4JsonL9appendHexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i596268)
           to label %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit unwind label %.loopexit.split
 
-172:                                              ; preds = %142
-  %173 = add nuw nsw i32 %156, 983040
-  %174 = lshr i32 %173, 10
-  %175 = and i32 %174, 1023
-  %176 = or disjoint i32 %175, 55296
-  invoke fastcc void @_ZN4JsonL9appendHexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %176)
-          to label %177 unwind label %.loopexit.split
+184:                                              ; preds = %182
+  %185 = add nuw nsw i32 %.0.i, 983040
+  %186 = lshr i32 %185, 10
+  %187 = and i32 %186, 1023
+  %188 = or disjoint i32 %187, 55296
+  invoke fastcc void @_ZN4JsonL9appendHexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %188)
+          to label %189 unwind label %.loopexit.split
 
-177:                                              ; preds = %172
-  %178 = and i32 %161, 1023
-  %179 = or disjoint i32 %178, 56320
-  invoke fastcc void @_ZN4JsonL9appendHexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %179)
-          to label %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit unwind label %.loopexit.split
+189:                                              ; preds = %184
+  %190 = and i32 %.0.i, 1023
+  %191 = or disjoint i32 %190, 56320
+  br label %.invoke145
 
-_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit: ; preds = %.invoke148, %165, %164, %.thread64, %177
-  %.1 = phi ptr [ %storemerge105, %164 ], [ %.0586367, %.thread64 ], [ %157, %177 ], [ %storemerge105, %165 ], [ %storemerge105, %.invoke148 ]
-  %180 = getelementptr inbounds i8, ptr %.1, i64 1
-  %.not = icmp eq ptr %180, %17
+_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit: ; preds = %.invoke145, %.invoke144, %179, %.thread64
+  %.1 = phi ptr [ %.0586367, %.thread64 ], [ %.0, %179 ], [ %storemerge101, %.invoke144 ], [ %.0, %.invoke145 ]
+  %192 = getelementptr inbounds i8, ptr %.1, i64 1
+  %.not = icmp eq ptr %192, %17
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit, %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.us, %.preheader
-  %181 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.42)
-          to label %182 unwind label %.loopexit.split-lp
+  %193 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.42)
+          to label %194 unwind label %.loopexit.split-lp
 
 .sink.split:                                      ; preds = %.noexc40, %69
-  %.sink156 = phi ptr [ %8, %69 ], [ %5, %.noexc40 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink156) #19
-  br label %182
+  %.sink = phi ptr [ %8, %69 ], [ %5, %.noexc40 ]
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #19
+  br label %194
 
-182:                                              ; preds = %.sink.split, %._crit_edge
+194:                                              ; preds = %.sink.split, %._crit_edge
   ret void
 
-183:                                              ; preds = %.loopexit, %.body43, %.body
+195:                                              ; preds = %.loopexit, %.body43, %.body
   %.pn38 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %lpad.phi, %.loopexit ], [ %.pn.pn, %.body43 ]
   resume { ptr, i32 } %.pn38
 }

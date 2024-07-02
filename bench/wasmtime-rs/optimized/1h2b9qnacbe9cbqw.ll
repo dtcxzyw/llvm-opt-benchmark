@@ -4327,10 +4327,10 @@ define void @"_ZN104_$LT$wasmtime_runtime..gc..enabled..drc..DrcHeap$u20$as$u20$
   %8 = icmp ult i64 %7, 4294967296
   %9 = trunc nuw i64 %7 to i32
   %10 = tail call i32 @llvm.usub.sat.i32(i32 %9, i32 8)
-  %11 = and i32 %10, -8
-  %12 = select i1 %8, i32 %11, i32 -16
-  %13 = icmp ugt i32 %12, 23
-  %..i = zext i1 %13 to i32
+  %11 = select i1 %8, i32 %10, i32 -9
+  %12 = icmp ugt i32 %11, 23
+  %..i = zext i1 %12 to i32
+  %13 = and i32 %11, -8
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !342)
   %15 = load ptr, ptr %14, align 8, !alias.scope !345, !noundef !9
@@ -4353,7 +4353,7 @@ define void @"_ZN104_$LT$wasmtime_runtime..gc..enabled..drc..DrcHeap$u20$as$u20$
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 4
   store i32 8, ptr %.sroa.45.0..sroa_idx.i, align 4, !noalias !339
   %.sroa.56.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 %12, ptr %.sroa.56.0..sroa_idx.i, align 4, !noalias !339
+  store i32 %13, ptr %.sroa.56.0..sroa_idx.i, align 4, !noalias !339
   call void @_ZN4core4iter6traits8iterator8Iterator4fold17hae9f8c2238e2c562E.llvm.16389591707760502172(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !339
   %19 = load ptr, ptr %0, align 8, !nonnull !9, !align !59, !noundef !9

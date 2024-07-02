@@ -3729,7 +3729,7 @@ common.resume:                                    ; preds = %.body, %.body.i, %5
   %143 = lshr i64 %137, 6
   %144 = and i64 %143, 127
   %145 = or disjoint i64 %142, %144
-  %146 = icmp ult i64 %145, 2432
+  %146 = icmp ult i8 %140, 19
   br i1 %146, label %147, label %.invoke.i, !prof !59
 
 147:                                              ; preds = %136
@@ -3740,7 +3740,7 @@ common.resume:                                    ; preds = %.body, %.body.i, %5
   %152 = lshr i64 %137, 2
   %153 = and i64 %152, 15
   %154 = or disjoint i64 %151, %153
-  %155 = icmp ult i64 %154, 3888
+  %155 = icmp ult i8 %149, -13
   br i1 %155, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i.i53.i, label %.invoke.i, !prof !59
 
 .invoke.i:                                        ; preds = %147, %136
@@ -4831,7 +4831,7 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h3051b6276d8984
   %590 = lshr i64 %584, 6
   %591 = and i64 %590, 127
   %592 = or disjoint i64 %589, %591
-  %593 = icmp ult i64 %592, 2432
+  %593 = icmp ult i8 %587, 19
   br i1 %593, label %594, label %.invoke508.i, !prof !59
 
 594:                                              ; preds = %583
@@ -4842,7 +4842,7 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h3051b6276d8984
   %599 = lshr i64 %584, 2
   %600 = and i64 %599, 15
   %601 = or disjoint i64 %598, %600
-  %602 = icmp ult i64 %601, 3888
+  %602 = icmp ult i8 %596, -13
   br i1 %602, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i.i.i, label %.invoke508.i, !prof !59
 
 .invoke508.i:                                     ; preds = %594, %583

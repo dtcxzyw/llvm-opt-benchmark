@@ -5303,12 +5303,12 @@ define internal range(i32 0, 5) i32 @zueci_utf16be_u(ptr nocapture noundef reado
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = or disjoint i32 %9, %12
-  %14 = add nsw i32 %9, -57344
-  %or.cond = icmp ult i32 %14, -2048
+  %14 = add i8 %7, 32
+  %or.cond = icmp ult i8 %14, -8
   br i1 %or.cond, label %.sink.split, label %15
 
 15:                                               ; preds = %6
-  %16 = icmp ugt i32 %13, 56319
+  %16 = icmp ugt i8 %7, -37
   %17 = icmp ult i32 %1, 4
   %or.cond4 = or i1 %17, %16
   br i1 %or.cond4, label %32, label %18
@@ -5316,25 +5316,25 @@ define internal range(i32 0, 5) i32 @zueci_utf16be_u(ptr nocapture noundef reado
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %0, i64 2
   %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  %22 = shl nuw nsw i32 %21, 8
-  %23 = add nsw i32 %22, -57344
-  %or.cond7 = icmp ult i32 %23, -1024
-  br i1 %or.cond7, label %32, label %24
+  %21 = add i8 %20, 32
+  %or.cond7 = icmp ult i8 %21, -4
+  br i1 %or.cond7, label %32, label %22
 
-24:                                               ; preds = %18
+22:                                               ; preds = %18
+  %23 = zext i8 %20 to i32
+  %24 = shl nuw nsw i32 %23, 8
   %25 = getelementptr inbounds i8, ptr %0, i64 3
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
-  %28 = or disjoint i32 %22, %27
+  %28 = or disjoint i32 %24, %27
   %29 = shl nuw nsw i32 %13, 10
   %30 = add nsw i32 %29, -56613888
   %31 = add nuw nsw i32 %30, %28
   br label %.sink.split
 
-.sink.split:                                      ; preds = %6, %24
-  %.sink = phi i32 [ %31, %24 ], [ %13, %6 ]
-  %.0.ph = phi i32 [ 4, %24 ], [ 2, %6 ]
+.sink.split:                                      ; preds = %6, %22
+  %.sink = phi i32 [ %31, %22 ], [ %13, %6 ]
+  %.0.ph = phi i32 [ 4, %22 ], [ 2, %6 ]
   store i32 %.sink, ptr %3, align 4
   br label %32
 
@@ -5976,12 +5976,12 @@ define internal range(i32 0, 5) i32 @zueci_utf16le_u(ptr nocapture noundef reado
   %11 = load i8, ptr %0, align 1
   %12 = zext i8 %11 to i32
   %13 = or disjoint i32 %10, %12
-  %14 = add nsw i32 %10, -57344
-  %or.cond = icmp ult i32 %14, -2048
+  %14 = add i8 %8, 32
+  %or.cond = icmp ult i8 %14, -8
   br i1 %or.cond, label %.sink.split, label %15
 
 15:                                               ; preds = %6
-  %16 = icmp ugt i32 %13, 56319
+  %16 = icmp ugt i8 %8, -37
   %17 = icmp ult i32 %1, 4
   %or.cond4 = or i1 %17, %16
   br i1 %or.cond4, label %32, label %18
@@ -5989,25 +5989,25 @@ define internal range(i32 0, 5) i32 @zueci_utf16le_u(ptr nocapture noundef reado
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %0, i64 3
   %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  %22 = shl nuw nsw i32 %21, 8
-  %23 = add nsw i32 %22, -57344
-  %or.cond7 = icmp ult i32 %23, -1024
-  br i1 %or.cond7, label %32, label %24
+  %21 = add i8 %20, 32
+  %or.cond7 = icmp ult i8 %21, -4
+  br i1 %or.cond7, label %32, label %22
 
-24:                                               ; preds = %18
+22:                                               ; preds = %18
+  %23 = zext i8 %20 to i32
+  %24 = shl nuw nsw i32 %23, 8
   %25 = getelementptr inbounds i8, ptr %0, i64 2
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
-  %28 = or disjoint i32 %22, %27
+  %28 = or disjoint i32 %24, %27
   %29 = shl nuw nsw i32 %13, 10
   %30 = add nsw i32 %29, -56613888
   %31 = add nuw nsw i32 %30, %28
   br label %.sink.split
 
-.sink.split:                                      ; preds = %6, %24
-  %.sink = phi i32 [ %31, %24 ], [ %13, %6 ]
-  %.0.ph = phi i32 [ 4, %24 ], [ 2, %6 ]
+.sink.split:                                      ; preds = %6, %22
+  %.sink = phi i32 [ %31, %22 ], [ %13, %6 ]
+  %.0.ph = phi i32 [ 4, %22 ], [ 2, %6 ]
   store i32 %.sink, ptr %3, align 4
   br label %32
 
@@ -6019,7 +6019,7 @@ define internal range(i32 0, 5) i32 @zueci_utf16le_u(ptr nocapture noundef reado
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 5) i32 @zueci_utf32be_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #6 {
   %5 = icmp ult i32 %1, 4
-  br i1 %5, label %27, label %6
+  br i1 %5, label %29, label %6
 
 6:                                                ; preds = %4
   %7 = load i8, ptr %0, align 1
@@ -6039,51 +6039,62 @@ define internal range(i32 0, 5) i32 @zueci_utf32be_u(ptr nocapture noundef reado
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = or disjoint i32 %19, %22
-  %24 = icmp ult i32 %23, 55296
-  %25 = add i32 %19, -57344
-  %or.cond = icmp ult i32 %25, 1056768
-  %or.cond12 = or i1 %24, %or.cond
-  br i1 %or.cond12, label %26, label %27
+  %24 = icmp ult i32 %19, 55296
+  br i1 %24, label %28, label %25
 
-26:                                               ; preds = %6
+25:                                               ; preds = %6
+  %26 = icmp ugt i32 %19, 57343
+  %27 = icmp ult i32 %14, 1114112
+  %or.cond = and i1 %27, %26
+  br i1 %or.cond, label %28, label %29
+
+28:                                               ; preds = %25, %6
   store i32 %23, ptr %3, align 4
-  br label %27
+  br label %29
 
-27:                                               ; preds = %6, %4, %26
-  %.0 = phi i32 [ 4, %26 ], [ 0, %4 ], [ 0, %6 ]
+29:                                               ; preds = %25, %4, %28
+  %.0 = phi i32 [ 4, %28 ], [ 0, %4 ], [ 0, %25 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 5) i32 @zueci_utf32le_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #6 {
   %5 = icmp ult i32 %1, 4
-  br i1 %5, label %22, label %6
+  br i1 %5, label %29, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr i8, ptr %0, i64 2
-  %8 = load i16, ptr %7, align 1
-  %9 = zext i16 %8 to i32
-  %10 = shl nuw i32 %9, 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 3
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i32
+  %10 = shl nuw i32 %9, 24
+  %11 = getelementptr inbounds i8, ptr %0, i64 2
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
-  %14 = shl nuw nsw i32 %13, 8
+  %14 = shl nuw nsw i32 %13, 16
   %15 = or disjoint i32 %14, %10
-  %16 = load i8, ptr %0, align 1
-  %17 = zext i8 %16 to i32
-  %18 = or disjoint i32 %15, %17
-  %19 = icmp ult i32 %18, 55296
-  %20 = add i32 %15, -57344
-  %or.cond = icmp ult i32 %20, 1056768
-  %or.cond12 = or i1 %19, %or.cond
-  br i1 %or.cond12, label %21, label %22
+  %16 = getelementptr inbounds i8, ptr %0, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = zext i8 %17 to i32
+  %19 = shl nuw nsw i32 %18, 8
+  %20 = or disjoint i32 %15, %19
+  %21 = load i8, ptr %0, align 1
+  %22 = zext i8 %21 to i32
+  %23 = or disjoint i32 %20, %22
+  %24 = icmp ult i32 %20, 55296
+  br i1 %24, label %28, label %25
 
-21:                                               ; preds = %6
-  store i32 %18, ptr %3, align 4
-  br label %22
+25:                                               ; preds = %6
+  %26 = icmp ugt i32 %20, 57343
+  %27 = icmp ult i32 %15, 1114112
+  %or.cond = and i1 %27, %26
+  br i1 %or.cond, label %28, label %29
 
-22:                                               ; preds = %6, %4, %21
-  %.0 = phi i32 [ 4, %21 ], [ 0, %4 ], [ 0, %6 ]
+28:                                               ; preds = %25, %6
+  store i32 %23, ptr %3, align 4
+  br label %29
+
+29:                                               ; preds = %25, %4, %28
+  %.0 = phi i32 [ 4, %28 ], [ 0, %4 ], [ 0, %25 ]
   ret i32 %.0
 }
 

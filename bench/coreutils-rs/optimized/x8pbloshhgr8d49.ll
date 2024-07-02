@@ -491,7 +491,7 @@ default.unreachable1:                             ; preds = %3
 "_ZN3std4sync4mpmc4list16Channel$LT$T$GT$5write17h88ba71e575439e87E.llvm.16631848544693562042.exit.thread.i": ; preds = %20
   %23 = load i64, ptr %16, align 8, !alias.scope !30, !noalias !33, !noundef !23
   %24 = getelementptr inbounds i8, ptr %21, i64 8
-  %25 = icmp ne i64 %23, 31
+  %25 = icmp ult i64 %23, 31
   call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds { { { [16 x i64] } }, { i64 } }, ptr %24, i64 %23
   store i64 %.sroa.013.0.copyload.i, ptr %26, align 8, !noalias !36
@@ -679,7 +679,7 @@ default.unreachable1:                             ; preds = %3
 
 "_ZN3std4sync4mpmc4list16Channel$LT$T$GT$5write17h4b80c9619562bd49E.llvm.16631848544693562042.exit.thread.i": ; preds = %20
   %23 = load i64, ptr %16, align 8, !alias.scope !66, !noalias !69, !noundef !23
-  %24 = icmp ne i64 %23, 31
+  %24 = icmp ult i64 %23, 31
   call void @llvm.assume(i1 %24)
   %25 = getelementptr inbounds { { { [15 x i64] } }, { i64 } }, ptr %21, i64 %23
   store i64 %.sroa.011.0.copyload.i, ptr %25, align 8, !noalias !72
@@ -846,7 +846,7 @@ default.unreachable4:                             ; preds = %2
 
 20:                                               ; preds = %17
   %21 = load i64, ptr %13, align 8, !alias.scope !95, !noundef !23
-  %22 = icmp ne i64 %21, 31
+  %22 = icmp ult i64 %21, 31
   call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds { ptr, { i64 } }, ptr %18, i64 %21
   store ptr %1, ptr %23, align 8, !noalias !95

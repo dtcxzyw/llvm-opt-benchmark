@@ -1940,7 +1940,7 @@ define dso_local i32 @do_one_initcall(ptr noundef %0) local_unnamed_addr #1 alig
 22:                                               ; preds = %17
   %23 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52, ptr noundef nonnull %2) #27
   call void @llvm.lifetime.end.p0(i64 666, ptr nonnull %2) #25
-  br label %95
+  br label %97
 
 .loopexit:                                        ; preds = %13, %1
   call void @llvm.lifetime.end.p0(i64 666, ptr nonnull %2) #25
@@ -2038,58 +2038,62 @@ define dso_local i32 @do_one_initcall(ptr noundef %0) local_unnamed_addr #1 alig
   %73 = or disjoint i32 %72, %6
   %74 = call { i8, i32 } asm "cmpxchgl $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,r,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 %73, i32 %71, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #25, !srcloc !62
   %75 = extractvalue { i8, i32 } %74, 0
-  %76 = icmp eq i8 %75, 0
-  br i1 %76, label %.lr.ph, label %.thread, !prof !63
+  %76 = icmp ult i8 %75, 2
+  call void @llvm.assume(i1 %76)
+  %77 = icmp eq i8 %75, 0
+  br i1 %77, label %.lr.ph, label %.thread, !prof !63
 
 .lr.ph:                                           ; preds = %70, %.lr.ph
-  %77 = phi { i8, i32 } [ %81, %.lr.ph ], [ %74, %70 ]
-  %78 = extractvalue { i8, i32 } %77, 1
-  %79 = and i32 %78, -2147483648
-  %80 = or disjoint i32 %79, %6
-  %81 = call { i8, i32 } asm "cmpxchgl $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,r,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 %80, i32 %78, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #25, !srcloc !62
-  %82 = extractvalue { i8, i32 } %81, 0
-  %83 = icmp eq i8 %82, 0
-  br i1 %83, label %.lr.ph, label %.thread, !prof !64, !llvm.loop !65
+  %78 = phi { i8, i32 } [ %82, %.lr.ph ], [ %74, %70 ]
+  %79 = extractvalue { i8, i32 } %78, 1
+  %80 = and i32 %79, -2147483648
+  %81 = or disjoint i32 %80, %6
+  %82 = call { i8, i32 } asm "cmpxchgl $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,r,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 %81, i32 %79, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #25, !srcloc !62
+  %83 = extractvalue { i8, i32 } %82, 0
+  %84 = icmp ult i8 %83, 2
+  call void @llvm.assume(i1 %84)
+  %85 = icmp eq i8 %83, 0
+  br i1 %85, label %.lr.ph, label %.thread, !prof !64, !llvm.loop !65
 
 .thread:                                          ; preds = %.lr.ph, %70, %66
-  %84 = phi i8 [ 112, %70 ], [ 0, %66 ], [ 112, %.lr.ph ]
+  %86 = phi i8 [ 112, %70 ], [ 0, %66 ], [ 112, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
   store i64 0, ptr %3, align 8, !annotation !13
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #25, !srcloc !22
-  %85 = load i64, ptr %3, align 8
+  %87 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
-  %86 = and i64 %85, 512
-  %87 = icmp eq i64 %86, 0
-  br i1 %87, label %88, label %90
+  %88 = and i64 %87, 512
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %90, label %92
 
-88:                                               ; preds = %.thread
-  %89 = call i64 @strlcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, i64 noundef 64) #25
+90:                                               ; preds = %.thread
+  %91 = call i64 @strlcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, i64 noundef 64) #25
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !33
   %.pre = load i8, ptr %4, align 16
-  br label %90
+  br label %92
 
-90:                                               ; preds = %88, %.thread
-  %91 = phi i8 [ %.pre, %88 ], [ %84, %.thread ]
-  %92 = icmp eq i8 %91, 0
-  br i1 %92, label %94, label %93, !prof !11
+92:                                               ; preds = %90, %.thread
+  %93 = phi i8 [ %.pre, %90 ], [ %86, %.thread ]
+  %94 = icmp eq i8 %93, 0
+  br i1 %94, label %96, label %95, !prof !11
 
-93:                                               ; preds = %90
+95:                                               ; preds = %92
   call void asm sideeffect "711: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 711b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 711) #25, !srcloc !66
   call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %0, ptr noundef nonnull %4) #25
   call void asm sideeffect "712: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 712b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 712) #25, !srcloc !67
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.10, i32 1249, i32 2313, i64 12) #25, !srcloc !68
   call void asm sideeffect "713: nop\0A\09.pushsection .discard.instr_end\0A\09.long 713b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 713) #25, !srcloc !69
   call void asm sideeffect "714: nop\0A\09.pushsection .discard.instr_end\0A\09.long 714b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 714) #25, !srcloc !70
-  br label %94
+  br label %96
 
-94:                                               ; preds = %93, %90
+96:                                               ; preds = %95, %92
   call void @add_device_randomness(ptr noundef null, i64 noundef 0) #25
-  br label %95
+  br label %97
 
-95:                                               ; preds = %94, %22
-  %96 = phi i32 [ %45, %94 ], [ -1, %22 ]
+97:                                               ; preds = %96, %22
+  %98 = phi i32 [ %45, %96 ], [ -1, %22 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #25
-  ret i32 %96
+  ret i32 %98
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

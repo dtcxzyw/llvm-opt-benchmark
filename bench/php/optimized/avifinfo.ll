@@ -332,7 +332,7 @@ define hidden range(i32 0, 4) i32 @AvifInfoGetFeaturesStream(ptr noundef %0, ptr
   br i1 %exitcond.not.i.i.i, label %AvifInfoInternalReadBigEndian.exit.i.i, label %.lr.ph.i.i.i
 
 AvifInfoInternalReadBigEndian.exit.i.i:           ; preds = %.lr.ph.i.i.i
-  %69 = icmp ult i32 %68, 256
+  %69 = icmp eq i32 %64, 0
   br i1 %69, label %70, label %.thread41
 
 70:                                               ; preds = %AvifInfoInternalReadBigEndian.exit.i.i
@@ -980,7 +980,7 @@ AvifInfoInternalReadBigEndian.exit111.i.i.i:      ; preds = %.lr.ph.i105.i.i.i
   br i1 %.not211.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i59.i.i
 
 .lr.ph.i59.i.i:                                   ; preds = %AvifInfoInternalReadBigEndian.exit111.i.i.i
-  %310 = icmp ult i32 %306, 256
+  %310 = icmp eq i32 %302, 0
   %311 = shl nuw nsw i32 %309, %285
   %312 = add i32 %311, %299
   br label %313
@@ -1265,7 +1265,7 @@ AvifInfoInternalReadBigEndian.exit71.preheader.i.i.i: ; preds = %.lr.ph.i66.i.i.
   br i1 %.not100.i.i.i, label %.loopexit.i86.i.i, label %.lr.ph.i82.i.i
 
 .lr.ph.i82.i.i:                                   ; preds = %AvifInfoInternalReadBigEndian.exit71.preheader.i.i.i
-  %410 = icmp ult i32 %403, 256
+  %410 = icmp eq i32 %399, 0
   %.promoted = load i8, ptr %35, align 1
   %.promoted143 = load i8, ptr %36, align 4
   br label %411
@@ -1301,7 +1301,7 @@ AvifInfoInternalReadBigEndian.exit71.preheader.i.i.i: ; preds = %.lr.ph.i66.i.i.
   br i1 %exitcond.not.i80.i.i.i, label %AvifInfoInternalReadBigEndian.exit81.i.i.i, label %.lr.ph.i76.i.i.i
 
 AvifInfoInternalReadBigEndian.exit81.i.i.i:       ; preds = %.lr.ph.i76.i.i.i
-  %423 = icmp ult i32 %422, 256
+  %423 = icmp eq i32 %418, 0
   %or.cond.i85.i.i = select i1 %410, i1 %423, i1 false
   %424 = icmp ult i8 %413, 16
   %or.cond171 = select i1 %or.cond.i85.i.i, i1 %424, i1 false

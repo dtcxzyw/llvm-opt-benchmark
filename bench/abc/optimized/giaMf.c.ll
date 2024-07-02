@@ -4631,7 +4631,7 @@ Mf_ManPrepareCuts.exit:                           ; preds = %Mf_CutGetSign.exit.
   store i32 0, ptr %141, align 8
   %142 = getelementptr inbounds i8, ptr %132, i64 12
   store float 0.000000e+00, ptr %142, align 4
-  %.not.i175 = icmp ult i32 %138, 134217728
+  %.not.i175 = icmp ult i32 %134, 134217728
   br i1 %.not.i175, label %Mf_CutParams.exit, label %.lr.ph.i176
 
 .lr.ph.i176:                                      ; preds = %129
@@ -4662,11 +4662,11 @@ Mf_ManPrepareCuts.exit:                           ; preds = %Mf_CutGetSign.exit.
   br i1 %exitcond.not.i, label %._crit_edge.i178, label %144, !llvm.loop !57
 
 ._crit_edge.i178:                                 ; preds = %144
-  %158 = icmp ugt i32 %138, 268435455
+  %158 = icmp ugt i32 %134, 268435455
   %159 = zext i1 %158 to i32
   %160 = add nuw nsw i32 %154, %159
   store i32 %160, ptr %141, align 8
-  %161 = icmp ult i32 %138, 268435456
+  %161 = icmp ult i32 %134, 268435456
   br i1 %161, label %Mf_CutParams.exit, label %162
 
 162:                                              ; preds = %._crit_edge.i178

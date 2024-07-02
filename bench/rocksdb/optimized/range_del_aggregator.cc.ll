@@ -6410,7 +6410,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp15, label %land.lhs.true16, label %if.end24
 
 land.lhs.true16:                                  ; preds = %if.else
-  %cmp.i34 = icmp ult i64 %add.i85, 8
+  %cmp.i34 = icmp ult i64 %mul.i84, 8
   %8 = load ptr, ptr %values_.i, align 8
   %arrayidx.i36 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %8, i64 %add.i85
   %9 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %6, i64 %add.i85
@@ -7110,7 +7110,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp15, label %land.lhs.true16, label %if.end24
 
 land.lhs.true16:                                  ; preds = %if.else
-  %cmp.i35 = icmp ult i64 %add.i86, 8
+  %cmp.i35 = icmp ult i64 %mul.i85, 8
   %8 = load ptr, ptr %values_.i, align 8
   %arrayidx.i37 = getelementptr inbounds ptr, ptr %8, i64 %add.i86
   %9 = getelementptr ptr, ptr %6, i64 %add.i86
@@ -7248,7 +7248,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp15, label %land.lhs.true16, label %if.end24
 
 land.lhs.true16:                                  ; preds = %if.else
-  %cmp.i34 = icmp ult i64 %add.i85, 8
+  %cmp.i34 = icmp ult i64 %mul.i84, 8
   %8 = load ptr, ptr %values_.i, align 8
   %arrayidx.i36 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %8, i64 %add.i85
   %9 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %6, i64 %add.i85
@@ -7731,7 +7731,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp15, label %land.lhs.true16, label %if.end24
 
 land.lhs.true16:                                  ; preds = %if.else
-  %cmp.i35 = icmp ult i64 %add.i86, 8
+  %cmp.i35 = icmp ult i64 %mul.i85, 8
   %8 = load ptr, ptr %values_.i, align 8
   %arrayidx.i37 = getelementptr inbounds ptr, ptr %8, i64 %add.i86
   %9 = getelementptr ptr, ptr %6, i64 %add.i86

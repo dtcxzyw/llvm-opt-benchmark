@@ -5686,28 +5686,28 @@ define hidden range(i32 0, 2) i32 @ir_gen_dessa_moves(ptr noundef %0, i32 nounde
   %exitcond381.not = icmp eq i64 %indvars.iv.next378, %57
   br i1 %exitcond381.not, label %.preheader, label %.lr.ph350.backedge
 
-.lr.ph350.backedge:                               ; preds = %159, %222, %208
-  %indvars.iv377.be = phi i64 [ %indvars.iv.next378, %159 ], [ 0, %222 ], [ 0, %208 ]
+.lr.ph350.backedge:                               ; preds = %159, %219, %208
+  %indvars.iv377.be = phi i64 [ %indvars.iv.next378, %159 ], [ 0, %219 ], [ 0, %208 ]
   br label %.lr.ph350
 
 .loopexit310:                                     ; preds = %.lr.ph350
   %160 = getelementptr inbounds i64, ptr %113, i64 %indvars.iv377
   %161 = trunc nuw nsw i64 %indvars.iv377 to i32
   %162 = shl nuw i32 %161, 6
-  %163 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %158, i1 true)
-  %164 = trunc nuw nsw i64 %163 to i32
-  %165 = or disjoint i32 %162, %164
-  %166 = add i64 %158, -1
-  %167 = and i64 %166, %158
-  store i64 %167, ptr %160, align 8
-  %168 = icmp sgt i32 %165, -1
-  br i1 %168, label %169, label %.preheader
+  %163 = add i64 %158, -1
+  %164 = and i64 %163, %158
+  store i64 %164, ptr %160, align 8
+  %165 = icmp sgt i32 %162, -1
+  br i1 %165, label %166, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit310, %159
   br i1 %.not359, label %.thread, label %.lr.ph353
 
-169:                                              ; preds = %.loopexit310
-  %170 = zext nneg i32 %165 to i64
+166:                                              ; preds = %.loopexit310
+  %167 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %158, i1 true)
+  %168 = trunc nuw nsw i64 %167 to i32
+  %169 = or disjoint i32 %162, %168
+  %170 = zext nneg i32 %169 to i64
   %171 = getelementptr inbounds i32, ptr %50, i64 %170
   %172 = load i32, ptr %171, align 4
   %173 = sext i32 %172 to i64
@@ -5724,21 +5724,21 @@ define hidden range(i32 0, 2) i32 @ir_gen_dessa_moves(ptr noundef %0, i32 nounde
   %184 = getelementptr inbounds i32, ptr %52, i64 %183
   %185 = load i32, ptr %184, align 4
   %186 = tail call i32 %2(ptr noundef nonnull %0, i8 noundef zeroext %182, i32 noundef %185, i32 noundef %178) #19
-  %187 = shl nuw i64 1, %163
+  %187 = shl nuw i64 1, %167
   %188 = xor i64 %187, -1
   %189 = and i64 %indvars.iv377, 4294967295
   %190 = getelementptr inbounds i64, ptr %58, i64 %189
   %191 = load i64, ptr %190, align 8
   %192 = and i64 %191, %188
   store i64 %192, ptr %190, align 8
-  store i32 %165, ptr %174, align 4
+  store i32 %169, ptr %174, align 4
   %193 = load i32, ptr %177, align 4
   %194 = getelementptr inbounds i32, ptr %52, i64 %170
   store i32 %193, ptr %194, align 4
   %195 = icmp eq i32 %172, %175
   br i1 %195, label %196, label %208
 
-196:                                              ; preds = %169
+196:                                              ; preds = %166
   %197 = getelementptr inbounds i32, ptr %50, i64 %173
   %198 = load i32, ptr %197, align 4
   %.not304 = icmp eq i32 %198, 0
@@ -5756,7 +5756,7 @@ define hidden range(i32 0, 2) i32 @ir_gen_dessa_moves(ptr noundef %0, i32 nounde
   store i64 %207, ptr %205, align 8
   br label %208
 
-208:                                              ; preds = %199, %196, %169
+208:                                              ; preds = %199, %196, %166
   br i1 %.not359, label %.thread, label %.lr.ph350.backedge
 
 .lr.ph353:                                        ; preds = %.preheader, %211
@@ -5775,18 +5775,18 @@ define hidden range(i32 0, 2) i32 @ir_gen_dessa_moves(ptr noundef %0, i32 nounde
   %213 = getelementptr inbounds i64, ptr %58, i64 %indvars.iv382
   %214 = trunc nuw nsw i64 %indvars.iv382 to i32
   %215 = shl nuw i32 %214, 6
-  %216 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %210, i1 true)
-  %217 = trunc nuw nsw i64 %216 to i32
-  %218 = or disjoint i32 %215, %217
-  %219 = add i64 %210, -1
-  %220 = and i64 %219, %210
-  store i64 %220, ptr %213, align 8
-  %221 = icmp slt i32 %218, 0
-  br i1 %221, label %.thread, label %222
+  %216 = add i64 %210, -1
+  %217 = and i64 %216, %210
+  store i64 %217, ptr %213, align 8
+  %218 = icmp slt i32 %215, 0
+  br i1 %218, label %.thread, label %219
 
-222:                                              ; preds = %212
+219:                                              ; preds = %212
+  %220 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %210, i1 true)
+  %221 = trunc nuw nsw i64 %220 to i32
+  %222 = or disjoint i32 %215, %221
   %223 = load ptr, ptr %0, align 8
-  %224 = zext nneg i32 %218 to i64
+  %224 = zext nneg i32 %222 to i64
   %225 = getelementptr inbounds i32, ptr %52, i64 %224
   %226 = load i32, ptr %225, align 4
   %227 = sext i32 %226 to i64
@@ -5796,7 +5796,7 @@ define hidden range(i32 0, 2) i32 @ir_gen_dessa_moves(ptr noundef %0, i32 nounde
   %231 = tail call i32 %2(ptr noundef nonnull %0, i8 noundef zeroext %230, i32 noundef %226, i32 noundef 0) #19
   %232 = getelementptr inbounds i32, ptr %46, i64 %224
   store i32 0, ptr %232, align 4
-  %233 = shl nuw i64 1, %216
+  %233 = shl nuw i64 1, %220
   %234 = and i64 %indvars.iv382, 4294967295
   %235 = getelementptr inbounds i64, ptr %113, i64 %234
   %236 = load i64, ptr %235, align 8
@@ -5804,7 +5804,7 @@ define hidden range(i32 0, 2) i32 @ir_gen_dessa_moves(ptr noundef %0, i32 nounde
   store i64 %237, ptr %235, align 8
   br i1 %.not359, label %.thread, label %.lr.ph350.backedge
 
-.thread:                                          ; preds = %212, %.preheader, %222, %208, %211, %108, %.preheader313, %.preheader311
+.thread:                                          ; preds = %212, %.preheader, %219, %208, %211, %108, %.preheader313, %.preheader311
   tail call void @_efree(ptr noundef %113) #19
   br label %._crit_edge.thread
 

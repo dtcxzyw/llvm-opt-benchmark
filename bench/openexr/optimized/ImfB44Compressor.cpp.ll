@@ -1652,7 +1652,7 @@ if.then78:                                        ; preds = %if.end74
   %or.i = or disjoint i16 %shl.i, %conv2.i
   %not.i = xor i16 %or.i, -1
   %36 = and i16 %or.i, 32767
-  %tobool.not1.i = icmp slt i16 %or.i, 0
+  %tobool.not1.i = icmp slt i16 %shl.i, 0
   %storemerge.i = select i1 %tobool.not1.i, i16 %36, i16 %not.i
   store i16 %storemerge.i, ptr %s, align 16
   br label %for.body.i

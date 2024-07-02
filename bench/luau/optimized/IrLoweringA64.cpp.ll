@@ -7421,7 +7421,7 @@ define internal fastcc void @_ZN4Luau7CodeGen3A64L28checkObjectBarrierConditions
 18:                                               ; preds = %13
   %19 = and i32 %3, -16
   %20 = or disjoint i32 %19, 12
-  %21 = icmp ult i32 %20, 4096
+  %21 = icmp ult i32 %3, 4096
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %18
@@ -7468,7 +7468,7 @@ _ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64
 
 28:                                               ; preds = %25
   %29 = and i32 %3, -16
-  %30 = icmp ult i32 %29, 4096
+  %30 = icmp ult i32 %3, 4096
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28

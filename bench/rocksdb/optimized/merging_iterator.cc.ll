@@ -9027,7 +9027,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp15, label %land.lhs.true16, label %if.end24
 
 land.lhs.true16:                                  ; preds = %if.else
-  %cmp.i35 = icmp ult i64 %add.i86, 8
+  %cmp.i35 = icmp ult i64 %mul.i85, 8
   %8 = load ptr, ptr %values_.i, align 8
   %arrayidx.i37 = getelementptr inbounds ptr, ptr %8, i64 %add.i86
   %9 = getelementptr ptr, ptr %6, i64 %add.i86
@@ -9308,7 +9308,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp15, label %land.lhs.true16, label %if.end24
 
 land.lhs.true16:                                  ; preds = %if.else
-  %cmp.i35 = icmp ult i64 %add.i86, 8
+  %cmp.i35 = icmp ult i64 %mul.i85, 8
   %8 = load ptr, ptr %values_.i, align 8
   %arrayidx.i37 = getelementptr inbounds ptr, ptr %8, i64 %add.i86
   %9 = getelementptr ptr, ptr %6, i64 %add.i86
@@ -12046,7 +12046,7 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp15.i, label %land.lhs.true16.i, label %if.end24.i
 
 land.lhs.true16.i:                                ; preds = %if.else.i
-  %cmp.i35.i = icmp ult i64 %add.i86.i, 8
+  %cmp.i35.i = icmp ult i64 %mul.i85.i, 8
   %66 = load ptr, ptr %values_.i.i.i.i.i, align 8
   %arrayidx.i37.i = getelementptr inbounds ptr, ptr %66, i64 %add.i86.i
   %67 = getelementptr ptr, ptr %64, i64 %add.i86.i
@@ -12721,7 +12721,7 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp15.i, label %land.lhs.true16.i, label %if.end24.i
 
 land.lhs.true16.i:                                ; preds = %if.else.i
-  %cmp.i35.i = icmp ult i64 %add.i86.i, 8
+  %cmp.i35.i = icmp ult i64 %mul.i85.i, 8
   %76 = load ptr, ptr %values_.i.i.i.i.i29, align 8
   %arrayidx.i37.i = getelementptr inbounds ptr, ptr %76, i64 %add.i86.i
   %77 = getelementptr ptr, ptr %74, i64 %add.i86.i

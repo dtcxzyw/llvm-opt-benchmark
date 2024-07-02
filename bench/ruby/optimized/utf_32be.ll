@@ -25,7 +25,7 @@ declare i32 @rb_enc_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -2147483648, 2147483643) i32 @utf32be_mbc_enc_len(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #2 {
   %4 = icmp ult ptr %1, %0
-  br i1 %4, label %36, label %5
+  br i1 %4, label %29, label %5
 
 5:                                                ; preds = %3
   %6 = ptrtoint ptr %1 to i64
@@ -37,7 +37,7 @@ define internal range(i32 -2147483648, 2147483643) i32 @utf32be_mbc_enc_len(ptr 
 10:                                               ; preds = %5
   %11 = trunc i64 %8 to i32
   %12 = add i32 %11, -5
-  br label %36
+  br label %29
 
 13:                                               ; preds = %5
   %14 = load i8, ptr %0, align 1
@@ -48,28 +48,21 @@ define internal range(i32 -2147483648, 2147483643) i32 @utf32be_mbc_enc_len(ptr 
   %19 = shl nuw nsw i32 %15, 16
   %20 = shl nuw nsw i32 %18, 8
   %21 = or disjoint i32 %20, %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 2
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  %25 = or disjoint i32 %21, %24
-  %26 = shl nuw nsw i32 %25, 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 3
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  %30 = or disjoint i32 %26, %29
-  %31 = icmp ult i32 %30, 1114112
-  br i1 %31, label %32, label %36
+  %22 = icmp ult i32 %21, 4352
+  br i1 %22, label %23, label %29
 
-32:                                               ; preds = %13
-  %33 = icmp ult i32 %30, 65536
-  %34 = and i32 %24, 248
-  %35 = icmp eq i32 %34, 216
-  %or.cond = and i1 %35, %33
+23:                                               ; preds = %13
+  %24 = getelementptr inbounds i8, ptr %0, i64 2
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i32 %21, 0
+  %27 = and i8 %25, -8
+  %28 = icmp eq i8 %27, -40
+  %or.cond = and i1 %26, %28
   %spec.select = select i1 %or.cond, i32 -1, i32 4
-  br label %36
+  br label %29
 
-36:                                               ; preds = %32, %13, %3, %10
-  %.0 = phi i32 [ %12, %10 ], [ -1, %3 ], [ -1, %13 ], [ %spec.select, %32 ]
+29:                                               ; preds = %23, %13, %3, %10
+  %.0 = phi i32 [ %12, %10 ], [ -1, %3 ], [ -1, %13 ], [ %spec.select, %23 ]
   ret i32 %.0
 }
 

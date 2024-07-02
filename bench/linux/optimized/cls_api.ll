@@ -1363,7 +1363,7 @@ define internal fastcc ptr @tcf_block_refcnt_get(ptr noundef %0, i32 noundef %1)
   %10 = zext i32 %1 to i64
   %11 = tail call ptr @idr_find(ptr noundef %9, i64 noundef %10) #14
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %32, label %13
+  br i1 %12, label %33, label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %11, i64 72
@@ -1371,39 +1371,41 @@ define internal fastcc ptr @tcf_block_refcnt_get(ptr noundef %0, i32 noundef %1)
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %13, %21
-  %17 = phi i32 [ %22, %21 ], [ %15, %13 ]
+.preheader:                                       ; preds = %13, %22
+  %17 = phi i32 [ %23, %22 ], [ %15, %13 ]
   %18 = add i32 %17, 1
   %19 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %14, i32 %18, ptr elementtype(i32) %14, i32 %17) #14, !srcloc !40
   %20 = extractvalue { i8, i32 } %19, 0
+  %21 = icmp ult i8 %20, 2
+  tail call void @llvm.assume(i1 %21)
   %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %21, label %.thread, !prof !30
+  br i1 %.not, label %22, label %.thread, !prof !30
 
-21:                                               ; preds = %.preheader
-  %22 = extractvalue { i8, i32 } %19, 1
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.thread, label %.preheader, !llvm.loop !41
+22:                                               ; preds = %.preheader
+  %23 = extractvalue { i8, i32 } %19, 1
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %.thread, label %.preheader, !llvm.loop !41
 
-.thread:                                          ; preds = %.preheader, %21, %13
-  %24 = phi i32 [ 0, %13 ], [ %17, %.preheader ], [ 0, %21 ]
-  %25 = add i32 %24, 1
-  %26 = or i32 %25, %24
-  %27 = icmp sgt i32 %26, -1
-  br i1 %27, label %29, label %28, !prof !21
+.thread:                                          ; preds = %.preheader, %22, %13
+  %25 = phi i32 [ 0, %13 ], [ %17, %.preheader ], [ 0, %22 ]
+  %26 = add i32 %25, 1
+  %27 = or i32 %26, %25
+  %28 = icmp sgt i32 %27, -1
+  br i1 %28, label %30, label %29, !prof !21
 
-28:                                               ; preds = %.thread
+29:                                               ; preds = %.thread
   tail call void @refcount_warn_saturate(ptr noundef %14, i32 noundef 0) #14
-  br label %29
+  br label %30
 
-29:                                               ; preds = %28, %.thread
-  %30 = icmp eq i32 %24, 0
-  %31 = select i1 %30, ptr null, ptr %11
-  br label %32
+30:                                               ; preds = %29, %.thread
+  %31 = icmp eq i32 %25, 0
+  %32 = select i1 %31, ptr null, ptr %11
+  br label %33
 
-32:                                               ; preds = %29, %2
-  %33 = phi ptr [ null, %2 ], [ %31, %29 ]
+33:                                               ; preds = %30, %2
+  %34 = phi ptr [ null, %2 ], [ %32, %30 ]
   tail call void @__rcu_read_unlock() #14
-  ret ptr %33
+  ret ptr %34
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -7717,7 +7719,7 @@ declare dso_local void @idr_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -95, 1) i32 @__tcf_qdisc_find(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef writeonly %5) unnamed_addr #0 align 16 {
   %7 = icmp eq i32 %3, -1
-  br i1 %7, label %81, label %8
+  br i1 %7, label %82, label %8
 
 8:                                                ; preds = %6
   tail call void @__rcu_read_lock() #14
@@ -7727,7 +7729,7 @@ define internal fastcc noundef range(i32 -95, 1) i32 @__tcf_qdisc_find(ptr nound
 
 11:                                               ; preds = %8
   tail call void @__rcu_read_unlock() #14
-  br label %81
+  br label %82
 
 12:                                               ; preds = %8
   %13 = load i32, ptr %2, align 4
@@ -7754,7 +7756,7 @@ define internal fastcc noundef range(i32 -95, 1) i32 @__tcf_qdisc_find(ptr nound
 24:                                               ; preds = %20
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @__tcf_qdisc_find.__msg) #14
   %25 = icmp eq ptr %5, null
-  br i1 %25, label %70, label %68
+  br i1 %25, label %71, label %69
 
 26:                                               ; preds = %20, %15
   %27 = phi ptr [ %22, %20 ], [ %.pre, %15 ]
@@ -7762,7 +7764,7 @@ define internal fastcc noundef range(i32 -95, 1) i32 @__tcf_qdisc_find(ptr nound
   %29 = load i32, ptr %28, align 16
   %30 = and i32 %29, 1
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %50
+  br i1 %31, label %32, label %51
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds i8, ptr %27, i64 100
@@ -7770,109 +7772,111 @@ define internal fastcc noundef range(i32 -95, 1) i32 @__tcf_qdisc_find(ptr nound
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %32, %40
-  %36 = phi i32 [ %41, %40 ], [ %34, %32 ]
+.preheader:                                       ; preds = %32, %41
+  %36 = phi i32 [ %42, %41 ], [ %34, %32 ]
   %37 = add i32 %36, 1
   %38 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33, i32 %37, ptr elementtype(i32) %33, i32 %36) #14, !srcloc !40
   %39 = extractvalue { i8, i32 } %38, 0
+  %40 = icmp ult i8 %39, 2
+  tail call void @llvm.assume(i1 %40)
   %.not = icmp eq i8 %39, 0
-  br i1 %.not, label %40, label %.thread, !prof !30
+  br i1 %.not, label %41, label %.thread, !prof !30
 
-40:                                               ; preds = %.preheader
-  %41 = extractvalue { i8, i32 } %38, 1
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.thread, label %.preheader, !llvm.loop !41
+41:                                               ; preds = %.preheader
+  %42 = extractvalue { i8, i32 } %38, 1
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %.thread, label %.preheader, !llvm.loop !41
 
-.thread:                                          ; preds = %.preheader, %40, %32
-  %43 = phi i32 [ 0, %32 ], [ %36, %.preheader ], [ 0, %40 ]
-  %44 = add i32 %43, 1
-  %45 = or i32 %44, %43
-  %46 = icmp sgt i32 %45, -1
-  br i1 %46, label %48, label %47, !prof !21
+.thread:                                          ; preds = %.preheader, %41, %32
+  %44 = phi i32 [ 0, %32 ], [ %36, %.preheader ], [ 0, %41 ]
+  %45 = add i32 %44, 1
+  %46 = or i32 %45, %44
+  %47 = icmp sgt i32 %46, -1
+  br i1 %47, label %49, label %48, !prof !21
 
-47:                                               ; preds = %.thread
+48:                                               ; preds = %.thread
   tail call void @refcount_warn_saturate(ptr noundef %33, i32 noundef 0) #14
-  br label %48
+  br label %49
 
-48:                                               ; preds = %47, %.thread
-  %49 = icmp eq i32 %43, 0
-  br i1 %49, label %.thread7, label %50
+49:                                               ; preds = %48, %.thread
+  %50 = icmp eq i32 %44, 0
+  br i1 %50, label %.thread7, label %51
 
-.thread7:                                         ; preds = %48
+.thread7:                                         ; preds = %49
   store ptr null, ptr %1, align 8
-  br label %52
+  br label %53
 
-50:                                               ; preds = %48, %26
+51:                                               ; preds = %49, %26
   store ptr %27, ptr %1, align 8
-  %51 = icmp eq ptr %27, null
-  br i1 %51, label %52, label %54
+  %52 = icmp eq ptr %27, null
+  br i1 %52, label %53, label %55
 
-52:                                               ; preds = %.thread7, %50
+53:                                               ; preds = %.thread7, %51
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @__tcf_qdisc_find.__msg.25) #14
-  %53 = icmp eq ptr %5, null
-  br i1 %53, label %70, label %68
+  %54 = icmp eq ptr %5, null
+  br i1 %54, label %71, label %69
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %27, i64 24
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %62
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds i8, ptr %27, i64 24
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %61, label %63
 
-60:                                               ; preds = %54
+61:                                               ; preds = %55
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @__tcf_qdisc_find.__msg.26) #14
-  %61 = icmp eq ptr %5, null
-  br i1 %61, label %75, label %72
+  %62 = icmp eq ptr %5, null
+  br i1 %62, label %76, label %73
 
-62:                                               ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %58, i64 72
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %70
+63:                                               ; preds = %55
+  %64 = getelementptr inbounds i8, ptr %59, i64 72
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %71
 
-66:                                               ; preds = %62
+67:                                               ; preds = %63
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @__tcf_qdisc_find.__msg.27) #14
-  %67 = icmp eq ptr %5, null
-  br i1 %67, label %75, label %72
+  %68 = icmp eq ptr %5, null
+  br i1 %68, label %76, label %73
 
-68:                                               ; preds = %52, %24
-  %69 = phi ptr [ @__tcf_qdisc_find.__msg, %24 ], [ @__tcf_qdisc_find.__msg.25, %52 ]
-  store ptr %69, ptr %5, align 8
-  br label %70
+69:                                               ; preds = %53, %24
+  %70 = phi ptr [ @__tcf_qdisc_find.__msg, %24 ], [ @__tcf_qdisc_find.__msg.25, %53 ]
+  store ptr %70, ptr %5, align 8
+  br label %71
 
-70:                                               ; preds = %68, %62, %52, %24
-  %71 = phi i32 [ 0, %62 ], [ -22, %24 ], [ -22, %52 ], [ -22, %68 ]
+71:                                               ; preds = %69, %63, %53, %24
+  %72 = phi i32 [ 0, %63 ], [ -22, %24 ], [ -22, %53 ], [ -22, %69 ]
   tail call void @__rcu_read_unlock() #14
+  br label %82
+
+73:                                               ; preds = %67, %61
+  %74 = phi ptr [ @__tcf_qdisc_find.__msg.26, %61 ], [ @__tcf_qdisc_find.__msg.27, %67 ]
+  %75 = phi i32 [ -22, %61 ], [ -95, %67 ]
+  store ptr %74, ptr %5, align 8
+  br label %76
+
+76:                                               ; preds = %73, %67, %61
+  %77 = phi i32 [ -22, %61 ], [ -95, %67 ], [ %75, %73 ]
+  tail call void @__rcu_read_unlock() #14
+  %78 = load ptr, ptr %1, align 8
+  br i1 %4, label %79, label %80
+
+79:                                               ; preds = %76
+  tail call void @qdisc_put(ptr noundef %78) #14
   br label %81
 
-72:                                               ; preds = %66, %60
-  %73 = phi ptr [ @__tcf_qdisc_find.__msg.26, %60 ], [ @__tcf_qdisc_find.__msg.27, %66 ]
-  %74 = phi i32 [ -22, %60 ], [ -95, %66 ]
-  store ptr %73, ptr %5, align 8
-  br label %75
+80:                                               ; preds = %76
+  tail call void @qdisc_put_unlocked(ptr noundef %78) #14
+  br label %81
 
-75:                                               ; preds = %72, %66, %60
-  %76 = phi i32 [ -22, %60 ], [ -95, %66 ], [ %74, %72 ]
-  tail call void @__rcu_read_unlock() #14
-  %77 = load ptr, ptr %1, align 8
-  br i1 %4, label %78, label %79
-
-78:                                               ; preds = %75
-  tail call void @qdisc_put(ptr noundef %77) #14
-  br label %80
-
-79:                                               ; preds = %75
-  tail call void @qdisc_put_unlocked(ptr noundef %77) #14
-  br label %80
-
-80:                                               ; preds = %79, %78
+81:                                               ; preds = %80, %79
   store ptr null, ptr %1, align 8
-  br label %81
+  br label %82
 
-81:                                               ; preds = %80, %70, %11, %6
-  %82 = phi i32 [ %71, %70 ], [ %76, %80 ], [ -19, %11 ], [ 0, %6 ]
-  ret i32 %82
+82:                                               ; preds = %81, %71, %11, %6
+  %83 = phi i32 [ %72, %71 ], [ %77, %81 ], [ -19, %11 ], [ 0, %6 ]
+  ret i32 %83
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

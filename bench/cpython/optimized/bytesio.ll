@@ -1755,7 +1755,7 @@ if.end.i.i:                                       ; preds = %skip_optional
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
   %spec.store.select.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i, i64 0)
   %size.addr.0.i.i = select i1 %or.cond.i.i, i64 %spec.store.select.i.i, i64 %3
-  %cmp.i8.i.i = icmp sgt i64 %size.addr.0.i.i, 1
+  %cmp.i8.i.i = icmp ugt i64 %size.addr.0.i.i, 1
   %cmp1.i.i.i = icmp eq i64 %5, 0
   %or.cond.i.i.i = select i1 %cmp.i8.i.i, i1 %cmp1.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true2.i.i.i, label %if.end.i.i.i
@@ -2257,7 +2257,7 @@ if.end.i:                                         ; preds = %skip_optional
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp1.i
   %spec.store.select.i = call i64 @llvm.smax.i64(i64 %sub.i, i64 0)
   %size.addr.0.i = select i1 %or.cond.i, i64 %spec.store.select.i, i64 %3
-  %cmp.i8.i = icmp sgt i64 %size.addr.0.i, 1
+  %cmp.i8.i = icmp ugt i64 %size.addr.0.i, 1
   %cmp1.i.i = icmp eq i64 %5, 0
   %or.cond.i.i = select i1 %cmp.i8.i, i1 %cmp1.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true2.i.i, label %if.end.i.i

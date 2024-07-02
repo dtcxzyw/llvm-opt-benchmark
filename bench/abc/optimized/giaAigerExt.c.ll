@@ -228,7 +228,7 @@ Gia_ObjIsHead.exit.thread:                        ; preds = %21, %9, %Gia_ObjIsH
   %43 = and i32 %42, 2
   %44 = shl i32 %41, 2
   %45 = or disjoint i32 %43, %44
-  %.not11.i = icmp ult i32 %45, 128
+  %.not11.i = icmp ult i32 %44, 128
   br i1 %.not11.i, label %Gia_AigerWriteUnsignedBuffer.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %39
@@ -295,7 +295,7 @@ Gia_ObjIsHead.exit81:                             ; preds = %58
   %68 = sub nsw i32 %67, %.061131
   %69 = shl nsw i32 %68, 1
   %70 = or disjoint i32 %69, 1
-  %.not11.i82 = icmp ult i32 %70, 128
+  %.not11.i82 = icmp ult i32 %69, 128
   br i1 %.not11.i82, label %.lr.ph128.preheader, label %.lr.ph.preheader.i83
 
 .lr.ph.preheader.i83:                             ; preds = %66
@@ -340,7 +340,7 @@ Gia_ObjIsHead.exit81:                             ; preds = %58
   %85 = lshr i32 %83, 27
   %86 = and i32 %85, 2
   %87 = or disjoint i32 %86, %84
-  %.not11.i93 = icmp ult i32 %87, 128
+  %.not11.i93 = icmp ult i32 %84, 128
   br i1 %.not11.i93, label %Gia_AigerWriteUnsignedBuffer.exit103, label %.lr.ph.preheader.i94
 
 .lr.ph.preheader.i94:                             ; preds = %.lr.ph128
@@ -698,7 +698,7 @@ Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %28, %._crit_edge.lo
   %48 = sub nsw i32 %45, %.14486
   %49 = shl nsw i32 %48, 1
   %50 = or disjoint i32 %49, 1
-  %.not11.i.i = icmp ult i32 %50, 128
+  %.not11.i.i = icmp ult i32 %49, 128
   br i1 %.not11.i.i, label %Gia_AigerWriteDiffValue.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %47
@@ -771,7 +771,7 @@ Gia_AigerWriteDiffValue.exit:                     ; preds = %47, %._crit_edge.lo
   %73 = sub nsw i32 %71, %.144.lcssa
   %74 = shl nsw i32 %73, 1
   %75 = or disjoint i32 %74, 1
-  %.not11.i.i66 = icmp ult i32 %75, 128
+  %.not11.i.i66 = icmp ult i32 %74, 128
   br i1 %.not11.i.i66, label %Gia_AigerWriteDiffValue.exit74, label %.lr.ph.preheader.i.i67
 
 .lr.ph.preheader.i.i67:                           ; preds = %72

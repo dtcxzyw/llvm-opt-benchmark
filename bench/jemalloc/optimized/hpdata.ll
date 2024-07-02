@@ -1909,7 +1909,7 @@ cond.true36.i73.i:                                ; preds = %cond.true36.i73.loo
   %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i27.1.lcssa.i, i1 true)
   %mul.i64.i = shl i64 %group_ind.i24.0.lcssa.i, 6
   %add42.i65.i = or disjoint i64 %mul.i64.i, %2
-  %or.cond.i = icmp ugt i64 %add42.i65.i, 511
+  %or.cond.i = icmp ugt i64 %mul.i64.i, 511
   br i1 %or.cond.i, label %fb_urange_iter.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.true36.i73.i
@@ -2145,7 +2145,7 @@ cond.true36.i73.i113:                             ; preds = %cond.true36.i73.loo
   %44 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i27.1.lcssa.i114, i1 true)
   %mul.i64.i116 = shl i64 %group_ind.i24.0.lcssa.i115, 6
   %add42.i65.i117 = or disjoint i64 %mul.i64.i116, %44
-  %or.cond.i118 = icmp ugt i64 %add42.i65.i117, 511
+  %or.cond.i118 = icmp ugt i64 %mul.i64.i116, 511
   br i1 %or.cond.i118, label %while.end45, label %if.end.i.i119
 
 if.end.i.i119:                                    ; preds = %cond.true36.i73.i113
@@ -2190,7 +2190,7 @@ if.end40.thread:                                  ; preds = %do.end36.thread
 
 if.end40:                                         ; preds = %do.end36
   %spec.select48 = tail call i64 @llvm.umax.i64(i64 %sub.i.i132, i64 %largest_unchosen_range.2187)
-  %cmp26 = icmp ult i64 %add42.i.i129, 512
+  %cmp26 = icmp ult i64 %mul.i.i128, 512
   br i1 %cmp26, label %while.body27, label %while.end45, !llvm.loop !11
 
 while.end45:                                      ; preds = %if.end40, %do.end36, %cond.true36.i73.i113, %while.body.i75.i141, %do.end36.thread, %if.end40.thread, %if.then24

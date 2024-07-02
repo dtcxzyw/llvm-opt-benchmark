@@ -1815,12 +1815,12 @@ do.body750:                                       ; preds = %for.cond
   %sh_prom752 = zext nneg i32 %and751 to i64
   %shr753 = lshr i64 %hold.0, %sh_prom752
   %sub755 = and i32 %bits.0, -8
-  %cmp7601711 = icmp ult i32 %sub755, 32
+  %cmp7601711 = icmp ult i32 %bits.0, 32
   br i1 %cmp7601711, label %do.body763.preheader, label %do.end779
 
 do.body763.preheader:                             ; preds = %do.body750
-  %113 = and i32 %bits.0, -8
-  %114 = zext i32 %113 to i64
+  %113 = and i32 %bits.0, 24
+  %114 = zext nneg i32 %113 to i64
   br label %do.body763
 
 do.body763:                                       ; preds = %do.body763.preheader, %if.end767
@@ -1843,7 +1843,7 @@ if.end767:                                        ; preds = %do.body763
   br i1 %cmp760, label %do.body763, label %do.end779.loopexit, !llvm.loop !14
 
 do.end779.loopexit:                               ; preds = %if.end767
-  %116 = trunc nuw nsw i64 %indvars.iv.next2320 to i32
+  %116 = trunc nuw i64 %indvars.iv.next2320 to i32
   br label %do.end779
 
 do.end779:                                        ; preds = %do.end779.loopexit, %do.body750
@@ -3300,7 +3300,7 @@ do.body1868.loopexit1946:                         ; preds = %do.body620
   br label %do.body1868
 
 do.body1868.loopexit1947:                         ; preds = %do.body763
-  %236 = trunc nuw nsw i64 %indvars.iv2319 to i32
+  %236 = trunc nuw i64 %indvars.iv2319 to i32
   br label %do.body1868
 
 do.body1868.loopexit1955:                         ; preds = %do.body834

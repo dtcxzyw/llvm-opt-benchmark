@@ -512,7 +512,7 @@ define internal i32 @strset_reply_size(ptr nocapture noundef readonly %0, ptr no
   %47 = and i32 %46, -4
   %48 = add i32 %47, 23
   %49 = and i32 %48, -4
-  %50 = icmp slt i32 %49, 0
+  %50 = icmp slt i32 %48, 0
   br i1 %50, label %.split8.us, label %.thread.us
 
 .thread.us:                                       ; preds = %45, %21
@@ -571,7 +571,7 @@ define internal i32 @strset_reply_size(ptr nocapture noundef readonly %0, ptr no
   %88 = and i32 %87, -4
   %89 = add i32 %88, 23
   %90 = and i32 %89, -4
-  %91 = icmp slt i32 %90, 0
+  %91 = icmp slt i32 %89, 0
   br i1 %91, label %.split8.us, label %.thread
 
 .thread:                                          ; preds = %61, %86

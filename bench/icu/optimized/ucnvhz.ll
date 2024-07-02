@@ -411,8 +411,8 @@ if.else155.thread:                                ; preds = %if.end130
   %cmp156 = icmp eq i32 %call.fr, 65534
   %spec.select = select i1 %cmp156, i32 10, i32 12
   store i32 %spec.select, ptr %err, align 4
-  %cmp160 = icmp ugt i32 %or100, 255
-  br i1 %cmp160, label %if.then161, label %if.else172
+  %cmp160.not = icmp eq i32 %shl, 0
+  br i1 %cmp160.not, label %if.else172, label %if.then161
 
 if.then161:                                       ; preds = %if.else101, %if.else155.thread
   %mySourceChar.1113128238 = phi i32 [ %or100, %if.else155.thread ], [ %or108, %if.else101 ]

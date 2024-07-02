@@ -11095,7 +11095,7 @@ define hidden void @"_ZN5gimli4read4line36LineRows$LT$R$C$Program$C$Offset$GT$8n
   %.sroa.3.sroa.11.0.insert.ext161 = zext i48 %.sroa.44.sroa.53.4.ph to i64
   %.sroa.3.sroa.11.0.insert.shift162 = shl nuw i64 %.sroa.3.sroa.11.0.insert.ext161, 16
   %.sroa.3.sroa.0.0.insert.insert137 = or disjoint i64 %.sroa.3.sroa.0.sroa.0.0.insert.insert196, %.sroa.3.sroa.11.0.insert.shift162
-  %356 = icmp slt i64 %.sroa.3.sroa.0.0.insert.insert137, 0
+  %356 = icmp slt i64 %.sroa.3.sroa.11.0.insert.shift162, 0
   br i1 %356, label %394, label %391
 
 357:                                              ; preds = %"_ZN5gimli4read4line25LineInstructions$LT$R$GT$16next_instruction17h2793e4c2c0f2ded7E.exit"

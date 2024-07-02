@@ -2429,7 +2429,7 @@ define dso_local void @md_bitmap_end_sync(ptr noundef %0, i64 noundef %1, ptr no
 61:                                               ; preds = %57
   %62 = and i16 %58, -16385
   store i16 %62, ptr %55, align 2
-  %63 = icmp sgt i16 %62, -1
+  %63 = icmp sgt i16 %58, -1
   %64 = icmp ne i32 %3, 0
   %65 = and i1 %64, %63
   br i1 %65, label %66, label %68

@@ -27,13 +27,15 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %.not.i4.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc90fce4b7b8de0c7E.llvm.8689372755365729931.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
-  %7 = phi i64 [ %12, %.lr.ph.i.i ], [ %.sroa.4.0.copyload, %2 ]
+  %7 = phi i64 [ %13, %.lr.ph.i.i ], [ %.sroa.4.0.copyload, %2 ]
   %8 = phi i64 [ %9, %.lr.ph.i.i ], [ %.promoted.i.i, %2 ]
   %9 = add nuw nsw i64 %8, 1
-  %10 = getelementptr inbounds { [9 x i64] }, ptr %3, i64 %8
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %.sroa.7.0.copyload, i64 %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull readonly align 8 dereferenceable(72) %10, i64 72, i1 false), !noalias !13
-  %12 = add i64 %7, 1
+  %10 = icmp ult i64 %8, 4
+  tail call void @llvm.assume(i1 %10)
+  %11 = getelementptr inbounds { [9 x i64] }, ptr %3, i64 %8
+  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %.sroa.7.0.copyload, i64 %7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull readonly align 8 dereferenceable(72) %11, i64 72, i1 false), !noalias !13
+  %13 = add i64 %7, 1
   %.not.i.i.i = icmp eq i64 %6, %9
   br i1 %.not.i.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -42,12 +44,12 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc90fce4b7b8de0c7E.llvm.8689372755365729931.exit"
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc90fce4b7b8de0c7E.llvm.8689372755365729931.exit": ; preds = %2, %._crit_edge.i.i
-  %13 = phi i64 [ %12, %._crit_edge.i.i ], [ %.sroa.4.0.copyload, %2 ]
-  %14 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %14)
-  store i64 %13, ptr %.sroa.0.0.copyload, align 8, !noalias !20
-  %15 = getelementptr inbounds { [9 x i64] }, ptr %3, i64 %6
-  call void @"_ZN4core3ptr83drop_in_place$LT$$u5b$clap_builder..builder..possible_value..PossibleValue$u5d$$GT$17hde7f968efcc6de33E.llvm.7235721625540830308"(ptr noalias noundef nonnull align 8 %15, i64 noundef 0), !noalias !10
+  %14 = phi i64 [ %13, %._crit_edge.i.i ], [ %.sroa.4.0.copyload, %2 ]
+  %15 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %15)
+  store i64 %14, ptr %.sroa.0.0.copyload, align 8, !noalias !20
+  %16 = getelementptr inbounds { [9 x i64] }, ptr %3, i64 %6
+  call void @"_ZN4core3ptr83drop_in_place$LT$$u5b$clap_builder..builder..possible_value..PossibleValue$u5d$$GT$17hde7f968efcc6de33E.llvm.7235721625540830308"(ptr noalias noundef nonnull align 8 %16, i64 noundef 0), !noalias !10
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %3)
   ret void
 }
@@ -525,13 +527,13 @@ define hidden void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$clap
   br label %5
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb6d68e5cfab314b6E.llvm.8689372755365729931(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(288) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !140, !noundef !12
   %.promoted = load i64, ptr %0, align 8, !alias.scope !140
   %.not.i4 = icmp eq i64 %5, %.promoted
-  br i1 %.not.i4, label %16, label %.lr.ph
+  br i1 %.not.i4, label %17, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -541,22 +543,24 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb6d68e5cfa
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
-  %10 = phi i64 [ %.promoted5, %.lr.ph ], [ %15, %9 ]
+  %10 = phi i64 [ %.promoted5, %.lr.ph ], [ %16, %9 ]
   %11 = phi i64 [ %.promoted, %.lr.ph ], [ %12, %9 ]
   %12 = add nuw nsw i64 %11, 1
-  %13 = getelementptr inbounds { [9 x i64] }, ptr %2, i64 %11
-  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %7, i64 %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull readonly align 8 dereferenceable(72) %13, i64 72, i1 false)
-  %15 = add i64 %10, 1
+  %13 = icmp ult i64 %11, 4
+  tail call void @llvm.assume(i1 %13)
+  %14 = getelementptr inbounds { [9 x i64] }, ptr %2, i64 %11
+  %15 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %7, i64 %10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull readonly align 8 dereferenceable(72) %14, i64 72, i1 false)
+  %16 = add i64 %10, 1
   %.not.i = icmp eq i64 %5, %12
   br i1 %.not.i, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %9
   store i64 %5, ptr %0, align 8, !alias.scope !140
-  store i64 %15, ptr %8, align 8, !alias.scope !143, !noalias !150
-  br label %16
+  store i64 %16, ptr %8, align 8, !alias.scope !143, !noalias !150
+  br label %17
 
-16:                                               ; preds = %._crit_edge, %3
+17:                                               ; preds = %._crit_edge, %3
   ret void
 }
 
@@ -595,7 +599,7 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !alias.scope !163
-  br label %16
+  br label %17
 
 .lr.ph.i:                                         ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -605,32 +609,34 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   br label %9
 
 9:                                                ; preds = %9, %.lr.ph.i
-  %10 = phi i64 [ %.promoted5.i, %.lr.ph.i ], [ %15, %9 ]
+  %10 = phi i64 [ %.promoted5.i, %.lr.ph.i ], [ %16, %9 ]
   %11 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %12, %9 ]
   %12 = add nuw nsw i64 %11, 1
-  %13 = getelementptr inbounds { [9 x i64] }, ptr %0, i64 %11
-  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %7, i64 %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull readonly align 8 dereferenceable(72) %13, i64 72, i1 false), !noalias !186
-  %15 = add i64 %10, 1
+  %13 = icmp ult i64 %11, 4
+  tail call void @llvm.assume(i1 %13)
+  %14 = getelementptr inbounds { [9 x i64] }, ptr %0, i64 %11
+  %15 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %7, i64 %10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull readonly align 8 dereferenceable(72) %14, i64 72, i1 false), !noalias !186
+  %16 = add i64 %10, 1
   %.not.i.i = icmp eq i64 %5, %12
   br i1 %.not.i.i, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %9
   store i64 %5, ptr %3, align 8, !alias.scope !187, !noalias !190
-  store i64 %15, ptr %8, align 8, !alias.scope !174, !noalias !181
-  br label %16
+  store i64 %16, ptr %8, align 8, !alias.scope !174, !noalias !181
+  br label %17
 
-16:                                               ; preds = %._crit_edge, %._crit_edge.i
-  %17 = phi i64 [ %.pre, %._crit_edge ], [ %15, %._crit_edge.i ]
+17:                                               ; preds = %._crit_edge, %._crit_edge.i
+  %18 = phi i64 [ %.pre, %._crit_edge ], [ %16, %._crit_edge.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
-  %18 = load ptr, ptr %1, align 8, !alias.scope !163, !nonnull !12, !align !108, !noundef !12
-  store i64 %17, ptr %18, align 8, !noalias !163
-  %19 = getelementptr inbounds { [9 x i64] }, ptr %0, i64 %5
-  tail call void @"_ZN4core3ptr83drop_in_place$LT$$u5b$clap_builder..builder..possible_value..PossibleValue$u5d$$GT$17hde7f968efcc6de33E.llvm.7235721625540830308"(ptr noalias noundef nonnull align 8 %19, i64 noundef 0)
+  %19 = load ptr, ptr %1, align 8, !alias.scope !163, !nonnull !12, !align !108, !noundef !12
+  store i64 %18, ptr %19, align 8, !noalias !163
+  %20 = getelementptr inbounds { [9 x i64] }, ptr %0, i64 %5
+  tail call void @"_ZN4core3ptr83drop_in_place$LT$$u5b$clap_builder..builder..possible_value..PossibleValue$u5d$$GT$17hde7f968efcc6de33E.llvm.7235721625540830308"(ptr noalias noundef nonnull align 8 %20, i64 noundef 0)
   ret void
 }
 
@@ -680,7 +686,7 @@ attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

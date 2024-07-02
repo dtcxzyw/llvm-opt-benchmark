@@ -255,7 +255,7 @@ define internal noundef i32 @cff_driver_init(ptr nocapture noundef %0) #5 {
   %19 = xor i32 %18, %15
   %20 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 %19, ptr %20, align 8
-  %21 = icmp slt i32 %19, 0
+  %21 = icmp slt i32 %15, 0
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %1

@@ -26265,7 +26265,7 @@ stbi__check_png_header.exit:                      ; preds = %22
   br i1 %71, label %stbi__skip.exit, label %72
 
 72:                                               ; preds = %70
-  %73 = icmp slt i32 %65, 0
+  %73 = icmp slt i32 %63, 0
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %72
@@ -27450,7 +27450,7 @@ stbi__getn.exit.thread:                           ; preds = %517, %stbi__getn.ex
   br i1 %606, label %stbi__skip.exit, label %607
 
 607:                                              ; preds = %605
-  %608 = icmp slt i32 %65, 0
+  %608 = icmp slt i32 %63, 0
   br i1 %608, label %609, label %611
 
 609:                                              ; preds = %607

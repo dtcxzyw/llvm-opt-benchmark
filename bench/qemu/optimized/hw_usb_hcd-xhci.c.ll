@@ -4272,14 +4272,14 @@ if.end:                                           ; preds = %lor.lhs.false4
   br i1 %cmp.i, label %if.end9.i, label %if.end.i7
 
 if.end.i7:                                        ; preds = %if.end
-  %conv.i = zext i8 %4 to i32
-  %mul.i = shl nuw nsw i32 %conv.i, 1
+  %conv.i = zext i8 %4 to i64
+  %mul.i = shl nuw nsw i64 %conv.i, 1
   %pid.i = getelementptr inbounds i8, ptr %ep, i64 1
   %5 = load i8, ptr %pid.i, align 1
   %cmp3.i = icmp eq i8 %5, 105
-  %add.i = zext i1 %cmp3.i to i32
-  %spec.select.i = or disjoint i32 %mul.i, %add.i
-  %cmp4.i = icmp ult i32 %spec.select.i, 32
+  %add.i = zext i1 %cmp3.i to i64
+  %spec.select.i = or disjoint i64 %mul.i, %add.i
+  %cmp4.i = icmp ult i8 %4, 16
   br i1 %cmp4.i, label %if.end9.i, label %if.else6.i
 
 if.else6.i:                                       ; preds = %if.end.i7
@@ -4287,10 +4287,10 @@ if.else6.i:                                       ; preds = %if.end.i7
   unreachable
 
 if.end9.i:                                        ; preds = %if.end.i7, %if.end
-  %retval.0.i1114 = phi i32 [ %spec.select.i, %if.end.i7 ], [ 1, %if.end ]
+  %retval.0.i1114 = phi i64 [ %spec.select.i, %if.end.i7 ], [ 1, %if.end ]
   %eps.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %sub14.i = add nsw i32 %retval.0.i1114, -1
-  %idxprom15.i = zext nneg i32 %sub14.i to i64
+  %sub14.i = add nuw nsw i64 %retval.0.i1114, 4294967295
+  %idxprom15.i = and i64 %sub14.i, 4294967295
   %arrayidx16.i = getelementptr [31 x ptr], ptr %eps.i, i64 0, i64 %idxprom15.i
   %6 = load ptr, ptr %arrayidx16.i, align 8
   %tobool17.not.i = icmp eq ptr %6, null

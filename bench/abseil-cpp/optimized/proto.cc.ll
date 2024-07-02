@@ -105,7 +105,7 @@ define dso_local noundef zeroext i1 @_ZN4absl12log_internal11Encode64BitEmmPNS_4
 entry:
   %shl.i = shl i64 %tag, 3
   %or.i = or disjoint i64 %shl.i, 1
-  %cmp2.i = icmp ult i64 %or.i, 128
+  %cmp2.i = icmp ult i64 %shl.i, 128
   br i1 %cmp2.i, label %_ZN4absl12log_internal10VarintSizeEm.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry, %cond.false.i
@@ -183,7 +183,7 @@ define dso_local noundef zeroext i1 @_ZN4absl12log_internal11Encode32BitEmjPNS_4
 entry:
   %shl.i = shl i64 %tag, 3
   %or.i = or disjoint i64 %shl.i, 5
-  %cmp2.i = icmp ult i64 %or.i, 128
+  %cmp2.i = icmp ult i64 %shl.i, 128
   br i1 %cmp2.i, label %_ZN4absl12log_internal10VarintSizeEm.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry, %cond.false.i
@@ -261,7 +261,7 @@ define dso_local noundef zeroext i1 @_ZN4absl12log_internal11EncodeBytesEmNS_4Sp
 entry:
   %shl.i = shl i64 %tag, 3
   %or.i = or disjoint i64 %shl.i, 2
-  %cmp2.i = icmp ult i64 %or.i, 128
+  %cmp2.i = icmp ult i64 %shl.i, 128
   br i1 %cmp2.i, label %_ZN4absl12log_internal10VarintSizeEm.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry, %cond.false.i
@@ -370,7 +370,7 @@ define dso_local noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncate
 entry:
   %shl.i = shl i64 %tag, 3
   %or.i = or disjoint i64 %shl.i, 2
-  %cmp2.i = icmp ult i64 %or.i, 128
+  %cmp2.i = icmp ult i64 %shl.i, 128
   br i1 %cmp2.i, label %_ZN4absl12log_internal10VarintSizeEm.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry, %cond.false.i
@@ -483,7 +483,7 @@ define dso_local { ptr, i64 } @_ZN4absl12log_internal18EncodeMessageStartEmmPNS_
 entry:
   %shl.i = shl i64 %tag, 3
   %or.i = or disjoint i64 %shl.i, 2
-  %cmp2.i = icmp ult i64 %or.i, 128
+  %cmp2.i = icmp ult i64 %shl.i, 128
   br i1 %cmp2.i, label %_ZN4absl12log_internal10VarintSizeEm.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry, %cond.false.i

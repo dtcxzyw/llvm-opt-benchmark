@@ -61,7 +61,7 @@ define ptr @Llb_ManConstructOutBdd(ptr noundef %0, ptr noundef %1, ptr noundef %
   %20 = call ptr @Aig_ManDfsNodes(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 1) #12
   %21 = getelementptr i8, ptr %20, i64 4
   %.val4858 = load i32, ptr %21, align 4
-  %22 = icmp ne i32 %.val4858, 0
+  %22 = icmp sgt i32 %.val4858, 0
   call void @llvm.assume(i1 %22)
   %23 = getelementptr i8, ptr %20, i64 8
   br label %24

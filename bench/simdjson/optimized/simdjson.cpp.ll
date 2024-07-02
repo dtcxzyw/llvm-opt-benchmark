@@ -2949,14 +2949,14 @@ while.end:                                        ; preds = %while.end.loopexit,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK8simdjson8fallback14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #3 align 2 {
 entry:
-  %cmp61 = icmp eq i64 %len, 0
-  br i1 %cmp61, label %return, label %while.body
+  %cmp60 = icmp eq i64 %len, 0
+  br i1 %cmp60, label %return, label %while.body
 
 while.body:                                       ; preds = %entry, %while.cond.backedge
-  %pos.062 = phi i64 [ %pos.0.be, %while.cond.backedge ], [ 0, %entry ]
-  %add = add i64 %pos.062, 16
+  %pos.061 = phi i64 [ %pos.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %add = add i64 %pos.061, 16
   %cmp2.not = icmp ugt i64 %add, %len
-  %arrayidx.phi.trans.insert = getelementptr inbounds i8, ptr %buf, i64 %pos.062
+  %arrayidx.phi.trans.insert = getelementptr inbounds i8, ptr %buf, i64 %pos.061
   br i1 %cmp2.not, label %while.body.if.end7_crit_edge, label %if.then
 
 while.body.if.end7_crit_edge:                     ; preds = %while.body
@@ -2975,17 +2975,17 @@ if.then:                                          ; preds = %while.body
 
 if.end7:                                          ; preds = %while.body.if.end7_crit_edge, %if.then
   %1 = phi i8 [ %.pre, %while.body.if.end7_crit_edge ], [ %0, %if.then ]
-  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %pos.062
+  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %pos.061
   %conv = zext i8 %1 to i32
   %cmp8 = icmp sgt i8 %1, -1
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end7
-  %inc = add i64 %pos.062, 1
+  %inc = add i64 %pos.061, 1
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %if.end110, %if.end58, %if.end17, %if.then9, %if.then
-  %pos.0.be = phi i64 [ %inc, %if.then9 ], [ %add, %if.then ], [ %add86, %if.end110 ], [ %add41, %if.end58 ], [ %add14, %if.end17 ]
+while.cond.backedge:                              ; preds = %lor.lhs.false76, %if.end110, %if.end17, %if.then9, %if.then
+  %pos.0.be = phi i64 [ %inc, %if.then9 ], [ %add, %if.then ], [ %add41, %lor.lhs.false76 ], [ %add86, %if.end110 ], [ %add14, %if.end17 ]
   %cmp.not = icmp ult i64 %pos.0.be, %len
   br i1 %cmp.not, label %while.body, label %return, !llvm.loop !35
 
@@ -2995,7 +2995,7 @@ if.else:                                          ; preds = %if.end7
   br i1 %cmp12, label %if.then13, label %if.else36
 
 if.then13:                                        ; preds = %if.else
-  %add14 = add i64 %pos.062, 2
+  %add14 = add i64 %pos.061, 2
   %cmp15 = icmp ugt i64 %add14, %len
   br i1 %cmp15, label %return, label %if.end17
 
@@ -3006,8 +3006,8 @@ if.end17:                                         ; preds = %if.then13
   %cmp22.not = icmp ne i8 %3, -128
   %4 = and i32 %conv, 30
   %cmp32 = icmp eq i32 %4, 0
-  %or.cond60 = or i1 %cmp32, %cmp22.not
-  br i1 %or.cond60, label %return, label %while.cond.backedge
+  %or.cond = or i1 %cmp32, %cmp22.not
+  br i1 %or.cond, label %return, label %while.cond.backedge
 
 if.else36:                                        ; preds = %if.else
   %and38 = and i32 %conv, 240
@@ -3015,7 +3015,7 @@ if.else36:                                        ; preds = %if.else
   br i1 %cmp39, label %if.then40, label %if.else81
 
 if.then40:                                        ; preds = %if.else36
-  %add41 = add i64 %pos.062, 3
+  %add41 = add i64 %pos.061, 3
   %cmp42 = icmp ugt i64 %add41, %len
   br i1 %cmp42, label %return, label %if.end44
 
@@ -3041,10 +3041,13 @@ if.end58:                                         ; preds = %if.end51
   %shl66 = and i32 %and65, 4032
   %or67 = or disjoint i32 %shl66, %shl61
   %cmp73 = icmp ult i32 %or67, 2048
-  %8 = and i32 %or67, 63488
-  %or.cond2 = icmp eq i32 %8, 55296
-  %or.cond = or i1 %cmp73, %or.cond2
-  br i1 %or.cond, label %return, label %while.cond.backedge
+  br i1 %cmp73, label %return, label %lor.lhs.false76
+
+lor.lhs.false76:                                  ; preds = %if.end58
+  %cmp77 = icmp ugt i32 %or67, 55295
+  %cmp78 = icmp ult i32 %shl61, 57344
+  %or.cond2 = and i1 %cmp78, %cmp77
+  br i1 %or.cond2, label %return, label %while.cond.backedge
 
 if.else81:                                        ; preds = %if.else36
   %and83 = and i32 %conv, 248
@@ -3052,30 +3055,30 @@ if.else81:                                        ; preds = %if.else36
   br i1 %cmp84, label %if.then85, label %return
 
 if.then85:                                        ; preds = %if.else81
-  %add86 = add i64 %pos.062, 4
+  %add86 = add i64 %pos.061, 4
   %cmp87 = icmp ugt i64 %add86, %len
   br i1 %cmp87, label %return, label %if.end89
 
 if.end89:                                         ; preds = %if.then85
   %arrayidx91 = getelementptr i8, ptr %arrayidx, i64 1
-  %9 = load i8, ptr %arrayidx91, align 1
-  %conv92 = zext i8 %9 to i32
+  %8 = load i8, ptr %arrayidx91, align 1
+  %conv92 = zext i8 %8 to i32
   %and93 = and i32 %conv92, 192
   %cmp94.not = icmp eq i32 %and93, 128
   br i1 %cmp94.not, label %if.end96, label %return
 
 if.end96:                                         ; preds = %if.end89
   %arrayidx98 = getelementptr i8, ptr %arrayidx, i64 2
-  %10 = load i8, ptr %arrayidx98, align 1
-  %11 = and i8 %10, -64
-  %cmp101.not = icmp eq i8 %11, -128
+  %9 = load i8, ptr %arrayidx98, align 1
+  %10 = and i8 %9, -64
+  %cmp101.not = icmp eq i8 %10, -128
   br i1 %cmp101.not, label %if.end103, label %return
 
 if.end103:                                        ; preds = %if.end96
   %arrayidx105 = getelementptr i8, ptr %arrayidx, i64 3
-  %12 = load i8, ptr %arrayidx105, align 1
-  %13 = and i8 %12, -64
-  %cmp108.not = icmp eq i8 %13, -128
+  %11 = load i8, ptr %arrayidx105, align 1
+  %12 = and i8 %11, -64
+  %cmp108.not = icmp eq i8 %12, -128
   br i1 %cmp108.not, label %if.end110, label %return
 
 if.end110:                                        ; preds = %if.end103
@@ -3084,12 +3087,12 @@ if.end110:                                        ; preds = %if.end103
   %and117 = shl nuw nsw i32 %conv92, 12
   %shl118 = and i32 %and117, 196608
   %or119 = add nsw i32 %shl113, -1114112
-  %14 = add nsw i32 %or119, %shl118
-  %or.cond3 = icmp ult i32 %14, -1048576
+  %13 = add nsw i32 %or119, %shl118
+  %or.cond3 = icmp ult i32 %13, -1048576
   br i1 %or.cond3, label %return, label %while.cond.backedge
 
-return:                                           ; preds = %if.then13, %if.end17, %if.then40, %if.end44, %if.end51, %if.end58, %if.then85, %if.end89, %if.end96, %if.end103, %if.end110, %if.else81, %while.cond.backedge, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ true, %while.cond.backedge ], [ false, %if.else81 ], [ false, %if.end110 ], [ false, %if.end103 ], [ false, %if.end96 ], [ false, %if.end89 ], [ false, %if.then85 ], [ false, %if.end58 ], [ false, %if.end51 ], [ false, %if.end44 ], [ false, %if.then40 ], [ false, %if.end17 ], [ false, %if.then13 ]
+return:                                           ; preds = %if.then13, %if.end17, %if.then40, %if.end44, %if.end51, %lor.lhs.false76, %if.end58, %if.then85, %if.end89, %if.end96, %if.end103, %if.end110, %if.else81, %while.cond.backedge, %entry
+  %cmp.lcssa = phi i1 [ true, %entry ], [ true, %while.cond.backedge ], [ false, %if.else81 ], [ false, %if.end110 ], [ false, %if.end103 ], [ false, %if.end96 ], [ false, %if.end89 ], [ false, %if.then85 ], [ false, %if.end58 ], [ false, %lor.lhs.false76 ], [ false, %if.end51 ], [ false, %if.end44 ], [ false, %if.then40 ], [ false, %if.end17 ], [ false, %if.then13 ]
   ret i1 %cmp.lcssa
 }
 

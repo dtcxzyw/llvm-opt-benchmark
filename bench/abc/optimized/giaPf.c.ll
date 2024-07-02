@@ -2085,7 +2085,7 @@ Gia_ObjSiblObj.exit:                              ; preds = %._crit_edge
   store i32 0, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %70, i64 12
   store float 0.000000e+00, ptr %79, align 4
-  %.not.i182 = icmp ult i32 %76, 134217728
+  %.not.i182 = icmp ult i32 %72, 134217728
   br i1 %.not.i182, label %Pf_CutParams.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %67
@@ -2115,11 +2115,11 @@ Gia_ObjSiblObj.exit:                              ; preds = %._crit_edge
   br i1 %exitcond.not.i, label %._crit_edge.i, label %81, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %81
-  %93 = icmp ugt i32 %76, 268435455
+  %93 = icmp ugt i32 %72, 268435455
   %94 = zext i1 %93 to i32
   %95 = add nuw nsw i32 %89, %94
   store i32 %95, ptr %78, align 8
-  %96 = icmp ult i32 %76, 268435456
+  %96 = icmp ult i32 %72, 268435456
   br i1 %96, label %Pf_CutParams.exit, label %97
 
 97:                                               ; preds = %._crit_edge.i
@@ -2337,7 +2337,7 @@ Gia_ObjFaninC2.exit:                              ; preds = %Gia_ObjFaninId2.exi
 .lr.ph.i192.us.us.us:                             ; preds = %212
   %226 = zext nneg i32 %.4477.us.us.us to i64
   %227 = lshr i32 %.fr, 27
-  %.not48.i.i.us.us.us = icmp ult i32 %219, 134217728
+  %.not48.i.i.us.us.us = icmp ult i32 %.fr, 134217728
   %wide.trip.count.i.i.us.us.us = zext nneg i32 %227 to i64
   br i1 %.not48.i.i.us.us.us, label %.lr.ph.split.us.split.us.i.us.us.us, label %.lr.ph.split.split.i.us.us.us
 
@@ -2839,7 +2839,7 @@ Pf_CutGetSign.exit.us.us.us:                      ; preds = %.lr.ph.i209.us.us.u
   store i32 0, ptr %507, align 8
   %508 = getelementptr inbounds i8, ptr %168, i64 12
   store float 0.000000e+00, ptr %508, align 4
-  %.not.i213.us.us.us = icmp ult i32 %496, 134217728
+  %.not.i213.us.us.us = icmp ult i32 %489, 134217728
   br i1 %.not.i213.us.us.us, label %Pf_CutParams.exit223.us.us.us, label %.lr.ph.i214.us.us.us
 
 .lr.ph.i214.us.us.us:                             ; preds = %505
@@ -2868,11 +2868,11 @@ Pf_CutGetSign.exit.us.us.us:                      ; preds = %.lr.ph.i209.us.us.u
   br i1 %exitcond.not.i220.us.us.us, label %._crit_edge.i221.us.us.us, label %509, !llvm.loop !32
 
 ._crit_edge.i221.us.us.us:                        ; preds = %509
-  %521 = icmp ugt i32 %496, 268435455
+  %521 = icmp ugt i32 %489, 268435455
   %522 = zext i1 %521 to i32
   %523 = add nuw nsw i32 %517, %522
   store i32 %523, ptr %507, align 8
-  %524 = icmp ult i32 %496, 268435456
+  %524 = icmp ult i32 %489, 268435456
   br i1 %524, label %Pf_CutParams.exit223.us.us.us, label %525
 
 525:                                              ; preds = %._crit_edge.i221.us.us.us
@@ -3399,7 +3399,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
 .lr.ph.i242.us:                                   ; preds = %.loopexit.us
   %763 = zext nneg i32 %.7495.us to i64
   %764 = lshr i32 %.fr584, 27
-  %.not48.i.i244.us = icmp ult i32 %758, 134217728
+  %.not48.i.i244.us = icmp ult i32 %.fr584, 134217728
   %wide.trip.count.i.i245.us = zext nneg i32 %764 to i64
   br i1 %.not48.i.i244.us, label %.lr.ph.split.us.split.us.i263.us, label %.lr.ph.split.split.i246.us
 
@@ -3821,7 +3821,7 @@ Pf_CutGetSign.exit313.us:                         ; preds = %.lr.ph.i308.us, %98
   store i32 0, ptr %992, align 8
   %993 = getelementptr inbounds i8, ptr %697, i64 12
   store float 0.000000e+00, ptr %993, align 4
-  %.not.i314.us = icmp ult i32 %981, 134217728
+  %.not.i314.us = icmp ult i32 %974, 134217728
   br i1 %.not.i314.us, label %Pf_CutParams.exit324.us, label %.lr.ph.i315.us
 
 .lr.ph.i315.us:                                   ; preds = %990
@@ -3850,11 +3850,11 @@ Pf_CutGetSign.exit313.us:                         ; preds = %.lr.ph.i308.us, %98
   br i1 %exitcond.not.i321.us, label %._crit_edge.i322.us, label %994, !llvm.loop !32
 
 ._crit_edge.i322.us:                              ; preds = %994
-  %1006 = icmp ugt i32 %981, 268435455
+  %1006 = icmp ugt i32 %974, 268435455
   %1007 = zext i1 %1006 to i32
   %1008 = add nuw nsw i32 %1002, %1007
   store i32 %1008, ptr %992, align 8
-  %1009 = icmp ult i32 %981, 268435456
+  %1009 = icmp ult i32 %974, 268435456
   br i1 %1009, label %Pf_CutParams.exit324.us, label %1010
 
 1010:                                             ; preds = %._crit_edge.i322.us

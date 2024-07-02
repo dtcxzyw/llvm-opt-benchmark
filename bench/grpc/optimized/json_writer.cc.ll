@@ -866,12 +866,12 @@ if.end63:                                         ; preds = %if.end57
 if.end68:                                         ; preds = %if.end63
   %5 = and i32 %utf32.1132, 67108832
   %or.cond3 = icmp eq i32 %5, 864
-  %cmp73 = icmp ugt i32 %or, 1114111
+  %cmp73 = icmp ugt i32 %shl, 1114111
   %or.cond4 = or i1 %cmp73, %or.cond3
   br i1 %or.cond4, label %for.end90, label %if.end75
 
 if.end75:                                         ; preds = %if.end68
-  %cmp76 = icmp ugt i32 %or, 65535
+  %cmp76 = icmp ugt i32 %shl, 65535
   br i1 %cmp76, label %if.then77, label %if.else83
 
 if.then77:                                        ; preds = %if.end75

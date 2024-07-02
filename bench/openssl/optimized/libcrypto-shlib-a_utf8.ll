@@ -39,12 +39,12 @@ if.end15:                                         ; preds = %if.then11
 if.end21:                                         ; preds = %if.end15
   %and24 = shl nuw nsw i32 %conv, 6
   %shl = and i32 %and24, 1984
-  %and28 = and i32 %conv16, 63
-  %or35 = or disjoint i32 %and28, %shl
-  %cmp30 = icmp ult i32 %or35, 128
+  %cmp30 = icmp ult i32 %shl, 128
   br i1 %cmp30, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.end21
+  %and28 = and i32 %conv16, 63
+  %or35 = or disjoint i32 %and28, %shl
   %or = zext nneg i32 %or35 to i64
   br label %if.end137
 
@@ -78,13 +78,13 @@ if.end55:                                         ; preds = %lor.lhs.false
   %and63 = shl nuw nsw i32 %conv45, 6
   %shl64 = and i32 %and63, 4032
   %or6634 = or disjoint i32 %shl64, %shl59
-  %5 = and i8 %3, 63
-  %6 = zext nneg i8 %5 to i32
-  %7 = or disjoint i32 %or6634, %6
-  %cmp72 = icmp ult i32 %7, 2048
+  %cmp72 = icmp ult i32 %or6634, 2048
   br i1 %cmp72, label %return, label %if.end75
 
 if.end75:                                         ; preds = %if.end55
+  %5 = and i8 %3, 63
+  %6 = zext nneg i8 %5 to i32
+  %7 = or disjoint i32 %or6634, %6
   %or71 = zext nneg i32 %7 to i64
   %8 = and i64 %or71, 63488
   %.not = icmp eq i64 %8, 55296
@@ -127,20 +127,23 @@ if.end106:                                        ; preds = %lor.lhs.false99
   %and114 = shl nuw nsw i32 %conv89, 12
   %shl115 = and i32 %and114, 258048
   %or11733 = or disjoint i32 %shl115, %14
+  %cmp129 = icmp ult i32 %or11733, 65536
+  br i1 %cmp129, label %return, label %if.end132
+
+if.end132:                                        ; preds = %if.end106
   %or117 = zext nneg i32 %or11733 to i64
   %15 = and i8 %10, 63
   %and120 = zext nneg i8 %15 to i64
   %shl121 = shl nuw nsw i64 %and120, 6
-  %or123 = or disjoint i64 %shl121, %or117
   %16 = and i8 %12, 63
   %conv127 = zext nneg i8 %16 to i64
-  %or128 = or disjoint i64 %or123, %conv127
-  %cmp129 = icmp ult i64 %or128, 65536
-  br i1 %cmp129, label %return, label %if.end137
+  %17 = or disjoint i64 %shl121, %conv127
+  %or128 = or disjoint i64 %17, %or117
+  br label %if.end137
 
-if.end137:                                        ; preds = %if.end106, %if.end75, %if.end33, %if.then3
-  %value.0 = phi i64 [ %conv6, %if.then3 ], [ %or, %if.end33 ], [ %or71, %if.end75 ], [ %or128, %if.end106 ]
-  %ret.0 = phi i32 [ 1, %if.then3 ], [ 2, %if.end33 ], [ 3, %if.end75 ], [ 4, %if.end106 ]
+if.end137:                                        ; preds = %if.end75, %if.end33, %if.end132, %if.then3
+  %value.0 = phi i64 [ %conv6, %if.then3 ], [ %or, %if.end33 ], [ %or128, %if.end132 ], [ %or71, %if.end75 ]
+  %ret.0 = phi i32 [ 1, %if.then3 ], [ 2, %if.end33 ], [ 4, %if.end132 ], [ 3, %if.end75 ]
   store i64 %value.0, ptr %val, align 8
   br label %return
 

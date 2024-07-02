@@ -108,7 +108,7 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %s
 
 Cut_TruthPhase.exit:                              ; preds = %47, %49, %Kit_TruthNot.exit
   %.013.lcssa.i = phi i32 [ 0, %Kit_TruthNot.exit ], [ %.114.i, %49 ], [ %.01315.i, %47 ]
-  tail call void @Kit_TruthStretch(ptr noundef %35, ptr noundef %36, i32 noundef %39, i32 noundef %41, i32 noundef %.013.lcssa.i, i32 noundef 0) #9
+  tail call void @Kit_TruthStretch(ptr noundef %35, ptr noundef %36, i32 noundef %39, i32 noundef %41, i32 noundef %.013.lcssa.i, i32 noundef 0) #8
   %.not30 = icmp eq i32 %5, 0
   %60 = getelementptr inbounds i8, ptr %0, i64 88
   %61 = load ptr, ptr %60, align 8
@@ -205,7 +205,7 @@ Kit_TruthNot.exit43:                              ; preds = %select.unfold.i40, 
 
 Cut_TruthPhase.exit60:                            ; preds = %97, %99, %Kit_TruthNot.exit43
   %.013.lcssa.i50 = phi i32 [ 0, %Kit_TruthNot.exit43 ], [ %.114.i56, %99 ], [ %.01315.i55, %97 ]
-  tail call void @Kit_TruthStretch(ptr noundef %86, ptr noundef %88, i32 noundef %91, i32 noundef %92, i32 noundef %.013.lcssa.i50, i32 noundef 0) #9
+  tail call void @Kit_TruthStretch(ptr noundef %86, ptr noundef %88, i32 noundef %91, i32 noundef %92, i32 noundef %.013.lcssa.i50, i32 noundef 0) #8
   %110 = getelementptr inbounds i8, ptr %1, i64 24
   %111 = getelementptr inbounds i8, ptr %1, i64 22
   %112 = load i8, ptr %111, align 2
@@ -260,7 +260,7 @@ define range(i32 0, 65811) i32 @Csw_CutSupportMinimize(ptr nocapture noundef rea
   %7 = getelementptr inbounds i32, ptr %3, i64 %6
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load i32, ptr %8, align 8
-  %10 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %7, i32 noundef %9) #9
+  %10 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %7, i32 noundef %9) #8
   %11 = and i32 %10, 1431655765
   %12 = lshr i32 %10, 1
   %13 = and i32 %12, 1431655765
@@ -290,7 +290,7 @@ define range(i32 0, 65811) i32 @Csw_CutSupportMinimize(ptr nocapture noundef rea
   %35 = getelementptr inbounds i8, ptr %0, i64 80
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr %8, align 8
-  tail call void @Kit_TruthShrink(ptr noundef %36, ptr noundef nonnull %7, i32 noundef %29, i32 noundef %37, i32 noundef %10, i32 noundef 1) #9
+  tail call void @Kit_TruthShrink(ptr noundef %36, ptr noundef nonnull %7, i32 noundef %29, i32 noundef %37, i32 noundef %10, i32 noundef 1) #8
   %38 = load i8, ptr %30, align 1
   %39 = icmp sgt i8 %38, 0
   br i1 %39, label %.lr.ph, label %._crit_edge
@@ -818,25 +818,25 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %33 = ptrtoint ptr %20 to i64
   %34 = xor i64 %33, 1
   %35 = inttoptr i64 %34 to ptr
-  %36 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %32, ptr noundef %35) #9
+  %36 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %32, ptr noundef %35) #8
   br label %.thread47
 
 37:                                               ; preds = %29
   %38 = ptrtoint ptr %20 to i64
   %39 = xor i64 %38, 1
   %40 = inttoptr i64 %39 to ptr
-  %41 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %19, ptr noundef %40) #9
+  %41 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %19, ptr noundef %40) #8
   br label %.thread47
 
 42:                                               ; preds = %29
   %43 = ptrtoint ptr %19 to i64
   %44 = xor i64 %43, 1
   %45 = inttoptr i64 %44 to ptr
-  %46 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %45, ptr noundef %20) #9
+  %46 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %45, ptr noundef %20) #8
   br label %.thread47
 
 47:                                               ; preds = %29
-  %48 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %19, ptr noundef %20) #9
+  %48 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %19, ptr noundef %20) #8
   br label %.thread47
 
 .thread47:                                        ; preds = %37, %.thread, %42, %47
@@ -861,7 +861,7 @@ declare ptr @Aig_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 define ptr @Csw_ObjPrepareCuts(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @Aig_MmFixedEntryFetch(ptr noundef %5) #9
+  %6 = tail call ptr @Aig_MmFixedEntryFetch(ptr noundef %5) #8
   %7 = getelementptr i8, ptr %0, i64 24
   %.val31 = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %1, i64 36
@@ -986,7 +986,7 @@ define ptr @Csw_ObjSweep(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2
 28:                                               ; preds = %22
   %29 = getelementptr inbounds i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call ptr @Aig_MmFixedEntryFetch(ptr noundef %30) #9
+  %31 = tail call ptr @Aig_MmFixedEntryFetch(ptr noundef %30) #8
   %.val31.i = load ptr, ptr %23, align 8
   %.val32.i = load i32, ptr %24, align 4
   %32 = sext i32 %.val32.i to i64
@@ -1149,9 +1149,8 @@ Csw_ObjPrepareCuts.exit:                          ; preds = %._crit_edge.i, %58
   %134 = sext i32 %.val118 to i64
   %135 = getelementptr inbounds ptr, ptr %.val.i122, i64 %134
   %136 = load ptr, ptr %135, align 8
-  %137 = icmp ne i32 %103, 0
+  %137 = icmp sgt i32 %103, 0
   call void @llvm.assume(i1 %137)
-  %smax.i = call i32 @llvm.smax.i32(i32 %103, i32 1)
   br label %.lr.ph.i123
 
 .lr.ph.i123:                                      ; preds = %150, %133
@@ -1185,7 +1184,7 @@ Csw_ObjPrepareCuts.exit:                          ; preds = %._crit_edge.i, %58
   %153 = load i16, ptr %152, align 4
   %154 = sext i16 %153 to i64
   %155 = getelementptr inbounds i8, ptr %.0153.i, i64 %154
-  %exitcond.not.i = icmp eq i32 %151, %smax.i
+  %exitcond.not.i = icmp eq i32 %151, %103
   br i1 %exitcond.not.i, label %._crit_edge.i124, label %.lr.ph.i123, !llvm.loop !20
 
 ._crit_edge.i124:                                 ; preds = %150
@@ -1196,7 +1195,7 @@ Csw_ObjPrepareCuts.exit:                          ; preds = %._crit_edge.i, %58
 Csw_CutFindFree.exit:                             ; preds = %.lr.ph.i123, %._crit_edge.i124
   %.016.i = phi ptr [ %.1.i, %._crit_edge.i124 ], [ %.0153.i, %.lr.ph.i123 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  %157 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #9
+  %157 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #8
   %158 = icmp slt i32 %157, 0
   br i1 %158, label %Abc_Clock.exit, label %159
 
@@ -1372,9 +1371,9 @@ Csw_CutFilter.exit:                               ; preds = %215
   %230 = getelementptr inbounds i8, ptr %.016.i, i64 23
   %231 = load i8, ptr %230, align 1
   %232 = load i32, ptr %83, align 8
-  %233 = call i32 @Kit_TruthSupportSize(ptr noundef nonnull %229, i32 noundef %232) #9
+  %233 = call i32 @Kit_TruthSupportSize(ptr noundef nonnull %229, i32 noundef %232) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %234 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #9
+  %234 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #8
   %235 = icmp slt i32 %234, 0
   br i1 %235, label %Abc_Clock.exit132, label %236
 
@@ -1421,7 +1420,7 @@ Abc_Clock.exit132:                                ; preds = %.loopexit, %236
   %261 = add nsw i32 %260, 1
   store i32 %261, ptr %259, align 4
   %262 = load i32, ptr %83, align 8
-  %263 = call i32 @Kit_TruthSupport(ptr noundef nonnull %229, i32 noundef %262) #9
+  %263 = call i32 @Kit_TruthSupport(ptr noundef nonnull %229, i32 noundef %262) #8
   br label %264
 
 264:                                              ; preds = %267, %258
@@ -1486,7 +1485,7 @@ Aig_ManObj.exit:                                  ; preds = %Kit_WordFindFirstBi
 
 296:                                              ; preds = %290, %287
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %297 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #9
+  %297 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #8
   %298 = icmp slt i32 %297, 0
   br i1 %298, label %Abc_Clock.exit138, label %299
 
@@ -1506,13 +1505,13 @@ Abc_Clock.exit138:                                ; preds = %296, %299
   br i1 %303, label %304, label %306
 
 304:                                              ; preds = %Abc_Clock.exit138
-  %305 = call ptr @Csw_TableCutLookup(ptr noundef nonnull %0, ptr noundef nonnull %.016.i) #9
+  %305 = call ptr @Csw_TableCutLookup(ptr noundef nonnull %0, ptr noundef nonnull %.016.i) #8
   br label %306
 
 306:                                              ; preds = %Abc_Clock.exit138, %304
   %307 = phi ptr [ %305, %304 ], [ null, %Abc_Clock.exit138 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %308 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #9
+  %308 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #8
   %309 = icmp slt i32 %308, 0
   br i1 %309, label %Abc_Clock.exit140, label %310
 
@@ -1622,7 +1621,7 @@ Csw_CutMerge.exit.thread:                         ; preds = %167, %165, %Csw_Cut
   %361 = add nsw i32 %360, 1
   store i32 %361, ptr %359, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %362 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #9
+  %362 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #8
   %363 = icmp slt i32 %362, 0
   br i1 %363, label %Abc_Clock.exit147, label %364
 
@@ -1660,7 +1659,7 @@ Abc_Clock.exit147:                                ; preds = %._crit_edge, %364
   br i1 %376, label %377, label %378
 
 377:                                              ; preds = %.lr.ph186
-  call void @Csw_TableCutInsert(ptr noundef nonnull %0, ptr noundef nonnull %.097184) #9
+  call void @Csw_TableCutInsert(ptr noundef nonnull %0, ptr noundef nonnull %.097184) #8
   %.pre200 = load i32, ptr %34, align 4
   br label %378
 
@@ -1676,7 +1675,7 @@ Abc_Clock.exit147:                                ; preds = %._crit_edge, %364
 
 ._crit_edge187:                                   ; preds = %378, %Abc_Clock.exit147
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %386 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #9
+  %386 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #8
   %387 = icmp slt i32 %386, 0
   br i1 %387, label %Abc_Clock.exit149, label %388
 
@@ -1716,14 +1715,11 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1732,9 +1728,8 @@ attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

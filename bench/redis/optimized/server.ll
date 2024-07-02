@@ -8576,7 +8576,7 @@ cond.end:                                         ; preds = %if.end
   %9 = load i32, ptr %argc, align 4
   %10 = zext nneg i32 %9 to i64
   %vla8 = alloca ptr, i64 %10, align 16
-  %cmp915 = icmp ne i32 %9, 0
+  %cmp915 = icmp sgt i32 %9, 0
   call void @llvm.assume(i1 %cmp915)
   br label %do.body
 

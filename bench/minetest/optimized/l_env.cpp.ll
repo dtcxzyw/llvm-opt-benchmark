@@ -5813,7 +5813,7 @@ for.cond.cleanup.i:                               ; preds = %for.inc.i, %call1.i
   %tr.sh.diff.i.i.i.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i.i.i.i to i32
   %conv.i13.i.i.i.i.i = ashr i32 %tr.sh.diff.i.i.i.i.i, 16
   %add.i16.i.i.i.i.i = add nsw i32 %conv.i13.i.i.i.i.i, -15
-  %cmp9.i17.i.i.i.i.i = icmp slt i48 %minp.sroa.0.0.insert.insert49, 0
+  %cmp9.i17.i.i.i.i.i = icmp slt i48 %minp.sroa.12.0.insert.shift57, 0
   %cond.i18.i.i.i.i.i = select i1 %cmp9.i17.i.i.i.i.i, i32 %add.i16.i.i.i.i.i, i32 %conv.i13.i.i.i.i.i
   %div.i19.i.i.i.i.i = sdiv i32 %cond.i18.i.i.i.i.i, 16
   %bpmin.sroa.0.0.extract.trunc.i.i.i = trunc nsw i32 %div.i.i.i.i.i.i to i16
@@ -5835,7 +5835,7 @@ for.cond.cleanup.i:                               ; preds = %for.inc.i, %call1.i
   %tr.sh.diff.i.i319.i.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i307.i.i.i to i32
   %conv.i13.i.i320.i.i.i = ashr i32 %tr.sh.diff.i.i319.i.i.i, 16
   %add.i16.i.i321.i.i.i = add nsw i32 %conv.i13.i.i320.i.i.i, -15
-  %cmp9.i17.i.i322.i.i.i = icmp slt i48 %maxp.sroa.0.0.insert.insert26, 0
+  %cmp9.i17.i.i322.i.i.i = icmp slt i48 %maxp.sroa.13.0.insert.shift34, 0
   %cond.i18.i.i323.i.i.i = select i1 %cmp9.i17.i.i322.i.i.i, i32 %add.i16.i.i321.i.i.i, i32 %conv.i13.i.i320.i.i.i
   %div.i19.i.i324.i.i.i = sdiv i32 %cond.i18.i.i323.i.i.i, 16
   %cmp.not391.i.i.i = icmp slt i32 %div.i19.i.i324.i.i.i, %div.i19.i.i.i.i.i
@@ -6333,7 +6333,7 @@ invoke.cont30.i:                                  ; preds = %invoke.cont29.i
   %tr.sh.diff.i.i.i.i165.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i.i.i153.i to i32
   %conv.i13.i.i.i.i166.i = ashr i32 %tr.sh.diff.i.i.i.i165.i, 16
   %add.i16.i.i.i.i167.i = add nsw i32 %conv.i13.i.i.i.i166.i, -15
-  %cmp9.i17.i.i.i.i168.i = icmp slt i48 %minp.sroa.0.0.insert.insert53, 0
+  %cmp9.i17.i.i.i.i168.i = icmp slt i48 %minp.sroa.12.0.insert.shift61, 0
   %cond.i18.i.i.i.i169.i = select i1 %cmp9.i17.i.i.i.i168.i, i32 %add.i16.i.i.i.i167.i, i32 %conv.i13.i.i.i.i166.i
   %div.i19.i.i.i.i170.i = sdiv i32 %cond.i18.i.i.i.i169.i, 16
   %bpmin.sroa.0.0.extract.trunc.i.i171.i = trunc nsw i32 %div.i.i.i.i.i159.i to i16
@@ -6355,7 +6355,7 @@ invoke.cont30.i:                                  ; preds = %invoke.cont29.i
   %tr.sh.diff.i.i319.i.i186.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i307.i.i174.i to i32
   %conv.i13.i.i320.i.i187.i = ashr i32 %tr.sh.diff.i.i319.i.i186.i, 16
   %add.i16.i.i321.i.i188.i = add nsw i32 %conv.i13.i.i320.i.i187.i, -15
-  %cmp9.i17.i.i322.i.i189.i = icmp slt i48 %maxp.sroa.0.0.insert.insert30, 0
+  %cmp9.i17.i.i322.i.i189.i = icmp slt i48 %maxp.sroa.13.0.insert.shift38, 0
   %cond.i18.i.i323.i.i190.i = select i1 %cmp9.i17.i.i322.i.i189.i, i32 %add.i16.i.i321.i.i188.i, i32 %conv.i13.i.i320.i.i187.i
   %div.i19.i.i324.i.i191.i = sdiv i32 %cond.i18.i.i323.i.i190.i, 16
   %cmp.not389.i.i.i = icmp slt i32 %div.i19.i.i324.i.i191.i, %div.i19.i.i.i.i170.i
@@ -9545,6 +9545,8 @@ if.then15.i:                                      ; preds = %if.end.thread.i, %i
   %22 = phi ptr [ %20, %if.end.thread.i ], [ %19, %if.end.i70 ]
   %_M_string_length.i58.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %23 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !14
+  %cmp3.i59.i = icmp ult i64 %23, 16
+  call void @llvm.assume(i1 %cmp3.i59.i)
   switch i64 %23, label %if.end.i.i.i [
     i64 0, label %if.end24.i
     i64 1, label %if.then.i63.i

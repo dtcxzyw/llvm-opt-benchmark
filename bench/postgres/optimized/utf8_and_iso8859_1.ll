@@ -130,10 +130,10 @@ define range(i64 -2147483648, 2147483648) i64 @utf8_to_iso8859_1(ptr nocapture n
   %19 = icmp sgt i32 %11, 0
   br i1 %19, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %1, %50
-  %.071 = phi ptr [ %51, %50 ], [ %5, %1 ]
-  %.04770 = phi ptr [ %.148, %50 ], [ %8, %1 ]
-  %.04969 = phi i32 [ %52, %50 ], [ %11, %1 ]
+.lr.ph:                                           ; preds = %1, %45
+  %.071 = phi ptr [ %46, %45 ], [ %5, %1 ]
+  %.04770 = phi ptr [ %.148, %45 ], [ %8, %1 ]
+  %.04969 = phi i32 [ %47, %45 ], [ %11, %1 ]
   %20 = load i8, ptr %.071, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %24
@@ -147,7 +147,7 @@ define range(i64 -2147483648, 2147483648) i64 @utf8_to_iso8859_1(ptr nocapture n
 
 24:                                               ; preds = %.lr.ph
   %.not = icmp sgt i8 %20, -1
-  br i1 %.not, label %50, label %25
+  br i1 %.not, label %45, label %25
 
 25:                                               ; preds = %24
   %26 = tail call i32 @pg_utf_mblen_private(ptr noundef nonnull %.071) #4
@@ -177,50 +177,45 @@ define range(i64 -2147483648, 2147483648) i64 @utf8_to_iso8859_1(ptr nocapture n
   unreachable
 
 35:                                               ; preds = %32
-  %36 = getelementptr i8, ptr %.071, i64 1
-  %37 = load i8, ptr %36, align 1
-  %38 = and i8 %37, 63
-  %39 = and i8 %20, 31
-  %40 = zext nneg i8 %39 to i16
-  %41 = shl nuw nsw i16 %40, 6
-  %42 = zext nneg i8 %38 to i16
-  %43 = or disjoint i16 %41, %42
-  %44 = icmp ugt i16 %43, 127
-  %45 = icmp ult i8 %39, 4
-  %or.cond = and i1 %45, %44
-  br i1 %or.cond, label %46, label %48
+  %36 = and i8 %20, 30
+  %or.cond = icmp eq i8 %36, 2
+  br i1 %or.cond, label %37, label %43
 
-46:                                               ; preds = %35
-  %47 = trunc nuw i16 %43 to i8
-  br label %50
+37:                                               ; preds = %35
+  %38 = shl i8 %20, 6
+  %39 = getelementptr i8, ptr %.071, i64 1
+  %40 = load i8, ptr %39, align 1
+  %41 = and i8 %40, 63
+  %42 = or disjoint i8 %41, %38
+  br label %45
 
-48:                                               ; preds = %35
-  br i1 %.not54, label %49, label %.loopexit
+43:                                               ; preds = %35
+  br i1 %.not54, label %44, label %.loopexit
 
-49:                                               ; preds = %48
+44:                                               ; preds = %43
   tail call void @report_untranslatable_char(i32 noundef 6, i32 noundef 8, ptr noundef nonnull %.071, i32 noundef %.04969) #5
   unreachable
 
-50:                                               ; preds = %24, %46
-  %.sink98 = phi i8 [ %47, %46 ], [ %20, %24 ]
-  %.sink97 = phi i64 [ 2, %46 ], [ 1, %24 ]
-  %.sink = phi i32 [ -2, %46 ], [ -1, %24 ]
+45:                                               ; preds = %24, %37
+  %.sink98 = phi i8 [ %42, %37 ], [ %20, %24 ]
+  %.sink97 = phi i64 [ 2, %37 ], [ 1, %24 ]
+  %.sink = phi i32 [ -2, %37 ], [ -1, %24 ]
   store i8 %.sink98, ptr %.04770, align 1
-  %51 = getelementptr i8, ptr %.071, i64 %.sink97
-  %52 = add nsw i32 %.04969, %.sink
+  %46 = getelementptr i8, ptr %.071, i64 %.sink97
+  %47 = add nsw i32 %.04969, %.sink
   %.148 = getelementptr i8, ptr %.04770, i64 1
-  %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %50, %1, %48, %33, %30, %22
-  %.04764 = phi ptr [ %.04770, %48 ], [ %.04770, %33 ], [ %.04770, %30 ], [ %.04770, %22 ], [ %8, %1 ], [ %.148, %50 ]
-  %.059 = phi ptr [ %.071, %48 ], [ %.071, %33 ], [ %.071, %30 ], [ %.071, %22 ], [ %5, %1 ], [ %51, %50 ]
+.loopexit:                                        ; preds = %45, %1, %43, %33, %30, %22
+  %.04764 = phi ptr [ %.04770, %43 ], [ %.04770, %33 ], [ %.04770, %30 ], [ %.04770, %22 ], [ %8, %1 ], [ %.148, %45 ]
+  %.059 = phi ptr [ %.071, %43 ], [ %.071, %33 ], [ %.071, %30 ], [ %.071, %22 ], [ %5, %1 ], [ %46, %45 ]
   store i8 0, ptr %.04764, align 1
-  %54 = ptrtoint ptr %.059 to i64
-  %55 = sub i64 %54, %4
-  %sext = shl i64 %55, 32
-  %56 = ashr exact i64 %sext, 32
-  ret i64 %56
+  %49 = ptrtoint ptr %.059 to i64
+  %50 = sub i64 %49, %4
+  %sext = shl i64 %50, 32
+  %51 = ashr exact i64 %sext, 32
+  ret i64 %51
 }
 
 declare i32 @pg_utf_mblen_private(ptr noundef) local_unnamed_addr #2

@@ -303,8 +303,7 @@ llvm_debug_current_scope.exit.i:                  ; preds = %.critedge.i.i, %26
   %35 = load ptr, ptr %34, align 8
   %.not30.i = icmp ult i64 %7, 4294967296
   %36 = select i1 %.not30.i, i32 1, i32 %.sroa.4.0.extract.trunc.i
-  %.not31.i = icmp ult i32 %31, 16777216
-  %37 = select i1 %.not31.i, i32 1, i32 %32
+  %37 = tail call i32 @llvm.umax.i32(i32 %32, i32 1)
   %38 = tail call ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef %35, i32 noundef %36, i32 noundef %37, ptr noundef %.016.i.i, ptr noundef null) #8
   %39 = load ptr, ptr %8, align 8
   tail call void @LLVMSetCurrentDebugLocation2(ptr noundef %39, ptr noundef %38) #8
@@ -429,8 +428,7 @@ llvm_debug_current_scope.exit:                    ; preds = %21, %.critedge.i
   %30 = load ptr, ptr %29, align 8
   %.not30 = icmp ult i64 %1, 4294967296
   %31 = select i1 %.not30, i32 1, i32 %.sroa.4.0.extract.trunc
-  %.not31 = icmp ult i32 %26, 16777216
-  %32 = select i1 %.not31, i32 1, i32 %27
+  %32 = tail call i32 @llvm.umax.i32(i32 %27, i32 1)
   %33 = tail call ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef %30, i32 noundef %31, i32 noundef %32, ptr noundef %.016.i, ptr noundef null) #8
   %34 = load ptr, ptr %3, align 8
   tail call void @LLVMSetCurrentDebugLocation2(ptr noundef %34, ptr noundef %33) #8

@@ -259,7 +259,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 
 if.end:                                           ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #7
-  %cmp2 = icmp slt i128 %x.sroa.0.0.insert.insert, 0
+  %cmp2 = icmp slt i128 %x.sroa.2.0.insert.shift, 0
   br label %while.body
 
 while.body:                                       ; preds = %if.end, %invoke.cont6

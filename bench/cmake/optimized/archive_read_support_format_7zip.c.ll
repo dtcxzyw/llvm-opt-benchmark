@@ -487,7 +487,7 @@ skip_sfx.exit.thread.i:                           ; preds = %.outer._crit_edge.i
   br i1 %119, label %slurp_central_directory.exit, label %120
 
 120:                                              ; preds = %103
-  %121 = icmp slt i64 %110, 0
+  %121 = icmp slt i64 %108, 0
   br i1 %121, label %122, label %123
 
 122:                                              ; preds = %120

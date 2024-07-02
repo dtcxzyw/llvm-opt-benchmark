@@ -82,7 +82,7 @@ define i16 @f16_mul(i16 %0, i16 %1) local_unnamed_addr #0 {
   %.not75 = icmp ne i64 %42, 0
   %43 = zext i1 %.not75 to i64
   %spec.select = or i64 %41, %43
-  %44 = icmp ult i64 %spec.select, 16384
+  %44 = icmp ult i64 %40, 1073741824
   %.065.v = select i1 %44, i8 -16, i8 -15
   %.065 = add i8 %35, %.065.v
   %45 = zext i1 %44 to i64

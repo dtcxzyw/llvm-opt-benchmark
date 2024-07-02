@@ -6992,7 +6992,7 @@ ObjectID_DataToString.exit:                       ; preds = %.thread.i, %42
   br i1 %exitcond.not.i.i, label %DOFObjectID_GetIDClass.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 DOFObjectID_GetIDClass.exit:                      ; preds = %.lr.ph.i.i
-  %.not = icmp ult i32 %52, 16777216
+  %.not = icmp ult i32 %48, 16777216
   br i1 %.not, label %DOFObjectID_GetIDClass.exit.thread, label %53
 
 53:                                               ; preds = %DOFObjectID_GetIDClass.exit
@@ -7456,7 +7456,7 @@ define internal fastcc i32 @ObjectID_ToString(ptr noundef %0, ptr noundef %1) un
   br i1 %exitcond.not.i.i, label %DOFObjectID_GetIDClass.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 DOFObjectID_GetIDClass.exit:                      ; preds = %.lr.ph.i.i
-  %.not = icmp ult i32 %17, 16777216
+  %.not = icmp ult i32 %13, 16777216
   br i1 %.not, label %29, label %.thread132
 
 .thread132:                                       ; preds = %DOFObjectID_GetIDClass.exit
@@ -7476,7 +7476,7 @@ DOFObjectID_GetIDClass.exit:                      ; preds = %.lr.ph.i.i
   br label %.thread143
 
 29:                                               ; preds = %DOFObjectID_GetIDClass.exit
-  %.not84 = icmp ult i32 %17, 65536
+  %.not84 = icmp ult i32 %13, 65536
   br i1 %.not84, label %46, label %.thread143
 
 .thread143:                                       ; preds = %29, %.thread132
@@ -7502,7 +7502,7 @@ DOFObjectID_GetIDClass.exit:                      ; preds = %.lr.ph.i.i
   br label %47
 
 46:                                               ; preds = %29
-  %.not85 = icmp ult i32 %17, 256
+  %.not85 = icmp eq i32 %13, 0
   br i1 %.not85, label %61, label %47
 
 47:                                               ; preds = %.thread143, %46

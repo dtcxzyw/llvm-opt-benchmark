@@ -6321,7 +6321,7 @@ define dso_local void @skb_orphan_partial(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 2
-  br i1 %4, label %50, label %5
+  br i1 %4, label %51, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 96
@@ -6343,82 +6343,84 @@ define dso_local void @skb_orphan_partial(ptr noundef %0) #0 align 16 {
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %15, %23
-  %19 = phi i32 [ %24, %23 ], [ %17, %15 ]
+.preheader:                                       ; preds = %15, %24
+  %19 = phi i32 [ %25, %24 ], [ %17, %15 ]
   %20 = add i32 %19, 1
   %21 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, i32 %20, ptr elementtype(i32) %16, i32 %19) #22, !srcloc !79
   %22 = extractvalue { i8, i32 } %21, 0
+  %23 = icmp ult i8 %22, 2
+  tail call void @llvm.assume(i1 %23)
   %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %23, label %.thread, !prof !9
+  br i1 %.not, label %24, label %.thread, !prof !9
 
-23:                                               ; preds = %.preheader
-  %24 = extractvalue { i8, i32 } %21, 1
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.thread, label %.preheader, !llvm.loop !80
+24:                                               ; preds = %.preheader
+  %25 = extractvalue { i8, i32 } %21, 1
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %.thread, label %.preheader, !llvm.loop !80
 
-.thread:                                          ; preds = %.preheader, %23, %15
-  %26 = phi i32 [ 0, %15 ], [ %19, %.preheader ], [ 0, %23 ]
-  %27 = add i32 %26, 1
-  %28 = or i32 %27, %26
-  %29 = icmp sgt i32 %28, -1
-  br i1 %29, label %31, label %30, !prof !8
+.thread:                                          ; preds = %.preheader, %24, %15
+  %27 = phi i32 [ 0, %15 ], [ %19, %.preheader ], [ 0, %24 ]
+  %28 = add i32 %27, 1
+  %29 = or i32 %28, %27
+  %30 = icmp sgt i32 %29, -1
+  br i1 %30, label %32, label %31, !prof !8
 
-30:                                               ; preds = %.thread
+31:                                               ; preds = %.thread
   tail call void @refcount_warn_saturate(ptr noundef %16, i32 noundef 0) #22
-  br label %31
+  br label %32
 
-31:                                               ; preds = %30, %.thread
-  %32 = icmp eq i32 %26, 0
+32:                                               ; preds = %31, %.thread
+  %33 = icmp eq i32 %27, 0
   %.pr.pre = load ptr, ptr %6, align 8
-  br i1 %32, label %thread-pre-split, label %33
+  br i1 %33, label %thread-pre-split, label %34
 
-33:                                               ; preds = %31
-  %34 = icmp eq ptr %.pr.pre, null
-  br i1 %34, label %36, label %35
+34:                                               ; preds = %32
+  %35 = icmp eq ptr %.pr.pre, null
+  br i1 %35, label %37, label %36
 
-35:                                               ; preds = %33
+36:                                               ; preds = %34
   tail call void %.pr.pre(ptr noundef %0) #22
-  br label %40
+  br label %41
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %12, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %40, label %39, !prof !8
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %12, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %41, label %40, !prof !8
 
-39:                                               ; preds = %36
+40:                                               ; preds = %37
   tail call void asm sideeffect "417: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 417b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 417) #22, !srcloc !28
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 3131, i32 0, i64 12) #22, !srcloc !29
   unreachable
 
-40:                                               ; preds = %36, %35
+41:                                               ; preds = %37, %36
   store ptr @sock_efree, ptr %6, align 8
   store ptr %13, ptr %12, align 8
-  br label %50
+  br label %51
 
-thread-pre-split:                                 ; preds = %31, %11, %5
-  %41 = phi ptr [ %7, %5 ], [ %7, %11 ], [ %.pr.pre, %31 ]
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %45, label %43
+thread-pre-split:                                 ; preds = %32, %11, %5
+  %42 = phi ptr [ %7, %5 ], [ %7, %11 ], [ %.pr.pre, %32 ]
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %46, label %44
 
-43:                                               ; preds = %thread-pre-split
-  tail call void %41(ptr noundef %0) #22
+44:                                               ; preds = %thread-pre-split
+  tail call void %42(ptr noundef %0) #22
   store ptr null, ptr %6, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr null, ptr %44, align 8
-  br label %50
+  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr null, ptr %45, align 8
+  br label %51
 
-45:                                               ; preds = %thread-pre-split
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %50, label %49, !prof !8
+46:                                               ; preds = %thread-pre-split
+  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %51, label %50, !prof !8
 
-49:                                               ; preds = %45
+50:                                               ; preds = %46
   tail call void asm sideeffect "417: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 417b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 417) #22, !srcloc !28
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 3131, i32 0, i64 12) #22, !srcloc !29
   unreachable
 
-50:                                               ; preds = %45, %43, %40, %1
+51:                                               ; preds = %46, %44, %41, %1
   ret void
 }
 

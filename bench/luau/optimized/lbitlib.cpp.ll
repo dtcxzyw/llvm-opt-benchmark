@@ -215,8 +215,11 @@ _ZL9fieldargsP9lua_StateiPi.exit:                 ; preds = %10
 define internal noundef i32 @_ZL6b_lrotP9lua_State(ptr noundef %0) #0 {
   %2 = tail call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
   %3 = tail call noundef i32 @_Z18luaL_checkunsignedP9lua_Statei(ptr noundef %0, i32 noundef 1)
-  %4 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 %2)
-  tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef %4)
+  %4 = and i32 %2, 31
+  %.not.i = icmp eq i32 %4, 0
+  %5 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 %2)
+  %.0.i = select i1 %.not.i, i32 %3, i32 %5
+  tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef %.0.i)
   ret i32 1
 }
 
@@ -297,8 +300,11 @@ define internal noundef i32 @_ZL6b_rrotP9lua_State(ptr noundef %0) #0 {
   %2 = tail call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
   %3 = sub nsw i32 0, %2
   %4 = tail call noundef i32 @_Z18luaL_checkunsignedP9lua_Statei(ptr noundef %0, i32 noundef 1)
-  %5 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 %3)
-  tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef %5)
+  %5 = and i32 %3, 31
+  %.not.i = icmp eq i32 %5, 0
+  %6 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 %3)
+  %.0.i = select i1 %.not.i, i32 %4, i32 %6
+  tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef %.0.i)
   ret i32 1
 }
 

@@ -2603,7 +2603,7 @@ define internal fastcc noundef range(i64 2, 130) i64 @_ZN4ring2ec7suite_b5ecdsa7
   %7 = load i64, ptr %6, align 8, !noalias !9, !noundef !9
   %8 = shl i64 %7, 3
   %9 = or disjoint i64 %8, 1
-  %10 = icmp ugt i64 %8, 48
+  %10 = icmp ugt i64 %8, 49
   br i1 %10, label %11, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.exit"
 
 11:                                               ; preds = %3

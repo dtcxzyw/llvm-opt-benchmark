@@ -3346,7 +3346,7 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   %narrow125.i = add nsw i8 %136, -48
   %151 = zext nneg i8 %narrow125.i to i64
   %152 = or disjoint i64 %150, %151
-  %153 = icmp ugt i64 %152, 255
+  %153 = icmp ugt i64 %134, 31
   br i1 %153, label %154, label %.thread.i
 
 154:                                              ; preds = %149

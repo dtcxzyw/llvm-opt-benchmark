@@ -10348,6 +10348,8 @@ if.then5:                                         ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.then5
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !130
+  %cmp3.i.i = icmp ult i64 %5, 16
+  call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = add nuw nsw i64 %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %add.i, i1 false)
   br label %cleanup.thread
@@ -10649,6 +10651,8 @@ if.then5:                                         ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.then5
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !57
+  %cmp3.i.i = icmp ult i64 %5, 4
+  call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = add nuw nsw i64 %5, 1
   %call.i.i = call ptr @wmemcpy(ptr noundef nonnull %3, ptr noundef nonnull %1, i64 noundef %add.i) #21
   br label %cleanup.thread

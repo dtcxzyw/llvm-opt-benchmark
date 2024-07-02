@@ -140,7 +140,7 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr nocapture
   %42 = phi ptr [ %95, %92 ], [ %27, %.preheader ]
   %43 = phi i32 [ %94, %92 ], [ %18, %.preheader ]
   %44 = phi ptr [ %93, %92 ], [ %36, %.preheader ]
-  %45 = tail call i32 @crypto_shash_update(ptr noundef %1, ptr noundef %44, i32 noundef %38) #8
+  %45 = tail call i32 @crypto_shash_update(ptr noundef %1, ptr noundef %44, i32 noundef %38) #9
   %46 = zext nneg i32 %43 to i64
   %47 = sub nsw i64 0, %46
   %48 = getelementptr i8, ptr %44, i64 %47
@@ -169,7 +169,7 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr nocapture
   br i1 %64, label %.thread, label %65
 
 65:                                               ; preds = %63
-  %66 = tail call ptr @sg_next(ptr noundef %39) #8
+  %66 = tail call ptr @sg_next(ptr noundef %39) #9
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = load i64, ptr %66, align 8
@@ -216,11 +216,11 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr nocapture
   %105 = phi ptr [ %159, %156 ], [ %27, %.preheader ]
   %106 = phi i32 [ %158, %156 ], [ %18, %.preheader ]
   %107 = phi ptr [ %157, %156 ], [ %36, %.preheader ]
-  %108 = tail call i32 @crypto_shash_update(ptr noundef %1, ptr noundef %107, i32 noundef %101) #8
+  %108 = tail call i32 @crypto_shash_update(ptr noundef %1, ptr noundef %107, i32 noundef %101) #9
   %109 = zext nneg i32 %106 to i64
   %110 = sub nsw i64 0, %109
   %111 = getelementptr i8, ptr %107, i64 %110
-  %112 = tail call i32 @__SCT__cond_resched() #8
+  %112 = tail call i32 @__SCT__cond_resched() #9
   %113 = icmp eq i32 %108, 0
   br i1 %113, label %114, label %156
 
@@ -246,7 +246,7 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr nocapture
   br i1 %128, label %.thread, label %129
 
 129:                                              ; preds = %127
-  %130 = tail call ptr @sg_next(ptr noundef %102) #8
+  %130 = tail call ptr @sg_next(ptr noundef %102) #9
   %131 = getelementptr inbounds i8, ptr %130, i64 8
   %132 = load i32, ptr %131, align 8
   %133 = load i64, ptr %130, align 8
@@ -373,7 +373,7 @@ define dso_local i32 @crypto_hash_walk_done(ptr nocapture noundef %0, i32 nounde
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %2
-  %14 = tail call i32 @__SCT__cond_resched() #8
+  %14 = tail call i32 @__SCT__cond_resched() #9
   br label %15
 
 15:                                               ; preds = %13, %2
@@ -413,7 +413,7 @@ define dso_local i32 @crypto_hash_walk_done(ptr nocapture noundef %0, i32 nounde
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %0, i64 32
   %40 = load ptr, ptr %39, align 8
-  %41 = tail call ptr @sg_next(ptr noundef %40) #8
+  %41 = tail call ptr @sg_next(ptr noundef %40) #9
   store ptr %41, ptr %39, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8
@@ -513,7 +513,7 @@ define dso_local i32 @shash_ahash_finup(ptr nocapture noundef readonly %0, ptr n
 41:                                               ; preds = %.thread, %7
   %42 = phi ptr [ %6, %.thread ], [ %17, %7 ]
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call i32 @crypto_shash_final(ptr noundef %1, ptr noundef %43) #8
+  %44 = tail call i32 @crypto_shash_final(ptr noundef %1, ptr noundef %43) #9
   br label %.thread9
 
 .preheader:                                       ; preds = %.preheader.preheader, %110
@@ -530,11 +530,11 @@ define dso_local i32 @shash_ahash_finup(ptr nocapture noundef readonly %0, ptr n
 
 54:                                               ; preds = %.preheader
   %55 = load ptr, ptr %17, align 8
-  %56 = tail call i32 @crypto_shash_finup(ptr noundef %1, ptr noundef %45, i32 noundef %51, ptr noundef %55) #8
+  %56 = tail call i32 @crypto_shash_finup(ptr noundef %1, ptr noundef %45, i32 noundef %51, ptr noundef %55) #9
   br label %59
 
 57:                                               ; preds = %.preheader
-  %58 = tail call i32 @crypto_shash_update(ptr noundef %1, ptr noundef %45, i32 noundef %51) #8
+  %58 = tail call i32 @crypto_shash_update(ptr noundef %1, ptr noundef %45, i32 noundef %51) #9
   br label %59
 
 59:                                               ; preds = %57, %54
@@ -545,7 +545,7 @@ define dso_local i32 @shash_ahash_finup(ptr nocapture noundef readonly %0, ptr n
   br i1 %15, label %66, label %64
 
 64:                                               ; preds = %59
-  %65 = tail call i32 @__SCT__cond_resched() #8
+  %65 = tail call i32 @__SCT__cond_resched() #9
   br label %66
 
 66:                                               ; preds = %64, %59
@@ -574,7 +574,7 @@ define dso_local i32 @shash_ahash_finup(ptr nocapture noundef readonly %0, ptr n
   br i1 %82, label %.thread9, label %83
 
 83:                                               ; preds = %81
-  %84 = tail call ptr @sg_next(ptr noundef %50) #8
+  %84 = tail call ptr @sg_next(ptr noundef %50) #9
   %85 = getelementptr inbounds i8, ptr %84, i64 8
   %86 = load i32, ptr %85, align 8
   %87 = load i64, ptr %84, align 8
@@ -656,7 +656,7 @@ define dso_local i32 @shash_ahash_digest(ptr nocapture noundef readonly %0, ptr 
   %26 = getelementptr i8, ptr %24, i64 %25
   %27 = getelementptr inbounds i8, ptr %0, i64 64
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 @crypto_shash_digest(ptr noundef %1, ptr noundef %26, i32 noundef %4, ptr noundef %28) #8
+  %29 = tail call i32 @crypto_shash_digest(ptr noundef %1, ptr noundef %26, i32 noundef %4, ptr noundef %28) #9
   br label %.thread
 
 30:                                               ; preds = %6, %2
@@ -672,7 +672,7 @@ define dso_local i32 @shash_ahash_digest(ptr nocapture noundef readonly %0, ptr 
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr i8, ptr %38, i64 -104
   %40 = load ptr, ptr %39, align 8
-  %41 = tail call i32 %40(ptr noundef %1) #8
+  %41 = tail call i32 %40(ptr noundef %1) #9
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %.thread
 
@@ -700,7 +700,7 @@ define dso_local i32 @crypto_ahash_setkey(ptr noundef %0, ptr noundef %1, i32 no
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @crypto_shash_setkey(ptr noundef %8, ptr noundef %1, i32 noundef %2) #8
+  %9 = tail call i32 @crypto_shash_setkey(ptr noundef %8, ptr noundef %1, i32 noundef %2) #9
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %37, label %11, !prof !12
 
@@ -719,7 +719,7 @@ define dso_local i32 @crypto_ahash_setkey(ptr noundef %0, ptr noundef %1, i32 no
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 -40
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %0, ptr noundef %1, i32 noundef %2) #8
+  %23 = tail call i32 %22(ptr noundef %0, ptr noundef %1, i32 noundef %2) #9
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %37, label %25, !prof !12
 
@@ -799,7 +799,7 @@ define dso_local i32 @crypto_ahash_init(ptr noundef %0) #0 align 16 {
   %28 = load ptr, ptr %25, align 8
   %29 = getelementptr i8, ptr %28, i64 %26
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 %30(ptr noundef %27) #8
+  %31 = tail call i32 %30(ptr noundef %27) #9
   br label %32
 
 32:                                               ; preds = %24, %17, %7
@@ -826,7 +826,7 @@ define dso_local i32 @crypto_ahash_update(ptr noundef %0) #0 align 16 {
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 -88
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %0) #8
+  %15 = tail call i32 %14(ptr noundef %0) #9
   br label %16
 
 16:                                               ; preds = %10, %7
@@ -847,7 +847,7 @@ define dso_local i32 @crypto_ahash_final(ptr noundef %0) #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = getelementptr inbounds i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @crypto_shash_final(ptr noundef %8, ptr noundef %10) #8
+  %11 = tail call i32 @crypto_shash_final(ptr noundef %8, ptr noundef %10) #9
   br label %18
 
 12:                                               ; preds = %1
@@ -855,7 +855,7 @@ define dso_local i32 @crypto_ahash_final(ptr noundef %0) #0 align 16 {
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 -80
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %0) #8
+  %17 = tail call i32 %16(ptr noundef %0) #9
   br label %18
 
 18:                                               ; preds = %12, %7
@@ -882,7 +882,7 @@ define dso_local i32 @crypto_ahash_finup(ptr noundef %0) #0 align 16 {
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 -72
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %0) #8
+  %15 = tail call i32 %14(ptr noundef %0) #9
   br label %16
 
 16:                                               ; preds = %10, %7
@@ -934,7 +934,7 @@ define dso_local i32 @crypto_ahash_digest(ptr noundef %0) #0 align 16 {
   %34 = getelementptr i8, ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %0, i64 64
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 @crypto_shash_digest(ptr noundef %8, ptr noundef %34, i32 noundef %12, ptr noundef %36) #8
+  %37 = tail call i32 @crypto_shash_digest(ptr noundef %8, ptr noundef %34, i32 noundef %12, ptr noundef %36) #9
   br label %.thread
 
 38:                                               ; preds = %14, %7
@@ -949,7 +949,7 @@ define dso_local i32 @crypto_ahash_digest(ptr noundef %0) #0 align 16 {
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr i8, ptr %45, i64 -104
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call i32 %47(ptr noundef %8) #8
+  %48 = tail call i32 %47(ptr noundef %8) #9
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %.thread
 
@@ -969,7 +969,7 @@ define dso_local i32 @crypto_ahash_digest(ptr noundef %0) #0 align 16 {
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr i8, ptr %59, i64 -64
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call i32 %61(ptr noundef %0) #8
+  %62 = tail call i32 %61(ptr noundef %0) #9
   br label %.thread
 
 .thread:                                          ; preds = %38, %57, %52, %50, %43, %24
@@ -988,7 +988,7 @@ define dso_local i32 @crypto_ahash_export(ptr noundef %0, ptr noundef %1) #0 ali
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = tail call i32 @crypto_shash_export(ptr noundef %9, ptr noundef %1) #8
+  %10 = tail call i32 @crypto_shash_export(ptr noundef %9, ptr noundef %1) #9
   br label %17
 
 11:                                               ; preds = %2
@@ -996,7 +996,7 @@ define dso_local i32 @crypto_ahash_export(ptr noundef %0, ptr noundef %1) #0 ali
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 -56
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1) #8
+  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1) #9
   br label %17
 
 17:                                               ; preds = %11, %8
@@ -1021,7 +1021,7 @@ define dso_local i32 @crypto_ahash_import(ptr noundef %0, ptr noundef %1) #0 ali
   %10 = getelementptr i8, ptr %4, i64 32
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
-  %12 = tail call i32 @crypto_shash_import(ptr noundef %9, ptr noundef %1) #8
+  %12 = tail call i32 @crypto_shash_import(ptr noundef %9, ptr noundef %1) #9
   br label %24
 
 13:                                               ; preds = %2
@@ -1036,7 +1036,7 @@ define dso_local i32 @crypto_ahash_import(ptr noundef %0, ptr noundef %1) #0 ali
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 -48
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %0, ptr noundef %1) #8
+  %23 = tail call i32 %22(ptr noundef %0, ptr noundef %1) #9
   br label %24
 
 24:                                               ; preds = %18, %13, %8
@@ -1051,7 +1051,7 @@ declare dso_local i32 @crypto_shash_import(ptr noundef, ptr noundef) local_unnam
 define dso_local i32 @crypto_grab_ahash(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr @crypto_ahash_type, ptr %6, align 8
-  %7 = tail call i32 @crypto_grab_spawn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #8
+  %7 = tail call i32 @crypto_grab_spawn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #9
   ret i32 %7
 }
 
@@ -1060,13 +1060,13 @@ declare dso_local i32 @crypto_grab_spawn(ptr noundef, ptr noundef, ptr noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @crypto_alloc_ahash(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = tail call ptr @crypto_alloc_tfm_node(ptr noundef %0, ptr noundef nonnull @crypto_ahash_type, i32 noundef %1, i32 noundef %2, i32 noundef -1) #8
+  %4 = tail call ptr @crypto_alloc_tfm_node(ptr noundef %0, ptr noundef nonnull @crypto_ahash_type, i32 noundef %1, i32 noundef %2, i32 noundef -1) #9
   ret ptr %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_has_ahash(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = tail call i32 @crypto_type_has_alg(ptr noundef %0, ptr noundef nonnull @crypto_ahash_type, i32 noundef %1, i32 noundef %2) #8
+  %4 = tail call i32 @crypto_type_has_alg(ptr noundef %0, ptr noundef nonnull @crypto_ahash_type, i32 noundef %1, i32 noundef %2) #9
   ret i32 %4
 }
 
@@ -1086,103 +1086,105 @@ define dso_local ptr @crypto_clone_ahash(ptr noundef %0) #0 align 16 {
   %10 = getelementptr i8, ptr %3, i64 %8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %9
-  br i1 %12, label %13, label %33
+  br i1 %12, label %13, label %34
 
 13:                                               ; preds = %1
   %14 = load volatile i32, ptr %4, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %13, %20
-  %16 = phi i32 [ %21, %20 ], [ %14, %13 ]
+.preheader:                                       ; preds = %13, %21
+  %16 = phi i32 [ %22, %21 ], [ %14, %13 ]
   %17 = add i32 %16, 1
-  %18 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %17, ptr elementtype(i32) %4, i32 %16) #8, !srcloc !14
+  %18 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %17, ptr elementtype(i32) %4, i32 %16) #9, !srcloc !14
   %19 = extractvalue { i8, i32 } %18, 0
+  %20 = icmp ult i8 %19, 2
+  tail call void @llvm.assume(i1 %20)
   %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %20, label %.thread, !prof !11
+  br i1 %.not, label %21, label %.thread, !prof !11
 
-20:                                               ; preds = %.preheader
-  %21 = extractvalue { i8, i32 } %18, 1
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.thread, label %.preheader, !llvm.loop !15
+21:                                               ; preds = %.preheader
+  %22 = extractvalue { i8, i32 } %18, 1
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %.thread, label %.preheader, !llvm.loop !15
 
-.thread:                                          ; preds = %.preheader, %20, %13
-  %23 = phi i32 [ 0, %13 ], [ %16, %.preheader ], [ 0, %20 ]
-  %24 = add i32 %23, 1
-  %25 = or i32 %24, %23
-  %26 = icmp sgt i32 %25, -1
-  br i1 %26, label %28, label %27, !prof !12
+.thread:                                          ; preds = %.preheader, %21, %13
+  %24 = phi i32 [ 0, %13 ], [ %16, %.preheader ], [ 0, %21 ]
+  %25 = add i32 %24, 1
+  %26 = or i32 %25, %24
+  %27 = icmp sgt i32 %26, -1
+  br i1 %27, label %29, label %28, !prof !12
 
-27:                                               ; preds = %.thread
-  tail call void @refcount_warn_saturate(ptr noundef %4, i32 noundef 0) #8
-  br label %28
+28:                                               ; preds = %.thread
+  tail call void @refcount_warn_saturate(ptr noundef %4, i32 noundef 0) #9
+  br label %29
 
-28:                                               ; preds = %27, %.thread
-  %29 = icmp eq i32 %23, 0
-  %30 = select i1 %29, ptr inttoptr (i64 -75 to ptr), ptr %4
-  %31 = icmp ugt ptr %30, inttoptr (i64 -4096 to ptr)
-  %32 = select i1 %31, ptr %30, ptr %0
-  br label %67
+29:                                               ; preds = %28, %.thread
+  %30 = icmp eq i32 %24, 0
+  %31 = select i1 %30, ptr inttoptr (i64 -75 to ptr), ptr %4
+  %32 = icmp ugt ptr %31, inttoptr (i64 -4096 to ptr)
+  %33 = select i1 %32, ptr %31, ptr %0
+  br label %68
 
-33:                                               ; preds = %1
-  %34 = tail call ptr @crypto_clone_tfm(ptr noundef nonnull @crypto_ahash_type, ptr noundef %4) #8
-  %35 = icmp ugt ptr %34, inttoptr (i64 -4096 to ptr)
-  br i1 %35, label %67, label %36
+34:                                               ; preds = %1
+  %35 = tail call ptr @crypto_clone_tfm(ptr noundef nonnull @crypto_ahash_type, ptr noundef %4) #9
+  %36 = icmp ugt ptr %35, inttoptr (i64 -4096 to ptr)
+  br i1 %36, label %68, label %37
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %34, i64 8
-  store i32 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 4
-  %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %34, i64 4
-  store i32 %41, ptr %42, align 4
-  %43 = load i8, ptr %0, align 8, !range !9, !noundef !10
-  %44 = icmp eq i8 %43, 0
-  br i1 %44, label %54, label %45, !prof !11
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = load i32, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %35, i64 8
+  store i32 %39, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = getelementptr inbounds i8, ptr %35, i64 4
+  store i32 %42, ptr %43, align 4
+  %44 = load i8, ptr %0, align 8, !range !9, !noundef !10
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %55, label %46, !prof !11
 
-45:                                               ; preds = %36
-  %46 = getelementptr inbounds i8, ptr %0, i64 48
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call ptr @crypto_clone_shash(ptr noundef %47) #8
-  %49 = icmp ugt ptr %48, inttoptr (i64 -4096 to ptr)
-  br i1 %49, label %.thread8, label %52
+46:                                               ; preds = %37
+  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call ptr @crypto_clone_shash(ptr noundef %48) #9
+  %50 = icmp ugt ptr %49, inttoptr (i64 -4096 to ptr)
+  br i1 %50, label %.thread8, label %53
 
-.thread8:                                         ; preds = %45
-  %50 = ptrtoint ptr %48 to i64
-  %51 = trunc i64 %50 to i32
-  br label %62
+.thread8:                                         ; preds = %46
+  %51 = ptrtoint ptr %49 to i64
+  %52 = trunc i64 %51 to i32
+  br label %63
 
-52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %34, i64 48
-  store i8 1, ptr %34, align 8
-  store ptr %48, ptr %53, align 8
-  br label %67
+53:                                               ; preds = %46
+  %54 = getelementptr inbounds i8, ptr %35, i64 48
+  store i8 1, ptr %35, align 8
+  store ptr %49, ptr %54, align 8
+  br label %68
 
-54:                                               ; preds = %36
-  %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr i8, ptr %55, i64 -16
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %62, label %59
+55:                                               ; preds = %37
+  %56 = load ptr, ptr %2, align 8
+  %57 = getelementptr i8, ptr %56, i64 -16
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %63, label %60
 
-59:                                               ; preds = %54
-  %60 = tail call i32 %57(ptr noundef %34, ptr noundef %0) #8
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %67, label %62
+60:                                               ; preds = %55
+  %61 = tail call i32 %58(ptr noundef %35, ptr noundef %0) #9
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %68, label %63
 
-62:                                               ; preds = %.thread8, %59, %54
-  %63 = phi i32 [ %60, %59 ], [ -38, %54 ], [ %51, %.thread8 ]
-  %64 = getelementptr inbounds i8, ptr %34, i64 16
-  tail call void @crypto_destroy_tfm(ptr noundef %34, ptr noundef %64) #8
-  %65 = sext i32 %63 to i64
-  %66 = inttoptr i64 %65 to ptr
-  br label %67
+63:                                               ; preds = %.thread8, %60, %55
+  %64 = phi i32 [ %61, %60 ], [ -38, %55 ], [ %52, %.thread8 ]
+  %65 = getelementptr inbounds i8, ptr %35, i64 16
+  tail call void @crypto_destroy_tfm(ptr noundef %35, ptr noundef %65) #9
+  %66 = sext i32 %64 to i64
+  %67 = inttoptr i64 %66 to ptr
+  br label %68
 
-67:                                               ; preds = %52, %62, %59, %33, %28
-  %68 = phi ptr [ %66, %62 ], [ %34, %52 ], [ %34, %33 ], [ %34, %59 ], [ %32, %28 ]
-  ret ptr %68
+68:                                               ; preds = %53, %63, %60, %34, %29
+  %69 = phi ptr [ %67, %63 ], [ %35, %53 ], [ %35, %34 ], [ %35, %60 ], [ %33, %29 ]
+  ret ptr %69
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -1213,7 +1215,7 @@ define dso_local i32 @crypto_register_ahash(ptr noundef %0) #0 align 16 {
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 88
-  %7 = tail call i32 @hash_prepare_alg(ptr noundef %6) #8
+  %7 = tail call i32 @hash_prepare_alg(ptr noundef %6) #9
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %26
 
@@ -1245,7 +1247,7 @@ define dso_local i32 @crypto_register_ahash(ptr noundef %0) #0 align 16 {
 
 23:                                               ; preds = %22, %18
   %24 = getelementptr inbounds i8, ptr %0, i64 96
-  %25 = tail call i32 @crypto_register_alg(ptr noundef %24) #8
+  %25 = tail call i32 @crypto_register_alg(ptr noundef %24) #9
   br label %26
 
 26:                                               ; preds = %1, %5, %23
@@ -1259,7 +1261,7 @@ declare dso_local i32 @crypto_register_alg(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @crypto_unregister_ahash(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @crypto_unregister_alg(ptr noundef %2) #8
+  tail call void @crypto_unregister_alg(ptr noundef %2) #9
   ret void
 }
 
@@ -1286,7 +1288,7 @@ define dso_local i32 @crypto_register_ahashes(ptr noundef %0, i32 noundef %1) #0
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %8, i64 88
-  %14 = tail call i32 @hash_prepare_alg(ptr noundef %13) #8
+  %14 = tail call i32 @hash_prepare_alg(ptr noundef %13) #9
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.thread7
 
@@ -1318,7 +1320,7 @@ define dso_local i32 @crypto_register_ahashes(ptr noundef %0, i32 noundef %1) #0
 
 30:                                               ; preds = %25, %29
   %31 = getelementptr inbounds i8, ptr %8, i64 96
-  %32 = tail call i32 @crypto_register_alg(ptr noundef %31) #8
+  %32 = tail call i32 @crypto_register_alg(ptr noundef %31) #9
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %39, label %.thread7
 
@@ -1342,7 +1344,7 @@ define dso_local i32 @crypto_register_ahashes(ptr noundef %0, i32 noundef %1) #0
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv13 = phi i64 [ %38, %.preheader.preheader ], [ %indvars.iv.next14, %.preheader ]
   %42 = getelementptr %struct.ahash_alg, ptr %0, i64 %indvars.iv13, i32 11, i32 2
-  tail call void @crypto_unregister_alg(ptr noundef %42) #8
+  tail call void @crypto_unregister_alg(ptr noundef %42) #9
   %indvars.iv.next14 = add nsw i64 %indvars.iv13, -1
   %.not = icmp eq i64 %indvars.iv13, 0
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !17
@@ -1365,7 +1367,7 @@ define dso_local void @crypto_unregister_ahashes(ptr noundef %0, i32 noundef %1)
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ %6, %5 ], [ %10, %7 ]
   %9 = getelementptr %struct.ahash_alg, ptr %0, i64 %8, i32 11, i32 2
-  tail call void @crypto_unregister_alg(ptr noundef %9) #8
+  tail call void @crypto_unregister_alg(ptr noundef %9) #9
   %10 = add nsw i64 %8, -1
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.loopexit, label %7, !llvm.loop !18
@@ -1381,9 +1383,9 @@ define dso_local i32 @ahash_register_instance(ptr noundef %0, ptr noundef %1) #0
   br i1 %4, label %5, label %6, !prof !11
 
 5:                                                ; preds = %2
-  tail call void asm sideeffect "466: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 466b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 466) #8, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 752, i32 2305, i64 12) #8, !srcloc !20
-  tail call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_end\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #8, !srcloc !21
+  tail call void asm sideeffect "466: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 466b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 466) #9, !srcloc !19
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 752, i32 2305, i64 12) #9, !srcloc !20
+  tail call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_end\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #9, !srcloc !21
   br label %31
 
 6:                                                ; preds = %2
@@ -1394,7 +1396,7 @@ define dso_local i32 @ahash_register_instance(ptr noundef %0, ptr noundef %1) #0
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 96
-  %12 = tail call i32 @hash_prepare_alg(ptr noundef %11) #8
+  %12 = tail call i32 @hash_prepare_alg(ptr noundef %11) #9
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %31
 
@@ -1426,7 +1428,7 @@ define dso_local i32 @ahash_register_instance(ptr noundef %0, ptr noundef %1) #0
 
 28:                                               ; preds = %27, %23
   %29 = getelementptr inbounds i8, ptr %1, i64 104
-  %30 = tail call i32 @crypto_register_instance(ptr noundef %0, ptr noundef %29) #8
+  %30 = tail call i32 @crypto_register_instance(ptr noundef %0, ptr noundef %29) #9
   br label %31
 
 31:                                               ; preds = %6, %10, %28, %5
@@ -1453,7 +1455,7 @@ define internal i32 @crypto_ahash_extsize(ptr noundef %0) #0 align 16 {
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @crypto_alg_extsize(ptr noundef %0) #8
+  %6 = tail call i32 @crypto_alg_extsize(ptr noundef %0) #9
   br label %7
 
 7:                                                ; preds = %5, %1
@@ -1477,17 +1479,17 @@ define internal i32 @crypto_ahash_init_tfm(ptr noundef %0) #0 align 16 {
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = tail call ptr @crypto_mod_get(ptr noundef %4) #8
+  %13 = tail call ptr @crypto_mod_get(ptr noundef %4) #9
   %14 = icmp eq ptr %13, null
   br i1 %14, label %57, label %15
 
 15:                                               ; preds = %11
-  %16 = tail call ptr @crypto_create_tfm_node(ptr noundef %4, ptr noundef nonnull @crypto_shash_type, i32 noundef -1) #8
+  %16 = tail call ptr @crypto_create_tfm_node(ptr noundef %4, ptr noundef nonnull @crypto_shash_type, i32 noundef -1) #9
   %17 = icmp ugt ptr %16, inttoptr (i64 -4096 to ptr)
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
-  tail call void @crypto_mod_put(ptr noundef %4) #8
+  tail call void @crypto_mod_put(ptr noundef %4) #9
   %19 = ptrtoint ptr %16 to i64
   %20 = trunc i64 %19 to i32
   br label %57
@@ -1548,7 +1550,7 @@ define internal i32 @crypto_ahash_init_tfm(ptr noundef %0) #0 align 16 {
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %51
-  %56 = tail call i32 %53(ptr noundef %2) #8
+  %56 = tail call i32 %53(ptr noundef %2) #9
   br label %57
 
 57:                                               ; preds = %55, %51, %21, %18, %11
@@ -1558,19 +1560,19 @@ define internal i32 @crypto_ahash_init_tfm(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @crypto_ahash_show(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.2) #8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.2) #9
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 128
   %6 = icmp eq i32 %5, 0
   %7 = select i1 %6, ptr @.str.5, ptr @.str.4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #9
   %8 = getelementptr inbounds i8, ptr %1, i64 36
   %9 = load i32, ptr %8, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %9) #8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %9) #9
   %10 = getelementptr i8, ptr %1, i64 -8
   %11 = load i32, ptr %10, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %11) #8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %11) #9
   ret void
 }
 
@@ -1578,7 +1580,7 @@ define internal void @crypto_ahash_show(ptr noundef %0, ptr nocapture noundef re
 define internal void @crypto_ahash_free_instance(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -104
   %3 = load ptr, ptr %2, align 8
-  tail call void %3(ptr noundef %2) #8
+  tail call void %3(ptr noundef %2) #9
   ret void
 }
 
@@ -1592,7 +1594,7 @@ define internal void @crypto_ahash_exit_tfm(ptr noundef %0) #0 align 16 {
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -24
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %2) #8
+  tail call void %6(ptr noundef %2) #9
   ret void
 }
 
@@ -1607,7 +1609,7 @@ define internal void @crypto_exit_ahash_using_shash(ptr nocapture noundef readon
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %4) #8
+  tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %4) #9
   ret void
 }
 
@@ -1625,6 +1627,9 @@ declare dso_local ptr @crypto_alloc_tfm_node(ptr noundef, ptr noundef, i32 nound
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @hash_prepare_alg(ptr noundef) local_unnamed_addr #2
@@ -1649,7 +1654,7 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
   %17 = add i32 %7, 80
   %18 = add i32 %17, %16
   %19 = zext i32 %18 to i64
-  %20 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %19, i32 noundef %12) #9
+  %20 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %19, i32 noundef %12) #10
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.thread2, label %22
 
@@ -1678,12 +1683,12 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
   %37 = getelementptr i8, ptr %3, i64 -12
   %38 = load i32, ptr %37, align 4
   %39 = zext i32 %38 to i64
-  %40 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %39, i32 noundef %12) #9
+  %40 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %39, i32 noundef %12) #10
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread, label %42
 
 .thread:                                          ; preds = %22
-  tail call void @kfree(ptr noundef nonnull %20) #8
+  tail call void @kfree(ptr noundef nonnull %20) #9
   br label %.thread2
 
 42:                                               ; preds = %22
@@ -1695,7 +1700,7 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds i8, ptr %0, i64 80
-  %49 = tail call i32 @crypto_shash_export(ptr noundef %48, ptr noundef nonnull %40) #8
+  %49 = tail call i32 @crypto_shash_export(ptr noundef %48, ptr noundef nonnull %40) #9
   br label %56
 
 50:                                               ; preds = %42
@@ -1703,7 +1708,7 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr i8, ptr %52, i64 -56
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call i32 %54(ptr noundef %0, ptr noundef nonnull %40) #8
+  %55 = tail call i32 %54(ptr noundef %0, ptr noundef nonnull %40) #9
   br label %56
 
 56:                                               ; preds = %50, %47
@@ -1717,7 +1722,7 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
   %62 = getelementptr i8, ptr %57, i64 32
   %63 = load ptr, ptr %62, align 8
   store ptr %63, ptr %27, align 8
-  %64 = tail call i32 @crypto_shash_import(ptr noundef %27, ptr noundef nonnull %40) #8
+  %64 = tail call i32 @crypto_shash_import(ptr noundef %27, ptr noundef nonnull %40) #9
   br label %76
 
 65:                                               ; preds = %56
@@ -1732,17 +1737,17 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr i8, ptr %72, i64 -48
   %74 = load ptr, ptr %73, align 8
-  %75 = tail call i32 %74(ptr noundef nonnull %20, ptr noundef nonnull %40) #8
+  %75 = tail call i32 %74(ptr noundef nonnull %20, ptr noundef nonnull %40) #9
   br label %76
 
 76:                                               ; preds = %70, %65, %61
-  tail call void @kfree_sensitive(ptr noundef nonnull %40) #8
+  tail call void @kfree_sensitive(ptr noundef nonnull %40) #9
   %77 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %20, ptr %77, align 8
   %78 = load ptr, ptr %13, align 8
   %79 = getelementptr i8, ptr %78, i64 -88
   %80 = load ptr, ptr %79, align 8
-  %81 = tail call i32 %80(ptr noundef nonnull %20) #8
+  %81 = tail call i32 %80(ptr noundef nonnull %20) #9
   switch i32 %81, label %.thread3 [
     i32 -16, label %.thread2
     i32 -115, label %.thread2
@@ -1762,7 +1767,7 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr i8, ptr %88, i64 -80
   %90 = load ptr, ptr %89, align 8
-  %91 = tail call i32 %90(ptr noundef %84) #8
+  %91 = tail call i32 %90(ptr noundef %84) #9
   switch i32 %91, label %92 [
     i32 -16, label %.thread2
     i32 -115, label %.thread2
@@ -1791,7 +1796,7 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
   %107 = phi ptr [ %82, %.thread3 ], [ %93, %95 ], [ %93, %92 ]
   %108 = phi i32 [ %81, %.thread3 ], [ 0, %95 ], [ %91, %92 ]
   store ptr null, ptr %77, align 8
-  tail call void @kfree_sensitive(ptr noundef %107) #8
+  tail call void @kfree_sensitive(ptr noundef %107) #9
   br label %.thread2
 
 .thread2:                                         ; preds = %.thread, %1, %106, %83, %83, %76, %76
@@ -1824,7 +1829,7 @@ define internal void @ahash_def_finup_done1(ptr nocapture noundef %0, i32 nounde
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 -80
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 %19(ptr noundef %12) #8
+  %20 = tail call i32 %19(ptr noundef %12) #9
   switch i32 %20, label %21 [
     i32 -16, label %38
     i32 -115, label %38
@@ -1853,7 +1858,7 @@ define internal void @ahash_def_finup_done1(ptr nocapture noundef %0, i32 nounde
 
 37:                                               ; preds = %25, %21
   store ptr null, ptr %5, align 8
-  tail call void @kfree_sensitive(ptr noundef %23) #8
+  tail call void @kfree_sensitive(ptr noundef %23) #9
   br label %38
 
 38:                                               ; preds = %37, %11, %11
@@ -1869,7 +1874,7 @@ define internal void @ahash_def_finup_done1(ptr nocapture noundef %0, i32 nounde
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8
-  tail call void %43(ptr noundef %45, i32 noundef %41) #8
+  tail call void %43(ptr noundef %45, i32 noundef %41) #9
   br label %46
 
 46:                                               ; preds = %40, %38, %38
@@ -1883,7 +1888,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local void @kfree_sensitive(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #5
+declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ahash_def_finup_done2(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
@@ -1913,12 +1918,12 @@ define internal void @ahash_def_finup_done2(ptr nocapture noundef %0, i32 nounde
 
 20:                                               ; preds = %8, %4
   store ptr null, ptr %5, align 8
-  tail call void @kfree_sensitive(ptr noundef %6) #8
+  tail call void @kfree_sensitive(ptr noundef %6) #9
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  tail call void %22(ptr noundef %24, i32 noundef %1) #8
+  tail call void %22(ptr noundef %24, i32 noundef %1) #9
   br label %25
 
 25:                                               ; preds = %20, %2
@@ -1926,24 +1931,25 @@ define internal void @ahash_def_finup_done2(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @shash_no_setkey(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #3 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #4 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind allocsize(0) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

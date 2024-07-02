@@ -1467,7 +1467,7 @@ if.end193:                                        ; preds = %land.lhs.true174
   %or185 = or disjoint i32 %shl183, %conv180
   %inc186 = add nsw i32 %srcIndex.3, 1
   %21 = load ptr, ptr %call, align 8
-  %cmp194 = icmp ult i32 %or185, 55296
+  %cmp194 = icmp ult i32 %c.1, 864
   br i1 %cmp194, label %cond.true195, label %cond.false205
 
 cond.true195:                                     ; preds = %if.end193
@@ -1482,14 +1482,14 @@ cond.true195:                                     ; preds = %if.end193
   br label %cond.end247
 
 cond.false205:                                    ; preds = %if.end193
-  %cmp206 = icmp ult i32 %or185, 65536
+  %cmp206 = icmp ult i32 %c.1, 1024
   br i1 %cmp206, label %cond.true207, label %cond.false218
 
 cond.true207:                                     ; preds = %cond.false205
-  %cmp209 = icmp ult i32 %or185, 56320
+  %cmp209 = icmp ult i32 %c.1, 880
   %cond = select i1 %cmp209, i32 320, i32 0
   %shr210 = lshr i32 %or185, 5
-  %add211 = add nuw nsw i32 %cond, %shr210
+  %add211 = add nuw nsw i32 %shr210, %cond
   %idxprom212 = zext nneg i32 %add211 to i64
   %arrayidx213 = getelementptr inbounds i16, ptr %21, i64 %idxprom212
   %23 = load i16, ptr %arrayidx213, align 2
@@ -1500,7 +1500,7 @@ cond.true207:                                     ; preds = %cond.false205
   br label %cond.end247
 
 cond.false218:                                    ; preds = %cond.false205
-  %cmp219 = icmp ugt i32 %or185, 1114111
+  %cmp219 = icmp ugt i32 %c.1, 17407
   br i1 %cmp219, label %cond.true220, label %cond.false222
 
 cond.true220:                                     ; preds = %cond.false218
@@ -2893,7 +2893,7 @@ if.end184.i:                                      ; preds = %land.lhs.true165.i
   %or176.i = or disjoint i32 %shl174.i, %conv171.i
   %inc177.i = add nsw i32 %srcIndex.3.i, 1
   %22 = load ptr, ptr %call.i, align 8
-  %cmp185.i = icmp ult i32 %or176.i, 55296
+  %cmp185.i = icmp ult i32 %c.1.i, 864
   br i1 %cmp185.i, label %cond.true186.i, label %cond.false196.i
 
 cond.true186.i:                                   ; preds = %if.end184.i
@@ -2908,14 +2908,14 @@ cond.true186.i:                                   ; preds = %if.end184.i
   br label %cond.end238.i
 
 cond.false196.i:                                  ; preds = %if.end184.i
-  %cmp197.i = icmp ult i32 %or176.i, 65536
+  %cmp197.i = icmp ult i32 %c.1.i, 1024
   br i1 %cmp197.i, label %cond.true198.i, label %cond.false209.i
 
 cond.true198.i:                                   ; preds = %cond.false196.i
-  %cmp200.i = icmp ult i32 %or176.i, 56320
+  %cmp200.i = icmp ult i32 %c.1.i, 880
   %cond.i = select i1 %cmp200.i, i32 320, i32 0
   %shr201.i = lshr i32 %or176.i, 5
-  %add202.i = add nuw nsw i32 %cond.i, %shr201.i
+  %add202.i = add nuw nsw i32 %shr201.i, %cond.i
   %idxprom203.i = zext nneg i32 %add202.i to i64
   %arrayidx204.i = getelementptr inbounds i16, ptr %22, i64 %idxprom203.i
   %24 = load i16, ptr %arrayidx204.i, align 2
@@ -2926,7 +2926,7 @@ cond.true198.i:                                   ; preds = %cond.false196.i
   br label %cond.end238.i
 
 cond.false209.i:                                  ; preds = %cond.false196.i
-  %cmp210.i = icmp ugt i32 %or176.i, 1114111
+  %cmp210.i = icmp ugt i32 %c.1.i, 17407
   br i1 %cmp210.i, label %cond.true211.i, label %cond.false213.i
 
 cond.true211.i:                                   ; preds = %cond.false209.i

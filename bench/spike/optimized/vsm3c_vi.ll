@@ -384,160 +384,157 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %163 = trunc i64 %159 to i32
   %164 = and i32 %163, 30
   %165 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %164)
-  %166 = and i32 %163, 62
-  %167 = or disjoint i32 %166, 1
-  %168 = icmp ult i32 %167, 16
-  %169 = select i1 %168, i32 2043430169, i32 2055708042
-  %170 = tail call i32 @llvm.fshl.i32(i32 %169, i32 %169, i32 %167)
-  br label %171
+  %166 = or i32 %163, 1
+  %167 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %166)
+  br label %168
 
-171:                                              ; preds = %.preheader, %253
-  %.0217266 = phi i64 [ %151, %.preheader ], [ %273, %253 ]
-  %172 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
-  %173 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
-  %.sroa.0.0.copyload230 = load i32, ptr %173, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 4
+168:                                              ; preds = %.preheader, %250
+  %.0217266 = phi i64 [ %151, %.preheader ], [ %270, %250 ]
+  %169 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
+  %170 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
+  %.sroa.0.0.copyload230 = load i32, ptr %170, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 16
+  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 16
   %.sroa.9234.0.copyload = load i32, ptr %.sroa.9234.0..sroa_idx, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 20
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 20
   %.sroa.13.0.copyload = load i32, ptr %.sroa.13.0..sroa_idx, align 4
-  %174 = load i32, ptr %172, align 4
+  %171 = load i32, ptr %169, align 4
+  %172 = tail call i32 @llvm.bswap.i32(i32 %171)
+  %173 = getelementptr inbounds i8, ptr %169, i64 4
+  %174 = load i32, ptr %173, align 4
   %175 = tail call i32 @llvm.bswap.i32(i32 %174)
-  %176 = getelementptr inbounds i8, ptr %172, i64 4
+  %176 = getelementptr inbounds i8, ptr %169, i64 8
   %177 = load i32, ptr %176, align 4
   %178 = tail call i32 @llvm.bswap.i32(i32 %177)
-  %179 = getelementptr inbounds i8, ptr %172, i64 8
+  %179 = getelementptr inbounds i8, ptr %169, i64 12
   %180 = load i32, ptr %179, align 4
   %181 = tail call i32 @llvm.bswap.i32(i32 %180)
-  %182 = getelementptr inbounds i8, ptr %172, i64 12
+  %182 = getelementptr inbounds i8, ptr %169, i64 16
   %183 = load i32, ptr %182, align 4
   %184 = tail call i32 @llvm.bswap.i32(i32 %183)
-  %185 = getelementptr inbounds i8, ptr %172, i64 16
+  %185 = getelementptr inbounds i8, ptr %169, i64 20
   %186 = load i32, ptr %185, align 4
   %187 = tail call i32 @llvm.bswap.i32(i32 %186)
-  %188 = getelementptr inbounds i8, ptr %172, i64 20
+  %188 = getelementptr inbounds i8, ptr %169, i64 24
   %189 = load i32, ptr %188, align 4
   %190 = tail call i32 @llvm.bswap.i32(i32 %189)
-  %191 = getelementptr inbounds i8, ptr %172, i64 24
+  %191 = getelementptr inbounds i8, ptr %169, i64 28
   %192 = load i32, ptr %191, align 4
   %193 = tail call i32 @llvm.bswap.i32(i32 %192)
-  %194 = getelementptr inbounds i8, ptr %172, i64 28
-  %195 = load i32, ptr %194, align 4
-  %196 = tail call i32 @llvm.bswap.i32(i32 %195)
-  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
-  %198 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
-  %199 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
-  %200 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
-  %201 = xor i32 %199, %197
-  %202 = xor i32 %200, %198
-  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 12)
-  %204 = add i32 %203, %165
-  %205 = add i32 %204, %187
-  %206 = tail call noundef i32 @llvm.fshl.i32(i32 %205, i32 %205, i32 7)
-  %207 = xor i32 %206, %203
-  br i1 %161, label %208, label %213
+  %194 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
+  %195 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
+  %196 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
+  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
+  %198 = xor i32 %196, %194
+  %199 = xor i32 %197, %195
+  %200 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 12)
+  %201 = add i32 %200, %165
+  %202 = add i32 %201, %184
+  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %202, i32 %202, i32 7)
+  %204 = xor i32 %203, %200
+  br i1 %161, label %205, label %210
 
-208:                                              ; preds = %171
-  %209 = xor i32 %178, %175
-  %210 = xor i32 %209, %181
-  %211 = xor i32 %190, %187
-  %212 = xor i32 %211, %193
-  br label %222
+205:                                              ; preds = %168
+  %206 = xor i32 %175, %172
+  %207 = xor i32 %206, %178
+  %208 = xor i32 %187, %184
+  %209 = xor i32 %208, %190
+  br label %219
 
-213:                                              ; preds = %171
-  %214 = or i32 %181, %178
-  %215 = and i32 %214, %175
-  %216 = and i32 %181, %178
-  %217 = or i32 %215, %216
-  %218 = and i32 %190, %187
-  %219 = xor i32 %187, -1
-  %220 = and i32 %193, %219
-  %221 = or i32 %220, %218
-  br label %222
+210:                                              ; preds = %168
+  %211 = or i32 %178, %175
+  %212 = and i32 %211, %172
+  %213 = and i32 %178, %175
+  %214 = or i32 %212, %213
+  %215 = and i32 %187, %184
+  %216 = xor i32 %184, -1
+  %217 = and i32 %190, %216
+  %218 = or i32 %217, %215
+  br label %219
 
-222:                                              ; preds = %213, %208
-  %.pn261 = phi i32 [ %210, %208 ], [ %217, %213 ]
-  %223 = phi i32 [ %212, %208 ], [ %221, %213 ]
-  %.pn260 = add i32 %184, %201
-  %.pn = add i32 %.pn260, %207
-  %224 = add i32 %.pn, %.pn261
-  %225 = add i32 %196, %197
-  %226 = add i32 %225, %206
-  %227 = add i32 %226, %223
-  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %178, i32 %178, i32 9)
-  %229 = tail call noundef i32 @llvm.fshl.i32(i32 %190, i32 %190, i32 19)
-  %230 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 9)
-  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 17)
-  %232 = xor i32 %231, %230
-  %233 = xor i32 %232, %227
-  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 12)
-  %235 = add i32 %234, %170
-  %236 = add i32 %235, %233
-  %237 = tail call noundef i32 @llvm.fshl.i32(i32 %236, i32 %236, i32 7)
-  %238 = xor i32 %237, %234
-  br i1 %168, label %239, label %244
+219:                                              ; preds = %210, %205
+  %.pn261 = phi i32 [ %207, %205 ], [ %214, %210 ]
+  %220 = phi i32 [ %209, %205 ], [ %218, %210 ]
+  %.pn260 = add i32 %181, %198
+  %.pn = add i32 %.pn260, %204
+  %221 = add i32 %.pn, %.pn261
+  %222 = add i32 %193, %194
+  %223 = add i32 %222, %203
+  %224 = add i32 %223, %220
+  %225 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
+  %226 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
+  %227 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 9)
+  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 17)
+  %229 = xor i32 %228, %227
+  %230 = xor i32 %229, %224
+  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %221, i32 %221, i32 12)
+  %232 = add i32 %231, %167
+  %233 = add i32 %232, %230
+  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %233, i32 %233, i32 7)
+  %235 = xor i32 %234, %231
+  br i1 %161, label %236, label %241
 
-239:                                              ; preds = %222
-  %240 = xor i32 %228, %175
-  %241 = xor i32 %240, %224
-  %242 = xor i32 %229, %187
-  %243 = xor i32 %242, %233
-  br label %253
+236:                                              ; preds = %219
+  %237 = xor i32 %225, %172
+  %238 = xor i32 %237, %221
+  %239 = xor i32 %226, %184
+  %240 = xor i32 %239, %230
+  br label %250
 
-244:                                              ; preds = %222
-  %245 = or i32 %228, %175
-  %246 = and i32 %224, %245
-  %247 = and i32 %228, %175
-  %248 = or i32 %246, %247
-  %249 = and i32 %233, %187
-  %250 = xor i32 %233, -1
-  %251 = and i32 %229, %250
-  %252 = or i32 %249, %251
-  br label %253
+241:                                              ; preds = %219
+  %242 = or i32 %225, %172
+  %243 = and i32 %221, %242
+  %244 = and i32 %225, %172
+  %245 = or i32 %243, %244
+  %246 = and i32 %230, %184
+  %247 = xor i32 %230, -1
+  %248 = and i32 %226, %247
+  %249 = or i32 %246, %248
+  br label %250
 
-253:                                              ; preds = %244, %239
-  %.pn264 = phi i32 [ %241, %239 ], [ %248, %244 ]
-  %254 = phi i32 [ %243, %239 ], [ %252, %244 ]
-  %.pn263 = add i32 %181, %202
-  %.pn262 = add i32 %.pn263, %238
-  %255 = add i32 %.pn262, %.pn264
-  %256 = add i32 %193, %198
-  %257 = add i32 %256, %237
-  %258 = add i32 %257, %254
-  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
-  %260 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
-  %261 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 9)
-  %262 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 17)
-  %263 = xor i32 %262, %261
-  %264 = xor i32 %263, %258
-  %265 = tail call i32 @llvm.bswap.i32(i32 %255)
-  store i32 %265, ptr %172, align 4
-  %266 = tail call i32 @llvm.bswap.i32(i32 %224)
-  store i32 %266, ptr %176, align 4
-  %267 = tail call i32 @llvm.bswap.i32(i32 %259)
-  store i32 %267, ptr %179, align 4
-  %268 = tail call i32 @llvm.bswap.i32(i32 %228)
-  store i32 %268, ptr %182, align 4
-  %269 = tail call i32 @llvm.bswap.i32(i32 %264)
-  store i32 %269, ptr %185, align 4
-  %270 = tail call i32 @llvm.bswap.i32(i32 %233)
-  store i32 %270, ptr %188, align 4
-  %271 = tail call i32 @llvm.bswap.i32(i32 %260)
-  store i32 %271, ptr %191, align 4
-  %272 = tail call i32 @llvm.bswap.i32(i32 %229)
-  store i32 %272, ptr %194, align 4
-  %273 = add nuw nsw i64 %.0217266, 1
-  %exitcond.not = icmp eq i64 %273, %157
-  br i1 %exitcond.not, label %.loopexit, label %171, !llvm.loop !6
+250:                                              ; preds = %241, %236
+  %.pn264 = phi i32 [ %238, %236 ], [ %245, %241 ]
+  %251 = phi i32 [ %240, %236 ], [ %249, %241 ]
+  %.pn263 = add i32 %178, %199
+  %.pn262 = add i32 %.pn263, %235
+  %252 = add i32 %.pn262, %.pn264
+  %253 = add i32 %190, %195
+  %254 = add i32 %253, %234
+  %255 = add i32 %254, %251
+  %256 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 9)
+  %257 = tail call noundef i32 @llvm.fshl.i32(i32 %184, i32 %184, i32 19)
+  %258 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 9)
+  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 17)
+  %260 = xor i32 %259, %258
+  %261 = xor i32 %260, %255
+  %262 = tail call i32 @llvm.bswap.i32(i32 %252)
+  store i32 %262, ptr %169, align 4
+  %263 = tail call i32 @llvm.bswap.i32(i32 %221)
+  store i32 %263, ptr %173, align 4
+  %264 = tail call i32 @llvm.bswap.i32(i32 %256)
+  store i32 %264, ptr %176, align 4
+  %265 = tail call i32 @llvm.bswap.i32(i32 %225)
+  store i32 %265, ptr %179, align 4
+  %266 = tail call i32 @llvm.bswap.i32(i32 %261)
+  store i32 %266, ptr %182, align 4
+  %267 = tail call i32 @llvm.bswap.i32(i32 %230)
+  store i32 %267, ptr %185, align 4
+  %268 = tail call i32 @llvm.bswap.i32(i32 %257)
+  store i32 %268, ptr %188, align 4
+  %269 = tail call i32 @llvm.bswap.i32(i32 %226)
+  store i32 %269, ptr %191, align 4
+  %270 = add nuw nsw i64 %.0217266, 1
+  %exitcond.not = icmp eq i64 %270, %157
+  br i1 %exitcond.not, label %.loopexit, label %168, !llvm.loop !6
 
-.loopexit:                                        ; preds = %253, %145
-  %274 = shl i64 %2, 32
-  %275 = add i64 %274, 17179869184
-  %276 = ashr exact i64 %275, 32
-  %277 = load ptr, ptr %113, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %277, i64 noundef 0) #14
-  ret i64 %276
+.loopexit:                                        ; preds = %250, %145
+  %271 = shl i64 %2, 32
+  %272 = add i64 %271, 17179869184
+  %273 = ashr exact i64 %272, 32
+  %274 = load ptr, ptr %113, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %274, i64 noundef 0) #14
+  ret i64 %273
 }
 
 declare noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #0
@@ -872,158 +869,155 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %163 = trunc i64 %159 to i32
   %164 = and i32 %163, 30
   %165 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %164)
-  %166 = and i32 %163, 62
-  %167 = or disjoint i32 %166, 1
-  %168 = icmp ult i32 %167, 16
-  %169 = select i1 %168, i32 2043430169, i32 2055708042
-  %170 = tail call i32 @llvm.fshl.i32(i32 %169, i32 %169, i32 %167)
-  br label %171
+  %166 = or i32 %163, 1
+  %167 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %166)
+  br label %168
 
-171:                                              ; preds = %.preheader, %253
-  %.0217266 = phi i64 [ %151, %.preheader ], [ %273, %253 ]
-  %172 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
-  %173 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
-  %.sroa.0.0.copyload230 = load i32, ptr %173, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 4
+168:                                              ; preds = %.preheader, %250
+  %.0217266 = phi i64 [ %151, %.preheader ], [ %270, %250 ]
+  %169 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
+  %170 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
+  %.sroa.0.0.copyload230 = load i32, ptr %170, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 16
+  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 16
   %.sroa.9234.0.copyload = load i32, ptr %.sroa.9234.0..sroa_idx, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 20
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 20
   %.sroa.13.0.copyload = load i32, ptr %.sroa.13.0..sroa_idx, align 4
-  %174 = load i32, ptr %172, align 4
+  %171 = load i32, ptr %169, align 4
+  %172 = tail call i32 @llvm.bswap.i32(i32 %171)
+  %173 = getelementptr inbounds i8, ptr %169, i64 4
+  %174 = load i32, ptr %173, align 4
   %175 = tail call i32 @llvm.bswap.i32(i32 %174)
-  %176 = getelementptr inbounds i8, ptr %172, i64 4
+  %176 = getelementptr inbounds i8, ptr %169, i64 8
   %177 = load i32, ptr %176, align 4
   %178 = tail call i32 @llvm.bswap.i32(i32 %177)
-  %179 = getelementptr inbounds i8, ptr %172, i64 8
+  %179 = getelementptr inbounds i8, ptr %169, i64 12
   %180 = load i32, ptr %179, align 4
   %181 = tail call i32 @llvm.bswap.i32(i32 %180)
-  %182 = getelementptr inbounds i8, ptr %172, i64 12
+  %182 = getelementptr inbounds i8, ptr %169, i64 16
   %183 = load i32, ptr %182, align 4
   %184 = tail call i32 @llvm.bswap.i32(i32 %183)
-  %185 = getelementptr inbounds i8, ptr %172, i64 16
+  %185 = getelementptr inbounds i8, ptr %169, i64 20
   %186 = load i32, ptr %185, align 4
   %187 = tail call i32 @llvm.bswap.i32(i32 %186)
-  %188 = getelementptr inbounds i8, ptr %172, i64 20
+  %188 = getelementptr inbounds i8, ptr %169, i64 24
   %189 = load i32, ptr %188, align 4
   %190 = tail call i32 @llvm.bswap.i32(i32 %189)
-  %191 = getelementptr inbounds i8, ptr %172, i64 24
+  %191 = getelementptr inbounds i8, ptr %169, i64 28
   %192 = load i32, ptr %191, align 4
   %193 = tail call i32 @llvm.bswap.i32(i32 %192)
-  %194 = getelementptr inbounds i8, ptr %172, i64 28
-  %195 = load i32, ptr %194, align 4
-  %196 = tail call i32 @llvm.bswap.i32(i32 %195)
-  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
-  %198 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
-  %199 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
-  %200 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
-  %201 = xor i32 %199, %197
-  %202 = xor i32 %200, %198
-  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 12)
-  %204 = add i32 %203, %165
-  %205 = add i32 %204, %187
-  %206 = tail call noundef i32 @llvm.fshl.i32(i32 %205, i32 %205, i32 7)
-  %207 = xor i32 %206, %203
-  br i1 %161, label %208, label %213
+  %194 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
+  %195 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
+  %196 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
+  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
+  %198 = xor i32 %196, %194
+  %199 = xor i32 %197, %195
+  %200 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 12)
+  %201 = add i32 %200, %165
+  %202 = add i32 %201, %184
+  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %202, i32 %202, i32 7)
+  %204 = xor i32 %203, %200
+  br i1 %161, label %205, label %210
 
-208:                                              ; preds = %171
-  %209 = xor i32 %178, %175
-  %210 = xor i32 %209, %181
-  %211 = xor i32 %190, %187
-  %212 = xor i32 %211, %193
-  br label %222
+205:                                              ; preds = %168
+  %206 = xor i32 %175, %172
+  %207 = xor i32 %206, %178
+  %208 = xor i32 %187, %184
+  %209 = xor i32 %208, %190
+  br label %219
 
-213:                                              ; preds = %171
-  %214 = or i32 %181, %178
-  %215 = and i32 %214, %175
-  %216 = and i32 %181, %178
-  %217 = or i32 %215, %216
-  %218 = and i32 %190, %187
-  %219 = xor i32 %187, -1
-  %220 = and i32 %193, %219
-  %221 = or i32 %220, %218
-  br label %222
+210:                                              ; preds = %168
+  %211 = or i32 %178, %175
+  %212 = and i32 %211, %172
+  %213 = and i32 %178, %175
+  %214 = or i32 %212, %213
+  %215 = and i32 %187, %184
+  %216 = xor i32 %184, -1
+  %217 = and i32 %190, %216
+  %218 = or i32 %217, %215
+  br label %219
 
-222:                                              ; preds = %213, %208
-  %.pn261 = phi i32 [ %210, %208 ], [ %217, %213 ]
-  %223 = phi i32 [ %212, %208 ], [ %221, %213 ]
-  %.pn260 = add i32 %184, %201
-  %.pn = add i32 %.pn260, %207
-  %224 = add i32 %.pn, %.pn261
-  %225 = add i32 %196, %197
-  %226 = add i32 %225, %206
-  %227 = add i32 %226, %223
-  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %178, i32 %178, i32 9)
-  %229 = tail call noundef i32 @llvm.fshl.i32(i32 %190, i32 %190, i32 19)
-  %230 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 9)
-  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 17)
-  %232 = xor i32 %231, %230
-  %233 = xor i32 %232, %227
-  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 12)
-  %235 = add i32 %234, %170
-  %236 = add i32 %235, %233
-  %237 = tail call noundef i32 @llvm.fshl.i32(i32 %236, i32 %236, i32 7)
-  %238 = xor i32 %237, %234
-  br i1 %168, label %239, label %244
+219:                                              ; preds = %210, %205
+  %.pn261 = phi i32 [ %207, %205 ], [ %214, %210 ]
+  %220 = phi i32 [ %209, %205 ], [ %218, %210 ]
+  %.pn260 = add i32 %181, %198
+  %.pn = add i32 %.pn260, %204
+  %221 = add i32 %.pn, %.pn261
+  %222 = add i32 %193, %194
+  %223 = add i32 %222, %203
+  %224 = add i32 %223, %220
+  %225 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
+  %226 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
+  %227 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 9)
+  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 17)
+  %229 = xor i32 %228, %227
+  %230 = xor i32 %229, %224
+  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %221, i32 %221, i32 12)
+  %232 = add i32 %231, %167
+  %233 = add i32 %232, %230
+  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %233, i32 %233, i32 7)
+  %235 = xor i32 %234, %231
+  br i1 %161, label %236, label %241
 
-239:                                              ; preds = %222
-  %240 = xor i32 %228, %175
-  %241 = xor i32 %240, %224
-  %242 = xor i32 %229, %187
-  %243 = xor i32 %242, %233
-  br label %253
+236:                                              ; preds = %219
+  %237 = xor i32 %225, %172
+  %238 = xor i32 %237, %221
+  %239 = xor i32 %226, %184
+  %240 = xor i32 %239, %230
+  br label %250
 
-244:                                              ; preds = %222
-  %245 = or i32 %228, %175
-  %246 = and i32 %224, %245
-  %247 = and i32 %228, %175
-  %248 = or i32 %246, %247
-  %249 = and i32 %233, %187
-  %250 = xor i32 %233, -1
-  %251 = and i32 %229, %250
-  %252 = or i32 %249, %251
-  br label %253
+241:                                              ; preds = %219
+  %242 = or i32 %225, %172
+  %243 = and i32 %221, %242
+  %244 = and i32 %225, %172
+  %245 = or i32 %243, %244
+  %246 = and i32 %230, %184
+  %247 = xor i32 %230, -1
+  %248 = and i32 %226, %247
+  %249 = or i32 %246, %248
+  br label %250
 
-253:                                              ; preds = %244, %239
-  %.pn264 = phi i32 [ %241, %239 ], [ %248, %244 ]
-  %254 = phi i32 [ %243, %239 ], [ %252, %244 ]
-  %.pn263 = add i32 %181, %202
-  %.pn262 = add i32 %.pn263, %238
-  %255 = add i32 %.pn262, %.pn264
-  %256 = add i32 %193, %198
-  %257 = add i32 %256, %237
-  %258 = add i32 %257, %254
-  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
-  %260 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
-  %261 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 9)
-  %262 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 17)
-  %263 = xor i32 %262, %261
-  %264 = xor i32 %263, %258
-  %265 = tail call i32 @llvm.bswap.i32(i32 %255)
-  store i32 %265, ptr %172, align 4
-  %266 = tail call i32 @llvm.bswap.i32(i32 %224)
-  store i32 %266, ptr %176, align 4
-  %267 = tail call i32 @llvm.bswap.i32(i32 %259)
-  store i32 %267, ptr %179, align 4
-  %268 = tail call i32 @llvm.bswap.i32(i32 %228)
-  store i32 %268, ptr %182, align 4
-  %269 = tail call i32 @llvm.bswap.i32(i32 %264)
-  store i32 %269, ptr %185, align 4
-  %270 = tail call i32 @llvm.bswap.i32(i32 %233)
-  store i32 %270, ptr %188, align 4
-  %271 = tail call i32 @llvm.bswap.i32(i32 %260)
-  store i32 %271, ptr %191, align 4
-  %272 = tail call i32 @llvm.bswap.i32(i32 %229)
-  store i32 %272, ptr %194, align 4
-  %273 = add nuw nsw i64 %.0217266, 1
-  %exitcond.not = icmp eq i64 %273, %157
-  br i1 %exitcond.not, label %.loopexit, label %171, !llvm.loop !7
+250:                                              ; preds = %241, %236
+  %.pn264 = phi i32 [ %238, %236 ], [ %245, %241 ]
+  %251 = phi i32 [ %240, %236 ], [ %249, %241 ]
+  %.pn263 = add i32 %178, %199
+  %.pn262 = add i32 %.pn263, %235
+  %252 = add i32 %.pn262, %.pn264
+  %253 = add i32 %190, %195
+  %254 = add i32 %253, %234
+  %255 = add i32 %254, %251
+  %256 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 9)
+  %257 = tail call noundef i32 @llvm.fshl.i32(i32 %184, i32 %184, i32 19)
+  %258 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 9)
+  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 17)
+  %260 = xor i32 %259, %258
+  %261 = xor i32 %260, %255
+  %262 = tail call i32 @llvm.bswap.i32(i32 %252)
+  store i32 %262, ptr %169, align 4
+  %263 = tail call i32 @llvm.bswap.i32(i32 %221)
+  store i32 %263, ptr %173, align 4
+  %264 = tail call i32 @llvm.bswap.i32(i32 %256)
+  store i32 %264, ptr %176, align 4
+  %265 = tail call i32 @llvm.bswap.i32(i32 %225)
+  store i32 %265, ptr %179, align 4
+  %266 = tail call i32 @llvm.bswap.i32(i32 %261)
+  store i32 %266, ptr %182, align 4
+  %267 = tail call i32 @llvm.bswap.i32(i32 %230)
+  store i32 %267, ptr %185, align 4
+  %268 = tail call i32 @llvm.bswap.i32(i32 %257)
+  store i32 %268, ptr %188, align 4
+  %269 = tail call i32 @llvm.bswap.i32(i32 %226)
+  store i32 %269, ptr %191, align 4
+  %270 = add nuw nsw i64 %.0217266, 1
+  %exitcond.not = icmp eq i64 %270, %157
+  br i1 %exitcond.not, label %.loopexit, label %168, !llvm.loop !7
 
-.loopexit:                                        ; preds = %253, %145
-  %274 = add i64 %2, 4
-  %275 = load ptr, ptr %113, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %275, i64 noundef 0) #14
-  ret i64 %274
+.loopexit:                                        ; preds = %250, %145
+  %271 = add i64 %2, 4
+  %272 = load ptr, ptr %113, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %272, i64 noundef 0) #14
+  ret i64 %271
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1335,160 +1329,157 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %163 = trunc i64 %159 to i32
   %164 = and i32 %163, 30
   %165 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %164)
-  %166 = and i32 %163, 62
-  %167 = or disjoint i32 %166, 1
-  %168 = icmp ult i32 %167, 16
-  %169 = select i1 %168, i32 2043430169, i32 2055708042
-  %170 = tail call i32 @llvm.fshl.i32(i32 %169, i32 %169, i32 %167)
-  br label %171
+  %166 = or i32 %163, 1
+  %167 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %166)
+  br label %168
 
-171:                                              ; preds = %.preheader, %253
-  %.0217266 = phi i64 [ %151, %.preheader ], [ %273, %253 ]
-  %172 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
-  %173 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
-  %.sroa.0.0.copyload230 = load i32, ptr %173, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 4
+168:                                              ; preds = %.preheader, %250
+  %.0217266 = phi i64 [ %151, %.preheader ], [ %270, %250 ]
+  %169 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
+  %170 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
+  %.sroa.0.0.copyload230 = load i32, ptr %170, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 16
+  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 16
   %.sroa.9234.0.copyload = load i32, ptr %.sroa.9234.0..sroa_idx, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 20
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 20
   %.sroa.13.0.copyload = load i32, ptr %.sroa.13.0..sroa_idx, align 4
-  %174 = load i32, ptr %172, align 4
+  %171 = load i32, ptr %169, align 4
+  %172 = tail call i32 @llvm.bswap.i32(i32 %171)
+  %173 = getelementptr inbounds i8, ptr %169, i64 4
+  %174 = load i32, ptr %173, align 4
   %175 = tail call i32 @llvm.bswap.i32(i32 %174)
-  %176 = getelementptr inbounds i8, ptr %172, i64 4
+  %176 = getelementptr inbounds i8, ptr %169, i64 8
   %177 = load i32, ptr %176, align 4
   %178 = tail call i32 @llvm.bswap.i32(i32 %177)
-  %179 = getelementptr inbounds i8, ptr %172, i64 8
+  %179 = getelementptr inbounds i8, ptr %169, i64 12
   %180 = load i32, ptr %179, align 4
   %181 = tail call i32 @llvm.bswap.i32(i32 %180)
-  %182 = getelementptr inbounds i8, ptr %172, i64 12
+  %182 = getelementptr inbounds i8, ptr %169, i64 16
   %183 = load i32, ptr %182, align 4
   %184 = tail call i32 @llvm.bswap.i32(i32 %183)
-  %185 = getelementptr inbounds i8, ptr %172, i64 16
+  %185 = getelementptr inbounds i8, ptr %169, i64 20
   %186 = load i32, ptr %185, align 4
   %187 = tail call i32 @llvm.bswap.i32(i32 %186)
-  %188 = getelementptr inbounds i8, ptr %172, i64 20
+  %188 = getelementptr inbounds i8, ptr %169, i64 24
   %189 = load i32, ptr %188, align 4
   %190 = tail call i32 @llvm.bswap.i32(i32 %189)
-  %191 = getelementptr inbounds i8, ptr %172, i64 24
+  %191 = getelementptr inbounds i8, ptr %169, i64 28
   %192 = load i32, ptr %191, align 4
   %193 = tail call i32 @llvm.bswap.i32(i32 %192)
-  %194 = getelementptr inbounds i8, ptr %172, i64 28
-  %195 = load i32, ptr %194, align 4
-  %196 = tail call i32 @llvm.bswap.i32(i32 %195)
-  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
-  %198 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
-  %199 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
-  %200 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
-  %201 = xor i32 %199, %197
-  %202 = xor i32 %200, %198
-  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 12)
-  %204 = add i32 %203, %165
-  %205 = add i32 %204, %187
-  %206 = tail call noundef i32 @llvm.fshl.i32(i32 %205, i32 %205, i32 7)
-  %207 = xor i32 %206, %203
-  br i1 %161, label %208, label %213
+  %194 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
+  %195 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
+  %196 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
+  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
+  %198 = xor i32 %196, %194
+  %199 = xor i32 %197, %195
+  %200 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 12)
+  %201 = add i32 %200, %165
+  %202 = add i32 %201, %184
+  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %202, i32 %202, i32 7)
+  %204 = xor i32 %203, %200
+  br i1 %161, label %205, label %210
 
-208:                                              ; preds = %171
-  %209 = xor i32 %178, %175
-  %210 = xor i32 %209, %181
-  %211 = xor i32 %190, %187
-  %212 = xor i32 %211, %193
-  br label %222
+205:                                              ; preds = %168
+  %206 = xor i32 %175, %172
+  %207 = xor i32 %206, %178
+  %208 = xor i32 %187, %184
+  %209 = xor i32 %208, %190
+  br label %219
 
-213:                                              ; preds = %171
-  %214 = or i32 %181, %178
-  %215 = and i32 %214, %175
-  %216 = and i32 %181, %178
-  %217 = or i32 %215, %216
-  %218 = and i32 %190, %187
-  %219 = xor i32 %187, -1
-  %220 = and i32 %193, %219
-  %221 = or i32 %220, %218
-  br label %222
+210:                                              ; preds = %168
+  %211 = or i32 %178, %175
+  %212 = and i32 %211, %172
+  %213 = and i32 %178, %175
+  %214 = or i32 %212, %213
+  %215 = and i32 %187, %184
+  %216 = xor i32 %184, -1
+  %217 = and i32 %190, %216
+  %218 = or i32 %217, %215
+  br label %219
 
-222:                                              ; preds = %213, %208
-  %.pn261 = phi i32 [ %210, %208 ], [ %217, %213 ]
-  %223 = phi i32 [ %212, %208 ], [ %221, %213 ]
-  %.pn260 = add i32 %184, %201
-  %.pn = add i32 %.pn260, %207
-  %224 = add i32 %.pn, %.pn261
-  %225 = add i32 %196, %197
-  %226 = add i32 %225, %206
-  %227 = add i32 %226, %223
-  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %178, i32 %178, i32 9)
-  %229 = tail call noundef i32 @llvm.fshl.i32(i32 %190, i32 %190, i32 19)
-  %230 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 9)
-  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 17)
-  %232 = xor i32 %231, %230
-  %233 = xor i32 %232, %227
-  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 12)
-  %235 = add i32 %234, %170
-  %236 = add i32 %235, %233
-  %237 = tail call noundef i32 @llvm.fshl.i32(i32 %236, i32 %236, i32 7)
-  %238 = xor i32 %237, %234
-  br i1 %168, label %239, label %244
+219:                                              ; preds = %210, %205
+  %.pn261 = phi i32 [ %207, %205 ], [ %214, %210 ]
+  %220 = phi i32 [ %209, %205 ], [ %218, %210 ]
+  %.pn260 = add i32 %181, %198
+  %.pn = add i32 %.pn260, %204
+  %221 = add i32 %.pn, %.pn261
+  %222 = add i32 %193, %194
+  %223 = add i32 %222, %203
+  %224 = add i32 %223, %220
+  %225 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
+  %226 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
+  %227 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 9)
+  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 17)
+  %229 = xor i32 %228, %227
+  %230 = xor i32 %229, %224
+  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %221, i32 %221, i32 12)
+  %232 = add i32 %231, %167
+  %233 = add i32 %232, %230
+  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %233, i32 %233, i32 7)
+  %235 = xor i32 %234, %231
+  br i1 %161, label %236, label %241
 
-239:                                              ; preds = %222
-  %240 = xor i32 %228, %175
-  %241 = xor i32 %240, %224
-  %242 = xor i32 %229, %187
-  %243 = xor i32 %242, %233
-  br label %253
+236:                                              ; preds = %219
+  %237 = xor i32 %225, %172
+  %238 = xor i32 %237, %221
+  %239 = xor i32 %226, %184
+  %240 = xor i32 %239, %230
+  br label %250
 
-244:                                              ; preds = %222
-  %245 = or i32 %228, %175
-  %246 = and i32 %224, %245
-  %247 = and i32 %228, %175
-  %248 = or i32 %246, %247
-  %249 = and i32 %233, %187
-  %250 = xor i32 %233, -1
-  %251 = and i32 %229, %250
-  %252 = or i32 %249, %251
-  br label %253
+241:                                              ; preds = %219
+  %242 = or i32 %225, %172
+  %243 = and i32 %221, %242
+  %244 = and i32 %225, %172
+  %245 = or i32 %243, %244
+  %246 = and i32 %230, %184
+  %247 = xor i32 %230, -1
+  %248 = and i32 %226, %247
+  %249 = or i32 %246, %248
+  br label %250
 
-253:                                              ; preds = %244, %239
-  %.pn264 = phi i32 [ %241, %239 ], [ %248, %244 ]
-  %254 = phi i32 [ %243, %239 ], [ %252, %244 ]
-  %.pn263 = add i32 %181, %202
-  %.pn262 = add i32 %.pn263, %238
-  %255 = add i32 %.pn262, %.pn264
-  %256 = add i32 %193, %198
-  %257 = add i32 %256, %237
-  %258 = add i32 %257, %254
-  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
-  %260 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
-  %261 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 9)
-  %262 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 17)
-  %263 = xor i32 %262, %261
-  %264 = xor i32 %263, %258
-  %265 = tail call i32 @llvm.bswap.i32(i32 %255)
-  store i32 %265, ptr %172, align 4
-  %266 = tail call i32 @llvm.bswap.i32(i32 %224)
-  store i32 %266, ptr %176, align 4
-  %267 = tail call i32 @llvm.bswap.i32(i32 %259)
-  store i32 %267, ptr %179, align 4
-  %268 = tail call i32 @llvm.bswap.i32(i32 %228)
-  store i32 %268, ptr %182, align 4
-  %269 = tail call i32 @llvm.bswap.i32(i32 %264)
-  store i32 %269, ptr %185, align 4
-  %270 = tail call i32 @llvm.bswap.i32(i32 %233)
-  store i32 %270, ptr %188, align 4
-  %271 = tail call i32 @llvm.bswap.i32(i32 %260)
-  store i32 %271, ptr %191, align 4
-  %272 = tail call i32 @llvm.bswap.i32(i32 %229)
-  store i32 %272, ptr %194, align 4
-  %273 = add nuw nsw i64 %.0217266, 1
-  %exitcond.not = icmp eq i64 %273, %157
-  br i1 %exitcond.not, label %.loopexit, label %171, !llvm.loop !8
+250:                                              ; preds = %241, %236
+  %.pn264 = phi i32 [ %238, %236 ], [ %245, %241 ]
+  %251 = phi i32 [ %240, %236 ], [ %249, %241 ]
+  %.pn263 = add i32 %178, %199
+  %.pn262 = add i32 %.pn263, %235
+  %252 = add i32 %.pn262, %.pn264
+  %253 = add i32 %190, %195
+  %254 = add i32 %253, %234
+  %255 = add i32 %254, %251
+  %256 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 9)
+  %257 = tail call noundef i32 @llvm.fshl.i32(i32 %184, i32 %184, i32 19)
+  %258 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 9)
+  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 17)
+  %260 = xor i32 %259, %258
+  %261 = xor i32 %260, %255
+  %262 = tail call i32 @llvm.bswap.i32(i32 %252)
+  store i32 %262, ptr %169, align 4
+  %263 = tail call i32 @llvm.bswap.i32(i32 %221)
+  store i32 %263, ptr %173, align 4
+  %264 = tail call i32 @llvm.bswap.i32(i32 %256)
+  store i32 %264, ptr %176, align 4
+  %265 = tail call i32 @llvm.bswap.i32(i32 %225)
+  store i32 %265, ptr %179, align 4
+  %266 = tail call i32 @llvm.bswap.i32(i32 %261)
+  store i32 %266, ptr %182, align 4
+  %267 = tail call i32 @llvm.bswap.i32(i32 %230)
+  store i32 %267, ptr %185, align 4
+  %268 = tail call i32 @llvm.bswap.i32(i32 %257)
+  store i32 %268, ptr %188, align 4
+  %269 = tail call i32 @llvm.bswap.i32(i32 %226)
+  store i32 %269, ptr %191, align 4
+  %270 = add nuw nsw i64 %.0217266, 1
+  %exitcond.not = icmp eq i64 %270, %157
+  br i1 %exitcond.not, label %.loopexit, label %168, !llvm.loop !8
 
-.loopexit:                                        ; preds = %253, %145
-  %274 = shl i64 %2, 32
-  %275 = add i64 %274, 17179869184
-  %276 = ashr exact i64 %275, 32
-  %277 = load ptr, ptr %113, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %277, i64 noundef 0) #14
-  ret i64 %276
+.loopexit:                                        ; preds = %250, %145
+  %271 = shl i64 %2, 32
+  %272 = add i64 %271, 17179869184
+  %273 = ashr exact i64 %272, 32
+  %274 = load ptr, ptr %113, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %274, i64 noundef 0) #14
+  ret i64 %273
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1800,158 +1791,155 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %163 = trunc i64 %159 to i32
   %164 = and i32 %163, 30
   %165 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %164)
-  %166 = and i32 %163, 62
-  %167 = or disjoint i32 %166, 1
-  %168 = icmp ult i32 %167, 16
-  %169 = select i1 %168, i32 2043430169, i32 2055708042
-  %170 = tail call i32 @llvm.fshl.i32(i32 %169, i32 %169, i32 %167)
-  br label %171
+  %166 = or i32 %163, 1
+  %167 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %166)
+  br label %168
 
-171:                                              ; preds = %.preheader, %253
-  %.0217266 = phi i64 [ %151, %.preheader ], [ %273, %253 ]
-  %172 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
-  %173 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
-  %.sroa.0.0.copyload230 = load i32, ptr %173, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 4
+168:                                              ; preds = %.preheader, %250
+  %.0217266 = phi i64 [ %151, %.preheader ], [ %270, %250 ]
+  %169 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
+  %170 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
+  %.sroa.0.0.copyload230 = load i32, ptr %170, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 16
+  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 16
   %.sroa.9234.0.copyload = load i32, ptr %.sroa.9234.0..sroa_idx, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 20
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 20
   %.sroa.13.0.copyload = load i32, ptr %.sroa.13.0..sroa_idx, align 4
-  %174 = load i32, ptr %172, align 4
+  %171 = load i32, ptr %169, align 4
+  %172 = tail call i32 @llvm.bswap.i32(i32 %171)
+  %173 = getelementptr inbounds i8, ptr %169, i64 4
+  %174 = load i32, ptr %173, align 4
   %175 = tail call i32 @llvm.bswap.i32(i32 %174)
-  %176 = getelementptr inbounds i8, ptr %172, i64 4
+  %176 = getelementptr inbounds i8, ptr %169, i64 8
   %177 = load i32, ptr %176, align 4
   %178 = tail call i32 @llvm.bswap.i32(i32 %177)
-  %179 = getelementptr inbounds i8, ptr %172, i64 8
+  %179 = getelementptr inbounds i8, ptr %169, i64 12
   %180 = load i32, ptr %179, align 4
   %181 = tail call i32 @llvm.bswap.i32(i32 %180)
-  %182 = getelementptr inbounds i8, ptr %172, i64 12
+  %182 = getelementptr inbounds i8, ptr %169, i64 16
   %183 = load i32, ptr %182, align 4
   %184 = tail call i32 @llvm.bswap.i32(i32 %183)
-  %185 = getelementptr inbounds i8, ptr %172, i64 16
+  %185 = getelementptr inbounds i8, ptr %169, i64 20
   %186 = load i32, ptr %185, align 4
   %187 = tail call i32 @llvm.bswap.i32(i32 %186)
-  %188 = getelementptr inbounds i8, ptr %172, i64 20
+  %188 = getelementptr inbounds i8, ptr %169, i64 24
   %189 = load i32, ptr %188, align 4
   %190 = tail call i32 @llvm.bswap.i32(i32 %189)
-  %191 = getelementptr inbounds i8, ptr %172, i64 24
+  %191 = getelementptr inbounds i8, ptr %169, i64 28
   %192 = load i32, ptr %191, align 4
   %193 = tail call i32 @llvm.bswap.i32(i32 %192)
-  %194 = getelementptr inbounds i8, ptr %172, i64 28
-  %195 = load i32, ptr %194, align 4
-  %196 = tail call i32 @llvm.bswap.i32(i32 %195)
-  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
-  %198 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
-  %199 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
-  %200 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
-  %201 = xor i32 %199, %197
-  %202 = xor i32 %200, %198
-  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 12)
-  %204 = add i32 %203, %165
-  %205 = add i32 %204, %187
-  %206 = tail call noundef i32 @llvm.fshl.i32(i32 %205, i32 %205, i32 7)
-  %207 = xor i32 %206, %203
-  br i1 %161, label %208, label %213
+  %194 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
+  %195 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
+  %196 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
+  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
+  %198 = xor i32 %196, %194
+  %199 = xor i32 %197, %195
+  %200 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 12)
+  %201 = add i32 %200, %165
+  %202 = add i32 %201, %184
+  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %202, i32 %202, i32 7)
+  %204 = xor i32 %203, %200
+  br i1 %161, label %205, label %210
 
-208:                                              ; preds = %171
-  %209 = xor i32 %178, %175
-  %210 = xor i32 %209, %181
-  %211 = xor i32 %190, %187
-  %212 = xor i32 %211, %193
-  br label %222
+205:                                              ; preds = %168
+  %206 = xor i32 %175, %172
+  %207 = xor i32 %206, %178
+  %208 = xor i32 %187, %184
+  %209 = xor i32 %208, %190
+  br label %219
 
-213:                                              ; preds = %171
-  %214 = or i32 %181, %178
-  %215 = and i32 %214, %175
-  %216 = and i32 %181, %178
-  %217 = or i32 %215, %216
-  %218 = and i32 %190, %187
-  %219 = xor i32 %187, -1
-  %220 = and i32 %193, %219
-  %221 = or i32 %220, %218
-  br label %222
+210:                                              ; preds = %168
+  %211 = or i32 %178, %175
+  %212 = and i32 %211, %172
+  %213 = and i32 %178, %175
+  %214 = or i32 %212, %213
+  %215 = and i32 %187, %184
+  %216 = xor i32 %184, -1
+  %217 = and i32 %190, %216
+  %218 = or i32 %217, %215
+  br label %219
 
-222:                                              ; preds = %213, %208
-  %.pn261 = phi i32 [ %210, %208 ], [ %217, %213 ]
-  %223 = phi i32 [ %212, %208 ], [ %221, %213 ]
-  %.pn260 = add i32 %184, %201
-  %.pn = add i32 %.pn260, %207
-  %224 = add i32 %.pn, %.pn261
-  %225 = add i32 %196, %197
-  %226 = add i32 %225, %206
-  %227 = add i32 %226, %223
-  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %178, i32 %178, i32 9)
-  %229 = tail call noundef i32 @llvm.fshl.i32(i32 %190, i32 %190, i32 19)
-  %230 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 9)
-  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 17)
-  %232 = xor i32 %231, %230
-  %233 = xor i32 %232, %227
-  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 12)
-  %235 = add i32 %234, %170
-  %236 = add i32 %235, %233
-  %237 = tail call noundef i32 @llvm.fshl.i32(i32 %236, i32 %236, i32 7)
-  %238 = xor i32 %237, %234
-  br i1 %168, label %239, label %244
+219:                                              ; preds = %210, %205
+  %.pn261 = phi i32 [ %207, %205 ], [ %214, %210 ]
+  %220 = phi i32 [ %209, %205 ], [ %218, %210 ]
+  %.pn260 = add i32 %181, %198
+  %.pn = add i32 %.pn260, %204
+  %221 = add i32 %.pn, %.pn261
+  %222 = add i32 %193, %194
+  %223 = add i32 %222, %203
+  %224 = add i32 %223, %220
+  %225 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
+  %226 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
+  %227 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 9)
+  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 17)
+  %229 = xor i32 %228, %227
+  %230 = xor i32 %229, %224
+  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %221, i32 %221, i32 12)
+  %232 = add i32 %231, %167
+  %233 = add i32 %232, %230
+  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %233, i32 %233, i32 7)
+  %235 = xor i32 %234, %231
+  br i1 %161, label %236, label %241
 
-239:                                              ; preds = %222
-  %240 = xor i32 %228, %175
-  %241 = xor i32 %240, %224
-  %242 = xor i32 %229, %187
-  %243 = xor i32 %242, %233
-  br label %253
+236:                                              ; preds = %219
+  %237 = xor i32 %225, %172
+  %238 = xor i32 %237, %221
+  %239 = xor i32 %226, %184
+  %240 = xor i32 %239, %230
+  br label %250
 
-244:                                              ; preds = %222
-  %245 = or i32 %228, %175
-  %246 = and i32 %224, %245
-  %247 = and i32 %228, %175
-  %248 = or i32 %246, %247
-  %249 = and i32 %233, %187
-  %250 = xor i32 %233, -1
-  %251 = and i32 %229, %250
-  %252 = or i32 %249, %251
-  br label %253
+241:                                              ; preds = %219
+  %242 = or i32 %225, %172
+  %243 = and i32 %221, %242
+  %244 = and i32 %225, %172
+  %245 = or i32 %243, %244
+  %246 = and i32 %230, %184
+  %247 = xor i32 %230, -1
+  %248 = and i32 %226, %247
+  %249 = or i32 %246, %248
+  br label %250
 
-253:                                              ; preds = %244, %239
-  %.pn264 = phi i32 [ %241, %239 ], [ %248, %244 ]
-  %254 = phi i32 [ %243, %239 ], [ %252, %244 ]
-  %.pn263 = add i32 %181, %202
-  %.pn262 = add i32 %.pn263, %238
-  %255 = add i32 %.pn262, %.pn264
-  %256 = add i32 %193, %198
-  %257 = add i32 %256, %237
-  %258 = add i32 %257, %254
-  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
-  %260 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
-  %261 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 9)
-  %262 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 17)
-  %263 = xor i32 %262, %261
-  %264 = xor i32 %263, %258
-  %265 = tail call i32 @llvm.bswap.i32(i32 %255)
-  store i32 %265, ptr %172, align 4
-  %266 = tail call i32 @llvm.bswap.i32(i32 %224)
-  store i32 %266, ptr %176, align 4
-  %267 = tail call i32 @llvm.bswap.i32(i32 %259)
-  store i32 %267, ptr %179, align 4
-  %268 = tail call i32 @llvm.bswap.i32(i32 %228)
-  store i32 %268, ptr %182, align 4
-  %269 = tail call i32 @llvm.bswap.i32(i32 %264)
-  store i32 %269, ptr %185, align 4
-  %270 = tail call i32 @llvm.bswap.i32(i32 %233)
-  store i32 %270, ptr %188, align 4
-  %271 = tail call i32 @llvm.bswap.i32(i32 %260)
-  store i32 %271, ptr %191, align 4
-  %272 = tail call i32 @llvm.bswap.i32(i32 %229)
-  store i32 %272, ptr %194, align 4
-  %273 = add nuw nsw i64 %.0217266, 1
-  %exitcond.not = icmp eq i64 %273, %157
-  br i1 %exitcond.not, label %.loopexit, label %171, !llvm.loop !9
+250:                                              ; preds = %241, %236
+  %.pn264 = phi i32 [ %238, %236 ], [ %245, %241 ]
+  %251 = phi i32 [ %240, %236 ], [ %249, %241 ]
+  %.pn263 = add i32 %178, %199
+  %.pn262 = add i32 %.pn263, %235
+  %252 = add i32 %.pn262, %.pn264
+  %253 = add i32 %190, %195
+  %254 = add i32 %253, %234
+  %255 = add i32 %254, %251
+  %256 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 9)
+  %257 = tail call noundef i32 @llvm.fshl.i32(i32 %184, i32 %184, i32 19)
+  %258 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 9)
+  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 17)
+  %260 = xor i32 %259, %258
+  %261 = xor i32 %260, %255
+  %262 = tail call i32 @llvm.bswap.i32(i32 %252)
+  store i32 %262, ptr %169, align 4
+  %263 = tail call i32 @llvm.bswap.i32(i32 %221)
+  store i32 %263, ptr %173, align 4
+  %264 = tail call i32 @llvm.bswap.i32(i32 %256)
+  store i32 %264, ptr %176, align 4
+  %265 = tail call i32 @llvm.bswap.i32(i32 %225)
+  store i32 %265, ptr %179, align 4
+  %266 = tail call i32 @llvm.bswap.i32(i32 %261)
+  store i32 %266, ptr %182, align 4
+  %267 = tail call i32 @llvm.bswap.i32(i32 %230)
+  store i32 %267, ptr %185, align 4
+  %268 = tail call i32 @llvm.bswap.i32(i32 %257)
+  store i32 %268, ptr %188, align 4
+  %269 = tail call i32 @llvm.bswap.i32(i32 %226)
+  store i32 %269, ptr %191, align 4
+  %270 = add nuw nsw i64 %.0217266, 1
+  %exitcond.not = icmp eq i64 %270, %157
+  br i1 %exitcond.not, label %.loopexit, label %168, !llvm.loop !9
 
-.loopexit:                                        ; preds = %253, %145
-  %274 = add i64 %2, 4
-  %275 = load ptr, ptr %113, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %275, i64 noundef 0) #14
-  ret i64 %274
+.loopexit:                                        ; preds = %250, %145
+  %271 = add i64 %2, 4
+  %272 = load ptr, ptr %113, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %272, i64 noundef 0) #14
+  ret i64 %271
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2263,160 +2251,157 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %163 = trunc i64 %159 to i32
   %164 = and i32 %163, 30
   %165 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %164)
-  %166 = and i32 %163, 62
-  %167 = or disjoint i32 %166, 1
-  %168 = icmp ult i32 %167, 16
-  %169 = select i1 %168, i32 2043430169, i32 2055708042
-  %170 = tail call i32 @llvm.fshl.i32(i32 %169, i32 %169, i32 %167)
-  br label %171
+  %166 = or i32 %163, 1
+  %167 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %166)
+  br label %168
 
-171:                                              ; preds = %.preheader, %253
-  %.0217266 = phi i64 [ %151, %.preheader ], [ %273, %253 ]
-  %172 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
-  %173 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
-  %.sroa.0.0.copyload230 = load i32, ptr %173, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 4
+168:                                              ; preds = %.preheader, %250
+  %.0217266 = phi i64 [ %151, %.preheader ], [ %270, %250 ]
+  %169 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
+  %170 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
+  %.sroa.0.0.copyload230 = load i32, ptr %170, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 16
+  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 16
   %.sroa.9234.0.copyload = load i32, ptr %.sroa.9234.0..sroa_idx, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 20
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 20
   %.sroa.13.0.copyload = load i32, ptr %.sroa.13.0..sroa_idx, align 4
-  %174 = load i32, ptr %172, align 4
+  %171 = load i32, ptr %169, align 4
+  %172 = tail call i32 @llvm.bswap.i32(i32 %171)
+  %173 = getelementptr inbounds i8, ptr %169, i64 4
+  %174 = load i32, ptr %173, align 4
   %175 = tail call i32 @llvm.bswap.i32(i32 %174)
-  %176 = getelementptr inbounds i8, ptr %172, i64 4
+  %176 = getelementptr inbounds i8, ptr %169, i64 8
   %177 = load i32, ptr %176, align 4
   %178 = tail call i32 @llvm.bswap.i32(i32 %177)
-  %179 = getelementptr inbounds i8, ptr %172, i64 8
+  %179 = getelementptr inbounds i8, ptr %169, i64 12
   %180 = load i32, ptr %179, align 4
   %181 = tail call i32 @llvm.bswap.i32(i32 %180)
-  %182 = getelementptr inbounds i8, ptr %172, i64 12
+  %182 = getelementptr inbounds i8, ptr %169, i64 16
   %183 = load i32, ptr %182, align 4
   %184 = tail call i32 @llvm.bswap.i32(i32 %183)
-  %185 = getelementptr inbounds i8, ptr %172, i64 16
+  %185 = getelementptr inbounds i8, ptr %169, i64 20
   %186 = load i32, ptr %185, align 4
   %187 = tail call i32 @llvm.bswap.i32(i32 %186)
-  %188 = getelementptr inbounds i8, ptr %172, i64 20
+  %188 = getelementptr inbounds i8, ptr %169, i64 24
   %189 = load i32, ptr %188, align 4
   %190 = tail call i32 @llvm.bswap.i32(i32 %189)
-  %191 = getelementptr inbounds i8, ptr %172, i64 24
+  %191 = getelementptr inbounds i8, ptr %169, i64 28
   %192 = load i32, ptr %191, align 4
   %193 = tail call i32 @llvm.bswap.i32(i32 %192)
-  %194 = getelementptr inbounds i8, ptr %172, i64 28
-  %195 = load i32, ptr %194, align 4
-  %196 = tail call i32 @llvm.bswap.i32(i32 %195)
-  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
-  %198 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
-  %199 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
-  %200 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
-  %201 = xor i32 %199, %197
-  %202 = xor i32 %200, %198
-  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 12)
-  %204 = add i32 %203, %165
-  %205 = add i32 %204, %187
-  %206 = tail call noundef i32 @llvm.fshl.i32(i32 %205, i32 %205, i32 7)
-  %207 = xor i32 %206, %203
-  br i1 %161, label %208, label %213
+  %194 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
+  %195 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
+  %196 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
+  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
+  %198 = xor i32 %196, %194
+  %199 = xor i32 %197, %195
+  %200 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 12)
+  %201 = add i32 %200, %165
+  %202 = add i32 %201, %184
+  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %202, i32 %202, i32 7)
+  %204 = xor i32 %203, %200
+  br i1 %161, label %205, label %210
 
-208:                                              ; preds = %171
-  %209 = xor i32 %178, %175
-  %210 = xor i32 %209, %181
-  %211 = xor i32 %190, %187
-  %212 = xor i32 %211, %193
-  br label %222
+205:                                              ; preds = %168
+  %206 = xor i32 %175, %172
+  %207 = xor i32 %206, %178
+  %208 = xor i32 %187, %184
+  %209 = xor i32 %208, %190
+  br label %219
 
-213:                                              ; preds = %171
-  %214 = or i32 %181, %178
-  %215 = and i32 %214, %175
-  %216 = and i32 %181, %178
-  %217 = or i32 %215, %216
-  %218 = and i32 %190, %187
-  %219 = xor i32 %187, -1
-  %220 = and i32 %193, %219
-  %221 = or i32 %220, %218
-  br label %222
+210:                                              ; preds = %168
+  %211 = or i32 %178, %175
+  %212 = and i32 %211, %172
+  %213 = and i32 %178, %175
+  %214 = or i32 %212, %213
+  %215 = and i32 %187, %184
+  %216 = xor i32 %184, -1
+  %217 = and i32 %190, %216
+  %218 = or i32 %217, %215
+  br label %219
 
-222:                                              ; preds = %213, %208
-  %.pn261 = phi i32 [ %210, %208 ], [ %217, %213 ]
-  %223 = phi i32 [ %212, %208 ], [ %221, %213 ]
-  %.pn260 = add i32 %184, %201
-  %.pn = add i32 %.pn260, %207
-  %224 = add i32 %.pn, %.pn261
-  %225 = add i32 %196, %197
-  %226 = add i32 %225, %206
-  %227 = add i32 %226, %223
-  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %178, i32 %178, i32 9)
-  %229 = tail call noundef i32 @llvm.fshl.i32(i32 %190, i32 %190, i32 19)
-  %230 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 9)
-  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 17)
-  %232 = xor i32 %231, %230
-  %233 = xor i32 %232, %227
-  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 12)
-  %235 = add i32 %234, %170
-  %236 = add i32 %235, %233
-  %237 = tail call noundef i32 @llvm.fshl.i32(i32 %236, i32 %236, i32 7)
-  %238 = xor i32 %237, %234
-  br i1 %168, label %239, label %244
+219:                                              ; preds = %210, %205
+  %.pn261 = phi i32 [ %207, %205 ], [ %214, %210 ]
+  %220 = phi i32 [ %209, %205 ], [ %218, %210 ]
+  %.pn260 = add i32 %181, %198
+  %.pn = add i32 %.pn260, %204
+  %221 = add i32 %.pn, %.pn261
+  %222 = add i32 %193, %194
+  %223 = add i32 %222, %203
+  %224 = add i32 %223, %220
+  %225 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
+  %226 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
+  %227 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 9)
+  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 17)
+  %229 = xor i32 %228, %227
+  %230 = xor i32 %229, %224
+  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %221, i32 %221, i32 12)
+  %232 = add i32 %231, %167
+  %233 = add i32 %232, %230
+  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %233, i32 %233, i32 7)
+  %235 = xor i32 %234, %231
+  br i1 %161, label %236, label %241
 
-239:                                              ; preds = %222
-  %240 = xor i32 %228, %175
-  %241 = xor i32 %240, %224
-  %242 = xor i32 %229, %187
-  %243 = xor i32 %242, %233
-  br label %253
+236:                                              ; preds = %219
+  %237 = xor i32 %225, %172
+  %238 = xor i32 %237, %221
+  %239 = xor i32 %226, %184
+  %240 = xor i32 %239, %230
+  br label %250
 
-244:                                              ; preds = %222
-  %245 = or i32 %228, %175
-  %246 = and i32 %224, %245
-  %247 = and i32 %228, %175
-  %248 = or i32 %246, %247
-  %249 = and i32 %233, %187
-  %250 = xor i32 %233, -1
-  %251 = and i32 %229, %250
-  %252 = or i32 %249, %251
-  br label %253
+241:                                              ; preds = %219
+  %242 = or i32 %225, %172
+  %243 = and i32 %221, %242
+  %244 = and i32 %225, %172
+  %245 = or i32 %243, %244
+  %246 = and i32 %230, %184
+  %247 = xor i32 %230, -1
+  %248 = and i32 %226, %247
+  %249 = or i32 %246, %248
+  br label %250
 
-253:                                              ; preds = %244, %239
-  %.pn264 = phi i32 [ %241, %239 ], [ %248, %244 ]
-  %254 = phi i32 [ %243, %239 ], [ %252, %244 ]
-  %.pn263 = add i32 %181, %202
-  %.pn262 = add i32 %.pn263, %238
-  %255 = add i32 %.pn262, %.pn264
-  %256 = add i32 %193, %198
-  %257 = add i32 %256, %237
-  %258 = add i32 %257, %254
-  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
-  %260 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
-  %261 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 9)
-  %262 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 17)
-  %263 = xor i32 %262, %261
-  %264 = xor i32 %263, %258
-  %265 = tail call i32 @llvm.bswap.i32(i32 %255)
-  store i32 %265, ptr %172, align 4
-  %266 = tail call i32 @llvm.bswap.i32(i32 %224)
-  store i32 %266, ptr %176, align 4
-  %267 = tail call i32 @llvm.bswap.i32(i32 %259)
-  store i32 %267, ptr %179, align 4
-  %268 = tail call i32 @llvm.bswap.i32(i32 %228)
-  store i32 %268, ptr %182, align 4
-  %269 = tail call i32 @llvm.bswap.i32(i32 %264)
-  store i32 %269, ptr %185, align 4
-  %270 = tail call i32 @llvm.bswap.i32(i32 %233)
-  store i32 %270, ptr %188, align 4
-  %271 = tail call i32 @llvm.bswap.i32(i32 %260)
-  store i32 %271, ptr %191, align 4
-  %272 = tail call i32 @llvm.bswap.i32(i32 %229)
-  store i32 %272, ptr %194, align 4
-  %273 = add nuw nsw i64 %.0217266, 1
-  %exitcond.not = icmp eq i64 %273, %157
-  br i1 %exitcond.not, label %.loopexit, label %171, !llvm.loop !10
+250:                                              ; preds = %241, %236
+  %.pn264 = phi i32 [ %238, %236 ], [ %245, %241 ]
+  %251 = phi i32 [ %240, %236 ], [ %249, %241 ]
+  %.pn263 = add i32 %178, %199
+  %.pn262 = add i32 %.pn263, %235
+  %252 = add i32 %.pn262, %.pn264
+  %253 = add i32 %190, %195
+  %254 = add i32 %253, %234
+  %255 = add i32 %254, %251
+  %256 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 9)
+  %257 = tail call noundef i32 @llvm.fshl.i32(i32 %184, i32 %184, i32 19)
+  %258 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 9)
+  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 17)
+  %260 = xor i32 %259, %258
+  %261 = xor i32 %260, %255
+  %262 = tail call i32 @llvm.bswap.i32(i32 %252)
+  store i32 %262, ptr %169, align 4
+  %263 = tail call i32 @llvm.bswap.i32(i32 %221)
+  store i32 %263, ptr %173, align 4
+  %264 = tail call i32 @llvm.bswap.i32(i32 %256)
+  store i32 %264, ptr %176, align 4
+  %265 = tail call i32 @llvm.bswap.i32(i32 %225)
+  store i32 %265, ptr %179, align 4
+  %266 = tail call i32 @llvm.bswap.i32(i32 %261)
+  store i32 %266, ptr %182, align 4
+  %267 = tail call i32 @llvm.bswap.i32(i32 %230)
+  store i32 %267, ptr %185, align 4
+  %268 = tail call i32 @llvm.bswap.i32(i32 %257)
+  store i32 %268, ptr %188, align 4
+  %269 = tail call i32 @llvm.bswap.i32(i32 %226)
+  store i32 %269, ptr %191, align 4
+  %270 = add nuw nsw i64 %.0217266, 1
+  %exitcond.not = icmp eq i64 %270, %157
+  br i1 %exitcond.not, label %.loopexit, label %168, !llvm.loop !10
 
-.loopexit:                                        ; preds = %253, %145
-  %274 = shl i64 %2, 32
-  %275 = add i64 %274, 17179869184
-  %276 = ashr exact i64 %275, 32
-  %277 = load ptr, ptr %113, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %277, i64 noundef 0) #14
-  ret i64 %276
+.loopexit:                                        ; preds = %250, %145
+  %271 = shl i64 %2, 32
+  %272 = add i64 %271, 17179869184
+  %273 = ashr exact i64 %272, 32
+  %274 = load ptr, ptr %113, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %274, i64 noundef 0) #14
+  ret i64 %273
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2728,158 +2713,155 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %163 = trunc i64 %159 to i32
   %164 = and i32 %163, 30
   %165 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %164)
-  %166 = and i32 %163, 62
-  %167 = or disjoint i32 %166, 1
-  %168 = icmp ult i32 %167, 16
-  %169 = select i1 %168, i32 2043430169, i32 2055708042
-  %170 = tail call i32 @llvm.fshl.i32(i32 %169, i32 %169, i32 %167)
-  br label %171
+  %166 = or i32 %163, 1
+  %167 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %166)
+  br label %168
 
-171:                                              ; preds = %.preheader, %253
-  %.0217266 = phi i64 [ %151, %.preheader ], [ %273, %253 ]
-  %172 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
-  %173 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
-  %.sroa.0.0.copyload230 = load i32, ptr %173, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 4
+168:                                              ; preds = %.preheader, %250
+  %.0217266 = phi i64 [ %151, %.preheader ], [ %270, %250 ]
+  %169 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
+  %170 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
+  %.sroa.0.0.copyload230 = load i32, ptr %170, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 16
+  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 16
   %.sroa.9234.0.copyload = load i32, ptr %.sroa.9234.0..sroa_idx, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 20
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 20
   %.sroa.13.0.copyload = load i32, ptr %.sroa.13.0..sroa_idx, align 4
-  %174 = load i32, ptr %172, align 4
+  %171 = load i32, ptr %169, align 4
+  %172 = tail call i32 @llvm.bswap.i32(i32 %171)
+  %173 = getelementptr inbounds i8, ptr %169, i64 4
+  %174 = load i32, ptr %173, align 4
   %175 = tail call i32 @llvm.bswap.i32(i32 %174)
-  %176 = getelementptr inbounds i8, ptr %172, i64 4
+  %176 = getelementptr inbounds i8, ptr %169, i64 8
   %177 = load i32, ptr %176, align 4
   %178 = tail call i32 @llvm.bswap.i32(i32 %177)
-  %179 = getelementptr inbounds i8, ptr %172, i64 8
+  %179 = getelementptr inbounds i8, ptr %169, i64 12
   %180 = load i32, ptr %179, align 4
   %181 = tail call i32 @llvm.bswap.i32(i32 %180)
-  %182 = getelementptr inbounds i8, ptr %172, i64 12
+  %182 = getelementptr inbounds i8, ptr %169, i64 16
   %183 = load i32, ptr %182, align 4
   %184 = tail call i32 @llvm.bswap.i32(i32 %183)
-  %185 = getelementptr inbounds i8, ptr %172, i64 16
+  %185 = getelementptr inbounds i8, ptr %169, i64 20
   %186 = load i32, ptr %185, align 4
   %187 = tail call i32 @llvm.bswap.i32(i32 %186)
-  %188 = getelementptr inbounds i8, ptr %172, i64 20
+  %188 = getelementptr inbounds i8, ptr %169, i64 24
   %189 = load i32, ptr %188, align 4
   %190 = tail call i32 @llvm.bswap.i32(i32 %189)
-  %191 = getelementptr inbounds i8, ptr %172, i64 24
+  %191 = getelementptr inbounds i8, ptr %169, i64 28
   %192 = load i32, ptr %191, align 4
   %193 = tail call i32 @llvm.bswap.i32(i32 %192)
-  %194 = getelementptr inbounds i8, ptr %172, i64 28
-  %195 = load i32, ptr %194, align 4
-  %196 = tail call i32 @llvm.bswap.i32(i32 %195)
-  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
-  %198 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
-  %199 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
-  %200 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
-  %201 = xor i32 %199, %197
-  %202 = xor i32 %200, %198
-  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 12)
-  %204 = add i32 %203, %165
-  %205 = add i32 %204, %187
-  %206 = tail call noundef i32 @llvm.fshl.i32(i32 %205, i32 %205, i32 7)
-  %207 = xor i32 %206, %203
-  br i1 %161, label %208, label %213
+  %194 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
+  %195 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
+  %196 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
+  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
+  %198 = xor i32 %196, %194
+  %199 = xor i32 %197, %195
+  %200 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 12)
+  %201 = add i32 %200, %165
+  %202 = add i32 %201, %184
+  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %202, i32 %202, i32 7)
+  %204 = xor i32 %203, %200
+  br i1 %161, label %205, label %210
 
-208:                                              ; preds = %171
-  %209 = xor i32 %178, %175
-  %210 = xor i32 %209, %181
-  %211 = xor i32 %190, %187
-  %212 = xor i32 %211, %193
-  br label %222
+205:                                              ; preds = %168
+  %206 = xor i32 %175, %172
+  %207 = xor i32 %206, %178
+  %208 = xor i32 %187, %184
+  %209 = xor i32 %208, %190
+  br label %219
 
-213:                                              ; preds = %171
-  %214 = or i32 %181, %178
-  %215 = and i32 %214, %175
-  %216 = and i32 %181, %178
-  %217 = or i32 %215, %216
-  %218 = and i32 %190, %187
-  %219 = xor i32 %187, -1
-  %220 = and i32 %193, %219
-  %221 = or i32 %220, %218
-  br label %222
+210:                                              ; preds = %168
+  %211 = or i32 %178, %175
+  %212 = and i32 %211, %172
+  %213 = and i32 %178, %175
+  %214 = or i32 %212, %213
+  %215 = and i32 %187, %184
+  %216 = xor i32 %184, -1
+  %217 = and i32 %190, %216
+  %218 = or i32 %217, %215
+  br label %219
 
-222:                                              ; preds = %213, %208
-  %.pn261 = phi i32 [ %210, %208 ], [ %217, %213 ]
-  %223 = phi i32 [ %212, %208 ], [ %221, %213 ]
-  %.pn260 = add i32 %184, %201
-  %.pn = add i32 %.pn260, %207
-  %224 = add i32 %.pn, %.pn261
-  %225 = add i32 %196, %197
-  %226 = add i32 %225, %206
-  %227 = add i32 %226, %223
-  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %178, i32 %178, i32 9)
-  %229 = tail call noundef i32 @llvm.fshl.i32(i32 %190, i32 %190, i32 19)
-  %230 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 9)
-  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 17)
-  %232 = xor i32 %231, %230
-  %233 = xor i32 %232, %227
-  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 12)
-  %235 = add i32 %234, %170
-  %236 = add i32 %235, %233
-  %237 = tail call noundef i32 @llvm.fshl.i32(i32 %236, i32 %236, i32 7)
-  %238 = xor i32 %237, %234
-  br i1 %168, label %239, label %244
+219:                                              ; preds = %210, %205
+  %.pn261 = phi i32 [ %207, %205 ], [ %214, %210 ]
+  %220 = phi i32 [ %209, %205 ], [ %218, %210 ]
+  %.pn260 = add i32 %181, %198
+  %.pn = add i32 %.pn260, %204
+  %221 = add i32 %.pn, %.pn261
+  %222 = add i32 %193, %194
+  %223 = add i32 %222, %203
+  %224 = add i32 %223, %220
+  %225 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
+  %226 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
+  %227 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 9)
+  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 17)
+  %229 = xor i32 %228, %227
+  %230 = xor i32 %229, %224
+  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %221, i32 %221, i32 12)
+  %232 = add i32 %231, %167
+  %233 = add i32 %232, %230
+  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %233, i32 %233, i32 7)
+  %235 = xor i32 %234, %231
+  br i1 %161, label %236, label %241
 
-239:                                              ; preds = %222
-  %240 = xor i32 %228, %175
-  %241 = xor i32 %240, %224
-  %242 = xor i32 %229, %187
-  %243 = xor i32 %242, %233
-  br label %253
+236:                                              ; preds = %219
+  %237 = xor i32 %225, %172
+  %238 = xor i32 %237, %221
+  %239 = xor i32 %226, %184
+  %240 = xor i32 %239, %230
+  br label %250
 
-244:                                              ; preds = %222
-  %245 = or i32 %228, %175
-  %246 = and i32 %224, %245
-  %247 = and i32 %228, %175
-  %248 = or i32 %246, %247
-  %249 = and i32 %233, %187
-  %250 = xor i32 %233, -1
-  %251 = and i32 %229, %250
-  %252 = or i32 %249, %251
-  br label %253
+241:                                              ; preds = %219
+  %242 = or i32 %225, %172
+  %243 = and i32 %221, %242
+  %244 = and i32 %225, %172
+  %245 = or i32 %243, %244
+  %246 = and i32 %230, %184
+  %247 = xor i32 %230, -1
+  %248 = and i32 %226, %247
+  %249 = or i32 %246, %248
+  br label %250
 
-253:                                              ; preds = %244, %239
-  %.pn264 = phi i32 [ %241, %239 ], [ %248, %244 ]
-  %254 = phi i32 [ %243, %239 ], [ %252, %244 ]
-  %.pn263 = add i32 %181, %202
-  %.pn262 = add i32 %.pn263, %238
-  %255 = add i32 %.pn262, %.pn264
-  %256 = add i32 %193, %198
-  %257 = add i32 %256, %237
-  %258 = add i32 %257, %254
-  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
-  %260 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
-  %261 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 9)
-  %262 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 17)
-  %263 = xor i32 %262, %261
-  %264 = xor i32 %263, %258
-  %265 = tail call i32 @llvm.bswap.i32(i32 %255)
-  store i32 %265, ptr %172, align 4
-  %266 = tail call i32 @llvm.bswap.i32(i32 %224)
-  store i32 %266, ptr %176, align 4
-  %267 = tail call i32 @llvm.bswap.i32(i32 %259)
-  store i32 %267, ptr %179, align 4
-  %268 = tail call i32 @llvm.bswap.i32(i32 %228)
-  store i32 %268, ptr %182, align 4
-  %269 = tail call i32 @llvm.bswap.i32(i32 %264)
-  store i32 %269, ptr %185, align 4
-  %270 = tail call i32 @llvm.bswap.i32(i32 %233)
-  store i32 %270, ptr %188, align 4
-  %271 = tail call i32 @llvm.bswap.i32(i32 %260)
-  store i32 %271, ptr %191, align 4
-  %272 = tail call i32 @llvm.bswap.i32(i32 %229)
-  store i32 %272, ptr %194, align 4
-  %273 = add nuw nsw i64 %.0217266, 1
-  %exitcond.not = icmp eq i64 %273, %157
-  br i1 %exitcond.not, label %.loopexit, label %171, !llvm.loop !11
+250:                                              ; preds = %241, %236
+  %.pn264 = phi i32 [ %238, %236 ], [ %245, %241 ]
+  %251 = phi i32 [ %240, %236 ], [ %249, %241 ]
+  %.pn263 = add i32 %178, %199
+  %.pn262 = add i32 %.pn263, %235
+  %252 = add i32 %.pn262, %.pn264
+  %253 = add i32 %190, %195
+  %254 = add i32 %253, %234
+  %255 = add i32 %254, %251
+  %256 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 9)
+  %257 = tail call noundef i32 @llvm.fshl.i32(i32 %184, i32 %184, i32 19)
+  %258 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 9)
+  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 17)
+  %260 = xor i32 %259, %258
+  %261 = xor i32 %260, %255
+  %262 = tail call i32 @llvm.bswap.i32(i32 %252)
+  store i32 %262, ptr %169, align 4
+  %263 = tail call i32 @llvm.bswap.i32(i32 %221)
+  store i32 %263, ptr %173, align 4
+  %264 = tail call i32 @llvm.bswap.i32(i32 %256)
+  store i32 %264, ptr %176, align 4
+  %265 = tail call i32 @llvm.bswap.i32(i32 %225)
+  store i32 %265, ptr %179, align 4
+  %266 = tail call i32 @llvm.bswap.i32(i32 %261)
+  store i32 %266, ptr %182, align 4
+  %267 = tail call i32 @llvm.bswap.i32(i32 %230)
+  store i32 %267, ptr %185, align 4
+  %268 = tail call i32 @llvm.bswap.i32(i32 %257)
+  store i32 %268, ptr %188, align 4
+  %269 = tail call i32 @llvm.bswap.i32(i32 %226)
+  store i32 %269, ptr %191, align 4
+  %270 = add nuw nsw i64 %.0217266, 1
+  %exitcond.not = icmp eq i64 %270, %157
+  br i1 %exitcond.not, label %.loopexit, label %168, !llvm.loop !11
 
-.loopexit:                                        ; preds = %253, %145
-  %274 = add i64 %2, 4
-  %275 = load ptr, ptr %113, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %275, i64 noundef 0) #14
-  ret i64 %274
+.loopexit:                                        ; preds = %250, %145
+  %271 = add i64 %2, 4
+  %272 = load ptr, ptr %113, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %272, i64 noundef 0) #14
+  ret i64 %271
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3191,160 +3173,157 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %163 = trunc i64 %159 to i32
   %164 = and i32 %163, 30
   %165 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %164)
-  %166 = and i32 %163, 62
-  %167 = or disjoint i32 %166, 1
-  %168 = icmp ult i32 %167, 16
-  %169 = select i1 %168, i32 2043430169, i32 2055708042
-  %170 = tail call i32 @llvm.fshl.i32(i32 %169, i32 %169, i32 %167)
-  br label %171
+  %166 = or i32 %163, 1
+  %167 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %166)
+  br label %168
 
-171:                                              ; preds = %.preheader, %253
-  %.0217266 = phi i64 [ %151, %.preheader ], [ %273, %253 ]
-  %172 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
-  %173 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
-  %.sroa.0.0.copyload230 = load i32, ptr %173, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 4
+168:                                              ; preds = %.preheader, %250
+  %.0217266 = phi i64 [ %151, %.preheader ], [ %270, %250 ]
+  %169 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
+  %170 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
+  %.sroa.0.0.copyload230 = load i32, ptr %170, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 16
+  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 16
   %.sroa.9234.0.copyload = load i32, ptr %.sroa.9234.0..sroa_idx, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 20
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 20
   %.sroa.13.0.copyload = load i32, ptr %.sroa.13.0..sroa_idx, align 4
-  %174 = load i32, ptr %172, align 4
+  %171 = load i32, ptr %169, align 4
+  %172 = tail call i32 @llvm.bswap.i32(i32 %171)
+  %173 = getelementptr inbounds i8, ptr %169, i64 4
+  %174 = load i32, ptr %173, align 4
   %175 = tail call i32 @llvm.bswap.i32(i32 %174)
-  %176 = getelementptr inbounds i8, ptr %172, i64 4
+  %176 = getelementptr inbounds i8, ptr %169, i64 8
   %177 = load i32, ptr %176, align 4
   %178 = tail call i32 @llvm.bswap.i32(i32 %177)
-  %179 = getelementptr inbounds i8, ptr %172, i64 8
+  %179 = getelementptr inbounds i8, ptr %169, i64 12
   %180 = load i32, ptr %179, align 4
   %181 = tail call i32 @llvm.bswap.i32(i32 %180)
-  %182 = getelementptr inbounds i8, ptr %172, i64 12
+  %182 = getelementptr inbounds i8, ptr %169, i64 16
   %183 = load i32, ptr %182, align 4
   %184 = tail call i32 @llvm.bswap.i32(i32 %183)
-  %185 = getelementptr inbounds i8, ptr %172, i64 16
+  %185 = getelementptr inbounds i8, ptr %169, i64 20
   %186 = load i32, ptr %185, align 4
   %187 = tail call i32 @llvm.bswap.i32(i32 %186)
-  %188 = getelementptr inbounds i8, ptr %172, i64 20
+  %188 = getelementptr inbounds i8, ptr %169, i64 24
   %189 = load i32, ptr %188, align 4
   %190 = tail call i32 @llvm.bswap.i32(i32 %189)
-  %191 = getelementptr inbounds i8, ptr %172, i64 24
+  %191 = getelementptr inbounds i8, ptr %169, i64 28
   %192 = load i32, ptr %191, align 4
   %193 = tail call i32 @llvm.bswap.i32(i32 %192)
-  %194 = getelementptr inbounds i8, ptr %172, i64 28
-  %195 = load i32, ptr %194, align 4
-  %196 = tail call i32 @llvm.bswap.i32(i32 %195)
-  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
-  %198 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
-  %199 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
-  %200 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
-  %201 = xor i32 %199, %197
-  %202 = xor i32 %200, %198
-  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 12)
-  %204 = add i32 %203, %165
-  %205 = add i32 %204, %187
-  %206 = tail call noundef i32 @llvm.fshl.i32(i32 %205, i32 %205, i32 7)
-  %207 = xor i32 %206, %203
-  br i1 %161, label %208, label %213
+  %194 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
+  %195 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
+  %196 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
+  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
+  %198 = xor i32 %196, %194
+  %199 = xor i32 %197, %195
+  %200 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 12)
+  %201 = add i32 %200, %165
+  %202 = add i32 %201, %184
+  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %202, i32 %202, i32 7)
+  %204 = xor i32 %203, %200
+  br i1 %161, label %205, label %210
 
-208:                                              ; preds = %171
-  %209 = xor i32 %178, %175
-  %210 = xor i32 %209, %181
-  %211 = xor i32 %190, %187
-  %212 = xor i32 %211, %193
-  br label %222
+205:                                              ; preds = %168
+  %206 = xor i32 %175, %172
+  %207 = xor i32 %206, %178
+  %208 = xor i32 %187, %184
+  %209 = xor i32 %208, %190
+  br label %219
 
-213:                                              ; preds = %171
-  %214 = or i32 %181, %178
-  %215 = and i32 %214, %175
-  %216 = and i32 %181, %178
-  %217 = or i32 %215, %216
-  %218 = and i32 %190, %187
-  %219 = xor i32 %187, -1
-  %220 = and i32 %193, %219
-  %221 = or i32 %220, %218
-  br label %222
+210:                                              ; preds = %168
+  %211 = or i32 %178, %175
+  %212 = and i32 %211, %172
+  %213 = and i32 %178, %175
+  %214 = or i32 %212, %213
+  %215 = and i32 %187, %184
+  %216 = xor i32 %184, -1
+  %217 = and i32 %190, %216
+  %218 = or i32 %217, %215
+  br label %219
 
-222:                                              ; preds = %213, %208
-  %.pn261 = phi i32 [ %210, %208 ], [ %217, %213 ]
-  %223 = phi i32 [ %212, %208 ], [ %221, %213 ]
-  %.pn260 = add i32 %184, %201
-  %.pn = add i32 %.pn260, %207
-  %224 = add i32 %.pn, %.pn261
-  %225 = add i32 %196, %197
-  %226 = add i32 %225, %206
-  %227 = add i32 %226, %223
-  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %178, i32 %178, i32 9)
-  %229 = tail call noundef i32 @llvm.fshl.i32(i32 %190, i32 %190, i32 19)
-  %230 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 9)
-  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 17)
-  %232 = xor i32 %231, %230
-  %233 = xor i32 %232, %227
-  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 12)
-  %235 = add i32 %234, %170
-  %236 = add i32 %235, %233
-  %237 = tail call noundef i32 @llvm.fshl.i32(i32 %236, i32 %236, i32 7)
-  %238 = xor i32 %237, %234
-  br i1 %168, label %239, label %244
+219:                                              ; preds = %210, %205
+  %.pn261 = phi i32 [ %207, %205 ], [ %214, %210 ]
+  %220 = phi i32 [ %209, %205 ], [ %218, %210 ]
+  %.pn260 = add i32 %181, %198
+  %.pn = add i32 %.pn260, %204
+  %221 = add i32 %.pn, %.pn261
+  %222 = add i32 %193, %194
+  %223 = add i32 %222, %203
+  %224 = add i32 %223, %220
+  %225 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
+  %226 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
+  %227 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 9)
+  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 17)
+  %229 = xor i32 %228, %227
+  %230 = xor i32 %229, %224
+  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %221, i32 %221, i32 12)
+  %232 = add i32 %231, %167
+  %233 = add i32 %232, %230
+  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %233, i32 %233, i32 7)
+  %235 = xor i32 %234, %231
+  br i1 %161, label %236, label %241
 
-239:                                              ; preds = %222
-  %240 = xor i32 %228, %175
-  %241 = xor i32 %240, %224
-  %242 = xor i32 %229, %187
-  %243 = xor i32 %242, %233
-  br label %253
+236:                                              ; preds = %219
+  %237 = xor i32 %225, %172
+  %238 = xor i32 %237, %221
+  %239 = xor i32 %226, %184
+  %240 = xor i32 %239, %230
+  br label %250
 
-244:                                              ; preds = %222
-  %245 = or i32 %228, %175
-  %246 = and i32 %224, %245
-  %247 = and i32 %228, %175
-  %248 = or i32 %246, %247
-  %249 = and i32 %233, %187
-  %250 = xor i32 %233, -1
-  %251 = and i32 %229, %250
-  %252 = or i32 %249, %251
-  br label %253
+241:                                              ; preds = %219
+  %242 = or i32 %225, %172
+  %243 = and i32 %221, %242
+  %244 = and i32 %225, %172
+  %245 = or i32 %243, %244
+  %246 = and i32 %230, %184
+  %247 = xor i32 %230, -1
+  %248 = and i32 %226, %247
+  %249 = or i32 %246, %248
+  br label %250
 
-253:                                              ; preds = %244, %239
-  %.pn264 = phi i32 [ %241, %239 ], [ %248, %244 ]
-  %254 = phi i32 [ %243, %239 ], [ %252, %244 ]
-  %.pn263 = add i32 %181, %202
-  %.pn262 = add i32 %.pn263, %238
-  %255 = add i32 %.pn262, %.pn264
-  %256 = add i32 %193, %198
-  %257 = add i32 %256, %237
-  %258 = add i32 %257, %254
-  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
-  %260 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
-  %261 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 9)
-  %262 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 17)
-  %263 = xor i32 %262, %261
-  %264 = xor i32 %263, %258
-  %265 = tail call i32 @llvm.bswap.i32(i32 %255)
-  store i32 %265, ptr %172, align 4
-  %266 = tail call i32 @llvm.bswap.i32(i32 %224)
-  store i32 %266, ptr %176, align 4
-  %267 = tail call i32 @llvm.bswap.i32(i32 %259)
-  store i32 %267, ptr %179, align 4
-  %268 = tail call i32 @llvm.bswap.i32(i32 %228)
-  store i32 %268, ptr %182, align 4
-  %269 = tail call i32 @llvm.bswap.i32(i32 %264)
-  store i32 %269, ptr %185, align 4
-  %270 = tail call i32 @llvm.bswap.i32(i32 %233)
-  store i32 %270, ptr %188, align 4
-  %271 = tail call i32 @llvm.bswap.i32(i32 %260)
-  store i32 %271, ptr %191, align 4
-  %272 = tail call i32 @llvm.bswap.i32(i32 %229)
-  store i32 %272, ptr %194, align 4
-  %273 = add nuw nsw i64 %.0217266, 1
-  %exitcond.not = icmp eq i64 %273, %157
-  br i1 %exitcond.not, label %.loopexit, label %171, !llvm.loop !12
+250:                                              ; preds = %241, %236
+  %.pn264 = phi i32 [ %238, %236 ], [ %245, %241 ]
+  %251 = phi i32 [ %240, %236 ], [ %249, %241 ]
+  %.pn263 = add i32 %178, %199
+  %.pn262 = add i32 %.pn263, %235
+  %252 = add i32 %.pn262, %.pn264
+  %253 = add i32 %190, %195
+  %254 = add i32 %253, %234
+  %255 = add i32 %254, %251
+  %256 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 9)
+  %257 = tail call noundef i32 @llvm.fshl.i32(i32 %184, i32 %184, i32 19)
+  %258 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 9)
+  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 17)
+  %260 = xor i32 %259, %258
+  %261 = xor i32 %260, %255
+  %262 = tail call i32 @llvm.bswap.i32(i32 %252)
+  store i32 %262, ptr %169, align 4
+  %263 = tail call i32 @llvm.bswap.i32(i32 %221)
+  store i32 %263, ptr %173, align 4
+  %264 = tail call i32 @llvm.bswap.i32(i32 %256)
+  store i32 %264, ptr %176, align 4
+  %265 = tail call i32 @llvm.bswap.i32(i32 %225)
+  store i32 %265, ptr %179, align 4
+  %266 = tail call i32 @llvm.bswap.i32(i32 %261)
+  store i32 %266, ptr %182, align 4
+  %267 = tail call i32 @llvm.bswap.i32(i32 %230)
+  store i32 %267, ptr %185, align 4
+  %268 = tail call i32 @llvm.bswap.i32(i32 %257)
+  store i32 %268, ptr %188, align 4
+  %269 = tail call i32 @llvm.bswap.i32(i32 %226)
+  store i32 %269, ptr %191, align 4
+  %270 = add nuw nsw i64 %.0217266, 1
+  %exitcond.not = icmp eq i64 %270, %157
+  br i1 %exitcond.not, label %.loopexit, label %168, !llvm.loop !12
 
-.loopexit:                                        ; preds = %253, %145
-  %274 = shl i64 %2, 32
-  %275 = add i64 %274, 17179869184
-  %276 = ashr exact i64 %275, 32
-  %277 = load ptr, ptr %113, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %277, i64 noundef 0) #14
-  ret i64 %276
+.loopexit:                                        ; preds = %250, %145
+  %271 = shl i64 %2, 32
+  %272 = add i64 %271, 17179869184
+  %273 = ashr exact i64 %272, 32
+  %274 = load ptr, ptr %113, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %274, i64 noundef 0) #14
+  ret i64 %273
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3656,158 +3635,155 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %163 = trunc i64 %159 to i32
   %164 = and i32 %163, 30
   %165 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %164)
-  %166 = and i32 %163, 62
-  %167 = or disjoint i32 %166, 1
-  %168 = icmp ult i32 %167, 16
-  %169 = select i1 %168, i32 2043430169, i32 2055708042
-  %170 = tail call i32 @llvm.fshl.i32(i32 %169, i32 %169, i32 %167)
-  br label %171
+  %166 = or i32 %163, 1
+  %167 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 %166)
+  br label %168
 
-171:                                              ; preds = %.preheader, %253
-  %.0217266 = phi i64 [ %151, %.preheader ], [ %273, %253 ]
-  %172 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
-  %173 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
-  %.sroa.0.0.copyload230 = load i32, ptr %173, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 4
+168:                                              ; preds = %.preheader, %250
+  %.0217266 = phi i64 [ %151, %.preheader ], [ %270, %250 ]
+  %169 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %104, i64 noundef %.0217266, i1 noundef zeroext true)
+  %170 = tail call noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm8EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %23, i64 noundef %106, i64 noundef %.0217266, i1 noundef zeroext false)
+  %.sroa.0.0.copyload230 = load i32, ptr %170, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 16
+  %.sroa.9234.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 16
   %.sroa.9234.0.copyload = load i32, ptr %.sroa.9234.0..sroa_idx, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 20
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 20
   %.sroa.13.0.copyload = load i32, ptr %.sroa.13.0..sroa_idx, align 4
-  %174 = load i32, ptr %172, align 4
+  %171 = load i32, ptr %169, align 4
+  %172 = tail call i32 @llvm.bswap.i32(i32 %171)
+  %173 = getelementptr inbounds i8, ptr %169, i64 4
+  %174 = load i32, ptr %173, align 4
   %175 = tail call i32 @llvm.bswap.i32(i32 %174)
-  %176 = getelementptr inbounds i8, ptr %172, i64 4
+  %176 = getelementptr inbounds i8, ptr %169, i64 8
   %177 = load i32, ptr %176, align 4
   %178 = tail call i32 @llvm.bswap.i32(i32 %177)
-  %179 = getelementptr inbounds i8, ptr %172, i64 8
+  %179 = getelementptr inbounds i8, ptr %169, i64 12
   %180 = load i32, ptr %179, align 4
   %181 = tail call i32 @llvm.bswap.i32(i32 %180)
-  %182 = getelementptr inbounds i8, ptr %172, i64 12
+  %182 = getelementptr inbounds i8, ptr %169, i64 16
   %183 = load i32, ptr %182, align 4
   %184 = tail call i32 @llvm.bswap.i32(i32 %183)
-  %185 = getelementptr inbounds i8, ptr %172, i64 16
+  %185 = getelementptr inbounds i8, ptr %169, i64 20
   %186 = load i32, ptr %185, align 4
   %187 = tail call i32 @llvm.bswap.i32(i32 %186)
-  %188 = getelementptr inbounds i8, ptr %172, i64 20
+  %188 = getelementptr inbounds i8, ptr %169, i64 24
   %189 = load i32, ptr %188, align 4
   %190 = tail call i32 @llvm.bswap.i32(i32 %189)
-  %191 = getelementptr inbounds i8, ptr %172, i64 24
+  %191 = getelementptr inbounds i8, ptr %169, i64 28
   %192 = load i32, ptr %191, align 4
   %193 = tail call i32 @llvm.bswap.i32(i32 %192)
-  %194 = getelementptr inbounds i8, ptr %172, i64 28
-  %195 = load i32, ptr %194, align 4
-  %196 = tail call i32 @llvm.bswap.i32(i32 %195)
-  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
-  %198 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
-  %199 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
-  %200 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
-  %201 = xor i32 %199, %197
-  %202 = xor i32 %200, %198
-  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 12)
-  %204 = add i32 %203, %165
-  %205 = add i32 %204, %187
-  %206 = tail call noundef i32 @llvm.fshl.i32(i32 %205, i32 %205, i32 7)
-  %207 = xor i32 %206, %203
-  br i1 %161, label %208, label %213
+  %194 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload230)
+  %195 = tail call i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
+  %196 = tail call i32 @llvm.bswap.i32(i32 %.sroa.9234.0.copyload)
+  %197 = tail call i32 @llvm.bswap.i32(i32 %.sroa.13.0.copyload)
+  %198 = xor i32 %196, %194
+  %199 = xor i32 %197, %195
+  %200 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 12)
+  %201 = add i32 %200, %165
+  %202 = add i32 %201, %184
+  %203 = tail call noundef i32 @llvm.fshl.i32(i32 %202, i32 %202, i32 7)
+  %204 = xor i32 %203, %200
+  br i1 %161, label %205, label %210
 
-208:                                              ; preds = %171
-  %209 = xor i32 %178, %175
-  %210 = xor i32 %209, %181
-  %211 = xor i32 %190, %187
-  %212 = xor i32 %211, %193
-  br label %222
+205:                                              ; preds = %168
+  %206 = xor i32 %175, %172
+  %207 = xor i32 %206, %178
+  %208 = xor i32 %187, %184
+  %209 = xor i32 %208, %190
+  br label %219
 
-213:                                              ; preds = %171
-  %214 = or i32 %181, %178
-  %215 = and i32 %214, %175
-  %216 = and i32 %181, %178
-  %217 = or i32 %215, %216
-  %218 = and i32 %190, %187
-  %219 = xor i32 %187, -1
-  %220 = and i32 %193, %219
-  %221 = or i32 %220, %218
-  br label %222
+210:                                              ; preds = %168
+  %211 = or i32 %178, %175
+  %212 = and i32 %211, %172
+  %213 = and i32 %178, %175
+  %214 = or i32 %212, %213
+  %215 = and i32 %187, %184
+  %216 = xor i32 %184, -1
+  %217 = and i32 %190, %216
+  %218 = or i32 %217, %215
+  br label %219
 
-222:                                              ; preds = %213, %208
-  %.pn261 = phi i32 [ %210, %208 ], [ %217, %213 ]
-  %223 = phi i32 [ %212, %208 ], [ %221, %213 ]
-  %.pn260 = add i32 %184, %201
-  %.pn = add i32 %.pn260, %207
-  %224 = add i32 %.pn, %.pn261
-  %225 = add i32 %196, %197
-  %226 = add i32 %225, %206
-  %227 = add i32 %226, %223
-  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %178, i32 %178, i32 9)
-  %229 = tail call noundef i32 @llvm.fshl.i32(i32 %190, i32 %190, i32 19)
-  %230 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 9)
-  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 17)
-  %232 = xor i32 %231, %230
-  %233 = xor i32 %232, %227
-  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 12)
-  %235 = add i32 %234, %170
-  %236 = add i32 %235, %233
-  %237 = tail call noundef i32 @llvm.fshl.i32(i32 %236, i32 %236, i32 7)
-  %238 = xor i32 %237, %234
-  br i1 %168, label %239, label %244
+219:                                              ; preds = %210, %205
+  %.pn261 = phi i32 [ %207, %205 ], [ %214, %210 ]
+  %220 = phi i32 [ %209, %205 ], [ %218, %210 ]
+  %.pn260 = add i32 %181, %198
+  %.pn = add i32 %.pn260, %204
+  %221 = add i32 %.pn, %.pn261
+  %222 = add i32 %193, %194
+  %223 = add i32 %222, %203
+  %224 = add i32 %223, %220
+  %225 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
+  %226 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
+  %227 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 9)
+  %228 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 17)
+  %229 = xor i32 %228, %227
+  %230 = xor i32 %229, %224
+  %231 = tail call noundef i32 @llvm.fshl.i32(i32 %221, i32 %221, i32 12)
+  %232 = add i32 %231, %167
+  %233 = add i32 %232, %230
+  %234 = tail call noundef i32 @llvm.fshl.i32(i32 %233, i32 %233, i32 7)
+  %235 = xor i32 %234, %231
+  br i1 %161, label %236, label %241
 
-239:                                              ; preds = %222
-  %240 = xor i32 %228, %175
-  %241 = xor i32 %240, %224
-  %242 = xor i32 %229, %187
-  %243 = xor i32 %242, %233
-  br label %253
+236:                                              ; preds = %219
+  %237 = xor i32 %225, %172
+  %238 = xor i32 %237, %221
+  %239 = xor i32 %226, %184
+  %240 = xor i32 %239, %230
+  br label %250
 
-244:                                              ; preds = %222
-  %245 = or i32 %228, %175
-  %246 = and i32 %224, %245
-  %247 = and i32 %228, %175
-  %248 = or i32 %246, %247
-  %249 = and i32 %233, %187
-  %250 = xor i32 %233, -1
-  %251 = and i32 %229, %250
-  %252 = or i32 %249, %251
-  br label %253
+241:                                              ; preds = %219
+  %242 = or i32 %225, %172
+  %243 = and i32 %221, %242
+  %244 = and i32 %225, %172
+  %245 = or i32 %243, %244
+  %246 = and i32 %230, %184
+  %247 = xor i32 %230, -1
+  %248 = and i32 %226, %247
+  %249 = or i32 %246, %248
+  br label %250
 
-253:                                              ; preds = %244, %239
-  %.pn264 = phi i32 [ %241, %239 ], [ %248, %244 ]
-  %254 = phi i32 [ %243, %239 ], [ %252, %244 ]
-  %.pn263 = add i32 %181, %202
-  %.pn262 = add i32 %.pn263, %238
-  %255 = add i32 %.pn262, %.pn264
-  %256 = add i32 %193, %198
-  %257 = add i32 %256, %237
-  %258 = add i32 %257, %254
-  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 9)
-  %260 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 19)
-  %261 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 9)
-  %262 = tail call noundef i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 17)
-  %263 = xor i32 %262, %261
-  %264 = xor i32 %263, %258
-  %265 = tail call i32 @llvm.bswap.i32(i32 %255)
-  store i32 %265, ptr %172, align 4
-  %266 = tail call i32 @llvm.bswap.i32(i32 %224)
-  store i32 %266, ptr %176, align 4
-  %267 = tail call i32 @llvm.bswap.i32(i32 %259)
-  store i32 %267, ptr %179, align 4
-  %268 = tail call i32 @llvm.bswap.i32(i32 %228)
-  store i32 %268, ptr %182, align 4
-  %269 = tail call i32 @llvm.bswap.i32(i32 %264)
-  store i32 %269, ptr %185, align 4
-  %270 = tail call i32 @llvm.bswap.i32(i32 %233)
-  store i32 %270, ptr %188, align 4
-  %271 = tail call i32 @llvm.bswap.i32(i32 %260)
-  store i32 %271, ptr %191, align 4
-  %272 = tail call i32 @llvm.bswap.i32(i32 %229)
-  store i32 %272, ptr %194, align 4
-  %273 = add nuw nsw i64 %.0217266, 1
-  %exitcond.not = icmp eq i64 %273, %157
-  br i1 %exitcond.not, label %.loopexit, label %171, !llvm.loop !13
+250:                                              ; preds = %241, %236
+  %.pn264 = phi i32 [ %238, %236 ], [ %245, %241 ]
+  %251 = phi i32 [ %240, %236 ], [ %249, %241 ]
+  %.pn263 = add i32 %178, %199
+  %.pn262 = add i32 %.pn263, %235
+  %252 = add i32 %.pn262, %.pn264
+  %253 = add i32 %190, %195
+  %254 = add i32 %253, %234
+  %255 = add i32 %254, %251
+  %256 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 9)
+  %257 = tail call noundef i32 @llvm.fshl.i32(i32 %184, i32 %184, i32 19)
+  %258 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 9)
+  %259 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 17)
+  %260 = xor i32 %259, %258
+  %261 = xor i32 %260, %255
+  %262 = tail call i32 @llvm.bswap.i32(i32 %252)
+  store i32 %262, ptr %169, align 4
+  %263 = tail call i32 @llvm.bswap.i32(i32 %221)
+  store i32 %263, ptr %173, align 4
+  %264 = tail call i32 @llvm.bswap.i32(i32 %256)
+  store i32 %264, ptr %176, align 4
+  %265 = tail call i32 @llvm.bswap.i32(i32 %225)
+  store i32 %265, ptr %179, align 4
+  %266 = tail call i32 @llvm.bswap.i32(i32 %261)
+  store i32 %266, ptr %182, align 4
+  %267 = tail call i32 @llvm.bswap.i32(i32 %230)
+  store i32 %267, ptr %185, align 4
+  %268 = tail call i32 @llvm.bswap.i32(i32 %257)
+  store i32 %268, ptr %188, align 4
+  %269 = tail call i32 @llvm.bswap.i32(i32 %226)
+  store i32 %269, ptr %191, align 4
+  %270 = add nuw nsw i64 %.0217266, 1
+  %exitcond.not = icmp eq i64 %270, %157
+  br i1 %exitcond.not, label %.loopexit, label %168, !llvm.loop !13
 
-.loopexit:                                        ; preds = %253, %145
-  %274 = add i64 %2, 4
-  %275 = load ptr, ptr %113, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %275, i64 noundef 0) #14
-  ret i64 %274
+.loopexit:                                        ; preds = %250, %145
+  %271 = add i64 %2, 4
+  %272 = load ptr, ptr %113, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %272, i64 noundef 0) #14
+  ret i64 %271
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

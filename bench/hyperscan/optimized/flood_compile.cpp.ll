@@ -774,7 +774,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.body.i.i
 for.body261.preheader:                            ; preds = %_ZNK3ue29CharReach10find_firstEv.exit
   %arrayidx262307 = getelementptr inbounds i32, ptr %85, i64 %add.i.i
   store i32 %currentFloodIndex.0248, ptr %arrayidx262307, align 4
-  %cmp.not.i.i189308 = icmp ult i64 %add.i.i, 256
+  %cmp.not.i.i189308 = icmp ult i64 %i.06.i.i, 4
   br i1 %cmp.not.i.i189308, label %if.end.i.i, label %for.end266
 
 if.end.i.i:                                       ; preds = %for.body261.preheader, %_ZNK3ue29CharReach9find_nextEm.exit

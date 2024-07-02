@@ -629,7 +629,7 @@ define internal i32 @dissect_noe(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %53 = icmp ult i64 %51, 256
+  %53 = icmp eq i64 %48, 0
   br i1 %53, label %._crit_edge.thread.i, label %55
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %45
@@ -638,7 +638,7 @@ define internal i32 @dissect_noe(ptr noundef %0, ptr nocapture noundef readonly 
   br label %decode_utf8.exit.i
 
 55:                                               ; preds = %._crit_edge.i
-  %56 = icmp ult i64 %51, 65536
+  %56 = icmp ult i64 %48, 65536
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %55
@@ -646,7 +646,7 @@ define internal i32 @dissect_noe(ptr noundef %0, ptr nocapture noundef readonly 
   br label %decode_utf8.exit.i
 
 59:                                               ; preds = %55
-  %60 = icmp ult i64 %51, 16777216
+  %60 = icmp ult i64 %48, 16777216
   br i1 %60, label %61, label %69
 
 61:                                               ; preds = %59
@@ -660,7 +660,7 @@ define internal i32 @dissect_noe(ptr noundef %0, ptr nocapture noundef readonly 
   br label %decode_utf8.exit.i
 
 69:                                               ; preds = %59
-  %70 = icmp ult i64 %51, 4294967296
+  %70 = icmp ult i64 %48, 4294967296
   br i1 %70, label %71, label %82
 
 71:                                               ; preds = %69
@@ -677,7 +677,7 @@ define internal i32 @dissect_noe(ptr noundef %0, ptr nocapture noundef readonly 
   br label %decode_utf8.exit.i
 
 82:                                               ; preds = %69
-  %83 = icmp ult i64 %51, 1099511627776
+  %83 = icmp ult i64 %48, 1099511627776
   br i1 %83, label %84, label %97
 
 84:                                               ; preds = %82
@@ -696,7 +696,7 @@ define internal i32 @dissect_noe(ptr noundef %0, ptr nocapture noundef readonly 
   br label %decode_utf8.exit.i
 
 97:                                               ; preds = %82
-  %98 = icmp ult i64 %51, 281474976710656
+  %98 = icmp ult i64 %48, 281474976710656
   br i1 %98, label %99, label %decode_utf8.exit.thread.i
 
 99:                                               ; preds = %97

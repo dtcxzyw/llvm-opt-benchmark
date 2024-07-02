@@ -1956,89 +1956,91 @@ define dso_local i64 @__get_wchan(ptr noundef %0) local_unnamed_addr #2 align 16
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.thread, label %.preheader4
 
-.preheader4:                                      ; preds = %1, %10
-  %6 = phi i32 [ %11, %10 ], [ %4, %1 ]
+.preheader4:                                      ; preds = %1, %11
+  %6 = phi i32 [ %12, %11 ], [ %4, %1 ]
   %7 = add i32 %6, 1
   %8 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 %7, ptr elementtype(i32) %3, i32 %6) #19, !srcloc !83
   %9 = extractvalue { i8, i32 } %8, 0
+  %10 = icmp ult i8 %9, 2
+  tail call void @llvm.assume(i1 %10)
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %.thread, !prof !84
+  br i1 %.not, label %11, label %.thread, !prof !84
 
-10:                                               ; preds = %.preheader4
-  %11 = extractvalue { i8, i32 } %8, 1
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread, label %.preheader4, !llvm.loop !85
+11:                                               ; preds = %.preheader4
+  %12 = extractvalue { i8, i32 } %8, 1
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %.thread, label %.preheader4, !llvm.loop !85
 
-.thread:                                          ; preds = %.preheader4, %10, %1
-  %13 = phi i32 [ 0, %1 ], [ %6, %.preheader4 ], [ 0, %10 ]
-  %14 = add i32 %13, 1
-  %15 = or i32 %14, %13
-  %16 = icmp sgt i32 %15, -1
-  br i1 %16, label %18, label %17, !prof !8
+.thread:                                          ; preds = %.preheader4, %11, %1
+  %14 = phi i32 [ 0, %1 ], [ %6, %.preheader4 ], [ 0, %11 ]
+  %15 = add i32 %14, 1
+  %16 = or i32 %15, %14
+  %17 = icmp sgt i32 %16, -1
+  br i1 %17, label %19, label %18, !prof !8
 
-17:                                               ; preds = %.thread
+18:                                               ; preds = %.thread
   tail call void @refcount_warn_saturate(ptr noundef %3, i32 noundef 0) #19
-  br label %18
+  br label %19
 
-18:                                               ; preds = %17, %.thread
-  %19 = icmp eq i32 %13, 0
-  br i1 %19, label %48, label %20
+19:                                               ; preds = %18, %.thread
+  %20 = icmp eq i32 %14, 0
+  br i1 %20, label %49, label %21
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 32
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %48, label %24
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = load ptr, ptr %22, align 32
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %49, label %25
 
-24:                                               ; preds = %20
-  %25 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #20, !srcloc !7
-  %26 = inttoptr i64 %25 to ptr
-  %27 = icmp eq ptr %26, %0
-  br i1 %27, label %28, label %30
+25:                                               ; preds = %21
+  %26 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #20, !srcloc !7
+  %27 = inttoptr i64 %26 to ptr
+  %28 = icmp eq ptr %27, %0
+  br i1 %28, label %29, label %31
 
-28:                                               ; preds = %24
-  %29 = tail call ptr @llvm.frameaddress.p0(i32 0)
-  br label %34
+29:                                               ; preds = %25
+  %30 = tail call ptr @llvm.frameaddress.p0(i32 0)
+  br label %35
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 2840
-  %32 = load i64, ptr %31, align 8
-  %33 = inttoptr i64 %32 to ptr
-  br label %34
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds i8, ptr %0, i64 2840
+  %33 = load i64, ptr %32, align 8
+  %34 = inttoptr i64 %33 to ptr
+  br label %35
 
-34:                                               ; preds = %30, %28
-  %35 = phi ptr [ %29, %28 ], [ %33, %30 ]
+35:                                               ; preds = %31, %29
+  %36 = phi ptr [ %30, %29 ], [ %34, %31 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 112, i1 false), !annotation !18
-  call void @__unwind_start(ptr noundef nonnull %2, ptr noundef %0, ptr noundef null, ptr noundef %35) #19
-  %36 = load i32, ptr %2, align 8
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.loopexit, label %.preheader
+  call void @__unwind_start(ptr noundef nonnull %2, ptr noundef %0, ptr noundef null, ptr noundef %36) #19
+  %37 = load i32, ptr %2, align 8
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %34, %43
-  %38 = call i64 @unwind_get_return_address(ptr noundef nonnull %2) #19
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %.loopexit, label %40
+.preheader:                                       ; preds = %35, %44
+  %39 = call i64 @unwind_get_return_address(ptr noundef nonnull %2) #19
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %.loopexit, label %41
 
-40:                                               ; preds = %.preheader
-  %41 = call i32 @in_sched_functions(i64 noundef %38) #19
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.loopexit, label %43
+41:                                               ; preds = %.preheader
+  %42 = call i32 @in_sched_functions(i64 noundef %39) #19
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %.loopexit, label %44
 
-43:                                               ; preds = %40
-  %44 = call zeroext i1 @unwind_next_frame(ptr noundef nonnull %2) #19
-  %45 = load i32, ptr %2, align 8
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !86
+44:                                               ; preds = %41
+  %45 = call zeroext i1 @unwind_next_frame(ptr noundef nonnull %2) #19
+  %46 = load i32, ptr %2, align 8
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %.loopexit, label %.preheader, !llvm.loop !86
 
-.loopexit:                                        ; preds = %43, %40, %.preheader, %34
-  %47 = phi i64 [ 0, %34 ], [ %38, %40 ], [ 0, %.preheader ], [ %38, %43 ]
+.loopexit:                                        ; preds = %44, %41, %.preheader, %35
+  %48 = phi i64 [ 0, %35 ], [ %39, %41 ], [ 0, %.preheader ], [ %39, %44 ]
   call void @put_task_stack(ptr noundef %0) #19
-  br label %48
+  br label %49
 
-48:                                               ; preds = %.loopexit, %20, %18
-  %49 = phi i64 [ %47, %.loopexit ], [ 0, %20 ], [ 0, %18 ]
+49:                                               ; preds = %.loopexit, %21, %19
+  %50 = phi i64 [ %48, %.loopexit ], [ 0, %21 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2) #19
-  ret i64 %49
+  ret i64 %50
 }
 
 ; Function Attrs: null_pointer_is_valid

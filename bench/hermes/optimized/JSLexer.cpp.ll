@@ -17879,7 +17879,7 @@ if.end:                                           ; preds = %if.then
   %shl = and i32 %and9, 1984
   %and10 = and i32 %conv3117, 63
   %or = or disjoint i32 %and10, %shl
-  %cmp11 = icmp ult i32 %or, 128
+  %cmp11 = icmp ult i32 %shl, 128
   br i1 %cmp11, label %if.then13, label %return
 
 if.then13:                                        ; preds = %if.end
@@ -17978,7 +17978,7 @@ if.end44:                                         ; preds = %if.end31
   %or50 = or disjoint i32 %shl49, %shl47
   %and51 = and i32 %conv33118, 63
   %or52 = or disjoint i32 %and51, %or50
-  %cmp53 = icmp ult i32 %or52, 2048
+  %cmp53 = icmp ult i32 %or50, 2048
   br i1 %cmp53, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %if.end44
@@ -18003,8 +18003,9 @@ if.end.i.i74:                                     ; preds = %if.then55
   br label %return
 
 if.end57:                                         ; preds = %if.end44
-  %28 = and i32 %or50, 63488
-  %or.cond = icmp eq i32 %28, 55296
+  %cmp58 = icmp ugt i32 %or50, 55295
+  %cmp59 = icmp ult i32 %shl47, 57344
+  %or.cond = and i1 %cmp59, %cmp58
   br i1 %or.cond, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.end57
@@ -18033,10 +18034,10 @@ if.else68:                                        ; preds = %if.else
   br i1 %cmp70, label %if.then71, label %_ZN4llvhplERKNS_5TwineES2_.exit
 
 if.then71:                                        ; preds = %if.else68
-  %29 = load i8, ptr %arrayidx73, align 1
-  %conv74 = sext i8 %29 to i32
-  %30 = and i32 %conv74, 192
-  %.not = icmp eq i32 %30, 128
+  %28 = load i8, ptr %arrayidx73, align 1
+  %conv74 = sext i8 %28 to i32
+  %29 = and i32 %conv74, 192
+  %.not = icmp eq i32 %29, 128
   br i1 %.not, label %if.end85, label %if.then82
 
 if.then82:                                        ; preds = %if.then71
@@ -18046,27 +18047,27 @@ if.then82:                                        ; preds = %if.then71
   store i8 1, ptr %RHSKind.i81, align 1
   store ptr @.str.417, ptr %ref.tmp84, align 8
   store i8 3, ptr %LHSKind.i80, align 8
+  %30 = load ptr, ptr %error.coerce0, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %30, i32 noundef 0, ptr %error.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp84, i32 noundef 1) #21
   %31 = load ptr, ptr %error.coerce0, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %31, i32 noundef 0, ptr %error.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp84, i32 noundef 1) #21
-  %32 = load ptr, ptr %error.coerce0, align 8
-  %errorLimitReached_.i.i.i82 = getelementptr inbounds i8, ptr %32, i64 316
-  %33 = load i8, ptr %errorLimitReached_.i.i.i82, align 4
-  %tobool.i.i.i83 = trunc i8 %33 to i1
+  %errorLimitReached_.i.i.i82 = getelementptr inbounds i8, ptr %31, i64 316
+  %32 = load i8, ptr %errorLimitReached_.i.i.i82, align 4
+  %tobool.i.i.i83 = trunc i8 %32 to i1
   br i1 %tobool.i.i.i83, label %if.end.i.i84, label %return
 
 if.end.i.i84:                                     ; preds = %if.then82
   %bufferEnd_.i.i.i85 = getelementptr inbounds i8, ptr %error.coerce0, i64 152
-  %34 = load ptr, ptr %bufferEnd_.i.i.i85, align 8
+  %33 = load ptr, ptr %bufferEnd_.i.i.i85, align 8
   %curCharPtr_.i.i.i86 = getelementptr inbounds i8, ptr %error.coerce0, i64 144
-  store ptr %34, ptr %curCharPtr_.i.i.i86, align 8
+  store ptr %33, ptr %curCharPtr_.i.i.i86, align 8
   br label %return
 
 if.end85:                                         ; preds = %if.then71
   %arrayidx87 = getelementptr inbounds i8, ptr %1, i64 2
-  %35 = load i8, ptr %arrayidx87, align 1
-  %conv88 = sext i8 %35 to i32
-  %36 = and i32 %conv88, 192
-  %.not42 = icmp eq i32 %36, 128
+  %34 = load i8, ptr %arrayidx87, align 1
+  %conv88 = sext i8 %34 to i32
+  %35 = and i32 %conv88, 192
+  %.not42 = icmp eq i32 %35, 128
   br i1 %.not42, label %if.end99, label %if.then96
 
 if.then96:                                        ; preds = %if.end85
@@ -18076,27 +18077,27 @@ if.then96:                                        ; preds = %if.end85
   store i8 1, ptr %RHSKind.i89, align 1
   store ptr @.str.417, ptr %ref.tmp98, align 8
   store i8 3, ptr %LHSKind.i88, align 8
+  %36 = load ptr, ptr %error.coerce0, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %36, i32 noundef 0, ptr %error.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp98, i32 noundef 1) #21
   %37 = load ptr, ptr %error.coerce0, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %37, i32 noundef 0, ptr %error.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp98, i32 noundef 1) #21
-  %38 = load ptr, ptr %error.coerce0, align 8
-  %errorLimitReached_.i.i.i90 = getelementptr inbounds i8, ptr %38, i64 316
-  %39 = load i8, ptr %errorLimitReached_.i.i.i90, align 4
-  %tobool.i.i.i91 = trunc i8 %39 to i1
+  %errorLimitReached_.i.i.i90 = getelementptr inbounds i8, ptr %37, i64 316
+  %38 = load i8, ptr %errorLimitReached_.i.i.i90, align 4
+  %tobool.i.i.i91 = trunc i8 %38 to i1
   br i1 %tobool.i.i.i91, label %if.end.i.i92, label %return
 
 if.end.i.i92:                                     ; preds = %if.then96
   %bufferEnd_.i.i.i93 = getelementptr inbounds i8, ptr %error.coerce0, i64 152
-  %40 = load ptr, ptr %bufferEnd_.i.i.i93, align 8
+  %39 = load ptr, ptr %bufferEnd_.i.i.i93, align 8
   %curCharPtr_.i.i.i94 = getelementptr inbounds i8, ptr %error.coerce0, i64 144
-  store ptr %40, ptr %curCharPtr_.i.i.i94, align 8
+  store ptr %39, ptr %curCharPtr_.i.i.i94, align 8
   br label %return
 
 if.end99:                                         ; preds = %if.end85
   %arrayidx100 = getelementptr inbounds i8, ptr %1, i64 3
-  %41 = load i8, ptr %arrayidx100, align 1
-  %conv101119 = zext i8 %41 to i32
-  %42 = and i32 %conv101119, 192
-  %.not43 = icmp eq i32 %42, 128
+  %40 = load i8, ptr %arrayidx100, align 1
+  %conv101119 = zext i8 %40 to i32
+  %41 = and i32 %conv101119, 192
+  %.not43 = icmp eq i32 %41, 128
   br i1 %.not43, label %if.end112, label %if.then109
 
 if.then109:                                       ; preds = %if.end99
@@ -18119,10 +18120,10 @@ if.end112:                                        ; preds = %if.end99
   %or118 = or disjoint i32 %shl117, %shl115
   %and119 = shl nsw i32 %conv88, 6
   %shl120 = and i32 %and119, 4032
-  %or121 = or disjoint i32 %or118, %shl120
   %and122 = and i32 %conv101119, 63
-  %or123 = or disjoint i32 %or121, %and122
-  %cmp124 = icmp ult i32 %or123, 65536
+  %42 = or disjoint i32 %shl120, %and122
+  %or123 = or disjoint i32 %42, %or118
+  %cmp124 = icmp ult i32 %or118, 65536
   br i1 %cmp124, label %if.then126, label %if.end128
 
 if.then126:                                       ; preds = %if.end112
@@ -18135,7 +18136,7 @@ if.then126:                                       ; preds = %if.end112
   br label %return
 
 if.end128:                                        ; preds = %if.end112
-  %cmp129 = icmp ugt i32 %or123, 1114111
+  %cmp129 = icmp ugt i32 %or118, 1114111
   br i1 %cmp129, label %if.then131, label %return
 
 if.then131:                                       ; preds = %if.end128
@@ -18382,7 +18383,7 @@ if.end:                                           ; preds = %if.then
   %shl = and i32 %and9, 1984
   %and10 = and i32 %conv3117, 63
   %or = or disjoint i32 %and10, %shl
-  %cmp11 = icmp ult i32 %or, 128
+  %cmp11 = icmp ult i32 %shl, 128
   br i1 %cmp11, label %if.then13, label %return
 
 if.then13:                                        ; preds = %if.end
@@ -18481,7 +18482,7 @@ if.end44:                                         ; preds = %if.end31
   %or50 = or disjoint i32 %shl49, %shl47
   %and51 = and i32 %conv33118, 63
   %or52 = or disjoint i32 %and51, %or50
-  %cmp53 = icmp ult i32 %or52, 2048
+  %cmp53 = icmp ult i32 %or50, 2048
   br i1 %cmp53, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %if.end44
@@ -18506,8 +18507,9 @@ if.end.i.i74:                                     ; preds = %if.then55
   br label %return
 
 if.end57:                                         ; preds = %if.end44
-  %28 = and i32 %or50, 63488
-  %or.cond = icmp eq i32 %28, 55296
+  %cmp58 = icmp ugt i32 %or50, 55295
+  %cmp59 = icmp ult i32 %shl47, 57344
+  %or.cond = and i1 %cmp59, %cmp58
   br i1 %or.cond, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.end57
@@ -18536,10 +18538,10 @@ if.else68:                                        ; preds = %if.else
   br i1 %cmp70, label %if.then71, label %_ZN4llvhplERKNS_5TwineES2_.exit
 
 if.then71:                                        ; preds = %if.else68
-  %29 = load i8, ptr %arrayidx73, align 1
-  %conv74 = sext i8 %29 to i32
-  %30 = and i32 %conv74, 192
-  %.not = icmp eq i32 %30, 128
+  %28 = load i8, ptr %arrayidx73, align 1
+  %conv74 = sext i8 %28 to i32
+  %29 = and i32 %conv74, 192
+  %.not = icmp eq i32 %29, 128
   br i1 %.not, label %if.end85, label %if.then82
 
 if.then82:                                        ; preds = %if.then71
@@ -18549,27 +18551,27 @@ if.then82:                                        ; preds = %if.then71
   store i8 1, ptr %RHSKind.i81, align 1
   store ptr @.str.417, ptr %ref.tmp84, align 8
   store i8 3, ptr %LHSKind.i80, align 8
+  %30 = load ptr, ptr %error.coerce0, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %30, i32 noundef 0, ptr %error.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp84, i32 noundef 1) #21
   %31 = load ptr, ptr %error.coerce0, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %31, i32 noundef 0, ptr %error.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp84, i32 noundef 1) #21
-  %32 = load ptr, ptr %error.coerce0, align 8
-  %errorLimitReached_.i.i.i82 = getelementptr inbounds i8, ptr %32, i64 316
-  %33 = load i8, ptr %errorLimitReached_.i.i.i82, align 4
-  %tobool.i.i.i83 = trunc i8 %33 to i1
+  %errorLimitReached_.i.i.i82 = getelementptr inbounds i8, ptr %31, i64 316
+  %32 = load i8, ptr %errorLimitReached_.i.i.i82, align 4
+  %tobool.i.i.i83 = trunc i8 %32 to i1
   br i1 %tobool.i.i.i83, label %if.end.i.i84, label %return
 
 if.end.i.i84:                                     ; preds = %if.then82
   %bufferEnd_.i.i.i85 = getelementptr inbounds i8, ptr %error.coerce0, i64 152
-  %34 = load ptr, ptr %bufferEnd_.i.i.i85, align 8
+  %33 = load ptr, ptr %bufferEnd_.i.i.i85, align 8
   %curCharPtr_.i.i.i86 = getelementptr inbounds i8, ptr %error.coerce0, i64 144
-  store ptr %34, ptr %curCharPtr_.i.i.i86, align 8
+  store ptr %33, ptr %curCharPtr_.i.i.i86, align 8
   br label %return
 
 if.end85:                                         ; preds = %if.then71
   %arrayidx87 = getelementptr inbounds i8, ptr %1, i64 2
-  %35 = load i8, ptr %arrayidx87, align 1
-  %conv88 = sext i8 %35 to i32
-  %36 = and i32 %conv88, 192
-  %.not42 = icmp eq i32 %36, 128
+  %34 = load i8, ptr %arrayidx87, align 1
+  %conv88 = sext i8 %34 to i32
+  %35 = and i32 %conv88, 192
+  %.not42 = icmp eq i32 %35, 128
   br i1 %.not42, label %if.end99, label %if.then96
 
 if.then96:                                        ; preds = %if.end85
@@ -18579,27 +18581,27 @@ if.then96:                                        ; preds = %if.end85
   store i8 1, ptr %RHSKind.i89, align 1
   store ptr @.str.417, ptr %ref.tmp98, align 8
   store i8 3, ptr %LHSKind.i88, align 8
+  %36 = load ptr, ptr %error.coerce0, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %36, i32 noundef 0, ptr %error.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp98, i32 noundef 1) #21
   %37 = load ptr, ptr %error.coerce0, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %37, i32 noundef 0, ptr %error.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp98, i32 noundef 1) #21
-  %38 = load ptr, ptr %error.coerce0, align 8
-  %errorLimitReached_.i.i.i90 = getelementptr inbounds i8, ptr %38, i64 316
-  %39 = load i8, ptr %errorLimitReached_.i.i.i90, align 4
-  %tobool.i.i.i91 = trunc i8 %39 to i1
+  %errorLimitReached_.i.i.i90 = getelementptr inbounds i8, ptr %37, i64 316
+  %38 = load i8, ptr %errorLimitReached_.i.i.i90, align 4
+  %tobool.i.i.i91 = trunc i8 %38 to i1
   br i1 %tobool.i.i.i91, label %if.end.i.i92, label %return
 
 if.end.i.i92:                                     ; preds = %if.then96
   %bufferEnd_.i.i.i93 = getelementptr inbounds i8, ptr %error.coerce0, i64 152
-  %40 = load ptr, ptr %bufferEnd_.i.i.i93, align 8
+  %39 = load ptr, ptr %bufferEnd_.i.i.i93, align 8
   %curCharPtr_.i.i.i94 = getelementptr inbounds i8, ptr %error.coerce0, i64 144
-  store ptr %40, ptr %curCharPtr_.i.i.i94, align 8
+  store ptr %39, ptr %curCharPtr_.i.i.i94, align 8
   br label %return
 
 if.end99:                                         ; preds = %if.end85
   %arrayidx100 = getelementptr inbounds i8, ptr %1, i64 3
-  %41 = load i8, ptr %arrayidx100, align 1
-  %conv101119 = zext i8 %41 to i32
-  %42 = and i32 %conv101119, 192
-  %.not43 = icmp eq i32 %42, 128
+  %40 = load i8, ptr %arrayidx100, align 1
+  %conv101119 = zext i8 %40 to i32
+  %41 = and i32 %conv101119, 192
+  %.not43 = icmp eq i32 %41, 128
   br i1 %.not43, label %if.end112, label %if.then109
 
 if.then109:                                       ; preds = %if.end99
@@ -18622,10 +18624,10 @@ if.end112:                                        ; preds = %if.end99
   %or118 = or disjoint i32 %shl117, %shl115
   %and119 = shl nsw i32 %conv88, 6
   %shl120 = and i32 %and119, 4032
-  %or121 = or disjoint i32 %or118, %shl120
   %and122 = and i32 %conv101119, 63
-  %or123 = or disjoint i32 %or121, %and122
-  %cmp124 = icmp ult i32 %or123, 65536
+  %42 = or disjoint i32 %shl120, %and122
+  %or123 = or disjoint i32 %42, %or118
+  %cmp124 = icmp ult i32 %or118, 65536
   br i1 %cmp124, label %if.then126, label %if.end128
 
 if.then126:                                       ; preds = %if.end112
@@ -18638,7 +18640,7 @@ if.then126:                                       ; preds = %if.end112
   br label %return
 
 if.end128:                                        ; preds = %if.end112
-  %cmp129 = icmp ugt i32 %or123, 1114111
+  %cmp129 = icmp ugt i32 %or118, 1114111
   br i1 %cmp129, label %if.then131, label %return
 
 if.then131:                                       ; preds = %if.end128
@@ -18755,7 +18757,7 @@ if.end:                                           ; preds = %if.then
   %shl = and i32 %and9, 1984
   %and10 = and i32 %conv378, 63
   %or = or disjoint i32 %and10, %shl
-  %cmp11 = icmp ult i32 %or, 128
+  %cmp11 = icmp ult i32 %shl, 128
   %spec.select = select i1 %cmp11, i32 65533, i32 %or
   br label %return
 
@@ -18798,12 +18800,13 @@ if.end44:                                         ; preds = %if.end31
   %or50 = or disjoint i32 %shl49, %shl47
   %and51 = and i32 %conv3379, 63
   %or52 = or disjoint i32 %and51, %or50
-  %cmp53 = icmp ult i32 %or52, 2048
+  %cmp53 = icmp ult i32 %or50, 2048
   br i1 %cmp53, label %return, label %if.end57
 
 if.end57:                                         ; preds = %if.end44
-  %7 = and i32 %or50, 63488
-  %or.cond = icmp eq i32 %7, 55296
+  %cmp58 = icmp ugt i32 %or50, 55295
+  %cmp59 = icmp ult i32 %shl47, 57344
+  %or.cond = and i1 %cmp59, %cmp58
   br i1 %or.cond, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.end57
@@ -18831,10 +18834,10 @@ if.else68:                                        ; preds = %if.else
   br i1 %cmp70, label %if.then71, label %_ZN4llvhplERKNS_5TwineES2_.exit
 
 if.then71:                                        ; preds = %if.else68
-  %8 = load i8, ptr %arrayidx73, align 1
-  %conv74 = sext i8 %8 to i32
-  %9 = and i32 %conv74, 192
-  %.not = icmp eq i32 %9, 128
+  %7 = load i8, ptr %arrayidx73, align 1
+  %conv74 = sext i8 %7 to i32
+  %8 = and i32 %conv74, 192
+  %.not = icmp eq i32 %8, 128
   br i1 %.not, label %if.end85, label %if.then82
 
 if.then82:                                        ; preds = %if.then71
@@ -18843,10 +18846,10 @@ if.then82:                                        ; preds = %if.then71
 
 if.end85:                                         ; preds = %if.then71
   %arrayidx87 = getelementptr inbounds i8, ptr %0, i64 2
-  %10 = load i8, ptr %arrayidx87, align 1
-  %conv88 = sext i8 %10 to i32
-  %11 = and i32 %conv88, 192
-  %.not42 = icmp eq i32 %11, 128
+  %9 = load i8, ptr %arrayidx87, align 1
+  %conv88 = sext i8 %9 to i32
+  %10 = and i32 %conv88, 192
+  %.not42 = icmp eq i32 %10, 128
   br i1 %.not42, label %if.end99, label %if.then96
 
 if.then96:                                        ; preds = %if.end85
@@ -18855,10 +18858,10 @@ if.then96:                                        ; preds = %if.end85
 
 if.end99:                                         ; preds = %if.end85
   %arrayidx100 = getelementptr inbounds i8, ptr %0, i64 3
-  %12 = load i8, ptr %arrayidx100, align 1
-  %conv10180 = zext i8 %12 to i32
-  %13 = and i32 %conv10180, 192
-  %.not43 = icmp eq i32 %13, 128
+  %11 = load i8, ptr %arrayidx100, align 1
+  %conv10180 = zext i8 %11 to i32
+  %12 = and i32 %conv10180, 192
+  %.not43 = icmp eq i32 %12, 128
   br i1 %.not43, label %if.end112, label %if.then109
 
 if.then109:                                       ; preds = %if.end99
@@ -18875,14 +18878,14 @@ if.end112:                                        ; preds = %if.end99
   %or118 = or disjoint i32 %shl117, %shl115
   %and119 = shl nsw i32 %conv88, 6
   %shl120 = and i32 %and119, 4032
-  %or121 = or disjoint i32 %or118, %shl120
   %and122 = and i32 %conv10180, 63
-  %or123 = or disjoint i32 %or121, %and122
-  %cmp124 = icmp ult i32 %or123, 65536
+  %13 = or disjoint i32 %shl120, %and122
+  %or123 = or disjoint i32 %13, %or118
+  %cmp124 = icmp ult i32 %or118, 65536
   br i1 %cmp124, label %return, label %if.end128
 
 if.end128:                                        ; preds = %if.end112
-  %cmp129 = icmp ugt i32 %or123, 1114111
+  %cmp129 = icmp ugt i32 %or118, 1114111
   br i1 %cmp129, label %if.then131, label %return
 
 if.then131:                                       ; preds = %if.end128

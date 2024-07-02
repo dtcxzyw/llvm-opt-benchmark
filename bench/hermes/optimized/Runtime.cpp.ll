@@ -14572,8 +14572,9 @@ if.then:                                          ; preds = %entry
   %shl = and i32 %and9, 1984
   %and10 = and i32 %conv382, 63
   %or = or disjoint i32 %and10, %shl
-  %cmp11 = icmp ugt i32 %or, 127
-  br label %return.sink.split
+  %cmp11 = icmp ugt i32 %shl, 127
+  tail call void @llvm.assume(i1 %cmp11)
+  br label %return
 
 if.else:                                          ; preds = %entry
   %and16 = and i32 %conv, 240
@@ -14600,10 +14601,11 @@ if.then19:                                        ; preds = %if.else
   %and48 = shl nsw i32 %conv22, 6
   %shl49 = and i32 %and48, 4032
   %or50 = or disjoint i32 %shl49, %shl47
+  %cmp53 = icmp ugt i32 %or50, 2047
+  tail call void @llvm.assume(i1 %cmp53)
   %and51 = and i32 %conv3383, 63
   %or52 = or disjoint i32 %or50, %and51
-  %cmp53 = icmp ugt i32 %or52, 2047
-  br label %return.sink.split
+  br label %return
 
 if.else68:                                        ; preds = %if.else
   %and69 = and i32 %conv, 248
@@ -14636,12 +14638,12 @@ if.else68:                                        ; preds = %if.else
   %or118 = or disjoint i32 %shl117, %shl115
   %and119 = shl nsw i32 %conv88, 6
   %shl120 = and i32 %and119, 4032
-  %or121 = or disjoint i32 %or118, %shl120
   %and122 = and i32 %conv10184, 63
-  %or123 = or disjoint i32 %or121, %and122
-  %cmp124 = icmp ugt i32 %or123, 65535
+  %13 = or disjoint i32 %shl120, %and122
+  %or123 = or disjoint i32 %13, %or118
+  %cmp124 = icmp ugt i32 %or118, 65535
   tail call void @llvm.assume(i1 %cmp124)
-  %cmp129 = icmp ugt i32 %or123, 1114111
+  %cmp129 = icmp ugt i32 %or118, 1114111
   br i1 %cmp129, label %if.then131, label %return
 
 if.then131:                                       ; preds = %if.else68
@@ -14662,14 +14664,8 @@ if.then131:                                       ; preds = %if.else68
   call void @_ZN4llvhplERKNS_5TwineES2_(ptr nonnull sret(%"class.llvh::Twine") align 8 %ref.tmp132, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp133, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp134)
   unreachable
 
-return.sink.split:                                ; preds = %if.then, %if.then19
-  %cmp53.sink = phi i1 [ %cmp53, %if.then19 ], [ %cmp11, %if.then ]
-  %retval.0.ph = phi i32 [ %or52, %if.then19 ], [ %or, %if.then ]
-  tail call void @llvm.assume(i1 %cmp53.sink)
-  br label %return
-
-return:                                           ; preds = %return.sink.split, %if.else68
-  %retval.0 = phi i32 [ %or123, %if.else68 ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %if.then, %if.else68, %if.then19
+  %retval.0 = phi i32 [ %or, %if.then ], [ %or52, %if.then19 ], [ %or123, %if.else68 ]
   ret i32 %retval.0
 }
 

@@ -527,11 +527,11 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 
 if.then52:                                        ; preds = %for.end
   %sub = add i64 %29, 1048575
-  %div34 = and i64 %sub, -1048576
-  %cmp53 = icmp slt i64 %div34, 0
+  %cmp53 = icmp slt i64 %sub, 0
   br i1 %cmp53, label %exit, label %if.end56
 
 if.end56:                                         ; preds = %if.then52
+  %div34 = and i64 %sub, 9223372036853727232
   %30 = load ptr, ptr %file.i, align 8
   %call58 = call i32 @bdrv_truncate(ptr noundef %30, i64 noundef %div34, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, ptr noundef null) #8
   %cmp59 = icmp slt i32 %call58, 0

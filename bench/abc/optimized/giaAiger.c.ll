@@ -709,7 +709,7 @@ Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %Vec_StrAlloc.exit, 
   %30 = shl i32 %29, 1
   %31 = zext i1 %27 to i32
   %32 = or disjoint i32 %30, %31
-  %.not11.i38 = icmp ult i32 %32, 128
+  %.not11.i38 = icmp ult i32 %30, 128
   br i1 %.not11.i38, label %Gia_AigerWriteUnsignedBuffer.exit48, label %.lr.ph.preheader.i39
 
 .lr.ph.preheader.i39:                             ; preds = %.lr.ph

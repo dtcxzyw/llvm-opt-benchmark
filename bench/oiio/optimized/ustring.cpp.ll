@@ -2671,23 +2671,23 @@ for.end:                                          ; preds = %if.end19, %_ZN18Ope
   %m_len.i.i = getelementptr inbounds i8, ptr %str, i64 8
   %14 = load i64, ptr %m_len.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %15 = and i64 %14, -8
-  %and.i.i = add i64 %15, 72
-  %cmp.i.i = icmp ugt i64 %and.i.i, 4095
+  %sub.i.i = add i64 %14, 72
+  %and.i.i = and i64 %sub.i.i, -8
+  %cmp.i.i = icmp ugt i64 %sub.i.i, 4095
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %for.end
   %memory_usage.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %16 = load i64, ptr %memory_usage.i.i, align 16
-  %add2.i.i = add i64 %16, %and.i.i
+  %15 = load i64, ptr %memory_usage.i.i, align 16
+  %add2.i.i = add i64 %15, %and.i.i
   store i64 %add2.i.i, ptr %memory_usage.i.i, align 16
   %call.i.i = tail call noalias ptr @malloc(i64 noundef %and.i.i) #28
   br label %_ZN18OpenImageIO_v2_6_011TableRepMapILj256ELj4096EE10pool_allocEm.exit.i
 
 if.end.i.i:                                       ; preds = %for.end
   %pool_offset.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %17 = load i64, ptr %pool_offset.i.i, align 8
-  %add3.i.i = add i64 %17, %and.i.i
+  %16 = load i64, ptr %pool_offset.i.i, align 8
+  %add3.i.i = add i64 %16, %and.i.i
   %cmp4.i.i = icmp ugt i64 %add3.i.i, 4096
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end.if.end10_crit_edge.i.i
 
@@ -2698,8 +2698,8 @@ if.end.if.end10_crit_edge.i.i:                    ; preds = %if.end.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
   %memory_usage6.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %18 = load i64, ptr %memory_usage6.i.i, align 16
-  %add7.i.i = add i64 %18, 4096
+  %17 = load i64, ptr %memory_usage6.i.i, align 16
+  %add7.i.i = add i64 %17, 4096
   store i64 %add7.i.i, ptr %memory_usage6.i.i, align 16
   %call8.i.i = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #28
   %pool.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -2707,10 +2707,10 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
   br label %if.end10.i.i
 
 if.end10.i.i:                                     ; preds = %if.then5.i.i, %if.end.if.end10_crit_edge.i.i
-  %19 = phi i64 [ %17, %if.end.if.end10_crit_edge.i.i ], [ 0, %if.then5.i.i ]
-  %20 = phi ptr [ %.pre.i.i, %if.end.if.end10_crit_edge.i.i ], [ %call8.i.i, %if.then5.i.i ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %20, i64 %19
-  %add14.i.i = add i64 %19, %and.i.i
+  %18 = phi i64 [ %16, %if.end.if.end10_crit_edge.i.i ], [ 0, %if.then5.i.i ]
+  %19 = phi ptr [ %.pre.i.i, %if.end.if.end10_crit_edge.i.i ], [ %call8.i.i, %if.then5.i.i ]
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %19, i64 %18
+  %add14.i.i = add i64 %18, %and.i.i
   store i64 %add14.i.i, ptr %pool_offset.i.i, align 8
   br label %_ZN18OpenImageIO_v2_6_011TableRepMapILj256ELj4096EE10pool_allocEm.exit.i
 
@@ -2724,26 +2724,26 @@ _ZN18OpenImageIO_v2_6_011TableRepMapILj256ELj4096EE10pool_allocEm.exit.i: ; pred
 
 invoke.cont22:                                    ; preds = %_ZN18OpenImageIO_v2_6_011TableRepMapILj256ELj4096EE10pool_allocEm.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %21 = load ptr, ptr %entries, align 16
-  %arrayidx25 = getelementptr inbounds ptr, ptr %21, i64 %pos.0.lcssa
+  %20 = load ptr, ptr %entries, align 16
+  %arrayidx25 = getelementptr inbounds ptr, ptr %20, i64 %pos.0.lcssa
   store ptr %retval.0.i.i, ptr %arrayidx25, align 8
   %num_entries = getelementptr inbounds i8, ptr %this, i64 24
-  %22 = load i64, ptr %num_entries, align 8
-  %inc26 = add i64 %22, 1
+  %21 = load i64, ptr %num_entries, align 8
+  %inc26 = add i64 %21, 1
   store i64 %inc26, ptr %num_entries, align 8
   %mul = shl i64 %inc26, 1
-  %23 = load i64, ptr %mask, align 8
-  %cmp29 = icmp ugt i64 %mul, %23
+  %22 = load i64, ptr %mask, align 8
+  %cmp29 = icmp ugt i64 %mul, %22
   br i1 %cmp29, label %if.then30, label %if.end32
 
 if.then30:                                        ; preds = %invoke.cont22
-  %mul.i = shl i64 %23, 1
+  %mul.i = shl i64 %22, 1
   %add.i = or disjoint i64 %mul.i, 1
-  %add3.i = shl i64 %23, 3
+  %add3.i = shl i64 %22, 3
   %mul4.i = add i64 %add3.i, 8
   %memory_usage.i = getelementptr inbounds i8, ptr %this, i64 48
-  %24 = load i64, ptr %memory_usage.i, align 16
-  %add5.i = add i64 %mul4.i, %24
+  %23 = load i64, ptr %memory_usage.i, align 16
+  %add5.i = add i64 %mul4.i, %23
   store i64 %add5.i, ptr %memory_usage.i, align 16
   %add6.i = add i64 %mul.i, 2
   %call.i = call noalias ptr @calloc(i64 noundef %add6.i, i64 noundef 8) #27
@@ -2755,16 +2755,16 @@ for.body.i:                                       ; preds = %if.then30, %for.inc
   %i.020.i = phi i64 [ %inc20.i, %for.inc.i ], [ 0, %if.then30 ]
   %to_copy.019.i = phi i64 [ %to_copy.1.i, %for.inc.i ], [ %inc26, %if.then30 ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %i.020.i
-  %25 = load ptr, ptr %arrayidx.i, align 8
-  %cmp7.i = icmp eq ptr %25, null
+  %24 = load ptr, ptr %arrayidx.i, align 8
+  %cmp7.i = icmp eq ptr %24, null
   br i1 %cmp7.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %26 = load i64, ptr %25, align 8
-  %pos.013.i = and i64 %26, %add.i
+  %25 = load i64, ptr %24, align 8
+  %pos.013.i = and i64 %25, %add.i
   %arrayidx1114.i = getelementptr inbounds ptr, ptr %call.i, i64 %pos.013.i
-  %27 = load ptr, ptr %arrayidx1114.i, align 8
-  %cmp1215.i = icmp eq ptr %27, null
+  %26 = load ptr, ptr %arrayidx1114.i, align 8
+  %cmp1215.i = icmp eq ptr %26, null
   br i1 %cmp1215.i, label %for.end.i, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end.i, %if.end14.i
@@ -2774,14 +2774,14 @@ if.end14.i:                                       ; preds = %if.end.i, %if.end14
   %add15.i = add i64 %inc.i, %pos.017.i
   %pos.0.i = and i64 %add15.i, %add.i
   %arrayidx11.i = getelementptr inbounds ptr, ptr %call.i, i64 %pos.0.i
-  %28 = load ptr, ptr %arrayidx11.i, align 8
-  %cmp12.i = icmp eq ptr %28, null
+  %27 = load ptr, ptr %arrayidx11.i, align 8
+  %cmp12.i = icmp eq ptr %27, null
   br i1 %cmp12.i, label %for.end.i, label %if.end14.i, !llvm.loop !40
 
 for.end.i:                                        ; preds = %if.end14.i, %if.end.i
   %pos.0.lcssa.i = phi i64 [ %pos.013.i, %if.end.i ], [ %pos.0.i, %if.end14.i ]
   %arrayidx11.le.i = getelementptr inbounds ptr, ptr %call.i, i64 %pos.0.lcssa.i
-  store ptr %25, ptr %arrayidx11.le.i, align 8
+  store ptr %24, ptr %arrayidx11.le.i, align 8
   %dec.i = add i64 %to_copy.019.i, -1
   br label %for.inc.i
 
@@ -2798,10 +2798,10 @@ _ZN18OpenImageIO_v2_6_011TableRepMapILj256ELj4096EE4growEv.exit: ; preds = %for.
   br label %if.end32
 
 lpad:                                             ; preds = %_ZN18OpenImageIO_v2_6_011TableRepMapILj256ELj4096EE10pool_allocEm.exit.i
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %30 = atomicrmw sub ptr %this, i32 1073741824 release, align 4
-  resume { ptr, i32 } %29
+  %29 = atomicrmw sub ptr %this, i32 1073741824 release, align 4
+  resume { ptr, i32 } %28
 
 if.end32:                                         ; preds = %_ZN18OpenImageIO_v2_6_011TableRepMapILj256ELj4096EE4growEv.exit, %invoke.cont22
   %add.ptr.i15 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 64
@@ -2809,7 +2809,7 @@ if.end32:                                         ; preds = %_ZN18OpenImageIO_v2
 
 cleanup:                                          ; preds = %land.lhs.true8, %if.end32
   %retval.0 = phi ptr [ %add.ptr.i15, %if.end32 ], [ %add.ptr.i, %land.lhs.true8 ]
-  %31 = atomicrmw sub ptr %this, i32 1073741824 release, align 4
+  %30 = atomicrmw sub ptr %this, i32 1073741824 release, align 4
   ret ptr %retval.0
 }
 

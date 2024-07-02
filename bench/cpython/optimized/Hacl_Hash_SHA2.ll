@@ -5746,7 +5746,7 @@ if.end60:                                         ; preds = %for.body.i.preheade
   %sub77 = sub i32 %len, %div74
   %idx.ext78 = zext i32 %div74 to i64
   %add.ptr79 = getelementptr i8, ptr %data, i64 %idx.ext78
-  %cmp4.not.i = icmp eq i32 %div74, 0
+  %cmp4.not.i = icmp ult i32 %sub75, 64
   br i1 %cmp4.not.i, label %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit83, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end60
@@ -5803,7 +5803,7 @@ if.end144:                                        ; preds = %for.body.i85.prehea
   %sub171 = sub i32 %sub146, %div16673
   %idx.ext172 = zext i32 %div16673 to i64
   %add.ptr173 = getelementptr i8, ptr %add.ptr95, i64 %idx.ext172
-  %cmp4.not.i91 = icmp eq i32 %div16673, 0
+  %cmp4.not.i91 = icmp ult i32 %sub165, 64
   br i1 %cmp4.not.i91, label %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit100, label %for.body.preheader.i92
 
 for.body.preheader.i92:                           ; preds = %if.end144
@@ -6320,7 +6320,7 @@ if.end60:                                         ; preds = %for.body.i.preheade
   %sub77 = sub i32 %len, %div74
   %idx.ext78 = zext i32 %div74 to i64
   %add.ptr79 = getelementptr i8, ptr %data, i64 %idx.ext78
-  %cmp4.not.i = icmp eq i32 %div74, 0
+  %cmp4.not.i = icmp ult i32 %sub75, 128
   br i1 %cmp4.not.i, label %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit83, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end60
@@ -6377,7 +6377,7 @@ if.end144:                                        ; preds = %for.body.i85.prehea
   %sub171 = sub i32 %sub146, %div16673
   %idx.ext172 = zext i32 %div16673 to i64
   %add.ptr173 = getelementptr i8, ptr %add.ptr95, i64 %idx.ext172
-  %cmp4.not.i91 = icmp eq i32 %div16673, 0
+  %cmp4.not.i91 = icmp ult i32 %sub165, 128
   br i1 %cmp4.not.i91, label %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit100, label %for.body.preheader.i92
 
 for.body.preheader.i92:                           ; preds = %if.end144

@@ -198,357 +198,359 @@ define dso_local noundef range(i32 -22, 1) i32 @register_cdrom(ptr noundef %0, p
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %201, label %6
+  br i1 %5, label %202, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %201, label %10
+  br i1 %9, label %202, label %10
 
 10:                                               ; preds = %6
   %11 = load i1, ptr @register_cdrom.banner_printed, align 1
   br i1 %11, label %.thread1, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #14
+  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #15
   store i1 true, ptr @register_cdrom.banner_printed, align 1
   %14 = load volatile i32, ptr @cdrom_sysctl_register.initialized, align 4
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %.thread1, label %.lr.ph, !prof !6
 
-.lr.ph:                                           ; preds = %12, %21
-  %16 = phi i32 [ %22, %21 ], [ %14, %12 ]
+.lr.ph:                                           ; preds = %12, %22
+  %16 = phi i32 [ %23, %22 ], [ %14, %12 ]
   %17 = add i32 %16, 1
-  %18 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @cdrom_sysctl_register.initialized, i32 %17, ptr nonnull elementtype(i32) @cdrom_sysctl_register.initialized, i32 %16) #15, !srcloc !7
+  %18 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @cdrom_sysctl_register.initialized, i32 %17, ptr nonnull elementtype(i32) @cdrom_sysctl_register.initialized, i32 %16) #16, !srcloc !7
   %19 = extractvalue { i8, i32 } %18, 0
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %24, !prof !8
+  %20 = icmp ult i8 %19, 2
+  tail call void @llvm.assume(i1 %20)
+  %21 = icmp eq i8 %19, 0
+  br i1 %21, label %22, label %25, !prof !8
 
-21:                                               ; preds = %.lr.ph
-  %22 = extractvalue { i8, i32 } %18, 1
-  %23 = icmp eq i32 %22, 1
-  br i1 %23, label %.thread1, label %.lr.ph, !prof !9, !llvm.loop !10
+22:                                               ; preds = %.lr.ph
+  %23 = extractvalue { i8, i32 } %18, 1
+  %24 = icmp eq i32 %23, 1
+  br i1 %24, label %.thread1, label %.lr.ph, !prof !9, !llvm.loop !10
 
-24:                                               ; preds = %.lr.ph
-  %25 = tail call ptr @register_sysctl_sz(ptr noundef nonnull @.str.23, ptr noundef nonnull @cdrom_table, i64 noundef 6) #15
-  store ptr %25, ptr @cdrom_sysctl_header, align 8
-  %26 = load i8, ptr @autoclose, align 1, !range !13, !noundef !14
-  %27 = zext nneg i8 %26 to i32
-  store i32 %27, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1000), align 4
-  %28 = load i8, ptr @autoeject, align 1, !range !13, !noundef !14
-  %29 = zext nneg i8 %28 to i32
-  store i32 %29, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1004), align 4
-  %30 = load i8, ptr @debug, align 1, !range !13, !noundef !14
-  %31 = zext nneg i8 %30 to i32
-  store i32 %31, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1008), align 4
-  %32 = load i8, ptr @lockdoor, align 1, !range !13, !noundef !14
-  %33 = zext nneg i8 %32 to i32
-  store i32 %33, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1012), align 4
-  %34 = load i8, ptr @check_media_type, align 1, !range !13, !noundef !14
-  %35 = zext nneg i8 %34 to i32
-  store i32 %35, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1016), align 4
+25:                                               ; preds = %.lr.ph
+  %26 = tail call ptr @register_sysctl_sz(ptr noundef nonnull @.str.23, ptr noundef nonnull @cdrom_table, i64 noundef 6) #16
+  store ptr %26, ptr @cdrom_sysctl_header, align 8
+  %27 = load i8, ptr @autoclose, align 1, !range !13, !noundef !14
+  %28 = zext nneg i8 %27 to i32
+  store i32 %28, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1000), align 4
+  %29 = load i8, ptr @autoeject, align 1, !range !13, !noundef !14
+  %30 = zext nneg i8 %29 to i32
+  store i32 %30, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1004), align 4
+  %31 = load i8, ptr @debug, align 1, !range !13, !noundef !14
+  %32 = zext nneg i8 %31 to i32
+  store i32 %32, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1008), align 4
+  %33 = load i8, ptr @lockdoor, align 1, !range !13, !noundef !14
+  %34 = zext nneg i8 %33 to i32
+  store i32 %34, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1012), align 4
+  %35 = load i8, ptr @check_media_type, align 1, !range !13, !noundef !14
+  %36 = zext nneg i8 %35 to i32
+  store i32 %36, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1016), align 4
   br label %.thread1
 
-.thread1:                                         ; preds = %21, %12, %24, %10
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
-  store ptr %0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 520
-  store ptr %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %47
+.thread1:                                         ; preds = %22, %12, %25, %10
+  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  store ptr %0, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 520
+  store ptr %1, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %3, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %48
 
-41:                                               ; preds = %.thread1
-  %42 = getelementptr inbounds i8, ptr %3, i64 104
-  %43 = load i32, ptr %42, align 8
-  %44 = and i32 %43, 2048
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %47, label %46, !prof !15
+42:                                               ; preds = %.thread1
+  %43 = getelementptr inbounds i8, ptr %3, i64 104
+  %44 = load i32, ptr %43, align 8
+  %45 = and i32 %44, 2048
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %48, label %47, !prof !15
 
-46:                                               ; preds = %41
-  tail call void asm sideeffect "408: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 408b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 408) #15, !srcloc !16
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 604, i32 2307, i64 12) #15, !srcloc !17
-  tail call void asm sideeffect "409: nop\0A\09.pushsection .discard.instr_end\0A\09.long 409b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 409) #15, !srcloc !18
-  br label %47
+47:                                               ; preds = %42
+  tail call void asm sideeffect "408: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 408b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 408) #16, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 604, i32 2307, i64 12) #16, !srcloc !17
+  tail call void asm sideeffect "409: nop\0A\09.pushsection .discard.instr_end\0A\09.long 409b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 409) #16, !srcloc !18
+  br label %48
 
-47:                                               ; preds = %46, %41, %.thread1
-  %48 = getelementptr inbounds i8, ptr %3, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %57
+48:                                               ; preds = %47, %42, %.thread1
+  %49 = getelementptr inbounds i8, ptr %3, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %58
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %3, i64 104
-  %53 = load i32, ptr %52, align 8
-  %54 = and i32 %53, 144
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %57, label %56, !prof !15
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds i8, ptr %3, i64 104
+  %54 = load i32, ptr %53, align 8
+  %55 = and i32 %54, 144
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %58, label %57, !prof !15
 
-56:                                               ; preds = %51
-  tail call void asm sideeffect "410: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 410b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 410) #15, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 606, i32 2307, i64 12) #15, !srcloc !20
-  tail call void asm sideeffect "411: nop\0A\09.pushsection .discard.instr_end\0A\09.long 411b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 411) #15, !srcloc !21
-  br label %57
+57:                                               ; preds = %52
+  tail call void asm sideeffect "410: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 410b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 410) #16, !srcloc !19
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 606, i32 2307, i64 12) #16, !srcloc !20
+  tail call void asm sideeffect "411: nop\0A\09.pushsection .discard.instr_end\0A\09.long 411b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 411) #16, !srcloc !21
+  br label %58
 
-57:                                               ; preds = %56, %51, %47
-  %58 = getelementptr inbounds i8, ptr %3, i64 32
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %67
+58:                                               ; preds = %57, %52, %48
+  %59 = getelementptr inbounds i8, ptr %3, i64 32
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %62, label %68
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %3, i64 104
-  %63 = load i32, ptr %62, align 8
-  %64 = and i32 %63, 3
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %67, label %66, !prof !15
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds i8, ptr %3, i64 104
+  %64 = load i32, ptr %63, align 8
+  %65 = and i32 %64, 3
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %68, label %67, !prof !15
 
-66:                                               ; preds = %61
-  tail call void asm sideeffect "412: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 412b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 412) #15, !srcloc !22
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 607, i32 2307, i64 12) #15, !srcloc !23
-  tail call void asm sideeffect "413: nop\0A\09.pushsection .discard.instr_end\0A\09.long 413b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 413) #15, !srcloc !24
-  br label %67
+67:                                               ; preds = %62
+  tail call void asm sideeffect "412: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 412b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 412) #16, !srcloc !22
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 607, i32 2307, i64 12) #16, !srcloc !23
+  tail call void asm sideeffect "413: nop\0A\09.pushsection .discard.instr_end\0A\09.long 413b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 413) #16, !srcloc !24
+  br label %68
 
-67:                                               ; preds = %66, %61, %57
-  %68 = getelementptr inbounds i8, ptr %3, i64 40
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %77
+68:                                               ; preds = %67, %62, %58
+  %69 = getelementptr inbounds i8, ptr %3, i64 40
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %72, label %78
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %3, i64 104
-  %73 = load i32, ptr %72, align 8
-  %74 = and i32 %73, 4
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %77, label %76, !prof !15
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds i8, ptr %3, i64 104
+  %74 = load i32, ptr %73, align 8
+  %75 = and i32 %74, 4
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %78, label %77, !prof !15
 
-76:                                               ; preds = %71
-  tail call void asm sideeffect "414: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 414b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 414) #15, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 608, i32 2307, i64 12) #15, !srcloc !26
-  tail call void asm sideeffect "415: nop\0A\09.pushsection .discard.instr_end\0A\09.long 415b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 415) #15, !srcloc !27
-  br label %77
+77:                                               ; preds = %72
+  tail call void asm sideeffect "414: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 414b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 414) #16, !srcloc !25
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 608, i32 2307, i64 12) #16, !srcloc !26
+  tail call void asm sideeffect "415: nop\0A\09.pushsection .discard.instr_end\0A\09.long 415b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 415) #16, !srcloc !27
+  br label %78
 
-77:                                               ; preds = %76, %71, %67
-  %78 = getelementptr inbounds i8, ptr %3, i64 48
-  %79 = load ptr, ptr %78, align 8
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %87
+78:                                               ; preds = %77, %72, %68
+  %79 = getelementptr inbounds i8, ptr %3, i64 48
+  %80 = load ptr, ptr %79, align 8
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %82, label %88
 
-81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %3, i64 104
-  %83 = load i32, ptr %82, align 8
-  %84 = and i32 %83, 8
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %87, label %86, !prof !15
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds i8, ptr %3, i64 104
+  %84 = load i32, ptr %83, align 8
+  %85 = and i32 %84, 8
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %88, label %87, !prof !15
 
-86:                                               ; preds = %81
-  tail call void asm sideeffect "416: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 416b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 416) #15, !srcloc !28
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 609, i32 2307, i64 12) #15, !srcloc !29
-  tail call void asm sideeffect "417: nop\0A\09.pushsection .discard.instr_end\0A\09.long 417b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 417) #15, !srcloc !30
-  br label %87
+87:                                               ; preds = %82
+  tail call void asm sideeffect "416: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 416b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 416) #16, !srcloc !28
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 609, i32 2307, i64 12) #16, !srcloc !29
+  tail call void asm sideeffect "417: nop\0A\09.pushsection .discard.instr_end\0A\09.long 417b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 417) #16, !srcloc !30
+  br label %88
 
-87:                                               ; preds = %86, %81, %77
-  %88 = getelementptr inbounds i8, ptr %3, i64 56
-  %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %97
+88:                                               ; preds = %87, %82, %78
+  %89 = getelementptr inbounds i8, ptr %3, i64 56
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %92, label %98
 
-91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %3, i64 104
-  %93 = load i32, ptr %92, align 8
-  %94 = and i32 %93, 32
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %97, label %96, !prof !15
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds i8, ptr %3, i64 104
+  %94 = load i32, ptr %93, align 8
+  %95 = and i32 %94, 32
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %98, label %97, !prof !15
 
-96:                                               ; preds = %91
-  tail call void asm sideeffect "418: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 418b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 418) #15, !srcloc !31
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 610, i32 2307, i64 12) #15, !srcloc !32
-  tail call void asm sideeffect "419: nop\0A\09.pushsection .discard.instr_end\0A\09.long 419b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 419) #15, !srcloc !33
-  br label %97
+97:                                               ; preds = %92
+  tail call void asm sideeffect "418: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 418b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 418) #16, !srcloc !31
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 610, i32 2307, i64 12) #16, !srcloc !32
+  tail call void asm sideeffect "419: nop\0A\09.pushsection .discard.instr_end\0A\09.long 419b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 419) #16, !srcloc !33
+  br label %98
 
-97:                                               ; preds = %96, %91, %87
-  %98 = getelementptr inbounds i8, ptr %3, i64 64
-  %99 = load ptr, ptr %98, align 8
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %101, label %107
+98:                                               ; preds = %97, %92, %88
+  %99 = getelementptr inbounds i8, ptr %3, i64 64
+  %100 = load ptr, ptr %99, align 8
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %102, label %108
 
-101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %3, i64 104
-  %103 = load i32, ptr %102, align 8
-  %104 = and i32 %103, 64
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %107, label %106, !prof !15
+102:                                              ; preds = %98
+  %103 = getelementptr inbounds i8, ptr %3, i64 104
+  %104 = load i32, ptr %103, align 8
+  %105 = and i32 %104, 64
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %108, label %107, !prof !15
 
-106:                                              ; preds = %101
-  tail call void asm sideeffect "420: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 420b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 420) #15, !srcloc !34
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 611, i32 2307, i64 12) #15, !srcloc !35
-  tail call void asm sideeffect "421: nop\0A\09.pushsection .discard.instr_end\0A\09.long 421b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 421) #15, !srcloc !36
-  br label %107
+107:                                              ; preds = %102
+  tail call void asm sideeffect "420: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 420b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 420) #16, !srcloc !34
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 611, i32 2307, i64 12) #16, !srcloc !35
+  tail call void asm sideeffect "421: nop\0A\09.pushsection .discard.instr_end\0A\09.long 421b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 421) #16, !srcloc !36
+  br label %108
 
-107:                                              ; preds = %106, %101, %97
-  %108 = getelementptr inbounds i8, ptr %3, i64 72
-  %109 = load ptr, ptr %108, align 8
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %111, label %117
+108:                                              ; preds = %107, %102, %98
+  %109 = getelementptr inbounds i8, ptr %3, i64 72
+  %110 = load ptr, ptr %109, align 8
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %112, label %118
 
-111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %3, i64 104
-  %113 = load i32, ptr %112, align 8
-  %114 = and i32 %113, 512
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %117, label %116, !prof !15
+112:                                              ; preds = %108
+  %113 = getelementptr inbounds i8, ptr %3, i64 104
+  %114 = load i32, ptr %113, align 8
+  %115 = and i32 %114, 512
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %118, label %117, !prof !15
 
-116:                                              ; preds = %111
-  tail call void asm sideeffect "422: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 422b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 422) #15, !srcloc !37
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 612, i32 2307, i64 12) #15, !srcloc !38
-  tail call void asm sideeffect "423: nop\0A\09.pushsection .discard.instr_end\0A\09.long 423b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 423) #15, !srcloc !39
-  br label %117
+117:                                              ; preds = %112
+  tail call void asm sideeffect "422: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 422b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 422) #16, !srcloc !37
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 612, i32 2307, i64 12) #16, !srcloc !38
+  tail call void asm sideeffect "423: nop\0A\09.pushsection .discard.instr_end\0A\09.long 423b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 423) #16, !srcloc !39
+  br label %118
 
-117:                                              ; preds = %116, %111, %107
-  %118 = getelementptr inbounds i8, ptr %3, i64 88
-  %119 = load ptr, ptr %118, align 8
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %121, label %127
+118:                                              ; preds = %117, %112, %108
+  %119 = getelementptr inbounds i8, ptr %3, i64 88
+  %120 = load ptr, ptr %119, align 8
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %122, label %128
 
-121:                                              ; preds = %117
-  %122 = getelementptr inbounds i8, ptr %3, i64 104
-  %123 = load i32, ptr %122, align 8
-  %124 = and i32 %123, 4096
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %127, label %126, !prof !15
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds i8, ptr %3, i64 104
+  %124 = load i32, ptr %123, align 8
+  %125 = and i32 %124, 4096
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %128, label %127, !prof !15
 
-126:                                              ; preds = %121
-  tail call void asm sideeffect "424: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 424b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 424) #15, !srcloc !40
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 613, i32 2307, i64 12) #15, !srcloc !41
-  tail call void asm sideeffect "425: nop\0A\09.pushsection .discard.instr_end\0A\09.long 425b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 425) #15, !srcloc !42
-  br label %127
+127:                                              ; preds = %122
+  tail call void asm sideeffect "424: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 424b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 424) #16, !srcloc !40
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 613, i32 2307, i64 12) #16, !srcloc !41
+  tail call void asm sideeffect "425: nop\0A\09.pushsection .discard.instr_end\0A\09.long 425b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 425) #16, !srcloc !42
+  br label %128
 
-127:                                              ; preds = %126, %121, %117
-  %128 = getelementptr inbounds i8, ptr %1, i64 52
-  store i32 4, ptr %128, align 4
-  %129 = tail call i64 @ktime_get() #15
-  %130 = sdiv i64 %129, 1000000
-  %131 = getelementptr inbounds i8, ptr %1, i64 120
-  store i64 %130, ptr %131, align 8
-  %132 = load i8, ptr @autoclose, align 1, !range !13, !noundef !14
-  %133 = icmp eq i8 %132, 0
-  br i1 %133, label %147, label %134
+128:                                              ; preds = %127, %122, %118
+  %129 = getelementptr inbounds i8, ptr %1, i64 52
+  store i32 4, ptr %129, align 4
+  %130 = tail call i64 @ktime_get() #16
+  %131 = sdiv i64 %130, 1000000
+  %132 = getelementptr inbounds i8, ptr %1, i64 120
+  store i64 %131, ptr %132, align 8
+  %133 = load i8, ptr @autoclose, align 1, !range !13, !noundef !14
+  %134 = icmp eq i8 %133, 0
+  br i1 %134, label %148, label %135
 
-134:                                              ; preds = %127
-  %135 = load ptr, ptr %1, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 104
-  %137 = load i32, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %1, i64 40
-  %139 = load i32, ptr %138, align 8
-  %140 = xor i32 %139, -1
-  %141 = and i32 %137, 1
-  %142 = and i32 %141, %140
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %147, label %144
+135:                                              ; preds = %128
+  %136 = load ptr, ptr %1, align 8
+  %137 = getelementptr inbounds i8, ptr %136, i64 104
+  %138 = load i32, ptr %137, align 8
+  %139 = getelementptr inbounds i8, ptr %1, i64 40
+  %140 = load i32, ptr %139, align 8
+  %141 = xor i32 %140, -1
+  %142 = and i32 %138, 1
+  %143 = and i32 %142, %141
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %148, label %145
 
-144:                                              ; preds = %134
-  %145 = load i32, ptr %128, align 4
-  %146 = or i32 %145, 1
-  store i32 %146, ptr %128, align 4
-  br label %147
+145:                                              ; preds = %135
+  %146 = load i32, ptr %129, align 4
+  %147 = or i32 %146, 1
+  store i32 %147, ptr %129, align 4
+  br label %148
 
-147:                                              ; preds = %144, %134, %127
-  %148 = load i8, ptr @autoeject, align 1, !range !13, !noundef !14
-  %149 = icmp eq i8 %148, 0
-  br i1 %149, label %163, label %150
+148:                                              ; preds = %145, %135, %128
+  %149 = load i8, ptr @autoeject, align 1, !range !13, !noundef !14
+  %150 = icmp eq i8 %149, 0
+  br i1 %150, label %164, label %151
 
-150:                                              ; preds = %147
-  %151 = load ptr, ptr %1, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 104
-  %153 = load i32, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %1, i64 40
-  %155 = load i32, ptr %154, align 8
-  %156 = xor i32 %155, -1
-  %157 = and i32 %153, 2
-  %158 = and i32 %157, %156
-  %159 = icmp eq i32 %158, 0
-  br i1 %159, label %163, label %160
+151:                                              ; preds = %148
+  %152 = load ptr, ptr %1, align 8
+  %153 = getelementptr inbounds i8, ptr %152, i64 104
+  %154 = load i32, ptr %153, align 8
+  %155 = getelementptr inbounds i8, ptr %1, i64 40
+  %156 = load i32, ptr %155, align 8
+  %157 = xor i32 %156, -1
+  %158 = and i32 %154, 2
+  %159 = and i32 %158, %157
+  %160 = icmp eq i32 %159, 0
+  br i1 %160, label %164, label %161
 
-160:                                              ; preds = %150
-  %161 = load i32, ptr %128, align 4
-  %162 = or i32 %161, 2
-  store i32 %162, ptr %128, align 4
-  br label %163
+161:                                              ; preds = %151
+  %162 = load i32, ptr %129, align 4
+  %163 = or i32 %162, 2
+  store i32 %163, ptr %129, align 4
+  br label %164
 
-163:                                              ; preds = %160, %150, %147
-  %164 = load i8, ptr @lockdoor, align 1, !range !13, !noundef !14
-  %165 = icmp eq i8 %164, 0
-  br i1 %165, label %169, label %166
+164:                                              ; preds = %161, %151, %148
+  %165 = load i8, ptr @lockdoor, align 1, !range !13, !noundef !14
+  %166 = icmp eq i8 %165, 0
+  br i1 %166, label %170, label %167
 
-166:                                              ; preds = %163
-  %167 = load i32, ptr %128, align 4
-  %168 = or i32 %167, 8
-  store i32 %168, ptr %128, align 4
-  br label %169
+167:                                              ; preds = %164
+  %168 = load i32, ptr %129, align 4
+  %169 = or i32 %168, 8
+  store i32 %169, ptr %129, align 4
+  br label %170
 
-169:                                              ; preds = %166, %163
-  %170 = load i8, ptr @check_media_type, align 1, !range !13, !noundef !14
-  %171 = icmp eq i8 %170, 0
-  br i1 %171, label %175, label %172
+170:                                              ; preds = %167, %164
+  %171 = load i8, ptr @check_media_type, align 1, !range !13, !noundef !14
+  %172 = icmp eq i8 %171, 0
+  br i1 %172, label %176, label %173
 
-172:                                              ; preds = %169
-  %173 = load i32, ptr %128, align 4
-  %174 = or i32 %173, 16
-  store i32 %174, ptr %128, align 4
-  br label %175
+173:                                              ; preds = %170
+  %174 = load i32, ptr %129, align 4
+  %175 = or i32 %174, 16
+  store i32 %175, ptr %129, align 4
+  br label %176
 
-175:                                              ; preds = %172, %169
-  %176 = load ptr, ptr %1, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 104
-  %178 = load i32, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %1, i64 40
-  %180 = load i32, ptr %179, align 8
-  %181 = xor i32 %180, -1
-  %182 = and i32 %178, 1048576
-  %183 = and i32 %182, %181
-  %184 = icmp eq i32 %183, 0
-  br i1 %184, label %187, label %185
+176:                                              ; preds = %173, %170
+  %177 = load ptr, ptr %1, align 8
+  %178 = getelementptr inbounds i8, ptr %177, i64 104
+  %179 = load i32, ptr %178, align 8
+  %180 = getelementptr inbounds i8, ptr %1, i64 40
+  %181 = load i32, ptr %180, align 8
+  %182 = xor i32 %181, -1
+  %183 = and i32 %179, 1048576
+  %184 = and i32 %183, %182
+  %185 = icmp eq i32 %184, 0
+  br i1 %185, label %188, label %186
 
-185:                                              ; preds = %175
-  %186 = getelementptr inbounds i8, ptr %1, i64 104
-  store ptr @cdrom_mrw_exit, ptr %186, align 8
-  br label %187
+186:                                              ; preds = %176
+  %187 = getelementptr inbounds i8, ptr %1, i64 104
+  store ptr @cdrom_mrw_exit, ptr %187, align 8
+  br label %188
 
-187:                                              ; preds = %185, %175
-  %188 = getelementptr inbounds i8, ptr %176, i64 96
-  %189 = load ptr, ptr %188, align 8
-  %190 = icmp eq ptr %189, null
-  %191 = getelementptr inbounds i8, ptr %1, i64 92
-  %192 = select i1 %190, i32 0, i32 2
-  store i32 %192, ptr %191, align 4
-  %193 = load ptr, ptr %118, align 8
-  %194 = icmp eq ptr %193, null
-  br i1 %194, label %195, label %196, !prof !8
+188:                                              ; preds = %186, %176
+  %189 = getelementptr inbounds i8, ptr %177, i64 96
+  %190 = load ptr, ptr %189, align 8
+  %191 = icmp eq ptr %190, null
+  %192 = getelementptr inbounds i8, ptr %1, i64 92
+  %193 = select i1 %191, i32 0, i32 2
+  store i32 %193, ptr %192, align 4
+  %194 = load ptr, ptr %119, align 8
+  %195 = icmp eq ptr %194, null
+  br i1 %195, label %196, label %197, !prof !8
 
-195:                                              ; preds = %187
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #15, !srcloc !43
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 635, i32 2305, i64 12) #15, !srcloc !44
-  tail call void asm sideeffect "427: nop\0A\09.pushsection .discard.instr_end\0A\09.long 427b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 427) #15, !srcloc !45
-  br label %196
+196:                                              ; preds = %188
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #16, !srcloc !43
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 635, i32 2305, i64 12) #16, !srcloc !44
+  tail call void asm sideeffect "427: nop\0A\09.pushsection .discard.instr_end\0A\09.long 427b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 427) #16, !srcloc !45
+  br label %197
 
-196:                                              ; preds = %195, %187
-  tail call void @mutex_lock(ptr noundef nonnull @cdrom_mutex) #15
-  %197 = getelementptr inbounds i8, ptr %1, i64 8
-  %198 = load ptr, ptr @cdrom_list, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 8
-  store ptr %197, ptr %199, align 8
-  store ptr %198, ptr %197, align 8
-  %200 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr @cdrom_list, ptr %200, align 8
-  store volatile ptr %197, ptr @cdrom_list, align 8
-  tail call void @mutex_unlock(ptr noundef nonnull @cdrom_mutex) #15
-  br label %201
+197:                                              ; preds = %196, %188
+  tail call void @mutex_lock(ptr noundef nonnull @cdrom_mutex) #16
+  %198 = getelementptr inbounds i8, ptr %1, i64 8
+  %199 = load ptr, ptr @cdrom_list, align 8
+  %200 = getelementptr inbounds i8, ptr %199, i64 8
+  store ptr %198, ptr %200, align 8
+  store ptr %199, ptr %198, align 8
+  %201 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr @cdrom_list, ptr %201, align 8
+  store volatile ptr %198, ptr @cdrom_list, align 8
+  tail call void @mutex_unlock(ptr noundef nonnull @cdrom_mutex) #16
+  br label %202
 
-201:                                              ; preds = %196, %6, %2
-  %202 = phi i32 [ 0, %196 ], [ -22, %6 ], [ -22, %2 ]
-  ret i32 %202
+202:                                              ; preds = %197, %6, %2
+  %203 = phi i32 [ 0, %197 ], [ -22, %6 ], [ -22, %2 ]
+  ret i32 %203
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -569,9 +571,9 @@ define internal i32 @cdrom_mrw_exit(ptr noundef %0) #1 align 16 {
   %3 = alloca %struct.packet_command, align 8
   %4 = alloca %struct.packet_command, align 8
   %5 = alloca %struct.disc_information, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #16
   %6 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, i8 0, i64 36, i1 false)
   %7 = getelementptr inbounds i8, ptr %4, i64 16
@@ -589,7 +591,7 @@ define internal i32 @cdrom_mrw_exit(ptr noundef %0) #1 align 16 {
   store i32 1, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %6, i64 88
   %14 = load ptr, ptr %13, align 8
-  %15 = call i32 %14(ptr noundef %0, ptr noundef nonnull %4) #15
+  %15 = call i32 %14(ptr noundef %0, ptr noundef nonnull %4) #16
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %28
 
@@ -603,14 +605,14 @@ define internal i32 @cdrom_mrw_exit(ptr noundef %0) #1 align 16 {
   %23 = trunc nuw nsw i16 %21 to i8
   store i8 %23, ptr %11, align 8
   %24 = load ptr, ptr %13, align 8
-  %25 = call i32 %24(ptr noundef %0, ptr noundef nonnull %4) #15
+  %25 = call i32 %24(ptr noundef %0, ptr noundef nonnull %4) #16
   %26 = icmp eq i32 %25, 0
   %27 = select i1 %26, i32 %22, i32 %25
   br label %28
 
 28:                                               ; preds = %17, %1
   %29 = phi i32 [ %15, %1 ], [ %27, %17 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #16
   %30 = icmp slt i32 %29, 8
   br i1 %30, label %56, label %31
 
@@ -622,8 +624,8 @@ define internal i32 @cdrom_mrw_exit(ptr noundef %0) #1 align 16 {
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %31
-  %37 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #14
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #15
+  %37 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #16
   %38 = getelementptr inbounds i8, ptr %3, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   store i8 3, ptr %38, align 8
@@ -635,8 +637,8 @@ define internal i32 @cdrom_mrw_exit(ptr noundef %0) #1 align 16 {
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 88
   %43 = load ptr, ptr %42, align 8
-  %44 = call i32 %43(ptr noundef %0, ptr noundef nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
+  %44 = call i32 %43(ptr noundef %0, ptr noundef nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #16
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.thread, label %56
 
@@ -647,7 +649,7 @@ define internal i32 @cdrom_mrw_exit(ptr noundef %0) #1 align 16 {
   br i1 %48, label %56, label %49
 
 49:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #16
   %50 = getelementptr inbounds i8, ptr %2, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i8 3, ptr %50, align 8
@@ -657,13 +659,13 @@ define internal i32 @cdrom_mrw_exit(ptr noundef %0) #1 align 16 {
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 88
   %54 = load ptr, ptr %53, align 8
-  %55 = call i32 %54(ptr noundef %0, ptr noundef nonnull %2) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #15
+  %55 = call i32 %54(ptr noundef %0, ptr noundef nonnull %2) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #16
   br label %56
 
 56:                                               ; preds = %49, %.thread, %36, %28
   %57 = phi i32 [ 1, %28 ], [ %44, %36 ], [ %55, %49 ], [ 0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #16
   ret i32 %57
 }
 
@@ -675,7 +677,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @unregister_cdrom(ptr noundef %0) #1 align 16 {
-  tail call void @mutex_lock(ptr noundef nonnull @cdrom_mutex) #15
+  tail call void @mutex_lock(ptr noundef nonnull @cdrom_mutex) #16
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -685,14 +687,14 @@ define dso_local void @unregister_cdrom(ptr noundef %0) #1 align 16 {
   store volatile ptr %5, ptr %4, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %2, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %3, align 8
-  tail call void @mutex_unlock(ptr noundef nonnull @cdrom_mutex) #15
+  tail call void @mutex_unlock(ptr noundef nonnull @cdrom_mutex) #16
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %1
-  %11 = tail call i32 %8(ptr noundef %0) #15
+  %11 = tail call i32 %8(ptr noundef %0) #16
   br label %12
 
 12:                                               ; preds = %10, %1
@@ -703,8 +705,8 @@ define dso_local void @unregister_cdrom(ptr noundef %0) #1 align 16 {
 define dso_local noundef range(i32 0, 2) i32 @cdrom_get_media_event(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = alloca %struct.packet_command, align 8
   %4 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -727,7 +729,7 @@ define dso_local noundef range(i32 0, 2) i32 @cdrom_get_media_event(ptr noundef 
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 88
   %15 = load ptr, ptr %14, align 8
-  %16 = call i32 %15(ptr noundef %0, ptr noundef nonnull %3) #15
+  %16 = call i32 %15(ptr noundef %0, ptr noundef nonnull %3) #16
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %30
 
@@ -752,8 +754,8 @@ define dso_local noundef range(i32 0, 2) i32 @cdrom_get_media_event(ptr noundef 
 
 30:                                               ; preds = %27, %22, %18, %2
   %31 = phi i32 [ 0, %27 ], [ 1, %2 ], [ 1, %18 ], [ 1, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #16
   ret i32 %31
 }
 
@@ -837,7 +839,7 @@ define dso_local i32 @cdrom_open(ptr noundef %0, i32 noundef %1) #1 align 16 {
   br i1 %39, label %72, label %40
 
 40:                                               ; preds = %35
-  %41 = tail call i32 %38(ptr noundef %0, i32 noundef 2147483647) #15
+  %41 = tail call i32 %38(ptr noundef %0, i32 noundef 2147483647) #16
   %42 = icmp eq i32 %41, 2
   br i1 %42, label %43, label %68
 
@@ -863,20 +865,20 @@ define dso_local i32 @cdrom_open(ptr noundef %0, i32 noundef %1) #1 align 16 {
 58:                                               ; preds = %53
   %59 = getelementptr inbounds i8, ptr %36, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call i32 %60(ptr noundef %0, i32 noundef 0) #15
+  %61 = tail call i32 %60(ptr noundef %0, i32 noundef 0) #16
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %144
 
 63:                                               ; preds = %58
   %64 = load ptr, ptr %37, align 8
-  %65 = tail call i32 %64(ptr noundef %0, i32 noundef 2147483647) #15
+  %65 = tail call i32 %64(ptr noundef %0, i32 noundef 2147483647) #16
   %66 = add i32 %65, -1
   %67 = icmp ult i32 %66, 2
   br i1 %67, label %144, label %68
 
 68:                                               ; preds = %63, %40
   %69 = load ptr, ptr %37, align 8
-  %70 = tail call i32 %69(ptr noundef %0, i32 noundef 2147483647) #15
+  %70 = tail call i32 %69(ptr noundef %0, i32 noundef 2147483647) #16
   %71 = icmp eq i32 %70, 4
   br i1 %71, label %._crit_edge, label %144
 
@@ -886,8 +888,8 @@ define dso_local i32 @cdrom_open(ptr noundef %0, i32 noundef %1) #1 align 16 {
 
 72:                                               ; preds = %._crit_edge, %35
   %73 = phi ptr [ %.pre, %._crit_edge ], [ %36, %35 ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #16
   %74 = getelementptr inbounds i8, ptr %73, i64 104
   %75 = load i32, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %0, i64 40
@@ -903,7 +905,7 @@ define dso_local i32 @cdrom_open(ptr noundef %0, i32 noundef %1) #1 align 16 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !46
   %83 = getelementptr inbounds i8, ptr %73, i64 80
   %84 = load ptr, ptr %83, align 8
-  %85 = call i32 %84(ptr noundef %0, i32 noundef 21253, ptr noundef nonnull %3) #15
+  %85 = call i32 %84(ptr noundef %0, i32 noundef 21253, ptr noundef nonnull %3) #16
   switch i32 %85, label %.thread [
     i32 0, label %86
     i32 -123, label %cdrom_count_tracks.exit
@@ -931,7 +933,7 @@ define dso_local i32 @cdrom_open(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %98 = load ptr, ptr %0, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 80
   %100 = load ptr, ptr %99, align 8
-  %101 = call i32 %100(ptr noundef %0, i32 noundef 21254, ptr noundef nonnull %4) #15
+  %101 = call i32 %100(ptr noundef %0, i32 noundef 21254, ptr noundef nonnull %4) #16
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %116
 
@@ -961,19 +963,19 @@ define dso_local i32 @cdrom_open(ptr noundef %0, i32 noundef %1) #1 align 16 {
   br i1 %115, label %95, label %116, !llvm.loop !47
 
 cdrom_count_tracks.exit:                          ; preds = %82
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #16
   br label %144
 
 .thread:                                          ; preds = %72, %86, %82
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #16
   br label %118
 
 116:                                              ; preds = %111, %95
   %.sroa.0.3.ph = phi i32 [ %.sroa.0.0, %95 ], [ %.sroa.0.1, %111 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #16
   %117 = icmp eq i32 %.sroa.0.3.ph, 0
   br i1 %117, label %118, label %123
 
@@ -986,7 +988,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
 
 123:                                              ; preds = %118, %116
   %124 = load ptr, ptr %36, align 8
-  %125 = tail call i32 %124(ptr noundef %0, i32 noundef 0) #15
+  %125 = tail call i32 %124(ptr noundef %0, i32 noundef 0) #16
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %127, label %144
 
@@ -1011,7 +1013,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
 .thread24:                                        ; preds = %136
   %141 = getelementptr inbounds i8, ptr %36, i64 40
   %142 = load ptr, ptr %141, align 8
-  %143 = tail call i32 %142(ptr noundef %0, i32 noundef 1) #15
+  %143 = tail call i32 %142(ptr noundef %0, i32 noundef 1) #16
   %.pre37 = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre37, i64 104
   %.pre38 = load i32, ptr %.phi.trans.insert, align 8
@@ -1042,7 +1044,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
 160:                                              ; preds = %155
   %161 = getelementptr inbounds i8, ptr %36, i64 40
   %162 = load ptr, ptr %161, align 8
-  %163 = tail call i32 %162(ptr noundef %0, i32 noundef 0) #15
+  %163 = tail call i32 %162(ptr noundef %0, i32 noundef 0) #16
   br label %.thread23
 
 .thread21:                                        ; preds = %136, %127, %.thread24
@@ -1055,8 +1057,8 @@ cdrom_count_tracks.exit:                          ; preds = %82
   br i1 %168, label %191, label %169
 
 169:                                              ; preds = %.thread21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23) #16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, i8 0, i64 32, i1 false)
   %170 = getelementptr inbounds i8, ptr %23, i64 16
@@ -1076,7 +1078,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   store i32 1, ptr %176, align 4
   %177 = getelementptr inbounds i8, ptr %165, i64 88
   %178 = load ptr, ptr %177, align 8
-  %179 = call i32 %178(ptr noundef %0, ptr noundef nonnull %23) #15
+  %179 = call i32 %178(ptr noundef %0, ptr noundef nonnull %23) #16
   %180 = icmp eq i32 %179, 0
   %181 = getelementptr inbounds i8, ptr %24, i64 6
   %182 = load i8, ptr %181, align 2
@@ -1089,8 +1091,8 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %189 = select i1 %180, i16 %188, i16 -1
   %190 = getelementptr inbounds i8, ptr %0, i64 98
   store i16 %189, ptr %190, align 2
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23) #16
   br label %191
 
 191:                                              ; preds = %169, %.thread21
@@ -1099,8 +1101,8 @@ cdrom_count_tracks.exit:                          ; preds = %82
   br i1 %193, label %.thread34, label %194
 
 194:                                              ; preds = %191
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21) #16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %195 = getelementptr inbounds i8, ptr %21, i64 16
@@ -1121,7 +1123,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %202 = load ptr, ptr %0, align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 88
   %204 = load ptr, ptr %203, align 8
-  %205 = call i32 %204(ptr noundef %0, ptr noundef nonnull %21) #15
+  %205 = call i32 %204(ptr noundef %0, ptr noundef nonnull %21) #16
   %206 = icmp eq i32 %205, 0
   %207 = getelementptr inbounds i8, ptr %22, i64 8
   %208 = load i16, ptr %207, align 8
@@ -1134,8 +1136,8 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %212 = load i8, ptr %211, align 4
   %213 = and i8 %212, 1
   %214 = zext nneg i8 %213 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19) #16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #16
   %215 = getelementptr inbounds i8, ptr %19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %215, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, i8 0, i64 16, i1 false)
@@ -1158,7 +1160,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   store i8 2, ptr %218, align 8
   %224 = getelementptr inbounds i8, ptr %221, i64 88
   %225 = load ptr, ptr %224, align 8
-  %226 = call i32 %225(ptr noundef %0, ptr noundef nonnull %19) #15
+  %226 = call i32 %225(ptr noundef %0, ptr noundef nonnull %19) #16
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %240, label %228
 
@@ -1177,28 +1179,28 @@ cdrom_count_tracks.exit:                          ; preds = %82
   store i8 2, ptr %218, align 8
   %235 = getelementptr inbounds i8, ptr %230, i64 88
   %236 = load ptr, ptr %235, align 8
-  %237 = call i32 %236(ptr noundef %0, ptr noundef nonnull %19) #15
+  %237 = call i32 %236(ptr noundef %0, ptr noundef nonnull %19) #16
   %238 = icmp eq i32 %237, 0
   br i1 %238, label %240, label %239
 
 239:                                              ; preds = %228
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19) #16
   br label %243
 
 240:                                              ; preds = %228, %210
   %241 = phi i32 [ 3, %210 ], [ 44, %228 ]
   %242 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %241, ptr %242, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19) #16
   br label %243
 
 243:                                              ; preds = %240, %239, %194
   %244 = phi i32 [ 0, %194 ], [ %214, %240 ], [ 0, %239 ]
   %245 = phi i32 [ 524288, %194 ], [ 0, %240 ], [ 524288, %239 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21) #16
   %246 = load ptr, ptr %0, align 8
   %247 = getelementptr inbounds i8, ptr %246, i64 104
   %248 = load i32, ptr %247, align 8
@@ -1210,8 +1212,8 @@ cdrom_count_tracks.exit:                          ; preds = %82
   br i1 %253, label %254, label %271
 
 254:                                              ; preds = %243
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   %255 = getelementptr inbounds i8, ptr %17, i64 16
@@ -1231,12 +1233,12 @@ cdrom_count_tracks.exit:                          ; preds = %82
   store i32 1, ptr %261, align 4
   %262 = getelementptr inbounds i8, ptr %246, i64 88
   %263 = load ptr, ptr %262, align 8
-  %264 = call i32 %263(ptr noundef %0, ptr noundef nonnull %17) #15
+  %264 = call i32 %263(ptr noundef %0, ptr noundef nonnull %17) #16
   %265 = getelementptr inbounds i8, ptr %18, i64 8
   %266 = load i16, ptr %265, align 8
   %267 = icmp eq i16 %266, 8192
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #16
   %268 = icmp eq i32 %264, 0
   %269 = select i1 %268, i1 %267, i1 false
   %270 = zext i1 %269 to i32
@@ -1267,10 +1269,10 @@ cdrom_count_tracks.exit:                          ; preds = %82
   br i1 %287, label %379, label %288
 
 288:                                              ; preds = %271
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %16) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %16, i8 0, i64 36, i1 false), !annotation !46
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #16
   %289 = getelementptr inbounds i8, ptr %14, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %289, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 0, i64 16, i1 false)
@@ -1293,7 +1295,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   store i8 2, ptr %292, align 8
   %299 = getelementptr inbounds i8, ptr %272, i64 88
   %300 = load ptr, ptr %299, align 8
-  %301 = call i32 %300(ptr noundef %0, ptr noundef nonnull %14) #15
+  %301 = call i32 %300(ptr noundef %0, ptr noundef nonnull %14) #16
   %302 = icmp eq i32 %301, 0
   br i1 %302, label %303, label %340
 
@@ -1327,17 +1329,17 @@ cdrom_count_tracks.exit:                          ; preds = %82
   store i8 1, ptr %292, align 8
   %322 = getelementptr inbounds i8, ptr %315, i64 88
   %323 = load ptr, ptr %322, align 8
-  %324 = call i32 %323(ptr noundef %0, ptr noundef nonnull %14) #15
+  %324 = call i32 %323(ptr noundef %0, ptr noundef nonnull %14) #16
   %325 = icmp eq i32 %324, 0
   br i1 %325, label %326, label %340
 
 326:                                              ; preds = %303
   %327 = getelementptr inbounds i8, ptr %0, i64 68
-  %328 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, ptr noundef %327, ptr noundef nonnull @.str.8) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #15
+  %328 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, ptr noundef %327, ptr noundef nonnull @.str.8) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #16
   %329 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %16, i8 0, i64 36, i1 false)
   %330 = getelementptr inbounds i8, ptr %13, i64 16
@@ -1355,14 +1357,14 @@ cdrom_count_tracks.exit:                          ; preds = %82
   store i32 1, ptr %335, align 4
   %336 = getelementptr inbounds i8, ptr %329, i64 88
   %337 = load ptr, ptr %336, align 8
-  %338 = call i32 %337(ptr noundef %0, ptr noundef nonnull %13) #15
+  %338 = call i32 %337(ptr noundef %0, ptr noundef nonnull %13) #16
   %339 = icmp eq i32 %338, 0
   br i1 %339, label %342, label %353
 
 340:                                              ; preds = %303, %288
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #15
-  %341 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #16
+  %341 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #15
   br label %377
 
 342:                                              ; preds = %326
@@ -1375,14 +1377,14 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %348 = trunc nuw nsw i16 %346 to i8
   store i8 %348, ptr %334, align 8
   %349 = load ptr, ptr %336, align 8
-  %350 = call i32 %349(ptr noundef %0, ptr noundef nonnull %13) #15
+  %350 = call i32 %349(ptr noundef %0, ptr noundef nonnull %13) #16
   %351 = icmp eq i32 %350, 0
   %352 = select i1 %351, i32 %347, i32 %350
   br label %353
 
 353:                                              ; preds = %342, %326
   %354 = phi i32 [ %338, %326 ], [ %352, %342 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #16
   %355 = icmp slt i32 %354, 8
   br i1 %355, label %377, label %356
 
@@ -1400,7 +1402,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %365 = zext nneg i8 %364 to i64
   %366 = getelementptr [4 x ptr], ptr @mrw_format_status, i64 0, i64 %365
   %367 = load ptr, ptr %366, align 8
-  %368 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, ptr noundef %367) #14
+  %368 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, ptr noundef %367) #15
   %369 = load i8, ptr %362, align 1
   %370 = and i8 %369, 3
   switch i8 %370, label %376 [
@@ -1422,7 +1424,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
 
 377:                                              ; preds = %376, %374, %371, %361, %356, %353, %340
   %378 = phi i32 [ 1, %340 ], [ 1, %353 ], [ 1, %356 ], [ %375, %374 ], [ 0, %371 ], [ 1, %361 ], [ 0, %376 ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %16) #16
   br label %select.unfold
 
 379:                                              ; preds = %271
@@ -1431,8 +1433,8 @@ cdrom_count_tracks.exit:                          ; preds = %82
   br i1 %381, label %413, label %382
 
 382:                                              ; preds = %379
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %12) #15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %12, i8 0, i64 36, i1 false)
   %383 = getelementptr inbounds i8, ptr %11, i64 16
@@ -1450,7 +1452,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   store i32 1, ptr %388, align 4
   %389 = getelementptr inbounds i8, ptr %272, i64 88
   %390 = load ptr, ptr %389, align 8
-  %391 = call i32 %390(ptr noundef %0, ptr noundef nonnull %11) #15
+  %391 = call i32 %390(ptr noundef %0, ptr noundef nonnull %11) #16
   %392 = icmp eq i32 %391, 0
   br i1 %392, label %393, label %404
 
@@ -1464,18 +1466,18 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %399 = trunc nuw nsw i16 %397 to i8
   store i8 %399, ptr %387, align 8
   %400 = load ptr, ptr %389, align 8
-  %401 = call i32 %400(ptr noundef %0, ptr noundef nonnull %11) #15
+  %401 = call i32 %400(ptr noundef %0, ptr noundef nonnull %11) #16
   %402 = icmp eq i32 %401, 0
   %403 = select i1 %402, i32 %398, i32 %401
   br label %404
 
 404:                                              ; preds = %393, %382
   %405 = phi i32 [ %391, %382 ], [ %403, %393 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #16
   %406 = icmp sgt i32 %405, 2
   %407 = getelementptr inbounds i8, ptr %12, i64 2
   %408 = load i8, ptr %407, align 2
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %12) #16
   %409 = and i8 %408, 16
   %410 = icmp eq i8 %409, 0
   %411 = select i1 %406, i1 %410, i1 false
@@ -1488,8 +1490,8 @@ cdrom_count_tracks.exit:                          ; preds = %82
   br i1 %415, label %416, label %454
 
 416:                                              ; preds = %413
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %417 = getelementptr inbounds i8, ptr %9, i64 16
@@ -1509,19 +1511,19 @@ cdrom_count_tracks.exit:                          ; preds = %82
   store i32 1, ptr %423, align 4
   %424 = getelementptr inbounds i8, ptr %272, i64 88
   %425 = load ptr, ptr %424, align 8
-  %426 = call i32 %425(ptr noundef %0, ptr noundef nonnull %9) #15
+  %426 = call i32 %425(ptr noundef %0, ptr noundef nonnull %9) #16
   %427 = icmp eq i32 %426, 0
   %428 = getelementptr inbounds i8, ptr %10, i64 8
   %429 = load i16, ptr %428, align 8
   %.not = icmp eq i16 %429, 9216
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #16
   %430 = select i1 %427, i1 %.not, i1 false
   br i1 %430, label %431, label %.thread31
 
 431:                                              ; preds = %416
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %432 = getelementptr inbounds i8, ptr %7, i64 16
@@ -1542,13 +1544,13 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %439 = load ptr, ptr %0, align 8
   %440 = getelementptr inbounds i8, ptr %439, i64 88
   %441 = load ptr, ptr %440, align 8
-  %442 = call i32 %441(ptr noundef %0, ptr noundef nonnull %7) #15
+  %442 = call i32 %441(ptr noundef %0, ptr noundef nonnull %7) #16
   %443 = icmp eq i32 %442, 0
   br i1 %443, label %445, label %444
 
 444:                                              ; preds = %431
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #16
   br label %.thread31
 
 445:                                              ; preds = %431
@@ -1560,8 +1562,8 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %451 = and i8 %449, 1
   %452 = xor i8 %451, 1
   %453 = zext nneg i8 %452 to i32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #16
   br i1 %450, label %select.unfold, label %.thread33
 
 454:                                              ; preds = %413
@@ -1570,8 +1572,8 @@ cdrom_count_tracks.exit:                          ; preds = %82
   br i1 %456, label %494, label %457
 
 457:                                              ; preds = %454
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 255, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 255, ptr nonnull %6) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(255) %6, i8 0, i64 255, i1 false), !annotation !46
   %458 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %458, i8 0, i64 56, i1 false)
@@ -1593,7 +1595,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   store i8 2, ptr %461, align 8
   %466 = getelementptr inbounds i8, ptr %272, i64 88
   %467 = load ptr, ptr %466, align 8
-  %468 = call i32 %467(ptr noundef %0, ptr noundef nonnull %5) #15
+  %468 = call i32 %467(ptr noundef %0, ptr noundef nonnull %5) #16
   %469 = icmp eq i32 %468, 0
   br i1 %469, label %487, label %470
 
@@ -1611,7 +1613,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   store i8 2, ptr %461, align 8
   %477 = getelementptr inbounds i8, ptr %472, i64 88
   %478 = load ptr, ptr %477, align 8
-  %479 = call i32 %478(ptr noundef %0, ptr noundef nonnull %5) #15
+  %479 = call i32 %478(ptr noundef %0, ptr noundef nonnull %5) #16
   %480 = icmp eq i32 %479, 0
   br i1 %480, label %487, label %481
 
@@ -1625,7 +1627,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   store i8 2, ptr %461, align 8
   %483 = getelementptr inbounds i8, ptr %482, i64 88
   %484 = load ptr, ptr %483, align 8
-  %485 = call i32 %484(ptr noundef %0, ptr noundef nonnull %5) #15
+  %485 = call i32 %484(ptr noundef %0, ptr noundef nonnull %5) #16
   %486 = icmp eq i32 %485, 0
   br i1 %486, label %487, label %492
 
@@ -1638,8 +1640,8 @@ cdrom_count_tracks.exit:                          ; preds = %82
 
 492:                                              ; preds = %487, %481
   %493 = phi i32 [ %491, %487 ], [ 0, %481 ]
-  call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #16
   br label %select.unfold
 
 494:                                              ; preds = %454
@@ -1680,7 +1682,7 @@ select.unfold:                                    ; preds = %445, %492, %404, %3
 510:                                              ; preds = %30
   %511 = load ptr, ptr %0, align 8
   %512 = load ptr, ptr %511, align 8
-  %513 = tail call i32 %512(ptr noundef %0, i32 noundef 1) #15
+  %513 = tail call i32 %512(ptr noundef %0, i32 noundef 1) #16
   %514 = icmp eq i32 %513, 0
   br i1 %514, label %539, label %.thread23
 
@@ -1705,7 +1707,7 @@ select.unfold:                                    ; preds = %445, %492, %404, %3
 528:                                              ; preds = %523
   %529 = getelementptr inbounds i8, ptr %515, i64 40
   %530 = load ptr, ptr %529, align 8
-  %531 = call i32 %530(ptr noundef %0, i32 noundef 0) #15
+  %531 = call i32 %530(ptr noundef %0, i32 noundef 0) #16
   %.pre42 = load ptr, ptr %0, align 8
   br label %532
 
@@ -1713,7 +1715,7 @@ select.unfold:                                    ; preds = %445, %492, %404, %3
   %533 = phi ptr [ %.pre42, %528 ], [ %515, %523 ], [ %515, %.thread31 ]
   %534 = getelementptr inbounds i8, ptr %533, i64 8
   %535 = load ptr, ptr %534, align 8
-  call void %535(ptr noundef %0) #15
+  call void %535(ptr noundef %0) #16
   br label %.thread23
 
 .thread23:                                        ; preds = %144, %155, %160, %532, %510
@@ -1748,7 +1750,7 @@ define dso_local void @cdrom_release(ptr noundef %0) #1 align 16 {
   br i1 %11, label %12, label %53
 
 12:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #16
   %13 = getelementptr inbounds i8, ptr %0, i64 98
   %14 = load i16, ptr %13, align 2
   %15 = icmp eq i16 %14, 26
@@ -1762,7 +1764,7 @@ define dso_local void @cdrom_release(ptr noundef %0) #1 align 16 {
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %0, i64 68
-  %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18, ptr noundef %21) #14
+  %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18, ptr noundef %21) #15
   %23 = getelementptr inbounds i8, ptr %2, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i8 3, ptr %23, align 8
@@ -1772,7 +1774,7 @@ define dso_local void @cdrom_release(ptr noundef %0) #1 align 16 {
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 88
   %27 = load ptr, ptr %26, align 8
-  %28 = call i32 %27(ptr noundef %0, ptr noundef nonnull %2) #15
+  %28 = call i32 %27(ptr noundef %0, ptr noundef nonnull %2) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i8 3, ptr %23, align 8
   store i8 91, ptr %2, align 8
@@ -1782,7 +1784,7 @@ define dso_local void @cdrom_release(ptr noundef %0) #1 align 16 {
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 88
   %32 = load ptr, ptr %31, align 8
-  %33 = call i32 %32(ptr noundef %0, ptr noundef nonnull %2) #15
+  %33 = call i32 %32(ptr noundef %0, ptr noundef nonnull %2) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i8 3, ptr %23, align 8
   store i8 91, ptr %2, align 8
@@ -1793,12 +1795,12 @@ define dso_local void @cdrom_release(ptr noundef %0) #1 align 16 {
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 88
   %37 = load ptr, ptr %36, align 8
-  %38 = call i32 %37(ptr noundef %0, ptr noundef nonnull %2) #15
+  %38 = call i32 %37(ptr noundef %0, ptr noundef nonnull %2) #16
   store i8 0, ptr %17, align 1
   br label %39
 
 39:                                               ; preds = %20, %16, %12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #16
   %40 = getelementptr inbounds i8, ptr %3, i64 104
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 4
@@ -1815,13 +1817,13 @@ define dso_local void @cdrom_release(ptr noundef %0) #1 align 16 {
 49:                                               ; preds = %44
   %50 = getelementptr inbounds i8, ptr %3, i64 40
   %51 = load ptr, ptr %50, align 8
-  %52 = call i32 %51(ptr noundef %0, i32 noundef 0) #15
+  %52 = call i32 %51(ptr noundef %0, i32 noundef 0) #16
   br label %53
 
 53:                                               ; preds = %49, %44, %39, %9
   %54 = getelementptr inbounds i8, ptr %3, i64 8
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef %0) #15
+  call void %55(ptr noundef %0) #16
   %56 = load i32, ptr %4, align 8
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %82
@@ -1854,7 +1856,7 @@ define dso_local void @cdrom_release(ptr noundef %0) #1 align 16 {
 77:                                               ; preds = %67
   %78 = getelementptr inbounds i8, ptr %3, i64 32
   %79 = load ptr, ptr %78, align 8
-  %80 = call i32 %79(ptr noundef %0, i32 noundef 1) #15
+  %80 = call i32 %79(ptr noundef %0, i32 noundef 1) #16
   br label %81
 
 81:                                               ; preds = %77, %67, %62
@@ -1871,12 +1873,12 @@ define dso_local range(i32 -12, 256) i32 @cdrom_number_of_slots(ptr noundef %0) 
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 0, ptr %3, align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
-  %5 = tail call noalias align 8 dereferenceable_or_null(1032) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 1032) #16
+  %5 = tail call noalias align 8 dereferenceable_or_null(1032) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 1032) #17
   %6 = icmp eq ptr %5, null
   br i1 %6, label %52, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #16
   %8 = getelementptr inbounds i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = and i8 %9, 3
@@ -1933,9 +1935,9 @@ define dso_local range(i32 -12, 256) i32 @cdrom_number_of_slots(ptr noundef %0) 
   store i8 %42, ptr %43, align 1
   %44 = getelementptr inbounds i8, ptr %30, i64 88
   %45 = load ptr, ptr %44, align 8
-  %46 = call i32 %45(ptr noundef %0, ptr noundef nonnull %2) #15
+  %46 = call i32 %45(ptr noundef %0, ptr noundef nonnull %2) #16
   %47 = icmp eq i32 %46, 0
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #16
   br i1 %47, label %._crit_edge, label %50
 
 ._crit_edge:                                      ; preds = %29
@@ -1945,12 +1947,12 @@ define dso_local range(i32 -12, 256) i32 @cdrom_number_of_slots(ptr noundef %0) 
   br label %50
 
 49:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #16
   br label %50
 
 50:                                               ; preds = %49, %._crit_edge, %29
   %51 = phi i32 [ 1, %29 ], [ %48, %._crit_edge ], [ 3, %49 ]
-  call void @kfree(ptr noundef nonnull %5) #15
+  call void @kfree(ptr noundef nonnull %5) #16
   br label %52
 
 52:                                               ; preds = %50, %1
@@ -1966,7 +1968,7 @@ define dso_local i32 @cdrom_check_events(ptr noundef %0, i32 noundef %1) #1 alig
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 %5(ptr noundef %0, i32 noundef %1, i32 noundef 2147483647) #15
+  %6 = tail call i32 %5(ptr noundef %0, i32 noundef %1, i32 noundef 2147483647) #16
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8
   %9 = or i32 %8, %6
@@ -2001,7 +2003,7 @@ define dso_local i32 @cdrom_mode_sense(ptr noundef %0, ptr noundef %1, i32 nound
   store i8 2, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 88
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 %19(ptr noundef %0, ptr noundef %1) #15
+  %20 = tail call i32 %19(ptr noundef %0, ptr noundef %1) #16
   ret i32 %20
 }
 
@@ -2028,7 +2030,7 @@ define dso_local i32 @cdrom_mode_select(ptr noundef %0, ptr noundef %1) #1 align
   store i8 1, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 88
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #15
+  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #16
   ret i32 %17
 }
 
@@ -2053,7 +2055,7 @@ define dso_local i32 @cdrom_multisession(ptr noundef %0, ptr noundef %1) #1 alig
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #15
+  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #16
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %51
 
@@ -2122,7 +2124,7 @@ define dso_local i32 @cdrom_read_tocentry(ptr noundef %0, ptr noundef %1) #1 ali
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %0, i32 noundef 21254, ptr noundef %1) #15
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef 21254, ptr noundef %1) #16
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %46
 
@@ -2187,11 +2189,11 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   %6 = alloca %struct.cdrom_tocentry, align 4
   %7 = alloca %struct.disc_information, align 4
   %8 = alloca %struct.track_information, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false), !annotation !46
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %7, i8 0, i64 36, i1 false), !annotation !46
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !46
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 104
@@ -2205,7 +2207,7 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   br i1 %17, label %151, label %18
 
 18:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %7, i8 0, i64 36, i1 false)
   %19 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2223,7 +2225,7 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   store i32 1, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %9, i64 88
   %26 = load ptr, ptr %25, align 8
-  %27 = call i32 %26(ptr noundef %0, ptr noundef nonnull %5) #15
+  %27 = call i32 %26(ptr noundef %0, ptr noundef nonnull %5) #16
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %40
 
@@ -2237,14 +2239,14 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   %35 = trunc nuw nsw i16 %33 to i8
   store i8 %35, ptr %23, align 8
   %36 = load ptr, ptr %25, align 8
-  %37 = call i32 %36(ptr noundef %0, ptr noundef nonnull %5) #15
+  %37 = call i32 %36(ptr noundef %0, ptr noundef nonnull %5) #16
   %38 = icmp eq i32 %37, 0
   %39 = select i1 %38, i32 %34, i32 %37
   br label %40
 
 40:                                               ; preds = %29, %18
   %41 = phi i32 [ %27, %18 ], [ %39, %29 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #16
   %42 = icmp slt i32 %41, 7
   br i1 %42, label %151, label %43
 
@@ -2259,7 +2261,7 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   %51 = or disjoint i32 %47, %50
   %52 = trunc nuw i32 %51 to i16
   %53 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   store i64 0, ptr %8, align 8
   %54 = getelementptr inbounds i8, ptr %4, i64 16
@@ -2283,7 +2285,7 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   store i32 1, ptr %62, align 4
   %63 = getelementptr inbounds i8, ptr %53, i64 88
   %64 = load ptr, ptr %63, align 8
-  %65 = call i32 %64(ptr noundef %0, ptr noundef nonnull %4) #15
+  %65 = call i32 %64(ptr noundef %0, ptr noundef nonnull %4) #16
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %78
 
@@ -2297,14 +2299,14 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   %73 = trunc nuw nsw i16 %71 to i8
   store i8 %73, ptr %61, align 8
   %74 = load ptr, ptr %63, align 8
-  %75 = call i32 %74(ptr noundef %0, ptr noundef nonnull %4) #15
+  %75 = call i32 %74(ptr noundef %0, ptr noundef nonnull %4) #16
   %76 = icmp eq i32 %75, 0
   %77 = select i1 %76, i32 %72, i32 %75
   br label %78
 
 78:                                               ; preds = %67, %43
   %79 = phi i32 [ %65, %43 ], [ %77, %67 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #16
   %80 = icmp slt i32 %79, 8
   br i1 %80, label %151, label %81
 
@@ -2322,7 +2324,7 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
 88:                                               ; preds = %86
   %89 = add i16 %52, -1
   %90 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   store i64 0, ptr %8, align 8
   %91 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2349,7 +2351,7 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   store i32 1, ptr %102, align 4
   %103 = getelementptr inbounds i8, ptr %90, i64 88
   %104 = load ptr, ptr %103, align 8
-  %105 = call i32 %104(ptr noundef %0, ptr noundef nonnull %3) #15
+  %105 = call i32 %104(ptr noundef %0, ptr noundef nonnull %3) #16
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %118
 
@@ -2363,14 +2365,14 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   %113 = trunc nuw nsw i16 %111 to i8
   store i8 %113, ptr %101, align 8
   %114 = load ptr, ptr %103, align 8
-  %115 = call i32 %114(ptr noundef %0, ptr noundef nonnull %3) #15
+  %115 = call i32 %114(ptr noundef %0, ptr noundef nonnull %3) #16
   %116 = icmp eq i32 %115, 0
   %117 = select i1 %116, i32 %112, i32 %115
   br label %118
 
 118:                                              ; preds = %107, %88
   %119 = phi i32 [ %105, %88 ], [ %117, %107 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #16
   br label %120
 
 120:                                              ; preds = %118, %81
@@ -2432,7 +2434,7 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   store i8 -86, ptr %6, align 4
   %162 = getelementptr inbounds i8, ptr %152, i64 80
   %163 = load ptr, ptr %162, align 8
-  %164 = call i32 %163(ptr noundef %0, i32 noundef 21254, ptr noundef nonnull %6) #15
+  %164 = call i32 %163(ptr noundef %0, i32 noundef 21254, ptr noundef nonnull %6) #16
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %189
 
@@ -2474,9 +2476,9 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
 
 189:                                              ; preds = %187, %160, %151, %134
   %190 = phi i32 [ 0, %134 ], [ -38, %151 ], [ %164, %160 ], [ 0, %187 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
   ret i32 %190
 }
 
@@ -2518,9 +2520,9 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   ]
 
 16:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #16
   store i64 0, ptr %14, align 8, !annotation !46
-  %17 = call i64 @_copy_from_user(ptr noundef nonnull %14, ptr noundef %15, i64 noundef 8) #15
+  %17 = call i64 @_copy_from_user(ptr noundef nonnull %14, ptr noundef %15, i64 noundef 8) #16
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %.thread
 
@@ -2543,7 +2545,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i8 1, ptr %26, align 1
   %31 = getelementptr inbounds i8, ptr %20, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = call i32 %32(ptr noundef %0, ptr noundef nonnull %14) #15
+  %33 = call i32 %32(ptr noundef %0, ptr noundef nonnull %14) #16
   %34 = icmp ne i32 %33, 0
   %35 = load i8, ptr %26, align 1
   %36 = icmp eq i8 %35, %27
@@ -2597,14 +2599,14 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %67, label %68, label %.thread
 
 68:                                               ; preds = %.thread38, %66
-  %69 = call i64 @_copy_to_user(ptr noundef %15, ptr noundef nonnull %14, i64 noundef 8) #15
+  %69 = call i64 @_copy_to_user(ptr noundef %15, ptr noundef nonnull %14, i64 noundef 8) #16
   %70 = icmp eq i64 %69, 0
   %71 = select i1 %70, i32 0, i32 -14
   br label %.thread
 
 .thread:                                          ; preds = %25, %19, %68, %66, %16
   %72 = phi i32 [ -14, %16 ], [ %33, %66 ], [ %71, %68 ], [ -22, %25 ], [ -38, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #16
   br label %766
 
 73:                                               ; preds = %4
@@ -2640,7 +2642,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 95:                                               ; preds = %92
   %96 = getelementptr inbounds i8, ptr %74, i64 40
   %97 = load ptr, ptr %96, align 8
-  %98 = tail call i32 %97(ptr noundef %0, i32 noundef 0) #15
+  %98 = tail call i32 %97(ptr noundef %0, i32 noundef 0) #16
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %._crit_edge74, label %766
 
@@ -2652,7 +2654,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %101 = phi ptr [ %.pre75, %._crit_edge74 ], [ %74, %92 ]
   %102 = getelementptr inbounds i8, ptr %101, i64 32
   %103 = load ptr, ptr %102, align 8
-  %104 = tail call i32 %103(ptr noundef %0, i32 noundef 1) #15
+  %104 = tail call i32 %103(ptr noundef %0, i32 noundef 1) #16
   br label %766
 
 105:                                              ; preds = %4
@@ -2670,7 +2672,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 115:                                              ; preds = %105
   %116 = getelementptr inbounds i8, ptr %106, i64 32
   %117 = load ptr, ptr %116, align 8
-  %118 = tail call i32 %117(ptr noundef %0, i32 noundef 0) #15
+  %118 = tail call i32 %117(ptr noundef %0, i32 noundef 0) #16
   br label %766
 
 119:                                              ; preds = %4
@@ -2727,7 +2729,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %159 = lshr i32 %158, 31
   %160 = getelementptr inbounds i8, ptr %142, i64 24
   %161 = load ptr, ptr %160, align 8
-  %162 = tail call i32 %161(ptr noundef %0, i32 noundef 1, i32 noundef 2147483647) #15
+  %162 = tail call i32 %161(ptr noundef %0, i32 noundef 1, i32 noundef 2147483647) #16
   %163 = getelementptr inbounds i8, ptr %0, i64 56
   %164 = load i32, ptr %163, align 8
   %165 = or i32 %164, %162
@@ -2744,7 +2746,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %172 = load i32, ptr %157, align 4
   %173 = or i32 %172, -1073741824
   store i32 %173, ptr %157, align 4
-  %174 = tail call i64 @ktime_get() #15
+  %174 = tail call i64 @ktime_get() #16
   %175 = sdiv i64 %174, 1000000
   %176 = getelementptr inbounds i8, ptr %0, i64 120
   store i64 %175, ptr %176, align 8
@@ -2767,14 +2769,14 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %186, label %187, label %766
 
 187:                                              ; preds = %182
-  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (20*32+ 2)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09lfence\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !49
+  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (20*32+ 2)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09lfence\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !49
   %188 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
-  %189 = tail call noalias align 8 dereferenceable_or_null(1032) ptr @kmalloc_trace(ptr noundef %188, i32 noundef 3264, i64 noundef 1032) #16
+  %189 = tail call noalias align 8 dereferenceable_or_null(1032) ptr @kmalloc_trace(ptr noundef %188, i32 noundef 3264, i64 noundef 1032) #17
   %190 = icmp eq ptr %189, null
   br i1 %190, label %766, label %191
 
 191:                                              ; preds = %187
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #16
   %192 = getelementptr inbounds i8, ptr %0, i64 88
   %193 = load i8, ptr %192, align 8
   %194 = and i8 %193, 3
@@ -2806,7 +2808,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %212, label %.thread39, label %205, !llvm.loop !48
 
 .thread39:                                        ; preds = %205
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #16
   br label %232
 
 213:                                              ; preds = %191
@@ -2835,8 +2837,8 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i8 %226, ptr %227, align 1
   %228 = getelementptr inbounds i8, ptr %214, i64 88
   %229 = load ptr, ptr %228, align 8
-  %230 = call i32 %229(ptr noundef %0, ptr noundef nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #15
+  %230 = call i32 %229(ptr noundef %0, ptr noundef nonnull %13) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #16
   %231 = icmp eq i32 %230, 0
   br i1 %231, label %232, label %238
 
@@ -2850,11 +2852,11 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 238:                                              ; preds = %232, %213
   %239 = phi i32 [ %230, %213 ], [ %237, %232 ]
-  call void @kfree(ptr noundef nonnull %189) #15
+  call void @kfree(ptr noundef nonnull %189) #16
   br label %766
 
 240:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !annotation !46
   %241 = load ptr, ptr %0, align 8
   %242 = getelementptr inbounds i8, ptr %241, i64 104
@@ -2871,7 +2873,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %251 = getelementptr inbounds i8, ptr %0, i64 52
   %252 = getelementptr inbounds i8, ptr %241, i64 24
   %253 = load ptr, ptr %252, align 8
-  %254 = tail call i32 %253(ptr noundef %0, i32 noundef 1, i32 noundef 2147483647) #15
+  %254 = tail call i32 %253(ptr noundef %0, i32 noundef 1, i32 noundef 2147483647) #16
   %255 = getelementptr inbounds i8, ptr %0, i64 56
   %256 = load i32, ptr %255, align 8
   %257 = or i32 %256, %254
@@ -2888,7 +2890,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %264 = load i32, ptr %251, align 4
   %265 = or i32 %264, -1073741824
   store i32 %265, ptr %251, align 4
-  %266 = tail call i64 @ktime_get() #15
+  %266 = tail call i64 @ktime_get() #16
   %267 = sdiv i64 %266, 1000000
   %268 = getelementptr inbounds i8, ptr %0, i64 120
   store i64 %267, ptr %268, align 8
@@ -2900,7 +2902,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %271 = load i32, ptr %251, align 4
   %272 = and i32 %271, 2147483647
   store i32 %272, ptr %251, align 4
-  %273 = call i64 @_copy_from_user(ptr noundef nonnull %12, ptr noundef %15, i64 noundef 16) #15
+  %273 = call i64 @_copy_from_user(ptr noundef nonnull %12, ptr noundef %15, i64 noundef 16) #16
   %274 = icmp eq i64 %273, 0
   br i1 %274, label %275, label %285
 
@@ -2913,14 +2915,14 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %281 = lshr i64 %280, 63
   store i64 %281, ptr %276, align 8
   store i64 %279, ptr %12, align 8
-  %282 = call i64 @_copy_to_user(ptr noundef %15, ptr noundef nonnull %12, i64 noundef 16) #15
+  %282 = call i64 @_copy_to_user(ptr noundef %15, ptr noundef nonnull %12, i64 noundef 16) #16
   %283 = icmp eq i64 %282, 0
   %284 = select i1 %283, i32 0, i32 -14
   br label %285
 
 285:                                              ; preds = %275, %270, %240
   %286 = phi i32 [ -38, %240 ], [ -14, %270 ], [ %284, %275 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #16
   br label %766
 
 287:                                              ; preds = %4
@@ -3002,7 +3004,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %342 = getelementptr inbounds i8, ptr %332, i64 48
   %343 = load ptr, ptr %342, align 8
   %344 = trunc i64 %3 to i32
-  %345 = tail call i32 %343(ptr noundef %0, i32 noundef %344) #15
+  %345 = tail call i32 %343(ptr noundef %0, i32 noundef %344) #16
   br label %766
 
 346:                                              ; preds = %4
@@ -3037,7 +3039,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %368, label %371, label %369
 
 369:                                              ; preds = %364
-  %370 = tail call i32 %367(ptr noundef %0, i32 noundef 0, i32 noundef %365) #15
+  %370 = tail call i32 %367(ptr noundef %0, i32 noundef 0, i32 noundef %365) #16
   br label %371
 
 371:                                              ; preds = %369, %364
@@ -3049,11 +3051,11 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %375 = load i32, ptr %374, align 4
   %376 = or i32 %375, -1073741824
   store i32 %376, ptr %374, align 4
-  %377 = tail call i64 @ktime_get() #15
+  %377 = tail call i64 @ktime_get() #16
   %378 = sdiv i64 %377, 1000000
   %379 = getelementptr inbounds i8, ptr %0, i64 120
   store i64 %378, ptr %379, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #16
   %380 = getelementptr inbounds i8, ptr %0, i64 88
   %381 = load i8, ptr %380, align 8
   %382 = and i8 %381, 3
@@ -3074,22 +3076,22 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %389 = load ptr, ptr %0, align 8
   %390 = getelementptr inbounds i8, ptr %389, i64 88
   %391 = load ptr, ptr %390, align 8
-  %392 = call i32 %391(ptr noundef %0, ptr noundef nonnull %11) #15
+  %392 = call i32 %391(ptr noundef %0, ptr noundef nonnull %11) #16
   br label %393
 
 393:                                              ; preds = %384, %373
   %394 = phi i32 [ %392, %384 ], [ 0, %373 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #16
   br label %766
 
 395:                                              ; preds = %371
   %396 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
-  %397 = tail call noalias align 8 dereferenceable_or_null(1032) ptr @kmalloc_trace(ptr noundef %396, i32 noundef 3264, i64 noundef 1032) #16
+  %397 = tail call noalias align 8 dereferenceable_or_null(1032) ptr @kmalloc_trace(ptr noundef %396, i32 noundef 3264, i64 noundef 1032) #17
   %398 = icmp eq ptr %397, null
   br i1 %398, label %766, label %399
 
 399:                                              ; preds = %395
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #16
   %400 = getelementptr inbounds i8, ptr %0, i64 88
   %401 = load i8, ptr %400, align 8
   %402 = and i8 %401, 3
@@ -3121,7 +3123,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %420, label %.thread40, label %413, !llvm.loop !48
 
 .thread40:                                        ; preds = %413
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #16
   br label %442
 
 421:                                              ; preds = %399
@@ -3151,20 +3153,20 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i8 %435, ptr %436, align 1
   %437 = getelementptr inbounds i8, ptr %422, i64 88
   %438 = load ptr, ptr %437, align 8
-  %439 = call i32 %438(ptr noundef %0, ptr noundef nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #15
+  %439 = call i32 %438(ptr noundef %0, ptr noundef nonnull %10) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #16
   %440 = icmp eq i32 %439, 0
   br i1 %440, label %442, label %441
 
 441:                                              ; preds = %421
-  call void @kfree(ptr noundef nonnull %397) #15
+  call void @kfree(ptr noundef nonnull %397) #16
   br label %766
 
 442:                                              ; preds = %.thread40, %421
   %443 = load i16, ptr %397, align 8
   %444 = and i16 %443, 31
   %445 = zext nneg i16 %444 to i32
-  call void @kfree(ptr noundef nonnull %397) #15
+  call void @kfree(ptr noundef nonnull %397) #16
   %446 = getelementptr inbounds i8, ptr %0, i64 64
   %447 = load i32, ptr %446, align 8
   %448 = icmp sgt i32 %447, 1
@@ -3188,7 +3190,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %460 = load i32, ptr %459, align 4
   %461 = or i32 %460, -1073741824
   store i32 %461, ptr %459, align 4
-  %462 = call i64 @ktime_get() #15
+  %462 = call i64 @ktime_get() #16
   %463 = sdiv i64 %462, 1000000
   %464 = getelementptr inbounds i8, ptr %0, i64 120
   store i64 %463, ptr %464, align 8
@@ -3198,7 +3200,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %766
 
 468:                                              ; preds = %4
-  %469 = tail call zeroext i1 @capable(i32 noundef 21) #15
+  %469 = tail call zeroext i1 @capable(i32 noundef 21) #16
   br i1 %469, label %470, label %766
 
 470:                                              ; preds = %468
@@ -3214,11 +3216,11 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %479, label %766, label %480
 
 480:                                              ; preds = %470
-  tail call void @invalidate_bdev(ptr noundef %1) #15
+  tail call void @invalidate_bdev(ptr noundef %1) #16
   %481 = load ptr, ptr %0, align 8
   %482 = getelementptr inbounds i8, ptr %481, i64 72
   %483 = load ptr, ptr %482, align 8
-  %484 = tail call i32 %483(ptr noundef %0) #15
+  %484 = tail call i32 %483(ptr noundef %0) #16
   br label %766
 
 485:                                              ; preds = %4
@@ -3248,7 +3250,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %505, label %508, label %506
 
 506:                                              ; preds = %495
-  %507 = tail call zeroext i1 @capable(i32 noundef 21) #15
+  %507 = tail call zeroext i1 @capable(i32 noundef 21) #16
   br i1 %507, label %._crit_edge, label %766
 
 ._crit_edge:                                      ; preds = %506
@@ -3260,11 +3262,11 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %510 = getelementptr inbounds i8, ptr %509, i64 40
   %511 = load ptr, ptr %510, align 8
   %512 = trunc i64 %3 to i32
-  %513 = tail call i32 %511(ptr noundef %0, i32 noundef %512) #15
+  %513 = tail call i32 %511(ptr noundef %0, i32 noundef %512) #16
   br label %766
 
 514:                                              ; preds = %4
-  %515 = tail call zeroext i1 @capable(i32 noundef 21) #15
+  %515 = tail call zeroext i1 @capable(i32 noundef 21) #16
   br i1 %515, label %516, label %766
 
 516:                                              ; preds = %514
@@ -3285,7 +3287,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %766
 
 528:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %9) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %9, i8 0, i64 14, i1 false), !annotation !46
   %529 = load ptr, ptr %0, align 8
   %530 = getelementptr inbounds i8, ptr %529, i64 104
@@ -3297,19 +3299,19 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 534:                                              ; preds = %528
   %535 = getelementptr inbounds i8, ptr %529, i64 64
   %536 = load ptr, ptr %535, align 8
-  %537 = call i32 %536(ptr noundef %0, ptr noundef nonnull %9) #15
+  %537 = call i32 %536(ptr noundef %0, ptr noundef nonnull %9) #16
   %538 = icmp eq i32 %537, 0
   br i1 %538, label %539, label %543
 
 539:                                              ; preds = %534
-  %540 = call i64 @_copy_to_user(ptr noundef %15, ptr noundef nonnull %9, i64 noundef 14) #15
+  %540 = call i64 @_copy_to_user(ptr noundef %15, ptr noundef nonnull %9, i64 noundef 14) #16
   %541 = icmp eq i64 %540, 0
   %542 = select i1 %541, i32 0, i32 -14
   br label %543
 
 543:                                              ; preds = %539, %534, %528
   %544 = phi i32 [ -38, %528 ], [ %537, %534 ], [ %542, %539 ]
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %9) #16
   br label %766
 
 545:                                              ; preds = %4
@@ -3335,7 +3337,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 561:                                              ; preds = %551
   %562 = getelementptr inbounds i8, ptr %546, i64 16
   %563 = load ptr, ptr %562, align 8
-  %564 = tail call i32 %563(ptr noundef %0, i32 noundef 2147483647) #15
+  %564 = tail call i32 %563(ptr noundef %0, i32 noundef 2147483647) #16
   br label %766
 
 565:                                              ; preds = %551
@@ -3354,12 +3356,12 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 575:                                              ; preds = %570
   %576 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
-  %577 = tail call noalias align 8 dereferenceable_or_null(1032) ptr @kmalloc_trace(ptr noundef %576, i32 noundef 3264, i64 noundef 1032) #16
+  %577 = tail call noalias align 8 dereferenceable_or_null(1032) ptr @kmalloc_trace(ptr noundef %576, i32 noundef 3264, i64 noundef 1032) #17
   %578 = icmp eq ptr %577, null
   br i1 %578, label %766, label %579
 
 579:                                              ; preds = %575
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #16
   %580 = load i8, ptr %571, align 8
   %581 = and i8 %580, 3
   %582 = icmp eq i8 %581, 0
@@ -3390,7 +3392,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %599, label %.thread41, label %592, !llvm.loop !48
 
 .thread41:                                        ; preds = %592
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #16
   br label %619
 
 600:                                              ; preds = %579
@@ -3419,8 +3421,8 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i8 %613, ptr %614, align 1
   %615 = getelementptr inbounds i8, ptr %601, i64 88
   %616 = load ptr, ptr %615, align 8
-  %617 = call i32 %616(ptr noundef %0, ptr noundef nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #15
+  %617 = call i32 %616(ptr noundef %0, ptr noundef nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #16
   %618 = icmp eq i32 %617, 0
   br i1 %618, label %619, label %627
 
@@ -3436,12 +3438,12 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 627:                                              ; preds = %619, %600
   %628 = phi i32 [ %617, %600 ], [ %626, %619 ]
-  call void @kfree(ptr noundef nonnull %577) #15
+  call void @kfree(ptr noundef nonnull %577) #16
   br label %766
 
 629:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #16
   %630 = load ptr, ptr %0, align 8
   %631 = getelementptr inbounds i8, ptr %630, i64 104
   %632 = load i32, ptr %631, align 8
@@ -3458,7 +3460,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false), !annotation !46
   %640 = getelementptr inbounds i8, ptr %630, i64 80
   %641 = load ptr, ptr %640, align 8
-  %642 = call i32 %641(ptr noundef %0, i32 noundef 21253, ptr noundef nonnull %5) #15
+  %642 = call i32 %641(ptr noundef %0, i32 noundef 21253, ptr noundef nonnull %5) #16
   switch i32 %642, label %.thread70 [
     i32 0, label %643
     i32 -123, label %679
@@ -3489,7 +3491,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %655 = load ptr, ptr %0, align 8
   %656 = getelementptr inbounds i8, ptr %655, i64 80
   %657 = load ptr, ptr %656, align 8
-  %658 = call i32 %657(ptr noundef %0, i32 noundef 21254, ptr noundef nonnull %6) #15
+  %658 = call i32 %657(ptr noundef %0, i32 noundef 21254, ptr noundef nonnull %6) #16
   %659 = icmp eq i32 %658, 0
   br i1 %659, label %660, label %680
 
@@ -3534,13 +3536,13 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %678, label %652, label %680, !llvm.loop !47
 
 679:                                              ; preds = %639
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #16
   br label %766
 
 .thread70:                                        ; preds = %639, %643, %629
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #16
   br label %766
 
 680:                                              ; preds = %674, %652
@@ -3549,8 +3551,8 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.sroa.11.3.ph = phi i32 [ %.sroa.11.0, %652 ], [ %.sroa.11.1, %674 ]
   %.sroa.15.3.ph = phi i32 [ %.sroa.15.0, %652 ], [ %.sroa.15.1, %674 ]
   %.sroa.0.3.ph.fr = freeze i32 %.sroa.0.3.ph
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #16
   %681 = icmp sgt i32 %.sroa.8.3.ph, 0
   br i1 %681, label %682, label %689
 
@@ -3594,7 +3596,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %707, label %749, label %708
 
 708:                                              ; preds = %698
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   switch i32 %2, label %.thread73 [
     i32 21268, label %709
@@ -3617,7 +3619,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   ]
 
 .thread73:                                        ; preds = %708
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #16
   br label %749
 
 709:                                              ; preds = %708, %708, %708
@@ -3656,7 +3658,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i8 3, ptr %726, align 8
   %727 = getelementptr inbounds i8, ptr %699, i64 88
   %728 = load ptr, ptr %727, align 8
-  %729 = call i32 %728(ptr noundef %0, ptr noundef nonnull %7) #15
+  %729 = call i32 %728(ptr noundef %0, ptr noundef nonnull %7) #16
   br label %746
 
 730:                                              ; preds = %708, %708
@@ -3669,7 +3671,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i8 3, ptr %734, align 8
   %735 = getelementptr inbounds i8, ptr %699, i64 88
   %736 = load ptr, ptr %735, align 8
-  %737 = call i32 %736(ptr noundef %0, ptr noundef nonnull %7) #15
+  %737 = call i32 %736(ptr noundef %0, ptr noundef nonnull %7) #16
   br label %746
 
 738:                                              ; preds = %708
@@ -3690,7 +3692,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 746:                                              ; preds = %744, %742, %740, %738, %730, %721, %719, %717, %715, %713, %711, %709
   %747 = phi i32 [ %745, %744 ], [ %743, %742 ], [ %741, %740 ], [ %739, %738 ], [ %737, %730 ], [ %729, %721 ], [ %720, %719 ], [ %718, %717 ], [ %716, %715 ], [ %714, %713 ], [ %712, %711 ], [ %710, %709 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #16
   %748 = icmp eq i32 %747, -25
   br i1 %748, label %749, label %766
 
@@ -3749,9 +3751,9 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @cdrom_ioctl_get_subchnl(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.cdrom_subchnl, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !46
-  %4 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 16) #15
+  %4 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 16) #16
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %78
 
@@ -3766,7 +3768,7 @@ define internal fastcc i32 @cdrom_ioctl_get_subchnl(ptr noundef %0, ptr noundef 
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 80
   %13 = load ptr, ptr %12, align 8
-  %14 = call i32 %13(ptr noundef %0, i32 noundef 21259, ptr noundef nonnull %3) #15
+  %14 = call i32 %13(ptr noundef %0, i32 noundef 21259, ptr noundef nonnull %3) #16
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %78
 
@@ -3848,23 +3850,23 @@ define internal fastcc i32 @cdrom_ioctl_get_subchnl(ptr noundef %0, ptr noundef 
   br label %74
 
 74:                                               ; preds = %16, %73
-  %75 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 16) #15
+  %75 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 16) #16
   %76 = icmp eq i64 %75, 0
   %77 = select i1 %76, i32 0, i32 -14
   br label %78
 
 78:                                               ; preds = %74, %10, %6, %2
   %79 = phi i32 [ -14, %2 ], [ -22, %6 ], [ %14, %10 ], [ %77, %74 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
   ret i32 %79
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @cdrom_ioctl_read_tochdr(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.cdrom_tochdr, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #16
   store i16 0, ptr %3, align 2, !annotation !46
-  %4 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 2) #15
+  %4 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 2) #16
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %16
 
@@ -3872,28 +3874,28 @@ define internal fastcc i32 @cdrom_ioctl_read_tochdr(ptr noundef %0, ptr noundef 
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = call i32 %9(ptr noundef %0, i32 noundef 21253, ptr noundef nonnull %3) #15
+  %10 = call i32 %9(ptr noundef %0, i32 noundef 21253, ptr noundef nonnull %3) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 2) #15
+  %13 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 2) #16
   %14 = icmp eq i64 %13, 0
   %15 = select i1 %14, i32 0, i32 -14
   br label %16
 
 16:                                               ; preds = %12, %6, %2
   %17 = phi i32 [ -14, %2 ], [ %10, %6 ], [ %15, %12 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #16
   ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @cdrom_ioctl_read_tocentry(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.cdrom_tocentry, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !46
-  %4 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 12) #15
+  %4 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 12) #16
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %53
 
@@ -3909,7 +3911,7 @@ define internal fastcc i32 @cdrom_ioctl_read_tocentry(ptr noundef %0, ptr nounde
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 80
   %14 = load ptr, ptr %13, align 8
-  %15 = call i32 %14(ptr noundef %0, i32 noundef 21254, ptr noundef nonnull %3) #15
+  %15 = call i32 %14(ptr noundef %0, i32 noundef 21254, ptr noundef nonnull %3) #16
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %53
 
@@ -3962,21 +3964,21 @@ define internal fastcc i32 @cdrom_ioctl_read_tocentry(ptr noundef %0, ptr nounde
   br label %50
 
 50:                                               ; preds = %17, %49
-  %51 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 12) #15
+  %51 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 12) #16
   %52 = icmp eq i64 %51, 0
   %spec.select = select i1 %52, i32 0, i32 -14
   br label %53
 
 53:                                               ; preds = %50, %11, %6, %2
   %54 = phi i32 [ -14, %2 ], [ -22, %6 ], [ %15, %11 ], [ %spec.select, %50 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #16
   ret i32 %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @cdrom_ioctl_play_msf(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.cdrom_msf, align 1
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #16
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 104
   %6 = load i32, ptr %5, align 8
@@ -3990,7 +3992,7 @@ define internal fastcc i32 @cdrom_ioctl_play_msf(ptr noundef %0, ptr noundef %1)
 
 13:                                               ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %3, i8 0, i64 6, i1 false), !annotation !46
-  %14 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 6) #15
+  %14 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 6) #16
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %16, label %21
 
@@ -3998,19 +4000,19 @@ define internal fastcc i32 @cdrom_ioctl_play_msf(ptr noundef %0, ptr noundef %1)
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 80
   %19 = load ptr, ptr %18, align 8
-  %20 = call i32 %19(ptr noundef %0, i32 noundef 21251, ptr noundef nonnull %3) #15
+  %20 = call i32 %19(ptr noundef %0, i32 noundef 21251, ptr noundef nonnull %3) #16
   br label %21
 
 21:                                               ; preds = %16, %13, %2
   %22 = phi i32 [ %20, %16 ], [ -38, %2 ], [ -14, %13 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %3) #16
   ret i32 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @cdrom_ioctl_play_trkind(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.cdrom_ti, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 104
   %6 = load i32, ptr %5, align 8
@@ -4024,7 +4026,7 @@ define internal fastcc i32 @cdrom_ioctl_play_trkind(ptr noundef %0, ptr noundef 
 
 13:                                               ; preds = %2
   store i32 0, ptr %3, align 4, !annotation !46
-  %14 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 4) #15
+  %14 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 4) #16
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %16, label %25
 
@@ -4038,19 +4040,19 @@ define internal fastcc i32 @cdrom_ioctl_play_trkind(ptr noundef %0, ptr noundef 
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 80
   %23 = load ptr, ptr %22, align 8
-  %24 = call i32 %23(ptr noundef %0, i32 noundef 21252, ptr noundef nonnull %3) #15
+  %24 = call i32 %23(ptr noundef %0, i32 noundef 21252, ptr noundef nonnull %3) #16
   br label %25
 
 25:                                               ; preds = %20, %16, %13, %2
   %26 = phi i32 [ %24, %20 ], [ -38, %2 ], [ -14, %13 ], [ %18, %16 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
   ret i32 %26
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @cdrom_ioctl_volctrl(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.cdrom_volctrl, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 104
   %6 = load i32, ptr %5, align 8
@@ -4064,7 +4066,7 @@ define internal fastcc i32 @cdrom_ioctl_volctrl(ptr noundef %0, ptr noundef %1) 
 
 13:                                               ; preds = %2
   store i32 0, ptr %3, align 4, !annotation !46
-  %14 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 4) #15
+  %14 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 4) #16
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %16, label %21
 
@@ -4072,19 +4074,19 @@ define internal fastcc i32 @cdrom_ioctl_volctrl(ptr noundef %0, ptr noundef %1) 
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 80
   %19 = load ptr, ptr %18, align 8
-  %20 = call i32 %19(ptr noundef %0, i32 noundef 21258, ptr noundef nonnull %3) #15
+  %20 = call i32 %19(ptr noundef %0, i32 noundef 21258, ptr noundef nonnull %3) #16
   br label %21
 
 21:                                               ; preds = %16, %13, %2
   %22 = phi i32 [ %20, %16 ], [ -38, %2 ], [ -14, %13 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
   ret i32 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @cdrom_ioctl_volread(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.cdrom_volctrl, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 104
   %6 = load i32, ptr %5, align 8
@@ -4100,19 +4102,19 @@ define internal fastcc i32 @cdrom_ioctl_volread(ptr noundef %0, ptr noundef %1) 
   store i32 0, ptr %3, align 4, !annotation !46
   %14 = getelementptr inbounds i8, ptr %4, i64 80
   %15 = load ptr, ptr %14, align 8
-  %16 = call i32 %15(ptr noundef %0, i32 noundef 21267, ptr noundef nonnull %3) #15
+  %16 = call i32 %15(ptr noundef %0, i32 noundef 21267, ptr noundef nonnull %3) #16
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %13
-  %19 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 4) #15
+  %19 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 4) #16
   %20 = icmp eq i64 %19, 0
   %21 = select i1 %20, i32 0, i32 -14
   br label %22
 
 22:                                               ; preds = %18, %13, %2
   %23 = phi i32 [ -38, %2 ], [ %16, %13 ], [ %21, %18 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
   ret i32 %23
 }
 
@@ -4138,7 +4140,7 @@ define internal fastcc i32 @cdrom_ioctl_audioctl(ptr noundef %0, i32 noundef %1)
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 80
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %18(ptr noundef %0, i32 noundef %1, ptr noundef null) #15
+  %19 = tail call i32 %18(ptr noundef %0, i32 noundef %1, ptr noundef null) #16
   br label %20
 
 20:                                               ; preds = %15, %12, %2
@@ -4148,13 +4150,13 @@ define internal fastcc i32 @cdrom_ioctl_audioctl(ptr noundef %0, i32 noundef %1)
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @cdrom_exit() #9 section ".exit.text" align 16 {
-  %1 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #14
+  %1 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #15
   %2 = load ptr, ptr @cdrom_sysctl_header, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %0
-  tail call void @unregister_sysctl_table(ptr noundef nonnull %2) #15
+  tail call void @unregister_sysctl_table(ptr noundef nonnull %2) #16
   br label %5
 
 5:                                                ; preds = %4, %0
@@ -4167,40 +4169,42 @@ define internal noundef i32 @cdrom_init() #9 section ".init.text" align 16 {
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %.thread1, label %.lr.ph, !prof !6
 
-.lr.ph:                                           ; preds = %0, %8
-  %3 = phi i32 [ %9, %8 ], [ %1, %0 ]
+.lr.ph:                                           ; preds = %0, %9
+  %3 = phi i32 [ %10, %9 ], [ %1, %0 ]
   %4 = add i32 %3, 1
-  %5 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @cdrom_sysctl_register.initialized, i32 %4, ptr nonnull elementtype(i32) @cdrom_sysctl_register.initialized, i32 %3) #15, !srcloc !7
+  %5 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @cdrom_sysctl_register.initialized, i32 %4, ptr nonnull elementtype(i32) @cdrom_sysctl_register.initialized, i32 %3) #16, !srcloc !7
   %6 = extractvalue { i8, i32 } %5, 0
-  %7 = icmp eq i8 %6, 0
-  br i1 %7, label %8, label %11, !prof !8
+  %7 = icmp ult i8 %6, 2
+  tail call void @llvm.assume(i1 %7)
+  %8 = icmp eq i8 %6, 0
+  br i1 %8, label %9, label %12, !prof !8
 
-8:                                                ; preds = %.lr.ph
-  %9 = extractvalue { i8, i32 } %5, 1
-  %10 = icmp eq i32 %9, 1
-  br i1 %10, label %.thread1, label %.lr.ph, !prof !9, !llvm.loop !10
+9:                                                ; preds = %.lr.ph
+  %10 = extractvalue { i8, i32 } %5, 1
+  %11 = icmp eq i32 %10, 1
+  br i1 %11, label %.thread1, label %.lr.ph, !prof !9, !llvm.loop !10
 
-11:                                               ; preds = %.lr.ph
-  %12 = tail call ptr @register_sysctl_sz(ptr noundef nonnull @.str.23, ptr noundef nonnull @cdrom_table, i64 noundef 6) #15
-  store ptr %12, ptr @cdrom_sysctl_header, align 8
-  %13 = load i8, ptr @autoclose, align 1, !range !13, !noundef !14
-  %14 = zext nneg i8 %13 to i32
-  store i32 %14, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1000), align 4
-  %15 = load i8, ptr @autoeject, align 1, !range !13, !noundef !14
-  %16 = zext nneg i8 %15 to i32
-  store i32 %16, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1004), align 4
-  %17 = load i8, ptr @debug, align 1, !range !13, !noundef !14
-  %18 = zext nneg i8 %17 to i32
-  store i32 %18, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1008), align 4
-  %19 = load i8, ptr @lockdoor, align 1, !range !13, !noundef !14
-  %20 = zext nneg i8 %19 to i32
-  store i32 %20, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1012), align 4
-  %21 = load i8, ptr @check_media_type, align 1, !range !13, !noundef !14
-  %22 = zext nneg i8 %21 to i32
-  store i32 %22, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1016), align 4
+12:                                               ; preds = %.lr.ph
+  %13 = tail call ptr @register_sysctl_sz(ptr noundef nonnull @.str.23, ptr noundef nonnull @cdrom_table, i64 noundef 6) #16
+  store ptr %13, ptr @cdrom_sysctl_header, align 8
+  %14 = load i8, ptr @autoclose, align 1, !range !13, !noundef !14
+  %15 = zext nneg i8 %14 to i32
+  store i32 %15, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1000), align 4
+  %16 = load i8, ptr @autoeject, align 1, !range !13, !noundef !14
+  %17 = zext nneg i8 %16 to i32
+  store i32 %17, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1004), align 4
+  %18 = load i8, ptr @debug, align 1, !range !13, !noundef !14
+  %19 = zext nneg i8 %18 to i32
+  store i32 %19, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1008), align 4
+  %20 = load i8, ptr @lockdoor, align 1, !range !13, !noundef !14
+  %21 = zext nneg i8 %20 to i32
+  store i32 %21, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1012), align 4
+  %22 = load i8, ptr @check_media_type, align 1, !range !13, !noundef !14
+  %23 = zext nneg i8 %22 to i32
+  store i32 %23, ptr getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 1016), align 4
   br label %.thread1
 
-.thread1:                                         ; preds = %8, %0, %11
+.thread1:                                         ; preds = %9, %0, %12
   ret i32 0
 }
 
@@ -4208,9 +4212,9 @@ define internal noundef i32 @cdrom_init() #9 section ".init.text" align 16 {
 define internal fastcc i32 @cdrom_mrw_bgformat(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = alloca %struct.packet_command, align 8
   %3 = alloca [12 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #15
-  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #14
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #16
+  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %3, i8 0, i64 11, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 16
@@ -4237,17 +4241,17 @@ define internal fastcc i32 @cdrom_mrw_bgformat(ptr noundef %0) unnamed_addr #1 a
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 88
   %17 = load ptr, ptr %16, align 8
-  %18 = call i32 %17(ptr noundef %0, ptr noundef nonnull %2) #15
+  %18 = call i32 %17(ptr noundef %0, ptr noundef nonnull %2) #16
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %1
-  %21 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #14
+  %21 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #15
   br label %22
 
 22:                                               ; preds = %20, %1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #16
   ret i32 %18
 }
 
@@ -4266,7 +4270,7 @@ declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) loca
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @cdrom_load_unload(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.packet_command, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #16
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, 3
@@ -4310,12 +4314,12 @@ define internal fastcc i32 @cdrom_load_unload(ptr noundef %0, i32 noundef %1) un
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 88
   %29 = load ptr, ptr %28, align 8
-  %30 = call i32 %29(ptr noundef %0, ptr noundef nonnull %3) #15
+  %30 = call i32 %29(ptr noundef %0, ptr noundef nonnull %3) #16
   br label %31
 
 31:                                               ; preds = %26, %2
   %32 = phi i32 [ %30, %26 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #16
   ret i32 %32
 }
 
@@ -4333,8 +4337,8 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_data(ptr noundef %0, ptr nounde
   %8 = alloca %struct.modesel_head, align 1
   %9 = alloca %struct.scsi_sense_hdr, align 8
   %10 = alloca %struct.cdrom_msf, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %10) #16
   switch i32 %3, label %14 [
     i32 21268, label %11
     i32 21261, label %12
@@ -4356,7 +4360,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_data(ptr noundef %0, ptr nounde
   %17 = phi i32 [ 0, %4 ], [ 2336, %13 ], [ 2048, %12 ], [ 2352, %11 ]
   %18 = phi i8 [ 0, %4 ], [ 0, %13 ], [ 8, %12 ], [ 0, %11 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %10, i8 0, i64 6, i1 false), !annotation !46
-  %19 = call i64 @_copy_from_user(ptr noundef nonnull %10, ptr noundef %1, i64 noundef 6) #15
+  %19 = call i64 @_copy_from_user(ptr noundef nonnull %10, ptr noundef %1, i64 noundef 6) #16
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %21, label %125
 
@@ -4379,7 +4383,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_data(ptr noundef %0, ptr nounde
 
 36:                                               ; preds = %21
   %37 = zext nneg i32 %17 to i64
-  %38 = call noalias align 8 ptr @__kmalloc(i64 noundef %37, i32 noundef 3520) #17
+  %38 = call noalias align 8 ptr @__kmalloc(i64 noundef %37, i32 noundef 3520) #18
   %39 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %38, ptr %39, align 8
   %40 = icmp eq ptr %38, null
@@ -4422,7 +4426,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_data(ptr noundef %0, ptr nounde
   store i8 %16, ptr %60, align 1
   %61 = getelementptr inbounds i8, ptr %44, i64 88
   %62 = load ptr, ptr %61, align 8
-  %63 = call i32 %62(ptr noundef %0, ptr noundef %2) #15
+  %63 = call i32 %62(ptr noundef %0, ptr noundef %2) #16
   %64 = icmp ne i32 %63, 0
   %65 = getelementptr inbounds i8, ptr %9, i64 1
   %66 = load i8, ptr %65, align 1
@@ -4443,8 +4447,8 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_data(ptr noundef %0, ptr nounde
 
 78:                                               ; preds = %77
   %79 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #16
   %80 = getelementptr inbounds i8, ptr %8, i64 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %8, i8 0, i64 10, i1 false)
   %81 = lshr i32 %17, 8
@@ -4469,9 +4473,9 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_data(ptr noundef %0, ptr nounde
   store i8 %84, ptr %85, align 1
   %91 = getelementptr inbounds i8, ptr %79, i64 88
   %92 = load ptr, ptr %91, align 8
-  %93 = call i32 %92(ptr noundef %0, ptr noundef nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #15
+  %93 = call i32 %92(ptr noundef %0, ptr noundef nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #16
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %122
 
@@ -4488,13 +4492,13 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_data(ptr noundef %0, ptr nounde
   store i32 %17, ptr %59, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 88
   %98 = load ptr, ptr %97, align 8
-  %99 = call i32 %98(ptr noundef %0, ptr noundef %2) #15
+  %99 = call i32 %98(ptr noundef %0, ptr noundef %2) #16
   br i1 %15, label %114, label %100
 
 100:                                              ; preds = %95
   %101 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #16
   %102 = getelementptr inbounds i8, ptr %6, i64 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %6, i8 0, i64 10, i1 false)
   %103 = getelementptr inbounds i8, ptr %6, i64 10
@@ -4516,9 +4520,9 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_data(ptr noundef %0, ptr nounde
   store i8 0, ptr %104, align 1
   %110 = getelementptr inbounds i8, ptr %101, i64 88
   %111 = load ptr, ptr %110, align 8
-  %112 = call i32 %111(ptr noundef %0, ptr noundef nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
+  %112 = call i32 %111(ptr noundef %0, ptr noundef nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #16
   %113 = or i32 %112, %99
   br label %114
 
@@ -4529,7 +4533,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_data(ptr noundef %0, ptr nounde
 
 117:                                              ; preds = %114
   %118 = load ptr, ptr %39, align 8
-  %119 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef %118, i64 noundef %37) #15
+  %119 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef %118, i64 noundef %37) #16
   %120 = icmp eq i64 %119, 0
   %121 = select i1 %120, i32 0, i32 -14
   br label %122
@@ -4537,13 +4541,13 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_data(ptr noundef %0, ptr nounde
 122:                                              ; preds = %117, %114, %78
   %123 = phi i32 [ %93, %78 ], [ %115, %114 ], [ %121, %117 ]
   %124 = load ptr, ptr %39, align 8
-  call void @kfree(ptr noundef %124) #15
+  call void @kfree(ptr noundef %124) #16
   br label %125
 
 125:                                              ; preds = %122, %36, %21, %14
   %126 = phi i32 [ %123, %122 ], [ -14, %14 ], [ -22, %21 ], [ -12, %36 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
   ret i32 %126
 }
 
@@ -4551,9 +4555,9 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_data(ptr noundef %0, ptr nounde
 define internal fastcc i32 @mmc_ioctl_cdrom_read_audio(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.cdrom_read_audio, align 8
   %4 = alloca %struct.compat_cdrom_read_audio, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !46
-  %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !50
+  %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !50
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
@@ -4562,9 +4566,9 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_audio(ptr noundef %0, ptr nound
   br i1 %10, label %27, label %11
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !46
-  %12 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 16) #15
+  %12 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 16) #16
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %130
 
@@ -4585,11 +4589,11 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_audio(ptr noundef %0, ptr nound
   store i32 %19, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %23, ptr %26, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   br label %30
 
 27:                                               ; preds = %2
-  %28 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 24) #15
+  %28 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 24) #16
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %._crit_edge, label %.thread
 
@@ -4672,7 +4676,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_audio(ptr noundef %0, ptr nound
   %81 = load ptr, ptr %0, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 96
   %83 = load ptr, ptr %82, align 8
-  %84 = call i32 %83(ptr noundef %0, ptr noundef %74, i32 noundef %75, i32 noundef %80, ptr noundef %64) #15
+  %84 = call i32 %83(ptr noundef %0, ptr noundef %74, i32 noundef %75, i32 noundef %80, ptr noundef %64) #16
   switch i32 %84, label %.thread [
     i32 0, label %85
     i32 -5, label %.split6.us
@@ -4713,7 +4717,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_audio(ptr noundef %0, ptr nound
   %109 = load ptr, ptr %0, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 96
   %111 = load ptr, ptr %110, align 8
-  %112 = call i32 %111(ptr noundef %0, ptr noundef %102, i32 noundef %103, i32 noundef %108, ptr noundef %64) #15
+  %112 = call i32 %111(ptr noundef %0, ptr noundef %102, i32 noundef %103, i32 noundef %108, ptr noundef %64) #16
   switch i32 %112, label %.thread [
     i32 0, label %113
     i32 -5, label %120
@@ -4734,7 +4738,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_audio(ptr noundef %0, ptr nound
   br i1 %122, label %123, label %.split6.us
 
 123:                                              ; preds = %120
-  %124 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21) #14
+  %124 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21) #15
   store i32 1, ptr %59, align 4
   br label %.split
 
@@ -4747,18 +4751,18 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_audio(ptr noundef %0, ptr nound
 
 126:                                              ; preds = %.split6.us, %.split6.us
   %127 = zext nneg i8 %125 to i32
-  %128 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %127) #14
+  %128 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %127) #15
   store i32 0, ptr %59, align 4
   %129 = call fastcc i32 @cdrom_read_cdda_old(ptr noundef %0, ptr noundef %58, i32 noundef %49, i32 noundef %.fr7)
   br label %.thread
 
 130:                                              ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   br label %.thread
 
 .thread:                                          ; preds = %85, %73, %113, %101, %130, %126, %.split6.us, %92, %48, %30, %27
   %131 = phi i32 [ -14, %130 ], [ -14, %27 ], [ -22, %30 ], [ -22, %48 ], [ %93, %92 ], [ %129, %126 ], [ -5, %.split6.us ], [ %112, %101 ], [ 0, %113 ], [ %84, %73 ], [ 0, %85 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
   ret i32 %131
 }
 
@@ -4767,9 +4771,9 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
   %3 = alloca %struct.packet_command, align 8
   %4 = alloca [32 x i8], align 16
   %5 = alloca %struct.cdrom_subchnl, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !46
-  %6 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %1, i64 noundef 16) #15
+  %6 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %1, i64 noundef 16) #16
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %164
 
@@ -4781,8 +4785,8 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
   %14 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %14, i8 0, i64 16, i1 false), !annotation !46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
@@ -4806,7 +4810,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
   store i8 16, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %13, i64 88
   %24 = load ptr, ptr %23, align 8
-  %25 = call i32 %24(ptr noundef %0, ptr noundef nonnull %3) #15
+  %25 = call i32 %24(ptr noundef %0, ptr noundef nonnull %3) #16
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %105
 
@@ -4907,8 +4911,8 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
   br label %106
 
 105:                                              ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #16
   br label %164
 
 106:                                              ; preds = %86, %47
@@ -4917,8 +4921,8 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
   %109 = phi i8 [ %94, %86 ], [ %72, %47 ]
   %110 = phi i8 [ %100, %86 ], [ %58, %47 ]
   %111 = phi i8 [ %103, %86 ], [ %53, %47 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #16
   %112 = getelementptr inbounds i8, ptr %5, i64 8
   %113 = icmp eq i8 %45, %9
   br i1 %113, label %160, label %114
@@ -4987,14 +4991,14 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
   br label %160
 
 160:                                              ; preds = %106, %159
-  %161 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %5, i64 noundef 16) #15
+  %161 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %5, i64 noundef 16) #16
   %162 = icmp eq i64 %161, 0
   %163 = select i1 %162, i32 0, i32 -14
   br label %164
 
 164:                                              ; preds = %105, %160, %8, %2
   %165 = phi i32 [ -14, %2 ], [ -22, %8 ], [ %25, %105 ], [ %163, %160 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   ret i32 %165
 }
 
@@ -5002,9 +5006,9 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
 define internal fastcc i32 @mmc_ioctl_cdrom_play_msf(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.cdrom_msf, align 1
   %5 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, i8 0, i64 6, i1 false), !annotation !46
-  %6 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 6) #15
+  %6 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 6) #16
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %30
 
@@ -5037,12 +5041,12 @@ define internal fastcc i32 @mmc_ioctl_cdrom_play_msf(ptr noundef %0, ptr noundef
   store i8 3, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %5, i64 88
   %28 = load ptr, ptr %27, align 8
-  %29 = call i32 %28(ptr noundef %0, ptr noundef %2) #15
+  %29 = call i32 %28(ptr noundef %0, ptr noundef %2) #16
   br label %30
 
 30:                                               ; preds = %8, %3
   %31 = phi i32 [ %29, %8 ], [ -14, %3 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4) #16
   ret i32 %31
 }
 
@@ -5050,9 +5054,9 @@ define internal fastcc i32 @mmc_ioctl_cdrom_play_msf(ptr noundef %0, ptr noundef
 define internal fastcc i32 @mmc_ioctl_cdrom_play_blk(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.cdrom_blk, align 8
   %5 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   store i64 0, ptr %4, align 8, !annotation !46
-  %6 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 8) #15
+  %6 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 8) #16
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %32
 
@@ -5087,12 +5091,12 @@ define internal fastcc i32 @mmc_ioctl_cdrom_play_blk(ptr noundef %0, ptr noundef
   store i8 3, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %5, i64 88
   %30 = load ptr, ptr %29, align 8
-  %31 = call i32 %30(ptr noundef %0, ptr noundef %2) #15
+  %31 = call i32 %30(ptr noundef %0, ptr noundef %2) #16
   br label %32
 
 32:                                               ; preds = %8, %3
   %33 = phi i32 [ %31, %8 ], [ -14, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   ret i32 %33
 }
 
@@ -5101,13 +5105,13 @@ define internal fastcc i32 @mmc_ioctl_cdrom_volume(ptr noundef %0, ptr noundef %
   %5 = alloca %struct.cdrom_volctrl, align 4
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   store i32 0, ptr %5, align 4, !annotation !46
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !46
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false), !annotation !46
-  %8 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %1, i64 noundef 4) #15
+  %8 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %1, i64 noundef 4) #16
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %129
 
@@ -5128,7 +5132,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_volume(ptr noundef %0, ptr noundef %
   store i8 2, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %13, i64 88
   %19 = load ptr, ptr %18, align 8
-  %20 = call i32 %19(ptr noundef %0, ptr noundef %2) #15
+  %20 = call i32 %19(ptr noundef %0, ptr noundef %2) #16
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %129
 
@@ -5158,7 +5162,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_volume(ptr noundef %0, ptr noundef %
   store i8 2, ptr %17, align 8
   %36 = getelementptr inbounds i8, ptr %34, i64 88
   %37 = load ptr, ptr %36, align 8
-  %38 = call i32 %37(ptr noundef %0, ptr noundef %2) #15
+  %38 = call i32 %37(ptr noundef %0, ptr noundef %2) #16
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %129
 
@@ -5206,7 +5210,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_volume(ptr noundef %0, ptr noundef %
   %72 = load i8, ptr %71, align 1
   %73 = getelementptr inbounds i8, ptr %5, i64 3
   store i8 %72, ptr %73, align 1
-  %74 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %5, i64 noundef 4) #15
+  %74 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %5, i64 noundef 4) #16
   %75 = icmp eq i64 %74, 0
   %76 = select i1 %75, i32 0, i32 -14
   br label %129
@@ -5226,7 +5230,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_volume(ptr noundef %0, ptr noundef %
   store i8 2, ptr %17, align 8
   %83 = getelementptr inbounds i8, ptr %78, i64 88
   %84 = load ptr, ptr %83, align 8
-  %85 = call i32 %84(ptr noundef %0, ptr noundef %2) #15
+  %85 = call i32 %84(ptr noundef %0, ptr noundef %2) #16
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %129
 
@@ -5283,14 +5287,14 @@ define internal fastcc i32 @mmc_ioctl_cdrom_volume(ptr noundef %0, ptr noundef %
   store i8 1, ptr %17, align 8
   %126 = getelementptr inbounds i8, ptr %120, i64 88
   %127 = load ptr, ptr %126, align 8
-  %128 = call i32 %127(ptr noundef %0, ptr noundef %2) #15
+  %128 = call i32 %127(ptr noundef %0, ptr noundef %2) #16
   br label %129
 
 129:                                              ; preds = %87, %77, %54, %46, %40, %33, %22, %10, %4
   %130 = phi i32 [ %128, %87 ], [ -14, %4 ], [ %20, %10 ], [ -7, %22 ], [ %38, %33 ], [ -22, %46 ], [ -22, %40 ], [ %76, %54 ], [ %85, %77 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   ret i32 %130
 }
 
@@ -5310,7 +5314,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
   br i1 %14, label %251, label %15
 
 15:                                               ; preds = %3
-  %16 = tail call ptr @memdup_user(ptr noundef %1, i64 noundef 2056) #15
+  %16 = tail call ptr @memdup_user(ptr noundef %1, i64 noundef 2056) #16
   %17 = icmp ugt ptr %16, inttoptr (i64 -4096 to ptr)
   br i1 %17, label %18, label %21
 
@@ -5330,7 +5334,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
   ]
 
 23:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %5) #16
   %24 = getelementptr inbounds i8, ptr %16, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = icmp ugt i8 %25, 3
@@ -5360,7 +5364,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
   store i32 1, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %28, i64 88
   %39 = load ptr, ptr %38, align 8
-  %40 = call i32 %39(ptr noundef %0, ptr noundef %2) #15
+  %40 = call i32 %39(ptr noundef %0, ptr noundef %2) #16
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %124
 
@@ -5456,11 +5460,11 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
 
 124:                                              ; preds = %42, %27, %23
   %125 = phi i32 [ 0, %42 ], [ -22, %23 ], [ %40, %27 ]
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %5) #16
   br label %243
 
 126:                                              ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   %127 = load ptr, ptr %0, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i64 0, ptr %4, align 8
@@ -5486,7 +5490,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
   store i8 8, ptr %138, align 1
   %139 = getelementptr inbounds i8, ptr %127, i64 88
   %140 = load ptr, ptr %139, align 8
-  %141 = call i32 %140(ptr noundef %0, ptr noundef %2) #15
+  %141 = call i32 %140(ptr noundef %0, ptr noundef %2) #16
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %143, label %150
 
@@ -5502,13 +5506,13 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
   br label %150
 
 150:                                              ; preds = %143, %126
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   br label %243
 
 151:                                              ; preds = %21
   %152 = load ptr, ptr %0, align 8
   %153 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
-  %154 = tail call noalias align 8 dereferenceable_or_null(2052) ptr @kmalloc_trace(ptr noundef %153, i32 noundef 3264, i64 noundef 2052) #16
+  %154 = tail call noalias align 8 dereferenceable_or_null(2052) ptr @kmalloc_trace(ptr noundef %153, i32 noundef 3264, i64 noundef 2052) #17
   %155 = icmp eq ptr %154, null
   br i1 %155, label %.thread, label %156
 
@@ -5538,7 +5542,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
   store i8 %167, ptr %168, align 2
   %169 = getelementptr inbounds i8, ptr %152, i64 88
   %170 = load ptr, ptr %169, align 8
-  %171 = tail call i32 %170(ptr noundef %0, ptr noundef %2) #15
+  %171 = tail call i32 %170(ptr noundef %0, ptr noundef %2) #16
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %173, label %176
 
@@ -5549,13 +5553,13 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
   br label %176
 
 176:                                              ; preds = %173, %156
-  tail call void @kfree(ptr noundef nonnull %154) #15
+  tail call void @kfree(ptr noundef nonnull %154) #16
   br label %243
 
 177:                                              ; preds = %21
   %178 = load ptr, ptr %0, align 8
   %179 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
-  %180 = tail call noalias align 8 dereferenceable_or_null(192) ptr @kmalloc_trace(ptr noundef %179, i32 noundef 3264, i64 noundef 192) #16
+  %180 = tail call noalias align 8 dereferenceable_or_null(192) ptr @kmalloc_trace(ptr noundef %179, i32 noundef 3264, i64 noundef 192) #17
   %181 = icmp eq ptr %180, null
   br i1 %181, label %.thread, label %182
 
@@ -5578,7 +5582,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
   store i8 -64, ptr %189, align 1
   %190 = getelementptr inbounds i8, ptr %178, i64 88
   %191 = load ptr, ptr %190, align 8
-  %192 = tail call i32 %191(ptr noundef %0, ptr noundef %2) #15
+  %192 = tail call i32 %191(ptr noundef %0, ptr noundef %2) #16
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %194, label %209
 
@@ -5605,13 +5609,13 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
 
 209:                                              ; preds = %205, %194, %182
   %210 = phi i32 [ %192, %182 ], [ 0, %205 ], [ -5, %194 ]
-  tail call void @kfree(ptr noundef nonnull %180) #15
+  tail call void @kfree(ptr noundef nonnull %180) #16
   br label %243
 
 211:                                              ; preds = %21
   %212 = load ptr, ptr %0, align 8
   %213 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
-  %214 = tail call noalias align 8 dereferenceable_or_null(2052) ptr @kmalloc_trace(ptr noundef %213, i32 noundef 3264, i64 noundef 2052) #16
+  %214 = tail call noalias align 8 dereferenceable_or_null(2052) ptr @kmalloc_trace(ptr noundef %213, i32 noundef 3264, i64 noundef 2052) #17
   %215 = icmp eq ptr %214, null
   br i1 %215, label %.thread, label %216
 
@@ -5636,7 +5640,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
   store i8 4, ptr %224, align 1
   %225 = getelementptr inbounds i8, ptr %212, i64 88
   %226 = load ptr, ptr %225, align 8
-  %227 = tail call i32 %226(ptr noundef %0, ptr noundef %2) #15
+  %227 = tail call i32 %226(ptr noundef %0, ptr noundef %2) #16
   %228 = icmp eq i32 %227, 0
   br i1 %228, label %229, label %242
 
@@ -5658,7 +5662,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
   br label %242
 
 242:                                              ; preds = %229, %216
-  tail call void @kfree(ptr noundef nonnull %214) #15
+  tail call void @kfree(ptr noundef nonnull %214) #16
   br label %243
 
 243:                                              ; preds = %242, %209, %176, %150, %124
@@ -5667,14 +5671,14 @@ define internal fastcc i32 @mmc_ioctl_dvd_read_struct(ptr noundef %0, ptr nounde
   br i1 %245, label %246, label %.thread
 
 246:                                              ; preds = %243
-  %247 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef %16, i64 noundef 2056) #15
+  %247 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef %16, i64 noundef 2056) #16
   %248 = icmp eq i64 %247, 0
   %249 = select i1 %248, i32 0, i32 -14
   br label %.thread
 
 .thread:                                          ; preds = %211, %177, %151, %21, %246, %243
   %250 = phi i32 [ %244, %243 ], [ %249, %246 ], [ -12, %211 ], [ -12, %177 ], [ -12, %151 ], [ -22, %21 ]
-  call void @kfree(ptr noundef %16) #15
+  call void @kfree(ptr noundef %16) #16
   br label %251
 
 251:                                              ; preds = %.thread, %18, %3
@@ -5688,7 +5692,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_auth(ptr noundef %0, ptr noundef %1) u
   %4 = alloca %struct.packet_command, align 8
   %5 = alloca %struct.rpc_state_t, align 8
   %6 = alloca %union.dvd_authinfo, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 104
   %9 = load i32, ptr %8, align 8
@@ -5702,15 +5706,15 @@ define internal fastcc i32 @mmc_ioctl_dvd_auth(ptr noundef %0, ptr noundef %1) u
 
 16:                                               ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !46
-  %17 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %1, i64 noundef 16) #15
+  %17 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %1, i64 noundef 16) #16
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %210
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #16
   %20 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   %21 = getelementptr inbounds i8, ptr %4, i64 16
@@ -5748,7 +5752,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_auth(ptr noundef %0, ptr noundef %1) u
   store i8 2, ptr %23, align 8
   %33 = getelementptr inbounds i8, ptr %20, i64 88
   %34 = load ptr, ptr %33, align 8
-  %35 = call i32 %34(ptr noundef %0, ptr noundef nonnull %4) #15
+  %35 = call i32 %34(ptr noundef %0, ptr noundef nonnull %4) #16
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %.thread
 
@@ -5776,7 +5780,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_auth(ptr noundef %0, ptr noundef %1) u
   store i8 2, ptr %23, align 8
   %51 = getelementptr inbounds i8, ptr %20, i64 88
   %52 = load ptr, ptr %51, align 8
-  %53 = call i32 %52(ptr noundef %0, ptr noundef nonnull %4) #15
+  %53 = call i32 %52(ptr noundef %0, ptr noundef nonnull %4) #16
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %.thread
 
@@ -5800,7 +5804,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_auth(ptr noundef %0, ptr noundef %1) u
   store i8 2, ptr %23, align 8
   %65 = getelementptr inbounds i8, ptr %20, i64 88
   %66 = load ptr, ptr %65, align 8
-  %67 = call i32 %66(ptr noundef %0, ptr noundef nonnull %4) #15
+  %67 = call i32 %66(ptr noundef %0, ptr noundef nonnull %4) #16
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %.thread
 
@@ -5843,7 +5847,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_auth(ptr noundef %0, ptr noundef %1) u
   store i8 %91, ptr %92, align 2
   %93 = getelementptr inbounds i8, ptr %20, i64 88
   %94 = load ptr, ptr %93, align 8
-  %95 = call i32 %94(ptr noundef %0, ptr noundef nonnull %4) #15
+  %95 = call i32 %94(ptr noundef %0, ptr noundef nonnull %4) #16
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %.thread
 
@@ -5881,7 +5885,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_auth(ptr noundef %0, ptr noundef %1) u
   store i8 2, ptr %23, align 8
   %120 = getelementptr inbounds i8, ptr %20, i64 88
   %121 = load ptr, ptr %120, align 8
-  %122 = call i32 %121(ptr noundef %0, ptr noundef nonnull %4) #15
+  %122 = call i32 %121(ptr noundef %0, ptr noundef nonnull %4) #16
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %124, label %.thread
 
@@ -5915,7 +5919,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_auth(ptr noundef %0, ptr noundef %1) u
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(10) %140, ptr noundef align 2 dereferenceable(10) %141, i64 10, i1 false)
   %142 = getelementptr inbounds i8, ptr %20, i64 88
   %143 = load ptr, ptr %142, align 8
-  %144 = call i32 %143(ptr noundef %0, ptr noundef nonnull %4) #15
+  %144 = call i32 %143(ptr noundef %0, ptr noundef nonnull %4) #16
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %146, label %.thread
 
@@ -5942,7 +5946,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_auth(ptr noundef %0, ptr noundef %1) u
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(5) %155, ptr noundef align 2 dereferenceable(5) %156, i64 5, i1 false)
   %157 = getelementptr inbounds i8, ptr %20, i64 88
   %158 = load ptr, ptr %157, align 8
-  %159 = call i32 %158(ptr noundef %0, ptr noundef nonnull %4) #15
+  %159 = call i32 %158(ptr noundef %0, ptr noundef nonnull %4) #16
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %161, label %.thread
 
@@ -5963,7 +5967,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_auth(ptr noundef %0, ptr noundef %1) u
   store i8 2, ptr %23, align 8
   %169 = getelementptr inbounds i8, ptr %20, i64 88
   %170 = load ptr, ptr %169, align 8
-  %171 = call i32 %170(ptr noundef %0, ptr noundef nonnull %4) #15
+  %171 = call i32 %170(ptr noundef %0, ptr noundef nonnull %4) #16
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %206, label %.thread
 
@@ -5979,7 +5983,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_auth(ptr noundef %0, ptr noundef %1) u
   store ptr %5, ptr %21, align 8
   %176 = getelementptr inbounds i8, ptr %20, i64 88
   %177 = load ptr, ptr %176, align 8
-  %178 = call i32 %177(ptr noundef %0, ptr noundef nonnull %4) #15
+  %178 = call i32 %177(ptr noundef %0, ptr noundef nonnull %4) #16
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %180, label %.thread
 
@@ -6019,29 +6023,29 @@ define internal fastcc i32 @mmc_ioctl_dvd_auth(ptr noundef %0, ptr noundef %1) u
   store i8 %200, ptr %201, align 4
   %202 = getelementptr inbounds i8, ptr %20, i64 88
   %203 = load ptr, ptr %202, align 8
-  %204 = call i32 %203(ptr noundef %0, ptr noundef nonnull %4) #15
+  %204 = call i32 %203(ptr noundef %0, ptr noundef nonnull %4) #16
   %205 = icmp eq i32 %204, 0
   br i1 %205, label %206, label %.thread
 
 .thread:                                          ; preds = %147, %26, %44, %58, %72, %113, %132, %162, %173, %195, %19
   %.ph = phi i32 [ -25, %19 ], [ %204, %195 ], [ %178, %173 ], [ %171, %162 ], [ %144, %132 ], [ %122, %113 ], [ %95, %72 ], [ %67, %58 ], [ %53, %44 ], [ %35, %26 ], [ %159, %147 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #16
   br label %210
 
 206:                                              ; preds = %195, %180, %162, %161, %146, %124, %97, %69, %55, %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #15
-  %207 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %6, i64 noundef 16) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #16
+  %207 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %6, i64 noundef 16) #16
   %208 = icmp eq i64 %207, 0
   %209 = select i1 %208, i32 0, i32 -14
   br label %210
 
 210:                                              ; preds = %.thread, %206, %16, %2
   %211 = phi i32 [ -38, %2 ], [ -14, %16 ], [ %209, %206 ], [ %.ph, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   ret i32 %211
 }
 
@@ -6053,11 +6057,11 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
   %6 = alloca %struct.disc_information, align 4
   %7 = alloca %struct.track_information, align 8
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %6, i8 0, i64 36, i1 false), !annotation !46
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !annotation !46
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 104
@@ -6071,7 +6075,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
   br i1 %17, label %131, label %18
 
 18:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %6, i8 0, i64 36, i1 false)
   %19 = getelementptr inbounds i8, ptr %5, i64 16
@@ -6089,7 +6093,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
   store i32 1, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %9, i64 88
   %26 = load ptr, ptr %25, align 8
-  %27 = call i32 %26(ptr noundef %0, ptr noundef nonnull %5) #15
+  %27 = call i32 %26(ptr noundef %0, ptr noundef nonnull %5) #16
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %40
 
@@ -6103,14 +6107,14 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
   %35 = trunc nuw nsw i16 %33 to i8
   store i8 %35, ptr %23, align 8
   %36 = load ptr, ptr %25, align 8
-  %37 = call i32 %36(ptr noundef %0, ptr noundef nonnull %5) #15
+  %37 = call i32 %36(ptr noundef %0, ptr noundef nonnull %5) #16
   %38 = icmp eq i32 %37, 0
   %39 = select i1 %38, i32 %34, i32 %37
   br label %40
 
 40:                                               ; preds = %29, %18
   %41 = phi i32 [ %27, %18 ], [ %39, %29 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #16
   %42 = icmp slt i32 %41, 7
   br i1 %42, label %131, label %43
 
@@ -6124,7 +6128,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
   %50 = zext i8 %49 to i16
   %51 = or disjoint i16 %47, %50
   %52 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   store i64 0, ptr %7, align 8
   %53 = getelementptr inbounds i8, ptr %4, i64 16
@@ -6148,7 +6152,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
   store i32 1, ptr %61, align 4
   %62 = getelementptr inbounds i8, ptr %52, i64 88
   %63 = load ptr, ptr %62, align 8
-  %64 = call i32 %63(ptr noundef %0, ptr noundef nonnull %4) #15
+  %64 = call i32 %63(ptr noundef %0, ptr noundef nonnull %4) #16
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %77
 
@@ -6162,14 +6166,14 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
   %72 = trunc nuw nsw i16 %70 to i8
   store i8 %72, ptr %60, align 8
   %73 = load ptr, ptr %62, align 8
-  %74 = call i32 %73(ptr noundef %0, ptr noundef nonnull %4) #15
+  %74 = call i32 %73(ptr noundef %0, ptr noundef nonnull %4) #16
   %75 = icmp eq i32 %74, 0
   %76 = select i1 %75, i32 %71, i32 %74
   br label %77
 
 77:                                               ; preds = %66, %43
   %78 = phi i32 [ %64, %43 ], [ %76, %66 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #16
   %79 = icmp slt i32 %78, 8
   br i1 %79, label %131, label %80
 
@@ -6187,7 +6191,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
 87:                                               ; preds = %85
   %88 = add i16 %51, -1
   %89 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   store i64 0, ptr %7, align 8
   %90 = getelementptr inbounds i8, ptr %3, i64 16
@@ -6214,7 +6218,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
   store i32 1, ptr %101, align 4
   %102 = getelementptr inbounds i8, ptr %89, i64 88
   %103 = load ptr, ptr %102, align 8
-  %104 = call i32 %103(ptr noundef %0, ptr noundef nonnull %3) #15
+  %104 = call i32 %103(ptr noundef %0, ptr noundef nonnull %3) #16
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %106, label %116
 
@@ -6228,17 +6232,17 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
   %112 = trunc nuw nsw i16 %110 to i8
   store i8 %112, ptr %100, align 8
   %113 = load ptr, ptr %102, align 8
-  %114 = call i32 %113(ptr noundef %0, ptr noundef nonnull %3) #15
+  %114 = call i32 %113(ptr noundef %0, ptr noundef nonnull %3) #16
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %.thread, label %116
 
 .thread:                                          ; preds = %106
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #16
   br label %119
 
 116:                                              ; preds = %106, %87
   %117 = phi i32 [ %104, %87 ], [ %114, %106 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #16
   %118 = icmp slt i32 %117, 0
   br i1 %118, label %131, label %119
 
@@ -6269,37 +6273,37 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
   br label %138
 
 137:                                              ; preds = %131
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #16
   br label %142
 
 138:                                              ; preds = %134, %126
   %storemerge = phi i64 [ %130, %126 ], [ %136, %134 ]
   store i64 %storemerge, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #15
-  %139 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %8, i64 noundef 8) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #16
+  %139 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %8, i64 noundef 8) #16
   %140 = icmp eq i64 %139, 0
   %141 = select i1 %140, i32 0, i32 -14
   br label %142
 
 142:                                              ; preds = %137, %138
   %143 = phi i32 [ %132, %137 ], [ %141, %138 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   ret i32 %143
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @mmc_ioctl_cdrom_last_written(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   store i64 0, ptr %3, align 8
   %4 = call i32 @cdrom_get_last_written(ptr noundef %0, ptr noundef nonnull %3)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %27
 
 6:                                                ; preds = %2
-  %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !50
+  %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !50
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
@@ -6311,12 +6315,12 @@ define internal fastcc i32 @mmc_ioctl_cdrom_last_written(ptr noundef %0, ptr nou
 14:                                               ; preds = %6
   %15 = trunc i64 %13 to i32
   %16 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %17 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i32 %15, i64 4, i64 %16) #15, !srcloc !52
+  %17 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i32 %15, i64 4, i64 %16) #16, !srcloc !52
   br label %21
 
 18:                                               ; preds = %6
   %19 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %20 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 %13, i64 8, i64 %19) #15, !srcloc !53
+  %20 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 %13, i64 8, i64 %19) #16, !srcloc !53
   br label %21
 
 21:                                               ; preds = %18, %14
@@ -6330,14 +6334,14 @@ define internal fastcc i32 @mmc_ioctl_cdrom_last_written(ptr noundef %0, ptr nou
 
 27:                                               ; preds = %21, %2
   %28 = phi i32 [ %4, %2 ], [ %26, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   ret i32 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @cdrom_read_cdda_old(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 16 {
   %5 = alloca %struct.packet_command, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #16
   %6 = getelementptr inbounds i8, ptr %0, i64 96
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
@@ -6349,7 +6353,7 @@ define internal fastcc i32 @cdrom_read_cdda_old(ptr noundef %0, ptr noundef %1, 
   %10 = phi i32 [ %3, %4 ], [ %16, %15 ]
   %11 = zext nneg i32 %10 to i64
   %12 = mul nuw nsw i64 %11, 2352
-  %13 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %12, i32 noundef 3264) #17
+  %13 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %12, i32 noundef 3264) #18
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %18
 
@@ -6409,14 +6413,14 @@ define internal fastcc i32 @cdrom_read_cdda_old(ptr noundef %0, ptr noundef %1, 
   store i8 -8, ptr %31, align 1
   %49 = getelementptr inbounds i8, ptr %39, i64 88
   %50 = load ptr, ptr %49, align 8
-  %51 = call i32 %50(ptr noundef %0, ptr noundef nonnull %5) #15
+  %51 = call i32 %50(ptr noundef %0, ptr noundef nonnull %5) #16
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %63
 
 53:                                               ; preds = %33
   %54 = zext nneg i32 %48 to i64
   %55 = load ptr, ptr %8, align 8
-  %56 = call i64 @_copy_to_user(ptr noundef %37, ptr noundef %55, i64 noundef %54) #15
+  %56 = call i64 @_copy_to_user(ptr noundef %37, ptr noundef %55, i64 noundef %54) #16
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %58, label %63
 
@@ -6430,12 +6434,12 @@ define internal fastcc i32 @cdrom_read_cdda_old(ptr noundef %0, ptr noundef %1, 
 63:                                               ; preds = %58, %53, %33
   %64 = phi i32 [ 0, %58 ], [ %51, %33 ], [ -14, %53 ]
   %65 = load ptr, ptr %8, align 8
-  call void @kfree(ptr noundef %65) #15
+  call void @kfree(ptr noundef %65) #16
   br label %.thread
 
 .thread:                                          ; preds = %15, %63, %18
   %66 = phi i32 [ %64, %63 ], [ -12, %18 ], [ -12, %15 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #16
   ret i32 %66
 }
 
@@ -6465,7 +6469,7 @@ define internal fastcc noundef i32 @check_for_audio_disc(ptr noundef %0, ptr noc
   br i1 %12, label %42, label %13
 
 13:                                               ; preds = %9
-  %14 = tail call i32 %11(ptr noundef %0, i32 noundef 2147483647) #15
+  %14 = tail call i32 %11(ptr noundef %0, i32 noundef 2147483647) #16
   %15 = icmp eq i32 %14, 2
   br i1 %15, label %16, label %42
 
@@ -6490,13 +6494,13 @@ define internal fastcc noundef i32 @check_for_audio_disc(ptr noundef %0, ptr noc
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %1, i64 32
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 %32(ptr noundef %0, i32 noundef 0) #15
+  %33 = tail call i32 %32(ptr noundef %0, i32 noundef 0) #16
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %86
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr %10, align 8
-  %37 = tail call i32 %36(ptr noundef %0, i32 noundef 2147483647) #15
+  %37 = tail call i32 %36(ptr noundef %0, i32 noundef 2147483647) #16
   %38 = add i32 %37, -1
   %39 = icmp ult i32 %38, 2
   br i1 %39, label %86, label %40
@@ -6506,8 +6510,8 @@ define internal fastcc noundef i32 @check_for_audio_disc(ptr noundef %0, ptr noc
   br i1 %41, label %42, label %86
 
 42:                                               ; preds = %40, %13, %9
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #16
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 104
   %45 = load i32, ptr %44, align 8
@@ -6524,7 +6528,7 @@ define internal fastcc noundef i32 @check_for_audio_disc(ptr noundef %0, ptr noc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !46
   %53 = getelementptr inbounds i8, ptr %43, i64 80
   %54 = load ptr, ptr %53, align 8
-  %55 = call i32 %54(ptr noundef %0, i32 noundef 21253, ptr noundef nonnull %3) #15
+  %55 = call i32 %54(ptr noundef %0, i32 noundef 21253, ptr noundef nonnull %3) #16
   switch i32 %55, label %.thread [
     i32 0, label %56
     i32 -123, label %82
@@ -6552,7 +6556,7 @@ define internal fastcc noundef i32 @check_for_audio_disc(ptr noundef %0, ptr noc
   %68 = load ptr, ptr %0, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 80
   %70 = load ptr, ptr %69, align 8
-  %71 = call i32 %70(ptr noundef %0, i32 noundef 21254, ptr noundef nonnull %4) #15
+  %71 = call i32 %70(ptr noundef %0, i32 noundef 21254, ptr noundef nonnull %4) #16
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %83
 
@@ -6569,19 +6573,19 @@ define internal fastcc noundef i32 @check_for_audio_disc(ptr noundef %0, ptr noc
   br i1 %81, label %65, label %83, !llvm.loop !47
 
 82:                                               ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #16
   br label %86
 
 .thread:                                          ; preds = %42, %56, %52
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #16
   br label %85
 
 83:                                               ; preds = %73, %65
   %.sroa.6.3.ph = phi i32 [ %.sroa.6.0, %65 ], [ %.sroa.6.1, %73 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #16
   %.sroa.6.3.ph.fr = freeze i32 %.sroa.6.3.ph
   %84 = icmp eq i32 %.sroa.6.3.ph.fr, 0
   br i1 %84, label %85, label %86
@@ -6596,6 +6600,9 @@ define internal fastcc noundef i32 @check_for_audio_disc(ptr noundef %0, ptr noc
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @register_sysctl_sz(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
@@ -6615,9 +6622,9 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   br label %614
 
 14:                                               ; preds = %8
-  tail call void @mutex_lock(ptr noundef nonnull @cdrom_mutex) #15
+  tail call void @mutex_lock(ptr noundef nonnull @cdrom_mutex) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(49) @cdrom_sysctl_settings, ptr noundef nonnull align 1 dereferenceable(49) @.str.30, i64 49, i1 false)
-  %15 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 48), i64 noundef 952, ptr noundef nonnull @.str.31) #15
+  %15 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @cdrom_sysctl_settings, i64 48), i64 noundef 952, ptr noundef nonnull @.str.31) #16
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit, label %17
 
@@ -6635,7 +6642,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %25 = sub i32 1000, %21
   %26 = sext i32 %25 to i64
   %27 = getelementptr i8, ptr %22, i64 60
-  %28 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %24, i64 noundef %26, ptr noundef nonnull @.str.53, ptr noundef %27) #15
+  %28 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %24, i64 noundef %26, ptr noundef nonnull @.str.53, ptr noundef %27) #16
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %.loopexit, label %29
 
@@ -6651,7 +6658,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %34 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %33
   %35 = sub i32 1000, %.ph
   %36 = sext i32 %35 to i64
-  %37 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %34, i64 noundef %36, ptr noundef nonnull @.str.32) #15
+  %37 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %34, i64 noundef %36, ptr noundef nonnull @.str.32) #16
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.loopexit, label %39
 
@@ -6670,7 +6677,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %48 = sext i32 %47 to i64
   %49 = getelementptr i8, ptr %44, i64 36
   %50 = load i32, ptr %49, align 4
-  %51 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %46, i64 noundef %48, ptr noundef nonnull @.str.54, i32 noundef %50) #15
+  %51 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %46, i64 noundef %48, ptr noundef nonnull @.str.54, i32 noundef %50) #16
   %.not100 = icmp eq i32 %51, 0
   br i1 %.not100, label %.loopexit, label %52
 
@@ -6686,7 +6693,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %57 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %56
   %58 = sub i32 1000, %.ph120
   %59 = sext i32 %58 to i64
-  %60 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %57, i64 noundef %59, ptr noundef nonnull @.str.33) #15
+  %60 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %57, i64 noundef %59, ptr noundef nonnull @.str.33) #16
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %.loopexit, label %62
 
@@ -6705,7 +6712,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %71 = sext i32 %70 to i64
   %72 = getelementptr i8, ptr %67, i64 40
   %73 = load i32, ptr %72, align 8
-  %74 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %69, i64 noundef %71, ptr noundef nonnull @.str.54, i32 noundef %73) #15
+  %74 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %69, i64 noundef %71, ptr noundef nonnull @.str.54, i32 noundef %73) #16
   %.not101 = icmp eq i32 %74, 0
   br i1 %.not101, label %.loopexit, label %75
 
@@ -6721,7 +6728,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %80 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %79
   %81 = sub i32 1000, %.ph123
   %82 = sext i32 %81 to i64
-  %83 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %80, i64 noundef %82, ptr noundef nonnull @.str.34) #15
+  %83 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %80, i64 noundef %82, ptr noundef nonnull @.str.34) #16
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %.loopexit, label %85
 
@@ -6747,7 +6754,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %101 = xor i32 %100, -1
   %102 = and i32 %98, 1
   %103 = and i32 %102, %101
-  %104 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %93, i64 noundef %95, ptr noundef nonnull @.str.54, i32 noundef %103) #15
+  %104 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %93, i64 noundef %95, ptr noundef nonnull @.str.54, i32 noundef %103) #16
   %.not102 = icmp eq i32 %104, 0
   br i1 %.not102, label %.loopexit, label %105
 
@@ -6763,7 +6770,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %110 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %109
   %111 = sub i32 1000, %.ph126
   %112 = sext i32 %111 to i64
-  %113 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %110, i64 noundef %112, ptr noundef nonnull @.str.35) #15
+  %113 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %110, i64 noundef %112, ptr noundef nonnull @.str.35) #16
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %.loopexit, label %115
 
@@ -6790,7 +6797,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %132 = and i32 %128, 2
   %133 = and i32 %132, %131
   %134 = lshr exact i32 %133, 1
-  %135 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %123, i64 noundef %125, ptr noundef nonnull @.str.54, i32 noundef %134) #15
+  %135 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %123, i64 noundef %125, ptr noundef nonnull @.str.54, i32 noundef %134) #16
   %.not103 = icmp eq i32 %135, 0
   br i1 %.not103, label %.loopexit, label %136
 
@@ -6806,7 +6813,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %141 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %140
   %142 = sub i32 1000, %.ph129
   %143 = sext i32 %142 to i64
-  %144 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %141, i64 noundef %143, ptr noundef nonnull @.str.36) #15
+  %144 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %141, i64 noundef %143, ptr noundef nonnull @.str.36) #16
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %.loopexit, label %146
 
@@ -6833,7 +6840,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %163 = and i32 %159, 4
   %164 = and i32 %163, %162
   %165 = lshr exact i32 %164, 2
-  %166 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %154, i64 noundef %156, ptr noundef nonnull @.str.54, i32 noundef %165) #15
+  %166 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %154, i64 noundef %156, ptr noundef nonnull @.str.54, i32 noundef %165) #16
   %.not104 = icmp eq i32 %166, 0
   br i1 %.not104, label %.loopexit, label %167
 
@@ -6849,7 +6856,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %172 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %171
   %173 = sub i32 1000, %.ph132
   %174 = sext i32 %173 to i64
-  %175 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %172, i64 noundef %174, ptr noundef nonnull @.str.37) #15
+  %175 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %172, i64 noundef %174, ptr noundef nonnull @.str.37) #16
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %.loopexit, label %177
 
@@ -6876,7 +6883,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %194 = and i32 %190, 8
   %195 = and i32 %194, %193
   %196 = lshr exact i32 %195, 3
-  %197 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %185, i64 noundef %187, ptr noundef nonnull @.str.54, i32 noundef %196) #15
+  %197 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %185, i64 noundef %187, ptr noundef nonnull @.str.54, i32 noundef %196) #16
   %.not105 = icmp eq i32 %197, 0
   br i1 %.not105, label %.loopexit, label %198
 
@@ -6892,7 +6899,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %203 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %202
   %204 = sub i32 1000, %.ph135
   %205 = sext i32 %204 to i64
-  %206 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %203, i64 noundef %205, ptr noundef nonnull @.str.38) #15
+  %206 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %203, i64 noundef %205, ptr noundef nonnull @.str.38) #16
   %207 = icmp eq i32 %206, 0
   br i1 %207, label %.loopexit, label %208
 
@@ -6919,7 +6926,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %225 = and i32 %221, 16
   %226 = and i32 %225, %224
   %227 = lshr exact i32 %226, 4
-  %228 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %216, i64 noundef %218, ptr noundef nonnull @.str.54, i32 noundef %227) #15
+  %228 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %216, i64 noundef %218, ptr noundef nonnull @.str.54, i32 noundef %227) #16
   %.not106 = icmp eq i32 %228, 0
   br i1 %.not106, label %.loopexit, label %229
 
@@ -6935,7 +6942,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %234 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %233
   %235 = sub i32 1000, %.ph138
   %236 = sext i32 %235 to i64
-  %237 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %234, i64 noundef %236, ptr noundef nonnull @.str.39) #15
+  %237 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %234, i64 noundef %236, ptr noundef nonnull @.str.39) #16
   %238 = icmp eq i32 %237, 0
   br i1 %238, label %.loopexit, label %239
 
@@ -6962,7 +6969,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %256 = and i32 %252, 32
   %257 = and i32 %256, %255
   %258 = lshr exact i32 %257, 5
-  %259 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %247, i64 noundef %249, ptr noundef nonnull @.str.54, i32 noundef %258) #15
+  %259 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %247, i64 noundef %249, ptr noundef nonnull @.str.54, i32 noundef %258) #16
   %.not107 = icmp eq i32 %259, 0
   br i1 %.not107, label %.loopexit, label %260
 
@@ -6978,7 +6985,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %265 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %264
   %266 = sub i32 1000, %.ph141
   %267 = sext i32 %266 to i64
-  %268 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %265, i64 noundef %267, ptr noundef nonnull @.str.40) #15
+  %268 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %265, i64 noundef %267, ptr noundef nonnull @.str.40) #16
   %269 = icmp eq i32 %268, 0
   br i1 %269, label %.loopexit, label %270
 
@@ -7005,7 +7012,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %287 = and i32 %283, 64
   %288 = and i32 %287, %286
   %289 = lshr exact i32 %288, 6
-  %290 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %278, i64 noundef %280, ptr noundef nonnull @.str.54, i32 noundef %289) #15
+  %290 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %278, i64 noundef %280, ptr noundef nonnull @.str.54, i32 noundef %289) #16
   %.not108 = icmp eq i32 %290, 0
   br i1 %.not108, label %.loopexit, label %291
 
@@ -7021,7 +7028,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %296 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %295
   %297 = sub i32 1000, %.ph144
   %298 = sext i32 %297 to i64
-  %299 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %296, i64 noundef %298, ptr noundef nonnull @.str.41) #15
+  %299 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %296, i64 noundef %298, ptr noundef nonnull @.str.41) #16
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %.loopexit, label %301
 
@@ -7048,7 +7055,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %318 = and i32 %314, 128
   %319 = and i32 %318, %317
   %320 = lshr exact i32 %319, 7
-  %321 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %309, i64 noundef %311, ptr noundef nonnull @.str.54, i32 noundef %320) #15
+  %321 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %309, i64 noundef %311, ptr noundef nonnull @.str.54, i32 noundef %320) #16
   %.not109 = icmp eq i32 %321, 0
   br i1 %.not109, label %.loopexit, label %322
 
@@ -7064,7 +7071,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %327 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %326
   %328 = sub i32 1000, %.ph147
   %329 = sext i32 %328 to i64
-  %330 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %327, i64 noundef %329, ptr noundef nonnull @.str.42) #15
+  %330 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %327, i64 noundef %329, ptr noundef nonnull @.str.42) #16
   %331 = icmp eq i32 %330, 0
   br i1 %331, label %.loopexit, label %332
 
@@ -7091,7 +7098,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %349 = and i32 %345, 256
   %350 = and i32 %349, %348
   %351 = lshr exact i32 %350, 8
-  %352 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %340, i64 noundef %342, ptr noundef nonnull @.str.54, i32 noundef %351) #15
+  %352 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %340, i64 noundef %342, ptr noundef nonnull @.str.54, i32 noundef %351) #16
   %.not110 = icmp eq i32 %352, 0
   br i1 %.not110, label %.loopexit, label %353
 
@@ -7107,7 +7114,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %358 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %357
   %359 = sub i32 1000, %.ph150
   %360 = sext i32 %359 to i64
-  %361 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %358, i64 noundef %360, ptr noundef nonnull @.str.43) #15
+  %361 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %358, i64 noundef %360, ptr noundef nonnull @.str.43) #16
   %362 = icmp eq i32 %361, 0
   br i1 %362, label %.loopexit, label %363
 
@@ -7134,7 +7141,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %380 = and i32 %376, 8192
   %381 = and i32 %380, %379
   %382 = lshr exact i32 %381, 13
-  %383 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %371, i64 noundef %373, ptr noundef nonnull @.str.54, i32 noundef %382) #15
+  %383 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %371, i64 noundef %373, ptr noundef nonnull @.str.54, i32 noundef %382) #16
   %.not111 = icmp eq i32 %383, 0
   br i1 %.not111, label %.loopexit, label %384
 
@@ -7150,7 +7157,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %389 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %388
   %390 = sub i32 1000, %.ph153
   %391 = sext i32 %390 to i64
-  %392 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %389, i64 noundef %391, ptr noundef nonnull @.str.44) #15
+  %392 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %389, i64 noundef %391, ptr noundef nonnull @.str.44) #16
   %393 = icmp eq i32 %392, 0
   br i1 %393, label %.loopexit, label %394
 
@@ -7177,7 +7184,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %411 = and i32 %407, 16384
   %412 = and i32 %411, %410
   %413 = lshr exact i32 %412, 14
-  %414 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %402, i64 noundef %404, ptr noundef nonnull @.str.54, i32 noundef %413) #15
+  %414 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %402, i64 noundef %404, ptr noundef nonnull @.str.54, i32 noundef %413) #16
   %.not112 = icmp eq i32 %414, 0
   br i1 %.not112, label %.loopexit, label %415
 
@@ -7193,7 +7200,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %420 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %419
   %421 = sub i32 1000, %.ph156
   %422 = sext i32 %421 to i64
-  %423 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %420, i64 noundef %422, ptr noundef nonnull @.str.45) #15
+  %423 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %420, i64 noundef %422, ptr noundef nonnull @.str.45) #16
   %424 = icmp eq i32 %423, 0
   br i1 %424, label %.loopexit, label %425
 
@@ -7220,7 +7227,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %442 = and i32 %438, 32768
   %443 = and i32 %442, %441
   %444 = lshr exact i32 %443, 15
-  %445 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %433, i64 noundef %435, ptr noundef nonnull @.str.54, i32 noundef %444) #15
+  %445 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %433, i64 noundef %435, ptr noundef nonnull @.str.54, i32 noundef %444) #16
   %.not113 = icmp eq i32 %445, 0
   br i1 %.not113, label %.loopexit, label %446
 
@@ -7236,7 +7243,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %451 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %450
   %452 = sub i32 1000, %.ph159
   %453 = sext i32 %452 to i64
-  %454 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %451, i64 noundef %453, ptr noundef nonnull @.str.46) #15
+  %454 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %451, i64 noundef %453, ptr noundef nonnull @.str.46) #16
   %455 = icmp eq i32 %454, 0
   br i1 %455, label %.loopexit, label %456
 
@@ -7263,7 +7270,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %473 = and i32 %469, 65536
   %474 = and i32 %473, %472
   %475 = lshr exact i32 %474, 16
-  %476 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %464, i64 noundef %466, ptr noundef nonnull @.str.54, i32 noundef %475) #15
+  %476 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %464, i64 noundef %466, ptr noundef nonnull @.str.54, i32 noundef %475) #16
   %.not114 = icmp eq i32 %476, 0
   br i1 %.not114, label %.loopexit, label %477
 
@@ -7279,7 +7286,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %482 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %481
   %483 = sub i32 1000, %.ph162
   %484 = sext i32 %483 to i64
-  %485 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %482, i64 noundef %484, ptr noundef nonnull @.str.47) #15
+  %485 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %482, i64 noundef %484, ptr noundef nonnull @.str.47) #16
   %486 = icmp eq i32 %485, 0
   br i1 %486, label %.loopexit, label %487
 
@@ -7306,7 +7313,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %504 = and i32 %500, 131072
   %505 = and i32 %504, %503
   %506 = lshr exact i32 %505, 17
-  %507 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %495, i64 noundef %497, ptr noundef nonnull @.str.54, i32 noundef %506) #15
+  %507 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %495, i64 noundef %497, ptr noundef nonnull @.str.54, i32 noundef %506) #16
   %.not115 = icmp eq i32 %507, 0
   br i1 %.not115, label %.loopexit, label %508
 
@@ -7322,7 +7329,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %513 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %512
   %514 = sub i32 1000, %.ph165
   %515 = sext i32 %514 to i64
-  %516 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %513, i64 noundef %515, ptr noundef nonnull @.str.48) #15
+  %516 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %513, i64 noundef %515, ptr noundef nonnull @.str.48) #16
   %517 = icmp eq i32 %516, 0
   br i1 %517, label %.loopexit, label %518
 
@@ -7349,7 +7356,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %535 = and i32 %531, 524288
   %536 = and i32 %535, %534
   %537 = lshr exact i32 %536, 19
-  %538 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %526, i64 noundef %528, ptr noundef nonnull @.str.54, i32 noundef %537) #15
+  %538 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %526, i64 noundef %528, ptr noundef nonnull @.str.54, i32 noundef %537) #16
   %.not116 = icmp eq i32 %538, 0
   br i1 %.not116, label %.loopexit, label %539
 
@@ -7365,7 +7372,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %544 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %543
   %545 = sub i32 1000, %.ph168
   %546 = sext i32 %545 to i64
-  %547 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %544, i64 noundef %546, ptr noundef nonnull @.str.49) #15
+  %547 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %544, i64 noundef %546, ptr noundef nonnull @.str.49) #16
   %548 = icmp eq i32 %547, 0
   br i1 %548, label %.loopexit, label %549
 
@@ -7392,7 +7399,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %566 = and i32 %562, 1048576
   %567 = and i32 %566, %565
   %568 = lshr exact i32 %567, 20
-  %569 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %557, i64 noundef %559, ptr noundef nonnull @.str.54, i32 noundef %568) #15
+  %569 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %557, i64 noundef %559, ptr noundef nonnull @.str.54, i32 noundef %568) #16
   %.not117 = icmp eq i32 %569, 0
   br i1 %.not117, label %.loopexit, label %570
 
@@ -7408,7 +7415,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %575 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %574
   %576 = sub i32 1000, %.ph171
   %577 = sext i32 %576 to i64
-  %578 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %575, i64 noundef %577, ptr noundef nonnull @.str.50) #15
+  %578 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %575, i64 noundef %577, ptr noundef nonnull @.str.50) #16
   %579 = icmp eq i32 %578, 0
   br i1 %579, label %.loopexit, label %580
 
@@ -7435,7 +7442,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %597 = and i32 %593, 2097152
   %598 = and i32 %597, %596
   %599 = lshr exact i32 %598, 21
-  %600 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %588, i64 noundef %590, ptr noundef nonnull @.str.54, i32 noundef %599) #15
+  %600 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %588, i64 noundef %590, ptr noundef nonnull @.str.54, i32 noundef %599) #16
   %.not118 = icmp eq i32 %600, 0
   br i1 %.not118, label %.loopexit, label %601
 
@@ -7451,17 +7458,17 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %606 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %605
   %607 = sub i32 1000, %.ph174
   %608 = sext i32 %607 to i64
-  %609 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %606, i64 noundef %608, ptr noundef nonnull @.str.51) #15
+  %609 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %606, i64 noundef %608, ptr noundef nonnull @.str.51) #16
   %610 = icmp eq i32 %609, 0
   br i1 %610, label %.loopexit, label %611
 
 611:                                              ; preds = %.loopexit, %.loopexit176
-  tail call void @mutex_unlock(ptr noundef nonnull @cdrom_mutex) #15
-  %612 = tail call i32 @proc_dostring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #15
+  tail call void @mutex_unlock(ptr noundef nonnull @cdrom_mutex) #16
+  %612 = tail call i32 @proc_dostring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
   br label %614
 
 .loopexit:                                        ; preds = %.preheader231, %.preheader228, %.preheader225, %.preheader222, %.preheader219, %.preheader216, %.preheader213, %.preheader210, %.preheader207, %.preheader204, %.preheader201, %.preheader198, %.preheader195, %.preheader192, %.preheader189, %.preheader186, %.preheader183, %.preheader180, %.preheader177, %.preheader, %.loopexit179, %.loopexit182, %.loopexit185, %.loopexit188, %.loopexit191, %.loopexit194, %.loopexit197, %.loopexit200, %.loopexit203, %.loopexit206, %.loopexit209, %.loopexit212, %.loopexit215, %.loopexit218, %.loopexit221, %.loopexit224, %.loopexit227, %.loopexit230, %.loopexit233, %14, %.loopexit176
-  %613 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52) #14
+  %613 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52) #15
   br label %611
 
 614:                                              ; preds = %611, %13
@@ -7471,7 +7478,7 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @cdrom_sysctl_handler(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
-  %6 = tail call i32 @proc_dointvec(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #15
+  %6 = tail call i32 @proc_dointvec(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
   %7 = icmp eq i32 %1, 0
   br i1 %7, label %174, label %8
 
@@ -7496,7 +7503,7 @@ define internal i32 @cdrom_sysctl_handler(ptr noundef %0, i32 noundef %1, ptr no
   %22 = icmp ne i32 %21, 0
   %23 = zext i1 %22 to i8
   store i8 %23, ptr @check_media_type, align 1
-  tail call void @mutex_lock(ptr noundef nonnull @cdrom_mutex) #15
+  tail call void @mutex_lock(ptr noundef nonnull @cdrom_mutex) #16
   %24 = load ptr, ptr @cdrom_list, align 8
   %25 = icmp eq ptr %24, @cdrom_list
   br i1 %25, label %.loopexit, label %26
@@ -7733,7 +7740,7 @@ define internal i32 @cdrom_sysctl_handler(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %173, label %.loopexit, label %.split.split.split, !llvm.loop !57
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge9, %.split.split.us.split, %.split.split.us.split.us, %70, %8
-  tail call void @mutex_unlock(ptr noundef nonnull @cdrom_mutex) #15
+  tail call void @mutex_unlock(ptr noundef nonnull @cdrom_mutex) #16
   br label %174
 
 174:                                              ; preds = %.loopexit, %5
@@ -7778,11 +7785,12 @@ attributes #10 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" 
 attributes #11 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
 attributes #13 = { nocallback nounwind }
-attributes #14 = { cold nounwind }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind allocsize(2) }
-attributes #17 = { nounwind allocsize(0) }
-attributes #18 = { nounwind memory(none) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { cold nounwind }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind allocsize(2) }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind memory(none) }
 
 !llvm.named.register.rsp = !{!0}
 !llvm.module.flags = !{!1, !2, !3, !4, !5}

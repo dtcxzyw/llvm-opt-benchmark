@@ -1227,8 +1227,8 @@ define dso_local void @mod_zone_page_state(ptr noundef %0, i32 noundef %1, i64 n
   %9 = getelementptr inbounds i8, ptr %5, i64 10
   br label %10
 
-10:                                               ; preds = %23, %3
-  %11 = phi i8 [ %8, %3 ], [ %24, %23 ]
+10:                                               ; preds = %24, %3
+  %11 = phi i8 [ %8, %3 ], [ %25, %24 ]
   %12 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9) #17, !srcloc !51
   %13 = sext i8 %12 to i64
   %14 = sext i8 %11 to i64
@@ -1239,27 +1239,29 @@ define dso_local void @mod_zone_page_state(ptr noundef %0, i32 noundef %1, i64 n
   %19 = select i1 %17, i8 %18, i8 0
   %20 = tail call { i8, i8 } asm sideeffect "cmpxchgb $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,q,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %7, i8 %19, i8 %11, ptr elementtype(i8) %7) #17, !srcloc !52
   %21 = extractvalue { i8, i8 } %20, 0
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %23, label %25, !prof !33
+  %22 = icmp ult i8 %21, 2
+  tail call void @llvm.assume(i1 %22)
+  %23 = icmp eq i8 %21, 0
+  br i1 %23, label %24, label %26, !prof !33
 
-23:                                               ; preds = %10
-  %24 = extractvalue { i8, i8 } %20, 1
+24:                                               ; preds = %10
+  %25 = extractvalue { i8, i8 } %20, 1
   br label %10, !llvm.loop !53
 
-25:                                               ; preds = %10
-  %26 = icmp eq i64 %15, 0
-  %27 = or i1 %26, %17
-  br i1 %27, label %32, label %28
+26:                                               ; preds = %10
+  %27 = icmp eq i64 %15, 0
+  %28 = or i1 %27, %17
+  br i1 %28, label %33, label %29
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 1088
-  %30 = getelementptr [10 x %struct.atomic64_t], ptr %29, i64 0, i64 %6
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %30, i64 %15, ptr elementtype(i64) %30) #17, !srcloc !21
-  %31 = getelementptr [10 x %struct.atomic64_t], ptr @vm_zone_stat, i64 0, i64 %6
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %0, i64 1088
+  %31 = getelementptr [10 x %struct.atomic64_t], ptr %30, i64 0, i64 %6
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %31, i64 %15, ptr elementtype(i64) %31) #17, !srcloc !21
-  br label %32
+  %32 = getelementptr [10 x %struct.atomic64_t], ptr @vm_zone_stat, i64 0, i64 %6
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %32, i64 %15, ptr elementtype(i64) %32) #17, !srcloc !21
+  br label %33
 
-32:                                               ; preds = %28, %25
+33:                                               ; preds = %29, %26
   ret void
 }
 
@@ -1280,8 +1282,8 @@ define dso_local void @inc_zone_page_state(ptr nocapture noundef readonly %0, i3
   %15 = getelementptr inbounds i8, ptr %11, i64 10
   br label %16
 
-16:                                               ; preds = %31, %2
-  %17 = phi i8 [ %14, %2 ], [ %32, %31 ]
+16:                                               ; preds = %32, %2
+  %17 = phi i8 [ %14, %2 ], [ %33, %32 ]
   %18 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %15) #17, !srcloc !51
   %19 = sext i8 %18 to i64
   %20 = sext i8 %17 to i64
@@ -1294,28 +1296,30 @@ define dso_local void @inc_zone_page_state(ptr nocapture noundef readonly %0, i3
   %27 = trunc i64 %26 to i8
   %28 = tail call { i8, i8 } asm sideeffect "cmpxchgb $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,q,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %13, i8 %27, i8 %17, ptr elementtype(i8) %13) #17, !srcloc !52
   %29 = extractvalue { i8, i8 } %28, 0
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %31, label %33, !prof !33
+  %30 = icmp ult i8 %29, 2
+  tail call void @llvm.assume(i1 %30)
+  %31 = icmp eq i8 %29, 0
+  br i1 %31, label %32, label %34, !prof !33
 
-31:                                               ; preds = %16
-  %32 = extractvalue { i8, i8 } %28, 1
+32:                                               ; preds = %16
+  %33 = extractvalue { i8, i8 } %28, 1
   br label %16, !llvm.loop !53
 
-33:                                               ; preds = %16
-  %34 = add nsw i64 %24, %21
-  %35 = icmp eq i64 %34, 0
-  %36 = select i1 %23, i1 true, i1 %35
-  br i1 %36, label %41, label %37
+34:                                               ; preds = %16
+  %35 = add nsw i64 %24, %21
+  %36 = icmp eq i64 %35, 0
+  %37 = select i1 %23, i1 true, i1 %36
+  br i1 %37, label %42, label %38
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %9, i64 1088
-  %39 = getelementptr [10 x %struct.atomic64_t], ptr %38, i64 0, i64 %12
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %39, i64 %34, ptr elementtype(i64) %39) #17, !srcloc !21
-  %40 = getelementptr [10 x %struct.atomic64_t], ptr @vm_zone_stat, i64 0, i64 %12
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %40, i64 %34, ptr elementtype(i64) %40) #17, !srcloc !21
-  br label %41
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds i8, ptr %9, i64 1088
+  %40 = getelementptr [10 x %struct.atomic64_t], ptr %39, i64 0, i64 %12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %40, i64 %35, ptr elementtype(i64) %40) #17, !srcloc !21
+  %41 = getelementptr [10 x %struct.atomic64_t], ptr @vm_zone_stat, i64 0, i64 %12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %41, i64 %35, ptr elementtype(i64) %41) #17, !srcloc !21
+  br label %42
 
-41:                                               ; preds = %37, %33
+42:                                               ; preds = %38, %34
   ret void
 }
 
@@ -1336,8 +1340,8 @@ define dso_local void @dec_zone_page_state(ptr nocapture noundef readonly %0, i3
   %15 = getelementptr inbounds i8, ptr %11, i64 10
   br label %16
 
-16:                                               ; preds = %30, %2
-  %17 = phi i8 [ %14, %2 ], [ %31, %30 ]
+16:                                               ; preds = %31, %2
+  %17 = phi i8 [ %14, %2 ], [ %32, %31 ]
   %18 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %15) #17, !srcloc !51
   %19 = sext i8 %18 to i64
   %20 = sext i8 %17 to i64
@@ -1349,28 +1353,30 @@ define dso_local void @dec_zone_page_state(ptr nocapture noundef readonly %0, i3
   %26 = trunc i64 %25 to i8
   %27 = tail call { i8, i8 } asm sideeffect "cmpxchgb $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,q,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %13, i8 %26, i8 %17, ptr elementtype(i8) %13) #17, !srcloc !52
   %28 = extractvalue { i8, i8 } %27, 0
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %30, label %32, !prof !33
+  %29 = icmp ult i8 %28, 2
+  tail call void @llvm.assume(i1 %29)
+  %30 = icmp eq i8 %28, 0
+  br i1 %30, label %31, label %33, !prof !33
 
-30:                                               ; preds = %16
-  %31 = extractvalue { i8, i8 } %27, 1
+31:                                               ; preds = %16
+  %32 = extractvalue { i8, i8 } %27, 1
   br label %16, !llvm.loop !53
 
-32:                                               ; preds = %16
-  %33 = icmp eq i64 %21, %24
-  %34 = or i1 %23, %33
-  br i1 %34, label %40, label %35
+33:                                               ; preds = %16
+  %34 = icmp eq i64 %21, %24
+  %35 = or i1 %23, %34
+  br i1 %35, label %41, label %36
 
-35:                                               ; preds = %32
-  %36 = sub nsw i64 %21, %24
-  %37 = getelementptr inbounds i8, ptr %9, i64 1088
-  %38 = getelementptr [10 x %struct.atomic64_t], ptr %37, i64 0, i64 %12
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %38, i64 %36, ptr elementtype(i64) %38) #17, !srcloc !21
-  %39 = getelementptr [10 x %struct.atomic64_t], ptr @vm_zone_stat, i64 0, i64 %12
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %39, i64 %36, ptr elementtype(i64) %39) #17, !srcloc !21
-  br label %40
+36:                                               ; preds = %33
+  %37 = sub nsw i64 %21, %24
+  %38 = getelementptr inbounds i8, ptr %9, i64 1088
+  %39 = getelementptr [10 x %struct.atomic64_t], ptr %38, i64 0, i64 %12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %39, i64 %37, ptr elementtype(i64) %39) #17, !srcloc !21
+  %40 = getelementptr [10 x %struct.atomic64_t], ptr @vm_zone_stat, i64 0, i64 %12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %40, i64 %37, ptr elementtype(i64) %40) #17, !srcloc !21
+  br label %41
 
-40:                                               ; preds = %35, %32
+41:                                               ; preds = %36, %33
   ret void
 }
 
@@ -1390,8 +1396,8 @@ define dso_local void @mod_node_page_state(ptr noundef %0, i32 noundef %1, i64 n
   %15 = sext i32 %13 to i64
   br label %16
 
-16:                                               ; preds = %29, %3
-  %17 = phi i8 [ %14, %3 ], [ %30, %29 ]
+16:                                               ; preds = %30, %3
+  %17 = phi i8 [ %14, %3 ], [ %31, %30 ]
   %18 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %6) #17, !srcloc !55
   %19 = sext i8 %18 to i64
   %20 = sext i8 %17 to i64
@@ -1402,27 +1408,29 @@ define dso_local void @mod_node_page_state(ptr noundef %0, i32 noundef %1, i64 n
   %25 = select i1 %23, i8 %24, i8 0
   %26 = tail call { i8, i8 } asm sideeffect "cmpxchgb $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,q,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9, i8 %25, i8 %17, ptr elementtype(i8) %9) #17, !srcloc !56
   %27 = extractvalue { i8, i8 } %26, 0
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %29, label %31, !prof !33
+  %28 = icmp ult i8 %27, 2
+  tail call void @llvm.assume(i1 %28)
+  %29 = icmp eq i8 %27, 0
+  br i1 %29, label %30, label %32, !prof !33
 
-29:                                               ; preds = %16
-  %30 = extractvalue { i8, i8 } %26, 1
+30:                                               ; preds = %16
+  %31 = extractvalue { i8, i8 } %26, 1
   br label %16, !llvm.loop !57
 
-31:                                               ; preds = %16
-  %32 = icmp eq i64 %21, 0
-  %33 = or i1 %32, %23
-  br i1 %33, label %38, label %34
+32:                                               ; preds = %16
+  %33 = icmp eq i64 %21, 0
+  %34 = or i1 %33, %23
+  br i1 %34, label %39, label %35
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %0, i64 13640
-  %36 = getelementptr [44 x %struct.atomic64_t], ptr %35, i64 0, i64 %8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %36, i64 %21, ptr elementtype(i64) %36) #17, !srcloc !21
-  %37 = getelementptr [44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 %8
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %0, i64 13640
+  %37 = getelementptr [44 x %struct.atomic64_t], ptr %36, i64 0, i64 %8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %37, i64 %21, ptr elementtype(i64) %37) #17, !srcloc !21
-  br label %38
+  %38 = getelementptr [44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 %8
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %38, i64 %21, ptr elementtype(i64) %38) #17, !srcloc !21
+  br label %39
 
-38:                                               ; preds = %34, %31
+39:                                               ; preds = %35, %32
   ret void
 }
 
@@ -1439,8 +1447,8 @@ define dso_local void @inc_node_state(ptr noundef %0, i32 noundef %1) local_unna
   %11 = zext i1 %9 to i64
   br label %12
 
-12:                                               ; preds = %27, %2
-  %13 = phi i8 [ %10, %2 ], [ %28, %27 ]
+12:                                               ; preds = %28, %2
+  %13 = phi i8 [ %10, %2 ], [ %29, %28 ]
   %14 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4) #17, !srcloc !55
   %15 = sext i8 %14 to i64
   %16 = sext i8 %13 to i64
@@ -1453,28 +1461,30 @@ define dso_local void @inc_node_state(ptr noundef %0, i32 noundef %1) local_unna
   %23 = trunc i64 %22 to i8
   %24 = tail call { i8, i8 } asm sideeffect "cmpxchgb $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,q,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %7, i8 %23, i8 %13, ptr elementtype(i8) %7) #17, !srcloc !56
   %25 = extractvalue { i8, i8 } %24, 0
-  %26 = icmp eq i8 %25, 0
-  br i1 %26, label %27, label %29, !prof !33
+  %26 = icmp ult i8 %25, 2
+  tail call void @llvm.assume(i1 %26)
+  %27 = icmp eq i8 %25, 0
+  br i1 %27, label %28, label %30, !prof !33
 
-27:                                               ; preds = %12
-  %28 = extractvalue { i8, i8 } %24, 1
+28:                                               ; preds = %12
+  %29 = extractvalue { i8, i8 } %24, 1
   br label %12, !llvm.loop !57
 
-29:                                               ; preds = %12
-  %30 = add nsw i64 %20, %17
-  %31 = icmp eq i64 %30, 0
-  %32 = select i1 %19, i1 true, i1 %31
-  br i1 %32, label %37, label %33
+30:                                               ; preds = %12
+  %31 = add nsw i64 %20, %17
+  %32 = icmp eq i64 %31, 0
+  %33 = select i1 %19, i1 true, i1 %32
+  br i1 %33, label %38, label %34
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 13640
-  %35 = getelementptr [44 x %struct.atomic64_t], ptr %34, i64 0, i64 %6
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %35, i64 %30, ptr elementtype(i64) %35) #17, !srcloc !21
-  %36 = getelementptr [44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 %6
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %36, i64 %30, ptr elementtype(i64) %36) #17, !srcloc !21
-  br label %37
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds i8, ptr %0, i64 13640
+  %36 = getelementptr [44 x %struct.atomic64_t], ptr %35, i64 0, i64 %6
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %36, i64 %31, ptr elementtype(i64) %36) #17, !srcloc !21
+  %37 = getelementptr [44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 %6
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %37, i64 %31, ptr elementtype(i64) %37) #17, !srcloc !21
+  br label %38
 
-37:                                               ; preds = %33, %29
+38:                                               ; preds = %34, %30
   ret void
 }
 
@@ -1495,8 +1505,8 @@ define dso_local void @inc_node_page_state(ptr nocapture noundef readonly %0, i3
   %15 = zext i1 %13 to i64
   br label %16
 
-16:                                               ; preds = %31, %2
-  %17 = phi i8 [ %14, %2 ], [ %32, %31 ]
+16:                                               ; preds = %32, %2
+  %17 = phi i8 [ %14, %2 ], [ %33, %32 ]
   %18 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %8) #17, !srcloc !55
   %19 = sext i8 %18 to i64
   %20 = sext i8 %17 to i64
@@ -1509,28 +1519,30 @@ define dso_local void @inc_node_page_state(ptr nocapture noundef readonly %0, i3
   %27 = trunc i64 %26 to i8
   %28 = tail call { i8, i8 } asm sideeffect "cmpxchgb $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,q,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %11, i8 %27, i8 %17, ptr elementtype(i8) %11) #17, !srcloc !56
   %29 = extractvalue { i8, i8 } %28, 0
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %31, label %33, !prof !33
+  %30 = icmp ult i8 %29, 2
+  tail call void @llvm.assume(i1 %30)
+  %31 = icmp eq i8 %29, 0
+  br i1 %31, label %32, label %34, !prof !33
 
-31:                                               ; preds = %16
-  %32 = extractvalue { i8, i8 } %28, 1
+32:                                               ; preds = %16
+  %33 = extractvalue { i8, i8 } %28, 1
   br label %16, !llvm.loop !57
 
-33:                                               ; preds = %16
-  %34 = add nsw i64 %24, %21
-  %35 = icmp eq i64 %34, 0
-  %36 = select i1 %23, i1 true, i1 %35
-  br i1 %36, label %41, label %37
+34:                                               ; preds = %16
+  %35 = add nsw i64 %24, %21
+  %36 = icmp eq i64 %35, 0
+  %37 = select i1 %23, i1 true, i1 %36
+  br i1 %37, label %42, label %38
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %6, i64 13640
-  %39 = getelementptr [44 x %struct.atomic64_t], ptr %38, i64 0, i64 %10
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %39, i64 %34, ptr elementtype(i64) %39) #17, !srcloc !21
-  %40 = getelementptr [44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 %10
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %40, i64 %34, ptr elementtype(i64) %40) #17, !srcloc !21
-  br label %41
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds i8, ptr %6, i64 13640
+  %40 = getelementptr [44 x %struct.atomic64_t], ptr %39, i64 0, i64 %10
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %40, i64 %35, ptr elementtype(i64) %40) #17, !srcloc !21
+  %41 = getelementptr [44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 %10
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %41, i64 %35, ptr elementtype(i64) %41) #17, !srcloc !21
+  br label %42
 
-41:                                               ; preds = %37, %33
+42:                                               ; preds = %38, %34
   ret void
 }
 
@@ -1548,8 +1560,8 @@ define dso_local void @dec_node_page_state(ptr nocapture noundef readonly %0, i3
   %12 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %11) #17, !srcloc !54
   br label %13
 
-13:                                               ; preds = %27, %2
-  %14 = phi i8 [ %12, %2 ], [ %28, %27 ]
+13:                                               ; preds = %28, %2
+  %14 = phi i8 [ %12, %2 ], [ %29, %28 ]
   %15 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %8) #17, !srcloc !55
   %16 = sext i8 %15 to i64
   %17 = sext i8 %14 to i64
@@ -1561,28 +1573,30 @@ define dso_local void @dec_node_page_state(ptr nocapture noundef readonly %0, i3
   %23 = trunc i64 %22 to i8
   %24 = tail call { i8, i8 } asm sideeffect "cmpxchgb $3, %gs:$2\0A\09/* output condition code z*/\0A", "={@ccz},={ax},=*m,q,1,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %11, i8 %23, i8 %14, ptr elementtype(i8) %11) #17, !srcloc !56
   %25 = extractvalue { i8, i8 } %24, 0
-  %26 = icmp eq i8 %25, 0
-  br i1 %26, label %27, label %29, !prof !33
+  %26 = icmp ult i8 %25, 2
+  tail call void @llvm.assume(i1 %26)
+  %27 = icmp eq i8 %25, 0
+  br i1 %27, label %28, label %30, !prof !33
 
-27:                                               ; preds = %13
-  %28 = extractvalue { i8, i8 } %24, 1
+28:                                               ; preds = %13
+  %29 = extractvalue { i8, i8 } %24, 1
   br label %13, !llvm.loop !57
 
-29:                                               ; preds = %13
-  %30 = icmp eq i64 %18, %21
-  %31 = or i1 %20, %30
-  br i1 %31, label %37, label %32
+30:                                               ; preds = %13
+  %31 = icmp eq i64 %18, %21
+  %32 = or i1 %20, %31
+  br i1 %32, label %38, label %33
 
-32:                                               ; preds = %29
-  %33 = sub nsw i64 %18, %21
-  %34 = getelementptr inbounds i8, ptr %6, i64 13640
-  %35 = getelementptr [44 x %struct.atomic64_t], ptr %34, i64 0, i64 %10
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %35, i64 %33, ptr elementtype(i64) %35) #17, !srcloc !21
-  %36 = getelementptr [44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 %10
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %36, i64 %33, ptr elementtype(i64) %36) #17, !srcloc !21
-  br label %37
+33:                                               ; preds = %30
+  %34 = sub nsw i64 %18, %21
+  %35 = getelementptr inbounds i8, ptr %6, i64 13640
+  %36 = getelementptr [44 x %struct.atomic64_t], ptr %35, i64 0, i64 %10
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %36, i64 %34, ptr elementtype(i64) %36) #17, !srcloc !21
+  %37 = getelementptr [44 x %struct.atomic64_t], ptr @vm_node_stat, i64 0, i64 %10
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %37, i64 %34, ptr elementtype(i64) %37) #17, !srcloc !21
+  br label %38
 
-37:                                               ; preds = %32, %29
+38:                                               ; preds = %33, %30
   ret void
 }
 

@@ -6611,7 +6611,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   %99 = lshr i64 %93, 6
   %100 = and i64 %99, 127
   %101 = or disjoint i64 %98, %100
-  %102 = icmp ult i64 %101, 2432
+  %102 = icmp ult i8 %96, 19
   br i1 %102, label %103, label %112, !prof !1704
 
 103:                                              ; preds = %92
@@ -6622,7 +6622,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   %108 = lshr i64 %93, 2
   %109 = and i64 %108, 15
   %110 = or disjoint i64 %107, %109
-  %111 = icmp ult i64 %110, 3888
+  %111 = icmp ult i8 %105, -13
   br i1 %111, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i, label %113, !prof !1704
 
 112:                                              ; preds = %92
@@ -6778,7 +6778,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h304ea45458397283E(ptr no
   %63 = lshr i64 %57, 6
   %64 = and i64 %63, 127
   %65 = or disjoint i64 %62, %64
-  %66 = icmp ult i64 %65, 2432
+  %66 = icmp ult i8 %60, 19
   br i1 %66, label %67, label %76, !prof !1704
 
 67:                                               ; preds = %56
@@ -6789,7 +6789,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h304ea45458397283E(ptr no
   %72 = lshr i64 %57, 2
   %73 = and i64 %72, 15
   %74 = or disjoint i64 %71, %73
-  %75 = icmp ult i64 %74, 3888
+  %75 = icmp ult i8 %69, -13
   br i1 %75, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i, label %77, !prof !1704
 
 76:                                               ; preds = %56
@@ -7030,7 +7030,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   %100 = lshr i64 %94, 6
   %101 = and i64 %100, 127
   %102 = or disjoint i64 %99, %101
-  %103 = icmp ult i64 %102, 2432
+  %103 = icmp ult i8 %97, 19
   br i1 %103, label %104, label %113, !prof !1704
 
 104:                                              ; preds = %93
@@ -7041,7 +7041,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   %109 = lshr i64 %94, 2
   %110 = and i64 %109, 15
   %111 = or disjoint i64 %108, %110
-  %112 = icmp ult i64 %111, 3888
+  %112 = icmp ult i8 %106, -13
   br i1 %112, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i, label %114, !prof !1704
 
 113:                                              ; preds = %93
@@ -7220,7 +7220,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h73c9dcaae18258f8E(ptr no
   %65 = lshr i64 %59, 6
   %66 = and i64 %65, 127
   %67 = or disjoint i64 %64, %66
-  %68 = icmp ult i64 %67, 2432
+  %68 = icmp ult i8 %62, 19
   br i1 %68, label %69, label %78, !prof !1704
 
 69:                                               ; preds = %58
@@ -7231,7 +7231,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17h73c9dcaae18258f8E(ptr no
   %74 = lshr i64 %59, 2
   %75 = and i64 %74, 15
   %76 = or disjoint i64 %73, %75
-  %77 = icmp ult i64 %76, 3888
+  %77 = icmp ult i8 %71, -13
   br i1 %77, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i, label %79, !prof !1704
 
 78:                                               ; preds = %58
@@ -7723,7 +7723,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hdd4d346aa60db2b0E(ptr no
   %66 = lshr i64 %60, 6
   %67 = and i64 %66, 127
   %68 = or disjoint i64 %65, %67
-  %69 = icmp ult i64 %68, 2432
+  %69 = icmp ult i8 %63, 19
   br i1 %69, label %70, label %79, !prof !1704
 
 70:                                               ; preds = %59
@@ -7734,7 +7734,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hdd4d346aa60db2b0E(ptr no
   %75 = lshr i64 %60, 2
   %76 = and i64 %75, 15
   %77 = or disjoint i64 %74, %76
-  %78 = icmp ult i64 %77, 3888
+  %78 = icmp ult i8 %72, -13
   br i1 %78, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i, label %80, !prof !1704
 
 79:                                               ; preds = %59
@@ -8077,7 +8077,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hedd3da4308658450E(ptr no
   %67 = lshr i64 %61, 6
   %68 = and i64 %67, 127
   %69 = or disjoint i64 %66, %68
-  %70 = icmp ult i64 %69, 2432
+  %70 = icmp ult i8 %64, 19
   br i1 %70, label %71, label %80, !prof !1704
 
 71:                                               ; preds = %60
@@ -8088,7 +8088,7 @@ define internal fastcc void @_ZN5uu_wc13process_chunk17hedd3da4308658450E(ptr no
   %76 = lshr i64 %61, 2
   %77 = and i64 %76, 15
   %78 = or disjoint i64 %75, %77
-  %79 = icmp ult i64 %78, 3888
+  %79 = icmp ult i8 %73, -13
   br i1 %79, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i, label %81, !prof !1704
 
 80:                                               ; preds = %60
@@ -8347,7 +8347,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   %102 = lshr i64 %96, 6
   %103 = and i64 %102, 127
   %104 = or disjoint i64 %101, %103
-  %105 = icmp ult i64 %104, 2432
+  %105 = icmp ult i8 %99, 19
   br i1 %105, label %106, label %115, !prof !1704
 
 106:                                              ; preds = %95
@@ -8358,7 +8358,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   %111 = lshr i64 %96, 2
   %112 = and i64 %111, 15
   %113 = or disjoint i64 %110, %112
-  %114 = icmp ult i64 %113, 3888
+  %114 = icmp ult i8 %108, -13
   br i1 %114, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i, label %116, !prof !1704
 
 115:                                              ; preds = %95
@@ -8614,7 +8614,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   %101 = lshr i64 %95, 6
   %102 = and i64 %101, 127
   %103 = or disjoint i64 %100, %102
-  %104 = icmp ult i64 %103, 2432
+  %104 = icmp ult i8 %98, 19
   br i1 %104, label %105, label %114, !prof !1704
 
 105:                                              ; preds = %94
@@ -8625,7 +8625,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   %110 = lshr i64 %95, 2
   %111 = and i64 %110, 15
   %112 = or disjoint i64 %109, %111
-  %113 = icmp ult i64 %112, 3888
+  %113 = icmp ult i8 %107, -13
   br i1 %113, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i, label %115, !prof !1704
 
 114:                                              ; preds = %94

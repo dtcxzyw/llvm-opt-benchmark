@@ -734,7 +734,7 @@ define void @Aig_CManAddPo(ptr nocapture noundef %0, i32 noundef %1) local_unnam
   %29 = sub nsw i32 %4, %1
   %30 = shl i32 %29, 1
   %31 = or disjoint i32 %30, 1
-  %.not5.i21 = icmp ult i32 %31, 128
+  %.not5.i21 = icmp ult i32 %30, 128
   br i1 %.not5.i21, label %Aig_CManStoreNum.exit, label %.lr.ph.i22
 
 .lr.ph.i22:                                       ; preds = %28
@@ -1155,7 +1155,7 @@ Aig_ObjFaninId0.exit49:                           ; preds = %.lr.ph68, %92
   %122 = sub nsw i32 %102, %101
   %123 = shl i32 %122, 1
   %124 = or disjoint i32 %123, 1
-  %.not5.i21.i = icmp ult i32 %124, 128
+  %.not5.i21.i = icmp ult i32 %123, 128
   br i1 %.not5.i21.i, label %Aig_CManAddPo.exit, label %.lr.ph.i22.i
 
 .lr.ph.i22.i:                                     ; preds = %121, %.lr.ph.i22.i

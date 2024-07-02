@@ -18595,7 +18595,7 @@ _ZN5gimli4read6reader6Reader12read_uleb12817hd5eeb575a80e5ebbE.exit.i: ; preds =
   %.sroa.3.sroa.11.0.insert.ext127.i = zext i48 %.sroa.44.sroa.53.4.ph.i to i64
   %.sroa.3.sroa.11.0.insert.shift128.i = shl nuw i64 %.sroa.3.sroa.11.0.insert.ext127.i, 16
   %.sroa.3.sroa.0.0.insert.insert103.i = or disjoint i64 %.sroa.3.sroa.0.sroa.0.0.insert.insert162.i, %.sroa.3.sroa.11.0.insert.shift128.i
-  %594 = icmp slt i64 %.sroa.3.sroa.0.0.insert.insert103.i, 0
+  %594 = icmp slt i64 %.sroa.3.sroa.11.0.insert.shift128.i, 0
   br i1 %594, label %632, label %629
 
 595:                                              ; preds = %"_ZN5gimli4read4line25LineInstructions$LT$R$GT$16next_instruction17hfb1f37c344452d8bE.exit.i"

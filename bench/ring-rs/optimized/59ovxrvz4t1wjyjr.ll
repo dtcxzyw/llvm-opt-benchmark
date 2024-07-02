@@ -2185,15 +2185,15 @@ define void @_ZN4ring4test15parse_test_case17h56558da9db1a9fdaE(ptr noalias noca
   br i1 %153, label %_ZN5alloc6string6String3pop17hda4727335b5a2109E.exit.thread, label %154
 
 154:                                              ; preds = %148
-  %155 = icmp ult i32 %152, 128
+  %155 = icmp ult i32 %.013.i.i, 2
   br i1 %155, label %_ZN5alloc6string6String3pop17hda4727335b5a2109E.exit, label %156
 
 156:                                              ; preds = %154
-  %157 = icmp ult i32 %152, 2048
+  %157 = icmp ult i32 %.013.i.i, 32
   br i1 %157, label %_ZN5alloc6string6String3pop17hda4727335b5a2109E.exit, label %158
 
 158:                                              ; preds = %156
-  %159 = icmp ult i32 %152, 65536
+  %159 = icmp ult i32 %.013.i.i, 1024
   %..i = select i1 %159, i64 -3, i64 -4
   br label %_ZN5alloc6string6String3pop17hda4727335b5a2109E.exit
 

@@ -56959,7 +56959,7 @@ _ZN5typst4math8fragment12MathFragment6ascent17hb0484c60265da4fcE.exit294.i: ; pr
 .lr.ph.i:                                         ; preds = %.outer.i, %.lr.ph.preheader.i
   %.1.ph468.i = phi double [ %.2.i, %.outer.i ], [ %.0.i, %.lr.ph.preheader.i ]
   %.1433.ph467.i = phi double [ %.2434.i, %.outer.i ], [ %.0432.i, %.lr.ph.preheader.i ]
-  %.lcssa454463466.i = phi i64 [ %572, %.outer.i ], [ 0, %.lr.ph.preheader.i ]
+  %.lcssa454463466.i = phi i64 [ 1, %.outer.i ], [ 0, %.lr.ph.preheader.i ]
   %565 = fneg double %.1.ph468.i
   %566 = bitcast double %565 to i64
   %567 = and i64 %566, 9218868437227405312
@@ -56971,7 +56971,7 @@ _ZN5typst4math8fragment12MathFragment6ascent17hb0484c60265da4fcE.exit294.i: ; pr
   br label %570
 
 570:                                              ; preds = %"_ZN69_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6153c203e42a2d4eE.exit.thread.i", %.lr.ph.i
-  %571 = phi i64 [ %.lcssa454463466.i, %.lr.ph.i ], [ %572, %"_ZN69_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6153c203e42a2d4eE.exit.thread.i" ]
+  %571 = phi i64 [ %.lcssa454463466.i, %.lr.ph.i ], [ 1, %"_ZN69_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6153c203e42a2d4eE.exit.thread.i" ]
   %572 = add nuw nsw i64 %571, 1
   %573 = getelementptr inbounds { [2 x i64] }, ptr %56, i64 %571
   %574 = load ptr, ptr %573, align 8, !alias.scope !13021, !noalias !12816, !nonnull !4, !align !13024, !noundef !4

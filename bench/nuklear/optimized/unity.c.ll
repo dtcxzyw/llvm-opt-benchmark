@@ -17609,7 +17609,7 @@ stbtt__close_shape.exit:                          ; preds = %if.end.i61, %if.the
   br label %if.end500.i
 
 if.else266.i:                                     ; preds = %if.end.i
-  %cmp268.i = icmp slt i16 %add.i146, 0
+  %cmp268.i = icmp slt i16 %mul.i144, 0
   br i1 %cmp268.i, label %if.then270.i, label %if.end500.i
 
 if.then270.i:                                     ; preds = %if.else266.i
@@ -73973,7 +73973,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp12.not, label %if.end165, label %return
 
 if.else:                                          ; preds = %while.body
-  %cmp17 = icmp ult i32 %add, 2048
+  %cmp17 = icmp ult i8 %0, 8
   br i1 %cmp17, label %if.then19, label %if.else45
 
 if.then19:                                        ; preds = %if.else
@@ -74003,8 +74003,8 @@ if.end34:                                         ; preds = %if.end24
   br i1 %cmp41.not, label %if.end165, label %return
 
 if.else45:                                        ; preds = %if.else
-  %5 = and i32 %conv, 252
-  %or.cond = icmp eq i32 %5, 216
+  %5 = and i8 %0, -4
+  %or.cond = icmp eq i8 %5, -40
   br i1 %or.cond, label %if.then52, label %if.else113
 
 if.then52:                                        ; preds = %if.else45
@@ -74068,7 +74068,7 @@ if.end111:                                        ; preds = %if.end101
   br label %if.end165
 
 if.else113:                                       ; preds = %if.else45
-  %or.cond1 = icmp ne i32 %5, 220
+  %or.cond1 = icmp ne i8 %5, -36
   %add123 = add nsw i32 %i.052, 2
   %cmp124.not = icmp slt i32 %add123, %len1
   %or.cond50 = select i1 %or.cond1, i1 %cmp124.not, i1 false

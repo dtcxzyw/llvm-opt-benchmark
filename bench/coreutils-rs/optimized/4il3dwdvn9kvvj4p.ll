@@ -1172,7 +1172,7 @@ define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold1
   %53 = lshr i64 %47, 6
   %54 = and i64 %53, 127
   %55 = or disjoint i64 %52, %54
-  %56 = icmp ult i64 %55, 2432
+  %56 = icmp ult i8 %50, 19
   br i1 %56, label %57, label %66, !prof !260
 
 57:                                               ; preds = %46
@@ -1183,7 +1183,7 @@ define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold1
   %62 = lshr i64 %47, 2
   %63 = and i64 %62, 15
   %64 = or disjoint i64 %61, %63
-  %65 = icmp ult i64 %64, 3888
+  %65 = icmp ult i8 %59, -13
   br i1 %65, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i, label %67, !prof !260
 
 66:                                               ; preds = %46

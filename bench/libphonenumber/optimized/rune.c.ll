@@ -6,17 +6,17 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local range(i32 0, 5) i32 @charntorune(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, 1
-  br i1 %4, label %60, label %5
+  br i1 %4, label %59, label %5
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %1, align 1
   %7 = zext i8 %6 to i32
   %8 = icmp sgt i8 %6, -1
-  br i1 %8, label %60, label %9
+  br i1 %8, label %59, label %9
 
 9:                                                ; preds = %5
   %10 = icmp eq i32 %2, 1
-  br i1 %10, label %60, label %11
+  br i1 %10, label %59, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %1, i64 1
@@ -24,7 +24,7 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr nocapture noundef writeonl
   %14 = xor i8 %13, -128
   %15 = zext i8 %14 to i32
   %.not = icmp ult i8 %14, 64
-  br i1 %.not, label %16, label %59
+  br i1 %.not, label %16, label %58
 
 16:                                               ; preds = %11
   %17 = icmp ult i8 %6, -32
@@ -32,18 +32,18 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr nocapture noundef writeonl
 
 18:                                               ; preds = %16
   %19 = icmp ult i8 %6, -64
-  br i1 %19, label %59, label %20
+  br i1 %19, label %58, label %20
 
 20:                                               ; preds = %18
   %21 = shl nuw nsw i32 %7, 6
   %.masked52 = and i32 %21, 1984
   %22 = or disjoint i32 %.masked52, %15
   %23 = icmp ult i32 %22, 128
-  br i1 %23, label %59, label %60
+  br i1 %23, label %58, label %59
 
 24:                                               ; preds = %16
   %25 = icmp ult i32 %2, 3
-  br i1 %25, label %60, label %26
+  br i1 %25, label %59, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %1, i64 2
@@ -51,60 +51,62 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr nocapture noundef writeonl
   %29 = xor i8 %28, -128
   %30 = zext i8 %29 to i32
   %.not49 = icmp ult i8 %29, 64
-  br i1 %.not49, label %31, label %59
+  br i1 %.not49, label %31, label %58
 
 31:                                               ; preds = %26
   %32 = icmp ult i8 %6, -16
-  br i1 %32, label %33, label %41
+  br i1 %32, label %33, label %40
 
 33:                                               ; preds = %31
   %34 = shl nuw nsw i32 %7, 12
   %35 = shl nuw nsw i32 %15, 6
   %.masked51 = and i32 %34, 61440
   %.masked50 = or disjoint i32 %35, %.masked51
-  %36 = or disjoint i32 %.masked50, %30
-  %37 = icmp ult i32 %36, 2048
-  br i1 %37, label %59, label %38
+  %36 = icmp ult i32 %.masked50, 2048
+  %37 = and i32 %.masked50, 63488
+  %or.cond = icmp eq i32 %37, 55296
+  %or.cond53 = or i1 %36, %or.cond
+  br i1 %or.cond53, label %58, label %38
 
 38:                                               ; preds = %33
-  %39 = icmp ugt i32 %36, 55295
-  %40 = icmp ult i32 %.masked50, 57344
-  %or.cond = and i1 %40, %39
-  br i1 %or.cond, label %59, label %60
+  %39 = or disjoint i32 %.masked50, %30
+  br label %59
 
-41:                                               ; preds = %31
-  %42 = icmp eq i32 %2, 3
-  br i1 %42, label %60, label %43
+40:                                               ; preds = %31
+  %41 = icmp eq i32 %2, 3
+  br i1 %41, label %59, label %42
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %1, i64 3
-  %45 = load i8, ptr %44, align 1
-  %46 = xor i8 %45, -128
-  %47 = icmp ult i8 %46, 64
-  %48 = icmp ult i8 %6, -8
-  %or.cond5 = and i1 %48, %47
-  br i1 %or.cond5, label %49, label %59
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds i8, ptr %1, i64 3
+  %44 = load i8, ptr %43, align 1
+  %45 = xor i8 %44, -128
+  %46 = icmp ult i8 %45, 64
+  %47 = icmp ult i8 %6, -8
+  %or.cond5 = and i1 %47, %46
+  br i1 %or.cond5, label %48, label %58
 
-49:                                               ; preds = %43
-  %50 = zext nneg i8 %46 to i32
-  %51 = shl nuw nsw i32 %7, 12
-  %52 = shl nuw nsw i32 %15, 6
-  %53 = or disjoint i32 %52, %51
-  %54 = or disjoint i32 %53, %30
-  %55 = shl nuw nsw i32 %54, 6
-  %.masked = and i32 %55, 2097088
-  %56 = or disjoint i32 %.masked, %50
-  %57 = icmp ult i32 %56, 65536
-  %58 = icmp ugt i32 %.masked, 1114111
-  %or.cond3 = or i1 %58, %57
-  br i1 %or.cond3, label %59, label %60
+48:                                               ; preds = %42
+  %49 = shl nuw nsw i32 %7, 12
+  %50 = shl nuw nsw i32 %15, 6
+  %51 = or disjoint i32 %50, %49
+  %52 = or disjoint i32 %51, %30
+  %53 = shl nuw nsw i32 %52, 6
+  %.masked = and i32 %53, 2097088
+  %54 = add nsw i32 %.masked, -1114112
+  %or.cond3 = icmp ult i32 %54, -1048576
+  br i1 %or.cond3, label %58, label %55
 
-59:                                               ; preds = %49, %43, %38, %33, %26, %20, %18, %11
-  br label %60
+55:                                               ; preds = %48
+  %56 = zext nneg i8 %45 to i32
+  %57 = or disjoint i32 %.masked, %56
+  br label %59
 
-60:                                               ; preds = %3, %9, %24, %41, %49, %38, %20, %5, %59
-  %.sink = phi i32 [ 65533, %59 ], [ %7, %5 ], [ %22, %20 ], [ %36, %38 ], [ %56, %49 ], [ 65533, %41 ], [ 65533, %24 ], [ 65533, %9 ], [ 65533, %3 ]
-  %.0 = phi i32 [ 1, %59 ], [ 1, %5 ], [ 2, %20 ], [ 3, %38 ], [ 4, %49 ], [ 0, %41 ], [ 0, %24 ], [ 0, %9 ], [ 0, %3 ]
+58:                                               ; preds = %48, %42, %33, %26, %20, %18, %11
+  br label %59
+
+59:                                               ; preds = %3, %9, %24, %40, %20, %5, %58, %55, %38
+  %.sink = phi i32 [ 65533, %58 ], [ %57, %55 ], [ %39, %38 ], [ %7, %5 ], [ %22, %20 ], [ 65533, %40 ], [ 65533, %24 ], [ 65533, %9 ], [ 65533, %3 ]
+  %.0 = phi i32 [ 1, %58 ], [ 4, %55 ], [ 3, %38 ], [ 1, %5 ], [ 2, %20 ], [ 0, %40 ], [ 0, %24 ], [ 0, %9 ], [ 0, %3 ]
   store i32 %.sink, ptr %0, align 4
   ret i32 %.0
 }
@@ -114,7 +116,7 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr nocapture noundef writeonly
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = icmp sgt i8 %3, -1
-  br i1 %5, label %51, label %6
+  br i1 %5, label %50, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 1
@@ -122,7 +124,7 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr nocapture noundef writeonly
   %9 = xor i8 %8, -128
   %10 = zext i8 %9 to i32
   %.not = icmp ult i8 %9, 64
-  br i1 %.not, label %11, label %50
+  br i1 %.not, label %11, label %49
 
 11:                                               ; preds = %6
   %12 = icmp ult i8 %3, -32
@@ -130,14 +132,14 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr nocapture noundef writeonly
 
 13:                                               ; preds = %11
   %14 = icmp ult i8 %3, -64
-  br i1 %14, label %50, label %15
+  br i1 %14, label %49, label %15
 
 15:                                               ; preds = %13
   %16 = shl nuw nsw i32 %4, 6
   %.masked46 = and i32 %16, 1984
   %17 = or disjoint i32 %.masked46, %10
   %18 = icmp ult i32 %17, 128
-  br i1 %18, label %50, label %51
+  br i1 %18, label %49, label %50
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds i8, ptr %1, i64 2
@@ -145,56 +147,58 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr nocapture noundef writeonly
   %22 = xor i8 %21, -128
   %23 = zext i8 %22 to i32
   %.not43 = icmp ult i8 %22, 64
-  br i1 %.not43, label %24, label %50
+  br i1 %.not43, label %24, label %49
 
 24:                                               ; preds = %19
   %25 = icmp ult i8 %3, -16
-  br i1 %25, label %26, label %34
+  br i1 %25, label %26, label %33
 
 26:                                               ; preds = %24
   %27 = shl nuw nsw i32 %4, 12
   %28 = shl nuw nsw i32 %10, 6
   %.masked45 = and i32 %27, 61440
   %.masked44 = or disjoint i32 %28, %.masked45
-  %29 = or disjoint i32 %.masked44, %23
-  %30 = icmp ult i32 %29, 2048
-  br i1 %30, label %50, label %31
+  %29 = icmp ult i32 %.masked44, 2048
+  %30 = and i32 %.masked44, 63488
+  %or.cond = icmp eq i32 %30, 55296
+  %or.cond47 = or i1 %29, %or.cond
+  br i1 %or.cond47, label %49, label %31
 
 31:                                               ; preds = %26
-  %32 = icmp ugt i32 %29, 55295
-  %33 = icmp ult i32 %.masked44, 57344
-  %or.cond = and i1 %33, %32
-  br i1 %or.cond, label %50, label %51
+  %32 = or disjoint i32 %.masked44, %23
+  br label %50
 
-34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %1, i64 3
-  %36 = load i8, ptr %35, align 1
-  %37 = xor i8 %36, -128
-  %38 = icmp ult i8 %37, 64
-  %39 = icmp ult i8 %3, -8
-  %or.cond5 = and i1 %39, %38
-  br i1 %or.cond5, label %40, label %50
+33:                                               ; preds = %24
+  %34 = getelementptr inbounds i8, ptr %1, i64 3
+  %35 = load i8, ptr %34, align 1
+  %36 = xor i8 %35, -128
+  %37 = icmp ult i8 %36, 64
+  %38 = icmp ult i8 %3, -8
+  %or.cond5 = and i1 %38, %37
+  br i1 %or.cond5, label %39, label %49
 
-40:                                               ; preds = %34
-  %41 = zext nneg i8 %37 to i32
-  %42 = shl nuw nsw i32 %4, 12
-  %43 = shl nuw nsw i32 %10, 6
-  %44 = or disjoint i32 %43, %42
-  %45 = or disjoint i32 %44, %23
-  %46 = shl nuw nsw i32 %45, 6
-  %.masked = and i32 %46, 2097088
-  %47 = or disjoint i32 %.masked, %41
-  %48 = icmp ult i32 %47, 65536
-  %49 = icmp ugt i32 %.masked, 1114111
-  %or.cond3 = or i1 %49, %48
-  br i1 %or.cond3, label %50, label %51
+39:                                               ; preds = %33
+  %40 = shl nuw nsw i32 %4, 12
+  %41 = shl nuw nsw i32 %10, 6
+  %42 = or disjoint i32 %41, %40
+  %43 = or disjoint i32 %42, %23
+  %44 = shl nuw nsw i32 %43, 6
+  %.masked = and i32 %44, 2097088
+  %45 = add nsw i32 %.masked, -1114112
+  %or.cond3 = icmp ult i32 %45, -1048576
+  br i1 %or.cond3, label %49, label %46
 
-50:                                               ; preds = %40, %34, %31, %26, %19, %15, %13, %6
-  br label %51
+46:                                               ; preds = %39
+  %47 = zext nneg i8 %36 to i32
+  %48 = or disjoint i32 %.masked, %47
+  br label %50
 
-51:                                               ; preds = %40, %31, %15, %2, %50
-  %.sink = phi i32 [ 65533, %50 ], [ %4, %2 ], [ %17, %15 ], [ %29, %31 ], [ %47, %40 ]
-  %.0 = phi i32 [ 1, %50 ], [ 1, %2 ], [ 2, %15 ], [ 3, %31 ], [ 4, %40 ]
+49:                                               ; preds = %39, %33, %26, %19, %15, %13, %6
+  br label %50
+
+50:                                               ; preds = %15, %2, %49, %46, %31
+  %.sink = phi i32 [ 65533, %49 ], [ %48, %46 ], [ %32, %31 ], [ %4, %2 ], [ %17, %15 ]
+  %.0 = phi i32 [ 1, %49 ], [ 4, %46 ], [ 3, %31 ], [ 1, %2 ], [ 2, %15 ]
   store i32 %.sink, ptr %0, align 4
   ret i32 %.0
 }

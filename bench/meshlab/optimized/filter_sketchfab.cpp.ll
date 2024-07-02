@@ -3606,7 +3606,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   %396 = trunc nuw i64 %indvars.iv2029 to i32
   %397 = or i32 %395, %396
   %398 = trunc i32 %397 to i16
-  %399 = icmp ult i32 %389, 1024
+  %399 = icmp ult i32 %387, 1024
   br i1 %399, label %.lr.ph1945, label %.loopexit1876
 
 .lr.ph1945:                                       ; preds = %394

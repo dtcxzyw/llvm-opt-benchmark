@@ -175,30 +175,30 @@ define internal i32 @dissect_h263P(ptr noundef %0, ptr noundef %1, ptr noundef %
   %48 = load i32, ptr @ett_h263P_data, align 4
   %49 = tail call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %48) #2
   %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #2
-  %51 = and i8 %50, -2
-  %.not78 = icmp sgt i8 %51, -1
-  br i1 %.not78, label %59, label %52
+  %.not78 = icmp sgt i8 %50, -1
+  br i1 %.not78, label %59, label %51
 
-52:                                               ; preds = %47
-  switch i8 %51, label %56 [
+51:                                               ; preds = %47
+  %52 = and i8 %50, -2
+  switch i8 %52, label %56 [
     i8 -8, label %59
     i8 -128, label %53
     i8 -126, label %53
   ]
 
-53:                                               ; preds = %52, %52
+53:                                               ; preds = %51, %51
   %54 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.39) #2
   %55 = tail call i32 @dissect_h263_picture_layer(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %49, i32 noundef %.1, i32 noundef -1, i32 noundef 1) #2
   br label %59
 
-56:                                               ; preds = %52
+56:                                               ; preds = %51
   %57 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.40) #2
   %58 = tail call i32 @dissect_h263_group_of_blocks_layer(ptr noundef %0, ptr noundef %49, i32 noundef %.1, i32 noundef 1) #2
   br label %59
 
-59:                                               ; preds = %4, %43, %52, %56, %53, %47
+59:                                               ; preds = %4, %43, %51, %56, %53, %47
   %60 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   ret i32 %60
 }

@@ -235,19 +235,19 @@ define range(i32 -10, 1) i32 @fdt_check_header(ptr nocapture noundef readonly %0
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i32
   %74 = shl nuw nsw i32 %73, 16
-  %75 = or disjoint i32 %74, %70
-  %76 = getelementptr inbounds i8, ptr %0, i64 6
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i32
-  %79 = shl nuw nsw i32 %78, 8
-  %80 = or disjoint i32 %75, %79
-  %81 = getelementptr inbounds i8, ptr %0, i64 7
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  %84 = or disjoint i32 %80, %83
+  %75 = getelementptr inbounds i8, ptr %0, i64 6
+  %76 = load i8, ptr %75, align 1
+  %77 = zext i8 %76 to i32
+  %78 = shl nuw nsw i32 %77, 8
+  %79 = getelementptr inbounds i8, ptr %0, i64 7
+  %80 = load i8, ptr %79, align 1
+  %81 = zext i8 %80 to i32
+  %82 = or disjoint i32 %74, %81
+  %83 = or disjoint i32 %82, %78
+  %84 = or disjoint i32 %83, %70
   %85 = zext i32 %84 to i64
   %86 = icmp ugt i64 %.0.i.i.ph, %85
-  %87 = icmp slt i32 %84, 0
+  %87 = icmp slt i32 %70, 0
   %or.cond38 = or i1 %87, %86
   br i1 %or.cond38, label %check_block_.exit.thread, label %88
 

@@ -3672,6 +3672,8 @@ _ZNK7rocksdb18VersionStorageInfo15GetFileLocationEm.exit.i.i: ; preds = %if.end3
   %retval.sroa.0.1.i.i.i.i.i = phi ptr [ %36, %if.end15.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i.i, %for.cond.i.i.i.i4.i ], [ %38, %if.end3.i.i.i.i.i.i.i ]
   %second.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load i32, ptr %second.i.i.i, align 8
+  %cmp.i.i.i = icmp sgt i32 %retval.sroa.0.0.copyload.i.i.i, -1
+  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %retval.sroa.31.0.second.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i.i.i, i64 24
   %retval.sroa.31.0.copyload.i.i.i = load i64, ptr %retval.sroa.31.0.second.sroa_idx.i.i.i, align 8
   %files_.i.i = getelementptr inbounds i8, ptr %30, i64 2712

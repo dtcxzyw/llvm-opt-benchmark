@@ -155,7 +155,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
 
 7:                                                ; preds = %2
   tail call void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef 0) #14
-  br label %119
+  br label %120
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
@@ -178,7 +178,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
   %20 = xor i32 %12, 31
   br label %26
 
-21:                                               ; preds = %75
+21:                                               ; preds = %76
   %22 = load i64, ptr %10, align 8, !tbaa !15
   %23 = add i64 %22, -1
   br label %24
@@ -186,203 +186,205 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
 24:                                               ; preds = %21, %8
   %25 = phi i64 [ %23, %21 ], [ -1, %8 ]
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef %25) #14
-          to label %100 unwind label %108
+          to label %101 unwind label %109
 
-26:                                               ; preds = %75, %15
-  %27 = phi i32 [ %11, %15 ], [ %76, %75 ]
+26:                                               ; preds = %76, %15
+  %27 = phi i32 [ %11, %15 ], [ %77, %76 ]
   %28 = shl nuw i32 1, %27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
   invoke void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, i32 noundef %28) #14
-          to label %29 unwind label %78
+          to label %29 unwind label %79
 
 29:                                               ; preds = %26
   %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str) #14
-          to label %31 unwind label %80
+          to label %31 unwind label %81
 
 31:                                               ; preds = %29
   store ptr %16, ptr %4, align 8, !tbaa !13, !alias.scope !21
   %32 = load ptr, ptr %30, align 8, !tbaa !24
   %33 = getelementptr inbounds i8, ptr %30, i64 16
   %34 = icmp eq ptr %32, %33
-  br i1 %34, label %35, label %39
+  br i1 %34, label %35, label %40
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %30, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !15
-  %38 = add nuw nsw i64 %37, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(1) %32, i64 %38, i1 false)
-  br label %43
+  %38 = icmp ult i64 %37, 16
+  call void @llvm.assume(i1 %38)
+  %39 = add nuw nsw i64 %37, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(1) %32, i64 %39, i1 false)
+  br label %44
 
-39:                                               ; preds = %31
+40:                                               ; preds = %31
   store ptr %32, ptr %4, align 8, !tbaa !24, !alias.scope !21
-  %40 = load i64, ptr %33, align 8, !tbaa !17
-  store i64 %40, ptr %16, align 8, !tbaa !17, !alias.scope !21
-  %41 = getelementptr inbounds i8, ptr %30, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !15
-  br label %43
+  %41 = load i64, ptr %33, align 8, !tbaa !17
+  store i64 %41, ptr %16, align 8, !tbaa !17, !alias.scope !21
+  %42 = getelementptr inbounds i8, ptr %30, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !15
+  br label %44
 
-43:                                               ; preds = %39, %35
-  %44 = phi i64 [ %37, %35 ], [ %42, %39 ]
-  %45 = getelementptr inbounds i8, ptr %30, i64 8
-  store i64 %44, ptr %17, align 8, !tbaa !15, !alias.scope !21
+44:                                               ; preds = %40, %35
+  %45 = phi i64 [ %37, %35 ], [ %43, %40 ]
+  %46 = getelementptr inbounds i8, ptr %30, i64 8
+  store i64 %45, ptr %17, align 8, !tbaa !15, !alias.scope !21
   store ptr %33, ptr %30, align 8, !tbaa !24
-  store i64 0, ptr %45, align 8, !tbaa !15
+  store i64 0, ptr %46, align 8, !tbaa !15
   store i8 0, ptr %33, align 8, !tbaa !17
-  %46 = load ptr, ptr %4, align 8, !tbaa !24
-  %47 = load i64, ptr %17, align 8, !tbaa !15
-  %48 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %46, i64 noundef %47) #14
-          to label %49 unwind label %82
+  %47 = load ptr, ptr %4, align 8, !tbaa !24
+  %48 = load i64, ptr %17, align 8, !tbaa !15
+  %49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %47, i64 noundef %48) #14
+          to label %50 unwind label %83
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %4, align 8, !tbaa !24
-  %51 = icmp eq ptr %50, %16
-  br i1 %51, label %52, label %55
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %4, align 8, !tbaa !24
+  %52 = icmp eq ptr %51, %16
+  br i1 %52, label %53, label %56
 
-52:                                               ; preds = %49
-  %53 = load i64, ptr %17, align 8, !tbaa !15
-  %54 = icmp ult i64 %53, 16
-  call void @llvm.assume(i1 %54)
-  br label %56
+53:                                               ; preds = %50
+  %54 = load i64, ptr %17, align 8, !tbaa !15
+  %55 = icmp ult i64 %54, 16
+  call void @llvm.assume(i1 %55)
+  br label %57
 
-55:                                               ; preds = %49
-  call void @_ZdlPv(ptr noundef %50) #15
-  br label %56
+56:                                               ; preds = %50
+  call void @_ZdlPv(ptr noundef %51) #15
+  br label %57
 
-56:                                               ; preds = %55, %52
-  %57 = load ptr, ptr %5, align 8, !tbaa !24
-  %58 = icmp eq ptr %57, %18
-  br i1 %58, label %59, label %62
+57:                                               ; preds = %56, %53
+  %58 = load ptr, ptr %5, align 8, !tbaa !24
+  %59 = icmp eq ptr %58, %18
+  br i1 %59, label %60, label %63
 
-59:                                               ; preds = %56
-  %60 = load i64, ptr %19, align 8, !tbaa !15
-  %61 = icmp ult i64 %60, 16
-  call void @llvm.assume(i1 %61)
-  br label %63
+60:                                               ; preds = %57
+  %61 = load i64, ptr %19, align 8, !tbaa !15
+  %62 = icmp ult i64 %61, 16
+  call void @llvm.assume(i1 %62)
+  br label %64
 
-62:                                               ; preds = %56
-  call void @_ZdlPv(ptr noundef %57) #15
-  br label %63
+63:                                               ; preds = %57
+  call void @_ZdlPv(ptr noundef %58) #15
+  br label %64
 
-63:                                               ; preds = %62, %59
+64:                                               ; preds = %63, %60
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
-  %64 = add i32 %27, 1
-  %65 = call i32 @llvm.smax.i32(i32 %20, i32 %64)
-  %66 = add nsw i32 %65, -1
-  br label %67
+  %65 = add i32 %27, 1
+  %66 = call i32 @llvm.smax.i32(i32 %20, i32 %65)
+  %67 = add nsw i32 %66, -1
+  br label %68
 
-67:                                               ; preds = %70, %63
-  %68 = phi i32 [ %27, %63 ], [ %71, %70 ]
-  %69 = icmp eq i32 %68, %66
-  br i1 %69, label %75, label %70
+68:                                               ; preds = %71, %64
+  %69 = phi i32 [ %27, %64 ], [ %72, %71 ]
+  %70 = icmp eq i32 %69, %67
+  br i1 %70, label %76, label %71
 
-70:                                               ; preds = %67
-  %71 = add nsw i32 %68, 1
-  %72 = shl nuw nsw i32 1, %71
-  %73 = and i32 %72, %1
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %67, label %75, !llvm.loop !25
+71:                                               ; preds = %68
+  %72 = add nsw i32 %69, 1
+  %73 = shl nuw nsw i32 1, %72
+  %74 = and i32 %73, %1
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %68, label %76, !llvm.loop !25
 
-75:                                               ; preds = %70, %67
-  %76 = phi i32 [ %65, %67 ], [ %71, %70 ]
-  %77 = icmp eq i32 %76, %13
-  br i1 %77, label %21, label %26
+76:                                               ; preds = %71, %68
+  %77 = phi i32 [ %66, %68 ], [ %72, %71 ]
+  %78 = icmp eq i32 %77, %13
+  br i1 %78, label %21, label %26
 
-78:                                               ; preds = %26
-  %79 = landingpad { ptr, i32 }
+79:                                               ; preds = %26
+  %80 = landingpad { ptr, i32 }
           cleanup
-  br label %98
+  br label %99
 
-80:                                               ; preds = %29
-  %81 = landingpad { ptr, i32 }
+81:                                               ; preds = %29
+  %82 = landingpad { ptr, i32 }
           cleanup
-  br label %90
+  br label %91
 
-82:                                               ; preds = %43
-  %83 = landingpad { ptr, i32 }
+83:                                               ; preds = %44
+  %84 = landingpad { ptr, i32 }
           cleanup
-  %84 = load ptr, ptr %4, align 8, !tbaa !24
-  %85 = icmp eq ptr %84, %16
-  br i1 %85, label %86, label %89
+  %85 = load ptr, ptr %4, align 8, !tbaa !24
+  %86 = icmp eq ptr %85, %16
+  br i1 %86, label %87, label %90
 
-86:                                               ; preds = %82
-  %87 = load i64, ptr %17, align 8, !tbaa !15
-  %88 = icmp ult i64 %87, 16
-  call void @llvm.assume(i1 %88)
-  br label %90
+87:                                               ; preds = %83
+  %88 = load i64, ptr %17, align 8, !tbaa !15
+  %89 = icmp ult i64 %88, 16
+  call void @llvm.assume(i1 %89)
+  br label %91
 
-89:                                               ; preds = %82
-  call void @_ZdlPv(ptr noundef %84) #15
-  br label %90
+90:                                               ; preds = %83
+  call void @_ZdlPv(ptr noundef %85) #15
+  br label %91
 
-90:                                               ; preds = %89, %86, %80
-  %91 = phi { ptr, i32 } [ %81, %80 ], [ %83, %86 ], [ %83, %89 ]
-  %92 = load ptr, ptr %5, align 8, !tbaa !24
-  %93 = icmp eq ptr %92, %18
-  br i1 %93, label %94, label %97
+91:                                               ; preds = %90, %87, %81
+  %92 = phi { ptr, i32 } [ %82, %81 ], [ %84, %87 ], [ %84, %90 ]
+  %93 = load ptr, ptr %5, align 8, !tbaa !24
+  %94 = icmp eq ptr %93, %18
+  br i1 %94, label %95, label %98
 
-94:                                               ; preds = %90
-  %95 = load i64, ptr %19, align 8, !tbaa !15
-  %96 = icmp ult i64 %95, 16
-  call void @llvm.assume(i1 %96)
-  br label %98
+95:                                               ; preds = %91
+  %96 = load i64, ptr %19, align 8, !tbaa !15
+  %97 = icmp ult i64 %96, 16
+  call void @llvm.assume(i1 %97)
+  br label %99
 
-97:                                               ; preds = %90
-  call void @_ZdlPv(ptr noundef %92) #15
-  br label %98
+98:                                               ; preds = %91
+  call void @_ZdlPv(ptr noundef %93) #15
+  br label %99
 
-98:                                               ; preds = %97, %94, %78
-  %99 = phi { ptr, i32 } [ %79, %78 ], [ %91, %94 ], [ %91, %97 ]
+99:                                               ; preds = %98, %95, %79
+  %100 = phi { ptr, i32 } [ %80, %79 ], [ %92, %95 ], [ %92, %98 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
-  br label %110
+  br label %111
 
-100:                                              ; preds = %24
-  %101 = load ptr, ptr %3, align 8, !tbaa !24
-  %102 = icmp eq ptr %101, %9
-  br i1 %102, label %103, label %106
+101:                                              ; preds = %24
+  %102 = load ptr, ptr %3, align 8, !tbaa !24
+  %103 = icmp eq ptr %102, %9
+  br i1 %103, label %104, label %107
 
-103:                                              ; preds = %100
-  %104 = load i64, ptr %10, align 8, !tbaa !15
-  %105 = icmp ult i64 %104, 16
-  call void @llvm.assume(i1 %105)
-  br label %107
+104:                                              ; preds = %101
+  %105 = load i64, ptr %10, align 8, !tbaa !15
+  %106 = icmp ult i64 %105, 16
+  call void @llvm.assume(i1 %106)
+  br label %108
 
-106:                                              ; preds = %100
-  call void @_ZdlPv(ptr noundef %101) #15
-  br label %107
+107:                                              ; preds = %101
+  call void @_ZdlPv(ptr noundef %102) #15
+  br label %108
 
-107:                                              ; preds = %106, %103
+108:                                              ; preds = %107, %104
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
+  br label %120
+
+109:                                              ; preds = %24
+  %110 = landingpad { ptr, i32 }
+          cleanup
+  br label %111
+
+111:                                              ; preds = %109, %99
+  %112 = phi { ptr, i32 } [ %100, %99 ], [ %110, %109 ]
+  %113 = load ptr, ptr %3, align 8, !tbaa !24
+  %114 = icmp eq ptr %113, %9
+  br i1 %114, label %115, label %118
+
+115:                                              ; preds = %111
+  %116 = load i64, ptr %10, align 8, !tbaa !15
+  %117 = icmp ult i64 %116, 16
+  call void @llvm.assume(i1 %117)
   br label %119
 
-108:                                              ; preds = %24
-  %109 = landingpad { ptr, i32 }
-          cleanup
-  br label %110
+118:                                              ; preds = %111
+  call void @_ZdlPv(ptr noundef %113) #15
+  br label %119
 
-110:                                              ; preds = %108, %98
-  %111 = phi { ptr, i32 } [ %99, %98 ], [ %109, %108 ]
-  %112 = load ptr, ptr %3, align 8, !tbaa !24
-  %113 = icmp eq ptr %112, %9
-  br i1 %113, label %114, label %117
-
-114:                                              ; preds = %110
-  %115 = load i64, ptr %10, align 8, !tbaa !15
-  %116 = icmp ult i64 %115, 16
-  call void @llvm.assume(i1 %116)
-  br label %118
-
-117:                                              ; preds = %110
-  call void @_ZdlPv(ptr noundef %112) #15
-  br label %118
-
-118:                                              ; preds = %117, %114
+119:                                              ; preds = %118, %115
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
-  resume { ptr, i32 } %111
+  resume { ptr, i32 } %112
 
-119:                                              ; preds = %107, %7
+120:                                              ; preds = %108, %7
   ret void
 }
 

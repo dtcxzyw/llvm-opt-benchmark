@@ -203,48 +203,48 @@ define dso_local ptr @ginReadTuple(ptr nocapture noundef readnone %0, i16 nounde
   %7 = zext i16 %.val18 to i32
   %8 = shl nuw i32 %7, 16
   %9 = zext i16 %.val19 to i32
-  %10 = or disjoint i32 %8, %9
-  %11 = and i32 %10, 2147483647
-  %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i8, ptr %2, i64 %12
-  %14 = getelementptr i8, ptr %2, i64 4
-  %.val20 = load i16, ptr %14, align 2
-  %15 = zext i16 %.val20 to i32
-  %.not = icmp sgt i32 %10, -1
-  br i1 %.not, label %26, label %16
+  %.masked = and i32 %8, 2147418112
+  %10 = or disjoint i32 %.masked, %9
+  %11 = zext nneg i32 %10 to i64
+  %12 = getelementptr i8, ptr %2, i64 %11
+  %13 = getelementptr i8, ptr %2, i64 4
+  %.val20 = load i16, ptr %13, align 2
+  %14 = zext i16 %.val20 to i32
+  %.not = icmp sgt i32 %8, -1
+  br i1 %.not, label %25, label %15
 
-16:                                               ; preds = %4
+15:                                               ; preds = %4
   %.not15 = icmp eq i16 %.val20, 0
-  br i1 %.not15, label %24, label %17
+  br i1 %.not15, label %23, label %16
 
-17:                                               ; preds = %16
-  %18 = call ptr @ginPostingListDecode(ptr noundef %13, ptr noundef nonnull %5) #11
-  %19 = load i32, ptr %5, align 4
-  %.not16 = icmp eq i32 %19, %15
-  br i1 %.not16, label %30, label %20
+16:                                               ; preds = %15
+  %17 = call ptr @ginPostingListDecode(ptr noundef %12, ptr noundef nonnull %5) #11
+  %18 = load i32, ptr %5, align 4
+  %.not16 = icmp eq i32 %18, %14
+  br i1 %.not16, label %29, label %19
 
-20:                                               ; preds = %17
-  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %21)
-  %22 = load i32, ptr %5, align 4
-  %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %15, i32 noundef %22) #11
+19:                                               ; preds = %16
+  %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  call void @llvm.assume(i1 %20)
+  %21 = load i32, ptr %5, align 4
+  %22 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %14, i32 noundef %21) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull @__func__.ginReadTuple) #11
   unreachable
 
-24:                                               ; preds = %16
-  %25 = tail call ptr @palloc(i64 noundef 0) #11
-  br label %30
+23:                                               ; preds = %15
+  %24 = tail call ptr @palloc(i64 noundef 0) #11
+  br label %29
 
-26:                                               ; preds = %4
-  %27 = zext i16 %.val20 to i64
-  %28 = mul nuw nsw i64 %27, 6
-  %29 = tail call ptr @palloc(i64 noundef %28) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %29, ptr align 1 %13, i64 %28, i1 false)
-  br label %30
+25:                                               ; preds = %4
+  %26 = zext i16 %.val20 to i64
+  %27 = mul nuw nsw i64 %26, 6
+  %28 = tail call ptr @palloc(i64 noundef %27) #11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %28, ptr align 1 %12, i64 %27, i1 false)
+  br label %29
 
-30:                                               ; preds = %24, %17, %26
-  %.0 = phi ptr [ %18, %17 ], [ %25, %24 ], [ %29, %26 ]
-  store i32 %15, ptr %3, align 4
+29:                                               ; preds = %23, %16, %25
+  %.0 = phi ptr [ %17, %16 ], [ %24, %23 ], [ %28, %25 ]
+  store i32 %14, ptr %3, align 4
   ret ptr %.0
 }
 

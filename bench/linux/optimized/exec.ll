@@ -910,29 +910,31 @@ define internal fastcc ptr @do_open_execat(i32 noundef %0, ptr noundef %1, i32 n
   %44 = icmp slt i32 %43, 1
   br i1 %44, label %.lr.ph, label %.loopexit, !prof !23
 
-.lr.ph:                                           ; preds = %41, %50
-  %45 = phi i32 [ %51, %50 ], [ %43, %41 ]
+.lr.ph:                                           ; preds = %41, %51
+  %45 = phi i32 [ %52, %51 ], [ %43, %41 ]
   %46 = add i32 %45, -1
   %47 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42, i32 %46, ptr elementtype(i32) %42, i32 %45) #15, !srcloc !24
   %48 = extractvalue { i8, i32 } %47, 0
-  %49 = icmp eq i8 %48, 0
-  br i1 %49, label %50, label %.thread2, !prof !13
+  %49 = icmp ult i8 %48, 2
+  call void @llvm.assume(i1 %49)
+  %50 = icmp eq i8 %48, 0
+  br i1 %50, label %51, label %.thread2, !prof !13
 
-50:                                               ; preds = %.lr.ph
-  %51 = extractvalue { i8, i32 } %47, 1
-  %52 = icmp slt i32 %51, 1
-  br i1 %52, label %.lr.ph, label %.loopexit, !prof !25, !llvm.loop !26
+51:                                               ; preds = %.lr.ph
+  %52 = extractvalue { i8, i32 } %47, 1
+  %53 = icmp slt i32 %52, 1
+  br i1 %53, label %.lr.ph, label %.loopexit, !prof !25, !llvm.loop !26
 
-.loopexit:                                        ; preds = %50, %41, %40
-  %53 = phi i64 [ -13, %40 ], [ -26, %41 ], [ -26, %50 ]
+.loopexit:                                        ; preds = %51, %41, %40
+  %54 = phi i64 [ -13, %40 ], [ -26, %41 ], [ -26, %51 ]
   call void @fput(ptr noundef %18) #15
-  %54 = inttoptr i64 %53 to ptr
+  %55 = inttoptr i64 %54 to ptr
   br label %.thread2
 
 .thread2:                                         ; preds = %.lr.ph, %.loopexit, %17, %3
-  %55 = phi ptr [ %54, %.loopexit ], [ %18, %17 ], [ inttoptr (i64 -22 to ptr), %3 ], [ %18, %.lr.ph ]
+  %56 = phi ptr [ %55, %.loopexit ], [ %18, %17 ], [ inttoptr (i64 -22 to ptr), %3 ], [ %18, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #15
-  ret ptr %55
+  ret ptr %56
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1866,18 +1868,22 @@ define dso_local void @set_dumpable(ptr noundef %0, i32 noundef %1) local_unname
   %10 = or disjoint i64 %9, %6
   %11 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %7, i64 %10, ptr elementtype(i64) %7, i64 %8) #15, !srcloc !56
   %12 = extractvalue { i8, i64 } %11, 0
-  %13 = icmp eq i8 %12, 0
-  br i1 %13, label %.preheader, label %.loopexit, !prof !45
+  %13 = icmp ult i8 %12, 2
+  tail call void @llvm.assume(i1 %13)
+  %14 = icmp eq i8 %12, 0
+  br i1 %14, label %.preheader, label %.loopexit, !prof !45
 
 .preheader:                                       ; preds = %5, %.preheader
-  %14 = phi { i8, i64 } [ %18, %.preheader ], [ %11, %5 ]
-  %15 = extractvalue { i8, i64 } %14, 1
-  %16 = and i64 %15, -4
-  %17 = or disjoint i64 %16, %6
-  %18 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %7, i64 %17, ptr elementtype(i64) %7, i64 %15) #15, !srcloc !56
-  %19 = extractvalue { i8, i64 } %18, 0
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %.preheader, label %.loopexit, !prof !57, !llvm.loop !58
+  %15 = phi { i8, i64 } [ %19, %.preheader ], [ %11, %5 ]
+  %16 = extractvalue { i8, i64 } %15, 1
+  %17 = and i64 %16, -4
+  %18 = or disjoint i64 %17, %6
+  %19 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %7, i64 %18, ptr elementtype(i64) %7, i64 %16) #15, !srcloc !56
+  %20 = extractvalue { i8, i64 } %19, 0
+  %21 = icmp ult i8 %20, 2
+  tail call void @llvm.assume(i1 %21)
+  %22 = icmp eq i8 %20, 0
+  br i1 %22, label %.preheader, label %.loopexit, !prof !57, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.preheader, %5, %4
   ret void

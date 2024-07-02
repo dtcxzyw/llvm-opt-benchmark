@@ -34336,7 +34336,7 @@ vm_ci_kwarg.exit.i:                               ; preds = %1035, %vm_ci_argc.e
   %.0.i13.i = phi ptr [ %1045, %1035 ], [ null, %vm_ci_argc.exit.i ]
   %1046 = or i32 %.pn.i720, 128
   %.not.i.i721 = icmp ult i64 %.0.i162024.i, 4294967296
-  %.not13.i.i = icmp ult i32 %1046, 65536
+  %.not13.i.i = icmp ult i32 %.pn.i720, 65536
   %or.cond14.i.i = and i1 %.not.i.i721, %.not13.i.i
   br i1 %or.cond14.i.i, label %1047, label %1060
 
@@ -34416,7 +34416,7 @@ vm_ci_kwarg.exit.i725:                            ; preds = %1077, %vm_ci_argc.e
   %.0.i13.i729 = phi ptr [ %1087, %1077 ], [ null, %vm_ci_argc.exit.i724 ]
   %1088 = or i32 %.pn.i728, 128
   %.not.i.i730 = icmp ult i64 %.0.i162024.i727, 4294967296
-  %.not13.i.i731 = icmp ult i32 %1088, 65536
+  %.not13.i.i731 = icmp ult i32 %.pn.i728, 65536
   %or.cond14.i.i732 = and i1 %.not.i.i730, %.not13.i.i731
   br i1 %or.cond14.i.i732, label %1089, label %1102
 
@@ -35317,7 +35317,7 @@ vm_ci_kwarg.exit:                                 ; preds = %vm_ci_argc.exit, %4
   %.0.i46 = phi ptr [ %56, %49 ], [ null, %vm_ci_argc.exit ]
   %57 = and i32 %.0.i, -4097
   %.not.i = icmp ult i64 %.0.i425054, 4294967296
-  %.not13.i = icmp ult i32 %57, 65536
+  %.not13.i = icmp ult i32 %.0.i, 65536
   %or.cond14.i = and i1 %.not13.i, %.not.i
   br i1 %or.cond14.i, label %58, label %70
 
@@ -70224,7 +70224,7 @@ vm_ci_kwarg.exit.i181:                            ; preds = %194, %vm_ci_argc.ex
   %.0.i13.i = phi ptr [ %202, %194 ], [ null, %vm_ci_argc.exit.i ]
   %203 = or i32 %.pn.i182, 4096
   %.not.i.i183 = icmp ult i64 %.0.i162024.i, 4294967296
-  %.not13.i.i184 = icmp ult i32 %203, 65536
+  %.not13.i.i184 = icmp ult i32 %.pn.i182, 65536
   %or.cond14.i.i185 = and i1 %.not.i.i183, %.not13.i.i184
   br i1 %or.cond14.i.i185, label %204, label %217
 

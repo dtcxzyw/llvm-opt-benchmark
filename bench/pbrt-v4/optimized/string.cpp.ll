@@ -3340,6 +3340,8 @@ if.then5:                                         ; preds = %invoke.cont
 
 if.then.i:                                        ; preds = %if.then5
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %cmp3.i.i = icmp ult i64 %5, 8
+  call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = shl nuw nsw i64 %5, 1
   %mul.i.i = add nuw nsw i64 %add.i, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %mul.i.i, i1 false)

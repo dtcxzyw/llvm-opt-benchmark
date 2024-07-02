@@ -326,7 +326,7 @@ entry:
   %4 = and i8 %0, 47
   %5 = or disjoint i8 %4, 80
   store i8 %5, ptr %hookmask, align 1
-  %tobool.not = icmp sgt i8 %1, -1
+  %tobool.not = icmp sgt i8 %0, -1
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
