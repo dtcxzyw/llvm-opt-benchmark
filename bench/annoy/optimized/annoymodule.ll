@@ -3196,7 +3196,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i: ; preds = %_ZN5Annoy12_GLOB
   br label %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit
 
 _ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit: ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i, %55
-  %.0.i = phi float [ %60, %55 ], [ 2.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i ]
+  %.0.i = phi nsz float [ %60, %55 ], [ 2.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i ]
   %61 = fcmp nnan ninf nsz arcp contract afn olt float %.0.i, 0.000000e+00
   %.sroa.speculated.i = select i1 %61, float 0.000000e+00, float %.0.i
   %62 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float %.sroa.speculated.i)
@@ -5436,7 +5436,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i.i: ; preds = %_ZN5Annoy12_GL
   br label %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit.i
 
 _ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit.i: ; preds = %178, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i.i
-  %.0.i.i = phi float [ %183, %178 ], [ 2.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i.i ]
+  %.0.i.i = phi nsz float [ %183, %178 ], [ 2.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i.i ]
   %184 = fmul nnan ninf nsz arcp contract afn float %.0.i.i, %136
   %185 = sitofp i32 %.065177.i to float
   %186 = fcmp nnan ninf nsz arcp contract afn une float %112, 0.000000e+00
@@ -5531,7 +5531,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i100.i: ; preds = %_ZN5Annoy12
   br label %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit124.i
 
 _ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit124.i: ; preds = %216, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i100.i
-  %.0.i102.i = phi float [ %221, %216 ], [ 2.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i100.i ]
+  %.0.i102.i = phi nsz float [ %221, %216 ], [ 2.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i100.i ]
   %222 = fmul nnan ninf nsz arcp contract afn float %.0.i102.i, %185
   br i1 %71, label %.lr.ph.i.preheader.i127.i, label %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i
 
@@ -6813,7 +6813,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i: ; preds = %_ZN5Annoy12_GLOB
   br label %335
 
 335:                                              ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i, %329
-  %.0.i = phi float [ %334, %329 ], [ 2.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i ]
+  %.0.i = phi nsz float [ %334, %329 ], [ 2.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i ]
   %336 = bitcast float %.0.i to i32
   %.sroa.2.0.insert.ext.i137 = zext i32 %281 to i64
   %.sroa.2.0.insert.shift.i138 = shl nuw i64 %.sroa.2.0.insert.ext.i137, 32
@@ -21425,7 +21425,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.thread.i: ; preds = %.lr.ph.i, %
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %50
   %51 = load float, ptr %gep.i, align 4
   %52 = fcmp nnan ninf nsz arcp contract afn ogt float %51, %.03750.i
-  %.1.i = select i1 %52, float %51, float %.03750.i
+  %.1.i = select nsz i1 %52, float %51, float %.03750.i
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next62.i, %wide.trip.count59.i
   br i1 %exitcond65.not.i, label %.lr.ph53.i, label %.lr.ph51.i, !llvm.loop !195
@@ -24603,7 +24603,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit55: ; preds = %.lr.ph.i49, %56
   br label %84
 
 84:                                               ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit55, %70, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit
-  %.0 = phi float [ %22, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit ], [ %83, %70 ], [ 2.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit55 ]
+  %.0 = phi nsz float [ %22, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit ], [ %83, %70 ], [ 2.000000e+00, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit55 ]
   ret float %.0
 }
 

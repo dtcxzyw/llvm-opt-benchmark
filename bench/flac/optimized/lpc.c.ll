@@ -537,7 +537,7 @@ entry:
 for.cond:                                         ; preds = %for.end46, %entry
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %for.end46 ], [ 0, %entry ]
   %indvars.iv58 = phi i32 [ %indvars.iv.next59, %for.end46 ], [ 1, %entry ]
-  %err.0 = phi double [ %mul, %for.end46 ], [ %0, %entry ]
+  %err.0 = phi nsz double [ %mul, %for.end46 ], [ %0, %entry ]
   %umax60 = tail call i32 @llvm.umax.i32(i32 %indvars.iv58, i32 1)
   %1 = trunc nuw i64 %indvars.iv63 to i32
   %2 = lshr i32 %1, 1
@@ -678,7 +678,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %1 = tail call reassoc nsz arcp float @llvm.fabs.f32(float %0)
   %2 = fpext float %1 to double
   %cmp2 = fcmp reassoc nsz arcp olt double %cmax.051, %2
-  %cmax.1 = select i1 %cmp2, double %2, double %cmax.051
+  %cmax.1 = select nsz i1 %cmp2, double %2, double %cmax.051
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
@@ -6405,11 +6405,11 @@ if.then.i:                                        ; preds = %entry
 
 if.else4.i:                                       ; preds = %entry
   %cmp5.i = fcmp reassoc nsz arcp olt double %lpc_error, 0.000000e+00
-  %..i = select i1 %cmp5.i, double 1.000000e+32, double 0.000000e+00
+  %..i = select nsz i1 %cmp5.i, double 1.000000e+32, double 0.000000e+00
   br label %FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit
 
 FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit: ; preds = %if.then.i, %if.else4.i
-  %retval.0.i = phi double [ %.div.i, %if.then.i ], [ %..i, %if.else4.i ]
+  %retval.0.i = phi nsz double [ %.div.i, %if.then.i ], [ %..i, %if.else4.i ]
   ret double %retval.0.i
 }
 
@@ -6429,11 +6429,11 @@ if.then:                                          ; preds = %entry
 
 if.else4:                                         ; preds = %entry
   %cmp5 = fcmp reassoc nsz arcp olt double %lpc_error, 0.000000e+00
-  %. = select i1 %cmp5, double 1.000000e+32, double 0.000000e+00
+  %. = select nsz i1 %cmp5, double 1.000000e+32, double 0.000000e+00
   br label %return
 
 return:                                           ; preds = %if.else4, %if.then
-  %retval.0 = phi double [ %.div, %if.then ], [ %., %if.else4 ]
+  %retval.0 = phi nsz double [ %.div, %if.then ], [ %., %if.else4 ]
   ret double %retval.0
 }
 
@@ -6473,11 +6473,11 @@ if.then.i:                                        ; preds = %for.body
 
 if.else4.i:                                       ; preds = %for.body
   %cmp5.i = fcmp reassoc nsz arcp olt double %1, 0.000000e+00
-  %..i = select i1 %cmp5.i, double 1.000000e+32, double 0.000000e+00
+  %..i = select nsz i1 %cmp5.i, double 1.000000e+32, double 0.000000e+00
   br label %FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit
 
 FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit: ; preds = %if.then.i, %if.else4.i
-  %retval.0.i = phi double [ %.div.i, %if.then.i ], [ %..i, %if.else4.i ]
+  %retval.0.i = phi nsz double [ %.div.i, %if.then.i ], [ %..i, %if.else4.i ]
   %sub = sub i32 %total_samples, %order.012
   %conv2 = uitofp i32 %sub to double
   %mul3 = mul i32 %order.012, %overhead_bits_per_order
@@ -6486,7 +6486,7 @@ FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit: ; pre
   %cmp5 = fcmp reassoc nsz arcp olt double %4, %best_bits.011
   %5 = trunc nuw i64 %indvars.iv to i32
   %best_index.1 = select i1 %cmp5, i32 %5, i32 %best_index.09
-  %best_bits.1 = select i1 %cmp5, double %4, double %best_bits.011
+  %best_bits.1 = select nsz i1 %cmp5, double %4, double %best_bits.011
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc7 = add i32 %order.012, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

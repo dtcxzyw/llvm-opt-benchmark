@@ -2175,8 +2175,8 @@ _ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.e
   %retval.i52.sroa.5.098 = phi float [ %retval.i52.sroa.5.0.ph, %if.end.i12.i41 ], [ %retval.i52.sroa.5.0.ph, %if.then.i35 ], [ 0.000000e+00, %entry ]
   %retval.i.sroa.5.08596 = phi float [ %retval.i.sroa.5.0.ph, %if.end.i12.i41 ], [ %retval.i.sroa.5.0.ph, %if.then.i35 ], [ 0.000000e+00, %entry ]
   %retval.i.sroa.0.08794 = phi <2 x float> [ %retval.i.sroa.0.0.ph, %if.end.i12.i41 ], [ %retval.i.sroa.0.0.ph, %if.then.i35 ], [ zeroinitializer, %entry ]
-  %retval.i65.sroa.5.0 = phi float [ %add6.i.i21.i52, %if.end.i12.i41 ], [ 0.000000e+00, %if.then.i35 ], [ 0.000000e+00, %entry ]
-  %retval.i65.sroa.0.0 = phi <2 x float> [ %148, %if.end.i12.i41 ], [ zeroinitializer, %if.then.i35 ], [ zeroinitializer, %entry ]
+  %retval.i65.sroa.5.0 = phi nsz float [ %add6.i.i21.i52, %if.end.i12.i41 ], [ 0.000000e+00, %if.then.i35 ], [ 0.000000e+00, %entry ]
+  %retval.i65.sroa.0.0 = phi nsz <2 x float> [ %148, %if.end.i12.i41 ], [ zeroinitializer, %if.then.i35 ], [ zeroinitializer, %entry ]
   %arrayidx3.i80 = getelementptr inbounds i8, ptr %call13, i64 76
   %149 = load <2 x float>, ptr %arrayidx3.i80, align 4, !tbaa !42
   %150 = extractelement <2 x float> %149, i64 1
@@ -2278,8 +2278,8 @@ if.end.i12.i68:                                   ; preds = %if.then.i62
   br label %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit81
 
 _ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit81: ; preds = %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit54, %if.then.i62, %if.end.i12.i68
-  %retval.i76.sroa.5.0 = phi float [ %add6.i.i21.i79, %if.end.i12.i68 ], [ 0.000000e+00, %if.then.i62 ], [ 0.000000e+00, %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit54 ]
-  %retval.i76.sroa.0.0 = phi <2 x float> [ %218, %if.end.i12.i68 ], [ zeroinitializer, %if.then.i62 ], [ zeroinitializer, %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit54 ]
+  %retval.i76.sroa.5.0 = phi nsz float [ %add6.i.i21.i79, %if.end.i12.i68 ], [ 0.000000e+00, %if.then.i62 ], [ 0.000000e+00, %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit54 ]
+  %retval.i76.sroa.0.0 = phi nsz <2 x float> [ %218, %if.end.i12.i68 ], [ zeroinitializer, %if.then.i62 ], [ zeroinitializer, %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit54 ]
   %AbsoluteRect.i = getelementptr inbounds i8, ptr %this, i64 64
   %retval.sroa.0.0.copyload.i = load i64, ptr %AbsoluteRect.i, align 8, !tbaa.struct !47
   %retval.sroa.2.0.AbsoluteRect.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 72

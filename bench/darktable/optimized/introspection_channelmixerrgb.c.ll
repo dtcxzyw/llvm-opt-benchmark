@@ -1056,16 +1056,16 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   br label %105
 
 105:                                              ; preds = %100, %98
-  %.sroa.1276.0 = phi float [ undef, %98 ], [ %.sroa.1276.0.copyload, %100 ]
-  %.sroa.11.0 = phi float [ undef, %98 ], [ %.sroa.11.0.copyload, %100 ]
-  %.sroa.13.0 = phi float [ undef, %98 ], [ %.sroa.13.0.copyload, %100 ]
-  %.sroa.8.0 = phi float [ undef, %98 ], [ %.sroa.8.0.copyload, %100 ]
-  %.sroa.7.0 = phi float [ undef, %98 ], [ %.sroa.7.0.copyload, %100 ]
-  %.sroa.674.0 = phi float [ undef, %98 ], [ %.sroa.674.0.copyload, %100 ]
-  %.sroa.14.0 = phi float [ undef, %98 ], [ %.sroa.14.0.copyload, %100 ]
-  %.sroa.5.0 = phi float [ undef, %98 ], [ %.sroa.5.0.copyload, %100 ]
-  %.sroa.4.0 = phi float [ undef, %98 ], [ %.sroa.4.0.copyload, %100 ]
-  %.sroa.073.0 = phi float [ undef, %98 ], [ %.sroa.073.0.copyload, %100 ]
+  %.sroa.1276.0 = phi nsz float [ undef, %98 ], [ %.sroa.1276.0.copyload, %100 ]
+  %.sroa.11.0 = phi nsz float [ undef, %98 ], [ %.sroa.11.0.copyload, %100 ]
+  %.sroa.13.0 = phi nsz float [ undef, %98 ], [ %.sroa.13.0.copyload, %100 ]
+  %.sroa.8.0 = phi nsz float [ undef, %98 ], [ %.sroa.8.0.copyload, %100 ]
+  %.sroa.7.0 = phi nsz float [ undef, %98 ], [ %.sroa.7.0.copyload, %100 ]
+  %.sroa.674.0 = phi nsz float [ undef, %98 ], [ %.sroa.674.0.copyload, %100 ]
+  %.sroa.14.0 = phi nsz float [ undef, %98 ], [ %.sroa.14.0.copyload, %100 ]
+  %.sroa.5.0 = phi nsz float [ undef, %98 ], [ %.sroa.5.0.copyload, %100 ]
+  %.sroa.4.0 = phi nsz float [ undef, %98 ], [ %.sroa.4.0.copyload, %100 ]
+  %.sroa.073.0 = phi nsz float [ undef, %98 ], [ %.sroa.073.0.copyload, %100 ]
   %106 = phi <2 x float> [ undef, %98 ], [ %103, %100 ]
   %107 = getelementptr inbounds i8, ptr %0, i64 664
   %108 = load ptr, ptr %107, align 8, !tbaa !58
@@ -4758,7 +4758,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   br label %2838
 
 2838:                                             ; preds = %2819, %2816, %2787, %2782
-  %.sroa.0.0 = phi <4 x float> [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %2782 ], [ %2837, %2819 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %2816 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %2787 ]
+  %.sroa.0.0 = phi nsz <4 x float> [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %2782 ], [ %2837, %2819 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %2816 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %2787 ]
   %2839 = load ptr, ptr %107, align 8, !tbaa !58
   %2840 = getelementptr inbounds i8, ptr %2839, i64 112
   %2841 = call i32 @dt_image_is_matrix_correction_supported(ptr noundef nonnull %2840) #29
@@ -5509,7 +5509,7 @@ find_temperature_from_raw_coeffs.exit.thread:     ; preds = %2867, %2843, %2852,
   br label %3474
 
 3474:                                             ; preds = %4079, %3438
-  %.sroa.0.0.i = phi <4 x float> [ undef, %3438 ], [ %.sroa.0.12.vec.insert.i, %4079 ]
+  %.sroa.0.0.i = phi nsz <4 x float> [ undef, %3438 ], [ %.sroa.0.12.vec.insert.i, %4079 ]
   %3475 = phi i64 [ 0, %3438 ], [ %4084, %4079 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.084.i)
   %3476 = getelementptr inbounds float, ptr %2, i64 %3475
@@ -5684,7 +5684,7 @@ find_temperature_from_raw_coeffs.exit.thread:     ; preds = %2867, %2843, %2852,
   br label %3601
 
 3601:                                             ; preds = %3573, %3557, %3547, %3530, %3482
-  %.sroa.0.1.i = phi <4 x float> [ %.sroa.0.0.i, %3482 ], [ %.sroa.0.0.i, %3573 ], [ %.sroa.0.0.i, %3557 ], [ %.sroa.0.0.i, %3547 ], [ %.sroa.084.i.0..sroa.084.i.0..sroa.084.i.0..sroa.084.0..sroa.084.0..sroa.084.0..sroa.0.0.copyload.i, %3530 ]
+  %.sroa.0.1.i = phi nsz <4 x float> [ %.sroa.0.0.i, %3482 ], [ %.sroa.0.0.i, %3573 ], [ %.sroa.0.0.i, %3557 ], [ %.sroa.0.0.i, %3547 ], [ %.sroa.084.i.0..sroa.084.i.0..sroa.084.i.0..sroa.084.0..sroa.084.0..sroa.084.0..sroa.0.0.copyload.i, %3530 ]
   %3602 = phi float [ %3481, %3482 ], [ %3600, %3573 ], [ %3572, %3557 ], [ %3556, %3547 ], [ %.sroa.0.8.vec.extract.i, %3530 ]
   %3603 = phi <2 x float> [ %3478, %3482 ], [ %3598, %3573 ], [ %3570, %3557 ], [ %3555, %3547 ], [ %.sroa.0.0.vec.extract.i, %3530 ]
   %3604 = fmul reassoc nsz arcp contract afn <2 x float> %3603, %3412
@@ -5826,7 +5826,7 @@ find_temperature_from_raw_coeffs.exit.thread:     ; preds = %2867, %2843, %2852,
   br label %3706
 
 3706:                                             ; preds = %3703, %3625
-  %.sroa.0.2.i = phi <4 x float> [ %.sroa.0.8.vec.insert.i, %3703 ], [ %.sroa.0.0.vecblend49.i, %3625 ]
+  %.sroa.0.2.i = phi nsz <4 x float> [ %.sroa.0.8.vec.insert.i, %3703 ], [ %.sroa.0.0.vecblend49.i, %3625 ]
   %3707 = phi float [ %3704, %3703 ], [ 0.000000e+00, %3625 ]
   %3708 = phi <2 x float> [ %3705, %3703 ], [ zeroinitializer, %3625 ]
   br i1 %.not, label %3753, label %3709
@@ -6166,7 +6166,7 @@ _luma_chroma.exit14.i:                            ; preds = %3943, %3926
   br label %3974
 
 3974:                                             ; preds = %_luma_chroma.exit14.i, %_luma_chroma.exit.i
-  %.sroa.0.3.i = phi <4 x float> [ %.sroa.0.8.vec.insert83.i, %_luma_chroma.exit14.i ], [ %.sroa.0.8.vec.insert59.i, %_luma_chroma.exit.i ]
+  %.sroa.0.3.i = phi nsz <4 x float> [ %.sroa.0.8.vec.insert83.i, %_luma_chroma.exit14.i ], [ %.sroa.0.8.vec.insert59.i, %_luma_chroma.exit.i ]
   br i1 %3441, label %3988, label %3975
 
 3975:                                             ; preds = %3974
@@ -6323,7 +6323,7 @@ _luma_chroma.exit14.i:                            ; preds = %3943, %3926
   br label %4079
 
 4079:                                             ; preds = %4065, %4047, %3975
-  %.sroa.0.4.i = phi <4 x float> [ %.sroa.0.8.vec.insert75.i, %4065 ], [ %.sroa.0.8.vec.insert73.i, %4047 ], [ %.sroa.0.0.vec.insert.i, %3975 ]
+  %.sroa.0.4.i = phi nsz <4 x float> [ %.sroa.0.8.vec.insert75.i, %4065 ], [ %.sroa.0.8.vec.insert73.i, %4047 ], [ %.sroa.0.0.vec.insert.i, %3975 ]
   %4080 = or disjoint i64 %3475, 3
   %4081 = getelementptr inbounds float, ptr %2, i64 %4080
   %4082 = load float, ptr %4081, align 4, !tbaa !12, !alias.scope !187, !noalias !190
@@ -8507,7 +8507,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr noundef re
   br label %77
 
 77:                                               ; preds = %58, %55, %26, %20
-  %.sroa.022.0 = phi <4 x float> [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %20 ], [ %76, %58 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %55 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %26 ]
+  %.sroa.022.0 = phi nsz <4 x float> [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %20 ], [ %76, %58 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %55 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %26 ]
   %78 = load ptr, ptr %21, align 8, !tbaa !58
   %79 = getelementptr inbounds i8, ptr %78, i64 112
   %80 = getelementptr inbounds i8, ptr %9, i64 136
@@ -8774,7 +8774,7 @@ find_temperature_from_raw_coeffs.exit:            ; preds = %77, %84, %92, %93, 
   br label %278
 
 278:                                              ; preds = %259, %256, %227, %221
-  %.sroa.0.0 = phi <4 x float> [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %221 ], [ %277, %259 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %256 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %227 ]
+  %.sroa.0.0 = phi nsz <4 x float> [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %221 ], [ %277, %259 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %256 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %227 ]
   %279 = load ptr, ptr %222, align 8, !tbaa !58
   %280 = getelementptr inbounds i8, ptr %279, i64 112
   %281 = getelementptr inbounds i8, ptr %9, i64 136
@@ -10086,7 +10086,7 @@ define void @reload_defaults(ptr noundef %0) local_unnamed_addr #3 {
   br label %153
 
 153:                                              ; preds = %134, %131, %102
-  %.sroa.0.0 = phi <4 x float> [ %152, %134 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %131 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %102 ]
+  %.sroa.0.0 = phi nsz <4 x float> [ %152, %134 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %131 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %102 ]
   %154 = tail call i32 @dt_image_is_matrix_correction_supported(ptr noundef nonnull %86) #29
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %find_temperature_from_raw_coeffs.exit.thread, label %156

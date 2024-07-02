@@ -1449,8 +1449,8 @@ define internal noundef i32 @lowlight_draw(ptr noundef %0, ptr noundef %1, ptr n
 
 329:                                              ; preds = %109, %105
   %.sroa.5.4.vec.extract13.pre-phi = phi float [ %.sroa.5.4.vec.extract11, %109 ], [ %.sroa.5.4.vec.extract, %105 ]
-  %.sroa.29.0 = phi <2 x float> [ %.sroa.29.0.copyload47, %109 ], [ %.sroa.29.0.copyload, %105 ]
-  %.sroa.5.0 = phi <4 x float> [ %.sroa.5.0.copyload4, %109 ], [ %.sroa.5.0.copyload, %105 ]
+  %.sroa.29.0 = phi nsz <2 x float> [ %.sroa.29.0.copyload47, %109 ], [ %.sroa.29.0.copyload, %105 ]
+  %.sroa.5.0 = phi nsz <4 x float> [ %.sroa.5.0.copyload4, %109 ], [ %.sroa.5.0.copyload, %105 ]
   call void @cairo_save(ptr noundef %56) #19
   call void @cairo_set_source_rgb(ptr noundef %56, double noundef 6.000000e-01, double noundef 6.000000e-01, double noundef 6.000000e-01) #19
   %330 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !84

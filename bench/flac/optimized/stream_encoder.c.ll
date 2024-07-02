@@ -6273,7 +6273,7 @@ if.then521:                                       ; preds = %if.else518
   br label %if.end523
 
 if.end523:                                        ; preds = %if.then501, %cond.end512, %if.else518, %if.then521
-  %p504.0 = phi float [ 0.000000e+00, %if.then521 ], [ %conv509, %if.else518 ], [ 1.000000e+00, %cond.end512 ], [ 5.000000e-01, %if.then501 ]
+  %p504.0 = phi nsz float [ 0.000000e+00, %if.then521 ], [ %conv509, %if.else518 ], [ 1.000000e+00, %cond.end512 ], [ 5.000000e-01, %if.then501 ]
   %30 = load ptr, ptr %encoder, align 8
   %apodizations525 = getelementptr inbounds i8, ptr %30, i64 44
   %num_apodizations527 = getelementptr inbounds i8, ptr %30, i64 40
