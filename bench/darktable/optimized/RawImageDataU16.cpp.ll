@@ -1211,9 +1211,9 @@ define hidden void @_ZN8rawspeed15RawImageDataU1615scaleBlackWhiteEv(ptr noundef
   %253 = tail call <8 x i32> @llvm.smin.v8i32(<8 x i32> %252, <8 x i32> %242)
   %254 = tail call <8 x i32> @llvm.smin.v8i32(<8 x i32> %253, <8 x i32> %243)
   %255 = tail call i32 @llvm.vector.reduce.smin.v8i32(<8 x i32> %254)
-  %256 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %244, <8 x i32> %245)
-  %257 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %256, <8 x i32> %246)
-  %258 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %257, <8 x i32> %247)
+  %256 = tail call <8 x i32> @llvm.umax.v8i32(<8 x i32> %244, <8 x i32> %245)
+  %257 = tail call <8 x i32> @llvm.umax.v8i32(<8 x i32> %256, <8 x i32> %246)
+  %258 = tail call <8 x i32> @llvm.umax.v8i32(<8 x i32> %257, <8 x i32> %247)
   %259 = tail call i32 @llvm.vector.reduce.smax.v8i32(<8 x i32> %258)
   br i1 %92, label %.loopexit, label %.preheader
 
@@ -3334,6 +3334,9 @@ declare void @llvm.va_start.p0(ptr) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <8 x i32> @llvm.umax.v8i32(<8 x i32>, <8 x i32>) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x i32> @llvm.smax.v2i32(<2 x i32>, <2 x i32>) #23
