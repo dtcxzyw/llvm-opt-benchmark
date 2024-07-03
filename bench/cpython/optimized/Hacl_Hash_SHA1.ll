@@ -145,7 +145,7 @@ if.end52.i:                                       ; preds = %for.body27.i
   %and.i = and i32 %10, %9
   %not.i = xor i32 %9, -1
   %and37.i = and i32 %11, %not.i
-  %xor38.i = or disjoint i32 %and37.i, %and.i
+  %xor38.i = or i32 %and37.i, %and.i
   br label %if.end64.i
 
 if.else55.i:                                      ; preds = %if.else39.i
