@@ -2224,95 +2224,75 @@ entry:
   %m_array.i129.i = getelementptr inbounds i8, ptr %2, i64 176
   call void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArrayC1Em(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %add.i)
   %cmp185.not.i = icmp eq i64 %call3.i, 0
-  br i1 %cmp185.not.i, label %for.end314.i, label %for.cond6.preheader.us.i
+  br i1 %cmp185.not.i, label %for.end314.i, label %for.cond6.preheader.i
 
-for.cond6.preheader.us.i:                         ; preds = %entry, %for.cond6.for.inc20_crit_edge.us.i
-  %idx.0186.us.i = phi i64 [ %add12.us.i, %for.cond6.for.inc20_crit_edge.us.i ], [ 0, %entry ]
-  %add12.us.i = add nuw i64 %idx.0186.us.i, 1
-  br label %for.cond9.preheader.us.i
+for.cond6.preheader.i:                            ; preds = %entry, %for.inc20.i
+  %idx.0186.i = phi i64 [ %add12.i, %for.inc20.i ], [ 0, %entry ]
+  %add12.i = add nuw i64 %idx.0186.i, 1
+  br label %for.cond9.preheader.i
 
-for.cond9.us.i:                                   ; preds = %for.cond9.preheader.us.i, %invoke.cont.us.i
-  %kdx.0.us.i = phi i64 [ %add14.us.i, %invoke.cont.us.i ], [ 0, %for.cond9.preheader.us.i ]
-  %exitcond.not.i = icmp eq i64 %kdx.0.us.i, %call3.i
-  br i1 %exitcond.not.i, label %for.inc17.us.i, label %for.body11.us.i
-
-for.inc17.us.i:                                   ; preds = %for.cond9.us.i
-  %exitcond223.not.i = icmp eq i64 %add13.us.i, %call3.i
-  br i1 %exitcond223.not.i, label %for.cond6.for.inc20_crit_edge.us.i, label %for.cond9.preheader.us.i, !llvm.loop !47
-
-for.body11.us.i:                                  ; preds = %for.cond9.us.i
-  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx.0186.us.i, i64 noundef %jdx.0184.us.i, i64 noundef %kdx.0.us.i, ptr noundef nonnull %RGB.i)
-          to label %invoke.cont.us.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i
-
-invoke.cont.us.i:                                 ; preds = %for.body11.us.i
-  %add14.us.i = add i64 %kdx.0.us.i, 1
-  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %add12.us.i, i64 noundef %add13.us.i, i64 noundef %add14.us.i, ptr noundef nonnull %RGB.i)
-          to label %for.cond9.us.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i, !llvm.loop !48
-
-for.cond9.preheader.us.i:                         ; preds = %for.inc17.us.i, %for.cond6.preheader.us.i
-  %jdx.0184.us.i = phi i64 [ 0, %for.cond6.preheader.us.i ], [ %add13.us.i, %for.inc17.us.i ]
-  %add13.us.i = add nuw i64 %jdx.0184.us.i, 1
-  br label %for.cond9.us.i
-
-for.cond6.for.inc20_crit_edge.us.i:               ; preds = %for.inc17.us.i
-  %exitcond224.not.i = icmp eq i64 %add12.us.i, %call3.i
-  br i1 %exitcond224.not.i, label %for.cond28.preheader.lr.ph.i, label %for.cond6.preheader.us.i, !llvm.loop !49
-
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i: ; preds = %invoke.cont.us.i, %for.body11.us.i
-  %lpad.loopexit180.us.i = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.i
-
-for.cond28.preheader.lr.ph.i:                     ; preds = %for.cond6.for.inc20_crit_edge.us.i
+for.cond28.preheader.lr.ph.i:                     ; preds = %for.inc20.i
   %add37.i = add i64 %call3.i, 1
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %RGB35.i, i64 8
   %sub.i = add i64 %call3.i, -1
-  br label %for.cond28.preheader.us.i
+  br label %for.cond28.preheader.i
 
-for.cond28.preheader.us.i:                        ; preds = %for.cond28.for.inc52_crit_edge.split.us.us.i, %for.cond28.preheader.lr.ph.i
-  %idx23.0192.us.i = phi i64 [ 0, %for.cond28.preheader.lr.ph.i ], [ %add40.us.i, %for.cond28.for.inc52_crit_edge.split.us.us.i ]
-  %add40.us.i = add nuw i64 %idx23.0192.us.i, 1
-  br label %for.cond32.preheader.us.us.i
+for.cond9.preheader.i:                            ; preds = %for.inc17.i, %for.cond6.preheader.i
+  %jdx.0183.i = phi i64 [ 0, %for.cond6.preheader.i ], [ %add13.i, %for.inc17.i ]
+  %add13.i = add nuw i64 %jdx.0183.i, 1
+  br label %for.cond9.i
 
-for.cond32.preheader.us.us.i:                     ; preds = %for.cond32.for.inc49_crit_edge.us.us.i, %for.cond28.preheader.us.i
-  %jdx27.0190.us.us.i = phi i64 [ 0, %for.cond28.preheader.us.i ], [ %add41.us.us.i, %for.cond32.for.inc49_crit_edge.us.us.i ]
-  %add41.us.us.i = add nuw i64 %jdx27.0190.us.us.i, 1
-  br label %for.body34.us.us.i
+for.cond9.i:                                      ; preds = %invoke.cont.i, %for.cond9.preheader.i
+  %kdx.0.i = phi i64 [ %add14.i, %invoke.cont.i ], [ 0, %for.cond9.preheader.i ]
+  %exitcond.not.i = icmp eq i64 %kdx.0.i, %call3.i
+  br i1 %exitcond.not.i, label %for.inc17.i, label %for.body11.i
 
-for.body34.us.us.i:                               ; preds = %for.inc46.us.us.i, %for.cond32.preheader.us.us.i
-  %kdx31.0188.us.us.i = phi i64 [ 0, %for.cond32.preheader.us.us.i ], [ %add47.us.us.i, %for.inc46.us.us.i ]
-  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx23.0192.us.i, i64 noundef %jdx27.0190.us.us.i, i64 noundef %kdx31.0188.us.us.i, ptr noundef nonnull %RGB35.i)
-          to label %invoke.cont39.us.us.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us.i
+for.body11.i:                                     ; preds = %for.cond9.i
+  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx.0186.i, i64 noundef %jdx.0183.i, i64 noundef %kdx.0.i, ptr noundef nonnull %RGB.i)
+          to label %invoke.cont.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-invoke.cont39.us.us.i:                            ; preds = %for.body34.us.us.i
-  %cmp36.us.us.i = icmp eq i64 %kdx31.0188.us.us.i, 0
-  %cond.us.us.i = select i1 %cmp36.us.us.i, i64 0, i64 %add37.i
-  %3 = load <2 x float>, ptr %RGB35.i, align 8
-  %4 = fadd <2 x float> %3, <float -5.000000e-01, float -5.000000e-01>
-  %5 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %4, <2 x float> <float 4.000000e+00, float 4.000000e+00>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
-  store <2 x float> %5, ptr %RGB35.i, align 8
-  %6 = load float, ptr %arrayidx5.i.i, align 8
-  %sub6.i.us.us.i = fadd float %6, -5.000000e-01
-  %7 = call float @llvm.fmuladd.f32(float %sub6.i.us.us.i, float 4.000000e+00, float 5.000000e-01)
-  store float %7, ptr %arrayidx5.i.i, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %add40.us.i, i64 noundef %add41.us.us.i, i64 noundef %cond.us.us.i, ptr noundef nonnull %RGB35.i)
-          to label %for.inc46.us.us.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us.i
+invoke.cont.i:                                    ; preds = %for.body11.i
+  %add14.i = add i64 %kdx.0.i, 1
+  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %add12.i, i64 noundef %add13.i, i64 noundef %add14.i, ptr noundef nonnull %RGB.i)
+          to label %for.cond9.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !llvm.loop !47
 
-for.inc46.us.us.i:                                ; preds = %invoke.cont39.us.us.i
-  %add47.us.us.i = add i64 %kdx31.0188.us.us.i, %sub.i
-  %cmp33.us.us.i = icmp ult i64 %add47.us.us.i, %call3.i
-  br i1 %cmp33.us.us.i, label %for.body34.us.us.i, label %for.cond32.for.inc49_crit_edge.us.us.i, !llvm.loop !50
+lpad.loopexit.i:                                  ; preds = %invoke.cont298.i, %for.body274.i
+  %lpad.loopexit160.i = landingpad { ptr, i32 }
+          cleanup
+  br label %lpad.i
 
-for.cond32.for.inc49_crit_edge.us.us.i:           ; preds = %for.inc46.us.us.i
-  %exitcond225.not.i = icmp eq i64 %add41.us.us.i, %call3.i
-  br i1 %exitcond225.not.i, label %for.cond28.for.inc52_crit_edge.split.us.us.i, label %for.cond32.preheader.us.us.i, !llvm.loop !51
+lpad.loopexit.split-lp.loopexit.i:                ; preds = %invoke.cont246.i, %for.body229.i
+  %lpad.loopexit162.i = landingpad { ptr, i32 }
+          cleanup
+  br label %lpad.i
 
-for.cond28.for.inc52_crit_edge.split.us.us.i:     ; preds = %for.cond32.for.inc49_crit_edge.us.us.i
-  %exitcond226.not.i = icmp eq i64 %add40.us.i, %call3.i
-  br i1 %exitcond226.not.i, label %for.cond60.preheader.lr.ph.i, label %for.cond28.preheader.us.i, !llvm.loop !52
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %invoke.cont201.i, %for.body185.i
+  %lpad.loopexit165.i = landingpad { ptr, i32 }
+          cleanup
+  br label %lpad.i
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us.i: ; preds = %invoke.cont39.us.us.i, %for.body34.us.us.i
-  %lpad.loopexit177.us.us.i = landingpad { ptr, i32 }
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %invoke.cont157.i, %for.body142.i
+  %lpad.loopexit168.i = landingpad { ptr, i32 }
+          cleanup
+  br label %lpad.i
+
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %invoke.cont114.i, %for.body104.i
+  %lpad.loopexit171.i = landingpad { ptr, i32 }
+          cleanup
+  br label %lpad.i
+
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %invoke.cont76.i, %for.body66.i
+  %lpad.loopexit174.i = landingpad { ptr, i32 }
+          cleanup
+  br label %lpad.i
+
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %invoke.cont39.i, %for.body34.i
+  %lpad.loopexit177.i = landingpad { ptr, i32 }
+          cleanup
+  br label %lpad.i
+
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %invoke.cont.i, %for.body11.i
+  %lpad.loopexit180.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
@@ -2325,328 +2305,348 @@ common.resume:                                    ; preds = %lpad86.body.i, %if.
   %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %lpad.i ], [ %eh.lpad-body.i, %if.then.i.i.i128.i ], [ %eh.lpad-body.i, %lpad86.body.i ]
   resume { ptr, i32 } %common.resume.op
 
-lpad.i:                                           ; preds = %lpad.loopexit.split.us.split.us.i, %lpad.loopexit.split-lp.loopexit.split.us.split.us.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit160.us.us.i, %lpad.loopexit.split.us.split.us.i ], [ %lpad.loopexit162.us.us.i, %lpad.loopexit.split-lp.loopexit.split.us.split.us.i ], [ %lpad.loopexit165.us.us.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us.i ], [ %lpad.loopexit168.us.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i ], [ %lpad.loopexit171.us.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i ], [ %lpad.loopexit174.us.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i ], [ %lpad.loopexit177.us.us.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us.i ], [ %lpad.loopexit180.us.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i ], [ %lpad.loopexit.split-lp181.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+lpad.i:                                           ; preds = %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad.loopexit.split-lp.loopexit.i, %lpad.loopexit.i
+  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit160.i, %lpad.loopexit.i ], [ %lpad.loopexit162.i, %lpad.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit165.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit168.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit171.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit174.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit177.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit180.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp181.i, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   call void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArrayD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i) #27
   br label %common.resume
 
-for.cond60.preheader.lr.ph.i:                     ; preds = %for.cond28.for.inc52_crit_edge.split.us.us.i
+for.inc17.i:                                      ; preds = %for.cond9.i
+  %exitcond212.not.i = icmp eq i64 %add13.i, %call3.i
+  br i1 %exitcond212.not.i, label %for.inc20.i, label %for.cond9.preheader.i, !llvm.loop !48
+
+for.inc20.i:                                      ; preds = %for.inc17.i
+  %exitcond213.not.i = icmp eq i64 %add12.i, %call3.i
+  br i1 %exitcond213.not.i, label %for.cond28.preheader.lr.ph.i, label %for.cond6.preheader.i, !llvm.loop !49
+
+for.cond28.preheader.i:                           ; preds = %for.inc52.i, %for.cond28.preheader.lr.ph.i
+  %idx23.0190.i = phi i64 [ 0, %for.cond28.preheader.lr.ph.i ], [ %add40.i, %for.inc52.i ]
+  %add40.i = add nuw i64 %idx23.0190.i, 1
+  br label %for.cond32.preheader.i
+
+for.cond60.preheader.lr.ph.i:                     ; preds = %for.inc52.i
   %arrayidx5.i133.i = getelementptr inbounds i8, ptr %RGB67.i, i64 8
-  br label %for.cond60.preheader.us.i
+  br label %for.cond60.preheader.i
 
-for.cond60.preheader.us.i:                        ; preds = %for.cond60.for.inc90_crit_edge.us.i, %for.cond60.preheader.lr.ph.i
-  %idx55.0196.us.i = phi i64 [ 0, %for.cond60.preheader.lr.ph.i ], [ %add77.us.i, %for.cond60.for.inc90_crit_edge.us.i ]
-  %add77.us.i = add nuw i64 %idx55.0196.us.i, 1
-  br label %for.cond64.preheader.us.i
+for.cond32.preheader.i:                           ; preds = %for.inc49.i, %for.cond28.preheader.i
+  %jdx27.0188.i = phi i64 [ 0, %for.cond28.preheader.i ], [ %add41.i, %for.inc49.i ]
+  %add41.i = add nuw i64 %jdx27.0188.i, 1
+  br label %for.body34.i
 
-for.cond64.us.i:                                  ; preds = %for.cond64.preheader.us.i, %invoke.cont76.us.i
-  %kdx63.0.us.i = phi i64 [ %add78.us.i, %invoke.cont76.us.i ], [ 0, %for.cond64.preheader.us.i ]
-  %exitcond227.not.i = icmp eq i64 %kdx63.0.us.i, %call3.i
-  br i1 %exitcond227.not.i, label %for.inc86.us.i, label %for.body66.us.i
+for.body34.i:                                     ; preds = %for.inc46.i, %for.cond32.preheader.i
+  %kdx31.0187.i = phi i64 [ 0, %for.cond32.preheader.i ], [ %add47.i, %for.inc46.i ]
+  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx23.0190.i, i64 noundef %jdx27.0188.i, i64 noundef %kdx31.0187.i, ptr noundef nonnull %RGB35.i)
+          to label %invoke.cont39.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-for.inc86.us.i:                                   ; preds = %for.cond64.us.i
-  %add88.us.i = add i64 %jdx59.0194.us.i, %sub.i
-  %cmp61.us.i = icmp ult i64 %add88.us.i, %call3.i
-  br i1 %cmp61.us.i, label %for.cond64.preheader.us.i, label %for.cond60.for.inc90_crit_edge.us.i, !llvm.loop !53
+invoke.cont39.i:                                  ; preds = %for.body34.i
+  %cmp36.i = icmp eq i64 %kdx31.0187.i, 0
+  %cond.i = select i1 %cmp36.i, i64 0, i64 %add37.i
+  %3 = load <2 x float>, ptr %RGB35.i, align 8
+  %4 = fadd <2 x float> %3, <float -5.000000e-01, float -5.000000e-01>
+  %5 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %4, <2 x float> <float 4.000000e+00, float 4.000000e+00>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
+  store <2 x float> %5, ptr %RGB35.i, align 8
+  %6 = load float, ptr %arrayidx5.i.i, align 8
+  %sub6.i.i = fadd float %6, -5.000000e-01
+  %7 = call float @llvm.fmuladd.f32(float %sub6.i.i, float 4.000000e+00, float 5.000000e-01)
+  store float %7, ptr %arrayidx5.i.i, align 8
+  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %add40.i, i64 noundef %add41.i, i64 noundef %cond.i, ptr noundef nonnull %RGB35.i)
+          to label %for.inc46.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-for.body66.us.i:                                  ; preds = %for.cond64.us.i
-  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx55.0196.us.i, i64 noundef %jdx59.0194.us.i, i64 noundef %kdx63.0.us.i, ptr noundef nonnull %RGB67.i)
-          to label %invoke.cont76.us.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i
+for.inc46.i:                                      ; preds = %invoke.cont39.i
+  %add47.i = add i64 %kdx31.0187.i, %sub.i
+  %cmp33.i = icmp ult i64 %add47.i, %call3.i
+  br i1 %cmp33.i, label %for.body34.i, label %for.inc49.i, !llvm.loop !50
 
-invoke.cont76.us.i:                               ; preds = %for.body66.us.i
-  %add78.us.i = add i64 %kdx63.0.us.i, 1
+for.inc49.i:                                      ; preds = %for.inc46.i
+  %exitcond214.not.i = icmp eq i64 %add41.i, %call3.i
+  br i1 %exitcond214.not.i, label %for.inc52.i, label %for.cond32.preheader.i, !llvm.loop !51
+
+for.inc52.i:                                      ; preds = %for.inc49.i
+  %exitcond215.not.i = icmp eq i64 %add40.i, %call3.i
+  br i1 %exitcond215.not.i, label %for.cond60.preheader.lr.ph.i, label %for.cond28.preheader.i, !llvm.loop !52
+
+for.cond60.preheader.i:                           ; preds = %for.inc90.i, %for.cond60.preheader.lr.ph.i
+  %idx55.0193.i = phi i64 [ 0, %for.cond60.preheader.lr.ph.i ], [ %add77.i, %for.inc90.i ]
+  %add77.i = add nuw i64 %idx55.0193.i, 1
+  br label %for.cond64.preheader.i
+
+for.cond98.preheader.lr.ph.i:                     ; preds = %for.inc90.i
+  %arrayidx5.i138.i = getelementptr inbounds i8, ptr %RGB105.i, i64 8
+  br label %for.cond98.preheader.i
+
+for.cond64.preheader.i:                           ; preds = %for.inc86.i, %for.cond60.preheader.i
+  %jdx59.0191.i = phi i64 [ 0, %for.cond60.preheader.i ], [ %add88.i, %for.inc86.i ]
+  %cmp69.i = icmp eq i64 %jdx59.0191.i, 0
+  %cond74.i = select i1 %cmp69.i, i64 0, i64 %add37.i
+  br label %for.cond64.i
+
+for.cond64.i:                                     ; preds = %invoke.cont76.i, %for.cond64.preheader.i
+  %kdx63.0.i = phi i64 [ %add78.i, %invoke.cont76.i ], [ 0, %for.cond64.preheader.i ]
+  %exitcond216.not.i = icmp eq i64 %kdx63.0.i, %call3.i
+  br i1 %exitcond216.not.i, label %for.inc86.i, label %for.body66.i
+
+for.body66.i:                                     ; preds = %for.cond64.i
+  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx55.0193.i, i64 noundef %jdx59.0191.i, i64 noundef %kdx63.0.i, ptr noundef nonnull %RGB67.i)
+          to label %invoke.cont76.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
+
+invoke.cont76.i:                                  ; preds = %for.body66.i
+  %add78.i = add i64 %kdx63.0.i, 1
   %8 = load <2 x float>, ptr %RGB67.i, align 8
   %9 = fadd <2 x float> %8, <float -5.000000e-01, float -5.000000e-01>
   %10 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %9, <2 x float> <float 4.000000e+00, float 4.000000e+00>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
   store <2 x float> %10, ptr %RGB67.i, align 8
   %11 = load float, ptr %arrayidx5.i133.i, align 8
-  %sub6.i134.us.i = fadd float %11, -5.000000e-01
-  %12 = call float @llvm.fmuladd.f32(float %sub6.i134.us.i, float 4.000000e+00, float 5.000000e-01)
+  %sub6.i134.i = fadd float %11, -5.000000e-01
+  %12 = call float @llvm.fmuladd.f32(float %sub6.i134.i, float 4.000000e+00, float 5.000000e-01)
   store float %12, ptr %arrayidx5.i133.i, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %add77.us.i, i64 noundef %cond74.us.i, i64 noundef %add78.us.i, ptr noundef nonnull %RGB67.i)
-          to label %for.cond64.us.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i, !llvm.loop !54
+  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %add77.i, i64 noundef %cond74.i, i64 noundef %add78.i, ptr noundef nonnull %RGB67.i)
+          to label %for.cond64.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !llvm.loop !53
 
-for.cond64.preheader.us.i:                        ; preds = %for.inc86.us.i, %for.cond60.preheader.us.i
-  %jdx59.0194.us.i = phi i64 [ 0, %for.cond60.preheader.us.i ], [ %add88.us.i, %for.inc86.us.i ]
-  %cmp69.us.i = icmp eq i64 %jdx59.0194.us.i, 0
-  %cond74.us.i = select i1 %cmp69.us.i, i64 0, i64 %add37.i
-  br label %for.cond64.us.i
+for.inc86.i:                                      ; preds = %for.cond64.i
+  %add88.i = add i64 %jdx59.0191.i, %sub.i
+  %cmp61.i = icmp ult i64 %add88.i, %call3.i
+  br i1 %cmp61.i, label %for.cond64.preheader.i, label %for.inc90.i, !llvm.loop !54
 
-for.cond60.for.inc90_crit_edge.us.i:              ; preds = %for.inc86.us.i
-  %exitcond228.not.i = icmp eq i64 %add77.us.i, %call3.i
-  br i1 %exitcond228.not.i, label %for.cond98.preheader.lr.ph.i, label %for.cond60.preheader.us.i, !llvm.loop !55
+for.inc90.i:                                      ; preds = %for.inc86.i
+  %exitcond217.not.i = icmp eq i64 %add77.i, %call3.i
+  br i1 %exitcond217.not.i, label %for.cond98.preheader.lr.ph.i, label %for.cond60.preheader.i, !llvm.loop !55
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i: ; preds = %invoke.cont76.us.i, %for.body66.us.i
-  %lpad.loopexit174.us.i = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.i
+for.cond98.preheader.i:                           ; preds = %for.inc127.i, %for.cond98.preheader.lr.ph.i
+  %idx93.0196.i = phi i64 [ 0, %for.cond98.preheader.lr.ph.i ], [ %add129.i, %for.inc127.i ]
+  %cmp107.i = icmp eq i64 %idx93.0196.i, 0
+  %cond112.i = select i1 %cmp107.i, i64 0, i64 %add37.i
+  br label %for.cond102.preheader.i
 
-for.cond98.preheader.lr.ph.i:                     ; preds = %for.cond60.for.inc90_crit_edge.us.i
-  %arrayidx5.i138.i = getelementptr inbounds i8, ptr %RGB105.i, i64 8
-  br label %for.cond98.preheader.us.i
+for.cond136.preheader.lr.ph.i:                    ; preds = %for.inc127.i
+  %arrayidx5.i143.i = getelementptr inbounds i8, ptr %RGB143.i, i64 8
+  br label %for.cond136.preheader.i
 
-for.cond98.preheader.us.i:                        ; preds = %for.cond98.for.inc127_crit_edge.us.i, %for.cond98.preheader.lr.ph.i
-  %idx93.0200.us.i = phi i64 [ 0, %for.cond98.preheader.lr.ph.i ], [ %add129.us.i, %for.cond98.for.inc127_crit_edge.us.i ]
-  %cmp107.us.i = icmp eq i64 %idx93.0200.us.i, 0
-  %cond112.us.i = select i1 %cmp107.us.i, i64 0, i64 %add37.i
-  br label %for.cond102.preheader.us.i
+for.cond102.preheader.i:                          ; preds = %for.inc124.i, %for.cond98.preheader.i
+  %jdx97.0194.i = phi i64 [ 0, %for.cond98.preheader.i ], [ %add115.i, %for.inc124.i ]
+  %add115.i = add nuw i64 %jdx97.0194.i, 1
+  br label %for.cond102.i
 
-for.cond102.us.i:                                 ; preds = %for.cond102.preheader.us.i, %invoke.cont114.us.i
-  %kdx101.0.us.i = phi i64 [ %add116.us.i, %invoke.cont114.us.i ], [ 0, %for.cond102.preheader.us.i ]
-  %exitcond229.not.i = icmp eq i64 %kdx101.0.us.i, %call3.i
-  br i1 %exitcond229.not.i, label %for.inc124.us.i, label %for.body104.us.i
+for.cond102.i:                                    ; preds = %invoke.cont114.i, %for.cond102.preheader.i
+  %kdx101.0.i = phi i64 [ %add116.i, %invoke.cont114.i ], [ 0, %for.cond102.preheader.i ]
+  %exitcond218.not.i = icmp eq i64 %kdx101.0.i, %call3.i
+  br i1 %exitcond218.not.i, label %for.inc124.i, label %for.body104.i
 
-for.inc124.us.i:                                  ; preds = %for.cond102.us.i
-  %exitcond230.not.i = icmp eq i64 %add115.us.i, %call3.i
-  br i1 %exitcond230.not.i, label %for.cond98.for.inc127_crit_edge.us.i, label %for.cond102.preheader.us.i, !llvm.loop !56
+for.body104.i:                                    ; preds = %for.cond102.i
+  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx93.0196.i, i64 noundef %jdx97.0194.i, i64 noundef %kdx101.0.i, ptr noundef nonnull %RGB105.i)
+          to label %invoke.cont114.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-for.body104.us.i:                                 ; preds = %for.cond102.us.i
-  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx93.0200.us.i, i64 noundef %jdx97.0198.us.i, i64 noundef %kdx101.0.us.i, ptr noundef nonnull %RGB105.i)
-          to label %invoke.cont114.us.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i
-
-invoke.cont114.us.i:                              ; preds = %for.body104.us.i
-  %add116.us.i = add i64 %kdx101.0.us.i, 1
+invoke.cont114.i:                                 ; preds = %for.body104.i
+  %add116.i = add i64 %kdx101.0.i, 1
   %13 = load <2 x float>, ptr %RGB105.i, align 8
   %14 = fadd <2 x float> %13, <float -5.000000e-01, float -5.000000e-01>
   %15 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %14, <2 x float> <float 4.000000e+00, float 4.000000e+00>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
   store <2 x float> %15, ptr %RGB105.i, align 8
   %16 = load float, ptr %arrayidx5.i138.i, align 8
-  %sub6.i139.us.i = fadd float %16, -5.000000e-01
-  %17 = call float @llvm.fmuladd.f32(float %sub6.i139.us.i, float 4.000000e+00, float 5.000000e-01)
+  %sub6.i139.i = fadd float %16, -5.000000e-01
+  %17 = call float @llvm.fmuladd.f32(float %sub6.i139.i, float 4.000000e+00, float 5.000000e-01)
   store float %17, ptr %arrayidx5.i138.i, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %cond112.us.i, i64 noundef %add115.us.i, i64 noundef %add116.us.i, ptr noundef nonnull %RGB105.i)
-          to label %for.cond102.us.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i, !llvm.loop !57
+  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %cond112.i, i64 noundef %add115.i, i64 noundef %add116.i, ptr noundef nonnull %RGB105.i)
+          to label %for.cond102.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !llvm.loop !56
 
-for.cond102.preheader.us.i:                       ; preds = %for.inc124.us.i, %for.cond98.preheader.us.i
-  %jdx97.0198.us.i = phi i64 [ 0, %for.cond98.preheader.us.i ], [ %add115.us.i, %for.inc124.us.i ]
-  %add115.us.i = add nuw i64 %jdx97.0198.us.i, 1
-  br label %for.cond102.us.i
+for.inc124.i:                                     ; preds = %for.cond102.i
+  %exitcond219.not.i = icmp eq i64 %add115.i, %call3.i
+  br i1 %exitcond219.not.i, label %for.inc127.i, label %for.cond102.preheader.i, !llvm.loop !57
 
-for.cond98.for.inc127_crit_edge.us.i:             ; preds = %for.inc124.us.i
-  %add129.us.i = add i64 %idx93.0200.us.i, %sub.i
-  %cmp95.us.i = icmp ult i64 %add129.us.i, %call3.i
-  br i1 %cmp95.us.i, label %for.cond98.preheader.us.i, label %for.cond136.preheader.lr.ph.i, !llvm.loop !58
+for.inc127.i:                                     ; preds = %for.inc124.i
+  %add129.i = add i64 %idx93.0196.i, %sub.i
+  %cmp95.i = icmp ult i64 %add129.i, %call3.i
+  br i1 %cmp95.i, label %for.cond98.preheader.i, label %for.cond136.preheader.lr.ph.i, !llvm.loop !58
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i: ; preds = %invoke.cont114.us.i, %for.body104.us.i
-  %lpad.loopexit171.us.i = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.i
+for.cond136.preheader.i:                          ; preds = %for.inc170.i, %for.cond136.preheader.lr.ph.i
+  %idx131.0199.i = phi i64 [ 0, %for.cond136.preheader.lr.ph.i ], [ %add172.i, %for.inc170.i ]
+  %cmp144.i = icmp eq i64 %idx131.0199.i, 0
+  %cond149.i = select i1 %cmp144.i, i64 0, i64 %add37.i
+  br label %for.cond140.preheader.i
 
-for.cond136.preheader.lr.ph.i:                    ; preds = %for.cond98.for.inc127_crit_edge.us.i
-  %arrayidx5.i143.i = getelementptr inbounds i8, ptr %RGB143.i, i64 8
-  br label %for.cond136.preheader.us.i
+for.cond179.preheader.lr.ph.i:                    ; preds = %for.inc170.i
+  %arrayidx5.i148.i = getelementptr inbounds i8, ptr %RGB186.i, i64 8
+  br label %for.cond179.preheader.i
 
-for.cond136.preheader.us.i:                       ; preds = %for.cond136.for.inc170_crit_edge.us.i, %for.cond136.preheader.lr.ph.i
-  %idx131.0204.us.i = phi i64 [ 0, %for.cond136.preheader.lr.ph.i ], [ %add172.us.i, %for.cond136.for.inc170_crit_edge.us.i ]
-  %cmp144.us.i = icmp eq i64 %idx131.0204.us.i, 0
-  %cond149.us.i = select i1 %cmp144.us.i, i64 0, i64 %add37.i
-  br label %for.cond140.preheader.us.i
+for.cond140.preheader.i:                          ; preds = %for.inc166.i, %for.cond136.preheader.i
+  %jdx135.0197.i = phi i64 [ 0, %for.cond136.preheader.i ], [ %add168.i, %for.inc166.i ]
+  %cmp150.i = icmp eq i64 %jdx135.0197.i, 0
+  %cond155.i = select i1 %cmp150.i, i64 0, i64 %add37.i
+  br label %for.cond140.i
 
-for.cond140.us.i:                                 ; preds = %for.cond140.preheader.us.i, %invoke.cont157.us.i
-  %kdx139.0.us.i = phi i64 [ %add158.us.i, %invoke.cont157.us.i ], [ 0, %for.cond140.preheader.us.i ]
-  %exitcond231.not.i = icmp eq i64 %kdx139.0.us.i, %call3.i
-  br i1 %exitcond231.not.i, label %for.inc166.us.i, label %for.body142.us.i
+for.cond140.i:                                    ; preds = %invoke.cont157.i, %for.cond140.preheader.i
+  %kdx139.0.i = phi i64 [ %add158.i, %invoke.cont157.i ], [ 0, %for.cond140.preheader.i ]
+  %exitcond220.not.i = icmp eq i64 %kdx139.0.i, %call3.i
+  br i1 %exitcond220.not.i, label %for.inc166.i, label %for.body142.i
 
-for.inc166.us.i:                                  ; preds = %for.cond140.us.i
-  %add168.us.i = add i64 %jdx135.0202.us.i, %sub.i
-  %cmp137.us.i = icmp ult i64 %add168.us.i, %call3.i
-  br i1 %cmp137.us.i, label %for.cond140.preheader.us.i, label %for.cond136.for.inc170_crit_edge.us.i, !llvm.loop !59
+for.body142.i:                                    ; preds = %for.cond140.i
+  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx131.0199.i, i64 noundef %jdx135.0197.i, i64 noundef %kdx139.0.i, ptr noundef nonnull %RGB143.i)
+          to label %invoke.cont157.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-for.body142.us.i:                                 ; preds = %for.cond140.us.i
-  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx131.0204.us.i, i64 noundef %jdx135.0202.us.i, i64 noundef %kdx139.0.us.i, ptr noundef nonnull %RGB143.i)
-          to label %invoke.cont157.us.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i
-
-invoke.cont157.us.i:                              ; preds = %for.body142.us.i
-  %add158.us.i = add i64 %kdx139.0.us.i, 1
+invoke.cont157.i:                                 ; preds = %for.body142.i
+  %add158.i = add i64 %kdx139.0.i, 1
   %18 = load <2 x float>, ptr %RGB143.i, align 8
   %19 = fadd <2 x float> %18, <float -5.000000e-01, float -5.000000e-01>
   %20 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %19, <2 x float> <float 4.000000e+00, float 4.000000e+00>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
   store <2 x float> %20, ptr %RGB143.i, align 8
   %21 = load float, ptr %arrayidx5.i143.i, align 8
-  %sub6.i144.us.i = fadd float %21, -5.000000e-01
-  %22 = call float @llvm.fmuladd.f32(float %sub6.i144.us.i, float 4.000000e+00, float 5.000000e-01)
+  %sub6.i144.i = fadd float %21, -5.000000e-01
+  %22 = call float @llvm.fmuladd.f32(float %sub6.i144.i, float 4.000000e+00, float 5.000000e-01)
   store float %22, ptr %arrayidx5.i143.i, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %cond149.us.i, i64 noundef %cond155.us.i, i64 noundef %add158.us.i, ptr noundef nonnull %RGB143.i)
-          to label %for.cond140.us.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i, !llvm.loop !60
+  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %cond149.i, i64 noundef %cond155.i, i64 noundef %add158.i, ptr noundef nonnull %RGB143.i)
+          to label %for.cond140.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !llvm.loop !59
 
-for.cond140.preheader.us.i:                       ; preds = %for.inc166.us.i, %for.cond136.preheader.us.i
-  %jdx135.0202.us.i = phi i64 [ 0, %for.cond136.preheader.us.i ], [ %add168.us.i, %for.inc166.us.i ]
-  %cmp150.us.i = icmp eq i64 %jdx135.0202.us.i, 0
-  %cond155.us.i = select i1 %cmp150.us.i, i64 0, i64 %add37.i
-  br label %for.cond140.us.i
+for.inc166.i:                                     ; preds = %for.cond140.i
+  %add168.i = add i64 %jdx135.0197.i, %sub.i
+  %cmp137.i = icmp ult i64 %add168.i, %call3.i
+  br i1 %cmp137.i, label %for.cond140.preheader.i, label %for.inc170.i, !llvm.loop !60
 
-for.cond136.for.inc170_crit_edge.us.i:            ; preds = %for.inc166.us.i
-  %add172.us.i = add i64 %idx131.0204.us.i, %sub.i
-  %cmp133.us.i = icmp ult i64 %add172.us.i, %call3.i
-  br i1 %cmp133.us.i, label %for.cond136.preheader.us.i, label %for.cond179.preheader.lr.ph.i, !llvm.loop !61
+for.inc170.i:                                     ; preds = %for.inc166.i
+  %add172.i = add i64 %idx131.0199.i, %sub.i
+  %cmp133.i = icmp ult i64 %add172.i, %call3.i
+  br i1 %cmp133.i, label %for.cond136.preheader.i, label %for.cond179.preheader.lr.ph.i, !llvm.loop !61
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i: ; preds = %invoke.cont157.us.i, %for.body142.us.i
-  %lpad.loopexit168.us.i = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.i
+for.cond179.preheader.i:                          ; preds = %for.inc215.i, %for.cond179.preheader.lr.ph.i
+  %idx174.0203.i = phi i64 [ 0, %for.cond179.preheader.lr.ph.i ], [ %add202.i, %for.inc215.i ]
+  %add202.i = add nuw i64 %idx174.0203.i, 1
+  br label %for.cond183.preheader.i
 
-for.cond179.preheader.lr.ph.i:                    ; preds = %for.cond136.for.inc170_crit_edge.us.i
-  %arrayidx5.i148.i = getelementptr inbounds i8, ptr %RGB186.i, i64 8
-  br label %for.cond179.preheader.us.i
+for.cond223.preheader.lr.ph.i:                    ; preds = %for.inc215.i
+  %arrayidx5.i153.i = getelementptr inbounds i8, ptr %RGB230.i, i64 8
+  br label %for.cond223.preheader.i
 
-for.cond179.preheader.us.i:                       ; preds = %for.cond179.for.inc215_crit_edge.split.us.us.i, %for.cond179.preheader.lr.ph.i
-  %idx174.0210.us.i = phi i64 [ 0, %for.cond179.preheader.lr.ph.i ], [ %add202.us.i, %for.cond179.for.inc215_crit_edge.split.us.us.i ]
-  %add202.us.i = add nuw i64 %idx174.0210.us.i, 1
-  br label %for.cond183.preheader.us.us.i
+for.cond183.preheader.i:                          ; preds = %for.inc211.i, %for.cond179.preheader.i
+  %jdx178.0201.i = phi i64 [ 0, %for.cond179.preheader.i ], [ %add213.i, %for.inc211.i ]
+  %cmp194.i = icmp eq i64 %jdx178.0201.i, 0
+  %cond199.i = select i1 %cmp194.i, i64 0, i64 %add37.i
+  br label %for.body185.i
 
-for.cond183.preheader.us.us.i:                    ; preds = %for.cond183.for.inc211_crit_edge.us.us.i, %for.cond179.preheader.us.i
-  %jdx178.0208.us.us.i = phi i64 [ 0, %for.cond179.preheader.us.i ], [ %add213.us.us.i, %for.cond183.for.inc211_crit_edge.us.us.i ]
-  %cmp194.us.us.i = icmp eq i64 %jdx178.0208.us.us.i, 0
-  %cond199.us.us.i = select i1 %cmp194.us.us.i, i64 0, i64 %add37.i
-  br label %for.body185.us.us.i
+for.body185.i:                                    ; preds = %for.inc207.i, %for.cond183.preheader.i
+  %kdx182.0200.i = phi i64 [ 0, %for.cond183.preheader.i ], [ %add209.i, %for.inc207.i ]
+  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx174.0203.i, i64 noundef %jdx178.0201.i, i64 noundef %kdx182.0200.i, ptr noundef nonnull %RGB186.i)
+          to label %invoke.cont201.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-for.body185.us.us.i:                              ; preds = %for.inc207.us.us.i, %for.cond183.preheader.us.us.i
-  %kdx182.0206.us.us.i = phi i64 [ 0, %for.cond183.preheader.us.us.i ], [ %add209.us.us.i, %for.inc207.us.us.i ]
-  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx174.0210.us.i, i64 noundef %jdx178.0208.us.us.i, i64 noundef %kdx182.0206.us.us.i, ptr noundef nonnull %RGB186.i)
-          to label %invoke.cont201.us.us.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us.i
-
-invoke.cont201.us.us.i:                           ; preds = %for.body185.us.us.i
-  %cmp187.us.us.i = icmp eq i64 %kdx182.0206.us.us.i, 0
-  %cond192.us.us.i = select i1 %cmp187.us.us.i, i64 0, i64 %add37.i
+invoke.cont201.i:                                 ; preds = %for.body185.i
+  %cmp187.i = icmp eq i64 %kdx182.0200.i, 0
+  %cond192.i = select i1 %cmp187.i, i64 0, i64 %add37.i
   %23 = load <2 x float>, ptr %RGB186.i, align 8
   %24 = fadd <2 x float> %23, <float -5.000000e-01, float -5.000000e-01>
   %25 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %24, <2 x float> <float 4.000000e+00, float 4.000000e+00>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
   store <2 x float> %25, ptr %RGB186.i, align 8
   %26 = load float, ptr %arrayidx5.i148.i, align 8
-  %sub6.i149.us.us.i = fadd float %26, -5.000000e-01
-  %27 = call float @llvm.fmuladd.f32(float %sub6.i149.us.us.i, float 4.000000e+00, float 5.000000e-01)
+  %sub6.i149.i = fadd float %26, -5.000000e-01
+  %27 = call float @llvm.fmuladd.f32(float %sub6.i149.i, float 4.000000e+00, float 5.000000e-01)
   store float %27, ptr %arrayidx5.i148.i, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %add202.us.i, i64 noundef %cond199.us.us.i, i64 noundef %cond192.us.us.i, ptr noundef nonnull %RGB186.i)
-          to label %for.inc207.us.us.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us.i
+  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %add202.i, i64 noundef %cond199.i, i64 noundef %cond192.i, ptr noundef nonnull %RGB186.i)
+          to label %for.inc207.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-for.inc207.us.us.i:                               ; preds = %invoke.cont201.us.us.i
-  %add209.us.us.i = add i64 %kdx182.0206.us.us.i, %sub.i
-  %cmp184.us.us.i = icmp ult i64 %add209.us.us.i, %call3.i
-  br i1 %cmp184.us.us.i, label %for.body185.us.us.i, label %for.cond183.for.inc211_crit_edge.us.us.i, !llvm.loop !62
+for.inc207.i:                                     ; preds = %invoke.cont201.i
+  %add209.i = add i64 %kdx182.0200.i, %sub.i
+  %cmp184.i = icmp ult i64 %add209.i, %call3.i
+  br i1 %cmp184.i, label %for.body185.i, label %for.inc211.i, !llvm.loop !62
 
-for.cond183.for.inc211_crit_edge.us.us.i:         ; preds = %for.inc207.us.us.i
-  %add213.us.us.i = add i64 %jdx178.0208.us.us.i, %sub.i
-  %cmp180.us.us.i = icmp ult i64 %add213.us.us.i, %call3.i
-  br i1 %cmp180.us.us.i, label %for.cond183.preheader.us.us.i, label %for.cond179.for.inc215_crit_edge.split.us.us.i, !llvm.loop !63
+for.inc211.i:                                     ; preds = %for.inc207.i
+  %add213.i = add i64 %jdx178.0201.i, %sub.i
+  %cmp180.i = icmp ult i64 %add213.i, %call3.i
+  br i1 %cmp180.i, label %for.cond183.preheader.i, label %for.inc215.i, !llvm.loop !63
 
-for.cond179.for.inc215_crit_edge.split.us.us.i:   ; preds = %for.cond183.for.inc211_crit_edge.us.us.i
-  %exitcond232.not.i = icmp eq i64 %add202.us.i, %call3.i
-  br i1 %exitcond232.not.i, label %for.cond223.preheader.lr.ph.i, label %for.cond179.preheader.us.i, !llvm.loop !64
+for.inc215.i:                                     ; preds = %for.inc211.i
+  %exitcond221.not.i = icmp eq i64 %add202.i, %call3.i
+  br i1 %exitcond221.not.i, label %for.cond223.preheader.lr.ph.i, label %for.cond179.preheader.i, !llvm.loop !64
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us.i: ; preds = %invoke.cont201.us.us.i, %for.body185.us.us.i
-  %lpad.loopexit165.us.us.i = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.i
+for.cond223.preheader.i:                          ; preds = %for.inc259.i, %for.cond223.preheader.lr.ph.i
+  %idx218.0207.i = phi i64 [ 0, %for.cond223.preheader.lr.ph.i ], [ %add261.i, %for.inc259.i ]
+  %cmp232.i = icmp eq i64 %idx218.0207.i, 0
+  %cond237.i = select i1 %cmp232.i, i64 0, i64 %add37.i
+  br label %for.cond227.preheader.i
 
-for.cond223.preheader.lr.ph.i:                    ; preds = %for.cond179.for.inc215_crit_edge.split.us.us.i
-  %arrayidx5.i153.i = getelementptr inbounds i8, ptr %RGB230.i, i64 8
-  br label %for.cond223.preheader.us.i
+for.cond268.preheader.lr.ph.i:                    ; preds = %for.inc259.i
+  %arrayidx5.i158.i = getelementptr inbounds i8, ptr %RGB275.i, i64 8
+  br label %for.cond268.preheader.i
 
-for.cond223.preheader.us.i:                       ; preds = %for.cond223.for.inc259_crit_edge.split.us.us.i, %for.cond223.preheader.lr.ph.i
-  %idx218.0216.us.i = phi i64 [ 0, %for.cond223.preheader.lr.ph.i ], [ %add261.us.i, %for.cond223.for.inc259_crit_edge.split.us.us.i ]
-  %cmp232.us.i = icmp eq i64 %idx218.0216.us.i, 0
-  %cond237.us.i = select i1 %cmp232.us.i, i64 0, i64 %add37.i
-  br label %for.cond227.preheader.us.us.i
+for.cond227.preheader.i:                          ; preds = %for.inc256.i, %for.cond223.preheader.i
+  %jdx222.0205.i = phi i64 [ 0, %for.cond223.preheader.i ], [ %add247.i, %for.inc256.i ]
+  %add247.i = add nuw i64 %jdx222.0205.i, 1
+  br label %for.body229.i
 
-for.cond227.preheader.us.us.i:                    ; preds = %for.cond227.for.inc256_crit_edge.us.us.i, %for.cond223.preheader.us.i
-  %jdx222.0214.us.us.i = phi i64 [ 0, %for.cond223.preheader.us.i ], [ %add247.us.us.i, %for.cond227.for.inc256_crit_edge.us.us.i ]
-  %add247.us.us.i = add nuw i64 %jdx222.0214.us.us.i, 1
-  br label %for.body229.us.us.i
+for.body229.i:                                    ; preds = %for.inc252.i, %for.cond227.preheader.i
+  %kdx226.0204.i = phi i64 [ 0, %for.cond227.preheader.i ], [ %add254.i, %for.inc252.i ]
+  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx218.0207.i, i64 noundef %jdx222.0205.i, i64 noundef %kdx226.0204.i, ptr noundef nonnull %RGB230.i)
+          to label %invoke.cont246.i unwind label %lpad.loopexit.split-lp.loopexit.i
 
-for.body229.us.us.i:                              ; preds = %for.inc252.us.us.i, %for.cond227.preheader.us.us.i
-  %kdx226.0212.us.us.i = phi i64 [ 0, %for.cond227.preheader.us.us.i ], [ %add254.us.us.i, %for.inc252.us.us.i ]
-  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx218.0216.us.i, i64 noundef %jdx222.0214.us.us.i, i64 noundef %kdx226.0212.us.us.i, ptr noundef nonnull %RGB230.i)
-          to label %invoke.cont246.us.us.i unwind label %lpad.loopexit.split-lp.loopexit.split.us.split.us.i
-
-invoke.cont246.us.us.i:                           ; preds = %for.body229.us.us.i
-  %cmp239.us.us.i = icmp eq i64 %kdx226.0212.us.us.i, 0
-  %cond244.us.us.i = select i1 %cmp239.us.us.i, i64 0, i64 %add37.i
+invoke.cont246.i:                                 ; preds = %for.body229.i
+  %cmp239.i = icmp eq i64 %kdx226.0204.i, 0
+  %cond244.i = select i1 %cmp239.i, i64 0, i64 %add37.i
   %28 = load <2 x float>, ptr %RGB230.i, align 8
   %29 = fadd <2 x float> %28, <float -5.000000e-01, float -5.000000e-01>
   %30 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %29, <2 x float> <float 4.000000e+00, float 4.000000e+00>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
   store <2 x float> %30, ptr %RGB230.i, align 8
   %31 = load float, ptr %arrayidx5.i153.i, align 8
-  %sub6.i154.us.us.i = fadd float %31, -5.000000e-01
-  %32 = call float @llvm.fmuladd.f32(float %sub6.i154.us.us.i, float 4.000000e+00, float 5.000000e-01)
+  %sub6.i154.i = fadd float %31, -5.000000e-01
+  %32 = call float @llvm.fmuladd.f32(float %sub6.i154.i, float 4.000000e+00, float 5.000000e-01)
   store float %32, ptr %arrayidx5.i153.i, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %cond237.us.i, i64 noundef %add247.us.us.i, i64 noundef %cond244.us.us.i, ptr noundef nonnull %RGB230.i)
-          to label %for.inc252.us.us.i unwind label %lpad.loopexit.split-lp.loopexit.split.us.split.us.i
+  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %cond237.i, i64 noundef %add247.i, i64 noundef %cond244.i, ptr noundef nonnull %RGB230.i)
+          to label %for.inc252.i unwind label %lpad.loopexit.split-lp.loopexit.i
 
-for.inc252.us.us.i:                               ; preds = %invoke.cont246.us.us.i
-  %add254.us.us.i = add i64 %kdx226.0212.us.us.i, %sub.i
-  %cmp228.us.us.i = icmp ult i64 %add254.us.us.i, %call3.i
-  br i1 %cmp228.us.us.i, label %for.body229.us.us.i, label %for.cond227.for.inc256_crit_edge.us.us.i, !llvm.loop !65
+for.inc252.i:                                     ; preds = %invoke.cont246.i
+  %add254.i = add i64 %kdx226.0204.i, %sub.i
+  %cmp228.i = icmp ult i64 %add254.i, %call3.i
+  br i1 %cmp228.i, label %for.body229.i, label %for.inc256.i, !llvm.loop !65
 
-for.cond227.for.inc256_crit_edge.us.us.i:         ; preds = %for.inc252.us.us.i
-  %exitcond233.not.i = icmp eq i64 %add247.us.us.i, %call3.i
-  br i1 %exitcond233.not.i, label %for.cond223.for.inc259_crit_edge.split.us.us.i, label %for.cond227.preheader.us.us.i, !llvm.loop !66
+for.inc256.i:                                     ; preds = %for.inc252.i
+  %exitcond222.not.i = icmp eq i64 %add247.i, %call3.i
+  br i1 %exitcond222.not.i, label %for.inc259.i, label %for.cond227.preheader.i, !llvm.loop !66
 
-for.cond223.for.inc259_crit_edge.split.us.us.i:   ; preds = %for.cond227.for.inc256_crit_edge.us.us.i
-  %add261.us.i = add i64 %idx218.0216.us.i, %sub.i
-  %cmp220.us.i = icmp ult i64 %add261.us.i, %call3.i
-  br i1 %cmp220.us.i, label %for.cond223.preheader.us.i, label %for.cond268.preheader.lr.ph.i, !llvm.loop !67
+for.inc259.i:                                     ; preds = %for.inc256.i
+  %add261.i = add i64 %idx218.0207.i, %sub.i
+  %cmp220.i = icmp ult i64 %add261.i, %call3.i
+  br i1 %cmp220.i, label %for.cond223.preheader.i, label %for.cond268.preheader.lr.ph.i, !llvm.loop !67
 
-lpad.loopexit.split-lp.loopexit.split.us.split.us.i: ; preds = %invoke.cont246.us.us.i, %for.body229.us.us.i
-  %lpad.loopexit162.us.us.i = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.i
+for.cond268.preheader.i:                          ; preds = %for.inc311.i, %for.cond268.preheader.lr.ph.i
+  %idx263.0211.i = phi i64 [ 0, %for.cond268.preheader.lr.ph.i ], [ %add313.i, %for.inc311.i ]
+  %cmp277.i = icmp eq i64 %idx263.0211.i, 0
+  %cond282.i = select i1 %cmp277.i, i64 0, i64 %add37.i
+  br label %for.cond272.preheader.i
 
-for.cond268.preheader.lr.ph.i:                    ; preds = %for.cond223.for.inc259_crit_edge.split.us.us.i
-  %arrayidx5.i158.i = getelementptr inbounds i8, ptr %RGB275.i, i64 8
-  br label %for.cond268.preheader.us.i
+for.cond272.preheader.i:                          ; preds = %for.inc307.i, %for.cond268.preheader.i
+  %jdx267.0209.i = phi i64 [ 0, %for.cond268.preheader.i ], [ %add309.i, %for.inc307.i ]
+  %cmp284.i = icmp eq i64 %jdx267.0209.i, 0
+  %cond289.i = select i1 %cmp284.i, i64 0, i64 %add37.i
+  br label %for.body274.i
 
-for.cond268.preheader.us.i:                       ; preds = %for.cond268.for.inc311_crit_edge.split.us.us.i, %for.cond268.preheader.lr.ph.i
-  %idx263.0222.us.i = phi i64 [ 0, %for.cond268.preheader.lr.ph.i ], [ %add313.us.i, %for.cond268.for.inc311_crit_edge.split.us.us.i ]
-  %cmp277.us.i = icmp eq i64 %idx263.0222.us.i, 0
-  %cond282.us.i = select i1 %cmp277.us.i, i64 0, i64 %add37.i
-  br label %for.cond272.preheader.us.us.i
+for.body274.i:                                    ; preds = %for.inc303.i, %for.cond272.preheader.i
+  %kdx271.0208.i = phi i64 [ 0, %for.cond272.preheader.i ], [ %add305.i, %for.inc303.i ]
+  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx263.0211.i, i64 noundef %jdx267.0209.i, i64 noundef %kdx271.0208.i, ptr noundef nonnull %RGB275.i)
+          to label %invoke.cont298.i unwind label %lpad.loopexit.i
 
-for.cond272.preheader.us.us.i:                    ; preds = %for.cond272.for.inc307_crit_edge.us.us.i, %for.cond268.preheader.us.i
-  %jdx267.0220.us.us.i = phi i64 [ 0, %for.cond268.preheader.us.i ], [ %add309.us.us.i, %for.cond272.for.inc307_crit_edge.us.us.i ]
-  %cmp284.us.us.i = icmp eq i64 %jdx267.0220.us.us.i, 0
-  %cond289.us.us.i = select i1 %cmp284.us.us.i, i64 0, i64 %add37.i
-  br label %for.body274.us.us.i
-
-for.body274.us.us.i:                              ; preds = %for.inc303.us.us.i, %for.cond272.preheader.us.us.i
-  %kdx271.0218.us.us.i = phi i64 [ 0, %for.cond272.preheader.us.us.i ], [ %add305.us.us.i, %for.inc303.us.us.i ]
-  invoke void @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6getRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i129.i, i64 noundef %idx263.0222.us.i, i64 noundef %jdx267.0220.us.us.i, i64 noundef %kdx271.0218.us.us.i, ptr noundef nonnull %RGB275.i)
-          to label %invoke.cont298.us.us.i unwind label %lpad.loopexit.split.us.split.us.i
-
-invoke.cont298.us.us.i:                           ; preds = %for.body274.us.us.i
-  %cmp291.us.us.i = icmp eq i64 %kdx271.0218.us.us.i, 0
-  %cond296.us.us.i = select i1 %cmp291.us.us.i, i64 0, i64 %add37.i
+invoke.cont298.i:                                 ; preds = %for.body274.i
+  %cmp291.i = icmp eq i64 %kdx271.0208.i, 0
+  %cond296.i = select i1 %cmp291.i, i64 0, i64 %add37.i
   %33 = load <2 x float>, ptr %RGB275.i, align 8
   %34 = fadd <2 x float> %33, <float -5.000000e-01, float -5.000000e-01>
   %35 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %34, <2 x float> <float 4.000000e+00, float 4.000000e+00>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
   store <2 x float> %35, ptr %RGB275.i, align 8
   %36 = load float, ptr %arrayidx5.i158.i, align 8
-  %sub6.i159.us.us.i = fadd float %36, -5.000000e-01
-  %37 = call float @llvm.fmuladd.f32(float %sub6.i159.us.us.i, float 4.000000e+00, float 5.000000e-01)
+  %sub6.i159.i = fadd float %36, -5.000000e-01
+  %37 = call float @llvm.fmuladd.f32(float %sub6.i159.i, float 4.000000e+00, float 5.000000e-01)
   store float %37, ptr %arrayidx5.i158.i, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %cond282.us.i, i64 noundef %cond289.us.us.i, i64 noundef %cond296.us.us.i, ptr noundef nonnull %RGB275.i)
-          to label %for.inc303.us.us.i unwind label %lpad.loopexit.split.us.split.us.i
+  invoke void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData10Lut3DArray6setRGBElllPf(ptr noundef nonnull align 8 dereferenceable(48) %newArray.i, i64 noundef %cond282.i, i64 noundef %cond289.i, i64 noundef %cond296.i, ptr noundef nonnull %RGB275.i)
+          to label %for.inc303.i unwind label %lpad.loopexit.i
 
-for.inc303.us.us.i:                               ; preds = %invoke.cont298.us.us.i
-  %add305.us.us.i = add i64 %kdx271.0218.us.us.i, %sub.i
-  %cmp273.us.us.i = icmp ult i64 %add305.us.us.i, %call3.i
-  br i1 %cmp273.us.us.i, label %for.body274.us.us.i, label %for.cond272.for.inc307_crit_edge.us.us.i, !llvm.loop !68
+for.inc303.i:                                     ; preds = %invoke.cont298.i
+  %add305.i = add i64 %kdx271.0208.i, %sub.i
+  %cmp273.i = icmp ult i64 %add305.i, %call3.i
+  br i1 %cmp273.i, label %for.body274.i, label %for.inc307.i, !llvm.loop !68
 
-for.cond272.for.inc307_crit_edge.us.us.i:         ; preds = %for.inc303.us.us.i
-  %add309.us.us.i = add i64 %jdx267.0220.us.us.i, %sub.i
-  %cmp269.us.us.i = icmp ult i64 %add309.us.us.i, %call3.i
-  br i1 %cmp269.us.us.i, label %for.cond272.preheader.us.us.i, label %for.cond268.for.inc311_crit_edge.split.us.us.i, !llvm.loop !69
+for.inc307.i:                                     ; preds = %for.inc303.i
+  %add309.i = add i64 %jdx267.0209.i, %sub.i
+  %cmp269.i = icmp ult i64 %add309.i, %call3.i
+  br i1 %cmp269.i, label %for.cond272.preheader.i, label %for.inc311.i, !llvm.loop !69
 
-for.cond268.for.inc311_crit_edge.split.us.us.i:   ; preds = %for.cond272.for.inc307_crit_edge.us.us.i
-  %add313.us.i = add i64 %idx263.0222.us.i, %sub.i
-  %cmp265.us.i = icmp ult i64 %add313.us.i, %call3.i
-  br i1 %cmp265.us.i, label %for.cond268.preheader.us.i, label %for.end314.i, !llvm.loop !70
+for.inc311.i:                                     ; preds = %for.inc307.i
+  %add313.i = add i64 %idx263.0211.i, %sub.i
+  %cmp265.i = icmp ult i64 %add313.i, %call3.i
+  br i1 %cmp265.i, label %for.cond268.preheader.i, label %for.end314.i, !llvm.loop !70
 
-lpad.loopexit.split.us.split.us.i:                ; preds = %invoke.cont298.us.us.i, %for.body274.us.us.i
-  %lpad.loopexit160.us.us.i = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.i
-
-for.end314.i:                                     ; preds = %for.cond268.for.inc311_crit_edge.split.us.us.i, %entry
+for.end314.i:                                     ; preds = %for.inc311.i, %entry
   %m_data.i.i = getelementptr inbounds i8, ptr %newArray.i, i64 24
   %m_grvec.i = getelementptr inbounds i8, ptr %this, i64 152
   %call318.i = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_grvec.i, ptr noundef nonnull align 8 dereferenceable(24) %m_data.i.i)
@@ -2720,7 +2720,7 @@ for.end.i:                                        ; preds = %for.body.i
   br i1 %cmp.i39.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i
-  %sub.i.i = sub nsw i64 %conv12.i, %sub.ptr.div.i.i.i
+  %sub.i.i6 = sub nsw i64 %conv12.i, %sub.ptr.div.i.i.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %45 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %sub.ptr.lhs.cast.i13.i.i = ptrtoint ptr %45 to i64
@@ -2731,18 +2731,18 @@ if.then.i.i:                                      ; preds = %for.end.i
   %sub.i.i.i = sub nuw nsw i64 82351536043346212, %sub.ptr.div.i.i.i
   %cmp6.i.i.i = icmp ule i64 %sub.ptr.div.i15.i.i, %sub.i.i.i
   call void @llvm.assume(i1 %cmp6.i.i.i)
-  %cmp8.not.i.i.i = icmp ult i64 %sub.ptr.div.i15.i.i, %sub.i.i
+  %cmp8.not.i.i.i = icmp ult i64 %sub.ptr.div.i15.i.i, %sub.i.i6
   br i1 %cmp8.not.i.i.i, label %if.else.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelEmS3_ET_S5_T0_RSaIT1_E.exit.i.i.i
 
 _ZSt27__uninitialized_default_n_aIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelEmS3_ET_S5_T0_RSaIT1_E.exit.i.i.i: ; preds = %if.then.i.i
-  %46 = mul nuw i64 %sub.i.i, 112
+  %46 = mul nuw i64 %sub.i.i6, 112
   call void @llvm.memset.p0.i64(ptr align 8 %this.val4.i.i, i8 0, i64 %46, i1 false)
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %this.val4.i.i, i64 %46
   store ptr %scevgep.i.i.i.i.i.i, ptr %44, align 8
   br label %_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE6resizeEm.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
-  %cmp.i.i.i.i = icmp ult i64 %sub.i.i.i, %sub.i.i
+  %cmp.i.i.i.i = icmp ult i64 %sub.i.i.i, %sub.i.i6
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
@@ -2750,13 +2750,13 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
   unreachable
 
 _ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i.i
-  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 %sub.i.i)
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 %sub.i.i6)
   %add.i.i.i.i = add nuw nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i
   %47 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 82351536043346212)
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %47, 112
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #26
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %48 = mul nuw nsw i64 %sub.i.i, 112
+  %48 = mul nuw nsw i64 %sub.i.i6, 112
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i, i8 0, i64 %48, i1 false)
   %cmp.not1.i.i.i.i.i.i.i = icmp eq ptr %this.val.i.i, %this.val4.i.i
   br i1 %cmp.not1.i.i.i.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i.i, label %for.body.i.i.i.i.i.i.i
@@ -2818,7 +2818,7 @@ if.then.i30.i.i.i:                                ; preds = %_ZNSt6vectorIN19Ope
 
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE13_M_deallocateEPS3_m.exit31.i.i.i: ; preds = %if.then.i30.i.i.i, %_ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %m_levels.i, align 8
-  %add.ptr37.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %add.ptr.i.i.i, i64 %sub.i.i
+  %add.ptr37.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %add.ptr.i.i.i, i64 %sub.i.i6
   store ptr %add.ptr37.i.i.i, ptr %44, align 8
   %add.ptr40.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %call5.i.i.i.i.i.i, i64 %47
   store ptr %add.ptr40.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
@@ -3828,7 +3828,7 @@ for.body105.i:                                    ; preds = %invoke.cont96.i, %f
 
 lpad86.loopexit.i:                                ; preds = %if.then.i76.i.i, %if.then.i.i181.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i, %if.then.i51.i.i, %if.then.i.i117.i
   %hashes.sroa.0.2.ph.i = phi ptr [ %hashes.sroa.0.1256.i, %if.then.i.i117.i ], [ %hashes.sroa.0.1256.i, %if.then.i51.i.i ], [ %hashes.sroa.0.1256.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i ], [ %hashes.sroa.0.5.i, %if.then.i.i181.i ], [ %hashes.sroa.0.5.i, %if.then.i76.i.i ]
-  %lpad.loopexit.i = landingpad { ptr, i32 }
+  %lpad.loopexit.i5 = landingpad { ptr, i32 }
           cleanup
   br label %lpad86.body.i
 
@@ -3840,7 +3840,7 @@ lpad86.loopexit.split-lp.i:                       ; preds = %if.then.i.i205.i, %
 
 lpad86.body.i:                                    ; preds = %lpad86.loopexit.split-lp.i, %lpad86.loopexit.i, %lpad.i.i
   %hashes.sroa.0.3.i = phi ptr [ %hashes.sroa.0.0297.i, %lpad.i.i ], [ %hashes.sroa.0.2.ph.i, %lpad86.loopexit.i ], [ %hashes.sroa.0.2.ph227.i, %lpad86.loopexit.split-lp.i ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %123, %lpad.i.i ], [ %lpad.loopexit.i, %lpad86.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad86.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %123, %lpad.i.i ], [ %lpad.loopexit.i5, %lpad86.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad86.loopexit.split-lp.i ]
   %tobool.not.i.i.i127.i = icmp eq ptr %hashes.sroa.0.3.i, null
   br i1 %tobool.not.i.i.i127.i, label %common.resume, label %if.then.i.i.i128.i
 

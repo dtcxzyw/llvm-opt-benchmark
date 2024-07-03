@@ -60926,7 +60926,7 @@ default.unreachable37:                            ; preds = %1
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b15d08b0df67707E.llvm.10579729455205085779.exit11": ; preds = %"_ZN4core3ptr106drop_in_place$LT$alloc..boxed..Box$LT$$u5b$time..format_description..parse..format_item..Item$u5d$$GT$$GT$17h2f18cd8100d4d673E.llvm.10579729455205085779.exit.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.10579729455205085779.exit.i10"
   %36 = icmp eq i64 %10, %7
-  br i1 %36, label %"_ZN4core3ptr141drop_in_place$LT$alloc..boxed..Box$LT$$u5b$alloc..boxed..Box$LT$$u5b$time..format_description..parse..format_item..Item$u5d$$GT$$u5d$$GT$$GT$17h072631e026fdf2c7E.llvm.10579729455205085779.exit", label %.lr.ph
+  br i1 %36, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.10579729455205085779.exit.i", label %.lr.ph
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b15d08b0df67707E.llvm.10579729455205085779.exit13": ; preds = %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b15d08b0df67707E.llvm.10579729455205085779.exit13.preheader", %38
   %.1.i = phi i64 [ %40, %38 ], [ %10, %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b15d08b0df67707E.llvm.10579729455205085779.exit13.preheader" ]
@@ -60956,15 +60956,12 @@ common.resume:                                    ; preds = %"_ZN63_$LT$alloc..a
   %common.resume.op = phi { ptr, i32 } [ %22, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.10579729455205085779.exit.i1" ], [ %59, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.10579729455205085779.exit.i4" ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr141drop_in_place$LT$alloc..boxed..Box$LT$$u5b$alloc..boxed..Box$LT$$u5b$time..format_description..parse..format_item..Item$u5d$$GT$$u5d$$GT$$GT$17h072631e026fdf2c7E.llvm.10579729455205085779.exit": ; preds = %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b15d08b0df67707E.llvm.10579729455205085779.exit11"
-  br i1 %8, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ef0cc07f3b1e6b5E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.10579729455205085779.exit.i"
-
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.10579729455205085779.exit.i": ; preds = %"_ZN4core3ptr141drop_in_place$LT$alloc..boxed..Box$LT$$u5b$alloc..boxed..Box$LT$$u5b$time..format_description..parse..format_item..Item$u5d$$GT$$u5d$$GT$$GT$17h072631e026fdf2c7E.llvm.10579729455205085779.exit"
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.10579729455205085779.exit.i": ; preds = %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7b15d08b0df67707E.llvm.10579729455205085779.exit11"
   %45 = shl nsw i64 %7, 4
   tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %45, i64 noundef 8) #50, !noalias !16642
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ef0cc07f3b1e6b5E.exit"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ef0cc07f3b1e6b5E.exit": ; preds = %3, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.10579729455205085779.exit.i3", %"_ZN4core3ptr106drop_in_place$LT$alloc..boxed..Box$LT$$u5b$time..format_description..parse..format_item..Item$u5d$$GT$$GT$17h2f18cd8100d4d673E.llvm.10579729455205085779.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.10579729455205085779.exit.i", %"_ZN4core3ptr141drop_in_place$LT$alloc..boxed..Box$LT$$u5b$alloc..boxed..Box$LT$$u5b$time..format_description..parse..format_item..Item$u5d$$GT$$u5d$$GT$$GT$17h072631e026fdf2c7E.llvm.10579729455205085779.exit", %1, %1
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ef0cc07f3b1e6b5E.exit": ; preds = %3, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.10579729455205085779.exit.i3", %"_ZN4core3ptr106drop_in_place$LT$alloc..boxed..Box$LT$$u5b$time..format_description..parse..format_item..Item$u5d$$GT$$GT$17h2f18cd8100d4d673E.llvm.10579729455205085779.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.10579729455205085779.exit.i", %1, %1
   ret void
 
 46:                                               ; preds = %1

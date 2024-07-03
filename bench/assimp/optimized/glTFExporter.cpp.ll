@@ -18948,14 +18948,11 @@ for.end:                                          ; preds = %_ZNSt6vectorIdSaIdE
   %conv = zext i32 %mul to i64
   %add.ptr = getelementptr inbounds i16, ptr %data, i64 %conv
   %cmp684.not = icmp eq i32 %mul, 0
-  br i1 %cmp684.not, label %for.end37, label %for.cond8.preheader.lr.ph
+  br i1 %cmp684.not, label %for.end37, label %for.cond8.preheader.us.preheader
 
-for.cond8.preheader.lr.ph:                        ; preds = %for.end
+for.cond8.preheader.us.preheader:                 ; preds = %for.end
   %conv.i54 = zext i32 %acc.coerce1 to i64
   %idx.ext = zext i32 %numCompsIn to i64
-  br i1 %cmp80.not, label %for.end37, label %for.cond8.preheader.us.preheader
-
-for.cond8.preheader.us.preheader:                 ; preds = %for.cond8.preheader.lr.ph
   %wide.trip.count = zext i32 %numCompsOut to i64
   br label %for.cond8.preheader.us
 
@@ -19008,7 +19005,7 @@ for.cond8.for.inc35_crit_edge.us:                 ; preds = %for.inc32.us
   %cmp6.us = icmp ult ptr %add.ptr36.us, %add.ptr
   br i1 %cmp6.us, label %for.cond8.preheader.us, label %for.end37, !llvm.loop !144
 
-for.end37:                                        ; preds = %for.cond8.for.inc35_crit_edge.us, %entry, %for.cond8.preheader.lr.ph, %for.end
+for.end37:                                        ; preds = %for.cond8.for.inc35_crit_edge.us, %entry, %for.end
   ret void
 }
 
@@ -19181,14 +19178,11 @@ for.end:                                          ; preds = %_ZNSt6vectorIdSaIdE
   %conv = zext i32 %mul to i64
   %add.ptr = getelementptr inbounds i16, ptr %data, i64 %conv
   %cmp684.not = icmp eq i32 %mul, 0
-  br i1 %cmp684.not, label %for.end37, label %for.cond8.preheader.lr.ph
+  br i1 %cmp684.not, label %for.end37, label %for.cond8.preheader.us.preheader
 
-for.cond8.preheader.lr.ph:                        ; preds = %for.end
+for.cond8.preheader.us.preheader:                 ; preds = %for.end
   %conv.i54 = zext i32 %acc.coerce1 to i64
   %idx.ext = zext i32 %numCompsIn to i64
-  br i1 %cmp80.not, label %for.end37, label %for.cond8.preheader.us.preheader
-
-for.cond8.preheader.us.preheader:                 ; preds = %for.cond8.preheader.lr.ph
   %wide.trip.count = zext i32 %numCompsOut to i64
   br label %for.cond8.preheader.us
 
@@ -19241,7 +19235,7 @@ for.cond8.for.inc35_crit_edge.us:                 ; preds = %for.inc32.us
   %cmp6.us = icmp ult ptr %add.ptr36.us, %add.ptr
   br i1 %cmp6.us, label %for.cond8.preheader.us, label %for.end37, !llvm.loop !147
 
-for.end37:                                        ; preds = %for.cond8.for.inc35_crit_edge.us, %entry, %for.cond8.preheader.lr.ph, %for.end
+for.end37:                                        ; preds = %for.cond8.for.inc35_crit_edge.us, %entry, %for.end
   ret void
 }
 
@@ -19414,14 +19408,11 @@ for.end:                                          ; preds = %_ZNSt6vectorIdSaIdE
   %conv = zext i32 %mul to i64
   %add.ptr = getelementptr inbounds i32, ptr %data, i64 %conv
   %cmp684.not = icmp eq i32 %mul, 0
-  br i1 %cmp684.not, label %for.end37, label %for.cond8.preheader.lr.ph
+  br i1 %cmp684.not, label %for.end37, label %for.cond8.preheader.us.preheader
 
-for.cond8.preheader.lr.ph:                        ; preds = %for.end
+for.cond8.preheader.us.preheader:                 ; preds = %for.end
   %conv.i54 = zext i32 %acc.coerce1 to i64
   %idx.ext = zext i32 %numCompsIn to i64
-  br i1 %cmp80.not, label %for.end37, label %for.cond8.preheader.us.preheader
-
-for.cond8.preheader.us.preheader:                 ; preds = %for.cond8.preheader.lr.ph
   %wide.trip.count = zext i32 %numCompsOut to i64
   br label %for.cond8.preheader.us
 
@@ -19474,7 +19465,7 @@ for.cond8.for.inc35_crit_edge.us:                 ; preds = %for.inc32.us
   %cmp6.us = icmp ult ptr %add.ptr36.us, %add.ptr
   br i1 %cmp6.us, label %for.cond8.preheader.us, label %for.end37, !llvm.loop !150
 
-for.end37:                                        ; preds = %for.cond8.for.inc35_crit_edge.us, %entry, %for.cond8.preheader.lr.ph, %for.end
+for.end37:                                        ; preds = %for.cond8.for.inc35_crit_edge.us, %entry, %for.end
   ret void
 }
 
@@ -19647,14 +19638,11 @@ for.end:                                          ; preds = %_ZNSt6vectorIdSaIdE
   %conv = zext i32 %mul to i64
   %add.ptr = getelementptr inbounds float, ptr %data, i64 %conv
   %cmp684.not = icmp eq i32 %mul, 0
-  br i1 %cmp684.not, label %for.end37, label %for.cond8.preheader.lr.ph
+  br i1 %cmp684.not, label %for.end37, label %for.cond8.preheader.us.preheader
 
-for.cond8.preheader.lr.ph:                        ; preds = %for.end
+for.cond8.preheader.us.preheader:                 ; preds = %for.end
   %conv.i54 = zext i32 %acc.coerce1 to i64
   %idx.ext = zext i32 %numCompsIn to i64
-  br i1 %cmp80.not, label %for.end37, label %for.cond8.preheader.us.preheader
-
-for.cond8.preheader.us.preheader:                 ; preds = %for.cond8.preheader.lr.ph
   %wide.trip.count = zext i32 %numCompsOut to i64
   br label %for.cond8.preheader.us
 
@@ -19707,7 +19695,7 @@ for.cond8.for.inc35_crit_edge.us:                 ; preds = %for.inc32.us
   %cmp6.us = icmp ult ptr %add.ptr36.us, %add.ptr
   br i1 %cmp6.us, label %for.cond8.preheader.us, label %for.end37, !llvm.loop !153
 
-for.end37:                                        ; preds = %for.cond8.for.inc35_crit_edge.us, %entry, %for.cond8.preheader.lr.ph, %for.end
+for.end37:                                        ; preds = %for.cond8.for.inc35_crit_edge.us, %entry, %for.end
   ret void
 }
 
@@ -19880,14 +19868,11 @@ for.end:                                          ; preds = %_ZNSt6vectorIdSaIdE
   %conv = zext i32 %mul to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %conv
   %cmp684.not = icmp eq i32 %mul, 0
-  br i1 %cmp684.not, label %for.end37, label %for.cond8.preheader.lr.ph
+  br i1 %cmp684.not, label %for.end37, label %for.cond8.preheader.us.preheader
 
-for.cond8.preheader.lr.ph:                        ; preds = %for.end
+for.cond8.preheader.us.preheader:                 ; preds = %for.end
   %conv.i54 = zext i32 %acc.coerce1 to i64
   %idx.ext = zext i32 %numCompsIn to i64
-  br i1 %cmp80.not, label %for.end37, label %for.cond8.preheader.us.preheader
-
-for.cond8.preheader.us.preheader:                 ; preds = %for.cond8.preheader.lr.ph
   %wide.trip.count = zext i32 %numCompsOut to i64
   br label %for.cond8.preheader.us
 
@@ -19940,7 +19925,7 @@ for.cond8.for.inc35_crit_edge.us:                 ; preds = %for.inc32.us
   %cmp6.us = icmp ult ptr %add.ptr36.us, %add.ptr
   br i1 %cmp6.us, label %for.cond8.preheader.us, label %for.end37, !llvm.loop !156
 
-for.end37:                                        ; preds = %for.cond8.for.inc35_crit_edge.us, %entry, %for.cond8.preheader.lr.ph, %for.end
+for.end37:                                        ; preds = %for.cond8.for.inc35_crit_edge.us, %entry, %for.end
   ret void
 }
 
@@ -20113,14 +20098,11 @@ for.end:                                          ; preds = %_ZNSt6vectorIdSaIdE
   %conv = zext i32 %mul to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %conv
   %cmp684.not = icmp eq i32 %mul, 0
-  br i1 %cmp684.not, label %for.end37, label %for.cond8.preheader.lr.ph
+  br i1 %cmp684.not, label %for.end37, label %for.cond8.preheader.us.preheader
 
-for.cond8.preheader.lr.ph:                        ; preds = %for.end
+for.cond8.preheader.us.preheader:                 ; preds = %for.end
   %conv.i54 = zext i32 %acc.coerce1 to i64
   %idx.ext = zext i32 %numCompsIn to i64
-  br i1 %cmp80.not, label %for.end37, label %for.cond8.preheader.us.preheader
-
-for.cond8.preheader.us.preheader:                 ; preds = %for.cond8.preheader.lr.ph
   %wide.trip.count = zext i32 %numCompsOut to i64
   br label %for.cond8.preheader.us
 
@@ -20173,7 +20155,7 @@ for.cond8.for.inc35_crit_edge.us:                 ; preds = %for.inc32.us
   %cmp6.us = icmp ult ptr %add.ptr36.us, %add.ptr
   br i1 %cmp6.us, label %for.cond8.preheader.us, label %for.end37, !llvm.loop !159
 
-for.end37:                                        ; preds = %for.cond8.for.inc35_crit_edge.us, %entry, %for.cond8.preheader.lr.ph, %for.end
+for.end37:                                        ; preds = %for.cond8.for.inc35_crit_edge.us, %entry, %for.end
   ret void
 }
 
@@ -35217,18 +35199,18 @@ for.body.lr.ph.i477:                              ; preds = %if.then387
 
 for.cond7.preheader.i:                            ; preds = %for.body.i479
   %cmp822.not.i = icmp eq i64 %numFloatArray, 0
-  br i1 %cmp822.not.i, label %_ZN5o3dgc13SC3DMCDecoderItE19IQuantizeFloatArrayEPfmmmPKfS4_m.exit.thread, label %for.cond11.preheader.lr.ph.i
+  br i1 %cmp822.not.i, label %_ZN5o3dgc13SC3DMCDecoderItE19IQuantizeFloatArrayEPfmmmPKfS4_m.exit.thread, label %for.cond11.preheader.us.preheader.i
 
 _ZN5o3dgc13SC3DMCDecoderItE19IQuantizeFloatArrayEPfmmmPKfS4_m.exit.thread: ; preds = %for.cond7.preheader.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %idelta.i)
   br label %if.end428
 
-for.cond11.preheader.lr.ph.i:                     ; preds = %for.cond7.preheader.i
+for.cond11.preheader.us.preheader.i:              ; preds = %for.cond7.preheader.i
   %m_quantFloatArray.i = getelementptr inbounds i8, ptr %this, i64 4568
   br label %for.cond11.preheader.us.i
 
-for.cond11.preheader.us.i:                        ; preds = %for.cond11.preheader.lr.ph.i, %for.cond11.for.inc25_crit_edge.us.i
-  %v.023.us.i = phi i64 [ %inc26.us.i, %for.cond11.for.inc25_crit_edge.us.i ], [ 0, %for.cond11.preheader.lr.ph.i ]
+for.cond11.preheader.us.i:                        ; preds = %for.cond11.for.inc25_crit_edge.us.i, %for.cond11.preheader.us.preheader.i
+  %v.023.us.i = phi i64 [ %inc26.us.i, %for.cond11.for.inc25_crit_edge.us.i ], [ 0, %for.cond11.preheader.us.preheader.i ]
   %mul.us.i = mul i64 %v.023.us.i, %stride
   br label %for.body13.us.i
 
@@ -35322,14 +35304,14 @@ for.body.lr.ph.i487:                              ; preds = %if.else425
 
 for.cond7.preheader.i502:                         ; preds = %for.body.i492
   %cmp822.not.i503 = icmp eq i64 %numFloatArray, 0
-  br i1 %cmp822.not.i503, label %_ZN5o3dgc13SC3DMCDecoderItE19IQuantizeFloatArrayEPfmmmPKfS4_m.exit522, label %for.cond11.preheader.lr.ph.i504
+  br i1 %cmp822.not.i503, label %_ZN5o3dgc13SC3DMCDecoderItE19IQuantizeFloatArrayEPfmmmPKfS4_m.exit522, label %for.cond11.preheader.us.preheader.i504
 
-for.cond11.preheader.lr.ph.i504:                  ; preds = %for.cond7.preheader.i502
+for.cond11.preheader.us.preheader.i504:           ; preds = %for.cond7.preheader.i502
   %m_quantFloatArray.i505 = getelementptr inbounds i8, ptr %this, i64 4568
   br label %for.cond11.preheader.us.i506
 
-for.cond11.preheader.us.i506:                     ; preds = %for.cond11.preheader.lr.ph.i504, %for.cond11.for.inc25_crit_edge.us.i519
-  %v.023.us.i507 = phi i64 [ %inc26.us.i520, %for.cond11.for.inc25_crit_edge.us.i519 ], [ 0, %for.cond11.preheader.lr.ph.i504 ]
+for.cond11.preheader.us.i506:                     ; preds = %for.cond11.for.inc25_crit_edge.us.i519, %for.cond11.preheader.us.preheader.i504
+  %v.023.us.i507 = phi i64 [ %inc26.us.i520, %for.cond11.for.inc25_crit_edge.us.i519 ], [ 0, %for.cond11.preheader.us.preheader.i504 ]
   %mul.us.i508 = mul i64 %v.023.us.i507, %stride
   br label %for.body13.us.i509
 

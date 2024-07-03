@@ -2077,18 +2077,17 @@ ZSTD_safecopyLiterals.exit1834:                   ; preds = %ZSTD_count.exit1816
   %.11564.ph.lcssa1862 = phi i32 [ %.51568.lcssa, %.outer._crit_edge.loopexit1927 ], [ %.01563, %5 ], [ %.11564.ph1918, %205 ]
   %.01576 = select i1 %44, i32 %20, i32 0
   %.01577 = select i1 %43, i32 %22, i32 0
-  %720 = icmp ne i32 %.01576, 0
-  %721 = icmp ne i32 %.11564.ph.lcssa1862, 0
-  %or.cond17 = select i1 %720, i1 %721, i1 false
-  %722 = select i1 %or.cond17, i32 %.01576, i32 %.01577
-  %723 = select i1 %721, i32 %.11564.ph.lcssa1862, i32 %.01576
-  store i32 %723, ptr %2, align 4
+  %720 = icmp ne i32 %.11564.ph.lcssa1862, 0
+  %or.cond17 = select i1 %44, i1 %720, i1 false
+  %721 = select i1 %or.cond17, i32 %20, i32 %.01577
+  %722 = select i1 %720, i32 %.11564.ph.lcssa1862, i32 %.01576
+  store i32 %722, ptr %2, align 4
   %.not = icmp eq i32 %.21571.ph.lcssa1865, 0
-  %724 = select i1 %.not, i32 %722, i32 %.21571.ph.lcssa1865
-  store i32 %724, ptr %21, align 4
-  %725 = ptrtoint ptr %9 to i64
-  %726 = sub i64 %725, %.pre-phi
-  ret i64 %726
+  %723 = select i1 %.not, i32 %721, i32 %.21571.ph.lcssa1865
+  store i32 %723, ptr %21, align 4
+  %724 = ptrtoint ptr %9 to i64
+  %725 = sub i64 %724, %.pre-phi
+  ret i64 %725
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3074,18 +3073,17 @@ ZSTD_safecopyLiterals.exit1762:                   ; preds = %ZSTD_count.exit1744
   %.11564.ph.lcssa1790 = phi i32 [ %.51568.lcssa, %.outer._crit_edge.loopexit1856 ], [ %.01563, %5 ], [ %.11564.ph1847, %120 ]
   %.01576 = select i1 %44, i32 %20, i32 0
   %.01577 = select i1 %43, i32 %22, i32 0
-  %450 = icmp ne i32 %.01576, 0
-  %451 = icmp ne i32 %.11564.ph.lcssa1790, 0
-  %or.cond17 = select i1 %450, i1 %451, i1 false
-  %452 = select i1 %or.cond17, i32 %.01576, i32 %.01577
-  %453 = select i1 %451, i32 %.11564.ph.lcssa1790, i32 %.01576
-  store i32 %453, ptr %2, align 4
+  %450 = icmp ne i32 %.11564.ph.lcssa1790, 0
+  %or.cond17 = select i1 %44, i1 %450, i1 false
+  %451 = select i1 %or.cond17, i32 %20, i32 %.01577
+  %452 = select i1 %450, i32 %.11564.ph.lcssa1790, i32 %.01576
+  store i32 %452, ptr %2, align 4
   %.not = icmp eq i32 %.21571.ph.lcssa1793, 0
-  %454 = select i1 %.not, i32 %452, i32 %.21571.ph.lcssa1793
-  store i32 %454, ptr %21, align 4
-  %455 = ptrtoint ptr %9 to i64
-  %456 = sub i64 %455, %.pre-phi
-  ret i64 %456
+  %453 = select i1 %.not, i32 %451, i32 %.21571.ph.lcssa1793
+  store i32 %453, ptr %21, align 4
+  %454 = ptrtoint ptr %9 to i64
+  %455 = sub i64 %454, %.pre-phi
+  ret i64 %455
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3895,18 +3893,17 @@ ZSTD_safecopyLiterals.exit1732:                   ; preds = %ZSTD_count.exit1714
   %.11564.ph.lcssa1753 = phi i32 [ %.51568.lcssa, %.outer._crit_edge.loopexit1795 ], [ %.01563, %5 ], [ %.11564.ph1786, %118 ]
   %.01576 = select i1 %43, i32 %19, i32 0
   %.01577 = select i1 %42, i32 %21, i32 0
-  %374 = icmp ne i32 %.01576, 0
-  %375 = icmp ne i32 %.11564.ph.lcssa1753, 0
-  %or.cond17 = select i1 %374, i1 %375, i1 false
-  %376 = select i1 %or.cond17, i32 %.01576, i32 %.01577
-  %377 = select i1 %375, i32 %.11564.ph.lcssa1753, i32 %.01576
-  store i32 %377, ptr %2, align 4
+  %374 = icmp ne i32 %.11564.ph.lcssa1753, 0
+  %or.cond17 = select i1 %43, i1 %374, i1 false
+  %375 = select i1 %or.cond17, i32 %19, i32 %.01577
+  %376 = select i1 %374, i32 %.11564.ph.lcssa1753, i32 %.01576
+  store i32 %376, ptr %2, align 4
   %.not = icmp eq i32 %.21571.ph.lcssa1755, 0
-  %378 = select i1 %.not, i32 %376, i32 %.21571.ph.lcssa1755
-  store i32 %378, ptr %20, align 4
-  %379 = ptrtoint ptr %8 to i64
-  %380 = sub i64 %379, %.pre-phi
-  ret i64 %380
+  %377 = select i1 %.not, i32 %375, i32 %.21571.ph.lcssa1755
+  store i32 %377, ptr %20, align 4
+  %378 = ptrtoint ptr %8 to i64
+  %379 = sub i64 %378, %.pre-phi
+  ret i64 %379
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4560,18 +4557,17 @@ ZSTD_safecopyLiterals.exit1702:                   ; preds = %ZSTD_count.exit1684
   %.11564.ph.lcssa1719 = phi i32 [ %.51568.lcssa, %.outer._crit_edge.loopexit1765 ], [ %.01563, %5 ], [ 0, %65 ], [ %.11564.ph1755.fr, %129 ]
   %.01576 = select i1 %42, i32 %18, i32 0
   %.01577 = select i1 %41, i32 %20, i32 0
-  %304 = icmp ne i32 %.01576, 0
-  %305 = icmp ne i32 %.11564.ph.lcssa1719, 0
-  %or.cond17 = select i1 %304, i1 %305, i1 false
-  %306 = select i1 %or.cond17, i32 %.01576, i32 %.01577
-  %307 = select i1 %305, i32 %.11564.ph.lcssa1719, i32 %.01576
-  store i32 %307, ptr %2, align 4
+  %304 = icmp ne i32 %.11564.ph.lcssa1719, 0
+  %or.cond17 = select i1 %42, i1 %304, i1 false
+  %305 = select i1 %or.cond17, i32 %18, i32 %.01577
+  %306 = select i1 %304, i32 %.11564.ph.lcssa1719, i32 %.01576
+  store i32 %306, ptr %2, align 4
   %.not = icmp eq i32 %.21571.ph.lcssa1720, 0
-  %308 = select i1 %.not, i32 %306, i32 %.21571.ph.lcssa1720
-  store i32 %308, ptr %19, align 4
-  %309 = ptrtoint ptr %7 to i64
-  %310 = sub i64 %309, %.pre-phi
-  ret i64 %310
+  %307 = select i1 %.not, i32 %305, i32 %.21571.ph.lcssa1720
+  store i32 %307, ptr %19, align 4
+  %308 = ptrtoint ptr %7 to i64
+  %309 = sub i64 %308, %.pre-phi
+  ret i64 %309
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11935,18 +11931,17 @@ ZSTD_safecopyLiterals.exit1769:                   ; preds = %ZSTD_count.exit1751
   %.11564.ph.lcssa1829 = phi i32 [ %.51568.lcssa, %.outer._crit_edge.loopexit1920 ], [ %.01563, %._crit_edge ], [ %.11564.ph1911, %246 ]
   %.01576 = select i1 %47, i32 %23, i32 0
   %.01577 = select i1 %46, i32 %25, i32 0
-  %656 = icmp ne i32 %.01576, 0
-  %657 = icmp ne i32 %.11564.ph.lcssa1829, 0
-  %or.cond17 = select i1 %656, i1 %657, i1 false
-  %658 = select i1 %or.cond17, i32 %.01576, i32 %.01577
-  %659 = select i1 %657, i32 %.11564.ph.lcssa1829, i32 %.01576
-  store i32 %659, ptr %2, align 4
+  %656 = icmp ne i32 %.11564.ph.lcssa1829, 0
+  %or.cond17 = select i1 %47, i1 %656, i1 false
+  %657 = select i1 %or.cond17, i32 %23, i32 %.01577
+  %658 = select i1 %656, i32 %.11564.ph.lcssa1829, i32 %.01576
+  store i32 %658, ptr %2, align 4
   %.not = icmp eq i32 %.21571.ph.lcssa1841, 0
-  %660 = select i1 %.not, i32 %658, i32 %.21571.ph.lcssa1841
-  store i32 %660, ptr %24, align 4
-  %661 = ptrtoint ptr %9 to i64
-  %662 = sub i64 %661, %.pre-phi
-  ret i64 %662
+  %659 = select i1 %.not, i32 %657, i32 %.21571.ph.lcssa1841
+  store i32 %659, ptr %24, align 4
+  %660 = ptrtoint ptr %9 to i64
+  %661 = sub i64 %660, %.pre-phi
+  ret i64 %661
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13159,18 +13154,17 @@ ZSTD_safecopyLiterals.exit1739:                   ; preds = %ZSTD_count.exit1721
   %.11564.ph.lcssa1786 = phi i32 [ %.51568.lcssa, %.outer._crit_edge.loopexit1850 ], [ %.01563, %._crit_edge ], [ %.11564.ph1841, %244 ]
   %.01576 = select i1 %46, i32 %22, i32 0
   %.01577 = select i1 %45, i32 %24, i32 0
-  %565 = icmp ne i32 %.01576, 0
-  %566 = icmp ne i32 %.11564.ph.lcssa1786, 0
-  %or.cond17 = select i1 %565, i1 %566, i1 false
-  %567 = select i1 %or.cond17, i32 %.01576, i32 %.01577
-  %568 = select i1 %566, i32 %.11564.ph.lcssa1786, i32 %.01576
-  store i32 %568, ptr %2, align 4
+  %565 = icmp ne i32 %.11564.ph.lcssa1786, 0
+  %or.cond17 = select i1 %46, i1 %565, i1 false
+  %566 = select i1 %or.cond17, i32 %22, i32 %.01577
+  %567 = select i1 %565, i32 %.11564.ph.lcssa1786, i32 %.01576
+  store i32 %567, ptr %2, align 4
   %.not = icmp eq i32 %.21571.ph.lcssa1794, 0
-  %569 = select i1 %.not, i32 %567, i32 %.21571.ph.lcssa1794
-  store i32 %569, ptr %23, align 4
-  %570 = ptrtoint ptr %8 to i64
-  %571 = sub i64 %570, %.pre-phi
-  ret i64 %571
+  %568 = select i1 %.not, i32 %566, i32 %.21571.ph.lcssa1794
+  store i32 %568, ptr %23, align 4
+  %569 = ptrtoint ptr %8 to i64
+  %570 = sub i64 %569, %.pre-phi
+  ret i64 %570
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14130,18 +14124,17 @@ ZSTD_safecopyLiterals.exit1709:                   ; preds = %ZSTD_count.exit1691
   %.11564.ph.lcssa1746 = phi i32 [ %.51568.lcssa, %.outer._crit_edge.loopexit1801 ], [ %.01563, %._crit_edge ], [ %.11564.ph1794, %242 ]
   %.01576 = select i1 %45, i32 %21, i32 0
   %.01577 = select i1 %44, i32 %23, i32 0
-  %468 = icmp ne i32 %.01576, 0
-  %469 = icmp ne i32 %.11564.ph.lcssa1746, 0
-  %or.cond17 = select i1 %468, i1 %469, i1 false
-  %470 = select i1 %or.cond17, i32 %.01576, i32 %.01577
-  %471 = select i1 %469, i32 %.11564.ph.lcssa1746, i32 %.01576
-  store i32 %471, ptr %2, align 4
+  %468 = icmp ne i32 %.11564.ph.lcssa1746, 0
+  %or.cond17 = select i1 %45, i1 %468, i1 false
+  %469 = select i1 %or.cond17, i32 %21, i32 %.01577
+  %470 = select i1 %468, i32 %.11564.ph.lcssa1746, i32 %.01576
+  store i32 %470, ptr %2, align 4
   %.not = icmp eq i32 %.21571.ph.lcssa1750, 0
-  %472 = select i1 %.not, i32 %470, i32 %.21571.ph.lcssa1750
-  store i32 %472, ptr %22, align 4
-  %473 = ptrtoint ptr %7 to i64
-  %474 = sub i64 %473, %.pre-phi
-  ret i64 %474
+  %471 = select i1 %.not, i32 %469, i32 %.21571.ph.lcssa1750
+  store i32 %471, ptr %22, align 4
+  %472 = ptrtoint ptr %7 to i64
+  %473 = sub i64 %472, %.pre-phi
+  ret i64 %473
 }
 
 ; Function Attrs: nounwind uwtable

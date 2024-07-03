@@ -4963,19 +4963,15 @@ while.cond.i.preheader:                           ; preds = %if.then.thread, %if
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %while.body.i
   %3 = phi ptr [ %.pr.pre.i, %while.body.i ], [ %.ph, %while.cond.i.preheader ]
   %cmp.i10.i = icmp eq ptr %3, null
-  br i1 %cmp.i10.i, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.i, label %if.end.i11.i
+  br i1 %cmp.i10.i, label %while.body.i, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.i
 
-if.end.i11.i:                                     ; preds = %while.cond.i
+_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.i: ; preds = %while.cond.i
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %3, i64 -8
   %4 = load i32, ptr %arrayidx.i12.i, align 4
-  br label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.i
-
-_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.i: ; preds = %if.end.i11.i, %while.cond.i
-  %retval.0.i13.i = phi i32 [ %4, %if.end.i11.i ], [ 0, %while.cond.i ]
-  %cmp3.i.not = icmp ugt i32 %retval.0.i13.i, %i
+  %cmp3.i.not = icmp ugt i32 %4, %i
   br i1 %cmp3.i.not, label %while.end.i, label %while.body.i
 
-while.body.i:                                     ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.i
+while.body.i:                                     ; preds = %while.cond.i, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.i
   tail call void @_ZN6vectorIPN7datalog13relation_baseELb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_registers)
   %.pr.pre.i = load ptr, ptr %m_registers, align 8
   br label %while.cond.i, !llvm.loop !14

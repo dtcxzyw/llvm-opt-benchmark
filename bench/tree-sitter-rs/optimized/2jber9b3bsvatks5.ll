@@ -20976,12 +20976,9 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.47982
 
 .loopexit826:                                     ; preds = %.loopexit818, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h537c66696f269a72E.exit363"
   %exitcond1205.not = icmp eq i64 %676, %89
-  br i1 %exitcond1205.not, label %.preheader, label %675
+  br i1 %exitcond1205.not, label %.lr.ph1109, label %675
 
-.preheader:                                       ; preds = %.loopexit826
-  br i1 %.not1112, label %._crit_edge1110, label %.lr.ph1109
-
-.lr.ph1109:                                       ; preds = %.preheader
+.lr.ph1109:                                       ; preds = %.loopexit826
   %158 = getelementptr inbounds i8, ptr %51, i64 8
   %159 = getelementptr inbounds i8, ptr %51, i64 16
   %160 = getelementptr inbounds i8, ptr %51, i64 17
@@ -21123,7 +21120,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.47982
           cleanup
   br label %.body254
 
-._crit_edge1110:                                  ; preds = %"_ZN4core3ptr63drop_in_place$LT$tree_sitter_cli..generate..rules..TokenSet$GT$17h396ba17e58616e58E.exit256", %146, %.preheader
+._crit_edge1110:                                  ; preds = %"_ZN4core3ptr63drop_in_place$LT$tree_sitter_cli..generate..rules..TokenSet$GT$17h396ba17e58616e58E.exit256", %146
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(144) %67, i64 144, i1 false)
   %217 = getelementptr inbounds i8, ptr %52, i64 8
   %218 = load i64, ptr %217, align 8, !alias.scope !5592, !noalias !5605, !noundef !17

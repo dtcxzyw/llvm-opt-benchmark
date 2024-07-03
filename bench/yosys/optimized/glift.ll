@@ -28955,34 +28955,34 @@ _ZSt8_DestroyIPN5Yosys5RTLIL5ConstES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_D
   br label %_ZNSt6vectorIN5Yosys5RTLIL5ConstESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 _ZSt7advanceIPKN5Yosys5RTLIL5ConstEmEvRT_T0_.exit: ; preds = %29
-  %49 = getelementptr inbounds i8, ptr %1, i64 %33
-  %50 = ashr exact i64 %33, 5
-  %51 = icmp sgt i64 %50, 0
-  br i1 %51, label %.lr.ph.i.i.i.i.i18, label %_ZSt4copyIPKN5Yosys5RTLIL5ConstEPS2_ET0_T_S7_S6_.exit22
+  %.sink.i.i = getelementptr inbounds i8, ptr %1, i64 %33
+  %49 = ashr exact i64 %33, 5
+  %50 = icmp sgt i64 %49, 0
+  br i1 %50, label %.lr.ph.i.i.i.i.i18, label %_ZSt4copyIPKN5Yosys5RTLIL5ConstEPS2_ET0_T_S7_S6_.exit22
 
 .lr.ph.i.i.i.i.i18:                               ; preds = %_ZSt7advanceIPKN5Yosys5RTLIL5ConstEmEvRT_T0_.exit, %.lr.ph.i.i.i.i.i18
-  %.012.i.i.i.i.i19 = phi i64 [ %58, %.lr.ph.i.i.i.i.i18 ], [ %50, %_ZSt7advanceIPKN5Yosys5RTLIL5ConstEmEvRT_T0_.exit ]
-  %.0811.i.i.i.i.i20 = phi ptr [ %57, %.lr.ph.i.i.i.i.i18 ], [ %10, %_ZSt7advanceIPKN5Yosys5RTLIL5ConstEmEvRT_T0_.exit ]
-  %.0910.i.i.i.i.i21 = phi ptr [ %56, %.lr.ph.i.i.i.i.i18 ], [ %1, %_ZSt7advanceIPKN5Yosys5RTLIL5ConstEmEvRT_T0_.exit ]
-  %52 = load i32, ptr %.0910.i.i.i.i.i21, align 8
-  store i32 %52, ptr %.0811.i.i.i.i.i20, align 8
-  %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i20, i64 8
-  %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i21, i64 8
-  %55 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %54)
-  %56 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i21, i64 32
-  %57 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i20, i64 32
-  %58 = add nsw i64 %.012.i.i.i.i.i19, -1
-  %59 = icmp ugt i64 %.012.i.i.i.i.i19, 1
-  br i1 %59, label %.lr.ph.i.i.i.i.i18, label %_ZSt4copyIPKN5Yosys5RTLIL5ConstEPS2_ET0_T_S7_S6_.exit22.loopexit, !llvm.loop !390
+  %.012.i.i.i.i.i19 = phi i64 [ %57, %.lr.ph.i.i.i.i.i18 ], [ %49, %_ZSt7advanceIPKN5Yosys5RTLIL5ConstEmEvRT_T0_.exit ]
+  %.0811.i.i.i.i.i20 = phi ptr [ %56, %.lr.ph.i.i.i.i.i18 ], [ %10, %_ZSt7advanceIPKN5Yosys5RTLIL5ConstEmEvRT_T0_.exit ]
+  %.0910.i.i.i.i.i21 = phi ptr [ %55, %.lr.ph.i.i.i.i.i18 ], [ %1, %_ZSt7advanceIPKN5Yosys5RTLIL5ConstEmEvRT_T0_.exit ]
+  %51 = load i32, ptr %.0910.i.i.i.i.i21, align 8
+  store i32 %51, ptr %.0811.i.i.i.i.i20, align 8
+  %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i20, i64 8
+  %53 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i21, i64 8
+  %54 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %53)
+  %55 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i21, i64 32
+  %56 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i20, i64 32
+  %57 = add nsw i64 %.012.i.i.i.i.i19, -1
+  %58 = icmp ugt i64 %.012.i.i.i.i.i19, 1
+  br i1 %58, label %.lr.ph.i.i.i.i.i18, label %_ZSt4copyIPKN5Yosys5RTLIL5ConstEPS2_ET0_T_S7_S6_.exit22.loopexit, !llvm.loop !390
 
 _ZSt4copyIPKN5Yosys5RTLIL5ConstEPS2_ET0_T_S7_S6_.exit22.loopexit: ; preds = %.lr.ph.i.i.i.i.i18
   %.pre26 = load ptr, ptr %30, align 8
   br label %_ZSt4copyIPKN5Yosys5RTLIL5ConstEPS2_ET0_T_S7_S6_.exit22
 
 _ZSt4copyIPKN5Yosys5RTLIL5ConstEPS2_ET0_T_S7_S6_.exit22: ; preds = %_ZSt4copyIPKN5Yosys5RTLIL5ConstEPS2_ET0_T_S7_S6_.exit22.loopexit, %_ZSt7advanceIPKN5Yosys5RTLIL5ConstEmEvRT_T0_.exit
-  %60 = phi ptr [ %.pre26, %_ZSt4copyIPKN5Yosys5RTLIL5ConstEPS2_ET0_T_S7_S6_.exit22.loopexit ], [ %31, %_ZSt7advanceIPKN5Yosys5RTLIL5ConstEmEvRT_T0_.exit ]
-  %61 = tail call noundef ptr @_ZSt16__do_uninit_copyIPKN5Yosys5RTLIL5ConstEPS2_ET0_T_S7_S6_(ptr noundef %49, ptr noundef %2, ptr noundef %60)
-  store ptr %61, ptr %30, align 8
+  %59 = phi ptr [ %.pre26, %_ZSt4copyIPKN5Yosys5RTLIL5ConstEPS2_ET0_T_S7_S6_.exit22.loopexit ], [ %31, %_ZSt7advanceIPKN5Yosys5RTLIL5ConstEmEvRT_T0_.exit ]
+  %60 = tail call noundef ptr @_ZSt16__do_uninit_copyIPKN5Yosys5RTLIL5ConstEPS2_ET0_T_S7_S6_(ptr noundef %.sink.i.i, ptr noundef %2, ptr noundef %59)
+  store ptr %60, ptr %30, align 8
   br label %_ZNSt6vectorIN5Yosys5RTLIL5ConstESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 _ZNSt6vectorIN5Yosys5RTLIL5ConstESaIS2_EE15_M_erase_at_endEPS2_.exit: ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL5ConstES2_EvT_S4_RSaIT0_E.exit.i, %_ZSt4copyIPKN5Yosys5RTLIL5ConstEPS2_ET0_T_S7_S6_.exit, %_ZSt4copyIPKN5Yosys5RTLIL5ConstEPS2_ET0_T_S7_S6_.exit22, %_ZNSt12_Vector_baseIN5Yosys5RTLIL5ConstESaIS2_EE13_M_deallocateEPS2_m.exit

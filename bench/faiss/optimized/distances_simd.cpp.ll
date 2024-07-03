@@ -143,21 +143,14 @@ define void @_ZN5faiss30fvec_L2sqr_ny_y_transposed_refEPfPKfS2_S2_mmm(ptr nocapt
 
 .preheader31:                                     ; preds = %.lr.ph
   %.not40 = icmp eq i64 %6, 0
-  br i1 %.not40, label %._crit_edge39, label %.preheader.lr.ph
+  br i1 %.not40, label %._crit_edge39, label %.preheader.us
 
 .preheader31.thread:                              ; preds = %7
   %.not4048 = icmp eq i64 %6, 0
-  br i1 %.not4048, label %._crit_edge39, label %.preheader.preheader
+  br i1 %.not4048, label %._crit_edge39, label %.preheader
 
-.preheader.lr.ph:                                 ; preds = %.preheader31
-  br i1 %.not, label %.preheader.preheader, label %.preheader.us
-
-.preheader.preheader:                             ; preds = %.preheader31.thread, %.preheader.lr.ph
-  %.029.lcssa4951 = phi float [ %25, %.preheader.lr.ph ], [ 0.000000e+00, %.preheader31.thread ]
-  br label %.preheader
-
-.preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.02738.us = phi i64 [ %22, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+.preheader.us:                                    ; preds = %.preheader31, %._crit_edge.us
+  %.02738.us = phi i64 [ %22, %._crit_edge.us ], [ 0, %.preheader31 ]
   %8 = getelementptr float, ptr %2, i64 %.02738.us
   br label %9
 
@@ -195,11 +188,11 @@ define void @_ZN5faiss30fvec_L2sqr_ny_y_transposed_refEPfPKfS2_S2_mmm(ptr nocapt
   %exitcond.not = icmp eq i64 %26, %4
   br i1 %exitcond.not, label %.preheader31, label %.lr.ph, !llvm.loop !13
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.02738 = phi i64 [ %31, %.preheader ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader31.thread, %.preheader
+  %.02738 = phi i64 [ %31, %.preheader ], [ 0, %.preheader31.thread ]
   %27 = getelementptr inbounds float, ptr %3, i64 %.02738
   %28 = load float, ptr %27, align 4
-  %29 = fadd float %.029.lcssa4951, %28
+  %29 = fadd float %28, 0.000000e+00
   %30 = getelementptr inbounds float, ptr %0, i64 %.02738
   store float %29, ptr %30, align 4
   %31 = add nuw i64 %.02738, 1

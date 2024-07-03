@@ -3689,7 +3689,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq i32 %1, 0
-  br i1 %3, label %61, label %4
+  br i1 %3, label %60, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3765,22 +3765,20 @@ define hidden noundef i32 @_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16Bit
 50:                                               ; preds = %40, %18
   %51 = phi i64 [ %19, %18 ], [ %49, %40 ]
   %52 = phi i32 [ %6, %18 ], [ %44, %40 ]
-  %53 = icmp uge i32 %52, %1
-  tail call void @llvm.assume(i1 %53)
-  %54 = sub nuw nsw i32 64, %1
-  %55 = zext nneg i32 %54 to i64
-  %56 = sub nsw i32 %52, %1
-  store i32 %56, ptr %5, align 8, !tbaa !144
-  %57 = zext nneg i32 %1 to i64
-  %58 = shl i64 %51, %57
-  store i64 %58, ptr %0, align 8, !tbaa !150
-  %59 = ashr i64 %51, %55
-  %60 = trunc nsw i64 %59 to i32
-  br label %61
+  %53 = sub nuw nsw i32 64, %1
+  %54 = zext nneg i32 %53 to i64
+  %55 = sub nsw i32 %52, %1
+  store i32 %55, ptr %5, align 8, !tbaa !144
+  %56 = zext nneg i32 %1 to i64
+  %57 = shl i64 %51, %56
+  store i64 %57, ptr %0, align 8, !tbaa !150
+  %58 = ashr i64 %51, %54
+  %59 = trunc nsw i64 %58 to i32
+  br label %60
 
-61:                                               ; preds = %50, %2
-  %62 = phi i32 [ %60, %50 ], [ 0, %2 ]
-  ret i32 %62
+60:                                               ; preds = %50, %2
+  %61 = phi i32 [ %59, %50 ], [ 0, %2 ]
+  ret i32 %61
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

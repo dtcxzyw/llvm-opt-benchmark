@@ -2401,7 +2401,7 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   %33 = getelementptr inbounds i8, ptr %10, i64 4
   br label %.preheader90
 
-.preheader90:                                     ; preds = %.preheader90.lr.ph, %._crit_edge106
+.preheader90:                                     ; preds = %._crit_edge106, %.preheader90.lr.ph
   %.084107 = phi i32 [ %27, %.preheader90.lr.ph ], [ %77, %._crit_edge106 ]
   %.not = icmp eq i32 %.084107, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -2531,9 +2531,9 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
 
 ._crit_edge106:                                   ; preds = %.lr.ph105
   %77 = add nsw i32 %.084107, -1
-  br i1 %.not, label %.loopexit, label %.preheader90, !llvm.loop !25
+  br label %.preheader90, !llvm.loop !25
 
-.loopexit:                                        ; preds = %.preheader89, %._crit_edge106, %26, %15, %22, %25
+.loopexit:                                        ; preds = %.preheader89, %26, %15, %22, %25
   ret void
 }
 

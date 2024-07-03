@@ -18126,15 +18126,12 @@ cf2_blues_capture.exit.thread:                    ; preds = %.thread.i, %.thread
   br i1 %exitcond.not, label %._crit_edge, label %93, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %cf2_blues_capture.exit.thread
-  br i1 %.not, label %.preheader186, label %277
+  br i1 %.not, label %.lr.ph218, label %277
 
 ._crit_edge.thread:                               ; preds = %74
   br i1 %.not, label %.loopexit187, label %277
 
-.preheader186:                                    ; preds = %._crit_edge
-  br i1 %.not221, label %.loopexit187, label %.lr.ph218
-
-.lr.ph218:                                        ; preds = %.preheader186
+.lr.ph218:                                        ; preds = %._crit_edge
   %264 = getelementptr inbounds i8, ptr %0, i64 28
   %265 = getelementptr inbounds i8, ptr %1, i64 8
   %266 = getelementptr inbounds i8, ptr %1, i64 48
@@ -18376,7 +18373,7 @@ cf2_hint_init.exit161:                            ; preds = %361, %365
   %exitcond240.not = icmp eq i64 %380, %.val120
   br i1 %exitcond240.not, label %.loopexit187, label %295, !llvm.loop !73
 
-.loopexit187:                                     ; preds = %375, %._crit_edge.thread, %.preheader186, %284, %291
+.loopexit187:                                     ; preds = %375, %._crit_edge.thread, %284, %291
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %381 = getelementptr inbounds i8, ptr %0, i64 16
   %382 = load ptr, ptr %381, align 8

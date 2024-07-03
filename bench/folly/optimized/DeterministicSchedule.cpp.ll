@@ -474,7 +474,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %14, label %middle.block, label %vector.body, !llvm.loop !34
 
 middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %umax, %n.vec
+  %cmp.n = icmp eq i64 %sub.ptr.div.i34, %n.vec
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %middle.block, %vector.memcheck, %for.body.lr.ph
@@ -945,7 +945,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %26, label %middle.block, label %vector.body, !llvm.loop !68
 
 middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %umax.i, %n.vec
+  %cmp.n = icmp eq i64 %sub.ptr.div.i34.i, %n.vec
   br i1 %cmp.n, label %_ZN5folly4test16ThreadTimestamps4syncERKS1_.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %middle.block, %vector.memcheck, %for.body.lr.ph.i
@@ -1168,7 +1168,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %26, label %middle.block, label %vector.body, !llvm.loop !75
 
 middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %umax.i, %n.vec
+  %cmp.n = icmp eq i64 %sub.ptr.div.i34.i, %n.vec
   br i1 %cmp.n, label %_ZN5folly4test16ThreadTimestamps4syncERKS1_.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %middle.block, %vector.memcheck, %for.body.lr.ph.i
@@ -1340,7 +1340,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %25, label %middle.block, label %vector.body, !llvm.loop !82
 
 middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %umax.i, %n.vec
+  %cmp.n = icmp eq i64 %sub.ptr.div.i34.i, %n.vec
   br i1 %cmp.n, label %_ZN5folly4test16ThreadTimestamps4syncERKS1_.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %middle.block, %vector.memcheck, %for.body.lr.ph.i
@@ -1450,7 +1450,7 @@ vector.body77:                                    ; preds = %vector.body77, %vec
   br i1 %47, label %middle.block69, label %vector.body77, !llvm.loop !89
 
 middle.block69:                                   ; preds = %vector.body77
-  %cmp.n76 = icmp eq i64 %umax.i34, %n.vec74
+  %cmp.n76 = icmp eq i64 %sub.ptr.div.i34.i33, %n.vec74
   br i1 %cmp.n76, label %_ZN5folly4test16ThreadTimestamps4syncERKS1_.exit48, label %for.body.i35.preheader
 
 for.body.i35.preheader:                           ; preds = %middle.block69, %vector.memcheck63, %for.body.lr.ph.i32
@@ -6818,7 +6818,7 @@ vector.body310:                                   ; preds = %vector.body310, %ve
   br i1 %26, label %middle.block302, label %vector.body310, !llvm.loop !293
 
 middle.block302:                                  ; preds = %vector.body310
-  %cmp.n309 = icmp eq i64 %umax.i, %n.vec307
+  %cmp.n309 = icmp eq i64 %sub.ptr.div.i34.i, %n.vec307
   br i1 %cmp.n309, label %do.end, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %middle.block302, %vector.memcheck296, %for.body.lr.ph.i
@@ -6934,7 +6934,7 @@ vector.body289:                                   ; preds = %vector.body289, %ve
   br i1 %51, label %middle.block281, label %vector.body289, !llvm.loop !300
 
 middle.block281:                                  ; preds = %vector.body289
-  %cmp.n288 = icmp eq i64 %umax.i59, %n.vec286
+  %cmp.n288 = icmp eq i64 %sub.ptr.div.i34.i58, %n.vec286
   br i1 %cmp.n288, label %do.end, label %for.body.i60.preheader
 
 for.body.i60.preheader:                           ; preds = %middle.block281, %vector.memcheck275, %for.body.lr.ph.i57
@@ -7051,7 +7051,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %75, label %middle.block, label %vector.body, !llvm.loop !307
 
 middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %umax.i88, %n.vec
+  %cmp.n = icmp eq i64 %sub.ptr.div.i34.i87, %n.vec
   br i1 %cmp.n, label %_ZN5folly4test16ThreadTimestamps4syncERKS1_.exit102, label %for.body.i89.preheader
 
 for.body.i89.preheader:                           ; preds = %middle.block, %vector.memcheck, %for.body.lr.ph.i86
@@ -7165,7 +7165,7 @@ vector.body268:                                   ; preds = %vector.body268, %ve
   br i1 %99, label %middle.block260, label %vector.body268, !llvm.loop !314
 
 middle.block260:                                  ; preds = %vector.body268
-  %cmp.n267 = icmp eq i64 %umax.i117, %n.vec265
+  %cmp.n267 = icmp eq i64 %sub.ptr.div.i34.i116, %n.vec265
   br i1 %cmp.n267, label %do.end, label %for.body.i118.preheader
 
 for.body.i118.preheader:                          ; preds = %middle.block260, %vector.memcheck254, %for.body.lr.ph.i115
@@ -7282,7 +7282,7 @@ vector.body331:                                   ; preds = %vector.body331, %ve
   br i1 %123, label %middle.block323, label %vector.body331, !llvm.loop !321
 
 middle.block323:                                  ; preds = %vector.body331
-  %cmp.n330 = icmp eq i64 %umax.i146, %n.vec328
+  %cmp.n330 = icmp eq i64 %sub.ptr.div.i34.i145, %n.vec328
   br i1 %cmp.n330, label %_ZN5folly4test16ThreadTimestamps4syncERKS1_.exit160, label %for.body.i147.preheader
 
 for.body.i147.preheader:                          ; preds = %middle.block323, %vector.memcheck317, %for.body.lr.ph.i144
@@ -7397,7 +7397,7 @@ vector.body352:                                   ; preds = %vector.body352, %ve
   br i1 %148, label %middle.block344, label %vector.body352, !llvm.loop !328
 
 middle.block344:                                  ; preds = %vector.body352
-  %cmp.n351 = icmp eq i64 %umax.i175, %n.vec349
+  %cmp.n351 = icmp eq i64 %sub.ptr.div.i34.i174, %n.vec349
   br i1 %cmp.n351, label %_ZN5folly4test16ThreadTimestamps4syncERKS1_.exit189, label %for.body.i176.preheader
 
 for.body.i176.preheader:                          ; preds = %middle.block344, %vector.memcheck338, %for.body.lr.ph.i173
@@ -7515,7 +7515,7 @@ vector.body373:                                   ; preds = %vector.body373, %ve
   br i1 %174, label %middle.block365, label %vector.body373, !llvm.loop !335
 
 middle.block365:                                  ; preds = %vector.body373
-  %cmp.n372 = icmp eq i64 %umax.i205, %n.vec370
+  %cmp.n372 = icmp eq i64 %sub.ptr.div.i34.i204, %n.vec370
   br i1 %cmp.n372, label %do.end, label %for.body.i206.preheader
 
 for.body.i206.preheader:                          ; preds = %middle.block365, %vector.memcheck359, %for.body.lr.ph.i203

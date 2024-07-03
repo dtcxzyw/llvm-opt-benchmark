@@ -681,59 +681,59 @@ _ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit: ; preds = %_ZSt4copyIPA
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 _ZSt7advanceIPA3_fmEvRT_T0_.exit:                 ; preds = %28
-  %45 = getelementptr inbounds i8, ptr %1, i64 %32
-  %46 = icmp sgt i64 %32, 0
-  br i1 %46, label %.lr.ph.preheader.i.i.i.i.i19, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26
+  %.sink.i.i = getelementptr inbounds i8, ptr %1, i64 %32
+  %45 = icmp sgt i64 %32, 0
+  br i1 %45, label %.lr.ph.preheader.i.i.i.i.i19, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26
 
 .lr.ph.preheader.i.i.i.i.i19:                     ; preds = %_ZSt7advanceIPA3_fmEvRT_T0_.exit
-  %47 = udiv exact i64 %32, 12
+  %46 = udiv exact i64 %32, 12
   br label %.lr.ph.i.i.i.i.i20
 
 .lr.ph.i.i.i.i.i20:                               ; preds = %.lr.ph.i.i.i.i.i20, %.lr.ph.preheader.i.i.i.i.i19
-  %.012.i.i.i.i.i21 = phi i64 [ %53, %.lr.ph.i.i.i.i.i20 ], [ %47, %.lr.ph.preheader.i.i.i.i.i19 ]
-  %.0811.i.i.i.i.i22 = phi ptr [ %52, %.lr.ph.i.i.i.i.i20 ], [ %9, %.lr.ph.preheader.i.i.i.i.i19 ]
-  %.0910.i.i.i.i.i23 = phi ptr [ %51, %.lr.ph.i.i.i.i.i20 ], [ %1, %.lr.ph.preheader.i.i.i.i.i19 ]
-  %48 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 8
-  %49 = load float, ptr %48, align 4
-  %50 = load <2 x float>, ptr %.0910.i.i.i.i.i23, align 4
-  store <2 x float> %50, ptr %.0811.i.i.i.i.i22, align 4
+  %.012.i.i.i.i.i21 = phi i64 [ %52, %.lr.ph.i.i.i.i.i20 ], [ %46, %.lr.ph.preheader.i.i.i.i.i19 ]
+  %.0811.i.i.i.i.i22 = phi ptr [ %51, %.lr.ph.i.i.i.i.i20 ], [ %9, %.lr.ph.preheader.i.i.i.i.i19 ]
+  %.0910.i.i.i.i.i23 = phi ptr [ %50, %.lr.ph.i.i.i.i.i20 ], [ %1, %.lr.ph.preheader.i.i.i.i.i19 ]
+  %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 8
+  %48 = load float, ptr %47, align 4
+  %49 = load <2 x float>, ptr %.0910.i.i.i.i.i23, align 4
+  store <2 x float> %49, ptr %.0811.i.i.i.i.i22, align 4
   %.sroa.3.0..08.sroa_idx.i.i.i.i.i25 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 8
-  store float %49, ptr %.sroa.3.0..08.sroa_idx.i.i.i.i.i25, align 4
-  %51 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 12
-  %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 12
-  %53 = add nsw i64 %.012.i.i.i.i.i21, -1
-  %54 = icmp ugt i64 %.012.i.i.i.i.i21, 1
-  br i1 %54, label %.lr.ph.i.i.i.i.i20, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26.loopexit, !llvm.loop !11
+  store float %48, ptr %.sroa.3.0..08.sroa_idx.i.i.i.i.i25, align 4
+  %50 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 12
+  %51 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 12
+  %52 = add nsw i64 %.012.i.i.i.i.i21, -1
+  %53 = icmp ugt i64 %.012.i.i.i.i.i21, 1
+  br i1 %53, label %.lr.ph.i.i.i.i.i20, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26.loopexit, !llvm.loop !11
 
 _ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26.loopexit: ; preds = %.lr.ph.i.i.i.i.i20
   %.pre32 = load ptr, ptr %29, align 8
   br label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26
 
 _ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26: ; preds = %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26.loopexit, %_ZSt7advanceIPA3_fmEvRT_T0_.exit
-  %55 = phi ptr [ %.pre32, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26.loopexit ], [ %30, %_ZSt7advanceIPA3_fmEvRT_T0_.exit ]
-  %.not13.i.i.i.i = icmp eq ptr %45, %2
+  %54 = phi ptr [ %.pre32, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26.loopexit ], [ %30, %_ZSt7advanceIPA3_fmEvRT_T0_.exit ]
+  %.not13.i.i.i.i = icmp eq ptr %.sink.i.i, %2
   br i1 %.not13.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPA3_fPN3gmx11BasicVectorIfEES4_ET0_T_S7_S6_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26, %.lr.ph.i.i.i.i
-  %.015.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i ], [ %55, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26 ]
-  %.01214.i.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i.i ], [ %45, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26 ]
-  %56 = load float, ptr %.01214.i.i.i.i, align 4
-  store float %56, ptr %.015.i.i.i.i, align 4
-  %57 = getelementptr inbounds i8, ptr %.015.i.i.i.i, i64 4
-  %58 = getelementptr inbounds i8, ptr %.01214.i.i.i.i, i64 4
-  %59 = load float, ptr %58, align 4
-  store float %59, ptr %57, align 4
-  %60 = getelementptr inbounds i8, ptr %.015.i.i.i.i, i64 8
-  %61 = getelementptr inbounds i8, ptr %.01214.i.i.i.i, i64 8
-  %62 = load float, ptr %61, align 4
-  store float %62, ptr %60, align 4
-  %63 = getelementptr inbounds i8, ptr %.01214.i.i.i.i, i64 12
-  %64 = getelementptr inbounds i8, ptr %.015.i.i.i.i, i64 12
-  %.not.i.i.i.i = icmp eq ptr %63, %2
+  %.015.i.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i.i ], [ %54, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26 ]
+  %.01214.i.i.i.i = phi ptr [ %62, %.lr.ph.i.i.i.i ], [ %.sink.i.i, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26 ]
+  %55 = load float, ptr %.01214.i.i.i.i, align 4
+  store float %55, ptr %.015.i.i.i.i, align 4
+  %56 = getelementptr inbounds i8, ptr %.015.i.i.i.i, i64 4
+  %57 = getelementptr inbounds i8, ptr %.01214.i.i.i.i, i64 4
+  %58 = load float, ptr %57, align 4
+  store float %58, ptr %56, align 4
+  %59 = getelementptr inbounds i8, ptr %.015.i.i.i.i, i64 8
+  %60 = getelementptr inbounds i8, ptr %.01214.i.i.i.i, i64 8
+  %61 = load float, ptr %60, align 4
+  store float %61, ptr %59, align 4
+  %62 = getelementptr inbounds i8, ptr %.01214.i.i.i.i, i64 12
+  %63 = getelementptr inbounds i8, ptr %.015.i.i.i.i, i64 12
+  %.not.i.i.i.i = icmp eq ptr %62, %2
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPA3_fPN3gmx11BasicVectorIfEES4_ET0_T_S7_S6_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
 _ZSt22__uninitialized_copy_aIPA3_fPN3gmx11BasicVectorIfEES4_ET0_T_S7_S6_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26
-  %.0.lcssa.i.i.i.i = phi ptr [ %55, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26 ], [ %64, %.lr.ph.i.i.i.i ]
+  %.0.lcssa.i.i.i.i = phi ptr [ %54, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26 ], [ %63, %.lr.ph.i.i.i.i ]
   store ptr %.0.lcssa.i.i.i.i, ptr %29, align 8
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE15_M_erase_at_endEPS2_.exit
 

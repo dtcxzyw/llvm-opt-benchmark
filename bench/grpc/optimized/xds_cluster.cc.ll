@@ -10604,7 +10604,7 @@ if.else:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
   %cmp24.not = icmp ult i64 %sub.ptr.sub.i16, %sub.ptr.sub.i.i
-  br i1 %cmp24.not, label %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit, label %if.then25
+  br i1 %cmp24.not, label %if.else29, label %if.then25
 
 if.then25:                                        ; preds = %if.else
   %cmp.i1.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i, 0
@@ -10671,12 +10671,12 @@ invoke.cont.i:                                    ; preds = %_ZNSt8__detail9__va
   store ptr %__result.addr.0.i.lcssa.i.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end41
 
-_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit: ; preds = %if.else
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i16
+if.else29:                                        ; preds = %if.else
+  %incdec.ptr4.sink.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i16
   %cmp.i1.i.i.i.i30 = icmp sgt i64 %sub.ptr.sub.i16, 0
   br i1 %cmp.i1.i.i.i.i30, label %for.body.i.preheader.i.i.i.i32, label %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42
 
-for.body.i.preheader.i.i.i.i32:                   ; preds = %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit
+for.body.i.preheader.i.i.i.i32:                   ; preds = %if.else29
   %sub.ptr.div.i5.i.i.i.i33 = udiv exact i64 %sub.ptr.sub.i16, 56
   br label %for.body.i.i.i.i.i34
 
@@ -10698,9 +10698,9 @@ _ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42.loopexit: ; p
   %.pre51 = load ptr, ptr %_M_finish.i, align 8
   br label %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42
 
-_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42: ; preds = %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42.loopexit, %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit
-  %13 = phi ptr [ %.pre51, %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42.loopexit ], [ %8, %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit ]
-  %call.i.i.i = call noundef ptr @_ZSt16__do_uninit_copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_(ptr noundef %incdec.ptr.i.i, ptr noundef %__last, ptr noundef %13)
+_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42: ; preds = %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42.loopexit, %if.else29
+  %13 = phi ptr [ %.pre51, %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42.loopexit ], [ %8, %if.else29 ]
+  %call.i.i.i = call noundef ptr @_ZSt16__do_uninit_copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_(ptr noundef %incdec.ptr4.sink.i.i, ptr noundef %__last, ptr noundef %13)
   store ptr %call.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end41
 

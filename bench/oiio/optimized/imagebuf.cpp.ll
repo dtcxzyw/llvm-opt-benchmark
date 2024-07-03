@@ -87591,7 +87591,7 @@ if.else:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
   %cmp24.not = icmp ult i64 %sub.ptr.sub.i16, %sub.ptr.sub.i.i
-  br i1 %cmp24.not, label %_ZSt7advanceIPKN18OpenImageIO_v2_6_08TypeDescEmEvRT_T0_.exit, label %if.then25
+  br i1 %cmp24.not, label %if.else29, label %if.then25
 
 if.then25:                                        ; preds = %if.else
   %cmp6.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i, 0
@@ -87623,16 +87623,16 @@ invoke.cont.i:                                    ; preds = %_ZSt4copyIPKN18Open
   store ptr %__result.addr.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end41
 
-_ZSt7advanceIPKN18OpenImageIO_v2_6_08TypeDescEmEvRT_T0_.exit: ; preds = %if.else
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i16
+if.else29:                                        ; preds = %if.else
+  %incdec.ptr4.sink.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i16
   %sub.ptr.div.i.i.i.i.i31 = ashr exact i64 %sub.ptr.sub.i16, 3
   %cmp6.i.i.i.i.i32 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i31, 0
   br i1 %cmp6.i.i.i.i.i32, label %for.body.i.i.i.i.i34, label %_ZSt4copyIPKN18OpenImageIO_v2_6_08TypeDescEPS1_ET0_T_S6_S5_.exit42
 
-for.body.i.i.i.i.i34:                             ; preds = %_ZSt7advanceIPKN18OpenImageIO_v2_6_08TypeDescEmEvRT_T0_.exit, %for.body.i.i.i.i.i34
-  %__n.09.i.i.i.i.i35 = phi i64 [ %dec.i.i.i.i.i40, %for.body.i.i.i.i.i34 ], [ %sub.ptr.div.i.i.i.i.i31, %_ZSt7advanceIPKN18OpenImageIO_v2_6_08TypeDescEmEvRT_T0_.exit ]
-  %__result.addr.08.i.i.i.i.i36 = phi ptr [ %incdec.ptr1.i.i.i.i.i39, %for.body.i.i.i.i.i34 ], [ %1, %_ZSt7advanceIPKN18OpenImageIO_v2_6_08TypeDescEmEvRT_T0_.exit ]
-  %__first.addr.07.i.i.i.i.i37 = phi ptr [ %incdec.ptr.i.i.i.i.i38, %for.body.i.i.i.i.i34 ], [ %__first, %_ZSt7advanceIPKN18OpenImageIO_v2_6_08TypeDescEmEvRT_T0_.exit ]
+for.body.i.i.i.i.i34:                             ; preds = %if.else29, %for.body.i.i.i.i.i34
+  %__n.09.i.i.i.i.i35 = phi i64 [ %dec.i.i.i.i.i40, %for.body.i.i.i.i.i34 ], [ %sub.ptr.div.i.i.i.i.i31, %if.else29 ]
+  %__result.addr.08.i.i.i.i.i36 = phi ptr [ %incdec.ptr1.i.i.i.i.i39, %for.body.i.i.i.i.i34 ], [ %1, %if.else29 ]
+  %__first.addr.07.i.i.i.i.i37 = phi ptr [ %incdec.ptr.i.i.i.i.i38, %for.body.i.i.i.i.i34 ], [ %__first, %if.else29 ]
   %9 = load i64, ptr %__first.addr.07.i.i.i.i.i37, align 4
   store i64 %9, ptr %__result.addr.08.i.i.i.i.i36, align 4
   %incdec.ptr.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i37, i64 8
@@ -87645,14 +87645,14 @@ _ZSt4copyIPKN18OpenImageIO_v2_6_08TypeDescEPS1_ET0_T_S6_S5_.exit42.loopexit: ; p
   %.pre51 = load ptr, ptr %_M_finish.i, align 8
   br label %_ZSt4copyIPKN18OpenImageIO_v2_6_08TypeDescEPS1_ET0_T_S6_S5_.exit42
 
-_ZSt4copyIPKN18OpenImageIO_v2_6_08TypeDescEPS1_ET0_T_S6_S5_.exit42: ; preds = %_ZSt4copyIPKN18OpenImageIO_v2_6_08TypeDescEPS1_ET0_T_S6_S5_.exit42.loopexit, %_ZSt7advanceIPKN18OpenImageIO_v2_6_08TypeDescEmEvRT_T0_.exit
-  %10 = phi ptr [ %.pre51, %_ZSt4copyIPKN18OpenImageIO_v2_6_08TypeDescEPS1_ET0_T_S6_S5_.exit42.loopexit ], [ %6, %_ZSt7advanceIPKN18OpenImageIO_v2_6_08TypeDescEmEvRT_T0_.exit ]
-  %cmp.not5.i.i.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
+_ZSt4copyIPKN18OpenImageIO_v2_6_08TypeDescEPS1_ET0_T_S6_S5_.exit42: ; preds = %_ZSt4copyIPKN18OpenImageIO_v2_6_08TypeDescEPS1_ET0_T_S6_S5_.exit42.loopexit, %if.else29
+  %10 = phi ptr [ %.pre51, %_ZSt4copyIPKN18OpenImageIO_v2_6_08TypeDescEPS1_ET0_T_S6_S5_.exit42.loopexit ], [ %6, %if.else29 ]
+  %cmp.not5.i.i.i.i = icmp eq ptr %incdec.ptr4.sink.i.i, %__last
   br i1 %cmp.not5.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN18OpenImageIO_v2_6_08TypeDescEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZSt4copyIPKN18OpenImageIO_v2_6_08TypeDescEPS1_ET0_T_S6_S5_.exit42, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %10, %_ZSt4copyIPKN18OpenImageIO_v2_6_08TypeDescEPS1_ET0_T_S6_S5_.exit42 ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i, %_ZSt4copyIPKN18OpenImageIO_v2_6_08TypeDescEPS1_ET0_T_S6_S5_.exit42 ]
+  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr4.sink.i.i, %_ZSt4copyIPKN18OpenImageIO_v2_6_08TypeDescEPS1_ET0_T_S6_S5_.exit42 ]
   %11 = load i8, ptr %__first.addr.06.i.i.i.i, align 4
   store i8 %11, ptr %__cur.07.i.i.i.i, align 4
   %aggregate.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 1

@@ -457,7 +457,7 @@ define hidden i32 @mbedtls_ccm_update(ptr noundef %0, ptr nocapture noundef read
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 16
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %16, label %123
+  br i1 %.not, label %16, label %124
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds i8, ptr %0, i64 144
@@ -474,11 +474,11 @@ define hidden i32 @mbedtls_ccm_update(ptr noundef %0, ptr nocapture noundef read
   %25 = icmp ugt i64 %22, %24
   %26 = icmp ult i64 %4, %2
   %or.cond = or i1 %26, %25
-  br i1 %or.cond, label %123, label %28
+  br i1 %or.cond, label %124, label %28
 
 27:                                               ; preds = %16
   %.old = icmp ult i64 %4, %2
-  br i1 %.old, label %123, label %28
+  br i1 %.old, label %124, label %28
 
 28:                                               ; preds = %19, %27
   store i64 %2, ptr %5, align 8
@@ -495,9 +495,9 @@ define hidden i32 @mbedtls_ccm_update(ptr noundef %0, ptr nocapture noundef read
   br label %35
 
 35:                                               ; preds = %.lr.ph130, %.loopexit
-  %.086129 = phi ptr [ %1, %.lr.ph130 ], [ %121, %.loopexit ]
-  %.087128 = phi i64 [ %2, %.lr.ph130 ], [ %120, %.loopexit ]
-  %.088127 = phi ptr [ %3, %.lr.ph130 ], [ %122, %.loopexit ]
+  %.086129 = phi ptr [ %1, %.lr.ph130 ], [ %122, %.loopexit ]
+  %.087128 = phi i64 [ %2, %.lr.ph130 ], [ %121, %.loopexit ]
+  %.088127 = phi ptr [ %3, %.lr.ph130 ], [ %123, %.loopexit ]
   %36 = load i64, ptr %29, align 8
   %37 = and i64 %36, 15
   %38 = sub nuw nsw i64 16, %37
@@ -660,7 +660,7 @@ mbedtls_ccm_crypt.exit116:                        ; preds = %.lr.ph.i113
   %97 = load i64, ptr %29, align 8
   %98 = load i64, ptr %31, align 8
   %99 = icmp eq i64 %97, %98
-  br i1 %99, label %100, label %.thread
+  br i1 %99, label %100, label %105
 
 100:                                              ; preds = %96, %93
   %101 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %32, ptr noundef nonnull %0, i64 noundef 16, ptr noundef nonnull %0, ptr noundef nonnull %11) #10
@@ -673,52 +673,52 @@ mbedtls_ccm_crypt.exit116:                        ; preds = %.lr.ph.i113
   store i32 %104, ptr %13, align 4
   br label %.loopexit117
 
-105:                                              ; preds = %._crit_edge, %100
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %94, %100 ]
+105:                                              ; preds = %._crit_edge, %96, %100
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %94, %96 ], [ %94, %100 ]
   %106 = icmp eq i64 %.pre-phi, 16
-  br i1 %106, label %110, label %.thread
+  br i1 %106, label %111, label %107
 
-.thread:                                          ; preds = %96, %105
-  %107 = load i64, ptr %29, align 8
-  %108 = load i64, ptr %31, align 8
-  %109 = icmp eq i64 %107, %108
-  br i1 %109, label %110, label %.loopexit
+107:                                              ; preds = %105
+  %108 = load i64, ptr %29, align 8
+  %109 = load i64, ptr %31, align 8
+  %110 = icmp eq i64 %108, %109
+  br i1 %110, label %111, label %.loopexit
 
-110:                                              ; preds = %.thread, %105
-  %111 = load i8, ptr %34, align 8
-  %.not131 = icmp eq i8 %111, 0
+111:                                              ; preds = %107, %105
+  %112 = load i8, ptr %34, align 8
+  %.not131 = icmp eq i8 %112, 0
   br i1 %.not131, label %.loopexit, label %.lr.ph
 
-112:                                              ; preds = %.lr.ph
+113:                                              ; preds = %.lr.ph
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %113 = load i8, ptr %34, align 8
-  %114 = zext i8 %113 to i64
-  %115 = icmp ult i64 %indvars.iv.next143, %114
-  br i1 %115, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  %114 = load i8, ptr %34, align 8
+  %115 = zext i8 %114 to i64
+  %116 = icmp ult i64 %indvars.iv.next143, %115
+  br i1 %116, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
-.lr.ph:                                           ; preds = %110, %112
-  %indvars.iv142 = phi i64 [ %indvars.iv.next143, %112 ], [ 0, %110 ]
-  %116 = sub nsw i64 15, %indvars.iv142
-  %117 = getelementptr inbounds [16 x i8], ptr %33, i64 0, i64 %116
-  %118 = load i8, ptr %117, align 1
-  %119 = add i8 %118, 1
-  store i8 %119, ptr %117, align 1
-  %.not109 = icmp eq i8 %119, 0
-  br i1 %.not109, label %112, label %.loopexit
+.lr.ph:                                           ; preds = %111, %113
+  %indvars.iv142 = phi i64 [ %indvars.iv.next143, %113 ], [ 0, %111 ]
+  %117 = sub nsw i64 15, %indvars.iv142
+  %118 = getelementptr inbounds [16 x i8], ptr %33, i64 0, i64 %117
+  %119 = load i8, ptr %118, align 1
+  %120 = add i8 %119, 1
+  store i8 %120, ptr %118, align 1
+  %.not109 = icmp eq i8 %120, 0
+  br i1 %.not109, label %113, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %112, %110, %.thread
-  %120 = sub i64 %.087128, %spec.select
-  %121 = getelementptr inbounds i8, ptr %.086129, i64 %spec.select
-  %122 = getelementptr inbounds i8, ptr %.088127, i64 %spec.select
-  %.not104 = icmp eq i64 %120, 0
+.loopexit:                                        ; preds = %.lr.ph, %113, %111, %107
+  %121 = sub i64 %.087128, %spec.select
+  %122 = getelementptr inbounds i8, ptr %.086129, i64 %spec.select
+  %123 = getelementptr inbounds i8, ptr %.088127, i64 %spec.select
+  %.not104 = icmp eq i64 %121, 0
   br i1 %.not104, label %.loopexit117, label %35, !llvm.loop !12
 
 .loopexit117:                                     ; preds = %.loopexit, %28, %mbedtls_ccm_crypt.exit116.thread, %mbedtls_ccm_crypt.exit.thread, %102, %57
   %.3 = phi i32 [ %56, %57 ], [ %101, %102 ], [ %61, %mbedtls_ccm_crypt.exit.thread ], [ %75, %mbedtls_ccm_crypt.exit116.thread ], [ 0, %28 ], [ 0, %.loopexit ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %12, i64 noundef 16) #10
-  br label %123
+  br label %124
 
-123:                                              ; preds = %27, %19, %6, %.loopexit117
+124:                                              ; preds = %27, %19, %6, %.loopexit117
   %.0 = phi i32 [ %.3, %.loopexit117 ], [ -13, %6 ], [ -13, %19 ], [ -13, %27 ]
   ret i32 %.0
 }

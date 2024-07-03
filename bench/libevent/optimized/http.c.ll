@@ -292,24 +292,21 @@ if.end8:                                          ; preds = %for.end
   %add9 = add nuw i64 %add, 1
   %call10 = tail call ptr @event_mm_malloc_(i64 noundef %add9) #19
   %cmp11 = icmp eq ptr %call10, null
-  br i1 %cmp11, label %if.then12, label %for.cond15.preheader
+  br i1 %cmp11, label %if.then12, label %for.body17
 
 if.end8.thread:                                   ; preds = %if.end
   %call1044 = tail call ptr @event_mm_malloc_(i64 noundef 1) #19
   %cmp1145 = icmp eq ptr %call1044, null
   br i1 %cmp1145, label %if.then12, label %for.end24
 
-for.cond15.preheader:                             ; preds = %if.end8
-  br i1 %cmp131.not, label %for.end24, label %for.body17
-
 if.then12:                                        ; preds = %if.end8.thread, %if.end8
   %add946 = phi i64 [ 1, %if.end8.thread ], [ %add9, %if.end8 ]
   tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.evhttp_htmlescape, i64 noundef %add946) #19
   br label %return
 
-for.body17:                                       ; preds = %for.cond15.preheader, %html_replace.exit29
-  %i.136 = phi i64 [ %inc23, %html_replace.exit29 ], [ 0, %for.cond15.preheader ]
-  %p.035 = phi ptr [ %add.ptr, %html_replace.exit29 ], [ %call10, %for.cond15.preheader ]
+for.body17:                                       ; preds = %if.end8, %html_replace.exit29
+  %i.136 = phi i64 [ %inc23, %html_replace.exit29 ], [ 0, %if.end8 ]
+  %p.035 = phi ptr [ %add.ptr, %html_replace.exit29 ], [ %call10, %if.end8 ]
   %arrayidx19 = getelementptr inbounds i8, ptr %html, i64 %i.136
   %1 = load i8, ptr %arrayidx19, align 1
   switch i8 %1, label %html_replace.exit29 [
@@ -344,9 +341,9 @@ html_replace.exit29:                              ; preds = %sw.bb1.i28, %sw.bb2
   %exitcond38.not = icmp eq i64 %inc23, %call
   br i1 %exitcond38.not, label %for.end24, label %for.body17, !llvm.loop !6
 
-for.end24:                                        ; preds = %html_replace.exit29, %if.end8.thread, %for.cond15.preheader
-  %call104749 = phi ptr [ %call10, %for.cond15.preheader ], [ %call1044, %if.end8.thread ], [ %call10, %html_replace.exit29 ]
-  %p.0.lcssa = phi ptr [ %call10, %for.cond15.preheader ], [ %call1044, %if.end8.thread ], [ %add.ptr, %html_replace.exit29 ]
+for.end24:                                        ; preds = %html_replace.exit29, %if.end8.thread
+  %call104749 = phi ptr [ %call1044, %if.end8.thread ], [ %call10, %html_replace.exit29 ]
+  %p.0.lcssa = phi ptr [ %call1044, %if.end8.thread ], [ %add.ptr, %html_replace.exit29 ]
   store i8 0, ptr %p.0.lcssa, align 1
   br label %return
 

@@ -70489,7 +70489,7 @@ if.else:                                          ; preds = %entry
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i10 = ashr exact i64 %sub.ptr.sub.i9, 5
   %cmp32.not = icmp ult i64 %sub.ptr.div.i10, %sub.ptr.div.i.i.i
-  br i1 %cmp32.not, label %if.else5.i.i, label %if.then33
+  br i1 %cmp32.not, label %if.else41, label %if.then33
 
 if.then33:                                        ; preds = %if.else
   %cmp5.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i, 0
@@ -70528,16 +70528,16 @@ invoke.cont.i:                                    ; preds = %for.body.i.i.i.i
   store ptr %__result.addr.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end61
 
-if.else5.i.i:                                     ; preds = %if.else
+if.else41:                                        ; preds = %if.else
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %sub.ptr.div.i10
   %sub.ptr.div.i.i.i.i.i.i22 = ashr exact i64 %sub.ptr.sub.i9, 5
   %cmp5.i.i.i.i.i23 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i22, 0
   br i1 %cmp5.i.i.i.i.i23, label %for.body.i.i.i.i.i25, label %_ZSt4copyIN6google8protobuf8internal19RepeatedPtrIteratorIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_ET0_T_SE_SD_.exit34
 
-for.body.i.i.i.i.i25:                             ; preds = %if.else5.i.i, %for.body.i.i.i.i.i25
-  %__result.addr.08.i.i.i.i.i26 = phi ptr [ %incdec.ptr.i.i.i.i.i31, %for.body.i.i.i.i.i25 ], [ %1, %if.else5.i.i ]
-  %__n.07.i.i.i.i.i27 = phi i64 [ %dec.i.i.i.i.i32, %for.body.i.i.i.i.i25 ], [ %sub.ptr.div.i.i.i.i.i.i22, %if.else5.i.i ]
-  %__first.sroa.0.06.i.i.i.i.i28 = phi ptr [ %incdec.ptr.i.i.i.i.i.i30, %for.body.i.i.i.i.i25 ], [ %__first.coerce, %if.else5.i.i ]
+for.body.i.i.i.i.i25:                             ; preds = %if.else41, %for.body.i.i.i.i.i25
+  %__result.addr.08.i.i.i.i.i26 = phi ptr [ %incdec.ptr.i.i.i.i.i31, %for.body.i.i.i.i.i25 ], [ %1, %if.else41 ]
+  %__n.07.i.i.i.i.i27 = phi i64 [ %dec.i.i.i.i.i32, %for.body.i.i.i.i.i25 ], [ %sub.ptr.div.i.i.i.i.i.i22, %if.else41 ]
+  %__first.sroa.0.06.i.i.i.i.i28 = phi ptr [ %incdec.ptr.i.i.i.i.i.i30, %for.body.i.i.i.i.i25 ], [ %__first.coerce, %if.else41 ]
   %8 = load ptr, ptr %__first.sroa.0.06.i.i.i.i.i28, align 8
   %call6.i.i.i.i.i29 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i.i26, ptr noundef nonnull align 8 dereferenceable(32) %8)
   %incdec.ptr.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i28, i64 8
@@ -70550,8 +70550,8 @@ _ZSt4copyIN6google8protobuf8internal19RepeatedPtrIteratorIKNSt7__cxx1112basic_st
   %.pre47 = load ptr, ptr %_M_finish.i, align 8
   br label %_ZSt4copyIN6google8protobuf8internal19RepeatedPtrIteratorIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_ET0_T_SE_SD_.exit34
 
-_ZSt4copyIN6google8protobuf8internal19RepeatedPtrIteratorIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_ET0_T_SE_SD_.exit34: ; preds = %_ZSt4copyIN6google8protobuf8internal19RepeatedPtrIteratorIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_ET0_T_SE_SD_.exit34.loopexit, %if.else5.i.i
-  %9 = phi ptr [ %.pre47, %_ZSt4copyIN6google8protobuf8internal19RepeatedPtrIteratorIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_ET0_T_SE_SD_.exit34.loopexit ], [ %5, %if.else5.i.i ]
+_ZSt4copyIN6google8protobuf8internal19RepeatedPtrIteratorIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_ET0_T_SE_SD_.exit34: ; preds = %_ZSt4copyIN6google8protobuf8internal19RepeatedPtrIteratorIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_ET0_T_SE_SD_.exit34.loopexit, %if.else41
+  %9 = phi ptr [ %.pre47, %_ZSt4copyIN6google8protobuf8internal19RepeatedPtrIteratorIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_ET0_T_SE_SD_.exit34.loopexit ], [ %5, %if.else41 ]
   %cmp.i.not8.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %__last.coerce
   br i1 %cmp.i.not8.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN6google8protobuf8internal19RepeatedPtrIteratorIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_S9_ET0_T_SE_SD_RSaIT1_E.exit, label %for.body.i.i.i.i40
 

@@ -56701,7 +56701,7 @@ if.else:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i18 = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.rhs.cast.i
   %cmp24.not = icmp ult i64 %sub.ptr.sub.i20, %sub.ptr.sub.i.i
-  br i1 %cmp24.not, label %_ZSt7advanceIPKN5arrow7compute10ExpressionEmEvRT_T0_.exit, label %if.then25
+  br i1 %cmp24.not, label %if.else29, label %if.then25
 
 if.then25:                                        ; preds = %if.else
   %call.i.i.i.i = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN5arrow7compute10ExpressionEPS5_EET0_T_SA_S9_(ptr noundef %__first, ptr noundef %__last, ptr noundef %1)
@@ -56793,16 +56793,16 @@ invoke.cont.i:                                    ; preds = %_ZSt8_DestroyIN5arr
   store ptr %call.i.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end41
 
-_ZSt7advanceIPKN5arrow7compute10ExpressionEmEvRT_T0_.exit: ; preds = %if.else
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i20
-  %call.i.i.i.i31 = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN5arrow7compute10ExpressionEPS5_EET0_T_SA_S9_(ptr noundef %__first, ptr noundef %incdec.ptr.i.i, ptr noundef %1)
+if.else29:                                        ; preds = %if.else
+  %incdec.ptr4.sink.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i20
+  %call.i.i.i.i31 = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN5arrow7compute10ExpressionEPS5_EET0_T_SA_S9_(ptr noundef %__first, ptr noundef %incdec.ptr4.sink.i.i, ptr noundef %1)
   %34 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
+  %cmp.not5.i.i.i.i = icmp eq ptr %incdec.ptr4.sink.i.i, %__last
   br i1 %cmp.not5.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5arrow7compute10ExpressionEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit, label %for.body.i.i.i.i37
 
-for.body.i.i.i.i37:                               ; preds = %_ZSt7advanceIPKN5arrow7compute10ExpressionEmEvRT_T0_.exit, %_ZSt10_ConstructIN5arrow7compute10ExpressionEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZSt10_ConstructIN5arrow7compute10ExpressionEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %34, %_ZSt7advanceIPKN5arrow7compute10ExpressionEmEvRT_T0_.exit ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i44, %_ZSt10_ConstructIN5arrow7compute10ExpressionEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %incdec.ptr.i.i, %_ZSt7advanceIPKN5arrow7compute10ExpressionEmEvRT_T0_.exit ]
+for.body.i.i.i.i37:                               ; preds = %if.else29, %_ZSt10_ConstructIN5arrow7compute10ExpressionEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i
+  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZSt10_ConstructIN5arrow7compute10ExpressionEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %34, %if.else29 ]
+  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i44, %_ZSt10_ConstructIN5arrow7compute10ExpressionEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %incdec.ptr4.sink.i.i, %if.else29 ]
   %35 = load ptr, ptr %__first.addr.06.i.i.i.i, align 8
   store ptr %35, ptr %__cur.07.i.i.i.i, align 8
   %_M_refcount.i.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
@@ -56834,8 +56834,8 @@ _ZSt10_ConstructIN5arrow7compute10ExpressionEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i: ; 
   %cmp.not.i.i.i.i45 = icmp eq ptr %incdec.ptr.i.i.i.i44, %__last
   br i1 %cmp.not.i.i.i.i45, label %_ZSt22__uninitialized_copy_aIPKN5arrow7compute10ExpressionEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit, label %for.body.i.i.i.i37, !llvm.loop !495
 
-_ZSt22__uninitialized_copy_aIPKN5arrow7compute10ExpressionEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit: ; preds = %_ZSt10_ConstructIN5arrow7compute10ExpressionEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i, %_ZSt7advanceIPKN5arrow7compute10ExpressionEmEvRT_T0_.exit
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %34, %_ZSt7advanceIPKN5arrow7compute10ExpressionEmEvRT_T0_.exit ], [ %incdec.ptr1.i.i.i.i, %_ZSt10_ConstructIN5arrow7compute10ExpressionEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ]
+_ZSt22__uninitialized_copy_aIPKN5arrow7compute10ExpressionEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit: ; preds = %_ZSt10_ConstructIN5arrow7compute10ExpressionEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i, %if.else29
+  %__cur.0.lcssa.i.i.i.i = phi ptr [ %34, %if.else29 ], [ %incdec.ptr1.i.i.i.i, %_ZSt10_ConstructIN5arrow7compute10ExpressionEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end41
 

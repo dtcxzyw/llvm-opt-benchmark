@@ -4267,8 +4267,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %33 = mul i64 %32, %31
   %.idx = shl nsw i64 %33, 2
   %34 = getelementptr inbounds i8, ptr %11, i64 16
-  %.not77 = icmp eq i64 %33, 0
-  br i1 %.not77, label %_ZNSt6vectorIiSaIiEE6assignIPivEEvT_S4_.exit, label %35
+  %.not76 = icmp eq i64 %33, 0
+  br i1 %.not76, label %_ZNSt6vectorIiSaIiEE6assignIPivEEvT_S4_.exit, label %35
 
 35:                                               ; preds = %29
   %36 = icmp ugt i64 %33, 2305843009213693951

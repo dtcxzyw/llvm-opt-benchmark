@@ -44258,7 +44258,7 @@ if.else:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
   %cmp24.not = icmp ult i64 %sub.ptr.sub.i16, %sub.ptr.sub.i.i
-  br i1 %cmp24.not, label %_ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exit, label %if.then25
+  br i1 %cmp24.not, label %if.else29, label %if.then25
 
 if.then25:                                        ; preds = %if.else
   %cmp6.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i, 0
@@ -44296,16 +44296,16 @@ invoke.cont.i:                                    ; preds = %for.body.i.i.i.i
   store ptr %__result.addr.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end41
 
-_ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exit: ; preds = %if.else
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i16
+if.else29:                                        ; preds = %if.else
+  %incdec.ptr4.sink.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i16
   %sub.ptr.div.i.i.i.i.i28 = ashr exact i64 %sub.ptr.sub.i16, 5
   %cmp6.i.i.i.i.i29 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i28, 0
   br i1 %cmp6.i.i.i.i.i29, label %for.body.i.i.i.i.i31, label %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit40
 
-for.body.i.i.i.i.i31:                             ; preds = %_ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exit, %for.body.i.i.i.i.i31
-  %__n.09.i.i.i.i.i32 = phi i64 [ %dec.i.i.i.i.i38, %for.body.i.i.i.i.i31 ], [ %sub.ptr.div.i.i.i.i.i28, %_ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exit ]
-  %__result.addr.08.i.i.i.i.i33 = phi ptr [ %incdec.ptr1.i.i.i.i.i37, %for.body.i.i.i.i.i31 ], [ %1, %_ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exit ]
-  %__first.addr.07.i.i.i.i.i34 = phi ptr [ %incdec.ptr.i.i.i.i.i36, %for.body.i.i.i.i.i31 ], [ %__first, %_ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exit ]
+for.body.i.i.i.i.i31:                             ; preds = %if.else29, %for.body.i.i.i.i.i31
+  %__n.09.i.i.i.i.i32 = phi i64 [ %dec.i.i.i.i.i38, %for.body.i.i.i.i.i31 ], [ %sub.ptr.div.i.i.i.i.i28, %if.else29 ]
+  %__result.addr.08.i.i.i.i.i33 = phi ptr [ %incdec.ptr1.i.i.i.i.i37, %for.body.i.i.i.i.i31 ], [ %1, %if.else29 ]
+  %__first.addr.07.i.i.i.i.i34 = phi ptr [ %incdec.ptr.i.i.i.i.i36, %for.body.i.i.i.i.i31 ], [ %__first, %if.else29 ]
   %call.i.i.i.i.i35 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i.i33, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i.i34)
   %incdec.ptr.i.i.i.i.i36 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i34, i64 32
   %incdec.ptr1.i.i.i.i.i37 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i33, i64 32
@@ -44317,14 +44317,14 @@ _ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_
   %.pre54 = load ptr, ptr %_M_finish.i, align 8
   br label %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit40
 
-_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit40: ; preds = %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit40.loopexit, %_ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exit
-  %7 = phi ptr [ %.pre54, %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit40.loopexit ], [ %5, %_ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exit ]
-  %cmp.not8.i.i.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
+_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit40: ; preds = %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit40.loopexit, %if.else29
+  %7 = phi ptr [ %.pre54, %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit40.loopexit ], [ %5, %if.else29 ]
+  %cmp.not8.i.i.i.i = icmp eq ptr %incdec.ptr4.sink.i.i, %__last
   br i1 %cmp.not8.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S5_ET0_T_SA_S9_RSaIT1_E.exit, label %for.body.i.i.i.i46
 
 for.body.i.i.i.i46:                               ; preds = %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit40, %for.inc.i.i.i.i
   %__cur.010.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.inc.i.i.i.i ], [ %7, %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit40 ]
-  %__first.addr.09.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i47, %for.inc.i.i.i.i ], [ %incdec.ptr.i.i, %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit40 ]
+  %__first.addr.09.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i47, %for.inc.i.i.i.i ], [ %incdec.ptr4.sink.i.i, %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit40 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.010.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i.i)
           to label %for.inc.i.i.i.i unwind label %lpad.i.i.i.i
 

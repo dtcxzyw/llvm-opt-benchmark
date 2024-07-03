@@ -3320,13 +3320,10 @@ for.end:                                          ; preds = %for.inc
   %m_t = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i32, ptr %m_t, align 8
   %cmp4.not = icmp eq i32 %9, 1
-  br i1 %cmp4.not, label %for.cond20.preheader, label %for.cond5.preheader
+  br i1 %cmp4.not, label %for.body22.lr.ph, label %for.body7
 
-for.cond5.preheader:                              ; preds = %for.end
-  br i1 %cmp57.not, label %if.end36, label %for.body7
-
-for.body7:                                        ; preds = %for.cond5.preheader, %invoke.cont12
-  %k.060 = phi i32 [ %inc14, %invoke.cont12 ], [ 1, %for.cond5.preheader ]
+for.body7:                                        ; preds = %for.end, %invoke.cont12
+  %k.060 = phi i32 [ %inc14, %invoke.cont12 ], [ 1, %for.end ]
   %sub = add i32 %k.060, -1
   %10 = load ptr, ptr %out, align 8
   %idxprom.i = zext i32 %sub to i64
@@ -3384,10 +3381,7 @@ if.endthread-pre-split:                           ; preds = %invoke.cont12
   %or.cond = or i1 %21, %cmp57.not
   br i1 %or.cond, label %if.end36, label %for.body22.lr.ph
 
-for.cond20.preheader:                             ; preds = %for.end
-  br i1 %cmp57.not, label %if.end36, label %for.body22.lr.ph
-
-for.body22.lr.ph:                                 ; preds = %if.endthread-pre-split, %for.cond20.preheader
+for.body22.lr.ph:                                 ; preds = %for.end, %if.endthread-pre-split
   %sub31 = add i32 %n, 1
   br label %for.body22
 
@@ -3449,7 +3443,7 @@ invoke.cont32:                                    ; preds = %invoke.cont29
   %cmp21.not = icmp ugt i32 %inc34, %m
   br i1 %cmp21.not, label %if.end36, label %for.body22, !llvm.loop !17
 
-if.end36:                                         ; preds = %invoke.cont32, %entry, %for.cond5.preheader, %for.cond20.preheader, %if.endthread-pre-split
+if.end36:                                         ; preds = %invoke.cont32, %entry, %if.endthread-pre-split
   %33 = load ptr, ptr %lits, align 8
   %tobool.not.i.i.i = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i, label %_ZN10ptr_vectorI4exprED2Ev.exit, label %if.then.i.i.i

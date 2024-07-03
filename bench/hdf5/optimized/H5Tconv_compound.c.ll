@@ -62,7 +62,7 @@ define range(i32 -1, 1) i32 @H5T__conv_struct(ptr noundef %0, ptr noundef %1, pt
   %11 = getelementptr inbounds i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %2, align 8
-  switch i32 %13, label %275 [
+  switch i32 %13, label %273 [
     i32 0, label %14
     i32 2, label %46
     i32 1, label %53
@@ -442,72 +442,62 @@ define range(i32 -1, 1) i32 @H5T__conv_struct(ptr noundef %0, ptr noundef %1, pt
   br i1 %exitcond.not, label %._crit_edge219, label %115
 
 ._crit_edge219:                                   ; preds = %._crit_edge213
-  br i1 %.not, label %250, label %.thread
+  %250 = getelementptr inbounds i8, ptr %1, i64 40
+  br i1 %.not, label %.lr.ph224.split.us.preheader, label %.lr.ph224.split
 
-250:                                              ; preds = %._crit_edge219
-  %251 = getelementptr inbounds i8, ptr %1, i64 40
-  %252 = load ptr, ptr %251, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 16
-  %254 = load i64, ptr %253, align 8
-  %255 = getelementptr inbounds i8, ptr %0, i64 40
-  %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 16
-  %258 = load i64, ptr %257, align 8
-  %259 = icmp ugt i64 %254, %258
-  %spec.select = select i1 %259, i64 %254, i64 %.0172
-  br i1 %.not225, label %.loopexit, label %.lr.ph224.split.us.preheader
-
-.thread:                                          ; preds = %._crit_edge219
-  br i1 %.not225, label %.loopexit, label %.lr.ph224.split.preheader
-
-.lr.ph224.split.preheader:                        ; preds = %.thread
-  %260 = getelementptr inbounds i8, ptr %1, i64 40
-  br label %.lr.ph224.split
-
-.lr.ph224.split.us.preheader:                     ; preds = %250
-  %261 = getelementptr inbounds i8, ptr %1, i64 40
-  %.pre237 = load ptr, ptr %261, align 8
+.lr.ph224.split.us.preheader:                     ; preds = %._crit_edge219
+  %251 = load ptr, ptr %250, align 8
+  %252 = getelementptr inbounds i8, ptr %251, i64 16
+  %253 = load i64, ptr %252, align 8
+  %254 = getelementptr inbounds i8, ptr %0, i64 40
+  %255 = load ptr, ptr %254, align 8
+  %256 = getelementptr inbounds i8, ptr %255, i64 16
+  %257 = load i64, ptr %256, align 8
+  %258 = icmp ugt i64 %253, %257
+  %spec.select = select i1 %258, i64 %253, i64 %.0172
+  %259 = getelementptr inbounds i8, ptr %1, i64 40
+  %.pre237 = load ptr, ptr %259, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre237, i64 16
   %.pre238 = load i64, ptr %.phi.trans.insert, align 8
   br label %.lr.ph224.split.us
 
 .lr.ph224.split.us:                               ; preds = %.lr.ph224.split.us.preheader, %.lr.ph224.split.us
-  %262 = phi i64 [ %265, %.lr.ph224.split.us ], [ %.pre238, %.lr.ph224.split.us.preheader ]
-  %.2222.us = phi ptr [ %266, %.lr.ph224.split.us ], [ %7, %.lr.ph224.split.us.preheader ]
-  %.2168221.us = phi ptr [ %267, %.lr.ph224.split.us ], [ %8, %.lr.ph224.split.us.preheader ]
-  %.1171220.us = phi i64 [ %268, %.lr.ph224.split.us ], [ 0, %.lr.ph224.split.us.preheader ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2222.us, ptr align 1 %.2168221.us, i64 %262, i1 false)
-  %263 = load ptr, ptr %261, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 16
-  %265 = load i64, ptr %264, align 8
-  %266 = getelementptr inbounds i8, ptr %.2222.us, i64 %265
-  %267 = getelementptr inbounds i8, ptr %.2168221.us, i64 %spec.select
-  %268 = add nuw i64 %.1171220.us, 1
-  %exitcond235.not = icmp eq i64 %268, %4
+  %260 = phi i64 [ %263, %.lr.ph224.split.us ], [ %.pre238, %.lr.ph224.split.us.preheader ]
+  %.2222.us = phi ptr [ %264, %.lr.ph224.split.us ], [ %7, %.lr.ph224.split.us.preheader ]
+  %.2168221.us = phi ptr [ %265, %.lr.ph224.split.us ], [ %8, %.lr.ph224.split.us.preheader ]
+  %.1171220.us = phi i64 [ %266, %.lr.ph224.split.us ], [ 0, %.lr.ph224.split.us.preheader ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2222.us, ptr align 1 %.2168221.us, i64 %260, i1 false)
+  %261 = load ptr, ptr %259, align 8
+  %262 = getelementptr inbounds i8, ptr %261, i64 16
+  %263 = load i64, ptr %262, align 8
+  %264 = getelementptr inbounds i8, ptr %.2222.us, i64 %263
+  %265 = getelementptr inbounds i8, ptr %.2168221.us, i64 %spec.select
+  %266 = add nuw i64 %.1171220.us, 1
+  %exitcond235.not = icmp eq i64 %266, %4
   br i1 %exitcond235.not, label %.loopexit, label %.lr.ph224.split.us
 
-.lr.ph224.split:                                  ; preds = %.lr.ph224.split.preheader, %.lr.ph224.split
-  %.2222 = phi ptr [ %272, %.lr.ph224.split ], [ %7, %.lr.ph224.split.preheader ]
-  %.2168221 = phi ptr [ %273, %.lr.ph224.split ], [ %8, %.lr.ph224.split.preheader ]
-  %.1171220 = phi i64 [ %274, %.lr.ph224.split ], [ 0, %.lr.ph224.split.preheader ]
-  %269 = load ptr, ptr %260, align 8
-  %270 = getelementptr inbounds i8, ptr %269, i64 16
-  %271 = load i64, ptr %270, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2222, ptr align 1 %.2168221, i64 %271, i1 false)
-  %272 = getelementptr inbounds i8, ptr %.2222, i64 %5
-  %273 = getelementptr inbounds i8, ptr %.2168221, i64 %.0172
-  %274 = add nuw i64 %.1171220, 1
-  %exitcond234.not = icmp eq i64 %274, %4
+.lr.ph224.split:                                  ; preds = %._crit_edge219, %.lr.ph224.split
+  %.2222 = phi ptr [ %270, %.lr.ph224.split ], [ %7, %._crit_edge219 ]
+  %.2168221 = phi ptr [ %271, %.lr.ph224.split ], [ %8, %._crit_edge219 ]
+  %.1171220 = phi i64 [ %272, %.lr.ph224.split ], [ 0, %._crit_edge219 ]
+  %267 = load ptr, ptr %250, align 8
+  %268 = getelementptr inbounds i8, ptr %267, i64 16
+  %269 = load i64, ptr %268, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2222, ptr align 1 %.2168221, i64 %269, i1 false)
+  %270 = getelementptr inbounds i8, ptr %.2222, i64 %5
+  %271 = getelementptr inbounds i8, ptr %.2168221, i64 %.0172
+  %272 = add nuw i64 %.1171220, 1
+  %exitcond234.not = icmp eq i64 %272, %4
   br i1 %exitcond234.not, label %.loopexit, label %.lr.ph224.split
 
-275:                                              ; preds = %9
-  %276 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %277 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
-  %278 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_struct, i32 noundef 635, i64 noundef %276, i64 noundef %277, ptr noundef nonnull @.str.7) #7
+273:                                              ; preds = %9
+  %274 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %275 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
+  %276 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_struct, i32 noundef 635, i64 noundef %274, i64 noundef %275, ptr noundef nonnull @.str.7) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph224.split, %.lr.ph224.split.us, %104, %.thread, %250, %39, %46, %275, %233, %164, %73, %62, %56, %49, %42, %35, %26, %17
-  %.0165 = phi i32 [ -1, %275 ], [ -1, %56 ], [ -1, %62 ], [ -1, %73 ], [ -1, %164 ], [ -1, %233 ], [ -1, %49 ], [ 0, %46 ], [ -1, %17 ], [ -1, %26 ], [ -1, %35 ], [ -1, %42 ], [ 0, %39 ], [ 0, %250 ], [ 0, %.thread ], [ 0, %104 ], [ 0, %.lr.ph224.split.us ], [ 0, %.lr.ph224.split ]
+.loopexit:                                        ; preds = %.lr.ph224.split, %.lr.ph224.split.us, %104, %39, %46, %273, %233, %164, %73, %62, %56, %49, %42, %35, %26, %17
+  %.0165 = phi i32 [ -1, %273 ], [ -1, %56 ], [ -1, %62 ], [ -1, %73 ], [ -1, %164 ], [ -1, %233 ], [ -1, %49 ], [ 0, %46 ], [ -1, %17 ], [ -1, %26 ], [ -1, %35 ], [ -1, %42 ], [ 0, %39 ], [ 0, %104 ], [ 0, %.lr.ph224.split.us ], [ 0, %.lr.ph224.split ]
   ret i32 %.0165
 }
 

@@ -3199,7 +3199,6 @@ while.cond.preheader:                             ; preds = %entry
 if.end.i16.lr.ph:                                 ; preds = %while.cond.preheader
   %0 = getelementptr i8, ptr %self, i64 16
   %ob_descr.i = getelementptr inbounds i8, ptr %self, i64 40
-  %ob_item.i = getelementptr inbounds i8, ptr %self, i64 24
   br label %if.end.i16
 
 if.end.i16:                                       ; preds = %if.end.i16.lr.ph, %Py_DECREF.exit19
@@ -3224,41 +3223,21 @@ if.end8.i:                                        ; preds = %if.end4.i
   %spec.store.select.i = tail call i64 @llvm.smax.i64(i64 %add11.i, i64 0)
   %where.addr.0.i = select i1 %cmp9.i, i64 %spec.store.select.i, i64 %self.val
   %where.addr.1.i = tail call i64 @llvm.smin.i64(i64 %where.addr.0.i, i64 %self.val)
-  %cmp19.not.not.i = icmp sgt i64 %self.val, %where.addr.0.i
-  br i1 %cmp19.not.not.i, label %if.then20.i, label %ins1.exit
-
-if.then20.i:                                      ; preds = %if.end8.i
-  %3 = load ptr, ptr %ob_item.i, align 8
-  %add21.i = add i64 %where.addr.1.i, 1
-  %4 = load ptr, ptr %ob_descr.i, align 8
-  %itemsize.i = getelementptr inbounds i8, ptr %4, i64 4
-  %5 = load i32, ptr %itemsize.i, align 4
-  %conv.i = sext i32 %5 to i64
-  %mul.i = mul i64 %add21.i, %conv.i
-  %add.ptr.i = getelementptr i8, ptr %3, i64 %mul.i
-  %mul26.i = mul i64 %where.addr.1.i, %conv.i
-  %add.ptr27.i = getelementptr i8, ptr %3, i64 %mul26.i
-  %sub.i = sub i64 %self.val, %where.addr.1.i
-  %mul31.i = mul i64 %sub.i, %conv.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr27.i, i64 %mul31.i, i1 false)
-  br label %ins1.exit
-
-ins1.exit:                                        ; preds = %if.end8.i, %if.then20.i
-  %6 = load ptr, ptr %ob_descr.i, align 8
-  %setitem34.i = getelementptr inbounds i8, ptr %6, i64 16
-  %7 = load ptr, ptr %setitem34.i, align 8
-  %call35.i = tail call i32 %7(ptr noundef nonnull %self, i64 noundef %where.addr.1.i, ptr noundef nonnull %call122) #11
+  %3 = load ptr, ptr %ob_descr.i, align 8
+  %setitem34.i = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = load ptr, ptr %setitem34.i, align 8
+  %call35.i = tail call i32 %4(ptr noundef nonnull %self, i64 noundef %where.addr.1.i, ptr noundef nonnull %call122) #11
   %cmp5.not = icmp eq i32 %call35.i, 0
   br i1 %cmp5.not, label %if.end7, label %if.then6
 
-if.then6:                                         ; preds = %if.end4.i, %if.end.i16, %ins1.exit
-  %8 = load i64, ptr %call122, align 8
-  %9 = and i64 %8, 2147483648
-  %cmp.i39.not = icmp eq i64 %9, 0
+if.then6:                                         ; preds = %if.end4.i, %if.end.i16, %if.end8.i
+  %5 = load i64, ptr %call122, align 8
+  %6 = and i64 %5, 2147483648
+  %cmp.i39.not = icmp eq i64 %6, 0
   br i1 %cmp.i39.not, label %if.end.i32, label %Py_DECREF.exit37
 
 if.end.i32:                                       ; preds = %if.then6
-  %dec.i33 = add i64 %8, -1
+  %dec.i33 = add i64 %5, -1
   store i64 %dec.i33, ptr %call122, align 8
   %cmp.i34 = icmp eq i64 %dec.i33, 0
   br i1 %cmp.i34, label %if.then1.i35, label %Py_DECREF.exit37
@@ -3268,13 +3247,13 @@ if.then1.i35:                                     ; preds = %if.end.i32
   br label %Py_DECREF.exit37
 
 Py_DECREF.exit37:                                 ; preds = %if.then6, %if.then1.i35, %if.end.i32
-  %10 = load i64, ptr %call, align 8
-  %11 = and i64 %10, 2147483648
-  %cmp.i42.not = icmp eq i64 %11, 0
+  %7 = load i64, ptr %call, align 8
+  %8 = and i64 %7, 2147483648
+  %cmp.i42.not = icmp eq i64 %8, 0
   br i1 %cmp.i42.not, label %if.end.i23, label %return
 
 if.end.i23:                                       ; preds = %Py_DECREF.exit37
-  %dec.i24 = add i64 %10, -1
+  %dec.i24 = add i64 %7, -1
   store i64 %dec.i24, ptr %call, align 8
   %cmp.i25 = icmp eq i64 %dec.i24, 0
   br i1 %cmp.i25, label %if.then1.i26, label %return
@@ -3283,14 +3262,14 @@ if.then1.i26:                                     ; preds = %if.end.i23
   tail call void @_Py_Dealloc(ptr noundef nonnull %call) #11
   br label %return
 
-if.end7:                                          ; preds = %ins1.exit
-  %12 = load i64, ptr %call122, align 8
-  %13 = and i64 %12, 2147483648
-  %cmp.i46.not = icmp eq i64 %13, 0
+if.end7:                                          ; preds = %if.end8.i
+  %9 = load i64, ptr %call122, align 8
+  %10 = and i64 %9, 2147483648
+  %cmp.i46.not = icmp eq i64 %10, 0
   br i1 %cmp.i46.not, label %if.end.i14, label %Py_DECREF.exit19
 
 if.end.i14:                                       ; preds = %if.end7
-  %dec.i15 = add i64 %12, -1
+  %dec.i15 = add i64 %9, -1
   store i64 %dec.i15, ptr %call122, align 8
   %cmp.i16 = icmp eq i64 %dec.i15, 0
   br i1 %cmp.i16, label %if.then1.i17, label %Py_DECREF.exit19
@@ -3305,13 +3284,13 @@ Py_DECREF.exit19:                                 ; preds = %if.end7, %if.then1.
   br i1 %cmp2.not, label %while.end, label %if.end.i16, !llvm.loop !24
 
 while.end:                                        ; preds = %Py_DECREF.exit19, %while.cond.preheader
-  %14 = load i64, ptr %call, align 8
-  %15 = and i64 %14, 2147483648
-  %cmp.i50.not = icmp eq i64 %15, 0
+  %11 = load i64, ptr %call, align 8
+  %12 = and i64 %11, 2147483648
+  %cmp.i50.not = icmp eq i64 %12, 0
   br i1 %cmp.i50.not, label %if.end.i, label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %while.end
-  %dec.i = add i64 %14, -1
+  %dec.i = add i64 %11, -1
   store i64 %dec.i, ptr %call, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
@@ -5486,39 +5465,18 @@ if.end8.i.i:                                      ; preds = %if.end4.i.i
   %spec.store.select.i.i = tail call i64 @llvm.smax.i64(i64 %add11.i.i, i64 0)
   %where.addr.0.i.i = select i1 %cmp9.i.i, i64 %spec.store.select.i.i, i64 %self.val
   %where.addr.1.i.i = tail call i64 @llvm.smin.i64(i64 %where.addr.0.i.i, i64 %self.val)
-  %cmp19.not.not.i.i = icmp sgt i64 %self.val, %where.addr.0.i.i
-  br i1 %cmp19.not.not.i.i, label %if.then20.i.i, label %ins1.exit.i
-
-if.then20.i.i:                                    ; preds = %if.end8.i.i
-  %ob_item.i.i = getelementptr inbounds i8, ptr %self, i64 24
-  %3 = load ptr, ptr %ob_item.i.i, align 8
-  %add21.i.i = add i64 %where.addr.1.i.i, 1
-  %4 = load ptr, ptr %ob_descr.i.i, align 8
-  %itemsize.i.i = getelementptr inbounds i8, ptr %4, i64 4
-  %5 = load i32, ptr %itemsize.i.i, align 4
-  %conv.i.i = sext i32 %5 to i64
-  %mul.i.i = mul i64 %add21.i.i, %conv.i.i
-  %add.ptr.i.i = getelementptr i8, ptr %3, i64 %mul.i.i
-  %mul26.i.i = mul i64 %where.addr.1.i.i, %conv.i.i
-  %add.ptr27.i.i = getelementptr i8, ptr %3, i64 %mul26.i.i
-  %sub.i.i = sub i64 %self.val, %where.addr.1.i.i
-  %mul31.i.i = mul i64 %sub.i.i, %conv.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %add.ptr27.i.i, i64 %mul31.i.i, i1 false)
-  br label %ins1.exit.i
-
-ins1.exit.i:                                      ; preds = %if.then20.i.i, %if.end8.i.i
-  %6 = load ptr, ptr %ob_descr.i.i, align 8
-  %setitem34.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %7 = load ptr, ptr %setitem34.i.i, align 8
-  %call35.i.i = tail call i32 %7(ptr noundef nonnull %self, i64 noundef %where.addr.1.i.i, ptr noundef nonnull %v) #11
+  %3 = load ptr, ptr %ob_descr.i.i, align 8
+  %setitem34.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = load ptr, ptr %setitem34.i.i, align 8
+  %call35.i.i = tail call i32 %4(ptr noundef nonnull %self, i64 noundef %where.addr.1.i.i, ptr noundef nonnull %v) #11
   %call35.i.fr.i = freeze i32 %call35.i.i
   %cmp.not.i = icmp eq i32 %call35.i.fr.i, 0
   %spec.select.i = select i1 %cmp.not.i, ptr @_Py_NoneStruct, ptr null
   br label %ins.exit
 
-ins.exit:                                         ; preds = %if.then.i.i, %if.end.i.i, %if.end4.i.i, %ins1.exit.i
-  %8 = phi ptr [ null, %if.then.i.i ], [ null, %if.end.i.i ], [ null, %if.end4.i.i ], [ %spec.select.i, %ins1.exit.i ]
-  ret ptr %8
+ins.exit:                                         ; preds = %if.then.i.i, %if.end.i.i, %if.end4.i.i, %if.end8.i.i
+  %5 = phi ptr [ null, %if.then.i.i ], [ null, %if.end.i.i ], [ null, %if.end4.i.i ], [ %spec.select.i, %if.end8.i.i ]
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable

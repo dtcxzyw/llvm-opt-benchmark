@@ -9710,11 +9710,11 @@ invoke.cont23:                                    ; preds = %invoke.cont18
 invoke.cont23.if.end_crit_edge:                   ; preds = %invoke.cont23
   %.pre = load ptr, ptr %key_parts_with_ts, align 8
   %_M_finish.i.phi.trans.insert = getelementptr inbounds i8, ptr %key_parts_with_ts, i64 8
-  %.pre46 = load ptr, ptr %_M_finish.i.phi.trans.insert, align 8
+  %.pre45 = load ptr, ptr %_M_finish.i.phi.trans.insert, align 8
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont23.if.end_crit_edge, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35
-  %9 = phi ptr [ %.pre46, %invoke.cont23.if.end_crit_edge ], [ %add.ptr.i36, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35 ]
+  %9 = phi ptr [ %.pre45, %invoke.cont23.if.end_crit_edge ], [ %add.ptr.i36, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35 ]
   %10 = phi ptr [ %.pre, %invoke.cont23.if.end_crit_edge ], [ %call5.i.i.i.i.i38, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit.i35 ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %10 to i64

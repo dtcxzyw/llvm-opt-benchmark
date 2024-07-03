@@ -48,20 +48,20 @@ define void @_ZN7rocksdb21HistogramBucketMapperC2Ev(ptr nocapture noundef nonnul
 if.then.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %_M_end_of_storage.i.i14 = getelementptr inbounds i8, ptr %this, i64 16
-  %call5.i.i.i.i.i20 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
+  %call5.i.i.i.i.i21 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then.i
-  store i64 1, ptr %call5.i.i.i.i.i20, align 8
-  %ref.tmp.sroa.2.0.call5.i.i.i.i.i20.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i20, i64 8
-  store i64 2, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i.i20.sroa_idx, align 8
+  store i64 1, ptr %call5.i.i.i.i.i21, align 8
+  %ref.tmp.sroa.2.0.call5.i.i.i.i.i21.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i21, i64 8
+  store i64 2, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i.i21.sroa_idx, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr %call5.i.i.i.i.i20, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i20, i64 16
+  store ptr %call5.i.i.i.i.i21, ptr %this, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i21, i64 16
   store ptr %add.ptr.i, ptr %_M_finish.i, align 8
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i.i14, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %add.ptr.i.i3 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i20, i64 8
+  %add.ptr.i.i3 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i21, i64 8
   %0 = load i64, ptr %add.ptr.i.i3, align 8
   %conv = uitofp i64 %0 to double
   %mul31 = fmul double %conv, 1.500000e+00
@@ -195,15 +195,15 @@ while.end:                                        ; preds = %while.body15, %_ZNS
   br i1 %cmp, label %while.end23.loopexit, label %while.body, !llvm.loop !6
 
 while.end23.loopexit:                             ; preds = %while.end
-  %.pre37 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i13.phi.trans.insert = getelementptr inbounds i8, ptr %.pre37, i64 -8
-  %.pre38 = load i64, ptr %add.ptr.i.i13.phi.trans.insert, align 8
-  %.pre39 = load ptr, ptr %this, align 8
+  %.pre36 = load ptr, ptr %_M_finish.i.i, align 8
+  %add.ptr.i.i13.phi.trans.insert = getelementptr inbounds i8, ptr %.pre36, i64 -8
+  %.pre37 = load i64, ptr %add.ptr.i.i13.phi.trans.insert, align 8
+  %.pre38 = load ptr, ptr %this, align 8
   br label %while.end23
 
 while.end23:                                      ; preds = %while.end23.loopexit, %invoke.cont
-  %12 = phi ptr [ %.pre39, %while.end23.loopexit ], [ %call5.i.i.i.i.i20, %invoke.cont ]
-  %13 = phi i64 [ %.pre38, %while.end23.loopexit ], [ %0, %invoke.cont ]
+  %12 = phi ptr [ %.pre38, %while.end23.loopexit ], [ %call5.i.i.i.i.i21, %invoke.cont ]
+  %13 = phi i64 [ %.pre37, %while.end23.loopexit ], [ %0, %invoke.cont ]
   %maxBucketValue_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %13, ptr %maxBucketValue_, align 8
   %14 = load i64, ptr %12, align 8

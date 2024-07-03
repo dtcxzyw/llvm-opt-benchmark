@@ -2155,7 +2155,7 @@ if.then:                                          ; preds = %_ZN12_GLOBAL__N_112
 
 if.end:                                           ; preds = %while.cond.i.i, %if.then, %_ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit
   %cmp7.not = icmp eq i64 %3, 0
-  br i1 %cmp7.not, label %if.end12.thread, label %land.lhs.true8
+  br i1 %cmp7.not, label %if.end.i.thread37, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %if.end
   %12 = load i8, ptr %2, align 1
@@ -2196,7 +2196,7 @@ if.end12:                                         ; preds = %_ZN4llvh23SmallVect
   %cmp.i = icmp ugt i64 %3, %sub.i13
   br i1 %cmp.i, label %if.end.i.thread, label %if.end.i
 
-if.end12.thread:                                  ; preds = %if.end
+if.end.i.thread37:                                ; preds = %if.end
   %.pre = load i32, ptr %Size.i, align 8
   br label %_ZN4llvh15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit
 
@@ -2219,8 +2219,8 @@ if.then.i.i:                                      ; preds = %if.end.i.thread, %i
   %.pre.i16 = load i32, ptr %Size.i, align 8
   br label %_ZN4llvh15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit
 
-_ZN4llvh15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit: ; preds = %if.end12.thread, %if.end.i, %if.then.i.i
-  %20 = phi i32 [ %17, %if.end.i ], [ %.pre.i16, %if.then.i.i ], [ %.pre, %if.end12.thread ]
+_ZN4llvh15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit: ; preds = %if.end.i.thread37, %if.end.i, %if.then.i.i
+  %20 = phi i32 [ %17, %if.end.i ], [ %.pre.i16, %if.then.i.i ], [ %.pre, %if.end.i.thread37 ]
   %21 = trunc i64 %3 to i32
   %conv.i12.i = add i32 %20, %21
   store i32 %conv.i12.i, ptr %Size.i, align 8

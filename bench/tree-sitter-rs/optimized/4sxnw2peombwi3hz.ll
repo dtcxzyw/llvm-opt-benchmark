@@ -54793,7 +54793,7 @@ default.unreachable:                              ; preds = %.lr.ph79
 
 "_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17heeb5d79941dcc39aE.exit": ; preds = %124, %"_ZN4core3ptr368drop_in_place$LT$regex_automata..util..pool..inner..Pool$LT$regex_automata..meta..regex..Cache$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..meta..regex..Cache$u2b$core..marker..Send$u2b$core..marker..Sync$u2b$core..panic..unwind_safe..RefUnwindSafe$u2b$core..panic..unwind_safe..UnwindSafe$GT$$GT$$GT$17h6436aeb96ef8005bE.llvm.15559585470061597875.exit", %.lr.ph79, %13, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15559585470061597875.exit.i4.i.i", %25, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15559585470061597875.exit.i.i.i"
   %127 = icmp eq i64 %11, %8
-  br i1 %127, label %"_ZN4core3ptr64drop_in_place$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$17hb9307c1475beb3e4E.llvm.15559585470061597875.exit.i", label %.lr.ph79
+  br i1 %127, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15559585470061597875.exit.i1.i", label %.lr.ph79
 
 128:                                              ; preds = %132, %.body8
   %.1.i.i = phi i64 [ %11, %.body8 ], [ %134, %132 ]
@@ -54826,15 +54826,12 @@ default.unreachable:                              ; preds = %.lr.ph79
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %137, i64 noundef 8) #27, !noalias !26106
   br label %140
 
-"_ZN4core3ptr64drop_in_place$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$17hb9307c1475beb3e4E.llvm.15559585470061597875.exit.i": ; preds = %"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17heeb5d79941dcc39aE.exit"
-  br i1 %9, label %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$$GT$17hb31499fa60367270E.llvm.15559585470061597875.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15559585470061597875.exit.i1.i"
-
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15559585470061597875.exit.i1.i": ; preds = %"_ZN4core3ptr64drop_in_place$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$17hb9307c1475beb3e4E.llvm.15559585470061597875.exit.i"
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15559585470061597875.exit.i1.i": ; preds = %"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17heeb5d79941dcc39aE.exit"
   %138 = mul nsw i64 %8, 40
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %138, i64 noundef 8) #27, !noalias !26109
   br label %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$$GT$17hb31499fa60367270E.llvm.15559585470061597875.exit"
 
-"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$$GT$17hb31499fa60367270E.llvm.15559585470061597875.exit": ; preds = %.lr.ph81, %"_ZN4core3ptr64drop_in_place$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$17hb9307c1475beb3e4E.llvm.15559585470061597875.exit.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15559585470061597875.exit.i1.i"
+"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$$GT$17hb31499fa60367270E.llvm.15559585470061597875.exit": ; preds = %.lr.ph81, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15559585470061597875.exit.i1.i"
   %139 = icmp eq i64 %5, %1
   br i1 %139, label %._crit_edge, label %.lr.ph81
 

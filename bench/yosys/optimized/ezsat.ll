@@ -14857,9 +14857,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   %.pre = load ptr, ptr %25, align 8
   %.pre378 = load ptr, ptr %1, align 8
   %.not330 = icmp eq ptr %.pre, %.pre378
-  br i1 %.not330, label %._crit_edge299, label %.preheader215.lr.ph
+  br i1 %.not330, label %._crit_edge299, label %.preheader215.us.preheader
 
-.preheader215.lr.ph:                              ; preds = %.preheader229
+.preheader215.us.preheader:                       ; preds = %.preheader229
   %173 = getelementptr inbounds i8, ptr %14, i64 8
   %174 = getelementptr inbounds i8, ptr %5, i64 16
   %175 = getelementptr inbounds i8, ptr %5, i64 8
@@ -14870,9 +14870,6 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   %180 = getelementptr inbounds i8, ptr %4, i64 8
   %181 = getelementptr inbounds i8, ptr %9, i64 8
   %182 = getelementptr inbounds i8, ptr %9, i64 16
-  br i1 %.not, label %._crit_edge299, label %.preheader215.us.preheader
-
-.preheader215.us.preheader:                       ; preds = %.preheader215.lr.ph
   %.promoted.us.pre = load ptr, ptr %9, align 8
   %wide.trip.count = zext nneg i32 %169 to i64
   br label %.preheader215.us
@@ -15289,7 +15286,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit113:        ; preds = %_ZNSt6vectorIiSaIiE
   call void @_ZdlPv(ptr noundef nonnull %312) #27
   br label %.body101
 
-._crit_edge299:                                   ; preds = %._crit_edge.us, %.preheader215.lr.ph, %.preheader229
+._crit_edge299:                                   ; preds = %._crit_edge.us, %.preheader229
   %.not.i.i.i169 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i169, label %_ZNSt6vectorIiSaIiEED2Ev.exit170, label %314
 

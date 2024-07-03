@@ -9741,13 +9741,13 @@ define hidden void @_ZN3std2io19default_read_to_end17h95c7edaae1d5b217E.llvm.169
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1637)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1640)
   %77 = icmp ugt i64 %.052, %.0.sroa.speculated.i
-  br i1 %77, label %78, label %_ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17h8b2d562cc2b9389eE.exit.i.i.i.i
+  br i1 %77, label %78, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h442b2f541e518cf4E.exit.i.i.i.i"
 
 78:                                               ; preds = %76
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %.052, i64 noundef %.0.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43c633cc9d0c07b847282a0596e0d119.139) #76, !noalias !1643
   unreachable
 
-_ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17h8b2d562cc2b9389eE.exit.i.i.i.i: ; preds = %76
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h442b2f541e518cf4E.exit.i.i.i.i": ; preds = %76
   %79 = sub nuw i64 %.0.sroa.speculated.i, %.052
   %80 = getelementptr inbounds i8, ptr %71, i64 %.052
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %80, i8 0, i64 %79, i1 false), !noalias !1643
@@ -9760,7 +9760,7 @@ _ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17h8b2d562cc2b9389eE.exit.i
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %92, label %84
 
-84:                                               ; preds = %_ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17h8b2d562cc2b9389eE.exit.i.i.i.i
+84:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h442b2f541e518cf4E.exit.i.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1662)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1665)
   %85 = getelementptr inbounds i8, ptr %.val30.i, i64 8
@@ -9779,7 +9779,7 @@ _ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17h8b2d562cc2b9389eE.exit.i
   store i64 %90, ptr %85, align 8, !alias.scope !1667, !noalias !1668
   br label %.thread101
 
-92:                                               ; preds = %109, %_ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17h8b2d562cc2b9389eE.exit.i.i.i.i
+92:                                               ; preds = %109, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h442b2f541e518cf4E.exit.i.i.i.i"
   %93 = getelementptr inbounds i8, ptr %.val30.i, i64 16
   %.val.i.i.i.i.i.i = load ptr, ptr %93, align 8, !alias.scope !1658, !noalias !1659, !nonnull !4, !align !468, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1673)

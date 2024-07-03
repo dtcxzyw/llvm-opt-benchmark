@@ -98280,8 +98280,8 @@ _ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicate
   call void @__clang_call_terminate(ptr %80) #29
   unreachable
 
-common.resume:                                    ; preds = %157, %122, %72
-  %common.resume.op = phi { ptr, i32 } [ %73, %72 ], [ %123, %122 ], [ %158, %157 ]
+common.resume:                                    ; preds = %156, %121, %72
+  %common.resume.op = phi { ptr, i32 } [ %73, %72 ], [ %122, %121 ], [ %157, %156 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSERKS8_.exit.i.i.i.i.i: ; preds = %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSEOS8_.exit.i.i.i.i.i.i
@@ -98329,168 +98329,168 @@ _ZSt8_DestroyIPN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18Ty
   br label %_ZNSt6vectorIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEESaIS9_EE15_M_erase_at_endEPS9_.exit
 
 _ZSt7advanceIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEmEvRT_T0_.exit: ; preds = %40
-  %95 = getelementptr inbounds i8, ptr %1, i64 %44
-  %96 = icmp sgt i64 %44, 0
-  br i1 %96, label %.lr.ph.i.i.i.i.i18, label %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27
+  %.sink.i.i = getelementptr inbounds i8, ptr %1, i64 %44
+  %95 = icmp sgt i64 %44, 0
+  br i1 %95, label %.lr.ph.i.i.i.i.i18, label %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27
 
 .lr.ph.i.i.i.i.i18:                               ; preds = %_ZSt7advanceIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEmEvRT_T0_.exit
-  %97 = udiv exact i64 %44, 120
-  %98 = getelementptr inbounds i8, ptr %4, i64 8
-  br label %99
+  %96 = udiv exact i64 %44, 120
+  %97 = getelementptr inbounds i8, ptr %4, i64 8
+  br label %98
 
-99:                                               ; preds = %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSERKS8_.exit.i.i.i.i.i26, %.lr.ph.i.i.i.i.i18
-  %.015.i.i.i.i.i19 = phi i64 [ %97, %.lr.ph.i.i.i.i.i18 ], [ %133, %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSERKS8_.exit.i.i.i.i.i26 ]
-  %.0814.i.i.i.i.i20 = phi ptr [ %12, %.lr.ph.i.i.i.i.i18 ], [ %132, %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSERKS8_.exit.i.i.i.i.i26 ]
-  %.0913.i.i.i.i.i21 = phi ptr [ %1, %.lr.ph.i.i.i.i.i18 ], [ %131, %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSERKS8_.exit.i.i.i.i.i26 ]
+98:                                               ; preds = %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSERKS8_.exit.i.i.i.i.i26, %.lr.ph.i.i.i.i.i18
+  %.015.i.i.i.i.i19 = phi i64 [ %96, %.lr.ph.i.i.i.i.i18 ], [ %132, %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSERKS8_.exit.i.i.i.i.i26 ]
+  %.0814.i.i.i.i.i20 = phi ptr [ %12, %.lr.ph.i.i.i.i.i18 ], [ %131, %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSERKS8_.exit.i.i.i.i.i26 ]
+  %.0913.i.i.i.i.i21 = phi ptr [ %1, %.lr.ph.i.i.i.i.i18 ], [ %130, %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSERKS8_.exit.i.i.i.i.i26 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4)
-  %100 = load i32, ptr %.0913.i.i.i.i.i21, align 8
-  store i32 %100, ptr %4, align 8
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds [7 x ptr], ptr @_ZZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEC1ERKS8_E5table, i64 0, i64 %101
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %.0913.i.i.i.i.i21, i64 8
-  call void %103(ptr noundef nonnull %98, ptr noundef nonnull %104)
+  %99 = load i32, ptr %.0913.i.i.i.i.i21, align 8
+  store i32 %99, ptr %4, align 8
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds [7 x ptr], ptr @_ZZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEC1ERKS8_E5table, i64 0, i64 %100
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %.0913.i.i.i.i.i21, i64 8
+  call void %102(ptr noundef nonnull %97, ptr noundef nonnull %103)
   %.not.i.i.i.i.i.i.i22 = icmp eq ptr %4, %.0814.i.i.i.i.i20
-  br i1 %.not.i.i.i.i.i.i.i22, label %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSEOS8_.exit.i.i.i.i.i.i25, label %105
+  br i1 %.not.i.i.i.i.i.i.i22, label %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSEOS8_.exit.i.i.i.i.i.i25, label %104
 
-105:                                              ; preds = %99
-  %106 = load i32, ptr %.0814.i.i.i.i.i20, align 8
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds [7 x ptr], ptr @_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEE9tableDtorE, i64 0, i64 %107
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %.0814.i.i.i.i.i20, i64 8
-  invoke void %109(ptr noundef nonnull %110)
-          to label %.noexc.i.i.i.i.i.i24 unwind label %122
+104:                                              ; preds = %98
+  %105 = load i32, ptr %.0814.i.i.i.i.i20, align 8
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds [7 x ptr], ptr @_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEE9tableDtorE, i64 0, i64 %106
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds i8, ptr %.0814.i.i.i.i.i20, i64 8
+  invoke void %108(ptr noundef nonnull %109)
+          to label %.noexc.i.i.i.i.i.i24 unwind label %121
 
-.noexc.i.i.i.i.i.i24:                             ; preds = %105
-  %111 = load i32, ptr %4, align 8
-  store i32 %111, ptr %.0814.i.i.i.i.i20, align 8
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds [7 x ptr], ptr @_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEE9tableMoveE, i64 0, i64 %112
-  %114 = load ptr, ptr %113, align 8
-  invoke void %114(ptr noundef nonnull %110, ptr noundef nonnull %98)
-          to label %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSEOS8_.exit.i.i.i.i.i.i25 unwind label %122
+.noexc.i.i.i.i.i.i24:                             ; preds = %104
+  %110 = load i32, ptr %4, align 8
+  store i32 %110, ptr %.0814.i.i.i.i.i20, align 8
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds [7 x ptr], ptr @_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEE9tableMoveE, i64 0, i64 %111
+  %113 = load ptr, ptr %112, align 8
+  invoke void %113(ptr noundef nonnull %109, ptr noundef nonnull %97)
+          to label %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSEOS8_.exit.i.i.i.i.i.i25 unwind label %121
 
-_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSEOS8_.exit.i.i.i.i.i.i25: ; preds = %.noexc.i.i.i.i.i.i24, %99
-  %115 = load i32, ptr %4, align 8
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds [7 x ptr], ptr @_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEE9tableDtorE, i64 0, i64 %116
-  %118 = load ptr, ptr %117, align 8
-  invoke void %118(ptr noundef nonnull %98)
-          to label %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSERKS8_.exit.i.i.i.i.i26 unwind label %119
+_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSEOS8_.exit.i.i.i.i.i.i25: ; preds = %.noexc.i.i.i.i.i.i24, %98
+  %114 = load i32, ptr %4, align 8
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds [7 x ptr], ptr @_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEE9tableDtorE, i64 0, i64 %115
+  %117 = load ptr, ptr %116, align 8
+  invoke void %117(ptr noundef nonnull %97)
+          to label %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSERKS8_.exit.i.i.i.i.i26 unwind label %118
 
-119:                                              ; preds = %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSEOS8_.exit.i.i.i.i.i.i25
-  %120 = landingpad { ptr, i32 }
+118:                                              ; preds = %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSEOS8_.exit.i.i.i.i.i.i25
+  %119 = landingpad { ptr, i32 }
           catch ptr null
-  %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #29
+  %120 = extractvalue { ptr, i32 } %119, 0
+  call void @__clang_call_terminate(ptr %120) #29
   unreachable
 
-122:                                              ; preds = %.noexc.i.i.i.i.i.i24, %105
-  %123 = landingpad { ptr, i32 }
+121:                                              ; preds = %.noexc.i.i.i.i.i.i24, %104
+  %122 = landingpad { ptr, i32 }
           cleanup
-  %124 = load i32, ptr %4, align 8
-  %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds [7 x ptr], ptr @_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEE9tableDtorE, i64 0, i64 %125
-  %127 = load ptr, ptr %126, align 8
-  invoke void %127(ptr noundef nonnull %98)
-          to label %common.resume unwind label %128
+  %123 = load i32, ptr %4, align 8
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds [7 x ptr], ptr @_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEE9tableDtorE, i64 0, i64 %124
+  %126 = load ptr, ptr %125, align 8
+  invoke void %126(ptr noundef nonnull %97)
+          to label %common.resume unwind label %127
 
-128:                                              ; preds = %122
-  %129 = landingpad { ptr, i32 }
+127:                                              ; preds = %121
+  %128 = landingpad { ptr, i32 }
           catch ptr null
-  %130 = extractvalue { ptr, i32 } %129, 0
-  call void @__clang_call_terminate(ptr %130) #29
+  %129 = extractvalue { ptr, i32 } %128, 0
+  call void @__clang_call_terminate(ptr %129) #29
   unreachable
 
 _ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSERKS8_.exit.i.i.i.i.i26: ; preds = %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSEOS8_.exit.i.i.i.i.i.i25
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4)
-  %131 = getelementptr inbounds i8, ptr %.0913.i.i.i.i.i21, i64 120
-  %132 = getelementptr inbounds i8, ptr %.0814.i.i.i.i.i20, i64 120
-  %133 = add nsw i64 %.015.i.i.i.i.i19, -1
-  %134 = icmp sgt i64 %.015.i.i.i.i.i19, 1
-  br i1 %134, label %99, label %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27.loopexit, !llvm.loop !607
+  %130 = getelementptr inbounds i8, ptr %.0913.i.i.i.i.i21, i64 120
+  %131 = getelementptr inbounds i8, ptr %.0814.i.i.i.i.i20, i64 120
+  %132 = add nsw i64 %.015.i.i.i.i.i19, -1
+  %133 = icmp sgt i64 %.015.i.i.i.i.i19, 1
+  br i1 %133, label %98, label %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27.loopexit, !llvm.loop !607
 
 _ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27.loopexit: ; preds = %_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEaSERKS8_.exit.i.i.i.i.i26
   %.pre37 = load ptr, ptr %41, align 8
   br label %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27
 
 _ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27: ; preds = %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27.loopexit, %_ZSt7advanceIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEmEvRT_T0_.exit
-  %135 = phi ptr [ %.pre37, %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27.loopexit ], [ %42, %_ZSt7advanceIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEmEvRT_T0_.exit ]
-  %.not14.i.i.i.i = icmp eq ptr %95, %2
+  %134 = phi ptr [ %.pre37, %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27.loopexit ], [ %42, %_ZSt7advanceIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEmEvRT_T0_.exit ]
+  %.not14.i.i.i.i = icmp eq ptr %.sink.i.i, %2
   br i1 %.not14.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_S9_ET0_T_SE_SD_RSaIT1_E.exit, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27, %_ZSt10_ConstructIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %143, %_ZSt10_ConstructIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i ], [ %135, %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27 ]
-  %.01215.i.i.i.i = phi ptr [ %142, %_ZSt10_ConstructIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i ], [ %95, %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27 ]
-  %136 = load i32, ptr %.01215.i.i.i.i, align 8
-  store i32 %136, ptr %.016.i.i.i.i, align 8
-  %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds [7 x ptr], ptr @_ZZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEC1ERKS8_E5table, i64 0, i64 %137
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %.016.i.i.i.i, i64 8
-  %141 = getelementptr inbounds i8, ptr %.01215.i.i.i.i, i64 8
-  invoke void %139(ptr noundef nonnull %140, ptr noundef nonnull %141)
-          to label %_ZSt10_ConstructIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i unwind label %144
+  %.016.i.i.i.i = phi ptr [ %142, %_ZSt10_ConstructIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i ], [ %134, %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27 ]
+  %.01215.i.i.i.i = phi ptr [ %141, %_ZSt10_ConstructIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.sink.i.i, %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27 ]
+  %135 = load i32, ptr %.01215.i.i.i.i, align 8
+  store i32 %135, ptr %.016.i.i.i.i, align 8
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr inbounds [7 x ptr], ptr @_ZZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEC1ERKS8_E5table, i64 0, i64 %136
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds i8, ptr %.016.i.i.i.i, i64 8
+  %140 = getelementptr inbounds i8, ptr %.01215.i.i.i.i, i64 8
+  invoke void %138(ptr noundef nonnull %139, ptr noundef nonnull %140)
+          to label %_ZSt10_ConstructIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i unwind label %143
 
 _ZSt10_ConstructIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i28
-  %142 = getelementptr inbounds i8, ptr %.01215.i.i.i.i, i64 120
-  %143 = getelementptr inbounds i8, ptr %.016.i.i.i.i, i64 120
-  %.not.i.i.i.i29 = icmp eq ptr %142, %2
+  %141 = getelementptr inbounds i8, ptr %.01215.i.i.i.i, i64 120
+  %142 = getelementptr inbounds i8, ptr %.016.i.i.i.i, i64 120
+  %.not.i.i.i.i29 = icmp eq ptr %141, %2
   br i1 %.not.i.i.i.i29, label %_ZSt22__uninitialized_copy_aIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_S9_ET0_T_SE_SD_RSaIT1_E.exit, label %.lr.ph.i.i.i.i28, !llvm.loop !548
 
-144:                                              ; preds = %.lr.ph.i.i.i.i28
-  %145 = landingpad { ptr, i32 }
+143:                                              ; preds = %.lr.ph.i.i.i.i28
+  %144 = landingpad { ptr, i32 }
           catch ptr null
-  %146 = extractvalue { ptr, i32 } %145, 0
-  %147 = call ptr @__cxa_begin_catch(ptr %146) #27
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %135
+  %145 = extractvalue { ptr, i32 } %144, 0
+  %146 = call ptr @__cxa_begin_catch(ptr %145) #27
+  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %134
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvT_SB_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %144, %_ZSt8_DestroyIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %156, %_ZSt8_DestroyIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvPT_.exit.i.i.i.i.i.i ], [ %135, %144 ]
-  %148 = load i32, ptr %.05.i.i.i.i.i.i, align 8
-  %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds [7 x ptr], ptr @_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEE9tableDtorE, i64 0, i64 %149
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 8
-  invoke void %151(ptr noundef nonnull %152)
-          to label %_ZSt8_DestroyIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvPT_.exit.i.i.i.i.i.i unwind label %153
+.lr.ph.i.i.i.i.i.i:                               ; preds = %143, %_ZSt8_DestroyIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvPT_.exit.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i = phi ptr [ %155, %_ZSt8_DestroyIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvPT_.exit.i.i.i.i.i.i ], [ %134, %143 ]
+  %147 = load i32, ptr %.05.i.i.i.i.i.i, align 8
+  %148 = sext i32 %147 to i64
+  %149 = getelementptr inbounds [7 x ptr], ptr @_ZN4Luau7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEE9tableDtorE, i64 0, i64 %148
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 8
+  invoke void %150(ptr noundef nonnull %151)
+          to label %_ZSt8_DestroyIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvPT_.exit.i.i.i.i.i.i unwind label %152
 
-153:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %154 = landingpad { ptr, i32 }
+152:                                              ; preds = %.lr.ph.i.i.i.i.i.i
+  %153 = landingpad { ptr, i32 }
           catch ptr null
-  %155 = extractvalue { ptr, i32 } %154, 0
-  call void @__clang_call_terminate(ptr %155) #29
+  %154 = extractvalue { ptr, i32 } %153, 0
+  call void @__clang_call_terminate(ptr %154) #29
   unreachable
 
 _ZSt8_DestroyIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %156 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 120
-  %.not.i.i.i.i.i.i = icmp eq ptr %156, %.016.i.i.i.i
+  %155 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 120
+  %.not.i.i.i.i.i.i = icmp eq ptr %155, %.016.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvT_SB_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !28
 
-_ZSt8_DestroyIPN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvT_SB_.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvPT_.exit.i.i.i.i.i.i, %144
+_ZSt8_DestroyIPN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvT_SB_.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvPT_.exit.i.i.i.i.i.i, %143
   invoke void @__cxa_rethrow() #32
-          to label %162 unwind label %157
+          to label %161 unwind label %156
 
-157:                                              ; preds = %_ZSt8_DestroyIPN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvT_SB_.exit.i.i.i.i
-  %158 = landingpad { ptr, i32 }
+156:                                              ; preds = %_ZSt8_DestroyIPN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvT_SB_.exit.i.i.i.i
+  %157 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %159
+          to label %common.resume unwind label %158
 
-159:                                              ; preds = %157
-  %160 = landingpad { ptr, i32 }
+158:                                              ; preds = %156
+  %159 = landingpad { ptr, i32 }
           catch ptr null
-  %161 = extractvalue { ptr, i32 } %160, 0
-  call void @__clang_call_terminate(ptr %161) #29
+  %160 = extractvalue { ptr, i32 } %159, 0
+  call void @__clang_call_terminate(ptr %160) #29
   unreachable
 
-162:                                              ; preds = %_ZSt8_DestroyIPN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvT_SB_.exit.i.i.i.i
+161:                                              ; preds = %_ZSt8_DestroyIPN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEEvT_SB_.exit.i.i.i.i
   unreachable
 
 _ZSt22__uninitialized_copy_aIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_S9_ET0_T_SE_SD_RSaIT1_E.exit: ; preds = %_ZSt10_ConstructIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i, %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27
-  %.0.lcssa.i.i.i.i = phi ptr [ %135, %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27 ], [ %143, %_ZSt10_ConstructIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i ]
+  %.0.lcssa.i.i.i.i = phi ptr [ %134, %_ZSt4copyIPKN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEPS9_ET0_T_SE_SD_.exit27 ], [ %142, %_ZSt10_ConstructIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i ]
   store ptr %.0.lcssa.i.i.i.i, ptr %41, align 8
   br label %_ZNSt6vectorIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEESaIS9_EE15_M_erase_at_endEPS9_.exit
 

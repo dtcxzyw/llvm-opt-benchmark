@@ -26982,9 +26982,9 @@ define dso_local void @_ZN4Luau19ConstraintGenerator9checkPackERKSt10shared_ptrI
   %8 = alloca %"class.std::vector.591", align 8
   %9 = alloca %"struct.Luau::InferencePack", align 8
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %.thread170, label %.lr.ph
+  br i1 %.not, label %.thread169, label %.lr.ph
 
-.thread170:                                       ; preds = %6
+.thread169:                                       ; preds = %6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   br label %99
 
@@ -27123,8 +27123,8 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__no
   %67 = getelementptr inbounds %"class.std::optional.470", ptr %60, i64 %.0136
   %68 = ptrtoint ptr %67 to i64
   %69 = sub i64 %61, %68
-  %.not155 = icmp eq ptr %59, %67
-  br i1 %.not155, label %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EE6assignIN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEvEEvT_SE_.exit, label %70
+  %.not154 = icmp eq ptr %59, %67
+  br i1 %.not154, label %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EE6assignIN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEvEEvT_SE_.exit, label %70
 
 70:                                               ; preds = %66
   %71 = icmp ugt i64 %69, 9223372036854775792
@@ -27139,10 +27139,10 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__no
 
 _ZNSt12_Vector_baseISt8optionalIPKN4Luau4TypeEESaIS5_EE11_M_allocateEm.exit.i.i: ; preds = %70
   %73 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %69) #26
-          to label %.noexc55 unwind label %.thread158
+          to label %.noexc55 unwind label %.thread157
 
-.thread158:                                       ; preds = %_ZNSt12_Vector_baseISt8optionalIPKN4Luau4TypeEESaIS5_EE11_M_allocateEm.exit.i.i
-  %lpad.loopexit159 = landingpad { ptr, i32 }
+.thread157:                                       ; preds = %_ZNSt12_Vector_baseISt8optionalIPKN4Luau4TypeEESaIS5_EE11_M_allocateEm.exit.i.i
+  %lpad.loopexit158 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit
 
@@ -27231,9 +27231,9 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backEOS3_.exit: ; preds = %91, %_ZN4Lua
   %98 = trunc nuw i8 %.sroa.279.1 to i1
   br i1 %98, label %_ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EED2Ev.exit, label %99
 
-99:                                               ; preds = %.thread170, %97
-  %.sroa.12.0.lcssa168176 = phi ptr [ null, %.thread170 ], [ %.sroa.12.2, %97 ]
-  %.sroa.081.0.lcssa169175 = phi ptr [ null, %.thread170 ], [ %.sroa.081.2, %97 ]
+99:                                               ; preds = %.thread169, %97
+  %.sroa.12.0.lcssa167175 = phi ptr [ null, %.thread169 ], [ %.sroa.12.2, %97 ]
+  %.sroa.081.0.lcssa168174 = phi ptr [ null, %.thread169 ], [ %.sroa.081.2, %97 ]
   %100 = getelementptr inbounds i8, ptr %1, i64 40
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 176
@@ -27284,8 +27284,8 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backEOS3_.exit: ; preds = %91, %_ZN4Lua
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit51
 
 _ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EED2Ev.exit: ; preds = %113, %111, %99, %97
-  %.sroa.064.0 = phi ptr [ %.sroa.081.2, %97 ], [ %.sroa.081.0.lcssa169175, %99 ], [ null, %111 ], [ null, %113 ]
-  %.sroa.7.0 = phi ptr [ %.sroa.12.2, %97 ], [ %.sroa.12.0.lcssa168176, %99 ], [ null, %111 ], [ null, %113 ]
+  %.sroa.064.0 = phi ptr [ %.sroa.081.2, %97 ], [ %.sroa.081.0.lcssa168174, %99 ], [ null, %111 ], [ null, %113 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.12.2, %97 ], [ %.sroa.12.0.lcssa167175, %99 ], [ null, %111 ], [ null, %113 ]
   %.0.i = phi ptr [ %.sroa.078.1, %97 ], [ %103, %99 ], [ %110, %111 ], [ %110, %113 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   store ptr %.0.i, ptr %0, align 8
@@ -27304,9 +27304,9 @@ _ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit45:   ; preds = %127, %_ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EED2Ev.exit
   ret void
 
-_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit: ; preds = %.thread158, %.thread, %.loopexit99, %.loopexit.split-lp100, %77, %76
-  %.sroa.12.0133146 = phi ptr [ %.sroa.12.0133, %76 ], [ %.sroa.12.0133, %77 ], [ %.sroa.12.0133.lcssa143, %.loopexit99 ], [ %.sroa.785.0134, %.loopexit.split-lp100 ], [ %.sroa.12.0133, %.thread ], [ %.sroa.12.0133, %.thread158 ]
-  %.pn32 = phi { ptr, i32 } [ %lpad.loopexit, %76 ], [ %lpad.loopexit, %77 ], [ %lpad.loopexit101, %.loopexit99 ], [ %lpad.loopexit.split-lp102, %.loopexit.split-lp100 ], [ %lpad.loopexit.split-lp, %.thread ], [ %lpad.loopexit159, %.thread158 ]
+_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit: ; preds = %.thread157, %.thread, %.loopexit99, %.loopexit.split-lp100, %77, %76
+  %.sroa.12.0133146 = phi ptr [ %.sroa.12.0133, %76 ], [ %.sroa.12.0133, %77 ], [ %.sroa.12.0133.lcssa143, %.loopexit99 ], [ %.sroa.785.0134, %.loopexit.split-lp100 ], [ %.sroa.12.0133, %.thread ], [ %.sroa.12.0133, %.thread157 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.loopexit, %76 ], [ %lpad.loopexit, %77 ], [ %lpad.loopexit101, %.loopexit99 ], [ %lpad.loopexit.split-lp102, %.loopexit.split-lp100 ], [ %lpad.loopexit.split-lp, %.thread ], [ %lpad.loopexit158, %.thread157 ]
   %.not.i.i.i50 = icmp eq ptr %.sroa.081.0135, null
   br i1 %.not.i.i.i50, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit51, label %131
 

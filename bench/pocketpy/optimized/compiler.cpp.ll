@@ -20523,7 +20523,7 @@ _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %1, %23
   %30 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 -1, ptr %30, align 8
   %.not = icmp eq i32 %.0372, 0
-  br i1 %.not, label %.preheader267.preheader, label %.lr.ph
+  br i1 %.not, label %.preheader267, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26, %32
   %.017374 = phi i32 [ %33, %32 ], [ 0, %26 ]
@@ -20533,7 +20533,7 @@ _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %1, %23
 32:                                               ; preds = %.lr.ph
   %33 = add nuw nsw i32 %.017374, 1
   %exitcond.not = icmp eq i32 %33, %.0372
-  br i1 %exitcond.not, label %._crit_edge376, label %.lr.ph, !llvm.loop !273
+  br i1 %exitcond.not, label %.preheader262, label %.lr.ph, !llvm.loop !273
 
 .loopexit:                                        ; preds = %_ZN4pkpy8Compiler5matchEh.exit153, %_ZN4pkpy2TKEPKc.exit171, %361
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -20560,14 +20560,8 @@ _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %1, %23
           cleanup
   br label %.body
 
-._crit_edge376:                                   ; preds = %32
-  br i1 %.not, label %.preheader267.preheader, label %.preheader262
-
-.preheader267.preheader:                          ; preds = %26, %._crit_edge376
-  br label %.preheader267
-
-.preheader262:                                    ; preds = %._crit_edge376, %48
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %48 ], [ 0, %._crit_edge376 ]
+.preheader262:                                    ; preds = %32, %48
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %48 ], [ 0, %32 ]
   %34 = getelementptr inbounds [95 x ptr], ptr @_ZN4pkpyL7kTokensE, i64 0, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8
   %36 = load i8, ptr %35, align 1
@@ -20773,8 +20767,8 @@ _ZN4pkpy2TKEPKc.exit58:                           ; preds = %109, %107
   %129 = invoke noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(20) %111, i64 %128, ptr %125)
           to label %.preheader257.backedge unwind label %.loopexit.split-lp.loopexit
 
-.preheader267:                                    ; preds = %.preheader267.preheader, %144
-  %indvars.iv.i64 = phi i64 [ %indvars.iv.next.i72, %144 ], [ 0, %.preheader267.preheader ]
+.preheader267:                                    ; preds = %26, %144
+  %indvars.iv.i64 = phi i64 [ %indvars.iv.next.i72, %144 ], [ 0, %26 ]
   %130 = getelementptr inbounds [95 x ptr], ptr @_ZN4pkpyL7kTokensE, i64 0, i64 %indvars.iv.i64
   %131 = load ptr, ptr %130, align 8
   %132 = load i8, ptr %131, align 1

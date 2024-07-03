@@ -49224,18 +49224,18 @@ for.body.lr.ph.i477:                              ; preds = %if.then387
 
 for.cond7.preheader.i:                            ; preds = %for.body.i479
   %cmp822.not.i = icmp eq i64 %numFloatArray, 0
-  br i1 %cmp822.not.i, label %_ZN5o3dgc13SC3DMCDecoderItE19IQuantizeFloatArrayEPfmmmPKfS4_m.exit.thread, label %for.cond11.preheader.lr.ph.i
+  br i1 %cmp822.not.i, label %_ZN5o3dgc13SC3DMCDecoderItE19IQuantizeFloatArrayEPfmmmPKfS4_m.exit.thread, label %for.cond11.preheader.us.preheader.i
 
 _ZN5o3dgc13SC3DMCDecoderItE19IQuantizeFloatArrayEPfmmmPKfS4_m.exit.thread: ; preds = %for.cond7.preheader.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %idelta.i)
   br label %if.end428
 
-for.cond11.preheader.lr.ph.i:                     ; preds = %for.cond7.preheader.i
+for.cond11.preheader.us.preheader.i:              ; preds = %for.cond7.preheader.i
   %m_quantFloatArray.i = getelementptr inbounds i8, ptr %this, i64 4568
   br label %for.cond11.preheader.us.i
 
-for.cond11.preheader.us.i:                        ; preds = %for.cond11.preheader.lr.ph.i, %for.cond11.for.inc25_crit_edge.us.i
-  %v.023.us.i = phi i64 [ %inc26.us.i, %for.cond11.for.inc25_crit_edge.us.i ], [ 0, %for.cond11.preheader.lr.ph.i ]
+for.cond11.preheader.us.i:                        ; preds = %for.cond11.for.inc25_crit_edge.us.i, %for.cond11.preheader.us.preheader.i
+  %v.023.us.i = phi i64 [ %inc26.us.i, %for.cond11.for.inc25_crit_edge.us.i ], [ 0, %for.cond11.preheader.us.preheader.i ]
   %mul.us.i = mul i64 %v.023.us.i, %stride
   br label %for.body13.us.i
 
@@ -49329,14 +49329,14 @@ for.body.lr.ph.i487:                              ; preds = %if.else425
 
 for.cond7.preheader.i502:                         ; preds = %for.body.i492
   %cmp822.not.i503 = icmp eq i64 %numFloatArray, 0
-  br i1 %cmp822.not.i503, label %_ZN5o3dgc13SC3DMCDecoderItE19IQuantizeFloatArrayEPfmmmPKfS4_m.exit522, label %for.cond11.preheader.lr.ph.i504
+  br i1 %cmp822.not.i503, label %_ZN5o3dgc13SC3DMCDecoderItE19IQuantizeFloatArrayEPfmmmPKfS4_m.exit522, label %for.cond11.preheader.us.preheader.i504
 
-for.cond11.preheader.lr.ph.i504:                  ; preds = %for.cond7.preheader.i502
+for.cond11.preheader.us.preheader.i504:           ; preds = %for.cond7.preheader.i502
   %m_quantFloatArray.i505 = getelementptr inbounds i8, ptr %this, i64 4568
   br label %for.cond11.preheader.us.i506
 
-for.cond11.preheader.us.i506:                     ; preds = %for.cond11.preheader.lr.ph.i504, %for.cond11.for.inc25_crit_edge.us.i519
-  %v.023.us.i507 = phi i64 [ %inc26.us.i520, %for.cond11.for.inc25_crit_edge.us.i519 ], [ 0, %for.cond11.preheader.lr.ph.i504 ]
+for.cond11.preheader.us.i506:                     ; preds = %for.cond11.for.inc25_crit_edge.us.i519, %for.cond11.preheader.us.preheader.i504
+  %v.023.us.i507 = phi i64 [ %inc26.us.i520, %for.cond11.for.inc25_crit_edge.us.i519 ], [ 0, %for.cond11.preheader.us.preheader.i504 ]
   %mul.us.i508 = mul i64 %v.023.us.i507, %stride
   br label %for.body13.us.i509
 

@@ -93273,7 +93273,7 @@ if.else:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i
   %cmp32.not = icmp ult i64 %sub.ptr.sub.i9, %sub.ptr.sub.i.i.i
-  br i1 %cmp32.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb16IngestedFileInfoESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit, label %if.then33
+  br i1 %cmp32.not, label %if.else41, label %if.then33
 
 if.then33:                                        ; preds = %if.else
   %call.i.i.i.i = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN7rocksdb16IngestedFileInfoEPS4_EET0_T_S9_S8_(ptr noundef %__first.coerce, ptr noundef %__last.coerce, ptr noundef %1)
@@ -93304,16 +93304,16 @@ invoke.cont.i:                                    ; preds = %for.body.i.i.i.i
   store ptr %call.i.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end61
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb16IngestedFileInfoESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %if.else
-  %incdec.ptr.i.i.i18 = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i9
-  %call.i.i.i.i19 = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN7rocksdb16IngestedFileInfoEPS4_EET0_T_S9_S8_(ptr noundef %__first.coerce, ptr noundef %incdec.ptr.i.i.i18, ptr noundef %1)
+if.else41:                                        ; preds = %if.else
+  %incdec.ptr.i8.sink.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i9
+  %call.i.i.i.i19 = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN7rocksdb16IngestedFileInfoEPS4_EET0_T_S9_S8_(ptr noundef %__first.coerce, ptr noundef %incdec.ptr.i8.sink.i.i, ptr noundef %1)
   %7 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not8.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i18, %__last.coerce
+  %cmp.i.not8.i.i.i.i = icmp eq ptr %incdec.ptr.i8.sink.i.i, %__last.coerce
   br i1 %cmp.i.not8.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb16IngestedFileInfoESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %for.body.i.i.i.i25
 
-for.body.i.i.i.i25:                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb16IngestedFileInfoESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit, %for.inc.i.i.i.i
-  %__cur.010.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i26, %for.inc.i.i.i.i ], [ %7, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb16IngestedFileInfoESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %__first.sroa.0.09.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i ], [ %incdec.ptr.i.i.i18, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb16IngestedFileInfoESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
+for.body.i.i.i.i25:                               ; preds = %if.else41, %for.inc.i.i.i.i
+  %__cur.010.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i26, %for.inc.i.i.i.i ], [ %7, %if.else41 ]
+  %__first.sroa.0.09.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i ], [ %incdec.ptr.i8.sink.i.i, %if.else41 ]
   invoke void @_ZN7rocksdb16IngestedFileInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1024) %__cur.010.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1024) %__first.sroa.0.09.i.i.i.i)
           to label %for.inc.i.i.i.i unwind label %lpad.i.i.i.i
 
@@ -93354,8 +93354,8 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad4.i.i.i.i
 unreachable.i.i.i.i:                              ; preds = %invoke.cont5.i.i.i.i
   unreachable
 
-_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb16IngestedFileInfoESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %for.inc.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb16IngestedFileInfoESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %7, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb16IngestedFileInfoESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ], [ %incdec.ptr.i.i.i.i26, %for.inc.i.i.i.i ]
+_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb16IngestedFileInfoESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %for.inc.i.i.i.i, %if.else41
+  %__cur.0.lcssa.i.i.i.i = phi ptr [ %7, %if.else41 ], [ %incdec.ptr.i.i.i.i26, %for.inc.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end61
 

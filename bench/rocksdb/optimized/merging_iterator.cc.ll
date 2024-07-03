@@ -422,7 +422,7 @@ for.end:                                          ; preds = %_ZN7rocksdb13PerfSt
   %23 = load ptr, ptr %range_tombstone_iters_, align 8
   %24 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i35 = icmp eq ptr %23, %24
-  br i1 %cmp.i.i35, label %invoke.cont43, label %for.cond10.preheader
+  br i1 %cmp.i.i35, label %invoke.cont43, label %for.body12.lr.ph
 
 for.end.thread:                                   ; preds = %if.end
   %25 = load ptr, ptr %range_tombstone_iters_, align 8
@@ -430,10 +430,7 @@ for.end.thread:                                   ; preds = %if.end
   %cmp.i.i35565 = icmp eq ptr %25, %26
   br i1 %cmp.i.i35565, label %invoke.cont43, label %for.end29
 
-for.cond10.preheader:                             ; preds = %for.end
-  br i1 %cmp545.not, label %for.end29, label %for.body12.lr.ph
-
-for.body12.lr.ph:                                 ; preds = %for.cond10.preheader
+for.body12.lr.ph:                                 ; preds = %for.end
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %minHeap_ = getelementptr inbounds i8, ptr %this, i64 200
@@ -564,7 +561,7 @@ for.inc27:                                        ; preds = %if.else, %_ZN7rocks
   %exitcond564.not = icmp eq i64 %inc28, %starting_level
   br i1 %exitcond564.not, label %for.end29, label %for.body12, !llvm.loop !8
 
-for.end29:                                        ; preds = %for.inc27, %for.end.thread, %for.cond10.preheader
+for.end29:                                        ; preds = %for.inc27, %for.end.thread
   %active_30 = getelementptr inbounds i8, ptr %this, i64 128
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %50 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -3880,7 +3877,7 @@ for.end:                                          ; preds = %_ZN7rocksdb13PerfSt
   %24 = load ptr, ptr %range_tombstone_iters_, align 8
   %25 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i40 = icmp eq ptr %24, %25
-  br i1 %cmp.i.i40, label %invoke.cont38, label %for.cond10.preheader
+  br i1 %cmp.i.i40, label %invoke.cont38, label %for.body12.lr.ph
 
 for.end.thread:                                   ; preds = %if.end
   %26 = load ptr, ptr %range_tombstone_iters_, align 8
@@ -3888,10 +3885,7 @@ for.end.thread:                                   ; preds = %if.end
   %cmp.i.i40555 = icmp eq ptr %26, %27
   br i1 %cmp.i.i40555, label %invoke.cont38, label %for.end25
 
-for.cond10.preheader:                             ; preds = %for.end
-  br i1 %cmp535.not, label %for.end25, label %for.body12.lr.ph
-
-for.body12.lr.ph:                                 ; preds = %for.cond10.preheader
+for.body12.lr.ph:                                 ; preds = %for.end
   %pinned_heap_item_ = getelementptr inbounds i8, ptr %this, i64 80
   br label %for.body12
 
@@ -3992,7 +3986,7 @@ for.inc23:                                        ; preds = %_ZN7rocksdb10Binary
   %exitcond554.not = icmp eq i64 %inc24, %starting_level
   br i1 %exitcond554.not, label %for.end25, label %for.body12, !llvm.loop !108
 
-for.end25:                                        ; preds = %for.inc23, %for.end.thread, %for.cond10.preheader
+for.end25:                                        ; preds = %for.inc23, %for.end.thread
   %active_ = getelementptr inbounds i8, ptr %this, i64 128
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %49 = load ptr, ptr %_M_parent.i.i.i.i, align 8

@@ -40374,9 +40374,9 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
   %14 = and i64 %3, 72057594037927936
   %.not.i = icmp eq i64 %14, 0
   %or.cond = select i1 %13, i1 %.not.i, i1 false
-  br i1 %or.cond, label %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit383.i", label %201
+  br i1 %or.cond, label %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit384.i", label %201
 
-"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit383.i": ; preds = %5
+"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit384.i": ; preds = %5
   %.sroa.0203.0.extract.trunc.i = trunc i64 %3 to i32
   %.sroa.6204.0.extract.shift.i = lshr i64 %3, 32
   %.sroa.6204.0.extract.trunc.i = trunc i64 %.sroa.6204.0.extract.shift.i to i8
@@ -40385,9 +40385,9 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
   %.sroa.8206.0.extract.shift.i = lshr i64 %3, 48
   %.sroa.8206.0.extract.trunc.i = trunc i64 %.sroa.8206.0.extract.shift.i to i8
   %trunc.i = trunc i32 %4 to i1
-  br i1 %trunc.i, label %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit387.i", label %201
+  br i1 %trunc.i, label %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit388.i", label %201
 
-"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit387.i": ; preds = %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit383.i"
+"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit388.i": ; preds = %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit384.i"
   %.sroa.04.0.extract.trunc.i = trunc i32 %.sroa.49.0.extract.shift.i to i8
   %.sroa.87.0.extract.shift22.i = lshr i32 %4, 16
   %.sroa.87.0.extract.trunc.i = trunc i32 %.sroa.87.0.extract.shift22.i to i8
@@ -40397,7 +40397,7 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
   %16 = icmp ult i32 %15, 10000
   br i1 %16, label %17, label %201
 
-17:                                               ; preds = %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit387.i"
+17:                                               ; preds = %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit388.i"
   %18 = icmp sgt i8 %.sroa.04.0.extract.trunc.i, -26
   tail call void @llvm.assume(i1 %18)
   %19 = icmp slt i8 %.sroa.04.0.extract.trunc.i, 26
@@ -40422,8 +40422,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
   %27 = extractvalue { i64, ptr } %26, 0
   %28 = extractvalue { i64, ptr } %26, 1
   %29 = ptrtoint ptr %28 to i64
-  %switch340.i = icmp eq i64 %27, 0
-  br i1 %switch340.i, label %30, label %201
+  %switch341.i = icmp eq i64 %27, 0
+  br i1 %switch341.i, label %30, label %201
 
 30:                                               ; preds = %.noexc
   %31 = invoke { i64, ptr } @_ZN4time10formatting5write17h6a8196df8f9d4aa5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 @anon.3fd1218b2f406ad1341fef897d5dd3d9.198.llvm.8666068179502612882, i64 noundef 1)
@@ -40431,8 +40431,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
 
 .noexc25:                                         ; preds = %30
   %32 = extractvalue { i64, ptr } %31, 0
-  %switch342.i = icmp eq i64 %32, 0
-  br i1 %switch342.i, label %33, label %37
+  %switch343.i = icmp eq i64 %32, 0
+  br i1 %switch343.i, label %33, label %37
 
 33:                                               ; preds = %.noexc25
   %34 = invoke noundef i8 @_ZN4time4date4Date5month17h701fe4fe871489c6E(i32 noundef %2)
@@ -40444,8 +40444,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
 
 .noexc27:                                         ; preds = %.noexc26
   %36 = extractvalue { i64, ptr } %35, 0
-  %switch344.i = icmp eq i64 %36, 0
-  br i1 %switch344.i, label %40, label %43
+  %switch345.i = icmp eq i64 %36, 0
+  br i1 %switch345.i, label %40, label %43
 
 37:                                               ; preds = %.noexc25
   %38 = extractvalue { i64, ptr } %31, 1
@@ -40458,8 +40458,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
 
 .noexc28:                                         ; preds = %40
   %42 = extractvalue { i64, ptr } %41, 0
-  %switch346.i = icmp eq i64 %42, 0
-  br i1 %switch346.i, label %46, label %50
+  %switch347.i = icmp eq i64 %42, 0
+  br i1 %switch347.i, label %46, label %50
 
 43:                                               ; preds = %.noexc27
   %44 = extractvalue { i64, ptr } %35, 1
@@ -40476,8 +40476,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
 
 .noexc30:                                         ; preds = %.noexc29
   %49 = extractvalue { i64, ptr } %48, 0
-  %switch348.i = icmp eq i64 %49, 0
-  br i1 %switch348.i, label %53, label %56
+  %switch349.i = icmp eq i64 %49, 0
+  br i1 %switch349.i, label %53, label %56
 
 50:                                               ; preds = %.noexc28
   %51 = extractvalue { i64, ptr } %41, 1
@@ -40490,8 +40490,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
 
 .noexc31:                                         ; preds = %53
   %55 = extractvalue { i64, ptr } %54, 0
-  %switch350.i = icmp eq i64 %55, 0
-  br i1 %switch350.i, label %59, label %63
+  %switch351.i = icmp eq i64 %55, 0
+  br i1 %switch351.i, label %59, label %63
 
 56:                                               ; preds = %.noexc30
   %57 = extractvalue { i64, ptr } %48, 1
@@ -40506,8 +40506,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
 
 .noexc32:                                         ; preds = %59
   %62 = extractvalue { i64, ptr } %61, 0
-  %switch366.i = icmp eq i64 %62, 0
-  br i1 %switch366.i, label %66, label %69
+  %switch367.i = icmp eq i64 %62, 0
+  br i1 %switch367.i, label %66, label %69
 
 63:                                               ; preds = %.noexc31
   %64 = extractvalue { i64, ptr } %54, 1
@@ -40520,8 +40520,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
 
 .noexc33:                                         ; preds = %66
   %68 = extractvalue { i64, ptr } %67, 0
-  %switch352.i = icmp eq i64 %68, 0
-  br i1 %switch352.i, label %72, label %76
+  %switch353.i = icmp eq i64 %68, 0
+  br i1 %switch353.i, label %72, label %76
 
 69:                                               ; preds = %.noexc32
   %70 = extractvalue { i64, ptr } %61, 1
@@ -40536,8 +40536,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
 
 .noexc34:                                         ; preds = %72
   %75 = extractvalue { i64, ptr } %74, 0
-  %switch367.i = icmp eq i64 %75, 0
-  br i1 %switch367.i, label %79, label %82
+  %switch368.i = icmp eq i64 %75, 0
+  br i1 %switch368.i, label %79, label %82
 
 76:                                               ; preds = %.noexc33
   %77 = extractvalue { i64, ptr } %67, 1
@@ -40550,8 +40550,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
 
 .noexc35:                                         ; preds = %79
   %81 = extractvalue { i64, ptr } %80, 0
-  %switch354.i = icmp eq i64 %81, 0
-  br i1 %switch354.i, label %85, label %89
+  %switch355.i = icmp eq i64 %81, 0
+  br i1 %switch355.i, label %85, label %89
 
 82:                                               ; preds = %.noexc34
   %83 = extractvalue { i64, ptr } %74, 1
@@ -40566,8 +40566,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
 
 .noexc36:                                         ; preds = %85
   %88 = extractvalue { i64, ptr } %87, 0
-  %switch369.i = icmp eq i64 %88, 0
-  br i1 %switch369.i, label %92, label %95
+  %switch370.i = icmp eq i64 %88, 0
+  br i1 %switch370.i, label %92, label %95
 
 89:                                               ; preds = %.noexc35
   %90 = extractvalue { i64, ptr } %80, 1
@@ -40603,8 +40603,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
 
 .noexc37:                                         ; preds = %104
   %106 = extractvalue { i64, ptr } %105, 0
-  %switch356.i = icmp eq i64 %106, 0
-  br i1 %switch356.i, label %107, label %111
+  %switch357.i = icmp eq i64 %106, 0
+  br i1 %switch357.i, label %107, label %111
 
 107:                                              ; preds = %.noexc37
   %108 = urem i32 %.sroa.0203.0.extract.trunc.i, 10
@@ -40701,8 +40701,8 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hc52
 .noexc38:                                         ; preds = %158, %155, %153, %147, %141, %135, %129, %123, %117
   %.pn.i = phi { i64, ptr } [ %118, %117 ], [ %124, %123 ], [ %130, %129 ], [ %136, %135 ], [ %142, %141 ], [ %148, %147 ], [ %154, %153 ], [ %157, %155 ], [ %159, %158 ]
   %.sroa.0138.0.i = extractvalue { i64, ptr } %.pn.i, 0
-  %switch358.i = icmp eq i64 %.sroa.0138.0.i, 0
-  br i1 %switch358.i, label %98, label %160
+  %switch359.i = icmp eq i64 %.sroa.0138.0.i, 0
+  br i1 %switch359.i, label %98, label %160
 
 160:                                              ; preds = %.noexc38
   %.sroa.13.0.in.i = extractvalue { i64, ptr } %.pn.i, 1
@@ -40727,8 +40727,8 @@ _ZN4time10utc_offset9UtcOffset11is_negative17h6a5446f94c357701E.exit.i: ; preds 
 
 .noexc47:                                         ; preds = %"_ZN68_$LT$time..utc_offset..UtcOffset$u20$as$u20$core..cmp..PartialEq$GT$2eq17h677d8eca676f509cE.exit.i"
   %168 = extractvalue { i64, ptr } %167, 0
-  %switch360.i = icmp eq i64 %168, 0
-  br i1 %switch360.i, label %"_ZN4time10formatting11formattable130_$LT$impl$u20$time..formatting..formattable..sealed..Sealed$u20$for$u20$time..format_description..well_known..rfc3339..Rfc3339$GT$11format_into17h4f7f46b6824e640aE.exit", label %194
+  %switch361.i = icmp eq i64 %168, 0
+  br i1 %switch361.i, label %"_ZN4time10formatting11formattable130_$LT$impl$u20$time..formatting..formattable..sealed..Sealed$u20$for$u20$time..format_description..well_known..rfc3339..Rfc3339$GT$11format_into17h4f7f46b6824e640aE.exit", label %194
 
 .split.i:                                         ; preds = %_ZN4time10utc_offset9UtcOffset11is_negative17h6a5446f94c357701E.exit.i, %162
   br label %.split330.i
@@ -40740,8 +40740,8 @@ _ZN4time10utc_offset9UtcOffset11is_negative17h6a5446f94c357701E.exit.i: ; preds 
 
 .noexc48:                                         ; preds = %.split330.i
   %170 = extractvalue { i64, ptr } %169, 0
-  %switch362.i = icmp eq i64 %170, 0
-  br i1 %switch362.i, label %171, label %174
+  %switch363.i = icmp eq i64 %170, 0
+  br i1 %switch363.i, label %171, label %174
 
 171:                                              ; preds = %.noexc48
   %172 = invoke { i64, ptr } @_ZN4time10formatting22format_number_pad_zero17hc47d275c3eca80daE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i8 noundef %.sroa.0243.0.i)
@@ -40749,8 +40749,8 @@ _ZN4time10utc_offset9UtcOffset11is_negative17h6a5446f94c357701E.exit.i: ; preds 
 
 .noexc49:                                         ; preds = %171
   %173 = extractvalue { i64, ptr } %172, 0
-  %switch371.i = icmp eq i64 %173, 0
-  br i1 %switch371.i, label %177, label %180
+  %switch372.i = icmp eq i64 %173, 0
+  br i1 %switch372.i, label %177, label %180
 
 174:                                              ; preds = %.noexc48
   %175 = extractvalue { i64, ptr } %169, 1
@@ -40763,8 +40763,8 @@ _ZN4time10utc_offset9UtcOffset11is_negative17h6a5446f94c357701E.exit.i: ; preds 
 
 .noexc50:                                         ; preds = %177
   %179 = extractvalue { i64, ptr } %178, 0
-  %switch364.i = icmp eq i64 %179, 0
-  br i1 %switch364.i, label %183, label %188
+  %switch365.i = icmp eq i64 %179, 0
+  br i1 %switch365.i, label %183, label %188
 
 180:                                              ; preds = %.noexc49
   %181 = extractvalue { i64, ptr } %172, 1
@@ -40782,8 +40782,8 @@ _ZN4time10utc_offset9UtcOffset11is_negative17h6a5446f94c357701E.exit.i: ; preds 
 
 .noexc51:                                         ; preds = %183
   %187 = extractvalue { i64, ptr } %186, 0
-  %switch372.i = icmp eq i64 %187, 0
-  br i1 %switch372.i, label %"_ZN4time10formatting11formattable130_$LT$impl$u20$time..formatting..formattable..sealed..Sealed$u20$for$u20$time..format_description..well_known..rfc3339..Rfc3339$GT$11format_into17h4f7f46b6824e640aE.exit", label %191
+  %switch373.i = icmp eq i64 %187, 0
+  br i1 %switch373.i, label %"_ZN4time10formatting11formattable130_$LT$impl$u20$time..formatting..formattable..sealed..Sealed$u20$for$u20$time..format_description..well_known..rfc3339..Rfc3339$GT$11format_into17h4f7f46b6824e640aE.exit", label %191
 
 188:                                              ; preds = %.noexc50
   %189 = extractvalue { i64, ptr } %178, 1
@@ -40813,10 +40813,10 @@ _ZN4time10utc_offset9UtcOffset11is_negative17h6a5446f94c357701E.exit.i: ; preds 
   invoke void @_ZN5alloc6string6String15from_utf8_lossy17h3876e30350249df0E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %199, i64 noundef %200)
           to label %212 unwind label %197
 
-201:                                              ; preds = %194, %191, %188, %180, %174, %160, %111, %95, %89, %82, %76, %69, %63, %56, %50, %43, %37, %5, %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit383.i", %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit387.i", %17, %21, %.noexc
-  %.sroa.57.0.ph = phi i64 [ undef, %.noexc ], [ 13, %21 ], [ 11, %17 ], [ 4, %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit387.i" ], [ undef, %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit383.i" ], [ undef, %5 ], [ undef, %37 ], [ undef, %43 ], [ undef, %50 ], [ undef, %56 ], [ undef, %63 ], [ undef, %69 ], [ undef, %76 ], [ undef, %82 ], [ undef, %89 ], [ undef, %95 ], [ undef, %111 ], [ undef, %160 ], [ undef, %174 ], [ undef, %180 ], [ undef, %188 ], [ undef, %191 ], [ undef, %194 ]
-  %.sroa.30.0.ph = phi i64 [ %29, %.noexc ], [ ptrtoint (ptr @anon.3fd1218b2f406ad1341fef897d5dd3d9.203 to i64), %21 ], [ ptrtoint (ptr @anon.3fd1218b2f406ad1341fef897d5dd3d9.204 to i64), %17 ], [ ptrtoint (ptr @anon.3fd1218b2f406ad1341fef897d5dd3d9.197 to i64), %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit387.i" ], [ 0, %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit383.i" ], [ 0, %5 ], [ %39, %37 ], [ %45, %43 ], [ %52, %50 ], [ %58, %56 ], [ %65, %63 ], [ %71, %69 ], [ %78, %76 ], [ %84, %82 ], [ %91, %89 ], [ %97, %95 ], [ %113, %111 ], [ %161, %160 ], [ %176, %174 ], [ %182, %180 ], [ %190, %188 ], [ %193, %191 ], [ %196, %194 ]
-  %.sroa.0.0.ph = phi i64 [ 2, %.noexc ], [ 1, %21 ], [ 1, %17 ], [ 1, %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit387.i" ], [ 0, %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit383.i" ], [ 0, %5 ], [ 2, %37 ], [ 2, %43 ], [ 2, %50 ], [ 2, %56 ], [ 2, %63 ], [ 2, %69 ], [ 2, %76 ], [ 2, %82 ], [ 2, %89 ], [ 2, %95 ], [ 2, %111 ], [ 2, %160 ], [ 2, %174 ], [ 2, %180 ], [ 2, %188 ], [ 2, %191 ], [ 2, %194 ]
+201:                                              ; preds = %194, %191, %188, %180, %174, %160, %111, %95, %89, %82, %76, %69, %63, %56, %50, %43, %37, %5, %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit384.i", %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit388.i", %17, %21, %.noexc
+  %.sroa.57.0.ph = phi i64 [ undef, %.noexc ], [ 13, %21 ], [ 11, %17 ], [ 4, %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit388.i" ], [ undef, %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit384.i" ], [ undef, %5 ], [ undef, %37 ], [ undef, %43 ], [ undef, %50 ], [ undef, %56 ], [ undef, %63 ], [ undef, %69 ], [ undef, %76 ], [ undef, %82 ], [ undef, %89 ], [ undef, %95 ], [ undef, %111 ], [ undef, %160 ], [ undef, %174 ], [ undef, %180 ], [ undef, %188 ], [ undef, %191 ], [ undef, %194 ]
+  %.sroa.30.0.ph = phi i64 [ %29, %.noexc ], [ ptrtoint (ptr @anon.3fd1218b2f406ad1341fef897d5dd3d9.203 to i64), %21 ], [ ptrtoint (ptr @anon.3fd1218b2f406ad1341fef897d5dd3d9.204 to i64), %17 ], [ ptrtoint (ptr @anon.3fd1218b2f406ad1341fef897d5dd3d9.197 to i64), %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit388.i" ], [ 0, %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit384.i" ], [ 0, %5 ], [ %39, %37 ], [ %45, %43 ], [ %52, %50 ], [ %58, %56 ], [ %65, %63 ], [ %71, %69 ], [ %78, %76 ], [ %84, %82 ], [ %91, %89 ], [ %97, %95 ], [ %113, %111 ], [ %161, %160 ], [ %176, %174 ], [ %182, %180 ], [ %190, %188 ], [ %193, %191 ], [ %196, %194 ]
+  %.sroa.0.0.ph = phi i64 [ 2, %.noexc ], [ 1, %21 ], [ 1, %17 ], [ 1, %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit388.i" ], [ 0, %"_ZN4core3ptr48drop_in_place$LT$time..error..format..Format$GT$17h6589d4dccd524184E.exit384.i" ], [ 0, %5 ], [ 2, %37 ], [ 2, %43 ], [ 2, %50 ], [ 2, %56 ], [ 2, %63 ], [ 2, %69 ], [ 2, %76 ], [ 2, %82 ], [ 2, %89 ], [ 2, %95 ], [ 2, %111 ], [ 2, %160 ], [ 2, %174 ], [ 2, %180 ], [ 2, %188 ], [ 2, %191 ], [ 2, %194 ]
   %202 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.ph, ptr %202, align 8
   %.sroa.218.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16

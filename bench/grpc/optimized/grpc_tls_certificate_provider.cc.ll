@@ -8253,7 +8253,7 @@ if.else:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
   %cmp24.not = icmp ult i64 %sub.ptr.sub.i16, %sub.ptr.sub.i.i
-  br i1 %cmp24.not, label %_ZSt7advanceIPKN9grpc_core14PemKeyCertPairEmEvRT_T0_.exit, label %if.then25
+  br i1 %cmp24.not, label %if.else29, label %if.then25
 
 if.then25:                                        ; preds = %if.else
   %cmp6.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i, 0
@@ -8296,16 +8296,16 @@ invoke.cont.i:                                    ; preds = %for.body.i.i.i.i
   store ptr %__result.addr.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end41
 
-_ZSt7advanceIPKN9grpc_core14PemKeyCertPairEmEvRT_T0_.exit: ; preds = %if.else
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i16
+if.else29:                                        ; preds = %if.else
+  %incdec.ptr4.sink.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i16
   %sub.ptr.div.i.i.i.i.i29 = ashr exact i64 %sub.ptr.sub.i16, 6
   %cmp6.i.i.i.i.i30 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i29, 0
   br i1 %cmp6.i.i.i.i.i30, label %for.body.i.i.i.i.i32, label %_ZSt4copyIPKN9grpc_core14PemKeyCertPairEPS1_ET0_T_S6_S5_.exit44
 
-for.body.i.i.i.i.i32:                             ; preds = %_ZSt7advanceIPKN9grpc_core14PemKeyCertPairEmEvRT_T0_.exit, %for.body.i.i.i.i.i32
-  %__n.09.i.i.i.i.i33 = phi i64 [ %dec.i.i.i.i.i42, %for.body.i.i.i.i.i32 ], [ %sub.ptr.div.i.i.i.i.i29, %_ZSt7advanceIPKN9grpc_core14PemKeyCertPairEmEvRT_T0_.exit ]
-  %__result.addr.08.i.i.i.i.i34 = phi ptr [ %incdec.ptr1.i.i.i.i.i41, %for.body.i.i.i.i.i32 ], [ %1, %_ZSt7advanceIPKN9grpc_core14PemKeyCertPairEmEvRT_T0_.exit ]
-  %__first.addr.07.i.i.i.i.i35 = phi ptr [ %incdec.ptr.i.i.i.i.i40, %for.body.i.i.i.i.i32 ], [ %__first, %_ZSt7advanceIPKN9grpc_core14PemKeyCertPairEmEvRT_T0_.exit ]
+for.body.i.i.i.i.i32:                             ; preds = %if.else29, %for.body.i.i.i.i.i32
+  %__n.09.i.i.i.i.i33 = phi i64 [ %dec.i.i.i.i.i42, %for.body.i.i.i.i.i32 ], [ %sub.ptr.div.i.i.i.i.i29, %if.else29 ]
+  %__result.addr.08.i.i.i.i.i34 = phi ptr [ %incdec.ptr1.i.i.i.i.i41, %for.body.i.i.i.i.i32 ], [ %1, %if.else29 ]
+  %__first.addr.07.i.i.i.i.i35 = phi ptr [ %incdec.ptr.i.i.i.i.i40, %for.body.i.i.i.i.i32 ], [ %__first, %if.else29 ]
   %call2.i.i.i.i.i.i36 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i.i34, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i.i35)
   %cert_chain_.i.i.i.i.i.i.i37 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i35, i64 32
   %cert_chain_.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i34, i64 32
@@ -8320,9 +8320,9 @@ _ZSt4copyIPKN9grpc_core14PemKeyCertPairEPS1_ET0_T_S6_S5_.exit44.loopexit: ; pred
   %.pre53 = load ptr, ptr %_M_finish.i, align 8
   br label %_ZSt4copyIPKN9grpc_core14PemKeyCertPairEPS1_ET0_T_S6_S5_.exit44
 
-_ZSt4copyIPKN9grpc_core14PemKeyCertPairEPS1_ET0_T_S6_S5_.exit44: ; preds = %_ZSt4copyIPKN9grpc_core14PemKeyCertPairEPS1_ET0_T_S6_S5_.exit44.loopexit, %_ZSt7advanceIPKN9grpc_core14PemKeyCertPairEmEvRT_T0_.exit
-  %7 = phi ptr [ %.pre53, %_ZSt4copyIPKN9grpc_core14PemKeyCertPairEPS1_ET0_T_S6_S5_.exit44.loopexit ], [ %5, %_ZSt7advanceIPKN9grpc_core14PemKeyCertPairEmEvRT_T0_.exit ]
-  %call.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyIPKN9grpc_core14PemKeyCertPairEPS1_ET0_T_S6_S5_(ptr noundef %incdec.ptr.i.i, ptr noundef %__last, ptr noundef %7)
+_ZSt4copyIPKN9grpc_core14PemKeyCertPairEPS1_ET0_T_S6_S5_.exit44: ; preds = %_ZSt4copyIPKN9grpc_core14PemKeyCertPairEPS1_ET0_T_S6_S5_.exit44.loopexit, %if.else29
+  %7 = phi ptr [ %.pre53, %_ZSt4copyIPKN9grpc_core14PemKeyCertPairEPS1_ET0_T_S6_S5_.exit44.loopexit ], [ %5, %if.else29 ]
+  %call.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyIPKN9grpc_core14PemKeyCertPairEPS1_ET0_T_S6_S5_(ptr noundef %incdec.ptr4.sink.i.i, ptr noundef %__last, ptr noundef %7)
   store ptr %call.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end41
 

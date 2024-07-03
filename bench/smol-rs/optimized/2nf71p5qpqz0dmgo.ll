@@ -392,24 +392,24 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17hcf89595deae72817E.exit.i.i.i.
   %138 = trunc nuw i128 %137 to i64
   %139 = mul i64 %114, %133
   %140 = icmp ult i64 %139, %114
-  br i1 %140, label %145, label %.lr.ph.i.i.i.i.i
+  br i1 %140, label %141, label %.lr.ph.i.i.i.i.i
+
+141:                                              ; preds = %124
+  %142 = sub i64 0, %114
+  %143 = urem i64 %142, %114
+  %144 = icmp ult i64 %139, %143
+  br i1 %144, label %.lr.ph.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 ..loopexit_crit_edge.i.i.i.i.i.i.i:               ; preds = %.lr.ph.i.i.i.i.i.i.i
   store i64 %150, ptr %115, align 8, !alias.scope !56, !noalias !25
-  %141 = and i128 %156, 18446744073709551615
-  %142 = mul nuw i128 %141, %135
-  %143 = lshr i128 %142, 64
-  %144 = trunc nuw i128 %143 to i64
+  %145 = and i128 %156, 18446744073709551615
+  %146 = mul nuw i128 %145, %135
+  %147 = lshr i128 %146, 64
+  %148 = trunc nuw i128 %147 to i64
   br label %.lr.ph.i.i.i.i.i
 
-145:                                              ; preds = %124
-  %146 = sub i64 0, %114
-  %147 = urem i64 %146, %114
-  %148 = icmp ult i64 %139, %147
-  br i1 %148, label %.lr.ph.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %145, %.lr.ph.i.i.i.i.i.i.i
-  %149 = phi i64 [ %150, %.lr.ph.i.i.i.i.i.i.i ], [ %126, %145 ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %141, %.lr.ph.i.i.i.i.i.i.i
+  %149 = phi i64 [ %150, %.lr.ph.i.i.i.i.i.i.i ], [ %126, %141 ]
   %150 = add i64 %149, -6884282663029611473
   %151 = zext i64 %150 to i128
   %152 = xor i64 %150, -1800455987208640293
@@ -419,7 +419,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17hcf89595deae72817E.exit.i.i.i.
   %156 = xor i128 %155, %154
   %157 = trunc i128 %156 to i64
   %158 = mul i64 %114, %157
-  %159 = icmp ult i64 %158, %147
+  %159 = icmp ult i64 %158, %143
   br i1 %159, label %.lr.ph.i.i.i.i.i.i.i, label %..loopexit_crit_edge.i.i.i.i.i.i.i
 
 160:                                              ; preds = %86
@@ -466,8 +466,8 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17hcf89595deae72817E.exit.i.i.i.
   invoke void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock22wake_writer_or_readers17h1ce3f7153fe8125aE(ptr noundef nonnull align 4 %93, i32 noundef %166)
           to label %.body.i.i unwind label %163, !noalias !25
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %145, %..loopexit_crit_edge.i.i.i.i.i.i.i, %124
-  %.0.i.i.i.i.i.i = phi i64 [ %138, %124 ], [ %144, %..loopexit_crit_edge.i.i.i.i.i.i.i ], [ %138, %145 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %..loopexit_crit_edge.i.i.i.i.i.i.i, %141, %124
+  %.0.i.i.i.i.i.i = phi i64 [ %138, %124 ], [ %148, %..loopexit_crit_edge.i.i.i.i.i.i.i ], [ %138, %141 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !25
   %169 = getelementptr inbounds i8, ptr %92, i64 648
   %170 = load ptr, ptr %169, align 8, !noalias !25, !nonnull !5, !noundef !5

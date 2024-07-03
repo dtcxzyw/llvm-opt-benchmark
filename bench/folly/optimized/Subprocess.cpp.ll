@@ -2791,7 +2791,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %29, label %middle.block, label %vector.body, !llvm.loop !128
 
 middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %umax.i, %n.vec
+  %cmp.n = icmp eq i64 %sub.ptr.div.i.i, %n.vec
   br i1 %cmp.n, label %invoke.cont8, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %middle.block, %vector.memcheck, %for.body.preheader.i
@@ -3389,7 +3389,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %42, label %middle.block, label %vector.body, !llvm.loop !151
 
 middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %umax.i, %n.vec
+  %cmp.n = icmp eq i64 %sub.ptr.div.i.i, %n.vec
   br i1 %cmp.n, label %invoke.cont34, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %middle.block, %for.body.preheader.i
@@ -5334,7 +5334,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %45, label %middle.block, label %vector.body, !llvm.loop !201
 
 middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %umax.i, %n.vec
+  %cmp.n = icmp eq i64 %sub.ptr.div.i.i, %n.vec
   br i1 %cmp.n, label %_ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %middle.block, %vector.memcheck, %for.body.preheader.i

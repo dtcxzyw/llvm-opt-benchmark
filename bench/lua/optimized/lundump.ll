@@ -1062,10 +1062,7 @@ loadInt.exit228:                                  ; preds = %if.end.i.i217
   %cmp.i229.not = icmp eq i64 %or.i.i221, 0
   br i1 %cmp.i229.not, label %do.body.i.i.i169.preheader, label %for.body.i166
 
-for.cond4.i.preheader:                            ; preds = %for.body.i166
-  br i1 %cmp.i229.not, label %do.body.i.i.i169.preheader, label %for.body7.i164.lr.ph
-
-for.body7.i164.lr.ph:                             ; preds = %for.cond4.i.preheader
+for.body7.i164.lr.ph:                             ; preds = %for.body.i166
   %marked.i = getelementptr inbounds i8, ptr %f, i64 9
   br label %for.body7.i164
 
@@ -1076,7 +1073,7 @@ for.body.i166:                                    ; preds = %loadInt.exit228, %f
   store ptr null, ptr %arrayidx.i167, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %or.i.i221
-  br i1 %exitcond.not, label %for.cond4.i.preheader, label %for.body.i166, !llvm.loop !11
+  br i1 %exitcond.not, label %for.body7.i164.lr.ph, label %for.body.i166, !llvm.loop !11
 
 for.body7.i164:                                   ; preds = %for.body7.i164.lr.ph, %cond.end.i165
   %indvars.iv234 = phi i64 [ 0, %for.body7.i164.lr.ph ], [ %indvars.iv.next235, %cond.end.i165 ]
@@ -1116,7 +1113,7 @@ cond.end.i165:                                    ; preds = %cond.true.i, %land.
   %exitcond238.not = icmp eq i64 %indvars.iv.next235, %or.i.i221
   br i1 %exitcond238.not, label %do.body.i.i.i169.preheader, label %for.body7.i164, !llvm.loop !12
 
-do.body.i.i.i169.preheader:                       ; preds = %cond.end.i165, %loadInt.exit228, %for.cond4.i.preheader
+do.body.i.i.i169.preheader:                       ; preds = %cond.end.i165, %loadInt.exit228
   br label %do.body.i.i.i169
 
 do.body.i.i.i169:                                 ; preds = %do.body.i.i.i169.preheader, %if.end.i.i.i181

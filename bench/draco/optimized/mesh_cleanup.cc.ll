@@ -841,87 +841,82 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge:   ; preds = %_ZNSt6vectorIbSaIbE
   %49 = load i32, ptr %8, align 8
   %50 = zext i32 %49 to i64
   %.not.i.i.i.i.i = icmp eq i32 %49, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_EC2Em.exit, label %.lr.ph.preheader.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %.loopexit221, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge
   %51 = shl nuw nsw i64 %50, 2
   %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %51) #17
           to label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_EC2Em.exit.thread unwind label %36
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_EC2Em.exit: ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge
-  %53 = icmp ult i32 %.0.lcssa, %49
-  br i1 %53, label %.preheader219, label %.loopexit221
-
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_EC2Em.exit.thread: ; preds = %.lr.ph.preheader.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %52, i8 0, i64 %51, i1 false)
-  %54 = icmp ult i32 %.0.lcssa, %49
-  br i1 %54, label %.preheader219, label %.lr.ph230
+  %53 = icmp ult i32 %.0.lcssa, %49
+  br i1 %53, label %.preheader219, label %.lr.ph230
 
-.preheader219:                                    ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_EC2Em.exit.thread, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_EC2Em.exit
-  %.sroa.0184.0311 = phi ptr [ %52, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_EC2Em.exit.thread ], [ null, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_EC2Em.exit ]
-  %55 = load ptr, ptr %2, align 8
-  br label %61
+.preheader219:                                    ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_EC2Em.exit.thread
+  %54 = load ptr, ptr %2, align 8
+  br label %60
 
-.preheader218:                                    ; preds = %61
-  %56 = ptrtoint ptr %48 to i64
-  %57 = ptrtoint ptr %47 to i64
-  %58 = sub i64 %56, %57
-  %59 = sdiv exact i64 %58, 12
-  %60 = and i64 %59, 4294967295
-  %.not264 = icmp eq i64 %60, 0
+.preheader218:                                    ; preds = %60
+  %55 = ptrtoint ptr %48 to i64
+  %56 = ptrtoint ptr %47 to i64
+  %57 = sub i64 %55, %56
+  %58 = sdiv exact i64 %57, 12
+  %59 = and i64 %58, 4294967295
+  %.not264 = icmp eq i64 %59, 0
   br i1 %.not264, label %._crit_edge, label %.lr.ph235
 
-61:                                               ; preds = %.preheader219, %61
-  %indvars.iv277 = phi i64 [ 0, %.preheader219 ], [ %indvars.iv.next278, %61 ]
-  %.3232 = phi i32 [ 0, %.preheader219 ], [ %spec.select323, %61 ]
-  %62 = lshr i64 %indvars.iv277, 6
-  %.zext212 = and i64 %62, 67108863
-  %63 = getelementptr inbounds i64, ptr %55, i64 %.zext212
-  %64 = and i64 %indvars.iv277, 63
-  %65 = shl nuw i64 1, %64
-  %66 = load i64, ptr %63, align 8
-  %67 = and i64 %66, %65
-  %.not216 = icmp ne i64 %67, 0
+60:                                               ; preds = %.preheader219, %60
+  %indvars.iv277 = phi i64 [ 0, %.preheader219 ], [ %indvars.iv.next278, %60 ]
+  %.3232 = phi i32 [ 0, %.preheader219 ], [ %spec.select323, %60 ]
+  %61 = lshr i64 %indvars.iv277, 6
+  %.zext212 = and i64 %61, 67108863
+  %62 = getelementptr inbounds i64, ptr %54, i64 %.zext212
+  %63 = and i64 %indvars.iv277, 63
+  %64 = shl nuw i64 1, %63
+  %65 = load i64, ptr %62, align 8
+  %66 = and i64 %65, %64
+  %.not216 = icmp ne i64 %66, 0
   %spec.select = select i1 %.not216, i32 %.3232, i32 -1
-  %68 = zext i1 %.not216 to i32
-  %spec.select323 = add i32 %.3232, %68
-  %69 = getelementptr inbounds %"class.draco::IndexType.22", ptr %.sroa.0184.0311, i64 %indvars.iv277
-  store i32 %spec.select, ptr %69, align 4
+  %67 = zext i1 %.not216 to i32
+  %spec.select323 = add i32 %.3232, %67
+  %68 = getelementptr inbounds %"class.draco::IndexType.22", ptr %52, i64 %indvars.iv277
+  store i32 %spec.select, ptr %68, align 4
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %exitcond281.not = icmp eq i64 %indvars.iv.next278, %50
-  br i1 %exitcond281.not, label %.preheader218, label %61, !llvm.loop !23
+  br i1 %exitcond281.not, label %.preheader218, label %60, !llvm.loop !23
 
 .lr.ph235:                                        ; preds = %.preheader218, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i
   %indvars.iv286 = phi i64 [ %indvars.iv.next287, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i ], [ 0, %.preheader218 ]
-  %70 = phi ptr [ %79, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i ], [ %47, %.preheader218 ]
-  %71 = getelementptr inbounds %"struct.std::array.21", ptr %70, i64 %indvars.iv286
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %71, i64 12, i1 false)
-  br label %72
+  %69 = phi ptr [ %78, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i ], [ %47, %.preheader218 ]
+  %70 = getelementptr inbounds %"struct.std::array.21", ptr %69, i64 %indvars.iv286
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %70, i64 12, i1 false)
+  br label %71
 
-72:                                               ; preds = %.lr.ph235, %72
-  %indvars.iv282 = phi i64 [ 0, %.lr.ph235 ], [ %indvars.iv.next283, %72 ]
-  %73 = getelementptr inbounds [3 x %"class.draco::IndexType.22"], ptr %3, i64 0, i64 %indvars.iv282
-  %74 = load i32, ptr %73, align 4
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds %"class.draco::IndexType.22", ptr %.sroa.0184.0311, i64 %75
-  %77 = load i32, ptr %76, align 4
-  store i32 %77, ptr %73, align 4
+71:                                               ; preds = %.lr.ph235, %71
+  %indvars.iv282 = phi i64 [ 0, %.lr.ph235 ], [ %indvars.iv.next283, %71 ]
+  %72 = getelementptr inbounds [3 x %"class.draco::IndexType.22"], ptr %3, i64 0, i64 %indvars.iv282
+  %73 = load i32, ptr %72, align 4
+  %74 = zext i32 %73 to i64
+  %75 = getelementptr inbounds %"class.draco::IndexType.22", ptr %52, i64 %74
+  %76 = load i32, ptr %75, align 4
+  store i32 %76, ptr %72, align 4
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next283, 3
-  br i1 %exitcond285.not, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, label %72, !llvm.loop !24
+  br i1 %exitcond285.not, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, label %71, !llvm.loop !24
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i: ; preds = %72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %71, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
+_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i: ; preds = %71
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %70, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
-  %78 = load ptr, ptr %12, align 8
-  %79 = load ptr, ptr %11, align 8
+  %77 = load ptr, ptr %12, align 8
+  %78 = load ptr, ptr %11, align 8
+  %79 = ptrtoint ptr %77 to i64
   %80 = ptrtoint ptr %78 to i64
-  %81 = ptrtoint ptr %79 to i64
-  %82 = sub i64 %80, %81
-  %83 = sdiv exact i64 %82, 12
-  %84 = and i64 %83, 4294967295
-  %85 = icmp ult i64 %indvars.iv.next287, %84
-  br i1 %85, label %.lr.ph235, label %._crit_edge, !llvm.loop !25
+  %81 = sub i64 %79, %80
+  %82 = sdiv exact i64 %81, 12
+  %83 = and i64 %82, 4294967295
+  %84 = icmp ult i64 %indvars.iv.next287, %83
+  br i1 %84, label %.lr.ph235, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, %.preheader218
   store i32 %spec.select323, ptr %8, align 8
@@ -929,503 +924,503 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
 
 .lr.ph230:                                        ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_EC2Em.exit.thread, %.lr.ph230
   %indvars.iv273 = phi i64 [ %indvars.iv.next274, %.lr.ph230 ], [ 0, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_EC2Em.exit.thread ]
-  %86 = getelementptr inbounds %"class.draco::IndexType.22", ptr %52, i64 %indvars.iv273
-  %87 = trunc nuw i64 %indvars.iv273 to i32
-  store i32 %87, ptr %86, align 4
+  %85 = getelementptr inbounds %"class.draco::IndexType.22", ptr %52, i64 %indvars.iv273
+  %86 = trunc nuw i64 %indvars.iv273 to i32
+  store i32 %86, ptr %85, align 4
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %exitcond276.not = icmp eq i64 %indvars.iv.next274, %50
   br i1 %exitcond276.not, label %.loopexit221, label %.lr.ph230, !llvm.loop !26
 
-.loopexit221:                                     ; preds = %.lr.ph230, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_EC2Em.exit, %._crit_edge
-  %88 = phi i1 [ true, %._crit_edge ], [ false, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_EC2Em.exit ], [ %54, %.lr.ph230 ]
-  %.sroa.0184.0312 = phi ptr [ %.sroa.0184.0311, %._crit_edge ], [ null, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_EC2Em.exit ], [ %52, %.lr.ph230 ]
-  %89 = getelementptr inbounds i8, ptr %0, i64 16
-  %90 = getelementptr inbounds i8, ptr %0, i64 24
-  %91 = load ptr, ptr %90, align 8
-  %92 = load ptr, ptr %89, align 8
+.loopexit221:                                     ; preds = %.lr.ph230, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge, %._crit_edge
+  %87 = phi i1 [ %53, %._crit_edge ], [ false, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge ], [ %53, %.lr.ph230 ]
+  %.sroa.0184.0312 = phi ptr [ %52, %._crit_edge ], [ null, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge ], [ %52, %.lr.ph230 ]
+  %88 = getelementptr inbounds i8, ptr %0, i64 16
+  %89 = getelementptr inbounds i8, ptr %0, i64 24
+  %90 = load ptr, ptr %89, align 8
+  %91 = load ptr, ptr %88, align 8
+  %92 = ptrtoint ptr %90 to i64
   %93 = ptrtoint ptr %91 to i64
-  %94 = ptrtoint ptr %92 to i64
-  %95 = sub i64 %93, %94
-  %96 = lshr exact i64 %95, 3
-  %97 = trunc i64 %96 to i32
-  %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %.lr.ph258, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit103
+  %94 = sub i64 %92, %93
+  %95 = lshr exact i64 %94, 3
+  %96 = trunc i64 %95 to i32
+  %97 = icmp sgt i32 %96, 0
+  br i1 %97, label %.lr.ph258, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit103
 
 .lr.ph258:                                        ; preds = %.loopexit221, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99
   %indvars.iv307 = phi i64 [ %indvars.iv.next308, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99 ], [ 0, %.loopexit221 ]
-  %99 = phi ptr [ %266, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99 ], [ %92, %.loopexit221 ]
+  %98 = phi ptr [ %265, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99 ], [ %91, %.loopexit221 ]
   %.sroa.0162.0255 = phi ptr [ %.sroa.0162.1, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99 ], [ null, %.loopexit221 ]
   %.sroa.14.0254 = phi ptr [ %.sroa.14.2, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99 ], [ null, %.loopexit221 ]
   %.sroa.0155.0253 = phi ptr [ %.sroa.0155.3, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99 ], [ null, %.loopexit221 ]
   %.sroa.15.0252 = phi ptr [ %.sroa.15.1, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99 ], [ null, %.loopexit221 ]
   %.sroa.9.0251 = phi ptr [ %.sroa.9.1, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99 ], [ null, %.loopexit221 ]
-  %100 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %99, i64 %indvars.iv307
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 96
-  %103 = load i32, ptr %102, align 8
-  %104 = zext i32 %103 to i64
-  %105 = ptrtoint ptr %.sroa.15.0252 to i64
-  %106 = ptrtoint ptr %.sroa.0162.0255 to i64
-  %107 = sub i64 %105, %106
-  %108 = icmp ult i64 %107, %104
-  br i1 %108, label %109, label %113
+  %99 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %98, i64 %indvars.iv307
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 96
+  %102 = load i32, ptr %101, align 8
+  %103 = zext i32 %102 to i64
+  %104 = ptrtoint ptr %.sroa.15.0252 to i64
+  %105 = ptrtoint ptr %.sroa.0162.0255 to i64
+  %106 = sub i64 %104, %105
+  %107 = icmp ult i64 %106, %103
+  br i1 %107, label %108, label %112
 
-109:                                              ; preds = %.lr.ph258
-  %110 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %104) #17
-          to label %.noexc116 unwind label %145
+108:                                              ; preds = %.lr.ph258
+  %109 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %103) #17
+          to label %.noexc116 unwind label %144
 
-.noexc116:                                        ; preds = %109
-  %111 = getelementptr inbounds i8, ptr %110, i64 %104
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %110, i8 0, i64 %104, i1 false)
+.noexc116:                                        ; preds = %108
+  %110 = getelementptr inbounds i8, ptr %109, i64 %103
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %109, i8 0, i64 %103, i1 false)
   %.not.i.i.i.i115 = icmp eq ptr %.sroa.0162.0255, null
-  br i1 %.not.i.i.i.i115, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit, label %112
+  br i1 %.not.i.i.i.i115, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit, label %111
 
-112:                                              ; preds = %.noexc116
+111:                                              ; preds = %.noexc116
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0162.0255) #16
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit
 
-113:                                              ; preds = %.lr.ph258
-  %114 = ptrtoint ptr %.sroa.9.0251 to i64
-  %115 = sub i64 %114, %106
-  %116 = icmp ult i64 %115, %104
-  br i1 %116, label %117, label %123
+112:                                              ; preds = %.lr.ph258
+  %113 = ptrtoint ptr %.sroa.9.0251 to i64
+  %114 = sub i64 %113, %105
+  %115 = icmp ult i64 %114, %103
+  br i1 %115, label %116, label %122
 
-117:                                              ; preds = %113
+116:                                              ; preds = %112
   %.not.i.i.i.i11.i = icmp eq ptr %.sroa.9.0251, %.sroa.0162.0255
-  br i1 %.not.i.i.i.i11.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i, label %118
+  br i1 %.not.i.i.i.i11.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i, label %117
 
-118:                                              ; preds = %117
-  call void @llvm.memset.p0.i64(ptr align 1 %.sroa.0162.0255, i8 0, i64 %115, i1 false)
+117:                                              ; preds = %116
+  call void @llvm.memset.p0.i64(ptr align 1 %.sroa.0162.0255, i8 0, i64 %114, i1 false)
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i
 
-_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i: ; preds = %118, %117
-  %.neg.i = sub i64 %106, %114
-  %119 = add i64 %.neg.i, %104
-  %120 = icmp eq i64 %119, 0
-  br i1 %120, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit, label %121
+_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i: ; preds = %117, %116
+  %.neg.i = sub i64 %105, %113
+  %118 = add i64 %.neg.i, %103
+  %119 = icmp eq i64 %118, 0
+  br i1 %119, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit, label %120
 
-121:                                              ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i
-  %122 = getelementptr inbounds i8, ptr %.sroa.9.0251, i64 %119
-  call void @llvm.memset.p0.i64(ptr align 1 %.sroa.9.0251, i8 0, i64 %119, i1 false)
+120:                                              ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i
+  %121 = getelementptr inbounds i8, ptr %.sroa.9.0251, i64 %118
+  call void @llvm.memset.p0.i64(ptr align 1 %.sroa.9.0251, i8 0, i64 %118, i1 false)
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit
 
-123:                                              ; preds = %113
-  %124 = icmp eq i32 %103, 0
-  br i1 %124, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit, label %125
+122:                                              ; preds = %112
+  %123 = icmp eq i32 %102, 0
+  br i1 %123, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit, label %124
 
-125:                                              ; preds = %123
-  %126 = getelementptr inbounds i8, ptr %.sroa.0162.0255, i64 %104
-  call void @llvm.memset.p0.i64(ptr align 1 %.sroa.0162.0255, i8 0, i64 %104, i1 false)
+124:                                              ; preds = %122
+  %125 = getelementptr inbounds i8, ptr %.sroa.0162.0255, i64 %103
+  call void @llvm.memset.p0.i64(ptr align 1 %.sroa.0162.0255, i8 0, i64 %103, i1 false)
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit: ; preds = %123, %125, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i, %121, %.noexc116, %112
-  %.sroa.9.1 = phi ptr [ %111, %.noexc116 ], [ %111, %112 ], [ %.sroa.9.0251, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i ], [ %122, %121 ], [ %.sroa.0162.0255, %123 ], [ %126, %125 ]
-  %.sroa.15.1 = phi ptr [ %111, %.noexc116 ], [ %111, %112 ], [ %.sroa.15.0252, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i ], [ %.sroa.15.0252, %121 ], [ %.sroa.15.0252, %123 ], [ %.sroa.15.0252, %125 ]
-  %.sroa.0162.1 = phi ptr [ %110, %.noexc116 ], [ %110, %112 ], [ %.sroa.0162.0255, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i ], [ %.sroa.0162.0255, %121 ], [ %.sroa.0162.0255, %123 ], [ %.sroa.0162.0255, %125 ]
+_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit: ; preds = %122, %124, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i, %120, %.noexc116, %111
+  %.sroa.9.1 = phi ptr [ %110, %.noexc116 ], [ %110, %111 ], [ %.sroa.9.0251, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i ], [ %121, %120 ], [ %.sroa.0162.0255, %122 ], [ %125, %124 ]
+  %.sroa.15.1 = phi ptr [ %110, %.noexc116 ], [ %110, %111 ], [ %.sroa.15.0252, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i ], [ %.sroa.15.0252, %120 ], [ %.sroa.15.0252, %122 ], [ %.sroa.15.0252, %124 ]
+  %.sroa.0162.1 = phi ptr [ %109, %.noexc116 ], [ %109, %111 ], [ %.sroa.0162.0255, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i ], [ %.sroa.0162.0255, %120 ], [ %.sroa.0162.0255, %122 ], [ %.sroa.0162.0255, %124 ]
   br i1 %.not.i.i.i.i.i, label %._crit_edge239, label %.lr.ph238
 
 .lr.ph238:                                        ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit
-  %127 = getelementptr inbounds i8, ptr %101, i64 100
-  %128 = getelementptr inbounds i8, ptr %101, i64 72
-  br label %129
+  %126 = getelementptr inbounds i8, ptr %100, i64 100
+  %127 = getelementptr inbounds i8, ptr %100, i64 72
+  br label %128
 
-129:                                              ; preds = %.lr.ph238, %149
-  %indvars.iv289 = phi i64 [ 0, %.lr.ph238 ], [ %indvars.iv.next290, %149 ]
-  %.0206236 = phi i32 [ 0, %.lr.ph238 ], [ %.1207, %149 ]
-  %130 = getelementptr inbounds %"class.draco::IndexType.22", ptr %.sroa.0184.0312, i64 %indvars.iv289
-  %131 = load i32, ptr %130, align 4
-  %.not215 = icmp eq i32 %131, -1
-  br i1 %.not215, label %149, label %132
+128:                                              ; preds = %.lr.ph238, %148
+  %indvars.iv289 = phi i64 [ 0, %.lr.ph238 ], [ %indvars.iv.next290, %148 ]
+  %.0206236 = phi i32 [ 0, %.lr.ph238 ], [ %.1207, %148 ]
+  %129 = getelementptr inbounds %"class.draco::IndexType.22", ptr %.sroa.0184.0312, i64 %indvars.iv289
+  %130 = load i32, ptr %129, align 4
+  %.not215 = icmp eq i32 %130, -1
+  br i1 %.not215, label %148, label %131
 
-132:                                              ; preds = %129
-  %133 = load i8, ptr %127, align 4
-  %134 = trunc i8 %133 to i1
-  %135 = trunc nuw i64 %indvars.iv289 to i32
-  br i1 %134, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, label %136
+131:                                              ; preds = %128
+  %132 = load i8, ptr %126, align 4
+  %133 = trunc i8 %132 to i1
+  %134 = trunc nuw i64 %indvars.iv289 to i32
+  br i1 %133, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, label %135
 
-136:                                              ; preds = %132
-  %137 = load ptr, ptr %128, align 8
-  %138 = getelementptr inbounds %"class.draco::IndexType", ptr %137, i64 %indvars.iv289
-  %139 = load i32, ptr %138, align 4
+135:                                              ; preds = %131
+  %136 = load ptr, ptr %127, align 8
+  %137 = getelementptr inbounds %"class.draco::IndexType", ptr %136, i64 %indvars.iv289
+  %138 = load i32, ptr %137, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
-_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit: ; preds = %136, %132
-  %.sroa.02.0.i = phi i32 [ %139, %136 ], [ %135, %132 ]
-  %140 = zext i32 %.sroa.02.0.i to i64
-  %141 = getelementptr inbounds i8, ptr %.sroa.0162.1, i64 %140
-  %142 = load i8, ptr %141, align 1
-  %.not75 = icmp eq i8 %142, 0
-  br i1 %.not75, label %143, label %149
+_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit: ; preds = %135, %131
+  %.sroa.02.0.i = phi i32 [ %138, %135 ], [ %134, %131 ]
+  %139 = zext i32 %.sroa.02.0.i to i64
+  %140 = getelementptr inbounds i8, ptr %.sroa.0162.1, i64 %139
+  %141 = load i8, ptr %140, align 1
+  %.not75 = icmp eq i8 %141, 0
+  br i1 %.not75, label %142, label %148
 
-143:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
-  store i8 1, ptr %141, align 1
-  %144 = add i32 %.0206236, 1
-  br label %149
+142:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
+  store i8 1, ptr %140, align 1
+  %143 = add i32 %.0206236, 1
+  br label %148
 
-145:                                              ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %109, %258, %212, %._crit_edge244
-  %.sroa.0155.1 = phi ptr [ %.sroa.0155.3, %258 ], [ %.sroa.0155.3, %212 ], [ %.sroa.0155.2, %._crit_edge244 ], [ %.sroa.0155.0253, %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0155.0253, %109 ]
-  %.sroa.0162.2 = phi ptr [ %.sroa.0162.1, %258 ], [ %.sroa.0162.1, %212 ], [ %.sroa.0162.1, %._crit_edge244 ], [ %.sroa.0162.1, %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0162.0255, %109 ]
-  %146 = landingpad { ptr, i32 }
+144:                                              ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %108, %257, %211, %._crit_edge244
+  %.sroa.0155.1 = phi ptr [ %.sroa.0155.3, %257 ], [ %.sroa.0155.3, %211 ], [ %.sroa.0155.2, %._crit_edge244 ], [ %.sroa.0155.0253, %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0155.0253, %108 ]
+  %.sroa.0162.2 = phi ptr [ %.sroa.0162.1, %257 ], [ %.sroa.0162.1, %211 ], [ %.sroa.0162.1, %._crit_edge244 ], [ %.sroa.0162.1, %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0162.0255, %108 ]
+  %145 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i.i90 = icmp eq ptr %.sroa.0155.1, null
-  br i1 %.not.i.i.i.i90, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit, label %147
+  br i1 %.not.i.i.i.i90, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit, label %146
 
-147:                                              ; preds = %145
+146:                                              ; preds = %144
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0155.1) #16
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit: ; preds = %145, %147
+_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit: ; preds = %144, %146
   %.not.i.i.i.i91 = icmp eq ptr %.sroa.0162.2, null
-  br i1 %.not.i.i.i.i91, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit, label %148
+  br i1 %.not.i.i.i.i91, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit, label %147
 
-148:                                              ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit
+147:                                              ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0162.2) #16
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit
 
-149:                                              ; preds = %129, %143, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
-  %.1207 = phi i32 [ %144, %143 ], [ %.0206236, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ], [ %.0206236, %129 ]
+148:                                              ; preds = %128, %142, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
+  %.1207 = phi i32 [ %143, %142 ], [ %.0206236, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ], [ %.0206236, %128 ]
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond293.not = icmp eq i64 %indvars.iv.next290, %50
-  br i1 %exitcond293.not, label %._crit_edge239, label %129, !llvm.loop !27
+  br i1 %exitcond293.not, label %._crit_edge239, label %128, !llvm.loop !27
 
-._crit_edge239:                                   ; preds = %149, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit
-  %.0206.lcssa = phi i32 [ 0, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit ], [ %.1207, %149 ]
-  %150 = load i32, ptr %102, align 8
-  %151 = zext i32 %150 to i64
-  %152 = icmp ult i32 %.0206.lcssa, %150
-  br i1 %152, label %153, label %195
+._crit_edge239:                                   ; preds = %148, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit
+  %.0206.lcssa = phi i32 [ 0, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit ], [ %.1207, %148 ]
+  %149 = load i32, ptr %101, align 8
+  %150 = zext i32 %149 to i64
+  %151 = icmp ult i32 %.0206.lcssa, %149
+  br i1 %151, label %152, label %194
 
-153:                                              ; preds = %._crit_edge239
-  %154 = ptrtoint ptr %.sroa.0155.0253 to i64
-  %155 = ptrtoint ptr %.sroa.14.0254 to i64
-  %156 = sub i64 %155, %154
-  %157 = ashr exact i64 %156, 2
-  %158 = icmp ult i64 %157, 2305843009213693952
-  call void @llvm.assume(i1 %158)
-  %.not28.i.i = icmp ult i64 %157, %151
-  %159 = shl nuw nsw i64 %151, 2
+152:                                              ; preds = %._crit_edge239
+  %153 = ptrtoint ptr %.sroa.0155.0253 to i64
+  %154 = ptrtoint ptr %.sroa.14.0254 to i64
+  %155 = sub i64 %154, %153
+  %156 = ashr exact i64 %155, 2
+  %157 = icmp ult i64 %156, 2305843009213693952
+  call void @llvm.assume(i1 %157)
+  %.not28.i.i = icmp ult i64 %156, %150
+  %158 = shl nuw nsw i64 %150, 2
   br i1 %.not28.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i, label %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i
 
-_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i: ; preds = %153
-  call void @llvm.memset.p0.i64(ptr align 4 %.sroa.0155.0253, i8 0, i64 %159, i1 false)
+_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i: ; preds = %152
+  call void @llvm.memset.p0.i64(ptr align 4 %.sroa.0155.0253, i8 0, i64 %158, i1 false)
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit
 
-_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %153
-  %160 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %159) #17
-          to label %.noexc119 unwind label %145
+_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %152
+  %159 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %158) #17
+          to label %.noexc119 unwind label %144
 
 .noexc119:                                        ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %160, i8 0, i64 %159, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %159, i8 0, i64 %158, i1 false)
   %.not.i36.i.i = icmp eq ptr %.sroa.0155.0253, null
-  br i1 %.not.i36.i.i, label %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit37.i.i, label %161
+  br i1 %.not.i36.i.i, label %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit37.i.i, label %160
 
-161:                                              ; preds = %.noexc119
+160:                                              ; preds = %.noexc119
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0155.0253) #16
   br label %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit37.i.i
 
-_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit37.i.i: ; preds = %161, %.noexc119
-  %162 = getelementptr inbounds %"class.draco::IndexType", ptr %160, i64 %151
+_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit37.i.i: ; preds = %160, %.noexc119
+  %161 = getelementptr inbounds %"class.draco::IndexType", ptr %159, i64 %150
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit37.i.i
-  %.sroa.0155.2 = phi ptr [ %160, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit37.i.i ], [ %.sroa.0155.0253, %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i ]
-  %.sroa.14.1 = phi ptr [ %162, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit37.i.i ], [ %.sroa.14.0254, %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i ]
-  %163 = load i32, ptr %102, align 8
-  %.not268 = icmp eq i32 %163, 0
+  %.sroa.0155.2 = phi ptr [ %159, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit37.i.i ], [ %.sroa.0155.0253, %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i ]
+  %.sroa.14.1 = phi ptr [ %161, %_ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit37.i.i ], [ %.sroa.14.0254, %_ZSt27__uninitialized_default_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_ET_S5_T0_RSaIT1_E.exit.i.i ]
+  %162 = load i32, ptr %101, align 8
+  %.not268 = icmp eq i32 %162, 0
   br i1 %.not268, label %._crit_edge244, label %.lr.ph243
 
 .lr.ph243:                                        ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit
-  %164 = getelementptr inbounds i8, ptr %101, i64 48
-  %165 = getelementptr inbounds i8, ptr %101, i64 40
-  %166 = getelementptr inbounds i8, ptr %101, i64 64
-  br label %167
+  %163 = getelementptr inbounds i8, ptr %100, i64 48
+  %164 = getelementptr inbounds i8, ptr %100, i64 40
+  %165 = getelementptr inbounds i8, ptr %100, i64 64
+  br label %166
 
-167:                                              ; preds = %.lr.ph243, %190
-  %168 = phi i32 [ %163, %.lr.ph243 ], [ %191, %190 ]
-  %indvars.iv294 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next295, %190 ]
-  %.2208241 = phi i32 [ 0, %.lr.ph243 ], [ %.3209, %190 ]
-  %169 = getelementptr inbounds i8, ptr %.sroa.0162.1, i64 %indvars.iv294
-  %170 = load i8, ptr %169, align 1
-  %.not74 = icmp eq i8 %170, 0
-  br i1 %.not74, label %190, label %171
+166:                                              ; preds = %.lr.ph243, %189
+  %167 = phi i32 [ %162, %.lr.ph243 ], [ %190, %189 ]
+  %indvars.iv294 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next295, %189 ]
+  %.2208241 = phi i32 [ 0, %.lr.ph243 ], [ %.3209, %189 ]
+  %168 = getelementptr inbounds i8, ptr %.sroa.0162.1, i64 %indvars.iv294
+  %169 = load i8, ptr %168, align 1
+  %.not74 = icmp eq i8 %169, 0
+  br i1 %.not74, label %189, label %170
 
-171:                                              ; preds = %167
-  %172 = getelementptr inbounds %"class.draco::IndexType", ptr %.sroa.0155.2, i64 %indvars.iv294
-  store i32 %.2208241, ptr %172, align 4
-  %173 = zext i32 %.2208241 to i64
-  %174 = icmp ugt i64 %indvars.iv294, %173
-  br i1 %174, label %175, label %188
+170:                                              ; preds = %166
+  %171 = getelementptr inbounds %"class.draco::IndexType", ptr %.sroa.0155.2, i64 %indvars.iv294
+  store i32 %.2208241, ptr %171, align 4
+  %172 = zext i32 %.2208241 to i64
+  %173 = icmp ugt i64 %indvars.iv294, %172
+  br i1 %173, label %174, label %187
 
-175:                                              ; preds = %171
+174:                                              ; preds = %170
+  %175 = load i64, ptr %163, align 8
   %176 = load i64, ptr %164, align 8
-  %177 = load i64, ptr %165, align 8
-  %178 = mul nsw i64 %177, %indvars.iv294
-  %179 = load ptr, ptr %101, align 8
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr i8, ptr %180, i64 %178
-  %182 = getelementptr i8, ptr %181, i64 %176
-  %183 = load ptr, ptr %166, align 8
-  %184 = mul nsw i64 %177, %173
-  %185 = load ptr, ptr %183, align 8
-  %186 = getelementptr i8, ptr %185, i64 %184
-  %187 = getelementptr i8, ptr %186, i64 %176
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %187, ptr align 1 %182, i64 %177, i1 false)
-  br label %188
+  %177 = mul nsw i64 %176, %indvars.iv294
+  %178 = load ptr, ptr %100, align 8
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr i8, ptr %179, i64 %177
+  %181 = getelementptr i8, ptr %180, i64 %175
+  %182 = load ptr, ptr %165, align 8
+  %183 = mul nsw i64 %176, %172
+  %184 = load ptr, ptr %182, align 8
+  %185 = getelementptr i8, ptr %184, i64 %183
+  %186 = getelementptr i8, ptr %185, i64 %175
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %186, ptr align 1 %181, i64 %176, i1 false)
+  br label %187
 
-188:                                              ; preds = %175, %171
-  %189 = add i32 %.2208241, 1
-  %.pre = load i32, ptr %102, align 8
-  br label %190
+187:                                              ; preds = %174, %170
+  %188 = add i32 %.2208241, 1
+  %.pre = load i32, ptr %101, align 8
+  br label %189
 
-190:                                              ; preds = %167, %188
-  %191 = phi i32 [ %168, %167 ], [ %.pre, %188 ]
-  %.3209 = phi i32 [ %.2208241, %167 ], [ %189, %188 ]
+189:                                              ; preds = %166, %187
+  %190 = phi i32 [ %167, %166 ], [ %.pre, %187 ]
+  %.3209 = phi i32 [ %.2208241, %166 ], [ %188, %187 ]
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
-  %192 = zext i32 %191 to i64
-  %193 = icmp ult i64 %indvars.iv.next295, %192
-  br i1 %193, label %167, label %._crit_edge244, !llvm.loop !28
+  %191 = zext i32 %190 to i64
+  %192 = icmp ult i64 %indvars.iv.next295, %191
+  br i1 %192, label %166, label %._crit_edge244, !llvm.loop !28
 
-._crit_edge244:                                   ; preds = %190, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit
-  %.2208.lcssa = phi i32 [ 0, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit ], [ %.3209, %190 ]
-  %194 = zext i32 %.2208.lcssa to i64
-  invoke void @_ZN5draco14PointAttribute6ResizeEm(ptr noundef nonnull align 8 dereferenceable(112) %101, i64 noundef %194)
-          to label %195 unwind label %145
+._crit_edge244:                                   ; preds = %189, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit
+  %.2208.lcssa = phi i32 [ 0, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_E6resizeEm.exit ], [ %.3209, %189 ]
+  %193 = zext i32 %.2208.lcssa to i64
+  invoke void @_ZN5draco14PointAttribute6ResizeEm(ptr noundef nonnull align 8 dereferenceable(112) %100, i64 noundef %193)
+          to label %194 unwind label %144
 
-195:                                              ; preds = %._crit_edge244, %._crit_edge239
+194:                                              ; preds = %._crit_edge244, %._crit_edge239
   %.sroa.0155.3 = phi ptr [ %.sroa.0155.2, %._crit_edge244 ], [ %.sroa.0155.0253, %._crit_edge239 ]
   %.sroa.14.2 = phi ptr [ %.sroa.14.1, %._crit_edge244 ], [ %.sroa.14.0254, %._crit_edge239 ]
   %.4210 = phi i32 [ %.2208.lcssa, %._crit_edge244 ], [ %.0206.lcssa, %._crit_edge239 ]
-  %brmerge = or i1 %88, %152
-  br i1 %brmerge, label %196, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99
+  %brmerge = or i1 %87, %151
+  br i1 %brmerge, label %195, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99
 
-196:                                              ; preds = %195
-  %197 = getelementptr inbounds i8, ptr %101, i64 100
-  %198 = load i8, ptr %197, align 4
-  %199 = trunc i8 %198 to i1
-  br i1 %199, label %200, label %.loopexit
+195:                                              ; preds = %194
+  %196 = getelementptr inbounds i8, ptr %100, i64 100
+  %197 = load i8, ptr %196, align 4
+  %198 = trunc i8 %197 to i1
+  br i1 %198, label %199, label %.loopexit
 
-200:                                              ; preds = %196
-  %201 = load i32, ptr %8, align 8
-  %.not = icmp eq i32 %.4210, %201
-  br i1 %.not, label %.loopexit, label %202
+199:                                              ; preds = %195
+  %200 = load i32, ptr %8, align 8
+  %.not = icmp eq i32 %.4210, %200
+  br i1 %.not, label %.loopexit, label %201
 
-202:                                              ; preds = %200
-  store i8 0, ptr %197, align 4
-  %203 = getelementptr inbounds i8, ptr %101, i64 72
-  %204 = getelementptr inbounds i8, ptr %101, i64 80
-  %205 = load ptr, ptr %204, align 8
-  %206 = load ptr, ptr %203, align 8
+201:                                              ; preds = %199
+  store i8 0, ptr %196, align 4
+  %202 = getelementptr inbounds i8, ptr %100, i64 72
+  %203 = getelementptr inbounds i8, ptr %100, i64 80
+  %204 = load ptr, ptr %203, align 8
+  %205 = load ptr, ptr %202, align 8
+  %206 = ptrtoint ptr %204 to i64
   %207 = ptrtoint ptr %205 to i64
-  %208 = ptrtoint ptr %206 to i64
-  %209 = sub i64 %207, %208
-  %210 = ashr exact i64 %209, 2
-  %211 = icmp ult i64 %210, %50
-  br i1 %211, label %212, label %214
+  %208 = sub i64 %206, %207
+  %209 = ashr exact i64 %208, 2
+  %210 = icmp ult i64 %209, %50
+  br i1 %210, label %211, label %213
 
-212:                                              ; preds = %202
-  %213 = sub nsw i64 %50, %210
-  invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %203, ptr %205, i64 noundef %213, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
-          to label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit unwind label %145
+211:                                              ; preds = %201
+  %212 = sub nsw i64 %50, %209
+  invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %202, ptr %204, i64 noundef %212, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
+          to label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit unwind label %144
 
-214:                                              ; preds = %202
-  %215 = icmp ugt i64 %210, %50
-  br i1 %215, label %216, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
+213:                                              ; preds = %201
+  %214 = icmp ugt i64 %209, %50
+  br i1 %214, label %215, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
-216:                                              ; preds = %214
-  %217 = getelementptr inbounds %"class.draco::IndexType", ptr %206, i64 %50
-  %.not.i.i.i.i93 = icmp eq ptr %205, %217
-  br i1 %.not.i.i.i.i93, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %218
+215:                                              ; preds = %213
+  %216 = getelementptr inbounds %"class.draco::IndexType", ptr %205, i64 %50
+  %.not.i.i.i.i93 = icmp eq ptr %204, %216
+  br i1 %.not.i.i.i.i93, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, label %217
 
-218:                                              ; preds = %216
-  store ptr %217, ptr %204, align 8
+217:                                              ; preds = %215
+  store ptr %216, ptr %203, align 8
   br label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
-_ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %212, %214, %216, %218
+_ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %211, %213, %215, %217
   br i1 %.not.i.i.i.i.i, label %.loopexit.thread, label %.lr.ph247
 
 .lr.ph247:                                        ; preds = %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit, %.lr.ph247
   %indvars.iv297 = phi i64 [ %indvars.iv.next298, %.lr.ph247 ], [ 0, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit ]
-  %219 = load ptr, ptr %203, align 8
-  %220 = getelementptr inbounds %"class.draco::IndexType", ptr %219, i64 %indvars.iv297
-  %221 = trunc nuw i64 %indvars.iv297 to i32
-  store i32 %221, ptr %220, align 4
+  %218 = load ptr, ptr %202, align 8
+  %219 = getelementptr inbounds %"class.draco::IndexType", ptr %218, i64 %indvars.iv297
+  %220 = trunc nuw i64 %indvars.iv297 to i32
+  store i32 %220, ptr %219, align 4
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
   %exitcond301.not = icmp eq i64 %indvars.iv.next298, %50
   br i1 %exitcond301.not, label %.loopexit, label %.lr.ph247, !llvm.loop !29
 
-.loopexit:                                        ; preds = %.lr.ph247, %200, %196
-  %222 = load i8, ptr %197, align 4
-  %223 = trunc i8 %222 to i1
-  br i1 %223, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99, label %.preheader
+.loopexit:                                        ; preds = %.lr.ph247, %199, %195
+  %221 = load i8, ptr %196, align 4
+  %222 = trunc i8 %221 to i1
+  br i1 %222, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99, label %.preheader
 
 .loopexit.thread:                                 ; preds = %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
-  %224 = load i8, ptr %197, align 4
-  %225 = trunc i8 %224 to i1
-  br i1 %225, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99, label %._crit_edge250
+  %223 = load i8, ptr %196, align 4
+  %224 = trunc i8 %223 to i1
+  br i1 %224, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99, label %._crit_edge250
 
 .preheader:                                       ; preds = %.loopexit
   br i1 %.not.i.i.i.i.i, label %._crit_edge250, label %.lr.ph249
 
 .lr.ph249:                                        ; preds = %.preheader
-  %226 = getelementptr inbounds i8, ptr %101, i64 72
-  br label %227
+  %225 = getelementptr inbounds i8, ptr %100, i64 72
+  br label %226
 
-227:                                              ; preds = %.lr.ph249, %246
-  %indvars.iv302 = phi i64 [ 0, %.lr.ph249 ], [ %indvars.iv.next303, %246 ]
-  %228 = getelementptr inbounds %"class.draco::IndexType.22", ptr %.sroa.0184.0312, i64 %indvars.iv302
-  %229 = load i32, ptr %228, align 4
-  %230 = icmp eq i32 %229, -1
-  br i1 %230, label %246, label %231
+226:                                              ; preds = %.lr.ph249, %245
+  %indvars.iv302 = phi i64 [ 0, %.lr.ph249 ], [ %indvars.iv.next303, %245 ]
+  %227 = getelementptr inbounds %"class.draco::IndexType.22", ptr %.sroa.0184.0312, i64 %indvars.iv302
+  %228 = load i32, ptr %227, align 4
+  %229 = icmp eq i32 %228, -1
+  br i1 %229, label %245, label %230
 
-231:                                              ; preds = %227
-  %232 = load i8, ptr %197, align 4
-  %233 = trunc i8 %232 to i1
-  %234 = trunc nuw i64 %indvars.iv302 to i32
-  br i1 %233, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit96, label %235
+230:                                              ; preds = %226
+  %231 = load i8, ptr %196, align 4
+  %232 = trunc i8 %231 to i1
+  %233 = trunc nuw i64 %indvars.iv302 to i32
+  br i1 %232, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit96, label %234
 
-235:                                              ; preds = %231
-  %236 = load ptr, ptr %226, align 8
-  %237 = getelementptr inbounds %"class.draco::IndexType", ptr %236, i64 %indvars.iv302
-  %238 = load i32, ptr %237, align 4
+234:                                              ; preds = %230
+  %235 = load ptr, ptr %225, align 8
+  %236 = getelementptr inbounds %"class.draco::IndexType", ptr %235, i64 %indvars.iv302
+  %237 = load i32, ptr %236, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit96
 
-_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit96: ; preds = %235, %231
-  %.sroa.02.0.i95 = phi i32 [ %238, %235 ], [ %234, %231 ]
-  br i1 %152, label %239, label %242
+_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit96: ; preds = %234, %230
+  %.sroa.02.0.i95 = phi i32 [ %237, %234 ], [ %233, %230 ]
+  br i1 %151, label %238, label %241
 
-239:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit96
-  %240 = zext i32 %.sroa.02.0.i95 to i64
-  %241 = getelementptr inbounds %"class.draco::IndexType", ptr %.sroa.0155.3, i64 %240
-  %.sroa.speculate.load. = load i32, ptr %241, align 4
-  br label %242
+238:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit96
+  %239 = zext i32 %.sroa.02.0.i95 to i64
+  %240 = getelementptr inbounds %"class.draco::IndexType", ptr %.sroa.0155.3, i64 %239
+  %.sroa.speculate.load. = load i32, ptr %240, align 4
+  br label %241
 
-242:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit96, %239
-  %.sroa.speculated = phi i32 [ %.sroa.speculate.load., %239 ], [ %.sroa.02.0.i95, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit96 ]
-  %243 = zext i32 %229 to i64
-  %244 = load ptr, ptr %226, align 8
-  %245 = getelementptr inbounds %"class.draco::IndexType", ptr %244, i64 %243
-  store i32 %.sroa.speculated, ptr %245, align 4
-  br label %246
+241:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit96, %238
+  %.sroa.speculated = phi i32 [ %.sroa.speculate.load., %238 ], [ %.sroa.02.0.i95, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit96 ]
+  %242 = zext i32 %228 to i64
+  %243 = load ptr, ptr %225, align 8
+  %244 = getelementptr inbounds %"class.draco::IndexType", ptr %243, i64 %242
+  store i32 %.sroa.speculated, ptr %244, align 4
+  br label %245
 
-246:                                              ; preds = %242, %227
+245:                                              ; preds = %241, %226
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
   %exitcond306.not = icmp eq i64 %indvars.iv.next303, %50
-  br i1 %exitcond306.not, label %._crit_edge250, label %227, !llvm.loop !30
+  br i1 %exitcond306.not, label %._crit_edge250, label %226, !llvm.loop !30
 
-._crit_edge250:                                   ; preds = %246, %.loopexit.thread, %.preheader
-  %247 = load i32, ptr %8, align 8
-  %248 = zext i32 %247 to i64
-  store i8 0, ptr %197, align 4
-  %249 = getelementptr inbounds i8, ptr %101, i64 72
-  %250 = getelementptr inbounds i8, ptr %101, i64 80
-  %251 = load ptr, ptr %250, align 8
-  %252 = load ptr, ptr %249, align 8
+._crit_edge250:                                   ; preds = %245, %.loopexit.thread, %.preheader
+  %246 = load i32, ptr %8, align 8
+  %247 = zext i32 %246 to i64
+  store i8 0, ptr %196, align 4
+  %248 = getelementptr inbounds i8, ptr %100, i64 72
+  %249 = getelementptr inbounds i8, ptr %100, i64 80
+  %250 = load ptr, ptr %249, align 8
+  %251 = load ptr, ptr %248, align 8
+  %252 = ptrtoint ptr %250 to i64
   %253 = ptrtoint ptr %251 to i64
-  %254 = ptrtoint ptr %252 to i64
-  %255 = sub i64 %253, %254
-  %256 = ashr exact i64 %255, 2
-  %257 = icmp ult i64 %256, %248
-  br i1 %257, label %258, label %260
+  %254 = sub i64 %252, %253
+  %255 = ashr exact i64 %254, 2
+  %256 = icmp ult i64 %255, %247
+  br i1 %256, label %257, label %259
 
-258:                                              ; preds = %._crit_edge250
-  %259 = sub nsw i64 %248, %256
-  invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %249, ptr %251, i64 noundef %259, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
-          to label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99 unwind label %145
+257:                                              ; preds = %._crit_edge250
+  %258 = sub nsw i64 %247, %255
+  invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %248, ptr %250, i64 noundef %258, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
+          to label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99 unwind label %144
 
-260:                                              ; preds = %._crit_edge250
-  %261 = icmp ugt i64 %256, %248
-  br i1 %261, label %262, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99
+259:                                              ; preds = %._crit_edge250
+  %260 = icmp ugt i64 %255, %247
+  br i1 %260, label %261, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99
 
-262:                                              ; preds = %260
-  %263 = getelementptr inbounds %"class.draco::IndexType", ptr %252, i64 %248
-  %.not.i.i.i.i97 = icmp eq ptr %251, %263
-  br i1 %.not.i.i.i.i97, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99, label %264
+261:                                              ; preds = %259
+  %262 = getelementptr inbounds %"class.draco::IndexType", ptr %251, i64 %247
+  %.not.i.i.i.i97 = icmp eq ptr %250, %262
+  br i1 %.not.i.i.i.i97, label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99, label %263
 
-264:                                              ; preds = %262
-  store ptr %263, ptr %250, align 8
+263:                                              ; preds = %261
+  store ptr %262, ptr %249, align 8
   br label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99
 
-_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99: ; preds = %.loopexit.thread, %264, %262, %260, %258, %195, %.loopexit
+_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99: ; preds = %.loopexit.thread, %263, %261, %259, %257, %194, %.loopexit
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
-  %265 = load ptr, ptr %90, align 8
-  %266 = load ptr, ptr %89, align 8
+  %264 = load ptr, ptr %89, align 8
+  %265 = load ptr, ptr %88, align 8
+  %266 = ptrtoint ptr %264 to i64
   %267 = ptrtoint ptr %265 to i64
-  %268 = ptrtoint ptr %266 to i64
-  %269 = sub i64 %267, %268
-  %sext = shl i64 %269, 29
-  %270 = ashr i64 %sext, 32
-  %271 = icmp slt i64 %indvars.iv.next308, %270
-  br i1 %271, label %.lr.ph258, label %._crit_edge259, !llvm.loop !31
+  %268 = sub i64 %266, %267
+  %sext = shl i64 %268, 29
+  %269 = ashr i64 %sext, 32
+  %270 = icmp slt i64 %indvars.iv.next308, %269
+  br i1 %270, label %.lr.ph258, label %._crit_edge259, !llvm.loop !31
 
 ._crit_edge259:                                   ; preds = %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99
   %.not.i.i.i.i100 = icmp eq ptr %.sroa.0155.3, null
-  br i1 %.not.i.i.i.i100, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit101, label %272
+  br i1 %.not.i.i.i.i100, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit101, label %271
 
-272:                                              ; preds = %._crit_edge259
+271:                                              ; preds = %._crit_edge259
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0155.3) #16
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit101
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit101: ; preds = %._crit_edge259, %272
+_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit101: ; preds = %._crit_edge259, %271
   %.not.i.i.i.i102 = icmp eq ptr %.sroa.0162.1, null
-  br i1 %.not.i.i.i.i102, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit103, label %273
+  br i1 %.not.i.i.i.i102, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit103, label %272
 
-273:                                              ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit101
+272:                                              ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit101
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0162.1) #16
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit103
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit103: ; preds = %.loopexit221, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit101, %273
+_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit103: ; preds = %.loopexit221, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit101, %272
   %.not.i.i.i.i104 = icmp eq ptr %.sroa.0184.0312, null
-  br i1 %.not.i.i.i.i104, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit, label %274
+  br i1 %.not.i.i.i.i104, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit, label %273
 
-274:                                              ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit103
+273:                                              ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit103
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0184.0312) #16
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit: ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit103, %274
-  %275 = load ptr, ptr %2, align 8
-  %.not.i.i.i105 = icmp eq ptr %275, null
-  br i1 %.not.i.i.i105, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %276
+_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit: ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit103, %273
+  %274 = load ptr, ptr %2, align 8
+  %.not.i.i.i105 = icmp eq ptr %274, null
+  br i1 %.not.i.i.i105, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %275
 
-276:                                              ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit
-  %277 = load ptr, ptr %7, align 8
-  %278 = ptrtoint ptr %277 to i64
-  %279 = ptrtoint ptr %275 to i64
-  %280 = sub i64 %278, %279
-  %281 = ashr exact i64 %280, 3
-  %282 = sub nsw i64 0, %281
-  %283 = getelementptr inbounds i64, ptr %277, i64 %282
-  call void @_ZdlPv(ptr noundef %283) #16
+275:                                              ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit
+  %276 = load ptr, ptr %7, align 8
+  %277 = ptrtoint ptr %276 to i64
+  %278 = ptrtoint ptr %274 to i64
+  %279 = sub i64 %277, %278
+  %280 = ashr exact i64 %279, 3
+  %281 = sub nsw i64 0, %280
+  %282 = getelementptr inbounds i64, ptr %276, i64 %281
+  call void @_ZdlPv(ptr noundef %282) #16
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
-_ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit, %276
+_ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit, %275
   ret void
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit: ; preds = %148, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit
+_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit: ; preds = %147, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit
   %.not.i.i.i.i106 = icmp eq ptr %.sroa.0184.0312, null
-  br i1 %.not.i.i.i.i106, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit107, label %284
+  br i1 %.not.i.i.i.i106, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit107, label %283
 
-284:                                              ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit
+283:                                              ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0184.0312) #16
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit107
 
-_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit107: ; preds = %284, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit, %36
-  %.pn77 = phi { ptr, i32 } [ %37, %36 ], [ %146, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit ], [ %146, %284 ]
-  %285 = load ptr, ptr %2, align 8
-  %.not.i.i.i108 = icmp eq ptr %285, null
-  br i1 %.not.i.i.i108, label %_ZNSt6vectorIbSaIbEED2Ev.exit112, label %286
+_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit107: ; preds = %283, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit, %36
+  %.pn77 = phi { ptr, i32 } [ %37, %36 ], [ %145, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhED2Ev.exit ], [ %145, %283 ]
+  %284 = load ptr, ptr %2, align 8
+  %.not.i.i.i108 = icmp eq ptr %284, null
+  br i1 %.not.i.i.i108, label %_ZNSt6vectorIbSaIbEED2Ev.exit112, label %285
 
-286:                                              ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit107
-  %287 = load ptr, ptr %7, align 8
-  %288 = ptrtoint ptr %287 to i64
-  %289 = ptrtoint ptr %285 to i64
-  %290 = sub i64 %288, %289
-  %291 = ashr exact i64 %290, 3
-  %292 = sub nsw i64 0, %291
-  %293 = getelementptr inbounds i64, ptr %287, i64 %292
-  call void @_ZdlPv(ptr noundef %293) #16
+285:                                              ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit107
+  %286 = load ptr, ptr %7, align 8
+  %287 = ptrtoint ptr %286 to i64
+  %288 = ptrtoint ptr %284 to i64
+  %289 = sub i64 %287, %288
+  %290 = ashr exact i64 %289, 3
+  %291 = sub nsw i64 0, %290
+  %292 = getelementptr inbounds i64, ptr %286, i64 %291
+  call void @_ZdlPv(ptr noundef %292) #16
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit112
 
-_ZNSt6vectorIbSaIbEED2Ev.exit112:                 ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit107, %286
+_ZNSt6vectorIbSaIbEED2Ev.exit112:                 ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_ED2Ev.exit107, %285
   resume { ptr, i32 } %.pn77
 }
 

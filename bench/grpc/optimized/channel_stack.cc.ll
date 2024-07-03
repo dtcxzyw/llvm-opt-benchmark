@@ -363,7 +363,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %if.end42, %if.then.
 
 do.body56:                                        ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
   %cmp57.not = icmp ugt ptr %add.ptr47, %stack
-  br i1 %cmp57.not, label %do.body64, label %if.then69.invoke
+  br i1 %cmp57.not, label %for.body.i.preheader, label %if.then69.invoke
 
 do.body56.thread:                                 ; preds = %invoke.cont13
   %cmp57.not73 = icmp ugt ptr %add.ptr12, %stack
@@ -375,16 +375,16 @@ do.body64.thread:                                 ; preds = %do.body56.thread
   %sub.ptr.sub80 = sub i64 %sub.ptr.lhs.cast78, %sub.ptr.rhs.cast79
   br label %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit
 
-do.body64:                                        ; preds = %do.body56
+for.body.i.preheader:                             ; preds = %do.body56
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr47 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %stack to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %add1.i = add nuw nsw i64 %and11, 112
-  br i1 %cmp1563.not, label %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit, label %for.body.i
+  br label %for.body.i
 
-for.body.i:                                       ; preds = %do.body64, %for.body.i
-  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %do.body64 ]
-  %size.06.i = phi i64 [ %add5.i, %for.body.i ], [ %add1.i, %do.body64 ]
+for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
+  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
+  %size.06.i = phi i64 [ %add5.i, %for.body.i ], [ %add1.i, %for.body.i.preheader ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %filters, i64 %i.07.i
   %24 = load ptr, ptr %arrayidx.i, align 8
   %sizeof_channel_data.i = getelementptr inbounds i8, ptr %24, i64 64
@@ -396,10 +396,10 @@ for.body.i:                                       ; preds = %do.body64, %for.bod
   %exitcond.not.i = icmp eq i64 %inc.i, %filter_count
   br i1 %exitcond.not.i, label %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit, label %for.body.i, !llvm.loop !4
 
-_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit: ; preds = %for.body.i, %do.body64.thread, %do.body64
-  %sub.ptr.sub83 = phi i64 [ %sub.ptr.sub, %do.body64 ], [ %sub.ptr.sub80, %do.body64.thread ], [ %sub.ptr.sub, %for.body.i ]
-  %call_size.0.lcssa7482 = phi i64 [ %add52, %do.body64 ], [ %add4, %do.body64.thread ], [ %add52, %for.body.i ]
-  %size.0.lcssa.i = phi i64 [ %add1.i, %do.body64 ], [ 112, %do.body64.thread ], [ %add5.i, %for.body.i ]
+_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit: ; preds = %for.body.i, %do.body64.thread
+  %sub.ptr.sub83 = phi i64 [ %sub.ptr.sub80, %do.body64.thread ], [ %sub.ptr.sub, %for.body.i ]
+  %call_size.0.lcssa7482 = phi i64 [ %add4, %do.body64.thread ], [ %add52, %for.body.i ]
+  %size.0.lcssa.i = phi i64 [ 112, %do.body64.thread ], [ %add5.i, %for.body.i ]
   %cmp66.not = icmp eq i64 %sub.ptr.sub83, %size.0.lcssa.i
   br i1 %cmp66.not, label %do.end73, label %if.then69.invoke
 

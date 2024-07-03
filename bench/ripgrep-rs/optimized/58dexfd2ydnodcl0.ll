@@ -701,11 +701,11 @@ define void @_ZN6ignore9gitignore16GitignoreBuilder5build17h2d30e1539f022476E(pt
   %16 = getelementptr inbounds i8, ptr %1, i64 64
   %17 = load i64, ptr %16, align 8, !noundef !11
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7c5c62d5893ce88dE.exit", label %.preheader56
+  br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7c5c62d5893ce88dE.exit", label %.preheader
 
-.preheader56:                                     ; preds = %2, %.preheader56
-  %.017.i = phi i64 [ %22, %.preheader56 ], [ 0, %2 ]
-  %.016.i = phi i64 [ %23, %.preheader56 ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %.preheader
+  %.017.i = phi i64 [ %22, %.preheader ], [ 0, %2 ]
+  %.016.i = phi i64 [ %23, %.preheader ], [ 0, %2 ]
   %19 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, i8, i8, [6 x i8] }, ptr %15, i64 %.016.i, i32 3
   %.val.i = load i8, ptr %19, align 8, !range !109, !alias.scope !116, !noundef !11
   %20 = xor i8 %.val.i, 1
@@ -713,22 +713,22 @@ define void @_ZN6ignore9gitignore16GitignoreBuilder5build17h2d30e1539f022476E(pt
   %22 = add i64 %.017.i, %21
   %23 = add nuw i64 %.016.i, 1
   %24 = icmp eq i64 %23, %17
-  br i1 %24, label %.preheader, label %.preheader56
+  br i1 %24, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3a9c4bb45dba519eE.exit", label %.preheader
 
-.preheader:                                       ; preds = %.preheader56, %.preheader
-  %.017.i42 = phi i64 [ %27, %.preheader ], [ 0, %.preheader56 ]
-  %.016.i43 = phi i64 [ %28, %.preheader ], [ 0, %.preheader56 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3a9c4bb45dba519eE.exit": ; preds = %.preheader, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3a9c4bb45dba519eE.exit"
+  %.017.i42 = phi i64 [ %27, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3a9c4bb45dba519eE.exit" ], [ 0, %.preheader ]
+  %.016.i43 = phi i64 [ %28, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3a9c4bb45dba519eE.exit" ], [ 0, %.preheader ]
   %25 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, i8, i8, [6 x i8] }, ptr %15, i64 %.016.i43, i32 3
   %.val.i44 = load i8, ptr %25, align 8, !range !109, !alias.scope !121, !noundef !11
   %26 = zext nneg i8 %.val.i44 to i64
   %27 = add i64 %.017.i42, %26
   %28 = add nuw i64 %.016.i43, 1
   %29 = icmp eq i64 %28, %17
-  br i1 %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7c5c62d5893ce88dE.exit", label %.preheader
+  br i1 %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7c5c62d5893ce88dE.exit", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3a9c4bb45dba519eE.exit"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7c5c62d5893ce88dE.exit": ; preds = %.preheader, %2
-  %.0.i53 = phi i64 [ 0, %2 ], [ %22, %.preheader ]
-  %.0.i45 = phi i64 [ 0, %2 ], [ %27, %.preheader ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7c5c62d5893ce88dE.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3a9c4bb45dba519eE.exit", %2
+  %.0.i53 = phi i64 [ 0, %2 ], [ %22, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3a9c4bb45dba519eE.exit" ]
+  %.0.i45 = phi i64 [ 0, %2 ], [ %27, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3a9c4bb45dba519eE.exit" ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.548)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
   call void @_ZN7globset14GlobSetBuilder5build17hf1d32080c550ddc0E(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)

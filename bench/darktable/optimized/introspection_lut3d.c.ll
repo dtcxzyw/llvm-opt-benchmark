@@ -2566,7 +2566,7 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr nocapture readnone %0, pt
   br i1 %176, label %177, label %129, !llvm.loop !63
 
 177:                                              ; preds = %129
-  %178 = icmp eq i64 %115, %126
+  %178 = icmp eq i64 %95, %126
   br i1 %178, label %.loopexit, label %179
 
 179:                                              ; preds = %177, %117, %114
@@ -2656,7 +2656,7 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr nocapture readnone %0, pt
   br i1 %241, label %242, label %218, !llvm.loop !71
 
 242:                                              ; preds = %218
-  %243 = icmp eq i64 %205, %215
+  %243 = icmp eq i64 %95, %215
   br i1 %243, label %.loopexit, label %244
 
 244:                                              ; preds = %242, %207, %204

@@ -251,7 +251,7 @@ define i32 @mca_vprotocol_pessimist_test_any(i64 noundef %0, ptr noundef %1, ptr
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 504), align 8
   %18 = tail call i32 %17(i64 noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %40, label %.preheader
+  br i1 %.not, label %40, label %.lr.ph41
 
 ._crit_edge.thread:                               ; preds = %9
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 504), align 8
@@ -259,12 +259,9 @@ define i32 @mca_vprotocol_pessimist_test_any(i64 noundef %0, ptr noundef %1, ptr
   %.not45 = icmp eq ptr %3, null
   br i1 %.not45, label %40, label %vprotocol_pessimist_delivery_log.exit
 
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %.not42, label %vprotocol_pessimist_delivery_log.exit, label %.lr.ph41
-
-.lr.ph41:                                         ; preds = %.preheader, %38
-  %.040 = phi i32 [ %.1, %38 ], [ %18, %.preheader ]
-  %.03239 = phi i64 [ %39, %38 ], [ 0, %.preheader ]
+.lr.ph41:                                         ; preds = %._crit_edge, %38
+  %.040 = phi i32 [ %.1, %38 ], [ %18, %._crit_edge ]
+  %.03239 = phi i64 [ %39, %38 ], [ 0, %._crit_edge ]
   %21 = getelementptr inbounds ptr, ptr %1, i64 %.03239
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, @ompi_request_null
@@ -345,8 +342,8 @@ define i32 @mca_vprotocol_pessimist_test_any(i64 noundef %0, ptr noundef %1, ptr
   store volatile i64 %67, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 272), align 16
   br label %vprotocol_pessimist_delivery_log.exit
 
-vprotocol_pessimist_delivery_log.exit:            ; preds = %38, %._crit_edge.thread, %.preheader, %54, %50
-  %.2 = phi i32 [ %41, %50 ], [ %41, %54 ], [ %18, %.preheader ], [ %20, %._crit_edge.thread ], [ %.1, %38 ]
+vprotocol_pessimist_delivery_log.exit:            ; preds = %38, %._crit_edge.thread, %54, %50
+  %.2 = phi i32 [ %41, %50 ], [ %41, %54 ], [ %20, %._crit_edge.thread ], [ %.1, %38 ]
   ret i32 %.2
 }
 

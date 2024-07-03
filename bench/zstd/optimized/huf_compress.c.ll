@@ -1132,7 +1132,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %bad.09 = phi i32 [ 0, %for.body.preheader ], [ %or, %for.body ]
+  %bad.08 = phi i32 [ 0, %for.body.preheader ], [ %or, %for.body ]
   %arrayidx = getelementptr inbounds i32, ptr %count, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx, align 4
   %cmp5 = icmp ne i32 %3, 0
@@ -1142,18 +1142,18 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp10 = icmp eq i64 %and.i, 0
   %and7 = and i1 %cmp5, %cmp10
   %and = zext i1 %and7 to i32
-  %or = or i32 %bad.09, %and
+  %or = or i32 %bad.08, %and
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !35
 
 for.end:                                          ; preds = %for.body
-  %5 = icmp eq i32 %or, 0
-  %6 = zext i1 %5 to i32
+  %tobool.not = icmp eq i32 %or, 0
+  %lnot.ext = zext i1 %tobool.not to i32
   br label %return
 
 return:                                           ; preds = %entry, %for.end
-  %retval.0 = phi i32 [ %6, %for.end ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %lnot.ext, %for.end ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

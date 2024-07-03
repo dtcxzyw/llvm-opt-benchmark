@@ -5297,24 +5297,23 @@ ZSTD_safecopyLiterals.exit811.i782:               ; preds = %2241, %ZSTD_count.e
   br i1 %2262, label %ZSTD_compressBlock_doubleFast_noDict_4.exit, label %1730
 
 ZSTD_compressBlock_doubleFast_noDict_4.exit:      ; preds = %.critedge11.i435, %1410, %1219, %.critedge11.i108, %859, %668, %.critedge11.i764, %1961, %1770, %.critedge11.i, %305, %112, %1712, %1161, %610, %52
-  %.1593876.i705.sink2102 = phi i32 [ %.0592.i, %52 ], [ %.0592.i, %610 ], [ %.0592.i, %1161 ], [ %.0592.i, %1712 ], [ 0, %112 ], [ %.1593933.fr.i, %305 ], [ %.4596.i, %.critedge11.i ], [ 0, %1770 ], [ %.1593933.fr.i685, %1961 ], [ %.4596.i766, %.critedge11.i764 ], [ 0, %668 ], [ %.1593933.fr.i32, %859 ], [ %.4596.i110, %.critedge11.i108 ], [ 0, %1219 ], [ %.1593933.fr.i356, %1410 ], [ %.4596.i437, %.critedge11.i435 ]
+  %.1593876.i705.sink2100 = phi i32 [ %.0592.i, %52 ], [ %.0592.i, %610 ], [ %.0592.i, %1161 ], [ %.0592.i, %1712 ], [ 0, %112 ], [ %.1593933.fr.i, %305 ], [ %.4596.i, %.critedge11.i ], [ 0, %1770 ], [ %.1593933.fr.i685, %1961 ], [ %.4596.i766, %.critedge11.i764 ], [ 0, %668 ], [ %.1593933.fr.i32, %859 ], [ %.4596.i110, %.critedge11.i108 ], [ 0, %1219 ], [ %.1593933.fr.i356, %1410 ], [ %.4596.i437, %.critedge11.i435 ]
   %.1606878.i704.sink2098 = phi i32 [ %spec.select.i, %52 ], [ %spec.select.i, %610 ], [ %spec.select.i, %1161 ], [ %spec.select.i, %1712 ], [ %.1606932.i, %112 ], [ %.1606932.i, %305 ], [ %.4609.i, %.critedge11.i ], [ %.1606932.i684, %1770 ], [ %.1606932.i684, %1961 ], [ %.4609.i765, %.critedge11.i764 ], [ %.1606932.i31, %668 ], [ %.1606932.i31, %859 ], [ %.4609.i109, %.critedge11.i108 ], [ %.1606932.i355, %1219 ], [ %.1606932.i355, %1410 ], [ %.4609.i436, %.critedge11.i435 ]
   %.0589874.i706.sink = phi ptr [ %3, %52 ], [ %3, %610 ], [ %3, %1161 ], [ %3, %1712 ], [ %.0589935.i, %112 ], [ %.0589935.i, %305 ], [ %.8.i, %.critedge11.i ], [ %.0589935.i682, %1770 ], [ %.0589935.i682, %1961 ], [ %.8.i767, %.critedge11.i764 ], [ %.0589935.i29, %668 ], [ %.0589935.i29, %859 ], [ %.8.i111, %.critedge11.i108 ], [ %.0589935.i353, %1219 ], [ %.0589935.i353, %1410 ], [ %.8.i438, %.critedge11.i435 ]
   %.0604.i707 = select i1 %49, i32 %33, i32 0
   %spec.select635.i708 = select i1 %48, i32 %35, i32 0
-  %2263 = icmp ne i32 %.0604.i707, 0
-  %2264 = icmp ne i32 %.1593876.i705.sink2102, 0
-  %or.cond3.i709 = select i1 %2263, i1 %2264, i1 false
-  %2265 = select i1 %or.cond3.i709, i32 %.0604.i707, i32 %spec.select635.i708
-  %2266 = select i1 %2264, i32 %.1593876.i705.sink2102, i32 %.0604.i707
-  store i32 %2266, ptr %2, align 4
+  %2263 = icmp ne i32 %.1593876.i705.sink2100, 0
+  %or.cond3.i709 = select i1 %49, i1 %2263, i1 false
+  %2264 = select i1 %or.cond3.i709, i32 %33, i32 %spec.select635.i708
+  %2265 = select i1 %2263, i32 %.1593876.i705.sink2100, i32 %.0604.i707
+  store i32 %2265, ptr %2, align 4
   %.not634.i710 = icmp eq i32 %.1606878.i704.sink2098, 0
-  %2267 = select i1 %.not634.i710, i32 %2265, i32 %.1606878.i704.sink2098
-  store i32 %2267, ptr %34, align 4
-  %2268 = ptrtoint ptr %31 to i64
-  %2269 = ptrtoint ptr %.0589874.i706.sink to i64
-  %2270 = sub i64 %2268, %2269
-  ret i64 %2270
+  %2266 = select i1 %.not634.i710, i32 %2264, i32 %.1606878.i704.sink2098
+  store i32 %2266, ptr %34, align 4
+  %2267 = ptrtoint ptr %31 to i64
+  %2268 = ptrtoint ptr %.0589874.i706.sink to i64
+  %2269 = sub i64 %2267, %2268
+  ret i64 %2269
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable

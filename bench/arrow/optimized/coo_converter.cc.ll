@@ -8407,7 +8407,7 @@ for.body10.us:                                    ; preds = %for.cond8.preheader
 
 for.cond8.for.inc22_crit_edge.us:                 ; preds = %for.body10.us
   %exitcond123.not = icmp eq i64 %mul1621.us, %size
-  br i1 %exitcond123.not, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, label %for.cond8.preheader.us, !llvm.loop !135
+  br i1 %exitcond123.not, label %if.then.i.i.i.i.i38, label %for.cond8.preheader.us, !llvm.loop !135
 
 lpad2:                                            ; preds = %if.then.i.i.i.i.i25, %if.then.i.i32
   %9 = landingpad { ptr, i32 }
@@ -8419,10 +8419,7 @@ lpad6:                                            ; preds = %invoke.cont3
           cleanup
   br label %ehcleanup
 
-_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %for.cond8.for.inc22_crit_edge.us
-  br i1 %cmp.not.i.i.i.i24, label %_ZNSt6vectorIlSaIlEED2Ev.exit60, label %if.then.i.i.i.i.i38
-
-if.then.i.i.i.i.i38:                              ; preds = %for.cond8.preheader.lr.ph, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
+if.then.i.i.i.i.i38:                              ; preds = %for.cond8.for.inc22_crit_edge.us, %for.cond8.preheader.lr.ph
   %mul.i.i.i.i.i.i39 = shl nuw nsw i64 %size, 3
   %call5.i.i.i.i2.i.i50 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i39) #20
           to label %call5.i.i.i.i2.i.i.noexc49 unwind label %lpad26
@@ -8703,7 +8700,7 @@ if.then.i.i.i59:                                  ; preds = %for.body49, %for.bo
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i50) #21
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit60
 
-_ZNSt6vectorIlSaIlEED2Ev.exit60:                  ; preds = %for.cond.preheader, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %if.then.i.i.i59
+_ZNSt6vectorIlSaIlEED2Ev.exit60:                  ; preds = %for.cond.preheader, %if.then.i.i.i59
   %tobool.not.i.i.i61 = icmp eq ptr %values.sroa.0.0, null
   br i1 %tobool.not.i.i.i61, label %_ZNSt6vectorImSaImEED2Ev.exit, label %if.then.i.i.i62
 
@@ -10305,7 +10302,7 @@ for.body10.us:                                    ; preds = %for.cond8.preheader
 
 for.cond8.for.inc22_crit_edge.us:                 ; preds = %for.body10.us
   %exitcond126.not = icmp eq i64 %mul1621.us, %size
-  br i1 %exitcond126.not, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, label %for.cond8.preheader.us, !llvm.loop !163
+  br i1 %exitcond126.not, label %if.then.i.i.i.i.i41, label %for.cond8.preheader.us, !llvm.loop !163
 
 lpad2:                                            ; preds = %if.then.i.i.i.i.i25, %if.then.i.i34
   %10 = landingpad { ptr, i32 }
@@ -10317,10 +10314,7 @@ lpad6:                                            ; preds = %invoke.cont3
           cleanup
   br label %ehcleanup
 
-_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %for.cond8.for.inc22_crit_edge.us
-  br i1 %cmp.not.i.i.i.i24, label %_ZNSt6vectorIlSaIlEED2Ev.exit63, label %if.then.i.i.i.i.i41
-
-if.then.i.i.i.i.i41:                              ; preds = %for.cond8.preheader.lr.ph, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
+if.then.i.i.i.i.i41:                              ; preds = %for.cond8.for.inc22_crit_edge.us, %for.cond8.preheader.lr.ph
   %mul.i.i.i.i.i.i42 = shl nuw nsw i64 %size, 3
   %call5.i.i.i.i2.i.i53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i42) #20
           to label %call5.i.i.i.i2.i.i.noexc52 unwind label %lpad26
@@ -10602,7 +10596,7 @@ if.then.i.i.i62:                                  ; preds = %for.body49, %for.bo
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i53) #21
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit63
 
-_ZNSt6vectorIlSaIlEED2Ev.exit63:                  ; preds = %for.cond.preheader, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %if.then.i.i.i62
+_ZNSt6vectorIlSaIlEED2Ev.exit63:                  ; preds = %for.cond.preheader, %if.then.i.i.i62
   %tobool.not.i.i.i64 = icmp eq ptr %values.sroa.0.0, null
   br i1 %tobool.not.i.i.i64, label %_ZNSt6vectorImSaImEED2Ev.exit, label %if.then.i.i.i65
 
@@ -12204,7 +12198,7 @@ for.body10.us:                                    ; preds = %for.cond8.preheader
 
 for.cond8.for.inc22_crit_edge.us:                 ; preds = %for.body10.us
   %exitcond126.not = icmp eq i64 %mul1621.us, %size
-  br i1 %exitcond126.not, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, label %for.cond8.preheader.us, !llvm.loop !191
+  br i1 %exitcond126.not, label %if.then.i.i.i.i.i41, label %for.cond8.preheader.us, !llvm.loop !191
 
 lpad2:                                            ; preds = %if.then.i.i.i.i.i25, %if.then.i.i34
   %10 = landingpad { ptr, i32 }
@@ -12216,10 +12210,7 @@ lpad6:                                            ; preds = %invoke.cont3
           cleanup
   br label %ehcleanup
 
-_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %for.cond8.for.inc22_crit_edge.us
-  br i1 %cmp.not.i.i.i.i24, label %_ZNSt6vectorIlSaIlEED2Ev.exit63, label %if.then.i.i.i.i.i41
-
-if.then.i.i.i.i.i41:                              ; preds = %for.cond8.preheader.lr.ph, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
+if.then.i.i.i.i.i41:                              ; preds = %for.cond8.for.inc22_crit_edge.us, %for.cond8.preheader.lr.ph
   %mul.i.i.i.i.i.i42 = shl nuw nsw i64 %size, 3
   %call5.i.i.i.i2.i.i53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i42) #20
           to label %call5.i.i.i.i2.i.i.noexc52 unwind label %lpad26
@@ -12501,7 +12492,7 @@ if.then.i.i.i62:                                  ; preds = %for.body49, %for.bo
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i53) #21
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit63
 
-_ZNSt6vectorIlSaIlEED2Ev.exit63:                  ; preds = %for.cond.preheader, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %if.then.i.i.i62
+_ZNSt6vectorIlSaIlEED2Ev.exit63:                  ; preds = %for.cond.preheader, %if.then.i.i.i62
   %tobool.not.i.i.i64 = icmp eq ptr %values.sroa.0.0, null
   br i1 %tobool.not.i.i.i64, label %_ZNSt6vectorImSaImEED2Ev.exit, label %if.then.i.i.i65
 
@@ -14100,7 +14091,7 @@ for.body10.us:                                    ; preds = %for.cond8.preheader
 
 for.cond8.for.inc22_crit_edge.us:                 ; preds = %for.body10.us
   %exitcond130.not = icmp eq i64 %mul1621.us, %size
-  br i1 %exitcond130.not, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i40, label %for.cond8.preheader.us, !llvm.loop !219
+  br i1 %exitcond130.not, label %if.then.i.i.i.i.i42, label %for.cond8.preheader.us, !llvm.loop !219
 
 lpad2:                                            ; preds = %if.then.i.i.i.i.i25, %if.then.i.i34
   %10 = landingpad { ptr, i32 }
@@ -14112,10 +14103,7 @@ lpad6:                                            ; preds = %invoke.cont3
           cleanup
   br label %ehcleanup
 
-_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i40: ; preds = %for.cond8.for.inc22_crit_edge.us
-  br i1 %cmp.not.i.i.i.i24, label %_ZNSt6vectorIlSaIlEED2Ev.exit66, label %if.then.i.i.i.i.i42
-
-if.then.i.i.i.i.i42:                              ; preds = %for.cond8.preheader.lr.ph, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i40
+if.then.i.i.i.i.i42:                              ; preds = %for.cond8.for.inc22_crit_edge.us, %for.cond8.preheader.lr.ph
   %mul.i.i.i.i.i.i43 = shl nuw nsw i64 %size, 3
   %call5.i.i.i.i2.i.i55 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i43) #20
           to label %call5.i.i.i.i2.i.i.noexc54 unwind label %lpad26
@@ -14396,7 +14384,7 @@ if.then.i.i.i65:                                  ; preds = %for.body49, %for.bo
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i55) #21
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit66
 
-_ZNSt6vectorIlSaIlEED2Ev.exit66:                  ; preds = %for.cond.preheader, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i40, %if.then.i.i.i65
+_ZNSt6vectorIlSaIlEED2Ev.exit66:                  ; preds = %for.cond.preheader, %if.then.i.i.i65
   %tobool.not.i.i.i67 = icmp eq ptr %values.sroa.0.0, null
   br i1 %tobool.not.i.i.i67, label %_ZNSt6vectorImSaImEED2Ev.exit, label %if.then.i.i.i68
 

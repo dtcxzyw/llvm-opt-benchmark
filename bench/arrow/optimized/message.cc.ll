@@ -15027,8 +15027,8 @@ lor.rhs.i:                                        ; preds = %_ZNK22arrow_vendore
   %cmp.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i, 0
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
   %cmp3.i.i.i.i.i.not = icmp ult i64 %sub.i.i.i.i, %add.i.i
-  %or.cond241 = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
-  br i1 %or.cond241, label %land.end, label %if.end.i.i.i
+  %or.cond = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
+  br i1 %or.cond, label %land.end, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.rhs.i
   %add.ptr.i.i2.i = getelementptr inbounds i8, ptr %0, i64 %add.i.i
@@ -15055,8 +15055,8 @@ lor.rhs.i27:                                      ; preds = %_ZNK22arrow_vendore
   %cmp.i.i.i.i32 = icmp ne i64 %and.i.i.i.i31, 0
   %.not.i.i.i35 = select i1 %cmp.i.i.i.i32, i1 %tobool.i.i.i.i, i1 false
   %cmp3.i.i.i.i39.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i30
-  %or.cond242 = or i1 %.not.i.i.i35, %cmp3.i.i.i.i39.not
-  br i1 %or.cond242, label %land.end, label %if.end.i.i40
+  %or.cond241 = or i1 %.not.i.i.i35, %cmp3.i.i.i.i39.not
+  br i1 %or.cond241, label %land.end, label %if.end.i.i40
 
 if.end.i.i40:                                     ; preds = %lor.rhs.i27
   %21 = load i32, ptr %add.ptr4.i.i.i, align 4
@@ -15072,11 +15072,11 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKh
   %cmp.i.i.i44 = icmp ule i64 %2, %add.i.i43
   %sub.i.i.i45 = sub i64 %2, %add.i.i43
   %cmp3.i.i.i46 = icmp ult i64 %sub.i.i.i45, %sub.ptr.sub.i.i30
-  %.not236 = or i1 %cmp.i.i.i44, %cmp3.i.i.i46
+  %.not6.i = or i1 %cmp.i.i.i44, %cmp3.i.i.i46
   %sub.i.i47 = add i64 %2, -1
   %cmp3.i.not.i = icmp ult i64 %sub.i.i47, %add8.i.i
-  %or.cond = or i1 %cmp3.i.not.i, %.not236
-  br i1 %or.cond, label %land.end, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit
+  %or.cond.i48 = or i1 %cmp3.i.not.i, %.not6.i
+  br i1 %or.cond.i48, label %land.end, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit
 
 _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit: ; preds = %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %add8.i.i
@@ -15085,99 +15085,99 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.
   br i1 %cmp.i, label %land.lhs.true6, label %land.end
 
 land.lhs.true6:                                   ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit
-  %cmp.i.i51 = icmp ugt i16 %17, 6
-  br i1 %cmp.i.i51, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i52, label %_ZNK3org6apache5arrow7flatbuf5Field9type_typeEv.exit
+  %cmp.i.i52 = icmp ugt i16 %17, 6
+  br i1 %cmp.i.i52, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i53, label %_ZNK3org6apache5arrow7flatbuf5Field9type_typeEv.exit
 
-_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i52: ; preds = %land.lhs.true6
-  %add.ptr.i.i53 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 6
-  %24 = load i16, ptr %add.ptr.i.i53, align 2
-  %tobool.not.i54 = icmp eq i16 %24, 0
-  br i1 %tobool.not.i54, label %land.lhs.true8, label %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit
+_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i53: ; preds = %land.lhs.true6
+  %add.ptr.i.i54 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 6
+  %24 = load i16, ptr %add.ptr.i.i54, align 2
+  %tobool.not.i55 = icmp eq i16 %24, 0
+  br i1 %tobool.not.i55, label %land.lhs.true8, label %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit
 
-_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit: ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i52
-  %conv.i.i59 = zext i16 %24 to i64
-  %add.i.i60 = add i64 %sub.ptr.sub.i.i, %conv.i.i59
+_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit: ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i53
+  %conv.i.i60 = zext i16 %24 to i64
+  %add.i.i61 = add i64 %sub.ptr.sub.i.i, %conv.i.i60
   %sub.i3.i.i = add i64 %2, -1
-  %cmp3.i.i.i64.not = icmp ult i64 %sub.i3.i.i, %add.i.i60
-  br i1 %cmp3.i.i.i64.not, label %land.end, label %land.lhs.true8
+  %cmp3.i.i.i65.not = icmp ult i64 %sub.i3.i.i, %add.i.i61
+  br i1 %cmp3.i.i.i65.not, label %land.end, label %land.lhs.true8
 
-land.lhs.true8:                                   ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i52, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit
-  %cmp.i.i68 = icmp ugt i16 %17, 8
-  br i1 %cmp.i.i68, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i69, label %_ZNK3org6apache5arrow7flatbuf5Field9type_typeEv.exit
+land.lhs.true8:                                   ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i53, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit
+  %cmp.i.i69 = icmp ugt i16 %17, 8
+  br i1 %cmp.i.i69, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i70, label %_ZNK3org6apache5arrow7flatbuf5Field9type_typeEv.exit
 
-_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i69: ; preds = %land.lhs.true8
-  %add.ptr.i.i70 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
-  %25 = load i16, ptr %add.ptr.i.i70, align 2
-  %tobool.not.i71 = icmp eq i16 %25, 0
-  br i1 %tobool.not.i71, label %land.lhs.true10, label %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit87
+_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i70: ; preds = %land.lhs.true8
+  %add.ptr.i.i71 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
+  %25 = load i16, ptr %add.ptr.i.i71, align 2
+  %tobool.not.i72 = icmp eq i16 %25, 0
+  br i1 %tobool.not.i72, label %land.lhs.true10, label %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit88
 
-_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit87: ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i69
-  %conv.i.i76 = zext i16 %25 to i64
-  %add.i.i77 = add i64 %sub.ptr.sub.i.i, %conv.i.i76
-  %sub.i3.i.i85 = add i64 %2, -1
-  %cmp3.i.i.i86.not = icmp ult i64 %sub.i3.i.i85, %add.i.i77
-  br i1 %cmp3.i.i.i86.not, label %land.end, label %land.lhs.true10.thread
+_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit88: ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i70
+  %conv.i.i77 = zext i16 %25 to i64
+  %add.i.i78 = add i64 %sub.ptr.sub.i.i, %conv.i.i77
+  %sub.i3.i.i86 = add i64 %2, -1
+  %cmp3.i.i.i87.not = icmp ult i64 %sub.i3.i.i86, %add.i.i78
+  br i1 %cmp3.i.i.i87.not, label %land.end, label %land.lhs.true10.thread
 
-land.lhs.true10:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i69
-  %cmp.i.i91 = icmp ugt i16 %17, 10
-  br i1 %cmp.i.i91, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i92, label %_ZNK3org6apache5arrow7flatbuf5Field9type_typeEv.exit
+land.lhs.true10:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i70
+  %cmp.i.i92 = icmp ugt i16 %17, 10
+  br i1 %cmp.i.i92, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i93, label %_ZNK3org6apache5arrow7flatbuf5Field9type_typeEv.exit
 
-land.lhs.true10.thread:                           ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit87
-  %cmp.i.i91219 = icmp ugt i16 %17, 10
-  br i1 %cmp.i.i91219, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i92, label %cond.true.i.i
+land.lhs.true10.thread:                           ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit88
+  %cmp.i.i92220 = icmp ugt i16 %17, 10
+  br i1 %cmp.i.i92220, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i93, label %cond.true.i.i
 
-_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i92: ; preds = %land.lhs.true10.thread, %land.lhs.true10
-  %add.ptr.i.i93 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 10
-  %26 = load i16, ptr %add.ptr.i.i93, align 2
-  %tobool.not.i94 = icmp eq i16 %26, 0
-  br i1 %tobool.not.i94, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i, label %lor.rhs.i95
+_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i93: ; preds = %land.lhs.true10.thread, %land.lhs.true10
+  %add.ptr.i.i94 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 10
+  %26 = load i16, ptr %add.ptr.i.i94, align 2
+  %tobool.not.i95 = icmp eq i16 %26, 0
+  br i1 %tobool.not.i95, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i, label %lor.rhs.i96
 
-lor.rhs.i95:                                      ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i92
-  %conv.i.i99 = zext i16 %26 to i64
-  %add.i.i100 = add i64 %sub.ptr.sub.i.i, %conv.i.i99
-  %and.i.i.i.i.i101 = and i64 %add.i.i100, 3
-  %cmp.i.i.i.i.i102 = icmp ne i64 %and.i.i.i.i.i101, 0
-  %.not.i.i.i.i105 = select i1 %cmp.i.i.i.i.i102, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i110.not = icmp ult i64 %sub.i.i.i.i, %add.i.i100
-  %or.cond243 = or i1 %.not.i.i.i.i105, %cmp3.i.i.i.i.i110.not
-  br i1 %or.cond243, label %land.end, label %if.end.i.i.i111
+lor.rhs.i96:                                      ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i93
+  %conv.i.i100 = zext i16 %26 to i64
+  %add.i.i101 = add i64 %sub.ptr.sub.i.i, %conv.i.i100
+  %and.i.i.i.i.i102 = and i64 %add.i.i101, 3
+  %cmp.i.i.i.i.i103 = icmp ne i64 %and.i.i.i.i.i102, 0
+  %.not.i.i.i.i106 = select i1 %cmp.i.i.i.i.i103, i1 %tobool.i.i.i.i, i1 false
+  %cmp3.i.i.i.i.i111.not = icmp ult i64 %sub.i.i.i.i, %add.i.i101
+  %or.cond242 = or i1 %.not.i.i.i.i106, %cmp3.i.i.i.i.i111.not
+  br i1 %or.cond242, label %land.end, label %if.end.i.i.i112
 
-if.end.i.i.i111:                                  ; preds = %lor.rhs.i95
-  %add.ptr.i.i2.i112 = getelementptr inbounds i8, ptr %0, i64 %add.i.i100
-  %27 = load i32, ptr %add.ptr.i.i2.i112, align 4
-  %or.cond.i.i.i113 = icmp sgt i32 %27, 0
-  br i1 %or.cond.i.i.i113, label %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit119, label %land.end
+if.end.i.i.i112:                                  ; preds = %lor.rhs.i96
+  %add.ptr.i.i2.i113 = getelementptr inbounds i8, ptr %0, i64 %add.i.i101
+  %27 = load i32, ptr %add.ptr.i.i2.i113, align 4
+  %or.cond.i.i.i114 = icmp sgt i32 %27, 0
+  br i1 %or.cond.i.i.i114, label %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit120, label %land.end
 
-_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit119: ; preds = %if.end.i.i.i111
-  %conv.i.i.i115 = zext nneg i32 %27 to i64
-  %add.i.i.i116 = add i64 %add.i.i100, %conv.i.i.i115
-  %sub.i.i.i.i117 = add i64 %2, -1
-  %cmp3.i.not.i.i.i118.not = icmp ult i64 %sub.i.i.i.i117, %add.i.i.i116
-  br i1 %cmp3.i.not.i.i.i118.not, label %land.end, label %cond.true.i.i.i128
+_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit120: ; preds = %if.end.i.i.i112
+  %conv.i.i.i116 = zext nneg i32 %27 to i64
+  %add.i.i.i117 = add i64 %add.i.i101, %conv.i.i.i116
+  %sub.i.i.i.i118 = add i64 %2, -1
+  %cmp3.i.not.i.i.i119.not = icmp ult i64 %sub.i.i.i.i118, %add.i.i.i117
+  br i1 %cmp3.i.not.i.i.i119.not, label %land.end, label %cond.true.i.i.i129
 
-cond.true.i.i.i128:                               ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit119
-  %idx.ext.i.i.i129 = zext i16 %26 to i64
-  %add.ptr.i.i.i130 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i129
-  %28 = load i32, ptr %add.ptr.i.i.i130, align 4
-  %idx.ext3.i.i.i131 = zext i32 %28 to i64
-  %add.ptr4.i.i.i132 = getelementptr inbounds i8, ptr %add.ptr.i.i.i130, i64 %idx.ext3.i.i.i131
+cond.true.i.i.i129:                               ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit120
+  %idx.ext.i.i.i130 = zext i16 %26 to i64
+  %add.ptr.i.i.i131 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i130
+  %28 = load i32, ptr %add.ptr.i.i.i131, align 4
+  %idx.ext3.i.i.i132 = zext i32 %28 to i64
+  %add.ptr4.i.i.i133 = getelementptr inbounds i8, ptr %add.ptr.i.i.i131, i64 %idx.ext3.i.i.i132
   br label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i
 
-_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i: ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i92, %cond.true.i.i.i128
-  %cond.i.i.i124218 = phi ptr [ %add.ptr4.i.i.i132, %cond.true.i.i.i128 ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i92 ]
-  br i1 %tobool.not.i71, label %_ZNK3org6apache5arrow7flatbuf5Field9type_typeEv.exit, label %cond.true.i.i
+_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i: ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i93, %cond.true.i.i.i129
+  %cond.i.i.i125219 = phi ptr [ %add.ptr4.i.i.i133, %cond.true.i.i.i129 ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i93 ]
+  br i1 %tobool.not.i72, label %_ZNK3org6apache5arrow7flatbuf5Field9type_typeEv.exit, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %land.lhs.true10.thread, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i
-  %cond.i.i.i124218240 = phi ptr [ %cond.i.i.i124218, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i ], [ null, %land.lhs.true10.thread ]
+  %cond.i.i.i125219240 = phi ptr [ %cond.i.i.i125219, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i ], [ null, %land.lhs.true10.thread ]
   %idx.ext.i.i = zext i16 %25 to i64
-  %add.ptr.i.i136 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i
-  %29 = load i8, ptr %add.ptr.i.i136, align 1
+  %add.ptr.i.i137 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i
+  %29 = load i8, ptr %add.ptr.i.i137, align 1
   br label %_ZNK3org6apache5arrow7flatbuf5Field9type_typeEv.exit
 
 _ZNK3org6apache5arrow7flatbuf5Field9type_typeEv.exit: ; preds = %land.lhs.true10, %land.lhs.true8, %land.lhs.true, %land.lhs.true6, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i, %cond.true.i.i
-  %cond.i.i.i124217 = phi ptr [ %cond.i.i.i124218240, %cond.true.i.i ], [ %cond.i.i.i124218, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i ], [ null, %land.lhs.true6 ], [ null, %land.lhs.true ], [ null, %land.lhs.true8 ], [ null, %land.lhs.true10 ]
+  %cond.i.i.i125218 = phi ptr [ %cond.i.i.i125219240, %cond.true.i.i ], [ %cond.i.i.i125219, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i ], [ null, %land.lhs.true6 ], [ null, %land.lhs.true ], [ null, %land.lhs.true8 ], [ null, %land.lhs.true10 ]
   %cond.i.i = phi i8 [ %29, %cond.true.i.i ], [ 0, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i ], [ 0, %land.lhs.true6 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true8 ], [ 0, %land.lhs.true10 ]
-  %call15 = tail call noundef zeroext i1 @_ZN3org6apache5arrow7flatbuf10VerifyTypeERN22arrow_vendored_private11flatbuffers8VerifierEPKvNS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %verifier, ptr noundef %cond.i.i.i124217, i8 noundef zeroext %cond.i.i)
+  %call15 = tail call noundef zeroext i1 @_ZN3org6apache5arrow7flatbuf10VerifyTypeERN22arrow_vendored_private11flatbuffers8VerifierEPKvNS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %verifier, ptr noundef %cond.i.i.i125218, i8 noundef zeroext %cond.i.i)
   br i1 %call15, label %land.lhs.true16, label %land.end
 
 land.lhs.true16:                                  ; preds = %_ZNK3org6apache5arrow7flatbuf5Field9type_typeEv.exit
@@ -15186,156 +15186,156 @@ land.lhs.true16:                                  ; preds = %_ZNK3org6apache5arr
 
 land.lhs.true18:                                  ; preds = %land.lhs.true16
   %30 = load i32, ptr %this, align 4
-  %idx.ext.i.i.i.i.i137 = sext i32 %30 to i64
-  %idx.neg.i.i.i.i.i138 = sub nsw i64 0, %idx.ext.i.i.i.i.i137
-  %add.ptr.i.i.i.i.i139 = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i.i.i.i138
-  %31 = load i16, ptr %add.ptr.i.i.i.i.i139, align 2
-  %cmp.i.i.i.i140 = icmp ugt i16 %31, 12
-  br i1 %cmp.i.i.i.i140, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i142, label %land.lhs.true21
+  %idx.ext.i.i.i.i.i138 = sext i32 %30 to i64
+  %idx.neg.i.i.i.i.i139 = sub nsw i64 0, %idx.ext.i.i.i.i.i138
+  %add.ptr.i.i.i.i.i140 = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i.i.i.i139
+  %31 = load i16, ptr %add.ptr.i.i.i.i.i140, align 2
+  %cmp.i.i.i.i141 = icmp ugt i16 %31, 12
+  br i1 %cmp.i.i.i.i141, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i143, label %land.lhs.true21
 
-_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i142: ; preds = %land.lhs.true18
-  %add.ptr.i.i.i.i143 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i139, i64 12
-  %32 = load i16, ptr %add.ptr.i.i.i.i143, align 2
-  %tobool.not.i.i.i144 = icmp eq i16 %32, 0
-  br i1 %tobool.not.i.i.i144, label %land.lhs.true21, label %_ZN22arrow_vendored_private11flatbuffers8Verifier11VerifyTableIN3org6apache5arrow7flatbuf18DictionaryEncodingEEEbPKT_.exit
+_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i143: ; preds = %land.lhs.true18
+  %add.ptr.i.i.i.i144 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i140, i64 12
+  %32 = load i16, ptr %add.ptr.i.i.i.i144, align 2
+  %tobool.not.i.i.i145 = icmp eq i16 %32, 0
+  br i1 %tobool.not.i.i.i145, label %land.lhs.true21, label %_ZN22arrow_vendored_private11flatbuffers8Verifier11VerifyTableIN3org6apache5arrow7flatbuf18DictionaryEncodingEEEbPKT_.exit
 
-_ZN22arrow_vendored_private11flatbuffers8Verifier11VerifyTableIN3org6apache5arrow7flatbuf18DictionaryEncodingEEEbPKT_.exit: ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i142
-  %idx.ext.i.i.i146 = zext i16 %32 to i64
-  %add.ptr.i.i.i147 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i146
-  %33 = load i32, ptr %add.ptr.i.i.i147, align 4
-  %idx.ext3.i.i.i148 = zext i32 %33 to i64
-  %add.ptr4.i.i.i149 = getelementptr inbounds i8, ptr %add.ptr.i.i.i147, i64 %idx.ext3.i.i.i148
-  %call.i = tail call noundef zeroext i1 @_ZNK3org6apache5arrow7flatbuf18DictionaryEncoding6VerifyERN22arrow_vendored_private11flatbuffers8VerifierE(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr4.i.i.i149, ptr noundef nonnull align 8 dereferenceable(72) %verifier)
+_ZN22arrow_vendored_private11flatbuffers8Verifier11VerifyTableIN3org6apache5arrow7flatbuf18DictionaryEncodingEEEbPKT_.exit: ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i143
+  %idx.ext.i.i.i147 = zext i16 %32 to i64
+  %add.ptr.i.i.i148 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i147
+  %33 = load i32, ptr %add.ptr.i.i.i148, align 4
+  %idx.ext3.i.i.i149 = zext i32 %33 to i64
+  %add.ptr4.i.i.i150 = getelementptr inbounds i8, ptr %add.ptr.i.i.i148, i64 %idx.ext3.i.i.i149
+  %call.i = tail call noundef zeroext i1 @_ZNK3org6apache5arrow7flatbuf18DictionaryEncoding6VerifyERN22arrow_vendored_private11flatbuffers8VerifierE(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr4.i.i.i150, ptr noundef nonnull align 8 dereferenceable(72) %verifier)
   br i1 %call.i, label %land.lhs.true21, label %land.end
 
-land.lhs.true21:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i142, %land.lhs.true18, %_ZN22arrow_vendored_private11flatbuffers8Verifier11VerifyTableIN3org6apache5arrow7flatbuf18DictionaryEncodingEEEbPKT_.exit
+land.lhs.true21:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i143, %land.lhs.true18, %_ZN22arrow_vendored_private11flatbuffers8Verifier11VerifyTableIN3org6apache5arrow7flatbuf18DictionaryEncodingEEEbPKT_.exit
   %call22 = tail call noundef zeroext i1 @_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(72) %verifier, i16 noundef zeroext 14)
   br i1 %call22, label %land.lhs.true23, label %land.end
 
 land.lhs.true23:                                  ; preds = %land.lhs.true21
   %34 = load i32, ptr %this, align 4
-  %idx.ext.i.i.i.i.i152 = sext i32 %34 to i64
-  %idx.neg.i.i.i.i.i153 = sub nsw i64 0, %idx.ext.i.i.i.i.i152
-  %add.ptr.i.i.i.i.i154 = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i.i.i.i153
-  %35 = load i16, ptr %add.ptr.i.i.i.i.i154, align 2
-  %cmp.i.i.i.i155 = icmp ugt i16 %35, 14
-  br i1 %cmp.i.i.i.i155, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i157, label %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit
+  %idx.ext.i.i.i.i.i153 = sext i32 %34 to i64
+  %idx.neg.i.i.i.i.i154 = sub nsw i64 0, %idx.ext.i.i.i.i.i153
+  %add.ptr.i.i.i.i.i155 = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i.i.i.i154
+  %35 = load i16, ptr %add.ptr.i.i.i.i.i155, align 2
+  %cmp.i.i.i.i156 = icmp ugt i16 %35, 14
+  br i1 %cmp.i.i.i.i156, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i158, label %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit
 
-_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i157: ; preds = %land.lhs.true23
-  %add.ptr.i.i.i.i158 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i154, i64 14
-  %36 = load i16, ptr %add.ptr.i.i.i.i158, align 2
-  %tobool.not.i.i.i159 = icmp eq i16 %36, 0
-  br i1 %tobool.not.i.i.i159, label %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit, label %cond.true.i.i.i160
+_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i158: ; preds = %land.lhs.true23
+  %add.ptr.i.i.i.i159 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i155, i64 14
+  %36 = load i16, ptr %add.ptr.i.i.i.i159, align 2
+  %tobool.not.i.i.i160 = icmp eq i16 %36, 0
+  br i1 %tobool.not.i.i.i160, label %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit, label %cond.true.i.i.i161
 
-cond.true.i.i.i160:                               ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i157
-  %idx.ext.i.i.i161 = zext i16 %36 to i64
-  %add.ptr.i.i.i162 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i161
-  %37 = load i32, ptr %add.ptr.i.i.i162, align 4
-  %idx.ext3.i.i.i163 = zext i32 %37 to i64
-  %add.ptr4.i.i.i164 = getelementptr inbounds i8, ptr %add.ptr.i.i.i162, i64 %idx.ext3.i.i.i163
+cond.true.i.i.i161:                               ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i158
+  %idx.ext.i.i.i162 = zext i16 %36 to i64
+  %add.ptr.i.i.i163 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i162
+  %37 = load i32, ptr %add.ptr.i.i.i163, align 4
+  %idx.ext3.i.i.i164 = zext i32 %37 to i64
+  %add.ptr4.i.i.i165 = getelementptr inbounds i8, ptr %add.ptr.i.i.i163, i64 %idx.ext3.i.i.i164
   br label %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit
 
-_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit: ; preds = %land.lhs.true23, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i157, %cond.true.i.i.i160
-  %cond.i.i.i156 = phi ptr [ %add.ptr4.i.i.i164, %cond.true.i.i.i160 ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i157 ], [ null, %land.lhs.true23 ]
-  %call25 = tail call noundef zeroext i1 @_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf5FieldEEEjEEbPKNS0_6VectorIT0_T1_EE(ptr noundef nonnull align 8 dereferenceable(72) %verifier, ptr noundef %cond.i.i.i156)
+_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit: ; preds = %land.lhs.true23, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i158, %cond.true.i.i.i161
+  %cond.i.i.i157 = phi ptr [ %add.ptr4.i.i.i165, %cond.true.i.i.i161 ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i158 ], [ null, %land.lhs.true23 ]
+  %call25 = tail call noundef zeroext i1 @_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf5FieldEEEjEEbPKNS0_6VectorIT0_T1_EE(ptr noundef nonnull align 8 dereferenceable(72) %verifier, ptr noundef %cond.i.i.i157)
   br i1 %call25, label %land.lhs.true26, label %land.end
 
 land.lhs.true26:                                  ; preds = %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit
   %38 = load i32, ptr %this, align 4
-  %idx.ext.i.i.i.i.i165 = sext i32 %38 to i64
-  %idx.neg.i.i.i.i.i166 = sub nsw i64 0, %idx.ext.i.i.i.i.i165
-  %add.ptr.i.i.i.i.i167 = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i.i.i.i166
-  %39 = load i16, ptr %add.ptr.i.i.i.i.i167, align 2
-  %cmp.i.i.i.i168 = icmp ugt i16 %39, 14
-  br i1 %cmp.i.i.i.i168, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i170, label %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit178
+  %idx.ext.i.i.i.i.i166 = sext i32 %38 to i64
+  %idx.neg.i.i.i.i.i167 = sub nsw i64 0, %idx.ext.i.i.i.i.i166
+  %add.ptr.i.i.i.i.i168 = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i.i.i.i167
+  %39 = load i16, ptr %add.ptr.i.i.i.i.i168, align 2
+  %cmp.i.i.i.i169 = icmp ugt i16 %39, 14
+  br i1 %cmp.i.i.i.i169, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i171, label %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit179
 
-_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i170: ; preds = %land.lhs.true26
-  %add.ptr.i.i.i.i171 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i167, i64 14
-  %40 = load i16, ptr %add.ptr.i.i.i.i171, align 2
-  %tobool.not.i.i.i172 = icmp eq i16 %40, 0
-  br i1 %tobool.not.i.i.i172, label %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit178, label %cond.true.i.i.i173
+_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i171: ; preds = %land.lhs.true26
+  %add.ptr.i.i.i.i172 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i168, i64 14
+  %40 = load i16, ptr %add.ptr.i.i.i.i172, align 2
+  %tobool.not.i.i.i173 = icmp eq i16 %40, 0
+  br i1 %tobool.not.i.i.i173, label %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit179, label %cond.true.i.i.i174
 
-cond.true.i.i.i173:                               ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i170
-  %idx.ext.i.i.i174 = zext i16 %40 to i64
-  %add.ptr.i.i.i175 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i174
-  %41 = load i32, ptr %add.ptr.i.i.i175, align 4
-  %idx.ext3.i.i.i176 = zext i32 %41 to i64
-  %add.ptr4.i.i.i177 = getelementptr inbounds i8, ptr %add.ptr.i.i.i175, i64 %idx.ext3.i.i.i176
-  br label %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit178
+cond.true.i.i.i174:                               ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i171
+  %idx.ext.i.i.i175 = zext i16 %40 to i64
+  %add.ptr.i.i.i176 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i175
+  %41 = load i32, ptr %add.ptr.i.i.i176, align 4
+  %idx.ext3.i.i.i177 = zext i32 %41 to i64
+  %add.ptr4.i.i.i178 = getelementptr inbounds i8, ptr %add.ptr.i.i.i176, i64 %idx.ext3.i.i.i177
+  br label %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit179
 
-_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit178: ; preds = %land.lhs.true26, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i170, %cond.true.i.i.i173
-  %cond.i.i.i169 = phi ptr [ %add.ptr4.i.i.i177, %cond.true.i.i.i173 ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i170 ], [ null, %land.lhs.true26 ]
-  %call28 = tail call noundef zeroext i1 @_ZN22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOfTablesIN3org6apache5arrow7flatbuf5FieldEEEbPKNS0_6VectorINS0_6OffsetIT_EEjEE(ptr noundef nonnull align 8 dereferenceable(72) %verifier, ptr noundef %cond.i.i.i169)
+_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit179: ; preds = %land.lhs.true26, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i171, %cond.true.i.i.i174
+  %cond.i.i.i170 = phi ptr [ %add.ptr4.i.i.i178, %cond.true.i.i.i174 ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i171 ], [ null, %land.lhs.true26 ]
+  %call28 = tail call noundef zeroext i1 @_ZN22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOfTablesIN3org6apache5arrow7flatbuf5FieldEEEbPKNS0_6VectorINS0_6OffsetIT_EEjEE(ptr noundef nonnull align 8 dereferenceable(72) %verifier, ptr noundef %cond.i.i.i170)
   br i1 %call28, label %land.lhs.true29, label %land.end
 
-land.lhs.true29:                                  ; preds = %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit178
+land.lhs.true29:                                  ; preds = %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit179
   %call30 = tail call noundef zeroext i1 @_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(72) %verifier, i16 noundef zeroext 16)
   br i1 %call30, label %land.lhs.true31, label %land.end
 
 land.lhs.true31:                                  ; preds = %land.lhs.true29
   %42 = load i32, ptr %this, align 4
-  %idx.ext.i.i.i.i.i179 = sext i32 %42 to i64
-  %idx.neg.i.i.i.i.i180 = sub nsw i64 0, %idx.ext.i.i.i.i.i179
-  %add.ptr.i.i.i.i.i181 = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i.i.i.i180
-  %43 = load i16, ptr %add.ptr.i.i.i.i.i181, align 2
-  %cmp.i.i.i.i182 = icmp ugt i16 %43, 16
-  br i1 %cmp.i.i.i.i182, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i184, label %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit
+  %idx.ext.i.i.i.i.i180 = sext i32 %42 to i64
+  %idx.neg.i.i.i.i.i181 = sub nsw i64 0, %idx.ext.i.i.i.i.i180
+  %add.ptr.i.i.i.i.i182 = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i.i.i.i181
+  %43 = load i16, ptr %add.ptr.i.i.i.i.i182, align 2
+  %cmp.i.i.i.i183 = icmp ugt i16 %43, 16
+  br i1 %cmp.i.i.i.i183, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i185, label %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit
 
-_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i184: ; preds = %land.lhs.true31
-  %add.ptr.i.i.i.i185 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i181, i64 16
-  %44 = load i16, ptr %add.ptr.i.i.i.i185, align 2
-  %tobool.not.i.i.i186 = icmp eq i16 %44, 0
-  br i1 %tobool.not.i.i.i186, label %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit, label %cond.true.i.i.i187
+_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i185: ; preds = %land.lhs.true31
+  %add.ptr.i.i.i.i186 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i182, i64 16
+  %44 = load i16, ptr %add.ptr.i.i.i.i186, align 2
+  %tobool.not.i.i.i187 = icmp eq i16 %44, 0
+  br i1 %tobool.not.i.i.i187, label %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit, label %cond.true.i.i.i188
 
-cond.true.i.i.i187:                               ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i184
-  %idx.ext.i.i.i188 = zext i16 %44 to i64
-  %add.ptr.i.i.i189 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i188
-  %45 = load i32, ptr %add.ptr.i.i.i189, align 4
-  %idx.ext3.i.i.i190 = zext i32 %45 to i64
-  %add.ptr4.i.i.i191 = getelementptr inbounds i8, ptr %add.ptr.i.i.i189, i64 %idx.ext3.i.i.i190
+cond.true.i.i.i188:                               ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i185
+  %idx.ext.i.i.i189 = zext i16 %44 to i64
+  %add.ptr.i.i.i190 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i189
+  %45 = load i32, ptr %add.ptr.i.i.i190, align 4
+  %idx.ext3.i.i.i191 = zext i32 %45 to i64
+  %add.ptr4.i.i.i192 = getelementptr inbounds i8, ptr %add.ptr.i.i.i190, i64 %idx.ext3.i.i.i191
   br label %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit
 
-_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit: ; preds = %land.lhs.true31, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i184, %cond.true.i.i.i187
-  %cond.i.i.i183 = phi ptr [ %add.ptr4.i.i.i191, %cond.true.i.i.i187 ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i184 ], [ null, %land.lhs.true31 ]
-  %call33 = tail call noundef zeroext i1 @_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEEjEEbPKNS0_6VectorIT0_T1_EE(ptr noundef nonnull align 8 dereferenceable(72) %verifier, ptr noundef %cond.i.i.i183)
+_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit: ; preds = %land.lhs.true31, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i185, %cond.true.i.i.i188
+  %cond.i.i.i184 = phi ptr [ %add.ptr4.i.i.i192, %cond.true.i.i.i188 ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i185 ], [ null, %land.lhs.true31 ]
+  %call33 = tail call noundef zeroext i1 @_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEEjEEbPKNS0_6VectorIT0_T1_EE(ptr noundef nonnull align 8 dereferenceable(72) %verifier, ptr noundef %cond.i.i.i184)
   br i1 %call33, label %land.lhs.true34, label %land.end
 
 land.lhs.true34:                                  ; preds = %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit
   %46 = load i32, ptr %this, align 4
-  %idx.ext.i.i.i.i.i192 = sext i32 %46 to i64
-  %idx.neg.i.i.i.i.i193 = sub nsw i64 0, %idx.ext.i.i.i.i.i192
-  %add.ptr.i.i.i.i.i194 = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i.i.i.i193
-  %47 = load i16, ptr %add.ptr.i.i.i.i.i194, align 2
-  %cmp.i.i.i.i195 = icmp ugt i16 %47, 16
-  br i1 %cmp.i.i.i.i195, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i197, label %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit205
+  %idx.ext.i.i.i.i.i193 = sext i32 %46 to i64
+  %idx.neg.i.i.i.i.i194 = sub nsw i64 0, %idx.ext.i.i.i.i.i193
+  %add.ptr.i.i.i.i.i195 = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i.i.i.i194
+  %47 = load i16, ptr %add.ptr.i.i.i.i.i195, align 2
+  %cmp.i.i.i.i196 = icmp ugt i16 %47, 16
+  br i1 %cmp.i.i.i.i196, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i198, label %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit206
 
-_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i197: ; preds = %land.lhs.true34
-  %add.ptr.i.i.i.i198 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i194, i64 16
-  %48 = load i16, ptr %add.ptr.i.i.i.i198, align 2
-  %tobool.not.i.i.i199 = icmp eq i16 %48, 0
-  br i1 %tobool.not.i.i.i199, label %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit205, label %cond.true.i.i.i200
+_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i198: ; preds = %land.lhs.true34
+  %add.ptr.i.i.i.i199 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i195, i64 16
+  %48 = load i16, ptr %add.ptr.i.i.i.i199, align 2
+  %tobool.not.i.i.i200 = icmp eq i16 %48, 0
+  br i1 %tobool.not.i.i.i200, label %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit206, label %cond.true.i.i.i201
 
-cond.true.i.i.i200:                               ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i197
-  %idx.ext.i.i.i201 = zext i16 %48 to i64
-  %add.ptr.i.i.i202 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i201
-  %49 = load i32, ptr %add.ptr.i.i.i202, align 4
-  %idx.ext3.i.i.i203 = zext i32 %49 to i64
-  %add.ptr4.i.i.i204 = getelementptr inbounds i8, ptr %add.ptr.i.i.i202, i64 %idx.ext3.i.i.i203
-  br label %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit205
+cond.true.i.i.i201:                               ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i198
+  %idx.ext.i.i.i202 = zext i16 %48 to i64
+  %add.ptr.i.i.i203 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i202
+  %49 = load i32, ptr %add.ptr.i.i.i203, align 4
+  %idx.ext3.i.i.i204 = zext i32 %49 to i64
+  %add.ptr4.i.i.i205 = getelementptr inbounds i8, ptr %add.ptr.i.i.i203, i64 %idx.ext3.i.i.i204
+  br label %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit206
 
-_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit205: ; preds = %land.lhs.true34, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i197, %cond.true.i.i.i200
-  %cond.i.i.i196 = phi ptr [ %add.ptr4.i.i.i204, %cond.true.i.i.i200 ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i197 ], [ null, %land.lhs.true34 ]
-  %call36 = tail call noundef zeroext i1 @_ZN22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOfTablesIN3org6apache5arrow7flatbuf8KeyValueEEEbPKNS0_6VectorINS0_6OffsetIT_EEjEE(ptr noundef nonnull align 8 dereferenceable(72) %verifier, ptr noundef %cond.i.i.i196)
+_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit206: ; preds = %land.lhs.true34, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i198, %cond.true.i.i.i201
+  %cond.i.i.i197 = phi ptr [ %add.ptr4.i.i.i205, %cond.true.i.i.i201 ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i198 ], [ null, %land.lhs.true34 ]
+  %call36 = tail call noundef zeroext i1 @_ZN22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOfTablesIN3org6apache5arrow7flatbuf8KeyValueEEEbPKNS0_6VectorINS0_6OffsetIT_EEjEE(ptr noundef nonnull align 8 dereferenceable(72) %verifier, ptr noundef %cond.i.i.i197)
   br i1 %call36, label %land.rhs, label %land.end
 
-land.rhs:                                         ; preds = %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit205
+land.rhs:                                         ; preds = %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit206
   %50 = load i32, ptr %depth_.i.i.i, align 8
   %dec.i = add i32 %50, -1
   store i32 %dec.i, ptr %depth_.i.i.i, align 8
   br label %land.end
 
-land.end:                                         ; preds = %lor.rhs.i95, %if.end.i.i.i111, %lor.rhs.i27, %if.end.i.i40, %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i, %lor.rhs.i, %if.end.i.i.i, %land.lhs.true.i.i, %entry, %if.end.i.i, %land.lhs.true5.i.i, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i, %land.rhs, %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit205, %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit, %land.lhs.true29, %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit178, %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit, %land.lhs.true21, %_ZN22arrow_vendored_private11flatbuffers8Verifier11VerifyTableIN3org6apache5arrow7flatbuf18DictionaryEncodingEEEbPKT_.exit, %land.lhs.true16, %_ZNK3org6apache5arrow7flatbuf5Field9type_typeEv.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit119, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit87, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
-  %51 = phi i1 [ false, %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit205 ], [ false, %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit ], [ false, %land.lhs.true29 ], [ false, %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit178 ], [ false, %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit ], [ false, %land.lhs.true21 ], [ false, %_ZN22arrow_vendored_private11flatbuffers8Verifier11VerifyTableIN3org6apache5arrow7flatbuf18DictionaryEncodingEEEbPKT_.exit ], [ false, %land.lhs.true16 ], [ false, %_ZNK3org6apache5arrow7flatbuf5Field9type_typeEv.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit119 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit87 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit ], [ true, %land.rhs ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i ], [ false, %land.lhs.true5.i.i ], [ false, %if.end.i.i ], [ false, %entry ], [ false, %land.lhs.true.i.i ], [ false, %if.end.i.i.i ], [ false, %lor.rhs.i ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i ], [ false, %if.end.i.i40 ], [ false, %lor.rhs.i27 ], [ false, %if.end.i.i.i111 ], [ false, %lor.rhs.i95 ]
+land.end:                                         ; preds = %lor.rhs.i96, %if.end.i.i.i112, %lor.rhs.i27, %if.end.i.i40, %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i, %lor.rhs.i, %if.end.i.i.i, %land.lhs.true.i.i, %entry, %if.end.i.i, %land.lhs.true5.i.i, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i, %land.rhs, %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit206, %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit, %land.lhs.true29, %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit179, %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit, %land.lhs.true21, %_ZN22arrow_vendored_private11flatbuffers8Verifier11VerifyTableIN3org6apache5arrow7flatbuf18DictionaryEncodingEEEbPKT_.exit, %land.lhs.true16, %_ZNK3org6apache5arrow7flatbuf5Field9type_typeEv.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit120, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit88, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
+  %51 = phi i1 [ false, %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit206 ], [ false, %_ZNK3org6apache5arrow7flatbuf5Field15custom_metadataEv.exit ], [ false, %land.lhs.true29 ], [ false, %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit179 ], [ false, %_ZNK3org6apache5arrow7flatbuf5Field8childrenEv.exit ], [ false, %land.lhs.true21 ], [ false, %_ZN22arrow_vendored_private11flatbuffers8Verifier11VerifyTableIN3org6apache5arrow7flatbuf18DictionaryEncodingEEEbPKT_.exit ], [ false, %land.lhs.true16 ], [ false, %_ZNK3org6apache5arrow7flatbuf5Field9type_typeEv.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit120 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit88 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table11VerifyFieldIhEEbRKNS0_8VerifierEtm.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit ], [ true, %land.rhs ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i ], [ false, %land.lhs.true5.i.i ], [ false, %if.end.i.i ], [ false, %entry ], [ false, %land.lhs.true.i.i ], [ false, %if.end.i.i.i ], [ false, %lor.rhs.i ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i ], [ false, %if.end.i.i40 ], [ false, %lor.rhs.i27 ], [ false, %if.end.i.i.i112 ], [ false, %lor.rhs.i96 ]
   ret i1 %51
 }
 
@@ -17305,8 +17305,8 @@ lor.rhs.i:                                        ; preds = %_ZNK22arrow_vendore
   %cmp.i.i.i12 = icmp ne i64 %and.i.i.i11, 0
   %.not.i.i = select i1 %cmp.i.i.i12, i1 %tobool.i.i.i.i, i1 false
   %cmp3.i.i.i14 = icmp ult i64 %sub.i.i15.i.i, %add.i.i
-  %or.cond64.not = or i1 %cmp3.i.i.i14, %.not.i.i
-  br i1 %or.cond64.not, label %land.end, label %land.lhs.true3
+  %or.cond.not = or i1 %cmp3.i.i.i14, %.not.i.i
+  br i1 %or.cond.not, label %land.end, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %lor.rhs.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %cmp.i.i18 = icmp ugt i16 %15, 6
@@ -17325,8 +17325,8 @@ lor.rhs.i22:                                      ; preds = %_ZNK22arrow_vendore
   %cmp.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i, 0
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
   %cmp3.i.i.i.i.i.not = icmp ult i64 %sub.i.i.i.i, %add.i.i27
-  %or.cond65 = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
-  br i1 %or.cond65, label %land.end, label %if.end.i.i.i
+  %or.cond64 = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
+  br i1 %or.cond64, label %land.end, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.rhs.i22
   %add.ptr.i.i2.i = getelementptr inbounds i8, ptr %0, i64 %add.i.i27
@@ -17353,8 +17353,8 @@ lor.rhs.i33:                                      ; preds = %_ZNK22arrow_vendore
   %cmp.i.i.i.i38 = icmp ne i64 %and.i.i.i.i37, 0
   %.not.i.i.i41 = select i1 %cmp.i.i.i.i38, i1 %tobool.i.i.i.i, i1 false
   %cmp3.i.i.i.i45.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i36
-  %or.cond66 = or i1 %.not.i.i.i41, %cmp3.i.i.i.i45.not
-  br i1 %or.cond66, label %land.end, label %if.end.i.i46
+  %or.cond65 = or i1 %.not.i.i.i41, %cmp3.i.i.i.i45.not
+  br i1 %or.cond65, label %land.end, label %if.end.i.i46
 
 if.end.i.i46:                                     ; preds = %lor.rhs.i33
   %20 = load i32, ptr %add.ptr4.i.i.i, align 4
@@ -17370,11 +17370,11 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKh
   %cmp.i.i.i50 = icmp ule i64 %2, %add.i.i49
   %sub.i.i.i51 = sub i64 %2, %add.i.i49
   %cmp3.i.i.i52 = icmp ult i64 %sub.i.i.i51, %sub.ptr.sub.i.i36
-  %.not63 = or i1 %cmp.i.i.i50, %cmp3.i.i.i52
+  %.not6.i = or i1 %cmp.i.i.i50, %cmp3.i.i.i52
   %sub.i.i53 = add i64 %2, -1
   %cmp3.i.not.i = icmp ult i64 %sub.i.i53, %add8.i.i
-  %or.cond = or i1 %cmp3.i.not.i, %.not63
-  br i1 %or.cond, label %land.end, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit
+  %or.cond.i54 = or i1 %cmp3.i.not.i, %.not6.i
+  br i1 %or.cond.i54, label %land.end, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit
 
 _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit: ; preds = %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %add8.i.i
@@ -19625,8 +19625,8 @@ lor.rhs.i22:                                      ; preds = %_ZNK22arrow_vendore
   %cmp.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i, 0
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
   %cmp3.i.i.i.i.i.not = icmp ult i64 %sub.i.i.i.i, %add.i.i27
-  %or.cond64 = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
-  br i1 %or.cond64, label %land.end, label %if.end.i.i.i
+  %or.cond = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
+  br i1 %or.cond, label %land.end, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.rhs.i22
   %add.ptr.i.i2.i = getelementptr inbounds i8, ptr %0, i64 %add.i.i27
@@ -19653,8 +19653,8 @@ lor.rhs.i33:                                      ; preds = %_ZNK22arrow_vendore
   %cmp.i.i.i.i38 = icmp ne i64 %and.i.i.i.i37, 0
   %.not.i.i.i41 = select i1 %cmp.i.i.i.i38, i1 %tobool.i.i.i.i, i1 false
   %cmp3.i.i.i.i45.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i36
-  %or.cond65 = or i1 %.not.i.i.i41, %cmp3.i.i.i.i45.not
-  br i1 %or.cond65, label %land.end, label %if.end.i.i46
+  %or.cond64 = or i1 %.not.i.i.i41, %cmp3.i.i.i.i45.not
+  br i1 %or.cond64, label %land.end, label %if.end.i.i46
 
 if.end.i.i46:                                     ; preds = %lor.rhs.i33
   %21 = load i32, ptr %add.ptr4.i.i.i, align 4
@@ -19670,11 +19670,11 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKh
   %cmp.i.i.i50 = icmp ule i64 %2, %add.i.i49
   %sub.i.i.i51 = sub i64 %2, %add.i.i49
   %cmp3.i.i.i52 = icmp ult i64 %sub.i.i.i51, %sub.ptr.sub.i.i36
-  %.not63 = or i1 %cmp.i.i.i50, %cmp3.i.i.i52
+  %.not6.i = or i1 %cmp.i.i.i50, %cmp3.i.i.i52
   %sub.i.i53 = add i64 %2, -1
   %cmp3.i.not.i = icmp ult i64 %sub.i.i53, %add8.i.i
-  %or.cond = or i1 %cmp3.i.not.i, %.not63
-  br i1 %or.cond, label %land.end, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit
+  %or.cond.i54 = or i1 %cmp3.i.not.i, %.not6.i
+  br i1 %or.cond.i54, label %land.end, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit
 
 _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit: ; preds = %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %add8.i.i
@@ -20961,8 +20961,8 @@ lor.rhs.i:                                        ; preds = %_ZNK22arrow_vendore
   %cmp.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i, 0
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
   %cmp3.i.i.i.i.i.not = icmp ult i64 %sub.i.i.i.i, %add.i.i
-  %or.cond132 = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
-  br i1 %or.cond132, label %land.end, label %if.end.i.i.i
+  %or.cond = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
+  br i1 %or.cond, label %land.end, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.rhs.i
   %add.ptr.i.i2.i = getelementptr inbounds i8, ptr %0, i64 %add.i.i
@@ -20989,8 +20989,8 @@ lor.rhs.i17:                                      ; preds = %_ZNK22arrow_vendore
   %cmp.i.i.i.i22 = icmp ne i64 %and.i.i.i.i21, 0
   %.not.i.i.i25 = select i1 %cmp.i.i.i.i22, i1 %tobool.i.i.i.i, i1 false
   %cmp3.i.i.i.i29.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i20
-  %or.cond133 = or i1 %.not.i.i.i25, %cmp3.i.i.i.i29.not
-  br i1 %or.cond133, label %land.end, label %if.end.i.i30
+  %or.cond131 = or i1 %.not.i.i.i25, %cmp3.i.i.i.i29.not
+  br i1 %or.cond131, label %land.end, label %if.end.i.i30
 
 if.end.i.i30:                                     ; preds = %lor.rhs.i17
   %19 = load i32, ptr %add.ptr4.i.i.i, align 4
@@ -21006,11 +21006,11 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKh
   %cmp.i.i.i34 = icmp ule i64 %2, %add.i.i33
   %sub.i.i.i35 = sub i64 %2, %add.i.i33
   %cmp3.i.i.i36 = icmp ult i64 %sub.i.i.i35, %sub.ptr.sub.i.i20
-  %.not131 = or i1 %cmp.i.i.i34, %cmp3.i.i.i36
+  %.not6.i = or i1 %cmp.i.i.i34, %cmp3.i.i.i36
   %sub.i.i37 = add i64 %2, -1
   %cmp3.i.not.i = icmp ult i64 %sub.i.i37, %add8.i.i
-  %or.cond = or i1 %cmp3.i.not.i, %.not131
-  br i1 %or.cond, label %land.end, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit
+  %or.cond.i38 = or i1 %cmp3.i.not.i, %.not6.i
+  br i1 %or.cond.i38, label %land.end, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit
 
 _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit: ; preds = %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %add8.i.i
@@ -21019,85 +21019,85 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.
   br i1 %cmp.i, label %land.lhs.true6, label %land.end
 
 land.lhs.true6:                                   ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit
-  %cmp.i.i41 = icmp ugt i16 %15, 6
-  br i1 %cmp.i.i41, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i42, label %land.rhs
+  %cmp.i.i42 = icmp ugt i16 %15, 6
+  br i1 %cmp.i.i42, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i43, label %land.rhs
 
-_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i42: ; preds = %land.lhs.true6
-  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 6
-  %22 = load i16, ptr %add.ptr.i.i43, align 2
-  %tobool.not.i44 = icmp eq i16 %22, 0
-  br i1 %tobool.not.i44, label %land.rhs, label %lor.rhs.i45
+_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i43: ; preds = %land.lhs.true6
+  %add.ptr.i.i44 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 6
+  %22 = load i16, ptr %add.ptr.i.i44, align 2
+  %tobool.not.i45 = icmp eq i16 %22, 0
+  br i1 %tobool.not.i45, label %land.rhs, label %lor.rhs.i46
 
-lor.rhs.i45:                                      ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i42
-  %conv.i.i49 = zext i16 %22 to i64
-  %add.i.i50 = add i64 %sub.ptr.sub.i.i, %conv.i.i49
-  %and.i.i.i.i.i51 = and i64 %add.i.i50, 3
-  %cmp.i.i.i.i.i52 = icmp ne i64 %and.i.i.i.i.i51, 0
-  %.not.i.i.i.i55 = select i1 %cmp.i.i.i.i.i52, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i60.not = icmp ult i64 %sub.i.i.i.i, %add.i.i50
-  %or.cond134 = or i1 %.not.i.i.i.i55, %cmp3.i.i.i.i.i60.not
-  br i1 %or.cond134, label %land.end, label %if.end.i.i.i61
+lor.rhs.i46:                                      ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i43
+  %conv.i.i50 = zext i16 %22 to i64
+  %add.i.i51 = add i64 %sub.ptr.sub.i.i, %conv.i.i50
+  %and.i.i.i.i.i52 = and i64 %add.i.i51, 3
+  %cmp.i.i.i.i.i53 = icmp ne i64 %and.i.i.i.i.i52, 0
+  %.not.i.i.i.i56 = select i1 %cmp.i.i.i.i.i53, i1 %tobool.i.i.i.i, i1 false
+  %cmp3.i.i.i.i.i61.not = icmp ult i64 %sub.i.i.i.i, %add.i.i51
+  %or.cond132 = or i1 %.not.i.i.i.i56, %cmp3.i.i.i.i.i61.not
+  br i1 %or.cond132, label %land.end, label %if.end.i.i.i62
 
-if.end.i.i.i61:                                   ; preds = %lor.rhs.i45
-  %add.ptr.i.i2.i62 = getelementptr inbounds i8, ptr %0, i64 %add.i.i50
-  %23 = load i32, ptr %add.ptr.i.i2.i62, align 4
-  %or.cond.i.i.i63 = icmp sgt i32 %23, 0
-  br i1 %or.cond.i.i.i63, label %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit69, label %land.end
+if.end.i.i.i62:                                   ; preds = %lor.rhs.i46
+  %add.ptr.i.i2.i63 = getelementptr inbounds i8, ptr %0, i64 %add.i.i51
+  %23 = load i32, ptr %add.ptr.i.i2.i63, align 4
+  %or.cond.i.i.i64 = icmp sgt i32 %23, 0
+  br i1 %or.cond.i.i.i64, label %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit70, label %land.end
 
-_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit69: ; preds = %if.end.i.i.i61
-  %conv.i.i.i65 = zext nneg i32 %23 to i64
-  %add.i.i.i66 = add i64 %add.i.i50, %conv.i.i.i65
-  %sub.i.i.i.i67 = add i64 %2, -1
-  %cmp3.i.not.i.i.i68.not = icmp ult i64 %sub.i.i.i.i67, %add.i.i.i66
-  br i1 %cmp3.i.not.i.i.i68.not, label %land.end, label %lor.rhs.i84
+_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit70: ; preds = %if.end.i.i.i62
+  %conv.i.i.i66 = zext nneg i32 %23 to i64
+  %add.i.i.i67 = add i64 %add.i.i51, %conv.i.i.i66
+  %sub.i.i.i.i68 = add i64 %2, -1
+  %cmp3.i.not.i.i.i69.not = icmp ult i64 %sub.i.i.i.i68, %add.i.i.i67
+  br i1 %cmp3.i.not.i.i.i69.not, label %land.end, label %lor.rhs.i85
 
-lor.rhs.i84:                                      ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit69
-  %idx.ext.i.i.i79 = zext i16 %22 to i64
-  %add.ptr.i.i.i80 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i79
-  %24 = load i32, ptr %add.ptr.i.i.i80, align 4
-  %idx.ext3.i.i.i81 = zext i32 %24 to i64
-  %add.ptr4.i.i.i82 = getelementptr inbounds i8, ptr %add.ptr.i.i.i80, i64 %idx.ext3.i.i.i81
-  %sub.ptr.lhs.cast.i.i85 = ptrtoint ptr %add.ptr4.i.i.i82 to i64
-  %sub.ptr.sub.i.i87 = sub i64 %sub.ptr.lhs.cast.i.i85, %sub.ptr.rhs.cast.i.i
-  %and.i.i.i.i88 = and i64 %sub.ptr.sub.i.i87, 3
-  %cmp.i.i.i.i89 = icmp ne i64 %and.i.i.i.i88, 0
-  %.not.i.i.i92 = select i1 %cmp.i.i.i.i89, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i97.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i87
-  %or.cond135 = or i1 %.not.i.i.i92, %cmp3.i.i.i.i97.not
-  br i1 %or.cond135, label %land.end, label %if.end.i.i98
+lor.rhs.i85:                                      ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit70
+  %idx.ext.i.i.i80 = zext i16 %22 to i64
+  %add.ptr.i.i.i81 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i80
+  %24 = load i32, ptr %add.ptr.i.i.i81, align 4
+  %idx.ext3.i.i.i82 = zext i32 %24 to i64
+  %add.ptr4.i.i.i83 = getelementptr inbounds i8, ptr %add.ptr.i.i.i81, i64 %idx.ext3.i.i.i82
+  %sub.ptr.lhs.cast.i.i86 = ptrtoint ptr %add.ptr4.i.i.i83 to i64
+  %sub.ptr.sub.i.i88 = sub i64 %sub.ptr.lhs.cast.i.i86, %sub.ptr.rhs.cast.i.i
+  %and.i.i.i.i89 = and i64 %sub.ptr.sub.i.i88, 3
+  %cmp.i.i.i.i90 = icmp ne i64 %and.i.i.i.i89, 0
+  %.not.i.i.i93 = select i1 %cmp.i.i.i.i90, i1 %tobool.i.i.i.i, i1 false
+  %cmp3.i.i.i.i98.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i88
+  %or.cond133 = or i1 %.not.i.i.i93, %cmp3.i.i.i.i98.not
+  br i1 %or.cond133, label %land.end, label %if.end.i.i99
 
-if.end.i.i98:                                     ; preds = %lor.rhs.i84
-  %25 = load i32, ptr %add.ptr4.i.i.i82, align 4
-  %max_size.i.i99 = getelementptr inbounds i8, ptr %verifier, i64 32
-  %26 = load i64, ptr %max_size.i.i99, align 8
-  %conv.i.i100 = zext i32 %25 to i64
-  %cmp.i.i101 = icmp ugt i64 %26, %conv.i.i100
-  br i1 %cmp.i.i101, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i102, label %land.end
+if.end.i.i99:                                     ; preds = %lor.rhs.i85
+  %25 = load i32, ptr %add.ptr4.i.i.i83, align 4
+  %max_size.i.i100 = getelementptr inbounds i8, ptr %verifier, i64 32
+  %26 = load i64, ptr %max_size.i.i100, align 8
+  %conv.i.i101 = zext i32 %25 to i64
+  %cmp.i.i102 = icmp ugt i64 %26, %conv.i.i101
+  br i1 %cmp.i.i102, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i103, label %land.end
 
-_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i102: ; preds = %if.end.i.i98
-  %add.i.i103 = add nuw nsw i64 %conv.i.i100, 4
-  %add8.i.i104 = add i64 %add.i.i103, %sub.ptr.sub.i.i87
-  %cmp.i.i.i105 = icmp ule i64 %2, %add.i.i103
-  %sub.i.i.i106 = sub i64 %2, %add.i.i103
-  %cmp3.i.i.i107 = icmp ult i64 %sub.i.i.i106, %sub.ptr.sub.i.i87
-  %.not = or i1 %cmp.i.i.i105, %cmp3.i.i.i107
-  %sub.i.i109 = add i64 %2, -1
-  %cmp3.i.not.i110 = icmp ult i64 %sub.i.i109, %add8.i.i104
-  %or.cond130 = or i1 %cmp3.i.not.i110, %.not
-  br i1 %or.cond130, label %land.end, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit114
+_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i103: ; preds = %if.end.i.i99
+  %add.i.i104 = add nuw nsw i64 %conv.i.i101, 4
+  %add8.i.i105 = add i64 %add.i.i104, %sub.ptr.sub.i.i88
+  %cmp.i.i.i106 = icmp ule i64 %2, %add.i.i104
+  %sub.i.i.i107 = sub i64 %2, %add.i.i104
+  %cmp3.i.i.i108 = icmp ult i64 %sub.i.i.i107, %sub.ptr.sub.i.i88
+  %.not6.i109 = or i1 %cmp.i.i.i106, %cmp3.i.i.i108
+  %sub.i.i110 = add i64 %2, -1
+  %cmp3.i.not.i111 = icmp ult i64 %sub.i.i110, %add8.i.i105
+  %or.cond.i112 = or i1 %cmp3.i.not.i111, %.not6.i109
+  br i1 %or.cond.i112, label %land.end, label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit116
 
-_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit114: ; preds = %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i102
-  %arrayidx.i112 = getelementptr inbounds i8, ptr %0, i64 %add8.i.i104
-  %27 = load i8, ptr %arrayidx.i112, align 1
-  %cmp.i113 = icmp eq i8 %27, 0
-  br i1 %cmp.i113, label %land.rhs, label %land.end
+_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit116: ; preds = %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i103
+  %arrayidx.i114 = getelementptr inbounds i8, ptr %0, i64 %add8.i.i105
+  %27 = load i8, ptr %arrayidx.i114, align 1
+  %cmp.i115 = icmp eq i8 %27, 0
+  br i1 %cmp.i115, label %land.rhs, label %land.end
 
-land.rhs:                                         ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i42, %land.lhs.true, %land.lhs.true6, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit114
+land.rhs:                                         ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i43, %land.lhs.true, %land.lhs.true6, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit116
   store i32 %5, ptr %depth_.i.i.i, align 8
   br label %land.end
 
-land.end:                                         ; preds = %lor.rhs.i84, %if.end.i.i98, %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i102, %lor.rhs.i45, %if.end.i.i.i61, %lor.rhs.i17, %if.end.i.i30, %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i, %lor.rhs.i, %if.end.i.i.i, %land.lhs.true.i.i, %entry, %if.end.i.i, %land.lhs.true5.i.i, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i, %land.rhs, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit114, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit69, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
-  %28 = phi i1 [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit114 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit69 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit ], [ true, %land.rhs ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i ], [ false, %land.lhs.true5.i.i ], [ false, %if.end.i.i ], [ false, %entry ], [ false, %land.lhs.true.i.i ], [ false, %if.end.i.i.i ], [ false, %lor.rhs.i ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i ], [ false, %if.end.i.i30 ], [ false, %lor.rhs.i17 ], [ false, %if.end.i.i.i61 ], [ false, %lor.rhs.i45 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i102 ], [ false, %if.end.i.i98 ], [ false, %lor.rhs.i84 ]
+land.end:                                         ; preds = %lor.rhs.i85, %if.end.i.i99, %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i103, %lor.rhs.i46, %if.end.i.i.i62, %lor.rhs.i17, %if.end.i.i30, %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i, %lor.rhs.i, %if.end.i.i.i, %land.lhs.true.i.i, %entry, %if.end.i.i, %land.lhs.true5.i.i, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i, %land.rhs, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit116, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit70, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
+  %28 = phi i1 [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit116 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit70 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyStringEPKNS0_6StringE.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table12VerifyOffsetIjEEbRKNS0_8VerifierEt.exit ], [ false, %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit ], [ true, %land.rhs ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i ], [ false, %land.lhs.true5.i.i ], [ false, %if.end.i.i ], [ false, %entry ], [ false, %land.lhs.true.i.i ], [ false, %if.end.i.i.i ], [ false, %lor.rhs.i ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i ], [ false, %if.end.i.i30 ], [ false, %lor.rhs.i17 ], [ false, %if.end.i.i.i62 ], [ false, %lor.rhs.i46 ], [ false, %_ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i103 ], [ false, %if.end.i.i99 ], [ false, %lor.rhs.i85 ]
   ret i1 %28
 }
 

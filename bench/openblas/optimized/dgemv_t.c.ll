@@ -28,17 +28,17 @@ define noundef i32 @dgemv_t(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   %29 = icmp eq i64 %7, 1
   %30 = shl i64 %5, 2
   %31 = icmp ult i64 %1, 2048
-  %32 = icmp eq i64 %23, 0
-  %33 = shl nuw nsw i64 %23, 2
-  %34 = mul nsw i64 %30, %23
-  %35 = and i64 %1, 2
-  %36 = icmp eq i64 %35, 0
-  %37 = shl i64 %5, 1
-  %38 = getelementptr inbounds i8, ptr %14, i64 8
-  %39 = and i64 %1, 1
-  %40 = icmp eq i64 %39, 0
-  %41 = shl i64 %21, 14
-  %42 = mul i64 %41, %5
+  %32 = shl nuw nsw i64 %23, 2
+  %33 = mul nsw i64 %30, %23
+  %34 = and i64 %1, 2
+  %35 = icmp eq i64 %34, 0
+  %36 = shl i64 %5, 1
+  %37 = getelementptr inbounds i8, ptr %14, i64 8
+  %38 = and i64 %1, 1
+  %39 = icmp eq i64 %38, 0
+  %40 = shl i64 %21, 14
+  %41 = mul i64 %40, %5
+  %42 = icmp eq i64 %23, 0
   %factor.op.mul = mul i64 %23, %9
   %43 = icmp eq i64 %9, 1
   %.idx = shl nsw i64 %9, 14
@@ -138,7 +138,7 @@ add_y.exit:                                       ; preds = %.preheader.i, %91
   br i1 %95, label %96, label %.preheader66, !llvm.loop !14
 
 96:                                               ; preds = %add_y.exit
-  %97 = getelementptr i8, ptr %45, i64 %42
+  %97 = getelementptr i8, ptr %45, i64 %41
   br label %98
 
 98:                                               ; preds = %96, %.loopexit68
@@ -148,7 +148,7 @@ add_y.exit:                                       ; preds = %.preheader.i, %91
   %.sroa.0.2 = phi ptr [ %45, %.loopexit68 ], [ %74, %96 ]
   %99 = phi ptr [ %8, %.loopexit68 ], [ %93, %96 ]
   %100 = phi ptr [ %45, %.loopexit68 ], [ %97, %96 ]
-  br i1 %32, label %125, label %.preheader65
+  br i1 %42, label %125, label %.preheader65
 
 .preheader65:                                     ; preds = %98, %.preheader65
   %.sroa.25.3 = phi ptr [ %107, %.preheader65 ], [ %.sroa.25.2, %98 ]
@@ -182,17 +182,17 @@ add_y.exit:                                       ; preds = %.preheader.i, %91
   store double %117, ptr %113, align 8, !tbaa !3
   %118 = getelementptr inbounds double, ptr %113, i64 %9
   %119 = add nuw nsw i64 %112, 1
-  %120 = icmp eq i64 %119, %33
+  %120 = icmp eq i64 %119, %32
   br i1 %120, label %add_y.exit22, label %.preheader.i21, !llvm.loop !12
 
 121:                                              ; preds = %111
-  %122 = call { i64, i64 } asm sideeffect "movsd\09 ($2) , %xmm10                 \0A\09shufpd  $$0 , %xmm10 , %xmm10\09\09\0A\091:                            \0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm11\09\09\0A\09mulpd   %xmm10   , %xmm12 \09\09\0A\09addq           $$2 , $0                 \0A\09addpd   %xmm12   , %xmm11\09\09\0A\09subq           $$2 , $1                 \0A\09movups  %xmm11, -16($4,$0,8)\09\09\0A\09jnz            1b              \0A\09", "=r,=r,r,r,r,0,1,~{cc},~{xmm10},~{xmm11},~{xmm12},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %12, ptr %20, ptr %99, i64 0, i64 %33) #4, !srcloc !13
+  %122 = call { i64, i64 } asm sideeffect "movsd\09 ($2) , %xmm10                 \0A\09shufpd  $$0 , %xmm10 , %xmm10\09\09\0A\091:                            \0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm11\09\09\0A\09mulpd   %xmm10   , %xmm12 \09\09\0A\09addq           $$2 , $0                 \0A\09addpd   %xmm12   , %xmm11\09\09\0A\09subq           $$2 , $1                 \0A\09movups  %xmm11, -16($4,$0,8)\09\09\0A\09jnz            1b              \0A\09", "=r,=r,r,r,r,0,1,~{cc},~{xmm10},~{xmm11},~{xmm12},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %12, ptr %20, ptr %99, i64 0, i64 %32) #4, !srcloc !13
   br label %add_y.exit22
 
 add_y.exit22:                                     ; preds = %.preheader.i21, %121
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %123 = getelementptr inbounds i8, ptr %99, i64 %.reass
-  %124 = getelementptr inbounds double, ptr %100, i64 %34
+  %124 = getelementptr inbounds double, ptr %100, i64 %33
   br label %125
 
 125:                                              ; preds = %add_y.exit22, %98
@@ -200,17 +200,17 @@ add_y.exit22:                                     ; preds = %.preheader.i21, %12
   %.sroa.0.4 = phi ptr [ %.sroa.0.2, %98 ], [ %104, %add_y.exit22 ]
   %126 = phi ptr [ %99, %98 ], [ %123, %add_y.exit22 ]
   %127 = phi ptr [ %100, %98 ], [ %124, %add_y.exit22 ]
-  br i1 %36, label %139, label %128
+  br i1 %35, label %139, label %128
 
 128:                                              ; preds = %125
   %129 = call { i64, i64 } asm sideeffect "xorpd %xmm10 , %xmm10\09\09\0A\09xorpd %xmm11 , %xmm11\09\09\0A\09testq\09$$2 , $1\09\09\09\09\0A\09jz\092f\09\09\09\0A\09movups  ($5,$0,8) , %xmm14\09\09\0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm14   , %xmm12 \09\09\0A\09mulpd   %xmm14   , %xmm13 \09\09\0A\09addq           $$2 , $0                 \0A\09addpd   %xmm12   , %xmm10\09\09\0A\09subq           $$2 , $1                 \0A\09addpd   %xmm13   , %xmm11\09\09\0A\092:                           \0A\09cmpq\09$$0, $1\09\09\09\09\0A\09je\093f\09\09\09\0A\091:                            \0A\09movups  ($5,$0,8) , %xmm14\09\09\0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm14   , %xmm12 \09\09\0A\09mulpd   %xmm14   , %xmm13 \09\09\0A\09addpd   %xmm12   , %xmm10\09\09\0A\09addpd   %xmm13   , %xmm11\09\09\0A\09movups  16($5,$0,8) , %xmm14\09\09\0A\09movups  16($3,$0,8) , %xmm12\09\09\0A\09movups  16($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm14   , %xmm12 \09\09\0A\09mulpd   %xmm14   , %xmm13 \09\09\0A\09addpd   %xmm12   , %xmm10\09\09\0A\09addpd   %xmm13   , %xmm11\09\09\0A\09addq           $$4 , $0                 \0A\09subq           $$4 , $1                 \0A\09jnz            1b              \0A\093:                             \0A\09haddpd        %xmm10, %xmm10         \0A\09haddpd        %xmm11, %xmm11         \0A\09movsd\09       %xmm10, ($2)\09        \0A\09movsd\09       %xmm11,8($2)\09        \0A\09", "=r,=r,r,r,r,r,0,1,~{cc},~{xmm4},~{xmm5},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, ptr %.sroa.0.4, ptr %.sroa.10.4, ptr %64, i64 0, i64 %52) #4, !srcloc !16
-  %130 = getelementptr inbounds double, ptr %127, i64 %37
+  %130 = getelementptr inbounds double, ptr %127, i64 %36
   %131 = load double, ptr %14, align 16, !tbaa !3
   %132 = load double, ptr %126, align 8, !tbaa !3
   %133 = call double @llvm.fmuladd.f64(double %131, double %3, double %132)
   store double %133, ptr %126, align 8, !tbaa !3
   %134 = getelementptr inbounds double, ptr %126, i64 %9
-  %135 = load double, ptr %38, align 8, !tbaa !3
+  %135 = load double, ptr %37, align 8, !tbaa !3
   %136 = load double, ptr %134, align 8, !tbaa !3
   %137 = call double @llvm.fmuladd.f64(double %135, double %3, double %136)
   store double %137, ptr %134, align 8, !tbaa !3
@@ -220,7 +220,7 @@ add_y.exit22:                                     ; preds = %.preheader.i21, %12
 139:                                              ; preds = %128, %125
   %140 = phi ptr [ %138, %128 ], [ %126, %125 ]
   %141 = phi ptr [ %130, %128 ], [ %127, %125 ]
-  br i1 %40, label %147, label %142
+  br i1 %39, label %147, label %142
 
 142:                                              ; preds = %139
   %143 = call { i64, i64 } asm sideeffect "xorpd %xmm9  , %xmm9 \09\09\0A\09xorpd %xmm10 , %xmm10\09\09\0A\09testq\09$$2 , $1\09\09\09\09\0A\09jz\092f\09\09\09\0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm11\09\09\0A\09mulpd   %xmm11   , %xmm12 \09\09\0A\09addq           $$2 , $0                 \0A\09addpd   %xmm12   , %xmm10\09\09\0A\09subq           $$2 , $1                 \0A\092:                           \0A\09cmpq\09$$0, $1\09\09\09\09\0A\09je\093f\09\09\09\0A\091:                            \0A\09movups    ($3,$0,8) , %xmm12\09\09\0A\09movups  16($3,$0,8) , %xmm14\09\09\0A\09movups    ($4,$0,8) , %xmm11\09\09\0A\09movups  16($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm11   , %xmm12 \09\09\0A\09mulpd   %xmm13   , %xmm14 \09\09\0A\09addq           $$4 , $0                 \0A\09addpd   %xmm12   , %xmm10\09\09\0A\09subq           $$4 , $1                 \0A\09addpd   %xmm14   , %xmm9 \09\09\0A\09jnz            1b              \0A\093:                             \0A\09addpd\09       %xmm9 , %xmm10         \0A\09haddpd        %xmm10, %xmm10         \0A\09movsd\09       %xmm10, ($2)\09        \0A\09", "=r,=r,r,r,r,0,1,~{cc},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, ptr %141, ptr %64, i64 0, i64 %52) #4, !srcloc !17
@@ -400,7 +400,7 @@ add_y.exit22:                                     ; preds = %.preheader.i21, %12
   %275 = load double, ptr %274, align 8, !tbaa !3
   %276 = fadd double %275, %272
   store double %276, ptr %274, align 8, !tbaa !3
-  %277 = getelementptr inbounds double, ptr %252, i64 %37
+  %277 = getelementptr inbounds double, ptr %252, i64 %36
   %278 = load double, ptr %277, align 8, !tbaa !3
   %279 = getelementptr inbounds i8, ptr %277, i64 8
   %280 = load double, ptr %279, align 8, !tbaa !3
@@ -603,7 +603,7 @@ add_y.exit22:                                     ; preds = %.preheader.i21, %12
   %435 = load double, ptr %434, align 8, !tbaa !3
   %436 = fadd double %435, %432
   store double %436, ptr %434, align 8, !tbaa !3
-  %437 = getelementptr inbounds double, ptr %418, i64 %37
+  %437 = getelementptr inbounds double, ptr %418, i64 %36
   %438 = load double, ptr %437, align 8, !tbaa !3
   %439 = getelementptr inbounds i8, ptr %437, i64 8
   %440 = load double, ptr %439, align 8, !tbaa !3
@@ -763,7 +763,7 @@ default.unreachable111:                           ; preds = %152
   %549 = load double, ptr %548, align 8, !tbaa !3
   %550 = call double @llvm.fmuladd.f64(double %546, double %489, double %549)
   store double %550, ptr %548, align 8, !tbaa !3
-  %551 = getelementptr inbounds double, ptr %539, i64 %37
+  %551 = getelementptr inbounds double, ptr %539, i64 %36
   %552 = load double, ptr %551, align 8, !tbaa !3
   %553 = or disjoint i64 %540, 2
   %554 = getelementptr inbounds double, ptr %8, i64 %553

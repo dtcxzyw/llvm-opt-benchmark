@@ -329,7 +329,7 @@ if.then14:                                        ; preds = %if.end13
 while.cond.i:                                     ; preds = %if.then14, %safe_muldiv_int.exit.i
   %current.addr.0.i = phi i32 [ %retval.0.i.i, %safe_muldiv_int.exit.i ], [ %2, %if.then14 ]
   %cmp.i = icmp slt i32 %current.addr.0.i, %spec.store.select
-  br i1 %cmp.i, label %if.end.i, label %compute_growth.exit
+  br i1 %cmp.i, label %if.end.i, label %if.end31
 
 if.end.i:                                         ; preds = %while.cond.i
   %3 = add i32 %current.addr.0.i, -268435456
@@ -373,11 +373,7 @@ safe_muldiv_int.exit.i:                           ; preds = %if.then.i44.i.i, %i
   %cmp2.not.i = icmp eq i32 %err.3.i, 0
   br i1 %cmp2.not.i, label %while.cond.i, label %if.then24, !llvm.loop !7
 
-compute_growth.exit:                              ; preds = %while.cond.i
-  %cmp22 = icmp eq i32 %current.addr.0.i, 0
-  br i1 %cmp22, label %if.then24, label %if.end31
-
-if.then24:                                        ; preds = %if.end5.i.i, %safe_muldiv_int.exit.i, %compute_growth.exit
+if.then24:                                        ; preds = %if.end5.i.i, %safe_muldiv_int.exit.i
   tail call void @ERR_new() #16
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 210, ptr noundef nonnull @__func__.sk_reserve) #16
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 114, ptr noundef null) #16
@@ -387,8 +383,8 @@ if.else:                                          ; preds = %if.end13
   %cmp27 = icmp eq i32 %spec.store.select, %2
   br i1 %cmp27, label %return, label %if.end31
 
-if.end31:                                         ; preds = %if.else, %compute_growth.exit
-  %num_alloc.0 = phi i32 [ %spec.store.select, %if.else ], [ %current.addr.0.i, %compute_growth.exit ]
+if.end31:                                         ; preds = %while.cond.i, %if.else
+  %num_alloc.0 = phi i32 [ %spec.store.select, %if.else ], [ %current.addr.0.i, %while.cond.i ]
   %conv33 = sext i32 %num_alloc.0 to i64
   %mul34 = shl nsw i64 %conv33, 3
   %call35 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %1, i64 noundef %mul34, ptr noundef nonnull @.str, i32 noundef 217) #16
